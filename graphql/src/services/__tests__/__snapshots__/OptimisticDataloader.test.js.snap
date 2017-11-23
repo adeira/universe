@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`keeps Error instances as values 1`] = `
+Array [
+  1,
+  [Error: for key "2"],
+  3,
+  [Error: for key "4"],
+  5,
+]
+`;
+
+exports[`rejects the batch if TypeError occurs 1`] = `[TypeError: ups]`;
