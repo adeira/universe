@@ -1,6 +1,6 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
-import { ProxiedError } from '../../src/services/errors/ProxiedError';
+import { ProxiedError } from '../../src/common/services/errors/ProxiedError';
 
 test('Error', () => {
   expect(new Error()).toBeError();
