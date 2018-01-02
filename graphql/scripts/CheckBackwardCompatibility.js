@@ -50,8 +50,7 @@ const printChanges = (changes: Object[]) => {
 - type removal/modification (just deprecate it and leave it there)
 - removal from enum/union (introduce new enum/union)
 - arguments removal/modification (introduce new query or graph node)
-- change nullable -> non-nullable (just don't do it or introduce new field)
-- interface removal (don't or introduce new objects)
+- change non-nullable -> nullable (just don't do it or introduce new field)
 - change of default argument value (don't or introduce new argument/query)
 `,
     );
