@@ -18,7 +18,7 @@ const snapshotLocation = path.join(
   '.',
   'graphql-schema-snapshot.json',
 );
-// $FlowExpectedError - the parameter passed to require() must be a literal string
+// $FlowExpectedError: the parameter passed to require() must be a literal string
 const oldSchema = buildClientSchema(require(snapshotLocation));
 const newSchema = schema;
 
