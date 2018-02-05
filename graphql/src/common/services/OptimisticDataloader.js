@@ -1,6 +1,6 @@
 // @flow
 
-import DataLoader from 'dataloader';
+import DataLoader, { type BatchLoadFn, type Options } from 'dataloader';
 
 // any because it must be very generic (accepts everything)
 type K = any;
@@ -16,11 +16,11 @@ type V = any;
  * @see https://github.com/facebook/dataloader/issues/41
  */
 export default class OptimisticDataloader extends DataLoader<K, V> {
-  constructor(batchLoadFn: Function) {
-    super(batchLoadFn);
+  constructor(batchLoadFn: BatchLoadFn<K, V>, options?: Options<K, V>) {
+    super(batchLoadFn, options);
   }
 
-  loadMany = (keys: K[]): Promise<V[]> => {
+  loadMany = (keys: $ReadOnlyArray<K>): Promise<Array<V>> => {
     if (!Array.isArray(keys)) {
       throw new TypeError(
         'The loader.loadMany() function must be called with Array<key> ' +
