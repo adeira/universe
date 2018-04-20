@@ -1,10 +1,12 @@
 // @flow
 
+/* eslint-disable no-restricted-imports */
 import {
   connectionFromArray as relayConnectionFromArray,
   cursorToOffset,
   offsetToCursor,
 } from 'graphql-relay';
+/* eslint-enable no-restricted-imports */
 import type { Connection, ConnectionArguments } from 'graphql-relay';
 
 // There is open discusion how to handle bidirectional pagination:
