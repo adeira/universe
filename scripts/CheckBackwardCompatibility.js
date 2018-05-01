@@ -31,7 +31,7 @@ const printChanges = (changes: Object[]) => {
 };
 
 (async () => {
-  let changes = findBreakingChanges(oldSchema, newSchema);
+  const changes = findBreakingChanges(oldSchema, newSchema);
   if (changes.length > 0) {
     console.error(
       chalk.red(
@@ -57,15 +57,18 @@ const printChanges = (changes: Object[]) => {
     process.exit(1);
   }
 
-  changes = findBreakingChanges(newSchema, oldSchema);
-  if (changes.length > 0) {
+  // non-breaking changes must be committed
+  const meta = await graphql(schema, introspectionQuery);
+  const newSnapshot = JSON.stringify(meta.data, null, 2);
+  const oldSnapshot = fs.readFileSync(snapshotLocation, { encoding: 'utf-8' });
+
+  if (newSnapshot !== oldSnapshot) {
     console.warn(
       chalk.yellow.bold(
         `\nGraphQL schema snapshot IS OUTDATED! (updating automatically)`,
       ),
     );
-    const meta = await graphql(schema, introspectionQuery);
-    fs.writeFileSync(snapshotLocation, JSON.stringify(meta.data, null, 2));
+    fs.writeFileSync(snapshotLocation, newSnapshot);
     console.log(
       'Snapshot of the GraphQL schema successfully created! Now please commit it...\n',
     );
