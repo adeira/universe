@@ -24,9 +24,13 @@ export function connectionFromArray<T>(
   const upperBound = cursorToOffset(pageInfo.endCursor || lastCursor);
 
   // there are some data "before" current slice
-  if (lowerBound > 0) pageInfo.hasPreviousPage = true;
+  if (lowerBound > 0) {
+    pageInfo.hasPreviousPage = true;
+  }
   // there are some data "after" current slice
-  if (upperBound < data.length - 1) pageInfo.hasNextPage = true;
+  if (upperBound < data.length - 1) {
+    pageInfo.hasNextPage = true;
+  }
 
   return { edges, pageInfo };
 }
