@@ -1,4 +1,52 @@
-`yarn flow`
+# Difference between `&` and `...`
+
+It's easy to misunderstand the difference between intersection types (`A & B`) and spreading types (`{ ...A, b:boolean }`) in Flow.
+
+```js
+type A = { a: number };
+type B = { b: boolean };
+type C = { c: string };
+
+// Intersection types are the opposite of union types!
+const a: A & B & C = {
+  a: 1,
+  b: true,
+  c: 'ok'
+}
+
+const b: $Exact<A> | $Exact<B> | $Exact<C> = {
+  a: 1,
+//  b: true,
+//  c: 'ok'
+}
+
+const c: {
+  ...{ a: number, b: string },
+  a: string
+} = {
+  a: '1', // only string, no number
+  b: '2'
+}
+
+const d: {|
+  ...{| a: number, b: string |},
+  a: string
+|} = {
+  a: '1', // works the same with exact types
+  b: '2'
+}
+
+// Impossible type:
+// const e: {| a: number |} & {| a: string |} = {
+//   a: ???,
+// }
+```
+
+No errors!
+
+# Advanced debugging
+
+`yarn flow` errors may be sometimes very cryptic:
 
 ```
 Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/apps/autobooking/queries/Autobooking.js:27:26
@@ -22,7 +70,7 @@ in Promise [1].
      22│   |}> {
 ```
 
-vs. `yarn flow --show-all-branches`
+It helps to inspect the whole stacktrace using `yarn flow --show-all-branches`:
 
 ```
 Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/apps/autobooking/queries/Autobooking.js:27:26
@@ -57,3 +105,5 @@ Cannot call await with context.dataLoaders.autobooking.getResult(...) bound to p
                  src/apps/autobooking/apiTypes/Autobooking.js
  [3][4][5][6][7]   7│   status: 'pending' | 'check_failed' | 'ready' | 'started' | 'too_expensive'
 ```
+
+You can eventually use `yarn flow check --traces 100`
