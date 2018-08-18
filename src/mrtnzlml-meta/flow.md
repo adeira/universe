@@ -44,6 +44,8 @@ const d: {|
 
 No errors!
 
+- https://www.knyz.org/blog/post/flow-union-intersection-spead/
+
 # Advanced debugging
 
 `yarn flow` errors may be sometimes very cryptic:
