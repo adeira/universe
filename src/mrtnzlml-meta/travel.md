@@ -1,4 +1,4 @@
-You can consider this document to be a checklist for your travels...
+You can consider this document to be a checklist for your travels. But first - you should start with this article: https://medium.com/s/story/digital-nomads-are-not-the-future-be360c7911b4
 
 # Travel info
 Need to know something about your new destination? This will help you:
