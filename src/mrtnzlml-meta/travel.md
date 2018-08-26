@@ -1,5 +1,10 @@
 You can consider this document to be a checklist for your travels. But first - you should start with this article: https://medium.com/s/story/digital-nomads-are-not-the-future-be360c7911b4
 
+- [ ] check expiration of your ID, passport, credit cards, vaccination
+- [ ] buy flight tickets in advance (even for departure when outside of EU)
+- [ ] check Airbnb / Beroomers options
+- [ ] check coworking options
+
 # Travel info
 Need to know something about your new destination? This will help you:
 
