@@ -1,3 +1,23 @@
+# Private object properties
+
+```js
+class Thing {
+  prop1: string;
+  #prop2: string = 'I am private!';
+}
+
+(new Thing()).prop1;
+(new Thing()).prop2; // <- ERROR
+```
+
+```
+7: (new Thing()).prop2;
+                 ^ Cannot get `new Thing().prop2` because property `prop2` is missing in `Thing` [1].
+    References:
+    7: (new Thing()).prop2;
+        ^ [1]
+```
+
 # Difference between `&` and `...`
 
 It's easy to misunderstand the difference between intersection types (`A & B`) and spreading types (`{ ...A, b:boolean }`) in Flow.
