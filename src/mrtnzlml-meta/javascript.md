@@ -36,3 +36,11 @@ Number.isFinite('0');       // false, would've been true with
 Number.isFinite(null);      // false, would've been true with
                             // global isFinite(null)
 ```
+
+Polyfill (to understand the difference better):
+
+```js
+Number.isFinite = Number.isFinite || function(value) {
+    return typeof value === 'number' && isFinite(value);
+}
+```
