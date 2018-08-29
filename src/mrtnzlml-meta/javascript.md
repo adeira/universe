@@ -1,3 +1,6 @@
+- http://exploringjs.com/es6/
+- https://developer.mozilla.org/en-US/docs/Web
+
 # Is this string/number a number?
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
