@@ -66,6 +66,11 @@ No errors!
 
 - https://www.knyz.org/blog/post/flow-union-intersection-spead/
 
+# Conditions in Flow using `$Call`
+
+- https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
+- https://flow.org/en/docs/types/utilities/#toc-call
+
 # Advanced debugging
 
 `yarn flow` errors may be sometimes very cryptic:
