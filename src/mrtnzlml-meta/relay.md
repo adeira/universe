@@ -12,3 +12,5 @@ TODO
 # Uploadables
 
 TODO
+
+- https://github.com/facebook/relay/issues/1844#issuecomment-316893590
