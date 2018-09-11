@@ -6,7 +6,7 @@ I am fullstack JavaScript dev at Kiwi.com. I do not have fixed team so I am usua
 
 ## My location
 
-I am officially part of Prague office but I like to spend time in Barcelona. I am basically never in Brno HQ. I also travel a lot and therefore, I prefer solving every issue remotely.
+I am officially part of Prague office but I like to spend time in Barcelona. I am basically never in Brno HQ. I also [travel a lot](https://nomadlist.com/@mrtnzlml) and therefore, I prefer solving every issue remotely.
 
 ## Meetings, Slack
 
