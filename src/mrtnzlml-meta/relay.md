@@ -1,6 +1,13 @@
 - https://github.com/facebook/relay
 - https://github.com/sibelius/relay-modern-network-deep-dive
 
+# Persisted queries
+
+TODO
+
+- https://github.com/facebook/relay/pull/2354 (awaiting)
+- https://github.com/graphql/express-graphql/pull/109
+
 # Deferrable queries
 
 Prerequisities:
