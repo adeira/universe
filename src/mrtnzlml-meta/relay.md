@@ -20,3 +20,7 @@ TODO
 TODO
 
 - https://github.com/facebook/relay/search?p=1&q=%22__clientField%22&unscoped_q=%22__clientField%22
+
+# Caching
+
+TODO: simple result cache, AsyncStorage-like cache
