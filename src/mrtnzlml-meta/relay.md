@@ -26,6 +26,7 @@ TODO
 
 TODO
 
+- https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 - https://github.com/facebook/relay/search?p=1&q=%22__clientField%22&unscoped_q=%22__clientField%22
 
 # Caching
