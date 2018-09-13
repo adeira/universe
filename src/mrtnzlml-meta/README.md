@@ -1,6 +1,6 @@
 # Hi, I am Martin
 
-_please note: this document is still WIP_
+_NOTE: this document is still WIP_
 
 I am fullstack JavaScript dev at Kiwi.com. I do not have fixed team so I am usually somewhere around **GraphQL**, **React Native** or any other **React** project (Portalo at this moment).
 
@@ -11,6 +11,8 @@ I am officially part of Prague office but I like to spend time in Barcelona. I a
 ## Meetings, Slack
 
 I genuinely don't like meetings. I am trying to attend only valuable ones. Please always prepare an agenda for the meeting in advance so we can prepare well. Don't take it personally when I reject the invitation or when I don't show up.
+
+_TODO: add info about how it usually fells like friendly chat without any result or outcome and how the info should be written somewhere anyway_
 
 Very similar rules applies to how I use Slack. I am following zero inbox philosophy and I read everything. Therefore I don't follow every channel and I am leaving and joining channels frequently (dependning on my needs and interests). Again, don't take it personally when I leave the channel.
 
