@@ -1,4 +1,4 @@
-You can consider this document to be a checklist for your travels. But first - you should start with this article: https://medium.com/s/story/digital-nomads-are-not-the-future-be360c7911b4
+You can consider this document to be a checklist for your travels. But first - you should start with this article: [Digital Nomads Are Not the Future](https://medium.com/s/story/digital-nomads-are-not-the-future-be360c7911b4)
 
 - [ ] check expiration of your ID, passport, credit cards, vaccination
 - [ ] buy flight tickets in advance (even for departure when outside of EU)
