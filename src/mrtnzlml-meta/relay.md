@@ -24,10 +24,13 @@ TODO
 
 # @__clientField(handle: " ... ")
 
-TODO
+TODO, explain local schema as well
 
 - https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 - https://github.com/facebook/relay/search?p=1&q=%22__clientField%22&unscoped_q=%22__clientField%22
+- https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91
+- https://github.com/facebook/relay/issues/1656#issuecomment-382461183
+- http://facebook.github.io/relay/docs/en/relay-store.html
 
 # Caching
 
