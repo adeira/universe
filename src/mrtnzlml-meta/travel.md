@@ -42,6 +42,7 @@ Traveling can be really expensive. One advice for you: live like you do normally
 Consider if you really need it. It’s actually quite fun to travel without it because you need to step out of your comfort zone. But if you cannot be without it check this website:
 
 - http://prepaid-data-sim-card.wikia.com/wiki/Prepaid_SIM_with_data
+- https://www.tripmode.ch/
 
 # Powerrr!
 
