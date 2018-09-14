@@ -52,10 +52,35 @@ More info here: http://facebook.github.io/relay/docs/en/relay-store.html
 
 ## @__clientField(handle: " ... ")
 
-TODO, explain local schema as well
+Please note: **this directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin** (source: https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91)
 
-- https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
-- https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91
+Anyway, you can compute the client field value from other server field:
+
+```graphql
+fragment Example on Article {
+  body
+
+  # Relay is not a bit broken now (see: https://github.com/facebook/relay/issues/2488)
+  _: body @__clientField(handle: "draft")
+
+  # this is a client field and it will contain uppercased `body` value
+  draft
+}
+```
+
+And you have to create the handler (https://facebook.github.io/relay/docs/en/relay-environment.html#adding-a-handlerprovider):
+
+```js
+const DraftHandler = {
+  update(store, payload) {
+    const record = store.get(payload.dataID);
+    const content = record.getValue(payload.fieldKey);
+    record.setValue(content.toUpperCase(), 'draft');
+  }
+};
+```
+
+More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 
 # Persisted queries
 
