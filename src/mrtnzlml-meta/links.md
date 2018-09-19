@@ -11,3 +11,6 @@ Collection of interesting links, articles and project...
 - [Picking the right API Paradigm](https://philsturgeon.uk/2018/05/21/picking-an-api-paradigm-implementation/)
 - [Plus Codes](https://plus.codes/) - addresses for everyone
 - [Prompts](https://github.com/terkelg/prompts) - lightweight, beautiful and user-friendly interactive prompts for CLI
+
+# S
+- [Software disenchantment](http://tonsky.me/blog/disenchantment/)
