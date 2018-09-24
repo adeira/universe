@@ -14,6 +14,14 @@ I genuinely don't like meetings. Luckily, I don't have that many meetings. I am 
 
 Very similar rules applies to how I use Slack. I am following zero inbox philosophy and I read everything. Therefore I don't follow every channel and I am leaving and joining channels frequently (depending on my needs and interests). Don't take it personally when I leave the channel.
 
+## Miscellaneous
+
+_I am introvert._ That means I loose energy when I am around other people for too long and I recharge my energy by spending time alone. Sounds weird? Check this video to understand my view: https://youtu.be/FgP3eAc9U64
+
+_I have my moods._ I am fine in one minute and then I am suddenly completely different person. I think it's related to my introversion when things simply went too far too quickly. I am working on that.
+
+_I have my focus zone._ Usually, when I am working really hard. I can be in this zone for a long time (hours). And I need some time to get back. I am usually not very friendly during this recovery period becuase I am still partially in the zone. I am trying to learn how to switch these mods more quickly. Be patient with me please.
+
 ## My Kiwi.com timeline
 
 I joined this company in April 2017 (my first PR was Apr 7)
