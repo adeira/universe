@@ -26,7 +26,7 @@ type Error {
 }
 ```
 
-Compile with this additional schema (`schema.local.graphql` must be somewhere in `src` folder with the `*.graphql` extension):
+Run Relay Compiler as usual (`schema.local.graphql` must be somewhere in `src` folder with the `*.graphql` extension):
 
 ```
 $ relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose
@@ -46,6 +46,27 @@ Relay.commitLocalUpdate(environment, store => {
   errRecord.setValue('My custom error message', 'message');
   root.setLinkedRecords([errRecord, ...], 'errors');
 });
+```
+
+Protip: create many local GraphQL extensions closely related to one specific part of your application. For example you could create `gdsv.local.graphql` with the following content:
+
+```graphql
+extend type PNRInfo {
+  successMessage: String
+}
+```
+
+This way I created `successMessage` client field on `PNRInfo` type and it should be more or less obvious that it's related only to this `GDSV` part. All local schemas are being auto-discovered thanks to `*.graphql` file extension. You can now fetch and render this success message somewhere in GDSV application. Propagation of this message is trivial (you have to fetch the `PNRInfo` ID):
+
+```js
+Relay.commitLocalUpdate(environment, store => {
+  store
+    .get(response.id) // unique opaque ID identifying PNRInfo record
+    .setValue(
+      'Request has been successfully sent.', // the actual message
+      'successMessage' // client field name
+    )
+  });
 ```
 
 More info here: http://facebook.github.io/relay/docs/en/relay-store.html
