@@ -26,13 +26,13 @@ type Error {
 }
 ```
 
-Run Relay Compiler as usual (`schema.local.graphql` must be somewhere in `src` folder with the `*.graphql` extension):
+Run Relay Compiler as usual (no special option required):
 
 ```
 $ relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose
 ```
 
-And you are good to go - you can fetch the fields as usual. You have to commit local update to fill these fields and types:
+File `schema.local.graphql` must be somewhere in `src` folder with the `*.graphql` extension. You should be good to go - just fetch the fields as usual. You have to commit local update to fill these fields and types:
 
 ```js
 Relay.commitLocalUpdate(environment, store => {
@@ -47,6 +47,8 @@ Relay.commitLocalUpdate(environment, store => {
   root.setLinkedRecords([errRecord, ...], 'errors');
 });
 ```
+
+More info here: http://facebook.github.io/relay/docs/en/relay-store.html
 
 Protip: create many local GraphQL extensions closely related to one specific part of your application. For example you could create `gdsv.local.graphql` with the following content:
 
@@ -69,7 +71,12 @@ Relay.commitLocalUpdate(environment, store => {
   });
 ```
 
-More info here: http://facebook.github.io/relay/docs/en/relay-store.html
+Please note that client schema is still somehow experimental feature and that server may introduce the same field `successMessage` which will conflict with the client one (new kind of BC break). Luckily, Relay will recognize this BC break and it will throw an error:
+
+```
+ERROR:
+Field "PNRInfo.successMessage" already exists in the schema. It cannot also be defined in this type extension.
+```
 
 ## @__clientField(handle: " ... ")
 
