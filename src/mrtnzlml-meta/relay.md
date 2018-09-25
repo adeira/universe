@@ -26,10 +26,10 @@ type Error {
 }
 ```
 
-Compile with this additional schema:
+Compile with this additional schema (`schema.local.graphql` must be somewhere in `src` folder with the `*.graphql` extension):
 
 ```
-$ relay-compiler --src ./packages --schema ./packages/schema.graphql --client-schema ./packages/schema.local.graphql --verbose
+$ relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose
 ```
 
 And you are good to go - you can fetch the fields as usual. You have to commit local update to fill these fields and types:
