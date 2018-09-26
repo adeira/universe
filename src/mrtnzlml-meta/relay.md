@@ -68,7 +68,8 @@ Relay.commitLocalUpdate(environment, store => {
       'Request has been successfully sent.', // the actual message
       'successMessage' // client field name
     )
-  });
+  }
+);
 ```
 
 Please note that client schema is still somehow experimental feature and that server may introduce the same field `successMessage` which will conflict with the client one (new kind of BC break). Luckily, Relay will recognize this BC break and it will throw an error:
@@ -80,7 +81,9 @@ Field "PNRInfo.successMessage" already exists in the schema. It cannot also be d
 
 ## @__clientField(handle: " ... ")
 
-Please note: **this directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin** (source: https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91)
+> This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
+
+([source](https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91))
 
 Anyway, you can compute the client field value from other server field:
 
@@ -88,7 +91,7 @@ Anyway, you can compute the client field value from other server field:
 fragment Example on Article {
   body
 
-  # Relay is not a bit broken now (see: https://github.com/facebook/relay/issues/2488)
+  # Relay is a bit broken now (see: https://github.com/facebook/relay/issues/2488)
   _: body @__clientField(handle: "draft")
 
   # this is a client field and it will contain uppercased `body` value
