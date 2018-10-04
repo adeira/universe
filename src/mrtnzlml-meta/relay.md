@@ -124,10 +124,45 @@ TODO
 
 Prerequisities:
 
-- [ ] every deferred field must implement GraphQL `Node` interface (they are going to be fetched later via `node` query)
+- [ ] every deferred field must implement GraphQL `Node` interface (deferred records are going to be fetched later via `node` query)
 - [ ] you must implement observable network layer
 
-TODO
+Node query:
+
+```graphql
+type RootQuery {
+  node(id: ID!): Node
+}
+
+interface Node {
+  id: ID!
+}
+
+# you have to use the Node interface somewhere
+type Payment implements Node {
+  id: ID!
+  retailer: Retailer
+  # ...
+}
+```
+
+Observable network:
+
+```js
+const fetch = (requestNode, variables, cacheConfig, uploadables) => {
+  return Observable.create(sink => {
+    if (requestNode.kind === 'Request') {
+      // TODO: normal query execution
+    }
+
+    if (requestNode.kind === 'BatchRequest') {
+      // TODO: batch query execution
+    }
+  });
+};
+
+const network = Network.create(fetch);
+```
 
 # Uploadables
 
@@ -138,3 +173,31 @@ TODO
 # Caching
 
 TODO: simple result cache, AsyncStorage-like cache
+
+# RelayNetworkLogger
+
+```js
+import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger'
+
+import fetchFunction from './fetchFunction'
+import subscribeFunction from './subscribeFunction'
+
+const fetch = __DEV__
+    ? RelayNetworkLogger.wrapFetch(fetchFunction)
+    : fetchFunction
+
+const subscribe = __DEV__
+    ? RelayNetworkLogger.wrapSubscribe(subscribeFunction)
+    : subscribeFunction
+
+const network = Network.create(fetch, subscribe)
+const source = new RecordSource()
+const store = new Store(source)
+
+const env = new Environment({
+  network,
+  store
+})
+
+export default env
+```
