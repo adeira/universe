@@ -9,6 +9,7 @@ Collection of interesting links, articles and project...
 
 # G
 - :star: [Good Recommendations](https://gems.abyjames.com/)
+- [GraphQL Lodash](https://github.com/APIs-guru/graphql-lodash)
 
 # P
 - [Picking the right API Paradigm](https://philsturgeon.uk/2018/05/21/picking-an-api-paradigm-implementation/)
