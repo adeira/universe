@@ -250,7 +250,20 @@ bar
 ------WebKitFormBoundaryshXxygBlT4ATOyhW--
 ```
 
+Plase note - it's good idea to create GraphQL type representing the file and send it in the query as well. Look at how Absinthe is doing it:
+
+```
+$ curl -X POST \\
+-F query="{mutation uploadFile(users: \"users_csv\", metadata: \"metadata_json\")" \\
+-F users_csv=@users.csv \\
+-F metadata_json=@metadata.json \\
+localhost:4000/graphql
+```
+
+They send the actual files and query as `multipart/form-data` as well but they require the file name (with underscore) in the query and it will fail if these two things do not match. Simple and elegant.
+
 - https://github.com/facebook/relay/issues/1844#issuecomment-316893590
+- https://hexdocs.pm/absinthe/file-uploads.html
 
 # Caching
 
