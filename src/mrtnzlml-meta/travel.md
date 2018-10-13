@@ -19,6 +19,7 @@ Need to know something about your new destination? This will help you:
 - https://www.beroomers.com/
 - https://www.airbnb.com/ + combine with https://hoodmaps.com/
 - https://www.sleepinginairports.net/
+- https://www.hoteltonight.com/
 
 # Visa
 - **https://www.visahq.com/**
