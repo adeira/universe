@@ -2,11 +2,11 @@
 
 _NOTE: this document is still WIP_
 
-I am fullstack JavaScript developer at Kiwi.com. I do not have fixed team so I am usually somewhere around **GraphQL**, **React (Native)** or any other **React** project (Portalo at this moment).
+I am fullstack JavaScript developer at Kiwi.com. I do not have fixed team so I am usually somewhere around **GraphQL**, **React (Native)** or any other **React** project.
 
 ## My location
 
-I am officially part of Prague office but I like to spend time in Barcelona. I am basically never in Brno HQ. I also [travel a lot](https://nomadlist.com/@mrtnzlml) and therefore, I prefer solving every issue remotely if possible.
+I am officially part of Prague or Barcelona office but I prefer to spend time in Barcelona. I am basically never in Brno HQ. I also [travel a lot](https://nomadlist.com/@mrtnzlml) and therefore, I prefer solving every issue remotely if possible.
 
 ## Meetings, Slack
 
@@ -22,6 +22,8 @@ _I have my moods._ I am fine in one minute and then I am suddenly completely dif
 
 _I have my focus zone._ Usually, when I am working really hard. I can be in this zone for a long time (hours). And I need some time to get back. I am usually not very friendly during this recovery period becuase I am still partially in the zone. I am trying to learn how to switch these mods more quickly. Be patient with me please.
 
+_I want to have things under control._ This way I do things really well. Also, it gives me possibility to say NO when I think it's not OK. I am very unhappy when someone treats me as yet another programmer-monkey.
+
 ## My Kiwi.com timeline
 
 I joined this company in April 2017 (my first PR was Apr 7)
@@ -30,4 +32,5 @@ I joined this company in April 2017 (my first PR was Apr 7)
 2. I created Chatbot for our custommer support (discontinued)
 3. I created first [React Native application](https://github.com/kiwicom/mobile) (still ongoing)
 4. I joined internal Portalo project (current)
-5. ??
+5. Re-joined GraphQL proxy project
+6. ??
