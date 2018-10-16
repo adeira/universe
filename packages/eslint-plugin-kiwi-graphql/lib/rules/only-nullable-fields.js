@@ -1,4 +1,19 @@
-'use strict';
+// @flow
+
+/*::
+type Node = {|
+  +key: {|
+    +name: string,
+  |},
+  +callee: {|
+    +name: string,
+  |},
+|};
+
+type Context = {|
+  +report: (Node, string) => void,
+|};
+*/
 
 module.exports = {
   meta: {
@@ -11,7 +26,7 @@ module.exports = {
     schema: [], // no options
   },
 
-  create: function(context) {
+  create: function(context /*: Context */) {
     /**
      * Whether should be this rule completely ignored.
      *
@@ -22,18 +37,18 @@ module.exports = {
     let ignoreRule = false;
 
     return {
-      Property: node => {
+      Property: (node /*: Node */) => {
         if (node.key && node.key.name === 'args') {
           ignoreRule = true;
         }
       },
-      'Property:exit': node => {
+      'Property:exit': (node /*: Node */) => {
         if (node.key && node.key.name === 'args') {
           ignoreRule = false;
         }
       },
 
-      NewExpression: function(node) {
+      NewExpression: function(node /*: Node */) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           ignoreRule = true;
         }
@@ -43,7 +58,7 @@ module.exports = {
           context.report(node, 'Avoid using GraphQLNonNull.');
         }
       },
-      'NewExpression:exit': function(node) {
+      'NewExpression:exit': function(node /*: Node */) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           ignoreRule = false;
         }

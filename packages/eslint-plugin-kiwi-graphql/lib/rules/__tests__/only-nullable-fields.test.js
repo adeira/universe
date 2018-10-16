@@ -1,6 +1,6 @@
-'use strict';
+// @flow
 
-const rule = require('../../../lib/rules/only-nullable-fields');
+const rule = require('../only-nullable-fields');
 const RuleTester = require('eslint').RuleTester;
 
 const ruleTester = new RuleTester({
