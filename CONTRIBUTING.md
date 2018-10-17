@@ -1,10 +1,3 @@
-<!--
-
-CONTRIBUTING.md - what to do
-README.md (docs) - how to do stuff
-
--->
-
 Thanks for contributing to this repository. Please go through the following notes to make sure we keep this repository organized and consistent:
 
 # Our Development Process
@@ -23,8 +16,8 @@ Every change is automatically deployed from the `master` if the tests are green!
 
 # Styleguides
 
-- [Directory Structure](https://github.com/kiwicom/graphql#directory-structure)
-- [How to use localization, data loaders or output types?](https://github.com/kiwicom/graphql#design-style-guides)
+- [Directory Structure](https://gitlab.skypicker.com/graphql/graphql/blob/master/README.md#directory-structure)
+- [How to use localization, data loaders or output types?](https://gitlab.skypicker.com/graphql/graphql/blob/master/README.md#design-style-guides)
 
 # Updating snapshot of GraphQL schema
 
