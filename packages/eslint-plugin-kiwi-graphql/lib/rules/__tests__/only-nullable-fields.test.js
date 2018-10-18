@@ -1,7 +1,8 @@
 // @flow
 
-const rule = require('../only-nullable-fields');
 const RuleTester = require('eslint').RuleTester;
+
+const rule = require('../only-nullable-fields');
 
 const ruleTester = new RuleTester({
   parserOptions: {
