@@ -1,6 +1,12 @@
 - https://yarnpkg.com/en/docs/dependency-versions
 - https://semver.npmjs.com/
 
+MAJOR.MINOR.PATCH, increment the:
+
+- _MAJOR_ version when you make incompatible API changes,
+- _MINOR_ version when you add functionality in a backwards-compatible manner, and
+- _PATCH_ version when you make backwards-compatible bug fixes.
+
 # Caret Ranges
 
 Allow changes that do not modify the first non-zero digit in the version,
