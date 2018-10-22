@@ -18,6 +18,62 @@ class Thing {
         ^ [1]
 ```
 
+# Predicate functions with `%checks`
+
+`%checks` is an experimental predicate type. Check this code (no Flow errors):
+
+```js
+function isGreaterThan5(x: string | number) {    
+  if (typeof x === 'string') {
+    return parseInt(x) > 5;
+  }
+  return x > 5;
+}
+```
+
+But you can slightly refactor it and you'll get unexpected errors:
+
+```js
+function isString(y) {
+  return typeof y === 'string';
+}
+
+function isGreaterThan5(x: string | number) {
+  if (isString(x)) {
+    return parseInt(x) > 5;
+  }
+  return x > 5;
+}
+```
+
+```
+9:   return x > 5;
+            ^ Cannot compare string [1] to number [2].
+References:
+5: function isGreaterThan5(x: string | number) {
+                              ^ [1]
+9:   return x > 5;
+                ^ [2]
+```
+
+You have to fix it like this:
+
+```js
+function isString(y): %checks {
+  return typeof y === 'string';
+}
+```
+
+You can also declare the predicate like this:
+
+```js
+declare function isSchema(schema: mixed): boolean %checks(schema instanceof GraphQLSchema);
+```
+
+- https://flow.org/en/docs/types/functions/#toc-predicate-functions
+- https://github.com/facebook/flow/issues/3048
+- https://github.com/facebook/flow/issues/34
+
 # Difference between `&` and `...`
 
 It's easy to misunderstand the difference between intersection types (`A & B`) and spreading types (`{ ...A, b:boolean }`) in Flow.
