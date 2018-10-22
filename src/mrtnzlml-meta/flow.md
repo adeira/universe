@@ -190,3 +190,27 @@ Cannot call await with context.dataLoaders.autobooking.getResult(...) bound to p
 ```
 
 You can eventually use `yarn flow check --traces 100`
+
+# Fun with Flow
+
+## `boolean` is incompatible with `true | false`
+
+```js
+declare function foo(true | false): void
+declare function bar(): boolean
+
+foo(bar())
+```
+
+```
+4: foo(bar())
+       ^ Cannot call `foo` with `bar()` bound to the first parameter because: Either boolean [1] is incompatible with boolean literal `true` [2]. Or boolean [1] is incompatible with boolean literal `false` [3].
+References:
+2: declare function bar(): boolean                           ^ [1]
+1: declare function foo(true | false): void
+                        ^ [2]
+1: declare function foo(true | false): void
+                               ^ [3]
+```
+
+https://github.com/facebook/flow/issues/4196
