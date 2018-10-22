@@ -31,7 +31,7 @@ function visitSchema(schema, wrapper) {
 
 function visitType(type, wrapper) {
   // $FlowExpectedError: processed symbol is not part of the original types
-  if (type[Processed] || !type.getFields) {
+  if (type[Processed] || !type.getFields || isSystemType(type.toString())) {
     return;
   }
 
@@ -54,4 +54,8 @@ function wrapField(field: Object, wrapper) {
 
   field[Processed] = true;
   field.resolve = wrapper(resolveFn);
+}
+
+function isSystemType(field) {
+  return /^\[?__/.test(field);
 }

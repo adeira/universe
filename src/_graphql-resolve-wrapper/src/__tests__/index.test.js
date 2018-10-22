@@ -53,7 +53,7 @@ beforeEach(() => {
   });
 
   // $FlowExpectedError: `getTypeMap` may return anything but I know it's object type in this case
-  const rootQueryType: GraphQLObjectType = schema.getTypeMap().RootQueryType;
+  const rootQueryType: GraphQLObjectType = schema.getQueryType();
   fields = rootQueryType.getFields();
 });
 
