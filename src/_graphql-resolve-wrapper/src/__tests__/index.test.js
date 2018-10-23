@@ -1,13 +1,14 @@
 // @flow
 
 import {
+  graphql,
   GraphQLObjectType,
   GraphQLSchema,
   GraphQLString,
   GraphQLInt,
 } from 'graphql';
 
-import { wrapResolvers } from '../index';
+import { wrapResolvers, isSystemType } from '../index';
 import { evaluateResolver } from '../../../common/services/TestingTools';
 
 let fields, schema;
@@ -15,6 +16,7 @@ beforeEach(() => {
   schema = new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'RootQueryType',
+      description: 'Root Query',
       fields: {
         noResolveFunction: {
           type: GraphQLString,
@@ -107,4 +109,47 @@ describe('custom wrapper', () => {
       'secret error ccc',
     );
   });
+
+  it('should not affect system fields', async () => {
+    // this should not return query name `ROOTQUERYTYPE` with desc `ROOT QUERY`
+    await expect(
+      graphql(
+        schema,
+        `
+          {
+            __schema {
+              queryType {
+                name
+                description
+              }
+            }
+          }
+        `,
+      ),
+    ).resolves.toMatchInlineSnapshot(`
+Object {
+  "data": Object {
+    "__schema": Object {
+      "queryType": Object {
+        "description": "Root Query",
+        "name": "RootQueryType",
+      },
+    },
+  },
+}
+`);
+  });
+});
+
+describe('isSystemType', () => {
+  test.each(['__Type', '__Schema'])('matches system field: %p', typeName => {
+    expect(isSystemType(typeName)).toBe(true);
+  });
+
+  test.each(['RootMutation', '_singleUnderscore'])(
+    'does not match any other field: %p',
+    typeName => {
+      expect(isSystemType(typeName)).toBe(false);
+    },
+  );
 });

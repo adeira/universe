@@ -56,6 +56,7 @@ function wrapField(field: Object, wrapper) {
   field.resolve = wrapper(resolveFn);
 }
 
-function isSystemType(field) {
-  return /^\[?__/.test(field);
+export function isSystemType(fieldName: string) {
+  // __TypeKind, __InputValue, ...
+  return /^__/.test(fieldName);
 }
