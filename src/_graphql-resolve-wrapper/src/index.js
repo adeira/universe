@@ -4,8 +4,17 @@ import { GraphQLSchema } from 'graphql';
 
 const Processed = Symbol();
 
-type ResolverFunction = Function;
-type WrapperFunction = ResolverFunction => () => mixed;
+type GraphQLFieldResolveFn = (
+  source?: any,
+  args?: { [argName: string]: any },
+  context?: any,
+  info?: Object,
+) => any;
+
+type WrapperFunction = (
+  resolverFunction: GraphQLFieldResolveFn,
+  field: Object,
+) => () => mixed;
 
 function defaultWrapper(resolveFn) {
   return (...args) => resolveFn(...args);
@@ -53,7 +62,7 @@ function wrapField(field: Object, wrapper) {
   }
 
   field[Processed] = true;
-  field.resolve = wrapper(resolveFn);
+  field.resolve = wrapper(resolveFn, field);
 }
 
 export function isSystemType(fieldName: string) {
