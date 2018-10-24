@@ -6,6 +6,8 @@ import {
   GraphQLSchema,
   GraphQLString,
   GraphQLInt,
+  GraphQLNonNull,
+  GraphQLList,
 } from 'graphql';
 
 import { wrapResolvers, isSystemType } from '../index';
@@ -30,7 +32,8 @@ beforeEach(() => {
         },
 
         resolveValueNumber: {
-          type: GraphQLInt,
+          type: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLInt))),
+          deprecationReason: 'for testing',
           resolve: () => {
             return 111;
           },
@@ -152,4 +155,51 @@ describe('isSystemType', () => {
       expect(isSystemType(typeName)).toBe(false);
     },
   );
+});
+
+describe('fields info', () => {
+  const filteredFields = [];
+
+  beforeEach(() => {
+    wrapResolvers(schema, (resolveFn, field) =>
+      // $FlowExpectedError: we are not returning resolve function here
+      filteredFields.push({
+        name: field.name,
+        type: field.type,
+        isDeprecated: field.isDeprecated,
+        deprecationReason: field.deprecationReason,
+      }),
+    );
+  });
+
+  it('is available', () => {
+    expect(filteredFields).toMatchInlineSnapshot(`
+Array [
+  Object {
+    "deprecationReason": undefined,
+    "isDeprecated": false,
+    "name": "resolveValueString",
+    "type": "String",
+  },
+  Object {
+    "deprecationReason": "for testing",
+    "isDeprecated": true,
+    "name": "resolveValueNumber",
+    "type": "[Int!]!",
+  },
+  Object {
+    "deprecationReason": undefined,
+    "isDeprecated": false,
+    "name": "resolvePromise",
+    "type": "String",
+  },
+  Object {
+    "deprecationReason": undefined,
+    "isDeprecated": false,
+    "name": "throwError",
+    "type": "String",
+  },
+]
+`);
+  });
 });
