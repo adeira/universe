@@ -1,6 +1,24 @@
 - http://exploringjs.com/es6/
 - https://developer.mozilla.org/en-US/docs/Web
 
+# Optional chaining
+
+https://github.com/tc39/proposal-optional-chaining
+
+This replaces [IDX](https://github.com/facebookincubator/idx). First set flow (`.flowconfig`):
+
+```
+[options]
+esproposal.optional_chaining=enable
+
+[lints]
+unnecessary-optional-chain=error
+```
+
+Install `babel-plugin-transform-optional-chaining` Babel plugin: https://babeljs.io/docs/en/next/babel-plugin-proposal-optional-chaining.html and you should be good to go.
+
+Note: this is still experimental feature and can be completely removed.
+
 # Is this string/number a number?
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
