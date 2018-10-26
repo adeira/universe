@@ -1,6 +1,15 @@
 - http://exploringjs.com/es6/
 - https://developer.mozilla.org/en-US/docs/Web
 
+# Babel 7
+
+- Read: https://babeljs.io/docs/en/v7-migration
+- Upgrade: https://github.com/babel/babel-upgrade
+
+```
+npx babel-upgrade --write --install
+```
+
 # Optional chaining
 
 https://github.com/tc39/proposal-optional-chaining
