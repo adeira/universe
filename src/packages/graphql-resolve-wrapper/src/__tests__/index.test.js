@@ -11,7 +11,7 @@ import {
 } from 'graphql';
 
 import { wrapResolvers, isSystemType } from '../index';
-import { evaluateResolver } from '../../../apps/common/services/TestingTools';
+import { evaluateResolver } from '../../../../apps/common/services/TestingTools';
 
 let fields, schema;
 beforeEach(() => {
