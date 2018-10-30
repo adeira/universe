@@ -1,0 +1,5 @@
+{
+  "name": "@kiwicom/graphql-resolve-wrapper",
+  "version": "0.0.0",
+  "main": "src/index.js"
+}
