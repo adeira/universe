@@ -115,6 +115,10 @@ const DraftHandler = {
 
 More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 
+# @match(onTypes: [ ... ])
+
+TODO
+
 # Persisted queries
 
 TODO
