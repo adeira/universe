@@ -1,0 +1,9 @@
+{
+  "name": "@kiwicom/npm-publisher",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "webpack": "^4.24.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
