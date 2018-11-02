@@ -1,0 +1,5 @@
+{
+  "name": "@kiwicom/signed-source",
+  "version": "0.0.0",
+  "main": "src/SignedSource.js"
+}
