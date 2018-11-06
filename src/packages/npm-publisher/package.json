@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "main": "src/index.js",
   "dependencies": {
+    "copy-webpack-plugin": "^4.6.0",
+    "npm-registry-client": "^8.6.0",
+    "semver": "^5.6.0",
+    "tar": "^4.4.7",
     "webpack": "^4.24.0",
     "webpack-node-externals": "^1.7.2"
   }

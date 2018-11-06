@@ -2,82 +2,82 @@
 // @flow
 
 import fs from 'fs';
+import tar from 'tar';
 import path from 'path';
+import semver from 'semver';
 import webpack from 'webpack';
-import nodeExternals from 'webpack-node-externals';
 
 import paths from '../../../../paths';
+import NPM from './NPM';
+import createWebpackConfig from './createWebpackConfig';
 
-const packages = ['graphql-resolve-wrapper', 'logz'];
+// TODO: rimraf build cache
 
-const config = packages.map(packageName => {
+['graphql-resolve-wrapper', 'logz'].forEach(packageFolder => {
   // $FlowIssue: https://github.com/facebook/flow/issues/2692
   const packageJSON = require(path.join(
     paths.packages,
-    packageName,
+    packageFolder,
     'package.json',
   ));
 
-  return {
-    mode: 'none',
-    target: 'node',
-    entry: {
-      [path.join(packageName, packageJSON.main)]: path.join(
-        paths.packages,
-        packageName,
-        packageJSON.main,
-      ),
+  NPM.getPackageInfo(
+    {
+      package: packageJSON.name,
     },
-    output: {
-      path: paths.buildCache,
-      filename: '[name].js',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              babelrc: true,
-            },
+    (error, data /*, raw, res*/) => {
+      if (error) {
+        throw error;
+      }
+
+      if (semver.gt(packageJSON.version, data.latest)) {
+        webpack(
+          createWebpackConfig(packageFolder, packageJSON),
+          async (err, stats) => {
+            if (err || stats.hasErrors()) {
+              console.error(err);
+            }
+
+            console.log(
+              stats.toString({
+                colors: true,
+              }),
+            );
+
+            await tar.create(
+              {
+                gzip: true,
+                cwd: paths.buildCache,
+                portable: true,
+                file: path.join(paths.buildCache, packageFolder + '.tgz'),
+              },
+              [packageFolder],
+            );
+
+            NPM.publishPackage(
+              {
+                metadata: packageJSON,
+                body: fs.createReadStream(
+                  path.join(paths.buildCache, packageFolder + '.tgz'),
+                ),
+              },
+              () => {
+                console.warn(
+                  `PUBLISHED ${packageJSON.name} version ${
+                    packageJSON.version
+                  } 🎉`,
+                );
+              },
+            );
           },
-        },
-      ],
+        );
+      } else {
+        console.warn(
+          `Skipping release of ${
+            packageJSON.name
+          } - there is nothing to release`,
+        );
+      }
     },
-    externals: [nodeExternals()],
-  };
-});
-
-webpack(config, (err, stats) => {
-  if (err || stats.hasErrors()) {
-    console.error(err);
-  }
-
-  console.log(
-    stats.toString({
-      colors: true,
-    }),
   );
-
-  packages.forEach(packageName => {
-    const filesToCopy = ['README.md', 'package.json'];
-
-    filesToCopy.forEach(fileName => {
-      const sourceFile = path.join(paths.packages, packageName, fileName);
-      const destinationFile = path.join(
-        paths.buildCache,
-        packageName,
-        fileName,
-      );
-
-      fs.copyFile(sourceFile, destinationFile, undefined, error => {
-        if (error) {
-          throw error;
-        }
-        console.log(`${sourceFile} 👉 ${destinationFile}`);
-      });
-    });
-  });
 });
