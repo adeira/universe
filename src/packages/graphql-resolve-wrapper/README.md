@@ -1,4 +1,12 @@
-This package allows you to do basically whatever you want with the resolvers. Example:
+This package allows you to do basically whatever you want with the resolvers.
+
+# Installation
+
+```
+yarn add @kiwicom/graphql-resolve-wrapper
+```
+
+# Usage
 
 ```js
 const Schema = new GraphQLSchema({
@@ -28,9 +36,7 @@ function defaultWrapper(resolveFn) {
 }
 ```
 
-# Advanced examples
-
-## Query Timing
+## Query Timing (advanced example)
 
 Query:
 
