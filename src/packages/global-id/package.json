@@ -1,0 +1,5 @@
+{
+  "name": "@kiwicom/graphql-global-id",
+  "version": "0.0.0",
+  "main": "src/GlobalID.js"
+}
