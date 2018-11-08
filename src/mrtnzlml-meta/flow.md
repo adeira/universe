@@ -20,6 +20,8 @@ class Thing {
         ^ [1]
 ```
 
+- https://github.com/tc39/proposal-class-fields#private-fields
+
 # Predicate functions with `%checks`
 
 `%checks` is an experimental predicate type. Check this code (no Flow errors):
