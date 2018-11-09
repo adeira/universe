@@ -24,6 +24,8 @@ esproposal.optional_chaining=enable
 unnecessary-optional-chain=error
 ```
 
+See: https://flow.org/en/docs/linting/rule-reference/#toc-unnecessary-optional-chain
+
 Install `babel-plugin-transform-optional-chaining` Babel plugin: https://babeljs.io/docs/en/next/babel-plugin-proposal-optional-chaining.html and you should be good to go.
 
 Note: this is still experimental feature and can be completely removed.
