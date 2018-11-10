@@ -1,12 +1,7 @@
 // @flow
 /* eslint-disable */
 
-import {
-  findBreakingChanges,
-  buildClientSchema,
-  introspectionQuery,
-  graphql,
-} from 'graphql';
+import { findBreakingChanges, buildSchema, printSchema } from 'graphql';
 import SignedSource from '@kiwicom/signed-source';
 import chalk from 'chalk';
 import path from 'path';
@@ -15,7 +10,10 @@ import fs from 'fs';
 import schema from '../../../Schema.js';
 import paths from '../../../../paths';
 
-const snapshotLocation = path.join(paths.scripts, 'graphql-schema-snapshot.js');
+const snapshotLocation = path.join(
+  paths.scripts,
+  'graphql-schema-snapshot.graphql',
+);
 
 const printChanges = (changes: Object[]) => {
   console.error('');
@@ -26,8 +24,7 @@ const printChanges = (changes: Object[]) => {
 };
 
 (async () => {
-  // $FlowExpectedError: the parameter passed to require() must be a literal string
-  const oldSchema = buildClientSchema(require(snapshotLocation));
+  const oldSchema = buildSchema(fs.readFileSync(snapshotLocation).toString());
   const newSchema = schema;
 
   const changes = findBreakingChanges(oldSchema, newSchema);
@@ -56,15 +53,9 @@ const printChanges = (changes: Object[]) => {
     process.exit(1);
   }
 
-  // non-breaking changes must be committed
-  const meta = await graphql(schema, introspectionQuery);
   const oldSnapshot = fs.readFileSync(snapshotLocation, { encoding: 'utf-8' });
   const newSnapshot = SignedSource.signFile(
-    `// ${SignedSource.getSigningToken()}\n\nmodule.exports = ${JSON.stringify(
-      meta.data,
-      null,
-      2,
-    )}\n`,
+    `# ${SignedSource.getSigningToken()}\n\n${printSchema(schema)}`,
   );
 
   if (!SignedSource.verifySignature(oldSnapshot)) {
