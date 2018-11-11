@@ -24,3 +24,6 @@ Collection of interesting links, articles and project...
 
 # T
 - [The Hurricane Web](https://mxb.at/blog/hurricane-web/)
+
+# W
+- [Why Google Stores Billions of Lines of Code in a Single Repository](https://ai.google/research/pubs/pub45424)
