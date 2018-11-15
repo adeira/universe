@@ -9,6 +9,7 @@ You can consider this document to be a checklist for your travels. But first - y
 Need to know something about your new destination? This will help you:
 
 - **https://nomadlist.com/**
+- **https://www.tasteatlas.com/**
 - https://en.wikivoyage.org/wiki/Main_Page
 - https://teleport.org/
 - [Google Trips](https://itunes.apple.com/us/app/google-trips-plan-your-trip/id1081561570?mt=8) (offline friendly)
