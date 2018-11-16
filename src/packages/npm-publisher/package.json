@@ -10,5 +10,8 @@
     "tar": "^4.4.7",
     "webpack": "^4.25.1",
     "webpack-node-externals": "^1.7.2"
+  },
+  "devDependencies": {
+    "memory-fs": "^0.4.1"
   }
 }
