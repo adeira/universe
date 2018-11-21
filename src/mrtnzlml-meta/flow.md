@@ -1,5 +1,12 @@
 https://github.com/facebook/flow/blob/master/Changelog.md
 
+# Exact Objects by Default
+
+TODO
+
+- https://medium.com/flow-type/on-the-roadmap-exact-objects-by-default-16b72933c5cf
+- https://github.com/facebook/flow/commit/1ac913040f38309480934ccb6717a3ffc65094a8
+
 # Private object properties
 
 ```js
