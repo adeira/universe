@@ -1,6 +1,6 @@
 {
   "name": "@kiwicom/graphql-global-id",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "main": "src/GlobalID.js"
 }

@@ -30,10 +30,13 @@ glob(path.join(paths.packages, './*/package.json'), (error, filenames) => {
         },
         (error, data /*, raw, res*/) => {
           if (error) {
-            throw error;
+            if (error.statusCode !== 404) {
+              // 404 indicates that the package doesn't exist (yet)
+              throw error;
+            }
           }
 
-          if (semver.gt(packageJSON.version, data.latest)) {
+          if (semver.gt(packageJSON.version, data.latest ?? '0.0.0')) {
             webpack(
               createWebpackConfig(packageFolder, packageJSON),
               async (err, stats) => {
