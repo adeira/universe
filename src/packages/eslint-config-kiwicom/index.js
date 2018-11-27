@@ -1,6 +1,7 @@
 // @flow
 
 const OFF = 0;
+const WARNING = 1;
 const ERROR = 2;
 
 module.exports = {
@@ -31,10 +32,12 @@ module.exports = {
     'no-else-return': ERROR,
     'no-use-before-define': OFF,
     'no-shadow': OFF,
+    'prefer-const': ERROR,
+    'eol-last': ERROR,
     'import/prefer-default-export': OFF,
     'import/no-dynamic-require': OFF,
     'import/no-extraneous-dependencies': [
-      'error',
+      ERROR,
       {
         devDependencies: ['**/*.test.js'],
       },
@@ -46,10 +49,8 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'kiwi-graphql/only-nullable-fields': 'error',
-    'prefer-const': 'error',
     'prettier/prettier': [
-      'error',
+      ERROR,
       {
         bracketSpacing: true,
         printWidth: 80,
@@ -58,33 +59,19 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
-    'promise/always-return': 'error',
-    'promise/no-return-wrap': 'error',
-    'promise/param-names': 'error',
-    'promise/catch-or-return': 'error',
-    'promise/no-native': 'off',
-    'promise/no-nesting': 'warn',
-    'promise/no-promise-in-callback': 'warn',
-    'promise/no-callback-in-promise': 'warn',
-    'promise/avoid-new': 'off',
-    'promise/prefer-await-to-then': 'error',
-    'promise/prefer-await-to-callbacks': 'off',
-    'flowtype/require-valid-file-annotation': ['error', 'always'],
-    'flowtype/newline-after-flow-annotation': ['error', 'always'],
-    'flowtype/generic-spacing': 'off',
-    'eol-last': 'error',
-    'no-restricted-imports': [
-      'error',
-      {
-        paths: [
-          {
-            name: 'graphql-relay',
-            importNames: ['connectionFromArray'],
-            message:
-              "please import { connectionFromArray } from '/src/common/services/ArrayConnection' instead",
-          },
-        ],
-      },
-    ],
+    'promise/always-return': ERROR,
+    'promise/no-return-wrap': ERROR,
+    'promise/param-names': ERROR,
+    'promise/catch-or-return': ERROR,
+    'promise/no-native': OFF,
+    'promise/no-nesting': WARNING,
+    'promise/no-promise-in-callback': WARNING,
+    'promise/no-callback-in-promise': WARNING,
+    'promise/avoid-new': OFF,
+    'promise/prefer-await-to-then': ERROR,
+    'promise/prefer-await-to-callbacks': OFF,
+    'flowtype/require-valid-file-annotation': [ERROR, 'always'],
+    'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
+    'flowtype/generic-spacing': OFF,
   },
 };
