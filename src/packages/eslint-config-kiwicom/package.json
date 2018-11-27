@@ -1,0 +1,19 @@
+{
+  "name": "@kiwicom/eslint-config",
+  "private": true,
+  "version": "0.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.26.1",
+    "eslint-plugin-kiwi-graphql": "^0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1"
+  },
+  "peerDependencies": {
+    "eslint": "^5.8.0"
+  }
+}
