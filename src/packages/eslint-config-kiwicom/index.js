@@ -1,5 +1,8 @@
 // @flow
 
+const OFF = 0;
+const ERROR = 2;
+
 module.exports = {
   env: {
     node: true,
@@ -22,16 +25,25 @@ module.exports = {
     'flowtype',
   ],
   rules: {
-    curly: [2, 'all'],
-    camelcase: 1,
-    'no-use-before-define': 0,
-    'no-shadow': 0,
-    'import/prefer-default-export': 0,
-    'import/no-dynamic-require': 0,
+    curly: [ERROR, 'all'],
+    camelcase: ERROR,
+    'no-lonely-if': ERROR,
+    'no-else-return': ERROR,
+    'no-use-before-define': OFF,
+    'no-shadow': OFF,
+    'import/prefer-default-export': OFF,
+    'import/no-dynamic-require': OFF,
     'import/no-extraneous-dependencies': [
       'error',
       {
         devDependencies: ['**/*.test.js'],
+      },
+    ],
+    'import/order': [
+      ERROR,
+      {
+        groups: [['builtin', 'external'], ['parent', 'sibling'], 'index'],
+        'newlines-between': 'always',
       },
     ],
     'kiwi-graphql/only-nullable-fields': 'error',

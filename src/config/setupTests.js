@@ -20,12 +20,11 @@ expect.extend({
           `Received:\n` +
           `  ${this.utils.printReceived(received.message)}`,
       };
-    } else {
-      return {
-        pass: false,
-        message: () =>
-          `expected ${received} to be instance of Error, ${typeof received} given`,
-      };
     }
+    return {
+      pass: false,
+      message: () =>
+        `expected ${received} to be instance of Error, ${typeof received} given`,
+    };
   },
 });

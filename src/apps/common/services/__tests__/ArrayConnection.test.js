@@ -1,6 +1,7 @@
 // @flow
 
 import { offsetToCursor } from 'graphql-relay';
+
 import { connectionFromArray } from '../ArrayConnection';
 
 // Tests of connectionFromArray are copied from origin implementation:
