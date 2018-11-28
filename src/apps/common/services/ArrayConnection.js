@@ -5,9 +5,9 @@ import {
   connectionFromArray as relayConnectionFromArray,
   cursorToOffset,
   offsetToCursor,
+  type Connection,
+  type ConnectionArguments,
 } from 'graphql-relay';
-/* eslint-enable no-restricted-imports */
-import type { Connection, ConnectionArguments } from 'graphql-relay';
 
 // There is open discusion how to handle bidirectional pagination:
 // https://github.com/graphql/graphql-relay-js/issues/58

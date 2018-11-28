@@ -2,7 +2,7 @@
 
 import { GraphQLSchema } from 'graphql';
 
-const Processed = Symbol();
+const Processed = Symbol('processed');
 
 type GraphQLFieldResolveFn = (
   source?: any,

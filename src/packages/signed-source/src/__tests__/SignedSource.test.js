@@ -6,13 +6,13 @@ test('signFile', () => {
   expect(
     SignedSource.signFile(`# ${SignedSource.getSigningToken()}\ntest 1`),
   ).toEqual(
-    `# @generated SignedSource<<d9b7b52f54978f54b84a0fd48145e470>>\ntest 1`,
+    '# @generated SignedSource<<d9b7b52f54978f54b84a0fd48145e470>>\ntest 1',
   );
 
   expect(
     SignedSource.signFile(`# ${SignedSource.getSigningToken()}\ntest 2`),
   ).toEqual(
-    `# @generated SignedSource<<4c0c1ae4f5863c72731b2f543e830fd5>>\ntest 2`,
+    '# @generated SignedSource<<4c0c1ae4f5863c72731b2f543e830fd5>>\ntest 2',
   );
 });
 

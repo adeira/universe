@@ -15,9 +15,9 @@ expect.extend({
       return {
         pass: false,
         message: () =>
-          `Expected Error message to be:\n` +
+          'Expected Error message to be:\n' +
           `  ${this.utils.printExpected(message)}\n` +
-          `Received:\n` +
+          'Received:\n' +
           `  ${this.utils.printReceived(received.message)}`,
       };
     }

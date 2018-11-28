@@ -2,7 +2,7 @@
 
 import crypto from 'crypto';
 
-const GENERATED = '@' + 'generated';
+const GENERATED = '@generated';
 const TOKEN = '<<SignedSource::*O*zOeWoEQle#+L!plEphiEmie@IsG>>';
 const PATTERN = new RegExp(`${GENERATED} (?:SignedSource<<([a-f0-9]{32})>>)`);
 

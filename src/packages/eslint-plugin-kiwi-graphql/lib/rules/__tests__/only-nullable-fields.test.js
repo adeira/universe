@@ -45,10 +45,13 @@ ruleTester.run('only-nullable-fields', rule, {
         'new GraphQLInputObjectType({ fields: { from: { type: new GraphQLNonNull(GraphQLString) } } });' + // this is fine
         'var b = { fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }', // this is not
       errors: [
-        Object.assign({}, NewExpressionError, {
-          line: 1,
-          column: 127,
-        }),
+        {
+          ...NewExpressionError,
+          ...{
+            line: 1,
+            column: 127,
+          },
+        },
       ],
     },
     {

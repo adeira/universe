@@ -1,6 +1,7 @@
 // @flow
 
 /*::
+
 type Node = {|
   +key: {|
     +name: string,
@@ -13,6 +14,7 @@ type Node = {|
 type Context = {|
   +report: (Node, string) => void,
 |};
+
 */
 
 module.exports = {

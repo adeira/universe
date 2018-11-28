@@ -28,7 +28,7 @@ glob(path.join(paths.packages, './*/package.json'), (error, filenames) => {
         {
           package: packageJSON.name,
         },
-        (error, data /*, raw, res*/) => {
+        (error, data /* , raw, res */) => {
           if (error) {
             if (error.statusCode !== 404) {
               // 404 indicates that the package doesn't exist (yet)
