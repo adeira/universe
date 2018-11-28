@@ -1,7 +1,7 @@
 {
   "name": "@kiwicom/eslint-config",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "dependencies": {
     "eslint": "^5.8.0"
