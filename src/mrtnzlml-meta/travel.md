@@ -75,11 +75,14 @@ Looking for really durable bag, jacket or just something nice to have? These lin
 These are coworking I actually visited. Highlighted coworkings are really good.
 
 ## Barcelona:
-- http://www.mob-barcelona.com/ (feels crowded, like a dungeon, zero community. Cool café though)
 - **https://aticcobarcelona.com/**
+- http://www.mob-barcelona.com/ (feels crowded, like a dungeon, zero community. Cool café though)
 
 ## Cape Town:
 - **http://spinstreet.co/** (one of the best coworkings I've ever visited - Great community, speedy internet, cool people and events ; latest report from the cowo is that community went down)
+
+## Lima
+- https://comunal.co/
 
 ## Marrakech:
 - http://www.thespot.ma/ (good location, friendly staff, zero community, no free water, free coffee/tea)
@@ -92,4 +95,4 @@ These are coworking I actually visited. Highlighted coworkings are really good.
 
 ## Thailand:
 - **http://kohub.org/** (Ko Lanta - great community, awesome internal system, kitchen with awesome food and breakfast, entertaining events)
-- http://thehive.co.th/ (Bangkok - zero community, stupid tables but great and welcoming staff in nice building)
+- http://thehive.co.th/ (Bangkok - zero community, stupid tables but great and welcoming staff in a nice building)
