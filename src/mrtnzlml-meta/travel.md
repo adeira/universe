@@ -14,9 +14,9 @@ Need to know something about your new destination? This will help you:
 - https://en.wikivoyage.org/wiki/Main_Page
 - https://teleport.org/
 - [Google Trips](https://itunes.apple.com/us/app/google-trips-plan-your-trip/id1081561570?mt=8) (offline friendly)
-- [Lonely Planet](https://itunes.apple.com/us/app/guides-by-lonely-planet/id1045791869?mt=8) (offline friendly)
 - [Google Maps](https://itunes.apple.com/us/app/google-maps-gps-navigation/id585027354?mt=8) (mostly offline friendly - doesn’t work in some countries, essential)
 - [Google Translate](https://itunes.apple.com/us/app/google-translate/id414706506?mt=8) (offline friendly, essential)
+- [Timeshifter](https://itunes.apple.com/us/app/timeshifter/id1380684374?mt=8) (paid)
 
 # Accommodation
 - https://www.beroomers.com/
