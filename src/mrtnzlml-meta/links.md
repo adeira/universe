@@ -13,6 +13,7 @@ Collection of interesting links, articles and project...
 
 # H
 - [How to create an OS from scratch](https://github.com/cfenollosa/os-tutorial)
+- [How to Deal with Difficult People on Software Projects](https://people.neilon.software/)
 
 # P
 - [Picking the right API Paradigm](https://philsturgeon.uk/2018/05/21/picking-an-api-paradigm-implementation/)
