@@ -115,7 +115,7 @@ const DraftHandler = {
 
 More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 
-# @match(onTypes: [ ... ])
+# @match(onTypes: [ ... ]), @module( ... )
 
 TODO: researching
 
@@ -123,6 +123,7 @@ TODO: researching
 - https://github.com/facebook/graphql/issues/488
 - https://github.com/facebook/relay/blob/688dd4367cbe59ba223a027e3fcdc820455310e3/packages/relay-test-utils/testschema.graphql#L167
 - https://github.com/mrtnzlml/relay/pull/32/files
+- https://github.com/mrtnzlml/relay/pull/75/files
 
 # Persisted queries
 
