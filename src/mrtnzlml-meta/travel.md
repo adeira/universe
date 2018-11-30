@@ -4,6 +4,7 @@ You can consider this document to be a checklist for your travels. But first - y
 - [ ] buy flight tickets in advance (even for departure when outside of EU)
 - [ ] check Airbnb / Beroomers options
 - [ ] check coworking options
+- [ ] buy travel insurance (medical)
 
 # Travel info
 Need to know something about your new destination? This will help you:
@@ -19,10 +20,10 @@ Need to know something about your new destination? This will help you:
 - [Timeshifter](https://itunes.apple.com/us/app/timeshifter/id1380684374?mt=8) (paid)
 
 # Accommodation
-- https://www.beroomers.com/
 - https://www.airbnb.com/ + combine with https://hoodmaps.com/
 - https://www.sleepinginairports.net/
 - https://www.hoteltonight.com/
+- https://www.beroomers.com/ (I actually never tried)
 
 # Visa
 - **https://www.visahq.com/**
@@ -32,8 +33,8 @@ Need to know something about your new destination? This will help you:
 
 # Travel insurance
 - https://www.truetraveller.com/
-- https://safetywing.com/
-- https://www.revolut.com/ (40 days included in the Premium)
+- https://safetywing.com/ (testing now)
+- https://www.revolut.com/ (40 days included in the Premium, cannot combine with other providers)
 
 # Expenses and money abroad
 Traveling can be really expensive. One advice for you: live like you do normally in your hometown. So if you are not used to visit restaurants every day - don’t do it in different countries. These links will help you to keep your eye on your money:
