@@ -28,9 +28,9 @@ _I want to have things under control._ This way I do things really well. Also, i
 
 I joined this company in April 2017 (my first PR was Apr 7)
 
-1. I created first [GraphQL proxy](https://github.com/kiwicom/graphql) (still ongoing project)
+1. I created first [GraphQL proxy](https://github.com/kiwicom/graphql) (still ongoing project but moved to private repo)
 2. I created Chatbot for our custommer support (discontinued)
 3. I created first [React Native application](https://github.com/kiwicom/mobile) (still ongoing)
-4. I joined internal Portalo project (current)
-5. Re-joined GraphQL proxy project
+4. I joined internal Portalo project
+5. Re-joined GraphQL proxy project (current)
 6. ??
