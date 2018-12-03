@@ -52,15 +52,18 @@ const SignedSource = {
    * for signing to not change code semantics.
    */
   signFile(data: string) {
-    if (!data.includes(TOKEN)) {
-      if (SignedSource.isSigned(data)) {
+    let dataCopy = data;
+
+    if (!dataCopy.includes(TOKEN)) {
+      if (SignedSource.isSigned(dataCopy)) {
         // Signing a file that was previously signed.
-        data = data.replace(PATTERN, SignedSource.getSigningToken());
+        dataCopy = dataCopy.replace(PATTERN, SignedSource.getSigningToken());
       } else {
         throw TokenNotFoundError;
       }
     }
-    return data.replace(TOKEN, `SignedSource<<${hash(data, 'utf8')}>>`);
+
+    return dataCopy.replace(TOKEN, `SignedSource<<${hash(dataCopy, 'utf8')}>>`);
   },
 
   /**
