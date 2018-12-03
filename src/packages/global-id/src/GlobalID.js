@@ -14,8 +14,26 @@ function base64(i: string): Base64String {
   return Buffer.from(i).toString('base64');
 }
 
+function unbase64(i) {
+  return Buffer.from(i, 'base64').toString('utf8');
+}
+
 function toGlobalId(type: string, id: string | number): string {
   return base64([type, id].join(':'));
+}
+
+export function fromGlobalId(opaqueID: string): string {
+  const unbasedGlobalID = unbase64(opaqueID);
+  const delimiterPos = unbasedGlobalID.indexOf(':');
+  return unbasedGlobalID.substring(delimiterPos + 1);
+}
+
+// TODO: find out better way how to do it (type should be just an internal detail)
+export function isTypeOf(type: string, opaqueID: string): boolean {
+  const unbasedGlobalID = unbase64(opaqueID);
+  const delimiterPos = unbasedGlobalID.indexOf(':');
+  const unmaskedType = unbasedGlobalID.substring(0, delimiterPos);
+  return unmaskedType === type;
 }
 
 /**
