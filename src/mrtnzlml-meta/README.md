@@ -16,7 +16,7 @@ Very similar rules applies to how I use Slack. I am following zero inbox philoso
 
 ## Miscellaneous
 
-_I am introvert._ That means I loose energy when I am around other people for too long and I recharge my energy by spending time alone. Sounds weird? Check this video to understand my view: https://youtu.be/FgP3eAc9U64
+_I am introvert._ That means I loose energy when I am around other people for too long and I recharge my energy by spending time alone. Sounds weird? Check this video to understand my view: https://www.reddit.com/93u8rj/
 
 _I have my moods._ I am fine in one minute and then I am suddenly completely different person. I think it's related to my introversion when things simply went too far too quickly. I am working on that.
 
