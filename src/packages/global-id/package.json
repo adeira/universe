@@ -1,6 +1,12 @@
 {
   "name": "@kiwicom/graphql-global-id",
   "private": false,
-  "version": "0.0.1",
-  "main": "src/GlobalID.js"
+  "version": "0.0.2",
+  "main": "src/GlobalID.js",
+  "dependencies": {
+    "buffer": "^5.2.1"
+  },
+  "peerDependencies": {
+    "graphql": "^14.0.2"
+  }
 }
