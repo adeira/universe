@@ -49,6 +49,12 @@ Consider if you really need it. It’s actually quite fun to travel without it b
 - http://prepaid-data-sim-card.wikia.com/wiki/Prepaid_SIM_with_data
 - https://www.tripmode.ch/
 
+Providers I actually tried:
+
+## Peru
+
+- [Claro](http://www.claro.com.pe/personas/) - 3 GB for 30 Soles (end of 2018)
+
 # Powerrr!
 
 - https://www.worldstandards.eu/electricity/plug-voltage-by-country/
