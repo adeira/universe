@@ -1,3 +1,5 @@
+https://secure.phabricator.com/book/phabflavor/article/recommendations_on_branching/ (+ Controlling Access to Features)
+
 # Changelog in monorepo
 
 This returns changelog from one specific hash (latest version) with optional diff (`-p`) for one package in monorepo (`logz` in this case).
