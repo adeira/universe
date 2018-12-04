@@ -23,7 +23,12 @@ module.exports = function(api /*: ApiType */) {
         },
       },
     ],
-    '@babel/preset-flow',
+    [
+      '@babel/preset-flow',
+      {
+        requireDirective: true,
+      },
+    ],
   ];
   const plugins = [
     '@babel/plugin-proposal-object-rest-spread',

@@ -38,8 +38,7 @@ function visitSchema(schema, wrapper) {
   }
 }
 
-function visitType(type, wrapper) {
-  // $FlowExpectedError: processed symbol is not part of the original types
+function visitType(type: any, wrapper) {
   if (type[Processed] || !type.getFields || isSystemType(type.toString())) {
     return;
   }
