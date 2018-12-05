@@ -1,7 +1,5 @@
-- https://github.com/facebook/relay
 - https://github.com/sibelius/relay-modern-network-deep-dive
-- https://www.npmjs.com/package/@mrtnzlml/relay
-- https://github.com/facebook/relay/tree/master/packages/relay-experimental
+- https://github.com/facebook/relay/tree/master/packages/relay-test-utils
 
 # Local schema
 
