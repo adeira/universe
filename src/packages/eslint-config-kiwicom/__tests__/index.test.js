@@ -3,9 +3,6 @@
 
 // @flow
 
-// TODO: convert it into the tests
-// node src/packages/eslint-config-kiwicom/scripts/check-rules.js
-
 const path = require('path');
 const eslintRules = require('eslint/lib/load-rules');
 
@@ -14,6 +11,19 @@ const eslintConfig = require(path.join(__dirname, '..', 'index.js'));
 
 const ourRules = new Set(Object.keys(eslintConfig.rules));
 const supportedRules = new Set(Object.keys(eslintRules()));
+
+// see: https://eslint.org/docs/rules/#deprecated
+const deprecatedRules = new Set([
+  'indent-legacy', // indent
+  'lines-around-directive', // padding-line-between-statements
+  'newline-after-var', // padding-line-between-statements
+  'newline-before-return', // padding-line-between-statements
+  'no-catch-shadow', // no-shadow
+  'no-native-reassign', // no-global-assign
+  'no-negated-in-lhs', // no-unsafe-negation
+  'no-spaced-func', // func-call-spacing
+  'prefer-reflect', // (no replacement)
+]);
 
 // Get plugins from package.json. Assume they're all in peerDependencies.
 //
@@ -33,6 +43,17 @@ const supportedRules = new Set(Object.keys(eslintRules()));
 
 const missing = new Set();
 const extra = new Set();
+const deprecated = new Set();
+
+ourRules.forEach(rule => {
+  if (deprecatedRules.has(rule)) {
+    deprecated.add(rule);
+  }
+});
+
+deprecatedRules.forEach(rule => {
+  ourRules.add(rule);
+});
 
 ourRules.forEach(rule => {
   if (!supportedRules.has(rule)) {
@@ -46,5 +67,13 @@ supportedRules.forEach(rule => {
   }
 });
 
-console.log('missing', missing); // eslint-disable-line no-console
+test('missing Eslint rules', () => {
+  expect(missing).toEqual(new Set());
+});
+
+test('deprecated Eslint rules', () => {
+  expect(deprecated).toEqual(new Set());
+});
+
+// TODO: test extra rules:
 // console.log('extra', extra); // eslint-disable-line no-console
