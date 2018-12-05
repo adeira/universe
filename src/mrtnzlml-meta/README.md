@@ -24,6 +24,8 @@ _I have my focus zone._ Usually, when I am working really hard. I can be in this
 
 _I want to have things under control._ This way I do things really well. Also, it gives me possibility to say NO when I think it's not OK. I am very unhappy when someone treats me as yet another programmer-monkey.
 
+_I [read](https://www.goodreads.com/review/list/84536346)._
+
 ## My Kiwi.com timeline
 
 I joined this company in April 2017 (my first PR was Apr 7)
