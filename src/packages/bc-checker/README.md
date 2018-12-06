@@ -1,19 +1,19 @@
-TODO:
-
-- add some tests
-- turn this script into bin file (for NPM usage)
-- expose on NPM
-
-
-
-
-
 This package checks breaking changes in your GraphQL schema. It saves the schema snapshot (you should version it) and it compares it with newest changes. This way it's possible to discover breaking changes and it helps you to fix them.
 
 # Usage
 
+First install the package:
+
 ```
-yarn babel-node src/packages/bc-checker/src/index.js
+yarn add @kiwicom/graphql-bc-checker
+```
+
+And add it to the Yarn scripts:
+
+```json
+"scripts": {
+  "test-bc": "yarn check-backward-compatibility --snapshot=./graphql-schema-snapshot.graphql",
+}
 ```
 
 You should get this response:

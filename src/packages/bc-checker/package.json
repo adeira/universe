@@ -1,10 +1,14 @@
 {
   "name": "@kiwicom/graphql-bc-checker",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.1.0",
   "main": "src/index.js",
+  "bin": {
+    "check-backward-compatibility": "src/index.js"
+  },
   "dependencies": {
     "@kiwicom/signed-source": "^0",
+    "commander": "^2.19.0",
     "chalk": "^2.4.1"
   },
   "peerDependencies": {

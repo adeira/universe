@@ -1,22 +1,28 @@
+#!/usr/bin/env node
+
 // @flow
 
 import { findBreakingChanges, buildSchema, printSchema } from 'graphql';
+import program from 'commander';
 import SignedSource from '@kiwicom/signed-source';
-import path from 'path';
 import fs from 'fs';
 
 import schema from '../../../Schema';
-import paths from '../../../../paths';
 import { printChanges, note, success, warning, error } from './Printer';
 
-const snapshotLocation = path.join(
-  paths.scripts,
-  'graphql-schema-snapshot.graphql',
-);
+program
+  .option('--allow-breaking-changes')
+  .option('--snapshot <path>')
+  .parse(process.argv);
 
-const args = process.argv.splice(2);
-const flagAllowBreakingChanges =
-  args.includes('--allow-breaking-changes') ?? false;
+const flagAllowBreakingChanges = program.allowBreakingChanges ?? false;
+const snapshotLocation =
+  program.snapshot ??
+  (() => {
+    throw new Error(
+      'You have to specify --snapshot location in order to run this command.',
+    );
+  })();
 
 const breakingChangeMarkerStart = '<BREAKING-CHANGES-LOG>';
 const breakingChangeMarkerEnd = '</BREAKING-CHANGES-LOG>';
