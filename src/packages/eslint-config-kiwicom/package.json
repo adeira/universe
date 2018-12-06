@@ -1,12 +1,10 @@
 {
   "name": "@kiwicom/eslint-config",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "dependencies": {
-    "eslint": "^5.8.0"
-  },
-  "devDependencies": {
+    "eslint": "^5.8.0",
     "eslint-plugin-kiwi-graphql": "^0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-flowtype": "^3.2.0",
