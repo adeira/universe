@@ -1,5 +1,8 @@
 Collection of interesting links, articles and project...
 
+# 2
+- [-2000 Lines Of Code](http://www.folklore.org/StoryView.py?project=Macintosh&story=Negative_2000_Lines_Of_Code.txt)
+
 # A
 - [A blogging style guide](https://robertheaton.com/2018/12/06/a-blogging-style-guide/)
 - [A tour of JavaScript timers on the web](https://nolanlawson.com/2018/09/01/a-tour-of-javascript-timers-on-the-web/)
@@ -29,4 +32,5 @@ Collection of interesting links, articles and project...
 - [The Hurricane Web](https://mxb.at/blog/hurricane-web/)
 
 # W
+- [We'll Fix It Later](https://matthewstrom.com/writing/fix-it-later.html)
 - [Why Google Stores Billions of Lines of Code in a Single Repository](https://ai.google/research/pubs/pub45424)
