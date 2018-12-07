@@ -3,8 +3,7 @@
 import GlobalID from '../GlobalID';
 
 function base64(text) {
-  // use native Buffer here (not polyfill) to make sure it behaves correctly
-  return Buffer.from(text, 'utf8').toString('base64');
+  return Buffer.from(text).toString('base64');
 }
 
 function resolveField(field, args = {}) {

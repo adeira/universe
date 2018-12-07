@@ -7,14 +7,11 @@ import {
   type GraphQLResolveInfo,
   type GraphQLFieldConfig,
 } from 'graphql';
-import { Buffer } from 'buffer';
 
 opaque type Base64String = string;
 
 function base64(i: string): Base64String {
-  // use Buffer polyfill here to ensure it works even in environment without
-  // native Buffer implementation (RN world)
-  return Buffer.from(i, 'utf8').toString('base64');
+  return Buffer.from(i).toString('base64');
 }
 
 function toGlobalId(type: string, id: string | number): string {
