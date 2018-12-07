@@ -1,22 +1,25 @@
 /* eslint-disable no-console */
 // @flow
 
+import os from 'os';
 import chalk from 'chalk';
 
+const _eol = (message: string) => os.EOL + message + os.EOL;
+
 const note = (message: string) => {
-  console.log(message);
+  console.log(_eol(message));
 };
 
 const success = (message: string) => {
-  console.log(chalk.green.bold(message));
+  console.log(_eol(chalk.green.bold(message)));
 };
 
 const warning = (message: string) => {
-  console.log(chalk.yellow.bold(message));
+  console.log(_eol(chalk.yellow.bold(message)));
 };
 
 const error = (message: string) => {
-  console.log(chalk.red.bold(message));
+  console.log(_eol(chalk.red.bold(message)));
 };
 
 const printChanges = (changes: Object[]) => {
