@@ -2,7 +2,7 @@
 
 import { offsetToCursor } from 'graphql-relay';
 
-import { connectionFromArray } from '../ArrayConnection';
+import connectionFromArray from '../ArrayConnection';
 
 // Tests of connectionFromArray are copied from origin implementation:
 // https://github.com/graphql/graphql-relay-js/blob/master/src/connection/__tests__/arrayconnection.js

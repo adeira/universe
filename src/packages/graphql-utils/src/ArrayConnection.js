@@ -13,7 +13,7 @@ import {
 // https://github.com/graphql/graphql-relay-js/issues/58
 //
 // Until Relay devs decide, let's try our implementation
-export function connectionFromArray<T>(
+export default function connectionFromArray<T>(
   data: Array<T>,
   args: ConnectionArguments,
 ): Connection<T> {
