@@ -449,20 +449,25 @@ module.exports = {
     'dependencies/no-unresolved': ERROR,
     'dependencies/require-json-ext': ERROR,
 
+    // monorepo (https://github.com/azz/eslint-plugin-monorepo)
+    'monorepo/no-internal-import': ERROR,
+    'monorepo/no-relative-import': ERROR,
+
     // Kiwi.com custom rules
     'kiwi-graphql/only-nullable-fields': ERROR,
   },
 
   plugins: [
-    'babel',
-    'flowtype',
-    'jasmine',
-    'prefer-object-spread',
-    'react',
-    'react-native',
-    'relay',
-    'import',
-    'dependencies',
-    'kiwi-graphql',
+    'eslint-plugin-babel',
+    'eslint-plugin-flowtype',
+    'eslint-plugin-jasmine',
+    'eslint-plugin-prefer-object-spread',
+    'eslint-plugin-react',
+    'eslint-plugin-react-native',
+    'eslint-plugin-relay',
+    'eslint-plugin-import',
+    'eslint-plugin-dependencies',
+    'eslint-plugin-monorepo',
+    'eslint-plugin-kiwi-graphql',
   ],
 };
