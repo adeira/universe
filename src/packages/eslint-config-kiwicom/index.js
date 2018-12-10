@@ -29,7 +29,7 @@ module.exports = {
     'no-inner-declarations': WARN,
     'no-invalid-regexp': WARN,
     'no-irregular-whitespace': WARN,
-    'no-misleading-character-class': OFF,
+    'no-misleading-character-class': WARN,
     'no-obj-calls': ERROR,
     'no-prototype-builtins': OFF,
     'no-regex-spaces': WARN,
@@ -114,7 +114,7 @@ module.exports = {
     'prefer-promise-reject-errors': WARN,
     radix: ERROR,
     'require-await': OFF,
-    'require-unicode-regexp': OFF, // TODO: WARN (?)
+    'require-unicode-regexp': OFF,
     'vars-on-top': OFF,
     'wrap-iife': [WARN, 'inside'],
     yoda: WARN,
