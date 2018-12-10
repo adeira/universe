@@ -30,7 +30,8 @@ const printChanges = (changes: Object[]) => {
       'This change may or may not be intentional. These breaking changes ' +
       'may break some clients consuming our public API. Please try to ' +
       'find a way how to avoid breaking changes and try it again. Here is ' +
-      'list of all breaking changes:\n',
+      'list of all breaking changes:' +
+      os.EOL,
   );
 
   for (const change of changes) {

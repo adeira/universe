@@ -1,5 +1,6 @@
 // @flow
 
+import os from 'os';
 import { invariant } from '@mrtnzlml/utils';
 
 const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
@@ -13,7 +14,7 @@ expect.addSnapshotSerializer({
   print(value) {
     return Object.keys(value)
       .map(key => `~~~~~~~~~~ ${key.toUpperCase()} ~~~~~~~~~~\n${value[key]}`)
-      .join('\n');
+      .join(os.EOL);
   },
   test(value) {
     return value && value[FIXTURE_TAG] === true;

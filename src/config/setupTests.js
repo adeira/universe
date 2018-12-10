@@ -1,5 +1,7 @@
 // @flow
 
+import os from 'os';
+
 /**
  * @see: https://facebook.github.io/jest/docs/expect.html#expectextendmatchers
  */
@@ -15,9 +17,11 @@ expect.extend({
       return {
         pass: false,
         message: () =>
-          'Expected Error message to be:\n' +
+          'Expected Error message to be:' +
+          os.EOL +
           `  ${this.utils.printExpected(message)}\n` +
-          'Received:\n' +
+          'Received:' +
+          os.EOL +
           `  ${this.utils.printReceived(received.message)}`,
       };
     }
