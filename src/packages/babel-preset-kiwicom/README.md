@@ -1,3 +1,16 @@
+Keep focused on writing modern JS and leave the complicated part of setting it correctly on someone else.
+
+# Usage
+
+Install this package:
+
+```
+yarn add --dev @babel/core @kiwicom/babel-preset-kiwicom
+```
+
+And use it in your `babel.config.js`:
+
+```js
 // @flow
 
 /*::
@@ -21,3 +34,4 @@ module.exports = function(api /*: ApiType */) {
     plugins: extraPlugins,
   };
 };
+```
