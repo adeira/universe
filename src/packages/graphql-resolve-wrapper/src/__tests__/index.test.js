@@ -9,9 +9,9 @@ import {
   GraphQLNonNull,
   GraphQLList,
 } from 'graphql';
+import { evaluateGraphQLResolver as evaluateResolver } from '@kiwicom/test-utils';
 
 import { wrapResolvers, isSystemType } from '../index';
-import { evaluateResolver } from '../../../../apps/common/services/TestingTools';
 
 let fields, schema;
 beforeEach(() => {
