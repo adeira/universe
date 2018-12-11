@@ -2,11 +2,56 @@ https://secure.phabricator.com/book/phabflavor/article/recommendations_on_branch
 
 # Changelog in monorepo
 
-This returns changelog from one specific hash (latest version) with optional diff (`-p`) for one package in monorepo (`logz` in this case).
+Get hash of the latest version:
 
 ```
-git log -p ba07665841cea30ba523b1b8402647a56fb94334..HEAD -- src/packages/logz
+git blame -- src/packages/signed-source/package.json
 ```
+```
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 1) {
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 2)   "name": "@kiwicom/signed-source",
+8755e0bb (Martin Zlámal 2018-12-05 08:37:51 -0500 3)   "private": false,
+8755e0bb (Martin Zlámal 2018-12-05 08:37:51 -0500 4)   "version": "0.1.0",
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 5)   "main": "src/SignedSource.js"
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 6) }
+```
+
+OK, latest version hash is `8755e0bb`. What are the latest changes?
+
+```
+git log --oneline 8755e0bb..HEAD -- src/packages/signed-source
+```
+```
+3ee25b4 Eslint: add new rule 'no-newline-string' to enforce os.EOL usage
+```
+
+I see, what was the hash of the version before? (means before `8755e0bb`)
+
+```
+git blame 8755e0bb^ -- src/packages/signed-source/package.json
+```
+```
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 1) {
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 2)   "name": "@kiwicom/signed-source",
+7bf5bd4b (Martin Zlámal 2018-11-08 16:11:33 +0100 3)   "private": true,
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 4)   "version": "0.0.0",
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 5)   "main": "src/SignedSource.js"
+171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 6) }
+```
+
+OK, it was `171347dd`. What are the changes between these 2 versions?
+
+```
+git log --oneline 171347dd..8755e0bb -- src/packages/signed-source
+```
+```
+8755e0b NPM: publish `@kiwicom/signed-source` package
+509f31a JS: cleanup Eslint warnings
+006d256 Apply new set of eslint rules
+7bf5bd4 Add monorepo packages test
+```
+
+_(repeat)_
 
 # Semver
 
