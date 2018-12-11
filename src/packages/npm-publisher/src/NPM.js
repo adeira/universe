@@ -1,11 +1,11 @@
 // @flow
 
 import NPMRegistryClient from 'npm-registry-client';
+import ENV from '@kiwicom/environment';
 
 const URI = 'https://registry.npmjs.org/npm';
 const NPM = new NPMRegistryClient();
 
-const ENV = process.env;
 
 type Callback = (
   error: {| +statusCode: number |}, // error is an error if there was a problem.
