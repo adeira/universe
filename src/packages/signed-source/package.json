@@ -2,5 +2,6 @@
   "name": "@kiwicom/signed-source",
   "private": false,
   "version": "0.1.0",
-  "main": "src/SignedSource.js"
+  "main": "src/SignedSource.js",
+  "dependencies": {}
 }
