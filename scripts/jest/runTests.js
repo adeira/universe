@@ -73,14 +73,16 @@ function runJest(config, stdio = 'inherit') {
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 function runTests(workspaceDependencies) {
-  const changedFiles = runJest(
-    // TODO: verify it's ok on CI (maybe combine with --lastCommit?)
-    ['--listTests', '--onlyChanged', '--json'],
+  // https://jestjs.io/docs/en/cli.html#changedfileswithancestor
+  const changedFilesOutput = runJest(
+    ['--listTests', '--changedFilesWithAncestor', '--json'],
     'pipe',
   );
+
+  const changedFiles = JSON.parse(changedFilesOutput.stdout);
   const dirtyWorkspaces = findDirtyWorkspaces(
     workspaceDependencies,
-    JSON.parse(changedFiles.stdout),
+    changedFiles,
   );
 
   const relatedWorkspaces = findRelatedWorkspaces(
@@ -88,7 +90,7 @@ function runTests(workspaceDependencies) {
     dirtyWorkspaces,
   );
 
-  // console.warn('CHANGED FILES: ', changedFiles.stdout);
+  console.warn('RELEVANT TESTS: ', changedFiles); // eslint-disable-line no-console
   console.warn('DIRTY WORKSPACES: ', dirtyWorkspaces); // eslint-disable-line no-console
   console.warn('WORKSPACES TO TEST: ', relatedWorkspaces); // eslint-disable-line no-console
 
