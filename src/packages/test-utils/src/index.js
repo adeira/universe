@@ -20,7 +20,6 @@ function evaluateGraphQLResolver(
   argsValue?: Object,
   contextValue?: Object,
 ) {
-  // $FlowExpectedError: fields are possibly undefined but we assume it's fine
   const resolveFn = field.resolve || function resolveMock() {};
   return resolveFn(testValue, argsValue, contextValue, {
     path: { key: 'mocked' },
