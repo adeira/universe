@@ -49,7 +49,7 @@ const createSnapshot = (breakingChangesBlock, newSchema) => {
 };
 
 fs.access(snapshotLocation, fs.constants.F_OK, err => {
-  // $FlowIssue: https://github.com/facebook/flow/issues/2692
+  // $FlowAllowDynamicImport
   const newSchema = require(path.join(process.cwd(), schemaLocation)).default;
 
   if (err) {

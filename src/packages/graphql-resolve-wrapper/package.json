@@ -1,5 +1,7 @@
 {
   "name": "@kiwicom/graphql-resolve-wrapper",
+  "description": "Utility which enables to wrap GraphQL resolvers with your custom functions.",
+  "homepage": "https://www.npmjs.com/package/@kiwicom/graphql-resolve-wrapper",
   "private": false,
   "version": "0.2.0",
   "main": "src/index.js",

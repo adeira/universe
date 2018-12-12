@@ -1,8 +1,9 @@
 {
   "name": "@kiwicom/vault2env",
+  "description": "Utility to help us fetching ENV variables from Vault automatically.",
+  "homepage": "https://www.npmjs.com/package/@kiwicom/vault2env",
   "private": false,
   "version": "0.0.4",
-  "description": "",
   "bin": "lib/index.js",
   "keywords": [
     "vault",

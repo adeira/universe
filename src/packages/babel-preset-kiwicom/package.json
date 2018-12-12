@@ -1,5 +1,7 @@
 {
   "name": "@kiwicom/babel-preset-kiwicom",
+  "description": "Babel preset for JS used at Kiwi.com.",
+  "homepage": "https://www.npmjs.com/package/@kiwicom/babel-preset-kiwicom",
   "private": false,
   "version": "0.1.0",
   "main": "src/index.js",

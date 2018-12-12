@@ -22,7 +22,7 @@ function findPackages(cb) {
     path.join(paths.packages, './*/package.json'),
     (error, packageJSONPaths) => {
       packageJSONPaths.forEach(packageJSONPath => {
-        // $FlowIssue: https://github.com/facebook/flow/issues/2692
+        // $FlowAllowDynamicImport
         const packageJSONFile = require(packageJSONPath);
         // we can publish only public packages
         if (packageJSONFile.private === false) {

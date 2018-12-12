@@ -1,5 +1,7 @@
 {
   "name": "@kiwicom/signed-source",
+  "description": "Utility for signing and verifying generated files.",
+  "homepage": "https://www.npmjs.com/package/@kiwicom/signed-source",
   "private": false,
   "version": "0.1.0",
   "main": "src/SignedSource.js",

@@ -6,7 +6,7 @@
 const path = require('path');
 const eslintRules = require('eslint/lib/load-rules');
 
-// $FlowIssue: https://github.com/facebook/flow/issues/2692
+// $FlowAllowDynamicImport
 const eslintConfig = require(path.join(__dirname, '..', 'index.js'));
 
 const ourRules = new Set(Object.keys(eslintConfig.rules));
