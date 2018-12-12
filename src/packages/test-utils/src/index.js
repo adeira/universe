@@ -8,7 +8,7 @@ import generateTestsFromFixtures from './generateTestsFromFixtures';
  * ```js
  * const fields = Location.getFields();
  * expect(
- *   evaluateResolver(fields.countryFlagURL, {
+ *   evaluateGraphQLResolver(fields.countryFlagURL, {
  *     country: ' ... ', // test value
  *   }),
  * ).toBe(' ... ');

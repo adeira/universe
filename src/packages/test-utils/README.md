@@ -1,5 +1,3 @@
-TODO
-
 # `generateTestsFromFixtures`
 
 ```js
@@ -10,4 +8,15 @@ function operation(input) {
 }
 
 generateTestsFromFixtures(`${__dirname}/__fixtures__`, operation);
+```
+
+# `evaluateGraphQLResolver`
+
+```js
+const fields = Location.getFields();
+expect(
+  evaluateGraphQLResolver(fields.countryFlagURL, {
+    country: ' ... ', // test value
+  }),
+).toBe(' ... ');
 ```

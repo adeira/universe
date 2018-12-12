@@ -9,7 +9,7 @@ import {
   GraphQLNonNull,
   GraphQLList,
 } from 'graphql';
-import { evaluateGraphQLResolver as evaluateResolver } from '@kiwicom/test-utils';
+import { evaluateGraphQLResolver } from '@kiwicom/test-utils';
 
 import { wrapResolvers, isSystemType } from '../index';
 
@@ -72,17 +72,17 @@ describe('default wrapper', () => {
     ['resolveValueString', 'aaa'],
     ['resolveValueNumber', 111],
   ])('should resolve field %p with value %p', (field, expectedValue) => {
-    expect(evaluateResolver(fields[field], {})).toBe(expectedValue);
+    expect(evaluateGraphQLResolver(fields[field], {})).toBe(expectedValue);
   });
 
   it('resolves promise', async () => {
-    await expect(evaluateResolver(fields.resolvePromise, {})).resolves.toBe(
+    await expect(evaluateGraphQLResolver(fields.resolvePromise, {})).resolves.toBe(
       'bbb',
     );
   });
 
   it('throws an error', () => {
-    expect(() => evaluateResolver(fields.throwError, {})).toThrowError(
+    expect(() => evaluateGraphQLResolver(fields.throwError, {})).toThrowError(
       'secret error ccc',
     );
   });
@@ -102,13 +102,13 @@ describe('custom wrapper', () => {
     ['resolveValueNumber', 111],
     ['resolvePromise', 'BBB'],
   ])('should resolve field %p with value %p', async (field, expectedValue) => {
-    await expect(evaluateResolver(fields[field], {})).resolves.toBe(
+    await expect(evaluateGraphQLResolver(fields[field], {})).resolves.toBe(
       expectedValue,
     );
   });
 
   it('throws an error', async () => {
-    await expect(evaluateResolver(fields.throwError, {})).rejects.toThrowError(
+    await expect(evaluateGraphQLResolver(fields.throwError, {})).rejects.toThrowError(
       'secret error ccc',
     );
   });
