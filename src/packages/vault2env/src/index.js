@@ -3,15 +3,17 @@
 /* eslint-disable no-console */
 // @flow
 
-const os = require('os');
-const fs = require('fs-extra');
-const request = require('request-promise-native');
-const argv = require('minimist')(process.argv.slice(2));
+import os from 'os';
+import fs from 'fs-extra';
+import fetchWithRetries from '@mrtnzlml/fetch';
+import parseArgs from 'minimist';
 
 type Parameters = {
   +force?: boolean,
   +pollute?: boolean,
 };
+
+const argv = parseArgs(process.argv.slice(2));
 
 const getParams = (exports.getParams = (params: Object) => {
   const requiredVaultParams = ['addr', 'token'];
@@ -45,15 +47,14 @@ const getSecrets = (exports.getSecrets = async (
 ) => {
   const apiVersion = 'v1';
 
-  const response = await request([addr, apiVersion, path].join('/'), {
+  const response = await fetchWithRetries([addr, apiVersion, path].join('/'), {
     method: 'GET',
     headers: {
       'X-Vault-Token': token,
     },
   });
   try {
-    const json = JSON.parse(response);
-
+    const json = await response.json();
     return json.data;
   } catch (err) {
     throw new Error(

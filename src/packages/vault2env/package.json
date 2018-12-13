@@ -3,8 +3,10 @@
   "description": "Utility to help us fetching ENV variables from Vault automatically.",
   "homepage": "https://www.npmjs.com/package/@kiwicom/vault2env",
   "private": false,
-  "version": "0.0.4",
-  "bin": "lib/index.js",
+  "version": "0.1.0",
+  "bin": {
+    "vault2env": "src/index.js"
+  },
   "keywords": [
     "vault",
     "dotenv",
@@ -12,12 +14,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^4.0.1",
-    "minimist": "^1.2.0",
-    "request": "^2.81.0",
-    "request-promise-native": "^1.0.4"
+    "@mrtnzlml/fetch": "^1.3.0",
+    "fs-extra": "^7.0.1",
+    "minimist": "^1.2.0"
   },
   "devDependencies": {
-    "sinon": "^3.2.1"
+    "sinon": "^7.2.2"
   }
 }
