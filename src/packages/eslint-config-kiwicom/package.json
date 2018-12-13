@@ -1,9 +1,9 @@
 {
   "name": "@kiwicom/eslint-config",
   "description": "Eslint configuration describing rules for JS used at Kiwi.com.",
-  "homepage": "https://www.npmjs.com/package/@kiwicom/eslint-config",
+  "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-config-kiwicom",
   "private": false,
-  "version": "0.5.0",
+  "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
     "eslint": "^5.8.0",
