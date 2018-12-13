@@ -79,10 +79,10 @@ function runTests(workspaceDependencies) {
     'pipe',
   );
 
-  const changedFiles = JSON.parse(changedFilesOutput.stdout);
+  const changedTestFiles = JSON.parse(changedFilesOutput.stdout);
   const dirtyWorkspaces = findDirtyWorkspaces(
     workspaceDependencies,
-    changedFiles,
+    changedTestFiles,
   );
 
   const relatedWorkspaces = findRelatedWorkspaces(
@@ -90,7 +90,7 @@ function runTests(workspaceDependencies) {
     dirtyWorkspaces,
   );
 
-  console.warn('RELEVANT TESTS: ', changedFiles); // eslint-disable-line no-console
+  console.warn('RELEVANT TESTS: ', changedTestFiles); // eslint-disable-line no-console
   console.warn('DIRTY WORKSPACES: ', dirtyWorkspaces); // eslint-disable-line no-console
   console.warn('WORKSPACES TO TEST: ', relatedWorkspaces); // eslint-disable-line no-console
 
@@ -99,8 +99,12 @@ function runTests(workspaceDependencies) {
     pathsToTest.add(workspaceDependencies[relatedWorkspace].location);
   });
 
-  if (pathsToTest.size > 0) {
-    runJest(Array.from(pathsToTest));
+  if (pathsToTest.size > 0 || changedTestFiles.length > 0) {
+    runJest(
+      Array.from(pathsToTest)
+        .concat(changedTestFiles) // some tests may be outside of Yarn Workspace
+        .concat(process.argv.slice(2)),
+    );
   }
 }
 
