@@ -11,6 +11,15 @@ yarn add --dev @kiwicom/eslint-config
 And use it in your `.eslintrc.js`:
 
 ```js
+module.exports = {
+  root: true,
+  extends: ['@kiwicom/eslint-config'],
+};
+```
+
+Or set your eslint as needed with `babel-eslint` parser for example (you need to install it separately):
+
+```js
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
