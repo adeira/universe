@@ -89,7 +89,7 @@ These are coworking I actually visited. Highlighted coworkings are really good.
 - **http://spinstreet.co/** (one of the best coworkings I've ever visited - Great community, speedy internet, cool people and events ; latest report from the cowo is that community went down)
 
 ## Lima
-- https://comunal.co/
+- https://comunal.co/ (corporate office buildings with coworking as a side business, zero community but you have access to their buildings all over the city which can be handy)
 
 ## Marrakech:
 - http://www.thespot.ma/ (good location, friendly staff, zero community, no free water, free coffee/tea)
