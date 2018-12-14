@@ -4,7 +4,10 @@ const execa = require('execa');
 
 let data = '';
 if (process.argv.includes('--all')) {
-  runJest([]); // just run everything
+  // just run everything with different TZ variants
+  runJest([], 'inherit', 'UTC');
+  runJest([], 'inherit', 'Asia/Tokyo'); // +9
+  runJest([], 'inherit', 'America/Lima'); // -5
 } else {
   process.stdin.on('data', chunk => {
     data += chunk;
