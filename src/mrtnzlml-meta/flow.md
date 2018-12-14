@@ -137,6 +137,7 @@ No errors!
 
 - https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
 - https://flow.org/en/docs/types/utilities/#toc-call
+- https://github.com/niieani/typescript-vs-flowtype/issues/37
 
 # Advanced debugging
 
