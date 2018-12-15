@@ -3,7 +3,7 @@
   "description": "Babel preset for JS used at Kiwi.com.",
   "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/babel-preset-kiwicom",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "src/index.js",
   "dependencies": {
     "@babel/preset-env": "^7.2.0",
