@@ -1,1 +1,1 @@
-TODO
+Automator is our little friend to help us with repetitive task that has to be done but can be automated. So far it only updated the information about our public NPM packages in our documentation. It can perform the changes, commit & push these changes and open merge request in GitLab.

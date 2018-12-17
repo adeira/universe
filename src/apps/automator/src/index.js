@@ -12,7 +12,7 @@ import updateNPMPackagesInfo from './tasks/updateNPMPackagesInfo';
 (function run() {
   const TASK_IDENTIFIER = '1';
   log(TASK_IDENTIFIER, 'starting task');
-  updateNPMPackagesInfo(TASK_IDENTIFIER, () =>
+  updateNPMPackagesInfo(TASK_IDENTIFIER, async () =>
     log(TASK_IDENTIFIER, 'task finished'),
   );
 })();
