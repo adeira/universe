@@ -1,0 +1,7 @@
+{
+  "name": "@kiwicom/automator",
+  "private": true,
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "dependencies": {}
+}
