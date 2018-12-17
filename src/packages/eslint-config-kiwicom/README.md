@@ -2,10 +2,12 @@ Purpose of this package is to share common eslint configuration among other JS p
 
 # Usage
 
-Install this package:
+Before you start you should remove all Eslint plugins from your `package.json` files. This package takes care of all the plugins that are necessary. You should install additional plugins only when you need to add some extra rules. It's a good idea to contribute these rules back to this package so everyone can benefit from it.
+
+Install this package (as well as Eslint):
 
 ```
-yarn add --dev @kiwicom/eslint-config
+yarn add eslint @kiwicom/eslint-config --dev [--ignore-workspace-root-check]
 ```
 
 And use it in your `.eslintrc.js`:
