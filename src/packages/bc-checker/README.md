@@ -1,4 +1,4 @@
-This package checks breaking changes in your GraphQL schema. It saves the schema snapshot (you should version it) and it compares it with newest changes in your schema. This way it's possible to discover breaking changes and it helps you to fix them. This script should be executed on CI server.
+This package checks breaking changes in your GraphQL schema. It saves the schema snapshot (you should version it) and it compares it with newest changes in your schema. This way it's possible to discover breaking changes and it helps you to fix them. It also detects manual changes. This script should be executed on CI server.
 
 # Usage
 
@@ -8,28 +8,18 @@ First install the package:
 yarn add --dev @kiwicom/graphql-bc-checker
 ```
 
-And add it to the Yarn scripts:
-
-```json
-"scripts": {
-  "test-bc": "yarn check-backward-compatibility --snapshot=./graphql-schema-snapshot.graphql --schema=./Schema.js",
-}
-```
-
-Where `Schema.js` is:
+And use it as you wish (`scripts/test-bc.js`):
 
 ```js
-// @flow
+import testBC from '@kiwicom/graphql-bc-checker';
 
-import { GraphQLSchema } from 'graphql';
+import Schema from './src/Schema';
 
-import RootQuery from './RootQuery';
-
-const Schema = new GraphQLSchema({
-  query: RootQuery,
+testBC({
+  allowBreakingChanges: false,
+  snapshotLocation: './schema-snapshot.graphql',
+  schema: Schema,
 });
-
-export default Schema;
 ```
 
 You should get this response:
