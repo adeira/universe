@@ -1,6 +1,10 @@
 - https://github.com/sibelius/relay-modern-network-deep-dive
 - https://github.com/facebook/relay/tree/master/packages/relay-test-utils
 
+TODO:
+
+- connection with handler? (https://github.com/facebook/relay/issues/2570#issuecomment-438026375)
+
 # Local schema
 
 First define local schema (`schema.local.graphql`):
