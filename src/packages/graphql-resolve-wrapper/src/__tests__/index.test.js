@@ -76,9 +76,9 @@ describe('default wrapper', () => {
   });
 
   it('resolves promise', async () => {
-    await expect(evaluateGraphQLResolver(fields.resolvePromise, {})).resolves.toBe(
-      'bbb',
-    );
+    await expect(
+      evaluateGraphQLResolver(fields.resolvePromise, {}),
+    ).resolves.toBe('bbb');
   });
 
   it('throws an error', () => {
@@ -108,9 +108,9 @@ describe('custom wrapper', () => {
   });
 
   it('throws an error', async () => {
-    await expect(evaluateGraphQLResolver(fields.throwError, {})).rejects.toThrowError(
-      'secret error ccc',
-    );
+    await expect(
+      evaluateGraphQLResolver(fields.throwError, {}),
+    ).rejects.toThrowError('secret error ccc');
   });
 
   it('should not affect system fields', async () => {

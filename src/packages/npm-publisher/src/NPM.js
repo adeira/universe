@@ -6,7 +6,6 @@ import ENV from '@kiwicom/environment';
 const URI = 'https://registry.npmjs.org/npm';
 const NPM = new NPMRegistryClient();
 
-
 type Callback = (
   error: {| +statusCode: number |}, // error is an error if there was a problem.
   data: Object, // data is the parsed data object
