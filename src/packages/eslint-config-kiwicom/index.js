@@ -453,6 +453,10 @@ module.exports = {
     'monorepo/no-internal-import': ERROR,
     'monorepo/no-relative-import': ERROR,
 
+    // Node.js (https://github.com/mysticatea/eslint-plugin-node)
+    'node/no-missing-require': WARN, // TODO: ERROR in new major release
+    'node/no-deprecated-api': WARN,
+
     // Kiwi.com custom rules
     'kiwi-graphql/only-nullable-fields': ERROR,
   },
@@ -468,6 +472,7 @@ module.exports = {
     'eslint-plugin-import',
     'eslint-plugin-dependencies',
     'eslint-plugin-monorepo',
+    'eslint-plugin-node',
     'eslint-plugin-kiwi-graphql',
   ],
 };
