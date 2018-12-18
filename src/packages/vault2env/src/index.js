@@ -3,19 +3,25 @@
 /* eslint-disable no-console */
 // @flow
 
+import fs from 'fs';
 import os from 'os';
-import fs from 'fs-extra';
 import fetchWithRetries from '@mrtnzlml/fetch';
-import parseArgs from 'minimist';
+import program from 'commander';
 
 type Parameters = {
   +force?: boolean,
   +pollute?: boolean,
 };
 
-const argv = parseArgs(process.argv.slice(2));
+program
+  .option('--token <token>')
+  .option('--addr <addr>')
+  .option('--path <path>')
+  .option('--force')
+  .option('--pollute')
+  .parse(process.argv);
 
-const getParams = (exports.getParams = (params: Object) => {
+export const getParams = (params: Object) => {
   const requiredVaultParams = ['addr', 'token'];
   const requiredParams = ['path'];
   const vaultParams = requiredVaultParams
@@ -38,13 +44,9 @@ const getParams = (exports.getParams = (params: Object) => {
   });
 
   return { ...params, ...vaultParams };
-});
+};
 
-const getSecrets = (exports.getSecrets = async (
-  addr: string,
-  path: string,
-  token: string,
-) => {
+const getSecrets = async (addr: string, path: string, token: string) => {
   const apiVersion = 'v1';
 
   const response = await fetchWithRetries([addr, apiVersion, path].join('/'), {
@@ -61,14 +63,14 @@ const getSecrets = (exports.getSecrets = async (
       `Error while parsing JSON response from vault: ${err.message}`,
     );
   }
-});
+};
 
 const defaultParameters: Parameters = {
   force: false,
   pollute: false,
 };
 
-const writeEnvFile = (exports.writeEnvFile = async (
+export const writeEnvFile = async (
   secrets: Object,
   userParameters: Parameters = {},
 ) => {
@@ -93,13 +95,13 @@ const writeEnvFile = (exports.writeEnvFile = async (
     }
   }
 
-  return fs.writeFile('.env', output, { encoding: 'utf-8' });
-});
+  return fs.writeFile('.env', output);
+};
 
 if (require.main === module) {
   (async () => {
     try {
-      const params = getParams(argv);
+      const params = getParams(program);
       const secrets = await getSecrets(params.addr, params.path, params.token);
       await writeEnvFile(secrets, {
         force: params.force,

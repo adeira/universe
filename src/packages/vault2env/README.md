@@ -20,10 +20,10 @@ Vault token and address can be set also as env variables - just like with the va
 
 ### List of CLI options
 
-| Option        | Default?   | Required? | Description                               |
-| ------------- |:----------:|:---------:|:------------------------------------------|
-| `--token`     | -          | yes       | Vault token                               |
-| `--addr`      | -          | yes       | Url address to Vault                      | 
-| `--path`      | -          | yes       | Vault path to desired secrets             |
-| `--force`     | false      | no        | Overwrite `.env` file if already exists   |
-| `--pollute`   | false      | no        | Export variables into `process.env.*`     |
+| Option        | Default?   | Required? | Description                               | Deprecated? |
+| ------------- |:----------:|:---------:|:------------------------------------------|:-----------:|
+| `--token`     | -          | yes       | Vault token                               |             |
+| `--addr`      | -          | yes       | Url address to Vault                      |             |
+| `--path`      | -          | yes       | Vault path to desired secrets             |             |
+| `--force`     | false      | no        | Overwrite `.env` file if already exists   |             |
+| `--pollute`   | false      | no        | Export variables into `process.env.*`     | yes         |
