@@ -8,17 +8,11 @@ import os from 'os';
 import fetchWithRetries from '@mrtnzlml/fetch';
 import program from 'commander';
 
-type Parameters = {
-  +force?: boolean,
-  +pollute?: boolean,
-};
-
 program
   .option('--token <token>')
   .option('--addr <addr>')
   .option('--path <path>')
   .option('--force')
-  .option('--pollute')
   .parse(process.argv);
 
 export const getParams = (params: Object) => {
@@ -33,10 +27,10 @@ export const getParams = (params: Object) => {
           `You must provide Vault ${param} by "${envName}" or --${param}.`,
         );
       }
-
       return { [param]: value };
     })
     .reduce((memo, item) => ({ ...memo, ...item }), {});
+
   requiredParams.forEach(param => {
     if (!params[param]) {
       throw new Error(`You must provide --${param}.`);
@@ -47,15 +41,18 @@ export const getParams = (params: Object) => {
 };
 
 const getSecrets = async (addr: string, path: string, token: string) => {
-  const apiVersion = 'v1';
-
-  const response = await fetchWithRetries([addr, apiVersion, path].join('/'), {
-    method: 'GET',
-    headers: {
-      'X-Vault-Token': token,
-    },
-  });
   try {
+    const apiVersion = 'v1';
+    const response = await fetchWithRetries(
+      [addr, apiVersion, path].join('/'),
+      {
+        method: 'GET',
+        headers: {
+          'X-Vault-Token': token,
+        },
+      },
+    );
+
     const json = await response.json();
     return json.data;
   } catch (err) {
@@ -65,37 +62,29 @@ const getSecrets = async (addr: string, path: string, token: string) => {
   }
 };
 
-const defaultParameters: Parameters = {
-  force: false,
-  pollute: false,
-};
-
-export const writeEnvFile = async (
+export const writeEnvFile = (
   secrets: Object,
-  userParameters: Parameters = {},
+  force: boolean,
+  cb?: () => void,
 ) => {
-  const parameters = { ...defaultParameters, ...userParameters };
-
   const output = Object.keys(secrets)
-    .map(key => {
-      if (parameters.pollute === true) {
-        process.env[key] = secrets[key];
-      }
-      return `${key}=${secrets[key]}`;
-    })
+    .map(key => `${key}=${secrets[key]}`)
     .join(os.EOL);
 
   if (!output) {
     throw new Error('No secrets to write!');
   }
 
-  if (!parameters.force) {
-    if (await fs.exists('.env')) {
+  fs.access('.env', fs.constants.F_OK, error => {
+    if (error) {
+      // file doesn't exist yet
+      fs.writeFile('.env', output, cb);
+    } else if (!force) {
       throw new Error('.env file already exists, use --force to overwrite.');
+    } else {
+      fs.writeFile('.env', output, cb);
     }
-  }
-
-  return fs.writeFile('.env', output);
+  });
 };
 
 if (require.main === module) {
@@ -103,14 +92,12 @@ if (require.main === module) {
     try {
       const params = getParams(program);
       const secrets = await getSecrets(params.addr, params.path, params.token);
-      await writeEnvFile(secrets, {
-        force: params.force,
-        pollute: params.pollute,
-      });
 
-      console.log('Retrieved secrets:');
-      console.log(Object.keys(secrets).join(os.EOL));
-      console.log(os.EOL + '.env file created.' + os.EOL);
+      writeEnvFile(secrets, params.force, () => {
+        console.log('Retrieved secrets:');
+        console.log(Object.keys(secrets).join(os.EOL));
+        console.log(os.EOL + '.env file created.' + os.EOL);
+      });
     } catch (err) {
       console.error(`Error while retrieving secrets: ${err.message}`);
       process.exit(1);
