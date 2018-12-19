@@ -42,7 +42,7 @@ module.exports = {
     'require-atomic-updates': ERROR,
     'use-isnan': ERROR,
     'valid-jsdoc': OFF,
-    'valid-typeof': ERROR,
+    'valid-typeof': OFF, // see: babel/valid-typeof
 
     // Best Practices (http://eslint.org/docs/rules/#best-practices)
     'accessor-pairs': [WARN, { setWithoutGet: true }],
@@ -102,7 +102,7 @@ module.exports = {
     'no-sequences': WARN,
     'no-throw-literal': WARN,
     'no-unmodified-loop-condition': OFF,
-    'no-unused-expressions': OFF, // allowShortCircuit?
+    'no-unused-expressions': OFF, // see: babel/no-unused-expressions
     'no-unused-labels': WARN,
     'no-useless-call': WARN,
     'no-useless-concat': WARN,
@@ -154,7 +154,7 @@ module.exports = {
     'array-element-newline': [WARN, 'consistent'],
     'block-spacing': WARN,
     'brace-style': [WARN, '1tbs', { allowSingleLine: true }],
-    camelcase: ERROR,
+    camelcase: OFF, // see: babel/camelcase
     'capitalized-comments': OFF,
     'comma-dangle': [
       WARN,
@@ -244,11 +244,11 @@ module.exports = {
         numbers: true,
       },
     ],
-    quotes: [WARN, 'single', 'avoid-escape'],
+    quotes: OFF, // see: babel/quotes
     'require-jsdoc': OFF,
     'semi-spacing': ERROR,
     'semi-style': [ERROR, 'last'],
-    semi: ERROR,
+    semi: OFF, // see: babel/semi
     'sort-keys': OFF,
     'sort-vars': OFF,
     'space-before-blocks': WARN,
@@ -309,10 +309,20 @@ module.exports = {
     'yield-star-spacing': WARN,
 
     // Babel (https://github.com/babel/eslint-plugin-babel)
+    'babel/camelcase': [
+      ERROR,
+      {
+        ignoreDestructuring: false,
+        properties: 'never', // it's quite common to have object properties mixed
+      },
+    ],
     'babel/new-cap': OFF,
     'babel/object-curly-spacing': OFF,
     'babel/no-invalid-this': OFF,
-    'babel/no-await-in-loop': OFF, // deprecated; now using 'no-await-in-loop' from eslint core
+    'babel/no-unused-expressions': WARN, // TODO: ERROR in new major release
+    'babel/quotes': [WARN, 'single', 'avoid-escape'],
+    'babel/semi': ERROR,
+    'babel/valid-typeof': ERROR,
 
     // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
     'flowtype/boolean-style': WARN,

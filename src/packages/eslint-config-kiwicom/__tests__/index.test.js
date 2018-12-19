@@ -23,23 +23,33 @@ const deprecatedRules = new Set([
   'no-negated-in-lhs', // no-unsafe-negation
   'no-spaced-func', // func-call-spacing
   'prefer-reflect', // (no replacement)
+
+  // https://github.com/babel/eslint-plugin-babel#deprecated
+  'babel/array-bracket-spacing', // array-bracket-spacing
+  'babel/arrow-parens', // arrow-parens
+  'babel/flow-object-type', // flowtype/object-type-delimiter
+  'babel/func-params-comma-dangle', // comma-dangle
+  'babel/generator-star-spacing', // generator-star-spacing
+  'babel/no-await-in-loop', // no-await-in-loop
+  'babel/object-shorthand', // object-shorthand
 ]);
 
-// Get plugins from package.json. Assume they're all in peerDependencies.
-//
-// const plugins = Object.keys(require('../package.json').peerDependencies)
-//   .filter(dep => dep.startsWith('eslint-plugin'))
-//   .map(dep => dep.replace('eslint-plugin-', ''));
-//
-// const plugins = Object.keys(require('../package.json').devDependencies)
-//   .filter(dep => dep.startsWith('eslint-plugin'))
-//   .map(dep => dep.replace('eslint-plugin-', ''));
-//
-// plugins.forEach(plugin => {
-//   Object.keys(require(`eslint-plugin-${plugin}`).rules).forEach(rule => {
-//     supportedRules.add(`${plugin}/${rule}`);
-//   });
-// });
+// Get plugins from package.json. Assume they're all in dependencies.
+const plugins = Object.keys(require('../package.json').dependencies)
+  .filter(dep => dep.startsWith('eslint-plugin'))
+  .filter(dep => {
+    // we are not testing every 3rd party plugins yet
+    const whitelistedPlugins = ['eslint-plugin-babel'];
+    return whitelistedPlugins.includes(dep);
+  })
+  .map(dep => dep.replace('eslint-plugin-', ''));
+
+plugins.forEach(plugin => {
+  // $FlowAllowDynamicImport
+  Object.keys(require(`eslint-plugin-${plugin}`).rules).forEach(rule => {
+    supportedRules.add(`${plugin}/${rule}`);
+  });
+});
 
 const missing = new Set();
 const extra = new Set();
