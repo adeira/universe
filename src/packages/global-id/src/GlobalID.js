@@ -4,11 +4,15 @@ import {
   GraphQLNonNull,
   GraphQLID,
   GraphQLBoolean,
+  GraphQLObjectType,
   type GraphQLResolveInfo,
   type GraphQLFieldConfig,
 } from 'graphql';
+import { invariant } from '@mrtnzlml/utils';
 
 opaque type Base64String = string;
+
+const SYMBOL_GLOBAL_ID = Symbol.for('graphql_global_id');
 
 function base64(i: string): Base64String {
   return Buffer.from(i).toString('base64');
@@ -18,22 +22,49 @@ function unbase64(i) {
   return Buffer.from(i, 'base64').toString('utf8');
 }
 
-function toGlobalId(type: string, id: string | number): string {
-  return base64([type, id].join(':'));
-}
-
 export function fromGlobalId(opaqueID: string): string {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
   return unbasedGlobalID.substring(delimiterPos + 1);
 }
 
-// TODO: find out better way how to do it (type should be just an internal detail)
+// TODO: find out better way how to do it (type should be just an internal detail - see evaluateGlobalIdField)
 export function isTypeOf(type: string, opaqueID: string): boolean {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
   const unmaskedType = unbasedGlobalID.substring(0, delimiterPos);
   return unmaskedType === type;
+}
+
+/**
+ * This function returns opaque value of the ID field. It accepts GraphQL
+ * output object as a first parameter so the type internal ID is hidden.
+ */
+export function evaluateGlobalIdField(
+  outputObject: GraphQLObjectType,
+  parent: Object,
+) {
+  const idField = outputObject.getFields().id;
+
+  invariant(
+    idField !== undefined,
+    "Unable to evaluate field 'id' because it's missing.",
+  );
+
+  invariant(
+    // $FlowIssue: https://github.com/facebook/flow/issues/3258
+    idField[SYMBOL_GLOBAL_ID] === true,
+    "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
+  );
+
+  return (
+    outputObject
+      .getFields()
+      // $FlowExpectedError: incomplete resolver only tu fulfill requirements of globalIdField
+      .id.resolve(parent, { opaque: true }, undefined, {
+        parentType: { name: 'mocked' },
+      })
+  );
 }
 
 /**
@@ -76,20 +107,21 @@ export default function globalIdField(
     resolve: (obj, args, context, info) => {
       const id = idFetcher(obj, context, info);
 
-      if (id === undefined || id === null) {
-        // we cannot return null because of `GraphQLNonNull` and it is not ok
-        // to return opaque identifier containing `null` values because it
-        // indicates failure but it's not visible from outside (and it
-        // generates duplicate false keys)
-        throw new Error('Global ID cannot be null or undefined.');
-      }
+      // We cannot return null because of `GraphQLNonNull` and it is not OK
+      // to return opaque identifier containing `null` values because it
+      // indicates failure but it's not visible from outside (and it
+      // generates duplicate false keys). So we have to throw here.
+      invariant(id !== undefined, 'Global ID cannot be undefined.');
+      invariant(id !== null, 'Global ID cannot be null.');
 
       if (args.opaque === true) {
         // this should always be the default in our system
-        return toGlobalId(info.parentType.name, id);
+        return base64([info.parentType.name, id].join(':'));
       }
 
       return unmaskedIdFetcher ? unmaskedIdFetcher(obj, context, info) : id;
     },
+    // $FlowIssue: https://github.com/facebook/flow/issues/3258
+    [SYMBOL_GLOBAL_ID]: true,
   };
 }

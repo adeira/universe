@@ -1,6 +1,12 @@
 // @flow
 
-import GlobalID, { fromGlobalId, isTypeOf } from '../GlobalID';
+import { GraphQLObjectType, GraphQLID } from 'graphql';
+
+import GlobalID, {
+  fromGlobalId,
+  isTypeOf,
+  evaluateGlobalIdField,
+} from '../GlobalID';
 
 function base64(text) {
   return Buffer.from(text).toString('base64');
@@ -41,6 +47,7 @@ Object {
   "description": "The globally unique ID of an object. You can unmask this ID to get original value but please note that this unmasked ID is not globally unique anymore and therefore it cannot be used as a cache key.",
   "resolve": [Function],
   "type": "ID!",
+  Symbol(graphql_global_id): true,
 }
 `);
   });
@@ -83,8 +90,8 @@ Object {
     // $FlowExpectedError: ID fetcher result should nto be null
     const idFetcher = () => null;
     const field = GlobalID(idFetcher);
-    expect(() => resolveField(field)).toThrowError(
-      'Global ID cannot be null or undefined.',
+    expect(() => resolveField(field)).toThrowErrorMatchingInlineSnapshot(
+      '"Global ID cannot be null."',
     );
   });
 
@@ -92,8 +99,8 @@ Object {
     // $FlowExpectedError: ID fetcher result should nto be undefined
     const idFetcher = () => undefined;
     const field = GlobalID(idFetcher);
-    expect(() => resolveField(field)).toThrowError(
-      'Global ID cannot be null or undefined.',
+    expect(() => resolveField(field)).toThrowErrorMatchingInlineSnapshot(
+      '"Global ID cannot be undefined."',
     );
   });
 });
@@ -117,5 +124,50 @@ describe('isTypeOf', () => {
   it('resolves the type correctly', () => {
     expect(isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
     expect(isTypeOf('TypeName', resolveField(ID))).toBe(true);
+  });
+});
+
+describe('evaluateGlobalIdField', () => {
+  it('works with standard output object', () => {
+    expect(
+      evaluateGlobalIdField(
+        new GraphQLObjectType({
+          name: 'Test',
+          fields: {
+            id: GlobalID(() => 123),
+          },
+        }),
+      ),
+    ).toBe(base64('mocked:123'));
+  });
+
+  it('throws when trying to use incompatible output type', () => {
+    expect(() =>
+      evaluateGlobalIdField(
+        new GraphQLObjectType({
+          name: 'Test',
+          fields: {
+            id: GraphQLID,
+          },
+        }),
+      ),
+    ).toThrowErrorMatchingInlineSnapshot(
+      '"Unable to evaluate field \'id\' because provided object is not typeof GlobalID."',
+    );
+  });
+
+  it('throws when id filed is missing', () => {
+    expect(() =>
+      evaluateGlobalIdField(
+        new GraphQLObjectType({
+          name: 'Test',
+          fields: {
+            notIdField: GraphQLID,
+          },
+        }),
+      ),
+    ).toThrowErrorMatchingInlineSnapshot(
+      "\"Unable to evaluate field 'id' because it's missing.\"",
+    );
   });
 });
