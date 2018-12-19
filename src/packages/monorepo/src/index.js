@@ -2,11 +2,10 @@
 
 import glob from 'glob';
 
+// TODO: implement autodiscovery so we can get rid of this (?)
 import paths from '../../../../paths';
 
-export default function iterateWorkspaces(
-  cb: (packageJSONLocation: string) => void,
-) {
+export function iterateWorkspaces(cb: (packageJSONLocation: string) => void) {
   // $FlowAllowDynamicImport
   const rootPackageJSON = require(paths.rootPackageJSON);
 
