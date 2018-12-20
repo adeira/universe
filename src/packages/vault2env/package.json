@@ -8,7 +8,7 @@
     "vault2env": "bin/index.js"
   },
   "dependencies": {
-    "@mrtnzlml/fetch": "^1.3.0",
+    "@mrtnzlml/fetch": "^1.4.0",
     "commander": "^2.19.0"
   }
 }
