@@ -5,15 +5,25 @@ import { invariant } from '@mrtnzlml/utils';
 
 const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
 
+function isObject(value): boolean %checks {
+  return typeof value === 'object' && value !== null;
+}
+
 /**
  * Extend Jest with a custom snapshot serializer to provide additional context
  * and reduce the amount of escaping that occurs. This serializer is heavily
  * inspired by Relay test cases.
  */
 expect.addSnapshotSerializer({
-  print(value) {
-    return Object.keys(value)
-      .map(key => `~~~~~~~~~~ ${key.toUpperCase()} ~~~~~~~~~~\n${value[key]}`)
+  print(serializerValue) {
+    return Object.keys(serializerValue)
+      .map(key => {
+        const value = serializerValue[key];
+        const inspectedValue = isObject(value)
+          ? JSON.stringify(value, null, 2)
+          : value;
+        return `~~~~~~~~~~ ${key.toUpperCase()} ~~~~~~~~~~\n${inspectedValue}`;
+      })
       .join(os.EOL);
   },
   test(value) {
