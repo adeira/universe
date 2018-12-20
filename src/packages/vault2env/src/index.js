@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /* eslint-disable no-console */
 // @flow
 
@@ -15,7 +13,7 @@ program
   .option('--force')
   .parse(process.argv);
 
-export const getParams = (params: Object) => {
+export const _getParams = (params: Object) => {
   const requiredVaultParams = ['addr', 'token'];
   const requiredParams = ['path'];
   const vaultParams = requiredVaultParams
@@ -40,7 +38,7 @@ export const getParams = (params: Object) => {
   return { ...params, ...vaultParams };
 };
 
-const getSecrets = async (addr: string, path: string, token: string) => {
+const _getSecrets = async (addr: string, path: string, token: string) => {
   try {
     const apiVersion = 'v1';
     const response = await fetchWithRetries(
@@ -62,7 +60,7 @@ const getSecrets = async (addr: string, path: string, token: string) => {
   }
 };
 
-export const writeEnvFile = (
+export const _writeEnvFile = (
   secrets: Object,
   force: boolean,
   cb?: () => void,
@@ -87,20 +85,18 @@ export const writeEnvFile = (
   });
 };
 
-if (require.main === module) {
-  (async () => {
-    try {
-      const params = getParams(program);
-      const secrets = await getSecrets(params.addr, params.path, params.token);
+export default async function run() {
+  try {
+    const params = _getParams(program);
+    const secrets = await _getSecrets(params.addr, params.path, params.token);
 
-      writeEnvFile(secrets, params.force, () => {
-        console.log('Retrieved secrets:');
-        console.log(Object.keys(secrets).join(os.EOL));
-        console.log(os.EOL + '.env file created.' + os.EOL);
-      });
-    } catch (err) {
-      console.error(`Error while retrieving secrets: ${err.message}`);
-      process.exit(1);
-    }
-  })();
+    _writeEnvFile(secrets, params.force, () => {
+      console.log('Retrieved secrets:');
+      console.log(Object.keys(secrets).join(os.EOL));
+      console.log(os.EOL + '.env file created.' + os.EOL);
+    });
+  } catch (err) {
+    console.error(`Error while retrieving secrets: ${err.message}`);
+    process.exit(1);
+  }
 }
