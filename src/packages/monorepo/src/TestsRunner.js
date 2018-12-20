@@ -1,35 +1,28 @@
 // @flow
 
-const execa = require('execa');
+import execa from 'execa';
 
-let data = '';
-if (process.argv.includes('--all')) {
-  // just run everything with different TZ variants
-  runJest([], 'inherit', 'UTC');
-  runJest([], 'inherit', 'Asia/Tokyo'); // +9
-  runJest([], 'inherit', 'America/Lima'); // -5
-} else {
-  process.stdin.on('data', chunk => {
-    data += chunk;
-  });
-  process.stdin.on('end', () => {
-    runTests(JSON.parse(JSON.parse(data).data));
-  });
-}
+type WorkspaceDependencies = {
+  [string]: {|
+    +location: string,
+    +workspaceDependencies: $ReadOnlyArray<string>,
+    +mismatchedWorkspaceDependencies: $ReadOnlyArray<string>,
+  |},
+};
 
-function findRelatedWorkspaces(
-  workspaceDependencies,
-  touchedWorkspaces /*: Set<string> */,
+export function _findRelatedWorkspaces(
+  workspaceDependencies: WorkspaceDependencies,
+  touchedWorkspaces: Set<string>,
 ) {
   // 1) the initial workspaces itself
-  const workspacesToTest = new Set(touchedWorkspaces);
+  const workspacesToTest = new Set<string>(touchedWorkspaces);
 
   // 2) workspaces depending on this workspace
   Object.keys(workspaceDependencies).forEach(key => {
     const value = workspaceDependencies[key];
     touchedWorkspaces.forEach(touchedWorkspace => {
       if (value.workspaceDependencies.includes(touchedWorkspace)) {
-        findRelatedWorkspaces(workspaceDependencies, new Set([key])).forEach(
+        _findRelatedWorkspaces(workspaceDependencies, new Set([key])).forEach(
           relatedWorkspace => {
             workspacesToTest.add(relatedWorkspace);
           },
@@ -41,11 +34,11 @@ function findRelatedWorkspaces(
   return workspacesToTest;
 }
 
-function findDirtyWorkspaces(
-  workspaceDependencies,
-  changedFiles /*: $ReadOnlyArray<string> */,
+export function _findDirtyWorkspaces(
+  workspaceDependencies: WorkspaceDependencies,
+  changedFiles: $ReadOnlyArray<string>,
 ) {
-  const dirtyWorkspaces = new Set();
+  const dirtyWorkspaces = new Set<string>();
   Object.keys(workspaceDependencies).forEach(dependencyName => {
     const value = workspaceDependencies[dependencyName];
     changedFiles.forEach(changedFile => {
@@ -57,16 +50,10 @@ function findDirtyWorkspaces(
   return dirtyWorkspaces;
 }
 
-function runJest(config, stdio = 'inherit', timezone = 'UTC') {
+function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
   process.env.TZ = timezone;
-  const jestOptions = ['--config=jest.json', ...config];
-  // eslint-disable-next-line no-console
-  console.warn(
-    `Running tests in TZ=${
-      process.env.TZ
-    } with these options: ${jestOptions.join(' ')}`,
-  );
-  return execa.sync('jest', jestOptions, {
+
+  return execa.sync('jest', ['--config=jest.json', ...config], {
     stdio,
   });
 }
@@ -87,26 +74,26 @@ function runJest(config, stdio = 'inherit', timezone = 'UTC') {
  * Hopefully, this is going to be resolved and then we can completely remove
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
-function runTests(workspaceDependencies) {
+export function runTests(workspaceDependencies: WorkspaceDependencies) {
   // TODO:
   //  This is probably not good enough because it lists only related tests.
   //  However, there may be changes in non-JS files affecting the tests results
   //  and Jest is not able to detect this for obvious reasons. It would be better
   //  to extract the implementation from Jest and use Git here directly. This
   //  way we can find all related files and not only related test files.
-  const changedFilesOutput = runJest(
+  const changedFilesOutput = _runJest(
     // https://jestjs.io/docs/en/cli.html#changedfileswithancestor
     ['--listTests', '--changedFilesWithAncestor', '--json'],
     'pipe',
   );
 
   const changedTestFiles = JSON.parse(changedFilesOutput.stdout);
-  const dirtyWorkspaces = findDirtyWorkspaces(
+  const dirtyWorkspaces = _findDirtyWorkspaces(
     workspaceDependencies,
     changedTestFiles,
   );
 
-  const relatedWorkspaces = findRelatedWorkspaces(
+  const relatedWorkspaces = _findRelatedWorkspaces(
     workspaceDependencies,
     dirtyWorkspaces,
   );
@@ -115,28 +102,33 @@ function runTests(workspaceDependencies) {
   console.warn('DIRTY WORKSPACES: ', dirtyWorkspaces); // eslint-disable-line no-console
   console.warn('WORKSPACES TO TEST: ', relatedWorkspaces); // eslint-disable-line no-console
 
-  const pathsToTest = new Set();
+  const pathsToTest = new Set<string>();
   relatedWorkspaces.forEach(relatedWorkspace => {
     pathsToTest.add(workspaceDependencies[relatedWorkspace].location);
   });
 
   if (pathsToTest.size > 0 || changedTestFiles.length > 0) {
-    const jestConfig = Array.from(pathsToTest)
-      .concat(process.argv.slice(2))
-      .concat(changedTestFiles); // some tests may be outside of Yarn Workspace
+    const externalConfig = process.argv.slice(2);
+
+    let jestConfig;
+    if (externalConfig.length > 0) {
+      // external requirements always take precedence
+      jestConfig = Array.from(externalConfig);
+    } else {
+      // some tests may be outside of Yarn Workspace
+      jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
+    }
 
     // we do run the same tests in different timezone to uncover TZ issues
-    runJest(jestConfig, 'inherit', 'UTC');
-    runJest(jestConfig, 'inherit', 'Asia/Tokyo'); // +9
-    runJest(jestConfig, 'inherit', 'America/Lima'); // -5
+    _runJest(jestConfig, 'inherit', 'UTC');
+    _runJest(jestConfig, 'inherit', 'Asia/Tokyo'); // +9
+    _runJest(jestConfig, 'inherit', 'America/Lima'); // -5
   }
 }
 
-// const workspaceDependencies = {
-//   '@kiwicom/graphql-bc-checker': {
-//     location: 'src/packages/bc-checker',
-//     workspaceDependencies: ['@kiwicom/signed-source'],
-//     mismatchedWorkspaceDependencies: [],
-//   },
-//   ...
-// };
+export function runAllTests() {
+  // just run everything with different TZ variants
+  _runJest([], 'inherit', 'UTC');
+  _runJest([], 'inherit', 'Asia/Tokyo'); // +9
+  _runJest([], 'inherit', 'America/Lima'); // -5
+}

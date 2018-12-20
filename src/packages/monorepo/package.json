@@ -3,5 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "main": "src/index.js",
-  "dependencies": {}
+  "dependencies": {
+    "glob": "^7.1.3",
+    "execa": "^1.0.0"
+  }
 }

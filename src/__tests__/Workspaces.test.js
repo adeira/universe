@@ -27,9 +27,7 @@ describe('all NPM package.json files', () => {
       );
       expect(packageJson.version).not.toBeUndefined();
 
-      // there must be at least empty dependencies (or devDependencies) key
-      // otherwise eslint rule for `import/no-extraneous-dependencies`
-      // won't work ({} is enough)
+      // there must be empty dependencies or devDependencies key ({} is enough)
       expect(
         packageJson.dependencies !== undefined ||
           packageJson.devDependencies !== undefined,
