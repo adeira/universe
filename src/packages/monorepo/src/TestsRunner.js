@@ -53,7 +53,7 @@ export function _findDirtyWorkspaces(
 function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
   process.env.TZ = timezone;
 
-  return execa.sync('jest', ['--config=jest.json', ...config], {
+  return execa.sync('jest', ['--config=jest.config.js', ...config], {
     stdio,
   });
 }

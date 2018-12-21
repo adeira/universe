@@ -1,6 +1,7 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
-import { ProxiedError } from '../../apps/common/services/errors/ProxiedError';
+// FIXME: do not access stuff from workspaces!
+import { ProxiedError } from '../../src/apps/graphql/src/apps/common/services/errors/ProxiedError';
 
 test('Error', () => {
   expect(new Error()).toBeError();
