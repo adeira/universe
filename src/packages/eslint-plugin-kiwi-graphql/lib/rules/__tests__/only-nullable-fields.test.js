@@ -6,10 +6,7 @@ const rule = require('../only-nullable-fields');
 
 const ruleTester = new RuleTester({
   parserOptions: {
-    ecmaVersion: 7,
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-    },
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
 });

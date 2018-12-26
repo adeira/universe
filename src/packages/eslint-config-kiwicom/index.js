@@ -105,6 +105,7 @@ module.exports = {
     'no-unused-expressions': OFF, // see: babel/no-unused-expressions
     'no-unused-labels': WARN,
     'no-useless-call': WARN,
+    'no-useless-catch': WARN,
     'no-useless-concat': WARN,
     'no-useless-escape': WARN,
     'no-useless-return': WARN,
