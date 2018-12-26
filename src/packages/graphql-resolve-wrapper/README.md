@@ -8,6 +8,8 @@ yarn add @kiwicom/graphql-resolve-wrapper
 
 # Usage
 
+_Note: this function mutates the GraphQL schema (it replaces the `resolve` function)._
+
 ```js
 const Schema = new GraphQLSchema({
   query: RootQuery,

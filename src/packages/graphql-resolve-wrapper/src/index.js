@@ -2,7 +2,7 @@
 
 import { GraphQLSchema } from 'graphql';
 
-const Processed = Symbol('processed');
+const SYMBOL_PROCESSED = Symbol('processed');
 
 type GraphQLFieldResolveFn = (
   source?: any,
@@ -39,7 +39,11 @@ function visitSchema(schema, wrapper) {
 }
 
 function visitType(type: any, wrapper) {
-  if (type[Processed] || !type.getFields || isSystemType(type.toString())) {
+  if (
+    type[SYMBOL_PROCESSED] ||
+    !type.getFields ||
+    isSystemType(type.toString())
+  ) {
     return;
   }
 
@@ -56,11 +60,11 @@ function visitType(type: any, wrapper) {
 function wrapField(field: Object, wrapper) {
   const resolveFn = field.resolve;
 
-  if (field[Processed] || !resolveFn) {
+  if (field[SYMBOL_PROCESSED] || !resolveFn) {
     return;
   }
 
-  field[Processed] = true;
+  field[SYMBOL_PROCESSED] = true;
   field.resolve = wrapper(resolveFn, field);
 }
 
