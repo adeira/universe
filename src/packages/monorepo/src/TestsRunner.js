@@ -58,6 +58,13 @@ function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
   });
 }
 
+function _runJestTimezoneVariants(config) {
+  // we do run the same tests in different timezone to uncover TZ issues
+  _runJest(config, 'inherit', 'UTC');
+  _runJest(config, 'inherit', 'Asia/Tokyo'); // +9
+  _runJest(config, 'inherit', 'America/Lima'); // -5
+}
+
 /**
  * This script tests the whole application except Yarn Workspaces. Workspaces
  * and its related workspaces are being tested only when something actually
@@ -119,16 +126,10 @@ export function runTests(workspaceDependencies: WorkspaceDependencies) {
       jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
     }
 
-    // we do run the same tests in different timezone to uncover TZ issues
-    _runJest(jestConfig, 'inherit', 'UTC');
-    _runJest(jestConfig, 'inherit', 'Asia/Tokyo'); // +9
-    _runJest(jestConfig, 'inherit', 'America/Lima'); // -5
+    _runJestTimezoneVariants(jestConfig);
   }
 }
 
 export function runAllTests() {
-  // just run everything with different TZ variants
-  _runJest([], 'inherit', 'UTC');
-  _runJest([], 'inherit', 'Asia/Tokyo'); // +9
-  _runJest([], 'inherit', 'America/Lima'); // -5
+  _runJestTimezoneVariants([]);
 }

@@ -1,14 +1,13 @@
 // @flow
 
 import glob from 'glob';
+import { invariant } from '@mrtnzlml/utils';
 
-// TODO: implement autodiscovery so we can get rid of this (?)
-import paths from '../../../../paths';
+import findRootPackageJson from './findRootPackageJson';
+
+const rootPackageJSON = findRootPackageJson(__dirname);
 
 export function iterateWorkspaces(cb: (packageJSONLocation: string) => void) {
-  // $FlowAllowDynamicImport
-  const rootPackageJSON = require(paths.rootPackageJSON);
-
   rootPackageJSON.workspaces.forEach(workspace => {
     // src/apps        =>  src/apps/package.json
     // src/packages/*  =>  src/packages/*/package.json
@@ -26,5 +25,31 @@ export function iterateWorkspaces(cb: (packageJSONLocation: string) => void) {
     packageJSONLocations.forEach(packageJSONLocation => {
       cb(packageJSONLocation);
     });
+  });
+}
+
+export function iterateWorkspacesInPath(
+  path: string,
+  cb: (packageJSONLocation: string) => void,
+) {
+  const workspaces = rootPackageJSON.workspaces;
+  const isWorkspaceDirectory = workspaces.some(workspace => {
+    return new RegExp(workspace + '$').test(path);
+  });
+
+  invariant(
+    isWorkspaceDirectory === true,
+    `Path ${path} is not workspace directory. It must be one of: ${workspaces}`,
+  );
+
+  const packageJSONLocations = glob.sync(
+    path.replace(/\/?$/, '/*/package.json'),
+    {
+      absolute: true,
+    },
+  );
+
+  packageJSONLocations.forEach(packageJSONLocation => {
+    cb(packageJSONLocation);
   });
 }
