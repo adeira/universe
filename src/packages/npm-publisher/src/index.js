@@ -92,6 +92,28 @@ clearCacheFolder(() => {
                   );
                 });
 
+                // These files are optional:
+                ['CHANGELOG.md'].forEach(filenameToCopy => {
+                  const pathToCopy = path.join(
+                    packageFolderPath,
+                    filenameToCopy,
+                  );
+                  try {
+                    fs.accessSync(pathToCopy, fs.constants.F_OK);
+                    fs.copyFileSync(
+                      pathToCopy,
+                      path.join(
+                        paths.buildCache,
+                        packageFolderName,
+                        filenameToCopy,
+                      ),
+                    );
+                  } catch (error) {
+                    // noop - file doesn't exist
+                  }
+                });
+
+                // These files are required:
                 ['README.md', 'package.json'].forEach(filenameToCopy => {
                   fs.copyFileSync(
                     path.join(packageFolderPath, filenameToCopy),
