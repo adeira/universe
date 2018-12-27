@@ -1,7 +1,5 @@
 // @flow
 
-import { _findDirtyWorkspaces, _findRelatedWorkspaces } from '../TestsRunner';
-
 const workspaceDependencies = {
   // has workspaceDependencies (see bellow)
   '@kiwicom/graphql': {
@@ -38,43 +36,4 @@ const workspaceDependencies = {
   },
 };
 
-it('finds dirty workspaces based on path', () => {
-  expect(
-    _findDirtyWorkspaces(workspaceDependencies, [
-      '/unknown_path',
-      '/path/src/packages/signed-source/index.js',
-      '/path/src/apps/index.js',
-    ]),
-  ).toMatchInlineSnapshot(`
-Set {
-  "@kiwicom/graphql",
-  "@kiwicom/signed-source",
-}
-`);
-});
-
-it('finds related workspaces based on touched workspaces', () => {
-  expect(
-    _findRelatedWorkspaces(
-      workspaceDependencies,
-      new Set(['@kiwicom/graphql']),
-    ),
-  ).toMatchInlineSnapshot(`
-Set {
-  "@kiwicom/graphql",
-}
-`);
-
-  expect(
-    _findRelatedWorkspaces(
-      workspaceDependencies,
-      new Set(['@kiwicom/signed-source']),
-    ),
-  ).toMatchInlineSnapshot(`
-Set {
-  "@kiwicom/signed-source",
-  "@kiwicom/graphql-bc-checker",
-  "@kiwicom/graphql",
-}
-`);
-});
+export default workspaceDependencies;

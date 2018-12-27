@@ -8,11 +8,7 @@ const commonProjectConfig = {
 
 module.exports = {
   verbose: false,
-  reporters: [
-    'default',
-    ['jest-slow-test-reporter', { numTests: 5 }],
-    'jest-skipped-reporter',
-  ],
+  reporters: ['default'],
   projects: [
     {
       displayName: null,

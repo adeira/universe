@@ -2,53 +2,9 @@
 
 import execa from 'execa';
 
-type WorkspaceDependencies = {
-  [string]: {|
-    +location: string,
-    +workspaceDependencies: $ReadOnlyArray<string>,
-    +mismatchedWorkspaceDependencies: $ReadOnlyArray<string>,
-  |},
-};
-
-export function _findRelatedWorkspaces(
-  workspaceDependencies: WorkspaceDependencies,
-  touchedWorkspaces: Set<string>,
-) {
-  // 1) the initial workspaces itself
-  const workspacesToTest = new Set<string>(touchedWorkspaces);
-
-  // 2) workspaces depending on this workspace
-  Object.keys(workspaceDependencies).forEach(key => {
-    const value = workspaceDependencies[key];
-    touchedWorkspaces.forEach(touchedWorkspace => {
-      if (value.workspaceDependencies.includes(touchedWorkspace)) {
-        _findRelatedWorkspaces(workspaceDependencies, new Set([key])).forEach(
-          relatedWorkspace => {
-            workspacesToTest.add(relatedWorkspace);
-          },
-        );
-      }
-    });
-  });
-
-  return workspacesToTest;
-}
-
-export function _findDirtyWorkspaces(
-  workspaceDependencies: WorkspaceDependencies,
-  changedFiles: $ReadOnlyArray<string>,
-) {
-  const dirtyWorkspaces = new Set<string>();
-  Object.keys(workspaceDependencies).forEach(dependencyName => {
-    const value = workspaceDependencies[dependencyName];
-    changedFiles.forEach(changedFile => {
-      if (new RegExp(value.location).test(changedFile)) {
-        dirtyWorkspaces.add(dependencyName);
-      }
-    });
-  });
-  return dirtyWorkspaces;
-}
+import findRelatedWorkspaces from './findRelatedWorkspaces';
+import findDirtyWorkspaces from './findDirtyWorkspaces';
+import { type WorkspaceDependencies } from './Workspaces.flow';
 
 function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
   process.env.TZ = timezone;
@@ -61,8 +17,12 @@ function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
 function _runJestTimezoneVariants(config) {
   // we do run the same tests in different timezone to uncover TZ issues
   _runJest(config, 'inherit', 'UTC');
-  _runJest(config, 'inherit', 'Asia/Tokyo'); // +9
-  _runJest(config, 'inherit', 'America/Lima'); // -5
+
+  if (!config.includes('--watch')) {
+    // run tests variants only in normal mode (not watch)
+    _runJest(config, 'inherit', 'Asia/Tokyo'); // +9
+    _runJest(config, 'inherit', 'America/Lima'); // -5
+  }
 }
 
 /**
@@ -81,7 +41,14 @@ function _runJestTimezoneVariants(config) {
  * Hopefully, this is going to be resolved and then we can completely remove
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
-export function runTests(workspaceDependencies: WorkspaceDependencies) {
+export function runTests() {
+  const { stdout } = execa.sync('yarn', ['workspaces', 'info', '--json'], {
+    stdio: 'pipe',
+  });
+  const workspaceDependencies: WorkspaceDependencies = JSON.parse(
+    JSON.parse(stdout).data,
+  );
+
   const externalConfig = process.argv.slice(2);
   if (externalConfig.length > 0) {
     // external configuration always takes a precedence before our algorithm
@@ -102,12 +69,12 @@ export function runTests(workspaceDependencies: WorkspaceDependencies) {
   );
 
   const changedTestFiles = JSON.parse(changedFilesOutput.stdout);
-  const dirtyWorkspaces = _findDirtyWorkspaces(
+  const dirtyWorkspaces = findDirtyWorkspaces(
     workspaceDependencies,
     changedTestFiles,
   );
 
-  const relatedWorkspaces = _findRelatedWorkspaces(
+  const relatedWorkspaces = findRelatedWorkspaces(
     workspaceDependencies,
     dirtyWorkspaces,
   );
@@ -130,5 +97,6 @@ export function runTests(workspaceDependencies: WorkspaceDependencies) {
 }
 
 export function runAllTests() {
-  _runJestTimezoneVariants([]);
+  const externalConfig = process.argv.slice(2);
+  _runJestTimezoneVariants(externalConfig.length > 0 ? externalConfig : []);
 }
