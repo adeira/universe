@@ -348,18 +348,34 @@ module.exports = {
     'flowtype/use-flow-type': WARN,
     'flowtype/valid-syntax': OFF,
 
-    // Jasmine (https://github.com/tlvince/eslint-plugin-jasmine)
-    'jasmine/missing-expect': OFF,
-    'jasmine/named-spy': OFF,
-    'jasmine/no-assign-spyon': OFF,
-    'jasmine/no-disabled-tests': WARN,
-    'jasmine/no-focused-tests': ERROR,
-    'jasmine/no-spec-dupes': [WARN, 'branch'],
-    'jasmine/no-suite-callback-args': OFF,
-    'jasmine/no-suite-dupes': [WARN, 'branch'],
-    'jasmine/no-unsafe-spy': WARN,
-    'jasmine/no-global-setup': OFF, // TODO: WARN
-    'jasmine/valid-expect': OFF,
+    // Jasmine (https://github.com/jest-community/eslint-plugin-jest)
+    'jest/consistent-test-it': OFF,
+    'jest/expect-expect': OFF,
+    'jest/lowercase-name': OFF,
+    'jest/no-alias-methods': OFF,
+    'jest/no-disabled-tests': WARN,
+    'jest/no-focused-tests': ERROR,
+    'jest/no-hooks': OFF, // TODO: WARN
+    'jest/no-identical-title': WARN, // TODO: ERROR
+    'jest/no-jasmine-globals': WARN, // TODO: ERROR
+    'jest/no-jest-import': WARN, // TODO: ERROR
+    'jest/no-large-snapshots': OFF,
+    'jest/no-test-callback': OFF,
+    'jest/no-test-prefixes': OFF,
+    'jest/no-test-return-statement': WARN, // TODO: ERROR
+    'jest/no-truthy-falsy': OFF,
+    'jest/prefer-expect-assertions': OFF,
+    'jest/prefer-inline-snapshots': OFF,
+    'jest/prefer-spy-on': OFF,
+    'jest/prefer-strict-equal': OFF, // TODO: WARN
+    'jest/prefer-to-be-null': OFF, // TODO: WARN
+    'jest/prefer-to-be-undefined': OFF, // TODO: WARN
+    'jest/prefer-to-contain': OFF, // TODO: WARN
+    'jest/prefer-to-have-length': OFF, // TODO: WARN
+    'jest/require-tothrow-message': OFF,
+    'jest/valid-describe': WARN, // TODO: ERROR
+    'jest/valid-expect': WARN,
+    'jest/valid-expect-in-promise': WARN, // TODO: ERROR
 
     // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
     'prefer-object-spread/prefer-object-spread': WARN,
@@ -474,7 +490,7 @@ module.exports = {
   plugins: [
     'eslint-plugin-babel',
     'eslint-plugin-flowtype',
-    'eslint-plugin-jasmine',
+    'eslint-plugin-jest',
     'eslint-plugin-prefer-object-spread',
     'eslint-plugin-react',
     'eslint-plugin-react-native',

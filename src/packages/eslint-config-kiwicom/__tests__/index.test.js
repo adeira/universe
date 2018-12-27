@@ -39,7 +39,11 @@ const plugins = Object.keys(require('../package.json').dependencies)
   .filter(dep => dep.startsWith('eslint-plugin'))
   .filter(dep => {
     // we are not testing every 3rd party plugins yet
-    const whitelistedPlugins = ['eslint-plugin-babel'];
+    const whitelistedPlugins = [
+      'eslint-plugin-babel',
+      'eslint-plugin-jest',
+      'eslint-plugin-monorepo',
+    ];
     return whitelistedPlugins.includes(dep);
   })
   .map(dep => dep.replace('eslint-plugin-', ''));
