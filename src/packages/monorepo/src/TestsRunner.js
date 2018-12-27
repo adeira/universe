@@ -82,6 +82,13 @@ function _runJestTimezoneVariants(config) {
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 export function runTests(workspaceDependencies: WorkspaceDependencies) {
+  const externalConfig = process.argv.slice(2);
+  if (externalConfig.length > 0) {
+    // external configuration always takes a precedence before our algorithm
+    _runJestTimezoneVariants(externalConfig);
+    return;
+  }
+
   // TODO:
   //  This is probably not good enough because it lists only related tests.
   //  However, there may be changes in non-JS files affecting the tests results
@@ -115,17 +122,9 @@ export function runTests(workspaceDependencies: WorkspaceDependencies) {
   });
 
   if (pathsToTest.size > 0 || changedTestFiles.length > 0) {
-    const externalConfig = process.argv.slice(2);
-
-    let jestConfig;
-    if (externalConfig.length > 0) {
-      // external requirements always take precedence
-      jestConfig = Array.from(externalConfig);
-    } else {
-      // some tests may be outside of Yarn Workspace
-      jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
-    }
-
+    // we are running tests only when we have dirty workspaces OR when we
+    // have some files to test outside of our workspaces (system level tests)
+    const jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
     _runJestTimezoneVariants(jestConfig);
   }
 }

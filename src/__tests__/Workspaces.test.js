@@ -2,7 +2,7 @@
 
 import { iterateWorkspaces } from '@kiwicom/monorepo';
 
-describe('all NPM package.json files', () => {
+describe('all workspaces', () => {
   iterateWorkspaces(packageJSONLocation => {
     test(packageJSONLocation, () => {
       // $FlowAllowDynamicImport
@@ -22,9 +22,6 @@ describe('all NPM package.json files', () => {
         ).toBe(true);
       }
 
-      expect(packageJson.name).toMatch(
-        /^(@kiwicom\/.+|eslint-plugin-kiwi-graphql)/,
-      );
       expect(packageJson.version).not.toBeUndefined();
 
       // there must be empty dependencies or devDependencies key ({} is enough)
