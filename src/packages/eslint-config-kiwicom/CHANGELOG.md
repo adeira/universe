@@ -1,4 +1,5 @@
 # Unreleased
+- Added new `eslint-plugin-eslint-comments` to check Eslint comments
 
 # 1.3.0
 - 8550804 Added new `no-useless-catch` warning

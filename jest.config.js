@@ -15,7 +15,7 @@ module.exports = {
   ],
   projects: [
     {
-      displayName: '_',
+      displayName: null,
       ...commonProjectConfig,
       testMatch: [
         '<rootDir>/src/' + TESTS_REGEXP,

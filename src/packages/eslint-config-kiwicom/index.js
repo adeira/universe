@@ -484,6 +484,10 @@ module.exports = {
     'node/no-missing-require': WARN, // TODO: ERROR in new major release
     'node/no-deprecated-api': WARN,
 
+    // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
+    'eslint-comments/no-duplicate-disable': WARN,
+    'eslint-comments/no-unused-enable': WARN,
+
     // Kiwi.com custom rules
     'kiwi-graphql/only-nullable-fields': ERROR,
   },
@@ -500,6 +504,7 @@ module.exports = {
     'eslint-plugin-dependencies',
     'eslint-plugin-monorepo',
     'eslint-plugin-node',
+    'eslint-plugin-eslint-comments',
     'eslint-plugin-kiwi-graphql',
   ],
 };
