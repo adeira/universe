@@ -1,5 +1,5 @@
 {
   "docs": {
-    "GraphQL": ["directory-structure"]
+    "GraphQL": ["directory-structure", "design-style-guides", "vault", "faq"]
   }
 }

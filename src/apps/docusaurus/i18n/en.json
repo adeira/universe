@@ -5,9 +5,21 @@
     "previous": "Previous",
     "tagline": "Documentation for GraphQL at Kiwi.com",
     "docs": {
+      "design-style-guides": {
+        "title": "Design Style Guides",
+        "sidebar_label": "Design Style Guides"
+      },
       "directory-structure": {
-        "title": "Directory structure",
+        "title": "Directory structure of this monorepo",
         "sidebar_label": "Directory structure"
+      },
+      "faq": {
+        "title": "FAQ",
+        "sidebar_label": "FAQ"
+      },
+      "vault": {
+        "title": "Vault",
+        "sidebar_label": "Vault"
       }
     },
     "links": {
