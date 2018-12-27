@@ -17,6 +17,10 @@
         "title": "FAQ",
         "sidebar_label": "FAQ"
       },
+      "installation": {
+        "title": "Install & Run GraphQL API server",
+        "sidebar_label": "Installation"
+      },
       "vault": {
         "title": "Vault",
         "sidebar_label": "Vault"
@@ -26,6 +30,7 @@
       "Docs": "Docs"
     },
     "categories": {
+      "Monorepo": "Monorepo",
       "GraphQL": "GraphQL"
     }
   },
