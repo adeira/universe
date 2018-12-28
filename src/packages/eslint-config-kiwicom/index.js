@@ -95,7 +95,7 @@ module.exports = {
     'no-redeclare': [WARN, { builtinGlobals: true }],
     'no-restricted-properties': OFF,
     'no-return-assign': WARN,
-    'no-return-await': OFF,
+    'no-return-await': WARN,
     'no-script-url': ERROR,
     'no-self-assign': WARN,
     'no-self-compare': WARN,

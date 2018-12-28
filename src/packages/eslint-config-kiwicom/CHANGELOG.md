@@ -1,5 +1,6 @@
 # Unreleased
 - ??????? Added new `eslint-plugin-eslint-comments` to check Eslint comments
+- ??????? Eslint now warns when using useless combination or `return await` (`no-return-await`)
 
 # 1.3.0
 - 3aad27a Added new `no-useless-catch` warning
