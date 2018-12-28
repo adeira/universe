@@ -15,3 +15,5 @@ export {
   connectionFromArray,
   connectionFromPromisedArray,
 };
+
+export { default as OptimisticDataloader } from './OptimisticDataloader';
