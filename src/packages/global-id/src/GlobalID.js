@@ -43,7 +43,7 @@ export function isTypeOf(type: string, opaqueID: string): boolean {
 export function evaluateGlobalIdField(
   outputObject: GraphQLObjectType,
   parent: Object,
-) {
+): string {
   const idField = outputObject.getFields().id;
 
   invariant(
@@ -57,13 +57,13 @@ export function evaluateGlobalIdField(
     "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
   );
 
-  return (
+  return String(
     outputObject
       .getFields()
       // $FlowExpectedError: incomplete resolver only tu fulfill requirements of globalIdField
       .id.resolve(parent, { opaque: true }, undefined, {
-        parentType: { name: 'mocked' },
-      })
+        parentType: { name: outputObject.name },
+      }),
   );
 }
 
