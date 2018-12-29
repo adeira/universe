@@ -3,11 +3,15 @@
 import glob from 'glob';
 import { invariant } from '@mrtnzlml/utils';
 
-import findRootPackageJson from './findRootPackageJson';
+import {
+  findRootPackageJson,
+  findRootPackageJsonPath,
+} from './findRootPackageJson';
 
-const rootPackageJSON = findRootPackageJson(__dirname);
+export { findRootPackageJson, findRootPackageJsonPath };
 
 export function iterateWorkspaces(cb: (packageJSONLocation: string) => void) {
+  const rootPackageJSON = findRootPackageJson();
   rootPackageJSON.workspaces.forEach(workspace => {
     // src/apps        =>  src/apps/package.json
     // src/packages/*  =>  src/packages/*/package.json
@@ -32,6 +36,7 @@ export function iterateWorkspacesInPath(
   path: string,
   cb: (packageJSONLocation: string) => void,
 ) {
+  const rootPackageJSON = findRootPackageJson();
   const workspaces = rootPackageJSON.workspaces;
   const isWorkspaceDirectory = workspaces.some(workspace => {
     return new RegExp(workspace + '$').test(path);

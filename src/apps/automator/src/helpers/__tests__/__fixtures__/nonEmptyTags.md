@@ -1,0 +1,1 @@
+a <!-- AUTOMATOR:TEST_FIXTURE_1 --> b <!-- /AUTOMATOR:TEST_FIXTURE_1 --> c

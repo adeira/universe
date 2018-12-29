@@ -1,7 +1,7 @@
 // @flow
 
+import log from './log';
 import updateNPMPackagesInfo from './tasks/updateNPMPackagesInfo';
-import paths from '../../../../paths';
 
 // TODO:
 // - do something
@@ -10,5 +10,9 @@ import paths from '../../../../paths';
 
 // yarn babel-node src/packages/automator/src/index.js
 (function run() {
-  updateNPMPackagesInfo(paths.readme);
+  const TASK_IDENTIFIER = '1';
+  log(TASK_IDENTIFIER, 'starting task');
+  updateNPMPackagesInfo(TASK_IDENTIFIER, () =>
+    log(TASK_IDENTIFIER, 'task finished'),
+  );
 })();

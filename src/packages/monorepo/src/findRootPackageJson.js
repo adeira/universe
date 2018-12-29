@@ -11,10 +11,15 @@ let MEMOIZED_PATH = null;
  * also memoizes the computed path and returns it immediately with
  * the second call.
  */
-export default function findRootPackageJson(directory: string = __dirname) {
+export function findRootPackageJson(directory: string = __dirname) {
+  const packageJsonPath = findRootPackageJsonPath(directory);
+  // $FlowAllowDynamicImport
+  return require(packageJsonPath);
+}
+
+export function findRootPackageJsonPath(directory: string = __dirname) {
   if (MEMOIZED_PATH !== null) {
-    // $FlowAllowDynamicImport
-    return require(MEMOIZED_PATH);
+    return MEMOIZED_PATH;
   }
 
   if (directory === '/') {
@@ -29,12 +34,12 @@ export default function findRootPackageJson(directory: string = __dirname) {
     const packageJSON = require(packageJSONPath);
     if (!packageJSON.workspaces) {
       // not a root package.json
-      return findRootPackageJson(path.dirname(directory));
+      return findRootPackageJsonPath(path.dirname(directory));
     }
     MEMOIZED_PATH = packageJSONPath;
-    return packageJSON;
+    return packageJSONPath;
   } catch (err) {
     // package.json doesn't exist here
-    return findRootPackageJson(path.dirname(directory));
+    return findRootPackageJsonPath(path.dirname(directory));
   }
 }
