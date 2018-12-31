@@ -1,6 +1,13 @@
 {
   "docs": {
     "Monorepo": ["installation"],
-    "GraphQL": ["directory-structure", "design-style-guides", "vault", "faq"]
+    "GraphQL": [
+      "directory-structure",
+      "design-style-guides",
+      "infrastructure",
+      "testing",
+      "vault",
+      "faq"
+    ]
   }
 }

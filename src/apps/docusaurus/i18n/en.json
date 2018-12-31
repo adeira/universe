@@ -17,13 +17,21 @@
         "title": "FAQ",
         "sidebar_label": "FAQ"
       },
+      "infrastructure": {
+        "title": "Infrastructure",
+        "sidebar_label": "Infrastructure"
+      },
       "installation": {
         "title": "Install & Run GraphQL API server",
         "sidebar_label": "Installation"
       },
+      "testing": {
+        "title": "Testing",
+        "sidebar_label": "Testing"
+      },
       "vault": {
-        "title": "Vault",
-        "sidebar_label": "Vault"
+        "title": "Environment variables",
+        "sidebar_label": "Environment variables"
       }
     },
     "links": {
