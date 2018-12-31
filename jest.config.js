@@ -8,7 +8,7 @@ const commonProjectConfig = {
 
 module.exports = {
   verbose: false,
-  reporters: ['default'],
+  reporters: ['default', 'jest-junit'],
   projects: [
     {
       displayName: null,
