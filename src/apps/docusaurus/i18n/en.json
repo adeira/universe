@@ -25,6 +25,10 @@
         "title": "Install & Run GraphQL API server",
         "sidebar_label": "Installation"
       },
+      "runbooks/rancher": {
+        "title": "Rancher",
+        "sidebar_label": "Rancher"
+      },
       "testing": {
         "title": "Testing",
         "sidebar_label": "Testing"
@@ -38,6 +42,7 @@
       "Docs": "Docs"
     },
     "categories": {
+      "Runbooks": "Runbooks",
       "Monorepo": "Monorepo",
       "GraphQL": "GraphQL"
     }

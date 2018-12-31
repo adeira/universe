@@ -1,5 +1,6 @@
 {
   "docs": {
+    "Runbooks": ["runbooks/rancher"],
     "Monorepo": ["installation"],
     "GraphQL": [
       "directory-structure",
