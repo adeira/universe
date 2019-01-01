@@ -8,6 +8,8 @@ const siteConfig = {
   tagline: 'Documentation for GraphQL at Kiwi.com',
   url: 'https://kiwi.wiki',
   baseUrl: '/graphql/graphql/',
+  editUrl:
+    'https://gitlab.skypicker.com/graphql/graphql/edit/master/src/apps/docusaurus/docs/',
 
   customDocsPath: 'docusaurus/docs',
 

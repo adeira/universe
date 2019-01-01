@@ -42,9 +42,10 @@ yarn test-ci      # everything above + lints and typechecks (runs on the CI serv
 This project is monorepository which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM:
 
 <!-- AUTOMATOR:1 -->
+
 - 1.0.0 [@kiwicom/babel-preset-kiwicom](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 1.0.0 [@kiwicom/graphql-bc-checker](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
-- 1.3.0 [@kiwicom/eslint-config](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 1.4.0 [@kiwicom/eslint-config](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 1.0.0 [eslint-plugin-kiwi-graphql](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-plugin-kiwi-graphql) - Rules for Kiwi.com GraphQL
 - 0.2.0 [@kiwicom/graphql-global-id](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/global-id) - Utility to manage ID fields in GraphQL correctly.
 - 1.0.0 [@kiwicom/graphql-resolve-wrapper](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
@@ -53,6 +54,7 @@ This project is monorepository which essentially means it contains many smaller 
 - 1.0.0 [@kiwicom/signed-source](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.
 - 0.3.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 0.5.0 [@kiwicom/vault2env](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/vault2env) - Utility to help us fetching ENV variables from Vault automatically.
+
 <!-- /AUTOMATOR:1 -->
 
 _(generated using `yarn babel-node src/apps/automator/src/index.js`)_

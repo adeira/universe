@@ -6,7 +6,9 @@ exports[`correct task identifier should replace the tags matches expected output
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 <!-- AUTOMATOR:TEST_FIXTURE_1 -->
+
 replaced content 🎉
+
 <!-- /AUTOMATOR:TEST_FIXTURE_1 -->
 
 `;
@@ -32,11 +34,15 @@ and me too!
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 <!-- AUTOMATOR:TEST_FIXTURE_1 -->
+
 replaced content 🎉
+
 <!-- /AUTOMATOR:TEST_FIXTURE_1 -->
 
 <!-- AUTOMATOR:TEST_FIXTURE_1 -->
+
 replaced content 🎉
+
 <!-- /AUTOMATOR:TEST_FIXTURE_1 -->
 
 `;
@@ -47,7 +53,9 @@ a <!-- AUTOMATOR:TEST_FIXTURE_1 --> b <!-- /AUTOMATOR:TEST_FIXTURE_1 --> c
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 a <!-- AUTOMATOR:TEST_FIXTURE_1 -->
+
 replaced content 🎉
+
 <!-- /AUTOMATOR:TEST_FIXTURE_1 --> c
 
 `;
