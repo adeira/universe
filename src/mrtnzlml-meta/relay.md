@@ -128,6 +128,10 @@ TODO: researching
 - https://github.com/mrtnzlml/relay/pull/32/files
 - https://github.com/mrtnzlml/relay/pull/75/files
 
+# @refetchable(queryName: " ... ")
+
+TODO: https://github.com/mrtnzlml/relay/pull/127/commits/0920c0cb4be13e010376feb98997d7a8438cbf37
+
 # Persisted queries
 
 TODO
