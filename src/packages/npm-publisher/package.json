@@ -12,8 +12,5 @@
     "rimraf": "^2.6.2",
     "semver": "^5.6.0",
     "tar": "^4.4.7"
-  },
-  "devDependencies": {
-    "memory-fs": "^0.4.1"
   }
 }
