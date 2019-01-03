@@ -138,7 +138,7 @@ describe('evaluateGlobalIdField', () => {
           },
         }),
       ),
-    ).toBe(base64('Test:123'));
+    ).toBe(base64('mocked:123'));
   });
 
   it('throws when trying to use incompatible output type', () => {
