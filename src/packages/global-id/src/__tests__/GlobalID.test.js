@@ -138,7 +138,7 @@ describe('evaluateGlobalIdField', () => {
           },
         }),
       ),
-    ).toBe(base64('mocked:123'));
+    ).toBe(base64('Test:123'));
   });
 
   it('throws when trying to use incompatible output type', () => {
@@ -168,6 +168,30 @@ describe('evaluateGlobalIdField', () => {
       ),
     ).toThrowErrorMatchingInlineSnapshot(
       "\"Unable to evaluate field 'id' because it's missing.\"",
+    );
+  });
+
+  it('calls resolver with correct arguments', () => {
+    const resolveMock = jest.fn();
+    evaluateGlobalIdField(
+      new GraphQLObjectType({
+        name: 'Test',
+        fields: {
+          id: {
+            ...GlobalID(() => 123),
+            resolve: resolveMock,
+          },
+        },
+      }),
+    );
+    expect(resolveMock).toBeCalledWith(
+      undefined, // parent
+      { opaque: true },
+      undefined,
+      {
+        parentType: { name: 'Test' },
+        path: {}, // this empty path is important otherwise Apollo server won't be happy
+      },
     );
   });
 });
