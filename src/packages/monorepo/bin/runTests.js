@@ -4,8 +4,10 @@
 
 const TestsRunner = require('../src/TestsRunner');
 
-if (process.argv.includes('--all')) {
-  TestsRunner.runAllTests();
+const externalConfig = process.argv.slice(2);
+
+if (externalConfig.includes('--all')) {
+  TestsRunner.runAllTests(externalConfig);
 } else {
-  TestsRunner.runTests();
+  TestsRunner.runTests(externalConfig);
 }
