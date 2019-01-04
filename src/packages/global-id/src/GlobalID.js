@@ -43,7 +43,7 @@ export function isTypeOf(type: string, opaqueID: string): boolean {
 export function evaluateGlobalIdField(
   outputObject: GraphQLObjectType,
   parent: Object,
-) {
+): string {
   const idField = outputObject.getFields().id;
 
   invariant(
@@ -57,13 +57,19 @@ export function evaluateGlobalIdField(
     "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
   );
 
-  return (
+  return String(
     outputObject
       .getFields()
-      // $FlowExpectedError: incomplete resolver only tu fulfill requirements of globalIdField
+      // $FlowExpectedError: incomplete resolver only to fulfill requirements of globalIdField
       .id.resolve(parent, { opaque: true }, undefined, {
-        parentType: { name: 'mocked' },
-      })
+        parentType: {
+          name: outputObject.name,
+        },
+        // this is added only to make Apollo server happy - they are wrapping
+        // resolvers with their custom broken magic, see:
+        // https://github.com/apollographql/apollo-server/blob/acb5984353dcbd8f09186ed5e848a6eb394ae864/packages/graphql-extensions/src/index.ts#L210
+        path: {},
+      }),
   );
 }
 

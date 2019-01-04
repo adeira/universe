@@ -2,18 +2,17 @@
 
 import execa from 'execa';
 
-import findRelatedWorkspaces from './findRelatedWorkspaces';
-import findDirtyWorkspaces from './findDirtyWorkspaces';
+import findPathsToTest from './findPathsToTest';
 import { type WorkspaceDependencies } from './Workspaces.flow';
 
 function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
   process.env.TZ = timezone;
-
   return execa.sync('jest', ['--config=jest.config.js', ...config], {
     stdio,
   });
 }
 
+// TODO: use parallel and CI_NODE_INDEX, CI_NODE_TOTAL (https://docs.gitlab.com/ee/ci/yaml/#parallel)
 function _runJestTimezoneVariants(config) {
   // we do run the same tests in different timezone to uncover TZ issues
   _runJest(config, 'inherit', 'UTC');
@@ -24,6 +23,8 @@ function _runJestTimezoneVariants(config) {
     _runJest(config, 'inherit', 'America/Lima'); // -5
   }
 }
+
+type ExternalConfig = $ReadOnlyArray<string>;
 
 /**
  * This script tests the whole application except Yarn Workspaces. Workspaces
@@ -41,7 +42,7 @@ function _runJestTimezoneVariants(config) {
  * Hopefully, this is going to be resolved and then we can completely remove
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
-export function runTests() {
+export function runTests(externalConfig: ExternalConfig) {
   const { stdout } = execa.sync('yarn', ['workspaces', 'info', '--json'], {
     stdio: 'pipe',
   });
@@ -49,9 +50,9 @@ export function runTests() {
     JSON.parse(stdout).data,
   );
 
-  const externalConfig = process.argv.slice(2);
-  if (externalConfig.length > 0) {
-    // external configuration always takes a precedence before our algorithm
+  if (externalConfig.some(option => /^(?!--).+/.test(option))) {
+    // user passed something that is not an option (probably tests regexp)
+    // so we give it precedence before our algorithm
     _runJestTimezoneVariants(externalConfig);
     return;
   }
@@ -69,34 +70,16 @@ export function runTests() {
   );
 
   const changedTestFiles = JSON.parse(changedFilesOutput.stdout);
-  const dirtyWorkspaces = findDirtyWorkspaces(
-    workspaceDependencies,
-    changedTestFiles,
-  );
-
-  const relatedWorkspaces = findRelatedWorkspaces(
-    workspaceDependencies,
-    dirtyWorkspaces,
-  );
-
-  // console.warn('RELEVANT TESTS: ', changedTestFiles); // eslint-disable-line no-console
-  console.warn('DIRTY WORKSPACES: ', dirtyWorkspaces); // eslint-disable-line no-console
-  console.warn('WORKSPACES TO TEST: ', relatedWorkspaces); // eslint-disable-line no-console
-
-  const pathsToTest = new Set<string>();
-  relatedWorkspaces.forEach(relatedWorkspace => {
-    pathsToTest.add(workspaceDependencies[relatedWorkspace].location);
-  });
+  const pathsToTest = findPathsToTest(workspaceDependencies, changedTestFiles);
 
   if (pathsToTest.size > 0 || changedTestFiles.length > 0) {
     // we are running tests only when we have dirty workspaces OR when we
     // have some files to test outside of our workspaces (system level tests)
     const jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
-    _runJestTimezoneVariants(jestConfig);
+    _runJestTimezoneVariants(jestConfig.concat(externalConfig));
   }
 }
 
-export function runAllTests() {
-  const externalConfig = process.argv.slice(2);
+export function runAllTests(externalConfig: ExternalConfig) {
   _runJestTimezoneVariants(externalConfig.length > 0 ? externalConfig : []);
 }
