@@ -56,5 +56,3 @@ This project is monorepository which essentially means it contains many smaller 
 - 1.0.0 [@kiwicom/vault2env](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/vault2env) - Utility to help us fetching ENV variables from Vault automatically.
 
 <!-- /AUTOMATOR:1 -->
-
-_(generated using `yarn babel-node src/apps/automator/src/index.js`)_

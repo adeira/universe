@@ -1,18 +1,26 @@
 // @flow
 
 import log from './log';
-import updateNPMPackagesInfo from './tasks/updateNPMPackagesInfo';
+import updateDocs from './tasks/updateDocs';
+import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
 
-// TODO:
-// - do something
-// - create branch and commit it
-// - push and open MR only if something changed (https://docs.gitlab.com/ee/api/merge_requests.html#create-mr)
+const ciNode = {
+  // nodes are indexed from 1 (not zero)
+  index: Number(process.env.CI_NODE_INDEX ?? 1), // eslint-disable-line no-process-env
+  total: Number(process.env.CI_NODE_TOTAL ?? 1), // eslint-disable-line no-process-env
+};
 
-// yarn babel-node src/packages/automator/src/index.js
+const tasks = [
+  updateDocs, // updates Docs and sends MR to GitLab repo
+  publishWorkspaceOnGitHub, // publishes workspace on GitHub (WIP)
+];
+
 (function run() {
-  const TASK_IDENTIFIER = '1';
-  log(TASK_IDENTIFIER, 'starting task');
-  updateNPMPackagesInfo(TASK_IDENTIFIER, async () =>
-    log(TASK_IDENTIFIER, 'task finished'),
-  );
+  if (tasks[ciNode.index - 1] === undefined) {
+    throw new Error(`No task defined for CI node with index: ${ciNode.index}`);
+  }
+
+  const taskIdentifier = String(ciNode.index);
+  log(taskIdentifier, 'running task');
+  tasks[ciNode.index - 1](taskIdentifier);
 })();

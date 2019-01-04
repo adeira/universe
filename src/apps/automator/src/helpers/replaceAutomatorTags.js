@@ -2,7 +2,7 @@
 
 import os from 'os';
 
-export default function replaceTags(
+export default function replaceAutomatorTags(
   originalText: string,
   taskIdentifier: string,
   replacement: string,
