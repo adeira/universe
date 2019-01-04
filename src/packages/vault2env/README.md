@@ -1,28 +1,32 @@
 _Originally located here: https://github.com/kiwicom/vault2env-js_
 
-# vault2env-js
+This utility exposes one binary: `vault2env`. It let's you easily load environment variables from your Vault instance and save them in `.env` file.
 
-`vault2env` let's you easily load env variables from your Vault instance and save them in `.env` file
+# Install
 
-## Install
+```
+yarn add @kiwicom/vault2env --dev
+```
 
-`yarn add vault2env --dev`
-
-## Usage
+# Usage
 
 Basic usage:
 
-`vault2env --token=[vault-token] --addr=[vault-addr] --path=secret/path/to/envs`
+```
+yarn vault2env --token=[vault-token] --addr=[vault-addr] --path=secret/path/to/envs
+```
 
 Vault token and address can be set also as env variables - just like with the vault command:
 
-`VAULT_TOKEN=[token] VAULT_ADDR=[addr] vault2env --path=secret/path/to/envs`
+```
+VAULT_TOKEN=[token] VAULT_ADDR=[addr] vault2env --path=secret/path/to/envs
+```
 
-### List of CLI options
+## List of CLI options
 
-| Option        | Default?   | Required? | Description                               |
-| ------------- |:----------:|:---------:|:------------------------------------------|
-| `--token`     | -          | yes       | Vault token                               |
-| `--addr`      | -          | yes       | Url address to Vault                      |
-| `--path`      | -          | yes       | Vault path to desired secrets             |
-| `--force`     | false      | no        | Overwrite `.env` file if already exists   |
+| Option    | Default? | Required? | Description                             |
+| --------- | :------: | :-------: | :-------------------------------------- |
+| `--token` |    -     |    yes    | Vault token                             |
+| `--addr`  |    -     |    yes    | Url address to Vault                    |
+| `--path`  |    -     |    yes    | Vault path to desired secrets           |
+| `--force` |  false   |    no     | Overwrite `.env` file if already exists |
