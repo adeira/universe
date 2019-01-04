@@ -2,7 +2,7 @@ Purpose of this package is to share common eslint configuration among other JS p
 
 # Usage
 
-Before you start you should remove all Eslint plugins from your `package.json` files. This package takes care of all the plugins that are necessary. You should install additional plugins only when you need to add some extra rules. It's a good idea to contribute these rules back to this package so everyone can benefit from it.
+Before you start you should remove all Eslint plugins and Prettier from your `package.json` files. This package takes care of all the plugins that are necessary. You should install additional plugins only when you need to add some extra rules. It's a good idea to contribute these rules back to this package so everyone can benefit from it.
 
 Install this package (as well as Eslint):
 

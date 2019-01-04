@@ -1,4 +1,5 @@
 # Unreleased
+- ??????? Prettier is now in charge of styling issues (probably Major release)
 
 # 1.5.0
 - 29d86b8 Set `react/no-did-mount-set-state` and `react/no-did-update-set-state` to WARN
