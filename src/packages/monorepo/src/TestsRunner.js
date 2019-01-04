@@ -1,30 +1,44 @@
 // @flow
 
 import execa from 'execa';
+import { invariant } from '@mrtnzlml/utils';
 
 import findPathsToTest from './findPathsToTest';
 import { type WorkspaceDependencies } from './Workspaces.flow';
 
 function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
   process.env.TZ = timezone;
+  console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
   return execa.sync('jest', ['--config=jest.config.js', ...config], {
     stdio,
   });
 }
 
-// TODO: use parallel and CI_NODE_INDEX, CI_NODE_TOTAL (https://docs.gitlab.com/ee/ci/yaml/#parallel)
-function _runJestTimezoneVariants(config) {
-  // we do run the same tests in different timezone to uncover TZ issues
-  _runJest(config, 'inherit', 'UTC');
+function _runJestTimezoneVariants(config, ciNode: CINode) {
+  if (ciNode.total > 1) {
+    const index = ciNode.index - 1;
+    const timezones = [
+      'UTC',
+      'Asia/Tokyo', // +9
+      'America/Lima', // -5
+    ];
 
-  if (!config.includes('--watch')) {
-    // run tests variants only in normal mode (not watch)
-    _runJest(config, 'inherit', 'Asia/Tokyo'); // +9
-    _runJest(config, 'inherit', 'America/Lima'); // -5
+    invariant(
+      timezones[index] !== undefined,
+      `CI node with index ${ciNode.index} is not supported.`,
+    );
+
+    _runJest(config, 'inherit', timezones[index]);
+  } else {
+    _runJest(config, 'inherit', 'UTC');
   }
 }
 
 type ExternalConfig = $ReadOnlyArray<string>;
+type CINode = {|
+  +index: number,
+  +total: number,
+|};
 
 /**
  * This script tests the whole application except Yarn Workspaces. Workspaces
@@ -42,7 +56,7 @@ type ExternalConfig = $ReadOnlyArray<string>;
  * Hopefully, this is going to be resolved and then we can completely remove
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
-export function runTests(externalConfig: ExternalConfig) {
+export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
   const { stdout } = execa.sync('yarn', ['workspaces', 'info', '--json'], {
     stdio: 'pipe',
   });
@@ -53,7 +67,7 @@ export function runTests(externalConfig: ExternalConfig) {
   if (externalConfig.some(option => /^(?!--).+/.test(option))) {
     // user passed something that is not an option (probably tests regexp)
     // so we give it precedence before our algorithm
-    _runJestTimezoneVariants(externalConfig);
+    _runJestTimezoneVariants(externalConfig, ciNode);
     return;
   }
 
@@ -76,10 +90,13 @@ export function runTests(externalConfig: ExternalConfig) {
     // we are running tests only when we have dirty workspaces OR when we
     // have some files to test outside of our workspaces (system level tests)
     const jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
-    _runJestTimezoneVariants(jestConfig.concat(externalConfig));
+    _runJestTimezoneVariants(jestConfig.concat(externalConfig), ciNode);
   }
 }
 
-export function runAllTests(externalConfig: ExternalConfig) {
-  _runJestTimezoneVariants(externalConfig.length > 0 ? externalConfig : []);
+export function runAllTests(externalConfig: ExternalConfig, ciNode: CINode) {
+  _runJestTimezoneVariants(
+    externalConfig.length > 0 ? externalConfig : [],
+    ciNode,
+  );
 }
