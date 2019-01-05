@@ -53,7 +53,7 @@ This project is monorepository which essentially means it contains many smaller 
 - 0.6.0 [@kiwicom/graphql-logz](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/logz) - Implementation of Logz.io handler for better GraphQL monitoring.
 - 1.0.0 [@kiwicom/signed-source](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.
 - 0.3.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
-- 0.5.0 [@kiwicom/vault2env](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/vault2env) - Utility to help us fetching ENV variables from Vault automatically.
+- 1.0.0 [@kiwicom/vault2env](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/vault2env) - Utility to help us fetching ENV variables from Vault automatically.
 
 <!-- /AUTOMATOR:1 -->
 
