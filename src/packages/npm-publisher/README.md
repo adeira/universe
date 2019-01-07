@@ -2,13 +2,17 @@ This package prepares our public NPM packages to be published. It can automatica
 
 # Usage
 
+You have to set `NPM_AUTH_TOKEN` environment variable first to be able to use this package.
+
 ```
-yarn babel-node src/packages/npm-publisher/src/index.js
+import path from 'path';
+import publish from '@kiwicom/npm-publisher';
+
+publish({
+  buildCache: path.join(os.tmpdir(), 'PROJECT_ID', '.build'),
+  packages: '../packages', // path to your NPM packages
+  dryRun: true,
+});
 ```
 
-**Please note:** it's important to run this script like this and not through Yarn using `scripts` in `package.json`. Yarn is messing up NPM registry address and the publishing wouldn't work otherwise.
-
-# TODOs
-
-- automatically generate changelog for each package
-- publish itself on NPM (using bin script)
+This package is intended to be run by CI server.
