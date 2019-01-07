@@ -390,8 +390,8 @@ module.exports = {
     'react/no-danger': OFF,
     'react/no-danger-with-children': OFF,
     'react/no-deprecated': WARN,
-    'react/no-did-mount-set-state': OFF,
-    'react/no-did-update-set-state': OFF,
+    'react/no-did-mount-set-state': WARN, // TODO: ERROR
+    'react/no-did-update-set-state': WARN, // TODO: ERROR
     'react/no-direct-mutation-state': WARN,
     'react/no-find-dom-node': OFF,
     'react/no-is-mounted': WARN,

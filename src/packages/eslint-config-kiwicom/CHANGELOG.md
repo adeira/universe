@@ -1,5 +1,7 @@
 # Unreleased
 
+- ??????? Set `react/no-did-mount-set-state` and `react/no-did-update-set-state` to WARN
+
 # 1.4.0
 - 61abad2 Added new `eslint-plugin-eslint-comments` to check Eslint comments
 - be1250a Eslint now warns when using useless combination or `return await` (`no-return-await`)
