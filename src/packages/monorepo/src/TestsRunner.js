@@ -4,13 +4,14 @@ import execa from 'execa';
 import { invariant } from '@mrtnzlml/utils';
 
 import findPathsToTest from './findPathsToTest';
+import getChangedFiles from './getChangedFiles';
 import { type WorkspaceDependencies } from './Workspaces.flow';
 
-function _runJest(config, stdio = 'inherit', timezone = 'UTC') {
+function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
   return execa.sync('jest', ['--config=jest.config.js', ...config], {
-    stdio,
+    stdio: 'inherit',
   });
 }
 
@@ -28,9 +29,9 @@ function _runJestTimezoneVariants(config, ciNode: CINode) {
       `CI node with index ${ciNode.index} is not supported.`,
     );
 
-    _runJest(config, 'inherit', timezones[index]);
+    _runJest(config, timezones[index]);
   } else {
-    _runJest(config, 'inherit', 'UTC');
+    _runJest(config, 'UTC');
   }
 }
 
@@ -57,9 +58,7 @@ type CINode = {|
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  const { stdout } = execa.sync('yarn', ['workspaces', 'info', '--json'], {
-    stdio: 'pipe',
-  });
+  const { stdout } = execa.sync('yarn', ['workspaces', 'info', '--json']);
   const workspaceDependencies: WorkspaceDependencies = JSON.parse(
     JSON.parse(stdout).data,
   );
@@ -71,25 +70,13 @@ export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
     return;
   }
 
-  // TODO:
-  //  This is probably not good enough because it lists only related tests.
-  //  However, there may be changes in non-JS files affecting the tests results
-  //  and Jest is not able to detect this for obvious reasons. It would be better
-  //  to extract the implementation from Jest and use Git here directly. This
-  //  way we can find all related files and not only related test files.
-  const changedFilesOutput = _runJest(
-    // https://jestjs.io/docs/en/cli.html#changedfileswithancestor
-    ['--listTests', '--changedFilesWithAncestor', '--json'],
-    'pipe',
-  );
+  const changedFiles = getChangedFiles();
+  const pathsToTest = findPathsToTest(workspaceDependencies, changedFiles);
 
-  const changedTestFiles = JSON.parse(changedFilesOutput.stdout);
-  const pathsToTest = findPathsToTest(workspaceDependencies, changedTestFiles);
-
-  if (pathsToTest.size > 0 || changedTestFiles.length > 0) {
+  if (pathsToTest.size > 0 || changedFiles.length > 0) {
     // we are running tests only when we have dirty workspaces OR when we
     // have some files to test outside of our workspaces (system level tests)
-    const jestConfig = Array.from(pathsToTest).concat(changedTestFiles);
+    const jestConfig = Array.from(pathsToTest).concat(changedFiles);
     _runJestTimezoneVariants(jestConfig.concat(externalConfig), ciNode);
   }
 }
