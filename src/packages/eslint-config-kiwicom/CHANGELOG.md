@@ -1,6 +1,6 @@
 # Unreleased
-
 - ??????? Set `react/no-did-mount-set-state` and `react/no-did-update-set-state` to WARN
+- ??????? Add support for RN and RNW file extensions (`*.ios.js`, `*.android.js`, ...)
 
 # 1.4.0
 - 61abad2 Added new `eslint-plugin-eslint-comments` to check Eslint comments

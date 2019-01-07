@@ -469,11 +469,12 @@ module.exports = {
         devDependencies: ['**/*.test.js', '**/*.spec.js'],
       },
     ],
+    'import/no-unresolved': ERROR,
 
     // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
     'dependencies/case-sensitive': ERROR,
     'dependencies/no-cycles': WARN,
-    'dependencies/no-unresolved': ERROR,
+    'dependencies/no-unresolved': OFF, // see import/no-unresolved (supports RN)
     'dependencies/require-json-ext': ERROR,
 
     // monorepo (https://github.com/azz/eslint-plugin-monorepo)
@@ -490,6 +491,21 @@ module.exports = {
 
     // Kiwi.com custom rules
     'kiwi-graphql/only-nullable-fields': ERROR,
+  },
+
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: [
+          '.js',
+          '.jsx',
+          '.android.js',
+          '.ios.js',
+          '.native.js',
+          '.web.js',
+        ],
+      },
+    },
   },
 
   plugins: [
