@@ -15,12 +15,12 @@ const tasks = [
   publishWorkspaceOnGitHub, // publishes workspace on GitHub (WIP)
 ];
 
-(function run() {
+(async function run() {
   if (tasks[ciNode.index - 1] === undefined) {
     throw new Error(`No task defined for CI node with index: ${ciNode.index}`);
   }
 
   const taskIdentifier = String(ciNode.index);
   log(taskIdentifier, 'running task');
-  tasks[ciNode.index - 1](taskIdentifier);
+  await tasks[ciNode.index - 1](taskIdentifier);
 })();

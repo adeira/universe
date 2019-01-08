@@ -1,7 +1,10 @@
 // @flow
 
-import execa from 'execa';
+import { exec, type ExecConfig } from './exec';
 
-export default function git(options: $ReadOnlyArray<string>) {
-  return execa.sync('git', ['--no-pager', ...options], { stdio: 'inherit' });
+export default async function git(
+  options: $ReadOnlyArray<string>,
+  config?: ExecConfig,
+) {
+  return exec('git', ['--no-pager', ...options], config);
 }
