@@ -45,7 +45,7 @@ This project is monorepository which essentially means it contains many smaller 
 
 - 1.0.0 [@kiwicom/babel-preset-kiwicom](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 1.0.0 [@kiwicom/graphql-bc-checker](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
-- 1.5.0 [@kiwicom/eslint-config](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 2.0.0 [@kiwicom/eslint-config](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 1.0.0 [eslint-plugin-kiwi-graphql](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-plugin-kiwi-graphql) - Rules for Kiwi.com GraphQL
 - 0.4.0 [@kiwicom/graphql-global-id](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/global-id) - Utility to manage ID fields in GraphQL correctly.
 - 1.0.0 [@kiwicom/graphql-resolve-wrapper](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
