@@ -5,6 +5,10 @@
     "previous": "Previous",
     "tagline": "Documentation for GraphQL at Kiwi.com",
     "docs": {
+      "debugging": {
+        "title": "Debugging Requests and Responses",
+        "sidebar_label": "Debugging"
+      },
       "design-style-guides": {
         "title": "Design Style Guides",
         "sidebar_label": "Design Style Guides"
