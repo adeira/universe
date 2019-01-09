@@ -4,6 +4,10 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
+// Please note: there are some TODOs which means we will make it more strict
+// in the future versions. This change requires major version bump. It's not
+// safe to immediately switch from OFF to ERROR. Some time for migration is
+// needed (WARN serves this purpose).
 module.exports = {
   // Possible Errors (http://eslint.org/docs/rules/#possible-errors)
   'for-direction': ERROR,
@@ -117,14 +121,14 @@ module.exports = {
   // Variables (http://eslint.org/docs/rules/#variables)
   'init-declarations': OFF,
   'no-delete-var': ERROR,
-  'no-label-var': WARN,
+  'no-label-var': WARN, // TODO: ERROR
   'no-restricted-globals': OFF,
   'no-shadow-restricted-names': WARN,
   'no-shadow': OFF,
   'no-undef-init': OFF,
   'no-undef': ERROR,
   'no-undefined': OFF,
-  'no-unused-vars': [WARN, { args: 'none' }],
+  'no-unused-vars': [WARN, { args: 'none' }], // TODO: ERROR
   'no-use-before-define': OFF,
 
   // Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)
@@ -151,7 +155,7 @@ module.exports = {
   'id-length': OFF,
   'id-match': OFF,
   'line-comment-position': OFF,
-  'linebreak-style': WARN,
+  'linebreak-style': WARN, // TODO: ERROR
   'lines-between-class-members': [
     WARN,
     'always',
@@ -235,7 +239,7 @@ module.exports = {
   'babel/new-cap': OFF,
   'babel/object-curly-spacing': OFF,
   'babel/no-invalid-this': OFF,
-  'babel/no-unused-expressions': WARN, // TODO: ERROR in new major release
+  'babel/no-unused-expressions': WARN, // TODO: ERROR
   'babel/quotes': [WARN, 'single', 'avoid-escape'],
   'babel/semi': ERROR,
   'babel/valid-typeof': ERROR,
@@ -262,7 +266,7 @@ module.exports = {
   'jest/no-alias-methods': OFF,
   'jest/no-disabled-tests': WARN,
   'jest/no-focused-tests': ERROR,
-  'jest/no-hooks': OFF, // TODO: WARN
+  'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': WARN, // TODO: ERROR
   'jest/no-jasmine-globals': WARN, // TODO: ERROR
   'jest/no-jest-import': WARN, // TODO: ERROR
@@ -275,10 +279,10 @@ module.exports = {
   'jest/prefer-inline-snapshots': OFF,
   'jest/prefer-spy-on': OFF,
   'jest/prefer-strict-equal': OFF, // TODO: WARN
-  'jest/prefer-to-be-null': OFF, // TODO: WARN
-  'jest/prefer-to-be-undefined': OFF, // TODO: WARN
-  'jest/prefer-to-contain': OFF, // TODO: WARN
-  'jest/prefer-to-have-length': OFF, // TODO: WARN
+  'jest/prefer-to-be-null': WARN, // TODO: ERROR
+  'jest/prefer-to-be-undefined': WARN, // TODO: ERROR
+  'jest/prefer-to-contain': WARN, // TODO: ERROR
+  'jest/prefer-to-have-length': WARN, // TODO: ERROR
   'jest/require-tothrow-message': OFF,
   'jest/valid-describe': WARN, // TODO: ERROR
   'jest/valid-expect': WARN,
@@ -376,12 +380,13 @@ module.exports = {
   'monorepo/no-relative-import': ERROR,
 
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
-  'node/no-missing-require': WARN, // TODO: ERROR in new major release
+  'node/no-missing-require': WARN, // TODO: ERROR
   'node/no-deprecated-api': WARN,
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
   'eslint-comments/no-duplicate-disable': WARN,
   'eslint-comments/no-unused-enable': WARN,
+  'eslint-comments/no-unlimited-disable': WARN, // TODO: ERROR
 
   // Kiwi.com custom rules
   'kiwi-graphql/only-nullable-fields': ERROR,

@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.1.0
+- ??????? Show warnings for `no-unused-vars`, `jest/prefer-to-be-null`, `jest/prefer-to-be-undefined`, `jest/prefer-to-contain`, `jest/prefer-to-have-length` and `eslint-comments/no-unlimited-disable`
+
 # 2.0.0
 - ca1df61 Prettier is now in charge of styling issues
 
