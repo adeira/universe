@@ -1,6 +1,6 @@
 # Hi, I am Martin
 
-I am fullstack JavaScript developer at Kiwi.com. Unfortunately, I do not have fixed team so I am usually somewhere around **GraphQL**, **React (Native)** or any other **JS** project.
+I am fullstack JavaScript developer at Kiwi.com. Currently, I work at [graphql.kiwi.com](https://graphql.kiwi.com/) project but I also help other teams with **GraphQL** in general, **React (Native)** or any other **JS** project.
 
 ## My location
 
