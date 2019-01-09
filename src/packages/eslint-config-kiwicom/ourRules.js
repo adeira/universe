@@ -169,7 +169,13 @@ module.exports = {
   'max-statements': OFF,
   'max-statements-per-line': OFF,
   'multiline-comment-style': OFF,
-  'new-cap': OFF,
+  'new-cap': [
+    WARN,
+    {
+      newIsCap: true,
+      capIsNew: false,
+    },
+  ],
   'no-array-constructor': WARN,
   'no-bitwise': WARN,
   'no-continue': OFF,

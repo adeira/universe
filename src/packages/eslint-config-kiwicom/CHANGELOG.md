@@ -1,4 +1,5 @@
 # Unreleased
+- ??????? Rule `new-cap` now throws warnings for lower-cased class usages
 
 # 2.1.0
 - 2e12f61 Show warnings for `no-unused-vars`, `jest/prefer-to-be-null`, `jest/prefer-to-be-undefined`, `jest/prefer-to-contain`, `jest/prefer-to-have-length` and `eslint-comments/no-unlimited-disable`
