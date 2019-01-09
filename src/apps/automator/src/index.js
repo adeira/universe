@@ -1,5 +1,7 @@
 // @flow
 
+import isCI from 'is-ci';
+
 import log from './log';
 import updateDocs from './tasks/updateDocs';
 import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
@@ -16,6 +18,13 @@ const tasks = [
 ];
 
 (async function run() {
+  if (isCI === false) {
+    // It's to dangerous to run it locally since it changes Git settings or
+    // alters directory structure (deletes stuff). Use tests instead
+    // to verify everything works correctly.
+    throw new Error('Automator requires CI environment to run.');
+  }
+
   if (tasks[ciNode.index - 1] === undefined) {
     throw new Error(`No task defined for CI node with index: ${ciNode.index}`);
   }
