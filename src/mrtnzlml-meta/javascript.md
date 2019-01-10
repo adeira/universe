@@ -1,6 +1,14 @@
 - http://exploringjs.com/es6/
 - https://developer.mozilla.org/en-US/docs/Web
 
+# Clearing/resetting/restoring Jest mocks
+
+I am never gonna remember this correctly I guess.
+
+- `jest.clearAllMocks()` only clears the internal state of the mock
+- `jest.resetAllMocks()` does the same + it removes any mocked implementations or return values
+- `jest.restoreAllMocks()` does everything above but it restores the original non-mocked implementation (and works only with `jest.spyOn`)
+
 # Optional chaining & nullish coalescing
 
 - https://github.com/tc39/proposal-optional-chaining
