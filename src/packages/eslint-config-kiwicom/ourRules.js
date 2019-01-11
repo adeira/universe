@@ -343,6 +343,8 @@ module.exports = {
   'react/jsx-uses-react': WARN,
   'react/jsx-uses-vars': WARN,
 
+  'react-hooks/rules-of-hooks': WARN, // TODO: ERROR!
+
   // React Native (https://github.com/Intellicode/eslint-plugin-react-native)
   'react-native/no-unused-styles': ERROR,
 

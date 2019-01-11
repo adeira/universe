@@ -1,5 +1,6 @@
 # Unreleased
 - Rule `new-cap` now throws warnings for lower-cased class usages
+- Add new `react-hooks/rules-of-hooks`
 
 # 2.1.0
 - Show warnings for `no-unused-vars`, `jest/prefer-to-be-null`, `jest/prefer-to-be-undefined`, `jest/prefer-to-contain`, `jest/prefer-to-have-length` and `eslint-comments/no-unlimited-disable`
