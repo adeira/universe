@@ -51,7 +51,7 @@ This project is monorepository which essentially means it contains many smaller 
 - 1.0.0 [@kiwicom/graphql-resolve-wrapper](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
 - 0.3.0 [@kiwicom/graphql-utils](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/graphql-utils) - Set of useful tools to build better GraphQL servers.
 - 0.6.0 [@kiwicom/graphql-logz](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/logz) - Implementation of Logz.io handler for better GraphQL monitoring.
-- 0.1.0 [@kiwicom/npm-publisher](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/npm-publisher) - Tools for automatically publishing of NPM packages
+- 0.2.0 [@kiwicom/npm-publisher](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/npm-publisher) - Tools for automatically publishing of NPM packages
 - 1.0.0 [@kiwicom/signed-source](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.
 - 0.3.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 1.0.0 [@kiwicom/vault2env](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/vault2env) - Utility to help us fetching ENV variables from Vault automatically.
