@@ -3,7 +3,7 @@
   "description": "Tools for automatically publishing of NPM packages",
   "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/npm-publisher",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "src/index.js",
   "dependencies": {
     "@babel/core": "^7.2.2",
