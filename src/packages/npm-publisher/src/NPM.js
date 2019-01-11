@@ -1,7 +1,6 @@
 // @flow
 
 import NPMRegistryClient from 'npm-registry-client';
-import ENV from '@kiwicom/environment';
 
 const URI = 'https://registry.npmjs.org/npm';
 const NPM = new NPMRegistryClient();
@@ -13,13 +12,16 @@ type Callback = (
   res: Object, // res is the response from couch
 ) => void;
 
+// See NPM_AUTH_TOKEN:
+// https://www.npmjs.com/settings/<USERNAME>/tokens
+
 export default {
   getPackageInfo: (params: Object, cb: Callback) => {
     return NPM.distTags.fetch(
       URI,
       {
         auth: {
-          token: ENV.NPM_AUTH_TOKEN,
+          token: process.env.NPM_AUTH_TOKEN,
         },
         ...params,
       },
@@ -33,7 +35,7 @@ export default {
       {
         access: 'public',
         auth: {
-          token: ENV.NPM_AUTH_TOKEN,
+          token: process.env.NPM_AUTH_TOKEN,
         },
         ...params,
       },
