@@ -74,7 +74,6 @@ export default function publish(options: Options) {
                         filename.replace(packageFolderPath, ''),
                       );
 
-                      // $FlowPullRequest: https://github.com/facebook/flow/pull/7231
                       fs.mkdirSync(path.dirname(destinationFileName), {
                         recursive: true,
                       });
