@@ -4,11 +4,12 @@ This package prepares our public NPM packages to be published. It can automatica
 
 You have to set `NPM_AUTH_TOKEN` environment variable first to be able to use this package.
 
-```
+```js
 import path from 'path';
 import publish from '@kiwicom/npm-publisher';
 
 publish({
+  babelConfigFile: path.join(__dirname, 'babel.config.js'),
   buildCache: path.join(os.tmpdir(), 'PROJECT_ID', '.build'),
   packages: '../packages', // path to your NPM packages
   dryRun: true,

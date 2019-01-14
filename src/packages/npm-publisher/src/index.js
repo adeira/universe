@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // @flow
 
 import fs from 'fs';
@@ -12,6 +11,8 @@ import flowCopySource from 'flow-copy-source';
 
 import findNPMPackages from './findNPMPackages';
 import NPM from './NPM';
+import log from './log';
+import copyFile from './copyFile';
 
 type Options = {|
   +babelConfigFile: string,
@@ -19,6 +20,13 @@ type Options = {|
   +packages: string,
   +dryRun: boolean,
 |};
+
+const filesToCopy = {
+  // false = optional ; true = required
+  'CHANGELOG.md': false,
+  'README.md': true,
+  'package.json': true,
+};
 
 export default function publish(options: Options) {
   rimraf(options.buildCache, () => {
@@ -67,7 +75,7 @@ export default function publish(options: Options) {
                         recursive: true,
                       });
 
-                      console.warn(`${filename} -> ${destinationFileName}`);
+                      log(`${filename} -> ${destinationFileName}`);
 
                       fs.writeFileSync(
                         destinationFileName,
@@ -78,38 +86,19 @@ export default function publish(options: Options) {
                       );
                     });
 
-                    // These files are optional:
-                    ['CHANGELOG.md'].forEach(filenameToCopy => {
-                      const pathToCopy = path.join(
-                        packageFolderPath,
-                        filenameToCopy,
-                      );
-                      try {
-                        fs.accessSync(pathToCopy, fs.constants.F_OK);
-                        fs.copyFileSync(
-                          pathToCopy,
+                    Object.entries(filesToCopy).forEach(
+                      ([fileToCopy, required]) =>
+                        copyFile(
+                          path.join(packageFolderPath, fileToCopy),
                           path.join(
                             options.buildCache,
                             packageFolderName,
-                            filenameToCopy,
+                            fileToCopy,
                           ),
-                        );
-                      } catch (error) {
-                        // noop - file doesn't exist
-                      }
-                    });
-
-                    // These files are required:
-                    ['README.md', 'package.json'].forEach(filenameToCopy => {
-                      fs.copyFileSync(
-                        path.join(packageFolderPath, filenameToCopy),
-                        path.join(
-                          options.buildCache,
-                          packageFolderName,
-                          filenameToCopy,
+                          // $FlowIssue: https://github.com/facebook/flow/issues/2174
+                          required,
                         ),
-                      );
-                    });
+                    );
 
                     await tar.create(
                       {
@@ -135,8 +124,12 @@ export default function publish(options: Options) {
                             ),
                           ),
                         },
-                        () => {
-                          console.warn(
+                        error => {
+                          if (error) {
+                            throw error;
+                          }
+
+                          log(
                             `PUBLISHED ${packageJSONFile.name} version ${
                               packageJSONFile.version
                             } 🎉`,
@@ -148,7 +141,7 @@ export default function publish(options: Options) {
                 );
               });
             } else {
-              console.warn(
+              log(
                 `Skipping release of ${
                   packageJSONFile.name
                 } - there is nothing to release`,
