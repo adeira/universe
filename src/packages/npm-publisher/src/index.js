@@ -14,6 +14,7 @@ import findNPMPackages from './findNPMPackages';
 import NPM from './NPM';
 
 type Options = {|
+  +babelConfigFile: string,
   +buildCache: string,
   +packages: string,
   +dryRun: boolean,
@@ -70,7 +71,10 @@ export default function publish(options: Options) {
 
                       fs.writeFileSync(
                         destinationFileName,
-                        transformFileSync(filename).code,
+                        transformFileSync(filename, {
+                          babelrc: false,
+                          configFile: options.babelConfigFile,
+                        }).code,
                       );
                     });
 
