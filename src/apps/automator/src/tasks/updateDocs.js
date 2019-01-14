@@ -14,7 +14,7 @@ import log from '../log';
 
 const COMMIT_MESSAGE = 'Docs: update NPM packages list';
 
-export default function run(taskIdentifier: string) {
+export default async function run(taskIdentifier: string) {
   updateNPMPackagesInfo(taskIdentifier, async (changedFiles: Set<string>) => {
     if (changedFiles.size === 0) {
       log(taskIdentifier, 'nothing to do here, skipping');
@@ -22,7 +22,7 @@ export default function run(taskIdentifier: string) {
     }
 
     const gitBranchName = createBranchName(taskIdentifier, changedFiles);
-    commitChanges(gitBranchName, changedFiles);
+    await commitChanges(gitBranchName, changedFiles);
     await openMergeRequest(gitBranchName, COMMIT_MESSAGE);
   });
 }
@@ -35,20 +35,20 @@ function createBranchName(taskIdentifier, changedFiles: Set<string>) {
   return `automator-${taskIdentifier}-${hash.digest('hex')}`;
 }
 
-function commitChanges(gitBranchName: string, changedFiles: Set<string>) {
-  _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
-  _git(['config', 'user.name', 'Automator']);
-  _git([
+async function commitChanges(gitBranchName: string, changedFiles: Set<string>) {
+  await _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
+  await _git(['config', 'user.name', 'Automator']);
+  await _git([
     'remote',
     'set-url',
     'origin',
     'git@gitlab.skypicker.com:graphql/graphql.git',
   ]);
-  _git(['checkout', '-b', gitBranchName]);
-  _git(['diff']);
-  _git(['add', ...changedFiles]);
-  _git(['commit', '-am', COMMIT_MESSAGE]);
-  _git(['push', 'origin', gitBranchName]);
+  await _git(['checkout', '-b', gitBranchName]);
+  await _git(['diff']);
+  await _git(['add', ...changedFiles]);
+  await _git(['commit', '-am', COMMIT_MESSAGE]);
+  await _git(['push', 'origin', gitBranchName]);
 }
 
 function updateNPMPackagesInfo(
