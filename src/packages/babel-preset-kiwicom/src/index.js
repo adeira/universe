@@ -1,5 +1,7 @@
 // @flow
 
+const path = require('path');
+
 const presets = [
   [
     '@babel/preset-env',
@@ -19,6 +21,7 @@ const presets = [
 ];
 
 const plugins = [
+  path.join(__dirname, 'dev-expression.js'),
   '@babel/plugin-proposal-object-rest-spread',
   '@babel/plugin-proposal-class-properties',
   '@babel/plugin-proposal-optional-chaining',

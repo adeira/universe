@@ -3,7 +3,7 @@
   "description": "Eslint configuration describing rules for JS used at Kiwi.com.",
   "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/eslint-config-kiwicom",
   "private": false,
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "index.js",
   "dependencies": {
     "eslint-config-prettier": "^3.3.0",

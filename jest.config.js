@@ -4,6 +4,9 @@ const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 
 const commonProjectConfig = {
   setupTestFrameworkScriptFile: '<rootDir>/scripts/setupTests.js',
+  globals: {
+    __DEV__: true,
+  },
 };
 
 module.exports = {

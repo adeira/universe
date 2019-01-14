@@ -36,6 +36,12 @@ module.exports = {
     },
   },
 
+  globals: {
+    // set each global variable name equal to true to allow the variable
+    // to be overwritten or false to disallow overwriting
+    __DEV__: false,
+  },
+
   plugins: [
     'eslint-plugin-babel',
     'eslint-plugin-flowtype',

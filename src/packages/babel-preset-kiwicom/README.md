@@ -5,6 +5,7 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - class properties
 - optional chaining `a?.b`
 - nullish coalescing operator `a ?? b`
+- dev expression `__DEV__`
 
 _(more features will follow in future versions as needed)_
 
