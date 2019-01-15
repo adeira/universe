@@ -2,5 +2,5 @@
 // @flow
 
 export default function log(message: string): void {
-  console.warn('Publisher: ' + message);
+  console.warn('Publisher:', message);
 }

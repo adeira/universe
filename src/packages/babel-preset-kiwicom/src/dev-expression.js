@@ -8,18 +8,30 @@ type MemberExpression = mixed;
 type StringLiteral = mixed;
 
 type Babel = {|
-  +types: {|
-    binaryExpression: (string, MemberExpression, StringLiteral) => BinaryExpression,
+  +types: $ReadOnly<{|
+    binaryExpression: (
+      string,
+      MemberExpression,
+      StringLiteral,
+    ) => BinaryExpression,
     identifier: string => Identifier,
     memberExpression: (Identifier, Identifier, boolean) => MemberExpression,
     stringLiteral: string => StringLiteral,
-  |}
-|}
+  |}>,
+|};
 
-type Path = {|
+type Node = {|
+  +computed: boolean,
+  +key: {|
+    +name: string,
+  |},
+|};
+
+type Path = $ReadOnly<{|
+  node: Node,
   isIdentifier: Object => boolean,
-  replaceWith: BinaryExpression => void
-|}
+  replaceWith: BinaryExpression => void,
+|}>;
 
 */
 
@@ -35,19 +47,24 @@ module.exports = function({ types: t } /*: Babel */) {
   );
 
   return {
+    pre() {
+      this.canChangeProperty = true;
+    },
     visitor: {
-      Identifier: {
-        enter: function(path /*: Path */) {
-          // do nothing when testing
-          if (process.env.NODE_ENV === 'test') {
-            return;
-          }
+      Property(path /*: Path */) {
+        this.canChangeProperty =
+          path.node.computed === true || path.node.key.name !== '__DEV__';
+      },
+      Identifier(path /*: Path */) {
+        // do nothing when testing
+        if (process.env.NODE_ENV === 'test') {
+          return;
+        }
 
-          // replace __DEV__ with process.env.NODE_ENV !== 'production'
-          if (path.isIdentifier({ name: '__DEV__' })) {
-            path.replaceWith(DEV_EXPRESSION);
-          }
-        },
+        // replace __DEV__ with process.env.NODE_ENV !== 'production'
+        if (path.isIdentifier({ name: '__DEV__' }) && this.canChangeProperty) {
+          path.replaceWith(DEV_EXPRESSION);
+        }
       },
     },
   };

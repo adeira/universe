@@ -29,6 +29,10 @@ const filesToCopy = {
 };
 
 export default function publish(options: Options) {
+  if (options.dryRun) {
+    log('DRY RUN');
+  }
+
   rimraf(options.buildCache, () => {
     findNPMPackages(
       options.packages,
@@ -77,13 +81,18 @@ export default function publish(options: Options) {
 
                       log(`${filename} -> ${destinationFileName}`);
 
-                      fs.writeFileSync(
-                        destinationFileName,
-                        transformFileSync(filename, {
-                          babelrc: false,
-                          configFile: options.babelConfigFile,
-                        }).code,
-                      );
+                      try {
+                        fs.writeFileSync(
+                          destinationFileName,
+                          transformFileSync(filename, {
+                            babelrc: false,
+                            configFile: options.babelConfigFile,
+                          }).code,
+                        );
+                      } catch (error) {
+                        log(error);
+                        process.exit(1);
+                      }
                     });
 
                     Object.entries(filesToCopy).forEach(
