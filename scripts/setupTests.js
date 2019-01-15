@@ -40,7 +40,7 @@ expect.extend({
 const isSpy = spy => spy.calls && typeof spy.calls.count === 'function';
 
 // TODO: .toWarnDev() ?
-['error', 'warn'].forEach(methodName => {
+['error', 'warn', 'log'].forEach(methodName => {
   const unexpectedConsoleCallStacks = [];
   const newMethod = function(format, ...args) {
     const stack = new Error().stack;
@@ -60,7 +60,7 @@ const isSpy = spy => spy.calls && typeof spy.calls.count === 'function';
   global.afterEach(() => {
     if (console[methodName] !== newMethod && !isSpy(console[methodName])) {
       throw new Error(
-        `Test did not tear down console.${methodName} mock properly.`,
+        `Test did not tear down console.${methodName} mock properly. Did you call spy.mockRestore() or jest.restoreAllMocks()?`,
       );
     }
 
@@ -78,9 +78,9 @@ const isSpy = spy => spy.calls && typeof spy.calls.count === 'function';
         `Expected test not to call ${chalk.bold(
           `console.${methodName}()`,
         )}.\n\n` +
-        `If the warning is expected, test for it explicitly by mocking it out using ${chalk.bold(
+        `If the console output is expected, test for it explicitly by mocking it out using ${chalk.bold(
           'jest.spyOn',
-        )}(console, '${methodName}').mockImplementation(...) and test that the warning occurs.`;
+        )}(console, '${methodName}').mockImplementation(...) and test that the output occurs.`;
 
       throw new Error(`${message}\n\n${messages.join('\n\n')}`);
     }
