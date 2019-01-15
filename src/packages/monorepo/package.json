@@ -1,5 +1,7 @@
 {
   "name": "@kiwicom/monorepo",
+  "description": "Helpful functions to manage monorepos (using Yarn Workspaces).",
+  "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/monorepo",
   "private": false,
   "version": "0.1.0",
   "main": "src/index.js",
