@@ -6,6 +6,8 @@
   "version": "2.2.0",
   "main": "index.js",
   "dependencies": {
+    "chalk": "^2.4.2",
+    "create-jest-runner": "^0.4.1",
     "eslint-config-prettier": "^3.4.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-dependencies": "^2.4.0",
@@ -22,7 +24,10 @@
     "eslint-plugin-react-hooks": "^0.0.0",
     "eslint-plugin-react-native": "^3.6.0",
     "eslint-plugin-relay": "^1.0.0",
-    "prettier": "^1.15.3"
+    "is-ci": "^2.0.0",
+    "prettier": "^1.15.3",
+    "strip-ansi": "^5.0.0",
+    "text-table": "^0.2.0"
   },
   "peerDependencies": {
     "eslint": "^5.11.0"
