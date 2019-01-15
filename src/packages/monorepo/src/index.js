@@ -7,8 +7,13 @@ import {
   findRootPackageJson,
   findRootPackageJsonPath,
 } from './findRootPackageJson';
+import { runTests } from './TestsRunner';
 
-export { findRootPackageJson, findRootPackageJsonPath };
+export {
+  findRootPackageJson,
+  findRootPackageJsonPath,
+  runTests as unstable_runTests, // eslint-disable-line babel/camelcase
+};
 
 export function iterateWorkspaces(cb: (packageJSONLocation: string) => void) {
   const rootPackageJSON = findRootPackageJson();
