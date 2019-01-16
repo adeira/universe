@@ -3,14 +3,15 @@
   "description": "Script to detect breaking changes in GraphQL schema with ability to log these changes.",
   "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/bc-checker",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/index.js",
   "dependencies": {
     "@kiwicom/signed-source": "^1",
     "chalk": "^2.4.2"
   },
   "devDependencies": {
-    "@kiwicom/test-utils": "^0"
+    "@kiwicom/test-utils": "^0",
+    "strip-ansi": "^5.0.0"
   },
   "peerDependencies": {
     "graphql": "^14.0.2"

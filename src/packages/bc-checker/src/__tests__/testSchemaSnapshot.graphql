@@ -1,0 +1,16 @@
+# @generated SignedSource<<dccf304bbbd7b28234e3a47e4800f661>>
+
+# <BREAKING-CHANGES-LOG>
+# </BREAKING-CHANGES-LOG>
+
+schema {
+  query: RootQuery
+}
+
+type RootQuery {
+  test: Test
+}
+
+type Test {
+  id: String
+}

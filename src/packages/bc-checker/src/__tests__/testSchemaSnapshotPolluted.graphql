@@ -1,0 +1,13 @@
+# @generated SignedSource<<dccf304bbbd7b28234e3a47e4800f661>>
+
+# This file was polluted with manual changes.
+# This file was polluted with manual changes.
+# This file was polluted with manual changes.
+
+schema {
+  query: RootQuery
+}
+
+type RootQuery {
+  test: String
+}

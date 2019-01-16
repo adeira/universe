@@ -2,35 +2,30 @@ Thanks for contributing to this repository. Please go through the following note
 
 # Our Development Process
 
-We want to push changes to the `master` branch as soon as possible and we consider `master` branch to be a stable branch (with continuous deployments from this branch). Every change should go through Pull Request (PR) and code review and we prefer smaller PRs even though the future is not completely finished yet.
+We want to push changes to the `master` branch as soon as possible and we consider `master` branch to be a stable branch (with continuous deployments from this branch). Every change should go through Merge Request (MR) and code review and we prefer smaller MRs even though the future is not completely finished yet.
 
-Please read our main README file for more detailed info about how to write code or test it. Tl;dr:
+Please read our [documentation](https://kiwi.wiki/graphql/graphql/) for more detailed info about how to write code or test it. Tl;dr:
 
 - add your code and if you think it should be tested then do so (unit tests for non-trivial code, integration tests for business critical things)
-- update the documentation if needed (README file)
+- update the documentation if needed
 - ensure the test suite passes (`yarn test-ci`)
 - ensure it actually works (`yarn start` -> verify in the browser)
 - submit PR and wait for the code review (do not let it die)
 
-Every change is automatically deployed from the `master` if the tests are green!
-
-# Styleguides
-
-- [Directory Structure](https://gitlab.skypicker.com/graphql/graphql/blob/master/README.md#directory-structure)
-- [How to use localization, data loaders or output types?](https://gitlab.skypicker.com/graphql/graphql/blob/master/README.md#design-style-guides)
+Every change is automatically deployed from the `master` if the tests are green! Please check the [Design Style Guides](https://kiwi.wiki/graphql/graphql/docs/design-style-guides/) to learn how to write GraphQL properly.
 
 # Updating snapshot of GraphQL schema
 
-We have to be careful about what changes are landing in the master branch because. Especially considering Backward Compatibility (BC) breaks. For this reason we are testing BC breaks and we do not allow them at all. You can easily verify it after your changes with this command:
+We have to be careful about what changes are landing in the master branch. Especially considering Backward Compatibility (BC) breaks. For this reason we are testing BC breaks and we do not allow them at all. You can easily verify it after your changes with this command:
 
 ```
-yarn test-bc
+yarn test-bc [--allow-breaking-changes]
 ```
 
 It should return something like this:
 
 ```
-▲ graphql at contributing ✔ y test-bc
+▲ yarn test-bc
 yarn run v1.7.0
 
 Congratulations! NO BREAKING CHANGES or OUTDATED SCHEMA. Good job!
@@ -41,7 +36,7 @@ Congratulations! NO BREAKING CHANGES or OUTDATED SCHEMA. Good job!
 Everything is fine! Otherwise, it will give you suggestions what to do:
 
 ```
-▲ graphql at contributing ✖ y test-bc
+▲ yarn test-bc
 yarn run v1.7.0
 You introduced breaking changes into the public GraphQL schema. This change may or may not be intentional. These breaking changes may break some clients consuming our public API. Please try to find a way how to avoid breaking changes and try it again. Here is list of all breaking changes:
 
@@ -59,4 +54,4 @@ Tips how to avoid breaking changes:
 - change of default argument value (don't or introduce new argument/query)
 ```
 
-Please note - the schema snapshot is being saved automatically and you cannot affect it in any way. Schema must be always commited to the repository with your changes. Also, this checks only structural BC breaks but it will not check BC breaks in your code behavior. So it's still possible to introduce breaking changes to the code and you should always think about that.
+Please note - the schema snapshot is being saved automatically and you cannot affect it in any way. Schema must be always commited to the repository with your changes. You can use option `--allow-breaking-changes` in case you are sure it's OK to do it. Please think twice before you send something destructive to the production. Please note that this test of breaking changes checks only structural BC breaks but it will not check BC breaks in your code behavior. So it's still possible to introduce breaking changes to the code and you should always think about that.
