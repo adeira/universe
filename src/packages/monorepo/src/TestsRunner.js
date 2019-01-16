@@ -1,6 +1,5 @@
 // @flow
 
-import os from 'os';
 import execa from 'execa';
 import { invariant } from '@mrtnzlml/utils';
 
@@ -11,28 +10,17 @@ import { type WorkspaceDependencies } from './Workspaces.flow';
 function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
-
-  const { stdout: testsToRun } = execa.sync('jest', [
-    '--config=jest.config.js',
-    '--listTests',
-    ...config,
-  ]);
-
-  // TODO: this should probably throw when running with '--all'
-  if (testsToRun === '') {
-    // eslint-disable-next-line no-console
-    console.log(
-      os.EOL,
-      'Trying to run Jest with the following arguments but no tests were found.',
-      os.EOL,
-      config,
-      os.EOL,
-    );
-  } else {
-    execa.sync('jest', ['--config=jest.config.js', ...config], {
+  return execa.sync(
+    'jest',
+    [
+      '--config=jest.config.js',
+      '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docusaurus for example)
+      ...config,
+    ],
+    {
       stdio: 'inherit',
-    });
-  }
+    },
+  );
 }
 
 function _runJestTimezoneVariants(config, ciNode: CINode) {
