@@ -6,7 +6,7 @@
   "version": "0.1.0",
   "main": "src/index.js",
   "dependencies": {
-    "@mrtnzlml/utils": "^1.1.0",
+    "@mrtnzlml/utils": "^1.1.1",
     "execa": "^1.0.0",
     "glob": "^7.1.3"
   }
