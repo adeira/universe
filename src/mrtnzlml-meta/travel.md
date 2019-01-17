@@ -6,6 +6,8 @@ You can consider this document to be a checklist for your travels. But first - y
 - [ ] check coworking options
 - [ ] buy travel insurance (medical)
 
+https://packhacker.com/guide/working-remotely/
+
 # Travel info
 Need to know something about your new destination? This will help you:
 
@@ -112,6 +114,7 @@ These are coworking I actually visited. Highlighted coworkings are really good.
 - http://www.homework.com.mx/
   - zero community, stupid chairs
   - can be quite noisy but absolutely amazing location in CDMX
+- https://colmenacreativa.com/
 
 ## Prague:
 - **http://opero.cz/en**
