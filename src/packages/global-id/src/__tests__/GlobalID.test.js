@@ -147,7 +147,9 @@ describe('evaluateGlobalIdField', () => {
         new GraphQLObjectType({
           name: 'Test',
           fields: {
-            id: GraphQLID,
+            id: {
+              type: GraphQLID,
+            },
           },
         }),
       ),
@@ -162,7 +164,9 @@ describe('evaluateGlobalIdField', () => {
         new GraphQLObjectType({
           name: 'Test',
           fields: {
-            notIdField: GraphQLID,
+            notIdField: {
+              type: GraphQLID,
+            },
           },
         }),
       ),
