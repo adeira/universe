@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.3.0
+- Disable rule `eslint-comments/no-unlimited-disable` to make it more Relay friendly
+
 # 2.2.0
 - Rule `new-cap` now throws warnings for lower-cased class usages
 - Add new `react-hooks/rules-of-hooks`

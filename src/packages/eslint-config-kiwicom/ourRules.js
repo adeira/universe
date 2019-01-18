@@ -394,7 +394,7 @@ module.exports = {
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
   'eslint-comments/no-duplicate-disable': WARN,
   'eslint-comments/no-unused-enable': WARN,
-  'eslint-comments/no-unlimited-disable': WARN, // TODO: ERROR
+  'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
 
   // Kiwi.com custom rules
   'kiwi-graphql/only-nullable-fields': ERROR,
