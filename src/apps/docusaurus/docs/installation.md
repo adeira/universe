@@ -58,3 +58,12 @@ This project is monorepository which essentially means it contains many smaller 
 - 1.0.0 [@kiwicom/vault2env](https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/vault2env) - Utility to help us fetching ENV variables from Vault automatically.
 
 <!-- /AUTOMATOR:1 -->
+
+## Acceptance criteria
+
+Any project from Incubator tribe can be accepted into this monorepo. However, there are some important criteria:
+
+- project uses latest version of `@kiwicom/eslint-config` without any errors or warnings (preferably not masked with `eslint-disable` comments)
+- project doesn't use any other additional Eslint rules (should be ported to `@kiwicom/eslint-config` but exceptions can be made after some discussion)
+- project is using latest version of Flow
+- project has all the dependencies updated
