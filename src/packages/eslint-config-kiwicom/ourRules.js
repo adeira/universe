@@ -243,11 +243,8 @@ module.exports = {
     },
   ],
   'babel/new-cap': OFF,
-  'babel/object-curly-spacing': OFF,
   'babel/no-invalid-this': OFF,
   'babel/no-unused-expressions': WARN, // TODO: ERROR
-  'babel/quotes': [WARN, 'single', 'avoid-escape'],
-  'babel/semi': ERROR,
   'babel/valid-typeof': ERROR,
 
   // flowtype (https://github.com/gajus/eslint-plugin-flowtype)

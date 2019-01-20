@@ -1,4 +1,5 @@
 # Unreleased
+- Disable rules from eslint-plugin-babel that are in conflict with Prettier
 
 # 2.3.0
 - Disable rule `eslint-comments/no-unlimited-disable` to make it more Relay friendly
