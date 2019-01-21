@@ -14,7 +14,7 @@ function _runJest(config, timezone = 'UTC') {
     'jest',
     [
       '--config=jest.config.js',
-      '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docusaurus for example)
+      '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docs for example)
       ...config,
     ],
     {

@@ -9,9 +9,9 @@ const siteConfig = {
   url: 'https://kiwi.wiki',
   baseUrl: '/graphql/graphql/',
   editUrl:
-    'https://gitlab.skypicker.com/graphql/graphql/edit/master/src/apps/docusaurus/docs/',
+    'https://gitlab.skypicker.com/graphql/graphql/edit/master/src/apps/docs/docs/',
 
-  customDocsPath: 'docusaurus/docs',
+  customDocsPath: 'docs/docs',
 
   // Used for publishing and more
   projectName: 'graphql',
