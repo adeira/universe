@@ -13,7 +13,7 @@ function _runJest(config, timezone = 'UTC') {
   return execa.sync(
     'jest',
     [
-      '--config=jest.config.js',
+      '--config=.jest.config.js',
       '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docs for example)
       ...config,
     ],

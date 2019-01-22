@@ -1,5 +1,9 @@
 // @flow
 
+// Please note: this file should be named `.jest.config.js` because this way
+// we can prevent calling `yarn jest` directly. It wouldn't work with config
+// name `jest.config.js` because this config is being loaded automatically.
+
 const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 
 const commonProjectConfig = {
