@@ -2,6 +2,7 @@
 
 import os from 'os';
 import execa from 'execa';
+import isCI from 'is-ci';
 
 export function _parseRows(changes: string): $ReadOnlyArray<string> {
   return changes.split(os.EOL).filter(row => row !== '');
@@ -42,6 +43,22 @@ export default function getChangedFiles(): $ReadOnlyArray<string> {
 
   const uncommittedChanges = _parseRows(rawUncommittedChanges);
   const changesInLastCommitFiles = _parseRows(rawChangesInLastCommitFiles);
+
+  // It's OK to run tests on uncommitted changes locally but it's unexpected
+  // in CI because it indicates that CI generated something which is not
+  // expected (tests runner would be confused and it would try to test
+  // the newly generated files).
+  if (isCI === true && uncommittedChanges.length > 0) {
+    // eslint-disable-next-line no-console
+    console.error(
+      `ERROR: There are some uncommitted changes in the working tree:
+
+${uncommittedChanges.join(os.EOL)}
+
+This usually means that CI generated some changes (for example during installation of dependencies) which is unexpected. Please try to fix it locally and commit the newly generated files.`,
+    );
+    process.exit(1);
+  }
 
   return uncommittedChanges.length > 0
     ? uncommittedChanges
