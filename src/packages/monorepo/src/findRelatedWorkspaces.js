@@ -17,22 +17,28 @@ export default function findRelatedWorkspaces(
   workspaceDependencies: WorkspaceDependencies,
   touchedWorkspaces: Set<string>,
 ) {
-  // 1) the initial workspaces itself
-  const workspacesToTest = new Set<string>(touchedWorkspaces);
+  const workspacesToTest = new Set<string>();
 
-  // 2) workspaces depending on this workspace
-  Object.keys(workspaceDependencies).forEach(key => {
-    const value = workspaceDependencies[key];
+  (function unwind(touchedWorkspaces) {
     touchedWorkspaces.forEach(touchedWorkspace => {
-      if (value.workspaceDependencies.includes(touchedWorkspace)) {
-        findRelatedWorkspaces(workspaceDependencies, new Set([key])).forEach(
-          relatedWorkspace => {
-            workspacesToTest.add(relatedWorkspace);
-          },
-        );
-      }
+      // add the touched dependencies itself
+      workspacesToTest.add(touchedWorkspace);
+
+      // find the touched workspaces everywhere in individual `workspaceDependencies`
+      Object.keys(workspaceDependencies).forEach(key => {
+        if (
+          workspaceDependencies[key].workspaceDependencies.includes(
+            touchedWorkspace,
+          )
+        ) {
+          if (!workspacesToTest.has(key)) {
+            workspacesToTest.add(key);
+            unwind([key]);
+          }
+        }
+      });
     });
-  });
+  })(touchedWorkspaces);
 
   return workspacesToTest;
 }
