@@ -1,4 +1,5 @@
 - http://exploringjs.com/es6/
+- https://ponyfoo.com/articles/es6
 - https://developer.mozilla.org/en-US/docs/Web
 
 # Clearing/resetting/restoring Jest mocks
