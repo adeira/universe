@@ -14,7 +14,7 @@ import log from '../log';
 
 const COMMIT_MESSAGE = 'Docs: update NPM packages list';
 
-export default async function run(taskIdentifier: string) {
+export default function run(taskIdentifier: string) {
   updateNPMPackagesInfo(taskIdentifier, async (changedFiles: Set<string>) => {
     if (changedFiles.size === 0) {
       log(taskIdentifier, 'nothing to do here, skipping');

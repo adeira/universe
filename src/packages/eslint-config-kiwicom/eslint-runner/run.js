@@ -40,15 +40,62 @@ module.exports = ({ testPath } /*: Options */) => {
   const end = Date.now();
   const result = report.results[0];
 
-  if (result.messages.length === 0) {
-    return pass({ start, end, test: { path: testPath } });
+  if (result.errorCount === 0 && result.warningCount > 0) {
+    return passWithWarning({
+      start,
+      end,
+      test: {
+        path: testPath,
+        warningMessage: formatter(report.results),
+      },
+    });
+  } else if (result.errorCount > 0) {
+    return fail({
+      start,
+      end,
+      test: {
+        path: testPath,
+        errorMessage: formatter(report.results),
+      },
+    });
   }
-  return fail({
-    start,
-    end,
-    test: {
-      path: testPath,
-      errorMessage: formatter(report.results),
-    },
-  });
+
+  return pass({ start, end, test: { path: testPath } });
 };
+
+function passWithWarning({ start, end, test }) {
+  return {
+    console: null,
+    failureMessage: test.warningMessage,
+    numFailingTests: 0,
+    numPassingTests: 1,
+    numPendingTests: 0,
+    perfStats: {
+      end: new Date(start).getTime(),
+      start: new Date(end).getTime(),
+    },
+    skipped: false,
+    snapshot: {
+      added: 0,
+      fileDeleted: false,
+      matched: 0,
+      unchecked: 0,
+      unmatched: 0,
+      updated: 0,
+    },
+    sourceMaps: {},
+    testExecError: null,
+    testFilePath: test.path,
+    testResults: [
+      {
+        ancestorTitles: [],
+        duration: end - start,
+        failureMessages: [test.warningMessage],
+        fullName: test.path,
+        numPassingAsserts: test.warningMessage ? 1 : 0,
+        status: test.warningMessage ? 'failed' : 'passed',
+        title: '',
+      },
+    ],
+  };
+}
