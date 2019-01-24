@@ -3,7 +3,7 @@
 import fetch from '@mrtnzlml/fetch';
 import ENV from '@kiwicom/environment';
 
-const PROJECT_ID = 1419; // https://gitlab.skypicker.com/graphql/graphql
+const PROJECT_ID = 1419; // https://gitlab.skypicker.com/incubator/universe
 
 export default async function openMergeRequest(
   sourceBranch: string,
