@@ -12,6 +12,6 @@
     "react": "^16.7.0-alpha.0"
   },
   "devDependencies": {
-    "docusaurus": "^1.6.2"
+    "docusaurus": "^1.7.1"
   }
 }
