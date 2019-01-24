@@ -132,6 +132,10 @@ TODO: researching
 
 TODO: https://github.com/mrtnzlml/relay/pull/127/commits/0920c0cb4be13e010376feb98997d7a8438cbf37
 
+# @defer, @stream
+
+TODO: https://github.com/mrtnzlml/relay/pull/172/commits
+
 # Persisted queries
 
 TODO
