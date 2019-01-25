@@ -1,4 +1,5 @@
 # Unreleased
+- Detect React version automatically
 
 # 2.4.0
 - Disable rules from `eslint-plugin-babel` that are in conflict with Prettier
