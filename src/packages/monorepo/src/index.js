@@ -8,10 +8,12 @@ import {
   findRootPackageJsonPath,
 } from './findRootPackageJson';
 import { runTests } from './TestsRunner';
+import { getWorktreeChangedFiles } from './getChangedFiles';
 
 export {
   findRootPackageJson,
   findRootPackageJsonPath,
+  getWorktreeChangedFiles,
   runTests as unstable_runTests, // eslint-disable-line babel/camelcase
 };
 
