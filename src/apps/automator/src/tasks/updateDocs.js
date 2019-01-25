@@ -38,12 +38,7 @@ function createBranchName(taskIdentifier, changedFiles: Set<string>) {
 async function commitChanges(gitBranchName: string, changedFiles: Set<string>) {
   await _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
   await _git(['config', 'user.name', 'Automator']);
-  await _git([
-    'remote',
-    'set-url',
-    'origin',
-    'git@gitlab.skypicker.com:incubator/universe.git',
-  ]);
+  await _git(['remote', 'set-url', 'origin', require('../repoURL')]);
   await _git(['checkout', '-b', gitBranchName]);
   await _git(['diff']);
   await _git(['add', ...changedFiles]);
