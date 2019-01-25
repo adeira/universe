@@ -13,7 +13,7 @@ describe('all workspaces', () => {
         expect(packageJson.description).not.toBeUndefined();
         expect(packageJson.homepage).toMatch(
           // we should eventually point to GitHub repo when exported
-          /^https:\/\/gitlab\.skypicker\.com\/incubator\/universe\/tree\/master\/src\/packages\/.*/,
+          /^https:\/\/gitlab\.skypicker\.com\/incubator\/universe\/tree\/master\/src\/packages\/.+|^https:\/\/github\.com\/kiwicom\/.+/,
         );
 
         // each public package must specify `main` or `bin` field pe be useful

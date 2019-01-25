@@ -1,9 +1,9 @@
 {
   "name": "@kiwicom/vault2env",
   "description": "Utility to help us fetching ENV variables from Vault automatically.",
-  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/vault2env",
+  "homepage": "https://github.com/kiwicom/vault2env-js",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "bin": {
     "vault2env": "bin/index.js"
   },

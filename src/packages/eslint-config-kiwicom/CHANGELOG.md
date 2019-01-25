@@ -1,4 +1,6 @@
 # Unreleased
+
+# 2.5.0
 - Detect React version automatically
 
 # 2.4.0
