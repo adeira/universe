@@ -8,7 +8,7 @@ Install:
 
 ```text
 git clone git@gitlab.skypicker.com:incubator/universe.git
-( cd graphql ; yarn install )
+( cd universe ; yarn install )
 ```
 
 Run:
