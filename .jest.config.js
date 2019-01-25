@@ -7,12 +7,12 @@
 const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 
 const commonProjectConfig = {
-  // runs once per test file (before `setupTestFrameworkScriptFile` and before
+  // runs once per test file (before `setupFilesAfterEnv` and before
   // test framework is being installed)
   setupFiles: ['<rootDir>/scripts/setupTestFiles.js'],
 
   // runs before each test (after test framework is installed)
-  setupTestFrameworkScriptFile: '<rootDir>/scripts/setupTests.js',
+  setupFilesAfterEnv: ['<rootDir>/scripts/setupTests.js'],
 
   globals: {
     __DEV__: true,
