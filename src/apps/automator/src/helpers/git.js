@@ -2,7 +2,7 @@
 
 import { exec, type ExecConfig } from './exec';
 
-export default async function git(
+export default function git(
   options: $ReadOnlyArray<string>,
   config?: ExecConfig,
 ) {
