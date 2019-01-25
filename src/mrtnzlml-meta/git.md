@@ -2,6 +2,12 @@
 - [Yarn Plug'n'Play Whitepaper](https://github.com/yarnpkg/rfcs/blob/master/accepted/0000-plug-an-play.md) (alternative: https://github.com/npm/tink)
 - https://chris.beams.io/posts/git-commit/
 
+What happened in last week?
+
+```
+git log --since=1.week --oneline --no-merges
+```
+
 # Changelog in monorepo
 
 Get hash of the latest version:
