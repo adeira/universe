@@ -10,6 +10,7 @@
       "debugging",
       "vault",
       "faq"
-    ]
+    ],
+    "NPM packages": ["npm/packages"]
   }
 }

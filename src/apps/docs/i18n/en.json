@@ -29,6 +29,10 @@
         "title": "Install & Run GraphQL API server",
         "sidebar_label": "Installation"
       },
+      "npm/packages": {
+        "title": "Public NPM Packages",
+        "sidebar_label": "Public NPM Packages"
+      },
       "runbooks/rancher": {
         "title": "Rancher",
         "sidebar_label": "Rancher"
@@ -39,7 +43,7 @@
       },
       "vault": {
         "title": "Environment variables",
-        "sidebar_label": "Environment variables"
+        "sidebar_label": "Vault"
       }
     },
     "links": {
@@ -48,7 +52,8 @@
     "categories": {
       "Runbooks": "Runbooks",
       "Monorepo": "Monorepo",
-      "GraphQL": "GraphQL"
+      "GraphQL": "GraphQL",
+      "NPM packages": "NPM packages"
     }
   },
   "pages-strings": {
