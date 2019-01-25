@@ -9,6 +9,7 @@ export default async function test(a: Object): Object {
     ...a,
     test_1: a?.b ?? 'default',
     test_2: !!__DEV__,
+    test_3: await 'this',
   };
 }
 
@@ -29,7 +30,8 @@ async function test(a) {
 
   return _objectSpread({}, a, {
     test_1: (_ref = a === null || a === void 0 ? void 0 : a.b) !== null && _ref !== void 0 ? _ref : 'default',
-    test_2: !!(process.env.NODE_ENV !== "production")
+    test_2: !!(process.env.NODE_ENV !== "production"),
+    test_3: await 'this'
   });
 }
 `;
