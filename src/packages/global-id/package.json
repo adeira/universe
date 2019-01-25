@@ -1,9 +1,9 @@
 {
   "name": "@kiwicom/graphql-global-id",
   "description": "Utility to manage ID fields in GraphQL correctly.",
-  "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/global-id",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/global-id",
   "private": false,
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "src/GlobalID.js",
   "dependencies": {
     "@mrtnzlml/utils": "^1.1.1"

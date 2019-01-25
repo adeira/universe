@@ -1,9 +1,9 @@
 {
   "name": "@kiwicom/npm-publisher",
   "description": "Tools for automatically publishing of NPM packages",
-  "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/npm-publisher",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/npm-publisher",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "src/index.js",
   "dependencies": {
     "@babel/core": "^7.2.2",

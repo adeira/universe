@@ -1,9 +1,9 @@
 {
   "name": "@kiwicom/babel-preset-kiwicom",
   "description": "Babel preset for JS used at Kiwi.com.",
-  "homepage": "https://gitlab.skypicker.com/graphql/graphql/tree/master/src/packages/babel-preset-kiwicom",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/babel-preset-kiwicom",
   "private": false,
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "src/index.js",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",

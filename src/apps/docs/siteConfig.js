@@ -7,9 +7,9 @@ const siteConfig = {
   title: 'GraphQL', // Title for your website.
   tagline: 'Documentation for GraphQL at Kiwi.com',
   url: 'https://kiwi.wiki',
-  baseUrl: '/graphql/graphql/',
+  baseUrl: '/incubator/universe/',
   editUrl:
-    'https://gitlab.skypicker.com/graphql/graphql/edit/master/src/apps/docs/docs/',
+    'https://gitlab.skypicker.com/incubator/universe/edit/master/src/apps/docs/docs/',
 
   customDocsPath: 'docs/docs',
 

@@ -7,7 +7,7 @@ sidebar_label: Installation
 Install:
 
 ```text
-git clone git@gitlab.skypicker.com:graphql/graphql.git
+git clone git@gitlab.skypicker.com:incubator/universe.git
 ( cd graphql ; yarn install )
 ```
 

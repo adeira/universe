@@ -42,7 +42,7 @@ async function commitChanges(gitBranchName: string, changedFiles: Set<string>) {
     'remote',
     'set-url',
     'origin',
-    'git@gitlab.skypicker.com:graphql/graphql.git',
+    'git@gitlab.skypicker.com:incubator/universe.git',
   ]);
   await _git(['checkout', '-b', gitBranchName]);
   await _git(['diff']);
