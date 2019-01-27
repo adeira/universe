@@ -19,6 +19,9 @@ Collection of interesting links, articles and project...
 - [How to create an OS from scratch](https://github.com/cfenollosa/os-tutorial)
 - [How to Deal with Difficult People on Software Projects](https://people.neilon.software/)
 
+# I
+- [I was wrong about Google and Facebook: there’s nothing wrong with them](https://ar.al/2019/01/11/i-was-wrong-about-google-and-facebook-theres-nothing-wrong-with-them-so-say-we-all/)
+
 # P
 - [Picking the right API Paradigm](https://philsturgeon.uk/2018/05/21/picking-an-api-paradigm-implementation/)
 - [Plus Codes](https://plus.codes/) - addresses for everyone
