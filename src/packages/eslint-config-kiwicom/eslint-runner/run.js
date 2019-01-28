@@ -1,17 +1,12 @@
 // @flow
 
-const { pass, fail } = require('create-jest-runner');
+const os = require('os');
+const { pass, fail, skip } = require('create-jest-runner');
 const CLIEngine = require('eslint').CLIEngine;
 const isCI = require('is-ci');
+const { execSync } = require('child_process');
 
 const formatter = require('./stylish');
-
-// TODO: what to do with these messages?
-global.console = {
-  log: () => {},
-  warn: () => {},
-  error: () => {},
-};
 
 const PERFORM_FIXES = isCI === false;
 const cliEngine = new CLIEngine({
@@ -29,8 +24,41 @@ type Options = {|
 
 */
 
+const changedFiles = (function() {
+  function _parseRows(changes) {
+    return changes.split(os.EOL).filter(row => row !== '');
+  }
+
+  const uncommittedChanges = _parseRows(
+    execSync('git --no-pager diff --name-only HEAD', {
+      encoding: 'utf8',
+    }),
+  );
+
+  const changesInLastCommitFiles = _parseRows(
+    execSync('git --no-pager diff --name-only HEAD^1 HEAD', {
+      encoding: 'utf8',
+    }),
+  );
+
+  return uncommittedChanges.length > 0
+    ? uncommittedChanges
+    : changesInLastCommitFiles;
+})();
+
 module.exports = ({ testPath } /*: Options */) => {
   const start = Date.now();
+
+  const normalizedPath = testPath.replace(process.cwd(), '').replace(/^\//, '');
+  if (changedFiles.includes(normalizedPath) === false) {
+    return skip({
+      start,
+      end: start,
+      test: {
+        path: testPath,
+      },
+    });
+  }
 
   const report = cliEngine.executeOnFiles([testPath]);
   if (PERFORM_FIXES) {
