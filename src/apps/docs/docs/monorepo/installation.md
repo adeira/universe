@@ -1,6 +1,6 @@
 ---
 id: installation
-title: Install & Run GraphQL API server
+title: Install & Run this monorepo
 sidebar_label: Installation
 ---
 
@@ -39,7 +39,7 @@ yarn test-ci      # everything above + lints and typechecks (runs on the CI serv
 
 ## About this project
 
-This project is monorepository which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](npm/packages) for more info).
+This project is monorepository which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](npm/packages.md) for more info).
 
 ## Acceptance criteria
 

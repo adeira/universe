@@ -1,15 +1,15 @@
 {
   "docs": {
     "Runbooks": ["runbooks/rancher"],
-    "Monorepo": ["installation"],
+    "Monorepo": ["monorepo/installation"],
     "GraphQL": [
-      "directory-structure",
-      "design-style-guides",
-      "infrastructure",
-      "testing",
-      "debugging",
-      "vault",
-      "faq"
+      "graphql/directory-structure",
+      "graphql/design-style-guides",
+      "graphql/infrastructure",
+      "graphql/testing",
+      "graphql/debugging",
+      "graphql/vault",
+      "graphql/faq"
     ],
     "NPM packages": ["npm/packages"]
   }
