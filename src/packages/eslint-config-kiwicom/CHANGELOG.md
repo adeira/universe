@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.6.0
+- Enable warnings for `react/sort-comp` rule
+
 # 2.5.0
 - Detect React version automatically
 

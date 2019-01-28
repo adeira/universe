@@ -322,7 +322,7 @@ module.exports = {
   'react/require-optimization': OFF,
   'react/require-render-return': OFF,
   'react/self-closing-comp': WARN,
-  'react/sort-comp': OFF,
+  'react/sort-comp': WARN, // TODO: ERROR
   'react/sort-prop-types': OFF,
   'react/style-prop-object': OFF,
   'react/jsx-boolean-value': OFF,
