@@ -35,6 +35,22 @@ Add these two Babel plugins and you should be good to go:
 
 Note: this is still experimental feature and can be completely removed.
 
+# isObject()
+
+```js
+function isObject(value): boolean %checks {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+```
+
+Jest [implementation](https://github.com/facebook/jest/blob/d7ca8b23acf2fdd1d070496efb2b2709644a6f4f/packages/jest-snapshot/src/utils.js#L79-L81):
+
+```js
+function isObject(item) {
+  return item && typeof item === 'object' && !Array.isArray(item);
+}
+```
+
 # Is this string/number a number?
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
