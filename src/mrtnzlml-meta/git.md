@@ -8,6 +8,39 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
+# Keeping origin synced with upstream
+
+```
+🤓 geojson-editor [master] git remote -v
+origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (fetch)
+origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
+🤓 geojson-editor [master] git remote add upstream git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git
+🤓 geojson-editor [master] git remote -v
+origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (fetch)
+origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
+upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (fetch)
+upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (push)
+🤓 geojson-editor [master] git fetch upstream
+remote: Enumerating objects: 37, done.
+remote: Counting objects: 100% (31/31), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 15 (delta 7), reused 0 (delta 0)
+Unpacking objects: 100% (15/15), done.
+From gitlab.skypicker.com:alex.alexeev/geojson-editor
+ * [new branch]      17-poi-save -> upstream/17-poi-save
+ * [new branch]      master      -> upstream/master
+🤓 geojson-editor [master] git checkout master
+Already on 'master'
+Your branch is up to date with 'origin/master'.
+🤓 geojson-editor [master] git merge upstream/master
+Updating c935cea..e6e1284
+Fast-forward
+ package.json                     |  4 ++--
+ src/components/DetailsSidebar.js |  3 ---
+ yarn.lock                        | 64 ++++++++++++++++++++++++++++++++++++----------------------------
+ 3 files changed, 38 insertions(+), 33 deletions(-)
+```
+
 # Changelog in monorepo
 
 Get hash of the latest version:
