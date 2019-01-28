@@ -209,7 +209,6 @@ module.exports = {
   ],
 
   // ECMAScript 6 (http://eslint.org/docs/rules/#ecmascript-6)
-  'arrow-body-style': OFF,
   'constructor-super': ERROR,
   'no-class-assign': WARN,
   'no-const-assign': ERROR,
@@ -223,7 +222,6 @@ module.exports = {
   'no-var': WARN,
   'no-useless-rename': WARN,
   'object-shorthand': OFF,
-  'prefer-arrow-callback': [WARN, { allowNamedFunctions: true }],
   'prefer-const': [ERROR, { destructuring: 'all' }],
   'prefer-destructuring': OFF,
   'prefer-numeric-literals': OFF,

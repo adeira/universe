@@ -6,7 +6,7 @@
   "dependencies": {
     "@kiwicom/environment": "^0",
     "@kiwicom/monorepo": "^0",
-    "@mrtnzlml/fetch": "^1.5.2",
+    "@mrtnzlml/fetch": "^2.0.0",
     "execa": "^1.0.0",
     "glob": "^7.1.3",
     "is-ci": "^2.0.0"
