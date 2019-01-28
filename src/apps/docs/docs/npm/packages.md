@@ -8,7 +8,7 @@ sidebar_label: Public NPM Packages
 
 - 1.2.2 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 1.1.2 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
-- 2.5.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 2.6.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 1.0.1 [eslint-plugin-kiwi-graphql](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwi-graphql) - Rules for Kiwi.com GraphQL
 - 0.4.1 [@kiwicom/graphql-global-id](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/global-id) - Utility to manage ID fields in GraphQL correctly.
 - 1.0.2 [@kiwicom/graphql-resolve-wrapper](https://github.com/kiwicom/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
