@@ -33,6 +33,10 @@
         "title": "Environment variables",
         "sidebar_label": "Vault"
       },
+      "monorepo/directory-structure": {
+        "title": "Directory structure of this monorepo",
+        "sidebar_label": "Directory structure"
+      },
       "monorepo/installation": {
         "title": "Install & Run this monorepo",
         "sidebar_label": "Installation"

@@ -4,6 +4,8 @@ title: Install & Run this monorepo
 sidebar_label: Installation
 ---
 
+This project is monorepository which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](npm/packages.md) for more info).
+
 Install:
 
 ```text
@@ -37,6 +39,15 @@ yarn test-bc      # backward compatibility
 yarn test-ci      # everything above + lints and typechecks (runs on the CI server)
 ```
 
+## Acceptance criteria
+
+Any project from Incubator tribe can be accepted into this monorepo. However, there are some important criteria:
+
+- project uses latest version of `@kiwicom/eslint-config` without any errors or warnings (preferably not masked with `eslint-disable` comments)
+- project doesn't use any other additional Eslint rules (should be ported to `@kiwicom/eslint-config` but exceptions can be made after some discussion)
+- project is using latest version of Flow
+- project has all the dependencies updated
+
 ## Writing commit messages
 
 Please read this legendary article first: https://chris.beams.io/posts/git-commit/
@@ -55,7 +66,7 @@ Please note that these rules are not enforced in any way and you should not get 
 
 There is one more trick related to monorepo (but works really well anywhere, not only in monorepo): prefix the commit title with part of application it relates to. Examples:
 
-```
+```text
 e9700715 Eslint config: enable warnings for 'react/sort-comp' rule
 a040f357 Docs: update NPM packages list
 96afa50e Automator: add support for filtering multiple Git workspaces to GitHub
@@ -63,7 +74,7 @@ a040f357 Docs: update NPM packages list
 
 You can skip the prefix if it's not necessary. But imagine the situation without the prefixes for the previous commit messages:
 
-```
+```text
 # ⚠️ this is example of what NOT to do
 
 e9700715 Enable warnings for 'react/sort-comp' rule
@@ -75,23 +86,10 @@ It's not very clear if you don't know what is going on (and you won't after a fe
 
 Some people also tend to use prefixes like _chore_, _fix_, _feat_ and similar. Please try to avoid this here. It is just a noise without any real value. It also implies that updating docs, fixing something or doing maintenance is something less important or different from regular development. It is not. Try this instead:
 
-```
+```text
 b0951c5b GraphQL: fix dynamic packages tests on Node 10
 0c81cf14 Upgrade Docusaurus to the latest version (^1.7.1)
 70e5225a Tests runner: add support for circular dependencies among workspaces
 ```
 
 These commit titles are sufficient. No need for additional keyword describing _maintenance_ or _new feature_ commit type.
-
-## About this project
-
-This project is monorepository which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](npm/packages.md) for more info).
-
-## Acceptance criteria
-
-Any project from Incubator tribe can be accepted into this monorepo. However, there are some important criteria:
-
-- project uses latest version of `@kiwicom/eslint-config` without any errors or warnings (preferably not masked with `eslint-disable` comments)
-- project doesn't use any other additional Eslint rules (should be ported to `@kiwicom/eslint-config` but exceptions can be made after some discussion)
-- project is using latest version of Flow
-- project has all the dependencies updated
