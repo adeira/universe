@@ -1,7 +1,7 @@
 {
   "docs": {
     "Runbooks": ["runbooks/rancher"],
-    "Monorepo": ["monorepo/installation"],
+    "Monorepo": ["monorepo/installation", "monorepo/directory-structure"],
     "GraphQL": [
       "graphql/directory-structure",
       "graphql/design-style-guides",
