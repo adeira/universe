@@ -4,8 +4,8 @@
 // site configuration options.
 
 const siteConfig = {
-  title: 'GraphQL', // Title for your website.
-  tagline: 'Documentation for GraphQL at Kiwi.com',
+  title: 'incubator/universe', // Title for your website.
+  tagline: 'Documentation for incubator/universe monorepo at Kiwi.com',
   url: 'https://kiwi.wiki',
   baseUrl: '/incubator/universe/',
   editUrl:
@@ -21,7 +21,7 @@ const siteConfig = {
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
-  headerLinks: [{ doc: 'installation', label: 'Docs' }],
+  headerLinks: [{ doc: 'monorepo/installation', label: 'Docs' }],
 
   // If you have users set above, you add it here:
   users: [],

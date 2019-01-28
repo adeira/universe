@@ -3,30 +3,38 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Documentation for GraphQL at Kiwi.com",
+    "tagline": "Documentation for incubator/universe monorepo at Kiwi.com",
     "docs": {
-      "debugging": {
+      "graphql/debugging": {
         "title": "Debugging Requests and Responses",
         "sidebar_label": "Debugging"
       },
-      "design-style-guides": {
+      "graphql/design-style-guides": {
         "title": "Design Style Guides",
         "sidebar_label": "Design Style Guides"
       },
-      "directory-structure": {
+      "graphql/directory-structure": {
         "title": "Directory structure of this monorepo",
         "sidebar_label": "Directory structure"
       },
-      "faq": {
+      "graphql/faq": {
         "title": "FAQ",
         "sidebar_label": "FAQ"
       },
-      "infrastructure": {
+      "graphql/infrastructure": {
         "title": "Infrastructure",
         "sidebar_label": "Infrastructure"
       },
-      "installation": {
-        "title": "Install & Run GraphQL API server",
+      "graphql/testing": {
+        "title": "Testing",
+        "sidebar_label": "Testing"
+      },
+      "graphql/vault": {
+        "title": "Environment variables",
+        "sidebar_label": "Vault"
+      },
+      "monorepo/installation": {
+        "title": "Install & Run this monorepo",
         "sidebar_label": "Installation"
       },
       "npm/packages": {
@@ -36,14 +44,6 @@
       "runbooks/rancher": {
         "title": "Rancher",
         "sidebar_label": "Rancher"
-      },
-      "testing": {
-        "title": "Testing",
-        "sidebar_label": "Testing"
-      },
-      "vault": {
-        "title": "Environment variables",
-        "sidebar_label": "Vault"
       }
     },
     "links": {
