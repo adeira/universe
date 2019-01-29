@@ -9,6 +9,20 @@ export function _parseRows(changes: string): $ReadOnlyArray<string> {
 }
 
 /**
+ * Returns uncommitted changes only in the Git worktree.
+ */
+export function getWorktreeChangedFiles(): $ReadOnlyArray<string> {
+  const { stdout: rawUncommittedChanges } = execa.sync('git', [
+    '--no-pager',
+    'diff',
+    '--name-only',
+    'HEAD',
+  ]);
+
+  return _parseRows(rawUncommittedChanges);
+}
+
+/**
  * Returns changed files in the last commit. Uses this command:
  *
  *     # uncommitted changes
@@ -26,13 +40,6 @@ export function _parseRows(changes: string): $ReadOnlyArray<string> {
  *     src/packages/eslint-config-kiwicom/package.json
  */
 export default function getChangedFiles(): $ReadOnlyArray<string> {
-  const { stdout: rawUncommittedChanges } = execa.sync('git', [
-    '--no-pager',
-    'diff',
-    '--name-only',
-    'HEAD',
-  ]);
-
   const { stdout: rawChangesInLastCommitFiles } = execa.sync('git', [
     '--no-pager',
     'diff',
@@ -41,7 +48,7 @@ export default function getChangedFiles(): $ReadOnlyArray<string> {
     'HEAD',
   ]);
 
-  const uncommittedChanges = _parseRows(rawUncommittedChanges);
+  const uncommittedChanges = getWorktreeChangedFiles();
   const changesInLastCommitFiles = _parseRows(rawChangesInLastCommitFiles);
 
   // It's OK to run tests on uncommitted changes locally but it's unexpected
