@@ -5,6 +5,7 @@ import isCI from 'is-ci';
 import log from './log';
 import updateDocs from './tasks/updateDocs';
 import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
+import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
 
 const ciNode = {
   // nodes are indexed from 1 (not zero)
@@ -15,6 +16,7 @@ const ciNode = {
 const tasks = new Map([
   ['📝', updateDocs], // updates Docs and sends MR to GitLab repo
   ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
+  ['🧐', updateGraphQLSkymock],
 ]);
 
 (async function run() {

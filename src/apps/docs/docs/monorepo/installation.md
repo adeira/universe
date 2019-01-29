@@ -6,6 +6,12 @@ sidebar_label: Installation
 
 This project is monorepository which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](npm/packages.md) for more info).
 
+Requirements:
+
+- latest [Git](https://git-scm.com/)
+- latest [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/en/) version >1.0
+
 Install:
 
 ```text
