@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@kiwicom/environment": "^0",
+    "@kiwicom/graphql-skymock": "^0",
     "@kiwicom/monorepo": "^0",
     "@mrtnzlml/fetch": "^2.0.0",
     "execa": "^1.0.0",

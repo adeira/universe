@@ -21,7 +21,6 @@ const COMMIT_MESSAGE = 'Docs: update NPM packages list';
 export default function run(taskIdentifier: string) {
   updateNPMPackagesInfo(taskIdentifier, async () => {
     const changedFiles = getWorktreeChangedFiles();
-
     if (changedFiles.length === 0) {
       log(taskIdentifier, 'nothing to do here, skipping');
       return;
