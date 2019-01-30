@@ -5,6 +5,7 @@
 TODO:
 
 - connection with handler? (https://github.com/facebook/relay/issues/2570#issuecomment-438026375)
+-  [RelayObservable.onUnhandledError](https://github.com/facebook/relay/issues/2616#issuecomment-457869252)
 
 # Local schema
 
