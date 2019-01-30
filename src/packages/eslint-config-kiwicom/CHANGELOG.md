@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.7.0
+- Enable warnings for `jest/prefer-todo` rule
+
 # 2.6.0
 - Enable warnings for `react/sort-comp` rule
 
