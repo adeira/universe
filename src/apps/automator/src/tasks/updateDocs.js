@@ -4,16 +4,15 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
-import crypto from 'crypto';
 import {
   iterateWorkspaces,
   findRootPackageJsonPath,
   getWorktreeChangedFiles,
 } from '@kiwicom/monorepo';
 
-import _git from '../helpers/git';
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import openMergeRequest from '../helpers/gitlab/openMergeRequest';
+import commitAllChanges from '../helpers/commitAllChanges';
 import log from '../log';
 
 const COMMIT_MESSAGE = 'Docs: update NPM packages list';
@@ -26,29 +25,9 @@ export default function run(taskIdentifier: string) {
       return;
     }
 
-    const gitBranchName = createBranchName(changedFiles);
-    await commitChanges(gitBranchName);
+    const gitBranchName = await commitAllChanges(changedFiles, COMMIT_MESSAGE);
     await openMergeRequest(gitBranchName, COMMIT_MESSAGE);
   });
-}
-
-function createBranchName(changedFiles: $ReadOnlyArray<string>) {
-  const hash = crypto.createHash('sha256');
-  changedFiles.forEach(changedFile => {
-    hash.update(changedFile);
-  });
-  return `automator-${hash.digest('hex')}`;
-}
-
-async function commitChanges(gitBranchName: string) {
-  await _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
-  await _git(['config', 'user.name', 'Automator']);
-  await _git(['remote', 'set-url', 'origin', require('../repoURL')]);
-  await _git(['checkout', '-b', gitBranchName]);
-  await _git(['diff']);
-  await _git(['add', '--all']);
-  await _git(['commit', '-am', COMMIT_MESSAGE]);
-  await _git(['push', 'origin', gitBranchName]);
 }
 
 function updateNPMPackagesInfo(

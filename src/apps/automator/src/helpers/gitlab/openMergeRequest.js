@@ -8,7 +8,7 @@ const PROJECT_ID = 1419; // https://gitlab.skypicker.com/incubator/universe
 export default async function openMergeRequest(
   sourceBranch: string,
   commitMessage: string,
-) {
+): Promise<void> {
   const apiURL = `https://gitlab.skypicker.com/api/v4/projects/${PROJECT_ID}/merge_requests`;
 
   const response = await fetch(apiURL, {
