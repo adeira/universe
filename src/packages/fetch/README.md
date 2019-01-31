@@ -1,3 +1,5 @@
+_Formerly known as `@mrtnzlml/fetch`_
+
 This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This fetch solves two common problems:
 
 - fetch timeouts, and
@@ -6,13 +8,13 @@ This package has been extracted from the original [fbjs](https://github.com/face
 # Installation
 
 ```
-yarn add @mrtnzlml/fetch
+yarn add @kiwicom/fetch
 ```
 
 # Usage
 
 ```js
-import fetchWithRetries from '@mrtnzlml/fetch';
+import fetchWithRetries from '@kiwicom/fetch';
 
 fetchWithRetries('//localhost', {
   // see: https://github.com/github/fetch/
@@ -50,7 +52,7 @@ You have to catch errors while fetching the response. This fetch throws these ex
 Example:
 
 ```js
-import fetchWithRetries, { TimeoutError, ResponseError } from '@mrtnzlml/fetch';
+import fetchWithRetries, { TimeoutError, ResponseError } from '@kiwicom/fetch';
 
 (async () => {
   try {

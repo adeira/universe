@@ -3,7 +3,7 @@
 
 import fs from 'fs';
 import os from 'os';
-import fetchWithRetries from '@mrtnzlml/fetch';
+import fetchWithRetries from '@kiwicom/fetch';
 import program from 'commander';
 
 program
