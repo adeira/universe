@@ -1,0 +1,14 @@
+{
+  "name": "@mrtnzlml/fetch",
+  "private": true,
+  "version": "2.0.0",
+  "main": "src/fetchWithRetries.js",
+  "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/src/npm/fetch",
+  "dependencies": {
+    "@mrtnzlml/utils": "^1.1.1",
+    "cross-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "lolex": "^3.0.0"
+  }
+}

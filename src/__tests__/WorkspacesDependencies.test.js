@@ -9,14 +9,14 @@ import { iterateWorkspaces } from '@kiwicom/monorepo';
 const similarities = new Map([
   [
     // data fetching
-    '@mrtnzlml/fetch',
+    '@mrtnzlml/fetch', // TODO: @kiwicom/fetch
     [
       'request',
       'request-promise-native',
       'fetch',
       'node-fetch',
       'whatwg-fetch',
-      'cross-fetch',
+      // 'cross-fetch',
       'isomorphic-fetch',
       'unfetch',
     ],
