@@ -9,14 +9,14 @@ import { iterateWorkspaces } from '@kiwicom/monorepo';
 const similarities = new Map([
   [
     // data fetching
-    '@mrtnzlml/fetch', // TODO: @kiwicom/fetch
+    '@kiwicom/fetch',
     [
       'request',
       'request-promise-native',
       'fetch',
       'node-fetch',
       'whatwg-fetch',
-      // 'cross-fetch',
+      'cross-fetch',
       'isomorphic-fetch',
       'unfetch',
     ],
@@ -31,6 +31,11 @@ const similarities = new Map([
     'ramda',
     ['lodash'],
   ],
+]);
+
+const exceptions = new Map([
+  // @kiwicom/fetch is the only package with allowed cross-fetch dependency (internal wrapped dependency)
+  ['@kiwicom/fetch', ['cross-fetch']],
 ]);
 
 describe('dependencies similarities', () => {
@@ -49,11 +54,15 @@ describe('dependencies similarities', () => {
         similarDependencies.forEach(similarDependency => {
           packageDependencies.forEach(dependency => {
             if (similarDependency === dependency) {
-              done.fail(
-                `Project ${
-                  packageJson.name
-                } requires dependency '${dependency}' but it should use '${mainDependency}' instead.`,
-              );
+              // some package is using forbidden dependency but there may be an exception:
+              const packageExceptions = exceptions.get(mainDependency) ?? [];
+              if (!packageExceptions.includes(dependency)) {
+                done.fail(
+                  `Project ${
+                    packageJson.name
+                  } requires dependency '${dependency}' but it should use '${mainDependency}' instead.`,
+                );
+              }
             }
           });
         });

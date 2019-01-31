@@ -1,6 +1,6 @@
 // @flow
 
-import fetch from '@mrtnzlml/fetch';
+import fetch from '@kiwicom/fetch';
 import ENV from '@kiwicom/environment';
 
 const PROJECT_ID = 1419; // https://gitlab.skypicker.com/incubator/universe

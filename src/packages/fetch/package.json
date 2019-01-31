@@ -1,9 +1,10 @@
 {
-  "name": "@mrtnzlml/fetch",
-  "private": true,
+  "name": "@kiwicom/fetch",
+  "private": false,
   "version": "2.0.0",
   "main": "src/fetchWithRetries.js",
-  "homepage": "https://github.com/mrtnzlml/quick-payments/tree/master/frontend/src/npm/fetch",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/fetch",
+  "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
     "@mrtnzlml/utils": "^1.1.1",
     "cross-fetch": "^3.0.0"
