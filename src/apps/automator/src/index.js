@@ -6,6 +6,7 @@ import log from './log';
 import updateDocs from './tasks/updateDocs';
 import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
 import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
+import yarnUpgrade from './tasks/yarnUpgrade';
 
 const ciNode = {
   // nodes are indexed from 1 (not zero)
@@ -17,6 +18,7 @@ const tasks = new Map([
   ['📝', updateDocs], // updates Docs and sends MR to GitLab repo
   ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
   ['🧐', updateGraphQLSkymock],
+  ['💃️', yarnUpgrade],
 ]);
 
 (async function run() {
