@@ -4,29 +4,17 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
-import {
-  iterateWorkspaces,
-  findRootPackageJsonPath,
-  getWorktreeChangedFiles,
-} from '@kiwicom/monorepo';
+import { iterateWorkspaces, findRootPackageJsonPath } from '@kiwicom/monorepo';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
-import openMergeRequest from '../helpers/gitlab/openMergeRequest';
-import commitAllChanges from '../helpers/commitAllChanges';
+import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
 import log from '../log';
 
 const COMMIT_MESSAGE = 'Docs: update NPM packages list';
 
 export default function run(taskIdentifier: string) {
   updateNPMPackagesInfo(taskIdentifier, async () => {
-    const changedFiles = getWorktreeChangedFiles();
-    if (changedFiles.length === 0) {
-      log(taskIdentifier, 'nothing to do here, skipping');
-      return;
-    }
-
-    const gitBranchName = await commitAllChanges(changedFiles, COMMIT_MESSAGE);
-    await openMergeRequest(gitBranchName, COMMIT_MESSAGE);
+    await commitAllAndOpenMR(taskIdentifier, COMMIT_MESSAGE);
   });
 }
 
