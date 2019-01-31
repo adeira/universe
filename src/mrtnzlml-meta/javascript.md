@@ -1,6 +1,8 @@
 - http://exploringjs.com/es6/
 - https://ponyfoo.com/articles/es6
 - https://developer.mozilla.org/en-US/docs/Web
+- https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
+- https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
 # Clearing/resetting/restoring Jest mocks
 
