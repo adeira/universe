@@ -21,6 +21,13 @@ const tasks = new Map([
   ['💃️', yarnUpgrade],
 ]);
 
+// Makes the script crash on unhandled rejections instead of silently
+// ignoring them. In the future, promise rejections that are not handled will
+// terminate the Node.js process with a non-zero exit code.
+process.on('unhandledRejection', err => {
+  throw err;
+});
+
 (async function run() {
   if (isCI === false) {
     // It's to dangerous to run it locally since it changes Git settings or
