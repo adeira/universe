@@ -15,7 +15,11 @@ const ciNode = {
 };
 
 const tasks = new Map([
-  ['📝', updateDocs], // updates Docs and sends MR to GitLab repo
+  //
+  // Do not forget that task identifier is actually very important. For example:
+  // <!-- AUTOMATOR:UPDATE_DOCS --> ... <!-- /AUTOMATOR:UPDATE_DOCS -->
+  //
+  ['UPDATE_DOCS', updateDocs], // updates Docs and sends MR to GitLab repo
   ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
   ['🧐', updateGraphQLSkymock],
   ['💃️', yarnUpgrade],

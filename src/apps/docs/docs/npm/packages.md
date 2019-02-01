@@ -6,7 +6,7 @@ sidebar_label: Public NPM Packages
 
 This monorepo hosts source code of the following NPM packages. They are being deployed automatically to NPM when you increase the version in `package.json` file and this version is not in NPM yet (applies only to packages with `private:false` visibility).
 
-<!-- AUTOMATOR:1 -->
+<!-- AUTOMATOR:UPDATE_DOCS -->
 
 - 1.2.2 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 1.1.2 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
@@ -22,7 +22,7 @@ This monorepo hosts source code of the following NPM packages. They are being de
 - 0.3.1 [@kiwicom/test-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 1.0.2 [@kiwicom/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
 
-<!-- /AUTOMATOR:1 -->
+<!-- /AUTOMATOR:UPDATE_DOCS -->
 
 Every package with version greater than 1.0 (ignoring patch version) must have `CHANGELOG.md` file with the following format:
 
