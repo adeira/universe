@@ -1,6 +1,5 @@
 // @flow
 
-/* eslint-disable no-restricted-imports */
 import {
   connectionFromArray as relayConnectionFromArray,
   cursorToOffset,
