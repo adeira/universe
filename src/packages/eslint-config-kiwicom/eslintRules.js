@@ -1,8 +1,8 @@
 // @flow
 
-import loadEslintRules from 'eslint/lib/load-rules';
+import builtInRules from 'eslint/lib/built-in-rules-index';
 
-const eslintRules = new Set<string>(Object.keys(loadEslintRules()));
+const eslintRules = new Set<string>(Object.keys(builtInRules));
 
 Object.keys(require('./package.json').dependencies)
   .filter(dep => dep.startsWith('eslint-plugin'))
