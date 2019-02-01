@@ -2,4 +2,12 @@
 
 const { createJestRunner } = require('create-jest-runner');
 
-module.exports = createJestRunner(require.resolve('./run'));
+const externalConfig = process.argv.slice(2);
+
+module.exports = createJestRunner(require.resolve('./run'), {
+  getExtraOptions: () => {
+    return {
+      runAll: externalConfig.includes('--all'),
+    };
+  },
+});

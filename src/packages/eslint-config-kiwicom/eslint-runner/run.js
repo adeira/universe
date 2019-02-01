@@ -20,6 +20,9 @@ type Options = {|
   +testPath: string,
   +config: Object,
   +globalConfig: Object,
+  +extraOptions: {|
+    +runAll: boolean,
+  |}
 |}
 
 */
@@ -46,18 +49,23 @@ const changedFiles = (function() {
     : changesInLastCommitFiles;
 })();
 
-module.exports = ({ testPath } /*: Options */) => {
+module.exports = ({ testPath, extraOptions } /*: Options */) => {
   const start = Date.now();
 
-  const normalizedPath = testPath.replace(process.cwd(), '').replace(/^\//, '');
-  if (changedFiles.includes(normalizedPath) === false) {
-    return skip({
-      start,
-      end: start,
-      test: {
-        path: testPath,
-      },
-    });
+  if (extraOptions.runAll === false) {
+    const normalizedPath = testPath
+      .replace(process.cwd(), '')
+      .replace(/^\//, '');
+
+    if (changedFiles.includes(normalizedPath) === false) {
+      return skip({
+        start,
+        end: start,
+        test: {
+          path: testPath,
+        },
+      });
+    }
   }
 
   const report = cliEngine.executeOnFiles([testPath]);
