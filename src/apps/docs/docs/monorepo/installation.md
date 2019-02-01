@@ -53,7 +53,7 @@ Any project from Incubator tribe can be accepted into this monorepo. However, th
 - project doesn't use any other additional Eslint rules (should be ported to `@kiwicom/eslint-config` but exceptions can be made after some discussion)
 - project is using latest version of Flow
 - project uses latest version of `@kiwicom/fetch` as a primary fetch library
-- `package.json` contains these fields: `private: false`, `name: @kiwicom/*`
+- `package.json` contains these fields: `private: true`, `name: @kiwicom/*`
 - tests are nested in the `__tests__` folder with `*.test.js` extension
 - project has all the dependencies updated
 
