@@ -43,6 +43,7 @@ module.exports = {
     // set each global variable name equal to true to allow the variable
     // to be overwritten or false to disallow overwriting
     __DEV__: false,
+    FormData: false, // https://developer.mozilla.org/en-US/docs/Web/API/FormData
   },
 
   plugins: [
