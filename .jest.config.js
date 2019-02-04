@@ -17,6 +17,8 @@ const commonProjectConfig = {
   globals: {
     __DEV__: true,
   },
+
+  timers: 'fake',
 };
 
 module.exports = {

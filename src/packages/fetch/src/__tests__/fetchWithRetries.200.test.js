@@ -2,15 +2,12 @@
 
 import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
+import flushPromises from './_flushPromises';
 
 jest.mock('../fetch');
 
-let handleNext;
-beforeEach(() => {
-  handleNext = jest.fn();
-});
-
-it('resolves the promise when the `fetch` was successful', () => {
+it('resolves the promise when the `fetch` was successful', async () => {
+  const handleNext = jest.fn();
   const response = {
     status: 200,
   };
@@ -19,6 +16,9 @@ it('resolves the promise when the `fetch` was successful', () => {
   fetch.mock.deferreds[0].resolve(response);
 
   expect(handleNext).not.toBeCalled();
+
+  await flushPromises();
   jest.runAllTimers();
+
   expect(handleNext).toBeCalledWith(response);
 });

@@ -7,27 +7,16 @@ import fetchWithRetries from '../fetchWithRetries';
 
 jest.mock('../fetch');
 
-let handleResponse, handleCatch;
-let clock;
-beforeEach(() => {
-  handleResponse = jest.fn();
-  handleCatch = jest.fn();
-  clock = lolex.install();
-});
-
-afterEach(() => {
-  clock = clock.uninstall();
-});
-
 it('works with timeouts and retry delays correctly', () => {
+  const clock = lolex.install();
+  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
   const DELTA = 1;
 
   fetchWithRetries('https://localhost', {
     fetchTimeout: 1500,
     retryDelays: [100, 200, 3000],
-  })
-    .then(handleResponse)
-    .catch(handleCatch);
+  }).catch(() => {});
 
   expect(fetch.mock.calls).toHaveLength(1);
 
@@ -51,7 +40,20 @@ it('works with timeouts and retry delays correctly', () => {
   clock.runAll();
   expect(fetch.mock.calls).toHaveLength(4);
 
-  // TODO: doesn't work for some reason (https://github.com/sinonjs/lolex/issues/97)
-  // expect(handleCatch).not.toBeCalled();
-  // expect(handleResponse).toBeCalledWith();
+  clock.uninstall();
+
+  expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
+Array [
+  Array [
+    "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
+  ],
+  Array [
+    "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
+  ],
+  Array [
+    "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
+  ],
+]
+`);
+  consoleSpy.mockRestore();
 });
