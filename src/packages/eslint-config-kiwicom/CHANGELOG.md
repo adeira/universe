@@ -1,4 +1,5 @@
 # Unreleased
+- Add `FormData` to the globals
 
 # 2.7.0
 - Enable warnings for `jest/prefer-todo` rule
