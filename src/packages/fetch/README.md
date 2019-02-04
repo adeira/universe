@@ -5,6 +5,8 @@ This package has been extracted from the original [fbjs](https://github.com/face
 - fetch timeouts, and
 - retries
 
+This makes the fetch function more suitable for real-life production usage because it doesn't hang or fail easily. In other words you are not going to have many open connections just because the API is slow (this could kill your server completely) and your fetch won't give up if the API didn't respond for the first time (just some glitch and one retry would fix it).
+
 # Installation
 
 ```
@@ -16,15 +18,28 @@ yarn add @kiwicom/fetch
 ```js
 import fetchWithRetries from '@kiwicom/fetch';
 
-fetchWithRetries('//localhost', {
-  // see: https://github.com/github/fetch/
-  // ...
+(async () => {
+  try {
+    const response = await fetchWithRetries(
+      'https://cs-api.skypicker.com/public/numbers?country_code=er404', // this returns 404
+      {
+        // see: https://github.com/github/fetch/
+        // ...
 
-  fetchTimeout: 15000,
-  retryDelays: [1000, 3000],
-})
-  .then(response => console.warn(response))
-  .catch(error => console.error(error));
+        fetchTimeout: 15000, // ms
+        retryDelays: [1000, 3000], // ms
+      },
+    );
+    console.warn(response); // await json() as usual
+  } catch (error) {
+    console.error(error.response);
+    console.error(error.response.status); // 404
+    console.error(error.response.statusText); // NOT FOUND
+
+    const response = await error.response.json();
+    console.error(response); // { message: 'provided country_code does not exist', status: 'error' }
+  }
+})();
 ```
 
 It does two things:
@@ -38,8 +53,7 @@ Retries are performed in these situations:
 - fetch returned HTTP status <200 or >=300 (but not 401 or 403 since these errors are not transitive)
 - when the timeout (`fetchTimeout`) occurs
 
-This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports
-server JS as well as browsers.
+This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports server JS as well as browsers.
 
 # Error handling
 
@@ -70,9 +84,9 @@ import fetchWithRetries, { TimeoutError, ResponseError } from '@kiwicom/fetch';
 })();
 ```
 
-# FAQ
+# How does the timing work?
 
-## How does the timing work in this case?
+Let's have a look at this config:
 
 ```js
 const config = {
