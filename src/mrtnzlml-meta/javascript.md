@@ -4,6 +4,10 @@
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
+# Jest: test.concurrent( ... )
+
+TODO: https://github.com/facebook/jest/pull/1688/files
+
 # Clearing/resetting/restoring Jest mocks
 
 I am never gonna remember this correctly I guess.
