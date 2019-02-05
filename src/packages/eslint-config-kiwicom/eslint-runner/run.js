@@ -106,6 +106,7 @@ function passWithWarning({ start, end, test }) {
     numFailingTests: 0,
     numPassingTests: 1,
     numPendingTests: 0,
+    numTodoTests: 0,
     perfStats: {
       end: new Date(start).getTime(),
       start: new Date(end).getTime(),
