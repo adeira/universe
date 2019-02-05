@@ -19,7 +19,7 @@ Minimal example:
 import { createEnvironment, createNetworkFetcher } from '@kiwicom/relay';
 
 module.exports = createEnvironment({
-  fetcherFn: createNetworkFetcher('http://127.0.0.1:2048'),
+  fetcherFn: createNetworkFetcher('https://graphql.kiwi.com'),
 });
 ```
 

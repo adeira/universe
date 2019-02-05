@@ -6,6 +6,7 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - optional chaining `a?.b`
 - nullish coalescing operator `a ?? b`
 - dev expression `__DEV__`
+- support for Relay fragments `graphql ...`
 
 _(more features will follow in future versions as needed)_
 
