@@ -8,6 +8,7 @@ TODO:
 - [RelayObservable.onUnhandledError](https://github.com/facebook/relay/issues/2616#issuecomment-457869252)
 - https://github.com/facebook/relay/pull/2619/files
 - https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
+- https://github.com/facebook/relay/issues/1701#issuecomment-460659564
 
 # Local schema
 
