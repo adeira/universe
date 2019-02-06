@@ -16,6 +16,8 @@ I am never gonna remember this correctly I guess.
 - `jest.resetAllMocks()` does the same + it removes any mocked implementations or return values
 - `jest.restoreAllMocks()` does everything above but it restores the original non-mocked implementation (and works only with `jest.spyOn`)
 
+https://github.com/facebook/jest/issues/5143
+
 # Optional chaining & nullish coalescing
 
 - https://github.com/tc39/proposal-optional-chaining
