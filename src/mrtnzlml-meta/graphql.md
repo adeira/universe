@@ -6,6 +6,7 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 
 - [artsy/metaphysics](https://github.com/artsy/metaphysics) - proxy of REST APIs with schema stitching for inspiration
 - https://github.com/artsy/README/blob/master/playbooks/graphql-schema-design.md
+- http://artsy.github.io/blog/2018/10/19/where-art-thou-my-error/
 
 # Recursive queries
 
