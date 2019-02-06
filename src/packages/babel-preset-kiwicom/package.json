@@ -3,7 +3,7 @@
   "description": "Babel preset for JS used at Kiwi.com.",
   "homepage": "https://github.com/kiwicom/babel-preset-kiwicom",
   "private": false,
-  "version": "1.2.2",
+  "version": "1.3.0",
   "main": "src/index.js",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.0",
@@ -11,7 +11,8 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
-    "@babel/preset-flow": "^7.0.0"
+    "@babel/preset-flow": "^7.0.0",
+    "babel-plugin-relay": "^1.7.0"
   },
   "devDependencies": {
     "@kiwicom/test-utils": "^0.3.0"
