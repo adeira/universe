@@ -371,7 +371,13 @@ module.exports = {
       devDependencies: ['**/*.test.js', '**/*.spec.js'],
     },
   ],
-  'import/no-unresolved': ERROR,
+  'import/no-unresolved': [
+    ERROR,
+    {
+      // compatible with Relay 'artifactDirectory'
+      ignore: ['^__generated__/'],
+    },
+  ],
 
   // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
   'dependencies/case-sensitive': ERROR,
