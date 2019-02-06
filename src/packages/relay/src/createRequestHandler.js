@@ -14,106 +14,8 @@ import type {
 
 const burstCache = new RelayQueryResponseCache({
   size: 250,
-  ttl: 60 * 1000, // one minute
+  ttl: 10 * 1000, // 10 seconds
 });
-
-async function execute(
-  customFetcher: Function,
-  requestNode: RequestNode,
-  variables: Variables,
-  cacheConfig: CacheConfig,
-  uploadables: ?Uploadables,
-  sink: Sink,
-  complete: boolean = false,
-) {
-  try {
-    const data = await customFetcher(requestNode, variables, uploadables);
-
-    if (data.errors) {
-      // What should we do with these partial errors?
-      // eslint-disable-next-line no-console
-      data.errors.map(error => console.error(error.message, error));
-    }
-
-    if (isMutation(requestNode) && data.errors) {
-      sink.error(data);
-
-      if (complete) {
-        sink.complete();
-      }
-
-      throw data;
-    }
-
-    sink.next({
-      operation: requestNode.operation,
-      variables,
-      response: data,
-    });
-
-    if (complete) {
-      sink.complete();
-    }
-
-    return {
-      operation: requestNode.operation,
-      variables,
-      response: data,
-    };
-  } catch (e) {
-    sink.error(e);
-    return undefined;
-  }
-}
-
-async function processRequest(
-  customFetcher: Function,
-  requestNode: RequestNode,
-  variables: Variables,
-  cacheConfig: CacheConfig,
-  uploadables: ?Uploadables,
-  sink: Sink,
-  complete: boolean = false,
-) {
-  const queryID = requestNode.text;
-
-  if (isMutation(requestNode)) {
-    burstCache.clear();
-    return execute(
-      customFetcher,
-      requestNode,
-      variables,
-      cacheConfig,
-      uploadables,
-      sink,
-      complete,
-    );
-  }
-
-  const fromCache = burstCache.get(queryID, variables);
-  if (isQuery(requestNode) && fromCache !== null && !forceFetch(cacheConfig)) {
-    sink.next(fromCache);
-    if (complete) {
-      sink.complete();
-    }
-    return fromCache;
-  }
-
-  const fromServer = await execute(
-    customFetcher,
-    requestNode,
-    variables,
-    cacheConfig,
-    uploadables,
-    sink,
-    complete,
-  );
-  if (fromServer) {
-    burstCache.set(queryID, variables, fromServer);
-  }
-
-  return fromServer;
-}
 
 module.exports = function createRequestHandler(customFetcher: Function) {
   return function handleRequest(
@@ -123,15 +25,49 @@ module.exports = function createRequestHandler(customFetcher: Function) {
     uploadables: ?Uploadables,
   ) {
     return Runtime.Observable.create(sink => {
-      processRequest(
-        customFetcher,
-        requestNode,
-        variables,
-        cacheConfig,
-        uploadables,
-        sink,
-        true,
-      );
+      const queryID = requestNode.text;
+
+      if (isMutation(requestNode)) {
+        // mutations should always erase burst cache
+        burstCache.clear();
+      } else {
+        // otherwise we'll try to read from the burst cache and return without
+        // any additional fetching
+        const fromCache = burstCache.get(queryID, variables);
+        if (
+          isQuery(requestNode) &&
+          fromCache !== null &&
+          !forceFetch(cacheConfig)
+        ) {
+          sink.next(fromCache);
+          sink.complete();
+          return; // that's it - we are done here (no network call)
+        }
+      }
+
+      // this should be executed only when the request is a mutation or
+      // when there is no content in the burst cache
+      customFetcher(requestNode, variables, uploadables)
+        .then(response => {
+          if (response.errors) {
+            // What should we do with these partial errors?
+            // eslint-disable-next-line no-console
+            response.errors.map(error => console.error(error.message, error));
+
+            if (isMutation(requestNode)) {
+              // errors during mutations are serious business so we should stop
+              sink.error(response);
+              sink.complete();
+            }
+          } else {
+            // set burst cache only if there are no errors
+            burstCache.set(queryID, variables, response);
+          }
+
+          sink.next(response);
+          sink.complete();
+        })
+        .catch(error => sink.error(error));
     });
   };
 };
