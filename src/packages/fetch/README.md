@@ -1,6 +1,6 @@
 _Formerly known as `@mrtnzlml/fetch`_
 
-This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This fetch solves two common problems:
+This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This function is only a wrapper for any other well known [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). However, this fetch also solves two common problems:
 
 - fetch timeouts, and
 - retries
@@ -23,14 +23,15 @@ import fetchWithRetries from '@kiwicom/fetch';
     const response = await fetchWithRetries(
       'https://cs-api.skypicker.com/public/numbers?country_code=er404', // this returns 404
       {
-        // see: https://github.com/github/fetch/
-        // ...
-
         fetchTimeout: 15000, // ms
         retryDelays: [1000, 3000], // ms
+        // ...
+        // see https://github.com/github/fetch/ for more options (headers, method, body, ...)
       },
     );
-    console.warn(response); // await json() as usual
+
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
     console.error(error.response);
     console.error(error.response.status); // 404
@@ -71,7 +72,8 @@ import fetchWithRetries, { TimeoutError, ResponseError } from '@kiwicom/fetch';
 (async () => {
   try {
     const response = await fetchWithRetries('//localhost');
-    // TODO: do something with the response
+    const data = await response.json();
+    console.log(data);
   } catch (error) {
     if (error instanceof TimeoutError) {
       console.error('request timeouted');
