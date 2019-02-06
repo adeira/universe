@@ -9,6 +9,7 @@ TODO:
 - https://github.com/facebook/relay/pull/2619/files
 - https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
+- `handleStrippedNulls`: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
 # Local schema
 
