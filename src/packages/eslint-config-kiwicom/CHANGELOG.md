@@ -1,6 +1,7 @@
 # Unreleased
 - Add `FormData` to the globals
 - Rule `import/no-unresolved` now ignores Relay artifacts set by `artifactDirectory`
+- Upgrade `eslint-plugin-react-hooks` to the latest stable version (^1.0.1)
 
 # 2.7.0
 - Enable warnings for `jest/prefer-todo` rule
