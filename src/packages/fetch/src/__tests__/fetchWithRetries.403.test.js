@@ -2,27 +2,26 @@
 
 import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
+import flushPromises from './_flushPromises';
 
 jest.mock('../fetch');
 
-let handleNext, handleCatch;
-beforeEach(() => {
-  handleNext = jest.fn();
-  handleCatch = jest.fn();
-});
+it('tries only once for non-transient HTTP code', async () => {
+  const handleNext = jest.fn();
+  const handleCatch = jest.fn();
 
-it('tries only once for non-transient HTTP code', () => {
   fetchWithRetries('https://localhost', {})
     .then(handleNext)
     .catch(handleCatch);
 
   fetch.mock.deferreds[0].resolve({
-    status: 403,
+    status: 403, // non-transient HTTP status code (shouldn't retry)
   });
 
   expect(handleNext).not.toBeCalled();
   expect(handleCatch).not.toBeCalled();
 
+  await flushPromises();
   jest.runAllTimers();
 
   expect(handleNext).not.toBeCalled();

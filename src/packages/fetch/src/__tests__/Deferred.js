@@ -8,7 +8,7 @@
  * reject methods, you should export `getPromise` which returns a Promise with
  * the same semantics excluding those methods.
  */
-class Deferred<Tvalue, Treason> {
+export default class Deferred<Tvalue, Treason> {
   _settled: boolean;
   _promise: Promise<any>;
   _resolve: (value: Tvalue) => void;
@@ -37,35 +37,17 @@ class Deferred<Tvalue, Treason> {
   }
 
   catch(onReject?: ?(error: any) => mixed): Promise<any> {
-    return Promise.prototype.catch.apply(this._promise, arguments);
+    return Promise.prototype.catch.apply(this._promise, [onReject]);
   }
 
   then(
     onFulfill?: ?(value: any) => mixed,
     onReject?: ?(error: any) => mixed,
   ): Promise<any> {
-    return Promise.prototype.then.apply(this._promise, arguments);
-  }
-
-  done(
-    onFulfill?: ?(value: any) => mixed,
-    onReject?: ?(error: any) => mixed,
-  ): void {
-    // Embed the polyfill for the non-standard Promise.prototype.done so that
-    // users of the open source fbjs don't need a custom lib for Promise
-    const promise = arguments.length
-      ? this._promise.then.apply(this._promise, arguments)
-      : this._promise;
-    promise.then(undefined, err => {
-      setTimeout(() => {
-        throw err;
-      }, 0);
-    });
+    return Promise.prototype.then.apply(this._promise, [onFulfill, onReject]);
   }
 
   isSettled(): boolean {
     return this._settled;
   }
 }
-
-module.exports = Deferred;

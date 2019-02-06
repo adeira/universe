@@ -2,13 +2,12 @@
 
 import Deferred from './Deferred';
 import fetch from '../fetch';
+import flushPromises from './_flushPromises';
 
 jest.mock('../fetch');
 
 describe('fetchMock', () => {
   it('has a corresponding `Deferred` for each call to `fetch`', async () => {
-    jest.useFakeTimers();
-
     expect(fetch.mock.calls).toHaveLength(0);
     expect(fetch.mock.deferreds).toHaveLength(0);
 
@@ -23,8 +22,10 @@ describe('fetchMock', () => {
     const mockResult = {};
     expect(mockCallback).not.toBeCalled();
     fetchPromise.then(mockCallback);
-    await deferred.resolve(mockResult);
-    jest.runAllTimers();
+    deferred.resolve(mockResult);
+
+    await flushPromises();
+
     expect(mockCallback).toBeCalledWith(mockResult);
   });
 });
