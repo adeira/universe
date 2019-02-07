@@ -8,9 +8,14 @@ module.exports = {
   createEnvironment: require('./createEnvironment'),
   createNetworkFetcher: require('./fetchers/createNetworkFetcher'),
 
+  // Relay-only things:
+  commitLocalUpdate: Relay.commitLocalUpdate,
+  commitMutation: Relay.commitMutation,
+  createFragmentContainer,
+  createPaginationContainer,
+  createRefetchContainer,
   graphql,
   QueryRenderer: Relay.QueryRenderer,
-  createFragmentContainer,
 };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
@@ -66,4 +71,60 @@ function createFragmentContainer<TComponent: React$ComponentType<any>>(
   $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
 > {
   return Relay.createFragmentContainer(Component, fragmentSpec);
+}
+
+type ConnectionConfig = {|
+  +direction?: 'backward' | 'forward',
+  +getConnectionFromProps?: (props: Object) => ?ConnectionData,
+  +getFragmentVariables?: (
+    previousVariables: Object,
+    totalCount: number,
+  ) => Object,
+  +getVariables: (
+    props: Object,
+    paginationInfo: {|
+      +count: number,
+      +cursor: ?string,
+    |},
+    fragmentVariables: Object,
+  ) => Object,
+  +query: GraphQLTaggedNode,
+|};
+
+type ConnectionData = {|
+  +edges?: ?Array<any>,
+  +pageInfo?: ?{|
+    +endCursor: ?string,
+    +hasNextPage: boolean,
+    +hasPreviousPage: boolean,
+    +startCursor: ?string,
+  |},
+|};
+
+function createPaginationContainer<TComponent: React$ComponentType<any>>(
+  Component: TComponent,
+  fragmentSpec: GeneratedNodeMap,
+  connectionConfig: ConnectionConfig,
+): React$ComponentType<
+  $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
+> {
+  return Relay.createPaginationContainer(
+    Component, // TODO: additional pagination props
+    fragmentSpec,
+    connectionConfig,
+  );
+}
+
+function createRefetchContainer<TComponent: React$ComponentType<any>>(
+  Component: TComponent,
+  fragmentSpec: GeneratedNodeMap,
+  refetchQuery: GraphQLTaggedNode,
+): React$ComponentType<
+  $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
+> {
+  return Relay.createRefetchContainer(
+    Component, // TODO: additional refetch props
+    fragmentSpec,
+    refetchQuery,
+  );
 }
