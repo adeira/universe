@@ -190,6 +190,7 @@ TODO: researching
 - https://github.com/facebook/relay/blob/688dd4367cbe59ba223a027e3fcdc820455310e3/packages/relay-test-utils/testschema.graphql#L167
 - https://github.com/mrtnzlml/relay/pull/32/files
 - https://github.com/mrtnzlml/relay/pull/75/files
+- https://github.com/mrtnzlml/relay/pull/212/files
 
 # @refetchable(queryName: " ... ")
 
