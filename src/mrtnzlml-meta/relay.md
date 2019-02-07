@@ -9,7 +9,6 @@ TODO:
 - https://github.com/facebook/relay/pull/2619/files
 - https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
-- `handleStrippedNulls`: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
 # Local schema
 
@@ -122,6 +121,65 @@ const DraftHandler = {
 ```
 
 More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
+
+# RelayResponseNormalizer: `handleStrippedNulls`
+
+Relay is able to recover completely missing fields in the response. You can use this knowledge to optimize JSON response from the server. Let's say this is our incoming payload from the server:
+
+```json
+{
+  "data": {
+    "allLocations": {
+      "edges": [
+        { "node": { "id": "san-francisco_ca_us", "name": "San Francisco" } },
+        { "node": { "id": "boston_ma_us", "name": "Boston" } },
+        { "node": { "id": "washington_dc_us", "name": "Washington, D.C." } }
+      ]
+    }
+  }
+}
+```
+
+Traditionally, server would return something like this in case of failure (or just missing data):
+
+
+```json
+{
+  "data": {
+    "allLocations": {
+      "edges": [
+        { "node": { "id": "san-francisco_ca_us", "name": "San Francisco" } },
+        { "node": { "id": "boston_ma_us", "name": null } },
+        { "node": { "id": "washington_dc_us", "name": null } }
+      ]
+    }
+  },
+  "errors": ...
+}
+```
+
+But it's not necessary to send the nullable fields at all. Afterall, server knows what fields were requested. `RelayResponseNormalizer` by default recovers from this state so you can send response like this from the server (see the missing names):
+
+```json
+{
+  "data": {
+    "allLocations": {
+      "edges": [
+        { "node": { "id": "san-francisco_ca_us", "name": "San Francisco" } },
+        { "node": { "id": "boston_ma_us" } },
+        { "node": { "id": "washington_dc_us" } }
+      ]
+    }
+  },
+  "errors": ...
+}
+```
+
+Relay will show you this warning in this console (dev mode only):
+
+> Warning: RelayResponseNormalizer(): Payload did not contain a value for field `name: name`. Check that you are parsing with the same query that was used to fetch the payload.
+
+See: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
 # @match(onTypes: [ ... ]), @module( ... )
 
