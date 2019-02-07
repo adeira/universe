@@ -88,7 +88,7 @@ ERROR:
 Field "PNRInfo.successMessage" already exists in the schema. It cannot also be defined in this type extension.
 ```
 
-## @__clientField(handle: " ... ")
+# @__clientField(handle: " ... ")
 
 > This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
 
