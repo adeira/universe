@@ -8,9 +8,9 @@ This monorepo hosts source code of the following NPM packages. They are being de
 
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
-- 1.3.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
+- 1.4.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 1.1.2 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
-- 2.7.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 2.8.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 1.0.1 [eslint-plugin-kiwi-graphql](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwi-graphql) - Rules for Kiwi.com GraphQL
 - 2.0.2 [@kiwicom/fetch](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/fetch) - Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.
 - 0.4.1 [@kiwicom/graphql-global-id](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/global-id) - Utility to manage ID fields in GraphQL correctly.
