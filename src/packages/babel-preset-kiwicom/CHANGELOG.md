@@ -1,5 +1,8 @@
 # Unreleased
 
+# 1.4.0
+- Add `@babel/preset-react` into default presets
+
 # 1.3.0
 - Add `babel-plugin-relay` into default plugins
 
