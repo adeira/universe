@@ -31,9 +31,17 @@ export const handleData = (response: {|
   return response.text();
 };
 
-function getRequestBodyWithUploadables(request, variables, uploadables) {
+function getRequestBodyWithUploadables(
+  request,
+  variables,
+  uploadables,
+): FormData {
   const formData = new FormData();
-  formData.append('query', request.text);
+  if (request.id != null) {
+    formData.append('documentId', request.id);
+  } else {
+    formData.append('query', request.text);
+  }
   formData.append('variables', JSON.stringify(variables));
 
   Object.keys(uploadables).forEach(key => {
@@ -45,19 +53,21 @@ function getRequestBodyWithUploadables(request, variables, uploadables) {
   return formData;
 }
 
-function getRequestBodyWithoutUplodables(request, variables) {
-  return JSON.stringify({
-    // TODO: fetch persisted queries instead (based on operation.id)
-    query: request.text, // GraphQL text from input
-    variables,
-  });
+function getRequestBodyWithoutUplodables(request, variables): string {
+  let body = {};
+  if (request.id != null) {
+    body = { documentId: request.id, variables };
+  } else {
+    body = { query: request.text, variables };
+  }
+  return JSON.stringify(body);
 }
 
 export function getRequestBody(
   request: RequestNode,
   variables: Variables,
   uploadables: ?Uploadables,
-) {
+): string | FormData {
   if (uploadables) {
     return getRequestBodyWithUploadables(request, variables, uploadables);
   }

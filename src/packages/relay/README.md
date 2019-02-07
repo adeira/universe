@@ -5,6 +5,7 @@ This package is **opinionated Relay wrapper**. Goal of this package is to create
 - support for uploadables
 - request burst cache (response cache)
 - batch requests
+- persistent queries
 
 More info about Relay, prior art:
 
