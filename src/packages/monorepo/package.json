@@ -3,10 +3,10 @@
   "description": "Helpful functions to manage monorepos (using Yarn Workspaces).",
   "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/monorepo",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "src/index.js",
   "dependencies": {
-    "@mrtnzlml/utils": "^1.1.1",
+    "@kiwicom/js": "^0",
     "execa": "^1.0.0",
     "glob": "^7.1.3",
     "is-ci": "^2.0.0"

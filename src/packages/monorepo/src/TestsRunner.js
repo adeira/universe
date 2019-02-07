@@ -1,7 +1,7 @@
 // @flow
 
 import execa from 'execa';
-import { invariant } from '@mrtnzlml/utils';
+import { invariant } from '@kiwicom/js';
 
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
