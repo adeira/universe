@@ -18,6 +18,7 @@ const presets = [
       requireDirective: true,
     },
   ],
+  '@babel/preset-react',
 ];
 
 const plugins = [

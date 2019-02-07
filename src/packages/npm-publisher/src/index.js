@@ -55,7 +55,7 @@ export default function publish(options: Options) {
                 path.join(options.buildCache, packageFolderName),
                 {
                   verbose: true,
-                  ignore: '**/__tests__/**',
+                  ignore: '**/__{flowtests,tests}__/**',
                 },
               ).then(() => {
                 glob(
@@ -63,7 +63,9 @@ export default function publish(options: Options) {
                   async (error, filenames) => {
                     filenames.forEach(filename => {
                       if (
-                        filename.match(/__(tests|mocks|snapshots|fixtures)__/)
+                        filename.match(
+                          /__(flowtests|tests|mocks|snapshots|fixtures)__/,
+                        )
                       ) {
                         return;
                       }
