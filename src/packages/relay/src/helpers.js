@@ -3,12 +3,17 @@
 import type { Variables, UploadableMap, CacheConfig } from 'react-relay';
 import type { RequestNode } from 'relay-runtime';
 
-export const isMutation = (request: RequestNode) =>
-  request.operationKind === 'mutation';
-export const isQuery = (request: RequestNode) =>
-  request.operationKind === 'query';
-export const forceFetch = (cacheConfig: CacheConfig) =>
-  !!(cacheConfig && cacheConfig.force);
+export const isMutation = (request: RequestNode) => {
+  return request.operationKind === 'mutation';
+};
+
+export const isQuery = (request: RequestNode) => {
+  return request.operationKind === 'query';
+};
+
+export const forceFetch = (cacheConfig: CacheConfig) => {
+  return !!(cacheConfig && cacheConfig.force);
+};
 
 export const handleData = (response: {|
   +headers: Object, // TODO
