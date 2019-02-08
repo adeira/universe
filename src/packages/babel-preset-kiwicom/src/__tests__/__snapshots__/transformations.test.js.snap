@@ -1,5 +1,63 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`matches expected output: condition.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+if (__DEV__) {
+  console.log('foo'); // eslint-disable-line no-console
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+if (process.env.NODE_ENV !== "production") {
+  console.log('foo'); // eslint-disable-line no-console
+}
+`;
+
+exports[`matches expected output: objectKey.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+declare var __DEV__: string;
+
+module.exports = {
+  rules: {},
+  globals: {
+    __DEV__: 'value',
+    [__DEV__]: "this can be changed because it's dynamic",
+    key: __DEV__,
+  },
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+module.exports = {
+  rules: {},
+  globals: {
+    __DEV__: 'value',
+    [process.env.NODE_ENV !== "production"]: "this can be changed because it's dynamic",
+    key: process.env.NODE_ENV !== "production"
+  }
+};
+`;
+
+exports[`matches expected output: ternary.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// eslint-disable-next-line no-unused-vars
+const dev = __DEV__ ? 'true' : 'false';
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+// eslint-disable-next-line no-unused-vars
+const dev = process.env.NODE_ENV !== "production" ? 'true' : 'false';
+`;
+
 exports[`matches expected output: valid-code.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
