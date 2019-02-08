@@ -12,32 +12,39 @@ export type CacheConfig = _CacheConfig;
 export type Uploadables = _UploadableMap;
 export type Variables = _Variables;
 
-type ConcreteOperation = any;
-type GraphQLResponse = any;
+type ConcreteArgumentDefinition = $FlowFixMe;
+type ConcreteSelection = $FlowFixMe;
 
-/**
- * The data returned from Relay's execute function, which includes both the
- * raw GraphQL network response as well as any related client metadata.
- */
-type ExecutePayload = {|
-  // The operation executed
-  operation: ConcreteOperation,
-  // The variables which were used during this execution.
-  variables: Variables,
-  // The response from GraphQL execution
-  response: GraphQLResponse,
-  // Default is false
-  isOptimistic?: boolean,
-|};
+type ConcreteFragment = {
+  argumentDefinitions: Array<ConcreteArgumentDefinition>,
+  kind: 'Fragment',
+  metadata: ?{ [key: string]: mixed },
+  name: string,
+  selections: Array<ConcreteSelection>,
+  type: string,
+};
 
-/**
- * A Sink is an object of methods provided by Observable during construction.
- * The methods are to be called to trigger each event. It also contains a closed
- * field to see if the resulting subscription has closed.
- */
-export type Sink = {|
-  +next: ExecutePayload => void,
-  +error: (Error, isUncaughtThrownError?: boolean) => void,
-  +complete: () => void,
-  +closed: boolean,
-|};
+export type GraphQLTaggedNode = () => ConcreteFragment;
+export type GeneratedNodeMap = { [key: string]: GraphQLTaggedNode };
+
+type $FragmentRef<T> = {
+  +$fragmentRefs: $PropertyType<T, '$refType'>,
+};
+
+// prettier-ignore
+export type $RelayProps<Props, RelayPropT> = $ObjMap<
+  $Diff<Props, { relay: RelayPropT | void }>,
+  // We currently don't know how to preserve Function and Object type
+  // correctly while using `createFragmentContainer`, see:
+  // https://github.com/facebook/relay/commit/2141964373703dcaa9bd49aa3cd2e9efdd09425f
+  (<T: () => void>( T) =>  T) &
+  (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  // see: https://github.com/facebook/relay/blob/v1.7.0-rc.1/packages/react-relay/modern/ReactRelayTypes.js
+  // see: https://github.com/sibelius/relay-modern-network-deep-dive/tree/master/flow-typed
+  (<T>(T) => T)
+>
