@@ -1,6 +1,6 @@
 // @flow
 
-import { sprintf, warning } from '@mrtnzlml/utils';
+import { sprintf, warning } from '@kiwicom/js';
 
 import fetch from './fetch';
 import TimeoutError from './TimeoutError';

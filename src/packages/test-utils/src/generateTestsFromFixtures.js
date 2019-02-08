@@ -1,7 +1,7 @@
 // @flow
 
 import os from 'os';
-import { invariant } from '@mrtnzlml/utils';
+import { invariant } from '@kiwicom/js';
 
 const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
 

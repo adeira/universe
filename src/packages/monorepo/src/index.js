@@ -1,7 +1,7 @@
 // @flow
 
 import glob from 'glob';
-import { invariant } from '@mrtnzlml/utils';
+import { invariant } from '@kiwicom/js';
 
 import {
   findRootPackageJson,

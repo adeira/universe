@@ -1,0 +1,9 @@
+{
+  "name": "@kiwicom/js",
+  "description": "Useful JS functions used at Kiwi.com",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/js",
+  "private": false,
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "dependencies": {}
+}

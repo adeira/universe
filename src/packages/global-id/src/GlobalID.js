@@ -8,7 +8,7 @@ import {
   type GraphQLResolveInfo,
   type GraphQLFieldConfig,
 } from 'graphql';
-import { invariant } from '@mrtnzlml/utils';
+import { invariant } from '@kiwicom/js';
 
 opaque type Base64String = string;
 
