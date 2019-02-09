@@ -18,31 +18,6 @@ I am never gonna remember this correctly I guess.
 
 https://github.com/facebook/jest/issues/5143
 
-# Optional chaining & nullish coalescing
-
-- https://github.com/tc39/proposal-optional-chaining
-- https://github.com/tc39/proposal-nullish-coalescing
-
-This replaces [IDX](https://github.com/facebookincubator/idx). First set flow (`.flowconfig`):
-
-```
-[options]
-esproposal.optional_chaining=enable
-esproposal.nullish_coalescing=enable
-
-[lints]
-unnecessary-optional-chain=error
-```
-
-See: https://flow.org/en/docs/linting/rule-reference/#toc-unnecessary-optional-chain
-
-Add these two Babel plugins and you should be good to go:
-
-- [@babel/plugin-proposal-optional-chaining](https://babeljs.io/docs/en/babel-plugin-proposal-optional-chaining)
-- [@babel/plugin-proposal-nullish-coalescing-operator](https://babeljs.io/docs/en/babel-plugin-proposal-nullish-coalescing-operator)
-
-Note: this is still experimental feature and can be completely removed.
-
 # isObject()
 
 ```js
