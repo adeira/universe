@@ -1,6 +1,6 @@
 # Hi, I am Martin
 
-I am fullstack JavaScript developer at Kiwi.com. Currently, I work at [graphql.kiwi.com](https://graphql.kiwi.com/) project but I also help other teams with **GraphQL** in general, **React (Native)** or any other **JS** project.
+I am fullstack JavaScript developer at Kiwi.com. Currently, I work at [graphql.kiwi.com](https://graphql.kiwi.com/) project but I also help other teams with **GraphQL** in general, **Relay**, **Flow**, **React (Native)** or any other **JS** project.
 
 ## My location
 
@@ -22,7 +22,11 @@ _I have my focus zone._ Usually, when I am working really hard. I can be in this
 
 _I want to have things under control._ This way I do things really well. Also, it gives me possibility to say NO when I think it's not OK. I am very unhappy when someone treats me as yet another programmer-monkey.
 
-_I [read](https://www.goodreads.com/review/list/84536346)._
+_I hate stupid people._ I don't like humans in general. I think we are truly horrible creatures doing a lot of shit. But I especially hate estúpidos. Violent people, people selling or using drugs, people with WTF opinions, people begging on the street while doing nothing.
+
+_I don't like religion._ I should put this to the previous paragraph about stupid people. But, I realize the importance of religion in our society. So, be religious if you want just please, do not bother me with your twisted mind. I will not bother you with mine.
+
+_I sometimes [read](https://www.goodreads.com/review/list/84536346)._
 
 ## My Kiwi.com timeline
 
