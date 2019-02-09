@@ -20,6 +20,7 @@ type Disposable = {
 
 export type RelayProp = {|
   +environment: Environment,
+
   // TODO: this is true only for refetch container:
   +refetch: (
     refetchVariables: Object | ((fragmentVariables: Object) => Object),
@@ -27,6 +28,16 @@ export type RelayProp = {|
     callback: ?(error: ?Error) => void,
     options?: RefetchOptions,
   ) => Disposable,
+
+  // TODO: this is true only for pagination container:
+  hasMore: () => boolean,
+  isLoading: () => boolean,
+  loadMore(pageSize: number, callback: ?(error: ?Error) => void): ?Disposable,
+  refetchConnection: (
+    totalCount: number,
+    callback: (error: ?Error) => void,
+    refetchVariables: ?Object,
+  ) => ?Disposable,
 |};
 
 export default function createRefetchContainer<
