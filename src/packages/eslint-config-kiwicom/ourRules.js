@@ -341,7 +341,20 @@ module.exports = {
   'react/jsx-uses-react': WARN,
   'react/jsx-uses-vars': WARN,
 
+  // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
   'react-hooks/rules-of-hooks': WARN, // TODO: ERROR
+
+  // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
+  'jsx-a11y/accessible-emoji': WARN, // TODO: ERROR
+  'jsx-a11y/alt-text': WARN, // TODO: ERROR
+  'jsx-a11y/aria-props': WARN, // TODO: ERROR
+  'jsx-a11y/aria-unsupported-elements': WARN, // TODO: ERROR
+  'jsx-a11y/no-distracting-elements': [
+    WARN, // TODO: ERROR
+    {
+      elements: ['marquee', 'blink'],
+    },
+  ],
 
   // React Native (https://github.com/Intellicode/eslint-plugin-react-native)
   'react-native/no-unused-styles': ERROR,

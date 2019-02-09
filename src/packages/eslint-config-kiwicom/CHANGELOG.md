@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.15.0
+- Some basic `jsx-a11y` added: should not cause many warnings
+
 # 2.14.0
 - Disable `no-duplicate-imports` rule
 - Set `import/no-duplicates` to WARN. Which is more intelligent than `no-duplicate-imports` and can differentiate between `import` and `import type`
