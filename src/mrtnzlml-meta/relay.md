@@ -210,13 +210,6 @@ TODO: https://github.com/mrtnzlml/relay/pull/127/commits/0920c0cb4be13e010376feb
 
 TODO: https://github.com/mrtnzlml/relay/pull/172/commits
 
-# Persisted queries
-
-TODO
-
-- https://github.com/facebook/relay/pull/2354 (awaiting)
-- https://github.com/graphql/express-graphql/pull/109
-
 # Uploadables
 
 Sending normal GraphQL mutation is trivial:
