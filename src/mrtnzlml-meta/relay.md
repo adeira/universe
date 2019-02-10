@@ -310,10 +310,6 @@ They send the actual files and query as `multipart/form-data` as well but they r
 - https://github.com/facebook/relay/issues/1844#issuecomment-316893590
 - https://hexdocs.pm/absinthe/file-uploads.html
 
-# Caching
-
-TODO: simple result cache, AsyncStorage-like cache
-
 # RelayNetworkLogger
 
 ```js
