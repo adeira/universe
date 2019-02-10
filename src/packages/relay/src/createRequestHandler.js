@@ -7,7 +7,6 @@ import { forceFetch, isMutation, isQuery } from './helpers';
 import type {
   CacheConfig,
   RequestNode,
-  Sink,
   Uploadables,
   Variables,
 } from './types.flow';
@@ -17,14 +16,41 @@ const burstCache = new RelayQueryResponseCache({
   ttl: 10 * 1000, // 10 seconds
 });
 
+type GraphQLResponse = {|
+  +data?: null | Object,
+  +errors?: $ReadOnlyArray<Object>,
+|};
+
+/**
+ * A Sink is an object of methods provided by Observable during construction.
+ * The methods are to be called to trigger each event. It also contains a closed
+ * field to see if the resulting subscription has closed.
+ */
+type Sink = {|
+  +next: GraphQLResponse => void,
+  +error: (Error, isUncaughtThrownError?: boolean) => void,
+  +complete: () => void,
+  +closed: boolean,
+|};
+
 module.exports = function createRequestHandler(customFetcher: Function) {
+  function cleanup() {
+    // noop, do anything here
+  }
+
   return function handleRequest(
     requestNode: RequestNode,
     variables: Variables,
     cacheConfig: CacheConfig,
     uploadables: ?Uploadables,
   ) {
-    return Runtime.Observable.create(sink => {
+    if (__DEV__) {
+      Runtime.Observable.onUnhandledError((error, isUncaughtThrownError) => {
+        console.error(error); // eslint-disable-line no-console
+      });
+    }
+
+    return Runtime.Observable.create((sink: Sink) => {
       const queryID = requestNode.text;
 
       if (isMutation(requestNode)) {
@@ -41,7 +67,7 @@ module.exports = function createRequestHandler(customFetcher: Function) {
         ) {
           sink.next(fromCache);
           sink.complete();
-          return; // that's it - we are done here (no network call)
+          return cleanup; // that's it - we are done here (no network call)
         }
       }
 
@@ -67,7 +93,12 @@ module.exports = function createRequestHandler(customFetcher: Function) {
           sink.next(response);
           sink.complete();
         })
-        .catch(error => sink.error(error));
+        .catch(error => {
+          sink.error(error);
+          sink.complete();
+        });
+
+      return cleanup;
     });
   };
 };
