@@ -10,6 +10,16 @@ TODO:
 - https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
 
+# Refetch container
+
+https://facebook.github.io/relay/docs/en/refetch-container.html
+
+When `refetch` is called and the `refetchQuery` is executed, Relay doesn't actually use the result of the query to re-render the component. All it does is normalize the payload into the store and fire any relevant subscriptions. This means that if the fetched data is unrelated to the data that the mounted container is subscribed to (e.g. using a totally different node id that doesn't have any data overlaps), then the component won't re-render.
+
+Refetch containers are only really meant to be used when you are changing variables in the component fragment. If you don't want or need to include variables in the fragment, you could go one level up and set new variables directly in the QueryRenderer (using props or state).
+
+https://github.com/facebook/relay/issues/2244#issuecomment-355054944
+
 # Local schema
 
 First define local schema (`schema.local.graphql`):
