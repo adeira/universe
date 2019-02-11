@@ -6,38 +6,20 @@ import type {
   $RelayProps,
   GeneratedNodeMap,
   GraphQLTaggedNode,
+  Disposable,
 } from './types.flow';
-
-type Environment = $FlowFixMe;
 
 type RefetchOptions = {
   force?: boolean,
 };
 
-type Disposable = {
-  dispose(): void,
-};
-
-export type RelayProp = {|
-  +environment: Environment,
-
-  // TODO: this is true only for refetch container:
+export type RefetchRelayProp = {|
   +refetch: (
     refetchVariables: Object | ((fragmentVariables: Object) => Object),
     renderVariables: ?Object,
     callback: ?(error: ?Error) => void,
     options?: RefetchOptions,
   ) => Disposable,
-
-  // TODO: this is true only for pagination container:
-  hasMore: () => boolean,
-  isLoading: () => boolean,
-  loadMore(pageSize: number, callback: ?(error: ?Error) => void): ?Disposable,
-  refetchConnection: (
-    totalCount: number,
-    callback: (error: ?Error) => void,
-    refetchVariables: ?Object,
-  ) => ?Disposable,
 |};
 
 export default function createRefetchContainer<
@@ -47,7 +29,7 @@ export default function createRefetchContainer<
   fragmentSpec: GeneratedNodeMap,
   refetchQuery: GraphQLTaggedNode,
 ): React$ComponentType<
-  $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
+  $RelayProps<React$ElementConfig<TComponent>, RefetchRelayProp>,
 > {
   return Relay.createRefetchContainer(Component, fragmentSpec, refetchQuery);
 }

@@ -4,9 +4,11 @@ import Relay from 'react-relay';
 import { TimeoutError as unstable_TimeoutError } from '@kiwicom/fetch'; // eslint-disable-line babel/camelcase
 
 import createFragmentContainer from './createFragmentContainer';
-import createPaginationContainer from './createPaginationContainer';
+import createPaginationContainer, {
+  type PaginationRelayProp as _PaginationRelayProp,
+} from './createPaginationContainer';
 import createRefetchContainer, {
-  type RelayProp as _RelayProp,
+  type RefetchRelayProp as _RefetchRelayProp,
 } from './createRefetchContainer';
 import QueryRenderer from './QueryRenderer';
 import type { GraphQLTaggedNode } from './types.flow';
@@ -31,4 +33,5 @@ function graphql(strings: Array<string>): GraphQLTaggedNode {
   return Relay.graphql(strings);
 }
 
-export type RelayProp = _RelayProp;
+export type PaginationRelayProp = _PaginationRelayProp;
+export type RefetchRelayProp = _RefetchRelayProp;

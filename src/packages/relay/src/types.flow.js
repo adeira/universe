@@ -1,19 +1,21 @@
 // @flow
 
-import type { RequestNode as _RequestNode } from 'relay-runtime';
-import type {
-  CacheConfig as _CacheConfig,
-  UploadableMap as _UploadableMap,
-  Variables as _Variables,
-} from 'react-relay';
+import type { RequestNode as _RequestNode } from 'relay-runtime'; // TODO: remove
 
 export type RequestNode = _RequestNode;
-export type CacheConfig = _CacheConfig;
-export type Uploadables = _UploadableMap;
-export type Variables = _Variables;
+export type CacheConfig = {
+  force?: ?boolean,
+  // incomplete on purpose
+};
+export type Uploadables = { [key: string]: File | Blob };
+export type Variables = { [name: string]: $FlowFixMe };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
+
+export type Disposable = {
+  dispose(): void,
+};
 
 type ConcreteFragment = {
   argumentDefinitions: Array<ConcreteArgumentDefinition>,

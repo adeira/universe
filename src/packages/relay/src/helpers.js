@@ -1,7 +1,11 @@
 // @flow
 
-import type { Variables, UploadableMap, CacheConfig } from 'react-relay';
-import type { RequestNode } from 'relay-runtime';
+import type {
+  Variables,
+  Uploadables,
+  CacheConfig,
+  RequestNode,
+} from './types.flow';
 
 export const isMutation = (request: RequestNode) => {
   return request.operationKind === 'mutation';
@@ -16,7 +20,7 @@ export const forceFetch = (cacheConfig: CacheConfig) => {
 };
 
 export const handleData = (response: {|
-  +headers: Object, // TODO
+  +headers: Headers,
   +json: () => Object,
   +text: () => string,
 |}) => {
@@ -52,7 +56,7 @@ function getRequestBodyWithoutUplodables(request, variables) {
 export function getRequestBody(
   request: RequestNode,
   variables: Variables,
-  uploadables: ?UploadableMap,
+  uploadables: ?Uploadables,
 ) {
   if (uploadables) {
     return getRequestBodyWithUploadables(request, variables, uploadables);
@@ -61,7 +65,7 @@ export function getRequestBody(
   return getRequestBodyWithoutUplodables(request, variables);
 }
 
-export const getHeaders = (uploadables: ?UploadableMap) => {
+export const getHeaders = (uploadables: ?Uploadables) => {
   if (uploadables) {
     return {
       Accept: '*/*',

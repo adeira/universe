@@ -2,7 +2,6 @@
 
 import Relay from 'react-relay';
 
-import type { RelayProp } from './createRefetchContainer';
 import type { $RelayProps, GeneratedNodeMap } from './types.flow';
 
 export default function createFragmentContainer<
@@ -10,8 +9,6 @@ export default function createFragmentContainer<
 >(
   Component: TComponent,
   fragmentSpec: GeneratedNodeMap, // this is intentionally different to force the best practices
-): React$ComponentType<
-  $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
-> {
+): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, void>> {
   return Relay.createFragmentContainer(Component, fragmentSpec);
 }

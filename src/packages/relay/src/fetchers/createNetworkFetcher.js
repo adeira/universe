@@ -27,7 +27,6 @@ module.exports = function createNetworkFetcher(
       ...resolvedAdditionalHeaders,
     };
 
-    // TODO: handle exceptions here?
     const response = await fetchWithRetries(graphQLServerURL, {
       method: 'POST',
       headers,
