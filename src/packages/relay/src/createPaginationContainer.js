@@ -2,11 +2,11 @@
 
 import Relay from 'react-relay';
 
-import type { RelayProp } from './createRefetchContainer';
 import type {
   $RelayProps,
   GeneratedNodeMap,
   GraphQLTaggedNode,
+  Disposable,
 } from './types.flow';
 
 type ConnectionData = {|
@@ -37,6 +37,17 @@ type ConnectionConfig = {|
   +query: GraphQLTaggedNode,
 |};
 
+export type PaginationRelayProp = {|
+  hasMore: () => boolean,
+  isLoading: () => boolean,
+  loadMore(pageSize: number, callback: ?(error: ?Error) => void): ?Disposable,
+  refetchConnection: (
+    totalCount: number,
+    callback: (error: ?Error) => void,
+    refetchVariables: ?Object,
+  ) => ?Disposable,
+|};
+
 export default function createPaginationContainer<
   TComponent: React$ComponentType<any>,
 >(
@@ -44,10 +55,10 @@ export default function createPaginationContainer<
   fragmentSpec: GeneratedNodeMap,
   connectionConfig: ConnectionConfig,
 ): React$ComponentType<
-  $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
+  $RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>,
 > {
   return Relay.createPaginationContainer(
-    Component, // TODO: additional pagination props
+    Component,
     fragmentSpec,
     connectionConfig,
   );

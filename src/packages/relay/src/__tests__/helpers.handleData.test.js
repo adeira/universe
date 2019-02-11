@@ -6,6 +6,7 @@ const jsonMock = jest.fn();
 const textMock = jest.fn();
 
 const createResponse = getMockFunction => ({
+  // $FlowExpectedError: incomplete and mocked Headers object for testing purposes only
   headers: {
     get: getMockFunction,
   },

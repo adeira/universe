@@ -10,7 +10,7 @@ it('returns correct headers for request without uploadables', () => {
 });
 
 it('returns correct headers for request with uploadables', () => {
-  // TODO: FlowExpectedError: 'value' literal is not valid uploadable File or Blob
+  // $FlowExpectedError: 'value' literal is not valid uploadable File or Blob
   expect(getHeaders({ key: 'value' })).toEqual({
     Accept: '*/*',
   });
