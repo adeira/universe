@@ -1,7 +1,3 @@
-- [Relay Docs](https://facebook.github.io/relay/docs/en/introduction-to-relay.html)
-- [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3) (big inspiration)
-- https://github.com/mrtnzlml/meta/blob/master/relay.md
-
 This package is **opinionated Relay wrapper**. Goal of this package is to create powerful yet simple to use Relay wrapper with all the important features:
 
 - query logging during development
@@ -10,14 +6,76 @@ This package is **opinionated Relay wrapper**. Goal of this package is to create
 - request burst cache (response cache)
 - batch requests
 
-Minimal example of `Environment.js`:
+More info about Relay, prior art:
 
-```js
-import { createEnvironment, createNetworkFetcher } from '@kiwicom/relay';
+- [Relay Docs](https://facebook.github.io/relay/docs/en/introduction-to-relay.html)
+- [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
+- [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
 
-module.exports = createEnvironment({
-  fetcherFn: createNetworkFetcher('https://graphql.kiwi.com'),
-});
+# Install
+
+```text
+yarn add @kiwicom/relay
 ```
 
-Please note: this default API is minimalistic on purpose and I will unlock new features only when necessary.
+# Minimal example
+
+```js
+import * as React from 'react';
+import { graphql, QueryRenderer } from '@kiwicom/relay';
+import type { AppQueryResponse } from '__generated__/AppQuery.graphql';
+
+function handleResponse(props: AppQueryResponse) {
+  const edges = props.allLocations?.edges ?? [];
+  return (
+    <ol>
+      {edges.map(edge => (
+        <li key={edge?.node?.id}>{edge?.node?.name}</li>
+      ))}
+    </ol>
+  );
+}
+
+export default function App(props) {
+  return (
+    <QueryRenderer
+      query={graphql`
+        query AppQuery {
+          allLocations(first: 20) {
+            edges {
+              node {
+                id
+                name
+              }
+            }
+          }
+        }
+      `}
+      onSystemError={({ error, retry }) => console.error(error)} // optional (Sentry maybe?)
+      onLoading={() => <div>Loading...</div>} // optional
+      onResponse={handleResponse}
+    />
+  );
+}
+```
+
+This API is high-level on purpose but it's possible to decompose it when you need something more advanced (custom `Environment` for example). However, even the decomposed parts are still very opinionated and new features are being unlocked only when necessary.
+
+# Tips
+
+It's a good idea to create a custom wrapper of the `QueryRenderer` so you don't have to copy-paste it everywhere. This could be your new API (no loading or system error handlers):
+
+```js
+export default function App() {
+  return (
+    <CustomQueryRenderer
+      query={graphql`
+        query AppQuery {
+          ...AllLocations_data
+        }
+      `}
+      render={props => null} // TODO (handleResponse)
+    />
+  );
+}
+```

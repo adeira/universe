@@ -8,12 +8,14 @@ import createPaginationContainer from './createPaginationContainer';
 import createRefetchContainer, {
   type RelayProp as _RelayProp,
 } from './createRefetchContainer';
+import QueryRenderer from './QueryRenderer';
 import type { GraphQLTaggedNode } from './types.flow';
 
 module.exports = {
   unstable_TimeoutError,
   createEnvironment: require('./createEnvironment'),
   createNetworkFetcher: require('./fetchers/createNetworkFetcher'),
+  DefaultEnvironment: require('./DefaultEnvironment'),
 
   // Relay-only things:
   commitLocalUpdate: Relay.commitLocalUpdate,
@@ -22,7 +24,7 @@ module.exports = {
   createPaginationContainer,
   createRefetchContainer,
   graphql,
-  QueryRenderer: Relay.QueryRenderer,
+  QueryRenderer,
 };
 
 function graphql(strings: Array<string>): GraphQLTaggedNode {
