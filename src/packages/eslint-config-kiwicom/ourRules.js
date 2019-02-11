@@ -302,7 +302,7 @@ module.exports = {
   'react/no-danger': OFF,
   'react/no-danger-with-children': OFF,
   'react/no-deprecated': WARN,
-  'react/no-did-mount-set-state': WARN, // TODO: ERROR
+  'react/no-did-mount-set-state': OFF, // https://github.com/airbnb/javascript/issues/684#issuecomment-264094930
   'react/no-did-update-set-state': WARN, // TODO: ERROR
   'react/no-direct-mutation-state': WARN,
   'react/no-find-dom-node': OFF,
