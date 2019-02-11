@@ -18,4 +18,5 @@ export {
 
 export type ConnectionArguments = ConnectionArgumentsType;
 
+export { default as HTTPErrorType } from './HTTPErrorType';
 export { default as OptimisticDataloader } from './OptimisticDataloader';
