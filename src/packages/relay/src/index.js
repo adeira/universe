@@ -27,6 +27,7 @@ module.exports = {
   createRefetchContainer,
   graphql,
   QueryRenderer,
+  requestSubscription: Relay.requestSubscription,
 };
 
 function graphql(strings: Array<string>): GraphQLTaggedNode {
