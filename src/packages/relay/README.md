@@ -15,8 +15,10 @@ More info about Relay, prior art:
 
 # Install
 
+Before you start you should uninstall all the Relay related packages you installed manually (Relay runtime, compiler, `react-relay`). This package takes care about everything you need.
+
 ```text
-yarn add @kiwicom/relay
+yarn add react @kiwicom/relay
 ```
 
 # Minimal example
@@ -61,6 +63,8 @@ export default function App(props) {
 ```
 
 This API is high-level on purpose but it's possible to decompose it when you need something more advanced (custom `Environment` for example). However, even the decomposed parts are still very opinionated and new features are being unlocked only when necessary.
+
+It's also possible to override the `environment` and `render` property. However, please note that `render` property has priority over `onSystemError`, `onLoading` and `onResponse`. It's not recommended to use it unless you need something really special.
 
 # Tips
 
