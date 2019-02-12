@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.9.0
+- Disable rule `react/no-did-mount-set-state` by default
+
 # 2.8.0
 - Add `FormData` to the globals
 - Rule `import/no-unresolved` now ignores Relay artifacts set by `artifactDirectory`
