@@ -51,6 +51,7 @@ module.exports = {
   'class-methods-use-this': OFF,
   complexity: OFF,
   'consistent-return': [ERROR, { treatUndefinedAsUnspecified: false }],
+  curly: [WARN, 'all'], // TODO: ERROR
   'default-case': OFF,
   'dot-notation': WARN,
   eqeqeq: [WARN, 'smart'],

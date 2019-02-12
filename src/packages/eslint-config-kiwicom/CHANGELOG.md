@@ -1,4 +1,5 @@
 # Unreleased
+- Throws warnings for `curly` rule
 
 # 2.9.0
 - Disable rule `react/no-did-mount-set-state` by default
