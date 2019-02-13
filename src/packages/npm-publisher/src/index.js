@@ -7,7 +7,6 @@ import semver from 'semver';
 import glob from 'glob';
 import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
-import flowCopySource from 'flow-copy-source';
 
 import findNPMPackages from './findNPMPackages';
 import NPM from './NPM';
@@ -15,18 +14,59 @@ import log from './log';
 import copyFile from './copyFile';
 
 type Options = {|
-  +babelConfigFile: string,
   +buildCache: string,
   +packages: string,
   +dryRun: boolean,
 |};
 
-const filesToCopy = {
+const FILES_TO_COPY = {
   // false = optional ; true = required
   'CHANGELOG.md': false,
   'README.md': true,
   'package.json': true,
 };
+
+const IGNORE_PATTERN = /__(flowtests|tests|mocks|snapshots|fixtures)__/;
+
+function transformFileVariants(originalFilename, destinationFilename) {
+  const getBabelConfig = (target: 'js' | 'flow') => {
+    return {
+      root: __dirname, // do not lookup any other Babel config
+      presets: [
+        [
+          '@kiwicom/babel-preset-kiwicom',
+          {
+            target,
+          },
+        ],
+      ],
+    };
+  };
+
+  // 1) transform JS version
+  try {
+    log(`${originalFilename} -> ${destinationFilename}`);
+    fs.writeFileSync(
+      destinationFilename,
+      transformFileSync(originalFilename, getBabelConfig('js')).code,
+    );
+  } catch (error) {
+    log(error);
+    process.exit(1);
+  }
+
+  // 2) transform Flow version
+  try {
+    log(`${originalFilename} -> ${destinationFilename}.flow`);
+    fs.writeFileSync(
+      destinationFilename + '.flow',
+      transformFileSync(originalFilename, getBabelConfig('flow')).code,
+    );
+  } catch (error) {
+    log(error);
+    process.exit(1);
+  }
+}
 
 export default function publish(options: Options) {
   if (options.dryRun) {
@@ -50,106 +90,80 @@ export default function publish(options: Options) {
             }
 
             if (semver.gt(packageJSONFile.version, data.latest ?? '0.0.0')) {
-              flowCopySource(
-                [packageFolderPath],
-                path.join(options.buildCache, packageFolderName),
-                {
-                  verbose: true,
-                  ignore: '**/__{flowtests,tests}__/**',
-                },
-              ).then(() => {
-                glob(
-                  path.join(packageFolderPath, './**/*.js'),
-                  async (error, filenames) => {
-                    filenames.forEach(filename => {
-                      if (
-                        filename.match(
-                          /__(flowtests|tests|mocks|snapshots|fixtures)__/,
-                        )
-                      ) {
-                        return;
-                      }
+              glob(
+                path.join(packageFolderPath, './**/*.js'),
+                async (error, filenames) => {
+                  filenames.forEach(filename => {
+                    if (filename.match(IGNORE_PATTERN)) {
+                      return;
+                    }
 
-                      const destinationFileName = path.join(
-                        options.buildCache,
-                        packageFolderName,
-                        filename.replace(packageFolderPath, ''),
-                      );
+                    const destinationFileName = path.join(
+                      options.buildCache,
+                      packageFolderName,
+                      filename.replace(packageFolderPath, ''),
+                    );
 
-                      fs.mkdirSync(path.dirname(destinationFileName), {
-                        recursive: true,
-                      });
-
-                      log(`${filename} -> ${destinationFileName}`);
-
-                      try {
-                        fs.writeFileSync(
-                          destinationFileName,
-                          transformFileSync(filename, {
-                            babelrc: false,
-                            configFile: options.babelConfigFile,
-                          }).code,
-                        );
-                      } catch (error) {
-                        log(error);
-                        process.exit(1);
-                      }
+                    fs.mkdirSync(path.dirname(destinationFileName), {
+                      recursive: true,
                     });
 
-                    Object.entries(filesToCopy).forEach(
-                      ([fileToCopy, required]) =>
-                        copyFile(
-                          path.join(packageFolderPath, fileToCopy),
+                    transformFileVariants(filename, destinationFileName);
+                  });
+
+                  Object.entries(FILES_TO_COPY).forEach(
+                    ([fileToCopy, required]) =>
+                      copyFile(
+                        path.join(packageFolderPath, fileToCopy),
+                        path.join(
+                          options.buildCache,
+                          packageFolderName,
+                          fileToCopy,
+                        ),
+                        // $FlowIssue: https://github.com/facebook/flow/issues/2174
+                        required,
+                      ),
+                  );
+
+                  await tar.create(
+                    {
+                      gzip: true,
+                      cwd: options.buildCache,
+                      portable: true,
+                      file: path.join(
+                        options.buildCache,
+                        packageFolderName + '.tgz',
+                      ),
+                    },
+                    [packageFolderName],
+                  );
+
+                  if (options.dryRun === false) {
+                    NPM.publishPackage(
+                      {
+                        metadata: packageJSONFile,
+                        body: fs.createReadStream(
                           path.join(
                             options.buildCache,
-                            packageFolderName,
-                            fileToCopy,
+                            packageFolderName + '.tgz',
                           ),
-                          // $FlowIssue: https://github.com/facebook/flow/issues/2174
-                          required,
-                        ),
-                    );
-
-                    await tar.create(
-                      {
-                        gzip: true,
-                        cwd: options.buildCache,
-                        portable: true,
-                        file: path.join(
-                          options.buildCache,
-                          packageFolderName + '.tgz',
                         ),
                       },
-                      [packageFolderName],
+                      error => {
+                        if (error) {
+                          throw error;
+                        }
+
+                        log(
+                          `PUBLISHED ${packageJSONFile.name} version ${
+                            packageJSONFile.version
+                          } 🎉`,
+                        );
+                      },
                     );
-
-                    if (options.dryRun === false) {
-                      NPM.publishPackage(
-                        {
-                          metadata: packageJSONFile,
-                          body: fs.createReadStream(
-                            path.join(
-                              options.buildCache,
-                              packageFolderName + '.tgz',
-                            ),
-                          ),
-                        },
-                        error => {
-                          if (error) {
-                            throw error;
-                          }
-
-                          log(
-                            `PUBLISHED ${packageJSONFile.name} version ${
-                              packageJSONFile.version
-                            } 🎉`,
-                          );
-                        },
-                      );
-                    }
-                  },
-                );
-              });
+                  }
+                },
+              );
             } else {
               log(
                 `Skipping release of ${
