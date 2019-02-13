@@ -7,6 +7,8 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 - [artsy/metaphysics](https://github.com/artsy/metaphysics) - proxy of REST APIs with schema stitching for inspiration
 - https://github.com/artsy/README/blob/master/playbooks/graphql-schema-design.md
 
+The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
+
 # GraphQL errors
 
 See: http://artsy.github.io/blog/2018/10/19/where-art-thou-my-error/
