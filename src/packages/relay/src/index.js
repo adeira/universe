@@ -1,6 +1,11 @@
 // @flow
 
-import Relay from 'react-relay';
+import {
+  commitLocalUpdate,
+  commitMutation,
+  requestSubscription,
+  graphql as _graphql,
+} from 'react-relay';
 import { TimeoutError as unstable_TimeoutError } from '@kiwicom/fetch'; // eslint-disable-line babel/camelcase
 
 import createFragmentContainer from './createFragmentContainer';
@@ -20,18 +25,18 @@ module.exports = {
   DefaultEnvironment: require('./DefaultEnvironment'),
 
   // Relay-only things:
-  commitLocalUpdate: Relay.commitLocalUpdate,
-  commitMutation: Relay.commitMutation,
+  commitLocalUpdate,
+  commitMutation,
   createFragmentContainer,
   createPaginationContainer,
   createRefetchContainer,
   graphql,
   QueryRenderer,
-  requestSubscription: Relay.requestSubscription,
+  requestSubscription,
 };
 
 function graphql(strings: Array<string>): GraphQLTaggedNode {
-  return Relay.graphql(strings);
+  return _graphql(strings);
 }
 
 export type PaginationRelayProp = _PaginationRelayProp;

@@ -1,6 +1,6 @@
 // @flow
 
-import Relay from 'react-relay';
+import { createPaginationContainer as _createPaginationContainer } from 'react-relay';
 
 import type {
   $RelayProps,
@@ -57,9 +57,5 @@ export default function createPaginationContainer<
 ): React$ComponentType<
   $RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>,
 > {
-  return Relay.createPaginationContainer(
-    Component,
-    fragmentSpec,
-    connectionConfig,
-  );
+  return _createPaginationContainer(Component, fragmentSpec, connectionConfig);
 }

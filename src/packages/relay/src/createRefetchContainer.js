@@ -1,6 +1,6 @@
 // @flow
 
-import Relay from 'react-relay';
+import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
 
 import type {
   $RelayProps,
@@ -31,5 +31,5 @@ export default function createRefetchContainer<
 ): React$ComponentType<
   $RelayProps<React$ElementConfig<TComponent>, RefetchRelayProp>,
 > {
-  return Relay.createRefetchContainer(Component, fragmentSpec, refetchQuery);
+  return _createRefetchContainer(Component, fragmentSpec, refetchQuery);
 }
