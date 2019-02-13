@@ -7,7 +7,7 @@
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "dependencies": {
     "@kiwicom/fetch": "^2.0.0",
-    "@kiwicom/js": "0",
+    "@kiwicom/js": "^0",
     "react-relay": "^2.0.0",
     "relay-compiler": "^2.0.0",
     "relay-runtime": "^2.0.0"
