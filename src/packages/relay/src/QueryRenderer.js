@@ -2,24 +2,35 @@
 
 import React from 'react';
 import Relay from 'react-relay';
+import { invariant } from '@kiwicom/js';
 
 import DefaultEnvironment from './DefaultEnvironment';
 import type { GeneratedNodeMap } from './types.flow';
 
 type RendererProps = Object; // it can be anything, really
 
-type Props = {|
-  onSystemError?: ({ error: Error, retry: ?() => void }) => React$Node,
-  onLoading?: () => React$Node,
-  query: GeneratedNodeMap,
-  onResponse: RendererProps => React$Node,
-|};
-
 type ReadyState = {|
   +error: ?Error,
   +props: ?RendererProps,
   +retry: ?() => void,
 |};
+
+type CommonProps = {|
+  +query: GeneratedNodeMap,
+  +environment?: mixed,
+|};
+
+type Props =
+  | {|
+      ...CommonProps,
+      +onSystemError?: ({ error: Error, retry: ?() => void }) => React$Node,
+      +onLoading?: () => React$Node,
+      +onResponse: RendererProps => React$Node,
+    |}
+  | {|
+      ...CommonProps,
+      +render: ReadyState => React$Node,
+    |};
 
 export default function QueryRenderer(props: Props) {
   function renderQueryRendererResponse({
@@ -44,6 +55,11 @@ export default function QueryRenderer(props: Props) {
     if (!rendererProps) {
       return props.onLoading ? props.onLoading() : <div>Loading...</div>;
     }
+
+    invariant(
+      props.onResponse !== undefined,
+      'QueryRenderer used default render function but "onResponse" property has not been provided.',
+    );
 
     return props.onResponse(rendererProps);
   }
