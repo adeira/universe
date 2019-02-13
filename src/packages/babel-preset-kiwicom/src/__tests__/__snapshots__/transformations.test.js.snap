@@ -16,17 +16,57 @@ if (process.env.NODE_ENV !== "production") {
 }
 `;
 
+exports[`matches expected output: condition.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+if (__DEV__) {
+  console.log('foo'); // eslint-disable-line no-console
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+declare var __DEV__: boolean;
+
+// @flow
+if (__DEV__) {
+  console.log('foo'); // eslint-disable-line no-console
+}
+`;
+
+exports[`matches expected output: noDevExpression.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
+`;
+
+exports[`matches expected output: noDevExpression.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow
+console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
+`;
+
 exports[`matches expected output: objectKey.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-declare var __DEV__: string;
-
 module.exports = {
   rules: {},
   globals: {
+    // this shouldn't change (valid object key):
     __DEV__: 'value',
-    [__DEV__]: "this can be changed because it's dynamic",
+
+    // this should change (replaceable __DEV__ value):
     key: __DEV__,
   },
 };
@@ -37,9 +77,39 @@ module.exports = {
 module.exports = {
   rules: {},
   globals: {
+    // this shouldn't change (valid object key):
     __DEV__: 'value',
-    [process.env.NODE_ENV !== "production"]: "this can be changed because it's dynamic",
+    // this should change (replaceable __DEV__ value):
     key: process.env.NODE_ENV !== "production"
+  }
+};
+`;
+
+exports[`matches expected output: objectKey.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+module.exports = {
+  rules: {},
+  globals: {
+    // this shouldn't change (valid object key):
+    __DEV__: 'value',
+
+    // this should change (replaceable __DEV__ value):
+    key: __DEV__,
+  },
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+declare var __DEV__: boolean;
+// @flow
+module.exports = {
+  rules: {},
+  globals: {
+    // this shouldn't change (valid object key):
+    __DEV__: 'value',
+    // this should change (replaceable __DEV__ value):
+    key: __DEV__
   }
 };
 `;
@@ -56,6 +126,20 @@ const dev = __DEV__ ? 'true' : 'false';
 
 // eslint-disable-next-line no-unused-vars
 const dev = process.env.NODE_ENV !== "production" ? 'true' : 'false';
+`;
+
+exports[`matches expected output: ternary.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// eslint-disable-next-line no-unused-vars
+const dev = __DEV__ ? 'true' : 'false';
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+declare var __DEV__: boolean;
+// @flow
+// eslint-disable-next-line no-unused-vars
+const dev = __DEV__ ? 'true' : 'false';
 `;
 
 exports[`matches expected output: valid-code.js 1`] = `
@@ -91,5 +175,32 @@ async function test(a) {
     test_2: !!(process.env.NODE_ENV !== "production"),
     test_3: await 'this'
   });
+}
+`;
+
+exports[`matches expected output: valid-code.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+export default async function test(a: Object): Object {
+  return {
+    ...a,
+    test_1: a?.b ?? 'default',
+    test_2: !!__DEV__,
+    test_3: await 'this',
+  };
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+declare var __DEV__: boolean;
+// @flow
+export default async function test(a: Object): Object {
+  var _ref;
+
+  return { ...a,
+    test_1: (_ref = a === null || a === void 0 ? void 0 : a.b) !== null && _ref !== void 0 ? _ref : 'default',
+    test_2: !!__DEV__,
+    test_3: await 'this'
+  };
 }
 `;

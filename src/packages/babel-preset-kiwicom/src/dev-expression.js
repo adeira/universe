@@ -1,41 +1,6 @@
-// @flow
+/* eslint-disable flowtype/require-valid-file-annotation */
 
-/*::
-
-type BinaryExpression = mixed;
-type Identifier = mixed;
-type MemberExpression = mixed;
-type StringLiteral = mixed;
-
-type Babel = {|
-  +types: $ReadOnly<{|
-    binaryExpression: (
-      string,
-      MemberExpression,
-      StringLiteral,
-    ) => BinaryExpression,
-    identifier: string => Identifier,
-    memberExpression: (Identifier, Identifier, boolean) => MemberExpression,
-    stringLiteral: string => StringLiteral,
-  |}>,
-|};
-
-type Node = {|
-  +computed: boolean,
-  +key: {|
-    +name: string,
-  |},
-|};
-
-type Path = $ReadOnly<{|
-  node: Node,
-  isIdentifier: Object => boolean,
-  replaceWith: BinaryExpression => void,
-|}>;
-
-*/
-
-module.exports = function({ types: t } /*: Babel */) {
+module.exports = function({ types: t }) {
   const DEV_EXPRESSION = t.binaryExpression(
     '!==',
     t.memberExpression(
@@ -51,11 +16,11 @@ module.exports = function({ types: t } /*: Babel */) {
       this.canChangeProperty = true;
     },
     visitor: {
-      Property(path /*: Path */) {
+      Property(path) {
         this.canChangeProperty =
           path.node.computed === true || path.node.key.name !== '__DEV__';
       },
-      Identifier(path /*: Path */) {
+      Identifier(path) {
         // do nothing when testing
         if (process.env.NODE_ENV === 'test') {
           return;

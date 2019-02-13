@@ -1,4 +1,4 @@
-This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. It adds:
+This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are two transpilation targets available: JS (default) and Flow. JavaScript transpilation target adds these features:
 
 - Flow support `(a: string)`
 - object spread `{...a}`
@@ -10,7 +10,11 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 
 _(more features will follow in future versions as needed)_
 
-This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your container that is identical to your production version.
+This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version.
+
+You can also choose Flow as a transpilation target (see bellow). This mode adds these features:
+
+- declares `__DEV__` expression when used
 
 # Usage
 
@@ -47,3 +51,27 @@ module.exports = function(api /*: ApiType */) {
   };
 };
 ```
+
+Alternatively, you can specify the transpilation target:
+
+```js
+module.exports = function(api /*: ApiType */) {
+  api.cache.forever();
+
+  return {
+    presets: [
+      [
+        '@kiwicom/babel-preset-kiwicom',
+        {
+          target: 'flow', // or 'js' (default)
+        },
+      ],
+    ],
+  };
+};
+```
+
+# Prior art
+
+- https://github.com/facebook/fbjs/tree/master/packages/babel-preset-fbjs
+- https://github.com/github/babel-preset-github

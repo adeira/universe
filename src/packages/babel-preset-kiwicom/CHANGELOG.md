@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.1.0
+- Add transpilation targets: JS and Flow
+
 # 2.0.0
 - Upgrade `babel-plugin-relay` to the version 2.0 (potentially breaking change) 
 
