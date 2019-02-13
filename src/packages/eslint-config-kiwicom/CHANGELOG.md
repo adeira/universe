@@ -1,5 +1,6 @@
 # Unreleased
 - Throws warnings for `curly` rule
+- Rule `import/no-anonymous-default-export` now throws warnings, see: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md
 
 # 2.9.0
 - Disable rule `react/no-did-mount-set-state` by default

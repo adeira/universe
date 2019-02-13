@@ -379,6 +379,7 @@ module.exports = {
       ignore: ['^__generated__/'],
     },
   ],
+  'import/no-anonymous-default-export': WARN, // TODO: ERROR!
 
   // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
   'dependencies/case-sensitive': ERROR,
