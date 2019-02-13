@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import Relay from 'react-relay';
+import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
 import { invariant } from '@kiwicom/js';
 
 import DefaultEnvironment from './DefaultEnvironment';
@@ -65,7 +65,7 @@ export default function QueryRenderer(props: Props) {
   }
 
   return (
-    <Relay.QueryRenderer
+    <RelayQueryRenderer
       environment={DefaultEnvironment}
       render={renderQueryRendererResponse}
       {...props}

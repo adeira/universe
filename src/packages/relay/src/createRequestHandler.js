@@ -1,6 +1,6 @@
 // @flow
 
-import Runtime from 'relay-runtime';
+import { Observable } from 'relay-runtime';
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
 
 import { forceFetch, isMutation, isQuery } from './helpers';
@@ -45,12 +45,12 @@ module.exports = function createRequestHandler(customFetcher: Function) {
     uploadables: ?Uploadables,
   ) {
     if (__DEV__) {
-      Runtime.Observable.onUnhandledError((error, isUncaughtThrownError) => {
+      Observable.onUnhandledError((error, isUncaughtThrownError) => {
         console.error(error); // eslint-disable-line no-console
       });
     }
 
-    return Runtime.Observable.create((sink: Sink) => {
+    return Observable.create((sink: Sink) => {
       const queryID = requestNode.text;
 
       if (isMutation(requestNode)) {
