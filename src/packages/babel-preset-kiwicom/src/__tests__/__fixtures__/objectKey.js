@@ -1,12 +1,12 @@
 // @flow
 
-declare var __DEV__: string;
-
 module.exports = {
   rules: {},
   globals: {
+    // this shouldn't change (valid object key):
     __DEV__: 'value',
-    [__DEV__]: "this can be changed because it's dynamic",
+
+    // this should change (replaceable __DEV__ value):
     key: __DEV__,
   },
 };
