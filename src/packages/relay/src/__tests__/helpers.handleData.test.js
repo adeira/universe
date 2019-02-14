@@ -24,9 +24,9 @@ it('calls "text" method by default', () => {
 
   handleData(response);
 
-  expect(headersGetMock).toHaveBeenCalled();
+  expect(headersGetMock).toHaveBeenCalledWith('content-type');
   expect(jsonMock).not.toHaveBeenCalled();
-  expect(textMock).toHaveBeenCalled();
+  expect(textMock).toBeCalledTimes(1);
 });
 
 it('calls "json" method when header "content-type" with value "application/json" has been returned', () => {
@@ -35,7 +35,7 @@ it('calls "json" method when header "content-type" with value "application/json"
 
   handleData(response);
 
-  expect(headersGetMock).toHaveBeenCalled();
-  expect(jsonMock).toHaveBeenCalled();
+  expect(headersGetMock).toHaveBeenCalledWith('content-type');
+  expect(jsonMock).toBeCalledTimes(1);
   expect(textMock).not.toHaveBeenCalled();
 });

@@ -1,4 +1,5 @@
 # Unreleased
+- Show warnings for new Jest rule `jest/prefer-called-with` (see: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/prefer-called-with.md)
 
 # 2.11.0
 - Eslint now warns when you use `@noflow` or `@flow weak` file annotations
