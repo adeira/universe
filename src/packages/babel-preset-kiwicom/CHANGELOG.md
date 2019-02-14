@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.2.0
+- Target `flow` now doesn't perform transpilation but only parsing and `__DEV__` declaration instead
+
 # 2.1.0
 - Add transpilation targets: JS and Flow
 
