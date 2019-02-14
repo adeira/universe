@@ -1,10 +1,11 @@
 This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are two transpilation targets available: JS (default) and Flow. JavaScript transpilation target adds these features:
 
 - Flow support `(a: string)`
-- object spread `{...a}`
-- class properties
-- optional chaining `a?.b`
+- JSX support `<Component />`
+- class properties `class A { b = 1; }`
 - nullish coalescing operator `a ?? b`
+- object rest spread `{...a}`
+- optional chaining `a?.b`
 - dev expression `__DEV__`
 - support for Relay fragments `graphql ...`
 

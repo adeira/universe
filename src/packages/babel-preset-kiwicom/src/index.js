@@ -28,25 +28,13 @@ module.exports = (
     ...externalOptions,
   };
 
-  if (options.target !== 'js' && options.target !== 'flow') {
-    throw new Error('options.target must be one of "js" or "flow".');
-  }
-
   let presets /*: BabelRules */ = [];
-  let plugins /*: BabelRules */ = [
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-proposal-nullish-coalescing-operator',
-    '@babel/plugin-proposal-optional-chaining',
-    '@babel/plugin-syntax-flow', // allow parsing of the flow syntax (overlaps with flow-strip-types for JS)
-    '@babel/plugin-syntax-jsx', // overlaps with babel-plugin-relay for JS
-  ];
+  let plugins /*: BabelRules */ = [];
 
   if (options.target === 'flow') {
-    plugins = plugins.concat([path.join(__dirname, 'dev-declaration')]);
-  }
-
-  if (options.target === 'js') {
-    presets = presets.concat([
+    plugins = [path.join(__dirname, 'dev-declaration')];
+  } else if (options.target === 'js') {
+    presets = [
       [
         '@babel/preset-env',
         {
@@ -57,17 +45,36 @@ module.exports = (
         },
       ],
       '@babel/preset-react',
-    ]);
-    plugins = plugins.concat([
+    ];
+    plugins = [
       path.join(__dirname, 'dev-expression.js'),
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-proposal-nullish-coalescing-operator',
       '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-proposal-optional-chaining',
       '@babel/plugin-transform-flow-strip-types',
       'babel-plugin-relay',
-    ]);
+    ];
+  } else {
+    throw new Error('options.target must be one of "js" or "flow".');
   }
 
   return {
     presets,
     plugins,
+    parserOpts: {
+      plugins: [
+        'jsx',
+        'flow',
+        // Enable parsing of (not transpilation) - necessary for Flow target:
+        'classProperties',
+        'nullishCoalescingOperator',
+        'objectRestSpread',
+        'optionalChaining',
+
+        // see: https://babeljs.io/docs/en/babel-parser#plugins
+        // Candidates: numericSeparator, classPrivateProperties, classPrivateMethods
+      ],
+    },
   };
 };
