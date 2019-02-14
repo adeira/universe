@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { createFragmentContainer } from '../index';
+import { createFragmentContainer, graphql } from '../index';
 
 const validData = {
   required: 'ok',
@@ -58,15 +58,21 @@ module.exports = {
   functionalComponents: getTestCases(
     createFragmentContainer(
       FunctionalComponent,
-      // $FlowExpectedError: this should be a real fragment
-      'mocked',
+      graphql`
+        query createFragmentContainer_functionalComponents {
+          __typename
+        }
+      `,
     ),
   ),
   classComponents: getTestCases(
     createFragmentContainer(
       ClassComponent,
-      // $FlowExpectedError: this should be a real fragment
-      'mocked',
+      graphql`
+        query createFragmentContainer_functionalComponents {
+          __typename
+        }
+      `,
     ),
   ),
 };
