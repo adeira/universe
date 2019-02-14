@@ -193,7 +193,7 @@ it('works as expected with mutation', done => {
   observable
     .finally(() => {
       expect(list).toEqual(['start', 'next:data', 'complete']);
-      expect(burstCacheClear).toHaveBeenCalled();
+      expect(burstCacheClear).toHaveBeenCalledTimes(1);
       done();
     })
     .subscribe(observer);

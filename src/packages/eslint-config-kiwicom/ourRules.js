@@ -290,6 +290,7 @@ module.exports = {
   'jest/valid-expect': WARN,
   'jest/valid-expect-in-promise': WARN, // TODO: ERROR
   'jest/prefer-todo': WARN, // TODO: ERROR
+  'jest/prefer-called-with': WARN,
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
   'prefer-object-spread/prefer-object-spread': WARN,
