@@ -4,7 +4,11 @@ import { graphql } from '../index';
 
 module.exports = {
   correctUsage() {
-    return graphql`correct usage`; // eslint-disable-line relay/graphql-syntax
+    return graphql`
+      query graphql_correctUsage {
+        __typename
+      }
+    `;
   },
   correctUsageUnusual() {
     return graphql(['correct']);
