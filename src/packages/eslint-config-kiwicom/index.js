@@ -60,7 +60,8 @@ module.exports = {
     'eslint-plugin-monorepo',
     'eslint-plugin-node',
     'eslint-plugin-eslint-comments',
-    'eslint-plugin-kiwi-graphql',
+    'eslint-plugin-kiwi-graphql', // TODO: deprecated this package and move it under 'eslint-plugin-kiwicom-incubator'
+    'eslint-plugin-kiwicom-incubator',
     'eslint-plugin-prettier',
   ],
 };

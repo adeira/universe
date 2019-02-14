@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.11.0
+- Eslint now warns when you use `@noflow` or `@flow weak` file annotations
+
 # 2.10.0
 - Throws warnings for `curly` rule
 - Rule `import/no-anonymous-default-export` now throws warnings, see: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md

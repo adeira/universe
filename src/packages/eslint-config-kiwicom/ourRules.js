@@ -340,7 +340,7 @@ module.exports = {
   'react/jsx-uses-react': WARN,
   'react/jsx-uses-vars': WARN,
 
-  'react-hooks/rules-of-hooks': WARN, // TODO: ERROR!
+  'react-hooks/rules-of-hooks': WARN, // TODO: ERROR
 
   // React Native (https://github.com/Intellicode/eslint-plugin-react-native)
   'react-native/no-unused-styles': ERROR,
@@ -379,7 +379,7 @@ module.exports = {
       ignore: ['^__generated__/'],
     },
   ],
-  'import/no-anonymous-default-export': WARN, // TODO: ERROR!
+  'import/no-anonymous-default-export': WARN, // TODO: ERROR
 
   // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
   'dependencies/case-sensitive': ERROR,
@@ -401,5 +401,6 @@ module.exports = {
   'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
 
   // Kiwi.com custom rules
-  'kiwi-graphql/only-nullable-fields': ERROR,
+  'kiwi-graphql/only-nullable-fields': ERROR, // TODO: deprecated this package and move it under 'eslint-plugin-kiwicom-incubator'
+  'kiwicom-incubator/no-invalid-flow-annotations': WARN, // TODO: ERROR
 };
