@@ -74,6 +74,19 @@ module.exports = {
       />
     );
   },
+  withVariables() {
+    return (
+      <QueryRenderer
+        query={graphql`
+          query QueryRenderer {
+            __typename
+          }
+        `}
+        onResponse={placeholder}
+        variables={{}}
+      />
+    );
+  },
 
   // ERRORS:
   missingQuery1() {
