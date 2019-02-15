@@ -1,4 +1,4 @@
-This package is **opinionated Relay wrapper**. Goal of this package is to create powerful yet simple to use Relay wrapper with all the important features:
+This package is **opinionated Relay wrapper** used at Kiwi.com. Goal of this package is to create powerful yet simple to use Relay wrapper with all the important features:
 
 - query logging during development
 - network fetching with retries and timeouts (see `@kiwicom/fetch`)
@@ -15,11 +15,15 @@ More info about Relay, prior art:
 
 # Install
 
-Before you start you should uninstall all the Relay related packages you installed manually (Relay runtime, compiler, `react-relay`). This package takes care about everything you need.
+**Please read this carefully.**
+
+Before you start you should uninstall _all_ the Relay related packages you installed manually (Relay runtime, compiler, `react-relay`). You should also  remove custom `flow-typed` definitions for Relay. You can remove the `babel-plugin-relay` as well in case you use `@kiwicom/babel-preset-kiwicom` (which  is highly recommended). This package takes care about everything you need.
 
 ```text
 yarn add react @kiwicom/relay
 ```
+
+Please contact us directly in case something is problematic.
 
 # Minimal example
 
