@@ -15,7 +15,7 @@ function printWarning(format, ...args) {
   }
 }
 
-export default function(
+export default function warning(
   condition: mixed,
   format: string,
   ...args: Array<mixed>

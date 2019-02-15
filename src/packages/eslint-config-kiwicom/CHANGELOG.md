@@ -1,4 +1,7 @@
 # Unreleased
+
+# 2.12.0
+- Rule `import/no-anonymous-default-export` now complains only on exported functions and classes
 - Show warnings for new Jest rule `jest/prefer-called-with` (see: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/prefer-called-with.md)
 
 # 2.11.0
