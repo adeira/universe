@@ -117,8 +117,14 @@ export default function fetchWithRetries(
      * It returns false for non-transient HTTP status codes like 401 or 403.
      */
     function shouldRetry(attempt: number, statusCode?: number): boolean {
-      // user is unathorized and it won't be authorized in next requests
-      const nonTransientCodes = [401, 403];
+      const nonTransientCodes = [
+        400, // Bad Request (it's not gonna be better next time)
+        401, // Unauthorized (it's not gonna be authorized)
+        403, // Forbidden
+
+        // TODO: consider every 4xx code?
+        //  https://stackoverflow.com/q/47680711/3135248
+      ];
 
       if (statusCode != null && nonTransientCodes.includes(statusCode)) {
         return false;
