@@ -5,7 +5,7 @@ import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
 import { invariant } from '@kiwicom/js';
 
 import DefaultEnvironment from './DefaultEnvironment';
-import type { GeneratedNodeMap } from './types.flow';
+import type { GeneratedNodeMap, CacheConfig } from './types.flow';
 
 type RendererProps = Object; // it can be anything, really
 
@@ -18,6 +18,7 @@ type ReadyState = {|
 type CommonProps = {|
   +query: GeneratedNodeMap,
   +environment?: mixed,
+  +cacheConfig?: CacheConfig,
 |};
 
 type Props =

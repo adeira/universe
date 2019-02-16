@@ -61,6 +61,19 @@ module.exports = {
       />
     );
   },
+  validCacheConfig() {
+    return (
+      <QueryRenderer
+        query={graphql`
+          query QueryRenderer {
+            __typename
+          }
+        `}
+        onResponse={placeholder}
+        cacheConfig={{ force: false }}
+      />
+    );
+  },
 
   // ERRORS:
   missingQuery1() {
@@ -94,6 +107,20 @@ module.exports = {
         `}
         onResponse={placeholder}
         render={placeholder}
+      />
+    );
+  },
+  invalidCacheConfig() {
+    return (
+      <QueryRenderer
+        query={graphql`
+          query QueryRenderer {
+            __typename
+          }
+        `}
+        onResponse={placeholder}
+        // $FlowExpectedError: this cache config is not valid
+        cacheConfig={{ invalid: 'ups' }}
       />
     );
   },

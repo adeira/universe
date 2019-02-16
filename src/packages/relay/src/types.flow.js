@@ -3,41 +3,41 @@
 import type { RequestNode as _RequestNode } from 'relay-runtime'; // TODO: remove
 
 export type RequestNode = _RequestNode;
-export type CacheConfig = {
-  force?: ?boolean,
+export type CacheConfig = {|
+  +force?: ?boolean,
   // incomplete on purpose
-};
+|};
 export type Uploadables = { [key: string]: File | Blob };
 export type Variables = { [name: string]: $FlowFixMe };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
 
-export type Disposable = {
-  dispose(): void,
-};
+export type Disposable = {|
+  +dispose: () => void,
+|};
 
 type ConcreteFragment = {
-  argumentDefinitions: Array<ConcreteArgumentDefinition>,
-  kind: 'Fragment',
-  metadata: ?{ [key: string]: mixed },
-  name: string,
-  selections: Array<ConcreteSelection>,
-  type: string,
+  +argumentDefinitions: Array<ConcreteArgumentDefinition>,
+  +kind: 'Fragment',
+  +metadata: ?{ [key: string]: mixed },
+  +name: string,
+  +selections: Array<ConcreteSelection>,
+  +type: string,
 };
 
 export type GraphQLTaggedNode = () => ConcreteFragment;
 export type GeneratedNodeMap = { [key: string]: GraphQLTaggedNode };
-
-type $FragmentRef<T> = {
-  +$fragmentRefs: $PropertyType<T, '$refType'>,
-};
 
 /*::
 
 // So, there is currently an issue with Babel Parser which turns these lines
 // into complete mess when targeting Flow. Issue reported:
 //   https://github.com/babel/babel/issues/9514
+
+type $FragmentRef<T> = {
+  +$fragmentRefs: $PropertyType<T, '$refType'>,
+};
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
