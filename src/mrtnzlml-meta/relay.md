@@ -7,7 +7,6 @@ Useful Links:
 
 TODO:
 
-- [RelayObservable.onUnhandledError](https://github.com/facebook/relay/issues/2616#issuecomment-457869252)
 - https://github.com/facebook/relay/pull/2619/files
 - https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
@@ -344,4 +343,46 @@ const env = new Environment({
 })
 
 export default env
+```
+
+# RelayObservable.onUnhandledError
+
+You can override default behavior of unhandled errors when using Relay Observable:
+
+```js
+import { Observable } from 'relay-runtime';
+
+if (__DEV__) {
+  Observable.onUnhandledError((error, isUncaughtThrownError) => {
+    console.error(error);
+  });
+}
+
+Observable.create( ... )
+```
+
+Default [implementation](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/network/RelayObservable.js#L616-L636):
+
+```js
+if (__DEV__) {
+  // Default implementation of HostReportErrors() in development builds.
+  // Can be replaced by the host application environment.
+  RelayObservable.onUnhandledError((error, isUncaughtThrownError) => {
+    declare function fail(string): void;
+    if (typeof fail === 'function') {
+      // In test environments (Jest), fail() immediately fails the current test.
+      fail(String(error));
+    } else if (isUncaughtThrownError) {
+      // Rethrow uncaught thrown errors on the next frame to avoid breaking
+      // current logic.
+      setTimeout(() => {
+        throw error;
+      });
+    } else if (typeof console !== 'undefined') {
+      // Otherwise, log the unhandled error for visibility.
+      // eslint-disable-next-line no-console
+      console.error('RelayObservable: Unhandled Error', error);
+    }
+  });
+}
 ```
