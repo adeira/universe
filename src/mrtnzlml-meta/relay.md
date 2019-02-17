@@ -7,7 +7,6 @@ Useful Links:
 
 TODO:
 
-- connection with handler? (https://github.com/facebook/relay/issues/2570#issuecomment-438026375)
 - [RelayObservable.onUnhandledError](https://github.com/facebook/relay/issues/2616#issuecomment-457869252)
 - https://github.com/facebook/relay/pull/2619/files
 - https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
@@ -134,6 +133,12 @@ const DraftHandler = {
 ```
 
 More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
+
+# @connection(handler: "custom_handler", ...)
+
+It is possible to specify custom handler when using `@connection`. This way you can define custom behavior and effectively completely replace the default `RelayConnectionHandler`. This handler must be added to the `handlerProvider` (default is `connection` handler for the raw `@connection`). This is how [default Relay handler provider looks like](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/handlers/RelayDefaultHandlerProvider.js).
+
+See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
 # RelayResponseNormalizer: `handleStrippedNulls`
 
