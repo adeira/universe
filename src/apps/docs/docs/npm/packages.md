@@ -21,7 +21,7 @@ This monorepo hosts source code of the following NPM packages. They are being de
 - 0.8.0 [@kiwicom/graphql-logz](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/logz) - Implementation of Logz.io handler for better GraphQL monitoring.
 - 0.2.0 [@kiwicom/monorepo](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/monorepo) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 0.4.0 [@kiwicom/npm-publisher](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/npm-publisher) - Tools for automatically publishing of NPM packages
-- 0.10.0 [@kiwicom/relay](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/relay) - Highly opinionated Relay wrapper used at Kiwi.com
+- 0.11.0 [@kiwicom/relay](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/relay) - Highly opinionated Relay wrapper used at Kiwi.com
 - 1.0.1 [@kiwicom/signed-source](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.
 - 0.4.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 1.0.2 [@kiwicom/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
