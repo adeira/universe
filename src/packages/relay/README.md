@@ -17,7 +17,7 @@ More info about Relay, prior art:
 
 **Please read this carefully.**
 
-Before you start you should uninstall _all_ the Relay related packages you installed manually (Relay runtime, compiler, `react-relay`). You should also  remove custom `flow-typed` definitions for Relay. You can remove the `babel-plugin-relay` as well in case you use `@kiwicom/babel-preset-kiwicom` (which  is highly recommended). This package takes care about everything you need.
+Before you start you should uninstall _all_ the Relay related packages you installed manually (Relay runtime, compiler, `react-relay`). You should also remove custom `flow-typed` definitions for Relay. You can remove the `babel-plugin-relay` as well in case you use `@kiwicom/babel-preset-kiwicom` (which is highly recommended). This package takes care about everything you need.
 
 ```text
 yarn add react @kiwicom/relay
@@ -69,6 +69,39 @@ export default function App(props) {
 This API is high-level on purpose but it's possible to decompose it when you need something more advanced (custom `Environment` for example). However, even the decomposed parts are still very opinionated and new features are being unlocked only when necessary.
 
 It's also possible to override the `environment` and `render` property. However, please note that `render` property has priority over `onSystemError`, `onLoading` and `onResponse`. It's not recommended to use it unless you need something really special.
+
+# Refetch container
+
+Refetch container is the best when you are changing variables in the component fragment or just simply refetching. Typical example is search or bi-directional pagination. Simply import the HoC as well as the refetch Flow type:
+
+```js
+import {
+  graphql,
+  createRefetchContainer,
+  type RefetchRelayProp,
+} from '@kiwicom/relay';
+```
+
+Usage:
+
+```js
+export default createRefetchContainer(
+  Component,
+  /* TODO: refetch fragments */,
+  /* TODO: refetch query */
+);
+```
+
+And later you can call the refetch function:
+
+```js
+function loadMore() {
+  // property `relay` should be annotated with the `RefetchRelayProp` type
+  props.relay.refetch(/* TODO: refetchVariables */);
+}
+```
+
+Similar rules apply to pagination container which solves one particular use-case of refetch container: "load more" pagination. The difference is that you have to use `type PaginationRelayProp` instead.
 
 # Tips
 
