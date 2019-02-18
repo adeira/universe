@@ -4,7 +4,7 @@ title: Public NPM Packages
 sidebar_label: Public NPM Packages
 ---
 
-This monorepo hosts source code of the following NPM packages. They are being deployed automatically to NPM when you increase the version in `package.json` file and this version is not in NPM yet (applies only to packages with `private:false` visibility).
+This monorepo hosts source code of the following NPM packages:
 
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
@@ -28,6 +28,23 @@ This monorepo hosts source code of the following NPM packages. They are being de
 
 <!-- /AUTOMATOR:UPDATE_DOCS -->
 
+**Please Note!** You may get some Flow errors. We are trying to keep it on minimum but you may have incompatible Flow suppress comments. We currently don't know how to solve this issue well. One way how to tackle this issue is to have compatible `.flowconfig` options:
+
+```ini
+suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/issues/[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowPullRequest: https://github.com/facebook/flow/pull/[0-9]+
+
+suppress_type=$FlowFixMe
+```
+
+Other Flow issues should be reported back.
+
+# Releasing of new versions
+
+Our NPM packages are being released automatically on NPM when you increase a version in `package.json` file and this version is not in NPM yet (applies only to packages with `private:false` visibility).
+
 Every package with version greater than 1.0 (ignoring patch version) must have `CHANGELOG.md` file with the following format:
 
 ```text
@@ -42,3 +59,5 @@ Every package with version greater than 1.0 (ignoring patch version) must have `
 - change description
 - change description
 ```
+
+This changelog is being tested so you have to follow this format otherwise new version won't be released and the test will fail.
