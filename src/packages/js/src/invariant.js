@@ -10,7 +10,7 @@ if (__DEV__) {
     }
   };
 } else {
-  validateFormat = function(format: mixed): void {};
+  validateFormat = function(format: mixed): void {}; // eslint-disable-line no-unused-vars
 }
 
 /**

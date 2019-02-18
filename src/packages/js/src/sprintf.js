@@ -6,5 +6,5 @@
  */
 export default function sprintf(format: string, ...args: mixed[]): string {
   let index = 0;
-  return format.replace(/%s/g, match => String(args[index++]));
+  return format.replace(/%s/g, () => String(args[index++]));
 }
