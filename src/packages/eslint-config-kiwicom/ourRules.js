@@ -129,7 +129,7 @@ module.exports = {
   'no-undef-init': OFF,
   'no-undef': ERROR,
   'no-undefined': OFF,
-  'no-unused-vars': [WARN, { args: 'none' }], // TODO: ERROR
+  'no-unused-vars': [WARN, { args: 'after-used' }], // TODO: ERROR
   'no-use-before-define': OFF,
 
   // Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)
