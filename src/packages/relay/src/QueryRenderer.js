@@ -19,6 +19,7 @@ type CommonProps = {|
   +query: GeneratedNodeMap,
   +environment?: mixed,
   +cacheConfig?: CacheConfig,
+  +variables?: Object,
 |};
 
 type Props =
