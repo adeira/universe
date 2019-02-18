@@ -1,6 +1,6 @@
 // @flow
 
-import invariant from '../invariant';
+import { invariant } from '../index';
 
 it('does not throw an exception for successful condition', () => {
   // $FlowExpectedError: unnecessary invariant because true is always true

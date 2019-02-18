@@ -45,3 +45,16 @@ import { sprintf } from '@kiwicom/js';
 
 sprintf('Oh, %s', 'yeah!');
 ```
+
+# `isObject`
+
+This function ignores internal JS implementation and returns true only for real objects (not arrays or nulls and similar).
+
+```js
+import { isObject } from '@kiwicom/js';
+
+isObject({}); // true
+
+isObject(null); // false
+isObject([]); // false
+```
