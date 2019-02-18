@@ -214,7 +214,7 @@ module.exports = {
   'no-class-assign': WARN,
   'no-const-assign': ERROR,
   'no-dupe-class-members': ERROR,
-  'no-duplicate-imports': WARN,
+  'no-duplicate-imports': OFF,
   'no-new-symbol': WARN,
   'no-restricted-imports': OFF,
   'no-this-before-super': ERROR,
@@ -392,6 +392,7 @@ module.exports = {
       allowObject: true,
     },
   ],
+  'import/no-duplicates': WARN,
 
   // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
   'dependencies/case-sensitive': ERROR,
