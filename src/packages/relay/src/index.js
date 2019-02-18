@@ -2,12 +2,12 @@
 
 import {
   commitLocalUpdate,
-  commitMutation,
   requestSubscription,
   graphql as _graphql,
 } from 'react-relay';
 import { TimeoutError as unstable_TimeoutError } from '@kiwicom/fetch'; // eslint-disable-line babel/camelcase
 
+import commitMutation from './commitMutation';
 import createFragmentContainer from './createFragmentContainer';
 import createPaginationContainer, {
   type PaginationRelayProp as _PaginationRelayProp,

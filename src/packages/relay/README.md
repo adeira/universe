@@ -12,6 +12,7 @@ More info about Relay, prior art:
 - [Relay Docs](https://facebook.github.io/relay/docs/en/introduction-to-relay.html)
 - [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
 - [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
+- [Relay Example](https://github.com/kiwicom/relay-example)
 
 # Install
 
