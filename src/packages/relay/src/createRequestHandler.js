@@ -44,12 +44,6 @@ module.exports = function createRequestHandler(customFetcher: Function) {
     cacheConfig: CacheConfig,
     uploadables: ?Uploadables,
   ) {
-    if (__DEV__) {
-      Observable.onUnhandledError((error, isUncaughtThrownError) => {
-        console.error(error); // eslint-disable-line no-console
-      });
-    }
-
     return Observable.create((sink: Sink) => {
       const queryID = requestNode.text;
 
@@ -79,12 +73,6 @@ module.exports = function createRequestHandler(customFetcher: Function) {
             // What should we do with these partial errors?
             // eslint-disable-next-line no-console
             response.errors.map(error => console.error(error.message, error));
-
-            if (isMutation(requestNode)) {
-              // errors during mutations are serious business so we should stop
-              sink.error(response);
-              sink.complete();
-            }
           } else {
             // set burst cache only if there are no errors
             burstCache.set(queryID, variables, response);
