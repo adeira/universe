@@ -4,7 +4,7 @@ import builtInRules from 'eslint/lib/built-in-rules-index';
 
 const eslintRules = new Set<string>(Object.keys(builtInRules));
 
-Object.keys(require('./package.json').dependencies)
+Object.keys(require('../package.json').dependencies)
   .filter(dep => dep.startsWith('eslint-plugin'))
   .filter(dep => {
     // we are not testing every 3rd party plugins yet

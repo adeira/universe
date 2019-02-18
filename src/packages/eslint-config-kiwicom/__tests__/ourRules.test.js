@@ -1,7 +1,7 @@
 // @flow
 
 const ourRules = require('../ourRules');
-const deprecatedRules = require('../deprecatedRules');
+const deprecatedRules = require('./deprecatedRules');
 const extraPrettierRules = require('../extraPrettierRules');
 
 test('our rules should not contain deprecated Eslint rules', () => {

@@ -2,8 +2,8 @@
 
 import prettierConfig from 'eslint-config-prettier';
 
-import deprecatedRules from '../deprecatedRules';
-import eslintRules from '../eslintRules';
+import deprecatedRules from './deprecatedRules';
+import eslintRules from './eslintRules';
 
 let ourRules, missing;
 beforeEach(() => {

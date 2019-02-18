@@ -53,6 +53,7 @@ module.exports = {
     'eslint-plugin-prefer-object-spread',
     'eslint-plugin-react',
     'eslint-plugin-react-hooks',
+    'eslint-plugin-jsx-a11y',
     'eslint-plugin-react-native',
     'eslint-plugin-relay',
     'eslint-plugin-import',
