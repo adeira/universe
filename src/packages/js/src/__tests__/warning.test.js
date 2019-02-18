@@ -1,6 +1,6 @@
 // @flow
 
-import warning from '../warning';
+import { warning } from '../index';
 
 it('does not print warning for successful condition', () => {
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});

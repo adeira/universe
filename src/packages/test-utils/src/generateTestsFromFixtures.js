@@ -1,13 +1,9 @@
 // @flow
 
 import os from 'os';
-import { invariant } from '@kiwicom/js';
+import { invariant, isObject } from '@kiwicom/js';
 
 const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
-
-function isObject(value): boolean %checks {
-  return typeof value === 'object' && value !== null;
-}
 
 /**
  * Extend Jest with a custom snapshot serializer to provide additional context
