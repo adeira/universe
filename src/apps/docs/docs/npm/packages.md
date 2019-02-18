@@ -10,7 +10,7 @@ This monorepo hosts source code of the following NPM packages. They are being de
 
 - 2.2.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 1.1.2 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
-- 2.14.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 2.15.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 1.0.1 [eslint-plugin-kiwi-graphql](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwi-graphql) - Rules for Kiwi.com GraphQL
 - 0.1.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
 - 2.1.0 [@kiwicom/fetch](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/fetch) - Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.
