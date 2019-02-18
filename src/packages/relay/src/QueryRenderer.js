@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
-import { invariant } from '@kiwicom/js';
+import { invariant, sprintf } from '@kiwicom/js';
+import { TimeoutError, ResponseError } from '@kiwicom/fetch';
 
 import DefaultEnvironment from './DefaultEnvironment';
 import type { GeneratedNodeMap, CacheConfig } from './types.flow';
@@ -41,11 +42,28 @@ export default function QueryRenderer(props: Props) {
     retry,
   }: ReadyState) {
     if (error) {
-      return props.onSystemError ? (
-        props.onSystemError({ error, retry })
-      ) : (
+      if (props.onSystemError) {
+        return props.onSystemError({ error, retry });
+      }
+
+      let publicErrorMessage = 'Error!';
+      if (error instanceof TimeoutError) {
+        publicErrorMessage = 'Timeout error!';
+      } else if (error instanceof ResponseError) {
+        const { response } = error;
+        publicErrorMessage = sprintf(
+          'Unsuccessful response! (%s - %s)',
+          response.status,
+          response.statusText,
+        );
+
+        // You can get the actual response here:
+        // error.response.json().then(data => console.warn(data));
+      }
+
+      return (
         <div>
-          Error!{' '}
+          {publicErrorMessage}{' '}
           <a onClick={retry} href="#">
             Retry
           </a>
