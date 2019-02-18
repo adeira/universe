@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.14.0
+- Disable `no-duplicate-imports` rule
+- Set `import/no-duplicates` to WARN. Which is more intelligent than `no-duplicate-imports` and can differentiate between `import` and `import type`
+
 # 2.13.0
 - Eslint now warns for unused function parameters
 
