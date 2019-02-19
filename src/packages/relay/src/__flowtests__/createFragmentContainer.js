@@ -29,11 +29,11 @@ function getTestCases(Container) {
       );
     },
     checkValidFunctionProperty() {
-      return <Container data={validData} fun={(_: string) => {}} />; // eslint-disable-line react/jsx-no-bind
+      return <Container data={validData} fun={(_: string) => {}} />; // eslint-disable-line react/jsx-no-bind, no-unused-vars
     },
     checkInvalidFunctionProperty() {
       // $FlowExpectedError: function argument should be string, not number
-      return <Container data={validData} fun={(_: number) => {}} />; // eslint-disable-line react/jsx-no-bind
+      return <Container data={validData} fun={(_: number) => {}} />; // eslint-disable-line react/jsx-no-bind, no-unused-vars
     },
   };
 }
@@ -46,7 +46,7 @@ type Props = {|
   +fun?: string => void,
 |};
 
-const FunctionalComponent = (props: Props) => <React.Fragment />;
+const FunctionalComponent = (props: Props) => <React.Fragment />; // eslint-disable-line no-unused-vars
 
 const ClassComponent = class extends React.Component<Props> {
   render() {
