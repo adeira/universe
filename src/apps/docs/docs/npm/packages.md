@@ -41,7 +41,7 @@ suppress_type=$FlowFixMe
 
 Other Flow issues should be reported back.
 
-# Releasing of new versions
+## Releasing of new versions
 
 Our NPM packages are being released automatically on NPM when you increase a version in `package.json` file and this version is not in NPM yet (applies only to packages with `private:false` visibility).
 
