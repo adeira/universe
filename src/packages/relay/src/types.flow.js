@@ -52,8 +52,6 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
   (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
   (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
   (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
-  // see: https://github.com/facebook/relay/blob/v1.7.0-rc.1/packages/react-relay/modern/ReactRelayTypes.js
-  // see: https://github.com/sibelius/relay-modern-network-deep-dive/tree/master/flow-typed
   (<T>(T) => T)
 >
 
