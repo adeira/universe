@@ -13,13 +13,13 @@
         "title": "Design Style Guides",
         "sidebar_label": "Design Style Guides"
       },
-      "graphql/directory-structure": {
-        "title": "Directory structure of GraphQL",
-        "sidebar_label": "Directory structure"
-      },
       "graphql/faq": {
         "title": "FAQ",
         "sidebar_label": "FAQ"
+      },
+      "graphql/general-information": {
+        "title": "General information",
+        "sidebar_label": "General information"
       },
       "graphql/infrastructure": {
         "title": "Infrastructure",

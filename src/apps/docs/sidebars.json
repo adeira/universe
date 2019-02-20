@@ -3,7 +3,7 @@
     "Runbooks": ["runbooks/rancher"],
     "Monorepo": ["monorepo/installation", "monorepo/directory-structure"],
     "GraphQL": [
-      "graphql/directory-structure",
+      "graphql/general-information",
       "graphql/design-style-guides",
       "graphql/infrastructure",
       "graphql/testing",
