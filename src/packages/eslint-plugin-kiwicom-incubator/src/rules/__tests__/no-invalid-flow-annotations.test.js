@@ -6,7 +6,7 @@ const rule = require('../no-invalid-flow-annotations');
 
 const ruleTester = new RuleTester();
 
-ruleTester.run('only-nullable-fields', rule, {
+ruleTester.run('no-invalid-flow-annotations', rule, {
   valid: [
     '/* @flow */',
     '/* @flow strict */',
