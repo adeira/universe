@@ -427,6 +427,6 @@ module.exports = {
   'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
 
   // Kiwi.com custom rules
-  'kiwi-graphql/only-nullable-fields': ERROR, // TODO: deprecated this package and move it under 'eslint-plugin-kiwicom-incubator'
+  'kiwicom-incubator/only-nullable-fields': ERROR,
   'kiwicom-incubator/no-invalid-flow-annotations': WARN, // TODO: ERROR
 };

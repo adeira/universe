@@ -28,6 +28,11 @@ ruleTester.run('only-nullable-fields', rule, {
   ],
 
   invalid: [
+    // TODO: this should be invalid as well
+    // {
+    //   code: '({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } })',
+    //   errors: [NewExpressionError],
+    // },
     {
       code: '({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } })',
       errors: [NewExpressionError],

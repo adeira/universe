@@ -3,7 +3,7 @@
   "description": "Eslint configuration describing rules for JS used at Kiwi.com.",
   "homepage": "https://github.com/kiwicom/eslint-config-kiwicom",
   "private": false,
-  "version": "2.15.1",
+  "version": "2.15.2",
   "main": "index.js",
   "dependencies": {
     "chalk": "^2.4.2",
@@ -16,7 +16,6 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.3.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-kiwi-graphql": "^1",
     "eslint-plugin-kiwicom-incubator": "^0",
     "eslint-plugin-monorepo": "^0.2.1",
     "eslint-plugin-node": "^8.0.1",
