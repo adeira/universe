@@ -56,6 +56,13 @@ export const OrderStatusContainer = createFragmentContainer(
 )
 ```
 
+There are some complications and unanswered questions though:
+
+- GraphQL interface cannot implement other interface ([RFC](https://github.com/facebook/graphql/pull/373))
+- scalars cannot be part of the union ([RFC](https://github.com/facebook/graphql/issues/215))
+- mutations can fail with multiple errors - how to handle it with this pattern?
+- Relay `@connection` cannot be used with the union ([more details](https://github.com/artsy/artsy.github.io/issues/495#issuecomment-465667460))
+
 # Recursive queries
 
 > Take Reddit as an example since it's close to this hypothetical nested comments example. They don't actually query to an unknown depth when fetching nested comments. Instead, they eventually bottom out with a "show more comments" link which can trigger a new query fetch. The technique I illustrated in a prior comment allows for this maximum depth control.
