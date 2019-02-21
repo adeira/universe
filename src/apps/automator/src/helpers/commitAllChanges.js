@@ -24,7 +24,6 @@ export default async function commitAllChanges(
   await _git(['config', 'user.name', 'Automator']);
   await _git(['remote', 'set-url', 'origin', require('../repoURL')]);
   await _git(['checkout', '-b', gitBranchName]);
-  await _git(['diff']);
   await _git(['add', '--all']);
   await _git(['commit', '-am', commitMessage]);
   await _git(['push', 'origin', gitBranchName]);
