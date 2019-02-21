@@ -5,6 +5,7 @@ import {
   findBreakingChanges,
   buildSchema,
   printSchema,
+  lexicographicSortSchema,
   type GraphQLSchema,
 } from 'graphql';
 import SignedSource from '@kiwicom/signed-source';
@@ -26,7 +27,7 @@ const createSnapshot = (breakingChangesBlock, newSchema) => {
       breakingChangesBlock +
       os.EOL +
       os.EOL +
-      printSchema(newSchema),
+      printSchema(lexicographicSortSchema(newSchema)),
   );
 };
 
