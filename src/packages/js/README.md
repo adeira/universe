@@ -38,7 +38,34 @@ First it's more readable this way - you don't have to use conditions at all. But
 
 > Please note: this transpilation is currently not implemented yet.
 
-These both functions use `sprintf` behind the scenes (only `%s` is supported):
+Invariant has also great [native support in Flow](https://flow.org/en/docs/linting/rule-reference/#toc-unnecessary-invariant). Just add this to your Flow config file:
+
+```ini
+[lints]
+unnecessary-invariant=error
+```
+
+It can detect unreachable code after this invariant as well as unnecessary usage of this function:
+
+```text
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/packages/js/src/invariant.js:32:3
+
+This use of `invariant` is unnecessary because boolean [1] is always truthy. (unnecessary-invariant)
+
+     29│ ): void {
+     30│   validateFormat(format);
+     31│
+ [1] 32│   invariant(true, 'What is the point?');
+     33│
+     34│   if (!condition) {
+     35│     let error;
+```
+
+These both functions use `sprintf` behind the scenes:
+
+# `sprintf`
+
+Only `%s` is supported:
 
 ```js
 import { sprintf } from '@kiwicom/js';
