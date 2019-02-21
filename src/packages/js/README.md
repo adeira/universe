@@ -65,12 +65,13 @@ These both functions use `sprintf` behind the scenes:
 
 # `sprintf`
 
-Only `%s` is supported:
+Only `%s` (String) and `%j` (JSON) is supported:
 
 ```js
 import { sprintf } from '@kiwicom/js';
 
-sprintf('Oh, %s', 'yeah!');
+sprintf('Oh, %s', 'yeah!'); // Oh, yeah!
+sprintf('Oh, %j', 'yeah!'); // Oh, "yeah!"
 ```
 
 # `isObject`
