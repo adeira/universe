@@ -211,6 +211,60 @@ module.exports = {
 };
 `;
 
+exports[`matches expected output: orbitImports.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { Alert as A } from '@kiwicom/orbit-components';
+import { Alert as B } from '@kiwicom/orbit-components/lib';
+import { Passengers as P } from '@kiwicom/orbit-components/icons';
+import { Passengers as Q } from '@kiwicom/orbit-components/lib/icons';
+
+module.exports = { A, B, P, Q };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _Alert = _interopRequireDefault(require("@kiwicom/orbit-components/lib/Alert"));
+
+var _Passengers = _interopRequireDefault(require("@kiwicom/orbit-components/lib/icons/Passengers"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/* eslint-disable */
+module.exports = {
+  A: _Alert.default,
+  B: _Alert.default,
+  P: _Passengers.default,
+  Q: _Passengers.default
+};
+`;
+
+exports[`matches expected output: orbitImports.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { Alert as A } from '@kiwicom/orbit-components';
+import { Alert as B } from '@kiwicom/orbit-components/lib';
+import { Passengers as P } from '@kiwicom/orbit-components/icons';
+import { Passengers as Q } from '@kiwicom/orbit-components/lib/icons';
+
+module.exports = { A, B, P, Q };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+import { Alert as A } from '@kiwicom/orbit-components';
+import { Alert as B } from '@kiwicom/orbit-components/lib';
+import { Passengers as P } from '@kiwicom/orbit-components/icons';
+import { Passengers as Q } from '@kiwicom/orbit-components/lib/icons';
+module.exports = {
+  A,
+  B,
+  P,
+  Q
+};
+`;
+
 exports[`matches expected output: ternary.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow

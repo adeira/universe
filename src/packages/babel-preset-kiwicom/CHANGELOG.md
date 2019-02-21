@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.3.0
+- Added `@kiwicom/babel-plugin-orbit-components`
+
 # 2.2.0
 - Target `flow` now doesn't perform transpilation but only parsing and `__DEV__` declaration instead
 
