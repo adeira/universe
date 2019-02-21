@@ -53,6 +53,7 @@ module.exports = (
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-optional-chaining',
       '@babel/plugin-transform-flow-strip-types',
+      '@kiwicom/babel-plugin-orbit-components',
       'babel-plugin-relay',
     ];
   } else {

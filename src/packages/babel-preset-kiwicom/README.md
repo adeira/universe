@@ -8,6 +8,7 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - optional chaining `a?.b`
 - dev expression `__DEV__`
 - support for Relay fragments `graphql ...`
+- granular imports of Orbit components (see: https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 
 _(more features will follow in future versions as needed)_
 
