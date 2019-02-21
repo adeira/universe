@@ -48,6 +48,7 @@ module.exports = (
     ];
     plugins = [
       path.join(__dirname, 'dev-expression.js'),
+      path.join(__dirname, 'kiwicom-js-warning.js'),
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-nullish-coalescing-operator',
       '@babel/plugin-proposal-object-rest-spread',

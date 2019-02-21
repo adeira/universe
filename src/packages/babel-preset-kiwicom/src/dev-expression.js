@@ -1,15 +1,9 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
+const getDevExpression = require('./getDevExpression');
+
 module.exports = function({ types: t }) {
-  const DEV_EXPRESSION = t.binaryExpression(
-    '!==',
-    t.memberExpression(
-      t.memberExpression(t.identifier('process'), t.identifier('env'), false),
-      t.identifier('NODE_ENV'),
-      false,
-    ),
-    t.stringLiteral('production'),
-  );
+  const DEV_EXPRESSION = getDevExpression(t);
 
   return {
     pre() {

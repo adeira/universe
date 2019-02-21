@@ -353,3 +353,94 @@ export default async function test(a: Object): Object {
   };
 }
 `;
+
+exports[`matches expected output: warning-global.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+warning(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+warning(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: warning-global.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+warning(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+warning(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: warning-import.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { warning } from '@kiwicom/js';
+
+warning(Math.random(), 'I am warning you!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _js = require("@kiwicom/js");
+
+/* eslint-disable */
+process.env.NODE_ENV !== "production" ? (0, _js.warning)(Math.random(), 'I am warning you!') : void 0;
+`;
+
+exports[`matches expected output: warning-import.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { warning } from '@kiwicom/js';
+
+warning(Math.random(), 'I am warning you!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+import { warning } from '@kiwicom/js';
+warning(Math.random(), 'I am warning you!');
+`;
+
+exports[`matches expected output: warning-require.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { warning } = require('@kiwicom/js');
+
+warning(Math.random(), 'I am warning you!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+const {
+  warning
+} = require('@kiwicom/js');
+
+warning(Math.random(), 'I am warning you!');
+`;
+
+exports[`matches expected output: warning-require.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { warning } = require('@kiwicom/js');
+
+warning(Math.random(), 'I am warning you!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+const {
+  warning
+} = require('@kiwicom/js');
+
+warning(Math.random(), 'I am warning you!');
+`;

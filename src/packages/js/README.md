@@ -30,7 +30,9 @@ warning(isWorkspaceDirectory === true, 'This is not a workspace directory.');
 // vs:
 
 if (isWorkspaceDirectory !== true) {
-  console.warn('This is not a workspace directory.');
+  if (process.env.NODE_ENV !== 'production') {
+    console.warn('This is not a workspace directory.');
+  }
 }
 ```
 
