@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.4.0
+- Added support for `warning` transpilation (from `@kiwicom/js`)
+
 # 2.3.0
 - Added `@kiwicom/babel-plugin-orbit-components`
 
