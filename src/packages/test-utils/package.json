@@ -6,6 +6,6 @@
   "version": "0.5.0",
   "main": "src/index.js",
   "dependencies": {
-    "@kiwicom/js": "^0.3.0"
+    "@kiwicom/js": "^0.4.0"
   }
 }
