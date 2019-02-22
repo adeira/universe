@@ -2,17 +2,6 @@
 
 import sprintf from './sprintf';
 
-let validateFormat;
-if (__DEV__) {
-  validateFormat = function(format: mixed): void {
-    if (format === undefined) {
-      throw new Error('invariant(...): Second argument must be a string.');
-    }
-  };
-} else {
-  validateFormat = function(format: mixed): void {}; // eslint-disable-line no-unused-vars
-}
-
 /**
  * Use invariant() to assert state which your program assumes to be true.
  *
@@ -27,7 +16,11 @@ export default function invariant(
   format: string,
   ...args: Array<mixed>
 ): void {
-  validateFormat(format);
+  if (__DEV__) {
+    if (format === undefined) {
+      throw new Error('invariant(...): Second argument must be a string.');
+    }
+  }
 
   if (!condition) {
     let error;

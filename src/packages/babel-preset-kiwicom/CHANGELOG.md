@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.5.0
+- Added support for `invariant` transpilation (from `@kiwicom/js`)
+- Fixed `warning` transpilation for require
+
 # 2.4.0
 - Added support for `warning` transpilation (from `@kiwicom/js`)
 

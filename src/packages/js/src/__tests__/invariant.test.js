@@ -24,8 +24,19 @@ it('uses sprintf behind the scenes', () => {
   ).toThrowErrorMatchingInlineSnapshot(`"Oh, yeah!"`);
 });
 
-it('complains when used without an error message', () => {
+it('complains when used without an error message - development mode', () => {
   expect(() => invariant(false)).toThrowErrorMatchingInlineSnapshot(
     `"invariant(...): Second argument must be a string."`,
   );
+});
+
+it('complains when used without an error message - production mode', () => {
+  const __PREV_DEV__ = __DEV__;
+  __DEV__ = false; // eslint-disable-line no-global-assign
+
+  expect(() => invariant(false)).toThrowErrorMatchingInlineSnapshot(
+    `"Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings."`,
+  );
+
+  __DEV__ = __PREV_DEV__; // eslint-disable-line no-global-assign
 });
