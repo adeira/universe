@@ -3,18 +3,21 @@
 const getDevExpression = require('./getDevExpression');
 
 /**
- * import { warning } from "@kiwicom/js";
- * warning(condition, argument, argument);
+ * import { invariant } from "@kiwicom/js";
+ * invariant(condition, argument, argument);
  *
  *      ↓ ↓ ↓ ↓ ↓ ↓
  *
- * import { warning } from "@kiwicom/js";
- * if (process.env.NODE_ENV !== "production") {
- *   warning(condition, argument, argument);
+ * import { invariant } from "@kiwicom/js";
+ * if (!condition) {
+ *   if (process.env.NODE_ENV !== "production") {
+ *     invariant(false, argument, argument);
+ *   } else {
+ *     invariant(false);
+ *   }
  * }
  *
- * This should then be removed by dead code elimination so these warnings are
- * not called in production at all.
+ * This should then be minified by dead code elimination.
  */
 module.exports = function({ types: t }) {
   const DEV_EXPRESSION = getDevExpression(t);
@@ -56,12 +59,27 @@ module.exports = function({ types: t }) {
             return;
           }
 
-          if (path.get('callee').isIdentifier({ name: 'warning' })) {
-            node[SEEN_SYMBOL] = true;
+          if (path.get('callee').isIdentifier({ name: 'invariant' })) {
+            const condition = node.arguments[0];
+            const devInvariant = t.callExpression(
+              node.callee,
+              [t.booleanLiteral(false)].concat(node.arguments.slice(1)),
+            );
+            devInvariant[SEEN_SYMBOL] = true;
+            const prodInvariant = t.callExpression(node.callee, [
+              t.booleanLiteral(false),
+            ]);
+            prodInvariant[SEEN_SYMBOL] = true;
             path.replaceWith(
               t.ifStatement(
-                DEV_EXPRESSION,
-                t.blockStatement([t.expressionStatement(node)]),
+                t.unaryExpression('!', condition),
+                t.blockStatement([
+                  t.ifStatement(
+                    DEV_EXPRESSION,
+                    t.blockStatement([t.expressionStatement(devInvariant)]),
+                    t.blockStatement([t.expressionStatement(prodInvariant)]),
+                  ),
+                ]),
               ),
             );
           }

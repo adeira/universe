@@ -130,6 +130,102 @@ if (__DEV__) {
 }
 `;
 
+exports[`matches expected output: invariant-global.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+invariant(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+invariant(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: invariant-global.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+invariant(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+invariant(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: invariant-import.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { invariant } from '@kiwicom/js';
+import { something } from 'else';
+
+invariant(Math.random(), 'You shall not pass!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _js = require("@kiwicom/js");
+
+var _else = require("else");
+
+/* eslint-disable */
+!Math.random() ? process.env.NODE_ENV !== "production" ? (0, _js.invariant)(false, 'You shall not pass!') : invariant(false) : void 0;
+`;
+
+exports[`matches expected output: invariant-import.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { invariant } from '@kiwicom/js';
+import { something } from 'else';
+
+invariant(Math.random(), 'You shall not pass!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+import { invariant } from '@kiwicom/js';
+import { something } from 'else';
+invariant(Math.random(), 'You shall not pass!');
+`;
+
+exports[`matches expected output: invariant-require.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { invariant } = require('@kiwicom/js');
+
+invariant(Math.random(), 'You shall not pass!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+const {
+  invariant
+} = require('@kiwicom/js');
+
+!Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
+`;
+
+exports[`matches expected output: invariant-require.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { invariant } = require('@kiwicom/js');
+
+invariant(Math.random(), 'You shall not pass!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+const {
+  invariant
+} = require('@kiwicom/js');
+
+invariant(Math.random(), 'You shall not pass!');
+`;
+
 exports[`matches expected output: noDevExpression.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
@@ -383,6 +479,7 @@ exports[`matches expected output: warning-import.js 1`] = `
 /* eslint-disable */
 
 import { warning } from '@kiwicom/js';
+import { something } from 'else';
 
 warning(Math.random(), 'I am warning you!');
 
@@ -390,6 +487,8 @@ warning(Math.random(), 'I am warning you!');
 "use strict";
 
 var _js = require("@kiwicom/js");
+
+var _else = require("else");
 
 /* eslint-disable */
 process.env.NODE_ENV !== "production" ? (0, _js.warning)(Math.random(), 'I am warning you!') : void 0;
@@ -400,12 +499,14 @@ exports[`matches expected output: warning-import.js 2`] = `
 /* eslint-disable */
 
 import { warning } from '@kiwicom/js';
+import { something } from 'else';
 
 warning(Math.random(), 'I am warning you!');
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
 import { warning } from '@kiwicom/js';
+import { something } from 'else';
 warning(Math.random(), 'I am warning you!');
 `;
 
@@ -425,7 +526,7 @@ const {
   warning
 } = require('@kiwicom/js');
 
-warning(Math.random(), 'I am warning you!');
+process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
 `;
 
 exports[`matches expected output: warning-require.js 2`] = `

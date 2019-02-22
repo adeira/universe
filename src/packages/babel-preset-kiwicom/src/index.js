@@ -9,7 +9,7 @@ type ApiType = {|
 |}
 
 type ExternalOptions = {|
-  +target: 'js' | 'flow',
+  +target?: 'js' | 'flow',
 |}
 
 type BabelRule = string | [string, Object];
@@ -48,6 +48,7 @@ module.exports = (
     ];
     plugins = [
       path.join(__dirname, 'dev-expression.js'),
+      path.join(__dirname, 'kiwicom-js-invariant.js'),
       path.join(__dirname, 'kiwicom-js-warning.js'),
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-nullish-coalescing-operator',
