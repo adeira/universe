@@ -15,11 +15,18 @@ And use it in your `.eslintrc.js`:
 ```js
 module.exports = {
   root: true,
-  extends: ['@kiwicom/eslint-config'],
+  extends: [
+    '@kiwicom/eslint-config',
+
+    // - OR -
+    // '@kiwicom/eslint-config/strict',
+  ],
 };
 ```
 
-Or set your eslint as needed with `babel-eslint` parser for example (you need to install it separately):
+Strict version of the config turns _some_ warnings into errors. We use warnings as a migration strategy for the future breaking release but you can make the config more strict even today (so your CI will fail). Not all warnings are turned into errors - only the ones considered to be errors in the future version. Please be aware that strict mode is like living on the edge: minor upgrade can break your CI (while others will get only warnings). You will be ready for the future major version though.
+
+You can also set your eslint as needed with `babel-eslint` parser for example (you need to install it separately):
 
 ```js
 const OFF = 0;
