@@ -4,6 +4,8 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
+const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
 // safe to immediately switch from OFF to ERROR. Some time for migration is
@@ -51,7 +53,7 @@ module.exports = {
   'class-methods-use-this': OFF,
   complexity: OFF,
   'consistent-return': [ERROR, { treatUndefinedAsUnspecified: false }],
-  curly: [WARN, 'all'], // TODO: ERROR
+  curly: [NEXT_VERSION_ERROR, 'all'],
   'default-case': OFF,
   'dot-notation': WARN,
   eqeqeq: [WARN, 'smart'],
@@ -111,7 +113,7 @@ module.exports = {
   'no-with': WARN,
   'prefer-promise-reject-errors': WARN,
   radix: ERROR,
-  'require-await': OFF,
+  'require-await': WARN,
   'require-unicode-regexp': OFF,
   'vars-on-top': OFF,
   yoda: WARN,
@@ -122,14 +124,14 @@ module.exports = {
   // Variables (http://eslint.org/docs/rules/#variables)
   'init-declarations': OFF,
   'no-delete-var': ERROR,
-  'no-label-var': WARN, // TODO: ERROR
+  'no-label-var': NEXT_VERSION_ERROR,
   'no-restricted-globals': OFF,
   'no-shadow-restricted-names': WARN,
   'no-shadow': OFF,
   'no-undef-init': OFF,
   'no-undef': ERROR,
   'no-undefined': OFF,
-  'no-unused-vars': [WARN, { args: 'after-used' }], // TODO: ERROR
+  'no-unused-vars': [NEXT_VERSION_ERROR, { args: 'after-used' }],
   'no-use-before-define': OFF,
 
   // Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)
@@ -156,7 +158,7 @@ module.exports = {
   'id-length': OFF,
   'id-match': OFF,
   'line-comment-position': OFF,
-  'linebreak-style': WARN, // TODO: ERROR
+  'linebreak-style': NEXT_VERSION_ERROR,
   'lines-between-class-members': [
     WARN,
     'always',
@@ -243,7 +245,7 @@ module.exports = {
   ],
   'babel/new-cap': OFF,
   'babel/no-invalid-this': OFF,
-  'babel/no-unused-expressions': WARN, // TODO: ERROR
+  'babel/no-unused-expressions': NEXT_VERSION_ERROR,
   'babel/valid-typeof': ERROR,
 
   // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
@@ -269,27 +271,27 @@ module.exports = {
   'jest/no-disabled-tests': WARN,
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
-  'jest/no-identical-title': WARN, // TODO: ERROR
-  'jest/no-jasmine-globals': WARN, // TODO: ERROR
-  'jest/no-jest-import': WARN, // TODO: ERROR
+  'jest/no-identical-title': NEXT_VERSION_ERROR,
+  'jest/no-jasmine-globals': NEXT_VERSION_ERROR,
+  'jest/no-jest-import': NEXT_VERSION_ERROR,
   'jest/no-large-snapshots': OFF,
   'jest/no-test-callback': OFF,
   'jest/no-test-prefixes': OFF,
-  'jest/no-test-return-statement': WARN, // TODO: ERROR
+  'jest/no-test-return-statement': NEXT_VERSION_ERROR,
   'jest/no-truthy-falsy': OFF,
   'jest/prefer-expect-assertions': OFF,
   'jest/prefer-inline-snapshots': OFF,
   'jest/prefer-spy-on': OFF,
   'jest/prefer-strict-equal': OFF, // TODO: WARN
-  'jest/prefer-to-be-null': WARN, // TODO: ERROR
-  'jest/prefer-to-be-undefined': WARN, // TODO: ERROR
-  'jest/prefer-to-contain': WARN, // TODO: ERROR
-  'jest/prefer-to-have-length': WARN, // TODO: ERROR
+  'jest/prefer-to-be-null': NEXT_VERSION_ERROR,
+  'jest/prefer-to-be-undefined': NEXT_VERSION_ERROR,
+  'jest/prefer-to-contain': NEXT_VERSION_ERROR,
+  'jest/prefer-to-have-length': NEXT_VERSION_ERROR,
   'jest/require-tothrow-message': OFF,
-  'jest/valid-describe': WARN, // TODO: ERROR
+  'jest/valid-describe': NEXT_VERSION_ERROR,
   'jest/valid-expect': WARN,
-  'jest/valid-expect-in-promise': WARN, // TODO: ERROR
-  'jest/prefer-todo': WARN, // TODO: ERROR
+  'jest/valid-expect-in-promise': NEXT_VERSION_ERROR,
+  'jest/prefer-todo': NEXT_VERSION_ERROR,
   'jest/prefer-called-with': WARN,
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
@@ -305,7 +307,7 @@ module.exports = {
   'react/no-danger-with-children': OFF,
   'react/no-deprecated': WARN,
   'react/no-did-mount-set-state': OFF, // https://github.com/airbnb/javascript/issues/684#issuecomment-264094930
-  'react/no-did-update-set-state': WARN, // TODO: ERROR
+  'react/no-did-update-set-state': NEXT_VERSION_ERROR,
   'react/no-direct-mutation-state': WARN,
   'react/no-find-dom-node': OFF,
   'react/no-is-mounted': WARN,
@@ -323,7 +325,7 @@ module.exports = {
   'react/require-optimization': OFF,
   'react/require-render-return': OFF,
   'react/self-closing-comp': WARN,
-  'react/sort-comp': WARN, // TODO: ERROR
+  'react/sort-comp': NEXT_VERSION_ERROR,
   'react/sort-prop-types': OFF,
   'react/style-prop-object': OFF,
   'react/jsx-boolean-value': OFF,
@@ -342,15 +344,15 @@ module.exports = {
   'react/jsx-uses-vars': WARN,
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
-  'react-hooks/rules-of-hooks': WARN, // TODO: ERROR
+  'react-hooks/rules-of-hooks': NEXT_VERSION_ERROR,
 
   // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
-  'jsx-a11y/accessible-emoji': WARN, // TODO: ERROR
+  'jsx-a11y/accessible-emoji': NEXT_VERSION_ERROR,
   'jsx-a11y/alt-text': WARN, // TODO: ERROR
-  'jsx-a11y/aria-props': WARN, // TODO: ERROR
-  'jsx-a11y/aria-unsupported-elements': WARN, // TODO: ERROR
+  'jsx-a11y/aria-props': NEXT_VERSION_ERROR,
+  'jsx-a11y/aria-unsupported-elements': NEXT_VERSION_ERROR,
   'jsx-a11y/no-distracting-elements': [
-    WARN, // TODO: ERROR
+    NEXT_VERSION_ERROR,
     {
       elements: ['marquee', 'blink'],
     },
@@ -394,7 +396,7 @@ module.exports = {
     },
   ],
   'import/no-anonymous-default-export': [
-    WARN, // TODO: ERROR
+    NEXT_VERSION_ERROR,
     {
       allowArray: true,
       allowArrowFunction: false,
@@ -418,7 +420,7 @@ module.exports = {
   'monorepo/no-relative-import': ERROR,
 
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
-  'node/no-missing-require': WARN, // TODO: ERROR
+  'node/no-missing-require': NEXT_VERSION_ERROR,
   'node/no-deprecated-api': WARN,
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
@@ -428,5 +430,5 @@ module.exports = {
 
   // Kiwi.com custom rules
   'kiwicom-incubator/only-nullable-fields': ERROR,
-  'kiwicom-incubator/no-invalid-flow-annotations': WARN, // TODO: ERROR
+  'kiwicom-incubator/no-invalid-flow-annotations': NEXT_VERSION_ERROR,
 };

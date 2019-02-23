@@ -4,6 +4,6 @@ const ourRules = require('./ourRules');
 const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
 const getCommonConfig = require('./getCommonConfig');
 
-const WARN = 1;
+const ERROR = 2;
 
-module.exports = getCommonConfig(changeNextVersionErrorLevel(ourRules, WARN));
+module.exports = getCommonConfig(changeNextVersionErrorLevel(ourRules, ERROR));

@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.16.0
+- New `@kiwicom/eslint-config/strict` mode added - check docs for more info
+- Rule `require-await` now shows warnings
+
 # 2.15.0
 - Some basic `jsx-a11y` added: should not cause many warnings
 
