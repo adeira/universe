@@ -5,7 +5,6 @@ import {
   requestSubscription,
   graphql as _graphql,
 } from 'react-relay';
-import { TimeoutError as unstable_TimeoutError } from '@kiwicom/fetch'; // eslint-disable-line babel/camelcase
 
 import commitMutation from './commitMutation';
 import createFragmentContainer from './createFragmentContainer';
@@ -19,10 +18,9 @@ import QueryRenderer from './QueryRenderer';
 import type { GraphQLTaggedNode } from './types.flow';
 
 module.exports = {
-  unstable_TimeoutError,
+  // TODO: expose both FetchTimeoutError and FetchResponseError (@kiwicom/fetch)
   createEnvironment: require('./createEnvironment'),
   createNetworkFetcher: require('./fetchers/createNetworkFetcher'),
-  DefaultEnvironment: require('./DefaultEnvironment'),
 
   // Relay-only things:
   commitLocalUpdate,

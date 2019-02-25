@@ -1,11 +1,17 @@
 // @flow
 
+import { Environment, Network, RecordSource, Store } from 'relay-runtime';
+
 import { commitMutation, graphql } from '../index';
-import DefaultEnvironment from '../DefaultEnvironment';
+
+const environment = new Environment({
+  network: Network.create(() => {}),
+  store: new Store(new RecordSource()),
+});
 
 module.exports = {
   validMutation() {
-    return commitMutation(DefaultEnvironment, {
+    return commitMutation(environment, {
       mutation: graphql`
         mutation commitMutation {
           __typename
@@ -20,7 +26,7 @@ module.exports = {
   // Invalid usages:
   missingVariables() {
     // $FlowExpectedError: variables are missing
-    return commitMutation(DefaultEnvironment, {
+    return commitMutation(environment, {
       mutation: graphql`
         mutation commitMutation {
           __typename

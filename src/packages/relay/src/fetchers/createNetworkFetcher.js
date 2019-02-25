@@ -1,15 +1,20 @@
 // @flow
 
 import fetchWithRetries from '@kiwicom/fetch';
+import { invariant } from '@kiwicom/js';
 
 import { handleData, getRequestBody, getHeaders } from '../helpers';
 import type { RequestNode, Uploadables, Variables } from '../types.flow';
 
-type AdditionalHeaders = Object | Promise<Object>;
+type Headers = {
+  'X-Client': string,
+};
+
+type AdditionalHeaders = Headers | Promise<Headers>;
 
 module.exports = function createNetworkFetcher(
   graphQLServerURL: string,
-  additionalHeaders: AdditionalHeaders = {},
+  additionalHeaders: AdditionalHeaders,
 ) {
   return async function fetch(
     request: RequestNode,
@@ -26,6 +31,11 @@ module.exports = function createNetworkFetcher(
       ...getHeaders(uploadables),
       ...resolvedAdditionalHeaders,
     };
+
+    invariant(
+      headers['X-Client'],
+      'You have to set X-Client header to be able to send GraphQL queries. This header identifies the client application so GraphQL maintainers know who is sending the request.',
+    );
 
     const response = await fetchWithRetries(graphQLServerURL, {
       method: 'POST',

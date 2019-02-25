@@ -24,7 +24,7 @@ Before you start you should uninstall _all_ the Relay related packages you insta
 yarn add react @kiwicom/relay
 ```
 
-Please contact us directly in case something is problematic.
+You should always use `@kiwicom/relay` package and never Relay directly. Please contact us directly in case something is problematic.
 
 # Minimal example
 
@@ -47,6 +47,9 @@ function handleResponse(props: AppQueryResponse) {
 export default function App(props) {
   return (
     <QueryRenderer
+      // Following `clientID` helps us to identify who is sending the request and it's
+      // required unless you provide custom `environment` (see bellow).
+      clientID="unique-client-identification"
       query={graphql`
         query AppQuery {
           allLocations(first: 20) {
@@ -70,6 +73,36 @@ export default function App(props) {
 This API is high-level on purpose but it's possible to decompose it when you need something more advanced (custom `Environment` for example). However, even the decomposed parts are still very opinionated and new features are being unlocked only when necessary.
 
 It's also possible to override the `environment` and `render` property. However, please note that `render` property has priority over `onSystemError`, `onLoading` and `onResponse`. It's not recommended to use it unless you need something really special.
+
+# Custom Environment
+
+The default `QueryRenderer` falls back to querying https://graphql.kiwi.com if custom environment is not specified. This helps you to start faster but you have to specify `clientID` to identify the requests. You can also create your own environment:
+
+```js
+import { createEnvironment, createNetworkFetcher } from '@kiwicom/relay';
+
+const Environment = createEnvironment({
+  fetcherFn: createNetworkFetcher('https://graphql.kiwi.com', {
+    'X-Client': '** TODO **',
+  }),
+});
+```
+
+This way you can change the URL or provide additional headers (`X-Client` is still required in `createNetworkFetcher`). You can even replace the whole network fetcher if you want (not recommended). As you can see the high-level API decomposes nicely: it allows you to start quickly with a solid base but you can also use very specific features to your application if you want to. But please, consider if these features could be beneficial even for other users and maybe contribute them back.
+
+Now, just use the created environment:
+
+```js
+export default function App() {
+  return (
+    <QueryRenderer
+      environment={Environment}
+      query={graphql` ... `}
+      onResponse={handleResponse}
+    />
+  );
+}
+```
 
 # Refetch container
 
@@ -106,7 +139,7 @@ Similar rules apply to pagination container which solves one particular use-case
 
 # Tips
 
-It's a good idea to create a custom wrapper of the `QueryRenderer` so you don't have to copy-paste it everywhere. This could be your new API (no loading or system error handlers):
+It's a good idea to create a custom wrapper of the `QueryRenderer` so you don't have to copy-paste it everywhere. This could be your new API (no loading, system error handlers or client identification):
 
 ```js
 export default function App() {
