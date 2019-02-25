@@ -29,12 +29,6 @@ type ConcreteFragment = {
 export type GraphQLTaggedNode = () => ConcreteFragment;
 export type GeneratedNodeMap = { [key: string]: GraphQLTaggedNode };
 
-/*::
-
-// So, there is currently an issue with Babel Parser which turns these lines
-// into complete mess when targeting Flow. Issue reported:
-//   https://github.com/babel/babel/issues/9514
-
 type $FragmentRef<T> = {
   +$fragmentRefs: $PropertyType<T, '$refType'>,
 };
@@ -54,5 +48,3 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
   (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
   (<T>(T) => T)
 >
-
-*/
