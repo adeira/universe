@@ -5,6 +5,10 @@ import {
   requestSubscription,
   graphql as _graphql,
 } from 'react-relay';
+import {
+  ResponseError as FetchResponseError,
+  TimeoutError as FetchTimeoutError,
+} from '@kiwicom/fetch';
 
 import commitMutation from './commitMutation';
 import createFragmentContainer from './createFragmentContainer';
@@ -18,7 +22,8 @@ import QueryRenderer from './QueryRenderer';
 import type { GraphQLTaggedNode } from './types.flow';
 
 module.exports = {
-  // TODO: expose both FetchTimeoutError and FetchResponseError (@kiwicom/fetch)
+  FetchResponseError,
+  FetchTimeoutError,
   createEnvironment: require('./createEnvironment'),
   createNetworkFetcher: require('./fetchers/createNetworkFetcher'),
 

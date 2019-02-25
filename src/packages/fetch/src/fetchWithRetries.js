@@ -6,7 +6,7 @@ import fetch from './fetch';
 import TimeoutError from './TimeoutError';
 import ResponseError from './ResponseError';
 
-export type InitWithRetries = $ReadOnly<{|
+type InitWithRetries = $ReadOnly<{|
   body?: mixed,
   cache?: ?string,
   credentials?: ?string,
