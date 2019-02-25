@@ -19,23 +19,10 @@ const variables = { mock: true };
 const expectedBody =
   '{"query":"mocked request.text","variables":{"mock":true}}';
 
-it('works without additional headers', async () => {
-  const fetcher = createNetworkFetcher('//localhost');
-
-  await expect(fetcher(request, variables)).resolves.toEqual({ mock: 'ok' });
-  expect(originalFetch).toHaveBeenCalledWith('//localhost', {
-    body: expectedBody,
-    headers: {
-      Accept: 'application/json',
-      'Content-type': 'application/json',
-    },
-    method: 'POST',
-  });
-});
-
 it('works with additional headers', async () => {
   const fetcher = createNetworkFetcher('//localhost', {
-    'X-Custom': '111',
+    'X-Custom': 'Bearer 123',
+    'X-Client': 'https://github.com/kiwicom/relay-example',
   });
 
   await expect(fetcher(request, variables)).resolves.toEqual({ mock: 'ok' });
@@ -44,18 +31,18 @@ it('works with additional headers', async () => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      'X-Custom': '111',
+      'X-Custom': 'Bearer 123',
+      'X-Client': 'https://github.com/kiwicom/relay-example',
     },
     method: 'POST',
   });
 });
 
 it('works with promised headers', async () => {
-  const headers = new Promise(async resolve => {
+  const headers = new Promise(resolve => {
     // simulates somehow difficult and async way how to get headers (real-world example)
-    const token = await Promise.resolve('222');
     resolve({
-      'X-Custom': `Bearer ${token}`,
+      'X-Client': 'https://github.com/kiwicom/relay-example',
     });
   });
 
@@ -67,7 +54,7 @@ it('works with promised headers', async () => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      'X-Custom': 'Bearer 222',
+      'X-Client': 'https://github.com/kiwicom/relay-example',
     },
     method: 'POST',
   });

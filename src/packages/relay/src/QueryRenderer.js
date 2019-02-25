@@ -5,7 +5,8 @@ import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
 import { invariant, sprintf } from '@kiwicom/js';
 import { TimeoutError, ResponseError } from '@kiwicom/fetch';
 
-import DefaultEnvironment from './DefaultEnvironment';
+import createEnvironment from './createEnvironment';
+import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import type { GeneratedNodeMap, CacheConfig } from './types.flow';
 
 type RendererProps = Object; // it can be anything, really
@@ -18,6 +19,7 @@ type ReadyState = {|
 
 type CommonProps = {|
   +query: GeneratedNodeMap,
+  +clientID?: string, // Identification of the current client (X-Client header basically).
   +environment?: mixed,
   +cacheConfig?: CacheConfig,
   +variables?: Object,
@@ -84,9 +86,25 @@ export default function QueryRenderer(props: Props) {
     return props.onResponse(rendererProps);
   }
 
+  function createDefaultEnvironment(clientID?: string) {
+    invariant(
+      clientID,
+      `You must provide 'clientID' to the QueryRenderer in order to correctly identify your client.`,
+    );
+
+    return createEnvironment({
+      fetcherFn: createNetworkFetcher('https://graphql.kiwi.com', {
+        'X-Client': clientID,
+      }),
+    });
+  }
+
+  const environment =
+    props.environment ?? createDefaultEnvironment(props.clientID);
+
   return (
     <RelayQueryRenderer
-      environment={DefaultEnvironment}
+      environment={environment}
       render={renderQueryRendererResponse}
       {...props}
     />
