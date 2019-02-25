@@ -3,6 +3,7 @@
 import os from 'os';
 import {
   findBreakingChanges,
+  findDangerousChanges,
   buildSchema,
   printSchema,
   lexicographicSortSchema,
@@ -12,7 +13,14 @@ import SignedSource from '@kiwicom/signed-source';
 import fs from 'fs';
 
 import { buildBreakingChangesBlock } from './BCLogger';
-import { printChanges, note, success, warning, error } from './Printer';
+import {
+  printBreakingChanges,
+  printDangerousChanges,
+  note,
+  success,
+  warning,
+  error,
+} from './Printer';
 
 const terminate = (cb?: () => void = () => {}) => {
   cb();
@@ -58,17 +66,22 @@ export default function testBackwardCompatibility({
       );
     }
 
-    const changes = findBreakingChanges(oldSchema, newSchema);
-    if (changes.length > 0) {
-      printChanges(changes);
+    const breakingChanges = findBreakingChanges(oldSchema, newSchema);
+    if (breakingChanges.length > 0) {
+      printBreakingChanges(breakingChanges);
       if (allowBreakingChanges === false) {
         terminate();
       }
     }
 
+    const dangerousChanges = findDangerousChanges(oldSchema, newSchema);
+    if (dangerousChanges.length > 0) {
+      printDangerousChanges(dangerousChanges);
+    }
+
     const breakingChangesBlock = buildBreakingChangesBlock(
       oldSnapshot,
-      changes,
+      breakingChanges,
     );
     const newSnapshot = createSnapshot(breakingChangesBlock, newSchema);
 
