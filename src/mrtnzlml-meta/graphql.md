@@ -60,8 +60,8 @@ There are some complications and unanswered questions though:
 
 - GraphQL interface cannot implement other interface ([RFC](https://github.com/facebook/graphql/pull/373))
 - scalars cannot be part of the union ([RFC](https://github.com/facebook/graphql/issues/215))
-- mutations can fail with multiple errors - how to handle it with this pattern?
-- Relay `@connection` cannot be used with the union ([more details](https://github.com/artsy/artsy.github.io/issues/495#issuecomment-465667460))
+- mutations can fail with multiple errors - how to handle it with this pattern? (possible solution: https://github.com/artsy/artsy.github.io/issues/495#issuecomment-466517039)
+- Relay `@connection` cannot be used with the union directly ([more details](https://github.com/artsy/artsy.github.io/issues/495#issuecomment-465667460)), solution: https://github.com/facebook/relay/issues/1983#issuecomment-467153713
 
 # Recursive queries
 
