@@ -23,6 +23,7 @@ const FILES_TO_COPY = {
   // false = optional ; true = required
   'CHANGELOG.md': false,
   'README.md': true,
+  LICENSE: true,
   'package.json': true,
 };
 
