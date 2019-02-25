@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.6.0
+- Add support for Relay 3.0 (no breaking changes expected, should be backward compatible)
+
 # 2.5.0
 - Added support for `invariant` transpilation (from `@kiwicom/js`)
 - Fixed `warning` transpilation for require
