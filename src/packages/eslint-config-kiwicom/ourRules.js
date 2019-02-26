@@ -418,12 +418,31 @@ module.exports = {
   'monorepo/no-relative-import': ERROR,
 
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
+  'node/exports-style': OFF,
+  'node/no-deprecated-api': NEXT_VERSION_ERROR,
+  'node/no-extraneous-import': OFF, // see: import/no-extraneous-dependencies
+  'node/no-extraneous-require': OFF, // see: import/no-extraneous-dependencies
+  'node/no-missing-import': OFF,
   'node/no-missing-require': ERROR,
-  'node/no-deprecated-api': WARN,
+  'node/no-unpublished-bin': NEXT_VERSION_ERROR,
+  'node/no-unpublished-import': OFF,
+  'node/no-unpublished-require': OFF,
+  'node/no-unsupported-features/es-builtins': OFF,
+  'node/no-unsupported-features/es-syntax': OFF,
+  'node/no-unsupported-features/node-builtins': OFF,
+  'node/prefer-global/buffer': NEXT_VERSION_ERROR,
+  'node/prefer-global/console': NEXT_VERSION_ERROR,
+  'node/prefer-global/process': NEXT_VERSION_ERROR,
+  'node/prefer-global/text-decoder': OFF,
+  'node/prefer-global/text-encoder': OFF,
+  'node/prefer-global/url': NEXT_VERSION_ERROR,
+  'node/prefer-global/url-search-params': OFF,
+  'node/process-exit-as-throw': OFF, // TODO: WARN (?)
+  'node/shebang': NEXT_VERSION_ERROR,
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
-  'eslint-comments/no-duplicate-disable': WARN,
-  'eslint-comments/no-unused-enable': WARN,
+  'eslint-comments/no-duplicate-disable': NEXT_VERSION_ERROR,
+  'eslint-comments/no-unused-enable': NEXT_VERSION_ERROR,
   'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
 
   // Kiwi.com custom rules

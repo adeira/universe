@@ -1,7 +1,7 @@
 // @flow
 
 module.exports = new Set<string>([
-  // see: https://eslint.org/docs/rules/#deprecated
+  // https://eslint.org/docs/rules/#deprecated
   'indent-legacy', // indent
   'lines-around-directive', // padding-line-between-statements
   'newline-after-var', // padding-line-between-statements
@@ -20,4 +20,8 @@ module.exports = new Set<string>([
   'babel/generator-star-spacing', // generator-star-spacing
   'babel/no-await-in-loop', // no-await-in-loop
   'babel/object-shorthand', // object-shorthand
+
+  // https://github.com/mysticatea/eslint-plugin-node#deprecated-rules
+  'node/no-hide-core-modules',
+  'node/no-unsupported-features',
 ]);
