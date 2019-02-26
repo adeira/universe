@@ -3,7 +3,7 @@
 import { Environment } from 'relay-runtime';
 import { commitMutation as _commitMutation } from 'react-relay';
 
-import type { Variables, GeneratedNodeMap } from './types.flow';
+import type { Variables, GraphQLTaggedNode } from './types.flow';
 
 type RangeOperation = 'append' | 'ignore' | 'prepend' | 'refetch' | 'remove';
 
@@ -59,7 +59,7 @@ type RecordSourceSelectorProxy = $FlowFixMe;
 type SelectorData = $FlowFixMe;
 
 type Config = {
-  mutation: GeneratedNodeMap,
+  mutation: GraphQLTaggedNode,
   variables: Variables,
   onCompleted?: ?(response: ?Object, errors: ?$ReadOnlyArray<Error>) => void,
   onError?: ?(error: Error) => void,

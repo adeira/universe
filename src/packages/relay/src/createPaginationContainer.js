@@ -4,7 +4,7 @@ import { createPaginationContainer as _createPaginationContainer } from 'react-r
 
 import type {
   $RelayProps,
-  GeneratedNodeMap,
+  FragmentSpec,
   GraphQLTaggedNode,
   Disposable,
 } from './types.flow';
@@ -52,7 +52,7 @@ export default function createPaginationContainer<
   TComponent: React$ComponentType<any>,
 >(
   Component: TComponent,
-  fragmentSpec: GeneratedNodeMap,
+  fragmentSpec: FragmentSpec,
   connectionConfig: ConnectionConfig,
 ): React$ComponentType<
   $RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>,

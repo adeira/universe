@@ -7,7 +7,7 @@ import { TimeoutError, ResponseError } from '@kiwicom/fetch';
 
 import createEnvironment from './createEnvironment';
 import createNetworkFetcher from './fetchers/createNetworkFetcher';
-import type { GeneratedNodeMap, CacheConfig } from './types.flow';
+import type { GraphQLTaggedNode, CacheConfig } from './types.flow';
 
 type RendererProps = Object; // it can be anything, really
 
@@ -18,7 +18,7 @@ type ReadyState = {|
 |};
 
 type CommonProps = {|
-  +query: GeneratedNodeMap,
+  +query: GraphQLTaggedNode,
   +clientID?: string, // Identification of the current client (X-Client header basically).
   +environment?: mixed,
   +cacheConfig?: CacheConfig,

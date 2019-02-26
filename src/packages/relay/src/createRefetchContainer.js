@@ -4,7 +4,7 @@ import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
 
 import type {
   $RelayProps,
-  GeneratedNodeMap,
+  FragmentSpec,
   GraphQLTaggedNode,
   Disposable,
 } from './types.flow';
@@ -26,7 +26,7 @@ export default function createRefetchContainer<
   TComponent: React$ComponentType<any>,
 >(
   Component: TComponent,
-  fragmentSpec: GeneratedNodeMap,
+  fragmentSpec: FragmentSpec,
   refetchQuery: GraphQLTaggedNode,
 ): React$ComponentType<
   $RelayProps<React$ElementConfig<TComponent>, RefetchRelayProp>,
