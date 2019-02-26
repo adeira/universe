@@ -8,8 +8,8 @@ Useful Links:
 TODO:
 
 - https://github.com/facebook/relay/pull/2619/files
-- https://github.com/facebook/relay/pull/2624#pullrequestreview-198780157 (`ExampleFragment_artist` syntax is deprecated!)
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
+- Mock Data Generation: https://github.com/mrtnzlml/relay/pull/253/commits/09d317943f6936ffb0002154c389b6d7a507c58d
 
 # Refetch container
 
