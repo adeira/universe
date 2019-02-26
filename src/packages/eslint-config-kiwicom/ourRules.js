@@ -158,7 +158,6 @@ module.exports = {
   'id-length': OFF,
   'id-match': OFF,
   'line-comment-position': OFF,
-  'linebreak-style': ERROR,
   'lines-between-class-members': [
     WARN,
     'always',
@@ -324,7 +323,6 @@ module.exports = {
   'react/react-in-jsx-scope': WARN,
   'react/require-optimization': OFF,
   'react/require-render-return': OFF,
-  'react/self-closing-comp': WARN,
   'react/sort-comp': ERROR,
   'react/sort-prop-types': OFF,
   'react/style-prop-object': OFF,
