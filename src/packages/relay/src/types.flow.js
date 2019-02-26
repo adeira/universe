@@ -17,17 +17,17 @@ export type Disposable = {|
   +dispose: () => void,
 |};
 
-type ConcreteFragment = {
+// graphql` ... ` (check the generated files)
+export opaque type GraphQLTaggedNode = {|
   +argumentDefinitions: Array<ConcreteArgumentDefinition>,
   +kind: 'Fragment',
   +metadata: ?{ [key: string]: mixed },
   +name: string,
   +selections: Array<ConcreteSelection>,
   +type: string,
-};
+|};
 
-export type GraphQLTaggedNode = () => ConcreteFragment;
-export type GeneratedNodeMap = { [key: string]: GraphQLTaggedNode };
+export type FragmentSpec = { [key: string]: GraphQLTaggedNode };
 
 type $FragmentRef<T> = {
   +$fragmentRefs: $PropertyType<T, '$refType'>,

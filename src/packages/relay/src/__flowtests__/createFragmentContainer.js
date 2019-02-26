@@ -56,18 +56,29 @@ const ClassComponent = class extends React.Component<Props> {
 
 module.exports = {
   functionalComponents: getTestCases(
-    createFragmentContainer(
-      FunctionalComponent,
-      graphql`
+    createFragmentContainer(FunctionalComponent, {
+      functionalComponents: graphql`
         query createFragmentContainer_functionalComponents {
           __typename
         }
       `,
-    ),
+    }),
   ),
   classComponents: getTestCases(
+    createFragmentContainer(ClassComponent, {
+      classComponents: graphql`
+        query createFragmentContainer_classComponents {
+          __typename
+        }
+      `,
+    }),
+  ),
+
+  // Legacy graphql usage:
+  legacyFunctionalComponents: getTestCases(
     createFragmentContainer(
-      ClassComponent,
+      FunctionalComponent,
+      // $FlowExpectedError: cannot call createFragmentContainer with template string bound to fragmentSpec because GraphQLTaggedNode is incompatible with FragmentSpec
       graphql`
         query createFragmentContainer_functionalComponents {
           __typename
