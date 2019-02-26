@@ -1,6 +1,12 @@
 // @flow
 
-import { RecordSource, Store, Network, Environment } from 'relay-runtime';
+import {
+  RecordSource,
+  Store,
+  Network,
+  Environment,
+  ConnectionHandler,
+} from 'relay-runtime';
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
 import createRequestHandler from './createRequestHandler';
@@ -30,9 +36,18 @@ function createNetwork(fetchFn: Function, subscribeFn?: Function) {
     : Network.create(fetch, subscribeFn);
 }
 
+function handlerProvider(handle) {
+  // ViewerHandler missing on purpose (it's deprecated?)
+  if (handle === 'connection') {
+    return ConnectionHandler;
+  }
+  throw new Error(`handlerProvider: No handler provided for ${handle}`);
+}
+
 module.exports = function createEnvironment(options: Options) {
   const { fetcherFn, subscribeFn, ...rest } = options;
   return new Environment({
+    handlerProvider,
     network: createNetwork(fetcherFn, subscribeFn),
     store,
     ...rest,
