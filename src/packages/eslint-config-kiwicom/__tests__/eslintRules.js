@@ -12,6 +12,7 @@ Object.keys(require('../package.json').dependencies)
       'eslint-plugin-babel',
       'eslint-plugin-jest',
       'eslint-plugin-monorepo',
+      'eslint-plugin-node',
     ];
     return whitelistedPlugins.includes(dep);
   })
