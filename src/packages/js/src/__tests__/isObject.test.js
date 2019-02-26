@@ -2,12 +2,15 @@
 
 import { isObject } from '../index';
 
-test.each([{}, new Object(), { aaa: 111 }, new Map(), new RegExp(/a/)])(
-  'value %p is an object',
-  value => {
-    expect(isObject(value)).toBe(true);
-  },
-);
+test.each([
+  {},
+  new Object(), // eslint-disable-line no-new-object
+  { aaa: 111 },
+  new Map(),
+  new RegExp(/a/),
+])('value %p is an object', value => {
+  expect(isObject(value)).toBe(true);
+});
 
 test.each([
   null,
