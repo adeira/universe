@@ -52,6 +52,16 @@ const changedFiles = (function() {
 module.exports = ({ testPath, extraOptions } /*: Options */) => {
   const start = Date.now();
 
+  if (cliEngine.isPathIgnored(testPath)) {
+    return skip({
+      start,
+      end: start,
+      test: {
+        path: testPath,
+      },
+    });
+  }
+
   if (extraOptions.runAll === false) {
     const normalizedPath = testPath
       .replace(process.cwd(), '')
