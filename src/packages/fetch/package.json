@@ -1,7 +1,7 @@
 {
   "name": "@kiwicom/fetch",
   "private": false,
-  "version": "2.1.1",
+  "version": "2.2.0",
   "main": "src/fetchWithRetries.js",
   "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/fetch",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
