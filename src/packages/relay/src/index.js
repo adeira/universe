@@ -1,8 +1,8 @@
 // @flow
 
+import { Environment } from 'relay-runtime';
 import {
-  commitLocalUpdate,
-  requestSubscription,
+  commitLocalUpdate as _commitLocalUpdate,
   graphql as _graphql,
 } from 'react-relay';
 import {
@@ -19,6 +19,7 @@ import createRefetchContainer, {
   type RefetchRelayProp as _RefetchRelayProp,
 } from './createRefetchContainer';
 import QueryRenderer from './QueryRenderer';
+import requestSubscription from './requestSubscription';
 import type { GraphQLTaggedNode } from './types.flow';
 
 module.exports = {
@@ -37,6 +38,20 @@ module.exports = {
   QueryRenderer,
   requestSubscription,
 };
+
+opaque type RecordSourceSelectorProxy = $FlowFixMe;
+opaque type SelectorData = $FlowFixMe;
+
+/**
+ * The first parameter `environment` should be from `props.relay.environment`
+ * to ensure the update is performed in the correct environment.
+ */
+function commitLocalUpdate(
+  environment: Environment,
+  updater: (store: RecordSourceSelectorProxy, data: SelectorData) => void,
+) {
+  return _commitLocalUpdate(environment, updater);
+}
 
 function graphql(strings: Array<string>): GraphQLTaggedNode {
   return _graphql(strings);

@@ -48,3 +48,58 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
   (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
   (<T>(T) => T)
 >
+
+export type DeclarativeMutationConfig =
+  | RangeAddConfig
+  | RangeDeleteConfig
+  | NodeDeleteConfig;
+
+opaque type RangeOperation =
+  | 'append'
+  | 'ignore'
+  | 'prepend'
+  | 'refetch'
+  | 'remove';
+
+opaque type RangeBehaviorsFunction = (connectionArgs: {
+  [name: string]: $FlowFixMe,
+}) => RangeOperation;
+
+opaque type RangeBehaviorsObject = { [key: string]: RangeOperation };
+
+opaque type RangeBehaviors = RangeBehaviorsFunction | RangeBehaviorsObject;
+
+opaque type RangeAddConfig = {|
+  type: 'RANGE_ADD',
+  parentName?: string,
+  parentID?: string,
+  connectionInfo?: Array<{|
+    key: string,
+    filters?: Variables,
+    rangeBehavior: string,
+  |}>,
+  connectionName?: string,
+  edgeName: string,
+  rangeBehaviors?: RangeBehaviors,
+|};
+
+opaque type RangeDeleteConfig = {|
+  type: 'RANGE_DELETE',
+  parentName?: string,
+  parentID?: string,
+  connectionKeys?: Array<{|
+    key: string,
+    filters?: Variables,
+  |}>,
+  connectionName?: string,
+  deletedIDFieldName: string | Array<string>,
+  pathToConnection: Array<string>,
+|};
+
+opaque type NodeDeleteConfig = {|
+  type: 'NODE_DELETE',
+  parentName?: string,
+  parentID?: string,
+  connectionName?: string,
+  deletedIDFieldName: string,
+|};
