@@ -1,5 +1,3 @@
-_Formerly known as `@mrtnzlml/fetch`_
-
 This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This function is only a wrapper for any other well known [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). However, this fetch also solves two common problems:
 
 - fetch timeouts, and
@@ -14,6 +12,22 @@ yarn add @kiwicom/fetch
 ```
 
 # Usage
+
+This fetch is basically drop-in replacement for any other fetch you use:
+
+```js
+import fetch from '@kiwicom/fetch';
+
+(async () => {
+  const response = await fetch(
+    'https://api.skypicker.com/locations?term=Barcelona',
+  );
+
+  console.log(await response.json());
+})();
+```
+
+There are however some interesting features on top of this API. You can for example change the internal timings (the defaults are good enough):
 
 ```js
 import fetchWithRetries from '@kiwicom/fetch';
@@ -51,10 +65,10 @@ It does two things:
 Retries are performed in these situations:
 
 - original fetch request failed
-- fetch returned HTTP status <200 or >=300 (but not 401 or 403 since these errors are not transitive)
+- fetch returned HTTP status <200 or >=300 (but some not transitive HTTP status codes like 401 or 403 are ignored)
 - when the timeout (`fetchTimeout`) occurs
 
-This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports server JS as well as browsers.
+This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports server JS as well as browsers and React Native environment. It will always try to use global `fetch` if available before using this ponyfill.
 
 # Error handling
 
@@ -99,7 +113,7 @@ const config = {
 
 There are many situations that may occur (skipping happy path):
 
-1. request failed with HTTP status code 500
+1. request immediately failed with HTTP status code 500
 2. retries after 100ms
 3. request successful (we are done), OR fail again
 4. retries after 3000ms again for the last time
@@ -111,3 +125,5 @@ Example with timeouts:
 3. second request takes to long as well and is terminated after 2000ms
 4. last request will wait 3000ms minus the burned timeout => 1000ms
 5. last attempt (it will timeout or resolve correctly)
+
+In reality you can see some more optimistic scenarios: for example request failed with HTTP status code 500 and it's resolved immediately after you retry it (just some API glitch). Similar scenarios are quite often for timeouts: first try timeouted for some reason but it's OK when you try for the second time. This makes this fetch much better than the commonly used alternatives - this fetch does not expect success all the time and it tries to handle these real-world scenarios.

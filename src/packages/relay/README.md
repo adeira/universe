@@ -4,7 +4,6 @@ This package is **opinionated Relay wrapper** used at Kiwi.com. Goal of this pac
 - network fetching with retries and timeouts (see `@kiwicom/fetch`)
 - support for uploadables
 - request burst cache (response cache)
-- batch requests
 - persistent queries
 
 More info about Relay, prior art:

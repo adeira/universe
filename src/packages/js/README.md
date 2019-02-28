@@ -36,9 +36,7 @@ if (isWorkspaceDirectory !== true) {
 }
 ```
 
-First it's more readable this way - you don't have to use conditions at all. But more importantly we can now work with these errors/warnings a bit better. The idea is to transpile these functions so they do not contain sensitive error messages in production. These functions are therefore perfect fit for production applications. Not so great for NPM packages though because you may want to preserve the error messages.
-
-> Please note: this transpilation is currently not implemented yet.
+First it's more readable this way - you don't have to use conditions at all. But more importantly we can now work with these errors/warnings a bit better. The idea is to transpile these functions so they do not contain sensitive error messages in production. These functions are therefore perfect fit for your production applications.
 
 Invariant has also great [native support in Flow](https://flow.org/en/docs/linting/rule-reference/#toc-unnecessary-invariant). Just add this to your Flow config file:
 

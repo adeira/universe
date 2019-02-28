@@ -52,9 +52,9 @@ module.exports = {
 
 It is important to report any issues with the eslint configuration back so we can improve it **for everyone**. These rules should be related only to how we write JS code so it's perfectly fine if you have some additional rules closely related to your project (`no-restricted-imports` for example).
 
-Also please note that **you should not ignore Eslint warnings**! These warnings are helping you to migrate to the future major version. Some of them will turn into error in the next major version bump.
+Also please note that **you should not ignore Eslint warnings**! These warnings are helping you to migrate to the future major version. Some of them will turn into errors in the next major version bump.
 
-This package is greatly inspired by these projects:
+# Prior art
 
 - https://github.com/facebook/fbjs
 - https://github.com/github/eslint-plugin-github

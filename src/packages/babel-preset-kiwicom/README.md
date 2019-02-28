@@ -14,11 +14,7 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - transforms `invariant` from `@kiwicom/js`
 - transforms `warning` from `@kiwicom/js`
 
-_(more features will follow in future versions as needed)_
-
-This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version.
-
-You can also choose Flow as a transpilation target (see bellow). This mode adds these features:
+This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. You can also choose Flow as a transpilation target (see bellow). This mode adds these features:
 
 - declares `__DEV__` expression when used
 
@@ -76,6 +72,8 @@ module.exports = function(api /*: ApiType */) {
   };
 };
 ```
+
+What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is).
 
 # Prior art
 
