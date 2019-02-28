@@ -213,9 +213,12 @@ TODO: researching
 
 TODO: https://github.com/mrtnzlml/relay/pull/127/commits/0920c0cb4be13e010376feb98997d7a8438cbf37
 
-# @defer, @stream
+# @defer, @stream, @stream_connection
 
-TODO: https://github.com/mrtnzlml/relay/pull/172/commits
+TODO
+
+- https://github.com/mrtnzlml/relay/pull/172/commits
+- https://github.com/facebook/relay/commit/225cfb60cccdbb649ab16a13ed607de749992d21
 
 # Uploadables
 
