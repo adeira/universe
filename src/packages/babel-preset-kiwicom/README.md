@@ -1,3 +1,5 @@
+**This package doesn't support React Native**
+
 This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are two transpilation targets available: JS (default) and Flow. JavaScript transpilation target adds these features:
 
 - Flow support `(a: string)`
