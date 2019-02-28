@@ -10,7 +10,9 @@ import {
 } from '@kiwicom/fetch';
 
 import commitMutation from './commitMutation';
-import createFragmentContainer from './createFragmentContainer';
+import createFragmentContainer, {
+  type RelayProp as _RelayProp,
+} from './createFragmentContainer';
 import createPaginationContainer, {
   type PaginationRelayProp as _PaginationRelayProp,
 } from './createPaginationContainer';
@@ -56,9 +58,6 @@ function graphql(strings: Array<string>): GraphQLTaggedNode {
   return _graphql(strings);
 }
 
-export type RelayProp = {|
-  +environment: Environment,
-|};
-
-export type PaginationRelayProp = RelayProp & _PaginationRelayProp;
-export type RefetchRelayProp = RelayProp & _RefetchRelayProp;
+export type RelayProp = _RelayProp;
+export type PaginationRelayProp = _PaginationRelayProp;
+export type RefetchRelayProp = _RefetchRelayProp;

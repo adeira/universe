@@ -7,6 +7,7 @@ import type {
   FragmentSpec,
   GraphQLTaggedNode,
   Disposable,
+  Environment,
 } from './types.flow';
 
 type ConnectionData = {|
@@ -38,10 +39,14 @@ type ConnectionConfig = {|
 |};
 
 export type PaginationRelayProp = {|
-  hasMore: () => boolean,
-  isLoading: () => boolean,
-  loadMore(pageSize: number, callback: ?(error: ?Error) => void): ?Disposable,
-  refetchConnection: (
+  +environment: Environment,
+  +hasMore: () => boolean,
+  +isLoading: () => boolean,
+  +loadMore: (
+    pageSize: number,
+    callback: ?(error: ?Error) => void,
+  ) => ?Disposable,
+  +refetchConnection: (
     totalCount: number,
     callback: (error: ?Error) => void,
     refetchVariables: ?Object,
