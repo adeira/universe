@@ -1,8 +1,6 @@
-# eslint-plugin-kiwicom-incubator
+Rules used at Kiwi.com in the Incubator tribe. You most probably do not need to use this package directly - use [@kiwicom/eslint-config](https://www.npmjs.com/package/@kiwicom/eslint-config) instead. This package exists basically only to workaround some Eslint limitations.
 
-Rules used at Kiwi.com in the Incubator tribe.
-
-## Installation
+# Installation
 
 You'll first need to install [ESLint](http://eslint.org). Next, install this plugin:
 
@@ -10,22 +8,23 @@ You'll first need to install [ESLint](http://eslint.org). Next, install this plu
 yarn add --dev eslint-plugin-kiwicom-incubator
 ```
 
-## Usage
+# Usage
 
-Add `kiwicom-incubator` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `kiwicom-incubator` to the plugins section of your `.eslintrc` configuration file:
 
 ```json
 {
-  "plugins": ["kiwicom-incubator"]
+  "plugins": ["eslint-plugin-kiwicom-incubator"]
 }
 ```
 
-Then configure the rules you want to use under the rules section.
+Then configure the rules you want to use under the rules section:
 
 ```json
 {
   "rules": {
-    "kiwicom-incubator/only-nullable-fields": "error"
+    "kiwicom-incubator/only-nullable-fields": "error",
+    "kiwicom-incubator/no-invalid-flow-annotations": "error"
   }
 }
 ```
