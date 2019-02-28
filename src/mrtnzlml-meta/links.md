@@ -20,6 +20,7 @@ Collection of interesting links, articles and project...
 - [How to Deal with Difficult People on Software Projects](https://people.neilon.software/)
 
 # I
+- [I ruin developers’ lives with my code reviews and I'm sorry](https://habr.com/en/post/440736/)
 - [I was wrong about Google and Facebook: there’s nothing wrong with them](https://ar.al/2019/01/11/i-was-wrong-about-google-and-facebook-theres-nothing-wrong-with-them-so-say-we-all/)
 
 # P
