@@ -139,6 +139,8 @@ Similar rules apply to pagination container which solves one particular use-case
 
 # Tips
 
+## Use custom `QueryRenderer` wrapper
+
 It's a good idea to create a custom wrapper of the `QueryRenderer` so you don't have to copy-paste it everywhere. This could be your new API (no loading, system error handlers or client identification):
 
 ```js
@@ -155,3 +157,23 @@ export default function App() {
   );
 }
 ```
+
+## Do not expose global `Environment`
+
+You should never import your custom environment directly when working with mutations or subscriptions. Always use the environment provided in the props (exposed by any Relay container):
+
+```js
+import {
+  type RelayProp, // or `PaginationRelayProp` or `RefetchRelayProp` types
+} from '@kiwicom/relay';
+
+type Props = {| +relay: RelayProp |};
+
+function Component(props: Props) {
+  useEffect(() => {
+    commitMutation(props.relay.environment, { mutation: graphql` ... ` });
+  });
+}
+```
+
+Only this way you can be sure that your mutation/subscription is using correct environment. This common bug is usually not very visible but it's very serious when you have multiple environments in your application.

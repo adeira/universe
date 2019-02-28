@@ -1,6 +1,5 @@
 // @flow
 
-import { Environment } from 'relay-runtime';
 import {
   commitLocalUpdate as _commitLocalUpdate,
   graphql as _graphql,
@@ -20,7 +19,7 @@ import createRefetchContainer, {
 } from './createRefetchContainer';
 import QueryRenderer from './QueryRenderer';
 import requestSubscription from './requestSubscription';
-import type { GraphQLTaggedNode } from './types.flow';
+import type { GraphQLTaggedNode, Environment } from './types.flow';
 
 module.exports = {
   FetchResponseError,
@@ -57,5 +56,9 @@ function graphql(strings: Array<string>): GraphQLTaggedNode {
   return _graphql(strings);
 }
 
-export type PaginationRelayProp = _PaginationRelayProp;
-export type RefetchRelayProp = _RefetchRelayProp;
+export type RelayProp = {|
+  +environment: Environment,
+|};
+
+export type PaginationRelayProp = RelayProp & _PaginationRelayProp;
+export type RefetchRelayProp = RelayProp & _RefetchRelayProp;

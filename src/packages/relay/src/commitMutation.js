@@ -1,12 +1,12 @@
 // @flow
 
-import { Environment } from 'relay-runtime';
 import { commitMutation as _commitMutation } from 'react-relay';
 
 import type {
   Variables,
   GraphQLTaggedNode,
   DeclarativeMutationConfig,
+  Environment,
 } from './types.flow';
 
 opaque type RecordSourceSelectorProxy = $FlowFixMe;

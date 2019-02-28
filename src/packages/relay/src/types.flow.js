@@ -12,6 +12,9 @@ export type Variables = { [name: string]: $FlowFixMe };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
+export type Environment = {|
+  // TODO: Improve? Not exposed publicly on purpose.
+|};
 
 export type Disposable = {|
   +dispose: () => void,
