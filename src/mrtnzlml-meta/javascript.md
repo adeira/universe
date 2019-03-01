@@ -4,6 +4,11 @@
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
+# Does it mutate 😱
+
+- https://doesitmutate.xyz/
+- https://stackoverflow.com/a/9009934/3135248
+
 # Jest: test.concurrent( ... )
 
 TODO: https://github.com/facebook/jest/pull/1688/files
