@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { createFragmentContainer, graphql } from '../index';
+import { createFragmentContainer, graphql, type RelayProp } from '../index';
 
 const validData = {
   required: 'ok',
@@ -39,6 +39,7 @@ function getTestCases(Container) {
 }
 
 type Props = {|
+  +relay: RelayProp,
   +data: {|
     +required: string,
     +$refType: any,
@@ -50,7 +51,7 @@ const FunctionalComponent = (props: Props) => <React.Fragment />; // eslint-disa
 
 const ClassComponent = class extends React.Component<Props> {
   render() {
-    return <React.Fragment />;
+    return JSON.stringify(this.props.relay.environment);
   }
 };
 
