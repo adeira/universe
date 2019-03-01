@@ -1,9 +1,9 @@
 {
   "name": "@kiwicom/relay",
   "private": false,
-  "version": "0.21.0",
+  "version": "0.21.1",
   "main": "src/index.js",
-  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/relay",
+  "homepage": "https://github.com/kiwicom/relay",
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "dependencies": {
     "@kiwicom/fetch": "^2.2.0",

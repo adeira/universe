@@ -2,6 +2,8 @@
 
 import { iterateWorkspaces } from '@kiwicom/monorepo';
 
+import OSSPackages from '../open-source';
+
 describe('all workspaces', () => {
   iterateWorkspaces(packageJSONLocation => {
     test(packageJSONLocation, () => {
@@ -11,10 +13,16 @@ describe('all workspaces', () => {
 
       if (packageJson.private === false) {
         expect(packageJson.description).not.toBeUndefined();
-        expect(packageJson.homepage).toMatch(
-          // we should eventually point to GitHub repo when exported
-          /^https:\/\/gitlab\.skypicker\.com\/incubator\/universe\/tree\/master\/src\/packages\/.+|^https:\/\/github\.com\/kiwicom\/.+/,
-        );
+
+        if (OSSPackages.has(packageJson.name)) {
+          expect(packageJson.homepage).toMatch(
+            /^https:\/\/github\.com\/kiwicom\/.+$/,
+          );
+        } else {
+          expect(packageJson.homepage).toMatch(
+            /^https:\/\/gitlab\.skypicker\.com\/incubator\/universe\/tree\/master\/src\/packages\/.+$/,
+          );
+        }
 
         // each public package must specify `main` or `bin` field pe be useful
         expect(
