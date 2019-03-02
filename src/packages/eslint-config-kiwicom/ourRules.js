@@ -111,6 +111,7 @@ module.exports = {
   'no-void': WARN,
   'no-warning-comments': OFF,
   'no-with': WARN,
+  'prefer-named-capture-group': OFF,
   'prefer-promise-reject-errors': WARN,
   radix: ERROR,
   'require-await': WARN,
