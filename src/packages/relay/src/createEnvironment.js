@@ -16,9 +16,12 @@ const source = new RecordSource();
 const store = new Store(source);
 
 type Options = {|
-  +fetcherFn: Function,
+  +fetchFn: Function,
   +subscribeFn?: Function,
   +handlerProvider?: string => void,
+
+  // enables/disables `RelayNetworkLogger`
+  +logger?: boolean,
 |};
 
 // TODO: only graphql.kiwi.com?
@@ -26,9 +29,13 @@ type Options = {|
 //   return `https://graphql.kiwi.com/?query=${encodeURIComponent(request.text)}`;
 // }
 
-function createNetwork(fetchFn: Function, subscribeFn?: Function) {
+function createNetwork(
+  fetchFn: Function,
+  subscribeFn?: Function,
+  enableLogger: boolean = true,
+) {
   const fetch = createRequestHandler(fetchFn);
-  return __DEV__
+  return enableLogger && __DEV__
     ? Network.create(
         RelayNetworkLogger.wrapFetch(fetch /* , graphiQLPrinter */),
         RelayNetworkLogger.wrapSubscribe(subscribeFn),
@@ -45,10 +52,10 @@ function handlerProvider(handle) {
 }
 
 module.exports = function createEnvironment(options: Options) {
-  const { fetcherFn, subscribeFn, ...rest } = options;
+  const { fetchFn, subscribeFn, logger, ...rest } = options;
   return new Environment({
     handlerProvider,
-    network: createNetwork(fetcherFn, subscribeFn),
+    network: createNetwork(fetchFn, subscribeFn, logger),
     store,
     ...rest,
   });

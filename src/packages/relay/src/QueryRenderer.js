@@ -93,7 +93,7 @@ export default function QueryRenderer(props: Props) {
     );
 
     return createEnvironment({
-      fetcherFn: createNetworkFetcher('https://graphql.kiwi.com', {
+      fetchFn: createNetworkFetcher('https://graphql.kiwi.com', {
         'X-Client': clientID,
       }),
     });
