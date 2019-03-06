@@ -9,17 +9,35 @@ const environment = new Environment({
   store: new Store(new RecordSource()),
 });
 
+function validUpdater(store) {
+  const favorite = store.get('unique:ID');
+  if (favorite) {
+    favorite.setValue(false, 'isNew');
+  }
+}
+
+const subscription = graphql`
+  subscription requestSubscription {
+    __typename
+  }
+`;
+
+const variables = {
+  aaa: 111,
+};
+
 module.exports = {
   validMutation() {
     return requestSubscription(environment, {
-      subscription: graphql`
-        subscription requestSubscription {
-          __typename
-        }
-      `,
-      variables: {
-        aaa: 111,
-      },
+      subscription,
+      variables,
+    });
+  },
+  updater() {
+    return requestSubscription(environment, {
+      subscription,
+      variables,
+      updater: validUpdater,
     });
   },
 

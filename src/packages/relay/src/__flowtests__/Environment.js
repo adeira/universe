@@ -36,7 +36,12 @@ const subscriptionConfig = {
   variables: {},
 };
 
-const localUpdater = () => {};
+const localUpdater = store => {
+  const favorite = store.get('unique:ID');
+  if (favorite) {
+    favorite.setValue(false, 'isNew');
+  }
+};
 
 module.exports = {
   commitMutation: {

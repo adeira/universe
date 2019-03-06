@@ -73,36 +73,71 @@ opaque type RangeBehaviorsObject = { [key: string]: RangeOperation };
 opaque type RangeBehaviors = RangeBehaviorsFunction | RangeBehaviorsObject;
 
 opaque type RangeAddConfig = {|
-  type: 'RANGE_ADD',
-  parentName?: string,
-  parentID?: string,
-  connectionInfo?: Array<{|
-    key: string,
-    filters?: Variables,
-    rangeBehavior: string,
+  +type: 'RANGE_ADD',
+  +parentName?: string,
+  +parentID?: string,
+  +connectionInfo?: Array<{|
+    +key: string,
+    +filters?: Variables,
+    +rangeBehavior: string,
   |}>,
-  connectionName?: string,
-  edgeName: string,
-  rangeBehaviors?: RangeBehaviors,
+  +connectionName?: string,
+  +edgeName: string,
+  +rangeBehaviors?: RangeBehaviors,
 |};
 
 opaque type RangeDeleteConfig = {|
-  type: 'RANGE_DELETE',
-  parentName?: string,
-  parentID?: string,
-  connectionKeys?: Array<{|
-    key: string,
-    filters?: Variables,
+  +type: 'RANGE_DELETE',
+  +parentName?: string,
+  +parentID?: string,
+  +connectionKeys?: Array<{|
+    +key: string,
+    +filters?: Variables,
   |}>,
-  connectionName?: string,
-  deletedIDFieldName: string | Array<string>,
-  pathToConnection: Array<string>,
+  +connectionName?: string,
+  +deletedIDFieldName: string | Array<string>,
+  +pathToConnection: Array<string>,
 |};
 
 opaque type NodeDeleteConfig = {|
-  type: 'NODE_DELETE',
-  parentName?: string,
-  parentID?: string,
-  connectionName?: string,
-  deletedIDFieldName: string,
+  +type: 'NODE_DELETE',
+  +parentName?: string,
+  +parentID?: string,
+  +connectionName?: string,
+  +deletedIDFieldName: string,
 |};
+
+// See: https://facebook.github.io/relay/docs/en/next/relay-store.html
+export type RecordSourceSelectorProxy = {|
+  +create: (dataID: string, typeName: string) => RecordProxy,
+  +delete: (dataID: string) => void,
+  +get: (dataID: string) => ?RecordProxy,
+  +getRoot: () => RecordProxy,
+  +getRootField: (fieldName: string) => ?RecordProxy,
+  +getPluralRootField: (fieldName: string) => ?Array<?RecordProxy>,
+|};
+
+type RecordProxy = $ReadOnly<{|
+  copyFieldsFrom: (sourceRecord: RecordProxy) => void,
+  getDataID: () => string,
+  getLinkedRecord: (name: string, args?: ?Object) => ?RecordProxy,
+  getLinkedRecords: (name: string, args?: ?Object) => ?Array<?RecordProxy>,
+  getOrCreateLinkedRecord: (
+    name: string,
+    typeName: string,
+    args?: ?Object,
+  ) => RecordProxy,
+  getType: () => string,
+  getValue: (name: string, args?: ?Object) => mixed,
+  setLinkedRecord: (
+    record: RecordProxy,
+    name: string,
+    args?: ?Object,
+  ) => RecordProxy,
+  setLinkedRecords: (
+    records: Array<?RecordProxy>,
+    name: string,
+    args?: ?Object,
+  ) => RecordProxy,
+  setValue: (value: mixed, name: string, args?: ?Object) => RecordProxy,
+|}>;
