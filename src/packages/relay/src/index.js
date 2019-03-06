@@ -1,15 +1,13 @@
 // @flow
 
-import {
-  commitLocalUpdate as _commitLocalUpdate,
-  graphql as _graphql,
-} from 'react-relay';
+import { graphql as _graphql } from 'react-relay';
 import {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
 } from '@kiwicom/fetch';
 
 import commitMutation from './commitMutation';
+import commitLocalUpdate from './commitLocalUpdate';
 import createFragmentContainer, {
   type RelayProp as _RelayProp,
 } from './createFragmentContainer';
@@ -21,7 +19,7 @@ import createRefetchContainer, {
 } from './createRefetchContainer';
 import QueryRenderer from './QueryRenderer';
 import requestSubscription from './requestSubscription';
-import type { GraphQLTaggedNode, Environment } from './types.flow';
+import type { GraphQLTaggedNode } from './types.flow';
 
 module.exports = {
   FetchResponseError,
@@ -39,20 +37,6 @@ module.exports = {
   QueryRenderer,
   requestSubscription,
 };
-
-opaque type RecordSourceSelectorProxy = $FlowFixMe;
-opaque type SelectorData = $FlowFixMe;
-
-/**
- * The first parameter `environment` should be from `props.relay.environment`
- * to ensure the update is performed in the correct environment.
- */
-function commitLocalUpdate(
-  environment: Environment,
-  updater: (store: RecordSourceSelectorProxy, data: SelectorData) => void,
-) {
-  return _commitLocalUpdate(environment, updater);
-}
 
 function graphql(strings: Array<string>): GraphQLTaggedNode {
   return _graphql(strings);

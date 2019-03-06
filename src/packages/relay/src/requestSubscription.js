@@ -7,9 +7,9 @@ import type {
   GraphQLTaggedNode,
   DeclarativeMutationConfig,
   Environment,
+  RecordSourceSelectorProxy,
 } from './types.flow';
 
-opaque type RecordSourceSelectorProxy = $FlowFixMe;
 opaque type SelectorData = $FlowFixMe;
 
 type Config = {|
