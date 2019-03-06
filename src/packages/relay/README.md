@@ -71,8 +71,6 @@ export default function App(props) {
 
 This API is high-level on purpose but it's possible to decompose it when you need something more advanced (custom `Environment` for example). However, even the decomposed parts are still very opinionated and new features are being unlocked only when necessary.
 
-It's also possible to override the `environment` and `render` property. However, please note that `render` property has priority over `onSystemError`, `onLoading` and `onResponse`. It's not recommended to use it unless you need something really special.
-
 # Custom Environment
 
 The default `QueryRenderer` falls back to querying https://graphql.kiwi.com if custom environment is not specified. This helps you to start faster but you have to specify `clientID` to identify the requests. You can also create your own environment:
@@ -98,6 +96,24 @@ export default function App() {
       environment={Environment}
       query={graphql` ... `}
       onResponse={handleResponse}
+    />
+  );
+}
+```
+
+# Custom `render` behavior
+
+It's certainly possible to override the and `render` property just like `environment`. However, please note that `render` property has priority over `onSystemError`, `onLoading` and `onResponse`. It's not recommended to use it unless you need something really special because these preferred 3 props solve majority of the cases.
+
+```js
+export default function App() {
+  return (
+    <QueryRenderer
+      environment={Environment}
+      query={graphql` ... `}
+      render={({ error, props, retry }) => {
+        /* TODO */
+      }}
     />
   );
 }
