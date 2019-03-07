@@ -1,12 +1,12 @@
 {
   "name": "@kiwicom/relay",
   "private": false,
-  "version": "0.23.0",
+  "version": "0.24.0",
   "main": "src/index.js",
   "homepage": "https://github.com/kiwicom/relay",
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "dependencies": {
-    "@kiwicom/fetch": "^2.2.0",
+    "@kiwicom/fetch": "^2.2.1",
     "@kiwicom/js": "^0.4.0",
     "react-relay": "^3.0.0",
     "relay-compiler": "^3.0.0",
