@@ -57,12 +57,8 @@ export type DeclarativeMutationConfig =
   | RangeDeleteConfig
   | NodeDeleteConfig;
 
-opaque type RangeOperation =
-  | 'append'
-  | 'ignore'
-  | 'prepend'
-  | 'refetch'
-  | 'remove';
+// see: relay-runtime/mutations/RelayDeclarativeMutationConfig.js
+opaque type RangeOperation = 'append' | 'ignore' | 'prepend';
 
 opaque type RangeBehaviorsFunction = (connectionArgs: {
   [name: string]: $FlowFixMe,
