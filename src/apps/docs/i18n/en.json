@@ -9,10 +9,6 @@
         "title": "Debugging Requests and Responses",
         "sidebar_label": "Debugging"
       },
-      "graphql/design-style-guides": {
-        "title": "Design Style Guides",
-        "sidebar_label": "Design Style Guides"
-      },
       "graphql/faq": {
         "title": "FAQ",
         "sidebar_label": "FAQ"
@@ -24,6 +20,14 @@
       "graphql/infrastructure": {
         "title": "Infrastructure",
         "sidebar_label": "Infrastructure"
+      },
+      "graphql/js-developer-guides": {
+        "title": "JS Developer Guides",
+        "sidebar_label": "JS Developer Guides"
+      },
+      "graphql/schema-design": {
+        "title": "Schema Design",
+        "sidebar_label": "Schema Design"
       },
       "graphql/testing": {
         "title": "Testing",

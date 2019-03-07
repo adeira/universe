@@ -4,7 +4,8 @@
     "Monorepo": ["monorepo/installation", "monorepo/directory-structure"],
     "GraphQL": [
       "graphql/general-information",
-      "graphql/design-style-guides",
+      "graphql/schema-design",
+      "graphql/js-developer-guides",
       "graphql/infrastructure",
       "graphql/testing",
       "graphql/debugging",
