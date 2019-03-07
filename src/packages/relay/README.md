@@ -79,7 +79,7 @@ The default `QueryRenderer` falls back to querying https://graphql.kiwi.com if c
 import { createEnvironment, createNetworkFetcher } from '@kiwicom/relay';
 
 const Environment = createEnvironment({
-  fetcherFn: createNetworkFetcher('https://graphql.kiwi.com', {
+  fetchFn: createNetworkFetcher('https://graphql.kiwi.com', {
     'X-Client': '** TODO **',
   }),
 });
