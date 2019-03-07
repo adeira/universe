@@ -15,6 +15,7 @@ opaque type SelectorData = $FlowFixMe;
 type Config = {|
   +mutation: GraphQLTaggedNode,
   +variables: Variables,
+  // TODO: 2 kinds of errors? What about changing the interface a little bit to make it more obvious?
   +onCompleted?: ?(response: ?Object, errors: ?$ReadOnlyArray<Error>) => void,
   +onError?: ?(error: Error) => void,
   +optimisticResponse?: Object,
