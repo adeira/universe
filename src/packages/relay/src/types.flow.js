@@ -22,11 +22,11 @@ export type Disposable = {|
 
 // graphql` ... ` (check the generated files)
 export opaque type GraphQLTaggedNode = {|
-  +argumentDefinitions: Array<ConcreteArgumentDefinition>,
+  +argumentDefinitions: $ReadOnlyArray<ConcreteArgumentDefinition>,
   +kind: 'Fragment',
   +metadata: ?{ [key: string]: mixed },
   +name: string,
-  +selections: Array<ConcreteSelection>,
+  +selections: $ReadOnlyArray<ConcreteSelection>,
   +type: string,
 |};
 
@@ -58,7 +58,7 @@ export type DeclarativeMutationConfig =
   | NodeDeleteConfig;
 
 // see: relay-runtime/mutations/RelayDeclarativeMutationConfig.js
-opaque type RangeOperation = 'append' | 'ignore' | 'prepend';
+type RangeOperation = 'append' | 'ignore' | 'prepend';
 
 opaque type RangeBehaviorsFunction = (connectionArgs: {
   [name: string]: $FlowFixMe,
@@ -68,34 +68,34 @@ opaque type RangeBehaviorsObject = { [key: string]: RangeOperation };
 
 opaque type RangeBehaviors = RangeBehaviorsFunction | RangeBehaviorsObject;
 
-opaque type RangeAddConfig = {|
+type RangeAddConfig = {|
   +type: 'RANGE_ADD',
   +parentName?: string,
   +parentID?: string,
-  +connectionInfo?: Array<{|
+  +connectionInfo?: $ReadOnlyArray<{|
     +key: string,
     +filters?: Variables,
-    +rangeBehavior: string,
+    +rangeBehavior: RangeOperation,
   |}>,
   +connectionName?: string,
   +edgeName: string,
   +rangeBehaviors?: RangeBehaviors,
 |};
 
-opaque type RangeDeleteConfig = {|
+type RangeDeleteConfig = {|
   +type: 'RANGE_DELETE',
   +parentName?: string,
   +parentID?: string,
-  +connectionKeys?: Array<{|
+  +connectionKeys?: $ReadOnlyArray<{|
     +key: string,
     +filters?: Variables,
   |}>,
   +connectionName?: string,
-  +deletedIDFieldName: string | Array<string>,
-  +pathToConnection: Array<string>,
+  +deletedIDFieldName: string | $ReadOnlyArray<string>,
+  +pathToConnection: $ReadOnlyArray<string>,
 |};
 
-opaque type NodeDeleteConfig = {|
+type NodeDeleteConfig = {|
   +type: 'NODE_DELETE',
   +parentName?: string,
   +parentID?: string,
@@ -110,14 +110,17 @@ export type RecordSourceSelectorProxy = {|
   +get: (dataID: string) => ?RecordProxy,
   +getRoot: () => RecordProxy,
   +getRootField: (fieldName: string) => ?RecordProxy,
-  +getPluralRootField: (fieldName: string) => ?Array<?RecordProxy>,
+  +getPluralRootField: (fieldName: string) => ?$ReadOnlyArray<?RecordProxy>,
 |};
 
 type RecordProxy = $ReadOnly<{|
   copyFieldsFrom: (sourceRecord: RecordProxy) => void,
   getDataID: () => string,
   getLinkedRecord: (name: string, args?: ?Object) => ?RecordProxy,
-  getLinkedRecords: (name: string, args?: ?Object) => ?Array<?RecordProxy>,
+  getLinkedRecords: (
+    name: string,
+    args?: ?Object,
+  ) => ?$ReadOnlyArray<?RecordProxy>,
   getOrCreateLinkedRecord: (
     name: string,
     typeName: string,
@@ -131,7 +134,7 @@ type RecordProxy = $ReadOnly<{|
     args?: ?Object,
   ) => RecordProxy,
   setLinkedRecords: (
-    records: Array<?RecordProxy>,
+    records: $ReadOnlyArray<?RecordProxy>,
     name: string,
     args?: ?Object,
   ) => RecordProxy,
