@@ -20,7 +20,7 @@ export type Disposable = {|
   +dispose: () => void,
 |};
 
-// graphql` ... ` (check the generated files)
+// The type of a graphql`...` tagged template expression.
 export opaque type GraphQLTaggedNode = {|
   +argumentDefinitions: $ReadOnlyArray<ConcreteArgumentDefinition>,
   +kind: 'Fragment',

@@ -1,6 +1,5 @@
 // @flow
 
-import { graphql as _graphql } from 'react-relay';
 import {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
@@ -17,9 +16,10 @@ import createPaginationContainer, {
 import createRefetchContainer, {
   type RefetchRelayProp as _RefetchRelayProp,
 } from './createRefetchContainer';
+import graphql from './graphql';
 import QueryRenderer from './QueryRenderer';
 import requestSubscription from './requestSubscription';
-import type { GraphQLTaggedNode } from './types.flow';
+import type { GraphQLTaggedNode as _GraphQLTaggedNode } from './types.flow';
 
 module.exports = {
   FetchResponseError,
@@ -38,10 +38,9 @@ module.exports = {
   requestSubscription,
 };
 
-function graphql(strings: Array<string>): GraphQLTaggedNode {
-  return _graphql(strings);
-}
-
 export type RelayProp = _RelayProp;
 export type PaginationRelayProp = _PaginationRelayProp;
 export type RefetchRelayProp = _RefetchRelayProp;
+
+// TODO: expose `Environment` Flow type (?)
+export type GraphQLTaggedNode = _GraphQLTaggedNode;

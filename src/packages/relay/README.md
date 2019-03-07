@@ -23,7 +23,11 @@ Before you start you should uninstall _all_ the Relay related packages you insta
 yarn add react @kiwicom/relay
 ```
 
-You should always use `@kiwicom/relay` package and never Relay directly. Please contact us directly in case something is problematic.
+Usage:
+
+- you should always use `@kiwicom/relay` package and never Relay dependencies directly
+- do not import internals of this package (no `@kiwicom/relay/something/private.js`)
+- please contact us directly in case something is problematic
 
 # Minimal example
 

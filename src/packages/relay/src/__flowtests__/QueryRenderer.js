@@ -1,12 +1,18 @@
 // @flow
 
 import * as React from 'react';
+import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
 import { QueryRenderer, graphql } from '../index';
 
 function placeholder() {
   return null;
 }
+
+const environment = new Environment({
+  network: Network.create(() => {}),
+  store: new Store(new RecordSource()),
+});
 
 module.exports = {
   minimalUsage() {
@@ -44,7 +50,7 @@ module.exports = {
           }
         `}
         onResponse={placeholder}
-        environment={placeholder}
+        environment={environment}
       />
     );
   },
@@ -57,7 +63,7 @@ module.exports = {
           }
         `}
         render={placeholder}
-        environment={placeholder}
+        environment={environment}
       />
     );
   },
