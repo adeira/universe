@@ -94,7 +94,7 @@ export default function globalIdField(
     context: any,
     info: GraphQLResolveInfo,
   ) => string | number,
-): GraphQLFieldConfig<*, *> {
+): GraphQLFieldConfig<any, any> {
   return {
     description:
       'The globally unique ID of an object. You can unmask this ID to get ' +
