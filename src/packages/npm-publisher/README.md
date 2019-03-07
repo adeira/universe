@@ -14,8 +14,8 @@ publish({
   // Where to store transpiled code before it's being published.
   buildCache: path.join(os.tmpdir(), 'PROJECT_ID', '.build'),
 
-  // Folder where to look for NPM packages. These packages must be
-  // public and version >=1.0.0.
+  // Folder where to look for NPM packages. It takes into account
+  // only packages with public visibility set in `package.json`.
   packages: '../packages',
 
   // Run in a "dry" mode (without publishing to NPM)?
