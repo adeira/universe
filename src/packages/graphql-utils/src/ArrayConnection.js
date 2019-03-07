@@ -15,7 +15,7 @@ import {
 export default function connectionFromArray<T>(
   data: Array<T>,
   args: ConnectionArguments,
-): Connection<T> {
+): $Exact<Connection<T>> {
   const { edges, pageInfo } = relayConnectionFromArray(data, args);
   const firstCursor = offsetToCursor(0);
   const lastCursor = offsetToCursor(data.length - 1);
