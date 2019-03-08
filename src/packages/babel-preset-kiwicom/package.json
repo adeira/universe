@@ -3,7 +3,8 @@
   "description": "Babel preset for JS used at Kiwi.com.",
   "homepage": "https://github.com/kiwicom/babel-preset-kiwicom",
   "private": false,
-  "version": "2.6.0",
+  "license": "MIT",
+  "version": "2.6.1",
   "main": "src/index.js",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.3",

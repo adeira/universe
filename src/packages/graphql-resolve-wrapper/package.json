@@ -2,8 +2,9 @@
   "name": "@kiwicom/graphql-resolve-wrapper",
   "description": "Utility which enables to wrap GraphQL resolvers with your custom functions.",
   "homepage": "https://github.com/kiwicom/graphql-resolve-wrapper",
+  "license": "MIT",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "src/index.js",
   "dependencies": {},
   "devDependencies": {

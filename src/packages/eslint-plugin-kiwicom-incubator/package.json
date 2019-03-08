@@ -2,8 +2,9 @@
   "name": "eslint-plugin-kiwicom-incubator",
   "description": "Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.",
   "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator",
+  "license": "MIT",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "src/index.js",
   "devDependencies": {
     "eslint": "^5.12.1"
