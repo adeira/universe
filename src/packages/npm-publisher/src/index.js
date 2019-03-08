@@ -17,6 +17,9 @@ type Options = {|
   +buildCache: string,
   +packages: string,
   +dryRun: boolean,
+
+  // Pattern of files to ignore.
+  +ignorePattern?: string,
 |};
 
 const FILES_TO_COPY = {
@@ -27,7 +30,7 @@ const FILES_TO_COPY = {
   'package.json': true,
 };
 
-const IGNORE_PATTERN = /__(flowtests|tests|mocks|snapshots|fixtures)__/;
+const DEFAULT_IGNORE_PATTERN = /__[a-z]+__/;
 
 function transformFileVariants(originalFilename, destinationFilename) {
   const getBabelConfig = (target: 'js' | 'flow') => {
@@ -74,6 +77,10 @@ export default function publish(options: Options) {
     log('DRY RUN');
   }
 
+  const ignorePattern = new RegExp(
+    options.ignorePattern ?? DEFAULT_IGNORE_PATTERN,
+  );
+
   rimraf(options.buildCache, () => {
     findNPMPackages(
       options.packages,
@@ -95,7 +102,7 @@ export default function publish(options: Options) {
                 path.join(packageFolderPath, './**/*.js'),
                 async (error, filenames) => {
                   filenames.forEach(filename => {
-                    if (filename.match(IGNORE_PATTERN)) {
+                    if (filename.match(ignorePattern)) {
                       return;
                     }
 
