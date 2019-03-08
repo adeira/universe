@@ -330,7 +330,7 @@ module.exports = {
   'react/jsx-boolean-value': OFF,
   'react/jsx-filename-extension': OFF,
   'react/jsx-handler-names': OFF,
-  'react/jsx-key': WARN,
+  'react/jsx-key': NEXT_VERSION_ERROR,
   'react/jsx-no-bind': ERROR,
   'react/jsx-no-comment-textnodes': WARN,
   'react/jsx-no-duplicate-props': ERROR,
