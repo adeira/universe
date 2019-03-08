@@ -2,6 +2,7 @@
   "name": "@kiwicom/automator",
   "private": true,
   "version": "0.0.0",
+  "license": "UNLICENSED",
   "main": "src/index.js",
   "dependencies": {
     "@kiwicom/environment": "^0",

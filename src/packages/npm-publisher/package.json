@@ -2,6 +2,7 @@
   "name": "@kiwicom/npm-publisher",
   "description": "Tools for automatically publishing of NPM packages",
   "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/npm-publisher",
+  "license": "MIT",
   "private": false,
   "version": "0.7.0",
   "main": "src/index.js",

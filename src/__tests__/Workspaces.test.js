@@ -14,6 +14,10 @@ describe('all workspaces', () => {
       if (packageJson.private === false) {
         expect(packageJson.description).not.toBeUndefined();
 
+        // We currently have only MIT packages.
+        // https://docs.npmjs.com/files/package.json#license
+        expect(packageJson.license).toBe('MIT');
+
         if (OSSPackages.has(packageJson.name)) {
           expect(packageJson.homepage).toMatch(
             /^https:\/\/github\.com\/kiwicom\/.+$/,
@@ -28,6 +32,8 @@ describe('all workspaces', () => {
         expect(
           packageJson.main !== undefined || packageJson.bin !== undefined,
         ).toBe(true);
+      } else {
+        expect(packageJson.license).toBe('UNLICENSED');
       }
 
       expect(packageJson.version).not.toBeUndefined();

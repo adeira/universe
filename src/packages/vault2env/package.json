@@ -2,8 +2,9 @@
   "name": "@kiwicom/vault2env",
   "description": "Utility to help us fetching ENV variables from Vault automatically.",
   "homepage": "https://github.com/kiwicom/vault2env-js",
+  "license": "MIT",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bin": {
     "vault2env": "bin/index.js"
   },

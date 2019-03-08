@@ -1,7 +1,8 @@
 {
   "name": "@kiwicom/fetch",
   "private": false,
-  "version": "2.2.1",
+  "license": "MIT",
+  "version": "2.2.2",
   "main": "src/fetchWithRetries.js",
   "homepage": "https://github.com/kiwicom/fetch",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
