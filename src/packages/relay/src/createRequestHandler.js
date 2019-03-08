@@ -4,17 +4,16 @@ import { Observable } from 'relay-runtime';
 import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
 
 import { forceFetch, isMutation, isQuery } from './helpers';
-import type {
-  CacheConfig,
-  RequestNode,
-  Uploadables,
-  Variables,
-} from './types.flow';
+import type { RequestNode, Uploadables, Variables } from './types.flow';
 
 const burstCache = new RelayQueryResponseCache({
   size: 250,
   ttl: 10 * 1000, // 10 seconds
 });
+
+export type CacheConfig = {|
+  +force?: ?boolean,
+|};
 
 type GraphQLResponse = {|
   +data?: null | Object,

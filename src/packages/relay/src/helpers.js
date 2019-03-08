@@ -1,21 +1,18 @@
 // @flow
 
-import type {
-  Variables,
-  Uploadables,
-  CacheConfig,
-  RequestNode,
-} from './types.flow';
+import type { Variables, Uploadables, RequestNode } from './types.flow';
 
-export const isMutation = (request: RequestNode) => {
+export const isMutation = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'mutation';
 };
 
-export const isQuery = (request: RequestNode) => {
+export const isQuery = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'query';
 };
 
-export const forceFetch = (cacheConfig: CacheConfig) => {
+export const forceFetch = (cacheConfig: {|
+  +force?: ?boolean,
+|}): boolean %checks => {
   return !!(cacheConfig && cacheConfig.force);
 };
 
@@ -23,7 +20,7 @@ export const handleData = (response: {|
   +headers: Headers,
   +json: () => Object,
   +text: () => string,
-|}) => {
+|}): string => {
   const contentType = response.headers.get('content-type');
   if (contentType && contentType.indexOf('application/json') !== -1) {
     return response.json();

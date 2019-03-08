@@ -3,10 +3,6 @@
 import type { RequestNode as _RequestNode } from 'relay-runtime'; // TODO: remove
 
 export type RequestNode = _RequestNode;
-export type CacheConfig = {|
-  +force?: ?boolean,
-  // incomplete on purpose
-|};
 export type Uploadables = { [key: string]: File | Blob };
 export type Variables = { [name: string]: $FlowFixMe };
 
