@@ -20,6 +20,11 @@ publish({
 
   // Run in a "dry" mode (without publishing to NPM)?
   dryRun: true,
+
+  //// Optionally:
+
+  // Patterns (files, folders, paths) to ignore while publishing the package.
+  ignorePattern: '/__[a-z]+__/',
 });
 ```
 
