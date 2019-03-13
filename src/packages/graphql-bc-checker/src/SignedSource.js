@@ -28,6 +28,8 @@ function hash(data, encoding) {
  *   `;
  *   const mySignedFile = SignedSource.signFile(myFile);
  *
+ * This packages originated from https://github.com/facebook/fbjs
+ * (cleaned up and tweaked for our use-case).
  */
 const SignedSource = {
   TokenNotFoundError,
