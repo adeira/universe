@@ -6,7 +6,7 @@
     "tagline": "Documentation for incubator/universe monorepo at Kiwi.com",
     "docs": {
       "graphql/debugging": {
-        "title": "Debugging Requests and Responses",
+        "title": "Debugging",
         "sidebar_label": "Debugging"
       },
       "graphql/faq": {
