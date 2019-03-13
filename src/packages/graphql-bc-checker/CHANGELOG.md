@@ -1,5 +1,8 @@
 # Unreleased
 
+# 1.4.0
+- BC checker now uses signed-source dependency directly
+
 # 1.3.0
 - BC checker now prints info about dangerous (but not breaking) changes
 

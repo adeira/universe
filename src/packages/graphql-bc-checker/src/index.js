@@ -9,9 +9,9 @@ import {
   lexicographicSortSchema,
   type GraphQLSchema,
 } from 'graphql';
-import SignedSource from '@kiwicom/signed-source';
 import fs from 'fs';
 
+import SignedSource from './SignedSource';
 import { buildBreakingChangesBlock } from './BCLogger';
 import {
   printBreakingChanges,
