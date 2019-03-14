@@ -1,10 +1,9 @@
 // @flow
 
-const os = require('os');
 const { pass, fail, skip } = require('create-jest-runner');
 const CLIEngine = require('eslint').CLIEngine;
 const isCI = require('is-ci');
-const { execSync } = require('child_process');
+const Git = require('@kiwicom/monorepo/src/Git');
 
 const formatter = require('./stylish');
 
@@ -27,27 +26,7 @@ type Options = {|
 
 */
 
-const changedFiles = (function() {
-  function _parseRows(changes) {
-    return changes.split(os.EOL).filter(row => row !== '');
-  }
-
-  const uncommittedChanges = _parseRows(
-    execSync('git --no-pager diff --name-only HEAD', {
-      encoding: 'utf8',
-    }),
-  );
-
-  const changesInLastCommitFiles = _parseRows(
-    execSync('git --no-pager diff --name-only HEAD^1 HEAD', {
-      encoding: 'utf8',
-    }),
-  );
-
-  return uncommittedChanges.length > 0
-    ? uncommittedChanges
-    : changesInLastCommitFiles;
-})();
+const changedFiles = Git.getChangesToTest();
 
 module.exports = ({ testPath, extraOptions } /*: Options */) => {
   const start = Date.now();

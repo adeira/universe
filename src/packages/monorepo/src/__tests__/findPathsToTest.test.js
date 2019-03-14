@@ -36,14 +36,6 @@ Array [
     },
   ],
   Array [
-    "WORKSPACES TO TEST: ",
-    Set {
-      "@kiwicom/graphql",
-      "@kiwicom/signed-source",
-      "@kiwicom/graphql-bc-checker",
-    },
-  ],
-  Array [
     "PATHS TO TEST: ",
     Set {
       "src/apps",
