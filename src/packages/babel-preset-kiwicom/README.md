@@ -42,6 +42,7 @@ type ApiType = {|
 */
 
 module.exports = function(api /*: ApiType */) {
+  api.assertVersion(7);
   api.cache.forever();
 
   const presets = ['@kiwicom/babel-preset-kiwicom'];
@@ -58,6 +59,7 @@ Alternatively, you can specify the transpilation target:
 
 ```js
 module.exports = function(api /*: ApiType */) {
+  api.assertVersion(7);
   api.cache.forever();
 
   return {
