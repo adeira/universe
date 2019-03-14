@@ -10,7 +10,7 @@ export default function findDirtyWorkspaces(
   Object.keys(workspaceDependencies).forEach(dependencyName => {
     const value = workspaceDependencies[dependencyName];
     changedFiles.forEach(changedFile => {
-      if (new RegExp(value.location).test(changedFile)) {
+      if (new RegExp(value.location + '/').test(changedFile)) {
         dirtyWorkspaces.add(dependencyName);
       }
     });
