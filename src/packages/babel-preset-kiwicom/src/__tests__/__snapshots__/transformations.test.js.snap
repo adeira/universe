@@ -105,9 +105,9 @@ if (__DEV__) {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/*@flow*/
 declare var __DEV__: boolean;
 
-// @flow
 if (__DEV__) {
   console.log('foo'); // eslint-disable-line no-console
 }
@@ -277,8 +277,8 @@ module.exports = {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/*@flow*/
 declare var __DEV__: boolean;
-// @flow
 module.exports = {
   rules: {},
   globals: {
@@ -366,15 +366,15 @@ exports[`matches expected output: ternary.js 2`] = `
 const dev = __DEV__ ? 'true' : 'false';
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/*@flow*/
 declare var __DEV__: boolean;
-// @flow
 // eslint-disable-next-line no-unused-vars
 const dev = __DEV__ ? 'true' : 'false';
 `;
 
 exports[`matches expected output: valid-code.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict-local
 
 export default async function test(a: Object): Object {
   return {
@@ -410,7 +410,7 @@ async function test(a) {
 
 exports[`matches expected output: valid-code.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict-local
 
 export default async function test(a: Object): Object {
   return {
@@ -422,8 +422,8 @@ export default async function test(a: Object): Object {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/*@flow strict-local*/
 declare var __DEV__: boolean;
-// @flow
 export default async function test(a: Object): Object {
   return { ...a,
     test_1: a?.b ?? 'default',

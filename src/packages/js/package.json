@@ -4,7 +4,7 @@
   "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/js",
   "license": "MIT",
   "private": false,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "src/index.js",
   "dependencies": {}
 }
