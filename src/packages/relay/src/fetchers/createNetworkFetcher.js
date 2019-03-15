@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import fetchWithRetries from '@kiwicom/fetch';
 import { invariant } from '@kiwicom/js';

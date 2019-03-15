@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import setPrototypeOf from './setPrototypeOf';
 

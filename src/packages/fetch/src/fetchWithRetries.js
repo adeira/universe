@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import { sprintf, warning } from '@kiwicom/js';
 
@@ -24,7 +24,7 @@ export { TimeoutError, ResponseError };
 export default function fetchWithRetries(
   uri: string,
   initWithRetries?: ?InitWithRetries,
-): Promise<any> {
+): Promise<Response> {
   const { fetchTimeout, retryDelays, ...init } = initWithRetries || {};
   const _fetchTimeout = fetchTimeout != null ? fetchTimeout : DEFAULT_TIMEOUT;
   const _retryDelays = retryDelays != null ? retryDelays : DEFAULT_RETRIES;

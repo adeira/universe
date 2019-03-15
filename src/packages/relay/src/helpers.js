@@ -1,4 +1,4 @@
-// @flow
+// @flow strict-local
 
 import type { Variables, Uploadables, RequestNode } from './types.flow';
 
@@ -16,13 +16,9 @@ export const forceFetch = (cacheConfig: {|
   return !!(cacheConfig && cacheConfig.force);
 };
 
-export const handleData = (response: {|
-  +headers: Headers,
-  +json: () => Object,
-  +text: () => string,
-|}): string => {
+export const handleData = (response: Response) => {
   const contentType = response.headers.get('content-type');
-  if (contentType && contentType.indexOf('application/json') !== -1) {
+  if (contentType != null && contentType.indexOf('application/json') !== -1) {
     return response.json();
   }
   return response.text();

@@ -1,12 +1,12 @@
-// @flow
+// @flow strict-local
 
 import { handleData } from '../helpers';
 
 const jsonMock = jest.fn();
 const textMock = jest.fn();
 
+// $FlowExpectedError: incomplete Response object for testing purposes only
 const createResponse = getMockFunction => ({
-  // $FlowExpectedError: incomplete and mocked Headers object for testing purposes only
   headers: {
     get: getMockFunction,
   },
