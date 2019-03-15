@@ -1,5 +1,7 @@
 // @flow
 
+import { useEffect } from 'react';
+
 import {
   createPaginationContainer,
   graphql,
@@ -14,7 +16,10 @@ module.exports = {
   validUsage() {
     return createPaginationContainer(
       (props: Props) => {
-        return JSON.stringify(props.relay.loadMore(5));
+        useEffect(() => {
+          props.relay.loadMore(5);
+        });
+        return null;
       },
       {
         data: graphql`
