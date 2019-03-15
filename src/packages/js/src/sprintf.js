@@ -8,7 +8,9 @@ export default function sprintf(format: string, ...args: mixed[]): string {
   let index = 0;
   return format
     .replace(/%s/g, () => String(args[index++]))
-    .replace(/%j/g, () => JSON.stringify(args[index++], getCircularReplacer()));
+    .replace(/%j/g, () =>
+      String(JSON.stringify(args[index++], getCircularReplacer())),
+    );
 }
 
 function getCircularReplacer() {
