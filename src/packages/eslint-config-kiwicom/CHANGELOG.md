@@ -1,5 +1,9 @@
 # Unreleased
 
+# 3.2.0
+- New rule `jest/no-empty-title` shows warnings
+- Internal dependencies upgraded (no issues expected)
+
 # 3.1.0
 - Show new warnings for the following rules:
   - [node/no-unpublished-bin](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-unpublished-bin.md)
