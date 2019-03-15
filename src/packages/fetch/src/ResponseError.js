@@ -1,11 +1,11 @@
-// @flow
+// @flow strict-local
 
 import setPrototypeOf from './setPrototypeOf';
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types
  */
-function ResponseError(response: Object, message?: string) {
+function ResponseError(response: Response, message?: string) {
   // property 'error.response' is unknown in Error (but that's fine, we are extending here)
   // $FlowExpectedError: ^^
   const instance = new Error(message);

@@ -2,6 +2,7 @@
 
 import { ResponseError } from '../fetchWithRetries';
 
+// $FlowExpectedError: incomplete Response object for testing purposes only
 const fetchResponse = {
   status: 403,
 };
