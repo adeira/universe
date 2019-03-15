@@ -8,7 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@kiwicom/fetch": "^2.2.2",
-    "@kiwicom/js": "^0.5.0",
+    "@kiwicom/js": "^0.6.0",
     "react-relay": "^3.0.0",
     "relay-compiler": "^3.0.0",
     "relay-runtime": "^3.0.0"
