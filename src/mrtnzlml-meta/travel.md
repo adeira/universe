@@ -58,6 +58,10 @@ Providers I actually tried:
 
 - [Claro](http://www.claro.com.pe/personas/) - 3 GB for 30 Soles (end of 2018)
 
+## Mexico
+
+- [Telcel](https://www.telcel.com/)
+
 # Powerrr!
 
 - https://www.worldstandards.eu/electricity/plug-voltage-by-country/
@@ -116,6 +120,8 @@ These are coworking I actually visited. Highlighted coworkings are really good.
   - zero community, stupid chairs
   - can be quite noisy but absolutely amazing location in CDMX
 - https://colmenacreativa.com/
+  - great community
+  - free coffee/water
 
 ## Prague:
 - **http://opero.cz/en**
