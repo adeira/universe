@@ -5,6 +5,7 @@ You can consider this document to be a checklist for your travels. But first - y
 - [ ] check Airbnb / Beroomers options
 - [ ] check coworking options
 - [ ] buy travel insurance (medical)
+- [ ] do online checkin, buy meal, better seat
 
 https://packhacker.com/guide/working-remotely/
 
