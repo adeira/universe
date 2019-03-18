@@ -42,9 +42,7 @@ beforeEach(() => {
         resolvePromise: {
           type: GraphQLString,
           // keep it `async` please
-          resolve: async () => {
-            return 'bbb';
-          },
+          resolve: () => Promise.resolve('bbb'),
         },
 
         throwError: {
