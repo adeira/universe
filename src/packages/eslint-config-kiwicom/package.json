@@ -7,6 +7,7 @@
   "version": "3.1.2",
   "main": "index.js",
   "dependencies": {
+    "@kiwicom/monorepo": "^0.4.0",
     "chalk": "^2.4.2",
     "create-jest-runner": "^0.5.0",
     "eslint-config-prettier": "^4.1.0",

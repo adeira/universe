@@ -1,55 +1,34 @@
 // @flow
 
 import os from 'os';
-import execa from 'execa';
 import isCI from 'is-ci';
 
-export function _parseRows(changes: string): $ReadOnlyArray<string> {
-  return changes.split(os.EOL).filter(row => row !== '');
-}
+import Git from './Git';
 
 /**
- * Returns uncommitted changes only in the Git worktree.
- */
-export function getWorktreeChangedFiles(): $ReadOnlyArray<string> {
-  const { stdout: rawUncommittedChanges } = execa.sync('git', [
-    '--no-pager',
-    'diff',
-    '--name-only',
-    'HEAD',
-  ]);
-
-  return _parseRows(rawUncommittedChanges);
-}
-
-/**
- * Returns changed files in the last commit. Uses this command:
+ * This function tries to determine what changes are relevant at the moment.
+ * Relevant changes are unstaged/uncommited files, modified files on the branch
+ * from master or changes in the last commit as a fallback. It expects default
+ * branch to be master. This is how it works internally:
  *
- *     # uncommitted changes
- *     git --no-pager diff --name-only HEAD
+ * First it executes these commands:
  *
- * In case there no changes (every change is committed) this command is used:
+ *     git ls-files --others --exclude-standard         # untracked files
+ *       +
+ *     git --no-pager diff --name-only HEAD             # uncommited but staged files
+ *       +
+ *     git --no-pager diff --name-only master...HEAD    # modified files on the feature branch (3 dots are important)
  *
- *     # changes in the last commit
- *     git --no-pager diff --name-only HEAD^1 HEAD
+ * Fallback for master or new branches of no result was returned:
  *
- * It returns something like this:
+ *     git --no-pager diff --name-only HEAD^ HEAD       # latest commit (doesn't work with only one commit in Git history)
  *
- *     src/packages/eslint-config-kiwicom/index.js
- *     src/packages/eslint-config-kiwicom/ourRules.js
- *     src/packages/eslint-config-kiwicom/package.json
+ * For more details: https://git-scm.com/docs/git-diff
  */
 export default function getChangedFiles(): $ReadOnlyArray<string> {
-  const { stdout: rawChangesInLastCommitFiles } = execa.sync('git', [
-    '--no-pager',
-    'diff',
-    '--name-only',
-    'HEAD^1',
-    'HEAD',
-  ]);
-
-  const uncommittedChanges = getWorktreeChangedFiles();
-  const changesInLastCommitFiles = _parseRows(rawChangesInLastCommitFiles);
+  const uncommittedChanges = Git.getUntrackedFiles().concat(
+    Git.getWorktreeChangedFiles(),
+  );
 
   // It's OK to run tests on uncommitted changes locally but it's unexpected
   // in CI because it indicates that CI generated something which is not
@@ -69,5 +48,5 @@ This usually means that CI generated some changes (for example during installati
 
   return uncommittedChanges.length > 0
     ? uncommittedChanges
-    : changesInLastCommitFiles;
+    : Git.getLastCommitChanges();
 }

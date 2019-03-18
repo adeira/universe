@@ -29,7 +29,6 @@ export default function findPathsToTest(
   });
 
   console.warn('DIRTY WORKSPACES: ', dirtyWorkspaces); // eslint-disable-line no-console
-  console.warn('WORKSPACES TO TEST: ', relatedWorkspaces); // eslint-disable-line no-console
   console.warn('PATHS TO TEST: ', pathsToTest); // eslint-disable-line no-console
 
   return pathsToTest;

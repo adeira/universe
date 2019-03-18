@@ -1,6 +1,6 @@
 // @flow
 
-import { getWorktreeChangedFiles } from '@kiwicom/monorepo';
+import { Git } from '@kiwicom/monorepo';
 
 import commitAllChanges from '../commitAllChanges';
 import openMergeRequest from './openMergeRequest';
@@ -10,7 +10,7 @@ export default async function commitAllAndOpenMR(
   taskIdentifier: string,
   commitMessage: string,
 ) {
-  const changedFiles = getWorktreeChangedFiles();
+  const changedFiles = Git.getWorktreeChangedFiles();
   if (changedFiles.length === 0) {
     log(taskIdentifier, 'nothing to do here, skipping');
     return;
