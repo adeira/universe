@@ -268,7 +268,8 @@ module.exports = {
   'jest/expect-expect': OFF,
   'jest/lowercase-name': OFF,
   'jest/no-alias-methods': OFF,
-  'jest/no-disabled-tests': WARN,
+  'jest/no-disabled-tests': NEXT_VERSION_ERROR,
+  'jest/no-empty-title': NEXT_VERSION_ERROR,
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': ERROR,
@@ -279,6 +280,7 @@ module.exports = {
   'jest/no-test-prefixes': OFF,
   'jest/no-test-return-statement': ERROR,
   'jest/no-truthy-falsy': OFF,
+  'jest/prefer-called-with': WARN,
   'jest/prefer-expect-assertions': OFF,
   'jest/prefer-inline-snapshots': OFF,
   'jest/prefer-spy-on': OFF,
@@ -287,12 +289,11 @@ module.exports = {
   'jest/prefer-to-be-undefined': ERROR,
   'jest/prefer-to-contain': ERROR,
   'jest/prefer-to-have-length': ERROR,
+  'jest/prefer-todo': ERROR,
   'jest/require-tothrow-message': OFF,
   'jest/valid-describe': ERROR,
-  'jest/valid-expect': WARN,
+  'jest/valid-expect': NEXT_VERSION_ERROR,
   'jest/valid-expect-in-promise': ERROR,
-  'jest/prefer-todo': ERROR,
-  'jest/prefer-called-with': WARN,
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
   'prefer-object-spread/prefer-object-spread': WARN,
