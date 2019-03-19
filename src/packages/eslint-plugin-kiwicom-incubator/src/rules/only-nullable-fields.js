@@ -50,6 +50,13 @@ module.exports = {
         }
       },
 
+      CallExpression: function(node /*: Node */) {
+        // disallow GraphQLNonNull
+        if (ignoreRule === false && node.callee.name === 'GraphQLNonNull') {
+          context.report(node, 'Avoid using GraphQLNonNull.');
+        }
+      },
+
       NewExpression: function(node /*: Node */) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           ignoreRule = true;

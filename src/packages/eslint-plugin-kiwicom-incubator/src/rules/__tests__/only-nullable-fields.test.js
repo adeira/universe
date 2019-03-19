@@ -11,16 +11,15 @@ const ruleTester = new RuleTester({
   },
 });
 
-const NewExpressionError = {
-  message: 'Avoid using GraphQLNonNull.',
-  type: 'NewExpression',
-};
+const errors = ['Avoid using GraphQLNonNull.'];
 
 ruleTester.run('only-nullable-fields', rule, {
   valid: [
     '({ fields: { id: { type: GraphQLID } } })',
     '({ fields: { list: { type: new GraphQLList(GraphQLBaggage) } } })',
+    'new GraphQLInputObjectType({ fields: { from: { type: GraphQLNonNull(GraphQLString) } } })',
     'new GraphQLInputObjectType({ fields: { from: { type: new GraphQLNonNull(GraphQLString) } } })',
+    '({ args: { term: { type: GraphQLNonNull(GraphQLString) } } })',
     '({ args: { term: { type: new GraphQLNonNull(GraphQLString) } } })',
     '({ fields: {} })',
     '({})',
@@ -28,38 +27,34 @@ ruleTester.run('only-nullable-fields', rule, {
   ],
 
   invalid: [
-    // TODO: this should be invalid as well
-    // {
-    //   code: '({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } })',
-    //   errors: [NewExpressionError],
-    // },
+    {
+      code: '({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } })',
+      errors,
+    },
     {
       code: '({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } })',
-      errors: [NewExpressionError],
+      errors,
+    },
+    {
+      code:
+        '({ fields: { list: { type: GraphQLNonNull(GraphQLList(GraphQLBaggage)) } } })',
+      errors,
     },
     {
       code:
         '({ fields: { list: { type: new GraphQLNonNull(new GraphQLList(GraphQLBaggage)) } } })',
-      errors: [NewExpressionError],
+      errors,
     },
     {
       code:
         'new GraphQLInputObjectType({ fields: { from: { type: new GraphQLNonNull(GraphQLString) } } });' + // this is fine
         'var b = { fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }', // this is not
-      errors: [
-        {
-          ...NewExpressionError,
-          ...{
-            line: 1,
-            column: 127,
-          },
-        },
-      ],
+      errors,
     },
     {
       code:
         'export default { type: new GraphQLList(new GraphQLNonNull(GraphQLBooking)) };',
-      errors: [NewExpressionError],
+      errors,
     },
     {
       code:
@@ -67,7 +62,7 @@ ruleTester.run('only-nullable-fields', rule, {
         '  type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(GraphQLPlace))),' +
         '  args: { search: { type: GraphQLString } }' +
         '}',
-      errors: [NewExpressionError, NewExpressionError],
+      errors: ['Avoid using GraphQLNonNull.', 'Avoid using GraphQLNonNull.'],
     },
   ],
 });
