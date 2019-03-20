@@ -9,8 +9,8 @@ This monorepo hosts source code of the following NPM packages:
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
 - 2.6.2 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
-- 3.2.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
-- 0.3.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
+- 3.2.1 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 0.4.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
 - 2.2.3 [@kiwicom/fetch](https://github.com/kiwicom/fetch) - Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.
 - 1.4.0 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
 - 0.7.0 [@kiwicom/graphql-global-id](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/global-id) - Utility to manage ID fields in GraphQL correctly.
