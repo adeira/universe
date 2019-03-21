@@ -26,28 +26,54 @@ function getWorkspaces(packageJSON: Object): $ReadOnlyArray<string> {
   throw new Error('Cannot find workspaces definition.');
 }
 
-export function iterateWorkspaces(cb: (packageJSONLocation: string) => void) {
+// src/apps        =>  src/apps/package.json
+// src/packages/*  =>  src/packages/*/package.json
+function expandWorkspaceGlob(originalGlob: string): string {
+  let expandedGlob;
+  if (originalGlob.match(/\*$/)) {
+    expandedGlob = originalGlob.replace(/\*$/, '*/package.json');
+  } else {
+    expandedGlob = originalGlob + '/package.json';
+  }
+  return expandedGlob;
+}
+
+/**
+ * @deprecated Use `getWorkspacesSync()` instead.
+ */
+export function iterateWorkspaces(
+  cb: (packageJSONLocation: string) => void,
+): void {
   const rootPackageJSON = findRootPackageJson();
   getWorkspaces(rootPackageJSON).forEach(workspace => {
-    // src/apps        =>  src/apps/package.json
-    // src/packages/*  =>  src/packages/*/package.json
-    let workspaceGlobPattern;
-    if (workspace.match(/\*$/)) {
-      workspaceGlobPattern = workspace.replace(/\*$/, '*/package.json');
-    } else {
-      workspaceGlobPattern = workspace + '/package.json';
-    }
-
-    const packageJSONLocations = glob.sync(workspaceGlobPattern, {
-      absolute: true,
-    });
-
-    packageJSONLocations.forEach(packageJSONLocation => {
-      cb(packageJSONLocation);
-    });
+    const workspaceGlobPattern = expandWorkspaceGlob(workspace);
+    glob
+      .sync(workspaceGlobPattern, {
+        absolute: true,
+      })
+      .forEach(packageJSONLocation => {
+        cb(packageJSONLocation);
+      });
   });
 }
 
+export function getWorkspacesSync(): $ReadOnlyArray<string> {
+  const rootPackageJSON = findRootPackageJson();
+  let packageJSONLocations = [];
+  getWorkspaces(rootPackageJSON).forEach(workspace => {
+    const workspaceGlobPattern = expandWorkspaceGlob(workspace);
+    packageJSONLocations = packageJSONLocations.concat(
+      glob.sync(workspaceGlobPattern, {
+        absolute: true,
+      }),
+    );
+  });
+  return packageJSONLocations;
+}
+
+/**
+ * @deprecated
+ */
 export function iterateWorkspacesInPath(
   path: string,
   cb: (packageJSONLocation: string) => void,

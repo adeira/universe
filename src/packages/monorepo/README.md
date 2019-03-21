@@ -18,7 +18,7 @@ const rootPackageJSON = findRootPackageJson();
 
 It memoizes the result internally so when you call it for the second time you'll get the result instantly. Function `findRootPackageJson` returns the file content (object) but function `findRootPackageJsonPath` returns only the path.
 
-## `iterateWorkspaces`, `iterateWorkspacesInPath`
+## `iterateWorkspaces`, `iterateWorkspacesInPath` (deprecated)
 
 This function iterates all the workspaces or workspaces only in one path respectively. Example:
 
@@ -32,6 +32,20 @@ iterateWorkspaces(packageJSONLocation => {
     expect(packageJson.private).not.toBeUndefined();
   });
 });
+```
+
+## `getWorkspacesSync`
+
+```js
+const packageJSONLocations = getWorkspacesSync();
+console.warn(packageJSONLocations);
+```
+
+Returns locations of all `package.json` files in your monorepo:
+
+```text
+[ '/absolute/path/src/packages/js/package.json',
+  '/absolute/path/src/packages/monorepo/package.json' ]
 ```
 
 ## `unstable_runTests`
