@@ -37,3 +37,23 @@ iterateWorkspaces(packageJSONLocation => {
 ## `unstable_runTests`
 
 TODO
+
+## `Git.*` utility
+
+TODO
+
+## `monorepo-babel-node` binary
+
+This binary allows you to run scripts just like with `babel-node` except it takes into account correct Babel configuration (`upward` mode by default) and it doesn't ignore our own Yarn Workspace dependencies while transpiling (`node_modules/@kiwicom/*`). Usage (`package.json`):
+
+```json
+{
+  "scripts": {
+    "test-bc": "monorepo-babel-node ./scripts/test-bc.js"
+  }
+}
+```
+
+Where `scripts/test-bc.js` is normal JS file with all the modern JS features.
+
+There are currently two Node.js flags enabled: `--inspect` and `--inspect-brk`. Rest of the flags are forwarded to the executed script.
