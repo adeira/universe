@@ -1,5 +1,6 @@
 // @flow
 
+import path from 'path';
 import { iterateWorkspaces } from '@kiwicom/monorepo';
 
 import OSSPackages from '../open-source';
@@ -23,8 +24,9 @@ describe('all workspaces', () => {
             /^https:\/\/github\.com\/kiwicom\/.+$/,
           );
         } else {
-          expect(packageJson.homepage).toMatch(
-            /^https:\/\/gitlab\.skypicker\.com\/incubator\/universe\/tree\/master\/src\/packages\/.+$/,
+          expect(packageJson.homepage).toBe(
+            'https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/' +
+              path.basename(path.dirname(packageJSONLocation)),
           );
         }
 
