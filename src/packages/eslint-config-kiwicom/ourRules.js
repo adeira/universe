@@ -362,6 +362,7 @@ module.exports = {
   'react-native/no-unused-styles': ERROR,
 
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
+  'relay/compat-uses-vars': OFF, // we do not use Relay Compat
   'relay/generated-flow-types': ERROR,
   'relay/graphql-naming': ERROR,
   'relay/graphql-syntax': ERROR,
@@ -443,9 +444,14 @@ module.exports = {
   'node/shebang': NEXT_VERSION_ERROR,
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
+  'eslint-comments/disable-enable-pair': OFF,
+  'eslint-comments/no-aggregating-enable': OFF,
   'eslint-comments/no-duplicate-disable': NEXT_VERSION_ERROR,
-  'eslint-comments/no-unused-enable': NEXT_VERSION_ERROR,
+  'eslint-comments/no-restricted-disable': OFF,
   'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
+  'eslint-comments/no-unused-disable': OFF,
+  'eslint-comments/no-unused-enable': NEXT_VERSION_ERROR,
+  'eslint-comments/no-use': OFF,
 
   // Kiwi.com custom rules
   'kiwicom-incubator/only-nullable-fields': ERROR,
