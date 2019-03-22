@@ -1,5 +1,8 @@
 # Unreleased
 
+# 3.3.0
+- Show warnings for new `react-hooks/exhaustive-deps` rule (see: https://github.com/facebook/react/issues/14920)
+
 # 3.2.0
 - New rule `jest/no-empty-title` shows warnings
 - Internal dependencies upgraded (no issues expected)
