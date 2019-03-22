@@ -6,7 +6,6 @@ import log from './log';
 import updateDocs from './tasks/updateDocs';
 import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
 import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
-import yarnUpgrade from './tasks/yarnUpgrade';
 
 const ciNode = {
   // nodes are indexed from 1 (not zero)
@@ -22,7 +21,6 @@ const tasks = new Map([
   ['UPDATE_DOCS', updateDocs], // updates Docs and sends MR to GitLab repo
   ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
   ['🧐', updateGraphQLSkymock],
-  ['💃️', yarnUpgrade],
 ]);
 
 // Makes the script crash on unhandled rejections instead of silently
