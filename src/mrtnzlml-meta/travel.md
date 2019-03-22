@@ -136,3 +136,7 @@ These are coworking I actually visited. Highlighted coworkings are really good.
 - http://thehive.co.th/ (Bangkok)
   - zero community
   - stupid tables but great and welcoming staff in a nice building
+
+# The Problems in Remote Working
+
+Issues are loneliness, ability to disconnect, distractions (cats on keyboards 🐱), missing out on watercooler talk & poor quality communications tools. Also, remote members fear their work is judged more. https://medium.com/@rrhoover/the-problems-in-remote-working-1a6f165585d
