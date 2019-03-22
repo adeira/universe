@@ -6,6 +6,7 @@
 
 const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 
+// SEE: https://jestjs.io/docs/en/configuration.html
 const commonProjectConfig = {
   // runs once per test file (before `setupFilesAfterEnv` and before
   // test framework is being installed)
@@ -19,6 +20,8 @@ const commonProjectConfig = {
   },
 
   timers: 'fake',
+
+  bail: 100,
 };
 
 module.exports = {
