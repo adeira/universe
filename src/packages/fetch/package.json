@@ -2,15 +2,15 @@
   "name": "@kiwicom/fetch",
   "private": false,
   "license": "MIT",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "main": "src/fetchWithRetries.js",
   "homepage": "https://github.com/kiwicom/fetch",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
     "@kiwicom/js": "^0.6.0",
-    "cross-fetch": "^3.0.0"
+    "cross-fetch": "^3.0.1"
   },
   "devDependencies": {
-    "lolex": "^3.0.0"
+    "lolex": "^3.1.0"
   }
 }
