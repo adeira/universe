@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.3.0
+- HTTP status code 429 (Too Many Requests) is now considered to be non-transient (no retries)
+- Cross-fetch ponyfill upgraded to the latest version (https://github.com/lquixada/cross-fetch/releases/tag/v3.0.1)
+
 # 2.2.0
 - Flow types are now strict about inputs values
 
