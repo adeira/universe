@@ -13,15 +13,15 @@ import Git from './Git';
  *
  * First it executes these commands:
  *
- *     git ls-files --others --exclude-standard         # untracked files
+ *     git ls-files --others --exclude-standard               # untracked files
  *       +
- *     git --no-pager diff --name-only HEAD             # uncommited but staged files
+ *     git --no-pager diff --name-only HEAD                   # uncommited but staged files
  *       +
- *     git --no-pager diff --name-only master...HEAD    # modified files on the feature branch (3 dots are important)
+ *     git --no-pager diff --name-only origin/master...HEAD   # modified files on the feature branch (3 dots are important)
  *
  * Fallback for master or new branches of no result was returned:
  *
- *     git --no-pager diff --name-only HEAD^ HEAD       # latest commit (doesn't work with only one commit in Git history)
+ *     git --no-pager diff --name-only HEAD^ HEAD             # latest commit (doesn't work with only one commit in Git history)
  *
  * For more details: https://git-scm.com/docs/git-diff
  */

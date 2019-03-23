@@ -32,7 +32,7 @@ const Git = {
     const { stdout: rawChanges } = git([
       'diff',
       '--name-only',
-      'master...HEAD',
+      'origin/master...HEAD',
     ]);
     return _parseRows(rawChanges);
   },
