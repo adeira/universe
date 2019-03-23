@@ -114,8 +114,9 @@ export default function fetchWithRetries(
     function shouldRetry(attempt: number, statusCode?: number): boolean {
       const nonTransientCodes = [
         400, // Bad Request (it's not gonna be better next time)
-        401, // Unauthorized (it's not gonna be authorized)
-        403, // Forbidden
+        401, // Unauthorized (request is not authorized - next time the same)
+        403, // Forbidden (server understands but refuses to authorize)
+        429, // Too Many Requests (stop DDoS-ing, rate limiting); TODO: take into account `Retry-After` header https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
 
         // TODO: consider every 4xx code?
         //  https://stackoverflow.com/q/47680711/3135248
