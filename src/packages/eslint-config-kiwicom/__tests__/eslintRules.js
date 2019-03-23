@@ -17,6 +17,7 @@ Object.keys(require('../package.json').dependencies)
       'eslint-plugin-node',
       'eslint-plugin-prefer-object-spread',
       'eslint-plugin-relay',
+      'eslint-plugin-react-hooks',
     ];
     return whitelistedPlugins.includes(dep);
   })

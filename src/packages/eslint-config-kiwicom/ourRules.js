@@ -345,6 +345,7 @@ module.exports = {
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
   'react-hooks/rules-of-hooks': ERROR,
+  'react-hooks/exhaustive-deps': NEXT_VERSION_ERROR,
 
   // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
   'jsx-a11y/accessible-emoji': ERROR,
