@@ -18,12 +18,10 @@ export default async function commitAllChanges(
 ): Promise<string> {
   const gitBranchName = createBranchName(changedFiles);
 
-  // TODO: add support for automatic rebasing on top of current master branch
-
   await _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
   await _git(['config', 'user.name', 'Automator']);
   await _git(['remote', 'set-url', 'origin', require('../repoURL')]);
-  await _git(['checkout', '-b', gitBranchName]);
+  await _git(['checkout', '-B', gitBranchName, 'HEAD']);
   await _git(['add', '--all']);
   await _git(['commit', '-am', commitMessage]);
   await _git(['push', 'origin', gitBranchName]);
