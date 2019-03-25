@@ -29,18 +29,18 @@ Set {
   expect(warnings).toMatchInlineSnapshot(`
 Array [
   Array [
-    "DIRTY WORKSPACES: ",
+    "DIRTY WORKSPACES:",
     Set {
       "@kiwicom/graphql",
       "@kiwicom/signed-source",
     },
   ],
   Array [
-    "PATHS TO TEST: ",
+    "TESTING WORKSPACES:",
     Set {
-      "src/apps",
-      "src/packages/signed-source",
-      "src/packages/bc-checker",
+      "@kiwicom/graphql",
+      "@kiwicom/signed-source",
+      "@kiwicom/graphql-bc-checker",
     },
   ],
 ]

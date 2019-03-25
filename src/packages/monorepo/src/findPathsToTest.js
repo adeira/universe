@@ -28,8 +28,8 @@ export default function findPathsToTest(
     pathsToTest.add(workspaceDependencies[relatedWorkspace].location);
   });
 
-  console.warn('DIRTY WORKSPACES: ', dirtyWorkspaces); // eslint-disable-line no-console
-  console.warn('PATHS TO TEST: ', pathsToTest); // eslint-disable-line no-console
+  console.warn('DIRTY WORKSPACES:', dirtyWorkspaces); // eslint-disable-line no-console
+  console.warn('TESTING WORKSPACES:', relatedWorkspaces); // eslint-disable-line no-console
 
   return pathsToTest;
 }

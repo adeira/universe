@@ -4,6 +4,7 @@ import isCI from 'is-ci';
 
 import log from './log';
 import updateDocs from './tasks/updateDocs';
+import updateHiringBanners from './tasks/updateHiringBanners';
 import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
 import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
 
@@ -19,6 +20,7 @@ const tasks = new Map([
   // <!-- AUTOMATOR:UPDATE_DOCS --> ... <!-- /AUTOMATOR:UPDATE_DOCS -->
   //
   ['UPDATE_DOCS', updateDocs], // updates Docs and sends MR to GitLab repo
+  ['HIRING_BANNER', updateHiringBanners],
   ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
   ['🧐', updateGraphQLSkymock],
 ]);

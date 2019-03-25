@@ -50,20 +50,20 @@ function updateNPMPackagesInfo(
 
   const rootFolder = path.dirname(findRootPackageJsonPath());
 
-  glob(path.join(rootFolder, '**/*.{md,html}'), (error, filenames) => {
-    filenames.forEach(filename => {
-      if (/node_modules/.test(filename)) {
-        return;
-      }
+  glob(
+    path.join(rootFolder, '**/*.{md,html}'),
+    { ignore: ['**/node_modules/**'] },
+    (error, filenames) => {
+      filenames.forEach(filename => {
+        const file = fs.readFileSync(filename).toString();
+        const newFile = replaceAutomatorTags(file, taskIdentifier, finalString);
+        if (file !== newFile) {
+          log(taskIdentifier, `replacing content of ${filename}`);
+          fs.writeFileSync(filename, newFile);
+        }
+      });
 
-      const file = fs.readFileSync(filename).toString();
-      const newFile = replaceAutomatorTags(file, taskIdentifier, finalString);
-      if (file !== newFile) {
-        log(taskIdentifier, `replacing content of ${filename}`);
-        fs.writeFileSync(filename, newFile);
-      }
-    });
-
-    cb();
-  });
+      cb();
+    },
+  );
 }

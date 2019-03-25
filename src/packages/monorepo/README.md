@@ -1,5 +1,7 @@
 This package contains many useful utilities to work with monorepo.
 
+<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+
 # Installation
 
 ```
