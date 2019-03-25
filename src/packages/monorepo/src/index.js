@@ -8,8 +8,9 @@ import {
   findRootPackageJsonPath,
 } from './findRootPackageJson';
 import Git from './Git';
+import ChildProcess from './ChildProcess';
 
-export { Git, findRootPackageJson, findRootPackageJsonPath };
+export { Git, findRootPackageJson, findRootPackageJsonPath, ChildProcess };
 
 function getWorkspaces(packageJSON: Object): $ReadOnlyArray<string> {
   if (Array.isArray(packageJSON.workspaces)) {

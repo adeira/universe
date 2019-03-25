@@ -7,6 +7,7 @@ import updateDocs from './tasks/updateDocs';
 import updateHiringBanners from './tasks/updateHiringBanners';
 import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
 import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
+import updateDependencies from './tasks/updateDependencies';
 
 const ciNode = {
   // nodes are indexed from 1 (not zero)
@@ -23,6 +24,7 @@ const tasks = new Map([
   ['HIRING_BANNER', updateHiringBanners],
   ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
   ['🧐', updateGraphQLSkymock],
+  ['☝️', updateDependencies],
 ]);
 
 // Makes the script crash on unhandled rejections instead of silently
