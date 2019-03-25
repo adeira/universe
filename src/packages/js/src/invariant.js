@@ -34,7 +34,6 @@ export default function invariant(
       error.name = 'Invariant Violation';
     }
 
-    (error: any).framesToPop = 1; // Skip invariant's own stack frame.
     throw error;
   }
 }
