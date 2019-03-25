@@ -56,6 +56,10 @@ TODO
 
 TODO
 
+## `ChildProcess`
+
+TODO (expose it first)
+
 ## `monorepo-babel-node` binary
 
 This binary allows you to run scripts just like with `babel-node` except it takes into account correct Babel configuration (`upward` mode by default) and it doesn't ignore our own Yarn Workspace dependencies while transpiling (`node_modules/@kiwicom/*`). Usage (`package.json`):

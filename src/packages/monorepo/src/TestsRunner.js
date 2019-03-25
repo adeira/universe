@@ -1,16 +1,16 @@
 // @flow
 
-import execa from 'execa';
 import { invariant } from '@kiwicom/js';
 
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
+import ChildProcess from './ChildProcess';
 import { type WorkspaceDependencies } from './Workspaces.flow';
 
 function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
-  return execa.sync(
+  return ChildProcess.spawnSync(
     'jest',
     [
       '--config=.jest.config.js',
@@ -66,7 +66,11 @@ type CINode = {|
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  const { stdout } = execa.sync('yarn', ['workspaces', 'info', '--json']);
+  const stdout = ChildProcess.spawnSync('yarn', [
+    'workspaces',
+    'info',
+    '--json',
+  ]);
   const workspaceDependencies: WorkspaceDependencies = JSON.parse(
     JSON.parse(stdout).data,
   );
