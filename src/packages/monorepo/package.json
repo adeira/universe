@@ -4,10 +4,11 @@
   "homepage": "https://github.com/kiwicom/monorepo-utils",
   "license": "MIT",
   "private": false,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "main": "src/index.js",
   "bin": {
-    "monorepo-babel-node": "bin/monorepo-babel-node.js"
+    "monorepo-babel-node": "bin/monorepo-babel-node.js",
+    "monorepo-run-tests": "bin/monorepo-run-tests.js"
   },
   "dependencies": {
     "@babel/register": "^7.4.0",

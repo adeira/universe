@@ -7,15 +7,9 @@ import {
   findRootPackageJson,
   findRootPackageJsonPath,
 } from './findRootPackageJson';
-import { runTests } from './TestsRunner';
 import Git from './Git';
 
-export {
-  Git,
-  findRootPackageJson,
-  findRootPackageJsonPath,
-  runTests as unstable_runTests, // eslint-disable-line babel/camelcase
-};
+export { Git, findRootPackageJson, findRootPackageJsonPath };
 
 function getWorkspaces(packageJSON: Object): $ReadOnlyArray<string> {
   if (Array.isArray(packageJSON.workspaces)) {

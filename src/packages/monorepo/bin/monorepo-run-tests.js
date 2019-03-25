@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // @flow
 
 const TestsRunner = require('../src/TestsRunner');
