@@ -48,7 +48,7 @@ Returns locations of all `package.json` files in your monorepo:
   '/absolute/path/src/packages/monorepo/package.json' ]
 ```
 
-## `unstable_runTests`
+## `monorepo-run-tests`
 
 TODO
 
