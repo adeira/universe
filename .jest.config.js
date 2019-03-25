@@ -6,6 +6,7 @@
 
 require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo' here
 
+const fs = require('fs');
 const path = require('path');
 const { getWorkspacesSync } = require('@kiwicom/monorepo');
 
@@ -15,15 +16,23 @@ const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 const commonProjectConfig = {
   // runs once per test file (before `setupFilesAfterEnv` and before
   // test framework is being installed)
-  setupFiles: ['<rootDir>/scripts/setupTestFiles.js'],
+  setupFiles: [path.join(__dirname, 'scripts/setupTestFiles.js')],
   // runs before each test (after test framework is installed)
-  setupFilesAfterEnv: ['<rootDir>/scripts/setupTests.js'],
+  setupFilesAfterEnv: [path.join(__dirname, 'scripts/setupTests.js')],
   globals: { __DEV__: true },
   transform: { '^.+\\.js$': 'babel-jest' },
   timers: 'fake',
   bail: 100,
   errorOnDeprecated: true,
 };
+
+function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
+  if (fs.existsSync(configPath)) {
+    return require(configPath);
+  } else {
+    return {};
+  }
+}
 
 module.exports = {
   rootDir: __dirname,
@@ -45,10 +54,14 @@ module.exports = {
 
     ...getWorkspacesSync().map(packageJSONLocation => {
       const packageJSON = require(packageJSONLocation);
+      const workspaceDirname = path.dirname(packageJSONLocation);
       return {
         displayName: packageJSON.name,
+        testMatch: [workspaceDirname + '/**/' + TESTS_REGEXP],
         ...commonProjectConfig,
-        testMatch: [path.dirname(packageJSONLocation) + '/**/' + TESTS_REGEXP],
+        ...tryToLoadWorkspaceConfig(
+          path.join(workspaceDirname, 'jest.config.js'),
+        ),
       };
     }),
   ],
