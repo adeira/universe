@@ -1,6 +1,10 @@
 This package allows you to do basically whatever you want with the resolvers.
 
-<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+<!-- AUTOMATOR:HIRING_BANNER -->
+
+> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions: https://jobs.kiwi.com/
+
+<!-- /AUTOMATOR:HIRING_BANNER -->
 
 # Installation
 
