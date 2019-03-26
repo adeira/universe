@@ -2,8 +2,9 @@
 
 module.exports = {
   displayName: 'lint',
+  rootDir: __dirname,
   verbose: false,
   reporters: ['default'],
-  runner: './src/packages/eslint-config-kiwicom/eslint-runner/index.js',
+  runner: '@kiwicom/eslint-config/runner',
   testMatch: ['<rootDir>/src/**/*.js', '<rootDir>/scripts/**/*.js'],
 };
