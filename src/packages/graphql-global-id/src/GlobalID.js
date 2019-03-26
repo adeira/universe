@@ -26,13 +26,23 @@ function unbase64(i) {
 export function fromGlobalId(opaqueID: string): string {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
+  invariant(
+    delimiterPos !== -1,
+    "ID '%s' is not valid opaque value.",
+    opaqueID,
+  );
   return unbasedGlobalID.substring(delimiterPos + 1);
 }
 
 // TODO: find out better way how to do it (type should be just an internal detail - see evaluateGlobalIdField)
-export function isTypeOf(type: string, opaqueID: string): boolean {
+export function __isTypeOf(type: string, opaqueID: string): boolean {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
+  invariant(
+    delimiterPos !== -1,
+    "ID '%s' is not valid opaque value.",
+    opaqueID,
+  );
   const unmaskedType = unbasedGlobalID.substring(0, delimiterPos);
   return unmaskedType === type;
 }

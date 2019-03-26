@@ -4,8 +4,8 @@ import { GraphQLObjectType, GraphQLID } from 'graphql';
 
 import GlobalID, {
   fromGlobalId,
-  isTypeOf,
   evaluateGlobalIdField,
+  __isTypeOf,
 } from '../GlobalID';
 
 function base64(text) {
@@ -117,13 +117,35 @@ describe('fromGlobalId', () => {
     const field = GlobalID(idFetcher);
     expect(fromGlobalId(resolveField(field))).toBe('tESt');
   });
+
+  it('throws an error on invalid opaque ID', () => {
+    expect(() => fromGlobalId('invalid-value')).toThrow(
+      "ID 'invalid-value' is not valid opaque value.",
+    );
+
+    // encoded "invalid-value" (vv)
+    expect(() => fromGlobalId('aW52YWxpZC12YWx1ZQ==')).toThrow(
+      "ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.",
+    );
+  });
 });
 
 describe('isTypeOf', () => {
   const ID = GlobalID(() => 42);
   it('resolves the type correctly', () => {
-    expect(isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
-    expect(isTypeOf('TypeName', resolveField(ID))).toBe(true);
+    expect(__isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
+    expect(__isTypeOf('TypeName', resolveField(ID))).toBe(true);
+  });
+
+  it('throws an error on invalid opaque ID', () => {
+    expect(() => __isTypeOf('TypeName', 'invalid-value')).toThrow(
+      "ID 'invalid-value' is not valid opaque value.",
+    );
+
+    // encoded "invalid-value" (vv)
+    expect(() => __isTypeOf('TypeName', 'aW52YWxpZC12YWx1ZQ==')).toThrow(
+      "ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.",
+    );
   });
 });
 
