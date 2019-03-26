@@ -24,7 +24,7 @@ export default async function commitAllChanges(
   await _git(['checkout', '-B', gitBranchName, 'HEAD']);
   await _git(['add', '--all']);
   await _git(['commit', '-am', commitMessage]);
-  await _git(['push', 'origin', gitBranchName]);
+  await _git(['push', '--force-with-lease', 'origin', gitBranchName]);
 
   return gitBranchName;
 }
