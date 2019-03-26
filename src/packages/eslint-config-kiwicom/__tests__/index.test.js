@@ -53,3 +53,13 @@ test.each(Object.entries(prettierRules))(
 );
 
 // TODO: test for extra rules
+
+test('rules snapshot', () => {
+  expect(require('../index.js')).toMatchSnapshot({
+    settings: {
+      react: {
+        version: expect.any(String),
+      },
+    },
+  });
+});

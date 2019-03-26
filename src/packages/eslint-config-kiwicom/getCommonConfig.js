@@ -4,6 +4,23 @@ const prettierRules = require('./extraPrettierRules');
 
 const ERROR = 2;
 
+/**
+ * This is basically copy-pasted detection from the React plugin except it doesn't
+ * complain when React dependency is missing. It's because we except non-React environments.
+ * See: https://github.com/yannickcr/eslint-plugin-react/blob/6bb160459383a2eeec5d65e3de07e37e997b5f1a/lib/util/version.js#L12
+ */
+function detectReactVersion() {
+  try {
+    const react = require('react'); // eslint-disable-line import/no-extraneous-dependencies
+    return react.version;
+  } catch (error) {
+    if (error.code === 'MODULE_NOT_FOUND') {
+      return '999.999.999';
+    }
+    throw error;
+  }
+}
+
 module.exports = function getCommonConfig(rules /*: Object */) {
   return {
     rules: {
@@ -35,7 +52,7 @@ module.exports = function getCommonConfig(rules /*: Object */) {
         },
       },
       react: {
-        version: 'detect',
+        version: detectReactVersion(),
       },
     },
 
