@@ -1,6 +1,10 @@
 This package checks breaking changes in your GraphQL schema. It saves the schema snapshot (you should version it) and it compares it with newest changes in your schema. This way it's possible to discover breaking changes and it helps you to fix them. It also detects manual changes. This script should be executed on CI server.
 
-<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+<!-- AUTOMATOR:HIRING_BANNER -->
+
+> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions: https://jobs.kiwi.com/
+
+<!-- /AUTOMATOR:HIRING_BANNER -->
 
 # Usage
 

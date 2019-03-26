@@ -13,7 +13,11 @@ More info about Relay, prior art:
 - [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
 - [Relay Example](https://github.com/kiwicom/relay-example)
 
-<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+<!-- AUTOMATOR:HIRING_BANNER -->
+
+> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions: https://jobs.kiwi.com/
+
+<!-- /AUTOMATOR:HIRING_BANNER -->
 
 # Install
 
