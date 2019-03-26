@@ -21,7 +21,10 @@ const siteConfig = {
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
-  headerLinks: [{ doc: 'monorepo/installation', label: 'Docs' }],
+  headerLinks: [
+    { doc: 'monorepo/installation', label: 'Monorepo' },
+    { doc: 'graphql/general-information', label: 'Applications' },
+  ],
 
   // If you have users set above, you add it here:
   users: [],
