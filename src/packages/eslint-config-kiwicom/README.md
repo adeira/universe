@@ -56,6 +56,57 @@ It is important to report any issues with the eslint configuration back so we ca
 
 Also please note that **you should not ignore Eslint warnings**! These warnings are helping you to migrate to the future major version. Some of them will turn into errors in the next major version bump.
 
+# Eslint runner _(unstable)_
+
+This package contains special runner for Jest to speedup Eslint checks. It executes Eslint in parallel thanks to Jest workers so it's much faster when you have many files with complicated rules. You have to create special Jest config in order to use this runner (`.jest-eslint.config.js`):
+
+```js
+const path = require('path');
+
+module.exports = {
+  displayName: 'lint',
+  verbose: false,
+  reporters: ['default'],
+  runner: '@kiwicom/eslint-config/eslint-runner',
+  testMatch: ['<rootDir>/src/**/*.js', '<rootDir>/scripts/**/*.js'],
+};
+```
+
+It is of course possible to run this lint as yet another Jest project (using `options.projects` configuration). To execute this runner you have to call Jest like this:
+
+```json
+{
+  "scripts": {
+    "lint": "yarn jest --config=.jest-eslint.config.js"
+  }
+}
+```
+
+It tries to detect files to lint because it's highly inefficient to test all the files everytime. However, you can do so by using `--all` flag like so: `yarn run lint --all`.
+
+Please note: this Eslint runner not only runs all the tests much faster but it also performs automatic fixes. This is currently no-opt.
+
+## Tip
+
+You can benefit from the main Jest executor much more. You can for example use watch mode to watch changes in one directory:
+
+```text
+yarn run lint src/packages/relay --watch [--all]
+```
+
+Basically, every Jest watch option is available:
+
+```text
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press o to only run tests related to changed files.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press q to quit watch mode.
+ › Press Enter to trigger a test run.
+```
+
 # Prior art
 
 - https://github.com/facebook/fbjs
