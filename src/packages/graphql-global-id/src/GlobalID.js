@@ -10,11 +10,12 @@ import {
 } from 'graphql';
 import { invariant } from '@kiwicom/js';
 
-opaque type Base64String = string;
+opaque type OpaqueIDString = string;
 
 const SYMBOL_GLOBAL_ID = Symbol.for('graphql_global_id');
 
-function base64(i: string): Base64String {
+// TODO: use base32 (?)
+function base64(i: string): OpaqueIDString {
   return Buffer.from(i).toString('base64');
 }
 
@@ -43,7 +44,7 @@ export function isTypeOf(type: string, opaqueID: string): boolean {
 export function evaluateGlobalIdField(
   outputObject: GraphQLObjectType,
   parent: Object,
-): string {
+): OpaqueIDString {
   const idField = outputObject.getFields().id;
 
   invariant(

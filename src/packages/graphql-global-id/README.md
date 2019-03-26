@@ -1,10 +1,14 @@
+Simple utility to manage our ID fields in GraphQL correctly.
+
+<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+
 # Install
 
 ```text
 yarn add @kiwicom/graphql-global-id
 ```
 
-# Usage
+# Basic usage
 
 This utility automatically creates correct opaque and globally unique ID type so you don't have to think about it.
 
@@ -47,6 +51,20 @@ const fields = {
   id: GlobalID(idFetcher, opaqueIdFetcher),
 };
 ```
+
+# Restoring original ID
+
+`GlobalID` used in previous examples accepts readable (unmasked ID) and returns opaque ID. You can revert this process in case you need to access the original unmasked ID. Check the following test to get the idea:
+
+```js
+import { fromGlobalId } from '@kiwicom/graphql-global-id';
+
+it('returns correct original ID', () => {
+  expect(fromGlobalId('XySdXKnaP')).toBe('1234');
+});
+```
+
+You should always use this function because the way how this utility works with masking and unmasking is just an internal detail.
 
 # Tips
 
