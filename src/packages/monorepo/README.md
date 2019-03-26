@@ -52,7 +52,39 @@ Returns locations of all `package.json` files in your monorepo:
 
 ## `monorepo-run-tests`
 
-TODO
+This binary script is our tests executor for monorepo environments. It tries to find relevant changes to test based on Git history and Yarn Workspaces. It currently expects `.jest.config.js` in the project root. Usage (`package.json`):
+
+```json
+{
+  "scripts": {
+    "test": "monorepo-run-tests"
+  }
+}
+```
+
+And just run it as usual (`yarn run test`). You should see something like this:
+
+```text
+$ universe [master] yarn run test
+yarn run v1.13.0
+$ monorepo-run-tests
+DIRTY WORKSPACES:  Set { '_components' }
+PATHS TO TEST:  Set { 'src/components', 'src/apps', 'src/relay', 'src/translations' }
+Running tests in timezone: UTC
+ PASS  src/components/stylesheet/__tests__/PlatformStyleSheet-test.js
+ PASS  src/translations/__tests__/Translation-test.js
+ ...
+ PASS  src/components/__tests__/Price-test.js (5.494s)
+
+Test Suites: 10 passed, 10 total
+Tests:       25 passed, 25 total
+Snapshots:   20 passed, 20 total
+Time:        6.582s, estimated 12s
+Ran all test suites matching /src\/components|src\/apps|src\/relay|src\/translations|src\/components\/Icon.js/i.
+✨  Done in 7.99s.
+```
+
+As you can see it detected some changes in `_components` workspace and it tries to resolve any other affected workspace (seems like for example `src/relay` is using `_components` workspace so it must be tested as well). It can happen that there are no changes to run.
 
 ## `Git.*` utility
 
