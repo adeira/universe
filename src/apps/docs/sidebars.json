@@ -1,7 +1,14 @@
 {
-  "docs": {
-    "Runbooks": ["runbooks/rancher"],
-    "Monorepo": ["monorepo/installation", "monorepo/directory-structure"],
+  "universe": {
+    "Monorepo": [
+      "monorepo/installation",
+      "monorepo/directory-structure",
+      "monorepo/examples",
+      "monorepo/commit-messages"
+    ],
+    "JavaScript": ["javascript/money"]
+  },
+  "apps": {
     "GraphQL": [
       "graphql/general-information",
       "graphql/schema-design",
@@ -12,6 +19,6 @@
       "graphql/vault",
       "graphql/faq"
     ],
-    "NPM packages": ["npm/packages"]
+    "NPM packages": ["npm/packages", "npm/releasing"]
   }
 }

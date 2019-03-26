@@ -37,9 +37,21 @@
         "title": "Environment variables",
         "sidebar_label": "Vault"
       },
+      "javascript/money": {
+        "title": "Dealing with Money in JavaScript",
+        "sidebar_label": "Money \"how to\""
+      },
+      "monorepo/commit-messages": {
+        "title": "Writing commit messages",
+        "sidebar_label": "Commit Messages"
+      },
       "monorepo/directory-structure": {
         "title": "Directory structure of this monorepo",
         "sidebar_label": "Directory structure"
+      },
+      "monorepo/examples": {
+        "title": "Examples",
+        "sidebar_label": "Examples"
       },
       "monorepo/installation": {
         "title": "Install & Run this monorepo",
@@ -49,17 +61,18 @@
         "title": "Public NPM Packages",
         "sidebar_label": "Public NPM Packages"
       },
-      "runbooks/rancher": {
-        "title": "Rancher",
-        "sidebar_label": "Rancher"
+      "npm/releasing": {
+        "title": "Releasing of new versions",
+        "sidebar_label": "Releasing"
       }
     },
     "links": {
-      "Docs": "Docs"
+      "Monorepo": "Monorepo",
+      "Applications": "Applications"
     },
     "categories": {
-      "Runbooks": "Runbooks",
       "Monorepo": "Monorepo",
+      "JavaScript": "JavaScript",
       "GraphQL": "GraphQL",
       "NPM packages": "NPM packages"
     }
