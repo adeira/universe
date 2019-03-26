@@ -18,6 +18,8 @@ This preset uses `env` preset behind the scenes which means it transpiles JS to 
 
 - declares `__DEV__` expression when used
 
+<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+
 # Usage
 
 Install this package:

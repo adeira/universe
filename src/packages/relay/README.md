@@ -13,6 +13,8 @@ More info about Relay, prior art:
 - [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
 - [Relay Example](https://github.com/kiwicom/relay-example)
 
+<!-- AUTOMATOR:HIRING_BANNER --><!-- /AUTOMATOR:HIRING_BANNER -->
+
 # Install
 
 **Please read this carefully.**
