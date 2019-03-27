@@ -64,7 +64,7 @@ const fields = {
 import { fromGlobalId } from '@kiwicom/graphql-global-id';
 
 it('returns correct original ID', () => {
-  expect(fromGlobalId('XySdXKnaP')).toBe('1234');
+  expect(fromGlobalId('TG9jYXRpb246bG9uZG9uX2di')).toBe('london_gb');
 });
 ```
 
