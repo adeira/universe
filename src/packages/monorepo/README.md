@@ -96,7 +96,7 @@ TODO
 
 ## `ChildProcess`
 
-TODO (expose it first)
+TODO
 
 ## `monorepo-babel-node` binary
 
