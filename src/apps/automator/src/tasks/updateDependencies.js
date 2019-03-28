@@ -17,7 +17,8 @@ export default function run(taskIdentifier: string) {
     const changes = changelog.map(change => `- ${change}`).join('\n');
     await commitAllAndOpenMR(
       taskIdentifier,
-      'Monorepo: upgrade dependencies' + (changes ? `\n\n${changes}` : ''),
+      'Monorepo: upgrade dependencies',
+      changes,
     );
   });
 }

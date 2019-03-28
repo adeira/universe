@@ -9,6 +9,7 @@ import log from '../../log';
 export default async function commitAllAndOpenMR(
   taskIdentifier: string,
   commitMessage: string,
+  commitDescription?: string,
 ) {
   const changedFiles = Git.getWorktreeChangedFiles();
   if (changedFiles.length === 0) {
@@ -17,5 +18,5 @@ export default async function commitAllAndOpenMR(
   }
 
   const gitBranchName = await commitAllChanges(taskIdentifier, commitMessage);
-  await openMergeRequest(gitBranchName, commitMessage);
+  await openMergeRequest(gitBranchName, commitMessage, commitDescription);
 }
