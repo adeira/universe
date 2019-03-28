@@ -6,6 +6,7 @@ import { ChildProcess, iterateWorkspaces } from '@kiwicom/monorepo';
 import { sprintf } from '@kiwicom/js';
 
 import log from '../log';
+import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
 
 // info Color legend :
 //  "<red>"    : Major Update backward-incompatible updates
@@ -28,6 +29,12 @@ import log from '../log';
 // http://jsonlines.org/
 
 export default function run(taskIdentifier: string) {
+  updateDependencies(taskIdentifier, async () => {
+    await commitAllAndOpenMR(taskIdentifier, 'Monorepo: upgrade dependencies');
+  });
+}
+
+function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
   // TODO: commit the changes + add READMEs into commit message
 
   const data = ChildProcess.spawnSync('yarn', ['outdated', '--json']);
@@ -134,4 +141,6 @@ export default function run(taskIdentifier: string) {
   });
 
   // TODO: yarn upgrade as well (?)
+
+  cb();
 }
