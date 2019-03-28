@@ -2,6 +2,14 @@ This package prepares our public NPM packages to be published. It can automatica
 
 This publisher uses [@kiwicom/babel-preset-kiwicom](https://www.npmjs.com/package/@kiwicom/babel-preset-kiwicom) behind the scenes to transpile JS and Flow files.
 
+# Installation
+
+```text
+yarn add --dev @kiwicom/npm-publisher
+```
+
+This package is intended to be run by CI server.
+
 # Usage
 
 You have to set `NPM_AUTH_TOKEN` environment variable first to be able to use this package.
@@ -21,11 +29,9 @@ publish({
   // Run in a "dry" mode (without publishing to NPM)?
   dryRun: true,
 
-  //// Optionally:
-
-  // Patterns (files, folders, paths) to ignore while publishing the package.
-  ignorePattern: '/__[a-z]+__/',
+  // TODO: `NPM_AUTH_TOKEN` replacement so we do not have to work with this magic ENV
+  // TODO: add a check that this script is actually used from CI
 });
 ```
 
-This package is intended to be run by CI server.
+This NPM publisher automatically takes `.npmignore` (or `.gitignore`) files into account. Read this info for more details: https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package

@@ -4,12 +4,12 @@
   "homepage": "https://github.com/kiwicom/vault2env-js",
   "license": "MIT",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bin": {
     "vault2env": "bin/index.js"
   },
   "dependencies": {
-    "@kiwicom/fetch": "^2.0.0",
+    "@kiwicom/fetch": "^2.3.1",
     "commander": "^2.19.0"
   }
 }
