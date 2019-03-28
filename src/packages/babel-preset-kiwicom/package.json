@@ -4,7 +4,7 @@
   "homepage": "https://github.com/kiwicom/babel-preset-kiwicom",
   "private": false,
   "license": "MIT",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "main": "src/index.js",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.3",

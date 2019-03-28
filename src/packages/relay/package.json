@@ -1,14 +1,14 @@
 {
   "name": "@kiwicom/relay",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/index.js",
   "homepage": "https://github.com/kiwicom/relay",
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "license": "MIT",
   "dependencies": {
-    "@kiwicom/fetch": "^2.2.2",
-    "@kiwicom/js": "^0.6.0",
+    "@kiwicom/fetch": "^2.3.1",
+    "@kiwicom/js": "^0.7.0",
     "react-relay": "^3.0.0",
     "relay-compiler": "^3.0.0",
     "relay-runtime": "^3.0.0"

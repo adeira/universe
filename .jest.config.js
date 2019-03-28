@@ -40,6 +40,7 @@ module.exports = {
   reporters: ['default', 'jest-junit'],
   projects: [
     {
+      // TODO: get rid of this!
       // These tests are problematic because they are outside of workspaces
       // and therefore our TestsRunner doesn't know it should run them.
       // Moreover, there are some tests testing for example MD files which is
@@ -48,6 +49,8 @@ module.exports = {
       ...commonProjectConfig,
       testMatch: [
         '<rootDir>/src/' + TESTS_REGEXP,
+        '<rootDir>/src/apps/' + TESTS_REGEXP,
+        '<rootDir>/src/packages/' + TESTS_REGEXP,
         '<rootDir>/scripts/**/' + TESTS_REGEXP,
       ],
     },
