@@ -4,7 +4,7 @@ title: Releasing of new versions
 sidebar_label: Releasing
 ---
 
-Our NPM packages are being released automatically on NPM when you increase a version in `package.json` file and this version is not in NPM yet (applies only to packages with `private:false` visibility).
+Our NPM packages are being released automatically on NPM when you increase a version in `package.json` file and this version is not in NPM yet (applies only to packages with `private:false` visibility). We use [`@kiwicom/npm-publisher`](https://www.npmjs.com/package/@kiwicom/npm-publisher) behind the scenes.
 
 Every package with version greater than 1.0 (ignoring patch version) must have `CHANGELOG.md` file with the following format:
 
