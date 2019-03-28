@@ -22,9 +22,9 @@ const tasks = new Map([
   //
   ['UPDATE_DOCS', updateDocs], // updates Docs and sends MR to GitLab repo
   ['HIRING_BANNER', updateHiringBanners],
-  ['🔪', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
-  ['🧐', updateGraphQLSkymock],
-  ['☝️', updateDependencies],
+  ['PUBLISH_WORKSPACES', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
+  ['UPDATE_GRAPHQL_SKYMOCK', updateGraphQLSkymock],
+  ['UPDATE_DEPENDENCIES', updateDependencies],
 ]);
 
 // Makes the script crash on unhandled rejections instead of silently

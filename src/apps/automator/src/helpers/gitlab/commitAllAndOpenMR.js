@@ -16,6 +16,6 @@ export default async function commitAllAndOpenMR(
     return;
   }
 
-  const gitBranchName = await commitAllChanges(changedFiles, commitMessage);
+  const gitBranchName = await commitAllChanges(taskIdentifier, commitMessage);
   await openMergeRequest(gitBranchName, commitMessage);
 }
