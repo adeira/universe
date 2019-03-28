@@ -1,22 +1,16 @@
 // @flow
 
-import crypto from 'crypto';
-
 import _git from './git';
 
-function createBranchName(changedFiles: $ReadOnlyArray<string>): string {
-  const hash = crypto.createHash('sha256');
-  changedFiles.forEach(changedFile => {
-    hash.update(changedFile);
-  });
-  return `automator-${hash.digest('hex')}`;
+function createBranchName(taskIdentifier: string): string {
+  return `automator-${taskIdentifier}`;
 }
 
 export default async function commitAllChanges(
-  changedFiles: $ReadOnlyArray<string>,
+  taskIdentifier: string,
   commitMessage: string,
 ): Promise<string> {
-  const gitBranchName = createBranchName(changedFiles);
+  const gitBranchName = createBranchName(taskIdentifier);
 
   await _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
   await _git(['config', 'user.name', 'Automator']);
