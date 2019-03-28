@@ -6,6 +6,7 @@
       "monorepo/examples",
       "monorepo/commit-messages"
     ],
+    "NPM packages": ["npm/packages", "npm/releasing"],
     "JavaScript": ["javascript/money"]
   },
   "apps": {
@@ -18,7 +19,6 @@
       "graphql/debugging",
       "graphql/vault",
       "graphql/faq"
-    ],
-    "NPM packages": ["npm/packages", "npm/releasing"]
+    ]
   }
 }

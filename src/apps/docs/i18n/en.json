@@ -72,9 +72,9 @@
     },
     "categories": {
       "Monorepo": "Monorepo",
+      "NPM packages": "NPM packages",
       "JavaScript": "JavaScript",
-      "GraphQL": "GraphQL",
-      "NPM packages": "NPM packages"
+      "GraphQL": "GraphQL"
     }
   },
   "pages-strings": {
