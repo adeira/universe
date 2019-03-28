@@ -96,7 +96,10 @@ function updateDependencies(
   }
 
   // Returns JSON lines: http://jsonlines.org/
-  const data = ChildProcess.spawnSync('yarn', ['outdated', '--json']);
+  const data = ChildProcess.executeSystemCommand('yarn', [
+    'outdated',
+    '--json',
+  ]);
 
   const outdatedData = data
     .split('\n')
@@ -151,7 +154,7 @@ function updateDependencies(
     }
   });
 
-  ChildProcess.spawnSync('yarn', ['install'], {
+  ChildProcess.executeSystemCommand('yarn', ['install'], {
     stdio: 'inherit',
   });
 

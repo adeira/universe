@@ -96,7 +96,30 @@ TODO
 
 ## `ChildProcess`
 
-TODO
+`ChildProcess` is opinionated wrapper around native `child_process`. It currently allows 2 ways how to work with underlying OS (Node.js child process respectively): you can execute Node.js script or you can run command from your OS. Example of running Node.js script:
+
+```js
+import ChildProcess from '@kiwicom/monorepo';
+
+ChildProcess.executeNodeScript(
+  path.join(__dirname, 'monorepo-babel-node-runner.js'),
+);
+```
+
+It's possible to use second argument for additional arguments. Execution of system commands is even easier:
+
+```js
+import ChildProcess from '@kiwicom/monorepo';
+
+// {"type":"log","data":"{\n ...
+const stdout = ChildProcess.executeSystemCommand('yarn', [
+  'workspaces',
+  'info',
+  '--json',
+]);
+```
+
+`ChildProcess` performs additional checks to make sure the requested command actually exist on your system. It doesn't support Windows environments.
 
 ## `monorepo-babel-node` binary
 
