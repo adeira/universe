@@ -9,7 +9,9 @@ const ASSIGNEE_ID = 202; // https://gitlab.skypicker.com/api/v4/users?username=m
 export default async function openMergeRequest(
   sourceBranch: string,
   commitMessage: string,
+  commitDescription?: string,
 ): Promise<void> {
+  // https://docs.gitlab.com/ee/api/merge_requests.html#create-mr
   const apiURL = `https://gitlab.skypicker.com/api/v4/projects/${PROJECT_ID}/merge_requests`;
 
   try {
@@ -20,6 +22,7 @@ export default async function openMergeRequest(
         source_branch: sourceBranch,
         target_branch: 'master',
         title: commitMessage,
+        description: commitDescription ?? '',
         labels: 'automator',
         remove_source_branch: true,
         assignee_id: ASSIGNEE_ID,
