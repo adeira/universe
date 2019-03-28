@@ -28,7 +28,7 @@ process.argv.forEach(arg => {
 const scriptPath = path.join(process.cwd(), flags.argv[2]);
 const scriptArgs = flags.argv.splice(3);
 
-ChildProcess.fork(
+ChildProcess.executeNodeScript(
   path.join(__dirname, 'monorepo-babel-node-runner.js'),
   [scriptPath, ...scriptArgs],
   {

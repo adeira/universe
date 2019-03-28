@@ -9,7 +9,7 @@ function _parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
 }
 
 function git(args /*: $ReadOnlyArray<string> */) {
-  return ChildProcess.spawnSync('git', ['--no-pager', ...args]);
+  return ChildProcess.executeSystemCommand('git', ['--no-pager', ...args]);
 }
 
 const Git = {

@@ -10,7 +10,7 @@ import { type WorkspaceDependencies } from './Workspaces.flow';
 function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
-  return ChildProcess.spawnSync(
+  return ChildProcess.executeSystemCommand(
     'jest',
     [
       '--config=.jest.config.js',
@@ -66,7 +66,7 @@ type CINode = {|
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  const stdout = ChildProcess.spawnSync('yarn', [
+  const stdout = ChildProcess.executeSystemCommand('yarn', [
     'workspaces',
     'info',
     '--json',
