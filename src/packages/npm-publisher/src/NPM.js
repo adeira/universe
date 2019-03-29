@@ -3,43 +3,59 @@
 import NPMRegistryClient from 'npm-registry-client';
 
 const URI = 'https://registry.npmjs.org/npm';
-const NPM = new NPMRegistryClient();
-
-type Callback = (
-  error: {| +statusCode: number |}, // error is an error if there was a problem.
-  data: Object, // data is the parsed data object
-  raw: string, // raw is the json string
-  res: Object, // res is the response from couch
-) => void;
-
-// See NPM_AUTH_TOKEN:
-// https://www.npmjs.com/settings/<USERNAME>/tokens
+const NPM = new NPMRegistryClient({
+  log: {
+    verbose: () => {},
+    info: () => {},
+    http: () => {},
+  },
+});
 
 export default {
-  getPackageInfo: (params: Object, cb: Callback) => {
-    return NPM.distTags.fetch(
-      URI,
-      {
-        auth: {
-          token: process.env.NPM_AUTH_TOKEN,
+  getPackageInfo: (params: {| +package: string, +npmAuthToken: string |}) => {
+    return new Promise<Object>((resolve, reject) => {
+      NPM.distTags.fetch(
+        URI,
+        {
+          auth: { token: params.npmAuthToken },
+          ...params,
         },
-        ...params,
-      },
-      cb,
-    );
+        (error, data /* , raw, res */) => {
+          if (error) {
+            if (error.statusCode !== 404) {
+              // 404 indicates that the package doesn't exist (yet)
+              reject(error);
+            }
+          }
+          resolve({
+            ...data,
+            latest: data.latest ?? '0.0.0', // missing in case of 404
+          });
+        },
+      );
+    });
   },
 
-  publishPackage: (params: Object, cb: Callback) => {
-    return NPM.publish(
-      URI,
-      {
-        access: 'public',
-        auth: {
-          token: process.env.NPM_AUTH_TOKEN,
+  publishPackage: (params: {|
+    +metadata: Object, // package.json file
+    +body: Object,
+    +npmAuthToken: string,
+  |}) => {
+    return new Promise<void>((resolve, reject) => {
+      NPM.publish(
+        URI,
+        {
+          access: 'public',
+          auth: { token: params.npmAuthToken },
+          ...params,
         },
-        ...params,
-      },
-      cb,
-    );
+        (error /* , data , raw, res */) => {
+          if (error) {
+            reject(error);
+          }
+          resolve();
+        },
+      );
+    });
   },
 };

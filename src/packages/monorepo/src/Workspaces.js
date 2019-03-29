@@ -32,7 +32,7 @@ module.exports = {
 
   iterateWorkspacesInPath(
     path: string,
-    cb: (packageJSONLocation: string) => void,
+    cb: (packageJSONLocation: string) => void | Promise<void>,
   ) {
     const rootPackageJSON = findRootPackageJson();
     const workspaces = __resolveWorkspaces(rootPackageJSON);
