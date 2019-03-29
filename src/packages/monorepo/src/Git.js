@@ -4,7 +4,7 @@ const os = require('os');
 
 const ChildProcess = require('./ChildProcess');
 
-function _parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
+function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
   return changes.split(os.EOL).filter(row => row !== '');
 }
 
@@ -13,30 +13,31 @@ function git(args /*: $ReadOnlyArray<string> */) {
 }
 
 const Git = {
-  _parseRows,
+  __parseRows,
+
   getUntrackedFiles() /*: $ReadOnlyArray<string> */ {
     const rawUntrackedChanges = git([
       'ls-files',
       '--others',
       '--exclude-standard',
     ]);
-    return _parseRows(rawUntrackedChanges);
+    return __parseRows(rawUntrackedChanges);
   },
 
   // Returns uncommitted (but staged) changes from Git worktree.
   getWorktreeChangedFiles() /*: $ReadOnlyArray<string> */ {
     const rawWorktreeChanges = git(['diff', '--name-only', 'HEAD']);
-    return _parseRows(rawWorktreeChanges);
+    return __parseRows(rawWorktreeChanges);
   },
 
   getChangedFiles() /*: $ReadOnlyArray<string> */ {
     const rawChanges = git(['diff', '--name-only', 'origin/master...HEAD']);
-    return _parseRows(rawChanges);
+    return __parseRows(rawChanges);
   },
 
   getLastCommitChanges() /*: $ReadOnlyArray<string> */ {
     const rawChanges = git(['diff', '--name-only', 'HEAD^', 'HEAD']);
-    return _parseRows(rawChanges);
+    return __parseRows(rawChanges);
   },
 
   getChangesToTest() /*: $ReadOnlyArray<string> */ {

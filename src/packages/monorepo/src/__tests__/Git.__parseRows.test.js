@@ -1,10 +1,10 @@
 // @flow
 
-import Git from '../Git';
+import { __parseRows } from '../Git';
 
 it('parses rows correctly', () => {
   expect(
-    Git._parseRows(`
+    __parseRows(`
 src/packages/eslint-config-kiwicom/index.js
 src/packages/eslint-config-kiwicom/ourRules.js
 src/packages/eslint-config-kiwicom/package.json
@@ -17,5 +17,5 @@ src/packages/eslint-config-kiwicom/package.json
 });
 
 it('handles empty rows correctly', () => {
-  expect(Git._parseRows('')).toEqual([]);
+  expect(__parseRows('')).toEqual([]);
 });
