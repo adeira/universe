@@ -2,12 +2,13 @@
   "universe": {
     "Monorepo": [
       "monorepo/installation",
+      "monorepo/testing",
       "monorepo/directory-structure",
-      "monorepo/examples",
-      "monorepo/commit-messages"
+      "monorepo/acceptance",
+      "monorepo/example-projects"
     ],
     "NPM packages": ["npm/packages", "npm/releasing"],
-    "JavaScript": ["javascript/money"]
+    "Developer guides": ["guides/commit-messages", "guides/money"]
   },
   "apps": {
     "GraphQL": [

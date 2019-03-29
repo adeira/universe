@@ -14,30 +14,31 @@ const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 
 // SEE: https://jestjs.io/docs/en/configuration.html
 const commonProjectConfig = {
-  // runs once per test file (before `setupFilesAfterEnv` and before
-  // test framework is being installed)
-  setupFiles: [path.join(__dirname, 'scripts/setupTestFiles.js')],
   // runs before each test (after test framework is installed)
-  setupFilesAfterEnv: [path.join(__dirname, 'scripts/setupTests.js')],
-  globals: { __DEV__: true },
-  transform: { '^.+\\.js$': 'babel-jest' },
+  setupFilesAfterEnv: [path.join(__dirname, 'scripts/jest/setupTests.js')],
+  globals: {
+    __DEV__: true,
+  },
+  transform: {
+    '^.+\\.js$': 'babel-jest',
+  },
   timers: 'fake',
-  bail: 100,
-  errorOnDeprecated: true,
 };
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
   if (fs.existsSync(configPath)) {
+    console.warn(`Loaded additional config ${configPath}`);
     return require(configPath);
-  } else {
-    return {};
   }
+  return {};
 }
 
 module.exports = {
+  bail: 100,
+  errorOnDeprecated: true,
+  reporters: ['default', 'jest-junit'],
   rootDir: __dirname,
   verbose: false,
-  reporters: ['default', 'jest-junit'],
   projects: [
     {
       // TODO: get rid of this!
