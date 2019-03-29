@@ -1,7 +1,7 @@
 // @flow
 
 import path from 'path';
-import publish from '@kiwicom/npm-publisher';
+import publish from '@kiwicom/monorepo-npm-publisher';
 import { invariant } from '@kiwicom/js';
 
 import paths from '../paths';

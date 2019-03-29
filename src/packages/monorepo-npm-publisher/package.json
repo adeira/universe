@@ -1,7 +1,7 @@
 {
-  "name": "@kiwicom/npm-publisher",
-  "description": "Tools for automatically publishing of NPM packages",
-  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/npm-publisher",
+  "name": "@kiwicom/monorepo-npm-publisher",
+  "description": "Tools for automatically publishing of NPM packages from our monorepo",
+  "homepage": "https://github.com/kiwicom/monorepo-npm-publisher",
   "license": "MIT",
   "private": false,
   "version": "0.9.0",
