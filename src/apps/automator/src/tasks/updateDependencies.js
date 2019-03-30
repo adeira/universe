@@ -4,7 +4,7 @@ import fs from 'fs';
 import semver from 'semver';
 import {
   ChildProcess,
-  iterateWorkspaces,
+  Workspaces,
   findRootPackageJsonPath,
 } from '@kiwicom/monorepo';
 import { sprintf } from '@kiwicom/js';
@@ -137,7 +137,7 @@ function updateDependencies(
           changelog.push(change);
         }
       } else {
-        iterateWorkspaces(packageJSONLocation => {
+        Workspaces.iterateWorkspaces(packageJSONLocation => {
           // $FlowAllowDynamicImport
           const packageJSON = require(packageJSONLocation);
           if (packageJSON.name === dependency.workspaceName) {

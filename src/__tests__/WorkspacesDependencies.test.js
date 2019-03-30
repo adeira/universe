@@ -1,6 +1,6 @@
 // @flow
 
-import { iterateWorkspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo';
 
 /**
  * Please update this list with well know similar dependencies and
@@ -39,7 +39,7 @@ const exceptions = new Map([
 ]);
 
 describe('dependencies similarities', () => {
-  iterateWorkspaces(packageJSONLocation => {
+  Workspaces.iterateWorkspaces(packageJSONLocation => {
     test(packageJSONLocation, done => {
       // $FlowAllowDynamicImport
       const packageJson = require(packageJSONLocation);

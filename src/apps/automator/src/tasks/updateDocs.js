@@ -4,7 +4,7 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
-import { iterateWorkspaces, findRootPackageJsonPath } from '@kiwicom/monorepo';
+import { Workspaces, findRootPackageJsonPath } from '@kiwicom/monorepo';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
@@ -24,7 +24,7 @@ function updateNPMPackagesInfo(
 ): void {
   const workspaces = new Set();
 
-  iterateWorkspaces(packageJSONLocation => {
+  Workspaces.iterateWorkspaces(packageJSONLocation => {
     // $FlowAllowDynamicImport
     const packageJSON = require(packageJSONLocation);
     if (packageJSON.private === false) {

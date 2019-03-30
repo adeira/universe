@@ -1,4 +1,6 @@
-This package contains many useful utilities to work with monorepo.
+This package contains many useful utilities to work with JavaScript monorepo.
+
+This package is opinionated in many ways and it expects similar monorepo setup to how Universe works in Incubator tribe (see: https://gitlab.skypicker.com/incubator/universe 🔐). This monorepo is not just several projects next to each other. It shares common executors for Flow, Eslint and Tests. This means that individual projects do not have their own scripts for running these tools (can change in the future). It also relies on Yarn Workspaces.
 
 <!-- AUTOMATOR:HIRING_BANNER -->
 
@@ -16,7 +18,7 @@ yarn add --dev @kiwicom/monorepo
 
 ## `findRootPackageJson`, `findRootPackageJsonPath`
 
-It finds the root `package.json` file in the monorepo (must contain Yarn Workspaces).
+It finds the root `package.json` file in the monorepo (must contain Yarn Workspaces). It is useful if you need to know where is the root or you need to access root `package.json` because of workspaces definition for example.
 
 ```js
 const rootPackageJSON = findRootPackageJson();
@@ -24,14 +26,16 @@ const rootPackageJSON = findRootPackageJson();
 
 It memoizes the result internally so when you call it for the second time you'll get the result instantly. Function `findRootPackageJson` returns the file content (object) but function `findRootPackageJsonPath` returns only the path.
 
-## `iterateWorkspaces`, `iterateWorkspacesInPath` (deprecated)
+## Working with `Workspaces`
 
-This function iterates all the workspaces or workspaces only in one path respectively. Example:
+`Workspaces` utility allows you to access information about workspaces anywhere in the monorepo. You can for example iterate all workspaces:
 
 ```js
-import { iterateWorkspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo';
 
-iterateWorkspaces(packageJSONLocation => {
+// OR `iterateWorkspacesInPath` if you need to work with workspaces only in one path
+
+Workspaces.iterateWorkspaces(packageJSONLocation => {
   test(packageJSONLocation, () => {
     // $FlowAllowDynamicImport
     const packageJson = require(packageJSONLocation);
@@ -40,21 +44,50 @@ iterateWorkspaces(packageJSONLocation => {
 });
 ```
 
-## `getWorkspacesSync`
+There is also synchronous version without callbacks:
 
 ```js
-const packageJSONLocations = getWorkspacesSync();
+import { Workspaces } from '@kiwicom/monorepo';
+
+const packageJSONLocations = Workspaces.getWorkspacesSync();
+
+// [ '/absolute/path/src/packages/js/package.json',
+//   '/absolute/path/src/packages/monorepo/package.json' ]
 console.warn(packageJSONLocations);
 ```
 
-Returns locations of all `package.json` files in your monorepo:
+## Working with changes (`Git`) _(unstable)_
 
-```text
-[ '/absolute/path/src/packages/js/package.json',
-  '/absolute/path/src/packages/monorepo/package.json' ]
+TODO
+
+## Working with system commands and Node.js (`ChildProcess`)
+
+`ChildProcess` is opinionated wrapper around native `child_process`. It currently allows 2 ways how to work with underlying OS (Node.js child process respectively): you can execute Node.js script or you can run command from your OS. Example of running Node.js script:
+
+```js
+import ChildProcess from '@kiwicom/monorepo';
+
+ChildProcess.executeNodeScript(
+  path.join(__dirname, 'monorepo-babel-node-runner.js'),
+);
 ```
 
-## `monorepo-run-tests`
+It's possible to use second argument for additional arguments. Execution of system commands is even easier:
+
+```js
+import ChildProcess from '@kiwicom/monorepo';
+
+// {"type":"log","data":"{\n ...
+const stdout = ChildProcess.executeSystemCommand('yarn', [
+  'workspaces',
+  'info',
+  '--json',
+]);
+```
+
+`ChildProcess` performs additional checks to make sure the requested command actually exist on your system. It doesn't support Windows environments.
+
+## Binary `monorepo-run-tests`
 
 This binary script is our tests executor for monorepo environments. It tries to find relevant changes to test based on Git history and Yarn Workspaces. It currently expects `.jest.config.js` in the project root. Usage (`package.json`):
 
@@ -90,38 +123,7 @@ Ran all test suites matching /src\/components|src\/apps|src\/relay|src\/translat
 
 As you can see it detected some changes in `_components` workspace and it tries to resolve any other affected workspace (seems like for example `src/relay` is using `_components` workspace so it must be tested as well). It can happen that there are no changes to run.
 
-## `Git.*` utility
-
-TODO
-
-## `ChildProcess`
-
-`ChildProcess` is opinionated wrapper around native `child_process`. It currently allows 2 ways how to work with underlying OS (Node.js child process respectively): you can execute Node.js script or you can run command from your OS. Example of running Node.js script:
-
-```js
-import ChildProcess from '@kiwicom/monorepo';
-
-ChildProcess.executeNodeScript(
-  path.join(__dirname, 'monorepo-babel-node-runner.js'),
-);
-```
-
-It's possible to use second argument for additional arguments. Execution of system commands is even easier:
-
-```js
-import ChildProcess from '@kiwicom/monorepo';
-
-// {"type":"log","data":"{\n ...
-const stdout = ChildProcess.executeSystemCommand('yarn', [
-  'workspaces',
-  'info',
-  '--json',
-]);
-```
-
-`ChildProcess` performs additional checks to make sure the requested command actually exist on your system. It doesn't support Windows environments.
-
-## `monorepo-babel-node` binary
+## Binary `monorepo-babel-node`
 
 This binary allows you to run scripts just like with `babel-node` except it takes into account correct Babel configuration (`upward` mode by default) and it doesn't ignore our own Yarn Workspace dependencies while transpiling (`node_modules/@kiwicom/*`). Usage (`package.json`):
 

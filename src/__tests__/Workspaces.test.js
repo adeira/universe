@@ -1,12 +1,12 @@
 // @flow
 
 import path from 'path';
-import { iterateWorkspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo';
 
 import OSSPackages from '../open-source';
 
 describe('all workspaces', () => {
-  iterateWorkspaces(packageJSONLocation => {
+  Workspaces.iterateWorkspaces(packageJSONLocation => {
     test(packageJSONLocation, () => {
       // $FlowAllowDynamicImport
       const packageJson = require(packageJSONLocation);

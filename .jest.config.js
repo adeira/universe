@@ -8,7 +8,7 @@ require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monore
 
 const fs = require('fs');
 const path = require('path');
-const { getWorkspacesSync } = require('@kiwicom/monorepo');
+const { Workspaces } = require('@kiwicom/monorepo');
 
 const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
 
@@ -55,7 +55,7 @@ module.exports = {
       ],
     },
 
-    ...getWorkspacesSync().map(packageJSONLocation => {
+    ...Workspaces.getWorkspacesSync().map(packageJSONLocation => {
       const packageJSON = require(packageJSONLocation);
       const workspaceDirname = path.dirname(packageJSONLocation);
       return {
