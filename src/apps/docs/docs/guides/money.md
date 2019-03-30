@@ -1,7 +1,7 @@
 ---
 id: money
-title: Dealing with Money in JavaScript
-sidebar_label: Money "how to"
+title: Dealing with money in JavaScript
+sidebar_label: Dealing with money
 ---
 
 The type for `amount` in `Money` entity is _string_ and this is because it's not recommended to work with floats in your application when working with money (try the infamous `0.1 + 0.2 === 0.3` in your JavaScript console). If you need to perform any operation with the amount returned by the GraphQL proxy, you will need to parse it.

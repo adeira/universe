@@ -37,25 +37,33 @@
         "title": "Environment variables",
         "sidebar_label": "Vault"
       },
-      "javascript/money": {
-        "title": "Dealing with Money in JavaScript",
-        "sidebar_label": "Money \"how to\""
-      },
-      "monorepo/commit-messages": {
+      "guides/commit-messages": {
         "title": "Writing commit messages",
         "sidebar_label": "Commit Messages"
+      },
+      "guides/money": {
+        "title": "Dealing with money in JavaScript",
+        "sidebar_label": "Dealing with money"
+      },
+      "monorepo/acceptance": {
+        "title": "Acceptance criteria",
+        "sidebar_label": "Acceptance criteria"
       },
       "monorepo/directory-structure": {
         "title": "Directory structure of this monorepo",
         "sidebar_label": "Directory structure"
       },
-      "monorepo/examples": {
-        "title": "Examples",
-        "sidebar_label": "Examples"
+      "monorepo/example-projects": {
+        "title": "Example projects",
+        "sidebar_label": "Example projects"
       },
       "monorepo/installation": {
         "title": "Install & Run this monorepo",
         "sidebar_label": "Installation"
+      },
+      "monorepo/testing": {
+        "title": "Testing, Linting, Flowing",
+        "sidebar_label": "Test, Lint, Flow"
       },
       "npm/packages": {
         "title": "Public NPM Packages",
@@ -68,12 +76,13 @@
     },
     "links": {
       "Monorepo": "Monorepo",
-      "Applications": "Applications"
+      "Applications": "Applications",
+      "GitLab": "GitLab"
     },
     "categories": {
       "Monorepo": "Monorepo",
       "NPM packages": "NPM packages",
-      "JavaScript": "JavaScript",
+      "Developer guides": "Developer guides",
       "GraphQL": "GraphQL"
     }
   },

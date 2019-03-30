@@ -3,7 +3,7 @@
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.
 
-const siteConfig = {
+module.exports = {
   title: 'incubator/universe', // Title for your website.
   tagline: 'Documentation for incubator/universe monorepo at Kiwi.com',
   url: 'https://kiwi.wiki',
@@ -24,6 +24,10 @@ const siteConfig = {
   headerLinks: [
     { doc: 'monorepo/installation', label: 'Monorepo' },
     { doc: 'graphql/general-information', label: 'Applications' },
+    {
+      href: 'https://gitlab.skypicker.com/incubator/universe',
+      label: 'GitLab',
+    },
   ],
 
   // If you have users set above, you add it here:
@@ -35,8 +39,8 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: '#D03195',
-    secondaryColor: '#205C3B',
+    primaryColor: '#1976d2',
+    secondaryColor: '#004ba0',
   },
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
@@ -65,11 +69,9 @@ const siteConfig = {
   // Show documentation's last update time.
   enableUpdateTime: true,
 
-  docsSideNavCollapsible: false,
+  docsSideNavCollapsible: true,
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
 };
-
-module.exports = siteConfig;
