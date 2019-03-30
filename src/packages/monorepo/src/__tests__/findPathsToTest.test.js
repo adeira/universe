@@ -18,11 +18,14 @@ it('finds dirty paths to test based on the changed files', () => {
     // Relevant workspace here are @kiwicom/graphql and @kiwicom/signed-source.
     // However signed-source is a dependency of @kiwicom/graphql-bc-checker and
     // therefore it's relevant as well (see workspace dependencies).
+    //
+    // Trailing slashes are important to distinguish similar paths, for example:
+    // "src/apps/graphql" shouldn't match "src/apps/graphql-skymock"
   ).toMatchInlineSnapshot(`
 Set {
-  "src/apps",
-  "src/packages/signed-source",
-  "src/packages/bc-checker",
+  "src/apps/",
+  "src/packages/signed-source/",
+  "src/packages/bc-checker/",
 }
 `);
 
