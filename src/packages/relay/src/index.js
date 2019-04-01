@@ -19,7 +19,11 @@ import createRefetchContainer, {
 import graphql from './graphql';
 import QueryRenderer from './QueryRenderer';
 import requestSubscription from './requestSubscription';
-import type { GraphQLTaggedNode as _GraphQLTaggedNode } from './types.flow';
+import type {
+  Disposable as _Disposable,
+  Environment as _Environment,
+  GraphQLTaggedNode as _GraphQLTaggedNode,
+} from './types.flow';
 
 module.exports = {
   FetchResponseError,
@@ -42,5 +46,6 @@ export type RelayProp = _RelayProp;
 export type PaginationRelayProp = _PaginationRelayProp;
 export type RefetchRelayProp = _RefetchRelayProp;
 
-// TODO: expose `Environment` Flow type (?)
+export type Disposable = _Disposable;
+export type Environment = _Environment;
 export type GraphQLTaggedNode = _GraphQLTaggedNode;

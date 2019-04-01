@@ -1,15 +1,13 @@
 // @flow
 
-import type { RequestNode as _RequestNode } from 'relay-runtime'; // TODO: remove
-
-export type RequestNode = _RequestNode;
+export type RequestNode = $FlowFixMe;
 export type Uploadables = { [key: string]: File | Blob };
 export type Variables = { [name: string]: $FlowFixMe };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
 export type Environment = {|
-  // TODO: Improve? Not exposed publicly on purpose.
+  // TODO: improve (?)
 |};
 
 export type Disposable = {|
