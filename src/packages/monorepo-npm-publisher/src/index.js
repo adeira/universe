@@ -9,6 +9,7 @@ import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
 import packlist from 'npm-packlist';
 import { Workspaces } from '@kiwicom/monorepo';
+import isCI from 'is-ci';
 
 import NPM from './NPM';
 import log from './log';
@@ -23,6 +24,9 @@ type Options = {|
 export default async function publish(options: Options) {
   if (options.dryRun) {
     log('DRY RUN');
+  } else if (isCI === false) {
+    log('NPM publisher can be executed only from CI environment.');
+    process.exit(1);
   }
 
   await util.promisify(rimraf)(options.buildCache);

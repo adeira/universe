@@ -7,7 +7,7 @@ Please note: changelogs are not responsibility of this package. You should write
 # Installation
 
 ```text
-yarn add --dev @kiwicom/npm-publisher
+yarn add --dev @kiwicom/monorepo-npm-publisher
 ```
 
 This package is intended to be run by CI server.
@@ -27,18 +27,20 @@ import publish from '@kiwicom/npm-publisher';
 (async () => {
   await publish({
     // Run in a "dry" mode (without publishing to NPM)?
-    dryRun: true,
+    dryRun: __DEV__,
 
     // Where to store transpiled code before it's being published.
-    buildCache: path.join(os.tmpdir(), 'PROJECT_ID', '.build'),
+    buildCache: path.join(
+      os.tmpdir(),
+      'com.kiwi.universe.npm', // change please
+      '.build',
+    ),
 
     // Folder where to look for NPM packages. It takes into account
     // only packages with public visibility set in `package.json`.
     packages: '../packages',
 
     npmAuthToken: 'TODO: https://www.npmjs.com/settings/<USERNAME>/tokens',
-
-    // TODO: add a check that this script is actually used from CI
   });
 })();
 ```
