@@ -5,7 +5,7 @@
 
 module.exports = {
   title: 'incubator/universe', // Title for your website.
-  tagline: 'Documentation for incubator/universe monorepo at Kiwi.com',
+  tagline: 'Universe by Incubator tribe is monorepo for our JS projects.',
   url: 'https://kiwi.wiki',
   baseUrl: '/incubator/universe/',
   editUrl:

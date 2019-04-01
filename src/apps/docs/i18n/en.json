@@ -3,7 +3,7 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Documentation for incubator/universe monorepo at Kiwi.com",
+    "tagline": "Universe by Incubator tribe is monorepo for our JS projects.",
     "docs": {
       "graphql/debugging": {
         "title": "Debugging",
