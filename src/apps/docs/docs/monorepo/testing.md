@@ -31,6 +31,7 @@ Script `yarn run test` prepares environment for every workspace with our default
 module.exports = {
   rootDir: __dirname,
   setupFiles: ['<rootDir>/scripts/jest/setupTestFiles.js'],
+  globalTeardown: '<rootDir>/scripts/test-backward-compatibility.js', // runs after all the tests
 };
 ```
 
