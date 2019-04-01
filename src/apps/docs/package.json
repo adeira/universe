@@ -13,6 +13,6 @@
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "docusaurus": "^1.7.2"
+    "docusaurus": "^1.8.0"
   }
 }

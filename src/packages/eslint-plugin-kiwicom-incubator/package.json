@@ -7,6 +7,6 @@
   "version": "0.5.0",
   "main": "src/index.js",
   "devDependencies": {
-    "eslint": "^5.15.3"
+    "eslint": "^5.16.0"
   }
 }
