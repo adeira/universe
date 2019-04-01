@@ -36,6 +36,7 @@ function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
 module.exports = {
   bail: 100,
   errorOnDeprecated: true,
+  moduleFileExtensions: ['js', 'json'],
   reporters: ['default', 'jest-junit'],
   rootDir: __dirname,
   verbose: false,
