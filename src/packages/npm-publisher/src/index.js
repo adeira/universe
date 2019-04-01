@@ -3,121 +3,113 @@
 import fs from 'fs';
 import tar from 'tar';
 import path from 'path';
+import util from 'util';
 import semver from 'semver';
 import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
 import packlist from 'npm-packlist';
+import { Workspaces } from '@kiwicom/monorepo';
 
-import findNPMPackages from './findNPMPackages';
 import NPM from './NPM';
 import log from './log';
 
 type Options = {|
+  +dryRun: boolean,
   +buildCache: string,
   +packages: string,
-  +dryRun: boolean,
+  +npmAuthToken: string,
 |};
 
-export default function publish(options: Options) {
+export default async function publish(options: Options) {
   if (options.dryRun) {
     log('DRY RUN');
   }
 
-  rimraf(options.buildCache, () => {
-    findNPMPackages(
-      options.packages,
-      ({ packageFolderPath, packageFolderName, packageJSONFile }) => {
-        NPM.getPackageInfo(
-          {
-            package: packageJSONFile.name,
-          },
-          (error, data /* , raw, res */) => {
-            if (error) {
-              if (error.statusCode !== 404) {
-                // 404 indicates that the package doesn't exist (yet)
-                throw error;
-              }
-            }
+  await util.promisify(rimraf)(options.buildCache);
 
-            if (semver.gt(packageJSONFile.version, data.latest ?? '0.0.0')) {
-              packlist({ path: packageFolderPath }).then(filenames => {
-                return filenames.forEach(filename => {
-                  const destinationFileName = path.join(
-                    options.buildCache,
-                    packageFolderName,
-                    filename,
-                  );
+  Workspaces.iterateWorkspacesInPath(
+    options.packages,
+    async packageJSONLocation => {
+      // $FlowAllowDynamicImport
+      const packageJSONFile = require(packageJSONLocation);
+      if (packageJSONFile.private === true) {
+        log(`Skipping ${packageJSONFile.name} because it's PRIVATE ❌`);
+      } else {
+        const packageFolderPath = path.dirname(packageJSONLocation);
+        const packageFolderName = packageFolderPath.replace(
+          new RegExp(options.packages + '/'),
+          '',
+        );
 
-                  fs.mkdirSync(path.dirname(destinationFileName), {
-                    recursive: true,
-                  });
+        const data = await NPM.getPackageInfo({
+          package: packageJSONFile.name,
+          npmAuthToken: options.npmAuthToken,
+        });
 
-                  if (filename.endsWith('.js')) {
-                    // this transforms and copy the file
-                    transformFileVariants(
-                      path.join(packageFolderPath, filename),
-                      destinationFileName,
-                    );
-                  } else {
-                    fs.copyFileSync(
-                      path.join(packageFolderPath, filename),
-                      destinationFileName,
-                    );
-                  }
+        if (!semver.gt(packageJSONFile.version, data.latest)) {
+          log(
+            `Skipping ${
+              packageJSONFile.name
+            } because there is nothing to release`,
+          );
+        } else {
+          log(`Releasing ${packageJSONFile.name} 🚀`);
 
-                  tar
-                    .create(
-                      {
-                        gzip: true,
-                        cwd: options.buildCache,
-                        portable: true,
-                        file: path.join(
-                          options.buildCache,
-                          packageFolderName + '.tgz',
-                        ),
-                      },
-                      [packageFolderName],
-                    )
-                    .then(() => {
-                      if (options.dryRun === false) {
-                        NPM.publishPackage(
-                          {
-                            metadata: packageJSONFile,
-                            body: fs.createReadStream(
-                              path.join(
-                                options.buildCache,
-                                packageFolderName + '.tgz',
-                              ),
-                            ),
-                          },
-                          error => {
-                            if (error) {
-                              throw error;
-                            }
+          const filenames = await packlist({ path: packageFolderPath });
+          for (const filename of filenames) {
+            const destinationFileName = path.join(
+              options.buildCache,
+              packageFolderName,
+              filename,
+            );
 
-                            log(
-                              `PUBLISHED ${packageJSONFile.name} version ${
-                                packageJSONFile.version
-                              } 🎉`,
-                            );
-                          },
-                        );
-                      }
-                    });
-                });
-              });
+            fs.mkdirSync(path.dirname(destinationFileName), {
+              recursive: true,
+            });
+
+            if (filename.endsWith('.js')) {
+              // this transforms and copy the file
+              transformFileVariants(
+                path.join(packageFolderPath, filename),
+                destinationFileName,
+              );
             } else {
-              log(
-                `Skipping release of ${
-                  packageJSONFile.name
-                } - there is nothing to release`,
+              fs.copyFileSync(
+                path.join(packageFolderPath, filename),
+                destinationFileName,
               );
             }
-          },
-        );
-      },
-    );
-  });
+          }
+
+          await tar.create(
+            {
+              gzip: true,
+              cwd: options.buildCache,
+              portable: true,
+              file: path.join(options.buildCache, packageFolderName + '.tgz'),
+            },
+            [packageFolderName],
+          );
+
+          if (options.dryRun === false) {
+            await NPM.publishPackage({
+              metadata: packageJSONFile,
+              body: fs.createReadStream(
+                path.join(options.buildCache, packageFolderName + '.tgz'),
+              ),
+              npmAuthToken: options.npmAuthToken,
+            });
+
+            log(
+              `PUBLISHED ${packageJSONFile.name} version ${
+                packageJSONFile.version
+              } 🎉`,
+            );
+          }
+        }
+      }
+    },
+  );
 }
 
 function transformFileVariants(originalFilename, destinationFilename) {
