@@ -1,5 +1,35 @@
 /* your custom css */
 
+.projectTitle {
+  font-weight: 200;
+  color: #fff;
+}
+
+.projectTitle > small {
+  font-weight: 200;
+}
+
+.homeContainer {
+  background-color: #1976d2;
+  padding: 64px;
+}
+
+.inverseButton {
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.iconContainer {
+  margin-bottom: 30px;
+  margin-right: 30px;
+  max-width: 200px;
+  float: left;
+}
+
+.kiwicomHomepageContainer {
+  margin: 20px 40px;
+}
+
 @media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
 }
 
@@ -10,6 +40,10 @@
 }
 
 @media only screen and (min-width: 1400px) {
+  .kiwicomHomepageContainer {
+    width: 50%;
+    margin: 40px auto;
+  }
 }
 
 @media only screen and (min-width: 1500px) {
