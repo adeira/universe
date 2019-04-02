@@ -30,9 +30,11 @@ module.exports = (
 
   let presets /*: BabelRules */ = [];
   let plugins /*: BabelRules */ = [];
+  let retainLines = false;
 
   if (options.target === 'flow') {
     plugins = [path.join(__dirname, 'dev-declaration')];
+    retainLines = true;
   } else if (options.target === 'js') {
     presets = [
       [
@@ -79,5 +81,6 @@ module.exports = (
         // Candidates: numericSeparator, classPrivateProperties, classPrivateMethods
       ],
     },
+    retainLines,
   };
 };
