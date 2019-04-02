@@ -9,6 +9,11 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
+# Working with monorepo
+
+- https://gitlab.com/groups/gitlab-org/-/epics/915
+- https://gitlab.com/gitlab-org/gitaly/issues/1581
+
 # Keeping origin synced with upstream
 
 ```
