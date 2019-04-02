@@ -5,7 +5,7 @@ import path from 'path';
 import publish from '@kiwicom/monorepo-npm-publisher';
 import { invariant } from '@kiwicom/js';
 
-// yarn babel-node scripts/publishNPMPackages.js
+// yarn monorepo-babel-node scripts/publishNPMPackages.js
 
 (async () => {
   const npmAuthToken = process.env.NPM_AUTH_TOKEN;
