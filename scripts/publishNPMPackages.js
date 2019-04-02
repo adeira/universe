@@ -1,25 +1,24 @@
 // @flow
 
+import os from 'os';
 import path from 'path';
 import publish from '@kiwicom/monorepo-npm-publisher';
 import { invariant } from '@kiwicom/js';
 
-import paths from '../paths';
-
 // yarn babel-node scripts/publishNPMPackages.js
 
-const npmAuthToken = process.env.NPM_AUTH_TOKEN;
-
-invariant(
-  npmAuthToken,
-  'Environment variable NPM_AUTH_TOKEN must be set in order to use NPM publisher.',
-);
-
 (async () => {
-  await publish({
-    buildCache: paths.buildCache,
-    packages: path.join(__dirname, '..', 'src', 'packages'),
+  const npmAuthToken = process.env.NPM_AUTH_TOKEN;
+
+  invariant(
     npmAuthToken,
-    dryRun: false,
+    'Environment variable NPM_AUTH_TOKEN must be set in order to use NPM publisher.',
+  );
+
+  await publish({
+    buildCache: path.join(os.tmpdir(), 'com.kiwi.universe.npm', '.build'),
+    dryRun: __DEV__,
+    npmAuthToken,
+    packages: path.join(__dirname, '..', 'src', 'packages'),
   });
 })();
