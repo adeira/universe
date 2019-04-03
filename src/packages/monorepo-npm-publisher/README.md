@@ -27,20 +27,20 @@ import publish from '@kiwicom/npm-publisher';
 (async () => {
   await publish({
     // Run in a "dry" mode (without publishing to NPM)?
-    dryRun: __DEV__,
+    dryRun: true,
 
     // Where to store transpiled code before it's being published.
     buildCache: path.join(
       os.tmpdir(),
-      'com.kiwi.universe.npm', // change please
+      'com.kiwi.YOUR_PROJECT.npm', // change please
       '.build',
     ),
 
     // Folder where to look for NPM packages. It takes into account
     // only packages with public visibility set in `package.json`.
-    packages: '../packages',
+    packages: path.join(__dirname, '..', 'packages'),
 
-    npmAuthToken: 'TODO: https://www.npmjs.com/settings/<USERNAME>/tokens',
+    npmAuthToken: 'TODO!', // see: https://www.npmjs.com/settings/<USERNAME>/tokens
   });
 })();
 ```

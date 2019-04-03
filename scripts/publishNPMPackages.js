@@ -17,7 +17,7 @@ import { invariant } from '@kiwicom/js';
 
   await publish({
     buildCache: path.join(os.tmpdir(), 'com.kiwi.universe.npm', '.build'),
-    dryRun: __DEV__,
+    dryRun: false,
     npmAuthToken,
     packages: path.join(__dirname, '..', 'src', 'packages'),
   });
