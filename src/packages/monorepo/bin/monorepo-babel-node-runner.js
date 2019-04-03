@@ -10,5 +10,8 @@ require('@babel/register')({
   rootMode: 'upward',
 });
 
+// remove itself from the stack
+process.argv = process.argv.filter(arg => arg !== __filename);
+
 // $FlowAllowDynamicImport
-require(process.argv[2]);
+require(process.argv[1]);

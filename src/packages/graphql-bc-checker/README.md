@@ -34,8 +34,7 @@ You should get this response:
 ```
 🤓 graphql [master] yarn test-bc
 yarn run v1.12.1
-$ yarn babel-node scripts/test-bc.js
-$ /node_modules/.bin/babel-node src/packages/bc-checker/src/index.js
+$ yarn monorepo-babel-node scripts/test-bc.js
 
 Congratulations! NO BREAKING CHANGES or OUTDATED SCHEMA. Good job!
 
@@ -47,8 +46,7 @@ It automatically updates the snapshot when you do non-breaking changes (you have
 ```
 🤓 graphql [master] yarn test-bc
 yarn run v1.12.1
-$ yarn babel-node scripts/test-bc.js
-$ /node_modules/.bin/babel-node src/packages/bc-checker/src/index.js
+$ yarn monorepo-babel-node scripts/test-bc.js
 You introduced breaking changes into the public GraphQL schema. This change may or may not be intentional. These breaking changes may break some clients consuming our public API. Please try to find a way how to avoid breaking changes and try it again. Here is list of all breaking changes:
 
 VALUE_REMOVED_FROM_ENUM - FUTURE was removed from enum type AllBookingsOnlyEnum.
