@@ -10,6 +10,8 @@ import sprintf from './sprintf';
  *
  * The invariant message will be stripped in production, but the invariant will
  * remain to ensure logic does not differ in production.
+ *
+ * TODO: add something like `invariant_violation` which is basically `invariant` but without condition (in cases where it's obvious violation)?
  */
 export default function invariant(
   condition: mixed,

@@ -1,0 +1,11 @@
+{
+  "name": "@kiwicom/monorepo-shipit",
+  "private": true,
+  "license": "UNLICENSED",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "@kiwicom/js": "^0.7.0",
+    "@kiwicom/monorepo": "^0.13.0"
+  }
+}
