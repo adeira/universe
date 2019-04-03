@@ -7,7 +7,7 @@
   "version": "1.0.1",
   "main": "src/index.js",
   "dependencies": {
-    "@babel/core": "^7.3.3",
+    "@babel/core": "^7.4.3",
     "@kiwicom/babel-preset-kiwicom": "^2.6.4",
     "@kiwicom/monorepo": "^0.13.0",
     "is-ci": "^2.0.0",
