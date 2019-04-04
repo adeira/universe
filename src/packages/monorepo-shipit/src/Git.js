@@ -1,8 +1,10 @@
-// @flow
+// @flow strict-local
 
 import { ChildProcess } from '@kiwicom/monorepo';
 
 import parsePatch from './parsePatch';
+import parsePatchHeader from './parsePatchHeader';
+import splitHead from './splitHead';
 import Changeset from './Changeset';
 
 function git(args: $ReadOnlyArray<string>) {
@@ -23,8 +25,35 @@ export default class Git {
     ]);
   };
 
+  getNativeHeaderFromIDWithPatch = (
+    revision: string,
+    patch: string,
+  ): string => {
+    const fullPatch = git([
+      'format-patch',
+      '--no-renames',
+      '--no-stat',
+      '--stdout',
+      '--full-index',
+      '-1',
+      revision,
+    ]);
+    if (patch.length === 0) {
+      // this is an empty commit, so everything is the header
+      return fullPatch;
+    }
+    return fullPatch.replace(patch, '');
+  };
+
   getChangesetFromID = (revision: string): Changeset => {
     const patch = this.getNativePatchFromID(revision);
+    const header = this.getNativeHeaderFromIDWithPatch(revision, patch);
+    const changeset = this.getChangesetFromExportedPatch(header, patch);
+    return changeset.withID(revision);
+  };
+
+  getChangesetFromExportedPatch = (header: string, patch: string) => {
+    const changeset = parsePatchHeader(header);
     const diffs = new Set();
     for (const hunk of parsePatch(patch)) {
       const diff = this.parseDiffHunk(hunk);
@@ -32,22 +61,18 @@ export default class Git {
         diffs.add(diff);
       }
     }
-    return new Changeset(
-      revision,
-      diffs,
-      'TODO:message', // TODO (parseHeader)
-    );
+    return changeset.withDiffs(diffs);
   };
 
   parseDiffHunk = (hunk: string) => {
-    const [head, ...body] = hunk.split('\n');
+    const [head, tail] = splitHead(hunk, '\n');
     const match = head.match(/^diff --git [ab]\/(.*?) [ab]\/(.*?)$/);
     if (!match) {
       return null;
     }
     return {
       path: match[2],
-      body: body.join('\n'),
+      body: tail,
     };
   };
 

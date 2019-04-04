@@ -27,13 +27,15 @@ expect.addSnapshotSerializer({
   },
 });
 
+type OperationOutput = any | Promise<any>;
+
 /**
  * Generates a set of jest snapshot tests that compare the output of the
  * provided `operation` to each of the matching files in the `fixturesPath`.
  */
 export default function generateTestsFromFixtures(
   fixturesPath: string,
-  operation: (input: string) => string | Promise<string>,
+  operation: (input: string) => OperationOutput,
 ): void {
   const fs = require('fs');
   const path = require('path');
@@ -66,8 +68,8 @@ export default function generateTestsFromFixtures(
 
 async function getOutputForFixture(
   input: string,
-  operation: (input: string) => string | Promise<string>,
-): Promise<string> {
+  operation: (input: string) => OperationOutput,
+): Promise<any> {
   try {
     const output = operation(input);
     return output instanceof Promise ? await output : output;

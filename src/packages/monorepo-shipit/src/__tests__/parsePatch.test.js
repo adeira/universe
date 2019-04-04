@@ -1,21 +1,18 @@
-// @flow
+// @flow strict-local
 
-import fs from 'fs';
 import path from 'path';
+import { generateTestsFromFixtures } from '@kiwicom/test-utils';
 
 import parsePatch from '../parsePatch';
 
-const FIXTURES_PATH = path.join(__dirname, 'fixtures');
-fs.readdirSync(FIXTURES_PATH).forEach(fixtureFile => {
-  it(`parses correctly fixture: ${fixtureFile}`, () => {
+generateTestsFromFixtures(path.join(__dirname, 'fixtures', 'diffs'), operation);
+
+function operation(input) {
+  return new Promise(resolve => {
     const hunks = [];
-    for (const hunk of parsePatch(
-      fs.readFileSync(path.join(FIXTURES_PATH, fixtureFile), {
-        encoding: 'utf8',
-      }),
-    )) {
+    for (const hunk of parsePatch(input)) {
       hunks.push(hunk);
     }
-    expect(hunks).toMatchSnapshot();
+    resolve(hunks);
   });
-});
+}

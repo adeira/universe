@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`parses correctly fixture: diff.patch 1`] = `
-Array [
-  "diff --git a/src/packages/monorepo-shipit/src/Git.js b/src/packages/monorepo-shipit/src/Git.js
+exports[`matches expected output: diff.patch 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+diff --git a/src/packages/monorepo-shipit/src/Git.js b/src/packages/monorepo-shipit/src/Git.js
 index f4d19bd6..05be5559 100644
 --- a/src/packages/monorepo-shipit/src/Git.js
 +++ b/src/packages/monorepo-shipit/src/Git.js
@@ -26,8 +26,7 @@ index f4d19bd6..05be5559 100644
    findDescendantsPath = (
      revision: string,
      roots: $ReadOnlyArray<string>,
-",
-  "diff --git a/src/packages/monorepo-shipit/src/Sync.js b/src/packages/monorepo-shipit/src/Sync.js
+diff --git a/src/packages/monorepo-shipit/src/Sync.js b/src/packages/monorepo-shipit/src/Sync.js
 index d45e7901..1892a963 100644
 --- a/src/packages/monorepo-shipit/src/Sync.js
 +++ b/src/packages/monorepo-shipit/src/Sync.js
@@ -59,8 +58,7 @@ index d45e7901..1892a963 100644
 +    console.warn('Git.commitPatch', changesets);
    };
  }
-",
-  "diff --git a/src/packages/monorepo-shipit/src/index.js b/src/packages/monorepo-shipit/src/index.js
+diff --git a/src/packages/monorepo-shipit/src/index.js b/src/packages/monorepo-shipit/src/index.js
 index 0b901673..41623741 100644
 --- a/src/packages/monorepo-shipit/src/index.js
 +++ b/src/packages/monorepo-shipit/src/index.js
@@ -72,28 +70,110 @@ index 0b901673..41623741 100644
 +// yarn monorepo-babel-node src/packages/monorepo-shipit/src/index.js
 
  new Sync().run();
-",
-]
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+diff --git a/src/packages/monorepo-shipit/src/Git.js b/src/packages/monorepo-shipit/src/Git.js
+index f4d19bd6..05be5559 100644
+--- a/src/packages/monorepo-shipit/src/Git.js
++++ b/src/packages/monorepo-shipit/src/Git.js
+@@ -9,7 +9,7 @@ function git(args: $ReadOnlyArray<string>) {
+ }
+
+ export default class Git {
+-  getNativePatchFromID = (revision: string) => {
++  getNativePatchFromID = (revision: string): string => {
+     return git([
+       'format-patch',
+       '--no-renames',
+@@ -31,6 +31,10 @@ export default class Git {
+     };
+   };
+
++  getChangesetFromNativePatch = (patch: string) => {
++    //
++  };
++
+   findDescendantsPath = (
+     revision: string,
+     roots: $ReadOnlyArray<string>,
+,diff --git a/src/packages/monorepo-shipit/src/Sync.js b/src/packages/monorepo-shipit/src/Sync.js
+index d45e7901..1892a963 100644
+--- a/src/packages/monorepo-shipit/src/Sync.js
++++ b/src/packages/monorepo-shipit/src/Sync.js
+@@ -10,14 +10,14 @@ export default class Sync {
+   };
+
+   getSourceChangesets = (): Set<Changeset> => {
+-    const revision = this.getFirstSourceID();
++    const initialRevision = this.getFirstSourceID();
+
+     const repo = new Git();
+     const sourceChangesets = new Set<Changeset>();
+
+-    sourceChangesets.add(repo.getChangesetFromID(revision));
++    sourceChangesets.add(repo.getChangesetFromID(initialRevision));
+     repo
+-      .findDescendantsPath(revision, ['src/packages/relay'])
++      .findDescendantsPath(initialRevision, ['src/packages/relay'])
+       .forEach(revision => {
+         sourceChangesets.add(repo.getChangesetFromID(revision));
+       });
+@@ -37,8 +37,7 @@ export default class Sync {
+   run = () => {
+     const changesets = this.getFilteredChangesets();
+
+-    console.warn('TODO: push ->', changesets);
+-
+     // TODO: foreach changes and Git.commitPatch
++    console.warn('Git.commitPatch', changesets);
+   };
+ }
+,diff --git a/src/packages/monorepo-shipit/src/index.js b/src/packages/monorepo-shipit/src/index.js
+index 0b901673..41623741 100644
+--- a/src/packages/monorepo-shipit/src/index.js
++++ b/src/packages/monorepo-shipit/src/index.js
+@@ -2,6 +2,6 @@
+
+ import Sync from './Sync';
+
+-// yarn monorepo-babel-plugin src/packages/monorepo-shipit/src/index.js
++// yarn monorepo-babel-node src/packages/monorepo-shipit/src/index.js
+
+ new Sync().run();
+
 `;
 
-exports[`parses correctly fixture: diff-eol.patch 1`] = `
-Array [
-  "diff --git a/test.txt b/test.txt
+exports[`matches expected output: diff-eol.patch 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+diff --git a/test.txt b/test.txt
 index a907ec3..3bd1f0e 100644
 --- a/test.txt
 +++ b/test.txt
 @@ -1,2 +1,2 @@
  foo
 -bar
-\\\\ No newline at end of file
+\\ No newline at end of file
 +bar
-",
-]
+--
+2.9.3
+
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+diff --git a/test.txt b/test.txt
+index a907ec3..3bd1f0e 100644
+--- a/test.txt
++++ b/test.txt
+@@ -1,2 +1,2 @@
+ foo
+-bar
+\\ No newline at end of file
++bar
+
 `;
 
-exports[`parses correctly fixture: diff-in-diff.patch 1`] = `
-Array [
-  "diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
+exports[`matches expected output: diff-in-diff.patch 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
 index e69de29b..13d590e0 100644
 --- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
 +++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
@@ -112,8 +192,7 @@ index e69de29b..13d590e0 100644
 + +
 +    findDescendantsPath = (
 +      revision: string,
-",
-  "diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
 index 79d62980..8b0893a1 100644
 --- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
 +++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
@@ -127,6 +206,40 @@ index 79d62980..8b0893a1 100644
  +
     findDescendantsPath = (
       revision: string,
-",
-]
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
+index e69de29b..13d590e0 100644
+--- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
++++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
+@@ -0,0 +1,14 @@
++diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
++index 79d62980..8b0893a1 100644
++--- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+++++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
++@@ -16,8 +16,7 @@ index f4d19bd6..05be5559 100644
++    };
++
++ +  getChangesetFromNativePatch = (patch: string) => {
++-+    //
++-+  };
++++    // some changes here
++ +
++    findDescendantsPath = (
++      revision: string,
+,diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+index 79d62980..8b0893a1 100644
+--- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
++++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+@@ -16,8 +16,7 @@ index f4d19bd6..05be5559 100644
+    };
+
+ +  getChangesetFromNativePatch = (patch: string) => {
+-+    //
+-+  };
+++    // some changes here
+ +
+    findDescendantsPath = (
+      revision: string,
+
 `;
