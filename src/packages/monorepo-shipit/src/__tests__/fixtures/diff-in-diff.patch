@@ -1,0 +1,33 @@
+diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
+index e69de29b..13d590e0 100644
+--- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
++++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff-in-diff.patch
+@@ -0,0 +1,14 @@
++diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
++index 79d62980..8b0893a1 100644
++--- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+++++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
++@@ -16,8 +16,7 @@ index f4d19bd6..05be5559 100644
++    };
++
++ +  getChangesetFromNativePatch = (patch: string) => {
++-+    //
++-+  };
++++    // some changes here
++ +
++    findDescendantsPath = (
++      revision: string,
+diff --git a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+index 79d62980..8b0893a1 100644
+--- a/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
++++ b/src/packages/monorepo-shipit/src/__tests__/fixtures/diff.patch
+@@ -16,8 +16,7 @@ index f4d19bd6..05be5559 100644
+    };
+
+ +  getChangesetFromNativePatch = (patch: string) => {
+-+    //
+-+  };
+++    // some changes here
+ +
+    findDescendantsPath = (
+      revision: string,
