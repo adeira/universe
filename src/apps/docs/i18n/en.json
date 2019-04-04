@@ -9,6 +9,10 @@
         "title": "Debugging",
         "sidebar_label": "Debugging"
       },
+      "graphql/directory-structure": {
+        "title": "Directory structure",
+        "sidebar_label": "Directory structure"
+      },
       "graphql/faq": {
         "title": "FAQ",
         "sidebar_label": "FAQ"
