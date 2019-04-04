@@ -74,56 +74,97 @@ $Diff<Props, { relay: RelayPropT | void }>,
 
 exports[`matches expected output: babel-issue-9810.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict-local
+// @flow
 
 // See: https://github.com/babel/babel/issues/9810
 
-/*:: type TestType = number; */
+/*:: type TestType = any; */
 
-const testFunction = () /*: TestType */ => 42;
+const executeNodeScript = (
+  aaa /*: string */,
+  bbb /*: number */,
+  ccc /*: any */,
+) /*: TestType */ => {
+  // README: this code is invalid - leaving it here to see whether it's fixed or not
 
-module.exports = testFunction;
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
+
+module.exports = executeNodeScript;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
 // See: https://github.com/babel/babel/issues/9810
 
-/*:: type TestType = number; */
-const testFunction = () =>
+/*:: type TestType = any; */
+const executeNodeScript = (aaa
+/*: string */
+, bbb
+/*: number */
+, ccc
+/*: any */
+) =>
 /*: TestType */
-42;
+{
+  // README: this code is invalid - leaving it here to see whether it's fixed or not
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
 
-module.exports = testFunction;
+module.exports = executeNodeScript;
 `;
 
 exports[`matches expected output: babel-issue-9810.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict-local
+// @flow
 
 // See: https://github.com/babel/babel/issues/9810
 
-/*:: type TestType = number; */
+/*:: type TestType = any; */
 
-const testFunction = () /*: TestType */ => 42;
+const executeNodeScript = (
+  aaa /*: string */,
+  bbb /*: number */,
+  ccc /*: any */,
+) /*: TestType */ => {
+  // README: this code is invalid - leaving it here to see whether it's fixed or not
 
-module.exports = testFunction;
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
+
+module.exports = executeNodeScript;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict-local
+// @flow
 
 // See: https://github.com/babel/babel/issues/9810
 
-/*:: type TestType = number; */
+/*:: type TestType = any; */
 
-const testFunction = () => /*: TestType */42;
+const executeNodeScript = (
+aaa /*: string */,
+bbb /*: number */,
+ccc /*: any */) =>
+/*: TestType */{
+  // README: this code is invalid - leaving it here to see whether it's fixed or not
 
-module.exports = testFunction;
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
+
+module.exports = executeNodeScript;
 `;
 
 exports[`matches expected output: condition.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 if (__DEV__) {
   console.log('foo'); // eslint-disable-line no-console
@@ -139,14 +180,14 @@ if (process.env.NODE_ENV !== "production") {
 
 exports[`matches expected output: condition.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 if (__DEV__) {
   console.log('foo'); // eslint-disable-line no-console
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/*@flow*/declare var __DEV__: boolean;
+/*@flow strict*/declare var __DEV__: boolean;
 
 if (__DEV__) {
   console.log('foo'); // eslint-disable-line no-console
@@ -253,7 +294,7 @@ invariant(Math.random(), 'You shall not pass!');
 
 exports[`matches expected output: noDevExpression.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
 
@@ -265,19 +306,19 @@ console.log('This file should stay as is because __DEV__ is missing.'); // eslin
 
 exports[`matches expected output: noDevExpression.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 console.log('This file should stay as is because __DEV__ is missing.'); // eslint-disable-line no-console
 `;
 
 exports[`matches expected output: objectKey.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 module.exports = {
   rules: {},
@@ -306,7 +347,7 @@ module.exports = {
 
 exports[`matches expected output: objectKey.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 module.exports = {
   rules: {},
@@ -320,7 +361,7 @@ module.exports = {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/*@flow*/declare var __DEV__: boolean;
+/*@flow strict*/declare var __DEV__: boolean;
 
 module.exports = {
   rules: {},
@@ -385,7 +426,7 @@ module.exports = { A, B, P, Q };
 
 exports[`matches expected output: ternary.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict-local
+// @flow strict
 
 // eslint-disable-next-line no-unused-vars
 const dev = __DEV__ ? 'true' : 'false';
@@ -399,13 +440,13 @@ const dev = process.env.NODE_ENV !== "production" ? 'true' : 'false';
 
 exports[`matches expected output: ternary.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict-local
+// @flow strict
 
 // eslint-disable-next-line no-unused-vars
 const dev = __DEV__ ? 'true' : 'false';
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/*@flow strict-local*/declare var __DEV__: boolean;
+/*@flow strict*/declare var __DEV__: boolean;
 
 // eslint-disable-next-line no-unused-vars
 const dev = __DEV__ ? 'true' : 'false';

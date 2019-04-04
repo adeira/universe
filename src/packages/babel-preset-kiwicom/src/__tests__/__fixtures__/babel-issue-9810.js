@@ -1,9 +1,19 @@
-// @flow strict-local
+// @flow
 
 // See: https://github.com/babel/babel/issues/9810
 
-/*:: type TestType = number; */
+/*:: type TestType = any; */
 
-const testFunction = () /*: TestType */ => 42;
+const executeNodeScript = (
+  aaa /*: string */,
+  bbb /*: number */,
+  ccc /*: any */,
+) /*: TestType */ => {
+  // README: this code is invalid - leaving it here to see whether it's fixed or not
 
-module.exports = testFunction;
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
+
+module.exports = executeNodeScript;

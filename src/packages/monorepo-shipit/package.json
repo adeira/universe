@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@kiwicom/js": "^0.7.0",
-    "@kiwicom/monorepo": "^0.13.0",
+    "@kiwicom/monorepo": "^0.14.0",
     "@kiwicom/test-utils": "^0.8.0"
   }
 }
