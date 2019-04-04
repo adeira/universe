@@ -2,7 +2,7 @@ Thanks for contributing to this repository. Please go through the following note
 
 # Our Development Process
 
-We want to push changes to the `master` branch as soon as possible and we consider `master` branch to be a stable branch (with continuous deployments from this branch). Every change should go through Merge Request (MR) and code review and we prefer smaller MRs even though the future is not completely finished yet.
+We want to push changes to the `master` branch as soon as possible and we consider `master` branch to be a stable branch (with continuous deployments from this branch). Every change should go through Merge Request (MR) and code review and we prefer smaller MRs even though the feature is not completely finished yet.
 
 Please read our [documentation](https://kiwi.wiki/incubator/universe/) for more detailed info about how to write code or test it. Tl;dr:
 
