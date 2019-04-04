@@ -13,6 +13,7 @@
   "apps": {
     "GraphQL": [
       "graphql/general-information",
+      "graphql/directory-structure",
       "graphql/schema-design",
       "graphql/js-developer-guides",
       "graphql/infrastructure",
