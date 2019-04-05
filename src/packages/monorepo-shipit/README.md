@@ -1,3 +1,10 @@
+```
+g clone git@github.com:mrtnzlml/REMOVE-monorepo-relay-export-test.git
+cd REMOVE-monorepo-relay-export-test
+
+// TODO: run monorepo-shipit, render patches, commit them to this repository and push; 🎉
+```
+
 Heavily inspired by https://github.com/facebook/fbshipit
 
 This is how it more or less works:
