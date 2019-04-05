@@ -1,50 +1,32 @@
-```
-g clone git@github.com:mrtnzlml/REMOVE-monorepo-relay-export-test.git
-cd REMOVE-monorepo-relay-export-test
-
-// TODO: run monorepo-shipit, render patches, commit them to this repository and push; 🎉
-```
-
 Heavily inspired by https://github.com/facebook/fbshipit
 
-This is how it more or less works:
+GitHub (GH) repositories are completely independent from our GitLab (GL) repositories. We are only sending filtered Git patches from GL to GH to open-source relevant changes. Currently, our private code is very similar to what we actually open-source. However, it's easily possibly to modify how the OSS repo is being exported.
+
+Filters applied by default:
+
+- all files outside of the specified roots are being removed
+- exported project change their root (for example `src/packages/relay` -> ``)
 
 # Shipit part
 
-```text
-$ hhvm -m debug
-Welcome to HipHop Debugger!
-Type "help" or "?" for a complete list of commands.
+Internally it works like this:
 
-hphpd> require_once('./autoload.php')
-hphpd> $repo = new \Facebook\ShipIt\ShipItRepoGIT('/tmp/gittest', 'master')
-hphpd> $header = $repo->getNativeHeaderFromID('5ecc4b73aba8abb77f814a1fa0020e46e0327c53')
-hphpd> $patch = $repo->getNativePatchFromID('5ecc4b73aba8abb77f814a1fa0020e46e0327c53')
-hphpd> file_put_contents('tests/shipit/git-diffs/add-newline-at-eof.header', $header)
-hphpd> file_put_contents('tests/shipit/git-diffs/add-newline-at-eof.patch', $patch)
-```
+1. clone remote GitHub repository
+2. get internal commit ID based on `kiwicom-source-id`
+3. filter new commits with relevant changes
+4. convert these commits into "changesets" and perform necessary modifications and filters to match OSS repo
+5. commit these changesets into cloned GitHub repository
+6. push
 
-Headers and patches are converted into "changesets" which are being filtered. They use many cool filters but we have to start with simple one: change the paths (GL => GH). After this they commit the changes (modified patches) into remote repository.
+# TODO: Importit part
 
-Important part of this process is this:
+TODO
 
-```text
-fbshipit-source-id: 153d70b59ba8b5e9534134b1ad65e3e89ceb4d79
-```
+# Main differences from facebook/fbshipit
 
-We are currently emulating it like this:
-
-```text
-git --no-pager filter-branch --subdirectory-filter src/apps/relay-example --msg-filter 'cat && echo "\nkiwicom-source-id: $GIT_COMMIT"' -- --all
-```
-
-This is a first step in order to be able to achieve this Shipit behavior. Later we have to stop filtering the branch and just start sending patches to our OSS repositories.
-
-## Unanswered questions
-
-- What happens when the GH repo is out of sync?
-- How to modify patch paths from GL correctly?
-
-# Importit part
-
-Importit is basically reverse of Shipit except is much easier. Seems like they can import things back to upstream (GL for us) or import individual PR. They create patch (changesets respectively) while they apply reversed filters to much upstream paths.
+- our version doesn't support [Mercurial](https://www.mercurial-scm.org/) and it's written in JS (not in Hack)
+- our version is much simpler and doesn't support many filters
+- out version is highly tailored for Kiwi.com needs
+- we currently cannot do this:
+  - changed Shipit config: https://github.com/facebook/fbshipit/commit/939949dc1369295c910772c6e8eccbbef2a2db7f
+  - effect in Relay repo: https://github.com/facebook/relay/commit/13b6436e406398065507efb9df2eae61cdc14dd9
