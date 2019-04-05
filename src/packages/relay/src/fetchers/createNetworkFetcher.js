@@ -12,10 +12,15 @@ type Headers = {
 };
 
 type AdditionalHeaders = Headers | Promise<Headers>;
+type RefetchConfig = {|
+  +fetchTimeout?: number,
+  +retryDelays?: $ReadOnlyArray<number>,
+|};
 
 module.exports = function createNetworkFetcher(
   graphQLServerURL: string,
   additionalHeaders: AdditionalHeaders,
+  refetchConfig?: RefetchConfig,
 ) {
   return async function fetch(
     request: RequestNode,
@@ -42,6 +47,7 @@ module.exports = function createNetworkFetcher(
       method: 'POST',
       headers,
       body,
+      ...refetchConfig,
     });
 
     return handleData(response);
