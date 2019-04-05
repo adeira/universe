@@ -1,40 +1,90 @@
-// @flow
+// @flow strict
 
 type Diff = {|
   +path: string,
   +body: string,
 |};
 
+// TODO: will be used when printing commits
 opaque type ChangesetData = {|
   +id: string,
-  +timestamp: number,
+  +timestamp: string,
   +author: string,
   +subject: string,
-  +message: string,
+  +description: string,
   +diffs: Set<Diff>,
 |};
 
 export default class Changeset {
   id: string;
-  message: string;
+  timestamp: string;
+  author: string;
+  subject: string;
+  description: string;
   diffs: Set<Diff>;
 
-  // TODO: change the order (?)
-  constructor(id: string, diffs: Set<Diff>, message: string) {
-    this.id = id;
-    this.message = message;
-    this.diffs = diffs;
+  getID(): string {
+    return this.id;
   }
 
-  getID = () => {
-    return this.id;
-  };
+  withID(id: string): Changeset {
+    return this.__clone({ id });
+  }
 
-  getMessage = () => {
-    return this.message;
-  };
+  getTimestamp(): string {
+    return this.timestamp;
+  }
 
-  withMessage = (message: string): Changeset => {
-    return new Changeset(this.id, this.diffs, message);
-  };
+  withTimestamp(timestamp: string): Changeset {
+    return this.__clone({ timestamp });
+  }
+
+  getAuthor(): string {
+    return this.author;
+  }
+
+  withAuthor(author: string): Changeset {
+    return this.__clone({ author });
+  }
+
+  getSubject(): string {
+    return this.subject;
+  }
+
+  withSubject(subject: string): Changeset {
+    return this.__clone({ subject });
+  }
+
+  getDescription(): string {
+    return this.description;
+  }
+
+  withDescription(description: string): Changeset {
+    return this.__clone({ description });
+  }
+
+  getDiffs(): Set<Diff> {
+    return this.diffs;
+  }
+
+  withDiffs(diffs: Set<Diff>): Changeset {
+    return this.__clone({ diffs });
+  }
+
+  __clone(newProps: {
+    [$Keys<ChangesetData>]: $Values<ChangesetData>,
+  }): Changeset {
+    return Object.assign(
+      Object.create(this),
+      {
+        id: this.id,
+        timestamp: this.timestamp,
+        author: this.author,
+        subject: this.subject,
+        description: this.description,
+        diffs: this.diffs,
+      },
+      newProps,
+    );
+  }
 }
