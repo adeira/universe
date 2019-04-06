@@ -5,7 +5,6 @@ import isCI from 'is-ci';
 import log from './log';
 import updateDocs from './tasks/updateDocs';
 import updateHiringBanners from './tasks/updateHiringBanners';
-// import publishWorkspaceOnGitHub from './tasks/publishWorkspaceOnGitHub';
 import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
 import updateDependencies from './tasks/updateDependencies';
 
@@ -22,7 +21,6 @@ const tasks = new Map([
   //
   ['UPDATE_DOCS', updateDocs], // updates Docs and sends MR to GitLab repo
   ['HIRING_BANNER', updateHiringBanners],
-  // ['PUBLISH_WORKSPACES', publishWorkspaceOnGitHub], // publishes workspace on GitHub (WIP)
   ['UPDATE_GRAPHQL_SKYMOCK', updateGraphQLSkymock],
   ['UPDATE_DEPENDENCIES', updateDependencies],
 ]);
