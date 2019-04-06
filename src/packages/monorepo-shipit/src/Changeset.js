@@ -23,6 +23,10 @@ export default class Changeset {
   description: string;
   diffs: Set<Diff>;
 
+  isValid(): boolean {
+    return this.diffs.size > 0;
+  }
+
   getID(): string {
     return this.id;
   }

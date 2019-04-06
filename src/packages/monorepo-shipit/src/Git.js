@@ -7,11 +7,35 @@ import parsePatchHeader from './parsePatchHeader';
 import splitHead from './splitHead';
 import Changeset from './Changeset';
 
-function git(args: $ReadOnlyArray<string>) {
-  return ChildProcess.executeSystemCommand('git', ['--no-pager', ...args]);
+function git(args: $ReadOnlyArray<string>, options) {
+  return ChildProcess.executeSystemCommand(
+    'git',
+    ['--no-pager', ...args],
+    options,
+  );
 }
 
 export default class Git {
+  repoPath: string;
+
+  constructor(repoPath: string) {
+    this.repoPath = repoPath;
+  }
+
+  findLastSourceCommit = () => {
+    // TODO: we must operate here on "destination" roots (not `src/packages/relay` but ``)
+    const rawLog = git(
+      ['log', '-1', '--grep', '^kiwicom-source-id: [a-z0-9]\\+$'],
+      {
+        cwd: this.repoPath,
+      },
+    );
+    const match = rawLog
+      .trim()
+      .match(/kiwicom-source-id: (?<commit>[a-z0-9]+)$/m);
+    return match?.groups?.commit ?? 'd30a77bd2fe0fdfe5739d68fc9592036e94364dd'; // very first commit in incubator/universe
+  };
+
   getNativePatchFromID = (revision: string): string => {
     return git([
       'format-patch',
@@ -49,6 +73,7 @@ export default class Git {
     const patch = this.getNativePatchFromID(revision);
     const header = this.getNativeHeaderFromIDWithPatch(revision, patch);
     const changeset = this.getChangesetFromExportedPatch(header, patch);
+    console.warn(`Filtering changeset for: ${revision}`); // eslint-disable-line no-console
     return changeset.withID(revision);
   };
 
@@ -86,11 +111,50 @@ export default class Git {
       '--ancestry-path',
       '--no-merges',
       '--pretty=tformat:%H',
-      revision + '..master',
+      revision + '..origin/master', // GitLab CI doesn't have master branch
+      '--', // TODO: remove in the future (?) only temporary to support non-existent roots
       ...roots,
     ]);
 
     // return descendant hashes
     return log.trim().split('\n');
+  };
+
+  commitChangeset = (changeset: Changeset) => {
+    const diff = this.renderPatch(changeset);
+
+    ChildProcess.executeSystemCommand(
+      'git',
+      ['am', '--keep-non-patch', '--keep-cr'],
+      {
+        // stdin, stdout, stderr
+        stdio: ['pipe', 'inherit', 'inherit'],
+        input: diff,
+        cwd: this.repoPath,
+      },
+    );
+  };
+
+  renderPatch = (changeset: Changeset) => {
+    let renderedDiffs = '';
+    for (const diff of changeset.getDiffs()) {
+      const path = diff.path;
+      renderedDiffs += `diff --git a/${path} b/${path}
+${diff.body}`;
+    }
+
+    // Mon Sep 17 is a magic date used by format-patch to distinguish from real mailboxes
+    // see: https://git-scm.com/docs/git-format-patch
+    return `From ${changeset.getID()} Mon Sep 17 00:00:00 2001
+From: ${changeset.getAuthor()}
+Date: ${changeset.getTimestamp()}
+Subject: [PATCH] ${changeset.getSubject()}
+
+${changeset.getDescription()}
+
+${renderedDiffs}
+--
+2.21.0
+`;
   };
 }
