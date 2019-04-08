@@ -9,8 +9,6 @@ const executeNodeScript = (
   bbb /*: number */,
   ccc /*: any */,
 ) /*: TestType */ => {
-  // README: this code is invalid - leaving it here to see whether it's fixed or not
-
   // This currently yields invalid Flow code. One workaround is to use regular
   // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
