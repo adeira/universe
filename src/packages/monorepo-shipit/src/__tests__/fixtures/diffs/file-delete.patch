@@ -1,0 +1,11 @@
+diff --git a/bbb.txt b/bbb.txt
+deleted file mode 100644
+index dbee0265d31298531773537e6e37e4fd1ee71d62..0000000000000000000000000000000000000000
+--- a/bbb.txt
++++ /dev/null
+@@ -1,2 +0,0 @@
+-aaa
+-bbb
+--
+2.21.0
+

@@ -1,0 +1,19 @@
+diff --git a/aaa.txt b/aaa.txt
+deleted file mode 100644
+index 01f02e32ce8a128dd7b1d16a45f2eff66ec23c2d..0000000000000000000000000000000000000000
+--- a/aaa.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-bbb
+\ No newline at end of file
+diff --git a/bbb.txt b/bbb.txt
+new file mode 100644
+index 0000000000000000000000000000000000000000..01f02e32ce8a128dd7b1d16a45f2eff66ec23c2d
+--- /dev/null
++++ b/bbb.txt
+@@ -0,0 +1 @@
++bbb
+\ No newline at end of file
+--
+2.21.0
+

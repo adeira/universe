@@ -1,0 +1,19 @@
+diff --git a/bbb.txt b/bbb.txt
+index 01f02e32ce8a128dd7b1d16a45f2eff66ec23c2d..dbee0265d31298531773537e6e37e4fd1ee71d62 100644
+--- a/bbb.txt
++++ b/bbb.txt
+@@ -1 +1,2 @@
+-bbb
+\ No newline at end of file
++aaa
++bbb
+diff --git a/ccc.txt b/ccc.txt
+index b2a7546679fdf79ca0eb7bfbee1e1bb342487380..66bde67332bef8dfb2c70698c51bf37b80b73ef3 100644
+--- a/ccc.txt
++++ b/ccc.txt
+@@ -1 +1,2 @@
+ ccc
++ddd
+--
+2.21.0
+
