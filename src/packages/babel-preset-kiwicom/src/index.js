@@ -43,9 +43,9 @@ module.exports = (
           modules: 'commonjs',
           targets: {
             node: 'current',
-            // browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
+            browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
           },
-          // TODO - loose: true
+          // TODO - loose: true (?)
         },
       ],
       '@babel/preset-react',
@@ -59,6 +59,10 @@ module.exports = (
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-optional-chaining',
       '@babel/plugin-transform-flow-strip-types',
+      // Transform runtime plugin turns common chunks of code into imports. However, this
+      // requires `@babel/runtime` dependency thus we are requiring it as well.
+      // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
+      '@babel/plugin-transform-runtime',
       '@kiwicom/babel-plugin-orbit-components',
       'babel-plugin-relay',
     ];

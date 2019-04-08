@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.7.0
+- Browser environment is now supported correctly (last 2 versions, ie >= 11). We are now distributing `@babel/runtime` as a dependency so you  may want to remove it from your project. Please report any issues with your environment.
+
 # 2.6.0
 - Add support for Relay 3.0 (no breaking changes expected, should be backward compatible)
 

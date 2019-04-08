@@ -13,14 +13,44 @@ export default async function test() {
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = test;
 
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 /* eslint-disable no-return-await */
-async function test() {
-  return await 'this';
+function test() {
+  return _test.apply(this, arguments);
+}
+
+function _test() {
+  _test = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return 'this';
+
+          case 2:
+            return _context.abrupt("return", _context.sent);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _test.apply(this, arguments);
 }
 `;
 
@@ -129,8 +159,6 @@ const executeNodeScript = (
   bbb /*: number */,
   ccc /*: any */,
 ) /*: TestType */ => {
-  // README: this code is invalid - leaving it here to see whether it's fixed or not
-
   // This currently yields invalid Flow code. One workaround is to use regular
   // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
@@ -144,16 +172,15 @@ module.exports = executeNodeScript;
 // See: https://github.com/babel/babel/issues/9810
 
 /*:: type TestType = any; */
-const executeNodeScript = (aaa
+var executeNodeScript = function executeNodeScript(aaa
 /*: string */
 , bbb
 /*: number */
 , ccc
 /*: any */
-) =>
+)
 /*: TestType */
 {
-  // README: this code is invalid - leaving it here to see whether it's fixed or not
   // This currently yields invalid Flow code. One workaround is to use regular
   // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
@@ -175,8 +202,6 @@ const executeNodeScript = (
   bbb /*: number */,
   ccc /*: any */,
 ) /*: TestType */ => {
-  // README: this code is invalid - leaving it here to see whether it's fixed or not
-
   // This currently yields invalid Flow code. One workaround is to use regular
   // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
@@ -196,8 +221,6 @@ aaa /*: string */,
 bbb /*: number */,
 ccc /*: any */) =>
 /*: TestType */{
-  // README: this code is invalid - leaving it here to see whether it's fixed or not
-
   // This currently yields invalid Flow code. One workaround is to use regular
   // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
@@ -217,19 +240,21 @@ export default class A {
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-class A {
-  constructor() {
-    _defineProperty(this, "b", 1);
-  }
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-}
+var A = function A() {
+  (0, _classCallCheck2.default)(this, A);
+  (0, _defineProperty2.default)(this, "b", 1);
+};
 
 exports.default = A;
 `;
@@ -273,7 +298,7 @@ if (__DEV__) {
 
 /* eslint-disable no-console */
 if (process.env.NODE_ENV !== "production") {
-  const dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
+  var dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
   console.log(dev);
   console.warn({
     // this shouldn't change (valid object key):
@@ -397,9 +422,8 @@ invariant(Math.random(), 'You shall not pass!');
 "use strict";
 
 /* eslint-disable */
-const {
-  invariant
-} = require('@kiwicom/js');
+var _require = require('@kiwicom/js'),
+    invariant = _require.invariant;
 
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
 `;
@@ -438,7 +462,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Component;
 
-const React = () => {};
+var React = function React() {};
 
 function Component() {
   return React.createElement("div", null, "OK");
@@ -513,11 +537,11 @@ module.exports = { A, B, P, Q };
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 var _Alert = _interopRequireDefault(require("@kiwicom/orbit-components/lib/Alert"));
 
 var _Passengers = _interopRequireDefault(require("@kiwicom/orbit-components/lib/icons/Passengers"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* eslint-disable */
 module.exports = {
@@ -565,7 +589,9 @@ module.exports = graphql\`
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
-const graphql = query => query;
+var graphql = function graphql(query) {
+  return query;
+};
 
 module.exports = function () {
   return require("./__generated__/relayTest.graphql");
@@ -603,23 +629,33 @@ exports[`matches expected output: rest-operator.js 1`] = `
 /* eslint-disable no-console */
 
 module.exports = function(a: Object, ...rest: Array<any>) {
-  console.warn(rest);
+  console.warn([1, ...rest]);
+  const { b, ...c } = a;
   return {
-    ...a,
+    ...b,
+    ...c,
   };
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
+
+var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
 /* eslint-disable no-console */
-module.exports = function (a, ...rest) {
-  console.warn(rest);
-  return _objectSpread({}, a);
+module.exports = function (a) {
+  for (var _len = arguments.length, rest = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    rest[_key - 1] = arguments[_key];
+  }
+
+  console.warn([1].concat(rest));
+  var b = a.b,
+      c = (0, _objectWithoutProperties2.default)(a, ["b"]);
+  return (0, _objectSpread2.default)({}, b, c);
 };
 `;
 
@@ -630,9 +666,11 @@ exports[`matches expected output: rest-operator.js 2`] = `
 /* eslint-disable no-console */
 
 module.exports = function(a: Object, ...rest: Array<any>) {
-  console.warn(rest);
+  console.warn([1, ...rest]);
+  const { b, ...c } = a;
   return {
-    ...a,
+    ...b,
+    ...c,
   };
 };
 
@@ -642,9 +680,11 @@ module.exports = function(a: Object, ...rest: Array<any>) {
 /* eslint-disable no-console */
 
 module.exports = function (a: Object, ...rest: Array<any>) {
-  console.warn(rest);
+  console.warn([1, ...rest]);
+  const { b, ...c } = a;
   return {
-    ...a };
+    ...b,
+    ...c };
 
 };
 `;
@@ -724,9 +764,8 @@ warning(Math.random(), 'I am warning you!');
 "use strict";
 
 /* eslint-disable */
-const {
-  warning
-} = require('@kiwicom/js');
+var _require = require('@kiwicom/js'),
+    warning = _require.warning;
 
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
 `;
