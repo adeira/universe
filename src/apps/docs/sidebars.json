@@ -7,7 +7,7 @@
       "monorepo/acceptance",
       "monorepo/example-projects"
     ],
-    "NPM packages": ["npm/packages", "npm/releasing"],
+    "Open source": ["oss/general", "oss/npm-packages", "oss/npm-releasing"],
     "Developer guides": ["guides/commit-messages", "guides/money"]
   },
   "apps": {

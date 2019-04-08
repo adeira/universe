@@ -4,7 +4,7 @@ title: Install & Run this monorepo
 sidebar_label: Installation
 ---
 
-This project is _monorepo_ for projects created in Incubator tribe which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](npm/packages.md) for more info).
+This project is _monorepo_ for projects created in Incubator tribe which essentially means it contains many smaller repositories (do not confuse it with monolith). Some of these subprojects are exposed publicly via NPM (see [Public NPM Packages](oss/npm-packages.md) for more info).
 
 Requirements:
 

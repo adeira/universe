@@ -1,32 +1,87 @@
-Heavily inspired by https://github.com/facebook/fbshipit
-
-GitHub (GH) repositories are completely independent from our GitLab (GL) repositories. We are only sending filtered Git patches from GL to GH to open-source relevant changes. Currently, our private code is very similar to what we actually open-source. However, it's easily possibly to modify how the OSS repo is being exported.
-
-Filters applied by default:
-
-- all files outside of the specified roots are being removed
-- exported project change their root (for example `src/packages/relay` -> ``)
+Monorepo Shipit takes care of exporting and importing our source-codes from our private GitLab monorepo into public GitHub manyrepos. This way we can develop just like we are used to in one monorepository but we can contribute back to the community by making some of our codes open.
 
 # Shipit part
 
-Internally it works like this:
+First, we try to extract relevant commits of our package we want to opensource. Each commit is converted into so called "changeset" which is immutable structure representing one commit. One changeset can contain many diffs which describe changes in one individual file. It's very common to modify many files in commit even outside of the public package. Moreover paths in our internal monorepo are very different from the open-sourced version. Therefore, we apply some filters to hide non-relevant or secret files and to adjust paths in the changeset to match open-source expectations. These modified changesets are then pushed applied in the cloned open-source repository and pushed to the GitHub service.
 
-1. clone remote GitHub repository
-2. get internal commit ID based on `kiwicom-source-id`
-3. filter new commits with relevant changes
-4. convert these commits into "changesets" and perform necessary modifications and filters to match OSS repo
-5. commit these changesets into cloned GitHub repository
-6. push
+```text
+   .-----------------------------------.
+   |                                   |
+   |          GitLab Monorepo          |
+   |                                   |
+   `-----------------------------------`
+      v              v              v
+.-----------.  .-----------.  .-----------.
+| Changeset |  | Changeset |  | Changeset |
+`-----------`  `-----------`  `-----------`
+      v              v              v
+   .-----------------------------------.
+   |        Filters and Modifiers      |
+   `-----------------------------------`
+      v              v              v
+.-----------.  .-----------.  .-----------.
+| Changeset |  | Changeset |  | Changeset |
+`-----------`  `-----------`  `-----------`
+      |              |              v
+      |              |         .---------.
+      |              |         | GH repo | <------.
+      |              v         `---------`        |      .--------------------.
+      |         .---------.                       |      |                    |
+      |         | GH repo | <---------------------+----> |   GitHub service   |
+      v         `---------`                       |      |                    |
+ .---------.                                      |      `--------------------`
+ | GH repo | <------------------------------------`
+ `---------`
+```
 
-# TODO: Importit part
+One of the filters modifies commit summaries and adds `kiwicom-source-id` signature which helps us to identify which changes we pushed last time and just amend latest internal changes. These filters work with the parsed changesets which gives you incredible flexibility: you can for example completely remove some lines from the open-source version. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the public repository then just add a new filter and manually remove them from GitHub.
 
-TODO
+# Importit part
+
+> Please note: this part is not implemented yet! We already import all GitHub pull requests by design but we do not apply them to our repository yet.
+
+Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:
+
+```text
+   .-----------------------------------.
+   |                                   |
+   |          GitLab Monorepo          |
+   |                                   |
+   `-----------------------------------`
+      ^              ^              ^
+.-----------.  .-----------.  .-----------.
+| Changeset |  | Changeset |  | Changeset |
+`-----------`  `-----------`  `-----------`
+      ^              ^              ^
+   .-----------------------------------.
+   |        Filters and Modifiers      |
+   `-----------------------------------`
+      ^              ^              ^
+.-----------.  .-----------.  .-----------.
+| Changeset |  | Changeset |  | Changeset |
+`-----------`  `-----------`  `-----------`
+      ^              ^              ^
+      |              |         .---------.
+      |              |         | GH repo | <------.
+      |              |         `---------`        |      .--------------------.
+      |         .---------.                       |      |                    |
+      |         | GH repo | <---------------------+----> |   GitHub service   |
+      |         `---------`                       |      |                    |
+ .---------.                                      |      `--------------------`
+ | GH repo | <------------------------------------`
+ `---------`
+```
 
 # Main differences from facebook/fbshipit
 
 - our version doesn't support [Mercurial](https://www.mercurial-scm.org/) and it's written in JS (not in Hack)
-- our version is much simpler and doesn't support many filters
-- out version is highly tailored for Kiwi.com needs
-- we currently cannot do this:
+- out version is much simpler and highly tailored for Kiwi.com needs
+- we currently cannot do this in one commit:
   - changed Shipit config: https://github.com/facebook/fbshipit/commit/939949dc1369295c910772c6e8eccbbef2a2db7f
   - effect in Relay repo: https://github.com/facebook/relay/commit/13b6436e406398065507efb9df2eae61cdc14dd9
+
+# Prior art
+
+- https://github.com/facebook/fbshipit 👍
+- https://git-scm.com/docs/git-filter-branch 😏
+- https://github.com/splitsh/lite 👎

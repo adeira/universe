@@ -69,13 +69,17 @@
         "title": "Testing, Linting, Flowing",
         "sidebar_label": "Test, Lint, Flow"
       },
-      "npm/packages": {
+      "oss/general": {
+        "title": "General info",
+        "sidebar_label": "General info"
+      },
+      "oss/npm-packages": {
         "title": "Public NPM Packages",
         "sidebar_label": "Public NPM Packages"
       },
-      "npm/releasing": {
-        "title": "Releasing of new versions",
-        "sidebar_label": "Releasing"
+      "oss/npm-releasing": {
+        "title": "Releasing of NPM packages",
+        "sidebar_label": "NPM Releasing"
       }
     },
     "links": {
@@ -85,7 +89,7 @@
     },
     "categories": {
       "Monorepo": "Monorepo",
-      "NPM packages": "NPM packages",
+      "Open source": "Open source",
       "Developer guides": "Developer guides",
       "GraphQL": "GraphQL"
     }

@@ -1,5 +1,5 @@
 ---
-id: packages
+id: npm-packages
 title: Public NPM Packages
 sidebar_label: Public NPM Packages
 ---
