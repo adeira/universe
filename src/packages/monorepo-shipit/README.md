@@ -75,7 +75,8 @@ Technically, _Importit_ part works just like _Shipit_ except in the opposite dir
 # Main differences from facebook/fbshipit
 
 - our version doesn't support [Mercurial](https://www.mercurial-scm.org/) and it's written in JS (not in Hack)
-- out version is much simpler and highly tailored for Kiwi.com needs
+- our version doesn't support [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+- our version is much simpler and highly tailored for Kiwi.com needs
 - we currently cannot do this in one commit:
   - changed Shipit config: https://github.com/facebook/fbshipit/commit/939949dc1369295c910772c6e8eccbbef2a2db7f
   - effect in Relay repo: https://github.com/facebook/relay/commit/13b6436e406398065507efb9df2eae61cdc14dd9
