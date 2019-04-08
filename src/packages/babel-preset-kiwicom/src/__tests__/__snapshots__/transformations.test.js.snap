@@ -364,7 +364,7 @@ var _js = require("@kiwicom/js");
 var _else = require("else");
 
 /* eslint-disable */
-!Math.random() ? process.env.NODE_ENV !== "production" ? (0, _js.invariant)(false, 'You shall not pass!') : invariant(false) : void 0;
+!Math.random() ? process.env.NODE_ENV !== "production" ? (0, _js.invariant)(false, 'You shall not pass!') : (0, _js.invariant)(false) : void 0;
 `;
 
 exports[`matches expected output: invariant-import.js 2`] = `
