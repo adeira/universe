@@ -1,0 +1,10 @@
+diff --git a/aaa.txt b/aaa.txt
+new file mode 100644
+index 0000000000000000000000000000000000000000..72943a16fb2c8f38f9dde202b7a70ccc19c52f34
+--- /dev/null
++++ b/aaa.txt
+@@ -0,0 +1 @@
++aaa
+--
+2.21.0
+

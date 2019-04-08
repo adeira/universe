@@ -1,0 +1,10 @@
+diff --git a/nasty.txt b/nasty.txt
+index 044b936071f4da77efec5b15794785ecde6b6791..e316f565a5386462ecbfd01d245888570a00ca85 100644
+--- a/nasty.txt
++++ b/nasty.txt
+@@ -1 +1 @@
+--- a/nasty.txt
++++ b/nasty.txt
+--
+2.21.0
+
