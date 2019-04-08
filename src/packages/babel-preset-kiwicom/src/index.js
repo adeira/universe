@@ -43,7 +43,9 @@ module.exports = (
           modules: 'commonjs',
           targets: {
             node: 'current',
+            // browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
           },
+          // TODO - loose: true
         },
       ],
       '@babel/preset-react',
