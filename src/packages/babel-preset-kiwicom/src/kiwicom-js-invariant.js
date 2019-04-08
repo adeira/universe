@@ -61,15 +61,18 @@ module.exports = function({ types: t }) {
 
           if (path.get('callee').isIdentifier({ name: 'invariant' })) {
             const condition = node.arguments[0];
-            const devInvariant = t.callExpression(
-              node.callee,
-              [t.booleanLiteral(false)].concat(node.arguments.slice(1)),
-            );
-            devInvariant[SEEN_SYMBOL] = true;
+
             const prodInvariant = t.callExpression(node.callee, [
               t.booleanLiteral(false),
             ]);
             prodInvariant[SEEN_SYMBOL] = true;
+
+            const devInvariant = t.cloneDeep(prodInvariant);
+            devInvariant.arguments = [t.booleanLiteral(false)].concat(
+              node.arguments.slice(1),
+            );
+            devInvariant[SEEN_SYMBOL] = true;
+
             path.replaceWith(
               t.ifStatement(
                 t.unaryExpression('!', condition),
