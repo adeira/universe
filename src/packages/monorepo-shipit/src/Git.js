@@ -112,7 +112,6 @@ export default class Git {
       '--no-merges',
       '--pretty=tformat:%H',
       revision + '..origin/master', // GitLab CI doesn't have master branch
-      '--', // TODO: remove in the future (?) only temporary to support non-existent roots
       ...roots,
     ]);
 
