@@ -6,6 +6,7 @@
   "private": false,
   "version": "0.15.0",
   "main": "src/index.js",
+  "sideEffects": false,
   "bin": {
     "monorepo-babel-node": "bin/monorepo-babel-node.js",
     "monorepo-run-tests": "bin/monorepo-run-tests.js"

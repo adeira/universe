@@ -3,6 +3,7 @@
   "private": false,
   "version": "1.2.1",
   "main": "src/index.js",
+  "sideEffects": false,
   "homepage": "https://github.com/kiwicom/relay",
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "license": "MIT",

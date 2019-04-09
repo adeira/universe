@@ -6,6 +6,7 @@
   "private": false,
   "version": "1.0.5",
   "main": "src/index.js",
+  "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
     "@kiwicom/test-utils": "^0"

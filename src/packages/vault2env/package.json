@@ -5,6 +5,7 @@
   "license": "MIT",
   "private": false,
   "version": "1.0.4",
+  "sideEffects": false,
   "bin": {
     "vault2env": "bin/index.js"
   },

@@ -6,6 +6,7 @@
   "private": false,
   "version": "3.3.6",
   "main": "index.js",
+  "sideEffects": false,
   "dependencies": {
     "@kiwicom/monorepo": "^0.15.0",
     "chalk": "^2.4.2",
