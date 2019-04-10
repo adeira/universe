@@ -11,42 +11,44 @@ it('finds dirty paths to test based on the changed files', () => {
 
   expect(
     findPathsToTest(workspaceDependencies, [
-      '/unknown_path',
-      '/path/src/packages/signed-source/index.js',
-      '/path/src/apps/index.js',
+      '/unknown_path', // doesn't exist and therefore is not being reflected in the output
+      '/src/packages/fetch/src/fetchWithRetries.js', // should run `@kiwicom/fetch` and all the related packages (see findRelatedWorkspaces.test.js)
     ]),
-    // Relevant workspace here are @kiwicom/graphql and @kiwicom/signed-source.
-    // However signed-source is a dependency of @kiwicom/graphql-bc-checker and
-    // therefore it's relevant as well (see workspace dependencies).
-    //
-    // Trailing slashes are important to distinguish similar paths, for example:
-    // "src/apps/graphql" shouldn't match "src/apps/graphql-skymock"
   ).toMatchInlineSnapshot(`
-Set {
-  "src/apps/",
-  "src/packages/signed-source/",
-  "src/packages/bc-checker/",
-}
-`);
+    Set {
+      "src/packages/fetch/",
+      "src/apps/automator/",
+      "src/apps/graphql-skymock/",
+      "src/apps/graphql/",
+      "src/packages/relay/",
+      "src/apps/example-react-native/",
+      "src/apps/relay-example/",
+      "src/packages/vault2env/",
+    }
+  `);
 
   expect(warnings).toMatchInlineSnapshot(`
-Array [
-  Array [
-    "DIRTY WORKSPACES:",
-    Set {
-      "@kiwicom/graphql",
-      "@kiwicom/signed-source",
-    },
-  ],
-  Array [
-    "TESTING WORKSPACES:",
-    Set {
-      "@kiwicom/graphql",
-      "@kiwicom/signed-source",
-      "@kiwicom/graphql-bc-checker",
-    },
-  ],
-]
-`);
+    Array [
+      Array [
+        "DIRTY WORKSPACES:",
+        Set {
+          "@kiwicom/fetch",
+        },
+      ],
+      Array [
+        "TESTING WORKSPACES:",
+        Set {
+          "@kiwicom/fetch",
+          "@kiwicom/automator",
+          "@kiwicom/graphql-skymock",
+          "@kiwicom/graphql",
+          "@kiwicom/relay",
+          "example-react-native",
+          "relay-example",
+          "@kiwicom/vault2env",
+        },
+      ],
+    ]
+  `);
   spy.mockRestore();
 });

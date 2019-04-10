@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { Workspaces } = require('@kiwicom/monorepo');
 
-const TESTS_REGEXP = '__tests__/**/?(*.)+(spec|test).js';
+const TESTS_GLOB = '__tests__/**/?(*.)+(spec|test).js';
 
 // SEE: https://jestjs.io/docs/en/configuration.html
 const commonProjectConfig = {
@@ -50,10 +50,10 @@ module.exports = {
       displayName: null,
       ...commonProjectConfig,
       testMatch: [
-        '<rootDir>/src/' + TESTS_REGEXP,
-        '<rootDir>/src/apps/' + TESTS_REGEXP,
-        '<rootDir>/src/packages/' + TESTS_REGEXP,
-        '<rootDir>/scripts/**/' + TESTS_REGEXP,
+        '<rootDir>/src/' + TESTS_GLOB,
+        '<rootDir>/src/apps/' + TESTS_GLOB,
+        '<rootDir>/src/packages/' + TESTS_GLOB,
+        '<rootDir>/scripts/**/' + TESTS_GLOB,
       ],
     },
 
@@ -62,7 +62,8 @@ module.exports = {
       const workspaceDirname = path.dirname(packageJSONLocation);
       return {
         displayName: packageJSON.name,
-        testMatch: [workspaceDirname + '/**/' + TESTS_REGEXP],
+        rootDir: workspaceDirname,
+        testMatch: ['**/' + TESTS_GLOB],
         ...commonProjectConfig,
         ...tryToLoadWorkspaceConfig(
           path.join(workspaceDirname, 'jest.config.js'),
