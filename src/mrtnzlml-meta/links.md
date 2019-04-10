@@ -34,6 +34,7 @@ Collection of interesting links, articles and project...
 
 # T
 - [The Hurricane Web](https://mxb.at/blog/hurricane-web/)
+- [The Zero Bug Policy](https://sookocheff.com/post/process/zero-bug-policy)
 
 # W
 - [We'll Fix It Later](https://matthewstrom.com/writing/fix-it-later.html)
