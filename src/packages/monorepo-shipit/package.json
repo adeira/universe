@@ -4,6 +4,7 @@
   "license": "UNLICENSED",
   "version": "0.0.0",
   "main": "src/index.js",
+  "sideEffects": false,
   "dependencies": {
     "@kiwicom/js": "^0.8.0",
     "@kiwicom/monorepo": "^0.15.0",
