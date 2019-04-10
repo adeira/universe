@@ -103,7 +103,7 @@ export default class Git {
 
   findDescendantsPath = (
     revision: string,
-    roots: $ReadOnlyArray<string>,
+    roots: Set<string>,
   ): $ReadOnlyArray<string> => {
     const log = git([
       'log',
