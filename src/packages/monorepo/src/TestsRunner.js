@@ -4,8 +4,8 @@ import { invariant } from '@kiwicom/js';
 
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
+import sanitizeWorkspaces from './sanitizeWorkspaces';
 import ChildProcess from './ChildProcess';
-import { type WorkspaceDependencies } from './Workspaces.flow';
 
 function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
@@ -66,21 +66,21 @@ type CINode = {|
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  const stdout = ChildProcess.executeSystemCommand('yarn', [
-    'workspaces',
-    'info',
-    '--json',
-  ]);
-  const workspaceDependencies: WorkspaceDependencies = JSON.parse(
-    JSON.parse(stdout).data,
-  );
-
   if (externalConfig.some(option => /^(?!--).+/.test(option))) {
     // user passed something that is not an option (probably tests regexp)
     // so we give it precedence before our algorithm
     _runJestTimezoneVariants(externalConfig, ciNode);
     return;
   }
+
+  const stdout = ChildProcess.executeSystemCommand('yarn', [
+    'workspaces',
+    'info',
+    '--json',
+  ]);
+  const workspaceDependencies = sanitizeWorkspaces(
+    JSON.parse(JSON.parse(stdout).data),
+  );
 
   const changedFiles = getChangedFiles();
   const pathsToTest = findPathsToTest(workspaceDependencies, changedFiles);

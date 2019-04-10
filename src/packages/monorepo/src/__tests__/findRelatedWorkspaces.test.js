@@ -4,26 +4,31 @@ import findRelatedWorkspaces from '../findRelatedWorkspaces';
 import workspaceDependencies from './workspaceDependencies';
 
 it('finds related workspaces based on touched workspaces', () => {
+  // nobody uses `@kiwicom/graphql` as a dependency so it should return only itself
   expect(
     findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/graphql'])),
   ).toMatchInlineSnapshot(`
-Set {
-  "@kiwicom/graphql",
-}
-`);
+    Set {
+      "@kiwicom/graphql",
+    }
+  `);
 
+  // `@kiwicom/fetch` is used in many projects so all these projects
+  // should be tested (recursively - see the example projects)
   expect(
-    findRelatedWorkspaces(
-      workspaceDependencies,
-      new Set(['@kiwicom/signed-source']),
-    ),
+    findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/fetch'])),
   ).toMatchInlineSnapshot(`
-Set {
-  "@kiwicom/signed-source",
-  "@kiwicom/graphql-bc-checker",
-  "@kiwicom/graphql",
-}
-`);
+    Set {
+      "@kiwicom/fetch",
+      "@kiwicom/automator",
+      "@kiwicom/graphql-skymock",
+      "@kiwicom/graphql",
+      "@kiwicom/relay",
+      "example-react-native",
+      "relay-example",
+      "@kiwicom/vault2env",
+    }
+  `);
 });
 
 it("doesn't crash with circular dependencies - simple circle", () => {
@@ -46,21 +51,21 @@ it("doesn't crash with circular dependencies - simple circle", () => {
   // 'bbb' uses 'aaa' so it's dirty as well
   expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['aaa'])))
     .toMatchInlineSnapshot(`
-Set {
-  "aaa",
-  "bbb",
-}
-`);
+    Set {
+      "aaa",
+      "bbb",
+    }
+  `);
 
   // 'bbb' is dirty
   // 'aaa' uses 'bbb' so it's dirty as well
   expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['bbb'])))
     .toMatchInlineSnapshot(`
-Set {
-  "bbb",
-  "aaa",
-}
-`);
+    Set {
+      "bbb",
+      "aaa",
+    }
+  `);
 });
 
 it("doesn't crash with circular dependencies - complex circle", () => {
@@ -93,10 +98,10 @@ it("doesn't crash with circular dependencies - complex circle", () => {
   // nobody uses 'aaa' so there are no additional dependencies
   expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['aaa'])))
     .toMatchInlineSnapshot(`
-Set {
-  "aaa",
-}
-`);
+    Set {
+      "aaa",
+    }
+  `);
 
   // 'bbb' is dirty
   // 'aaa' & 'ddd' use 'bbb' so they are dirty as well
@@ -104,26 +109,26 @@ Set {
   // 'ccc' uses 'ddd' so it's dirty as well
   expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['bbb'])))
     .toMatchInlineSnapshot(`
-Set {
-  "bbb",
-  "aaa",
-  "ddd",
-  "ccc",
-}
-`);
+    Set {
+      "bbb",
+      "aaa",
+      "ddd",
+      "ccc",
+    }
+  `);
 
   // 'ccc' is dirty
   // 'bbb' uses 'ccc' so it's dirty as well
   // 'aaa' & 'ddd' use 'bbb' so they are dirty as well
   expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['ccc'])))
     .toMatchInlineSnapshot(`
-Set {
-  "ccc",
-  "bbb",
-  "aaa",
-  "ddd",
-}
-`);
+    Set {
+      "ccc",
+      "bbb",
+      "aaa",
+      "ddd",
+    }
+  `);
 
   // 'ddd' is dirty
   // 'ccc' uses 'ddd' so it's dirty as well
@@ -131,11 +136,11 @@ Set {
   // 'aaa' & 'ddd' use 'bbb' so they are dirty as well (but 'ddd' is already there)
   expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['ddd'])))
     .toMatchInlineSnapshot(`
-Set {
-  "ddd",
-  "ccc",
-  "bbb",
-  "aaa",
-}
-`);
+    Set {
+      "ddd",
+      "ccc",
+      "bbb",
+      "aaa",
+    }
+  `);
 });

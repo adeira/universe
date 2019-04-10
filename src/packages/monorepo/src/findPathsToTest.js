@@ -25,7 +25,7 @@ export default function findPathsToTest(
 
   const pathsToTest = new Set<string>();
   relatedWorkspaces.forEach(relatedWorkspace => {
-    pathsToTest.add(workspaceDependencies[relatedWorkspace].location + '/');
+    pathsToTest.add(workspaceDependencies[relatedWorkspace].location);
   });
 
   console.warn('DIRTY WORKSPACES:', dirtyWorkspaces); // eslint-disable-line no-console
