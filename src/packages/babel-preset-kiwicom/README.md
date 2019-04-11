@@ -5,16 +5,18 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - Flow support `(a: string)`
 - JSX support `<Component />`
 - class properties `class A { b = 1; }`
+- optional chaining `a?.b`
 - nullish coalescing operator `a ?? b`
 - object rest spread `{...a}`
-- optional chaining `a?.b`
 - dev expression `__DEV__`
+- capturing groups in RegExp `/(?<year>[0-9]{4})/`
 - support for Relay fragments `graphql ...`
 - granular imports of Orbit components (see: https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 - transforms `invariant` from `@kiwicom/js`
 - transforms `warning` from `@kiwicom/js`
+- _and many more ..._
 
-This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. You can also choose Flow as a transpilation target (see bellow). This mode adds these features:
+This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:
 
 - declares `__DEV__` expression when used
 
@@ -81,7 +83,7 @@ module.exports = function(api /*: ApiType */) {
 };
 ```
 
-What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is).
+What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js and browsers environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is).
 
 # Prior art
 

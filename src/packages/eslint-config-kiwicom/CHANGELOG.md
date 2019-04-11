@@ -1,4 +1,5 @@
 # Unreleased
+- Show warnings for `prefer-named-capture-group` rule (see: https://eslint.org/docs/rules/prefer-named-capture-group)
 
 # 3.3.0
 - Show warnings for new `react-hooks/exhaustive-deps` rule (see: https://github.com/facebook/react/issues/14920)

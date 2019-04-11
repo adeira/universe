@@ -492,7 +492,7 @@ Object {
       },
     ],
     "prefer-destructuring": 0,
-    "prefer-named-capture-group": 0,
+    "prefer-named-capture-group": 1,
     "prefer-numeric-literals": 0,
     "prefer-object-spread": 0,
     "prefer-object-spread/prefer-object-spread": 1,
