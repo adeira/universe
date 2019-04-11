@@ -4,6 +4,7 @@ Useful Links:
 - https://github.com/sibelius/relay-modern-network-deep-dive
 - https://twitter.com/sseraphini/status/1078595758801203202
 - https://github.com/facebook/relay/tree/master/packages/relay-test-utils
+- https://relay-modern-course.now.sh/packages/
 
 TODO:
 
