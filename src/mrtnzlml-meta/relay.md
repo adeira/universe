@@ -28,7 +28,7 @@ First define local schema (`schema.local.graphql`):
 
 ```graphql
 """
-Extend type: http://facebook.github.io/graphql/draft/#sec-Object-Extensions
+Extend type: https://graphql.github.io/graphql-spec/draft/#sec-Object-Extensions
 """
 extend type Article {
   draft: String!
