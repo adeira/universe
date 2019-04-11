@@ -229,6 +229,65 @@ ccc /*: any */) =>
 module.exports = executeNodeScript;
 `;
 
+exports[`matches expected output: capturing-groups.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/*  eslint-disable no-console */
+
+const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
+
+console.log(re.exec('1999-02-29')?.groups?.year);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/typeof"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _wrapNativeSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/wrapNativeSuper"));
+
+var _re$exec, _re$exec$groups;
+
+function _wrapRegExp(re, groups) { _wrapRegExp = function _wrapRegExp(re, groups) { return new BabelRegExp(re, groups); }; var _RegExp = (0, _wrapNativeSuper2.default)(RegExp); var _super = RegExp.prototype; var _groups = new WeakMap(); function BabelRegExp(re, groups) { var _this = _RegExp.call(this, re); _groups.set(_this, groups); return _this; } (0, _inherits2.default)(BabelRegExp, _RegExp); BabelRegExp.prototype.exec = function (str) { var result = _super.exec.call(this, str); if (result) result.groups = buildGroups(result, this); return result; }; BabelRegExp.prototype[Symbol.replace] = function (str, substitution) { if (typeof substitution === "string") { var groups = _groups.get(this); return _super[Symbol.replace].call(this, str, substitution.replace(/\\$<([^>]+)>/g, function (_, name) { return "$" + groups[name]; })); } else if (typeof substitution === "function") { var _this = this; return _super[Symbol.replace].call(this, str, function () { var args = []; args.push.apply(args, arguments); if ((0, _typeof2.default)(args[args.length - 1]) !== "object") { args.push(buildGroups(args, _this)); } return substitution.apply(this, args); }); } else { return _super[Symbol.replace].call(this, str, substitution); } }; function buildGroups(result, re) { var g = _groups.get(re); return Object.keys(g).reduce(function (groups, name) { groups[name] = result[g[name]]; return groups; }, Object.create(null)); } return _wrapRegExp.apply(this, arguments); }
+
+/*  eslint-disable no-console */
+var re = _wrapRegExp(/(\\d{4})-(\\d{2})-(\\d{2})/, {
+  year: 1,
+  month: 2,
+  day: 3
+});
+
+console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
+`;
+
+exports[`matches expected output: capturing-groups.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/*  eslint-disable no-console */
+
+const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
+
+console.log(re.exec('1999-02-29')?.groups?.year);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/*  eslint-disable no-console */
+
+const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
+
+console.log((re.exec('1999-02-29')?.groups?.year));
+`;
+
 exports[`matches expected output: class-properties.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict

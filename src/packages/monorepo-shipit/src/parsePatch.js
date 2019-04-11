@@ -20,7 +20,7 @@ export default function* parsePatch(
   for (const line of patch.split('\n')) {
     ++lineNumber;
 
-    if (line.trimRight().match(/^diff --git [ab]\/(.*?) [ab]\/(.*?)$/)) {
+    if (line.trimRight().match(/^diff --git [ab]\/(?:.*?) [ab]\/(?:.*?)$/)) {
       if (contents !== '') {
         yield contents;
       }
@@ -30,7 +30,7 @@ export default function* parsePatch(
     }
 
     const matches = line.match(
-      /^@@ -\d+(,(?<minus_lines>\d+))? \+\d+(,(?<plus_lines>\d+))? @@/,
+      /^@@ -\d+(?:,(?<minus_lines>\d+))? \+\d+(?:,(?<plus_lines>\d+))? @@/,
     );
     if (matches) {
       const rawMinusLines = matches.groups?.minus_lines;
