@@ -1,4 +1,6 @@
 # Unreleased
+
+# 3.4.0
 - Show warnings for `prefer-named-capture-group` rule (see: https://eslint.org/docs/rules/prefer-named-capture-group)
 
 # 3.3.0
