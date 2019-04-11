@@ -7,7 +7,7 @@
   "sideEffects": false,
   "dependencies": {
     "@kiwicom/js": "^0.8.0",
-    "@kiwicom/monorepo": "^0.15.0",
+    "@kiwicom/monorepo": "^0.16.0",
     "@kiwicom/test-utils": "^0.9.0"
   }
 }

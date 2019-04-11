@@ -4,6 +4,8 @@ import sprintf from './sprintf';
 
 /**
  * Use invariant() to assert state which your program assumes to be true.
+ * It is intended to indicate a programmer error for a condition that should
+ * never occur.
  *
  * Provide sprintf-style format (only %s is supported) and arguments to provide
  * information about what broke and what you were expecting.

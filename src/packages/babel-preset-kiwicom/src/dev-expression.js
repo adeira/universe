@@ -15,7 +15,8 @@ module.exports = function({ types: t }) {
           path.node.computed === true || path.node.key.name !== '__DEV__';
       },
       Identifier(path) {
-        // do nothing when testing
+        // Do nothing when testing because RN internally overwrites __DEV__ like so:
+        // `global.__DEV__ = true;` (results in invalid code)
         if (process.env.NODE_ENV === 'test') {
           return;
         }
