@@ -3,8 +3,7 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import glob from 'glob';
-import { Workspaces, findRootPackageJsonPath } from '@kiwicom/monorepo';
+import { glob, Workspaces, findRootPackageJsonPath } from '@kiwicom/monorepo';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
@@ -50,20 +49,16 @@ function updateNPMPackagesInfo(
 
   const rootFolder = path.dirname(findRootPackageJsonPath());
 
-  glob(
-    path.join(rootFolder, '**/*.{md,html}'),
-    { ignore: ['**/node_modules/**'] },
-    (error, filenames) => {
-      filenames.forEach(filename => {
-        const file = fs.readFileSync(filename).toString();
-        const newFile = replaceAutomatorTags(file, taskIdentifier, finalString);
-        if (file !== newFile) {
-          log(taskIdentifier, `replacing content of ${filename}`);
-          fs.writeFileSync(filename, newFile);
-        }
-      });
+  glob('/**/*.{md,html}', { root: rootFolder }, (error, filenames) => {
+    filenames.forEach(filename => {
+      const file = fs.readFileSync(filename).toString();
+      const newFile = replaceAutomatorTags(file, taskIdentifier, finalString);
+      if (file !== newFile) {
+        log(taskIdentifier, `replacing content of ${filename}`);
+        fs.writeFileSync(filename, newFile);
+      }
+    });
 
-      cb();
-    },
-  );
+    cb();
+  });
 }

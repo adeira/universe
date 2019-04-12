@@ -10,7 +10,7 @@
   "dependencies": {
     "@babel/core": "^7.4.3",
     "@kiwicom/babel-preset-kiwicom": "^2.7.0",
-    "@kiwicom/monorepo": "^0.15.0",
+    "@kiwicom/monorepo": "^0.16.0",
     "is-ci": "^2.0.0",
     "npm-packlist": "^1.4.1",
     "npm-registry-client": "^8.6.0",

@@ -1,8 +1,8 @@
 // @flow
 
-import glob from 'glob';
 import { invariant } from '@kiwicom/js';
 
+import { globSync } from './glob';
 import { findRootPackageJson } from './findRootPackageJson';
 
 function __resolveWorkspaces(packageJSON: Object): $ReadOnlyArray<string> {
@@ -20,13 +20,11 @@ module.exports = {
   iterateWorkspaces(cb: (packageJSONLocation: string) => void): void {
     const rootPackageJSON = findRootPackageJson();
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
-      glob
-        .sync(workspace + '/package.json', {
-          absolute: true,
-        })
-        .forEach(packageJSONLocation => {
-          cb(packageJSONLocation);
-        });
+      globSync(workspace + '/package.json', {
+        absolute: true,
+      }).forEach(packageJSONLocation => {
+        cb(packageJSONLocation);
+      });
     });
   },
 
@@ -47,12 +45,9 @@ module.exports = {
       )}`,
     );
 
-    const packageJSONLocations = glob.sync(
-      path.replace(/\/?$/, '/*/package.json'),
-      {
-        absolute: true,
-      },
-    );
+    const packageJSONLocations = globSync('/*/package.json', {
+      root: path,
+    });
 
     packageJSONLocations.forEach(packageJSONLocation => {
       cb(packageJSONLocation);
@@ -66,7 +61,7 @@ module.exports = {
     let packageJSONLocations = [];
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       packageJSONLocations = packageJSONLocations.concat(
-        glob.sync(workspace + '/package.json', {
+        globSync(workspace + '/package.json', {
           absolute: true,
         }),
       );

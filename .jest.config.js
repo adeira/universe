@@ -12,10 +12,15 @@ const { Workspaces } = require('@kiwicom/monorepo');
 
 const TESTS_GLOB = '__tests__/**/?(*.)+(spec|test).js';
 
+// we have to set __DEV__ even to JS globals since it's not being transpiled in
+// test environment but it's used even before Jest starts testing (when looking for workspaces)
+global.__DEV__ = true;
+
 // SEE: https://jestjs.io/docs/en/configuration.html
 const commonProjectConfig = {
   // runs before each test (after test framework is installed)
   setupFilesAfterEnv: [path.join(__dirname, 'scripts/jest/setupTests.js')],
+  // set global __DEV__ since RN expects non-transpiled version in test environment
   globals: {
     __DEV__: true,
   },

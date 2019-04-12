@@ -60,6 +60,10 @@ console.warn(packageJSONLocations);
 
 TODO
 
+## Glob _(unstable)_
+
+TODO
+
 ## Working with system commands and Node.js (`ChildProcess`)
 
 `ChildProcess` is opinionated wrapper around native `child_process`. It currently allows 2 ways how to work with underlying OS (Node.js child process respectively): you can execute Node.js script or you can run command from your OS. Example of running Node.js script:
