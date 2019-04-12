@@ -3,6 +3,7 @@
     "Monorepo": [
       "monorepo/installation",
       "monorepo/testing",
+      "monorepo/upgrading-dependencies",
       "monorepo/directory-structure",
       "monorepo/acceptance",
       "monorepo/example-projects"
