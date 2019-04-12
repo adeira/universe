@@ -69,6 +69,10 @@
         "title": "Testing, Linting, Flowing",
         "sidebar_label": "Test, Lint, Flow"
       },
+      "monorepo/upgrading-dependencies": {
+        "title": "Upgrading dependencies",
+        "sidebar_label": "Upgrading dependencies"
+      },
       "oss/general": {
         "title": "General info",
         "sidebar_label": "General info"
