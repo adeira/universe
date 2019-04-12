@@ -3,7 +3,10 @@
   "private": true,
   "license": "UNLICENSED",
   "version": "0.0.0",
-  "main": "src/index.js",
+  "bin": {
+    "monorepo-shipit": "bin/shipit.js",
+    "monorepo-importit": "bin/importit.js"
+  },
   "sideEffects": false,
   "dependencies": {
     "@kiwicom/js": "^0.8.0",
