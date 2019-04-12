@@ -4,9 +4,10 @@ import Changeset from './Changeset';
 import splitHead from './splitHead';
 
 export default function parsePatchHeader(header: string): Changeset {
-  const [envelope, body] = splitHead(header, '\n\n');
-  const description = body.trim();
+  const [rawEnvelope, rawBody] = splitHead(header, '\n\n');
+  const description = rawBody.trim();
   let changeset = new Changeset().withDescription(description);
+  const envelope = rawEnvelope.replace(/(?:\n\t|\n )/, ' ');
   for (const line of envelope.split('\n')) {
     if (!line.includes(':')) {
       continue;
