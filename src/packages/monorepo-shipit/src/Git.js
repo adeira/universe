@@ -1,5 +1,6 @@
 // @flow strict-local
 
+import { invariant } from '@kiwicom/js';
 import { ChildProcess } from '@kiwicom/monorepo';
 
 import parsePatch from './parsePatch';
@@ -22,10 +23,9 @@ export default class Git {
     this.repoPath = repoPath;
   }
 
-  findLastSourceCommit = () => {
-    // TODO: we must operate here on "destination" roots (not `src/packages/relay` but ``)
+  findLastSourceCommit = (roots: Set<string>) => {
     const rawLog = git(
-      ['log', '-1', '--grep', '^kiwicom-source-id: [a-z0-9]\\+$'],
+      ['log', '-1', '--grep', '^kiwicom-source-id: [a-z0-9]\\+$', ...roots],
       {
         cwd: this.repoPath,
       },
@@ -91,14 +91,13 @@ export default class Git {
 
   parseDiffHunk = (hunk: string) => {
     const [head, tail] = splitHead(hunk, '\n');
-    const match = head.match(/^diff --git [ab]\/(.*?) [ab]\/(.*?)$/);
+    const match = head.match(/^diff --git [ab]\/(?:.*?) [ab]\/(?<path>.*?)$/);
     if (!match) {
       return null;
     }
-    return {
-      path: match[2],
-      body: tail,
-    };
+    const path = match.groups?.path;
+    invariant(path != null, 'Cannot parse path from the hunk.');
+    return { path, body: tail };
   };
 
   findDescendantsPath = (
