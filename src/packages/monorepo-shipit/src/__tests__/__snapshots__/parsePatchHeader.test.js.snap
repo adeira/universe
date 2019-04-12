@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`matches expected output: multiline-subject.header 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+From 93ee65de02e77c52eb9d677b859554b40253bafa Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <martin.zlamal@kiwi.com>
+Date: Wed, 10 Apr 2019 16:50:47 -0500
+Subject: [PATCH] Docs: add Relay and GraphQL related videos from our internal
+ JS Saturday
+
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
+  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <martin.zlamal@kiwi.com>",
+  "subject": "Docs: add Relay and GraphQL related videos from our internal JS Saturday",
+  "description": ""
+}
+`;
+
 exports[`matches expected output: simple.header 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From bf0a8783cf416f796659e60fe735bba98e676e67 Mon Sep 17 00:00:00 2001
@@ -16,5 +34,22 @@ Formerly known as '@mrtnzlml/relay'
   "author": "Automator <martin.zlamal@kiwi.com>",
   "subject": "Import and publish '@kiwicom/relay' (0.1.0)",
   "description": "Formerly known as '@mrtnzlml/relay'"
+}
+`;
+
+exports[`matches expected output: unicode.header 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <martin.zlamal@kiwi.com>
+Date: Wed, 10 Apr 2019 16:50:47 -0500
+Subject: [PATCH] Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 😅
+
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
+  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <martin.zlamal@kiwi.com>",
+  "subject": "Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 😅",
+  "description": ""
 }
 `;
