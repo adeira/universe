@@ -7,12 +7,13 @@ import PathFilters from '../PathFilters';
 export default function createSyncPhase(
   repoPath: string,
   sourceRoots: Set<string>,
+  destinationRoots: Set<string>,
   directoryMapping: Map<string, string>,
 ) {
   const repo = new Git(repoPath);
 
   function getSourceChangesets(): Set<Changeset> {
-    const initialRevision = repo.findLastSourceCommit();
+    const initialRevision = repo.findLastSourceCommit(destinationRoots);
     const sourceChangesets = new Set<Changeset>();
     repo.findDescendantsPath(initialRevision, sourceRoots).forEach(revision => {
       sourceChangesets.add(repo.getChangesetFromID(revision));
