@@ -1,39 +1,33 @@
 // @flow strict-local
 
-import Git from '../Git';
+import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';
-import PathFilters from '../PathFilters';
+import PhaseRunnerConfig from '../PhaseRunnerConfig';
 
-export default function createSyncPhase(
-  repoPath: string,
-  directoryMapping: Map<string, string>,
-) {
-  const repo = new Git(repoPath);
-
-  function __computeSourceRoots(
-    directoryMapping: Map<string, string>,
-  ): Set<string> {
-    return new Set(directoryMapping.keys());
+export default function createSyncPhase(config: PhaseRunnerConfig) {
+  function _getSourceRepo(): SourceRepo {
+    return new RepoGIT(config.monorepoPath);
   }
 
-  function __computeDestinationRoots(
-    directoryMapping: Map<string, string>,
-  ): Set<string> {
-    return new Set(directoryMapping.values());
+  function _getDestinationRepo(): DestinationRepo {
+    return new RepoGIT(config.exportedRepoPath);
   }
 
   function getSourceChangesets(): Set<Changeset> {
-    const initialRevision = repo.findLastSourceCommit(
-      __computeDestinationRoots(directoryMapping),
+    const destinationRepo = _getDestinationRepo();
+    const sourceRepo = _getSourceRepo();
+    const initialRevision = destinationRepo.findLastSourceCommit(
+      config.getExportedRepoRoots(),
     );
     const sourceChangesets = new Set<Changeset>();
-    repo
+    sourceRepo
       .findDescendantsPath(
         initialRevision,
-        __computeSourceRoots(directoryMapping),
+        'origin/master', // GitLab CI doesn't have master branch
+        config.getMonorepoRoots(),
       )
       .forEach(revision => {
-        sourceChangesets.add(repo.getChangesetFromID(revision));
+        sourceChangesets.add(sourceRepo.getChangesetFromID(revision));
       });
     return sourceChangesets;
   }
@@ -42,15 +36,8 @@ export default function createSyncPhase(
     const filteredChangesets = new Set<Changeset>();
     getSourceChangesets().forEach(changeset => {
       const changesetWithTrackingID = addTrackingData(changeset);
-      filteredChangesets.add(
-        PathFilters.moveDirectories(
-          PathFilters.stripExceptDirectories(
-            changesetWithTrackingID,
-            __computeSourceRoots(directoryMapping),
-          ),
-          directoryMapping,
-        ),
-      );
+      const filter = config.getDefaultShipitFilter();
+      filteredChangesets.add(filter(changesetWithTrackingID));
     });
     return filteredChangesets;
   }
@@ -63,11 +50,11 @@ export default function createSyncPhase(
   }
 
   return function() {
+    const destinationRepo = _getDestinationRepo();
     const changesets = getFilteredChangesets();
-
     changesets.forEach(changeset => {
       if (changeset.isValid()) {
-        repo.commitChangeset(changeset);
+        destinationRepo.commitPatch(changeset);
       }
     });
   };

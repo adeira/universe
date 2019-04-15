@@ -79,7 +79,7 @@ new Map([['src/packages/fetch/', 'packages/fetch/']]);
 
 # Importit part
 
-> Please note: this part is not implemented yet! We already import all GitHub pull requests by design but we do not apply them to our repository yet.
+**Only imports from GitHub are currently supported.**
 
 Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:
 
@@ -112,6 +112,8 @@ Technically, _Importit_ part works just like _Shipit_ except in the opposite dir
  | GH repo | <------------------------------------`
  `---------`
 ```
+
+_TODO: describe how to use it_
 
 ## Filters
 

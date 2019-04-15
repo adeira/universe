@@ -1,5 +1,7 @@
-// @flow strict-local
+// @flow
 
+import fs from 'fs';
+import path from 'path';
 import { invariant } from '@kiwicom/js';
 import { ChildProcess } from '@kiwicom/monorepo';
 
@@ -8,31 +10,66 @@ import parsePatchHeader from './parsePatchHeader';
 import splitHead from './splitHead';
 import Changeset from './Changeset';
 
-function git(args: $ReadOnlyArray<string>, options) {
-  return ChildProcess.executeSystemCommand(
-    'git',
-    [
-      '--no-pager',
-      ...args.filter(arg => arg !== ''), // TODO: removes empty strings - we should have some escaping but there is nothing in Node.js (?)
-    ],
-    options,
-  );
+/**
+ * This is our monorepo part - source of exports.
+ */
+export interface SourceRepo {
+  findDescendantsPath(
+    baseRevision: string,
+    headRevision: string,
+    roots: Set<string>,
+  ): $ReadOnlyArray<string>;
+  getChangesetFromID(revision: string): Changeset;
+  getNativePatchFromID(revision: string): string;
+  getNativeHeaderFromIDWithPatch(revision: string, patch: string): string;
+  getChangesetFromExportedPatch(header: string, patch: string): Changeset;
 }
 
-export default class Git {
-  repoPath: string;
+/**
+ * Exported repository containing `kiwicom-source-id` handles.
+ */
+export interface DestinationRepo {
+  findLastSourceCommit(roots: Set<string>): string;
+  renderPatch(changeset: Changeset): string;
+  commitPatch(changeset: Changeset): void;
+  push(): void;
+}
 
-  constructor(repoPath: string) {
-    this.repoPath = repoPath;
+export default class RepoGIT implements SourceRepo, DestinationRepo {
+  localPath: string;
+
+  constructor(localPath: string) {
+    this.localPath = localPath;
   }
 
-  findLastSourceCommit = (roots: Set<string>) => {
-    const rawLog = git(
-      ['log', '-1', '--grep', '^kiwicom-source-id: [a-z0-9]\\+$', ...roots],
-      {
-        cwd: this.repoPath,
-      },
+  _gitCommand = (args: $ReadOnlyArray<string>, options: Object) => {
+    invariant(
+      fs.existsSync(path.join(this.localPath, '.git')),
+      '%s is not a GIT repo.',
+      this.localPath,
     );
+    return ChildProcess.executeSystemCommand(
+      'git',
+      [
+        '--no-pager',
+        ...args.filter(arg => arg !== ''), // TODO: removes empty strings - we should have some escaping but there is nothing in Node.js (?)
+      ],
+      { cwd: this.localPath, ...options },
+    );
+  };
+
+  push() {
+    this._gitCommand(['push', 'origin', 'master']);
+  }
+
+  findLastSourceCommit = (roots: Set<string>): string => {
+    const rawLog = this._gitCommand([
+      'log',
+      '-1',
+      '--grep',
+      '^kiwicom-source-id: [a-z0-9]\\+$',
+      ...roots,
+    ]);
     const match = rawLog
       .trim()
       .match(/kiwicom-source-id: (?<commit>[a-z0-9]+)$/m);
@@ -40,7 +77,7 @@ export default class Git {
   };
 
   getNativePatchFromID = (revision: string): string => {
-    return git([
+    return this._gitCommand([
       'format-patch',
       '--no-renames',
       '--no-stat',
@@ -56,7 +93,7 @@ export default class Git {
     revision: string,
     patch: string,
   ): string => {
-    const fullPatch = git([
+    const fullPatch = this._gitCommand([
       'format-patch',
       '--no-renames',
       '--no-stat',
@@ -80,7 +117,10 @@ export default class Git {
     return changeset.withID(revision);
   };
 
-  getChangesetFromExportedPatch = (header: string, patch: string) => {
+  getChangesetFromExportedPatch = (
+    header: string,
+    patch: string,
+  ): Changeset => {
     const changeset = parsePatchHeader(header);
     const diffs = new Set();
     for (const hunk of parsePatch(patch)) {
@@ -103,17 +143,19 @@ export default class Git {
     return { path, body: tail };
   };
 
+  // TODO: originally `findNextCommit` - pls reconsider
   findDescendantsPath = (
-    revision: string,
+    baseRevision: string,
+    headRevision: string,
     roots: Set<string>,
   ): $ReadOnlyArray<string> => {
-    const log = git([
+    const log = this._gitCommand([
       'log',
       '--reverse',
       '--ancestry-path',
       '--no-merges',
       '--pretty=tformat:%H',
-      revision + '..origin/master', // GitLab CI doesn't have master branch
+      baseRevision + '..' + headRevision,
       ...roots,
     ]);
 
@@ -121,22 +163,17 @@ export default class Git {
     return log.trim().split('\n');
   };
 
-  commitChangeset = (changeset: Changeset) => {
+  commitPatch = (changeset: Changeset): void => {
     const diff = this.renderPatch(changeset);
-
-    ChildProcess.executeSystemCommand(
-      'git',
-      ['am', '--keep-non-patch', '--keep-cr'],
-      {
-        // stdin, stdout, stderr
-        stdio: ['pipe', 'inherit', 'inherit'],
-        input: diff,
-        cwd: this.repoPath,
-      },
-    );
+    // TODO: catch an error here and run `am --abort`
+    this._gitCommand(['am', '--keep-non-patch', '--keep-cr'], {
+      // stdin, stdout, stderr
+      stdio: ['pipe', 'inherit', 'inherit'],
+      input: diff,
+    });
   };
 
-  renderPatch = (changeset: Changeset) => {
+  renderPatch = (changeset: Changeset): string => {
     let renderedDiffs = '';
     for (const diff of changeset.getDiffs()) {
       const path = diff.path;
