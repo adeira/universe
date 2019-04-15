@@ -11,7 +11,10 @@ import Changeset from './Changeset';
 function git(args: $ReadOnlyArray<string>, options) {
   return ChildProcess.executeSystemCommand(
     'git',
-    ['--no-pager', ...args],
+    [
+      '--no-pager',
+      ...args.filter(arg => arg !== ''), // TODO: removes empty strings - we should have some escaping but there is nothing in Node.js (?)
+    ],
     options,
   );
 }
