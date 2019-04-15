@@ -3,18 +3,15 @@
 import path from 'path';
 import { ChildProcess } from '@kiwicom/monorepo';
 
-export default function createClonePhase(
-  sourceURL: string,
-  destinationPath: string,
-) {
+export default function createClonePhase(repoURL: string, repoPath: string) {
   return function() {
     // from destination path '/x/y/universe' to:
-    const dirname = path.dirname(destinationPath); // '/x/y'
-    const basename = path.basename(destinationPath); // 'universe'
+    const dirname = path.dirname(repoPath); // '/x/y'
+    const basename = path.basename(repoPath); // 'universe'
 
     // TODO: make it Git agnostic
 
-    ChildProcess.executeSystemCommand('git', ['clone', sourceURL, basename], {
+    ChildProcess.executeSystemCommand('git', ['clone', repoURL, basename], {
       stdio: 'inherit',
       cwd: dirname,
     });
@@ -24,7 +21,7 @@ export default function createClonePhase(
       ['config', 'user.email', 'mrtnzlml+kiwicom-github-bot@gmail.com'],
       {
         stdio: 'inherit',
-        cwd: destinationPath,
+        cwd: repoPath,
       },
     );
 
@@ -33,7 +30,7 @@ export default function createClonePhase(
       ['config', 'user.name', 'kiwicom-github-bot'],
       {
         stdio: 'inherit',
-        cwd: destinationPath,
+        cwd: repoPath,
       },
     );
   };
