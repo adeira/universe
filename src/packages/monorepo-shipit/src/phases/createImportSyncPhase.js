@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { ChildProcess } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo';
 
 import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';
@@ -10,24 +10,24 @@ export default function createImportSyncPhase(config: PhaseRunnerConfig) {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {
-    ChildProcess.executeSystemCommand(
+    new ShellCommand(
+      config.exportedRepoPath,
       'git',
-      ['fetch', 'origin', 'refs/pull/1/head'], // TODO
-      {
-        stdio: 'inherit',
-        cwd: config.exportedRepoPath,
-      },
-    );
+      'fetch',
+      'origin',
+      'refs/pull/1/head', // TODO
+    )
+      .setOutputToScreen()
+      .runSynchronously();
 
     // 'git rev-parse FETCH_HEAD' to get actual hash
-    const mergeBase = ChildProcess.executeSystemCommand(
+    const mergeBase = new ShellCommand(
+      config.exportedRepoPath,
       'git',
-      ['merge-base', 'FETCH_HEAD', 'master'],
-      {
-        // stdio: 'inherit',
-        cwd: config.exportedRepoPath,
-      },
-    );
+      'merge-base',
+      'FETCH_HEAD',
+      'master',
+    ).runSynchronously();
 
     const changesets = new Set<Changeset>();
     const exportedRepo: SourceRepo = new RepoGIT(config.exportedRepoPath);
