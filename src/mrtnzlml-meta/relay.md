@@ -14,6 +14,34 @@ TODO:
 - https://github.com/facebook/relay/pull/2700/files
 - `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files
 
+This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
+
+# How to test latest unreleased changes from Relay master?
+
+These changes are unreleased so you cannot easily install (uncompiled) master from NPM and use it. The easiest way how to try master is to clone Relay somewhere and run `yarn install` in the root. This will not only install all the necessary dependencies but also compile Relay packages. Now, just replace your versions with file paths in `package.json`:
+
+```patch
+diff --git a/src/packages/relay/package.json b/src/packages/relay/package.json
+index 45a44734..99be1766 100644
+--- a/src/packages/relay/package.json
++++ b/src/packages/relay/package.json
+@@ -10,9 +10,9 @@
+   "dependencies": {
+     "@kiwicom/fetch": "^2.3.1",
+     "@kiwicom/js": "^0.8.0",
+-    "react-relay": "^3.0.0",
+-    "relay-compiler": "^3.0.0",
+-    "relay-runtime": "^3.0.0"
++    "react-relay": "file:/Users/mrtnzlml/Work/mrtnzlml/relay/dist/react-relay",
++    "relay-compiler": "file:/Users/mrtnzlml/Work/mrtnzlml/relay/dist/relay-compiler",
++    "relay-runtime": "file:/Users/mrtnzlml/Work/mrtnzlml/relay/dist/relay-runtime"
+   },
+   "peerDependencies": {
+     "react": "^16.8.0"
+```
+
+Do not forget to run `yarn install` in your project as well.
+
 # Refetch container
 
 https://facebook.github.io/relay/docs/en/refetch-container.html
