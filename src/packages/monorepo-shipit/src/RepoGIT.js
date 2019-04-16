@@ -1,9 +1,9 @@
-// @flow
+// @flow strict-local
 
 import fs from 'fs';
 import path from 'path';
 import { invariant } from '@kiwicom/js';
-import { ChildProcess } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
@@ -42,20 +42,23 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     this.localPath = localPath;
   }
 
-  _gitCommand = (args: $ReadOnlyArray<string>, options: Object) => {
+  _gitCommand = (args: $ReadOnlyArray<string>, stdin?: string) => {
     invariant(
       fs.existsSync(path.join(this.localPath, '.git')),
       '%s is not a GIT repo.',
       this.localPath,
     );
-    return ChildProcess.executeSystemCommand(
+    // TODO: options
+    const command = new ShellCommand(
+      this.localPath,
       'git',
-      [
-        '--no-pager',
-        ...args.filter(arg => arg !== ''), // TODO: removes empty strings - we should have some escaping but there is nothing in Node.js (?)
-      ],
-      { cwd: this.localPath, ...options },
+      '--no-pager',
+      ...args,
     );
+    if (stdin != null) {
+      command.setStdin(stdin);
+    }
+    return command.runSynchronously();
   };
 
   push() {
@@ -165,12 +168,13 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
 
   commitPatch = (changeset: Changeset): void => {
     const diff = this.renderPatch(changeset);
-    // TODO: catch an error here and run `am --abort`
-    this._gitCommand(['am', '--keep-non-patch', '--keep-cr'], {
-      // stdin, stdout, stderr
-      stdio: ['pipe', 'inherit', 'inherit'],
-      input: diff,
-    });
+    try {
+      this._gitCommand(['am', '--keep-non-patch', '--keep-cr'], diff);
+    } catch (error) {
+      // TODO: `--show-current-patch` to screen (?)
+      this._gitCommand(['am', '--abort']);
+      throw error;
+    }
   };
 
   renderPatch = (changeset: Changeset): string => {
