@@ -2,14 +2,19 @@
 
 const os = require('os');
 
-const ChildProcess = require('./ChildProcess');
+const ShellCommand = require('./ShellCommand');
 
 function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
   return changes.split(os.EOL).filter(row => row !== '');
 }
 
 function git(args /*: $ReadOnlyArray<string> */) {
-  return ChildProcess.executeSystemCommand('git', ['--no-pager', ...args]);
+  return new ShellCommand(
+    null,
+    'git',
+    '--no-pager',
+    ...args,
+  ).runSynchronously();
 }
 
 const Git = {

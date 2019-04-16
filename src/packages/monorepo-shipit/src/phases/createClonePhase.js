@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import path from 'path';
-import { ChildProcess } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo';
 
 export default function createClonePhase(repoURL: string, repoPath: string) {
   return function() {
@@ -11,27 +11,28 @@ export default function createClonePhase(repoURL: string, repoPath: string) {
 
     // TODO: make it Git agnostic
 
-    ChildProcess.executeSystemCommand('git', ['clone', repoURL, basename], {
-      stdio: 'inherit',
-      cwd: dirname,
-    });
+    new ShellCommand(dirname, 'git', 'clone', repoURL, basename)
+      .setOutputToScreen()
+      .runSynchronously();
 
-    ChildProcess.executeSystemCommand(
+    new ShellCommand(
+      repoPath,
       'git',
-      ['config', 'user.email', 'mrtnzlml+kiwicom-github-bot@gmail.com'],
-      {
-        stdio: 'inherit',
-        cwd: repoPath,
-      },
-    );
+      'config',
+      'user.email',
+      'mrtnzlml+kiwicom-github-bot@gmail.com',
+    )
+      .setOutputToScreen()
+      .runSynchronously();
 
-    ChildProcess.executeSystemCommand(
+    new ShellCommand(
+      repoPath,
       'git',
-      ['config', 'user.name', 'kiwicom-github-bot'],
-      {
-        stdio: 'inherit',
-        cwd: repoPath,
-      },
-    );
+      'config',
+      'user.name',
+      'kiwicom-github-bot',
+    )
+      .setOutputToScreen()
+      .runSynchronously();
   };
 }

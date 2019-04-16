@@ -5,34 +5,62 @@ import nodeChildProcess from 'child_process';
 
 import ShellCommand from '../ShellCommand';
 
+// These tests actually run the commands - not sure if it's a good idea but
+// should be fine since they are mostly Node anyway.
+
 it("throws exception when command doesn't exit", () => {
-  // this test actually runs the command - not sure if it's a good idea
-  const command = new ShellCommand(null, 'this_command_does_not_exit');
-  expect(() => command.runSynchronously()).toThrowError(
-    'spawnSync this_command_does_not_exit ENOENT',
-  );
+  expect(() =>
+    new ShellCommand(null, 'this_command_does_not_exit').runSynchronously(),
+  ).toThrowError('spawnSync this_command_does_not_exit ENOENT');
+
+  // but it's possible to suppress this error:
+  expect(() =>
+    new ShellCommand(null, 'this_command_does_not_exit')
+      .setNoExceptions()
+      .runSynchronously(),
+  ).not.toThrow();
 });
 
 it('throws exception when command exits with signal', () => {
-  const command = new ShellCommand(
-    path.join(__dirname, 'ShellCommandFixtures'),
-    'node',
-    'kill.js',
-  );
-  expect(() => command.runSynchronously()).toThrowError(
-    'Command killed with signal SIGINT.',
-  );
+  expect(() =>
+    new ShellCommand(
+      path.join(__dirname, 'ShellCommandFixtures'),
+      'node',
+      'kill.js',
+    ).runSynchronously(),
+  ).toThrowError('Command killed with signal SIGINT.');
+
+  // but it's possible to suppress this error:
+  expect(() =>
+    new ShellCommand(
+      path.join(__dirname, 'ShellCommandFixtures'),
+      'node',
+      'kill.js',
+    )
+      .setNoExceptions()
+      .runSynchronously(),
+  ).not.toThrow();
 });
 
 it('throws exception when command exits with error code', () => {
-  const command = new ShellCommand(
-    path.join(__dirname, 'ShellCommandFixtures'),
-    'node',
-    'exit.js',
-  );
-  expect(() => command.runSynchronously()).toThrowError(
-    'Command failed with exit code 5.',
-  );
+  expect(() =>
+    new ShellCommand(
+      path.join(__dirname, 'ShellCommandFixtures'),
+      'node',
+      'exit.js',
+    ).runSynchronously(),
+  ).toThrowError('Command failed with exit code 5.');
+
+  // but it's possible to suppress this error:
+  expect(() =>
+    new ShellCommand(
+      path.join(__dirname, 'ShellCommandFixtures'),
+      'node',
+      'exit.js',
+    )
+      .setNoExceptions()
+      .runSynchronously(),
+  ).not.toThrow();
 });
 
 it('returns stdout when executed without any error', () => {
@@ -70,14 +98,20 @@ it('executes the underlying child process correctly', () => {
     'some_command',
     '-x', // duplicated on purpose
     '-x', // duplicated on purpose
+    '', // this should be filtered out
     '--abc',
+    'string',
   )
     .setOutputToScreen()
     .runSynchronously();
-  expect(spy).toHaveBeenCalledWith('some_command', ['-x', '-x', '--abc'], {
-    cwd: expect.any(String),
-    input: undefined,
-    stdio: ['pipe', 'inherit', 'inherit'],
-  });
+  expect(spy).toHaveBeenCalledWith(
+    'some_command',
+    ['-x', '-x', '--abc', 'string'],
+    {
+      cwd: expect.any(String),
+      input: undefined,
+      stdio: ['pipe', 'inherit', 'inherit'],
+    },
+  );
   spy.mockRestore();
 });

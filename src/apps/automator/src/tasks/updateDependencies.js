@@ -3,7 +3,7 @@
 import fs from 'fs';
 import semver from 'semver';
 import {
-  ChildProcess,
+  ShellCommand,
   Workspaces,
   findRootPackageJsonPath,
 } from '@kiwicom/monorepo';
@@ -97,10 +97,9 @@ function updateDependencies(
   }
 
   // Returns JSON lines: http://jsonlines.org/
-  const data = ChildProcess.executeSystemCommand('yarn', [
-    'outdated',
-    '--json',
-  ]);
+  const data = new ShellCommand(null, 'yarn', 'outdated', '--json')
+    .setNoExceptions() // `yarn outdated` returns exit code 1 when we have outdated dependencies
+    .runSynchronously();
 
   const outdatedData = data
     .split('\n')
@@ -155,11 +154,10 @@ function updateDependencies(
     }
   });
 
-  ChildProcess.executeSystemCommand('yarn', ['install'], {
-    stdio: 'inherit',
-  });
-
   // TODO: yarn upgrade as well (?)
+  new ShellCommand(null, 'yarn', 'install')
+    .setOutputToScreen()
+    .runSynchronously();
 
   cb(changelog);
 }

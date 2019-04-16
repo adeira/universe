@@ -13,6 +13,7 @@ module.exports = class ShellCommand {
   command: $ReadOnlyArray<string>;
   outputToScreen: boolean = false;
   stdin: string;
+  throwForNonZeroExit: boolean = true;
 
   constructor(cwd: null | string, ...command: $ReadOnlyArray<string>) {
     this.cwd = cwd ?? process.cwd();
@@ -30,6 +31,15 @@ module.exports = class ShellCommand {
 
   setStdin(input: string): this {
     this.stdin = input;
+    return this;
+  }
+
+  /**
+   * This method will effectively hide any errors caused by child failure.
+   * Use it sparingly.
+   */
+  setNoExceptions(): this {
+    this.throwForNonZeroExit = false;
     return this;
   }
 
@@ -52,19 +62,27 @@ module.exports = class ShellCommand {
       input: this.stdin,
     });
 
+    const maybeThrow = error => {
+      if (this.throwForNonZeroExit === true) {
+        throw error;
+      }
+    };
+
     if (response.error !== undefined) {
       // this happens when command doesn't exist for example (ENOENT)
-      throw response.error;
+      maybeThrow(response.error);
     }
 
     if (response.signal !== null) {
-      throw new Error(`Command killed with signal ${response.signal}.`);
+      maybeThrow(new Error(`Command killed with signal ${response.signal}.`));
     }
 
     if (response.status !== 0) {
       // we could eventually pass down the status code into error so wrapping
       // scripts can return proper process.exitCode
-      throw new Error(`Command failed with exit code ${response.status}.`);
+      maybeThrow(
+        new Error(`Command failed with exit code ${response.status}.`),
+      );
     }
 
     // Should we return object with `stdout` and `stderr`?

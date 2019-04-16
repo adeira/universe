@@ -5,22 +5,20 @@ import { invariant } from '@kiwicom/js';
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
 import sanitizeWorkspaces from './sanitizeWorkspaces';
-import ChildProcess from './ChildProcess';
+import ShellCommand from './ShellCommand';
 
 function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
-  return ChildProcess.executeSystemCommand(
+  return new ShellCommand(
+    null,
     'jest',
-    [
-      '--config=.jest.config.js',
-      '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docs for example)
-      ...config,
-    ],
-    {
-      stdio: 'inherit',
-    },
-  );
+    '--config=.jest.config.js',
+    '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docs for example)
+    ...config,
+  )
+    .setOutputToScreen()
+    .runSynchronously();
 }
 
 function _runJestTimezoneVariants(config, ciNode: CINode) {
@@ -73,11 +71,13 @@ export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
     return;
   }
 
-  const stdout = ChildProcess.executeSystemCommand('yarn', [
+  const stdout = new ShellCommand(
+    null,
+    'yarn',
     'workspaces',
     'info',
     '--json',
-  ]);
+  ).runSynchronously();
   const workspaceDependencies = sanitizeWorkspaces(
     JSON.parse(JSON.parse(stdout).data),
   );
