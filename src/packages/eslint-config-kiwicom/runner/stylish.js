@@ -63,7 +63,7 @@ module.exports = function(results /*: Results */) {
             message.line || 0,
             message.column || 0,
             messageType,
-            message.message.replace(/([^ ])\.$/, '$1'),
+            message.message.replace(/(?<msg>[^ ])\.$/, '$1'),
             chalk.dim(message.ruleId || ''),
           ];
         }),
@@ -76,7 +76,9 @@ module.exports = function(results /*: Results */) {
       )
         .split(os.EOL)
         .map(el =>
-          el.replace(/(\d+)\s+(\d+)/, (m, p1, p2) => chalk.dim(`${p1}:${p2}`)),
+          el.replace(/(?<line>\d+)\s+(?<column>\d+)/, (m, p1, p2) =>
+            chalk.dim(`${p1}:${p2}`),
+          ),
         )
         .join(os.EOL) + os.EOL;
   });

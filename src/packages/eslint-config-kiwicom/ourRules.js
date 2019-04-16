@@ -111,7 +111,7 @@ module.exports = {
   'no-void': WARN,
   'no-warning-comments': OFF,
   'no-with': WARN,
-  'prefer-named-capture-group': WARN, // TODO: NEXT_VERSION_ERROR
+  'prefer-named-capture-group': NEXT_VERSION_ERROR,
   'prefer-promise-reject-errors': WARN,
   radix: ERROR,
   'require-await': NEXT_VERSION_ERROR,

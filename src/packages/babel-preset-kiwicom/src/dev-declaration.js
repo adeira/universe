@@ -8,7 +8,7 @@ module.exports = function(babel) {
   const DEV_DECLARATION = t.declareVariable(DEV_IDENTIFIER);
 
   // https://github.com/babel/babel/blob/0a69b45126c8d5128bd7e0e196efbb370d8c8cda/packages/babel-plugin-transform-flow-strip-types/src/index.js#L8
-  const FLOW_DIRECTIVE = /(@flow(\s+(strict(-local)?|weak))?|@noflow)/;
+  const FLOW_DIRECTIVE = /(?:@flow(?:\s+(?:strict(?:-local)?|weak))?|@noflow)/;
 
   return {
     pre() {
