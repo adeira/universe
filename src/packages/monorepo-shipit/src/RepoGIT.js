@@ -32,6 +32,7 @@ export interface DestinationRepo {
   findLastSourceCommit(roots: Set<string>): string;
   renderPatch(changeset: Changeset): string;
   commitPatch(changeset: Changeset): void;
+  checkoutBranch(branchName: string): void;
   push(): void;
 }
 
@@ -63,6 +64,10 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
 
   push() {
     this._gitCommand(['push', 'origin', 'master']);
+  }
+
+  checkoutBranch(branchName: string) {
+    this._gitCommand(['checkout', '-b', branchName]);
   }
 
   findLastSourceCommit = (roots: Set<string>): string => {
@@ -172,7 +177,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       this._gitCommand(['am', '--keep-non-patch', '--keep-cr'], diff);
     } catch (error) {
       // TODO: `--show-current-patch` to screen (?)
-      this._gitCommand(['am', '--abort']);
+      this._gitCommand(['am', '--abort']); // TODO: show on screen
       throw error;
     }
   };

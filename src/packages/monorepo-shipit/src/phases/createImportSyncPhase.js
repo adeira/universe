@@ -6,7 +6,10 @@ import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';
 import PhaseRunnerConfig from '../PhaseRunnerConfig';
 
-export default function createImportSyncPhase(config: PhaseRunnerConfig) {
+export default function createImportSyncPhase(
+  config: PhaseRunnerConfig,
+  pullRequestNumber: string,
+) {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {
@@ -15,7 +18,7 @@ export default function createImportSyncPhase(config: PhaseRunnerConfig) {
       'git',
       'fetch',
       'origin',
-      'refs/pull/1/head', // TODO
+      `refs/pull/${pullRequestNumber}/head`,
     )
       .setOutputToScreen()
       .runSynchronously();
@@ -44,12 +47,13 @@ export default function createImportSyncPhase(config: PhaseRunnerConfig) {
   return function() {
     const monorepo: DestinationRepo = new RepoGIT(config.monorepoPath);
     const changesets = getFilteredChangesets();
+
+    const branchName = `monorepo-importit-github-pr-${pullRequestNumber}`;
+    monorepo.checkoutBranch(branchName);
+
     changesets.forEach(changeset => {
       if (changeset.isValid()) {
-        // eslint-disable-next-line no-console
-        console.warn(monorepo.renderPatch(changeset));
-        // TODO: commit it to different branch
-        // repo.commitPatch(changeset);
+        monorepo.commitPatch(changeset);
       }
     });
   };
