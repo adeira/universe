@@ -46,4 +46,13 @@ module.exports = {
 
 <!--END_DOCUSAURUS_CODE_TABS-->
 
-It will overwrite default config so use it wisely.
+It will overwrite default config so use it wisely. You can use async [global teardown](https://jestjs.io/docs/en/configuration#globalteardown-string) which will run after all tests (in case you touched the workspace). It's a good idea to skip it during watch mode:
+
+```js
+export default async function testBC(config: JestConfig) {
+  if (config.watch || config.watchAll) {
+    return;
+  }
+  // ...
+}
+```
