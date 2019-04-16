@@ -3,8 +3,7 @@
 // @flow
 
 const path = require('path');
-
-const ChildProcess = require('../src/ChildProcess');
+const ChildProcess = require('child_process');
 
 const whitelistedNodeFlags = [
   '--inspect',
@@ -28,10 +27,20 @@ process.argv.forEach(arg => {
 const scriptPath = path.join(process.cwd(), flags.argv[2]);
 const scriptArgs = flags.argv.splice(3);
 
-ChildProcess.executeNodeScript(
+// Simple native child process fork here to avoid Babel transpilation.
+const fork = ChildProcess.fork(
   path.join(__dirname, 'monorepo-babel-node-runner.js'),
   [scriptPath, ...scriptArgs],
   {
+    stdio: 'inherit',
+    cwd: process.cwd(),
     execArgv: process.execArgv.concat(flags.execArgv),
   },
 );
+
+fork.on('exit', (code, signal) => {
+  if (signal !== null) {
+    process.exit(1);
+  }
+  process.exit(code);
+});
