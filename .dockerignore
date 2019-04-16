@@ -1,0 +1,2 @@
+# we use `node_modules_offline_mirror` instead (smaller build context, faster build - especially true for localhost builds)
+**/node_modules/
