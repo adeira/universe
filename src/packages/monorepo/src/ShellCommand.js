@@ -1,6 +1,8 @@
 // @flow strict
 
-const nodeChildProcess = require('child_process');
+import nodeChildProcess from 'child_process'; // eslint-disable-line no-restricted-imports
+
+import ShellCommandResult from './ShellCommandResult';
 
 /**
  * This is our opinionated wrapper around `child_process` module. It exposes
@@ -8,7 +10,7 @@ const nodeChildProcess = require('child_process');
  * types. It also throws exceptions instead of exiting so you can catch the
  * failures and react easily (for example call `--abort` when working with Git).
  */
-module.exports = class ShellCommand {
+export default class ShellCommand {
   cwd: string;
   command: $ReadOnlyArray<string>;
   outputToScreen: boolean = false;
@@ -47,7 +49,7 @@ module.exports = class ShellCommand {
    * Please note: this function is synchronous which means it should be used for
    * your dev scripts and not to be executed in production.
    */
-  runSynchronously(): string {
+  runSynchronously(): ShellCommandResult {
     const [command, ...args] = this.command.filter(arg => arg !== '');
     const response = nodeChildProcess.spawnSync(command, args, {
       cwd: this.cwd,
@@ -85,7 +87,10 @@ module.exports = class ShellCommand {
       );
     }
 
-    // Should we return object with `stdout` and `stderr`?
-    return response.stdout ? response.stdout.toString().trim() : '';
+    return new ShellCommandResult(
+      response.status ?? 1, // status is null for signal kills and response errors
+      response.stdout ? response.stdout.toString() : '',
+      response.stderr ? response.stderr.toString() : '',
+    );
   }
-};
+}

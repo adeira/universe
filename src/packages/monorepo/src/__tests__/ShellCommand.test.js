@@ -14,11 +14,14 @@ it("throws exception when command doesn't exit", () => {
   ).toThrowError('spawnSync this_command_does_not_exit ENOENT');
 
   // but it's possible to suppress this error:
-  expect(() =>
-    new ShellCommand(null, 'this_command_does_not_exit')
+  let exitCode;
+  expect(() => {
+    exitCode = new ShellCommand(null, 'this_command_does_not_exit')
       .setNoExceptions()
-      .runSynchronously(),
-  ).not.toThrow();
+      .runSynchronously()
+      .getExitCode();
+  }).not.toThrow();
+  expect(exitCode).toBe(1);
 });
 
 it('throws exception when command exits with signal', () => {
@@ -31,15 +34,18 @@ it('throws exception when command exits with signal', () => {
   ).toThrowError('Command killed with signal SIGINT.');
 
   // but it's possible to suppress this error:
-  expect(() =>
-    new ShellCommand(
+  let exitCode;
+  expect(() => {
+    exitCode = new ShellCommand(
       path.join(__dirname, 'ShellCommandFixtures'),
       'node',
       'kill.js',
     )
       .setNoExceptions()
-      .runSynchronously(),
-  ).not.toThrow();
+      .runSynchronously()
+      .getExitCode();
+  }).not.toThrow();
+  expect(exitCode).toBe(1);
 });
 
 it('throws exception when command exits with error code', () => {
@@ -52,28 +58,35 @@ it('throws exception when command exits with error code', () => {
   ).toThrowError('Command failed with exit code 5.');
 
   // but it's possible to suppress this error:
-  expect(() =>
-    new ShellCommand(
+  let exitCode;
+  expect(() => {
+    exitCode = new ShellCommand(
       path.join(__dirname, 'ShellCommandFixtures'),
       'node',
       'exit.js',
     )
       .setNoExceptions()
-      .runSynchronously(),
-  ).not.toThrow();
+      .runSynchronously()
+      .getExitCode();
+  }).not.toThrow();
+  expect(exitCode).toBe(5);
 });
 
-it('returns stdout when executed without any error', () => {
+it('returns stdout and stderr by default', () => {
   expect(
     new ShellCommand(
       path.join(__dirname, 'ShellCommandFixtures'),
       'node',
       'success.js',
     ).runSynchronously(),
-  ).toBe('output from success.js');
+  ).toEqual({
+    exitCode: 0,
+    stderr: 'console.err output',
+    stdout: 'console.log output',
+  });
 });
 
-it('returns empty string when printing to screen', () => {
+it('returns empty strings when printing to screen', () => {
   expect(
     new ShellCommand(
       path.join(__dirname, 'ShellCommandFixtures'),
@@ -82,7 +95,11 @@ it('returns empty string when printing to screen', () => {
     )
       .setOutputToScreen()
       .runSynchronously(),
-  ).toBe('');
+  ).toEqual({
+    exitCode: 0,
+    stderr: '',
+    stdout: '',
+  });
 });
 
 it('executes the underlying child process correctly -- output to screen', () => {

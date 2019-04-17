@@ -99,7 +99,8 @@ function updateDependencies(
   // Returns JSON lines: http://jsonlines.org/
   const data = new ShellCommand(null, 'yarn', 'outdated', '--json')
     .setNoExceptions() // `yarn outdated` returns exit code 1 when we have outdated dependencies
-    .runSynchronously();
+    .runSynchronously()
+    .getStdout();
 
   const outdatedData = data
     .split('\n')

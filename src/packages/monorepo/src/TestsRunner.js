@@ -71,13 +71,9 @@ export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
     return;
   }
 
-  const stdout = new ShellCommand(
-    null,
-    'yarn',
-    'workspaces',
-    'info',
-    '--json',
-  ).runSynchronously();
+  const stdout = new ShellCommand(null, 'yarn', 'workspaces', 'info', '--json')
+    .runSynchronously()
+    .getStdout();
   const workspaceDependencies = sanitizeWorkspaces(
     JSON.parse(JSON.parse(stdout).data),
   );

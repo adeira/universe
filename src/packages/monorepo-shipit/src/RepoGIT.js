@@ -43,7 +43,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     this.localPath = localPath;
   }
 
-  _gitCommand = (args: $ReadOnlyArray<string>, stdin?: string) => {
+  _gitCommand = (args: $ReadOnlyArray<string>, stdin?: string): string => {
     invariant(
       fs.existsSync(path.join(this.localPath, '.git')),
       '%s is not a GIT repo.',
@@ -59,7 +59,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     if (stdin != null) {
       command.setStdin(stdin);
     }
-    return command.runSynchronously();
+    return command.runSynchronously().getStdout();
   };
 
   push() {
