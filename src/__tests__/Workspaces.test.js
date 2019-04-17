@@ -3,8 +3,6 @@
 import path from 'path';
 import { Workspaces } from '@kiwicom/monorepo';
 
-import OSSPackages from '../open-source';
-
 describe('all workspaces', () => {
   Workspaces.iterateWorkspaces(packageJSONLocation => {
     test(packageJSONLocation, () => {
@@ -19,16 +17,13 @@ describe('all workspaces', () => {
         // https://docs.npmjs.com/files/package.json#license
         expect(packageJson.license).toBe('MIT');
 
-        if (OSSPackages.has(packageJson.name)) {
-          expect(packageJson.homepage).toMatch(
-            /^https:\/\/github\.com\/kiwicom\/.+$/,
-          );
-        } else {
-          expect(packageJson.homepage).toBe(
-            'https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/' +
-              path.basename(path.dirname(packageJSONLocation)),
-          );
-        }
+        expect(packageJson.homepage).toMatch(
+          new RegExp(
+            `^(?:https://github\\.com/kiwicom/.+|https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/${path.basename(
+              path.dirname(packageJSONLocation),
+            )})$`,
+          ),
+        );
 
         // each public package must specify `main` or `bin` field pe be useful
         expect(
