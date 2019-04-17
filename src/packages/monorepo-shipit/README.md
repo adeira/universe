@@ -77,11 +77,17 @@ And finally this is how you'd map your package to the subfolder on GitHub (good 
 new Map([['src/packages/fetch/', 'packages/fetch/']]);
 ```
 
-# Importit part
+# Importit part _(unstable)_
 
 **Only imports from GitHub are currently supported.**
 
-Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:
+This is how you'd import a pull request #1 from GitHub into your local branch:
+
+```text
+yarn monorepo-babel-node src/packages/monorepo-shipit/bin/importit.js git@github.com:kiwicom/fetch.git 1
+```
+
+The idea is that you will tweak it for us if needed, test it in our monorepo and eventually send a merge request to the monorepo. Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:
 
 ```text
    .-----------------------------------.
@@ -112,8 +118,6 @@ Technically, _Importit_ part works just like _Shipit_ except in the opposite dir
  | GH repo | <------------------------------------`
  `---------`
 ```
-
-_TODO: describe how to use it_
 
 ## Filters
 

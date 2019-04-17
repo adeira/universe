@@ -5,17 +5,26 @@
 import path from 'path';
 import { findRootPackageJsonPath } from '@kiwicom/monorepo';
 
-import PhaseRunner from '../src/PhaseRunner';
 import PhaseRunnerConfig from '../src/PhaseRunnerConfig';
 import OSSPackages from '../../../open-source';
+import createClonePhase from '../src/phases/createClonePhase';
+import createSyncPhase from '../src/phases/createSyncPhase';
+import createPushPhase from '../src/phases/createPushPhase';
 
 for (const config of OSSPackages.values()) {
   const monorepoPath = path.dirname(findRootPackageJsonPath());
-  new PhaseRunner(
-    new PhaseRunnerConfig(
-      monorepoPath,
-      config.exportedRepoURL,
-      config.directoryMapping,
-    ),
-  ).run();
+
+  const cfg = new PhaseRunnerConfig(
+    monorepoPath,
+    config.exportedRepoURL,
+    config.directoryMapping,
+  );
+
+  new Set<() => void>([
+    // TODO: clean phase (make sure our working tree is clean!)
+    createClonePhase(cfg.exportedRepoURL, cfg.exportedRepoPath),
+    createSyncPhase(cfg),
+    // TODO: verify phase
+    createPushPhase(cfg.exportedRepoPath),
+  ]).forEach(phase => phase());
 }
