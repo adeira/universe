@@ -53,7 +53,7 @@ module.exports = class ShellCommand {
       cwd: this.cwd,
       // stdin, stdout, stderr
       stdio: [
-        'pipe',
+        'inherit', // `this.setStdin` automatically overwrites this
         // We have to make a decision here: either use 'inherit' and print into
         // console with colors and everything OR 'pipe' and get output.
         this.outputToScreen ? 'inherit' : 'pipe',

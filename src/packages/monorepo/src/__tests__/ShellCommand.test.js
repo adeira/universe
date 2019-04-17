@@ -85,7 +85,7 @@ it('returns empty string when printing to screen', () => {
   ).toBe('');
 });
 
-it('executes the underlying child process correctly', () => {
+it('executes the underlying child process correctly -- output to screen', () => {
   const spy = jest
     .spyOn(nodeChildProcess, 'spawnSync')
     .mockImplementation(() => ({
@@ -110,8 +110,25 @@ it('executes the underlying child process correctly', () => {
     {
       cwd: expect.any(String),
       input: undefined,
-      stdio: ['pipe', 'inherit', 'inherit'],
+      stdio: ['inherit', 'inherit', 'inherit'],
     },
   );
+  spy.mockRestore();
+});
+
+it('executes the underlying child process correctly -- returns output', () => {
+  const spy = jest
+    .spyOn(nodeChildProcess, 'spawnSync')
+    .mockImplementation(() => ({
+      error: undefined,
+      signal: null,
+      status: 0, // success
+    }));
+  new ShellCommand(null, 'some_command').runSynchronously();
+  expect(spy).toHaveBeenCalledWith('some_command', [], {
+    cwd: expect.any(String),
+    input: undefined,
+    stdio: ['inherit', 'pipe', 'pipe'],
+  });
   spy.mockRestore();
 });
