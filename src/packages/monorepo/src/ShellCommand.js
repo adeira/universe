@@ -48,6 +48,10 @@ export default class ShellCommand {
   /**
    * Please note: this function is synchronous which means it should be used for
    * your dev scripts and not to be executed in production.
+   *
+   * SECURITY NOTE: If the shell option is enabled, do not pass unsanitized user
+   * input to this function. Any input containing shell metacharacters may be
+   * used to trigger arbitrary command execution.
    */
   runSynchronously(): ShellCommandResult {
     const [command, ...args] = this.command.filter(arg => arg !== '');
@@ -55,7 +59,7 @@ export default class ShellCommand {
       cwd: this.cwd,
       // stdin, stdout, stderr
       stdio: [
-        'inherit', // `this.setStdin` automatically overwrites this
+        this.stdin ? 'pipe' : 'inherit', // 'pipe' accepts stdin from the input, 'inherit' accepts key strokes for example
         // We have to make a decision here: either use 'inherit' and print into
         // console with colors and everything OR 'pipe' and get output.
         this.outputToScreen ? 'inherit' : 'pipe',

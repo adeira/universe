@@ -43,7 +43,11 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     this.localPath = localPath;
   }
 
-  _gitCommand = (args: $ReadOnlyArray<string>, stdin?: string): string => {
+  _gitCommand = (
+    args: $ReadOnlyArray<string>,
+    stdin?: string,
+    outputToScreen?: boolean,
+  ): string => {
     invariant(
       fs.existsSync(path.join(this.localPath, '.git')),
       '%s is not a GIT repo.',
@@ -58,6 +62,9 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     );
     if (stdin != null) {
       command.setStdin(stdin);
+    }
+    if (outputToScreen === true) {
+      command.setOutputToScreen();
     }
     return command.runSynchronously().getStdout();
   };
@@ -183,11 +190,15 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
 
   commitPatch = (changeset: Changeset): void => {
     const diff = this.renderPatch(changeset);
+    const outputToScreen = true;
     try {
-      this._gitCommand(['am', '--keep-non-patch', '--keep-cr'], diff);
+      this._gitCommand(
+        ['am', '--keep-non-patch', '--keep-cr'],
+        diff,
+        outputToScreen,
+      );
     } catch (error) {
-      // TODO: `--show-current-patch` to screen (?)
-      this._gitCommand(['am', '--abort']); // TODO: show on screen
+      this._gitCommand(['am', '--abort'], undefined, outputToScreen);
       throw error;
     }
   };

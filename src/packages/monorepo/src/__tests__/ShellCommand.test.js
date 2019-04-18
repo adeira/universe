@@ -141,11 +141,13 @@ it('executes the underlying child process correctly -- returns output', () => {
       signal: null,
       status: 0, // success
     }));
-  new ShellCommand(null, 'some_command').runSynchronously();
+  new ShellCommand(null, 'some_command')
+    .setStdin('custom playload')
+    .runSynchronously();
   expect(spy).toHaveBeenCalledWith('some_command', [], {
     cwd: expect.any(String),
-    input: undefined,
-    stdio: ['inherit', 'pipe', 'pipe'],
+    input: 'custom playload',
+    stdio: ['pipe', 'pipe', 'pipe'],
   });
   spy.mockRestore();
 });
