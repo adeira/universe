@@ -1,6 +1,6 @@
-/* eslint-disable no-console */
+// @flow strict
 
-// @flow
+/* eslint-disable no-console */
 
 import chalk from 'chalk';
 import util from 'util';

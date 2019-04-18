@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 // Please note: this file should be named `.jest.config.js` because this way
 // we can prevent calling `yarn jest` directly. It wouldn't work with config
