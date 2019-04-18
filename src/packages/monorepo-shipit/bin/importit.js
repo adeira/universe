@@ -7,6 +7,7 @@ import { invariant } from '@kiwicom/js';
 import { findRootPackageJsonPath } from '@kiwicom/monorepo';
 
 import OSSPackages from '../../../open-source';
+import createCleanPhase from '../src/phases/createCleanPhase';
 import createClonePhase from '../src/phases/createClonePhase';
 import createImportSyncPhase from '../src/phases/createImportSyncPhase';
 import PhaseRunnerConfig from '../src/PhaseRunnerConfig';
@@ -43,7 +44,7 @@ const cfg = new PhaseRunnerConfig(
 );
 
 new Set<() => void>([
-  // TODO: clean phase (make sure our working tree is clean!)
+  createCleanPhase(cfg.exportedRepoPath),
   createClonePhase(cfg.exportedRepoURL, cfg.exportedRepoPath),
   createImportSyncPhase(cfg, pullRequestNumber),
 ]).forEach(phase => phase());

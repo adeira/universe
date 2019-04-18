@@ -70,6 +70,16 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     this._gitCommand(['checkout', '-b', branchName]);
   }
 
+  clean() {
+    this._gitCommand([
+      'clean', // remove untracked files from the working tree
+      '-x', // ignore .gitignore
+      '-f', // force
+      '-f', // double force
+      '-d', // remove untracked directories in addition to untracked files
+    ]);
+  }
+
   findLastSourceCommit = (roots: Set<string>): string => {
     const rawLog = this._gitCommand([
       'log',
