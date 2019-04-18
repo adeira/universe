@@ -1,20 +1,17 @@
 // @flow
 
-const os = require('os');
+import os from 'os';
 
-const ShellCommand = require('./ShellCommand');
+import ShellCommand from './ShellCommand';
 
 function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
   return changes.split(os.EOL).filter(row => row !== '');
 }
 
-function git(args /*: $ReadOnlyArray<string> */) {
-  return new ShellCommand(
-    null,
-    'git',
-    '--no-pager',
-    ...args,
-  ).runSynchronously();
+function git(args /*: $ReadOnlyArray<string> */): string {
+  return new ShellCommand(null, 'git', '--no-pager', ...args)
+    .runSynchronously()
+    .getStdout();
 }
 
 const Git = {

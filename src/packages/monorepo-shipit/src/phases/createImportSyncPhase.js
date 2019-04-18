@@ -30,7 +30,9 @@ export default function createImportSyncPhase(
       'merge-base',
       'FETCH_HEAD',
       'master',
-    ).runSynchronously();
+    )
+      .runSynchronously()
+      .getStdout();
 
     const changesets = new Set<Changeset>();
     const exportedRepo: SourceRepo = new RepoGIT(config.exportedRepoPath);

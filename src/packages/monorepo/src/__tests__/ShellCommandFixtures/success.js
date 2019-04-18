@@ -1,5 +1,6 @@
 // @flow
 
-console.log('output from success.js'); // eslint-disable-line no-console
+process.stdout.write('console.log output');
+process.stderr.write('console.err output');
 
 process.exit(0);
