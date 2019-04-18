@@ -9,6 +9,7 @@ function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
 }
 
 function git(args /*: $ReadOnlyArray<string> */): string {
+  // TODO: unify with Git implementation from Shipit (?)
   return new ShellCommand(null, 'git', '--no-pager', ...args)
     .runSynchronously()
     .getStdout();

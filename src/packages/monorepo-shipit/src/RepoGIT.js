@@ -40,61 +40,71 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   localPath: string;
 
   constructor(localPath: string) {
+    invariant(
+      fs.existsSync(path.join(localPath, '.git')),
+      '%s is not a GIT repo.',
+      localPath,
+    );
+
     this.localPath = localPath;
   }
 
-  _gitCommand = (
-    args: $ReadOnlyArray<string>,
-    stdin?: string,
-    outputToScreen?: boolean,
-  ): string => {
-    invariant(
-      fs.existsSync(path.join(this.localPath, '.git')),
-      '%s is not a GIT repo.',
-      this.localPath,
-    );
-    // TODO: options
-    const command = new ShellCommand(
+  _gitCommand = (...args: $ReadOnlyArray<string>) => {
+    return new ShellCommand(
       this.localPath,
       'git',
       '--no-pager',
       ...args,
+    ).setEnvironmentVariables(
+      new Map([
+        // https://git-scm.com/docs/git#_environment_variables
+        ['GIT_CONFIG_NOSYSTEM', '1'],
+        ['GIT_TERMINAL_PROMPT', '0'],
+      ]),
     );
-    if (stdin != null) {
-      command.setStdin(stdin);
-    }
-    if (outputToScreen === true) {
-      command.setOutputToScreen();
-    }
-    return command.runSynchronously().getStdout();
   };
 
   push() {
-    this._gitCommand(['push', 'origin', 'master']);
+    this._gitCommand('push', 'origin', 'master').runSynchronously();
   }
 
   checkoutBranch(branchName: string) {
-    this._gitCommand(['checkout', '-b', branchName]);
+    this._gitCommand('checkout', '-b', branchName).runSynchronously();
   }
 
   clean() {
-    this._gitCommand([
+    this._gitCommand(
       'clean', // remove untracked files from the working tree
       '-x', // ignore .gitignore
       '-f', // force
       '-f', // double force
       '-d', // remove untracked directories in addition to untracked files
-    ]);
+    ).runSynchronously();
+  }
+
+  isCorrupted(): boolean {
+    for (const command of [['show', 'HEAD'], ['fsck', '--strict']]) {
+      const exitCode = this._gitCommand(...command)
+        .setNoExceptions()
+        .runSynchronously()
+        .getExitCode();
+      if (exitCode !== 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
   findLastSourceCommit = (roots: Set<string>): string => {
-    const rawLog = this._gitCommand([
+    const rawLog = this._gitCommand(
       'log',
       '-1',
       '--grep',
       '^kiwicom-source-id: [a-z0-9]\\+$',
       ...roots,
-    ]);
+    )
+      .runSynchronously()
+      .getStdout();
     const match = rawLog
       .trim()
       .match(/kiwicom-source-id: (?<commit>[a-z0-9]+)$/m);
@@ -102,7 +112,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   };
 
   getNativePatchFromID = (revision: string): string => {
-    return this._gitCommand([
+    return this._gitCommand(
       'format-patch',
       '--no-renames',
       '--no-stat',
@@ -111,14 +121,16 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '--format=', // contain nothing but the code changes
       '-1',
       revision,
-    ]);
+    )
+      .runSynchronously()
+      .getStdout();
   };
 
   getNativeHeaderFromIDWithPatch = (
     revision: string,
     patch: string,
   ): string => {
-    const fullPatch = this._gitCommand([
+    const fullPatch = this._gitCommand(
       'format-patch',
       '--no-renames',
       '--no-stat',
@@ -126,7 +138,9 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '--full-index',
       '-1',
       revision,
-    ]);
+    )
+      .runSynchronously()
+      .getStdout();
     if (patch.length === 0) {
       // this is an empty commit, so everything is the header
       return fullPatch;
@@ -174,7 +188,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     headRevision: string,
     roots: Set<string>,
   ): $ReadOnlyArray<string> => {
-    const log = this._gitCommand([
+    const log = this._gitCommand(
       'log',
       '--reverse',
       '--ancestry-path',
@@ -182,7 +196,9 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '--pretty=tformat:%H',
       baseRevision + '..' + headRevision,
       ...roots,
-    ]);
+    )
+      .runSynchronously()
+      .getStdout();
 
     // return descendant hashes
     return log.trim().split('\n');
@@ -190,15 +206,18 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
 
   commitPatch = (changeset: Changeset): void => {
     const diff = this.renderPatch(changeset);
-    const outputToScreen = true;
     try {
-      this._gitCommand(
-        ['am', '--keep-non-patch', '--keep-cr'],
-        diff,
-        outputToScreen,
-      );
+      this._gitCommand('am', '--keep-non-patch', '--keep-cr')
+        .setStdin(diff)
+        .setOutputToScreen()
+        .runSynchronously();
     } catch (error) {
-      this._gitCommand(['am', '--abort'], undefined, outputToScreen);
+      this._gitCommand('am', '--show-current-patch')
+        .setOutputToScreen()
+        .runSynchronously();
+      this._gitCommand('am', '--abort')
+        .setOutputToScreen()
+        .runSynchronously();
       throw error;
     }
   };
