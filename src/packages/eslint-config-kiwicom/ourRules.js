@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const OFF = 0;
 const WARN = 1;

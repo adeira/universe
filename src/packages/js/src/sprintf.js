@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 /**
  * Simple function for formatting strings.

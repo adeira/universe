@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import sprintf from './sprintf';
 
@@ -16,7 +16,7 @@ function printWarning(format, ...args) {
 }
 
 export default function warning(
-  condition: mixed,
+  condition: boolean,
   format: string,
   ...args: Array<mixed>
 ): void {

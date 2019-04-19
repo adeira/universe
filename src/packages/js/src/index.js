@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export { default as invariant } from './invariant';
 export { default as isObject } from './isObject';

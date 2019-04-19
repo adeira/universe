@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import sprintf from './sprintf';
 
@@ -16,7 +16,7 @@ import sprintf from './sprintf';
  * TODO: add something like `invariant_violation` which is basically `invariant` but without condition (in cases where it's obvious violation)?
  */
 export default function invariant(
-  condition: mixed,
+  condition: boolean,
   format: string,
   ...args: Array<mixed>
 ): void {

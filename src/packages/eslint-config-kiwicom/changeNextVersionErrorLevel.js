@@ -1,7 +1,19 @@
 // @flow
 
+/*::
+
+type EslintConfigErrorLevel = 0 | 1 | 2 | 'off' | 'warn' | 'error' | 3; // "3" is our speciality
+type EslintConfig = {
+  [string]:
+    | EslintConfigErrorLevel
+    | [EslintConfigErrorLevel, any]
+    | [EslintConfigErrorLevel, any, any],
+};
+
+*/
+
 module.exports = function changeNextVersionErrorLevel(
-  config /*: Object */,
+  config /*: EslintConfig */,
   level /*: 0|1|2 */,
 ) {
   return Object.entries(config).reduce((acc, [ruleName, value]) => {
