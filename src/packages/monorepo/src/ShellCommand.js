@@ -16,6 +16,7 @@ export default class ShellCommand {
   outputToScreen: boolean = false;
   stdin: string;
   throwForNonZeroExit: boolean = true;
+  environmentVariables: Map<string, string>;
 
   constructor(cwd: null | string, ...command: $ReadOnlyArray<string>) {
     this.cwd = cwd ?? process.cwd();
@@ -45,6 +46,11 @@ export default class ShellCommand {
     return this;
   }
 
+  setEnvironmentVariables(envs: Map<string, string>): this {
+    this.environmentVariables = envs;
+    return this;
+  }
+
   /**
    * Please note: this function is synchronous which means it should be used for
    * your dev scripts and not to be executed in production.
@@ -66,6 +72,7 @@ export default class ShellCommand {
         this.outputToScreen ? 'inherit' : 'pipe',
       ],
       input: this.stdin,
+      env: this.environmentVariables,
     });
 
     const maybeThrow = error => {

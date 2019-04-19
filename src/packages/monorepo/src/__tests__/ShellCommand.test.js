@@ -133,7 +133,7 @@ it('executes the underlying child process correctly -- output to screen', () => 
   spy.mockRestore();
 });
 
-it('executes the underlying child process correctly -- returns output', () => {
+it('executes the underlying child process correctly -- returns output with stdin', () => {
   const spy = jest
     .spyOn(nodeChildProcess, 'spawnSync')
     .mockImplementation(() => ({
@@ -148,6 +148,25 @@ it('executes the underlying child process correctly -- returns output', () => {
     cwd: expect.any(String),
     input: 'custom playload',
     stdio: ['pipe', 'pipe', 'pipe'],
+  });
+  spy.mockRestore();
+});
+
+it('executes the underlying child process correctly -- with environment variables', () => {
+  const spy = jest
+    .spyOn(nodeChildProcess, 'spawnSync')
+    .mockImplementation(() => ({
+      error: undefined,
+      signal: null,
+      status: 0, // success
+    }));
+  new ShellCommand(null, 'some_command')
+    .setEnvironmentVariables(new Map([['GIT_CONFIG_NOSYSTEM', '1']]))
+    .runSynchronously();
+  expect(spy).toHaveBeenCalledWith('some_command', [], {
+    cwd: expect.any(String),
+    env: new Map([['GIT_CONFIG_NOSYSTEM', '1']]),
+    stdio: ['inherit', 'pipe', 'pipe'],
   });
   spy.mockRestore();
 });

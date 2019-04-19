@@ -2,9 +2,9 @@
 
 import RepoGIT from '../RepoGIT';
 
-export default function createCleanPhase(path: string) {
+export default function createCleanPhase(repoPath: string) {
   return function() {
-    const repo = new RepoGIT(path);
+    const repo = new RepoGIT(repoPath);
     repo.clean();
   };
 }

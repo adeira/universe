@@ -5,8 +5,9 @@
 import { invariant } from '@kiwicom/js';
 
 import iterateConfigs from './iterateConfigs';
-import createCleanPhase from '../src/phases/createCleanPhase';
 import createClonePhase from '../src/phases/createClonePhase';
+import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRepoPhase';
+import createCleanPhase from '../src/phases/createCleanPhase';
 import createImportSyncPhase from '../src/phases/createImportSyncPhase';
 
 // TODO: check we can actually import this package + validate it's GitHub
@@ -25,6 +26,7 @@ iterateConfigs(cfg => {
   if (cfg.exportedRepoURL === exportedRepoURL) {
     new Set<() => void>([
       createClonePhase(cfg.exportedRepoURL, cfg.exportedRepoPath),
+      createCheckCorruptedRepoPhase(cfg.exportedRepoPath),
       createCleanPhase(cfg.exportedRepoPath),
       createImportSyncPhase(cfg, pullRequestNumber),
     ]).forEach(phase => phase());
