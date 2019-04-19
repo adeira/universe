@@ -65,11 +65,15 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   };
 
   push() {
-    this._gitCommand('push', 'origin', 'master').runSynchronously();
+    this._gitCommand('push', 'origin', 'master')
+      .setOutputToScreen()
+      .runSynchronously();
   }
 
   checkoutBranch(branchName: string) {
-    this._gitCommand('checkout', '-b', branchName).runSynchronously();
+    this._gitCommand('checkout', '-b', branchName)
+      .setOutputToScreen()
+      .runSynchronously();
   }
 
   clean() {
@@ -79,20 +83,17 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '-f', // force
       '-f', // double force
       '-d', // remove untracked directories in addition to untracked files
-    ).runSynchronously();
+    )
+      .setOutputToScreen()
+      .runSynchronously();
   }
 
   isCorrupted(): boolean {
-    for (const command of [['show', 'HEAD'], ['fsck', '--strict']]) {
-      const exitCode = this._gitCommand(...command)
-        .setNoExceptions()
-        .runSynchronously()
-        .getExitCode();
-      if (exitCode !== 0) {
-        return true;
-      }
-    }
-    return false;
+    const exitCode = this._gitCommand('fsck', '--strict')
+      .setNoExceptions()
+      .runSynchronously()
+      .getExitCode();
+    return exitCode !== 0;
   }
 
   findLastSourceCommit = (roots: Set<string>): string => {
@@ -103,6 +104,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '^kiwicom-source-id: [a-z0-9]\\+$',
       ...roots,
     )
+      .setNoExceptions() // empty repo fails with: "your current branch 'master' does not have any commits yet"
       .runSynchronously()
       .getStdout();
     const match = rawLog
