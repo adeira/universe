@@ -1,11 +1,7 @@
-/* eslint-disable flowtype/require-valid-file-annotation */
-
-// FIXME: do not access stuff from workspaces!
-import { ProxiedError } from '../../src/apps/graphql/src/apps/common/services/errors/ProxiedError';
+// @flow strict
 
 test('Error', () => {
   expect(new Error()).toBeError();
-  expect(new ProxiedError()).toBeError();
 });
 
 test('Error - fail', () => {
@@ -16,12 +12,10 @@ test('Error - fail', () => {
 
 test('Error with interesting message', () => {
   expect(new Error('custom message')).toBeError('custom message');
-  expect(new ProxiedError('custom message')).toBeError('custom message');
 });
 
 test('Error with not interesting message', () => {
   expect(new Error('message')).toBeError();
-  expect(new ProxiedError('message')).toBeError();
 });
 
 test('Error with message - fail 1', () => {
