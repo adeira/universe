@@ -35,7 +35,10 @@ export default class PhaseRunnerConfig {
   }
 
   getExportedRepoRoots(): Set<string> {
-    return new Set(this.directoryMapping.values());
+    // In out cases root is always "". However, if we'd like to export our
+    // workspaces to another monorepo then the root would change to something
+    // like "my-oss-project/"
+    return new Set();
   }
 
   getDefaultShipitFilter(): ChangesetFilter {
