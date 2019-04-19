@@ -36,6 +36,29 @@ First, we try to extract relevant commits of our package we want to opensource. 
 
 One of the filters modifies commit summaries and adds `kiwicom-source-id` signature which helps us to identify which changes we pushed last time and just amend latest internal changes. These filters work with the parsed changesets which gives you incredible flexibility: you can for example completely remove some lines from the open-source version. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the public repository then just add a new filter and manually remove them from GitHub.
 
+## Configuration
+
+Each project has its own configuration directly in Shipit workspace. If you want it to work with another project then you have to create a new configuration (with configuration tests):
+
+```js
+module.exports = {
+  getStaticConfig() {
+    return {
+      githubOrg: 'kiwicom',
+      githubProject: 'relay-example',
+    };
+  },
+  getDefaultPathMappings(): Map<string, string> {
+    return new Map([
+      ['src/apps/relay-example/__github__/.flowconfig', '.flowconfig'],
+      ['src/apps/relay-example/', ''],
+    ]);
+  },
+};
+```
+
+Read more about available filters how to use them bellow.
+
 ## Filters
 
 > Please note: this part is still under development and the API is not settled yet.
@@ -125,6 +148,7 @@ The only filter being applied when importing the projects is filter which moves 
 
 # Main differences from facebook/fbshipit
 
+- our version is tailored for Kiwi.com needs and infra, not Facebook ones
 - our version doesn't support [Mercurial](https://www.mercurial-scm.org/) and it's written in JS (not in Hack)
 - our version doesn't support [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 - we sync only master branches, other branches are not supported

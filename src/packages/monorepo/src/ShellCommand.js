@@ -86,8 +86,12 @@ export default class ShellCommand {
     if (response.status !== 0) {
       // we could eventually pass down the status code into error so wrapping
       // scripts can return proper process.exitCode
+      const stderr = response.stderr ? response.stderr.toString() : '';
       maybeThrow(
-        new Error(`Command failed with exit code ${response.status}.`),
+        new Error(
+          `Command failed with exit code ${response.status}` +
+            (stderr !== '' ? `: ${stderr}` : '.'),
+        ),
       );
     }
 
