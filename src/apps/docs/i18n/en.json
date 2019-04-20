@@ -45,6 +45,10 @@
         "title": "Writing commit messages",
         "sidebar_label": "Commit Messages"
       },
+      "guides/eslint-config-migration": {
+        "title": "Migration to @kiwicom/eslint-config",
+        "sidebar_label": "Migration to ESLint config"
+      },
       "guides/money": {
         "title": "Dealing with money in JavaScript",
         "sidebar_label": "Dealing with money"
