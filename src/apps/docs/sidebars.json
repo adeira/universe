@@ -9,7 +9,11 @@
       "monorepo/example-projects"
     ],
     "Open source": ["oss/general", "oss/npm-packages", "oss/npm-releasing"],
-    "Developer guides": ["guides/commit-messages", "guides/money"]
+    "Developer guides": [
+      "guides/commit-messages",
+      "guides/money",
+      "guides/eslint-config-migration"
+    ]
   },
   "apps": {
     "GraphQL": [
