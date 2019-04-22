@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/register": "^7.4.0",
-    "@kiwicom/monorepo": "^0.18.0",
+    "@kiwicom/monorepo": "^0.19.0",
     "chalk": "^2.4.2",
     "create-jest-runner": "^0.5.0",
     "eslint-config-prettier": "^4.1.0",
