@@ -1,8 +1,9 @@
-// @flow
+// @flow strict-local
 
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import { invariant } from '@kiwicom/js';
 
 import Changeset from './Changeset';
 import PathFilters from './PathFilters';
@@ -31,7 +32,15 @@ export default class PhaseRunnerConfig {
   }
 
   getMonorepoRoots(): Set<string> {
-    return new Set(this.directoryMapping.keys());
+    const roots = new Set();
+    for (const root of this.directoryMapping.keys()) {
+      invariant(
+        fs.existsSync(root) === true,
+        `Directory mapping uses non-existent root: ${root}`,
+      );
+      roots.add(root);
+    }
+    return roots;
   }
 
   getExportedRepoRoots(): Set<string> {
