@@ -14,8 +14,7 @@ module.exports = {
     };
   },
   getDefaultPathMappings(): Map<string, string> {
-    // TODO: rename to 'relay-example'
-    const ossRoot = 'src/apps/relay-example/';
+    const ossRoot = 'src/apps/example-relay/';
     return new Map([
       [path.join(ossRoot, '__github__', '.flowconfig'), '.flowconfig'],
       [ossRoot, ''],

@@ -4,21 +4,23 @@ import config from '../example-relay';
 import Changeset from '../../src/Changeset';
 import PhaseRunnerConfig from '../../src/PhaseRunnerConfig';
 
+jest.mock('fs');
+
 test.each([
-  ['src/apps/relay-example/package.json', 'package.json'],
-  ['src/apps/relay-example/pages/index.js', 'pages/index.js'],
+  ['src/apps/example-relay/package.json', 'package.json'],
+  ['src/apps/example-relay/pages/index.js', 'pages/index.js'],
   [
-    'src/apps/relay-example/src/locations/CountryFlag.js',
+    'src/apps/example-relay/src/locations/CountryFlag.js',
     'src/locations/CountryFlag.js',
   ],
   [
-    'src/apps/relay-example/__generated__/AppQuery.graphql.js',
+    'src/apps/example-relay/__generated__/AppQuery.graphql.js',
     '__generated__/AppQuery.graphql.js',
   ],
-  ['src/apps/relay-example/__github__/.flowconfig', '.flowconfig'],
+  ['src/apps/example-relay/__github__/.flowconfig', '.flowconfig'],
 
   // invalid cases:
-  ['src/apps/relay-example/__github__/unknown.js', '__github__/unknown.js'], // probably unwanted
+  ['src/apps/example-relay/__github__/unknown.js', '__github__/unknown.js'], // probably unwanted
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ])('mapping: %s -> %s', (input, output) => {
