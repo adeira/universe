@@ -567,7 +567,9 @@ interface JestExpectType {
     JestExtendedMatchersType;
 
   // Custom Kiwi.com expect:
+  // TODO: make it per project
   toBeError(value: any): void;
+  toGiveHelp(value: string): void;
 
   /**
    * If you have a mock function, you can use .lastCalledWith to test what
