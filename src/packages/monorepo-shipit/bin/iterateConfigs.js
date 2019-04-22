@@ -12,7 +12,10 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
     '/**/*.js',
     {
       root: path.join(__dirname, '..', 'config'),
-      ignore: ['**/node_modules/**', '**/__tests__/**'],
+      ignore: [
+        '**/node_modules/**',
+        '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
+      ],
     },
     (error, configFiles) => {
       if (error !== null) {
