@@ -1,12 +1,10 @@
-// @flow
+// @flow strict-local
 
-import config from '../example-relay';
-import Changeset from '../../src/Changeset';
-import PhaseRunnerConfig from '../../src/PhaseRunnerConfig';
+import path from 'path';
 
-jest.mock('fs');
+import testExportedPaths from './testExportedPaths';
 
-test.each([
+testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
   ['src/apps/example-relay/package.json', 'package.json'],
   ['src/apps/example-relay/pages/index.js', 'pages/index.js'],
   [
@@ -23,25 +21,4 @@ test.each([
   ['src/apps/example-relay/__github__/unknown.js', '__github__/unknown.js'], // probably unwanted
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
-])('mapping: %s -> %s', (input, output) => {
-  const defaultFilter = new PhaseRunnerConfig(
-    'mocked repo path',
-    'mocked repo URL',
-    config.getDefaultPathMappings(),
-  ).getDefaultShipitFilter();
-
-  const inputChangeset = new Changeset().withDiffs(
-    new Set([{ path: input, body: 'mocked' }]),
-  );
-
-  const outputDataset = defaultFilter(inputChangeset);
-
-  if (output === undefined) {
-    expect(...outputDataset.getDiffs()).toBeUndefined();
-  } else {
-    expect(...outputDataset.getDiffs()).toEqual({
-      body: 'mocked',
-      path: output,
-    });
-  }
-});
+]);
