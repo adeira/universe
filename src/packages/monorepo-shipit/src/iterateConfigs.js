@@ -4,7 +4,8 @@ import path from 'path';
 import { findRootPackageJsonPath, glob } from '@kiwicom/monorepo';
 import { sprintf } from '@kiwicom/js';
 
-import PhaseRunnerConfig from '../src/PhaseRunnerConfig';
+import requireAndValidateConfig from './requireAndValidateConfig';
+import PhaseRunnerConfig from './PhaseRunnerConfig';
 
 export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
   const monorepoPath = path.dirname(findRootPackageJsonPath());
@@ -23,9 +24,7 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
       }
 
       configFiles.forEach(configFile => {
-        // $FlowAllowDynamicImport
-        const config = require(configFile);
-        // TODO: validate config
+        const config = requireAndValidateConfig(configFile);
 
         const staticConfig = config.getStaticConfig();
         const githubURL = sprintf(

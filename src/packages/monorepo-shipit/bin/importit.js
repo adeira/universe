@@ -4,7 +4,7 @@
 
 import { invariant } from '@kiwicom/js';
 
-import iterateConfigs from './iterateConfigs';
+import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
 import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRepoPhase';
 import createCleanPhase from '../src/phases/createCleanPhase';
