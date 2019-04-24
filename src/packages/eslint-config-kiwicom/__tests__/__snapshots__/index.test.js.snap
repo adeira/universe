@@ -4,6 +4,7 @@ exports[`rules snapshot 1`] = `
 Object {
   "globals": Object {
     "FormData": false,
+    "__": false,
     "__DEV__": false,
   },
   "plugins": Array [
