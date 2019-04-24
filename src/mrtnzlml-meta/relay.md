@@ -258,6 +258,10 @@ TODO
 - https://github.com/mrtnzlml/relay/pull/172/commits
 - https://github.com/facebook/relay/commit/225cfb60cccdbb649ab16a13ed607de749992d21
 
+# @inline ???
+
+- https://github.com/facebook/relay/commit/68745c719401c3be01d022f1617525daac69cfa1
+
 # Uploadables
 
 Sending normal GraphQL mutation is trivial:
