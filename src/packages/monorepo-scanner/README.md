@@ -13,3 +13,16 @@ We currently check these things:
 ```text
 yarn jest --config src/packages/monorepo-scanner/src/.jest.config.js
 ```
+
+# Writing scans
+
+We use Jest to run our scans so the actual scans are technically Jest tests. However, there are small differences. All the scans end with `*.scan.js` extension and we have special matcher (`.toGiveHelp`) to give useful helps to our devs. Example:
+
+```js
+const babelRC = {}; // get .babelrc somewhere
+test('Babel configuration', () => {
+  expect(babelRC.presets.includes('next/babel')).toGiveHelp(
+    `Your Next.js application should contain '.babelrc' file with 'next/babel' preset.`,
+  );
+});
+```
