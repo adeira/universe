@@ -11,13 +11,14 @@ Object.keys(require('../package.json').dependencies)
     const whitelistedPlugins = [
       'eslint-plugin-babel',
       'eslint-plugin-eslint-comments',
+      'eslint-plugin-flowtype',
       'eslint-plugin-jest',
       'eslint-plugin-kiwicom-incubator',
       'eslint-plugin-monorepo',
       'eslint-plugin-node',
       'eslint-plugin-prefer-object-spread',
-      'eslint-plugin-relay',
       'eslint-plugin-react-hooks',
+      'eslint-plugin-relay',
     ];
     return whitelistedPlugins.includes(dep);
   })

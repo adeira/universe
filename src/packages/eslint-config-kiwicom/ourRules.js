@@ -249,17 +249,30 @@ module.exports = {
   'babel/valid-typeof': ERROR,
 
   // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
+  'flowtype/array-style-complex-type': OFF,
+  'flowtype/array-style-simple-type': OFF,
   'flowtype/define-flow-type': WARN,
+  'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
   'flowtype/no-dupe-keys': WARN,
+  'flowtype/no-existential-type': NEXT_VERSION_ERROR, // https://github.com/facebook/flow/issues/6308
+  'flowtype/no-flow-fix-me-comments': OFF,
+  'flowtype/no-mixed': OFF,
+  'flowtype/no-mutable-array': OFF,
   'flowtype/no-primitive-constructor-types': WARN,
+  'flowtype/no-types-missing-file-annotation': NEXT_VERSION_ERROR,
+  'flowtype/no-unused-expressions': NEXT_VERSION_ERROR,
   'flowtype/no-weak-types': OFF,
+  'flowtype/require-compound-type-alias': OFF,
+  'flowtype/require-exact-type': OFF,
   'flowtype/require-parameter-type': OFF,
   'flowtype/require-return-type': OFF,
+  'flowtype/require-types-at-top': OFF,
   'flowtype/require-valid-file-annotation': [ERROR, 'always'],
-  'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
   'flowtype/require-variable-type': OFF,
   'flowtype/sort-keys': OFF,
+  'flowtype/spread-exact-type': OFF, // TODO: WARN?
   'flowtype/type-id-match': OFF,
+  'flowtype/type-import-style': OFF,
   'flowtype/use-flow-type': WARN,
   'flowtype/valid-syntax': OFF,
 

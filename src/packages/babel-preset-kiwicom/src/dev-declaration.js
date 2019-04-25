@@ -1,4 +1,4 @@
-/* eslint-disable flowtype/require-valid-file-annotation */
+/* eslint-disable flowtype/require-valid-file-annotation,flowtype/no-types-missing-file-annotation */
 
 module.exports = function(babel) {
   const t = babel.types;
