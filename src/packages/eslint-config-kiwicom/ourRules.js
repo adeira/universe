@@ -289,7 +289,7 @@ module.exports = {
   'jest/no-jasmine-globals': ERROR,
   'jest/no-jest-import': ERROR,
   'jest/no-large-snapshots': OFF,
-  'jest/no-mocks-import': OFF, // TODO: NEXT_VERSION_ERROR after https://github.com/jest-community/eslint-plugin-jest/pull/249
+  'jest/no-mocks-import': NEXT_VERSION_ERROR,
   'jest/no-test-callback': OFF,
   'jest/no-test-prefixes': OFF,
   'jest/no-test-return-statement': ERROR,
