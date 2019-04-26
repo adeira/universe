@@ -1,4 +1,6 @@
 # Unreleased
+
+# 3.6.0
 - Show warnings for new `jest/no-mocks-import` rule (see: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-mocks-import.md)
 - Add `__` into default globals - please remove it from your globals if possible
 
