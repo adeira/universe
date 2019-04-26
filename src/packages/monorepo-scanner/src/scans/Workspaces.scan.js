@@ -29,8 +29,6 @@ describe('all workspaces', () => {
         expect(
           packageJson.main !== undefined || packageJson.bin !== undefined,
         ).toBe(true);
-      } else {
-        expect(packageJson.license).toBe('UNLICENSED');
       }
 
       expect(packageJson.version).not.toBeUndefined();

@@ -1,7 +1,7 @@
 {
   "name": "@kiwicom/monorepo-shipit",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "version": "0.0.0",
   "bin": {
     "monorepo-shipit": "bin/shipit.js",

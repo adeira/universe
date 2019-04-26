@@ -12,11 +12,12 @@ const monorepoSrcRoot = path.join(
   path.dirname(findRootPackageJsonPath()),
   'src',
 );
-const rootDir = path.join(__dirname, 'scans');
+const rootDir = path.join(__dirname, 'src', 'scans');
 
 const dependenciesTable = new Map([
   // when should the check be executed => the check itself
   [/(?:package\.json|CHANGELOG\.md)$/i, 'Changelogs.scan.js'],
+  [/(?:package\.json|LICENSE)$/i, 'Licenses.scan.js'],
   [/(?:package\.json|\.babelrc)$/i, 'NextjsApplications.scan.js'],
   [/package\.json$/i, 'PrivatePackages.scan.js'],
   [/\.js$/i, 'TestsWithCorrectName.scan.js'],
