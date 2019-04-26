@@ -1,4 +1,5 @@
 # Unreleased
+- Previous versions (all from 2.16.0) contained bug which caused that some rules were exported as warnings instead of errors. Affected rules which now correctly throw errors are: `babel/camelcase`,  `consistent-return`, `flowtype/newline-after-flow-annotation`, `flowtype/require-valid-file-annotation`, `import/no-anonymous-default-export`, `import/no-extraneous-dependencies`, `import/no-unresolved`, `import/order`, `jsx-a11y/no-distracting-elements`, `no-global-assign`, `no-labels`, `no-unused-vars`, `prefer-const` and finally `spaced-comment`. The same bug affected strict mode as well which caused that some rules threw error incorrectly. These rules are corrected as well so they return warnings instead as intended.
 
 # 3.6.0
 - Show warnings for new `jest/no-mocks-import` rule (see: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-mocks-import.md)
