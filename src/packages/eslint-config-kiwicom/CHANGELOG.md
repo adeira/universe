@@ -1,5 +1,19 @@
 # Unreleased
-- Previous versions (all from 2.16.0) contained bug which caused that some rules were exported as warnings instead of errors. Affected rules which now correctly throw errors are: `babel/camelcase`,  `consistent-return`, `flowtype/newline-after-flow-annotation`, `flowtype/require-valid-file-annotation`, `import/no-anonymous-default-export`, `import/no-extraneous-dependencies`, `import/no-unresolved`, `import/order`, `jsx-a11y/no-distracting-elements`, `no-global-assign`, `no-labels`, `no-unused-vars`, `prefer-const` and finally `spaced-comment`. The same bug affected strict mode as well which caused that some rules threw error incorrectly. These rules are corrected as well so they return warnings instead as intended.
+- Previous versions (all from 2.16.0) contained bug which caused that some rules were exported as warnings instead of errors. The same bug affected strict mode which caused that some rules returned error incorrectly. These rules are corrected as well so they return warnings instead as intended. Affected rules in  normal mode which now correctly throw errors are:
+  - [babel/camelcase](https://github.com/babel/eslint-plugin-babel)
+  - [consistent-return](https://eslint.org/docs/rules/consistent-return)
+  - [flowtype/newline-after-flow-annotation](https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-newline-after-flow-annotation)
+  - [flowtype/require-valid-file-annotation](https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-require-valid-file-annotation)
+  - [import/no-anonymous-default-export](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-anonymous-default-export.md)
+  - [import/no-extraneous-dependencies](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-extraneous-dependencies.md)
+  - [import/no-unresolved](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md)
+  - [import/order](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md)
+  - [jsx-a11y/no-distracting-elements](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-distracting-elements.md)
+  - [no-global-assign](https://eslint.org/docs/rules/no-global-assign)
+  - [no-labels](https://eslint.org/docs/rules/no-labels)
+  - [no-unused-vars](https://eslint.org/docs/rules/no-unused-vars)
+  - [prefer-const](https://eslint.org/docs/rules/prefer-const)
+  - [spaced-comment](https://eslint.org/docs/rules/spaced-comment)
 - These warnings (errors if you use strict mode) are now errors:
   - [eslint-comments/no-duplicate-disable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-duplicate-disable.html)
   - [eslint-comments/no-unused-enable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html)
@@ -23,6 +37,17 @@
   - [react-hooks/exhaustive-deps](https://reactjs.org/docs/hooks-rules.html#eslint-plugin)
   - [react/jsx-key](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md)
   - [require-await](https://eslint.org/docs/rules/require-await)
+- These rules from [Possible Errors](http://eslint.org/docs/rules/#possible-errors) Eslint group now show errors in the strict mode (normal mode not affected):
+  - [no-cond-assign](https://eslint.org/docs/rules/no-cond-assign)
+  - [no-control-regex](https://eslint.org/docs/rules/no-control-regex)
+  - [no-duplicate-case](https://eslint.org/docs/rules/no-duplicate-case)
+  - [no-empty-character-class](https://eslint.org/docs/rules/no-empty-character-class)
+  - [no-ex-assign](https://eslint.org/docs/rules/no-ex-assign)
+  - [no-extra-boolean-cast](https://eslint.org/docs/rules/no-extra-boolean-cast)
+  - [no-irregular-whitespace](https://eslint.org/docs/rules/no-irregular-whitespace)
+  - [no-misleading-character-class](https://eslint.org/docs/rules/no-misleading-character-class)
+  - [no-regex-spaces](https://eslint.org/docs/rules/no-regex-spaces)
+  - [no-unsafe-finally](https://eslint.org/docs/rules/no-unsafe-finally)
 
 # 3.6.0
 - Show warnings for new `jest/no-mocks-import` rule (see: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-mocks-import.md)

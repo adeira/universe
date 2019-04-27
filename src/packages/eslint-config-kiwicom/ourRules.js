@@ -4,7 +4,7 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
-// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -16,30 +16,30 @@ module.exports = {
   'getter-return': ERROR,
   'no-async-promise-executor': WARN,
   'no-compare-neg-zero': ERROR,
-  'no-cond-assign': WARN,
+  'no-cond-assign': NEXT_VERSION_ERROR,
   'no-console': ERROR,
   'no-constant-condition': [WARN, { checkLoops: false }],
-  'no-control-regex': WARN,
+  'no-control-regex': NEXT_VERSION_ERROR,
   'no-debugger': ERROR,
   'no-dupe-args': ERROR,
   'no-dupe-keys': ERROR,
-  'no-duplicate-case': WARN,
+  'no-duplicate-case': NEXT_VERSION_ERROR,
   'no-empty': [WARN, { allowEmptyCatch: true }],
-  'no-empty-character-class': WARN,
-  'no-ex-assign': WARN,
-  'no-extra-boolean-cast': WARN,
+  'no-empty-character-class': NEXT_VERSION_ERROR,
+  'no-ex-assign': NEXT_VERSION_ERROR,
+  'no-extra-boolean-cast': NEXT_VERSION_ERROR,
   'no-func-assign': ERROR,
   'no-inner-declarations': WARN,
   'no-invalid-regexp': ERROR,
-  'no-irregular-whitespace': WARN,
-  'no-misleading-character-class': WARN,
+  'no-irregular-whitespace': NEXT_VERSION_ERROR,
+  'no-misleading-character-class': NEXT_VERSION_ERROR,
   'no-obj-calls': ERROR,
   'no-prototype-builtins': OFF,
-  'no-regex-spaces': WARN,
+  'no-regex-spaces': NEXT_VERSION_ERROR,
   'no-sparse-arrays': ERROR,
   'no-template-curly-in-string': OFF,
   'no-unreachable': ERROR,
-  'no-unsafe-finally': WARN,
+  'no-unsafe-finally': NEXT_VERSION_ERROR,
   'no-unsafe-negation': ERROR,
   'require-atomic-updates': ERROR,
   'use-isnan': ERROR,
