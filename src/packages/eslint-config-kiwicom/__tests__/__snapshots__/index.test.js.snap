@@ -40,7 +40,7 @@ Object {
     "arrow-parens": "off",
     "arrow-spacing": "off",
     "babel/camelcase": Array [
-      1,
+      2,
       Object {
         "ignoreDestructuring": false,
         "properties": "never",
@@ -66,7 +66,7 @@ Object {
     "complexity": 0,
     "computed-property-spacing": "off",
     "consistent-return": Array [
-      1,
+      2,
       Object {
         "treatUndefinedAsUnspecified": false,
       },
@@ -101,7 +101,7 @@ Object {
     "flowtype/delimiter-dangle": "off",
     "flowtype/generic-spacing": "off",
     "flowtype/newline-after-flow-annotation": Array [
-      1,
+      2,
       "always",
     ],
     "flowtype/no-dupe-keys": 1,
@@ -120,7 +120,7 @@ Object {
     "flowtype/require-return-type": 0,
     "flowtype/require-types-at-top": 0,
     "flowtype/require-valid-file-annotation": Array [
-      1,
+      2,
       "always",
     ],
     "flowtype/require-variable-type": 0,
@@ -154,7 +154,7 @@ Object {
     "import/newline-after-import": 2,
     "import/no-absolute-path": 2,
     "import/no-anonymous-default-export": Array [
-      1,
+      2,
       Object {
         "allowAnonymousClass": false,
         "allowAnonymousFunction": false,
@@ -168,7 +168,7 @@ Object {
     "import/no-duplicates": 1,
     "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": Array [
-      1,
+      2,
       Object {
         "devDependencies": Array [
           "**/*.test.js",
@@ -178,7 +178,7 @@ Object {
     ],
     "import/no-mutable-exports": 2,
     "import/no-unresolved": Array [
-      1,
+      2,
       Object {
         "ignore": Array [
           "^__generated__/",
@@ -187,7 +187,7 @@ Object {
     ],
     "import/no-useless-path-segments": 2,
     "import/order": Array [
-      1,
+      2,
       Object {
         "groups": Array [
           Array [
@@ -243,7 +243,7 @@ Object {
     "jsx-a11y/aria-props": 2,
     "jsx-a11y/aria-unsupported-elements": 2,
     "jsx-a11y/no-distracting-elements": Array [
-      1,
+      2,
       Object {
         "elements": Array [
           "marquee",
@@ -343,7 +343,7 @@ Object {
     "no-floating-decimal": "off",
     "no-func-assign": 2,
     "no-global-assign": Array [
-      1,
+      2,
       Object {
         "exceptions": Array [
           "Map",
@@ -362,7 +362,7 @@ Object {
     "no-iterator": 1,
     "no-label-var": 2,
     "no-labels": Array [
-      1,
+      2,
       Object {
         "allowLoop": true,
         "allowSwitch": true,
@@ -442,7 +442,7 @@ Object {
     "no-unused-expressions": 0,
     "no-unused-labels": 1,
     "no-unused-vars": Array [
-      1,
+      2,
       Object {
         "args": "after-used",
       },
@@ -501,7 +501,7 @@ Object {
     "padding-line-between-statements": 0,
     "prefer-arrow-callback": 0,
     "prefer-const": Array [
-      1,
+      2,
       Object {
         "destructuring": "all",
       },
@@ -620,7 +620,7 @@ Object {
     "space-unary-ops": "off",
     "space-unary-word-ops": "off",
     "spaced-comment": Array [
-      1,
+      2,
       "always",
       Object {
         "block": Object {
