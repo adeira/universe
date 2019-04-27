@@ -1,5 +1,28 @@
 # Unreleased
 - Previous versions (all from 2.16.0) contained bug which caused that some rules were exported as warnings instead of errors. Affected rules which now correctly throw errors are: `babel/camelcase`,  `consistent-return`, `flowtype/newline-after-flow-annotation`, `flowtype/require-valid-file-annotation`, `import/no-anonymous-default-export`, `import/no-extraneous-dependencies`, `import/no-unresolved`, `import/order`, `jsx-a11y/no-distracting-elements`, `no-global-assign`, `no-labels`, `no-unused-vars`, `prefer-const` and finally `spaced-comment`. The same bug affected strict mode as well which caused that some rules threw error incorrectly. These rules are corrected as well so they return warnings instead as intended.
+- These warnings (errors if you use strict mode) are now errors:
+  - [eslint-comments/no-duplicate-disable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-duplicate-disable.html)
+  - [eslint-comments/no-unused-enable](https://mysticatea.github.io/eslint-plugin-eslint-comments/rules/no-unused-enable.html)
+  - [flowtype/no-existential-type](https://github.com/gajus/eslint-plugin-flowtype#no-existential-type)
+  - [flowtype/no-types-missing-file-annotation](https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-no-types-missing-file-annotation)
+  - [flowtype/no-unused-expressions](https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-no-unused-expressions)
+  - [jest/no-disabled-tests](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-disabled-tests.md)
+  - [jest/no-empty-title](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-empty-title.md)
+  - [jest/no-mocks-import](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-mocks-import.md)
+  - [jest/valid-expect](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/valid-expect.md)
+  - [jsx-a11y/alt-text](https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/alt-text.md)
+  - [no-invalid-regexp](https://eslint.org/docs/rules/no-invalid-regexp)
+  - [node/no-deprecated-api](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-deprecated-api.md)
+  - [node/no-unpublished-bin](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-unpublished-bin.md)
+  - [node/prefer-global/buffer](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/buffer.md)
+  - [node/prefer-global/console](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/console.md)
+  - [node/prefer-global/process](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/process.md)
+  - [node/prefer-global/url](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/prefer-global/url.md)
+  - [node/shebang](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/shebang.md)
+  - [prefer-named-capture-group](https://eslint.org/docs/rules/prefer-named-capture-group)
+  - [react-hooks/exhaustive-deps](https://reactjs.org/docs/hooks-rules.html#eslint-plugin)
+  - [react/jsx-key](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md)
+  - [require-await](https://eslint.org/docs/rules/require-await)
 
 # 3.6.0
 - Show warnings for new `jest/no-mocks-import` rule (see: https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-mocks-import.md)

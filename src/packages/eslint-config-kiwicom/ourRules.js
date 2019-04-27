@@ -4,7 +4,7 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
-const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -30,7 +30,7 @@ module.exports = {
   'no-extra-boolean-cast': WARN,
   'no-func-assign': ERROR,
   'no-inner-declarations': WARN,
-  'no-invalid-regexp': NEXT_VERSION_ERROR,
+  'no-invalid-regexp': ERROR,
   'no-irregular-whitespace': WARN,
   'no-misleading-character-class': WARN,
   'no-obj-calls': ERROR,
@@ -111,10 +111,10 @@ module.exports = {
   'no-void': WARN,
   'no-warning-comments': OFF,
   'no-with': WARN,
-  'prefer-named-capture-group': NEXT_VERSION_ERROR,
+  'prefer-named-capture-group': ERROR,
   'prefer-promise-reject-errors': WARN,
   radix: ERROR,
-  'require-await': NEXT_VERSION_ERROR,
+  'require-await': ERROR,
   'require-unicode-regexp': OFF,
   'vars-on-top': OFF,
   yoda: WARN,
@@ -254,13 +254,13 @@ module.exports = {
   'flowtype/define-flow-type': WARN,
   'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
   'flowtype/no-dupe-keys': WARN,
-  'flowtype/no-existential-type': NEXT_VERSION_ERROR, // https://github.com/facebook/flow/issues/6308
+  'flowtype/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
   'flowtype/no-flow-fix-me-comments': OFF,
   'flowtype/no-mixed': OFF,
   'flowtype/no-mutable-array': OFF,
   'flowtype/no-primitive-constructor-types': WARN,
-  'flowtype/no-types-missing-file-annotation': NEXT_VERSION_ERROR,
-  'flowtype/no-unused-expressions': NEXT_VERSION_ERROR,
+  'flowtype/no-types-missing-file-annotation': ERROR,
+  'flowtype/no-unused-expressions': ERROR, // TODO: consult with default `no-unused-expressions`
   'flowtype/no-weak-types': OFF,
   'flowtype/require-compound-type-alias': OFF,
   'flowtype/require-exact-type': OFF,
@@ -281,15 +281,15 @@ module.exports = {
   'jest/expect-expect': OFF,
   'jest/lowercase-name': OFF,
   'jest/no-alias-methods': OFF,
-  'jest/no-disabled-tests': NEXT_VERSION_ERROR,
-  'jest/no-empty-title': NEXT_VERSION_ERROR,
+  'jest/no-disabled-tests': ERROR,
+  'jest/no-empty-title': ERROR,
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': ERROR,
   'jest/no-jasmine-globals': ERROR,
   'jest/no-jest-import': ERROR,
   'jest/no-large-snapshots': OFF,
-  'jest/no-mocks-import': NEXT_VERSION_ERROR,
+  'jest/no-mocks-import': ERROR,
   'jest/no-test-callback': OFF,
   'jest/no-test-prefixes': OFF,
   'jest/no-test-return-statement': ERROR,
@@ -306,7 +306,7 @@ module.exports = {
   'jest/prefer-todo': ERROR,
   'jest/require-tothrow-message': OFF,
   'jest/valid-describe': ERROR,
-  'jest/valid-expect': NEXT_VERSION_ERROR,
+  'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
@@ -345,7 +345,7 @@ module.exports = {
   'react/jsx-boolean-value': OFF,
   'react/jsx-filename-extension': OFF,
   'react/jsx-handler-names': OFF,
-  'react/jsx-key': NEXT_VERSION_ERROR,
+  'react/jsx-key': ERROR,
   'react/jsx-no-bind': ERROR,
   'react/jsx-no-comment-textnodes': WARN,
   'react/jsx-no-duplicate-props': ERROR,
@@ -359,11 +359,11 @@ module.exports = {
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
   'react-hooks/rules-of-hooks': ERROR,
-  'react-hooks/exhaustive-deps': NEXT_VERSION_ERROR,
+  'react-hooks/exhaustive-deps': ERROR,
 
   // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
   'jsx-a11y/accessible-emoji': ERROR,
-  'jsx-a11y/alt-text': NEXT_VERSION_ERROR,
+  'jsx-a11y/alt-text': ERROR,
   'jsx-a11y/aria-props': ERROR,
   'jsx-a11y/aria-unsupported-elements': ERROR,
   'jsx-a11y/no-distracting-elements': [
@@ -437,35 +437,35 @@ module.exports = {
 
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
   'node/exports-style': OFF,
-  'node/no-deprecated-api': NEXT_VERSION_ERROR,
+  'node/no-deprecated-api': ERROR,
   'node/no-extraneous-import': OFF, // see: import/no-extraneous-dependencies
   'node/no-extraneous-require': OFF, // see: import/no-extraneous-dependencies
   'node/no-missing-import': OFF,
   'node/no-missing-require': ERROR,
-  'node/no-unpublished-bin': NEXT_VERSION_ERROR,
+  'node/no-unpublished-bin': ERROR,
   'node/no-unpublished-import': OFF,
   'node/no-unpublished-require': OFF,
   'node/no-unsupported-features/es-builtins': OFF,
   'node/no-unsupported-features/es-syntax': OFF,
   'node/no-unsupported-features/node-builtins': OFF,
-  'node/prefer-global/buffer': NEXT_VERSION_ERROR,
-  'node/prefer-global/console': NEXT_VERSION_ERROR,
-  'node/prefer-global/process': NEXT_VERSION_ERROR,
+  'node/prefer-global/buffer': ERROR,
+  'node/prefer-global/console': ERROR,
+  'node/prefer-global/process': ERROR,
   'node/prefer-global/text-decoder': OFF,
   'node/prefer-global/text-encoder': OFF,
-  'node/prefer-global/url': NEXT_VERSION_ERROR,
+  'node/prefer-global/url': ERROR,
   'node/prefer-global/url-search-params': OFF,
   'node/process-exit-as-throw': OFF, // TODO: WARN (?)
-  'node/shebang': NEXT_VERSION_ERROR,
+  'node/shebang': ERROR,
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
   'eslint-comments/disable-enable-pair': OFF,
   'eslint-comments/no-aggregating-enable': OFF,
-  'eslint-comments/no-duplicate-disable': NEXT_VERSION_ERROR,
+  'eslint-comments/no-duplicate-disable': ERROR,
   'eslint-comments/no-restricted-disable': OFF,
   'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
   'eslint-comments/no-unused-disable': OFF,
-  'eslint-comments/no-unused-enable': NEXT_VERSION_ERROR,
+  'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,
 
   // Kiwi.com custom rules
