@@ -30,9 +30,7 @@ _I have my focus zone._ Usually, when I am working really hard. I can be in this
 
 _I want to have things under control._ This way I do things really well. Also, it gives me possibility to say NO when I think it's not OK. I am very unhappy when someone treats me as yet another programmer-monkey or when I cannot say NO.
 
-_I hate stupid people._ I don't like humans in general. I think we are truly horrible creatures doing a lot of shit. But I especially hate estúpidos. Violent people, people selling or using drugs, people with WTF opinions, people begging on the street while doing nothing, smokers...
-
-_I don't like religion._ I should put this to the previous paragraph about stupid people. But, I realize the importance of religion in our society. So, be religious if you want just please, do not bother me with your twisted mind. I will not bother you with mine.
+_I hate stupid people._ Violent people, people selling (or using) drugs, people with WTF opinions, racists, people begging on the street while doing nothing. I do not like smokers, religious people and bad drivers.
 
 _I am not always positive._ At least you know something is not OK... :)
 
