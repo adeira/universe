@@ -18,7 +18,7 @@ import sprintf from './sprintf';
 export default function invariant(
   condition: boolean,
   format: string,
-  ...args: Array<mixed>
+  ...args: $ReadOnlyArray<mixed>
 ): void {
   if (__DEV__) {
     if (format === undefined) {
