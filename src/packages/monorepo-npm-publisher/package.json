@@ -8,7 +8,7 @@
   "main": "src/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@babel/core": "^7.4.3",
+    "@babel/core": "^7.4.4",
     "@kiwicom/babel-preset-kiwicom": "^2.7.0",
     "@kiwicom/monorepo": "^0.19.0",
     "is-ci": "^2.0.0",
