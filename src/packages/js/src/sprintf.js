@@ -4,7 +4,10 @@
  * Simple function for formatting strings.
  * Replaces placeholders with values passed as extra arguments
  */
-export default function sprintf(format: string, ...args: mixed[]): string {
+export default function sprintf(
+  format: string,
+  ...args: $ReadOnlyArray<mixed>
+): string {
   let index = 0;
   return format
     .replace(/%s/g, () => String(args[index++]))

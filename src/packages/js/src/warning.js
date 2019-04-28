@@ -18,7 +18,7 @@ function printWarning(format, ...args) {
 export default function warning(
   condition: boolean,
   format: string,
-  ...args: Array<mixed>
+  ...args: $ReadOnlyArray<mixed>
 ): void {
   if (__DEV__) {
     if (format === undefined) {
