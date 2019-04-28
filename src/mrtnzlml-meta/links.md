@@ -38,5 +38,6 @@ Collection of interesting links, articles and project...
 
 # W
 - [We'll Fix It Later](https://matthewstrom.com/writing/fix-it-later.html)
+- [What seven years at Airbnb taught me about building a company](https://medium.com/@lennysan/what-seven-years-at-airbnb-taught-me-about-building-a-company-e1d035d49c56)
 - [Why Google Stores Billions of Lines of Code in a Single Repository](https://ai.google/research/pubs/pub45424)
 - [Write code that is easy to delete, not easy to extend](https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to)
