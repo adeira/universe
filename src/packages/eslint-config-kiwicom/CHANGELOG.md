@@ -1,4 +1,6 @@
 # Unreleased
+
+# 4.0.0
 - Previous versions (all from 2.16.0) contained bug which caused that some rules were exported as warnings instead of errors. The same bug affected strict mode which caused that some rules returned error incorrectly. These rules are corrected as well so they return warnings instead as intended. Affected rules in  normal mode which now correctly throw errors are:
   - [babel/camelcase](https://github.com/babel/eslint-plugin-babel)
   - [consistent-return](https://eslint.org/docs/rules/consistent-return)
