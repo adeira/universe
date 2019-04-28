@@ -12,7 +12,7 @@
     "monorepo-run-tests": "bin/monorepo-run-tests.js"
   },
   "dependencies": {
-    "@babel/register": "^7.4.0",
+    "@babel/register": "^7.4.4",
     "@kiwicom/js": "^0.9.0",
     "glob": "^7.1.3",
     "is-ci": "^2.0.0"
