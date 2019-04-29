@@ -4,7 +4,7 @@
   "homepage": "https://github.com/kiwicom/babel-preset-kiwicom",
   "private": false,
   "license": "MIT",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "main": "src/index.js",
   "sideEffects": false,
   "dependencies": {
@@ -18,7 +18,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.4.4",
     "@kiwicom/babel-plugin-orbit-components": "^1.2.0",
-    "babel-plugin-relay": "^3.0.0"
+    "babel-plugin-relay": "^4.0.0"
   },
   "devDependencies": {
     "@kiwicom/test-utils": "^0",
