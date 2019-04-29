@@ -13,20 +13,12 @@ import automatorLog from '../log';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
 
 export default function run(taskIdentifier: string) {
-  updateDependencies(taskIdentifier, async changelog => {
-    const changes = changelog.map(change => `- ${change}`).join('\n');
-    await commitAllAndOpenMR(
-      taskIdentifier,
-      'Monorepo: upgrade dependencies',
-      changes,
-    );
+  updateDependencies(taskIdentifier, async () => {
+    await commitAllAndOpenMR(taskIdentifier, 'Monorepo: upgrade dependencies');
   });
 }
 
-function updateDependencies(
-  taskIdentifier: string,
-  cb: (changelog: $ReadOnlyArray<string>) => Promise<void>,
-) {
+function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
   function log(message, ...params) {
     automatorLog(taskIdentifier, sprintf(message, ...params));
   }
@@ -86,14 +78,7 @@ function updateDependencies(
       JSON.stringify(packageJSON, null, 2) + '\n',
     );
 
-    return sprintf(
-      '%s (in %s) %s -> %s, see: %s',
-      `\`${dependency.packageName}\``,
-      workspaceName,
-      requiredVersion,
-      newVersion,
-      dependency.packageURL,
-    );
+    return undefined;
   }
 
   // Returns JSON lines: http://jsonlines.org/
@@ -107,8 +92,6 @@ function updateDependencies(
     .filter(Boolean)
     .map(d => JSON.parse(d))
     .filter(j => j.type === 'table')[0].data;
-
-  const changelog = [];
 
   outdatedData.body.forEach(function(row) {
     const dependency = {
@@ -127,28 +110,18 @@ function updateDependencies(
       if (dependency.workspaceName === '') {
         // This dependency is not part of any workspace (must be root package.json).
         const packageJSONLocation = findRootPackageJsonPath();
-        const change = bumpDependency(
+        bumpDependency(
           dependency,
           // $FlowAllowDynamicImport
           require(packageJSONLocation),
           packageJSONLocation,
         );
-        if (change) {
-          changelog.push(change);
-        }
       } else {
         Workspaces.iterateWorkspaces(packageJSONLocation => {
           // $FlowAllowDynamicImport
           const packageJSON = require(packageJSONLocation);
           if (packageJSON.name === dependency.workspaceName) {
-            const change = bumpDependency(
-              dependency,
-              packageJSON,
-              packageJSONLocation,
-            );
-            if (change) {
-              changelog.push(change);
-            }
+            bumpDependency(dependency, packageJSON, packageJSONLocation);
           }
         });
       }
@@ -160,5 +133,5 @@ function updateDependencies(
     .setOutputToScreen()
     .runSynchronously();
 
-  cb(changelog);
+  cb();
 }
