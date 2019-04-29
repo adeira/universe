@@ -229,6 +229,58 @@ ccc /*: any */) =>
 module.exports = executeNodeScript;
 `;
 
+exports[`matches expected output: babel-issue-9921.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+#!/usr/bin/env node
+
+// @flow strict-local
+
+// See: https://github.com/babel/babel/issues/9921
+// It currently doesn't work at all since Babel Parser 7.4.4+ is not compatible
+// with shebang and Flow in the same file.
+
+/* eslint-disable */
+
+new Set<() => void>([]);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+THROWN EXCEPTION:
+
+Error: unknown: Unexpected token (11:9)
+
+   9 | /* eslint-disable */
+  10 | 
+> 11 | new Set<() => void>([]);
+     |          ^
+  12 | 
+`;
+
+exports[`matches expected output: babel-issue-9921.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+#!/usr/bin/env node
+
+// @flow strict-local
+
+// See: https://github.com/babel/babel/issues/9921
+// It currently doesn't work at all since Babel Parser 7.4.4+ is not compatible
+// with shebang and Flow in the same file.
+
+/* eslint-disable */
+
+new Set<() => void>([]);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+THROWN EXCEPTION:
+
+Error: unknown: Unexpected token (11:9)
+
+   9 | /* eslint-disable */
+  10 | 
+> 11 | new Set<() => void>([]);
+     |          ^
+  12 | 
+`;
+
 exports[`matches expected output: capturing-groups.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
