@@ -67,7 +67,7 @@ export default function QueryRenderer(props: Props) {
       }
 
       return (
-        <div>
+        <div data-testid="error">
           {publicErrorMessage}{' '}
           <a onClick={retry} href="#">
             Retry
@@ -78,7 +78,11 @@ export default function QueryRenderer(props: Props) {
     }
 
     if (!rendererProps) {
-      return props.onLoading ? props.onLoading() : <div>Loading...</div>;
+      return props.onLoading ? (
+        props.onLoading()
+      ) : (
+        <div data-testid="loading">Loading...</div>
+      );
     }
 
     invariant(
