@@ -1,5 +1,8 @@
 # Unreleased
 
+# 4.0.1
+- Rule [`react/sort-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md) now returns warnings (errors in the strict mode) to simplify the migration. Turned out this rule was not configured properly and it's not battle-tested yet. You can use [sort-comp React codemod](https://github.com/reactjs/react-codemod#sort-comp) to easily migrate your codebase. Please report any issues with this rule even if you just simply don't like the enforced result.
+
 # 4.0.0
 - Previous versions (all from 2.16.0) contained bug which caused that some rules were exported as warnings instead of errors. The same bug affected strict mode which caused that some rules returned error incorrectly. These rules are corrected as well so they return warnings instead as intended. Affected rules in  normal mode which now correctly throw errors are:
   - [babel/camelcase](https://github.com/babel/eslint-plugin-babel)
