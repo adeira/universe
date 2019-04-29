@@ -5,19 +5,14 @@
 const path = require('path');
 const ChildProcess = require('child_process');
 
-const whitelistedNodeFlags = [
-  '--inspect',
-  '--inspect-brk',
-  // TODO: v8flags (?)
-];
-
 const flags = {
   argv: [],
   execArgv: [],
 };
 
 process.argv.forEach(arg => {
-  if (whitelistedNodeFlags.includes(arg)) {
+  // $FlowPullRequest: https://github.com/facebook/flow/pull/7679
+  if (process.allowedNodeEnvironmentFlags.has(arg)) {
     flags.execArgv.push(arg);
   } else {
     flags.argv.push(arg);
