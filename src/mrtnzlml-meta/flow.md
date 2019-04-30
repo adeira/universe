@@ -30,6 +30,27 @@ class Thing {
 
 - https://github.com/tc39/proposal-class-fields#private-fields
 
+# Exhaustive checking with empty type
+
+```js
+type Cases = 'A' | 'B';
+
+function exhaust(x: Cases) {
+  if (x === 'A') {
+    // do stuff
+  } else if (x === 'B') {
+    // do different stuff
+  } else {
+    // only true if we handled all cases
+    (x: empty);
+  }
+}
+```
+
+- https://github.com/facebook/flow/commit/c603505583993aa953904005f91c350f4b65d6bd
+- https://medium.com/@ibosz/advance-flow-type-1-exhaustive-checking-with-empty-type-a02e503cd3a0
+- https://github.com/facebook/flow/pull/7655/files
+
 # Predicate functions with `%checks`
 
 `%checks` is an experimental predicate type. Check this code (no Flow errors):
