@@ -13,27 +13,25 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
   // Check Babel config of Next.js
   if (dependencies?.next !== undefined) {
-    const babelRCLocation = path.join(workspaceLocation, '.babelrc');
+    const babelRCFile = '.babelrc.js';
+    const babelRCLocation = path.join(workspaceLocation, babelRCFile);
 
     test(babelRCLocation, () => {
       expect(fs.existsSync(babelRCLocation)).toGiveHelp(
-        `Your Next.js application ${appName} should contain '.babelrc' file in the workspace root.`,
+        `Your Next.js application ${appName} should contain '${babelRCFile}' file in the workspace root.`,
       );
 
-      const babelRC = JSON.parse(
-        fs.readFileSync(babelRCLocation, {
-          encoding: 'utf8',
-        }),
-      );
+      // $FlowAllowDynamicImport
+      const babelRC = require(babelRCLocation);
 
       expect(
         babelRC.presets.includes('@kiwicom/babel-preset-kiwicom'),
       ).toGiveHelp(
-        `Your Next.js application ${appName} should contain '.babelrc' file with '@kiwicom/babel-preset-kiwicom' preset.`,
+        `Your Next.js application ${appName} should contain '${babelRCFile}' file with '@kiwicom/babel-preset-kiwicom' preset.`,
       );
 
       expect(babelRC.presets.includes('next/babel')).toGiveHelp(
-        `Your Next.js application ${appName} should contain '.babelrc' file with 'next/babel' preset.`,
+        `Your Next.js application ${appName} should contain '${babelRCFile}' file with 'next/babel' preset.`,
       );
 
       expect(

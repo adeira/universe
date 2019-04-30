@@ -32,7 +32,10 @@ const commonProjectConfig = {
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
   if (fs.existsSync(configPath)) {
-    console.warn(`Loaded additional config ${configPath}`);
+    console.warn(
+      'Loaded additional config %s',
+      configPath.replace(__dirname, ''),
+    );
     return require(configPath);
   }
   return {};
@@ -54,12 +57,7 @@ module.exports = {
       // impossible to detect automatically (as a related test).
       displayName: null,
       ...commonProjectConfig,
-      testMatch: [
-        '<rootDir>/src/' + TESTS_GLOB,
-        '<rootDir>/src/apps/' + TESTS_GLOB,
-        '<rootDir>/src/packages/' + TESTS_GLOB,
-        '<rootDir>/scripts/**/' + TESTS_GLOB,
-      ],
+      testMatch: ['<rootDir>/scripts/**/' + TESTS_GLOB],
     },
 
     ...Workspaces.getWorkspacesSync().map(packageJSONLocation => {
