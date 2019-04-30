@@ -1,7 +1,7 @@
 {
   "name": "@kiwicom/relay",
   "private": false,
-  "version": "1.2.1",
+  "version": "2.0.0",
   "main": "src/index.js",
   "sideEffects": false,
   "homepage": "https://github.com/kiwicom/relay",
@@ -10,9 +10,9 @@
   "dependencies": {
     "@kiwicom/fetch": "^2.3.1",
     "@kiwicom/js": "^0.9.0",
-    "react-relay": "^3.0.0",
-    "relay-compiler": "^3.0.0",
-    "relay-runtime": "^3.0.0"
+    "react-relay": "^4.0.0",
+    "relay-compiler": "^4.0.0",
+    "relay-runtime": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.0"

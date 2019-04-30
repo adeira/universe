@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.8.0
+- Upgrade Relay to version 4.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0)
+
 # 2.7.0
 - Browser environment is now supported correctly (last 2 versions, ie >= 11). We are now distributing `@babel/runtime` as a dependency so you  may want to remove it from your project. Please report any issues with your environment.
 
