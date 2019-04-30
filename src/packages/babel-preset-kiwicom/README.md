@@ -10,7 +10,6 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - object rest spread `{...a}`
 - dev expression `__DEV__`
 - capturing groups in RegExp `/(?<year>[0-9]{4})/`
-- support for Relay fragments `graphql ...`
 - granular imports of Orbit components (see: https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 - transforms `invariant` from `@kiwicom/js`
 - transforms `warning` from `@kiwicom/js`

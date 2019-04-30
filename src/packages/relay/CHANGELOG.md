@@ -1,4 +1,12 @@
 # Unreleased
+- Babel Relay preset is now part of this package. Removed from `@kiwicom/babel-preset-kiwicom`. Please, edit your Babel configuration files (example for Next.js applications):
+
+```js
+module.exports = {
+  presets: ['@kiwicom/babel-preset-kiwicom', 'next/babel'],
+  plugins: ['relay'],
+};
+```
 
 # 2.0.0
 - Upgraded to Relay version 4.0.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0). Our previous versions 1.x disallowed some deprecated usages of Relay so this upgrade should be relatively straightforward. Check new testing tools in this release - especially `MockPayloadGenerator` and `RelayMockEnvironment`.

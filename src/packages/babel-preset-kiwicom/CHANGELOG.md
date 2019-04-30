@@ -1,4 +1,12 @@
 # Unreleased
+- Breaking: Relay plugin is no longer part of this preset. It was moved to `@kiwicom/relay`. Please, edit your Babel configuration files (example for Next.js applications):
+
+```js
+module.exports = {
+  presets: ['@kiwicom/babel-preset-kiwicom', 'next/babel'],
+  plugins: ['relay'],
+};
+```
 
 # 2.8.0
 - Upgrade Relay to version 4.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0)

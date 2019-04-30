@@ -23,10 +23,10 @@ More info about Relay, prior art:
 
 **Please read this carefully.**
 
-Before you start you should uninstall _all_ the Relay related packages you installed manually (Relay runtime, compiler, `react-relay`). You should also remove custom `flow-typed` definitions for Relay. You can remove the `babel-plugin-relay` as well in case you use `@kiwicom/babel-preset-kiwicom` (which is highly recommended). This package takes care about everything you need.
+Before you start you should uninstall _all_ the Relay related packages you installed manually (Relay runtime, compiler, `react-relay` and `babel-plugin-relay`). You should also remove custom `flow-typed` definitions for Relay. This package takes care about everything you need.
 
 ```text
-yarn add react @kiwicom/relay
+yarn add react graphql @kiwicom/relay
 ```
 
 Usage:
