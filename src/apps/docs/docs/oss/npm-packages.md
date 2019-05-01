@@ -15,7 +15,7 @@ This monorepo hosts source code of the following NPM packages:
 - 1.4.1 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
 - 0.10.0 [@kiwicom/graphql-global-id](https://github.com/kiwicom/graphql-global-id) - Utility to manage ID fields in GraphQL correctly.
 - 1.0.5 [@kiwicom/graphql-resolve-wrapper](https://github.com/kiwicom/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
-- 0.7.0 [@kiwicom/graphql-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-utils) - Set of useful tools to build better GraphQL servers.
+- 0.8.0 [@kiwicom/graphql-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-utils) - Set of useful tools to build better GraphQL servers.
 - 0.9.0 [@kiwicom/js](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/js) - Useful JS functions used at Kiwi.com
 - 1.0.3 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
 - 0.20.0 [@kiwicom/monorepo](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
