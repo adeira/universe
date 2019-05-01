@@ -458,6 +458,93 @@ if (__DEV__) {
 }
 `;
 
+exports[`matches expected output: dynamic-import.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const React = require('react');
+
+const BoldTodoRenderer = React.lazy(() =>
+  import(
+    // $FlowExpectedError: cannot resolve module
+    './BoldTodoRenderer'
+  ),
+);
+
+module.exports = function MyComponent() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <BoldTodoRenderer />
+    </React.Suspense>
+  );
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+var React = require('react');
+
+var BoldTodoRenderer = React.lazy(function () {
+  return import( // $FlowExpectedError: cannot resolve module
+  './BoldTodoRenderer');
+});
+
+module.exports = function MyComponent() {
+  return React.createElement(React.Suspense, {
+    fallback: React.createElement("div", null, "Loading...")
+  }, React.createElement(BoldTodoRenderer, null));
+};
+`;
+
+exports[`matches expected output: dynamic-import.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const React = require('react');
+
+const BoldTodoRenderer = React.lazy(() =>
+  import(
+    // $FlowExpectedError: cannot resolve module
+    './BoldTodoRenderer'
+  ),
+);
+
+module.exports = function MyComponent() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <BoldTodoRenderer />
+    </React.Suspense>
+  );
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const React = require('react');
+
+const BoldTodoRenderer = React.lazy(() =>
+import(
+// $FlowExpectedError: cannot resolve module
+'./BoldTodoRenderer'));
+
+
+
+module.exports = function MyComponent() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <BoldTodoRenderer />
+    </React.Suspense>);
+
+};
+`;
+
 exports[`matches expected output: invariant-global.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
