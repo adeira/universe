@@ -235,17 +235,74 @@ TODO:
 
 - https://github.com/relayjs/eslint-plugin-relay/commit/b86eb2ace82c89194a4309ff63701b52a2279b3b
 
-# @match(onTypes: [ ... ]), @module( ... )
+# @match, @module
 
-TODO: researching
+These directives allow you to lazily load union results. First, it requires `JSDependency` GraphQL scalar. Next it's necessary to use Union field with this shape:
+
+```graphql
+union FormattedContent = PlainContent | BoldContent
+
+type Todo implements Node {
+  id: ID!
+  content(supported: [String!]!): FormattedContent
+  complete: Boolean!
+}
+```
+
+Directive `@match` can be used on the field `content` only if it follows this shape. And lastly, directive `@module` can be used on `JSDependency` fields:
+
+```graphql
+type BoldContent {
+  data: BoldContentData
+  js(module: String): JSDependency
+}
+```
+
+Usage:
+
+```graphql
+fragment Todo_todo on Todo {
+  complete
+  id
+  content @match {
+    ...PlainTodoRenderer_value @module(name: "PlainTodoRenderer.react")
+    ...BoldTodoRenderer_value @module(name: "BoldTodoRenderer.react")
+  }
+}
+```
+
+```js
+const PlainTodoRenderer = React.lazy(() =>
+  import(/* webpackChunkName: "PlainTodoRenderer" */ './PlainTodoRenderer'),
+);
+const BoldTodoRenderer = React.lazy(() =>
+  import(/* webpackChunkName: "BoldTodoRenderer" */ './BoldTodoRenderer'),
+);
+
+const MatchContainer = ({match, fallback}: Props) => {
+  switch (match.__module_component) {
+    case 'BoldTodoRenderer.react':
+      return (
+        <React.Suspense fallback={fallback}>
+          <BoldTodoRenderer value={match} />
+        </React.Suspense>
+      );
+    case 'PlainTodoRenderer.react':
+      return (
+        <React.Suspense fallback={fallback}>
+          <PlainTodoRenderer value={match} />
+        </React.Suspense>
+      );
+    default:
+      return 'Nothing matched...';
+  }
+};
+```
+
+_still researching_
 
 - https://github.com/relayjs/relay-examples/pull/95
-- https://github.com/facebook/relay/blob/59d655027deff31f42b632a17c40162d377c964d/packages/relay-compiler/transforms/__tests__/__snapshots__/RelayMatchTransform-test.js.snap
-- https://github.com/facebook/graphql/issues/488
-- https://github.com/facebook/relay/blob/688dd4367cbe59ba223a027e3fcdc820455310e3/packages/relay-test-utils/testschema.graphql#L167
-- https://github.com/mrtnzlml/relay/pull/32/files
-- https://github.com/mrtnzlml/relay/pull/75/files
-- https://github.com/mrtnzlml/relay/pull/212/files
+- https://github.com/relayjs/relay-examples/pull/96
 
 # @refetchable(queryName: " ... ")
 
