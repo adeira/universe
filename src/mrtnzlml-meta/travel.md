@@ -21,6 +21,8 @@ Need to know something about your new destination? This will help you:
 - [Google Maps](https://itunes.apple.com/us/app/google-maps-gps-navigation/id585027354?mt=8) (mostly offline friendly - doesn’t work in some countries, essential)
 - [Google Translate](https://itunes.apple.com/us/app/google-translate/id414706506?mt=8) (offline friendly, essential)
 - [Timeshifter](https://itunes.apple.com/us/app/timeshifter/id1380684374?mt=8) (paid)
+- https://www.atlasobscura.com/
+- https://www.kiwi.com/, https://greatescape.co/
 
 # Accommodation
 - https://www.airbnb.com/ + combine with https://hoodmaps.com/
