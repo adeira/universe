@@ -42,16 +42,6 @@ index 45a44734..99be1766 100644
 
 Do not forget to run `yarn install` in your project as well.
 
-# Refetch container
-
-https://facebook.github.io/relay/docs/en/refetch-container.html
-
-When `refetch` is called and the `refetchQuery` is executed, Relay doesn't actually use the result of the query to re-render the component. All it does is normalize the payload into the store and fire any relevant subscriptions. This means that if the fetched data is unrelated to the data that the mounted container is subscribed to (e.g. using a totally different node id that doesn't have any data overlaps), then the component won't re-render.
-
-Refetch containers are only really meant to be used when you are changing variables in the component fragment. If you don't want or need to include variables in the fragment, you could go one level up and set new variables directly in the QueryRenderer (using props or state).
-
-https://github.com/facebook/relay/issues/2244#issuecomment-355054944
-
 # Local schema
 
 First define local schema (`schema.local.graphql`):
@@ -306,7 +296,43 @@ _still researching_
 
 # @refetchable(queryName: " ... ")
 
-TODO: https://github.com/mrtnzlml/relay/pull/127/commits/0920c0cb4be13e010376feb98997d7a8438cbf37
+Currently broken: https://github.com/facebook/relay/issues/2713
+
+```js
+export default createRefetchContainer(LocationsPaginatedRefetch, {
+  data: graphql`
+    fragment LocationsPaginatedRefetch_data on RootQuery
+      @argumentDefinitions(
+        count: { type: "Int", defaultValue: 20 }
+        after: { type: "String" }
+      )
+      @refetchable(queryName: "LocationsPaginatedRefetchRefetchQuery") {
+      incrementalPagination: allLocations(first: $count, after: $after)
+        @connection(key: "allLocations_incrementalPagination") {
+        edges {
+          node {
+            id
+            ...Location_location
+          }
+        }
+        pageInfo {
+          endCursor
+        }
+      }
+    }
+  `,
+});
+```
+
+## Refetch container
+
+https://facebook.github.io/relay/docs/en/refetch-container.html
+
+When `refetch` is called and the `refetchQuery` is executed, Relay doesn't actually use the result of the query to re-render the component. All it does is normalize the payload into the store and fire any relevant subscriptions. This means that if the fetched data is unrelated to the data that the mounted container is subscribed to (e.g. using a totally different node id that doesn't have any data overlaps), then the component won't re-render.
+
+Refetch containers are only really meant to be used when you are changing variables in the component fragment. If you don't want or need to include variables in the fragment, you could go one level up and set new variables directly in the QueryRenderer (using props or state).
+
+https://github.com/facebook/relay/issues/2244#issuecomment-355054944
 
 # @defer, @stream, @stream_connection
 
