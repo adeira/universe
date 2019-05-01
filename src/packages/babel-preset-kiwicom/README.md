@@ -11,8 +11,8 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - dev expression `__DEV__`
 - capturing groups in RegExp `/(?<year>[0-9]{4})/`
 - granular imports of Orbit components (see: https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
-- transforms `invariant` from `@kiwicom/js`
-- transforms `warning` from `@kiwicom/js`
+- transforms `invariant` and `warning` from `@kiwicom/js`
+- dynamic `import()` _(unstable)_
 - _and many more ..._
 
 This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:

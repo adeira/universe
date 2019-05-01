@@ -1,4 +1,5 @@
 # Unreleased
+- Added support for dynamic `import()` syntax
 - Breaking: Relay plugin is no longer part of this preset. It was moved to `@kiwicom/relay`. Please, edit your Babel configuration files (example for Next.js applications):
 
 ```js
