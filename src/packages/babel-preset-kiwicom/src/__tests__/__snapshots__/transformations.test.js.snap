@@ -772,54 +772,6 @@ import { Passengers as Q } from '@kiwicom/orbit-components/lib/icons';
 module.exports = { A, B, P, Q };
 `;
 
-exports[`matches expected output: relay.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-const graphql = query => query;
-
-module.exports = graphql\`
-  query relayTest {
-    __typename
-  }
-\`;
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-var graphql = function graphql(query) {
-  return query;
-};
-
-module.exports = function () {
-  return require("./__generated__/relayTest.graphql");
-};
-`;
-
-exports[`matches expected output: relay.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-const graphql = query => query;
-
-module.exports = graphql\`
-  query relayTest {
-    __typename
-  }
-\`;
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-const graphql = query => query;
-
-module.exports = graphql\`
-  query relayTest {
-    __typename
-  }
-\`;
-`;
-
 exports[`matches expected output: rest-operator.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow

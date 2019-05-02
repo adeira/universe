@@ -64,7 +64,6 @@ module.exports = (
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
       '@babel/plugin-transform-runtime',
       '@kiwicom/babel-plugin-orbit-components',
-      'babel-plugin-relay',
     ];
   } else {
     throw new Error('options.target must be one of "js" or "flow".');
