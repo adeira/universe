@@ -21,10 +21,9 @@ const dependenciesTable = new Map([
   [/(?:package\.json|\.babelrc\.js)$/i, 'NextjsApplications.scan.js'],
   [/package\.json$/i, 'PrivatePackages.scan.js'],
   [/\.js$/i, 'TestsWithCorrectName.scan.js'],
-  [/package\.json$/i, 'Workspaces.scan.js'],
+  [/(?:package\.json|LICENSE)$/i, 'Workspaces.scan.js'],
   [/package\.json$/i, 'WorkspacesApps.scan.js'],
   [/package\.json$/i, 'WorkspacesDependencies.scan.js'],
-  [/(?:LICENSE|package\.json)$/i, 'WorkspacesPackages.scan.js'],
   // TODO: every test should define their own dependencies to scale well (?), also, how to test the scanner itself?
 ]);
 

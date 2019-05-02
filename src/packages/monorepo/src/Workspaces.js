@@ -28,6 +28,9 @@ module.exports = {
     });
   },
 
+  /**
+   * @deprecated Iterate over all workspaces, please.
+   */
   iterateWorkspacesInPath(
     path: string,
     cb: (packageJSONLocation: string) => void | Promise<void>,

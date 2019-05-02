@@ -33,8 +33,6 @@ It memoizes the result internally so when you call it for the second time you'll
 ```js
 import { Workspaces } from '@kiwicom/monorepo';
 
-// OR `iterateWorkspacesInPath` if you need to work with workspaces only in one path
-
 Workspaces.iterateWorkspaces(packageJSONLocation => {
   test(packageJSONLocation, () => {
     // $FlowAllowDynamicImport
