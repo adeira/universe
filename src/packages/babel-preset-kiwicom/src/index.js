@@ -77,11 +77,11 @@ module.exports = (
         'jsx',
         'flow',
         // Enable parsing of (not transpilation) - necessary for Flow target:
-        'classProperties', // https://github.com/tc39/proposal-class-public-fields
-        'dynamicImport', // https://github.com/tc39/proposal-dynamic-import
-        'nullishCoalescingOperator', // https://github.com/babel/proposals/issues/14
-        'objectRestSpread', // https://github.com/tc39/proposal-object-rest-spread
-        'optionalChaining', // https://github.com/tc39/proposal-dynamic-import
+        'classProperties',
+        'dynamicImport',
+        'nullishCoalescingOperator',
+        'objectRestSpread',
+        'optionalChaining',
 
         // see: https://babeljs.io/docs/en/babel-parser#plugins
         // Candidates: numericSeparator, classPrivateProperties, classPrivateMethods
