@@ -340,7 +340,7 @@ const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log((re.exec('1999-02-29')?.groups?.year));
 `;
 
-exports[`matches expected output: class-properties.js 1`] = `
+exports[`matches expected output: class-fields.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -370,7 +370,7 @@ var A = function A() {
 exports.default = A;
 `;
 
-exports[`matches expected output: class-properties.js 2`] = `
+exports[`matches expected output: class-fields.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
