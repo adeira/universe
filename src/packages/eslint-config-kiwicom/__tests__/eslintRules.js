@@ -17,6 +17,7 @@ Object.keys(require('../package.json').dependencies)
       'eslint-plugin-monorepo',
       'eslint-plugin-node',
       'eslint-plugin-prefer-object-spread',
+      'eslint-plugin-react',
       'eslint-plugin-react-hooks',
       'eslint-plugin-relay',
     ];
