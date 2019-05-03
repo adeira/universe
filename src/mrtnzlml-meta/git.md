@@ -14,6 +14,8 @@ git log --since=1.week --oneline --no-merges
 - https://gitlab.com/groups/gitlab-org/-/epics/915
 - https://gitlab.com/gitlab-org/gitaly/issues/1581
 
+> In a large repository you can’t afford to rebuild and test all the source code each time you make a change. A change to a package should only test and build consumers of that package, the time to build and test the project has to be proportional to what was changed not to the size of the project.
+
 # Keeping origin synced with upstream
 
 ```
