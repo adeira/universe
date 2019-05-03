@@ -5,18 +5,19 @@ import { __resolveWorkspaces } from '../Workspaces';
 test.each([
   {
     private: true,
-    workspaces: ['src/apps/*', 'src/packages/*'],
+    workspaces: ['src/apps/*', 'src/finance/**', 'src/packages/*'],
   },
   {
     private: true,
     workspaces: {
-      packages: ['src/apps/*', 'src/packages/*'],
+      packages: ['src/apps/*', 'src/finance/**', 'src/packages/*'],
       nohoist: ['**/react-native', '**/react-native/**'],
     },
   },
 ])('%# resolves workspaces correctly', packageJSON => {
   expect(__resolveWorkspaces(packageJSON)).toEqual([
     'src/apps/*',
+    'src/finance/**',
     'src/packages/*',
   ]);
 });

@@ -37,8 +37,9 @@ module.exports = {
   ) {
     const rootPackageJSON = findRootPackageJson();
     const workspaces = __resolveWorkspaces(rootPackageJSON);
-    const isWorkspaceDirectory = workspaces.some(workspace => {
-      return new RegExp(workspace + '$').test(path);
+    const isWorkspaceDirectory = workspaces.some(workspaceGlob => {
+      const workspaceRegexp = workspaceGlob.replace(/\/\*\*?/, '');
+      return new RegExp(workspaceRegexp + '$').test(path);
     });
 
     invariant(
