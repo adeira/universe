@@ -1,4 +1,5 @@
 # Unreleased
+- Plugin `eslint-plugin-node` upgraded to the [latest version 9.0.0](https://github.com/mysticatea/eslint-plugin-node/releases/tag/v9.0.0) which drops support for old Node.js and Eslint. There are also some updated rules but it should not be a big problem in our company. Therefore, this is not released as a major change from our Eslint config point of view. New rule [`node/file-extension-in-import`](https://github.com/mysticatea/eslint-plugin-node/blob/v9.0.0/docs/rules/file-extension-in-import.md) shows warnings (errors in strict mode).
 
 # 4.1.0
 - New warnings: [`react/forbid-component-props`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-dom-props.md), [`react/no-redundant-should-component-update`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-redundant-should-component-update.md), [`react/require-render-return`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md)

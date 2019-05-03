@@ -463,6 +463,13 @@ Object {
     "no-with": 1,
     "no-wrap-func": "off",
     "node/exports-style": 0,
+    "node/file-extension-in-import": Array [
+      1,
+      "always",
+      Object {
+        ".js": "never",
+      },
+    ],
     "node/no-deprecated-api": 2,
     "node/no-extraneous-import": 0,
     "node/no-extraneous-require": 0,
@@ -481,6 +488,8 @@ Object {
     "node/prefer-global/text-encoder": 0,
     "node/prefer-global/url": 2,
     "node/prefer-global/url-search-params": 0,
+    "node/prefer-promises/dns": 0,
+    "node/prefer-promises/fs": 0,
     "node/process-exit-as-throw": 0,
     "node/shebang": 2,
     "nonblock-statement-body-position": "off",

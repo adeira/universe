@@ -513,6 +513,11 @@ module.exports = {
 
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
   'node/exports-style': OFF,
+  'node/file-extension-in-import': [
+    NEXT_VERSION_ERROR,
+    'always',
+    { '.js': 'never' },
+  ],
   'node/no-deprecated-api': ERROR,
   'node/no-extraneous-import': OFF, // see: import/no-extraneous-dependencies
   'node/no-extraneous-require': OFF, // see: import/no-extraneous-dependencies
@@ -531,6 +536,8 @@ module.exports = {
   'node/prefer-global/text-encoder': OFF,
   'node/prefer-global/url': ERROR,
   'node/prefer-global/url-search-params': OFF,
+  'node/prefer-promises/dns': OFF, // TODO: WARN (?)
+  'node/prefer-promises/fs': OFF, // TODO: WARN (?)
   'node/process-exit-as-throw': OFF, // TODO: WARN (?)
   'node/shebang': ERROR,
 
