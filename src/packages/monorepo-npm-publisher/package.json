@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/core": "^7.4.4",
-    "@kiwicom/babel-preset-kiwicom": "^2.7.0",
+    "@kiwicom/babel-preset-kiwicom": "^3.0.0",
     "@kiwicom/monorepo": "^0.20.0",
     "is-ci": "^2.0.0",
     "npm-packlist": "^1.4.1",
