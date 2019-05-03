@@ -8,8 +8,8 @@ import ResponseError from './ResponseError';
 
 type InitWithRetries = {|
   ...$Exact<RequestOptions>,
-  +fetchTimeout?: ?number,
-  +retryDelays?: ?$ReadOnlyArray<number>,
+  +fetchTimeout?: number,
+  +retryDelays?: $ReadOnlyArray<number>,
 |};
 
 const DEFAULT_TIMEOUT = 15000;
@@ -22,8 +22,8 @@ export { TimeoutError, ResponseError };
  * Automatic retries are done based on the values in `retryDelays`.
  */
 export default function fetchWithRetries(
-  uri: string,
-  initWithRetries?: ?InitWithRetries,
+  resource: string,
+  initWithRetries?: InitWithRetries,
 ): Promise<Response> {
   const { fetchTimeout, retryDelays, ...init } = initWithRetries || {};
   const _fetchTimeout = fetchTimeout != null ? fetchTimeout : DEFAULT_TIMEOUT;
@@ -41,16 +41,16 @@ export default function fetchWithRetries(
       requestsAttempted++;
       requestStartTime = Date.now();
       let isRequestAlive = true;
-      const request = fetch(uri, init);
+      const request = fetch(resource, init);
       const requestTimeout = setTimeout(() => {
         isRequestAlive = false;
         if (shouldRetry(requestsAttempted)) {
-          retryRequest('HTTP timeout', uri);
+          retryRequest('HTTP timeout', resource);
         } else {
           reject(
             new TimeoutError(
               sprintf(
-                `fetchWithRetries: Failed to get response from server (${uri}), tried %s times.`,
+                `fetchWithRetries: Failed to get response from server (${resource}), tried %s times.`,
                 requestsAttempted,
               ),
             ),
@@ -68,7 +68,7 @@ export default function fetchWithRetries(
               resolve(response);
             } else if (shouldRetry(requestsAttempted, response.status)) {
               // Fetch was not successful, retrying.
-              retryRequest(`HTTP error ${response.status}`, uri);
+              retryRequest(`HTTP error ${response.status}`, resource);
             } else {
               // Request was not successful, giving up.
               reject(
@@ -87,7 +87,7 @@ export default function fetchWithRetries(
         .catch(error => {
           clearTimeout(requestTimeout);
           if (shouldRetry(requestsAttempted)) {
-            retryRequest(error.message, uri);
+            retryRequest(error.message, resource);
           } else {
             reject(error);
           }
@@ -98,8 +98,8 @@ export default function fetchWithRetries(
      * Schedules another run of sendTimedRequest based on how much time has
      * passed between the time the last request was sent and now.
      */
-    function retryRequest(reason, uri): void {
-      warning(false, `fetchWithRetries: ${reason} (${uri}), retrying.`);
+    function retryRequest(reason, resource): void {
+      warning(false, `fetchWithRetries: ${reason} (${resource}), retrying.`);
 
       const retryDelay = _retryDelays[requestsAttempted - 1];
       const retryStartTime = requestStartTime + retryDelay;
