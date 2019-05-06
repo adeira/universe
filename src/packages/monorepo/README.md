@@ -58,11 +58,37 @@ console.warn(packageJSONLocations);
 
 TODO
 
-## Glob _(unstable)_
+## Glob
 
-TODO
+Glob is our wrapper around [Node.js glob library](https://github.com/isaacs/node-glob) which adds additional default configuration (ignores `node_modules` by default), correct Flow types and validation of invalid usages. The API is very similar to the original Glob:
 
-## Working with shell commands (`ShellCommand`) _(unstable)_
+```js
+import { glob } from '@kiwicom/js';
+
+glob(
+  '/**/*.js',
+  { root: path.join(__dirname, 'fixtures') },
+  (error, filenames) => {
+    // ...
+  },
+);
+```
+
+Alternatively, you can use the sync variant:
+
+```js
+import { globSync } from '@kiwicom/js';
+
+const filenames = globSync('/**/*.js', {
+  root: path.join(__dirname, 'fixtures'),
+});
+
+// ...
+```
+
+Option `root` is required when your pattern starts from the root `/`. You don't have to worry about it too much - this glob will tell you when you use it wrong. Please note: **do not** use `path` to construct glob patterns!
+
+## Working with shell commands (`ShellCommand`)
 
 Shell command utility gives you the ability to work with shell while using friendly API and Flow types. Moreover it throws exceptions when the underlying child process fails for whatever reason so you can react easily. Basic usage:
 
