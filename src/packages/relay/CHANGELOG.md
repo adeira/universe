@@ -1,4 +1,6 @@
 # Unreleased
+
+# 2.2.0
 - Experimental Flow support for operation loader (needed for `@match` and `@module`).
 
 # 2.1.0
