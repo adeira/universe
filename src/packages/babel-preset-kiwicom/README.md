@@ -8,10 +8,10 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - optional chaining `a?.b` ([proposal](https://github.com/tc39/proposal-optional-chaining))
 - nullish coalescing operator `a ?? b` ([proposal](https://github.com/babel/proposals/issues/14))
 - object rest spread `{...a}` ([proposal](https://github.com/tc39/proposal-object-rest-spread))
-- dev expression `__DEV__`
+- [`__DEV__` expression](#__dev__-expression)
 - capturing groups in RegExp `/(?<year>[0-9]{4})/`
 - granular imports of Orbit components (see: https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
-- transforms `invariant` and `warning` from `@kiwicom/js`
+- [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
 - dynamic `import()` ([proposal](https://github.com/tc39/proposal-dynamic-import))
 - _and many more ..._
 
@@ -83,6 +83,70 @@ module.exports = function(api /*: ApiType */) {
 ```
 
 What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js and browsers environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is).
+
+# Features
+
+We want to make our life easier by writing modern JS and this Babel preset helps us with that. It's tailored for needs of Kiwi.com (except React Native) and it brings mostly syntactic sugar into our JS code. However, there are some additional features which are not related to JS syntax:
+
+## `__DEV__` expression
+
+Expression `__DEV__` is a boolean value and it is set to `true` in dev (and test) environments but it's `false` in production. It's useful when you want to call something only for development:
+
+```js
+if (__DEV__) {
+  console.log('This is relevant only when developing the application.');
+}
+```
+
+These expressions should be stripped out with dead-code elimination when building your application for production.
+
+Please note: it's invalid to redeclare this expression with a custom value just like it's invalid to redeclare `true` or `false`. It's because it transpiles to `process.env` call and it would result in invalid JS code:
+
+```js
+__DEV__ = true;
+
+//   ↓ ↓ ↓
+
+process.env.NODE_ENV !== 'production' = true;  // ??? 🧐
+```
+
+Our [Eslint config](https://github.com/kiwicom/eslint-config-kiwicom) can help you to catch such mistakes.
+
+## `invariant` and `warning` functions
+
+Functions [`invariant` and `warning`](https://www.npmjs.com/package/@kiwicom/js#invariant--warning) are useful when you want to express some unexpected application state or show warnings with helpful messages. They work without any presets because they are normal functions (using the `__DEV__` expression behind the scenes) however, they add unnecessary code to the production build. This preset adds additional transformation which can remove this unnecessary code:
+
+```js
+import { invariant } from '@kiwicom/js';
+invariant(condition, argument, argument);
+
+//     ↓ ↓ ↓ ↓ ↓ ↓
+
+import { invariant } from '@kiwicom/js';
+if (!condition) {
+  // this is essentially __DEV__ (vv)
+  if (process.env.NODE_ENV !== 'production') {
+    invariant(false, argument, argument);
+  } else {
+    invariant(false);
+  }
+}
+```
+
+Technically, it looks like this final code is larger than the input. We expect that you use dead-code elimination so the final build is actually reduced to minimum. The same applies to `warning` except in this case the final output can be eliminated completely:
+
+```js
+import { warning } from '@kiwicom/js';
+warning(condition, argument, argument);
+
+//     ↓ ↓ ↓ ↓ ↓ ↓
+
+import { warning } from '@kiwicom/js';
+// __DEV__ (vv)
+if (process.env.NODE_ENV !== 'production') {
+  warning(condition, argument, argument);
+}
+```
 
 # Prior art
 
