@@ -5,7 +5,6 @@ type Diff = {|
   +body: string,
 |};
 
-// TODO: will be used when printing commits
 opaque type ChangesetData = {|
   +id: string,
   +timestamp: string,

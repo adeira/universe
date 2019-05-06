@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow strict
 
 import fs from 'fs';
 import path from 'path';
