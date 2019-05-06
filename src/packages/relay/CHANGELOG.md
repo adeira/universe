@@ -1,4 +1,5 @@
 # Unreleased
+- Experimental Flow support for operation loader (needed for `@match` and `@module`).
 
 # 2.1.0
 - Babel Relay preset is now part of this package. Removed from `@kiwicom/babel-preset-kiwicom` in version 3.0.0. Please, edit your Babel configuration files (example for Next.js applications):

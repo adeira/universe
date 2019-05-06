@@ -2,10 +2,28 @@
 
 import { createEnvironment } from '../index';
 
+const getOperation = (reference: string) => {
+  // $FlowAllowDynamicImport
+  return import(`./src/__generated__/${reference}`);
+};
+
 module.exports = {
-  validUsage: () => {
+  validMinimalUsage: () => {
     return createEnvironment({
       fetchFn: () => false,
+    });
+  },
+  withOperationLoader: () => {
+    return createEnvironment({
+      fetchFn: () => false,
+      operationLoader: {
+        get(reference) {
+          return getOperation(reference);
+        },
+        load(reference) {
+          return getOperation(reference);
+        },
+      },
     });
   },
 
