@@ -57,11 +57,11 @@ module.exports = function getCommonConfig(rules /*: Object */) {
     },
 
     globals: {
-      // set each global variable name equal to true to allow the variable
-      // to be overwritten or false to disallow overwriting
-      __: false, // https://kiwicom.github.io/nitrolib/services.html#intl
-      __DEV__: false,
-      FormData: false, // https://developer.mozilla.org/en-US/docs/Web/API/FormData
+      global: 'readonly', // TODO: make it 'off'
+      globalThis: 'readonly', // https://github.com/tc39/proposal-global
+      __: 'readonly', // https://kiwicom.github.io/nitrolib/services.html#intl
+      __DEV__: 'readonly',
+      FormData: 'readonly', // https://developer.mozilla.org/en-US/docs/Web/API/FormData
     },
 
     plugins: [
