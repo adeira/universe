@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow strict
 
 // $FlowPullRequest: https://github.com/facebook/flow/pull/7660
 import { strict as assert } from 'assert';

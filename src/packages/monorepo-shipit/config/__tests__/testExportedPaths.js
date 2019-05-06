@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow strict
 
 import Changeset from '../../src/Changeset';
 import PhaseRunnerConfig from '../../src/PhaseRunnerConfig';
