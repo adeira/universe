@@ -13,6 +13,14 @@
 
 TODO: https://github.com/facebook/jest/pull/1688/files
 
+# Dependency injection
+
+- https://adonisjs.com/docs/4.1/ioc-container
+- http://krasimirtsonev.com/blog/article/Dependency-injection-in-JavaScript
+- https://github.com/gedbac/di4js
+- https://medium.com/@maciekprzybylski/dependency-injection-in-javascript-74f8791ba7c8
+- https://www.yusufaytas.com/dependency-injection-in-javascript/
+
 # Yarn comments in `package.json`
 
 ```json
