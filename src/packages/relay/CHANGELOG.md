@@ -1,4 +1,5 @@
 # Unreleased
+- You can now pass custom GraphiQL Printer into Relay environment factory. There is a default printer enabled for https://graphql.kiwi.com/ - you can just click on the GraphiQL link in your dev console and it will open current query with variables so you can debug it easily.
 
 # 2.2.0
 - Experimental Flow support for operation loader (needed for `@match` and `@module`).

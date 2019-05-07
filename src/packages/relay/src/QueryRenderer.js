@@ -98,11 +98,16 @@ export default function QueryRenderer(props: Props) {
       clientID,
       `You must provide 'clientID' to the QueryRenderer in order to correctly identify your client.`,
     );
-
+    const defaultResource = 'https://graphql.kiwi.com';
     return createEnvironment({
-      fetchFn: createNetworkFetcher('https://graphql.kiwi.com', {
+      fetchFn: createNetworkFetcher(defaultResource, {
         'X-Client': clientID,
       }),
+      graphiQLPrinter: (request, variables) => {
+        return `${defaultResource}/?query=${encodeURIComponent(
+          request.text,
+        )}&variables=${encodeURIComponent(JSON.stringify(variables))}`;
+      },
     });
   }
 
