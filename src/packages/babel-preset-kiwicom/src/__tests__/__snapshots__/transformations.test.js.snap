@@ -74,6 +74,100 @@ export default async function test() {
 }
 `;
 
+exports[`matches expected output: babel-issue-8417.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+// See: https://github.com/babel/babel/issues/8417
+
+class Foo {
+  constructor() {
+    this.a = 5;
+  }
+}
+
+class Bar extends Foo {
+  a: number;
+}
+
+const bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+/* eslint-disable */
+// See: https://github.com/babel/babel/issues/8417
+var Foo = function Foo() {
+  (0, _classCallCheck2.default)(this, Foo);
+  this.a = 5;
+};
+
+var Bar =
+/*#__PURE__*/
+function (_Foo) {
+  (0, _inherits2.default)(Bar, _Foo);
+
+  function Bar() {
+    (0, _classCallCheck2.default)(this, Bar);
+    return (0, _possibleConstructorReturn2.default)(this, (0, _getPrototypeOf2.default)(Bar).apply(this, arguments));
+  }
+
+  return Bar;
+}(Foo);
+
+var bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+`;
+
+exports[`matches expected output: babel-issue-8417.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+// See: https://github.com/babel/babel/issues/8417
+
+class Foo {
+  constructor() {
+    this.a = 5;
+  }
+}
+
+class Bar extends Foo {
+  a: number;
+}
+
+const bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+// See: https://github.com/babel/babel/issues/8417
+
+class Foo {
+  constructor() {
+    this.a = 5;
+  }}
+
+
+class Bar extends Foo {
+  a: number;}
+
+
+const bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+`;
+
 exports[`matches expected output: babel-issue-9514.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow

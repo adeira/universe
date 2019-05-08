@@ -54,11 +54,11 @@ module.exports = (
       path.join(__dirname, 'dev-expression.js'),
       path.join(__dirname, 'kiwicom-js-invariant.js'),
       path.join(__dirname, 'kiwicom-js-warning.js'),
+      '@babel/plugin-transform-flow-strip-types', // https://github.com/babel/babel/issues/8417
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-nullish-coalescing-operator',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-optional-chaining',
-      '@babel/plugin-transform-flow-strip-types',
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
