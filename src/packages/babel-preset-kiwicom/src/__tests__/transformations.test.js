@@ -18,6 +18,10 @@ function transform(target) {
       }).code;
 
       process.env.NODE_ENV = oldEnv;
+
+      // TODO: it would be great to have the possibility to evaluate some
+      //  transpiled codes and check if they work as expected.
+
       return transformedCode;
     } catch (error) {
       throw new Error(stripAnsi(error.message));
