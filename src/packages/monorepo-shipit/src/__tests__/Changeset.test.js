@@ -17,17 +17,8 @@ test('immutability of the changesets', () => {
     .withDescription('even newer description')
     .withDiffs(new Set([{ path: 'ccc', body: 'CCC' }]));
 
-  // this should stay undefined
-  expect(originalChangeset).toMatchInlineSnapshot(`
-    Changeset {
-      "author": undefined,
-      "description": undefined,
-      "diffs": undefined,
-      "id": undefined,
-      "subject": undefined,
-      "timestamp": undefined,
-    }
-  `);
+  // everything in the original changeset should be undefined
+  expect(originalChangeset).toMatchInlineSnapshot(`Changeset {}`);
 
   // this should have new values
   expect(modifiedChangeset1).toMatchInlineSnapshot(`
