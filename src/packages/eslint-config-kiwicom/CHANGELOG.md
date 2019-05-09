@@ -1,4 +1,6 @@
 # Unreleased
+
+# 4.3.0
 - Added initial support for [`globalThis`](https://github.com/tc39/proposal-global).
 
 # 4.2.0
