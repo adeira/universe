@@ -10,6 +10,7 @@ import {
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
 import createRequestHandler from './createRequestHandler';
+import type { Variables } from './types.flow';
 
 // we usually copy-paste this everywhere
 const source = new RecordSource();
@@ -27,6 +28,10 @@ type Options = {|
 
   // enables/disables `RelayNetworkLogger`
   +logger?: boolean,
+  +graphiQLPrinter?: (
+    request: { +text: string },
+    variables: Variables,
+  ) => string,
 |};
 
 type NormalizationSplitOperation = {|
@@ -36,21 +41,17 @@ type NormalizationSplitOperation = {|
   +selections: $FlowFixMe,
 |};
 
-// TODO: only graphql.kiwi.com?
-// function graphiQLPrinter(request, variables) {
-//   return `https://graphql.kiwi.com/?query=${encodeURIComponent(request.text)}`;
-// }
-
 function createNetwork(
   fetchFn: Function,
   subscribeFn?: Function,
   enableLogger: boolean = true,
+  graphiQLPrinter,
 ) {
   const fetch = createRequestHandler(fetchFn);
   return enableLogger && __DEV__
     ? Network.create(
-        RelayNetworkLogger.wrapFetch(fetch /* , graphiQLPrinter */),
-        RelayNetworkLogger.wrapSubscribe(subscribeFn),
+        RelayNetworkLogger.wrapFetch(fetch, graphiQLPrinter),
+        RelayNetworkLogger.wrapSubscribe(subscribeFn, graphiQLPrinter),
       )
     : Network.create(fetch, subscribeFn);
 }
@@ -64,10 +65,10 @@ function handlerProvider(handle) {
 }
 
 module.exports = function createEnvironment(options: Options) {
-  const { fetchFn, subscribeFn, logger, ...rest } = options;
+  const { fetchFn, subscribeFn, logger, graphiQLPrinter, ...rest } = options;
   return new Environment({
     handlerProvider,
-    network: createNetwork(fetchFn, subscribeFn, logger),
+    network: createNetwork(fetchFn, subscribeFn, logger, graphiQLPrinter),
     store,
     ...rest,
   });
