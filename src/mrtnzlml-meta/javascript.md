@@ -20,6 +20,7 @@ TODO: https://github.com/facebook/jest/pull/1688/files
 - https://github.com/gedbac/di4js
 - https://medium.com/@maciekprzybylski/dependency-injection-in-javascript-74f8791ba7c8
 - https://www.yusufaytas.com/dependency-injection-in-javascript/
+- https://github.com/inversify/InversifyJS/
 
 # Yarn comments in `package.json`
 
