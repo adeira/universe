@@ -9,7 +9,7 @@ This monorepo hosts source code of the following NPM packages:
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
 - 3.0.1 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
-- 4.2.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
+- 4.3.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 0.5.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
 - 2.3.2 [@kiwicom/fetch](https://github.com/kiwicom/fetch) - Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.
 - 1.4.1 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
@@ -19,7 +19,7 @@ This monorepo hosts source code of the following NPM packages:
 - 0.9.0 [@kiwicom/js](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/js) - Useful JS functions used at Kiwi.com
 - 1.1.0 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
 - 0.21.0 [@kiwicom/monorepo](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
-- 2.2.0 [@kiwicom/relay](https://github.com/kiwicom/relay) - Highly opinionated Relay wrapper used at Kiwi.com
+- 2.3.0 [@kiwicom/relay](https://github.com/kiwicom/relay) - Highly opinionated Relay wrapper used at Kiwi.com
 - 0.9.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 1.0.4 [@kiwicom/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
 
