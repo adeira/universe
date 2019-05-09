@@ -1,4 +1,5 @@
 # Unreleased
+- Modules transformation is now determined automatically based on your Babel executor (see: https://babeljs.io/docs/en/babel-preset-env#modules). It should not break anything. They only difference is that previously we supported only CommonJS but now you can get even ES6 modules if your Babel executor supports it (`babel-loader` for example).
 
 # 3.0.0
 - Added support for dynamic `import()` syntax. This fits well with `@kiwicom/relay` version 1.0+ and allows you to use `@match`/`@module` directives for data-driven code splitting.
