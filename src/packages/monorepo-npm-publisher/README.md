@@ -32,15 +32,20 @@ import publish from '@kiwicom/npm-publisher';
     // Where to store transpiled code before it's being published.
     buildCache: path.join(
       os.tmpdir(),
-      'com.kiwi.YOUR_PROJECT.npm', // change please
+      'com.kiwi.TODO_YOUR_PROJECT.npm', // change please
       '.build',
     ),
 
-    // Folder where to look for NPM packages. It takes into account
-    // only packages with public visibility set in `package.json`.
-    packages: path.join(__dirname, '..', 'packages'),
+    // Workspaces to publish on NPM. It takes into account only
+    // packages with public visibility set in `package.json`.
+    workspaces: new Set([
+      '@kiwicom/js',
+      '@kiwicom/fetch',
+      '@kiwicom/relay',
+      '@kiwicom/eslint-config',
+    ]),
 
-    npmAuthToken: 'TODO!', // see: https://www.npmjs.com/settings/<USERNAME>/tokens
+    npmAuthToken: '*** TODO ***', // see: https://www.npmjs.com/settings/<USERNAME>/tokens
   });
 })();
 ```

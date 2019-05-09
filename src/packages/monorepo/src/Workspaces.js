@@ -17,7 +17,9 @@ function __resolveWorkspaces(packageJSON: Object): $ReadOnlyArray<string> {
 module.exports = {
   __resolveWorkspaces,
 
-  iterateWorkspaces(cb: (packageJSONLocation: string) => void): void {
+  iterateWorkspaces(
+    cb: (packageJSONLocation: string) => void | Promise<void>,
+  ): void {
     const rootPackageJSON = findRootPackageJson();
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       globSync(workspace + '/package.json', {
@@ -34,7 +36,7 @@ module.exports = {
   iterateWorkspacesInPath(
     path: string,
     cb: (packageJSONLocation: string) => void | Promise<void>,
-  ) {
+  ): void {
     const rootPackageJSON = findRootPackageJson();
     const workspaces = __resolveWorkspaces(rootPackageJSON);
     const isWorkspaceDirectory = workspaces.some(workspaceGlob => {
