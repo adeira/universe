@@ -1,4 +1,6 @@
 # Unreleased
+
+# 3.2.0
 - Added support for new transpilation target `js-esm`. This target works the same as `js` except it supports ES6 modules.
 
 # 3.1.1
