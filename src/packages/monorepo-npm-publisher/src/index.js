@@ -13,6 +13,7 @@ import isCI from 'is-ci';
 import chalk from 'chalk';
 
 import NPM from './NPM';
+import requireAndModifyPackageJSON from './requireAndModifyPackageJSON';
 
 type Options = {|
   +dryRun: boolean,
@@ -39,7 +40,7 @@ export default async function publish(options: Options) {
 
   Workspaces.iterateWorkspaces(async packageJSONLocation => {
     // $FlowAllowDynamicImport
-    const packageJSONFile = require(packageJSONLocation);
+    const packageJSONFile = requireAndModifyPackageJSON(packageJSONLocation);
     const packageName = packageJSONFile.name;
     const chalkPackageName = chalk.bold(packageName);
 
@@ -83,6 +84,7 @@ export default async function publish(options: Options) {
               destinationFileName,
             );
           } else {
+            // TODO: overwrite `package.json` without our ESM version
             fs.copyFileSync(
               path.join(packageFolderPath, filename),
               destinationFileName,
@@ -121,6 +123,8 @@ export default async function publish(options: Options) {
 }
 
 function transformFileVariants(originalFilename, destinationFilename) {
+  // TODO: transform ESM and CJS versions
+
   const getBabelConfig = (target: 'js' | 'flow') => {
     return {
       root: __dirname, // do not lookup any other Babel config
