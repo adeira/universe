@@ -40,7 +40,7 @@ module.exports = (
       [
         '@babel/preset-env',
         {
-          modules: 'auto',
+          modules: 'commonjs',
           targets: {
             node: 'current',
             browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
@@ -62,12 +62,7 @@ module.exports = (
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
-      [
-        '@babel/plugin-transform-runtime',
-        {
-          useESModules: 'auto',
-        },
-      ],
+      '@babel/plugin-transform-runtime',
       '@kiwicom/babel-plugin-orbit-components',
     ];
   } else {
