@@ -1,4 +1,6 @@
 # Unreleased
+
+# 4.4.0
 - This release adds official support for exhaustive Flow type checking with empty type, more info: https://github.com/mrtnzlml/meta/blob/master/flow.md#exhaustive-checking-with-empty-type. Please report any issues and unexpected behavior.
 
 # 4.3.0
