@@ -1,6 +1,6 @@
 **This package doesn't support React Native**
 
-This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are two transpilation targets available: JS (default) and Flow. JavaScript transpilation target adds these features:
+This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are three transpilation targets available: JS (default), JS-ESM and Flow. JavaScript transpilation target adds these features:
 
 - Flow support `(a: string)`
 - JSX support `<Component />`
@@ -14,6 +14,8 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 - [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
 - dynamic `import()` ([proposal](https://github.com/tc39/proposal-dynamic-import))
 - _and many more ..._
+
+JS-ESM variant is doingthe same except it's targeting modern JS environments which support ES6 modules (`import`/`export`).
 
 This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:
 
@@ -74,7 +76,7 @@ module.exports = function(api /*: ApiType */) {
       [
         '@kiwicom/babel-preset-kiwicom',
         {
-          target: 'flow', // or 'js' (default)
+          target: 'flow', // or 'js' (default) or 'js-esm'
         },
       ],
     ],
@@ -83,6 +85,28 @@ module.exports = function(api /*: ApiType */) {
 ```
 
 What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js and browsers environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is).
+
+It's also easily possible to change your target based on your Babel runner. It's handy when you need to support SSR as well as ESM:
+
+```js
+module.exports = function(api /*: ApiType */) {
+  api.assertVersion(7);
+  api.cache.forever();
+
+  return {
+    presets: [
+      [
+        '@kiwicom/babel-preset-kiwicom',
+        {
+          target: api.caller(caller => caller.name === 'babel-loader')
+            ? 'js-esm'
+            : 'js',
+        },
+      ],
+    ],
+  };
+};
+```
 
 # Features
 

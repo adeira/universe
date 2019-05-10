@@ -74,6 +74,50 @@ export default async function test() {
 }
 `;
 
+exports[`matches expected output: async-function.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable no-return-await */
+
+export default async function test() {
+  return await 'this';
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import _regeneratorRuntime from "@babel/runtime/regenerator";
+import _asyncToGenerator from "@babel/runtime/helpers/esm/asyncToGenerator";
+
+/* eslint-disable no-return-await */
+export default function test() {
+  return _test.apply(this, arguments);
+}
+
+function _test() {
+  _test = _asyncToGenerator(
+  /*#__PURE__*/
+  _regeneratorRuntime.mark(function _callee() {
+    return _regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return 'this';
+
+          case 2:
+            return _context.abrupt("return", _context.sent);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _test.apply(this, arguments);
+}
+`;
+
 exports[`matches expected output: babel-issue-8417.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
@@ -168,6 +212,57 @@ const bar = new Bar();
 console.log(bar.a); // should return 5, not undefined
 `;
 
+exports[`matches expected output: babel-issue-8417.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+// See: https://github.com/babel/babel/issues/8417
+
+class Foo {
+  constructor() {
+    this.a = 5;
+  }
+}
+
+class Bar extends Foo {
+  a: number;
+}
+
+const bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import _possibleConstructorReturn from "@babel/runtime/helpers/esm/possibleConstructorReturn";
+import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
+import _inherits from "@babel/runtime/helpers/esm/inherits";
+import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
+
+/* eslint-disable */
+// See: https://github.com/babel/babel/issues/8417
+var Foo = function Foo() {
+  _classCallCheck(this, Foo);
+
+  this.a = 5;
+};
+
+var Bar =
+/*#__PURE__*/
+function (_Foo) {
+  _inherits(Bar, _Foo);
+
+  function Bar() {
+    _classCallCheck(this, Bar);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Bar).apply(this, arguments));
+  }
+
+  return Bar;
+}(Foo);
+
+var bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+`;
+
 exports[`matches expected output: babel-issue-9514.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
@@ -238,6 +333,33 @@ $Diff<Props, { relay: RelayPropT | void }>,
 <T: { +$refType: any }>($ReadOnlyArray<?T>) => $ReadOnlyArray<?$FragmentRef<T>>) & (
 <T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) & (
 <T>(T) => T)>;
+`;
+
+exports[`matches expected output: babel-issue-9514.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// See: https://github.com/babel/babel/issues/9514
+
+type $FragmentRef<T> = {
+  +$fragmentRefs: $PropertyType<T, '$refType'>,
+};
+
+// prettier-ignore
+export type $RelayProps<Props, RelayPropT> = $ObjMap<
+  $Diff<Props, { relay: RelayPropT | void }>,
+  (<T: () => void>( T) =>  T) &
+  (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T>(T) => T)
+>
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
 `;
 
 exports[`matches expected output: babel-issue-9810.js 1`] = `
@@ -323,6 +445,47 @@ ccc /*: any */) =>
 module.exports = executeNodeScript;
 `;
 
+exports[`matches expected output: babel-issue-9810.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// See: https://github.com/babel/babel/issues/9810
+
+/*:: type TestType = any; */
+
+const executeNodeScript = (
+  aaa /*: string */,
+  bbb /*: number */,
+  ccc /*: any */,
+) /*: TestType */ => {
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
+
+module.exports = executeNodeScript;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// See: https://github.com/babel/babel/issues/9810
+
+/*:: type TestType = any; */
+var executeNodeScript = function executeNodeScript(aaa
+/*: string */
+, bbb
+/*: number */
+, ccc
+/*: any */
+)
+/*: TestType */
+{
+  // This currently yields invalid Flow code. One workaround is to use regular
+  // functions and not arrow functions. See the original issue.
+  return [aaa, bbb, ccc];
+};
+
+module.exports = executeNodeScript;
+`;
+
 exports[`matches expected output: babel-issue-9921.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 #!/usr/bin/env node
@@ -350,6 +513,32 @@ Error: unknown: Unexpected token (11:9)
 `;
 
 exports[`matches expected output: babel-issue-9921.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+#!/usr/bin/env node
+
+// @flow strict-local
+
+// See: https://github.com/babel/babel/issues/9921
+// It currently doesn't work at all since Babel Parser 7.4.4+ is not compatible
+// with shebang and Flow in the same file.
+
+/* eslint-disable */
+
+new Set<() => void>([]);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+THROWN EXCEPTION:
+
+Error: unknown: Unexpected token (11:9)
+
+   9 | /* eslint-disable */
+  10 | 
+> 11 | new Set<() => void>([]);
+     |          ^
+  12 | 
+`;
+
+exports[`matches expected output: babel-issue-9921.js 3`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 #!/usr/bin/env node
 
@@ -434,6 +623,37 @@ const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
 console.log((re.exec('1999-02-29')?.groups?.year));
 `;
 
+exports[`matches expected output: capturing-groups.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/*  eslint-disable no-console */
+
+const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
+
+console.log(re.exec('1999-02-29')?.groups?.year);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import _typeof from "@babel/runtime/helpers/esm/typeof";
+import _inherits from "@babel/runtime/helpers/esm/inherits";
+import _possibleConstructorReturn from "@babel/runtime/helpers/esm/possibleConstructorReturn";
+import _getPrototypeOf from "@babel/runtime/helpers/esm/getPrototypeOf";
+import _wrapNativeSuper from "@babel/runtime/helpers/esm/wrapNativeSuper";
+
+var _re$exec, _re$exec$groups;
+
+function _wrapRegExp(re, groups) { _wrapRegExp = function _wrapRegExp(re, groups) { return new BabelRegExp(re, groups); }; var _RegExp = _wrapNativeSuper(RegExp); var _super = RegExp.prototype; var _groups = new WeakMap(); function BabelRegExp(re, groups) { var _this = _RegExp.call(this, re); _groups.set(_this, groups); return _this; } _inherits(BabelRegExp, _RegExp); BabelRegExp.prototype.exec = function (str) { var result = _super.exec.call(this, str); if (result) result.groups = buildGroups(result, this); return result; }; BabelRegExp.prototype[Symbol.replace] = function (str, substitution) { if (typeof substitution === "string") { var groups = _groups.get(this); return _super[Symbol.replace].call(this, str, substitution.replace(/\\$<([^>]+)>/g, function (_, name) { return "$" + groups[name]; })); } else if (typeof substitution === "function") { var _this = this; return _super[Symbol.replace].call(this, str, function () { var args = []; args.push.apply(args, arguments); if (_typeof(args[args.length - 1]) !== "object") { args.push(buildGroups(args, _this)); } return substitution.apply(this, args); }); } else { return _super[Symbol.replace].call(this, str, substitution); } }; function buildGroups(result, re) { var g = _groups.get(re); return Object.keys(g).reduce(function (groups, name) { groups[name] = result[g[name]]; return groups; }, Object.create(null)); } return _wrapRegExp.apply(this, arguments); }
+
+/*  eslint-disable no-console */
+var re = _wrapRegExp(/(\\d{4})-(\\d{2})-(\\d{2})/, {
+  year: 1,
+  month: 2,
+  day: 3
+});
+
+console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
+`;
+
 exports[`matches expected output: class-fields.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
@@ -477,6 +697,27 @@ export default class A {
 
 export default class A {
   b = 1;}
+`;
+
+exports[`matches expected output: class-fields.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+export default class A {
+  b = 1;
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
+import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
+
+var A = function A() {
+  _classCallCheck(this, A);
+
+  _defineProperty(this, "b", 1);
+};
+
+export { A as default };
 `;
 
 exports[`matches expected output: dev-expression.js 1`] = `
@@ -549,6 +790,39 @@ if (__DEV__) {
     // this should change (replaceable __DEV__ value):
     key: __DEV__ });
 
+}
+`;
+
+exports[`matches expected output: dev-expression.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable no-console */
+
+if (__DEV__) {
+  const dev = __DEV__ ? 'foo' : 'bar';
+  console.log(dev);
+
+  console.warn({
+    // this shouldn't change (valid object key):
+    __DEV__: 'value',
+
+    // this should change (replaceable __DEV__ value):
+    key: __DEV__,
+  });
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable no-console */
+if (process.env.NODE_ENV !== "production") {
+  var dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
+  console.log(dev);
+  console.warn({
+    // this shouldn't change (valid object key):
+    __DEV__: 'value',
+    // this should change (replaceable __DEV__ value):
+    key: process.env.NODE_ENV !== "production"
+  });
 }
 `;
 
@@ -639,6 +913,45 @@ module.exports = function MyComponent() {
 };
 `;
 
+exports[`matches expected output: dynamic-import.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const React = require('react');
+
+const BoldTodoRenderer = React.lazy(() =>
+  import(
+    // $FlowExpectedError: cannot resolve module
+    './BoldTodoRenderer'
+  ),
+);
+
+module.exports = function MyComponent() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <BoldTodoRenderer />
+    </React.Suspense>
+  );
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+var React = require('react');
+
+var BoldTodoRenderer = React.lazy(function () {
+  return import( // $FlowExpectedError: cannot resolve module
+  './BoldTodoRenderer');
+});
+
+module.exports = function MyComponent() {
+  return React.createElement(React.Suspense, {
+    fallback: React.createElement("div", null, "Loading...")
+  }, React.createElement(BoldTodoRenderer, null));
+};
+`;
+
 exports[`matches expected output: invariant-global.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
@@ -661,6 +974,17 @@ invariant(Math.random(), 'This should stay AS IS!');
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
 
+invariant(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: invariant-global.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+invariant(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
 invariant(Math.random(), 'This should stay AS IS!');
 `;
 
@@ -702,6 +1026,22 @@ import { something } from 'else';
 invariant(Math.random(), 'You shall not pass!');
 `;
 
+exports[`matches expected output: invariant-import.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { invariant } from '@kiwicom/js';
+import { something } from 'else';
+
+invariant(Math.random(), 'You shall not pass!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+import { invariant } from '@kiwicom/js';
+import { something } from 'else';
+!Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
+`;
+
 exports[`matches expected output: invariant-require.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
@@ -734,6 +1074,22 @@ invariant(Math.random(), 'You shall not pass!');
 const { invariant } = require('@kiwicom/js');
 
 invariant(Math.random(), 'You shall not pass!');
+`;
+
+exports[`matches expected output: invariant-require.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { invariant } = require('@kiwicom/js');
+
+invariant(Math.random(), 'You shall not pass!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+var _require = require('@kiwicom/js'),
+    invariant = _require.invariant;
+
+!Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass!') : invariant(false) : void 0;
 `;
 
 exports[`matches expected output: jsx.js 1`] = `
@@ -781,6 +1137,24 @@ export default function Component() {
 }
 `;
 
+exports[`matches expected output: jsx.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+const React = () => {};
+
+export default function Component() {
+  return <div>OK</div>;
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+var React = function React() {};
+
+export default function Component() {
+  return React.createElement("div", null, "OK");
+}
+`;
+
 exports[`matches expected output: optional-chaining.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
@@ -812,6 +1186,22 @@ module.exports = function(a: Object) {
 
 module.exports = function (a: Object) {
   return a?.b ?? 'default';
+};
+`;
+
+exports[`matches expected output: optional-chaining.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+module.exports = function(a: Object) {
+  return a?.b ?? 'default';
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+module.exports = function (a) {
+  var _ref;
+
+  return (_ref = a === null || a === void 0 ? void 0 : a.b) !== null && _ref !== void 0 ? _ref : 'default';
 };
 `;
 
@@ -864,6 +1254,31 @@ import { Passengers as P } from '@kiwicom/orbit-components/icons';
 import { Passengers as Q } from '@kiwicom/orbit-components/lib/icons';
 
 module.exports = { A, B, P, Q };
+`;
+
+exports[`matches expected output: orbit-imports.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { Alert as A } from '@kiwicom/orbit-components';
+import { Alert as B } from '@kiwicom/orbit-components/lib';
+import { Passengers as P } from '@kiwicom/orbit-components/icons';
+import { Passengers as Q } from '@kiwicom/orbit-components/lib/icons';
+
+module.exports = { A, B, P, Q };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+import A from "@kiwicom/orbit-components/lib/Alert";
+import B from "@kiwicom/orbit-components/lib/Alert";
+import P from "@kiwicom/orbit-components/lib/icons/Passengers";
+import Q from "@kiwicom/orbit-components/lib/icons/Passengers";
+module.exports = {
+  A: A,
+  B: B,
+  P: P,
+  Q: Q
+};
 `;
 
 exports[`matches expected output: rest-operator.js 1`] = `
@@ -933,6 +1348,40 @@ module.exports = function (a: Object, ...rest: Array<any>) {
 };
 `;
 
+exports[`matches expected output: rest-operator.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+/* eslint-disable no-console */
+
+module.exports = function(a: Object, ...rest: Array<any>) {
+  console.warn([1, ...rest]);
+  const { b, ...c } = a;
+  return {
+    ...b,
+    ...c,
+  };
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import _objectSpread from "@babel/runtime/helpers/esm/objectSpread";
+import _objectWithoutProperties from "@babel/runtime/helpers/esm/objectWithoutProperties";
+
+/* eslint-disable no-console */
+module.exports = function (a) {
+  for (var _len = arguments.length, rest = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    rest[_key - 1] = arguments[_key];
+  }
+
+  console.warn([1].concat(rest));
+
+  var b = a.b,
+      c = _objectWithoutProperties(a, ["b"]);
+
+  return _objectSpread({}, b, c);
+};
+`;
+
 exports[`matches expected output: warning-global.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
@@ -955,6 +1404,17 @@ warning(Math.random(), 'This should stay AS IS!');
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
 
+warning(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: warning-global.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+warning(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
 warning(Math.random(), 'This should stay AS IS!');
 `;
 
@@ -996,6 +1456,22 @@ import { something } from 'else';
 warning(Math.random(), 'I am warning you!');
 `;
 
+exports[`matches expected output: warning-import.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { warning } from '@kiwicom/js';
+import { something } from 'else';
+
+warning(Math.random(), 'I am warning you!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+import { warning } from '@kiwicom/js';
+import { something } from 'else';
+process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
+`;
+
 exports[`matches expected output: warning-require.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
@@ -1028,4 +1504,20 @@ warning(Math.random(), 'I am warning you!');
 const { warning } = require('@kiwicom/js');
 
 warning(Math.random(), 'I am warning you!');
+`;
+
+exports[`matches expected output: warning-require.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { warning } = require('@kiwicom/js');
+
+warning(Math.random(), 'I am warning you!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+var _require = require('@kiwicom/js'),
+    warning = _require.warning;
+
+process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you!') : void 0;
 `;
