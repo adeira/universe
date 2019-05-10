@@ -101,7 +101,7 @@ module.exports = {
   'no-sequences': WARN,
   'no-throw-literal': WARN,
   'no-unmodified-loop-condition': OFF,
-  'no-unused-expressions': OFF, // see: babel/no-unused-expressions
+  'no-unused-expressions': OFF, // see: flow/no-unused-expressions
   'no-unused-labels': WARN,
   'no-useless-call': WARN,
   'no-useless-catch': WARN,
@@ -245,7 +245,7 @@ module.exports = {
   ],
   'babel/new-cap': OFF,
   'babel/no-invalid-this': OFF,
-  'babel/no-unused-expressions': ERROR,
+  'babel/no-unused-expressions': OFF, // see: flow/no-unused-expressions
   'babel/valid-typeof': ERROR,
 
   // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
@@ -260,7 +260,7 @@ module.exports = {
   'flowtype/no-mutable-array': OFF,
   'flowtype/no-primitive-constructor-types': WARN,
   'flowtype/no-types-missing-file-annotation': ERROR,
-  'flowtype/no-unused-expressions': ERROR, // TODO: consult with default `no-unused-expressions`
+  'flowtype/no-unused-expressions': ERROR,
   'flowtype/no-weak-types': OFF,
   'flowtype/require-compound-type-alias': OFF,
   'flowtype/require-exact-type': OFF,
