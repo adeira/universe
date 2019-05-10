@@ -9,7 +9,7 @@ type ApiType = {|
 |}
 
 type ExternalOptions = {|
-  +target?: 'js' | 'flow',
+  +target?: 'js' | 'js-esm' | 'flow',
 |}
 
 type BabelRule = string | [string, Object];
@@ -23,7 +23,7 @@ module.exports = (
 ) => {
   api.assertVersion(7);
 
-  const options = {
+  const options /*: ExternalOptions */ = {
     target: 'js',
     ...externalOptions,
   };
@@ -32,15 +32,21 @@ module.exports = (
   let plugins /*: BabelRules */ = [];
   let retainLines = false;
 
-  if (options.target === 'flow') {
+  const target = options.target;
+
+  if (target === 'flow') {
     plugins = [path.join(__dirname, 'dev-declaration')];
     retainLines = true;
-  } else if (options.target === 'js') {
+  } else if (['js', 'js-esm'].includes(target)) {
+    const supportsESM = () /*: boolean %checks */ => {
+      return target === 'js-esm';
+    };
+
     presets = [
       [
         '@babel/preset-env',
         {
-          modules: 'commonjs',
+          modules: supportsESM() ? false : 'commonjs',
           targets: {
             node: 'current',
             browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
@@ -62,7 +68,12 @@ module.exports = (
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
-      '@babel/plugin-transform-runtime',
+      [
+        '@babel/plugin-transform-runtime',
+        {
+          useESModules: supportsESM(),
+        },
+      ],
       '@kiwicom/babel-plugin-orbit-components',
     ];
   } else {
@@ -88,5 +99,6 @@ module.exports = (
       ],
     },
     retainLines,
+    // TODO: sourceType: 'unambiguous',
   };
 };

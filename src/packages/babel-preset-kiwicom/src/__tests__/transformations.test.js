@@ -31,3 +31,4 @@ function transform(target) {
 
 generateTestsFromFixtures(`${__dirname}/__fixtures__`, transform('js'));
 generateTestsFromFixtures(`${__dirname}/__fixtures__`, transform('flow'));
+generateTestsFromFixtures(`${__dirname}/__fixtures__`, transform('js-esm'));
