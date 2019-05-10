@@ -32,6 +32,8 @@ class Thing {
 
 # Exhaustive checking with empty type
 
+[flow.org/try](https://flow.org/try/#0C4TwDgpgBAwghgZwgqBeKByAghqAfTAIQwG4AoMgMwFcA7AY2AEsB7WqCADwAs5qFgACk4AuWImQBKKAG8yUKE0pRhaVOmwZpchQoD0eqABMWUAdUqV5UAL4cANkkXLV6jcW3X9hk8aWUIACcIWmAzYAsrBTsIR2gdXQMoNnsQKGBA6mglKAB3aF5aI3sIIyg4e3soegkELxVRDgBbMFBJcmiyGzIgA)
+
 ```js
 type Cases = 'A' | 'B';
 
