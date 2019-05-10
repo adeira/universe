@@ -50,7 +50,7 @@ Object {
     ],
     "babel/new-cap": 0,
     "babel/no-invalid-this": 0,
-    "babel/no-unused-expressions": 2,
+    "babel/no-unused-expressions": 0,
     "babel/object-curly-spacing": "off",
     "babel/quotes": 0,
     "babel/semi": "off",
