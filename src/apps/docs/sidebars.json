@@ -25,7 +25,8 @@
       "graphql/testing",
       "graphql/debugging",
       "graphql/vault",
-      "graphql/faq"
+      "graphql/faq",
+      "graphql/troubleshooting"
     ]
   }
 }
