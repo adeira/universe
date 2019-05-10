@@ -10,20 +10,26 @@ import { transformFileSync } from '@babel/core';
 import packlist from 'npm-packlist';
 import { Workspaces } from '@kiwicom/monorepo';
 import isCI from 'is-ci';
+import chalk from 'chalk';
 
 import NPM from './NPM';
-import log from './log';
 
 type Options = {|
   +dryRun: boolean,
   +buildCache: string,
-  +packages: string,
   +npmAuthToken: string,
+  +workspaces: Set<string>,
 |};
 
+function log(...message: $ReadOnlyArray<string>): void {
+  console.warn(...message); // eslint-disable-line no-console
+}
+
 export default async function publish(options: Options) {
+  log('NPM publisher %s', require('../package.json').version);
+
   if (options.dryRun) {
-    log('DRY RUN');
+    log('\nDRY RUN\n');
   } else if (isCI === false) {
     log('NPM publisher can be executed only from CI environment.');
     process.exit(1);
@@ -31,89 +37,87 @@ export default async function publish(options: Options) {
 
   await util.promisify(rimraf)(options.buildCache);
 
-  Workspaces.iterateWorkspacesInPath(
-    options.packages,
-    async packageJSONLocation => {
-      // $FlowAllowDynamicImport
-      const packageJSONFile = require(packageJSONLocation);
-      if (packageJSONFile.private === true) {
-        log(`Skipping ${packageJSONFile.name} because it's PRIVATE ❌`);
-      } else {
-        const packageFolderPath = path.dirname(packageJSONLocation);
-        const packageFolderName = packageFolderPath.replace(
-          new RegExp(options.packages + '/'),
-          '',
+  Workspaces.iterateWorkspaces(async packageJSONLocation => {
+    // $FlowAllowDynamicImport
+    const packageJSONFile = require(packageJSONLocation);
+    const packageName = packageJSONFile.name;
+    const chalkPackageName = chalk.bold(packageName);
+
+    if (!options.workspaces.has(packageName)) {
+      log("✋ Skipping %s because it's not whitelisted", chalkPackageName);
+    } else if (packageJSONFile.private === true) {
+      log("❌ Skipping %s because it's PRIVATE", chalkPackageName);
+    } else {
+      const packageFolderPath = path.dirname(packageJSONLocation);
+      const packageFolderName = path.basename(packageFolderPath);
+
+      const data = await NPM.getPackageInfo({
+        package: packageName,
+        npmAuthToken: options.npmAuthToken,
+      });
+
+      if (!semver.gt(packageJSONFile.version, data.latest)) {
+        log(
+          '✅ Skipping %s because there is nothing to release',
+          chalkPackageName,
         );
+      } else {
+        log('🚀 Releasing %s', chalkPackageName);
 
-        const data = await NPM.getPackageInfo({
-          package: packageJSONFile.name,
-          npmAuthToken: options.npmAuthToken,
-        });
-
-        if (!semver.gt(packageJSONFile.version, data.latest)) {
-          log(
-            `Skipping ${
-              packageJSONFile.name
-            } because there is nothing to release`,
+        const filenames = await packlist({ path: packageFolderPath });
+        for (const filename of filenames) {
+          const destinationFileName = path.join(
+            options.buildCache,
+            packageFolderName,
+            filename,
           );
-        } else {
-          log(`Releasing ${packageJSONFile.name} 🚀`);
 
-          const filenames = await packlist({ path: packageFolderPath });
-          for (const filename of filenames) {
-            const destinationFileName = path.join(
-              options.buildCache,
-              packageFolderName,
-              filename,
+          fs.mkdirSync(path.dirname(destinationFileName), {
+            recursive: true,
+          });
+
+          if (filename.endsWith('.js')) {
+            // this transforms and copy the file
+            transformFileVariants(
+              path.join(packageFolderPath, filename),
+              destinationFileName,
             );
-
-            fs.mkdirSync(path.dirname(destinationFileName), {
-              recursive: true,
-            });
-
-            if (filename.endsWith('.js')) {
-              // this transforms and copy the file
-              transformFileVariants(
-                path.join(packageFolderPath, filename),
-                destinationFileName,
-              );
-            } else {
-              fs.copyFileSync(
-                path.join(packageFolderPath, filename),
-                destinationFileName,
-              );
-            }
-          }
-
-          await tar.create(
-            {
-              gzip: true,
-              cwd: options.buildCache,
-              portable: true,
-              file: path.join(options.buildCache, packageFolderName + '.tgz'),
-            },
-            [packageFolderName],
-          );
-
-          if (options.dryRun === false) {
-            await NPM.publishPackage({
-              metadata: packageJSONFile,
-              body: fs.createReadStream(
-                path.join(options.buildCache, packageFolderName + '.tgz'),
-              ),
-              npmAuthToken: options.npmAuthToken,
-            });
-
-            log(
-              `PUBLISHED ${packageJSONFile.name} version ${
-                packageJSONFile.version
-              } 🎉`,
+          } else {
+            fs.copyFileSync(
+              path.join(packageFolderPath, filename),
+              destinationFileName,
             );
           }
         }
+
+        await tar.create(
+          {
+            gzip: true,
+            cwd: options.buildCache,
+            portable: true,
+            file: path.join(options.buildCache, packageFolderName + '.tgz'),
+          },
+          [packageFolderName],
+        );
+
+        if (options.dryRun === false) {
+          await NPM.publishPackage({
+            metadata: packageJSONFile,
+            body: fs.createReadStream(
+              path.join(options.buildCache, packageFolderName + '.tgz'),
+            ),
+            npmAuthToken: options.npmAuthToken,
+          });
+
+          log(
+            '👍 PUBLISHED %s version %s',
+            chalkPackageName,
+            packageJSONFile.version,
+          );
+        }
       }
-    },
-  );
+    }
+  });
 }
 
 function transformFileVariants(originalFilename, destinationFilename) {

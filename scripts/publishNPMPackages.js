@@ -19,6 +19,21 @@ import { invariant } from '@kiwicom/js';
     buildCache: path.join(os.tmpdir(), 'com.kiwi.universe.npm', '.build'),
     dryRun: false,
     npmAuthToken,
-    packages: path.join(__dirname, '..', 'src', 'packages'),
+    workspaces: new Set([
+      'eslint-plugin-kiwicom-incubator',
+      '@kiwicom/graphql-bc-checker',
+      '@kiwicom/graphql-global-id',
+      '@kiwicom/js',
+      '@kiwicom/graphql-resolve-wrapper',
+      '@kiwicom/monorepo-npm-publisher',
+      '@kiwicom/graphql-utils',
+      '@kiwicom/monorepo',
+      '@kiwicom/babel-preset-kiwicom',
+      '@kiwicom/fetch',
+      '@kiwicom/vault2env',
+      '@kiwicom/relay',
+      '@kiwicom/eslint-config',
+      '@kiwicom/test-utils',
+    ]),
   });
 })();
