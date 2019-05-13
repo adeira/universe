@@ -39,7 +39,6 @@ export default async function publish(options: Options) {
   await util.promisify(rimraf)(options.buildCache);
 
   Workspaces.iterateWorkspaces(async packageJSONLocation => {
-    // $FlowAllowDynamicImport
     const packageJSONFile = requireAndModifyPackageJSON(packageJSONLocation);
     const packageName = packageJSONFile.name;
     const chalkPackageName = chalk.bold(packageName);
