@@ -1,6 +1,26 @@
 - https://github.com/facebook/flow/blob/master/Changelog.md
 - https://github.com/niieani/typescript-vs-flowtype
 
+# Interesting Flow commands
+
+```text
+💃 universe [master] y flow graph --help                                                                                               
+yarn run v1.16.0
+$ /Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/.bin/flow graph --help
+Usage: flow graph SUBCOMMAND [OPTIONS]...
+Outputs dependency graphs of flow repositories
+
+SUBCOMMANDS:
+cycle: Produces a graph of the dependency cycle containing the input file
+dep-graph: Produces the dependency graph of a repository
+```
+
+```text
+y flow dump-types src/apps/graphql/src/index.js
+```
+
+[source](https://stackoverflow.com/a/40569640/3135248)
+
 # Exact Objects by Default
 
 TODO
