@@ -6,11 +6,17 @@ const path = require('path');
 
 type ApiType = {|
   +assertVersion: number => void,
-|}
+|};
+
+type SupportedTargets = 'js' | 'js-esm' | 'flow';
 
 type ExternalOptions = {|
-  +target?: 'js' | 'js-esm' | 'flow',
-|}
+  +target?: SupportedTargets,
+|};
+
+type InternalOptions = {|
+  +target: SupportedTargets,
+|};
 
 type BabelRule = string | [string, Object];
 type BabelRules = $ReadOnlyArray<BabelRule>;
@@ -23,7 +29,7 @@ module.exports = (
 ) => {
   api.assertVersion(7);
 
-  const options /*: ExternalOptions */ = {
+  const options /*: InternalOptions */ = {
     target: 'js',
     ...externalOptions,
   };
@@ -37,7 +43,7 @@ module.exports = (
   if (target === 'flow') {
     plugins = [path.join(__dirname, 'dev-declaration')];
     retainLines = true;
-  } else if (['js', 'js-esm'].includes(target)) {
+  } else if (target === 'js' || target === 'js-esm') {
     const supportsESM = () /*: boolean %checks */ => {
       return target === 'js-esm';
     };
@@ -77,6 +83,7 @@ module.exports = (
       '@kiwicom/babel-plugin-orbit-components',
     ];
   } else {
+    /*:: (target: empty) */
     throw new Error('options.target must be one of "js" or "flow".');
   }
 
