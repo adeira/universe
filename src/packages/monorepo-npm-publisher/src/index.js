@@ -120,8 +120,8 @@ export default async function publish(options: Options) {
   });
 }
 
-function transformFileVariants(originalFilename, destinationFilename) {
-  const getBabelConfig = (target: 'js' | 'flow') => {
+function transformFileVariants(originalFilename, destinationFilename): void {
+  const getBabelConfig = (target: 'js' | 'js-esm' | 'flow') => {
     return {
       root: __dirname, // do not lookup any other Babel config
       presets: [
@@ -147,11 +147,28 @@ function transformFileVariants(originalFilename, destinationFilename) {
     process.exit(1);
   }
 
-  // 2) transform Flow version
+  // 2) transform JS-ESM version
   try {
-    log(`${originalFilename} -> ${destinationFilename}.flow`);
+    const modifiedDestinationFilename = destinationFilename.replace(
+      /\.js$/,
+      '.mjs',
+    );
+    log(`${originalFilename} -> ${modifiedDestinationFilename}`);
     fs.writeFileSync(
-      destinationFilename + '.flow',
+      modifiedDestinationFilename,
+      transformFileSync(originalFilename, getBabelConfig('js-esm')).code,
+    );
+  } catch (error) {
+    log(error);
+    process.exit(1);
+  }
+
+  // 3) transform Flow version
+  try {
+    const modifiedDestinationFilename = destinationFilename + '.flow';
+    log(`${originalFilename} -> ${modifiedDestinationFilename}`);
+    fs.writeFileSync(
+      modifiedDestinationFilename,
       transformFileSync(originalFilename, getBabelConfig('flow')).code,
     );
   } catch (error) {
