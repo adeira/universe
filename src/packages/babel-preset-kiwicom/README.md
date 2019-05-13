@@ -98,7 +98,7 @@ module.exports = function(api /*: ApiType */) {
       [
         '@kiwicom/babel-preset-kiwicom',
         {
-          target: api.caller(caller => caller.name === 'babel-loader')
+          target: api.caller(caller => caller && caller.name === 'babel-loader')
             ? 'js-esm'
             : 'js',
         },
