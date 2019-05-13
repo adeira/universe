@@ -8,8 +8,7 @@
   "main": "src/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@babel/core": "^7.4.4",
-    "@kiwicom/babel-preset-kiwicom": "^3.0.0",
+    "@kiwicom/babel-preset-kiwicom": "^3.2.0",
     "@kiwicom/monorepo": "^0.21.0",
     "chalk": "^2.4.2",
     "is-ci": "^2.0.0",
@@ -18,5 +17,8 @@
     "rimraf": "^2.6.3",
     "semver": "^6.0.0",
     "tar": "^4.4.8"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.4.4"
   }
 }
