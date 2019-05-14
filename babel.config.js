@@ -5,9 +5,14 @@
 type ApiType = {|
   +assertVersion: number => void,
   +cache: {|
-    forever: () => void
-  |}
-|}
+    forever: () => void,
+  |},
+  +caller: (Caller => boolean) => boolean,
+|};
+
+type Caller = {|
+  +name: string,
+|};
 
 */
 
