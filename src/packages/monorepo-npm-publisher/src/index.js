@@ -6,13 +6,14 @@ import path from 'path';
 import util from 'util';
 import semver from 'semver';
 import rimraf from 'rimraf';
-import { transformFileSync } from '@babel/core';
 import packlist from 'npm-packlist';
 import { Workspaces } from '@kiwicom/monorepo';
 import isCI from 'is-ci';
 import chalk from 'chalk';
 
+import log from './log';
 import NPM from './NPM';
+import transformFileVariants from './transformFileVariants';
 
 type Options = {|
   +dryRun: boolean,
@@ -20,10 +21,6 @@ type Options = {|
   +npmAuthToken: string,
   +workspaces: Set<string>,
 |};
-
-function log(...message: $ReadOnlyArray<string>): void {
-  console.warn(...message); // eslint-disable-line no-console
-}
 
 export default async function publish(options: Options) {
   log('NPM publisher %s', require('../package.json').version);
@@ -62,7 +59,7 @@ export default async function publish(options: Options) {
           chalkPackageName,
         );
       } else {
-        log('🚀 Releasing %s', chalkPackageName);
+        log('🚀 Preparing %s for release', chalkPackageName);
 
         const filenames = await packlist({ path: packageFolderPath });
         for (const filename of filenames) {
@@ -82,11 +79,22 @@ export default async function publish(options: Options) {
               path.join(packageFolderPath, filename),
               destinationFileName,
             );
-          } else {
-            fs.copyFileSync(
-              path.join(packageFolderPath, filename),
+          } else if (filename === 'package.json') {
+            log('%s 👉 %s', packageJSONLocation, destinationFileName);
+            const newPackageJSONFile = packageJSONFile.main
+              ? {
+                  ...packageJSONFile,
+                  module: packageJSONFile.main.replace(/\.js$/, '.mjs'),
+                }
+              : packageJSONFile;
+            fs.writeFileSync(
               destinationFileName,
+              JSON.stringify(newPackageJSONFile, null, 2),
             );
+          } else {
+            const originalFilename = path.join(packageFolderPath, filename);
+            log('%s 👉 %s', originalFilename, destinationFileName);
+            fs.copyFileSync(originalFilename, destinationFileName);
           }
         }
 
@@ -114,65 +122,13 @@ export default async function publish(options: Options) {
             chalkPackageName,
             packageJSONFile.version,
           );
+        } else {
+          log(
+            '❌ Skipped publishing of %s because of DRY RUN.',
+            chalkPackageName,
+          );
         }
       }
     }
   });
-}
-
-function transformFileVariants(originalFilename, destinationFilename): void {
-  const getBabelConfig = (target: 'js' | 'js-esm' | 'flow') => {
-    return {
-      root: __dirname, // do not lookup any other Babel config
-      presets: [
-        [
-          '@kiwicom/babel-preset-kiwicom',
-          {
-            target,
-          },
-        ],
-      ],
-    };
-  };
-
-  // 1) transform JS version
-  try {
-    log(`${originalFilename} -> ${destinationFilename}`);
-    fs.writeFileSync(
-      destinationFilename,
-      transformFileSync(originalFilename, getBabelConfig('js')).code,
-    );
-  } catch (error) {
-    log(error);
-    process.exit(1);
-  }
-
-  // 2) transform JS-ESM version
-  try {
-    const modifiedDestinationFilename = destinationFilename.replace(
-      /\.js$/,
-      '.mjs',
-    );
-    log(`${originalFilename} -> ${modifiedDestinationFilename}`);
-    fs.writeFileSync(
-      modifiedDestinationFilename,
-      transformFileSync(originalFilename, getBabelConfig('js-esm')).code,
-    );
-  } catch (error) {
-    log(error);
-    process.exit(1);
-  }
-
-  // 3) transform Flow version
-  try {
-    const modifiedDestinationFilename = destinationFilename + '.flow';
-    log(`${originalFilename} -> ${modifiedDestinationFilename}`);
-    fs.writeFileSync(
-      modifiedDestinationFilename,
-      transformFileSync(originalFilename, getBabelConfig('flow')).code,
-    );
-  } catch (error) {
-    log(error);
-    process.exit(1);
-  }
 }
