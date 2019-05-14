@@ -37,6 +37,10 @@
         "title": "Testing",
         "sidebar_label": "Testing"
       },
+      "graphql/troubleshooting": {
+        "title": "Troubleshooting",
+        "sidebar_label": "Troubleshooting"
+      },
       "graphql/vault": {
         "title": "Environment variables",
         "sidebar_label": "Vault"
