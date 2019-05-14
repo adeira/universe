@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const path = require('path');
 
@@ -18,7 +18,7 @@ type InternalOptions = {|
   +target: SupportedTargets,
 |};
 
-type BabelRule = string | [string, Object];
+type BabelRule = string | [string, { [name: string]: mixed }];
 type BabelRules = $ReadOnlyArray<BabelRule>;
 
 */
