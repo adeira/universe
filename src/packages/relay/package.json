@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@kiwicom/fetch": "^2.3.1",
-    "@kiwicom/js": "^0.9.0",
+    "@kiwicom/js": "^0.10.0",
     "babel-plugin-relay": "^4.0.0",
     "react-relay": "^4.0.0",
     "relay-compiler": "^4.0.0",
