@@ -6,7 +6,8 @@
       "monorepo/upgrading-dependencies",
       "monorepo/directory-structure",
       "monorepo/acceptance",
-      "monorepo/example-projects"
+      "monorepo/example-projects",
+      "monorepo/wiki-search-refresh"
     ],
     "Open source": ["oss/general", "oss/npm-packages", "oss/npm-releasing"],
     "Developer guides": [
