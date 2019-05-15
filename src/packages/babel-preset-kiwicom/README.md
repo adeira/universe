@@ -89,6 +89,11 @@ What is the difference between these transpilation targets? JavaScript target tr
 It's also easily possible to change your target based on your Babel runner. It's handy when you need to support SSR as well as ESM:
 
 ```js
+function isBabelLoader(caller) /*: boolean %checks */ {
+  // https://github.com/babel/babel-loader
+  return !!(caller && caller.name === 'babel-loader');
+}
+
 module.exports = function(api /*: ApiType */) {
   api.assertVersion(7);
   api.cache.forever();
@@ -98,9 +103,7 @@ module.exports = function(api /*: ApiType */) {
       [
         '@kiwicom/babel-preset-kiwicom',
         {
-          target: api.caller(caller => caller && caller.name === 'babel-loader')
-            ? 'js-esm'
-            : 'js',
+          target: api.caller(isBabelLoader) ? 'js-esm' : 'js',
         },
       ],
     ],
