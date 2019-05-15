@@ -81,6 +81,10 @@
         "title": "Upgrading dependencies",
         "sidebar_label": "Upgrading dependencies"
       },
+      "monorepo/wiki-search-refresh": {
+        "title": "Wiki search refresh",
+        "sidebar_label": "Wiki search refresh"
+      },
       "oss/general": {
         "title": "General info",
         "sidebar_label": "General info"
