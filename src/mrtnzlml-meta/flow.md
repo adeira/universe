@@ -2,6 +2,16 @@
 - https://github.com/facebook/flow/blob/master/Changelog.md
 - https://github.com/niieani/typescript-vs-flowtype
 
+# Contributing to native libdevs
+
+https://github.com/facebook/flow#building-flow
+
+```
+make
+bash runtests.sh -t node_tests bin/flow
+bash runtests.sh -t node_tests -r bin/flow
+```
+
 # Interesting Flow commands
 
 ```text
