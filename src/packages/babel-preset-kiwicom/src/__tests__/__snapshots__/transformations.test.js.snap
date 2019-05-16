@@ -370,17 +370,22 @@ exports[`matches expected output: babel-issue-9810.js 1`] = `
 
 /*:: type TestType = any; */
 
+// This currently yields invalid Flow code. One workaround is to use regular
+// functions and not arrow functions. See the original issue.
 const executeNodeScript = (
   aaa /*: string */,
   bbb /*: number */,
   ccc /*: any */,
 ) /*: TestType */ => {
-  // This currently yields invalid Flow code. One workaround is to use regular
-  // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
 };
 
-module.exports = executeNodeScript;
+// This currently yields invalid Flow code.
+const supportsESM = (target: string) /*: boolean %checks */ => {
+  return target === 'js-esm';
+};
+
+module.exports = { executeNodeScript, supportsESM };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 "use strict";
@@ -388,6 +393,8 @@ module.exports = executeNodeScript;
 // See: https://github.com/babel/babel/issues/9810
 
 /*:: type TestType = any; */
+// This currently yields invalid Flow code. One workaround is to use regular
+// functions and not arrow functions. See the original issue.
 var executeNodeScript = function executeNodeScript(aaa
 /*: string */
 , bbb
@@ -397,12 +404,20 @@ var executeNodeScript = function executeNodeScript(aaa
 )
 /*: TestType */
 {
-  // This currently yields invalid Flow code. One workaround is to use regular
-  // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
+}; // This currently yields invalid Flow code.
+
+
+var supportsESM = function supportsESM(target
+/*: boolean %checks */
+) {
+  return target === 'js-esm';
 };
 
-module.exports = executeNodeScript;
+module.exports = {
+  executeNodeScript: executeNodeScript,
+  supportsESM: supportsESM
+};
 `;
 
 exports[`matches expected output: babel-issue-9810.js 2`] = `
@@ -413,17 +428,22 @@ exports[`matches expected output: babel-issue-9810.js 2`] = `
 
 /*:: type TestType = any; */
 
+// This currently yields invalid Flow code. One workaround is to use regular
+// functions and not arrow functions. See the original issue.
 const executeNodeScript = (
   aaa /*: string */,
   bbb /*: number */,
   ccc /*: any */,
 ) /*: TestType */ => {
-  // This currently yields invalid Flow code. One workaround is to use regular
-  // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
 };
 
-module.exports = executeNodeScript;
+// This currently yields invalid Flow code.
+const supportsESM = (target: string) /*: boolean %checks */ => {
+  return target === 'js-esm';
+};
+
+module.exports = { executeNodeScript, supportsESM };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow
@@ -432,17 +452,22 @@ module.exports = executeNodeScript;
 
 /*:: type TestType = any; */
 
+// This currently yields invalid Flow code. One workaround is to use regular
+// functions and not arrow functions. See the original issue.
 const executeNodeScript = (
 aaa /*: string */,
 bbb /*: number */,
 ccc /*: any */) =>
 /*: TestType */{
-  // This currently yields invalid Flow code. One workaround is to use regular
-  // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
 };
 
-module.exports = executeNodeScript;
+// This currently yields invalid Flow code.
+const supportsESM = (target /*: boolean %checks */: string) => {
+  return target === 'js-esm';
+};
+
+module.exports = { executeNodeScript, supportsESM };
 `;
 
 exports[`matches expected output: babel-issue-9810.js 3`] = `
@@ -453,22 +478,29 @@ exports[`matches expected output: babel-issue-9810.js 3`] = `
 
 /*:: type TestType = any; */
 
+// This currently yields invalid Flow code. One workaround is to use regular
+// functions and not arrow functions. See the original issue.
 const executeNodeScript = (
   aaa /*: string */,
   bbb /*: number */,
   ccc /*: any */,
 ) /*: TestType */ => {
-  // This currently yields invalid Flow code. One workaround is to use regular
-  // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
 };
 
-module.exports = executeNodeScript;
+// This currently yields invalid Flow code.
+const supportsESM = (target: string) /*: boolean %checks */ => {
+  return target === 'js-esm';
+};
+
+module.exports = { executeNodeScript, supportsESM };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // See: https://github.com/babel/babel/issues/9810
 
 /*:: type TestType = any; */
+// This currently yields invalid Flow code. One workaround is to use regular
+// functions and not arrow functions. See the original issue.
 var executeNodeScript = function executeNodeScript(aaa
 /*: string */
 , bbb
@@ -478,12 +510,20 @@ var executeNodeScript = function executeNodeScript(aaa
 )
 /*: TestType */
 {
-  // This currently yields invalid Flow code. One workaround is to use regular
-  // functions and not arrow functions. See the original issue.
   return [aaa, bbb, ccc];
+}; // This currently yields invalid Flow code.
+
+
+var supportsESM = function supportsESM(target
+/*: boolean %checks */
+) {
+  return target === 'js-esm';
 };
 
-module.exports = executeNodeScript;
+module.exports = {
+  executeNodeScript: executeNodeScript,
+  supportsESM: supportsESM
+};
 `;
 
 exports[`matches expected output: babel-issue-9921.js 1`] = `

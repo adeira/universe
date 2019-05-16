@@ -44,15 +44,12 @@ module.exports = (
     plugins = [path.join(__dirname, 'dev-declaration')];
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
-    const supportsESM = () /*: boolean %checks */ => {
-      return target === 'js-esm';
-    };
-
+    const supportsESM = target === 'js-esm';
     presets = [
       [
         '@babel/preset-env',
         {
-          modules: supportsESM() ? false : 'commonjs',
+          modules: supportsESM ? false : 'commonjs',
           targets: {
             node: 'current',
             browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
@@ -77,7 +74,7 @@ module.exports = (
       [
         '@babel/plugin-transform-runtime',
         {
-          useESModules: supportsESM(),
+          useESModules: supportsESM,
         },
       ],
       '@kiwicom/babel-plugin-orbit-components',
