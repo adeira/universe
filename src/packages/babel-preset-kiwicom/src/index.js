@@ -68,6 +68,7 @@ module.exports = (
       '@babel/plugin-proposal-nullish-coalescing-operator',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-optional-chaining',
+      '@babel/plugin-proposal-numeric-separator',
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
@@ -99,9 +100,10 @@ module.exports = (
         'nullishCoalescingOperator',
         'objectRestSpread',
         'optionalChaining',
+        'numericSeparator',
 
         // see: https://babeljs.io/docs/en/babel-parser#plugins
-        // Candidates: numericSeparator, classPrivateMethods
+        // Candidates: throwExpressions, classPrivateMethods
       ],
     },
     retainLines,
