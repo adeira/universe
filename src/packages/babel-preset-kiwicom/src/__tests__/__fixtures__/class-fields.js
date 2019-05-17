@@ -1,5 +1,6 @@
 // @flow strict
 
-export default class A {
-  b = 1;
+export default class ClassFields {
+  publicField = 1;
+  #privateField = 2;
 }
