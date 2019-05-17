@@ -1,25 +1,29 @@
 **This package doesn't support React Native**
 
-This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are three transpilation targets available: JS (default), JS-ESM and Flow. JavaScript transpilation target adds these features:
+This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are three transpilation targets available: `js` (default), `js-esm` and `flow`. JavaScript transpilation target adds these features:
 
 - Flow support `(a: string)`
 - JSX support `<Component />`
-- class fields `class A { b = 1; }` ([proposal](https://github.com/tc39/proposal-class-fields))
-- optional chaining `a?.b` ([proposal](https://github.com/tc39/proposal-optional-chaining))
-- nullish coalescing operator `a ?? b` ([proposal](https://github.com/babel/proposals/issues/14))
-- object rest spread `{...a}` ([proposal](https://github.com/tc39/proposal-object-rest-spread))
 - [`__DEV__` expression](#__dev__-expression)
-- capturing groups in RegExp `/(?<year>[0-9]{4})/`
-- granular imports of Orbit components (see: https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
+- [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 - [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
-- dynamic `import()` ([proposal](https://github.com/tc39/proposal-dynamic-import))
-- _and many more ..._
+- _and many more depending on your environment..._
 
-JS-ESM variant is doingthe same except it's targeting modern JS environments which support ES6 modules (`import`/`export`).
+On top of that these [proposals](https://github.com/tc39/proposals) are enabled by default:
+
+- optional chaining `a?.b` ([stage 1 proposal ⚠️](https://github.com/tc39/proposal-optional-chaining))
+- nullish coalescing operator `a ?? b` ([stage 1 proposal ⚠️](https://github.com/babel/proposals/issues/14))
+- class fields `class A { b = 1; }` ([stage 3 proposal](https://github.com/tc39/proposal-class-fields))
+- dynamic `import()` ([stage 3 proposal](https://github.com/tc39/proposal-dynamic-import))
+- object rest spread `{...a}` ([stage 4 proposal ✅](https://github.com/tc39/proposal-object-rest-spread))
+- capturing groups in RegExp `/(?<year>[0-9]{4})/` ([stage 4 proposal ✅](https://github.com/tc39/proposal-regexp-named-groups))
+
+JS-ESM variant is doing the same except it's targeting modern JS environments which support ES6 modules (`import`/`export`).
 
 This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:
 
 - declares `__DEV__` expression when used
+- transpiles Flow comments into Flow types (`/*:: type Example = number; */` -> `type Example = number;`)
 
 <!-- AUTOMATOR:HIRING_BANNER -->
 
@@ -89,7 +93,7 @@ What is the difference between these transpilation targets? JavaScript target tr
 It's also easily possible to change your target based on your Babel runner. It's handy when you need to support SSR as well as ESM:
 
 ```js
-function isBabelLoader(caller) /*: boolean %checks */ {
+function isWebpack(caller) /*: boolean %checks */ {
   // https://github.com/babel/babel-loader
   return !!(caller && caller.name === 'babel-loader');
 }
@@ -103,7 +107,7 @@ module.exports = function(api /*: ApiType */) {
       [
         '@kiwicom/babel-preset-kiwicom',
         {
-          target: api.caller(isBabelLoader) ? 'js-esm' : 'js',
+          target: api.caller(isWebpack) ? 'js-esm' : 'js',
         },
       ],
     ],
