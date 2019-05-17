@@ -656,8 +656,9 @@ exports[`matches expected output: class-fields.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
-export default class A {
-  b = 1;
+export default class ClassFields {
+  publicField = 1;
+  #privateField = 2;
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -674,48 +675,65 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-var A = function A() {
-  (0, _classCallCheck2.default)(this, A);
-  (0, _defineProperty2.default)(this, "b", 1);
+var ClassFields = function ClassFields() {
+  (0, _classCallCheck2.default)(this, ClassFields);
+  (0, _defineProperty2.default)(this, "publicField", 1);
+
+  _privateField.set(this, {
+    writable: true,
+    value: 2
+  });
 };
 
-exports.default = A;
+exports.default = ClassFields;
+
+var _privateField = new WeakMap();
 `;
 
 exports[`matches expected output: class-fields.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
-export default class A {
-  b = 1;
+export default class ClassFields {
+  publicField = 1;
+  #privateField = 2;
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow strict
 
-export default class A {
-  b = 1;}
+export default class ClassFields {
+  publicField = 1;
+  #privateField = 2;}
 `;
 
 exports[`matches expected output: class-fields.js 3`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
-export default class A {
-  b = 1;
+export default class ClassFields {
+  publicField = 1;
+  #privateField = 2;
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
 
-var A = function A() {
-  _classCallCheck(this, A);
+var ClassFields = function ClassFields() {
+  _classCallCheck(this, ClassFields);
 
-  _defineProperty(this, "b", 1);
+  _defineProperty(this, "publicField", 1);
+
+  _privateField.set(this, {
+    writable: true,
+    value: 2
+  });
 };
 
-export { A as default };
+var _privateField = new WeakMap();
+
+export { ClassFields as default };
 `;
 
 exports[`matches expected output: dev-expression.js 1`] = `

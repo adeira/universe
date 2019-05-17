@@ -13,7 +13,7 @@ On top of that these [proposals](https://github.com/tc39/proposals) are enabled 
 
 - optional chaining `a?.b` ([stage 1 proposal ⚠️](https://github.com/tc39/proposal-optional-chaining))
 - nullish coalescing operator `a ?? b` ([stage 1 proposal ⚠️](https://github.com/babel/proposals/issues/14))
-- class fields `class A { b = 1; }` ([stage 3 proposal](https://github.com/tc39/proposal-class-fields))
+- class fields `class A { b = 1; #c = 2 }` ([stage 3 proposal](https://github.com/tc39/proposal-class-fields))
 - dynamic `import()` ([stage 3 proposal](https://github.com/tc39/proposal-dynamic-import))
 - object rest spread `{...a}` ([stage 4 proposal ✅](https://github.com/tc39/proposal-object-rest-spread))
 - capturing groups in RegExp `/(?<year>[0-9]{4})/` ([stage 4 proposal ✅](https://github.com/tc39/proposal-regexp-named-groups))

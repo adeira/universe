@@ -1,5 +1,6 @@
 # Unreleased
 - Flow comments are now being transpiled to normal Flow types when you use `target:flow`. We changed it so that Babel understands them correctly ([see this reported issue](https://github.com/babel/babel/issues/9810)). Please report any issues related to this change.
+- Parsing of private class properties is now officially supported.
 
 # 3.2.0
 - Added support for new transpilation target `js-esm`. This target works the same as `js` except it supports ES6 modules.

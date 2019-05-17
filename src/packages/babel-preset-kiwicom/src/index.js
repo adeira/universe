@@ -94,13 +94,14 @@ module.exports = (
         'flowComments',
         // Enable parsing of (not transpilation) - necessary for Flow target:
         'classProperties',
+        'classPrivateProperties',
         'dynamicImport',
         'nullishCoalescingOperator',
         'objectRestSpread',
         'optionalChaining',
 
         // see: https://babeljs.io/docs/en/babel-parser#plugins
-        // Candidates: numericSeparator, classPrivateProperties, classPrivateMethods
+        // Candidates: numericSeparator, classPrivateMethods
       ],
     },
     retainLines,
