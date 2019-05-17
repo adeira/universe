@@ -91,6 +91,7 @@ module.exports = (
       plugins: [
         'jsx',
         'flow',
+        'flowComments',
         // Enable parsing of (not transpilation) - necessary for Flow target:
         'classProperties',
         'dynamicImport',
