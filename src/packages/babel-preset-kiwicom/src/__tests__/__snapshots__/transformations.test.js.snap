@@ -1171,6 +1171,62 @@ export default function Component() {
 }
 `;
 
+exports[`matches expected output: numeric-separators.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const budget = 1_000_000_000_000;
+const nibbles = 0b1010_0001_1000_0101;
+const message = 0xa0_b0_c0;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+var budget = 1000000000000;
+var nibbles = 41349;
+var message = 0xa0b0c0;
+`;
+
+exports[`matches expected output: numeric-separators.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const budget = 1_000_000_000_000;
+const nibbles = 0b1010_0001_1000_0101;
+const message = 0xa0_b0_c0;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const budget = 1_000_000_000_000;
+const nibbles = 0b1010_0001_1000_0101;
+const message = 0xa0_b0_c0;
+`;
+
+exports[`matches expected output: numeric-separators.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const budget = 1_000_000_000_000;
+const nibbles = 0b1010_0001_1000_0101;
+const message = 0xa0_b0_c0;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+var budget = 1000000000000;
+var nibbles = 41349;
+var message = 0xa0b0c0;
+`;
+
 exports[`matches expected output: optional-chaining.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
