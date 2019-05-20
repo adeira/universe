@@ -16,15 +16,22 @@ type Caller = {|
 
 */
 
+function isWebpack(caller) /*: boolean %checks */ {
+  // https://github.com/babel/babel-loader
+  return !!(caller && caller.name === 'babel-loader');
+}
+
 module.exports = function(api /*: ApiType */) {
   api.assertVersion(7);
-  api.cache.forever();
-
-  const presets = ['@kiwicom/babel-preset-kiwicom'];
-  const extraPlugins = [];
 
   return {
-    presets,
-    plugins: extraPlugins,
+    presets: [
+      [
+        '@kiwicom/babel-preset-kiwicom',
+        {
+          target: api.caller(isWebpack) ? 'js-esm' : 'js',
+        },
+      ],
+    ],
   };
 };

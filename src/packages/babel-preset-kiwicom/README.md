@@ -1,38 +1,8 @@
 **This package doesn't support React Native**
 
-This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com. There are three transpilation targets available: `js` (default), `js-esm` and `flow`. JavaScript transpilation target adds these features:
+This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com.
 
-- Flow support `(a: string)`
-- JSX support `<Component />`
-- [`__DEV__` expression](#__dev__-expression)
-- [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
-- [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
-- _and many more depending on your environment..._
-
-On top of that these [proposals](https://github.com/tc39/proposals) are enabled by default:
-
-- optional chaining `a?.b` ([stage 1 proposal ⚠️](https://github.com/tc39/proposal-optional-chaining))
-- nullish coalescing operator `a ?? b` ([stage 1 proposal ⚠️](https://github.com/babel/proposals/issues/14))
-- class fields `class A { b = 1; #c = 2 }` ([stage 3 proposal](https://github.com/tc39/proposal-class-fields))
-- dynamic `import()` ([stage 3 proposal](https://github.com/tc39/proposal-dynamic-import))
-- numeric separators `1_000_000` ([stage 3 proposal](https://github.com/tc39/proposal-numeric-separator))
-- object rest spread `{...a}` ([stage 4 proposal ✅](https://github.com/tc39/proposal-object-rest-spread))
-- capturing groups in RegExp `/(?<year>[0-9]{4})/` ([stage 4 proposal ✅](https://github.com/tc39/proposal-regexp-named-groups))
-
-JS-ESM variant is doing the same except it's targeting modern JS environments which support ES6 modules (`import`/`export`).
-
-This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:
-
-- declares `__DEV__` expression when used
-- transpiles Flow comments into Flow types (`/*:: type Example = number; */` -> `type Example = number;`)
-
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions: https://jobs.kiwi.com/
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
-# Usage
+# Installation and Usage
 
 Install this package:
 
@@ -43,7 +13,7 @@ yarn add --dev @babel/core @kiwicom/babel-preset-kiwicom
 And use it in your `babel.config.js`:
 
 ```js
-// @flow
+// @flow strict
 
 /*::
 
@@ -69,7 +39,55 @@ module.exports = function(api /*: ApiType */) {
 };
 ```
 
-Alternatively, you can specify the transpilation target:
+<!-- AUTOMATOR:HIRING_BANNER -->
+
+> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions: https://jobs.kiwi.com/
+
+<!-- /AUTOMATOR:HIRING_BANNER -->
+
+# Configuration
+
+This preset tries to be opinionated to shield you from the difficult configuration stuff but it offers some configuration options so you can target different environments and situations (modern browsers vs. Node.js vs. Flow-only envs and so on). Default configuration is:
+
+```js
+const config = {
+  target: 'js',
+  environments: {
+    node: 'current',
+    browsers: ['last 2 versions', 'ie >= 11'],
+  },
+};
+```
+
+This should be OK for majority of the use-cases. However, you can tweak these options as needed (continue bellow).
+
+## Transpilation targets
+
+There are three transpilation targets available: `js` (default), `js-esm` and `flow`. JavaScript transpilation target adds these features:
+
+- Flow support `(a: string)`
+- JSX support `<Component />`
+- [`__DEV__` expression](#__dev__-expression)
+- [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
+- [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
+- _and many more depending on your environment..._
+
+On top of that these [proposals](https://github.com/tc39/proposals) are enabled by default:
+
+- optional chaining `a?.b` ([stage 1 proposal ⚠️](https://github.com/tc39/proposal-optional-chaining))
+- nullish coalescing operator `a ?? b` ([stage 1 proposal ⚠️](https://github.com/babel/proposals/issues/14))
+- class fields `class A { b = 1; #c = 2 }` ([stage 3 proposal](https://github.com/tc39/proposal-class-fields))
+- dynamic `import()` ([stage 3 proposal](https://github.com/tc39/proposal-dynamic-import))
+- numeric separators `1_000_000` ([stage 3 proposal](https://github.com/tc39/proposal-numeric-separator))
+- object rest spread `{...a}` ([stage 4 proposal ✅](https://github.com/tc39/proposal-object-rest-spread))
+- capturing groups in RegExp `/(?<year>[0-9]{4})/` ([stage 4 proposal ✅](https://github.com/tc39/proposal-regexp-named-groups))
+
+JS-ESM variant is doing the same except it's targeting modern JS environments which support ES6 modules (`import`/`export`).
+
+This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:
+
+- declares `__DEV__` expression when used
+- transpiles Flow comments into Flow types (`/*:: type Example = number; */` -> `type Example = number;`)
 
 ```js
 module.exports = function(api /*: ApiType */) {
@@ -116,7 +134,28 @@ module.exports = function(api /*: ApiType */) {
 };
 ```
 
-# Features
+## Different environments
+
+While transpilation targets are targeting different JS systems (ES6, Flow), you can also change environments (Browsers, Node.js, Electron). To do so you can use `environments` configuration:
+
+```js
+module.exports = {
+  presets: [
+    [
+      '@kiwicom/babel-preset-kiwicom',
+      {
+        environments: {
+          node: 'current', // targeting only current Node.js version (no browsers)
+        },
+      },
+    ],
+  ],
+};
+```
+
+Please note: environments and transpilation targets are 2 distinct features. Transpilation targets allow you to modify how is the final code being exported while environments allow you to enable/disable tranpilation features based on your environment. For example: common use-case it to use `js-esm` tranpilation target so that Webpack can perform tree-shaking but environment is set to old browsers only. This means that Webpack can to the magic thanks to `import/export` however, final code will work in old browsers because Webpack is going to merge everything together and effectively remove these ES6 imports.
+
+# Transpilation features explained
 
 We want to make our life easier by writing modern JS and this Babel preset helps us with that. It's tailored for needs of Kiwi.com (except React Native) and it brings mostly syntactic sugar into our JS code. However, there are some additional features which are not related to JS syntax:
 
@@ -184,3 +223,4 @@ if (process.env.NODE_ENV !== 'production') {
 
 - https://github.com/facebook/fbjs/tree/master/packages/babel-preset-fbjs
 - https://github.com/github/babel-preset-github
+- https://github.com/airbnb/babel-preset-airbnb

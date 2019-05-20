@@ -9,13 +9,18 @@ type ApiType = {|
 |};
 
 type SupportedTargets = 'js' | 'js-esm' | 'flow';
+type Environments = { [string]: string | $ReadOnlyArray<string> };
 
 type ExternalOptions = {|
   +target?: SupportedTargets,
+  +environments?: Environments,
+  +debug?: boolean,
 |};
 
 type InternalOptions = {|
   +target: SupportedTargets,
+  +environments: Environments,
+  +debug: boolean,
 |};
 
 type BabelRule = string | [string, { [name: string]: mixed }];
@@ -30,8 +35,16 @@ module.exports = (
   api.assertVersion(7);
 
   const options /*: InternalOptions */ = {
-    target: 'js',
-    ...externalOptions,
+    target: externalOptions.target || 'js',
+    environments: externalOptions.environments || {
+      node: 'current',
+      browsers: [
+        // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
+        'last 2 versions',
+        'ie >= 11',
+      ],
+    },
+    debug: externalOptions.debug || false,
   };
 
   let presets /*: BabelRules */ = [];
@@ -64,11 +77,9 @@ module.exports = (
       [
         '@babel/preset-env',
         {
+          debug: options.debug,
           modules: supportsESM ? false : 'commonjs',
-          targets: {
-            node: 'current',
-            browsers: ['last 2 versions', 'ie >= 11'], // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
-          },
+          targets: options.environments,
           // TODO - loose: true (?)
         },
       ],
