@@ -1,4 +1,6 @@
 # Unreleased
+
+# 3.4.0
 - Now it's possible to configure not only transpilation targets but also different environments via `environments` option. Check readme file to see how to.
 
 # 3.3.0
