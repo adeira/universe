@@ -36,12 +36,27 @@ module.exports = (
 
   let presets /*: BabelRules */ = [];
   let plugins /*: BabelRules */ = [];
+  let parserPlugins /*: Array<string> */ = [
+    'jsx',
+    'flow',
+    'flowComments',
+    'dynamicImport',
+  ];
   let retainLines = false;
 
   const target = options.target;
-
   if (target === 'flow') {
     plugins = [path.join(__dirname, 'dev-declaration')];
+    parserPlugins = parserPlugins.concat([
+      // These parser options are relevant only to Flow because JS targets
+      // enable them via necessary transpilation plugins.
+      'classProperties',
+      'classPrivateProperties',
+      'nullishCoalescingOperator',
+      'objectRestSpread',
+      'optionalChaining',
+      'numericSeparator',
+    ]);
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
     const supportsESM = target === 'js-esm';
@@ -89,22 +104,9 @@ module.exports = (
     presets,
     plugins,
     parserOpts: {
-      plugins: [
-        'jsx',
-        'flow',
-        'flowComments',
-        // Enable parsing of (not transpilation) - necessary for Flow target:
-        'classProperties',
-        'classPrivateProperties',
-        'dynamicImport',
-        'nullishCoalescingOperator',
-        'objectRestSpread',
-        'optionalChaining',
-        'numericSeparator',
-
-        // see: https://babeljs.io/docs/en/babel-parser#plugins
-        // Candidates: throwExpressions, classPrivateMethods
-      ],
+      // see: https://babeljs.io/docs/en/babel-parser#plugins
+      // Candidates: throwExpressions, classPrivateMethods
+      plugins: parserPlugins,
     },
     retainLines,
     // TODO: sourceType: 'unambiguous',

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`preset with target 'flow' emits correct config 1`] = `
+{
+  "presets": [],
+  "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-declaration"
+  ],
+  "parserOpts": {
+    "plugins": [
+      "jsx",
+      "flow",
+      "flowComments",
+      "dynamicImport",
+      "classProperties",
+      "classPrivateProperties",
+      "nullishCoalescingOperator",
+      "objectRestSpread",
+      "optionalChaining",
+      "numericSeparator"
+    ]
+  },
+  "retainLines": true
+}
+`;
+
+exports[`preset with target 'js' emits correct config 1`] = `
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs",
+        "targets": {
+          "node": "current",
+          "browsers": [
+            "last 2 versions",
+            "ie >= 11"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression.js",
+    "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
+    "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-nullish-coalescing-operator",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-numeric-separator",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "useESModules": false
+      }
+    ],
+    "@kiwicom/babel-plugin-orbit-components"
+  ],
+  "parserOpts": {
+    "plugins": [
+      "jsx",
+      "flow",
+      "flowComments",
+      "dynamicImport"
+    ]
+  },
+  "retainLines": false
+}
+`;
+
+exports[`preset with target 'js-esm' emits correct config 1`] = `
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": {
+          "node": "current",
+          "browsers": [
+            "last 2 versions",
+            "ie >= 11"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression.js",
+    "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
+    "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-nullish-coalescing-operator",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-optional-chaining",
+    "@babel/plugin-proposal-numeric-separator",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "useESModules": true
+      }
+    ],
+    "@kiwicom/babel-plugin-orbit-components"
+  ],
+  "parserOpts": {
+    "plugins": [
+      "jsx",
+      "flow",
+      "flowComments",
+      "dynamicImport"
+    ]
+  },
+  "retainLines": false
+}
+`;
