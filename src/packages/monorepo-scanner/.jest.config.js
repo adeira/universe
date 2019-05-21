@@ -16,6 +16,7 @@ const rootDir = path.join(__dirname, 'src', 'scans');
 
 const dependenciesTable = new Map([
   // when should the check be executed => the check itself
+  [/.+/i, 'Babel.scan.js'],
   [/(?:package\.json|CHANGELOG\.md)$/i, 'Changelogs.scan.js'],
   [/(?:package\.json|LICENSE)$/i, 'Licenses.scan.js'],
   [/(?:package\.json|\.babelrc\.js)$/i, 'NextjsApplications.scan.js'],
