@@ -1,5 +1,8 @@
 # Unreleased
 
+# 3.4.0
+- Now it's possible to configure not only transpilation targets but also different environments via `environments` option. Check readme file to see how to.
+
 # 3.3.0
 - Flow comments are now being transpiled to normal Flow types when you use `target:flow`. We changed it so that Babel understands them correctly ([see this reported issue](https://github.com/babel/babel/issues/9810)). Please report any issues related to this change.
 - Parsing of private class properties is now officially supported.

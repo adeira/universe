@@ -4,18 +4,6 @@ import path from 'path';
 
 import preset from '../index';
 
-const supportedTargets = ['js', 'js-esm', 'flow'];
-
-const apiMock = {
-  assertVersion: version => {
-    if (version !== 7) {
-      throw new Error(
-        'Only Babel API version 7 supported, given version: ' + version,
-      );
-    }
-  },
-};
-
 expect.addSnapshotSerializer({
   test: () => true,
   print: value => {
@@ -27,9 +15,32 @@ expect.addSnapshotSerializer({
   },
 });
 
-test.each(supportedTargets)(
-  "preset with target '%s' emits correct config",
-  target => {
-    expect(preset(apiMock, { target })).toMatchSnapshot();
+const supportedTargets = ['js', 'js-esm', 'flow'];
+const environments = [
+  undefined, // default values
+  { node: 'current' },
+  { browsers: ['last 2 versions', 'ie >= 11'] },
+];
+
+const matrix = [];
+supportedTargets.forEach(function(target) {
+  environments.forEach(function(environment) {
+    matrix.push([target, environment]);
+  });
+});
+
+test.each(matrix)(
+  "emits correct config for target '%s' and environment '%j'",
+  (target, environments) => {
+    const apiMock = {
+      assertVersion: version => {
+        if (version !== 7) {
+          throw new Error(
+            'Only Babel API version 7 supported, given version: ' + version,
+          );
+        }
+      },
+    };
+    expect(preset(apiMock, { target, environments })).toMatchSnapshot();
   },
 );
