@@ -13,6 +13,7 @@ import chalk from 'chalk';
 
 import log from './log';
 import NPM from './NPM';
+import modifyPackageJSON from './modifyPackageJSON';
 import transformFileVariants from './transformFileVariants';
 
 type Options = {|
@@ -81,12 +82,10 @@ export default async function publish(options: Options) {
             );
           } else if (filename === 'package.json') {
             log('%s 👉 %s', packageJSONLocation, destinationFileName);
-            const newPackageJSONFile = packageJSONFile.main
-              ? {
-                  ...packageJSONFile,
-                  module: packageJSONFile.main.replace(/\.js$/, '.mjs'),
-                }
-              : packageJSONFile;
+            const newPackageJSONFile = modifyPackageJSON(
+              // $FlowAllowDynamicImport
+              require(packageJSONLocation),
+            );
             fs.writeFileSync(
               destinationFileName,
               JSON.stringify(newPackageJSONFile, null, 2),
