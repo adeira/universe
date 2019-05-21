@@ -10,9 +10,7 @@ import createSyncPhase from '../src/phases/createSyncPhase';
 import createPushPhase from '../src/phases/createPushPhase';
 
 iterateConfigs(cfg => {
-  // See: https://github.com/babel/babel/issues/9921 (vv)
-  // new Set<() => void>([
-  new Set([
+  new Set<() => void>([
     createClonePhase(cfg.exportedRepoURL, cfg.exportedRepoPath),
     createCheckCorruptedRepoPhase(cfg.exportedRepoPath),
     createCleanPhase(cfg.exportedRepoPath),

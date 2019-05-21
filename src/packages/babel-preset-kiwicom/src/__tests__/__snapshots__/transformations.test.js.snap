@@ -491,23 +491,19 @@ exports[`matches expected output: babel-issue-9921.js 1`] = `
 // @flow strict-local
 
 // See: https://github.com/babel/babel/issues/9921
-// It currently doesn't work at all since Babel Parser 7.4.4+ is not compatible
-// with shebang and Flow in the same file.
 
 /* eslint-disable */
 
 new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-THROWN EXCEPTION:
+#!/usr/bin/env node
+// See: https://github.com/babel/babel/issues/9921
 
-Error: unknown: Unexpected token (11:9)
+/* eslint-disable */
+"use strict";
 
-   9 | /* eslint-disable */
-  10 | 
-> 11 | new Set<() => void>([]);
-     |          ^
-  12 | 
+new Set([]);
 `;
 
 exports[`matches expected output: babel-issue-9921.js 2`] = `
@@ -517,23 +513,21 @@ exports[`matches expected output: babel-issue-9921.js 2`] = `
 // @flow strict-local
 
 // See: https://github.com/babel/babel/issues/9921
-// It currently doesn't work at all since Babel Parser 7.4.4+ is not compatible
-// with shebang and Flow in the same file.
 
 /* eslint-disable */
 
 new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-THROWN EXCEPTION:
+#!/usr/bin/env node
 
-Error: unknown: Unexpected token (11:9)
+// @flow strict-local
 
-   9 | /* eslint-disable */
-  10 | 
-> 11 | new Set<() => void>([]);
-     |          ^
-  12 | 
+// See: https://github.com/babel/babel/issues/9921
+
+/* eslint-disable */
+
+new Set<() => void>([]);
 `;
 
 exports[`matches expected output: babel-issue-9921.js 3`] = `
@@ -543,23 +537,17 @@ exports[`matches expected output: babel-issue-9921.js 3`] = `
 // @flow strict-local
 
 // See: https://github.com/babel/babel/issues/9921
-// It currently doesn't work at all since Babel Parser 7.4.4+ is not compatible
-// with shebang and Flow in the same file.
 
 /* eslint-disable */
 
 new Set<() => void>([]);
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-THROWN EXCEPTION:
+#!/usr/bin/env node
+// See: https://github.com/babel/babel/issues/9921
 
-Error: unknown: Unexpected token (11:9)
-
-   9 | /* eslint-disable */
-  10 | 
-> 11 | new Set<() => void>([]);
-     |          ^
-  12 | 
+/* eslint-disable */
+new Set([]);
 `;
 
 exports[`matches expected output: capturing-groups.js 1`] = `
