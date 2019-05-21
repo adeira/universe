@@ -2,6 +2,14 @@
 
 This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com.
 
+- [Installation and Usage](#installation-and-usage)
+- [Configuration](#configuration)
+  - [Transpilation targets](#transpilation-targets)
+  - [Different environments](#different-environments)
+- [Transpilation features explained](#transpilation-features-explained)
+  - [`__DEV__` expression](#__dev__-expression)
+  - [`invariant` and `warning` functions](#invariant-and-warning-functions)
+
 # Installation and Usage
 
 Install this package:
@@ -19,9 +27,9 @@ And use it in your `babel.config.js`:
 
 type ApiType = {|
   +cache: {|
-    forever: () => void
-  |}
-|}
+    forever: () => void,
+  |},
+|};
 
 */
 
@@ -47,14 +55,19 @@ module.exports = function(api /*: ApiType */) {
 
 # Configuration
 
-This preset tries to be opinionated to shield you from the difficult configuration stuff but it offers some configuration options so you can target different environments and situations (modern browsers vs. Node.js vs. Flow-only envs and so on). Default configuration is:
+This preset tries to be opinionated to shield you from the difficult configuration stuff but it offers some configuration options so you can target different environments and situations (modern browsers vs. Node.js vs. Flow-only envs and so on). Current default configuration is:
 
 ```js
 const config = {
   target: 'js',
   environments: {
     node: 'current',
-    browsers: ['last 2 versions', 'ie >= 11'],
+    browsers: [
+      // See: https://browserl.ist/?q=last+2+versions%2C+ie+%3E%3D+11
+      // Or:  npx browserslist 'last 2 versions, ie >= 11'
+      'last 2 versions',
+      'ie >= 11',
+    ],
   },
 };
 ```
@@ -70,7 +83,7 @@ There are three transpilation targets available: `js` (default), `js-esm` and `f
 - [`__DEV__` expression](#__dev__-expression)
 - [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 - [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
-- _and many more depending on your environment..._
+- _and many more depending on your environment, see section [different environments](#different-environments)..._
 
 On top of that these [proposals](https://github.com/tc39/proposals) are enabled by default:
 
@@ -84,10 +97,12 @@ On top of that these [proposals](https://github.com/tc39/proposals) are enabled 
 
 JS-ESM variant is doing the same except it's targeting modern JS environments which support ES6 modules (`import`/`export`).
 
-This preset uses `env` preset behind the scenes which means it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end requirements (last 2 versions, ie >= 11). You can also choose Flow as a transpilation target (see bellow). This mode uses _only_ these features:
+This preset uses `env` preset behind the scenes which means that by default it transpiles JS to the current Node.js version you are running. Therefore it's recommended to do the transpilation in your Docker container that is identical to your production version. On top of that it transpiles code to be compatible with our front-end [Browserlist](https://github.com/browserslist/browserslist) requirements (can be changed via `environment` option). You can also choose Flow as a transpilation target. Flow target uses _only_ these features:
 
 - declares `__DEV__` expression when used
 - transpiles Flow comments into Flow types (`/*:: type Example = number; */` -> `type Example = number;`)
+
+Use option `target` to enable Flow-only transpilations:
 
 ```js
 module.exports = function(api /*: ApiType */) {
@@ -107,19 +122,18 @@ module.exports = function(api /*: ApiType */) {
 };
 ```
 
-What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js and browsers environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is).
+What is the difference between these transpilation targets? JavaScript target transpiles your code so it can run in any Node.js and browsers environment with the modern JS features whereas Flow only tweaks the exported types so they can be used in different projects (but leaves JS code as is, think better [flow-copy-source](https://github.com/Macil/flow-copy-source)).
 
 It's also easily possible to change your target based on your Babel runner. It's handy when you need to support SSR as well as ESM:
 
 ```js
 function isWebpack(caller) /*: boolean %checks */ {
-  // https://github.com/babel/babel-loader
+  // see: https://github.com/babel/babel-loader
   return !!(caller && caller.name === 'babel-loader');
 }
 
 module.exports = function(api /*: ApiType */) {
   api.assertVersion(7);
-  api.cache.forever();
 
   return {
     presets: [
@@ -155,13 +169,83 @@ module.exports = {
 
 Please note: environments and transpilation targets are 2 distinct features. Transpilation targets allow you to modify how is the final code being exported while environments allow you to enable/disable tranpilation features based on your environment. For example: common use-case it to use `js-esm` tranpilation target so that Webpack can perform tree-shaking but environment is set to old browsers only. This means that Webpack can to the magic thanks to `import/export` however, final code will work in old browsers because Webpack is going to merge everything together and effectively remove these ES6 imports.
 
+You can easily debug what environments and plugins are being used when you pass `debug:true` option to our Babel preset options:
+
+```js
+module.exports = {
+  presets: [
+    [
+      '@kiwicom/babel-preset-kiwicom',
+      {
+        debug: true,
+      },
+    ],
+  ],
+};
+```
+
+You should be able to see similar output (default values to this date for [`example-relay`](https://github.com/kiwicom/relay-example)):
+
+```text
+@babel/preset-env: `DEBUG` option
+
+Using targets:
+{
+  "android": "4.4.3",
+  "chrome": "72",
+  "edge": "17",
+  "firefox": "65",
+  "ie": "10",
+  "ios": "12",
+  "node": "12.1",
+  "opera": "57",
+  "safari": "12",
+  "samsung": "8.2"
+}
+
+Using modules transform: commonjs
+
+Using plugins:
+  transform-template-literals { "android":"4.4.3", "ie":"10", "ios":"12", "safari":"12" }
+  transform-literals { "android":"4.4.3", "ie":"10" }
+  transform-function-name { "android":"4.4.3", "edge":"17", "ie":"10" }
+  transform-arrow-functions { "android":"4.4.3", "ie":"10" }
+  transform-block-scoped-functions { "android":"4.4.3", "ie":"10" }
+  transform-classes { "android":"4.4.3", "ie":"10" }
+  transform-object-super { "android":"4.4.3", "ie":"10" }
+  transform-shorthand-properties { "android":"4.4.3", "ie":"10" }
+  transform-duplicate-keys { "android":"4.4.3", "ie":"10" }
+  transform-computed-properties { "android":"4.4.3", "ie":"10" }
+  transform-for-of { "android":"4.4.3", "ie":"10" }
+  transform-sticky-regex { "android":"4.4.3", "ie":"10" }
+  transform-dotall-regex { "android":"4.4.3", "edge":"17", "firefox":"65", "ie":"10" }
+  transform-unicode-regex { "android":"4.4.3", "ie":"10" }
+  transform-spread { "android":"4.4.3", "ie":"10" }
+  transform-parameters { "android":"4.4.3", "edge":"17", "ie":"10" }
+  transform-destructuring { "android":"4.4.3", "edge":"17", "ie":"10" }
+  transform-block-scoping { "android":"4.4.3", "ie":"10" }
+  transform-typeof-symbol { "android":"4.4.3", "ie":"10" }
+  transform-new-target { "android":"4.4.3", "ie":"10" }
+  transform-regenerator { "android":"4.4.3", "ie":"10" }
+  transform-exponentiation-operator { "android":"4.4.3", "ie":"10" }
+  transform-async-to-generator { "android":"4.4.3", "ie":"10" }
+  proposal-async-generator-functions { "android":"4.4.3", "edge":"17", "ie":"10" }
+  proposal-object-rest-spread { "android":"4.4.3", "edge":"17", "ie":"10" }
+  proposal-unicode-property-regex { "android":"4.4.3", "edge":"17", "firefox":"65", "ie":"10", "samsung":"8.2" }
+  proposal-json-strings { "android":"4.4.3", "edge":"17", "ie":"10", "samsung":"8.2" }
+  proposal-optional-catch-binding { "android":"4.4.3", "edge":"17", "ie":"10", "samsung":"8.2" }
+  transform-named-capturing-groups-regex { "android":"4.4.3", "edge":"17", "firefox":"65", "ie":"10", "samsung":"8.2" }
+
+Using polyfills: No polyfills were added, since the `useBuiltIns` option was not set.
+```
+
 # Transpilation features explained
 
-We want to make our life easier by writing modern JS and this Babel preset helps us with that. It's tailored for needs of Kiwi.com (except React Native) and it brings mostly syntactic sugar into our JS code. However, there are some additional features which are not related to JS syntax:
+We want to make our life easier by writing modern JS and this Babel preset helps us with that. It's tailored for needs of Kiwi.com and it brings mostly syntactic sugar into our JS code. However, there are some additional features which are not related to JS syntax:
 
 ## `__DEV__` expression
 
-Expression `__DEV__` is a boolean value and it is set to `true` in dev (and test) environments but it's `false` in production. It's useful when you want to call something only for development:
+Expression `__DEV__` is a great way how to detect development environment while keeping this check multiplatform (`process.env` doesn't exist in React Native for example). It's a boolean value and it is set to `true` in dev (and test) environments but it's `false` in production. It's useful when you want to call something only for development:
 
 ```js
 if (__DEV__) {
