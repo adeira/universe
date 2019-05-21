@@ -1,15 +1,22 @@
-// @flow
+// @flow strict-local
 
 import { invariant } from '@kiwicom/js';
 
 import { globSync } from './glob';
 import { findRootPackageJson } from './findRootPackageJson';
 
-function __resolveWorkspaces(packageJSON: Object): $ReadOnlyArray<string> {
-  if (Array.isArray(packageJSON.workspaces)) {
-    return packageJSON.workspaces;
-  } else if (Array.isArray(packageJSON.workspaces?.packages)) {
-    return packageJSON.workspaces.packages;
+type PackageJSON = {|
+  +workspaces?:
+    | $ReadOnlyArray<string>
+    | {| +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> |},
+|};
+
+function __resolveWorkspaces(packageJSON: PackageJSON): $ReadOnlyArray<string> {
+  const workspaces = packageJSON.workspaces;
+  if (Array.isArray(workspaces)) {
+    return workspaces;
+  } else if (workspaces && Array.isArray(workspaces.packages)) {
+    return workspaces.packages;
   }
   throw new Error('Cannot find workspaces definition.');
 }
