@@ -258,6 +258,21 @@ Cannot call await with context.dataLoaders.autobooking.getResult(...) bound to p
 
 You can eventually use `yarn flow check --traces 100`
 
+# Common configuration issues
+
+1. Accidentally disabled flow for ALL JavaScript files
+
+```ini
+module.file_ext=.json
+# do not forget to define '.js' here as well otherwise you basically disabled Flow
+```
+
+See: https://flow.org/en/docs/config/options/#toc-module-file-ext-string
+
+2. Inncorrectly used `resolve_dirname` instead of `name_mapper`
+
+See: https://github.com/facebook/flow/pull/5850
+
 # Fun with Flow
 
 ## `boolean` is incompatible with `true | false`
