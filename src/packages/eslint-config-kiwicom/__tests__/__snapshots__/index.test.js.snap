@@ -214,6 +214,7 @@ Object {
     "jest/expect-expect": 0,
     "jest/lowercase-name": 0,
     "jest/no-alias-methods": 0,
+    "jest/no-commented-out-tests": 0,
     "jest/no-disabled-tests": 2,
     "jest/no-empty-title": 2,
     "jest/no-focused-tests": 2,
