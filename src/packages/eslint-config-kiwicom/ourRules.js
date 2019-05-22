@@ -282,6 +282,7 @@ module.exports = {
   'jest/expect-expect': OFF,
   'jest/lowercase-name': OFF,
   'jest/no-alias-methods': OFF,
+  'jest/no-commented-out-tests': OFF,
   'jest/no-disabled-tests': ERROR,
   'jest/no-empty-title': ERROR,
   'jest/no-focused-tests': ERROR,
