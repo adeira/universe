@@ -2,10 +2,14 @@
 
 import { createFragmentContainer as _createFragmentContainer } from 'react-relay';
 
-import type { $RelayProps, Environment, FragmentSpec } from './types.flow';
+import type {
+  FragmentSpec,
+  $RelayProps,
+  $EnvironmentFromProps,
+} from './types.flow';
 
 export type RelayProp = {|
-  +environment: Environment,
+  +environment: $EnvironmentFromProps,
 |};
 
 export default function createFragmentContainer<

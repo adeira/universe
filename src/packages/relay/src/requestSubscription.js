@@ -5,10 +5,10 @@ import { requestSubscription as _requestSubscription } from 'react-relay';
 import type {
   DeclarativeMutationConfig,
   Disposable,
-  Environment,
   GraphQLTaggedNode,
   RecordSourceSelectorProxy,
   Variables,
+  $EnvironmentFromProps,
 } from './types.flow';
 
 opaque type SelectorData = $FlowFixMe;
@@ -28,7 +28,7 @@ type Config = {|
  * to ensure the subscription is performed in the correct environment.
  */
 export default function requestSubscription(
-  environment: Environment,
+  environment: $EnvironmentFromProps,
   config: Config,
 ): Disposable {
   return _requestSubscription(environment, config);

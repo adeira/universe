@@ -3,11 +3,11 @@
 import { createPaginationContainer as _createPaginationContainer } from 'react-relay';
 
 import type {
-  $RelayProps,
   FragmentSpec,
   GraphQLTaggedNode,
   Disposable,
-  Environment,
+  $RelayProps,
+  $EnvironmentFromProps,
 } from './types.flow';
 
 type ConnectionData = {|
@@ -39,7 +39,7 @@ type ConnectionConfig = {|
 |};
 
 export type PaginationRelayProp = {|
-  +environment: Environment,
+  +environment: $EnvironmentFromProps,
   +hasMore: () => boolean,
   +isLoading: () => boolean,
   +loadMore: (

@@ -46,6 +46,18 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
   (<T>(T) => T)
 >
 
+/**
+ * Functions `commitMutation`, `requestSubscription` and `commitLocalUpdate`
+ * should accept Environment from `props.relay` to work properly in multi-env.
+ * This type should be used to distinguish such environments.
+ * See: https://facebook.github.io/relay/docs/en/mutations#arguments
+ */
+export type $EnvironmentFromProps = {|
+  ...Environment,
+  // This is an internal property so don't write it manually to your code.
+  +$__isEnvironmentFromProps: boolean,
+|};
+
 export type DeclarativeMutationConfig =
   | RangeAddConfig
   | RangeDeleteConfig

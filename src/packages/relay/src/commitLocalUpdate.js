@@ -2,7 +2,10 @@
 
 import { commitLocalUpdate as _commitLocalUpdate } from 'react-relay';
 
-import type { Environment, RecordSourceSelectorProxy } from './types.flow';
+import type {
+  RecordSourceSelectorProxy,
+  $EnvironmentFromProps,
+} from './types.flow';
 
 opaque type SelectorData = $FlowFixMe;
 
@@ -11,7 +14,7 @@ opaque type SelectorData = $FlowFixMe;
  * to ensure the update is performed in the correct environment.
  */
 export default function commitLocalUpdate(
-  environment: Environment,
+  environment: $EnvironmentFromProps,
   updater: (store: RecordSourceSelectorProxy, data: SelectorData) => void,
 ) {
   return _commitLocalUpdate(environment, updater);
