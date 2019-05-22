@@ -150,7 +150,7 @@ module.exports = function(api /*: ApiType */) {
 
 ## Different environments
 
-While transpilation targets are targeting different JS systems (ES6, Flow), you can also change environments (Browsers, Node.js, Electron). To do so you can use `environments` configuration:
+While transpilation targets are targeting different JavaScript systems (ES6, Flow), you can also change environments (Browsers, Node.js, Electron). To do so you can use `environments` configuration:
 
 ```js
 module.exports = {
@@ -167,7 +167,11 @@ module.exports = {
 };
 ```
 
-Please note: environments and transpilation targets are 2 distinct features. Transpilation targets allow you to modify how is the final code being exported while environments allow you to enable/disable tranpilation features based on your environment. For example: common use-case it to use `js-esm` tranpilation target so that Webpack can perform tree-shaking but environment is set to old browsers only. This means that Webpack can to the magic thanks to `import/export` however, final code will work in old browsers because Webpack is going to merge everything together and effectively remove these ES6 imports.
+Please note: environments and transpilation targets are 2 distinct features. Transpilation targets allow you to modify what kind of code you want to get (JS, JS with modules, Flow types) while environments allow you to enable/disable tranpilation features based on your environment. For example: common use-case it to use `js-esm` tranpilation target so that Webpack can perform tree-shaking but environment is set to old browsers only. This means that Webpack can do the magic thanks to `import/export` however, final code will work in old browsers because Webpack is going to merge everything together and effectively remove these ES6 imports. Few more examples to understand the difference between transpilation targets and environments:
+
+- give me JavaScript (_`js` target_) with features for Internet Explorer 10 (_environment_)
+- give me JavaScript with ES6 modules (_`js-esm` target_) with features for Node.js (_environment_)
+- give me Flow code (_`flow` target_) with features for all modern browsers (_environment_)
 
 You can easily debug what environments and plugins are being used when you pass `debug:true` option to our Babel preset options:
 
