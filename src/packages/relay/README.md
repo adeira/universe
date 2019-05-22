@@ -40,7 +40,7 @@ Usage:
 ```js
 import * as React from 'react';
 import { graphql, QueryRenderer } from '@kiwicom/relay';
-import type { AppQueryResponse } from '__generated__/AppQuery.graphql';
+import type { AppQueryResponse } from './__generated__/AppQuery.graphql';
 
 function handleResponse(props: AppQueryResponse) {
   const edges = props.allLocations?.edges ?? [];
@@ -92,6 +92,8 @@ const Environment = createEnvironment({
   fetchFn: createNetworkFetcher('https://graphql.kiwi.com', {
     'X-Client': '** TODO **',
   }),
+  // subscribeFn
+  // graphiQLPrinter
 });
 ```
 
@@ -103,7 +105,7 @@ Now, just use the created environment:
 export default function App() {
   return (
     <QueryRenderer
-      environment={Environment}
+      environment={Environment} // <<<
       query={graphql` ... `}
       onResponse={handleResponse}
     />
@@ -184,6 +186,8 @@ export default function App() {
 ```
 
 ## Do not expose global `Environment`
+
+_This environments abuse is going to be disallowed in `@kiwicom/relay` version 3.0_
 
 You should never import your custom environment directly when working with mutations or subscriptions. Always use the environment provided in the props (exposed by any Relay container):
 

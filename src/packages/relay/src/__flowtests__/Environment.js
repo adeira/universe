@@ -5,6 +5,7 @@ import {
   commitMutation,
   requestSubscription,
   commitLocalUpdate,
+  createEnvironment,
   type RelayProp,
   type RefetchRelayProp,
   type PaginationRelayProp,
@@ -17,6 +18,11 @@ type PropsC = {| +relay: PaginationRelayProp |};
 type PropsInvalid = {|
   +relay: {| environment: number |},
 |};
+
+// this returns Environment which should never be used directly
+const ManuallyCreatedEnvironment = createEnvironment({
+  fetchFn: () => {},
+});
 
 const mutationConfig = {
   mutation: graphql`
@@ -54,9 +60,13 @@ module.exports = {
     correctUsageC(props: PropsC) {
       return commitMutation(props.relay.environment, mutationConfig);
     },
-    incorrectUsage(props: PropsInvalid) {
+    incorrectUsageA(props: PropsInvalid) {
       // $FlowExpectedError: this environment is invalid and should not be accepted
       return commitMutation(props.relay.environment, mutationConfig);
+    },
+    incorrectUsageB() {
+      // $FlowExpectedError: environment must be passed down from props
+      return commitMutation(ManuallyCreatedEnvironment, mutationConfig);
     },
   },
   requestSubscription: {
@@ -69,9 +79,16 @@ module.exports = {
     correctUsageC(props: PropsC) {
       return requestSubscription(props.relay.environment, subscriptionConfig);
     },
-    incorrectUsage(props: PropsInvalid) {
+    incorrectUsageA(props: PropsInvalid) {
       // $FlowExpectedError: this environment is invalid and should not be accepted
       return requestSubscription(props.relay.environment, subscriptionConfig);
+    },
+    incorrectUsageB() {
+      return requestSubscription(
+        // $FlowExpectedError: environment must be passed down from props
+        ManuallyCreatedEnvironment,
+        subscriptionConfig,
+      );
     },
   },
   commitLocalUpdate: {
@@ -84,9 +101,13 @@ module.exports = {
     correctUsageC(props: PropsC) {
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
-    incorrectUsage(props: PropsInvalid) {
+    incorrectUsageA(props: PropsInvalid) {
       // $FlowExpectedError: this environment is invalid and should not be accepted
       return commitLocalUpdate(props.relay.environment, localUpdater);
+    },
+    incorrectUsageB() {
+      // $FlowExpectedError: environment must be passed down from props
+      return commitLocalUpdate(ManuallyCreatedEnvironment, localUpdater);
     },
   },
 };

@@ -6,8 +6,8 @@ import type {
   Variables,
   GraphQLTaggedNode,
   DeclarativeMutationConfig,
-  Environment,
   RecordSourceSelectorProxy,
+  $EnvironmentFromProps,
 } from './types.flow';
 
 opaque type SelectorData = $FlowFixMe;
@@ -29,7 +29,7 @@ type Config = {|
  * to ensure the mutation is performed in the correct environment.
  */
 export default function commitMutation(
-  environment: Environment,
+  environment: $EnvironmentFromProps,
   config: Config,
 ) {
   return _commitMutation(environment, config);

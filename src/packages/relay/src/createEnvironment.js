@@ -4,13 +4,13 @@ import {
   RecordSource,
   Store,
   Network,
-  Environment,
+  Environment as RelayEnvironment,
   ConnectionHandler,
 } from 'relay-runtime';
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
 import createRequestHandler from './createRequestHandler';
-import type { Variables } from './types.flow';
+import type { Variables, Environment } from './types.flow';
 
 // we usually copy-paste this everywhere
 const source = new RecordSource();
@@ -64,9 +64,9 @@ function handlerProvider(handle) {
   throw new Error(`handlerProvider: No handler provided for ${handle}`);
 }
 
-module.exports = function createEnvironment(options: Options) {
+module.exports = function createEnvironment(options: Options): Environment {
   const { fetchFn, subscribeFn, logger, graphiQLPrinter, ...rest } = options;
-  return new Environment({
+  return new RelayEnvironment({
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn, logger, graphiQLPrinter),
     store,
