@@ -8,10 +8,6 @@ module.exports = {
     };
   },
   getDefaultPathMappings(): Map<string, string> {
-    // TODO: rename to 'monorepo-utils'
-    return new Map([
-      ['src/packages/monorepo/', ''],
-      ['src/packages/monorepo-utils/', ''],
-    ]);
+    return new Map([['src/packages/monorepo-utils/', '']]);
   },
 };
