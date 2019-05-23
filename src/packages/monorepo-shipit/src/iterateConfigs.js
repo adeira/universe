@@ -39,7 +39,10 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
           config.getDefaultPathMappings(),
         );
 
+        /* eslint-disable no-console */
+        console.warn(`${cfg.exportedRepoURL} -> ${cfg.exportedRepoPath}`);
         callback(cfg);
+        console.warn();
       });
     },
   );

@@ -4,14 +4,14 @@ import Config from '../PhaseRunnerConfig';
 
 jest.mock('fs');
 
-it('throws an error when trying to access non-existent roots', () => {
-  expect(() =>
+it('returns set of paths when trying to access monorepo roots', () => {
+  expect(
     new Config(
       'fake monorepo path',
       'fake exported repo URL',
-      new Map([['/unknown_path', '']]),
+      new Map([['/known_path', '/destination_path']]),
     ).getMonorepoRoots(),
-  ).toThrowError('Directory mapping uses non-existent root: /unknown_path');
+  ).toEqual(new Set(['/known_path']));
 });
 
 it('returns empty set when trying to get roots of the exported repo', () => {

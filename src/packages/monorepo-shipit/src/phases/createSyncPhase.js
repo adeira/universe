@@ -20,15 +20,21 @@ export default function createSyncPhase(config: PhaseRunnerConfig) {
       config.getExportedRepoRoots(),
     );
     const sourceChangesets = new Set<Changeset>();
-    sourceRepo
-      .findDescendantsPath(
-        initialRevision,
-        'origin/master', // GitLab CI doesn't have master branch
-        config.getMonorepoRoots(),
-      )
-      .forEach(revision => {
+    const descendantsPath = sourceRepo.findDescendantsPath(
+      initialRevision,
+      'origin/master', // GitLab CI doesn't have master branch
+      config.getMonorepoRoots(),
+    );
+    if (descendantsPath !== null) {
+      descendantsPath.forEach(revision => {
         sourceChangesets.add(sourceRepo.getChangesetFromID(revision));
       });
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Skipping since there are no changes to filter from ${initialRevision}.`,
+      );
+    }
     return sourceChangesets;
   }
 

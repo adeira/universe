@@ -1,9 +1,9 @@
 // @flow strict
 
+import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import os from 'os';
-import { invariant } from '@kiwicom/js';
+import { warning } from '@kiwicom/js';
 
 import Changeset from './Changeset';
 import PathFilters from './PathFilters';
@@ -34,7 +34,7 @@ export default class PhaseRunnerConfig {
   getMonorepoRoots(): Set<string> {
     const roots = new Set();
     for (const root of this.directoryMapping.keys()) {
-      invariant(
+      warning(
         fs.existsSync(root) === true,
         `Directory mapping uses non-existent root: ${root}`,
       );

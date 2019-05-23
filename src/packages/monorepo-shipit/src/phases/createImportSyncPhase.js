@@ -32,17 +32,28 @@ export default function createImportSyncPhase(
       'master',
     )
       .runSynchronously()
-      .getStdout();
+      .getStdout()
+      .trim();
 
     const changesets = new Set<Changeset>();
     const exportedRepo: SourceRepo = new RepoGIT(config.exportedRepoPath);
-    exportedRepo
-      .findDescendantsPath(mergeBase.trim(), 'FETCH_HEAD', new Set([]))
-      .forEach(revision => {
+    const descendantsPath = exportedRepo.findDescendantsPath(
+      mergeBase,
+      'FETCH_HEAD',
+      new Set([]),
+    );
+    if (descendantsPath !== null) {
+      descendantsPath.forEach(revision => {
         const changeset = exportedRepo.getChangesetFromID(revision);
         const filter = config.getDefaultImportitFilter();
         changesets.add(filter(changeset));
       });
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Skipping since there are no changes to filter from ${mergeBase}.`,
+      );
+    }
     return changesets;
   }
 
