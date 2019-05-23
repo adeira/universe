@@ -1,11 +1,11 @@
 // @flow strict
 
-require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo' here
+require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo-utils' here
 
 const fs = require('fs');
 const path = require('path');
 const assert = require('assert').strict;
-const { findRootPackageJsonPath, Git } = require('@kiwicom/monorepo');
+const { findRootPackageJsonPath, Git } = require('@kiwicom/monorepo-utils');
 
 const changes = Git.getChangesToTest();
 const monorepoSrcRoot = path.join(

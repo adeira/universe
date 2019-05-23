@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 
 Workspaces.iterateWorkspaces(packageJSONLocation => {
   // $FlowAllowDynamicImport

@@ -1,6 +1,6 @@
 // @flow
 
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 
 /**
  * Please update this list with well know similar dependencies and

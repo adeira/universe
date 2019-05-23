@@ -4,7 +4,7 @@ import os from 'os';
 import fs from 'fs';
 import path from 'path';
 import semver from 'semver';
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 
 // https://keepachangelog.com/en/1.0.0/
 

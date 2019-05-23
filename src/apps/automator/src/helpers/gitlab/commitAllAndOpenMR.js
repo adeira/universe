@@ -1,6 +1,6 @@
 // @flow
 
-import { Git } from '@kiwicom/monorepo';
+import { Git } from '@kiwicom/monorepo-utils';
 
 import commitAllChanges from '../commitAllChanges';
 import openMergeRequest from './openMergeRequest';

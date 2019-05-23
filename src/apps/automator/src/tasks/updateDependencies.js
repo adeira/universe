@@ -6,7 +6,7 @@ import {
   ShellCommand,
   Workspaces,
   findRootPackageJsonPath,
-} from '@kiwicom/monorepo';
+} from '@kiwicom/monorepo-utils';
 import { sprintf } from '@kiwicom/js';
 
 import automatorLog from '../log';

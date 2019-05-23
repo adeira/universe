@@ -1,11 +1,11 @@
 // @flow
 
-require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo' here
+require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo-utils' here
 
 const { pass, fail, skip } = require('create-jest-runner');
 const CLIEngine = require('eslint').CLIEngine;
 const isCI = require('is-ci');
-const { Git } = require('@kiwicom/monorepo');
+const { Git } = require('@kiwicom/monorepo-utils');
 
 const formatter = require('./stylish');
 

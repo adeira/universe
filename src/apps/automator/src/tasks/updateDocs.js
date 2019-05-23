@@ -3,7 +3,11 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import { glob, Workspaces, findRootPackageJsonPath } from '@kiwicom/monorepo';
+import {
+  glob,
+  Workspaces,
+  findRootPackageJsonPath,
+} from '@kiwicom/monorepo-utils';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';

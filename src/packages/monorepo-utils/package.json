@@ -1,5 +1,5 @@
 {
-  "name": "@kiwicom/monorepo",
+  "name": "@kiwicom/monorepo-utils",
   "description": "Helpful functions to manage monorepos (using Yarn Workspaces).",
   "homepage": "https://github.com/kiwicom/monorepo-utils",
   "license": "MIT",

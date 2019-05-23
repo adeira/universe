@@ -6,7 +6,7 @@
   "sideEffects": false,
   "dependencies": {
     "@kiwicom/js": "^0.10.0",
-    "@kiwicom/monorepo": "^0.21.0",
+    "@kiwicom/monorepo-utils": "^0.21.0",
     "semver": "^6.1.0"
   },
   "devDependencies": {

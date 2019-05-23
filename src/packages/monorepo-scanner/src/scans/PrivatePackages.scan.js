@@ -1,6 +1,6 @@
 // @flow
 
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 
 // TODO: change to explicitly whitelisted projects?
 const PRIVATE_PACKAGES = [
