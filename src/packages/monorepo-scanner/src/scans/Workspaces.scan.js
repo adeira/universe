@@ -10,6 +10,17 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
     const packageJson = require(packageJSONLocation);
     expect(packageJson.private).not.toBeUndefined();
 
+    // Package 'eslint-plugin-kiwicom-incubator' is the only exception since it
+    // wasn't possible to have scoped packages in Eslint. Dunno if it's possible now.
+    expect(
+      /^@kiwicom\/.+|eslint-plugin-kiwicom-incubator/.test(packageJson.name) ===
+        true,
+    ).toGiveHelp(
+      `All packages in our monorepo must start with '@kiwicom/' prefix. This name is not valid: ${
+        packageJson.name
+      }`,
+    );
+
     if (packageJson.private === false) {
       expect(packageJson.description).not.toBeUndefined();
 
