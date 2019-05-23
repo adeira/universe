@@ -100,6 +100,26 @@ And finally this is how you'd map your package to the subfolder on GitHub (good 
 new Map([['src/packages/fetch/', 'packages/fetch/']]);
 ```
 
+## Renaming project roots
+
+It's fairly straightforward to rename things inside your specified root and ship them correctly to GitHub. However, it's far more challenging to rename the roots in monorepo while keeping the shipping working. It's because Shipit is looking at for example `src/packages/monorepo/` root but when you rename it then it seems like the project is completely new (missing history => new files). This would conflict with the code that is already exported on GitHub for example.
+
+```js
+module.exports = {
+  getDefaultPathMappings(): Map<string, string> {
+    return new Map([['src/packages/monorepo/', '']]);
+    // ... add new root here, keep the old one as well
+  },
+};
+```
+
+To deal with this you have to approach the roots renaming carefully. Our current best attempt is to do it in two steps:
+
+1. Rename your root as needed and add it to the config. Do not delete the old one though. Shipit should understand what is going on and deploy an empty commit with correct `kiwicom-source-id`.
+2. Delete the original root from the config when the previous step succeeds. You should be good to go.
+
+Don't worry if you mess up something. Monorepo is always a source of truth and it won't be messed up. Worst case scenario is that Shipit job will start failing. One way out of this situation is to either fix the previous steps or simply create manually an empty commit on GitHub with corrected `kiwicom-source-id` so that Shipit can catch up.
+
 # Importit part _(unstable)_
 
 **Only imports from GitHub are currently supported.**

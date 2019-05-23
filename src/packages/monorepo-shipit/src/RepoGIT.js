@@ -18,7 +18,7 @@ export interface SourceRepo {
     baseRevision: string,
     headRevision: string,
     roots: Set<string>,
-  ): $ReadOnlyArray<string>;
+  ): null | $ReadOnlyArray<string>;
   getChangesetFromID(revision: string): Changeset;
   getNativePatchFromID(revision: string): string;
   getNativeHeaderFromIDWithPatch(revision: string, patch: string): string;
@@ -50,6 +50,8 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   }
 
   _gitCommand = (...args: $ReadOnlyArray<string>) => {
+    // eslint-disable-next-line no-console
+    console.warn(['git', '--no-pager', ...args].join(' '));
     return new ShellCommand(
       this.localPath,
       'git',
@@ -151,10 +153,10 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   };
 
   getChangesetFromID = (revision: string): Changeset => {
+    console.warn(`Filtering changeset for: ${revision}`); // eslint-disable-line no-console
     const patch = this.getNativePatchFromID(revision);
     const header = this.getNativeHeaderFromIDWithPatch(revision, patch);
     const changeset = this.getChangesetFromExportedPatch(header, patch);
-    console.warn(`Filtering changeset for: ${revision}`); // eslint-disable-line no-console
     return changeset.withID(revision);
   };
 
@@ -189,7 +191,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     baseRevision: string,
     headRevision: string,
     roots: Set<string>,
-  ): $ReadOnlyArray<string> => {
+  ): null | $ReadOnlyArray<string> => {
     const log = this._gitCommand(
       'log',
       '--reverse',
@@ -197,13 +199,13 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '--no-merges',
       '--pretty=tformat:%H',
       baseRevision + '..' + headRevision,
+      '--', // separates paths from revisions (so you can use non-existent paths)
       ...roots,
     )
       .runSynchronously()
       .getStdout();
-
-    // return descendant hashes
-    return log.trim().split('\n');
+    const trimmedLog = log.trim();
+    return trimmedLog === '' ? null : trimmedLog.split('\n');
   };
 
   commitPatch = (changeset: Changeset): void => {
