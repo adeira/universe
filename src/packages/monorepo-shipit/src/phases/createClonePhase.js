@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import path from 'path';
-import { ShellCommand } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo-utils';
 
 export default function createClonePhase(repoURL: string, repoPath: string) {
   return function() {

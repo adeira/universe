@@ -7,7 +7,7 @@ import util from 'util';
 import semver from 'semver';
 import rimraf from 'rimraf';
 import packlist from 'npm-packlist';
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 import isCI from 'is-ci';
 import chalk from 'chalk';
 

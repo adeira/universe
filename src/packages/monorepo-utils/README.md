@@ -11,7 +11,7 @@ This package is opinionated in many ways and it expects similar monorepo setup t
 # Installation
 
 ```
-yarn add --dev @kiwicom/monorepo
+yarn add --dev @kiwicom/monorepo-utils
 ```
 
 # Usage
@@ -31,7 +31,7 @@ It memoizes the result internally so when you call it for the second time you'll
 `Workspaces` utility allows you to access information about workspaces anywhere in the monorepo. You can for example iterate all workspaces:
 
 ```js
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 
 Workspaces.iterateWorkspaces(packageJSONLocation => {
   test(packageJSONLocation, () => {
@@ -45,7 +45,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 There is also synchronous version without callbacks:
 
 ```js
-import { Workspaces } from '@kiwicom/monorepo';
+import { Workspaces } from '@kiwicom/monorepo-utils';
 
 const packageJSONLocations = Workspaces.getWorkspacesSync();
 
@@ -93,7 +93,7 @@ Option `root` is required when your pattern starts from the root `/`. You don't 
 Shell command utility gives you the ability to work with shell while using friendly API and Flow types. Moreover it throws exceptions when the underlying child process fails for whatever reason so you can react easily. Basic usage:
 
 ```js
-import { ShellCommand } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo-utils';
 
 new ShellCommand(
   null, // optional current working directory (defaults to `process.cwd`)

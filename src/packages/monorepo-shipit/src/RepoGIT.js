@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { invariant } from '@kiwicom/js';
-import { ShellCommand } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo-utils';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';

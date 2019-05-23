@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { ShellCommand } from '@kiwicom/monorepo';
+import { ShellCommand } from '@kiwicom/monorepo-utils';
 
 import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';

@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import path from 'path';
-import { findRootPackageJsonPath, glob } from '@kiwicom/monorepo';
+import { findRootPackageJsonPath, glob } from '@kiwicom/monorepo-utils';
 import { sprintf } from '@kiwicom/js';
 
 import requireAndValidateConfig from './requireAndValidateConfig';

@@ -8,7 +8,7 @@ require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monore
 
 const fs = require('fs');
 const path = require('path');
-const { Workspaces } = require('@kiwicom/monorepo');
+const { Workspaces } = require('@kiwicom/monorepo-utils');
 
 const TESTS_GLOB = '__tests__/**/?(*.)+(spec|test).js';
 
