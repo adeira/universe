@@ -1,10 +1,8 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
-const getDevExpression = require('./getDevExpression');
+const buildDevExpression = require('./buildDevExpression');
 
-module.exports = function({ types: t }) {
-  const DEV_EXPRESSION = getDevExpression(t);
-
+module.exports = function(babel) {
   return {
     pre() {
       this.canChangeProperty = true;
@@ -23,7 +21,7 @@ module.exports = function({ types: t }) {
 
         // replace __DEV__ with process.env.NODE_ENV !== 'production'
         if (path.isIdentifier({ name: '__DEV__' }) && this.canChangeProperty) {
-          path.replaceWith(DEV_EXPRESSION);
+          path.replaceWith(buildDevExpression(babel));
         }
       },
     },
