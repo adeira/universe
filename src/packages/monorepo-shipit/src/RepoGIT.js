@@ -37,7 +37,7 @@ export interface DestinationRepo {
 }
 
 export default class RepoGIT implements SourceRepo, DestinationRepo {
-  localPath: string;
+  #localPath: string;
 
   constructor(localPath: string) {
     invariant(
@@ -46,14 +46,14 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       localPath,
     );
 
-    this.localPath = localPath;
+    this.#localPath = localPath;
   }
 
   _gitCommand = (...args: $ReadOnlyArray<string>) => {
     // eslint-disable-next-line no-console
-    console.warn(['git', '--no-pager', ...args].join(' '));
+    console.warn(['👾', 'git', '--no-pager', ...args].join(' '));
     return new ShellCommand(
-      this.localPath,
+      this.#localPath,
       'git',
       '--no-pager',
       ...args,
@@ -66,19 +66,31 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     );
   };
 
-  push() {
+  push = () => {
     this._gitCommand('push', 'origin', 'master')
       .setOutputToScreen()
       .runSynchronously();
-  }
+  };
 
-  checkoutBranch(branchName: string) {
+  configure = () => {
+    for (const [key, value] of Object.entries({
+      'user.email': 'mrtnzlml+kiwicom-github-bot@gmail.com',
+      'user.name': 'kiwicom-github-bot',
+    })) {
+      // $FlowIssue: https://github.com/facebook/flow/issues/2174
+      this._gitCommand('config', key, value)
+        .setOutputToScreen()
+        .runSynchronously();
+    }
+  };
+
+  checkoutBranch = (branchName: string) => {
     this._gitCommand('checkout', '-b', branchName)
       .setOutputToScreen()
       .runSynchronously();
-  }
+  };
 
-  clean() {
+  clean = () => {
     this._gitCommand(
       'clean', // remove untracked files from the working tree
       '-x', // ignore .gitignore
@@ -88,15 +100,15 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     )
       .setOutputToScreen()
       .runSynchronously();
-  }
+  };
 
-  isCorrupted(): boolean {
+  isCorrupted = (): boolean => {
     const exitCode = this._gitCommand('fsck', '--strict')
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
     return exitCode !== 0;
-  }
+  };
 
   findLastSourceCommit = (roots: Set<string>): string => {
     const rawLog = this._gitCommand(
@@ -247,5 +259,25 @@ ${renderedDiffs}
 --
 2.21.0
 `;
+  };
+
+  /**
+   * This function exports specified roots from the monorepo. It takes a
+   * snapshot of HEAD revision and exports it to the destination path.
+   * Please note: this export is unfiltered.
+   */
+  export = (exportedRepoPath: string, roots: Set<string>) => {
+    const tar = this._gitCommand(
+      'archive',
+      '--format=tar',
+      'HEAD', // TODO
+      ...roots,
+    )
+      .runSynchronously()
+      .getStdout();
+
+    return new ShellCommand(exportedRepoPath, 'tar', '-x')
+      .setStdin(tar)
+      .runSynchronously();
   };
 }
