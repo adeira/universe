@@ -1,49 +1,60 @@
 // @flow strict-local
 
 import path from 'path';
-import { findRootPackageJsonPath, glob } from '@kiwicom/monorepo-utils';
+import { findRootPackageJsonPath, globSync } from '@kiwicom/monorepo-utils';
 import { sprintf } from '@kiwicom/js';
 
 import requireAndValidateConfig from './requireAndValidateConfig';
 import PhaseRunnerConfig from './PhaseRunnerConfig';
 
 export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
+  const configFiles = globSync('/**/*.js', {
+    root: path.join(__dirname, '..', 'config'),
+    ignore: [
+      '**/node_modules/**',
+      '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
+    ],
+  });
+
   const monorepoPath = path.dirname(findRootPackageJsonPath());
-  glob(
-    '/**/*.js',
-    {
-      root: path.join(__dirname, '..', 'config'),
-      ignore: [
-        '**/node_modules/**',
-        '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
-      ],
-    },
-    (error, configFiles) => {
-      if (error !== null) {
-        throw error;
-      }
+  const throwedErrors = new Set<Error>();
 
-      configFiles.forEach(configFile => {
-        const config = requireAndValidateConfig(configFile);
+  configFiles.forEach(configFile => {
+    const config = requireAndValidateConfig(configFile);
 
-        const staticConfig = config.getStaticConfig();
-        const githubURL = sprintf(
-          'git@github.com:%s/%s.git',
-          staticConfig.githubOrg,
-          staticConfig.githubProject,
-        );
+    const staticConfig = config.getStaticConfig();
+    const githubURL = sprintf(
+      'git@github.com:%s/%s.git',
+      staticConfig.githubOrg,
+      staticConfig.githubProject,
+    );
 
-        const cfg = new PhaseRunnerConfig(
-          monorepoPath,
-          githubURL, // TODO: move to the config object (?)
-          config.getDefaultPathMappings(),
-        );
+    const cfg = new PhaseRunnerConfig(
+      monorepoPath,
+      githubURL, // TODO: move to the config object (?)
+      config.getDefaultPathMappings(),
+    );
 
-        /* eslint-disable no-console */
-        console.warn(`${cfg.exportedRepoURL} -> ${cfg.exportedRepoPath}`);
-        callback(cfg);
-        console.warn();
-      });
-    },
-  );
+    // We collect all the errors but we do not stop the iteration. These errors
+    // are being displayed at the end of the process so that projects which are
+    // OK can be exported successfully (and not being affected by irrelevant
+    // failures).
+    try {
+      /* eslint-disable no-console */
+      console.warn(`${cfg.exportedRepoURL} -> ${cfg.exportedRepoPath}`);
+      callback(cfg);
+      console.warn();
+    } catch (error) {
+      throwedErrors.add(error);
+    }
+  });
+
+  if (throwedErrors.size > 0) {
+    throwedErrors.forEach(error => {
+      console.error(error);
+    });
+    process.exitCode = 1;
+  } else {
+    process.exitCode = 0;
+  }
 }
