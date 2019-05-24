@@ -1,6 +1,6 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
-const getDevExpression = require('./getDevExpression');
+const buildDevExpression = require('./buildDevExpression');
 
 /**
  * import { warning } from "@kiwicom/js";
@@ -16,8 +16,7 @@ const getDevExpression = require('./getDevExpression');
  * This should then be removed by dead code elimination so these warnings are
  * not called in production at all.
  */
-module.exports = function({ types: t }) {
-  const DEV_EXPRESSION = getDevExpression(t);
+module.exports = function(babel) {
   const SEEN_SYMBOL = Symbol('SEEN_SYMBOL');
 
   return {
@@ -59,10 +58,14 @@ module.exports = function({ types: t }) {
           if (path.get('callee').isIdentifier({ name: 'warning' })) {
             node[SEEN_SYMBOL] = true;
             path.replaceWith(
-              t.ifStatement(
-                DEV_EXPRESSION,
-                t.blockStatement([t.expressionStatement(node)]),
-              ),
+              babel.template(`
+                if (%%condition%%) {
+                  %%conditionBody%%
+                }
+              `)({
+                condition: buildDevExpression(babel),
+                conditionBody: node,
+              }),
             );
           }
         },

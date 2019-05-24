@@ -1,6 +1,6 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
-const getDevExpression = require('./getDevExpression');
+const buildDevExpression = require('./buildDevExpression');
 
 /**
  * import { invariant } from "@kiwicom/js";
@@ -19,8 +19,7 @@ const getDevExpression = require('./getDevExpression');
  *
  * This should then be minified by dead code elimination.
  */
-module.exports = function({ types: t }) {
-  const DEV_EXPRESSION = getDevExpression(t);
+module.exports = function(babel) {
   const SEEN_SYMBOL = Symbol('SEEN_SYMBOL');
 
   return {
@@ -60,30 +59,32 @@ module.exports = function({ types: t }) {
           }
 
           if (path.get('callee').isIdentifier({ name: 'invariant' })) {
-            const condition = node.arguments[0];
-
-            const prodInvariant = t.callExpression(node.callee, [
-              t.booleanLiteral(false),
-            ]);
-            prodInvariant[SEEN_SYMBOL] = true;
-
-            const devInvariant = t.cloneDeep(prodInvariant);
-            devInvariant.arguments = [t.booleanLiteral(false)].concat(
-              node.arguments.slice(1),
+            const prodInvariant = babel.template.expression.ast(
+              'invariant(false)',
             );
+
+            const devInvariant = babel.template.expression(
+              'invariant(false, %%arguments%%)',
+            )({ arguments: node.arguments.slice(1) });
+
+            prodInvariant[SEEN_SYMBOL] = true;
             devInvariant[SEEN_SYMBOL] = true;
 
             path.replaceWith(
-              t.ifStatement(
-                t.unaryExpression('!', condition),
-                t.blockStatement([
-                  t.ifStatement(
-                    DEV_EXPRESSION,
-                    t.blockStatement([t.expressionStatement(devInvariant)]),
-                    t.blockStatement([t.expressionStatement(prodInvariant)]),
-                  ),
-                ]),
-              ),
+              babel.template(`
+                if (!%%condition%%) {
+                  if (%%innnerCondition%%) {
+                    %%devInvariant%%
+                  } else {
+                    %%prodInvariant%%
+                  }
+                }
+              `)({
+                condition: node.arguments[0],
+                innnerCondition: buildDevExpression(babel),
+                prodInvariant,
+                devInvariant,
+              }),
             );
           }
         },
