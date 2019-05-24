@@ -50,6 +50,10 @@ export default class PhaseRunnerConfig {
     return new Set();
   }
 
+  /**
+   * Shipit by default maps directory to match OSS version and strips everything
+   * else so we don't publish something outside of the roots scope.
+   */
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
       return PathFilters.moveDirectories(
@@ -59,6 +63,9 @@ export default class PhaseRunnerConfig {
     };
   }
 
+  /**
+   * Importit only needs to reverse the directory mapping.
+   */
   getDefaultImportitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
       return PathFilters.moveDirectoriesReverse(
