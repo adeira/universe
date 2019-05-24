@@ -21,6 +21,11 @@ function __resolveWorkspaces(packageJSON: PackageJSON): $ReadOnlyArray<string> {
   throw new Error('Cannot find workspaces definition.');
 }
 
+/**
+ * TODO: Rework this to return promise. It's a bit awkward that these iterate*
+ *       methods return void instead of Promise so it's really difficult to
+ *       perform some action after the iteration (after all).
+ */
 module.exports = {
   __resolveWorkspaces,
 

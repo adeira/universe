@@ -27,13 +27,14 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/graphql-resolve-wrapper',
       '@kiwicom/monorepo-npm-publisher',
       '@kiwicom/graphql-utils',
-      '@kiwicom/monorepo',
+      '@kiwicom/monorepo-utils',
       '@kiwicom/babel-preset-kiwicom',
       '@kiwicom/fetch',
       '@kiwicom/vault2env',
       '@kiwicom/relay',
       '@kiwicom/eslint-config',
       '@kiwicom/test-utils',
+      // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });
 })();
