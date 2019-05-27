@@ -14,7 +14,7 @@ const similarities = new Map([
       'request',
       'request-promise-native',
       'fetch',
-      'node-fetch',
+      // 'node-fetch',
       'whatwg-fetch',
       'cross-fetch',
       'isomorphic-fetch',
