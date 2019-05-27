@@ -1,0 +1,10 @@
+{
+  "name": "@kiwicom/logger",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "dependencies": {
+    "winston": "^3.2.1"
+  }
+}
