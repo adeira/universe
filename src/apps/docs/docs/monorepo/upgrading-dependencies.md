@@ -33,3 +33,5 @@ Similarly for removing unused suppress comments:
 This command removes all unused suppress comments while keeping unused comments in flowtests (files ending with `*-flowtest.js` or files in `__flowtests__` directory).
 
 Read this article for more details and justification of this approach: https://medium.com/flow-type/upgrading-flow-codebases-40ef8dd3ccd8
+
+Tip: great way how to migrate some large scale changes is to use `npx flow-upgrade`.

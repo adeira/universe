@@ -23,6 +23,7 @@ it('defaults fetch timeout to 15s', done => {
         ),
       );
     } catch (error) {
+      // $FlowFixMe(>=0.99.0)
       done.fail(error);
     }
   }, 15001);
