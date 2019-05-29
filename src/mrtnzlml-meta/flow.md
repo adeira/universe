@@ -12,6 +12,12 @@ bash runtests.sh -t node_tests bin/flow
 bash runtests.sh -t node_tests -r bin/flow
 ```
 
+# Flow saved state
+
+Investigating...
+
+https://github.com/facebook/flow/commit/a65982f3adccd7faab86d55871803a07b26f8394
+
 # Interesting Flow commands
 
 ```text
