@@ -1,4 +1,6 @@
 # Unreleased
+
+# 4.5.0
 - New warnings for our custom rule `relay-imports/no-values` and `relay-imports/type-must-exist` (errors in strict mode). These rules should help you to find mistakes while importing Flow types from generated Relay files.
 
 # 4.4.0
