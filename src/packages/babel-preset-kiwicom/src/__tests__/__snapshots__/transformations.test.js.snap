@@ -542,6 +542,50 @@ new Set<() => void>([]);
 new Set([]);
 `;
 
+exports[`matches expected output: babel-issue-10040.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel is currently losing \` ... \` while  tranpiling this type.
+// See: https://github.com/babel/babel/issues/10040
+
+export type ExplicitlyInexact = { foo: number, ... };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+`;
+
+exports[`matches expected output: babel-issue-10040.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel is currently losing \` ... \` while  tranpiling this type.
+// See: https://github.com/babel/babel/issues/10040
+
+export type ExplicitlyInexact = { foo: number, ... };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel is currently losing \` ... \` while  tranpiling this type.
+// See: https://github.com/babel/babel/issues/10040
+
+export type ExplicitlyInexact = { foo: number };
+`;
+
+exports[`matches expected output: babel-issue-10040.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel is currently losing \` ... \` while  tranpiling this type.
+// See: https://github.com/babel/babel/issues/10040
+
+export type ExplicitlyInexact = { foo: number, ... };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+`;
+
 exports[`matches expected output: capturing-groups.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
