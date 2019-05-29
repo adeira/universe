@@ -1,8 +1,8 @@
 // @flow
 
 export type RequestNode = $FlowFixMe;
-export type Uploadables = { [key: string]: File | Blob };
-export type Variables = { [name: string]: $FlowFixMe };
+export type Uploadables = { [key: string]: File | Blob, ... };
+export type Variables = { [name: string]: $FlowFixMe, ... };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
@@ -18,31 +18,29 @@ export type Disposable = {|
 export opaque type GraphQLTaggedNode = {|
   +argumentDefinitions: $ReadOnlyArray<ConcreteArgumentDefinition>,
   +kind: 'Fragment',
-  +metadata: ?{ [key: string]: mixed },
+  +metadata: ?{ [key: string]: mixed, ... },
   +name: string,
   +selections: $ReadOnlyArray<ConcreteSelection>,
   +type: string,
 |};
 
-export type FragmentSpec = { [key: string]: GraphQLTaggedNode };
+export type FragmentSpec = { [key: string]: GraphQLTaggedNode, ... };
 
-type $FragmentRef<T> = {
-  +$fragmentRefs: $PropertyType<T, '$refType'>,
-};
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void }>,
+  $Diff<Props, { relay: RelayPropT | void, ... }>,
   // We currently don't know how to preserve Function and Object type
   // correctly while using `createFragmentContainer`, see:
   // https://github.com/facebook/relay/commit/2141964373703dcaa9bd49aa3cd2e9efdd09425f
   (<T: () => void>( T) =>  T) &
-  (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
-  (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
   (<T>(T) => T)
 >
 
@@ -68,9 +66,10 @@ type RangeOperation = 'append' | 'ignore' | 'prepend';
 
 opaque type RangeBehaviorsFunction = (connectionArgs: {
   [name: string]: $FlowFixMe,
+  ...,
 }) => RangeOperation;
 
-opaque type RangeBehaviorsObject = { [key: string]: RangeOperation };
+opaque type RangeBehaviorsObject = { [key: string]: RangeOperation, ... };
 
 opaque type RangeBehaviors = RangeBehaviorsFunction | RangeBehaviorsObject;
 

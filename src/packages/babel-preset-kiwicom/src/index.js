@@ -9,7 +9,7 @@ type ApiType = {|
 |};
 
 type SupportedTargets = 'js' | 'js-esm' | 'flow';
-type Environments = { [string]: string | $ReadOnlyArray<string> };
+type Environments = { [string]: string | $ReadOnlyArray<string>, ... };
 
 type ExternalOptions = {|
   +target?: SupportedTargets,
@@ -23,7 +23,7 @@ type InternalOptions = {|
   +debug: boolean,
 |};
 
-type BabelRule = string | [string, { [name: string]: mixed }];
+type BabelRule = string | [string, { [name: string]: mixed, ... }];
 type BabelRules = $ReadOnlyArray<BabelRule>;
 
 */

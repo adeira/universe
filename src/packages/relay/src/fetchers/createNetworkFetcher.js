@@ -7,8 +7,9 @@ import { handleData, getRequestBody, getHeaders } from '../helpers';
 import type { RequestNode, Uploadables, Variables } from '../types.flow';
 
 type Headers = {
-  +'X-Client': string,
   +[string]: string,
+  +'X-Client': string,
+  ...
 };
 
 type AdditionalHeaders = Headers | Promise<Headers>;

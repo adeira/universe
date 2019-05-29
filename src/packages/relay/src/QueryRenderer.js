@@ -31,7 +31,11 @@ type CommonProps = {|
 type Props =
   | {|
       ...CommonProps,
-      +onSystemError?: ({ error: Error, retry: ?() => void }) => React$Node,
+      +onSystemError?: ({
+        error: Error,
+        retry: ?() => void,
+        ...
+      }) => React$Node,
       +onLoading?: () => React$Node,
       +onResponse: RendererProps => React$Node,
     |}

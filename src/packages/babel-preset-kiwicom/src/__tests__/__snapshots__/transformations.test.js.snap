@@ -269,20 +269,18 @@ exports[`matches expected output: babel-issue-9514.js 1`] = `
 
 // See: https://github.com/babel/babel/issues/9514
 
-type $FragmentRef<T> = {
-  +$fragmentRefs: $PropertyType<T, '$refType'>,
-};
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void }>,
+  $Diff<Props, { relay: RelayPropT | void, ... }>,
   (<T: () => void>( T) =>  T) &
-  (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
-  (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
   (<T>(T) => T)
 >
 
@@ -296,20 +294,18 @@ exports[`matches expected output: babel-issue-9514.js 2`] = `
 
 // See: https://github.com/babel/babel/issues/9514
 
-type $FragmentRef<T> = {
-  +$fragmentRefs: $PropertyType<T, '$refType'>,
-};
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void }>,
+  $Diff<Props, { relay: RelayPropT | void, ... }>,
   (<T: () => void>( T) =>  T) &
-  (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
-  (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
   (<T>(T) => T)
 >
 
@@ -318,9 +314,7 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
 
 // See: https://github.com/babel/babel/issues/9514
 
-type $FragmentRef<T> = {
-  +$fragmentRefs: $PropertyType<T, '$refType'> };
-
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'> };
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
@@ -341,20 +335,18 @@ exports[`matches expected output: babel-issue-9514.js 3`] = `
 
 // See: https://github.com/babel/babel/issues/9514
 
-type $FragmentRef<T> = {
-  +$fragmentRefs: $PropertyType<T, '$refType'>,
-};
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void }>,
+  $Diff<Props, { relay: RelayPropT | void, ... }>,
   (<T: () => void>( T) =>  T) &
-  (<T: { +$refType: any }>( T) =>  $FragmentRef<T>) &
-  (<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
   (<T>(T) => T)
 >
 
