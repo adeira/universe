@@ -37,7 +37,19 @@ expect.extend({
   },
 });
 
-const isSpy = spy => spy.calls && typeof spy.calls.count === 'function';
+type MaybeSpy =
+  | {
+      +calls?: {
+        count: mixed,
+        ...
+      },
+      ...
+    }
+  | { ... };
+
+const isSpy = (spy: MaybeSpy): boolean %checks => {
+  return spy.calls != null && typeof spy.calls.count === 'function';
+};
 
 // TODO: .toWarnDev() ?
 ['error', 'warn', 'log'].forEach(methodName => {

@@ -62,6 +62,7 @@ export function glob(
 
   return _glob(
     globPattern,
+    // $FlowFixMe(>=0.99.0)
     {
       ignore: ['**/node_modules/**'],
       ...options,

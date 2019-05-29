@@ -57,7 +57,7 @@ describe('dependencies similarities', () => {
               // some package is using forbidden dependency but there may be an exception:
               const packageExceptions = exceptions.get(mainDependency) ?? [];
               if (!packageExceptions.includes(dependency)) {
-                done.fail(
+                throw new Error(
                   `Project ${
                     packageJson.name
                   } requires dependency '${dependency}' but it should use '${mainDependency}' instead.`,
