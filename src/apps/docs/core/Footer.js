@@ -4,11 +4,7 @@ import React from 'react';
 
 /*::
 
-type Props = {
-  config: {
-    copyright: string
-  }
-};
+type Props = { config: { copyright: string, ... }, ... };
 
 */
 
