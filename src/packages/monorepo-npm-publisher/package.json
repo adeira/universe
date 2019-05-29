@@ -15,7 +15,7 @@
     "npm-packlist": "^1.4.1",
     "npm-registry-client": "^8.6.0",
     "rimraf": "^2.6.3",
-    "semver": "^6.1.0",
+    "semver": "^6.1.1",
     "tar": "^4.4.8"
   },
   "peerDependencies": {
