@@ -10,8 +10,8 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
     const packageJson = require(packageJSONLocation);
     expect(packageJson.private).not.toBeUndefined();
 
-    // Package 'eslint-plugin-kiwicom-incubator' is the only exception since it
-    // wasn't possible to have scoped packages in Eslint. Dunno if it's possible now.
+    // Packages 'eslint-plugin-*' are the only exception since it wasn't
+    // possible to have scoped packages in Eslint. Dunno if it's possible now.
     expect(
       /^@kiwicom\/.+|eslint-plugin-(?:kiwicom-incubator|relay-imports)/.test(
         packageJson.name,

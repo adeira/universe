@@ -20,6 +20,7 @@ Object.keys(require('../package.json').dependencies)
       'eslint-plugin-react',
       'eslint-plugin-react-hooks',
       'eslint-plugin-relay',
+      'eslint-plugin-relay-imports',
     ];
     return whitelistedPlugins.includes(dep);
   })
