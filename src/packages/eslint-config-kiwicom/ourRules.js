@@ -553,6 +553,10 @@ module.exports = {
   'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,
 
+  // Relay Flow type imports
+  'relay-imports/no-values': NEXT_VERSION_ERROR,
+  'relay-imports/type-must-exist': NEXT_VERSION_ERROR,
+
   // Kiwi.com custom rules
   'kiwicom-incubator/only-nullable-fields': ERROR,
   'kiwicom-incubator/no-invalid-flow-annotations': ERROR,

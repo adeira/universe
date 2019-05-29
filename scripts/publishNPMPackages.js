@@ -21,6 +21,7 @@ import { invariant } from '@kiwicom/js';
     npmAuthToken,
     workspaces: new Set([
       'eslint-plugin-kiwicom-incubator',
+      'eslint-plugin-relay-imports',
       '@kiwicom/graphql-bc-checker',
       '@kiwicom/graphql-global-id',
       '@kiwicom/js',

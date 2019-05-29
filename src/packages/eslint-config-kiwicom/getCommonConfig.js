@@ -81,6 +81,7 @@ module.exports = function getCommonConfig(rules /*: Object */) {
       'eslint-plugin-eslint-comments',
       'eslint-plugin-kiwicom-incubator',
       'eslint-plugin-prettier',
+      'eslint-plugin-relay-imports',
     ],
   };
 };
