@@ -29,7 +29,7 @@ type Options = {|
   // enables/disables `RelayNetworkLogger`
   +logger?: boolean,
   +graphiQLPrinter?: (
-    request: { +text: string },
+    request: { +text: string, ... },
     variables: Variables,
   ) => string,
 |};
@@ -37,7 +37,7 @@ type Options = {|
 type NormalizationSplitOperation = {|
   +kind: 'SplitOperation',
   +name: string,
-  +metadata: ?{ +[key: string]: mixed },
+  +metadata: ?{ +[key: string]: mixed, ... },
   +selections: $FlowFixMe,
 |};
 

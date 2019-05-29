@@ -76,6 +76,7 @@ export default class Changeset {
 
   __clone(newProps: {
     [$Keys<ChangesetData>]: $Values<ChangesetData>,
+    ...,
   }): Changeset {
     return Object.assign(
       Object.create(this),

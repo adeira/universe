@@ -6,7 +6,7 @@ const SYMBOL_PROCESSED = Symbol('processed');
 
 type GraphQLFieldResolveFn = (
   source?: any,
-  args?: { [argName: string]: any },
+  args?: { [argName: string]: any, ... },
   context?: any,
   info?: Object,
 ) => any;

@@ -8,6 +8,7 @@ const breakingChangeMarkerEnd = '</BREAKING-CHANGES-LOG>';
 type BreakingChange = {
   +type: string,
   +description: string,
+  ...
 };
 
 const getBreakingChangesLog = (

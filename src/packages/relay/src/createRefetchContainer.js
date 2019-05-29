@@ -10,9 +10,7 @@ import type {
   $EnvironmentFromProps,
 } from './types.flow';
 
-type RefetchOptions = {
-  force?: boolean,
-};
+type RefetchOptions = { force?: boolean, ... };
 
 export type RefetchRelayProp = {|
   +environment: $EnvironmentFromProps,
