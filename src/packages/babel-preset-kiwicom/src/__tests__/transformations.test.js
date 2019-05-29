@@ -29,6 +29,17 @@ function transform(target) {
   };
 }
 
-generateTestsFromFixtures(`${__dirname}/__fixtures__`, transform('js'));
-generateTestsFromFixtures(`${__dirname}/__fixtures__`, transform('flow'));
-generateTestsFromFixtures(`${__dirname}/__fixtures__`, transform('js-esm'));
+['babel-issues', 'features'].forEach(group => {
+  generateTestsFromFixtures(
+    `${__dirname}/__fixtures__/${group}`,
+    transform('js'),
+  );
+  generateTestsFromFixtures(
+    `${__dirname}/__fixtures__/${group}`,
+    transform('flow'),
+  );
+  generateTestsFromFixtures(
+    `${__dirname}/__fixtures__/${group}`,
+    transform('js-esm'),
+  );
+});
