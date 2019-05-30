@@ -9,6 +9,7 @@ import Changeset from './Changeset';
 import moveDirectories from './filters/moveDirectories';
 import moveDirectoriesReverse from './filters/moveDirectoriesReverse';
 import stripExceptDirectories from './filters/stripExceptDirectories';
+import stripPaths from './filters/stripPaths';
 
 type ChangesetFilter = Changeset => Changeset;
 
@@ -17,11 +18,13 @@ export default class PhaseRunnerConfig {
   exportedRepoPath: string;
   exportedRepoURL: string;
   directoryMapping: Map<string, string>;
+  strippedFiles: Set<RegExp>;
 
   constructor(
     monorepoPath: string,
     exportedRepoURL: string,
     directoryMapping: Map<string, string>,
+    strippedFiles: Set<RegExp>,
   ) {
     this.monorepoPath = monorepoPath;
     // This is currently not configurable. We could (should) eventually keep
@@ -31,6 +34,7 @@ export default class PhaseRunnerConfig {
     );
     this.exportedRepoURL = exportedRepoURL;
     this.directoryMapping = directoryMapping;
+    this.strippedFiles = strippedFiles;
   }
 
   getMonorepoRoots(): Set<string> {
@@ -58,10 +62,9 @@ export default class PhaseRunnerConfig {
    */
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
-      return moveDirectories(
-        stripExceptDirectories(changeset, this.getMonorepoRoots()),
-        this.directoryMapping,
-      );
+      const ch1 = stripExceptDirectories(changeset, this.getMonorepoRoots());
+      const ch2 = moveDirectories(ch1, this.directoryMapping);
+      return stripPaths(ch2, this.strippedFiles);
     };
   }
 

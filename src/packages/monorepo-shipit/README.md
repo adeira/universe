@@ -54,6 +54,7 @@ module.exports = {
       ['src/apps/relay-example/', ''],
     ]);
   },
+  // getDefaultStrippedFiles
 };
 ```
 

@@ -27,9 +27,18 @@ it('returns valid config correctly', () => {
 it('fails when config contains unsupported fields', () => {
   expect(() =>
     requireAndValidate(
-      `${__dirname}/fixtures/configs/invalid-additional-props.js`,
+      `${__dirname}/fixtures/configs/invalid-additional-props-1.js`,
     ),
-  ).toThrowError('Expected values to be strictly deep-equal');
+  ).toThrowError(
+    "Your config contains field 'defaultStrippedFiles' but this is not allowed key. Did you mean 'getDefaultStrippedFiles' instead?",
+  );
+  expect(() =>
+    requireAndValidate(
+      `${__dirname}/fixtures/configs/invalid-additional-props-2.js`,
+    ),
+  ).toThrowError(
+    "Your config contains field 'defaultPathMappings' but this is not allowed key. Did you mean 'getDefaultPathMappings' instead?",
+  );
 });
 
 it('fails when config does not contain all the required props', () => {
@@ -37,5 +46,7 @@ it('fails when config does not contain all the required props', () => {
     requireAndValidate(
       `${__dirname}/fixtures/configs/invalid-missing-props.js`,
     ),
-  ).toThrowError('Expected values to be strictly deep-equal');
+  ).toThrowError(
+    "Configuration field 'getStaticConfig' is required but it's missing.",
+  );
 });

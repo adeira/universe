@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict-local
 
 import Changeset from '../../src/Changeset';
 import PhaseRunnerConfig from '../../src/PhaseRunnerConfig';
@@ -22,6 +22,9 @@ export default function testExportedPaths(
       'mocked repo path',
       'mocked repo URL',
       config.getDefaultPathMappings(),
+      config.getDefaultStrippedFiles
+        ? config.getDefaultStrippedFiles()
+        : new Set(),
     ).getDefaultShipitFilter();
 
     const inputChangeset = new Changeset().withDiffs(
