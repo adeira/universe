@@ -30,7 +30,9 @@ function getRequestBodyWithUploadables(
   uploadables,
 ): FormData {
   const formData = new FormData();
-  if (request.id != null) {
+  if (__DEV__ && request.text != null) {
+    formData.append('query', request.text);
+  } else if (request.id != null) {
     formData.append('documentId', request.id);
   } else {
     formData.append('query', request.text);
@@ -48,7 +50,9 @@ function getRequestBodyWithUploadables(
 
 function getRequestBodyWithoutUplodables(request, variables): string {
   let body = {};
-  if (request.id != null) {
+  if (__DEV__ && request.text != null) {
+    body = { query: request.text, variables };
+  } else if (request.id != null) {
     body = { documentId: request.id, variables };
   } else {
     body = { query: request.text, variables };
@@ -64,7 +68,6 @@ export function getRequestBody(
   if (uploadables) {
     return getRequestBodyWithUploadables(request, variables, uploadables);
   }
-
   return getRequestBodyWithoutUplodables(request, variables);
 }
 
@@ -74,7 +77,6 @@ export const getHeaders = (uploadables: ?Uploadables) => {
       Accept: '*/*',
     };
   }
-
   return {
     Accept: 'application/json',
     'Content-type': 'application/json',

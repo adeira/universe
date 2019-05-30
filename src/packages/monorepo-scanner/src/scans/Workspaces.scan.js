@@ -13,7 +13,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.
     expect(
-      /^@kiwicom\/.+|eslint-plugin-(?:kiwicom-incubator|relay-imports)/.test(
+      /^@kiwicom\/.+|eslint-plugin-.+|relay-compiler-language-kiwicom/.test(
         packageJson.name,
       ) === true,
     ).toGiveHelp(
