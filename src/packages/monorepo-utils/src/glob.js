@@ -20,11 +20,14 @@ function isWindowsPath(globPattern: GlobPattern): boolean %checks {
   return /^[a-z]:\\/i.test(globPattern);
 }
 
-function isValidRoot(globPattern: GlobPattern, options): boolean %checks {
+function isValidRoot(
+  globPattern: GlobPattern,
+  options?: GlobOptions,
+): boolean %checks {
   return !(globPattern.startsWith('/') && options?.root === undefined);
 }
 
-function validateInputs(globPattern: GlobPattern, options?: GlobOptions) {
+function validateInputs(globPattern: GlobPattern, options?: GlobOptions): void {
   // Only forward slashes must be used, but we cannot disallow backslash since
   // escaping is still allowed. See: https://github.com/isaacs/node-glob#windows
   invariant(
@@ -38,14 +41,6 @@ function validateInputs(globPattern: GlobPattern, options?: GlobOptions) {
   );
 }
 
-/*::
-
-// https://github.com/isaacs/node-glob#globpattern-options-cb
-declare function glob(GlobPattern, GlobCallback): void;
-declare function glob(GlobPattern, GlobOptions, GlobCallback): void;
-
-*/
-
 /**
  * This `glob` wrapper adds additional checks and Flow types. It tries to solve
  * common problem with using `path.join` for glob patterns which is wrong
@@ -58,11 +53,18 @@ export function glob(
   options: GlobOptions | GlobCallback,
   callback?: GlobCallback,
 ) {
-  validateInputs(globPattern, isObject(options) ? options : ({}: Object));
+  validateInputs(globPattern, isObject(options) ? options : undefined);
+
+  if (typeof options === 'function') {
+    invariant(
+      callback === undefined,
+      'Glob function accepts only one callback.',
+    );
+    return _glob(globPattern, options);
+  }
 
   return _glob(
     globPattern,
-    // $FlowFixMe(>=0.99.0)
     {
       ignore: ['**/node_modules/**'],
       ...options,
@@ -76,7 +78,6 @@ export function globSync(
   options?: GlobOptions,
 ): $ReadOnlyArray<string> {
   validateInputs(globPattern, options);
-
   return _glob.sync(globPattern, {
     ignore: ['**/node_modules/**'],
     ...options,
