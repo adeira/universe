@@ -1,4 +1,4 @@
-// @flow strict
+// @flow strict-local
 
 import path from 'path';
 
@@ -18,7 +18,7 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
   ['src/apps/example-relay/__github__/.flowconfig', '.flowconfig'],
 
   // invalid cases:
-  ['src/apps/example-relay/__github__/unknown.js', '__github__/unknown.js'], // probably unwanted
+  ['src/apps/example-relay/__github__/unknown.js', undefined], // correctly deleted
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

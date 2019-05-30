@@ -33,6 +33,9 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
       monorepoPath,
       githubURL, // TODO: move to the config object (?)
       config.getDefaultPathMappings(),
+      config.getDefaultStrippedFiles
+        ? config.getDefaultStrippedFiles()
+        : new Set(),
     );
 
     // We collect all the errors but we do not stop the iteration. These errors

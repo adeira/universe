@@ -3,7 +3,6 @@
 import path from 'path';
 
 // TODO: defaultProjectFilterChangeset
-// TODO: getDefaultStrippedFiles
 //  (currently unused)
 
 module.exports = {
@@ -19,5 +18,8 @@ module.exports = {
       [path.join(ossRoot, '__github__', '.flowconfig'), '.flowconfig'],
       [ossRoot, ''],
     ]);
+  },
+  getDefaultStrippedFiles(): Set<RegExp> {
+    return new Set([/__github__/]);
   },
 };

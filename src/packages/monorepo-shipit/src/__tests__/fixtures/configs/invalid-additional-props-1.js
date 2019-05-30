@@ -1,8 +1,8 @@
 // @flow
 
 module.exports = {
-  invalidExtraField() {
-    // this configuration is not supported and shjoult be removed
+  defaultStrippedFiles() {
+    // this configuration is not supported and should be removed (should be 'getDefaultStrippedFiles')
   },
   getStaticConfig() {
     return {
