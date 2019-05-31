@@ -29,6 +29,10 @@
         "title": "JS Developer Guides",
         "sidebar_label": "JS Developer Guides"
       },
+      "graphql/monitoring": {
+        "title": "Monitoring",
+        "sidebar_label": "Monitoring"
+      },
       "graphql/schema-design": {
         "title": "Schema Design",
         "sidebar_label": "Schema Design"
