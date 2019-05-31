@@ -65,7 +65,7 @@ These both functions use `sprintf` behind the scenes:
 
 # `sprintf`
 
-Only `%s` (String) and `%j` (JSON) is supported:
+This function allows you to replace string placeholders similar to how `console.log` or `util.format` work. However, this function is system independent and works in browsers, Node.js and RN. Only `%s` (String) and `%j` (JSON) is supported:
 
 ```js
 import { sprintf } from '@kiwicom/js';
@@ -73,6 +73,8 @@ import { sprintf } from '@kiwicom/js';
 sprintf('Oh, %s', 'yeah!'); // Oh, yeah!
 sprintf('Oh, %j', 'yeah!'); // Oh, "yeah!"
 ```
+
+It is also possible to escape the percentage sign with `%%`.
 
 # `isObject`
 
