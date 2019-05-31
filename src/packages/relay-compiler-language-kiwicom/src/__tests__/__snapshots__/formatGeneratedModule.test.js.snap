@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders full input correctly 1`] = `
+"/**
+ * @flow
+ * HASH
+ */
+
+/* eslint-disable */
+
+'use strict';
+
+/*::
+import type { DOCUMENT_TYPE } from 'relay-runtime';
+TYPE_TEXT
+*/
+
+
+/*
+DOC_TEXT
+*/
+
+const node/*: DOCUMENT_TYPE*/ = CONCRETE_TEXT;
+// prettier-ignore
+(node/*: any*/).hash = 'SOURCE_HASH';
+if (__DEV__) {
+  DEV_ONLY_ASSIGNMENTS
+}
+module.exports = node;
+"
+`;
+
+exports[`renders minimal input correctly 1`] = `
+"/**
+ * @flow
+ */
+
+/* eslint-disable */
+
+'use strict';
+
+/*::
+import type { DOCUMENT_TYPE } from 'relay-runtime';
+TYPE_TEXT
+*/
+
+
+const node/*: DOCUMENT_TYPE*/ = CONCRETE_TEXT;
+// prettier-ignore
+(node/*: any*/).hash = 'SOURCE_HASH';
+module.exports = node;
+"
+`;
