@@ -1,0 +1,14 @@
+{
+  "name": "@kiwicom/monorepo-builder",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@kiwicom/logger": "^0.0.0",
+    "@kiwicom/monorepo-utils": "^0.21.0",
+    "rimraf": "^2.6.3"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.4.4"
+  }
+}
