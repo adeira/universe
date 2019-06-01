@@ -19,7 +19,7 @@ We follow the same upgrade strategy as used internally at Facebook. You can try 
 There are basically 2 useful commands for the upgrades: `add-comments` and `remove-comments`. To add suppress comments run this comment (don't forget to adjust it):
 
 ```text
-/path/to/tool add-comments --all --bin /path/to/flow --comment "\$FlowFixMe(>=0.xx.0)" .
+/path/to/tool add-comments --all --bin /path/to/flow --comment "\$FlowFixMe(>=0.1xx.0)" .
 ```
 
 Our Flow config is configured so it understand the version in `$FlowFixMe` correctly (it suppresses the error only from the specified version up). Try to run this command without the `--all` flag to be able to fix the errors individually.
