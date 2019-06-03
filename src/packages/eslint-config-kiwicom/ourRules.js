@@ -463,32 +463,19 @@ module.exports = {
   'relay/unused-fields': ERROR,
 
   // import (https://github.com/benmosher/eslint-plugin-import)
-  'import/order': [
-    ERROR,
-    {
-      groups: [['builtin', 'external'], ['parent', 'sibling'], 'index'],
-      'newlines-between': 'always',
-    },
-  ],
-  'import/prefer-default-export': OFF,
+  'import/default': OFF,
+  'import/dynamic-import-chunkname': OFF, // TODO: warn?
+  'import/export': NEXT_VERSION_ERROR,
+  'import/exports-last': OFF,
+  'import/extensions': OFF, // TODO: NEXT_VERSION_ERROR
+  'import/first': NEXT_VERSION_ERROR,
+  'import/group-exports': OFF,
+  'import/imports-first': OFF,
+  'import/named': OFF, // TODO: warn? seems to be broken
+  'import/namespace': OFF,
   'import/newline-after-import': ERROR,
-  'import/no-dynamic-require': OFF,
-  'import/no-mutable-exports': ERROR,
   'import/no-absolute-path': ERROR,
-  'import/no-useless-path-segments': ERROR,
-  'import/no-extraneous-dependencies': [
-    ERROR,
-    {
-      devDependencies: ['**/*.test.js', '**/*.spec.js'],
-    },
-  ],
-  'import/no-unresolved': [
-    ERROR,
-    {
-      // compatible with Relay 'artifactDirectory'
-      ignore: ['^__generated__/'],
-    },
-  ],
+  'import/no-amd': NEXT_VERSION_ERROR,
   'import/no-anonymous-default-export': [
     ERROR,
     {
@@ -501,7 +488,50 @@ module.exports = {
       allowObject: true,
     },
   ],
+  'import/no-commonjs': OFF,
+  'import/no-cycle': OFF,
+  'import/no-default-export': OFF,
+  'import/no-deprecated': OFF,
   'import/no-duplicates': WARN,
+  'import/no-dynamic-require': OFF,
+  'import/no-extraneous-dependencies': [
+    ERROR,
+    {
+      devDependencies: ['**/*.test.js', '**/*.spec.js'],
+    },
+  ],
+  'import/no-internal-modules': OFF,
+  'import/no-mutable-exports': ERROR,
+  'import/no-namespace': OFF,
+  'import/no-named-as-default': OFF,
+  'import/no-named-as-default-member': OFF,
+  'import/no-named-default': NEXT_VERSION_ERROR,
+  'import/no-named-export': OFF,
+  'import/no-nodejs-modules': OFF,
+  'import/no-relative-parent-imports': OFF,
+  'import/no-restricted-paths': OFF,
+  'import/no-unassigned-import': OFF,
+  'import/no-unresolved': [
+    ERROR,
+    {
+      // compatible with Relay 'artifactDirectory'
+      ignore: ['^__generated__/'],
+    },
+  ],
+  'import/no-useless-path-segments': ERROR,
+  'import/no-webpack-loader-syntax': NEXT_VERSION_ERROR,
+  'import/max-dependencies': OFF,
+  'import/order': [
+    ERROR,
+    {
+      groups: [['builtin', 'external'], ['parent', 'sibling'], 'index'],
+      'newlines-between': 'always',
+    },
+  ],
+  'import/prefer-default-export': OFF,
+  'import/no-self-import': NEXT_VERSION_ERROR,
+  'import/no-unused-modules': OFF, // TODO: warn?
+  'import/unambiguous': OFF, // TODO: warn?
 
   // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
   'dependencies/case-sensitive': ERROR,
