@@ -55,11 +55,15 @@ function normalizeLevel(level) {
   return level;
 }
 
+function normalizeArrayConfig(config) {
+  return config[0] === 'off' ? 'off' : config;
+}
+
 function normalize(config) {
   return Object.entries(config).reduce((acc, [ruleName, value]) => {
     if (Array.isArray(value)) {
       const [level, ...config] = value;
-      acc[ruleName] = [normalizeLevel(level), ...config];
+      acc[ruleName] = normalizeArrayConfig([normalizeLevel(level), ...config]);
     } else {
       acc[ruleName] = normalizeLevel(value);
     }
