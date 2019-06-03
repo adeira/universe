@@ -72,11 +72,7 @@ export default function QueryRenderer(props: Props) {
 
       return (
         <div data-testid="error">
-          {publicErrorMessage}{' '}
-          <a onClick={retry} href="#">
-            Retry
-          </a>
-          ?
+          {publicErrorMessage} <button onClick={retry}>Retry</button>
         </div>
       );
     }

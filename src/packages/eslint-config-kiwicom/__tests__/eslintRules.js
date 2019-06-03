@@ -14,6 +14,7 @@ Object.keys(require('../package.json').dependencies)
       'eslint-plugin-flowtype',
       'eslint-plugin-import',
       'eslint-plugin-jest',
+      'eslint-plugin-jsx-a11y',
       'eslint-plugin-kiwicom-incubator',
       'eslint-plugin-monorepo',
       'eslint-plugin-node',
