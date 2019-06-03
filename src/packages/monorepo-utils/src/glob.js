@@ -7,6 +7,7 @@ type GlobPattern = string;
 
 type GlobOptions = {|
   +absolute?: boolean,
+  +cwd?: string,
   +ignore?: $ReadOnlyArray<string>,
   +root?: string,
 |};
