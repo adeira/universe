@@ -29,8 +29,9 @@ module.exports = function getCommonConfig(rules /*: Object */) {
       'prettier/prettier': [
         ERROR,
         {
+          // see: prettier.config.js
           bracketSpacing: true,
-          printWidth: 80,
+          printWidth: 80, // see: https://prettier.io/docs/en/options.html#print-width
           singleQuote: true,
           tabWidth: 2,
           trailingComma: 'all',

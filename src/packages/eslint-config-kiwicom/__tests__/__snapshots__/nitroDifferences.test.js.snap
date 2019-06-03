@@ -71,8 +71,8 @@ E - no-restricted-globals ("off" vs. ["error","isFinite","isNaN","addEventListen
 E - no-shadow-restricted-names ("warn" vs. "error")
 E - no-shadow ("off" vs. "error")
 E - no-undef-init ("off" vs. "error")
-N - no-unused-vars,1,vars 
-N - no-unused-vars,1,ignoreRestSiblings 
+N - no-unused-vars,1,vars ("all")
+N - no-unused-vars,1,ignoreRestSiblings (true)
 E - no-use-before-define ("off" vs. ["error",{"functions":true,"classes":true,"variables":true}])
 E - global-require ("off" vs. "error")
 E - handle-callback-err ("warn" vs. "off")
@@ -82,8 +82,8 @@ E - no-path-concat ("warn" vs. "error")
 E - func-names ("off" vs. "warn")
 E - lines-between-class-members,2,exceptAfterSingleLine (true vs. false)
 E - lines-between-class-members,0 ("warn" vs. "error")
-N - new-cap,1,newIsCapExceptions 
-N - new-cap,1,capIsNewExceptions 
+N - new-cap,1,newIsCapExceptions ([])
+N - new-cap,1,capIsNewExceptions (["Immutable.Map","Immutable.Set","Immutable.List"])
 E - new-cap,0 ("warn" vs. "error")
 E - no-array-constructor ("warn" vs. "error")
 E - no-bitwise ("warn" vs. "error")
@@ -100,8 +100,8 @@ E - one-var,0 ("warn" vs. "error")
 E - operator-assignment ("warn" vs. ["error","always"])
 E - spaced-comment,2,block,markers,1 ("::" vs. "!")
 E - spaced-comment,2,block,markers,0 (":" vs. "=")
-N - spaced-comment,2,block,exceptions 
-N - spaced-comment,2,line 
+N - spaced-comment,2,block,exceptions (["-","+"])
+N - spaced-comment,2,line ({"exceptions":["-","+"],"markers":["=","!"]})
 E - no-class-assign ("warn" vs. "error")
 E - no-new-symbol ("warn" vs. "error")
 E - no-useless-computed-key ("warn" vs. "error")
@@ -200,8 +200,8 @@ A - import/no-extraneous-dependencies,1,devDependencies ({"kind":"N","rhs":"**/_
 E - import/no-extraneous-dependencies,1,devDependencies,1 ("**/*.spec.js" vs. "stories/**")
 E - import/no-extraneous-dependencies,1,devDependencies,0 ("**/*.test.js" vs. "etc/**")
 E - import/no-named-as-default-member ("off" vs. "error")
-N - import/no-unresolved,1,commonjs 
-N - import/no-unresolved,1,caseSensitive 
+N - import/no-unresolved,1,commonjs (true)
+N - import/no-unresolved,1,caseSensitive (true)
 A - import/order,1,groups ({"kind":"D","lhs":"index"})
 A - import/order,1,groups,1 ({"kind":"N","rhs":"index"})
 A - import/order,1,groups,1 ({"kind":"N","rhs":"sibling"})
@@ -214,47 +214,47 @@ E - flowtype/space-before-generic-bracket ("off" vs. ["error","never"])
 E - flowtype/space-before-type-colon ("off" vs. ["error","never"])
 E - flowtype/union-intersection-spacing ("off" vs. ["error","always"])
 E - prettier/prettier,1,printWidth (80 vs. 100)
-N - no-native-reassign 
-N - no-negated-in-lhs 
-N - lines-around-directive 
-N - newline-after-var 
-N - newline-before-return 
-N - no-catch-shadow 
-N - prefer-reflect 
-N - react/jsx-sort-prop-types 
-N - jsx-a11y/anchor-has-content 
-N - jsx-a11y/aria-role 
-N - jsx-a11y/aria-proptypes 
-N - jsx-a11y/img-redundant-alt 
-N - jsx-a11y/label-has-for 
-N - jsx-a11y/label-has-associated-control 
-N - jsx-a11y/mouse-events-have-key-events 
-N - jsx-a11y/no-access-key 
-N - jsx-a11y/no-onchange 
-N - jsx-a11y/interactive-supports-focus 
-N - jsx-a11y/role-has-required-aria-props 
-N - jsx-a11y/role-supports-aria-props 
-N - jsx-a11y/tabindex-no-positive 
-N - jsx-a11y/heading-has-content 
-N - jsx-a11y/html-has-lang 
-N - jsx-a11y/lang 
-N - jsx-a11y/scope 
-N - jsx-a11y/click-events-have-key-events 
-N - jsx-a11y/no-static-element-interactions 
-N - jsx-a11y/no-noninteractive-element-interactions 
-N - jsx-a11y/aria-activedescendant-has-tabindex 
-N - jsx-a11y/iframe-has-title 
-N - jsx-a11y/no-autofocus 
-N - jsx-a11y/no-redundant-roles 
-N - jsx-a11y/media-has-caption 
-N - jsx-a11y/no-interactive-element-to-noninteractive-role 
-N - jsx-a11y/no-noninteractive-element-to-interactive-role 
-N - jsx-a11y/no-noninteractive-tabindex 
-N - jsx-a11y/anchor-is-valid 
-N - fp/no-nil 
-N - fp/no-class 
-N - fp/no-this 
-N - fp/no-mutation 
-N - fp/no-unused-expression 
+N - no-native-reassign ("off")
+N - no-negated-in-lhs ("off")
+N - lines-around-directive (["error",{"before":"always","after":"always"}])
+N - newline-after-var ("off")
+N - newline-before-return ("off")
+N - no-catch-shadow ("off")
+N - prefer-reflect ("off")
+N - react/jsx-sort-prop-types ("off")
+N - jsx-a11y/anchor-has-content (["error",{"components":[]}])
+N - jsx-a11y/aria-role (["error",{"ignoreNonDom":false,"ignoreNonDOM":false}])
+N - jsx-a11y/aria-proptypes ("error")
+N - jsx-a11y/img-redundant-alt ("error")
+N - jsx-a11y/label-has-for (["error",{"components":[],"required":{"every":["nesting","id"]},"allowChildren":false}])
+N - jsx-a11y/label-has-associated-control (["error",{"labelComponents":[],"labelAttributes":[],"controlComponents":[],"assert":"both","depth":25}])
+N - jsx-a11y/mouse-events-have-key-events ("error")
+N - jsx-a11y/no-access-key ("error")
+N - jsx-a11y/no-onchange ("off")
+N - jsx-a11y/interactive-supports-focus ("error")
+N - jsx-a11y/role-has-required-aria-props ("error")
+N - jsx-a11y/role-supports-aria-props ("error")
+N - jsx-a11y/tabindex-no-positive ("error")
+N - jsx-a11y/heading-has-content (["error",{"components":[""]}])
+N - jsx-a11y/html-has-lang ("error")
+N - jsx-a11y/lang ("error")
+N - jsx-a11y/scope ("error")
+N - jsx-a11y/click-events-have-key-events ("error")
+N - jsx-a11y/no-static-element-interactions (["error",{"handlers":["onClick","onMouseDown","onMouseUp","onKeyPress","onKeyDown","onKeyUp"]}])
+N - jsx-a11y/no-noninteractive-element-interactions (["error",{"handlers":["onClick","onMouseDown","onMouseUp","onKeyPress","onKeyDown","onKeyUp"]}])
+N - jsx-a11y/aria-activedescendant-has-tabindex ("error")
+N - jsx-a11y/iframe-has-title ("error")
+N - jsx-a11y/no-autofocus (["error",{"ignoreNonDOM":true}])
+N - jsx-a11y/no-redundant-roles ("error")
+N - jsx-a11y/media-has-caption (["error",{"audio":[],"video":[],"track":[]}])
+N - jsx-a11y/no-interactive-element-to-noninteractive-role (["error",{"tr":["none","presentation"]}])
+N - jsx-a11y/no-noninteractive-element-to-interactive-role (["error",{"ul":["listbox","menu","menubar","radiogroup","tablist","tree","treegrid"],"ol":["listbox","menu","menubar","radiogroup","tablist","tree","treegrid"],"li":["menuitem","option","row","tab","treeitem"],"table":["grid"],"td":["gridcell"]}])
+N - jsx-a11y/no-noninteractive-tabindex (["error",{"tags":[],"roles":["tabpanel"]}])
+N - jsx-a11y/anchor-is-valid ("off")
+N - fp/no-nil ("off")
+N - fp/no-class ("off")
+N - fp/no-this ("off")
+N - fp/no-mutation ("off")
+N - fp/no-unused-expression ("off")
 
 `;
