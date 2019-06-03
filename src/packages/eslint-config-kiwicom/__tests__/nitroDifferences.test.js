@@ -37,6 +37,8 @@ test('differences with @kiwicom/eslint-config-nitro config', () => {
       )})`;
     } else if (kind === 'A') {
       context += `(${JSON.stringify(change.item)})`;
+    } else if (kind === 'N') {
+      context += `(${JSON.stringify(change.rhs)})`;
     }
     if (kind !== 'D') {
       // We do not add DELETED rules into final diff snapshot. This means that we
@@ -61,6 +63,7 @@ function normalizeLevel(level) {
 }
 
 function normalizeArrayConfig(config) {
+  // "off" rule is disabled no matter what is the config (so we remove the config)
   return config[0] === 'off' ? 'off' : config;
 }
 
