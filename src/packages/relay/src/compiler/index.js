@@ -16,93 +16,90 @@ import { globSync } from '@kiwicom/monorepo-utils';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 
-/* eslint-disable no-console */
-// TODO: use @kiwicom/logger (not NPM published yet)
+type ExternalOptions = {|
+  +src: string,
+  +schema: string,
+|};
 
-console.warn('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-console.warn(
-  'You are using experimental Kiwi.com Relay compiler. Expect breaking changes!',
-);
-console.warn('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+export default function compiler(externalOptions: ExternalOptions) {
+  const options = {
+    noFutureProofEnums: false,
+    validate: false,
+    include: ['**'],
+    exclude: ['**/node_modules/**', '**/__mocks__/**', '**/__generated__/**'],
+    artifactDirectory: null,
+    ...externalOptions,
+  };
 
-const reporter = new ConsoleReporter({
-  verbose: true,
-});
+  const reporter = new ConsoleReporter({
+    verbose: true,
+  });
 
-const options = {
-  src: './src', // TODO: take from process.argv
-  schema: '../graphql.kiwi.com.schema', // TODO: take from process.argv (or hide this detail)
-  noFutureProofEnums: false,
-  validate: false,
-  include: ['**'],
-  exclude: ['**/node_modules/**', '**/__mocks__/**', '**/__generated__/**'],
-  artifactDirectory: null,
-};
+  const languagePlugin = buildLanguagePlugin();
+  const srcDir = path.resolve(process.cwd(), options.src);
+  const schemaPath = path.resolve(process.cwd(), options.schema);
+  const schema = getSchema(schemaPath);
+  const sourceParserName = languagePlugin.inputExtensions.join('/');
+  const sourceSearchOptions = {
+    extensions: languagePlugin.inputExtensions,
+    include: options.include,
+    exclude: ['**/*.graphql.*', ...options.exclude], // Do not include artifacts
+  };
+  const graphqlSearchOptions = {
+    extensions: ['graphql'],
+    include: options.include,
+    exclude: [path.relative(srcDir, schemaPath)].concat(options.exclude),
+  };
 
-const languagePlugin = buildLanguagePlugin();
-const srcDir = path.resolve(process.cwd(), options.src);
-const schemaPath = path.resolve(process.cwd(), options.schema);
-const schema = getSchema(schemaPath);
-const sourceParserName = languagePlugin.inputExtensions.join('/');
-const sourceSearchOptions = {
-  extensions: languagePlugin.inputExtensions,
-  include: options.include,
-  exclude: ['**/*.graphql.*', ...options.exclude], // Do not include artifacts
-};
-const graphqlSearchOptions = {
-  extensions: ['graphql'],
-  include: options.include,
-  exclude: [path.relative(srcDir, schemaPath)].concat(options.exclude),
-};
+  const parserConfigs = {
+    [sourceParserName]: {
+      baseDir: srcDir,
+      getFileFilter: RelayJSModuleParser.getFileFilter,
+      getParser: RelayJSModuleParser.getParser,
+      getSchema: () => schema,
+      watchmanExpression: null,
+      filepaths: getFilepathsFromGlob(srcDir, sourceSearchOptions),
+    },
+    graphql: {
+      baseDir: srcDir,
+      getParser: DotGraphQLParser.getParser,
+      getSchema: () => schema,
+      watchmanExpression: null,
+      filepaths: getFilepathsFromGlob(srcDir, graphqlSearchOptions),
+    },
+  };
 
-const parserConfigs = {
-  [sourceParserName]: {
-    baseDir: srcDir,
-    getFileFilter: RelayJSModuleParser.getFileFilter,
-    getParser: RelayJSModuleParser.getParser,
-    getSchema: () => schema,
-    watchmanExpression: null,
-    filepaths: getFilepathsFromGlob(srcDir, sourceSearchOptions),
-  },
-  graphql: {
-    baseDir: srcDir,
-    getParser: DotGraphQLParser.getParser,
-    getSchema: () => schema,
-    watchmanExpression: null,
-    filepaths: getFilepathsFromGlob(srcDir, graphqlSearchOptions),
-  },
-};
+  const writerConfigs = {
+    [sourceParserName]: {
+      writeFiles: getRelayFileWriter(
+        srcDir,
+        languagePlugin,
+        options.noFutureProofEnums,
+        options.artifactDirectory,
+      ),
+      isGeneratedFile: (filePath: string) =>
+        filePath.endsWith('.graphql.js') && filePath.includes('__generated__'),
+      parser: sourceParserName,
+      baseParsers: ['graphql'],
+    },
+  };
 
-const writerConfigs = {
-  [sourceParserName]: {
-    writeFiles: getRelayFileWriter(
-      srcDir,
-      languagePlugin,
-      options.noFutureProofEnums,
-      options.artifactDirectory,
-    ),
-    isGeneratedFile: (filePath: string) =>
-      filePath.endsWith('.graphql.js') && filePath.includes('__generated__'),
-    parser: sourceParserName,
-    baseParsers: ['graphql'],
-  },
-};
+  const codegenRunner = new CodegenRunner({
+    reporter,
+    parserConfigs,
+    writerConfigs,
+    onlyValidate: options.validate,
+    sourceControl: null,
+  });
 
-const codegenRunner = new CodegenRunner({
-  reporter,
-  parserConfigs,
-  writerConfigs,
-  onlyValidate: options.validate,
-  sourceControl: null,
-});
+  const result = codegenRunner.compileAll();
 
-const result = codegenRunner.compileAll();
-
-if (result === 'ERROR') {
-  process.exit(100);
-}
-if (options.validate && result !== 'NO_CHANGES') {
-  process.exit(101);
+  if (result === 'ERROR') {
+    process.exit(100);
+  }
+  if (options.validate && result !== 'NO_CHANGES') {
+    process.exit(101);
+  }
 }
 
 function getFilepathsFromGlob(
