@@ -23,7 +23,7 @@ expect.addSnapshotSerializer({
  */
 test('differences with @kiwicom/eslint-config-nitro config', () => {
   const changes = diff(
-    getRules('../index'),
+    getRules('../strict'),
     getRules('@kiwicom/eslint-config-nitro'),
   );
 
@@ -38,7 +38,12 @@ test('differences with @kiwicom/eslint-config-nitro config', () => {
     } else if (kind === 'A') {
       context += `(${JSON.stringify(change.item)})`;
     }
-    differences += `${kind} - ${change.path} ${context}\n`;
+    if (kind !== 'D') {
+      // We do not add DELETED rules into final diff snapshot. This means that we
+      // have some additional rules Nitro doesn't contain and there is nothing
+      // to do from our side (Nitro should add them?).
+      differences += `${kind} - ${change.path} ${context}\n`;
+    }
   });
 
   expect(differences).toMatchSnapshot();

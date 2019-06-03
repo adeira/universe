@@ -3,22 +3,14 @@
 exports[`differences with @kiwicom/eslint-config-nitro config 1`] = `
 E - getter-return ("error" vs. ["error",{"allowImplicit":true}])
 E - no-async-promise-executor ("warn" vs. "off")
-E - no-cond-assign ("warn" vs. ["error","always"])
+E - no-cond-assign ("error" vs. ["error","always"])
 E - no-console ("error" vs. "warn")
 E - no-constant-condition (["warn",{"checkLoops":false}] vs. "warn")
-E - no-control-regex ("warn" vs. "error")
-E - no-duplicate-case ("warn" vs. "error")
 E - no-empty (["warn",{"allowEmptyCatch":true}] vs. "error")
-E - no-empty-character-class ("warn" vs. "error")
-E - no-ex-assign ("warn" vs. "error")
-E - no-extra-boolean-cast ("warn" vs. "error")
 E - no-inner-declarations ("warn" vs. "error")
-E - no-irregular-whitespace ("warn" vs. "error")
-E - no-misleading-character-class ("warn" vs. "off")
+E - no-misleading-character-class ("error" vs. "off")
 E - no-prototype-builtins ("off" vs. "error")
-E - no-regex-spaces ("warn" vs. "error")
 E - no-template-curly-in-string ("off" vs. "error")
-E - no-unsafe-finally ("warn" vs. "error")
 E - require-atomic-updates ("error" vs. "off")
 E - valid-typeof ("off" vs. ["error",{"requireStringLiterals":true}])
 E - accessor-pairs (["warn",{"setWithoutGet":true,"getWithoutSet":false}] vs. "off")
@@ -65,13 +57,11 @@ E - no-throw-literal ("warn" vs. "error")
 E - no-unused-expressions ("off" vs. ["error",{"allowShortCircuit":false,"allowTernary":false,"allowTaggedTemplates":false}])
 E - no-unused-labels ("warn" vs. "error")
 E - no-useless-call ("warn" vs. "off")
-D - no-useless-catch 
 E - no-useless-concat ("warn" vs. "error")
 E - no-useless-escape ("warn" vs. "error")
 E - no-useless-return ("warn" vs. "error")
 E - no-void ("warn" vs. "error")
 E - no-with ("warn" vs. "error")
-D - prefer-named-capture-group 
 E - prefer-promise-reject-errors ("warn" vs. ["error",{"allowEmptyReject":true}])
 E - require-await ("error" vs. "off")
 E - vars-on-top ("off" vs. "error")
@@ -128,90 +118,32 @@ E - prefer-spread ("warn" vs. "error")
 E - prefer-template ("off" vs. "error")
 E - require-yield ("off" vs. "error")
 E - symbol-description ("warn" vs. "error")
-D - babel/camelcase 
-D - babel/new-cap 
-D - babel/no-invalid-this 
-D - babel/no-unused-expressions 
-D - babel/valid-typeof 
-D - flowtype/array-style-complex-type 
-D - flowtype/array-style-simple-type 
-D - flowtype/newline-after-flow-annotation 
-D - flowtype/no-dupe-keys 
-D - flowtype/no-existential-type 
-D - flowtype/no-flow-fix-me-comments 
-D - flowtype/no-mutable-array 
-D - flowtype/no-primitive-constructor-types 
-D - flowtype/no-unused-expressions 
-D - flowtype/require-compound-type-alias 
-D - flowtype/require-exact-type 
-D - flowtype/require-types-at-top 
 A - flowtype/require-valid-file-annotation ({"kind":"N","rhs":{"annotationStyle":"line"}})
-D - flowtype/require-variable-type 
-D - flowtype/sort-keys 
-D - flowtype/spread-exact-type 
-D - flowtype/type-import-style 
-D - flowtype/valid-syntax 
-D - jest/consistent-test-it 
-D - jest/expect-expect 
-D - jest/lowercase-name 
-D - jest/no-alias-methods 
-D - jest/no-commented-out-tests 
-D - jest/no-disabled-tests 
-D - jest/no-empty-title 
-D - jest/no-focused-tests 
-D - jest/no-hooks 
-D - jest/no-identical-title 
-D - jest/no-jasmine-globals 
-D - jest/no-jest-import 
-D - jest/no-large-snapshots 
-D - jest/no-mocks-import 
-D - jest/no-test-callback 
-D - jest/no-test-prefixes 
-D - jest/no-test-return-statement 
-D - jest/no-truthy-falsy 
-D - jest/prefer-called-with 
-D - jest/prefer-expect-assertions 
-D - jest/prefer-inline-snapshots 
-D - jest/prefer-spy-on 
-D - jest/prefer-strict-equal 
-D - jest/prefer-to-be-null 
-D - jest/prefer-to-be-undefined 
-D - jest/prefer-to-contain 
-D - jest/prefer-to-have-length 
-D - jest/prefer-todo 
-D - jest/require-tothrow-message 
-D - jest/valid-describe 
-D - jest/valid-expect 
-D - jest/valid-expect-in-promise 
-D - prefer-object-spread/prefer-object-spread 
 E - react/button-has-type ("off" vs. ["error",{"button":true,"submit":true,"reset":false}])
 E - react/destructuring-assignment ("off" vs. ["error","always"])
-E - react/forbid-dom-props (["warn",{"forbid":["class","for"]}] vs. "off")
+E - react/forbid-dom-props (["error",{"forbid":["class","for"]}] vs. "off")
 E - react/forbid-foreign-prop-types ("off" vs. ["warn",{"allowInPropTypes":true}])
 E - react/forbid-prop-types ("off" vs. ["error",{"forbid":["any","array","object"],"checkContextTypes":true,"checkChildContextTypes":true}])
 E - react/jsx-boolean-value ("off" vs. ["error","never",{"always":[]}])
 E - react/jsx-curly-brace-presence ("off" vs. ["error",{"props":"never","children":"never"}])
 E - react/jsx-filename-extension ("off" vs. ["error",{"extensions":[".jsx"]}])
-D - react/jsx-fragments 
 E - react/jsx-key ("error" vs. "off")
 E - react/jsx-no-bind ("error" vs. ["error",{"ignoreRefs":true,"allowArrowFunctions":true,"allowFunctions":false,"allowBind":false,"ignoreDOMComponents":true}])
 E - react/jsx-no-comment-textnodes ("warn" vs. "error")
 E - react/jsx-no-duplicate-props ("error" vs. ["error",{"ignoreCase":true}])
 E - react/jsx-no-target-blank ("off" vs. ["error",{"enforceDynamicLinks":"always"}])
 E - react/jsx-pascal-case ("off" vs. ["error",{"allowAllCaps":true,"ignore":[]}])
-D - react/jsx-props-no-spreading 
 E - react/jsx-uses-react ("warn" vs. ["error"])
 E - react/jsx-uses-vars ("warn" vs. "error")
 E - react/no-array-index-key ("off" vs. "error")
 E - react/no-children-prop ("off" vs. "error")
 E - react/no-danger ("off" vs. "warn")
 E - react/no-danger-with-children ("off" vs. "error")
-E - react/no-deprecated ("warn" vs. ["error"])
-E - react/no-direct-mutation-state ("warn" vs. "off")
+E - react/no-deprecated ("error" vs. ["error"])
+E - react/no-direct-mutation-state ("error" vs. "off")
 E - react/no-find-dom-node ("off" vs. "error")
 E - react/no-is-mounted ("warn" vs. "error")
 E - react/no-multi-comp ("off" vs. ["error",{"ignoreStateless":true}])
-E - react/no-redundant-should-component-update ("warn" vs. "error")
 E - react/no-render-return-value ("off" vs. "error")
 E - react/no-string-refs ("off" vs. "error")
 E - react/no-this-in-sfc ("off" vs. "error")
@@ -222,11 +154,9 @@ E - react/no-unused-prop-types ("off" vs. ["error",{"customValidators":[],"skipS
 E - react/no-unused-state ("off" vs. "error")
 E - react/no-will-update-set-state ("off" vs. "error")
 E - react/prefer-es6-class ("off" vs. ["error","always"])
-D - react/prefer-read-only-props 
 E - react/prefer-stateless-function ("off" vs. ["error",{"ignorePureComponents":true}])
 E - react/prop-types ("off" vs. ["error",{"ignore":[],"customValidators":[],"skipUndeclared":false}])
 E - react/react-in-jsx-scope ("warn" vs. "error")
-E - react/require-render-return ("warn" vs. "error")
 A - react/sort-comp,1,order ({"kind":"N","rhs":"rendering"})
 A - react/sort-comp,1,order ({"kind":"N","rhs":"everything-else"})
 A - react/sort-comp,1,order ({"kind":"N","rhs":"instance-methods"})
@@ -253,86 +183,37 @@ E - react/sort-comp,1,groups,lifecycle,13 ("getDerivedStateFromError" vs. "compo
 E - react/sort-comp,1,groups,lifecycle,12 ("getDerivedStateFromProps" vs. "componentWillMount")
 E - react/sort-comp,1,groups,lifecycle,10 ("getInitialState" vs. "state")
 E - react/sort-comp,1,groups,lifecycle,9 ("state" vs. "getInitialState")
-E - react/sort-comp,0 ("warn" vs. "error")
-D - react/state-in-constructor 
-D - react/static-property-placement 
 E - react/style-prop-object ("off" vs. "error")
 E - react/void-dom-elements-no-children ("off" vs. "error")
 E - jsx-a11y/alt-text ("error" vs. ["error",{"elements":["img","object","area","input[type=\\"image\\"]"],"img":[],"object":[],"area":[],"input[type=\\"image\\"]":[]}])
-D - react-native/no-unused-styles 
 E - relay/compat-uses-vars ("off" vs. "warn")
 E - relay/generated-flow-types ("error" vs. "warn")
 E - relay/no-future-added-value ("error" vs. "warn")
 E - relay/unused-fields ("error" vs. "warn")
+E - import/extensions ("off" vs. ["error","ignorePackages",{"js":"never","mjs":"never","jsx":"never"}])
+E - import/named ("off" vs. "error")
+E - import/no-anonymous-default-export (["error",{"allowArray":true,"allowArrowFunction":false,"allowAnonymousClass":false,"allowAnonymousFunction":false,"allowCallExpression":true,"allowLiteral":true,"allowObject":true}] vs. "off")
+E - import/no-cycle ("off" vs. ["error",{"maxDepth":null}])
+E - import/no-duplicates ("warn" vs. "error")
+E - import/no-dynamic-require ("off" vs. "error")
+A - import/no-extraneous-dependencies,1,devDependencies ({"kind":"N","rhs":"**/__tests__/*"})
+E - import/no-extraneous-dependencies,1,devDependencies,1 ("**/*.spec.js" vs. "stories/**")
+E - import/no-extraneous-dependencies,1,devDependencies,0 ("**/*.test.js" vs. "etc/**")
+E - import/no-named-as-default-member ("off" vs. "error")
+N - import/no-unresolved,1,commonjs 
+N - import/no-unresolved,1,caseSensitive 
 A - import/order,1,groups ({"kind":"D","lhs":"index"})
 A - import/order,1,groups,1 ({"kind":"N","rhs":"index"})
 A - import/order,1,groups,1 ({"kind":"N","rhs":"sibling"})
 E - import/order,1,groups,1,1 ("sibling" vs. "parent")
 E - import/order,1,groups,1,0 ("parent" vs. "internal")
 E - import/prefer-default-export ("off" vs. "error")
-E - import/no-dynamic-require ("off" vs. "error")
-A - import/no-extraneous-dependencies,1,devDependencies ({"kind":"N","rhs":"**/__tests__/*"})
-E - import/no-extraneous-dependencies,1,devDependencies,1 ("**/*.spec.js" vs. "stories/**")
-E - import/no-extraneous-dependencies,1,devDependencies,0 ("**/*.test.js" vs. "etc/**")
-D - import/no-unresolved,1,ignore 
-N - import/no-unresolved,1,commonjs 
-N - import/no-unresolved,1,caseSensitive 
-E - import/no-anonymous-default-export (["error",{"allowArray":true,"allowArrowFunction":false,"allowAnonymousClass":false,"allowAnonymousFunction":false,"allowCallExpression":true,"allowLiteral":true,"allowObject":true}] vs. "off")
-E - import/no-duplicates ("warn" vs. "error")
-D - dependencies/case-sensitive 
-D - dependencies/no-cycles 
-D - dependencies/no-unresolved 
-D - dependencies/require-json-ext 
-D - monorepo/no-internal-import 
-D - monorepo/no-relative-import 
-D - node/exports-style 
-D - node/file-extension-in-import 
-D - node/no-deprecated-api 
-D - node/no-extraneous-import 
-D - node/no-extraneous-require 
-D - node/no-missing-import 
-D - node/no-missing-require 
-D - node/no-unpublished-bin 
-D - node/no-unpublished-import 
-D - node/no-unpublished-require 
-D - node/no-unsupported-features/es-builtins 
-D - node/no-unsupported-features/es-syntax 
-D - node/no-unsupported-features/node-builtins 
-D - node/prefer-global/buffer 
-D - node/prefer-global/console 
-D - node/prefer-global/process 
-D - node/prefer-global/text-decoder 
-D - node/prefer-global/text-encoder 
-D - node/prefer-global/url 
-D - node/prefer-global/url-search-params 
-D - node/prefer-promises/dns 
-D - node/prefer-promises/fs 
-D - node/process-exit-as-throw 
-D - node/shebang 
-D - eslint-comments/disable-enable-pair 
-D - eslint-comments/no-aggregating-enable 
-D - eslint-comments/no-duplicate-disable 
-D - eslint-comments/no-restricted-disable 
-D - eslint-comments/no-unlimited-disable 
-D - eslint-comments/no-unused-disable 
-D - eslint-comments/no-unused-enable 
-D - eslint-comments/no-use 
-D - relay-imports/no-values 
-D - relay-imports/type-must-exist 
-D - kiwicom-incubator/only-nullable-fields 
-D - kiwicom-incubator/no-invalid-flow-annotations 
-D - babel/quotes 
-D - babel/object-curly-spacing 
-D - babel/semi 
 E - flowtype/boolean-style ("off" vs. ["error","boolean"])
 E - flowtype/generic-spacing ("off" vs. ["error","never"])
 E - flowtype/space-before-generic-bracket ("off" vs. ["error","never"])
 E - flowtype/space-before-type-colon ("off" vs. ["error","never"])
 E - flowtype/union-intersection-spacing ("off" vs. ["error","always"])
-D - prettier/prettier,1,bracketSpacing 
 E - prettier/prettier,1,printWidth (80 vs. 100)
-D - prettier/prettier,1,singleQuote 
-D - prettier/prettier,1,tabWidth 
 N - no-native-reassign 
 N - no-negated-in-lhs 
 N - lines-around-directive 
@@ -340,34 +221,6 @@ N - newline-after-var
 N - newline-before-return 
 N - no-catch-shadow 
 N - prefer-reflect 
-N - import/named 
-N - import/default 
-N - import/namespace 
-N - import/export 
-N - import/no-named-as-default 
-N - import/no-named-as-default-member 
-N - import/no-deprecated 
-N - import/no-commonjs 
-N - import/no-amd 
-N - import/no-nodejs-modules 
-N - import/first 
-N - import/imports-first 
-N - import/no-namespace 
-N - import/extensions 
-N - import/no-restricted-paths 
-N - import/max-dependencies 
-N - import/no-internal-modules 
-N - import/unambiguous 
-N - import/no-webpack-loader-syntax 
-N - import/no-unassigned-import 
-N - import/no-named-default 
-N - import/exports-last 
-N - import/group-exports 
-N - import/no-default-export 
-N - import/no-self-import 
-N - import/no-cycle 
-N - import/dynamic-import-chunkname 
-N - import/no-relative-parent-imports 
 N - react/jsx-sort-prop-types 
 N - jsx-a11y/anchor-has-content 
 N - jsx-a11y/aria-role 

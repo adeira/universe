@@ -12,6 +12,7 @@ Object.keys(require('../package.json').dependencies)
       'eslint-plugin-babel',
       'eslint-plugin-eslint-comments',
       'eslint-plugin-flowtype',
+      'eslint-plugin-import',
       'eslint-plugin-jest',
       'eslint-plugin-kiwicom-incubator',
       'eslint-plugin-monorepo',
