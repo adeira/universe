@@ -29,7 +29,7 @@ function collectLocations(workspaceName) {
     collectLocations(workspaceDependency);
   }
 }
-collectLocations('@kiwicom/graphql');
+collectLocations('@kiwicom/graphql'); // TODO: only GraphQL for now
 
 const monorepoRoot = path.dirname(findRootPackageJsonPath());
 const buildDir = path.join(os.tmpdir(), 'com.kiwi.graphql.build');
@@ -52,14 +52,11 @@ function copyFileSync(absoluteFrom, absoluteTo, transpile = false) {
       transformFileSync(absoluteFrom, {
         // TODO: use correct babelrc.js file from graphql
         root: __dirname, // do not lookup any other Babel config
-        presets: [
-          [
-            '@kiwicom/babel-preset-kiwicom',
-            {
-              target: 'js',
-            },
-          ],
-        ],
+        // $FlowAllowDynamicImport
+        ...require(path.join(
+          monorepoRoot,
+          'src/apps/graphql/.babelrc.js', // TODO: this should probably be per workspace (?), this is good for now
+        )),
       }).code,
     );
   } else {
