@@ -1,4 +1,4 @@
-This package contains some useful utilities to help you write JavaScript better. This package is a great place where to add these small helpers to share them everywhere.
+This package contains some useful utilities to help you write JavaScript better. It is a great place where to add these small helpers (_without 3rd party dependencies_) to share them everywhere.
 
 ```text
 yarn add @kiwicom/js
@@ -61,7 +61,7 @@ This use of `invariant` is unnecessary because boolean [1] is always truthy. (un
      35│     let error;
 ```
 
-These both functions use `sprintf` behind the scenes:
+These both functions use [`sprintf`](#sprintf) behind the scenes.
 
 # `sprintf`
 
@@ -72,6 +72,20 @@ import { sprintf } from '@kiwicom/js';
 
 sprintf('Oh, %s', 'yeah!'); // Oh, yeah!
 sprintf('Oh, %j', 'yeah!'); // Oh, "yeah!"
+```
+
+It can handle circular references gracefully:
+
+```js
+import { sprintf } from '@kiwicom/js';
+
+const obj = {
+  a: 'foo',
+};
+obj.b = obj;
+
+sprintf('%s', obj); // '[object Object]'
+sprintf('%j', obj); // '{"a":"foo","b":"[Circular]"}'
 ```
 
 It is also possible to escape the percentage sign with `%%`.
