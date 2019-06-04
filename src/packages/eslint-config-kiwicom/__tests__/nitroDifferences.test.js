@@ -79,7 +79,8 @@ function normalizeLevel(level) {
 
 function normalizeArrayConfig(config) {
   // "off" rule is disabled no matter what is the config (so we remove the config)
-  return config[0] === 'off' ? 'off' : config;
+  const arrayConfig = config[0] === 'off' ? 'off' : config;
+  return arrayConfig.length === 1 ? arrayConfig[0] : arrayConfig;
 }
 
 function normalize(config) {
