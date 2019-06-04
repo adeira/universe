@@ -31,7 +31,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
       expect(packageJson.homepage).toMatch(
         new RegExp(
-          `^(?:https://github\\.com/kiwicom/.+|https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/${path.basename(
+          `^(?:https://github\\.com/kiwicom/.+|https://gitlab.skypicker.com/incubator/universe/tree/master/src/.+/${path.basename(
             path.dirname(packageJSONLocation),
           )})$`,
         ),
