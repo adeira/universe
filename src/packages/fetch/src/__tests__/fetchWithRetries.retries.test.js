@@ -24,6 +24,42 @@ it('retries the request if the previous attempt timed-out', async () => {
   await flushPromises();
   jest.runAllTimers();
 
+  expect(fetch.mock.calls).toMatchInlineSnapshot(`
+    Array [
+      Array [
+        "https://localhost",
+        Object {
+          "headers": Object {
+            "User-Agent": "@kiwicom/fetch (+https://github.com/kiwicom/fetch; 1)",
+          },
+        },
+      ],
+      Array [
+        "https://localhost",
+        Object {
+          "headers": Object {
+            "User-Agent": "@kiwicom/fetch (+https://github.com/kiwicom/fetch; 2)",
+          },
+        },
+      ],
+      Array [
+        "https://localhost",
+        Object {
+          "headers": Object {
+            "User-Agent": "@kiwicom/fetch (+https://github.com/kiwicom/fetch; 3)",
+          },
+        },
+      ],
+      Array [
+        "https://localhost",
+        Object {
+          "headers": Object {
+            "User-Agent": "@kiwicom/fetch (+https://github.com/kiwicom/fetch; 4)",
+          },
+        },
+      ],
+    ]
+  `);
   expect(handleNext.mock.calls[0][0].message).toEqual(
     'fetchWithRetries: Failed to get response from server (https://localhost), tried 4 times.',
   );
