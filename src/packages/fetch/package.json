@@ -12,6 +12,6 @@
     "cross-fetch": "^3.0.3"
   },
   "devDependencies": {
-    "lolex": "^4.0.1"
+    "lolex": "^4.1.0"
   }
 }
