@@ -1,5 +1,7 @@
 # Unreleased
 
+# 2.4.0
+
 - `@kiwicom/fetch` now overwrites default User-Agent string with our custom value so you can easily identify it.
 
 # 2.3.0
