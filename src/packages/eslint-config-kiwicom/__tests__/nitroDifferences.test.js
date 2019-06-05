@@ -2,6 +2,8 @@
 
 import { diff } from 'deep-diff';
 
+import deprecatedRules from './deprecatedRules';
+
 const CLIEngine = require('eslint').CLIEngine;
 
 expect.addSnapshotSerializer({
@@ -72,7 +74,8 @@ function normalize(config) {
     if (Array.isArray(value)) {
       const [level, ...config] = value;
       acc[ruleName] = normalizeArrayConfig([normalizeLevel(level), ...config]);
-    } else {
+    } else if (!deprecatedRules.has(ruleName)) {
+      // add only rules which are not deprecated
       acc[ruleName] = normalizeLevel(value);
     }
     return acc;
