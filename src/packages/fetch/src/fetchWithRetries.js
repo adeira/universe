@@ -25,7 +25,7 @@ export default function fetchWithRetries(
   resource: string,
   initWithRetries?: InitWithRetries,
 ): Promise<Response> {
-  const { fetchTimeout, retryDelays, ...init } = initWithRetries || {};
+  const { fetchTimeout, retryDelays, headers, ...init } = initWithRetries ?? {};
   const _fetchTimeout = fetchTimeout != null ? fetchTimeout : DEFAULT_TIMEOUT;
   const _retryDelays = retryDelays != null ? retryDelays : DEFAULT_RETRIES;
 
@@ -41,7 +41,20 @@ export default function fetchWithRetries(
       requestsAttempted++;
       requestStartTime = Date.now();
       let isRequestAlive = true;
-      const request = fetch(resource, init);
+      const request = fetch(resource, {
+        ...init,
+        headers: {
+          // Cross-fetch uses node-fetch behind the scenes (in Node.js envs) which
+          // sets default UA header (https://github.com/bitinn/node-fetch/blob/95286f52bb866283bc69521a04efe1de37b26a33/src/request.js#L225).
+          // We overwrite it here is make clear where is this request actually
+          // coming from. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
+          'User-Agent': sprintf(
+            '@kiwicom/fetch (+https://github.com/kiwicom/fetch; %s)',
+            requestsAttempted,
+          ),
+          ...headers,
+        },
+      });
       const requestTimeout = setTimeout(() => {
         isRequestAlive = false;
         if (shouldRetry(requestsAttempted)) {
