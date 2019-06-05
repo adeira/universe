@@ -15,6 +15,7 @@ module.exports = {
   getDefaultPathMappings(): Map<string, string> {
     const ossRoot = 'src/apps/example-relay/';
     return new Map([
+      [path.join(ossRoot, '__github__', '.circleci'), '.circleci'],
       [path.join(ossRoot, '__github__', '.flowconfig'), '.flowconfig'],
       [ossRoot, ''],
     ]);
