@@ -1,5 +1,6 @@
 # Unreleased
 
+# 4.6.0
 There are many non-breaking changes in this release but mostly covering edge cases. Please, report any issues so we can reconsider some of them. Also, do not hesitate to upgrade your codebase. We are currently trying to unify our config and Nitro config.
 
 - Following rules now show warnings (errors in strict mode): [`import/export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/export.md), [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md), [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md), [`import/no-amd`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-amd.md), [`import/no-named-default`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-default.md), [`import/no-self-import`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-self-import.md)
