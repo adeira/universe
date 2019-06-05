@@ -15,6 +15,10 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
     'src/apps/example-relay/__generated__/AppQuery.graphql.js',
     '__generated__/AppQuery.graphql.js',
   ],
+  [
+    'src/apps/example-relay/__github__/.circleci/config.yml',
+    '.circleci/config.yml',
+  ],
   ['src/apps/example-relay/__github__/.flowconfig', '.flowconfig'],
 
   // invalid cases:
