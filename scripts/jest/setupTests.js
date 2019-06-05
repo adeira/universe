@@ -21,12 +21,10 @@ expect.extend({
       return {
         pass: false,
         message: () =>
-          'Expected Error message to be:' +
-          os.EOL +
-          `  ${this.utils.printExpected(message)}\n` +
-          'Received:' +
-          os.EOL +
-          `  ${this.utils.printReceived(received.message)}`,
+          `Expected Error message to be:${os.EOL}  ${this.utils.printExpected(
+            message,
+          )}\n` +
+          `Received:${os.EOL}  ${this.utils.printReceived(received.message)}`,
       };
     }
     return {

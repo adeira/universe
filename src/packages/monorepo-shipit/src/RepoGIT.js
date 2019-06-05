@@ -210,7 +210,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       '--ancestry-path',
       '--no-merges',
       '--pretty=tformat:%H',
-      baseRevision + '..' + headRevision,
+      `${baseRevision}..${headRevision}`,
       '--', // separates paths from revisions (so you can use non-existent paths)
       ...roots,
     )

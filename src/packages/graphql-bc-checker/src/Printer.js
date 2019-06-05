@@ -24,18 +24,16 @@ const error = (message: string) => {
 
 const printBreakingChanges = (changes: $ReadOnlyArray<Object>) => {
   console.error(
-    chalk.red(
+    `${chalk.red(
       'You introduced breaking changes into the public GraphQL schema. ',
-    ) +
-      'This change may or may not be intentional. These breaking changes ' +
-      'may break some clients consuming our public API. Please try to ' +
-      'find a way how to avoid breaking changes and try it again. Here is ' +
-      'list of all breaking changes:' +
-      os.EOL,
+    )}This change may or may not be intentional. These breaking changes ` +
+      `may break some clients consuming our public API. Please try to ` +
+      `find a way how to avoid breaking changes and try it again. Here is ` +
+      `list of all breaking changes:${os.EOL}`,
   );
 
   for (const change of changes) {
-    console.error(chalk.red.bold(change.type) + ' - ' + change.description);
+    console.error(`${chalk.red.bold(change.type)} - ${change.description}`);
   }
 
   note(
@@ -53,7 +51,7 @@ const printBreakingChanges = (changes: $ReadOnlyArray<Object>) => {
 
 const printDangerousChanges = (changes: $ReadOnlyArray<Object>) => {
   for (const change of changes) {
-    console.warn(chalk.yellow.bold(change.type) + ' - ' + change.description);
+    console.warn(`${chalk.yellow.bold(change.type)} - ${change.description}`);
   }
 };
 

@@ -11,7 +11,7 @@ test('there is a test file for every config file', () => {
   configFilenames.forEach(configFilename => {
     const testFilename = configFilename.replace(
       /^(?<path>.+?)(?<file>[^/]+)\.js$/,
-      '$1__tests__' + path.sep + '$2.test.js',
+      `$1__tests__${path.sep}$2.test.js`,
     );
     expect({
       isOK: fs.existsSync(testFilename),

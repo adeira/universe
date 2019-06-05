@@ -34,7 +34,7 @@ module.exports = {
   ): void {
     const rootPackageJSON = findRootPackageJson();
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
-      globSync(workspace + '/package.json', {
+      globSync(`${workspace}/package.json`, {
         absolute: true,
       }).forEach(packageJSONLocation => {
         cb(packageJSONLocation);
@@ -53,7 +53,7 @@ module.exports = {
     const workspaces = __resolveWorkspaces(rootPackageJSON);
     const isWorkspaceDirectory = workspaces.some(workspaceGlob => {
       const workspaceRegexp = workspaceGlob.replace(/\/\*\*?/, '');
-      return new RegExp(workspaceRegexp + '$').test(path);
+      return new RegExp(`${workspaceRegexp}$`).test(path);
     });
 
     invariant(
@@ -79,7 +79,7 @@ module.exports = {
     let packageJSONLocations = [];
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       packageJSONLocations = packageJSONLocations.concat(
-        globSync(workspace + '/package.json', {
+        globSync(`${workspace}/package.json`, {
           absolute: true,
         }),
       );

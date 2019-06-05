@@ -47,7 +47,7 @@ module.exports = {
           path.dirname(context.getFilename()),
           node.source.value.endsWith('.js')
             ? node.source.value
-            : node.source.value + '.js',
+            : `${node.source.value}.js`,
         );
         let generatedSource = '';
         try {

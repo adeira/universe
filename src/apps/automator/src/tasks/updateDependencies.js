@@ -75,7 +75,7 @@ function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
     packageJSON[dependency.packageType][dependency.packageName] = newVersion;
     fs.writeFileSync(
       packageJSONLocation,
-      JSON.stringify(packageJSON, null, 2) + '\n',
+      `${JSON.stringify(packageJSON, null, 2)}\n`,
     );
 
     return undefined;

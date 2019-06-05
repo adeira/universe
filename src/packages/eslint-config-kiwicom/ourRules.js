@@ -37,7 +37,7 @@ module.exports = {
   'no-prototype-builtins': OFF,
   'no-regex-spaces': NEXT_VERSION_ERROR,
   'no-sparse-arrays': ERROR,
-  'no-template-curly-in-string': OFF,
+  'no-template-curly-in-string': NEXT_VERSION_ERROR,
   'no-unreachable': ERROR,
   'no-unsafe-finally': NEXT_VERSION_ERROR,
   'no-unsafe-negation': ERROR,
@@ -48,7 +48,7 @@ module.exports = {
 
   // Best Practices (http://eslint.org/docs/rules/#best-practices)
   'accessor-pairs': [WARN, { setWithoutGet: true }],
-  'array-callback-return': OFF,
+  'array-callback-return': NEXT_VERSION_ERROR,
   'block-scoped-var': OFF,
   'class-methods-use-this': OFF,
   complexity: OFF,
@@ -81,7 +81,7 @@ module.exports = {
   'no-iterator': NEXT_VERSION_ERROR,
   'no-labels': [ERROR, { allowLoop: true, allowSwitch: true }],
   'no-lone-blocks': NEXT_VERSION_ERROR,
-  'no-loop-func': OFF,
+  'no-loop-func': NEXT_VERSION_ERROR,
   'no-magic-numbers': OFF,
   'no-multi-str': ERROR,
   'no-new-func': ERROR,
@@ -116,7 +116,7 @@ module.exports = {
   radix: ERROR,
   'require-await': ERROR,
   'require-unicode-regexp': OFF,
-  'vars-on-top': OFF,
+  'vars-on-top': NEXT_VERSION_ERROR,
   yoda: WARN,
 
   // Strict Mode (http://eslint.org/docs/rules/#strict-mode)
@@ -186,7 +186,7 @@ module.exports = {
   'no-lonely-if': ERROR,
   'no-multi-assign': OFF,
   'no-negated-condition': OFF,
-  'no-nested-ternary': OFF,
+  'no-nested-ternary': NEXT_VERSION_ERROR,
   'no-new-object': WARN,
   'no-plusplus': OFF,
   'no-restricted-syntax': OFF,
@@ -230,7 +230,7 @@ module.exports = {
   'prefer-numeric-literals': OFF,
   'prefer-rest-params': WARN,
   'prefer-spread': WARN,
-  'prefer-template': OFF,
+  'prefer-template': NEXT_VERSION_ERROR,
   'require-yield': OFF,
   'sort-imports': OFF,
   'symbol-description': WARN,

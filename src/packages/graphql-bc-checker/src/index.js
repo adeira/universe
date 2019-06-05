@@ -29,13 +29,11 @@ const terminate = (cb?: () => void = () => {}) => {
 
 const createSnapshot = (breakingChangesBlock, newSchema) => {
   return SignedSource.signFile(
-    `# ${SignedSource.getSigningToken()}` +
-      os.EOL +
-      os.EOL +
-      breakingChangesBlock +
-      os.EOL +
-      os.EOL +
-      printSchema(lexicographicSortSchema(newSchema)),
+    `# ${SignedSource.getSigningToken()}${os.EOL}${
+      os.EOL
+    }${breakingChangesBlock}${os.EOL}${os.EOL}${printSchema(
+      lexicographicSortSchema(newSchema),
+    )}`,
   );
 };
 
