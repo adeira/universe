@@ -24,17 +24,31 @@ expect.addSnapshotSerializer({
  * See: https://github.com/flitbit/diff#differences
  */
 test('differences with @kiwicom/eslint-config-nitro config', () => {
-  const changes = diff(
-    getRules('../strict'),
-    getRules('@kiwicom/eslint-config-nitro'),
-  );
+  expect(
+    formatChanges(
+      'This changelog describes what should Universe change in order to be identical with Nitro config:',
+      diff(getRules('../strict'), getRules('@kiwicom/eslint-config-nitro')),
+    ),
+  ).toMatchSnapshot();
 
-  let differences = '';
+  // This reversed changed is not just naively changed direction of changes.
+  // For example, some rules should be added in one direction but NOT removed
+  // in the other direction (deletions are not reflected at all).
+  expect(
+    formatChanges(
+      'This changelog describes what should Nitro change in order to be identical with Universe config:',
+      diff(getRules('@kiwicom/eslint-config-nitro'), getRules('../strict')),
+    ),
+  ).toMatchSnapshot();
+});
+
+function formatChanges(description, changes) {
+  let differences = `\n${description}\n\n`;
   changes.forEach(change => {
     const { kind } = change;
     let context = '';
     if (kind === 'E') {
-      context += `(${JSON.stringify(change.lhs)} vs. ${JSON.stringify(
+      context += `(${JSON.stringify(change.lhs)} -> ${JSON.stringify(
         change.rhs,
       )})`;
     } else if (kind === 'A') {
@@ -49,9 +63,8 @@ test('differences with @kiwicom/eslint-config-nitro config', () => {
       differences += `${kind} - ${change.path} ${context}\n`;
     }
   });
-
-  expect(differences).toMatchSnapshot();
-});
+  return differences;
+}
 
 function normalizeLevel(level) {
   if (level === 2) {
