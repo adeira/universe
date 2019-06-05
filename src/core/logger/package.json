@@ -1,8 +1,10 @@
 {
   "name": "@kiwicom/logger",
+  "description": "Multiplatform logger (Node.js, Browser, RN) with Datadog support",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger",
   "version": "0.0.0",
-  "private": true,
-  "license": "UNLICENSED",
+  "private": false,
+  "license": "MIT",
   "main": "src/index.js",
   "dependencies": {
     "winston": "^3.2.1"
