@@ -28,7 +28,7 @@ module.exports = function formatGeneratedModule(
   const documentTypeImport = documentType
     ? `import type { ${documentType} } from 'relay-runtime';`
     : '';
-  const docTextComment = docText ? '\n/*\n' + docText.trim() + '\n*/\n' : '';
+  const docTextComment = docText ? `\n/*\n${docText.trim()}\n*/\n` : '';
   const hashText = hash ? `\n * ${hash}` : '';
   const devOnlyAddons = devOnlyAssignments
     ? `\nif (__DEV__) {\n  ${devOnlyAssignments}\n}`

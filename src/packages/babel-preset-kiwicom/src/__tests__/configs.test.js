@@ -36,7 +36,7 @@ test.each(matrix)(
       assertVersion: version => {
         if (version !== 7) {
           throw new Error(
-            'Only Babel API version 7 supported, given version: ' + version,
+            `Only Babel API version 7 supported, given version: ${version}`,
           );
         }
       },

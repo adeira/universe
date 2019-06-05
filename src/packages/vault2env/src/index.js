@@ -93,7 +93,7 @@ export default async function run() {
     _writeEnvFile(secrets, params.force, () => {
       console.log('Retrieved secrets:');
       console.log(Object.keys(secrets).join(os.EOL));
-      console.log(os.EOL + '.env file created.' + os.EOL);
+      console.log(`${os.EOL}.env file created.${os.EOL}`);
     });
   } catch (err) {
     console.error(`Error while retrieving secrets: ${err.message}`);

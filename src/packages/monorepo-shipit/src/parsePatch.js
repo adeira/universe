@@ -25,7 +25,7 @@ export default function* parsePatch(
         yield contents;
       }
       seenRangeHeader = false;
-      contents = line + '\n';
+      contents = `${line}\n`;
       continue;
     }
 
@@ -38,19 +38,19 @@ export default function* parsePatch(
       minusLines = rawMinusLines == null ? 1 : parseInt(rawMinusLines, 10);
       plusLines = rawPlusLines == null ? 1 : parseInt(rawPlusLines, 10);
 
-      contents += line + '\n';
+      contents += `${line}\n`;
       seenRangeHeader = true;
       continue;
     }
 
     if (seenRangeHeader === false) {
-      contents += line + '\n';
+      contents += `${line}\n`;
       continue;
     }
 
     const leftmost = line.charAt(0);
     if (leftmost === '\\') {
-      contents += line + '\n';
+      contents += `${line}\n`;
       // doesn't count as a + or - line whatever happens; if NL at EOF
       // changes, there is a + and - for the last line of content
       continue;
@@ -71,7 +71,7 @@ export default function* parsePatch(
     } else {
       invariant(false, "Can't parse hunk line %s: %s", lineNumber, line);
     }
-    contents += line + '\n';
+    contents += `${line}\n`;
   }
 
   if (contents !== '') {

@@ -102,7 +102,7 @@ export default async function publish(options: Options) {
             gzip: true,
             cwd: options.buildCache,
             portable: true,
-            file: path.join(options.buildCache, packageFolderName + '.tgz'),
+            file: path.join(options.buildCache, `${packageFolderName}.tgz`),
           },
           [packageFolderName],
         );
@@ -111,7 +111,7 @@ export default async function publish(options: Options) {
           await NPM.publishPackage({
             metadata: packageJSONFile,
             body: fs.createReadStream(
-              path.join(options.buildCache, packageFolderName + '.tgz'),
+              path.join(options.buildCache, `${packageFolderName}.tgz`),
             ),
             npmAuthToken: options.npmAuthToken,
           });

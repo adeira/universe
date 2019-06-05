@@ -53,7 +53,7 @@ export default function transformFileVariants(
 
   // 3) transform Flow version
   try {
-    const modifiedDestinationFilename = destinationFilename + '.flow';
+    const modifiedDestinationFilename = `${destinationFilename}.flow`;
     log('%s 👉 %s', originalFilename, modifiedDestinationFilename);
     fs.writeFileSync(
       modifiedDestinationFilename,

@@ -13,10 +13,10 @@ export default function moveDirectories(
     let newPath = oldPath;
     for (const [src, dest] of mapping.entries()) {
       let matchFound = false;
-      if (new RegExp('^' + src).test(newPath)) {
+      if (new RegExp(`^${src}`).test(newPath)) {
         matchFound = true;
       }
-      newPath = newPath.replace(new RegExp('^' + src), dest);
+      newPath = newPath.replace(new RegExp(`^${src}`), dest);
       if (matchFound) {
         break; // only first match in the map
       }
@@ -35,12 +35,12 @@ export default function moveDirectories(
 
     let body = diff.body;
     body = body.replace(
-      new RegExp('^--- a/' + oldPath, 'm'),
-      '--- a/' + newPath,
+      new RegExp(`^--- a/${oldPath}`, 'm'),
+      `--- a/${newPath}`,
     );
     body = body.replace(
-      new RegExp('^\\+\\+\\+ b/' + oldPath, 'm'),
-      '+++ b/' + newPath,
+      new RegExp(`^\\+\\+\\+ b/${oldPath}`, 'm'),
+      `+++ b/${newPath}`,
     );
 
     diffs.add({

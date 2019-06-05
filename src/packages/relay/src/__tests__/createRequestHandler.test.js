@@ -10,7 +10,7 @@ const observer = {
   start: () => list.push('start'),
   next: val => {
     return list.push(
-      'next:' + (typeof val === 'object' ? JSON.stringify(val) : val),
+      `next:${typeof val === 'object' ? JSON.stringify(val) : val}`,
     );
   },
   error: err => list.push(err),

@@ -16,10 +16,7 @@ const getBreakingChangesLog = (
   newBreakingChanges: ?$ReadOnlyArray<BreakingChange>,
 ) => {
   const breakingChangeBlockRegExp = new RegExp(
-    '# ' +
-      breakingChangeMarkerStart +
-      '([\\s\\S]+)# ' +
-      breakingChangeMarkerEnd,
+    `# ${breakingChangeMarkerStart}([\\s\\S]+)# ${breakingChangeMarkerEnd}`,
   );
 
   const match = oldSnapshot.match(breakingChangeBlockRegExp);
@@ -28,7 +25,7 @@ const getBreakingChangesLog = (
   if (newBreakingChanges) {
     breakingChangesLog += newBreakingChanges.reduce(
       (acc, curVal) =>
-        acc + '#  ' + curVal.type + ': ' + curVal.description + os.EOL,
+        `${acc}#  ${curVal.type}: ${curVal.description}${os.EOL}`,
       '',
     );
   }
@@ -45,11 +42,5 @@ export const buildBreakingChangesBlock = (
     newBreakingChanges,
   );
 
-  return (
-    '# ' +
-    breakingChangeMarkerStart +
-    breakingChangesLog +
-    '# ' +
-    breakingChangeMarkerEnd
-  );
+  return `# ${breakingChangeMarkerStart}${breakingChangesLog}# ${breakingChangeMarkerEnd}`;
 };
