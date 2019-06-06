@@ -8,9 +8,6 @@ module.exports = {
     };
   },
   getDefaultPathMappings(): Map<string, string> {
-    return new Map([
-      ['src/core/monorepo-utils/', ''],
-      ['src/packages/monorepo-utils/', ''],
-    ]);
+    return new Map([['src/core/monorepo-utils/', '']]);
   },
 };
