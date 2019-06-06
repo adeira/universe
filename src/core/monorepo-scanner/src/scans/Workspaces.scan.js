@@ -17,9 +17,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
         packageJson.name,
       ) === true,
     ).toGiveHelp(
-      `All packages in our monorepo must start with '@kiwicom/' prefix. This name is not valid: ${
-        packageJson.name
-      }`,
+      `All packages in our monorepo must start with '@kiwicom/' prefix. This name is not valid: ${packageJson.name}`,
     );
 
     if (packageJson.private === false) {
@@ -71,9 +69,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
         // bumped dependency version which made the released package broken
         // (we should probably use tilde ranges for our workspace deps though)
         throw new Error(
-          `Please be more explicit about the required versions inside monorepo. Package ${
-            packageJson.name
-          } required dependency ${dependency} with version: ${version}`,
+          `Please be more explicit about the required versions inside monorepo. Package ${packageJson.name} required dependency ${dependency} with version: ${version}`,
         );
       }
     });

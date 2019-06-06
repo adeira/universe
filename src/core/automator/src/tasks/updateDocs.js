@@ -43,9 +43,7 @@ function updateNPMPackagesInfo(
   let finalString = '';
   let separator = '';
   workspaces.forEach(workspace => {
-    finalString += `${separator}- ${workspace.version} [${workspace.name}](${
-      workspace.homepage
-    }) - ${workspace.description}`;
+    finalString += `${separator}- ${workspace.version} [${workspace.name}](${workspace.homepage}) - ${workspace.description}`;
     separator = os.EOL;
   });
 
