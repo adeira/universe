@@ -42,9 +42,7 @@ process.on('unhandledRejection', err => {
 
   if (tasks.size !== ciNode.total) {
     throw new Error(
-      `CI is trying to run Automator with ${ciNode.total} nodes but there are ${
-        tasks.size
-      } tasks available (incompatible cardinalities).`,
+      `CI is trying to run Automator with ${ciNode.total} nodes but there are ${tasks.size} tasks available (incompatible cardinalities).`,
     );
   }
 

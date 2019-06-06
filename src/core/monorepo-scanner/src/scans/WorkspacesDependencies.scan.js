@@ -58,9 +58,7 @@ describe('dependencies similarities', () => {
               const packageExceptions = exceptions.get(mainDependency) ?? [];
               if (!packageExceptions.includes(dependency)) {
                 throw new Error(
-                  `Project ${
-                    packageJson.name
-                  } requires dependency '${dependency}' but it should use '${mainDependency}' instead.`,
+                  `Project ${packageJson.name} requires dependency '${dependency}' but it should use '${mainDependency}' instead.`,
                 );
               }
             }

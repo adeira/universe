@@ -29,9 +29,7 @@ test('all private packages should have private flag set forever', () => {
     const packageJson = require(packageJSONLocation);
 
     expect(violatesBlacklist(packageJson) === false).toGiveHelp(
-      `Package '${
-        packageJson.name
-      }' is blacklisted for publishing on NPM. Please change the project visibility to private:true in package.json.`,
+      `Package '${packageJson.name}' is blacklisted for publishing on NPM. Please change the project visibility to private:true in package.json.`,
     );
   });
 });
