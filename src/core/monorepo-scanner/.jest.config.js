@@ -23,7 +23,6 @@ const dependenciesTable = new Map([
   [/package\.json$/i, 'PrivatePackages.scan.js'],
   [/\.js$/i, 'TestsWithCorrectName.scan.js'],
   [/(?:package\.json|LICENSE)$/i, 'Workspaces.scan.js'],
-  [/package\.json$/i, 'WorkspacesApps.scan.js'],
   [/package\.json$/i, 'WorkspacesDependencies.scan.js'],
   // TODO: every test should define their own dependencies to scale well (?), also, how to test the scanner itself?
 ]);
@@ -64,7 +63,6 @@ module.exports = {
   globals: {
     __DEV__: true,
     __SRC_ROOT__: monorepoSrcRoot,
-    __SRC_APPS_ROOT__: path.join(monorepoSrcRoot, 'apps'),
     __SRC_PACKAGES_ROOT__: path.join(monorepoSrcRoot, 'packages'),
   },
   transform: {
