@@ -1,7 +1,5 @@
 // @flow strict
 
-import path from 'path';
-
 // TODO: defaultProjectFilterChangeset
 //  (currently unused)
 
@@ -13,11 +11,13 @@ module.exports = {
     };
   },
   getDefaultPathMappings(): Map<string, string> {
-    const ossRoot = 'src/apps/example-relay/';
     return new Map([
-      [path.join(ossRoot, '__github__', '.circleci'), '.circleci'],
-      [path.join(ossRoot, '__github__', '.flowconfig'), '.flowconfig'],
-      [ossRoot, ''],
+      ['src/incubator/example-relay/__github__/.circleci', '.circleci'],
+      ['src/incubator/example-relay/__github__/.flowconfig', '.flowconfig'],
+      ['src/incubator/example-relay/', ''],
+      ['src/apps/example-relay/__github__/.circleci', '.circleci'],
+      ['src/apps/example-relay/__github__/.flowconfig', '.flowconfig'],
+      ['src/apps/example-relay/', ''],
     ]);
   },
   getDefaultStrippedFiles(): Set<RegExp> {
