@@ -28,4 +28,4 @@ ResponseError.prototype = Object.create(Error.prototype, {
 
 setPrototypeOf(ResponseError, Error);
 
-module.exports = ResponseError;
+export default ResponseError;

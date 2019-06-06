@@ -1,0 +1,9 @@
+{
+  "name": "withMainAndModule",
+  "version": "0.0.0",
+  "main": "src/do-not-overwrite-this.ABC",
+  "module": false,
+  "dependencies": {
+    "//": "none"
+  }
+}

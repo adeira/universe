@@ -79,6 +79,7 @@ export default async function publish(options: Options) {
             transformFileVariants(
               path.join(packageFolderPath, filename),
               destinationFileName,
+              packageJSONFile.module,
             );
           } else if (filename === 'package.json') {
             log('%s 👉 %s', packageJSONLocation, destinationFileName);

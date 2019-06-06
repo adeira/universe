@@ -25,4 +25,4 @@ TimeoutError.prototype = Object.create(Error.prototype, {
 
 setPrototypeOf(TimeoutError, Error);
 
-module.exports = TimeoutError;
+export default TimeoutError;
