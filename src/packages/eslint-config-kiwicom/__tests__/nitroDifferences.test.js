@@ -16,6 +16,11 @@ expect.addSnapshotSerializer({
 });
 
 const explainedDifferencies = new Set([
+  // Rules 'no-unused-expressions' and 'babel/no-unused-expressions' are broken and
+  // replaced by 'flow/no-unused-expressions' (it supports not only optional chaining
+  // but also exhaustive type checking).
+  'no-unused-expressions',
+
   // This rule is outdated and doesn't sort Flow types correctly (as we like).
   // See: https://gitlab.skypicker.com/incubator/universe/commit/b1d0be4c7b4bfb6fa3557694f7cfcf0bfde05dfb
   // See: https://github.com/airbnb/javascript/blob/4539dbcf17b960ab650665bc95421dc8d0d3276e/packages/eslint-config-airbnb/rules/react.js#L241
