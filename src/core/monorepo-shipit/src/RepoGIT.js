@@ -228,9 +228,6 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
         .setOutputToScreen()
         .runSynchronously();
     } catch (error) {
-      this._gitCommand('am', '--show-current-patch')
-        .setOutputToScreen()
-        .runSynchronously();
       this._gitCommand('am', '--abort')
         .setOutputToScreen()
         .runSynchronously();

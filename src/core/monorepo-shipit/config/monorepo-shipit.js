@@ -8,9 +8,6 @@ module.exports = {
     };
   },
   getDefaultPathMappings(): Map<string, string> {
-    return new Map([
-      ['src/core/monorepo-shipit/', ''],
-      ['src/packages/monorepo-shipit/', ''],
-    ]);
+    return new Map([['src/core/monorepo-shipit/', '']]);
   },
 };
