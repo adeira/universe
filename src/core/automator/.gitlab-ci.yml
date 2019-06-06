@@ -18,4 +18,4 @@ automator:
     - ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
   script:
     - yarn install --offline --frozen-lockfile
-    - yarn monorepo-babel-node src/apps/automator/src/index.js
+    - yarn monorepo-babel-node src/core/automator/src/index.js
