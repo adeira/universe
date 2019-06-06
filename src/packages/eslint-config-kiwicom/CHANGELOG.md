@@ -1,6 +1,7 @@
 # Unreleased
 
 - Following rules now show warnings (errors in strict mode): [`no-template-curly-in-string`](https://eslint.org/docs/rules/no-template-curly-in-string), [`array-callback-return`](https://eslint.org/docs/rules/array-callback-return), [`no-loop-func`](https://eslint.org/docs/rules/no-loop-func), [`vars-on-top`](https://eslint.org/docs/rules/vars-on-top), [`no-nested-ternary`](https://eslint.org/docs/rules/no-nested-ternary), [`prefer-template`](https://eslint.org/docs/rules/prefer-template)
+- Following React-related rules now show warnings (errors in strict mode): [`react/button-has-type`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/button-has-type.md), [`react/no-danger-with-children`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger-with-children.md), [`react/no-find-dom-node`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md), [`react/no-is-mounted`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-is-mounted.md), [`react/no-multi-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md), [`react/no-render-return-value`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-render-return-value.md), [`react/jsx-uses-vars`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md), [`react/no-this-in-sfc`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-this-in-sfc.md)
 
 # 4.6.0
 
