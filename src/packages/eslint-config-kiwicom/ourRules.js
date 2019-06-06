@@ -410,8 +410,8 @@ module.exports = {
           'state',
           'getInitialState',
           'getChildContext',
-          'getDerivedStateFromProps',
-          'getDerivedStateFromError', // FIXME: this is added
+          'getDerivedStateFromProps', // this is added
+          'getDerivedStateFromError', // this is added
           'componentWillMount',
           'UNSAFE_componentWillMount',
           'componentDidMount',

@@ -15,6 +15,13 @@ expect.addSnapshotSerializer({
   },
 });
 
+const explainedDifferencies = new Set([
+  // This rule is outdated and doesn't sort Flow types correctly (as we like).
+  // See: https://gitlab.skypicker.com/incubator/universe/commit/b1d0be4c7b4bfb6fa3557694f7cfcf0bfde05dfb
+  // See: https://github.com/airbnb/javascript/blob/4539dbcf17b960ab650665bc95421dc8d0d3276e/packages/eslint-config-airbnb/rules/react.js#L241
+  'react/sort-comp',
+]);
+
 /**
  * N - indicates a newly added property/element
  * D - indicates a property/element was deleted
@@ -85,12 +92,22 @@ function normalizeArrayConfig(config) {
 
 function normalize(config) {
   return Object.entries(config).reduce((acc, [ruleName, value]) => {
+    let normalizedConfig;
     if (Array.isArray(value)) {
       const [level, ...config] = value;
-      acc[ruleName] = normalizeArrayConfig([normalizeLevel(level), ...config]);
-    } else if (!deprecatedRules.has(ruleName)) {
-      // add only rules which are not deprecated
-      acc[ruleName] = normalizeLevel(value);
+      normalizedConfig = normalizeArrayConfig([
+        normalizeLevel(level),
+        ...config,
+      ]);
+    } else {
+      normalizedConfig = normalizeLevel(value);
+    }
+    if (
+      !deprecatedRules.has(ruleName) &&
+      !explainedDifferencies.has(ruleName)
+    ) {
+      // add only rules which are not deprecated or excluded from the diff
+      acc[ruleName] = normalizedConfig;
     }
     return acc;
   }, {});
