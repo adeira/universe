@@ -1,8 +1,8 @@
 // @flow
 
-const ourRules = require('../ourRules');
-const deprecatedRules = require('./deprecatedRules');
-const extraPrettierRules = require('../extraPrettierRules');
+import ourRules from '../ourRules';
+import deprecatedRules from './deprecatedRules';
+import extraPrettierRules from '../extraPrettierRules';
 
 test('our rules should not contain deprecated Eslint rules', () => {
   const deprecated = new Set();
@@ -16,7 +16,9 @@ test('our rules should not contain deprecated Eslint rules', () => {
   expect(deprecated).toEqual(new Set());
 });
 
-function compareRulesets(testedSet: Object, bannedSet: Object): Set<string> {
+type RuleSet = { [name: string]: mixed, ... };
+
+function compareRulesets(testedSet: RuleSet, bannedSet: RuleSet): Set<string> {
   const extraPrettier = new Set<string>();
 
   // These rules can stay as long as they use very specific configuration:
@@ -24,17 +26,14 @@ function compareRulesets(testedSet: Object, bannedSet: Object): Set<string> {
     curly: 'all', // https://github.com/prettier/eslint-config-prettier#curly
   };
 
-  for (const [rule, config] of (Object.entries(testedSet): $ReadOnlyArray<
-    [string, Object],
-  >)) {
-    if (rule in bannedSet) {
-      extraPrettier.add(rule);
-
+  for (const [ruleName, config] of Object.entries(testedSet)) {
+    if (ruleName in bannedSet) {
+      extraPrettier.add(ruleName);
       if (
-        rule in whitelistedConfigs &&
-        whitelistedConfigs[rule] === config[1]
+        ruleName in whitelistedConfigs &&
+        (Array.isArray(config) && whitelistedConfigs[ruleName] === config[1])
       ) {
-        extraPrettier.delete(rule);
+        extraPrettier.delete(ruleName);
       }
     }
   }

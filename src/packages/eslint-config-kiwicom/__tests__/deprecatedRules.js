@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 module.exports = new Set<string>([
   // https://eslint.org/docs/rules/#deprecated
