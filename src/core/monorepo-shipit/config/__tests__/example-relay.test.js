@@ -5,8 +5,6 @@ import path from 'path';
 import testExportedPaths from './testExportedPaths';
 
 testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
-  ['src/apps/example-relay/package.json', 'package.json'],
-  ['src/apps/example-relay/pages/index.js', 'pages/index.js'],
   ['src/incubator/example-relay/package.json', 'package.json'],
   ['src/incubator/example-relay/pages/index.js', 'pages/index.js'],
   [
