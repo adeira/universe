@@ -3,6 +3,7 @@
 import { diff } from 'deep-diff';
 
 import deprecatedRules from './deprecatedRules';
+import extraPrettierRules from '../extraPrettierRules';
 
 const CLIEngine = require('eslint').CLIEngine;
 
@@ -109,9 +110,11 @@ function normalize(config) {
     }
     if (
       !deprecatedRules.has(ruleName) &&
-      !explainedDifferencies.has(ruleName)
+      !explainedDifferencies.has(ruleName) &&
+      !(ruleName in extraPrettierRules)
     ) {
-      // add only rules which are not deprecated or excluded from the diff
+      // Add only rules which are not deprecated or excluded from the diff.
+      // We also skip rules conflicting with prettier (they should always be disabled).
       acc[ruleName] = normalizedConfig;
     }
     return acc;
