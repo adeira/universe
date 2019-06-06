@@ -9,6 +9,8 @@ This monorepo hosts source code of the following NPM packages:
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
 - 0.0.0 [@kiwicom/logger](https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger) - Multiplatform logger (Node.js, Browser, RN) with Datadog support
+- 2.0.0 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
+- 0.21.0 [@kiwicom/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 3.4.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 4.6.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 0.5.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
@@ -19,8 +21,6 @@ This monorepo hosts source code of the following NPM packages:
 - 1.0.5 [@kiwicom/graphql-resolve-wrapper](https://github.com/kiwicom/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
 - 0.8.0 [@kiwicom/graphql-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-utils) - Set of useful tools to build better GraphQL servers.
 - 0.11.0 [@kiwicom/js](https://github.com/kiwicom/js) - Useful JS functions used at Kiwi.com
-- 2.0.0 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
-- 0.21.0 [@kiwicom/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 2.3.0 [@kiwicom/relay](https://github.com/kiwicom/relay) - Highly opinionated Relay wrapper used at Kiwi.com
 - 0.9.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 1.0.4 [@kiwicom/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
