@@ -45,7 +45,7 @@ module.exports = {
   bail: 100,
   errorOnDeprecated: true,
   moduleFileExtensions: ['js', 'json'],
-  reporters: ['default', 'jest-junit'],
+  reporters: ['default'],
   rootDir: __dirname,
   verbose: false,
   projects: [
