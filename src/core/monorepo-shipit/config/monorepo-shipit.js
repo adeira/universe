@@ -4,10 +4,13 @@ module.exports = {
   getStaticConfig() {
     return {
       githubOrg: 'kiwicom',
-      githubProject: 'monorepo-utils',
+      githubProject: 'monorepo-shipit',
     };
   },
   getDefaultPathMappings(): Map<string, string> {
-    return new Map([['src/packages/monorepo-utils/', '']]);
+    return new Map([
+      ['src/core/monorepo-shipit/', ''],
+      ['src/packages/monorepo-shipit/', ''],
+    ]);
   },
 };
