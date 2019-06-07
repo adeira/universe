@@ -160,6 +160,10 @@ It is possible to specify custom handler when using `@connection`. This way you 
 
 See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
+# @connection(dynamicKey_UNSTABLE: $someVariable, ...)
+
+See: https://github.com/mrtnzlml/relay/pull/421/commits/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
+
 # RelayResponseNormalizer: `handleStrippedNulls`
 
 Relay is able to recover completely missing fields in the response. You can use this knowledge to optimize JSON response from the server. Let's say this is our incoming payload from the server:
