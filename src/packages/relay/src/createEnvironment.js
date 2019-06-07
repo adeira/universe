@@ -17,8 +17,8 @@ const source = new RecordSource();
 const store = new Store(source);
 
 type Options = {|
-  +fetchFn: Function,
-  +subscribeFn?: Function,
+  +fetchFn: (...args: $ReadOnlyArray<any>) => any,
+  +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   +handlerProvider?: string => void,
   +operationLoader?: {|
     // TODO: verify if the type is correct
@@ -42,8 +42,8 @@ type NormalizationSplitOperation = {|
 |};
 
 function createNetwork(
-  fetchFn: Function,
-  subscribeFn?: Function,
+  fetchFn: (...args: $ReadOnlyArray<any>) => any,
+  subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   enableLogger: boolean = true,
   graphiQLPrinter,
 ) {
