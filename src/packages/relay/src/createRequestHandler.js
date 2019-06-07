@@ -16,8 +16,8 @@ export type CacheConfig = {|
 |};
 
 type GraphQLResponse = {|
-  +data?: null | Object,
-  +errors?: $ReadOnlyArray<Object>,
+  +data?: null | { [key: string]: any, ... },
+  +errors?: $ReadOnlyArray<{ [key: string]: any, ... }>,
 |};
 
 /**
@@ -32,7 +32,9 @@ type Sink = {|
   +closed: boolean,
 |};
 
-module.exports = function createRequestHandler(customFetcher: Function) {
+module.exports = function createRequestHandler(
+  customFetcher: (...args: $ReadOnlyArray<any>) => any,
+) {
   function cleanup() {
     // noop, do anything here
   }
