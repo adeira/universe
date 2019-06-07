@@ -39,7 +39,10 @@ module.exports = function(babel) {
           // We expect that comments are always present in the code since
           // there should always be a flow annotation in the code and this
           // transformer is only for 'flow' target.
-          for (const comment of (comments: Array<Object>)) {
+          for (const comment of (comments: Array<{
+            [key: string]: any,
+            ...,
+          }>)) {
             if (FLOW_DIRECTIVE.test(comment.value)) {
               originalCommentValue = comment.value.trim();
               comment.value = comment.value.replace(FLOW_DIRECTIVE, '');

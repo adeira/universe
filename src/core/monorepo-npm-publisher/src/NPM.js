@@ -37,8 +37,8 @@ export default {
   },
 
   publishPackage: (params: {|
-    +metadata: Object, // package.json file
-    +body: Object,
+    +metadata: { [key: string]: any, ... }, // package.json file
+    +body: { [key: string]: any, ... },
     +npmAuthToken: string,
   |}) => {
     return new Promise<void>((resolve, reject) => {

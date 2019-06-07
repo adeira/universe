@@ -2,7 +2,7 @@
 
 import { GraphQLObjectType, GraphQLSchema, GraphQLString } from 'graphql';
 
-function createGraphQLSchema(fields: Object) {
+function createGraphQLSchema(fields: { [key: string]: any, ... }) {
   return new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'RootQuery',

@@ -19,8 +19,8 @@ const cliEngine = new CLIEngine({
 
 type Options = {|
   +testPath: string,
-  +config: Object,
-  +globalConfig: Object,
+  +config: { [key: string]: any, ... },
+  +globalConfig: { [key: string]: any, ... },
   +extraOptions: {|
     +runAll: boolean,
   |}
