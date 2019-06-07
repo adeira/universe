@@ -55,7 +55,7 @@ function copyFileSync(absoluteFrom, absoluteTo, transpile = false) {
         // $FlowAllowDynamicImport
         ...require(path.join(
           monorepoRoot,
-          'src/apps/graphql/.babelrc.js', // TODO: this should probably be per workspace (?), this is good for now
+          'src/incubator/graphql/.babelrc.js', // TODO: this should probably be per workspace (?), this is good for now
         )),
       }).code,
     );
@@ -129,5 +129,5 @@ rimraf(buildDir, () => {
     .runSynchronously();
 
   // TODO: remove offline mirror from final result (only for the build phase)
-  // NODE_ENV=production LOGZIO_TOKEN='' SENTRY_DSN='' node src/apps/graphql/src/index.js
+  // NODE_ENV=production LOGZIO_TOKEN='' SENTRY_DSN='' node src/incubator/graphql/src/index.js
 });
