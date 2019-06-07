@@ -13,7 +13,7 @@ program
   .option('--force')
   .parse(process.argv);
 
-export const _getParams = (params: Object) => {
+export const _getParams = (params: { [key: string]: any, ... }) => {
   const requiredVaultParams = ['addr', 'token'];
   const requiredParams = ['path'];
   const vaultParams = requiredVaultParams
@@ -61,7 +61,7 @@ const _getSecrets = async (addr: string, path: string, token: string) => {
 };
 
 export const _writeEnvFile = (
-  secrets: Object,
+  secrets: { [key: string]: any, ... },
   force: boolean,
   cb?: () => void,
 ) => {

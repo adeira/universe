@@ -53,7 +53,7 @@ export function __isTypeOf(type: string, opaqueID: string): boolean {
  */
 export function evaluateGlobalIdField(
   outputObject: GraphQLObjectType,
-  parent: Object,
+  parent?: { [key: string]: any, ... },
 ): OpaqueIDString {
   const idField = outputObject.getFields().id;
 

@@ -8,12 +8,12 @@ type GraphQLFieldResolveFn = (
   source?: any,
   args?: { [argName: string]: any, ... },
   context?: any,
-  info?: Object,
+  info?: { [key: string]: any, ... },
 ) => any;
 
 type WrapperFunction = (
   resolverFunction: GraphQLFieldResolveFn,
-  field: Object,
+  field: { [key: string | Symbol]: any, ... },
 ) => () => mixed;
 
 function defaultWrapper(resolveFn) {
@@ -57,7 +57,7 @@ function visitType(type: any, wrapper) {
   }
 }
 
-function wrapField(field: Object, wrapper) {
+function wrapField(field: { [key: string | Symbol]: any, ... }, wrapper) {
   const resolveFn = field.resolve;
 
   if (field[SYMBOL_PROCESSED] || !resolveFn) {

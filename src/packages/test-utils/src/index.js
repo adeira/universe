@@ -15,10 +15,10 @@ import generateTestsFromFixtures from './generateTestsFromFixtures';
  * ```
  */
 function evaluateGraphQLResolver(
-  field: Object,
+  field: { [key: string]: any, ... },
   testValue: mixed,
-  argsValue?: Object,
-  contextValue?: Object,
+  argsValue?: { [key: string]: any, ... },
+  contextValue?: { [key: string]: any, ... },
 ) {
   const resolveFn = field.resolve || function resolveMock() {};
   return resolveFn(testValue, argsValue, contextValue, {

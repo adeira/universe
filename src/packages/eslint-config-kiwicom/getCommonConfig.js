@@ -21,7 +21,9 @@ function detectReactVersion() {
   }
 }
 
-module.exports = function getCommonConfig(rules /*: Object */) {
+module.exports = function getCommonConfig(
+  rules /*: { [key: string]: any, ... } */,
+) {
   return {
     rules: {
       ...rules,
