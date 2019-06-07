@@ -76,22 +76,23 @@ module.exports = function Index(props) {
         </a>{' '}
         to handle relations between our projects as well as all the JavaScript
         dependencies. We also use unified lint, tests and static checks to make
-        sure all our projects use the same setup so we don't even have to think
-        about it.
+        sure all our projects use the same setup so we don&apos;t even have to
+        think about it.
       </p>
       <p>
         Do not confuse this approach with monolith: monorepo hosts many smaller
-        repositories inside but it's relatively easy to escape from this setup.
-        Each project lives in it's own directory but the difference is that you
-        don't have to setup test environment, lints or Flow - it just works.
+        repositories inside but it&apos;s relatively easy to escape from this
+        setup. Each project lives in it&apos;s own directory but the difference
+        is that you don&apos;t have to setup test environment, lints or Flow -
+        it just works.
       </p>
       <p>
         This website contains documentation for all our projects stored in
         monorepo. We also export many{' '}
-        <a href={docUrl('npm/packages')}>NPM packages</a> since it's very
+        <a href={docUrl('npm/packages')}>NPM packages</a> since it&apos;s very
         difficult to import all our projects created in Kiwi.com into this
-        repository. Feel free to use them in your project even though it's not
-        your intention to move your project into <em>Universe</em>.
+        repository. Feel free to use them in your project even though it&apos;s
+        not your intention to move your project into <em>Universe</em>.
       </p>
       <h2>How does it all fit together?</h2>
       <ol>
@@ -126,7 +127,7 @@ module.exports = function Index(props) {
         </li>
       </ol>
       <p>
-        Where to go next? Let's{' '}
+        Where to go next? Let&apos;s{' '}
         <a href={docUrl('monorepo/installation')}>install this monorepo</a>!
       </p>
     </div>
