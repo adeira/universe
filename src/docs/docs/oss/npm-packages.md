@@ -8,7 +8,7 @@ This monorepo hosts source code of the following NPM packages:
 
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
-- 0.0.0 [@kiwicom/logger](https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger) - Multiplatform logger (Node.js, Browser, RN) with Datadog support
+- 0.1.0 [@kiwicom/logger](https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger) - Multiplatform logger (Node.js, Browser, RN) with Datadog support
 - 2.0.0 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
 - 0.21.0 [@kiwicom/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 3.4.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
