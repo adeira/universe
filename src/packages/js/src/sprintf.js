@@ -5,7 +5,11 @@ function maybeReplace(
   pattern: RegExp,
   replacementFn: () => void | string,
 ): string {
-  return format.replace(pattern, match => {
+  return format.replace(pattern, (match, lookbehind) => {
+    // https://caniuse.com/#search=lookbehind
+    if (lookbehind === '%') {
+      return match;
+    }
     const replacement = replacementFn();
     if (replacement === undefined) {
       return match;
@@ -30,10 +34,10 @@ export default function sprintf(
   }
 
   let index = 0;
-  const withString = maybeReplace(format, /(?<!%)%s/g, () => {
+  const withString = maybeReplace(format, /(?<lookbehind>%)?%s/g, () => {
     return index >= argsLength ? undefined : String(args[index++]);
   });
-  const withJSON = maybeReplace(withString, /(?<!%)%j/g, () => {
+  const withJSON = maybeReplace(withString, /(?<lookbehind>%)?%j/g, () => {
     return index >= argsLength
       ? undefined
       : String(JSON.stringify(args[index++], getCircularReplacer()));
