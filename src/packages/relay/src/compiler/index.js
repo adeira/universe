@@ -105,9 +105,10 @@ export default function compiler(externalOptions: ExternalOptions) {
 function getFilepathsFromGlob(
   baseDir,
   options: {
-    extensions: Array<string>,
-    include: Array<string>,
-    exclude: Array<string>,
+    extensions: $ReadOnlyArray<string>,
+    include: $ReadOnlyArray<string>,
+    exclude: $ReadOnlyArray<string>,
+    ...
   },
 ): $ReadOnlyArray<string> {
   const { extensions, include, exclude } = options;
