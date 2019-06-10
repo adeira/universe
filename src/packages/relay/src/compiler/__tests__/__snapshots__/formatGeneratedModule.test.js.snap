@@ -23,6 +23,7 @@ DOC_TEXT
 const node/*: DOCUMENT_TYPE*/ = CONCRETE_TEXT;
 // prettier-ignore
 (node/*: any*/).hash = 'SOURCE_HASH';
+/*:: declare var __DEV__: boolean; */
 if (__DEV__) {
   DEV_ONLY_ASSIGNMENTS
 }
