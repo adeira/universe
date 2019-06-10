@@ -10,7 +10,7 @@
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
     "@kiwicom/js": "^0.11.0",
-    "cross-fetch": "^3.0.3"
+    "cross-fetch": "^3.0.4"
   },
   "devDependencies": {
     "lolex": "^4.1.0"
