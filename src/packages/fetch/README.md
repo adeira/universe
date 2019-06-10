@@ -106,7 +106,9 @@ import fetchWithRetries, { TimeoutError, ResponseError } from '@kiwicom/fetch';
 })();
 ```
 
-# How does the timing work?
+# Frequently Asked Questions
+
+## How does the timing work?
 
 Let's have a look at this config:
 
@@ -133,3 +135,41 @@ Example with timeouts:
 5. last attempt (it will timeout or resolve correctly)
 
 In reality you can see some more optimistic scenarios: for example request failed with HTTP status code 500 and it's resolved immediately after you retry it (just some API glitch). Similar scenarios are quite often for timeouts: first try timeouted for some reason but it's OK when you try for the second time. This makes this fetch much better than the commonly used alternatives - this fetch does not expect success all the time and it tries to handle these real-world scenarios.
+
+## How do I mock this fetch?
+
+One way how to mock this fetch is to use [manual mock](https://jestjs.io/docs/en/manual-mocks) (`src/__mocks__/@kiwicom/fetch.js`):
+
+```js
+export default function fetchWithRetriesMock(resource: string) {
+  return Promise.resolve(`MODIFIED ${resource.toUpperCase()} 1`);
+}
+```
+
+And then just use it:
+
+```js
+import fetchWithRetriesMock from '@kiwicom/fetch';
+
+jest.mock('@kiwicom/fetch');
+
+it('mocks the fetch', async () => {
+  await expect(fetchWithRetriesMock('input')).resolves.toBe('MODIFIED INPUT 1');
+});
+```
+
+Alternatively, you could inline the mock:
+
+```js
+import fetchWithRetriesMock from '@kiwicom/fetch';
+
+jest.mock('@kiwicom/fetch', () => {
+  return resource => Promise.resolve(`MODIFIED ${resource.toUpperCase()} 2`);
+});
+
+it('mocks the fetch', async () => {
+  await expect(fetchWithRetriesMock('input')).resolves.toBe('MODIFIED INPUT 2');
+});
+```
+
+Why mocking `global.fetch` doesn't work? It's because this fetch doesn't use or pollute `global` variable: it uses ponyfill instead of polyfill behind the scenes.
