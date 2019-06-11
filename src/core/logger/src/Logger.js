@@ -12,7 +12,7 @@ export default class Logger implements ILogger {
       this.#logger = logger;
     } else if (
       typeof process !== 'undefined' &&
-      process.env.NODE_ENV === 'test' // eslint-disable-line no-process-env
+      process.env.NODE_ENV === 'test'
     ) {
       const NullLogger = require('./NullLogger');
       this.#logger = new NullLogger();
