@@ -2,7 +2,7 @@
   "name": "@kiwicom/fetch",
   "private": false,
   "license": "MIT",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "main": "src/fetchWithRetries.js",
   "module": false,
   "sideEffects": false,
