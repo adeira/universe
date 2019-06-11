@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.7.0
+
 This release focuses on enabling more rules to match closer with Nitro config. It also shows new warnings for implicit inexact Flow types as a preparation for [exact objects by default](https://medium.com/flow-type/on-the-roadmap-exact-objects-by-default-16b72933c5cf). As always, please do not hesitate to upgrade, fix all your warnings and report any issues and misbehavior.
 
 - New rule for checking inexact Flow types (warnings or errors in strict mode): [`flowtype/require-inexact-type`](https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-require-inexact-type)
