@@ -5,8 +5,7 @@
   "license": "UNLICENSED",
   "main": "src/index.js",
   "dependencies": {
-    "@kiwicom/environment": "^0.0.0",
-    "@kiwicom/fetch": "^2.0.0",
+    "@kiwicom/fetch": "^2.4.2",
     "@kiwicom/graphql-skymock": "^0.0.0",
     "@kiwicom/js": "^0.12.0",
     "@kiwicom/monorepo-utils": "^0.21.0",
