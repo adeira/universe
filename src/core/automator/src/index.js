@@ -10,8 +10,8 @@ import updateDependencies from './tasks/updateDependencies';
 
 const ciNode = {
   // nodes are indexed from 1 (not zero)
-  index: Number(process.env.CI_NODE_INDEX ?? 1), // eslint-disable-line no-process-env
-  total: Number(process.env.CI_NODE_TOTAL ?? 1), // eslint-disable-line no-process-env
+  index: Number(process.env.CI_NODE_INDEX ?? 1),
+  total: Number(process.env.CI_NODE_TOTAL ?? 1),
 };
 
 const tasks = new Map([
