@@ -215,9 +215,32 @@ describe('evaluateGlobalIdField', () => {
       { opaque: true },
       undefined,
       {
-        parentType: { name: 'Test' },
-        path: {}, // this empty path is important otherwise Apollo server won't be happy
+        parentType: expect.any(GraphQLObjectType),
       },
+    );
+  });
+
+  it('calls resolver with correct additional arguments', () => {
+    const resolveMock = jest.fn();
+    evaluateGlobalIdField(
+      new GraphQLObjectType({
+        name: 'Test',
+        fields: {
+          id: {
+            ...GlobalID(() => 123),
+            resolve: resolveMock,
+          },
+        },
+      }),
+      { parent: 'exist' },
+      { testArg: true },
+      { context: 'yes' },
+    );
+    expect(resolveMock).toBeCalledWith(
+      { parent: 'exist' },
+      { opaque: true, testArg: true },
+      { context: 'yes' },
+      { parentType: expect.any(GraphQLObjectType) },
     );
   });
 });

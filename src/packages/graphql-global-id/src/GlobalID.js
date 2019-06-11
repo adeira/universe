@@ -50,10 +50,16 @@ export function __isTypeOf(type: string, opaqueID: string): boolean {
 /**
  * This function returns opaque value of the ID field. It accepts GraphQL
  * output object as a first parameter so the type internal ID is hidden.
+ *
+ * @deprecated This functions should be used mainly in tests. It doesn't feel
+ * right in production code (it's currently used only in hotels).
  */
 export function evaluateGlobalIdField(
   outputObject: GraphQLObjectType,
   parent?: { [key: string]: any, ... },
+  args?: { ... },
+  context?: mixed,
+  info?: GraphQLResolveInfo,
 ): OpaqueIDString {
   const idField = outputObject.getFields().id;
 
@@ -68,19 +74,12 @@ export function evaluateGlobalIdField(
     "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
   );
 
+  const resolveFn = idField.resolve ?? ((...args) => args);
   return String(
-    outputObject
-      .getFields()
-      // $FlowExpectedError: incomplete resolver only to fulfill requirements of globalIdField
-      .id.resolve(parent, { opaque: true }, undefined, {
-        parentType: {
-          name: outputObject.name,
-        },
-        // this is added only to make Apollo server happy - they are wrapping
-        // resolvers with their custom broken magic, see:
-        // https://github.com/apollographql/apollo-server/blob/acb5984353dcbd8f09186ed5e848a6eb394ae864/packages/graphql-extensions/src/index.ts#L210
-        path: {},
-      }),
+    resolveFn(parent, { ...args, opaque: true }, context ?? undefined, {
+      ...info,
+      parentType: outputObject,
+    }),
   );
 }
 
