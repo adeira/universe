@@ -11,7 +11,7 @@
     "kiwicom-relay-compiler": "bin/kiwicom-relay-compiler.js"
   },
   "dependencies": {
-    "@kiwicom/fetch": "^2.4.2",
+    "@kiwicom/fetch": "^2.4.3",
     "@kiwicom/js": "^0.12.0",
     "@kiwicom/monorepo-utils": "^0.21.0",
     "babel-plugin-relay": "^5.0.0",
