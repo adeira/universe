@@ -26,15 +26,27 @@ const validForBoth = [
     filename: '/path/Module.js',
   },
   {
-    // perfectly valid Relay import with "import type"
+    // valid Relay import with "import type"
     code:
       "import type { Module_data } from './__generated__/Module_data.graphql';",
     filename: '/path/Module.js',
   },
   {
-    // perfectly valid Relay import with "import { type"
+    // valid Relay import with "import { type"
     code:
       "import { type Module_data } from './__generated__/Module_data.graphql';",
+    filename: '/path/Module.js',
+  },
+  {
+    // valid Relay import from artifact directory with "import type"
+    code:
+      "import type { Module_data } from '__generated__/Module_data.graphql';",
+    filename: '/path/Module.js',
+  },
+  {
+    // valid Relay import from artifact directory with "import { type"
+    code:
+      "import { type Module_data } from '__generated__/Module_data.graphql';",
     filename: '/path/Module.js',
   },
 ];
