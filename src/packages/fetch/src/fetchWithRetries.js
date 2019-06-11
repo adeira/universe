@@ -17,6 +17,14 @@ const DEFAULT_RETRIES = [1000, 3000];
 
 export { TimeoutError, ResponseError };
 
+function isNodejs(): boolean %checks {
+  // Next.js has global `process` object even in Browser so we have to be more thorough here.
+  // Please, leave it written exactly like this: we have to first check if `process` exists
+  // manually (a?.b would fail otherwise). Then we cannot assume `versions` exist.
+  // $FlowExpectedError: field `versions` doesn't have to exist (see Browsers env)
+  return typeof process !== 'undefined' && process.versions?.node !== undefined;
+}
+
 /**
  * Makes a request to the server with the given data as the payload.
  * Automatic retries are done based on the values in `retryDelays`.
@@ -43,19 +51,18 @@ export default function fetchWithRetries(
       requestsAttempted++;
       requestStartTime = Date.now();
       let isRequestAlive = true;
-      const environmentHeaders =
-        typeof process !== 'undefined'
-          ? {
-              // Cross-fetch uses node-fetch behind the scenes (in Node.js envs) which
-              // sets default UA header (https://github.com/bitinn/node-fetch/blob/95286f52bb866283bc69521a04efe1de37b26a33/src/request.js#L225).
-              // We overwrite it here to make clear where is this request actually
-              // coming from. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
-              'User-Agent': sprintf(
-                '@kiwicom/fetch (+https://github.com/kiwicom/fetch; %s)',
-                requestsAttempted,
-              ),
-            }
-          : {};
+      const environmentHeaders = isNodejs()
+        ? {
+            // Cross-fetch uses node-fetch behind the scenes (in Node.js envs) which
+            // sets default UA header (https://github.com/bitinn/node-fetch/blob/95286f52bb866283bc69521a04efe1de37b26a33/src/request.js#L225).
+            // We overwrite it here to make clear where is this request actually
+            // coming from. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
+            'User-Agent': sprintf(
+              '@kiwicom/fetch (+https://github.com/kiwicom/fetch; %s)',
+              requestsAttempted,
+            ),
+          }
+        : {};
       const request = fetch(resource, {
         ...init,
         headers: {
