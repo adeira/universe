@@ -11,7 +11,6 @@ const flags = {
 };
 
 process.argv.forEach(arg => {
-  // $FlowPullRequest: https://github.com/facebook/flow/pull/7679
   if (process.allowedNodeEnvironmentFlags.has(arg)) {
     flags.execArgv.push(arg);
   } else {
