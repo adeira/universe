@@ -1,7 +1,7 @@
 // @flow
 
 import fetch, { ResponseError } from '@kiwicom/fetch';
-import ENV from '@kiwicom/environment';
+import { invariant } from '@kiwicom/js';
 
 const PROJECT_ID = 1419; // https://gitlab.skypicker.com/incubator/universe
 const ASSIGNEE_ID = 202; // https://gitlab.skypicker.com/api/v4/users?username=martin.zlamal
@@ -13,6 +13,12 @@ export default async function openMergeRequest(
 ): Promise<void> {
   // https://docs.gitlab.com/ee/api/merge_requests.html#create-mr
   const apiURL = `https://gitlab.skypicker.com/api/v4/projects/${PROJECT_ID}/merge_requests`;
+  const token = process.env.AUTOMATOR_GITLAB_PRIVATE_TOKEN;
+
+  invariant(
+    token != null,
+    'Env variable AUTOMATOR_GITLAB_PRIVATE_TOKEN cannot be null or undefined.',
+  );
 
   try {
     const response = await fetch(apiURL, {
@@ -30,7 +36,7 @@ export default async function openMergeRequest(
         squash: false,
       }),
       headers: {
-        'Private-Token': ENV.AUTOMATOR_GITLAB_PRIVATE_TOKEN,
+        'Private-Token': token,
         'Content-Type': 'application/json',
       },
     });
