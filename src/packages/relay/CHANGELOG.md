@@ -19,6 +19,7 @@ function Component(props: Props) {
 }
 ```
 
+- Relay updated to version 5.0, see: https://github.com/facebook/relay/releases/tag/v5.0.0
 - This release also contains _experimental_ Relay Compiler with support for persistent queries. This is currently undocumented feature and you should use it only after contacting us. Expect breaking changes without any announcements.
 
 # 2.3.0
