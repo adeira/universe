@@ -42,6 +42,10 @@ index 45a44734..99be1766 100644
 
 Do not forget to run `yarn install` in your project as well.
 
+# Relay Config
+
+See: https://github.com/mrtnzlml/relay/pull/424/commits/d3ec68ec137f7d72598a6f28025e94fba280e86e
+
 # Local schema
 
 First define local schema (`schema.local.graphql`):
