@@ -172,6 +172,7 @@ The only filter being applied when importing the projects is filter which moves 
 - our version is tailored for Kiwi.com needs and infra, not Facebook ones
 - our version doesn't support [Mercurial](https://www.mercurial-scm.org/) and it's written in JS (not in Hack)
 - our version doesn't support [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+- we _do not_ sync internal LFS storage with GitHub LFS (currently unused)
 - we sync only master branches, other branches are not supported
 - we currently cannot do this in one commit:
   - changed Shipit config: https://github.com/facebook/fbshipit/commit/939949dc1369295c910772c6e8eccbbef2a2db7f
