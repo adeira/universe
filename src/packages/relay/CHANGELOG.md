@@ -1,5 +1,7 @@
 # Unreleased
 
+# 3.0.0
+
 - Breaking: functions `commitMutation`, `requestSubscription` and `commitLocalUpdate` now require correct usage of Relay environment which is being passed down from props. Example of how to properly use mutations:
 
 ```js
