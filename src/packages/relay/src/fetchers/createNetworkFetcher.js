@@ -18,7 +18,7 @@ type RefetchConfig = {|
   +retryDelays?: $ReadOnlyArray<number>,
 |};
 
-module.exports = function createNetworkFetcher(
+export default function createNetworkFetcher(
   graphQLServerURL: string,
   additionalHeaders: AdditionalHeaders,
   refetchConfig?: RefetchConfig,
@@ -53,4 +53,4 @@ module.exports = function createNetworkFetcher(
 
     return handleData(response);
   };
-};
+}

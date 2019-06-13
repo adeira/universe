@@ -64,7 +64,7 @@ function handlerProvider(handle) {
   throw new Error(`handlerProvider: No handler provided for ${handle}`);
 }
 
-module.exports = function createEnvironment(options: Options): Environment {
+export default function createEnvironment(options: Options): Environment {
   const { fetchFn, subscribeFn, logger, graphiQLPrinter, ...rest } = options;
   return new RelayEnvironment({
     handlerProvider,
@@ -72,4 +72,4 @@ module.exports = function createEnvironment(options: Options): Environment {
     store,
     ...rest,
   });
-};
+}

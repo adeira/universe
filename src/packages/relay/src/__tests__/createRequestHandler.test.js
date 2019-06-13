@@ -30,7 +30,7 @@ it('works as expected with query and empty cache', done => {
       set = () => {};
     };
   });
-  const createRequestHandler = require('../createRequestHandler');
+  const createRequestHandler = require('../createRequestHandler').default;
 
   const requestNode = { operationKind: 'query' };
   const variables = { aaa: 111 };
@@ -73,7 +73,7 @@ it('works as expected with query and full cache', done => {
       set = () => {};
     };
   });
-  const createRequestHandler = require('../createRequestHandler');
+  const createRequestHandler = require('../createRequestHandler').default;
 
   const requestHandler = createRequestHandler(() => {
     throw new Error(
@@ -107,7 +107,7 @@ it('works as expected with query error', done => {
       set = () => {};
     };
   });
-  const createRequestHandler = require('../createRequestHandler');
+  const createRequestHandler = require('../createRequestHandler').default;
 
   const requestNode = { operationKind: 'query' };
   const variables = { aaa: 111 };
@@ -170,7 +170,7 @@ it('works as expected with mutation', done => {
       set = () => {};
     };
   });
-  const createRequestHandler = require('../createRequestHandler');
+  const createRequestHandler = require('../createRequestHandler').default;
 
   const requestNode = { operationKind: 'mutation' };
   const variables = { aaa: 111 };
@@ -210,7 +210,7 @@ it('works as expected with mutation error', done => {
       set = () => {};
     };
   });
-  const createRequestHandler = require('../createRequestHandler');
+  const createRequestHandler = require('../createRequestHandler').default;
 
   const requestNode = { operationKind: 'mutation' };
   const variables = { aaa: 111 };

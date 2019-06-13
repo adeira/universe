@@ -32,7 +32,7 @@ type Sink = {|
   +closed: boolean,
 |};
 
-module.exports = function createRequestHandler(
+export default function createRequestHandler(
   customFetcher: (...args: $ReadOnlyArray<any>) => any,
 ) {
   function cleanup() {
@@ -90,4 +90,4 @@ module.exports = function createRequestHandler(
       return cleanup;
     });
   };
-};
+}
