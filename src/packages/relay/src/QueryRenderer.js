@@ -9,7 +9,7 @@ import createEnvironment from './createEnvironment';
 import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import type { GraphQLTaggedNode, Variables, Environment } from './types.flow';
 
-type RendererProps = Object; // it can be anything, really
+type RendererProps = {| +[key: string]: any |}; // it can be anything, really
 
 type ReadyState = {|
   +error: ?Error,

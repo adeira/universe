@@ -29,7 +29,7 @@ module.exports = {
         `,
       },
       {
-        getVariables: () => {},
+        getVariables: () => ({}),
         query: graphql`
           query createPaginationContainer {
             ...createPaginationContainer_data
