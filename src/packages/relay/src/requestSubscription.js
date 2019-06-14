@@ -18,7 +18,7 @@ type Config = {|
   +variables: Variables,
   +onCompleted?: ?() => void,
   +onError?: ?(error: Error) => void,
-  +onNext?: ?(response: ?Object) => void,
+  +onNext?: ?(response: ?{ +[key: string]: any, ... }) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
 |};

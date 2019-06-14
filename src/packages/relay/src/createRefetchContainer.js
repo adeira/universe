@@ -15,8 +15,13 @@ type RefetchOptions = { force?: boolean, ... };
 export type RefetchRelayProp = {|
   +environment: $EnvironmentFromProps,
   +refetch: (
-    refetchVariables: Object | ((fragmentVariables: Object) => Object),
-    renderVariables: ?Object,
+    refetchVariables:
+      | { +[key: string]: any, ... }
+      | ((fragmentVariables: { +[key: string]: any, ... }) => {
+          +[key: string]: any,
+          ...,
+        }),
+    renderVariables: ?{ +[key: string]: any, ... },
     callback: ?(error: ?Error) => void,
     options?: RefetchOptions,
   ) => Disposable,

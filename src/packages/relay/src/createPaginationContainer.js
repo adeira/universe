@@ -22,19 +22,22 @@ type ConnectionData = {|
 
 type ConnectionConfig = {|
   +direction?: 'backward' | 'forward',
-  +getConnectionFromProps?: (props: Object) => ?ConnectionData,
+  +getConnectionFromProps?: (props: {
+    +[key: string]: any,
+    ...,
+  }) => ?ConnectionData,
   +getFragmentVariables?: (
-    previousVariables: Object,
+    previousVariables: { +[key: string]: any, ... },
     totalCount: number,
-  ) => Object,
+  ) => { +[key: string]: any, ... },
   +getVariables: (
-    props: Object,
+    props: { +[key: string]: any, ... },
     paginationInfo: {|
       +count: number,
       +cursor: ?string,
     |},
-    fragmentVariables: Object,
-  ) => Object,
+    fragmentVariables: { +[key: string]: any, ... },
+  ) => { +[key: string]: any, ... },
   +query: GraphQLTaggedNode,
 |};
 
@@ -49,7 +52,7 @@ export type PaginationRelayProp = {|
   +refetchConnection: (
     totalCount: number,
     callback: (error: ?Error) => void,
-    refetchVariables: ?Object,
+    refetchVariables: ?{ +[key: string]: any, ... },
   ) => ?Disposable,
 |};
 

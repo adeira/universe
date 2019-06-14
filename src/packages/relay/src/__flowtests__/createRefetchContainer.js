@@ -14,7 +14,7 @@ module.exports = {
   validUsage() {
     return createRefetchContainer(
       (props: Props) => {
-        return JSON.stringify(props.relay.refetch());
+        return JSON.stringify(props.relay.refetch({}));
       },
       {
         data: graphql`
