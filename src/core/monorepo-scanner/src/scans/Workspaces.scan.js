@@ -64,7 +64,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
     dependencies.forEach(([dependency, value]) => {
       const version = typeof value === 'string' ? value : '^';
-      if (!/^(?:[~^]?[0-9]+(?:\.[0-9]+){2}|http.+)$/.test(version)) {
+      if (!/^(?:[~^]?[0-9]+(?:\.[0-9]+){2}|http.+)/.test(version)) {
         // this is necessary because we repeatedly released package without
         // bumped dependency version which made the released package broken
         // (we should probably use tilde ranges for our workspace deps though)
