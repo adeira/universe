@@ -5,8 +5,10 @@ import {
   TimeoutError as FetchTimeoutError,
 } from '@kiwicom/fetch';
 
-import commitMutation from './commitMutation';
+import createEnvironment from './createEnvironment';
+import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import commitLocalUpdate from './commitLocalUpdate';
+import commitMutation from './commitMutation';
 import createFragmentContainer from './createFragmentContainer';
 import createPaginationContainer from './createPaginationContainer';
 import createRefetchContainer from './createRefetchContainer';
@@ -17,10 +19,10 @@ import requestSubscription from './requestSubscription';
 module.exports = {
   FetchResponseError,
   FetchTimeoutError,
-  createEnvironment: require('./createEnvironment'),
-  createNetworkFetcher: require('./fetchers/createNetworkFetcher'),
+  createEnvironment,
+  createNetworkFetcher,
 
-  // Relay-only things:
+  // Relay-specific things:
   commitLocalUpdate,
   commitMutation,
   createFragmentContainer,

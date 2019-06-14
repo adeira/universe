@@ -1,8 +1,9 @@
 {
   "name": "@kiwicom/relay",
   "private": false,
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "src/index.js",
+  "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/kiwicom/relay",
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
