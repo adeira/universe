@@ -40,17 +40,19 @@ it('works without placeholder', () => {
 });
 
 it('ignores unknown placeholders', () => {
-  const format = 'aaa %w %t %f ccc';
+  const format = 'aaa %x %y %z ccc';
   expect(sprintf(format)).toBe(format);
-  expect(sprintf(format, 42)).toBe(format);
+  expect(sprintf(format, 42)).toBe('aaa %x %y %z ccc 42');
   expect(sprintf(format)).toBe(util.format(format));
+  expect(sprintf(format, 42)).toBe(util.format(format, 42));
 });
 
 it('is possible to escape %', () => {
   const format = 'you can use %%s or %%j, percentage: %%';
   expect(sprintf(format)).toBe(format);
   expect(sprintf(format)).toBe(util.format(format));
-  expect(sprintf(format, 1, 2)).toBe('you can use %s or %j, percentage: %'); // Node.js would print "you can use %s or %j, percentage: % 1 2" here (vv), fix it?
+  expect(sprintf(format, 1, 2)).toBe('you can use %s or %j, percentage: % 1 2');
+  expect(sprintf(format, 1, 2)).toBe(util.format(format, 1, 2));
 });
 
 it('leaves placeholders as is when no values provided', () => {
@@ -75,6 +77,16 @@ it('works with String and JSON together', () => {
   const format = 'a %s b %j c';
   expect(sprintf(format, '111', '222')).toBe('a 111 b "222" c');
   expect(sprintf(format, '111', '222')).toBe(util.format(format, '111', '222'));
+});
+
+test.each([
+  [['a b c'], 'a b c'],
+  [['a b c', 'd'], 'a b c d'],
+  [['a %s c', 'b', 'd'], 'a b c d'],
+  [['a %x c', 'b', 'd'], 'a %x c b d'],
+])('exhausts all unused parameters: %#', (input, output) => {
+  expect(sprintf(...input)).toBe(output);
+  expect(sprintf(...input)).toBe(util.format(...input));
 });
 
 it('JSON format handles circular references', () => {
