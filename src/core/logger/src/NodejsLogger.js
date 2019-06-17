@@ -3,24 +3,26 @@
 import os from 'os';
 import path from 'path';
 import winston, { format, transports } from 'winston';
+import { SPLAT } from 'triple-beam';
+import { sprintf } from '@kiwicom/js';
 
 import type { ILogger } from './ILogger';
+
+const sprintfFormat = format.printf(({ level, message, [SPLAT]: splat }) => {
+  return `${level}: ${sprintf(message, ...splat)}`;
+});
 
 /**
  * https://docs.datadoghq.com/logs/log_collection/nodejs/?tab=winston30#configure-your-datadog-agent
  * https://github.com/winstonjs/winston
  */
-module.exports = class NodejsLogger implements ILogger {
+export default class NodejsLogger implements ILogger {
   #logfile = path.join(os.tmpdir(), 'com.kiwi.universe', 'combined.log');
 
   constructor() {
     winston.loggers.add('datadog', {
       exitOnError: false,
-      format: format.combine(
-        format.errors({ stack: true }),
-        format.splat(),
-        format.json(),
-      ),
+      format: format.combine(format.errors({ stack: true }), format.json()),
       transports: [
         new transports.File({
           filename: this.#logfile,
@@ -34,26 +36,32 @@ module.exports = class NodejsLogger implements ILogger {
       exitOnError: false,
       format: format.combine(
         format.errors({ stack: true }),
-        format.splat(),
         format.colorize(),
-        format.simple(),
+        sprintfFormat,
       ),
       transports: [new transports.Console()],
     });
-    this.log('Logs available in %s', this.#logfile);
   }
 
   log(...message: $ReadOnlyArray<string>) {
-    winston.loggers.get('localhost').info(...message);
+    this._console().info(...message);
   }
 
   warn(...message: $ReadOnlyArray<string>) {
-    winston.loggers.get('localhost').warn(...message);
-    winston.loggers.get('datadog').warn(...message);
+    this._console().warn(...message);
+    this._datadog().warn(...message);
   }
 
   error(...message: $ReadOnlyArray<string>) {
-    winston.loggers.get('localhost').error(...message);
-    winston.loggers.get('datadog').error(...message);
+    this._console().error(...message);
+    this._datadog().error(...message);
   }
-};
+
+  _console() {
+    return winston.loggers.get('localhost');
+  }
+
+  _datadog() {
+    return winston.loggers.get('datadog');
+  }
+}
