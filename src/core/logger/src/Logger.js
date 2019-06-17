@@ -14,13 +14,13 @@ export default class Logger implements ILogger {
       typeof process !== 'undefined' &&
       process.env.NODE_ENV === 'test'
     ) {
-      const NullLogger = require('./NullLogger');
+      const NullLogger = require('./NullLogger').default;
       this.#logger = new NullLogger();
     } else if (typeof process !== 'undefined') {
-      const NodejsLogger = require('./NodejsLogger');
+      const NodejsLogger = require('./NodejsLogger').default;
       this.#logger = new NodejsLogger();
     } else if (typeof window !== 'undefined') {
-      const BrowserLogger = require('./BrowserLogger');
+      const BrowserLogger = require('./BrowserLogger').default;
       this.#logger = new BrowserLogger();
     } else {
       if (typeof console !== 'undefined') {
@@ -29,7 +29,7 @@ export default class Logger implements ILogger {
           'Logger was unable to detect correct environment and falls back to silent NULL logger.',
         );
       }
-      const NullLogger = require('./NullLogger');
+      const NullLogger = require('./NullLogger').default;
       this.#logger = new NullLogger();
     }
   }
