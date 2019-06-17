@@ -22,11 +22,6 @@ const similarities = new Map([
     ],
   ],
   [
-    // CLI interface
-    'commander',
-    ['minimist', 'optimist', 'yargs'],
-  ],
-  [
     // helper functions
     'ramda',
     ['lodash'],
