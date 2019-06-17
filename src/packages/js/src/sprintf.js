@@ -37,11 +37,16 @@ export default function sprintf(
   const withString = maybeReplace(format, /(?<lookbehind>%)?%s/g, () => {
     return index >= argsLength ? undefined : String(args[index++]);
   });
-  const withJSON = maybeReplace(withString, /(?<lookbehind>%)?%j/g, () => {
+  let withJSON = maybeReplace(withString, /(?<lookbehind>%)?%j/g, () => {
     return index >= argsLength
       ? undefined
       : String(JSON.stringify(args[index++], getCircularReplacer()));
   });
+
+  for (index; index < argsLength; index++) {
+    withJSON += ` ${String(args[index])}`;
+  }
+
   return withJSON.replace(/%%/g, '%');
 }
 
