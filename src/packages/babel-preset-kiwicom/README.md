@@ -307,6 +307,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 ```
 
+# Changelog
+
+- See latest changes in our [changelog](./CHANGELOG.md)
+
 # Prior art
 
 - https://github.com/facebook/fbjs/tree/master/packages/babel-preset-fbjs
