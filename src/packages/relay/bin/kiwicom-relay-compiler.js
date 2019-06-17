@@ -2,10 +2,17 @@
 
 // @flow
 
-import program from 'commander';
-import { invariant } from '@kiwicom/js';
+// TODO: DRY monorepo-utils/bin/monorepo-babel-node-runner.js
+require('@babel/register')({
+  ignore: [/node_modules\/(?!@kiwicom)/],
+  rootMode: 'upward',
+  plugins: ['relay'], // TODO: how to work with babelrc files (?)
+});
 
-import compiler from '../src/compiler';
+const program = require('commander');
+const { invariant } = require('@kiwicom/js');
+
+const compiler = require('../src/compiler').default;
 
 program
   .option('--src <src>')
