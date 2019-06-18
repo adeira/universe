@@ -309,7 +309,7 @@ declare module 'redis' {
     ) => Promise<string>;
   }
 
-  declare type CreateOptions = {
+  declare export type CreateOptions = {
     host?: string,
     port?: number,
     path?: string,
