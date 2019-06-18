@@ -1,5 +1,7 @@
 # Unreleased
 
+- Preparation for future major Eslint version 6.0. The following rules show warnings (errors in strict mode): [`no-async-promise-executor`](https://eslint.org/docs/rules/no-async-promise-executor), [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins), [`no-shadow-restricted-names`](https://eslint.org/docs/rules/no-shadow-restricted-names), [`no-useless-catch`](https://eslint.org/docs/rules/no-useless-catch) (some of them were already warnings, other rules from 6.0 are already implemented properly).
+
 # 4.7.0
 
 This release focuses on enabling more rules to match closer with Nitro config. It also shows new warnings for implicit inexact Flow types as a preparation for [exact objects by default](https://medium.com/flow-type/on-the-roadmap-exact-objects-by-default-16b72933c5cf). As always, please do not hesitate to upgrade, fix all your warnings and report any issues and misbehavior.
