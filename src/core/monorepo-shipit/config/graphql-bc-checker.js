@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'graphql-bc-checker',
+      repository: 'git@github.com/kiwicom/graphql-bc-checker.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

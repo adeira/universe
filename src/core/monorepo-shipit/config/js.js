@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'js',
+      repository: 'git@github.com/kiwicom/js.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

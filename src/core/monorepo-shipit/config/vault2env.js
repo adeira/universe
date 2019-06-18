@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'vault2env-js',
+      repository: 'git@github.com/kiwicom/vault2env-js.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

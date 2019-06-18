@@ -18,8 +18,7 @@ it('returns valid config correctly', () => {
   `);
   expect(config.getStaticConfig()).toMatchInlineSnapshot(`
     Object {
-      "githubOrg": "kiwicom",
-      "githubProject": "relay-example",
+      "repository": "git@github.com/kiwicom/relay-example.git",
     }
   `);
 });
