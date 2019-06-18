@@ -388,6 +388,7 @@ module.exports = {
   'react/require-default-props': OFF,
   'react/require-optimization': OFF,
   'react/require-render-return': NEXT_VERSION_ERROR,
+  'react/self-closing-comp': NEXT_VERSION_ERROR,
   'react/sort-comp': [
     NEXT_VERSION_ERROR,
     {
