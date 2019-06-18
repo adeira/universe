@@ -10,8 +10,8 @@ import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRep
 import createCleanPhase from '../src/phases/createCleanPhase';
 import createImportSyncPhase from '../src/phases/createImportSyncPhase';
 
-// TODO: check we can actually import this package + validate it's GitHub
-// yarn monorepo-babel-node src/packages/monorepo-shipit/bin/importit.js git@github.com:kiwicom/fetch.git 1
+// TODO: check we can actually import this package
+// yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit.js git@github.com:kiwicom/fetch.git 1
 
 const argv = process.argv.splice(2); // TODO: better CLI
 invariant(
@@ -21,6 +21,11 @@ invariant(
 
 const exportedRepoURL = argv[0]; // git@github.com:kiwicom/fetch.git
 const pullRequestNumber = argv[1];
+
+invariant(
+  /^git@github.com:.+\.git$/.test(exportedRepoURL),
+  'We currently support imports only from GitHub.com - please open an issue to add additional services.',
+);
 
 iterateConfigs(cfg => {
   if (cfg.exportedRepoURL === exportedRepoURL) {
