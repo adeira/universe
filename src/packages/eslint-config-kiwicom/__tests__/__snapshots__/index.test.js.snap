@@ -468,7 +468,7 @@ Object {
     "no-process-env": 0,
     "no-process-exit": 0,
     "no-proto": 2,
-    "no-prototype-builtins": 0,
+    "no-prototype-builtins": 1,
     "no-redeclare": Array [
       1,
       Object {
