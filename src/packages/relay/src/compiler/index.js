@@ -13,8 +13,10 @@ import {
 } from 'relay-compiler';
 import { buildASTSchema, buildClientSchema, parse, printSchema } from 'graphql';
 import { globSync } from '@kiwicom/monorepo-utils';
+import isCI from 'is-ci';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
+import persistOperation from './persistOperation';
 
 type ExternalOptions = {|
   +src: string,
@@ -26,7 +28,12 @@ export default function compiler(externalOptions: ExternalOptions) {
     noFutureProofEnums: false,
     validate: false,
     include: ['**'],
-    exclude: ['**/node_modules/**', '**/__mocks__/**', '**/__generated__/**'],
+    exclude: [
+      '**/node_modules/**',
+      '**/__mocks__/**',
+      '**/__generated__/**',
+      '**/__flowtests__/**',
+    ],
     artifactDirectory: null,
     ...externalOptions,
   };
@@ -193,13 +200,15 @@ function getRelayFileWriter(
         typeGenerator: languagePlugin.typeGenerator,
         outputDir,
         persistQuery: text => {
-          // TODO: send to remote server and return unique ID
           const hasher = crypto.createHash('md5');
           hasher.update(text);
           const id = hasher.digest('hex');
+          if (isCI === true) {
+            persistOperation(id, text);
+          }
           return Promise.resolve(id);
         },
-        // repersist: true, // TODO: only in CI (?)
+        repersist: isCI,
       },
       onlyValidate,
       schema,
