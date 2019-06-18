@@ -1,6 +1,7 @@
 # Unreleased
 
 - Flow types of some object types are now more accurate
+- Reverted breaking change enforcing correct Environment usage from version 3.0.0
 
 # 3.0.0
 

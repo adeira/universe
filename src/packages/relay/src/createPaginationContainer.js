@@ -7,7 +7,7 @@ import type {
   GraphQLTaggedNode,
   Disposable,
   $RelayProps,
-  $EnvironmentFromProps,
+  Environment,
 } from './types.flow';
 
 type ConnectionData = {|
@@ -42,7 +42,7 @@ type ConnectionConfig = {|
 |};
 
 export type PaginationRelayProp = {|
-  +environment: $EnvironmentFromProps,
+  +environment: Environment,
   +hasMore: () => boolean,
   +isLoading: () => boolean,
   +loadMore: (
