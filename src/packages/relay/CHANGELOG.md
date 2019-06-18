@@ -1,11 +1,13 @@
 # Unreleased
 
+# 3.1.0
+
 - Flow types of some object types are now more accurate
 - Reverted breaking change enforcing correct Environment usage from version 3.0.0
 
 # 3.0.0
 
-- Breaking: functions `commitMutation`, `requestSubscription` and `commitLocalUpdate` now require correct usage of Relay environment which is being passed down from props. Example of how to properly use mutations:
+- _(reverted in 3.1.0)_ Breaking: functions `commitMutation`, `requestSubscription` and `commitLocalUpdate` now require correct usage of Relay environment which is being passed down from props. Example of how to properly use mutations:
 
 ```js
 import {
