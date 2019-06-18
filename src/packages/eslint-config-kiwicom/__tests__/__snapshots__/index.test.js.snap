@@ -696,7 +696,7 @@ Object {
     "react/no-unknown-property": 1,
     "react/no-unsafe": 0,
     "react/no-unused-prop-types": 0,
-    "react/no-unused-state": 1,
+    "react/no-unused-state": 0,
     "react/no-will-update-set-state": 0,
     "react/prefer-es6-class": Array [
       1,
