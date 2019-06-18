@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'graphql-global-id',
+      repository: 'git@github.com/kiwicom/graphql-global-id.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'eslint-plugin-relay-imports',
+      repository: 'git@github.com/kiwicom/eslint-plugin-relay-imports.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

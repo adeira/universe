@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'relay-example',
+      repository: 'git@github.com/kiwicom/relay-example.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

@@ -44,17 +44,20 @@ Each project has its own configuration directly in Shipit workspace. If you want
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'relay-example',
+      repository: 'git@github.com/kiwicom/relay-example.git', // see: https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
     };
   },
   getDefaultPathMappings(): Map<string, string> {
     return new Map([
-      ['src/apps/relay-example/__github__/.flowconfig', '.flowconfig'],
-      ['src/apps/relay-example/', ''],
+      ['src/incubator/example-relay/__github__/.circleci', '.circleci'],
+      ['src/incubator/example-relay/__github__/.flowconfig', '.flowconfig'],
+      ['src/incubator/example-relay/', ''],
     ]);
   },
-  // getDefaultStrippedFiles
+  getDefaultStrippedFiles(): Set<RegExp> {
+    // this method is optional
+    return new Set([/__github__/]);
+  },
 };
 ```
 

@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'monorepo-npm-publisher',
+      repository: 'git@github.com/kiwicom/monorepo-npm-publisher.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

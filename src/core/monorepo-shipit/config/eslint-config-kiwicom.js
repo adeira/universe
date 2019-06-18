@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'eslint-config-kiwicom',
+      repository: 'git@github.com/kiwicom/eslint-config-kiwicom.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

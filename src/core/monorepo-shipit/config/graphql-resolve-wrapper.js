@@ -3,8 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      githubOrg: 'kiwicom',
-      githubProject: 'graphql-resolve-wrapper',
+      repository: 'git@github.com/kiwicom/graphql-resolve-wrapper.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {
