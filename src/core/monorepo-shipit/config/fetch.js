@@ -3,7 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      repository: 'git@github.com/kiwicom/fetch.git',
+      repository: 'git@github.com:kiwicom/fetch.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {

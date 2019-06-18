@@ -3,7 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      repository: 'git@github.com/kiwicom/monorepo-shipit.git',
+      repository: 'git@github.com:kiwicom/monorepo-shipit.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {
