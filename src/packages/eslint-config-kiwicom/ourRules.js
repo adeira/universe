@@ -378,7 +378,7 @@ module.exports = {
   'react/no-unknown-property': WARN,
   'react/no-unsafe': OFF,
   'react/no-unused-prop-types': OFF,
-  'react/no-unused-state': NEXT_VERSION_ERROR,
+  'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
   'react/no-will-update-set-state': OFF,
   'react/prefer-es6-class': [NEXT_VERSION_ERROR, 'always'],
   'react/prefer-read-only-props': OFF,

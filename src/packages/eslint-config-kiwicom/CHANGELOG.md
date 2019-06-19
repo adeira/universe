@@ -1,6 +1,9 @@
 # Unreleased
 
+# 4.8.0
+
 - Preparation for future major Eslint version 6.0. The following rules show warnings (errors in strict mode): [`no-async-promise-executor`](https://eslint.org/docs/rules/no-async-promise-executor), [`no-prototype-builtins`](https://eslint.org/docs/rules/no-prototype-builtins), [`no-shadow-restricted-names`](https://eslint.org/docs/rules/no-shadow-restricted-names), [`no-useless-catch`](https://eslint.org/docs/rules/no-useless-catch) (some of them were already warnings, other rules from 6.0 are already implemented properly).
+- Disabled rule `react/no-unused-state` because of this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910 (it caused many errors in real-world applications).
 
 # 4.7.0
 
