@@ -709,7 +709,7 @@ Object {
     "react/require-default-props": 0,
     "react/require-optimization": 0,
     "react/require-render-return": 1,
-    "react/self-closing-comp": "off",
+    "react/self-closing-comp": 1,
     "react/sort-comp": Array [
       1,
       Object {
