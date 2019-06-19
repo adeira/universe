@@ -323,3 +323,31 @@ function test(x: mixed) {
 [flow.org/try](https://flow.org/try/#0GYVwdgxgLglg9mABFApgZygCgB4C5EC2M2KAJgJSIDeAUIojMIplAJ4AOKcT2iAvAMQByDACcYYAOZDKtevVEooIUUiiiQKANx1EAX13YtiAPQnEGGABsrwoiVJDEAQwgQ4o0hMnI4yDigAtM5QgexwaIiAfBuAKLs0BkA)
 
 One solution is to manually define your custom mixed type which [can be exhausted](https://flow.org/try/#0PTAEAEDMBsHsHcBQiAuBPADgU1AWTbgJYAeWAJqALyiKigA+oAbrIRbQ6AHYCu00NOo14BbAEZYAToM4BnFJMJcA5jMZjYsaFgCGXNaADeAOlMBfAwEFJknWgA8+IqTIA+AwApTxnZOWyALjwCEnIAbQBdAEoqdydQsg46GgBjWC55UBxqDx0g+UUVABpmIPiXGMp3QzNkLA8AcgaSgEYoxHqmktz8hSVlErEg0QlJSuqzKKA).
+
+## Possibly undefined array elements
+
+None of the typing systems can handle this correctly, all show no error during static analysis (but could be runtime error).
+
+Flow ([pr](https://github.com/facebook/flow/pull/6823)):
+
+```js
+let a = [1,2,3]
+let b: number = a[10] // undefined
+let c = b * 2
+```
+
+Typescript ([issue](https://github.com/Microsoft/TypeScript/issues/13778)):
+
+```js
+let a = [1, 2, 3];
+let b: number = a[10] // undefined
+let c = b * 2
+```
+
+Reason:
+
+```re
+let a: array(int) = [|1, 2, 3|];
+let b: int = a[10]  // undefined
+let c = b * 2
+```
