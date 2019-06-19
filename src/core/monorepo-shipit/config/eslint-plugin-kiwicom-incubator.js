@@ -3,7 +3,7 @@
 module.exports = {
   getStaticConfig() {
     return {
-      repository: 'git@github.com/kiwicom/eslint-plugin-kiwicom-incubator.git',
+      repository: 'git@github.com:kiwicom/eslint-plugin-kiwicom-incubator.git',
     };
   },
   getDefaultPathMappings(): Map<string, string> {
