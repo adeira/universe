@@ -187,8 +187,6 @@ export default function App() {
 
 ## Do not expose global `Environment`
 
-_This environments abuse is going to be disallowed in `@kiwicom/relay` version 3.0_
-
 You should never import your custom environment directly when working with mutations or subscriptions. Always use the environment provided in the props (exposed by any Relay container):
 
 ```js

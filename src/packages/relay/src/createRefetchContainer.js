@@ -7,13 +7,13 @@ import type {
   FragmentSpec,
   GraphQLTaggedNode,
   Disposable,
-  $EnvironmentFromProps,
+  Environment,
 } from './types.flow';
 
 type RefetchOptions = { force?: boolean, ... };
 
 export type RefetchRelayProp = {|
-  +environment: $EnvironmentFromProps,
+  +environment: Environment,
   +refetch: (
     refetchVariables:
       | { +[key: string]: any, ... }

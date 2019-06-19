@@ -8,7 +8,7 @@ import type {
   GraphQLTaggedNode,
   RecordSourceSelectorProxy,
   Variables,
-  $EnvironmentFromProps,
+  Environment,
 } from './types.flow';
 
 opaque type SelectorData = $FlowFixMe;
@@ -28,7 +28,7 @@ type Config = {|
  * to ensure the subscription is performed in the correct environment.
  */
 export default function requestSubscription(
-  environment: $EnvironmentFromProps,
+  environment: Environment,
   config: Config,
 ): Disposable {
   return _requestSubscription(environment, config);

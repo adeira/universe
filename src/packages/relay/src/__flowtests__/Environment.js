@@ -65,7 +65,7 @@ module.exports = {
       return commitMutation(props.relay.environment, mutationConfig);
     },
     incorrectUsageB() {
-      // $FlowExpectedError: environment must be passed down from props
+      // environment _should_ be passed down from props (currently no error)
       return commitMutation(ManuallyCreatedEnvironment, mutationConfig);
     },
   },
@@ -85,7 +85,7 @@ module.exports = {
     },
     incorrectUsageB() {
       return requestSubscription(
-        // $FlowExpectedError: environment must be passed down from props
+        // environment _should_ be passed down from props (currently no error)
         ManuallyCreatedEnvironment,
         subscriptionConfig,
       );
@@ -106,7 +106,7 @@ module.exports = {
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
     incorrectUsageB() {
-      // $FlowExpectedError: environment must be passed down from props
+      // environment _should_ be passed down from props (currently no error)
       return commitLocalUpdate(ManuallyCreatedEnvironment, localUpdater);
     },
   },
