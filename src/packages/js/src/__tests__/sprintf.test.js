@@ -9,6 +9,9 @@ import { sprintf } from '../index';
 
 test.each([
   ['', 'a  b', 'a "" b'],
+  // ['%%', 'a %% b', 'a "%%" b'], // FIXME
+  ['%s', 'a %s b', 'a "%s" b'],
+  ['%j', 'a %j b', 'a "%j" b'],
   ['string', 'a string b', 'a "string" b'],
   [111, 'a 111 b', 'a 111 b'],
   [
@@ -25,7 +28,10 @@ test.each([
 ])(
   '%#) sprintf prints %p correctly for all supported formats',
   (input, outputString, outputJSON) => {
-    expect(sprintf('a %s b', input)).toBe(outputString);
+    const stringFormat = 'a %s b';
+    expect(sprintf(stringFormat, input)).toBe(outputString);
+    // This is currently incompatible with Node.js (fix it?)
+    // expect(sprintf(stringFormat, input)).toBe(util.format(stringFormat, input));
 
     const jsonFormat = 'a %j b';
     expect(sprintf(jsonFormat, input)).toBe(outputJSON);
@@ -77,6 +83,15 @@ it('works with String and JSON together', () => {
   const format = 'a %s b %j c';
   expect(sprintf(format, '111', '222')).toBe('a 111 b "222" c');
   expect(sprintf(format, '111', '222')).toBe(util.format(format, '111', '222'));
+});
+
+test.each([
+  // in => out
+  [['%s, %S', 1, 2, 3], '1, %S 2 3'],
+  [['%J, %j', 1, 2, 3], '%J, 1 2 3'],
+])('is case sensitive %#', (input, output) => {
+  expect(sprintf(...input)).toBe(output);
+  expect(sprintf(...input)).toBe(util.format(...input));
 });
 
 test.each([
