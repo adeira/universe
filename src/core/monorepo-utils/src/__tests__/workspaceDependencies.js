@@ -132,7 +132,7 @@ export default sanitizeWorkspaces({
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/monorepo-shipit': {
-    location: 'src/packages/monorepo-shipit',
+    location: 'src/core/monorepo-shipit',
     workspaceDependencies: [
       '@kiwicom/js',
       '@kiwicom/monorepo',
