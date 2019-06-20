@@ -3,26 +3,41 @@
 import Logger from '../Logger';
 import BrowserLogger from '../BrowserLogger';
 
-it('logs into console', () => {
-  const spy = jest.spyOn(console, 'log').mockImplementation(() => {});
+test.each([
+  // logger input (will be spreaded) => expected output
+  [['single'], [['single']]],
+  [['aaa', 'bbb', 'ccc'], [['aaa', 'bbb', 'ccc']]],
+  [['a %s c', 'b'], [['a %s c', 'b']]],
+])('', (input, output) => {
+  const spyLog = jest.spyOn(console, 'log').mockImplementation(() => {});
+  const spyWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  const spyError = jest.spyOn(console, 'error').mockImplementation(() => {});
   const logger = new Logger(new BrowserLogger());
-  logger.log('aaa', 'bbb', 'ccc');
-  expect(spy.mock.calls).toEqual([['aaa', 'bbb', 'ccc']]);
-  spy.mockRestore();
-});
 
-it('warns into console', () => {
-  const spy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-  const logger = new Logger(new BrowserLogger());
-  logger.warn('aaa', 'bbb', 'ccc');
-  expect(spy.mock.calls).toEqual([['aaa', 'bbb', 'ccc']]);
-  spy.mockRestore();
-});
+  function clearLocalMocks() {
+    spyLog.mockClear();
+    spyWarn.mockClear();
+    spyError.mockClear();
+  }
 
-it('errors into console', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  const logger = new Logger(new BrowserLogger());
-  logger.error('aaa', 'bbb', 'ccc');
-  expect(spy.mock.calls).toEqual([['aaa', 'bbb', 'ccc']]);
-  spy.mockRestore();
+  logger.log(...input);
+  expect(spyLog.mock.calls).toEqual(output);
+  expect(spyWarn.mock.calls).toEqual([]);
+  expect(spyError.mock.calls).toEqual([]);
+
+  clearLocalMocks();
+
+  logger.warn(...input);
+  expect(spyLog.mock.calls).toEqual([]);
+  expect(spyWarn.mock.calls).toEqual(output);
+  expect(spyError.mock.calls).toEqual([]);
+
+  clearLocalMocks();
+
+  logger.error(...input);
+  expect(spyLog.mock.calls).toEqual([]);
+  expect(spyWarn.mock.calls).toEqual([]);
+  expect(spyError.mock.calls).toEqual(output);
+
+  jest.restoreAllMocks();
 });
