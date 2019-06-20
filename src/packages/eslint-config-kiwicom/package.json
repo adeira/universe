@@ -38,7 +38,8 @@
   },
   "devDependencies": {
     "@kiwicom/eslint-config-nitro": "^3.0.0",
-    "deep-diff": "^1.0.2"
+    "deep-diff": "^1.0.2",
+    "snapshot-diff": "^0.5.1"
   },
   "peerDependencies": {
     "eslint": "^5.15.3"

@@ -1,6 +1,7 @@
 # Unreleased
 
 - Internal dependency [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) upgraded to version 5.0 (potentially breaking) which effectively removes restrictions on React rule [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md). This release enables new warnings for this rule (errors in strict mode). This rule is automatically fixable so it's going to be autofixed when you use our Eslint runner. More details here: https://github.com/prettier/eslint-config-prettier/blob/master/CHANGELOG.md#version-500-2019-06-15
+- Following rules now show warnings (errors in strict mode): [`guard-for-in`](https://eslint.org/docs/rules/guard-for-in), [`no-undef-init`](https://eslint.org/docs/rules/no-undef-init), [`require-yield`](https://eslint.org/docs/rules/require-yield), [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
 # 4.8.0
 

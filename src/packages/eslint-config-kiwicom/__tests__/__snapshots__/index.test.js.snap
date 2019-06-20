@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rules snapshot 1`] = `
+exports[`rules snapshot: all stable rules 1`] = `
 Object {
   "globals": Object {
     "FormData": "readonly",
@@ -150,7 +150,7 @@ Object {
     "generator-star-spacing": "off",
     "getter-return": 2,
     "global-require": 0,
-    "guard-for-in": 0,
+    "guard-for-in": 1,
     "handle-callback-err": 1,
     "id-blacklist": 0,
     "id-length": 0,
@@ -501,7 +501,7 @@ Object {
     "no-throw-literal": 1,
     "no-trailing-spaces": "off",
     "no-undef": 2,
-    "no-undef-init": 0,
+    "no-undef-init": 1,
     "no-undefined": 0,
     "no-underscore-dangle": 0,
     "no-unexpected-multiline": 0,
@@ -659,7 +659,7 @@ Object {
     "react/jsx-no-target-blank": 0,
     "react/jsx-no-undef": 2,
     "react/jsx-one-expression-per-line": "off",
-    "react/jsx-pascal-case": 0,
+    "react/jsx-pascal-case": 1,
     "react/jsx-props-no-multi-spaces": "off",
     "react/jsx-props-no-spreading": 0,
     "react/jsx-sort-default-props": 0,
@@ -774,7 +774,7 @@ Object {
     "require-await": 2,
     "require-jsdoc": 0,
     "require-unicode-regexp": 0,
-    "require-yield": 0,
+    "require-yield": 1,
     "rest-spread-spacing": "off",
     "semi": "off",
     "semi-spacing": "off",
@@ -840,4 +840,334 @@ Object {
     },
   },
 }
+`;
+
+exports[`rules snapshot: diff of stable and strict rules 1`] = `
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -36,3 +36,3 @@
+      "array-bracket-spacing": "off",
+-     "array-callback-return": 1,
++     "array-callback-return": 2,
+      "array-element-newline": "off",
+@@ -82,6 +82,6 @@
+      "dot-location": "off",
+-     "dot-notation": 1,
++     "dot-notation": 2,
+      "eol-last": "off",
+      "eqeqeq": Array [
+-       1,
++       2,
+        "smart",
+@@ -118,3 +118,3 @@
+      "flowtype/require-exact-type": 0,
+-     "flowtype/require-inexact-type": 1,
++     "flowtype/require-inexact-type": 2,
+      "flowtype/require-parameter-type": 0,
+@@ -149,3 +149,3 @@
+      "global-require": 0,
+-     "guard-for-in": 1,
++     "guard-for-in": 2,
+      "handle-callback-err": 1,
+@@ -157,6 +157,6 @@
+      "import/dynamic-import-chunkname": 0,
+-     "import/export": 1,
++     "import/export": 2,
+      "import/exports-last": 0,
+      "import/extensions": 0,
+-     "import/first": 1,
++     "import/first": 2,
+      "import/group-exports": 0,
+@@ -168,3 +168,3 @@
+      "import/no-absolute-path": 2,
+-     "import/no-amd": 1,
++     "import/no-amd": 2,
+      "import/no-anonymous-default-export": Array [
+@@ -185,3 +185,3 @@
+      "import/no-deprecated": 0,
+-     "import/no-duplicates": 1,
++     "import/no-duplicates": 2,
+      "import/no-dynamic-require": 0,
+@@ -200,3 +200,3 @@
+      "import/no-named-as-default-member": 0,
+-     "import/no-named-default": 1,
++     "import/no-named-default": 2,
+      "import/no-named-export": 0,
+@@ -206,3 +206,3 @@
+      "import/no-restricted-paths": 0,
+-     "import/no-self-import": 1,
++     "import/no-self-import": 2,
+      "import/no-unassigned-import": 0,
+@@ -218,3 +218,3 @@
+      "import/no-useless-path-segments": 2,
+-     "import/no-webpack-loader-syntax": 1,
++     "import/no-webpack-loader-syntax": 2,
+      "import/order": Array [
+@@ -276,7 +276,7 @@
+      "jsx-a11y/anchor-has-content": 0,
+-     "jsx-a11y/anchor-is-valid": 1,
++     "jsx-a11y/anchor-is-valid": 2,
+      "jsx-a11y/aria-activedescendant-has-tabindex": 0,
+      "jsx-a11y/aria-props": 2,
+-     "jsx-a11y/aria-proptypes": 1,
+-     "jsx-a11y/aria-role": 1,
++     "jsx-a11y/aria-proptypes": 2,
++     "jsx-a11y/aria-role": 2,
+      "jsx-a11y/aria-unsupported-elements": 2,
+@@ -285,14 +285,14 @@
+      "jsx-a11y/heading-has-content": 0,
+-     "jsx-a11y/html-has-lang": 1,
+-     "jsx-a11y/iframe-has-title": 1,
++     "jsx-a11y/html-has-lang": 2,
++     "jsx-a11y/iframe-has-title": 2,
+      "jsx-a11y/img-redundant-alt": 0,
+-     "jsx-a11y/interactive-supports-focus": 1,
++     "jsx-a11y/interactive-supports-focus": 2,
+      "jsx-a11y/label-has-associated-control": 0,
+      "jsx-a11y/label-has-for": 0,
+-     "jsx-a11y/lang": 1,
++     "jsx-a11y/lang": 2,
+      "jsx-a11y/media-has-caption": 0,
+      "jsx-a11y/mouse-events-have-key-events": 0,
+-     "jsx-a11y/no-access-key": 1,
++     "jsx-a11y/no-access-key": 2,
+      "jsx-a11y/no-autofocus": Array [
+-       1,
++       2,
+        Object {
+@@ -315,8 +315,8 @@
+      "jsx-a11y/no-onchange": 0,
+-     "jsx-a11y/no-redundant-roles": 1,
++     "jsx-a11y/no-redundant-roles": 2,
+      "jsx-a11y/no-static-element-interactions": 0,
+-     "jsx-a11y/role-has-required-aria-props": 1,
+-     "jsx-a11y/role-supports-aria-props": 1,
+-     "jsx-a11y/scope": 1,
+-     "jsx-a11y/tabindex-no-positive": 1,
++     "jsx-a11y/role-has-required-aria-props": 2,
++     "jsx-a11y/role-supports-aria-props": 2,
++     "jsx-a11y/scope": 2,
++     "jsx-a11y/tabindex-no-positive": 2,
+      "jsx-quotes": "off",
+@@ -361,5 +361,5 @@
+      "no-arrow-condition": "off",
+-     "no-async-promise-executor": 1,
++     "no-async-promise-executor": 2,
+      "no-await-in-loop": 1,
+-     "no-bitwise": 1,
++     "no-bitwise": 2,
+      "no-buffer-constructor": 1,
+@@ -370,3 +370,3 @@
+      "no-compare-neg-zero": 2,
+-     "no-cond-assign": 1,
++     "no-cond-assign": 2,
+      "no-confusing-arrow": 0,
+@@ -381,3 +381,3 @@
+      "no-continue": 0,
+-     "no-control-regex": 1,
++     "no-control-regex": 2,
+      "no-debugger": 2,
+@@ -388,3 +388,3 @@
+      "no-dupe-keys": 2,
+-     "no-duplicate-case": 1,
++     "no-duplicate-case": 2,
+      "no-duplicate-imports": 0,
+@@ -397,12 +397,12 @@
+      ],
+-     "no-empty-character-class": 1,
++     "no-empty-character-class": 2,
+      "no-empty-function": 0,
+-     "no-empty-pattern": 1,
++     "no-empty-pattern": 2,
+      "no-eq-null": 0,
+      "no-eval": 2,
+-     "no-ex-assign": 1,
++     "no-ex-assign": 2,
+      "no-extend-native": 1,
+      "no-extra-bind": 1,
+-     "no-extra-boolean-cast": 1,
+-     "no-extra-label": 1,
++     "no-extra-boolean-cast": 2,
++     "no-extra-label": 2,
+      "no-extra-parens": "off",
+@@ -428,4 +428,4 @@
+      "no-invalid-this": 0,
+-     "no-irregular-whitespace": 1,
+-     "no-iterator": 1,
++     "no-irregular-whitespace": 2,
++     "no-iterator": 2,
+      "no-label-var": 2,
+@@ -438,7 +438,7 @@
+      ],
+-     "no-lone-blocks": 1,
++     "no-lone-blocks": 2,
+      "no-lonely-if": 2,
+-     "no-loop-func": 1,
++     "no-loop-func": 2,
+      "no-magic-numbers": 0,
+-     "no-misleading-character-class": 1,
++     "no-misleading-character-class": 2,
+      "no-mixed-operators": 0,
+@@ -451,3 +451,3 @@
+      "no-negated-condition": 0,
+-     "no-nested-ternary": 1,
++     "no-nested-ternary": 2,
+      "no-new": 1,
+@@ -459,4 +459,4 @@
+      "no-obj-calls": 2,
+-     "no-octal": 1,
+-     "no-octal-escape": 1,
++     "no-octal": 2,
++     "no-octal-escape": 2,
+      "no-param-reassign": 2,
+@@ -467,3 +467,3 @@
+      "no-proto": 2,
+-     "no-prototype-builtins": 1,
++     "no-prototype-builtins": 2,
+      "no-redeclare": Array [
+@@ -474,3 +474,3 @@
+      ],
+-     "no-regex-spaces": 1,
++     "no-regex-spaces": 2,
+      "no-reserved-keys": "off",
+@@ -488,3 +488,3 @@
+      "no-shadow": 0,
+-     "no-shadow-restricted-names": 1,
++     "no-shadow-restricted-names": 2,
+      "no-space-before-semi": "off",
+@@ -494,3 +494,3 @@
+      "no-tabs": 0,
+-     "no-template-curly-in-string": 1,
++     "no-template-curly-in-string": 2,
+      "no-ternary": 0,
+@@ -500,3 +500,3 @@
+      "no-undef": 2,
+-     "no-undef-init": 1,
++     "no-undef-init": 2,
+      "no-undefined": 0,
+@@ -507,3 +507,3 @@
+      "no-unreachable": 2,
+-     "no-unsafe-finally": 1,
++     "no-unsafe-finally": 2,
+      "no-unsafe-negation": 2,
+@@ -519,10 +519,10 @@
+      "no-useless-call": 1,
+-     "no-useless-catch": 1,
+-     "no-useless-computed-key": 1,
+-     "no-useless-concat": 1,
+-     "no-useless-constructor": 1,
+-     "no-useless-escape": 1,
++     "no-useless-catch": 2,
++     "no-useless-computed-key": 2,
++     "no-useless-concat": 2,
++     "no-useless-constructor": 2,
++     "no-useless-escape": 2,
+      "no-useless-rename": 1,
+      "no-useless-return": 1,
+-     "no-var": 1,
++     "no-var": 2,
+      "no-void": 1,
+@@ -530,3 +530,3 @@
+      "no-whitespace-before-property": "off",
+-     "no-with": 1,
++     "no-with": 2,
+      "no-wrap-func": "off",
+@@ -534,3 +534,3 @@
+      "node/file-extension-in-import": Array [
+-       1,
++       2,
+        "always",
+@@ -593,3 +593,3 @@
+      "prefer-spread": 1,
+-     "prefer-template": 1,
++     "prefer-template": 2,
+      "prettier/prettier": Array [
+@@ -612,3 +612,3 @@
+      "react/button-has-type": Array [
+-       1,
++       2,
+        Object {
+@@ -624,3 +624,3 @@
+      "react/forbid-dom-props": Array [
+-       1,
++       2,
+        Object {
+@@ -658,3 +658,3 @@
+      "react/jsx-one-expression-per-line": "off",
+-     "react/jsx-pascal-case": 1,
++     "react/jsx-pascal-case": 2,
+      "react/jsx-props-no-multi-spaces": "off",
+@@ -666,3 +666,3 @@
+      "react/jsx-uses-react": 1,
+-     "react/jsx-uses-vars": 1,
++     "react/jsx-uses-vars": 2,
+      "react/jsx-wrap-multilines": "off",
+@@ -672,11 +672,11 @@
+      "react/no-danger": 0,
+-     "react/no-danger-with-children": 1,
+-     "react/no-deprecated": 1,
++     "react/no-danger-with-children": 2,
++     "react/no-deprecated": 2,
+      "react/no-did-mount-set-state": 0,
+      "react/no-did-update-set-state": 2,
+-     "react/no-direct-mutation-state": 1,
+-     "react/no-find-dom-node": 1,
+-     "react/no-is-mounted": 1,
++     "react/no-direct-mutation-state": 2,
++     "react/no-find-dom-node": 2,
++     "react/no-is-mounted": 2,
+      "react/no-multi-comp": Array [
+-       1,
++       2,
+        Object {
+@@ -685,9 +685,9 @@
+      ],
+-     "react/no-redundant-should-component-update": 1,
+-     "react/no-render-return-value": 1,
++     "react/no-redundant-should-component-update": 2,
++     "react/no-render-return-value": 2,
+      "react/no-set-state": 0,
+      "react/no-string-refs": 0,
+-     "react/no-this-in-sfc": 1,
++     "react/no-this-in-sfc": 2,
+      "react/no-typos": 0,
+-     "react/no-unescaped-entities": 1,
++     "react/no-unescaped-entities": 2,
+      "react/no-unknown-property": 1,
+@@ -698,3 +698,3 @@
+      "react/prefer-es6-class": Array [
+-       1,
++       2,
+        "always",
+@@ -707,6 +707,6 @@
+      "react/require-optimization": 0,
+-     "react/require-render-return": 1,
+-     "react/self-closing-comp": 1,
++     "react/require-render-return": 2,
++     "react/self-closing-comp": 2,
+      "react/sort-comp": Array [
+-       1,
++       2,
+        Object {
+@@ -760,5 +760,5 @@
+      "react/style-prop-object": 0,
+-     "react/void-dom-elements-no-children": 1,
+-     "relay-imports/no-values": 1,
+-     "relay-imports/type-must-exist": 1,
++     "react/void-dom-elements-no-children": 2,
++     "relay-imports/no-values": 2,
++     "relay-imports/type-must-exist": 2,
+      "relay/compat-uses-vars": 0,
+@@ -773,3 +773,3 @@
+      "require-unicode-regexp": 0,
+-     "require-yield": 1,
++     "require-yield": 2,
+      "rest-spread-spacing": "off",
+@@ -815,3 +815,3 @@
+      "valid-typeof": 0,
+-     "vars-on-top": 1,
++     "vars-on-top": 2,
+      "wrap-iife": "off",
 `;
