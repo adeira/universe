@@ -1,9 +1,9 @@
-/* eslint-disable no-console */
 // @flow
 
 import fs from 'fs';
 import os from 'os';
 import fetchWithRetries from '@kiwicom/fetch';
+import logger from '@kiwicom/logger';
 import program from 'commander';
 
 program
@@ -91,12 +91,12 @@ export default async function run() {
     const secrets = await _getSecrets(params.addr, params.path, params.token);
 
     _writeEnvFile(secrets, params.force, () => {
-      console.log('Retrieved secrets:');
-      console.log(Object.keys(secrets).join(os.EOL));
-      console.log(`${os.EOL}.env file created.${os.EOL}`);
+      logger.log('Retrieved secrets:');
+      logger.log(Object.keys(secrets).join(os.EOL));
+      logger.log(`${os.EOL}.env file created.${os.EOL}`);
     });
   } catch (err) {
-    console.error(`Error while retrieving secrets: ${err.message}`);
+    logger.error(`Error while retrieving secrets: ${err.message}`);
     process.exit(1);
   }
 }
