@@ -9,7 +9,7 @@ module.exports = {
   url: 'https://kiwi.wiki',
   baseUrl: '/incubator/universe/',
   editUrl:
-    'https://gitlab.skypicker.com/incubator/universe/edit/master/src/apps/docs/docs/',
+    'https://gitlab.skypicker.com/incubator/universe/edit/master/src/docs/docs/',
 
   customDocsPath: 'docs/docs',
 
