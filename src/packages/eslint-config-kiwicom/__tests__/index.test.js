@@ -1,5 +1,6 @@
 // @flow
 
+import snapshotDiff from 'snapshot-diff';
 import prettierConfig from 'eslint-config-prettier';
 
 import deprecatedRules from './deprecatedRules';
@@ -10,6 +11,8 @@ beforeEach(() => {
   ourRules = new Map(Object.entries(require('../index.js').rules));
   missing = new Set();
 });
+
+expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());
 
 test('our rules should contain every Eslint rule to be explicit', () => {
   // add deprecated rules to the Map to simulate that we are using them
@@ -55,11 +58,23 @@ test.each(Object.entries(prettierRules))(
 // TODO: test for extra rules
 
 test('rules snapshot', () => {
-  expect(require('../index.js')).toMatchSnapshot({
-    settings: {
-      react: {
-        version: expect.any(String),
+  const stableRules = require('../index.js');
+  const strictRules = require('../strict.js');
+
+  expect(stableRules).toMatchSnapshot(
+    {
+      settings: {
+        react: {
+          version: expect.any(String),
+        },
       },
     },
-  });
+    'all stable rules',
+  );
+
+  expect(
+    snapshotDiff(stableRules, strictRules, {
+      contextLines: 1,
+    }),
+  ).toMatchSnapshot('diff of stable and strict rules');
 });

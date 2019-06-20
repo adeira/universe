@@ -57,7 +57,7 @@ module.exports = {
   'default-case': OFF,
   'dot-notation': NEXT_VERSION_ERROR,
   eqeqeq: [NEXT_VERSION_ERROR, 'smart'],
-  'guard-for-in': OFF,
+  'guard-for-in': NEXT_VERSION_ERROR,
   'max-classes-per-file': OFF,
   'no-alert': WARN,
   'no-await-in-loop': WARN,
@@ -129,11 +129,11 @@ module.exports = {
   'no-restricted-globals': OFF,
   'no-shadow-restricted-names': NEXT_VERSION_ERROR,
   'no-shadow': OFF,
-  'no-undef-init': OFF,
+  'no-undef-init': NEXT_VERSION_ERROR,
   'no-undef': ERROR,
   'no-undefined': OFF,
   'no-unused-vars': [ERROR, { args: 'after-used' }],
-  'no-use-before-define': OFF,
+  'no-use-before-define': OFF, // https://github.com/babel/babel-eslint/issues/485
 
   // Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)
   'callback-return': OFF,
@@ -231,7 +231,7 @@ module.exports = {
   'prefer-rest-params': WARN,
   'prefer-spread': WARN,
   'prefer-template': NEXT_VERSION_ERROR,
-  'require-yield': OFF,
+  'require-yield': NEXT_VERSION_ERROR,
   'sort-imports': OFF,
   'symbol-description': WARN,
 
@@ -350,7 +350,7 @@ module.exports = {
   'react/jsx-no-literals': OFF,
   'react/jsx-no-target-blank': OFF,
   'react/jsx-no-undef': ERROR,
-  'react/jsx-pascal-case': OFF,
+  'react/jsx-pascal-case': NEXT_VERSION_ERROR,
   'react/jsx-props-no-spreading': OFF,
   'react/jsx-sort-default-props': OFF,
   'react/jsx-sort-props': OFF,
