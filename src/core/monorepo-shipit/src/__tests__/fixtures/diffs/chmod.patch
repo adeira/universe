@@ -1,0 +1,6 @@
+diff --git a/src/platform/terraform-gitlab-project-cluster/environment_scope.sh b/src/platform/terraform-gitlab-project-cluster/environment_scope.sh
+old mode 100644
+new mode 100755
+--
+2.20.1 (Apple Git-117)
+

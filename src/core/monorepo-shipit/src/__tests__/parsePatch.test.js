@@ -9,9 +9,12 @@ generateTestsFromFixtures(path.join(__dirname, 'fixtures', 'diffs'), operation);
 
 function operation(input) {
   return new Promise(resolve => {
-    const hunks = [];
+    let hunks = '';
+    let hunkNumber = 1;
+    let hunkSeparator = '';
     for (const hunk of parsePatch(input)) {
-      hunks.push(hunk);
+      hunks += `${hunkSeparator}~~~ HUNK ${hunkNumber++}:\n\n${hunk}`;
+      hunkSeparator = '\n';
     }
     resolve(hunks);
   });
