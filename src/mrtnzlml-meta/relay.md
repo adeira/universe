@@ -352,6 +352,7 @@ TODO
 # @inline ???
 
 - https://github.com/facebook/relay/commit/68745c719401c3be01d022f1617525daac69cfa1
+- https://github.com/mrtnzlml/relay/pull/442/commits
 
 # Uploadables
 
