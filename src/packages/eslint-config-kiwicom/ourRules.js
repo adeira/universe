@@ -344,7 +344,16 @@ module.exports = {
   'react/jsx-handler-names': OFF,
   'react/jsx-key': ERROR,
   'react/jsx-max-depth': OFF,
-  'react/jsx-no-bind': ERROR,
+  'react/jsx-no-bind': [
+    ERROR,
+    {
+      ignoreDOMComponents: true,
+      ignoreRefs: true,
+      allowArrowFunctions: true,
+      allowFunctions: false,
+      allowBind: false,
+    },
+  ],
   'react/jsx-no-comment-textnodes': WARN,
   'react/jsx-no-duplicate-props': ERROR,
   'react/jsx-no-literals': OFF,

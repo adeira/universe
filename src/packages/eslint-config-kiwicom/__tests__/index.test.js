@@ -75,6 +75,7 @@ test('rules snapshot', () => {
   expect(
     snapshotDiff(stableRules, strictRules, {
       contextLines: 1,
+      stablePatchmarks: true,
     }),
   ).toMatchSnapshot('diff of stable and strict rules');
 });

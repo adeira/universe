@@ -24,6 +24,7 @@ module.exports = {
   headerLinks: [
     { doc: 'monorepo/installation', label: 'Monorepo' },
     { doc: 'graphql/general-information', label: 'Applications' },
+    { blog: true, label: 'Blog' },
     {
       href: 'https://gitlab.skypicker.com/incubator/universe',
       label: 'GitLab',
