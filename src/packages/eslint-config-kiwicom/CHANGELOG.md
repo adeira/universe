@@ -1,6 +1,8 @@
 # Unreleased
 
-- React rule `react/jsx-no-bind` is now much more benevolent. Read more information about this change here: https://kiwi.wiki/incubator/universe/blog/2019/06/21/relaxing-react-jsx-no-bind-eslint-rule
+# 4.10.0
+
+- React rule [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md) is now much more benevolent. Read more information about this change here: https://kiwi.wiki/incubator/universe/blog/2019/06/21/relaxing-react-jsx-no-bind-eslint-rule
 
 # 4.9.0
 

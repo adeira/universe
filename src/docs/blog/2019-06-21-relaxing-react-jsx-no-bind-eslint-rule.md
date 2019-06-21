@@ -125,7 +125,7 @@ export default function Alphabet() {
 }
 ```
 
-It's not horrible but you have to know how to do it properly and, what's worse, Eslint rule `react/jsx-no-bind` cannot handle incorrect implementation (cases when you don't use `useCallback` memoization). This forced some developers to use some patterns which were also wrong but it looked like they are not. It would still be bad even if the Eslint rule fixed - you'd still have to use memoization for every single functional callback even though it's maybe not necessary.
+It's not horrible but you have to know how to do it properly and, what's worse, Eslint rule `react/jsx-no-bind` cannot handle incorrect implementation (cases when you don't use `useCallback` memoization). This forced some developers to use some patterns which were also wrong but it looked like they are not. It would still be bad even with the Eslint rule fixed - you'd still have to use memoization for every single functional callback even though it's maybe not necessary.
 
 This rule was relatively straightforward to follow in class components and you potentially got the free optimization. However, the situation is different with functional components. Moreover, optimized child components are not so common. For this reason I decided to relax this rule and rely only on intentional optimizations done by developers - you can now freely use these patterns which were previously disabled.
 
