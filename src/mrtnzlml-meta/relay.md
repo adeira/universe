@@ -46,6 +46,10 @@ Do not forget to run `yarn install` in your project as well.
 
 See: https://github.com/mrtnzlml/relay/pull/424/commits/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
+# `LocalQueryRenderer`
+
+- https://github.com/mrtnzlml/relay/pull/447/files
+
 # Local schema
 
 First define local schema (`schema.local.graphql`):
