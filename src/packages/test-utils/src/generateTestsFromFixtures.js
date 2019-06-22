@@ -1,7 +1,7 @@
 // @flow
 
 import os from 'os';
-import { invariant, isObject } from '@kiwicom/js';
+import { isObject } from '@kiwicom/js';
 
 const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
 
@@ -39,30 +39,22 @@ export default function generateTestsFromFixtures(
 ): void {
   const fs = require('fs');
   const path = require('path');
-  const tests = fs.readdirSync(fixturesPath).map(async file => {
+
+  const fixtures = fs.readdirSync(fixturesPath);
+
+  test(`has fixtures in ${fixturesPath}`, () => {
+    expect(fixtures.length > 0).toBe(true);
+  });
+
+  test.each(fixtures)('matches expected output: %s', async file => {
     const input = fs.readFileSync(path.join(fixturesPath, file), 'utf8');
     const output = await getOutputForFixture(input, operation);
-    return {
-      file,
-      input,
-      output,
-    };
-  });
-  invariant(
-    tests.length > 0,
-    'generateTestsFromFixtures: No fixtures found at %s',
-    fixturesPath,
-  );
-  it('matches expected output', async () => {
-    const results = await Promise.all(tests);
-    results.forEach(test => {
-      expect({
-        // $FlowIssue: https://github.com/facebook/flow/issues/3258
-        [FIXTURE_TAG]: true,
-        input: test.input,
-        output: test.output,
-      }).toMatchSnapshot(test.file);
-    });
+    expect({
+      // $FlowIssue: https://github.com/facebook/flow/issues/3258
+      [FIXTURE_TAG]: true,
+      input: input,
+      output: output,
+    }).toMatchSnapshot();
   });
 }
 
