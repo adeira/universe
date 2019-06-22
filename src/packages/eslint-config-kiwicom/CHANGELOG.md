@@ -1,5 +1,9 @@
 # Unreleased
 
+# 4.10.0
+
+- React rule [`react/jsx-no-bind`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md) is now much more benevolent. Read more information about this change here: https://kiwi.wiki/incubator/universe/blog/2019/06/21/relaxing-react-jsx-no-bind-eslint-rule
+
 # 4.9.0
 
 - Internal dependency [`eslint-config-prettier`](https://github.com/prettier/eslint-config-prettier) upgraded to version 5.0 (potentially breaking) which effectively removes restrictions on React rule [`react/self-closing-comp`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md). This release enables new warnings for this rule (errors in strict mode). This rule is automatically fixable so it's going to be autofixed when you use our Eslint runner. More details here: https://github.com/prettier/eslint-config-prettier/blob/master/CHANGELOG.md#version-500-2019-06-15
