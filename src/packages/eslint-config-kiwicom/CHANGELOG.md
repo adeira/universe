@@ -1,5 +1,7 @@
 # Unreleased
 
+- Breaking: Eslint upgraded to version 6.0+ which is now required by peer dependencies. See: https://eslint.org/docs/6.0.0/user-guide/migrating-to-6.0.0
+
 # 4.11.0
 
 - Unmaintained plugin [`eslint-plugin-dependencies`](https://github.com/zertosh/eslint-plugin-dependencies) was removed. We already cover most of the cases with `import` plugin. This change is done in backward compatible manner: `dependencies/case-sensitive` doesn't have replacement and it's been removed, `dependencies/no-cycles` is replaced with `import/no-cycle` and `dependencies/require-json-ext` was replaced with `import/extensions`. Please, report any issues.

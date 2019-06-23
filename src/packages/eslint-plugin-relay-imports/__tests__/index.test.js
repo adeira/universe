@@ -16,7 +16,7 @@ jest.mock('../readFileSync', () => (path, options) => {
 });
 
 const ruleTester = new RuleTester({
-  parser: 'babel-eslint',
+  parser: require.resolve('babel-eslint'),
 });
 
 const validForBoth = [

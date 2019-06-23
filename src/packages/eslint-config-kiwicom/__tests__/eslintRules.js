@@ -1,6 +1,6 @@
 // @flow
 
-import builtInRules from 'eslint/lib/built-in-rules-index';
+import { rules as builtInRules } from 'eslint/conf/eslint-all';
 
 const eslintRules = new Set<string>(Object.keys(builtInRules));
 
