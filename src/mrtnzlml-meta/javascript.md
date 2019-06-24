@@ -4,6 +4,16 @@
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
+# Optional chaining gotchas
+
+```js
+(function() {
+  'use strict';
+  undeclared_var?.b; // ReferenceError: undeclared_var is not defined
+  arguments?.callee; // TypeError: 'callee' may not be accessed in strict mode
+})();
+```
+
 # Does it mutate 😱
 
 - https://doesitmutate.xyz/
@@ -12,15 +22,6 @@
 # Jest: test.concurrent( ... )
 
 TODO: https://github.com/facebook/jest/pull/1688/files
-
-# Dependency injection
-
-- https://adonisjs.com/docs/4.1/ioc-container
-- http://krasimirtsonev.com/blog/article/Dependency-injection-in-JavaScript
-- https://github.com/gedbac/di4js
-- https://medium.com/@maciekprzybylski/dependency-injection-in-javascript-74f8791ba7c8
-- https://www.yusufaytas.com/dependency-injection-in-javascript/
-- https://github.com/inversify/InversifyJS/
 
 # V8 Built-in functions
 
@@ -196,6 +197,15 @@ Unfortunatelly, Flow cannot uncover this version (which can also explode):
 ```js
 {y.address && y.address.fullAddress && <Text>{y.address.fullAddress}</Text>}
 ```
+
+# Dependency injection
+
+- https://adonisjs.com/docs/4.1/ioc-container
+- http://krasimirtsonev.com/blog/article/Dependency-injection-in-JavaScript
+- https://github.com/gedbac/di4js
+- https://medium.com/@maciekprzybylski/dependency-injection-in-javascript-74f8791ba7c8
+- https://www.yusufaytas.com/dependency-injection-in-javascript/
+- https://github.com/inversify/InversifyJS/
 
 # Fun with JavaScript
 
