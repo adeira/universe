@@ -1,4 +1,5 @@
 - **https://flow.org/en/docs/faq/**
+- https://github.com/wgao19/flow-notes
 - https://github.com/facebook/flow/blob/master/Changelog.md
 - https://github.com/niieani/typescript-vs-flowtype
 
