@@ -53,6 +53,7 @@ const factorial: MemoizedFactorial = n => {
 
 - https://github.com/facebook/flow/pull/7790/files
 - https://github.com/niieani/typescript-vs-flowtype/pull/55/files
+- https://github.com/facebook/flow/commit/954a72704a6338778c940239573045b28c716488
 - https://github.com/facebook/flow/commit/732eae55e102cdb7dfa7b6a85f0147d48c3afed7
 
 # Interesting Flow commands
