@@ -24,6 +24,30 @@ _TODO_
 
 https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
 
+# Callable objects
+
+```js
+type MemoizedFactorial = {
+  cache: {
+    [number]: number,
+  },
+  [[call]](number): number,
+}
+
+const factorial: MemoizedFactorial = n => {
+  if (!factorial.cache) {
+    factorial.cache = {}
+  }
+  if (factorial.cache[n] !== undefined) {
+    return factorial.cache[n]
+  }
+  factorial.cache[n] = n === 0 ? 1 : n * factorial(n - 1)
+  return factorial.cache[n]
+}
+```
+
+- https://github.com/facebook/flow/pull/7790/files
+
 # Interesting Flow commands
 
 ```text
