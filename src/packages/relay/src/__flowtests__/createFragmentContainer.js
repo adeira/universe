@@ -29,11 +29,11 @@ function getTestCases(Container) {
       );
     },
     checkValidFunctionProperty() {
-      return <Container data={validData} fun={(_: string) => {}} />; // eslint-disable-line react/jsx-no-bind, no-unused-vars
+      return <Container data={validData} fun={(_: string) => {}} />; // eslint-disable-line no-unused-vars
     },
     checkInvalidFunctionProperty() {
       // $FlowExpectedError: function argument should be string, not number
-      return <Container data={validData} fun={(_: number) => {}} />; // eslint-disable-line react/jsx-no-bind, no-unused-vars
+      return <Container data={validData} fun={(_: number) => {}} />; // eslint-disable-line no-unused-vars
     },
   };
 }

@@ -1330,7 +1330,7 @@ exports[`matches expected output: optional-chaining.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: Object) {
+module.exports = function(a: ?{ +[string]: any, ... }) {
   return a?.b ?? 'default';
 };
 
@@ -1348,14 +1348,14 @@ exports[`matches expected output: optional-chaining.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: Object) {
+module.exports = function(a: ?{ +[string]: any, ... }) {
   return a?.b ?? 'default';
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function (a: Object) {
+module.exports = function (a: ?{ +[string]: any }) {
   return a?.b ?? 'default';
 };
 `;
@@ -1364,7 +1364,7 @@ exports[`matches expected output: optional-chaining.js 3`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: Object) {
+module.exports = function(a: ?{ +[string]: any, ... }) {
   return a?.b ?? 'default';
 };
 
@@ -1458,7 +1458,10 @@ exports[`matches expected output: rest-operator.js 1`] = `
 
 /* eslint-disable no-console */
 
-module.exports = function(a: Object, ...rest: Array<any>) {
+module.exports = function(
+  a: { +[key: string]: any, ... },
+  ...rest: Array<any>
+) {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -1495,7 +1498,10 @@ exports[`matches expected output: rest-operator.js 2`] = `
 
 /* eslint-disable no-console */
 
-module.exports = function(a: Object, ...rest: Array<any>) {
+module.exports = function(
+  a: { +[key: string]: any, ... },
+  ...rest: Array<any>
+) {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -1509,7 +1515,10 @@ module.exports = function(a: Object, ...rest: Array<any>) {
 
 /* eslint-disable no-console */
 
-module.exports = function (a: Object, ...rest: Array<any>) {
+module.exports = function (
+a: { +[key: string]: any },
+...rest: Array<any>)
+{
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -1525,7 +1534,10 @@ exports[`matches expected output: rest-operator.js 3`] = `
 
 /* eslint-disable no-console */
 
-module.exports = function(a: Object, ...rest: Array<any>) {
+module.exports = function(
+  a: { +[key: string]: any, ... },
+  ...rest: Array<any>
+) {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
