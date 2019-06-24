@@ -3,6 +3,10 @@
 - https://github.com/facebook/flow/blob/master/Changelog.md
 - https://github.com/niieani/typescript-vs-flowtype
 
+Showerthoughts:
+
+> flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
+
 # Contributing to native libdevs
 
 https://github.com/facebook/flow#building-flow
