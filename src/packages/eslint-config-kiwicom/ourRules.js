@@ -339,6 +339,7 @@ module.exports = {
   'react/forbid-prop-types': OFF,
   'react/jsx-boolean-value': OFF,
   'react/jsx-curly-brace-presence': OFF,
+  'react/jsx-curly-newline': [NEXT_VERSION_ERROR, 'consistent'],
   'react/jsx-filename-extension': OFF,
   'react/jsx-fragments': OFF,
   'react/jsx-handler-names': OFF,

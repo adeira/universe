@@ -641,6 +641,10 @@ Object {
     "react/jsx-closing-bracket-location": "off",
     "react/jsx-closing-tag-location": "off",
     "react/jsx-curly-brace-presence": 0,
+    "react/jsx-curly-newline": Array [
+      1,
+      "consistent",
+    ],
     "react/jsx-curly-spacing": "off",
     "react/jsx-equals-spacing": "off",
     "react/jsx-filename-extension": 0,
@@ -1103,6 +1107,11 @@ Snapshot Diff:
 -       1,
 +       2,
         Object {
+@@ --- --- @@
+      "react/jsx-curly-newline": Array [
+-       1,
++       2,
+        "consistent",
 @@ --- --- @@
       "react/jsx-one-expression-per-line": "off",
 -     "react/jsx-pascal-case": 1,

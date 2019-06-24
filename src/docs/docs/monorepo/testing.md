@@ -7,7 +7,7 @@ sidebar_label: Test, Lint, Flow
 We do not run tests, lints and Flow checks per project but on a whole monorepo instead. It's because there are very often relations among our workspaces and one small change in single workspace can affect the whole monorepo (and potentially break it). You can execute each test like this (from the root):
 
 ```text
-yarn run test [--all]
+yarn run test-only [--all]
 yarn run lint [--all]
 yarn run flow
 ```
@@ -15,7 +15,7 @@ yarn run flow
 Or all at once:
 
 ```text
-yarn run test-ci
+yarn run test
 ```
 
 Don't worry about running these scripts on the whole monorepo. Each task tries to automatically figure out what to test (or lint) based on the latest changes.
