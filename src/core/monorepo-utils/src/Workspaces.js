@@ -1,7 +1,5 @@
 // @flow strict-local
 
-import { invariant } from '@kiwicom/js';
-
 import { globSync } from './glob';
 import { findRootPackageJson } from './findRootPackageJson';
 
@@ -39,36 +37,6 @@ module.exports = {
       }).forEach(packageJSONLocation => {
         cb(packageJSONLocation);
       });
-    });
-  },
-
-  /**
-   * @deprecated Iterate over all workspaces, please.
-   */
-  iterateWorkspacesInPath(
-    path: string,
-    cb: (packageJSONLocation: string) => void | Promise<void>,
-  ): void {
-    const rootPackageJSON = findRootPackageJson();
-    const workspaces = __resolveWorkspaces(rootPackageJSON);
-    const isWorkspaceDirectory = workspaces.some(workspaceGlob => {
-      const workspaceRegexp = workspaceGlob.replace(/\/\*\*?/, '');
-      return new RegExp(`${workspaceRegexp}$`).test(path);
-    });
-
-    invariant(
-      isWorkspaceDirectory === true,
-      `Path ${path} is not workspace directory. It must be one of: ${workspaces.join(
-        ', ',
-      )}`,
-    );
-
-    const packageJSONLocations = globSync('/*/package.json', {
-      root: path,
-    });
-
-    packageJSONLocations.forEach(packageJSONLocation => {
-      cb(packageJSONLocation);
     });
   },
 
