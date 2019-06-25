@@ -42,6 +42,12 @@ function validateInputs(globPattern: GlobPattern, options?: GlobOptions): void {
   );
 }
 
+type GlobAsync = {
+  (GlobPattern, GlobCallback): void,
+  (GlobPattern, GlobOptions, GlobCallback): void,
+  ...,
+};
+
 /**
  * This `glob` wrapper adds additional checks and Flow types. It tries to solve
  * common problem with using `path.join` for glob patterns which is wrong
@@ -49,11 +55,7 @@ function validateInputs(globPattern: GlobPattern, options?: GlobOptions): void {
  *
  * See: https://github.com/isaacs/node-glob
  */
-export function glob(
-  globPattern: GlobPattern,
-  options: GlobOptions | GlobCallback,
-  callback?: GlobCallback,
-) {
+export const glob: GlobAsync = (globPattern, options, callback) => {
   validateInputs(globPattern, isObject(options) ? options : undefined);
 
   if (typeof options === 'function') {
@@ -72,7 +74,7 @@ export function glob(
     },
     callback,
   );
-}
+};
 
 export function globSync(
   globPattern: GlobPattern,
