@@ -124,7 +124,18 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     const match = rawLog
       .trim()
       .match(/kiwicom-source-id: (?<commit>[a-z0-9]+)$/m);
-    return match?.groups?.commit ?? 'd30a77bd2fe0fdfe5739d68fc9592036e94364dd'; // very first commit in incubator/universe
+    return match?.groups?.commit ?? this.findFirstAvailableCommit();
+  };
+
+  // https://stackoverflow.com/a/5189296/3135248
+  findFirstAvailableCommit = () => {
+    // Please note, the following command may return multiple roots. For example,
+    // `git` repository has 6 roots (and we should take the last one).
+    const rawOutput = this._gitCommand('rev-list', '--max-parents=0', 'HEAD')
+      .runSynchronously()
+      .getStdout();
+    const rootRevisions = rawOutput.trim().split('\n');
+    return rootRevisions[rootRevisions.length - 1];
   };
 
   getNativePatchFromID = (revision: string): string => {
