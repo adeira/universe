@@ -13,7 +13,7 @@ const NPM = new NPMRegistryClient({
 
 export default {
   getPackageInfo: (params: {| +package: string, +npmAuthToken: string |}) => {
-    return new Promise<Object>((resolve, reject) => {
+    return new Promise<{ +[key: string]: any, ... }>((resolve, reject) => {
       NPM.distTags.fetch(
         URI,
         {

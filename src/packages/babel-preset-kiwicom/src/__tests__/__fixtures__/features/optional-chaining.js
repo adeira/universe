@@ -1,5 +1,5 @@
 // @flow
 
-module.exports = function(a: Object) {
+module.exports = function(a: ?{ +[string]: any, ... }) {
   return a?.b ?? 'default';
 };
