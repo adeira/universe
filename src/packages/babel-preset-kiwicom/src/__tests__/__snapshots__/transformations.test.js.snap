@@ -992,6 +992,69 @@ module.exports = function MyComponent() {
 };
 `;
 
+exports[`matches expected output: internal-slot-properties.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel-eslint currently fails on internal slot properties (this file is excluded in .eslintignore).
+// See: https://github.com/babel/babel-eslint/pull/777
+
+type F = {
+  (): string,
+  (x: boolean): string,
+  [[call]](x: number): string,
+  [[call]]: string => string,
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+`;
+
+exports[`matches expected output: internal-slot-properties.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel-eslint currently fails on internal slot properties (this file is excluded in .eslintignore).
+// See: https://github.com/babel/babel-eslint/pull/777
+
+type F = {
+  (): string,
+  (x: boolean): string,
+  [[call]](x: number): string,
+  [[call]]: string => string,
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel-eslint currently fails on internal slot properties (this file is excluded in .eslintignore).
+// See: https://github.com/babel/babel-eslint/pull/777
+
+type F = {
+  (): string,
+  (x: boolean): string,
+  [[call]](x: number) => string,
+  [[call]]: (string) => string, };
+`;
+
+exports[`matches expected output: internal-slot-properties.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel-eslint currently fails on internal slot properties (this file is excluded in .eslintignore).
+// See: https://github.com/babel/babel-eslint/pull/777
+
+type F = {
+  (): string,
+  (x: boolean): string,
+  [[call]](x: number): string,
+  [[call]]: string => string,
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+
+`;
+
 exports[`matches expected output: invariant-global.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */

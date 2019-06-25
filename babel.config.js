@@ -24,11 +24,6 @@ function isWebpack(caller) /*: boolean %checks */ {
 module.exports = function(api /*: ApiType */) {
   api.assertVersion(7);
 
-  // Babel ecosystem is quite complicated to understand properly so these
-  // console statements allows us to understand what configs are being loaded.
-  // eslint-disable-next-line no-console
-  console.warn('Babel: %s', __filename);
-
   return {
     presets: [
       [
