@@ -429,3 +429,89 @@ let a: array(int) = [|1, 2, 3|];
 let b: int = a[10]  // undefined
 let c = b * 2
 ```
+
+# Typescript shenanigans
+
+Typescript types are exact by default but only on declaration. This means it [won't catch](https://typescript-play.js.org/#code/C4TwDgpgBAqgzhATlAvFA3gKClArgxAOwEMBbCALijmEQEtCBzAGmyglOLoBsqb6mmAL6ZMAYwD2hGngIBGKvCSoMbAHQb0spCXJUA5AA99UIcyjrN7TjwMgTZy2q2HXdh6xwhv78zgD0-lAAPKFQUtwgUMAAFnRwUABmXNxwwqKS0sDaiABMigQqWDgazjm6lFBGHhYlVhwp7qaeUKUublX2zelAA) cases like this:
+
+```ts
+type User = {
+  username: string,
+  email: string
+}
+
+const user1: User = {
+  ...{ username: 'x' }, 
+  ...{ email: 'y' },
+  ...{ xxx: 'y' },
+  yyy: 'y',   // <<< only this fails
+}
+
+const user2: User = {
+  ...{ username: 'x' }, 
+  ...{ email: 'y' },
+  ...{ xxx: 'y' },
+}
+```
+
+Flow doesn't have exact types by default (yet) but it can [handle these cases better](https://flow.org/try/#0C4TwDgpgBAqgzhATlAvFA3gHwFBSgVwUQDsBDAWwgC4o5hEBLYgcwBpcoJzSGAbGuoxbZMAX2zYAxgHtidAkQCMNeElQYOAOm3oFSMpRoByAB5Goo1lC07O3PsZDnLNzbpMfHz9nhB+vVngA9EFQADwRULK8IFDAABYMcFAAZjy8cNjiUrLyhEgATCpE6uiuuvkkFNRQpt7WeNpuduleFj5QTe6etU7tWdhAA):
+
+```js
+type User = {|
+  username: string,
+  email: string
+|}
+
+const user1: User = {
+  ...{ username: 'x' }, 
+  ...{ email: 'y' },
+  ...{ xxx: 'y' },   // <<< this fails
+  yyy: 'y',   // <<< this fails
+}
+
+const user2: User = {
+  ...{ username: 'x' }, 
+  ...{ email: 'y' },
+  ...{ xxx: 'y' },   // <<< this fails
+}
+```
+
+```text
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/test.js:8:21
+
+Cannot assign object literal to user1 because:
+ • property xxx is missing in User [1] but exists in object literal [2].
+ • property yyy is missing in User [1] but exists in object literal [2].
+
+         5│   email: string,
+         6│ |};
+         7│
+ [1][2]  8│ const user1: User = {
+         9│   ...{ username: 'x' },
+        10│   ...{ email: 'y' },
+        11│   ...{ xxx: 'y' },
+        12│   yyy: 'y', // <<< only this fails
+        13│ };
+        14│
+        15│ const user2: User = {
+        16│   ...{ username: 'x' },
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/test.js:15:21
+
+Cannot assign object literal to user2 because property xxx is missing in User [1] but exists in object literal [2].
+
+        12│   yyy: 'y', // <<< only this fails
+        13│ };
+        14│
+ [1][2] 15│ const user2: User = {
+        16│   ...{ username: 'x' },
+        17│   ...{ email: 'y' },
+        18│   ...{ xxx: 'y' },
+        19│ };
+        20│
+
+
+
+Found 3 errors
+```
