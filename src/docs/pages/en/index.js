@@ -63,11 +63,6 @@ module.exports = function Index(props) {
 
   const Description = () => (
     <div className="kiwicomHomepageContainer">
-      <img
-        className="iconContainer"
-        src="img/undraw_all_the_data.svg"
-        alt="Monorepo illustration"
-      />
       <p>
         Monorepo gives us great opportunity to iterate fast across all our
         projects. This monorepo uses{' '}
@@ -80,16 +75,19 @@ module.exports = function Index(props) {
         think about it.
       </p>
       <p>
-        Do not confuse this approach with monolith: monorepo hosts many smaller
-        repositories inside but it&apos;s relatively easy to escape from this
-        setup. Each project lives in it&apos;s own directory but the difference
-        is that you don&apos;t have to setup test environment, lints or Flow -
-        it just works.
+        <span role="img" aria-label="backhand index finger pointing right">
+          👉
+        </span>{' '}
+        <strong>
+          <a href={docUrl('monorepo/installation')}>
+            Install & Run this monorepo
+          </a>
+        </strong>
       </p>
       <p>
         This website contains documentation for all our projects stored in
         monorepo. We also export many{' '}
-        <a href={docUrl('npm/packages')}>NPM packages</a> since it&apos;s very
+        <a href={docUrl('oss/general')}>NPM packages</a> since it&apos;s very
         difficult to import all our projects created in Kiwi.com into this
         repository. Feel free to use them in your project even though it&apos;s
         not your intention to move your project into <em>Universe</em>.
@@ -129,6 +127,24 @@ module.exports = function Index(props) {
       <p>
         Where to go next? Let&apos;s{' '}
         <a href={docUrl('monorepo/installation')}>install this monorepo</a>!
+      </p>
+      <h2>Do not confuse with...</h2>
+      <p>
+        Do not confuse this approach with <em>monolith</em>: monorepo hosts many
+        smaller repositories inside but it&apos;s relatively easy to escape from
+        this setup. Each project lives in it&apos;s own directory but the
+        difference is that you don&apos;t have to setup test environment, lints
+        or Flow - it just works.
+      </p>
+      <p>
+        Do not confuse it with <em>just Yarn Workspaces</em>: it&apos;s true we
+        currently use workspaces heavily. However, that&apos;s only our
+        dependency management system. We work with relations between these
+        workspaces as well which allows us to, for example, run tests
+        efficiently. Moreover, there are additional services sitting on top of
+        this monorepo which are helping us to ship open-source projects, publish
+        NPM packages or automate some repetitive commit. You can think about
+        Universe as an application itself.
       </p>
     </div>
   );
