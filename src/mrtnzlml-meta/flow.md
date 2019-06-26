@@ -61,6 +61,7 @@ const factorial: MemoizedFactorial = n => {
 Throw and sleep are not very useful in normal code. Throw kills Flow and sleep adds delay in seconds. More useful is debug print which prints debug information:
 
 ```js
+// @flow strict
 const x = 10;
 declare var flowDebugPrint: $Flow$DebugPrint;
 flowDebugPrint(x);
@@ -69,19 +70,36 @@ flowDebugPrint(x);
 Output:
 
 ```text
+💃 universe [master] y flow
+yarn run v1.16.0
+$ /Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/.bin/flow
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/test.js:4:1
+
 {
   "reason":{
     "pos":{
-      "source":"-",
-      "type":"SourceFile",
-      "start":{"line":3,"column":16},
-      "end":{"line":3,"column":16}
+      "source":"/Users/mrtnzlml/Work/kiwi-private/incubator/universe/src/test.js",
+     
+"type":"SourceFile",
+      "start":{"line":4,"column":16},
+      "end":{"line":4,"column":16}
     },
-    "desc":"number"
+   
+"desc":"number"
   },
   "kind":"NumT",
   "literal":"10"
 }
+
+     1│ // @flow strict
+     2│ const x = 10;
+     3│ declare var flowDebugPrint: $Flow$DebugPrint;
+     4│ flowDebugPrint(x);
+     5│
+
+
+
+Found 1 error
 ```
 
 # Interesting Flow commands
