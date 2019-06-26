@@ -56,6 +56,34 @@ const factorial: MemoizedFactorial = n => {
 - https://github.com/facebook/flow/commit/954a72704a6338778c940239573045b28c716488
 - https://github.com/facebook/flow/commit/732eae55e102cdb7dfa7b6a85f0147d48c3afed7
 
+# `$Flow$DebugPrint`, `$Flow$DebugThrow`, `$Flow$DebugSleep`
+
+Throw and sleep are not very useful in normal code. Throw kills Flow and sleep adds delay in seconds. More useful is debug print which prints debug information:
+
+```js
+const x = 10;
+declare var flowDebugPrint: $Flow$DebugPrint;
+flowDebugPrint(x);
+```
+
+Output:
+
+```text
+{
+  "reason":{
+    "pos":{
+      "source":"-",
+      "type":"SourceFile",
+      "start":{"line":3,"column":16},
+      "end":{"line":3,"column":16}
+    },
+    "desc":"number"
+  },
+  "kind":"NumT",
+  "literal":"10"
+}
+```
+
 # Interesting Flow commands
 
 ```text
