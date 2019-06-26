@@ -145,4 +145,18 @@ export default function isObject(value) {
 }
 ```
 
-One last change is happening: NPM publisher modifies `package.json` file so it contains correct `module` field pointing to MJS file variants.
+One last change is happening: NPM publisher modifies `package.json` file so it contains correct `module` field pointing to MJS file variants. Please note: ES6 modules can be disabled completely when you specify `"module": false` in your package.json:
+
+```json
+{
+  "name": "withDisabledES6",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "module": false,
+  "dependencies": {
+    "//": "none"
+  }
+}
+```
+
+This is handy when your code is not ready yet.
