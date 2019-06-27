@@ -509,7 +509,7 @@ module.exports = {
   'import/dynamic-import-chunkname': OFF, // TODO: warn?
   'import/export': NEXT_VERSION_ERROR,
   'import/exports-last': OFF,
-  'import/extensions': OFF, // TODO: NEXT_VERSION_ERROR
+  'import/extensions': [NEXT_VERSION_ERROR, 'never', { json: 'always' }],
   'import/first': NEXT_VERSION_ERROR,
   'import/group-exports': OFF,
   'import/imports-first': OFF,
@@ -531,7 +531,7 @@ module.exports = {
     },
   ],
   'import/no-commonjs': OFF,
-  'import/no-cycle': OFF,
+  'import/no-cycle': WARN,
   'import/no-default-export': OFF,
   'import/no-deprecated': OFF,
   'import/no-duplicates': NEXT_VERSION_ERROR,
@@ -574,12 +574,6 @@ module.exports = {
   'import/no-self-import': NEXT_VERSION_ERROR,
   'import/no-unused-modules': OFF, // TODO: warn?
   'import/unambiguous': OFF, // TODO: warn?
-
-  // dependencies (https://github.com/zertosh/eslint-plugin-dependencies)
-  'dependencies/case-sensitive': ERROR,
-  'dependencies/no-cycles': WARN,
-  'dependencies/no-unresolved': OFF, // see import/no-unresolved (supports RN)
-  'dependencies/require-json-ext': ERROR,
 
   // monorepo (https://github.com/azz/eslint-plugin-monorepo)
   'monorepo/no-internal-import': ERROR,
