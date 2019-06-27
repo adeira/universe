@@ -50,8 +50,6 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   }
 
   _gitCommand = (...args: $ReadOnlyArray<string>) => {
-    // eslint-disable-next-line no-console
-    console.warn(['👾', 'git', '--no-pager', ...args].join(' '));
     return new ShellCommand(
       this.#localPath,
       'git',
@@ -111,20 +109,24 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   };
 
   findLastSourceCommit = (roots: Set<string>): string => {
-    const rawLog = this._gitCommand(
+    const log = this._gitCommand(
       'log',
       '-1',
       '--grep',
-      '^kiwicom-source-id: [a-z0-9]\\+$',
+      '^kiwicom-source-id: \\?[a-z0-9]\\+\\s*$',
       ...roots,
     )
       .setNoExceptions() // empty repo fails with: "your current branch 'master' does not have any commits yet"
       .runSynchronously()
-      .getStdout();
-    const match = rawLog
-      .trim()
-      .match(/kiwicom-source-id: (?<commit>[a-z0-9]+)$/m);
-    return match?.groups?.commit ?? this.findFirstAvailableCommit();
+      .getStdout()
+      .trim();
+    const regex = /kiwicom-source-id: ?(?<commit>[a-z0-9]+)$/gm;
+    let lastCommit = null;
+    let match;
+    while ((match = regex.exec(log)) !== null) {
+      lastCommit = match?.groups?.commit;
+    }
+    return lastCommit ?? this.findFirstAvailableCommit();
   };
 
   // https://stackoverflow.com/a/5189296/3135248

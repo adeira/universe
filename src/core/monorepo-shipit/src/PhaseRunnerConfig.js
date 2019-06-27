@@ -6,6 +6,7 @@ import path from 'path';
 import { warning } from '@kiwicom/js';
 
 import Changeset from './Changeset';
+import addTrackingData from './filters/addTrackingData';
 import moveDirectories from './filters/moveDirectories';
 import moveDirectoriesReverse from './filters/moveDirectoriesReverse';
 import stripExceptDirectories from './filters/stripExceptDirectories';
@@ -62,9 +63,10 @@ export default class PhaseRunnerConfig {
    */
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
-      const ch1 = stripExceptDirectories(changeset, this.getMonorepoRoots());
-      const ch2 = moveDirectories(ch1, this.directoryMapping);
-      return stripPaths(ch2, this.strippedFiles);
+      const ch1 = addTrackingData(changeset);
+      const ch2 = stripExceptDirectories(ch1, this.getMonorepoRoots());
+      const ch3 = moveDirectories(ch2, this.directoryMapping);
+      return stripPaths(ch3, this.strippedFiles);
     };
   }
 

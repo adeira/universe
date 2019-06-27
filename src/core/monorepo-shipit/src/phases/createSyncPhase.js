@@ -41,17 +41,10 @@ export default function createSyncPhase(config: PhaseRunnerConfig) {
   function getFilteredChangesets(): Set<Changeset> {
     const filteredChangesets = new Set<Changeset>();
     getSourceChangesets().forEach(changeset => {
-      const changesetWithTrackingID = addTrackingData(changeset);
       const filter = config.getDefaultShipitFilter();
-      filteredChangesets.add(filter(changesetWithTrackingID));
+      filteredChangesets.add(filter(changeset));
     });
     return filteredChangesets;
-  }
-
-  function addTrackingData(changeset: Changeset): Changeset {
-    const revision = changeset.getID();
-    const newDescription = `${changeset.getDescription()}\n\nkiwicom-source-id: ${revision}`;
-    return changeset.withDescription(newDescription.trim());
   }
 
   return function() {
