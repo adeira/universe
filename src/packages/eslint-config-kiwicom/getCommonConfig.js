@@ -78,7 +78,6 @@ module.exports = function getCommonConfig(
       'eslint-plugin-react-native',
       'eslint-plugin-relay',
       'eslint-plugin-import',
-      'eslint-plugin-dependencies',
       'eslint-plugin-monorepo',
       'eslint-plugin-node',
       'eslint-plugin-eslint-comments',
