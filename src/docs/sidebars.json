@@ -6,6 +6,7 @@
       "monorepo/upgrading-dependencies",
       "monorepo/directory-structure",
       "monorepo/acceptance",
+      "monorepo/gcp",
       "monorepo/example-projects",
       "monorepo/wiki-search-refresh"
     ],
