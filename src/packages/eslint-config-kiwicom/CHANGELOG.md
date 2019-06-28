@@ -1,6 +1,18 @@
 # Unreleased
 
+This is a major release with breaking changes. The main changes are major Eslint upgrade and bump of some warnings to errors (strict mode reset). Please upgrade all previous versions first and fix all the warnings before upgrading to version 5.0.
+
 - Breaking: Eslint upgraded to version 6.0+ which is now required by peer dependencies. See: https://eslint.org/docs/6.0.0/user-guide/migrating-to-6.0.0
+- The following rules are now errors instead of warnings (no change in strict mode):
+  - `no-async-promise-executor`, `no-cond-assign`, `no-control-regex`, `no-duplicate-case`, `no-empty-character-class`, `no-ex-assign`, `no-extra-boolean-cast`, `no-irregular-whitespace`, `no-misleading-character-class`, `no-prototype-builtins`, `no-regex-spaces`, `no-template-curly-in-string`, `no-unsafe-finally`, `array-callback-return`, `dot-notation`, `eqeqeq`, `guard-for-in`, `no-empty-pattern`, `no-extra-label`, `no-iterator`, `no-lone-blocks`, `no-loop-func`, `no-octal`, `no-octal-escape`, `no-useless-catch`, `no-useless-concat`, `no-useless-escape`, `no-with`, `vars-on-top`, `no-shadow-restricted-names`, `no-undef-init`, `no-bitwise`, `no-nested-ternary`, `no-useless-computed-key`, `no-useless-constructor`, `no-var`, `prefer-template`, `require-yield`
+  - `flowtype/require-inexact-type`
+  - `react/button-has-type`, `react/forbid-dom-props`, `react/jsx-pascal-case`, `react/jsx-uses-vars`, `react/no-danger-with-children`, `react/no-deprecated`, `react/no-direct-mutation-state`, `react/no-find-dom-node`, `react/no-is-mounted`, `react/no-multi-comp`, `react/no-redundant-should-component-update`, `react/no-render-return-value`, `react/no-this-in-sfc`, `react/no-unescaped-entities`, `react/prefer-es6-class`, `react/require-render-return`, `react/self-closing-comp`, `react/sort-comp`, `react/void-dom-elements-no-children`
+  - `jsx-a11y/anchor-is-valid`, `jsx-a11y/aria-proptypes`, `jsx-a11y/aria-role`, `jsx-a11y/html-has-lang`, `jsx-a11y/iframe-has-title`, `jsx-a11y/interactive-supports-focus`, `jsx-a11y/lang`, `jsx-a11y/no-access-key`, `jsx-a11y/no-autofocus`, `jsx-a11y/no-redundant-roles`, `jsx-a11y/role-has-required-aria-props`, `jsx-a11y/role-supports-aria-props`, `jsx-a11y/scope`, `jsx-a11y/tabindex-no-positive`
+  - `import/export`, `import/extensions`, `import/first`, `import/no-amd`, `import/no-duplicates`, `import/no-named-default`, `import/no-webpack-loader-syntax`, `import/no-self-import`
+  - `node/file-extension-in-import`
+  - `relay-imports/no-values`, `relay-imports/type-must-exist`
+
+There are no other behavioral changes so if you fixed all the warnings from previous versions then you should be good to go.
 
 # 4.11.0
 
