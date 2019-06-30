@@ -58,6 +58,20 @@ See: https://github.com/mrtnzlml/relay/pull/424/commits/d3ec68ec137f7d72598a6f28
 
 - https://github.com/mrtnzlml/relay/pull/447/files
 
+# `@raw_response_type`
+
+See: https://github.com/mrtnzlml/relay/pull/459/commits/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
+
+```graphql
+query ViewerQuery @raw_response_type {
+  viewer {
+    actor {
+      id
+    }
+  }
+}
+```
+
 # Local schema
 
 First define local schema (`schema.local.graphql`):
