@@ -1,5 +1,7 @@
 # Unreleased
 
+# 5.0.0
+
 This is a major release with breaking changes. The main changes are major Eslint upgrade and bump of some warnings to errors (strict mode reset). Please upgrade all previous versions first and fix all the warnings before upgrading to version 5.0.
 
 - Breaking: Eslint upgraded to version 6.0+ which is now required by peer dependencies. See: https://eslint.org/docs/6.0.0/user-guide/migrating-to-6.0.0
