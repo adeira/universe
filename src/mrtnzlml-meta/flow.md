@@ -2,6 +2,8 @@
 - https://github.com/wgao19/flow-notes
 - https://github.com/facebook/flow/blob/master/Changelog.md
 - https://github.com/niieani/typescript-vs-flowtype
+- https://github.com/lttb/flown
+- https://gist.github.com/kangax/aa59598cf28d02f38579d8a95b5cbf92
 
 Showerthoughts:
 
