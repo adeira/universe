@@ -144,3 +144,78 @@ it("doesn't crash with circular dependencies - complex circle", () => {
     }
   `);
 });
+
+it('resolves mismatched workspace dependencies correctly', () => {
+  const circularWorkspaceDependencies = {
+    aaa: {
+      location: '',
+      workspaceDependencies: ['bbb'],
+      mismatchedWorkspaceDependencies: ['ccc'],
+    },
+    bbb: {
+      location: '',
+      workspaceDependencies: [],
+      mismatchedWorkspaceDependencies: [],
+    },
+    ccc: {
+      location: '',
+      workspaceDependencies: [],
+      mismatchedWorkspaceDependencies: [],
+    },
+  };
+
+  expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['aaa'])))
+    .toMatchInlineSnapshot(`
+    Set {
+      "aaa",
+    }
+  `);
+  expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['bbb'])))
+    .toMatchInlineSnapshot(`
+    Set {
+      "bbb",
+      "aaa",
+    }
+  `);
+  expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['ccc'])))
+    .toMatchInlineSnapshot(`
+    Set {
+      "ccc",
+      "aaa",
+    }
+  `);
+  expect(
+    findRelatedWorkspaces(
+      circularWorkspaceDependencies,
+      new Set(['aaa', 'ccc']),
+    ),
+  ).toMatchInlineSnapshot(`
+    Set {
+      "aaa",
+      "ccc",
+    }
+  `);
+  expect(
+    findRelatedWorkspaces(
+      circularWorkspaceDependencies,
+      new Set(['aaa', 'bbb']),
+    ),
+  ).toMatchInlineSnapshot(`
+    Set {
+      "aaa",
+      "bbb",
+    }
+  `);
+  expect(
+    findRelatedWorkspaces(
+      circularWorkspaceDependencies,
+      new Set(['aaa', 'bbb', 'ccc']),
+    ),
+  ).toMatchInlineSnapshot(`
+    Set {
+      "aaa",
+      "bbb",
+      "ccc",
+    }
+  `);
+});

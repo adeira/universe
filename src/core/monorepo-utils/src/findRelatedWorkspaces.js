@@ -15,8 +15,8 @@ import { type WorkspaceDependencies } from './Workspaces.flow';
  */
 export default function findRelatedWorkspaces(
   workspaceDependencies: WorkspaceDependencies,
-  touchedWorkspaces: Set<string>,
-) {
+  touchedWorkspaces: $ReadOnlySet<string>,
+): $ReadOnlySet<string> {
   const workspacesToTest = new Set<string>();
 
   (function unwind(touchedWorkspaces) {
@@ -28,6 +28,17 @@ export default function findRelatedWorkspaces(
       Object.keys(workspaceDependencies).forEach(key => {
         if (
           workspaceDependencies[key].workspaceDependencies.includes(
+            touchedWorkspace,
+          )
+        ) {
+          if (!workspacesToTest.has(key)) {
+            workspacesToTest.add(key);
+            unwind([key]);
+          }
+        }
+
+        if (
+          workspaceDependencies[key].mismatchedWorkspaceDependencies.includes(
             touchedWorkspace,
           )
         ) {

@@ -12,7 +12,7 @@ import type { WorkspaceDependencies } from './Workspaces.flow';
 export default function findPathsToTest(
   workspaceDependencies: WorkspaceDependencies,
   changedFiles: $ReadOnlyArray<string>,
-) {
+): $ReadOnlySet<string> {
   const dirtyWorkspaces = findDirtyWorkspaces(
     workspaceDependencies,
     changedFiles,
