@@ -8,7 +8,7 @@ This package is **opinionated Relay wrapper** used at Kiwi.com. Goal of this pac
 
 More info about Relay, prior art:
 
-- [Relay Docs](https://facebook.github.io/relay/docs/en/introduction-to-relay.html)
+- [Relay Docs](https://relay.dev/docs/en/introduction-to-relay.html)
 - [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
 - [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
 - [Relay Example](https://github.com/kiwicom/relay-example)
@@ -29,11 +29,35 @@ Before you start you should uninstall _all_ the Relay related packages you insta
 yarn add react graphql @kiwicom/relay
 ```
 
-Usage:
+# Usage
+
+Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler). It's important to note that the only package related to Relay you need to install is `@kiwicom/relay`. It contains all the necessary dependencies.
+
+Minimal `.babelrc` file:
+
+```json
+{
+  "plugins": ["relay"]
+}
+```
+
+Minimal Relay compiler script in `package.json`:
+
+```json
+{
+  "scripts": {
+    "relay": "relay-compiler --src=./src --schema=./graphql.kiwi.com.schema"
+  }
+}
+```
+
+There are few additional rules to make sure everything goes smoothly:
 
 - you should always use `@kiwicom/relay` package and never Relay dependencies directly
 - do not import internals of this package (no `@kiwicom/relay/something/private.js`)
 - please contact us directly in case something is problematic
+
+Please continue reading to discover `@kiwicom/relay` specifics.
 
 # Minimal example
 
