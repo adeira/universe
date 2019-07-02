@@ -1,10 +1,9 @@
 // @flow
 
-import { exec, type ExecConfig } from './exec';
+import { ShellCommand } from '@kiwicom/monorepo-utils';
 
-export default function git(
-  options: $ReadOnlyArray<string>,
-  config?: ExecConfig,
-) {
-  return exec('git', ['--no-pager', ...options], config);
+export default function git(args: $ReadOnlyArray<string>) {
+  return new ShellCommand(null, 'git', '--no-pager', ...args)
+    .setOutputToScreen()
+    .runSynchronously();
 }
