@@ -12,6 +12,8 @@ import {
 } from '@kiwicom/monorepo-utils';
 import logger from '@kiwicom/logger';
 
+import findRelatedWorkspaceLocations from './findRelatedWorkspaceLocations';
+
 const workspaces = JSON.parse(
   JSON.parse(
     new ShellCommand(null, 'yarn', 'workspaces', 'info', '--json')
@@ -20,19 +22,18 @@ const workspaces = JSON.parse(
   ).data,
 );
 
+const rootWorkspace = '@kiwicom/graphql'; // TODO: only GraphQL for now - configure via CLI
+
 // TODO: we should probably skip devDeps (currently even Skymock is traversed)
-const locations = new Set();
-function collectLocations(workspaceName) {
-  const workspace = workspaces[workspaceName];
-  locations.add(workspace.location);
-  for (const workspaceDependency of workspace.workspaceDependencies) {
-    collectLocations(workspaceDependency);
-  }
-}
-collectLocations('@kiwicom/graphql'); // TODO: only GraphQL for now
+const locations = findRelatedWorkspaceLocations(workspaces, rootWorkspace);
 
 const monorepoRoot = path.dirname(findRootPackageJsonPath());
-const buildDir = path.join(os.tmpdir(), 'com.kiwi.graphql.build');
+const buildDir = path.join(
+  os.tmpdir(),
+  `com.kiwi.universe.${rootWorkspace
+    .replace(/^[^a-z]/, '')
+    .replace(/[^a-z]/, '-')}.build`,
+);
 const projectRoots = [...locations].map(location =>
   path.join(monorepoRoot, location),
 );
