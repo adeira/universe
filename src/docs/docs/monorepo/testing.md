@@ -18,7 +18,12 @@ Or all at once:
 yarn run test
 ```
 
-Don't worry about running these scripts on the whole monorepo. Each task tries to automatically figure out what to test (or lint) based on the latest changes.
+Don't worry about running these scripts on the whole monorepo. Each task tries to automatically figure out what to test (or lint) based on the latest changes. You can also scope the tests only to some specific subfolder or even single file when you are working on something:
+
+```text
+yarn test-only src/core/monorepo-shipit/config --watch
+yarn test-only src/core/monorepo-shipit/config/__tests__/fetch.test.js --watch
+```
 
 ## Custom test config per workspace
 

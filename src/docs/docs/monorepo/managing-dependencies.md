@@ -1,14 +1,18 @@
 ---
-id: upgrading-dependencies
-title: Upgrading dependencies
-sidebar_label: Upgrading dependencies
+id: managing-dependencies
+title: Managing dependencies
+sidebar_label: Managing dependencies
 ---
 
-> These instructions are for monorepo maintainers.
+All our dependencies (minor and patch) are upgraded automatically via Automator so you don't have to care about it. However, it's quite important to have good tests to make sure everything works correctly even after the upgrade. Major upgrades are being done manually because of their nature to break things.
 
-All our dependencies (minor and patch) are upgraded automatically via Automator so you don't have to care about it. However, it's quite important to have good tests to make sure everything works correctly even after the upgrade. Major upgrades are being done manually because of their nature break things.
+## Adding dependencies to your project
+
+Your JavaScript workspace has `package.json` config where you define all your project dependencies. You should run `yarn install` from monorepo root when you add them. Yarn will download these dependencies into offline mirror (commit these files). It is also possible that nothing will happen because these dependencies are already there.
 
 ## Upgrading Flow for the whole monorepo
+
+> These instructions are for monorepo maintainers.
 
 We follow the same upgrade strategy as used internally at Facebook. You can try to upgrade Flow just like any other dependency and try to fix the problems if any but it can get difficult with many workspaces. Faster strategy is to do it like this:
 
