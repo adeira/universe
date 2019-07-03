@@ -1,8 +1,9 @@
 // @flow
 
 import os from 'os';
-import fs from 'fs';
+import fs, { promises as fsPromise } from 'fs';
 import path from 'path';
+import util from 'util';
 import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
 import {
@@ -39,36 +40,36 @@ const projectRoots = [...locations].map(location =>
 );
 
 let filesCounter = 1;
-function copyFileSync(absoluteFrom, absoluteTo, transpile = false) {
+function logFromTo(absoluteFrom, absoluteTo) {
   logger.log(
     '%s, %s 👉 %s',
     String(filesCounter++),
     absoluteFrom.replace(monorepoRoot, ''),
-    absoluteTo.replace(buildDir, '<buildDir>'),
+    absoluteTo.replace(buildDir, '<BUILD_DIR>'),
   );
-  fs.mkdirSync(path.dirname(absoluteTo), { recursive: true });
-  if (transpile === true && absoluteFrom.endsWith('.js')) {
-    fs.writeFileSync(
-      absoluteTo,
-      transformFileSync(absoluteFrom, {
-        // TODO: use correct babelrc.js file from graphql
-        root: __dirname, // do not lookup any other Babel config
-        // $FlowAllowDynamicImport
-        ...require(path.join(
-          monorepoRoot,
-          'src/incubator/graphql/.babelrc.js', // TODO: this should probably be per workspace (?), this is good for now
-        )),
-      }).code,
-    );
-  } else {
-    fs.copyFileSync(absoluteFrom, absoluteTo);
-  }
 }
 
-rimraf(buildDir, () => {
-  // TODO: handle errors
+function copyFileSync(absoluteFrom, absoluteTo) {
+  logFromTo(absoluteFrom, absoluteTo);
+  fs.mkdirSync(path.dirname(absoluteTo), { recursive: true });
+  fs.copyFileSync(absoluteFrom, absoluteTo);
+}
 
-  // 1) copy source codes
+function copyAndTranspileFileSync(absoluteFrom, absoluteTo, babelConfig) {
+  logFromTo(absoluteFrom, absoluteTo);
+  fs.mkdirSync(path.dirname(absoluteTo), { recursive: true });
+  fs.writeFileSync(
+    absoluteTo,
+    transformFileSync(absoluteFrom, babelConfig).code,
+  );
+}
+
+const rimrafPromise = util.promisify(rimraf);
+
+(async function() {
+  await rimrafPromise(buildDir);
+
+  // 1) + 2) copy source files recursively
   for (const projectRoot of projectRoots) {
     const rawFileNames = globSync('/**/*.*', {
       root: projectRoot,
@@ -79,14 +80,26 @@ rimraf(buildDir, () => {
         buildDir,
         rawFileName.replace(monorepoRoot, ''),
       );
-      copyFileSync(rawFileName, destinationFilename, true);
+      if (rawFileName.endsWith('.js')) {
+        copyAndTranspileFileSync(rawFileName, destinationFilename, {
+          // TODO: use correct babelrc.js file from graphql
+          root: __dirname, // do not lookup any other Babel config
+          // $FlowAllowDynamicImport
+          ...require(path.join(
+            monorepoRoot,
+            'src/incubator/graphql/.babelrc.js', // TODO: this should probably be per workspace (?), this is good for now
+          )),
+        });
+      } else {
+        copyFileSync(rawFileName, destinationFilename);
+      }
     }
   }
 
-  // 2) copy package.json and yarn.lock so we can install the node_module deps
+  // 3) copy root package.json and yarn.lock so we can install the node_module deps
   // $FlowAllowDynamicImport
   const packageJSON = require(path.join(monorepoRoot, 'package.json'), 'utf8');
-  fs.writeFileSync(
+  await fsPromise.writeFile(
     path.join(buildDir, 'package.json'),
     JSON.stringify(
       {
@@ -105,7 +118,7 @@ rimraf(buildDir, () => {
     path.join(buildDir, 'yarn.lock'),
   );
 
-  // 3) copy yarn stuff and offline mirror
+  // 4) copy Yarn itself, Yarn config and offline mirror
   copyFileSync(
     path.join(monorepoRoot, '.yarnrc'),
     path.join(buildDir, '.yarnrc'),
@@ -123,12 +136,12 @@ rimraf(buildDir, () => {
 
   logger.log('Transpiled into: %s', buildDir);
 
-  // 4) install dependencies
-  // y install --offline --pure-lockfile
+  // 5) install dependencies
   new ShellCommand(buildDir, 'yarn', 'install', '--offline', '--pure-lockfile')
     .setOutputToScreen()
     .runSynchronously();
 
-  // TODO: remove offline mirror from final result (only for the build phase)
-  // NODE_ENV=production LOGZIO_TOKEN='' SENTRY_DSN='' node src/incubator/graphql/src/index.js
-});
+  // 6) delete Yarn offline mirror
+  await rimrafPromise(path.join(buildDir, '.yarn'));
+  logger.log('DONE');
+})();
