@@ -10,7 +10,6 @@
     "@kiwicom/js": "^0.13.0",
     "@kiwicom/logger": "^0.1.0",
     "@kiwicom/monorepo-utils": "^0.21.0",
-    "execa": "^1.0.0",
     "glob": "^7.1.4",
     "is-ci": "^2.0.0",
     "semver": "^6.2.0"
