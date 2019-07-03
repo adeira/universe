@@ -1,2 +1,4 @@
+.git/
+
 # we use `.yarn/cache` instead (smaller build context, faster build - especially true for localhost builds)
 **/node_modules/

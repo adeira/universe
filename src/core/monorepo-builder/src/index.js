@@ -11,9 +11,19 @@ import {
   findRootPackageJsonPath,
   ShellCommand,
 } from '@kiwicom/monorepo-utils';
+import { invariant } from '@kiwicom/js';
 import logger from '@kiwicom/logger';
 
 import findRelatedWorkspaceLocations from './findRelatedWorkspaceLocations';
+
+const argv = process.argv.splice(2);
+invariant(
+  argv.length === 2,
+  'Monorepo builder expects two arguments: root workspace name and build directory name',
+);
+
+const rootWorkspace = argv[0];
+const buildDirName = argv[1];
 
 const workspaces = JSON.parse(
   JSON.parse(
@@ -22,9 +32,6 @@ const workspaces = JSON.parse(
       .getStdout(),
   ).data,
 );
-
-const rootWorkspace = '@kiwicom/graphql'; // TODO: only GraphQL for now - configure via CLI
-const buildDirName = 'com.kiwi.universe.graphql.build'; // TODO: from CLI
 
 // TODO: we should probably skip devDeps (currently even Skymock is traversed)
 const locations = findRelatedWorkspaceLocations(workspaces, rootWorkspace);
@@ -78,13 +85,8 @@ const rimrafPromise = util.promisify(rimraf);
       );
       if (rawFileName.endsWith('.js')) {
         copyAndTranspileFileSync(rawFileName, destinationFilename, {
-          // TODO: use correct babelrc.js file from graphql
-          root: __dirname, // do not lookup any other Babel config
-          // $FlowAllowDynamicImport
-          ...require(path.join(
-            monorepoRoot,
-            'src/incubator/graphql/.babelrc.js', // TODO: this should probably be per workspace (?), this is good for now
-          )),
+          cwd: projectRoot,
+          rootMode: 'upward',
         });
       } else {
         copyFileSync(rawFileName, destinationFilename);
@@ -138,6 +140,6 @@ const rimrafPromise = util.promisify(rimraf);
     .runSynchronously();
 
   // 6) delete Yarn offline mirror
-  await rimrafPromise(path.join(buildDir, '.yarn'));
+  await rimrafPromise(path.join(buildDir, '.yarn', 'cache'));
   logger.log('DONE');
 })();
