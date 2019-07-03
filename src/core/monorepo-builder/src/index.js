@@ -24,17 +24,13 @@ const workspaces = JSON.parse(
 );
 
 const rootWorkspace = '@kiwicom/graphql'; // TODO: only GraphQL for now - configure via CLI
+const buildDirName = 'com.kiwi.universe.graphql.build'; // TODO: from CLI
 
 // TODO: we should probably skip devDeps (currently even Skymock is traversed)
 const locations = findRelatedWorkspaceLocations(workspaces, rootWorkspace);
 
 const monorepoRoot = path.dirname(findRootPackageJsonPath());
-const buildDir = path.join(
-  os.tmpdir(),
-  `com.kiwi.universe.${rootWorkspace
-    .replace(/^[^a-z]/, '')
-    .replace(/[^a-z]/, '-')}.build`,
-);
+const buildDir = path.join(os.tmpdir(), buildDirName);
 const projectRoots = [...locations].map(location =>
   path.join(monorepoRoot, location),
 );
