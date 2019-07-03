@@ -9,7 +9,7 @@ import { type WorkspaceDependencies } from './Workspaces.flow';
 export default function findDirtyWorkspaces(
   workspaceDependencies: WorkspaceDependencies,
   changedFiles: $ReadOnlyArray<string>,
-) {
+): $ReadOnlySet<string> {
   const dirtyWorkspaces = new Set<string>();
   Object.keys(workspaceDependencies).forEach(dependencyName => {
     const value = workspaceDependencies[dependencyName];
