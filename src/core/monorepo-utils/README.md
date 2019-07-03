@@ -158,6 +158,8 @@ As you can see it detected some changes in `_components` workspace and it tries 
 
 ## Binary `monorepo-babel-node`
 
+**Do not use this in production!** ([more details](https://babeljs.io/docs/en/babel-node#not-meant-for-production-use))
+
 This binary allows you to run scripts just like with `babel-node` except it takes into account correct Babel configuration (`upward` mode by default) and it doesn't ignore our own Yarn Workspace dependencies while transpiling (`node_modules/@kiwicom/*`). Usage (`package.json`):
 
 ```json
