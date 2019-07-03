@@ -2,7 +2,7 @@
 
 import path from 'path';
 
-import { glob, globSync } from '../glob';
+import { glob, globSync, globAsync } from '../glob';
 
 function voidCallback() {}
 
@@ -31,16 +31,14 @@ describe('glob', () => {
   it('ignores node_modules by default', done => {
     glob(
       '/**/*.js',
-      {
-        root: path.join(__dirname, 'glob-fixtures', 'aaa'),
-      },
+      { root: path.join(__dirname, 'fixtures', 'glob', 'aaa') },
       (error, filenames) => {
         expect(error).toBeNull();
         expect(filenames.map(filename => filename.replace(__dirname, '')))
           .toMatchInlineSnapshot(`
         Array [
-          "/glob-fixtures/aaa/file.js",
-          "/glob-fixtures/aaa/subfolder/file.js",
+          "/fixtures/glob/aaa/file.js",
+          "/fixtures/glob/aaa/subfolder/file.js",
         ]
       `);
         done();
@@ -78,13 +76,49 @@ describe('globSync', () => {
 
   it('ignores node_modules by default', () => {
     const filenames = globSync('/**/*.js', {
-      root: path.join(__dirname, 'glob-fixtures', 'aaa'),
+      root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
     expect(filenames.map(filename => filename.replace(__dirname, '')))
       .toMatchInlineSnapshot(`
         Array [
-          "/glob-fixtures/aaa/file.js",
-          "/glob-fixtures/aaa/subfolder/file.js",
+          "/fixtures/glob/aaa/file.js",
+          "/fixtures/glob/aaa/subfolder/file.js",
+        ]
+      `);
+  });
+});
+
+describe('globAsync', () => {
+  it('throws exception when used incorrectly with Windows path', async () => {
+    const windowsErrorMessage =
+      "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
+    await expect(globAsync('C:\\foo\\bar.txt')).rejects.toThrowError(
+      windowsErrorMessage,
+    );
+    await expect(globAsync('F:\\foo\\*')).rejects.toThrowError(
+      windowsErrorMessage,
+    );
+  });
+
+  it('throws when used with root pattern with root being set', async () => {
+    await expect(globAsync('/root/pattern')).rejects.toThrowError(
+      "Your glob pattern starts from root but you didn't define any root in glob options.",
+    );
+  });
+
+  it('accepts valid pattern', async () => {
+    await expect(globAsync('src/apps/*/package.json')).resolves.not.toThrow();
+  });
+
+  it('ignores node_modules by default', async () => {
+    const filenames = await globAsync('/**/*.js', {
+      root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
+    });
+    expect(filenames.map(filename => filename.replace(__dirname, '')))
+      .toMatchInlineSnapshot(`
+        Array [
+          "/fixtures/glob/aaa/file.js",
+          "/fixtures/glob/aaa/subfolder/file.js",
         ]
       `);
   });

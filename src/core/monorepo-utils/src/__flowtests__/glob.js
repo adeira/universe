@@ -4,10 +4,10 @@ import { glob } from '../glob';
 
 module.exports = {
   // VALID EXAMPLES
-  validSimple() {
+  validSimple(): void {
     return glob('pattern', () => {});
   },
-  validComplex() {
+  validComplex(): void {
     return glob(
       'pattern',
       {
@@ -18,19 +18,19 @@ module.exports = {
   },
 
   // INVALID EXAMPLES:
-  invalidPattern() {
+  invalidPattern(): empty {
     // $FlowExpectedError: pattern should be string, not object
     return glob({}, () => {});
   },
-  missingCallback() {
+  missingCallback(): empty {
     // $FlowExpectedError: at least 2 arguments expected
     return glob('pattern');
   },
-  tooManyArgs() {
+  tooManyArgs(): empty {
     // $FlowExpectedError: max 3 arguments expected
     return glob('pattern', {}, () => {}, 'additional');
   },
-  invalidConfig_1() {
+  invalidConfig_1(): empty {
     return glob(
       'pattern',
       {
@@ -40,11 +40,11 @@ module.exports = {
       () => {},
     );
   },
-  invalidConfig_2() {
+  invalidConfig_2(): empty {
     // $FlowExpectedError: config must be object
     return glob('pattern', 'config', () => {});
   },
-  invalidCombination() {
+  invalidCombination(): empty {
     // $FlowExpectedError: missing callback
     return glob('pattern', {});
   },

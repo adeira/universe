@@ -86,6 +86,22 @@ const filenames = globSync('/**/*.js', {
 // ...
 ```
 
+Or async variant:
+
+```js
+import { globAsync } from '@kiwicom/js';
+
+(async function() {
+  const filenames = await globAsync('/**/*.js', {
+    root: path.join(__dirname, 'fixtures'),
+  });
+
+  // ...
+})();
+```
+
+These last two options, sync and async, will probably make the callback version obsolete.
+
 Option `root` is required when your pattern starts from the root `/`. You don't have to worry about it too much - this glob will tell you when you use it wrong. Please note: **do not** use `path` to construct glob patterns!
 
 ## Working with shell commands (`ShellCommand`)

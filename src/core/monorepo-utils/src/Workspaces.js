@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { globSync } from './glob';
+import { globAsync, globSync } from './glob';
 import { findRootPackageJson } from './findRootPackageJson';
 
 type PackageJSON = {|
@@ -27,6 +27,9 @@ function __resolveWorkspaces(packageJSON: PackageJSON): $ReadOnlyArray<string> {
 module.exports = {
   __resolveWorkspaces,
 
+  /**
+   * @deprecated Use `getWorkspacesAsync` or `getWorkspacesSync` instead.
+   */
   iterateWorkspaces(
     cb: (packageJSONLocation: string) => void | Promise<void>,
   ): void {
@@ -40,10 +43,25 @@ module.exports = {
     });
   },
 
-  getWorkspacesSync(): $ReadOnlyArray<string> {
+  getWorkspacesAsync(
+    baseDirectory: string = __dirname,
+  ): Promise<$ReadOnlyArray<string>> {
+    const rootPackageJSON = findRootPackageJson(baseDirectory);
+    const workspaces = __resolveWorkspaces(rootPackageJSON);
+    const workspacePromises = workspaces.map(workspace => {
+      return globAsync(`${workspace}/package.json`, {
+        absolute: true,
+      });
+    });
+    return Promise.all(workspacePromises).then(packageJSONLocations => {
+      // $FlowIssue: https://github.com/facebook/flow/issues/7397
+      return packageJSONLocations.flat();
+    });
+  },
+
+  getWorkspacesSync(baseDirectory: string = __dirname): $ReadOnlyArray<string> {
     // used only in `.jest.config.js` where it's not possible to be async
-    // TODO: use iterateWorkspaces (?)
-    const rootPackageJSON = findRootPackageJson();
+    const rootPackageJSON = findRootPackageJson(baseDirectory);
     let packageJSONLocations = [];
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       packageJSONLocations = packageJSONLocations.concat(
