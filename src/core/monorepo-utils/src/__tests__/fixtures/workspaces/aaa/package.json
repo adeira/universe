@@ -1,0 +1,6 @@
+{
+  "workspaces": [
+    "fake/aaa/1/*",
+    "fake/aaa/2/*"
+  ]
+}

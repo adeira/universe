@@ -1,5 +1,6 @@
 // @flow
 
+import util from 'util';
 import _glob from 'glob'; // eslint-disable-line no-restricted-imports
 import { invariant, isObject } from '@kiwicom/js';
 
@@ -42,7 +43,7 @@ function validateInputs(globPattern: GlobPattern, options?: GlobOptions): void {
   );
 }
 
-type GlobAsync = {
+type GlobWithCallback = {
   (GlobPattern, GlobCallback): void,
   (GlobPattern, GlobOptions, GlobCallback): void,
   ...,
@@ -54,8 +55,10 @@ type GlobAsync = {
  * because there glob patterns are not paths (see windows incompatibility).
  *
  * See: https://github.com/isaacs/node-glob
+ *
+ * @deprecated Use `globSync` or `globAsync` instead.
  */
-export const glob: GlobAsync = (globPattern, options, callback) => {
+export const glob: GlobWithCallback = (globPattern, options, callback) => {
   validateInputs(globPattern, isObject(options) ? options : undefined);
 
   if (typeof options === 'function') {
@@ -85,4 +88,11 @@ export function globSync(
     ignore: ['**/node_modules/**'],
     ...options,
   });
+}
+
+export function globAsync(
+  globPattern: GlobPattern,
+  options?: GlobOptions,
+): Promise<$ReadOnlyArray<string>> {
+  return util.promisify(glob)(globPattern, options);
 }
