@@ -314,18 +314,18 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
 
 // See: https://github.com/babel/babel/issues/9514
 
-type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'> };
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ...};
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<
-$Diff<Props, { relay: RelayPropT | void }>,
+$Diff<Props, { relay: RelayPropT | void, ...}>,
 (<T: () => void>(T) => T) & (
-<T: { +$refType: any }>(T) => $FragmentRef<T>) & (
-<T: { +$refType: any }>(?T) => ?$FragmentRef<T>) & (
-<T: { +$refType: any }>($ReadOnlyArray<T>) => $ReadOnlyArray<$FragmentRef<T>>) & (
-<T: { +$refType: any }>(?$ReadOnlyArray<T>) => ?$ReadOnlyArray<$FragmentRef<T>>) & (
-<T: { +$refType: any }>($ReadOnlyArray<?T>) => $ReadOnlyArray<?$FragmentRef<T>>) & (
-<T: { +$refType: any }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) & (
+<T: { +$refType: any, ...}>(T) => $FragmentRef<T>) & (
+<T: { +$refType: any, ...}>(?T) => ?$FragmentRef<T>) & (
+<T: { +$refType: any, ...}>($ReadOnlyArray<T>) => $ReadOnlyArray<$FragmentRef<T>>) & (
+<T: { +$refType: any, ...}>(?$ReadOnlyArray<T>) => ?$ReadOnlyArray<$FragmentRef<T>>) & (
+<T: { +$refType: any, ...}>($ReadOnlyArray<?T>) => $ReadOnlyArray<?$FragmentRef<T>>) & (
+<T: { +$refType: any, ...}>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) & (
 <T>(T) => T)>;
 `;
 
@@ -570,7 +570,7 @@ export type ExplicitlyInexact = { foo: number, ... };
 // Babel is currently losing \` ... \` while  tranpiling this type.
 // See: https://github.com/babel/babel/issues/10040
 
-export type ExplicitlyInexact = { foo: number };
+export type ExplicitlyInexact = { foo: number, ...};
 `;
 
 exports[`matches expected output: babel-issue-10040.js 3`] = `
@@ -1355,7 +1355,7 @@ module.exports = function(a: ?{ +[string]: any, ... }) {
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function (a: ?{ +[string]: any }) {
+module.exports = function (a: ?{ +[string]: any, ...}) {
   return a?.b ?? 'default';
 };
 `;
@@ -1516,7 +1516,7 @@ module.exports = function(
 /* eslint-disable no-console */
 
 module.exports = function (
-a: { +[key: string]: any },
+a: { +[key: string]: any, ...},
 ...rest: Array<any>)
 {
   console.warn([1, ...rest]);
