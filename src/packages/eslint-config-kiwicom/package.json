@@ -18,7 +18,7 @@
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-flowtype": "^3.11.1",
     "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jest": "^22.7.1",
+    "eslint-plugin-jest": "^22.7.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-kiwicom-incubator": "^0.5.0",
     "eslint-plugin-monorepo": "^0.2.1",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "@kiwicom/eslint-config-nitro": "^3.0.0",
     "deep-diff": "^1.0.2",
-    "snapshot-diff": "^0.5.1"
+    "snapshot-diff": "^0.5.2"
   },
   "peerDependencies": {
     "eslint": ">=6 <7"
