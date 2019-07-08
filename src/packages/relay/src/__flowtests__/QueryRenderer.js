@@ -27,6 +27,19 @@ module.exports = {
       />
     );
   },
+  minimalWithVariables() {
+    return (
+      <QueryRenderer
+        query={graphql`
+          query QueryRenderer {
+            __typename
+          }
+        `}
+        onResponse={placeholder}
+        variables={undefined}
+      />
+    );
+  },
   minimalUsageExtended() {
     return (
       <QueryRenderer
@@ -140,6 +153,20 @@ module.exports = {
         onResponse={placeholder}
         // $FlowExpectedError: this cache config is not valid
         cacheConfig={{ invalid: 'ups' }}
+      />
+    );
+  },
+  invalidVariablesValue() {
+    return (
+      <QueryRenderer
+        query={graphql`
+          query QueryRenderer {
+            __typename
+          }
+        `}
+        onResponse={placeholder}
+        // $FlowExpectedError: variables can be object or undefined but nothing else
+        variables={null}
       />
     );
   },
