@@ -1,6 +1,7 @@
 // @flow
 
 export {
+  findMonorepoRoot,
   findRootPackageJson,
   findRootPackageJsonPath,
 } from './findRootPackageJson';

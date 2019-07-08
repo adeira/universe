@@ -8,7 +8,7 @@ import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
 import {
   globSync,
-  findRootPackageJsonPath,
+  findMonorepoRoot,
   ShellCommand,
 } from '@kiwicom/monorepo-utils';
 import { invariant } from '@kiwicom/js';
@@ -36,7 +36,7 @@ const workspaces = JSON.parse(
 // TODO: we should probably skip devDeps (currently even Skymock is traversed)
 const locations = findRelatedWorkspaceLocations(workspaces, rootWorkspace);
 
-const monorepoRoot = path.dirname(findRootPackageJsonPath());
+const monorepoRoot = findMonorepoRoot();
 const buildDir = path.join(os.tmpdir(), buildDirName);
 const projectRoots = [...locations].map(location =>
   path.join(monorepoRoot, location),

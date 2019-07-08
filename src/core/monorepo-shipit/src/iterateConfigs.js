@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import path from 'path';
-import { findRootPackageJsonPath, globSync } from '@kiwicom/monorepo-utils';
+import { findMonorepoRoot, globSync } from '@kiwicom/monorepo-utils';
 
 import requireAndValidateConfig from './requireAndValidateConfig';
 import PhaseRunnerConfig from './PhaseRunnerConfig';
@@ -15,7 +15,7 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
     ],
   });
 
-  const monorepoPath = path.dirname(findRootPackageJsonPath());
+  const monorepoPath = findMonorepoRoot();
   const throwedErrors = new Set<Error>();
 
   configFiles.forEach(configFile => {

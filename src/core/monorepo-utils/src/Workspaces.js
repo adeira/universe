@@ -3,13 +3,16 @@
 import { globAsync, globSync } from './glob';
 import { findRootPackageJson } from './findRootPackageJson';
 
-type PackageJSON = {|
+type MinimalPackageJSON = {
   +workspaces?:
     | $ReadOnlyArray<string>
     | {| +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> |},
-|};
+  ...
+};
 
-function __resolveWorkspaces(packageJSON: PackageJSON): $ReadOnlyArray<string> {
+function __resolveWorkspaces(
+  packageJSON: MinimalPackageJSON,
+): $ReadOnlyArray<string> {
   const workspaces = packageJSON.workspaces;
   if (Array.isArray(workspaces)) {
     return workspaces;

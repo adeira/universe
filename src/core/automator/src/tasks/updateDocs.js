@@ -2,12 +2,7 @@
 
 import os from 'os';
 import fs from 'fs';
-import path from 'path';
-import {
-  glob,
-  Workspaces,
-  findRootPackageJsonPath,
-} from '@kiwicom/monorepo-utils';
+import { glob, Workspaces, findMonorepoRoot } from '@kiwicom/monorepo-utils';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
@@ -47,7 +42,7 @@ function updateNPMPackagesInfo(
     separator = os.EOL;
   });
 
-  const rootFolder = path.dirname(findRootPackageJsonPath());
+  const rootFolder = findMonorepoRoot();
 
   glob('/**/*.{md,html}', { root: rootFolder }, (error, filenames) => {
     filenames.forEach(filename => {

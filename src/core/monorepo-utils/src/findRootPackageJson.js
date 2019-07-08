@@ -5,19 +5,34 @@ import path from 'path';
 
 let MEMOIZED_PATH = null;
 
+type AnyNestedObject = { +[string]: AnyNestedObject, ... };
+type PackageJSON = {
+  +workspaces?:
+    | $ReadOnlyArray<string>
+    | {| +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> |},
+  +[string]: AnyNestedObject,
+  ...
+};
+
 /**
  * It tries to find root package.json recursively starting from the
  * provided path. It expects monorepo setup (defined workspaces). It
  * also memoizes the computed path and returns it immediately with
  * the second call.
  */
-export function findRootPackageJson(directory: string = __dirname) {
+export function findRootPackageJson(
+  directory: string = __dirname,
+): PackageJSON {
   const packageJsonPath = findRootPackageJsonPath(directory);
   // $FlowAllowDynamicImport
   return require(packageJsonPath);
 }
 
-export function findRootPackageJsonPath(directory: string = __dirname) {
+export function findMonorepoRoot(directory: string = __dirname): string {
+  return path.dirname(findRootPackageJsonPath(directory));
+}
+
+export function findRootPackageJsonPath(directory: string = __dirname): string {
   if (MEMOIZED_PATH !== null) {
     return MEMOIZED_PATH;
   }
