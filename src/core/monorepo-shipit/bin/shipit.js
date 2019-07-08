@@ -12,11 +12,11 @@ import createPushPhase from '../src/phases/createPushPhase';
 
 iterateConfigs(cfg => {
   new Set<() => void>([
-    createClonePhase(cfg.exportedRepoURL, cfg.exportedRepoPath),
-    createCheckCorruptedRepoPhase(cfg.exportedRepoPath),
-    createCleanPhase(cfg.exportedRepoPath),
+    createClonePhase(cfg.exportedRepoURL, cfg.destinationPath),
+    createCheckCorruptedRepoPhase(cfg.destinationPath),
+    createCleanPhase(cfg.destinationPath),
     createSyncPhase(cfg),
     createVerifyRepoPhase(cfg),
-    createPushPhase(cfg.exportedRepoPath),
+    createPushPhase(cfg.destinationPath),
   ]).forEach(phase => phase());
 });

@@ -30,9 +30,9 @@ invariant(
 iterateConfigs(cfg => {
   if (cfg.exportedRepoURL === exportedRepoURL) {
     new Set<() => void>([
-      createClonePhase(cfg.exportedRepoURL, cfg.exportedRepoPath),
-      createCheckCorruptedRepoPhase(cfg.exportedRepoPath),
-      createCleanPhase(cfg.exportedRepoPath),
+      createClonePhase(cfg.exportedRepoURL, cfg.destinationPath),
+      createCheckCorruptedRepoPhase(cfg.destinationPath),
+      createCleanPhase(cfg.destinationPath),
       createImportSyncPhase(cfg, pullRequestNumber),
     ]).forEach(phase => phase());
   }

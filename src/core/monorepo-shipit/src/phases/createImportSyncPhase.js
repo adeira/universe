@@ -1,20 +1,21 @@
 // @flow strict-local
 
 import { ShellCommand } from '@kiwicom/monorepo-utils';
+import logger from '@kiwicom/logger';
 
 import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';
-import PhaseRunnerConfig from '../PhaseRunnerConfig';
+import ShipitConfig from '../ShipitConfig';
 
 export default function createImportSyncPhase(
-  config: PhaseRunnerConfig,
+  config: ShipitConfig,
   pullRequestNumber: string,
 ) {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {
     new ShellCommand(
-      config.exportedRepoPath,
+      config.destinationPath,
       'git',
       'fetch',
       'origin',
@@ -25,7 +26,7 @@ export default function createImportSyncPhase(
 
     // 'git rev-parse FETCH_HEAD' to get actual hash
     const mergeBase = new ShellCommand(
-      config.exportedRepoPath,
+      config.destinationPath,
       'git',
       'merge-base',
       'FETCH_HEAD',
@@ -36,7 +37,7 @@ export default function createImportSyncPhase(
       .trim();
 
     const changesets = new Set<Changeset>();
-    const exportedRepo: SourceRepo = new RepoGIT(config.exportedRepoPath);
+    const exportedRepo: SourceRepo = new RepoGIT(config.destinationPath);
     const descendantsPath = exportedRepo.findDescendantsPath(
       mergeBase,
       'FETCH_HEAD',
@@ -49,8 +50,7 @@ export default function createImportSyncPhase(
         changesets.add(filter(changeset));
       });
     } else {
-      // eslint-disable-next-line no-console
-      console.warn(
+      logger.warn(
         `Skipping since there are no changes to filter from ${mergeBase}.`,
       );
     }
@@ -58,7 +58,7 @@ export default function createImportSyncPhase(
   }
 
   return function() {
-    const monorepo: DestinationRepo = new RepoGIT(config.monorepoPath);
+    const monorepo: DestinationRepo = new RepoGIT(config.sourcePath);
     const changesets = getFilteredChangesets();
 
     const branchName = `monorepo-importit-github-pr-${pullRequestNumber}`;

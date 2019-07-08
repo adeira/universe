@@ -1,16 +1,18 @@
 // @flow strict-local
 
+import logger from '@kiwicom/logger';
+
 import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';
-import PhaseRunnerConfig from '../PhaseRunnerConfig';
+import ShipitConfig from '../ShipitConfig';
 
-export default function createSyncPhase(config: PhaseRunnerConfig) {
+export default function createSyncPhase(config: ShipitConfig) {
   function _getSourceRepo(): SourceRepo {
-    return new RepoGIT(config.monorepoPath);
+    return new RepoGIT(config.sourcePath);
   }
 
   function _getDestinationRepo(): DestinationRepo {
-    return new RepoGIT(config.exportedRepoPath);
+    return new RepoGIT(config.destinationPath);
   }
 
   function getSourceChangesets(): Set<Changeset> {
@@ -30,8 +32,7 @@ export default function createSyncPhase(config: PhaseRunnerConfig) {
         sourceChangesets.add(sourceRepo.getChangesetFromID(revision));
       });
     } else {
-      // eslint-disable-next-line no-console
-      console.warn(
+      logger.warn(
         `Skipping since there are no changes to filter from ${initialRevision}.`,
       );
     }

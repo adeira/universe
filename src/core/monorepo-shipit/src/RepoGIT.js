@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { invariant } from '@kiwicom/js';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
+import logger from '@kiwicom/logger';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
@@ -178,7 +179,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   };
 
   getChangesetFromID = (revision: string): Changeset => {
-    console.warn(`Filtering changeset for: ${revision}`); // eslint-disable-line no-console
+    logger.log(`Filtering changeset for: ${revision}`);
     const patch = this.getNativePatchFromID(revision);
     const header = this.getNativeHeaderFromIDWithPatch(revision, patch);
     const changeset = this.getChangesetFromExportedPatch(header, patch);

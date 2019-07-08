@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import Changeset from '../../src/Changeset';
-import PhaseRunnerConfig from '../../src/PhaseRunnerConfig';
+import ShipitConfig from '../../src/ShipitConfig';
 import requireAndValidateConfig from '../../src/requireAndValidateConfig';
 
 jest.mock('fs');
@@ -18,7 +18,7 @@ export default function testExportedPaths(
   const config = requireAndValidateConfig(configPath);
 
   test.each(mapping)('mapping: %s -> %s', (input, output) => {
-    const defaultFilter = new PhaseRunnerConfig(
+    const defaultFilter = new ShipitConfig(
       'mocked repo path',
       'mocked repo URL',
       config.getDefaultPathMappings(),
