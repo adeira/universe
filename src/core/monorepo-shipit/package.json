@@ -11,7 +11,7 @@
   "dependencies": {
     "@kiwicom/js": "^0.13.0",
     "@kiwicom/logger": "^0.1.0",
-    "@kiwicom/monorepo-utils": "^0.21.0",
+    "@kiwicom/monorepo-utils": "^0.22.0",
     "@kiwicom/test-utils": "^0.9.0",
     "fast-levenshtein": "^2.0.6"
   }

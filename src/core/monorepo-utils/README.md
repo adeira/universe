@@ -189,3 +189,19 @@ This binary allows you to run scripts just like with `babel-node` except it take
 Where `scripts/test-bc.js` is normal JS file with all the modern JS features.
 
 It takes into account all [allowed Node.js environment flags](https://nodejs.org/api/process.html#process_process_allowednodeenvironmentflags) which means you can for example debug your scripts with `--inspect` and `--inspect-brk`. Rest of the flags are forwarded to the executed script.
+
+
+
+## getTouchedWorkspaces 
+
+This function will give you all the workspaces that has been touched by your latest chages.
+Directly changed an also those workspaces who depend on the changed workspaces
+
+```
+import { getTouchedWorkspaces } from '@kiwicom/monorepo-utils';
+
+
+const workspaces = getTouchedWorkspaces();
+console.log(Array.from(workspaces)) // -> ['@kiwicom/workspace1', '@kiwicom/workspace2']
+```
+ 

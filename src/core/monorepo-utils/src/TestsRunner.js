@@ -4,8 +4,8 @@ import { invariant } from '@kiwicom/js';
 
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
-import sanitizeWorkspaces from './sanitizeWorkspaces';
 import ShellCommand from './ShellCommand';
+import getWorkspaceDependencies from './getWorkspaceDependencies';
 
 function _runJest(config, timezone = 'UTC') {
   process.env.TZ = timezone;
@@ -71,12 +71,7 @@ export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
     return;
   }
 
-  const stdout = new ShellCommand(null, 'yarn', 'workspaces', 'info', '--json')
-    .runSynchronously()
-    .getStdout();
-  const workspaceDependencies = sanitizeWorkspaces(
-    JSON.parse(JSON.parse(stdout).data),
-  );
+  const workspaceDependencies = getWorkspaceDependencies();
 
   const changedFiles = getChangedFiles();
   const pathsToTest = findPathsToTest(workspaceDependencies, changedFiles);
