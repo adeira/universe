@@ -11,3 +11,5 @@ export { default as Git } from './Git';
 export { default as Workspaces } from './Workspaces';
 
 export { glob, globSync } from './glob';
+
+export { default as getTouchedWorkspaces } from './getTouchedWorkspaces';
