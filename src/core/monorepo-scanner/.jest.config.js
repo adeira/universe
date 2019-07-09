@@ -3,12 +3,9 @@
 require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo-utils' here
 
 const path = require('path');
-const { findRootPackageJsonPath } = require('@kiwicom/monorepo-utils');
+const { findMonorepoRoot } = require('@kiwicom/monorepo-utils');
 
-const monorepoSrcRoot = path.join(
-  path.dirname(findRootPackageJsonPath()),
-  'src',
-);
+const monorepoSrcRoot = path.join(findMonorepoRoot(), 'src');
 
 module.exports = {
   rootDir: path.join(__dirname, 'src', 'scans'),

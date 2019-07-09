@@ -2,9 +2,9 @@
 
 /* eslint-disable no-console */
 
-import chalk from 'chalk';
 import util from 'util';
 import os from 'os';
+import chalk from 'chalk';
 
 /**
  * @see: https://facebook.github.io/jest/docs/expect.html#expectextendmatchers

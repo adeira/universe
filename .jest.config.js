@@ -48,30 +48,17 @@ module.exports = {
   reporters: ['default'],
   rootDir: __dirname,
   verbose: false,
-  projects: [
-    {
-      // TODO: get rid of this!
-      // These tests are problematic because they are outside of workspaces
-      // and therefore our TestsRunner doesn't know it should run them.
-      // Moreover, there are some tests testing for example MD files which is
-      // impossible to detect automatically (as a related test).
-      displayName: null,
+  projects: Workspaces.getWorkspacesSync().map(packageJSONLocation => {
+    const packageJSON = require(packageJSONLocation);
+    const workspaceDirname = path.dirname(packageJSONLocation);
+    return {
+      displayName: packageJSON.name,
+      rootDir: workspaceDirname,
+      testMatch: ['**/' + TESTS_GLOB],
       ...commonProjectConfig,
-      testMatch: ['<rootDir>/scripts/**/' + TESTS_GLOB],
-    },
-
-    ...Workspaces.getWorkspacesSync().map(packageJSONLocation => {
-      const packageJSON = require(packageJSONLocation);
-      const workspaceDirname = path.dirname(packageJSONLocation);
-      return {
-        displayName: packageJSON.name,
-        rootDir: workspaceDirname,
-        testMatch: ['**/' + TESTS_GLOB],
-        ...commonProjectConfig,
-        ...tryToLoadWorkspaceConfig(
-          path.join(workspaceDirname, 'jest.config.js'),
-        ),
-      };
-    }),
-  ],
+      ...tryToLoadWorkspaceConfig(
+        path.join(workspaceDirname, 'jest.config.js'),
+      ),
+    };
+  }),
 };
