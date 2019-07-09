@@ -1326,6 +1326,60 @@ var nibbles = 41349;
 var message = 0xa0b0c0;
 `;
 
+exports[`matches expected output: optional-catch-binding.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+try {
+  // ...
+} catch {
+  // ...
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+try {// ...
+} catch (_unused) {// ...
+}
+`;
+
+exports[`matches expected output: optional-catch-binding.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+try {
+  // ...
+} catch {
+  // ...
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+try {
+  // ...
+} catch {
+  // ...
+}
+`;
+
+exports[`matches expected output: optional-catch-binding.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+try {
+  // ...
+} catch {
+  // ...
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+try {// ...
+} catch (_unused) {// ...
+}
+`;
+
 exports[`matches expected output: optional-chaining.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
