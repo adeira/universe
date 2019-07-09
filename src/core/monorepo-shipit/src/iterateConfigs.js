@@ -2,11 +2,12 @@
 
 import path from 'path';
 import { findMonorepoRoot, globSync } from '@kiwicom/monorepo-utils';
+import logger from '@kiwicom/logger';
 
 import requireAndValidateConfig from './requireAndValidateConfig';
-import PhaseRunnerConfig from './PhaseRunnerConfig';
+import ShipitConfig from './ShipitConfig';
 
-export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
+export default function iterateConfigs(callback: ShipitConfig => void) {
   const configFiles = globSync('/**/*.js', {
     root: path.join(__dirname, '..', 'config'),
     ignore: [
@@ -22,7 +23,7 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
     const config = requireAndValidateConfig(configFile);
     const staticConfig = config.getStaticConfig();
 
-    const cfg = new PhaseRunnerConfig(
+    const cfg = new ShipitConfig(
       monorepoPath,
       staticConfig.repository,
       config.getDefaultPathMappings(),
@@ -36,18 +37,16 @@ export default function iterateConfigs(callback: PhaseRunnerConfig => void) {
     // OK can be exported successfully (and not being affected by irrelevant
     // failures).
     try {
-      /* eslint-disable no-console */
-      console.warn(`${cfg.exportedRepoURL} -> ${cfg.exportedRepoPath}`);
+      logger.log(`👾 ${cfg.exportedRepoURL} -> ${cfg.destinationPath}`);
       callback(cfg);
-      console.warn();
     } catch (error) {
-      throwedErrors.add(error);
+      throwedErrors.add(new Error(`${cfg.exportedRepoURL}: ${error}`));
     }
   });
 
   if (throwedErrors.size > 0) {
     throwedErrors.forEach(error => {
-      console.error(error);
+      logger.error(error.message);
     });
     process.exitCode = 1;
   } else {

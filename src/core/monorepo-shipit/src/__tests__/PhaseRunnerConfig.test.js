@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import Config from '../PhaseRunnerConfig';
+import Config from '../ShipitConfig';
 
 jest.mock('fs');
 

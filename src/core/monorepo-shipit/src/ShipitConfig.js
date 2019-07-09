@@ -14,9 +14,9 @@ import stripPaths from './filters/stripPaths';
 
 type ChangesetFilter = Changeset => Changeset;
 
-export default class PhaseRunnerConfig {
-  monorepoPath: string;
-  exportedRepoPath: string;
+export default class ShipitConfig {
+  sourcePath: string;
+  destinationPath: string;
   exportedRepoURL: string;
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
@@ -27,10 +27,10 @@ export default class PhaseRunnerConfig {
     directoryMapping: Map<string, string>,
     strippedFiles: Set<RegExp>,
   ) {
-    this.monorepoPath = monorepoPath;
+    this.sourcePath = monorepoPath;
     // This is currently not configurable. We could (should) eventually keep
     // the temp directory, cache it and just update it.
-    this.exportedRepoPath = fs.mkdtempSync(
+    this.destinationPath = fs.mkdtempSync(
       path.join(os.tmpdir(), 'kiwicom-shipit-'),
     );
     this.exportedRepoURL = exportedRepoURL;

@@ -4,9 +4,10 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
+import logger from '@kiwicom/logger';
 
 import RepoGIT from '../RepoGIT';
-import PhaseRunnerConfig from '../PhaseRunnerConfig';
+import ShipitConfig from '../ShipitConfig';
 
 /**
  * This phase verifies integrity of the exported repository. This does so by
@@ -20,7 +21,7 @@ import PhaseRunnerConfig from '../PhaseRunnerConfig';
  * means that either source and destination are out of sync or there is a bug
  * in Shipit project.
  */
-export default function createVerifyRepoPhase(config: PhaseRunnerConfig) {
+export default function createVerifyRepoPhase(config: ShipitConfig) {
   function createNewEmptyRepo(path: string) {
     new ShellCommand(path, 'git', 'init')
       .setOutputToScreen()
@@ -42,7 +43,7 @@ export default function createVerifyRepoPhase(config: PhaseRunnerConfig) {
     );
   }
 
-  const monorepoPath = config.monorepoPath;
+  const monorepoPath = config.sourcePath;
 
   return function() {
     const dirtyExportedRepoPath = getDirtyExportedRepoPath();
@@ -79,7 +80,7 @@ export default function createVerifyRepoPhase(config: PhaseRunnerConfig) {
       'remote',
       'add',
       'shipit_destination',
-      config.exportedRepoPath, // notice we don't use URL here but locally updated repo instead
+      config.destinationPath, // notice we don't use URL here but locally updated repo instead
     )
       .setOutputToScreen()
       .runSynchronously();
@@ -101,9 +102,8 @@ export default function createVerifyRepoPhase(config: PhaseRunnerConfig) {
       .getStdout()
       .trim();
 
-    /* eslint-disable no-console */
     if (diffStats === '') {
-      console.log('👾 Exported repo is in SYNC!');
+      logger.log('👾 Exported repo is in SYNC!');
     } else {
       const diff = new ShellCommand(
         filteredRepoPath,
@@ -117,7 +117,7 @@ export default function createVerifyRepoPhase(config: PhaseRunnerConfig) {
       )
         .runSynchronously()
         .getStdout();
-      console.error(diff);
+      logger.error(diff);
       throw new Error('👾 Repository is out of SYNC!');
     }
   };
