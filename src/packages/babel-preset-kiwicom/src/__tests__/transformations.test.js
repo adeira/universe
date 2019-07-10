@@ -11,6 +11,8 @@ function transform(target) {
       process.env.NODE_ENV = 'production';
 
       const transformedCode = babel.transform(input, {
+        root: __dirname,
+        rootMode: 'root',
         presets:
           target === 'js'
             ? ['@kiwicom/babel-preset-kiwicom'] // keep it here to test the defaults

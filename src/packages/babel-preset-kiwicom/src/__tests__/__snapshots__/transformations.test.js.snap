@@ -263,6 +263,70 @@ var bar = new Bar();
 console.log(bar.a); // should return 5, not undefined
 `;
 
+exports[`matches expected output: babel-issue-8684.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+// SEE: https://github.com/babel/babel/issues/8684
+/* eslint-disable */
+
+const aaa = 1;
+
+// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+const bbb: string = aaa;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+// SEE: https://github.com/babel/babel/issues/8684
+
+/* eslint-disable */
+var aaa = 1; // $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+
+var bbb = aaa;
+`;
+
+exports[`matches expected output: babel-issue-8684.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+// SEE: https://github.com/babel/babel/issues/8684
+/* eslint-disable */
+
+const aaa = 1;
+
+// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+const bbb: string = aaa;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow
+// SEE: https://github.com/babel/babel/issues/8684
+/* eslint-disable */
+
+const aaa = 1;
+
+// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+const bbb: string = aaa;
+`;
+
+exports[`matches expected output: babel-issue-8684.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+// SEE: https://github.com/babel/babel/issues/8684
+/* eslint-disable */
+
+const aaa = 1;
+
+// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+const bbb: string = aaa;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// SEE: https://github.com/babel/babel/issues/8684
+
+/* eslint-disable */
+var aaa = 1; // $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+
+var bbb = aaa;
+`;
+
 exports[`matches expected output: babel-issue-9514.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
@@ -1214,7 +1278,12 @@ exports[`matches expected output: jsx.js 1`] = `
 const React = () => {};
 
 export default function Component() {
-  return <div>OK</div>;
+  return (
+    <>
+      <div>aaa</div>
+      <div>bbb</div>
+    </>
+  );
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -1228,7 +1297,7 @@ exports.default = Component;
 var React = function React() {};
 
 function Component() {
-  return React.createElement("div", null, "OK");
+  return React.createElement(React.Fragment, null, React.createElement("div", null, "aaa"), React.createElement("div", null, "bbb"));
 }
 `;
 
@@ -1239,7 +1308,12 @@ exports[`matches expected output: jsx.js 2`] = `
 const React = () => {};
 
 export default function Component() {
-  return <div>OK</div>;
+  return (
+    <>
+      <div>aaa</div>
+      <div>bbb</div>
+    </>
+  );
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -1248,7 +1322,12 @@ export default function Component() {
 const React = () => {};
 
 export default function Component() {
-  return <div>OK</div>;
+  return (
+    <>
+      <div>aaa</div>
+      <div>bbb</div>
+    </>);
+
 }
 `;
 
@@ -1259,14 +1338,19 @@ exports[`matches expected output: jsx.js 3`] = `
 const React = () => {};
 
 export default function Component() {
-  return <div>OK</div>;
+  return (
+    <>
+      <div>aaa</div>
+      <div>bbb</div>
+    </>
+  );
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 var React = function React() {};
 
 export default function Component() {
-  return React.createElement("div", null, "OK");
+  return React.createElement(React.Fragment, null, React.createElement("div", null, "aaa"), React.createElement("div", null, "bbb"));
 }
 `;
 
