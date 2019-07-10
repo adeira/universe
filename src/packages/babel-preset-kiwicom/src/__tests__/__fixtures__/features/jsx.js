@@ -3,5 +3,10 @@
 const React = () => {};
 
 export default function Component() {
-  return <div>OK</div>;
+  return (
+    <>
+      <div>aaa</div>
+      <div>bbb</div>
+    </>
+  );
 }
