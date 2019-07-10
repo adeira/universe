@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/register": "^7.4.4",
-    "@babel/runtime": "^7.5.3",
+    "@babel/runtime": "^7.5.4",
     "@kiwicom/monorepo-utils": "^0.22.0",
     "chalk": "^2.4.2",
     "create-jest-runner": "^0.5.3",
