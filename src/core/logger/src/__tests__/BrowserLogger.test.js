@@ -8,7 +8,7 @@ test.each([
   [['single'], [['single']]],
   [['aaa', 'bbb', 'ccc'], [['aaa', 'bbb', 'ccc']]],
   [['a %s c', 'b'], [['a %s c', 'b']]],
-])('', (input, output) => {
+])('calls the Browser logger correctly %#', (input, output) => {
   const spyLog = jest.spyOn(console, 'log').mockImplementation(() => {});
   const spyWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
   const spyError = jest.spyOn(console, 'error').mockImplementation(() => {});

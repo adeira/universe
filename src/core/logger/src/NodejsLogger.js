@@ -35,13 +35,15 @@ export default class NodejsLogger implements ILogger {
         }),
       ],
     });
+
+    const formats = [format.errors({ stack: true })];
+    if (__DEV__) {
+      formats.push(format.colorize());
+    }
+    formats.push(sprintfFormat); // must go after `colorize`
     winston.loggers.add('localhost', {
       exitOnError: false,
-      format: format.combine(
-        format.errors({ stack: true }),
-        format.colorize(),
-        sprintfFormat,
-      ),
+      format: format.combine(...formats),
       transports: [new transports.Console()],
     });
   }
