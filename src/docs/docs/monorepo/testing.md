@@ -1,7 +1,7 @@
 ---
 id: testing
-title: Testing, Linting, Flowing
-sidebar_label: Test, Lint, Flow
+title: Testing, Linting, Flowing, Formatting
+sidebar_label: Test, Lint, Flow, Format
 ---
 
 We do not run tests, lints and Flow checks per project but on a whole monorepo instead. It's because there are very often relations among our workspaces and one small change in single workspace can affect the whole monorepo (and potentially break it). You can execute each test like this (from the root):
@@ -24,6 +24,18 @@ Don't worry about running these scripts on the whole monorepo. Each task tries t
 yarn test-only src/core/monorepo-shipit/config --watch
 yarn test-only src/core/monorepo-shipit/config/__tests__/fetch.test.js --watch
 ```
+
+## Formatting
+
+We use opinionated formatter [Prettier](https://prettier.io/). It allows you to stop thinking about the formatting and focus on the actual problem. There rules are also enforced by Eslint so it's easier to follow them and be happy. Our lint can locally fix these stylistic issues, just run:
+
+```text
+yarn run lint
+```
+
+It fixes the errors locally, it throws errors on CI. Prettier is also supported in many editors so you can choose your favorite one and enable it even closer to your normal workflow: https://prettier.io/docs/en/editors.html
+
+Please read the rationale to understand what is Prettier concerned about and what not: https://prettier.io/docs/en/rationale.html
 
 ## Custom test config per workspace
 

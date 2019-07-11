@@ -86,8 +86,8 @@
         "sidebar_label": "Managing dependencies"
       },
       "monorepo/testing": {
-        "title": "Testing, Linting, Flowing",
-        "sidebar_label": "Test, Lint, Flow"
+        "title": "Testing, Linting, Flowing, Formatting",
+        "sidebar_label": "Test, Lint, Flow, Format"
       },
       "monorepo/wiki-search-refresh": {
         "title": "Wiki search refresh",

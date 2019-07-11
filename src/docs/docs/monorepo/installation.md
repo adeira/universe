@@ -10,7 +10,7 @@ Requirements:
 
 - _latest_ [Git](https://git-scm.com/)
 - _latest_ [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/en/) version >1.0
+- [Yarn](https://yarnpkg.com/en/) version >1.0 (just to execute our custom version from Universe)
 
 Installation:
 
