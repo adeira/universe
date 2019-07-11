@@ -9,7 +9,7 @@ We do not run tests, lints and Flow checks per project but on a whole monorepo i
 ```text
 yarn run test-only [--all]
 yarn run lint [--all]
-yarn run flow
+yarn run typecheck
 ```
 
 Or all at once:
@@ -72,4 +72,21 @@ export default async function testBC(config: JestConfig) {
   }
   // ...
 }
+```
+
+## Local testing vs. CI tests
+
+Tests you run locally and tests on our CI server are slightly different. The biggest difference (apart from completely different machine) is that we run more complete test-suite on our CI server. It's because 1) our CI server is much more powerful with better parallelization compare to your machine 2) some tests are from our experience failing very rarely. There are two notable differences:
+
+- We sometimes run additional tests on builded server which is ready to be deployed to production. Just to be sure we are not going to deploy completely broken code. For example: GraphQL containers are being pinged with some critical queries.
+- We run all the tests you run locally also in different timezones (`Asia/Tokyo` and `America/Lima`). This means that we run 3x more tests on CI. Failure in these tests is quite rare but we already caught some nasty bugs thanks to this.
+
+We basically traded good DX experience for rare failure on our CI server. This should speedup your local development in case of everything going well (and you still get a notification when things are broken because of timezones for example).
+
+You can change the timezone via `TZ` environment variable to whatever value you want:
+
+```text
+yarn run test-only                      // this runs in UTC timezone, same as:
+TZ=UTC yarn run test-only
+TZ=America/Lima yarn run test-only
 ```
