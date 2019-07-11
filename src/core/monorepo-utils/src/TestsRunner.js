@@ -8,7 +8,10 @@ import ShellCommand from './ShellCommand';
 import getWorkspaceDependencies from './getWorkspaceDependencies';
 
 function _runJest(config, timezone = 'UTC') {
-  process.env.TZ = timezone;
+  if (process.env.TZ === undefined) {
+    // Do not overwrite TZ when user sets it explicitly (only when it's undefined).
+    process.env.TZ = timezone;
+  }
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
   return new ShellCommand(
     null,

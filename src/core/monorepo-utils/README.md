@@ -76,13 +76,9 @@ Glob is our wrapper around [Node.js glob library](https://github.com/isaacs/node
 ```js
 import { glob } from '@kiwicom/js';
 
-glob(
-  '/**/*.js',
-  { root: path.join(__dirname, 'fixtures') },
-  (error, filenames) => {
-    // ...
-  },
-);
+glob('/**/*.js', { root: path.join(__dirname, 'fixtures') }, (error, filenames) => {
+  // ...
+});
 ```
 
 Alternatively, you can use the sync variant:
@@ -182,6 +178,25 @@ Ran all test suites matching /src\/components|src\/apps|src\/relay|src\/translat
 ```
 
 As you can see it detected some changes in `_components` workspace and it tries to resolve any other affected workspace (seems like for example `src/relay` is using `_components` workspace so it must be tested as well). It can happen that there are no changes to run.
+
+This runner works especially well in GitLab CI. It supports additional testing of timezones when you run your test job in parallel (it tests UTC timezone only by default):
+
+```yml
+test:
+  stage: test
+  image: node:$NODEJS_VERSION
+  parallel: 3
+  script:
+    - yarn run monorepo-run-tests
+```
+
+This way, tests runner will execute the same test-suite in `UTC`, `America/Lima` (-5) and `Asia/Tokyo` (+9) timezones. It's not unusual that some tests can fail only in one of these timezones.
+
+It is also possible to enforce one specific timezone with `TZ` environment variable:
+
+```text
+TZ=Africa/Addis_Ababa monorepo-run-tests
+```
 
 ## Binary `monorepo-babel-node`
 
