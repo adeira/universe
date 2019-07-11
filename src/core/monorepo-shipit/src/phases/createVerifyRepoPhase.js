@@ -6,7 +6,7 @@ import path from 'path';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
 import logger from '@kiwicom/logger';
 
-import RepoGIT from '../RepoGIT';
+import RepoGit from '../RepoGit';
 import ShipitConfig from '../ShipitConfig';
 
 /**
@@ -24,7 +24,7 @@ import ShipitConfig from '../ShipitConfig';
 export default function createVerifyRepoPhase(config: ShipitConfig) {
   function createNewEmptyRepo(path: string) {
     new ShellCommand(path, 'git', 'init').setOutputToScreen().runSynchronously();
-    const repo = new RepoGIT(path);
+    const repo = new RepoGit(path);
     repo.configure();
     return repo;
   }
@@ -43,7 +43,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig) {
     const dirtyExportedRepoPath = getDirtyExportedRepoPath();
     const dirtyExportedRepo = createNewEmptyRepo(dirtyExportedRepoPath);
 
-    const monorepo = new RepoGIT(monorepoPath);
+    const monorepo = new RepoGit(monorepoPath);
     monorepo.export(dirtyExportedRepoPath, config.getMonorepoRoots());
 
     new ShellCommand(dirtyExportedRepoPath, 'git', 'add', '.', '--force')

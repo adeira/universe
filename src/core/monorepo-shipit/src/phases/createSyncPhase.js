@@ -2,17 +2,17 @@
 
 import logger from '@kiwicom/logger';
 
-import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
+import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
 
 export default function createSyncPhase(config: ShipitConfig) {
   function _getSourceRepo(): SourceRepo {
-    return new RepoGIT(config.sourcePath);
+    return new RepoGit(config.sourcePath);
   }
 
   function _getDestinationRepo(): DestinationRepo {
-    return new RepoGIT(config.destinationPath);
+    return new RepoGit(config.destinationPath);
   }
 
   function getSourceChangesets(): Set<Changeset> {
