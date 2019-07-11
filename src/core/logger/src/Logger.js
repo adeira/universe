@@ -10,10 +10,7 @@ export default class Logger implements ILogger {
   constructor(logger: ?ILogger) {
     if (logger != null) {
       this.#logger = logger;
-    } else if (
-      typeof process !== 'undefined' &&
-      process.env.NODE_ENV === 'test'
-    ) {
+    } else if (typeof process !== 'undefined' && process.env.NODE_ENV === 'test') {
       const NullLogger = require('./NullLogger').default;
       this.#logger = new NullLogger();
     } else if (typeof process !== 'undefined') {

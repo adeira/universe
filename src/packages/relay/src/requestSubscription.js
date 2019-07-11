@@ -27,9 +27,6 @@ type Config = {|
  * The first parameter `environment` should be from `props.relay.environment`
  * to ensure the subscription is performed in the correct environment.
  */
-export default function requestSubscription(
-  environment: Environment,
-  config: Config,
-): Disposable {
+export default function requestSubscription(environment: Environment, config: Config): Disposable {
   return _requestSubscription(environment, config);
 }

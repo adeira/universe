@@ -19,9 +19,9 @@ it('throws an exception for unsuccessful condition', () => {
 });
 
 it('uses sprintf behind the scenes', () => {
-  expect(() =>
-    invariant(false, 'Oh, %s', 'yeah!'),
-  ).toThrowErrorMatchingInlineSnapshot(`"Oh, yeah!"`);
+  expect(() => invariant(false, 'Oh, %s', 'yeah!')).toThrowErrorMatchingInlineSnapshot(
+    `"Oh, yeah!"`,
+  );
 });
 
 it('complains when used without an error message - development mode', () => {

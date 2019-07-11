@@ -7,10 +7,7 @@ import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
 
-export default function createImportSyncPhase(
-  config: ShipitConfig,
-  pullRequestNumber: string,
-) {
+export default function createImportSyncPhase(config: ShipitConfig, pullRequestNumber: string) {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {
@@ -38,11 +35,7 @@ export default function createImportSyncPhase(
 
     const changesets = new Set<Changeset>();
     const exportedRepo: SourceRepo = new RepoGIT(config.destinationPath);
-    const descendantsPath = exportedRepo.findDescendantsPath(
-      mergeBase,
-      'FETCH_HEAD',
-      new Set([]),
-    );
+    const descendantsPath = exportedRepo.findDescendantsPath(mergeBase, 'FETCH_HEAD', new Set([]));
     if (descendantsPath !== null) {
       descendantsPath.forEach(revision => {
         const changeset = exportedRepo.getChangesetFromID(revision);
@@ -50,9 +43,7 @@ export default function createImportSyncPhase(
         changesets.add(filter(changeset));
       });
     } else {
-      logger.warn(
-        `Skipping since there are no changes to filter from ${mergeBase}.`,
-      );
+      logger.warn(`Skipping since there are no changes to filter from ${mergeBase}.`);
     }
     return changesets;
   }

@@ -21,9 +21,7 @@ function detectReactVersion() {
   }
 }
 
-module.exports = function getCommonConfig(
-  rules /*: { [key: string]: any, ... } */,
-) {
+module.exports = function getCommonConfig(rules /*: { [key: string]: any, ... } */) {
   return {
     rules: {
       ...rules,
@@ -33,7 +31,7 @@ module.exports = function getCommonConfig(
         {
           // see: prettier.config.js
           bracketSpacing: true,
-          printWidth: 80, // see: https://prettier.io/docs/en/options.html#print-width
+          printWidth: 100, // see: https://prettier.io/docs/en/options.html#print-width
           singleQuote: true,
           tabWidth: 2,
           trailingComma: 'all',
@@ -44,14 +42,7 @@ module.exports = function getCommonConfig(
     settings: {
       'import/resolver': {
         node: {
-          extensions: [
-            '.js',
-            '.jsx',
-            '.android.js',
-            '.ios.js',
-            '.native.js',
-            '.web.js',
-          ],
+          extensions: ['.js', '.jsx', '.android.js', '.ios.js', '.native.js', '.web.js'],
         },
       },
       react: {

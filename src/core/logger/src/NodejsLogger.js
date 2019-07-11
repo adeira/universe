@@ -10,8 +10,7 @@ import type { ILogger } from './ILogger';
 
 const sprintfFormat = format.printf(info => {
   const { level, message: rawMessage, [SPLAT]: splat } = info;
-  const message =
-    splat === undefined ? rawMessage : sprintf(rawMessage, ...splat);
+  const message = splat === undefined ? rawMessage : sprintf(rawMessage, ...splat);
   return `${level}: ${message}`;
 });
 

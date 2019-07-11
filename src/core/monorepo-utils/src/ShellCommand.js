@@ -99,9 +99,7 @@ export default class ShellCommand {
       const stderr = response.stderr ? response.stderr.toString() : '';
       maybeThrow(
         new Error(
-          `Command failed with exit code ${response.status}${
-            stderr !== '' ? `: ${stderr}` : '.'
-          }`,
+          `Command failed with exit code ${response.status}${stderr !== '' ? `: ${stderr}` : '.'}`,
         ),
       );
     }

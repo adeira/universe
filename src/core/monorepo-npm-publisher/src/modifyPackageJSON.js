@@ -13,9 +13,7 @@ function deleteField(packageJSONFile, field) {
   return packageJSONFileWithoutField;
 }
 
-export default function modifyPackageJSON(
-  packageJSONFile: PackageJSON,
-): PackageJSON {
+export default function modifyPackageJSON(packageJSONFile: PackageJSON): PackageJSON {
   const { main, module } = packageJSONFile;
 
   if (module === false) {

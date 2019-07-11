@@ -14,10 +14,7 @@ import createImportSyncPhase from '../src/phases/createImportSyncPhase';
 // yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit.js git@github.com:kiwicom/fetch.git 1
 
 const argv = process.argv.splice(2); // TODO: better CLI
-invariant(
-  argv.length === 2,
-  'Importit expects two arguments: git URL and PR number.',
-);
+invariant(argv.length === 2, 'Importit expects two arguments: git URL and PR number.');
 
 const exportedRepoURL = argv[0]; // git@github.com:kiwicom/fetch.git
 const pullRequestNumber = argv[1];

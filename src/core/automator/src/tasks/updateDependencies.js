@@ -2,11 +2,7 @@
 
 import fs from 'fs';
 import semver from 'semver';
-import {
-  ShellCommand,
-  Workspaces,
-  findRootPackageJsonPath,
-} from '@kiwicom/monorepo-utils';
+import { ShellCommand, Workspaces, findRootPackageJsonPath } from '@kiwicom/monorepo-utils';
 import { sprintf } from '@kiwicom/js';
 
 import automatorLog from '../log';
@@ -24,8 +20,7 @@ function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
   }
 
   function bumpDependency(dependency, packageJSON, packageJSONLocation) {
-    const requiredVersion =
-      packageJSON[dependency.packageType][dependency.packageName];
+    const requiredVersion = packageJSON[dependency.packageType][dependency.packageName];
     const newVersion = `^${dependency.versionLatest}`;
     const workspaceName = dependency.workspaceName || '"/"'; // can be ""
 
@@ -40,10 +35,7 @@ function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
     }
 
     // skip breaking major changes
-    if (
-      semver.diff(dependency.versionCurrent, dependency.versionLatest) ===
-      'major'
-    ) {
+    if (semver.diff(dependency.versionCurrent, dependency.versionLatest) === 'major') {
       return log(
         '⚠️ Skipping major breaking change: %s (in %s) %s -> %s',
         dependency.packageName,
@@ -73,10 +65,7 @@ function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
 
     // overwrite current version
     packageJSON[dependency.packageType][dependency.packageName] = newVersion;
-    fs.writeFileSync(
-      packageJSONLocation,
-      `${JSON.stringify(packageJSON, null, 2)}\n`,
-    );
+    fs.writeFileSync(packageJSONLocation, `${JSON.stringify(packageJSON, null, 2)}\n`);
 
     return undefined;
   }
@@ -103,10 +92,7 @@ function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
       versionLatest: row[3],
     };
 
-    if (
-      semver.satisfies(dependency.versionCurrent, dependency.versionLatest) ===
-      false
-    ) {
+    if (semver.satisfies(dependency.versionCurrent, dependency.versionLatest) === false) {
       if (dependency.workspaceName === '') {
         // This dependency is not part of any workspace (must be root package.json).
         const packageJSONLocation = findRootPackageJsonPath();
@@ -129,9 +115,7 @@ function updateDependencies(taskIdentifier: string, cb: () => Promise<void>) {
   });
 
   // TODO: yarn upgrade as well (?)
-  new ShellCommand(null, 'yarn', 'install')
-    .setOutputToScreen()
-    .runSynchronously();
+  new ShellCommand(null, 'yarn', 'install').setOutputToScreen().runSynchronously();
 
   cb();
 }

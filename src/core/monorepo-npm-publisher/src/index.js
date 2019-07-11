@@ -55,20 +55,13 @@ export default async function publish(options: Options) {
       });
 
       if (!semver.gt(packageJSONFile.version, data.latest)) {
-        log(
-          '✅ Skipping %s because there is nothing to release',
-          chalkPackageName,
-        );
+        log('✅ Skipping %s because there is nothing to release', chalkPackageName);
       } else {
         log('🚀 Preparing %s for release', chalkPackageName);
 
         const filenames = await packlist({ path: packageFolderPath });
         for (const filename of filenames) {
-          const destinationFileName = path.join(
-            options.buildCache,
-            packageFolderName,
-            filename,
-          );
+          const destinationFileName = path.join(options.buildCache, packageFolderName, filename);
 
           fs.mkdirSync(path.dirname(destinationFileName), {
             recursive: true,
@@ -87,10 +80,7 @@ export default async function publish(options: Options) {
               // $FlowAllowDynamicImport
               require(packageJSONLocation),
             );
-            fs.writeFileSync(
-              destinationFileName,
-              JSON.stringify(newPackageJSONFile, null, 2),
-            );
+            fs.writeFileSync(destinationFileName, JSON.stringify(newPackageJSONFile, null, 2));
           } else {
             const originalFilename = path.join(packageFolderPath, filename);
             log('%s 👉 %s', originalFilename, destinationFileName);
@@ -111,22 +101,13 @@ export default async function publish(options: Options) {
         if (options.dryRun === false) {
           await NPM.publishPackage({
             metadata: packageJSONFile,
-            body: fs.createReadStream(
-              path.join(options.buildCache, `${packageFolderName}.tgz`),
-            ),
+            body: fs.createReadStream(path.join(options.buildCache, `${packageFolderName}.tgz`)),
             npmAuthToken: options.npmAuthToken,
           });
 
-          log(
-            '👍 PUBLISHED %s version %s',
-            chalkPackageName,
-            packageJSONFile.version,
-          );
+          log('👍 PUBLISHED %s version %s', chalkPackageName, packageJSONFile.version);
         } else {
-          log(
-            '❌ Skipped publishing of %s because of DRY RUN.',
-            chalkPackageName,
-          );
+          log('❌ Skipped publishing of %s because of DRY RUN.', chalkPackageName);
         }
       }
     }

@@ -14,17 +14,11 @@ module.exports = {
       const value = comment.value.trim();
 
       if (value.match(/@noflow/)) {
-        context.report(
-          comment,
-          'Do not disable Flow type checker, use @flow instead.',
-        );
+        context.report(comment, 'Do not disable Flow type checker, use @flow instead.');
       }
 
       if (value.match(/@flow weak/)) {
-        context.report(
-          comment,
-          'Weak mode in Flow is not allowed, use @flow instead.',
-        );
+        context.report(comment, 'Weak mode in Flow is not allowed, use @flow instead.');
       }
     }
 

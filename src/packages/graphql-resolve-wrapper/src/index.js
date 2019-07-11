@@ -20,10 +20,7 @@ function defaultWrapper(resolveFn) {
   return (...args) => resolveFn(...args);
 }
 
-export function wrapResolvers(
-  schema: GraphQLSchema,
-  wrapper: WrapperFunction = defaultWrapper,
-) {
+export function wrapResolvers(schema: GraphQLSchema, wrapper: WrapperFunction = defaultWrapper) {
   visitSchema(schema, wrapper);
 }
 
@@ -39,11 +36,7 @@ function visitSchema(schema, wrapper) {
 }
 
 function visitType(type: any, wrapper) {
-  if (
-    type[SYMBOL_PROCESSED] ||
-    !type.getFields ||
-    isSystemType(type.toString())
-  ) {
+  if (type[SYMBOL_PROCESSED] || !type.getFields || isSystemType(type.toString())) {
     return;
   }
 

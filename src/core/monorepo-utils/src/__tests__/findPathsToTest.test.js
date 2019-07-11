@@ -5,9 +5,7 @@ import workspaceDependencies from './workspaceDependencies';
 
 it('finds dirty paths to test based on the changed files', () => {
   const warnings = [];
-  const spy = jest
-    .spyOn(console, 'warn')
-    .mockImplementation((...args) => warnings.push(args));
+  const spy = jest.spyOn(console, 'warn').mockImplementation((...args) => warnings.push(args));
 
   expect(
     findPathsToTest(workspaceDependencies, [

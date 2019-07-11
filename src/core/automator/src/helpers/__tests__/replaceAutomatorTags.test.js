@@ -11,15 +11,9 @@ function operation(taskIdentifier) {
 }
 
 describe('correct task identifier should replace the tags', () => {
-  generateTestsFromFixtures(
-    `${__dirname}/__fixtures__`,
-    operation('TEST_FIXTURE_1'),
-  );
+  generateTestsFromFixtures(`${__dirname}/__fixtures__`, operation('TEST_FIXTURE_1'));
 });
 
 describe('unknown task identifier should return unchanged input', () => {
-  generateTestsFromFixtures(
-    `${__dirname}/__fixtures__`,
-    operation('UNKNOWN_TASK_IDENTIFIER'),
-  );
+  generateTestsFromFixtures(`${__dirname}/__fixtures__`, operation('UNKNOWN_TASK_IDENTIFIER'));
 });

@@ -40,10 +40,7 @@ export default function transformFileVariants(
   // 2) transform JS-ESM version
   if (transpileESM !== false) {
     try {
-      const modifiedDestinationFilename = destinationFilename.replace(
-        /\.js$/,
-        '.mjs',
-      );
+      const modifiedDestinationFilename = destinationFilename.replace(/\.js$/, '.mjs');
       log('%s 👉 %s', originalFilename, modifiedDestinationFilename);
       fs.writeFileSync(
         modifiedDestinationFilename,

@@ -45,10 +45,7 @@ export type PaginationRelayProp = {|
   +environment: Environment,
   +hasMore: () => boolean,
   +isLoading: () => boolean,
-  +loadMore: (
-    pageSize: number,
-    callback: ?(error: ?Error) => void,
-  ) => ?Disposable,
+  +loadMore: (pageSize: number, callback: ?(error: ?Error) => void) => ?Disposable,
   +refetchConnection: (
     totalCount: number,
     callback: (error: ?Error) => void,
@@ -56,14 +53,10 @@ export type PaginationRelayProp = {|
   ) => ?Disposable,
 |};
 
-export default function createPaginationContainer<
-  TComponent: React$ComponentType<any>,
->(
+export default function createPaginationContainer<TComponent: React$ComponentType<any>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
   connectionConfig: ConnectionConfig,
-): React$ComponentType<
-  $RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>,
-> {
+): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>> {
   return _createPaginationContainer(Component, fragmentSpec, connectionConfig);
 }

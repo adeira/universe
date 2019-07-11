@@ -23,12 +23,8 @@ it('works with happy path', () => {
   expect(findRelatedWorkspaceLocations(workspaces, 'aaa')).toEqual(
     new Set(['src/aaa', 'src/bbb', 'src/ccc']),
   );
-  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toEqual(
-    new Set(['src/bbb']),
-  );
-  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toEqual(
-    new Set(['src/ccc']),
-  );
+  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toEqual(new Set(['src/bbb']));
+  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toEqual(new Set(['src/ccc']));
 });
 
 it('works with deep workspaces', () => {
@@ -52,12 +48,8 @@ it('works with deep workspaces', () => {
   expect(findRelatedWorkspaceLocations(workspaces, 'aaa')).toEqual(
     new Set(['src/aaa', 'src/bbb', 'src/ccc']),
   );
-  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toEqual(
-    new Set(['src/bbb', 'src/ccc']),
-  );
-  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toEqual(
-    new Set(['src/ccc']),
-  );
+  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toEqual(new Set(['src/bbb', 'src/ccc']));
+  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toEqual(new Set(['src/ccc']));
 });
 
 it('works with recursion', () => {
@@ -78,24 +70,21 @@ it('works with recursion', () => {
       mismatchedWorkspaceDependencies: [],
     },
   };
-  expect(findRelatedWorkspaceLocations(workspaces, 'aaa'))
-    .toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaceLocations(workspaces, 'aaa')).toMatchInlineSnapshot(`
       Set {
         "src/aaa",
         "src/bbb",
         "src/ccc",
       }
     `);
-  expect(findRelatedWorkspaceLocations(workspaces, 'bbb'))
-    .toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toMatchInlineSnapshot(`
       Set {
         "src/bbb",
         "src/ccc",
         "src/aaa",
       }
     `);
-  expect(findRelatedWorkspaceLocations(workspaces, 'ccc'))
-    .toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toMatchInlineSnapshot(`
       Set {
         "src/ccc",
         "src/aaa",
@@ -132,10 +121,6 @@ it('works with mismatched workspace dependencies', () => {
   expect(findRelatedWorkspaceLocations(workspaces, 'aaa')).toEqual(
     new Set(['src/aaa', 'src/bbb', 'src/ccc', 'src/ddd']),
   );
-  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toEqual(
-    new Set(['src/bbb', 'src/ddd']),
-  );
-  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toEqual(
-    new Set(['src/ccc']),
-  );
+  expect(findRelatedWorkspaceLocations(workspaces, 'bbb')).toEqual(new Set(['src/bbb', 'src/ddd']));
+  expect(findRelatedWorkspaceLocations(workspaces, 'ccc')).toEqual(new Set(['src/ccc']));
 });

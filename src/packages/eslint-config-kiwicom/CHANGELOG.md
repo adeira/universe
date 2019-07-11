@@ -1,5 +1,7 @@
 # Unreleased
 
+- Breaking: default line width is now 100 to be compatible with other JavaScript projects. Migration is super simple if you use our Eslint Runner: just run it with option `--all` and it will fix the lines automatically. You will probably have to fix some additional failing tests/lint rules but it should not take you more than a few minutes.
+
 # 5.0.0
 
 This is a major release with breaking changes. The main changes are major Eslint upgrade and bump of some warnings to errors (strict mode reset). Please upgrade all previous versions first and fix all the warnings before upgrading to version 5.0.

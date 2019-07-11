@@ -42,10 +42,7 @@ describe('dependencies similarities', () => {
       const devDependencies = Object.keys(packageJson.devDependencies || {});
       const packageDependencies = dependencies.concat(devDependencies);
 
-      for (const [
-        mainDependency,
-        similarDependencies,
-      ] of similarities.entries()) {
+      for (const [mainDependency, similarDependencies] of similarities.entries()) {
         similarDependencies.forEach(similarDependency => {
           packageDependencies.forEach(dependency => {
             if (similarDependency === dependency) {

@@ -43,9 +43,7 @@ it('prints success message when there are no breaking changes', () => {
 
 it('prints error messages when there are breaking changes', () => {
   const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
-  const consoleErrorSpy = jest
-    .spyOn(console, 'error')
-    .mockImplementation(() => {});
+  const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   const processSpy = jest.spyOn(process, 'exit').mockImplementation(code => {
     throw new Error(`process.exit(${code}) was called`);
   });
@@ -74,10 +72,7 @@ it('prints error messages when the schema is manually polluted', () => {
   expect(() =>
     testBackwardCompatibility({
       allowBreakingChanges: false,
-      snapshotLocation: path.join(
-        __dirname,
-        'testSchemaSnapshotPolluted.graphql',
-      ),
+      snapshotLocation: path.join(__dirname, 'testSchemaSnapshotPolluted.graphql'),
       schema: require('./testSchema').validSchema,
     }),
   ).toThrow('process.exit(1) was called');
@@ -103,9 +98,7 @@ it('prints warning and updates the schema when backward compatible changes detec
   ).toThrow('process.exit(1) was called');
 
   expect(fsSpy.mock.calls[0][1]).toMatchSnapshot();
-  expect(
-    consoleSpy.mock.calls.map(call => stripAnsi(call[0]).trim()),
-  ).toMatchSnapshot();
+  expect(consoleSpy.mock.calls.map(call => stripAnsi(call[0]).trim())).toMatchSnapshot();
   expect(processSpy).toHaveBeenCalledWith(1);
 
   jest.restoreAllMocks();

@@ -21,16 +21,13 @@ expect.extend({
       return {
         pass: false,
         message: () =>
-          `Expected Error message to be:${os.EOL}  ${this.utils.printExpected(
-            message,
-          )}\n` +
+          `Expected Error message to be:${os.EOL}  ${this.utils.printExpected(message)}\n` +
           `Received:${os.EOL}  ${this.utils.printReceived(received.message)}`,
       };
     }
     return {
       pass: false,
-      message: () =>
-        `expected ${received} to be instance of Error, ${typeof received} given`,
+      message: () => `expected ${received} to be instance of Error, ${typeof received} given`,
     };
   },
 });
@@ -85,9 +82,7 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
       );
 
       const message =
-        `Expected test not to call ${chalk.bold(
-          `console.${methodName}()`,
-        )}.\n\n` +
+        `Expected test not to call ${chalk.bold(`console.${methodName}()`)}.\n\n` +
         `If the console output is expected, test for it explicitly by mocking it out using ${chalk.bold(
           'jest.spyOn',
         )}(console, '${methodName}').mockImplementation(...) and test that the output occurs.`;

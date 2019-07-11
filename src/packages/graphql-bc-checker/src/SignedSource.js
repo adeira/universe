@@ -75,8 +75,7 @@ const SignedSource = {
     const matches = PATTERN.exec(data);
     if (!matches) {
       throw new Error(
-        'SignedSource.verifySignature(...): Cannot verify signature of an ' +
-          'unsigned file.',
+        'SignedSource.verifySignature(...): Cannot verify signature of an unsigned file.',
       );
     }
     const actual = matches[1];

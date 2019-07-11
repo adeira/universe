@@ -159,11 +159,7 @@ module.exports = {
   'id-length': OFF,
   'id-match': OFF,
   'line-comment-position': OFF,
-  'lines-between-class-members': [
-    WARN,
-    'always',
-    { exceptAfterSingleLine: true },
-  ],
+  'lines-between-class-members': [WARN, 'always', { exceptAfterSingleLine: true }],
   'max-depth': OFF,
   'max-lines': OFF,
   'max-lines-per-function': OFF,
@@ -317,10 +313,7 @@ module.exports = {
 
   // React (https://github.com/yannickcr/eslint-plugin-react)
   'react/boolean-prop-naming': OFF,
-  'react/button-has-type': [
-    ERROR,
-    { button: true, submit: true, reset: false },
-  ],
+  'react/button-has-type': [ERROR, { button: true, submit: true, reset: false }],
   'react/default-props-match-prop-types': OFF,
   'react/destructuring-assignment': OFF,
   'react/display-name': OFF,
@@ -477,10 +470,7 @@ module.exports = {
   'jsx-a11y/mouse-events-have-key-events': OFF,
   'jsx-a11y/no-access-key': ERROR,
   'jsx-a11y/no-autofocus': [ERROR, { ignoreNonDOM: true }],
-  'jsx-a11y/no-distracting-elements': [
-    ERROR,
-    { elements: ['marquee', 'blink'] },
-  ],
+  'jsx-a11y/no-distracting-elements': [ERROR, { elements: ['marquee', 'blink'] }],
   'jsx-a11y/no-interactive-element-to-noninteractive-role': OFF,
   'jsx-a11y/no-noninteractive-element-interactions': OFF,
   'jsx-a11y/no-noninteractive-element-to-interactive-role': OFF,

@@ -46,18 +46,12 @@ test('compareRulesets behavior', () => {
   expect(compareRulesets({ aaa: 2 }, { aaa: 2 })).toEqual(new Set(['aaa']));
   expect(compareRulesets({ aaa: 2 }, { aaa: 0 })).toEqual(new Set(['aaa']));
 
-  expect(compareRulesets({ curly: 2 }, { curly: 2 })).toEqual(
-    new Set(['curly']),
-  );
+  expect(compareRulesets({ curly: 2 }, { curly: 2 })).toEqual(new Set(['curly']));
 
   // this is fine, this rule has an exception:
-  expect(compareRulesets({ curly: [2, 'all'] }, { curly: 2 })).toEqual(
-    new Set(),
-  );
+  expect(compareRulesets({ curly: [2, 'all'] }, { curly: 2 })).toEqual(new Set());
 });
 
 test('our rules should not contain specific Prettier rules', () => {
-  expect(compareRulesets(ourRules, extraPrettierRules)).toEqual(
-    new Set<void>(),
-  );
+  expect(compareRulesets(ourRules, extraPrettierRules)).toEqual(new Set<void>());
 });

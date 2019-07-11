@@ -2,11 +2,7 @@
 
 import { GraphQLObjectType, GraphQLID } from 'graphql';
 
-import GlobalID, {
-  fromGlobalId,
-  evaluateGlobalIdField,
-  __isTypeOf,
-} from '../GlobalID';
+import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf } from '../GlobalID';
 
 function base64(text) {
   return Buffer.from(text).toString('base64');
@@ -14,9 +10,7 @@ function base64(text) {
 
 function resolveField(field, args = { opaque: true }): string {
   if (!field.resolve) {
-    throw new Error(
-      'Cannot resolve this field because "resolve" function is not implemented.',
-    );
+    throw new Error('Cannot resolve this field because "resolve" function is not implemented.');
   }
 
   return String(
@@ -192,9 +186,7 @@ describe('evaluateGlobalIdField', () => {
           },
         }),
       ),
-    ).toThrowErrorMatchingInlineSnapshot(
-      "\"Unable to evaluate field 'id' because it's missing.\"",
-    );
+    ).toThrowErrorMatchingInlineSnapshot("\"Unable to evaluate field 'id' because it's missing.\"");
   });
 
   it('calls resolver with correct arguments', () => {

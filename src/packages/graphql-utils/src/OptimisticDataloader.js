@@ -19,8 +19,7 @@ export default class OptimisticDataloader extends DataLoader<K, V> {
   loadMany = (keys: $ReadOnlyArray<K>): Promise<Array<V>> => {
     if (!Array.isArray(keys)) {
       throw new TypeError(
-        'The loader.loadMany() function must be called with Array<key> ' +
-          `but got: ${keys}.`,
+        `The loader.loadMany() function must be called with Array<key> but got: ${keys}.`,
       );
     }
 

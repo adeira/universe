@@ -28,10 +28,7 @@ type BabelRules = $ReadOnlyArray<BabelRule>;
 
 */
 
-module.exports = (
-  api /*: ApiType */,
-  externalOptions /*: ExternalOptions */,
-) => {
+module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) => {
   api.assertVersion(7);
 
   const options /*: InternalOptions */ = {
@@ -49,12 +46,7 @@ module.exports = (
 
   let presets /*: BabelRules */ = [];
   let plugins /*: BabelRules */ = [];
-  let parserPlugins /*: Array<string> */ = [
-    'jsx',
-    'flow',
-    'flowComments',
-    'dynamicImport',
-  ];
+  let parserPlugins /*: Array<string> */ = ['jsx', 'flow', 'flowComments', 'dynamicImport'];
   let retainLines = false;
 
   const target = options.target;

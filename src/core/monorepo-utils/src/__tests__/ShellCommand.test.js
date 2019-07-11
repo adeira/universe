@@ -38,11 +38,7 @@ it('throws exception when command exits with signal', () => {
   // but it's possible to suppress this error:
   let exitCode;
   expect(() => {
-    exitCode = new ShellCommand(
-      path.join(__dirname, 'ShellCommandFixtures'),
-      'node',
-      'kill.js',
-    )
+    exitCode = new ShellCommand(path.join(__dirname, 'ShellCommandFixtures'), 'node', 'kill.js')
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
@@ -62,11 +58,7 @@ it('throws exception when command exits with error code', () => {
   // but it's possible to suppress this error:
   let exitCode;
   expect(() => {
-    exitCode = new ShellCommand(
-      path.join(__dirname, 'ShellCommandFixtures'),
-      'node',
-      'exit.js',
-    )
+    exitCode = new ShellCommand(path.join(__dirname, 'ShellCommandFixtures'), 'node', 'exit.js')
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
@@ -90,11 +82,7 @@ it('returns stdout and stderr by default', () => {
 
 it('returns empty strings when printing to screen', () => {
   expect(
-    new ShellCommand(
-      path.join(__dirname, 'ShellCommandFixtures'),
-      'node',
-      'success.js',
-    )
+    new ShellCommand(path.join(__dirname, 'ShellCommandFixtures'), 'node', 'success.js')
       .setOutputToScreen()
       .runSynchronously(),
   ).toEqual({
@@ -105,13 +93,11 @@ it('returns empty strings when printing to screen', () => {
 });
 
 it('executes the underlying child process correctly -- output to screen', () => {
-  const spy = jest
-    .spyOn(nodeChildProcess, 'spawnSync')
-    .mockImplementation(() => ({
-      error: undefined,
-      signal: null,
-      status: 0, // success
-    }));
+  const spy = jest.spyOn(nodeChildProcess, 'spawnSync').mockImplementation(() => ({
+    error: undefined,
+    signal: null,
+    status: 0, // success
+  }));
   new ShellCommand(
     null,
     'some_command',
@@ -123,30 +109,22 @@ it('executes the underlying child process correctly -- output to screen', () => 
   )
     .setOutputToScreen()
     .runSynchronously();
-  expect(spy).toHaveBeenCalledWith(
-    'some_command',
-    ['-x', '-x', '--abc', 'string'],
-    {
-      cwd: expect.any(String),
-      input: undefined,
-      stdio: ['inherit', 'inherit', 'inherit'],
-      maxBuffer: HUNDRED_MEGABYTES,
-    },
-  );
+  expect(spy).toHaveBeenCalledWith('some_command', ['-x', '-x', '--abc', 'string'], {
+    cwd: expect.any(String),
+    input: undefined,
+    stdio: ['inherit', 'inherit', 'inherit'],
+    maxBuffer: HUNDRED_MEGABYTES,
+  });
   spy.mockRestore();
 });
 
 it('executes the underlying child process correctly -- returns output with stdin', () => {
-  const spy = jest
-    .spyOn(nodeChildProcess, 'spawnSync')
-    .mockImplementation(() => ({
-      error: undefined,
-      signal: null,
-      status: 0, // success
-    }));
-  new ShellCommand(null, 'some_command')
-    .setStdin('custom playload')
-    .runSynchronously();
+  const spy = jest.spyOn(nodeChildProcess, 'spawnSync').mockImplementation(() => ({
+    error: undefined,
+    signal: null,
+    status: 0, // success
+  }));
+  new ShellCommand(null, 'some_command').setStdin('custom playload').runSynchronously();
   expect(spy).toHaveBeenCalledWith('some_command', [], {
     cwd: expect.any(String),
     input: 'custom playload',
@@ -157,13 +135,11 @@ it('executes the underlying child process correctly -- returns output with stdin
 });
 
 it('executes the underlying child process correctly -- with environment variables', () => {
-  const spy = jest
-    .spyOn(nodeChildProcess, 'spawnSync')
-    .mockImplementation(() => ({
-      error: undefined,
-      signal: null,
-      status: 0, // success
-    }));
+  const spy = jest.spyOn(nodeChildProcess, 'spawnSync').mockImplementation(() => ({
+    error: undefined,
+    signal: null,
+    status: 0, // success
+  }));
   new ShellCommand(null, 'some_command')
     .setEnvironmentVariables(new Map([['GIT_CONFIG_NOSYSTEM', '1']]))
     .runSynchronously();

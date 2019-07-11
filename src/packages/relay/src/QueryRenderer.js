@@ -45,11 +45,7 @@ type Props =
     |};
 
 export default function QueryRenderer(props: Props) {
-  function renderQueryRendererResponse({
-    error,
-    props: rendererProps,
-    retry,
-  }: ReadyState) {
+  function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState) {
     if (error) {
       if (props.onSystemError) {
         return props.onSystemError({ error, retry });
@@ -81,11 +77,7 @@ export default function QueryRenderer(props: Props) {
     }
 
     if (!rendererProps) {
-      return props.onLoading ? (
-        props.onLoading()
-      ) : (
-        <div data-testid="loading">Loading...</div>
-      );
+      return props.onLoading ? props.onLoading() : <div data-testid="loading">Loading...</div>;
     }
 
     invariant(
@@ -114,14 +106,9 @@ export default function QueryRenderer(props: Props) {
     });
   }
 
-  const environment =
-    props.environment ?? createDefaultEnvironment(props.clientID);
+  const environment = props.environment ?? createDefaultEnvironment(props.clientID);
 
   return (
-    <RelayQueryRenderer
-      environment={environment}
-      render={renderQueryRendererResponse}
-      {...props}
-    />
+    <RelayQueryRenderer environment={environment} render={renderQueryRendererResponse} {...props} />
   );
 }

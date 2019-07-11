@@ -15,9 +15,7 @@ expect.addSnapshotSerializer({
     return Object.keys(serializerValue)
       .map(key => {
         const value = serializerValue[key];
-        const inspectedValue = isObject(value)
-          ? JSON.stringify(value, null, 2)
-          : value;
+        const inspectedValue = isObject(value) ? JSON.stringify(value, null, 2) : value;
         return `~~~~~~~~~~ ${key.toUpperCase()} ~~~~~~~~~~\n${inspectedValue}`;
       })
       .join(os.EOL);

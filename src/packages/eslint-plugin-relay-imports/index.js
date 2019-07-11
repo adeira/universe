@@ -27,13 +27,8 @@ module.exports = {
         }
         node.specifiers.forEach(specifier => {
           if (node.importKind !== 'type' && specifier.importKind !== 'type') {
-            const nameNode = specifier.imported
-              ? specifier.imported
-              : specifier.local;
-            context.report(
-              nameNode,
-              `"${nameNode.name}" is not imported as a type`,
-            );
+            const nameNode = specifier.imported ? specifier.imported : specifier.local;
+            context.report(nameNode, `"${nameNode.name}" is not imported as a type`);
           }
         });
       },
@@ -45,9 +40,7 @@ module.exports = {
         }
         const generatedFileName = path.join(
           path.dirname(context.getFilename()),
-          node.source.value.endsWith('.js')
-            ? node.source.value
-            : `${node.source.value}.js`,
+          node.source.value.endsWith('.js') ? node.source.value : `${node.source.value}.js`,
         );
         let generatedSource = '';
         try {
@@ -68,9 +61,7 @@ module.exports = {
               specifier.imported,
               `"${
                 specifier.imported.name
-              }" is not exported from the generated file (exported types: ${types.join(
-                ', ',
-              )})`,
+              }" is not exported from the generated file (exported types: ${types.join(', ')})`,
             );
           }
         });

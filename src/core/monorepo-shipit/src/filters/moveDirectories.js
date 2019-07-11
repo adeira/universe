@@ -34,14 +34,8 @@ export default function moveDirectories(
     }
 
     let body = diff.body;
-    body = body.replace(
-      new RegExp(`^--- a/${oldPath}`, 'm'),
-      `--- a/${newPath}`,
-    );
-    body = body.replace(
-      new RegExp(`^\\+\\+\\+ b/${oldPath}`, 'm'),
-      `+++ b/${newPath}`,
-    );
+    body = body.replace(new RegExp(`^--- a/${oldPath}`, 'm'), `--- a/${newPath}`);
+    body = body.replace(new RegExp(`^\\+\\+\\+ b/${oldPath}`, 'm'), `+++ b/${newPath}`);
 
     diffs.add({
       path: newPath,

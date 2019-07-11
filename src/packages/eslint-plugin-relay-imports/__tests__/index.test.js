@@ -27,26 +27,22 @@ const validForBoth = [
   },
   {
     // valid Relay import with "import type"
-    code:
-      "import type { Module_data } from './__generated__/Module_data.graphql';",
+    code: "import type { Module_data } from './__generated__/Module_data.graphql';",
     filename: '/path/Module.js',
   },
   {
     // valid Relay import with "import { type"
-    code:
-      "import { type Module_data } from './__generated__/Module_data.graphql';",
+    code: "import { type Module_data } from './__generated__/Module_data.graphql';",
     filename: '/path/Module.js',
   },
   {
     // valid Relay import from artifact directory with "import type"
-    code:
-      "import type { Module_data } from '__generated__/Module_data.graphql';",
+    code: "import type { Module_data } from '__generated__/Module_data.graphql';",
     filename: '/path/Module.js',
   },
   {
     // valid Relay import from artifact directory with "import { type"
-    code:
-      "import { type Module_data } from '__generated__/Module_data.graphql';",
+    code: "import { type Module_data } from '__generated__/Module_data.graphql';",
     filename: '/path/Module.js',
   },
 ];
@@ -56,16 +52,14 @@ ruleTester.run('no-values', plugin.rules['no-values'], {
     ...validForBoth,
     {
       // this rule doesn't mind whether the file exists
-      code:
-        "import type { WrongFile_data } from './__generated__/WrongFile_data.graphql';",
+      code: "import type { WrongFile_data } from './__generated__/WrongFile_data.graphql';",
       filename: '/path/Module.js',
     },
   ],
 
   invalid: [
     {
-      code:
-        "import { Module_data } from './__generated__/Module_data.graphql';",
+      code: "import { Module_data } from './__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
       errors: [{ message: '"Module_data" is not imported as a type' }],
     },
@@ -81,8 +75,7 @@ ruleTester.run('no-values', plugin.rules['no-values'], {
       errors: [{ message: '"Module_data" is not imported as a type' }],
     },
     {
-      code:
-        "import { Module_data } from '../OtherDirectory/__generated__/Module_data.graphql';",
+      code: "import { Module_data } from '../OtherDirectory/__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
       errors: [{ message: '"Module_data" is not imported as a type' }],
     },
@@ -99,16 +92,14 @@ ruleTester.run('type-must-exist', plugin.rules['type-must-exist'], {
     },
     {
       // filename including the extension
-      code:
-        "import type { Module_data } from './__generated__/Module_data.graphql.js';",
+      code: "import type { Module_data } from './__generated__/Module_data.graphql.js';",
       filename: '/path/Module.js',
     },
   ],
 
   invalid: [
     {
-      code:
-        "import type { Wrong_type } from './__generated__/Module_data.graphql';",
+      code: "import type { Wrong_type } from './__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
       errors: [
         {
@@ -118,8 +109,7 @@ ruleTester.run('type-must-exist', plugin.rules['type-must-exist'], {
       ],
     },
     {
-      code:
-        "import type { Wrong_type } from '../path/__generated__/Module_data.graphql';",
+      code: "import type { Wrong_type } from '../path/__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
       errors: [
         {
@@ -130,8 +120,7 @@ ruleTester.run('type-must-exist', plugin.rules['type-must-exist'], {
     },
     {
       // one valid, one invalid
-      code:
-        "import type { Module_data, Wrong_type } from './__generated__/Module_data.graphql';",
+      code: "import type { Module_data, Wrong_type } from './__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
       errors: [
         {
@@ -142,8 +131,7 @@ ruleTester.run('type-must-exist', plugin.rules['type-must-exist'], {
     },
     {
       // file doesn't exist
-      code:
-        "import type { WrongFile_data } from './__generated__/WrongFile_data.graphql';",
+      code: "import type { WrongFile_data } from './__generated__/WrongFile_data.graphql';",
       filename: '/path/Module.js',
       errors: [
         {

@@ -13,19 +13,13 @@ type GlobOptions = {|
   +root?: string,
 |};
 
-type GlobCallback = (
-  error: null | Error,
-  filenames: $ReadOnlyArray<string>,
-) => void;
+type GlobCallback = (error: null | Error, filenames: $ReadOnlyArray<string>) => void;
 
 function isWindowsPath(globPattern: GlobPattern): boolean %checks {
   return /^[a-z]:\\/i.test(globPattern);
 }
 
-function isValidRoot(
-  globPattern: GlobPattern,
-  options?: GlobOptions,
-): boolean %checks {
+function isValidRoot(globPattern: GlobPattern, options?: GlobOptions): boolean %checks {
   return !(globPattern.startsWith('/') && options?.root === undefined);
 }
 
@@ -62,10 +56,7 @@ export const glob: GlobWithCallback = (globPattern, options, callback) => {
   validateInputs(globPattern, isObject(options) ? options : undefined);
 
   if (typeof options === 'function') {
-    invariant(
-      callback === undefined,
-      'Glob function accepts only one callback.',
-    );
+    invariant(callback === undefined, 'Glob function accepts only one callback.');
     return _glob(globPattern, options);
   }
 
@@ -79,10 +70,7 @@ export const glob: GlobWithCallback = (globPattern, options, callback) => {
   );
 };
 
-export function globSync(
-  globPattern: GlobPattern,
-  options?: GlobOptions,
-): $ReadOnlyArray<string> {
+export function globSync(globPattern: GlobPattern, options?: GlobOptions): $ReadOnlyArray<string> {
   validateInputs(globPattern, options);
   return _glob.sync(globPattern, {
     ignore: ['**/node_modules/**'],

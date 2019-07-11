@@ -9,9 +9,7 @@ beforeEach(() => {
 const observer = {
   start: () => list.push('start'),
   next: val => {
-    return list.push(
-      `next:${typeof val === 'object' ? JSON.stringify(val) : val}`,
-    );
+    return list.push(`next:${typeof val === 'object' ? JSON.stringify(val) : val}`);
   },
   error: err => list.push(err),
   complete: () => list.push('complete'),
@@ -76,9 +74,7 @@ it('works as expected with query and full cache', done => {
   const createRequestHandler = require('../createRequestHandler').default;
 
   const requestHandler = createRequestHandler(() => {
-    throw new Error(
-      'should not be called in this scenario (reading from cache)',
-    );
+    throw new Error('should not be called in this scenario (reading from cache)');
   });
 
   const observable = requestHandler(

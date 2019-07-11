@@ -27,14 +27,10 @@ export type RefetchRelayProp = {|
   ) => Disposable,
 |};
 
-export default function createRefetchContainer<
-  TComponent: React$ComponentType<any>,
->(
+export default function createRefetchContainer<TComponent: React$ComponentType<any>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
   refetchQuery: GraphQLTaggedNode,
-): React$ComponentType<
-  $RelayProps<React$ElementConfig<TComponent>, RefetchRelayProp>,
-> {
+): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RefetchRelayProp>> {
   return _createRefetchContainer(Component, fragmentSpec, refetchQuery);
 }

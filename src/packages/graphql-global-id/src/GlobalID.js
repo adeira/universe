@@ -26,11 +26,7 @@ function unbase64(i) {
 export function fromGlobalId(opaqueID: string): string {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
-  invariant(
-    delimiterPos !== -1,
-    "ID '%s' is not valid opaque value.",
-    opaqueID,
-  );
+  invariant(delimiterPos !== -1, "ID '%s' is not valid opaque value.", opaqueID);
   return unbasedGlobalID.substring(delimiterPos + 1);
 }
 
@@ -38,11 +34,7 @@ export function fromGlobalId(opaqueID: string): string {
 export function __isTypeOf(type: string, opaqueID: string): boolean {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
-  invariant(
-    delimiterPos !== -1,
-    "ID '%s' is not valid opaque value.",
-    opaqueID,
-  );
+  invariant(delimiterPos !== -1, "ID '%s' is not valid opaque value.", opaqueID);
   const unmaskedType = unbasedGlobalID.substring(0, delimiterPos);
   return unmaskedType === type;
 }
@@ -63,10 +55,7 @@ export function evaluateGlobalIdField(
 ): OpaqueIDString {
   const idField = outputObject.getFields().id;
 
-  invariant(
-    idField !== undefined,
-    "Unable to evaluate field 'id' because it's missing.",
-  );
+  invariant(idField !== undefined, "Unable to evaluate field 'id' because it's missing.");
 
   invariant(
     // $FlowIssue: https://github.com/facebook/flow/issues/3258
@@ -89,21 +78,13 @@ export function evaluateGlobalIdField(
  * by calling idFetcher on the object.
  */
 export default function globalIdField(
-  idFetcher: (
-    object: any,
-    context: any,
-    info: GraphQLResolveInfo,
-  ) => string | number,
+  idFetcher: (object: any, context: any, info: GraphQLResolveInfo) => string | number,
   // Unmasked ID fetcher is optional and it will allow you to overwrite how
   // does public ID actually look like. It's because opaque ID may be quite
   // complex internally but unmasked ID can be still simply represented.
   // Please not that unmasked ID should not be used as a globally unique
   // identifier (use original opaque ID instead).
-  unmaskedIdFetcher?: (
-    object: any,
-    context: any,
-    info: GraphQLResolveInfo,
-  ) => string | number,
+  unmaskedIdFetcher?: (object: any, context: any, info: GraphQLResolveInfo) => string | number,
 ): GraphQLFieldConfig<any, any> {
   return {
     description:

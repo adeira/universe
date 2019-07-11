@@ -10,9 +10,7 @@ function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
 
 function git(...args /*: $ReadOnlyArray<string> */): string {
   // TODO: unify with Git implementation from Shipit (?)
-  return new ShellCommand(null, 'git', '--no-pager', ...args)
-    .runSynchronously()
-    .getStdout();
+  return new ShellCommand(null, 'git', '--no-pager', ...args).runSynchronously().getStdout();
 }
 
 const Git = {
@@ -24,11 +22,7 @@ const Git = {
   },
 
   getUntrackedFiles() /*: $ReadOnlyArray<string> */ {
-    const rawUntrackedChanges = git(
-      'ls-files',
-      '--others',
-      '--exclude-standard',
-    );
+    const rawUntrackedChanges = git('ls-files', '--others', '--exclude-standard');
     return __parseRows(rawUntrackedChanges);
   },
 

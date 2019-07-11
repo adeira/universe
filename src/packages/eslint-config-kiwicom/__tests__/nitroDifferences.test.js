@@ -61,9 +61,7 @@ function formatChanges(description, changes) {
     const { kind } = change;
     let context = '';
     if (kind === 'E') {
-      context += `(${JSON.stringify(change.lhs)} -> ${JSON.stringify(
-        change.rhs,
-      )})`;
+      context += `(${JSON.stringify(change.lhs)} -> ${JSON.stringify(change.rhs)})`;
     } else if (kind === 'A') {
       context += `(${JSON.stringify(change.item)})`;
     } else if (kind === 'N') {
@@ -101,10 +99,7 @@ function normalize(config) {
     let normalizedConfig;
     if (Array.isArray(value)) {
       const [level, ...config] = value;
-      normalizedConfig = normalizeArrayConfig([
-        normalizeLevel(level),
-        ...config,
-      ]);
+      normalizedConfig = normalizeArrayConfig([normalizeLevel(level), ...config]);
     } else {
       normalizedConfig = normalizeLevel(value);
     }

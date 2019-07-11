@@ -26,9 +26,7 @@ import Git from './Git';
  * For more details: https://git-scm.com/docs/git-diff
  */
 export default function getChangedFiles(): $ReadOnlyArray<string> {
-  const uncommittedChanges = Git.getUntrackedFiles().concat(
-    Git.getWorktreeChangedFiles(),
-  );
+  const uncommittedChanges = Git.getUntrackedFiles().concat(Git.getWorktreeChangedFiles());
 
   // It's OK to run tests on uncommitted changes locally but it's unexpected
   // in CI because it indicates that CI generated something which is not
@@ -46,7 +44,5 @@ This usually means that CI generated some changes (for example during installati
     process.exit(1);
   }
 
-  return uncommittedChanges.length > 0
-    ? uncommittedChanges
-    : Git.getLastCommitChanges();
+  return uncommittedChanges.length > 0 ? uncommittedChanges : Git.getLastCommitChanges();
 }

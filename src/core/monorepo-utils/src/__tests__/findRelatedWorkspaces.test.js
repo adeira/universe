@@ -5,9 +5,8 @@ import workspaceDependencies from './workspaceDependencies';
 
 it('finds related workspaces based on touched workspaces', () => {
   // nobody uses `@kiwicom/graphql` as a dependency so it should return only itself
-  expect(
-    findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/graphql'])),
-  ).toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/graphql'])))
+    .toMatchInlineSnapshot(`
     Set {
       "@kiwicom/graphql",
     }
@@ -15,9 +14,8 @@ it('finds related workspaces based on touched workspaces', () => {
 
   // `@kiwicom/fetch` is used in many projects so all these projects
   // should be tested (recursively - see the example projects)
-  expect(
-    findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/fetch'])),
-  ).toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/fetch'])))
+    .toMatchInlineSnapshot(`
     Set {
       "@kiwicom/fetch",
       "@kiwicom/automator",
@@ -184,34 +182,22 @@ it('resolves mismatched workspace dependencies correctly', () => {
       "aaa",
     }
   `);
-  expect(
-    findRelatedWorkspaces(
-      circularWorkspaceDependencies,
-      new Set(['aaa', 'ccc']),
-    ),
-  ).toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['aaa', 'ccc'])))
+    .toMatchInlineSnapshot(`
     Set {
       "aaa",
       "ccc",
     }
   `);
-  expect(
-    findRelatedWorkspaces(
-      circularWorkspaceDependencies,
-      new Set(['aaa', 'bbb']),
-    ),
-  ).toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['aaa', 'bbb'])))
+    .toMatchInlineSnapshot(`
     Set {
       "aaa",
       "bbb",
     }
   `);
-  expect(
-    findRelatedWorkspaces(
-      circularWorkspaceDependencies,
-      new Set(['aaa', 'bbb', 'ccc']),
-    ),
-  ).toMatchInlineSnapshot(`
+  expect(findRelatedWorkspaces(circularWorkspaceDependencies, new Set(['aaa', 'bbb', 'ccc'])))
+    .toMatchInlineSnapshot(`
     Set {
       "aaa",
       "bbb",

@@ -16,10 +16,7 @@ export default function run(taskIdentifier: string) {
   });
 }
 
-function updateNPMPackagesInfo(
-  taskIdentifier: string,
-  cb: () => Promise<void>,
-): void {
+function updateNPMPackagesInfo(taskIdentifier: string, cb: () => Promise<void>): void {
   const workspaces = new Set();
 
   Workspaces.iterateWorkspaces(packageJSONLocation => {
