@@ -44,9 +44,7 @@ module.exports = ({ testPath, extraOptions } /*: Options */) => {
   }
 
   if (extraOptions.runAll === false) {
-    const normalizedPath = testPath
-      .replace(process.cwd(), '')
-      .replace(/^\//, '');
+    const normalizedPath = testPath.replace(process.cwd(), '').replace(/^\//, '');
 
     if (changedFiles.includes(normalizedPath) === false) {
       return skip({

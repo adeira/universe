@@ -6,11 +6,7 @@ import path from 'path';
 import util from 'util';
 import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
-import {
-  globSync,
-  findMonorepoRoot,
-  ShellCommand,
-} from '@kiwicom/monorepo-utils';
+import { globSync, findMonorepoRoot, ShellCommand } from '@kiwicom/monorepo-utils';
 import { invariant } from '@kiwicom/js';
 import logger from '@kiwicom/logger';
 
@@ -27,9 +23,7 @@ const buildDirName = argv[1];
 
 const workspaces = JSON.parse(
   JSON.parse(
-    new ShellCommand(null, 'yarn', 'workspaces', 'info', '--json')
-      .runSynchronously()
-      .getStdout(),
+    new ShellCommand(null, 'yarn', 'workspaces', 'info', '--json').runSynchronously().getStdout(),
   ).data,
 );
 
@@ -38,9 +32,7 @@ const locations = findRelatedWorkspaceLocations(workspaces, rootWorkspace);
 
 const monorepoRoot = findMonorepoRoot();
 const buildDir = path.join(os.tmpdir(), buildDirName);
-const projectRoots = [...locations].map(location =>
-  path.join(monorepoRoot, location),
-);
+const projectRoots = [...locations].map(location => path.join(monorepoRoot, location));
 
 let filesCounter = 1;
 function logFromTo(absoluteFrom, absoluteTo) {
@@ -61,10 +53,7 @@ function copyFileSync(absoluteFrom, absoluteTo) {
 function copyAndTranspileFileSync(absoluteFrom, absoluteTo, babelConfig) {
   logFromTo(absoluteFrom, absoluteTo);
   fs.mkdirSync(path.dirname(absoluteTo), { recursive: true });
-  fs.writeFileSync(
-    absoluteTo,
-    transformFileSync(absoluteFrom, babelConfig).code,
-  );
+  fs.writeFileSync(absoluteTo, transformFileSync(absoluteFrom, babelConfig).code);
 }
 
 const rimrafPromise = util.promisify(rimraf);
@@ -79,10 +68,7 @@ const rimrafPromise = util.promisify(rimraf);
       ignore: ['**/node_modules/**', '**/__tests__/**'],
     });
     for (const rawFileName of rawFileNames) {
-      const destinationFilename = path.join(
-        buildDir,
-        rawFileName.replace(monorepoRoot, ''),
-      );
+      const destinationFilename = path.join(buildDir, rawFileName.replace(monorepoRoot, ''));
       if (rawFileName.endsWith('.js')) {
         copyAndTranspileFileSync(rawFileName, destinationFilename, {
           cwd: projectRoot,
@@ -111,24 +97,15 @@ const rimrafPromise = util.promisify(rimraf);
       2,
     ),
   );
-  copyFileSync(
-    path.join(monorepoRoot, 'yarn.lock'),
-    path.join(buildDir, 'yarn.lock'),
-  );
+  copyFileSync(path.join(monorepoRoot, 'yarn.lock'), path.join(buildDir, 'yarn.lock'));
 
   // 4) copy Yarn itself, Yarn config and offline mirror
-  copyFileSync(
-    path.join(monorepoRoot, '.yarnrc'),
-    path.join(buildDir, '.yarnrc'),
-  );
+  copyFileSync(path.join(monorepoRoot, '.yarnrc'), path.join(buildDir, '.yarnrc'));
   const rawFileNames = globSync('/**/*.*', {
     root: path.join(monorepoRoot, '.yarn'),
   });
   for (const rawFileName of rawFileNames) {
-    const destinationFilename = path.join(
-      buildDir,
-      rawFileName.replace(monorepoRoot, ''),
-    );
+    const destinationFilename = path.join(buildDir, rawFileName.replace(monorepoRoot, ''));
     copyFileSync(rawFileName, destinationFilename);
   }
 

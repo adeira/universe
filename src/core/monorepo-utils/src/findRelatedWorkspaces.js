@@ -26,22 +26,14 @@ export default function findRelatedWorkspaces(
 
       // find the touched workspaces everywhere in individual `workspaceDependencies`
       Object.keys(workspaceDependencies).forEach(key => {
-        if (
-          workspaceDependencies[key].workspaceDependencies.includes(
-            touchedWorkspace,
-          )
-        ) {
+        if (workspaceDependencies[key].workspaceDependencies.includes(touchedWorkspace)) {
           if (!workspacesToTest.has(key)) {
             workspacesToTest.add(key);
             unwind([key]);
           }
         }
 
-        if (
-          workspaceDependencies[key].mismatchedWorkspaceDependencies.includes(
-            touchedWorkspace,
-          )
-        ) {
+        if (workspaceDependencies[key].mismatchedWorkspaceDependencies.includes(touchedWorkspace)) {
           if (!workspacesToTest.has(key)) {
             workspacesToTest.add(key);
             unwind([key]);

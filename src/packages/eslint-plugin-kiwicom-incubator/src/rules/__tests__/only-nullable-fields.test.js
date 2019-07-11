@@ -36,13 +36,11 @@ ruleTester.run('only-nullable-fields', rule, {
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLNonNull(GraphQLList(GraphQLBaggage)) } } })',
+      code: '({ fields: { list: { type: GraphQLNonNull(GraphQLList(GraphQLBaggage)) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLNonNull(new GraphQLList(GraphQLBaggage)) } } })',
+      code: '({ fields: { list: { type: new GraphQLNonNull(new GraphQLList(GraphQLBaggage)) } } })',
       errors,
     },
     {
@@ -52,8 +50,7 @@ ruleTester.run('only-nullable-fields', rule, {
       errors,
     },
     {
-      code:
-        'export default { type: new GraphQLList(new GraphQLNonNull(GraphQLBooking)) };',
+      code: 'export default { type: new GraphQLList(new GraphQLNonNull(GraphQLBooking)) };',
       errors,
     },
     {

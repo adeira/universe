@@ -10,9 +10,7 @@ export const isQuery = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'query';
 };
 
-export const forceFetch = (cacheConfig: {|
-  +force?: ?boolean,
-|}): boolean %checks => {
+export const forceFetch = (cacheConfig: {| +force?: ?boolean |}): boolean %checks => {
   return !!(cacheConfig && cacheConfig.force);
 };
 
@@ -24,11 +22,7 @@ export const handleData = (response: Response) => {
   return response.text();
 };
 
-function getRequestBodyWithUploadables(
-  request,
-  variables,
-  uploadables,
-): FormData {
+function getRequestBodyWithUploadables(request, variables, uploadables): FormData {
   const formData = new FormData();
   if (__DEV__ && request.text != null) {
     formData.append('query', request.text);

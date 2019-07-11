@@ -40,10 +40,7 @@ export default class Deferred<Tvalue, Treason> {
     return Promise.prototype.catch.apply(this._promise, [onReject]);
   }
 
-  then(
-    onFulfill?: ?(value: any) => mixed,
-    onReject?: ?(error: any) => mixed,
-  ): Promise<any> {
+  then(onFulfill?: ?(value: any) => mixed, onReject?: ?(error: any) => mixed): Promise<any> {
     return Promise.prototype.then.apply(this._promise, [onFulfill, onReject]);
   }
 

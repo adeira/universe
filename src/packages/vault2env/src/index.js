@@ -21,9 +21,7 @@ export const _getParams = (params: { [key: string]: any, ... }) => {
       const envName = `VAULT_${param.toUpperCase()}`;
       const value = params[param] || process.env[envName];
       if (!value) {
-        throw new Error(
-          `You must provide Vault ${param} by "${envName}" or --${param}.`,
-        );
+        throw new Error(`You must provide Vault ${param} by "${envName}" or --${param}.`);
       }
       return { [param]: value };
     })
@@ -41,22 +39,17 @@ export const _getParams = (params: { [key: string]: any, ... }) => {
 const _getSecrets = async (addr: string, path: string, token: string) => {
   try {
     const apiVersion = 'v1';
-    const response = await fetchWithRetries(
-      [addr, apiVersion, path].join('/'),
-      {
-        method: 'GET',
-        headers: {
-          'X-Vault-Token': token,
-        },
+    const response = await fetchWithRetries([addr, apiVersion, path].join('/'), {
+      method: 'GET',
+      headers: {
+        'X-Vault-Token': token,
       },
-    );
+    });
 
     const json = await response.json();
     return json.data;
   } catch (err) {
-    throw new Error(
-      `Error while parsing JSON response from vault: ${err.message}`,
-    );
+    throw new Error(`Error while parsing JSON response from vault: ${err.message}`);
   }
 };
 

@@ -34,8 +34,7 @@ export default function findRelatedWorkspaceLocations(
     }
 
     for (const mismatchedDependencyName of workspace.mismatchedWorkspaceDependencies) {
-      const mismatchedDependency =
-        workspaceDependencies[mismatchedDependencyName];
+      const mismatchedDependency = workspaceDependencies[mismatchedDependencyName];
       if (!locations.has(mismatchedDependency.location)) {
         recurse(mismatchedDependencyName);
       }

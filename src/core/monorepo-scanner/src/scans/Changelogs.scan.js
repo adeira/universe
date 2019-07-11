@@ -31,9 +31,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
       // changelog should contain the last version number (patches are ignored)
       const majorVersion = semver.major(packageJson.version);
       const minorVersion = semver.minor(packageJson.version);
-      expect(changelog).toMatch(
-        new RegExp(`\n# ${majorVersion}.${minorVersion}.0`),
-      );
+      expect(changelog).toMatch(new RegExp(`\n# ${majorVersion}.${minorVersion}.0`));
 
       const versionTitleRegexp = /# (?<version>[0-9]+\.[0-9]+\.[0-9])+/g;
       let result;

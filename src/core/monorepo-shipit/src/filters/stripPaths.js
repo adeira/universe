@@ -14,10 +14,7 @@ function matchesAnyPattern(path: string, stripPatterns: Set<RegExp>) {
 /**
  * Remove any modifications to paths matching `stripPatterns`.
  */
-export default function stripPaths(
-  changeset: Changeset,
-  stripPatterns: Set<RegExp>,
-): Changeset {
+export default function stripPaths(changeset: Changeset, stripPatterns: Set<RegExp>): Changeset {
   if (stripPatterns.size === 0) {
     return changeset;
   }

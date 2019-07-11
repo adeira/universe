@@ -165,7 +165,6 @@ A - import/order,1,groups,1 ({"kind":"N","rhs":"sibling"})
 E - import/order,1,groups,1,1 ("sibling" -> "parent")
 E - import/order,1,groups,1,0 ("parent" -> "internal")
 E - import/prefer-default-export ("off" -> "error")
-E - prettier/prettier,1,printWidth (80 -> 100)
 N - fp/no-nil ("off")
 N - fp/no-class ("off")
 N - fp/no-this ("off")
@@ -179,7 +178,6 @@ exports[`differences with @kiwicom/eslint-config-nitro config 2`] = `
 
 This changelog describes what should Nitro change in order to be identical with Universe config:
 
-E - prettier/prettier,1,printWidth (100 -> 80)
 N - prettier/prettier,1,bracketSpacing (true)
 N - prettier/prettier,1,singleQuote (true)
 N - prettier/prettier,1,tabWidth (2)

@@ -32,9 +32,7 @@ type Sink = {|
   +closed: boolean,
 |};
 
-export default function createRequestHandler(
-  customFetcher: (...args: $ReadOnlyArray<any>) => any,
-) {
+export default function createRequestHandler(customFetcher: (...args: $ReadOnlyArray<any>) => any) {
   function cleanup() {
     // noop, do anything here
   }
@@ -55,11 +53,7 @@ export default function createRequestHandler(
         // otherwise we'll try to read from the burst cache and return without
         // any additional fetching
         const fromCache = burstCache.get(queryID, variables);
-        if (
-          isQuery(requestNode) &&
-          fromCache !== null &&
-          !forceFetch(cacheConfig)
-        ) {
+        if (isQuery(requestNode) && fromCache !== null && !forceFetch(cacheConfig)) {
           sink.next(fromCache);
           sink.complete();
           return cleanup; // that's it - we are done here (no network call)

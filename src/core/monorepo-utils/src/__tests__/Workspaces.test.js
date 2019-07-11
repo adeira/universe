@@ -33,7 +33,5 @@ test.each([
     },
   },
 ])('%# fails if there are no workspaces', packageJSON => {
-  expect(() => __resolveWorkspaces(packageJSON)).toThrow(
-    'Cannot find workspaces definition.',
-  );
+  expect(() => __resolveWorkspaces(packageJSON)).toThrow('Cannot find workspaces definition.');
 });

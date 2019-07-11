@@ -5,10 +5,7 @@
  *
  * @see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf#Polyfill
  */
-export default function setPrototypeOf(
-  obj: { [key: string]: any, ... },
-  prototype: typeof Error,
-) {
+export default function setPrototypeOf(obj: { [key: string]: any, ... }, prototype: typeof Error) {
   if (Object.setPrototypeOf) {
     return Object.setPrototypeOf(obj, prototype);
   }

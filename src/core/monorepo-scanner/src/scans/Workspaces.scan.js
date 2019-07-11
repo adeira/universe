@@ -13,9 +13,8 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.
     expect(
-      /^@kiwicom\/.+|eslint-plugin-.+|relay-compiler-language-kiwicom/.test(
-        packageJson.name,
-      ) === true,
+      /^@kiwicom\/.+|eslint-plugin-.+|relay-compiler-language-kiwicom/.test(packageJson.name) ===
+        true,
     ).toGiveHelp(
       `All packages in our monorepo must start with '@kiwicom/' prefix. This name is not valid: ${packageJson.name}`,
     );
@@ -36,16 +35,12 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
       );
 
       // each public package must specify `main` or `bin` field pe be useful
-      expect(
-        packageJson.main !== undefined || packageJson.bin !== undefined,
-      ).toBe(true);
+      expect(packageJson.main !== undefined || packageJson.bin !== undefined).toBe(true);
 
       const packagePath = path.dirname(packageJSONLocation);
       ['README.md', 'LICENSE', '.npmignore'].forEach(requiredFilename => {
         if (!fs.existsSync(path.join(packagePath, requiredFilename))) {
-          throw new Error(
-            `Package ${packageJson.name} is missing ${requiredFilename} file!`,
-          );
+          throw new Error(`Package ${packageJson.name} is missing ${requiredFilename} file!`);
         }
       });
     }
@@ -54,8 +49,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
     // there must be empty dependencies or devDependencies key ({} is enough)
     expect(
-      packageJson.dependencies !== undefined ||
-        packageJson.devDependencies !== undefined,
+      packageJson.dependencies !== undefined || packageJson.devDependencies !== undefined,
     ).toBe(true);
 
     const dependencies = Object.entries(packageJson.dependencies ?? {}).concat(

@@ -76,9 +76,7 @@ module.exports = function(results /*: Results */) {
       )
         .split(os.EOL)
         .map(el =>
-          el.replace(/(?<line>\d+)\s+(?<column>\d+)/, (m, p1, p2) =>
-            chalk.dim(`${p1}:${p2}`),
-          ),
+          el.replace(/(?<line>\d+)\s+(?<column>\d+)/, (m, p1, p2) => chalk.dim(`${p1}:${p2}`)),
         )
         .join(os.EOL) + os.EOL;
   });

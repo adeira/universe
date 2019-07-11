@@ -10,12 +10,8 @@ describe('glob', () => {
   it('throws exception when used incorrectly with Windows path', () => {
     const windowsErrorMessage =
       "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
-    expect(() => glob('C:\\foo\\bar.txt', voidCallback)).toThrowError(
-      windowsErrorMessage,
-    );
-    expect(() => glob('F:\\foo\\*', voidCallback)).toThrowError(
-      windowsErrorMessage,
-    );
+    expect(() => glob('C:\\foo\\bar.txt', voidCallback)).toThrowError(windowsErrorMessage);
+    expect(() => glob('F:\\foo\\*', voidCallback)).toThrowError(windowsErrorMessage);
   });
 
   it('throws when used with root pattern with root being set', () => {
@@ -34,8 +30,7 @@ describe('glob', () => {
       { root: path.join(__dirname, 'fixtures', 'glob', 'aaa') },
       (error, filenames) => {
         expect(error).toBeNull();
-        expect(filenames.map(filename => filename.replace(__dirname, '')))
-          .toMatchInlineSnapshot(`
+        expect(filenames.map(filename => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
         Array [
           "/fixtures/glob/aaa/file.js",
           "/fixtures/glob/aaa/subfolder/file.js",
@@ -58,9 +53,7 @@ describe('globSync', () => {
   it('throws exception when used incorrectly with Windows path', () => {
     const windowsErrorMessage =
       "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
-    expect(() => globSync('C:\\foo\\bar.txt')).toThrowError(
-      windowsErrorMessage,
-    );
+    expect(() => globSync('C:\\foo\\bar.txt')).toThrowError(windowsErrorMessage);
     expect(() => globSync('F:\\foo\\*')).toThrowError(windowsErrorMessage);
   });
 
@@ -78,8 +71,7 @@ describe('globSync', () => {
     const filenames = globSync('/**/*.js', {
       root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
-    expect(filenames.map(filename => filename.replace(__dirname, '')))
-      .toMatchInlineSnapshot(`
+    expect(filenames.map(filename => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
         Array [
           "/fixtures/glob/aaa/file.js",
           "/fixtures/glob/aaa/subfolder/file.js",
@@ -92,12 +84,8 @@ describe('globAsync', () => {
   it('throws exception when used incorrectly with Windows path', async () => {
     const windowsErrorMessage =
       "Your glob patterns looks like absolute Windows path but this is not allowed. Glob doesn't accept paths but glob patterns instead. Invalid pattern: ";
-    await expect(globAsync('C:\\foo\\bar.txt')).rejects.toThrowError(
-      windowsErrorMessage,
-    );
-    await expect(globAsync('F:\\foo\\*')).rejects.toThrowError(
-      windowsErrorMessage,
-    );
+    await expect(globAsync('C:\\foo\\bar.txt')).rejects.toThrowError(windowsErrorMessage);
+    await expect(globAsync('F:\\foo\\*')).rejects.toThrowError(windowsErrorMessage);
   });
 
   it('throws when used with root pattern with root being set', async () => {
@@ -114,8 +102,7 @@ describe('globAsync', () => {
     const filenames = await globAsync('/**/*.js', {
       root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
-    expect(filenames.map(filename => filename.replace(__dirname, '')))
-      .toMatchInlineSnapshot(`
+    expect(filenames.map(filename => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
         Array [
           "/fixtures/glob/aaa/file.js",
           "/fixtures/glob/aaa/subfolder/file.js",

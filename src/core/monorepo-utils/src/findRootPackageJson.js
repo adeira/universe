@@ -20,9 +20,7 @@ type PackageJSON = {
  * also memoizes the computed path and returns it immediately with
  * the second call.
  */
-export function findRootPackageJson(
-  directory: string = __dirname,
-): PackageJSON {
+export function findRootPackageJson(directory: string = __dirname): PackageJSON {
   const packageJsonPath = findRootPackageJsonPath(directory);
   // $FlowAllowDynamicImport
   return require(packageJsonPath);

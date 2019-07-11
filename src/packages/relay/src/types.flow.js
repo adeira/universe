@@ -44,10 +44,7 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
   (<T>(T) => T)
 >
 
-export type DeclarativeMutationConfig =
-  | RangeAddConfig
-  | RangeDeleteConfig
-  | NodeDeleteConfig;
+export type DeclarativeMutationConfig = RangeAddConfig | RangeDeleteConfig | NodeDeleteConfig;
 
 // see: relay-runtime/mutations/RelayDeclarativeMutationConfig.js
 type RangeOperation = 'append' | 'ignore' | 'prepend';
@@ -112,22 +109,11 @@ type RecordProxy = $ReadOnly<{|
   copyFieldsFrom: (sourceRecord: RecordProxy) => void,
   getDataID: () => string,
   getLinkedRecord: (name: string, args?: ?AnyObject) => ?RecordProxy,
-  getLinkedRecords: (
-    name: string,
-    args?: ?AnyObject,
-  ) => ?$ReadOnlyArray<?RecordProxy>,
-  getOrCreateLinkedRecord: (
-    name: string,
-    typeName: string,
-    args?: ?AnyObject,
-  ) => RecordProxy,
+  getLinkedRecords: (name: string, args?: ?AnyObject) => ?$ReadOnlyArray<?RecordProxy>,
+  getOrCreateLinkedRecord: (name: string, typeName: string, args?: ?AnyObject) => RecordProxy,
   getType: () => string,
   getValue: (name: string, args?: ?AnyObject) => mixed,
-  setLinkedRecord: (
-    record: RecordProxy,
-    name: string,
-    args?: ?AnyObject,
-  ) => RecordProxy,
+  setLinkedRecord: (record: RecordProxy, name: string, args?: ?AnyObject) => RecordProxy,
   setLinkedRecords: (
     records: $ReadOnlyArray<?RecordProxy>,
     name: string,

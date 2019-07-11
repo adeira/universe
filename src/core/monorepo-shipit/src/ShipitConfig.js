@@ -30,9 +30,7 @@ export default class ShipitConfig {
     this.sourcePath = monorepoPath;
     // This is currently not configurable. We could (should) eventually keep
     // the temp directory, cache it and just update it.
-    this.destinationPath = fs.mkdtempSync(
-      path.join(os.tmpdir(), 'kiwicom-shipit-'),
-    );
+    this.destinationPath = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-'));
     this.exportedRepoURL = exportedRepoURL;
     this.directoryMapping = directoryMapping;
     this.strippedFiles = strippedFiles;
@@ -41,10 +39,7 @@ export default class ShipitConfig {
   getMonorepoRoots(): Set<string> {
     const roots = new Set();
     for (const root of this.directoryMapping.keys()) {
-      warning(
-        fs.existsSync(root) === true,
-        `Directory mapping uses non-existent root: ${root}`,
-      );
+      warning(fs.existsSync(root) === true, `Directory mapping uses non-existent root: ${root}`);
       roots.add(root);
     }
     return roots;

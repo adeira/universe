@@ -42,9 +42,7 @@ it('does not overwrite main or module fields if exist', () => {
 });
 
 it('removed module if disabled', () => {
-  expect(
-    mrequire(`${__dirname}/fixtures/withMainAndDisabledModule.json`),
-  ).toEqual({
+  expect(mrequire(`${__dirname}/fixtures/withMainAndDisabledModule.json`)).toEqual({
     name: 'withMainAndModule',
     version: '0.0.0',
     main: 'src/do-not-overwrite-this.ABC',

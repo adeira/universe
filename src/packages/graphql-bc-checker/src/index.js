@@ -29,11 +29,9 @@ const terminate = (cb?: () => void = () => {}) => {
 
 const createSnapshot = (breakingChangesBlock, newSchema) => {
   return SignedSource.signFile(
-    `# ${SignedSource.getSigningToken()}${os.EOL}${
+    `# ${SignedSource.getSigningToken()}${os.EOL}${os.EOL}${breakingChangesBlock}${os.EOL}${
       os.EOL
-    }${breakingChangesBlock}${os.EOL}${os.EOL}${printSchema(
-      lexicographicSortSchema(newSchema),
-    )}`,
+    }${printSchema(lexicographicSortSchema(newSchema))}`,
   );
 };
 
@@ -77,10 +75,7 @@ export default function testBackwardCompatibility({
       printDangerousChanges(dangerousChanges);
     }
 
-    const breakingChangesBlock = buildBreakingChangesBlock(
-      oldSnapshot,
-      breakingChanges,
-    );
+    const breakingChangesBlock = buildBreakingChangesBlock(oldSnapshot, breakingChanges);
     const newSnapshot = createSnapshot(breakingChangesBlock, newSchema);
 
     if (newSnapshot !== oldSnapshot) {
@@ -94,9 +89,7 @@ export default function testBackwardCompatibility({
         ),
       );
     } else {
-      success(
-        'Congratulations! NO BREAKING CHANGES or OUTDATED SCHEMA. Good job!',
-      );
+      success('Congratulations! NO BREAKING CHANGES or OUTDATED SCHEMA. Good job!');
     }
   } catch (err) {
     if (err.code === 'ENOENT') {

@@ -8,13 +8,9 @@ export type RelayProp = {|
   +environment: Environment,
 |};
 
-export default function createFragmentContainer<
-  TComponent: React$ComponentType<any>,
->(
+export default function createFragmentContainer<TComponent: React$ComponentType<any>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec, // this is intentionally different to force the best practices
-): React$ComponentType<
-  $RelayProps<React$ElementConfig<TComponent>, RelayProp>,
-> {
+): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RelayProp>> {
   return _createFragmentContainer(Component, fragmentSpec);
 }

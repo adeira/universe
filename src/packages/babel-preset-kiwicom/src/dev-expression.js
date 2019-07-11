@@ -9,8 +9,7 @@ module.exports = function(babel) {
     },
     visitor: {
       Property(path) {
-        this.canChangeProperty =
-          path.node.computed === true || path.node.key.name !== '__DEV__';
+        this.canChangeProperty = path.node.computed === true || path.node.key.name !== '__DEV__';
       },
       Identifier(path) {
         // Do nothing when testing because RN internally overwrites __DEV__ like so:

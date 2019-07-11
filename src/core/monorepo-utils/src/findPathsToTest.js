@@ -13,15 +13,9 @@ export default function findPathsToTest(
   workspaceDependencies: WorkspaceDependencies,
   changedFiles: $ReadOnlyArray<string>,
 ): $ReadOnlySet<string> {
-  const dirtyWorkspaces = findDirtyWorkspaces(
-    workspaceDependencies,
-    changedFiles,
-  );
+  const dirtyWorkspaces = findDirtyWorkspaces(workspaceDependencies, changedFiles);
 
-  const relatedWorkspaces = findRelatedWorkspaces(
-    workspaceDependencies,
-    dirtyWorkspaces,
-  );
+  const relatedWorkspaces = findRelatedWorkspaces(workspaceDependencies, dirtyWorkspaces);
 
   const pathsToTest = new Set<string>();
   relatedWorkspaces.forEach(relatedWorkspace => {

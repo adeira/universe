@@ -23,24 +23,18 @@ import ShipitConfig from '../ShipitConfig';
  */
 export default function createVerifyRepoPhase(config: ShipitConfig) {
   function createNewEmptyRepo(path: string) {
-    new ShellCommand(path, 'git', 'init')
-      .setOutputToScreen()
-      .runSynchronously();
+    new ShellCommand(path, 'git', 'init').setOutputToScreen().runSynchronously();
     const repo = new RepoGIT(path);
     repo.configure();
     return repo;
   }
 
   function getDirtyExportedRepoPath() {
-    return fs.mkdtempSync(
-      path.join(os.tmpdir(), 'kiwicom-shipit-verify-dirty-'),
-    );
+    return fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-verify-dirty-'));
   }
 
   function getFilteredExportedRepoPath() {
-    return fs.mkdtempSync(
-      path.join(os.tmpdir(), 'kiwicom-shipit-verify-filtered-'),
-    );
+    return fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-verify-filtered-'));
   }
 
   const monorepoPath = config.sourcePath;
@@ -66,9 +60,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig) {
 
     const dirtyChangeset = dirtyExportedRepo.getChangesetFromID('HEAD');
     const filter = config.getDefaultShipitFilter();
-    const filteredChangeset = filter(dirtyChangeset).withSubject(
-      'Initial filtered commit',
-    );
+    const filteredChangeset = filter(dirtyChangeset).withSubject('Initial filtered commit');
 
     const filteredRepoPath = getFilteredExportedRepoPath();
     const filteredRepo = createNewEmptyRepo(filteredRepoPath);

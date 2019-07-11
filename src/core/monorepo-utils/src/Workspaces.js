@@ -10,9 +10,7 @@ type MinimalPackageJSON = {
   ...
 };
 
-function __resolveWorkspaces(
-  packageJSON: MinimalPackageJSON,
-): $ReadOnlyArray<string> {
+function __resolveWorkspaces(packageJSON: MinimalPackageJSON): $ReadOnlyArray<string> {
   const workspaces = packageJSON.workspaces;
   if (Array.isArray(workspaces)) {
     return workspaces;
@@ -33,9 +31,7 @@ module.exports = {
   /**
    * @deprecated Use `getWorkspacesAsync` or `getWorkspacesSync` instead.
    */
-  iterateWorkspaces(
-    cb: (packageJSONLocation: string) => void | Promise<void>,
-  ): void {
+  iterateWorkspaces(cb: (packageJSONLocation: string) => void | Promise<void>): void {
     const rootPackageJSON = findRootPackageJson();
     __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       globSync(`${workspace}/package.json`, {
@@ -46,9 +42,7 @@ module.exports = {
     });
   },
 
-  getWorkspacesAsync(
-    baseDirectory: string = __dirname,
-  ): Promise<$ReadOnlyArray<string>> {
+  getWorkspacesAsync(baseDirectory: string = __dirname): Promise<$ReadOnlyArray<string>> {
     const rootPackageJSON = findRootPackageJson(baseDirectory);
     const workspaces = __resolveWorkspaces(rootPackageJSON);
     const workspacePromises = workspaces.map(workspace => {

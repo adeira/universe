@@ -13,10 +13,7 @@ const PRIVATE_PACKAGES = [
 
 function violatesBlacklist(packageJson): boolean {
   for (const packageRegexp of PRIVATE_PACKAGES) {
-    if (
-      packageRegexp.test(packageJson.name) === true &&
-      packageJson.private === false
-    ) {
+    if (packageRegexp.test(packageJson.name) === true && packageJson.private === false) {
       return true;
     }
   }

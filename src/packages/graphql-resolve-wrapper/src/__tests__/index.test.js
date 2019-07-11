@@ -75,15 +75,11 @@ describe('default wrapper', () => {
   });
 
   it('resolves promise', async () => {
-    await expect(
-      evaluateGraphQLResolver(fields.resolvePromise, {}),
-    ).resolves.toBe('bbb');
+    await expect(evaluateGraphQLResolver(fields.resolvePromise, {})).resolves.toBe('bbb');
   });
 
   it('throws an error', () => {
-    expect(() => evaluateGraphQLResolver(fields.throwError, {})).toThrowError(
-      'secret error ccc',
-    );
+    expect(() => evaluateGraphQLResolver(fields.throwError, {})).toThrowError('secret error ccc');
   });
 });
 
@@ -101,15 +97,13 @@ describe('custom wrapper', () => {
     ['resolveValueNumber', 111],
     ['resolvePromise', 'BBB'],
   ])('should resolve field %p with value %p', async (field, expectedValue) => {
-    await expect(evaluateGraphQLResolver(fields[field], {})).resolves.toBe(
-      expectedValue,
-    );
+    await expect(evaluateGraphQLResolver(fields[field], {})).resolves.toBe(expectedValue);
   });
 
   it('throws an error', async () => {
-    await expect(
-      evaluateGraphQLResolver(fields.throwError, {}),
-    ).rejects.toThrowError('secret error ccc');
+    await expect(evaluateGraphQLResolver(fields.throwError, {})).rejects.toThrowError(
+      'secret error ccc',
+    );
   });
 
   it('should not affect system fields', async () => {

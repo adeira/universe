@@ -21,9 +21,7 @@ test('Error with not interesting message', () => {
 test('Error with message - fail 1', () => {
   expect(() => {
     expect(new Error()).toBeError('custom message');
-  }).toThrowError(
-    /^Expected Error message to be:[\s\S]+"custom message"[\s\S]+Received:[\s\S]+""/,
-  );
+  }).toThrowError(/^Expected Error message to be:[\s\S]+"custom message"[\s\S]+Received:[\s\S]+""/);
 });
 
 test('Error with message - fail 2', () => {
@@ -61,7 +59,5 @@ test('rejects Promise', async () => {
 });
 
 test('rejects Promise with message', async () => {
-  await expect(Promise.reject(new Error('custom message'))).rejects.toBeError(
-    'custom message',
-  );
+  await expect(Promise.reject(new Error('custom message'))).rejects.toBeError('custom message');
 });

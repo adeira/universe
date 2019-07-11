@@ -41,22 +41,13 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
   #localPath: string;
 
   constructor(localPath: string) {
-    invariant(
-      fs.existsSync(path.join(localPath, '.git')),
-      '%s is not a GIT repo.',
-      localPath,
-    );
+    invariant(fs.existsSync(path.join(localPath, '.git')), '%s is not a GIT repo.', localPath);
 
     this.#localPath = localPath;
   }
 
   _gitCommand = (...args: $ReadOnlyArray<string>) => {
-    return new ShellCommand(
-      this.#localPath,
-      'git',
-      '--no-pager',
-      ...args,
-    ).setEnvironmentVariables(
+    return new ShellCommand(this.#localPath, 'git', '--no-pager', ...args).setEnvironmentVariables(
       new Map([
         // https://git-scm.com/docs/git#_environment_variables
         ['GIT_CONFIG_NOSYSTEM', '1'],
@@ -156,10 +147,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
       .getStdout();
   };
 
-  getNativeHeaderFromIDWithPatch = (
-    revision: string,
-    patch: string,
-  ): string => {
+  getNativeHeaderFromIDWithPatch = (revision: string, patch: string): string => {
     const fullPatch = this._gitCommand(
       'format-patch',
       '--no-renames',
@@ -186,10 +174,7 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     return changeset.withID(revision);
   };
 
-  getChangesetFromExportedPatch = (
-    header: string,
-    patch: string,
-  ): Changeset => {
+  getChangesetFromExportedPatch = (header: string, patch: string): Changeset => {
     const changeset = parsePatchHeader(header);
     const diffs = new Set();
     for (const hunk of parsePatch(patch)) {
@@ -287,8 +272,6 @@ ${renderedDiffs}
       .runSynchronously()
       .getStdout();
 
-    return new ShellCommand(exportedRepoPath, 'tar', '-x')
-      .setStdin(tar)
-      .runSynchronously();
+    return new ShellCommand(exportedRepoPath, 'tar', '-x').setStdin(tar).runSynchronously();
   };
 }

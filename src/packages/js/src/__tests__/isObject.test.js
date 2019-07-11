@@ -12,15 +12,9 @@ test.each([
   expect(isObject(value)).toBe(true);
 });
 
-test.each([
-  null,
-  [],
-  -1,
-  'err',
-  function _void() {},
-  Symbol('ok'),
-  NaN,
-  undefined,
-])('value %p is NOT an object', value => {
-  expect(isObject(value)).toBe(false);
-});
+test.each([null, [], -1, 'err', function _void() {}, Symbol('ok'), NaN, undefined])(
+  'value %p is NOT an object',
+  value => {
+    expect(isObject(value)).toBe(false);
+  },
+);

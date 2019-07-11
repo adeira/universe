@@ -164,14 +164,7 @@ function getRelayFileWriter(
   noFutureProofEnums: boolean,
   outputDir?: ?string,
 ) {
-  return ({
-    onlyValidate,
-    schema,
-    documents,
-    baseDocuments,
-    sourceControl,
-    reporter,
-  }) => {
+  return ({ onlyValidate, schema, documents, baseDocuments, sourceControl, reporter }) => {
     const {
       commonTransforms,
       codegenTransforms,

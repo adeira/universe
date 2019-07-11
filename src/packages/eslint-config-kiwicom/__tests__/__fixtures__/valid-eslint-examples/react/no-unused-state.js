@@ -28,10 +28,6 @@ export default class MyProvider extends React.Component<Props, State> {
   };
 
   render() {
-    return (
-      <MyContext.Provider value={this.state}>
-        {this.props.children}
-      </MyContext.Provider>
-    );
+    return <MyContext.Provider value={this.state}>{this.props.children}</MyContext.Provider>;
   }
 }

@@ -16,8 +16,7 @@ jest.mock('@kiwicom/fetch', () =>
 
 const request = { text: 'mocked request.text' };
 const variables = { mock: true };
-const expectedBody =
-  '{"query":"mocked request.text","variables":{"mock":true}}';
+const expectedBody = '{"query":"mocked request.text","variables":{"mock":true}}';
 
 it('works with additional headers', async () => {
   const fetcher = createNetworkFetcher('//localhost', {

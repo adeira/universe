@@ -9,12 +9,7 @@ import {
 
 import connectionFromArray from './ArrayConnection';
 
-export {
-  connectionArgs,
-  connectionDefinitions,
-  connectionFromArray,
-  connectionFromPromisedArray,
-};
+export { connectionArgs, connectionDefinitions, connectionFromArray, connectionFromPromisedArray };
 
 export type ConnectionArguments = ConnectionArgumentsType;
 

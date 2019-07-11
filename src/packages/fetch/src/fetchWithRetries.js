@@ -33,8 +33,7 @@ export default function fetchWithRetries(
   resource: string,
   initWithRetries?: InitWithRetries,
 ): Promise<Response> {
-  const { fetchTimeout, retryDelays, headers: initHeaders, ...init } =
-    initWithRetries ?? {};
+  const { fetchTimeout, retryDelays, headers: initHeaders, ...init } = initWithRetries ?? {};
 
   const _fetchTimeout = fetchTimeout != null ? fetchTimeout : DEFAULT_TIMEOUT;
   const _retryDelays = retryDelays != null ? retryDelays : DEFAULT_RETRIES;

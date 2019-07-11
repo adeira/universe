@@ -2,11 +2,7 @@
 
 import * as React from 'react';
 import ReactTestRenderer from 'react-test-renderer';
-import {
-  createMockEnvironment,
-  generateAndCompile,
-  MockPayloadGenerator,
-} from 'relay-test-utils';
+import { createMockEnvironment, generateAndCompile, MockPayloadGenerator } from 'relay-test-utils';
 
 import { FetchTimeoutError, FetchResponseError } from '../index';
 import QueryRenderer from '../QueryRenderer';
@@ -50,14 +46,10 @@ it('renders default components for loading and success', () => {
     return MockPayloadGenerator.generate(operation);
   });
   expect(environment.mock.isLoading(query, variables)).toBe(false);
-  expect(
-    testInstance.findAllByProps({ 'data-testid': 'loading' }),
-  ).toHaveLength(0);
+  expect(testInstance.findAllByProps({ 'data-testid': 'loading' })).toHaveLength(0);
   const success = testInstance.findByProps({ 'data-testid': 'success' });
   expect(success).toBeDefined();
-  expect(success.children).toEqual(
-    expect.arrayContaining(['Nice one! ', '<Node-mock-id-1>']),
-  );
+  expect(success.children).toEqual(expect.arrayContaining(['Nice one! ', '<Node-mock-id-1>']));
 });
 
 it('renders default components for loading and generic fail', () => {
@@ -77,9 +69,7 @@ it('renders default components for loading and generic fail', () => {
 
   environment.mock.rejectMostRecentOperation(new Error('fail'));
   expect(environment.mock.isLoading(query, variables)).toBe(false);
-  expect(
-    testInstance.findAllByProps({ 'data-testid': 'loading' }),
-  ).toHaveLength(0);
+  expect(testInstance.findAllByProps({ 'data-testid': 'loading' })).toHaveLength(0);
   const error = testInstance.findByProps({ 'data-testid': 'error' });
   expect(error).toBeDefined();
   expect(error.children[0]).toBe('Error!');

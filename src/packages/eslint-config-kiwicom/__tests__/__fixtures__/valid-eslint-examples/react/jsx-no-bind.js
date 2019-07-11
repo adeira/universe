@@ -63,9 +63,7 @@ export class Alphabet1 extends React.Component<AplhabetProps, AplhabetState> {
 
 export function Alphabet2() {
   const [justClicked, updateJustClicked] = useState(null);
-  const letters = Array.from({ length: 26 }, (_, i) =>
-    String.fromCharCode(A + i),
-  );
+  const letters = Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i));
 
   const handleClick = letter => {
     updateJustClicked(letter);

@@ -38,10 +38,7 @@ test.each([
   expect([...diffs].map(diff => diff.path)).toEqual(expected);
 
   const reversedChangeset = new Changeset().withDiffs(diffs);
-  const reversedDiffs = moveDirectoriesReverse(
-    reversedChangeset,
-    mapping,
-  ).getDiffs();
+  const reversedDiffs = moveDirectoriesReverse(reversedChangeset, mapping).getDiffs();
   expect([...reversedDiffs].map(diff => diff.path)).toEqual(inputPaths);
 });
 
@@ -50,10 +47,7 @@ it('throw exception when mapping contains duplicate destinations', () => {
   // not possible to revers such a mapping because it's not clear how
   // should be the paths restored.
   const changeset = new Changeset();
-  const brokenMapping = new Map([
-    ['foo/', 'duplicate/'],
-    ['bar/', 'duplicate/'],
-  ]);
+  const brokenMapping = new Map([['foo/', 'duplicate/'], ['bar/', 'duplicate/']]);
   expect(() => moveDirectoriesReverse(changeset, brokenMapping)).toThrowError(
     'It is not possible to reverse mapping with duplicate destinations.',
   );

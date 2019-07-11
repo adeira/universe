@@ -7,9 +7,7 @@ opaque type Return = void;
 opaque type Next = void;
 
 // See: https://github.com/facebook/fbshipit/blob/640eb8640bdf6e024a3a6eff7703f188d8a0d66a/src/shipit/ShipItUtil.php
-export default function* parsePatch(
-  patch: string,
-): Generator<Yield, Return, Next> {
+export default function* parsePatch(patch: string): Generator<Yield, Return, Next> {
   let contents = '';
   let lineNumber = 0;
 

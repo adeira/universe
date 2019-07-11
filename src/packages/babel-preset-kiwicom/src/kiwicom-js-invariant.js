@@ -59,13 +59,11 @@ module.exports = function(babel) {
           }
 
           if (path.get('callee').isIdentifier({ name: 'invariant' })) {
-            const prodInvariant = babel.template.expression.ast(
-              'invariant(false)',
-            );
+            const prodInvariant = babel.template.expression.ast('invariant(false)');
 
-            const devInvariant = babel.template.expression(
-              'invariant(false, %%arguments%%)',
-            )({ arguments: node.arguments.slice(1) });
+            const devInvariant = babel.template.expression('invariant(false, %%arguments%%)')({
+              arguments: node.arguments.slice(1),
+            });
 
             prodInvariant[SEEN_SYMBOL] = true;
             devInvariant[SEEN_SYMBOL] = true;

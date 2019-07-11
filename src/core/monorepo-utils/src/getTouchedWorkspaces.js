@@ -13,10 +13,7 @@ export default function getTouchedWorkspaces(): $ReadOnlySet<string> {
   const workspaceDependencies = getWorkspaceDependencies();
   const changedFiles = getChangedFiles();
 
-  const dirtyWorkspaces = findDirtyWorkspaces(
-    workspaceDependencies,
-    changedFiles,
-  );
+  const dirtyWorkspaces = findDirtyWorkspaces(workspaceDependencies, changedFiles);
 
   return findRelatedWorkspaces(workspaceDependencies, dirtyWorkspaces);
 }

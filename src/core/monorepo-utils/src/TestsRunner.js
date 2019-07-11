@@ -85,8 +85,5 @@ export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
 }
 
 export function runAllTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  _runJestTimezoneVariants(
-    externalConfig.length > 0 ? externalConfig : [],
-    ciNode,
-  );
+  _runJestTimezoneVariants(externalConfig.length > 0 ? externalConfig : [], ciNode);
 }

@@ -24,9 +24,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
       // $FlowAllowDynamicImport
       const babelRC = require(babelRCLocation);
 
-      expect(
-        babelRC.presets.includes('@kiwicom/babel-preset-kiwicom'),
-      ).toGiveHelp(
+      expect(babelRC.presets.includes('@kiwicom/babel-preset-kiwicom')).toGiveHelp(
         `Your Next.js application ${appName} should contain '${babelRCFile}' file with '@kiwicom/babel-preset-kiwicom' preset.`,
       );
 

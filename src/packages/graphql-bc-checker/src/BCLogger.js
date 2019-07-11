@@ -24,8 +24,7 @@ const getBreakingChangesLog = (
 
   if (newBreakingChanges) {
     breakingChangesLog += newBreakingChanges.reduce(
-      (acc, curVal) =>
-        `${acc}#  ${curVal.type}: ${curVal.description}${os.EOL}`,
+      (acc, curVal) => `${acc}#  ${curVal.type}: ${curVal.description}${os.EOL}`,
       '',
     );
   }
@@ -37,10 +36,7 @@ export const buildBreakingChangesBlock = (
   oldSnapshot: string,
   newBreakingChanges: ?$ReadOnlyArray<BreakingChange>,
 ) => {
-  const breakingChangesLog = getBreakingChangesLog(
-    oldSnapshot,
-    newBreakingChanges,
-  );
+  const breakingChangesLog = getBreakingChangesLog(oldSnapshot, newBreakingChanges);
 
   return `# ${breakingChangeMarkerStart}${breakingChangesLog}# ${breakingChangeMarkerEnd}`;
 };

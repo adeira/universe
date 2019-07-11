@@ -18,8 +18,5 @@ export default function moveDirectoriesReverse(
     reversedMapping.set(dest, src);
   }
   // subdirectories (most specific) should go first
-  return moveDirectories(
-    changeset,
-    new Map([...reversedMapping].sort().reverse()),
-  );
+  return moveDirectories(changeset, new Map([...reversedMapping].sort().reverse()));
 }

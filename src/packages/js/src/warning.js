@@ -22,9 +22,7 @@ export default function warning(
 ): void {
   if (__DEV__) {
     if (format === undefined) {
-      throw new Error(
-        '`warning(condition, format, ...args)` requires a warning message argument',
-      );
+      throw new Error('`warning(condition, format, ...args)` requires a warning message argument');
     }
     if (!condition) {
       printWarning(format, ...args);

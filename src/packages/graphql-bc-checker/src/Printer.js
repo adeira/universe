@@ -22,9 +22,7 @@ const error = (message: string) => {
   console.log(_eol(chalk.red.bold(message)));
 };
 
-const printBreakingChanges = (
-  changes: $ReadOnlyArray<{ [key: string]: any, ... }>,
-) => {
+const printBreakingChanges = (changes: $ReadOnlyArray<{ [key: string]: any, ... }>) => {
   console.error(
     `${chalk.red(
       'You introduced breaking changes into the public GraphQL schema. ',
@@ -51,19 +49,10 @@ const printBreakingChanges = (
   );
 };
 
-const printDangerousChanges = (
-  changes: $ReadOnlyArray<{ [key: string]: any, ... }>,
-) => {
+const printDangerousChanges = (changes: $ReadOnlyArray<{ [key: string]: any, ... }>) => {
   for (const change of changes) {
     console.warn(`${chalk.yellow.bold(change.type)} - ${change.description}`);
   }
 };
 
-export {
-  printBreakingChanges,
-  printDangerousChanges,
-  note,
-  success,
-  warning,
-  error,
-};
+export { printBreakingChanges, printDangerousChanges, note, success, warning, error };

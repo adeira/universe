@@ -32,16 +32,7 @@ function transform(target) {
 }
 
 ['babel-issues', 'features'].forEach(group => {
-  generateTestsFromFixtures(
-    `${__dirname}/__fixtures__/${group}`,
-    transform('js'),
-  );
-  generateTestsFromFixtures(
-    `${__dirname}/__fixtures__/${group}`,
-    transform('flow'),
-  );
-  generateTestsFromFixtures(
-    `${__dirname}/__fixtures__/${group}`,
-    transform('js-esm'),
-  );
+  generateTestsFromFixtures(`${__dirname}/__fixtures__/${group}`, transform('js'));
+  generateTestsFromFixtures(`${__dirname}/__fixtures__/${group}`, transform('flow'));
+  generateTestsFromFixtures(`${__dirname}/__fixtures__/${group}`, transform('js-esm'));
 });

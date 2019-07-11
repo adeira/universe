@@ -18,9 +18,7 @@ export default function createSyncPhase(config: ShipitConfig) {
   function getSourceChangesets(): Set<Changeset> {
     const destinationRepo = _getDestinationRepo();
     const sourceRepo = _getSourceRepo();
-    const initialRevision = destinationRepo.findLastSourceCommit(
-      config.getExportedRepoRoots(),
-    );
+    const initialRevision = destinationRepo.findLastSourceCommit(config.getExportedRepoRoots());
     const sourceChangesets = new Set<Changeset>();
     const descendantsPath = sourceRepo.findDescendantsPath(
       initialRevision,
@@ -32,9 +30,7 @@ export default function createSyncPhase(config: ShipitConfig) {
         sourceChangesets.add(sourceRepo.getChangesetFromID(revision));
       });
     } else {
-      logger.warn(
-        `Skipping since there are no changes to filter from ${initialRevision}.`,
-      );
+      logger.warn(`Skipping since there are no changes to filter from ${initialRevision}.`);
     }
     return sourceChangesets;
   }

@@ -22,14 +22,10 @@ export default function testExportedPaths(
       'mocked repo path',
       'mocked repo URL',
       config.getDefaultPathMappings(),
-      config.getDefaultStrippedFiles
-        ? config.getDefaultStrippedFiles()
-        : new Set(),
+      config.getDefaultStrippedFiles ? config.getDefaultStrippedFiles() : new Set(),
     ).getDefaultShipitFilter();
 
-    const inputChangeset = new Changeset().withDiffs(
-      new Set([{ path: input, body: 'mocked' }]),
-    );
+    const inputChangeset = new Changeset().withDiffs(new Set([{ path: input, body: 'mocked' }]));
 
     const outputDataset = defaultFilter(inputChangeset);
 

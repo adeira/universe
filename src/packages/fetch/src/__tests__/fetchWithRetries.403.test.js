@@ -26,9 +26,7 @@ it('tries only once for non-transient HTTP code', async () => {
 
   expect(handleNext).not.toBeCalled();
   expect(handleCatch).toBeCalledWith(
-    new Error(
-      'fetchWithRetries: Still no successful response after 1 retries, giving up.',
-    ),
+    new Error('fetchWithRetries: Still no successful response after 1 retries, giving up.'),
   );
 
   expect(handleCatch.mock.calls[0][0].response.status).toBe(403);

@@ -1,10 +1,6 @@
 // @flow strict
 
-function maybeReplace(
-  format: string,
-  pattern: RegExp,
-  replacementFn: () => void | string,
-): string {
+function maybeReplace(format: string, pattern: RegExp, replacementFn: () => void | string): string {
   return format.replace(pattern, (match, lookbehind) => {
     // https://caniuse.com/#search=lookbehind
     if (lookbehind === '%') {
@@ -24,10 +20,7 @@ function maybeReplace(
  *
  * See: https://nodejs.org/api/util.html#util_util_format_format_args
  */
-export default function sprintf(
-  format: string,
-  ...args: $ReadOnlyArray<mixed>
-): string {
+export default function sprintf(format: string, ...args: $ReadOnlyArray<mixed>): string {
   const argsLength = args.length;
   if (argsLength === 0) {
     return format;

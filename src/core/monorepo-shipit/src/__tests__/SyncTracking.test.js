@@ -14,9 +14,7 @@ import addTrackingData from '../filters/addTrackingData';
  * integration tests. We could eventually extract it somewhere.
  */
 function createGITRepo(): string {
-  const testRepoPath = fs.mkdtempSync(
-    path.join(os.tmpdir(), 'kiwicom-shipit-tests-'),
-  );
+  const testRepoPath = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-tests-'));
   new ShellCommand(testRepoPath, 'git', 'init').runSynchronously();
   for (const [key, value] of Object.entries({
     'user.email': 'shipit-tests@kiwi.com',
@@ -56,9 +54,7 @@ function generateCommitID() {
 
 it('can find last source commit', () => {
   const fakeCommitID = generateCommitID();
-  const description = addTrackingData(
-    new Changeset().withID(fakeCommitID),
-  ).getDescription();
+  const description = addTrackingData(new Changeset().withID(fakeCommitID)).getDescription();
   const repo = createGITRepoWithCommit(description);
   expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID);
 });
@@ -66,21 +62,15 @@ it('can find last source commit', () => {
 it('can find last source commit with multiple markers', () => {
   const fakeCommitID1 = generateCommitID();
   const fakeCommitID2 = generateCommitID();
-  const description1 = addTrackingData(
-    new Changeset().withID(fakeCommitID1),
-  ).getDescription();
-  const description2 = addTrackingData(
-    new Changeset().withID(fakeCommitID2),
-  ).getDescription();
+  const description1 = addTrackingData(new Changeset().withID(fakeCommitID1)).getDescription();
+  const description2 = addTrackingData(new Changeset().withID(fakeCommitID2)).getDescription();
   const repo = createGITRepoWithCommit(`${description1}\n\n${description2}`);
   expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID2);
 });
 
 it('can find last source commit with trailing whitespace', () => {
   const fakeCommitID = generateCommitID();
-  const description = addTrackingData(
-    new Changeset().withID(fakeCommitID),
-  ).getDescription();
+  const description = addTrackingData(new Changeset().withID(fakeCommitID)).getDescription();
   const repo = createGITRepoWithCommit(`${description}  `);
   expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID);
 });

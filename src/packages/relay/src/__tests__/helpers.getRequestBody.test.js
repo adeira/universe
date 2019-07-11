@@ -10,9 +10,7 @@ it('returns request body without uploadables', () => {
       },
       {}, // variables
     ),
-  ).toMatchInlineSnapshot(
-    `"{\\"query\\":\\"{__typename}\\",\\"variables\\":{}}"`,
-  );
+  ).toMatchInlineSnapshot(`"{\\"query\\":\\"{__typename}\\",\\"variables\\":{}}"`);
 });
 
 it('returns request body without uploadables - persistent queries', () => {
@@ -23,9 +21,7 @@ it('returns request body without uploadables - persistent queries', () => {
       },
       { aaa: 111 }, // variables
     ),
-  ).toMatchInlineSnapshot(
-    `"{\\"documentId\\":\\"1234567890\\",\\"variables\\":{\\"aaa\\":111}}"`,
-  );
+  ).toMatchInlineSnapshot(`"{\\"documentId\\":\\"1234567890\\",\\"variables\\":{\\"aaa\\":111}}"`);
 });
 
 function serializeFormData(formData: FormData) {
