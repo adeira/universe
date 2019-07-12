@@ -163,10 +163,7 @@ Anyway, you can compute the client field value from other server field:
 
 ```graphql
 fragment Example on Article {
-  body
-
-  # Relay is a bit broken now (see: https://github.com/facebook/relay/issues/2488)
-  _: body @__clientField(handle: "draft")
+  body @__clientField(handle: "draft")
 
   # this is a client field and it will contain uppercased `body` value
   draft
@@ -181,6 +178,9 @@ const DraftHandler = {
     const record = store.get(payload.dataID);
     const content = record.getValue(payload.fieldKey);
     record.setValue(content.toUpperCase(), 'draft');
+    
+    // Set the original value to handleKey, otherwise the field with @__clientField directive will be undefined
+    record.setValue(content, payload.handleKey);
   }
 };
 ```
