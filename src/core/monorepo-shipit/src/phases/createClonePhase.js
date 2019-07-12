@@ -3,7 +3,7 @@
 import path from 'path';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
 
-import RepoGIT from '../RepoGIT';
+import RepoGit from '../RepoGit';
 
 export default function createClonePhase(exportedRepoURL: string, exportedRepoPath: string) {
   return function() {
@@ -17,7 +17,7 @@ export default function createClonePhase(exportedRepoURL: string, exportedRepoPa
       .setOutputToScreen()
       .runSynchronously();
 
-    const exportedRepo = new RepoGIT(exportedRepoPath);
+    const exportedRepo = new RepoGit(exportedRepoPath);
     exportedRepo.configure();
   };
 }

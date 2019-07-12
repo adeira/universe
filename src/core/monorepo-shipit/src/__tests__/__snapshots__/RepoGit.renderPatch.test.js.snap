@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders patch with more diffs as expected 1`] = `
+"From mocked_id Mon Sep 17 00:00:00 2001
+From: mocked_author
+Date: mocked_timestamp
+Subject: [PATCH] mocked_subject
+
+mocked_description
+
+diff --git a/mocked_path1 b/mocked_path1
+mocked_body1
+diff --git a/mocked_path2 b/mocked_path2
+mocked_body2
+diff --git a/mocked_path3 b/mocked_path3
+mocked_body3
+
+--
+2.21.0
+"
+`;
+
+exports[`renders patch with one diff as expected 1`] = `
+"From mocked_id Mon Sep 17 00:00:00 2001
+From: mocked_author
+Date: mocked_timestamp
+Subject: [PATCH] mocked_subject
+
+mocked_description
+
+diff --git a/mocked_path b/mocked_path
+mocked_body
+
+--
+2.21.0
+"
+`;

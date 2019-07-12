@@ -1,10 +1,10 @@
 // @flow
 
-import RepoGIT from '../RepoGIT';
+import RepoGit from '../RepoGit';
 
 export default function createCleanPhase(repoPath: string) {
   return function() {
-    const repo = new RepoGIT(repoPath);
+    const repo = new RepoGit(repoPath);
     repo.clean();
   };
 }

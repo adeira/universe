@@ -32,12 +32,12 @@ export interface SourceRepo {
 export interface DestinationRepo {
   findLastSourceCommit(roots: Set<string>): string;
   renderPatch(changeset: Changeset): string;
-  commitPatch(changeset: Changeset): void;
+  commitPatch(changeset: Changeset): string;
   checkoutBranch(branchName: string): void;
   push(): void;
 }
 
-export default class RepoGIT implements SourceRepo, DestinationRepo {
+export default class RepoGit implements SourceRepo, DestinationRepo {
   #localPath: string;
 
   constructor(localPath: string) {
@@ -219,27 +219,48 @@ export default class RepoGIT implements SourceRepo, DestinationRepo {
     return trimmedLog === '' ? null : trimmedLog.split('\n');
   };
 
-  commitPatch = (changeset: Changeset): void => {
-    const diff = this.renderPatch(changeset);
-    try {
-      this._gitCommand('am', '--keep-non-patch', '--keep-cr')
-        .setStdin(diff)
-        .setOutputToScreen()
-        .runSynchronously();
-    } catch (error) {
-      this._gitCommand('am', '--abort')
-        .setOutputToScreen()
-        .runSynchronously();
-      throw error;
+  commitPatch = (changeset: Changeset): string => {
+    if (changeset.getDiffs().size === 0) {
+      // This is an empty commit, which `git am` does not handle properly.
+      this._gitCommand(
+        'commit',
+        '--allow-empty',
+        '--author',
+        changeset.getAuthor(),
+        '--date',
+        changeset.getTimestamp(),
+        '--message',
+        changeset.getCommitMessage(),
+      ).runSynchronously();
+    } else {
+      const diff = this.renderPatch(changeset);
+      try {
+        this._gitCommand('am', '--keep-non-patch', '--keep-cr')
+          .setStdin(diff)
+          .runSynchronously();
+      } catch (error) {
+        this._gitCommand('am', '--abort')
+          .setOutputToScreen()
+          .runSynchronously();
+        throw error;
+      }
     }
+    // git rev-parse --verify HEAD
+    // git --no-pager log -1 --pretty=format:%H
+    return this._gitCommand('rev-parse', '--verify', 'HEAD')
+      .runSynchronously()
+      .getStdout()
+      .trim();
   };
 
   renderPatch = (changeset: Changeset): string => {
     let renderedDiffs = '';
-    for (const diff of changeset.getDiffs()) {
+    const diffs = changeset.getDiffs();
+    invariant(diffs.size > 0, 'It is not possible to render empty commit.'); // https://stackoverflow.com/a/34692447
+
+    for (const diff of diffs) {
       const path = diff.path;
-      renderedDiffs += `diff --git a/${path} b/${path}
-${diff.body}`;
+      renderedDiffs += `diff --git a/${path} b/${path}\n${diff.body}`;
     }
 
     // Mon Sep 17 is a magic date used by format-patch to distinguish from real mailboxes
@@ -247,9 +268,7 @@ ${diff.body}`;
     return `From ${changeset.getID()} Mon Sep 17 00:00:00 2001
 From: ${changeset.getAuthor()}
 Date: ${changeset.getTimestamp()}
-Subject: [PATCH] ${changeset.getSubject()}
-
-${changeset.getDescription()}
+Subject: [PATCH] ${changeset.getCommitMessage()}
 
 ${renderedDiffs}
 --

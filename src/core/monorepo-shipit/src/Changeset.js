@@ -66,8 +66,12 @@ export default class Changeset {
     return this.__clone({ description });
   }
 
+  getCommitMessage(): string {
+    return `${this.getSubject()}\n\n${this.getDescription()}`;
+  }
+
   getDiffs(): Set<Diff> {
-    return this.diffs;
+    return this.diffs ?? new Set();
   }
 
   withDiffs(diffs: Set<Diff>): Changeset {

@@ -2,15 +2,18 @@
 
 import { findMonorepoRoot } from '@kiwicom/monorepo-utils';
 
-import RepoGIT from '../src/RepoGIT';
+import RepoGit from '../src/RepoGit';
 
-// yarn monorepo-babel-node src/core/monorepo-shipit/bin/create-patch.js <HASH>
+// yarn monorepo-babel-node src/core/monorepo-shipit/bin/create-patch.js <REVISION>
 const argv = process.argv.slice(2);
+const revision = argv[0];
 
-const repo = new RepoGIT(findMonorepoRoot());
-const patch = repo.getNativePatchFromID(argv[0]);
+const repo = new RepoGit(findMonorepoRoot());
+const patch = repo.getNativePatchFromID(revision);
+const header = repo.getNativeHeaderFromIDWithPatch(revision, patch);
 
 /* eslint-disable no-console */
-console.log('~~~~~~~~~~~~~~~~~~~~');
+console.log('~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+console.log(header);
+console.log('~~~ PATCH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 console.log(patch);
-console.log('~~~~~~~~~~~~~~~~~~~~');

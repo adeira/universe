@@ -2,11 +2,11 @@
 
 import { invariant } from '@kiwicom/js';
 
-import RepoGIT from '../RepoGIT';
+import RepoGit from '../RepoGit';
 
 export default function createCheckCorruptedRepoPhase(repoPath: string) {
   return () => {
-    const repo = new RepoGIT(repoPath);
+    const repo = new RepoGit(repoPath);
 
     // We should eventually nuke the repo and clone it again. But we do not
     // store the repos in CI yet so it's not necessary. Also, be careful not

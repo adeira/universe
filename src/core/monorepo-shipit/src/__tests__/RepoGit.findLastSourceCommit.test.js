@@ -1,49 +1,19 @@
 // @flow
 
-import os from 'os';
-import fs from 'fs';
-import path from 'path';
-import { ShellCommand } from '@kiwicom/monorepo-utils';
-
 import Changeset from '../Changeset';
-import RepoGIT from '../RepoGIT';
+import RepoGitFake from '../RepoGitFake';
 import addTrackingData from '../filters/addTrackingData';
 
-/**
- * This function returns newly created and ready to go repository for our
- * integration tests. We could eventually extract it somewhere.
- */
-function createGITRepo(): string {
-  const testRepoPath = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-tests-'));
-  new ShellCommand(testRepoPath, 'git', 'init').runSynchronously();
-  for (const [key, value] of Object.entries({
-    'user.email': 'shipit-tests@kiwi.com',
-    'user.name': 'kiwicom-shipit-tests',
-  })) {
-    new ShellCommand(
-      testRepoPath,
-      'git',
-      'config',
-      key,
-      // $FlowIssue: https://github.com/facebook/flow/issues/2174
-      value,
-    ).runSynchronously();
-  }
-  return testRepoPath;
-}
-
 function createGITRepoWithCommit(message) {
-  const testRepoPath = createGITRepo();
-  new ShellCommand(
-    testRepoPath,
-    'git',
-    'commit',
-    '--cleanup=verbatim',
-    '--allow-empty',
-    '--message',
-    message,
-  ).runSynchronously();
-  return new RepoGIT(testRepoPath);
+  const repo = new RepoGitFake();
+  repo.commitPatch(
+    new Changeset()
+      .withSubject('test subject')
+      .withDescription(message)
+      .withAuthor('John Doe <john@doe.com>')
+      .withTimestamp('Mon, 4 Feb 2019 13:29:04 -0600'),
+  );
+  return repo;
 }
 
 function generateCommitID() {

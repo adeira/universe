@@ -3,7 +3,7 @@
 import { ShellCommand } from '@kiwicom/monorepo-utils';
 import logger from '@kiwicom/logger';
 
-import RepoGIT, { type SourceRepo, type DestinationRepo } from '../RepoGIT';
+import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
 
@@ -34,7 +34,7 @@ export default function createImportSyncPhase(config: ShipitConfig, pullRequestN
       .trim();
 
     const changesets = new Set<Changeset>();
-    const exportedRepo: SourceRepo = new RepoGIT(config.destinationPath);
+    const exportedRepo: SourceRepo = new RepoGit(config.destinationPath);
     const descendantsPath = exportedRepo.findDescendantsPath(mergeBase, 'FETCH_HEAD', new Set([]));
     if (descendantsPath !== null) {
       descendantsPath.forEach(revision => {
@@ -49,7 +49,7 @@ export default function createImportSyncPhase(config: ShipitConfig, pullRequestN
   }
 
   return function() {
-    const monorepo: DestinationRepo = new RepoGIT(config.sourcePath);
+    const monorepo: DestinationRepo = new RepoGit(config.sourcePath);
     const changesets = getFilteredChangesets();
 
     const branchName = `monorepo-importit-github-pr-${pullRequestNumber}`;
