@@ -254,11 +254,12 @@ Relay will show you this warning in this console (dev mode only):
 
 See: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
-# Relay hooks `useQuery`, `useFragment`
+# Relay hooks `useQuery`, `useFragment`, `usePaginationFragment`, `useRefetchableFragment`
 
 TODO:
 
 - https://github.com/relayjs/eslint-plugin-relay/commit/b86eb2ace82c89194a4309ff63701b52a2279b3b
+- https://github.com/relayjs/eslint-plugin-relay/pull/63/files
 
 # @match, @module
 
