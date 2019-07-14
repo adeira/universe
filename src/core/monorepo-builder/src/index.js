@@ -58,6 +58,13 @@ function copyAndTranspileFileSync(absoluteFrom, absoluteTo, babelConfig) {
 
 const rimrafPromise = util.promisify(rimraf);
 
+const globIgnore = [
+  '**/node_modules/**',
+  '**/__tests__/**',
+  '**/__flowtests__/**',
+  '**/__mocks__/**',
+];
+
 (async function() {
   await rimrafPromise(buildDir);
 
@@ -65,7 +72,7 @@ const rimrafPromise = util.promisify(rimraf);
   for (const projectRoot of projectRoots) {
     const rawFileNames = globSync('/**/*.*', {
       root: projectRoot,
-      ignore: ['**/node_modules/**', '**/__tests__/**'],
+      ignore: globIgnore,
     });
     for (const rawFileName of rawFileNames) {
       const destinationFilename = path.join(buildDir, rawFileName.replace(monorepoRoot, ''));
@@ -103,6 +110,7 @@ const rimrafPromise = util.promisify(rimraf);
   copyFileSync(path.join(monorepoRoot, '.yarnrc'), path.join(buildDir, '.yarnrc'));
   const rawFileNames = globSync('/**/*.*', {
     root: path.join(monorepoRoot, '.yarn'),
+    ignore: globIgnore,
   });
   for (const rawFileName of rawFileNames) {
     const destinationFilename = path.join(buildDir, rawFileName.replace(monorepoRoot, ''));
