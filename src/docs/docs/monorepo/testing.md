@@ -90,3 +90,17 @@ yarn run test-only                      // this runs in UTC timezone, same as:
 TZ=UTC yarn run test-only
 TZ=America/Lima yarn run test-only
 ```
+
+## Running tests using IDE (Web/PhpStorm)
+
+It is quite easy to setup running all tests in IDE by using NPM/Yarn scripts. However, it is useful for us (developers) to run the test suit we are working on right now. Possibly directly from the IDE using its native possibilities. See the green "buttons" on the left:
+
+![Web/PhpStorm test file](assets/storm-tests.png)
+
+Running tests using these "buttons" creates a "Run configuration" in the IDE that is based on the Jest Template. It might work for some simple tests (e.g. uni test for a one function module which does not depend on anything). However, running more complicated test cases (e.g. end-to-end GraphQL query tests) requires configuration.
+
+The default behavior is to use root directory where the closest `jest.config.js` file is located. Using the file as configuration for Jest. To make sure everything works correctly using the monorepo we need to use repository root configuration.
+
+Updating Jest template for the project will allow you to use "buttons" mentioned above without the need to configure each Jest run configuration over and over again.
+
+![Web/PhpStorm Jest template configuration](assets/storm-jest-template.png)
