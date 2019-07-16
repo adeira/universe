@@ -1,0 +1,37 @@
+syntax = "proto3";
+package helloworld.v1;
+
+option java_multiple_files = true;
+option java_package = "com.helloworld.v1";
+option java_outer_classname = "GreeterApiProto";
+option csharp_namespace = "Helloworld.V1";
+option go_package = "helloworldv1";
+option objc_class_prefix = "HXX";
+option php_namespace = "Helloworld\\V1";
+
+// The greeting service definition.
+service GreeterAPI {
+
+  // Sends a greeting.
+  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {
+    option (graphql_query).name = "sayHello";
+    option (graphql_query).description = "Greet given name";
+    option (graphql_query).type = GRAPHQL_QUERY_TYPE_QUERY;
+  }
+}
+
+// The request message containing the user's name.
+message SayHelloRequest {
+  option (graphql_type).name = "SayHelloInput";
+
+  string name = 1 [
+    (graphql_field).name = "name",
+    (graphql_field).is_not_null = false
+  ];
+}
+
+// The response message containing the greetings
+message SayHelloResponse {
+  option (graphql_type).name = "SayHello";
+  string message = 1 [(graphql_field).name = "greeting"];
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@kiwicom/grpc2graphql",
+  "version": "0.0.0",
+  "private": true,
+  "description": "GraphQL server codegen from gRPC proto files.",
+  "license": "UNLICENSED",
+  "main": "src/index.js",
+  "dependencies": {
+    "protobufjs": "^6.8.8"
+  }
+}
