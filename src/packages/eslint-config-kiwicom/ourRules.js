@@ -485,7 +485,12 @@ module.exports = {
   'jsx-a11y/tabindex-no-positive': ERROR,
 
   // React Native (https://github.com/Intellicode/eslint-plugin-react-native)
+  'react-native/no-color-literals': OFF,
+  'react-native/no-inline-styles': OFF,
+  'react-native/no-raw-text': OFF,
   'react-native/no-unused-styles': ERROR,
+  'react-native/sort-styles': OFF,
+  'react-native/split-platform-components': OFF,
 
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
   'relay/compat-uses-vars': OFF, // we do not use Relay Compat
