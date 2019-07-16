@@ -18,12 +18,17 @@ export default function createSyncPhase(config: ShipitConfig) {
   function getSourceChangesets(): Set<Changeset> {
     const destinationRepo = _getDestinationRepo();
     const sourceRepo = _getSourceRepo();
-    const initialRevision = destinationRepo.findLastSourceCommit(config.getExportedRepoRoots());
+    let initialRevision = destinationRepo.findLastSourceCommit(config.getDestinationRoots());
+    if (initialRevision === null) {
+      // Seems like it's a new repo so there is no signed commit.
+      // Let's take the first one from our source repo instead.
+      initialRevision = sourceRepo.findFirstAvailableCommit();
+    }
     const sourceChangesets = new Set<Changeset>();
     const descendantsPath = sourceRepo.findDescendantsPath(
       initialRevision,
       'origin/master', // GitLab CI doesn't have master branch
-      config.getMonorepoRoots(),
+      config.getSourceRoots(),
     );
     if (descendantsPath !== null) {
       descendantsPath.forEach(revision => {

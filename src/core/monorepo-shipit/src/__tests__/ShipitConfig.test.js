@@ -11,7 +11,7 @@ it('returns set of paths when trying to access monorepo roots', () => {
       'fake exported repo URL',
       new Map([['/known_path', '/destination_path']]),
       new Set([/mocked/]),
-    ).getMonorepoRoots(),
+    ).getSourceRoots(),
   ).toEqual(new Set(['/known_path']));
 });
 
@@ -22,7 +22,7 @@ it('returns empty set when trying to get roots of the exported repo', () => {
       'fake exported repo URL',
       new Map([['/known_path', '/destination_path']]),
       new Set([/mocked/]),
-    ).getExportedRepoRoots(),
+    ).getDestinationRoots(),
   ).toEqual(
     new Set(), // empty set expected
   );

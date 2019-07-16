@@ -7,9 +7,9 @@ import logger from '@kiwicom/logger';
 import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';
 
-export default function iterateConfigs(callback: ShipitConfig => void) {
-  const configFiles = globSync('/**/*.js', {
-    root: path.join(__dirname, '..', 'config'),
+function iterateConfigsInPath(rootPath: string, callback: ShipitConfig => void): void {
+  const configFiles = globSync('/*.js', {
+    root: rootPath,
     ignore: [
       '**/node_modules/**',
       '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
@@ -50,4 +50,12 @@ export default function iterateConfigs(callback: ShipitConfig => void) {
   } else {
     process.exitCode = 0;
   }
+}
+
+export function iterateReversedConfigs(callback: ShipitConfig => void): void {
+  iterateConfigsInPath(path.join(__dirname, '..', 'config', 'reversed'), callback);
+}
+
+export default function iterateConfigs(callback: ShipitConfig => void): void {
+  iterateConfigsInPath(path.join(__dirname, '..', 'config'), callback);
 }
