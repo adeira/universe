@@ -8,7 +8,7 @@ module.exports = {
       repository: 'git@github.com/kiwicom/relay-example.git',
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     const ossRoot = 'src/apps/example-relay/';
     return new Map([
       [path.join(ossRoot, '__github__', '.flowconfig'), '.flowconfig'],

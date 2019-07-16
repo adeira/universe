@@ -21,8 +21,8 @@ export default function testExportedPaths(
     const defaultFilter = new ShipitConfig(
       'mocked repo path',
       'mocked repo URL',
-      config.getDefaultPathMappings(),
-      config.getDefaultStrippedFiles ? config.getDefaultStrippedFiles() : new Set(),
+      config.getPathMappings(),
+      config.getStrippedFiles ? config.getStrippedFiles() : new Set(),
     ).getDefaultShipitFilter();
 
     const inputChangeset = new Changeset().withDiffs(new Set([{ path: input, body: 'mocked' }]));

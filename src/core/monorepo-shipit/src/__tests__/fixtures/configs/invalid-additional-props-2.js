@@ -1,7 +1,7 @@
 // @flow
 
 module.exports = {
-  getDefaultStrippedFiles() {
+  getStrippedFiles() {
     return new Set<RegExp>([/__github__/]);
   },
   getStaticConfig() {
@@ -10,6 +10,6 @@ module.exports = {
     };
   },
   defaultPathMappings() {
-    // this configuration is not supported and should be removed (should be 'getDefaultPathMappings')
+    // this configuration is not supported and should be removed (should be 'getPathMappings')
   },
 };

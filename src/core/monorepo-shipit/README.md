@@ -47,14 +47,14 @@ module.exports = {
       repository: 'git@github.com/kiwicom/relay-example.git', // see: https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([
       ['src/incubator/example-relay/__github__/.circleci', '.circleci'],
       ['src/incubator/example-relay/__github__/.flowconfig', '.flowconfig'],
       ['src/incubator/example-relay/', ''],
     ]);
   },
-  getDefaultStrippedFiles(): Set<RegExp> {
+  getStrippedFiles(): Set<RegExp> {
     // this method is optional
     return new Set([/__github__/]);
   },
@@ -110,7 +110,7 @@ It's fairly straightforward to rename things inside your specified root and ship
 
 ```js
 module.exports = {
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([['src/packages/monorepo/', '']]);
     // ... add new root here, keep the old one as well
   },

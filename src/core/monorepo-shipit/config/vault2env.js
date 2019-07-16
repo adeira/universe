@@ -6,7 +6,7 @@ module.exports = {
       repository: 'git@github.com:kiwicom/vault2env-js.git',
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([['src/packages/vault2env/', '']]);
   },
 };

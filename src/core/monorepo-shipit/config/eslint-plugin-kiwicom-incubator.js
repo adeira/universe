@@ -6,7 +6,7 @@ module.exports = {
       repository: 'git@github.com:kiwicom/eslint-plugin-kiwicom-incubator.git',
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([['src/packages/eslint-plugin-kiwicom-incubator/', '']]);
   },
 };
