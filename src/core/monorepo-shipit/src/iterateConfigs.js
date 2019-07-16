@@ -26,8 +26,8 @@ export default function iterateConfigs(callback: ShipitConfig => void) {
     const cfg = new ShipitConfig(
       monorepoPath,
       staticConfig.repository,
-      config.getDefaultPathMappings(),
-      config.getDefaultStrippedFiles ? config.getDefaultStrippedFiles() : new Set(),
+      config.getPathMappings(),
+      config.getStrippedFiles ? config.getStrippedFiles() : new Set(),
     );
 
     // We collect all the errors but we do not stop the iteration. These errors

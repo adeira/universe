@@ -6,7 +6,7 @@ module.exports = {
       repository: 'git@github.com:kiwicom/graphql-resolve-wrapper.git',
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([['src/packages/graphql-resolve-wrapper/', '']]);
   },
 };

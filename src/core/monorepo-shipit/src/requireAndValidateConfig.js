@@ -17,8 +17,8 @@ export default function requireAndValidateConfig(configFile: string) {
   const allowedFields = new Map([
     // filed name => is required
     ['getStaticConfig', true],
-    ['getDefaultPathMappings', true],
-    ['getDefaultStrippedFiles', false],
+    ['getPathMappings', true],
+    ['getStrippedFiles', false],
   ]);
 
   for (const key of Object.keys(config)) {

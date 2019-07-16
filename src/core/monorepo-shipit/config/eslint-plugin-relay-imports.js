@@ -6,7 +6,7 @@ module.exports = {
       repository: 'git@github.com:kiwicom/eslint-plugin-relay-imports.git',
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([['src/packages/eslint-plugin-relay-imports/', '']]);
   },
 };

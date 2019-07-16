@@ -6,7 +6,7 @@ module.exports = {
       repository: 'git@github.com:kiwicom/monorepo-shipit.git',
     };
   },
-  getDefaultPathMappings(): Map<string, string> {
+  getPathMappings(): Map<string, string> {
     return new Map([['src/core/monorepo-shipit/', '']]);
   },
 };

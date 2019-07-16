@@ -6,11 +6,11 @@ it('returns valid config correctly', () => {
   const config = requireAndValidate(`${__dirname}/fixtures/configs/valid.js`);
   expect(config).toMatchInlineSnapshot(`
     Object {
-      "getDefaultPathMappings": [Function],
+      "getPathMappings": [Function],
       "getStaticConfig": [Function],
     }
   `);
-  expect(config.getDefaultPathMappings()).toMatchInlineSnapshot(`
+  expect(config.getPathMappings()).toMatchInlineSnapshot(`
     Map {
       "src/apps/example-relay/__github__/.flowconfig" => ".flowconfig",
       "src/apps/example-relay/" => "",
@@ -27,12 +27,12 @@ it('fails when config contains unsupported fields', () => {
   expect(() =>
     requireAndValidate(`${__dirname}/fixtures/configs/invalid-additional-props-1.js`),
   ).toThrowError(
-    "Your config contains field 'defaultStrippedFiles' but this is not allowed key. Did you mean 'getDefaultStrippedFiles' instead?",
+    "Your config contains field 'defaultStrippedFiles' but this is not allowed key. Did you mean 'getStrippedFiles' instead?",
   );
   expect(() =>
     requireAndValidate(`${__dirname}/fixtures/configs/invalid-additional-props-2.js`),
   ).toThrowError(
-    "Your config contains field 'defaultPathMappings' but this is not allowed key. Did you mean 'getDefaultPathMappings' instead?",
+    "Your config contains field 'defaultPathMappings' but this is not allowed key. Did you mean 'getPathMappings' instead?",
   );
 });
 
