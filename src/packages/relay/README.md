@@ -46,7 +46,7 @@ Minimal Relay compiler script in `package.json`:
 ```json
 {
   "scripts": {
-    "relay": "relay-compiler --src=./src --schema=./graphql.kiwi.com.schema"
+    "relay": "relay-compiler --src=./src --schema=./graphql.kiwi.com.schema.gql"
   }
 }
 ```
