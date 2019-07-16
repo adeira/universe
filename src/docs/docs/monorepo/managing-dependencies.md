@@ -26,7 +26,12 @@ There are basically 2 useful commands for the upgrades: `add-comments` and `remo
 /path/to/tool add-comments --all --bin /path/to/flow --comment "\$FlowFixMe(>=0.1xx.0)" .
 ```
 
-Our Flow config is configured so it understand the version in `$FlowFixMe` correctly (it suppresses the error only from the specified version up). Try to run this command without the `--all` flag to be able to fix the errors individually.
+Our Flow config is configured so it understand the version in `$FlowFixMe` correctly (it suppresses the error only from the specified version up). Try to run this command without the `--all` flag to be able to fix the errors individually. Example of such a suppression comment:
+
+```js
+/* $FlowFixMe(>=0.102.0) This comment suppresses an error when upgrading Flow.
+ * To see the error delete this comment and run Flow. */
+```
 
 Similarly for removing unused suppress comments:
 
