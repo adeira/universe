@@ -1,5 +1,7 @@
 # Unreleased
 
+- Eslint runner now automatically checks your dependency tree and warns you when you are using multiple plugins with possibly incompatible versions (common source of `Definition for rule 'xyz' was not found` errors).
+
 # 6.1.0
 
 - New rule [`jest/no-duplicate-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/e292cb85fd19a9b561b7da0f3a4ded73a9842faa/docs/rules/no-duplicate-hooks.md) enabled (warnings resp. errors in strict mode).
