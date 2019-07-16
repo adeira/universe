@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`jest/no-duplicate-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/e292cb85fd19a9b561b7da0f3a4ded73a9842faa/docs/rules/no-duplicate-hooks.md) enabled (warnings resp. errors in strict mode).
+
 # 6.0.0
 
 - Breaking: default line width is now 100 to be compatible with other JavaScript projects. Migration is super simple if you use our Eslint Runner: just run it with option `--all` and it will fix the lines automatically. You will probably have to fix some additional failing tests/lint rules but it should not take you more than a few minutes. As always: first upgrade to previous versions and fix the warnings.

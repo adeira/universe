@@ -249,6 +249,7 @@ Object {
     "jest/no-alias-methods": 0,
     "jest/no-commented-out-tests": 0,
     "jest/no-disabled-tests": 2,
+    "jest/no-duplicate-hooks": 1,
     "jest/no-empty-title": 2,
     "jest/no-focused-tests": 2,
     "jest/no-hooks": 0,
@@ -855,5 +856,12 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-Compared values have no visual difference.
+- First value
++ Second value
+
+@@ --- --- @@
+      "jest/no-disabled-tests": 2,
+-     "jest/no-duplicate-hooks": 1,
++     "jest/no-duplicate-hooks": 2,
+      "jest/no-empty-title": 2,
 `;
