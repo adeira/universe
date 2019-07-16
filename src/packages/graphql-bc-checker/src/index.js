@@ -1,6 +1,8 @@
 // @flow
 
 import os from 'os';
+import fs from 'fs';
+import path from 'path';
 import {
   findBreakingChanges,
   findDangerousChanges,
@@ -9,7 +11,6 @@ import {
   lexicographicSortSchema,
   type GraphQLSchema,
 } from 'graphql';
-import fs from 'fs';
 
 import SignedSource from './SignedSource';
 import { buildBreakingChangesBlock } from './BCLogger';
@@ -46,6 +47,8 @@ export default function testBackwardCompatibility({
   snapshotLocation,
   schema,
 }: Options): void {
+  note(`Testing: ${path.basename(snapshotLocation)}`);
+
   const newSchema = schema;
   try {
     fs.accessSync(snapshotLocation, fs.constants.F_OK);
