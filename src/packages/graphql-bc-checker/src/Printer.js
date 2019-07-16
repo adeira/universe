@@ -1,25 +1,24 @@
-/* eslint-disable no-console */
 // @flow
+
+/* eslint-disable no-console */
 
 import os from 'os';
 import chalk from 'chalk';
 
-const _eol = (message: string) => os.EOL + message + os.EOL;
-
-const note = (message: string) => {
-  console.log(_eol(message));
+const note = (message: string): void => {
+  console.log(message);
 };
 
-const success = (message: string) => {
-  console.log(_eol(chalk.green.bold(message)));
+const success = (message: string): void => {
+  console.log(chalk.green.bold(message));
 };
 
-const warning = (message: string) => {
-  console.log(_eol(chalk.yellow.bold(message)));
+const warning = (message: string): void => {
+  console.log(chalk.yellow.bold(message));
 };
 
-const error = (message: string) => {
-  console.log(_eol(chalk.red.bold(message)));
+const error = (message: string): void => {
+  console.log(chalk.red.bold(message));
 };
 
 const printBreakingChanges = (changes: $ReadOnlyArray<{ [key: string]: any, ... }>) => {
