@@ -1,4 +1,4 @@
-// @flow strict-local
+// @flow
 
 import fs from 'fs';
 import os from 'os';
@@ -8,8 +8,11 @@ import { ShellCommand } from '@kiwicom/monorepo-utils';
 import RepoGit from './RepoGit';
 
 export default class RepoGitFake extends RepoGit {
-  constructor() {
-    const testRepoPath = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-tests-'));
+  #testRepoPath: string;
+
+  constructor(
+    testRepoPath: string = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-tests-')),
+  ) {
     new ShellCommand(testRepoPath, 'git', 'init').runSynchronously();
     for (const [key, value] of Object.entries({
       'user.email': 'shipit-tests@kiwi.com',
@@ -25,6 +28,7 @@ export default class RepoGitFake extends RepoGit {
       ).runSynchronously();
     }
     super(testRepoPath);
+    this.#testRepoPath = testRepoPath;
   }
 
   push = () => {};
@@ -37,4 +41,15 @@ export default class RepoGitFake extends RepoGit {
 
   // $FlowExpectedError: this function overwrites the original and returns nothing
   export = (): void => {};
+
+  getFakeRepoPath(): string {
+    return this.#testRepoPath;
+  }
+
+  printFakeRepoHistory() {
+    return this._gitCommand('log', '--stat', '--pretty=format:SUBJ: %s%nDESC: %b')
+      .runSynchronously()
+      .getStdout()
+      .trim();
+  }
 }

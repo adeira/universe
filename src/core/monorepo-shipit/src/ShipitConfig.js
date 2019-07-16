@@ -17,17 +17,20 @@ type ChangesetFilter = Changeset => Changeset;
 export default class ShipitConfig {
   sourcePath: string;
   destinationPath: string;
-  exportedRepoURL: string;
+  exportedRepoURL: string; // TODO: what to do with this?
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
 
+  #sourceBranch = 'master';
+  #destinationBranch = 'master';
+
   constructor(
-    monorepoPath: string,
+    sourcePath: string,
     exportedRepoURL: string,
     directoryMapping: Map<string, string>,
     strippedFiles: Set<RegExp>,
   ) {
-    this.sourcePath = monorepoPath;
+    this.sourcePath = sourcePath;
     // This is currently not configurable. We could (should) eventually keep
     // the temp directory, cache it and just update it.
     this.destinationPath = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-'));
@@ -36,7 +39,7 @@ export default class ShipitConfig {
     this.strippedFiles = strippedFiles;
   }
 
-  getMonorepoRoots(): Set<string> {
+  getSourceRoots(): Set<string> {
     const roots = new Set();
     for (const root of this.directoryMapping.keys()) {
       warning(fs.existsSync(root) === true, `Directory mapping uses non-existent root: ${root}`);
@@ -45,7 +48,7 @@ export default class ShipitConfig {
     return roots;
   }
 
-  getExportedRepoRoots(): Set<string> {
+  getDestinationRoots(): Set<string> {
     // In out cases root is always "". However, if we'd like to export our
     // workspaces to another monorepo then the root would change to something
     // like "my-oss-project/"
@@ -59,7 +62,7 @@ export default class ShipitConfig {
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
       const ch1 = addTrackingData(changeset);
-      const ch2 = stripExceptDirectories(ch1, this.getMonorepoRoots());
+      const ch2 = stripExceptDirectories(ch1, this.getSourceRoots());
       const ch3 = moveDirectories(ch2, this.directoryMapping);
       return stripPaths(ch3, this.strippedFiles);
     };
@@ -72,5 +75,13 @@ export default class ShipitConfig {
     return (changeset: Changeset) => {
       return moveDirectoriesReverse(changeset, this.directoryMapping);
     };
+  }
+
+  getSourceBranch(): string {
+    return this.#sourceBranch;
+  }
+
+  getDestinationBranch(): string {
+    return this.#destinationBranch;
   }
 }

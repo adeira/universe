@@ -44,7 +44,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig) {
     const dirtyExportedRepo = createNewEmptyRepo(dirtyExportedRepoPath);
 
     const monorepo = new RepoGit(monorepoPath);
-    monorepo.export(dirtyExportedRepoPath, config.getMonorepoRoots());
+    monorepo.export(dirtyExportedRepoPath, config.getSourceRoots());
 
     new ShellCommand(dirtyExportedRepoPath, 'git', 'add', '.', '--force')
       .setOutputToScreen()

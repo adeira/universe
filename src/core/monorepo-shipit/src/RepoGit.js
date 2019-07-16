@@ -15,6 +15,7 @@ import Changeset from './Changeset';
  * This is our monorepo part - source of exports.
  */
 export interface SourceRepo {
+  findFirstAvailableCommit(): string;
   findDescendantsPath(
     baseRevision: string,
     headRevision: string,
@@ -30,7 +31,7 @@ export interface SourceRepo {
  * Exported repository containing `kiwicom-source-id` handles.
  */
 export interface DestinationRepo {
-  findLastSourceCommit(roots: Set<string>): string;
+  findLastSourceCommit(roots: Set<string>): null | string;
   renderPatch(changeset: Changeset): string;
   commitPatch(changeset: Changeset): string;
   checkoutBranch(branchName: string): void;
@@ -42,7 +43,6 @@ export default class RepoGit implements SourceRepo, DestinationRepo {
 
   constructor(localPath: string) {
     invariant(fs.existsSync(path.join(localPath, '.git')), '%s is not a GIT repo.', localPath);
-
     this.#localPath = localPath;
   }
 
@@ -100,7 +100,7 @@ export default class RepoGit implements SourceRepo, DestinationRepo {
     return exitCode !== 0;
   };
 
-  findLastSourceCommit = (roots: Set<string>): string => {
+  findLastSourceCommit = (roots: Set<string>): null | string => {
     const log = this._gitCommand(
       'log',
       '-1',
@@ -118,11 +118,11 @@ export default class RepoGit implements SourceRepo, DestinationRepo {
     while ((match = regex.exec(log)) !== null) {
       lastCommit = match?.groups?.commit;
     }
-    return lastCommit ?? this.findFirstAvailableCommit();
+    return lastCommit ?? null;
   };
 
   // https://stackoverflow.com/a/5189296/3135248
-  findFirstAvailableCommit = () => {
+  findFirstAvailableCommit = (): string => {
     // Please note, the following command may return multiple roots. For example,
     // `git` repository has 6 roots (and we should take the last one).
     const rawOutput = this._gitCommand('rev-list', '--max-parents=0', 'HEAD')
