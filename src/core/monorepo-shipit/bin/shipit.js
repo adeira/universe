@@ -10,13 +10,13 @@ import createSyncPhase from '../src/phases/createSyncPhase';
 import createVerifyRepoPhase from '../src/phases/createVerifyRepoPhase';
 import createPushPhase from '../src/phases/createPushPhase';
 
-iterateConfigs(cfg => {
+iterateConfigs(config => {
   new Set<() => void>([
-    createClonePhase(cfg.exportedRepoURL, cfg.destinationPath),
-    createCheckCorruptedRepoPhase(cfg.destinationPath),
-    createCleanPhase(cfg.destinationPath),
-    createSyncPhase(cfg),
-    createVerifyRepoPhase(cfg),
-    createPushPhase(cfg.destinationPath),
+    createClonePhase(config.exportedRepoURL, config.destinationPath),
+    createCheckCorruptedRepoPhase(config.destinationPath),
+    createCleanPhase(config.destinationPath),
+    createSyncPhase(config),
+    createVerifyRepoPhase(config),
+    createPushPhase(config),
   ]).forEach(phase => phase());
 });

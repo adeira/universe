@@ -8,11 +8,13 @@ import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRep
 import createCleanPhase from '../src/phases/createCleanPhase';
 
 // TODO: could this be merged into importit (?)
-iterateReversedConfigs(cfg => {
+iterateReversedConfigs(config => {
   new Set<() => void>([
-    createClonePhase(cfg.exportedRepoURL, cfg.destinationPath),
-    createCheckCorruptedRepoPhase(cfg.destinationPath),
-    createCleanPhase(cfg.destinationPath),
+    createClonePhase(config.exportedRepoURL, config.destinationPath),
+    createCheckCorruptedRepoPhase(config.destinationPath),
+    createCleanPhase(config.destinationPath),
     // TODO: sync it but with reversed destination (and possibly different branch for now)
+    // createSyncPhase(config),
+    // createPushPhase(config),
   ]).forEach(phase => phase());
 });

@@ -27,7 +27,7 @@ export default function createSyncPhase(config: ShipitConfig) {
     const sourceChangesets = new Set<Changeset>();
     const descendantsPath = sourceRepo.findDescendantsPath(
       initialRevision,
-      'origin/master', // GitLab CI doesn't have master branch
+      config.getSourceBranch(),
       config.getSourceRoots(),
     );
     if (descendantsPath !== null) {

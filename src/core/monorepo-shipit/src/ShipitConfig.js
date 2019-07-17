@@ -21,7 +21,7 @@ export default class ShipitConfig {
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
 
-  #sourceBranch = 'master';
+  #sourceBranch = 'origin/master'; // our GitLab CI doesn't have master branch
   #destinationBranch = 'master';
 
   constructor(

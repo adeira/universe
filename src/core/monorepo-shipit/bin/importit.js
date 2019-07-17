@@ -24,13 +24,13 @@ invariant(
   'We currently support imports only from GitHub.com - please open an issue to add additional services.',
 );
 
-iterateConfigs(cfg => {
-  if (cfg.exportedRepoURL === exportedRepoURL) {
+iterateConfigs(config => {
+  if (config.exportedRepoURL === exportedRepoURL) {
     new Set<() => void>([
-      createClonePhase(cfg.exportedRepoURL, cfg.destinationPath),
-      createCheckCorruptedRepoPhase(cfg.destinationPath),
-      createCleanPhase(cfg.destinationPath),
-      createImportSyncPhase(cfg, pullRequestNumber),
+      createClonePhase(config.exportedRepoURL, config.destinationPath),
+      createCheckCorruptedRepoPhase(config.destinationPath),
+      createCleanPhase(config.destinationPath),
+      createImportSyncPhase(config, pullRequestNumber),
     ]).forEach(phase => phase());
   }
 });
