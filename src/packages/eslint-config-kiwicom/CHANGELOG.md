@@ -1,5 +1,7 @@
 # Unreleased
 
+# 6.2.0
+
 - Eslint runner now automatically checks your dependency tree and warns you when you are using multiple plugins with possibly incompatible versions (common source of `Definition for rule 'xyz' was not found` errors).
 
 # 6.1.0
