@@ -35,7 +35,7 @@ export interface DestinationRepo {
   renderPatch(changeset: Changeset): string;
   commitPatch(changeset: Changeset): string;
   checkoutBranch(branchName: string): void;
-  push(): void;
+  push(branch: string): void;
 }
 
 export default class RepoGit implements SourceRepo, DestinationRepo {
@@ -56,8 +56,8 @@ export default class RepoGit implements SourceRepo, DestinationRepo {
     );
   };
 
-  push = () => {
-    this._gitCommand('push', 'origin', 'master')
+  push = (destinationBranch: string) => {
+    this._gitCommand('push', 'origin', destinationBranch)
       .setOutputToScreen()
       .runSynchronously();
   };

@@ -27,7 +27,7 @@ export default function createImportSyncPhase(config: ShipitConfig, pullRequestN
       'git',
       'merge-base',
       'FETCH_HEAD',
-      'master',
+      config.getDestinationBranch(),
     )
       .runSynchronously()
       .getStdout()

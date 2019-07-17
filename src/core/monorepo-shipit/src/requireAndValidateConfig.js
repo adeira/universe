@@ -11,17 +11,11 @@ function suggest(name: string, alternativeNames: Array<string>): string {
   })[0];
 }
 
-export default function requireAndValidateConfig(configFile: string) {
-  // $FlowAllowDynamicImport
-  const config = require(configFile);
-  const allowedFields = new Map([
-    // filed name => is required
-    ['getStaticConfig', true],
-    ['getPathMappings', true],
-    ['getStrippedFiles', false],
-  ]);
-
-  for (const key of Object.keys(config)) {
+function validateObjectKeys(
+  object: { [string]: mixed, ... },
+  allowedFields: Map<string, boolean>,
+): void | empty {
+  for (const key of Object.keys(object)) {
     invariant(
       allowedFields.has(key),
       "Your config contains field '%s' but this is not allowed key. Did you mean '%s' instead?",
@@ -33,11 +27,37 @@ export default function requireAndValidateConfig(configFile: string) {
   for (const [fieldName, isRequired] of allowedFields) {
     if (isRequired) {
       invariant(
-        config[fieldName] !== undefined,
+        object[fieldName] !== undefined,
         "Configuration field '%s' is required but it's missing.",
         fieldName,
       );
     }
+  }
+}
+
+export default function requireAndValidateConfig(configFile: string) {
+  // $FlowAllowDynamicImport
+  const config = require(configFile);
+  const allowedFields = new Map([
+    // filed name => is required
+    ['getBranchConfig', false],
+    ['getStaticConfig', true],
+    ['getPathMappings', true],
+    ['getStrippedFiles', false],
+  ]);
+
+  // TODO: consider Ajv but with good error messages!
+  validateObjectKeys(config, allowedFields);
+
+  if (config.getBranchConfig) {
+    validateObjectKeys(
+      config.getBranchConfig(),
+      new Map([['source', true], ['destination', true]]),
+    );
+  }
+
+  if (config.getStaticConfig) {
+    validateObjectKeys(config.getStaticConfig(), new Map([['repository', true]]));
   }
 
   return config;
