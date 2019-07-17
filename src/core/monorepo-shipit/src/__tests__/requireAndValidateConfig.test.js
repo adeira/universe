@@ -2,10 +2,32 @@
 
 import requireAndValidate from '../requireAndValidateConfig';
 
-it('returns valid config correctly', () => {
-  const config = requireAndValidate(`${__dirname}/fixtures/configs/valid.js`);
+it('returns minimal valid config correctly', () => {
+  const config = requireAndValidate(`${__dirname}/fixtures/configs/valid-minimal.js`);
   expect(config).toMatchInlineSnapshot(`
     Object {
+      "getPathMappings": [Function],
+      "getStaticConfig": [Function],
+    }
+  `);
+  expect(config.getPathMappings()).toMatchInlineSnapshot(`
+    Map {
+      "src/apps/example-relay/__github__/.flowconfig" => ".flowconfig",
+      "src/apps/example-relay/" => "",
+    }
+  `);
+  expect(config.getStaticConfig()).toMatchInlineSnapshot(`
+    Object {
+      "repository": "git@github.com/kiwicom/relay-example.git",
+    }
+  `);
+});
+
+it('returns valid config with branches correctly', () => {
+  const config = requireAndValidate(`${__dirname}/fixtures/configs/valid-branches.js`);
+  expect(config).toMatchInlineSnapshot(`
+    Object {
+      "getBranchConfig": [Function],
       "getPathMappings": [Function],
       "getStaticConfig": [Function],
     }
@@ -33,6 +55,14 @@ it('fails when config contains unsupported fields', () => {
     requireAndValidate(`${__dirname}/fixtures/configs/invalid-additional-props-2.js`),
   ).toThrowError(
     "Your config contains field 'defaultPathMappings' but this is not allowed key. Did you mean 'getPathMappings' instead?",
+  );
+});
+
+it("fails when branch config doesn't have valid keys", () => {
+  expect(() =>
+    requireAndValidate(`${__dirname}/fixtures/configs/invalid-misconfigured-branches.js`),
+  ).toThrowError(
+    "Your config contains field 'what_is_this' but this is not allowed key. Did you mean 'destination' instead?",
   );
 });
 

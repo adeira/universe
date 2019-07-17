@@ -22,12 +22,20 @@ function iterateConfigsInPath(rootPath: string, callback: ShipitConfig => void):
   configFiles.forEach(configFile => {
     const config = requireAndValidateConfig(configFile);
     const staticConfig = config.getStaticConfig();
+    const branches = config.getBranchConfig
+      ? config.getBranchConfig()
+      : {
+          source: undefined,
+          destination: undefined,
+        };
 
     const cfg = new ShipitConfig(
       monorepoPath,
       staticConfig.repository,
       config.getPathMappings(),
       config.getStrippedFiles ? config.getStrippedFiles() : new Set(),
+      branches.source,
+      branches.destination,
     );
 
     // We collect all the errors but we do not stop the iteration. These errors

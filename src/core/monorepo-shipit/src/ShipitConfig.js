@@ -21,14 +21,16 @@ export default class ShipitConfig {
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
 
-  #sourceBranch = 'origin/master'; // our GitLab CI doesn't have master branch
-  #destinationBranch = 'master';
+  #sourceBranch;
+  #destinationBranch;
 
   constructor(
     sourcePath: string,
     exportedRepoURL: string,
     directoryMapping: Map<string, string>,
     strippedFiles: Set<RegExp>,
+    sourceBranch: string = 'origin/master', // our GitLab CI doesn't have master branch
+    destinationBranch: string = 'master',
   ) {
     this.sourcePath = sourcePath;
     // This is currently not configurable. We could (should) eventually keep
@@ -37,6 +39,8 @@ export default class ShipitConfig {
     this.exportedRepoURL = exportedRepoURL;
     this.directoryMapping = directoryMapping;
     this.strippedFiles = strippedFiles;
+    this.#sourceBranch = sourceBranch;
+    this.#destinationBranch = destinationBranch;
   }
 
   getSourceRoots(): Set<string> {
