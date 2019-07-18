@@ -254,6 +254,7 @@ Object {
     "jest/no-focused-tests": 2,
     "jest/no-hooks": 0,
     "jest/no-identical-title": 2,
+    "jest/no-if": 0,
     "jest/no-jasmine-globals": 2,
     "jest/no-jest-import": 2,
     "jest/no-large-snapshots": 0,
