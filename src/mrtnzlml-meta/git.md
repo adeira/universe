@@ -9,6 +9,10 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
+# A..B vs A...B vs --ancestry-path
+
+See: https://stackoverflow.com/a/36437843
+
 # Working with monorepo
 
 - https://gitlab.com/groups/gitlab-org/-/epics/915
