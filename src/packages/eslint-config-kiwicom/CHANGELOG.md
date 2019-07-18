@@ -1,5 +1,9 @@
 # Unreleased
 
+# 6.3.0
+
+- Allow use of devDependencies in `**/*.stories.js` (Storybook story files), `**/webpack.config.js` and `**/metro.config.js`.
+
 # 6.2.0
 
 - Eslint runner now automatically checks your dependency tree and warns you when you are using multiple plugins with possibly incompatible versions (common source of `Definition for rule 'xyz' was not found` errors).

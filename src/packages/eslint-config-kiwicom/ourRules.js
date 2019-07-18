@@ -536,7 +536,13 @@ module.exports = {
   'import/no-extraneous-dependencies': [
     ERROR,
     {
-      devDependencies: ['**/*.test.js', '**/*.spec.js'],
+      devDependencies: [
+        '**/*.test.js',
+        '**/*.spec.js',
+        '**/*.stories.js',
+        '**/webpack.config.js',
+        '**/metro.config.js',
+      ],
     },
   ],
   'import/no-internal-modules': OFF,

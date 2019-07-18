@@ -195,6 +195,9 @@ Object {
         "devDependencies": Array [
           "**/*.test.js",
           "**/*.spec.js",
+          "**/*.stories.js",
+          "**/webpack.config.js",
+          "**/metro.config.js",
         ],
       },
     ],
