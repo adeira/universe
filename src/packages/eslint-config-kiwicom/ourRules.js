@@ -274,7 +274,7 @@ module.exports = {
   'flowtype/use-flow-type': WARN,
   'flowtype/valid-syntax': OFF,
 
-  // Jasmine (https://github.com/jest-community/eslint-plugin-jest)
+  // Jest (https://github.com/jest-community/eslint-plugin-jest)
   'jest/consistent-test-it': OFF,
   'jest/expect-expect': OFF,
   'jest/lowercase-name': OFF,
@@ -286,6 +286,7 @@ module.exports = {
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': ERROR,
+  'jest/no-if': OFF,
   'jest/no-jasmine-globals': ERROR,
   'jest/no-jest-import': ERROR,
   'jest/no-large-snapshots': OFF,
