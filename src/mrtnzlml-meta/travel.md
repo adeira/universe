@@ -9,6 +9,8 @@ You can consider this document to be a checklist for your travels. But first - y
 
 https://packhacker.com/guide/working-remotely/
 
+**https://www.vox.com/a/borders**
+
 # Travel info
 Need to know something about your new destination? This will help you:
 
