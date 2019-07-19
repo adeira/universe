@@ -1,5 +1,7 @@
 # Unreleased
 
+- New bin script `kiwicom-fetch-schema` available. This little script helps you with the download of your remote schema. Please, read README file to see how to use it.
+
 # 3.1.0
 
 - Flow types of some object types are now more accurate

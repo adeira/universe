@@ -9,7 +9,8 @@
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "license": "MIT",
   "bin": {
-    "kiwicom-relay-compiler": "bin/kiwicom-relay-compiler.js"
+    "kiwicom-fetch-schema": "bin/fetch-schema.js",
+    "kiwicom-relay-compiler": "bin/relay-compiler.js"
   },
   "dependencies": {
     "@babel/register": "^7.4.4",
