@@ -49,9 +49,9 @@ I joined this company in April 2017 (my first PR was Apr 7)
 7. I am working on the monorepo for the whole Incubator tribe, many NPM packages (current)
 8. ??
 
-## Kiwi.com [Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/)
+## Kiwi.com [Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/) - 5/12
 
-Simple boolean: it's ❌ if I don't think it's true or there are some exceptions to this rule. It's ✅ otherwise.
+Simple boolean: it's ❌ if I don't think it's true or there are some significant exceptions to this rule. It's ✅ otherwise.
 
 1. ✅ Do you use source control?
 2. ✅ Can you make a build in one step?
@@ -65,5 +65,3 @@ Simple boolean: it's ❌ if I don't think it's true or there are some exceptions
 10. ❌ Do you have testers?
 11. ❌ Do new candidates write code during their interview?
 12. ❌ Do you do hallway usability testing?
-
-5/12
