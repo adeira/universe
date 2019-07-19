@@ -34,7 +34,35 @@ _TODO_
 
 https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
 
-# Large enums performance
+# Enums
+
+```js
+const Enum = Object.freeze({
+  X: 'x',
+  Y: 'y',
+});
+
+type EnumT = $Values<typeof Enum>;
+('a': EnumT);
+```
+
+Results in:
+
+```text
+7: ('a': EnumT);
+    ^ Cannot cast `'a'` to `EnumT` because string [1] is incompatible with enum [2].
+   References:
+   7: ('a': EnumT);
+       ^ [1]
+   7: ('a': EnumT);
+            ^ [2]
+```
+
+See: https://github.com/facebook/flow/commit/7c3390f7dcf886b0b39acfa505446614641ecb92
+
+Please note: this only works when you define the object with values inside `Object.freeze`. Similar but alternative approach: https://github.com/facebook/flow/issues/627#issuecomment-389668600
+
+## Large unions (simple enums) performance
 
 > I've been working on this recently so I can give you an overview. Essentially the reasons large unions are slow is that the amount of work Flow needs to do can grow exponentially with the size of the union. To determine if a union is a valid subtype of another type, we need to consider whether every single element of the union is a valid subtype, while to determine if it's a supertype we need to check if at least one of its cases is a supertype. If the union isn't actually a supertype we end up needing to check every case.  Where this gets really bad is when we compare two union types, and this can easily result in an exponential case where we need to perform a lot of work for every single combination of union cases.
 
