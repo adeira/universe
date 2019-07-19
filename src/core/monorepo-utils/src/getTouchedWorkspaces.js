@@ -6,7 +6,7 @@ import findRelatedWorkspaces from './findRelatedWorkspaces';
 import getWorkspaceDependencies from './getWorkspaceDependencies';
 
 /**
- * This function will give you all the workspaces that has been touched by your latest chages.
+ * This function will give you all the workspaces that has been touched by your latest changes.
  * Directly changed an also those workspaces who depend on the changed workspaces
  */
 export default function getTouchedWorkspaces(): $ReadOnlySet<string> {

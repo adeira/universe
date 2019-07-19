@@ -19,7 +19,7 @@ import Git from './Git';
  *       +
  *     git --no-pager diff --name-only origin/master...HEAD   # modified files on the feature branch (3 dots are important)
  *
- * Fallback for master or new branches of no result was returned:
+ * Fallback for master or new branches if no result was returned:
  *
  *     git --no-pager diff --name-only HEAD^ HEAD             # latest commit (doesn't work with only one commit in Git history)
  *
@@ -44,5 +44,6 @@ This usually means that CI generated some changes (for example during installati
     process.exit(1);
   }
 
-  return uncommittedChanges.length > 0 ? uncommittedChanges : Git.getLastCommitChanges();
+  const allChanges = uncommittedChanges.concat(Git.getChangedFiles());
+  return allChanges.length > 0 ? allChanges : Git.getLastCommitChanges();
 }
