@@ -59,6 +59,21 @@ There are few additional rules to make sure everything goes smoothly:
 
 Please continue reading to discover `@kiwicom/relay` specifics.
 
+## Downloading GraphQL schema
+
+In the previous example we used `--schema` in order to use Relay compiler. This package provides a way how to download it easily:
+
+```text
+$ yarn kiwicom-fetch-schema --help
+
+Usage: fetch-schema [options]
+
+Options:
+  --resource <url>    (default: "https://graphql.kiwi.com/")
+  --filename <path>   (default: "/your/cwd/path/schema.graphql")
+  -h, --help         output usage information
+```
+
 # Minimal example
 
 ```js
@@ -160,11 +175,7 @@ export default function App() {
 Refetch container is the best when you are changing variables in the component fragment or just simply refetching. Typical example is search or bi-directional pagination. Simply import the HoC as well as the refetch Flow type:
 
 ```js
-import {
-  graphql,
-  createRefetchContainer,
-  type RefetchRelayProp,
-} from '@kiwicom/relay';
+import { graphql, createRefetchContainer, type RefetchRelayProp } from '@kiwicom/relay';
 ```
 
 Usage:
