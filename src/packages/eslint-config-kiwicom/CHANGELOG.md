@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule `jest/no-export` enabled (warnings resp. errors in strict mode). See: https://github.com/jest-community/eslint-plugin-jest/blob/3ee38742e0d235196619488a88fe679d1e8c0030/docs/rules/no-export.md
+
 # 6.3.0
 
 - Allow use of devDependencies in `**/*.stories.js` (Storybook story files), `**/webpack.config.js` and `**/metro.config.js`.

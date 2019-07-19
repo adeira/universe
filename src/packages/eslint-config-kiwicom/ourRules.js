@@ -247,6 +247,7 @@ module.exports = {
   // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
   'flowtype/array-style-complex-type': OFF,
   'flowtype/array-style-simple-type': OFF,
+  'flowtype/arrow-parens': OFF,
   'flowtype/define-flow-type': WARN,
   'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
   'flowtype/no-dupe-keys': WARN,
@@ -283,6 +284,7 @@ module.exports = {
   'jest/no-disabled-tests': ERROR,
   'jest/no-duplicate-hooks': NEXT_VERSION_ERROR,
   'jest/no-empty-title': ERROR,
+  'jest/no-export': NEXT_VERSION_ERROR,
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': ERROR,

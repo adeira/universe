@@ -31,7 +31,7 @@ type OperationOutput = any | Promise<any>;
  * Generates a set of jest snapshot tests that compare the output of the
  * provided `operation` to each of the matching files in the `fixturesPath`.
  */
-export default function generateTestsFromFixtures(
+export default function generateTestsFromFixtures( // eslint-disable-line jest/no-export
   fixturesPath: string,
   operation: (input: string) => OperationOutput,
 ): void {
