@@ -1,5 +1,7 @@
 Collection of interesting links, articles and project...
 
+- https://github.com/hackerkid/Mind-Expanding-Books
+
 # 2
 - [-2000 Lines Of Code](http://www.folklore.org/StoryView.py?project=Macintosh&story=Negative_2000_Lines_Of_Code.txt)
 
