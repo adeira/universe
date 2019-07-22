@@ -296,6 +296,7 @@ module.exports = {
   'jest/no-test-callback': OFF,
   'jest/no-test-prefixes': OFF,
   'jest/no-test-return-statement': ERROR,
+  'jest/no-try-expect': OFF,
   'jest/no-truthy-falsy': OFF,
   'jest/prefer-called-with': WARN,
   'jest/prefer-expect-assertions': OFF,
