@@ -6,6 +6,7 @@ import requireAndValidateConfig from '../../src/requireAndValidateConfig';
 
 jest.mock('fs');
 
+// eslint-disable-next-line jest/no-export
 export default function testExportedPaths(
   configPath: string,
   mapping: $ReadOnlyArray<
