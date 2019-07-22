@@ -41,12 +41,12 @@ Minimal `.babelrc` file:
 }
 ```
 
-Minimal Relay compiler script in `package.json`:
+Minimal Relay compiler script in `package.json` (see below how to download the GraphQL schema):
 
 ```json
 {
   "scripts": {
-    "relay": "relay-compiler --src=./src --schema=./graphql.kiwi.com.schema.gql"
+    "relay": "relay-compiler --src=./src --schema=./schema.graphql"
   }
 }
 ```
