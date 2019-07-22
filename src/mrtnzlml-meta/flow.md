@@ -319,6 +319,13 @@ No errors!
 
 - https://www.knyz.org/blog/post/flow-union-intersection-spead/
 
+# `@flow` pragma consequences
+
+1. `/*:: ... */` and `/*: ... */` comments have special meaning (https://flow.org/en/docs/types/comments/)
+2. `a<b>(c)` becomes a type argument, rather than `((a < b) > c)`
+
+https://github.com/facebook/flow/issues/7928#issuecomment-511428223
+
 # Conditions in Flow using `$Call`
 
 - https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
