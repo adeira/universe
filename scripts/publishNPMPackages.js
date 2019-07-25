@@ -31,6 +31,7 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/logger',
       '@kiwicom/monorepo-npm-publisher',
       '@kiwicom/monorepo-utils',
+      '@kiwicom/orbit-react-native',
       '@kiwicom/relay',
       '@kiwicom/test-utils',
       '@kiwicom/vault2env',
