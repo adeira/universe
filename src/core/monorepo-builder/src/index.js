@@ -60,9 +60,7 @@ const rimrafPromise = util.promisify(rimraf);
 
 const globIgnore = [
   '**/node_modules/**',
-  '**/__tests__/**',
-  '**/__flowtests__/**',
-  '**/__mocks__/**',
+  '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
 ];
 
 (async function() {

@@ -73,11 +73,13 @@ export default class ShipitConfig {
   }
 
   /**
-   * Importit only needs to reverse the directory mapping.
+   * Importit reverses the directory mapping and strip some predefined files.
    */
   getDefaultImportitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
-      return moveDirectoriesReverse(changeset, this.directoryMapping);
+      // must be in the reversed order from Shipit
+      const ch1 = stripPaths(changeset, this.strippedFiles);
+      return moveDirectoriesReverse(ch1, this.directoryMapping);
     };
   }
 
