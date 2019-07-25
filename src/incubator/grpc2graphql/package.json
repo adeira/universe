@@ -6,6 +6,12 @@
   "license": "UNLICENSED",
   "main": "src/index.js",
   "dependencies": {
+    "@babel/register": "^7.4.4",
+    "google-protobuf": "^3.9.0",
     "protobufjs": "^6.8.8"
-  }
+  },
+  "scripts": {
+    "parse": "protoc --plugin=protoc-gen-custom=./bin/proto-to-graphql.js --custom_out=examples/ --js_out=examples --proto_path=examples/ file.proto"
+  },
+  "bin": "bin/proto-to-graphql.js"
 }
