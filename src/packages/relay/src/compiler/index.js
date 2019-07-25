@@ -30,9 +30,7 @@ export default function compiler(externalOptions: ExternalOptions) {
     include: ['**'],
     exclude: [
       '**/node_modules/**',
-      '**/__mocks__/**',
-      '**/__generated__/**',
-      '**/__flowtests__/**',
+      '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
     ],
     artifactDirectory: null,
     ...externalOptions,

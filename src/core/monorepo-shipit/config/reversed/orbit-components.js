@@ -9,11 +9,11 @@ module.exports = {
   },
   getStaticConfig() {
     return {
-      repository: 'git@github.com:kiwicom/orbit-design-tokens.git',
+      repository: 'git@github.com:kiwicom/orbit-components.git',
     };
   },
   getPathMappings(): Map<string, string> {
-    const root = 'src/platform/orbit-design-tokens/';
+    const root = 'src/platform/orbit-components/';
     return new Map([
       [`${root}__github__/.circleci`, '.circleci'],
       [`${root}__github__/.editorconfig`, '.editorconfig'],
