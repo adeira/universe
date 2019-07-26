@@ -87,10 +87,10 @@ There are three transpilation targets available: `js` (default), `js-esm` and `f
 
 On top of that these [proposals](https://github.com/tc39/proposals) are enabled by default:
 
-- optional chaining `a?.b` ([stage 2 proposal](https://github.com/tc39/proposal-optional-chaining))
-- nullish coalescing operator `a ?? b` ([stage 2 proposal](https://github.com/tc39/proposal-nullish-coalescing))
+- optional chaining `a?.b` ([stage 3 proposal](https://github.com/tc39/proposal-optional-chaining))
+- nullish coalescing operator `a ?? b` ([stage 3 proposal](https://github.com/tc39/proposal-nullish-coalescing))
 - class fields `class A { b = 1; #c = 2 }` ([stage 3 proposal](https://github.com/tc39/proposal-class-fields))
-- dynamic `import()` ([stage 3 proposal](https://github.com/tc39/proposal-dynamic-import))
+- dynamic `import()` ([stage 4 proposal ✅](https://github.com/tc39/proposal-dynamic-import))
 - numeric separators `1_000_000` ([stage 3 proposal](https://github.com/tc39/proposal-numeric-separator))
 - object rest spread `{...a}` ([stage 4 proposal ✅](https://github.com/tc39/proposal-object-rest-spread))
 - capturing groups in RegExp `/(?<year>[0-9]{4})/` ([stage 4 proposal ✅](https://github.com/tc39/proposal-regexp-named-groups))
