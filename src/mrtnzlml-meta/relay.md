@@ -13,7 +13,7 @@ TODO:
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
 - Mock Data Generation: https://github.com/mrtnzlml/relay/pull/253/commits/09d317943f6936ffb0002154c389b6d7a507c58d
 - https://github.com/facebook/relay/pull/2700/files
-- `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files
+- `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files, https://relay.dev/docs/en/testing-relay-components#relay_test_operation, https://github.com/facebook/relay/issues/2807#issuecomment-515690739
 
 This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
 
