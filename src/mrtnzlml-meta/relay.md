@@ -262,6 +262,7 @@ TODO:
 - https://github.com/relayjs/eslint-plugin-relay/pull/63/files
 - https://github.com/facebook/relay/issues/2792#issuecomment-510481040
 - https://github.com/relay-tools/relay-hooks/issues/5#issue-453957030
+- https://github.com/levels3d/offblast
 
 # @match, @module
 
