@@ -153,7 +153,7 @@ Field "PNRInfo.successMessage" already exists in the schema. It cannot also be d
 
 Related article: https://babangsund.com/relay_local_state_management_2/
 
-# @__clientField(handle: " ... ")
+# Client field via `@__clientField(handle: " ... ")`
 
 > This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
 
@@ -170,7 +170,15 @@ fragment Example on Article {
 }
 ```
 
-And you have to create the handler (https://facebook.github.io/relay/docs/en/relay-environment.html#adding-a-handlerprovider):
+This obviously means that you need to define your local client schema (`schema.local.graphql`):
+
+```graphql
+extend type Article {
+  draft: String
+}
+```
+
+And you have to create the handler which is being registered when you are creating new Relay environment (https://facebook.github.io/relay/docs/en/relay-environment.html#adding-a-handlerprovider):
 
 ```js
 const DraftHandler = {
@@ -184,6 +192,8 @@ const DraftHandler = {
   }
 };
 ```
+
+Don't forget to run Relay compiler after you add these changes.
 
 More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 
