@@ -260,6 +260,8 @@ TODO:
 
 - https://github.com/relayjs/eslint-plugin-relay/commit/b86eb2ace82c89194a4309ff63701b52a2279b3b
 - https://github.com/relayjs/eslint-plugin-relay/pull/63/files
+- https://github.com/facebook/relay/issues/2792#issuecomment-510481040
+- https://github.com/relay-tools/relay-hooks/issues/5#issue-453957030
 
 # @match, @module
 
