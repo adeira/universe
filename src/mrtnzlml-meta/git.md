@@ -148,3 +148,17 @@ only major version specified will allow `minor` changes.
 | `~3.1.4`      | `>=3.1.4 <3.2.0`            |
 | `~3.1`        | `3.1.x` or `>=3.1.0 <3.2.0` |
 | `~3`          | `3.x` or `>=3.0.0 <4.0.0`   |
+
+# Global .gitignore
+
+```text
+git config --global core.excludesfile ~/.gitignore_global
+```
+
+```text
+.DS_Store
+.idea/
+```
+
+- https://help.github.com/en/articles/ignoring-files#create-a-global-gitignore
+- https://gist.github.com/subfuzion/db7f57fff2fb6998a16c
