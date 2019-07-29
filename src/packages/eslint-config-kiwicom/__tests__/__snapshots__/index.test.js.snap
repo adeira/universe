@@ -264,6 +264,7 @@ Object {
     "jest/no-jest-import": 2,
     "jest/no-large-snapshots": 0,
     "jest/no-mocks-import": 2,
+    "jest/no-standalone-expect": 1,
     "jest/no-test-callback": 0,
     "jest/no-test-prefixes": 0,
     "jest/no-test-return-statement": 2,
@@ -879,4 +880,9 @@ Snapshot Diff:
 -     "jest/no-export": 1,
 +     "jest/no-export": 2,
       "jest/no-focused-tests": 2,
+@@ --- --- @@
+      "jest/no-mocks-import": 2,
+-     "jest/no-standalone-expect": 1,
++     "jest/no-standalone-expect": 2,
+      "jest/no-test-callback": 0,
 `;
