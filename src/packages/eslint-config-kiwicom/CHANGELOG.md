@@ -1,5 +1,7 @@
 # Unreleased
 
+# 6.5.0
+
 - New rule `jest/no-standalone-expect` enabled (warnings resp. errors in strict mode). See: https://github.com/jest-community/eslint-plugin-jest/blob/098219b4614192b365e51b0de68deac9caae1d68/docs/rules/no-standalone-expect.md
 
 # 6.4.0
