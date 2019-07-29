@@ -1,6 +1,15 @@
 syntax = "proto3";
 package helloworld.v1;
 import "google/protobuf/descriptor.proto";
+
+option java_multiple_files = true;
+option java_package = "com.helloworld.v1";
+option java_outer_classname = "GreeterApiProto";
+option csharp_namespace = "Helloworld.V1";
+option go_package = "helloworldv1";
+option objc_class_prefix = "HXX";
+option php_namespace = "Helloworld\\V1";
+
 extend google.protobuf.MethodOptions {
   GraphQLQuery graphql_query = 50001;
 }
@@ -35,13 +44,7 @@ message GraphQLType {
   string name = 50007;
   string description = 50008;
 }
-option java_multiple_files = true;
-option java_package = "com.helloworld.v1";
-option java_outer_classname = "GreeterApiProto";
-option csharp_namespace = "Helloworld.V1";
-option go_package = "helloworldv1";
-option objc_class_prefix = "HXX";
-option php_namespace = "Helloworld\\V1";
+
 // The greeting service definition.
 service GreeterAPI {
   // Sends a greeting.
