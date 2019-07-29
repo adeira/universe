@@ -72,7 +72,7 @@ module.exports = {
   // Show documentation's last update time.
   enableUpdateTime: true,
 
-  docsSideNavCollapsible: true,
+  docsSideNavCollapsible: false,
 
   scrollToTop: true,
 
