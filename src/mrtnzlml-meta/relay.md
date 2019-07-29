@@ -154,6 +154,20 @@ Field "PNRInfo.successMessage" already exists in the schema. It cannot also be d
 
 Related article: https://babangsund.com/relay_local_state_management_2/
 
+Interesting helper from [@sibelius](https://github.com/sibelius):
+
+```js
+export const setLocal = (query: GraphQLTaggedNode, localData: object) => {
+  const request = getRequest(query);
+  const operation = createOperationDescriptor(request, {});
+
+  env.commitPayload(operation, localData);
+  env.retain(operation.root);
+};
+```
+
+([source](https://github.com/facebook/relay/issues/1656#issuecomment-509220117))
+
 # Client field via `@__clientField(handle: " ... ")`
 
 > This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
