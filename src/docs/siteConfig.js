@@ -37,6 +37,9 @@ module.exports = {
   headerIcon: 'img/logo-white.png', // TODO: svg
   footerIcon: 'img/logo-white.png', // TODO: svg
 
+  favicon: 'img/favicons/favicon.ico',
+  manifest: 'img/favicons/manifest.json',
+
   /* Colors for website */
   colors: {
     primaryColor: '#1976d2',
