@@ -69,10 +69,6 @@
         "title": "Directory structure of this monorepo",
         "sidebar_label": "Directory structure"
       },
-      "monorepo/example-projects": {
-        "title": "Example projects",
-        "sidebar_label": "Example projects"
-      },
       "monorepo/gcp": {
         "title": "Google Cloud Platform",
         "sidebar_label": "Google Cloud Platform"
