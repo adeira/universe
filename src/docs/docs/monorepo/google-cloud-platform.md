@@ -26,6 +26,31 @@ kubectl get namespace
 kubectl --namespace obs-cache get pods
 ```
 
+## Setting up database and credentials for Kubernetes
+
+Before doing anything, you have to request your database in [#plz-platform-data](https://slack.com/app_redirect?channel=plz-platform-data) Slack channel. After it's on you:
+
+1. Create Vault path in the following format (example from GraphQL): `secret/gcp-project/incubator-sandbox-32a2fbba/ns-graphql-private-secrets`
+2. Set this Vault path in infrastructure monorepo: https://gitlab.skypicker.com/infra/incubator/sandbox/blob/2fa1e9252c2889613efc72ccf08ad83937aa1bc6/ns-graphql-private.tf#L8 (+terraform apply)
+3. Change your Terraform configuration in your application deployment definition (k8s `kind: Deployment` config):
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      containers:
+        # ...
+        envFrom:
+          - secretRef:
+              name: graphql-private-secrets
+```
+
+We should eventually get rid of every single step in this process and have it completely automated (that's the vision) so developers will only take care about the actual ENV variables.
+
+Tip: use can use https://vault-ui.skypicker.com/ (with Okta login and VPN) to set these environment variables.
+
 ## Additional resources
 
 Please be careful: the following resources can be outdated or not work well with Universe.
