@@ -165,6 +165,8 @@ declare module "next/router" {
     Component: React$ComponentType<T & { router: Router }>
   ): Class<React$Component<T>>;
 
+  declare export function useRouter(): Router;
+
   declare export default Router;
 }
 
