@@ -110,3 +110,7 @@ fragment CommentFields on Comment {
   content
 }
 ```
+
+# Rate Limiting
+
+https://twitter.com/__xuorig__/status/1148653318069207041
