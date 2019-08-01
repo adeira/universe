@@ -43,7 +43,7 @@ test('codeowners paths', () => {
 
 test('core maintainers', () => {
   expect.hasAssertions();
-  const requiredCodeowners = ['martin.zlamal@kiwi.com', 'michal.sanger@kiwi.com'];
+  const requiredCodeowners = ['martin.zlamal@kiwi.com', 'trond.bergquist@kiwi.com'];
   for (const line of iterateRules()) {
     for (const codeowner of requiredCodeowners) {
       expect(line).toMatch(codeowner);
