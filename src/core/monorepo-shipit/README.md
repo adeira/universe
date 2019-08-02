@@ -124,6 +124,22 @@ To deal with this you have to approach the roots renaming carefully. Our current
 
 Don't worry if you mess up something. Monorepo is always a source of truth and it won't be messed up. Worst case scenario is that Shipit job will start failing. One way out of this situation is to either fix the previous steps or simply create manually an empty commit on GitHub with corrected `kiwicom-source-id` so that Shipit can catch up.
 
+## Linear history
+
+One of the Shipit limitations (even the original one) is that it works correctly only on linear history (see [Major Limitations](https://github.com/facebook/fbshipit/tree/95180a49243caf14be883140436ee8ccbaa5954e#major-limitations)). Imagine following history (the numbers denote the order of commit timestamps):
+
+```text
+               *
+  ---1----2----4----7
+      \	             \
+       3----5----6----8---
+            *
+```
+
+In what order would you apply these changes considering Shipit takes one commit at the time and applies it as a patch? You can choose `1 2 3 4 5 6 7 8` which follows the dates or you can follow topology of the graph and get `1 2 4 7 3 5 6 8` (or `1 3 5 6 2 4 7 8`). Every option is going to be at some point wrong. Imagine that the commits marked with `*` are introducing the same change and therefore you won't be able to apply such patch.
+
+For this reason Shipit requires linear Git history only (it works with reversed ancestry path without merge commits).
+
 # Importit part _(unstable)_
 
 **Only imports from GitHub are currently supported.**
