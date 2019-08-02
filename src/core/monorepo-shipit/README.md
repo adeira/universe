@@ -131,7 +131,7 @@ One of the Shipit limitations (even the original one) is that it works correctly
 ```text
                *
   ---1----2----4----7
-      \	             \
+      \              \
        3----5----6----8---
             *
 ```

@@ -52,6 +52,9 @@ export default function createSyncPhase(config: ShipitConfig) {
   return function() {
     const destinationRepo = _getDestinationRepo();
     const changesets = getFilteredChangesets();
+
+    destinationRepo.checkoutBranch(config.getDestinationBranch());
+
     changesets.forEach(changeset => {
       if (changeset.isValid()) {
         destinationRepo.commitPatch(changeset);

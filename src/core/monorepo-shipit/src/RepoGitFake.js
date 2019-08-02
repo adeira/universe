@@ -5,6 +5,7 @@ import os from 'os';
 import path from 'path';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
 
+import accounts from './accounts';
 import RepoGit from './RepoGit';
 
 export default class RepoGitFake extends RepoGit {
@@ -14,9 +15,10 @@ export default class RepoGitFake extends RepoGit {
     testRepoPath: string = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-tests-')),
   ) {
     new ShellCommand(testRepoPath, 'git', 'init').runSynchronously();
+    const username = 'kiwicom-shipit-tests';
     for (const [key, value] of Object.entries({
-      'user.email': 'shipit-tests@kiwi.com',
-      'user.name': 'kiwicom-shipit-tests',
+      'user.email': accounts.get(username),
+      'user.name': username,
     })) {
       new ShellCommand(
         testRepoPath,
