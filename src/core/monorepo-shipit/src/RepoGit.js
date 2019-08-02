@@ -81,8 +81,13 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     }
   };
 
-  checkoutBranch = (branchName: string) => {
-    this._gitCommand('checkout', '-b', branchName)
+  // https://git-scm.com/docs/git-checkout
+  checkoutBranch = (branchName: string): void => {
+    this._gitCommand(
+      'checkout',
+      '-B', // create (or switch to) a new branch
+      branchName,
+    )
       .setOutputToScreen()
       .runSynchronously();
   };
