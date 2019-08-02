@@ -6,15 +6,15 @@ import { iterateReversedConfigs } from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
 import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRepoPhase';
 import createCleanPhase from '../src/phases/createCleanPhase';
+import createImportReverseSyncPhase from '../src/phases/createImportReverseSyncPhase';
 
-// TODO: could this be merged into importit (?)
+// yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit-reversed.js
+
 iterateReversedConfigs(config => {
   new Set<() => void>([
     createClonePhase(config.exportedRepoURL, config.destinationPath),
     createCheckCorruptedRepoPhase(config.destinationPath),
     createCleanPhase(config.destinationPath),
-    // TODO: sync it but with reversed destination (and possibly different branch for now)
-    // createSyncPhase(config),
-    // createPushPhase(config),
+    createImportReverseSyncPhase(config),
   ]).forEach(phase => phase());
 });

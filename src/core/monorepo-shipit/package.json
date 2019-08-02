@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "bin": {
     "monorepo-shipit": "bin/shipit.js",
-    "monorepo-shipit-reversed": "bin/shipit-reversed.js",
-    "monorepo-importit": "bin/importit.js"
+    "monorepo-importit": "bin/importit.js",
+    "monorepo-importit-reversed": "bin/importit-reversed.js"
   },
   "sideEffects": false,
   "dependencies": {

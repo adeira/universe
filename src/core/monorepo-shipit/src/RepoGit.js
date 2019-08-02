@@ -10,6 +10,7 @@ import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
 import splitHead from './splitHead';
 import Changeset from './Changeset';
+import accounts from './accounts';
 
 /**
  * This is our monorepo part - source of exports.
@@ -38,7 +39,12 @@ export interface DestinationRepo {
   push(branch: string): void;
 }
 
-export default class RepoGit implements SourceRepo, DestinationRepo {
+interface AnyRepo {
+  // Will most probably always return '4b825dc642cb6eb9a060e54bf8d69288fbee4904'. What? https://stackoverflow.com/q/9765453/3135248
+  getEmptyTreeHash(): string;
+}
+
+export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   #localPath: string;
 
   constructor(localPath: string) {
@@ -63,9 +69,10 @@ export default class RepoGit implements SourceRepo, DestinationRepo {
   };
 
   configure = () => {
+    const username = 'kiwicom-github-bot';
     for (const [key, value] of Object.entries({
-      'user.email': 'mrtnzlml+kiwicom-github-bot@gmail.com',
-      'user.name': 'kiwicom-github-bot',
+      'user.email': accounts.get(username),
+      'user.name': username,
     })) {
       // $FlowIssue: https://github.com/facebook/flow/issues/2174
       this._gitCommand('config', key, value)
@@ -293,4 +300,11 @@ ${renderedDiffs}
 
     return new ShellCommand(exportedRepoPath, 'tar', '-x').setStdin(tar).runSynchronously();
   };
+
+  getEmptyTreeHash(): string {
+    return this._gitCommand('hash-object', '-t', 'tree', '/dev/null')
+      .runSynchronously()
+      .getStdout()
+      .trim();
+  }
 }
