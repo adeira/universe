@@ -12,8 +12,8 @@ export default async function commitAllChanges(
 ): Promise<string> {
   const gitBranchName = createBranchName(taskIdentifier);
 
-  await _git(['config', 'user.email', 'martin.zlamal@kiwi.com']);
-  await _git(['config', 'user.name', 'Automator']);
+  await _git(['config', 'user.email', 'martin.zlamal+bot@kiwi.com']);
+  await _git(['config', 'user.name', 'kiwicom-gitlab-bot']);
   await _git(['remote', 'set-url', 'origin', require('../repoURL')]);
   await _git(['checkout', '-b', gitBranchName, 'HEAD']); // will fail if branch already exists
   await _git(['add', '--all']);
