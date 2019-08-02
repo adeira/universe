@@ -162,6 +162,10 @@ dep-graph: Produces the dependency graph of a repository
 y flow dump-types src/apps/graphql/src/index.js
 ```
 
+```text
+y flow check --debug
+```
+
 [source](https://stackoverflow.com/a/40569640/3135248)
 
 # Exact Objects by Default
