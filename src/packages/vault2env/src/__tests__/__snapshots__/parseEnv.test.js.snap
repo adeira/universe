@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: empty.ini 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{}
+`;
+
+exports[`matches expected output: simple.ini 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+KEY_1=VALUE_1
+KEY_2=VALUE_2
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "KEY_1": "VALUE_1",
+  "KEY_2": "VALUE_2"
+}
+`;
+
+exports[`matches expected output: simple-spaces.ini 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+KEY_1 = VALUE_1
+KEY_2 = VALUE_2
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "KEY_1": "VALUE_1",
+  "KEY_2": "VALUE_2"
+}
+`;
+
+exports[`matches expected output: tricky.ini 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+KEY_1="complicated value"
+KEY_2="complicated=value"
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "KEY_1": "\\"complicated value\\"",
+  "KEY_2": "\\"complicated=value\\""
+}
+`;
