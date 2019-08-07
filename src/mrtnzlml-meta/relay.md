@@ -281,7 +281,7 @@ Relay will show you this warning in this console (dev mode only):
 
 See: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
-# Relay hooks `useQuery`, `useFragment`, `usePaginationFragment`, `useRefetchableFragment`
+# Relay hooks `useQuery`, `useFragment`, `usePaginationFragment`, `useRefetchableFragment`, `useBlockingPaginationFragment`, `useLegacyPaginationFragment`
 
 TODO:
 
@@ -290,6 +290,7 @@ TODO:
 - https://github.com/facebook/relay/issues/2792#issuecomment-510481040
 - https://github.com/relay-tools/relay-hooks/issues/5#issue-453957030
 - https://github.com/levels3d/offblast
+- https://github.com/relayjs/eslint-plugin-relay/pull/67/files
 
 # @match, @module
 
