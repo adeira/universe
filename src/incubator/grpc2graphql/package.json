@@ -7,7 +7,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@babel/register": "^7.4.4",
-    "google-protobuf": "^3.9.0",
+    "google-protobuf": "^3.9.1",
     "protobufjs": "^6.8.8"
   },
   "scripts": {
