@@ -8,6 +8,7 @@
 - https://github.com/dustinspecker/awesome-flow
 - Sound vs. complete: https://eschew.wordpress.com/2009/08/31/sound-and-complete/
 - https://gajus.github.io/flow-runtime/
+- Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
 
 Showerthoughts:
 
