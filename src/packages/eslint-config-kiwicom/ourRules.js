@@ -284,6 +284,7 @@ module.exports = {
   'jest/no-disabled-tests': ERROR,
   'jest/no-duplicate-hooks': NEXT_VERSION_ERROR,
   'jest/no-empty-title': ERROR,
+  'jest/no-expect-resolves': OFF,
   'jest/no-export': NEXT_VERSION_ERROR,
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
