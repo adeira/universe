@@ -8,6 +8,7 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 - https://github.com/artsy/README/blob/master/playbooks/graphql-schema-design.md
 - [GraphQL namespaces](https://github.com/facebook/graphql/issues/163) (interesting insights into FB design)
 - https://about.sourcegraph.com/graphql/graphql-at-twitter
+- https://www.infoq.com/presentations/netflix-graphql/
 
 The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
 
