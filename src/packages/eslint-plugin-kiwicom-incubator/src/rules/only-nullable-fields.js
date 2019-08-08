@@ -9,6 +9,11 @@ type Node = {|
   +callee: {|
     +name: string,
   |},
+  +parent: {|
+    +callee?: {|
+      +name: string,
+    |},
+  |},
 |};
 
 type Context = {|
@@ -35,6 +40,7 @@ module.exports = {
      * Type `GraphQLNonNull` is prohibited except these situations:
      *  - inside of `GraphQLInputObjectType`
      *  - in query or types arguments (`args` property)
+     *  - direct child of `GraphQLList`
      */
     let ignoreRule = false;
 
@@ -52,7 +58,11 @@ module.exports = {
 
       CallExpression: function(node /*: Node */) {
         // disallow GraphQLNonNull
-        if (ignoreRule === false && node.callee.name === 'GraphQLNonNull') {
+        if (
+          ignoreRule === false &&
+          node.callee.name === 'GraphQLNonNull' &&
+          (node.parent.callee == null || node.parent.callee.name !== 'GraphQLList')
+        ) {
           context.report(node, 'Avoid using GraphQLNonNull.');
         }
       },
@@ -63,7 +73,11 @@ module.exports = {
         }
 
         // disallow GraphQLNonNull
-        if (ignoreRule === false && node.callee.name === 'GraphQLNonNull') {
+        if (
+          ignoreRule === false &&
+          node.callee.name === 'GraphQLNonNull' &&
+          (node.parent.callee == null || node.parent.callee.name !== 'GraphQLList')
+        ) {
           context.report(node, 'Avoid using GraphQLNonNull.');
         }
       },
