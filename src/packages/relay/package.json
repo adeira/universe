@@ -26,7 +26,7 @@
     "relay-runtime": "^5.0.0"
   },
   "devDependencies": {
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.9.0",
     "relay-test-utils": "^5.0.0"
   },
   "peerDependencies": {
