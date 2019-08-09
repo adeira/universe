@@ -87,4 +87,4 @@ const SignedSource = {
   },
 };
 
-module.exports = SignedSource;
+export default SignedSource;
