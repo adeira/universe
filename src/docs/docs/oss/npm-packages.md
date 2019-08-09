@@ -43,6 +43,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 0.13.0 [@kiwicom/js](https://github.com/kiwicom/js) - Useful JS functions used at Kiwi.com
 - 0.0.1 [@kiwicom/redis](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/redis) - Highly opinionated Redis wrapper used at Kiwi.com
 - 3.2.0 [@kiwicom/relay](https://github.com/kiwicom/relay) - Highly opinionated Relay wrapper used at Kiwi.com
+- 1.0.3 [@kiwicom/signed-source](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.
 - 0.9.0 [@kiwicom/test-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
 - 1.0.4 [@kiwicom/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
 
