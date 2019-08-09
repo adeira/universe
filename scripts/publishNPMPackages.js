@@ -33,6 +33,7 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/monorepo-utils',
       '@kiwicom/orbit-react-native',
       '@kiwicom/relay',
+      '@kiwicom/signed-source',
       '@kiwicom/test-utils',
       '@kiwicom/vault2env',
       'eslint-plugin-kiwicom-incubator',
