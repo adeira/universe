@@ -44,3 +44,19 @@ This command removes all unused suppress comments while keeping unused comments 
 Read this article for more details and justification of this approach: https://medium.com/flow-type/upgrading-flow-codebases-40ef8dd3ccd8
 
 Tip: great way how to migrate some large scale changes is to use `npx flow-upgrade`.
+
+## Flow-typed dependencies
+
+We use [`flow-typed`](https://github.com/flow-typed/flow-typed) definitions to add some additional types when they are not part of the NPM package. We currently expect that `flow-typed` is installed globally:
+
+```text
+npm -g install flow-typed
+```
+
+Updating or installing new definitions is very simple. Just run `install` command and you should be good to go. Example:
+
+```text
+flow-typed install jest@^24
+```
+
+Please note, we consider these files to be a normal code (since they are only being downloaded once and not automatically). So it's possible that someone updated them manually to unblock us or to fix some issue. Please, review changes in these files.
