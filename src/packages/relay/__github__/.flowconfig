@@ -1,0 +1,22 @@
+[ignore]
+
+[include]
+
+[libs]
+./flow-typed/
+
+[lints]
+
+[options]
+include_warnings=true
+
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/facebook/flow/issues/[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowPullRequest: https://github.com/facebook/flow/pull/[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(site=[a-z,_]+\\)?)\\)
+
+[strict]

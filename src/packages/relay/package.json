@@ -12,6 +12,9 @@
     "kiwicom-fetch-schema": "bin/fetch-schema.js",
     "kiwicom-relay-compiler": "bin/relay-compiler.js"
   },
+  "scripts": {
+    "test": "yarn eslint src && yarn flow src"
+  },
   "dependencies": {
     "@babel/register": "^7.4.4",
     "@kiwicom/fetch": "^2.4.3",
@@ -26,6 +29,12 @@
     "relay-runtime": "^5.0.0"
   },
   "devDependencies": {
+    "@kiwicom/babel-preset-kiwicom": "^3.4.0",
+    "@kiwicom/eslint-config": "^6.5.2",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "flow-bin": "^0.105.2",
+    "jest": "^24.8.0",
     "react-test-renderer": "^16.9.0",
     "relay-test-utils": "^5.0.0"
   },
