@@ -152,7 +152,10 @@ ERROR:
 Field "PNRInfo.successMessage" already exists in the schema. It cannot also be defined in this type extension.
 ```
 
-Related article: https://babangsund.com/relay_local_state_management_2/
+Related resources:
+
+- https://babangsund.com/relay_local_state_management_2/
+- https://github.com/facebook/relay/pull/2821/files
 
 Interesting helper from [@sibelius](https://github.com/sibelius):
 
