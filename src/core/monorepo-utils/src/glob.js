@@ -50,7 +50,7 @@ type GlobWithCallback = {
  *
  * See: https://github.com/isaacs/node-glob
  *
- * @deprecated Use `globSync` or `globAsync` instead.
+ * Don't use this function directly Use `globSync` or `globAsync` instead.
  */
 export const glob: GlobWithCallback = (globPattern, options, callback) => {
   validateInputs(globPattern, isObject(options) ? options : undefined);
