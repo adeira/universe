@@ -2,7 +2,7 @@
 
 import os from 'os';
 import fs from 'fs';
-import { glob, Workspaces, findMonorepoRoot } from '@kiwicom/monorepo-utils';
+import { globSync, Workspaces, findMonorepoRoot } from '@kiwicom/monorepo-utils';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';
@@ -40,17 +40,16 @@ function updateNPMPackagesInfo(taskIdentifier: string, cb: () => Promise<void>):
   });
 
   const rootFolder = findMonorepoRoot();
+  const filenames = globSync('/**/*.{md,html}', { root: rootFolder });
 
-  glob('/**/*.{md,html}', { root: rootFolder }, (error, filenames) => {
-    filenames.forEach(filename => {
-      const file = fs.readFileSync(filename).toString();
-      const newFile = replaceAutomatorTags(file, taskIdentifier, finalString);
-      if (file !== newFile) {
-        log(taskIdentifier, `replacing content of ${filename}`);
-        fs.writeFileSync(filename, newFile);
-      }
-    });
-
-    cb();
+  filenames.forEach(filename => {
+    const file = fs.readFileSync(filename).toString();
+    const newFile = replaceAutomatorTags(file, taskIdentifier, finalString);
+    if (file !== newFile) {
+      log(taskIdentifier, `replacing content of ${filename}`);
+      fs.writeFileSync(filename, newFile);
+    }
   });
+
+  cb();
 }
