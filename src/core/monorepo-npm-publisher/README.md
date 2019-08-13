@@ -12,12 +12,6 @@ yarn add --dev @kiwicom/monorepo-npm-publisher
 
 This package is intended to be run by CI server.
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Usage
 
 ```js
@@ -118,11 +112,7 @@ exports.default = isObject;
 var _typeof2 = _interopRequireDefault(require('@babel/runtime/helpers/typeof'));
 
 function isObject(value) {
-  return (
-    (0, _typeof2.default)(value) === 'object' &&
-    value !== null &&
-    !Array.isArray(value)
-  );
+  return (0, _typeof2.default)(value) === 'object' && value !== null && !Array.isArray(value);
 }
 ```
 

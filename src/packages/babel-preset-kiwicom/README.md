@@ -47,12 +47,6 @@ module.exports = function(api /*: ApiType */) {
 };
 ```
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Configuration
 
 This preset tries to be opinionated to shield you from the difficult configuration stuff but it offers some configuration options so you can target different environments and situations (modern browsers vs. Node.js vs. Flow-only envs and so on). Current default configuration is:

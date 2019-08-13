@@ -1,11 +1,5 @@
 This package allows you to do basically whatever you want with the resolvers.
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Installation
 
 ```

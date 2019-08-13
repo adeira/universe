@@ -1,11 +1,5 @@
 Simple utility to manage our ID fields in GraphQL correctly.
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Install
 
 ```text

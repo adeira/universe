@@ -2,12 +2,6 @@ _Originally located here: https://github.com/kiwicom/vault2env-js_
 
 This utility exposes one binary: `vault2env`. It let's you easily load environment variables from your Vault instance and save them in `.env` file.
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Install
 
 ```
