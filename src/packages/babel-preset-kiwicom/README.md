@@ -49,7 +49,7 @@ module.exports = function(api /*: ApiType */) {
 
 <!-- AUTOMATOR:HIRING_BANNER -->
 
-> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions at https://jobs.kiwi.com/
+
 
 <!-- /AUTOMATOR:HIRING_BANNER -->
 
