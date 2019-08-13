@@ -4,8 +4,6 @@ This package is opinionated in many ways and it expects similar monorepo setup t
 
 <!-- AUTOMATOR:HIRING_BANNER -->
 
-
-
 <!-- /AUTOMATOR:HIRING_BANNER -->
 
 # Installation
@@ -74,16 +72,6 @@ TODO
 Glob is our wrapper around [Node.js glob library](https://github.com/isaacs/node-glob) which adds additional default configuration (ignores `node_modules` by default), correct Flow types and validation of invalid usages. The API is very similar to the original Glob:
 
 ```js
-import { glob } from '@kiwicom/js';
-
-glob('/**/*.js', { root: path.join(__dirname, 'fixtures') }, (error, filenames) => {
-  // ...
-});
-```
-
-Alternatively, you can use the sync variant:
-
-```js
 import { globSync } from '@kiwicom/js';
 
 const filenames = globSync('/**/*.js', {
@@ -93,7 +81,7 @@ const filenames = globSync('/**/*.js', {
 // ...
 ```
 
-Or async variant:
+Alternatively, you can use the async variant:
 
 ```js
 import { globAsync } from '@kiwicom/js';
@@ -106,8 +94,6 @@ import { globAsync } from '@kiwicom/js';
   // ...
 })();
 ```
-
-These last two options, sync and async, will probably make the callback version obsolete.
 
 Option `root` is required when your pattern starts from the root `/`. You don't have to worry about it too much - this glob will tell you when you use it wrong. Please note: **do not** use `path` to construct glob patterns!
 
