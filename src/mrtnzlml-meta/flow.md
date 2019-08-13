@@ -36,6 +36,29 @@ _TODO_
 
 https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
 
+# `[rollouts]` config
+
+The optional rollout section has 0 or more lines. Each line defines a single rollout. For example:
+
+```ini
+[rollouts]
+
+testA=40% on, 60% off
+testB=50% blue, 20% yellow, 30% pink
+```
+
+The first line defines a rollout named "testA" with two groups. The second line defines a rollout named "testB" with three groups. Each rollout's groups must sum to 100. Some config examples (usages):
+
+```ini
+[rollouts]
+verify_sig=0% on, 100% off
+
+[options]
+(verify_sig=on) experimental.well_formed_exports=true 
+```
+
+See: https://github.com/facebook/flow/pull/8018/files
+
 # Enums
 
 ```js
