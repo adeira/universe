@@ -4,7 +4,7 @@ This utility exposes one binary: `vault2env`. It let's you easily load environme
 
 <!-- AUTOMATOR:HIRING_BANNER -->
 
-> Do you like our open source? We are looking for skilled JavaScript developers to help us build it. Check our open positions at https://jobs.kiwi.com/
+
 
 <!-- /AUTOMATOR:HIRING_BANNER -->
 
