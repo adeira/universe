@@ -17,7 +17,7 @@
     "@kiwicom/fetch": "^2.4.3",
     "@kiwicom/js": "^0.13.0",
     "@kiwicom/logger": "^0.1.0",
-    "@kiwicom/monorepo-utils": "^0.22.0",
+    "@kiwicom/monorepo-utils": "^0.23.0",
     "babel-plugin-relay": "^5.0.0",
     "commander": "^3.0.0",
     "is-ci": "^2.0.0",
