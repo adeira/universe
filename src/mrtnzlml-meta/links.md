@@ -27,6 +27,7 @@ Collection of interesting links, articles and project...
 # I
 - [I ruin developers’ lives with my code reviews and I'm sorry](https://habr.com/en/post/440736/)
 - [I was wrong about Google and Facebook: there’s nothing wrong with them](https://ar.al/2019/01/11/i-was-wrong-about-google-and-facebook-theres-nothing-wrong-with-them-so-say-we-all/)
+- [Is High Quality Software Worth the Cost?](https://martinfowler.com/articles/is-quality-worth-cost.html)
 
 # P
 - [Picking the right API Paradigm](https://philsturgeon.uk/2018/05/21/picking-an-api-paradigm-implementation/)
