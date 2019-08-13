@@ -1,11 +1,5 @@
 Purpose of this package is to share common eslint configuration among other JS projects in our company. It should not be annoying but rather helpful when you understand _"why"_ of each rule (please give us feedback if you disagree with some rules).
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Usage
 
 Before you start you should **remove all Eslint plugins and Prettier** from your `package.json` files. This package takes care of all the plugins that are necessary. You should install additional plugins only when you need to add some extra rules. It's a good idea to contribute these rules back to this package so everyone can benefit from it.

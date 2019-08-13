@@ -2,10 +2,6 @@ This package contains many useful utilities to work with JavaScript monorepo.
 
 This package is opinionated in many ways and it expects similar monorepo setup to how Universe works in Incubator tribe (see: https://gitlab.skypicker.com/incubator/universe 🔐). This monorepo is not just several projects next to each other. It shares common executors for Flow, Eslint and Tests. This means that individual projects do not have their own scripts for running these tools (can change in the future). It also relies on Yarn Workspaces.
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Installation
 
 ```

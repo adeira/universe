@@ -5,12 +5,6 @@ This package has been extracted from the original [fbjs](https://github.com/face
 
 This makes the fetch function more suitable for real-life production usage because it doesn't hang or fail easily. In other words you are not going to have many open connections just because the API is slow (this could kill your server completely) and your fetch won't give up if the API didn't respond for the first time (just some glitch and one retry would fix it).
 
-<!-- AUTOMATOR:HIRING_BANNER -->
-
-
-
-<!-- /AUTOMATOR:HIRING_BANNER -->
-
 # Installation
 
 ```
@@ -25,9 +19,7 @@ This fetch is basically drop-in replacement for any other fetch you use:
 import fetch from '@kiwicom/fetch';
 
 (async () => {
-  const response = await fetch(
-    'https://api.skypicker.com/locations?term=Barcelona',
-  );
+  const response = await fetch('https://api.skypicker.com/locations?term=Barcelona');
 
   console.log(await response.json());
 })();

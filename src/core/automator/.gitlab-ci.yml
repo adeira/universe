@@ -2,7 +2,7 @@ automator:
   stage: deploy
   image: node:$NODEJS_VERSION
   allow_failure: true
-  parallel: 4
+  parallel: 3
   only:
     - master
   before_script:
