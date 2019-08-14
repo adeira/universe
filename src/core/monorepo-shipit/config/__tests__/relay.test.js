@@ -8,6 +8,7 @@ testExportedPaths(path.join(__dirname, '..', 'relay.js'), [
   ['src/packages/relay/package.json', 'package.json'],
   ['src/packages/relay/src/index.js', 'src/index.js'],
   ['src/packages/relay/.eslintrc.js', undefined],
+  ['src/packages/relay/__github__/.eslintignore', '.eslintignore'],
   ['src/packages/relay/__github__/.eslintrc.js', '.eslintrc.js'],
   ['src/packages/relay/__github__/.flowconfig', '.flowconfig'],
   ['src/packages/relay/__github__/babel.config.js', 'babel.config.js'],
