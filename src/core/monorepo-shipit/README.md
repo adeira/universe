@@ -65,16 +65,13 @@ Read more about available filters how to use them bellow.
 
 ## Filters
 
-> Please note: this part is still under development and the API is not settled yet.
-
 There are various filters applied on exported changesets to make it work properly. Currently we apply these filters:
 
 - `PathFilters.stripExceptDirectories`
 - `PathFilters.moveDirectories`
+- conditional comments filter (only `// @x-oss-enable` and `// @x-oss-disable` supported at this moment)
 
-_TODO: additional filters_
-
-The first filter makes sure that we publish only files relevant to the workspace that is being open-sourced. This filter is automatic. Second `moveDirectories` filter makes sure that we publish correct paths for opensource. It's because out packages are located in for example `src/packages/fetch` but we want to have these files in the root on GitHub (not nested in `src/packages/fetch`). This is the only filter which is being applied while importing the project.
+The first filter makes sure that we publish only files relevant to the workspace that is being open-sourced. This filter is automatic. Second `moveDirectories` filter makes sure that we publish correct paths for opensource. It's because our packages are located in for example `src/packages/fetch` but we want to have these files in the root on GitHub (not nested in `src/packages/fetch`).
 
 ### Filter `PathFilters.moveDirectories`
 
@@ -103,6 +100,32 @@ And finally this is how you'd map your package to the subfolder on GitHub (good 
 ```js
 new Map([['src/packages/fetch/', 'packages/fetch/']]);
 ```
+
+### Filter of conditional comments
+
+This filter is handy when you need to enable or disable some lines when exporting the project for OSS. Look at for example this example:
+
+```js
+// Private version:
+
+someFunctionCallWithDifferentOSSRepresentation(
+  // @x-oss-enable: true,
+  false, // @x-oss-disable
+);
+```
+
+The code above is written by our programmer. Shipit then automatically turns this code into:
+
+```js
+// OSS version:
+
+someFunctionCallWithDifferentOSSRepresentation(
+  true, // @x-oss-enable
+  // @x-oss-disable: false,
+);
+```
+
+Please note: only exactly this format of the comments is currently supported.
 
 ## Renaming project roots
 

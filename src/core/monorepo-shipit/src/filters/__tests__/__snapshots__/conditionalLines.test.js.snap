@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comments lines correctly - no comment end 1`] = `
+Object {
+  "input": "index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,7 +1,7 @@
+ foo // @x-oss-disable
+ normal_1
+ bar // @x-oss-disable
++baz // @x-oss-disable
+
+   herp // @x-oss-disable
+   normal_2
+-  derp // @x-oss-disable
+",
+  "output": "index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,7 +1,7 @@
+ // @x-oss-disable: foo
+ normal_1
+ // @x-oss-disable: bar
++// @x-oss-disable: baz
+
+   // @x-oss-disable: herp
+   normal_2
+-  // @x-oss-disable: derp
+",
+}
+`;
+
+exports[`comments lines correctly - with comment end 1`] = `
+Object {
+  "input": "index 5bcc9b1..17467d2 100644
+--- a/foo
++++ b/foo
+@@ -1,7 +1,7 @@
+ foo /* @x-oss-disable */
+ normal_1
+ bar /* @x-oss-disable */
++baz /* @x-oss-disable */
+
+   herp /* @x-oss-disable */
+   normal_2
+-  derp /* @x-oss-disable */
+",
+  "output": "index 5bcc9b1..17467d2 100644
+--- a/foo
++++ b/foo
+@@ -1,7 +1,7 @@
+ /* @x-oss-disable: foo */
+ normal_1
+ /* @x-oss-disable: bar */
++/* @x-oss-disable: baz */
+
+   /* @x-oss-disable: herp */
+   normal_2
+-  /* @x-oss-disable: derp */
+",
+}
+`;
+
+exports[`enables and disables lines as needed 1`] = `
+Object {
+  "input": "index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,5 +1,5 @@
+ // @x-oss-enable: foo
+ bar // @x-oss-disable
++baz // @x-oss-disable
+
+   herp // @x-oss-disable
+-  // @x-oss-enable: derp
+",
+  "output": "index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,5 +1,5 @@
+ foo // @x-oss-enable
+ // @x-oss-disable: bar
++// @x-oss-disable: baz
+
+   // @x-oss-disable: herp
+-  derp // @x-oss-enable
+",
+}
+`;
+
+exports[`works with comments in comments 1`] = `
+Object {
+  "input": "index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,5 +1,5 @@
+ foo // first-comment // @x-oss-disable
+ bar // first-comment // @x-oss-disable
++baz // first-comment // @x-oss-disable
+
+   herp // first-comment // @x-oss-disable
+-  derp // first-comment // @x-oss-disable
+",
+  "output": "index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,5 +1,5 @@
+ // @x-oss-disable: foo // first-comment
+ // @x-oss-disable: bar // first-comment
++// @x-oss-disable: baz // first-comment
+
+   // @x-oss-disable: herp // first-comment
+-  // @x-oss-disable: derp // first-comment
+",
+}
+`;
