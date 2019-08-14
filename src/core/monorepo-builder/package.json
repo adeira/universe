@@ -7,7 +7,7 @@
     "@kiwicom/js": "^0.13.0",
     "@kiwicom/logger": "^0.1.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.7.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.4.4"
