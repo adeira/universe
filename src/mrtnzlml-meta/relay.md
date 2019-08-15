@@ -12,7 +12,7 @@ TODO:
 
 - https://github.com/facebook/relay/pull/2619/files
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
-- Mock Data Generation: https://github.com/mrtnzlml/relay/pull/253/commits/09d317943f6936ffb0002154c389b6d7a507c58d
+- Mock Data Generation: https://github.com/facebook/relay/commit/09d317943f6936ffb0002154c389b6d7a507c58d
 - https://github.com/facebook/relay/pull/2700/files
 - `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files, https://relay.dev/docs/en/testing-relay-components#relay_test_operation, https://github.com/facebook/relay/issues/2807#issuecomment-515690739
 
@@ -46,7 +46,7 @@ Do not forget to run `yarn install` in your project as well.
 
 # Relay Config
 
-See: https://github.com/mrtnzlml/relay/pull/424/commits/d3ec68ec137f7d72598a6f28025e94fba280e86e
+See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
 # New Connection Model
 
@@ -63,7 +63,7 @@ See: https://github.com/mrtnzlml/relay/pull/424/commits/d3ec68ec137f7d72598a6f28
 
 # `@raw_response_type`
 
-See: https://github.com/mrtnzlml/relay/pull/459/commits/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
+See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
 
 ```graphql
 query ViewerQuery @raw_response_type {
@@ -224,7 +224,7 @@ See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
 # @connection(dynamicKey_UNSTABLE: $someVariable, ...)
 
-See: https://github.com/mrtnzlml/relay/pull/421/commits/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
+See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
 
 # RelayResponseNormalizer: `handleStrippedNulls`
 
