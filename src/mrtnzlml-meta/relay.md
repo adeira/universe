@@ -56,6 +56,7 @@ See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba2
 - 2/n: https://github.com/facebook/relay/commit/d0a870d6f87c8e56844aac0b1c82d656e36715b0
 - 3/n: https://github.com/facebook/relay/commit/52f65d2ec8bf192d0af228af3f137b5448cd4017
 - 4/n: https://github.com/facebook/relay/commit/2eec7c39ee8db1f784fc5c600425a7de7601da27
+- 5/n: https://github.com/facebook/relay/commit/88bdeb076a8e4fee5a94d50b03993e94326f7976
 
 # `LocalQueryRenderer`
 
