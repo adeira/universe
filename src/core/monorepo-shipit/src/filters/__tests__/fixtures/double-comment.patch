@@ -1,0 +1,14 @@
+diff --git a/foo b/foo
+index 1fa2ce4..499116a 100644
+--- a/foo
++++ b/foo
+@@ -1,5 +1,5 @@
+ foo // first-comment // @x-oss-disable
+ bar // first-comment // @x-oss-disable
++baz // first-comment // @x-oss-disable
+
+   herp // first-comment // @x-oss-disable
+-  derp // first-comment // @x-oss-disable
+--
+2.9.3
+

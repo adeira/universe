@@ -7,6 +7,7 @@ import { warning } from '@kiwicom/js';
 
 import Changeset from './Changeset';
 import addTrackingData from './filters/addTrackingData';
+import { commentLines, uncommentLines } from './filters/conditionalLines';
 import moveDirectories from './filters/moveDirectories';
 import moveDirectoriesReverse from './filters/moveDirectoriesReverse';
 import stripExceptDirectories from './filters/stripExceptDirectories';
@@ -68,18 +69,29 @@ export default class ShipitConfig {
       const ch1 = addTrackingData(changeset);
       const ch2 = stripExceptDirectories(ch1, this.getSourceRoots());
       const ch3 = moveDirectories(ch2, this.directoryMapping);
-      return stripPaths(ch3, this.strippedFiles);
+      const ch4 = stripPaths(ch3, this.strippedFiles);
+
+      // First we comment out lines marked with `@x-oss-disable`.
+      const ch5 = commentLines(ch4, '@x-oss-disable', '//', null);
+      // Then we uncomment lines marked with `@x-oss-enable`.
+      return uncommentLines(ch5, '@x-oss-enable', '//', null);
     };
   }
 
   /**
    * Importit reverses the directory mapping and strip some predefined files.
+   * It should be in the reversed order from Shipit filters.
+   * Please note: there are usually less filters when importing the project (not 1:1 with Shipit).
    */
   getDefaultImportitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
-      // must be in the reversed order from Shipit
-      const ch1 = stripPaths(changeset, this.strippedFiles);
-      return moveDirectoriesReverse(ch1, this.directoryMapping);
+      // Comment out lines which are only for OSS.
+      const ch1 = commentLines(changeset, '@x-oss-enable', '//', null);
+      // Uncomment private code which is disabled in OSS.
+      const ch2 = uncommentLines(ch1, '@x-oss-disable', '//', null);
+
+      const ch3 = stripPaths(ch2, this.strippedFiles);
+      return moveDirectoriesReverse(ch3, this.directoryMapping);
     };
   }
 
