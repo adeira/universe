@@ -26,6 +26,13 @@ const similarities = new Map([
     'ramda',
     ['lodash'],
   ],
+  [
+    // banned dependencies
+    null,
+    [
+      'fbjs', // https://github.com/facebook/fbjs/blob/36f30888cfba866d44df61d5172f870b56c83d8e/README.md
+    ],
+  ],
 ]);
 
 const exceptions = new Map([
@@ -49,8 +56,12 @@ describe('dependencies similarities', () => {
               // some package is using forbidden dependency but there may be an exception:
               const packageExceptions = exceptions.get(mainDependency) ?? [];
               if (!packageExceptions.includes(dependency)) {
+                const reasoning =
+                  mainDependency === null
+                    ? 'this dependency is not allowed.'
+                    : `it should use '${mainDependency}' instead.`;
                 throw new Error(
-                  `Project ${packageJson.name} requires dependency '${dependency}' but it should use '${mainDependency}' instead.`,
+                  `Project ${packageJson.name} requires dependency '${dependency}' but ${reasoning}`,
                 );
               }
             }
