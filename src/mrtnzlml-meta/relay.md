@@ -52,9 +52,10 @@ See: https://github.com/mrtnzlml/relay/pull/424/commits/d3ec68ec137f7d72598a6f28
 
 `@connection_resolver(resolver: "FeedbackCommentsResolver")`
 
-- 1/n: https://github.com/mrtnzlml/relay/pull/455/commits/6f0129531caac238b5dc5725819be543c5672388
-- 2/n: https://github.com/mrtnzlml/relay/pull/458/commits/d0a870d6f87c8e56844aac0b1c82d656e36715b0
-- 3/n: https://github.com/mrtnzlml/relay/pull/458/commits/52f65d2ec8bf192d0af228af3f137b5448cd4017
+- 1/n: https://github.com/facebook/relay/commit/6f0129531caac238b5dc5725819be543c5672388
+- 2/n: https://github.com/facebook/relay/commit/d0a870d6f87c8e56844aac0b1c82d656e36715b0
+- 3/n: https://github.com/facebook/relay/commit/52f65d2ec8bf192d0af228af3f137b5448cd4017
+- 4/n: https://github.com/facebook/relay/commit/2eec7c39ee8db1f784fc5c600425a7de7601da27
 
 # `LocalQueryRenderer`
 
