@@ -7,7 +7,11 @@ import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
 
-export default function createImportSyncPhase(config: ShipitConfig, pullRequestNumber: string) {
+export default function createImportSyncPhase(
+  config: ShipitConfig,
+  packageName: string,
+  pullRequestNumber: string,
+) {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {
@@ -52,7 +56,7 @@ export default function createImportSyncPhase(config: ShipitConfig, pullRequestN
     const monorepo: DestinationRepo = new RepoGit(config.sourcePath);
     const changesets = getFilteredChangesets();
 
-    const branchName = `monorepo-importit-github-pr-${pullRequestNumber}`;
+    const branchName = `shipit-import-github-${packageName}-pr-${pullRequestNumber}`;
     monorepo.checkoutBranch(branchName);
 
     changesets.forEach(changeset => {
