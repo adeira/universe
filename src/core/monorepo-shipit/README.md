@@ -69,7 +69,7 @@ There are various filters applied on exported changesets to make it work properl
 
 - `PathFilters.stripExceptDirectories`
 - `PathFilters.moveDirectories`
-- conditional comments filter (only `// @x-oss-enable` and `// @x-oss-disable` supported at this moment)
+- conditional comments filter (only `// @x-shipit-enable` and `// @x-shipit-disable` supported at this moment)
 
 The first filter makes sure that we publish only files relevant to the workspace that is being open-sourced. This filter is automatic. Second `moveDirectories` filter makes sure that we publish correct paths for opensource. It's because our packages are located in for example `src/packages/fetch` but we want to have these files in the root on GitHub (not nested in `src/packages/fetch`).
 
@@ -103,29 +103,25 @@ new Map([['src/packages/fetch/', 'packages/fetch/']]);
 
 ### Filter of conditional comments
 
-This filter is handy when you need to enable or disable some lines when exporting the project for OSS. Look at for example this example:
+This filter is handy when you need to enable or disable some lines when exporting the project for OSS. Look at for example this example (code in our private monorepo):
 
 ```js
-// Private version:
-
 someFunctionCallWithDifferentOSSRepresentation(
   // @x-oss-enable: true,
   false, // @x-oss-disable
 );
 ```
 
-The code above is written by our programmer. Shipit then automatically turns this code into:
+The code above is written by our programmer. Shipit then automatically turns this code into the following code when exporting:
 
 ```js
-// OSS version:
-
 someFunctionCallWithDifferentOSSRepresentation(
   true, // @x-oss-enable
   // @x-oss-disable: false,
 );
 ```
 
-Please note: only exactly this format of the comments is currently supported.
+Please note: this is just an example, currently we support only `// @x-shipit-enable` and `// @x-shipit-disable` in this exact format. However, logic of this filter is independent on this marker so it's possible to build on top of this and even make it project specific.
 
 ## Renaming project roots
 

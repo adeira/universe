@@ -71,10 +71,10 @@ export default class ShipitConfig {
       const ch3 = moveDirectories(ch2, this.directoryMapping);
       const ch4 = stripPaths(ch3, this.strippedFiles);
 
-      // First we comment out lines marked with `@x-oss-disable`.
-      const ch5 = commentLines(ch4, '@x-oss-disable', '//', null);
-      // Then we uncomment lines marked with `@x-oss-enable`.
-      return uncommentLines(ch5, '@x-oss-enable', '//', null);
+      // First we comment out lines marked with `@x-shipit-disable`.
+      const ch5 = commentLines(ch4, '@x-shipit-disable', '//', null);
+      // Then we uncomment lines marked with `@x-shipit-enable`.
+      return uncommentLines(ch5, '@x-shipit-enable', '//', null);
     };
   }
 
@@ -86,9 +86,9 @@ export default class ShipitConfig {
   getDefaultImportitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
       // Comment out lines which are only for OSS.
-      const ch1 = commentLines(changeset, '@x-oss-enable', '//', null);
+      const ch1 = commentLines(changeset, '@x-shipit-enable', '//', null);
       // Uncomment private code which is disabled in OSS.
-      const ch2 = uncommentLines(ch1, '@x-oss-disable', '//', null);
+      const ch2 = uncommentLines(ch1, '@x-shipit-disable', '//', null);
 
       const ch3 = stripPaths(ch2, this.strippedFiles);
       return moveDirectoriesReverse(ch3, this.directoryMapping);
