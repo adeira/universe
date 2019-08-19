@@ -1,0 +1,3 @@
+- https://www.atlasobscura.com/things-to-do/mexico-city-mexico/places
+- https://readlagom.com/stories/mexico-citys-new-traditions
+- https://www.vistawide.com/spanish/top_100_spanish_words.htm
