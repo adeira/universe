@@ -1061,6 +1061,60 @@ module.exports = function MyComponent() {
 };
 `;
 
+exports[`matches expected output: exponentiation-operator.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const x: number = (1 ** 2) ** (3 ** 4);
+
+console.warn(x);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+var x = Math.pow(Math.pow(1, 2), Math.pow(3, 4));
+console.warn(x);
+`;
+
+exports[`matches expected output: exponentiation-operator.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const x: number = (1 ** 2) ** (3 ** 4);
+
+console.warn(x);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const x: number = (1 ** 2) ** 3 ** 4;
+
+console.warn(x);
+`;
+
+exports[`matches expected output: exponentiation-operator.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const x: number = (1 ** 2) ** (3 ** 4);
+
+console.warn(x);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+var x = Math.pow(Math.pow(1, 2), Math.pow(3, 4));
+console.warn(x);
+`;
+
 exports[`matches expected output: generator.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
