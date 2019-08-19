@@ -126,6 +126,8 @@ These are coworking I actually visited. Highlighted coworkings are really good.
 - https://colmenacreativa.com/
   - great community
   - free coffee/water
+- https://mexicocity.impacthub.net/
+  - free coffee/water
 
 ## Prague:
 - **http://opero.cz/en**
