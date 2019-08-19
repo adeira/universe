@@ -6,13 +6,20 @@
 - https://github.com/lttb/flown
 - https://gist.github.com/kangax/aa59598cf28d02f38579d8a95b5cbf92
 - https://github.com/dustinspecker/awesome-flow
-- Sound vs. complete: https://eschew.wordpress.com/2009/08/31/sound-and-complete/
 - https://gajus.github.io/flow-runtime/
 - Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
 
 Showerthoughts:
 
 > flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
+
+# Sound vs. complete
+
+https://eschew.wordpress.com/2009/08/31/sound-and-complete/
+
+> Soundness prevents false negatives and completeness prevents false positives.
+
+https://stackoverflow.com/a/21437375/3135248
 
 # Contributing to native libdevs
 
