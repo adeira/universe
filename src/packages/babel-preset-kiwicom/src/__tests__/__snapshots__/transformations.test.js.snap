@@ -1061,6 +1061,142 @@ module.exports = function MyComponent() {
 };
 `;
 
+exports[`matches expected output: generator.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 20
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _marked =
+/*#__PURE__*/
+_regenerator.default.mark(generator);
+
+/* eslint-disable */
+function generator(i) {
+  return _regenerator.default.wrap(function generator$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return i;
+
+        case 2:
+          _context.next = 4;
+          return i + 10;
+
+        case 4:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked);
+}
+
+var gen = generator(10);
+console.log(gen.next().value); // 10
+
+console.log(gen.next().value); // 20
+`;
+
+exports[`matches expected output: generator.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 20
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 20
+`;
+
+exports[`matches expected output: generator.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 20
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import _regeneratorRuntime from "@babel/runtime/regenerator";
+
+var _marked =
+/*#__PURE__*/
+_regeneratorRuntime.mark(generator);
+
+/* eslint-disable */
+function generator(i) {
+  return _regeneratorRuntime.wrap(function generator$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return i;
+
+        case 2:
+          _context.next = 4;
+          return i + 10;
+
+        case 4:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _marked);
+}
+
+var gen = generator(10);
+console.log(gen.next().value); // 10
+
+console.log(gen.next().value); // 20
+`;
+
 exports[`matches expected output: internal-slot-properties.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
