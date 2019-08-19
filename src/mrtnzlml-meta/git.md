@@ -18,6 +18,9 @@ git log --since=1.week --oneline --no-merges
 \#not_a_comment.xyz
 !\#not_a_comment.xyz
 
+# If there is a separator at the beginning or middle (or both) of the pattern, then the pattern is relative to the directory level of the particular .gitignore file itself.
+# Otherwise the pattern may also match at any level below the .gitignore level.
+
 directory_only/
 directory_or_file
 
@@ -30,6 +33,8 @@ directory_or_file
 abc/**     # matches all files inside directory "abc"
 a/**/b     # zero or more directories ("a/b", "a/x/b", "a/x/y/b", ...)
 ```
+
+https://git-scm.com/docs/gitignore
 
 # A..B vs A...B vs --ancestry-path
 
