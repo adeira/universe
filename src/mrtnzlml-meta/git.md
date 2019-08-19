@@ -9,6 +9,28 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
+# Gitignore
+
+```gitignore
+# Empty lines are being ignored.
+# Trailing spaces are ignored unless they are quoted with backslash ("\").
+
+\#not_a_comment.xyz
+!\#not_a_comment.xyz
+
+directory_only/
+directory_or_file
+
+# An asterisk "*" matches anything except a slash.
+# The character "?" matches any one character except "/".
+# The range notation, e.g. [a-zA-Z], can be used to match one of the characters in a range.
+
+# Two consecutive asterisks ("**") in patterns matched against full pathname may have special meaning:
+**/foo     # match in all directories
+abc/**     # matches all files inside directory "abc"
+a/**/b     # zero or more directories ("a/b", "a/x/b", "a/x/y/b", ...)
+```
+
 # A..B vs A...B vs --ancestry-path
 
 See: https://stackoverflow.com/a/36437843
@@ -34,7 +56,7 @@ origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
 🤓 geojson-editor [master] git remote -v
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (fetch)
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
-upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (fetch)
+upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (fetch)e
 upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (push)
 🤓 geojson-editor [master] git fetch upstream
 remote: Enumerating objects: 37, done.
