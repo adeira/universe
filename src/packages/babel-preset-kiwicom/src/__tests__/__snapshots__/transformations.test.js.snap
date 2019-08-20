@@ -1727,13 +1727,17 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _Alert = _interopRequireDefault(require("@kiwicom/orbit-components/lib/Alert"));
 
+var _lib = require("@kiwicom/orbit-components/lib");
+
+var _icons = require("@kiwicom/orbit-components/icons");
+
 var _Passengers = _interopRequireDefault(require("@kiwicom/orbit-components/lib/icons/Passengers"));
 
 /* eslint-disable */
 module.exports = {
   A: _Alert.default,
-  B: _Alert.default,
-  P: _Passengers.default,
+  B: _lib.Alert,
+  P: _icons.Passengers,
   Q: _Passengers.default
 };
 `;
@@ -1774,8 +1778,8 @@ module.exports = { A, B, P, Q };
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
 import A from "@kiwicom/orbit-components/lib/Alert";
-import B from "@kiwicom/orbit-components/lib/Alert";
-import P from "@kiwicom/orbit-components/lib/icons/Passengers";
+import { Alert as B } from '@kiwicom/orbit-components/lib';
+import { Passengers as P } from '@kiwicom/orbit-components/icons';
 import Q from "@kiwicom/orbit-components/lib/icons/Passengers";
 module.exports = {
   A: A,
