@@ -2,7 +2,7 @@
 
 import path from 'path';
 
-import testExportedPaths from '../../__tests__/testExportedPaths';
+import testExportedPaths from './testExportedPaths';
 
 testExportedPaths(path.join(__dirname, '..', 'babel-plugin-orbit-components.js'), [
   ['src/packages/babel-plugin-orbit-components/package.json', 'package.json'],
