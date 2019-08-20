@@ -13,6 +13,12 @@ Showerthoughts:
 
 > flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
 
+# Oncalls in Facebook (Flow related)
+
+> so the way it works is that the Flow team has a rotating oncall. it's relatively calm as oncalls go (we aren't getting woken up in the middle of the night), but whoever is oncall is responsible for doing support (we have an internal group where people can ask questions), and also responsible for taking the lead if something goes wrong with Flow or the various related integrations we have. near the beginning of the year we also made it so that the oncall is responsible for addressing libdef and documentation PRs, since there is usually no clear owner for those, and pretty much anyone should be able to review them
+
+(source Discord)
+
 # Sound vs. complete
 
 https://eschew.wordpress.com/2009/08/31/sound-and-complete/
