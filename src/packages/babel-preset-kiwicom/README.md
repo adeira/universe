@@ -77,6 +77,7 @@ There are three transpilation targets available: `js` (default), `js-esm` and `f
 - [`__DEV__` expression](#__dev__-expression)
 - [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 - [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
+- [generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) `function*` (we do _NOT_ support [async generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) at this moment)
 - _and many more depending on your environment, see section [different environments](#different-environments)..._
 
 On top of that these [proposals](https://github.com/tc39/proposals) are enabled by default:
