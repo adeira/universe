@@ -2,6 +2,8 @@
 
 // @flow strict-local
 
+import Logger from '@kiwicom/logger';
+
 import { iterateReversedConfigs } from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
 import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRepoPhase';
@@ -10,11 +12,19 @@ import createImportReverseSyncPhase from '../src/phases/createImportReverseSyncP
 
 // yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit-reversed.js
 
+const importOnly = 'git@github.com:kiwicom/babel-plugin-orbit-components.git';
+
 iterateReversedConfigs(config => {
-  new Set<() => void>([
-    createClonePhase(config.exportedRepoURL, config.destinationPath),
-    createCheckCorruptedRepoPhase(config.destinationPath),
-    createCleanPhase(config.destinationPath),
-    createImportReverseSyncPhase(config),
-  ]).forEach(phase => phase());
+  const repoUrl = config.exportedRepoURL;
+  if (repoUrl === importOnly) {
+    Logger.log('Importing: %s', repoUrl);
+    new Set<() => void>([
+      createClonePhase(repoUrl, config.destinationPath),
+      createCheckCorruptedRepoPhase(config.destinationPath),
+      createCleanPhase(config.destinationPath),
+      createImportReverseSyncPhase(config),
+    ]).forEach(phase => phase());
+  } else {
+    Logger.log('Skipping: %s', repoUrl);
+  }
 });
