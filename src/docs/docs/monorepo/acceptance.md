@@ -16,9 +16,11 @@ Any project from Incubator tribe can be accepted into this monorepo. However, th
 
 ## New import method
 
-We use [Importit](https://github.com/kiwicom/monorepo-shipit#importit-part-unstable) for importing already existing projects. This method creates only one "import" commit but it adjusts the paths correctly (in contrary to the legacy method).
+We use [Importit](https://github.com/kiwicom/monorepo-shipit#importit-part-unstable) for importing already existing projects. This method creates only one "import" commit but it adjusts the paths correctly (in contrary to the legacy method). First, you have to create a new _reversed_ Shipit config for your project. Then you have to run _reversed_ Importit script:
 
-_TODO_
+```text
+yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit-reversed.js
+```
 
 ## Legacy import method
 
