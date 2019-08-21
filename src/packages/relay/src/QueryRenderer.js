@@ -17,6 +17,8 @@ type ReadyState = {|
   +retry: ?() => void,
 |};
 
+type DataFromStrategy = 'STORE_THEN_NETWORK' | 'NETWORK_ONLY';
+
 type CommonProps = {|
   +query: GraphQLTaggedNode,
   +clientID?: string, // Identification of the current client (X-Client header basically).
@@ -25,6 +27,7 @@ type CommonProps = {|
     +force?: ?boolean,
     +poll?: ?number,
   |},
+  +dataFrom?: DataFromStrategy,
   +variables?: Variables,
 |};
 
