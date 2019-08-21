@@ -139,25 +139,27 @@ function isObject(item) {
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
 
-Facebook [implementation](https://github.com/facebook/fbjs/blob/cfd39964ba4b9ce351c314ed512e654ffa9cad26/packages/fbjs/src/useragent/VersionRange.js#L210-L218):
+StackOverflow [implementation](https://stackoverflow.com/a/1830844/3135248) (so far ✅):
 
 ```js
-/**
- * Determines if `number` is a number.
- *
- * @param {mixed} number
- * @returns {boolean}
- */
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+```
+
+Facebook [implementation](https://github.com/facebook/fbjs/blob/cfd39964ba4b9ce351c314ed512e654ffa9cad26/packages/fbjs/src/useragent/VersionRange.js#L210-L218) (❌ fails for many values like `null`, booleans, Date object, empty strings, ...):
+
+```js
 function isNumber(number) {
   return !isNaN(number) && isFinite(number);
 }
 ```
 
-StackOverflow [implementation](https://stackoverflow.com/a/1830844/3135248):
+@cookielab implementation (❌ fails for values like `7.2acdgs` and it's not multiplatform):
 
 ```js
 function isNumeric(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
+    return Number.isFinite(Number.parseFloat(n));
 }
 ```
 
