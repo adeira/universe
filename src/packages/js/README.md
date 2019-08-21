@@ -102,3 +102,19 @@ isObject({}); // true
 isObject(null); // false
 isObject([]); // false
 ```
+
+# `isNumeric`
+
+Correctly determines whether the value is numeric or not.
+
+```js
+import { isNumeric } from '@kiwicom/js';
+
+isNumeric('42'); // true
+isNumeric(42); // true
+isNumeric(0xfff); // true
+
+isNumeric(null); // false
+isNumeric([]); // false
+isNumeric(Infinity); // false
+```
