@@ -9,8 +9,9 @@ testExportedPaths(path.join(__dirname, '..', 'babel-plugin-orbit-components.js')
   ['src/packages/babel-plugin-orbit-components/index.js', 'index.js'],
 
   // OSS specific:
-  ['src/packages/babel-plugin-orbit-components/__github__/.travis.yml', '.travis.yml'],
   ['src/packages/babel-plugin-orbit-components/__github__/.eslintignore', '.eslintignore'],
+  ['src/packages/babel-plugin-orbit-components/__github__/.eslintrc.js', '.eslintrc.js'],
+  ['src/packages/babel-plugin-orbit-components/__github__/.travis.yml', '.travis.yml'],
 
   // invalid cases:
   ['src/packages/xyz/outsideScope.js', undefined], // correctly deleted
