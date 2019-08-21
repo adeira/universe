@@ -1,5 +1,10 @@
 # Unreleased
 
+# 3.3.0
+
+- New QueryRenderer property `dataFrom` with values `STORE_THEN_NETWORK` and `NETWORK_ONLY` (more info here: https://relay.dev/docs/en/next/query-renderer#props).
+- Many internal updates mostly targeting OSS development experience.
+
 # 3.2.0
 
 - New bin script `kiwicom-fetch-schema` available. This little script helps you with the download of your remote schema. Please, read README file to see how to use it.
