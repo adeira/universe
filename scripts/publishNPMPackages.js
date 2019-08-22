@@ -20,6 +20,7 @@ import { invariant } from '@kiwicom/js';
     dryRun: false,
     npmAuthToken,
     workspaces: new Set([
+      '@kiwicom/babel-plugin-orbit-components',
       '@kiwicom/babel-preset-kiwicom',
       '@kiwicom/eslint-config',
       '@kiwicom/fetch',
