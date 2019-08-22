@@ -1,6 +1,7 @@
 # Unreleased
 
 - Update of internal dependencies. Notably, we updated `eslint-plugin-react-hooks` to version 2.0.1 which is a breaking change, see: https://github.com/facebook/react/pull/16455
+- Rules [`jest/no-duplicate-hooks`](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-duplicate-hooks.md), [`jest/no-export`](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-export.md) and [`jest/no-standalone-expect`](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-standalone-expect.md) now report errors instead of warnings (no change in strict mode).
 
 # 6.5.0
 
