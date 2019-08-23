@@ -4,7 +4,7 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
-const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -283,10 +283,10 @@ module.exports = {
   'jest/no-alias-methods': OFF,
   'jest/no-commented-out-tests': OFF,
   'jest/no-disabled-tests': ERROR,
-  'jest/no-duplicate-hooks': NEXT_VERSION_ERROR,
+  'jest/no-duplicate-hooks': ERROR,
   'jest/no-empty-title': ERROR,
   'jest/no-expect-resolves': OFF,
-  'jest/no-export': NEXT_VERSION_ERROR,
+  'jest/no-export': ERROR,
   'jest/no-focused-tests': ERROR,
   'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': ERROR,
@@ -295,7 +295,7 @@ module.exports = {
   'jest/no-jest-import': ERROR,
   'jest/no-large-snapshots': OFF,
   'jest/no-mocks-import': ERROR,
-  'jest/no-standalone-expect': NEXT_VERSION_ERROR,
+  'jest/no-standalone-expect': ERROR,
   'jest/no-test-callback': OFF,
   'jest/no-test-prefixes': OFF,
   'jest/no-test-return-statement': ERROR,
