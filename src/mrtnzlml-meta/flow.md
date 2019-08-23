@@ -7,6 +7,7 @@
 - https://gist.github.com/kangax/aa59598cf28d02f38579d8a95b5cbf92
 - https://github.com/dustinspecker/awesome-flow
 - https://gajus.github.io/flow-runtime/
+- https://medium.com/flow-type/what-the-flow-team-has-been-up-to-54239c62004f#a548
 - Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
 
 Showerthoughts:
