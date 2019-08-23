@@ -142,6 +142,7 @@ Object {
     "func-name-matching": 0,
     "func-names": 0,
     "func-style": 0,
+    "function-call-argument-newline": "off",
     "function-paren-newline": "off",
     "generator-star": "off",
     "generator-star-spacing": "off",
