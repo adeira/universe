@@ -33,7 +33,7 @@
     "@kiwicom/eslint-config": "^6.5.2",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
-    "flow-bin": "^0.106.1",
+    "flow-bin": "^0.106.2",
     "jest": "^24.9.0",
     "react": "^16.8.0",
     "react-test-renderer": "^16.9.0",
