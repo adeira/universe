@@ -2,6 +2,8 @@
 
 import { isNumeric } from '../index';
 
+/* eslint-disable no-new-wrappers, no-new-object */
+
 test.each([
   '-10', // negative integer string
   '0', // zero string
