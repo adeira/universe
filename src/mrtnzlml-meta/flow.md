@@ -42,6 +42,10 @@ bash runtests.sh -t node_tests bin/flow
 bash runtests.sh -t node_tests -r bin/flow
 ```
 
+Note:
+
+> `make build-flow-debug` should be faster
+
 # Saved state
 
 _TODO_
