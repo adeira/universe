@@ -12,7 +12,7 @@ import createImportReverseSyncPhase from '../src/phases/createImportReverseSyncP
 
 // yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit-reversed.js
 
-const importOnly = 'git@github.com:kiwicom/babel-plugin-orbit-components.git';
+const importOnly = 'git@github.com:kiwicom/eslint-config-nitro.git';
 
 iterateReversedConfigs(config => {
   const repoUrl = config.exportedRepoURL;
