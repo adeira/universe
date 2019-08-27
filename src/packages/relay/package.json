@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@kiwicom/babel-preset-kiwicom": "^3.4.0",
-    "@kiwicom/eslint-config": "^6.5.2",
+    "@kiwicom/eslint-config": "^7.0.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.2.2",
     "flow-bin": "^0.106.2",
