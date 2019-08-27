@@ -872,5 +872,12 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-Compared values have no visual difference.
+- First value
++ Second value
+
+@@ --- --- @@
+      ],
+-     "flowtype/no-dupe-keys": 1,
++     "flowtype/no-dupe-keys": 2,
+      "flowtype/no-existential-type": 2,
 `;
