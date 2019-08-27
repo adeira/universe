@@ -29,7 +29,7 @@ module.exports = {
   'no-ex-assign': ERROR,
   'no-extra-boolean-cast': ERROR,
   'no-func-assign': ERROR,
-  'no-inner-declarations': WARN,
+  'no-inner-declarations': OFF,
   'no-invalid-regexp': ERROR,
   'no-irregular-whitespace': ERROR,
   'no-misleading-character-class': ERROR,
