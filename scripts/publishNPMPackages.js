@@ -23,6 +23,7 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/babel-plugin-orbit-components',
       '@kiwicom/babel-preset-kiwicom',
       '@kiwicom/eslint-config',
+      '@kiwicom/eslint-config-nitro',
       '@kiwicom/fetch',
       '@kiwicom/graphql-bc-checker',
       '@kiwicom/graphql-global-id',
