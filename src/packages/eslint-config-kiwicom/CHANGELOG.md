@@ -1,5 +1,7 @@
 # Unreleased
 
+- Tests runner now throws exceptions when you have mishmashed Eslint plugin versions. This is potentially breaking change but you should not have such mishmash in your codebase anyway (it creates problems when running Eslint).
+
 # 7.0.0
 
 - Update of internal dependencies. Notably, we updated `eslint-plugin-react-hooks` to version 2.0.1 which is a breaking change, see: https://github.com/facebook/react/pull/16455
