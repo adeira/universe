@@ -2,7 +2,7 @@
 
 import path from 'path';
 
-import testExportedPaths from '../../__tests__/testExportedPaths';
+import testExportedPaths from './testExportedPaths';
 
 testExportedPaths(path.join(__dirname, '..', 'eslint-config-nitro.js'), [
   ['src/packages/eslint-config-nitro/.gitignore', '.gitignore'],
