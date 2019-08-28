@@ -78,6 +78,7 @@ You should be able to see that saved state is being used from logs:
 
 <details>
 <summary>Logs without saved state</summary>
+
 ```text
 [2019-08-28 16:09:09.039] argv=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow start
 [2019-08-28 16:09:09.039] lazy_mode=off
@@ -108,6 +109,7 @@ You should be able to see that saved state is being used from logs:
 
 <details>
 <summary>Logs WITH saved state</summary>
+
 ```text
 [2019-08-28 16:07:44.616] argv=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow start --saved-state-fetcher=local --saved-state-no-fallback
 [2019-08-28 16:07:44.616] lazy_mode=off
@@ -162,6 +164,7 @@ You can see that there is already some improvement. It's very convenient to comb
 
 <details>
 <summary>Logs WITH saved state and lazy mode</summary>
+
 ```text
 [2019-08-28 16:11:47.493] argv=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow start --saved-state-fetcher=local --saved-state-no-fallback --lazy
 [2019-08-28 16:11:47.493] lazy_mode=fs
