@@ -36,7 +36,7 @@
     "text-table": "^0.2.0"
   },
   "devDependencies": {
-    "@kiwicom/eslint-config-nitro": "^3.0.0",
+    "@kiwicom/eslint-config-nitro": "^4.0.0",
     "deep-diff": "^1.0.2",
     "snapshot-diff": "^0.5.2"
   },
