@@ -591,6 +591,7 @@ module.exports = {
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
   'node/exports-style': OFF,
   'node/file-extension-in-import': [ERROR, 'always', { '.js': 'never' }],
+  'node/no-callback-literal': WARN, // TODO: next version error (?)
   'node/no-deprecated-api': ERROR,
   'node/no-extraneous-import': OFF, // see: import/no-extraneous-dependencies
   'node/no-extraneous-require': OFF, // see: import/no-extraneous-dependencies
