@@ -554,6 +554,7 @@ Object {
         ".js": "never",
       },
     ],
+    "node/no-callback-literal": 1,
     "node/no-deprecated-api": 2,
     "node/no-extraneous-import": 0,
     "node/no-extraneous-require": 0,

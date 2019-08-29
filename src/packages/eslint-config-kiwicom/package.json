@@ -22,7 +22,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-kiwicom-incubator": "^0.6.0",
     "eslint-plugin-monorepo": "^0.2.1",
-    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
