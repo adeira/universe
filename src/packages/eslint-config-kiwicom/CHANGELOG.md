@@ -1,5 +1,7 @@
 # Unreleased
 
+# 7.1.0
+
 - Tests runner now throws exceptions when you have mishmashed Eslint plugin versions. This is potentially breaking change but you should not have such mishmash in your codebase anyway (it creates problems when running Eslint).
 - Added brand new rule [`node/no-callback-literal`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-callback-literal.md) which shows warnings in both normal and strict mode.
 
