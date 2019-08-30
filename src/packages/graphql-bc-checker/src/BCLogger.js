@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import os from 'os';
 
@@ -37,6 +37,5 @@ export const buildBreakingChangesBlock = (
   newBreakingChanges: ?$ReadOnlyArray<BreakingChange>,
 ) => {
   const breakingChangesLog = getBreakingChangesLog(oldSnapshot, newBreakingChanges);
-
   return `# ${breakingChangeMarkerStart}${breakingChangesLog}# ${breakingChangeMarkerEnd}`;
 };

@@ -1,9 +1,10 @@
-// @flow
+// @flow strict
 
 /* eslint-disable no-console */
 
 import os from 'os';
 import chalk from 'chalk';
+import type { BreakingChange, DangerousChange } from 'graphql';
 
 const note = (message: string): void => {
   console.log(message);
@@ -21,7 +22,7 @@ const error = (message: string): void => {
   console.log(chalk.red.bold(message));
 };
 
-const printBreakingChanges = (changes: $ReadOnlyArray<{ [key: string]: any, ... }>) => {
+const printBreakingChanges = (changes: $ReadOnlyArray<BreakingChange>): void => {
   console.error(
     `${chalk.red(
       'You introduced breaking changes into the public GraphQL schema. ',
@@ -48,7 +49,7 @@ const printBreakingChanges = (changes: $ReadOnlyArray<{ [key: string]: any, ... 
   );
 };
 
-const printDangerousChanges = (changes: $ReadOnlyArray<{ [key: string]: any, ... }>) => {
+const printDangerousChanges = (changes: $ReadOnlyArray<DangerousChange>): void => {
   for (const change of changes) {
     console.warn(`${chalk.yellow.bold(change.type)} - ${change.description}`);
   }
