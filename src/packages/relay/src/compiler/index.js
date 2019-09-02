@@ -17,6 +17,7 @@ import isCI from 'is-ci';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 import persistOperation from './persistOperation';
+import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUsagesRule';
 
 type ExternalOptions = {|
   +src: string,
@@ -180,6 +181,12 @@ function getRelayFileWriter(
           fragmentTransforms,
           printTransforms,
           queryTransforms,
+        },
+        validationRules: {
+          // What is the difference between GLOBAL_RULES and LOCAL_RULES?
+          GLOBAL_RULES: [
+            createFindDeprecatedUsagesRule(false), // TODO: make this configurable (--strict?)
+          ],
         },
         customScalars: {},
         formatModule: languagePlugin.formatModule,
