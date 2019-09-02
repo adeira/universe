@@ -1,6 +1,6 @@
-Collection of interesting links, articles and project...
+chrome://chrome-urls/
 
-- https://github.com/hackerkid/Mind-Expanding-Books
+Collection of interesting links, articles and project...
 
 # 2
 - [-2000 Lines Of Code](http://www.folklore.org/StoryView.py?project=Macintosh&story=Negative_2000_Lines_Of_Code.txt)
@@ -18,7 +18,7 @@ Collection of interesting links, articles and project...
 - [Complete list of GitHub markdown emoji markup](https://gist.github.com/rxaviers/7360908)
 
 # G
-- :star: [Good Recommendations](https://gems.abyjames.com/)
+- [Good Recommendations](https://gems.abyjames.com/)
 - [GraphQL Lodash](https://github.com/APIs-guru/graphql-lodash)
 
 # H
@@ -29,6 +29,9 @@ Collection of interesting links, articles and project...
 - [I ruin developers’ lives with my code reviews and I'm sorry](https://habr.com/en/post/440736/)
 - [I was wrong about Google and Facebook: there’s nothing wrong with them](https://ar.al/2019/01/11/i-was-wrong-about-google-and-facebook-theres-nothing-wrong-with-them-so-say-we-all/)
 - [Is High Quality Software Worth the Cost?](https://martinfowler.com/articles/is-quality-worth-cost.html)
+
+# M
+- [Mind Expanding Books](https://github.com/hackerkid/Mind-Expanding-Books)
 
 # P
 - [Picking the right API Paradigm](https://philsturgeon.uk/2018/05/21/picking-an-api-paradigm-implementation/)
