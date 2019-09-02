@@ -1,5 +1,9 @@
 # Unreleased
 
+# 3.4.0
+
+- This version contains upgraded dependencies and more accurate Flow types.
+
 # 3.3.0
 
 - New QueryRenderer property `dataFrom` with values `STORE_THEN_NETWORK` and `NETWORK_ONLY` (more info here: https://relay.dev/docs/en/next/query-renderer#props).

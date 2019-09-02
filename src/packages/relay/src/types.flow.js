@@ -47,7 +47,7 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
 export type DeclarativeMutationConfig = RangeAddConfig | RangeDeleteConfig | NodeDeleteConfig;
 
 // see: relay-runtime/mutations/RelayDeclarativeMutationConfig.js
-type RangeOperation = 'append' | 'ignore' | 'prepend';
+type RangeOperation = 'append' | 'prepend';
 
 opaque type RangeBehaviorsFunction = (connectionArgs: {
   [name: string]: $FlowFixMe,
