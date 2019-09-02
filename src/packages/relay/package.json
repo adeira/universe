@@ -32,7 +32,7 @@
     "@kiwicom/babel-preset-kiwicom": "^3.4.0",
     "@kiwicom/eslint-config": "^7.0.0",
     "babel-eslint": "^10.0.3",
-    "eslint": "^6.2.2",
+    "eslint": "^6.3.0",
     "flow-bin": "^0.106.2",
     "jest": "^24.9.0",
     "react": "^16.8.0",
