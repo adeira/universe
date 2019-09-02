@@ -18,6 +18,8 @@ TODO:
 
 This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
 
+> There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
+
 # How to test latest unreleased changes from Relay master?
 
 These changes are unreleased so you cannot easily install (uncompiled) master from NPM and use it. The easiest way how to try master is to clone Relay somewhere and run `yarn install` in the root. This will not only install all the necessary dependencies but also compile Relay packages. Now, just replace your versions with file paths in `package.json`:
