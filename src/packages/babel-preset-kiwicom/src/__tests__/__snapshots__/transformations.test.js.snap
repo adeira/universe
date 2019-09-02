@@ -1898,6 +1898,46 @@ module.exports = function (a) {
 };
 `;
 
+exports[`matches expected output: throw-expressions.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+() => throw new Error('');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+(function () {
+  return throw new Error('');
+});
+`;
+
+exports[`matches expected output: throw-expressions.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+() => throw new Error('');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+() => throw new Error('');
+`;
+
+exports[`matches expected output: throw-expressions.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+() => throw new Error('');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+(function () {
+  return throw new Error('');
+});
+`;
+
 exports[`matches expected output: warning-global.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */

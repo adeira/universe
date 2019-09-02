@@ -46,7 +46,13 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
 
   let presets /*: BabelRules */ = [];
   let plugins /*: BabelRules */ = [];
-  let parserPlugins /*: Array<string> */ = ['jsx', 'flow', 'flowComments', 'dynamicImport'];
+  let parserPlugins /*: Array<string> */ = [
+    'jsx',
+    'flow',
+    'flowComments',
+    'dynamicImport', // https://github.com/tc39/proposal-dynamic-import
+    'throwExpressions', // https://github.com/tc39/proposal-throw-expressions
+  ];
   let retainLines = false;
 
   const target = options.target;
@@ -108,7 +114,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
     plugins,
     parserOpts: {
       // see: https://babeljs.io/docs/en/babel-parser#plugins
-      // Candidates: throwExpressions, classPrivateMethods
+      // Candidates: classPrivateMethods
       plugins: parserPlugins,
     },
     retainLines,
