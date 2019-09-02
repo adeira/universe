@@ -43,8 +43,11 @@ module.exports = function verifyPackageTree() {
       const depPackageJson = JSON.parse(fs.readFileSync(maybeDepPackageJson, 'utf8'));
       const expectedVersion = expectedVersionsByDep[dep];
       if (depPackageJson.version !== expectedVersion) {
-        throw new Error(
-          `There might be a problem with the following plugin: ${dep} (used ${depPackageJson.version} but expected ${expectedVersion})`,
+        console.warn(
+          'There might be a problem with the following plugin: %s (used %s but expected %s)',
+          dep,
+          depPackageJson.version,
+          expectedVersion,
         );
       }
     });

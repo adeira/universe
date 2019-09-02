@@ -1,5 +1,9 @@
 # Unreleased
 
+# 7.1.1
+
+- Exceptions on mishmashed Eslint plugin versions has been reverted back to warnings only.
+
 # 7.1.0
 
 - Tests runner now throws exceptions when you have mishmashed Eslint plugin versions. This is potentially breaking change but you should not have such mishmash in your codebase anyway (it creates problems when running Eslint).
