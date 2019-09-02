@@ -283,6 +283,7 @@ Object {
     "jest/prefer-to-contain": 2,
     "jest/prefer-to-have-length": 2,
     "jest/prefer-todo": 2,
+    "jest/require-top-level-describe": 0,
     "jest/require-tothrow-message": 0,
     "jest/valid-describe": 2,
     "jest/valid-expect": 2,
