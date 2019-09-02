@@ -379,23 +379,23 @@ Found 1 error
 # Interesting Flow commands
 
 ```text
-💃 universe [master] y flow graph --help
-yarn run v1.16.0
-$ /Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/.bin/flow graph --help
-Usage: flow graph SUBCOMMAND [OPTIONS]...
-Outputs dependency graphs of flow repositories
+y flow graph cycle src/incubator/graphql/src/public/FAQ/types/outputs/FAQArticle.js
 
-SUBCOMMANDS:
-cycle: Produces a graph of the dependency cycle containing the input file
-dep-graph: Produces the dependency graph of a repository
+# Outputs dependency graphs of flow repositories. Subcommands:
+# cycle: Produces a graph of the dependency cycle containing the input file
+# dep-graph: Produces the dependency graph of a repository
 ```
 
 ```text
-y flow dump-types src/apps/graphql/src/index.js
+y flow dump-types src/packages/relay/src/QueryRenderer.js
 ```
 
 ```text
 y flow check --debug
+```
+
+```text
+y flow check --profile
 ```
 
 [source](https://stackoverflow.com/a/40569640/3135248)
