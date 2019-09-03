@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import {
+  Rollout,
   CodegenRunner,
   ConsoleReporter,
   DotGraphQLParser,
@@ -173,42 +174,48 @@ function getRelayFileWriter(
       queryTransforms,
       schemaExtensions,
     } = RelayIRTransforms;
-    return RelayFileWriter.writeAll({
-      config: {
-        baseDir,
-        compilerTransforms: {
-          commonTransforms,
-          codegenTransforms,
-          fragmentTransforms,
-          printTransforms,
-          queryTransforms,
-        },
-        validationRules: {
-          // What is the difference between GLOBAL_RULES and LOCAL_RULES?
-          GLOBAL_RULES: [
-            createFindDeprecatedUsagesRule(false), // TODO: make this configurable (--strict?)
-          ],
-        },
-        customScalars: {},
-        formatModule: languagePlugin.formatModule,
-        optionalInputFieldsForFlow: [],
-        schemaExtensions,
-        useHaste: false,
-        noFutureProofEnums,
-        extension: languagePlugin.outputExtension,
-        typeGenerator: languagePlugin.typeGenerator,
-        outputDir,
-        persistQuery: text => {
-          const hasher = crypto.createHash('md5');
-          hasher.update(text);
-          const id = hasher.digest('hex');
-          if (isCI === true) {
-            persistOperation(id, text);
-          }
-          return Promise.resolve(id);
-        },
-        repersist: isCI,
+
+    const writerConfig: { [string]: mixed, ... } = {
+      baseDir,
+      compilerTransforms: {
+        commonTransforms,
+        codegenTransforms,
+        fragmentTransforms,
+        printTransforms,
+        queryTransforms,
       },
+      validationRules: {
+        // What is the difference between GLOBAL_RULES and LOCAL_RULES?
+        GLOBAL_RULES: [
+          createFindDeprecatedUsagesRule(false), // TODO: make this configurable (--strict?)
+        ],
+      },
+      customScalars: {},
+      formatModule: languagePlugin.formatModule,
+      optionalInputFieldsForFlow: [],
+      schemaExtensions,
+      useHaste: false,
+      noFutureProofEnums,
+      extension: languagePlugin.outputExtension,
+      typeGenerator: languagePlugin.typeGenerator,
+      outputDir,
+      repersist: isCI,
+    };
+
+    if (Rollout.check('stored-operations', 'persist-query')) {
+      writerConfig.persistQuery = text => {
+        const hasher = crypto.createHash('md5');
+        hasher.update(text);
+        const id = hasher.digest('hex');
+        if (isCI === true) {
+          persistOperation(id, text);
+        }
+        return Promise.resolve(id);
+      };
+    }
+
+    return RelayFileWriter.writeAll({
+      config: writerConfig,
       onlyValidate,
       schema,
       baseDocuments,
