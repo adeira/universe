@@ -311,6 +311,7 @@ module.exports = {
   'jest/prefer-to-contain': ERROR,
   'jest/prefer-to-have-length': ERROR,
   'jest/prefer-todo': ERROR,
+  'jest/require-top-level-describe': OFF,
   'jest/require-tothrow-message': OFF,
   'jest/valid-describe': ERROR,
   'jest/valid-expect': ERROR,
