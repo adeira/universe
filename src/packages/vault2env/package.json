@@ -16,6 +16,6 @@
     "commander": "^3.0.1"
   },
   "devDependencies": {
-    "@kiwicom/test-utils": "^0.9.0"
+    "@kiwicom/test-utils": "^0.10.0"
   }
 }
