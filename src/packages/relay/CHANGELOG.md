@@ -1,5 +1,7 @@
 # Unreleased
 
+- Experimental Relay compiler now shows warnings when you access deprecated field in your application code.
+
 # 3.4.0
 
 - This version contains upgraded dependencies and more accurate Flow types.
