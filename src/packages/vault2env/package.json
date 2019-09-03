@@ -13,7 +13,7 @@
     "@kiwicom/fetch": "^2.3.1",
     "@kiwicom/js": "^0.14.0",
     "@kiwicom/logger": "^0.1.0",
-    "commander": "^3.0.0"
+    "commander": "^3.0.1"
   },
   "devDependencies": {
     "@kiwicom/test-utils": "^0.9.0"
