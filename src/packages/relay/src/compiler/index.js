@@ -11,8 +11,9 @@ import {
   IRTransforms as RelayIRTransforms,
   JSModuleParser as RelayJSModuleParser,
 } from 'relay-compiler';
-import { buildASTSchema, buildClientSchema, parse, printSchema } from 'graphql';
+import { buildASTSchema, parse } from 'graphql';
 import { globSync } from '@kiwicom/monorepo-utils';
+import SignedSource from '@kiwicom/signed-source';
 import isCI from 'is-ci';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
@@ -133,23 +134,23 @@ function getFilepathsFromGlob(
 }
 
 function getSchema(schemaPath: string) {
-  try {
-    let source = fs.readFileSync(schemaPath, 'utf8');
-    if (path.extname(schemaPath) === '.json') {
-      source = printSchema(buildClientSchema(JSON.parse(source).data));
-    }
-    source = `
+  let source = fs.readFileSync(schemaPath, 'utf8');
+  if (!SignedSource.verifySignature(source)) {
+    throw new Error(`Schema '${schemaPath}' has invalid signature!`);
+  }
+  source = `
   directive @include(if: Boolean) on FRAGMENT_SPREAD | FIELD | INLINE_FRAGMENT
   directive @skip(if: Boolean) on FRAGMENT_SPREAD | FIELD | INLINE_FRAGMENT
 
   ${source}
   `;
+
+  try {
     return buildASTSchema(parse(source), { assumeValid: true });
   } catch (error) {
     throw new Error(
       `
-Error loading schema. Expected the schema to be a .graphql or a .json
-file, describing your GraphQL server's API. Error detail:
+Error loading schema. Expected the schema to be a .graphql file, describing your GraphQL server's API. Error detail:
 
 ${error.stack}
     `.trim(),

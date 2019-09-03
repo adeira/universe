@@ -2,7 +2,7 @@
 
 // @flow
 
-// TODO: DRY monorepo-utils/bin/monorepo-babel-node-runner.js
+// TODO: DRY monorepo-utils/bin/monorepo-babel-node-runner.js and fetch-schema
 // This is here to make this `bin` available directly from our monorepo without transpiling it.
 require('@babel/register')({
   ignore: [/node_modules\/(?!@kiwicom)/],
@@ -21,6 +21,8 @@ program
 
 invariant(program.src, 'Option --src is required.');
 invariant(program.schema, 'Option --schema is required.');
+
+// TODO: try to download the schema automatically?
 
 compiler({
   src: program.src,
