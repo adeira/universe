@@ -11,6 +11,7 @@ require('@babel/register')({
 
 const program = require('commander');
 const { invariant } = require('@kiwicom/js');
+const { Rollout } = require('relay-compiler');
 
 const compiler = require('../src/compiler').default;
 
@@ -23,6 +24,18 @@ invariant(program.src, 'Option --src is required.');
 invariant(program.schema, 'Option --schema is required.');
 
 // TODO: try to download the schema automatically?
+
+Rollout.set(
+  new Map([
+    [
+      // Our implementation of https://relay.dev/docs/en/persisted-queries
+      'stored-operations',
+      new Set([
+        // 'persist-query',
+      ]),
+    ],
+  ]),
+);
 
 compiler({
   src: program.src,
