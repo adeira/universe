@@ -11,6 +11,7 @@ require('@babel/register')({
 
 const program = require('commander');
 const { invariant } = require('@kiwicom/js');
+const Logger = require('@kiwicom/logger').default;
 const { Rollout } = require('relay-compiler');
 
 const compiler = require('../src/compiler').default;
@@ -18,6 +19,11 @@ const compiler = require('../src/compiler').default;
 program
   .option('--src <src>')
   .option('--schema <schema>')
+  .option(
+    '--watch',
+    'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
+  )
+  // TODO: validate
   .parse(process.argv);
 
 invariant(program.src, 'Option --src is required.');
@@ -40,4 +46,8 @@ Rollout.set(
 compiler({
   src: program.src,
   schema: program.schema,
+  watch: program.watch,
+}).catch(error => {
+  Logger.error(error);
+  process.exit(1);
 });
