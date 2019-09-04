@@ -20,8 +20,10 @@ const { buildClientSchema, getIntrospectionQuery, printSchema } = require('graph
 
 program
   .option('--resource <url>', undefined, 'https://graphql.kiwi.com/')
-  .option('--filename <path>', undefined, path.join(process.cwd(), 'schema.graphql'))
+  .option('--filename <path>', undefined, 'schema.graphql')
   .parse(process.argv);
+
+const filename = path.join(process.cwd(), program.filename);
 
 (async () => {
   const response = await fetch(program.resource, {
@@ -42,7 +44,6 @@ program
 
 ${clientSchema}
 `);
-  fs.writeFileSync(program.filename, schema);
-
-  logger.log('GraphQL schema saved to: %s', program.filename);
+  fs.writeFileSync(filename, schema);
+  logger.log('GraphQL schema saved to: %s', filename);
 })();
