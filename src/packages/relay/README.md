@@ -4,7 +4,7 @@ This package is **opinionated Relay wrapper** used at Kiwi.com. Goal of this pac
 - network fetching with retries and timeouts (see `@kiwicom/fetch`)
 - support for uploadables
 - request burst cache (response cache)
-- persistent queries
+- stored operations (known as persistent queries)
 
 More info about Relay, prior art:
 
@@ -25,7 +25,7 @@ yarn add react graphql @kiwicom/relay
 
 # Usage
 
-Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler). It's important to note that the only package related to Relay you need to install is `@kiwicom/relay`. It contains all the necessary dependencies.
+Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler) (we prefer our own Compiler implementation). It's important to note that the only package related to Relay you need to install is `@kiwicom/relay`. It contains all the necessary dependencies.
 
 Minimal `.babelrc` file:
 
@@ -40,7 +40,7 @@ Minimal Relay compiler script in `package.json` (see below how to download the G
 ```json
 {
   "scripts": {
-    "relay": "relay-compiler --src=./src --schema=./schema.graphql"
+    "relay": "kiwicom-relay-compiler --src=./src --schema=./schema.graphql"
   }
 }
 ```
@@ -64,7 +64,7 @@ Usage: fetch-schema [options]
 
 Options:
   --resource <url>    (default: "https://graphql.kiwi.com/")
-  --filename <path>   (default: "/your/cwd/path/schema.graphql")
+  --filename <path>   (default: "schema.graphql")
   -h, --help         output usage information
 ```
 
