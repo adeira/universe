@@ -1,6 +1,7 @@
 # Unreleased
 
 - Enable `--watch` mode in our experimental Relay compiler.
+- Enable `--validate` mode in our experimental Relay compiler. This mode returns code `101` in case of outdated generated files.
 
 # 3.5.0
 

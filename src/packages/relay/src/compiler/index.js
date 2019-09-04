@@ -25,13 +25,13 @@ import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUs
 type ExternalOptions = {|
   +src: string,
   +schema: string,
+  +validate: boolean,
   +watch: boolean,
 |};
 
 export default async function compiler(externalOptions: ExternalOptions) {
   const options = {
     noFutureProofEnums: false,
-    validate: false,
     include: ['**'],
     exclude: [
       '**/node_modules/**',
@@ -100,11 +100,14 @@ export default async function compiler(externalOptions: ExternalOptions) {
     sourceControl: null,
   });
 
-  const result = options.watch ? await codegenRunner.watchAll() : await codegenRunner.compileAll();
+  const result: 'HAS_CHANGES' | 'NO_CHANGES' | 'ERROR' = options.watch
+    ? await codegenRunner.watchAll()
+    : await codegenRunner.compileAll();
 
   if (result === 'ERROR') {
     process.exit(100);
   }
+
   if (options.validate && result !== 'NO_CHANGES') {
     process.exit(101);
   }

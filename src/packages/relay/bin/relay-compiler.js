@@ -19,6 +19,7 @@ const compiler = require('../src/compiler').default;
 program
   .option('--src <src>')
   .option('--schema <schema>')
+  .option('--validate')
   .option(
     '--watch',
     'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
@@ -46,6 +47,7 @@ Rollout.set(
 compiler({
   src: program.src,
   schema: program.schema,
+  validate: program.validate,
   watch: program.watch,
 }).catch(error => {
   Logger.error(error);
