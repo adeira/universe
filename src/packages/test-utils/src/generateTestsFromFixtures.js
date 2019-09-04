@@ -38,15 +38,26 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
   const fs = require('fs');
   const path = require('path');
 
-  const fixtures = fs.readdirSync(fixturesPath);
+  let fixtures = fs.readdirSync(fixturesPath);
 
   test(`has fixtures in ${fixturesPath}`, () => {
     expect(fixtures.length > 0).toBe(true);
   });
 
+  const shouldSkip = file => /\.only\.\w+$/.test(file);
+  const onlyFixtures = fixtures.filter(shouldSkip);
+  if (onlyFixtures.length) {
+    // $FlowFixMe: we need to update our Jest type definitions (TODO)
+    test.skip.each(fixtures.filter(name => !shouldSkip(name)))(
+      'matches expected output: %s',
+      () => {},
+    );
+    fixtures = onlyFixtures;
+  }
+
   test.each(fixtures)('matches expected output: %s', async file => {
     const input = fs.readFileSync(path.join(fixturesPath, file), 'utf8');
-    const output = await getOutputForFixture(input, operation);
+    const output = await getOutputForFixture(input, operation, file);
     expect({
       // $FlowIssue: https://github.com/facebook/flow/issues/3258
       [FIXTURE_TAG]: true,
@@ -59,11 +70,18 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
 async function getOutputForFixture(
   input: string,
   operation: (input: string) => OperationOutput,
+  file: string,
 ): Promise<any> {
-  try {
-    const output = operation(input);
-    return output instanceof Promise ? await output : output;
-  } catch (e) {
-    return `THROWN EXCEPTION:\n\n${e.toString()}`;
+  const shouldThrow = /\.error\.\w+$/.test(file);
+  if (shouldThrow) {
+    let result;
+    try {
+      result = await operation(input);
+    } catch (error) {
+      return `THROWN EXCEPTION:\n\n${error.toString()}`;
+    }
+    throw new Error(`Expected test file '${file}' to throw, but it passed:\n${result}`);
+  } else {
+    return operation(input);
   }
 }
