@@ -9,6 +9,7 @@ it('renders minimal input correctly', () => {
       concreteText: 'CONCRETE_TEXT',
       typeText: 'TYPE_TEXT',
       sourceHash: 'SOURCE_HASH',
+      devOnlyAssignments: '',
     }),
   ).toMatchSnapshot();
 });

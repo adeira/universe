@@ -2,11 +2,7 @@
 
 import { useEffect } from 'react';
 
-import {
-  createPaginationContainer,
-  graphql,
-  type PaginationRelayProp,
-} from '../index';
+import { createPaginationContainer, graphql, type PaginationRelayProp } from '../index';
 
 type Props = {|
   +relay: PaginationRelayProp,

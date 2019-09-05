@@ -35,7 +35,9 @@ export default async function compiler(externalOptions: ExternalOptions) {
     include: ['**'],
     exclude: [
       '**/node_modules/**',
-      '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
+      '**/__mocks__/**',
+      '**/__generated__/**',
+      // allowed in __tests__
     ],
     artifactDirectory: null,
     ...externalOptions,
