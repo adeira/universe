@@ -18,18 +18,20 @@ import SignedSource from '@kiwicom/signed-source';
 import isCI from 'is-ci';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
+import buildWatchExpression from './buildWatchExpression';
 import persistOperation from './persistOperation';
 import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUsagesRule';
 
 type ExternalOptions = {|
   +src: string,
   +schema: string,
+  +validate: boolean,
+  +watch: boolean,
 |};
 
-export default function compiler(externalOptions: ExternalOptions) {
+export default async function compiler(externalOptions: ExternalOptions) {
   const options = {
     noFutureProofEnums: false,
-    validate: false,
     include: ['**'],
     exclude: [
       '**/node_modules/**',
@@ -62,15 +64,16 @@ export default function compiler(externalOptions: ExternalOptions) {
       getFileFilter: RelayJSModuleParser.getFileFilter,
       getParser: RelayJSModuleParser.getParser,
       getSchema: () => schema,
-      watchmanExpression: null,
-      filepaths: getFilepathsFromGlob(srcDir, sourceSearchOptions),
+      watchmanExpression: options.watch ? buildWatchExpression(sourceSearchOptions) : null,
+      filepaths: options.watch ? null : getFilepathsFromGlob(srcDir, sourceSearchOptions),
     },
     graphql: {
+      // local schema
       baseDir: srcDir,
       getParser: DotGraphQLParser.getParser,
       getSchema: () => schema,
-      watchmanExpression: null,
-      filepaths: getFilepathsFromGlob(srcDir, graphqlSearchOptions),
+      watchmanExpression: options.watch ? buildWatchExpression(graphqlSearchOptions) : null,
+      filepaths: options.watch ? null : getFilepathsFromGlob(srcDir, graphqlSearchOptions),
     },
   };
 
@@ -97,11 +100,14 @@ export default function compiler(externalOptions: ExternalOptions) {
     sourceControl: null,
   });
 
-  const result = codegenRunner.compileAll();
+  const result: 'HAS_CHANGES' | 'NO_CHANGES' | 'ERROR' = options.watch
+    ? await codegenRunner.watchAll()
+    : await codegenRunner.compileAll();
 
   if (result === 'ERROR') {
     process.exit(100);
   }
+
   if (options.validate && result !== 'NO_CHANGES') {
     process.exit(101);
   }
