@@ -3,6 +3,7 @@
 - Major upgrade of `eslint-plugin-node` to the latest version (see: https://github.com/mysticatea/eslint-plugin-node/releases/tag/v10.0.0). This is a breaking change so we are bumping major version. You should be shielded from most of the changes however, you may get some new errors on `import()` and on deprecated `module.createRequireFromPath` calls.
 - New rule [`node/no-exports-assign`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md) now throws errors in both normal and strict mode.
 - Rule [`flowtype/no-dupe-keys`](https://github.com/gajus/eslint-plugin-flowtype/blob/master/.README/rules/no-dupe-keys.md) now throws errors in both normal and strict mode.
+- Plugin `eslint-plugin-jest` is now more strict, see: https://github.com/jest-community/eslint-plugin-jest/releases/tag/v22.17.0 (affects behavior of rules `jest/prefer-to-be-null`, `jest/prefer-to-be-undefined`, `jest/prefer-to-contain` and `jest/prefer-to-have-length`).
 
 # 7.1.1
 
