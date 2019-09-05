@@ -1,5 +1,10 @@
 # Unreleased
 
+_TODO before next major release: bump NEXT_VERSION_ERROR_
+
+- Major upgrade of `eslint-plugin-node` to the latest version (see: https://github.com/mysticatea/eslint-plugin-node/releases/tag/v10.0.0). This is a breaking change so we are bumping major version. You should be shielded from most of the changes however, you may get some new errors on `import()` and on deprecated `module.createRequireFromPath` calls.
+- New rule [`node/no-exports-assign`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/no-exports-assign.md) now throws errors in both normal and strict mode.
+
 # 7.1.1
 
 - Exceptions on mishmashed Eslint plugin versions has been reverted back to warnings only.
