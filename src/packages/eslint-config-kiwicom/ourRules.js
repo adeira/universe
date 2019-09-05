@@ -4,7 +4,7 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
-const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -250,7 +250,7 @@ module.exports = {
   'flowtype/arrow-parens': OFF,
   'flowtype/define-flow-type': WARN,
   'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
-  'flowtype/no-dupe-keys': NEXT_VERSION_ERROR,
+  'flowtype/no-dupe-keys': ERROR,
   'flowtype/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
   'flowtype/no-flow-fix-me-comments': OFF,
   'flowtype/no-mixed': OFF,

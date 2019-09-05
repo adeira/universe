@@ -103,7 +103,7 @@ Object {
       2,
       "always",
     ],
-    "flowtype/no-dupe-keys": 1,
+    "flowtype/no-dupe-keys": 2,
     "flowtype/no-existential-type": 2,
     "flowtype/no-flow-fix-me-comments": 0,
     "flowtype/no-mixed": 0,
@@ -875,12 +875,5 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-      ],
--     "flowtype/no-dupe-keys": 1,
-+     "flowtype/no-dupe-keys": 2,
-      "flowtype/no-existential-type": 2,
+Compared values have no visual difference.
 `;
