@@ -1,5 +1,7 @@
 # Unreleased
 
+- Babel dependencies upgraded to the latest versions (7.6), see: https://babeljs.io/blog/2019/09/05/7.6.0
+
 # 3.5.0
 
 - This release doesn't add any visible changes. However, there are many bugfixes from Babel side, upgraded dependencies as well as some internal changes usually around some new syntaxes which are now officially supported (see readme file). Please upgrade to this version and let us know about any issues.
