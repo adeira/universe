@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "main": "src/index.js",
   "dependencies": {
-    "@babel/register": "^7.4.4",
+    "@babel/register": "^7.6.0",
     "google-protobuf": "^3.10.0-rc.1",
     "protobufjs": "^6.8.8"
   },

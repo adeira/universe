@@ -114,7 +114,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
     plugins,
     parserOpts: {
       // see: https://babeljs.io/docs/en/babel-parser#plugins
-      // Candidates: classPrivateMethods
+      // Candidates: classPrivateMethods, v8intrinsic (__DEV__)
       plugins: parserPlugins,
     },
     retainLines,
