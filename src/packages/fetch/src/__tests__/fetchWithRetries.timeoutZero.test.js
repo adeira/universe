@@ -22,7 +22,6 @@ it('preserves fetch timeout of 0s', done => {
         ),
       );
     } catch (error) {
-      // $FlowFixMe(>=0.99.0)
       done.fail(error);
     }
   }, 1);
