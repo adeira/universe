@@ -1,5 +1,8 @@
 # Unreleased
 
+- Rules [`symbol-description`](https://eslint.org/docs/rules/symbol-description), [`yoda`](https://eslint.org/docs/rules/yoda), [`react/no-unknown-property`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md), [`react/jsx-no-comment-textnodes`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md) now throw errors in strict mode.
+- Rule [`react/style-prop-object`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md) now shows warnings (errors in strict mode).
+
 # 8.0.0
 
 - Major upgrade of `eslint-plugin-node` to the latest version (see: https://github.com/mysticatea/eslint-plugin-node/releases/tag/v10.0.0). This is a breaking change so we are bumping major version. You should be shielded from most of the changes however, you may get some new errors on `import()` and on deprecated `module.createRequireFromPath` calls.

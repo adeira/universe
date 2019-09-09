@@ -4,7 +4,7 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
-// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -117,7 +117,7 @@ module.exports = {
   'require-await': ERROR,
   'require-unicode-regexp': OFF,
   'vars-on-top': ERROR,
-  yoda: WARN,
+  yoda: NEXT_VERSION_ERROR,
 
   // Strict Mode (http://eslint.org/docs/rules/#strict-mode)
   strict: WARN,
@@ -229,7 +229,7 @@ module.exports = {
   'prefer-template': ERROR,
   'require-yield': ERROR,
   'sort-imports': OFF,
-  'symbol-description': WARN,
+  'symbol-description': NEXT_VERSION_ERROR,
 
   // Babel (https://github.com/babel/eslint-plugin-babel)
   'babel/camelcase': [
@@ -356,7 +356,7 @@ module.exports = {
       allowBind: false,
     },
   ],
-  'react/jsx-no-comment-textnodes': WARN,
+  'react/jsx-no-comment-textnodes': NEXT_VERSION_ERROR,
   'react/jsx-no-duplicate-props': ERROR,
   'react/jsx-no-literals': OFF,
   'react/jsx-no-target-blank': OFF,
@@ -386,7 +386,7 @@ module.exports = {
   'react/no-this-in-sfc': ERROR,
   'react/no-typos': OFF,
   'react/no-unescaped-entities': ERROR,
-  'react/no-unknown-property': WARN,
+  'react/no-unknown-property': NEXT_VERSION_ERROR,
   'react/no-unsafe': OFF,
   'react/no-unused-prop-types': OFF,
   'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
@@ -448,7 +448,7 @@ module.exports = {
   'react/sort-prop-types': OFF,
   'react/state-in-constructor': OFF,
   'react/static-property-placement': OFF,
-  'react/style-prop-object': OFF,
+  'react/style-prop-object': NEXT_VERSION_ERROR,
   'react/void-dom-elements-no-children': ERROR,
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
