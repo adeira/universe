@@ -20,6 +20,9 @@ module.exports = {
 
     // - OR -
     // '@kiwicom/eslint-config/strict',
+
+    // - OR -
+    // '@kiwicom/eslint-config/nitro',
   ],
 };
 ```
