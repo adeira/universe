@@ -26,11 +26,9 @@ function unbase64(i) {
 export function fromGlobalId(opaqueID: string): string {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
-
   if (delimiterPos === -1) {
     throw new Error(`ID '${opaqueID}' is not valid opaque value.`);
   }
-
   return unbasedGlobalID.substring(delimiterPos + 1);
 }
 
@@ -38,7 +36,9 @@ export function fromGlobalId(opaqueID: string): string {
 export function __isTypeOf(type: string, opaqueID: string): boolean {
   const unbasedGlobalID = unbase64(opaqueID);
   const delimiterPos = unbasedGlobalID.indexOf(':');
-  invariant(delimiterPos !== -1, "ID '%s' is not valid opaque value.", opaqueID);
+  if (delimiterPos === -1) {
+    throw new Error(`ID '${opaqueID}' is not valid opaque value.`);
+  }
   const unmaskedType = unbasedGlobalID.substring(0, delimiterPos);
   return unmaskedType === type;
 }
