@@ -3,6 +3,17 @@
 - Enable `--watch` mode in our experimental Relay compiler.
 - Enable `--validate` mode in our experimental Relay compiler. This mode returns code `101` in case of outdated generated files.
 - Relay compiler now outputs ES6 modules.
+- Added support for official Relay package `relay-config` which allows you to centralize Relay configuration in files like `relay.config.js`. Example:
+
+```js
+module.exports = {
+  // ...
+  // Configuration options accepted by the `relay-compiler` command-line tool and `babel-plugin-relay`.
+  src: './src',
+  schema: './data/schema.graphql',
+  exclude: ['**/node_modules/**', '**/__mocks__/**', '**/__generated__/**'],
+};
+```
 
 # 3.5.0
 
