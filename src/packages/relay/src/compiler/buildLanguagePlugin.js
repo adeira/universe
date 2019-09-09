@@ -1,14 +1,16 @@
 // @flow
 
-const { FlowGenerator } = require('relay-compiler');
-const { find } = require('relay-compiler/lib/FindGraphQLTags'); // TODO: better (?)
+import { FlowGenerator } from 'relay-compiler';
+import { find } from 'relay-compiler/lib/FindGraphQLTags'; // TODO: better (?)
 
-const formatGeneratedModule = require('./formatGeneratedModule');
+import formatGeneratedModule from './formatGeneratedModule';
 
-module.exports = () => ({
-  inputExtensions: ['js', 'jsx'],
-  outputExtension: 'js',
-  typeGenerator: FlowGenerator,
-  formatModule: formatGeneratedModule,
-  findGraphQLTags: find,
-});
+export default function buildLanguagePlugin() {
+  return {
+    inputExtensions: ['js', 'jsx'],
+    outputExtension: 'js',
+    typeGenerator: FlowGenerator,
+    formatModule: formatGeneratedModule,
+    findGraphQLTags: find,
+  };
+}

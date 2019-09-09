@@ -1,10 +1,6 @@
 // @flow
 
-import {
-  createRefetchContainer,
-  graphql,
-  type RefetchRelayProp,
-} from '../index';
+import { createRefetchContainer, graphql, type RefetchRelayProp } from '../index';
 
 type Props = {|
   +relay: RefetchRelayProp,

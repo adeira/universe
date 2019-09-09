@@ -8,26 +8,21 @@ exports[`renders full input correctly 1`] = `
 
 /* eslint-disable */
 
-'use strict';
-
-/*::
 import type { DOCUMENT_TYPE } from 'relay-runtime';
 TYPE_TEXT
-*/
-
 
 /*
 DOC_TEXT
 */
 
-const node/*: DOCUMENT_TYPE*/ = CONCRETE_TEXT;
+const node: DOCUMENT_TYPE = CONCRETE_TEXT;
 // prettier-ignore
-(node/*: any*/).hash = 'SOURCE_HASH';
-/*:: declare var __DEV__: boolean; */
+(node: any).hash = 'SOURCE_HASH';
+declare var __DEV__: boolean;
 if (__DEV__) {
   DEV_ONLY_ASSIGNMENTS
 }
-module.exports = node;
+export default node;
 "
 `;
 
@@ -38,17 +33,13 @@ exports[`renders minimal input correctly 1`] = `
 
 /* eslint-disable */
 
-'use strict';
-
-/*::
 import type { DOCUMENT_TYPE } from 'relay-runtime';
 TYPE_TEXT
-*/
 
 
-const node/*: DOCUMENT_TYPE*/ = CONCRETE_TEXT;
+const node: DOCUMENT_TYPE = CONCRETE_TEXT;
 // prettier-ignore
-(node/*: any*/).hash = 'SOURCE_HASH';
-module.exports = node;
+(node: any).hash = 'SOURCE_HASH';
+export default node;
 "
 `;
