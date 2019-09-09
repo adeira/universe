@@ -650,6 +650,72 @@ export type ExplicitlyInexact = { foo: number, ... };
 
 `;
 
+exports[`matches expected output: bigint.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+var theBiggestInt = 9007199254740991n;
+var alsoHuge = BigInt(9007199254740991); // ↪ 9007199254740991n
+
+var hugeButString = BigInt('9007199254740991'); // ↪ 9007199254740991n
+`;
+
+exports[`matches expected output: bigint.js 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
+`;
+
+exports[`matches expected output: bigint.js 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+var theBiggestInt = 9007199254740991n;
+var alsoHuge = BigInt(9007199254740991); // ↪ 9007199254740991n
+
+var hugeButString = BigInt('9007199254740991'); // ↪ 9007199254740991n
+`;
+
 exports[`matches expected output: capturing-groups.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict

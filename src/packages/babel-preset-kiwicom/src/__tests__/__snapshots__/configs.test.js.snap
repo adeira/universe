@@ -11,14 +11,15 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions",
-      "classProperties",
       "classPrivateProperties",
+      "classProperties",
+      "dynamicImport",
       "nullishCoalescingOperator",
+      "numericSeparator",
       "objectRestSpread",
-      "optionalChaining",
-      "numericSeparator"
+      "optionalChaining"
     ]
   },
   "retainLines": true
@@ -36,14 +37,15 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions",
-      "classProperties",
       "classPrivateProperties",
+      "classProperties",
+      "dynamicImport",
       "nullishCoalescingOperator",
+      "numericSeparator",
       "objectRestSpread",
-      "optionalChaining",
-      "numericSeparator"
+      "optionalChaining"
     ]
   },
   "retainLines": true
@@ -61,14 +63,15 @@ exports[`emits correct config for target 'flow' and environment 'undefined' 1`] 
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions",
-      "classProperties",
       "classPrivateProperties",
+      "classProperties",
+      "dynamicImport",
       "nullishCoalescingOperator",
+      "numericSeparator",
       "objectRestSpread",
-      "optionalChaining",
-      "numericSeparator"
+      "optionalChaining"
     ]
   },
   "retainLines": true
@@ -116,7 +119,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions"
     ]
   },
@@ -162,7 +165,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions"
     ]
   },
@@ -212,7 +215,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' 1`] = 
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions"
     ]
   },
@@ -261,7 +264,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions"
     ]
   },
@@ -307,7 +310,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions"
     ]
   },
@@ -357,7 +360,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' 1`
       "jsx",
       "flow",
       "flowComments",
-      "dynamicImport",
+      "bigInt",
       "throwExpressions"
     ]
   },

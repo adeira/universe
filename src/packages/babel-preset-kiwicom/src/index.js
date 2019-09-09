@@ -50,7 +50,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
     'jsx',
     'flow',
     'flowComments',
-    'dynamicImport', // https://github.com/tc39/proposal-dynamic-import
+    'bigInt', // https://github.com/tc39/proposal-bigint
     'throwExpressions', // https://github.com/tc39/proposal-throw-expressions
   ];
   let retainLines = false;
@@ -61,12 +61,13 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
     parserPlugins = parserPlugins.concat([
       // These parser options are relevant only to Flow because JS targets
       // enable them via necessary transpilation plugins.
-      'classProperties',
-      'classPrivateProperties',
-      'nullishCoalescingOperator',
-      'objectRestSpread',
-      'optionalChaining',
-      'numericSeparator',
+      'classPrivateProperties', // https://github.com/tc39/proposal-private-fields
+      'classProperties', // https://github.com/tc39/proposal-class-public-fields
+      'dynamicImport', // https://github.com/tc39/proposal-dynamic-import
+      'nullishCoalescingOperator', // https://github.com/tc39/proposal-nullish-coalescing
+      'numericSeparator', // https://github.com/tc39/proposal-numeric-separator
+      'objectRestSpread', // https://github.com/tc39/proposal-object-rest-spread
+      'optionalChaining', // https://github.com/tc39/proposal-optional-chaining
     ]);
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
