@@ -1,6 +1,9 @@
 # Unreleased
 
 - Babel dependencies upgraded to the latest versions (7.6), see: https://babeljs.io/blog/2019/09/05/7.6.0
+- Babel bug preventing usage of `string.matchAll` was fixed, see: https://github.com/babel/babel/pull/10136
+- Added parser support for `BigInt`.
+- Added parser support for throw expressions.
 
 # 3.5.0
 
