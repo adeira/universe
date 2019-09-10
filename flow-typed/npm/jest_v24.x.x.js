@@ -1,5 +1,5 @@
-// flow-typed signature: 833075a5cefc49eb523160a5fca9d8b6
-// flow-typed version: 325925f1b7/jest_v24.x.x/flow_>=v0.39.x
+// flow-typed signature: 27f8467378a99b6130bd20f54f31a644
+// flow-typed version: 6cb9e99836/jest_v24.x.x/flow_>=v0.104.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -22,7 +22,12 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
      * An array that contains all the object results that have been
      * returned by this mock function call
      */
-    results: Array<{ isThrow: boolean, value: TReturn }>,
+    results: Array<{
+      isThrow: boolean,
+      value: TReturn,
+      ...
+    }>,
+    ...
   },
   /**
    * Resets all information stored in the mockFn.mock.calls and
@@ -49,17 +54,13 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
    * that come from itself -- the only difference is that the implementation
    * will also be executed when the mock is called.
    */
-  mockImplementation(
-    fn: (...args: TArguments) => TReturn,
-  ): JestMockFn<TArguments, TReturn>,
+  mockImplementation(fn: (...args: TArguments) => TReturn): JestMockFn<TArguments, TReturn>,
   /**
    * Accepts a function that will be used as an implementation of the mock for
    * one call to the mocked function. Can be chained so that multiple function
    * calls produce different results.
    */
-  mockImplementationOnce(
-    fn: (...args: TArguments) => TReturn,
-  ): JestMockFn<TArguments, TReturn>,
+  mockImplementationOnce(fn: (...args: TArguments) => TReturn): JestMockFn<TArguments, TReturn>,
   /**
    * Accepts a string to use in test result output in place of "jest.fn()" to
    * indicate which mock function is being referenced.
@@ -84,9 +85,7 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   /**
    * Sugar for jest.fn().mockImplementationOnce(() => Promise.resolve(value))
    */
-  mockResolvedValueOnce(
-    value: TReturn,
-  ): JestMockFn<TArguments, Promise<TReturn>>,
+  mockResolvedValueOnce(value: TReturn): JestMockFn<TArguments, Promise<TReturn>>,
   /**
    * Sugar for jest.fn().mockImplementation(() => Promise.reject(value))
    */
@@ -95,6 +94,7 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
    * Sugar for jest.fn().mockImplementationOnce(() => Promise.reject(value))
    */
   mockRejectedValueOnce(value: TReturn): JestMockFn<TArguments, Promise<any>>,
+  ...
 };
 
 type JestAsymmetricEqualityType = {
@@ -102,6 +102,7 @@ type JestAsymmetricEqualityType = {
    * A custom Jasmine equality tester
    */
   asymmetricMatch(value: mixed): boolean,
+  ...
 };
 
 type JestCallsType = {
@@ -112,6 +113,7 @@ type JestCallsType = {
   first(): mixed,
   mostRecent(): mixed,
   reset(): void,
+  ...
 };
 
 type JestClockType = {
@@ -119,16 +121,18 @@ type JestClockType = {
   mockDate(date: Date): void,
   tick(milliseconds?: number): void,
   uninstall(): void,
+  ...
 };
 
 type JestMatcherResult = {
   message?: string | (() => string),
   pass: boolean,
+  ...
 };
 
 type JestMatcher = (
-  actual: any,
-  expected: any,
+  received: any,
+  ...actual: Array<any>
 ) => JestMatcherResult | Promise<JestMatcherResult>;
 
 type JestPromiseType = {
@@ -142,13 +146,14 @@ type JestPromiseType = {
    * matcher can be chained. If the promise is rejected the assertion fails.
    */
   resolves: JestExpectType,
+  ...
 };
 
 /**
  * Jest allows functions and classes to be used as test names in test() and
  * describe()
  */
-type JestTestName = string | Function;
+type JestTestName = string | { [[call]]: any, ... };
 
 /**
  *  Plugin: jest-styled-components
@@ -164,6 +169,7 @@ type JestStyledComponentsMatcherOptions = {
   media?: string,
   modifier?: string,
   supports?: string,
+  ...
 };
 
 type JestStyledComponentsMatchersType = {
@@ -172,6 +178,7 @@ type JestStyledComponentsMatchersType = {
     value: JestStyledComponentsMatcherValue,
     options?: JestStyledComponentsMatcherOptions,
   ): void,
+  ...
 };
 
 /**
@@ -192,13 +199,10 @@ type EnzymeMatchersType = {
   toExist(): void,
   toHaveClassName(className: string): void,
   toHaveHTML(html: string): void,
-  toHaveProp: ((propKey: string, propValue?: any) => void) &
-    ((props: {}) => void),
+  toHaveProp: ((propKey: string, propValue?: any) => void) & ((props: { ... }) => void),
   toHaveRef(refName: string): void,
-  toHaveState: ((stateKey: string, stateValue?: any) => void) &
-    ((state: {}) => void),
-  toHaveStyle: ((styleKey: string, styleValue?: any) => void) &
-    ((style: {}) => void),
+  toHaveState: ((stateKey: string, stateValue?: any) => void) & ((state: { ... }) => void),
+  toHaveStyle: ((styleKey: string, styleValue?: any) => void) & ((style: { ... }) => void),
   toHaveTagName(tagName: string): void,
   toHaveText(text: string): void,
   toHaveValue(value: any): void,
@@ -210,26 +214,34 @@ type EnzymeMatchersType = {
   toMatchSelector(selector: string): void,
   // 7.x
   toHaveDisplayName(name: string): void,
+  ...
 };
 
-// DOM testing library extensions https://github.com/kentcdodds/dom-testing-library#custom-jest-matchers
+// DOM testing library extensions (jest-dom)
+// https://github.com/testing-library/jest-dom
 type DomTestingLibraryType = {
-  toBeDisabled(): void,
-  toBeEmpty(): void,
+  /**
+   * @deprecated
+   */
+  toBeInTheDOM(container?: HTMLElement): void,
   toBeInTheDocument(): void,
   toBeVisible(): void,
+  toBeEmpty(): void,
+  toBeDisabled(): void,
+  toBeEnabled(): void,
+  toBeInvalid(): void,
+  toBeRequired(): void,
+  toBeValid(): void,
   toContainElement(element: HTMLElement | null): void,
   toContainHTML(htmlText: string): void,
-  toHaveAttribute(name: string, expectedValue?: string): void,
+  toHaveAttribute(attr: string, value?: any): void,
   toHaveClass(...classNames: string[]): void,
   toHaveFocus(): void,
-  toHaveFormValues(expectedValues: { [name: string]: any }): void,
+  toHaveFormValues(expectedValues: { [name: string]: any, ... }): void,
   toHaveStyle(css: string): void,
-  toHaveTextContent(
-    content: string | RegExp,
-    options?: { normalizeWhitespace: boolean },
-  ): void,
-  toBeInTheDOM(): void,
+  toHaveTextContent(text: string | RegExp, options?: { normalizeWhitespace: boolean, ... }): void,
+  toHaveValue(value?: string | string[] | number): void,
+  ...
 };
 
 // Jest JQuery Matchers: https://github.com/unindented/custom-jquery-matchers
@@ -244,7 +256,7 @@ type JestJQueryMatchersType = {
   toHaveText(text: string | RegExp): void,
   toHaveData(key: string, val?: any): void,
   toHaveValue(val: any): void,
-  toHaveCss(css: { [key: string]: any }): void,
+  toHaveCss(css: { [key: string]: any, ... }): void,
   toBeChecked(): void,
   toBeDisabled(): void,
   toBeEmpty(): void,
@@ -256,6 +268,7 @@ type JestJQueryMatchersType = {
   toBeMatchedBy(sel: string): void,
   toHaveDescendant(sel: string): void,
   toHaveDescendantWithText(sel: string, text: string | RegExp): void,
+  ...
 };
 
 // Jest Extended Matchers: https://github.com/jest-community/jest-extended
@@ -280,78 +293,64 @@ type JestExtendedMatchersType = {
    * Use .toBeEmpty when checking if a String '', Array [] or Object {} is empty.
    */
   toBeEmpty(): void,
-
   /**
    * Use .toBeOneOf when checking if a value is a member of a given Array.
    * @param {Array.<*>} members
    */
   toBeOneOf(members: any[]): void,
-
   /**
    * Use `.toBeNil` when checking a value is `null` or `undefined`.
    */
   toBeNil(): void,
-
   /**
    * Use `.toSatisfy` when you want to use a custom matcher by supplying a predicate function that returns a `Boolean`.
    * @param {Function} predicate
    */
   toSatisfy(predicate: (n: any) => boolean): void,
-
   /**
    * Use `.toBeArray` when checking if a value is an `Array`.
    */
   toBeArray(): void,
-
   /**
    * Use `.toBeArrayOfSize` when checking if a value is an `Array` of size x.
    * @param {Number} x
    */
   toBeArrayOfSize(x: number): void,
-
   /**
    * Use `.toIncludeAllMembers` when checking if an `Array` contains all of the same members of a given set.
    * @param {Array.<*>} members
    */
   toIncludeAllMembers(members: any[]): void,
-
   /**
    * Use `.toIncludeAnyMembers` when checking if an `Array` contains any of the members of a given set.
    * @param {Array.<*>} members
    */
   toIncludeAnyMembers(members: any[]): void,
-
   /**
    * Use `.toSatisfyAll` when you want to use a custom matcher by supplying a predicate function that returns a `Boolean` for all values in an array.
    * @param {Function} predicate
    */
   toSatisfyAll(predicate: (n: any) => boolean): void,
-
   /**
    * Use `.toBeBoolean` when checking if a value is a `Boolean`.
    */
   toBeBoolean(): void,
-
   /**
    * Use `.toBeTrue` when checking a value is equal (===) to `true`.
    */
   toBeTrue(): void,
-
   /**
    * Use `.toBeFalse` when checking a value is equal (===) to `false`.
    */
   toBeFalse(): void,
-
   /**
    * Use .toBeDate when checking if a value is a Date.
    */
   toBeDate(): void,
-
   /**
    * Use `.toBeFunction` when checking if a value is a `Function`.
    */
   toBeFunction(): void,
-
   /**
    * Use `.toHaveBeenCalledBefore` when checking if a `Mock` was called before another `Mock`.
    *
@@ -361,42 +360,34 @@ type JestExtendedMatchersType = {
    * @param {Mock} mock
    */
   toHaveBeenCalledBefore(mock: JestMockFn<any, any>): void,
-
   /**
    * Use `.toBeNumber` when checking if a value is a `Number`.
    */
   toBeNumber(): void,
-
   /**
    * Use `.toBeNaN` when checking a value is `NaN`.
    */
   toBeNaN(): void,
-
   /**
    * Use `.toBeFinite` when checking if a value is a `Number`, not `NaN` or `Infinity`.
    */
   toBeFinite(): void,
-
   /**
    * Use `.toBePositive` when checking if a value is a positive `Number`.
    */
   toBePositive(): void,
-
   /**
    * Use `.toBeNegative` when checking if a value is a negative `Number`.
    */
   toBeNegative(): void,
-
   /**
    * Use `.toBeEven` when checking if a value is an even `Number`.
    */
   toBeEven(): void,
-
   /**
    * Use `.toBeOdd` when checking if a value is an odd `Number`.
    */
   toBeOdd(): void,
-
   /**
    * Use `.toBeWithin` when checking if a number is in between the given bounds of: start (inclusive) and end (exclusive).
    *
@@ -404,144 +395,122 @@ type JestExtendedMatchersType = {
    * @param {Number} end
    */
   toBeWithin(start: number, end: number): void,
-
   /**
    * Use `.toBeObject` when checking if a value is an `Object`.
    */
   toBeObject(): void,
-
   /**
    * Use `.toContainKey` when checking if an object contains the provided key.
    *
    * @param {String} key
    */
   toContainKey(key: string): void,
-
   /**
    * Use `.toContainKeys` when checking if an object has all of the provided keys.
    *
    * @param {Array.<String>} keys
    */
   toContainKeys(keys: string[]): void,
-
   /**
    * Use `.toContainAllKeys` when checking if an object only contains all of the provided keys.
    *
    * @param {Array.<String>} keys
    */
   toContainAllKeys(keys: string[]): void,
-
   /**
    * Use `.toContainAnyKeys` when checking if an object contains at least one of the provided keys.
    *
    * @param {Array.<String>} keys
    */
   toContainAnyKeys(keys: string[]): void,
-
   /**
    * Use `.toContainValue` when checking if an object contains the provided value.
    *
    * @param {*} value
    */
   toContainValue(value: any): void,
-
   /**
    * Use `.toContainValues` when checking if an object contains all of the provided values.
    *
    * @param {Array.<*>} values
    */
   toContainValues(values: any[]): void,
-
   /**
    * Use `.toContainAllValues` when checking if an object only contains all of the provided values.
    *
    * @param {Array.<*>} values
    */
   toContainAllValues(values: any[]): void,
-
   /**
    * Use `.toContainAnyValues` when checking if an object contains at least one of the provided values.
    *
    * @param {Array.<*>} values
    */
   toContainAnyValues(values: any[]): void,
-
   /**
    * Use `.toContainEntry` when checking if an object contains the provided entry.
    *
    * @param {Array.<String, String>} entry
    */
   toContainEntry(entry: [string, string]): void,
-
   /**
    * Use `.toContainEntries` when checking if an object contains all of the provided entries.
    *
    * @param {Array.<Array.<String, String>>} entries
    */
   toContainEntries(entries: [string, string][]): void,
-
   /**
    * Use `.toContainAllEntries` when checking if an object only contains all of the provided entries.
    *
    * @param {Array.<Array.<String, String>>} entries
    */
   toContainAllEntries(entries: [string, string][]): void,
-
   /**
    * Use `.toContainAnyEntries` when checking if an object contains at least one of the provided entries.
    *
    * @param {Array.<Array.<String, String>>} entries
    */
   toContainAnyEntries(entries: [string, string][]): void,
-
   /**
    * Use `.toBeExtensible` when checking if an object is extensible.
    */
   toBeExtensible(): void,
-
   /**
    * Use `.toBeFrozen` when checking if an object is frozen.
    */
   toBeFrozen(): void,
-
   /**
    * Use `.toBeSealed` when checking if an object is sealed.
    */
   toBeSealed(): void,
-
   /**
    * Use `.toBeString` when checking if a value is a `String`.
    */
   toBeString(): void,
-
   /**
    * Use `.toEqualCaseInsensitive` when checking if a string is equal (===) to another ignoring the casing of both strings.
    *
    * @param {String} string
    */
   toEqualCaseInsensitive(string: string): void,
-
   /**
    * Use `.toStartWith` when checking if a `String` starts with a given `String` prefix.
    *
    * @param {String} prefix
    */
   toStartWith(prefix: string): void,
-
   /**
    * Use `.toEndWith` when checking if a `String` ends with a given `String` suffix.
    *
    * @param {String} suffix
    */
   toEndWith(suffix: string): void,
-
   /**
    * Use `.toInclude` when checking if a `String` includes the given `String` substring.
    *
    * @param {String} substring
    */
   toInclude(substring: string): void,
-
   /**
    * Use `.toIncludeRepeated` when checking if a `String` includes the given `String` substring the correct number of times.
    *
@@ -549,13 +518,13 @@ type JestExtendedMatchersType = {
    * @param {Number} times
    */
   toIncludeRepeated(substring: string, times: number): void,
-
   /**
    * Use `.toIncludeMultiple` when checking if a `String` includes all of the given substrings.
    *
    * @param {Array.<String>} substring
    */
   toIncludeMultiple(substring: string[]): void,
+  ...
 };
 
 interface JestExpectType {
@@ -713,7 +682,7 @@ interface JestExpectType {
   /**
    *
    */
-  toHaveProperty(propPath: string, value?: any): void;
+  toHaveProperty(propPath: string | $ReadOnlyArray<string>, value?: any): void;
   /**
    * Use .toMatch to check that a string matches a regular expression or string.
    */
@@ -721,7 +690,7 @@ interface JestExpectType {
   /**
    * Use .toMatchObject to check that a javascript object matches a subset of the properties of an object.
    */
-  toMatchObject(object: Object | Array<Object>): void;
+  toMatchObject(object: { +[key: string]: any, ... } | Array<{ +[key: string]: any, ... }>): void;
   /**
    * Use .toStrictEqual to check that a javascript object matches a subset of the properties of an object.
    */
@@ -817,7 +786,7 @@ type JestObjectType = {
   /**
    * Determines if the given function is a mocked function.
    */
-  isMockFunction(fn: Function): boolean,
+  isMockFunction(fn: { [[call]]: any, ... }): boolean,
   /**
    * Given the name of a module, use the automatic mocking system to generate a
    * mocked version of the module for you.
@@ -835,7 +804,7 @@ type JestObjectType = {
   mock(
     moduleName: string,
     moduleFactory?: any,
-    options?: Object,
+    options?: { +[key: string]: any, ... },
   ): JestObjectType,
   /**
    * Returns the actual module instead of a mock, bypassing all checks on
@@ -852,14 +821,12 @@ type JestObjectType = {
    * useful to isolate modules where local state might conflict between tests.
    */
   resetModules(): JestObjectType,
-
   /**
    * Creates a sandbox registry for the modules that are loaded inside the
    * callback function. This is useful to isolate specific modules for every
    * test so that local module state doesn't conflict between tests.
    */
   isolateModules(fn: () => void): JestObjectType,
-
   /**
    * Exhausts the micro-task queue (usually interfaced in node via
    * process.nextTick).
@@ -919,7 +886,7 @@ type JestObjectType = {
    * object[methodName].
    */
   spyOn(
-    object: Object,
+    object: { +[key: string]: any, ... },
     methodName: string,
     accessType?: 'get' | 'set',
   ): JestMockFn<any, any>,
@@ -928,32 +895,24 @@ type JestObjectType = {
    * Note: The default timeout interval is 5 seconds if this method is not called.
    */
   setTimeout(timeout: number): JestObjectType,
+  ...
 };
 
-type JestSpyType = {
-  calls: JestCallsType,
-};
+type JestSpyType = { calls: JestCallsType, ... };
+
+type JestDoneFn = {|
+  (): void,
+  fail: (error: Error) => void,
+|};
 
 /** Runs this function after every test inside this context */
-declare function afterEach(
-  fn: (done: () => void) => ?Promise<mixed>,
-  timeout?: number,
-): void;
+declare function afterEach(fn: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void;
 /** Runs this function before every test inside this context */
-declare function beforeEach(
-  fn: (done: () => void) => ?Promise<mixed>,
-  timeout?: number,
-): void;
+declare function beforeEach(fn: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void;
 /** Runs this function after all tests have finished inside this context */
-declare function afterAll(
-  fn: (done: () => void) => ?Promise<mixed>,
-  timeout?: number,
-): void;
+declare function afterAll(fn: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void;
 /** Runs this function before any tests have started inside this context */
-declare function beforeAll(
-  fn: (done: () => void) => ?Promise<mixed>,
-  timeout?: number,
-): void;
+declare function beforeAll(fn: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void;
 
 /** A context for grouping tests together */
 declare var describe: {
@@ -961,17 +920,14 @@ declare var describe: {
    * Creates a block that groups together several related tests in one "test suite"
    */
   (name: JestTestName, fn: () => void): void,
-
   /**
    * Only run this describe block
    */
   only(name: JestTestName, fn: () => void): void,
-
   /**
    * Skip running this describe block
    */
   skip(name: JestTestName, fn: () => void): void,
-
   /**
    * each runs this test against array of argument arrays per each run
    *
@@ -979,11 +935,8 @@ declare var describe: {
    */
   each(
     ...table: Array<Array<mixed> | mixed> | [Array<string>, string]
-  ): (
-    name: JestTestName,
-    fn?: (...args: Array<any>) => ?Promise<mixed>,
-    timeout?: number,
-  ) => void,
+  ): (name: JestTestName, fn?: (...args: Array<any>) => ?Promise<mixed>, timeout?: number) => void,
+  ...
 };
 
 /** An individual test unit */
@@ -995,12 +948,7 @@ declare var it: {
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
-  (
-    name: JestTestName,
-    fn?: (done: () => void) => ?Promise<mixed>,
-    timeout?: number,
-  ): void,
-
+  (name: JestTestName, fn?: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void,
   /**
    * Only run this test
    *
@@ -1008,11 +956,8 @@ declare var it: {
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
-  only(
-    name: JestTestName,
-    fn?: (done: () => void) => ?Promise<mixed>,
-    timeout?: number,
-  ): {
+  only: {|
+    (name: JestTestName, fn?: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void,
     each(
       ...table: Array<Array<mixed> | mixed> | [Array<string>, string]
     ): (
@@ -1020,8 +965,7 @@ declare var it: {
       fn?: (...args: Array<any>) => ?Promise<mixed>,
       timeout?: number,
     ) => void,
-  },
-
+  |},
   /**
    * Skip running this test
    *
@@ -1029,19 +973,13 @@ declare var it: {
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
-  skip(
-    name: JestTestName,
-    fn?: (done: () => void) => ?Promise<mixed>,
-    timeout?: number,
-  ): void,
-
+  skip(name: JestTestName, fn?: (done: JestDoneFn) => ?Promise<mixed>, timeout?: number): void,
   /**
    * Highlight planned tests in the summary output
    *
    * @param {String} Name of Test to do
    */
   todo(name: string): void,
-
   /**
    * Run the test concurrently
    *
@@ -1051,10 +989,9 @@ declare var it: {
    */
   concurrent(
     name: JestTestName,
-    fn?: (done: () => void) => ?Promise<mixed>,
+    fn?: (done: JestDoneFn) => ?Promise<mixed>,
     timeout?: number,
   ): void,
-
   /**
    * each runs this test against array of argument arrays per each run
    *
@@ -1062,16 +999,13 @@ declare var it: {
    */
   each(
     ...table: Array<Array<mixed> | mixed> | [Array<string>, string]
-  ): (
-    name: JestTestName,
-    fn?: (...args: Array<any>) => ?Promise<mixed>,
-    timeout?: number,
-  ) => void,
+  ): (name: JestTestName, fn?: (...args: Array<any>) => ?Promise<mixed>, timeout?: number) => void,
+  ...
 };
 
 declare function fit(
   name: JestTestName,
-  fn: (done: () => void) => ?Promise<mixed>,
+  fn: (done: JestDoneFn) => ?Promise<mixed>,
   timeout?: number,
 ): void;
 /** An individual test unit */
@@ -1086,11 +1020,32 @@ declare var xit: typeof it;
 declare var xtest: typeof it;
 
 type JestPrettyFormatColors = {
-  comment: { close: string, open: string },
-  content: { close: string, open: string },
-  prop: { close: string, open: string },
-  tag: { close: string, open: string },
-  value: { close: string, open: string },
+  comment: {
+    close: string,
+    open: string,
+    ...
+  },
+  content: {
+    close: string,
+    open: string,
+    ...
+  },
+  prop: {
+    close: string,
+    open: string,
+    ...
+  },
+  tag: {
+    close: string,
+    open: string,
+    ...
+  },
+  value: {
+    close: string,
+    open: string,
+    ...
+  },
+  ...
 };
 
 type JestPrettyFormatIndent = string => string;
@@ -1127,6 +1082,7 @@ type JestPrettyFormatPlugin = {
     colors: JestPrettyFormatColors,
   ) => string,
   test: any => boolean,
+  ...
 };
 
 type JestPrettyFormatPlugins = Array<JestPrettyFormatPlugin>;
@@ -1143,9 +1099,8 @@ declare var expect: {
     JestJQueryMatchersType &
     JestStyledComponentsMatchersType &
     JestExtendedMatchersType,
-
   /** Add additional Jasmine matchers to Jest's roster */
-  extend(matchers: { [name: string]: JestMatcher }): void,
+  extend(matchers: { [name: string]: JestMatcher, ... }): void,
   /** Add a module that formats application-specific data structures. */
   addSnapshotSerializer(pluginModule: JestPrettyFormatPlugin): void,
   assertions(expectedAssertions: number): void,
@@ -1153,21 +1108,23 @@ declare var expect: {
   any(value: mixed): JestAsymmetricEqualityType,
   anything(): any,
   arrayContaining(value: Array<mixed>): Array<mixed>,
-  objectContaining(value: Object): Object,
+  objectContaining(value: { +[key: string]: any, ... }): { +[key: string]: any, ... },
   /** Matches any received string that contains the exact expected string. */
   stringContaining(value: string): string,
   stringMatching(value: string | RegExp): string,
   not: {
     arrayContaining: (value: $ReadOnlyArray<mixed>) => Array<mixed>,
-    objectContaining: (value: {}) => Object,
+    objectContaining: (value: { ... }) => { +[key: string]: any, ... },
     stringContaining: (value: string) => string,
     stringMatching: (value: string | RegExp) => string,
+    ...
   },
+  ...
 };
 
 // TODO handle return type
 // http://jasmine.github.io/2.4/introduction.html#section-Spies
-declare function spyOn(value: mixed, method: string): Object;
+declare function spyOn(value: mixed, method: string): { +[key: string]: any, ... };
 
 /** Holds all functions related to manipulating test runner */
 declare var jest: JestObjectType;
@@ -1186,7 +1143,8 @@ declare var jasmine: {
   createSpyObj(
     baseName: string,
     methodNames: Array<string>,
-  ): { [methodName: string]: JestSpyType },
-  objectContaining(value: Object): Object,
+  ): { [methodName: string]: JestSpyType, ... },
+  objectContaining(value: { +[key: string]: any, ... }): { +[key: string]: any, ... },
   stringMatching(value: string): string,
+  ...
 };
