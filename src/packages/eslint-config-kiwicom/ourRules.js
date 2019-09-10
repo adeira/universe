@@ -505,6 +505,7 @@ module.exports = {
   'relay/generated-flow-types': ERROR,
   'relay/graphql-naming': ERROR,
   'relay/graphql-syntax': ERROR,
+  'relay/hook-required-argument': NEXT_VERSION_ERROR,
   'relay/no-future-added-value': ERROR,
   'relay/unused-fields': ERROR,
 
