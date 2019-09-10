@@ -28,6 +28,20 @@ function resolveField(field, args = { opaque: true }): string {
   );
 }
 
+// This helper is used instead of `toThrow` so we can test more properties of this error.
+function catchError(callback): Error | empty {
+  let error = null;
+  try {
+    callback();
+  } catch (e) {
+    error = e;
+  }
+  if (error === null) {
+    throw new Error(`Function 'catchError' supposed to catch an error but no error was thrown.`);
+  }
+  return error;
+}
+
 describe('GlobalID', () => {
   it('returns expected field configuration', () => {
     expect(GlobalID(() => 'mock')).toMatchInlineSnapshot(`
@@ -81,21 +95,23 @@ Object {
   });
 
   it('throws error for original ID being "null"', () => {
-    // $FlowExpectedError: ID fetcher result should nto be null
+    // $FlowExpectedError: ID fetcher result should not be null
     const idFetcher = () => null;
     const field = GlobalID(idFetcher);
-    expect(() => resolveField(field)).toThrowErrorMatchingInlineSnapshot(
-      '"Global ID cannot be null."',
-    );
+    const error = catchError(() => resolveField(field));
+    expect(error).toBeInstanceOf(Error);
+    expect(error.name).toBe('Invariant Violation'); // this error is for developers
+    expect(error.message).toBe('Global ID cannot be null.');
   });
 
   it('throws error for original ID being "undefined"', () => {
     // $FlowExpectedError: ID fetcher result should nto be undefined
     const idFetcher = () => undefined;
     const field = GlobalID(idFetcher);
-    expect(() => resolveField(field)).toThrowErrorMatchingInlineSnapshot(
-      '"Global ID cannot be undefined."',
-    );
+    const error = catchError(() => resolveField(field));
+    expect(error).toBeInstanceOf(Error);
+    expect(error.name).toBe('Invariant Violation'); // this error is for developers
+    expect(error.message).toBe('Global ID cannot be undefined.');
   });
 });
 
@@ -124,7 +140,7 @@ describe('fromGlobalId', () => {
   });
 });
 
-describe('isTypeOf', () => {
+describe('__isTypeOf', () => {
   const ID = GlobalID(() => 42);
   it('resolves the type correctly', () => {
     expect(__isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
@@ -132,14 +148,15 @@ describe('isTypeOf', () => {
   });
 
   it('throws an error on invalid opaque ID', () => {
-    expect(() => __isTypeOf('TypeName', 'invalid-value')).toThrow(
-      "ID 'invalid-value' is not valid opaque value.",
-    );
+    let error = catchError(() => __isTypeOf('TypeName', 'invalid-value'));
+    expect(error).toBeInstanceOf(Error);
+    expect(error.name).toBe('Error'); // no 'Invariant Violation'!
+    expect(error.message).toBe("ID 'invalid-value' is not valid opaque value.");
 
-    // encoded "invalid-value" (vv)
-    expect(() => __isTypeOf('TypeName', 'aW52YWxpZC12YWx1ZQ==')).toThrow(
-      "ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.",
-    );
+    error = catchError(() => __isTypeOf('TypeName', 'aW52YWxpZC12YWx1ZQ=='));
+    expect(error).toBeInstanceOf(Error);
+    expect(error.name).toBe('Error'); // no 'Invariant Violation'!
+    expect(error.message).toBe("ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.");
   });
 });
 
@@ -158,7 +175,7 @@ describe('evaluateGlobalIdField', () => {
   });
 
   it('throws when trying to use incompatible output type', () => {
-    expect(() =>
+    const error = catchError(() =>
       evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
@@ -169,13 +186,16 @@ describe('evaluateGlobalIdField', () => {
           },
         }),
       ),
-    ).toThrowErrorMatchingInlineSnapshot(
-      '"Unable to evaluate field \'id\' because provided object is not typeof GlobalID."',
+    );
+    expect(error).toBeInstanceOf(Error);
+    expect(error.name).toBe('Invariant Violation'); // this error is for developers
+    expect(error.message).toBe(
+      "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
     );
   });
 
   it('throws when id filed is missing', () => {
-    expect(() =>
+    const error = catchError(() =>
       evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
@@ -186,7 +206,10 @@ describe('evaluateGlobalIdField', () => {
           },
         }),
       ),
-    ).toThrowErrorMatchingInlineSnapshot("\"Unable to evaluate field 'id' because it's missing.\"");
+    );
+    expect(error).toBeInstanceOf(Error);
+    expect(error.name).toBe('Invariant Violation'); // this error is for developers
+    expect(error.message).toBe("Unable to evaluate field 'id' because it's missing.");
   });
 
   it('calls resolver with correct arguments', () => {
