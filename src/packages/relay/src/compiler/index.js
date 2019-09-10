@@ -43,7 +43,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
     ...externalOptions,
   };
 
-  const reporter = new ConsoleReporter({ verbose: false });
+  const reporter = new ConsoleReporter({ verbose: true });
   const languagePlugin = buildLanguagePlugin();
   const srcDir = path.resolve(process.cwd(), options.src);
   const schemaPath = path.resolve(process.cwd(), options.schema);

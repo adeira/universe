@@ -13,6 +13,7 @@ const program = require('commander');
 const { invariant } = require('@kiwicom/js');
 const Logger = require('@kiwicom/logger').default;
 const { Rollout } = require('relay-compiler');
+const RelayConfig = require('relay-config'); // eslint-disable-line import/no-extraneous-dependencies
 
 const compiler = require('../src/compiler').default;
 
@@ -27,8 +28,16 @@ program
   // TODO: validate
   .parse(process.argv);
 
-invariant(program.src, 'Option --src is required.');
-invariant(program.schema, 'Option --schema is required.');
+const config = {
+  src: program.src,
+  schema: program.schema,
+  validate: program.validate,
+  watch: program.watch,
+  ...RelayConfig.loadConfig(),
+};
+
+invariant(config.src, 'Option --src is required.');
+invariant(config.schema, 'Option --schema is required.');
 
 // TODO: try to download the schema automatically?
 
@@ -44,12 +53,7 @@ Rollout.set(
   ]),
 );
 
-compiler({
-  src: program.src,
-  schema: program.schema,
-  validate: program.validate,
-  watch: program.watch,
-}).catch(error => {
+compiler(config).catch(error => {
   Logger.error(error);
   process.exit(1);
 });
