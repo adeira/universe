@@ -1,5 +1,7 @@
 # Unreleased
 
+# 3.6.0
+
 - Enable `--watch` mode in our experimental Relay compiler.
 - Enable `--validate` mode in our experimental Relay compiler. This mode returns code `101` in case of outdated generated files.
 - Relay compiler now outputs ES6 modules.
