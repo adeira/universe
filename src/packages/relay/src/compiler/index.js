@@ -142,7 +142,9 @@ function getFilepathsFromGlob(
 function getSchema(schemaPath: string) {
   let source = fs.readFileSync(schemaPath, 'utf8');
   if (!SignedSource.verifySignature(source)) {
-    throw new Error(`Schema '${schemaPath}' has invalid signature!`);
+    throw new Error(
+      `Schema '${schemaPath}' has invalid signature! Download a fresh schema using 'kiwicom-fetch-schema' script.`,
+    );
   }
   source = `
   directive @include(if: Boolean) on FRAGMENT_SPREAD | FIELD | INLINE_FRAGMENT
