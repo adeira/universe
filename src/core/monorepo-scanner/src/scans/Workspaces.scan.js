@@ -12,12 +12,17 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.
-    expect(
-      /^@kiwicom\/.+|eslint-plugin-.+|relay-compiler-language-kiwicom/.test(packageJson.name) ===
-        true,
-    ).toGiveHelp(
+    expect(/^@kiwicom\/.+|eslint-plugin-.+/.test(packageJson.name) === true).toGiveHelp(
       `All packages in our monorepo must start with '@kiwicom/' prefix. This name is not valid: ${packageJson.name}`,
     );
+
+    if (packageJson.main !== undefined) {
+      // We could in theory limit this case only for cases when MJS files are actually going to be
+      // generated. This seems to be easier and it's not wrong.
+      expect(packageJson.main.endsWith('.js') === false).toGiveHelp(
+        "Field 'main' cannot have extension because it prevents MJS files from working correctly when used together.",
+      );
+    }
 
     if (packageJson.private === false) {
       expect(packageJson.description).not.toBeUndefined();
@@ -34,7 +39,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
         ),
       );
 
-      // each public package must specify `main` or `bin` field pe be useful
+      // each public package must specify `main` or `bin` field to be useful
       expect(packageJson.main !== undefined || packageJson.bin !== undefined).toBe(true);
 
       const packagePath = path.dirname(packageJSONLocation);

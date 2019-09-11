@@ -1,8 +1,9 @@
 {
   "name": "withMainAndModule",
+  "description": "module should stay as is and JS extension should be removed from main",
   "version": "0.0.0",
-  "main": "src/do-not-overwrite-this.ABC",
-  "module": "src/do-not-overwrite-this.XYZ",
+  "main": "src/index.js",
+  "module": "src/index.mjs",
   "dependencies": {
     "//": "none"
   }

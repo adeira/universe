@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "homepage": "https://github.com/kiwicom/eslint-plugin-relay-imports",
-  "main": "index.js",
+  "main": "index",
   "scripts": {
     "test": "jest"
   },

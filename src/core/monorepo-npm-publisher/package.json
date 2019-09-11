@@ -5,17 +5,19 @@
   "license": "MIT",
   "private": false,
   "version": "2.0.0",
-  "main": "src/index.js",
+  "main": "src/index",
   "sideEffects": false,
   "dependencies": {
     "@kiwicom/babel-preset-kiwicom": "^3.4.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
+    "@kiwicom/test-utils": "^0.10.0",
     "chalk": "^2.4.2",
     "is-ci": "^2.0.0",
     "npm-packlist": "^1.4.4",
     "npm-registry-client": "^8.6.0",
     "rimraf": "^3.0.0",
     "semver": "^6.3.0",
+    "snapshot-diff": "^0.5.2",
     "tar": "^4.4.10"
   },
   "peerDependencies": {

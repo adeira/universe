@@ -2,7 +2,7 @@
   "name": "@kiwicom/relay",
   "private": false,
   "version": "3.6.0",
-  "main": "src/index.js",
+  "main": "src/index",
   "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/kiwicom/relay",

@@ -1,0 +1,9 @@
+{
+  "name": "withMainNoExtension",
+  "description": "module should be added with MJS extension and main should stay as is",
+  "version": "0.0.0",
+  "main": "src/index",
+  "dependencies": {
+    "//": "none"
+  }
+}

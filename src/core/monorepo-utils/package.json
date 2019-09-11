@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "version": "0.23.0",
-  "main": "src/index.js",
+  "main": "src/index",
   "sideEffects": false,
   "engines": {
     "node": ">=10.10.0"

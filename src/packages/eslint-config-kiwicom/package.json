@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "version": "8.0.0",
-  "main": "index.js",
+  "main": "index",
   "sideEffects": false,
   "dependencies": {
     "@babel/register": "^7.6.0",

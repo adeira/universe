@@ -4,7 +4,7 @@
   "private": true,
   "description": "GraphQL server codegen from gRPC proto files.",
   "license": "UNLICENSED",
-  "main": "src/index.js",
+  "main": "src/index",
   "dependencies": {
     "@babel/register": "^7.6.0",
     "google-protobuf": "^3.10.0-rc.1",
