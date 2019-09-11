@@ -32,7 +32,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 0.23.0 [@kiwicom/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 0.4.0 [@kiwicom/orbit-react-native](https://gitlab.skypicker.com/incubator/universe/tree/master/src/incubator/orbit-react-native) - Orbit React Native Components are a component library which provide developers with the easiest possible way of building Kiwi.com’s products.
 - 1.3.0 [@kiwicom/babel-plugin-orbit-components](https://github.com/kiwicom/babel-plugin-orbit-components) - A babel plugin for transforming destructured imports to granular ones.
-- 3.5.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
+- 3.6.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 8.0.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 4.0.2 [@kiwicom/eslint-config-nitro](https://github.com/kiwicom/eslint-config-nitro) - Nitro's ESlint config
 - 0.6.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
