@@ -7,29 +7,43 @@ type PackageJSON = {|
   +module?: string | false,
 |};
 
-function deleteField(packageJSONFile, field) {
-  // eslint-disable-next-line no-unused-vars
-  const { [field]: _, ...packageJSONFileWithoutField } = packageJSONFile;
-  return packageJSONFileWithoutField;
-}
-
 export default function modifyPackageJSON(packageJSONFile: PackageJSON): PackageJSON {
-  const { main, module } = packageJSONFile;
+  const { main, module, ...rest } = packageJSONFile;
+
+  if (main == null && module == null) {
+    // nothing to do here (no main, no module)
+    return { ...rest };
+  }
 
   if (module === false) {
-    return deleteField(packageJSONFile, 'module');
+    // module disabled
+    return { main, ...rest }; // TODO: should we remove the JS extension here as well?
   }
 
-  if (main != null) {
+  if (main == null) {
+    // add main as a module without extension
     return {
-      module: main.replace(/\.js$/, '.mjs'),
-      ...packageJSONFile,
-    };
-  } else if (module != null) {
-    return {
-      main: module.replace(/\.mjs$/, '.js'),
-      ...packageJSONFile,
+      // $FlowIssue: https://github.com/facebook/flow/issues/8074
+      main: module.replace(/\.mjs$/, ''),
+      module,
+      ...rest,
     };
   }
-  return packageJSONFile;
+
+  if (module == null) {
+    // remove JS extension from main
+    // add module as a main with MJS extension
+    return {
+      main: main.replace(/\.js$/, ''),
+      module: main.replace(/(?:\.js)?$/, '.mjs'),
+      ...rest,
+    };
+  }
+
+  // return as is but try to remove JS extension from main
+  return {
+    main: main.replace(/\.js$/, ''),
+    module,
+    ...rest,
+  };
 }

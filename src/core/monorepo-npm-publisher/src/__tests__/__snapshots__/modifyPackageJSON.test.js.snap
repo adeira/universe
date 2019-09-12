@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: missingMainAndModule.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "missingMainAndModule",
+  "description": "no changes expected",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "name": "missingMainAndModule",
+  "description": "no changes expected",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`matches expected output: withMain.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withMain",
+  "description": "module should be added and JS extension from main removed",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "name": "withMain",
+  "description": "module should be added and JS extension from main removed",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+- First value
++ Second value
+
+  Object {
+    "dependencies": Object {
+      "//": "none",
+    },
+    "description": "module should be added and JS extension from main removed",
+-   "main": "src/index.js",
++   "main": "src/index",
++   "module": "src/index.mjs",
+    "name": "withMain",
+    "version": "0.0.0",
+  }
+`;
+
+exports[`matches expected output: withMainAndDisabledModule.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withMainAndDisabledModule",
+  "description": "module should be removed and main should stay as is",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "module": false,
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index.js",
+  "name": "withMainAndDisabledModule",
+  "description": "module should be removed and main should stay as is",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,9 +2,8 @@
+    "dependencies": Object {
+      "//": "none",
+    },
+    "description": "module should be removed and main should stay as is",
+    "main": "src/index.js",
+-   "module": false,
+    "name": "withMainAndDisabledModule",
+    "version": "0.0.0",
+  }
+`;
+
+exports[`matches expected output: withMainAndDisabledModuleNoExtension.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withMainAndDisabledModuleNoExtension",
+  "description": "module should be removed and main should stay as is",
+  "version": "0.0.0",
+  "main": "src/index",
+  "module": false,
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index",
+  "name": "withMainAndDisabledModuleNoExtension",
+  "description": "module should be removed and main should stay as is",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,9 +2,8 @@
+    "dependencies": Object {
+      "//": "none",
+    },
+    "description": "module should be removed and main should stay as is",
+    "main": "src/index",
+-   "module": false,
+    "name": "withMainAndDisabledModuleNoExtension",
+    "version": "0.0.0",
+  }
+`;
+
+exports[`matches expected output: withMainAndModule.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withMainAndModule",
+  "description": "module should stay as is and JS extension should be removed from main",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "module": "src/index.mjs",
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "name": "withMainAndModule",
+  "description": "module should stay as is and JS extension should be removed from main",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+- First value
++ Second value
+
+  Object {
+    "dependencies": Object {
+      "//": "none",
+    },
+    "description": "module should stay as is and JS extension should be removed from main",
+-   "main": "src/index.js",
++   "main": "src/index",
+    "module": "src/index.mjs",
+    "name": "withMainAndModule",
+    "version": "0.0.0",
+  }
+`;
+
+exports[`matches expected output: withMainAndModuleNoExtension.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withMainAndModuleNoExtension",
+  "description": "no change expected",
+  "version": "0.0.0",
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "name": "withMainAndModuleNoExtension",
+  "description": "no change expected",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
+exports[`matches expected output: withMainNoExtension.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withMainNoExtension",
+  "description": "module should be added with MJS extension and main should stay as is",
+  "version": "0.0.0",
+  "main": "src/index",
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "name": "withMainNoExtension",
+  "description": "module should be added with MJS extension and main should stay as is",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+- First value
++ Second value
+
+@@ -2,8 +2,9 @@
+    "dependencies": Object {
+      "//": "none",
+    },
+    "description": "module should be added with MJS extension and main should stay as is",
+    "main": "src/index",
++   "module": "src/index.mjs",
+    "name": "withMainNoExtension",
+    "version": "0.0.0",
+  }
+`;
+
+exports[`matches expected output: withModule.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "name": "withModule",
+  "description": "module should stay as is and main without JS extension should be added",
+  "version": "0.0.0",
+  "module": "src/index.mjs",
+  "dependencies": {
+    "//": "none"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "name": "withModule",
+  "description": "module should stay as is and main without JS extension should be added",
+  "version": "0.0.0",
+  "dependencies": {
+    "//": "none"
+  }
+}
+~~~~~
+Snapshot Diff:
+- First value
++ Second value
+
+  Object {
+    "dependencies": Object {
+      "//": "none",
+    },
+    "description": "module should stay as is and main without JS extension should be added",
++   "main": "src/index",
+    "module": "src/index.mjs",
+    "name": "withModule",
+    "version": "0.0.0",
+  }
+`;

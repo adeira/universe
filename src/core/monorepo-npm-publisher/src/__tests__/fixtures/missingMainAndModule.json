@@ -1,5 +1,6 @@
 {
   "name": "missingMainAndModule",
+  "description": "no changes expected",
   "version": "0.0.0",
   "dependencies": {
     "//": "none"

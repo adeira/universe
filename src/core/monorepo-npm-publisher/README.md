@@ -116,7 +116,7 @@ function isObject(value) {
 }
 ```
 
-Flow files contain more or less raw code with Flow definitions:
+Flow files contain more or less raw code with Flow definitions (it's not 1:1 to original, we also apply some transformations):
 
 ```js
 // @flow strict
@@ -149,4 +149,41 @@ One last change is happening: NPM publisher modifies `package.json` file so it c
 }
 ```
 
-This is handy when your code is not ready yet.
+This is handy when your code is not ready for ES6 modules yet.
+
+# Note on ES6 modules
+
+_The following text describes the current situation up to this date. Seems like some parts of the JS ecosystem are not well documented and they may change in future._
+
+Usually tools use CJS requires but some of them also support ES6 imports. This is how it works in Next.js for example:
+
+```js
+const webpackResolveConfig = {
+  // Disable .mjs for node_modules bundling
+  extensions: isServer
+    ? ['.js', '.mjs', '.jsx', '.json', '.wasm']
+    : ['.mjs', '.js', '.jsx', '.json', '.wasm'],
+  mainFields: isServer ? ['main', 'module'] : ['browser', 'module', 'main'],
+  // ...
+};
+```
+
+Notice the ordering of supported extensions. Therefore Next.js actually uses different systems for FE and BE. We distribute both versions: JS and MJS files. Different situation is when package uses MJS and this package has dependency on different package which also uses MJS. This subpackage must be configured properly in `package.json`. The only possible solution is currently this:
+
+```json
+{
+  "name": "@kiwicom/js",
+  "module": "src/index.mjs",
+  "main": "src/index"
+}
+```
+
+Notice that field `main` **cannot** have file extension! There is currently not many resources explaining why but it's further explained in [this Babel issue](https://github.com/babel/babel/issues/7294). This extension cannot be present even when you don't have `module` field but you are distributing MJS files anyway.
+
+More resources:
+
+- https://github.com/graphql/graphql-js/issues/1217
+- https://nodejs.org/api/esm.html#esm_package_entry_points
+- https://nodejs.org/api/modules.html#modules_addenda_the_mjs_extension
+- https://webpack.js.org/concepts/module-resolution/
+- https://github.com/webpack/webpack/issues/7482

@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "version": "0.8.0",
-  "main": "src/index.js",
+  "main": "src/index",
   "sideEffects": false,
   "dependencies": {
     "dataloader": "^1.4.0",

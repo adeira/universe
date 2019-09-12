@@ -3,7 +3,7 @@
   "private": false,
   "license": "MIT",
   "version": "2.4.3",
-  "main": "src/fetchWithRetries.js",
+  "main": "src/fetchWithRetries",
   "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/kiwicom/fetch",

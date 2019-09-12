@@ -5,7 +5,7 @@
   "private": false,
   "license": "MIT",
   "version": "3.6.0",
-  "main": "src/index.js",
+  "main": "src/index",
   "sideEffects": false,
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",

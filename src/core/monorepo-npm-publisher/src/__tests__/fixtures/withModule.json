@@ -1,7 +1,8 @@
 {
   "name": "withModule",
+  "description": "module should stay as is and main without JS extension should be added",
   "version": "0.0.0",
-  "module": "src/do-not-overwrite-this.mjs",
+  "module": "src/index.mjs",
   "dependencies": {
     "//": "none"
   }

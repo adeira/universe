@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "version": "1.0.5",
-  "main": "src/index.js",
+  "main": "src/index",
   "sideEffects": false,
   "dependencies": {},
   "devDependencies": {

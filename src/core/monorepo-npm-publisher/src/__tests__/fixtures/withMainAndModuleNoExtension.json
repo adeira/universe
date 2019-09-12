@@ -1,0 +1,10 @@
+{
+  "name": "withMainAndModuleNoExtension",
+  "description": "no change expected",
+  "version": "0.0.0",
+  "main": "src/index",
+  "module": "src/index.mjs",
+  "dependencies": {
+    "//": "none"
+  }
+}

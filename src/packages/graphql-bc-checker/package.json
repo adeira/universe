@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": false,
   "version": "1.4.1",
-  "main": "src/index.js",
+  "main": "src/index",
   "sideEffects": false,
   "dependencies": {
     "@kiwicom/signed-source": "1.0.3",

@@ -1,8 +1,8 @@
 {
-  "name": "withMainAndDisabledModule",
+  "name": "withMainAndDisabledModuleNoExtension",
   "description": "module should be removed and main should stay as is",
   "version": "0.0.0",
-  "main": "src/index.js",
+  "main": "src/index",
   "module": false,
   "dependencies": {
     "//": "none"

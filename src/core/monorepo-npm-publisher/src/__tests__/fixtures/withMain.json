@@ -1,5 +1,6 @@
 {
   "name": "withMain",
+  "description": "module should be added and JS extension from main removed",
   "version": "0.0.0",
   "main": "src/index.js",
   "dependencies": {
