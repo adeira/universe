@@ -13,7 +13,7 @@ const program = require('commander');
 const { invariant } = require('@kiwicom/js');
 const Logger = require('@kiwicom/logger').default;
 const { Rollout } = require('relay-compiler');
-const RelayConfig = require('relay-config'); // eslint-disable-line import/no-extraneous-dependencies
+const RelayConfig = require('relay-config');
 
 const compiler = require('../src/compiler').default;
 
