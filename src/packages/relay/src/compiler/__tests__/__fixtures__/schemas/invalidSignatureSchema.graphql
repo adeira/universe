@@ -1,0 +1,13 @@
+# @generated SignedSource<<00000000000000000000000000000000>>
+
+schema {
+  query: RootQuery
+}
+
+type RootQuery {
+  test: Test
+}
+
+type Test {
+  id: ID!
+}

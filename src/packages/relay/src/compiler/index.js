@@ -1,6 +1,5 @@
 // @flow
 
-import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import {
@@ -12,13 +11,12 @@ import {
   IRTransforms as RelayIRTransforms,
   JSModuleParser as RelayJSModuleParser,
 } from 'relay-compiler';
-import { buildASTSchema, parse } from 'graphql';
 import { globSync } from '@kiwicom/monorepo-utils';
-import SignedSource from '@kiwicom/signed-source';
 import isCI from 'is-ci';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';
+import getSchema from './getSchema';
 import persistOperation from './persistOperation';
 import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUsagesRule';
 
@@ -137,33 +135,6 @@ function getFilepathsFromGlob(
       )),
   );
   return filenames;
-}
-
-function getSchema(schemaPath: string) {
-  let source = fs.readFileSync(schemaPath, 'utf8');
-  if (!SignedSource.verifySignature(source)) {
-    throw new Error(
-      `Schema '${schemaPath}' has invalid signature! Download a fresh schema using 'kiwicom-fetch-schema' script.`,
-    );
-  }
-  source = `
-  directive @include(if: Boolean) on FRAGMENT_SPREAD | FIELD | INLINE_FRAGMENT
-  directive @skip(if: Boolean) on FRAGMENT_SPREAD | FIELD | INLINE_FRAGMENT
-
-  ${source}
-  `;
-
-  try {
-    return buildASTSchema(parse(source), { assumeValid: true });
-  } catch (error) {
-    throw new Error(
-      `
-Error loading schema. Expected the schema to be a .graphql file, describing your GraphQL server's API. Error detail:
-
-${error.stack}
-    `.trim(),
-    );
-  }
 }
 
 function getRelayFileWriter(

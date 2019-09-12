@@ -37,14 +37,14 @@ const SignedSource = {
   /**
    * Gets the signing token to be embedded in the file you wish to be signed.
    */
-  getSigningToken() {
+  getSigningToken(): string {
     return `${GENERATED} ${TOKEN}`;
   },
 
   /**
    * Checks whether a file is signed *without* verifying the signature.
    */
-  isSigned(data: string) {
+  isSigned(data: string): boolean {
     return !!PATTERN.exec(data);
   },
 
@@ -53,7 +53,7 @@ const SignedSource = {
    * the signing token, so the token should be placed inside a comment in order
    * for signing to not change code semantics.
    */
-  signFile(data: string) {
+  signFile(data: string): string | empty {
     let dataCopy = data;
 
     if (!dataCopy.includes(TOKEN)) {
@@ -71,7 +71,7 @@ const SignedSource = {
   /**
    * Verifies the signature in a signed file.
    */
-  verifySignature(data: string) {
+  verifySignature(data: string): boolean | empty {
     const matches = PATTERN.exec(data);
     if (!matches) {
       throw new Error(

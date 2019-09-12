@@ -4,7 +4,7 @@
   "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/signed-source",
   "license": "MIT",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "src/SignedSource",
   "sideEffects": false,
   "dependencies": {}

@@ -1,0 +1,13 @@
+# @generated SignedSource<<4547a7b55a3f6a0937664b991a11d950>>
+
+schema {
+  query: RootQuery
+}
+
+type RootQuery {
+  test: Test
+}
+
+type Test {
+  id: ID!
+}
