@@ -8,6 +8,6 @@
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@kiwicom/js": "^0.14.0"
+    "@kiwicom/js": "^0.15.0"
   }
 }
