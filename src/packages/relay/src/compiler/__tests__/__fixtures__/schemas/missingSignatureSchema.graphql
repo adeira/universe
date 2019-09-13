@@ -1,0 +1,11 @@
+schema {
+  query: RootQuery
+}
+
+type RootQuery {
+  test: Test
+}
+
+type Test {
+  id: ID!
+}

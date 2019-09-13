@@ -25,7 +25,6 @@ program
     '--watch',
     'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
   )
-  // TODO: validate
   .parse(process.argv);
 
 const config = {
@@ -40,6 +39,9 @@ invariant(config.src, 'Option --src is required.');
 invariant(config.schema, 'Option --schema is required.');
 
 // TODO: try to download the schema automatically?
+// But please note: some projects are using in-memory server for example and therefore it's not
+// possible to "fetch" the schema since there is no URL. Such projects has to sign their
+// snapshot manually.
 
 Rollout.set(
   new Map([
