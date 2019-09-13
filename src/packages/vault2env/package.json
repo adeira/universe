@@ -9,6 +9,7 @@
   "bin": {
     "vault2env": "bin/index.js"
   },
+  "main": "src/index",
   "dependencies": {
     "@kiwicom/fetch": "^2.3.1",
     "@kiwicom/js": "^0.15.0",

@@ -24,3 +24,25 @@ export default async function run(cliParams: CLIConfig) {
     process.exit(1);
   }
 }
+
+const createConditionalVaultSecretsApplier = (addr: ?string, token: ?string) => {
+  return async (
+    path: string,
+    callback: (data: { +[string]: string, ... }) => void,
+  ): Promise<void> => {
+    if (addr == null || addr === '' || token == null || token === '') {
+      return;
+    }
+
+    try {
+      const data: { +[string]: string, ... } = await fetchSecrets(addr, path, token);
+      if (data != null) {
+        callback(data);
+      }
+    } catch (error) {
+      logger.error(`Error while retrieving secrets: ${error.message}`);
+    }
+  };
+};
+
+export { createConditionalVaultSecretsApplier };
