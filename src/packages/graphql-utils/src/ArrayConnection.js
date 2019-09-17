@@ -13,7 +13,8 @@ import {
 //
 // Until Relay devs decide, let's try our implementation
 export default function connectionFromArray<T>(
-  data: Array<T>,
+  // $FlowFixMe: https://github.com/graphql/graphql-relay-js/pull/228
+  data: $ReadOnlyArray<T>,
   args: ConnectionArguments,
 ): $Exact<Connection<T>> {
   const { edges, pageInfo } = relayConnectionFromArray(data, args);
