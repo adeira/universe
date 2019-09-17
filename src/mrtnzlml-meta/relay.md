@@ -536,6 +536,8 @@ They send the actual files and query as `multipart/form-data` as well but they r
 
 # RelayNetworkLogger
 
+TODO: https://github.com/facebook/relay/issues/2674 !
+
 ```js
 import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger'
 
