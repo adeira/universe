@@ -45,9 +45,10 @@ I joined this company in April 2017 (my first PR was Apr 7)
 3. Created first [React Native application](https://github.com/kiwicom/mobile) (discontinued)
 4. Joined internal Portalo project for our customer support center (still ongoing)
 5. I came up with RNW technology but never had the opportunity to work with it at Kiwi.com :-/ (discontinued)
-6. Re-joined GraphQL proxy project and turned it into monorepo (currently very alive)
+6. Re-joined GraphQL proxy project and turned it into monorepo
 7. I am working on the monorepo for the whole Incubator tribe, many NPM packages (current)
-8. ??
+
+I left this company in October (31) 2019 :wave:
 
 ## Kiwi.com [Joel Test](https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/) - 5/12
 
