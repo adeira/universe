@@ -1,15 +1,9 @@
 // @flow
 
-import { Observable } from 'relay-runtime';
-import RelayQueryResponseCache from 'relay-runtime/lib/RelayQueryResponseCache';
+import { Observable, QueryResponseCache as RelayQueryResponseCache } from 'relay-runtime';
 
 import { forceFetch, isMutation, isQuery } from './helpers';
 import type { RequestNode, Uploadables, Variables } from './types.flow';
-
-const burstCache = new RelayQueryResponseCache({
-  size: 250,
-  ttl: 10 * 1000, // 10 seconds
-});
 
 export type CacheConfig = {|
   +force?: ?boolean,
@@ -32,7 +26,13 @@ type Sink = {|
   +closed: boolean,
 |};
 
-export default function createRequestHandler(customFetcher: (...args: $ReadOnlyArray<any>) => any) {
+export default function createRequestHandler(
+  customFetcher: (...args: $ReadOnlyArray<any>) => any,
+  burstCache?: RelayQueryResponseCache = new RelayQueryResponseCache({
+    size: 250,
+    ttl: 10 * 1000, // 10 seconds
+  }),
+) {
   function cleanup() {
     // noop, do anything here
   }

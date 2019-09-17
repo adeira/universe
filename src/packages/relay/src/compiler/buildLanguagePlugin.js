@@ -1,7 +1,7 @@
 // @flow
 
 import { FlowGenerator } from 'relay-compiler';
-import { find } from 'relay-compiler/lib/FindGraphQLTags'; // TODO: better (?)
+import { find } from 'relay-compiler/lib/language/javascript/FindGraphQLTags'; // TODO: better (?)
 
 import formatGeneratedModule from './formatGeneratedModule';
 

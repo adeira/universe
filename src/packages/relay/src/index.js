@@ -13,6 +13,7 @@ import createFragmentContainer from './createFragmentContainer';
 import createPaginationContainer from './createPaginationContainer';
 import createRefetchContainer from './createRefetchContainer';
 import graphql from './graphql';
+import LocalQueryRenderer from './LocalQueryRenderer';
 import QueryRenderer from './QueryRenderer';
 import requestSubscription from './requestSubscription';
 
@@ -29,6 +30,7 @@ module.exports = {
   createPaginationContainer,
   createRefetchContainer,
   graphql,
+  LocalQueryRenderer,
   QueryRenderer,
   requestSubscription,
 };
