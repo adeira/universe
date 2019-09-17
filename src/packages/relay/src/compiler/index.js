@@ -177,7 +177,8 @@ function getRelayFileWriter(
       extension: languagePlugin.outputExtension,
       typeGenerator: languagePlugin.typeGenerator,
       outputDir,
-      repersist: isCI,
+      // TODO: repersist generates unstable snapshots on CI when used with `--validate`, why?
+      // repersist: isCI,
     };
 
     if (Rollout.check('stored-operations', 'persist-query')) {
