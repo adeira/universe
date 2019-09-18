@@ -30,7 +30,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 0.1.0 [@kiwicom/logger](https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger) - Multiplatform logger (Node.js, Browser, RN) with Datadog support
 - 2.0.0 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
 - 0.23.0 [@kiwicom/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
-- 0.4.0 [@kiwicom/orbit-react-native](https://gitlab.skypicker.com/incubator/universe/tree/master/src/incubator/orbit-react-native) - Orbit React Native Components are a component library which provide developers with the easiest possible way of building Kiwi.com’s products.
+- 0.5.0 [@kiwicom/orbit-react-native](https://gitlab.skypicker.com/incubator/universe/tree/master/src/incubator/orbit-react-native) - Orbit React Native Components are a component library which provide developers with the easiest possible way of building Kiwi.com’s products.
 - 1.3.0 [@kiwicom/babel-plugin-orbit-components](https://github.com/kiwicom/babel-plugin-orbit-components) - A babel plugin for transforming destructured imports to granular ones.
 - 3.6.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 8.1.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
