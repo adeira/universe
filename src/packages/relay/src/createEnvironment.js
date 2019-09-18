@@ -6,8 +6,9 @@ import {
   Network,
   Environment as RelayEnvironment,
   ConnectionHandler,
+  createRelayNetworkLogger,
+  RelayNetworkLoggerTransaction,
 } from 'relay-runtime';
-import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
 import createRequestHandler from './createRequestHandler';
 import type { Variables, Environment } from './types.flow';
@@ -45,12 +46,14 @@ function createNetwork(
   graphiQLPrinter,
 ) {
   const fetch = createRequestHandler(fetchFn);
-  return enableLogger && __DEV__
-    ? Network.create(
-        RelayNetworkLogger.wrapFetch(fetch, graphiQLPrinter),
-        RelayNetworkLogger.wrapSubscribe(subscribeFn, graphiQLPrinter),
-      )
-    : Network.create(fetch, subscribeFn);
+  if (enableLogger && __DEV__) {
+    const RelayNetworkLogger = createRelayNetworkLogger(RelayNetworkLoggerTransaction);
+    return Network.create(
+      RelayNetworkLogger.wrapFetch(fetch, graphiQLPrinter),
+      RelayNetworkLogger.wrapSubscribe(subscribeFn, graphiQLPrinter),
+    );
+  }
+  return Network.create(fetch, subscribeFn);
 }
 
 function handlerProvider(handle) {

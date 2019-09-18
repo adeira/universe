@@ -1,5 +1,7 @@
 // @flow
 
+import createRequestHandler from '../createRequestHandler';
+
 let list;
 beforeEach(() => {
   list = [];
@@ -16,19 +18,14 @@ const observer = {
   unsubscribe: () => list.push('unsubscribe'),
 };
 
-const burstCacheFilePath = 'relay-runtime/lib/RelayQueryResponseCache';
-
 it('works as expected with query and empty cache', done => {
   expect.assertions(4);
 
-  jest.doMock(burstCacheFilePath, () => {
-    return class {
-      clear = () => {};
-      get = () => null; // cache empty
-      set = () => {};
-    };
-  });
-  const createRequestHandler = require('../createRequestHandler').default;
+  const burstCacheMock = {
+    clear: () => {},
+    get: () => null, // cache empty
+    set: () => {},
+  };
 
   const requestNode = { operationKind: 'query' };
   const variables = { aaa: 111 };
@@ -39,7 +36,7 @@ it('works as expected with query and empty cache', done => {
     expect(b).toEqual(variables);
     expect(c).toEqual(uploadables);
     return Promise.resolve('data');
-  });
+  }, burstCacheMock);
 
   const observable = requestHandler(
     requestNode,
@@ -59,23 +56,19 @@ it('works as expected with query and empty cache', done => {
 it('works as expected with query and full cache', done => {
   expect.assertions(3);
 
-  jest.doMock(burstCacheFilePath, () => {
-    return class {
-      clear = () => {};
-      get = (queryID, variables) => {
-        expect(queryID).toBe('yay, queryID');
-        expect(variables).toEqual({ aaa: 111 });
-        return 'fromCache';
-      };
-
-      set = () => {};
-    };
-  });
-  const createRequestHandler = require('../createRequestHandler').default;
+  const burstCacheMock = {
+    clear: () => {},
+    get: (queryID, variables) => {
+      expect(queryID).toBe('yay, queryID');
+      expect(variables).toEqual({ aaa: 111 });
+      return 'fromCache';
+    },
+    set: () => {},
+  };
 
   const requestHandler = createRequestHandler(() => {
     throw new Error('should not be called in this scenario (reading from cache)');
-  });
+  }, burstCacheMock);
 
   const observable = requestHandler(
     { operationKind: 'query', text: 'yay, queryID' }, // requestNode
@@ -96,14 +89,11 @@ it('works as expected with query error', done => {
   expect.assertions(5);
   const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  jest.doMock(burstCacheFilePath, () => {
-    return class {
-      clear = () => {};
-      get = () => null; // cache empty
-      set = () => {};
-    };
-  });
-  const createRequestHandler = require('../createRequestHandler').default;
+  const burstCacheMock = {
+    clear: () => {},
+    get: () => null, // cache empty
+    set: () => {},
+  };
 
   const requestNode = { operationKind: 'query' };
   const variables = { aaa: 111 };
@@ -117,7 +107,7 @@ it('works as expected with query error', done => {
       data: null,
       errors: [{ message: 'error 1' }, { message: 'error 2' }],
     });
-  });
+  }, burstCacheMock);
 
   const observable = requestHandler(
     requestNode,
@@ -159,14 +149,11 @@ it('works as expected with mutation', done => {
   expect.assertions(5);
 
   const burstCacheClear = jest.fn();
-  jest.doMock(burstCacheFilePath, () => {
-    return class {
-      clear = burstCacheClear;
-      get = () => null; // cache empty
-      set = () => {};
-    };
-  });
-  const createRequestHandler = require('../createRequestHandler').default;
+  const burstCacheMock = {
+    clear: burstCacheClear,
+    get: () => null, // cache empty
+    set: () => {},
+  };
 
   const requestNode = { operationKind: 'mutation' };
   const variables = { aaa: 111 };
@@ -177,7 +164,7 @@ it('works as expected with mutation', done => {
     expect(b).toEqual(variables);
     expect(c).toEqual(uploadables);
     return Promise.resolve('data');
-  });
+  }, burstCacheMock);
 
   const observable = requestHandler(
     requestNode,
@@ -199,14 +186,11 @@ it('works as expected with mutation error', done => {
   expect.assertions(5);
   const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  jest.doMock(burstCacheFilePath, () => {
-    return class {
-      clear = () => {};
-      get = () => null; // cache empty
-      set = () => {};
-    };
-  });
-  const createRequestHandler = require('../createRequestHandler').default;
+  const burstCacheMock = {
+    clear: () => {},
+    get: () => null, // cache empty
+    set: () => {},
+  };
 
   const requestNode = { operationKind: 'mutation' };
   const variables = { aaa: 111 };
@@ -220,7 +204,7 @@ it('works as expected with mutation error', done => {
       data: null,
       errors: [{ message: 'error 1' }, { message: 'error 2' }],
     });
-  });
+  }, burstCacheMock);
 
   const observable = requestHandler(
     requestNode,

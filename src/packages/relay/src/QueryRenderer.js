@@ -17,7 +17,7 @@ type ReadyState = {|
   +retry: ?() => void,
 |};
 
-type DataFromStrategy = 'STORE_THEN_NETWORK' | 'NETWORK_ONLY';
+type FetchPolicy = 'store-and-network' | 'network-only';
 
 type CommonProps = {|
   +query: GraphQLTaggedNode,
@@ -27,7 +27,7 @@ type CommonProps = {|
     +force?: ?boolean,
     +poll?: ?number,
   |},
-  +dataFrom?: DataFromStrategy,
+  +fetchPolicy?: FetchPolicy,
   +variables?: Variables,
 |};
 

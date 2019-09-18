@@ -5,7 +5,7 @@ type FormatModuleInput = $ReadOnly<{|
   concreteText: string,
   typeText: string,
   sourceHash: string,
-  devOnlyAssignments: string,
+  devOnlyAssignments?: string,
   docText?: string,
   hash?: string,
 |}>;
@@ -25,7 +25,7 @@ export default function formatGeneratedModule({
   const docTextComment = docText != null ? `/*\n${docText.trim()}\n*/\n` : '';
   const hashText = hash != null ? `\n * ${hash}` : '';
   const devOnlyAddons =
-    devOnlyAssignments !== ''
+    devOnlyAssignments != null
       ? `\ndeclare var __DEV__: boolean;\nif (__DEV__) {\n  ${devOnlyAssignments}\n}`
       : '';
 

@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import ReactTestRenderer from 'react-test-renderer';
-import { createMockEnvironment, generateAndCompile, MockPayloadGenerator } from 'relay-test-utils';
+import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 
-import { FetchTimeoutError, FetchResponseError } from '../index';
+import { FetchTimeoutError, FetchResponseError, graphql } from '../index';
 import QueryRenderer from '../QueryRenderer';
 
 let environment;
@@ -14,13 +14,13 @@ let onResponse;
 
 beforeEach(() => {
   environment = createMockEnvironment();
-  query = generateAndCompile(`
-    query TestQuery @relay_test_operation {
+  query = graphql`
+    query QueryRendererQuery @relay_test_operation {
       node(id: "my-id") {
         id
       }
     }
-  `).TestQuery;
+  `;
   variables = {};
   onResponse = function onResponse(props) {
     return <div data-testid="success">Nice one! {props.node.id}</div>;
@@ -37,15 +37,17 @@ it('renders default components for loading and success', () => {
     />,
   );
   const testInstance = testRenderer.root;
+  const environmentMock = environment.mock;
 
-  expect(environment.mock.isLoading(query, variables)).toBe(true);
+  const generatedQuery = environmentMock.getMostRecentOperation();
+  expect(environmentMock.isLoading(generatedQuery, variables)).toBe(true);
   const loading = testInstance.findByProps({ 'data-testid': 'loading' });
   expect(loading).toBeDefined();
 
-  environment.mock.resolveMostRecentOperation(operation => {
+  environmentMock.resolveMostRecentOperation(operation => {
     return MockPayloadGenerator.generate(operation);
   });
-  expect(environment.mock.isLoading(query, variables)).toBe(false);
+  expect(environmentMock.isLoading(generatedQuery, variables)).toBe(false);
   expect(testInstance.findAllByProps({ 'data-testid': 'loading' })).toHaveLength(0);
   const success = testInstance.findByProps({ 'data-testid': 'success' });
   expect(success).toBeDefined();
@@ -62,13 +64,15 @@ it('renders default components for loading and generic fail', () => {
     />,
   );
   const testInstance = testRenderer.root;
+  const environmentMock = environment.mock;
 
-  expect(environment.mock.isLoading(query, variables)).toBe(true);
+  const generatedQuery = environmentMock.getMostRecentOperation();
+  expect(environmentMock.isLoading(generatedQuery, variables)).toBe(true);
   const loading = testInstance.findByProps({ 'data-testid': 'loading' });
   expect(loading).toBeDefined();
 
-  environment.mock.rejectMostRecentOperation(new Error('fail'));
-  expect(environment.mock.isLoading(query, variables)).toBe(false);
+  environmentMock.rejectMostRecentOperation(new Error('fail'));
+  expect(environmentMock.isLoading(generatedQuery, variables)).toBe(false);
   expect(testInstance.findAllByProps({ 'data-testid': 'loading' })).toHaveLength(0);
   const error = testInstance.findByProps({ 'data-testid': 'error' });
   expect(error).toBeDefined();
