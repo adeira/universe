@@ -257,7 +257,7 @@ module.exports = {
   'flowtype/no-mutable-array': OFF,
   'flowtype/no-primitive-constructor-types': WARN,
   'flowtype/no-types-missing-file-annotation': ERROR,
-  'flowtype/no-unused-expressions': ERROR,
+  'flowtype/no-unused-expressions': [ERROR, { allowTaggedTemplates: true }],
   'flowtype/no-weak-types': OFF,
   'flowtype/require-compound-type-alias': OFF,
   'flowtype/require-exact-type': OFF,

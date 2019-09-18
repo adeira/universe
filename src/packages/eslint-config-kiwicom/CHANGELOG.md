@@ -1,9 +1,12 @@
 # Unreleased
 
+# 8.1.0
+
 - Added `@kiwicom/eslint-config/nitro` as a replacement for deprecated `@kiwicom/eslint-config-nitro`.
 - Rules [`symbol-description`](https://eslint.org/docs/rules/symbol-description), [`yoda`](https://eslint.org/docs/rules/yoda), [`react/no-unknown-property`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md), [`react/jsx-no-comment-textnodes`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md) now throw errors in strict mode.
 - Rule [`react/style-prop-object`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md) now shows warnings (errors in strict mode).
 - New rule `relay/hook-required-argument` added (warnings or errors in strict mode).
+- Rule `flowtype/no-unused-expressions` now supports tagged templates. This is useful to combine with `@inline` GraphQL fragments definition for example.
 
 # 8.0.0
 

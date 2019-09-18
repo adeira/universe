@@ -4,7 +4,7 @@
   "homepage": "https://github.com/kiwicom/eslint-config-kiwicom",
   "license": "MIT",
   "private": false,
-  "version": "8.0.0",
+  "version": "8.1.0",
   "main": "index",
   "sideEffects": false,
   "dependencies": {
