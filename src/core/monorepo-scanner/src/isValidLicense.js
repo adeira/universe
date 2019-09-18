@@ -4,6 +4,9 @@ export default function isValidLicense(license: string): boolean %checks {
   return mitLicenseRegexp.test(license);
 }
 
+// TODO: Should we report this? Seems like the rule doesn't allow multiline RegExps but regex
+//  literal doesn't feel right in this case.
+// eslint-disable-next-line prefer-regex-literals
 const mitLicenseRegexp = new RegExp(
   `MIT License
 

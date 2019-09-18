@@ -77,6 +77,7 @@ Object {
     "constructor-super": 2,
     "curly": 0,
     "default-case": 0,
+    "default-param-last": 1,
     "dot-location": "off",
     "dot-notation": 2,
     "eol-last": "off",
@@ -444,6 +445,7 @@ Object {
     "no-implicit-coercion": 0,
     "no-implicit-globals": 0,
     "no-implied-eval": 2,
+    "no-import-assign": 1,
     "no-inline-comments": 0,
     "no-inner-declarations": 0,
     "no-invalid-regexp": 2,
@@ -613,6 +615,7 @@ Object {
     "prefer-object-spread": 0,
     "prefer-object-spread/prefer-object-spread": 1,
     "prefer-promise-reject-errors": 1,
+    "prefer-regex-literals": 1,
     "prefer-rest-params": 1,
     "prefer-spread": 1,
     "prefer-template": 2,
@@ -884,6 +887,21 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ --- --- @@
+      "default-case": 0,
+-     "default-param-last": 1,
++     "default-param-last": 2,
+      "dot-location": "off",
+@@ --- --- @@
+      "no-implied-eval": 2,
+-     "no-import-assign": 1,
++     "no-import-assign": 2,
+      "no-inline-comments": 0,
+@@ --- --- @@
+      "prefer-promise-reject-errors": 1,
+-     "prefer-regex-literals": 1,
++     "prefer-regex-literals": 2,
+      "prefer-rest-params": 1,
 @@ --- --- @@
       ],
 -     "react/jsx-no-comment-textnodes": 1,
