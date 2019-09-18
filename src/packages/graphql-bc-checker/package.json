@@ -13,9 +13,10 @@
   },
   "devDependencies": {
     "@kiwicom/test-utils": "^0.10.0",
-    "strip-ansi": "^5.2.0"
+    "strip-ansi": "^5.2.0",
+    "graphql": "^14.5.6"
   },
   "peerDependencies": {
-    "graphql": "^14.0.2"
+    "graphql": "^14.5.6"
   }
 }
