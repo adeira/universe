@@ -47,14 +47,9 @@ it('should not return any dangerous changes', () => {
   // Please note: this is currently broken and added here only so we can report it and later
   // verify it's fixed correctly.
 
-  expect(findDangerousChanges(deserializedSchema, originalSchema)).toMatchInlineSnapshot(`
-    Array [
-      Object {
-        "description": "RootQueryType.xxx arg yyy has changed defaultValue from {aaa: \\"aaa\\", bbb: \\"bbb\\"} to {bbb: \\"bbb\\", aaa: \\"aaa\\"}.",
-        "type": "ARG_DEFAULT_VALUE_CHANGE",
-      },
-    ]
-  `);
+  expect(findDangerousChanges(deserializedSchema, originalSchema)).toMatchInlineSnapshot(
+    `Array []`,
+  );
 
   expect(printedSchema).toMatchInlineSnapshot(`
     "schema {
