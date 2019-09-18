@@ -1,6 +1,6 @@
 # Unreleased
 
-- **Breaking**: Relay upgraded to the latest version 6.0.0 (see: https://github.com/facebook/relay/releases/tag/v6.0.0). We also added Flow interface for the new `LocalQueryRenderer` but please remember that this interface is currently experimental and doesn't have the same capabilities like our `QueryRenderer`. The interface is not finished yet and it may change in the future.
+- **Breaking**: Relay upgraded to the latest version 6.0.0 (see: https://github.com/facebook/relay/releases/tag/v6.0.0). We also added Flow interface for the new `LocalQueryRenderer` (with new `createLocalEnvironment`) but please remember that this interface is currently experimental and doesn't have the same capabilities like our `QueryRenderer`. The interface is not finished yet and it may change in the future.
 - **Breaking**: Direct usage of `relay-compiler` is no longer officially supported. Use `kiwicom-relay-compiler` instead.
 
 # 3.6.0

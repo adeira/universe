@@ -13,7 +13,6 @@ import {
 import createRequestHandler from './createRequestHandler';
 import type { Variables, Environment } from './types.flow';
 
-// we usually copy-paste this everywhere
 const source = new RecordSource();
 const store = new Store(source);
 

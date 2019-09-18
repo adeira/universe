@@ -1,18 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
-import { QueryRenderer, graphql } from '../index';
+import { QueryRenderer, graphql, createLocalEnvironment } from '../index';
 
 function placeholder() {
   return null;
 }
 
-const environment = new Environment({
-  network: Network.create(() => {}),
-  store: new Store(new RecordSource()),
-});
+const environment = createLocalEnvironment();
 
 module.exports = {
   minimalUsage() {

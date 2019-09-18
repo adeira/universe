@@ -1,19 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
-import { LocalQueryRenderer, graphql } from '../index';
+import { LocalQueryRenderer, graphql, createLocalEnvironment } from '../index';
 
 function placeholder() {
   return null;
 }
 
-const environment = new Environment({
-  network: Network.create(() => {}),
-  store: new Store(new RecordSource()),
-});
-
+const environment = createLocalEnvironment();
 const query = graphql`
   query LocalQueryRenderer {
     __typename
@@ -22,7 +17,7 @@ const query = graphql`
 
 module.exports = {
   minimalUsage() {
-    return <LocalQueryRenderer environment={environment} query={query} render={placeholder} />;
+    return <LocalQueryRenderer query={query} render={placeholder} />;
   },
   withUndefinedVariables() {
     return (
