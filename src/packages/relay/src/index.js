@@ -6,6 +6,7 @@ import {
 } from '@kiwicom/fetch';
 
 import createEnvironment from './createEnvironment';
+import createLocalEnvironment from './createLocalEnvironment';
 import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import commitLocalUpdate from './commitLocalUpdate';
 import commitMutation from './commitMutation';
@@ -18,10 +19,11 @@ import QueryRenderer from './QueryRenderer';
 import requestSubscription from './requestSubscription';
 
 module.exports = {
+  createEnvironment,
+  createLocalEnvironment,
+  createNetworkFetcher,
   FetchResponseError,
   FetchTimeoutError,
-  createEnvironment,
-  createNetworkFetcher,
 
   // Relay-specific things:
   commitLocalUpdate,

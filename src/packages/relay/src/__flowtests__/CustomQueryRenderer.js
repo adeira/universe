@@ -1,9 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import { Environment, Network, RecordSource, Store } from 'relay-runtime';
 
-import { QueryRenderer, graphql, type GraphQLTaggedNode } from '../index';
+import { QueryRenderer, graphql, type GraphQLTaggedNode, createLocalEnvironment } from '../index';
 
 function placeholder() {
   return null;
@@ -15,11 +14,7 @@ type Props = {|
 |};
 
 function CustomQueryRenderer(props: Props) {
-  const environment = new Environment({
-    network: Network.create(() => {}),
-    store: new Store(new RecordSource()),
-  });
-
+  const environment = createLocalEnvironment();
   return <QueryRenderer environment={environment} {...props} />;
 }
 

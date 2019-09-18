@@ -1,13 +1,8 @@
 // @flow
 
-import { Environment, Network, RecordSource, Store } from 'relay-runtime';
+import { commitMutation, graphql, createLocalEnvironment } from '../index';
 
-import { commitMutation, graphql } from '../index';
-
-const environment = new Environment({
-  network: Network.create(() => {}),
-  store: new Store(new RecordSource()),
-});
+const environment = createLocalEnvironment();
 
 function validUpdater(store) {
   const favorite = store.get('unique:ID');

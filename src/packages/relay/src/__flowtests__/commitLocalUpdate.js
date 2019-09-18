@@ -1,13 +1,8 @@
 // @flow
 
-import { Environment, Network, RecordSource, Store } from 'relay-runtime';
+import { commitLocalUpdate, createLocalEnvironment } from '../index';
 
-import { commitLocalUpdate } from '../index';
-
-const environment = new Environment({
-  network: Network.create(() => {}),
-  store: new Store(new RecordSource()),
-});
+const environment = createLocalEnvironment();
 
 module.exports = {
   validLocalUpdate() {
