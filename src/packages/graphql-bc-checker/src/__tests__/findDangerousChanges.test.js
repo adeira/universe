@@ -44,12 +44,10 @@ const printedSchema = printSchema(lexicographicSortSchema(originalSchema));
 const deserializedSchema = buildSchema(printedSchema);
 
 it('should not return any dangerous changes', () => {
-  // Please note: this is currently broken and added here only so we can report it and later
-  // verify it's fixed correctly.
+  // Please note: this is was previously broken so I am keeping the test here to make sure it still works correctly.
+  // See: https://github.com/graphql/graphql-js/issues/2150
 
-  expect(findDangerousChanges(deserializedSchema, originalSchema)).toMatchInlineSnapshot(
-    `Array []`,
-  );
+  expect(findDangerousChanges(deserializedSchema, originalSchema)).toEqual([]);
 
   expect(printedSchema).toMatchInlineSnapshot(`
     "schema {
@@ -65,5 +63,35 @@ it('should not return any dangerous changes', () => {
       xxx(yyy: Input! = {aaa: \\"aaa\\", bbb: \\"bbb\\"}): String
     }
     "
+  `);
+});
+
+it('should return dangerous changes', () => {
+  const changedSchema = new GraphQLSchema({
+    query: new GraphQLObjectType({
+      name: 'RootQueryType',
+      fields: {
+        xxx: {
+          type: GraphQLString,
+          args: {
+            yyy: {
+              type: GraphQLNonNull(input),
+              defaultValue: {
+                aaa: 'bbb', // default value changed here
+              },
+            },
+          },
+        },
+      },
+    }),
+  });
+
+  expect(findDangerousChanges(originalSchema, changedSchema)).toMatchInlineSnapshot(`
+    Array [
+      Object {
+        "description": "RootQueryType.xxx arg yyy has changed defaultValue from {aaa: \\"aaa\\", bbb: \\"bbb\\"} to {aaa: \\"bbb\\"}.",
+        "type": "ARG_DEFAULT_VALUE_CHANGE",
+      },
+    ]
   `);
 });
