@@ -25,6 +25,7 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/eslint-config',
       '@kiwicom/eslint-config-nitro',
       '@kiwicom/fetch',
+      '@kiwicom/flow-bin',
       '@kiwicom/graphql-bc-checker',
       '@kiwicom/graphql-global-id',
       '@kiwicom/graphql-resolve-wrapper',

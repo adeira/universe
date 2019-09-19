@@ -61,7 +61,9 @@ console.log(Array.from(workspaces)); // -> ['@kiwicom/workspace1', '@kiwicom/wor
 
 ## Working with changes (`Git`) _(unstable)_
 
-TODO
+_TODO_
+
+**Read carefully!** We assume that default branch is `master` (`origin/master` in fact because of how GitLab works). This is important to know because it may behave unpredictably when you call for example `getChangesToTest` and your default branch is _not_ master. This is currently not configurable.
 
 ## Glob
 
