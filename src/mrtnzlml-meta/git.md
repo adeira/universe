@@ -2,6 +2,7 @@
 - [Yarn Plug'n'Play Whitepaper](https://github.com/yarnpkg/rfcs/blob/master/accepted/0000-plug-an-play.md) (alternative: https://github.com/npm/tink)
 - https://chris.beams.io/posts/git-commit/
 - https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/13738951
+- https://medium.com/@porteneuve/fix-conflicts-only-once-with-git-rerere-7d116b2cec67
 
 What happened in last week?
 
