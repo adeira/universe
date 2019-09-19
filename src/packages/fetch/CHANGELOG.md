@@ -1,5 +1,7 @@
 # Unreleased
 
+# 2.5.0
+
 - HTTP status code 422 (Unprocessable entity) is now considered to be non-transient (no retries)
 
 # 2.4.0
