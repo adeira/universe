@@ -41,7 +41,7 @@ type NormalizationSplitOperation = {|
 function createNetwork(
   fetchFn: (...args: $ReadOnlyArray<any>) => any,
   subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
-  enableLogger: boolean = true,
+  enableLogger: boolean,
   graphiQLPrinter,
 ) {
   const fetch = createRequestHandler(fetchFn);
@@ -65,9 +65,10 @@ function handlerProvider(handle) {
 
 export default function createEnvironment(options: Options): Environment {
   const { fetchFn, subscribeFn, logger, graphiQLPrinter, ...rest } = options;
+  const enableLogger = logger ?? true;
   return new RelayEnvironment({
     handlerProvider,
-    network: createNetwork(fetchFn, subscribeFn, logger, graphiQLPrinter),
+    network: createNetwork(fetchFn, subscribeFn, enableLogger, graphiQLPrinter),
     store,
     ...rest,
   });
