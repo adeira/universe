@@ -126,7 +126,7 @@ export default function isObject(value: mixed): boolean %checks {
 }
 ```
 
-And MJS files contain JS version for modern environments (essentially JS version but with ES6 modules support):
+You can read more about [Flow Declaration Files here](https://flow.org/en/docs/declarations/). And MJS files contain JS version for modern environments (essentially JS version but with ES6 modules support):
 
 ```js
 import _typeof from '@babel/runtime/helpers/esm/typeof';
