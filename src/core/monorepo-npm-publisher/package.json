@@ -18,7 +18,7 @@
     "rimraf": "^3.0.0",
     "semver": "^6.3.0",
     "snapshot-diff": "^0.5.2",
-    "tar": "^4.4.10"
+    "tar": "^4.4.11"
   },
   "peerDependencies": {
     "@babel/core": "^7.6.0"

@@ -36,7 +36,7 @@
     "@kiwicom/test-utils": "^0.10.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.4.0",
-    "flow-bin": "^0.107.0",
+    "flow-bin": "^0.108.0",
     "jest": "^24.9.0",
     "react": "^16.8.0",
     "react-test-renderer": "^16.9.0",
