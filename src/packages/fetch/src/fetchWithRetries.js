@@ -143,6 +143,7 @@ export default function fetchWithRetries(
         400, // Bad Request (it's not gonna be better next time)
         401, // Unauthorized (request is not authorized - next time the same)
         403, // Forbidden (server understands but refuses to authorize)
+        422, // Unprocessable entity (wrong form body, unlikely to change from retry)
         429, // Too Many Requests (stop DDoS-ing, rate limiting); TODO: take into account `Retry-After` header https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After
 
         // TODO: consider every 4xx code?

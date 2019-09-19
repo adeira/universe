@@ -1,5 +1,7 @@
 # Unreleased
 
+- HTTP status code 422 (Unprocessable entity) is now considered to be non-transient (no retries)
+
 # 2.4.0
 
 - `@kiwicom/fetch` now overwrites default User-Agent string with our custom value so you can easily identify it.
