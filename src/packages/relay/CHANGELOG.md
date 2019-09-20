@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.1.0
+
 - Added typed `fetchQuery` to the public interface (see: https://relay.dev/docs/en/fetch-query)
 
 # 4.0.0
