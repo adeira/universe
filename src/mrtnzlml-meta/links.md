@@ -1,4 +1,5 @@
-chrome://chrome-urls/
+- chrome://chrome-urls/
+- https://explainshell.com/
 
 Collection of interesting links, articles and project...
 
