@@ -83,5 +83,8 @@ module.exports = {
     appId: '09I6T5ER2K',
     apiKey: '795adec8a2fcc91b8f914edcb2bc722c',
     indexName: 'universe-wiki',
+    algoliaOptions: {
+      facetFilters: ['language:LANGUAGE', 'version:VERSION'],
+    },
   },
 };
