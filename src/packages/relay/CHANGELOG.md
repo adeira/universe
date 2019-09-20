@@ -1,5 +1,7 @@
 # Unreleased
 
+- Expose new experimental `RelayEnvironmentProvider` component and `useRelayEnvironment` hook.
+
 # 4.1.0
 
 - Added typed `fetchQuery` to the public interface (see: https://relay.dev/docs/en/fetch-query)

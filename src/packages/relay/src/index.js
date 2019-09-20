@@ -17,7 +17,9 @@ import fetchQuery from './fetchQuery';
 import graphql from './graphql';
 import LocalQueryRenderer from './LocalQueryRenderer';
 import QueryRenderer from './QueryRenderer';
+import RelayEnvironmentProvider from './RelayEnvironmentProvider';
 import requestSubscription from './requestSubscription';
+import useRelayEnvironment from './hooks/useRelayEnvironment';
 
 module.exports = {
   createEnvironment,
@@ -37,6 +39,10 @@ module.exports = {
   LocalQueryRenderer,
   QueryRenderer,
   requestSubscription,
+
+  // Experimental Relay-specific things (not officially released yet):
+  RelayEnvironmentProvider,
+  useRelayEnvironment,
 };
 
 export type { RelayProp } from './createFragmentContainer';
