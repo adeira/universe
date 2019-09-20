@@ -9,9 +9,10 @@ import { sprintf } from '@kiwicom/js';
 import type { ILogger } from './ILogger';
 
 const sprintfFormat = format.printf(info => {
-  const { level, message: rawMessage, [SPLAT]: splat } = info;
-  const message = splat === undefined ? rawMessage : sprintf(rawMessage, ...splat);
-  return `${level}: ${message}`;
+  // We do not return 'level' here since the API is trying to be similar to 'console.log' and
+  // console doesn't print the level.
+  const { message: rawMessage, [SPLAT]: splat } = info;
+  return splat === undefined ? rawMessage : sprintf(rawMessage, ...splat);
 });
 
 /**
@@ -35,15 +36,15 @@ export default class NodejsLogger implements ILogger {
       ],
     });
 
-    const formats = [format.errors({ stack: true })];
-    if (__DEV__) {
-      formats.push(format.colorize());
-    }
-    formats.push(sprintfFormat); // must go after `colorize`
     winston.loggers.add('localhost', {
       exitOnError: false,
-      format: format.combine(...formats),
-      transports: [new transports.Console()],
+      format: format.combine(format.errors({ stack: true }), sprintfFormat),
+      transports: [
+        new transports.Console({
+          consoleWarnLevels: ['warn'],
+          stderrLevels: ['error'],
+        }),
+      ],
     });
   }
 
