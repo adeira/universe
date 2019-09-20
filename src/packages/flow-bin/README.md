@@ -36,14 +36,15 @@ flow:
   stage: test
   image: node:$NODEJS_VERSION
   tags: [high-performance]
-  <<: *retry_on_failure
   script:
     - yarn install --offline --frozen-lockfile
     - yarn run kiwicom-flow-bin
   cache:
-    # We are sharing the saved state between all branches: this should allow us to reuse the
-    # saved state much more (it's not a good idea to rebuild it every time for every new MR).
-    key: ${CI_JOB_NAME}
+    # Ideally, we'd cache the saved state only on master and reuse it in other jobs. We should also
+    # reuse only one runner to ensure maximum availability of the cache (see: https://docs.gitlab.com/ee/ci/caching/#good-caching-practices).
+    # Note: do not cache per CI_JOB_NAME! It's because some branches can introduce new files into
+    # saved state which won't be available in other branches (Flow will fail on missing file).
+    key: ${CI_COMMIT_REF_SLUG}
     paths:
       - .flow.saved_state
 ```
@@ -53,18 +54,18 @@ flow:
 Complete re-check (`restart --all`) will take a long time. We run many optimizations by default. Notably we are running Flow in Lazy Mode and we are trying to re-use Saved State when possible. Lazy Mode and Saved State are currently not configurable from outside since it should not be needed. Here are some approximate example timings (on 12356 relevant files):
 
 ```text
-yarn typecheck (first run)      ~13s      (cold start, lazy mode, no saved state) ❌
-yarn typecheck (second run)     ~3s       (hot start, lazy mode, saved state) ✅
-yarn typecheck restart          ~8s       (cold start, lazy mode, saved state) ❌
-yarn typecheck restart --all    ~22s      (cold start, no lazy mode, no saved state) ❌
-./node_modules/.bin/flow        ~0.14s    (just consulting already running and optimized server)
+yarn kiwicom-flow-bin (first run)      ~13s      (cold start, lazy mode, no saved state) ❌
+yarn kiwicom-flow-bin (second run)     ~3s       (hot start, lazy mode, saved state) ✅
+yarn kiwicom-flow-bin restart          ~8s       (cold start, lazy mode, saved state) ❌
+yarn kiwicom-flow-bin restart --all    ~22s      (cold start, no lazy mode, no saved state) ❌
+./node_modules/.bin/flow               ~0.14s    (just consulting already running and optimized server)
 ```
 
-Please note: these times are still significantly affected by Babel transpilation process as well as the fact that we sometimes do more things than necessary (server shutdown, force recheck). The best performing setup for local development is currently this:
+Please note: these times are still significantly affected by Babel transpilation process as well as the fact that we sometimes do more things than necessary (server shutdown, force recheck, save state). The best performing setup for local development is currently this:
 
 ```
-yarn typecheck    (this will start server and set all optimizations)
-yarn flow         (this runs Flow directly on already optimized server)
+yarn kiwicom-flow-bin    (this will start server and set all optimizations)
+yarn flow                (this runs Flow directly on already optimized server)
 ```
 
 # Additional resources
