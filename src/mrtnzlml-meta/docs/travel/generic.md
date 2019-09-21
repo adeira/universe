@@ -1,3 +1,9 @@
+---
+id: generic
+title: Generic info
+sidebar_label: Generic info
+---
+
 You can consider this document to be a checklist for your travels. But first - you should start with this article: [Digital Nomads Are Not the Future](https://medium.com/s/story/digital-nomads-are-not-the-future-be360c7911b4)
 
 - [ ] check expiration of your ID, passport, credit cards, vaccination
@@ -11,7 +17,7 @@ https://packhacker.com/guide/working-remotely/
 
 **https://www.vox.com/a/borders**
 
-# Travel info
+## Travel info
 Need to know something about your new destination? This will help you:
 
 - **https://nomadlist.com/**
@@ -26,31 +32,31 @@ Need to know something about your new destination? This will help you:
 - https://www.atlasobscura.com/
 - https://www.kiwi.com/, https://greatescape.co/
 
-# Accommodation
+## Accommodation
 - https://www.airbnb.com/ + combine with https://hoodmaps.com/
 - https://www.sleepinginairports.net/
 - https://www.hoteltonight.com/
 - https://www.beroomers.com/ (I actually never tried)
 
-# Visa
+## Visa
 - **https://www.visahq.com/**
 - https://www.visahq.com/map-requirements/czech-republic/resident-czech-republic/tourist-visa
 - https://en.wikipedia.org/wiki/Visa_requirements_for_Czech_citizens
 - https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area
 
-# Travel insurance
+## Travel insurance
 - https://www.truetraveller.com/
 - https://safetywing.com/ (testing now)
 - https://www.revolut.com/ (40 days included in the Premium, cannot combine with other providers)
 
-# Expenses and money abroad
+## Expenses and money abroad
 Traveling can be really expensive. One advice for you: live like you do normally in your hometown. So if you are not used to visit restaurants every day - don’t do it in different countries. These links will help you to keep your eye on your money:
 
 - https://www.numbeo.com/cost-of-living/
 - https://www.revolut.com/ (usually free withdrawals in different currencies)
 - https://transferwise.com/borderless-account
 
-# Mobile Internet
+## Mobile Internet
 Consider if you really need it. It’s actually quite fun to travel without it because you need to step out of your comfort zone. But if you cannot be without it check this website:
 
 - http://prepaid-data-sim-card.wikia.com/wiki/Prepaid_SIM_with_data
@@ -58,15 +64,15 @@ Consider if you really need it. It’s actually quite fun to travel without it b
 
 Providers I actually tried:
 
-## Peru
+### Peru
 
 - [Claro](http://www.claro.com.pe/personas/) - 3 GB for 30 Soles (end of 2018)
 
-## Mexico
+### Mexico
 
 - [Telcel](https://www.telcel.com/)
 
-# Powerrr!
+## Powerrr!
 
 - https://www.worldstandards.eu/electricity/plug-voltage-by-country/
 - http://www.skross.com/en/category/9/world-travel-adapter.html (robust, big)
@@ -76,35 +82,35 @@ Providers I actually tried:
 
 Protip: consider if you need a big powerbank (they are heavy). For example I have this one. Huge capacity but weight 340g - do you need such a capacity? :)
 
-# Gear
+## Gear
 Looking for really durable bag, jacket or just something nice to have? These links will help you:
 
 - https://packhacker.com/travel-gear/
 - https://nomadlist.com/gear
 
-# Miscellaneous
+## Miscellaneous
 - **https://drozd.mzv.cz/** (for czech people only)
 - https://github.com/cbovis/awesome-digital-nomads
 - https://www.reddit.com/r/AskReddit/comments/7mfk4y/frequent_flyers_of_reddit_what_are_your_airport/dru6ve3/
 - https://www.passportindex.org/
 - https://my.flightradar24.com/
 
-# Coworkings
+## Coworkings
 These are coworking I actually visited. Highlighted coworkings are really good.
 
-## Barcelona:
+### Barcelona:
 - **https://aticcobarcelona.com/**
 - http://www.mob-barcelona.com/
   - feels crowded, like a dungeon
   - zero community, cool café though
 
-## Cape Town:
+### Cape Town:
 - **http://spinstreet.co/**
   - one of the best coworkings I've ever visited
   - great community, speedy internet, cool people and events
   - latest report from the cowo is that community went down
 
-## Lima
+### Lima
 - https://comunal.co/
   - corporate office buildings with coworking as a side business
   - zero community but you have access to their buildings all over the city which can be handy
@@ -113,13 +119,13 @@ These are coworking I actually visited. Highlighted coworkings are really good.
   - you have to sign 9 pages of contract in Spanish
   - it's quite expensive and the only option how to pay for the cowo was to go personally to a local bank
 
-## Marrakech:
+### Marrakech:
 - http://www.thespot.ma/
   - good location, friendly staff
   - zero community
   - no free water, free coffee/tea
 
-## Mexico City:
+### Mexico City:
 - http://www.homework.com.mx/
   - zero community, stupid chairs
   - can be quite noisy but absolutely amazing location in CDMX
@@ -129,12 +135,12 @@ These are coworking I actually visited. Highlighted coworkings are really good.
 - https://mexicocity.impacthub.net/
   - free coffee/water
 
-## Prague:
+### Prague:
 - **http://opero.cz/en**
   - beautiful environment
   - café in the building but zero community
 
-## Thailand:
+### Thailand:
 - **http://kohub.org/** (Ko Lanta)
   - great community, awesome internal system
   - kitchen with awesome food and breakfast
@@ -143,6 +149,6 @@ These are coworking I actually visited. Highlighted coworkings are really good.
   - zero community
   - stupid tables but great and welcoming staff in a nice building
 
-# The Problems in Remote Working
+## The Problems in Remote Working
 
 Issues are loneliness, ability to disconnect, distractions (cats on keyboards 🐱), missing out on watercooler talk & poor quality communications tools. Also, remote members fear their work is judged more. https://medium.com/@rrhoover/the-problems-in-remote-working-1a6f165585d

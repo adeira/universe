@@ -1,4 +1,11 @@
+---
+id: flow
+title: Flow
+sidebar_label: Flow
+---
+
 - **https://flow.org/en/docs/faq/**
+- https://github.com/facebook/flow/wiki
 - https://github.com/wgao19/flow-notes
 - https://github.com/facebook/flow/blob/master/Changelog.md
 - https://github.com/niieani/typescript-vs-flowtype
@@ -14,11 +21,11 @@ Showerthoughts:
 
 > flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
 
-# The New Spread Model
+## The New Spread Model
 
 Part 1: https://medium.com/flow-type/coming-soon-changes-to-object-spreads-73204aef84e1
 
-# `RestrictedElement<typeof MenuItem>`
+## `RestrictedElement<typeof MenuItem>`
 
 [flow.org/try](https://flow.org/try/#0PTAEAEDMBsHsHcBQjgCpQFMDO0CWA7AFwFoATXLAQwCNoNRVhkBjWfLQ0AJQ0uc4C8oAE4YAjgFdcogBQByUX0JyAlAG5khAJ4AHegDEJ+frjYBhWAFsdbDER75SGYQB4A1ABUHT4QD5QQjI6wrA6WABcoJT4WioB-l52PhqI2nqgZtCUWFgW1rb2Sc7uiY7O-kKZ2VguiKDcvPwAJHk2+HaELtFaADRRMf4AZKAEhM6QfPQA3iJFwjIqkaU+oAC+PYi+KRgAHjbCnGn0PBzCuPwYpACidJYdJTcYd0QeuhiRPEpNj8+Er3oVUBTAA+dVAbiO4TB9WBoA8Pw6-ww0NAsKqOVaBUI3mKJ0IZwu11u93hxJeb18vhRsMMxkIpnwmPahTKrjxBLGRKeJIR5IBvg29TcwVCEX6vVAIDhAAt6CKwqAjiMsFFoIpSFpQMxKDpCBJRKQRvhFbLFW9QJBcBhoKRBZKwNFDRIsAQAOagXmEAAKIQVomY+pdADdrZrtcbXRhOCHhJrdnp2LgQwA6UAASXYY0opDBUtgkFAOkoWjdFtgwhNlE4rGsEkIVYZfTToCczFwTkNhFgoGd9G6yCFAGsMFoPo1CE0ANIj1GgfASaDQO1uUSQSLdDbA1YpKUATVgEi10Uw+Eg5eY9BrNhd9LYlGgharY2E7FA8FwhGlDVO505nqhzBZDkoAALJ2BIaZjJYmA7GMjgqp8-DJky9wglu-hTKsiCAdUoHgQAyhgRbCFW5YwXBpAIeOyFWG0qHAuhQJYThwFgfO5FJFRSg0fkzKdCCYLMNKuA2qI+BjtxZjCaJdgAILCCRWi1PU9Tsr+lyei4Rz5nh86QU8-iwmphKadpBZsRIhHEaRfh2gKiCMZh2FASqABysCELJFkoUQHHwQ0km0ViLhoasGFYSgYCyYuJqXtJpBiWaegqvecDwJcybYWwHCKtghAAIwBKAMhgi4FlUipoBleB+nQcAFUqdV85WZQJFdhW9WlcA5WIOoyBSu5nneUFfHKnOHn9KqaWXFq8WZawma5RwABMRUlfUTUSA1G0WbVkrbVVFktW1ZGdZVUxoKATT6GlVx7BgJkKeWkSDV54E+ZwFDjZwqUIDNBCxbMP6ErNIkJXYmBkoQWAogwRq6YeV5YqmADy+DQJqu1Qf0hpHURrU2VEohTX9pCpoAoOQMMAWGVS4r3DbxHT7V1PV9c5uE4sIWBvXp2O7BRXFIR9IUMWFQJgmJPgLBJSGmW8OlYwZ4uVaIeovodNXY-VGj1FhEULTlYwcAAzGtpU9bTit1Qdm3HYTZ2NZz3NW8zG3deBVJsyxVGslg+FWFGwn4K6HjSlWTs8xBfOwZxAVCyN9GObmYD7oeiiLpqWDSgeNqgAAVs6nC9t++LqVyvygLKoh9NQdbpm+0SEMnirdk4ljZfiVb0J+9AwLsuDUCJH5aJl9SS840tx4QyZy3oOkR1bGEoqr+rGi4C+a08+062siARVKIHlt3YfGoVdAhg+ThEVli1G4QAAsZs7R7KKbXtDvP81+MnR1NtO-7dxPxulDuHOYztN7WxZi-NmUoABCuBXSRhyglSg8BqB8EHMVXA7c4hfU-FWUAslqCnCUB9ZU+A5DVlog2Wg9B3yfkiiaL6RZCDPnwKmZs8BG4t1mtESMlZCAAEJipBlwJQSurCwjhBAK6D80oJDUGTDWYAedqAhHgPgZa+UACsKhEBAA), alternative to: https://flow.org/en/docs/react/children/#toc-only-allowing-a-specific-element-type-as-children
 
@@ -83,7 +90,7 @@ const testSmart = (
 );
 ```
 
-# Unsealed objects in Flow
+## Unsealed objects in Flow
 
 https://flow.org/en/docs/types/objects/#toc-unsealed-objects
 
@@ -115,13 +122,13 @@ const foo4: Foo = Object.freeze({})   // alternatively
 
 https://github.com/facebook/flow/issues/7566#issuecomment-526534111
 
-# Oncalls in Facebook (Flow related)
+## Oncalls in Facebook (Flow related)
 
 > so the way it works is that the Flow team has a rotating oncall. it's relatively calm as oncalls go (we aren't getting woken up in the middle of the night), but whoever is oncall is responsible for doing support (we have an internal group where people can ask questions), and also responsible for taking the lead if something goes wrong with Flow or the various related integrations we have. near the beginning of the year we also made it so that the oncall is responsible for addressing libdef and documentation PRs, since there is usually no clear owner for those, and pretty much anyone should be able to review them
 
 (source Discord)
 
-# Sound vs. complete
+## Sound vs. complete
 
 > A sound type system (or analysis) is one that rejects all erroneous programs, and a complete system accepts all correct programs.
 
@@ -134,7 +141,7 @@ Please note: not everything can be expressed/modeled in your type system so you 
 
 > Programmers dislike having the computer reject a program that would have run fine, simply because the computer couldn’t make sure it would run fine without actually running it. In short, restrictive type systems drive programmers to more flexible environments.
 
-# Contributing to native libdevs
+## Contributing to native libdevs
 
 https://github.com/facebook/flow#building-flow
 
@@ -148,7 +155,7 @@ Note:
 
 > `make build-flow-debug` should be faster
 
-# Saved state
+## Saved state
 
 Saved state allows you to save internal Flow state to your filesystem (`.flow.saved_state` filename is important):
 
@@ -304,13 +311,13 @@ That's a huge improvement (from original cold start 17s to cold start 3s). Don't
 - https://github.com/facebook/flow/commit/a65982f3adccd7faab86d55871803a07b26f8394
 - https://github.com/facebook/flow/blob/2f02130fe8fdc195b41fb6ee4c2c97aae9f35268/tests/saved_state_init_recheck/test.sh
 
-# Trust mode
+## Trust mode
 
 _TODO_
 
 https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
 
-# `[rollouts]` config
+## `[rollouts]` config
 
 The optional rollout section has 0 or more lines. Each line defines a single rollout. For example:
 
@@ -333,7 +340,7 @@ verify_sig=0% on, 100% off
 
 See: https://github.com/facebook/flow/pull/8018/files
 
-# Enums
+## Enums
 
 ```js
 const Enum = Object.freeze({
@@ -361,7 +368,7 @@ See: https://github.com/facebook/flow/commit/7c3390f7dcf886b0b39acfa505446614641
 
 Please note: this only works when you define the object with values inside `Object.freeze`. Similar but alternative approach: https://github.com/facebook/flow/issues/627#issuecomment-389668600
 
-## Large unions (simple enums) performance
+### Large unions (simple enums) performance
 
 > I've been working on this recently so I can give you an overview. Essentially the reasons large unions are slow is that the amount of work Flow needs to do can grow exponentially with the size of the union. To determine if a union is a valid subtype of another type, we need to consider whether every single element of the union is a valid subtype, while to determine if it's a supertype we need to check if at least one of its cases is a supertype. If the union isn't actually a supertype we end up needing to check every case. Where this gets really bad is when we compare two union types, and this can easily result in an exponential case where we need to perform a lot of work for every single combination of union cases.
 
@@ -369,7 +376,7 @@ Please note: this only works when you define the object with values inside `Obje
 
 Thanks @sainati on Discord.
 
-# Callable objects
+## Callable objects
 
 ```js
 type MemoizedFactorial = {
@@ -396,7 +403,7 @@ const factorial: MemoizedFactorial = n => {
 - https://github.com/facebook/flow/commit/954a72704a6338778c940239573045b28c716488
 - https://github.com/facebook/flow/commit/732eae55e102cdb7dfa7b6a85f0147d48c3afed7
 
-# `$Flow$DebugPrint`, `$Flow$DebugThrow`, `$Flow$DebugSleep`
+## `$Flow$DebugPrint`, `$Flow$DebugThrow`, `$Flow$DebugSleep`
 
 Throw and sleep are not very useful in normal code. Throw kills Flow and sleep adds delay in seconds. More useful is debug print which prints debug information:
 
@@ -442,7 +449,7 @@ Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈�
 Found 1 error
 ```
 
-# Interesting Flow commands
+## Interesting Flow commands
 
 ```text
 y flow graph cycle src/incubator/graphql/src/public/FAQ/types/outputs/FAQArticle.js
@@ -466,14 +473,14 @@ y flow check --profile
 
 [source](https://stackoverflow.com/a/40569640/3135248)
 
-# Exact Objects by Default
+## Exact Objects by Default
 
 TODO
 
 - https://medium.com/flow-type/on-the-roadmap-exact-objects-by-default-16b72933c5cf
 - https://github.com/facebook/flow/commit/1ac913040f38309480934ccb6717a3ffc65094a8
 
-# Private object properties
+## Private object properties
 
 ```js
 class Thing {
@@ -495,7 +502,7 @@ class Thing {
 
 - https://github.com/tc39/proposal-class-fields#private-fields
 
-# Exhaustive checking with empty type
+## Exhaustive checking with empty type
 
 [flow.org/try](https://flow.org/try/#0C4TwDgpgBAwghgZwgqBeKByAghqAfTAIQwG4AoMgMwFcA7AY2AEsB7WqCADwAs5qFgACk4AuWImQBKKAG8yUKE0pRhaVOmwZpchQoD0eqABMWUAdUqV5UAL4cANkkXLV6jcW3X9hk8aWUIACcIWmAzYAsrBTsIR2gdXQMoNnsQKGBA6mglKAB3aF5aI3sIIyg4e3soegkELxVRDgBbMFBJcmiyGzIgA)
 
@@ -518,7 +525,7 @@ function exhaust(x: Cases) {
 - https://medium.com/@ibosz/advance-flow-type-1-exhaustive-checking-with-empty-type-a02e503cd3a0
 - https://github.com/facebook/flow/pull/7655/files
 
-# Predicate functions with `%checks`
+## Predicate functions with `%checks`
 
 `%checks` is an experimental predicate type. Check this code (no Flow errors):
 
@@ -574,7 +581,7 @@ declare function isSchema(schema: mixed): boolean %checks(schema instanceof Grap
 - https://github.com/facebook/flow/issues/3048
 - https://github.com/facebook/flow/issues/34
 
-# Difference between `&` and `...`
+## Difference between `&` and `...`
 
 It's easy to misunderstand the difference between intersection types (`A & B`) and spreading types (`{ ...A, b:boolean }`) in Flow.
 
@@ -622,20 +629,20 @@ No errors!
 
 - https://www.knyz.org/blog/post/flow-union-intersection-spead/
 
-# `@flow` pragma consequences
+## `@flow` pragma consequences
 
 1. `/*:: ... */` and `/*: ... */` comments have special meaning (https://flow.org/en/docs/types/comments/)
 2. `a<b>(c)` becomes a type argument, rather than `((a < b) > c)`
 
 https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 
-# Conditions in Flow using `$Call`
+## Conditions in Flow using `$Call`
 
 - https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
 - https://flow.org/en/docs/types/utilities/#toc-call
 - https://github.com/niieani/typescript-vs-flowtype/issues/37
 
-# Advanced debugging
+## Advanced debugging
 
 `yarn flow` errors may be sometimes very cryptic:
 
@@ -699,7 +706,7 @@ Cannot call await with context.dataLoaders.autobooking.getResult(...) bound to p
 
 You can eventually use `yarn flow check --traces 100`
 
-# Common configuration issues
+## Common configuration issues
 
 1. Accidentally disabled flow for ALL JavaScript files
 
@@ -714,9 +721,9 @@ See: https://flow.org/en/docs/config/options/#toc-module-file-ext-string
 
 See: https://github.com/facebook/flow/pull/5850
 
-# Fun with Flow
+## Fun with Flow
 
-## `boolean` is incompatible with `true | false`
+### `boolean` is incompatible with `true | false`
 
 ```js
 declare function foo(true | false): void
@@ -738,7 +745,7 @@ References:
 
 https://github.com/facebook/flow/issues/4196
 
-## `mixed` type cannot be exhaused
+### `mixed` type cannot be exhaused
 
 ```js
 function test(x: mixed) {
@@ -753,7 +760,7 @@ function test(x: mixed) {
 
 One solution is to manually define your custom mixed type which [can be exhausted](https://flow.org/try/#0PTAEAEDMBsHsHcBQiAuBPADgU1AWTbgJYAeWAJqALyiKigA+oAbrIRbQ6AHYCu00NOo14BbAEZYAToM4BnFJMJcA5jMZjYsaFgCGXNaADeAOlMBfAwEFJknWgA8+IqTIA+AwApTxnZOWyALjwCEnIAbQBdAEoqdydQsg46GgBjWC55UBxqDx0g+UUVABpmIPiXGMp3QzNkLA8AcgaSgEYoxHqmktz8hSVlErEg0QlJSuqzKKA).
 
-## Possibly undefined array elements
+### Possibly undefined array elements
 
 None of the typing systems can handle this correctly, all show no error during static analysis (but could be runtime error).
 
@@ -781,7 +788,7 @@ let b: int = a[10]  // undefined
 let c = b * 2
 ```
 
-# Flow shenanigans
+## Flow shenanigans
 
 ```js
 const [w, a, t] = {p: ''}; // no error
@@ -797,7 +804,7 @@ const foo: {} = '';
 
 https://www.typescriptlang.org/play/index.html#code/MYewdgzgLgBAZiEAuGBvAvjAvDA5LgbiA
 
-# Typescript shenanigans
+## Typescript shenanigans
 
 Typescript types are exact by default but only on declaration. This means it [won't catch](https://typescript-play.js.org/#code/C4TwDgpgBAqgzhATlAvFA3gKClArgxAOwEMBbCALijmEQEtCBzAGmyglOLoBsqb6mmAL6ZMAYwD2hGngIBGKvCSoMbAHQb0spCXJUA5AA99UIcyjrN7TjwMgTZy2q2HXdh6xwhv78zgD0-lAAPKFQUtwgUMAAFnRwUABmXNxwwqKS0sDaiABMigQqWDgazjm6lFBGHhYlVhwp7qaeUKUublX2zelAA) cases like this:
 

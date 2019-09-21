@@ -1,10 +1,16 @@
+---
+id: javascript
+title: JavaScript
+sidebar_label: JavaScript
+---
+
 - http://exploringjs.com/es6/
 - https://ponyfoo.com/articles/es6
 - https://developer.mozilla.org/en-US/docs/Web
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
-# Beyond console.log()
+## Beyond console.log()
 
 https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 
@@ -17,7 +23,7 @@ https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 - `console.time/timeEnd`
 - `console.group/groupCollapsed/groupEnd`
 
-# Optional chaining gotchas
+## Optional chaining gotchas
 
 ```js
 (function() {
@@ -30,7 +36,7 @@ https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 - https://v8.dev/features/optional-chaining
 - https://github.com/tc39/proposal-optional-chaining/commit/87e408d375bd749b21d70e65bd0cbbf57d9bcf82
 
-# Node.js LTS or not?
+## Node.js LTS or not?
 
 > Node LTS is primarily aimed at enterprise use where there may be more resistance to frequent updates, extensive procurement procedures and lengthy test and quality requirements.
 
@@ -38,16 +44,16 @@ https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 
 https://stackoverflow.com/a/34655149/3135248
 
-# Does it mutate 😱
+## Does it mutate 😱
 
 - https://doesitmutate.xyz/
 - https://stackoverflow.com/a/9009934/3135248
 
-# Jest: test.concurrent( ... )
+## Jest: test.concurrent( ... )
 
 TODO: https://github.com/facebook/jest/pull/1688/files
 
-# V8 Built-in functions
+## V8 Built-in functions
 
 - https://v8.dev/docs/builtin-functions
 - https://github.com/v8/v8/blob/master/src/runtime/runtime.h
@@ -85,7 +91,7 @@ Root: (Isolate)
 -------------------------------------------------
 ```
 
-# Yarn comments in `package.json`
+## Yarn comments in `package.json`
 
 ```json
 {
@@ -104,7 +110,7 @@ Root: (Isolate)
 
 https://github.com/yarnpkg/yarn/pull/3829/files (also great example of `test.concurrent` usage ^^)
 
-# Clearing/resetting/restoring Jest mocks
+## Clearing/resetting/restoring Jest mocks
 
 I am never gonna remember this correctly I guess.
 
@@ -114,7 +120,7 @@ I am never gonna remember this correctly I guess.
 
 https://github.com/facebook/jest/issues/5143
 
-# Splitting string
+## Splitting string
 
 ```js
 "I 💖 U".split(' ');   // ✅: [ 'I', '💖', 'U' ]
@@ -133,7 +139,7 @@ More info: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referen
 
 Please note - it's still a bit more complicated. Read this: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split#Reversing_a_String_using_split()
 
-# isObject()
+## isObject()
 
 ```js
 function isObject(value): boolean %checks {
@@ -149,7 +155,7 @@ function isObject(item) {
 }
 ```
 
-# Is this string/number a number?
+## Is this string/number a number?
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
 
@@ -198,7 +204,7 @@ Number.isFinite = Number.isFinite || function(value) {
 }
 ```
 
-# Dangerous getters
+## Dangerous getters
 
 ```js
 // @flow
@@ -243,7 +249,7 @@ Unfortunatelly, Flow cannot uncover this version (which can also explode):
 {y.address && y.address.fullAddress && <Text>{y.address.fullAddress}</Text>}
 ```
 
-# Dependency injection
+## Dependency injection
 
 - https://adonisjs.com/docs/4.1/ioc-container
 - http://krasimirtsonev.com/blog/article/Dependency-injection-in-JavaScript
@@ -252,7 +258,7 @@ Unfortunatelly, Flow cannot uncover this version (which can also explode):
 - https://www.yusufaytas.com/dependency-injection-in-javascript/
 - https://github.com/inversify/InversifyJS/
 
-# Fun with JavaScript
+## Fun with JavaScript
 
 Sleep sort:
 

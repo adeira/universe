@@ -1,3 +1,9 @@
+---
+id: relay
+title: Relay
+sidebar_label: Relay
+---
+
 Useful Links:
 
 - https://github.com/kiwicom/relay-example
@@ -20,7 +26,7 @@ This file describes experimental and more advanced Relay features. It can be ver
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
-# How to test latest unreleased changes from Relay master?
+## How to test latest unreleased changes from Relay master?
 
 These changes are unreleased so you cannot easily install (uncompiled) master from NPM and use it. The easiest way how to try master is to clone Relay somewhere and run `yarn install` in the root. This will not only install all the necessary dependencies but also compile Relay packages. Now, just replace your versions with file paths in `package.json`:
 
@@ -46,11 +52,11 @@ index 45a44734..99be1766 100644
 
 Do not forget to run `yarn install` in your project as well.
 
-# Relay Config
+## Relay Config
 
 See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
-# New Connection Model
+## New Connection Model
 
 `@connection_resolver(resolver: "FeedbackCommentsResolver")`
 
@@ -64,11 +70,11 @@ See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba2
 - https://github.com/facebook/relay/commit/7eac6f61b968df93f30f1fbbdf9371ed4b74845a
 - https://github.com/facebook/relay/commit/c203d54e75d71e0ca1c2c3c8385f7814a5729dfe
 
-# `LocalQueryRenderer`
+## `LocalQueryRenderer`
 
 - https://github.com/mrtnzlml/relay/pull/447/files
 
-# `@raw_response_type`
+## `@raw_response_type`
 
 See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
 
@@ -82,7 +88,7 @@ query ViewerQuery @raw_response_type {
 }
 ```
 
-# Local schema
+## Local schema
 
 First define local schema (`schema.local.graphql`):
 
@@ -179,7 +185,7 @@ export const setLocal = (query: GraphQLTaggedNode, localData: object) => {
 
 ([source](https://github.com/facebook/relay/issues/1656#issuecomment-509220117))
 
-# Client field via `@__clientField(handle: " ... ")`
+## Client field via `@__clientField(handle: " ... ")`
 
 > This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
 
@@ -223,17 +229,17 @@ Don't forget to run Relay compiler after you add these changes.
 
 More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
 
-# @connection(handler: "custom_handler", ...)
+## @connection(handler: "custom_handler", ...)
 
 It is possible to specify custom handler when using `@connection`. This way you can define custom behavior and effectively completely replace the default `RelayConnectionHandler`. This handler must be added to the `handlerProvider` (default is `connection` handler for the raw `@connection`). This is how [default Relay handler provider looks like](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/handlers/RelayDefaultHandlerProvider.js).
 
 See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
-# @connection(dynamicKey_UNSTABLE: $someVariable, ...)
+## @connection(dynamicKey_UNSTABLE: $someVariable, ...)
 
 See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
 
-# RelayResponseNormalizer: `handleStrippedNulls`
+## RelayResponseNormalizer: `handleStrippedNulls`
 
 Relay is able to recover completely missing fields in the response. You can use this knowledge to optimize JSON response from the server. Let's say this is our incoming payload from the server:
 
@@ -292,7 +298,7 @@ Relay will show you this warning in this console (dev mode only):
 
 See: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
-# Relay hooks `useQuery`, `useFragment`, `usePaginationFragment`, `useRefetchableFragment`, `useBlockingPaginationFragment`, `useLegacyPaginationFragment`
+## Relay hooks `useQuery`, `useFragment`, `usePaginationFragment`, `useRefetchableFragment`, `useBlockingPaginationFragment`, `useLegacyPaginationFragment`
 
 TODO:
 
@@ -304,7 +310,7 @@ TODO:
 - https://github.com/levels3d/offblast
 - https://github.com/relayjs/eslint-plugin-relay/pull/67/files
 
-# @match, @module
+## @match, @module
 
 These directives allow you to lazily load union results. First, it requires `JSDependency` GraphQL scalar. Next it's necessary to use Union field with this shape:
 
@@ -373,7 +379,7 @@ _still researching_
 - https://github.com/relayjs/relay-examples/pull/95
 - https://github.com/relayjs/relay-examples/pull/96
 
-# @refetchable(queryName: " ... ")
+## @refetchable(queryName: " ... ")
 
 Currently broken: https://github.com/facebook/relay/issues/2713
 
@@ -413,14 +419,14 @@ Refetch containers are only really meant to be used when you are changing variab
 
 https://github.com/facebook/relay/issues/2244#issuecomment-355054944
 
-# @defer, @stream, @stream_connection
+## @defer, @stream, @stream_connection
 
 TODO
 
 - https://github.com/mrtnzlml/relay/pull/172/commits
 - https://github.com/facebook/relay/commit/225cfb60cccdbb649ab16a13ed607de749992d21
 
-# @inline ???
+## @inline ???
 
 ```js
 /**
@@ -435,7 +441,7 @@ TODO
 - https://github.com/facebook/relay/commit/68745c719401c3be01d022f1617525daac69cfa1
 - https://github.com/mrtnzlml/relay/pull/442/commits
 
-# Uploadables
+## Uploadables
 
 Sending normal GraphQL mutation is trivial:
 
@@ -535,7 +541,7 @@ They send the actual files and query as `multipart/form-data` as well but they r
 - https://github.com/facebook/relay/issues/1844#issuecomment-316893590
 - https://hexdocs.pm/absinthe/file-uploads.html
 
-# RelayNetworkLogger
+## RelayNetworkLogger
 
 TODO: https://github.com/facebook/relay/issues/2674 !
 
@@ -565,7 +571,7 @@ const env = new Environment({
 export default env
 ```
 
-# RelayObservable.onUnhandledError
+## RelayObservable.onUnhandledError
 
 You can override default behavior of unhandled errors when using Relay Observable:
 

@@ -1,3 +1,9 @@
+---
+id: git
+title: Git
+sidebar_label: Git
+---
+
 - [Recommendations on Branching, Controlling Access to Features](https://secure.phabricator.com/book/phabflavor/article/recommendations_on_branching/)
 - [Yarn Plug'n'Play Whitepaper](https://github.com/yarnpkg/rfcs/blob/master/accepted/0000-plug-an-play.md) (alternative: https://github.com/npm/tink)
 - https://chris.beams.io/posts/git-commit/
@@ -10,7 +16,7 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
-# Gitignore
+## Gitignore
 
 ```gitignore
 # Empty lines are being ignored.
@@ -37,22 +43,22 @@ a/**/b     # zero or more directories ("a/b", "a/x/b", "a/x/y/b", ...)
 
 https://git-scm.com/docs/gitignore
 
-# A..B vs A...B vs --ancestry-path
+## A..B vs A...B vs --ancestry-path
 
 See: https://stackoverflow.com/a/36437843
 
-# Working with monorepo
+## Working with monorepo
 
 - https://gitlab.com/groups/gitlab-org/-/epics/915
 - https://gitlab.com/gitlab-org/gitaly/issues/1581
 
 > In a large repository you can’t afford to rebuild and test all the source code each time you make a change. A change to a package should only test and build consumers of that package, the time to build and test the project has to be proportional to what was changed not to the size of the project.
 
-# 4b825dc642cb6eb9a060e54bf8d69288fbee4904
+## 4b825dc642cb6eb9a060e54bf8d69288fbee4904
 
 This hash exists in every Git repository: https://stackoverflow.com/q/9765453/3135248
 
-# Keeping origin synced with upstream
+## Keeping origin synced with upstream
 
 ```
 🤓 geojson-editor [master] git remote -v
@@ -85,7 +91,7 @@ Fast-forward
  3 files changed, 38 insertions(+), 33 deletions(-)
 ```
 
-# Changelog in monorepo
+## Changelog in monorepo
 
 Get hash of the latest version:
 
@@ -138,7 +144,7 @@ git log --oneline 171347dd..8755e0bb -- src/packages/signed-source
 
 _(repeat)_
 
-# Semver
+## Semver
 
 - https://yarnpkg.com/en/docs/dependency-versions
 - https://semver.npmjs.com/
@@ -149,7 +155,7 @@ MAJOR.MINOR.PATCH, increment the:
 - _MINOR_ version when you add functionality in a backwards-compatible manner, and
 - _PATCH_ version when you make backwards-compatible bug fixes.
 
-## Caret Ranges
+### Caret Ranges
 
 Allow changes that do not modify the first non-zero digit in the version,
 either the `3` in `3.1.4` or the `4` in `0.4.2`.
@@ -170,7 +176,7 @@ zeroes. However, they will still allow for that value to be changed.
 | `^0.x`        | `>=0.0.0 <1.0.0`       |
 | `^0`          | `>=0.0.0 <1.0.0`       |
 
-## Tilde Ranges
+### Tilde Ranges
 
 Using `~` with a minor version specified allows `patch` changes. Using `~` with
 only major version specified will allow `minor` changes.
@@ -181,7 +187,7 @@ only major version specified will allow `minor` changes.
 | `~3.1`        | `3.1.x` or `>=3.1.0 <3.2.0` |
 | `~3`          | `3.x` or `>=3.0.0 <4.0.0`   |
 
-# Global .gitignore
+## Global .gitignore
 
 ```text
 git config --global core.excludesfile ~/.gitignore_global
