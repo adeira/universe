@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-// import classnames from 'classnames';
+import classnames from 'classnames';
 import Layout from '@theme/Layout';
-// import Link from '@docusaurus/Link';
+import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-// import withBaseUrl from '@docusaurus/withBaseUrl';
+import withBaseUrl from '@docusaurus/withBaseUrl';
 import styles from './styles.module.css';
 
 function Home() {
@@ -21,35 +21,33 @@ function Home() {
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />"
     >
-      {/*<header className={classnames('hero hero--primary', styles.heroBanner)}>*/}
-      {/*  <div className="container">*/}
-      {/*    <h1 className="hero__title">{siteConfig.title}</h1>*/}
-      {/*    <p className="hero__subtitle">{siteConfig.tagline}</p>*/}
-      {/*    <div className={styles.buttons}>*/}
-      {/*      <Link*/}
-      {/*        className={classnames(*/}
-      {/*          'button button--outline button--secondary button--lg',*/}
-      {/*          styles.getStarted,*/}
-      {/*        )}*/}
-      {/*        to={withBaseUrl('docs/relay')}*/}
-      {/*      >*/}
-      {/*        Get Started*/}
-      {/*      </Link>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</header>*/}
+      <header className={classnames('hero hero--primary', styles.heroBanner)}>
+        <div className="container">
+          <h1 className="hero__title">Hi, I am {siteConfig.title}</h1>
+          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div className={styles.buttons}>
+            <Link
+              className={classnames(
+                'button button--outline button--secondary button--lg',
+                styles.getStarted,
+              )}
+              to={withBaseUrl('docs/flow')}
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </header>
       <main>
         <section className={styles.features}>
           <div className="container">
-            <h2>Hi, I am Martin 🇨🇿</h2>
-
             <p>
               I am fullstack JavaScript developer at <a href="https://www.kiwi.com/en/">Kiwi.com</a>
-              . Currently, I work at <a href="https://graphql.kiwi.com/">graphql.kiwi.com</a>{' '}
-              project and internal <strong>monorepo</strong> infrastructure but I also help other
-              teams with <strong>GraphQL</strong> in general, <strong>Relay</strong>,{' '}
-              <strong>Flow</strong>, <strong>React (Native)</strong> or any other{' '}
-              <strong>JS</strong> project.
+              , originaly from Czech Republic 🇨🇿. Currently, I work at{' '}
+              <a href="https://graphql.kiwi.com/">graphql.kiwi.com</a> project and internal{' '}
+              <strong>monorepo</strong> infrastructure but I also help other teams with{' '}
+              <strong>GraphQL</strong> in general, <strong>Relay</strong>, <strong>Flow</strong>,{' '}
+              <strong>React (Native)</strong> or any other <strong>JS</strong> project.
             </p>
 
             <h3>My location</h3>
