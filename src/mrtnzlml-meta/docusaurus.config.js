@@ -21,7 +21,7 @@ module.exports = {
       //   src: 'img/logo.svg',
       // },
       links: [
-        {to: 'docs/flow', label: 'Meta', position: 'left'},
+        { to: 'docs/flow', label: 'Meta', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml/meta',
@@ -66,6 +66,9 @@ module.exports = {
       //   src: 'https://docusaurus.io/img/oss_logo.png',
       // },
       copyright: `Copyright © ${new Date().getFullYear()} Martin Zlámal, Built with Docusaurus.`,
+    },
+    googleAnalytics: {
+      trackingID: 'UA-148481588-1',
     },
   },
   presets: [
