@@ -4,6 +4,19 @@
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
+# Beyond console.log()
+
+https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
+
+- `console.log/warn/error` with `%s`, `%o` and `%c`
+- `console.dir`
+- `console.table`
+- `console.assert`
+- `console.count/countReset`
+- `console.trace`
+- `console.time/timeEnd`
+- `console.group/groupCollapsed/groupEnd`
+
 # Optional chaining gotchas
 
 ```js
