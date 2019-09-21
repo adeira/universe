@@ -8,7 +8,7 @@
 module.exports = {
   docs: {
     Programming: ['flow', 'git', 'graphql', 'javascript', 'relay'],
-    Travel: ['travel/generic', 'travel/mexico'],
+    Travel: ['travel/generic', 'travel/coworkings', 'travel/mexico'],
     Read: ['read/links'],
   },
 };
