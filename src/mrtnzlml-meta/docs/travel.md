@@ -1,7 +1,7 @@
 ---
-id: generic
-title: Generic info
-sidebar_label: Generic info
+id: travel
+title: All-in
+sidebar_label: All-in
 ---
 
 You can consider this document to be a checklist for your travels. But first - you should start with this article: [Digital Nomads Are Not the Future](https://medium.com/s/story/digital-nomads-are-not-the-future-be360c7911b4)

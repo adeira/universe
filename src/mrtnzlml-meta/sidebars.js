@@ -7,8 +7,18 @@
 
 module.exports = {
   docs: {
-    Programming: ['flow', 'git', 'graphql', 'javascript', 'relay'],
-    Travel: ['travel/generic', 'travel/coworkings', 'travel/mexico'],
+    Programming: [
+      {
+        type: 'category',
+        label: 'Flow',
+        items: ['flow', 'flow/saved-state', 'flow/debugging'],
+      },
+      'git',
+      'graphql',
+      'javascript',
+      'relay',
+    ],
+    Travel: ['travel', 'travel/coworkings', 'travel/mexico'],
     Read: ['read/links'],
   },
 };
