@@ -24,7 +24,7 @@ export opaque type GraphQLTaggedNode = {|
   +type: string,
 |};
 
-export type FragmentSpec = { [key: string]: GraphQLTaggedNode, ... };
+export type FragmentSpec = { +[key: string]: GraphQLTaggedNode, ... };
 
 type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
 
