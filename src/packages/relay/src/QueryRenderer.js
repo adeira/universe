@@ -1,7 +1,7 @@
 // @flow
 
-import React from 'react';
-import { QueryRenderer as RelayQueryRenderer } from 'react-relay';
+import React, { useContext } from 'react';
+import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant, sprintf } from '@kiwicom/js';
 import { TimeoutError, ResponseError } from '@kiwicom/fetch';
 
@@ -109,9 +109,15 @@ export default function QueryRenderer(props: Props) {
     });
   }
 
-  // TODO: take 'RelayEnvironmentProvider' into account (but keep BC)
-  const environment = props.environment ?? createDefaultEnvironment(props.clientID);
+  // 1) <QR environment={Env} /> always win
+  // 2) <QR /> checks whether we provide Environment via `RelayEnvironmentProvider`
+  // 3) <QR /> defaults to the default Kiwi.com environment
+  const context = useContext(ReactRelayContext);
+  const environment =
+    props.environment ?? context?.environment ?? createDefaultEnvironment(props.clientID);
 
+  // Relay QR itself recreates the context with our environment.
+  // Relay hooks are using `useRelayEnvironment` with `ReactRelayContext` inside (so we use it as well).
   return (
     <RelayQueryRenderer environment={environment} render={renderQueryRendererResponse} {...props} />
   );
