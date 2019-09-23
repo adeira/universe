@@ -3,12 +3,12 @@ _This package is WIP and you should use it only when you know what are you doing
 Custom wrapper around Flow-bin with some additional default configuration tailored for our needs. Notable this package does typechecking with:
 
 - lazy mode (https://flow.org/en/docs/lang/lazy-modes/)
-- saved state
+- saved state (https://mrtnzlml.com/docs/flow/saved-state)
 
 # Usage
 
 ```
-yarn add --dev @kiwicom/flow-bin
+yarn add --dev flow-bin @kiwicom/flow-bin
 ```
 
 To start using it, add the following lines to you `.gitignore` file:
