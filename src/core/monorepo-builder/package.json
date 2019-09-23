@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@kiwicom/js": "^0.15.0",
-    "@kiwicom/logger": "^0.1.0",
+    "@kiwicom/logger": "^0.2.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
     "rimraf": "^3.0.0"
   },
