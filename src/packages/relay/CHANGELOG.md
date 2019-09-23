@@ -1,5 +1,8 @@
 # Unreleased
 
+- Added invariant check for correct container factories usages.
+- Added support for `readInlineData` (should be combined with `@inline`, see: https://relay.dev/docs/en/graphql-in-relay.html#inline).
+
 # 4.2.0
 
 - Expose new experimental `RelayEnvironmentProvider` component and `useRelayEnvironment` hook.

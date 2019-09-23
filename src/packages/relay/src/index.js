@@ -17,6 +17,7 @@ import fetchQuery from './fetchQuery';
 import graphql from './graphql';
 import LocalQueryRenderer from './LocalQueryRenderer';
 import QueryRenderer from './QueryRenderer';
+import readInlineData from './readInlineData';
 import RelayEnvironmentProvider from './RelayEnvironmentProvider';
 import requestSubscription from './requestSubscription';
 import useRelayEnvironment from './hooks/useRelayEnvironment';
@@ -38,6 +39,7 @@ module.exports = {
   graphql,
   LocalQueryRenderer,
   QueryRenderer,
+  readInlineData,
   requestSubscription,
 
   // Experimental Relay-specific things (not officially released yet):
