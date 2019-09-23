@@ -1,6 +1,6 @@
 // @flow
 
-import { createNetworkFetcher } from '../index';
+import { createNetworkFetcher } from '../../index';
 
 module.exports = {
   validUsage: () => {
