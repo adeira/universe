@@ -55,7 +55,6 @@ const SignedSource = {
    */
   signFile(data: string): string | empty {
     let dataCopy = data;
-
     if (!dataCopy.includes(TOKEN)) {
       if (SignedSource.isSigned(dataCopy)) {
         // Signing a file that was previously signed.
@@ -64,7 +63,6 @@ const SignedSource = {
         throw TokenNotFoundError;
       }
     }
-
     return dataCopy.replace(TOKEN, `SignedSource<<${hash(dataCopy, 'utf8')}>>`);
   },
 
@@ -79,9 +77,6 @@ const SignedSource = {
       );
     }
     const actual = matches[1];
-
-    // Replace signature with `NEWTOKEN` and hash to see if it matches the hash
-    // in the file.
     const unsigned = data.replace(PATTERN, `${GENERATED} ${TOKEN}`);
     return hash(unsigned, 'utf8') === actual;
   },

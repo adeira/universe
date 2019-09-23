@@ -12,6 +12,19 @@ test('signFile', () => {
   expect(SignedSource.signFile(`# ${SignedSource.getSigningToken()}\ntest 2`)).toEqual(
     `# @generated SignedSource<<4c0c1ae4f5863c72731b2f543e830fd5>>${os.EOL}test 2`,
   );
+
+  // re-sign a file
+  expect(
+    SignedSource.signFile(
+      `# @generated SignedSource<<eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee>>\nalready signed test`,
+    ),
+  ).toEqual(`# @generated SignedSource<<54e8ffafff15a19f858d95c9a13d5b1d>>\nalready signed test`);
+
+  expect(() =>
+    SignedSource.signFile(`signature missing, no sign token`),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"SignedSource.signFile(...): Cannot sign file without token: <<SignedSource::*O*zOeWoEQle#+L!plEphiEmie@IsG>>"`,
+  );
 });
 
 test('isSigned', () => {

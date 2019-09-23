@@ -12,3 +12,5 @@ if (!SignedSource.verifySignature(oldSnapshot)) {
   throw new Error('Manual changes detected!');
 }
 ```
+
+It is also possible to re-sign file which is already signed (means update the signature when it already exists).
