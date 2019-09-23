@@ -1,7 +1,9 @@
 // @flow
 
 import { createPaginationContainer as _createPaginationContainer } from 'react-relay';
+import { invariant } from '@kiwicom/js';
 
+import isObjectEmpty from './utils/isObjectEmpty';
 import type {
   FragmentSpec,
   GraphQLTaggedNode,
@@ -58,5 +60,9 @@ export default function createPaginationContainer<TComponent: React$ComponentTyp
   fragmentSpec: FragmentSpec,
   connectionConfig: ConnectionConfig,
 ): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>> {
+  invariant(
+    isObjectEmpty(fragmentSpec) === false,
+    'Fragment spec of this pagination container factory cannot be empty.',
+  );
   return _createPaginationContainer(Component, fragmentSpec, connectionConfig);
 }
