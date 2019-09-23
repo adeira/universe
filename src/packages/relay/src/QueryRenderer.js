@@ -109,6 +109,7 @@ export default function QueryRenderer(props: Props) {
     });
   }
 
+  // TODO: take 'RelayEnvironmentProvider' into account (but keep BC)
   const environment = props.environment ?? createDefaultEnvironment(props.clientID);
 
   return (
