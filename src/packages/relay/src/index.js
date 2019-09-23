@@ -5,14 +5,15 @@ import {
   TimeoutError as FetchTimeoutError,
 } from '@kiwicom/fetch';
 
-import createEnvironment from './createEnvironment';
-import createLocalEnvironment from './createLocalEnvironment';
-import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import commitLocalUpdate from './commitLocalUpdate';
 import commitMutation from './commitMutation';
+import createEnvironment from './createEnvironment';
 import createFragmentContainer from './createFragmentContainer';
+import createLocalEnvironment from './createLocalEnvironment';
+import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import createPaginationContainer from './createPaginationContainer';
 import createRefetchContainer from './createRefetchContainer';
+import fetchQuery from './fetchQuery';
 import graphql from './graphql';
 import LocalQueryRenderer from './LocalQueryRenderer';
 import QueryRenderer from './QueryRenderer';
@@ -31,6 +32,7 @@ module.exports = {
   createFragmentContainer,
   createPaginationContainer,
   createRefetchContainer,
+  fetchQuery,
   graphql,
   LocalQueryRenderer,
   QueryRenderer,
