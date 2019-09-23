@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.2.0
+
 - Expose new experimental `RelayEnvironmentProvider` component and `useRelayEnvironment` hook.
 
 # 4.1.0
