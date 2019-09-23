@@ -8,7 +8,7 @@
 module.exports = {
   title: 'Martin Zlámal 🤓',
   tagline: 'My brain extension, personal README',
-  url: 'https://meta.mrtnzlml.now.sh/',
+  url: 'https://mrtnzlml.com/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'mrtnzlml', // Usually your GitHub org/user name.
