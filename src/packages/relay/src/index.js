@@ -51,8 +51,9 @@ export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
 export type { RefetchRelayProp } from './createRefetchContainer';
 export type {
+  DeclarativeMutationConfig,
   Disposable,
   Environment,
   GraphQLTaggedNode,
-  DeclarativeMutationConfig,
+  Variables,
 } from './types.flow';
