@@ -16,6 +16,7 @@ const Flow = require('../src/index').default;
 
 const argv = process.argv.splice(2);
 const cli = command => argv.includes(command);
+// Should we forward all unknown commands to Flow?
 const allowedCommands = ['restart', '--all'];
 for (const command of argv) {
   if (!allowedCommands.includes(command)) {
