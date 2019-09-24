@@ -1,5 +1,7 @@
 # Unreleased
 
+- Burst cache timeout changed to 2 seconds.
+
 # 4.3.0
 
 - Added invariant check for correct container factories usages.

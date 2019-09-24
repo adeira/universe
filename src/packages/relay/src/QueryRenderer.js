@@ -116,6 +116,9 @@ export default function QueryRenderer(props: Props) {
   const environment =
     props.environment ?? context?.environment ?? createDefaultEnvironment(props.clientID);
 
+  // Use this to disable store GC in order to reuse already existing data between screens:
+  // const disposable = environment.getStore().holdGC();
+
   // Relay QR itself recreates the context with our environment.
   // Relay hooks are using `useRelayEnvironment` with `ReactRelayContext` inside (so we use it as well).
   return (
