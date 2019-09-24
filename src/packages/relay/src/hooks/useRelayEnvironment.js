@@ -7,7 +7,7 @@ import { invariant } from '@kiwicom/js';
 import type { Environment } from '../types.flow';
 
 /**
- * You can use this hook in any component bellow QueryRenderer or RelayEnvironmentProvider.
+ * You can use this hook in any component below QueryRenderer or RelayEnvironmentProvider.
  */
 export default function useRelayEnvironment(): Environment {
   const context = useContext(ReactRelayContext);

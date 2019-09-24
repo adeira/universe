@@ -66,7 +66,7 @@ const config = {
 };
 ```
 
-This should be OK for majority of the use-cases. However, you can tweak these options as needed (continue bellow).
+This should be OK for majority of the use-cases. However, you can tweak these options as needed (continue below).
 
 ## Transpilation targets
 

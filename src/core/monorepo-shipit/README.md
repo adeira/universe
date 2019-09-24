@@ -61,7 +61,7 @@ module.exports = {
 };
 ```
 
-Read more about available filters how to use them bellow.
+Read more about available filters and how to use them below.
 
 ## Filters
 
