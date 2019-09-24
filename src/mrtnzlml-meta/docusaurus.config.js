@@ -74,9 +74,7 @@ module.exports = {
     algolia: {
       apiKey: '9178bd28d2e2a7795516d94878a57dfe',
       indexName: 'mrtnzlml',
-      algoliaOptions: {
-        facetFilters: ['language:LANGUAGE', 'version:VERSION'],
-      },
+      algoliaOptions: {}, // Optional, if provided by Algolia
     },
   },
   presets: [
