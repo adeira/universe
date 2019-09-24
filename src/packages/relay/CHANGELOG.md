@@ -1,7 +1,10 @@
 # Unreleased
 
+# 4.3.0
+
 - Added invariant check for correct container factories usages.
 - Added support for `readInlineData` (should be combined with `@inline`, see: https://relay.dev/docs/en/graphql-in-relay.html#inline).
+- Export `DeclarativeMutationConfig` Flow type.
 
 # 4.2.0
 

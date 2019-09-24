@@ -50,4 +50,9 @@ module.exports = {
 export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
 export type { RefetchRelayProp } from './createRefetchContainer';
-export type { Disposable, Environment, GraphQLTaggedNode } from './types.flow';
+export type {
+  Disposable,
+  Environment,
+  GraphQLTaggedNode,
+  DeclarativeMutationConfig,
+} from './types.flow';
