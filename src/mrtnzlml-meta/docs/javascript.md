@@ -155,7 +155,7 @@ function isObject(item) {
 }
 ```
 
-## Is this string/number a number?
+## Is this thing a number?
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
 

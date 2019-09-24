@@ -6,11 +6,13 @@
  */
 
 module.exports = {
-  docs: {
+  programming: {
     Flow: ['flow', 'flow/saved-state', 'flow/debugging'],
-    Relay: ['relay', 'relay/match-module'],
-    Programming: ['git', 'graphql', 'javascript'],
+    Relay: ['relay', 'relay/match-module', 'relay/local-schema', 'relay/uploadables'],
+    'Rest of programming': ['git', 'graphql', 'javascript'],
+  },
+  life: {
     Travel: ['travel', 'travel/coworkings', 'travel/mexico'],
-    Read: ['read/links'],
+    'Free time': ['read/links'],
   },
 };

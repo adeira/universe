@@ -1,7 +1,7 @@
 ---
 id: match-module
-title: Match, Module
-sidebar_label: Match, Module
+title: Match & Module
+sidebar_label: Match & Module
 ---
 
 These directives allow you to lazily load union results. First, it requires `JSDependency` GraphQL scalar. Next it's necessary to use Union field with this shape:

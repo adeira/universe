@@ -22,6 +22,11 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
 }
 
+blockquote {
+  padding-left: 0.5rem;
+  border-left: 1px solid lightgrey;
+}
+
 /* https://dev.to/gajus/my-favorite-css-hack-32g3 */
 /*
 * { background-color: rgba(255,0,0,.2); }
