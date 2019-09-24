@@ -1,9 +1,8 @@
 // @flow
 
 import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
-import { invariant } from '@kiwicom/js';
+import { invariant, isObjectEmpty } from '@kiwicom/js';
 
-import isObjectEmpty from './utils/isObjectEmpty';
 import type {
   $RelayProps,
   FragmentSpec,

@@ -1,6 +1,6 @@
 // @flow strict
 
-import { isObject } from '@kiwicom/js';
+import isObject from './isObject';
 
 export default function isObjectEmpty(obj: mixed): boolean %checks {
   // https://stackoverflow.com/a/32108184/3135248

@@ -1,9 +1,8 @@
 // @flow
 
 import { createPaginationContainer as _createPaginationContainer } from 'react-relay';
-import { invariant } from '@kiwicom/js';
+import { invariant, isObjectEmpty } from '@kiwicom/js';
 
-import isObjectEmpty from './utils/isObjectEmpty';
 import type {
   FragmentSpec,
   GraphQLTaggedNode,
