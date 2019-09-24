@@ -1,9 +1,8 @@
 // @flow
 
 import { createFragmentContainer as _createFragmentContainer } from 'react-relay';
-import { invariant } from '@kiwicom/js';
+import { invariant, isObjectEmpty } from '@kiwicom/js';
 
-import isObjectEmpty from './utils/isObjectEmpty';
 import type { FragmentSpec, $RelayProps, Environment } from './types.flow';
 
 export type RelayProp = {|

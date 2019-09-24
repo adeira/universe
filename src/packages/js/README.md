@@ -98,9 +98,22 @@ This function ignores internal JS implementation and returns true only for real 
 import { isObject } from '@kiwicom/js';
 
 isObject({}); // true
+isObject(new Date()); // true
 
 isObject(null); // false
 isObject([]); // false
+```
+
+# `isObjectEmpty`
+
+```js
+import { isObjectEmpty } from '@kiwicom/js';
+
+isObjectEmpty({}); // true (the only case)
+
+isObjectEmpty({ a: 1 }); // false
+isObjectEmpty(null); // false
+isObjectEmpty(new Date()); // false
 ```
 
 # `isNumeric`

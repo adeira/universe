@@ -7,7 +7,7 @@ it('is an empty object', () => {
 });
 
 test.each([{ a: 1 }, new Date(), '', true, null, undefined, new RegExp(/(?:)/)])(
-  'is NOT an empty object: %j',
+  'is NOT an empty object: %p',
   input => {
     expect(isObjectEmpty(input)).toBe(false);
   },
