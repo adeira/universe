@@ -95,7 +95,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig) {
       .trim();
 
     if (diffStats === '') {
-      logger.log('👾 Exported repo is in SYNC!');
+      logger.log('✅ Exported repo is in SYNC!');
     } else {
       const diff = new ShellCommand(
         filteredRepoPath,

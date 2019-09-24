@@ -294,16 +294,21 @@ ${renderedDiffs}
    * Please note: this export is unfiltered.
    */
   export = (exportedRepoPath: string, roots: Set<string>) => {
-    const tar = this._gitCommand(
+    const archivePath = path.join(exportedRepoPath, 'archive.tar.gz');
+    this._gitCommand(
       'archive',
       '--format=tar',
+      `--output=${archivePath}`,
       'HEAD', // TODO
       ...roots,
     )
-      .runSynchronously()
-      .getStdout();
-
-    return new ShellCommand(exportedRepoPath, 'tar', '-x').setStdin(tar).runSynchronously();
+      .setOutputToScreen()
+      .runSynchronously();
+    // Previously, we used only STDIN but that didn't work for some binary files like images for some reason.
+    // So now we create an actual archive and use this instead.
+    return new ShellCommand(exportedRepoPath, 'tar', '-xvf', archivePath)
+      .setOutputToScreen()
+      .runSynchronously();
   };
 
   getEmptyTreeHash(): string {
