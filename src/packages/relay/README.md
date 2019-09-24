@@ -26,7 +26,7 @@ yarn add react graphql @kiwicom/relay
 
 # Usage
 
-Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler) (we prefer our own Compiler implementation, see bellow). It's important to note that the only package related to Relay you need to install is `@kiwicom/relay`. It contains all the necessary dependencies.
+Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler) (we prefer our own Compiler implementation, see below). It's important to note that the only package related to Relay you need to install is `@kiwicom/relay`. It contains all the necessary dependencies.
 
 Minimal `.babelrc` file:
 
@@ -89,7 +89,7 @@ export default function App(props) {
   return (
     <QueryRenderer
       // Following `clientID` helps us to identify who is sending the request and it's
-      // required unless you provide custom `environment` (see bellow).
+      // required unless you provide custom `environment` (see below).
       clientID="unique-client-identification"
       query={graphql`
         query AppQuery {
@@ -137,7 +137,7 @@ const Environment = createEnvironment({
     'X-Client': '** TODO **',
   }),
   // subscribeFn
-  // graphiQLPrinter
+  // graphiQLPrinter (see below)
 });
 ```
 
@@ -191,7 +191,7 @@ function Component(props: Props) {
 
 Only this way you can be sure that your mutation/subscription is using correct environment. This common bug is usually not very visible but it's very serious when you have multiple environments in your application.
 
-How to get environment when your component needs it for mutations for example and there is no `props.relay`? Simply use `useRelayEnvironment` hook. This hook can be used anywhere bellow Query Renderer or `RelayEnvironmentProvider` component in the React tree:
+How to get environment when your component needs it for mutations for example and there is no `props.relay`? Simply use `useRelayEnvironment` hook. This hook can be used anywhere below Query Renderer or `RelayEnvironmentProvider` component in the React tree:
 
 ```js
 import { useRelayEnvironment } from '@kiwicom/relay';
@@ -200,6 +200,22 @@ function Component() {
   const environment = useRelayEnvironment();
   // TODO: do something with the env
 }
+```
+
+### Tip: enable GraphiQL printer
+
+You can enable GraphiQL printer via `graphiQLPrinter` parameter when creating the environment. It will enhance your Relay console logs with link to your GraphiQL:
+
+![GraphiQL printer](./graphiql-printer.png)
+
+You just have to create a function which returns link to your GraphiQL, for example:
+
+```js
+const GraphiQLPrinter = (request, variables) => {
+  return `https://graphql.kiwi.com/?query=${encodeURIComponent(
+    request.text,
+  )}&variables=${encodeURIComponent(JSON.stringify(variables))}`;
+};
 ```
 
 ## Query Renderer
