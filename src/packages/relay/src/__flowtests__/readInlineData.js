@@ -6,7 +6,7 @@ import { graphql, readInlineData, createFragmentContainer } from '../index';
 
 const sendToThirdPartyApi = obj => obj;
 
-// By default Relay will only expose the data for fields explicitly requested by a component's
+// By default, Relay will only expose the data for fields explicitly requested by a component's
 // fragment, which is known as data masking. Fragment data is unmasked for use in React components
 // by createFragmentContainer. However, you may want to use fragment data in non-React functions
 // that are called from React.
