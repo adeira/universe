@@ -30,7 +30,7 @@ export default function createRequestHandler(
   customFetcher: (...args: $ReadOnlyArray<any>) => any,
   burstCache?: RelayQueryResponseCache = new RelayQueryResponseCache({
     size: 250,
-    ttl: 10 * 1000, // 10 seconds
+    ttl: 2 * 1000, // 2 seconds
   }),
 ) {
   function cleanup() {
