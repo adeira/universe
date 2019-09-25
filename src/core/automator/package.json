@@ -7,7 +7,7 @@
   "dependencies": {
     "@kiwicom/fetch": "^2.4.2",
     "@kiwicom/graphql-skymock": "^0.0.0",
-    "@kiwicom/js": "^0.15.0",
+    "@kiwicom/js": "^0.16.0",
     "@kiwicom/logger": "^0.2.0",
     "@kiwicom/monorepo-utils": "^0.23.0",
     "glob": "^7.1.4",
