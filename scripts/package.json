@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@kiwicom/js": "^0.15.0",
+    "@kiwicom/js": "^0.16.0",
     "@kiwicom/logger": "^0.2.0",
     "@kiwicom/monorepo-npm-publisher": "^2.0.0",
     "chalk": "^2.4.2"
