@@ -56,6 +56,12 @@ Do not forget to run `yarn install` in your project as well.
 
 See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
+## Future of `QueryRenderer`/`useQuery` pattern
+
+> In general we're planning to move away from the QueryRenderer/useQuery pattern, which we're referring to as "fetch-on-render". This design makes behavior unpredictable (rendering can happen arbitrarily due to changes in parent components, suspense can cause re-renders and doesn't guarantee cleanup). The alternative is "fetch-then-render" - perform your data-fetching based on some event (user interaction, navigation, timer, app initialization) and then consume that result during render. Then "how do i refetch?" has the same answer as "how do i fetch?". Expect to see more API changes in this direction.
+
+Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
+
 ## New Connection Model
 
 `@connection_resolver(resolver: "FeedbackCommentsResolver")`
