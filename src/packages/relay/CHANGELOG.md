@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.4.0
+
 - Burst cache timeout changed to 2 seconds.
 
 # 4.3.0
