@@ -77,6 +77,11 @@ Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 - https://github.com/facebook/relay/commit/c203d54e75d71e0ca1c2c3c8385f7814a5729dfe
 - https://github.com/facebook/relay/commit/e1b3da0aca1718631da443bf5cdf0d498a7ef43f
 
+Streaming support `@stream_connection_resolver( ... )`
+
+- https://github.com/facebook/relay/commit/96a8eec63b903c6a9fa237bd44d13e73da04f3d0
+- https://github.com/facebook/relay/commit/9efe9289a5375051d637ff21a1804ac13414b61a
+
 ## `LocalQueryRenderer`
 
 - https://github.com/mrtnzlml/relay/pull/447/files
