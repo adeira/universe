@@ -10,6 +10,11 @@ sidebar_label: JavaScript
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 
+## Understanding Babel internals
+
+- [Step-by-step guide for writing a custom babel transformation](https://lihautan.com/step-by-step-guide-for-writing-a-babel-transformation/)
+- [Creating custom JavaScript syntax with Babel](https://lihautan.com/creating-custom-javascript-syntax-with-babel/)
+
 ## Beyond console.log()
 
 https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
