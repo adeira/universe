@@ -48,7 +48,7 @@ if (!fs.existsSync(savedStatePath)) {
   Flow.forceRecheck(savedStateFileChangesPath);
 }
 
-const statusExitCode = Flow.checkSatus();
+const statusExitCode = Flow.checkStatus();
 if (statusExitCode === 0) {
   // We assume that there are 0 errors when saving the state.
   Flow.saveState(savedStatePath);
