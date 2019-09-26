@@ -21,6 +21,41 @@ Showerthoughts:
 
 > flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
 
+## Force type casting
+
+You may find yourself in a situation where you want to force cast some type despite it's originally defined differently. Example:
+
+```js
+type StringOrNumber = string | number;
+const foo: StringOrNumber = 'hello';
+
+const bar1: string = foo; // cannot assign `foo` to `bar` because number is incompatible with string
+const bar2: string = (foo: string); // cannot cast `foo` to string because number is incompatible with string
+```
+
+Both errors are correct and valid. The solution is to cast the type via `any` like this:
+
+```js
+const bar: string = (foo: any);
+```
+
+> So you cast `foo` to an `any` because `any` accepts any type of value as an input. Then because the `any` type also allows you to read all possible types from it, you can assign the `any` value to `bar` because an `any` is also a string.
+
+This obviously means that you are going against the type system and you might be doing something wrong. Did you want to use conditional refinement instead?
+
+```js
+type StringOrNumber = string | number;
+const foo: StringOrNumber = 'hello';
+
+if (typeof foo === 'string') {
+  const bar: string = foo; // no errors!
+}
+```
+
+> It's important to note that both suppression comments and cast-through any are **unsafe**. They override Flow completely, and will happily perform completely nonsensical "casts". To avoid this, use refinements that Flow understands whenever you can, and avoid use of the other, unsafe "casting" techniques.
+
+Source: https://stackoverflow.com/questions/41328728/how-can-flow-be-forced-to-cast-a-value-to-another-type/45068255
+
 ## The New Spread Model
 
 Part 1: https://medium.com/flow-type/coming-soon-changes-to-object-spreads-73204aef84e1
