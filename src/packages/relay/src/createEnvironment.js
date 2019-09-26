@@ -13,9 +13,6 @@ import {
 import createRequestHandler from './createRequestHandler';
 import type { Variables, Environment } from './types.flow';
 
-const source = new RecordSource();
-const store = new Store(source);
-
 type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
@@ -25,10 +22,10 @@ type Options = {|
     get: string => Promise<?NormalizationSplitOperation>,
     load: string => Promise<?NormalizationSplitOperation>,
   |},
-
   // enables/disables `RelayNetworkLogger`
   +logger?: boolean,
   +graphiQLPrinter?: (request: { +text: string, ... }, variables: Variables) => string,
+  +records?: ?{ ... },
 |};
 
 type NormalizationSplitOperation = {|
@@ -64,8 +61,10 @@ function handlerProvider(handle) {
 }
 
 export default function createEnvironment(options: Options): Environment {
-  const { fetchFn, subscribeFn, logger, graphiQLPrinter, ...rest } = options;
+  const { fetchFn, subscribeFn, logger, graphiQLPrinter, records, ...rest } = options;
   const enableLogger = logger ?? true;
+  const source = new RecordSource(records); // TODO
+  const store = new Store(source);
   return new RelayEnvironment({
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn, enableLogger, graphiQLPrinter),
