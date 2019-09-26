@@ -6,7 +6,7 @@ import {
 } from '@kiwicom/fetch';
 
 import commitLocalUpdate from './commitLocalUpdate';
-import commitMutation from './commitMutation';
+import { commitMutation, commitMutationAsync } from './mutations';
 import createEnvironment from './createEnvironment';
 import createFragmentContainer from './createFragmentContainer';
 import createLocalEnvironment from './createLocalEnvironment';
@@ -32,6 +32,7 @@ module.exports = {
   // Relay-specific things:
   commitLocalUpdate,
   commitMutation,
+  commitMutationAsync,
   createFragmentContainer,
   createPaginationContainer,
   createRefetchContainer,
