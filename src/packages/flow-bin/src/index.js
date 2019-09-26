@@ -48,13 +48,12 @@ export default class FlowWrapper {
   };
 
   static checkStatus = (): number => {
-    const commandOptions = [`--color=${isCI ? 'always' : 'auto'}`];
-    if (isCI) {
-      // We disable warnings only on CI because some warnings can be visible locally because of lint rollouts.
+    return command(
+      'status',
+      `--color=${isCI ? 'always' : 'auto'}`,
       // Why "0" warnings by default? It's because we use them to check that flowtests work correctly. Important!
-      commandOptions.push('--max-warnings=0');
-    }
-    return command('status', ...commandOptions)
+      '--max-warnings=0',
+    )
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
