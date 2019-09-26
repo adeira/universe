@@ -29,7 +29,8 @@ export default class FlowWrapper {
   };
 
   static startServer = (runAll: boolean = false): void => {
-    const commandOptions = [
+    command(
+      'start',
       '--wait-for-recheck=true',
       `--lazy-mode=${runAll ? 'none' : 'fs'}`,
       `--saved-state-fetcher=${runAll ? 'none' : 'local'}`,
@@ -37,15 +38,7 @@ export default class FlowWrapper {
       // This option will take '.flow.saved_state_file_changes' into account and perform startup recheck.
       // This way we can uncover already existing errors (otherwise lazy mode starts with 0 files).
       '--saved-state-force-recheck',
-    ];
-
-    if (isCI) {
-      // We disable warnings only on CI because some warnings can be visible locally because of lint rollouts.
-      // Why "0" warnings by default? It's because we use them to check that flowtests work correctly. Important!
-      commandOptions.push('--max-warnings=0');
-    }
-
-    command('start', ...commandOptions)
+    )
       .setNoExceptions() // server might be already running
       .runSynchronously();
   };
@@ -54,8 +47,14 @@ export default class FlowWrapper {
     command('force-recheck', '--focus', `--input-file=${inputFile}`).runSynchronously();
   };
 
-  static checkSatus = (): number => {
-    return command('status', `--color=${isCI ? 'always' : 'auto'}`)
+  static checkStatus = (): number => {
+    const commandOptions = [`--color=${isCI ? 'always' : 'auto'}`];
+    if (isCI) {
+      // We disable warnings only on CI because some warnings can be visible locally because of lint rollouts.
+      // Why "0" warnings by default? It's because we use them to check that flowtests work correctly. Important!
+      commandOptions.push('--max-warnings=0');
+    }
+    return command('status', ...commandOptions)
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
