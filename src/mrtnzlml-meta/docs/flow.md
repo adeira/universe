@@ -125,38 +125,6 @@ const testSmart = (
 );
 ```
 
-## Unsealed objects in Flow
-
-https://flow.org/en/docs/types/objects/#toc-unsealed-objects
-
-Unsealed objects are a special case in Flow. They allow you to create an empty object to be able to add properties later (see the docs). There are some special properties worth mentioning:
-
-1) reading unknown property from unsealed objects is unsafe
-
-```js
-const obj = {};
-
-obj.foo = 1;
-obj.bar = true;
-
-var foo: number  = obj.foo; // Works!
-var bar: boolean = obj.bar; // Works!
-var baz: string  = obj.baz; // Works? (reads from unsealed objects with no matching writes are never checked)
-```
-
-2) cannot assign unsealed object to the exact type
-
-```js
-type Foo = {| a?: string, b?: string |}
-
-const foo1: Foo = {a: ''}             // works as expected
-const foo2: Foo = {}                  // doesn't work, but should (?)
-const foo3: Foo = {...null}           // this is equivalent to {} but is not an unsealed object
-const foo4: Foo = Object.freeze({})   // alternatively
-```
-
-https://github.com/facebook/flow/issues/7566#issuecomment-526534111
-
 ## Oncalls in Facebook (Flow related)
 
 > so the way it works is that the Flow team has a rotating oncall. it's relatively calm as oncalls go (we aren't getting woken up in the middle of the night), but whoever is oncall is responsible for doing support (we have an internal group where people can ask questions), and also responsible for taking the lead if something goes wrong with Flow or the various related integrations we have. near the beginning of the year we also made it so that the oncall is responsible for addressing libdef and documentation PRs, since there is usually no clear owner for those, and pretty much anyone should be able to review them
