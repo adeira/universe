@@ -12,4 +12,4 @@ sidebar_label: Mexico 🇲🇽
 
 ![CDMX metro map with streets](/img/plano_redconcalles19.jpg)
 
-[CDMX public transport map](mapa_transporte_cdxm_150419.pdf)
+[CDMX public transport map](/pdf/mapa_transporte_cdxm_150419.pdf)
