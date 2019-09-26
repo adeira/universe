@@ -1,8 +1,8 @@
 // @flow
 
 export type RequestNode = $FlowFixMe;
-export type Uploadables = { [key: string]: File | Blob, ... };
-export type Variables = { [name: string]: $FlowFixMe, ... };
+export type Uploadables = { +[key: string]: File | Blob, ... };
+export type Variables = { +[name: string]: $FlowFixMe, ... };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;

@@ -21,11 +21,36 @@ const variables = {
   aaa: 111,
 };
 
+type NamedMutationVariables = {|
+  +someNumber: number,
+  +someEnum: 'down' | 'up',
+|};
+
+type NamedMutationResponse = {|
+  +commitMutation: ?{|
+    +__typename: 'CommitMutationResponse',
+  |},
+|};
+
+type NamedMutation = {|
+  +variables: NamedMutationVariables,
+  +response: NamedMutationResponse,
+|};
+
 module.exports = {
   validMutation() {
     return commitMutation(environment, {
       mutation,
       variables,
+    });
+  },
+  validTypedMutation() {
+    return commitMutation<NamedMutation>(environment, {
+      mutation,
+      variables: {
+        someNumber: 111,
+        someEnum: 'up',
+      },
     });
   },
   updater() {
@@ -41,6 +66,25 @@ module.exports = {
     // $FlowExpectedError: variables are missing
     return commitMutation(environment, {
       mutation,
+    });
+  },
+  invalidVariables() {
+    // $FlowExpectedError: passed variables are incorrect
+    return commitMutation<NamedMutation>(environment, {
+      mutation,
+      variables: { someNumber: '123' },
+    });
+  },
+  invalidOnCompletedType() {
+    // $FlowExpectedError: response type differs from onCompleted declaration
+    return commitMutation<NamedMutation>(environment, {
+      mutation,
+      variables: {
+        someNumber: 111,
+        someEnum: 'up',
+      },
+      // eslint-disable-next-line no-unused-vars
+      onCompleted: (response: {||}) => {},
     });
   },
   invalidUpdater() {
