@@ -6,8 +6,21 @@ export type Variables = { +[name: string]: $FlowFixMe, ... };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
+type Selector = $FlowFixMe;
+type Snapshot = $FlowFixMe;
+
+// See:
+// - https://facebook.github.io/relay/docs/en/next/relay-store.html
+// - https://relay.dev/docs/en/next/runtime-architecture#store-operations
+type RelayModernStore = {|
+  +getSource: () => RecordSourceSelectorProxy,
+  +lookup: Selector => Snapshot,
+  // improve as needed
+|};
+
 export type Environment = {|
-  // TODO: improve (?)
+  +getStore: () => RelayModernStore,
+  // improve as needed
 |};
 
 export type Disposable = {|
@@ -93,7 +106,6 @@ type NodeDeleteConfig = {|
   +deletedIDFieldName: string,
 |};
 
-// See: https://facebook.github.io/relay/docs/en/next/relay-store.html
 export type RecordSourceSelectorProxy = {|
   +create: (dataID: string, typeName: string) => RecordProxy,
   +delete: (dataID: string) => void,
@@ -101,6 +113,7 @@ export type RecordSourceSelectorProxy = {|
   +getRoot: () => RecordProxy,
   +getRootField: (fieldName: string) => ?RecordProxy,
   +getPluralRootField: (fieldName: string) => ?$ReadOnlyArray<?RecordProxy>,
+  +toJSON: () => string,
 |};
 
 type AnyObject = { +[key: string]: any, ... };
