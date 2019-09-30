@@ -16,6 +16,59 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
+## Configuration
+
+See: https://git-scm.com/docs/git-config
+
+Local config (`.git/config`, removed irrelevant or sensitive parts):
+
+```ini
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+	fsmonitor = .git/hooks/fsmonitor-watchman
+[remote "origin"]
+	url = git@gitlab.skypicker.com:incubator/universe.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+```
+
+The most interesting part is probably `core.fsmonitor`. More info about it:
+
+- https://github.blog/2018-04-05-git-217-released/#speeding-up-status-with-watchman
+- https://git-scm.com/docs/githooks#_fsmonitor_watchman
+- https://github.com/git/git/commit/def4376711f607914bfb784f8de21867062fa284
+
+Global config (`~/.gitconfig`):
+
+```ini
+[user]
+	name = Martin Zlámal
+	email = mrtnzlml@gmail.com
+[core]
+	excludesfile = ~/.gitignore_global
+[rerere]
+	enabled = true
+[alias]
+	; git config --global alias.st "status"
+	st = status
+[diff]
+	mnemonicPrefix = true
+```
+
+Where (`.gitignore_global`):
+
+```gitignore
+.DS_Store
+.idea/
+```
+
 ## Gitignore
 
 ```gitignore
