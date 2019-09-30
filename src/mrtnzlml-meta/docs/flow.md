@@ -341,7 +341,7 @@ References:
                 ^ [2]
 ```
 
-You have to fix it like this:
+This is because the refinement information of `y` as `string` instead of `string | number` is lost when returning from the `isString` function. You have to fix it like this:
 
 ```js
 function isString(y): %checks {
