@@ -855,7 +855,12 @@ Object {
     "template-curly-spacing": "off",
     "template-tag-spacing": "off",
     "unicode-bom": "off",
-    "use-isnan": 2,
+    "use-isnan": Array [
+      2,
+      Object {
+        "enforceForSwitchCase": true,
+      },
+    ],
     "valid-jsdoc": 0,
     "valid-typeof": 0,
     "vars-on-top": 2,
