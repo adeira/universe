@@ -164,29 +164,6 @@ _TODO_
 
 https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
 
-## `[rollouts]` config
-
-The optional rollout section has 0 or more lines. Each line defines a single rollout. For example:
-
-```ini
-[rollouts]
-
-testA=40% on, 60% off
-testB=50% blue, 20% yellow, 30% pink
-```
-
-The first line defines a rollout named "testA" with two groups. The second line defines a rollout named "testB" with three groups. Each rollout's groups must sum to 100. Some config examples (usages):
-
-```ini
-[rollouts]
-verify_sig=0% on, 100% off
-
-[options]
-(verify_sig=on) experimental.well_formed_exports=true
-```
-
-See: https://github.com/facebook/flow/pull/8018/files
-
 ## Enums
 
 ```js
@@ -442,21 +419,6 @@ https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 - https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
 - https://flow.org/en/docs/types/utilities/#toc-call
 - https://github.com/niieani/typescript-vs-flowtype/issues/37
-
-## Common configuration issues
-
-1. Accidentally disabled flow for ALL JavaScript files
-
-```ini
-module.file_ext=.json
-# do not forget to define '.js' here as well otherwise you basically disabled Flow
-```
-
-See: https://flow.org/en/docs/config/options/#toc-module-file-ext-string
-
-2. Inncorrectly used `resolve_dirname` instead of `name_mapper`
-
-See: https://github.com/facebook/flow/pull/5850
 
 ## Fun with Flow
 

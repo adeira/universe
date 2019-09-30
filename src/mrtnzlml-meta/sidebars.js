@@ -7,7 +7,13 @@
 
 module.exports = {
   programming: {
-    Flow: ['flow', 'flow/saved-state', 'flow/unsealed-objects', 'flow/debugging'],
+    Flow: [
+      'flow',
+      'flow/saved-state',
+      'flow/unsealed-objects',
+      'flow/configuration',
+      'flow/debugging',
+    ],
     Relay: ['relay', 'relay/match-module', 'relay/local-schema', 'relay/uploadables'],
     'Rest of programming': ['git', 'graphql', 'javascript'],
   },
