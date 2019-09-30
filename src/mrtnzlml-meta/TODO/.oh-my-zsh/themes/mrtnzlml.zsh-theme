@@ -2,7 +2,6 @@ local resetColor="%{$reset_color%}"
 local logo="%{$fg_bold[white]%}💃$resetColor$resetColor"
 local dir="%{$fg_bold[white]%}%c$resetColor$resetColor"
 
-
 GIT_PROMPT_PREFIX="[%{$fg_bold[white]%}"
 GIT_PROMPT_SUFFIX="$resetColor] "
 GIT_PROMPT_DIRTY="%{$fg_bold[red]%}"
@@ -41,6 +40,6 @@ function git_prompt() {
       echo "$GIT_PROMPT_PREFIX$GIT_PROMPT_CLEAN$branch$GIT_PROMPT_SUFFIX"
     fi
   fi
-
 }
-PROMPT='$logo $dir $(git_prompt)'
+
+PROMPT='%? $logo $dir $(git_prompt)'
