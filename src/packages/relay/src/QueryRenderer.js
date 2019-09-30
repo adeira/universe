@@ -93,7 +93,7 @@ export default function QueryRenderer(props: Props) {
 
   function createDefaultEnvironment(clientID?: string) {
     invariant(
-      clientID,
+      clientID != null,
       `You must provide 'clientID' to the QueryRenderer in order to correctly identify your client.`,
     );
     const defaultResource = 'https://graphql.kiwi.com';
