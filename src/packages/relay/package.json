@@ -1,7 +1,7 @@
 {
   "name": "@kiwicom/relay",
   "private": false,
-  "version": "4.4.1",
+  "version": "4.5.0",
   "main": "src/index",
   "module": false,
   "sideEffects": false,
