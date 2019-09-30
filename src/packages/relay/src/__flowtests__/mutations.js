@@ -1,6 +1,6 @@
 // @flow
 
-import { commitMutation, graphql, createLocalEnvironment } from '../index';
+import { commitMutation, commitMutationAsync, graphql, createLocalEnvironment } from '../index';
 
 const environment = createLocalEnvironment();
 
@@ -12,7 +12,7 @@ function validUpdater(store) {
 }
 
 const mutation = graphql`
-  mutation commitMutation {
+  mutation mutationsExample {
     __typename
   }
 `;
@@ -53,6 +53,16 @@ module.exports = {
       },
     });
   },
+  validAsyncMutation() {
+    return commitMutationAsync<NamedMutation>(environment, {
+      mutation,
+      variables: {
+        someNumber: 111,
+        someEnum: 'up',
+      },
+      // eslint-disable-next-line no-unused-vars
+    }).then(({ response }: { +response: NamedMutationResponse, ... }) => {});
+  },
   updater() {
     return commitMutation(environment, {
       mutation,
@@ -85,6 +95,17 @@ module.exports = {
       },
       // eslint-disable-next-line no-unused-vars
       onCompleted: (response: {||}) => {},
+    });
+  },
+  invalidAsyncMutation() {
+    // $FlowExpectedError: onCompleted is disabled in config for commitMutationAsync
+    return commitMutationAsync<NamedMutation>(environment, {
+      mutation,
+      onCompleted: () => {},
+      variables: {
+        someNumber: 111,
+        someEnum: 'up',
+      },
     });
   },
   invalidUpdater() {
