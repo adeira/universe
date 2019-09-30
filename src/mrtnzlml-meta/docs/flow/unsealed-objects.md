@@ -34,10 +34,11 @@ type Foo = {| a?: string, b?: string |};
 const foo1: Foo = { a: '' }; // works as expected
 const foo2: Foo = {}; // doesn't work, but should (?)
 const foo3: Foo = { ...null }; // this is equivalent to {} but is not an unsealed object (it's sealed)
-const foo4: Foo = Object.freeze({}); // alternatively
+const foo4: Foo = Object.freeze({}); // alternatively, seal the object manually
 ```
 
-https://github.com/facebook/flow/issues/7566#issuecomment-526534111
+- https://github.com/facebook/flow/issues/7566#issuecomment-526534111
+- https://github.com/facebook/flow/issues/2977#issuecomment-390827317
 
 ## Gotchas
 
@@ -58,6 +59,46 @@ const x: Record = {}; // No error?! ❌
 ```
 
 https://github.com/facebook/flow/issues/8091
+
+There is also a know bug with unsealed objects vs. optional chaining lint:
+
+```js
+// @flow strict
+
+type State = {|
+  base?: {|
+    data: {|
+      a: string,
+    |},
+  |},
+|};
+
+const getBase = (state: State) => state.base ?? {};
+
+// Fixed version:
+// const getBase = (state: State) => state.base ?? { data: undefined };
+
+export const getA = (state: State) => getBase(state).data?.a;
+```
+
+This core results incorrectly in:
+
+```text
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/optional-chain-flow.js:16:39
+
+This use of optional chaining (?.) is unnecessary because getBase(...).data [1] cannot be nullish or because an earlier
+?. will short-circuit the nullish case. (unnecessary-optional-chain)
+
+     13│ // Fixed version:
+     14│ // const getBase = (state: State) => state.base ?? { data: undefined };
+     15│
+ [1] 16│ export const getA = (state: State) => getBase(state).data?.a;
+     17│
+
+Found 1 error
+```
+
+See: https://github.com/facebook/flow/issues/8065
 
 ## Note on `Object` type
 
