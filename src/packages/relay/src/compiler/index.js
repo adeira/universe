@@ -1,9 +1,7 @@
 // @flow
 
 import path from 'path';
-import crypto from 'crypto';
 import {
-  Rollout,
   CodegenRunner,
   ConsoleReporter,
   DotGraphQLParser,
@@ -12,19 +10,18 @@ import {
   JSModuleParser as RelayJSModuleParser,
 } from 'relay-compiler';
 import { globSync } from '@kiwicom/monorepo-utils';
-import isCI from 'is-ci';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';
 import getSchema from './getSchema';
-import persistOperation from './persistOperation';
 import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUsagesRule';
 
 type ExternalOptions = {|
   +src: string,
   +schema: string,
-  +validate: boolean,
-  +watch: boolean,
+  +persistMode?: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
+  +validate?: boolean,
+  +watch?: boolean,
 |};
 
 export default async function compiler(externalOptions: ExternalOptions) {
@@ -32,10 +29,11 @@ export default async function compiler(externalOptions: ExternalOptions) {
     noFutureProofEnums: false,
     include: ['**'],
     exclude: [
-      '**/node_modules/**',
-      '**/__mocks__/**',
-      '**/__generated__/**',
       // allowed in __tests__
+      '**/__flowtests__/**',
+      '**/__generated__/**',
+      '**/__mocks__/**',
+      '**/node_modules/**',
     ],
     artifactDirectory: null,
     ...externalOptions,
@@ -84,6 +82,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
         languagePlugin,
         options.noFutureProofEnums,
         options.artifactDirectory,
+        options.persistMode,
       ),
       isGeneratedFile: (filePath: string) =>
         filePath.endsWith('.graphql.js') && filePath.includes('__generated__'),
@@ -142,6 +141,7 @@ function getRelayFileWriter(
   languagePlugin,
   noFutureProofEnums: boolean,
   outputDir?: ?string,
+  persistMode,
 ) {
   return ({ onlyValidate, schema, documents, baseDocuments, sourceControl, reporter }) => {
     const {
@@ -177,20 +177,17 @@ function getRelayFileWriter(
       extension: languagePlugin.outputExtension,
       typeGenerator: languagePlugin.typeGenerator,
       outputDir,
-      // TODO: repersist generates unstable snapshots on CI when used with `--validate`, why?
-      // repersist: isCI,
+      // repersist: isCI, // TODO
     };
 
-    if (Rollout.check('stored-operations', 'persist-query')) {
-      writerConfig.persistQuery = text => {
-        const hasher = crypto.createHash('md5');
-        hasher.update(text);
-        const id = hasher.digest('hex');
-        if (isCI === true) {
-          persistOperation(id, text);
-        }
-        return Promise.resolve(id);
+    if (persistMode && persistMode === 'fs') {
+      const persistFunction = require('./persistFunctions/filesystemPersistFunction').default;
+      writerConfig.persistQuery = query => {
+        const queryMapPath = path.resolve(process.cwd(), 'persisted-queries.json');
+        return persistFunction(query, queryMapPath);
       };
+    } else {
+      (persistMode: empty);
     }
 
     return RelayFileWriter.writeAll({

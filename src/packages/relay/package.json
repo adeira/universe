@@ -13,7 +13,8 @@
     "kiwicom-relay-compiler": "bin/relay-compiler.js"
   },
   "scripts": {
-    "test": "yarn eslint src && yarn flow src"
+    "test": "yarn eslint src && yarn flow src",
+    "regenerate": "./bin/relay-compiler.js --src=. --schema=../../incubator/graphql.kiwi.com.schema.gql"
   },
   "dependencies": {
     "@babel/register": "^7.6.0",
