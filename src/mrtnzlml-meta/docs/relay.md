@@ -76,6 +76,8 @@ Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 - https://github.com/facebook/relay/commit/7eac6f61b968df93f30f1fbbdf9371ed4b74845a
 - https://github.com/facebook/relay/commit/c203d54e75d71e0ca1c2c3c8385f7814a5729dfe
 - https://github.com/facebook/relay/commit/e1b3da0aca1718631da443bf5cdf0d498a7ef43f
+- https://github.com/facebook/relay/commit/56b185fc4322480dcb76681dc6675e42d59a3ff9
+- `__id` https://github.com/facebook/relay/commit/aba82f91edc9da64f9c299b0723760c5abd8683f
 
 Streaming support `@stream_connection_resolver( ... )`
 
