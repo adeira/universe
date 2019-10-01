@@ -40,7 +40,7 @@ fs.writeFileSync(
 if (cli('restart')) {
   Flow.restartServer();
 }
-Flow.startServer(cli('--all'));
+Flow.startServerSilently(cli('--all'));
 
 if (!fs.existsSync(savedStatePath)) {
   // This is probably a first start so saved state doesn't exist and saved-state-force-recheck didn't work.
@@ -49,8 +49,9 @@ if (!fs.existsSync(savedStatePath)) {
 }
 
 const statusExitCode = Flow.checkStatus();
-if (statusExitCode === 0) {
-  // We assume that there are 0 errors when saving the state.
+if (statusExitCode === 0 && !cli('--all')) {
+  // We assume that there are 0 errors when saving the state. It's not necessary to save the state
+  // when running with `--all` since it's not being used.
   Flow.saveState(savedStatePath);
 } else {
   process.exit(statusExitCode);
