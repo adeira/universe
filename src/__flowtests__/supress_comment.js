@@ -90,6 +90,34 @@ const kw6_3: string = 123;
  */
 const kw6_4: string = 123;
 
+// $FlowIssue: https://github.com/flow-typed/flow-typed/issues/0
+const kw7_1: string = 123;
+/* $FlowIssue: https://github.com/flow-typed/flow-typed/issues/0 */
+const kw7_2: string = 123;
+/*
+ * $FlowIssue: https://github.com/flow-typed/flow-typed/issues/0
+ */
+const kw7_3: string = 123;
+/**
+ * $FlowIssue: https://github.com/flow-typed/flow-typed/issues/0
+ * @type {number}
+ */
+const kw7_4: string = 123;
+
+// $FlowPullRequest: https://github.com/flow-typed/flow-typed/pull/0
+const kw8_1: string = 123;
+/* $FlowPullRequest: https://github.com/flow-typed/flow-typed/pull/0 */
+const kw8_2: string = 123;
+/*
+ * $FlowPullRequest: https://github.com/flow-typed/flow-typed/pull/0
+ */
+const kw8_3: string = 123;
+/**
+ * $FlowPullRequest: https://github.com/flow-typed/flow-typed/pull/0
+ * @type {number}
+ */
+const kw8_4: string = 123;
+
 // ===
 // Suppress comments in Facebook codebase (node_modules). Technical details:
 //
