@@ -4,7 +4,8 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
 {
   "presets": [],
   "plugins": [
-    "<BABEL_PRESET_ROOT>/src/dev-declaration"
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
   ],
   "parserOpts": {
     "plugins": [
@@ -30,7 +31,8 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
 {
   "presets": [],
   "plugins": [
-    "<BABEL_PRESET_ROOT>/src/dev-declaration"
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
   ],
   "parserOpts": {
     "plugins": [
@@ -56,7 +58,8 @@ exports[`emits correct config for target 'flow' and environment 'undefined' 1`] 
 {
   "presets": [],
   "plugins": [
-    "<BABEL_PRESET_ROOT>/src/dev-declaration"
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
+    "<BABEL_PRESET_ROOT>/src/dev-declaration.js"
   ],
   "parserOpts": {
     "plugins": [
@@ -97,6 +100,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "@babel/preset-react"
   ],
   "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
@@ -143,6 +147,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "@babel/preset-react"
   ],
   "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
@@ -193,6 +198,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' 1`] = 
     "@babel/preset-react"
   ],
   "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
@@ -242,6 +248,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "@babel/preset-react"
   ],
   "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
@@ -288,6 +295,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "@babel/preset-react"
   ],
   "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",
@@ -338,6 +346,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' 1`
     "@babel/preset-react"
   ],
   "plugins": [
+    "<BABEL_PRESET_ROOT>/src/dev-expression-check.js",
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/kiwicom-js-warning.js",

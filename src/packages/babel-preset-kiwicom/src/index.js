@@ -28,7 +28,10 @@ type BabelRules = $ReadOnlyArray<BabelRule>;
 
 */
 
-module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) => {
+module.exports = (
+  api /*: ApiType */,
+  externalOptions /*: ExternalOptions */,
+) /*: { +plugins: BabelRules, ... } */ => {
   api.assertVersion(7);
 
   const options /*: InternalOptions */ = {
@@ -45,7 +48,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
   };
 
   let presets /*: BabelRules */ = [];
-  let plugins /*: BabelRules */ = [];
+  let plugins /*: BabelRules */ = [path.join(__dirname, 'dev-expression-check.js')];
   let parserPlugins /*: Array<string> */ = [
     'jsx',
     'flow',
@@ -57,7 +60,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
 
   const target = options.target;
   if (target === 'flow') {
-    plugins = [path.join(__dirname, 'dev-declaration')];
+    plugins = plugins.concat([path.join(__dirname, 'dev-declaration.js')]);
     parserPlugins = parserPlugins.concat([
       // These parser options are relevant only to Flow because JS targets
       // enable them via necessary transpilation plugins.
@@ -72,7 +75,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
     const supportsESM = target === 'js-esm';
-    presets = [
+    presets = presets.concat([
       [
         '@babel/preset-env',
         {
@@ -83,8 +86,8 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
         },
       ],
       '@babel/preset-react',
-    ];
-    plugins = [
+    ]);
+    plugins = plugins.concat([
       path.join(__dirname, 'dev-expression.js'),
       path.join(__dirname, 'kiwicom-js-invariant.js'),
       path.join(__dirname, 'kiwicom-js-warning.js'),
@@ -104,7 +107,7 @@ module.exports = (api /*: ApiType */, externalOptions /*: ExternalOptions */) =>
         },
       ],
       '@kiwicom/babel-plugin-orbit-components',
-    ];
+    ]);
   } else {
     /*:: (target: empty) */
     throw new Error('options.target must be one of "js" or "flow".');

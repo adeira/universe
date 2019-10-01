@@ -265,7 +265,11 @@ __DEV__ = true;
 process.env.NODE_ENV !== 'production' = true;  // ??? 🧐
 ```
 
-Our [Eslint config](https://github.com/kiwicom/eslint-config-kiwicom) can help you to catch such mistakes.
+Our [Eslint config](https://github.com/kiwicom/eslint-config-kiwicom) can help you to catch such mistakes. You'll get an error in newer versions of this preset:
+
+```text
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+```
 
 ## `invariant` and `warning` functions
 
