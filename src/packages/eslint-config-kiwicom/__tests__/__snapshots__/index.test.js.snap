@@ -697,6 +697,7 @@ Object {
     "react/jsx-no-literals": 0,
     "react/jsx-no-target-blank": 0,
     "react/jsx-no-undef": 2,
+    "react/jsx-no-useless-fragment": 1,
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-pascal-case": 2,
     "react/jsx-props-no-multi-spaces": "off",
@@ -788,6 +789,7 @@ Object {
         },
         "order": Array [
           "type-annotations",
+          "static-variables",
           "static-methods",
           "instance-variables",
           "lifecycle",
@@ -907,6 +909,11 @@ Snapshot Diff:
 -     "react/jsx-no-comment-textnodes": 1,
 +     "react/jsx-no-comment-textnodes": 2,
       "react/jsx-no-duplicate-props": 2,
+@@ --- --- @@
+      "react/jsx-no-undef": 2,
+-     "react/jsx-no-useless-fragment": 1,
++     "react/jsx-no-useless-fragment": 2,
+      "react/jsx-one-expression-per-line": "off",
 @@ --- --- @@
       "react/no-unescaped-entities": 2,
 -     "react/no-unknown-property": 1,

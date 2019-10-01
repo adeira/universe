@@ -364,6 +364,7 @@ module.exports = {
   'react/jsx-no-literals': OFF,
   'react/jsx-no-target-blank': OFF,
   'react/jsx-no-undef': ERROR,
+  'react/jsx-no-useless-fragment': NEXT_VERSION_ERROR,
   'react/jsx-pascal-case': ERROR,
   'react/jsx-props-no-spreading': OFF,
   'react/jsx-sort-default-props': OFF,
@@ -409,6 +410,7 @@ module.exports = {
       // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
       order: [
         'type-annotations',
+        'static-variables',
         'static-methods',
         'instance-variables',
         'lifecycle',
