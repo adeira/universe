@@ -133,10 +133,10 @@ const DraftHandler = {
     const record = store.get(payload.dataID);
     const content = record.getValue(payload.fieldKey);
     record.setValue(content.toUpperCase(), 'draft');
-    
+
     // Set the original value to handleKey, otherwise the field with @__clientField directive will be undefined
     record.setValue(content, payload.handleKey);
-  }
+  },
 };
 ```
 
@@ -150,7 +150,7 @@ It is possible to specify custom handler when using `@connection`. This way you 
 
 See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
-## @connection(dynamicKey_UNSTABLE: $someVariable, ...)
+## @connection(dynamicKey_UNSTABLE: \$someVariable, ...)
 
 See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
 
@@ -173,7 +173,6 @@ Relay is able to recover completely missing fields in the response. You can use 
 ```
 
 Traditionally, server would return something like this in case of failure (or just missing data):
-
 
 ```json
 {
@@ -233,10 +232,7 @@ Currently broken: https://github.com/facebook/relay/issues/2713
 export default createRefetchContainer(LocationsPaginatedRefetch, {
   data: graphql`
     fragment LocationsPaginatedRefetch_data on RootQuery
-      @argumentDefinitions(
-        count: { type: "Int", defaultValue: 20 }
-        after: { type: "String" }
-      )
+      @argumentDefinitions(count: { type: "Int", defaultValue: 20 }, after: { type: "String" })
       @refetchable(queryName: "LocationsPaginatedRefetchRefetchQuery") {
       incrementalPagination: allLocations(first: $count, after: $after)
         @connection(key: "allLocations_incrementalPagination") {
@@ -292,29 +288,25 @@ TODO
 TODO: https://github.com/facebook/relay/issues/2674 !
 
 ```js
-import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger'
+import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
 
-import fetchFunction from './fetchFunction'
-import subscribeFunction from './subscribeFunction'
+import fetchFunction from './fetchFunction';
+import subscribeFunction from './subscribeFunction';
 
-const fetch = __DEV__
-    ? RelayNetworkLogger.wrapFetch(fetchFunction)
-    : fetchFunction
+const fetch = __DEV__ ? RelayNetworkLogger.wrapFetch(fetchFunction) : fetchFunction;
 
-const subscribe = __DEV__
-    ? RelayNetworkLogger.wrapSubscribe(subscribeFunction)
-    : subscribeFunction
+const subscribe = __DEV__ ? RelayNetworkLogger.wrapSubscribe(subscribeFunction) : subscribeFunction;
 
-const network = Network.create(fetch, subscribe)
-const source = new RecordSource()
-const store = new Store(source)
+const network = Network.create(fetch, subscribe);
+const source = new RecordSource();
+const store = new Store(source);
 
 const env = new Environment({
   network,
-  store
-})
+  store,
+});
 
-export default env
+export default env;
 ```
 
 ## RelayObservable.onUnhandledError

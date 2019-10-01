@@ -208,18 +208,18 @@ type MemoizedFactorial = {
     [number]: number,
   },
   [[call]](number): number,
-}
+};
 
 const factorial: MemoizedFactorial = n => {
   if (!factorial.cache) {
-    factorial.cache = {}
+    factorial.cache = {};
   }
   if (factorial.cache[n] !== undefined) {
-    return factorial.cache[n]
+    return factorial.cache[n];
   }
-  factorial.cache[n] = n === 0 ? 1 : n * factorial(n - 1)
-  return factorial.cache[n]
-}
+  factorial.cache[n] = n === 0 ? 1 : n * factorial(n - 1);
+  return factorial.cache[n];
+};
 ```
 
 - https://github.com/facebook/flow/pull/7790/files
@@ -266,8 +266,8 @@ class Thing {
   #prop2: string = 'I am private!';
 }
 
-(new Thing()).prop1;
-(new Thing()).prop2; // <- ERROR
+new Thing().prop1;
+new Thing().prop2; // <- ERROR
 ```
 
 ```
@@ -308,7 +308,7 @@ function exhaust(x: Cases) {
 `%checks` is an experimental predicate type. Check this code (no Flow errors):
 
 ```js
-function isGreaterThan5(x: string | number) {    
+function isGreaterThan5(x: string | number): boolean {
   if (typeof x === 'string') {
     return parseInt(x) > 5;
   }
@@ -319,11 +319,11 @@ function isGreaterThan5(x: string | number) {
 But you can slightly refactor it and you'll get unexpected errors:
 
 ```js
-function isString(y) {
+function isString(y): boolean {
   return typeof y === 'string';
 }
 
-function isGreaterThan5(x: string | number) {
+function isGreaterThan5(x: string | number): boolean {
   if (isString(x)) {
     return parseInt(x) > 5;
   }
@@ -344,7 +344,7 @@ References:
 This is because the refinement information of `y` as `string` instead of `string | number` is lost when returning from the `isString` function. You have to fix it like this:
 
 ```js
-function isString(y): %checks {
+function isString(y): boolean %checks {
   return typeof y === 'string';
 }
 ```
@@ -372,30 +372,30 @@ type C = { c: string };
 const a: A & B & C = {
   a: 1,
   b: true,
-  c: 'ok'
-}
+  c: 'ok',
+};
 
 const b: $Exact<A> | $Exact<B> | $Exact<C> = {
   a: 1,
-//  b: true,
-//  c: 'ok'
-}
+  //  b: true,
+  //  c: 'ok'
+};
 
 const c: {
   ...{ a: number, b: string },
-  a: string
+  a: string,
 } = {
   a: '1', // only string, no number
-  b: '2'
-}
+  b: '2',
+};
 
 const d: {|
   ...{| a: number, b: string |},
-  a: string
+  a: string,
 |} = {
   a: '1', // works the same with exact types
-  b: '2'
-}
+  b: '2',
+};
 
 // Impossible type:
 // const e: {| a: number |} & {| a: string |} = {
@@ -425,10 +425,10 @@ https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 ### `boolean` is incompatible with `true | false`
 
 ```js
-declare function foo(true | false): void
-declare function bar(): boolean
+declare function foo(true | false): void;
+declare function bar(): boolean;
 
-foo(bar())
+foo(bar());
 ```
 
 ```
@@ -444,7 +444,7 @@ References:
 
 https://github.com/facebook/flow/issues/4196
 
-### `mixed` type cannot be exhaused
+### `mixed` type cannot be exhausted
 
 ```js
 function test(x: mixed) {
@@ -466,17 +466,17 @@ None of the typing systems can handle this correctly, all show no error during s
 Flow ([pr](https://github.com/facebook/flow/pull/6823)):
 
 ```js
-let a = [1,2,3]
-let b: number = a[10] // undefined
-let c = b * 2
+let a = [1, 2, 3];
+let b: number = a[10]; // undefined
+let c = b * 2;
 ```
 
 Typescript ([issue](https://github.com/Microsoft/TypeScript/issues/13778)):
 
 ```js
 let a = [1, 2, 3];
-let b: number = a[10] // undefined
-let c = b * 2
+let b: number = a[10]; // undefined
+let c = b * 2;
 ```
 
 Reason:
@@ -490,7 +490,7 @@ let c = b * 2
 ## Flow shenanigans
 
 ```js
-const [w, a, t] = {p: ''}; // no error
+const [w, a, t] = { p: '' }; // no error
 ```
 
 [flow.org/try](https://flow.org/try/#0MYewdgzgLgBA2gdwDQwIYqgXRgXhgbwAcAuGAcjIF8BuIA)
@@ -509,22 +509,22 @@ Typescript types are exact by default but only on declaration. This means it [wo
 
 ```ts
 type User = {
-  username: string,
-  email: string
-}
+  username: string;
+  email: string;
+};
 
 const user1: User = {
-  ...{ username: 'x' }, 
+  ...{ username: 'x' },
   ...{ email: 'y' },
   ...{ xxx: 'y' },
-  yyy: 'y',   // <<< only this fails
-}
+  yyy: 'y', // <<< only this fails
+};
 
 const user2: User = {
-  ...{ username: 'x' }, 
+  ...{ username: 'x' },
   ...{ email: 'y' },
   ...{ xxx: 'y' },
-}
+};
 ```
 
 Flow doesn't have exact types by default (yet) but it can [handle these cases better](https://flow.org/try/#0C4TwDgpgBAqgzhATlAvFA3gHwFBSgVwUQDsBDAWwgC4o5hEBLYgcwBpcoJzSGAbGuoxbZMAX2zYAxgHtidAkQCMNeElQYOAOm3oFSMpRoByAB5Goo1lC07O3PsZDnLNzbpMfHz9nhB+vVngA9EFQADwRULK8IFDAABYMcFAAZjy8cNjiUrLyhEgATCpE6uiuuvkkFNRQpt7WeNpuduleFj5QTe6etU7tWdhAA):
@@ -532,21 +532,21 @@ Flow doesn't have exact types by default (yet) but it can [handle these cases be
 ```js
 type User = {|
   username: string,
-  email: string
-|}
+  email: string,
+|};
 
 const user1: User = {
-  ...{ username: 'x' }, 
+  ...{ username: 'x' },
   ...{ email: 'y' },
-  ...{ xxx: 'y' },   // <<< this fails
-  yyy: 'y',   // <<< this fails
-}
+  ...{ xxx: 'y' }, // <<< this fails
+  yyy: 'y', // <<< this fails
+};
 
 const user2: User = {
-  ...{ username: 'x' }, 
+  ...{ username: 'x' },
   ...{ email: 'y' },
-  ...{ xxx: 'y' },   // <<< this fails
-}
+  ...{ xxx: 'y' }, // <<< this fails
+};
 ```
 
 ```text

@@ -182,6 +182,7 @@ Get hash of the latest version:
 ```
 git blame -- src/packages/signed-source/package.json
 ```
+
 ```
 171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 1) {
 171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 2)   "name": "@kiwicom/signed-source",
@@ -196,6 +197,7 @@ OK, latest version hash is `8755e0bb`. What are the latest changes?
 ```
 git log --oneline 8755e0bb..HEAD -- src/packages/signed-source
 ```
+
 ```
 3ee25b4 Eslint: add new rule 'no-newline-string' to enforce os.EOL usage
 ```
@@ -205,6 +207,7 @@ I see, what was the hash of the version before? (means before `8755e0bb`)
 ```
 git blame 8755e0bb^ -- src/packages/signed-source/package.json
 ```
+
 ```
 171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 1) {
 171347dd (Martin Zlámal 2018-11-02 10:31:03 +0100 2)   "name": "@kiwicom/signed-source",
@@ -219,6 +222,7 @@ OK, it was `171347dd`. What are the changes between these 2 versions?
 ```
 git log --oneline 171347dd..8755e0bb -- src/packages/signed-source
 ```
+
 ```
 8755e0b NPM: publish `@kiwicom/signed-source` package
 509f31a JS: cleanup Eslint warnings

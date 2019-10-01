@@ -18,6 +18,7 @@ https://packhacker.com/guide/working-remotely/
 **https://www.vox.com/a/borders**
 
 ## Travel info
+
 Need to know something about your new destination? This will help you:
 
 - **https://nomadlist.com/**
@@ -33,23 +34,27 @@ Need to know something about your new destination? This will help you:
 - https://www.kiwi.com/, https://greatescape.co/
 
 ## Accommodation
+
 - https://www.airbnb.com/ + combine with https://hoodmaps.com/
 - https://www.sleepinginairports.net/
 - https://www.hoteltonight.com/
 - https://www.beroomers.com/ (I actually never tried)
 
 ## Visa
+
 - **https://www.visahq.com/**
 - https://www.visahq.com/map-requirements/czech-republic/resident-czech-republic/tourist-visa
 - https://en.wikipedia.org/wiki/Visa_requirements_for_Czech_citizens
 - https://en.wikipedia.org/wiki/Visa_policy_of_the_Schengen_Area
 
 ## Travel insurance
+
 - https://www.truetraveller.com/
 - https://safetywing.com/ (testing now)
 - https://www.revolut.com/ (40 days included in the Premium, cannot combine with other providers)
 
 ## Expenses and money abroad
+
 Traveling can be really expensive. One advice for you: live like you do normally in your hometown. So if you are not used to visit restaurants every day - don’t do it in different countries. These links will help you to keep your eye on your money:
 
 - https://www.numbeo.com/cost-of-living/
@@ -57,6 +62,7 @@ Traveling can be really expensive. One advice for you: live like you do normally
 - https://transferwise.com/borderless-account
 
 ## Mobile Internet
+
 Consider if you really need it. It’s actually quite fun to travel without it because you need to step out of your comfort zone. But if you cannot be without it check this website:
 
 - http://prepaid-data-sim-card.wikia.com/wiki/Prepaid_SIM_with_data
@@ -83,12 +89,14 @@ Providers I actually tried:
 Protip: consider if you need a big powerbank (they are heavy). For example I have this one. Huge capacity but weight 340g - do you need such a capacity? :)
 
 ## Gear
+
 Looking for really durable bag, jacket or just something nice to have? These links will help you:
 
 - https://packhacker.com/travel-gear/
 - https://nomadlist.com/gear
 
 ## Miscellaneous
+
 - **https://drozd.mzv.cz/** (for czech people only)
 - https://github.com/cbovis/awesome-digital-nomads
 - https://www.reddit.com/r/AskReddit/comments/7mfk4y/frequent_flyers_of_reddit_what_are_your_airport/dru6ve3/

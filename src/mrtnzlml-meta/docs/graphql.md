@@ -31,28 +31,28 @@ https://github.com/facebook/relay/pull/2641#issuecomment-475335484
 See: http://artsy.github.io/blog/2018/10/19/where-art-thou-my-error/
 
 ```typescript
-import { OrderStatus_order } from "__generated__/OrderStatus_order.graphql"
-import React from "react"
-import { createFragmentContainer, graphql } from "react-relay"
+import { OrderStatus_order } from '__generated__/OrderStatus_order.graphql';
+import React from 'react';
+import { createFragmentContainer, graphql } from 'react-relay';
 
 interface Props {
-  order: OrderStatus_order
+  order: OrderStatus_order;
 }
 
 const OrderStatus: React.SFC<Props> = ({ order: orderStatusOrError }) =>
-  orderStatusOrError.__typename === "OrderStatus" ? (
+  orderStatusOrError.__typename === 'OrderStatus' ? (
     <div>
       {orderStatusOrError.deliveryDispatched
-        ? "Your order has been dispatched."
-        : "Your order has not been dispatched yet."}
+        ? 'Your order has been dispatched.'
+        : 'Your order has not been dispatched yet.'}
     </div>
   ) : (
     <div className="error">
-      {orderStatusOrError.code === "unpublished"
-        ? "Please contact gallery services."
+      {orderStatusOrError.code === 'unpublished'
+        ? 'Please contact gallery services.'
         : `An unexpected error occurred: ${orderStatusOrError.message}`}
     </div>
-  )
+  );
 
 export const OrderStatusContainer = createFragmentContainer(
   OrderStatus,
@@ -69,8 +69,8 @@ export const OrderStatusContainer = createFragmentContainer(
         }
       }
     }
-  `
-)
+  `,
+);
 ```
 
 There are some complications and unanswered questions though:

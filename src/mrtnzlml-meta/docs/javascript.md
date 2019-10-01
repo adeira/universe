@@ -148,7 +148,7 @@ Root: (Isolate)
       "It can eventually be removed (try Relay and RN-Expo examples to verify it works)."
     ],
     "flow-bin": "^0.95.1",
-    "react": "^16.8.6",
+    "react": "^16.8.6"
   }
 }
 ```
@@ -168,16 +168,16 @@ https://github.com/facebook/jest/issues/5143
 ## Splitting string
 
 ```js
-"I 💖 U".split(' ');   // ✅: [ 'I', '💖', 'U' ]
-"I💖U".split('');      // ❌: [ 'I', '�', '�', 'U' ]
+'I 💖 U'.split(' '); // ✅: [ 'I', '💖', 'U' ]
+'I💖U'.split(''); // ❌: [ 'I', '�', '�', 'U' ]
 ```
 
 Better alternatives:
 
 ```js
-[..."I💖U"]
-Array.from("I💖U")
-"I💖U".split(/(?=[\s\S])/u)
+[...'I💖U'];
+Array.from('I💖U');
+'I💖U'.split(/(?=[\s\S])/u);
 ```
 
 More info: [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split), [stackoverflow.com](https://stackoverflow.com/a/34717402/3135248)
@@ -208,7 +208,7 @@ StackOverflow [implementation](https://stackoverflow.com/a/1830844/3135248) (so 
 
 ```js
 function isNumeric(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
 ```
 
@@ -224,7 +224,7 @@ function isNumber(number) {
 
 ```js
 function isNumeric(n) {
-    return Number.isFinite(Number.parseFloat(n));
+  return Number.isFinite(Number.parseFloat(n));
 }
 ```
 
@@ -235,18 +235,18 @@ Please note that `isNaN` and `Number.isNaN` [differs significantly](https://stac
 See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite
 
 ```js
-Number.isFinite('0');       // false, would've been true with
-                            // global isFinite('0')
-Number.isFinite(null);      // false, would've been true with
-                            // global isFinite(null)
+Number.isFinite('0'); // false, would've been true with global isFinite('0')
+Number.isFinite(null); // false, would've been true with global isFinite(null)
 ```
 
 Polyfill (to understand the difference better):
 
 ```js
-Number.isFinite = Number.isFinite || function(value) {
+Number.isFinite =
+  Number.isFinite ||
+  function(value) {
     return typeof value === 'number' && isFinite(value);
-}
+  };
 ```
 
 ## Dangerous getters
@@ -275,9 +275,7 @@ class WTF {
 const y = new WTF();
 
 // this is going to explode:
-console.warn(
-  y.address?.fullAddress && y.address.fullAddress,
-);
+console.warn(y.address?.fullAddress && y.address.fullAddress);
 
 // here is why:
 // console.warn(
@@ -291,7 +289,9 @@ source: https://github.com/facebook/flow/issues/5479#issuecomment-349749477
 Unfortunatelly, Flow cannot uncover this version (which can also explode):
 
 ```js
-{y.address && y.address.fullAddress && <Text>{y.address.fullAddress}</Text>}
+{
+  y.address && y.address.fullAddress && <Text>{y.address.fullAddress}</Text>;
+}
 ```
 
 ## Placement of catch BEFORE and AFTER then
@@ -338,9 +338,9 @@ So that's difference #2. If the .catch() handler is BEFORE, then it can handle t
 Sleep sort:
 
 ```js
-[3, 5, 1, 8, 2, 4, 9, 6, 7].forEach(num =>
-  setTimeout(() => console.log(num), num),
-);
+[3, 5, 1, 8, 2, 4, 9, 6, 7].forEach(num => {
+  setTimeout(() => console.log(num), num);
+});
 ```
 
 https://twitter.com/JavaScriptDaily/status/856267407106682880
