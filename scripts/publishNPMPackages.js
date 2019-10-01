@@ -11,7 +11,7 @@ import { invariant } from '@kiwicom/js';
   const npmAuthToken = process.env.NPM_AUTH_TOKEN;
 
   invariant(
-    npmAuthToken,
+    npmAuthToken != null,
     'Environment variable NPM_AUTH_TOKEN must be set in order to use NPM publisher.',
   );
 
