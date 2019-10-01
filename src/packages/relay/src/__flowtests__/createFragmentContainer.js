@@ -47,7 +47,7 @@ type Props = {|
   +fun?: string => void,
 |};
 
-const FunctionalComponent = (props: Props) => <React.Fragment />; // eslint-disable-line no-unused-vars
+const FunctionalComponent = (props: Props) => <div {...props} />;
 
 const ClassComponent = class extends React.Component<Props> {
   render() {
