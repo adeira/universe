@@ -15,7 +15,7 @@ module.exports = {
       'flow/debugging',
     ],
     Relay: ['relay', 'relay/match-module', 'relay/local-schema', 'relay/uploadables'],
-    'Rest of programming': ['git', 'graphql', 'javascript'],
+    'Rest of programming': ['git', 'graphql', 'javascript', 'css'],
   },
   life: {
     Travel: ['travel', 'travel/coworkings', 'travel/mexico'],
