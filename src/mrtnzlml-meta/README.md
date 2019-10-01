@@ -15,4 +15,4 @@ yarn start
 
 Make some changes, send a pull request, make sure I will merge it. Thank you very much!
 
-![Thank you!](https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif)
+![Thank you](https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy-downsized-large.gif)
