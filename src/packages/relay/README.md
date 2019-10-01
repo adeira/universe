@@ -169,7 +169,11 @@ function render() {
 }
 ```
 
-Query Renderer itself also behaves as an environment provider and it will reuse the environment from `RelayEnvironmentProvider` if you used it in the root of your application.
+Query Renderer itself also behaves as an environment provider and it will reuse the environment from `RelayEnvironmentProvider` if you used it in the root of your application. Here are some use-cases sorted from the most recommended one (REP is Relay Environment Provider, (L)QR is (Local) Query Renderer):
+
+1. `<REP environment={env}> <QR /> </REP>` - set environment only in the provider and avoid setting it on QR
+2. `<QR environment={env}/>` - do not use env provider at all and use only QR (handy for tiny applications)
+3. `<REP environment={env}/>` - do not use QR at all (handy if you don't need to render but only access the env somewhere)
 
 ### Tip: do not expose global `Environment`
 
@@ -198,9 +202,11 @@ import { useRelayEnvironment } from '@kiwicom/relay';
 
 function Component() {
   const environment = useRelayEnvironment();
-  // TODO: do something with the env
+  // TODO: do something with the env (call mutation for example)
 }
 ```
+
+Do not use your own Relay context! Our environment provider as well as the hook are integrated with Relay core.
 
 ### Tip: enable GraphiQL printer
 
