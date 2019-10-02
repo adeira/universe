@@ -46,6 +46,7 @@ Collection of interesting links, articles and project...
 
 ## M
 
+- [Medium is a poor choice for blogging](https://medium.com/@nikitonsky/medium-is-a-poor-choice-for-blogging-bb0048d19133)
 - [Mind Expanding Books](https://github.com/hackerkid/Mind-Expanding-Books)
 
 ## P
