@@ -43,7 +43,7 @@ module.exports = {
   'no-unsafe-finally': ERROR,
   'no-unsafe-negation': ERROR,
   'require-atomic-updates': ERROR,
-  'use-isnan': ERROR,
+  'use-isnan': [ERROR, { enforceForSwitchCase: true }],
   'valid-jsdoc': OFF,
   'valid-typeof': OFF, // see: babel/valid-typeof
 
