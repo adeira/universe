@@ -12,7 +12,6 @@ require('@babel/register')({
 const program = require('commander');
 const { invariant } = require('@kiwicom/js');
 const Logger = require('@kiwicom/logger').default;
-const { Rollout } = require('relay-compiler');
 const RelayConfig = require('relay-config');
 
 const compiler = require('../src/compiler').default;
@@ -20,6 +19,7 @@ const compiler = require('../src/compiler').default;
 program
   .option('--src <src>')
   .option('--schema <schema>')
+  .option('--persist-mode <fs|remote>')
   .option('--validate')
   .option(
     '--watch',
@@ -30,6 +30,7 @@ program
 const config = {
   src: program.src,
   schema: program.schema,
+  persistMode: program.persistMode,
   validate: program.validate,
   watch: program.watch,
   ...RelayConfig.loadConfig(),
@@ -37,23 +38,15 @@ const config = {
 
 invariant(config.src, 'Option --src is required.');
 invariant(config.schema, 'Option --schema is required.');
+invariant(
+  config.persistMode === undefined || config.persistMode === 'fs',
+  'Only filesystem persist mode is currently supported.',
+);
 
 // TODO: try to download the schema automatically?
 // But please note: some projects are using in-memory server for example and therefore it's not
 // possible to "fetch" the schema since there is no URL. Such projects has to sign their
 // snapshot manually.
-
-Rollout.set(
-  new Map([
-    [
-      // Our implementation of https://relay.dev/docs/en/persisted-queries
-      'stored-operations',
-      new Set([
-        // 'persist-query',
-      ]),
-    ],
-  ]),
-);
 
 compiler(config).catch(error => {
   Logger.error(error);

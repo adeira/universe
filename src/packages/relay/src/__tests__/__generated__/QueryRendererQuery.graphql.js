@@ -5,9 +5,6 @@
 
 /* eslint-disable */
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type QueryRendererQueryVariables = {||};
 export type QueryRendererQueryResponse = {|
@@ -19,8 +16,6 @@ export type QueryRendererQuery = {|
   variables: QueryRendererQueryVariables,
   response: QueryRendererQueryResponse,
 |};
-*/
-
 
 /*
 query QueryRendererQuery {
@@ -31,7 +26,7 @@ query QueryRendererQuery {
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "Literal",
@@ -120,5 +115,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'eff4ec049f4149500706a066f4030203';
-module.exports = node;
+(node: any).hash = 'eff4ec049f4149500706a066f4030203';
+export default node;

@@ -1,22 +1,19 @@
 /**
  * @flow
- * @relayHash 1356eb97cb53271ff39b87b7efac4430
+ * @relayHash a38a448b048a0789762ead728b073734
  */
 
 /* eslint-disable */
 
-'use strict';
-
-/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type StoredOperationInput = {|
   operationId: string,
   text: string,
 |};
-export type persistOperationMutationVariables = {|
+export type databasePersistFunctionMutationVariables = {|
   input: $ReadOnlyArray<StoredOperationInput>
 |};
-export type persistOperationMutationResponse = {|
+export type databasePersistFunctionMutationResponse = {|
   +createStoredOperations: ?{|
     +createdOperations: ?$ReadOnlyArray<?{|
       +operationId: ?string,
@@ -24,15 +21,13 @@ export type persistOperationMutationResponse = {|
     |}>
   |}
 |};
-export type persistOperationMutation = {|
-  variables: persistOperationMutationVariables,
-  response: persistOperationMutationResponse,
+export type databasePersistFunctionMutation = {|
+  variables: databasePersistFunctionMutationVariables,
+  response: databasePersistFunctionMutationResponse,
 |};
-*/
-
 
 /*
-mutation persistOperationMutation(
+mutation databasePersistFunctionMutation(
   $input: [StoredOperationInput!]!
 ) {
   createStoredOperations(persistedOperations: $input) {
@@ -44,7 +39,7 @@ mutation persistOperationMutation(
 }
 */
 
-const node/*: ConcreteRequest*/ = (function(){
+const node: ConcreteRequest = (function(){
 var v0 = [
   {
     "kind": "LocalArgument",
@@ -101,7 +96,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "persistOperationMutation",
+    "name": "databasePersistFunctionMutation",
     "type": "RootMutation",
     "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
@@ -109,19 +104,19 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "persistOperationMutation",
+    "name": "databasePersistFunctionMutation",
     "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
     "operationKind": "mutation",
-    "name": "persistOperationMutation",
+    "name": "databasePersistFunctionMutation",
     "id": null,
-    "text": "mutation persistOperationMutation(\n  $input: [StoredOperationInput!]!\n) {\n  createStoredOperations(persistedOperations: $input) {\n    createdOperations {\n      operationId\n      text\n    }\n  }\n}\n",
+    "text": "mutation databasePersistFunctionMutation(\n  $input: [StoredOperationInput!]!\n) {\n  createStoredOperations(persistedOperations: $input) {\n    createdOperations {\n      operationId\n      text\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '097e8bc9a7513dd82933138677510706';
-module.exports = node;
+(node: any).hash = 'ee85c20e320eb2c7d12fc9fcc99334f3';
+export default node;
