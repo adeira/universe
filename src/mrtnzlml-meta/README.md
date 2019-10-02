@@ -4,7 +4,7 @@ Do you like my work? Would you like to work with me? **I am currently looking fo
 
 ## Contributing
 
-Do you want to improve this page? Simple:
+Do you want to improve this website? This is how you install it:
 
 ```text
 git clone git@github.com:mrtnzlml/meta.git
@@ -13,6 +13,6 @@ yarn install
 yarn start
 ```
 
-Make some changes, send a pull request, make sure I will merge it. Thank you very much!
+Now, make some changes and send a [pull request](https://help.github.com/en/articles/about-pull-requests). That's it. :)
 
 ![Thank you](https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy-downsized-large.gif)
