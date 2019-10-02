@@ -8,6 +8,7 @@ const isCI = require('is-ci');
 const { Git } = require('@kiwicom/monorepo-utils');
 
 const formatter = require('./stylish');
+const isEslintConfigFile = require('./isEslintConfigFile');
 
 const PERFORM_FIXES = isCI === false;
 const cliEngine = new CLIEngine({
@@ -28,10 +29,21 @@ type Options = {|
 
 */
 
+// TODO: we should eventually get rid of 'create-jest-runner' dependency and use our own
+//  implementation with this built-in mechanism. This way we don't have to iterate all the files
+//  and skipping them.
 const changedFiles = Git.getChangesToTest();
 
 module.exports = ({ testPath, extraOptions } /*: Options */) => {
   const start = Date.now();
+
+  let runAll = extraOptions.runAll;
+  for (const changedFile of changedFiles) {
+    if (isEslintConfigFile(changedFile)) {
+      runAll = true;
+      break;
+    }
+  }
 
   if (cliEngine.isPathIgnored(testPath)) {
     return skip({
@@ -43,9 +55,8 @@ module.exports = ({ testPath, extraOptions } /*: Options */) => {
     });
   }
 
-  if (extraOptions.runAll === false) {
+  if (runAll === false) {
     const normalizedPath = testPath.replace(process.cwd(), '').replace(/^\//, '');
-
     if (changedFiles.includes(normalizedPath) === false) {
       return skip({
         start,
