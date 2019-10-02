@@ -7,11 +7,10 @@ const regex = /\b(?<owner>[a-z0-9]+)\/(?<repo>[a-z0-9.]+)\b/g;
 
 it('should return capturing groups as expected', () => {
   const matches = [];
-  // $FlowPullRequest: https://github.com/facebook/flow/pull/7812
   for (const match of string.matchAll(regex)) {
     matches.push(`${match[0]} at ${match.index} with '${match.input}'`);
-    matches.push(`→ owner: ${match.groups.owner}`);
-    matches.push(`→ repo: ${match.groups.repo}`);
+    matches.push(`→ owner: ${String(match.groups?.owner)}`);
+    matches.push(`→ repo: ${String(match.groups?.repo)}`);
   }
   expect(matches).toMatchInlineSnapshot(`
     Array [
@@ -26,13 +25,12 @@ it('should return capturing groups as expected', () => {
 });
 
 it('should work with manual iterator progressing', () => {
-  // $FlowPullRequest: https://github.com/facebook/flow/pull/7812
   const matchesIterator = string.matchAll(regex);
-  expect(matchesIterator.next().value.groups).toEqual({
+  expect(matchesIterator.next().value?.groups).toEqual({
     owner: 'tc39',
     repo: 'ecma262',
   });
-  expect(matchesIterator.next().value.groups).toEqual({
+  expect(matchesIterator.next().value?.groups).toEqual({
     owner: 'v8',
     repo: 'v8.dev',
   });
