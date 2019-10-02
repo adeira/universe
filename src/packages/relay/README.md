@@ -36,7 +36,7 @@ Minimal `.babelrc` file:
 }
 ```
 
-Minimal Relay compiler script in `package.json` (see below how to download the GraphQL schema):
+Minimal Relay compiler script in `package.json` (see below how to download the GraphQL schema and for more info about `relay.config.js`):
 
 ```json
 {
@@ -117,13 +117,31 @@ This API is high-level on purpose but it's possible to decompose it when you nee
 
 ## Relay Compiler
 
+_Missing some info in docs? Please send a merge request._
+
 We use our own `kiwicom-relay-compiler` which adds some additional features:
 
 - it outputs ES6 modules
 - it warns when you use deprecated fields in your queries and fragments
 - it supports several implementations of persistent queries
 
-_Missing some info in docs? Please send a merge request._
+This compiler supports configuration options via `relay.config.js`. Simply place it somewhere in the root of your project and configure it:
+
+```js
+module.exports = {
+  src: './src',
+  schema: './schema.graphql',
+
+  // These are optional:
+  include: ['**'],
+  exclude: ['**'],
+  artifactDirectory: null,
+};
+```
+
+These options are being consumed by Relay Compiler as well as `babel-plugin-relay`. Therefore, it serves as a centralized point for configuration and all the tools and editors can (should) use it. It's a preferred way how to configure your Relay applications.
+
+Relay config uses [cosmiconfig](https://www.npmjs.com/package/cosmiconfig) behind the scenes.
 
 ## Environment
 
