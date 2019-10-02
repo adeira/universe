@@ -20,15 +20,17 @@ function command(...commandChunks): ShellCommand {
     chalk.bold.green(flowBinCommand),
     ...rest.map(c => chalk.dim(hideRoot(c))),
   );
-  return new ShellCommand(monorepoRoot, flowBin, ...commandChunks).setOutputToScreen();
+  return new ShellCommand(monorepoRoot, flowBin, ...commandChunks);
 }
 
 export default class FlowWrapper {
   static restartServer = (): void => {
-    command('stop').runSynchronously();
+    command('stop')
+      .setOutputToScreen()
+      .runSynchronously();
   };
 
-  static startServer = (runAll: boolean = false): void => {
+  static startServerSilently = (runAll: boolean = false): void => {
     command(
       'start',
       '--wait-for-recheck=true',
@@ -44,7 +46,9 @@ export default class FlowWrapper {
   };
 
   static forceRecheck = (inputFile: string): void => {
-    command('force-recheck', '--focus', `--input-file=${inputFile}`).runSynchronously();
+    command('force-recheck', '--focus', `--input-file=${inputFile}`)
+      .setOutputToScreen()
+      .runSynchronously();
   };
 
   static checkStatus = (): number => {
@@ -54,12 +58,15 @@ export default class FlowWrapper {
       // Why "0" warnings by default? It's because we use them to check that flowtests work correctly. Important!
       '--max-warnings=0',
     )
+      .setOutputToScreen()
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
   };
 
   static saveState = (savedStatePath: string): void => {
-    command('save-state', `--root=${monorepoRoot}`, `--out=${savedStatePath}`).runSynchronously();
+    command('save-state', `--root=${monorepoRoot}`, `--out=${savedStatePath}`)
+      .setOutputToScreen()
+      .runSynchronously();
   };
 }
