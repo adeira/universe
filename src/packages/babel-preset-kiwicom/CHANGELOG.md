@@ -1,5 +1,9 @@
 # Unreleased
 
+# 3.7.0
+
+- New error preventing abuse of `__DEV__` added. You cannot redeclare this virtual constant in your code!
+
 # 3.6.0
 
 - Babel dependencies upgraded to the latest versions (7.6), see: https://babeljs.io/blog/2019/09/05/7.6.0

@@ -4,7 +4,7 @@
   "homepage": "https://github.com/kiwicom/babel-preset-kiwicom",
   "private": false,
   "license": "MIT",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
