@@ -5,7 +5,7 @@ import protobuf from 'protobufjs';
 type AnyObject = { [key: string]: any, ... };
 
 export function parseOptions(rawOptions: AnyObject): AnyObject {
-  const options = { graphql: {} };
+  const options: AnyObject = { graphql: {} };
 
   Object.entries(rawOptions).forEach(([key, value]) => {
     if (key.startsWith('(graphql_')) {

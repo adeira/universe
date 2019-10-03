@@ -4,7 +4,7 @@
   "description": "Our custom wrapper around flow-bin with some additional default features like lazy mode and saved state.",
   "private": false,
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "main": "src/index",
   "sideEffects": true,
   "bin": {
@@ -18,6 +18,6 @@
     "is-ci": "^2.0.0"
   },
   "peerDependencies": {
-    "flow-bin": "^0.108.0"
+    "flow-bin": "^0.109.0"
   }
 }
