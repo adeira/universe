@@ -1,0 +1,47 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  me: User
+
+  #
+  scalar: String
+  list(first: Int, last: Int): [String]
+  enum: MyEnum
+}
+
+enum MyEnum {
+  URGENT
+  IMPORTANT
+}
+
+type User {
+  name: String
+  surname: String
+  friends(first: Int, last: Int): [User]
+  friendsConnection(first: Int): FriendsConnection
+}
+
+type FriendsConnection {
+  count: Int
+  edges: [FriendsEdge]
+  pageInfo: PageInfo
+}
+
+type FriendsEdge {
+  cursor: String
+  node: User
+}
+
+type PageInfo {
+  hasPreviousPage: Boolean
+  hasNextPage: Boolean
+  endCursor: String
+  startCursor: String
+}
+
+type Mutation {
+  mutationScalar: String
+}
