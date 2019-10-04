@@ -10,7 +10,7 @@ function placeholder() {
 
 type Props = {|
   +query: GraphQLTaggedNode,
-  +render: () => React$Node,
+  +render: () => React.Node,
 |};
 
 function CustomQueryRenderer(props: Props) {

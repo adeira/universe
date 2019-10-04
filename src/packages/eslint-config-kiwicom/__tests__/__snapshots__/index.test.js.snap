@@ -345,6 +345,7 @@ Object {
     "jsx-quotes": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
+    "kiwicom-incubator/no-internal-flow-type": 1,
     "kiwicom-incubator/no-invalid-flow-annotations": 2,
     "kiwicom-incubator/only-nullable-fields": 2,
     "line-comment-position": 0,
@@ -899,6 +900,11 @@ Snapshot Diff:
 -     "default-param-last": 1,
 +     "default-param-last": 2,
       "dot-location": "off",
+@@ --- --- @@
+      "keyword-spacing": "off",
+-     "kiwicom-incubator/no-internal-flow-type": 1,
++     "kiwicom-incubator/no-internal-flow-type": 2,
+      "kiwicom-incubator/no-invalid-flow-annotations": 2,
 @@ --- --- @@
       "no-implied-eval": 2,
 -     "no-import-assign": 1,
