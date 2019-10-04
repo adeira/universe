@@ -44,7 +44,7 @@ function processItemData(itemRef) {
 }
 
 // React Component
-function MyComponent({ item }) {
+function MyComponent({ item }: any) {
   function handleClick() {
     processItemData(item);
   }

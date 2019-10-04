@@ -1,5 +1,6 @@
 // @flow
 
+import * as React from 'react';
 import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
 import { invariant, isObjectEmpty } from '@kiwicom/js';
 
@@ -28,11 +29,14 @@ export type RefetchRelayProp = {|
   ) => Disposable,
 |};
 
-export default function createRefetchContainer<TComponent: React$ComponentType<any>>(
+export default function createRefetchContainer<
+  Props: { ... },
+  TComponent: React.ComponentType<Props>,
+>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
   refetchQuery: GraphQLTaggedNode,
-): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, RefetchRelayProp>> {
+): React.ComponentType<$RelayProps<React.ElementConfig<TComponent>, RefetchRelayProp>> {
   invariant(
     isObjectEmpty(fragmentSpec) === false,
     'Fragment spec of this refetch container factory cannot be empty.',
