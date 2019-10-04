@@ -1,5 +1,6 @@
 // @flow
 
+import * as React from 'react';
 import { createPaginationContainer as _createPaginationContainer } from 'react-relay';
 import { invariant, isObjectEmpty } from '@kiwicom/js';
 
@@ -54,11 +55,14 @@ export type PaginationRelayProp = {|
   ) => ?Disposable,
 |};
 
-export default function createPaginationContainer<TComponent: React$ComponentType<any>>(
+export default function createPaginationContainer<
+  Props: { ... },
+  TComponent: React.ComponentType<Props>,
+>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
   connectionConfig: ConnectionConfig,
-): React$ComponentType<$RelayProps<React$ElementConfig<TComponent>, PaginationRelayProp>> {
+): React.ComponentType<$RelayProps<React.ElementConfig<TComponent>, PaginationRelayProp>> {
   invariant(
     isObjectEmpty(fragmentSpec) === false,
     'Fragment spec of this pagination container factory cannot be empty.',
