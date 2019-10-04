@@ -39,8 +39,8 @@
     "eslint": "^6.5.1",
     "flow-bin": "^0.109.0",
     "jest": "^24.9.0",
-    "react": "^16.10.1",
-    "react-test-renderer": "^16.10.1",
+    "react": "^16.10.2",
+    "react-test-renderer": "^16.10.2",
     "relay-test-utils": "^6.0.0"
   },
   "peerDependencies": {
