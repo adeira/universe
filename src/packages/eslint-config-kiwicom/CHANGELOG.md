@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule `kiwicom-incubator/no-internal-flow-type` enabled (warnings or errors in strict mode).
+
 # 8.2.0
 
 - New rules [`default-param-last`](https://eslint.org/docs/rules/default-param-last), [`no-import-assign`](https://eslint.org/docs/rules/no-import-assign), [`prefer-regex-literals`](https://eslint.org/docs/rules/prefer-regex-literals) and [`react/jsx-no-useless-fragment`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md) added (warnings in normal mode, errors in strict mode).

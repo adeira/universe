@@ -462,5 +462,6 @@ N - relay-imports/no-values ("error")
 N - relay-imports/type-must-exist ("error")
 N - kiwicom-incubator/only-nullable-fields ("error")
 N - kiwicom-incubator/no-invalid-flow-annotations ("error")
+N - kiwicom-incubator/no-internal-flow-type ("error")
 
 `;
