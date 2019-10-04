@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext } from 'react';
+import * as React from 'react';
 import { LocalQueryRenderer as RelayLocalQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant } from '@kiwicom/js';
 
@@ -18,12 +18,12 @@ type CommonProps = {|
 type Props =
   | {|
       ...CommonProps,
-      +onResponse: RendererProps => React$Node,
-      +onLoading?: () => React$Node,
+      +onResponse: RendererProps => React.Node,
+      +onLoading?: () => React.Node,
     |}
   | {|
       ...CommonProps,
-      +render: ({| +props: ?RendererProps |}) => React$Node,
+      +render: ({| +props: ?RendererProps |}) => React.Node,
     |};
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
@@ -49,7 +49,7 @@ export default function LocalQueryRenderer(props: Props) {
   // 1) <LQR environment={Env} /> always win
   // 2) <LQR /> checks whether we provide Environment via `RelayEnvironmentProvider`
   // 3) <LQR /> defaults to the default local environment
-  const context = useContext(ReactRelayContext);
+  const context = React.useContext(ReactRelayContext);
   // TODO: does it make sense to add support for separate local env context?
   const environment = props.environment ?? context?.environment ?? createLocalEnvironment();
   return (

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useContext } from 'react';
+import * as React from 'react';
 import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant, sprintf } from '@kiwicom/js';
 import { TimeoutError, ResponseError } from '@kiwicom/fetch';
@@ -38,13 +38,13 @@ type Props =
         error: Error,
         retry: ?() => void,
         ...
-      }) => React$Node,
-      +onLoading?: () => React$Node,
-      +onResponse: RendererProps => React$Node,
+      }) => React.Node,
+      +onLoading?: () => React.Node,
+      +onResponse: RendererProps => React.Node,
     |}
   | {|
       ...CommonProps,
-      +render: ReadyState => React$Node,
+      +render: ReadyState => React.Node,
     |};
 
 export default function QueryRenderer(props: Props) {
@@ -112,7 +112,7 @@ export default function QueryRenderer(props: Props) {
   // 1) <QR environment={Env} /> always win
   // 2) <QR /> checks whether we provide Environment via `RelayEnvironmentProvider`
   // 3) <QR /> defaults to the default Kiwi.com environment
-  const context = useContext(ReactRelayContext);
+  const context = React.useContext(ReactRelayContext);
   const environment =
     props.environment ?? context?.environment ?? createDefaultEnvironment(props.clientID);
 
