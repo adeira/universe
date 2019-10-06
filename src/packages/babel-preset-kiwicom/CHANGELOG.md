@@ -1,5 +1,7 @@
 # Unreleased
 
+- Output in which file you are trying to redeclare `__DEV__`
+
 # 3.7.0
 
 - New error preventing abuse of `__DEV__` added. You cannot redeclare this virtual constant in your code!
