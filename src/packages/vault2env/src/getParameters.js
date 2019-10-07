@@ -1,5 +1,7 @@
 // @flow strict
 
+import { nullthrows } from '@kiwicom/js';
+
 type CLIConfig = { +[key: string]: string, ... };
 
 export default function getParameters(params: CLIConfig) {
@@ -9,10 +11,12 @@ export default function getParameters(params: CLIConfig) {
     .map(param => {
       const envName = `VAULT_${param.toUpperCase()}`;
       const value = params[param] ?? process.env[envName];
-      if (value == null) {
-        throw new Error(`You must provide Vault ${param} by "${envName}" or --${param}.`);
-      }
-      return { [param]: value };
+      return {
+        [param]: nullthrows(
+          value,
+          `You must provide Vault ${param} by "${envName}" or --${param}.`,
+        ),
+      };
     })
     .reduce((memo, item) => ({ ...memo, ...item }), {});
 
