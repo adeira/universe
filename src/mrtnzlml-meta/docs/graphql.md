@@ -128,4 +128,74 @@ fragment CommentFields on Comment {
 
 ## Rate Limiting
 
-https://twitter.com/__xuorig__/status/1148653318069207041
+- http://olafhartig.de/files/HartigPerez_WWW2018_Preprint.pdf
+- https://twitter.com/__xuorig__/status/1148653318069207041
+
+## A/B testing in GraphQL
+
+GraphQL has `@include` and `@skip` directives defined by default. There directives can be used for A/B testing like this for example:
+
+```graphql
+fragment MyLocation on Location {
+  name
+  type
+  countryFlagURL
+}
+
+query($first: Int! = 10, $abTestEnabled: Boolean! = true) {
+  allLocations(first: $first) {
+    edges {
+      node {
+        ...MyLocation
+        id_A: code @include(if: $abTestEnabled)
+        id_B: id(opaque: false) @skip(if: $abTestEnabled)
+      }
+    }
+  }
+}
+```
+
+Interestingly, you can use inline fragments to include/skip the whole block of fields like this:
+
+```graphql
+query($first: Int! = 10, $abTestEnabled: Boolean! = true) {
+  allLocations(first: $first) {
+    edges {
+      node {
+        id
+        ... @include(if: $abTestEnabled) {
+          name
+          slug
+          type
+        }
+      }
+    }
+  }
+}
+```
+
+Such inline fragments (without type condition or even without the directive) are allowed per specification (see: https://graphql.github.io/graphql-spec/draft/#sec-Inline-Fragments). Bonus tip: Relay handles this kind of fragment and generates Flow type correctly, for example:
+
+```js
+/*
+query PollingQuery(
+  $abTestEnabled: Boolean!
+) {
+  currency(code: "usd") {
+    rate
+    code @include(if: $abTestEnabled)
+    format @include(if: $abTestEnabled)
+    id
+  }
+}
+*/
+export type PollingQueryResponse = {|
+  +currency: ?{|
+    +rate: ?number,
+    +code?: ?string, // note it's optional
+    +format?: ?string, // note it's optional
+  |},
+|};
+```
+
+Therefore server can return you dynamic response even though Relay generates the meta files statically.
