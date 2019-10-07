@@ -45,9 +45,6 @@ module.exports = {
                 invalidName: node.name,
                 validName,
               },
-              fix(fixer) {
-                return fixer.replaceText(node, validName);
-              },
             });
           }
         }
