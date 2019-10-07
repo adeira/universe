@@ -146,17 +146,33 @@ Please note: not everything can be expressed/modeled in your type system so you 
 
 ## Contributing to native libdevs
 
-https://github.com/facebook/flow#building-flow
+First, you have to build Flow locally (check official README for updated instructions: https://github.com/facebook/flow):
 
-```
+```text
+brew install opam                       # http://opam.ocaml.org/
+opam init
+opam switch create . --deps-only -y     # install OCaml and Flow's dependencies
+eval $(opam env)                        # probably not necessary, read `opam init` step
 make
-bash runtests.sh -t node_tests bin/flow
-bash runtests.sh -t node_tests -r bin/flow
 ```
 
-Note:
+Now, you can start making changes to libdevs:
 
-> `make build-flow-debug` should be faster
+```text
+make
+bash ./runtests.sh -t node_tests bin/flow
+bash ./runtests.sh -t node_tests -r bin/flow
+```
+
+Please note (I didn't try it yet though):
+
+> `make build-flow-debug` should be faster for local development
+
+Now, you can use this new binary from source in your application to test new features. Just use newly built `bin/flow` instead of Flow binary from NPM like so:
+
+```text
+/Users/TKTK/flow/bin/flow status <ROOT>
+```
 
 ## Trust mode
 
