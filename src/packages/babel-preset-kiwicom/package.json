@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@kiwicom/test-utils": "^0.10.0",
+    "@kiwicom/monorepo-utils": "^0.24.0",
     "strip-ansi": "^5.2.0"
   },
   "peerDependencies": {

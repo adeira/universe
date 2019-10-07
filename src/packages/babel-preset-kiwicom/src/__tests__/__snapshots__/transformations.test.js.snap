@@ -1007,7 +1007,7 @@ const __DEV__ = process.env.NODE_ENV !== 'production';
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 THROWN EXCEPTION:
 
-Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset. This happened in file: /mock/path/mockFile.js
 `;
 
 exports[`matches expected output: dev-expression-abuse-1.error.js 2`] = `
@@ -1021,7 +1021,7 @@ const __DEV__ = process.env.NODE_ENV !== 'production';
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 THROWN EXCEPTION:
 
-Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset. This happened in file: /mock/path/mockFile.js
 `;
 
 exports[`matches expected output: dev-expression-abuse-1.error.js 3`] = `
@@ -1035,7 +1035,7 @@ const __DEV__ = process.env.NODE_ENV !== 'production';
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 THROWN EXCEPTION:
 
-Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset. This happened in file: /mock/path/mockFile.js
 `;
 
 exports[`matches expected output: dev-expression-abuse-2.error.js 1`] = `
@@ -1051,7 +1051,7 @@ let a,
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 THROWN EXCEPTION:
 
-Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset. This happened in file: /mock/path/mockFile.js
 `;
 
 exports[`matches expected output: dev-expression-abuse-2.error.js 2`] = `
@@ -1067,7 +1067,7 @@ let a,
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 THROWN EXCEPTION:
 
-Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset. This happened in file: /mock/path/mockFile.js
 `;
 
 exports[`matches expected output: dev-expression-abuse-2.error.js 3`] = `
@@ -1083,7 +1083,7 @@ let a,
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 THROWN EXCEPTION:
 
-Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
+Error: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset. This happened in file: /mock/path/mockFile.js
 `;
 
 exports[`matches expected output: dynamic-import.js 1`] = `
