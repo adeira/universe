@@ -8,8 +8,6 @@ import ShellCommand from '../ShellCommand';
 // These tests actually run the commands - not sure if it's a good idea but
 // should be fine since they are mostly Node anyway.
 
-const HUNDRED_MEGABYTES = 1024 * 1024 * 100;
-
 it("throws exception when command doesn't exit", () => {
   expect(() =>
     new ShellCommand(null, 'this_command_does_not_exit').runSynchronously(),
@@ -113,7 +111,7 @@ it('executes the underlying child process correctly -- output to screen', () => 
     cwd: expect.any(String),
     input: undefined,
     stdio: ['inherit', 'inherit', 'inherit'],
-    maxBuffer: HUNDRED_MEGABYTES,
+    maxBuffer: Infinity,
   });
   spy.mockRestore();
 });
@@ -129,7 +127,7 @@ it('executes the underlying child process correctly -- returns output with stdin
     cwd: expect.any(String),
     input: 'custom playload',
     stdio: ['pipe', 'pipe', 'pipe'],
-    maxBuffer: HUNDRED_MEGABYTES,
+    maxBuffer: Infinity,
   });
   spy.mockRestore();
 });
@@ -147,7 +145,7 @@ it('executes the underlying child process correctly -- with environment variable
     cwd: expect.any(String),
     env: new Map([['GIT_CONFIG_NOSYSTEM', '1']]),
     stdio: ['inherit', 'pipe', 'pipe'],
-    maxBuffer: HUNDRED_MEGABYTES,
+    maxBuffer: Infinity,
   });
   spy.mockRestore();
 });
