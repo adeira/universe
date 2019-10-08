@@ -1,6 +1,8 @@
 # Unreleased
 
-- New rule `kiwicom-incubator/no-internal-flow-type` enabled (warnings or errors in strict mode).
+# 8.3.0
+
+- New rule `kiwicom-incubator/no-internal-flow-type` enabled (warnings or errors in strict mode). This rule forces you to use types like `React.Node` instead of `React$Node`.
 
 # 8.2.0
 
