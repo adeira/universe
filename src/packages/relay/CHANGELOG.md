@@ -1,6 +1,9 @@
 # Unreleased
 
+# 4.6.0
+
 - Fixed Flow types for `createFragmentContainer`, `createPaginationContainer` and `createRefetchContainer`. This may yield many new errors especially if you didn't type your React components correctly. But don't worry, the upgrade can be very simple and automated - contact us directly. :)
+- Compiler: added support for experimental FS persist mode (see Relay Example project).
 
 # 4.5.0
 
