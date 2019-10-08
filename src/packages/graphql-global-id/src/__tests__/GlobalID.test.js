@@ -1,6 +1,7 @@
 // @flow
 
 import { GraphQLObjectType, GraphQLID } from 'graphql';
+import { nullthrows } from '@kiwicom/js';
 
 import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf } from '../GlobalID';
 
@@ -36,10 +37,10 @@ function catchError(callback): Error | empty {
   } catch (e) {
     error = e;
   }
-  if (error === null) {
-    throw new Error(`Function 'catchError' supposed to catch an error but no error was thrown.`);
-  }
-  return error;
+  return nullthrows(
+    error,
+    `Function 'catchError' supposed to catch an error but no error was thrown.`,
+  );
 }
 
 describe('GlobalID', () => {
