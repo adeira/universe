@@ -131,3 +131,39 @@ isNumeric(null); // false
 isNumeric([]); // false
 isNumeric(Infinity); // false
 ```
+
+# `nullthrows`
+
+This function allows you to reduce necessary boilerplate when checking for null and throwing an exception.
+
+```js
+function abc() {
+  const x = dataloader.load(1);
+  if (x == null) {
+    throw new Error('Got unexpected null or undefined.');
+  }
+  return x;
+}
+```
+
+Becomes:
+
+```js
+import { nullthrows } from '@kiwicom/js';
+
+function abc() {
+  return nullthrows(dataloader.load(1));
+}
+```
+
+Alternatively, you can supply a custom error message:
+
+```js
+import { nullthrows } from '@kiwicom/js';
+
+function abc() {
+  return nullthrows(dataloader.load(1), 'UPS, this is an error!');
+}
+```
+
+As you can see, it's very similar to `invariant` function. Tip: this function can be also handy in tests where you want to guard against nullable values.

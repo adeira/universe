@@ -12,7 +12,7 @@
   "main": "src/index",
   "dependencies": {
     "@kiwicom/fetch": "^2.3.1",
-    "@kiwicom/js": "^0.16.0",
+    "@kiwicom/js": "^0.17.0",
     "@kiwicom/logger": "^0.3.0",
     "commander": "^3.0.2"
   },
