@@ -178,7 +178,8 @@ Now, you can use this new binary from source in your application to test new fea
 
 _TODO_
 
-https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
+- https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
+- https://github.com/facebook/flow/commit/fa0a8ef899925ed2b0939cb03678eceec821f5d0
 
 ## Enums
 
