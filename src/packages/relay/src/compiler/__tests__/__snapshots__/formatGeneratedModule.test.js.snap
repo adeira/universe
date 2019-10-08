@@ -7,6 +7,7 @@ exports[`renders full input correctly 1`] = `
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
 import type { DOCUMENT_TYPE } from 'relay-runtime';
 TYPE_TEXT
@@ -32,6 +33,7 @@ exports[`renders minimal input correctly 1`] = `
  */
 
 /* eslint-disable */
+// flowlint untyped-type-import:off
 
 import type { DOCUMENT_TYPE } from 'relay-runtime';
 TYPE_TEXT
