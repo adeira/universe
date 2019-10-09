@@ -205,7 +205,10 @@ Results in:
             ^ [2]
 ```
 
-See: https://github.com/facebook/flow/commit/7c3390f7dcf886b0b39acfa505446614641ecb92
+See:
+
+- https://github.com/facebook/flow/commit/7c3390f7dcf886b0b39acfa505446614641ecb92
+- https://github.com/facebook/flow/blob/369e1f93dde1ddafec7c5539a20e7b061672da6c/tests/values/object_types.js
 
 Please note: this only works when you define the object with values inside `Object.freeze`. Similar but alternative approach: https://github.com/facebook/flow/issues/627#issuecomment-389668600
 
