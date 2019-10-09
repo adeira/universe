@@ -44,9 +44,24 @@ flow:
     # reuse only one runner to ensure maximum availability of the cache (see: https://docs.gitlab.com/ee/ci/caching/#good-caching-practices).
     # Note: do not cache per CI_JOB_NAME! It's because some branches can introduce new files into
     # saved state which won't be available in other branches (Flow will fail on missing file).
-    key: ${CI_COMMIT_REF_SLUG}
+    key: flow-${CI_COMMIT_REF_SLUG}
     paths:
       - .flow.saved_state
+```
+
+If you utilize global cache with `node_modules`, extend it with `.flow.saved_state`:
+
+```yaml
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .flow.saved_state
+
+flow:
+  # ...
+  script:
+    - yarn run kiwicom-flow-bin
 ```
 
 # Technical details
