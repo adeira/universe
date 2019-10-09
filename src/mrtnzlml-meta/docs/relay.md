@@ -21,6 +21,7 @@ TODO:
 - Mock Data Generation: https://github.com/facebook/relay/commit/09d317943f6936ffb0002154c389b6d7a507c58d
 - https://github.com/facebook/relay/pull/2700/files
 - `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files, https://relay.dev/docs/en/testing-relay-components#relay_test_operation, https://github.com/facebook/relay/issues/2807#issuecomment-515690739
+- `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 
 This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
 
