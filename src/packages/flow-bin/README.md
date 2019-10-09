@@ -29,6 +29,8 @@ $ kiwicom-flow-bin [restart] [--all]
 
 This will start the server in lazy mode and create a saved state if there are no errors. You should see the effect when you stop the Flow server and run this command again - it should be significantly faster. Please be aware that we currently support only projects with `master` branch as a base. You have to follow Universe conventions to be able to use it reliably.
 
+There is also experimental `kiwicom-flow-strictify` binary which will help you to migrate the whole codebase to strict lint if possible.
+
 # Recommended CI configuration (GitLab)
 
 ```yaml

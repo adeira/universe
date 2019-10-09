@@ -8,10 +8,12 @@
   "main": "src/index",
   "sideEffects": true,
   "bin": {
-    "kiwicom-flow-bin": "bin/index.js"
+    "kiwicom-flow-bin": "bin/index.js",
+    "kiwicom-flow-strictify": "bin/strictify.js"
   },
   "dependencies": {
     "@babel/register": "^7.6.0",
+    "@kiwicom/js": "^0.17.0",
     "@kiwicom/logger": "^0.3.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "chalk": "^2.4.2",
