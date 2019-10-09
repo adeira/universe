@@ -1419,6 +1419,7 @@ type F = {
   (x: boolean): string,
   [[call]](x: number): string,
   [[call]]: string => string,
+  ...,
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -1437,6 +1438,7 @@ type F = {
   (x: boolean): string,
   [[call]](x: number): string,
   [[call]]: string => string,
+  ...,
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -1449,7 +1451,7 @@ type F = {
   (): string,
   (x: boolean): string,
   [[call]](x: number) => string,
-  [[call]]: (string) => string, };
+  [[call]]: (string) => string, ...};
 `;
 
 exports[`matches expected output: internal-slot-properties.js 3`] = `
@@ -1464,6 +1466,7 @@ type F = {
   (x: boolean): string,
   [[call]](x: number): string,
   [[call]]: string => string,
+  ...,
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~

@@ -8,4 +8,5 @@ type F = {
   (x: boolean): string,
   [[call]](x: number): string,
   [[call]]: string => string,
+  ...,
 };
