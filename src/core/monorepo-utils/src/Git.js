@@ -41,6 +41,11 @@ const Git = {
     return __parseRows(rawWorktreeChanges);
   },
 
+  getWorktreeChanges() /*: string */ {
+    const rawWorktreeChanges = git('diff', 'HEAD');
+    return rawWorktreeChanges.trim();
+  },
+
   getChangedFiles() /*: $ReadOnlyArray<string> */ {
     const rawChanges = git('diff', '--name-only', 'origin/master...HEAD');
     return __parseRows(rawChanges);
