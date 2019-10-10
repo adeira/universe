@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import findDirtyWorkspaces from './findDirtyWorkspaces';
 import findRelatedWorkspaces from './findRelatedWorkspaces';

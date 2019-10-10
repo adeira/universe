@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import path from 'path';
 import nodeChildProcess from 'child_process'; // eslint-disable-line no-restricted-imports

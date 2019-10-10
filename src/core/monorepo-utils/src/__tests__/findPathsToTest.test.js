@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import findPathsToTest from '../findPathsToTest';
 import workspaceDependencies from './workspaceDependencies';
