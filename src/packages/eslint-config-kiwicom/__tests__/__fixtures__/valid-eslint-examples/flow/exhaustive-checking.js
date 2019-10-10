@@ -1,8 +1,15 @@
 // @flow strict
 
+// eslint-disable-next-line no-unused-vars
+const invariantMock = (condition, format, ...args) => {
+  if (!condition) {
+    throw new Error(format);
+  }
+};
+
 type Cases = 'A' | 'B';
 
-export default function exhaust(x: Cases) {
+export function exhaustA(x: Cases) {
   if (x === 'A') {
     // do stuff
   } else if (x === 'B') {
@@ -10,5 +17,19 @@ export default function exhaust(x: Cases) {
   } else {
     // only true if we handled all cases
     (x: empty);
+  }
+}
+
+export function exhaustB(reason: 'magicLink' | 'signUpConfirmation' | 'resetPassword') {
+  switch (reason) {
+    case 'magicLink':
+      return __('account.check_email_magic_link');
+    case 'signUpConfirmation':
+      return __('account.check_email_sign_up');
+    case 'resetPassword':
+      return __('account.you_will_recieve_password');
+    default:
+      (reason: empty);
+      return invariantMock(false, 'Unsupported reason: %j', reason);
   }
 }
