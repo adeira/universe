@@ -265,7 +265,7 @@ console.log(bar.a); // should return 5, not undefined
 
 exports[`matches expected output: babel-issue-8684.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
 
@@ -287,7 +287,7 @@ var bbb = aaa;
 
 exports[`matches expected output: babel-issue-8684.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
 
@@ -297,7 +297,7 @@ const aaa = 1;
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
 
@@ -309,7 +309,7 @@ const bbb: string = aaa;
 
 exports[`matches expected output: babel-issue-8684.js 3`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
 

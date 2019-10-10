@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 function graphqlTagMock(strings) {
   // noop mock
