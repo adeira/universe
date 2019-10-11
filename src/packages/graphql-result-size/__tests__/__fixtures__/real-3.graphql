@@ -1,0 +1,8 @@
+query PollingQuery($abTestEnabled: Boolean!) {
+  currency(code: "usd") {
+    rate
+    code @include(if: $abTestEnabled)
+    format @include(if: $abTestEnabled)
+    id
+  }
+}

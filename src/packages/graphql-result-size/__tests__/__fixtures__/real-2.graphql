@@ -1,0 +1,18 @@
+query HotelsQuery($search: HotelsSearchInput!) {
+  allAvailableBookingComHotels(search: $search) {
+    ...HotelsList_hotels
+  }
+}
+
+fragment HotelsList_hotels on AllHotelAvailabilityHotelConnection {
+  edges {
+    node {
+      id
+      ...HotelListItem_hotel
+    }
+  }
+}
+
+fragment HotelListItem_hotel on AllHotelAvailabilityHotel {
+  name
+}

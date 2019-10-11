@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: real-1.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query HomepageQuery($count: Int!) {
+  ...LocationsPaginatedBidirectional_data_1TJkD9
+  ...LocationsPaginatedRefetch_data
+  ...LocationsPaginated_data
+}
+
+fragment LocationsPaginatedBidirectional_data_1TJkD9 on RootQuery {
+  allLocations(first: $count) {
+    edges {
+      node {
+        id
+        ...Location_location
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+  }
+}
+
+fragment LocationsPaginatedRefetch_data on RootQuery {
+  incrementalPagination: allLocations(first: 20) {
+    edges {
+      node {
+        id
+        ...Location_location
+        __typename
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+
+fragment LocationsPaginated_data on RootQuery {
+  incrementalPagination2: allLocations(first: 20) {
+    edges {
+      node {
+        id
+        ...Location_location
+        __typename
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+}
+
+fragment Location_location on Location {
+  name
+  ...CountryFlag_location
+}
+
+fragment CountryFlag_location on Location {
+  country {
+    code
+    name
+  }
+  code
+  name
+  type
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+500000
+`;
+
+exports[`matches expected output: real-2.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query HotelsQuery($search: HotelsSearchInput!) {
+  allAvailableBookingComHotels(search: $search) {
+    ...HotelsList_hotels
+  }
+}
+
+fragment HotelsList_hotels on AllHotelAvailabilityHotelConnection {
+  edges {
+    node {
+      id
+      ...HotelListItem_hotel
+    }
+  }
+}
+
+fragment HotelListItem_hotel on AllHotelAvailabilityHotel {
+  name
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+200004
+`;
+
+exports[`matches expected output: real-3.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query PollingQuery($abTestEnabled: Boolean!) {
+  currency(code: "usd") {
+    rate
+    code @include(if: $abTestEnabled)
+    format @include(if: $abTestEnabled)
+    id
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+10017
+`;
