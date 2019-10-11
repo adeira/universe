@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// @flow
+// @flow strict
 
 const os = require('os');
 const path = require('path');

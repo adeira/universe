@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import findRelatedWorkspaces from '../findRelatedWorkspaces';
 import workspaceDependencies from './workspaceDependencies';

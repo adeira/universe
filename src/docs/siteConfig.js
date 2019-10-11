@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.

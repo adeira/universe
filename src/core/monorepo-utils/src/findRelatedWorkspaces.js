@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { type WorkspaceDependencies } from './Workspaces.flow';
 

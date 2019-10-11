@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
 /* eslint-disable */
 

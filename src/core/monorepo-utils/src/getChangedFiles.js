@@ -39,7 +39,9 @@ export default function getChangedFiles(): $ReadOnlyArray<string> {
 
 ${uncommittedChanges.join(os.EOL)}
 
-This usually means that CI generated some changes (for example during installation of dependencies) which is unexpected. Please try to fix it locally and commit the newly generated files.`,
+This usually means that CI generated some changes (for example during installation of dependencies) which is unexpected. Please try to fix it locally and commit the newly generated files. Git Diff:
+
+${Git.getWorktreeChanges()}`,
     );
     process.exit(1);
   }
