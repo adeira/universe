@@ -12,6 +12,5 @@ const schema = buildSchema(
 );
 
 generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input => {
-  // TODO: these queries mostly do not work since we do not support fragments yet
   return calculate(schema, parse(input));
 });

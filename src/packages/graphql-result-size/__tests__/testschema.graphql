@@ -1,12 +1,11 @@
 schema {
   query: Query
   mutation: Mutation
+  subscription: Subscription
 }
 
 type Query {
   me: User
-
-  #
   scalar: String
   list(first: Int, last: Int): [String]
   enum: MyEnum
@@ -44,4 +43,8 @@ type PageInfo {
 
 type Mutation {
   mutationScalar: String
+}
+
+type Subscription {
+  subscriptionScalar: String
 }
