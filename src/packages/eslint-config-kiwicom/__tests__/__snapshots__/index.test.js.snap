@@ -538,6 +538,7 @@ Object {
       2,
       Object {
         "args": "after-used",
+        "ignoreRestSiblings": true,
       },
     ],
     "no-use-before-define": 0,
