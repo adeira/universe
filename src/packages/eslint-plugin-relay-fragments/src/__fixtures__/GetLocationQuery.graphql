@@ -1,0 +1,16 @@
+query GetLocation {
+  location(input: {locationId: "id"}) {
+    id
+    subdivision {
+      name
+    }
+    ... on Location {
+      isActive
+    }
+    ...LocationFragment
+  }
+}
+
+fragment LocationFragment on Location {
+  code
+}

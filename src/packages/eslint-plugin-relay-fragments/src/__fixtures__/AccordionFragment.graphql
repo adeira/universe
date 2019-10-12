@@ -1,0 +1,28 @@
+fragment Accordion on Trip {
+  departure {
+    localTime
+    airport {
+      locationId
+      city {
+        name
+      }
+    }
+  }
+  arrival {
+    airport {
+      locationId
+      city {
+        name
+      }
+    }
+  }
+  legs {
+    airline {
+      name
+      code
+      logoUrl
+    }
+    ...CarrierLogoWrapper_legs
+    ...AccordionBody_legs
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "eslint-plugin-relay-fragments",
+  "version": "0.0.1",
+  "description": "ESLint plugin to improve the quality of your Relay fragment declarations.",
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://github.com/kiwicom/eslint-plugin-relay-fragments",
+  "main": "index",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=5.16.0 <7"
+  },
+  "dependencies": {
+    "graphql": "^14.5.8"
+  }
+}
