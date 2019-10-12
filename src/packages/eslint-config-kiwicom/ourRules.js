@@ -135,7 +135,7 @@ module.exports = {
   'no-undef-init': ERROR,
   'no-undef': ERROR,
   'no-undefined': OFF,
-  'no-unused-vars': [ERROR, { args: 'after-used' }],
+  'no-unused-vars': [ERROR, { args: 'after-used', ignoreRestSiblings: true }],
   'no-use-before-define': OFF, // https://github.com/babel/babel-eslint/issues/485
 
   // Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)

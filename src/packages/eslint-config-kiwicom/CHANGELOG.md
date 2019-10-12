@@ -1,5 +1,7 @@
 # Unreleased
 
+- Rule [no-unused-vars](https://eslint.org/docs/6.0.0/rules/no-unused-vars) now allows unused variable when it's used to omit properties from object using [rest spread](https://github.com/tc39/proposal-object-rest-spread)
+
 # 8.3.0
 
 - New rule `kiwicom-incubator/no-internal-flow-type` enabled (warnings or errors in strict mode). This rule forces you to use types like `React.Node` instead of `React$Node`.
