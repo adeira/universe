@@ -1,0 +1,6 @@
+fragment FAQArticle_article on FAQArticle {
+  id
+  originalId: id(opaque: false)
+  title
+  perex
+}
