@@ -41,6 +41,7 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/vault2env',
       'eslint-plugin-kiwicom-incubator',
       'eslint-plugin-relay-imports',
+      'eslint-plugin-relay-fragments',
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });
