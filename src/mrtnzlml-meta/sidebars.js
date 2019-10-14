@@ -9,6 +9,7 @@ module.exports = {
   programming: {
     Flow: [
       'flow',
+      'flow/new-spread-model',
       'flow/saved-state',
       'flow/unsealed-objects',
       'flow/configuration',
