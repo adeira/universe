@@ -9,7 +9,7 @@ Please note: our implementation differs from the referential implementation in a
 - we do not query database to get the actual number of edges
 - our scalar implementation works a bit differently (calculates the score correctly)
 - our implementation has fixed performance (even though all the optimizations are missing yet)
-- ~~we do support fragments~~ (not yet but TODO)
+- we do support all fragments ~~and Relay connections~~ _(TODO)_
 
 **This algorithm is not a good fit if you need to calculate the score of your query/fragment.** It calculates scores of responses. Therefore it doesn't say much about the query/fragment size.
 

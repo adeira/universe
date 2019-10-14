@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: real-1.graphql 1`] = `
+exports[`matches expected output: real-1.error.graphql 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 query HomepageQuery($count: Int!) {
   ...LocationsPaginatedBidirectional_data_1TJkD9
@@ -75,7 +75,9 @@ fragment CountryFlag_location on Location {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-500000
+THROWN EXCEPTION:
+
+Error: Threshold of 500000 reached.
 `;
 
 exports[`matches expected output: real-2.graphql 1`] = `
@@ -100,7 +102,7 @@ fragment HotelListItem_hotel on AllHotelAvailabilityHotel {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-200004
+90011
 `;
 
 exports[`matches expected output: real-3.graphql 1`] = `
@@ -115,5 +117,5 @@ query PollingQuery($abTestEnabled: Boolean!) {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-10017
+16
 `;

@@ -67,10 +67,19 @@ test.each([
   // ['{me{friendsConnection(first:1){edges{node{name}}}}}', 21], // FIXME: no support for connections
 
   // INLINE FRAGMENTS
-  ['{me{friends(first:1){...on User{name}}}}', 100_010], // TODO: this is being penalized because it's not supported yet
+  ['{me{friends(first:1){...on User{name}}}}', 13], // same as: {me{friends(first:1){name}}}
+  ['{me{friends(first:1){...on User{__typename,name}}}}', 13],
+  ['{me{friends(first:1){...{name}}}}', 13],
+  ['{me{friends(first:1){...@include(if:true){name}}}}', 13],
+  ['{me{friends(first:1){...@include(if:false){name}}}}', 13], // should we support this 🤔 (similar for @skip)
 
   // FRAGMENTS
-  ['fragment X on User{name},query{me{friends(first:1){...X}}}', 100_010], // TODO: this is being penalized because it's not supported yet
+  ['fragment X on User{name},query{me{friends(first:1){...X}}}', 13], // same as: {me{friends(first:1){name}}}
+  ['fragment X on User{name,surname},query{me{friends(first:1){...X}}}', 16],
+  ['fragment X on User{name},query{me{friends(first:1){...X,surname}}}', 16],
+  ['fragment X on User{name},query{me{friends(first:1){...X,__typename}}}', 13],
+  ['fragment X on User{name},query{me{friends(first:1){...X,...X}}}', 13],
+  ['fragment X on User{name},fragment Y on User{surname},query{me{friends(first:1){...X,...Y}}}', 16], // prettier-ignore
 
   // MULTIPLE OPERATIONS
   // Please note: we currently calculate score for every definition together. Should we return
@@ -90,7 +99,8 @@ test.each([
   // MUTATIONS
   ['mutation {mutationScalar}', 3],
 
-  // TODO: subscriptions
+  // SUBSCRIPTIONS
+  ['subscription {subscriptionScalar}', 3],
 ])('%#) %p ~~> %p points', (query, expectedQuerySize) => {
   expect(validate(schema, parse(query), specifiedRules)).toEqual([]);
   if (expectedQuerySize instanceof Error) {

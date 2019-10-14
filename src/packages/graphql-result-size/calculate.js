@@ -1,6 +1,13 @@
 // @flow strict
 
-import type { GraphQLSchema, DocumentNode } from 'graphql';
+import {
+  Kind,
+  isExecutableDefinitionNode,
+  isListType,
+  isObjectType,
+  type GraphQLSchema,
+  type DocumentNode,
+} from 'graphql';
 
 const THRESHOLD = 500_000;
 
@@ -20,34 +27,19 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
       throw new Error(`Threshold of ${THRESHOLD} reached.`);
     }
 
-    if (definition == null || definition.kind === 'FragmentSpread') {
-      // These kinds do not have any effect on the final score (response size) => early exit.
+    if (definition == null || objectType == null) {
       return;
     }
 
-    if (objectType == null) {
-      return;
-    }
-
-    if (definition.kind === 'OperationDefinition') {
-      analyzeSubquery(definition.selectionSet, objectType);
-    } else if (definition.kind === 'SelectionSet') {
-      definition.selections.forEach(selection => {
-        analyzeSubquery(selection, objectType);
-      });
-    } else if (definition.kind === 'Field') {
+    if (definition.kind === Kind.FIELD && isObjectType(objectType)) {
       if (isIntrospectionField(definition.name.value)) {
         return;
       }
-      // $FlowFixMe: we are tracking both definitions and object types at the same time (=> should be valid) - how to explain it to typechecker?
       const fields = objectType.getFields();
-      const field = fields[definition.name.value];
-      // $FlowFixMe: we are tracking both definitions and object types at the same time (=> should be valid) - how to explain it to typechecker?
-      const isList = field.type.ofType !== undefined;
-      // $FlowFixMe: we are tracking both definitions and object types at the same time (=> should be valid) - how to explain it to typechecker?
-      const currentType = field.type.ofType ?? field.type;
+      const fieldType = fields[definition.name.value].type;
+      const currentType = isListType(fieldType) ? fieldType.ofType : fieldType;
       if (definition.selectionSet === undefined) {
-        if (isList) {
+        if (isListType(fieldType)) {
           score += 4; // aaa: [ 1, 2 ]
           const numberOfEdges = getNumberOfEdges(definition);
           for (let i = 0; i < numberOfEdges; i++) {
@@ -56,7 +48,7 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
         } else {
           score += 3; // aaa: xxx
         }
-      } else if (isList) {
+      } else if (isListType(fieldType)) {
         score += 4; // aaa: [ { ... } ]
         const numberOfEdges = getNumberOfEdges(definition);
         for (let i = 0; i < numberOfEdges; i++) {
@@ -67,17 +59,30 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
         score += 4; // field with other subselections
         analyzeSubquery(definition.selectionSet, currentType);
       }
+    } else if (definition.kind === Kind.SELECTION_SET) {
+      definition.selections.forEach(selection => {
+        analyzeSubquery(selection, objectType);
+      });
+    } else if (definition.kind === Kind.OPERATION_DEFINITION) {
+      analyzeSubquery(definition.selectionSet, objectType);
+    } else if (definition.kind === Kind.INLINE_FRAGMENT) {
+      analyzeSubquery(definition.selectionSet, objectType);
+    } else if (definition.kind === Kind.FRAGMENT_DEFINITION) {
+      const onType = definition.typeCondition.name.value;
+      analyzeSubquery(definition.selectionSet, schema.getType(onType));
+    } else if (definition.kind === Kind.FRAGMENT_SPREAD) {
+      // no score change
     } else {
-      // TODO
-      // (definition.kind: empty);
+      // we do not support this definition kind yet
       score += UNKNOWN_KIND_PENALTY;
     }
   }
 
-  // Root query has type `Document` which has many definitions of `OperationDefinition`.
-  // We currently support only single definition queries.
   query.definitions.map(definition => {
-    if (definition.kind === 'OperationDefinition') {
+    if (isExecutableDefinitionNode(definition)) {
+      if (definition.kind === Kind.FRAGMENT_DEFINITION) {
+        return analyzeSubquery(definition, schema.getQueryType()); // FragmentDefinition
+      }
       switch (definition.operation) {
         case 'query':
           return analyzeSubquery(definition, schema.getQueryType());
@@ -87,12 +92,9 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
           return analyzeSubquery(definition, schema.getSubscriptionType());
         default:
           (definition.operation: empty);
-          throw new Error(`Unknown operation type: ${definition.kind}`);
       }
-    } else {
-      // TODO: support fragment definitions
-      return analyzeSubquery(definition, schema.getQueryType());
     }
+    return undefined;
   });
 
   return score;
