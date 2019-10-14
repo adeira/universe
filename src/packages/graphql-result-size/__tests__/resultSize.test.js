@@ -11,6 +11,7 @@ const ThresholdError = new Error('Threshold of 500000 reached.');
 
 test.each([
   ['{scalar}', 3],
+  ['{scalarNonNull}', 3],
   ['{enum}', 3],
   ['{list}', 10_004], // list without 'first' are being heavily penalized
   ['{list(first:1)}', 5], // we differ here from referential implementation - it would say "3" but that's wrong (?)
@@ -63,8 +64,29 @@ test.each([
   // CONNECTIONS
   ['{me{friendsConnection{count}}}', 11],
   ['{me{friendsConnection{pageInfo{hasNextPage}}}}', 15],
+  ['{me{friendsConnection{count,pageInfo{hasNextPage}}}}', 18],
   ['{me{friendsConnection{edges{node{name}}}}}', 90_012], // edges without 'first' are being heavily penalized
-  // ['{me{friendsConnection(first:1){edges{node{name}}}}}', 21], // FIXME: no support for connections
+
+  // CONNECTIONS WITH LIMIT
+  ['{me{friendsConnection(first:1){count}}}', 11],
+  ['{me{friendsConnection(first:100){count}}}', 11], // doesn't grow since it's only once in the list
+  ['{me{friendsConnection(first:1){count,edges{node{name}}}}}', 24],
+  ['{me{friendsConnection(first:1){edges{node{name}}count}}}', 24],
+  ['{me{friendsConnection(first:1){edges{node{name}}pageInfo{hasNextPage}}}}', 28],
+  ['{me{friendsConnection(first:5){edges{node{name}}pageInfo{hasNextPage}}}}', 64],
+  ['{me{friendsConnection(first:5){edges{node{name}}pageInfo{hasNextPage,hasPreviousPage}}}}', 67],
+  ['{me{friendsConnection(first:1){edges{node{name}}}}}', 21],
+  ['{me{friendsConnection(first:1){edges{node{name,surname}}}}}', 24],
+  ['{me{friendsConnection(first:5){edges{node{name}}}}}', 57],
+  ['{me{friendsConnection(first:5){edges{node{name,surname}}}}}', 72],
+  ['{me{friendsConnection(first:5){edges{node{friendsConnection(first:5){edges{node{name}}}}}}}}', 307], // prettier-ignore
+  ['{me{friendsConnection(first:5){edges{node{friendsConnection(first:5){edges{node{friendsConnection(first:5){edges{node{name}}}}}}}}}}}', 1557], // prettier-ignore
+
+  // CONNECTIONS WITH VARIABLE LIMIT
+  ['query($count:Int){me{friendsConnection(first:$count){edges{node{name}}}}}', 9_012],
+  ['query($count:Int!){me{friendsConnection(first:$count){edges{node{name}}}}}', 9_012],
+  ['query D1($count:Int!=1){me{friendsConnection(first:$count){edges{node{name}}}}}', 21],
+  ['query D2($count:Int!=5){me{friendsConnection(first:$count){edges{node{name}}}}}', 57],
 
   // INLINE FRAGMENTS
   ['{me{friends(first:1){...on User{name}}}}', 13], // same as: {me{friends(first:1){name}}}
@@ -101,6 +123,8 @@ test.each([
 
   // SUBSCRIPTIONS
   ['subscription {subscriptionScalar}', 3],
+
+  // TODO: interfaces, unions
 ])('%#) %p ~~> %p points', (query, expectedQuerySize) => {
   expect(validate(schema, parse(query), specifiedRules)).toEqual([]);
   if (expectedQuerySize instanceof Error) {
