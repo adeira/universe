@@ -1,8 +1,18 @@
 // @flow
 
-import type { Variables, RecordSourceSelectorProxy } from './types.flow';
+import type { Variables } from './types.flow';
 
 type DataID = string;
+
+/*
+ * An individual cached graph object.
+ */
+type Record = {| +[key: string]: mixed |};
+
+/**
+ * A collection of records keyed by id.
+ */
+export type RecordMap = {| +[dataID: DataID]: ?Record |};
 
 /**
  * Represents a single operation used to processing and normalize runtime
@@ -113,3 +123,32 @@ export type Environment = {|
   +getStore: () => RelayModernStore,
   // improve as needed
 |};
+
+export type RecordSourceSelectorProxy = {|
+  +create: (dataID: string, typeName: string) => RecordProxy,
+  +delete: (dataID: string) => void,
+  +get: (dataID: string) => ?RecordProxy,
+  +getRoot: () => RecordProxy,
+  +getRootField: (fieldName: string) => ?RecordProxy,
+  +getPluralRootField: (fieldName: string) => ?$ReadOnlyArray<?RecordProxy>,
+  +toJSON: () => RecordMap,
+|};
+
+type AnyObject = { +[key: string]: any, ... };
+
+type RecordProxy = $ReadOnly<{|
+  copyFieldsFrom: (sourceRecord: RecordProxy) => void,
+  getDataID: () => string,
+  getLinkedRecord: (name: string, args?: ?AnyObject) => ?RecordProxy,
+  getLinkedRecords: (name: string, args?: ?AnyObject) => ?$ReadOnlyArray<?RecordProxy>,
+  getOrCreateLinkedRecord: (name: string, typeName: string, args?: ?AnyObject) => RecordProxy,
+  getType: () => string,
+  getValue: (name: string, args?: ?AnyObject) => mixed,
+  setLinkedRecord: (record: RecordProxy, name: string, args?: ?AnyObject) => RecordProxy,
+  setLinkedRecords: (
+    records: $ReadOnlyArray<?RecordProxy>,
+    name: string,
+    args?: ?AnyObject,
+  ) => RecordProxy,
+  setValue: (value: mixed, name: string, args?: ?AnyObject) => RecordProxy,
+|}>;

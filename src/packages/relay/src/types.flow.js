@@ -89,32 +89,3 @@ type NodeDeleteConfig = {|
   +connectionName?: string,
   +deletedIDFieldName: string,
 |};
-
-export type RecordSourceSelectorProxy = {|
-  +create: (dataID: string, typeName: string) => RecordProxy,
-  +delete: (dataID: string) => void,
-  +get: (dataID: string) => ?RecordProxy,
-  +getRoot: () => RecordProxy,
-  +getRootField: (fieldName: string) => ?RecordProxy,
-  +getPluralRootField: (fieldName: string) => ?$ReadOnlyArray<?RecordProxy>,
-  +toJSON: () => string,
-|};
-
-type AnyObject = { +[key: string]: any, ... };
-
-type RecordProxy = $ReadOnly<{|
-  copyFieldsFrom: (sourceRecord: RecordProxy) => void,
-  getDataID: () => string,
-  getLinkedRecord: (name: string, args?: ?AnyObject) => ?RecordProxy,
-  getLinkedRecords: (name: string, args?: ?AnyObject) => ?$ReadOnlyArray<?RecordProxy>,
-  getOrCreateLinkedRecord: (name: string, typeName: string, args?: ?AnyObject) => RecordProxy,
-  getType: () => string,
-  getValue: (name: string, args?: ?AnyObject) => mixed,
-  setLinkedRecord: (record: RecordProxy, name: string, args?: ?AnyObject) => RecordProxy,
-  setLinkedRecords: (
-    records: $ReadOnlyArray<?RecordProxy>,
-    name: string,
-    args?: ?AnyObject,
-  ) => RecordProxy,
-  setValue: (value: mixed, name: string, args?: ?AnyObject) => RecordProxy,
-|}>;
