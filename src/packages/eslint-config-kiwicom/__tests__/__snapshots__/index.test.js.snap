@@ -281,6 +281,7 @@ Object {
     "jest/no-try-expect": 0,
     "jest/prefer-called-with": 1,
     "jest/prefer-expect-assertions": 0,
+    "jest/prefer-hooks-on-top": 1,
     "jest/prefer-inline-snapshots": 0,
     "jest/prefer-spy-on": 0,
     "jest/prefer-strict-equal": 0,
@@ -901,6 +902,11 @@ Snapshot Diff:
 -     "default-param-last": 1,
 +     "default-param-last": 2,
       "dot-location": "off",
+@@ --- --- @@
+      "jest/prefer-expect-assertions": 0,
+-     "jest/prefer-hooks-on-top": 1,
++     "jest/prefer-hooks-on-top": 2,
+      "jest/prefer-inline-snapshots": 0,
 @@ --- --- @@
       "keyword-spacing": "off",
 -     "kiwicom-incubator/no-internal-flow-type": 1,
