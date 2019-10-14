@@ -37,8 +37,6 @@ const explainedDifferencies = new Set([
  * See: https://github.com/flitbit/diff#differences
  */
 test('differences with @kiwicom/eslint-config-nitro config', () => {
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-
   expect(
     formatChanges(
       'This changelog describes what should Universe change in order to be identical with Nitro config:',
@@ -55,11 +53,6 @@ test('differences with @kiwicom/eslint-config-nitro config', () => {
       diff(getRules('@kiwicom/eslint-config-nitro'), getRules('../strict')),
     ),
   ).toMatchSnapshot();
-
-  expect(consoleSpy.mock.calls).toEqual([
-    ["! Nitro Eslint config is deprecated. Use '@kiwicom/eslint-config/nitro' instead."],
-  ]);
-  consoleSpy.mockRestore();
 });
 
 function formatChanges(description, changes) {
