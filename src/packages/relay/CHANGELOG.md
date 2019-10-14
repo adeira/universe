@@ -1,6 +1,7 @@
 # Unreleased
 
-- Improved flow type coverage of Relay store
+- Improved flow type coverage of Relay store.
+- Compiler: added `include` and `exclude` arg options.
 
 # 4.6.0
 
