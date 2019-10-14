@@ -14,6 +14,14 @@ module.exports = {
       'flow/unsealed-objects',
       'flow/configuration',
       'flow/debugging',
+      {
+        type: 'category',
+        label: 'Patterns',
+        items: [
+          'flow/patterns/exhaustive-checking', //
+          'flow/patterns/restricted-element',
+        ],
+      },
     ],
     Relay: ['relay', 'relay/match-module', 'relay/local-schema', 'relay/uploadables'],
     'Rest of programming': ['git', 'graphql', 'javascript', 'css'],

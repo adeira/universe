@@ -56,71 +56,6 @@ if (typeof foo === 'string') {
 
 Source: https://stackoverflow.com/questions/41328728/how-can-flow-be-forced-to-cast-a-value-to-another-type/45068255
 
-## `RestrictedElement<typeof MenuItem>`
-
-[flow.org/try](https://flow.org/try/#0PTAEAEDMBsHsHcBQjgCpQFMDO0CWA7AFwFoATXLAQwCNoNRVhkBjWfLQ0AJQ0uc4C8oAE4YAjgFdcogBQByUX0JyAlAG5khAJ4AHegDEJ+frjYBhWAFsdbDER75SGYQB4A1ABUHT4QD5QQjI6wrA6WABcoJT4WioB-l52PhqI2nqgZtCUWFgW1rb2Sc7uiY7O-kKZ2VguiKDcvPwAJHk2+HaELtFaADRRMf4AZKAEhM6QfPQA3iJFwjIqkaU+oAC+PYi+KRgAHjbCnGn0PBzCuPwYpACidJYdJTcYd0QeuhiRPEpNj8+Er3oVUBTAA+dVAbiO4TB9WBoA8Pw6-ww0NAsKqOVaBUI3mKJ0IZwu11u93hxJeb18vhRsMMxkIpnwmPahTKrjxBLGRKeJIR5IBvg29TcwVCEX6vVAIDhAAt6CKwqAjiMsFFoIpSFpQMxKDpCBJRKQRvhFbLFW9QJBcBhoKRBZKwNFDRIsAQAOagXmEAAKIQVomY+pdADdrZrtcbXRhOCHhJrdnp2LgQwA6UAASXYY0opDBUtgkFAOkoWjdFtgwhNlE4rGsEkIVYZfTToCczFwTkNhFgoGd9G6yCFAGsMFoPo1CE0ANIj1GgfASaDQO1uUSQSLdDbA1YpKUATVgEi10Uw+Eg5eY9BrNhd9LYlGgharY2E7FA8FwhGlDVO505nqhzBZDkoAALJ2BIaZjJYmA7GMjgqp8-DJky9wglu-hTKsiCAdUoHgQAyhgRbCFW5YwXBpAIeOyFWG0qHAuhQJYThwFgfO5FJFRSg0fkzKdCCYLMNKuA2qI+BjtxZjCaJdgAILCCRWi1PU9Tsr+lyei4Rz5nh86QU8-iwmphKadpBZsRIhHEaRfh2gKiCMZh2FASqABysCELJFkoUQHHwQ0km0ViLhoasGFYSgYCyYuJqXtJpBiWaegqvecDwJcybYWwHCKtghAAIwBKAMhgi4FlUipoBleB+nQcAFUqdV85WZQJFdhW9WlcA5WIOoyBSu5nneUFfHKnOHn9KqaWXFq8WZawma5RwABMRUlfUTUSA1G0WbVkrbVVFktW1ZGdZVUxoKATT6GlVx7BgJkKeWkSDV54E+ZwFDjZwqUIDNBCxbMP6ErNIkJXYmBkoQWAogwRq6YeV5YqmADy+DQJqu1Qf0hpHURrU2VEohTX9pCpoAoOQMMAWGVS4r3DbxHT7V1PV9c5uE4sIWBvXp2O7BRXFIR9IUMWFQJgmJPgLBJSGmW8OlYwZ4uVaIeovodNXY-VGj1FhEULTlYwcAAzGtpU9bTit1Qdm3HYTZ2NZz3NW8zG3deBVJsyxVGslg+FWFGwn4K6HjSlWTs8xBfOwZxAVCyN9GObmYD7oeiiLpqWDSgeNqgAAVs6nC9t++LqVyvygLKoh9NQdbpm+0SEMnirdk4ljZfiVb0J+9AwLsuDUCJH5aJl9SS840tx4QyZy3oOkR1bGEoqr+rGi4C+a08+062siARVKIHlt3YfGoVdAhg+ThEVli1G4QAAsZs7R7KKbXtDvP81+MnR1NtO-7dxPxulDuHOYztN7WxZi-NmUoABCuBXSRhyglSg8BqB8EHMVXA7c4hfU-FWUAslqCnCUB9ZU+A5DVlog2Wg9B3yfkiiaL6RZCDPnwKmZs8BG4t1mtESMlZCAAEJipBlwJQSurCwjhBAK6D80oJDUGTDWYAedqAhHgPgZa+UACsKhEBAA), alternative to: https://flow.org/en/docs/react/children/#toc-only-allowing-a-specific-element-type-as-children
-
-The one recommended in the docs is just for children with exactly that type. `RestrictedElement` lets you also use things that _render_ things of that type. So suppose you have some Button class. Let's say the button has a disabled flag. You might want to make another class:
-
-```js
-class DisabledButton {
-  render(): React.Element<typeof Button> { ... }
-}
-```
-
-You can't use `DisabledButton` inside a children array for `React.Element<typeof Button>` but you can in `RestrictedElement<typeof Button>`. (via [@jbrown215](https://github.com/jbrown215))
-
-Real example:
-
-```js
-// @flow
-
-import * as React from 'react';
-
-import { type RestrictedElement } from './RestrictedElement';
-
-class Button extends React.Component<{| +disabled?: boolean |}> {
-  render() {
-    return null;
-  }
-}
-
-class DisabledButton extends React.Component<{||}> {
-  // The return type is not necessary - it's here only to demonstrate what is going on.
-  render(): React.Element<typeof Button> {
-    return <Button disabled={true} />;
-  }
-}
-
-class WrapperStupid extends React.Component<{|
-  children: React.ChildrenArray<
-    // You have to specify every single supported component here.
-    React.Element<typeof Button> | React.Element<typeof DisabledButton>,
-  >,
-|}> {}
-
-class WrapperSmart extends React.Component<{|
-  // Type `RestrictedElement` understands what is being rendered so it accepts even `DisabledButton` (because it returns `Button`).
-  children: React.ChildrenArray<RestrictedElement<typeof Button>>,
-|}> {}
-
-const testStupid = (
-  <WrapperStupid>
-    <Button />
-    <Button />
-    <DisabledButton />
-  </WrapperStupid>
-);
-
-const testSmart = (
-  <WrapperSmart>
-    <Button />
-    <Button />
-    <DisabledButton />
-  </WrapperSmart>
-);
-```
-
 ## Oncalls in Facebook (Flow related)
 
 > so the way it works is that the Flow team has a rotating oncall. it's relatively calm as oncalls go (we aren't getting woken up in the middle of the night), but whoever is oncall is responsible for doing support (we have an internal group where people can ask questions), and also responsible for taking the lead if something goes wrong with Flow or the various related integrations we have. near the beginning of the year we also made it so that the oncall is responsible for addressing libdef and documentation PRs, since there is usually no clear owner for those, and pretty much anyone should be able to review them
@@ -295,49 +230,6 @@ new Thing().prop2; // <- ERROR
 ```
 
 - https://github.com/tc39/proposal-class-fields#private-fields
-
-## Exhaustive checking with empty type
-
-[flow.org/try](https://flow.org/try/#0C4TwDgpgBAwghgZwgqBeKByAghqAfTAIQwG4AoMgMwFcA7AY2AEsB7WqCADwAs5qFgACk4AuWImQBKKAG8yUKE0pRhaVOmwZpchQoD0eqABMWUAdUqV5UAL4cANkkXLV6jcW3X9hk8aWUIACcIWmAzYAsrBTsIR2gdXQMoNnsQKGBA6mglKAB3aF5aI3sIIyg4e3soegkELxVRDgBbMFBJcmiyGzIgA)
-
-```js
-type Cases = 'A' | 'B';
-
-function exhaust(x: Cases) {
-  if (x === 'A') {
-    // do stuff
-  } else if (x === 'B') {
-    // do different stuff
-  } else {
-    // only true if we handled all cases
-    (x: empty);
-  }
-}
-```
-
-What happens when you add new case `'C'`? You will get this error:
-
-```text
-Cannot cast x to empty because string literal C [1] is incompatible with empty [2].
-
- [1]  5│ function exhaust(x: Cases) {
-      6│   if (x === 'A') {
-      7│     // do stuff
-      8│   } else if (x === 'B') {
-      9│     // do different stuff
-     10│   } else {
-     11│     // only true if we handled all cases
- [2] 12│     (x: empty);
-     13│   }
-     14│ }
-     15│
-```
-
-You can be sure that you covered all the cases this way.
-
-- https://github.com/facebook/flow/commit/c603505583993aa953904005f91c350f4b65d6bd
-- https://medium.com/@ibosz/advance-flow-type-1-exhaustive-checking-with-empty-type-a02e503cd3a0
-- https://github.com/facebook/flow/pull/7655/files
 
 ## Predicate functions with `%checks`
 
