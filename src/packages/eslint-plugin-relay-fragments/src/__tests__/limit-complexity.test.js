@@ -21,12 +21,14 @@ const ruleTester = new RuleTester({
   parser: require.resolve('babel-eslint'),
 });
 
-ruleTester.run('fragment-is-not-complex', plugin.rules['limit-complexity'], {
+ruleTester.run('expression-is-not-complex', plugin.rules['limit-complexity'], {
   valid: [`graphql\`${FAQArticleFragment}\``, `graphql\`${GetLocationQuery}\``],
   invalid: [
     {
       code: `graphql\`${AccordionFragment}\``,
-      errors: [{ message: 'Your GraphQL fragment exceeded the limit. Your score: 26, Limit: 20.' }],
+      errors: [
+        { message: 'Your GraphQL expression exceeded the limit. Your score: 26, Limit: 20.' },
+      ],
     },
   ],
 });
