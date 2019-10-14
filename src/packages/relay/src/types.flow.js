@@ -6,22 +6,6 @@ export type Variables = { +[name: string]: $FlowFixMe, ... };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
-type Selector = $FlowFixMe;
-type Snapshot = $FlowFixMe;
-
-// See:
-// - https://facebook.github.io/relay/docs/en/next/relay-store.html
-// - https://relay.dev/docs/en/next/runtime-architecture#store-operations
-type RelayModernStore = {|
-  +getSource: () => RecordSourceSelectorProxy,
-  +lookup: Selector => Snapshot,
-  // improve as needed
-|};
-
-export type Environment = {|
-  +getStore: () => RelayModernStore,
-  // improve as needed
-|};
 
 export type Disposable = {|
   +dispose: () => void,

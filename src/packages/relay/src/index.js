@@ -54,7 +54,7 @@ export type { RefetchRelayProp } from './createRefetchContainer';
 export type {
   DeclarativeMutationConfig,
   Disposable,
-  Environment,
   GraphQLTaggedNode,
   Variables,
 } from './types.flow';
+export type { Environment, Snapshot } from './runtimeTypes.flow';

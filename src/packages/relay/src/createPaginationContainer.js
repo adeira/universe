@@ -4,13 +4,8 @@ import * as React from 'react';
 import { createPaginationContainer as _createPaginationContainer } from 'react-relay';
 import { invariant, isObjectEmpty } from '@kiwicom/js';
 
-import type {
-  FragmentSpec,
-  GraphQLTaggedNode,
-  Disposable,
-  $RelayProps,
-  Environment,
-} from './types.flow';
+import type { FragmentSpec, GraphQLTaggedNode, Disposable, $RelayProps } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 type ConnectionData = {|
   +edges?: ?Array<any>,

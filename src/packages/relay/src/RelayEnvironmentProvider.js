@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { ReactRelayContext } from 'react-relay';
 
-import type { Environment } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 const { useMemo } = React;
 

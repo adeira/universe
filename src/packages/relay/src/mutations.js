@@ -7,9 +7,9 @@ import type {
   GraphQLTaggedNode,
   DeclarativeMutationConfig,
   RecordSourceSelectorProxy,
-  Environment,
   Uploadables,
 } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 opaque type SelectorData = $FlowFixMe;
 

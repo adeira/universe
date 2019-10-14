@@ -5,7 +5,8 @@ import { LocalQueryRenderer as RelayLocalQueryRenderer, ReactRelayContext } from
 import { invariant } from '@kiwicom/js';
 
 import createLocalEnvironment from './createLocalEnvironment';
-import type { GraphQLTaggedNode, Variables, Environment } from './types.flow';
+import type { GraphQLTaggedNode, Variables } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 type RendererProps = {| +[key: string]: any |}; // it can be anything, really
 
