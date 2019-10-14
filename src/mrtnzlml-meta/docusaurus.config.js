@@ -83,6 +83,9 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          editUrl: 'https://github.com/mrtnzlml/meta/tree/master/docs/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
