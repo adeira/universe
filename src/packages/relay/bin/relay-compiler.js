@@ -16,23 +16,41 @@ const RelayConfig = require('relay-config');
 
 const compiler = require('../src/compiler').default;
 
+const collectPaths = value => {
+  return value.split(',');
+};
+
+// Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
 program
   .option('--src <src>')
   .option('--schema <schema>')
   .option('--persist-mode <fs|remote>')
-  .option('--validate')
+  .option('--include <include>', 'Comma separated list of directories to include.', collectPaths, [
+    '**',
+  ])
+  .option('--exclude <exclude>', 'Comma separated list of directories to ignore.', collectPaths, [
+    // allowed in __tests__
+    '**/__flowtests__/**',
+    '**/__generated__/**',
+    '**/__mocks__/**',
+    '**/node_modules/**',
+  ])
+  .option('--validate', 'Activates validate only mode', false)
   .option(
     '--watch',
     'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
+    false,
   )
   .parse(process.argv);
 
 const config = {
-  src: program.src,
-  schema: program.schema,
+  src: program.src, // required
+  schema: program.schema, // required
   persistMode: program.persistMode,
   validate: program.validate,
   watch: program.watch,
+  include: program.include,
+  exclude: program.exclude,
   ...RelayConfig.loadConfig(),
 };
 

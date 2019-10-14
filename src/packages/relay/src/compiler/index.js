@@ -19,22 +19,16 @@ import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUs
 type ExternalOptions = {|
   +src: string,
   +schema: string,
-  +persistMode?: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
-  +validate?: boolean,
-  +watch?: boolean,
+  +persistMode: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
+  +include: $ReadOnlyArray<string>,
+  +exclude: $ReadOnlyArray<string>,
+  +validate: boolean,
+  +watch: boolean,
 |};
 
 export default async function compiler(externalOptions: ExternalOptions) {
   const options = {
     noFutureProofEnums: false,
-    include: ['**'],
-    exclude: [
-      // allowed in __tests__
-      '**/__flowtests__/**',
-      '**/__generated__/**',
-      '**/__mocks__/**',
-      '**/node_modules/**',
-    ],
     artifactDirectory: null,
     ...externalOptions,
   };
