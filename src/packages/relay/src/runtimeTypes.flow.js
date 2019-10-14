@@ -1,6 +1,6 @@
 // @flow
 
-import type { Variables } from './types.flow';
+import type { Variables, Disposable } from './types.flow';
 
 type DataID = string;
 
@@ -14,17 +14,6 @@ type Record = {| +[key: string]: mixed |};
  */
 export type RecordMap = {| +[dataID: DataID]: ?Record |};
 
-/**
- * Represents a single operation used to processing and normalize runtime
- * request results.
- */
-type NormalizationOperation = {|
-  +kind: 'Operation',
-  +name: string,
-  +argumentDefinitions: $ReadOnlyArray<$FlowFixMe>,
-  +selections: $ReadOnlyArray<$FlowFixMe>,
-|};
-
 type ReaderFragment = {|
   +kind: 'Fragment',
   +name: string,
@@ -37,19 +26,6 @@ type ReaderFragment = {|
   |},
   +argumentDefinitions: $ReadOnlyArray<$FlowFixMe>,
   +selections: $ReadOnlyArray<$FlowFixMe>,
-|};
-
-/**
- * Contains the `text` (or persisted `id`) required for executing a common
- * GraphQL request.
- */
-type RequestParameters =
-  | {| ...BaseRequestParameters, +text: null, +id: string |}
-  | {| ...BaseRequestParameters, +text: string, +id: null |};
-type BaseRequestParameters = {|
-  +name: string,
-  +operationKind: 'mutation' | 'query' | 'subscription',
-  +metadata: {| +[key: string]: mixed |},
 |};
 
 /*
@@ -71,34 +47,6 @@ type SingularReaderSelector = {|
 |};
 
 /**
- * Represents a common GraphQL request with `text` (or persisted `id`) can be
- * used to execute it, an `operation` containing information to normalize the
- * results, and a `fragment` derived from that operation to read the response
- * data (masking data from child fragments).
- */
-export type ConcreteRequest = {|
-  +kind: 'Request',
-  +fragment: ReaderFragment,
-  +operation: NormalizationOperation,
-  +params: RequestParameters,
-|};
-
-/**
- * An operation selector describes a specific instance of a GraphQL operation
- * with variables applied.
- *
- * - `root`: a selector intended for processing server results or retaining
- *   response data in the store.
- * - `fragment`: a selector intended for use in reading or subscribing to
- *   the results of the the operation.
- */
-export type OperationDescriptor = {|
-  +fragment: SingularReaderSelector,
-  +request: $FlowFixMe,
-  +root: NormalizationSelector,
-|};
-
-/**
  * A representation of a selector and its results at a particular point in time.
  */
 type TypedSnapshot<TData> = {|
@@ -113,9 +61,10 @@ export type Snapshot = TypedSnapshot<?{| +[key: string]: mixed |}>;
 // See:
 // - https://facebook.github.io/relay/docs/en/next/relay-store.html
 // - https://relay.dev/docs/en/next/runtime-architecture#store-operations
-export type RelayModernStore = {|
+type RelayModernStore = {|
   +getSource: () => RecordSourceSelectorProxy,
   +lookup: SingularReaderSelector => Snapshot,
+  +retain: NormalizationSelector => Disposable,
   // improve as needed
 |};
 
