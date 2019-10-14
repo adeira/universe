@@ -7,7 +7,8 @@ import { TimeoutError, ResponseError } from '@kiwicom/fetch';
 
 import createEnvironment from './createEnvironment';
 import createNetworkFetcher from './fetchers/createNetworkFetcher';
-import type { GraphQLTaggedNode, Variables, Environment } from './types.flow';
+import type { GraphQLTaggedNode, Variables } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 type RendererProps = {| +[key: string]: any |}; // it can be anything, really
 

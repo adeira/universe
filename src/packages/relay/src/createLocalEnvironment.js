@@ -2,7 +2,7 @@
 
 import { RecordSource, Store, Environment as RelayEnvironment } from 'relay-runtime';
 
-import type { Environment } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 const source = new RecordSource();
 const store = new Store(source);

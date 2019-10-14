@@ -11,7 +11,8 @@ import {
 } from 'relay-runtime';
 
 import createRequestHandler from './createRequestHandler';
-import type { Variables, Environment } from './types.flow';
+import type { Variables } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,

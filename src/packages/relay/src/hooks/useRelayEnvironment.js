@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { ReactRelayContext } from 'react-relay';
 import { invariant } from '@kiwicom/js';
 
-import type { Environment } from '../types.flow';
+import type { Environment } from '../runtimeTypes.flow';
 
 /**
  * You can use this hook in any component below QueryRenderer or RelayEnvironmentProvider.

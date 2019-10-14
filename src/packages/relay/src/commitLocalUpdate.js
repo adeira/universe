@@ -2,7 +2,8 @@
 
 import { commitLocalUpdate as _commitLocalUpdate } from 'react-relay';
 
-import type { RecordSourceSelectorProxy, Environment } from './types.flow';
+import type { RecordSourceSelectorProxy } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 opaque type SelectorData = $FlowFixMe;
 

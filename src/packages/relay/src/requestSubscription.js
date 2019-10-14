@@ -8,8 +8,8 @@ import type {
   GraphQLTaggedNode,
   RecordSourceSelectorProxy,
   Variables,
-  Environment,
 } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 opaque type SelectorData = $FlowFixMe;
 

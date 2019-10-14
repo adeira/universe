@@ -2,7 +2,8 @@
 
 import { fetchQuery as relayFetchQuery } from 'react-relay';
 
-import type { Environment, GraphQLTaggedNode, Variables } from './types.flow';
+import type { GraphQLTaggedNode, Variables } from './types.flow';
+import type { Environment } from './runtimeTypes.flow';
 
 // https://relay.dev/docs/en/fetch-query
 export default function fetchQuery(
