@@ -12,5 +12,6 @@ const schema = buildSchema(
 );
 
 generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input => {
-  return calculate(schema, parse(input));
+  const score = calculate(schema, parse(input));
+  return `✅ Score: ${score}`;
 });

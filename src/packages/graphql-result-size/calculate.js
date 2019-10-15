@@ -4,6 +4,7 @@ import {
   Kind,
   isExecutableDefinitionNode,
   isListType,
+  isNonNullType,
   isObjectType,
   type GraphQLSchema,
   type DocumentNode,
@@ -11,6 +12,7 @@ import {
 
 const THRESHOLD = 500_000;
 
+const UNKNOWN_ARG_VALUE_PENALTY = 1_000;
 const UNLIMITED_LIST_PENALTY = 10_000;
 const UNKNOWN_KIND_PENALTY = 100_000;
 
@@ -21,6 +23,17 @@ const UNKNOWN_KIND_PENALTY = 100_000;
  */
 export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
   let score = 0;
+  let lastLimit = null;
+  const operationVariables = new Map(); // [name, defaultValue]
+
+  function getLastLimit() {
+    // We collect the limits on any field even though it's usually being used directly. It's because
+    // patterns like Relay connection set limit on a higher field in the hierarchy and we have to
+    // remember it. This limit is being reset once we use it.
+    const limit = lastLimit ?? UNLIMITED_LIST_PENALTY;
+    lastLimit = null;
+    return limit;
+  }
 
   function analyzeSubquery(definition, objectType) {
     if (score > THRESHOLD) {
@@ -36,12 +49,19 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
         return;
       }
       const fields = objectType.getFields();
+
+      const maybeLimit = getNumberOfEdgesNew(operationVariables, definition);
+      if (maybeLimit !== null) {
+        lastLimit = maybeLimit;
+      }
+
       const fieldType = fields[definition.name.value].type;
       const currentType = isListType(fieldType) ? fieldType.ofType : fieldType;
       if (definition.selectionSet === undefined) {
+        // scalar, list of scalars
         if (isListType(fieldType)) {
           score += 4; // aaa: [ 1, 2 ]
-          const numberOfEdges = getNumberOfEdges(definition);
+          const numberOfEdges = getLastLimit();
           for (let i = 0; i < numberOfEdges; i++) {
             score += 1; // add +1 per each scalar iteration
           }
@@ -49,21 +69,37 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
           score += 3; // aaa: xxx
         }
       } else if (isListType(fieldType)) {
+        // list of objects
         score += 4; // aaa: [ { ... } ]
-        const numberOfEdges = getNumberOfEdges(definition);
+        const numberOfEdges = getLastLimit();
         for (let i = 0; i < numberOfEdges; i++) {
           score += 2; // add +1 per each object iteration for the braces
           analyzeSubquery(definition.selectionSet, currentType);
         }
       } else {
+        // simple objects with selections
         score += 4; // field with other subselections
         analyzeSubquery(definition.selectionSet, currentType);
       }
+    } else if (definition.kind === Kind.FIELD && isNonNullType(objectType)) {
+      // This is a special case of a field which doesn't have any fields itself but must be further
+      // decomposed (typical example is `PageInfo!` type).
+      analyzeSubquery(definition, objectType.ofType);
     } else if (definition.kind === Kind.SELECTION_SET) {
       definition.selections.forEach(selection => {
         analyzeSubquery(selection, objectType);
       });
     } else if (definition.kind === Kind.OPERATION_DEFINITION) {
+      const variableDefinitions = definition.variableDefinitions ?? [];
+      variableDefinitions.forEach(variableDefinition => {
+        const variableName = variableDefinition.variable.name.value;
+        const defaultValue = variableDefinition.defaultValue;
+        if (defaultValue !== undefined && defaultValue.kind === 'IntValue') {
+          operationVariables.set(variableName, Number(defaultValue.value));
+        } else {
+          operationVariables.set(variableName, UNKNOWN_ARG_VALUE_PENALTY);
+        }
+      });
       analyzeSubquery(definition.selectionSet, objectType);
     } else if (definition.kind === Kind.INLINE_FRAGMENT) {
       analyzeSubquery(definition.selectionSet, objectType);
@@ -74,6 +110,12 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
       // no score change
     } else {
       // we do not support this definition kind yet
+      // eslint-disable-next-line no-console
+      console.warn(
+        'Unsupported definition (%s): %s',
+        objectType,
+        JSON.stringify(definition, null, 2),
+      );
       score += UNKNOWN_KIND_PENALTY;
     }
   }
@@ -100,18 +142,20 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
   return score;
 }
 
-/**
- * We try to find argument `first` or `last` and use it here - otherwise we apply penalty for
- * missing first/last argument instead.
- */
-function getNumberOfEdges(definition) {
-  let first = UNLIMITED_LIST_PENALTY;
+function getNumberOfEdgesNew(operationVariables, definition): number | null {
+  let first = null;
   if (definition.arguments != null && definition.arguments.length > 0) {
     const argumentNode = definition.arguments.find(argument => {
       return argument.name.value === 'first' || argument.name.value === 'last';
     });
-    if (argumentNode !== undefined && argumentNode.value.kind === 'IntValue') {
-      first = Number(argumentNode.value.value);
+    if (argumentNode !== undefined) {
+      const argNodeValue = argumentNode.value;
+      if (argNodeValue.kind === 'Variable') {
+        // we found limit argument but it's a variable so we resolve it
+        first = operationVariables.get(argNodeValue.name.value) ?? null;
+      } else if (argNodeValue.kind === 'IntValue') {
+        first = Number(argNodeValue.value);
+      }
     }
   }
   return first;
