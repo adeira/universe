@@ -3,6 +3,7 @@
 import {
   Kind,
   isExecutableDefinitionNode,
+  isInterfaceType,
   isListType,
   isNonNullType,
   isObjectType,
@@ -35,20 +36,9 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
     return limit;
   }
 
-  function analyzeSubquery(definition, objectType) {
-    if (score > THRESHOLD) {
-      throw new Error(`Threshold of ${THRESHOLD} reached.`);
-    }
-
-    if (definition == null || objectType == null) {
-      return;
-    }
-
-    if (definition.kind === Kind.FIELD && isObjectType(objectType)) {
-      if (isIntrospectionField(definition.name.value)) {
-        return;
-      }
-      const fields = objectType.getFields();
+  function analyzeField(definition, parentObjectType) {
+    if (isObjectType(parentObjectType) || isInterfaceType(parentObjectType)) {
+      const fields = parentObjectType.getFields();
 
       const maybeLimit = getNumberOfEdgesNew(operationVariables, definition);
       if (maybeLimit !== null) {
@@ -81,27 +71,52 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
         score += 4; // field with other subselections
         analyzeSubquery(definition.selectionSet, currentType);
       }
-    } else if (definition.kind === Kind.FIELD && isNonNullType(objectType)) {
+    } else if (isNonNullType(parentObjectType)) {
       // This is a special case of a field which doesn't have any fields itself but must be further
       // decomposed (typical example is `PageInfo!` type).
-      analyzeSubquery(definition, objectType.ofType);
+      analyzeSubquery(definition, parentObjectType.ofType);
+    } else {
+      // we know it's a field but the parent type is unsupported yet
+      score += UNKNOWN_KIND_PENALTY;
+    }
+  }
+
+  function analyzeSubquery(definition, parentObjectType) {
+    if (definition == null || parentObjectType == null) {
+      return;
+    }
+    if (score > THRESHOLD) {
+      throw new Error(`Threshold of ${THRESHOLD} reached.`);
+    }
+
+    if (definition.kind === Kind.FIELD) {
+      if (isIntrospectionField(definition.name.value)) {
+        return;
+      }
+      analyzeField(definition, parentObjectType);
     } else if (definition.kind === Kind.SELECTION_SET) {
       definition.selections.forEach(selection => {
-        analyzeSubquery(selection, objectType);
+        analyzeSubquery(selection, parentObjectType);
       });
     } else if (definition.kind === Kind.OPERATION_DEFINITION) {
       const variableDefinitions = definition.variableDefinitions ?? [];
       variableDefinitions.forEach(variableDefinition => {
         const variableName = variableDefinition.variable.name.value;
         const defaultValue = variableDefinition.defaultValue;
-        if (defaultValue !== undefined && defaultValue.kind === 'IntValue') {
+        if (defaultValue !== undefined && defaultValue.kind === Kind.INT) {
           operationVariables.set(variableName, Number(defaultValue.value));
         } else {
           operationVariables.set(variableName, UNKNOWN_ARG_VALUE_PENALTY);
         }
       });
-      analyzeSubquery(definition.selectionSet, objectType);
+      analyzeSubquery(definition.selectionSet, parentObjectType);
     } else if (definition.kind === Kind.INLINE_FRAGMENT) {
+      let objectType = parentObjectType;
+      if (definition.typeCondition !== undefined) {
+        // inline fragment doesn't have to have a restrict on the type
+        const onType = definition.typeCondition.name.value;
+        objectType = schema.getType(onType);
+      }
       analyzeSubquery(definition.selectionSet, objectType);
     } else if (definition.kind === Kind.FRAGMENT_DEFINITION) {
       const onType = definition.typeCondition.name.value;
@@ -110,12 +125,6 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
       // no score change
     } else {
       // we do not support this definition kind yet
-      // eslint-disable-next-line no-console
-      console.warn(
-        'Unsupported definition (%s): %s',
-        objectType,
-        JSON.stringify(definition, null, 2),
-      );
       score += UNKNOWN_KIND_PENALTY;
     }
   }
@@ -150,10 +159,10 @@ function getNumberOfEdgesNew(operationVariables, definition): number | null {
     });
     if (argumentNode !== undefined) {
       const argNodeValue = argumentNode.value;
-      if (argNodeValue.kind === 'Variable') {
+      if (argNodeValue.kind === Kind.VARIABLE) {
         // we found limit argument but it's a variable so we resolve it
         first = operationVariables.get(argNodeValue.name.value) ?? null;
-      } else if (argNodeValue.kind === 'IntValue') {
+      } else if (argNodeValue.kind === Kind.INT) {
         first = Number(argNodeValue.value);
       }
     }

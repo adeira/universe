@@ -8,8 +8,10 @@ type Query {
   me: User
   scalar: String
   scalarNonNull: String!
+  union: MyUnion
   list(first: Int, last: Int): [String]
   enum: MyEnum
+  node(id: ID!): Node
 }
 
 enum MyEnum {
@@ -17,7 +19,15 @@ enum MyEnum {
   IMPORTANT
 }
 
-type User {
+union MyUnion = User | PageInfo
+
+interface Node {
+  id: ID!
+}
+
+# TODO: implement 2 interfaces (XYZ & ABC)
+type User implements Node {
+  id: ID!
   name: String
   surname: String
   friends(first: Int, last: Int): [User]

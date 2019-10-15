@@ -2,7 +2,7 @@
   "name": "@kiwicom/graphql-result-size",
   "version": "0.1.0",
   "private": true,
-  "main": "calculate",
+  "main": "src/calculate",
   "license": "MIT",
   "devDependencies": {
     "@kiwicom/test-utils": "^0.10.0"
