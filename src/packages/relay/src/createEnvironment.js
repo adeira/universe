@@ -12,7 +12,7 @@ import {
 
 import createRequestHandler from './createRequestHandler';
 import type { Variables } from './types.flow';
-import type { Environment } from './runtimeTypes.flow';
+import type { Environment, RecordMap } from './runtimeTypes.flow';
 
 type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
@@ -26,7 +26,7 @@ type Options = {|
   // enables/disables `RelayNetworkLogger`
   +logger?: boolean,
   +graphiQLPrinter?: (request: { +text: string, ... }, variables: Variables) => string,
-  +records?: ?{ ... },
+  +records?: ?RecordMap,
 |};
 
 type NormalizationSplitOperation = {|

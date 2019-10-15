@@ -57,4 +57,4 @@ export type {
   GraphQLTaggedNode,
   Variables,
 } from './types.flow';
-export type { Environment, Snapshot } from './runtimeTypes.flow';
+export type { Environment, Snapshot, RecordMap } from './runtimeTypes.flow';
