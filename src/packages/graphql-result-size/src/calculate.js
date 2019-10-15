@@ -11,7 +11,7 @@ import {
   type DocumentNode,
 } from 'graphql';
 
-const THRESHOLD = 500_000;
+export const THRESHOLD = 500_000;
 
 const UNKNOWN_ARG_VALUE_PENALTY = 1_000;
 const UNLIMITED_LIST_PENALTY = 10_000;
@@ -22,7 +22,7 @@ const UNKNOWN_KIND_PENALTY = 100_000;
  * It's because the priority is to make it work well first. Moreover, these optimizations made
  * the referential implementation horribly slow which is paradoxical.
  */
-export default function calculate(schema: GraphQLSchema, query: DocumentNode) {
+export default function calculate(schema: GraphQLSchema, query: DocumentNode): number | empty {
   let score = 0;
   let lastLimit = null;
   const operationVariables = new Map(); // [name, defaultValue]

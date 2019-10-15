@@ -1,5 +1,7 @@
 # Unreleased
 
+- Compiler: added GraphQL Result Size validator.
+
 # 4.7.0
 
 - Improved flow type coverage of Relay store.

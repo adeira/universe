@@ -1,7 +1,9 @@
 {
   "name": "@kiwicom/graphql-result-size",
   "version": "0.1.0",
-  "private": true,
+  "description": "This module provides an implementation of an algorithm that calculates the (exact) size of GraphQL response objects without actually producing the response.",
+  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-result-size",
+  "private": false,
   "main": "src/calculate",
   "license": "MIT",
   "devDependencies": {

@@ -29,6 +29,7 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/graphql-bc-checker',
       '@kiwicom/graphql-global-id',
       '@kiwicom/graphql-resolve-wrapper',
+      '@kiwicom/graphql-result-size',
       '@kiwicom/graphql-utils',
       '@kiwicom/js',
       '@kiwicom/logger',
@@ -40,8 +41,8 @@ import { invariant } from '@kiwicom/js';
       '@kiwicom/test-utils',
       '@kiwicom/vault2env',
       'eslint-plugin-kiwicom-incubator',
-      'eslint-plugin-relay-imports',
       'eslint-plugin-relay-fragments',
+      'eslint-plugin-relay-imports',
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });

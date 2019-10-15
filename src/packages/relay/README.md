@@ -123,6 +123,7 @@ We use our own `kiwicom-relay-compiler` which adds some additional features:
 
 - it outputs ES6 modules
 - it warns when you use deprecated fields in your queries and fragments
+- it warns you when your queries return too big response and you should optimize them
 - it supports several implementations of persistent queries
 
 This compiler supports configuration options via `relay.config.js`. Simply place it somewhere in the root of your project and configure it:
