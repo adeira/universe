@@ -1,0 +1,3 @@
+- add Flow (+CI)
+- add Eslint (+CI)
+- add test (+CI)

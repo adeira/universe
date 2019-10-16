@@ -1,3 +1,5 @@
+// @flow
+
 /**
  * Copyright (c) 2017-present, Facebook, Inc.
  *
@@ -11,6 +13,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import withBaseUrl from '@docusaurus/withBaseUrl';
+
 import styles from './styles.module.css';
 
 function Home() {
@@ -43,18 +46,25 @@ function Home() {
           <div className="container">
             <p>
               I am fullstack JavaScript developer at <a href="https://www.kiwi.com/en/">Kiwi.com</a>
-              , originaly from Czech Republic 🇨🇿. Currently, I work at{' '}
-              <a href="https://graphql.kiwi.com/">graphql.kiwi.com</a> project and internal{' '}
-              <strong>monorepo</strong> infrastructure but I also help other teams with{' '}
-              <strong>GraphQL</strong> in general, <strong>Relay</strong>, <strong>Flow</strong>,{' '}
-              <strong>React (Native)</strong> or any other <strong>JS</strong> project.
+              , originaly from Czech Republic{' '}
+              <span role="img" aria-label="czech republic flag">
+                🇨🇿
+              </span>
+              . Currently, I work at <a href="https://graphql.kiwi.com/">graphql.kiwi.com</a>{' '}
+              project and internal <strong>monorepo</strong> infrastructure but I also help other
+              teams with <strong>GraphQL</strong> in general, <strong>Relay</strong>,{' '}
+              <strong>Flow</strong>, <strong>React (Native)</strong> or any other{' '}
+              <strong>JS</strong> project.
             </p>
 
             <h3>My location</h3>
 
             <p>
-              I am officially part of Prague or Barcelona office but I currently live in Mexico 🇲🇽.
-              I am basically never in Brno HQ. I used to{' '}
+              I am officially part of Prague or Barcelona office but I currently live in Mexico{' '}
+              <span role="img" aria-label="mexico flag">
+                🇲🇽
+              </span>
+              . I am basically never in Brno HQ. I used to{' '}
               <a href="https://nomadlist.com/@mrtnzlml">travel a lot</a> (and still sometimes do)
               and therefore, I prefer solving every issue remotely if possible. I really enjoy being
               in different timezone so I can have time for some actual work and life. Do not expect
@@ -65,17 +75,18 @@ function Home() {
             <h3>Meetings, Slack</h3>
 
             <p>
-              I genuinely don't like meetings. Luckily, I don't have that many meetings. I am trying
-              to attend only valuable ones. Please always prepare an agenda for the meeting in
-              advance so we can prepare well. I dislike when I am leaving the meeting without clear
-              outcome and I feel like I just wasted my time there. Outcome from every meeting should
-              be written somewhere. Wanna chat? Let's do it during coffee break instead! :)
+              I genuinely don&apos;t like meetings. Luckily, I don&apos;t have that many meetings. I
+              am trying to attend only valuable ones. Please always prepare an agenda for the
+              meeting in advance so we can prepare well. I dislike when I am leaving the meeting
+              without clear outcome and I feel like I just wasted my time there. Outcome from every
+              meeting should be written somewhere. Wanna chat? Let&apos;s do it during coffee break
+              instead! :)
             </p>
 
             <p>
               Very similar rules applies to how I use Slack. I read everything relevant for me and I
               am leaving and joining channels frequently (depending on my needs and interests).
-              Don't take it personally when I leave the channel. I prefer when you write me
+              Don&apos;t take it personally when I leave the channel. I prefer when you write me
               personally.
             </p>
 
@@ -98,9 +109,9 @@ function Home() {
             </p>
 
             <p>
-              <em>I love when people do great job.</em> You wouldn't believe how many hours I spent
-              reading code of excelent programmers. I will definitelly let you know when I love what
-              you do.
+              <em>I love when people do great job.</em> You wouldn&apos;t believe how many hours I
+              spent reading code of excelent programmers. I will definitelly let you know when I
+              love what you do.
             </p>
 
             <p>
@@ -118,8 +129,8 @@ function Home() {
 
             <p>
               <em>I have my moods.</em> I am fine in one minute and then I am suddenly completely
-              different person. I think it's related to my introversion when things simply went too
-              far too quickly. I am working on that.
+              different person. I think it&apos;s related to my introversion when things simply went
+              too far too quickly. I am working on that.
             </p>
 
             <p>
@@ -131,8 +142,8 @@ function Home() {
 
             <p>
               <em>I want to have things under control.</em> This way I do things really well. Also,
-              it gives me possibility to say NO when I think it's not OK. I am very unhappy when
-              someone treats me as yet another programmer-monkey or when I cannot say NO.
+              it gives me possibility to say NO when I think it&apos;s not OK. I am very unhappy
+              when someone treats me as yet another programmer-monkey or when I cannot say NO.
             </p>
 
             <p>
@@ -160,7 +171,13 @@ function Home() {
                 Created first <a href="https://github.com/kiwicom/graphql">GraphQL proxy</a> (still
                 ongoing project but moved to private repo)
               </li>
-              <li>Created unsuccessful Chatbot 🤖 for our custommer support (discontinued)</li>
+              <li>
+                Created unsuccessful Chatbot{' '}
+                <span role="img" aria-label="robot">
+                  🤖
+                </span>{' '}
+                for our custommer support (discontinued)
+              </li>
               <li>
                 Created first{' '}
                 <a href="https://github.com/kiwicom/mobile">React Native application</a>{' '}
@@ -180,7 +197,12 @@ function Home() {
               </li>
             </ol>
 
-            <p>I left this company in October (31) 2019 👋</p>
+            <p>
+              I left this company in October (31) 2019{' '}
+              <span role="img" aria-label="wave">
+                👋
+              </span>
+            </p>
 
             <h3>
               Kiwi.com{' '}
@@ -191,23 +213,91 @@ function Home() {
             </h3>
 
             <p>
-              Simple boolean: it's ❌ if I don't think it's true or there are some significant
-              exceptions to this rule. It's ✅ otherwise.
+              Simple boolean: it&apos;s{' '}
+              <span role="img" aria-label="cross mark">
+                ❌
+              </span>{' '}
+              if I don&apos;t think it&apos;s true or there are some significant exceptions to this
+              rule. It&apos;s{' '}
+              <span role="img" aria-label="tick">
+                ✅
+              </span>{' '}
+              otherwise.
             </p>
 
             <ol>
-              <li>✅ Do you use source control?</li>
-              <li>✅ Can you make a build in one step?</li>
-              <li>✅ Do you make daily builds?</li>
-              <li>✅ Do you have a bug database?</li>
-              <li>❌ Do you fix bugs before writing new code?</li>
-              <li>❌ Do you have an up-to-date schedule?</li>
-              <li>❌ Do you have a spec?</li>
-              <li>❌ Do programmers have quiet working conditions?</li>
-              <li>✅ Do you use the best tools money can buy?</li>
-              <li>❌ Do you have testers?</li>
-              <li>❌ Do new candidates write code during their interview?</li>
-              <li>❌ Do you do hallway usability testing?</li>
+              <li>
+                <span role="img" aria-label="tick">
+                  ✅
+                </span>{' '}
+                Do you use source control?
+              </li>
+              <li>
+                <span role="img" aria-label="tick">
+                  ✅
+                </span>{' '}
+                Can you make a build in one step?
+              </li>
+              <li>
+                <span role="img" aria-label="tick">
+                  ✅
+                </span>{' '}
+                Do you make daily builds?
+              </li>
+              <li>
+                <span role="img" aria-label="tick">
+                  ✅
+                </span>{' '}
+                Do you have a bug database?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do you fix bugs before writing new code?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do you have an up-to-date schedule?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do you have a spec?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do programmers have quiet working conditions?
+              </li>
+              <li>
+                <span role="img" aria-label="tick">
+                  ✅
+                </span>{' '}
+                Do you use the best tools money can buy?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do you have testers?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do new candidates write code during their interview?
+              </li>
+              <li>
+                <span role="img" aria-label="cross mark">
+                  ❌
+                </span>{' '}
+                Do you do hallway usability testing?
+              </li>
             </ol>
           </div>
         </section>
