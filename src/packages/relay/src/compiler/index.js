@@ -14,7 +14,8 @@ import { globSync } from '@kiwicom/monorepo-utils';
 import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';
 import getSchema from './getSchema';
-import createFindDeprecatedUsagesRule from './validations/createFindDeprecatedUsagesRule';
+import createValidateDeprecatedUsagesRule from './validations/createValidateDeprecatedUsagesRule';
+import createValidateQuerySizeRule from './validations/createValidateQuerySizeRule';
 
 type ExternalOptions = {|
   +src: string,
@@ -33,7 +34,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
     ...externalOptions,
   };
 
-  const reporter = new ConsoleReporter({ verbose: true });
+  const reporter = new ConsoleReporter({ verbose: false });
   const languagePlugin = buildLanguagePlugin();
   const srcDir = path.resolve(process.cwd(), options.src);
   const schemaPath = path.resolve(process.cwd(), options.schema);
@@ -159,7 +160,8 @@ function getRelayFileWriter(
       validationRules: {
         // What is the difference between GLOBAL_RULES and LOCAL_RULES?
         GLOBAL_RULES: [
-          createFindDeprecatedUsagesRule(false), // TODO: make this configurable (--strict?)
+          createValidateDeprecatedUsagesRule(reporter),
+          createValidateQuerySizeRule(reporter),
         ],
       },
       customScalars: {},

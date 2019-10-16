@@ -26,12 +26,31 @@ test.each([
   ['{me{name}}', 7],
   ['{me{name,surname}}', 10],
 
+  // UNION
+  ['{union{...on User{name}}}', 7],
+  ['{union{...on User{name,surname}}}', 10],
+  ['{union{...on User{name}...on PageInfo{hasNextPage}}}', 10],
+  ['{union{...on User{name,surname}...on PageInfo{hasNextPage,hasPreviousPage}}}', 16],
+  ['{union{...on User{friends{name}}}}', 50_008],
+  ['{union{...on User{friends(first:1){name}}}}', 13],
+  ['{union{...on User{friends(first:1){name,surname}}}}', 16],
+
+  // INTERFACE
+  ['{node(id:1){id}}', 7],
+  ['{node(id:1){id}}', 7],
+  ['{node(id:1){...{id}}}', 7],
+  ['{node(id:1){...on User{id}}}', 7],
+  ['{node(id:1){...on User{id,name}}}', 10],
+  ['{node(id:1){...on User{friends{name}}}}', 50_008],
+  ['{node(id:1){...on User{friends(first:1){name}}}}', 13],
+  ['{node(id:1){...on User{friends(first:1){name,surname}}}}', 16],
+
   // CYCLIC
   ['{me{friends{name}}}', 50_008], // list without 'first' are being heavily penalized
   ['{me{friends{a:name,b:name}}}', 80_008], // list without 'first' are being heavily penalized
   ['{me{friends{name,surname}}}', 80_008], // list without 'first' are being heavily penalized
   ['{me{friends{friends{name}}}}', ThresholdError], // actual value would be "500_060_008"
-  ['{me{friends(first:1000){name}}}', 5008],
+  ['{me{friends(first:1000){name}}}', 5_008],
   ['{me{friends(first:1){name}}}', 13],
   ['{me{friends(first:1){name,surname}}}', 16],
   ['{me{friends(first:1){friends(first:1){name}}}}', 19],
@@ -123,8 +142,6 @@ test.each([
 
   // SUBSCRIPTIONS
   ['subscription {subscriptionScalar}', 3],
-
-  // TODO: interfaces, unions
 ])('%#) %p ~~> %p points', (query, expectedQuerySize) => {
   expect(validate(schema, parse(query), specifiedRules)).toEqual([]);
   if (expectedQuerySize instanceof Error) {

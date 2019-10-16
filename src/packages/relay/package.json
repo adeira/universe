@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/register": "^7.6.0",
     "@kiwicom/fetch": "^2.4.3",
+    "@kiwicom/graphql-result-size": "^0.1.0",
     "@kiwicom/js": "^0.17.0",
     "@kiwicom/logger": "^0.3.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
