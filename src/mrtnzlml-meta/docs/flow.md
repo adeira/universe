@@ -287,6 +287,51 @@ declare function isSchema(schema: mixed): boolean %checks(schema instanceof Grap
 - https://github.com/facebook/flow/issues/3048
 - https://github.com/facebook/flow/issues/34
 
+## Object indexer properties
+
+```js
+const o: { [string]: number, ... } = {};
+o['foo'] = 0;
+o['bar'] = 1;
+o[42] = 2; // Error!
+const foo: number = o['foo'];
+```
+
+> When an object type has an indexer property, property accesses are assumed to have the annotated type, even if the object does not have a value in that slot at runtime. It is the programmer’s responsibility to ensure the access is safe, as with arrays.
+
+This is similar to the issue with [possibly undefined array elements](#possibly-undefined-array-elements):
+
+```js
+const obj: { [number]: string, ... } = {};
+obj[42].length; // No type error, but will throw at runtime!
+```
+
+Indexer properties can be also mixed with normal properties:
+
+```js
+const obj: {
+  size: number,
+  [id: number]: string,
+  ...
+} = {
+  size: 0,
+};
+
+function add(id: number, name: string) {
+  obj[id] = name;
+  obj.size++;
+}
+```
+
+Please note: indexer property doesn't make any sense on exact objects:
+
+```js
+type S = {| [key: string]: string |};
+const s: S = { key: 'value' }; // cannot assign object literal to `s` because property `key` is missing in `S`
+```
+
+This is not a bug - it simply doesn't make any sense with exact objects. It could be eventually repurposed though, see: https://github.com/facebook/flow/issues/7862
+
 ## Difference between `&` and `...`
 
 It's easy to misunderstand the difference between intersection types (`A & B`) and spreading types (`{ ...A, b:boolean }`) in Flow.
@@ -375,15 +420,34 @@ https://github.com/facebook/flow/issues/4196
 ### `mixed` type cannot be exhausted
 
 ```js
+declare var flowDebugPrint: $Flow$DebugPrint;
+
 function test(x: mixed) {
   if (typeof x === 'string') {
     return true;
   }
-  x; // still 'mixed' according to type-at-pos 🤔
+  flowDebugPrint(x); // still 'mixed', see the output 🤔
 }
 ```
 
-[flow.org/try](https://flow.org/try/#0GYVwdgxgLglg9mABFApgZygCgB4C5EC2M2KAJgJSIDeAUIojMIplAJ4AOKcT2iAvAMQByDACcYYAOZDKtevVEooIUUiiiQKANx1EAX13YtiAPQnEGGABsrwoiVJDEAQwgQ4o0hMnI4yDigAtM5QgexwaIiAfBuAKLs0BkA)
+[flow.org/try](https://flow.org/try/#0CYUwxgNghgTiAEA3W8BmED2B3AIiARgK4DmACjAJYB2ALgFzwAkAYplo3kWZbQNwBQ-VISpgaFDFXg0QAZxoAKAB4MAthSUhgASngBvfvHgVU8BTQCeABxAZTS+AF5n8AOTyexV7oNGjcGkIYKRoYQhABIwBfQzQ2ThJyakUlbV54AHoM+HkKCAg3dU1gVwAaHJAEGgALBAxCGisG+EA+DcAUXf4YoA)
+
+Debug output:
+
+```json
+{
+  "reason": {
+    "pos": {
+      "source": "-",
+      "type": "SourceFile",
+      "start": { "line": 7, "column": 18 },
+      "end": { "line": 7, "column": 18 }
+    },
+    "desc": "mixed"
+  },
+  "kind": "MixedT"
+}
+```
 
 One solution is to manually define your custom mixed type which [can be exhausted](https://flow.org/try/#0PTAEAEDMBsHsHcBQiAuBPADgU1AWTbgJYAeWAJqALyiKigA+oAbrIRbQ6AHYCu00NOo14BbAEZYAToM4BnFJMJcA5jMZjYsaFgCGXNaADeAOlMBfAwEFJknWgA8+IqTIA+AwApTxnZOWyALjwCEnIAbQBdAEoqdydQsg46GgBjWC55UBxqDx0g+UUVABpmIPiXGMp3QzNkLA8AcgaSgEYoxHqmktz8hSVlErEg0QlJSuqzKKA).
 
