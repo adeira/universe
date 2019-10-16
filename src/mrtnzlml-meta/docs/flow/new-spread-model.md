@@ -13,7 +13,7 @@ Necessary vocabulary:
 
 \* Technically, spread only copies over all properties that are both own and enumerable, but enumerability is usually implied by own-ness. In Flow, we do not distinguish between an own enumerable property and own non-enumerable property.
 
-### Before v0.106.0
+## Before v0.106.0
 
 Previous model was based on the runtime behavior of spreads. This implies the following assumptions:
 
@@ -86,7 +86,7 @@ type Props = {
 
 > `InjectedProps` is inexact, so it may contain all of the properties specified before it in `Props`. Flow will conservatively assume it does to preserve soundness. Since they may be overwritten by properties with unspecified types in `InjectedProps`, all of the properties specified before the `InjectedProps` type is spread can only be inferred to have type **mixed**. And remember, `transparency` will be optional because InjectedProps is inexact.
 
-### After v0.106.0
+## After v0.106.0
 
 > In the new model, we change our fundamental assumptions about the various different object types in Flow. Most importantly for spreads, our new model has **inexact object types specify own properties**.
 
