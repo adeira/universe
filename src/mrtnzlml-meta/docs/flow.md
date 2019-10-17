@@ -21,6 +21,25 @@ Showerthoughts:
 
 > flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
 
+## Oncalls in Facebook (Flow related)
+
+> so the way it works is that the Flow team has a rotating oncall. it's relatively calm as oncalls go (we aren't getting woken up in the middle of the night), but whoever is oncall is responsible for doing support (we have an internal group where people can ask questions), and also responsible for taking the lead if something goes wrong with Flow or the various related integrations we have. near the beginning of the year we also made it so that the oncall is responsible for addressing libdef and documentation PRs, since there is usually no clear owner for those, and pretty much anyone should be able to review them
+
+(source Discord)
+
+## Sound vs. complete
+
+> A sound type system (or analysis) is one that rejects all erroneous programs, and a complete system accepts all correct programs.
+
+> A sound type system is one that is not lenient, in that it rejects all invalid programs plus some number of valid programs. A complete type system accepts all valid programs, and some invalid ones to boot. Which to pick?
+
+- https://eschew.wordpress.com/2009/08/31/sound-and-complete/
+- https://stackoverflow.com/a/21437375/3135248
+
+Please note: not everything can be expressed/modeled in your type system so you have to take into account also dynamic errors (division by zero or integer overflow) when writing your program.
+
+> Programmers dislike having the computer reject a program that would have run fine, simply because the computer couldn’t make sure it would run fine without actually running it. In short, restrictive type systems drive programmers to more flexible environments.
+
 ## Force type casting
 
 You may find yourself in a situation where you want to force cast some type despite it's originally defined differently. Example:
@@ -56,24 +75,18 @@ if (typeof foo === 'string') {
 
 Source: https://stackoverflow.com/questions/41328728/how-can-flow-be-forced-to-cast-a-value-to-another-type/45068255
 
-## Oncalls in Facebook (Flow related)
+## `$Compose`, `$ComposeReverse`
 
-> so the way it works is that the Flow team has a rotating oncall. it's relatively calm as oncalls go (we aren't getting woken up in the middle of the night), but whoever is oncall is responsible for doing support (we have an internal group where people can ask questions), and also responsible for taking the lead if something goes wrong with Flow or the various related integrations we have. near the beginning of the year we also made it so that the oncall is responsible for addressing libdef and documentation PRs, since there is usually no clear owner for those, and pretty much anyone should be able to review them
+Compose pattern is very common among JS community. Here are some examples: [Redux](http://redux.js.org/docs/api/compose.html), [Recompose](https://github.com/acdlite/recompose/blob/master/docs/API.md#compose), [Lodash](https://lodash.com/docs/4.17.15#flow) and [Ramda](https://ramdajs.com/docs/#compose)
 
-(source Discord)
+You can enable this common `compose` pattern like so:
 
-## Sound vs. complete
+```js
+declare var compose: $Compose;
+declare var composeReverse: $ComposeReverse;
+```
 
-> A sound type system (or analysis) is one that rejects all erroneous programs, and a complete system accepts all correct programs.
-
-> A sound type system is one that is not lenient, in that it rejects all invalid programs plus some number of valid programs. A complete type system accepts all valid programs, and some invalid ones to boot. Which to pick?
-
-- https://eschew.wordpress.com/2009/08/31/sound-and-complete/
-- https://stackoverflow.com/a/21437375/3135248
-
-Please note: not everything can be expressed/modeled in your type system so you have to take into account also dynamic errors (division by zero or integer overflow) when writing your program.
-
-> Programmers dislike having the computer reject a program that would have run fine, simply because the computer couldn’t make sure it would run fine without actually running it. In short, restrictive type systems drive programmers to more flexible environments.
+More info: https://github.com/facebook/flow/commit/ab9bf44c725efd2ed6d7e1e957c5566b6eb6f688
 
 ## Contributing to native libdevs
 
