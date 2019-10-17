@@ -43,7 +43,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 1.4.1 [@kiwicom/graphql-bc-checker](https://github.com/kiwicom/graphql-bc-checker) - Script to detect breaking changes in GraphQL schema with ability to log these changes.
 - 0.13.0 [@kiwicom/graphql-global-id](https://github.com/kiwicom/graphql-global-id) - Utility to manage ID fields in GraphQL correctly.
 - 1.0.5 [@kiwicom/graphql-resolve-wrapper](https://github.com/kiwicom/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
-- 0.1.0 [@kiwicom/graphql-result-size](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-result-size) - This module provides an implementation of an algorithm that calculates the (exact) size of GraphQL response objects without actually producing the response.
+- 0.2.0 [@kiwicom/graphql-result-size](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-result-size) - This module provides an implementation of an algorithm that calculates the (exact) size of GraphQL response objects without actually producing the response.
 - 0.8.0 [@kiwicom/graphql-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-utils) - Set of useful tools to build better GraphQL servers.
 - 0.17.0 [@kiwicom/js](https://github.com/kiwicom/js) - Useful JS functions used at Kiwi.com
 - 0.0.1 [@kiwicom/redis](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/redis) - Highly opinionated Redis wrapper used at Kiwi.com
