@@ -1,5 +1,6 @@
 # Unreleased
 
+- Changes in package.json will trigger eslint runner to run with `--all` flag
 - Rule [no-unused-vars](https://eslint.org/docs/6.0.0/rules/no-unused-vars) now allows unused variable when it's used to omit properties from object using [rest spread](https://github.com/tc39/proposal-object-rest-spread).
 - New rule [`jest/prefer-hooks-on-top`](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/prefer-hooks-on-top.md) added (warnings or errors in strict mode).
 

@@ -8,7 +8,7 @@ const isCI = require('is-ci');
 const { Git } = require('@kiwicom/monorepo-utils');
 
 const formatter = require('./stylish');
-const isEslintConfigFile = require('./isEslintConfigFile');
+const shouldLintAll = require('./shouldLintAll');
 
 const PERFORM_FIXES = isCI === false;
 const cliEngine = new CLIEngine({
@@ -39,7 +39,7 @@ module.exports = ({ testPath, extraOptions } /*: Options */) => {
 
   let runAll = extraOptions.runAll;
   for (const changedFile of changedFiles) {
-    if (isEslintConfigFile(changedFile)) {
+    if (shouldLintAll(changedFile)) {
       runAll = true;
       break;
     }
