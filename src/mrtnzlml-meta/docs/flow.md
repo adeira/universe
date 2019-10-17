@@ -118,6 +118,40 @@ Now, you can use this new binary from source in your application to test new fea
 /Users/TKTK/flow/bin/flow status <ROOT>
 ```
 
+## Types-first
+
+_TODO_
+
+```ini
+[options]
+experimental.well_formed_exports=true
+experimental.types_first=true
+```
+
+> it requires a bunch more type annotations, which is why we haven't recommended it widely yet, but it's production-ready and everything is way faster if you add the needed type annotations
+
+> it requires that every exported type be annotated
+
+```text
+$ flow autofix exports --help
+```
+
+> How your FB colleagues accepted the types-first migration? It sometimes feels quite controversial :grimacing: Maybe some article would be nice - are you planning it?
+
+> some people were a little bit grumpy about the additional annotation burden at first, but everyone seems to be used to it now and there wasn't any real pushback, it was mostly just some grumbling here and there
+
+> The reason we needed to get the enforcement right for input positions in 0.85 was to enable things like flow autofix to actually be able to infer types. With the input annotations we can infer the output ones and insert them via a codemod!
+
+> i'd certainly recommend it to anyone starting a new project in Flow
+
+```ini
+experimental.types_first=false
+experimental.well_formed_exports=true
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/js
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/relay
+; ...
+```
+
 ## Trust mode
 
 _TODO_
