@@ -11,6 +11,8 @@ import {
   type DocumentNode,
 } from 'graphql';
 
+import ThresholdError from './ThresholdError';
+
 export const THRESHOLD = 500_000;
 
 const UNKNOWN_ARG_VALUE_PENALTY = 1_000;
@@ -22,7 +24,7 @@ const UNKNOWN_KIND_PENALTY = 100_000;
  * It's because the priority is to make it work well first. Moreover, these optimizations made
  * the referential implementation horribly slow which is paradoxical.
  */
-export default function calculate(schema: GraphQLSchema, query: DocumentNode): number | empty {
+export function calculate(schema: GraphQLSchema, query: DocumentNode): number | empty {
   let score = 0;
   let lastLimit = null;
   const operationVariables = new Map(); // [name, defaultValue]
@@ -39,13 +41,15 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode): n
   function analyzeField(definition, parentObjectType) {
     if (isObjectType(parentObjectType) || isInterfaceType(parentObjectType)) {
       const fields = parentObjectType.getFields();
-
       const maybeLimit = getNumberOfEdgesNew(operationVariables, definition);
       if (maybeLimit !== null) {
         lastLimit = maybeLimit;
       }
-
-      const fieldType = fields[definition.name.value].type;
+      const field = fields[definition.name.value];
+      if (field === undefined) {
+        return; // such field doesn't exist (validation error)
+      }
+      const fieldType = field.type;
       const currentType = isListType(fieldType) ? fieldType.ofType : fieldType;
       if (definition.selectionSet === undefined) {
         // scalar, list of scalars
@@ -86,9 +90,8 @@ export default function calculate(schema: GraphQLSchema, query: DocumentNode): n
       return;
     }
     if (score > THRESHOLD) {
-      throw new Error(`Threshold of ${THRESHOLD} reached.`);
+      throw new ThresholdError(THRESHOLD);
     }
-
     if (definition.kind === Kind.FIELD) {
       if (isIntrospectionField(definition.name.value)) {
         return;

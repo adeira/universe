@@ -2,12 +2,13 @@
 
 import fs from 'fs';
 import path from 'path';
-import { validate, parse, specifiedRules, buildSchema } from 'graphql';
+import { parse, buildSchema } from 'graphql';
 
-import calculate from '../calculate';
+import { calculate, THRESHOLD } from '../calculate';
+import OriginalThresholdError from '../ThresholdError';
 
 const schema = buildSchema(fs.readFileSync(path.join(__dirname, 'testschema.graphql'), 'utf8'));
-const ThresholdError = new Error('Threshold of 500000 reached.');
+const ThresholdError = new OriginalThresholdError(THRESHOLD);
 
 test.each([
   ['{scalar}', 3],
@@ -142,8 +143,13 @@ test.each([
 
   // SUBSCRIPTIONS
   ['subscription {subscriptionScalar}', 3],
+
+  // ERRORS (GraphQLError)
+  // Please note: we do not do validation here since it's not responsibility of this utility.
+  // This utility is just one of the validators.
+  ['{thisFieldDoesNotExist}', 0],
+  ['{scalar,thisFieldDoesNotExist}', 3],
 ])('%#) %p ~~> %p points', (query, expectedQuerySize) => {
-  expect(validate(schema, parse(query), specifiedRules)).toEqual([]);
   if (expectedQuerySize instanceof Error) {
     expect(() => calculate(schema, parse(query))).toThrowError(expectedQuerySize);
   } else {
