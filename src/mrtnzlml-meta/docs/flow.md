@@ -108,14 +108,16 @@ bash ./runtests.sh -t node_tests bin/flow
 bash ./runtests.sh -t node_tests -r bin/flow
 ```
 
-Please note (I didn't try it yet though):
+Please note, building like this should be faster for local development:
 
-> `make build-flow-debug` should be faster for local development
+```text
+make build-flow-debug
+```
 
 Now, you can use this new binary from source in your application to test new features. Just use newly built `bin/flow` instead of Flow binary from NPM like so:
 
 ```text
-/Users/TKTK/flow/bin/flow status <ROOT>
+bin/flow status <ROOT>
 ```
 
 ## Types-first
