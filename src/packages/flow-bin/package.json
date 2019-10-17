@@ -9,7 +9,7 @@
   "sideEffects": true,
   "bin": {
     "kiwicom-flow-bin": "bin/index.js",
-    "kiwicom-flow-strictify": "bin/strictify.js"
+    "kiwicom-flow-migrate": "bin/migrate.js"
   },
   "dependencies": {
     "@babel/register": "^7.6.0",

@@ -24,13 +24,13 @@ function command(...commandChunks): ShellCommand {
 }
 
 export default class FlowWrapper {
-  static restartServer = (): void => {
+  static restartServer(): void {
     command('stop')
       .setOutputToScreen()
       .runSynchronously();
-  };
+  }
 
-  static startServerSilently = (runAll: boolean = false): void => {
+  static startServerSilently(runAll: boolean = false): void {
     command(
       'start',
       '--wait-for-recheck=true',
@@ -43,15 +43,15 @@ export default class FlowWrapper {
     )
       .setNoExceptions() // server might be already running
       .runSynchronously();
-  };
+  }
 
-  static forceRecheck = (inputFile: string): void => {
+  static forceRecheck(inputFile: string): void {
     command('force-recheck', '--focus', `--input-file=${inputFile}`)
       .setOutputToScreen()
       .runSynchronously();
-  };
+  }
 
-  static checkStatus = (): number => {
+  static checkStatus(): number {
     return command(
       'status',
       `--color=${isCI ? 'always' : 'auto'}`,
@@ -62,11 +62,11 @@ export default class FlowWrapper {
       .setNoExceptions()
       .runSynchronously()
       .getExitCode();
-  };
+  }
 
-  static saveState = (savedStatePath: string): void => {
+  static saveState(savedStatePath: string): void {
     command('save-state', `--root=${monorepoRoot}`, `--out=${savedStatePath}`)
       .setOutputToScreen()
       .runSynchronously();
-  };
+  }
 }

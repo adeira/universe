@@ -35,7 +35,7 @@ const getBreakingChangesLog = (
 export const buildBreakingChangesBlock = (
   oldSnapshot: string,
   newBreakingChanges: ?$ReadOnlyArray<BreakingChange>,
-) => {
+): string => {
   const breakingChangesLog = getBreakingChangesLog(oldSnapshot, newBreakingChanges);
   return `# ${breakingChangeMarkerStart}${breakingChangesLog}# ${breakingChangeMarkerEnd}`;
 };

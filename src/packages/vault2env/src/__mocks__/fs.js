@@ -1,6 +1,6 @@
-// @flow strict
+// @flow
 
-const fs = jest.genMockFromModule('fs');
+const fs: any = jest.genMockFromModule('fs');
 
 let mockFiles = Object.create(null);
 fs.__setMockFiles = function(newMockFiles) {

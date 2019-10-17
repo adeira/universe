@@ -1,10 +1,10 @@
-// @flow strict
+// @flow
 
 import { nullthrows } from '@kiwicom/js';
 
 type CLIConfig = { +[key: string]: string, ... };
 
-export default function getParameters(params: CLIConfig) {
+export default function getParameters(params: CLIConfig): any {
   const requiredVaultParams = ['addr', 'token'];
   const requiredParams = ['path'];
   const vaultParams = requiredVaultParams

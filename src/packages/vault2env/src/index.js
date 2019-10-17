@@ -25,11 +25,16 @@ export default async function run(cliParams: CLIConfig) {
   }
 }
 
-const createConditionalVaultSecretsApplier = (addr: ?string, token: ?string) => {
-  return async (
-    path: string,
-    callback: (data: { +[string]: string, ... }) => void,
-  ): Promise<void> => {
+type ConditionalVaultSecretsApplier = (
+  path: string,
+  callback: (data: { +[string]: string, ... }) => void,
+) => Promise<void>;
+
+const createConditionalVaultSecretsApplier = (
+  addr: ?string,
+  token: ?string,
+): ConditionalVaultSecretsApplier => {
+  return async (path, callback) => {
     if (addr == null || addr === '' || token == null || token === '') {
       return;
     }

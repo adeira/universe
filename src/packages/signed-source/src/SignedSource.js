@@ -6,7 +6,7 @@ const GENERATED = '@generated';
 const TOKEN = '<<SignedSource::*O*zOeWoEQle#+L!plEphiEmie@IsG>>';
 const PATTERN = new RegExp(`${GENERATED} (?:SignedSource<<([a-f0-9]{32})>>)`);
 
-const TokenNotFoundError = new Error(
+const TokenNotFoundError: Error = new Error(
   `SignedSource.signFile(...): Cannot sign file without token: ${TOKEN}`,
 );
 

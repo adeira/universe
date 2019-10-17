@@ -19,7 +19,7 @@ function evaluateGraphQLResolver(
   testValue: mixed,
   argsValue?: { [key: string]: any, ... },
   contextValue?: { [key: string]: any, ... },
-) {
+): any {
   const resolveFn = field.resolve || function resolveMock() {};
   return resolveFn(testValue, argsValue, contextValue, {
     path: { key: 'mocked' },

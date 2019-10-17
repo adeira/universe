@@ -2,7 +2,11 @@
 
 import fetchWithRetries from '@kiwicom/fetch';
 
-export default async function fetchSecrets(addr: string, path: string, token: string) {
+export default async function fetchSecrets(
+  addr: string,
+  path: string,
+  token: string,
+): Promise<empty> {
   try {
     const apiVersion = 'v1';
     const response = await fetchWithRetries([addr, apiVersion, path].join('/'), {

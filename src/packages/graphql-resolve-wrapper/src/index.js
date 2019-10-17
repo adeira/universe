@@ -61,7 +61,7 @@ function wrapField(field: { [key: string | Symbol]: any, ... }, wrapper) {
   field.resolve = wrapper(resolveFn, field);
 }
 
-export function isSystemType(fieldName: string) {
+export function isSystemType(fieldName: string): boolean {
   // __TypeKind, __InputValue, ...
   return /^__/.test(fieldName);
 }
