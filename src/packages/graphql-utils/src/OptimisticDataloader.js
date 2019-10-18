@@ -16,7 +16,7 @@ type V = any;
  * @see https://github.com/facebook/dataloader/issues/41
  */
 export default class OptimisticDataloader extends DataLoader<K, V> {
-  loadMany = (keys: $ReadOnlyArray<K>): Promise<Array<V>> => {
+  loadMany(keys: $ReadOnlyArray<K>): Promise<Array<V>> {
     if (!Array.isArray(keys)) {
       throw new TypeError(
         `The loader.loadMany() function must be called with Array<key> but got: ${keys}.`,
@@ -34,5 +34,5 @@ export default class OptimisticDataloader extends DataLoader<K, V> {
         }),
       ),
     );
-  };
+  }
 }

@@ -25,14 +25,14 @@ function createGraphQLObject(name: string = 'Test') {
 }
 
 module.exports = {
-  validSchema: createGraphQLSchema({
+  validSchema: (createGraphQLSchema({
     test: createGraphQLObject(),
-  }),
-  compatibleSchema: createGraphQLSchema({
+  }): GraphQLSchema),
+  compatibleSchema: (createGraphQLSchema({
     test: createGraphQLObject(),
     test2: createGraphQLObject('Test2'), // just adding a new field (backward compatible)
-  }),
-  breakingSchema: createGraphQLSchema({
+  }): GraphQLSchema),
+  breakingSchema: (createGraphQLSchema({
     thisFieldIsDifferent: createGraphQLObject(),
-  }),
+  }): GraphQLSchema),
 };
