@@ -8,7 +8,7 @@
  */
 
 module.exports = {
-  programming: {
+  meta: {
     Flow: [
       'flow',
       'flow/new-spread-model',
@@ -27,9 +27,6 @@ module.exports = {
     ],
     Relay: ['relay', 'relay/match-module', 'relay/local-schema', 'relay/uploadables'],
     'Rest of programming': ['git', 'graphql', 'javascript', 'css'],
-  },
-  life: {
-    Travel: ['travel', 'travel/coworkings', 'travel/mexico'],
-    'Free time': ['read/links'],
+    Lifestyle: ['travel', 'travel/coworkings', 'travel/mexico', 'read/links'],
   },
 };

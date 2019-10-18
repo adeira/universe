@@ -23,8 +23,7 @@ module.exports = {
       //   src: 'img/logo.svg',
       // },
       links: [
-        { to: 'docs/flow', label: 'Programming', position: 'left' },
-        { to: 'docs/travel', label: 'Life', position: 'left' },
+        { to: 'docs/flow', label: 'Meta', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml',
