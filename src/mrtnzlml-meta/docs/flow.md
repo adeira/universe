@@ -11,7 +11,6 @@ sidebar_label: All-in
 - https://github.com/niieani/typescript-vs-flowtype
 - https://github.com/vkurchatkin/typescript-vs-flow
 - https://github.com/lttb/flown
-- https://gist.github.com/kangax/aa59598cf28d02f38579d8a95b5cbf92
 - https://github.com/dustinspecker/awesome-flow
 - https://gajus.github.io/flow-runtime/
 - https://medium.com/flow-type/what-the-flow-team-has-been-up-to-54239c62004f#a548
@@ -250,6 +249,10 @@ y flow check --debug
 y flow check --profile
 ```
 
+```text
+y flow autofix
+```
+
 [source](https://stackoverflow.com/a/40569640/3135248)
 
 ## Exact Objects by Default
@@ -432,6 +435,8 @@ No errors!
 
 ## `@flow` pragma consequences
 
+It is incorrect to assume that adding `@flow` pragma to your files just enables typesystem without any side-effects. There can be some unexpected changes in fact:
+
 1. `/*:: ... */` and `/*: ... */` comments have special meaning (https://flow.org/en/docs/types/comments/)
 2. `a<b>(c)` becomes a type argument, rather than `((a < b) > c)`
 
@@ -442,191 +447,3 @@ https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 - https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
 - https://flow.org/en/docs/types/utilities/#toc-call
 - https://github.com/niieani/typescript-vs-flowtype/issues/37
-
-## Fun with Flow
-
-### `boolean` is incompatible with `true | false`
-
-```js
-declare function foo(true | false): void;
-declare function bar(): boolean;
-
-foo(bar());
-```
-
-```
-4: foo(bar())
-       ^ Cannot call `foo` with `bar()` bound to the first parameter because: Either boolean [1] is incompatible with boolean literal `true` [2]. Or boolean [1] is incompatible with boolean literal `false` [3].
-References:
-2: declare function bar(): boolean                           ^ [1]
-1: declare function foo(true | false): void
-                        ^ [2]
-1: declare function foo(true | false): void
-                               ^ [3]
-```
-
-https://github.com/facebook/flow/issues/4196
-
-### `mixed` type cannot be exhausted
-
-```js
-declare var flowDebugPrint: $Flow$DebugPrint;
-
-function test(x: mixed) {
-  if (typeof x === 'string') {
-    return true;
-  }
-  flowDebugPrint(x); // still 'mixed', see the output 🤔
-}
-```
-
-[flow.org/try](https://flow.org/try/#0CYUwxgNghgTiAEA3W8BmED2B3AIiARgK4DmACjAJYB2ALgFzwAkAYplo3kWZbQNwBQ-VISpgaFDFXg0QAZxoAKAB4MAthSUhgASngBvfvHgVU8BTQCeABxAZTS+AF5n8AOTyexV7oNGjcGkIYKRoYQhABIwBfQzQ2ThJyakUlbV54AHoM+HkKCAg3dU1gVwAaHJAEGgALBAxCGisG+EA+DcAUXf4YoA)
-
-Debug output:
-
-```json
-{
-  "reason": {
-    "pos": {
-      "source": "-",
-      "type": "SourceFile",
-      "start": { "line": 7, "column": 18 },
-      "end": { "line": 7, "column": 18 }
-    },
-    "desc": "mixed"
-  },
-  "kind": "MixedT"
-}
-```
-
-One solution is to manually define your custom mixed type which [can be exhausted](https://flow.org/try/#0PTAEAEDMBsHsHcBQiAuBPADgU1AWTbgJYAeWAJqALyiKigA+oAbrIRbQ6AHYCu00NOo14BbAEZYAToM4BnFJMJcA5jMZjYsaFgCGXNaADeAOlMBfAwEFJknWgA8+IqTIA+AwApTxnZOWyALjwCEnIAbQBdAEoqdydQsg46GgBjWC55UBxqDx0g+UUVABpmIPiXGMp3QzNkLA8AcgaSgEYoxHqmktz8hSVlErEg0QlJSuqzKKA).
-
-### Possibly undefined array elements
-
-None of the typing systems can handle this correctly, all show no error during static analysis (but could be runtime error).
-
-Flow ([pr](https://github.com/facebook/flow/pull/6823)):
-
-```js
-let a = [1, 2, 3];
-let b: number = a[10]; // undefined
-let c = b * 2;
-```
-
-Typescript ([issue](https://github.com/Microsoft/TypeScript/issues/13778)):
-
-```js
-let a = [1, 2, 3];
-let b: number = a[10]; // undefined
-let c = b * 2;
-```
-
-Reason:
-
-```re
-let a: array(int) = [|1, 2, 3|];
-let b: int = a[10]  // undefined
-let c = b * 2
-```
-
-## Flow shenanigans
-
-```js
-const [w, a, t] = { p: '' }; // no error
-```
-
-[flow.org/try](https://flow.org/try/#0MYewdgzgLgBA2gdwDQwIYqgXRgXhgbwAcAuGAcjIF8BuIA)
-
-On the other hand, TS is OK with this code (while Flow throws an error correctly):
-
-```js
-const foo: {} = '';
-```
-
-https://www.typescriptlang.org/play/index.html#code/MYewdgzgLgBAZiEAuGBvAvjAvDA5LgbiA
-
-## Typescript shenanigans
-
-Typescript types are exact by default but only on declaration. This means it [won't catch](https://typescript-play.js.org/#code/C4TwDgpgBAqgzhATlAvFA3gKClArgxAOwEMBbCALijmEQEtCBzAGmyglOLoBsqb6mmAL6ZMAYwD2hGngIBGKvCSoMbAHQb0spCXJUA5AA99UIcyjrN7TjwMgTZy2q2HXdh6xwhv78zgD0-lAAPKFQUtwgUMAAFnRwUABmXNxwwqKS0sDaiABMigQqWDgazjm6lFBGHhYlVhwp7qaeUKUublX2zelAA) cases like this:
-
-```ts
-type User = {
-  username: string;
-  email: string;
-};
-
-const user1: User = {
-  ...{ username: 'x' },
-  ...{ email: 'y' },
-  ...{ xxx: 'y' },
-  yyy: 'y', // <<< only this fails
-};
-
-const user2: User = {
-  ...{ username: 'x' },
-  ...{ email: 'y' },
-  ...{ xxx: 'y' },
-};
-```
-
-Flow doesn't have exact types by default (yet) but it can [handle these cases better](https://flow.org/try/#0C4TwDgpgBAqgzhATlAvFA3gHwFBSgVwUQDsBDAWwgC4o5hEBLYgcwBpcoJzSGAbGuoxbZMAX2zYAxgHtidAkQCMNeElQYOAOm3oFSMpRoByAB5Goo1lC07O3PsZDnLNzbpMfHz9nhB+vVngA9EFQADwRULK8IFDAABYMcFAAZjy8cNjiUrLyhEgATCpE6uiuuvkkFNRQpt7WeNpuduleFj5QTe6etU7tWdhAA):
-
-```js
-type User = {|
-  username: string,
-  email: string,
-|};
-
-const user1: User = {
-  ...{ username: 'x' },
-  ...{ email: 'y' },
-  ...{ xxx: 'y' }, // <<< this fails
-  yyy: 'y', // <<< this fails
-};
-
-const user2: User = {
-  ...{ username: 'x' },
-  ...{ email: 'y' },
-  ...{ xxx: 'y' }, // <<< this fails
-};
-```
-
-```text
-Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/test.js:8:21
-
-Cannot assign object literal to user1 because:
- • property xxx is missing in User [1] but exists in object literal [2].
- • property yyy is missing in User [1] but exists in object literal [2].
-
-         5│   email: string,
-         6│ |};
-         7│
- [1][2]  8│ const user1: User = {
-         9│   ...{ username: 'x' },
-        10│   ...{ email: 'y' },
-        11│   ...{ xxx: 'y' },
-        12│   yyy: 'y', // <<< only this fails
-        13│ };
-        14│
-        15│ const user2: User = {
-        16│   ...{ username: 'x' },
-
-
-Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/test.js:15:21
-
-Cannot assign object literal to user2 because property xxx is missing in User [1] but exists in object literal [2].
-
-        12│   yyy: 'y', // <<< only this fails
-        13│ };
-        14│
- [1][2] 15│ const user2: User = {
-        16│   ...{ username: 'x' },
-        17│   ...{ email: 'y' },
-        18│   ...{ xxx: 'y' },
-        19│ };
-        20│
-
-
-
-Found 3 errors
-```

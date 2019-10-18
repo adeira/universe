@@ -24,6 +24,7 @@ module.exports = {
           'flow/patterns/restricted-element',
         ],
       },
+      'flow/shenanigans',
     ],
     Relay: ['relay', 'relay/match-module', 'relay/local-schema', 'relay/uploadables'],
     'Rest of programming': ['git', 'graphql', 'javascript', 'css'],
