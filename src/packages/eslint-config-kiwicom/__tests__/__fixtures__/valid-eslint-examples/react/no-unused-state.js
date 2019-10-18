@@ -11,7 +11,7 @@ type State = {|
   accessToken: ?string,
 |};
 
-const MyContext = React.createContext<State>({
+const MyContext: React.Context<State> = React.createContext({
   accessToken: undefined,
 });
 
@@ -23,11 +23,11 @@ export default class MyProvider extends React.Component<Props, State> {
     };
   }
 
-  setAccessToken = (accessToken: ?string) => {
+  setAccessToken: (?string) => void = accessToken => {
     this.setState({ accessToken });
   };
 
-  render() {
+  render(): React.Element<typeof MyContext.Provider> {
     return <MyContext.Provider value={this.state}>{this.props.children}</MyContext.Provider>;
   }
 }

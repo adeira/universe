@@ -8,7 +8,7 @@ const isCI = require('is-ci');
 const { Git } = require('@kiwicom/monorepo-utils');
 
 const formatter = require('./stylish');
-const shouldLintAll = require('./shouldLintAll');
+const shouldLintAll = require('./shouldLintAll').default;
 
 const PERFORM_FIXES = isCI === false;
 const cliEngine = new CLIEngine({
@@ -34,7 +34,7 @@ type Options = {|
 //  and skipping them.
 const changedFiles = Git.getChangesToTest();
 
-module.exports = ({ testPath, extraOptions } /*: Options */) => {
+module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mixed, ... } */ => {
   const start = Date.now();
 
   let runAll = extraOptions.runAll;

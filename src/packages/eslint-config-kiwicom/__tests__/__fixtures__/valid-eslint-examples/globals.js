@@ -1,10 +1,10 @@
 // @flow strict
 
 module.exports = {
-  nitroTranslations() {
+  nitroTranslations(): string {
     return __('First name');
   },
-  devExpression() {
+  devExpression(): boolean {
     // Read-only global '__DEV__' should not be modified (vv)
     __DEV__ = false; // eslint-disable-line no-global-assign
     // Seems like Eslint doesn't treat `global` objects as one would expect: https://github.com/eslint/eslint/issues/11333
@@ -13,7 +13,7 @@ module.exports = {
     globalThis.__DEV__ = false;
     return __DEV__;
   },
-  formData() {
+  formData(): FormData {
     return new FormData();
   },
 };

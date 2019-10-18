@@ -1,6 +1,6 @@
 // @flow strict
 
-module.exports = new Set<string>([
+module.exports = (new Set([
   // https://eslint.org/docs/rules/#deprecated
   'indent-legacy', // indent
   'lines-around-directive', // padding-line-between-statements
@@ -24,4 +24,4 @@ module.exports = new Set<string>([
   // https://github.com/mysticatea/eslint-plugin-node#deprecated-rules
   'node/no-hide-core-modules',
   'node/no-unsupported-features',
-]);
+]) /*: Set<string> */);

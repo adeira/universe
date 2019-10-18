@@ -8,10 +8,10 @@ const externalConfig = process.argv.slice(2);
 
 verifyPackageTree();
 
-module.exports = createJestRunner(require.resolve('./run'), {
+module.exports = (createJestRunner(require.resolve('./run'), {
   getExtraOptions: () => {
     return {
       runAll: externalConfig.includes('--all'),
     };
   },
-});
+}) /*: any */);

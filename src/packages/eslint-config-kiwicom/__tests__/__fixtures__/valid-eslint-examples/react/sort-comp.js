@@ -7,15 +7,16 @@ const React = {
 };
 
 type Props = {||};
+type State = {||};
 
-export default class MyComponent extends React.Component<void, Props> {
+export default class MyComponent extends React.Component<void, State> {
   props: Props;
 
-  static defaultProps = {};
-  static displayName = 'MyAwesomeComponent';
+  static defaultProps: Props = { ...null };
+  static displayName: string = 'MyAwesomeComponent';
 
-  state = {};
-  somethingElse = true;
+  state: State = { ...null };
+  somethingElse: boolean = true;
 
   constructor() {
     super();
@@ -41,11 +42,11 @@ export default class MyComponent extends React.Component<void, Props> {
 
   handleSomeEvent() {}
 
-  renderSomething() {
+  renderSomething(): null {
     return null;
   }
 
-  render() {
+  render(): null {
     return null;
   }
 }
