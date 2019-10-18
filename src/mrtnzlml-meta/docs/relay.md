@@ -29,6 +29,12 @@ This file describes experimental and more advanced Relay features. It can be ver
 
 ## How to test latest unreleased changes from Relay master?
 
+Relay team publishes master on NPM ([new](https://github.com/facebook/relay/pull/2889)). You can find it under names like `0.0.0-master-62d0ae50`. See: https://www.npmjs.com/package/react-relay
+
+You will find old instructions below which are still somehow relevant but outdated thanks to the new approach.
+
+---
+
 These changes are unreleased so you cannot easily install (uncompiled) master from NPM and use it. The easiest way how to try master is to clone Relay somewhere and run `yarn install` in the root. This will not only install all the necessary dependencies but also compile Relay packages. Now, just replace your versions with file paths in `package.json`:
 
 ```patch
