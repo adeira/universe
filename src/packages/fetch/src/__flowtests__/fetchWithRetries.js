@@ -3,13 +3,13 @@
 import fetch from '../fetchWithRetries';
 
 module.exports = {
-  simpleGET() {
+  simpleGET(): Promise<Response> {
     return fetch('127.0.0.1');
   },
-  simplePOST() {
+  simplePOST(): Promise<Response> {
     return fetch('127.0.0.1', { method: 'POST', body: 'string' });
   },
-  fullExample() {
+  fullExample(): Promise<Response> {
     return fetch('127.0.0.1', {
       method: 'POST',
       body: new FormData(),
@@ -24,13 +24,13 @@ module.exports = {
   },
 
   // INVALID EXAMPLES:
-  unknownOptions() {
+  unknownOptions(): Promise<Response> {
     // $FlowExpectedError: property 'unknown' is not allowed
     return fetch('127.0.0.1', {
       unknown: 'wtf',
     });
   },
-  invalidValue() {
+  invalidValue(): Promise<Response> {
     return fetch('127.0.0.1', {
       // $FlowExpectedError: value 'unknown' is not allowed
       credentials: 'unknown',
