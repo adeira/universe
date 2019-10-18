@@ -118,7 +118,7 @@ const globIgnore = [
   logger.log('Transpiled into: %s', buildDir);
 
   // 5) install dependencies
-  new ShellCommand(buildDir, 'yarn', 'install', '--offline', '--pure-lockfile')
+  new ShellCommand(buildDir, 'yarn', 'install', '--offline', '--pure-lockfile', '--non-interactive')
     .setOutputToScreen()
     .runSynchronously();
 
