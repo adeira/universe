@@ -11,7 +11,7 @@ const BoldTodoRenderer = React.lazy(() =>
   ),
 );
 
-module.exports = function MyComponent() {
+module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <BoldTodoRenderer />
