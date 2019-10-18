@@ -39,7 +39,24 @@ Cannot cast x to empty because string literal C [1] is incompatible with empty [
      15│
 ```
 
-You can be sure that you covered all the cases this way.
+You can be sure that you covered all the cases this way. Another real-life example:
+
+```js
+export function exhaustB(reason: 'magicLink' | 'signUpConfirmation' | 'resetPassword') {
+  switch (reason) {
+    case 'magicLink':
+      return __('account.check_email_magic_link');
+    case 'signUpConfirmation':
+      return __('account.check_email_sign_up');
+    case 'resetPassword':
+      return __('account.you_will_recieve_password');
+    default:
+      return invariant(false, 'Unsupported reason: %j', (reason: empty));   // <<<
+  }
+}
+```
+
+Notice how is the `empty` type used at the same time with `reason`.
 
 - https://github.com/facebook/flow/commit/c603505583993aa953904005f91c350f4b65d6bd
 - https://medium.com/@ibosz/advance-flow-type-1-exhaustive-checking-with-empty-type-a02e503cd3a0
