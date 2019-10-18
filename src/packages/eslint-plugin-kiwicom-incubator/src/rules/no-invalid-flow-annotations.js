@@ -1,9 +1,15 @@
-/* eslint-disable flowtype/require-valid-file-annotation */
+// @flow strict
+
+/*::
+
+import type { EslintRule } from './EslintRule.flow';
+
+*/
 
 /**
  * Originally from here: https://github.com/github/eslint-plugin-github/tree/fca4b4f2276989a0fb4399cc7c34eb5407fb2429/lib/rules
  */
-module.exports = {
+module.exports = ({
   meta: {
     docs: {},
     schema: [],
@@ -31,4 +37,4 @@ module.exports = {
       },
     };
   },
-};
+} /*: EslintRule */);

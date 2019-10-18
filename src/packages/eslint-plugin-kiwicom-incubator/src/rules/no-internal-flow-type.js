@@ -1,4 +1,10 @@
-/* eslint-disable flowtype/require-valid-file-annotation */
+// @flow strict
+
+/*::
+
+import type { EslintRule } from './EslintRule.flow';
+
+*/
 
 // We enumerate here all the React components Flow patches internally. It's because we don't want
 // to fail on otherwise valid type names (but rather take the actual implementation into account).
@@ -22,7 +28,7 @@ const ReactComponents = [
   'StatelessFunctionalComponent',
 ];
 
-module.exports = {
+module.exports = ({
   meta: {
     fixable: true,
     docs: {},
@@ -33,7 +39,7 @@ module.exports = {
     return {
       Identifier(node) {
         const match = node.name.match(/^React\$(?<internalTypeName>.+)/);
-        if (match !== null) {
+        if (match !== null && match.groups != null) {
           const { internalTypeName } = match.groups;
           if (ReactComponents.includes(internalTypeName)) {
             const validName = `React.${internalTypeName}`;
@@ -51,4 +57,4 @@ module.exports = {
       },
     };
   },
-};
+} /*: EslintRule */);
