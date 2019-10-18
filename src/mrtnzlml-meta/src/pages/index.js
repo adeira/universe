@@ -57,7 +57,7 @@ function Home() {
               <strong>JS</strong> project.
             </p>
 
-            <h3>My location</h3>
+            <h2>My location</h2>
 
             <p>
               I am officially part of Prague or Barcelona office but I currently live in Mexico{' '}
@@ -72,7 +72,7 @@ function Home() {
               expect it as well.
             </p>
 
-            <h3>Meetings, Slack</h3>
+            <h2>Meetings, Slack</h2>
 
             <p>
               I genuinely don&apos;t like meetings. Luckily, I don&apos;t have that many meetings. I
@@ -90,7 +90,7 @@ function Home() {
               personally.
             </p>
 
-            <h3>Miscellaneous</h3>
+            <h2>Miscellaneous</h2>
 
             <p>
               <em>I am an introvert.</em> That means I loose energy when I am around other people
@@ -106,6 +106,12 @@ function Home() {
               <a href="https://youtu.be/cPEnRb6aaS4">
                 <em>I just got bored, everybody out.</em>
               </a>
+            </p>
+
+            <p>
+              <em>I like changes.</em> I like to do rapid and unexpected changes even though they
+              are big. Sometimes it's may way of escaping stereotype, sometimes it's my way of
+              saying "enough".
             </p>
 
             <p>
@@ -162,7 +168,7 @@ function Home() {
               </em>
             </p>
 
-            <h3>My Kiwi.com timeline</h3>
+            <h2>My Kiwi.com timeline</h2>
 
             <p>I joined this company in April 2017 (my first PR was Apr 7)</p>
 
@@ -204,13 +210,13 @@ function Home() {
               </span>
             </p>
 
-            <h3>
+            <h2>
               Kiwi.com{' '}
               <a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/">
                 Joel Test
               </a>{' '}
               - 5/12
-            </h3>
+            </h2>
 
             <p>
               Simple boolean: it&apos;s{' '}
