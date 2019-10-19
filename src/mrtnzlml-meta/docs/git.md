@@ -17,6 +17,38 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
+## New repo with copied history of only currently tracked files
+
+```text
+git rev-list --all --count
+```
+
+Filtering:
+
+```text
+git checkout master
+git ls-files > keep-these.txt
+git filter-branch --force --index-filter \
+  "git rm  --ignore-unmatch --cached -qr . ; \
+  cat $PWD/keep-these.txt | tr '\n' '\0' | xargs -0 git reset -q \$GIT_COMMIT --" \
+  --prune-empty --tag-name-filter cat -- --all
+```
+
+Cleanup:
+
+```text
+rm -rf .git/refs/original/
+git reflog expire --expire=now --all
+git gc --prune=now
+
+# optional extra gc. Slow and may not further-reduce the repo size
+git gc --aggressive --prune=now
+```
+
+Source: https://stackoverflow.com/a/17909526/3135248
+
+Please note: you should delete everything you want to remove and run the filter. However, do not move the directories structure otherwise you will lose their history! Make these changes part of your history.
+
 ## Configuration
 
 See: https://git-scm.com/docs/git-config
