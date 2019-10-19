@@ -2,15 +2,41 @@
 
 import * as utils from './utils';
 
-const THRESHOLD = 20;
+/*::
+
+type Options = {|
+    +threshold: number,
+|};
+
+type Context = {
+  +options: $ReadOnlyArray<?Options>,
+  +report: Function,
+  ...
+};
+
+*/
 
 module.exports = {
   meta: {
     docs: {
       description: 'Verifies that your graphql`...` expressions are not too complex.',
     },
+    schema: [
+      {
+        type: 'object',
+        properties: {
+          threshold: {
+            type: 'integer',
+          },
+        },
+        additionalProperties: false,
+      },
+    ],
   },
-  create(context /*: any */) {
+  create(context /*: Context */) {
+    const config = context.options[0] || {};
+    const threshold = config.threshold || 20;
+
     return {
       TaggedTemplateExpression: (node /*: any */) => {
         if (!utils.isGraphQLTemplate(node)) {
@@ -20,7 +46,7 @@ module.exports = {
         const ast = utils.getGraphQLAST(node);
         const score = utils.calculateComplexity(ast);
 
-        if (score > THRESHOLD) {
+        if (score > threshold) {
           context.report({
             node,
             // TODO include loc in report
@@ -28,7 +54,7 @@ module.exports = {
               'Your GraphQL expression exceeded the limit. Your score: {{ score }}, Limit: {{ max }}.',
             data: {
               score,
-              max: THRESHOLD,
+              max: threshold,
             },
           });
         }
