@@ -22,7 +22,11 @@ const ruleTester = new RuleTester({
 });
 
 ruleTester.run('expression-is-not-complex', plugin.rules['limit-complexity'], {
-  valid: [`graphql\`${FAQArticleFragment}\``, `graphql\`${GetLocationQuery}\``],
+  valid: [
+    `graphql\`${FAQArticleFragment}\``,
+    `graphql\`${GetLocationQuery}\``,
+    { code: `graphql\`${AccordionFragment}\``, options: [{ threshold: 30 }] },
+  ],
   invalid: [
     {
       code: `graphql\`${AccordionFragment}\``,
