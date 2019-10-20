@@ -2,6 +2,23 @@
 
 ESLint plugin to make sure tech debt is not accumulating in your GraphQL fragments.
 
+# Installation
+
+1. Install the package
+    - either with Yarn: `yarn add --dev eslint-plugin-relay-fragments`
+    - or with NPM: `npm i --save-dev eslint-plugin-relay-fragments`
+2. Add to your `.eslintrc`:
+    ```
+    {
+      "extends": [
+        "plugin:relay-fragments/recommended"
+      ],
+      "plugins": [
+        "relay-fragments"
+      ],
+    }
+    ```
+
 # Rules
 
 ## limit-complexity
