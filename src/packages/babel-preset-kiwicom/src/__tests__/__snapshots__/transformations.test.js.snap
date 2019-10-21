@@ -6,7 +6,7 @@ exports[`matches expected output: async-function.js 1`] = `
 
 /* eslint-disable no-return-await */
 
-export default async function test() {
+export default async function test(): Promise<string> {
   return await 'this';
 }
 
@@ -60,7 +60,7 @@ exports[`matches expected output: async-function.js 2`] = `
 
 /* eslint-disable no-return-await */
 
-export default async function test() {
+export default async function test(): Promise<string> {
   return await 'this';
 }
 
@@ -69,7 +69,7 @@ export default async function test() {
 
 /* eslint-disable no-return-await */
 
-export default async function test() {
+export default async function test(): Promise<string> {
   return await 'this';
 }
 `;
@@ -80,7 +80,7 @@ exports[`matches expected output: async-function.js 3`] = `
 
 /* eslint-disable no-return-await */
 
-export default async function test() {
+export default async function test(): Promise<string> {
   return await 'this';
 }
 
@@ -811,8 +811,8 @@ exports[`matches expected output: class-fields.js 1`] = `
 // @flow strict
 
 export default class ClassFields {
-  publicField = 1;
-  #privateField = 2;
+  publicField: number = 1;
+  #privateField: number = 2;
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -849,16 +849,16 @@ exports[`matches expected output: class-fields.js 2`] = `
 // @flow strict
 
 export default class ClassFields {
-  publicField = 1;
-  #privateField = 2;
+  publicField: number = 1;
+  #privateField: number = 2;
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow strict
 
 export default class ClassFields {
-  publicField = 1;
-  #privateField = 2;}
+  publicField: number = 1;
+  #privateField: number = 2;}
 `;
 
 exports[`matches expected output: class-fields.js 3`] = `
@@ -866,8 +866,8 @@ exports[`matches expected output: class-fields.js 3`] = `
 // @flow strict
 
 export default class ClassFields {
-  publicField = 1;
-  #privateField = 2;
+  publicField: number = 1;
+  #privateField: number = 2;
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -1101,7 +1101,7 @@ const BoldTodoRenderer = React.lazy(() =>
   ),
 );
 
-module.exports = function MyComponent() {
+module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <BoldTodoRenderer />
@@ -1147,7 +1147,7 @@ const BoldTodoRenderer = React.lazy(() =>
   ),
 );
 
-module.exports = function MyComponent() {
+module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <BoldTodoRenderer />
@@ -1169,7 +1169,7 @@ import(
 
 
 
-module.exports = function MyComponent() {
+module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <BoldTodoRenderer />
@@ -1193,7 +1193,7 @@ const BoldTodoRenderer = React.lazy(() =>
   ),
 );
 
-module.exports = function MyComponent() {
+module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <BoldTodoRenderer />
@@ -1631,7 +1631,7 @@ exports[`matches expected output: jsx.js 1`] = `
 
 const React = () => {};
 
-export default function Component() {
+export default function Component(): empty {
   return (
     <>
       <div>aaa</div>
@@ -1661,7 +1661,7 @@ exports[`matches expected output: jsx.js 2`] = `
 
 const React = () => {};
 
-export default function Component() {
+export default function Component(): empty {
   return (
     <>
       <div>aaa</div>
@@ -1675,7 +1675,7 @@ export default function Component() {
 
 const React = () => {};
 
-export default function Component() {
+export default function Component(): empty {
   return (
     <>
       <div>aaa</div>
@@ -1691,7 +1691,7 @@ exports[`matches expected output: jsx.js 3`] = `
 
 const React = () => {};
 
-export default function Component() {
+export default function Component(): empty {
   return (
     <>
       <div>aaa</div>
@@ -1822,7 +1822,7 @@ exports[`matches expected output: optional-chaining.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: ?{ +[string]: any, ... }) {
+module.exports = function(a: ?{ +[string]: any, ... }): string {
   return a?.b ?? 'default';
 };
 
@@ -1840,14 +1840,14 @@ exports[`matches expected output: optional-chaining.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: ?{ +[string]: any, ... }) {
+module.exports = function(a: ?{ +[string]: any, ... }): string {
   return a?.b ?? 'default';
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function (a: ?{ +[string]: any, ...}) {
+module.exports = function (a: ?{ +[string]: any, ...}): string {
   return a?.b ?? 'default';
 };
 `;
@@ -1856,7 +1856,7 @@ exports[`matches expected output: optional-chaining.js 3`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: ?{ +[string]: any, ... }) {
+module.exports = function(a: ?{ +[string]: any, ... }): string {
   return a?.b ?? 'default';
 };
 
@@ -1954,7 +1954,9 @@ exports[`matches expected output: rest-operator.js 1`] = `
 
 /* eslint-disable no-console */
 
-module.exports = function(a: { +[key: string]: any, ... }, ...rest: Array<any>) {
+type AnyObject = { +[key: string]: any, ... };
+
+module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -1995,7 +1997,9 @@ exports[`matches expected output: rest-operator.js 2`] = `
 
 /* eslint-disable no-console */
 
-module.exports = function(a: { +[key: string]: any, ... }, ...rest: Array<any>) {
+type AnyObject = { +[key: string]: any, ... };
+
+module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -2009,7 +2013,9 @@ module.exports = function(a: { +[key: string]: any, ... }, ...rest: Array<any>) 
 
 /* eslint-disable no-console */
 
-module.exports = function (a: { +[key: string]: any, ...}, ...rest: Array<any>) {
+type AnyObject = { +[key: string]: any, ...};
+
+module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -2025,7 +2031,9 @@ exports[`matches expected output: rest-operator.js 3`] = `
 
 /* eslint-disable no-console */
 
-module.exports = function(a: { +[key: string]: any, ... }, ...rest: Array<any>) {
+type AnyObject = { +[key: string]: any, ... };
+
+module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {

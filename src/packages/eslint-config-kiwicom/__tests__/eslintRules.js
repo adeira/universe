@@ -2,7 +2,7 @@
 
 import { rules as builtInRules } from 'eslint/conf/eslint-all';
 
-const eslintRules = new Set<string>(Object.keys(builtInRules));
+const eslintRules: Set<string> = new Set(Object.keys(builtInRules));
 
 Object.keys(require('../package.json').dependencies)
   .filter(dep => dep.startsWith('eslint-plugin'))

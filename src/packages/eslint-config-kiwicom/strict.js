@@ -6,4 +6,12 @@ const getCommonConfig = require('./getCommonConfig');
 
 const ERROR = 2;
 
-module.exports = getCommonConfig(changeNextVersionErrorLevel(ourRules, ERROR));
+/*::
+
+import type { EslintConfig } from './EslintConfig.flow';
+
+*/
+
+module.exports = (getCommonConfig(
+  changeNextVersionErrorLevel(ourRules, ERROR),
+) /*: EslintConfig */);

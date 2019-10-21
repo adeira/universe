@@ -2,38 +2,21 @@
 
 /*::
 
-type Node = {|
-  +key: {|
-    +name: string,
-  |},
-  +callee: {|
-    +name: string,
-  |},
-  +parent: {|
-    +callee?: {|
-      +name: string,
-    |},
-  |},
-|};
-
-type Context = {|
-  +report: (Node, string) => void,
-|};
+import type { EslintRule } from './EslintRule.flow';
 
 */
 
-module.exports = {
+module.exports = ({
   meta: {
     docs: {
       description: 'Disallows GraphQLNonNull type.',
       category: 'Best Practices',
       recommended: true,
     },
-    fixable: null, // or "code" or "whitespace"
     schema: [], // no options
   },
 
-  create: function(context /*: Context */) {
+  create: function(context) {
     /**
      * Whether should be this rule completely ignored.
      *
@@ -45,18 +28,18 @@ module.exports = {
     let ignoreRule = false;
 
     return {
-      Property: (node /*: Node */) => {
+      Property: node => {
         if (node.key && node.key.name === 'args') {
           ignoreRule = true;
         }
       },
-      'Property:exit': (node /*: Node */) => {
+      'Property:exit': node => {
         if (node.key && node.key.name === 'args') {
           ignoreRule = false;
         }
       },
 
-      CallExpression: function(node /*: Node */) {
+      CallExpression: function(node) {
         // disallow GraphQLNonNull
         if (
           ignoreRule === false &&
@@ -67,7 +50,7 @@ module.exports = {
         }
       },
 
-      NewExpression: function(node /*: Node */) {
+      NewExpression: function(node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           ignoreRule = true;
         }
@@ -81,11 +64,11 @@ module.exports = {
           context.report(node, 'Avoid using GraphQLNonNull.');
         }
       },
-      'NewExpression:exit': function(node /*: Node */) {
+      'NewExpression:exit': function(node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           ignoreRule = false;
         }
       },
     };
   },
-};
+} /*: EslintRule */);

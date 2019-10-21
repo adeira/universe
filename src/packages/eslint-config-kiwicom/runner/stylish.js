@@ -28,7 +28,7 @@ type Results = $ReadOnlyArray<{|
 
 */
 
-module.exports = function(results /*: Results */) {
+module.exports = function(results /*: Results */) /*: string */ {
   let output = os.EOL;
   let errorCount = 0;
   let warningCount = 0;

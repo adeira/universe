@@ -1,6 +1,6 @@
 // @flow strict
 
 export default class ClassFields {
-  publicField = 1;
-  #privateField = 2;
+  publicField: number = 1;
+  #privateField: number = 2;
 }

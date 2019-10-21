@@ -20,7 +20,9 @@ export function exhaustA(x: Cases) {
   }
 }
 
-export function exhaustB(reason: 'magicLink' | 'signUpConfirmation' | 'resetPassword') {
+export function exhaustB(
+  reason: 'magicLink' | 'signUpConfirmation' | 'resetPassword',
+): void | string {
   switch (reason) {
     case 'magicLink':
       return __('account.check_email_magic_link');
@@ -29,7 +31,6 @@ export function exhaustB(reason: 'magicLink' | 'signUpConfirmation' | 'resetPass
     case 'resetPassword':
       return __('account.you_will_recieve_password');
     default:
-      (reason: empty);
-      return invariantMock(false, 'Unsupported reason: %j', reason);
+      return invariantMock(false, 'Unsupported reason: %j', (reason: empty));
   }
 }

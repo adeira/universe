@@ -2,7 +2,7 @@
 
 const React = () => {};
 
-export default function Component() {
+export default function Component(): empty {
   return (
     <>
       <div>aaa</div>

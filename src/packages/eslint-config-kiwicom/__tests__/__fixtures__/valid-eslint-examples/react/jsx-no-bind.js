@@ -7,7 +7,7 @@ import/no-extraneous-dependencies,
 react/no-multi-comp
 */
 
-import React, { useState } from 'react';
+import React, { useState, type Element } from 'react';
 
 type LetterProps = {|
   +letter: string,
@@ -39,11 +39,11 @@ export class Alphabet1 extends React.Component<AplhabetProps, AplhabetState> {
     };
   }
 
-  handleClick = (letter: string) => {
+  handleClick: string => void = letter => {
     this.setState({ justClicked: letter });
   };
 
-  render() {
+  render(): Element<'div'> {
     return (
       <div>
         Just clicked: {this.state.justClicked}
@@ -61,7 +61,7 @@ export class Alphabet1 extends React.Component<AplhabetProps, AplhabetState> {
   }
 }
 
-export function Alphabet2() {
+export function Alphabet2(): Element<'div'> {
   const [justClicked, updateJustClicked] = useState(null);
   const letters = Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i));
 

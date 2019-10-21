@@ -2,7 +2,9 @@
 
 /* eslint-disable no-console */
 
-module.exports = function(a: { +[key: string]: any, ... }, ...rest: Array<any>) {
+type AnyObject = { +[key: string]: any, ... };
+
+module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {

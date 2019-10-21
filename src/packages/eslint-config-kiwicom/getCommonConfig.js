@@ -2,6 +2,12 @@
 
 const prettierRules = require('./extraPrettierRules');
 
+/*::
+
+import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
+
+*/
+
 const ERROR = 2;
 
 /**
@@ -21,7 +27,7 @@ function detectReactVersion() {
   }
 }
 
-module.exports = function getCommonConfig(rules /*: { [key: string]: any, ... } */) {
+module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: EslintConfig */ {
   return {
     rules: {
       ...rules,

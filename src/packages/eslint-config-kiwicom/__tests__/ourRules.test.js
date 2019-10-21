@@ -3,6 +3,7 @@
 import ourRules from '../ourRules';
 import deprecatedRules from './deprecatedRules';
 import extraPrettierRules from '../extraPrettierRules';
+import type { EslintConfigRules } from '../EslintConfig.flow';
 
 test('our rules should not contain deprecated Eslint rules', () => {
   const deprecated = new Set();
@@ -16,9 +17,7 @@ test('our rules should not contain deprecated Eslint rules', () => {
   expect(deprecated).toEqual(new Set());
 });
 
-type RuleSet = { [name: string]: mixed, ... };
-
-function compareRulesets(testedSet: RuleSet, bannedSet: RuleSet): Set<string> {
+function compareRulesets(testedSet: EslintConfigRules, bannedSet: EslintConfigRules): Set<string> {
   const extraPrettier = new Set<string>();
 
   // These rules can stay as long as they use very specific configuration:
