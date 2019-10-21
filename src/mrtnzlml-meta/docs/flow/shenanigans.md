@@ -214,7 +214,7 @@ console.warn(logger instanceof Logger); // false
 console.warn(logger instanceof Error); // true
 ```
 
-Logger is in this case instance of `Error`. Therefore, you can access `logger.message`. But TS doesn't understand this very well and [incorrectly assumes](http://www.typescriptlang.org/play/index.html#code/MYGwhgzhAEAyD2BzRBTATtA3gKGtY8AdhAC5oCuwJ8aAFAJRa57RoonlqHSEoDu0AKJo0NWgHISKUuPoBuZgF9sy7AWIloIJKgwBeHvzg70DBeojwQKAHR8wXWtuTpoASw1hCwFPABmxi5o8tAA9KHQfmAgEChqRJbWdg6ETiYYHqRePv5CIjQh4dBk5HEWVrb2js66NgC20hBgqPTYQA) that `new Logger` is instance of `Logger`. But, you don't have guarantee that `new Logger` will return `Logger` instance without spinning will blown typechecking. This is why Flow requires the explicit annotation in types-first architecture like so:
+Logger is in this case instance of `Error`. Therefore, you can access `logger.message`. But TS doesn't understand this very well and [incorrectly assumes](http://www.typescriptlang.org/play/index.html#code/MYGwhgzhAEAyD2BzRBTATtA3gKGtY8AdhAC5oCuwJ8aAFAJRa57RoonlqHSEoDu0AKJo0NWgHISKUuPoBuZgF9sy7AWIloIJKgwBeHvzg70DBeojwQKAHR8wXWtuTpoASw1hCwFPABmxi5o8tAA9KHQfmAgEChqRJbWdg6ETiYYHqRePv5CIjQh4dBk5HEWVrb2js66NgC20hBgqPTYQA) that `new Logger` is always instance of `Logger`. But, you don't have guarantee that `new Logger` will return `Logger` instance without spinning full-blown typechecking. This is why Flow requires the explicit annotation in types-first architecture like so:
 
 ```js
 export default new Logger();
