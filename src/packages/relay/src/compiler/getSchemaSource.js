@@ -2,9 +2,9 @@
 
 import fs from 'fs';
 import SignedSource from '@kiwicom/signed-source';
-import { buildASTSchema, parse } from 'graphql';
+import { Source } from 'graphql';
 
-export default function getSchema(schemaPath: string) {
+export default function getSchemaSource(schemaPath: string): Source {
   let source = fs.readFileSync(schemaPath, 'utf8');
 
   if (!SignedSource.isSigned(source)) {
@@ -26,15 +26,5 @@ export default function getSchema(schemaPath: string) {
   ${source}
   `;
 
-  try {
-    return buildASTSchema(parse(source), { assumeValid: true });
-  } catch (error) {
-    throw new Error(
-      `
-Error loading schema. Expected the schema to be a .graphql file, describing your GraphQL server's API. Error detail:
-
-${error.stack}
-    `.trim(),
-    );
-  }
+  return new Source(source, schemaPath);
 }

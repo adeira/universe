@@ -1,5 +1,9 @@
 # Unreleased
 
+This is a **breaking** release!
+
+- Relay upgraded to the latest version 7.0.0 (see: https://github.com/facebook/relay/releases/tag/v7.0.0)
+- Old Relay logger has been replaced with new event-based logger.
 - Removed all custom Relay Compiler validations.
 - Improve `RefetchOptions` type
 

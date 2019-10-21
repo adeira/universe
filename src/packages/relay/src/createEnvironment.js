@@ -1,17 +1,10 @@
 // @flow
 
-import {
-  RecordSource,
-  Store,
-  Network,
-  Environment as RelayEnvironment,
-  ConnectionHandler,
-  createRelayNetworkLogger,
-  RelayNetworkLoggerTransaction,
-} from 'relay-runtime';
+import { Network, Environment as RelayEnvironment, ConnectionHandler } from 'relay-runtime';
 
+import RelayLogger from './RelayLogger';
 import createRequestHandler from './createRequestHandler';
-import type { Variables } from './types.flow';
+import createRelayStore from './createRelayStore';
 import type { Environment, RecordMap } from './runtimeTypes.flow';
 
 type Options = {|
@@ -23,9 +16,6 @@ type Options = {|
     get: string => Promise<?NormalizationSplitOperation>,
     load: string => Promise<?NormalizationSplitOperation>,
   |},
-  // enables/disables `RelayNetworkLogger`
-  +logger?: boolean,
-  +graphiQLPrinter?: (request: { +text: string, ... }, variables: Variables) => string,
   +records?: ?RecordMap,
 |};
 
@@ -39,17 +29,8 @@ type NormalizationSplitOperation = {|
 function createNetwork(
   fetchFn: (...args: $ReadOnlyArray<any>) => any,
   subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
-  enableLogger: boolean,
-  graphiQLPrinter,
 ) {
   const fetch = createRequestHandler(fetchFn);
-  if (enableLogger && __DEV__) {
-    const RelayNetworkLogger = createRelayNetworkLogger(RelayNetworkLoggerTransaction);
-    return Network.create(
-      RelayNetworkLogger.wrapFetch(fetch, graphiQLPrinter),
-      RelayNetworkLogger.wrapSubscribe(subscribeFn, graphiQLPrinter),
-    );
-  }
   return Network.create(fetch, subscribeFn);
 }
 
@@ -62,14 +43,12 @@ function handlerProvider(handle) {
 }
 
 export default function createEnvironment(options: Options): Environment {
-  const { fetchFn, subscribeFn, logger, graphiQLPrinter, records, ...rest } = options;
-  const enableLogger = logger ?? true;
-  const source = new RecordSource(records); // TODO
-  const store = new Store(source);
+  const { fetchFn, subscribeFn, records, ...rest } = options;
   return new RelayEnvironment({
     handlerProvider,
-    network: createNetwork(fetchFn, subscribeFn, enableLogger, graphiQLPrinter),
-    store,
+    network: createNetwork(fetchFn, subscribeFn),
+    log: RelayLogger,
+    store: createRelayStore(records),
     ...rest,
   });
 }

@@ -23,13 +23,13 @@
     "@kiwicom/logger": "^0.3.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "@kiwicom/signed-source": "^1.0.4",
-    "babel-plugin-relay": "^6.0.0",
+    "babel-plugin-relay": "^7.0.0",
     "commander": "^3.0.2",
     "is-ci": "^2.0.0",
-    "react-relay": "^6.0.0",
-    "relay-compiler": "^6.0.0",
-    "relay-config": "^6.0.0",
-    "relay-runtime": "^6.0.0"
+    "react-relay": "^7.0.0",
+    "relay-compiler": "^7.0.0",
+    "relay-config": "^7.0.0",
+    "relay-runtime": "^7.0.0"
   },
   "devDependencies": {
     "@kiwicom/babel-preset-kiwicom": "^3.4.0",
@@ -41,7 +41,7 @@
     "jest": "^24.9.0",
     "react": "^16.11.0",
     "react-test-renderer": "^16.11.0",
-    "relay-test-utils": "^6.0.0"
+    "relay-test-utils": "^7.0.0"
   },
   "peerDependencies": {
     "graphql": "^14.5.6",

@@ -13,7 +13,6 @@ import createNetworkFetcher from '../../fetchers/createNetworkFetcher';
 function persistOperation(operationId: string, text: string) {
   return commitMutation(
     createEnvironment({
-      logger: false,
       fetchFn: createNetworkFetcher('https://graphql.kiwi.com/', {
         'X-Client': 'Kiwi.com Relay Compiler',
       }),

@@ -102,11 +102,6 @@ export default function QueryRenderer(props: Props) {
       fetchFn: createNetworkFetcher(defaultResource, {
         'X-Client': clientID,
       }),
-      graphiQLPrinter: (request, variables) => {
-        return `${defaultResource}/?query=${encodeURIComponent(
-          request.text,
-        )}&variables=${encodeURIComponent(JSON.stringify(variables))}`;
-      },
     });
   }
 

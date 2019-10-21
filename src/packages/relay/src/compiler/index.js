@@ -13,7 +13,7 @@ import { globSync } from '@kiwicom/monorepo-utils';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';
-import getSchema from './getSchema';
+import getSchemaSource from './getSchemaSource';
 
 type ExternalOptions = {|
   +src: string,
@@ -24,6 +24,15 @@ type ExternalOptions = {|
   +validate: boolean,
   +watch: boolean,
 |};
+
+const {
+  commonTransforms,
+  codegenTransforms,
+  fragmentTransforms,
+  printTransforms,
+  queryTransforms,
+  schemaExtensions,
+} = RelayIRTransforms;
 
 export default async function compiler(externalOptions: ExternalOptions) {
   const options = {
@@ -36,7 +45,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
   const languagePlugin = buildLanguagePlugin();
   const srcDir = path.resolve(process.cwd(), options.src);
   const schemaPath = path.resolve(process.cwd(), options.schema);
-  const schema = getSchema(schemaPath);
+  const schema = getSchemaSource(schemaPath);
   const sourceParserName = languagePlugin.inputExtensions.join('/');
   const sourceSearchOptions = {
     extensions: languagePlugin.inputExtensions,
@@ -54,7 +63,8 @@ export default async function compiler(externalOptions: ExternalOptions) {
       baseDir: srcDir,
       getFileFilter: RelayJSModuleParser.getFileFilter,
       getParser: RelayJSModuleParser.getParser,
-      getSchema: () => schema,
+      getSchemaSource: () => schema,
+      schemaExtensions,
       watchmanExpression: options.watch ? buildWatchExpression(sourceSearchOptions) : null,
       filepaths: options.watch ? null : getFilepathsFromGlob(srcDir, sourceSearchOptions),
     },
@@ -62,7 +72,8 @@ export default async function compiler(externalOptions: ExternalOptions) {
       // local schema
       baseDir: srcDir,
       getParser: DotGraphQLParser.getParser,
-      getSchema: () => schema,
+      getSchemaSource: () => schema,
+      schemaExtensions,
       watchmanExpression: options.watch ? buildWatchExpression(graphqlSearchOptions) : null,
       filepaths: options.watch ? null : getFilepathsFromGlob(srcDir, graphqlSearchOptions),
     },
@@ -137,15 +148,6 @@ function getRelayFileWriter(
   persistMode,
 ) {
   return ({ onlyValidate, schema, documents, baseDocuments, sourceControl, reporter }) => {
-    const {
-      commonTransforms,
-      codegenTransforms,
-      fragmentTransforms,
-      printTransforms,
-      queryTransforms,
-      schemaExtensions,
-    } = RelayIRTransforms;
-
     const writerConfig: { [string]: mixed, ... } = {
       baseDir,
       compilerTransforms: {
