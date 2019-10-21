@@ -221,3 +221,22 @@ export default new Logger();
 // after 'flow autofix exports':
 export default (new Logger(): Logger);
 ```
+
+### Incorrect `JSON.stringify` output type
+
+```ts
+const x = JSON.stringify(undefined)
+x.toLowerCase();
+```
+
+TS [incorrectly assumes](http://www.typescriptlang.org/play/index.html?ssl=1&ssc=1&pln=3&pc=1#code/MYewdgzgLgBAHjAvDAUgZQPIDkB00BOAlmAOaEBmAngBQCuYAJgKbnFMMCUAUHDlCABkQAdyb4AwgEMITahwDcXIA) this code is safe. It would, however, result in `TypeError`:
+
+```text
+> const x = JSON.stringify(undefined);
+undefined
+> x.toLowerCase();
+Thrown:
+TypeError: Cannot read property 'toLowerCase' of undefined
+```
+
+It's because `JSON.stringify` returns `undefiend` in this case.
