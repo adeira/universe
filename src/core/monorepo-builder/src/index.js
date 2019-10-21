@@ -14,12 +14,13 @@ import findRelatedWorkspaceLocations from './findRelatedWorkspaceLocations';
 
 const argv = process.argv.splice(2);
 invariant(
-  argv.length === 2,
-  'Monorepo builder expects two arguments: root workspace name and build directory name',
+  argv.length === 2 || argv.length === 3,
+  'Monorepo builder expects two arguments: root workspace name and build directory name (optionally production only installation flag)',
 );
 
 const rootWorkspace = argv[0];
 const buildDirName = argv[1];
+const productionOnly = argv[2] === '--production';
 
 const workspaces = JSON.parse(
   JSON.parse(
@@ -118,7 +119,15 @@ const globIgnore = [
   logger.log('Transpiled into: %s', buildDir);
 
   // 5) install dependencies
-  new ShellCommand(buildDir, 'yarn', 'install', '--offline', '--pure-lockfile')
+  new ShellCommand(
+    buildDir,
+    'yarn',
+    'install',
+    '--offline',
+    '--pure-lockfile',
+    '--non-interactive',
+    productionOnly ? '--production' : '',
+  )
     .setOutputToScreen()
     .runSynchronously();
 
