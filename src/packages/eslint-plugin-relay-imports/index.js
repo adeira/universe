@@ -20,7 +20,7 @@ function extractTypes(source) {
 
 module.exports = {
   rules: {
-    'no-values': (context /*: any */) => ({
+    'no-values': (context /*: any */) /*: { ImportDeclaration: (node: any) => void, ... } */ => ({
       ImportDeclaration: (node /*: any */) => {
         if (!isRelayImport(node)) {
           return;
@@ -33,7 +33,9 @@ module.exports = {
         });
       },
     }),
-    'type-must-exist': (context /*: any */) => ({
+    'type-must-exist': (
+      context /*: any */,
+    ) /*: { ImportDeclaration: (node: any) => void, ... } */ => ({
       ImportDeclaration: (node /*: any */) => {
         if (!isRelayImport(node)) {
           return;
