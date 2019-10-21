@@ -2,13 +2,17 @@
 
 const { parse } = require('graphql');
 
-export function isGraphQLTemplate(node /*: any */) {
+/*::
+import type { DocumentNode } from 'graphql';
+*/
+
+export function isGraphQLTemplate(node /*: any */) /*: boolean %checks */ {
   return (
     node.tag.type === 'Identifier' && node.tag.name === 'graphql' && node.quasi.quasis.length === 1
   );
 }
 
-export function getGraphQLAST(taggedTemplateExpression /*: any */) {
+export function getGraphQLAST(taggedTemplateExpression /*: any */) /*: null | DocumentNode */ {
   if (taggedTemplateExpression.quasi.quasis.length !== 1) {
     // has substitutions, covered by graphql-syntax rule
     return null;
@@ -23,7 +27,7 @@ export function getGraphQLAST(taggedTemplateExpression /*: any */) {
   }
 }
 
-export function calculateComplexity(node /*: any */) {
+export function calculateComplexity(node /*: any */) /*: number */ {
   let score = 0;
 
   function walkGraph(node /*: any */) {

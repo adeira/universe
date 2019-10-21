@@ -33,7 +33,7 @@ module.exports = {
       },
     ],
   },
-  create(context /*: Context */) {
+  create(context /*: Context */) /*: { TaggedTemplateExpression: (node: any) => void, ... } */ {
     const config = context.options[0] || {};
     const threshold = config.threshold || 20;
 
