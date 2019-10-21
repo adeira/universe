@@ -1,6 +1,6 @@
 // @flow
 
-import * as utils from './utils';
+const utils = require('./utils');
 
 /*::
 
