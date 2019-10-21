@@ -2,7 +2,7 @@
 
 ESLint plugin to make sure tech debt is not accumulating in your GraphQL fragments.
 
-# Installation
+## Installation
 
 1. Install the package
     - either with Yarn: `yarn add --dev eslint-plugin-relay-fragments`
@@ -15,13 +15,13 @@ ESLint plugin to make sure tech debt is not accumulating in your GraphQL fragmen
       ],
       "plugins": [
         "relay-fragments"
-      ],
+      ]
     }
     ```
 
-# Rules
+## Rules
 
-## limit-complexity
+### limit-complexity
 
 Verifies that your fragment declaration is not too complex. This is usually a sign of bloated React component that should be split into smaller pieces. 
 
@@ -80,4 +80,16 @@ graphql`
       }
     }
 `;
+```
+
+#### "limit-complexity" rule options
+
+You can change the maximum complexity threshold by `{ "threshold": 30 }` option:
+
+```
+    {
+      "rules": [
+        "relay-fragments/limit-complexity": ["error", { "threshold": 30 }]
+      ]
+    }
 ```
