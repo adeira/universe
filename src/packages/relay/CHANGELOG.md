@@ -1,6 +1,6 @@
 # Unreleased
 
-- Compiler: added GraphQL Result Size validator.
+- Removed all custom Relay Compiler validations.
 
 # 4.7.0
 
