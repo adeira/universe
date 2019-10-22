@@ -12,7 +12,6 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
     'src/incubator/example-relay/__generated__/AppQuery.graphql.js',
     '__generated__/AppQuery.graphql.js',
   ],
-  ['src/incubator/example-relay/__github__/.circleci/config.yml', '.circleci/config.yml'],
   ['src/incubator/example-relay/__github__/.flowconfig', '.flowconfig'],
   ['src/incubator/example-relay/__github__/babel.config.js', 'babel.config.js'],
   ['src/incubator/example-relay/.babelrc.js', undefined], // correctly deleted
