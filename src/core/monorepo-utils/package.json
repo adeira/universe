@@ -17,7 +17,7 @@
   "dependencies": {
     "@babel/register": "^7.6.0",
     "@kiwicom/js": "^0.17.0",
-    "glob": "^7.1.4",
+    "glob": "^7.1.5",
     "is-ci": "^2.0.0"
   }
 }
