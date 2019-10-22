@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`jest/valid-title`](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/valid-title.md) added (warnings or errors in strict mode).
+
 # 8.4.0
 
 - Changes in package.json will trigger eslint runner to run with `--all` flag

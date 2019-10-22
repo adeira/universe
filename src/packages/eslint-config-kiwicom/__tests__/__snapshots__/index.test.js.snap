@@ -393,6 +393,7 @@ Object {
     "jest/valid-describe": 2,
     "jest/valid-expect": 2,
     "jest/valid-expect-in-promise": 2,
+    "jest/valid-title": 1,
     "jsx-a11y/accessible-emoji": 2,
     "jsx-a11y/alt-text": 2,
     "jsx-a11y/anchor-has-content": 0,
@@ -1005,6 +1006,11 @@ Snapshot Diff:
 -     "jest/prefer-hooks-on-top": 1,
 +     "jest/prefer-hooks-on-top": 2,
       "jest/prefer-inline-snapshots": 0,
+@@ --- --- @@
+      "jest/valid-expect-in-promise": 2,
+-     "jest/valid-title": 1,
++     "jest/valid-title": 2,
+      "jsx-a11y/accessible-emoji": 2,
 @@ --- --- @@
       "keyword-spacing": "off",
 -     "kiwicom-incubator/no-internal-flow-type": 1,
