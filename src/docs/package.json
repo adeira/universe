@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "docusaurus": "^1.14.0",
-    "react": "^16.10.2"
+    "react": "^16.11.0"
   }
 }
