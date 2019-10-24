@@ -200,6 +200,40 @@ Please note: this only works when you define the object with values inside `Obje
 
 Thanks @sainati on Discord.
 
+### Built-in enums
+
+Please note: this feature is definitely **not** recommended to use. It's not finished, highly experimental and very controversial (+not supported in many tools). You can enable it like this:
+
+```ini
+[options]
+experimental.enums=true
+```
+
+And now, you can use this new feature:
+
+```text
+enum E1 {
+  A, B
+}
+
+enum E2 of number {
+  A = 1,
+  B = 2,
+}
+```
+
+This feature is NOT finished yet so typechecking doesn't work well (only parsing basically):
+
+```js
+const a: string = E2.A; // mmm...
+const b: E2 = 1;
+const c: E2 = '1'; // mmm...
+const d: E2 = E2.A;
+```
+
+- https://github.com/gkz/enums
+- https://github.com/facebook/flow/issues/7837
+
 ## Callable objects
 
 ```js
