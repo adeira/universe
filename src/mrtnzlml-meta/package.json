@@ -10,15 +10,15 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.29",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.29",
+    "@docusaurus/core": "^2.0.0-alpha.30",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.30",
     "classnames": "^2.2.6",
     "prettier": "^1.18.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
-    "@kiwicom/eslint-config": "^8.3.0",
+    "@kiwicom/eslint-config": "^8.4.0",
     "eslint": "^6.5.1"
   },
   "browserslist": {
