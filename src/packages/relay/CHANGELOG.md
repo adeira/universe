@@ -1,6 +1,7 @@
 # Unreleased
 
 - Removed all custom Relay Compiler validations.
+- Improve `RefetchOptions` type
 
 # 4.7.0
 
