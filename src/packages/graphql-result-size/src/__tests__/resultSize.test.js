@@ -12,6 +12,7 @@ const ThresholdError = new OriginalThresholdError(THRESHOLD);
 
 test.each([
   ['{scalar}', 3],
+  ['{scalar,scalar}', 6], // FIXME: missing deduplication
   ['{scalarNonNull}', 3],
   ['{enum}', 3],
   ['{list}', 10_004], // list without 'first' are being heavily penalized
@@ -101,8 +102,11 @@ test.each([
   ['{me{friendsConnection(first:5){edges{node{name,surname}}}}}', 72],
   ['{me{friendsConnection(first:5){edges{node{friendsConnection(first:5){edges{node{name}}}}}}}}', 307], // prettier-ignore
   ['{me{friendsConnection(first:5){edges{node{friendsConnection(first:5){edges{node{friendsConnection(first:5){edges{node{name}}}}}}}}}}}', 1557], // prettier-ignore
+  ['fragment X on FriendsConnection{edges{node{name}}},{me{friendsConnection(first:1){...X}}}', 21],
+  ['fragment X on FriendsConnection{edges{node{name}}},{me{friendsConnection(first:5){...X}}}', 57],
 
   // CONNECTIONS WITH VARIABLE LIMIT
+  // TODO: @argumentDefinitions(count: { type: "Int", defaultValue: 20 }, ...) - probably unnecessary for server-only code
   ['query($count:Int){me{friendsConnection(first:$count){edges{node{name}}}}}', 9_012],
   ['query($count:Int!){me{friendsConnection(first:$count){edges{node{name}}}}}', 9_012],
   ['query D1($count:Int!=1){me{friendsConnection(first:$count){edges{node{name}}}}}', 21],
@@ -110,17 +114,24 @@ test.each([
 
   // INLINE FRAGMENTS
   ['{me{friends(first:1){...on User{name}}}}', 13], // same as: {me{friends(first:1){name}}}
+  // FIXME: missing deduplication:
+  ['{me{friends(first:1){...on User{name}...on User{name}}}}', 16], // same as: {me{friends(first:1){name}}}
   ['{me{friends(first:1){...on User{__typename,name}}}}', 13],
   ['{me{friends(first:1){...{name}}}}', 13],
+  ['{me{friends(first:2){...{name}}}}', 18],
+  ['{me{friends(first:3){...{name}}}}', 23],
   ['{me{friends(first:1){...@include(if:true){name}}}}', 13],
-  ['{me{friends(first:1){...@include(if:false){name}}}}', 13], // should we support this 🤔 (similar for @skip)
+  ['{me{friends(first:1){...@include(if:false){name}}}}', 13], // should we support this? 🤔 (similar for @skip)
 
   // FRAGMENTS
   ['fragment X on User{name},query{me{friends(first:1){...X}}}', 13], // same as: {me{friends(first:1){name}}}
+  // FIXME: missing deduplication:
+  ['fragment X on User{name},query{me{friends(first:1){...X,...X}}}', 16], // same as: {me{friends(first:1){name}}}
   ['fragment X on User{name,surname},query{me{friends(first:1){...X}}}', 16],
+  ['fragment X on User{name,surname},query{me{friends(first:2){...X}}}', 24],
+  ['fragment X on User{name,surname},query{me{friends(first:3){...X}}}', 32],
   ['fragment X on User{name},query{me{friends(first:1){...X,surname}}}', 16],
   ['fragment X on User{name},query{me{friends(first:1){...X,__typename}}}', 13],
-  ['fragment X on User{name},query{me{friends(first:1){...X,...X}}}', 13],
   ['fragment X on User{name},fragment Y on User{surname},query{me{friends(first:1){...X,...Y}}}', 16], // prettier-ignore
 
   // MULTIPLE OPERATIONS

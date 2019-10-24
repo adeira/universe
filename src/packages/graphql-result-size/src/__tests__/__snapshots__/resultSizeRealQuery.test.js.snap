@@ -75,7 +75,7 @@ fragment CountryFlag_location on Location {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-✅ Score: 9562
+✅ Score: 32420
 `;
 
 exports[`matches expected output: real-2.graphql 1`] = `
@@ -100,7 +100,7 @@ fragment HotelListItem_hotel on AllHotelAvailabilityHotel {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-✅ Score: 90011
+✅ Score: 120008
 `;
 
 exports[`matches expected output: real-3.graphql 1`] = `
