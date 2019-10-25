@@ -650,6 +650,23 @@ export type ExplicitlyInexact = { foo: number, ... };
 
 `;
 
+exports[`matches expected output: babel-parse-issue-10367.error.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// https://github.com/babel/babel/issues/10367
+// https://github.com/babel/babel/pull/10447
+
+const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+THROWN EXCEPTION:
+
+Error: /mock/path/mockFile.js: Expected atom at position 1
+    (?<x>.*)
+     ^
+`;
+
 exports[`matches expected output: bigint.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */

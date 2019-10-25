@@ -46,3 +46,6 @@ function transform(target) {
   generateTestsFromFixtures(`${__dirname}/__fixtures__/${group}`, transform('flow'));
   generateTestsFromFixtures(`${__dirname}/__fixtures__/${group}`, transform('js-esm'));
 });
+
+// Only one target since it can be fine with Flow parser for example.
+generateTestsFromFixtures(`${__dirname}/__fixtures__/babel-parse-issues`, transform('js'));
