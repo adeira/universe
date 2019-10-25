@@ -10,6 +10,7 @@ import {
   type GraphQLSchema,
   type DocumentNode,
 } from 'graphql';
+import { nullthrows } from '@kiwicom/js';
 
 import ThresholdError from './ThresholdError';
 
@@ -24,7 +25,7 @@ const UNKNOWN_KIND_PENALTY = 100_000;
  * It's because the priority is to make it work well first. Moreover, these optimizations made
  * the referential implementation horribly slow which is paradoxical.
  */
-export function calculate(schema: GraphQLSchema, query: DocumentNode): number | empty {
+export function calculate(schema: GraphQLSchema, queryAst: DocumentNode): number | empty {
   let score = 0;
   let lastLimit = null;
   const operationVariables = new Map(); // [name, defaultValue]
@@ -38,7 +39,7 @@ export function calculate(schema: GraphQLSchema, query: DocumentNode): number | 
     return limit;
   }
 
-  function analyzeField(definition, parentObjectType) {
+  function analyzeField(definition, parentObjectType, fragments) {
     if (isObjectType(parentObjectType) || isInterfaceType(parentObjectType)) {
       const fields = parentObjectType.getFields();
       const maybeLimit = getNumberOfEdgesNew(operationVariables, definition);
@@ -68,24 +69,24 @@ export function calculate(schema: GraphQLSchema, query: DocumentNode): number | 
         const numberOfEdges = getLastLimit();
         for (let i = 0; i < numberOfEdges; i++) {
           score += 2; // add +1 per each object iteration for the braces
-          analyzeSubquery(definition.selectionSet, currentType);
+          analyzeSubquery(definition.selectionSet, currentType, fragments);
         }
       } else {
         // simple objects with selections
         score += 4; // field with other subselections
-        analyzeSubquery(definition.selectionSet, currentType);
+        analyzeSubquery(definition.selectionSet, currentType, fragments);
       }
     } else if (isNonNullType(parentObjectType)) {
       // This is a special case of a field which doesn't have any fields itself but must be further
       // decomposed (typical example is `PageInfo!` type).
-      analyzeSubquery(definition, parentObjectType.ofType);
+      analyzeSubquery(definition, parentObjectType.ofType, fragments);
     } else {
       // we know it's a field but the parent type is unsupported yet
       score += UNKNOWN_KIND_PENALTY;
     }
   }
 
-  function analyzeSubquery(definition, parentObjectType) {
+  function analyzeSubquery(definition, parentObjectType, fragments) {
     if (definition == null || parentObjectType == null) {
       return;
     }
@@ -96,10 +97,10 @@ export function calculate(schema: GraphQLSchema, query: DocumentNode): number | 
       if (isIntrospectionField(definition.name.value)) {
         return;
       }
-      analyzeField(definition, parentObjectType);
+      analyzeField(definition, parentObjectType, fragments);
     } else if (definition.kind === Kind.SELECTION_SET) {
       definition.selections.forEach(selection => {
-        analyzeSubquery(selection, parentObjectType);
+        analyzeSubquery(selection, parentObjectType, fragments);
       });
     } else if (definition.kind === Kind.OPERATION_DEFINITION) {
       const variableDefinitions = definition.variableDefinitions ?? [];
@@ -112,7 +113,7 @@ export function calculate(schema: GraphQLSchema, query: DocumentNode): number | 
           operationVariables.set(variableName, UNKNOWN_ARG_VALUE_PENALTY);
         }
       });
-      analyzeSubquery(definition.selectionSet, parentObjectType);
+      analyzeSubquery(definition.selectionSet, parentObjectType, fragments);
     } else if (definition.kind === Kind.INLINE_FRAGMENT) {
       let objectType = parentObjectType;
       if (definition.typeCondition !== undefined) {
@@ -120,30 +121,43 @@ export function calculate(schema: GraphQLSchema, query: DocumentNode): number | 
         const onType = definition.typeCondition.name.value;
         objectType = schema.getType(onType);
       }
-      analyzeSubquery(definition.selectionSet, objectType);
-    } else if (definition.kind === Kind.FRAGMENT_DEFINITION) {
-      const onType = definition.typeCondition.name.value;
-      analyzeSubquery(definition.selectionSet, schema.getType(onType));
+      // TODO: we should ideally deduplicate every `selectionSet`
+      analyzeSubquery(definition.selectionSet, objectType, fragments);
     } else if (definition.kind === Kind.FRAGMENT_SPREAD) {
-      // no score change
+      const fragmentName = definition.name.value;
+      const fragment = nullthrows(fragments.find(fragment => fragment.name.value === fragmentName));
+      const onType = fragment.typeCondition.name.value;
+      // TODO: we should ideally deduplicate every `selectionSet`
+      analyzeSubquery(fragment.selectionSet, schema.getType(onType), fragments);
     } else {
       // we do not support this definition kind yet
       score += UNKNOWN_KIND_PENALTY;
     }
   }
 
-  query.definitions.map(definition => {
-    if (isExecutableDefinitionNode(definition)) {
+  // First we have to separate fragments from operation definitions because fragments are being
+  // analyzed only when used in the operations (not independently).
+  const [fragments, operationDefinitions] = queryAst.definitions.reduce(
+    (acc, definition) => {
       if (definition.kind === Kind.FRAGMENT_DEFINITION) {
-        return analyzeSubquery(definition, schema.getQueryType()); // FragmentDefinition
+        acc[0].push(definition);
+      } else {
+        acc[1].push(definition);
       }
+      return acc;
+    },
+    [[], []],
+  );
+
+  operationDefinitions.forEach(definition => {
+    if (isExecutableDefinitionNode(definition)) {
       switch (definition.operation) {
         case 'query':
-          return analyzeSubquery(definition, schema.getQueryType());
+          return analyzeSubquery(definition, schema.getQueryType(), fragments);
         case 'mutation':
-          return analyzeSubquery(definition, schema.getMutationType());
+          return analyzeSubquery(definition, schema.getMutationType(), fragments);
         case 'subscription':
-          return analyzeSubquery(definition, schema.getSubscriptionType());
+          return analyzeSubquery(definition, schema.getSubscriptionType(), fragments);
         default:
           (definition.operation: empty);
       }
