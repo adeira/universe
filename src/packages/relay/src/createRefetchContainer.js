@@ -7,7 +7,11 @@ import { invariant, isObjectEmpty } from '@kiwicom/js';
 import type { $RelayProps, FragmentSpec, GraphQLTaggedNode, Disposable } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
-type RefetchOptions = { force?: boolean, ... };
+type RefetchOptions = {
+  +force?: boolean,
+  +fetchPolicy?: 'store-or-network' | 'network-only',
+  ...
+};
 
 export type RefetchRelayProp = {|
   +environment: Environment,
