@@ -21,11 +21,8 @@ import { invariant } from '@adeira/js';
     npmAuthToken,
     workspaces: new Set([
       '@adeira/fetch',
-      '@adeira/signed-source',
       '@adeira/js',
-      '@adeira/monorepo-utils',
-      '@adeira/relay',
-      '@adeira/logger',
+      // TODO: add more BUT only what's actually needed (not every workspace)
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });
