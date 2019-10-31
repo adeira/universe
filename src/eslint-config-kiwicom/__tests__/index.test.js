@@ -60,7 +60,6 @@ test.each(Object.entries(prettierRules))(
 test('rules snapshot', () => {
   const stableRules = require('../index.js');
   const strictRules = require('../strict.js');
-  const nitroRules = require('../nitro.js');
 
   expect(stableRules).toMatchSnapshot(
     {
@@ -79,6 +78,4 @@ test('rules snapshot', () => {
       stablePatchmarks: true,
     }),
   ).toMatchSnapshot('diff of stable and strict rules');
-
-  expect(nitroRules).toMatchSnapshot('all Nitro rules');
 });
