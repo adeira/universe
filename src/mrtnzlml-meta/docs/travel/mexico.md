@@ -9,6 +9,7 @@ sidebar_label: Mexico 🇲🇽
 - https://www.vistawide.com/spanish/top_100_spanish_words.htm
 - https://www.travelandleisure.com/travel-news/monarch-butterfly-migration-mexico
 - https://theculturetrip.com/north-america/mexico/articles/10-things-to-know-before-riding-the-copper-canyon-railroad-mexico/
+- https://www.lonelyplanet.com/mexico
 
 ![CDMX metro map with streets](/img/plano_redconcalles19.jpg)
 
