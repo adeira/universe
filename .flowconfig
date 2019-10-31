@@ -29,8 +29,8 @@
 
 ; Please note: one disadvantage of these libs is that it's gonna be available for every JS file even though
 ; it should be defined only for one workspace.
-./src/core/monorepo-scanner/src/flow/
-./src/incubator/graphql/flow/
+./src/monorepo-scanner/src/flow/
+./src/graphql/flow/
 
 
 ; These lints are enabled in normal mode. Consult [strict] mode to see what additional lints
@@ -103,26 +103,26 @@ experimental.const_params=true
 
 experimental.types_first=false
 experimental.well_formed_exports=true
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/incubator/graphql/src/private/belverin
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/babel-plugin-orbit-components
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/babel-preset-kiwicom
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-config-kiwicom
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-config-nitro
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-plugin-kiwicom-incubator
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-plugin-relay-fragments
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-plugin-relay-imports
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/fetch
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/flow-bin
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-bc-checker
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-global-id
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-resolve-wrapper
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-result-size
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-utils
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/js
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/redis
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/signed-source
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/test-utils
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/vault2env
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql/src/private/belverin
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-plugin-orbit-components
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-preset-kiwicom
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-kiwicom
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-nitro
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-kiwicom-incubator
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-relay-fragments
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-relay-imports
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/fetch
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/flow-bin
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-bc-checker
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-global-id
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-resolve-wrapper
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-result-size
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-utils
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/js
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/redis
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/signed-source
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/test-utils
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/vault2env
 
 module.file_ext=.js
 module.file_ext=.json
