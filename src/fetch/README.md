@@ -8,7 +8,7 @@ This makes the fetch function more suitable for real-life production usage becau
 # Installation
 
 ```
-yarn add @kiwicom/fetch
+yarn add @adeira/fetch
 ```
 
 # Usage
@@ -16,7 +16,7 @@ yarn add @kiwicom/fetch
 This fetch is basically drop-in replacement for any other fetch you use:
 
 ```js
-import fetch from '@kiwicom/fetch';
+import fetch from '@adeira/fetch';
 
 (async () => {
   const response = await fetch('https://api.skypicker.com/locations?term=Barcelona');
@@ -28,7 +28,7 @@ import fetch from '@kiwicom/fetch';
 There are however some interesting features on top of this API. You can for example change the internal timings (the defaults are good enough):
 
 ```js
-import fetchWithRetries from '@kiwicom/fetch';
+import fetchWithRetries from '@adeira/fetch';
 
 (async () => {
   try {
@@ -79,7 +79,7 @@ You have to catch errors while fetching the response. This fetch throws these ex
 Example:
 
 ```js
-import fetchWithRetries, { TimeoutError, ResponseError } from '@kiwicom/fetch';
+import fetchWithRetries, { TimeoutError, ResponseError } from '@adeira/fetch';
 
 (async () => {
   try {
@@ -130,7 +130,7 @@ In reality you can see some more optimistic scenarios: for example request faile
 
 ## How do I mock this fetch?
 
-One way how to mock this fetch is to use [manual mock](https://jestjs.io/docs/en/manual-mocks) (`src/__mocks__/@kiwicom/fetch.js`):
+One way how to mock this fetch is to use [manual mock](https://jestjs.io/docs/en/manual-mocks) (`src/__mocks__/@adeira/fetch.js`):
 
 ```js
 export default function fetchWithRetriesMock(resource: string) {
@@ -141,9 +141,9 @@ export default function fetchWithRetriesMock(resource: string) {
 And then just use it:
 
 ```js
-import fetchWithRetriesMock from '@kiwicom/fetch';
+import fetchWithRetriesMock from '@adeira/fetch';
 
-jest.mock('@kiwicom/fetch');
+jest.mock('@adeira/fetch');
 
 it('mocks the fetch', async () => {
   await expect(fetchWithRetriesMock('input')).resolves.toBe('MODIFIED INPUT 1');
@@ -153,9 +153,9 @@ it('mocks the fetch', async () => {
 Alternatively, you could inline the mock:
 
 ```js
-import fetchWithRetriesMock from '@kiwicom/fetch';
+import fetchWithRetriesMock from '@adeira/fetch';
 
-jest.mock('@kiwicom/fetch', () => {
+jest.mock('@adeira/fetch', () => {
   return resource => Promise.resolve(`MODIFIED ${resource.toUpperCase()} 2`);
 });
 

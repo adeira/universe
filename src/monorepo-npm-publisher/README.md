@@ -34,7 +34,7 @@ import publish from '@kiwicom/npm-publisher';
     // packages with public visibility set in `package.json`.
     workspaces: new Set([
       '@kiwicom/js',
-      '@kiwicom/fetch',
+      '@adeira/fetch',
       '@kiwicom/relay',
       '@kiwicom/eslint-config',
     ]),

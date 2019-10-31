@@ -1,6 +1,6 @@
 // @flow
 
-import fetch, { ResponseError } from '@kiwicom/fetch';
+import fetch, { ResponseError } from '@adeira/fetch';
 import { invariant } from '@kiwicom/js';
 
 const PROJECT_ID = 1419; // https://gitlab.skypicker.com/incubator/universe

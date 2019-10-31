@@ -1,10 +1,10 @@
 // @flow
 
-import originalFetch from '@kiwicom/fetch';
+import originalFetch from '@adeira/fetch';
 
 import createNetworkFetcher from '../createNetworkFetcher';
 
-jest.mock('@kiwicom/fetch', () =>
+jest.mock('@adeira/fetch', () =>
   jest.fn().mockImplementation(() => ({
     headers: {
       get: () => 'application/json',
