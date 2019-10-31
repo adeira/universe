@@ -6,7 +6,6 @@
   "main": "src/index",
   "dependencies": {
     "@kiwicom/fetch": "^2.4.2",
-    "@kiwicom/graphql-skymock": "^0.0.0",
     "@kiwicom/js": "^0.17.0",
     "@kiwicom/logger": "^0.3.0",
     "@kiwicom/monorepo-utils": "^0.24.0",

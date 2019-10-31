@@ -4,7 +4,6 @@ import isCI from 'is-ci';
 
 import log from './log';
 import updateDocs from './tasks/updateDocs';
-import updateGraphQLSkymock from './tasks/updateGraphQLSkymock';
 import updateDependencies from './tasks/updateDependencies';
 
 const ciNode = {
@@ -19,7 +18,6 @@ const tasks = new Map([
   // <!-- AUTOMATOR:UPDATE_DOCS --> ... <!-- /AUTOMATOR:UPDATE_DOCS -->
   //
   ['UPDATE_DOCS', updateDocs], // updates Docs and sends MR to GitLab repo
-  ['UPDATE_GRAPHQL_SKYMOCK', updateGraphQLSkymock],
   ['UPDATE_DEPENDENCIES', updateDependencies],
 ]);
 

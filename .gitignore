@@ -1,0 +1,17 @@
+# README: Use project specific .gitignore file for your application!
+#         This ignore file is only for the monorepo as a whole.
+#
+# See: https://git-scm.com/docs/gitignore#_pattern_format
+
+.atom/
+.idea/
+.next/
+.serverless/
+.vscode/
+node_modules/
+
+.DS_Store
+.env
+.flow.saved_state
+.flow.saved_state_file_changes
+yarn-error.log

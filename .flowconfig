@@ -1,0 +1,131 @@
+; https://flow.org/en/docs/config/ignore/
+[ignore]
+<PROJECT_ROOT>/\.git/.*
+.+/.+\.gzip\.js
+.+/\.next/.+
+
+; The following lines exclude problematic dependencies which distribute tests via NPM. (they should not)
+.+/node_modules/findup/test/fixture/.+\.json
+.+/node_modules/@expo/traveling-fastlane-.+/tests/fixtures/.+\.json
+
+
+; https://flow.org/en/docs/config/untyped/
+[untyped]
+💩 FIXME:
+.+/node_modules/graphql-relay/lib/connection/connection.js
+.+/node_modules/graphql-relay/lib/mutation/mutation.js
+.+/node_modules/graphql-relay/lib/node/node.js
+
+
+; https://flow.org/en/docs/config/declarations/
+[declarations]
+.+/node_modules/react-native/Libraries/.+
+.+/node_modules/graphql-iso-date/dist/.+
+
+
+; https://flow.org/en/docs/config/libs/
+[libs]
+./flow-typed/
+
+; Please note: one disadvantage of these libs is that it's gonna be available for every JS file even though
+; it should be defined only for one workspace.
+./src/core/monorepo-scanner/src/flow/
+./src/incubator/graphql/flow/
+
+
+; These lints are enabled in normal mode. Consult [strict] mode to see what additional lints
+; are enabled in strict mode. Only disabled rules in normal mode should be added to strict mode.
+;
+; https://flow.org/en/docs/config/lints/
+[lints]
+all=error
+implicit-inexact-object=off
+dynamic-export=off
+non-array-spread=off
+sketchy-null-bool=off
+unclear-type=off
+untyped-import=off
+
+
+; This setting complements [lints] section: all the enabled lints still throw errors + these
+; additional lints are enabled only in strict mode (no need to list here every lint). Local
+; strict mode behaves the same like strict mode except it turns off 'nonstrict-import' rule.
+;
+; https://flow.org/en/docs/strict/
+[strict]
+implicit-inexact-object
+sketchy-null-bool
+unclear-type
+untyped-import
+
+
+; https://flow.org/en/docs/config/options/
+[options]
+emoji=true
+exact_by_default=false
+include_warnings=true
+
+; A lot of symlinks will cause Flow's shared hash table to become full.
+; This should quadruple the size of the hash table (default=19)
+; See: https://github.com/facebook/flow/issues/3143#issuecomment-270946030
+; See: https://flow.org/en/docs/config/options/#toc-sharedmemory-hash-table-pow-unsigned-integer
+sharedmemory.hash_table_pow=21
+
+; This option lets you alias 'any' with a given string - useful for explaining why you’re using 'any'.
+suppress_type=$FlowFixMe
+
+; We require to explicitly annotate dynamic imports with the following suppress comment.
+; See: https://github.com/facebook/flow/issues/2692 (dangerous because of `any` so not disabled by default)
+suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
+
+; This comment should annotate errors which are expected to occur and it's correct that Flow complains
+; about it. It's frequently used in tests or in flowtests.
+suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
+
+; Following comments allow you to suppress some known issues which are already reported or fix is ready.
+; No issue/PR available? Create one!
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/\\(facebook/flow\\|flow-typed/flow-typed\\)/issues/[0-9]+
+suppress_comment=\\(.\\|\n\\)*\\$FlowPullRequest: https://github.com/\\(facebook/flow\\|flow-typed/flow-typed\\)/pull/[0-9]+
+
+; Following suppress comments are added to make it compatible with FB codebase or to allow smooth Flow
+; upgrades while not being blocked on some already existing issues. You should not use them in your sources
+; manually. Use $FlowIssue or $FlowPullRequest instead. Please read the following link to understand how
+; is this comment being added automatically to our codebase:
+; https://kiwi.wiki/incubator/universe/docs/monorepo/managing-dependencies/#upgrading-flow-for-the-whole-monorepo
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(site=[a-z,_]+\\)?)\\)
+
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
+
+; This option is always ON in the strict mode. We are enabling it even for the classic mode.
+; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
+experimental.const_params=true
+
+experimental.types_first=false
+experimental.well_formed_exports=true
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/incubator/graphql/src/private/belverin
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/babel-plugin-orbit-components
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/babel-preset-kiwicom
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-config-kiwicom
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-config-nitro
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-plugin-kiwicom-incubator
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-plugin-relay-fragments
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/eslint-plugin-relay-imports
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/fetch
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/flow-bin
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-bc-checker
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-global-id
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-resolve-wrapper
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-result-size
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/graphql-utils
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/js
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/redis
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/signed-source
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/test-utils
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/vault2env
+
+module.file_ext=.js
+module.file_ext=.json
+module.file_ext=.android.js
+module.file_ext=.ios.js
+module.file_ext=.native.js
