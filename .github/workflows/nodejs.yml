@@ -1,0 +1,29 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    # TODO: remove the `--all` switches when stable
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          lfs: true
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: yarn install, build, and test
+        run: |
+          yarn install --offline --frozen-lockfile
+          yarn run typecheck restart --all
+          yarn run lint --all
+          yarn run test-only --all
+        env:
+          CI: true
