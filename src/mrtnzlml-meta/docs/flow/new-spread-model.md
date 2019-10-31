@@ -4,7 +4,8 @@ title: The New Spread Model
 sidebar_label: The New Spread Model
 ---
 
-Part 1: https://medium.com/flow-type/coming-soon-changes-to-object-spreads-73204aef84e1
+Part 1: https://medium.com/flow-type/coming-soon-changes-to-object-spreads-73204aef84e1<br/>
+Part 2: https://medium.com/flow-type/spreads-common-errors-fixes-9701012e9d58
 
 Necessary vocabulary:
 
