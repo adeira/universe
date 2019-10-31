@@ -10,6 +10,7 @@ sidebar_label: Mexico 🇲🇽
 - https://www.travelandleisure.com/travel-news/monarch-butterfly-migration-mexico
 - https://theculturetrip.com/north-america/mexico/articles/10-things-to-know-before-riding-the-copper-canyon-railroad-mexico/
 - https://www.lonelyplanet.com/mexico
+- https://foodandpleasure.com/restaurantes-bonitos-para-desayunar-1/
 
 ![CDMX metro map with streets](/img/plano_redconcalles19.jpg)
 
