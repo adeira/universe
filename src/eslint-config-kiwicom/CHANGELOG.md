@@ -1,5 +1,12 @@
 # Unreleased
 
+---
+
+Changelog before our fork:
+
+```text
+# Unreleased
+
 - New rule [`jest/valid-title`](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/valid-title.md) added (warnings or errors in strict mode).
 
 # 8.4.0
@@ -362,3 +369,4 @@ There are many non-breaking changes in this release but mostly covering edge cas
 
 - Added new plugin for Node.js
 - Eslint is now required as a peer dependency
+```

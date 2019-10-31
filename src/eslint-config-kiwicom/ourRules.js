@@ -503,6 +503,7 @@ module.exports = {
   'react-native/no-color-literals': OFF,
   'react-native/no-inline-styles': OFF,
   'react-native/no-raw-text': OFF,
+  'react-native/no-single-element-style-arrays': OFF,
   'react-native/no-unused-styles': ERROR,
   'react-native/sort-styles': OFF,
   'react-native/split-platform-components': OFF,
