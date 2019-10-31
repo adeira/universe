@@ -65,6 +65,9 @@ export default function fetchWithRetries(
       const request = fetch(resource, {
         ...init,
         headers: {
+          /* $FlowFixMe(>=0.111.0) This comment suppresses an error when
+           * upgrading Flow. To see the error delete this comment and run Flow.
+           */
           ...environmentHeaders,
           ...initHeaders,
         },
