@@ -1,0 +1,28 @@
+name: NPM Publisher
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          lfs: true
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: publish NPM packages to the registry
+        run: |
+          yarn install --offline --frozen-lockfile
+          yarn monorepo-babel-node scripts/publishNPMPackages.js
+        env:
+          CI: true
