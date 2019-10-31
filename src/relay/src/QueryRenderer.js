@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant, sprintf } from '@kiwicom/js';
-import { TimeoutError, ResponseError } from '@kiwicom/fetch';
+import { TimeoutError, ResponseError } from '@adeira/fetch';
 
 import createEnvironment from './createEnvironment';
 import createNetworkFetcher from './fetchers/createNetworkFetcher';

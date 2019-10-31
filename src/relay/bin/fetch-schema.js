@@ -12,7 +12,7 @@ require('@babel/register')({
 const fs = require('fs');
 const path = require('path');
 const program = require('commander');
-const fetch = require('@kiwicom/fetch').default;
+const fetch = require('@adeira/fetch').default;
 const logger = require('@kiwicom/logger').default;
 const SignedSource = require('@kiwicom/signed-source').default;
 const { lexicographicSortSchema } = require('graphql');

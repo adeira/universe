@@ -1,6 +1,6 @@
 // @flow
 
-import fetchWithRetries from '@kiwicom/fetch';
+import fetchWithRetries from '@adeira/fetch';
 
 export default async function fetchSecrets(
   addr: string,

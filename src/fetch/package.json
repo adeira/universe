@@ -1,12 +1,12 @@
 {
-  "name": "@kiwicom/fetch",
+  "name": "@adeira/fetch",
   "private": false,
   "license": "MIT",
-  "version": "2.5.1",
+  "version": "0.1.0",
   "main": "src/fetchWithRetries",
   "module": false,
   "sideEffects": false,
-  "homepage": "https://github.com/kiwicom/fetch",
+  "homepage": "https://github.com/adeira/universe/blob/master/src/fetch/README.md",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
     "@kiwicom/js": "^0.17.0",

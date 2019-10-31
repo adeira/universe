@@ -1,7 +1,7 @@
 This package is **opinionated Relay wrapper** used at Kiwi.com. Goal of this package is to create powerful yet simple to use Relay wrapper with all the important features:
 
 - query logging during development
-- network fetching with retries and timeouts (see [`@kiwicom/fetch`](https://github.com/kiwicom/fetch))
+- network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/kiwicom/fetch))
 - support for uploadables
 - request burst cache (response cache)
 - stored operations (known as persistent queries)

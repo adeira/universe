@@ -12,12 +12,12 @@ it('finds related workspaces based on touched workspaces', () => {
     }
   `);
 
-  // `@kiwicom/fetch` is used in many projects so all these projects
+  // `@adeira/fetch` is used in many projects so all these projects
   // should be tested (recursively - see the example projects)
-  expect(findRelatedWorkspaces(workspaceDependencies, new Set(['@kiwicom/fetch'])))
+  expect(findRelatedWorkspaces(workspaceDependencies, new Set(['@adeira/fetch'])))
     .toMatchInlineSnapshot(`
     Set {
-      "@kiwicom/fetch",
+      "@adeira/fetch",
       "@kiwicom/automator",
       "@kiwicom/graphql-skymock",
       "@kiwicom/graphql",

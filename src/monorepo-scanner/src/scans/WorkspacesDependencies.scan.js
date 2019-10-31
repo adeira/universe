@@ -9,7 +9,7 @@ import { Workspaces } from '@kiwicom/monorepo-utils';
 const similarities = new Map([
   [
     // data fetching
-    '@kiwicom/fetch',
+    '@adeira/fetch',
     [
       'request',
       'request-promise-native',
@@ -36,8 +36,8 @@ const similarities = new Map([
 ]);
 
 const exceptions = new Map([
-  // @kiwicom/fetch is the only package with allowed cross-fetch dependency (internal wrapped dependency)
-  ['@kiwicom/fetch', ['cross-fetch']],
+  // @adeira/fetch is the only package with allowed cross-fetch dependency (internal wrapped dependency)
+  ['@adeira/fetch', ['cross-fetch']],
 ]);
 
 describe('dependencies similarities', () => {

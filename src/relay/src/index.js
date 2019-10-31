@@ -3,7 +3,7 @@
 import {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
-} from '@kiwicom/fetch';
+} from '@adeira/fetch';
 
 import commitLocalUpdate from './commitLocalUpdate';
 import { commitMutation, commitMutationAsync } from './mutations';

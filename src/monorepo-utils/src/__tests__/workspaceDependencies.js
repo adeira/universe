@@ -9,7 +9,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: [
       '@kiwicom/test-utils',
       '@kiwicom/environment',
-      '@kiwicom/fetch',
+      '@adeira/fetch',
       '@kiwicom/graphql-skymock',
       '@kiwicom/js',
       '@kiwicom/monorepo',
@@ -38,7 +38,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/graphql-skymock': {
     location: 'src/apps/graphql-skymock',
-    workspaceDependencies: ['@kiwicom/test-utils', '@kiwicom/fetch', '@kiwicom/js'],
+    workspaceDependencies: ['@kiwicom/test-utils', '@adeira/fetch', '@kiwicom/js'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/graphql': {
@@ -46,7 +46,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: [
       '@kiwicom/test-utils',
       '@kiwicom/environment',
-      '@kiwicom/fetch',
+      '@adeira/fetch',
       '@kiwicom/graphql-bc-checker',
       '@kiwicom/graphql-global-id',
       '@kiwicom/graphql-monitoring',
@@ -81,7 +81,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: [],
     mismatchedWorkspaceDependencies: [],
   },
-  '@kiwicom/fetch': {
+  '@adeira/fetch': {
     location: 'src/packages/fetch',
     workspaceDependencies: ['@kiwicom/js'],
     mismatchedWorkspaceDependencies: [],
@@ -133,7 +133,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/relay': {
     location: 'src/packages/relay',
-    workspaceDependencies: ['@kiwicom/fetch', '@kiwicom/js'],
+    workspaceDependencies: ['@adeira/fetch', '@kiwicom/js'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/test-utils': {
@@ -143,7 +143,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/vault2env': {
     location: 'src/packages/vault2env',
-    workspaceDependencies: ['@kiwicom/fetch'],
+    workspaceDependencies: ['@adeira/fetch'],
     mismatchedWorkspaceDependencies: [],
   },
 });
