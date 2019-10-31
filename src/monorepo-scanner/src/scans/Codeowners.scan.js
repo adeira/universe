@@ -9,7 +9,7 @@ import { findRootPackageJsonPath } from '@kiwicom/monorepo-utils';
 
 function* iterateRules() {
   const root = path.dirname(findRootPackageJsonPath());
-  const codeownersPath = path.join(root, 'CODEOWNERS');
+  const codeownersPath = path.join(root, '.github', 'CODEOWNERS');
   const codeowners = fs.readFileSync(codeownersPath, 'utf8');
 
   for (const line of codeowners.split(os.EOL)) {
@@ -17,33 +17,16 @@ function* iterateRules() {
       // empty
       continue;
     }
-    if (/^#(?<comment>.*)|^\*/.test(line)) {
+    if (/^#(?<comment>.*)/.test(line)) {
       continue;
     }
-
     yield line;
   }
 }
 
-test('codeowners paths', () => {
-  expect.hasAssertions();
-  const root = path.dirname(findRootPackageJsonPath());
-  for (const line of iterateRules()) {
-    const parsedLine = line.match(/^(?<path>[^\s]+)/);
-    const projectPath = String(parsedLine?.groups?.path);
-    expect({
-      pathExists: fs.existsSync(path.join(root, projectPath)),
-      path: projectPath,
-    }).toEqual({
-      pathExists: true,
-      path: projectPath,
-    });
-  }
-});
-
 test('core maintainers', () => {
   expect.hasAssertions();
-  const requiredCodeowners = ['trond.bergquist@kiwi.com'];
+  const requiredCodeowners = ['@mrtnzlml', '@tbergq', '@jaroslav-kubicek', '@michalsanger'];
   for (const line of iterateRules()) {
     for (const codeowner of requiredCodeowners) {
       expect(line).toMatch(codeowner);
