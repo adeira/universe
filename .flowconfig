@@ -19,8 +19,8 @@
 
 ; https://flow.org/en/docs/config/declarations/
 [declarations]
-.+/node_modules/react-native/Libraries/.+
 .+/node_modules/graphql-iso-date/dist/.+
+.+/node_modules/graphql/utilities/extendSchema.js
 
 
 ; https://flow.org/en/docs/config/libs/
@@ -102,12 +102,10 @@ esproposal.nullish_coalescing=enable
 experimental.const_params=true
 
 experimental.types_first=false
+experimental.minimal_merge=true
 experimental.well_formed_exports=true
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql/src/private/belverin
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-plugin-orbit-components
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-preset-kiwicom
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-kiwicom
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-nitro
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-kiwicom-incubator
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-relay-fragments
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-relay-imports

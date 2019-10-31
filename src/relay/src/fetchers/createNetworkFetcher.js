@@ -36,6 +36,8 @@ export default function createNetworkFetcher(
     const resolvedAdditionalHeaders = await Promise.resolve(additionalHeaders);
     const headers = {
       ...getHeaders(uploadables),
+      /* $FlowFixMe(>=0.111.0) This comment suppresses an error when upgrading
+       * Flow. To see the error delete this comment and run Flow. */
       ...resolvedAdditionalHeaders,
     };
 
