@@ -11,7 +11,7 @@ import {
   lexicographicSortSchema,
   type GraphQLSchema,
 } from 'graphql';
-import SignedSource from '@kiwicom/signed-source';
+import SignedSource from '@adeira/signed-source';
 
 import { buildBreakingChangesBlock } from './BCLogger';
 import {

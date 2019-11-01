@@ -21,6 +21,7 @@ import { invariant } from '@kiwicom/js';
     npmAuthToken,
     workspaces: new Set([
       '@adeira/fetch',
+      '@adeira/signed-source',
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });

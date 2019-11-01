@@ -1,7 +1,7 @@
 // @flow strict
 
 import fs from 'fs';
-import SignedSource from '@kiwicom/signed-source';
+import SignedSource from '@adeira/signed-source';
 import { Source } from 'graphql';
 
 export default function getSchemaSource(schemaPath: string): Source {
