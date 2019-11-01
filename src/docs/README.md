@@ -1,3 +1,3 @@
 ```text
-yarn workspace @kiwicom/docs start
+yarn workspace @adeira/docs start
 ```
