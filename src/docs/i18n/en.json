@@ -3,52 +3,8 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Universe by Incubator tribe is monorepo for our JS projects.",
+    "tagline": "Universe by Adeira is monorepo for our JS projects.",
     "docs": {
-      "graphql/debugging": {
-        "title": "Debugging",
-        "sidebar_label": "Debugging"
-      },
-      "graphql/directory-structure": {
-        "title": "Directory structure",
-        "sidebar_label": "Directory structure"
-      },
-      "graphql/faq": {
-        "title": "FAQ",
-        "sidebar_label": "FAQ"
-      },
-      "graphql/general-information": {
-        "title": "General information",
-        "sidebar_label": "General information"
-      },
-      "graphql/infrastructure": {
-        "title": "Infrastructure",
-        "sidebar_label": "Infrastructure"
-      },
-      "graphql/js-developer-guides": {
-        "title": "JS Developer Guides",
-        "sidebar_label": "JS Developer Guides"
-      },
-      "graphql/monitoring": {
-        "title": "Monitoring",
-        "sidebar_label": "Monitoring"
-      },
-      "graphql/schema-design": {
-        "title": "Schema Design",
-        "sidebar_label": "Schema Design"
-      },
-      "graphql/testing": {
-        "title": "Testing",
-        "sidebar_label": "Testing"
-      },
-      "graphql/troubleshooting": {
-        "title": "Troubleshooting",
-        "sidebar_label": "Troubleshooting"
-      },
-      "graphql/vault": {
-        "title": "Environment variables",
-        "sidebar_label": "Vault"
-      },
       "guides/commit-messages": {
         "title": "Writing commit messages",
         "sidebar_label": "Commit Messages"
@@ -85,10 +41,6 @@
         "title": "Testing, Linting, Flowing, Formatting",
         "sidebar_label": "Test, Lint, Flow, Format"
       },
-      "monorepo/wiki-search-refresh": {
-        "title": "Wiki search refresh",
-        "sidebar_label": "Wiki search refresh"
-      },
       "oss/general": {
         "title": "General info",
         "sidebar_label": "General info"
@@ -104,15 +56,12 @@
     },
     "links": {
       "Monorepo": "Monorepo",
-      "Applications": "Applications",
-      "Blog": "Blog",
-      "GitLab": "GitLab"
+      "GitHub": "GitHub"
     },
     "categories": {
       "Monorepo": "Monorepo",
       "Open source": "Open source",
-      "Developer guides": "Developer guides",
-      "GraphQL": "GraphQL"
+      "Developer guides": "Developer guides"
     }
   },
   "pages-strings": {

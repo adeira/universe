@@ -4,17 +4,17 @@
 // site configuration options.
 
 module.exports = {
-  title: 'incubator/universe', // Title for your website.
-  tagline: 'Universe by Incubator tribe is monorepo for our JS projects.',
+  title: 'adeira/universe', // Title for your website.
+  tagline: 'Universe by Adeira is monorepo for our JS projects.',
   url: 'https://kiwi.wiki',
-  baseUrl: '/incubator/universe/',
+  baseUrl: '/adeira/universe/',
   editUrl: 'https://gitlab.skypicker.com/incubator/universe/edit/master/src/docs/docs/',
 
   customDocsPath: 'docs/docs',
 
   // Used for publishing and more
   projectName: 'graphql',
-  organizationName: 'kiwicom',
+  organizationName: 'adeira',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -22,11 +22,9 @@ module.exports = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     { doc: 'monorepo/installation', label: 'Monorepo' },
-    { doc: 'graphql/general-information', label: 'Applications' },
-    { blog: true, label: 'Blog' },
     {
-      href: 'https://gitlab.skypicker.com/incubator/universe',
-      label: 'GitLab',
+      href: 'https://github.com/adeira/universe',
+      label: 'GitHub',
     },
   ],
 
@@ -79,9 +77,5 @@ module.exports = {
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
-  algolia: {
-    appId: '09I6T5ER2K',
-    apiKey: '795adec8a2fcc91b8f914edcb2bc722c',
-    indexName: 'universe-wiki',
-  },
+  // algolia: { ... },
 };

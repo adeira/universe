@@ -6,25 +6,9 @@
       "monorepo/managing-dependencies",
       "monorepo/directory-structure",
       "monorepo/acceptance",
-      "monorepo/gcp",
-      "monorepo/wiki-search-refresh"
+      "monorepo/gcp"
     ],
     "Open source": ["oss/general", "oss/npm-packages", "oss/npm-releasing"],
     "Developer guides": ["guides/commit-messages", "guides/money", "guides/eslint-config-migration"]
-  },
-  "apps": {
-    "GraphQL": [
-      "graphql/general-information",
-      "graphql/monitoring",
-      "graphql/directory-structure",
-      "graphql/schema-design",
-      "graphql/js-developer-guides",
-      "graphql/infrastructure",
-      "graphql/testing",
-      "graphql/debugging",
-      "graphql/vault",
-      "graphql/faq",
-      "graphql/troubleshooting"
-    ]
   }
 }
