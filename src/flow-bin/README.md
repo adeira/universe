@@ -8,7 +8,7 @@ Custom wrapper around Flow-bin with some additional default configuration tailor
 # Usage
 
 ```
-yarn add --dev flow-bin @kiwicom/flow-bin
+yarn add --dev flow-bin @adeira/flow-bin
 ```
 
 To start using it, add the following lines to you `.gitignore` file:

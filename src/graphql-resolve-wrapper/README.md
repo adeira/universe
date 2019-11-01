@@ -3,7 +3,7 @@ This package allows you to do basically whatever you want with the resolvers.
 # Installation
 
 ```
-yarn add @kiwicom/graphql-resolve-wrapper
+yarn add @adeira/graphql-resolve-wrapper
 ```
 
 # Usage
