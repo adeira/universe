@@ -3,7 +3,7 @@ Simple utility to manage our ID fields in GraphQL correctly.
 # Install
 
 ```text
-yarn add @kiwicom/graphql-global-id
+yarn add @adeira/graphql-global-id
 ```
 
 # Basic usage
@@ -11,7 +11,7 @@ yarn add @kiwicom/graphql-global-id
 This utility automatically creates correct opaque and globally unique ID type so you don't have to think about it.
 
 ```js
-import GlobalID from '@kiwicom/graphql-global-id';
+import GlobalID from '@adeira/graphql-global-id';
 
 export default new GraphQLObjectType({
   name: 'TypeName',
@@ -55,7 +55,7 @@ const fields = {
 `GlobalID` used in previous examples accepts readable (unmasked ID) and returns opaque ID. You can revert this process in case you need to access the original unmasked ID. Check the following test to get the idea:
 
 ```js
-import { fromGlobalId } from '@kiwicom/graphql-global-id';
+import { fromGlobalId } from '@adeira/graphql-global-id';
 
 it('returns correct original ID', () => {
   expect(fromGlobalId('TG9jYXRpb246bG9uZG9uX2di')).toBe('london_gb');
