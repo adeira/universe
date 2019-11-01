@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { createFragmentContainer as _createFragmentContainer } from 'react-relay';
-import { invariant, isObjectEmpty } from '@kiwicom/js';
+import { invariant, isObjectEmpty } from '@adeira/js';
 
 import type { FragmentSpec, $RelayProps } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';

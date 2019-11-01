@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import RepoGit from '../RepoGit';
 

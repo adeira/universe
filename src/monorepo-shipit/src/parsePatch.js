@@ -1,6 +1,6 @@
 // @flow strict
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 opaque type Yield: string = string;
 opaque type Return = void;

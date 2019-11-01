@@ -10,7 +10,7 @@ import {
   type GraphQLSchema,
   type DocumentNode,
 } from 'graphql';
-import { nullthrows } from '@kiwicom/js';
+import { nullthrows } from '@adeira/js';
 
 import ThresholdError from './ThresholdError';
 

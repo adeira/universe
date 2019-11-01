@@ -1,7 +1,7 @@
 This package contains some useful utilities to help you write JavaScript better. It is a great place where to add these small helpers (_without 3rd party dependencies_) to share them everywhere.
 
 ```text
-yarn add @kiwicom/js
+yarn add @adeira/js
 ```
 
 # `invariant`, `warning`
@@ -9,7 +9,7 @@ yarn add @kiwicom/js
 Use these functions instead of traditional error throwing or `console.warn`. Compare these two examples:
 
 ```js
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 invariant(isWorkspaceDirectory === true, 'This is not a workspace directory.');
 
@@ -23,7 +23,7 @@ if (isWorkspaceDirectory !== true) {
 It is a common idiom to use `invariant()` or `invariant(false, ...)` to throw in code that should be unreachable. The rules apply to warning (except it doesn't throw but log to stdout instead):
 
 ```js
-import { warning } from '@kiwicom/js';
+import { warning } from '@adeira/js';
 
 warning(isWorkspaceDirectory === true, 'This is not a workspace directory.');
 
@@ -68,7 +68,7 @@ These both functions use [`sprintf`](#sprintf) behind the scenes.
 This function allows you to replace string placeholders similar to how `console.log` or `util.format` work. However, this function is system independent and works in browsers, Node.js and RN. Only `%s` (String) and `%j` (JSON) is supported:
 
 ```js
-import { sprintf } from '@kiwicom/js';
+import { sprintf } from '@adeira/js';
 
 sprintf('Oh, %s', 'yeah!'); // Oh, yeah!
 sprintf('Oh, %j', 'yeah!'); // Oh, "yeah!"
@@ -77,7 +77,7 @@ sprintf('Oh, %j', 'yeah!'); // Oh, "yeah!"
 It can handle circular references gracefully:
 
 ```js
-import { sprintf } from '@kiwicom/js';
+import { sprintf } from '@adeira/js';
 
 const obj = {
   a: 'foo',
@@ -95,7 +95,7 @@ It is also possible to escape the percentage sign with `%%`.
 This function ignores internal JS implementation and returns true only for real objects (not arrays or nulls and similar).
 
 ```js
-import { isObject } from '@kiwicom/js';
+import { isObject } from '@adeira/js';
 
 isObject({}); // true
 isObject(new Date()); // true
@@ -107,7 +107,7 @@ isObject([]); // false
 # `isObjectEmpty`
 
 ```js
-import { isObjectEmpty } from '@kiwicom/js';
+import { isObjectEmpty } from '@adeira/js';
 
 isObjectEmpty({}); // true (the only case)
 
@@ -121,7 +121,7 @@ isObjectEmpty(new Date()); // false
 Correctly determines whether the value is numeric or not.
 
 ```js
-import { isNumeric } from '@kiwicom/js';
+import { isNumeric } from '@adeira/js';
 
 isNumeric('42'); // true
 isNumeric(42); // true
@@ -149,7 +149,7 @@ function abc() {
 Becomes:
 
 ```js
-import { nullthrows } from '@kiwicom/js';
+import { nullthrows } from '@adeira/js';
 
 function abc() {
   return nullthrows(dataloader.load(1));
@@ -159,7 +159,7 @@ function abc() {
 Alternatively, you can supply a custom error message:
 
 ```js
-import { nullthrows } from '@kiwicom/js';
+import { nullthrows } from '@adeira/js';
 
 function abc() {
   return nullthrows(dataloader.load(1), 'UPS, this is an error!');

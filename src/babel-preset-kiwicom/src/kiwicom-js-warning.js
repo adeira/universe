@@ -3,12 +3,12 @@
 const buildDevExpression = require('./buildDevExpression');
 
 /**
- * import { warning } from "@kiwicom/js";
+ * import { warning } from "@adeira/js";
  * warning(condition, argument, argument);
  *
  *      ↓ ↓ ↓ ↓ ↓ ↓
  *
- * import { warning } from "@kiwicom/js";
+ * import { warning } from "@adeira/js";
  * if (process.env.NODE_ENV !== "production") {
  *   warning(condition, argument, argument);
  * }
@@ -25,14 +25,14 @@ module.exports = function(babel) {
     },
     visitor: {
       ImportDeclaration(path) {
-        if (path.node.source.value === '@kiwicom/js') {
+        if (path.node.source.value === '@adeira/js') {
           this.canPerformChanges = true;
         }
       },
       CallExpression: {
         enter: function(path) {
           if (path.get('callee').isIdentifier({ name: 'require' })) {
-            if (path.node.arguments[0].value === '@kiwicom/js') {
+            if (path.node.arguments[0].value === '@adeira/js') {
               this.canPerformChanges = true;
             }
           }

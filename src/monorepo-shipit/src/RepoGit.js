@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 import { ShellCommand } from '@kiwicom/monorepo-utils';
 import logger from '@kiwicom/logger';
 

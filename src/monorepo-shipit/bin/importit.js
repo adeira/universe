@@ -2,7 +2,7 @@
 
 // @flow strict-local
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @flow
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import strictLint from './migrate/strict-lint';
 import typesFirst from './migrate/types-first';

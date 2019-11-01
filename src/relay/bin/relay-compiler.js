@@ -10,7 +10,7 @@ require('@babel/register')({
 });
 
 const program = require('commander');
-const { invariant } = require('@kiwicom/js');
+const { invariant } = require('@adeira/js');
 const Logger = require('@kiwicom/logger').default;
 const RelayConfig = require('relay-config');
 

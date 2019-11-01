@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import { ReactRelayContext } from 'react-relay';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import type { Environment } from '../runtimeTypes.flow';
 

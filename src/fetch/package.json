@@ -9,7 +9,7 @@
   "homepage": "https://github.com/adeira/universe/blob/master/src/fetch/README.md",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
-    "@kiwicom/js": "^0.17.0",
+    "@adeira/js": "^0.1.0",
     "cross-fetch": "^3.0.4"
   },
   "devDependencies": {

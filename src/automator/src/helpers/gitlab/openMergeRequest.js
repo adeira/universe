@@ -1,7 +1,7 @@
 // @flow
 
 import fetch, { ResponseError } from '@adeira/fetch';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 const PROJECT_ID = 1419; // https://gitlab.skypicker.com/incubator/universe
 const ASSIGNEE_ID = 202; // https://gitlab.skypicker.com/api/v4/users?username=martin.zlamal

@@ -1,6 +1,6 @@
 // @flow
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';

@@ -1,6 +1,6 @@
 // @flow
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
 function suggest(name: string, alternativeNames: Array<string>): string {

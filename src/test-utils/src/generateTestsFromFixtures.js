@@ -1,7 +1,7 @@
 // @flow
 
 import os from 'os';
-import { isObject } from '@kiwicom/js';
+import { isObject } from '@adeira/js';
 
 const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
 

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
-import { invariant, sprintf } from '@kiwicom/js';
+import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
 
 import createEnvironment from './createEnvironment';
