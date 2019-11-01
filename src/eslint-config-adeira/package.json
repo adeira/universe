@@ -1,10 +1,10 @@
 {
-  "name": "@kiwicom/eslint-config",
-  "description": "Eslint configuration describing rules for JS used at Kiwi.com.",
+  "name": "@adeira/eslint-config",
+  "description": "Eslint configuration describing rules for JS used at Adeira.",
   "homepage": "https://github.com/kiwicom/eslint-config-kiwicom",
   "license": "MIT",
   "private": false,
-  "version": "8.4.0",
+  "version": "0.1.0",
   "main": "index",
   "sideEffects": false,
   "dependencies": {

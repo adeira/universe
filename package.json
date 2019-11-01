@@ -11,7 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@kiwicom/babel-preset-kiwicom": "^3.0.0",
-    "@kiwicom/eslint-config": "^8.0.0",
+    "@adeira/eslint-config": "^0.1.0",
     "@adeira/flow-bin": "^0.1.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",

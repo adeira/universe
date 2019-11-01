@@ -4,7 +4,7 @@ const ERROR = 2;
 
 module.exports = {
   root: true,
-  extends: ['@kiwicom/eslint-config'],
+  extends: ['@adeira/eslint-config'],
 
   parser: 'babel-eslint',
   env: {
