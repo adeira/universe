@@ -1,6 +1,6 @@
 // @flow
 
-import { nullthrows } from '@kiwicom/js';
+import { nullthrows } from '@adeira/js';
 
 type CLIConfig = { +[key: string]: string, ... };
 

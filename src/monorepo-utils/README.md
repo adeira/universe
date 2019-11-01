@@ -70,7 +70,7 @@ _TODO_
 Glob is our wrapper around [Node.js glob library](https://github.com/isaacs/node-glob) which adds additional default configuration (ignores `node_modules` by default), correct Flow types and validation of invalid usages. The API is very similar to the original Glob:
 
 ```js
-import { globSync } from '@kiwicom/js';
+import { globSync } from '@adeira/js';
 
 const filenames = globSync('/**/*.js', {
   root: path.join(__dirname, 'fixtures'),
@@ -82,7 +82,7 @@ const filenames = globSync('/**/*.js', {
 Alternatively, you can use the async variant:
 
 ```js
-import { globAsync } from '@kiwicom/js';
+import { globAsync } from '@adeira/js';
 
 (async function() {
   const filenames = await globAsync('/**/*.js', {

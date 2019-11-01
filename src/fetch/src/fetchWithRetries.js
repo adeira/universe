@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { sprintf, warning } from '@kiwicom/js';
+import { sprintf, warning } from '@adeira/js';
 
 import fetch from './fetch';
 import TimeoutError from './TimeoutError';

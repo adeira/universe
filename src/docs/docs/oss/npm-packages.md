@@ -45,7 +45,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 1.0.5 [@kiwicom/graphql-resolve-wrapper](https://github.com/kiwicom/graphql-resolve-wrapper) - Utility which enables to wrap GraphQL resolvers with your custom functions.
 - 0.3.0 [@kiwicom/graphql-result-size](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-result-size) - This module provides an implementation of an algorithm that calculates the (exact) size of GraphQL response objects without actually producing the response.
 - 0.8.0 [@kiwicom/graphql-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/graphql-utils) - Set of useful tools to build better GraphQL servers.
-- 0.17.0 [@kiwicom/js](https://github.com/kiwicom/js) - Useful JS functions used at Kiwi.com
+- 0.17.0 [@adeira/js](https://github.com/kiwicom/js) - Useful JS functions used at Kiwi.com
 - 0.0.1 [@kiwicom/redis](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/redis) - Highly opinionated Redis wrapper used at Kiwi.com
 - 4.7.1 [@kiwicom/relay](https://github.com/kiwicom/relay) - Highly opinionated Relay wrapper used at Kiwi.com
 - 1.0.5 [@adeira/signed-source](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.

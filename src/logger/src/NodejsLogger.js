@@ -4,7 +4,7 @@ import os from 'os';
 import path from 'path';
 import winston, { format, transports } from 'winston';
 import { SPLAT } from 'triple-beam';
-import { sprintf } from '@kiwicom/js';
+import { sprintf } from '@adeira/js';
 
 import type { ILogger } from './ILogger';
 

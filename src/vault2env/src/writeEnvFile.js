@@ -3,7 +3,7 @@
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { sprintf } from '@kiwicom/js';
+import { sprintf } from '@adeira/js';
 
 import parseEnv from './parseEnv';
 

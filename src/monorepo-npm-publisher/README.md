@@ -33,7 +33,7 @@ import publish from '@kiwicom/npm-publisher';
     // Workspaces to publish on NPM. It takes into account only
     // packages with public visibility set in `package.json`.
     workspaces: new Set([
-      '@kiwicom/js',
+      '@adeira/js',
       '@adeira/fetch',
       '@kiwicom/relay',
       '@kiwicom/eslint-config',
@@ -172,7 +172,7 @@ Notice the ordering of supported extensions. Therefore Next.js actually uses dif
 
 ```json
 {
-  "name": "@kiwicom/js",
+  "name": "@adeira/js",
   "module": "src/index.mjs",
   "main": "src/index"
 }

@@ -7,7 +7,7 @@ import util from 'util';
 import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
 import { globSync, findMonorepoRoot, ShellCommand } from '@kiwicom/monorepo-utils';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 import logger from '@kiwicom/logger';
 
 import findRelatedWorkspaceLocations from './findRelatedWorkspaceLocations';

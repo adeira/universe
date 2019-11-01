@@ -10,7 +10,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@kiwicom/js": "^0.17.0",
+    "@adeira/js": "^0.1.0",
     "@kiwicom/logger": "^0.3.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "@kiwicom/test-utils": "^0.10.0",

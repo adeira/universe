@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "sideEffects": false,
   "dependencies": {
-    "@kiwicom/js": "^0.17.0",
+    "@adeira/js": "^0.1.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
     "semver": "^6.3.0"
   },

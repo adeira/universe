@@ -2,7 +2,7 @@
 
 import util from 'util';
 import _glob from 'glob'; // eslint-disable-line no-restricted-imports
-import { invariant, isObject } from '@kiwicom/js';
+import { invariant, isObject } from '@adeira/js';
 
 type GlobPattern = string;
 

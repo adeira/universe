@@ -8,7 +8,7 @@ import {
   type GraphQLResolveInfo,
   type GraphQLFieldConfig,
 } from 'graphql';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 opaque type OpaqueIDString = string;
 

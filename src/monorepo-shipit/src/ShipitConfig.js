@@ -3,7 +3,7 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import { warning } from '@kiwicom/js';
+import { warning } from '@adeira/js';
 
 import Changeset from './Changeset';
 import addTrackingData from './filters/addTrackingData';

@@ -76,7 +76,7 @@ There are three transpilation targets available: `js` (default), `js-esm` and `f
 - JSX support `<Component />`
 - [`__DEV__` expression](#__dev__-expression)
 - [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
-- [transforms `invariant` and `warning` from `@kiwicom/js`](#invariant-and-warning-functions)
+- [transforms `invariant` and `warning` from `@adeira/js`](#invariant-and-warning-functions)
 - [generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) `function*` (we do _NOT_ support [async generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) at this moment)
 - [exponentiation operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation) `a ** 2`
 - _and many more depending on your environment, see section [different environments](#different-environments)..._
@@ -276,15 +276,15 @@ Read more: [How Does the Development Mode Work?](https://overreacted.io/how-does
 
 ## `invariant` and `warning` functions
 
-Functions [`invariant` and `warning`](https://www.npmjs.com/package/@kiwicom/js#invariant--warning) are useful when you want to express some unexpected application state or show warnings with helpful messages. They work without any presets because they are normal functions (using the `__DEV__` expression behind the scenes) however, they add unnecessary code to the production build. This preset adds additional transformation which can remove this unnecessary code:
+Functions [`invariant` and `warning`](https://www.npmjs.com/package/@adeira/js#invariant--warning) are useful when you want to express some unexpected application state or show warnings with helpful messages. They work without any presets because they are normal functions (using the `__DEV__` expression behind the scenes) however, they add unnecessary code to the production build. This preset adds additional transformation which can remove this unnecessary code:
 
 ```js
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 invariant(condition, argument, argument);
 
 //     ↓ ↓ ↓ ↓ ↓ ↓
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 if (!condition) {
   // this is essentially __DEV__ (vv)
   if (process.env.NODE_ENV !== 'production') {
@@ -298,12 +298,12 @@ if (!condition) {
 Technically, it looks like this final code is larger than the input. We expect that you use dead-code elimination so the final build is actually reduced to minimum. The same applies to `warning` except in this case the final output can be eliminated completely:
 
 ```js
-import { warning } from '@kiwicom/js';
+import { warning } from '@adeira/js';
 warning(condition, argument, argument);
 
 //     ↓ ↓ ↓ ↓ ↓ ↓
 
-import { warning } from '@kiwicom/js';
+import { warning } from '@adeira/js';
 // __DEV__ (vv)
 if (process.env.NODE_ENV !== 'production') {
   warning(condition, argument, argument);

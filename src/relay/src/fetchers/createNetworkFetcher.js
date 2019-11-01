@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import fetchWithRetries from '@adeira/fetch';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import { handleData, getRequestBody, getHeaders } from '../helpers';
 import type { RequestNode, Uploadables, Variables } from '../types.flow';

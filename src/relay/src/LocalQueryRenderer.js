@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { LocalQueryRenderer as RelayLocalQueryRenderer, ReactRelayContext } from 'react-relay';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import createLocalEnvironment from './createLocalEnvironment';
 import type { GraphQLTaggedNode, Variables } from './types.flow';

@@ -1,6 +1,6 @@
 // @flow strict
 
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 import moveDirectories from './moveDirectories';
 import Changeset from '../Changeset';

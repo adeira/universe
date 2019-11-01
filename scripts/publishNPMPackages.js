@@ -3,7 +3,7 @@
 import os from 'os';
 import path from 'path';
 import publish from '@kiwicom/monorepo-npm-publisher';
-import { invariant } from '@kiwicom/js';
+import { invariant } from '@adeira/js';
 
 // yarn monorepo-babel-node scripts/publishNPMPackages.js
 
@@ -22,6 +22,7 @@ import { invariant } from '@kiwicom/js';
     workspaces: new Set([
       '@adeira/fetch',
       '@adeira/signed-source',
+      '@adeira/js',
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });

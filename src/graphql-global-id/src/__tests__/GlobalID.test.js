@@ -1,7 +1,7 @@
 // @flow
 
 import { GraphQLObjectType, GraphQLID } from 'graphql';
-import { nullthrows } from '@kiwicom/js';
+import { nullthrows } from '@adeira/js';
 
 import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf } from '../GlobalID';
 
