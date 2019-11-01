@@ -110,6 +110,20 @@ const foo: {} = '';
 
 https://www.typescriptlang.org/play/index.html#code/MYewdgzgLgBAZiEAuGBvAvjAvDA5LgbiA
 
+### Defaults for non-existent properties are allowed
+
+```js
+const React = require('react');
+
+function Component({defaultProp = "string"}) {
+  return null;
+}
+
+<Component />;
+```
+
+This is allowed even though some people would expect something like "Error, defaultProp is missing in props", it's a feature: https://github.com/facebook/flow/commit/6dec7d5dbbd12a6f210f7c3ae21841a932eb71a8 (from 0.109.0)
+
 ## Typescript shenanigans
 
 ### Exact types only on declaration
