@@ -22,7 +22,7 @@
     "@kiwicom/js": "^0.17.0",
     "@kiwicom/logger": "^0.3.0",
     "@kiwicom/monorepo-utils": "^0.24.0",
-    "@kiwicom/signed-source": "^1.0.4",
+    "@adeira/signed-source": "^0.1.0",
     "babel-plugin-relay": "^7.0.0",
     "commander": "^3.0.2",
     "is-ci": "^2.0.0",

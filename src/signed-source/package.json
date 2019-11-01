@@ -1,10 +1,10 @@
 {
-  "name": "@kiwicom/signed-source",
+  "name": "@adeira/signed-source",
   "description": "Utility for signing and verifying generated files.",
-  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/signed-source",
+  "homepage": "https://github.com/adeira/universe/blob/master/src/signed-source/README.md",
   "license": "MIT",
   "private": false,
-  "version": "1.0.5",
+  "version": "0.1.0",
   "main": "src/SignedSource",
   "sideEffects": false,
   "dependencies": {}

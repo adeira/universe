@@ -9,7 +9,7 @@ import { type WorkspaceDependencies } from './Workspaces.flow';
  * 1) @kiwicom/graphql has workspace dependencies but it's not a
  *    dependency itself. Therefore it returns only @kiwicom/graphql.
  *
- * 2) @kiwicom/signed-source doesn't have dependency but some other
+ * 2) @adeira/signed-source doesn't have dependency but some other
  *    package depends on it. Therefore this function returns this
  *    package as well as every affected package recursively.
  */
