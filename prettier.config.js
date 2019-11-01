@@ -1,7 +1,7 @@
 // @flow strict
 
 module.exports = {
-  // see: @kiwicom/eslint-config
+  // see: @adeira/eslint-config
   bracketSpacing: true,
   printWidth: 100,
   singleQuote: true,

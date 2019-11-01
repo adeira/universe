@@ -1,10 +1,10 @@
 ---
 id: eslint-config-migration
-title: Migration to @kiwicom/eslint-config
+title: Migration to @adeira/eslint-config
 sidebar_label: Migration to ESLint config
 ---
 
-So you are working on a project for some time and finally an idea to start using `@kiwicom/eslint-config` appears. You set up everything quickly based on [the documentation](https://www.npmjs.com/package/@kiwicom/eslint-config), run `yarn eslint .` for the first time and receive output like this:
+So you are working on a project for some time and finally an idea to start using `@adeira/eslint-config` appears. You set up everything quickly based on [the documentation](https://www.npmjs.com/package/@adeira/eslint-config), run `yarn eslint .` for the first time and receive output like this:
 
 ```text
 2972 problems (2543 errors, 429 warnings)
@@ -15,7 +15,7 @@ The goal of this article is you don't quit after such a message.
 
 # Make it done, make it right
 
-It's totally OK to have many errors and warnings if you don't use `@kiwicom/eslint-config` in your project since the beginning. Important thing is to have a plan of how to come from zero to hero.
+It's totally OK to have many errors and warnings if you don't use `@adeira/eslint-config` in your project since the beginning. Important thing is to have a plan of how to come from zero to hero.
 
 The plan **should not be** like:
 
@@ -48,7 +48,7 @@ const ERROR = 2;
 
 module.exports = {
   root: true,
-  extends: ['@kiwicom/eslint-config'],
+  extends: ['@adeira/eslint-config'],
   parser: 'babel-eslint',
   rules: {
     'babel/camelcase': OFF,
@@ -82,6 +82,6 @@ The whole team should be committed to fixing the errors, don't make it to be a o
 
 # Think, have questions
 
-It's hard to have a motivation for this if you don't understand the purpose. If it's unclear for you why some rule was added into `@kiwicom/eslint-config` don't be afraid to ask on Slack in `#monorepo` channel.
+It's hard to have a motivation for this if you don't understand the purpose. If it's unclear for you why some rule was added into `@adeira/eslint-config` don't be afraid to ask on Slack in `#monorepo` channel.
 
-The same goes with fixing blindly every rule. It can happen you have a very good reason to break some rule in your project, just please provide your feedback in `#monorepo`. It can be explained why it's not a good idea or you can explain why it is a good idea to ignore that in your project or even why to remove that rule in the next `@kiwicom/eslint-config` release.
+The same goes with fixing blindly every rule. It can happen you have a very good reason to break some rule in your project, just please provide your feedback in `#monorepo`. It can be explained why it's not a good idea or you can explain why it is a good idea to ignore that in your project or even why to remove that rule in the next `@adeira/eslint-config` release.

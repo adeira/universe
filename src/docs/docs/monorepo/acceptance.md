@@ -6,8 +6,8 @@ sidebar_label: Acceptance criteria
 
 Any project from Incubator tribe can be accepted into this monorepo. However, there are some important criteria:
 
-- project uses latest version of `@kiwicom/eslint-config` without any errors or warnings (preferably not masked with `eslint-disable` comments)
-- project doesn't use any other additional Eslint rules (should be ported to `@kiwicom/eslint-config` but exceptions can be made after some discussion)
+- project uses latest version of `@adeira/eslint-config` without any errors or warnings (preferably not masked with `eslint-disable` comments)
+- project doesn't use any other additional Eslint rules (should be ported to `@adeira/eslint-config` but exceptions can be made after some discussion)
 - project is using latest version of Flow
 - project uses latest version of `@adeira/fetch` as a primary fetch library
 - `package.json` contains these fields: `name: @kiwicom/*`

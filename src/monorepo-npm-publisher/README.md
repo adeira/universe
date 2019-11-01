@@ -35,8 +35,8 @@ import publish from '@kiwicom/npm-publisher';
     workspaces: new Set([
       '@adeira/js',
       '@adeira/fetch',
-      '@kiwicom/relay',
-      '@kiwicom/eslint-config',
+      '@adeira/relay',
+      '@adeira/eslint-config',
     ]),
 
     npmAuthToken: '*** TODO ***', // see: https://www.npmjs.com/settings/<USERNAME>/tokens

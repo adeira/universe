@@ -7,7 +7,7 @@ Before you start you should **remove all Eslint plugins and Prettier** from your
 Install this package (as well as Eslint):
 
 ```
-yarn add eslint @kiwicom/eslint-config --dev [--ignore-workspace-root-check]
+yarn add eslint @adeira/eslint-config --dev [--ignore-workspace-root-check]
 ```
 
 And use it in your `.eslintrc.js`:
@@ -16,10 +16,10 @@ And use it in your `.eslintrc.js`:
 module.exports = {
   root: true,
   extends: [
-    '@kiwicom/eslint-config',
+    '@adeira/eslint-config',
 
     // - OR -
-    // '@kiwicom/eslint-config/strict',
+    // '@adeira/eslint-config/strict',
   ],
 };
 ```
@@ -36,7 +36,7 @@ const ERROR = 2;
 module.exports = {
   root: true,
 
-  extends: ['@kiwicom/eslint-config'],
+  extends: ['@adeira/eslint-config'],
 
   // adjust the rules as needed
   parser: 'babel-eslint',
@@ -61,7 +61,7 @@ This package contains special runner for Jest to speedup Eslint checks. It execu
 ```js
 module.exports = {
   displayName: 'lint',
-  runner: '@kiwicom/eslint-config/runner',
+  runner: '@adeira/eslint-config/runner',
   testMatch: ['<rootDir>/src/**/*.js', '<rootDir>/scripts/**/*.js'],
 };
 ```

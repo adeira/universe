@@ -19,7 +19,7 @@ module.exports = {
     node: true,
   },
 
-  extends: ['@kiwicom/eslint-config/strict'],
+  extends: ['@adeira/eslint-config/strict'],
 
   rules: {
     'no-restricted-imports': [
