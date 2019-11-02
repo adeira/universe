@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import path from 'path';
-import { ShellCommand } from '@kiwicom/monorepo-utils';
+import { ShellCommand } from '@adeira/monorepo-utils';
 
 import RepoGit from '../RepoGit';
 

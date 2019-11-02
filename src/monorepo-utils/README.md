@@ -5,7 +5,7 @@ This package is opinionated in many ways and it expects similar monorepo setup t
 # Installation
 
 ```
-yarn add --dev @kiwicom/monorepo-utils
+yarn add --dev @adeira/monorepo-utils
 ```
 
 # Usage
@@ -25,7 +25,7 @@ It memoizes the result internally so when you call it for the second time you'll
 `Workspaces` utility allows you to access information about workspaces anywhere in the monorepo. You can for example iterate all workspaces:
 
 ```js
-import { Workspaces } from '@kiwicom/monorepo-utils';
+import { Workspaces } from '@adeira/monorepo-utils';
 
 Workspaces.iterateWorkspaces(packageJSONLocation => {
   test(packageJSONLocation, () => {
@@ -39,7 +39,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 There is also (a)synchronous version without callbacks:
 
 ```js
-import { Workspaces } from '@kiwicom/monorepo-utils';
+import { Workspaces } from '@adeira/monorepo-utils';
 
 const packageJSONLocations = Workspaces.getWorkspacesSync(); // OR: getWorkspacesAsync
 
@@ -53,7 +53,7 @@ console.warn(packageJSONLocations);
 This function will give you all the workspaces that has been touched by your latest chages. Directly changed an also those workspaces who depend on the changed workspaces
 
 ```js
-import { getTouchedWorkspaces } from '@kiwicom/monorepo-utils';
+import { getTouchedWorkspaces } from '@adeira/monorepo-utils';
 
 const workspaces = getTouchedWorkspaces();
 console.log(Array.from(workspaces)); // -> ['@kiwicom/workspace1', '@kiwicom/workspace2']
@@ -100,7 +100,7 @@ Option `root` is required when your pattern starts from the root `/`. You don't 
 Shell command utility gives you the ability to work with shell while using friendly API and Flow types. Moreover it throws exceptions when the underlying child process fails for whatever reason so you can react easily. Basic usage:
 
 ```js
-import { ShellCommand } from '@kiwicom/monorepo-utils';
+import { ShellCommand } from '@adeira/monorepo-utils';
 
 new ShellCommand(
   null, // optional current working directory (defaults to `process.cwd`)

@@ -2,7 +2,7 @@
 
 import * as babel from '@babel/core';
 import { generateTestsFromFixtures } from '@kiwicom/test-utils';
-import { findMonorepoRoot } from '@kiwicom/monorepo-utils';
+import { findMonorepoRoot } from '@adeira/monorepo-utils';
 import stripAnsi from 'strip-ansi';
 import path from 'path';
 

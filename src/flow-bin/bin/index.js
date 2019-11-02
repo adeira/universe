@@ -10,7 +10,7 @@ require('@babel/register')({
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const { findMonorepoRoot, Git } = require('@kiwicom/monorepo-utils');
+const { findMonorepoRoot, Git } = require('@adeira/monorepo-utils');
 
 const Flow = require('../src/index').default;
 

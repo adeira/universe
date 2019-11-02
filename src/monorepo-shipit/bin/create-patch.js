@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { findMonorepoRoot } from '@kiwicom/monorepo-utils';
+import { findMonorepoRoot } from '@adeira/monorepo-utils';
 
 import RepoGit from '../src/RepoGit';
 

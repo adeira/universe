@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { globSync } from '@kiwicom/monorepo-utils';
+import { globSync } from '@adeira/monorepo-utils';
 
 test('there is a test file for every config file', () => {
   const configFilenames = globSync('/**/*.js', {

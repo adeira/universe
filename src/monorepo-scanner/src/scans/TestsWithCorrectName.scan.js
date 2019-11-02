@@ -1,6 +1,6 @@
 // @flow
 
-import { globSync } from '@kiwicom/monorepo-utils';
+import { globSync } from '@adeira/monorepo-utils';
 
 test('every test should be in the __tests__ folder', () => {
   expect.hasAssertions();

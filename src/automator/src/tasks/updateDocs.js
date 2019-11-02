@@ -2,7 +2,7 @@
 
 import os from 'os';
 import fs from 'fs';
-import { globSync, Workspaces, findMonorepoRoot } from '@kiwicom/monorepo-utils';
+import { globSync, Workspaces, findMonorepoRoot } from '@adeira/monorepo-utils';
 
 import replaceAutomatorTags from '../helpers/replaceAutomatorTags';
 import commitAllAndOpenMR from '../helpers/gitlab/commitAllAndOpenMR';

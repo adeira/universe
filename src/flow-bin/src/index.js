@@ -3,7 +3,7 @@
 import chalk from 'chalk';
 import path from 'path';
 import isCI from 'is-ci';
-import { ShellCommand, findMonorepoRoot } from '@kiwicom/monorepo-utils';
+import { ShellCommand, findMonorepoRoot } from '@adeira/monorepo-utils';
 import logger from '@kiwicom/logger';
 
 const monorepoRoot = findMonorepoRoot();

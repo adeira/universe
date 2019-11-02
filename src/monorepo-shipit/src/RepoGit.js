@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { invariant } from '@adeira/js';
-import { ShellCommand } from '@kiwicom/monorepo-utils';
+import { ShellCommand } from '@adeira/monorepo-utils';
 import logger from '@kiwicom/logger';
 
 import parsePatch from './parsePatch';

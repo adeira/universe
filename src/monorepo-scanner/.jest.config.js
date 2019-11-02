@@ -1,9 +1,9 @@
 // @flow strict
 
-require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo-utils' here
+require('@babel/register'); // to be able to use non-transpiled '@adeira/monorepo-utils' here
 
 const path = require('path');
-const { findMonorepoRoot } = require('@kiwicom/monorepo-utils');
+const { findMonorepoRoot } = require('@adeira/monorepo-utils');
 
 const monorepoSrcRoot = path.join(findMonorepoRoot(), 'src');
 
