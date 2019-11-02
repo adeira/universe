@@ -27,7 +27,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 
 <!-- AUTOMATOR:UPDATE_DOCS -->
 
-- 0.3.0 [@kiwicom/logger](https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger) - Multiplatform logger (Node.js, Browser, RN) with Datadog support
+- 0.3.0 [@adeira/logger](https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger) - Multiplatform logger (Node.js, Browser, RN) with Datadog support
 - 2.0.1 [@kiwicom/monorepo-npm-publisher](https://github.com/kiwicom/monorepo-npm-publisher) - Tool for automatically publishing of NPM packages from our monorepo
 - 0.24.0 [@adeira/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 0.6.0 [@kiwicom/orbit-react-native](https://gitlab.skypicker.com/incubator/universe/tree/master/src/incubator/orbit-react-native) - Orbit React Native Components are a component library which provide developers with the easiest possible way of building Kiwi.com’s products.

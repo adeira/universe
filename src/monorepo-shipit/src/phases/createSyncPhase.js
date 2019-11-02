@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import logger from '@kiwicom/logger';
+import logger from '@adeira/logger';
 
 import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';

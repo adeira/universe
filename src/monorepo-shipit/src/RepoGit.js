@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { invariant } from '@adeira/js';
 import { ShellCommand } from '@adeira/monorepo-utils';
-import logger from '@kiwicom/logger';
+import logger from '@adeira/logger';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';

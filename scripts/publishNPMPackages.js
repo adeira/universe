@@ -25,6 +25,7 @@ import { invariant } from '@adeira/js';
       '@adeira/js',
       '@adeira/monorepo-utils',
       '@adeira/relay',
+      '@adeira/logger',
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
   });

@@ -2,7 +2,7 @@
 
 // @flow strict-local
 
-import Logger from '@kiwicom/logger';
+import Logger from '@adeira/logger';
 
 import { iterateReversedConfigs } from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';

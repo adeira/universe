@@ -3,7 +3,7 @@ Multiplatform logger with support for Node.js, Browser and React Native. It's de
 # Installation
 
 ```text
-yarn add @kiwicom/logger
+yarn add @adeira/logger
 ```
 
 # Usage
