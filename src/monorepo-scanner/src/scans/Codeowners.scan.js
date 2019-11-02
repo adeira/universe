@@ -3,7 +3,7 @@
 import os from 'os';
 import fs from 'fs';
 import path from 'path';
-import { findRootPackageJsonPath } from '@kiwicom/monorepo-utils';
+import { findRootPackageJsonPath } from '@adeira/monorepo-utils';
 
 // https://docs.gitlab.com/ee/user/project/code_owners.html
 

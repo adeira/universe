@@ -10,7 +10,7 @@
   "dependencies": {
     "@babel/register": "^7.6.0",
     "@babel/runtime": "^7.6.3",
-    "@kiwicom/monorepo-utils": "^0.24.0",
+    "@adeira/monorepo-utils": "^0.1.0",
     "chalk": "^2.4.2",
     "create-jest-runner": "^0.5.3",
     "eslint-config-prettier": "^6.4.0",

@@ -6,7 +6,7 @@ import path from 'path';
 import util from 'util';
 import rimraf from 'rimraf';
 import { transformFileSync } from '@babel/core';
-import { globSync, findMonorepoRoot, ShellCommand } from '@kiwicom/monorepo-utils';
+import { globSync, findMonorepoRoot, ShellCommand } from '@adeira/monorepo-utils';
 import { invariant } from '@adeira/js';
 import logger from '@kiwicom/logger';
 

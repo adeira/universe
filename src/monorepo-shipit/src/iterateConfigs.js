@@ -1,7 +1,7 @@
 // @flow strict-local
 
 import path from 'path';
-import { findMonorepoRoot, globSync } from '@kiwicom/monorepo-utils';
+import { findMonorepoRoot, globSync } from '@adeira/monorepo-utils';
 import logger from '@kiwicom/logger';
 
 import requireAndValidateConfig from './requireAndValidateConfig';

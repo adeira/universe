@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import semver from 'semver';
-import { ShellCommand, Workspaces, findRootPackageJsonPath } from '@kiwicom/monorepo-utils';
+import { ShellCommand, Workspaces, findRootPackageJsonPath } from '@adeira/monorepo-utils';
 import { sprintf } from '@adeira/js';
 
 import automatorLog from '../log';

@@ -2,7 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { Workspaces } from '@kiwicom/monorepo-utils';
+import { Workspaces } from '@adeira/monorepo-utils';
 
 import isValidLicense from '../isValidLicense';
 

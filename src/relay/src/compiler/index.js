@@ -9,7 +9,7 @@ import {
   IRTransforms as RelayIRTransforms,
   JSModuleParser as RelayJSModuleParser,
 } from 'relay-compiler';
-import { globSync } from '@kiwicom/monorepo-utils';
+import { globSync } from '@adeira/monorepo-utils';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';

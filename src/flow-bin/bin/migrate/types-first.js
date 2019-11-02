@@ -2,7 +2,7 @@
 
 /* eslint-disable no-console */
 
-import { ShellCommand } from '@kiwicom/monorepo-utils';
+import { ShellCommand } from '@adeira/monorepo-utils';
 
 import walk from './utils/walk';
 

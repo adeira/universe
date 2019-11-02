@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import { ShellCommand } from '@kiwicom/monorepo-utils';
+import { ShellCommand } from '@adeira/monorepo-utils';
 import logger from '@kiwicom/logger';
 
 import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';

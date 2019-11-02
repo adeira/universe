@@ -12,7 +12,7 @@
   "dependencies": {
     "@adeira/js": "^0.1.0",
     "@kiwicom/logger": "^0.3.0",
-    "@kiwicom/monorepo-utils": "^0.24.0",
+    "@adeira/monorepo-utils": "^0.1.0",
     "@kiwicom/test-utils": "^0.10.0",
     "fast-levenshtein": "^2.0.6"
   }

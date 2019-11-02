@@ -1,10 +1,10 @@
 {
-  "name": "@kiwicom/monorepo-utils",
+  "name": "@adeira/monorepo-utils",
   "description": "Helpful functions to manage monorepos (using Yarn Workspaces).",
-  "homepage": "https://github.com/kiwicom/monorepo-utils",
+  "homepage": "https://github.com/adeira/universe/blob/master/src/monorepo-utils/README.md",
   "license": "MIT",
   "private": false,
-  "version": "0.24.0",
+  "version": "0.1.0",
   "main": "src/index",
   "sideEffects": false,
   "engines": {
