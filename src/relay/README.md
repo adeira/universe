@@ -21,12 +21,12 @@ More info about Relay, prior art:
 Before you start you should uninstall _all_ the Relay related packages you installed manually (Relay runtime, compiler, `react-relay` and `babel-plugin-relay`). You should also remove custom `flow-typed` definitions for Relay. This package takes care about everything you need.
 
 ```text
-yarn add react graphql @kiwicom/relay
+yarn add react graphql @adeira/relay
 ```
 
 # Usage
 
-Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler) (we prefer our own Compiler implementation, see below). It's important to note that the only package related to Relay you need to install is `@kiwicom/relay`. It contains all the necessary dependencies.
+Usage is the same as with original Relay: first you should setup [Relay babel plugin](https://relay.dev/docs/en/installation-and-setup#set-up-babel-plugin-relay) and then [Relay compiler](https://relay.dev/docs/en/installation-and-setup#set-up-relay-compiler) (we prefer our own Compiler implementation, see below). It's important to note that the only package related to Relay you need to install is `@adeira/relay`. It contains all the necessary dependencies.
 
 Minimal `.babelrc` file:
 
@@ -61,17 +61,17 @@ Options:
 
 There are a few additional rules to make sure everything goes smoothly:
 
-- you should always use `@kiwicom/relay` package and never Relay dependencies directly
-- do not import internals of this package (no `@kiwicom/relay/something/private.js`)
+- you should always use `@adeira/relay` package and never Relay dependencies directly
+- do not import internals of this package (no `@adeira/relay/something/private.js`)
 - please contact us directly in case something is problematic
 
-Please continue reading to discover `@kiwicom/relay` specifics.
+Please continue reading to discover `@adeira/relay` specifics.
 
 # Minimal example
 
 ```js
 import * as React from 'react';
-import { graphql, QueryRenderer } from '@kiwicom/relay';
+import { graphql, QueryRenderer } from '@adeira/relay';
 import type { AppQueryResponse } from './__generated__/AppQuery.graphql';
 
 function handleResponse(props: AppQueryResponse) {
@@ -148,7 +148,7 @@ Relay config uses [cosmiconfig](https://www.npmjs.com/package/cosmiconfig) behin
 The default `QueryRenderer` falls back to querying [graphql.kiwi.com](https://graphql.kiwi.com) if custom environment is not specified. This helps you to start faster but you have to specify `clientID` to identify the requests. You can also create your own environment:
 
 ```js
-import { createEnvironment, createNetworkFetcher } from '@kiwicom/relay';
+import { createEnvironment, createNetworkFetcher } from '@adeira/relay';
 
 const Environment = createEnvironment({
   fetchFn: createNetworkFetcher('https://graphql.kiwi.com', {
@@ -200,7 +200,7 @@ You should never import your custom environment directly when working with mutat
 ```js
 import {
   type RelayProp, // or `PaginationRelayProp` or `RefetchRelayProp` types
-} from '@kiwicom/relay';
+} from '@adeira/relay';
 
 type Props = {| +relay: RelayProp |};
 
@@ -216,7 +216,7 @@ Only this way you can be sure that your mutation/subscription is using correct e
 How to get environment when your component needs it for mutations for example and there is no `props.relay`? Simply use `useRelayEnvironment` hook. This hook can be used anywhere below Query Renderer or `RelayEnvironmentProvider` component in the React tree:
 
 ```js
-import { useRelayEnvironment } from '@kiwicom/relay';
+import { useRelayEnvironment } from '@adeira/relay';
 
 function Component() {
   const environment = useRelayEnvironment();
@@ -284,7 +284,7 @@ export default function App() {
 Refetch container is the best when you are changing variables in the component fragment or just simply refetching. Typical example is search or bi-directional pagination. Simply import the HoC as well as the refetch Flow type:
 
 ```js
-import { graphql, createRefetchContainer, type RefetchRelayProp } from '@kiwicom/relay';
+import { graphql, createRefetchContainer, type RefetchRelayProp } from '@adeira/relay';
 ```
 
 Usage:

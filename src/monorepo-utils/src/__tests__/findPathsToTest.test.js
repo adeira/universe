@@ -40,7 +40,7 @@ it('finds dirty paths to test based on the changed files', () => {
           "@kiwicom/automator",
           "@kiwicom/graphql-skymock",
           "@kiwicom/graphql",
-          "@kiwicom/relay",
+          "@adeira/relay",
           "example-react-native",
           "relay-example",
           "@kiwicom/vault2env",

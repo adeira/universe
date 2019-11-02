@@ -23,7 +23,7 @@ exports[`matches expected output: simple.header 1`] = `
 From bf0a8783cf416f796659e60fe735bba98e676e67 Mon Sep 17 00:00:00 2001
 From: Automator <martin.zlamal@kiwi.com>
 Date: Mon, 4 Feb 2019 13:29:04 -0600
-Subject: [PATCH] Import and publish '@kiwicom/relay' (0.1.0)
+Subject: [PATCH] Import and publish '@adeira/relay' (0.1.0)
 
 Formerly known as '@mrtnzlml/relay'
 
@@ -32,7 +32,7 @@ Formerly known as '@mrtnzlml/relay'
 {
   "timestamp": "Mon, 4 Feb 2019 13:29:04 -0600",
   "author": "Automator <martin.zlamal@kiwi.com>",
-  "subject": "Import and publish '@kiwicom/relay' (0.1.0)",
+  "subject": "Import and publish '@adeira/relay' (0.1.0)",
   "description": "Formerly known as '@mrtnzlml/relay'"
 }
 `;
