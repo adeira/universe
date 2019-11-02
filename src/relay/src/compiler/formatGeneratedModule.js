@@ -31,7 +31,7 @@ export default function formatGeneratedModule({
       ? `\ndeclare var __DEV__: boolean;\nif (__DEV__) {\n  ${devOnlyAssignments}\n}`
       : '';
 
-  // TODO: we should probably export the actual types from `@kiwicom/relay` rather than using the `flowlint:off` comment.
+  // TODO: we should probably export the actual types from `@adeira/relay` rather than using the `flowlint:off` comment.
   return `/**
  * @flow${hashText}
  */

@@ -28,7 +28,7 @@ export default sanitizeWorkspaces({
   },
   'example-react-native': {
     location: 'src/apps/example-react-native',
-    workspaceDependencies: ['@kiwicom/relay'],
+    workspaceDependencies: ['@adeira/relay'],
     mismatchedWorkspaceDependencies: [],
   },
   'graphql-schema-design': {
@@ -58,7 +58,7 @@ export default sanitizeWorkspaces({
   },
   'relay-example': {
     location: 'src/apps/relay-example',
-    workspaceDependencies: ['@kiwicom/babel-preset-kiwicom', '@kiwicom/relay'],
+    workspaceDependencies: ['@kiwicom/babel-preset-kiwicom', '@adeira/relay'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/babel-preset-kiwicom': {
@@ -131,7 +131,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: ['@adeira/js'],
     mismatchedWorkspaceDependencies: [],
   },
-  '@kiwicom/relay': {
+  '@adeira/relay': {
     location: 'src/packages/relay',
     workspaceDependencies: ['@adeira/fetch', '@adeira/js'],
     mismatchedWorkspaceDependencies: [],

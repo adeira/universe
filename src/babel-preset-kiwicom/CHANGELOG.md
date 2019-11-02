@@ -41,8 +41,8 @@
 
 # 3.0.0
 
-- Added support for dynamic `import()` syntax. This fits well with `@kiwicom/relay` version 1.0+ and allows you to use `@match`/`@module` directives for data-driven code splitting.
-- Breaking: Relay plugin is no longer part of this preset. It was moved to `@kiwicom/relay`. Please, edit your Babel configuration files (example for Next.js applications):
+- Added support for dynamic `import()` syntax. This fits well with `@adeira/relay` version 1.0+ and allows you to use `@match`/`@module` directives for data-driven code splitting.
+- Breaking: Relay plugin is no longer part of this preset. It was moved to `@adeira/relay`. Please, edit your Babel configuration files (example for Next.js applications):
 
 ```js
 module.exports = {
