@@ -2,7 +2,7 @@
 
 import path from 'path';
 import { findMonorepoRoot, globSync } from '@adeira/monorepo-utils';
-import logger from '@kiwicom/logger';
+import logger from '@adeira/logger';
 
 import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';

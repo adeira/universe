@@ -1,7 +1,7 @@
 // @flow
 
 import os from 'os';
-import logger from '@kiwicom/logger';
+import logger from '@adeira/logger';
 
 import fetchSecrets from './fetchSecrets';
 import getParameters from './getParameters';

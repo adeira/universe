@@ -11,7 +11,7 @@ require('@babel/register')({
 
 const program = require('commander');
 const { invariant } = require('@adeira/js');
-const Logger = require('@kiwicom/logger').default;
+const Logger = require('@adeira/logger').default;
 const RelayConfig = require('relay-config');
 
 const compiler = require('../src/compiler').default;

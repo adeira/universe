@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import path from 'path';
 import isCI from 'is-ci';
 import { ShellCommand, findMonorepoRoot } from '@adeira/monorepo-utils';
-import logger from '@kiwicom/logger';
+import logger from '@adeira/logger';
 
 const monorepoRoot = findMonorepoRoot();
 const flowBin = path.join(monorepoRoot, 'node_modules', '.bin', 'flow');

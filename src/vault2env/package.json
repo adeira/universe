@@ -13,7 +13,7 @@
   "dependencies": {
     "@adeira/fetch": "^0.1.0",
     "@adeira/js": "^0.1.0",
-    "@kiwicom/logger": "^0.3.0",
+    "@adeira/logger": "^0.1.0",
     "commander": "^3.0.2"
   },
   "devDependencies": {

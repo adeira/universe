@@ -7,7 +7,7 @@
   "dependencies": {
     "@adeira/fetch": "^0.1.0",
     "@adeira/js": "^0.1.0",
-    "@kiwicom/logger": "^0.3.0",
+    "@adeira/logger": "^0.1.0",
     "@adeira/monorepo-utils": "^0.1.0",
     "glob": "^7.1.5",
     "is-ci": "^2.0.0",

@@ -1,7 +1,7 @@
 // @flow
 
 import isCI from 'is-ci';
-import logger from '@kiwicom/logger';
+import logger from '@adeira/logger';
 
 import createQueryID from './createQueryID';
 import graphql from '../../graphql';
