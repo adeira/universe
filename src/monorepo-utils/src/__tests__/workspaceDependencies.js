@@ -4,7 +4,7 @@ import sanitizeWorkspaces from '../sanitizeWorkspaces';
 
 // This is actual output of `yarn workspaces info` to this date.
 export default sanitizeWorkspaces({
-  '@kiwicom/automator': {
+  '@adeira/automator': {
     location: 'src/apps/automator',
     workspaceDependencies: [
       '@kiwicom/test-utils',
