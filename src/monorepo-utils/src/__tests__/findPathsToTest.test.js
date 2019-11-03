@@ -37,7 +37,7 @@ it('finds dirty paths to test based on the changed files', () => {
         "TESTING WORKSPACES:",
         Set {
           "@adeira/fetch",
-          "@kiwicom/automator",
+          "@adeira/automator",
           "@kiwicom/graphql-skymock",
           "@kiwicom/graphql",
           "@kiwicom/relay",
