@@ -18,7 +18,7 @@ it('finds related workspaces based on touched workspaces', () => {
     .toMatchInlineSnapshot(`
     Set {
       "@adeira/fetch",
-      "@kiwicom/automator",
+      "@adeira/automator",
       "@kiwicom/graphql-skymock",
       "@kiwicom/graphql",
       "@adeira/relay",
