@@ -14,6 +14,7 @@ sidebar_label: All-in
 - https://github.com/dustinspecker/awesome-flow
 - https://gajus.github.io/flow-runtime/
 - https://medium.com/flow-type/what-the-flow-team-has-been-up-to-54239c62004f#a548
+- https://github.com/facebook/flow/issues/7365 (Facebook's own Flow adoption?)
 - Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
 
 Showerthoughts:
