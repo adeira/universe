@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { parse, buildSchema } from 'graphql';
-import { generateTestsFromFixtures } from '@kiwicom/test-utils';
+import { generateTestsFromFixtures } from '@adeira/test-utils';
 
 import { calculate } from '../calculate';
 

@@ -1,7 +1,7 @@
 // @flow
 
 import snapshotDiff from 'snapshot-diff';
-import { generateTestsFromFixtures } from '@kiwicom/test-utils';
+import { generateTestsFromFixtures } from '@adeira/test-utils';
 
 import modify from '../modifyPackageJSON';
 

@@ -7,7 +7,7 @@ export default sanitizeWorkspaces({
   '@adeira/automator': {
     location: 'src/apps/automator',
     workspaceDependencies: [
-      '@kiwicom/test-utils',
+      '@adeira/test-utils',
       '@kiwicom/environment',
       '@adeira/fetch',
       '@kiwicom/graphql-skymock',
@@ -38,13 +38,13 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/graphql-skymock': {
     location: 'src/apps/graphql-skymock',
-    workspaceDependencies: ['@kiwicom/test-utils', '@adeira/fetch', '@adeira/js'],
+    workspaceDependencies: ['@adeira/test-utils', '@adeira/fetch', '@adeira/js'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/graphql': {
     location: 'src/apps/graphql',
     workspaceDependencies: [
-      '@kiwicom/test-utils',
+      '@adeira/test-utils',
       '@kiwicom/environment',
       '@adeira/fetch',
       '@adeira/graphql-bc-checker',
@@ -63,7 +63,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/babel-preset-kiwicom': {
     location: 'src/packages/babel-preset-kiwicom',
-    workspaceDependencies: ['@kiwicom/test-utils'],
+    workspaceDependencies: ['@adeira/test-utils'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/environment': {
@@ -88,7 +88,7 @@ export default sanitizeWorkspaces({
   },
   '@adeira/graphql-bc-checker': {
     location: 'src/packages/graphql-bc-checker',
-    workspaceDependencies: ['@kiwicom/test-utils'],
+    workspaceDependencies: ['@adeira/test-utils'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/graphql-global-id': {
@@ -103,7 +103,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/graphql-resolve-wrapper': {
     location: 'src/packages/graphql-resolve-wrapper',
-    workspaceDependencies: ['@kiwicom/test-utils'],
+    workspaceDependencies: ['@adeira/test-utils'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/graphql-utils': {
@@ -123,7 +123,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/monorepo-shipit': {
     location: 'src/core/monorepo-shipit',
-    workspaceDependencies: ['@adeira/js', '@kiwicom/monorepo', '@kiwicom/test-utils'],
+    workspaceDependencies: ['@adeira/js', '@kiwicom/monorepo', '@adeira/test-utils'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/monorepo': {
@@ -136,7 +136,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: ['@adeira/fetch', '@adeira/js'],
     mismatchedWorkspaceDependencies: [],
   },
-  '@kiwicom/test-utils': {
+  '@adeira/test-utils': {
     location: 'src/packages/test-utils',
     workspaceDependencies: ['@adeira/js'],
     mismatchedWorkspaceDependencies: [],

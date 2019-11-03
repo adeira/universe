@@ -1,7 +1,7 @@
 // @flow
 
 import * as babel from '@babel/core';
-import { generateTestsFromFixtures } from '@kiwicom/test-utils';
+import { generateTestsFromFixtures } from '@adeira/test-utils';
 import { findMonorepoRoot } from '@adeira/monorepo-utils';
 import stripAnsi from 'strip-ansi';
 import path from 'path';
