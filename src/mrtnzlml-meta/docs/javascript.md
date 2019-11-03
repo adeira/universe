@@ -9,6 +9,7 @@ sidebar_label: JavaScript
 - https://developer.mozilla.org/en-US/docs/Web
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
+- https://shapeshed.com/writing-cross-platform-node/
 - [Computing average in a constant time](https://stackoverflow.com/a/22999488/3135248) (average streaming)
 
 ## Understanding Babel internals
