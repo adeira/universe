@@ -1,7 +1,7 @@
 // @flow
 
 import path from 'path';
-import { generateTestsFromFixtures } from '@kiwicom/test-utils';
+import { generateTestsFromFixtures } from '@adeira/test-utils';
 
 import parseEnv from '../parseEnv';
 
