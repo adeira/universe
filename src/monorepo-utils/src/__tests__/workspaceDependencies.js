@@ -47,7 +47,7 @@ export default sanitizeWorkspaces({
       '@kiwicom/test-utils',
       '@kiwicom/environment',
       '@adeira/fetch',
-      '@kiwicom/graphql-bc-checker',
+      '@adeira/graphql-bc-checker',
       '@kiwicom/graphql-global-id',
       '@kiwicom/graphql-monitoring',
       '@kiwicom/graphql-resolve-wrapper',
@@ -86,7 +86,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: ['@adeira/js'],
     mismatchedWorkspaceDependencies: [],
   },
-  '@kiwicom/graphql-bc-checker': {
+  '@adeira/graphql-bc-checker': {
     location: 'src/packages/graphql-bc-checker',
     workspaceDependencies: ['@kiwicom/test-utils'],
     mismatchedWorkspaceDependencies: [],
