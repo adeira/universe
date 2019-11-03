@@ -25,5 +25,6 @@ jobs:
           yarn run typecheck restart --all
           yarn run lint --all
           yarn run test-only --all
+          yarn run scanner
         env:
           CI: true
