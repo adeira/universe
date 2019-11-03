@@ -1,5 +1,12 @@
 # Unreleased
 
+---
+
+Changelog before our fork:
+
+```text
+# Unreleased
+
 This is a **breaking** release!
 
 - Relay upgraded to the latest version 7.0.0 (see: https://github.com/facebook/relay/releases/tag/v7.0.0)
@@ -93,7 +100,7 @@ module.exports = {
 ```js
 import {
   type RelayProp, // or `PaginationRelayProp` or `RefetchRelayProp` types
-} from '@kiwicom/relay';
+} from '@adeira/relay';
 
 type Props = {| +relay: RelayProp |};
 
@@ -131,7 +138,7 @@ module.exports = {
 
 # 2.0.0
 
-- Upgraded to Relay version 4.0.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0). Our previous versions 1.x disallowed some deprecated usages of Relay so this upgrade should be relatively straightforward. Check new testing tools in this release - especially `MockPayloadGenerator` and `RelayMockEnvironment`. There is also an improved support for `@match`/`@module` directives (available from `@kiwicom/relay` version 1.0) which works well with `@kiwicom/babel-preset-kiwicom` from version 3.0. Please give it a try and give us your feedback.
+- Upgraded to Relay version 4.0.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0). Our previous versions 1.x disallowed some deprecated usages of Relay so this upgrade should be relatively straightforward. Check new testing tools in this release - especially `MockPayloadGenerator` and `RelayMockEnvironment`. There is also an improved support for `@match`/`@module` directives (available from `@adeira/relay` version 1.0) which works well with `@kiwicom/babel-preset-kiwicom` from version 3.0. Please give it a try and give us your feedback.
 
 # 1.2.0
 
@@ -141,3 +148,4 @@ module.exports = {
 
 - `Disposable` Flow type exposed publicly
 - `Environment` (incomplete) Flow type exposed publicly
+```

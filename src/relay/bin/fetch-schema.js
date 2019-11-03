@@ -31,7 +31,7 @@ const filename = path.join(process.cwd(), program.filename);
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'X-Client': '@kiwicom/relay schema fetcher',
+      'X-Client': '@adeira/relay schema fetcher',
     },
     body: JSON.stringify({
       query: getIntrospectionQuery(),
