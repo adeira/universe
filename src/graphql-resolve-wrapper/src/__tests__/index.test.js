@@ -9,7 +9,7 @@ import {
   GraphQLNonNull,
   GraphQLList,
 } from 'graphql';
-import { evaluateGraphQLResolver } from '@kiwicom/test-utils';
+import { evaluateGraphQLResolver } from '@adeira/test-utils';
 
 import { wrapResolvers, isSystemType } from '../index';
 
