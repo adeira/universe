@@ -16,6 +16,7 @@ Collection of interesting links, articles and project...
 ## A
 
 - [A blogging style guide](https://robertheaton.com/2018/12/06/a-blogging-style-guide/)
+- [All resources I know related to Open Directories](https://www.reddit.com/r/opendirectories/comments/933pzm/all_resources_i_know_related_to_open_directories/)
 - [All the best engineering advice I stole from non-technical people](https://medium.com/@bellmar/all-the-best-engineering-advice-i-stole-from-non-technical-people-eb7f90ca2f5f)
 - [A tour of JavaScript timers on the web](https://nolanlawson.com/2018/09/01/a-tour-of-javascript-timers-on-the-web/)
 
