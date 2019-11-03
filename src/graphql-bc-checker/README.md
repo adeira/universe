@@ -5,14 +5,14 @@ This package checks breaking changes in your GraphQL schema. It saves the schema
 First install the package:
 
 ```
-yarn add --dev @kiwicom/graphql-bc-checker
+yarn add --dev @adeira/graphql-bc-checker
 ```
 
 And use it as you wish (`scripts/test-bc.js`):
 
 ```js
 import path from 'path';
-import testBC from '@kiwicom/graphql-bc-checker';
+import testBC from '@adeira/graphql-bc-checker';
 
 import Schema from './src/Schema';
 

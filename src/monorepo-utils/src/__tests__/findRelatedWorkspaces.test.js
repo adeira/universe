@@ -21,7 +21,7 @@ it('finds related workspaces based on touched workspaces', () => {
       "@adeira/automator",
       "@kiwicom/graphql-skymock",
       "@kiwicom/graphql",
-      "@kiwicom/relay",
+      "@adeira/relay",
       "example-react-native",
       "relay-example",
       "@kiwicom/vault2env",

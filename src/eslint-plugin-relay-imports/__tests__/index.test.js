@@ -22,7 +22,7 @@ const ruleTester = new RuleTester({
 const validForBoth = [
   {
     // not a Relay import
-    code: "import { graphql } from '@kiwicom/relay';",
+    code: "import { graphql } from '@adeira/relay';",
     filename: '/path/Module.js',
   },
   {

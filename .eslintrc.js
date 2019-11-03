@@ -36,7 +36,7 @@ module.exports = {
           },
           {
             name: 'react-relay',
-            message: 'Use @kiwicom/relay instead.',
+            message: 'Use @adeira/relay instead.',
           },
           {
             name: '@kiwicom/graphql-skymock',

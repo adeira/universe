@@ -1,10 +1,10 @@
 {
-  "name": "@kiwicom/graphql-bc-checker",
+  "name": "@adeira/graphql-bc-checker",
   "description": "Script to detect breaking changes in GraphQL schema with ability to log these changes.",
   "homepage": "https://github.com/kiwicom/graphql-bc-checker",
   "license": "MIT",
   "private": false,
-  "version": "1.4.1",
+  "version": "0.1.0",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
