@@ -141,7 +141,7 @@ export default sanitizeWorkspaces({
     workspaceDependencies: ['@adeira/js'],
     mismatchedWorkspaceDependencies: [],
   },
-  '@kiwicom/vault2env': {
+  '@adeira/vault2env': {
     location: 'src/packages/vault2env',
     workspaceDependencies: ['@adeira/fetch'],
     mismatchedWorkspaceDependencies: [],
