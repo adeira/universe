@@ -58,11 +58,11 @@ export default sanitizeWorkspaces({
   },
   'relay-example': {
     location: 'src/apps/relay-example',
-    workspaceDependencies: ['@kiwicom/babel-preset-kiwicom', '@adeira/relay'],
+    workspaceDependencies: ['@adeira/babel-preset-adeira', '@adeira/relay'],
     mismatchedWorkspaceDependencies: [],
   },
-  '@kiwicom/babel-preset-kiwicom': {
-    location: 'src/packages/babel-preset-kiwicom',
+  '@adeira/babel-preset-adeira': {
+    location: 'src/packages/babel-preset-adeira',
     workspaceDependencies: ['@adeira/test-utils'],
     mismatchedWorkspaceDependencies: [],
   },
@@ -118,7 +118,7 @@ export default sanitizeWorkspaces({
   },
   '@kiwicom/monorepo-npm-publisher': {
     location: 'src/packages/monorepo-npm-publisher',
-    workspaceDependencies: ['@kiwicom/babel-preset-kiwicom', '@kiwicom/monorepo'],
+    workspaceDependencies: ['@adeira/babel-preset-adeira', '@kiwicom/monorepo'],
     mismatchedWorkspaceDependencies: [],
   },
   '@kiwicom/monorepo-shipit': {

@@ -24,8 +24,8 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
       // $FlowAllowDynamicImport
       const babelRC = require(babelRCLocation);
 
-      expect(babelRC.presets.includes('@kiwicom/babel-preset-kiwicom')).toGiveHelp(
-        `Your Next.js application ${appName} should contain '${babelRCFile}' file with '@kiwicom/babel-preset-kiwicom' preset.`,
+      expect(babelRC.presets.includes('@adeira/babel-preset-adeira')).toGiveHelp(
+        `Your Next.js application ${appName} should contain '${babelRCFile}' file with '@adeira/babel-preset-adeira' preset.`,
       );
 
       expect(babelRC.presets.includes('next/babel')).toGiveHelp(
@@ -34,9 +34,9 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
       expect(
         babelRC.presets.indexOf('next/babel') >
-          babelRC.presets.indexOf('@kiwicom/babel-preset-kiwicom'),
+          babelRC.presets.indexOf('@adeira/babel-preset-adeira'),
       ).toGiveHelp(
-        `Preset 'next/babel' should be defined AFTER '@kiwicom/babel-preset-kiwicom' (${appName}).`,
+        `Preset 'next/babel' should be defined AFTER '@adeira/babel-preset-adeira' (${appName}).`,
       );
     });
   }

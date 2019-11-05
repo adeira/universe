@@ -1,6 +1,6 @@
 // @flow strict
 
 module.exports = {
-  presets: ['@kiwicom/babel-preset-kiwicom', 'next/babel'],
+  presets: ['@adeira/babel-preset-adeira', 'next/babel'],
   plugins: ['relay'],
 };
