@@ -127,18 +127,18 @@ function Component(props: Props) {
 
 # 2.1.0
 
-- Babel Relay preset is now part of this package. Removed from `@kiwicom/babel-preset-kiwicom` in version 3.0.0. Please, edit your Babel configuration files (example for Next.js applications):
+- Babel Relay preset is now part of this package. Removed from `@adeira/babel-preset-adeira` in version 3.0.0. Please, edit your Babel configuration files (example for Next.js applications):
 
 ```js
 module.exports = {
-  presets: ['@kiwicom/babel-preset-kiwicom', 'next/babel'],
+  presets: ['@adeira/babel-preset-adeira', 'next/babel'],
   plugins: ['relay'],
 };
 ```
 
 # 2.0.0
 
-- Upgraded to Relay version 4.0.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0). Our previous versions 1.x disallowed some deprecated usages of Relay so this upgrade should be relatively straightforward. Check new testing tools in this release - especially `MockPayloadGenerator` and `RelayMockEnvironment`. There is also an improved support for `@match`/`@module` directives (available from `@adeira/relay` version 1.0) which works well with `@kiwicom/babel-preset-kiwicom` from version 3.0. Please give it a try and give us your feedback.
+- Upgraded to Relay version 4.0.0 (see: https://github.com/facebook/relay/releases/tag/v4.0.0). Our previous versions 1.x disallowed some deprecated usages of Relay so this upgrade should be relatively straightforward. Check new testing tools in this release - especially `MockPayloadGenerator` and `RelayMockEnvironment`. There is also an improved support for `@match`/`@module` directives (available from `@adeira/relay` version 1.0) which works well with `@adeira/babel-preset-adeira` from version 3.0. Please give it a try and give us your feedback.
 
 # 1.2.0
 

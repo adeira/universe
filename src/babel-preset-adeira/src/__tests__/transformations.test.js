@@ -17,8 +17,8 @@ function transform(target) {
         rootMode: 'root',
         presets:
           target === 'js'
-            ? ['@kiwicom/babel-preset-kiwicom'] // keep it here to test the defaults
-            : [['@kiwicom/babel-preset-kiwicom', { target }]], // for any other target
+            ? ['@adeira/babel-preset-adeira'] // keep it here to test the defaults
+            : [['@adeira/babel-preset-adeira', { target }]], // for any other target
         filename: 'mockFile.js',
       }).code;
 

@@ -16,7 +16,7 @@ export default function transformFileVariants(
       root: __dirname, // do not lookup any other Babel config
       presets: [
         [
-          '@kiwicom/babel-preset-kiwicom',
+          '@adeira/babel-preset-adeira',
           {
             target,
           },

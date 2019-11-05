@@ -15,7 +15,7 @@ This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.
 Install this package:
 
 ```
-yarn add --dev @babel/core @kiwicom/babel-preset-kiwicom
+yarn add --dev @babel/core @adeira/babel-preset-adeira
 ```
 
 And use it in your `babel.config.js`:
@@ -37,7 +37,7 @@ module.exports = function(api /*: ApiType */) {
   api.assertVersion(7);
   api.cache.forever();
 
-  const presets = ['@kiwicom/babel-preset-kiwicom'];
+  const presets = ['@adeira/babel-preset-adeira'];
   const extraPlugins = [];
 
   return {
@@ -108,7 +108,7 @@ module.exports = function(api /*: ApiType */) {
   return {
     presets: [
       [
-        '@kiwicom/babel-preset-kiwicom',
+        '@adeira/babel-preset-adeira',
         {
           target: 'flow', // or 'js' (default) or 'js-esm'
         },
@@ -134,7 +134,7 @@ module.exports = function(api /*: ApiType */) {
   return {
     presets: [
       [
-        '@kiwicom/babel-preset-kiwicom',
+        '@adeira/babel-preset-adeira',
         {
           target: api.caller(isWebpack) ? 'js-esm' : 'js',
         },
@@ -152,7 +152,7 @@ While transpilation targets are targeting different JavaScript systems (ES6, Flo
 module.exports = {
   presets: [
     [
-      '@kiwicom/babel-preset-kiwicom',
+      '@adeira/babel-preset-adeira',
       {
         environments: {
           node: 'current', // targeting only current Node.js version (no browsers)
@@ -175,7 +175,7 @@ You can easily debug what environments and plugins are being used when you pass 
 module.exports = {
   presets: [
     [
-      '@kiwicom/babel-preset-kiwicom',
+      '@adeira/babel-preset-adeira',
       {
         debug: true,
       },

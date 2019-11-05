@@ -27,7 +27,7 @@ module.exports = function(api /*: ApiType */) {
   return {
     presets: [
       [
-        '@kiwicom/babel-preset-kiwicom',
+        '@adeira/babel-preset-adeira',
         {
           target: api.caller(isWebpack) ? 'js-esm' : 'js',
         },
