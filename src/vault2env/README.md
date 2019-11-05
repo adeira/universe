@@ -5,7 +5,7 @@ This utility exposes one binary: `vault2env`. It let's you easily load environme
 # Install
 
 ```
-yarn add @kiwicom/vault2env --dev
+yarn add @adeira/vault2env --dev
 ```
 
 # Usage

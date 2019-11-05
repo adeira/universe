@@ -24,7 +24,7 @@ it('finds related workspaces based on touched workspaces', () => {
       "@adeira/relay",
       "example-react-native",
       "relay-example",
-      "@kiwicom/vault2env",
+      "@adeira/vault2env",
     }
   `);
 });

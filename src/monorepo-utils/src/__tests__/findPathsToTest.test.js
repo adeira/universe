@@ -43,7 +43,7 @@ it('finds dirty paths to test based on the changed files', () => {
           "@adeira/relay",
           "example-react-native",
           "relay-example",
-          "@kiwicom/vault2env",
+          "@adeira/vault2env",
         },
       ],
     ]
