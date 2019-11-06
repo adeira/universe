@@ -1,5 +1,5 @@
 {
-  "name": "@kiwicom/grpc2graphql",
+  "name": "@adeira/grpc2graphql",
   "version": "0.0.0",
   "private": true,
   "description": "GraphQL server codegen from gRPC proto files.",

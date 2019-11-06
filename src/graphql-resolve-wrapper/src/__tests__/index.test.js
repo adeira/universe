@@ -32,7 +32,7 @@ beforeEach(() => {
         },
 
         resolveValueNumber: {
-          // eslint-disable-next-line kiwicom-incubator/only-nullable-fields
+          // eslint-disable-next-line adeira-incubator/only-nullable-fields
           type: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLInt))),
           deprecationReason: 'for testing',
           resolve: () => {

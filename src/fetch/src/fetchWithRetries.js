@@ -57,7 +57,7 @@ export default function fetchWithRetries(
             // We overwrite it here to make clear where is this request actually
             // coming from. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
             'User-Agent': sprintf(
-              '@adeira/fetch (+https://github.com/kiwicom/fetch; %s)',
+              '@adeira/fetch (+https://github.com/adeira/universe; %s)',
               requestsAttempted,
             ),
           }

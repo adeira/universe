@@ -6,7 +6,7 @@
   "dependencies": {
     "@adeira/js": "^0.1.0",
     "@adeira/logger": "^0.1.0",
-    "@kiwicom/monorepo-npm-publisher": "^2.0.0",
+    "@adeira/monorepo-npm-publisher": "^0.1.0",
     "chalk": "^2.4.2"
   }
 }

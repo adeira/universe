@@ -21,7 +21,7 @@ const expectedBody = '{"query":"mocked request.text","variables":{"mock":true}}'
 it('works with additional headers', async () => {
   const fetcher = createNetworkFetcher('//localhost', {
     'X-Custom': 'Bearer 123',
-    'X-Client': 'https://github.com/kiwicom/relay-example',
+    'X-Client': 'https://github.com/adeira/relay-example',
   });
 
   await expect(fetcher(request, variables)).resolves.toEqual({ mock: 'ok' });
@@ -31,7 +31,7 @@ it('works with additional headers', async () => {
       Accept: 'application/json',
       'Content-type': 'application/json',
       'X-Custom': 'Bearer 123',
-      'X-Client': 'https://github.com/kiwicom/relay-example',
+      'X-Client': 'https://github.com/adeira/relay-example',
     },
     method: 'POST',
   });
@@ -41,7 +41,7 @@ it('works with promised headers', async () => {
   const headers = new Promise(resolve => {
     // simulates somehow difficult and async way how to get headers (real-world example)
     resolve({
-      'X-Client': 'https://github.com/kiwicom/relay-example',
+      'X-Client': 'https://github.com/adeira/relay-example',
     });
   });
 
@@ -53,7 +53,7 @@ it('works with promised headers', async () => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      'X-Client': 'https://github.com/kiwicom/relay-example',
+      'X-Client': 'https://github.com/adeira/relay-example',
     },
     method: 'POST',
   });
@@ -63,7 +63,7 @@ it('accepts refetchConfig', async () => {
   const fetcher = createNetworkFetcher(
     '//localhost',
     {
-      'X-Client': 'https://github.com/kiwicom/relay-example',
+      'X-Client': 'https://github.com/adeira/relay-example',
     },
     {
       fetchTimeout: 60000,
@@ -77,7 +77,7 @@ it('accepts refetchConfig', async () => {
     headers: {
       Accept: 'application/json',
       'Content-type': 'application/json',
-      'X-Client': 'https://github.com/kiwicom/relay-example',
+      'X-Client': 'https://github.com/adeira/relay-example',
     },
     method: 'POST',
     fetchTimeout: 60000,

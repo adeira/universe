@@ -10,13 +10,13 @@ Any project from Incubator tribe can be accepted into this monorepo. However, th
 - project doesn't use any other additional Eslint rules (should be ported to `@adeira/eslint-config` but exceptions can be made after some discussion)
 - project is using latest version of Flow
 - project uses latest version of `@adeira/fetch` as a primary fetch library
-- `package.json` contains these fields: `name: @kiwicom/*`
+- `package.json` contains these fields: `name: @adeira/*`
 - tests are nested in the `__tests__` folder with `*.test.js` extension
 - project has all the dependencies updated
 
 ## New import method
 
-We use [Importit](https://github.com/kiwicom/monorepo-shipit#importit-part-unstable) for importing already existing projects. This method creates only one "import" commit but it adjusts the paths correctly (in contrary to the legacy method). First, you have to create a new _reversed_ Shipit config for your project. Then you have to run _reversed_ Importit script:
+We use [Importit](https://github.com/adeira/universe/tree/master/src/monorepo-shipit#importit-part-unstable) for importing already existing projects. This method creates only one "import" commit but it adjusts the paths correctly (in contrary to the legacy method). First, you have to create a new _reversed_ Shipit config for your project. Then you have to run _reversed_ Importit script:
 
 ```text
 yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit-reversed.js

@@ -1,9 +1,9 @@
 {
   "name": "@adeira/graphql-resolve-wrapper",
   "description": "Utility which enables to wrap GraphQL resolvers with your custom functions.",
-  "homepage": "https://github.com/kiwicom/graphql-resolve-wrapper",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-resolve-wrapper",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "version": "0.1.0",
   "main": "src/index",
   "sideEffects": false,

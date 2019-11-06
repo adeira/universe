@@ -1,9 +1,9 @@
 {
   "name": "@adeira/vault2env",
   "description": "Utility to help us fetching ENV variables from Vault automatically.",
-  "homepage": "https://github.com/adeira/universe/blob/master/src/vault2env/README.md",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/vault2env",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "version": "0.1.0",
   "sideEffects": false,
   "bin": {

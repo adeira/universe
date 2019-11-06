@@ -30,7 +30,7 @@ it('retries the request if the previous attempt timed-out', async () => {
         "https://localhost",
         Object {
           "headers": Object {
-            "User-Agent": "@adeira/fetch (+https://github.com/kiwicom/fetch; 1)",
+            "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe; 1)",
           },
         },
       ],
@@ -38,7 +38,7 @@ it('retries the request if the previous attempt timed-out', async () => {
         "https://localhost",
         Object {
           "headers": Object {
-            "User-Agent": "@adeira/fetch (+https://github.com/kiwicom/fetch; 2)",
+            "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe; 2)",
           },
         },
       ],
@@ -46,7 +46,7 @@ it('retries the request if the previous attempt timed-out', async () => {
         "https://localhost",
         Object {
           "headers": Object {
-            "User-Agent": "@adeira/fetch (+https://github.com/kiwicom/fetch; 3)",
+            "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe; 3)",
           },
         },
       ],
@@ -54,7 +54,7 @@ it('retries the request if the previous attempt timed-out', async () => {
         "https://localhost",
         Object {
           "headers": Object {
-            "User-Agent": "@adeira/fetch (+https://github.com/kiwicom/fetch; 4)",
+            "User-Agent": "@adeira/fetch (+https://github.com/adeira/universe; 4)",
           },
         },
       ],

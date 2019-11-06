@@ -23,8 +23,8 @@ Then configure the rules you want to use under the rules section:
 ```json
 {
   "rules": {
-    "kiwicom-incubator/only-nullable-fields": "error",
-    "kiwicom-incubator/no-invalid-flow-annotations": "error"
+    "adeira-incubator/only-nullable-fields": "error",
+    "adeira-incubator/no-invalid-flow-annotations": "error"
   }
 }
 ```
