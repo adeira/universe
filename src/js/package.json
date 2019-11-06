@@ -1,7 +1,7 @@
 {
   "name": "@adeira/js",
   "description": "Useful JS functions used at Kiwi.com",
-  "homepage": "https://github.com/adeira/universe/blob/master/src/js/README.md",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/js",
   "license": "MIT",
   "private": false,
   "version": "0.1.0",

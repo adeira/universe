@@ -1,9 +1,9 @@
 {
   "name": "@adeira/logger",
   "description": "Multiplatform logger (Node.js, Browser, RN) with Datadog support",
-  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/core/logger",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/logger",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "license": "MIT",
   "main": "src/index",
   "dependencies": {

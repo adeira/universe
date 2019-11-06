@@ -1,10 +1,10 @@
 {
   "name": "eslint-plugin-graphql-fragments",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ESLint plugin to improve the quality of your Relay fragment declarations.",
   "license": "MIT",
-  "private": false,
-  "homepage": "https://github.com/kiwicom/eslint-plugin-graphql-fragments",
+  "private": true,
+  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-graphql-fragments",
   "main": "index",
   "scripts": {
     "test": "jest"

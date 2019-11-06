@@ -641,7 +641,7 @@ module.exports = {
   'relay-imports/type-must-exist': ERROR,
 
   // Kiwi.com custom rules
-  'kiwicom-incubator/only-nullable-fields': ERROR,
-  'kiwicom-incubator/no-invalid-flow-annotations': ERROR,
-  'kiwicom-incubator/no-internal-flow-type': NEXT_VERSION_ERROR, // TODO: ERROR
+  'adeira-incubator/only-nullable-fields': ERROR,
+  'adeira-incubator/no-invalid-flow-annotations': ERROR,
+  'adeira-incubator/no-internal-flow-type': NEXT_VERSION_ERROR, // TODO: ERROR
 };

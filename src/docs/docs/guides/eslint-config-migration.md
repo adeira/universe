@@ -73,7 +73,7 @@ It could help to add info about warning and errors into issue description:
 ```text
 'jest/no-test-return-statement': OFF, // 1 error
 'jest/prefer-called-with': OFF, // 2 warnings
-'kiwicom-incubator/no-invalid-flow-annotations': OFF, // 44 errors
+'adeira-incubator/no-invalid-flow-annotations': OFF, // 44 errors
 ```
 
 Focus on errors first. Warnings don't break the pipeline (until next major version release of the config), just take a look if it isn't pretty easy to fix them now.

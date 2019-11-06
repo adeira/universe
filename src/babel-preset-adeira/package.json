@@ -1,7 +1,7 @@
 {
   "name": "@adeira/babel-preset-adeira",
   "description": "Babel preset for JS used at Kiwi.com.",
-  "homepage": "https://github.com/adeira/universe/blob/master/src/babel-preset-adeira/README.md",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/babel-preset-adeira",
   "private": false,
   "license": "MIT",
   "version": "0.1.0",

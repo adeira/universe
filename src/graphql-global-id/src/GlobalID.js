@@ -99,7 +99,7 @@ export default function globalIdField(
       'unique anymore and therefore it cannot be used as a cache key.',
 
     // ID should be always non-null. This is an intentional exception to our eslint rule.
-    // eslint-disable-next-line kiwicom-incubator/only-nullable-fields
+    // eslint-disable-next-line adeira-incubator/only-nullable-fields
     type: new GraphQLNonNull(GraphQLID),
     args: {
       opaque: {

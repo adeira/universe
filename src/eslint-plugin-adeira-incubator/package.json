@@ -1,10 +1,10 @@
 {
-  "name": "eslint-plugin-kiwicom-incubator",
+  "name": "eslint-plugin-adeira-incubator",
   "description": "Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.",
-  "homepage": "https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira-incubator",
   "license": "MIT",
-  "private": false,
-  "version": "0.8.0",
+  "private": true,
+  "version": "0.1.0",
   "main": "src/index",
   "sideEffects": false,
   "devDependencies": {

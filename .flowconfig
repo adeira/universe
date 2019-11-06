@@ -4,22 +4,15 @@
 .+/.+\.gzip\.js
 .+/\.next/.+
 
-; The following lines exclude problematic dependencies which distribute tests via NPM. (they should not)
-.+/node_modules/findup/test/fixture/.+\.json
-.+/node_modules/@expo/traveling-fastlane-.+/tests/fixtures/.+\.json
-
 
 ; https://flow.org/en/docs/config/untyped/
 [untyped]
-💩 FIXME:
-.+/node_modules/graphql-relay/lib/connection/connection.js
-.+/node_modules/graphql-relay/lib/mutation/mutation.js
-.+/node_modules/graphql-relay/lib/node/node.js
 
 
 ; https://flow.org/en/docs/config/declarations/
 [declarations]
 .+/node_modules/graphql-iso-date/dist/.+
+.+/node_modules/graphql-relay/lib/connection/connection.js
 .+/node_modules/graphql/utilities/extendSchema.js
 
 
@@ -30,7 +23,6 @@
 ; Please note: one disadvantage of these libs is that it's gonna be available for every JS file even though
 ; it should be defined only for one workspace.
 ./src/monorepo-scanner/src/flow/
-./src/graphql/flow/
 
 
 ; These lints are enabled in normal mode. Consult [strict] mode to see what additional lints
@@ -105,8 +97,8 @@ experimental.types_first=false
 experimental.minimal_merge=true
 experimental.well_formed_exports=true
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-preset-adeira
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-kiwicom
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-kiwicom-incubator
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-adeira
+experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-adeira-incubator
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-graphql-fragments
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-relay-imports
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/fetch
@@ -121,9 +113,3 @@ experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/redis
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/signed-source
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/test-utils
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/vault2env
-
-module.file_ext=.js
-module.file_ext=.json
-module.file_ext=.android.js
-module.file_ext=.ios.js
-module.file_ext=.native.js

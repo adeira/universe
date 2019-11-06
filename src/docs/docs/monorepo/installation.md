@@ -26,7 +26,7 @@ git clone --depth=1000 git@gitlab.skypicker.com:incubator/universe.git
 It can take some time. If everything looks OK then you just successfully installed all the necessary dependencies. Now, go to the docs of the project you need to work with and follow the _run_ instructions there. You can run this documentation locally using this command:
 
 ```text
-yarn workspace @kiwicom/docs start
+yarn workspace @adeira/docs start
 ```
 
 Previous install command downloads only limited history. You can backfill the whole history using this command (usually not necessary):

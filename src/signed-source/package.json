@@ -1,9 +1,9 @@
 {
   "name": "@adeira/signed-source",
   "description": "Utility for signing and verifying generated files.",
-  "homepage": "https://github.com/adeira/universe/blob/master/src/signed-source/README.md",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/signed-source",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "version": "0.1.0",
   "main": "src/SignedSource",
   "sideEffects": false,

@@ -28,20 +28,15 @@ module.exports = {
         paths: [
           {
             name: 'child_process',
-            message: 'Use `ShellCommand` from @kiwicom/monorepo instead.',
+            message: 'Use `ShellCommand` from @adeira/monorepo instead.',
           },
           {
             name: 'glob',
-            message: 'Use `glob` from @kiwicom/monorepo instead.',
+            message: 'Use `glob` from @adeira/monorepo instead.',
           },
           {
             name: 'react-relay',
             message: 'Use @adeira/relay instead.',
-          },
-          {
-            name: '@kiwicom/graphql-skymock',
-            message:
-              'You should never require GraphQL Skymock directly. This service is being used automatically in the test environment.',
           },
         ],
       },

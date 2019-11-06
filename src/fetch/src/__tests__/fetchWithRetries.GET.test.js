@@ -11,7 +11,7 @@ it('sends a GET request to the server', () => {
   fetchWithRetries('https://localhost', { method: 'GET' });
   expect(fetch).toHaveBeenNthCalledWith(1, 'https://localhost', {
     headers: {
-      'User-Agent': '@adeira/fetch (+https://github.com/kiwicom/fetch; 1)',
+      'User-Agent': '@adeira/fetch (+https://github.com/adeira/universe; 1)',
     },
     method: 'GET',
   });

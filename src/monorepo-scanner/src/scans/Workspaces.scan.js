@@ -12,10 +12,8 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.
-    expect(
-      /^@kiwicom\/.+|eslint-plugin-.+|^@adeira\/.+/.test(packageJson.name) === true,
-    ).toGiveHelp(
-      `All packages in our monorepo must start with '@kiwicom/' prefix. This name is not valid: ${packageJson.name}`,
+    expect(/^eslint-plugin-.+|^@adeira\/.+/.test(packageJson.name) === true).toGiveHelp(
+      `All packages in our monorepo must start with '@adeira/' prefix. This name is not valid: ${packageJson.name}`,
     );
 
     if (packageJson.main !== undefined) {
@@ -35,9 +33,9 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
       expect(packageJson.homepage).toMatch(
         new RegExp(
-          `^(?:https://github\\.com/kiwicom/.+|https://gitlab.skypicker.com/incubator/universe/tree/master/src/.+/${path.basename(
+          `^https://github\\.com/adeira/universe/tree/master/src/${path.basename(
             path.dirname(packageJSONLocation),
-          )}|https://github.com/adeira/universe/.+)$`,
+          )}$`,
         ),
       );
 

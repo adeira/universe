@@ -2,7 +2,7 @@
 
 import os from 'os';
 import path from 'path';
-import publish from '@kiwicom/monorepo-npm-publisher';
+import publish from '@adeira/monorepo-npm-publisher';
 import { invariant } from '@adeira/js';
 
 // yarn monorepo-babel-node scripts/publishNPMPackages.js

@@ -23,7 +23,7 @@ Object {
     "eslint-plugin-monorepo",
     "eslint-plugin-node",
     "eslint-plugin-eslint-comments",
-    "eslint-plugin-kiwicom-incubator",
+    "eslint-plugin-adeira-incubator",
     "eslint-plugin-prettier",
     "eslint-plugin-relay-imports",
   ],
@@ -34,6 +34,9 @@ Object {
         "setWithoutGet": true,
       },
     ],
+    "adeira-incubator/no-internal-flow-type": 1,
+    "adeira-incubator/no-invalid-flow-annotations": 2,
+    "adeira-incubator/only-nullable-fields": 2,
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
     "array-callback-return": 2,
@@ -347,9 +350,6 @@ Object {
     "jsx-quotes": "off",
     "key-spacing": "off",
     "keyword-spacing": "off",
-    "kiwicom-incubator/no-internal-flow-type": 1,
-    "kiwicom-incubator/no-invalid-flow-annotations": 2,
-    "kiwicom-incubator/only-nullable-fields": 2,
     "line-comment-position": 0,
     "linebreak-style": "off",
     "lines-around-comment": 0,
@@ -900,6 +900,11 @@ Snapshot Diff:
 + Second value
 
 @@ --- --- @@
+      ],
+-     "adeira-incubator/no-internal-flow-type": 1,
++     "adeira-incubator/no-internal-flow-type": 2,
+      "adeira-incubator/no-invalid-flow-annotations": 2,
+@@ --- --- @@
       "default-case": 0,
 -     "default-param-last": 1,
 +     "default-param-last": 2,
@@ -914,11 +919,6 @@ Snapshot Diff:
 -     "jest/valid-title": 1,
 +     "jest/valid-title": 2,
       "jsx-a11y/accessible-emoji": 2,
-@@ --- --- @@
-      "keyword-spacing": "off",
--     "kiwicom-incubator/no-internal-flow-type": 1,
-+     "kiwicom-incubator/no-internal-flow-type": 2,
-      "kiwicom-incubator/no-invalid-flow-annotations": 2,
 @@ --- --- @@
       "no-implied-eval": 2,
 -     "no-import-assign": 1,
