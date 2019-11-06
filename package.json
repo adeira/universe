@@ -17,7 +17,7 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.3.0",
-    "flow-bin": "^0.111.0",
+    "flow-bin": "^0.111.3",
     "glob": "^7.1.5",
     "grpc-tools": "^1.8.0",
     "jest": "^24.9.0"
