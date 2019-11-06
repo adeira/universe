@@ -18,7 +18,7 @@ it('returns minimal valid config correctly', () => {
   `);
   expect(config.getStaticConfig()).toMatchInlineSnapshot(`
     Object {
-      "repository": "git@github.com/kiwicom/relay-example.git",
+      "repository": "git@github.com/adeira/relay-example.git",
     }
   `);
 });
@@ -40,7 +40,7 @@ it('returns valid config with branches correctly', () => {
   `);
   expect(config.getStaticConfig()).toMatchInlineSnapshot(`
     Object {
-      "repository": "git@github.com/kiwicom/relay-example.git",
+      "repository": "git@github.com/adeira/relay-example.git",
     }
   `);
 });

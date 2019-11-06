@@ -30,11 +30,11 @@ export default function createVerifyRepoPhase(config: ShipitConfig) {
   }
 
   function getDirtyExportedRepoPath() {
-    return fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-verify-dirty-'));
+    return fs.mkdtempSync(path.join(os.tmpdir(), 'adeira-shipit-verify-dirty-'));
   }
 
   function getFilteredExportedRepoPath() {
-    return fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-verify-filtered-'));
+    return fs.mkdtempSync(path.join(os.tmpdir(), 'adeira-shipit-verify-filtered-'));
   }
 
   const monorepoPath = config.sourcePath;
