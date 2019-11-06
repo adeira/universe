@@ -36,7 +36,7 @@ export default class ShipitConfig {
     this.sourcePath = sourcePath;
     // This is currently not configurable. We could (should) eventually keep
     // the temp directory, cache it and just update it.
-    this.destinationPath = fs.mkdtempSync(path.join(os.tmpdir(), 'kiwicom-shipit-'));
+    this.destinationPath = fs.mkdtempSync(path.join(os.tmpdir(), 'adeira-shipit-'));
     this.exportedRepoURL = exportedRepoURL;
     this.directoryMapping = directoryMapping;
     this.strippedFiles = strippedFiles;
