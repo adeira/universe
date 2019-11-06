@@ -106,7 +106,6 @@ module.exports = (
           useESModules: supportsESM,
         },
       ],
-      '@kiwicom/babel-plugin-orbit-components',
     ]);
   } else {
     /*:: (target: empty) */

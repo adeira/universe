@@ -11,6 +11,6 @@ module.exports = withCustomBabelConfigFile(
       // @x-shipit-enable: 'babel.config.js',
       '.babelrc', // @x-shipit-disable
     ),
-    transpileModules: ['@kiwicom'],
+    transpileModules: ['@adeira'],
   }),
 );
