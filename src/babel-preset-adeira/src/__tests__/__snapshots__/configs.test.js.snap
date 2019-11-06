@@ -115,8 +115,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
       {
         "useESModules": false
       }
-    ],
-    "@kiwicom/babel-plugin-orbit-components"
+    ]
   ],
   "parserOpts": {
     "plugins": [
@@ -162,8 +161,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
       {
         "useESModules": false
       }
-    ],
-    "@kiwicom/babel-plugin-orbit-components"
+    ]
   ],
   "parserOpts": {
     "plugins": [
@@ -213,8 +211,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' 1`] = 
       {
         "useESModules": false
       }
-    ],
-    "@kiwicom/babel-plugin-orbit-components"
+    ]
   ],
   "parserOpts": {
     "plugins": [
@@ -263,8 +260,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
       {
         "useESModules": true
       }
-    ],
-    "@kiwicom/babel-plugin-orbit-components"
+    ]
   ],
   "parserOpts": {
     "plugins": [
@@ -310,8 +306,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
       {
         "useESModules": true
       }
-    ],
-    "@kiwicom/babel-plugin-orbit-components"
+    ]
   ],
   "parserOpts": {
     "plugins": [
@@ -361,8 +356,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' 1`
       {
         "useESModules": true
       }
-    ],
-    "@kiwicom/babel-plugin-orbit-components"
+    ]
   ],
   "parserOpts": {
     "plugins": [
