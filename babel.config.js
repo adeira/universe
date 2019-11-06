@@ -35,7 +35,7 @@ module.exports = function(api /*: ApiType */) {
     ],
     babelrcRoots: [
       '.', // keep the root as a root
-      './incubator/*', // also consider monorepo packages from incubator "root" and load their .babelrc files.
+      './src/*', // also consider all packages and load their .babelrc files.
     ],
   };
 };

@@ -1,5 +1,12 @@
 # Unreleased
 
+---
+
+Changelog before our fork:
+
+```text
+# Unreleased
+
 - Output in which file you are trying to redeclare `__DEV__`
 
 # 3.7.0
@@ -103,3 +110,4 @@ module.exports = {
 # 1.1.0
 
 - Added support for `__DEV__` expression
+```

@@ -75,7 +75,6 @@ There are three transpilation targets available: `js` (default), `js-esm` and `f
 - Flow support `(a: string)`
 - JSX support `<Component />`
 - [`__DEV__` expression](#__dev__-expression)
-- [granular imports of Orbit components](https://www.npmjs.com/package/@kiwicom/babel-plugin-orbit-components)
 - [transforms `invariant` and `warning` from `@adeira/js`](#invariant-and-warning-functions)
 - [generator functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*) `function*` (we do _NOT_ support [async generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) at this moment)
 - [exponentiation operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Exponentiation) `a ** 2`
