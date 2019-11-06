@@ -234,6 +234,7 @@ const d: E2 = E2.A;
 
 - https://github.com/gkz/enums
 - https://github.com/facebook/flow/issues/7837
+- https://github.com/babel/babel/pull/10344
 
 ## Callable objects
 
