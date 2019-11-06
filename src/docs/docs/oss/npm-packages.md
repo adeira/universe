@@ -32,7 +32,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 0.24.0 [@adeira/monorepo-utils](https://github.com/kiwicom/monorepo-utils) - Helpful functions to manage monorepos (using Yarn Workspaces).
 - 0.6.0 [@kiwicom/orbit-react-native](https://gitlab.skypicker.com/incubator/universe/tree/master/src/incubator/orbit-react-native) - Orbit React Native Components are a component library which provide developers with the easiest possible way of building Kiwi.com’s products.
 - 1.3.0 [@kiwicom/babel-plugin-orbit-components](https://github.com/kiwicom/babel-plugin-orbit-components) - A babel plugin for transforming destructured imports to granular ones.
-- 3.7.0 [@kiwicom/babel-preset-kiwicom](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
+- 3.7.0 [@adeira/babel-preset-adeira](https://github.com/kiwicom/babel-preset-kiwicom) - Babel preset for JS used at Kiwi.com.
 - 8.4.0 [@kiwicom/eslint-config](https://github.com/kiwicom/eslint-config-kiwicom) - Eslint configuration describing rules for JS used at Kiwi.com.
 - 4.1.0 [@kiwicom/eslint-config-nitro](https://github.com/kiwicom/eslint-config-nitro) - Nitro's ESlint config
 - 0.8.0 [eslint-plugin-kiwicom-incubator](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/eslint-plugin-kiwicom-incubator) - Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.
@@ -50,7 +50,7 @@ This monorepo hosts source code of the following NPM packages (only public packa
 - 4.7.1 [@adeira/relay](https://github.com/kiwicom/relay) - Highly opinionated Relay wrapper used at Kiwi.com
 - 1.0.5 [@adeira/signed-source](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/signed-source) - Utility for signing and verifying generated files.
 - 0.10.0 [@adeira/test-utils](https://gitlab.skypicker.com/incubator/universe/tree/master/src/packages/test-utils) - Set of tools for easier testing in JS.
-- 1.0.5 [@kiwicom/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
+- 1.0.5 [@adeira/vault2env](https://github.com/kiwicom/vault2env-js) - Utility to help us fetching ENV variables from Vault automatically.
 
 <!-- /AUTOMATOR:UPDATE_DOCS -->
 

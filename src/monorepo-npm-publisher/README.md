@@ -1,6 +1,6 @@
 This package prepares our public NPM packages to be published. It can automatically find these packages, transpile them based on our Babel configuration, copy Flow versions of the files and automatically publish it to NPM (in CI). It publishes only packages with new version and it ignores old or current versions.
 
-This publisher uses [@kiwicom/babel-preset-kiwicom](https://www.npmjs.com/package/@kiwicom/babel-preset-kiwicom) behind the scenes to transpile JS (and JS-ESM) and Flow files.
+This publisher uses [@adeira/babel-preset-adeira](https://www.npmjs.com/package/@adeira/babel-preset-adeira) behind the scenes to transpile JS (and JS-ESM) and Flow files.
 
 Please note: changelogs are not responsibility of this package. You should write them manually for your users.
 

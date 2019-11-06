@@ -16,6 +16,6 @@ module.exports = function(api /*: ApiType */) {
   api.cache.forever();
 
   return {
-    presets: ['@kiwicom/babel-preset-kiwicom'],
+    presets: ['@adeira/babel-preset-adeira'],
   };
 };

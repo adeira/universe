@@ -8,7 +8,7 @@
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@kiwicom/babel-preset-kiwicom": "^3.4.0",
+    "@adeira/babel-preset-adeira": "^0.1.0",
     "@adeira/monorepo-utils": "^0.1.0",
     "@adeira/test-utils": "^0.1.0",
     "chalk": "^2.4.2",
