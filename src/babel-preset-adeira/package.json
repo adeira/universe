@@ -2,7 +2,7 @@
   "name": "@adeira/babel-preset-adeira",
   "description": "Babel preset for JS used at Kiwi.com.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/babel-preset-adeira",
-  "private": false,
+  "private": true,
   "license": "MIT",
   "version": "0.1.0",
   "main": "src/index",
@@ -17,8 +17,7 @@
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
-    "@babel/runtime": "^7.6.3",
-    "@kiwicom/babel-plugin-orbit-components": "^1.2.0"
+    "@babel/runtime": "^7.6.3"
   },
   "devDependencies": {
     "@adeira/monorepo-utils": "^0.1.0",
