@@ -8,6 +8,6 @@
   "main": "src/index",
   "sideEffects": false,
   "devDependencies": {
-    "eslint": "^6.5.1"
+    "eslint": "^6.6.0"
   }
 }

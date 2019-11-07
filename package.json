@@ -16,7 +16,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.3.0",
+    "eslint": "^6.6.0",
     "flow-bin": "^0.111.3",
     "glob": "^7.1.5",
     "grpc-tools": "^1.8.0",
@@ -36,6 +36,6 @@
     "typecheck": "yarn run kiwicom-flow-bin"
   },
   "resolutions": {
-    "eslint": "~6.5.1"
+    "eslint": "~6.6.0"
   }
 }
