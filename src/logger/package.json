@@ -3,7 +3,7 @@
   "description": "Multiplatform logger (Node.js, Browser, RN) with Datadog support",
   "homepage": "https://github.com/adeira/universe/tree/master/src/logger",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "main": "src/index",
   "dependencies": {
