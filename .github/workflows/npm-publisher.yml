@@ -22,7 +22,7 @@ jobs:
           node-version: 12.x
       - name: publish NPM packages to the registry
         run: |
-          yarn install --offline --frozen-lockfile
+          yarn install --frozen-lockfile
           yarn monorepo-babel-node scripts/publishNPMPackages.js
         env:
           CI: true
