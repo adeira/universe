@@ -37,9 +37,9 @@ function processItemData(itemRef) {
     itemRef,
   );
   sendToThirdPartyApi({
-    title: item.title,
-    price: item.price,
-    creatorName: item.creator.name,
+    title: item?.title,
+    price: item?.price,
+    creatorName: item?.creator.name,
   });
 }
 
@@ -67,15 +67,28 @@ module.exports = {
     });
   },
 
-  // Invalid usages:
-  missingFragmentRef() {
-    // $FlowExpectedError: Cannot call readInlineData because function [1] requires another argument.
+  withFragmentRef() {
+    const $fragmentRefs: any = '';
     return readInlineData(
       graphql`
         fragment processItemData_item on Item @inline {
           __typename
         }
       `,
+      { $fragmentRefs },
+    );
+  },
+
+  // Invalid usages:
+  missingFragmentRef() {
+    return readInlineData(
+      graphql`
+        fragment processItemData_item on Item @inline {
+          __typename
+        }
+      `,
+      // $FlowExpectedError: Cannot call readInlineData with object literal bound to fragmentRef because property $fragmentRefs is missing in object literal [1] but exists in object type [2].
+      {},
     );
   },
 };
