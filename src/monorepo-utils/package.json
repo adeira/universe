@@ -17,7 +17,7 @@
   "dependencies": {
     "@babel/register": "^7.6.0",
     "@adeira/js": "^0.1.0",
-    "glob": "^7.1.5",
+    "glob": "^7.1.6",
     "is-ci": "^2.0.0"
   }
 }
