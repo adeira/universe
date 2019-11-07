@@ -1,4 +1,4 @@
-Monorepo Shipit takes care of exporting and importing our source-codes from our private GitLab monorepo into any other Git repository. It can export even from our monorepo to another monorepo. We use it open-source some of our packages to our [GitHub](https://github.com/kiwicom). This way we can develop just like we are used to in one monorepo but we can contribute back to the community by making some of our codes open.
+Monorepo Shipit takes care of exporting and importing our source-codes from our private GitLab monorepo into any other Git repository. It can export even from our monorepo to another monorepo. We use it open-source some of our packages to our [GitHub](https://github.com/adeira). This way we can develop just like we are used to in one monorepo but we can contribute back to the community by making some of our codes open.
 
 # Shipit part
 
@@ -34,7 +34,7 @@ First, we try to extract relevant commits of our package we want to opensource. 
  `---------`
 ```
 
-One of the filters modifies commit summaries and adds `kiwicom-source-id` signature which helps us to identify which changes we pushed last time and just amend latest internal changes. These filters work with the parsed changesets which gives you incredible flexibility: you can for example completely remove some lines from the open-source version. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the public repository then just add a new filter and manually remove them from GitHub.
+One of the filters modifies commit summaries and adds `adeira-source-id` signature which helps us to identify which changes we pushed last time and just amend latest internal changes. These filters work with the parsed changesets which gives you incredible flexibility: you can for example completely remove some lines from the open-source version. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the public repository then just add a new filter and manually remove them from GitHub.
 
 ## Configuration
 
@@ -44,7 +44,7 @@ Each project has its own configuration directly in Shipit workspace. If you want
 module.exports = {
   getStaticConfig() {
     return {
-      repository: 'git@github.com/kiwicom/relay-example.git', // see: https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
+      repository: 'git@github.com/adeira/relay-example.git', // see: https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
     };
   },
   getPathMappings(): Map<string, string> {
@@ -84,7 +84,7 @@ new Map([
 ]);
 ```
 
-This maps all the files from our [fetch](https://github.com/kiwicom/fetch) package to the GitHub root so OSS users have access to everything from this package. More advanced example when you need to publish some GitHub specific files:
+This maps all the files from our [fetch](https://github.com/adeira/universe/tree/master/src/fetch) package to the GitHub root so OSS users have access to everything from this package. More advanced example when you need to publish some GitHub specific files:
 
 ```js
 new Map([
@@ -138,10 +138,10 @@ module.exports = {
 
 To deal with this you have to approach the roots renaming carefully. Our current best attempt is to do it in two steps:
 
-1. Rename your root as needed and add it to the config. Do not delete the old one though. Shipit should understand what is going on and deploy an empty commit with correct `kiwicom-source-id`.
+1. Rename your root as needed and add it to the config. Do not delete the old one though. Shipit should understand what is going on and deploy an empty commit with correct `adeira-source-id`.
 2. Delete the original root from the config when the previous step succeeds. You should be good to go.
 
-Don't worry if you mess up something. Monorepo is always a source of truth and it won't be messed up. Worst case scenario is that Shipit job will start failing. One way out of this situation is to either fix the previous steps or simply create manually an empty commit on GitHub with corrected `kiwicom-source-id` so that Shipit can catch up.
+Don't worry if you mess up something. Monorepo is always a source of truth and it won't be messed up. Worst case scenario is that Shipit job will start failing. One way out of this situation is to either fix the previous steps or simply create manually an empty commit on GitHub with corrected `adeira-source-id` so that Shipit can catch up.
 
 ## Linear history
 
@@ -166,7 +166,7 @@ For this reason Shipit requires linear Git history only (it works with reversed 
 This is how you'd import a pull request #1 from GitHub into your local branch:
 
 ```text
-yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit.js git@github.com:kiwicom/fetch.git 1
+yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
 ```
 
 The idea is that you will tweak it for us if needed, test it in our monorepo and eventually send a merge request to the monorepo. Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:

@@ -62,10 +62,6 @@ function iterateConfigsInPath(rootPath: string, callback: ShipitConfig => void):
   }
 }
 
-export function iterateReversedConfigs(callback: ShipitConfig => void): void {
-  iterateConfigsInPath(path.join(__dirname, '..', 'config', 'reversed'), callback);
-}
-
 export default function iterateConfigs(callback: ShipitConfig => void): void {
   iterateConfigsInPath(path.join(__dirname, '..', 'config'), callback);
 }

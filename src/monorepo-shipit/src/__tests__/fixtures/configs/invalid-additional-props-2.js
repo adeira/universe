@@ -6,7 +6,7 @@ module.exports = {
   },
   getStaticConfig() {
     return {
-      repository: 'git@github.com/kiwicom/relay-example.git',
+      repository: 'git@github.com/adeira/relay-example.git',
     };
   },
   defaultPathMappings() {

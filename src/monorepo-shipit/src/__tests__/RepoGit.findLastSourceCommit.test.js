@@ -47,7 +47,7 @@ it('can find last source commit with trailing whitespace', () => {
 
 it('can find last source commit without whitespaces', () => {
   const fakeCommitID = generateCommitID();
-  const description = `kiwicom-source-id:${fakeCommitID}`;
+  const description = `adeira-source-id:${fakeCommitID}`;
   const repo = createGITRepoWithCommit(`${description}  `);
   expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID);
 });

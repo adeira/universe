@@ -29,7 +29,7 @@ export interface SourceRepo {
 }
 
 /**
- * Exported repository containing `kiwicom-source-id` handles.
+ * Exported repository containing `adeira-source-id` handles.
  */
 export interface DestinationRepo {
   findLastSourceCommit(roots: Set<string>): null | string;
@@ -69,7 +69,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   configure = () => {
-    const username = 'kiwicom-github-bot';
+    const username = 'adeira-github-bot';
     for (const [key, value] of Object.entries({
       'user.email': accounts.get(username),
       'user.name': username,
@@ -117,14 +117,14 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       'log',
       '-1',
       '--grep',
-      '^kiwicom-source-id: \\?[a-z0-9]\\+\\s*$',
+      '^adeira-source-id: \\?[a-z0-9]\\+\\s*$',
       ...roots,
     )
       .setNoExceptions() // empty repo fails with: "your current branch 'master' does not have any commits yet"
       .runSynchronously()
       .getStdout()
       .trim();
-    const regex = /kiwicom-source-id: ?(?<commit>[a-z0-9]+)$/gm;
+    const regex = /adeira-source-id: ?(?<commit>[a-z0-9]+)$/gm;
     let lastCommit = null;
     let match;
     while ((match = regex.exec(log)) !== null) {
