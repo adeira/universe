@@ -17,7 +17,7 @@
     "npm-registry-client": "^8.6.0",
     "rimraf": "^3.0.0",
     "semver": "^6.3.0",
-    "snapshot-diff": "^0.5.2",
+    "snapshot-diff": "^0.6.1",
     "tar": "^5.0.5"
   },
   "peerDependencies": {
