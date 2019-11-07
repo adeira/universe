@@ -9,8 +9,8 @@
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "license": "MIT",
   "bin": {
-    "kiwicom-fetch-schema": "bin/fetch-schema.js",
-    "kiwicom-relay-compiler": "bin/relay-compiler.js"
+    "adeira-fetch-schema": "bin/fetch-schema.js",
+    "adeira-relay-compiler": "bin/relay-compiler.js"
   },
   "scripts": {
     "test": "yarn eslint src && yarn flow src",

@@ -1,5 +1,8 @@
 # Unreleased
 
+- rename `kiwicom-fetch-schema` -> `adeira-fetch-schema`
+- rename `kiwicom-relay-compiler` -> `adeira-relay-compiler`
+
 ---
 
 Changelog before our fork:

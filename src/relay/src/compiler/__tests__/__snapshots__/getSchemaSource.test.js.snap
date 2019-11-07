@@ -2,12 +2,12 @@
 
 exports[`loads the fixture as expected 1`] = `
 "
-Schema 'invalidSignatureSchema.graphql' has invalid signature! Did you do some manual changes? Download a fresh schema using 'kiwicom-fetch-schema' script.
+Schema 'invalidSignatureSchema.graphql' has invalid signature! Did you do some manual changes? Download a fresh schema using 'adeira-fetch-schema' script.
 "
 `;
 
 exports[`loads the fixture as expected 2`] = `
 "
-Schema 'missingSignatureSchema.graphql' cannot be verified because it's missing a valid signature! Download a fresh schema using 'kiwicom-fetch-schema' script.
+Schema 'missingSignatureSchema.graphql' cannot be verified because it's missing a valid signature! Download a fresh schema using 'adeira-fetch-schema' script.
 "
 `;
