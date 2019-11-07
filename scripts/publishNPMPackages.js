@@ -26,6 +26,7 @@ import { invariant } from '@adeira/js';
       '@adeira/logger',
       '@adeira/signed-source',
       '@adeira/monorepo-utils',
+      '@adeira/relay',
     ]),
   });
 })();
