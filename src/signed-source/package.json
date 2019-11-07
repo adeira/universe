@@ -3,7 +3,7 @@
   "description": "Utility for signing and verifying generated files.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/signed-source",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "main": "src/SignedSource",
   "sideEffects": false,
