@@ -20,11 +20,11 @@ import { invariant } from '@adeira/js';
     dryRun: false,
     npmAuthToken,
     workspaces: new Set([
+      // TODO: throw when trying to whitelist non-existing workspace
       '@adeira/fetch',
       '@adeira/js',
       '@adeira/logger',
-      // TODO: add more BUT only what's actually needed (not every workspace)
-      // TODO: throw when trying to whitelist non-existing workspace
+      '@adeira/signed-source',
     ]),
   });
 })();
