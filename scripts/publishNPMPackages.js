@@ -22,6 +22,7 @@ import { invariant } from '@adeira/js';
     workspaces: new Set([
       '@adeira/fetch',
       '@adeira/js',
+      '@adeira/logger',
       // TODO: add more BUT only what's actually needed (not every workspace)
       // TODO: throw when trying to whitelist non-existing workspace
     ]),
