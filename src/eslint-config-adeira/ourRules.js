@@ -287,7 +287,6 @@ module.exports = {
   'jest/no-commented-out-tests': OFF,
   'jest/no-disabled-tests': ERROR,
   'jest/no-duplicate-hooks': ERROR,
-  'jest/no-empty-title': ERROR,
   'jest/no-expect-resolves': OFF,
   'jest/no-export': ERROR,
   'jest/no-focused-tests': ERROR,
@@ -316,11 +315,11 @@ module.exports = {
   'jest/prefer-to-have-length': ERROR,
   'jest/prefer-todo': ERROR,
   'jest/require-top-level-describe': OFF,
-  'jest/require-tothrow-message': OFF,
+  'jest/require-to-throw-message': OFF,
   'jest/valid-describe': ERROR,
   'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
-  'jest/valid-title': NEXT_VERSION_ERROR,
+  'jest/valid-title': OFF, // See: https://github.com/jest-community/eslint-plugin-jest/issues/470
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
   'prefer-object-spread/prefer-object-spread': WARN,
