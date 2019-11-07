@@ -2,13 +2,18 @@ name: Continuous Integration
 
 on: [push]
 
+env:
+  CI: true
+  FORCE_COLOR: '1' # https://github.com/chalk/chalk/issues/203
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [12.x]
+        node-version: [12.x, 13.x]
 
     # TODO: remove the `--all` switches when stable
     steps:
@@ -26,5 +31,3 @@ jobs:
           yarn run lint --all
           yarn run test-only --all
           yarn run scanner
-        env:
-          CI: true
