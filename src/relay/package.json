@@ -29,7 +29,7 @@
     "react-relay": "^7.0.0",
     "relay-compiler": "^7.0.0",
     "relay-config": "^7.0.0",
-    "relay-runtime": "^7.0.0"
+    "relay-runtime": "^7.1.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.1.0",
