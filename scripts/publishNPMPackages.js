@@ -29,6 +29,7 @@ import { invariant } from '@adeira/js';
       '@adeira/relay',
       '@adeira/signed-source',
       '@adeira/test-utils',
+      '@adeira/flow-bin',
     ]),
   });
 })();
