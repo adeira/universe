@@ -21,12 +21,14 @@ import { invariant } from '@adeira/js';
     npmAuthToken,
     workspaces: new Set([
       // TODO: throw when trying to whitelist non-existing workspace
+      '@adeira/babel-preset-adeira',
       '@adeira/fetch',
       '@adeira/js',
       '@adeira/logger',
-      '@adeira/signed-source',
       '@adeira/monorepo-utils',
       '@adeira/relay',
+      '@adeira/signed-source',
+      '@adeira/test-utils',
     ]),
   });
 })();

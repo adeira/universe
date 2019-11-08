@@ -3,7 +3,7 @@
   "description": "Set of tools for easier testing in JS.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/test-utils",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "main": "src/index",
   "sideEffects": false,
