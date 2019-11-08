@@ -5,8 +5,6 @@ import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-re
 import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
 
-import createEnvironment from './createEnvironment';
-import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import type { GraphQLTaggedNode, Variables } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
@@ -22,7 +20,6 @@ type FetchPolicy = 'store-and-network' | 'network-only';
 
 type CommonProps = {|
   +query: GraphQLTaggedNode,
-  +clientID?: string, // Identification of the current client (X-Client header basically).
   +environment?: Environment,
   +cacheConfig?: {|
     +force?: ?boolean,
@@ -92,25 +89,16 @@ export default function QueryRenderer(props: Props) {
     return props.onResponse(rendererProps);
   }
 
-  function createDefaultEnvironment(clientID?: string) {
-    invariant(
-      clientID != null,
-      `You must provide 'clientID' to the QueryRenderer in order to correctly identify your client.`,
-    );
-    const defaultResource = 'https://graphql.kiwi.com';
-    return createEnvironment({
-      fetchFn: createNetworkFetcher(defaultResource, {
-        'X-Client': clientID,
-      }),
-    });
-  }
-
   // 1) <QR environment={Env} /> always win
   // 2) <QR /> checks whether we provide Environment via `RelayEnvironmentProvider`
-  // 3) <QR /> defaults to the default Kiwi.com environment
+  // 3) throw if no environment is set
   const context = React.useContext(ReactRelayContext);
-  const environment =
-    props.environment ?? context?.environment ?? createDefaultEnvironment(props.clientID);
+  const environment = props.environment ?? context?.environment;
+
+  invariant(
+    environment != null,
+    'QueryRenderer: Expected to have found a Relay environment provided by a `RelayEnvironmentProvider` component or by environment property.',
+  );
 
   // Use this to disable store GC in order to reuse already existing data between screens:
   // const disposable = environment.getStore().holdGC();

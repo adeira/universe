@@ -5,7 +5,7 @@
 // TODO: DRY monorepo-utils/bin/monorepo-babel-node-runner.js and relay-compiler
 // This is here to make this `bin` available directly from our monorepo without transpiling it.
 require('@babel/register')({
-  ignore: [/node_modules\/(?!@kiwicom)/],
+  ignore: [/node_modules\/(?!@adeira)/],
   rootMode: 'upward',
 });
 
@@ -19,7 +19,7 @@ const { lexicographicSortSchema } = require('graphql');
 const { buildClientSchema, getIntrospectionQuery, printSchema } = require('graphql/utilities');
 
 program
-  .option('--resource <url>', undefined, 'https://graphql.kiwi.com/')
+  .option('--resource <url>')
   .option('--filename <path>', undefined, 'schema.graphql')
   .parse(process.argv);
 

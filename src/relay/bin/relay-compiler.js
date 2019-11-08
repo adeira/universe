@@ -5,7 +5,7 @@
 // TODO: DRY monorepo-utils/bin/monorepo-babel-node-runner.js and fetch-schema
 // This is here to make this `bin` available directly from our monorepo without transpiling it.
 require('@babel/register')({
-  ignore: [/node_modules\/(?!@kiwicom)/],
+  ignore: [/node_modules\/(?!@adeira)/],
   rootMode: 'upward',
 });
 
