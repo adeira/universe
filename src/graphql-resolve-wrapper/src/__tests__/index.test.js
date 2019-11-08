@@ -32,7 +32,7 @@ beforeEach(() => {
         },
 
         resolveValueNumber: {
-          // eslint-disable-next-line adeira-incubator/only-nullable-fields
+          // eslint-disable-next-line adeira/only-nullable-fields
           type: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLInt))),
           deprecationReason: 'for testing',
           resolve: () => {

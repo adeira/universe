@@ -30,6 +30,7 @@ import { invariant } from '@adeira/js';
       '@adeira/signed-source',
       '@adeira/test-utils',
       '@adeira/flow-bin',
+      '@adeira/eslint-config',
     ]),
   });
 })();

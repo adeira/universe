@@ -631,7 +631,7 @@ export type ExplicitlyInexact = { foo: number, ... };
 
 exports[`matches expected output: babel-issue-10367.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
@@ -664,7 +664,7 @@ var re = _wrapRegExp(/((?:[\\0-\\t\\x0B\\f\\x0E-\\u2027\\u202A-\\uD7FF\\uE000-\\
 
 exports[`matches expected output: babel-issue-10367.js 2`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
@@ -672,7 +672,7 @@ exports[`matches expected output: babel-issue-10367.js 2`] = `
 const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
@@ -682,7 +682,7 @@ const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
 
 exports[`matches expected output: babel-issue-10367.js 3`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
+// @flow strict
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447

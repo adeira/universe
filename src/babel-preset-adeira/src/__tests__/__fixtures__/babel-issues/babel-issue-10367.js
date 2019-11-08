@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 // https://github.com/babel/babel/issues/10367
 // https://github.com/babel/babel/pull/10447
