@@ -15,7 +15,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
 
   if (semver.gte(packageJson.version, '1.1.0')) {
     const changelogPath = path.join(packagePath, 'CHANGELOG.md');
-    test(changelogPath, () => {
+    test(`${changelogPath}`, () => {
       expect(fs.existsSync(changelogPath) === true).toGiveHelp(
         `Changelog doesn't exist: ${changelogPath}`,
       );
