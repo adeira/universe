@@ -183,7 +183,7 @@ module.exports = {
 };
 ```
 
-You should be able to see similar output (default values to this date for [`example-relay`](https://github.com/kiwicom/relay-example)):
+You should be able to see similar output (default values to this date for [`example-relay`](https://github.com/adeira/relay-example)):
 
 ```text
 @babel/preset-env: `DEBUG` option
@@ -264,7 +264,7 @@ __DEV__ = true;
 process.env.NODE_ENV !== 'production' = true;  // ??? 🧐
 ```
 
-Our [Eslint config](https://github.com/kiwicom/eslint-config-kiwicom) can help you to catch such mistakes. You'll get an error in newer versions of this preset:
+Our [Eslint config](https://github.com/adeira/universe/blob/master/src/eslint-config-adeira) can help you to catch such mistakes. You'll get an error in newer versions of this preset:
 
 ```text
 Error: You are trying to re-declare __DEV__ virtual constant but that's illegal.

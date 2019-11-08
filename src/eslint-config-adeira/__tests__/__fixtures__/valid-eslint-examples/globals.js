@@ -1,9 +1,6 @@
 // @flow strict
 
 module.exports = {
-  nitroTranslations(): string {
-    return __('First name');
-  },
   devExpression(): boolean {
     // Read-only global '__DEV__' should not be modified (vv)
     __DEV__ = false; // eslint-disable-line no-global-assign

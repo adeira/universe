@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-adeira-incubator",
-  "description": "Additional Eslint rules for Kiwi.com incubator tribe. Do not use directly - use @kiwicom/eslint-config instead.",
+  "description": "Additional Eslint rules for Adeira ecosystem. Do not use directly - use @adeira/eslint-config instead.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira-incubator",
   "license": "MIT",
   "private": true,

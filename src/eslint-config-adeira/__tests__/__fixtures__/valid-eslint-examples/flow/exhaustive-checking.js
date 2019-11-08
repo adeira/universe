@@ -25,11 +25,11 @@ export function exhaustB(
 ): void | string {
   switch (reason) {
     case 'magicLink':
-      return __('account.check_email_magic_link');
+      return 'account.check_email_magic_link';
     case 'signUpConfirmation':
-      return __('account.check_email_sign_up');
+      return 'account.check_email_sign_up';
     case 'resetPassword':
-      return __('account.you_will_recieve_password');
+      return 'account.you_will_recieve_password';
     default:
       return invariantMock(false, 'Unsupported reason: %j', (reason: empty));
   }
