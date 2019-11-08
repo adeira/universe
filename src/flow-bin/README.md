@@ -80,7 +80,7 @@ yarn adeira-flow-bin (first run)      ~13s      (cold start, lazy mode, no saved
 yarn adeira-flow-bin (second run)     ~3s       (hot start, lazy mode, saved state) ✅
 yarn adeira-flow-bin restart          ~8s       (cold start, lazy mode, saved state) ❌
 yarn adeira-flow-bin restart --all    ~22s      (cold start, no lazy mode, no saved state) ❌
-./node_modules/.bin/flow               ~0.14s    (just consulting already running and optimized server)
+./node_modules/.bin/flow              ~0.14s    (just consulting already running and optimized server)
 ```
 
 Please note: these times are still significantly affected by Babel transpilation process as well as the fact that we sometimes do more things than necessary (server shutdown, force recheck, save state). The best performing setup for local development is currently this:
