@@ -1,4 +1,4 @@
-name: NPM Publisher
+name: Shipit
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 
 env:
   CI: true
-  NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
 jobs:
   publish:
@@ -19,7 +18,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-      - name: publish NPM packages to the registry
+      - name: run Shipit
         run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_SHIPIT_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
           yarn install --frozen-lockfile
-          yarn monorepo-babel-node scripts/publishNPMPackages.js
+          yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
