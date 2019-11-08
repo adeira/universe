@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "src/index",
   "module": false,
   "sideEffects": false,
@@ -9,8 +9,8 @@
   "description": "Highly opinionated Relay wrapper used at Kiwi.com",
   "license": "MIT",
   "bin": {
-    "kiwicom-fetch-schema": "bin/fetch-schema.js",
-    "kiwicom-relay-compiler": "bin/relay-compiler.js"
+    "adeira-fetch-schema": "bin/fetch-schema.js",
+    "adeira-relay-compiler": "bin/relay-compiler.js"
   },
   "scripts": {
     "test": "yarn eslint src && yarn flow src",

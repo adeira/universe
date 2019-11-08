@@ -41,7 +41,7 @@ Minimal Relay compiler script in `package.json` (see below how to download the G
 ```json
 {
   "scripts": {
-    "relay": "kiwicom-relay-compiler --src=./src --schema=./schema.graphql"
+    "relay": "adeira-relay-compiler --src=./src --schema=./schema.graphql"
   }
 }
 ```
@@ -49,7 +49,7 @@ Minimal Relay compiler script in `package.json` (see below how to download the G
 In the previous example we used `--schema` in order to use Relay compiler. This package provides a way how to download it easily:
 
 ```text
-$ yarn kiwicom-fetch-schema --help
+$ yarn adeira-fetch-schema --help
 
 Usage: fetch-schema [options]
 
@@ -119,7 +119,7 @@ This API is high-level on purpose but it's possible to decompose it when you nee
 
 _Missing some info in docs? Please send a merge request._
 
-We use our own `kiwicom-relay-compiler` which adds some additional features:
+We use our own `adeira-relay-compiler` which adds some additional features:
 
 - it outputs ES6 modules
 - it supports several implementations of persistent queries

@@ -9,13 +9,13 @@ export default function getSchemaSource(schemaPath: string): Source {
 
   if (!SignedSource.isSigned(source)) {
     throw new Error(
-      `Schema '${schemaPath}' cannot be verified because it's missing a valid signature! Download a fresh schema using 'kiwicom-fetch-schema' script.`,
+      `Schema '${schemaPath}' cannot be verified because it's missing a valid signature! Download a fresh schema using 'adeira-fetch-schema' script.`,
     );
   }
 
   if (!SignedSource.verifySignature(source)) {
     throw new Error(
-      `Schema '${schemaPath}' has invalid signature! Did you do some manual changes? Download a fresh schema using 'kiwicom-fetch-schema' script.`,
+      `Schema '${schemaPath}' has invalid signature! Did you do some manual changes? Download a fresh schema using 'adeira-fetch-schema' script.`,
     );
   }
 
