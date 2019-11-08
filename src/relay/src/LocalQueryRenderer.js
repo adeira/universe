@@ -51,8 +51,8 @@ export default function LocalQueryRenderer(props: Props) {
   // 2) <LQR /> checks whether we provide Environment via `RelayEnvironmentProvider`
   // 3) <LQR /> defaults to the default local environment
   const context = React.useContext(ReactRelayContext);
-  // TODO: does it make sense to add support for separate local env context?
   const environment = props.environment ?? context?.environment ?? createLocalEnvironment();
+
   return (
     <RelayLocalQueryRenderer
       environment={environment}
