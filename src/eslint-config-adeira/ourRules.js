@@ -319,7 +319,7 @@ module.exports = {
   'jest/valid-describe': ERROR,
   'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
-  'jest/valid-title': OFF, // See: https://github.com/jest-community/eslint-plugin-jest/issues/470
+  'jest/valid-title': NEXT_VERSION_ERROR,
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
   'prefer-object-spread/prefer-object-spread': WARN,

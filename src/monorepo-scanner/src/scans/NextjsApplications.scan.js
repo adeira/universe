@@ -16,7 +16,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
     const babelRCFile = '.babelrc.js';
     const babelRCLocation = path.join(workspaceLocation, babelRCFile);
 
-    test(babelRCLocation, () => {
+    test(`${babelRCLocation}`, () => {
       expect(fs.existsSync(babelRCLocation)).toGiveHelp(
         `Your Next.js application ${appName} should contain '${babelRCFile}' file in the workspace root.`,
       );

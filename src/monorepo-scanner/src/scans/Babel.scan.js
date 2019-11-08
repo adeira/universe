@@ -9,7 +9,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
   const packageJSON = require(packageJSONLocation);
   const workspacePath = path.dirname(packageJSONLocation);
 
-  test(packageJSON.name, () => {
+  test(`${packageJSON.name}`, () => {
     expect(fs.existsSync(path.join(workspacePath, '.babelrc')) === false).toGiveHelp(
       `Your workspace ${packageJSON.name} contains file '.babelrc' but it should have '.babelrc.js' file instead.`,
     );
