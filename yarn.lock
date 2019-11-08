@@ -9671,15 +9671,15 @@ react-is@^16.6.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
   integrity sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
 
-react-relay@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-7.0.0.tgz#c8839c2781edc51d9ac3155b66e1b22aafadcf95"
-  integrity sha512-ozN7T09wXXzf+VigDK98SW6lMGly9oJsgPGk4jxremMl6WSPX4bAa6A4NMvsFoV9GVLKB2EpaFs1YirIjWywYw==
+react-relay@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-7.1.0.tgz#8a97357914d079f7a537f757782ed126b041a7ac"
+  integrity sha512-O0MTyeVnrnG990rLdEQcFqGf0f7VBT2Y+mRYEC6nTPAxN+M/DB2U6VGPHNjrfoW8PQ2BUyp2ddNGM9b2PtnEwg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
     nullthrows "^1.1.1"
-    relay-runtime "7.0.0"
+    relay-runtime "7.1.0"
 
 react-test-renderer@^16.11.0:
   version "16.11.0"
