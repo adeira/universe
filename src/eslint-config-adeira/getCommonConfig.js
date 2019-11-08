@@ -80,7 +80,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'eslint-plugin-monorepo',
       'eslint-plugin-node',
       'eslint-plugin-eslint-comments',
-      'eslint-plugin-adeira-incubator',
+      'eslint-plugin-adeira',
       'eslint-plugin-prettier',
       'eslint-plugin-relay-imports',
     ],
