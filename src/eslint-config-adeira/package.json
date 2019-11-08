@@ -3,7 +3,7 @@
   "description": "Eslint configuration describing rules for JS used at Adeira.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-config-adeira",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "main": "index",
   "sideEffects": false,
