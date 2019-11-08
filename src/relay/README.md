@@ -1,18 +1,19 @@
-This package is **opinionated Relay wrapper** used at Kiwi.com. Goal of this package is to create powerful yet simple to use Relay wrapper with all the important features:
+This package is **opinionated Relay wrapper** used in the Adeira ecosystem. Goal of this package is to create powerful yet simple to use Relay wrapper with all the important features:
 
 - query logging during development
-- network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/kiwicom/fetch))
+- network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/adeira/universe/tree/master/src/fetch))
 - support for uploadables
 - request burst cache (response cache)
 - stored operations (known as persistent queries)
 - correct Relay environment context handling
+- Flow types and best practices included!
 
 More info about Relay, prior art:
 
 - [Relay Docs](https://relay.dev/docs/en/introduction-to-relay.html)
 - [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
 - [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
-- [Relay Example](https://github.com/kiwicom/relay-example)
+- [Relay Example](https://github.com/adeira/relay-example)
 
 # Install
 
@@ -54,7 +55,7 @@ $ yarn adeira-fetch-schema --help
 Usage: fetch-schema [options]
 
 Options:
-  --resource <url>    (default: "https://graphql.kiwi.com/")
+  --resource <url>
   --filename <path>   (default: "schema.graphql")
   -h, --help         output usage information
 ```
@@ -88,9 +89,7 @@ function handleResponse(props: AppQueryResponse) {
 export default function App(props) {
   return (
     <QueryRenderer
-      // Following `clientID` helps us to identify who is sending the request and it's
-      // required unless you provide custom `environment` (see below).
-      clientID="unique-client-identification"
+      environment={ ... } // see below
       query={graphql`
         query AppQuery {
           allLocations(first: 20) {
@@ -145,7 +144,7 @@ Relay config uses [cosmiconfig](https://www.npmjs.com/package/cosmiconfig) behin
 
 ## Environment
 
-The default `QueryRenderer` falls back to querying [graphql.kiwi.com](https://graphql.kiwi.com) if custom environment is not specified. This helps you to start faster but you have to specify `clientID` to identify the requests. You can also create your own environment:
+The default `QueryRenderer` expects environment provided via `RelayEnvironmentProvider` or being set via `environment` property. This is how you create your own environment:
 
 ```js
 import { createEnvironment, createNetworkFetcher } from '@adeira/relay';
@@ -155,11 +154,11 @@ const Environment = createEnvironment({
     'X-Client': '** TODO **',
   }),
   // subscribeFn
-  // graphiQLPrinter (see below)
+  // ...
 });
 ```
 
-This way you can change the URL or provide additional headers (`X-Client` is still required in `createNetworkFetcher`). You can even replace the whole network fetcher if you want (not recommended). As you can see the high-level API decomposes nicely: it allows you to start quickly with a solid base but you can also use very specific features to your application if you want to. But please, consider if these features could be beneficial even for other users and maybe contribute them back.
+This way you can change the URL or provide additional headers (`X-Client` is required in `createNetworkFetcher`). You can even replace the whole network fetcher if you want (not recommended). As you can see the high-level API decomposes nicely: it allows you to start quickly with a solid base but you can also use very specific features to your application if you want to. But please, consider if these features could be beneficial even for other users and maybe contribute them back.
 
 Now, just use the created environment:
 
@@ -226,22 +225,6 @@ function Component() {
 
 Do not use your own Relay context! Our environment provider as well as the hook are integrated with Relay core.
 
-### Tip: enable GraphiQL printer
-
-You can enable GraphiQL printer via `graphiQLPrinter` parameter when creating the environment. It will enhance your Relay console logs with link to your GraphiQL:
-
-![GraphiQL printer](./graphiql-printer.png)
-
-You just have to create a function which returns link to your GraphiQL, for example:
-
-```js
-const GraphiQLPrinter = (request, variables) => {
-  return `https://graphql.kiwi.com/?query=${encodeURIComponent(
-    request.text,
-  )}&variables=${encodeURIComponent(JSON.stringify(variables))}`;
-};
-```
-
 ## Query Renderer
 
 Query renderer behaves similarly to the default one in Relay except it exposes some additional high level API. It's certainly possible to override the and `render` property just like `environment`. However, please note that `render` property has priority over `onSystemError`, `onLoading` and `onResponse`. It's not recommended to use it unless you need something really special because these preferred 3 props solve majority of the cases.
@@ -262,7 +245,7 @@ export default function App() {
 
 ### Tip: use custom `QueryRenderer` wrapper
 
-It's a good idea to create a custom wrapper of the `QueryRenderer` so you don't have to copy-paste it everywhere. This could be your new API (no loading, system error handlers or client identification):
+It's a good idea to create a custom wrapper of the `QueryRenderer` so you don't have to copy-paste it everywhere. This could be your new API (no loading or system error handlers):
 
 ```js
 export default function App() {
