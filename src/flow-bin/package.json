@@ -8,8 +8,8 @@
   "main": "src/index",
   "sideEffects": true,
   "bin": {
-    "kiwicom-flow-bin": "bin/index.js",
-    "kiwicom-flow-migrate": "bin/migrate.js"
+    "adeira-flow-bin": "bin/index.js",
+    "adeira-flow-migrate": "bin/migrate.js"
   },
   "dependencies": {
     "@babel/register": "^7.6.0",

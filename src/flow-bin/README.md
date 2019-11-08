@@ -18,10 +18,10 @@ To start using it, add the following lines to you `.gitignore` file:
 .flow.saved_state_file_changes
 ```
 
-And run the following command: `yarn run kiwicom-flow-bin`
+And run the following command: `yarn run adeira-flow-bin`
 
 ```text
-$ kiwicom-flow-bin [restart] [--all]
+$ adeira-flow-bin [restart] [--all]
 
       restart    Restarts Flow server.
       --all      Does complete check without any optimizations.
@@ -29,7 +29,7 @@ $ kiwicom-flow-bin [restart] [--all]
 
 This will start the server in lazy mode and create a saved state if there are no errors. You should see the effect when you stop the Flow server and run this command again - it should be significantly faster. Please be aware that we currently support only projects with `master` branch as a base. You have to follow Universe conventions to be able to use it reliably.
 
-There is also experimental `kiwicom-flow-migrate` binary which will help you to migrate the whole codebase. We currently support two projects:
+There is also experimental `adeira-flow-migrate` binary which will help you to migrate the whole codebase. We currently support two projects:
 
 - automatic migration to strict lint (`@flow strict`)
 - automatic migration to "types-first" architecture
@@ -45,7 +45,7 @@ flow:
   tags: [high-performance]
   script:
     - yarn install --offline --frozen-lockfile
-    - yarn run kiwicom-flow-bin
+    - yarn run adeira-flow-bin
   cache:
     # Ideally, we'd cache the saved state only on master and reuse it in other jobs. We should also
     # reuse only one runner to ensure maximum availability of the cache (see: https://docs.gitlab.com/ee/ci/caching/#good-caching-practices).
@@ -68,7 +68,7 @@ cache:
 flow:
   # ...
   script:
-    - yarn run kiwicom-flow-bin
+    - yarn run adeira-flow-bin
 ```
 
 # Technical details
@@ -76,17 +76,17 @@ flow:
 Complete re-check (`restart --all`) will take a long time. We run many optimizations by default. Notably we are running Flow in Lazy Mode and we are trying to re-use Saved State when possible. Lazy Mode and Saved State are currently not configurable from outside since it should not be needed. Here are some approximate example timings (on 12356 relevant files):
 
 ```text
-yarn kiwicom-flow-bin (first run)      ~13s      (cold start, lazy mode, no saved state) ❌
-yarn kiwicom-flow-bin (second run)     ~3s       (hot start, lazy mode, saved state) ✅
-yarn kiwicom-flow-bin restart          ~8s       (cold start, lazy mode, saved state) ❌
-yarn kiwicom-flow-bin restart --all    ~22s      (cold start, no lazy mode, no saved state) ❌
+yarn adeira-flow-bin (first run)      ~13s      (cold start, lazy mode, no saved state) ❌
+yarn adeira-flow-bin (second run)     ~3s       (hot start, lazy mode, saved state) ✅
+yarn adeira-flow-bin restart          ~8s       (cold start, lazy mode, saved state) ❌
+yarn adeira-flow-bin restart --all    ~22s      (cold start, no lazy mode, no saved state) ❌
 ./node_modules/.bin/flow               ~0.14s    (just consulting already running and optimized server)
 ```
 
 Please note: these times are still significantly affected by Babel transpilation process as well as the fact that we sometimes do more things than necessary (server shutdown, force recheck, save state). The best performing setup for local development is currently this:
 
 ```
-yarn kiwicom-flow-bin    (this will start server and set all optimizations)
+yarn adeira-flow-bin    (this will start server and set all optimizations)
 yarn flow                (this runs Flow directly on already optimized server)
 ```
 
