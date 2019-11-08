@@ -33,7 +33,7 @@
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run typecheck && yarn run lint && yarn run test-only --ci --colors",
     "test-only": "yarn run monorepo-babel-node src/monorepo-utils/bin/monorepo-run-tests.js",
-    "typecheck": "yarn run kiwicom-flow-bin"
+    "typecheck": "yarn run adeira-flow-bin"
   },
   "resolutions": {
     "eslint": "~6.6.0"
