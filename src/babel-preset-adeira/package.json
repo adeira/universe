@@ -22,7 +22,7 @@
   "devDependencies": {
     "@adeira/monorepo-utils": "^0.1.0",
     "@adeira/test-utils": "^0.1.0",
-    "strip-ansi": "^5.2.0"
+    "strip-ansi": "^6.0.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.4.3"
