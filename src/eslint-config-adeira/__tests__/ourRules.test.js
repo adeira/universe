@@ -30,7 +30,8 @@ function compareRulesets(testedSet: EslintConfigRules, bannedSet: EslintConfigRu
       extraPrettier.add(ruleName);
       if (
         ruleName in whitelistedConfigs &&
-        (Array.isArray(config) && whitelistedConfigs[ruleName] === config[1])
+        Array.isArray(config) &&
+        whitelistedConfigs[ruleName] === config[1]
       ) {
         extraPrettier.delete(ruleName);
       }

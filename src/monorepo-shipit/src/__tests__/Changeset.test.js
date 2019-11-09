@@ -10,7 +10,12 @@ test('immutability of the changesets', () => {
     .withAuthor('John Doe')
     .withSubject('Subject 1')
     .withDescription('new description')
-    .withDiffs(new Set([{ path: 'aaa', body: 'AAA' }, { path: 'bbb', body: 'BBB' }]));
+    .withDiffs(
+      new Set([
+        { path: 'aaa', body: 'AAA' },
+        { path: 'bbb', body: 'BBB' },
+      ]),
+    );
   const modifiedChangeset2 = modifiedChangeset1
     .withDescription('even newer description')
     .withDiffs(new Set([{ path: 'ccc', body: 'CCC' }]));

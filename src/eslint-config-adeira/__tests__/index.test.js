@@ -50,9 +50,10 @@ test('our rules does not contain "overrides" keyword', () => {
 });
 
 const prettierRules = prettierConfig.rules;
-test.each(Object.entries(prettierRules))(
-  'Eslint rule %p should have value: %p (conflict with Prettier)',
-  (rule, value) => expect(ourRules.get(rule)).toBe(value),
+test.each(
+  Object.entries(prettierRules),
+)('Eslint rule %p should have value: %p (conflict with Prettier)', (rule, value) =>
+  expect(ourRules.get(rule)).toBe(value),
 );
 
 // TODO: test for extra rules

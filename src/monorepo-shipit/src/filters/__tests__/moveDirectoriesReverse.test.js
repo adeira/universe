@@ -17,7 +17,10 @@ test.each([
   ],
   [
     'only one rule applied',
-    new Map([['foo/', ''], ['bar/', 'project_bar/']]),
+    new Map([
+      ['foo/', ''],
+      ['bar/', 'project_bar/'],
+    ]),
     ['foo/bar/part of project foo', 'bar/part of project bar'],
     [
       'bar/part of project foo', // this shouldn't turn into 'project_bar/part ...'
@@ -26,7 +29,10 @@ test.each([
   ],
   [
     'subdirectories',
-    new Map([['foo/test/', 'testing/'], ['foo/', '']]),
+    new Map([
+      ['foo/test/', 'testing/'],
+      ['foo/', ''],
+    ]),
     ['foo/test/README', 'foo/src.c'],
     ['testing/README', 'src.c'],
   ],
@@ -47,7 +53,10 @@ it('throw exception when mapping contains duplicate destinations', () => {
   // not possible to revers such a mapping because it's not clear how
   // should be the paths restored.
   const changeset = new Changeset();
-  const brokenMapping = new Map([['foo/', 'duplicate/'], ['bar/', 'duplicate/']]);
+  const brokenMapping = new Map([
+    ['foo/', 'duplicate/'],
+    ['bar/', 'duplicate/'],
+  ]);
   expect(() => moveDirectoriesReverse(changeset, brokenMapping)).toThrowError(
     'It is not possible to reverse mapping with duplicate destinations.',
   );
