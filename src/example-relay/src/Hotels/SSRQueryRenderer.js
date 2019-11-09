@@ -5,7 +5,7 @@ import { QueryRenderer, type GraphQLTaggedNode } from '@adeira/relay';
 
 import createRelayEnvironment from '../createRelayEnvironment';
 
-type RendererProps = {| +[key: string]: any |};
+type RendererProps = any; // It should be any arbitrary *exact* object but how to annotate it?
 
 type Props = {|
   +query: GraphQLTaggedNode,

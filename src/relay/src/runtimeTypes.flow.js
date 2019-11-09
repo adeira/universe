@@ -7,12 +7,12 @@ type DataID = string;
 /*
  * An individual cached graph object.
  */
-type Record = {| +[key: string]: mixed |};
+type Record = { +[key: string]: mixed, ... };
 
 /**
  * A collection of records keyed by id.
  */
-export type RecordMap = {| +[dataID: DataID]: ?Record |};
+export type RecordMap = { +[dataID: DataID]: ?Record, ... };
 
 type ReaderFragment = {|
   +kind: 'Fragment',
@@ -56,7 +56,7 @@ type TypedSnapshot<TData> = {|
   +selector: SingularReaderSelector,
 |};
 
-export type Snapshot = TypedSnapshot<?{| +[key: string]: mixed |}>;
+export type Snapshot = TypedSnapshot<?{ +[key: string]: mixed, ... }>;
 
 // See:
 // - https://facebook.github.io/relay/docs/en/next/relay-store.html

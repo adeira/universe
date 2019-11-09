@@ -1,20 +1,20 @@
-Rules used at Kiwi.com in the Incubator tribe. You most probably do not need to use this package directly - use [@kiwicom/eslint-config](https://www.npmjs.com/package/@kiwicom/eslint-config) instead. This package exists basically only to workaround some Eslint limitations.
+Rules used for Adeira codebase. You most probably do not need to use this package directly - use [@adeira/eslint-config](https://www.npmjs.com/package/@adeira/eslint-config) instead. This package exists basically only to workaround some Eslint limitations.
 
 # Installation
 
 You'll first need to install [ESLint](http://eslint.org). Next, install this plugin:
 
 ```
-yarn add --dev eslint-plugin-kiwicom-incubator
+yarn add --dev eslint-plugin-adeira
 ```
 
 # Usage
 
-Add `kiwicom-incubator` to the plugins section of your `.eslintrc` configuration file:
+Add `adeira` to the plugins section of your `.eslintrc` configuration file:
 
 ```json
 {
-  "plugins": ["eslint-plugin-kiwicom-incubator"]
+  "plugins": ["eslint-plugin-adeira"]
 }
 ```
 
@@ -23,13 +23,26 @@ Then configure the rules you want to use under the rules section:
 ```json
 {
   "rules": {
-    "adeira-incubator/only-nullable-fields": "error",
-    "adeira-incubator/no-invalid-flow-annotations": "error"
+    "adeira/no-exact-indexer": "error",
+    "adeira/no-internal-flow-type": "error",
+    "adeira/no-invalid-flow-annotations": "error",
+    "adeira/only-nullable-fields": "error"
   }
 }
 ```
 
 # Rules
+
+## `no-exact-indexer`
+
+This rule disallow exact objects with indexer properties (`{| [string]: number |}`). It is because indexer properties are making any object inexact by default and therefore this code doesn't make any sense. It also doesn't work very well (for a good reason):
+
+```js
+type S = {| [key: string]: string |};
+const s: S = { key: 'value' }; // cannot assign object literal to `s` because property `key` is missing in `S`
+```
+
+Please note: we expect that the codebase uses `exact_by_default=true`. This is currently not configurable but it could be if needed (let us know).
 
 ## `no-internal-flow-type`
 

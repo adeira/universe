@@ -8,7 +8,7 @@ import { TimeoutError, ResponseError } from '@adeira/fetch';
 import type { GraphQLTaggedNode, Variables } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
-type RendererProps = {| +[key: string]: any |}; // it can be anything, really
+type RendererProps = any; // It should be any arbitrary *exact* object but how to annotate it?
 
 type ReadyState = {|
   +error: ?Error,

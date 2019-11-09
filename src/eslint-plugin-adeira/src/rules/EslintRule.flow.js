@@ -14,6 +14,9 @@ type Node = {|
       +name: string,
     |},
   |},
+  +exact: boolean,
+  +inexact: boolean,
+  +indexers: $ReadOnlyArray<empty>,
 |};
 
 type SourceCode = {|
@@ -33,6 +36,7 @@ type ASTNodes = {|
   +Identifier?: (node: Node) => void,
   +LineComment?: (node: Node) => void,
   +NewExpression?: (node: Node) => void,
+  +ObjectTypeAnnotation?: (node: Node) => void,
   +Program?: (node: Node) => void,
   +Property?: (node: Node) => void,
 |};

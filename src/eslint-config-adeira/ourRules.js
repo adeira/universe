@@ -640,7 +640,8 @@ module.exports = {
   'relay-imports/type-must-exist': ERROR,
 
   // Kiwi.com custom rules
-  'adeira/only-nullable-fields': ERROR,
-  'adeira/no-invalid-flow-annotations': ERROR,
+  'adeira/no-exact-indexer': NEXT_VERSION_ERROR, // TODO: ERROR
   'adeira/no-internal-flow-type': NEXT_VERSION_ERROR, // TODO: ERROR
+  'adeira/no-invalid-flow-annotations': ERROR,
+  'adeira/only-nullable-fields': ERROR,
 };
