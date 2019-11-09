@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.1.0",
-    "strip-ansi": "^5.2.0",
+    "strip-ansi": "^6.0.0",
     "graphql": "^14.5.8"
   },
   "peerDependencies": {
