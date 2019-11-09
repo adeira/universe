@@ -11,6 +11,7 @@
 
 ; https://flow.org/en/docs/config/declarations/
 [declarations]
+.+/node_modules/dataloader/.+
 .+/node_modules/graphql-iso-date/dist/.+
 .+/node_modules/graphql-relay/lib/connection/connection.js
 .+/node_modules/graphql/utilities/extendSchema.js
@@ -31,7 +32,6 @@
 ; https://flow.org/en/docs/config/lints/
 [lints]
 all=error
-implicit-inexact-object=off
 dynamic-export=off
 non-array-spread=off
 sketchy-null-bool=off
@@ -45,7 +45,6 @@ untyped-import=off
 ;
 ; https://flow.org/en/docs/strict/
 [strict]
-implicit-inexact-object
 sketchy-null-bool
 unclear-type
 untyped-import
@@ -54,7 +53,7 @@ untyped-import
 ; https://flow.org/en/docs/config/options/
 [options]
 emoji=true
-exact_by_default=false
+exact_by_default=true
 include_warnings=true
 
 ; A lot of symlinks will cause Flow's shared hash table to become full.
@@ -109,7 +108,6 @@ experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-resolve-wr
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-result-size
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-utils
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/js
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/redis
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/signed-source
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/test-utils
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/vault2env
