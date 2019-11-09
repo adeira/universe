@@ -422,6 +422,8 @@ const s: S = { key: 'value' }; // cannot assign object literal to `s` because pr
 
 This is not a bug - it simply doesn't make any sense with exact objects. It could be eventually repurposed though, see: https://github.com/facebook/flow/issues/7862
 
+Related issue: https://github.com/facebook/flow/issues/3162
+
 ## Difference between `&` and `...`
 
 It's easy to misunderstand the difference between intersection types (`A & B`) and spreading types (`{ ...A, b:boolean }`) in Flow.
