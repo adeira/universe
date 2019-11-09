@@ -52,7 +52,10 @@ export default function requireAndValidateConfig(configFile: string) {
   if (config.getBranchConfig) {
     validateObjectKeys(
       config.getBranchConfig(),
-      new Map([['source', true], ['destination', true]]),
+      new Map([
+        ['source', true],
+        ['destination', true],
+      ]),
     );
   }
 
