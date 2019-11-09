@@ -1,9 +1,9 @@
 {
   "name": "eslint-plugin-adeira",
   "description": "Additional Eslint rules for Adeira projects. Do not use directly - use @adeira/eslint-config instead.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira-incubator",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "version": "0.1.0",
   "main": "src/index",
   "sideEffects": false,

@@ -33,6 +33,7 @@ import { invariant } from '@adeira/js';
       '@adeira/eslint-config',
       '@adeira/graphql-global-id',
       '@adeira/graphql-bc-checker',
+      'eslint-plugin-adeira',
     ]),
   });
 })();
