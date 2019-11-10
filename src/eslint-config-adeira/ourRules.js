@@ -498,15 +498,6 @@ module.exports = {
   'jsx-a11y/scope': ERROR,
   'jsx-a11y/tabindex-no-positive': ERROR,
 
-  // React Native (https://github.com/Intellicode/eslint-plugin-react-native)
-  'react-native/no-color-literals': OFF,
-  'react-native/no-inline-styles': OFF,
-  'react-native/no-raw-text': OFF,
-  'react-native/no-single-element-style-arrays': OFF,
-  'react-native/no-unused-styles': ERROR,
-  'react-native/sort-styles': OFF,
-  'react-native/split-platform-components': OFF,
-
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
   'relay/compat-uses-vars': OFF, // we do not use Relay Compat
   'relay/generated-flow-types': ERROR,
@@ -635,12 +626,10 @@ module.exports = {
   'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,
 
-  // Relay Flow type imports
-  'relay-imports/no-values': ERROR,
-  'relay-imports/type-must-exist': ERROR,
-
-  // Kiwi.com custom rules
+  // Adeira custom rules
   'adeira/only-nullable-fields': ERROR,
   'adeira/no-invalid-flow-annotations': ERROR,
   'adeira/no-internal-flow-type': NEXT_VERSION_ERROR, // TODO: ERROR
+  'adeira/relay-import-no-values': ERROR,
+  'adeira/relay-import-type-must-exist': ERROR,
 };

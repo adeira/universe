@@ -1,8 +1,14 @@
-// @flow
+// @flow strict
 
 const path = require('path');
 
-const readFileSync = require('./readFileSync');
+const readFileSync = require('../readFileSync');
+
+/*::
+
+import type { EslintRule } from './EslintRule.flow';
+
+*/
 
 function isRelayImport(node) {
   return /\/__generated__\/.*\.graphql/.test(node.source.value);
@@ -18,25 +24,14 @@ function extractTypes(source) {
   return types.reverse();
 }
 
-module.exports = {
-  rules: {
-    'no-values': (context /*: any */) /*: { ImportDeclaration: (node: any) => void, ... } */ => ({
-      ImportDeclaration: (node /*: any */) => {
-        if (!isRelayImport(node)) {
-          return;
-        }
-        node.specifiers.forEach(specifier => {
-          if (node.importKind !== 'type' && specifier.importKind !== 'type') {
-            const nameNode = specifier.imported ? specifier.imported : specifier.local;
-            context.report(nameNode, `"${nameNode.name}" is not imported as a type`);
-          }
-        });
-      },
-    }),
-    'type-must-exist': (
-      context /*: any */,
-    ) /*: { ImportDeclaration: (node: any) => void, ... } */ => ({
-      ImportDeclaration: (node /*: any */) => {
+module.exports = ({
+  meta: {
+    docs: {},
+    schema: [],
+  },
+  create(context) {
+    return {
+      ImportDeclaration: node => {
         if (!isRelayImport(node)) {
           return;
         }
@@ -68,15 +63,6 @@ module.exports = {
           }
         });
       },
-    }),
+    };
   },
-  configs: {
-    recommended: {
-      plugins: ['relay-imports'],
-      rules: {
-        'relay-imports/no-values': 'error',
-        'relay-imports/type-must-exist': 'error',
-      },
-    },
-  },
-};
+} /*: EslintRule  */);

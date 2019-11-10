@@ -14,6 +14,9 @@ type Node = {|
       +name: string,
     |},
   |},
+  +importKind: string,
+  +specifiers: $ReadOnlyArray<{| +imported: Node, +importKind: string |}>,
+  +source: Node,
 |};
 
 type SourceCode = {|
@@ -23,6 +26,7 @@ type SourceCode = {|
 type Context = {|
   +report: ((Node, string) => void) & (({ +node: Node, ... }) => void),
   +getSourceCode: () => SourceCode,
+  +getFilename: () => string,
 |};
 
 type ASTNodes = {|
@@ -35,6 +39,7 @@ type ASTNodes = {|
   +NewExpression?: (node: Node) => void,
   +Program?: (node: Node) => void,
   +Property?: (node: Node) => void,
+  +ImportDeclaration?: (node: Node) => void,
 |};
 
 export type EslintRule = {|
