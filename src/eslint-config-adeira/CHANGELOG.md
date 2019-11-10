@@ -1,5 +1,7 @@
 # Unreleased
 
+- Remove `eslint-plugin-react-native`
+- Move rules from `eslint-plugin-relay-imports` under this package
 ---
 
 Changelog before our fork:

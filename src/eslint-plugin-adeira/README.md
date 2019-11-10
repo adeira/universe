@@ -1,20 +1,20 @@
-Rules used at Kiwi.com in the Incubator tribe. You most probably do not need to use this package directly - use [@kiwicom/eslint-config](https://www.npmjs.com/package/@kiwicom/eslint-config) instead. This package exists basically only to workaround some Eslint limitations.
+Rules in Adeira projects. You most probably do not need to use this package directly - use [@adeira/eslint-config](https://www.npmjs.com/package/@adeira/eslint-config) instead. This package exists basically only to workaround some Eslint limitations.
 
 # Installation
 
 You'll first need to install [ESLint](http://eslint.org). Next, install this plugin:
 
 ```
-yarn add --dev eslint-plugin-kiwicom-incubator
+yarn add --dev eslint-plugin-adeira
 ```
 
 # Usage
 
-Add `kiwicom-incubator` to the plugins section of your `.eslintrc` configuration file:
+Add `adeira` to the plugins section of your `.eslintrc` configuration file:
 
 ```json
 {
-  "plugins": ["eslint-plugin-kiwicom-incubator"]
+  "plugins": ["eslint-plugin-adeira"]
 }
 ```
 
@@ -23,8 +23,8 @@ Then configure the rules you want to use under the rules section:
 ```json
 {
   "rules": {
-    "adeira-incubator/only-nullable-fields": "error",
-    "adeira-incubator/no-invalid-flow-annotations": "error"
+    "adeira/only-nullable-fields": "error",
+    "adeira/no-invalid-flow-annotations": "error"
   }
 }
 ```
@@ -70,3 +70,39 @@ Non-nullable fields are still allowed in these cases:
 - inside of `GraphQLInputObjectType` (you want to restrict input values)
 - in query or types arguments (`args` property)
 - direct child of `GraphQLList`
+
+## relay-import-no-values
+
+This rule disallows value imports from `__generated__`. Typically you want to import only types from these files.
+
+Examples of **incorrect** code:
+
+```js
+import { Kiwi } from './__generated__/Kiwi.graphql';
+import Kiwi from './__generated__/Kiwi.graphql';
+```
+
+Examples of **correct** code:
+
+```js
+import type { Kiwi } from './__generated__/Kiwi.graphql';
+import { type Kiwi } from './__generated__/Kiwi.graphql';
+```
+
+## relay-import-type-must-exist
+
+This rule checks that the type is explicitly exported from the generated file.
+
+Example of **incorrect** code:
+
+```js
+// given the file Kiwi_data.graphql.js doesn't export type Banana_data
+import type { Banana_data } from './__generated__/Kiwi_data.graphql';
+```
+
+Example of **correct** code:
+
+```js
+// given the file Kiwi_data.graphql.js exports type Kiwi_data
+import type { Kiwi_data } from './__generated__/Kiwi_data.graphql';
+```

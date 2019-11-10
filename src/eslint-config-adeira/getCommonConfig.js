@@ -74,7 +74,6 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'eslint-plugin-react',
       'eslint-plugin-react-hooks',
       'eslint-plugin-jsx-a11y',
-      'eslint-plugin-react-native',
       'eslint-plugin-relay',
       'eslint-plugin-import',
       'eslint-plugin-monorepo',
@@ -82,7 +81,6 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'eslint-plugin-eslint-comments',
       'eslint-plugin-adeira',
       'eslint-plugin-prettier',
-      'eslint-plugin-relay-imports',
     ],
   };
 };

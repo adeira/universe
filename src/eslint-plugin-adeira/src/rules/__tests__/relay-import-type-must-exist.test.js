@@ -2,9 +2,9 @@
 
 const RuleTester = require('eslint').RuleTester;
 
-const plugin = require('..');
+const rule = require('../relay-import-type-must-exist');
 
-jest.mock('../readFileSync', () => (path, options) => {
+jest.mock('../../readFileSync', () => (path, options) => {
   expect(options.encoding).toEqual('utf-8');
   if (path === '/path/__generated__/Module_data.graphql.js') {
     return `
@@ -19,72 +19,33 @@ const ruleTester = new RuleTester({
   parser: require.resolve('babel-eslint'),
 });
 
-const validForBoth = [
-  {
-    // not a Relay import
-    code: "import { graphql } from '@adeira/relay';",
-    filename: '/path/Module.js',
-  },
-  {
-    // valid Relay import with "import type"
-    code: "import type { Module_data } from './__generated__/Module_data.graphql';",
-    filename: '/path/Module.js',
-  },
-  {
-    // valid Relay import with "import { type"
-    code: "import { type Module_data } from './__generated__/Module_data.graphql';",
-    filename: '/path/Module.js',
-  },
-  {
-    // valid Relay import from artifact directory with "import type"
-    code: "import type { Module_data } from '__generated__/Module_data.graphql';",
-    filename: '/path/Module.js',
-  },
-  {
-    // valid Relay import from artifact directory with "import { type"
-    code: "import { type Module_data } from '__generated__/Module_data.graphql';",
-    filename: '/path/Module.js',
-  },
-];
-
-ruleTester.run('no-values', plugin.rules['no-values'], {
+ruleTester.run('type-must-exist', rule, {
   valid: [
-    ...validForBoth,
     {
-      // this rule doesn't mind whether the file exists
-      code: "import type { WrongFile_data } from './__generated__/WrongFile_data.graphql';",
+      // not a Relay import
+      code: "import { graphql } from '@adeira/relay';",
       filename: '/path/Module.js',
     },
-  ],
-
-  invalid: [
     {
-      code: "import { Module_data } from './__generated__/Module_data.graphql';",
+      // valid Relay import with "import type"
+      code: "import type { Module_data } from './__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
-      errors: [{ message: '"Module_data" is not imported as a type' }],
     },
     {
-      code: "import Module_data from './__generated__/Module_data.graphql';",
+      // valid Relay import with "import { type"
+      code: "import { type Module_data } from './__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
-      errors: [{ message: '"Module_data" is not imported as a type' }],
     },
     {
-      code:
-        "import { Module_data, type Module_data$ref } from './__generated__/Module_data.graphql';",
+      // valid Relay import from artifact directory with "import type"
+      code: "import type { Module_data } from '__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
-      errors: [{ message: '"Module_data" is not imported as a type' }],
     },
     {
-      code: "import { Module_data } from '../OtherDirectory/__generated__/Module_data.graphql';",
+      // valid Relay import from artifact directory with "import { type"
+      code: "import { type Module_data } from '__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
-      errors: [{ message: '"Module_data" is not imported as a type' }],
     },
-  ],
-});
-
-ruleTester.run('type-must-exist', plugin.rules['type-must-exist'], {
-  valid: [
-    ...validForBoth,
     {
       // value imports are ignored by this rule
       code: "import Module_data from './__generated__/Module_data.graphql';",
