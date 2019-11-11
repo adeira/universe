@@ -24,7 +24,7 @@
     "@adeira/signed-source": "^0.1.0",
     "@babel/register": "^7.6.0",
     "babel-plugin-relay": "^7.1.0",
-    "commander": "^4.0.0",
+    "commander": "^4.0.1",
     "is-ci": "^2.0.0",
     "react-relay": "^7.1.0",
     "relay-compiler": "^7.1.0",
