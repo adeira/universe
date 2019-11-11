@@ -1,5 +1,10 @@
 # Unreleased
 
+---
+
+Changelog before our fork:
+
+```text
 # 1.4.0
 - BC checker now uses signed-source dependency directly
 
@@ -11,3 +16,4 @@
 
 # 1.1.0
 - Output messages are now more helpful and tested
+```
