@@ -31,8 +31,8 @@ import { invariant } from '@adeira/js';
       '@adeira/test-utils',
       '@adeira/flow-bin',
       '@adeira/eslint-config',
-      '@adeira/global-id',
-      '@adeira/bc-checker',
+      '@adeira/graphql-global-id',
+      '@adeira/graphql-bc-checker',
     ]),
   });
 })();
