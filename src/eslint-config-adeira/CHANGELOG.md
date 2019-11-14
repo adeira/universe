@@ -1,5 +1,10 @@
 # Unreleased
 
+
+# 0.3.0
+
+- New rule `adeira/valid-test-folder`.
+
 # 0.2.0
 
 - Remove `eslint-plugin-react-native`

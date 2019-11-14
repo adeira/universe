@@ -37,6 +37,7 @@ Object {
     "adeira/only-nullable-fields": 2,
     "adeira/relay-import-no-values": 2,
     "adeira/relay-import-type-must-exist": 2,
+    "adeira/valid-test-folder": 1,
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
     "array-callback-return": 2,
@@ -894,6 +895,11 @@ Snapshot Diff:
 -     "adeira/no-internal-flow-type": 1,
 +     "adeira/no-internal-flow-type": 2,
       "adeira/no-invalid-flow-annotations": 2,
+@@ --- --- @@
+      "adeira/relay-import-type-must-exist": 2,
+-     "adeira/valid-test-folder": 1,
++     "adeira/valid-test-folder": 2,
+      "array-bracket-newline": "off",
 @@ --- --- @@
       "default-case": 0,
 -     "default-param-last": 1,
