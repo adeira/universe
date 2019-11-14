@@ -106,3 +106,17 @@ Example of **correct** code:
 // given the file Kiwi_data.graphql.js exports type Kiwi_data
 import type { Kiwi_data } from './__generated__/Kiwi_data.graphql';
 ```
+
+## valid-test-folder
+
+This rule checks that your test files are in a folder called __tests__
+
+Example of **incorrect** filename:
+
+- `/src/__test__/my.test.js`
+- `/src/__test__/my.spec.js`
+
+Example of **correct** filename:
+
+- `/src/__tests__/my.test.js`
+- `/src/__tests__/my.spec.js`
