@@ -632,4 +632,5 @@ module.exports = {
   'adeira/no-internal-flow-type': NEXT_VERSION_ERROR, // TODO: ERROR
   'adeira/relay-import-no-values': ERROR,
   'adeira/relay-import-type-must-exist': ERROR,
+  'adeira/valid-test-folder': NEXT_VERSION_ERROR, // TODO: ERROR
 };

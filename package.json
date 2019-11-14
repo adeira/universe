@@ -10,7 +10,7 @@
   "dependencies": {},
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.1.0",
-    "@adeira/eslint-config": "^0.2.0",
+    "@adeira/eslint-config": "^0.3.0",
     "@adeira/flow-bin": "^0.1.0",
     "@babel/core": "^7.7.2",
     "babel-eslint": "^10.0.3",
