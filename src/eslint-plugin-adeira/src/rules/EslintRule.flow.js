@@ -27,6 +27,7 @@ type Context = {|
   +report: ((Node, string) => void) & (({ +node: Node, ... }) => void),
   +getSourceCode: () => SourceCode,
   +getFilename: () => string,
+  +settings: { [key: string]: mixed, ... },
 |};
 
 type ASTNodes = {|

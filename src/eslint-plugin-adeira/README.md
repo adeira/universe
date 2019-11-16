@@ -109,7 +109,11 @@ import type { Kiwi_data } from './__generated__/Kiwi_data.graphql';
 
 ## valid-test-folder
 
-This rule checks that your test files are in a folder called __tests__
+This rule checks that your test files are in a folder called __tests__. This is also configurable to match your setup.
+This rule works in two steps. First it will identify what is a test file through `isTestRegex` option. The default is `(?:spec|test).js$`. Then it will test that your test is in a valid folder through `isValidTestPathRegex`, the default is `__tests__`.
+
+- When to use this rule. If you want to safeguard your self against putting test in an invalid path. 
+- When not to use this rule. If you don't care about where your tests are located.
 
 Example of **incorrect** filename:
 
@@ -120,3 +124,13 @@ Example of **correct** filename:
 
 - `/src/__tests__/my.test.js`
 - `/src/__tests__/my.spec.js`
+
+Using `isTestRegex` setting
+
+You can configure this rule to match your settings by passing `isTestRegex`;
+- [ERROR, {isTestRegex: '\.my_custom_test.jsx'}] will match `/src/__tests__/my_feature.my_custom_test.jsx`
+
+Using `isValidTestPathRegex` setting
+
+You can configure this rule to match your settings by passing `isValidTestPathRegex`;
+- [ERROR, {isValidTestPathRegex: '__specs__'}] will match `/src/__specs__/my_feature.test.js`
