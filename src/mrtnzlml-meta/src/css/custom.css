@@ -39,6 +39,10 @@ blockquote {
   border-left: 1px solid lightgrey;
 }
 
+.docusaurus-highlight-code-line {
+  background-color: rgb(73, 81, 111);
+}
+
 /* https://dev.to/gajus/my-favorite-css-hack-32g3 */
 /*
 * { background-color: rgba(255,0,0,.2); }

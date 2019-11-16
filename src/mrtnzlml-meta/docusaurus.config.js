@@ -16,6 +16,7 @@ module.exports = {
   organizationName: 'mrtnzlml', // Usually your GitHub org/user name.
   projectName: 'meta', // Usually your repo name.
   themeConfig: {
+    sidebarCollapsible: false,
     navbar: {
       title: 'About',
       // logo: {
@@ -84,7 +85,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/mrtnzlml/meta/tree/master/docs/',
+          editUrl: 'https://github.com/mrtnzlml/meta/tree/master/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
         },
