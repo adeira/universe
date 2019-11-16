@@ -8,7 +8,7 @@
       "monorepo/acceptance",
       "monorepo/gcp"
     ],
-    "Open source": ["oss/general", "oss/npm-packages", "oss/npm-releasing"],
-    "Developer guides": [ "guides/money", "guides/eslint-config-migration"]
+    "Open source": ["oss/npm-packages", "oss/npm-releasing"],
+    "Developer guides": ["guides/eslint-config-migration"]
   }
 }
