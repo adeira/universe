@@ -13,11 +13,22 @@ module.exports = ({
     return {
       Program(node) {
         const fileName = context.getFilename();
-        const isTest = /(?:spec|test).js$/.test(fileName);
-        if (isTest) {
-          const isValidTestPath = /__tests__/.test(fileName);
-          if (!isValidTestPath) {
-            context.report({ node, message: `Expect test to be in a folder called __tests__` });
+        const isTestRegex =
+          typeof context.settings.isTestRegex === 'string'
+            ? context.settings.isTestRegex
+            : '(?:spec|test).js$';
+
+        if (new RegExp(isTestRegex).test(fileName)) {
+          const isValidTestPathRegex =
+            typeof context.settings.validTestFolderRegex === 'string'
+              ? context.settings.validTestFolderRegex
+              : '__tests__';
+
+          if (!new RegExp(isValidTestPathRegex).test(fileName)) {
+            context.report({
+              node,
+              message: `Expect test to be in a folder called ${isValidTestPathRegex}`,
+            });
           }
         }
       },
