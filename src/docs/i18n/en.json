@@ -28,10 +28,6 @@
       "oss/npm-packages": {
         "title": "Public NPM Packages",
         "sidebar_label": "Public NPM Packages"
-      },
-      "oss/npm-releasing": {
-        "title": "Releasing of NPM packages",
-        "sidebar_label": "NPM Releasing"
       }
     },
     "links": {

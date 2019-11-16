@@ -6,7 +6,7 @@
       "monorepo/managing-dependencies",
       "monorepo/gcp"
     ],
-    "Open source": ["oss/npm-packages", "oss/npm-releasing"],
+    "Open source": ["oss/npm-packages"],
     "Developer guides": ["guides/eslint-config-migration"]
   }
 }
