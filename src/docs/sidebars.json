@@ -4,8 +4,6 @@
       "monorepo/installation",
       "monorepo/testing",
       "monorepo/managing-dependencies",
-      "monorepo/directory-structure",
-      "monorepo/acceptance",
       "monorepo/gcp"
     ],
     "Open source": ["oss/npm-packages", "oss/npm-releasing"],
