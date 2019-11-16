@@ -5,10 +5,6 @@
     "previous": "Previous",
     "tagline": "Universe by Adeira is monorepo for our JS projects.",
     "docs": {
-      "guides/commit-messages": {
-        "title": "Writing commit messages",
-        "sidebar_label": "Commit Messages"
-      },
       "guides/eslint-config-migration": {
         "title": "Migration to @kiwicom/eslint-config",
         "sidebar_label": "Migration to ESLint config"
