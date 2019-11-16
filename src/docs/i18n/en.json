@@ -9,10 +9,6 @@
         "title": "Migration to @kiwicom/eslint-config",
         "sidebar_label": "Migration to ESLint config"
       },
-      "guides/money": {
-        "title": "Dealing with money in JavaScript",
-        "sidebar_label": "Dealing with money"
-      },
       "monorepo/acceptance": {
         "title": "Acceptance criteria",
         "sidebar_label": "Acceptance criteria"
@@ -36,10 +32,6 @@
       "monorepo/testing": {
         "title": "Testing, Linting, Flowing, Formatting",
         "sidebar_label": "Test, Lint, Flow, Format"
-      },
-      "oss/general": {
-        "title": "General info",
-        "sidebar_label": "General info"
       },
       "oss/npm-packages": {
         "title": "Public NPM Packages",
