@@ -1,5 +1,9 @@
 /* your custom css */
 
+a {
+  text-decoration: underline;
+}
+
 .projectTitle {
   font-weight: 200;
   color: #fff;
@@ -26,7 +30,7 @@
   float: left;
 }
 
-.kiwicomHomepageContainer {
+.adeiraHomepageContainer {
   margin: 20px 40px;
 }
 
@@ -40,7 +44,7 @@
 }
 
 @media only screen and (min-width: 1400px) {
-  .kiwicomHomepageContainer {
+  .adeiraHomepageContainer {
     width: 50%;
     margin: 40px auto;
   }
