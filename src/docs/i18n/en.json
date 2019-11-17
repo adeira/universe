@@ -3,65 +3,23 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "Universe by Adeira is monorepo for our JS projects.",
+    "tagline": "Universe by Adeira is collection of libs to write better code.",
     "docs": {
-      "guides/commit-messages": {
-        "title": "Writing commit messages",
-        "sidebar_label": "Commit Messages"
-      },
-      "guides/eslint-config-migration": {
-        "title": "Migration to @kiwicom/eslint-config",
-        "sidebar_label": "Migration to ESLint config"
-      },
-      "guides/money": {
-        "title": "Dealing with money in JavaScript",
-        "sidebar_label": "Dealing with money"
-      },
-      "monorepo/acceptance": {
-        "title": "Acceptance criteria",
-        "sidebar_label": "Acceptance criteria"
-      },
-      "monorepo/directory-structure": {
-        "title": "Directory structure of this monorepo",
-        "sidebar_label": "Directory structure"
-      },
-      "monorepo/gcp": {
-        "title": "Google Cloud Platform",
-        "sidebar_label": "Google Cloud Platform"
-      },
-      "monorepo/installation": {
-        "title": "Install & Run this monorepo",
-        "sidebar_label": "Installation"
-      },
-      "monorepo/managing-dependencies": {
-        "title": "Managing dependencies",
-        "sidebar_label": "Managing dependencies"
-      },
-      "monorepo/testing": {
-        "title": "Testing, Linting, Flowing, Formatting",
-        "sidebar_label": "Test, Lint, Flow, Format"
-      },
-      "oss/general": {
-        "title": "General info",
-        "sidebar_label": "General info"
-      },
-      "oss/npm-packages": {
-        "title": "Public NPM Packages",
-        "sidebar_label": "Public NPM Packages"
-      },
-      "oss/npm-releasing": {
-        "title": "Releasing of NPM packages",
-        "sidebar_label": "NPM Releasing"
+      "general/introduction": {
+        "title": "Welcome to Adeira Universe!",
+        "sidebar_label": "Introduction"
       }
     },
     "links": {
-      "Monorepo": "Monorepo",
+      "Docs": "Docs",
       "GitHub": "GitHub"
     },
     "categories": {
-      "Monorepo": "Monorepo",
-      "Open source": "Open source",
-      "Developer guides": "Developer guides"
+      "Introduction": "Introduction",
+      "Quick start": "Quick start",
+      "Building GraphQL server": "Building GraphQL server",
+      "React & Relay app": "React & Relay app",
+      "Developer tools": "Developer tools"
     }
   },
   "pages-strings": {

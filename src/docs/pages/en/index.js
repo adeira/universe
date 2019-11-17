@@ -48,7 +48,7 @@ module.exports = function Index(props) {
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
             <Button href={docUrl('monorepo/installation')}>Get Started</Button>
-            <Button href="https://gitlab.skypicker.com/incubator/universe">GitLab</Button>
+            <Button href="https://github.com/adeira/universe">GitHub</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -56,28 +56,18 @@ module.exports = function Index(props) {
   };
 
   const Description = () => (
-    <div className="kiwicomHomepageContainer">
-      <p>
-        Monorepo gives us great opportunity to iterate fast across all our projects. This monorepo
-        uses <a href="https://yarnpkg.com/lang/en/docs/workspaces/">Yarn Workspaces</a> to handle
-        relations between our projects as well as all the JavaScript dependencies. We also use
-        unified lint, tests and static checks to make sure all our projects use the same setup so we
-        don&apos;t even have to think about it.
-      </p>
+    <div className="adeiraHomepageContainer">
+      <p>TBD intro for docs & ecosystem</p>
+      <h2>Contribute to the ecosystem!</h2>
       <p>
         <span role="img" aria-label="backhand index finger pointing right">
           👉
         </span>{' '}
         <strong>
-          <a href={docUrl('monorepo/installation')}>Install & Run this monorepo</a>
+          <a href="https://github.com/adeira/universe/blob/master/README.md" target="_blank">
+            Install & Run this monorepo
+          </a>
         </strong>
-      </p>
-      <p>
-        This website contains documentation for all our projects stored in monorepo. We also export
-        many <a href={docUrl('oss/general')}>NPM packages</a> since it&apos;s very difficult to
-        import all our projects created in Kiwi.com into this repository. Feel free to use them in
-        your project even though it&apos;s not your intention to move your project into{' '}
-        <em>Universe</em>.
       </p>
       <h2>How does it all fit together?</h2>
       <ol>
@@ -108,25 +98,6 @@ module.exports = function Index(props) {
           not care about how to setup tests, lints or flow: focus only on your project goal.
         </li>
       </ol>
-      <p>
-        Where to go next? Let&apos;s{' '}
-        <a href={docUrl('monorepo/installation')}>install this monorepo</a>!
-      </p>
-      <h2>Do not confuse with...</h2>
-      <p>
-        Do not confuse this approach with <em>monolith</em>: monorepo hosts many smaller
-        repositories inside but it&apos;s relatively easy to escape from this setup. Each project
-        lives in it&apos;s own directory but the difference is that you don&apos;t have to setup
-        test environment, lints or Flow - it just works.
-      </p>
-      <p>
-        Do not confuse it with <em>just Yarn Workspaces</em>: it&apos;s true we currently use
-        workspaces heavily. However, that&apos;s only our dependency management system. We work with
-        relations between these workspaces as well which allows us to, for example, run tests
-        efficiently. Moreover, there are additional services sitting on top of this monorepo which
-        are helping us to ship open-source projects, publish NPM packages or automate some
-        repetitive commit. You can think about Universe as an application itself.
-      </p>
     </div>
   );
 

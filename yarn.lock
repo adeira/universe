@@ -4333,10 +4333,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^6.4.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.5.0.tgz#aaf9a495e2a816865e541bfdbb73a65cc162b3eb"
-  integrity sha512-cjXp8SbO9VFGW/Z7mbTydqS9to8Z58E5aYhj3e1+Hx7lS9s6gL5ILKNpCqZAFOVYRcSkWPFYljHrEh8QFEK5EQ==
+eslint-config-prettier@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.6.0.tgz#4e039f65af8245e32d8fba4a2f5b83ed7186852e"
+  integrity sha512-6RGaj7jD+HeuSVHoIT6A0WkBhVEk0ULg74kp2FAWIwkYrOERae0TjIO09Cw33oN//gJWmt7aFhVJErEVta7uvA==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -8258,11 +8258,12 @@ npm-packlist@^1.1.6:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
 
-npm-packlist@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-2.0.0.tgz#083121fbc881e59ecfbd4b694c8ae7f4457e71d9"
-  integrity sha512-t3i8i9b7Hu3fTGWhZvYPFu5/BSof1NGDfrdkk42HfFbxZDEb4oKVE+1NLx/mbDv4qyNlwAlv1nEgsQr37dz+uA==
+npm-packlist@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-2.0.1.tgz#891ae4dc81d8cd8ddeb9070d6338623cd5a20fce"
+  integrity sha512-UKSBjMX3wMcJpmW1JuN1BSVRGetjsA7SZrGwz12EM7AVwLSC6y5pI9xEK54m555Wp8L0CtJ3tab7D7Ex/AKBlg==
   dependencies:
+    glob "^7.1.6"
     ignore-walk "^3.0.3"
     npm-bundled "^1.0.1"
 

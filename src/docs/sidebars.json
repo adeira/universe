@@ -1,14 +1,9 @@
 {
   "universe": {
-    "Monorepo": [
-      "monorepo/installation",
-      "monorepo/testing",
-      "monorepo/managing-dependencies",
-      "monorepo/directory-structure",
-      "monorepo/acceptance",
-      "monorepo/gcp"
-    ],
-    "Open source": ["oss/general", "oss/npm-packages", "oss/npm-releasing"],
-    "Developer guides": ["guides/commit-messages", "guides/money", "guides/eslint-config-migration"]
+    "Introduction": ["general/introduction"],
+    "Quick start": [],
+    "Building GraphQL server": [],
+    "React & Relay app": [],
+    "Developer tools": []
   }
 }

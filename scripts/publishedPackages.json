@@ -1,0 +1,15 @@
+[
+  "@adeira/babel-preset-adeira",
+  "@adeira/eslint-config",
+  "@adeira/fetch",
+  "@adeira/flow-bin",
+  "@adeira/graphql-bc-checker",
+  "@adeira/graphql-global-id",
+  "@adeira/js",
+  "@adeira/logger",
+  "@adeira/monorepo-utils",
+  "@adeira/relay",
+  "@adeira/signed-source",
+  "@adeira/test-utils",
+  "eslint-plugin-adeira"
+]

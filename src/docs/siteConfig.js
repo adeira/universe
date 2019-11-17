@@ -5,10 +5,11 @@
 
 module.exports = {
   title: 'adeira/universe', // Title for your website.
-  tagline: 'Universe by Adeira is monorepo for our JS projects.',
-  url: 'https://kiwi.wiki',
+  tagline: 'Universe by Adeira is collection of libs to write better code.',
+  url: 'https://adeira.dev/',
   baseUrl: '/adeira/universe/',
-  editUrl: 'https://gitlab.skypicker.com/incubator/universe/edit/master/src/docs/docs/',
+  editUrl: 'https://github.com/adeira/universe/tree/master/src/docs/docs/',
+  cname: 'adeira.dev',
 
   customDocsPath: 'docs/docs',
 
@@ -21,7 +22,7 @@ module.exports = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: 'monorepo/installation', label: 'Monorepo' },
+    { doc: 'general/introduction', label: 'Docs' },
     {
       href: 'https://github.com/adeira/universe',
       label: 'GitHub',
@@ -32,20 +33,20 @@ module.exports = {
   users: [],
 
   /* path to images for header/footer */
-  headerIcon: 'img/logo-white.png', // TODO: svg
-  footerIcon: 'img/logo-white.png', // TODO: svg
+  headerIcon: 'img/logo-transparent.png', // TODO: svg
+  footerIcon: 'img/logo-transparent.png', // TODO: svg
 
   favicon: 'img/favicons/favicon.ico',
   manifest: 'img/favicons/manifest.json',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#1976d2',
+    primaryColor: '#000000',
     secondaryColor: '#004ba0',
   },
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Kiwi.com`,
+  copyright: `Copyright © 2017 - 2019 Kiwi.com, 2019 - ${new Date().getFullYear()} Adeira`,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -61,8 +62,8 @@ module.exports = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/logo-white.png',
-  twitterImage: 'img/logo-white.png',
+  ogImage: 'img/logo-transparent.png',
+  twitterImage: 'img/logo-transparent.png',
 
   // Show documentation's last contributor's name.
   enableUpdateBy: true,
