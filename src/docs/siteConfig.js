@@ -1,5 +1,7 @@
 // @flow strict
 
+const path = require('path');
+
 // See https://docusaurus.io/docs/site-config for all the possible
 // site configuration options.
 
@@ -11,7 +13,7 @@ module.exports = {
   editUrl: 'https://github.com/adeira/universe/tree/master/src/docs/docs/',
   cname: 'adeira.dev',
 
-  customDocsPath: 'docs/docs',
+  customDocsPath: `${path.basename(__dirname)}/docs`,
 
   // Used for publishing and more
   projectName: 'graphql',
