@@ -47,7 +47,7 @@ module.exports = function Index(props) {
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
           <PromoSection>
-            <Button href={docUrl('monorepo/installation')}>Get Started</Button>
+            <Button href={docUrl('general/introduction')}>Get Started</Button>
             <Button href="https://github.com/adeira/universe">GitHub</Button>
           </PromoSection>
         </div>
