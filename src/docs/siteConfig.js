@@ -33,8 +33,8 @@ module.exports = {
   users: [],
 
   /* path to images for header/footer */
-  headerIcon: 'img/logo-no-text.png', // TODO: svg
-  footerIcon: 'img/logo-no-text.png', // TODO: svg
+  headerIcon: 'img/logo-transparent.png', // TODO: svg
+  footerIcon: 'img/logo-transparent.png', // TODO: svg
 
   favicon: 'img/favicons/favicon.ico',
   manifest: 'img/favicons/manifest.json',
@@ -62,8 +62,8 @@ module.exports = {
   cleanUrl: true,
 
   // Open Graph and Twitter card images.
-  ogImage: 'img/logo-white.png',
-  twitterImage: 'img/logo-white.png',
+  ogImage: 'img/logo-transparent.png',
+  twitterImage: 'img/logo-transparent.png',
 
   // Show documentation's last contributor's name.
   enableUpdateBy: true,
