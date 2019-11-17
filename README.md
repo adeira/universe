@@ -1,8 +1,23 @@
 # Adeira Universe
 
+<!-- TODO make logo clickable to adeira.dev -->
+![Adeira logo](/src/docs/static/img/logo-banner.png)
+
 This project is an open-source fork of some _public_ projects created when we worked together in Kiwi.com. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
 
 [![Continuous Integration](https://github.com/adeira/universe/workflows/Continuous%20Integration/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22Continuous+Integration%22)
+
+## What can you find here?
+
+- [relay](/src/relay) - Relay Modern GraphQL client with flow support, query logging, stored operations or support for uploadables
+- [fetch](/src/fetch) - isomorphic fetch with retries and timeout
+- [graphql-bc-checker](/src/graphql-bc-checker) - utility to test your schema against accidental breaking changes
+
+... and more, see READMEs of individual packages. <!-- TODO put there link to adeira.dev: "and more, check out adeira.dev" -->
+
+> :point_right: Check out our Relay [demo app](https://relay-example.adeira.now.sh/) and its [source code](https://github.com/adeira/relay-example) to see how it works together :point_left:
+
+## Quick start
 
 ```text
 git clone git@github.com:adeira/universe.git
@@ -10,7 +25,7 @@ cd universe
 yarn install
 ```
 
-## Monorepo
+## Monorepo structure
 
 Overall picture of this monorepo:
 
@@ -43,3 +58,7 @@ Notes:
 ## Contributing
 
 Check our [Contribution guide](/CONTRIBUTING.md) on how to report issues, suggest improvements, commit changes and release.
+
+## Additional resources
+
+- [Relay and GraphQL best practices videos](https://code.kiwi.com/relay-and-graphql-best-practices-b09ce1d6d7ea) to learn how to build an app step by step
