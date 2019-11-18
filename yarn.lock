@@ -4356,6 +4356,11 @@ eslint-module-utils@^2.1.1, eslint-module-utils@^2.4.0:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
 
+eslint-plugin-adeira@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.2.0.tgz#2a381d1107f3a3db36935459340a7f90a14f2d29"
+  integrity sha512-eBIyyqpM9jP7vPcUtS2PxpECvnEgR77a8xRVIQuBGUyz+nj5aMmoSwG4rBNEvbnx0EoX+bvnK/+xIn6/wd1Nug==
+
 eslint-plugin-babel@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-babel/-/eslint-plugin-babel-5.3.0.tgz#2e7f251ccc249326da760c1a4c948a91c32d0023"
