@@ -420,9 +420,20 @@ type S = {| [key: string]: string |};
 const s: S = { key: 'value' }; // cannot assign object literal to `s` because property `key` is missing in `S`
 ```
 
-This is not a bug - it simply doesn't make any sense with exact objects. It could be eventually repurposed though, see: https://github.com/facebook/flow/issues/7862
+This is not a bug - it simply doesn't make any sense with exact objects. It could be eventually repurposed though, see: https://github.com/facebook/flow/issues/7862 (related issue: https://github.com/facebook/flow/issues/3162)
 
-Related issue: https://github.com/facebook/flow/issues/3162
+However, it still somehow works when you are not trying to re-assign the whole value, see:
+
+```js
+type S = {| [key: string]: string |};
+
+const s: S = { key: 'value' }; // Error: Cannot assign object literal to `s` because property `key` is missing in `S` but exists in object literal.
+
+function test(x: S): string {
+  x.y = 'string'; // OK (would fail with a wrong type assignment)
+  return x.test; // OK
+}
+```
 
 ## Difference between `&` and `...`
 
