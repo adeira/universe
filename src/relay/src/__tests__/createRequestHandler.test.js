@@ -87,7 +87,7 @@ it('works as expected with query and full cache', done => {
 
 it('works as expected with query error', done => {
   expect.assertions(5);
-  const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
   const burstCacheMock = {
     clear: () => {},
@@ -124,21 +124,21 @@ it('works as expected with query error', done => {
         'complete',
       ]);
       expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-Array [
-  Array [
-    "error 1",
-    Object {
-      "message": "error 1",
-    },
-  ],
-  Array [
-    "error 2",
-    Object {
-      "message": "error 2",
-    },
-  ],
-]
-`);
+        Array [
+          Array [
+            "error 1",
+            Object {
+              "message": "error 1",
+            },
+          ],
+          Array [
+            "error 2",
+            Object {
+              "message": "error 2",
+            },
+          ],
+        ]
+      `);
       consoleSpy.mockRestore();
       done();
     })
@@ -184,7 +184,7 @@ it('works as expected with mutation', done => {
 
 it('works as expected with mutation error', done => {
   expect.assertions(5);
-  const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
   const burstCacheMock = {
     clear: () => {},
@@ -221,21 +221,21 @@ it('works as expected with mutation error', done => {
         'complete',
       ]);
       expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-Array [
-  Array [
-    "error 1",
-    Object {
-      "message": "error 1",
-    },
-  ],
-  Array [
-    "error 2",
-    Object {
-      "message": "error 2",
-    },
-  ],
-]
-`);
+        Array [
+          Array [
+            "error 1",
+            Object {
+              "message": "error 1",
+            },
+          ],
+          Array [
+            "error 2",
+            Object {
+              "message": "error 2",
+            },
+          ],
+        ]
+      `);
       consoleSpy.mockRestore();
       done();
     })

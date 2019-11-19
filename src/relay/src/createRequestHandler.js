@@ -67,7 +67,7 @@ export default function createRequestHandler(
           if (response.errors) {
             // What should we do with these partial errors?
             // eslint-disable-next-line no-console
-            response.errors.map(error => console.error(error.message, error));
+            response.errors.map(error => console.warn(error.message, error));
           } else {
             // set burst cache only if there are no errors
             burstCache.set(queryID, variables, response);
