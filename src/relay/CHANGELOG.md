@@ -1,5 +1,9 @@
 # Unreleased
 
+# 0.3.0
+
+- Use `console.warn` instead of `console.error` in `createRequestHandler`, since the first causes crash on `react-native`
+
 # 0.2.0
 - rename `kiwicom-fetch-schema` -> `adeira-fetch-schema`
 - rename `kiwicom-relay-compiler` -> `adeira-relay-compiler`
