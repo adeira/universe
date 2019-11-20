@@ -9,7 +9,7 @@ module.exports = {
   title: 'adeira/universe', // Title for your website.
   tagline: 'Universe by Adeira is collection of libs to write better code.',
   url: 'https://adeira.dev/',
-  baseUrl: '/adeira/universe/',
+  baseUrl: '/',
   editUrl: 'https://github.com/adeira/universe/tree/master/src/docs/docs/',
   cname: 'adeira.dev',
 
