@@ -8,6 +8,26 @@
       "general/introduction": {
         "title": "Welcome to Adeira Universe!",
         "sidebar_label": "Introduction"
+      },
+      "quickStart/quickStartLocalState": {
+        "title": "Managing local state with Relay",
+        "sidebar_label": "Local state"
+      },
+      "quickStart/quickStartGettingStarted": {
+        "title": "Getting Started",
+        "sidebar_label": "Getting Started"
+      },
+      "quickStart/quickStartSSR": {
+        "title": "Server side rendering",
+        "sidebar_label": "Server side rendering"
+      },
+      "tutorialRelay/tutorialRelayIntroduction": {
+        "title": "Introduction",
+        "sidebar_label": "Introduction"
+      },
+      "tutorialServer/tutorialServerIntroduction": {
+        "title": "Introduction",
+        "sidebar_label": "Introduction"
       }
     },
     "links": {
@@ -17,8 +37,8 @@
     "categories": {
       "Introduction": "Introduction",
       "Quick start": "Quick start",
+      "Writing Relay app": "Writing Relay app",
       "Building GraphQL server": "Building GraphQL server",
-      "React & Relay app": "React & Relay app",
       "Developer tools": "Developer tools"
     }
   },
