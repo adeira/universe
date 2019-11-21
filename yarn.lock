@@ -2,25 +2,6 @@
 # yarn lockfile v1
 
 
-"@adeira/relay@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-0.2.0.tgz#36769ebea521d087d06b9b4e840d4de989bbd46f"
-  integrity sha512-loAPqXeerHFQP017TWeADTomvhMIH2npKeuLfIiH+U2DTOnfiG6D6ZKiibh1UgKhx26X6keqXEMm0VzPlis66w==
-  dependencies:
-    "@adeira/fetch" "^1.0.0"
-    "@adeira/js" "^0.1.0"
-    "@adeira/logger" "^0.1.0"
-    "@adeira/monorepo-utils" "^0.1.0"
-    "@adeira/signed-source" "^0.1.0"
-    "@babel/register" "^7.6.0"
-    babel-plugin-relay "^7.0.0"
-    commander "^4.0.0"
-    is-ci "^2.0.0"
-    react-relay "^7.0.0"
-    relay-compiler "^7.0.0"
-    relay-config "^7.0.0"
-    relay-runtime "^7.0.0"
-
 "@ampproject/toolbox-core@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-core/-/toolbox-core-1.1.1.tgz#540c8f3ab0f5d1faa1ba35282cd5f5f3f0e16a76"
@@ -2146,7 +2127,7 @@ babel-plugin-macros@^2.0.0:
     cosmiconfig "^5.2.0"
     resolve "^1.10.0"
 
-babel-plugin-relay@^7.0.0, babel-plugin-relay@^7.1.0:
+babel-plugin-relay@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-7.1.0.tgz#adf5e5dff9f5631d7a6547c460b1a4e9f501713a"
   integrity sha512-KshZBzjOIovWrdlBjbR+ARvPN5UUJa30KWLyNuxf32WrJij+tOiQTWE1ieN2MHeVpJZUhzBKx7S49Xrm8ALwyA==
@@ -3110,7 +3091,7 @@ commander@^2.11.0, commander@^2.15.1, commander@^2.19.0, commander@^2.20.0, comm
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^4.0.0, commander@^4.0.1:
+commander@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.0.1.tgz#b67622721785993182e807f4883633e6401ba53c"
   integrity sha512-IPF4ouhCP+qdlcmCedhxX4xiGBPyigb8v5NeUp+0LyhwLgxMqyp3S0vl7TAPfS/hiP7FC3caI/PB9lTmP8r1NA==
@@ -3668,10 +3649,10 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-dataloader@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-1.4.0.tgz#bca11d867f5d3f1b9ed9f737bd15970c65dff5c8"
-  integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
+dataloader@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-2.0.0.tgz#41eaf123db115987e21ca93c005cd7753c55fe6f"
+  integrity sha512-YzhyDAwA4TaQIhM5go+vCLmU0UikghC/t9DTQYZR2M/UvZ1MdOhPezSDZcjj9uqQJOMqjLcpWtyW2iNINdlatQ==
 
 date-fns@^2.8.0:
   version "2.8.0"
@@ -9994,7 +9975,7 @@ react-is@^16.6.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
   integrity sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
 
-react-relay@^7.0.0, react-relay@^7.1.0:
+react-relay@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-7.1.0.tgz#8a97357914d079f7a537f757782ed126b041a7ac"
   integrity sha512-O0MTyeVnrnG990rLdEQcFqGf0f7VBT2Y+mRYEC6nTPAxN+M/DB2U6VGPHNjrfoW8PQ2BUyp2ddNGM9b2PtnEwg==
@@ -10210,7 +10191,7 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-relay-compiler@^7.0.0, relay-compiler@^7.1.0:
+relay-compiler@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-7.1.0.tgz#cd8657c98e4d36f59bc9301ca1dc174e7f373c1a"
   integrity sha512-8SisbLejjob1CYI9uQP7wxtsWvT+cvbx1iFDgP5U360UBukOGWLehfmn33lygY0LYqnfMShgvL1n7lrqoohs5A==
@@ -10232,14 +10213,14 @@ relay-compiler@^7.0.0, relay-compiler@^7.1.0:
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
-relay-config@^7.0.0, relay-config@^7.1.0:
+relay-config@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/relay-config/-/relay-config-7.1.0.tgz#6c81b6fa48349dd1d50917afdde011a5db923b9a"
   integrity sha512-LuUiPWOndtdx6MQOUcYKKtyo5IQ9ESdpqyZ3SId/xeI5b5LNuWnNgeZ4rrdZkBeDD3Vk0d0ZQA/xx4KdKLsn8w==
   dependencies:
     cosmiconfig "^5.0.5"
 
-relay-runtime@7.1.0, relay-runtime@^7.0.0, relay-runtime@^7.1.0:
+relay-runtime@7.1.0, relay-runtime@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-7.1.0.tgz#3a1b38cb55fae7ab2fbb404f7db7a5b900ef963f"
   integrity sha512-19WV0dC4rcbXnVBKEA4ZL41ccfJRUZ7/KKfQsgc9SwjqCi2g3+yYIR9wJ4KoC+rEfG2yN3W1vWBEqr+igH/rzA==
