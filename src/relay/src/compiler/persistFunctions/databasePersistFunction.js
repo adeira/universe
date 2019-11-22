@@ -8,10 +8,11 @@ import graphql from '../../graphql';
 import { commitMutation } from '../../mutations';
 import createEnvironment from '../../createEnvironment';
 import createNetworkFetcher from '../../fetchers/createNetworkFetcher';
+import type { databasePersistFunctionMutation } from './__generated__/databasePersistFunctionMutation.graphql';
 
 // This mutation persist operations to our GraphQL Persistent Storage for later direct usage.
 function persistOperation(operationId: string, text: string) {
-  return commitMutation(
+  return commitMutation<databasePersistFunctionMutation>(
     createEnvironment({
       fetchFn: createNetworkFetcher('https://graphql.kiwi.com/', {
         'X-Client': 'Kiwi.com Relay Compiler',
@@ -29,7 +30,7 @@ function persistOperation(operationId: string, text: string) {
         }
       `,
       variables: {
-        input: { operationId, text },
+        input: [{ operationId, text }],
       },
       onError: error => {
         logger.error('TODO: onError', String(error));

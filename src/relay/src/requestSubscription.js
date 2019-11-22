@@ -12,12 +12,14 @@ import type { Environment, RecordSourceSelectorProxy } from './runtimeTypes.flow
 
 opaque type SelectorData = $FlowFixMe;
 
-type Config = {|
+type SubscriptionPayload = { +[key: string]: any, ... };
+
+type Config<T: SubscriptionPayload> = {|
   +subscription: GraphQLTaggedNode,
   +variables: Variables,
   +onCompleted?: ?() => void,
   +onError?: ?(error: Error) => void,
-  +onNext?: ?(response: ?{ +[key: string]: any, ... }) => void,
+  +onNext?: ?(response: ?T) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
 |};
@@ -26,6 +28,9 @@ type Config = {|
  * The first parameter `environment` should be from `props.relay.environment`
  * to ensure the subscription is performed in the correct environment.
  */
-export default function requestSubscription(environment: Environment, config: Config): Disposable {
+export default function requestSubscription<T: SubscriptionPayload>(
+  environment: Environment,
+  config: Config<T>,
+): Disposable {
   return _requestSubscription(environment, config);
 }

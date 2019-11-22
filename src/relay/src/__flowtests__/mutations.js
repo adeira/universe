@@ -18,7 +18,8 @@ const mutation = graphql`
 `;
 
 const variables = {
-  aaa: 111,
+  someNumber: 111,
+  someEnum: 'up',
 };
 
 type NamedMutationVariables = {|
@@ -39,32 +40,20 @@ type NamedMutation = {|
 
 module.exports = {
   validMutation() {
-    return commitMutation(environment, {
-      mutation,
-      variables,
-    });
-  },
-  validTypedMutation() {
     return commitMutation<NamedMutation>(environment, {
       mutation,
-      variables: {
-        someNumber: 111,
-        someEnum: 'up',
-      },
+      variables,
     });
   },
   validAsyncMutation() {
     return commitMutationAsync<NamedMutation>(environment, {
       mutation,
-      variables: {
-        someNumber: 111,
-        someEnum: 'up',
-      },
+      variables,
       // eslint-disable-next-line no-unused-vars
     }).then(({ response }: { +response: NamedMutationResponse, ... }) => {});
   },
   updater() {
-    return commitMutation(environment, {
+    return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
       updater: validUpdater,
@@ -74,7 +63,7 @@ module.exports = {
   // Invalid usages:
   missingVariables() {
     // $FlowExpectedError: variables are missing
-    return commitMutation(environment, {
+    return commitMutation<NamedMutation>(environment, {
       mutation,
     });
   },
@@ -89,10 +78,7 @@ module.exports = {
     // $FlowExpectedError: response type differs from onCompleted declaration
     return commitMutation<NamedMutation>(environment, {
       mutation,
-      variables: {
-        someNumber: 111,
-        someEnum: 'up',
-      },
+      variables,
       // eslint-disable-next-line no-unused-vars
       onCompleted: (response: {||}) => {},
     });
@@ -102,14 +88,11 @@ module.exports = {
     return commitMutationAsync<NamedMutation>(environment, {
       mutation,
       onCompleted: () => {},
-      variables: {
-        someNumber: 111,
-        someEnum: 'up',
-      },
+      variables,
     });
   },
   invalidUpdater() {
-    return commitMutation(environment, {
+    return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
       updater: store => {

@@ -11,9 +11,11 @@ const mutation = graphql`
 
 const variables = {};
 
+type MutationTypeMock = any;
+
 module.exports = {
   validConfigs: () => {
-    return commitMutation(environment, {
+    return commitMutation<MutationTypeMock>(environment, {
       mutation,
       variables,
       configs: [
@@ -45,7 +47,7 @@ module.exports = {
 
   // Invalid examples:
   invalidConfigType: () => {
-    return commitMutation(environment, {
+    return commitMutation<MutationTypeMock>(environment, {
       mutation,
       variables,
       configs: [
@@ -57,7 +59,7 @@ module.exports = {
     });
   },
   invalidRangeBehaviors: () => {
-    return commitMutation(environment, {
+    return commitMutation<MutationTypeMock>(environment, {
       mutation,
       variables,
       configs: [

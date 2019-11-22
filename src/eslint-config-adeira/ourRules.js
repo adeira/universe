@@ -505,7 +505,7 @@ module.exports = {
 
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
   'relay/compat-uses-vars': OFF, // we do not use Relay Compat
-  'relay/generated-flow-types': ERROR,
+  'relay/generated-flow-types': NEXT_VERSION_ERROR,
   'relay/graphql-naming': ERROR,
   'relay/graphql-syntax': ERROR,
   'relay/hook-required-argument': NEXT_VERSION_ERROR,
