@@ -12,6 +12,7 @@ require('@babel/register')({
 const fs = require('fs');
 const path = require('path');
 const program = require('commander');
+const { invariant } = require('@adeira/js');
 const fetch = require('@adeira/fetch').default;
 const logger = require('@adeira/logger').default;
 const SignedSource = require('@adeira/signed-source').default;
@@ -22,6 +23,8 @@ program
   .option('--resource <url>')
   .option('--filename <path>', undefined, 'schema.graphql')
   .parse(process.argv);
+
+invariant(program.resource, 'Option --resource is required.');
 
 const filename = path.join(process.cwd(), program.filename);
 
