@@ -21,15 +21,17 @@ const variables = {
   aaa: 111,
 };
 
+type SubscriptionTypeMock = any;
+
 module.exports = {
   validMutation() {
-    return requestSubscription(environment, {
+    return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription,
       variables,
     });
   },
   updater() {
-    return requestSubscription(environment, {
+    return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription,
       variables,
       updater: validUpdater,
@@ -39,7 +41,7 @@ module.exports = {
   // Invalid usages:
   missingVariables() {
     // $FlowExpectedError: variables are missing
-    return requestSubscription(environment, {
+    return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription: graphql`
         subscription requestSubscription {
           __typename
