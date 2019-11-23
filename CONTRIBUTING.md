@@ -14,6 +14,10 @@ Every change is automatically deployed from the `master` if the tests are green.
 
 # Contribution guide
 
+## Code of Conduct
+
+Adeira Universe uses Contributor Covenant, read [the full text](/CODE_OF_CONDUCT.md) to understand what working environment we want to adhere.
+
 ## Commit messages
 
 Please read this legendary article first: https://chris.beams.io/posts/git-commit/
