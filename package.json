@@ -12,11 +12,11 @@
     "@adeira/babel-preset-adeira": "^0.1.0",
     "@adeira/eslint-config": "^0.3.0",
     "@adeira/flow-bin": "^0.1.0",
-    "@babel/core": "^7.7.2",
+    "@babel/core": "^7.7.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.6.0",
+    "eslint": "^6.7.0",
     "flow-bin": "^0.111.3",
     "flow-typed": "^2.6.2",
     "glob": "^7.1.6",
@@ -37,6 +37,6 @@
     "typecheck": "yarn run adeira-flow-bin"
   },
   "resolutions": {
-    "eslint": "~6.6.0"
+    "eslint": "~6.7.0"
   }
 }
