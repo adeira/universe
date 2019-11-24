@@ -1,7 +1,6 @@
 # Adeira Universe
 
-<!-- TODO make logo clickable to adeira.dev -->
-![Adeira logo](/src/docs/static/img/logo-banner.png)
+[![Adeira logo](/src/docs/static/img/logo-banner.png)](https://adeira.dev/)
 
 This project is an open-source fork of some _public_ projects created when we worked together in Kiwi.com. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
 
@@ -13,9 +12,9 @@ This project is an open-source fork of some _public_ projects created when we wo
 - [fetch](/src/fetch) - isomorphic fetch with retries and timeout
 - [graphql-bc-checker](/src/graphql-bc-checker) - utility to test your schema against accidental breaking changes
 
-... and more, see READMEs of individual packages. <!-- TODO put there link to adeira.dev: "and more, check out adeira.dev" -->
+... and more, see READMEs of individual packages located in `/src`. <!-- TODO put there link to adeira.dev: "and more, check out adeira.dev" -->
 
-> :point_right: Check out our Relay [demo app](https://relay-example.adeira.now.sh/) and its [source code](https://github.com/adeira/relay-example) to see how it works together :point_left:
+:point_right: Check out our Relay [demo app](https://relay-example.adeira.now.sh/) and its [source code](https://github.com/adeira/relay-example) to see how it works together :point_left:
 
 ## Quick start
 
@@ -24,6 +23,8 @@ git clone git@github.com:adeira/universe.git
 cd universe
 yarn install
 ```
+
+Please note: you have to use Yarn. It won't work with NPM!
 
 ## Monorepo structure
 
