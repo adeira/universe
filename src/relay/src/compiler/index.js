@@ -19,8 +19,6 @@ type ExternalOptions = {|
   +src: string,
   +schema: string,
   +persistMode: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
-  +include: $ReadOnlyArray<string>,
-  +exclude: $ReadOnlyArray<string>,
   +validate: boolean,
   +watch: boolean,
   +language: 'javascript' | 'typescript', // TODO: detect this automatically based on tsconfig.json file?
@@ -40,6 +38,14 @@ export default async function compiler(externalOptions: ExternalOptions) {
     // defaults
     noFutureProofEnums: false,
     artifactDirectory: null,
+    exclude: [
+      // allowed in __tests__
+      '**/__flowtests__/**',
+      '**/__generated__/**',
+      '**/__mocks__/**',
+      '**/node_modules/**',
+    ],
+    include: ['**'],
     language: 'javascript',
     ...externalOptions,
   };
