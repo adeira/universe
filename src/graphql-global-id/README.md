@@ -78,3 +78,7 @@ It is possible to fetch both ID versions at the same time in GraphQL:
 ```
 
 This is handy especially when you are migrating old code to this new type. Just change something like deprecated `databaseID` to `databaseID: id(opaque: false)` and that's it.
+
+# Types support
+
+This package includes types for Flow and Typescript.
