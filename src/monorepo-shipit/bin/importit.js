@@ -11,7 +11,7 @@ import createCleanPhase from '../src/phases/createCleanPhase';
 import createImportSyncPhase from '../src/phases/createImportSyncPhase';
 
 // TODO: check we can actually import this package (whether we have config for it)
-// yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
+// yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
 
 const argv = process.argv.splice(2); // TODO: better CLI
 invariant(argv.length === 2, 'Importit expects two arguments: git URL and PR number.');
