@@ -1,5 +1,6 @@
 # Unreleased
 
+- Lint all files when `.eslintignore` changes
 
 # 0.3.0
 
