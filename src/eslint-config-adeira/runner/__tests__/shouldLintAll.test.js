@@ -14,7 +14,6 @@ test.each([
   'src/packages/relay/package.json',
   '/Users/code/universe/src/packages/relay/package.json',
   '.eslintignore',
-  '/Users/code/universe/src/packages/relay/.eslintignore',
 ])('filename "%s" IS eslint config file', filename => {
   expect(shouldLintAll(filename)).toBe(true);
 });
@@ -25,7 +24,7 @@ test.each([
   '.eslintrc.jsonp',
   '.eslintrc/xyz',
   'src/.eslintrc/test',
-  'src/test/.eslintignore/test',
+  'src/test/.eslintignore',
 ])('filename "%s" IS NOT eslint config file', filename => {
   expect(shouldLintAll(filename)).toBe(false);
 });
