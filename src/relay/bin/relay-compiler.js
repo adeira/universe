@@ -16,25 +16,11 @@ const RelayConfig = require('relay-config');
 
 const compiler = require('../src/compiler').default;
 
-const collectPaths = value => {
-  return value.split(',');
-};
-
-// Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
 program
+  // Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
   .option('--src <src>')
   .option('--schema <schema>')
   .option('--persist-mode <fs|remote>')
-  .option('--include <include>', 'Comma separated list of directories to include.', collectPaths, [
-    '**',
-  ])
-  .option('--exclude <exclude>', 'Comma separated list of directories to ignore.', collectPaths, [
-    // allowed in __tests__
-    '**/__flowtests__/**',
-    '**/__generated__/**',
-    '**/__mocks__/**',
-    '**/node_modules/**',
-  ])
   .option('--validate', 'Activates validate only mode', false)
   .option(
     '--watch',
@@ -49,8 +35,6 @@ const config = {
   persistMode: program.persistMode,
   validate: program.validate,
   watch: program.watch,
-  include: program.include,
-  exclude: program.exclude,
   ...RelayConfig.loadConfig(),
 };
 
