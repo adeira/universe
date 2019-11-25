@@ -2,12 +2,12 @@
 
 import { FlowGenerator } from 'relay-compiler';
 import { find } from 'relay-compiler/lib/language/javascript/FindGraphQLTags'; // TODO: better (?)
-import TypescriptPluginFactory from 'relay-compiler-language-typescript';
 
 import formatGeneratedModule from './formatGeneratedModule';
 
 export default function buildLanguagePlugin(language: 'javascript' | 'typescript') {
   if (language === 'typescript') {
+    const TypescriptPluginFactory = require('relay-compiler-language-typescript').default;
     return TypescriptPluginFactory();
   } else if (language === 'javascript') {
     return {
