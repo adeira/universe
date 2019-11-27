@@ -1250,17 +1250,12 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@kiwicom/js@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/js/-/js-0.9.0.tgz#67032574d8ee318cd747001a7b4c87013214327a"
-  integrity sha512-CwDiWwLWE0iWzCrL08x7jdEySAIVdmcmF/rik8gjK5oW4jA5G9fOBxsSSVm2bLtq8HG9KIz4YHDbtWO1K7LIiQ==
-
-"@kiwicom/orbit-components@^0.67.1":
-  version "0.67.1"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.67.1.tgz#b0ab1a9cd28d9db9193d60ed97cf85a5292fc3c4"
-  integrity sha512-Tjs0kL7s3BjUpV9tG7yUkhL9V6zGC0KyIApqNXJbEi5oECW2eEUGCaodeW24RXMU5qMYPadR/IoSu94+VbF9YQ==
+"@kiwicom/orbit-components@^0.68.0":
+  version "0.68.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.68.0.tgz#cc8cab9415a9ec015de6e2851916bfecd797e61f"
+  integrity sha512-A9yndEJxmEuijcUVZx7/ufd2OfxGuSEvhSEnj+RyD8loD6lnugOWVpRinKDlTPhaYiNFsBueUlZ1LeEKmdPZdA==
   dependencies:
-    "@kiwicom/js" "^0.9.0"
+    "@adeira/js" "^0.1.0"
     "@kiwicom/orbit-design-tokens" "~0.8.0"
 
 "@kiwicom/orbit-design-tokens@~0.8.0":
