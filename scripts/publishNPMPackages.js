@@ -17,7 +17,7 @@ import publishedPackages from './publishedPackages.json';
   );
 
   await publish({
-    buildCache: path.join(os.tmpdir(), 'com.kiwi.universe.npm', '.build'),
+    buildCache: path.join(os.tmpdir(), 'com.adeira.universe.npm', '.build'),
     dryRun: false,
     npmAuthToken,
     workspaces: new Set(publishedPackages),
