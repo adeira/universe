@@ -73,7 +73,7 @@ module.exports = function Index(props) {
       <ol>
         <li>
           <strong>Tests</strong> are being executed using our{' '}
-          <a href="https://github.com/kiwicom/monorepo-utils#binary-monorepo-run-tests">
+          <a href="https://github.com/adeira/universe/tree/master/src/monorepo-utils#binary-monorepo-run-tests">
             TestsRunner
           </a>
           . This runner tries to find relevant changes to test among every Yarn Workspace we have in
@@ -83,7 +83,7 @@ module.exports = function Index(props) {
         <li>
           <strong>Lint</strong> works very similarly to the tests runner: it tries to find only
           relevant changes to test among every project. We use{' '}
-          <a href="https://github.com/kiwicom/eslint-config-kiwicom#eslint-runner">
+          <a href="https://github.com/adeira/universe/tree/master/src/eslint-config-adeira#eslint-runner">
             custom Eslint runner
           </a>{' '}
           based on Jest to run these checks.
