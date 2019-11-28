@@ -48,10 +48,10 @@ This NPM publisher automatically takes `.npmignore` (or `.gitignore`) files into
 
 # Behind the scenes explanation
 
-Let's have a look at our [JS project](https://github.com/kiwicom/js) and what happens when you run this publisher. Before:
+Let's have a look at our [JS project](https://github.com/adeira/universe/tree/master/src/js) and what happens when you run this publisher. Before:
 
 ```text
-src/packages/js
+src/js
 ├── LICENSE
 ├── README.md
 ├── package.json
@@ -73,7 +73,7 @@ src/packages/js
 After:
 
 ```text
-com.kiwi.universe.npm/.build/js
+com.adeira.universe.npm/.build/js
 ├── LICENSE
 ├── README.md
 ├── package.json
