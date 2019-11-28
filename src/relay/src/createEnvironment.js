@@ -2,7 +2,7 @@
 
 import { Network, Environment as RelayEnvironment, ConnectionHandler } from 'relay-runtime';
 
-import RelayLogger from './RelayLogger';
+import RelayLogger, { type LogEvent } from './RelayLogger';
 import createRequestHandler from './createRequestHandler';
 import createRelayStore from './createRelayStore';
 import type { Environment, RecordMap } from './runtimeTypes.flow';
@@ -17,6 +17,7 @@ type Options = {|
     load: string => Promise<?NormalizationSplitOperation>,
   |},
   +records?: ?RecordMap,
+  +logger?: (LogEvent => void) | null,
 |};
 
 type NormalizationSplitOperation = {|
@@ -43,11 +44,11 @@ function handlerProvider(handle) {
 }
 
 export default function createEnvironment(options: Options): Environment {
-  const { fetchFn, subscribeFn, records, ...rest } = options;
+  const { fetchFn, subscribeFn, records, logger, ...rest } = options;
   return new RelayEnvironment({
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn),
-    log: RelayLogger,
+    log: logger === undefined ? RelayLogger : logger, // Use default if no option is sent, but allow user to overwrite it
     store: createRelayStore(records),
     ...rest,
   });

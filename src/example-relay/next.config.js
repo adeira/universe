@@ -11,6 +11,7 @@ module.exports = withCustomBabelConfigFile(
       // @x-shipit-enable: 'babel.config.js',
       '.babelrc', // @x-shipit-disable
     ),
-    transpileModules: ['@adeira'],
+    // @kiwicom/orbit-components is using `@adeira/js`, and needs to be  tranpiled as well because of this
+    transpileModules: ['@adeira', '@kiwicom'],
   }),
 );
