@@ -8,6 +8,6 @@
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^0.1.0"
+    "@adeira/js": "^0.2.0"
   }
 }

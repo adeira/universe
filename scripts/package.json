@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@adeira/js": "^0.1.0",
+    "@adeira/js": "^0.2.0",
     "@adeira/logger": "^0.1.0",
     "@adeira/monorepo-npm-publisher": "^0.1.0",
     "chalk": "^3.0.0"
