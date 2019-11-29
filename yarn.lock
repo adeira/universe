@@ -10157,10 +10157,10 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-relay-compiler-language-typescript@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/relay-compiler-language-typescript/-/relay-compiler-language-typescript-10.1.1.tgz#64dda4328964854bf0f9bd790531e2d94ed51871"
-  integrity sha512-M8VP+Yv/CPX2CPI0ZRYgFe/zoP4zryoA9RAqmcHfhMS04qfs4ZOCXDuEZzVBooWcuO/MQ9Ufy9Fyxpv9U54kXA==
+relay-compiler-language-typescript@^10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/relay-compiler-language-typescript/-/relay-compiler-language-typescript-10.1.2.tgz#e054692384b69ab0a2a84dd4067109d419fa8990"
+  integrity sha512-9dpiyFaV6lyBy04RFYS7gzZ2IXU3MVMGhtz4o+ag8Sh3doaDJjANgTe2MMexB67iBh7sGW0Vxx1lS/8nPeFqQg==
   dependencies:
     immutable "^4.0.0-rc.12"
     invariant "^2.2.4"
