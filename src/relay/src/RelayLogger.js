@@ -2,6 +2,8 @@
 
 /* eslint-disable no-console */
 
+import { isBrowser } from '@adeira/js';
+
 import type { Variables } from './types.flow';
 
 export type LogEvent =
@@ -63,7 +65,7 @@ function logGroup(logEvent, groupBody) {
 
 // See: https://github.com/facebook/relay/commit/da9a57cb0b7ab9bedf82e3d1dddc17a0ad9e4d92
 export default function RelayLogger(logEvent: LogEvent) {
-  if (!__DEV__) {
+  if (!__DEV__ || !isBrowser()) {
     return;
   }
   switch (logEvent.name) {
