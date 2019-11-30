@@ -638,4 +638,5 @@ module.exports = {
   'adeira/relay-import-no-values': ERROR,
   'adeira/relay-import-type-must-exist': ERROR,
   'adeira/valid-test-folder': NEXT_VERSION_ERROR, // TODO: ERROR
+  'adeira/no-duplicate-import-type-import': NEXT_VERSION_ERROR,
 };
