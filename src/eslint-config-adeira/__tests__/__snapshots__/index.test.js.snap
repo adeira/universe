@@ -32,6 +32,7 @@ Object {
         "setWithoutGet": true,
       },
     ],
+    "adeira/no-duplicate-import-type-import": 1,
     "adeira/no-internal-flow-type": 1,
     "adeira/no-invalid-flow-annotations": 2,
     "adeira/only-nullable-fields": 2,
@@ -897,7 +898,9 @@ Snapshot Diff:
 
 @@ --- --- @@
       ],
+-     "adeira/no-duplicate-import-type-import": 1,
 -     "adeira/no-internal-flow-type": 1,
++     "adeira/no-duplicate-import-type-import": 2,
 +     "adeira/no-internal-flow-type": 2,
       "adeira/no-invalid-flow-annotations": 2,
 @@ --- --- @@

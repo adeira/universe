@@ -134,3 +134,33 @@ Using `isValidTestPathRegex` setting
 
 You can configure this rule to match your settings by passing `isValidTestPathRegex`;
 - [ERROR, {isValidTestPathRegex: '__specs__'}] will match `/src/__specs__/my_feature.test.js`
+
+
+## no-duplicate-import-type-import
+
+This rule reports error for duplicated import-type-import. It does not report duplicated import, since that is covered by `imports/no-duplicate`.
+
+- When to use this rule: When you don't want imports like: 
+```js 
+import React from 'react';
+import type { Node } from 'react';
+```
+
+- When not to use this rule. When you think the import as above is ok. 
+
+Example of **incorrect** imports:
+
+```js
+import React from 'react';
+import type { Node } from 'react'; // Duplicate react
+import { graphql, type Environment } from '@adeira/relay';
+import type { RelayRefetchProps } from '@adeira/relay'; // duplicate adeira
+
+```
+
+Example of **correct** filename:
+
+```js
+import React, { type Node } from 'react';
+import { graphql, type Environment, type RelayRefetchProps } from '@adeira/relay';
+```
