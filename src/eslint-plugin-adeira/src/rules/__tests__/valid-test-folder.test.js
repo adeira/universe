@@ -32,6 +32,10 @@ ruleTester.run('valid-test-folder', rule, {
       code: "console.log('hey')",
       filename: '/path/Module.js',
     },
+    {
+      code: '',
+      filename: '/path/__flowtests__/Styles.flowtest.js',
+    },
   ],
 
   invalid: [
