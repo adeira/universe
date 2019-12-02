@@ -6,7 +6,7 @@
 // This is here to make this `bin` available directly from our monorepo without transpiling it.
 require('@babel/register')({
   ignore: [/node_modules\/(?!@adeira)/],
-  rootMode: 'upward',
+  rootMode: 'upward-optional',
 });
 
 const fs = require('fs');
