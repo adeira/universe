@@ -22,18 +22,6 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
 }
 
-@media screen and (max-width: 996px) {
-  :root {
-    --ifm-font-size-base: 15px;
-  }
-}
-
-@media screen and (min-width: 997px) {
-  :root {
-    --ifm-font-size-base: 17px;
-  }
-}
-
 blockquote {
   padding-left: 0.5rem;
   border-left: 1px solid lightgrey;
