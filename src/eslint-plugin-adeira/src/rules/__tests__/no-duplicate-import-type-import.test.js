@@ -34,21 +34,28 @@ ruleTester.run('no-duplicate-import', rule, {
       code: `import Foo from 'Foo';
       import type { Bar } from 'Foo'`,
       errors: ['Found duplicate import/type import Foo'],
+      output: `import Foo, { type Bar } from 'Foo';
+      `,
     },
     {
       code: `import React, { type Node } from 'react';
       import type { Component } from 'react';`,
       errors: ['Found duplicate import/type import react'],
+      output: `import React, { type Node, type Component } from 'react';
+      `,
     },
     {
-      code: `import React from 'react';
-      import type { Node } from 'react';
-      import { graphql, type Environment } from '@adeira/relay';
-      import type { RelayRefetchProps } from '@adeira/relay';`,
+      code: `import React from 'react';import type { Node } from 'react';import { graphql, type Environment } from '@adeira/relay';import type { RelayRefetchProps } from '@adeira/relay';`,
       errors: [
         'Found duplicate import/type import react',
         'Found duplicate import/type import @adeira/relay',
       ],
+      output: `import React, { type Node } from 'react';import { graphql, type Environment, type RelayRefetchProps } from '@adeira/relay';`,
+    },
+    {
+      code: `import type { Node } from 'react';import React from 'react';`,
+      errors: ['Found duplicate import/type import react'],
+      output: `import React, { type Node } from 'react';`,
     },
   ],
 });

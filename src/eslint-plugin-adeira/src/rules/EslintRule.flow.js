@@ -1,6 +1,6 @@
 // @flow strict
 
-type Node = {|
+export type Node = {|
   +name: string,
   +key: {|
     +name: string,
@@ -15,7 +15,13 @@ type Node = {|
     |},
   |},
   +importKind: string,
-  +specifiers: $ReadOnlyArray<{| +imported: Node, +importKind: string |}>,
+  +specifiers: $ReadOnlyArray<{|
+    +imported: Node,
+    +importKind: string,
+    +start: number,
+    +end: number,
+    +type: string,
+  |}>,
   +source: Node,
 |};
 
