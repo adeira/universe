@@ -18,6 +18,20 @@ Every change is automatically deployed from the `master` if the tests are green.
 
 Adeira Universe uses Contributor Covenant, read [the full text](/CODE_OF_CONDUCT.md) to understand what working environment we want to adhere.
 
+## Reporting an issue
+
+All the stuff in this monorepo comes from the needs of our  daily jobs. Your use case may differ, so any suggestion for improvement is highly welcomed.
+
+Have you found a bug? It's not pleasant, but such things happen. Help us to get rid of it quickly, create new issue and provide as much information as possible:
+- What is the package name and its version?
+- Did it work in previous version?
+- Which operating system, browser or node version do you use?
+- Can you share a snippet of the code where an error occurred?
+
+See [#104](https://github.com/adeira/universe/issues/104) for such example.
+
+...And don't forget it can be you who will implement necessary changes. See the [list of current issues](https://github.com/adeira/universe/issues) if you want to start contributing and don't know where to start.
+
 ## Commit messages
 
 Please read this legendary article first: https://chris.beams.io/posts/git-commit/
