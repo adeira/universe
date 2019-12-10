@@ -8294,6 +8294,11 @@ npm-conf@^1.1.0:
     config-chain "^1.1.11"
     pify "^3.0.0"
 
+npm-normalize-package-bin@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/npm-normalize-package-bin/-/npm-normalize-package-bin-1.0.1.tgz#6e79a41f23fd235c0623218228da7d9c23b8f6e2"
+  integrity sha512-EPfafl6JL5/rU+ot6P3gRSCpPDW5VmIzX959Ob1+ySFUuuYHWHekXpwdUZcKP5C+DS4GEtdJluwBjnsNDl+fSA==
+
 "npm-package-arg@^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/npm-package-arg/-/npm-package-arg-6.1.1.tgz#02168cb0a49a2b75bf988a28698de7b529df5cb7"
@@ -8312,14 +8317,15 @@ npm-packlist@^1.1.6:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
 
-npm-packlist@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-2.0.1.tgz#891ae4dc81d8cd8ddeb9070d6338623cd5a20fce"
-  integrity sha512-UKSBjMX3wMcJpmW1JuN1BSVRGetjsA7SZrGwz12EM7AVwLSC6y5pI9xEK54m555Wp8L0CtJ3tab7D7Ex/AKBlg==
+npm-packlist@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-2.0.2.tgz#9e5e5d61f205771b4dfc1695e65a3ad0f2a2088b"
+  integrity sha512-i2l7hw7+B/Lq8rLDQLgTkL6pGVtts45S40l9vvvNPx8EiMunPKvst/RX17nk+waawoVYxu79IIIxe/W/thRnrg==
   dependencies:
     glob "^7.1.6"
     ignore-walk "^3.0.3"
     npm-bundled "^1.0.1"
+    npm-normalize-package-bin "^1.0.1"
 
 npm-registry-client@^8.6.0:
   version "8.6.0"
