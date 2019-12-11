@@ -17,6 +17,7 @@ type Options = {|
     load: string => Promise<?NormalizationSplitOperation>,
   |},
   +records?: ?RecordMap,
+  +gcReleaseBufferSize?: ?number,
 |};
 
 type NormalizationSplitOperation = {|
@@ -48,7 +49,7 @@ export default function createEnvironment(options: Options): Environment {
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn),
     log: RelayLogger,
-    store: createRelayStore(records),
+    store: createRelayStore(records, { gcReleaseBufferSize: options.gcReleaseBufferSize }),
     ...rest,
   });
 }
