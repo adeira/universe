@@ -70,6 +70,7 @@ type RelayModernStore = {|
 
 export type Environment = {|
   +getStore: () => RelayModernStore,
+  +lookup: SingularReaderSelector => Snapshot,
   // improve as needed
 |};
 
