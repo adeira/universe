@@ -32,6 +32,10 @@ export function fromGlobalId(opaqueID: string): string {
   return unbasedGlobalID.substring(delimiterPos + 1);
 }
 
+export function toGlobalId(type: string, id: string | number): string {
+  return base64(`${type}:${id}`);
+}
+
 // TODO: find out better way how to do it (type should be just an internal detail - see evaluateGlobalIdField)
 export function __isTypeOf(type: string, opaqueID: string): boolean {
   const unbasedGlobalID = unbase64(opaqueID);
@@ -119,7 +123,7 @@ export default function globalIdField(
 
       if (args.opaque === true) {
         // this should always be the default in our system
-        return base64([info.parentType.name, id].join(':'));
+        return toGlobalId(info.parentType.name, id);
       }
 
       return unmaskedIdFetcher ? unmaskedIdFetcher(obj, context, info) : id;
