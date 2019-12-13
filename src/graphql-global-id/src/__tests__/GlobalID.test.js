@@ -3,7 +3,7 @@
 import { GraphQLObjectType, GraphQLID } from 'graphql';
 import { nullthrows } from '@adeira/js';
 
-import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf } from '../GlobalID';
+import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf, toGlobalId } from '../GlobalID';
 
 function base64(text) {
   return Buffer.from(text).toString('base64');
@@ -138,6 +138,18 @@ describe('fromGlobalId', () => {
     expect(() => fromGlobalId('aW52YWxpZC12YWx1ZQ==')).toThrow(
       "ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.",
     );
+  });
+});
+
+describe('toGlobalId', () => {
+  it.each([
+    ['SomeType', 'abc'],
+    ['AnotherType', 123],
+  ])('works with string or numeric id', (type, id) => {
+    const globalId = toGlobalId(type, id);
+
+    expect(fromGlobalId(globalId)).toBe(id.toString());
+    expect(__isTypeOf(type, globalId)).toBe(true);
   });
 });
 
