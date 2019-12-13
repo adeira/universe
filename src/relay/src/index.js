@@ -4,6 +4,7 @@ import {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
 } from '@adeira/fetch';
+import { getRequest, createOperationDescriptor } from 'relay-runtime';
 
 import commitLocalUpdate from './commitLocalUpdate';
 import { commitMutation, commitMutationAsync } from './mutations';
@@ -42,6 +43,8 @@ module.exports = {
   QueryRenderer,
   readInlineData,
   requestSubscription,
+  getRequest,
+  createOperationDescriptor,
 
   // Experimental Relay-specific things (not officially released yet):
   RelayEnvironmentProvider,
