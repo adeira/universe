@@ -27,5 +27,5 @@ it('logs in browser', () => {
     variables: {},
   });
 
-  expect(spy).toHaveBeenCalledTimes(3);
+  expect(spy).toHaveBeenCalledTimes(2);
 });
