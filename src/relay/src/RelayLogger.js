@@ -53,14 +53,26 @@ export type LogEvent =
       +transactionID: number,
     |};
 
-function logGroup(logEvent, groupBody) {
+function logGroup(logEvent, groupBody?: () => void, groupNote?: string, style: string = ''): void {
   const logName = logEvent.name;
   const message = `[Relay ${logEvent.transactionID}] ${logName}`;
-  console.groupCollapsed(`%c%s`, logName === 'execute.error' ? 'color:red' : '', message);
-  if (groupBody != null) {
+  if (groupBody == null) {
+    console.log('%c%s', 'font-weight:bold', message);
+  } else {
+    if (groupNote != null) {
+      console.groupCollapsed(
+        `%c%s%c%s`,
+        `font-weight:bold;${style}`,
+        message,
+        'font-weight:normal',
+        ` - ${groupNote}`,
+      );
+    } else {
+      console.groupCollapsed(`%c%s`, `font-weight:bold;${style}`, message);
+    }
     groupBody();
+    console.groupEnd();
   }
-  console.groupEnd();
 }
 
 // See: https://github.com/facebook/relay/commit/da9a57cb0b7ab9bedf82e3d1dddc17a0ad9e4d92
@@ -70,11 +82,14 @@ export default function RelayLogger(logEvent: LogEvent) {
   }
   switch (logEvent.name) {
     case 'execute.start':
-      logGroup(logEvent, () => {
-        console.log(`Operation name: %s (%s)`, logEvent.params.name, logEvent.params.operationKind);
-        console.log(`Variables: %o`, logEvent.variables);
-        console.log(logEvent.params.text); // TODO: ID for persistent queries
-      });
+      logGroup(
+        logEvent,
+        () => {
+          console.log(`Variables: %o`, logEvent.variables);
+          console.log(logEvent.params.text); // TODO: ID for persistent queries
+        },
+        logEvent.params.name,
+      );
       break;
     case 'execute.next':
       logGroup(logEvent, () => {
@@ -82,9 +97,14 @@ export default function RelayLogger(logEvent: LogEvent) {
       });
       break;
     case 'execute.error':
-      logGroup(logEvent, () => {
-        console.error(logEvent.error);
-      });
+      logGroup(
+        logEvent,
+        () => {
+          console.error(logEvent.error);
+        },
+        undefined,
+        'color:red',
+      );
       break;
     case 'execute.info':
     case 'execute.complete':
