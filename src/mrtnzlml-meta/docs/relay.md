@@ -22,6 +22,7 @@ TODO:
 - `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files, https://relay.dev/docs/en/testing-relay-components#relay_test_operation, https://github.com/facebook/relay/issues/2807#issuecomment-515690739
 - `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
+- [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
 
 This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
 
