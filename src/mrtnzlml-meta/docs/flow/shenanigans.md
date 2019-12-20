@@ -268,3 +268,18 @@ TypeError: Cannot read property 'toLowerCase' of undefined
 ```
 
 It's because `JSON.stringify` returns `undefiend` in this case.
+
+### TS doesn't make a difference between arrays and objects
+
+Patterns like this one are fine from TS perspective:
+
+```ts
+interface Foo {
+    [id: number]: string;
+}
+const a: Foo = ['aaa', 'bbb', 'ccc'];
+```
+
+However, it doesn't have to be what developers expect (even though it's correct from the JS perspective). Other type systems follow the difference between these types which gives you more confidence since you cannot return array where you'd expect an object and work with it later (which will most likely break since the types are quite different).
+
+So, how do you annotate _"object with numerical indexer, not an array"_? :thinking:
