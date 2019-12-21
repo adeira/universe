@@ -20,7 +20,7 @@
     "@babel/runtime": "^7.7.6"
   },
   "devDependencies": {
-    "@adeira/monorepo-utils": "^0.1.0",
+    "@adeira/monorepo-utils": "^0.2.0",
     "@adeira/test-utils": "^0.1.0",
     "strip-ansi": "^6.0.0"
   },

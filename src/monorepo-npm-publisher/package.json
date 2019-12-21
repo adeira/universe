@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/babel-preset-adeira": "^0.2.0",
-    "@adeira/monorepo-utils": "^0.1.0",
+    "@adeira/monorepo-utils": "^0.2.0",
     "@adeira/test-utils": "^0.1.0",
     "chalk": "^3.0.0",
     "is-ci": "^2.0.0",
