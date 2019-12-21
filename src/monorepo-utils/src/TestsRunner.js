@@ -12,13 +12,29 @@ function _runJest(config, timezone = 'UTC') {
     // Do not overwrite TZ when user sets it explicitly (only when it's undefined).
     process.env.TZ = timezone;
   }
+
+  const flags = {
+    nodeArgs: [],
+    jestArgs: [],
+  };
+
+  config.forEach(arg => {
+    if (process.allowedNodeEnvironmentFlags.has(arg)) {
+      flags.nodeArgs.push(arg);
+    } else {
+      flags.jestArgs.push(arg);
+    }
+  });
+
   console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
   return new ShellCommand(
     null,
-    'jest',
+    'node',
+    ...flags.nodeArgs,
+    'node_modules/.bin/jest',
     '--config=.jest.config.js',
     '--passWithNoTests', // necessary because there may be no tests in the dirty workspace (see Docs for example)
-    ...config,
+    ...flags.jestArgs,
   )
     .setOutputToScreen()
     .runSynchronously();
