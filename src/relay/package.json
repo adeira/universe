@@ -23,14 +23,14 @@
     "@adeira/monorepo-utils": "^0.1.0",
     "@adeira/signed-source": "^0.1.0",
     "@babel/register": "^7.7.4",
-    "babel-plugin-relay": "^7.1.0",
+    "babel-plugin-relay": "^8.0.0",
     "commander": "^4.0.1",
     "is-ci": "^2.0.0",
-    "react-relay": "^7.1.0",
-    "relay-compiler": "^7.1.0",
+    "react-relay": "^8.0.0",
+    "relay-compiler": "^8.0.0",
     "relay-compiler-language-typescript": "^10.1.3",
-    "relay-config": "^7.1.0",
-    "relay-runtime": "^7.1.0"
+    "relay-config": "^8.0.0",
+    "relay-runtime": "^8.0.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.2.0",
@@ -42,7 +42,7 @@
     "jest": "^24.9.0",
     "react": "^16.12.0",
     "react-test-renderer": "^16.12.0",
-    "relay-test-utils": "^7.1.0"
+    "relay-test-utils": "^8.0.0"
   },
   "peerDependencies": {
     "graphql": "^14.5.6",
