@@ -7,7 +7,7 @@ Please note: changelogs are not responsibility of this package. You should write
 # Installation
 
 ```text
-yarn add --dev @kiwicom/monorepo-npm-publisher
+yarn add --dev @adeira/monorepo-npm-publisher
 ```
 
 This package is intended to be run by CI server.
@@ -16,7 +16,7 @@ This package is intended to be run by CI server.
 
 ```js
 import path from 'path';
-import publish from '@kiwicom/npm-publisher';
+import publish from '@adeira/monorepo-npm-publisher';
 
 (async () => {
   await publish({
