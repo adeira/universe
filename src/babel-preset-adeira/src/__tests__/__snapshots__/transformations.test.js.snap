@@ -22,24 +22,35 @@ exports.default = test;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 /* eslint-disable no-return-await */
 function test() {
-  return _regenerator.default.async(function test$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return _regenerator.default.awrap('this');
+  return _test.apply(this, arguments);
+}
 
-        case 2:
-          return _context.abrupt("return", _context.sent);
+function _test() {
+  _test = (0, _asyncToGenerator2.default)(
+  /*#__PURE__*/
+  _regenerator.default.mark(function _callee() {
+    return _regenerator.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return 'this';
 
-        case 3:
-        case "end":
-          return _context.stop();
+          case 2:
+            return _context.abrupt("return", _context.sent);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  });
+    }, _callee);
+  }));
+  return _test.apply(this, arguments);
 }
 `;
 
@@ -75,25 +86,35 @@ export default async function test(): Promise<string> {
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 import _regeneratorRuntime from "@babel/runtime/regenerator";
+import _asyncToGenerator from "@babel/runtime/helpers/esm/asyncToGenerator";
 
 /* eslint-disable no-return-await */
 export default function test() {
-  return _regeneratorRuntime.async(function test$(_context) {
-    while (1) {
-      switch (_context.prev = _context.next) {
-        case 0:
-          _context.next = 2;
-          return _regeneratorRuntime.awrap('this');
+  return _test.apply(this, arguments);
+}
 
-        case 2:
-          return _context.abrupt("return", _context.sent);
+function _test() {
+  _test = _asyncToGenerator(
+  /*#__PURE__*/
+  _regeneratorRuntime.mark(function _callee() {
+    return _regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return 'this';
 
-        case 3:
-        case "end":
-          return _context.stop();
+          case 2:
+            return _context.abrupt("return", _context.sent);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
       }
-    }
-  });
+    }, _callee);
+  }));
+  return _test.apply(this, arguments);
 }
 `;
 
