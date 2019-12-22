@@ -49,7 +49,9 @@ export default function createEnvironment(options: Options): Environment {
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn),
     log: RelayLogger,
-    store: createRelayStore(records, { gcReleaseBufferSize: options.gcReleaseBufferSize }),
+    store: createRelayStore(records, {
+      gcReleaseBufferSize: options.gcReleaseBufferSize,
+    }),
     ...rest,
   });
 }

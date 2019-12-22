@@ -3,7 +3,6 @@ This package is **opinionated Relay wrapper** used in the Adeira ecosystem. Goal
 - query logging during development
 - network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/adeira/universe/tree/master/src/fetch))
 - support for uploadables
-- request burst cache (response cache)
 - stored operations (known as persistent queries)
 - correct Relay environment context handling
 - Flow types and best practices included!
