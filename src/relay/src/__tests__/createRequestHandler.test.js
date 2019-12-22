@@ -18,14 +18,8 @@ const observer = {
   unsubscribe: () => list.push('unsubscribe'),
 };
 
-it('works as expected with query and empty cache', done => {
+it('works as expected with query success', done => {
   expect.assertions(4);
-
-  const burstCacheMock = {
-    clear: () => {},
-    get: () => null, // cache empty
-    set: () => {},
-  };
 
   const requestNode = { operationKind: 'query' };
   const variables = { aaa: 111 };
@@ -36,7 +30,7 @@ it('works as expected with query and empty cache', done => {
     expect(b).toEqual(variables);
     expect(c).toEqual(uploadables);
     return Promise.resolve('data');
-  }, burstCacheMock);
+  });
 
   const observable = requestHandler(
     requestNode,
@@ -53,47 +47,9 @@ it('works as expected with query and empty cache', done => {
     .subscribe(observer);
 });
 
-it('works as expected with query and full cache', done => {
-  expect.assertions(3);
-
-  const burstCacheMock = {
-    clear: () => {},
-    get: (queryID, variables) => {
-      expect(queryID).toBe('yay, queryID');
-      expect(variables).toEqual({ aaa: 111 });
-      return 'fromCache';
-    },
-    set: () => {},
-  };
-
-  const requestHandler = createRequestHandler(() => {
-    throw new Error('should not be called in this scenario (reading from cache)');
-  }, burstCacheMock);
-
-  const observable = requestHandler(
-    { operationKind: 'query', text: 'yay, queryID' }, // requestNode
-    { aaa: 111 }, // variables
-    {}, // cacheConfig
-    {}, // uploadables
-  );
-
-  observable
-    .finally(() => {
-      expect(list).toEqual(['start', 'next:fromCache', 'complete']);
-      done();
-    })
-    .subscribe(observer);
-});
-
 it('works as expected with query error', done => {
   expect.assertions(5);
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-
-  const burstCacheMock = {
-    clear: () => {},
-    get: () => null, // cache empty
-    set: () => {},
-  };
 
   const requestNode = { operationKind: 'query' };
   const variables = { aaa: 111 };
@@ -107,7 +63,7 @@ it('works as expected with query error', done => {
       data: null,
       errors: [{ message: 'error 1' }, { message: 'error 2' }],
     });
-  }, burstCacheMock);
+  });
 
   const observable = requestHandler(
     requestNode,
@@ -146,14 +102,7 @@ it('works as expected with query error', done => {
 });
 
 it('works as expected with mutation', done => {
-  expect.assertions(5);
-
-  const burstCacheClear = jest.fn();
-  const burstCacheMock = {
-    clear: burstCacheClear,
-    get: () => null, // cache empty
-    set: () => {},
-  };
+  expect.assertions(4);
 
   const requestNode = { operationKind: 'mutation' };
   const variables = { aaa: 111 };
@@ -164,7 +113,7 @@ it('works as expected with mutation', done => {
     expect(b).toEqual(variables);
     expect(c).toEqual(uploadables);
     return Promise.resolve('data');
-  }, burstCacheMock);
+  });
 
   const observable = requestHandler(
     requestNode,
@@ -176,7 +125,6 @@ it('works as expected with mutation', done => {
   observable
     .finally(() => {
       expect(list).toEqual(['start', 'next:data', 'complete']);
-      expect(burstCacheClear).toHaveBeenCalledTimes(1);
       done();
     })
     .subscribe(observer);
@@ -185,12 +133,6 @@ it('works as expected with mutation', done => {
 it('works as expected with mutation error', done => {
   expect.assertions(5);
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-
-  const burstCacheMock = {
-    clear: () => {},
-    get: () => null, // cache empty
-    set: () => {},
-  };
 
   const requestNode = { operationKind: 'mutation' };
   const variables = { aaa: 111 };
@@ -204,7 +146,7 @@ it('works as expected with mutation error', done => {
       data: null,
       errors: [{ message: 'error 1' }, { message: 'error 2' }],
     });
-  }, burstCacheMock);
+  });
 
   const observable = requestHandler(
     requestNode,
