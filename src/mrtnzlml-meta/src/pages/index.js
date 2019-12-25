@@ -45,30 +45,25 @@ function Home() {
         <section className={styles.features}>
           <div className="container">
             <p>
-              I am fullstack JavaScript developer at <a href="https://www.kiwi.com/en/">Kiwi.com</a>
-              , originaly from Czech Republic{' '}
+              I am fullstack JavaScript developer at{' '}
+              <a href="https://www.pipedrive.com/">Pipedrive.com</a>, originaly from Czech Republic{' '}
               <span role="img" aria-label="czech republic flag">
                 🇨🇿
               </span>
-              . Currently, I work at <a href="https://graphql.kiwi.com/">graphql.kiwi.com</a>{' '}
-              project and internal <strong>monorepo</strong> infrastructure but I also help other
-              teams with <strong>GraphQL</strong> in general, <strong>Relay</strong>,{' '}
-              <strong>Flow</strong>, <strong>React (Native)</strong> or any other{' '}
-              <strong>JS</strong> project.
+              . Currently, I work with technologies around <strong>GraphQL</strong>,{' '}
+              <strong>Relay</strong>, <strong>Flow/TS</strong>, <strong>React&nbsp;(Native)</strong>{' '}
+              and similar.
             </p>
 
             <h2>My location</h2>
 
             <p>
-              I am officially part of Prague or Barcelona office but I currently live in Mexico{' '}
-              <span role="img" aria-label="mexico flag">
-                🇲🇽
-              </span>
-              . I am basically never in Brno HQ. I used to{' '}
+              I am officially part of Prague office and I spend most of my time here. I am basically
+              never in Tallinn HQ. I used to{' '}
               <a href="https://nomadlist.com/@mrtnzlml">travel a lot</a> (and still sometimes do)
               and therefore, I prefer solving every issue remotely if possible. I really enjoy being
               in different timezone so I can have time for some actual work and life. Do not expect
-              I will react immediatelly. Do not expect it even when I am in the same city. I do not
+              I will react immediately. Do not expect it even when I am in the same city. I do not
               expect it as well.
             </p>
 
@@ -167,144 +162,6 @@ function Home() {
                 I sometimes <a href="https://www.goodreads.com/review/list/84536346">read</a>.
               </em>
             </p>
-
-            <h2>My Kiwi.com timeline</h2>
-
-            <p>I joined this company in April 2017 (my first PR was Apr 7)</p>
-
-            <ol>
-              <li>
-                Created first <a href="https://github.com/kiwicom/graphql">GraphQL proxy</a> (still
-                ongoing project but moved to private repo)
-              </li>
-              <li>
-                Created unsuccessful Chatbot{' '}
-                <span role="img" aria-label="robot">
-                  🤖
-                </span>{' '}
-                for our custommer support (discontinued)
-              </li>
-              <li>
-                Created first{' '}
-                <a href="https://github.com/kiwicom/mobile">React Native application</a>{' '}
-                (discontinued)
-              </li>
-              <li>
-                Joined internal Portalo project for our customer support center (still ongoing)
-              </li>
-              <li>
-                I came up with RNW technology but never had the opportunity to work with it at
-                Kiwi.com :-/ (discontinued)
-              </li>
-              <li>Re-joined GraphQL proxy project and turned it into monorepo</li>
-              <li>
-                I am working on the monorepo for the whole Incubator tribe, many NPM packages
-                (current)
-              </li>
-            </ol>
-
-            <p>
-              I left this company in October (31) 2019{' '}
-              <span role="img" aria-label="wave">
-                👋
-              </span>
-            </p>
-
-            <h2>
-              Kiwi.com{' '}
-              <a href="https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/">
-                Joel Test
-              </a>{' '}
-              - 5/12
-            </h2>
-
-            <p>
-              Simple boolean: it&apos;s{' '}
-              <span role="img" aria-label="cross mark">
-                ❌
-              </span>{' '}
-              if I don&apos;t think it&apos;s true or there are some significant exceptions to this
-              rule. It&apos;s{' '}
-              <span role="img" aria-label="tick">
-                ✅
-              </span>{' '}
-              otherwise.
-            </p>
-
-            <ol>
-              <li>
-                <span role="img" aria-label="tick">
-                  ✅
-                </span>{' '}
-                Do you use source control?
-              </li>
-              <li>
-                <span role="img" aria-label="tick">
-                  ✅
-                </span>{' '}
-                Can you make a build in one step?
-              </li>
-              <li>
-                <span role="img" aria-label="tick">
-                  ✅
-                </span>{' '}
-                Do you make daily builds?
-              </li>
-              <li>
-                <span role="img" aria-label="tick">
-                  ✅
-                </span>{' '}
-                Do you have a bug database?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do you fix bugs before writing new code?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do you have an up-to-date schedule?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do you have a spec?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do programmers have quiet working conditions?
-              </li>
-              <li>
-                <span role="img" aria-label="tick">
-                  ✅
-                </span>{' '}
-                Do you use the best tools money can buy?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do you have testers?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do new candidates write code during their interview?
-              </li>
-              <li>
-                <span role="img" aria-label="cross mark">
-                  ❌
-                </span>{' '}
-                Do you do hallway usability testing?
-              </li>
-            </ol>
           </div>
         </section>
       </main>
