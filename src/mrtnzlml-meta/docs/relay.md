@@ -96,6 +96,29 @@ Streaming support `@stream_connection_resolver( ... )`
 
 - https://github.com/mrtnzlml/relay/pull/447/files
 
+## Custom Relay Compiler
+
+Most of the people are OK with the default OSS version of Relay Compiler. However, it can be sometimes beneficial to write your own Relay Compiler in order to achieve some advanced features (custom behavior or persisting queries to your server for example). Facebook also uses internally their own Relay Compiler implementation. Here is one example of "why" (source: https://github.com/facebook/relay/commit/f1e2e79462d593d73efb80727bc5dd56b1c43cf6#commitcomment-36337550).
+
+The default config generates the flow types inline in the generated files, so something like:
+
+```text
+meeting: {
+  response: 'GOING' | 'NOT_GOING'
+}
+```
+
+This can in some cases introduce a bunch of noise if the generated files are checked in and the schema changes frequently. For that purpose, we instead generate something like:
+
+```text
+import type {MeetingResponse} from 'MeetingResponse.enums';
+meeting: {
+  response: MeetingResponse
+}
+```
+
+Doing that in OSS as well would increase the number of generated files and also add the question of where to put these files and how to import them.
+
 ## `@raw_response_type`
 
 See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
