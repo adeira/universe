@@ -39,6 +39,7 @@ Need to know something about your new destination? This will help you:
 - https://www.sleepinginairports.net/
 - https://www.hoteltonight.com/
 - https://www.beroomers.com/ (I actually never tried)
+- https://www.anyplace.com/ (never tried)
 
 ## Visa
 
