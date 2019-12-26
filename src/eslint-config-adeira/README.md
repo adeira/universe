@@ -78,7 +78,7 @@ It is of course possible to run this lint as yet another Jest project (using `op
 
 It tries to detect files to lint because it's highly inefficient to test all the files everytime. However, you can do so by using `--all` flag like so: `yarn run lint --all`.
 
-Please note: this Eslint runner not only runs all the tests much faster but it also performs automatic fixes. This is currently no-opt.
+Please note: this Eslint runner not only runs all the tests much faster but if it's not executed in CI environment, it also performs automatic fixes by default. You can opt-out by `--no-fix` flag: `yarn run lint --no-fix`.
 
 ## Tip
 

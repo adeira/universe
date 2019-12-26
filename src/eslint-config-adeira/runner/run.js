@@ -10,12 +10,6 @@ const { Git } = require('@adeira/monorepo-utils');
 const formatter = require('./stylish');
 const shouldLintAll = require('./shouldLintAll').default;
 
-const PERFORM_FIXES = isCI === false;
-const cliEngine = new CLIEngine({
-  fix: PERFORM_FIXES,
-  reportUnusedDisableDirectives: true,
-});
-
 /*::
 
 type Options = {|
@@ -24,6 +18,7 @@ type Options = {|
   +globalConfig: { [key: string]: any, ... },
   +extraOptions: {|
     +runAll: boolean,
+    +noFixes: boolean,
   |}
 |}
 
@@ -36,6 +31,12 @@ const changedFiles = Git.getChangesToTest();
 
 module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mixed, ... } */ => {
   const start = Date.now();
+
+  const performFixes = (isCI || extraOptions.noFixes) === false;
+  const cliEngine = new CLIEngine({
+    fix: performFixes,
+    reportUnusedDisableDirectives: true,
+  });
 
   let runAll = extraOptions.runAll;
   for (const changedFile of changedFiles) {
@@ -69,7 +70,7 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
   }
 
   const report = cliEngine.executeOnFiles([testPath]);
-  if (PERFORM_FIXES) {
+  if (performFixes) {
     CLIEngine.outputFixes(report);
   }
 
