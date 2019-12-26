@@ -12,6 +12,7 @@ module.exports = {
       ['src/example-relay/__github__/babel.config.js', 'babel.config.js'],
       ['src/example-relay/__github__/jest.config.js', 'jest.config.js'],
       ['src/example-relay/__github__/flow-typed', 'flow-typed'],
+      ['src/example-relay/__github__/.github', '.github'],
       ['src/example-relay/', ''],
     ]);
   },

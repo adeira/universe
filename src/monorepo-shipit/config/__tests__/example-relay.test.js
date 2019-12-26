@@ -12,9 +12,14 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
   ['src/example-relay/__github__/.flowconfig', '.flowconfig'],
   ['src/example-relay/__github__/babel.config.js', 'babel.config.js'],
   ['src/example-relay/__github__/flow-typed/globals.js', 'flow-typed/globals.js'],
-  ['src/example-relay/.babelrc.js', undefined], // correctly deleted
+  [
+    'src/example-relay/__github__/.github/workflows/continuous-integration.yml',
+    '.github/workflows/continuous-integration.yml',
+  ],
 
   // invalid cases:
+  ['src/example-relay/.babelrc.js', undefined], // correctly deleted
+  ['src/example-relay/jest.config.js', undefined], // correctly deleted
   ['src/example-relay/__github__/unknown.js', undefined], // correctly deleted
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted

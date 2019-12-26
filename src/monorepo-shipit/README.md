@@ -166,7 +166,7 @@ For this reason Shipit requires linear Git history only (it works with reversed 
 This is how you'd import a pull request #1 from GitHub into your local branch:
 
 ```text
-yarn monorepo-babel-node src/core/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
+yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
 ```
 
 The idea is that you will tweak it for us if needed, test it in our monorepo and eventually send a merge request to the monorepo. Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:
