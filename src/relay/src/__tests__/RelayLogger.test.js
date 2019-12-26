@@ -5,14 +5,17 @@
 
 import Logger from '../RelayLogger';
 
-let spy;
+let log;
+let groupCollapsed;
 
 beforeEach(() => {
-  spy = jest.spyOn(console, 'log').mockImplementation(jest.fn());
+  log = jest.spyOn(console, 'log').mockImplementation(jest.fn());
+  groupCollapsed = jest.spyOn(console, 'groupCollapsed').mockImplementation(jest.fn());
 });
 
 afterEach(() => {
-  spy.mockRestore();
+  log.mockRestore();
+  groupCollapsed.mockRestore();
 });
 
 it('logs in browser', () => {
@@ -27,5 +30,6 @@ it('logs in browser', () => {
     variables: {},
   });
 
-  expect(spy).toHaveBeenCalledTimes(2);
+  expect(log).toHaveBeenCalledTimes(2);
+  expect(groupCollapsed).toHaveBeenCalledTimes(1);
 });
