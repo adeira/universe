@@ -12,14 +12,14 @@ import type { Environment, RecordSourceSelectorProxy } from './runtimeTypes.flow
 
 opaque type SelectorData = $FlowFixMe;
 
-type MutationParameters = {|
+export type MutationParameters = {|
   +response: { +[key: string]: any, ... },
   +variables: Variables,
   +rawResponse?: { ... },
 |};
 
 // See https://github.com/facebook/relay/blob/9ee5a52ad8e385bae6e48bb97922006cc6f83bc0/packages/relay-runtime/mutations/commitMutation.js
-type Config<T: MutationParameters> = {|
+type MutationConfig<T: MutationParameters> = {|
   +mutation: GraphQLTaggedNode,
   +variables: $ElementType<T, 'variables'>,
   // TODO: 2 kinds of errors? What about changing the interface a little bit to make it more obvious?
@@ -42,7 +42,10 @@ type Config<T: MutationParameters> = {|
  *
  * commitMutation<NamedMutation>(...)
  */
-export function commitMutation<T: MutationParameters>(environment: Environment, config: Config<T>) {
+export function commitMutation<T: MutationParameters>(
+  environment: Environment,
+  config: MutationConfig<T>,
+) {
   return _commitMutation(environment, config);
 }
 
@@ -51,7 +54,7 @@ type DisabledConfigProps<T> = {|
   +onError: ?(error: Error) => void,
 |};
 
-type PromisifiedMutationConfig<T> = $Rest<Config<T>, DisabledConfigProps<T>>;
+type PromisifiedMutationConfig<T> = $Rest<MutationConfig<T>, DisabledConfigProps<T>>;
 
 /**
  * commitMutation function wrapped in Promise

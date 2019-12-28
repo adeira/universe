@@ -88,7 +88,7 @@ export default function RelayLogger(logEvent: LogEvent) {
           console.log(`Variables: %o`, logEvent.variables);
           console.log(logEvent.params.text); // TODO: ID for persistent queries
         },
-        logEvent.params.name,
+        `${logEvent.params.name} ${logEvent.params.operationKind === 'mutation' ? '📝' : '🔍'}`,
       );
       break;
     case 'execute.next':
