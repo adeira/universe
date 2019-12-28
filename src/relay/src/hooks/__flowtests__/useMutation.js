@@ -1,6 +1,6 @@
 // @flow
 
-import { useMutation, graphql } from '../../hooks';
+import { useMutation, graphql } from '../index';
 
 const mutation = graphql`
   mutation useMutation {
