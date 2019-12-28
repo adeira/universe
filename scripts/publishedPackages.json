@@ -12,5 +12,6 @@
   "@adeira/relay",
   "@adeira/signed-source",
   "@adeira/test-utils",
-  "eslint-plugin-adeira"
+  "eslint-plugin-adeira",
+  "@adeira/relay-utils"
 ]
