@@ -115,7 +115,11 @@ export default function RelayLogger(logEvent: LogEvent) {
       // don't even print these
       break;
     default:
-      (logEvent: empty);
+      checkEmpty(logEvent);
       break;
   }
+}
+
+function checkEmpty(logEvent: empty): void {
+  console.error('Relay: cannot decide how to log event: %s', JSON.stringify(logEvent));
 }
