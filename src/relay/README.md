@@ -111,6 +111,16 @@ export default function App(props) {
 
 This API is high-level on purpose but it's possible to decompose it when you need something more advanced (custom `Environment` for example). However, even the decomposed parts are still very opinionated and new features are being unlocked only when necessary.
 
+# Migrating to Relay Hooks
+
+TKTK
+
+1. change `@adeira/relay` to `@adeira/relay/hooks`
+2. replace `createFragmentContainer` with `useFragment` and change the code accordingly (don't forget to change the props to `..$key` types)
+3. TKTK
+
+Eventually we might remove some legacy Relay code so the import paths might change.
+
 # Detailed info
 
 ## Relay Compiler

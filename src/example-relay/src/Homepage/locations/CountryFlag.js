@@ -1,20 +1,35 @@
 // @flow
 
 import React from 'react';
-import { createFragmentContainer, graphql } from '@adeira/relay';
+import { useFragment, graphql } from '@adeira/relay/hooks';
 import Flag from '@kiwicom/orbit-components/lib/CountryFlag';
 
-import type { CountryFlag_location as CountryFlagDataType } from './__generated__/CountryFlag_location.graphql';
+import type { CountryFlag_location$key } from './__generated__/CountryFlag_location.graphql';
 
 type Props = {|
-  +location: ?CountryFlagDataType,
+  +location: ?CountryFlag_location$key,
 |};
 
 function AnywhereFlag() {
   return <Flag dataTest="flag-anywhere" code="anywhere" />;
 }
 
-function CountryFlag({ location }: Props) {
+export default function CountryFlag(props: Props) {
+  const location = useFragment(
+    graphql`
+      fragment CountryFlag_location on Location {
+        country {
+          code
+          name
+        }
+        code
+        name
+        type
+      }
+    `,
+    props.location,
+  );
+
   if (!location) {
     return <AnywhereFlag />;
   }
@@ -28,17 +43,3 @@ function CountryFlag({ location }: Props) {
   const countryName = country?.name ?? name ?? 'Anywhere';
   return <Flag dataTest="flag-success" code={countryCode} name={countryName} />;
 }
-
-export default createFragmentContainer(CountryFlag, {
-  location: graphql`
-    fragment CountryFlag_location on Location {
-      country {
-        code
-        name
-      }
-      code
-      name
-      type
-    }
-  `,
-});

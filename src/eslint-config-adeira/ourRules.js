@@ -241,7 +241,7 @@ module.exports = {
 
   // Babel (https://github.com/babel/eslint-plugin-babel)
   'babel/camelcase': [
-    ERROR,
+    WARN, // TODO error after: https://github.com/babel/eslint-plugin-babel/pull/187
     {
       ignoreDestructuring: false,
       properties: 'never', // it's quite common to have object properties mixed

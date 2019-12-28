@@ -47,7 +47,7 @@ Object {
     "arrow-parens": "off",
     "arrow-spacing": "off",
     "babel/camelcase": Array [
-      2,
+      1,
       Object {
         "ignoreDestructuring": false,
         "properties": "never",

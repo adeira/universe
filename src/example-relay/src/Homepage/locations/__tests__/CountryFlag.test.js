@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import ReactTestRenderer from 'react-test-renderer';
-import { createMockEnvironment, MockPayloadGenerator, unwrapContainer } from 'relay-test-utils';
-import { QueryRenderer, graphql } from '@adeira/relay';
+import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
+import { QueryRenderer, graphql, RelayEnvironmentProvider } from '@adeira/relay';
 
 import CountryFlag from '../CountryFlag';
 
@@ -76,8 +76,11 @@ it('renders Flag with code "anywhere" for special type', () => {
 });
 
 it('renders Flag with code "anywhere" if location is missing', () => {
-  const UnwrappedCountryFlag = unwrapContainer(CountryFlag);
-  const renderer = ReactTestRenderer.create(<UnwrappedCountryFlag location={null} />);
+  const renderer = ReactTestRenderer.create(
+    <RelayEnvironmentProvider environment={environment}>
+      <CountryFlag location={null} />
+    </RelayEnvironmentProvider>,
+  );
   const flag = renderer.root.findByProps({ dataTest: 'flag-anywhere' });
   expect(flag).toBeDefined();
   expect(flag.props.code).toBe('anywhere');
