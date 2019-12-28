@@ -10029,10 +10029,10 @@ react-is@^16.6.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.11.0.tgz#b85dfecd48ad1ce469ff558a882ca8e8313928fa"
   integrity sha512-gbBVYR2p8mnriqAwWx9LbuUrShnAuSCNnuPGyc7GJrMVQtPDAh8iLpv7FRuMPFb56KkaVZIYSz1PrjI9q0QPCw==
 
-react-relay@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-8.0.0.tgz#b648da45c8280e6ad321b6260655092381f7479d"
-  integrity sha512-CiEODNIMyQXc3nwAUh5TbRnqPrv5fvEPCnAn1j5/qi0WP+Etjf/GQvSOkfI0CFxaHT63BMB5GbM9gBA+0i2XCg==
+react-relay@0.0.0-experimental-5f1cb628:
+  version "0.0.0-experimental-5f1cb628"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-0.0.0-experimental-5f1cb628.tgz#37df83345bf565ff7f7af88368f7e68e7772b0bc"
+  integrity sha512-VVHJsQtSgknZlncLtz3Wexs8AcGbYmWmcPrZDP7OJefOyKerfdw4spzNZUYHrqnpLckZxVQYpZ7cb76LW8D6iA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
