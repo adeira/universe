@@ -10,7 +10,7 @@ export default function isValidLicense(license: string): boolean %checks {
 const mitLicenseRegexp = new RegExp(
   `MIT License
 
-Copyright \\(c\\) [0-9]{4}-present, Kiwi\\.com(?:\nCopyright \\(c\\) .+)*?
+Copyright \\(c\\) [0-9]{4}-present, Adeira(?:\nCopyright \\(c\\) .+)*?
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files \\(the "Software"\\), to deal

@@ -36,7 +36,7 @@ Workspaces.iterateWorkspaces(packageJSONLocation => {
         'Unlicensed workspaces must have LICENSE file in their root.',
       );
       expect(isValidLicense(fs.readFileSync(licenseFilePath, 'utf8')) === true).toGiveHelp(
-        'MIT license should follow standard format with Kiwi.com copyright',
+        'MIT license should follow standard format with Adeira copyright',
       );
     } else {
       throw new Error(
