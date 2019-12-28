@@ -21,7 +21,6 @@ import readInlineData from './readInlineData';
 import RelayEnvironmentProvider from './RelayEnvironmentProvider';
 import requestSubscription from './requestSubscription';
 import useRelayEnvironment from './hooks/useRelayEnvironment';
-import getDataFromRequest from './getDataFromRequest';
 
 module.exports = {
   createEnvironment,
@@ -43,7 +42,6 @@ module.exports = {
   QueryRenderer,
   readInlineData,
   requestSubscription,
-  getDataFromRequest,
 
   // Experimental Relay-specific things (not officially released yet):
   RelayEnvironmentProvider,

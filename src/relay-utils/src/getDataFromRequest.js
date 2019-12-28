@@ -1,9 +1,7 @@
 // @flow
 
 import { getRequest, createOperationDescriptor } from 'relay-runtime';
-
-import type { GraphQLTaggedNode, Variables } from './types.flow';
-import type { Environment } from './runtimeTypes.flow';
+import type { Environment, GraphQLTaggedNode, Variables } from '@adeira/relay';
 
 type Operation = {|
   +query: GraphQLTaggedNode,

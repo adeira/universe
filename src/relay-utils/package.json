@@ -1,0 +1,16 @@
+{
+  "name": "@adeira/relay-utils",
+  "private": false,
+  "version": "0.1.0",
+  "main": "src/index",
+  "sideEffects": false,
+  "homepage": "https://github.com/adeira/universe/tree/master/src/relay-utils",
+  "description": "Relay utils used at Adeira ecosystem",
+  "license": "MIT",
+  "dependencies": {
+    "@adeira/relay": "0.11.0"
+  },
+  "peerDependencies": {
+    "relay-runtime": "^8.0.0"
+  }
+}
