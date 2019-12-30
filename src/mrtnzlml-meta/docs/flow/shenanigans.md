@@ -283,3 +283,11 @@ const a: Foo = ['aaa', 'bbb', 'ccc'];
 However, it doesn't have to be what developers expect (even though it's correct from the JS perspective). Other type systems follow the difference between these types which gives you more confidence since you cannot return array where you'd expect an object and work with it later (which will most likely break since the types are quite different).
 
 So, how do you annotate _"object with numerical indexer, not an array"_? :thinking:
+
+### Accidental global access
+
+It's very easy to access and use global variables like `length` or `name` (simple refactoring mistake) and there is not way how to prevent this, see: https://github.com/microsoft/TypeScript/issues/14306
+
+This is a common mistake even in large companies:
+
+> We have also been bitten by the 'name' thing at Google, and have also been considering patching it out of our lib.d.ts. I think the fix that behaves how TypeScript does is to split the standard library up further so that a project can opt in or out from the global declarations.
