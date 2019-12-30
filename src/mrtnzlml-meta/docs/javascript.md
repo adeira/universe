@@ -61,7 +61,7 @@ Note: Flow tracks these flags on objects: `frozen`, `sealed` and `exact`.
 
 https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 
-- `console.log/warn/error` with `%s`, `%o` and `%c`
+- `console.log/warn/error/info` with `%s`, `%o` and `%c`
 - `console.dir`
 - `console.table`
 - `console.assert`
@@ -334,6 +334,35 @@ So that's difference #2. If the .catch() handler is BEFORE, then it can handle t
 - https://medium.com/@maciekprzybylski/dependency-injection-in-javascript-74f8791ba7c8
 - https://www.yusufaytas.com/dependency-injection-in-javascript/
 - https://github.com/inversify/InversifyJS/
+
+## Responsive component with hooks
+
+```js
+function MyResponsiveComponent() {
+  const width = useWindowWidth(); // Our custom Hook
+  return (
+    <p>Window width is {width}</p>
+  );
+}
+```
+
+```js
+function useWindowWidth() {
+  const [width, setWidth] = useState(window.innerWidth);
+  
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
+  
+  return width;
+}
+```
+
+Source: https://gist.github.com/gaearon/cb5add26336003ed8c0004c4ba820eae
 
 ## Fun with JavaScript
 
