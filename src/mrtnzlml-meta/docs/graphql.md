@@ -80,6 +80,24 @@ There are some complications and unanswered questions though:
 - mutations can fail with multiple errors - how to handle it with this pattern? (possible solution: https://github.com/artsy/artsy.github.io/issues/495#issuecomment-466517039)
 - Relay `@connection` cannot be used with the union directly ([more details](https://github.com/artsy/artsy.github.io/issues/495#issuecomment-465667460)), solution: https://github.com/facebook/relay/issues/1983#issuecomment-467153713
 
+Interesting little helper:
+
+```js
+const dataByTypename = data => data && data.__typename ? { [data.__typename]: data } : {}
+```
+
+Usage:
+
+```js
+const { OrderError, OrderStatus } = dataByTypename(orderStatusOrError)
+if (OrderError) {
+  // render error component
+}
+// render OrderStatus component
+```
+
+Source: https://github.com/artsy/artsy.github.io/issues/495#issuecomment-509697859
+
 ## Recursive queries
 
 > Take Reddit as an example since it's close to this hypothetical nested comments example. They don't actually query to an unknown depth when fetching nested comments. Instead, they eventually bottom out with a "show more comments" link which can trigger a new query fetch. The technique I illustrated in a prior comment allows for this maximum depth control.
