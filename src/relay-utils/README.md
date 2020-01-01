@@ -2,7 +2,9 @@ This package contains relay utility functions used in the Adeira ecosystem.
 
 ## Install
 
-- yarn add @adeira/relay-utils
+```
+yarn add @adeira/relay-utils
+```
 
 ## Usage
 
