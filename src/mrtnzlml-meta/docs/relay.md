@@ -92,10 +92,6 @@ Streaming support `@stream_connection_resolver( ... )`
 - https://github.com/facebook/relay/commit/96a8eec63b903c6a9fa237bd44d13e73da04f3d0
 - https://github.com/facebook/relay/commit/9efe9289a5375051d637ff21a1804ac13414b61a
 
-## `LocalQueryRenderer`
-
-- https://github.com/mrtnzlml/relay/pull/447/files
-
 ## Custom Relay Compiler
 
 Most of the people are OK with the default OSS version of Relay Compiler. However, it can be sometimes beneficial to write your own Relay Compiler in order to achieve some advanced features (custom behavior or persisting queries to your server for example). Facebook also uses internally their own Relay Compiler implementation. Here is one example of "why" (source: https://github.com/facebook/relay/commit/f1e2e79462d593d73efb80727bc5dd56b1c43cf6#commitcomment-36337550).
@@ -132,56 +128,6 @@ query ViewerQuery @raw_response_type {
   }
 }
 ```
-
-## Client field via `@__clientField(handle: " ... ")`
-
-> This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
-
-([source](https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91))
-
-Anyway, you can compute the client field value from other server field:
-
-```graphql
-fragment Example on Article {
-  body @__clientField(handle: "draft")
-
-  # this is a client field and it will contain uppercased `body` value
-  draft
-}
-```
-
-This obviously means that you need to define your local client schema (`schema.local.graphql`):
-
-```graphql
-extend type Article {
-  draft: String
-}
-```
-
-And you have to create the handler which is being registered when you are creating new Relay environment (https://facebook.github.io/relay/docs/en/relay-environment.html#adding-a-handlerprovider):
-
-```js
-const DraftHandler = {
-  update(store, payload) {
-    const record = store.get(payload.dataID);
-    const content = record.getValue(payload.fieldKey);
-    record.setValue(content.toUpperCase(), 'draft');
-
-    // Set the original value to handleKey, otherwise the field with @__clientField directive will be undefined
-    record.setValue(content, payload.handleKey);
-  },
-};
-```
-
-Don't forget to run Relay compiler after you add these changes.
-
-More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
-
-## @connection(handler: "custom_handler", ...)
-
-It is possible to specify custom handler when using `@connection`. This way you can define custom behavior and effectively completely replace the default `RelayConnectionHandler`. This handler must be added to the `handlerProvider` (default is `connection` handler for the raw `@connection`). This is how [default Relay handler provider looks like](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/handlers/RelayDefaultHandlerProvider.js).
-
-See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
 ## @connection(dynamicKey_UNSTABLE: \$someVariable, ...)
 

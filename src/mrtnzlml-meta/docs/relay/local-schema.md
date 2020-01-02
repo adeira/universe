@@ -4,7 +4,7 @@ title: Local Schema
 sidebar_label: Local Schema
 ---
 
-First define local schema (`schema.local.graphql`):
+Relay has a built-in support for local-only schema which allows you to work with GraphQL in-memory without sending requests to the server. First define local schema (`schema.local.graphql`):
 
 ```graphql
 """
@@ -33,7 +33,7 @@ Run Relay Compiler as usual (no special option required):
 $ relay-compiler --src ./packages --schema ./packages/schema.graphql --verbose
 ```
 
-File `schema.local.graphql` must be somewhere in `src` folder with the `*.graphql` extension. You should be good to go - just fetch the fields as usual. You have to commit local update to fill these fields and types:
+File `schema.local.graphql` must be somewhere in `--src` folder with the `*.graphql` extension. You should be good to go - just fetch the fields as usual. You have to commit local update to fill these fields and types:
 
 ```js
 Relay.commitLocalUpdate(environment, store => {
@@ -72,7 +72,7 @@ Relay.commitLocalUpdate(environment, store => {
 });
 ```
 
-Please note that client schema is still somehow experimental feature and that server may introduce the same field `successMessage` which will conflict with the client one (new kind of BC break). Luckily, Relay will recognize this BC break and it will throw an error:
+Please note that server may introduce the same field `successMessage` which will conflict with the client one (new kind of BC break). Luckily, Relay will recognize this BC break and it will throw an error:
 
 ```
 ERROR:
@@ -97,3 +97,93 @@ export const setLocal = (query: GraphQLTaggedNode, localData: object) => {
 ```
 
 ([source](https://github.com/facebook/relay/issues/1656#issuecomment-509220117))
+
+## Client field via `@__clientField(handle: " ... ")`
+
+Directive `@__clientField` is a special directive used by Relay client to create virtual (local) field. But, before we move on:
+
+> This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
+
+([source](https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91))
+
+That's in fact exactly what `@connection` does behind the scenes - it translates itself into something like:
+
+```text
+@__clientField(handle: "connection", key: "UserFriends_friends", filters: ["orderby"])
+```
+
+Let's ignore this transform for now - it's possible to use it even directly with the warning in mind. It's possible to use it for the computation of our client field value from other server field:
+
+```graphql
+fragment Example on Article {
+  body @__clientField(handle: "draft")
+
+  # this is a client field and it will contain uppercased `body` value
+  draft
+}
+```
+
+This obviously means that you need to define your local client schema (`schema.local.graphql`):
+
+```graphql
+extend type Article {
+  draft: String
+}
+```
+
+And you have to create the handler which is being registered when you are creating new Relay environment (https://facebook.github.io/relay/docs/en/relay-environment.html#adding-a-handlerprovider):
+
+```js
+const DraftHandler = {
+  update(store, payload) {
+    const record = store.get(payload.dataID);
+    const content = record.getValue(payload.fieldKey);
+    record.setValue(content.toUpperCase(), 'draft');
+
+    // Set the original value to handleKey, otherwise the field with @__clientField directive will be undefined
+    record.setValue(content, payload.handleKey);
+  },
+};
+```
+
+Don't forget to run Relay compiler after you add these changes. More info: https://medium.com/@matt.krick/replacing-redux-with-relay-47ed085bfafe
+
+How does the payload look like?
+
+```js
+/**
+ * A payload that is used to initialize or update a "handle" field with
+ * information from the server.
+ */
+export type HandleFieldPayload = {|
+  // The arguments that were fetched.
+  +args: Variables,
+  // The __id of the record containing the source/handle field.
+  +dataID: DataID,
+  // The (storage) key at which the original server data was written.
+  +fieldKey: string,
+  // The name of the handle.
+  +handle: string,
+  // The (storage) key at which the handle's data should be written by the
+  // handler.
+  +handleKey: string,
+|};
+
+// args: {show: "ALL"}
+// dataID: "TGVhZDpiOTZiZWMxMC0yYmVlLTExZWEtYTg5Yi04MWU2NGJlOGY5OTk="
+// fieldKey: "labels(show:"ALL")"
+// handle: "list"
+// handleKey: "__list_test_key_list"
+```
+
+Another use-case is to affect behavior of your field (that's what `@connection` does). You can for example write some "sort" handler which will sort your arrays in the Relay store. Technically, this `@__clientField` annotations gives you separated space (`payload.handleKey`) in the Relay store so you can do whatever you want.
+
+## @connection(handler: "custom_handler", ...)
+
+It is possible to specify custom handler when using `@connection`. This way you can define custom behavior and effectively completely replace the default `RelayConnectionHandler`. This handler must be added to the `handlerProvider` (default is `connection` handler for the raw `@connection`). This is how [default Relay handler provider looks like](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/handlers/RelayDefaultHandlerProvider.js).
+
+See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
+
+## `LocalQueryRenderer`
+
+- https://github.com/mrtnzlml/relay/pull/447/files
