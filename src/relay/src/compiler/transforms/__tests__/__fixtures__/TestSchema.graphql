@@ -1,0 +1,14 @@
+schema {
+  query: Query
+}
+
+type Query {
+  me: User
+  node(id: ID): Node
+}
+
+type User implements Node {
+  firstName: String
+  lastName: String
+  surname: String @deprecated(reason: "Use \"lastName\" field instead.")
+}

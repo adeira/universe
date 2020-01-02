@@ -1,0 +1,6 @@
+query ExampleQueryInvalid {
+  me {
+    firstName
+    surname
+  }
+}

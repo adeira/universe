@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: ExampleQuery.invalid.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query ExampleQueryInvalid {
+  me {
+    firstName
+    surname
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+query ExampleQueryInvalid {
+  me {
+    firstName
+    surname
+  }
+}
+
+`;
+
+exports[`matches expected output: ExampleQuery.valid.graphql 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+query ExampleQueryValid {
+  me {
+    firstName
+    lastName
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+query ExampleQueryValid {
+  me {
+    firstName
+    lastName
+  }
+}
+
+`;

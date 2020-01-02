@@ -4558,7 +4558,7 @@ eslint-visitor-keys@^1.0.0, eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@^6.7.2, eslint@^6.8.0, eslint@~6.8.0:
+eslint@^6.7.2, eslint@^6.8.0:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
   integrity sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==
@@ -10260,7 +10260,7 @@ relay-compiler-language-typescript@^10.1.3:
     immutable "^4.0.0-rc.12"
     invariant "^2.2.4"
 
-relay-compiler@^8.0.0:
+relay-compiler@8.0.0, relay-compiler@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-8.0.0.tgz#567edebc857db5748142b57a78d197f976b5e3ac"
   integrity sha512-JrS3Bv6+6S0KloHmXUyTcrdFRpI3NxWdiVQC146vD5jgay9EM464lyf9bEUsCol3na4JUrad4aQ/r+4wWxG1kw==
@@ -10296,6 +10296,16 @@ relay-runtime@8.0.0, relay-runtime@^8.0.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
+
+relay-test-utils-internal@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/relay-test-utils-internal/-/relay-test-utils-internal-8.0.0.tgz#5e9509680ddd187eace12c565dec07906275841a"
+  integrity sha512-C8vgAcs7RVxIqXnOz93Kd7FEVrU6rlBgRaoF+KNIsPm4RJRdjvLMPqGhuWZPNaP4DRYK5c4lD9SqmfRJWOgLxg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fbjs "^1.0.0"
+    relay-compiler "8.0.0"
+    relay-runtime "8.0.0"
 
 relay-test-utils@^8.0.0:
   version "8.0.0"
