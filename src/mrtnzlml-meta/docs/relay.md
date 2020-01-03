@@ -117,17 +117,102 @@ Doing that in OSS as well would increase the number of generated files and also 
 
 ## `@raw_response_type`
 
-See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
+This annotation can be used to generate types (Flow/TS) for `optimisticResponse` when writing mutations. Real example could look like this:
 
 ```graphql
-query ViewerQuery @raw_response_type {
-  viewer {
-    actor {
-      id
+mutation NoteEditorChangeLeadNoteMutation($input: UpdateLeadInput!) @raw_response_type {
+  updateLead(input: $input) {
+    __typename
+    ... on Lead {
+      ...NoteEditor_lead
     }
   }
 }
 ```
+
+This is quite a common pattern to write data fragment only once when fetching the data (`NoteEditor_lead`) and reuse it for the mutation. It's because you should always fetch the same you are mutating (and you are probably mutating the same you are just rendering). However, the generated types whould contain just the fragment reference as you know from the queries and it's not a good idea to unmask such fragments since it doesn't work recursively. Luckily, mutations with additional directive `@raw_response_type` generate also raw response types. Compare these two generated types - first without the annotation:
+
+```ts
+export type UpdateLeadInput = {
+  readonly id: string;
+  readonly note?: string | null;
+  readonly title?: string | null;
+};
+export type NoteEditorChangeLeadNoteMutationVariables = {
+  input: UpdateLeadInput;
+};
+export type NoteEditorChangeLeadNoteMutationResponse = {
+  readonly updateLead:
+    | (
+        | {
+            readonly __typename: 'Lead';
+            readonly ' $fragmentRefs': FragmentRefs<'NoteEditor_lead'>;
+          }
+        | {
+            /*This will never be '%other', but we need some
+            value in case none of the concrete values match.*/
+            readonly __typename: '%other';
+          }
+      )
+    | null;
+};
+export type NoteEditorChangeLeadNoteMutation = {
+  readonly response: NoteEditorChangeLeadNoteMutationResponse;
+  readonly variables: NoteEditorChangeLeadNoteMutationVariables;
+};
+```
+
+And now with the `@raw_response_type` directive:
+
+```ts {24-38,42}
+export type UpdateLeadInput = {
+  readonly id: string;
+  readonly note?: string | null;
+  readonly title?: string | null;
+};
+export type NoteEditorChangeLeadNoteMutationVariables = {
+  input: UpdateLeadInput;
+};
+export type NoteEditorChangeLeadNoteMutationResponse = {
+  readonly updateLead:
+    | (
+        | {
+            readonly __typename: 'Lead';
+            readonly ' $fragmentRefs': FragmentRefs<'NoteEditor_lead'>;
+          }
+        | {
+            /*This will never be '%other', but we need some
+            value in case none of the concrete values match.*/
+            readonly __typename: '%other';
+          }
+      )
+    | null;
+};
+export type NoteEditorChangeLeadNoteMutationRawResponse = {
+  readonly updateLead:
+    | (
+        | {
+            readonly __typename: 'Lead';
+            readonly id: string | null;
+            readonly note: string | null;
+          }
+        | {
+            readonly __typename: string;
+            readonly id: string | null;
+          }
+      )
+    | null;
+};
+export type NoteEditorChangeLeadNoteMutation = {
+  readonly response: NoteEditorChangeLeadNoteMutationResponse;
+  readonly variables: NoteEditorChangeLeadNoteMutationVariables;
+  readonly rawResponse: NoteEditorChangeLeadNoteMutationRawResponse;
+};
+```
+
+That's the type which is being used to annotate `optimisticResponse` when you use `commitMutation<MutationType>`.
+
+See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
 
 ## @connection(dynamicKey_UNSTABLE: \$someVariable, ...)
 
