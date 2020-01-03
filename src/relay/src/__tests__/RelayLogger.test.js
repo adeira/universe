@@ -31,5 +31,14 @@ it('logs in browser', () => {
   });
 
   expect(log).toHaveBeenCalledTimes(2);
+  expect(log).toHaveBeenCalledWith('Variables: %o', {});
+  expect(log).toHaveBeenCalledWith('query Lol{id}');
   expect(groupCollapsed).toHaveBeenCalledTimes(1);
+  expect(groupCollapsed).toHaveBeenCalledWith(
+    '%c%s%c%s',
+    'font-weight:bold;',
+    '[Relay 1] execute.start',
+    'font-weight:normal',
+    ' - test 🔍',
+  );
 });
