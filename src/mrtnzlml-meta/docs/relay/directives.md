@@ -85,6 +85,12 @@ TKTK
 
 ## @defer, @stream, @stream_connection
 
+```graphql
+directive @defer(label: String!, if: Boolean = true) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+directive @stream(label: String!, initial_count: Int!, if: Boolean = true) on FIELD
+```
+
 TKTK
 
 - https://github.com/mrtnzlml/relay/pull/172/commits
