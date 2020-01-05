@@ -1,7 +1,7 @@
 ---
 id: flow
-title: All-in
-sidebar_label: All-in
+title: Flow all-in
+sidebar_label: Flow all-in
 ---
 
 - **https://flow.org/en/docs/faq/**

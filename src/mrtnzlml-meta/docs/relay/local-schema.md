@@ -102,9 +102,7 @@ export const setLocal = (query: GraphQLTaggedNode, localData: object) => {
 
 Directive `@__clientField` is a special directive used by Relay client to create virtual (local) field. But, before we move on:
 
-> This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin
-
-([source](https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91))
+> This directive is not intended for use by developers directly. To set a field handle in product code use a compiler plugin ([source](https://github.com/facebook/relay/blob/8f08aaad9dae241ba6706b39160b89f4ed00c5c8/packages/graphql-compiler/core/GraphQLParser.js#L86-L91))
 
 That's in fact exactly what `@connection` does behind the scenes - it translates itself into something like:
 
@@ -177,12 +175,6 @@ export type HandleFieldPayload = {|
 ```
 
 Another use-case is to affect behavior of your field (that's what `@connection` does). You can for example write some "sort" handler which will sort your arrays in the Relay store. Technically, this `@__clientField` annotations gives you separated space (`payload.handleKey`) in the Relay store so you can do whatever you want.
-
-## @connection(handler: "custom_handler", ...)
-
-It is possible to specify custom handler when using `@connection`. This way you can define custom behavior and effectively completely replace the default `RelayConnectionHandler`. This handler must be added to the `handlerProvider` (default is `connection` handler for the raw `@connection`). This is how [default Relay handler provider looks like](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/handlers/RelayDefaultHandlerProvider.js).
-
-See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
 ## `LocalQueryRenderer`
 

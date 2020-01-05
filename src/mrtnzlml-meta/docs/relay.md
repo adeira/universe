@@ -1,25 +1,14 @@
 ---
 id: relay
-title: All-in
-sidebar_label: All-in
+title: Relay all-in
+sidebar_label: Relay all-in
 ---
-
-Useful Links (learning resources):
-
-- https://github.com/kiwicom/relay-example
-- https://github.com/sibelius/relay-modern-network-deep-dive
-- https://twitter.com/sseraphini/status/1078595758801203202
-- https://github.com/facebook/relay/tree/master/packages/relay-test-utils
-- https://relay-modern-course.now.sh/packages/
-- https://github.com/zth/relay-utils
-- https://github.com/zth/reason-relay
 
 TODO:
 
 - https://github.com/facebook/relay/issues/1701#issuecomment-460659564
 - Mock Data Generation: https://github.com/facebook/relay/commit/09d317943f6936ffb0002154c389b6d7a507c58d
 - https://github.com/facebook/relay/pull/2700/files
-- `@relay_test_operation` https://github.com/mrtnzlml/relay/pull/339/files, https://relay.dev/docs/en/testing-relay-components#relay_test_operation, https://github.com/facebook/relay/issues/2807#issuecomment-515690739
 - `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
 - [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
@@ -28,39 +17,57 @@ This file describes experimental and more advanced Relay features. It can be ver
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
-## How to test latest unreleased changes from Relay master?
+## Useful Links (learning resources):
 
-Relay team publishes master on NPM ([new](https://github.com/facebook/relay/pull/2889)). You can find it under names like `0.0.0-master-62d0ae50`. See: https://www.npmjs.com/package/react-relay
+- https://github.com/adeira/relay-example
+- https://github.com/sibelius/relay-modern-network-deep-dive
+- https://medium.com/entria/wrangling-the-client-store-with-the-relay-modern-updater-function-5c32149a71ac
+- https://twitter.com/sseraphini/status/1078595758801203202
+- https://relay-modern-course.now.sh/packages/
+- https://github.com/zth/relay-utils
+- https://github.com/zth/reason-relay
 
-You will find old instructions below which are still somehow relevant but outdated thanks to the new approach.
+## Relay Config (`relay.config.js`)
 
----
+Relay supports configuration via CLI but also via configuration files using official NPM package [`relay-config`](https://www.npmjs.com/package/relay-config). Configuration files work only when you install this package. Relay Config relies on [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to do its bidding. It’s configured to load from:
 
-These changes are unreleased so you cannot easily install (uncompiled) master from NPM and use it. The easiest way how to try master is to clone Relay somewhere and run `yarn install` in the root. This will not only install all the necessary dependencies but also compile Relay packages. Now, just replace your versions with file paths in `package.json`:
+- a `relay` key in `package.json`
 
-```patch
-diff --git a/src/packages/relay/package.json b/src/packages/relay/package.json
-index 45a44734..99be1766 100644
---- a/src/packages/relay/package.json
-+++ b/src/packages/relay/package.json
-@@ -10,9 +10,9 @@
-   "dependencies": {
-     "@kiwicom/fetch": "^2.3.1",
-     "@kiwicom/js": "^0.8.0",
--    "react-relay": "^3.0.0",
--    "relay-compiler": "^3.0.0",
--    "relay-runtime": "^3.0.0"
-+    "react-relay": "file:/Users/mrtnzlml/Work/mrtnzlml/relay/dist/react-relay",
-+    "relay-compiler": "file:/Users/mrtnzlml/Work/mrtnzlml/relay/dist/relay-compiler",
-+    "relay-runtime": "file:/Users/mrtnzlml/Work/mrtnzlml/relay/dist/relay-runtime"
-   },
-   "peerDependencies": {
-     "react": "^16.8.0"
+```json
+{
+  "relay": {
+    "src": "./src"
+  }
+}
 ```
 
-Do not forget to run `yarn install` in your project as well.
+- a `relay.config.json` file
 
-## Relay Config
+```json
+{
+  "src": "./src"
+}
+```
+
+- or a `relay.config.js` file
+
+```js
+module.exports = {
+  src: './src',
+};
+```
+
+It accepts all the same configuration as the CLI does. Additionally, when using the `relay.config.js` file, a configuration entry like the language plugin also accepts an actual function:
+
+```js
+const typescript = require('relay-compiler-language-typescript');
+
+module.exports = {
+  language: typescript,
+};
+```
+
+In the future, other entries such as `persistedQueries` and `customScalars` could also be configured as such and allow for projec specific setup.
 
 See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
@@ -114,109 +121,6 @@ meeting: {
 ```
 
 Doing that in OSS as well would increase the number of generated files and also add the question of where to put these files and how to import them.
-
-## `@raw_response_type`
-
-This annotation can be used to generate types (Flow/TS) for `optimisticResponse` when writing mutations. Real example could look like this:
-
-```graphql
-mutation NoteEditorChangeLeadNoteMutation($input: UpdateLeadInput!) @raw_response_type {
-  updateLead(input: $input) {
-    __typename
-    ... on Lead {
-      ...NoteEditor_lead
-    }
-  }
-}
-```
-
-This is quite a common pattern to write data fragment only once when fetching the data (`NoteEditor_lead`) and reuse it for the mutation. It's because you should always fetch the same you are mutating (and you are probably mutating the same you are just rendering). However, the generated types whould contain just the fragment reference as you know from the queries and it's not a good idea to unmask such fragments since it doesn't work recursively. Luckily, mutations with additional directive `@raw_response_type` generate also raw response types. Compare these two generated types - first without the annotation:
-
-```ts
-export type UpdateLeadInput = {
-  readonly id: string;
-  readonly note?: string | null;
-  readonly title?: string | null;
-};
-export type NoteEditorChangeLeadNoteMutationVariables = {
-  input: UpdateLeadInput;
-};
-export type NoteEditorChangeLeadNoteMutationResponse = {
-  readonly updateLead:
-    | (
-        | {
-            readonly __typename: 'Lead';
-            readonly ' $fragmentRefs': FragmentRefs<'NoteEditor_lead'>;
-          }
-        | {
-            /*This will never be '%other', but we need some
-            value in case none of the concrete values match.*/
-            readonly __typename: '%other';
-          }
-      )
-    | null;
-};
-export type NoteEditorChangeLeadNoteMutation = {
-  readonly response: NoteEditorChangeLeadNoteMutationResponse;
-  readonly variables: NoteEditorChangeLeadNoteMutationVariables;
-};
-```
-
-And now with the `@raw_response_type` directive:
-
-```ts {24-38,42}
-export type UpdateLeadInput = {
-  readonly id: string;
-  readonly note?: string | null;
-  readonly title?: string | null;
-};
-export type NoteEditorChangeLeadNoteMutationVariables = {
-  input: UpdateLeadInput;
-};
-export type NoteEditorChangeLeadNoteMutationResponse = {
-  readonly updateLead:
-    | (
-        | {
-            readonly __typename: 'Lead';
-            readonly ' $fragmentRefs': FragmentRefs<'NoteEditor_lead'>;
-          }
-        | {
-            /*This will never be '%other', but we need some
-            value in case none of the concrete values match.*/
-            readonly __typename: '%other';
-          }
-      )
-    | null;
-};
-export type NoteEditorChangeLeadNoteMutationRawResponse = {
-  readonly updateLead:
-    | (
-        | {
-            readonly __typename: 'Lead';
-            readonly id: string | null;
-            readonly note: string | null;
-          }
-        | {
-            readonly __typename: string;
-            readonly id: string | null;
-          }
-      )
-    | null;
-};
-export type NoteEditorChangeLeadNoteMutation = {
-  readonly response: NoteEditorChangeLeadNoteMutationResponse;
-  readonly variables: NoteEditorChangeLeadNoteMutationVariables;
-  readonly rawResponse: NoteEditorChangeLeadNoteMutationRawResponse;
-};
-```
-
-That's the type which is being used to annotate `optimisticResponse` when you use `commitMutation<MutationType>`.
-
-See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
-
-## @connection(dynamicKey_UNSTABLE: \$someVariable, ...)
-
-See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
 
 ## RelayResponseNormalizer: `handleStrippedNulls`
 
@@ -276,45 +180,6 @@ Relay will show you this warning in this console (dev mode only):
 
 See: https://github.com/facebook/relay/blob/76fef685f70a5aa09cd180ce0f2ef6b6d3f4f7e8/packages/relay-runtime/store/RelayResponseNormalizer.js#L75
 
-## Relay hooks `useQuery`, `useFragment`, `usePaginationFragment`, `useRefetchableFragment`, `useBlockingPaginationFragment`, `useLegacyPaginationFragment`
-
-TODO:
-
-- https://github.com/facebook/relay/commit/b83aace7a95f5fd82cbb30d1f6888bcc4767eeb5
-- https://github.com/relayjs/eslint-plugin-relay/commit/b86eb2ace82c89194a4309ff63701b52a2279b3b
-- https://github.com/relayjs/eslint-plugin-relay/pull/63/files
-- https://github.com/facebook/relay/issues/2792#issuecomment-510481040
-- https://github.com/relay-tools/relay-hooks/issues/5#issue-453957030
-- https://github.com/levels3d/offblast
-- https://github.com/relayjs/eslint-plugin-relay/pull/67/files
-
-## @refetchable(queryName: " ... ")
-
-Currently broken: https://github.com/facebook/relay/issues/2713
-
-```js
-export default createRefetchContainer(LocationsPaginatedRefetch, {
-  data: graphql`
-    fragment LocationsPaginatedRefetch_data on RootQuery
-      @argumentDefinitions(count: { type: "Int", defaultValue: 20 }, after: { type: "String" })
-      @refetchable(queryName: "LocationsPaginatedRefetchRefetchQuery") {
-      incrementalPagination: allLocations(first: $count, after: $after)
-        @connection(key: "allLocations_incrementalPagination") {
-        edges {
-          node {
-            id
-            ...Location_location
-          }
-        }
-        pageInfo {
-          endCursor
-        }
-      }
-    }
-  `,
-});
-```
-
 ## Refetch container
 
 https://facebook.github.io/relay/docs/en/refetch-container.html
@@ -324,28 +189,6 @@ When `refetch` is called and the `refetchQuery` is executed, Relay doesn't actua
 Refetch containers are only really meant to be used when you are changing variables in the component fragment. If you don't want or need to include variables in the fragment, you could go one level up and set new variables directly in the QueryRenderer (using props or state).
 
 https://github.com/facebook/relay/issues/2244#issuecomment-355054944
-
-## @defer, @stream, @stream_connection
-
-TODO
-
-- https://github.com/mrtnzlml/relay/pull/172/commits
-- https://github.com/facebook/relay/commit/225cfb60cccdbb649ab16a13ed607de749992d21
-
-## @inline ???
-
-```js
-/**
- * A transform that converts fragment spreads where the referenced fragment
- * is annotated with @inline to a InlineDataFragmentSpread.
- * InlineDataFragmentSpreads have the selections of the referenced fragment inlined.
- */
-```
-
-- https://github.com/facebook/relay/commit/df7b25dd621612694fb8440d51bf2a913b16f31b
-- https://github.com/facebook/relay/pull/2850/files
-- https://github.com/facebook/relay/commit/68745c719401c3be01d022f1617525daac69cfa1
-- https://github.com/mrtnzlml/relay/pull/442/commits
 
 ## RelayNetworkLogger
 
