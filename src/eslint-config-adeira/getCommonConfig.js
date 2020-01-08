@@ -29,10 +29,10 @@ function detectReactVersion() {
 
 module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: EslintConfig */ {
   return {
+    /* $FlowFixMe(>=0.115.0) This comment suppresses an error when upgrading
+     * Flow. To see the error delete this comment and run Flow. */
     rules: {
       ...rules,
-      /* $FlowFixMe(>=0.111.0) This comment suppresses an error when upgrading
-       * Flow. To see the error delete this comment and run Flow. */
       ...prettierRules,
       'prettier/prettier': [
         ERROR,
