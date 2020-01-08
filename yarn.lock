@@ -5708,13 +5708,6 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-grpc-tools@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/grpc-tools/-/grpc-tools-1.8.1.tgz#8b2e8bf42028d94c85817d954685c46a7bfbc31a"
-  integrity sha512-CvZLshEDbum8ZtB8r3bn6JsrHs3L7S1jf7PTa02nZSLmcLTKbiXH5UYrte06Kh7SdzFmkxPMaOsys2rCs+HRjA==
-  dependencies:
-    node-pre-gyp "^0.12.0"
-
 gulp-header@^1.7.1:
   version "1.8.12"
   resolved "https://registry.yarnpkg.com/gulp-header/-/gulp-header-1.8.12.tgz#ad306be0066599127281c4f8786660e705080a84"
