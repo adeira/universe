@@ -924,6 +924,11 @@ Snapshot Diff:
 +     "jest/valid-title": 2,
       "jsx-a11y/accessible-emoji": 2,
 @@ --- --- @@
+      "no-constant-condition": Array [
+-       1,
++       2,
+        Object {
+@@ --- --- @@
       ],
 -     "no-constructor-return": 1,
 +     "no-constructor-return": 2,

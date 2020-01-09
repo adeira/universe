@@ -18,7 +18,7 @@ module.exports = {
   'no-compare-neg-zero': ERROR,
   'no-cond-assign': ERROR,
   'no-console': ERROR,
-  'no-constant-condition': [WARN, { checkLoops: false }],
+  'no-constant-condition': [NEXT_VERSION_ERROR, { checkLoops: false }],
   'no-control-regex': ERROR,
   'no-debugger': ERROR,
   'no-dupe-args': ERROR,
