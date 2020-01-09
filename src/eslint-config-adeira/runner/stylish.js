@@ -24,6 +24,7 @@ type Results = $ReadOnlyArray<{|
   +warningCount: number,
   +fixableErrorCount: number,
   +fixableWarningCount: number,
+  +output?: string,
 |}>
 
 */
