@@ -24,6 +24,7 @@ type Options = {|
   +globalConfig: { [key: string]: any, ... },
   +extraOptions: {|
     +runAll: boolean,
+    +noWarnings: boolean,
   |}
 |}
 
@@ -69,6 +70,10 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
   }
 
   const report = cliEngine.executeOnFiles([testPath]);
+  const errorResults = extraOptions.noWarnings
+    ? CLIEngine.getErrorResults(report.results)
+    : report.results;
+
   if (PERFORM_FIXES) {
     CLIEngine.outputFixes(report);
   }
@@ -76,13 +81,13 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
   const end = Date.now();
   const result = report.results[0];
 
-  if (result.errorCount === 0 && result.warningCount > 0) {
+  if (result.errorCount === 0 && result.warningCount > 0 && extraOptions.noWarnings === false) {
     return passWithWarning({
       start,
       end,
       test: {
         path: testPath,
-        warningMessage: formatter(report.results),
+        warningMessage: formatter(errorResults),
       },
     });
   } else if (result.errorCount > 0) {
@@ -91,7 +96,7 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
       end,
       test: {
         path: testPath,
-        errorMessage: formatter(report.results),
+        errorMessage: formatter(errorResults),
       },
     });
   }

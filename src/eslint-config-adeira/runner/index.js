@@ -12,6 +12,7 @@ module.exports = (createJestRunner(require.resolve('./run'), {
   getExtraOptions: () => {
     return {
       runAll: externalConfig.includes('--all'),
+      noWarnings: externalConfig.includes('--no-warnings'),
     };
   },
 }) /*: any */);
