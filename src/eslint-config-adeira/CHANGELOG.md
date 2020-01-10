@@ -1,5 +1,7 @@
 # Unreleased
 
+# 1.0.0
+
 - Add new rule `adeira/no-duplicate-import-type-import`;
 
 # 0.4.0

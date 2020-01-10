@@ -4,6 +4,7 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
+// eslint-disable-next-line no-unused-vars
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
@@ -18,11 +19,11 @@ module.exports = {
   'no-compare-neg-zero': ERROR,
   'no-cond-assign': ERROR,
   'no-console': ERROR,
-  'no-constant-condition': [NEXT_VERSION_ERROR, { checkLoops: false }],
+  'no-constant-condition': [ERROR, { checkLoops: false }],
   'no-control-regex': ERROR,
   'no-debugger': ERROR,
   'no-dupe-args': ERROR,
-  'no-dupe-else-if': NEXT_VERSION_ERROR,
+  'no-dupe-else-if': ERROR,
   'no-dupe-keys': ERROR,
   'no-duplicate-case': ERROR,
   'no-empty': [WARN, { allowEmptyCatch: true }],
@@ -30,7 +31,7 @@ module.exports = {
   'no-ex-assign': ERROR,
   'no-extra-boolean-cast': ERROR,
   'no-func-assign': ERROR,
-  'no-import-assign': NEXT_VERSION_ERROR,
+  'no-import-assign': ERROR,
   'no-inner-declarations': OFF,
   'no-invalid-regexp': ERROR,
   'no-irregular-whitespace': ERROR,
@@ -38,7 +39,7 @@ module.exports = {
   'no-obj-calls': ERROR,
   'no-prototype-builtins': ERROR,
   'no-regex-spaces': ERROR,
-  'no-setter-return': NEXT_VERSION_ERROR,
+  'no-setter-return': ERROR,
   'no-sparse-arrays': ERROR,
   'no-template-curly-in-string': ERROR,
   'no-unreachable': ERROR,
@@ -58,7 +59,7 @@ module.exports = {
   'consistent-return': [ERROR, { treatUndefinedAsUnspecified: false }],
   curly: [ERROR, 'all'],
   'default-case': OFF,
-  'default-param-last': NEXT_VERSION_ERROR,
+  'default-param-last': ERROR,
   'dot-notation': ERROR,
   eqeqeq: [ERROR, 'smart'],
   'grouped-accessor-pairs': OFF,
@@ -68,7 +69,7 @@ module.exports = {
   'no-await-in-loop': WARN,
   'no-caller': ERROR,
   'no-case-declarations': WARN,
-  'no-constructor-return': NEXT_VERSION_ERROR,
+  'no-constructor-return': ERROR,
   'no-div-regex': WARN,
   'no-else-return': ERROR,
   'no-empty-function': OFF,
@@ -119,12 +120,12 @@ module.exports = {
   'no-with': ERROR,
   'prefer-named-capture-group': ERROR,
   'prefer-promise-reject-errors': WARN,
-  'prefer-regex-literals': NEXT_VERSION_ERROR,
+  'prefer-regex-literals': ERROR,
   radix: ERROR,
   'require-await': ERROR,
   'require-unicode-regexp': OFF,
   'vars-on-top': ERROR,
-  yoda: NEXT_VERSION_ERROR,
+  yoda: ERROR,
 
   // Strict Mode (http://eslint.org/docs/rules/#strict-mode)
   strict: WARN,
@@ -199,7 +200,7 @@ module.exports = {
   'one-var': [WARN, { initialized: 'never' }],
   'operator-assignment': WARN,
   'padding-line-between-statements': OFF,
-  'prefer-exponentiation-operator': NEXT_VERSION_ERROR,
+  'prefer-exponentiation-operator': ERROR,
   'prefer-object-spread': OFF,
   'require-jsdoc': OFF,
   'sort-keys': OFF,
@@ -237,7 +238,7 @@ module.exports = {
   'prefer-template': ERROR,
   'require-yield': ERROR,
   'sort-imports': OFF,
-  'symbol-description': NEXT_VERSION_ERROR,
+  'symbol-description': ERROR,
 
   // Babel (https://github.com/babel/eslint-plugin-babel)
   'babel/camelcase': [
@@ -310,7 +311,7 @@ module.exports = {
   'jest/no-try-expect': OFF,
   'jest/prefer-called-with': WARN,
   'jest/prefer-expect-assertions': OFF,
-  'jest/prefer-hooks-on-top': NEXT_VERSION_ERROR,
+  'jest/prefer-hooks-on-top': ERROR,
   'jest/prefer-inline-snapshots': OFF,
   'jest/prefer-spy-on': OFF,
   'jest/prefer-strict-equal': OFF, // TODO: WARN
@@ -324,7 +325,7 @@ module.exports = {
   'jest/valid-describe': ERROR,
   'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
-  'jest/valid-title': NEXT_VERSION_ERROR,
+  'jest/valid-title': ERROR,
 
   // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
   'prefer-object-spread/prefer-object-spread': WARN,
@@ -365,12 +366,12 @@ module.exports = {
       allowBind: false,
     },
   ],
-  'react/jsx-no-comment-textnodes': NEXT_VERSION_ERROR,
+  'react/jsx-no-comment-textnodes': ERROR,
   'react/jsx-no-duplicate-props': ERROR,
   'react/jsx-no-literals': OFF,
   'react/jsx-no-target-blank': OFF,
   'react/jsx-no-undef': ERROR,
-  'react/jsx-no-useless-fragment': NEXT_VERSION_ERROR,
+  'react/jsx-no-useless-fragment': ERROR,
   'react/jsx-pascal-case': ERROR,
   'react/jsx-props-no-spreading': OFF,
   'react/jsx-sort-default-props': OFF,
@@ -396,7 +397,7 @@ module.exports = {
   'react/no-this-in-sfc': ERROR,
   'react/no-typos': OFF,
   'react/no-unescaped-entities': ERROR,
-  'react/no-unknown-property': NEXT_VERSION_ERROR,
+  'react/no-unknown-property': ERROR,
   'react/no-unsafe': OFF,
   'react/no-unused-prop-types': OFF,
   'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
@@ -459,7 +460,7 @@ module.exports = {
   'react/sort-prop-types': OFF,
   'react/state-in-constructor': OFF,
   'react/static-property-placement': OFF,
-  'react/style-prop-object': NEXT_VERSION_ERROR,
+  'react/style-prop-object': ERROR,
   'react/void-dom-elements-no-children': ERROR,
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
@@ -505,10 +506,10 @@ module.exports = {
 
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
   'relay/compat-uses-vars': OFF, // we do not use Relay Compat
-  'relay/generated-flow-types': NEXT_VERSION_ERROR,
+  'relay/generated-flow-types': ERROR,
   'relay/graphql-naming': ERROR,
   'relay/graphql-syntax': ERROR,
-  'relay/hook-required-argument': NEXT_VERSION_ERROR,
+  'relay/hook-required-argument': ERROR,
   'relay/no-future-added-value': ERROR,
   'relay/unused-fields': ERROR,
 
@@ -634,9 +635,9 @@ module.exports = {
   // Adeira custom rules
   'adeira/only-nullable-fields': ERROR,
   'adeira/no-invalid-flow-annotations': ERROR,
-  'adeira/no-internal-flow-type': NEXT_VERSION_ERROR, // TODO: ERROR
+  'adeira/no-internal-flow-type': ERROR,
   'adeira/relay-import-no-values': ERROR,
   'adeira/relay-import-type-must-exist': ERROR,
-  'adeira/valid-test-folder': NEXT_VERSION_ERROR, // TODO: ERROR
-  'adeira/no-duplicate-import-type-import': NEXT_VERSION_ERROR,
+  'adeira/valid-test-folder': ERROR,
+  'adeira/no-duplicate-import-type-import': ERROR,
 };

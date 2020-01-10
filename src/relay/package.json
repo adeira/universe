@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.2.0",
-    "@adeira/eslint-config": "^0.7.0",
+    "@adeira/eslint-config": "^1.0.0",
     "@adeira/test-utils": "^0.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.8.0",
