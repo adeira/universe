@@ -1,6 +1,7 @@
 // @flow
 
 import { useMutation, graphql } from '../index';
+import type { Disposable } from '../../types.flow';
 
 const mutation = graphql`
   mutation useMutation {
@@ -11,11 +12,11 @@ const mutation = graphql`
 module.exports = {
   validUsage: () => {
     return function TestComponent() {
-      const [isMutationPending, executeMutation] = useMutation(mutation);
-      (isMutationPending: boolean);
+      const [executeMutation, isMutationPending] = useMutation(mutation);
       (executeMutation: ({|
         onCompleted: () => void,
-      |}) => void);
+      |}) => Disposable);
+      (isMutationPending: boolean);
 
       executeMutation({
         onCompleted: () => {},
@@ -31,7 +32,7 @@ module.exports = {
   // Invalid usages:
   invalidUsage: () => {
     return function TestComponent() {
-      const [, executeMutation] = useMutation(mutation);
+      const [executeMutation] = useMutation(mutation);
 
       // $FlowExpectedError: property onCompleted is missing
       executeMutation({
