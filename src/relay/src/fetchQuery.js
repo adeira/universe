@@ -1,8 +1,9 @@
 // @flow
 
 import { fetchQuery as relayFetchQuery } from 'react-relay';
+import type { Variables } from '@adeira/relay-runtime';
 
-import type { GraphQLTaggedNode, Variables } from './types.flow';
+import type { GraphQLTaggedNode } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
 // https://relay.dev/docs/en/fetch-query

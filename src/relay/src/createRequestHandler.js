@@ -1,8 +1,9 @@
 // @flow
 
 import { Observable } from 'relay-runtime';
+import type { Variables } from '@adeira/relay-runtime';
 
-import type { RequestNode, Uploadables, Variables } from './types.flow';
+import type { RequestNode, Uploadables } from './types.flow';
 
 export type CacheConfig = {|
   +force?: ?boolean,
@@ -27,7 +28,7 @@ type Sink = {|
 
 export default function createRequestHandler(customFetcher: (...args: $ReadOnlyArray<any>) => any) {
   function cleanup() {
-    // noop, do anything here
+    // noop, do anything here (called after sink.complete)
   }
 
   return function handleRequest(
@@ -40,16 +41,20 @@ export default function createRequestHandler(customFetcher: (...args: $ReadOnlyA
       customFetcher(requestNode, variables, uploadables)
         .then(response => {
           if (response.errors) {
-            // What should we do with these partial errors?
+            // Relay is currently quite opinionated and recommends to either try to render the data
+            // or halt the application. It's a smart decisions since these errors are not for the
+            // application users. We conveniently follow this recommendation and always try to
+            // render the data. (TODO: allow to log these errors externally)
+            //
             // eslint-disable-next-line no-console
             response.errors.map(error => console.warn(error.message, error));
           }
-
           sink.next(response);
-          sink.complete();
         })
         .catch(error => {
           sink.error(error);
+        })
+        .then(() => {
           sink.complete();
         });
 
