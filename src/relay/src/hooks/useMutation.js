@@ -1,10 +1,11 @@
 // @flow
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
+import useIsMountedRef from './useIsMountedRef';
 import useRelayEnvironment from './useRelayEnvironment';
 import { commitMutation, type MutationParameters } from '../mutations';
-import type { DeclarativeMutationConfig, GraphQLTaggedNode } from '../types.flow';
+import type { DeclarativeMutationConfig, GraphQLTaggedNode, Disposable } from '../types.flow';
 import type { RecordSourceSelectorProxy } from '../runtimeTypes.flow';
 
 opaque type SelectorData = $FlowFixMe;
@@ -15,6 +16,8 @@ type HookMutationConfig<T: MutationParameters> = {|
   +onCompleted: (response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) => void,
   +variables?: $ElementType<T, 'variables'>,
   +onError?: (error: Error) => void,
+  +optimisticResponse?: $ElementType<T, 'rawResponse'>,
+  +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
 |};
@@ -22,30 +25,34 @@ type HookMutationConfig<T: MutationParameters> = {|
 /**
  * Usage:
  *
- * ```js
+ * ```ts
  * const AddCommentMutation = graphql`mutation { ... }`;
- * const [isCommentPending, addComment] = useMutation(AddCommentMutation);
+ * const [addComment, isCommentPending] = useMutation<MutationType>(AddCommentMutation);
  *
- * addComment({ variables: { ... } });
+ * const disposable = addComment({ variables: { ... } });
  * ```
  */
 export default function useMutation<T: MutationParameters>(
   mutation: GraphQLTaggedNode,
-): [boolean, (HookMutationConfig<T>) => void] {
+): [(HookMutationConfig<T>) => Disposable, boolean] {
   const environment = useRelayEnvironment();
   const [isPending, setPending] = useState(false);
   const requestRef = useRef(null);
-  const mountedRef = useRef(false);
-  const execute = useCallback(
+  const isMountedRef = useIsMountedRef();
+  const commit = useCallback(
     config => {
       if (requestRef.current != null) {
-        return;
+        return {
+          dispose: () => {
+            return undefined;
+          },
+        };
       }
-      requestRef.current = commitMutation<T>(environment, {
+      const relayDisposable = commitMutation<T>(environment, {
         ...config,
         variables: config.variables ?? {},
         onCompleted: (response, errors) => {
-          if (!mountedRef.current) {
+          if (!isMountedRef.current) {
             return;
           }
           requestRef.current = null;
@@ -55,7 +62,7 @@ export default function useMutation<T: MutationParameters>(
           }
         },
         onError: (error: Error) => {
-          if (!mountedRef.current) {
+          if (!isMountedRef.current) {
             return;
           }
           requestRef.current = null;
@@ -67,14 +74,16 @@ export default function useMutation<T: MutationParameters>(
         mutation,
       });
       setPending(true);
+      requestRef.current = relayDisposable;
+      return {
+        dispose: () => {
+          relayDisposable.dispose();
+          requestRef.current = null;
+          setPending(false);
+        },
+      };
     },
-    [mutation, environment],
+    [environment, mutation, isMountedRef],
   );
-  useEffect(() => {
-    mountedRef.current = true;
-    return () => {
-      mountedRef.current = false;
-    };
-  }, []);
-  return [isPending, execute];
+  return [commit, isPending];
 }

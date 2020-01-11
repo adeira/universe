@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "yarn eslint src && yarn flow src",
-    "regenerate": "./bin/relay-compiler.js --src=. --schema=../../incubator/graphql.kiwi.com.schema.gql"
+    "regenerate": "./bin/relay-compiler.js --src=./src/hooks --schema=../example-relay/schema.graphql"
   },
   "dependencies": {
     "@adeira/fetch": "^1.0.0",
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "relay-test-utils": "^8.0.0"
   },
