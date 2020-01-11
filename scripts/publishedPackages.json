@@ -10,8 +10,9 @@
   "@adeira/monorepo-npm-publisher",
   "@adeira/monorepo-utils",
   "@adeira/relay",
+  "@adeira/relay-runtime",
+  "@adeira/relay-utils",
   "@adeira/signed-source",
   "@adeira/test-utils",
-  "eslint-plugin-adeira",
-  "@adeira/relay-utils"
+  "eslint-plugin-adeira"
 ]

@@ -1,9 +1,9 @@
 // @flow
 
+import { RelayLogger } from '@adeira/relay-runtime';
 import { Environment as RelayEnvironment } from 'relay-runtime';
 
 import createRelayStore from './createRelayStore';
-import RelayLogger from './RelayLogger';
 import type { Environment } from './runtimeTypes.flow';
 
 /**

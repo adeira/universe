@@ -1,7 +1,8 @@
 // @flow
 
 import { getRequest, createOperationDescriptor } from 'relay-runtime';
-import type { Environment, GraphQLTaggedNode, Variables } from '@adeira/relay';
+import type { Environment, GraphQLTaggedNode } from '@adeira/relay';
+import type { Variables } from '@adeira/relay-runtime';
 
 type Operation = {|
   +query: GraphQLTaggedNode,
@@ -16,6 +17,5 @@ export default function getDataFromRequest(
   const operation = createOperationDescriptor(request, variables);
 
   const res = environment.lookup(operation.fragment);
-  const data = res.data;
-  return data;
+  return res.data;
 }
