@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "deep-diff": "^1.0.2",
-    "snapshot-diff": "^0.6.1"
+    "snapshot-diff": "^0.6.2"
   },
   "peerDependencies": {
     "eslint": ">=6.5.1 <7"
