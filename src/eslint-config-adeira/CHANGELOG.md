@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.1.0
+
+- New CLI option `--no-warnings`
+
 # 1.0.0
 
 - Add new rule `adeira/no-duplicate-import-type-import`;
