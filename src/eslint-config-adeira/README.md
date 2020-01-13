@@ -80,6 +80,8 @@ It tries to detect files to lint because it's highly inefficient to test all the
 
 Please note: this Eslint runner not only runs all the tests much faster but it also performs automatic fixes. This is currently no-opt.
 
+You can also suppress warnings in report by `--no-warnings` option. This is not to make you ignore warnings, rather an utility to easily filter out problems in changed code while you are in process of updating your legacy codebase with a lot of warnings. 
+
 ## Tip
 
 You can benefit from the main Jest executor much more. You can for example use watch mode to watch changes in one directory:
