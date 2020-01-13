@@ -66,11 +66,8 @@ module.exports = (
       // enable them via necessary transpilation plugins.
       'classPrivateProperties', // https://github.com/tc39/proposal-private-fields
       'classProperties', // https://github.com/tc39/proposal-class-public-fields
-      'dynamicImport', // https://github.com/tc39/proposal-dynamic-import
-      'nullishCoalescingOperator', // https://github.com/tc39/proposal-nullish-coalescing
       'numericSeparator', // https://github.com/tc39/proposal-numeric-separator
       'objectRestSpread', // https://github.com/tc39/proposal-object-rest-spread
-      'optionalChaining', // https://github.com/tc39/proposal-optional-chaining
     ]);
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
@@ -89,13 +86,11 @@ module.exports = (
     ]);
     plugins = plugins.concat([
       path.join(__dirname, 'dev-expression.js'),
-      path.join(__dirname, 'kiwicom-js-invariant.js'),
-      path.join(__dirname, 'kiwicom-js-warning.js'),
+      path.join(__dirname, 'adeira-js-invariant.js'),
+      path.join(__dirname, 'adeira-js-warning.js'),
       '@babel/plugin-transform-flow-strip-types', // https://github.com/babel/babel/issues/8417
       '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-proposal-nullish-coalescing-operator',
       '@babel/plugin-proposal-object-rest-spread',
-      '@babel/plugin-proposal-optional-chaining',
       '@babel/plugin-proposal-numeric-separator',
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.

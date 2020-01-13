@@ -4,7 +4,7 @@
 
 import { isBrowser } from '@adeira/js';
 
-import type { Variables } from './types.flow';
+import type { Variables } from './RelayRuntimeTypes';
 
 export type LogEvent =
   | {|
@@ -55,7 +55,7 @@ export type LogEvent =
 
 function logGroup(logEvent, groupBody?: () => void, groupNote?: string, style: string = ''): void {
   const logName = logEvent.name;
-  const message = `[Relay ${logEvent.transactionID}] ${logName}`;
+  const message = `[Relay ${logEvent.transactionID - 99999}] ${logName}`;
   if (groupBody == null) {
     console.log('%c%s', 'font-weight:bold', message);
   } else {
