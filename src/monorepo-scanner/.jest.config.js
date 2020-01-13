@@ -10,7 +10,7 @@ const monorepoSrcRoot = path.join(findMonorepoRoot(), 'src');
 module.exports = {
   rootDir: path.join(__dirname, 'src', 'scans'),
   testRegex: '.scan.js$',
-  verbose: true,
+  verbose: false,
   globals: {
     __DEV__: true,
     __SRC_ROOT__: monorepoSrcRoot,

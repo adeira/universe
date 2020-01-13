@@ -1,8 +1,8 @@
 // @flow
 
+import { RelayLogger } from '@adeira/relay-runtime';
 import { Network, Environment as RelayEnvironment, ConnectionHandler } from 'relay-runtime';
 
-import RelayLogger from './RelayLogger';
 import createRequestHandler from './createRequestHandler';
 import createRelayStore from './createRelayStore';
 import type { Environment, RecordMap } from './runtimeTypes.flow';
@@ -13,8 +13,8 @@ type Options = {|
   +handlerProvider?: string => void,
   +operationLoader?: {|
     // TODO: verify if the type is correct
-    get: string => Promise<?NormalizationSplitOperation>,
-    load: string => Promise<?NormalizationSplitOperation>,
+    +get: string => Promise<?NormalizationSplitOperation>,
+    +load: string => Promise<?NormalizationSplitOperation>,
   |},
   +records?: ?RecordMap,
   +gcReleaseBufferSize?: ?number,

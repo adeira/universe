@@ -1,6 +1,8 @@
 // @flow
 
-import type { Variables, Disposable } from './types.flow';
+import type { Variables } from '@adeira/relay-runtime';
+
+import type { Disposable } from './types.flow';
 
 type DataID = string;
 

@@ -1,8 +1,9 @@
 // @flow
 
+import type { Variables } from '@adeira/relay-runtime';
+
 export type RequestNode = $FlowFixMe;
 export type Uploadables = { +[key: string]: File | Blob, ... };
-export type Variables = { +[name: string]: $FlowFixMe, ... };
 
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;

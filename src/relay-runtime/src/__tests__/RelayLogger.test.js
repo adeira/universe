@@ -1,7 +1,7 @@
 /**
+ * @flow
  * @jest-environment  jsdom
  */
-// @flow
 
 import Logger from '../RelayLogger';
 
@@ -21,7 +21,7 @@ afterEach(() => {
 it('logs in browser', () => {
   Logger({
     name: 'execute.start',
-    transactionID: 1,
+    transactionID: 100_000,
     params: {
       name: 'test',
       operationKind: 'Node',

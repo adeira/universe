@@ -6,7 +6,7 @@
   "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/adeira/universe/tree/master/src/relay",
-  "description": "Highly opinionated Relay wrapper used at Kiwi.com",
+  "description": "Highly opinionated Relay wrapper",
   "license": "MIT",
   "bin": {
     "adeira-fetch-schema": "bin/fetch-schema.js",
@@ -21,6 +21,7 @@
     "@adeira/js": "^0.2.0",
     "@adeira/logger": "^0.1.0",
     "@adeira/monorepo-utils": "^0.2.0",
+    "@adeira/relay-runtime": "^0.1.0",
     "@adeira/signed-source": "^0.1.0",
     "@babel/register": "^7.8.0",
     "babel-plugin-relay": "^8.0.0",
@@ -33,13 +34,6 @@
     "relay-runtime": "^8.0.0"
   },
   "devDependencies": {
-    "@adeira/babel-preset-adeira": "^0.2.0",
-    "@adeira/eslint-config": "^1.0.0",
-    "@adeira/test-utils": "^0.1.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
-    "flow-bin": "^0.114.0",
-    "jest": "^24.9.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-test-renderer": "^16.12.0",

@@ -1,6 +1,8 @@
 // @flow strict-local
 
-import type { Variables, Uploadables, RequestNode } from './types.flow';
+import type { Variables } from '@adeira/relay-runtime';
+
+import type { Uploadables, RequestNode } from './types.flow';
 
 export const isMutation = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'mutation';
