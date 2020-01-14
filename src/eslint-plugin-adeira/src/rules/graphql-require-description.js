@@ -26,7 +26,8 @@ module.exports = ({
         const objectProps =
           node.arguments != null &&
           node.arguments.length > 0 &&
-          node.arguments[0]?.properties != null
+          node.arguments[0] != null &&
+          node.arguments[0].properties != null
             ? node.arguments[0].properties
             : null;
 
@@ -37,7 +38,8 @@ module.exports = ({
 
         const descriptionProp = objectProps.find(property => property.key.name === 'description');
         const nameProp = objectProps.find(property => property.key.name === 'name');
-        const typeName = nameProp?.value.value != null ? nameProp.value.value : 'UNKNOWN';
+        const typeName =
+          nameProp != null && nameProp.value.value != null ? nameProp.value.value : 'UNKNOWN';
 
         if (!descriptionProp) {
           context.report({

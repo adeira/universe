@@ -640,4 +640,5 @@ module.exports = {
   'adeira/relay-import-type-must-exist': ERROR,
   'adeira/valid-test-folder': ERROR,
   'adeira/no-duplicate-import-type-import': ERROR,
+  'adeira/graphql-require-description': WARN,
 };
