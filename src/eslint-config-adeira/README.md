@@ -80,7 +80,12 @@ It tries to detect files to lint because it's highly inefficient to test all the
 
 Please note: this Eslint runner not only runs all the tests much faster but it also performs automatic fixes. This is currently no-opt.
 
-You can also suppress warnings in report by `--no-warnings` option. This is not to make you ignore warnings, rather an utility to easily filter out problems in changed code while you are in process of updating your legacy codebase with a lot of warnings. 
+You can also suppress warnings in report by `--no-warnings` option. Usage of this option is generally discouraged, although it may be handy in certain scenarios - consider migration strategy to adopt a new rule on the legacy project when you get hundreds of reports:
+
+1. You set severity to `error` for given rule in `eslintrc` file.
+1. In every legacy file where rule is broken, you lower the severity to `warn`, e.g. by adding `/* eslint flowtype/no-weak-types: "warn" */` comment to the top of file or in `eslintrc` for specific subdirectory where rule is too much broken.
+1. As warnings are turned on by default, all contributors to the project can see ongoing issues in files changed by them so they can easily fix problems on that part of codebase, helping with migration and eventually reducing no. of issues to zero.
+1. When all files are checked or there are too many changes, it might be difficult to locate an error in long report full of warnings. This is the special case when it's handy to rerun the check with `--no-warnings` option to locate the issue.
 
 ## Tip
 
