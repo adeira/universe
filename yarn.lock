@@ -1343,10 +1343,10 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@kiwicom/orbit-components@^0.70.0":
-  version "0.70.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.70.0.tgz#316ab550300ca58aaa8d4ee719d6ffc2c6344a2b"
-  integrity sha512-JxM7Wu7p9u+hrGYb0uZN3b8TT5oZrcjao2zMG8QfZFfbZl59tnNJR1e0TMly2vbBCv3fqVkaPJGSKBh71nAxEw==
+"@kiwicom/orbit-components@^0.71.0":
+  version "0.71.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.71.0.tgz#72856ae051feec7114b4090387f124ea12baefd4"
+  integrity sha512-gE37DS94TbBXCx3F9hoSiLXmlWAGrk/09AEAPXGl7kTCiudqk2J5GxONstqrsfntXTyQZW+TK/6hNibq43UhTw==
   dependencies:
     "@adeira/js" "^0.1.0"
     "@kiwicom/orbit-design-tokens" "~0.8.0"
