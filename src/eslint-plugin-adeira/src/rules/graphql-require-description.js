@@ -41,7 +41,7 @@ module.exports = ({
         const typeName =
           nameProp != null && nameProp.value.value != null ? nameProp.value.value : 'UNKNOWN';
 
-        if (!descriptionProp) {
+        if (!descriptionProp || descriptionProp.value.value === '') {
           context.report({
             node,
             message:
