@@ -21,6 +21,15 @@ module.exports = {
 
   extends: ['@adeira/eslint-config/strict'],
 
+  overrides: [
+    {
+      files: ['**/babel-preset-adeira/**/__fixtures__/**/*.js', 'src/__flowtests__/**'],
+      rules: {
+        'eslint-comments/no-unlimited-disable': OFF,
+      },
+    },
+  ],
+
   rules: {
     'no-restricted-imports': [
       ERROR,

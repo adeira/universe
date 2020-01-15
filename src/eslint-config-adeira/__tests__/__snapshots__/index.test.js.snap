@@ -9,6 +9,16 @@ Object {
     "global": "readonly",
     "globalThis": "readonly",
   },
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "**/__generated__/*.graphql.js",
+      ],
+      "rules": Object {
+        "eslint-comments/no-unlimited-disable": 0,
+      },
+    },
+  ],
   "plugins": Array [
     "eslint-plugin-babel",
     "eslint-plugin-flowtype",
@@ -95,7 +105,7 @@ Object {
     "eslint-comments/no-aggregating-enable": 0,
     "eslint-comments/no-duplicate-disable": 2,
     "eslint-comments/no-restricted-disable": 0,
-    "eslint-comments/no-unlimited-disable": 0,
+    "eslint-comments/no-unlimited-disable": 1,
     "eslint-comments/no-unused-disable": 0,
     "eslint-comments/no-unused-enable": 2,
     "eslint-comments/no-use": 0,
@@ -900,6 +910,11 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ --- --- @@
+      "eslint-comments/no-restricted-disable": 0,
+-     "eslint-comments/no-unlimited-disable": 1,
++     "eslint-comments/no-unlimited-disable": 2,
+      "eslint-comments/no-unused-disable": 0,
 @@ --- --- @@
       "react/jsx-no-literals": 0,
 -     "react/jsx-no-script-url": 1,

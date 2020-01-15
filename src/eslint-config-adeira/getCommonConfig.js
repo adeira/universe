@@ -9,6 +9,7 @@ import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
 */
 
 const ERROR = 2;
+const OFF = 0;
 
 /**
  * This is basically copy-pasted detection from the React plugin except it doesn't
@@ -81,6 +82,16 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'eslint-plugin-eslint-comments',
       'eslint-plugin-adeira',
       'eslint-plugin-prettier',
+    ],
+
+    overrides: [
+      {
+        files: ['**/__generated__/*.graphql.js'],
+        rules: {
+          // Relay disables generated files with unlimited scope
+          'eslint-comments/no-unlimited-disable': OFF,
+        },
+      },
     ],
   };
 };
