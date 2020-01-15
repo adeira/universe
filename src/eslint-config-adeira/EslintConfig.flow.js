@@ -10,5 +10,7 @@ type EslintConfigValues =
   | [EslintConfigErrorLevel, EslintRuleOption]
   | [EslintConfigErrorLevel, EslintRuleOption, EslintRuleOption];
 
+type EslintOverrides = $ReadOnlyArray<{ ... }>;
+
 export type EslintConfigRules = { +[string]: EslintConfigValues, ... };
-export type EslintConfig = { +rules: EslintConfigValues, ... };
+export type EslintConfig = { +rules: EslintConfigValues, +overrides: EslintOverrides, ... };

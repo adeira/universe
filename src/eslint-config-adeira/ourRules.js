@@ -629,7 +629,7 @@ module.exports = {
   'eslint-comments/no-aggregating-enable': OFF,
   'eslint-comments/no-duplicate-disable': ERROR,
   'eslint-comments/no-restricted-disable': OFF,
-  'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
+  'eslint-comments/no-unlimited-disable': NEXT_VERSION_ERROR,
   'eslint-comments/no-unused-disable': OFF,
   'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,
