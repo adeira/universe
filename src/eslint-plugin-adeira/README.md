@@ -164,3 +164,30 @@ Example of **correct** filename:
 import React, { type Node } from 'react';
 import { graphql, type Environment, type RelayRefetchProps } from '@adeira/relay';
 ```
+
+## graphql-require-description
+
+This rule help to keep GraphQL server well documented when implementing server using [graphql-js](https://graphql.org/graphql-js/) programmatic API. It requires to specify a description for each instance of `GraphQLObjectType`.
+
+Example of **incorrect** definition:
+
+```js
+const PersonType = new GraphQLObjectType({
+  name: 'User',
+  fields: () => ({
+    name: { type: GraphQLString },
+  })
+});
+```
+
+Example of **correct** definition:
+
+```js
+const PersonType = new GraphQLObjectType({
+  name: 'User',
+  description: 'Info about currently authenticated user.',
+  fields: () => ({
+    name: { type: GraphQLString },
+  })
+});
+```

@@ -1,5 +1,23 @@
 // @flow strict
 
+type Property = {|
+  +type: 'Property',
+  +key: {|
+    +name: string,
+  |},
+  +value: Literal | ObjectExpression,
+|};
+
+type Literal = {|
+  +type: 'Literal',
+  +value: mixed,
+|};
+
+type ObjectExpression = {|
+  +type: 'ObjectExpression',
+  +properties: $ReadOnlyArray<Property>,
+|};
+
 export type Node = {|
   +name: string,
   +key: {|
@@ -14,6 +32,7 @@ export type Node = {|
       +name: string,
     |},
   |},
+  +arguments?: $ReadOnlyArray<?(ObjectExpression | Literal)>,
   +importKind: string,
   +specifiers: $ReadOnlyArray<{|
     +imported: Node,
