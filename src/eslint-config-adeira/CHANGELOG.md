@@ -1,5 +1,7 @@
 # Unreleased
 
+- Added `react/jsx-no-script-url` as next_version_error
+
 # 1.1.0
 
 - New CLI option `--no-warnings`

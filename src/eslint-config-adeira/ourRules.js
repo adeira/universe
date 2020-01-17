@@ -4,7 +4,6 @@ const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
-// eslint-disable-next-line no-unused-vars
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
@@ -462,6 +461,9 @@ module.exports = {
   'react/static-property-placement': OFF,
   'react/style-prop-object': ERROR,
   'react/void-dom-elements-no-children': ERROR,
+  'react/function-component-definition': OFF,
+  'react/jsx-no-script-url': NEXT_VERSION_ERROR, // TODO: Error
+  'react/no-adjacent-inline-elements': OFF,
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
   'react-hooks/rules-of-hooks': ERROR,

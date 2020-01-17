@@ -670,6 +670,7 @@ Object {
     "react/forbid-elements": 0,
     "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,
+    "react/function-component-definition": 0,
     "react/jsx-boolean-value": 0,
     "react/jsx-child-element-spacing": "off",
     "react/jsx-closing-bracket-location": "off",
@@ -700,6 +701,7 @@ Object {
     "react/jsx-no-comment-textnodes": 2,
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-literals": 0,
+    "react/jsx-no-script-url": 1,
     "react/jsx-no-target-blank": 0,
     "react/jsx-no-undef": 2,
     "react/jsx-no-useless-fragment": 2,
@@ -715,6 +717,7 @@ Object {
     "react/jsx-uses-vars": 2,
     "react/jsx-wrap-multilines": "off",
     "react/no-access-state-in-setstate": 2,
+    "react/no-adjacent-inline-elements": 0,
     "react/no-array-index-key": 0,
     "react/no-children-prop": 0,
     "react/no-danger": 0,
@@ -894,5 +897,12 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-Compared values have no visual difference.
+- First value
++ Second value
+
+@@ --- --- @@
+      "react/jsx-no-literals": 0,
+-     "react/jsx-no-script-url": 1,
++     "react/jsx-no-script-url": 2,
+      "react/jsx-no-target-blank": 0,
 `;
