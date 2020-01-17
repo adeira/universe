@@ -69,20 +69,6 @@ See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
 
 See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
 
-## @connection_resolver, @stream_connection_resolver
-
-```graphql
-directive @connection_resolver(label: String!) on FIELD
-
-directive @stream_connection_resolver(
-  label: String!
-  initial_count: Int!
-  if: Boolean = true
-) on FIELD
-```
-
-TKTK
-
 ## @defer, @stream, @stream_connection
 
 ```graphql
@@ -92,6 +78,10 @@ directive @stream(label: String!, initial_count: Int!, if: Boolean = true) on FI
 ```
 
 TKTK
+
+> A bit more context: as implied from the talk, at Facebook we are currently experimenting with support for `@defer` and `@stream` directives in our GraphQL server and in Relay. Our plan is to get experience using these directives in our apps in order to validate the concept, iterating as appropriate. We're still early in this process and are not yet ready to begin any effort toward standardization, but we will certainly consider this as we get more experience and feel more confident in the approach.
+
+(https://github.com/graphql/graphql-spec/issues/269#issuecomment-528970726)
 
 - https://github.com/mrtnzlml/relay/pull/172/commits
 - https://github.com/facebook/relay/commit/225cfb60cccdbb649ab16a13ed607de749992d21

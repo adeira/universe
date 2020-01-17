@@ -4,16 +4,14 @@ title: Relay all-in
 sidebar_label: Relay all-in
 ---
 
+This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
+
 TODO:
 
-- https://github.com/facebook/relay/issues/1701#issuecomment-460659564
 - Mock Data Generation: https://github.com/facebook/relay/commit/09d317943f6936ffb0002154c389b6d7a507c58d
-- https://github.com/facebook/relay/pull/2700/files
 - `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
 - [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
-
-This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
@@ -77,27 +75,9 @@ See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba2
 
 Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 
-## New Connection Model
+## Deferred results
 
-`@connection_resolver(resolver: "FeedbackCommentsResolver")`
-
-- 1/n: https://github.com/facebook/relay/commit/6f0129531caac238b5dc5725819be543c5672388
-- 2/n: https://github.com/facebook/relay/commit/d0a870d6f87c8e56844aac0b1c82d656e36715b0
-- 3/n: https://github.com/facebook/relay/commit/52f65d2ec8bf192d0af228af3f137b5448cd4017
-- 4/n: https://github.com/facebook/relay/commit/2eec7c39ee8db1f784fc5c600425a7de7601da27
-- 5/n: https://github.com/facebook/relay/commit/88bdeb076a8e4fee5a94d50b03993e94326f7976
-- https://github.com/facebook/relay/commit/e8160e76e47b28dd6835cdb82aa3444081107b16
-- https://github.com/facebook/relay/commit/597e87131c7ba94129a166619c83e4bd5c3bee17
-- https://github.com/facebook/relay/commit/7eac6f61b968df93f30f1fbbdf9371ed4b74845a
-- https://github.com/facebook/relay/commit/c203d54e75d71e0ca1c2c3c8385f7814a5729dfe
-- https://github.com/facebook/relay/commit/e1b3da0aca1718631da443bf5cdf0d498a7ef43f
-- https://github.com/facebook/relay/commit/56b185fc4322480dcb76681dc6675e42d59a3ff9
-- `__id` https://github.com/facebook/relay/commit/aba82f91edc9da64f9c299b0723760c5abd8683f
-
-Streaming support `@stream_connection_resolver( ... )`
-
-- https://github.com/facebook/relay/commit/96a8eec63b903c6a9fa237bd44d13e73da04f3d0
-- https://github.com/facebook/relay/commit/9efe9289a5375051d637ff21a1804ac13414b61a
+- https://github.com/graphql/graphql-js/pull/2318
 
 ## Custom Relay Compiler
 
