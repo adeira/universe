@@ -165,7 +165,7 @@ import React, { type Node } from 'react';
 import { graphql, type Environment, type RelayRefetchProps } from '@adeira/relay';
 ```
 
-## graphql-require-description
+## graphql-require-object-description
 
 This rule help to keep GraphQL server well documented when implementing server using [graphql-js](https://graphql.org/graphql-js/) programmatic API. It requires to specify a description for each instance of `GraphQLObjectType`.
 

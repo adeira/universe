@@ -2,7 +2,7 @@
 
 module.exports = {
   rules: {
-    'graphql-require-description': require('./rules/graphql-require-description'),
+    'graphql-require-object-description': require('./rules/graphql-require-object-description'),
     'no-internal-flow-type': require('./rules/no-internal-flow-type'),
     'no-invalid-flow-annotations': require('./rules/no-invalid-flow-annotations'),
     'only-nullable-fields': require('./rules/only-nullable-fields'),
