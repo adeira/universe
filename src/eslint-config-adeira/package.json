@@ -14,7 +14,7 @@
     "chalk": "^3.0.0",
     "create-jest-runner": "^0.5.3",
     "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-adeira": "^0.6.0",
+    "eslint-plugin-adeira": "^0.7.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-flowtype": "^4.6.0",
