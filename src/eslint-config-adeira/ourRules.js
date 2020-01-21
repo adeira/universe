@@ -629,7 +629,7 @@ module.exports = {
   'eslint-comments/no-aggregating-enable': OFF,
   'eslint-comments/no-duplicate-disable': ERROR,
   'eslint-comments/no-restricted-disable': OFF,
-  'eslint-comments/no-unlimited-disable': OFF, // Relay disables generated files with unlimited scope
+  'eslint-comments/no-unlimited-disable': NEXT_VERSION_ERROR,
   'eslint-comments/no-unused-disable': OFF,
   'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,
@@ -642,5 +642,5 @@ module.exports = {
   'adeira/relay-import-type-must-exist': ERROR,
   'adeira/valid-test-folder': ERROR,
   'adeira/no-duplicate-import-type-import': ERROR,
-  'adeira/graphql-require-description': WARN,
+  'adeira/graphql-require-object-description': WARN,
 };

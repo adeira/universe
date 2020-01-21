@@ -2,13 +2,13 @@
 
 const RuleTester = require('eslint').RuleTester;
 
-const rule = require('../graphql-require-description');
+const rule = require('../graphql-require-object-description');
 
 const ruleTester = new RuleTester({
   parser: require.resolve('babel-eslint'),
 });
 
-ruleTester.run('graphql-require-description', rule, {
+ruleTester.run('graphql-require-object-description', rule, {
   valid: [
     `new Date`,
     `new Pokus({ foo: { baz: 'bar' }})`,
