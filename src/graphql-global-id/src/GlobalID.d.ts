@@ -6,6 +6,8 @@ export function toGlobalId(type: string, id: string | number): string;
 
 export function __isTypeOf(type: string, opaqueID: string): boolean;
 
+// TODO: evaluateGlobalIdField (?)
+
 type FetchFnType = (object: any, context: any, info: GraphQLResolveInfo) => string | number;
 
 export default function globalIdField(

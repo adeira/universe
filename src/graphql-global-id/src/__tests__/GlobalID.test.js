@@ -4,17 +4,24 @@ import { GraphQLObjectType, GraphQLID } from 'graphql';
 import { nullthrows } from '@adeira/js';
 
 import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf, toGlobalId } from '../GlobalID';
+import type { OpaqueIDString } from '../Encoder';
 
-function base64(text) {
-  return Buffer.from(text).toString('base64');
+// This typecast is necessary only for testing purposes. In normal scenarios, you'd create the
+// opaque value with the factory methods (but we need to hardcode them in this test).
+function __castOpaque(i: mixed): OpaqueIDString {
+  return ((String(i): any): OpaqueIDString);
 }
 
-function resolveField(field, args = { opaque: true }): string {
+function resolveField(
+  field,
+  args = { opaque: true },
+  typename: string = 'TypeName',
+): OpaqueIDString {
   if (!field.resolve) {
     throw new Error('Cannot resolve this field because "resolve" function is not implemented.');
   }
 
-  return String(
+  return __castOpaque(
     field.resolve(
       undefined, // ancestor
       args,
@@ -22,7 +29,7 @@ function resolveField(field, args = { opaque: true }): string {
       // $FlowExpectedError: this is incomplete info only for test purposes
       {
         parentType: {
-          name: 'TypeName',
+          name: typename,
         },
       },
     ),
@@ -69,7 +76,22 @@ Object {
       resolveField(field, {
         opaque: true,
       }),
-    ).toBe(base64('TypeName:123'));
+    ).toBe('VHlwZU5hbWU6MTIz');
+  });
+
+  it('generates URL compatible output', () => {
+    const idFetcher = () => '1';
+    const field = GlobalID(idFetcher);
+
+    expect(
+      resolveField(
+        field,
+        {
+          opaque: true,
+        },
+        '???',
+      ),
+    ).toBe('Pz8_OjE'); // classic Base64 would generate 'Pz8/OjE=' which is not compatible with URL format.
   });
 
   it('works with unmasked identifier', () => {
@@ -130,12 +152,12 @@ describe('fromGlobalId', () => {
   });
 
   it('throws an error on invalid opaque ID', () => {
-    expect(() => fromGlobalId('invalid-value')).toThrow(
+    expect(() => fromGlobalId(__castOpaque('invalid-value'))).toThrow(
       "ID 'invalid-value' is not valid opaque value.",
     );
 
     // encoded "invalid-value" (vv)
-    expect(() => fromGlobalId('aW52YWxpZC12YWx1ZQ==')).toThrow(
+    expect(() => fromGlobalId(__castOpaque('aW52YWxpZC12YWx1ZQ=='))).toThrow(
       "ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.",
     );
   });
@@ -161,12 +183,12 @@ describe('__isTypeOf', () => {
   });
 
   it('throws an error on invalid opaque ID', () => {
-    let error = catchError(() => __isTypeOf('TypeName', 'invalid-value'));
+    let error = catchError(() => __isTypeOf('TypeName', __castOpaque('invalid-value')));
     expect(error).toBeInstanceOf(Error);
     expect(error.name).toBe('Error'); // no 'Invariant Violation'!
     expect(error.message).toBe("ID 'invalid-value' is not valid opaque value.");
 
-    error = catchError(() => __isTypeOf('TypeName', 'aW52YWxpZC12YWx1ZQ=='));
+    error = catchError(() => __isTypeOf('TypeName', __castOpaque('aW52YWxpZC12YWx1ZQ==')));
     expect(error).toBeInstanceOf(Error);
     expect(error.name).toBe('Error'); // no 'Invariant Violation'!
     expect(error.message).toBe("ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.");
@@ -179,12 +201,13 @@ describe('evaluateGlobalIdField', () => {
       evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
+          description: 'Test',
           fields: {
             id: GlobalID(() => 123),
           },
         }),
       ),
-    ).toBe(base64('Test:123'));
+    ).toBe('VGVzdDoxMjM');
   });
 
   it('throws when trying to use incompatible output type', () => {
@@ -192,6 +215,7 @@ describe('evaluateGlobalIdField', () => {
       evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
+          description: 'Test',
           fields: {
             id: {
               type: GraphQLID,
@@ -212,6 +236,7 @@ describe('evaluateGlobalIdField', () => {
       evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
+          description: 'Test',
           fields: {
             notIdField: {
               type: GraphQLID,
@@ -230,6 +255,7 @@ describe('evaluateGlobalIdField', () => {
     evaluateGlobalIdField(
       new GraphQLObjectType({
         name: 'Test',
+        description: 'Test',
         fields: {
           id: {
             ...GlobalID(() => 123),
@@ -253,6 +279,7 @@ describe('evaluateGlobalIdField', () => {
     evaluateGlobalIdField(
       new GraphQLObjectType({
         name: 'Test',
+        description: 'Test',
         fields: {
           id: {
             ...GlobalID(() => 123),
