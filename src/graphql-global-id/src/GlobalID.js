@@ -10,40 +10,31 @@ import {
 } from 'graphql';
 import { invariant } from '@adeira/js';
 
-opaque type OpaqueIDString = string;
+import { encode, decode, type OpaqueIDString } from './Encoder';
 
 const SYMBOL_GLOBAL_ID = Symbol.for('graphql_global_id');
 
-// TODO: use base32 (?)
-function base64(i: string): OpaqueIDString {
-  return Buffer.from(i).toString('base64');
-}
-
-function unbase64(i) {
-  return Buffer.from(i, 'base64').toString('utf8');
-}
-
-export function fromGlobalId(opaqueID: string): string {
-  const unbasedGlobalID = unbase64(opaqueID);
-  const delimiterPos = unbasedGlobalID.indexOf(':');
+export function fromGlobalId(opaqueID: OpaqueIDString): string {
+  const decodedGlobalID = decode(opaqueID);
+  const delimiterPos = decodedGlobalID.indexOf(':');
   if (delimiterPos === -1) {
     throw new Error(`ID '${opaqueID}' is not valid opaque value.`);
   }
-  return unbasedGlobalID.substring(delimiterPos + 1);
+  return decodedGlobalID.substring(delimiterPos + 1);
 }
 
-export function toGlobalId(type: string, id: string | number): string {
-  return base64(`${type}:${id}`);
+export function toGlobalId(type: string, id: string | number): OpaqueIDString {
+  return encode(`${type}:${id}`);
 }
 
 // TODO: find out better way how to do it (type should be just an internal detail - see evaluateGlobalIdField)
-export function __isTypeOf(type: string, opaqueID: string): boolean {
-  const unbasedGlobalID = unbase64(opaqueID);
-  const delimiterPos = unbasedGlobalID.indexOf(':');
+export function __isTypeOf(type: string, opaqueID: OpaqueIDString): boolean {
+  const decodedGlobalID = decode(opaqueID);
+  const delimiterPos = decodedGlobalID.indexOf(':');
   if (delimiterPos === -1) {
     throw new Error(`ID '${opaqueID}' is not valid opaque value.`);
   }
-  const unmaskedType = unbasedGlobalID.substring(0, delimiterPos);
+  const unmaskedType = decodedGlobalID.substring(0, delimiterPos);
   return unmaskedType === type;
 }
 
@@ -72,14 +63,14 @@ export function evaluateGlobalIdField(
   );
 
   const resolveFn = idField.resolve ?? ((...args) => args);
-  return String(
+  return ((String(
     /* $FlowFixMe(>=0.111.0) This comment suppresses an error when upgrading
      * Flow. To see the error delete this comment and run Flow. */
     resolveFn(parent, { ...args, opaque: true }, context ?? undefined, {
       ...info,
       parentType: outputObject,
     }),
-  );
+  ): any): OpaqueIDString);
 }
 
 /**
