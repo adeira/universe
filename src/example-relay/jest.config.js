@@ -4,7 +4,6 @@
 // in this monorepo root.
 module.exports = {
   rootDir: __dirname,
-  transform: {
-    '^.+\\.js$': '<rootDir>/scripts/jest/custom-transformer.js',
-  },
+  // @x-shipit-enable: testMatch: ['<rootDir>/**/__tests__/**/?(*.)+(spec|test).js?(x)'],
+  transform: { '^.+\\.js$': '<rootDir>/scripts/jest/custom-transformer.js' }, // @x-shipit-disable
 };
