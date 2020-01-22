@@ -10,13 +10,12 @@ module.exports = {
     return new Map([
       ['src/example-relay/__github__/.flowconfig', '.flowconfig'],
       ['src/example-relay/__github__/babel.config.js', 'babel.config.js'],
-      ['src/example-relay/__github__/jest.config.js', 'jest.config.js'],
       ['src/example-relay/__github__/flow-typed', 'flow-typed'],
       ['src/example-relay/__github__/.github', '.github'],
       ['src/example-relay/', ''],
     ]);
   },
   getStrippedFiles(): Set<RegExp> {
-    return new Set([/__github__/, /^\.babelrc\.js$/, /^jest\.config\.js$/, /scripts/]);
+    return new Set([/__github__/, /^\.babelrc\.js$/, /scripts/]);
   },
 };

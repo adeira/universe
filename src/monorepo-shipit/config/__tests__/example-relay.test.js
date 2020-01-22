@@ -19,7 +19,6 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
 
   // invalid cases:
   ['src/example-relay/.babelrc.js', undefined], // correctly deleted
-  ['src/example-relay/jest.config.js', undefined], // correctly deleted
   ['src/example-relay/__github__/unknown.js', undefined], // correctly deleted
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
