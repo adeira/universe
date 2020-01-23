@@ -8354,10 +8354,10 @@ next-plugin-custom-babel-config@^1.0.2:
   resolved "https://registry.yarnpkg.com/next-plugin-custom-babel-config/-/next-plugin-custom-babel-config-1.0.2.tgz#670e0684ecee84048f720173ac85955a0d6bd219"
   integrity sha512-ZVb50Finz0U3l5TjTMCz7yTk91t1UR5WsBOuexkG7tR/21Eyp6JtzvpVDHVwSSH3Z835/9aoVieHnQaRmJqWGA==
 
-next-transpile-modules@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-3.0.1.tgz#8acfca125498deda73ee0d02b36c2699abc5952a"
-  integrity sha512-DrqjpBlUPXLInZ6yuzz/9d/tprZHYGLyg9/Ppm2yBk5TdgPPFfvxVlNnopvjF/BqqLZBfuovfIlA6BWXPbQXww==
+next-transpile-modules@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-3.0.2.tgz#b289698d453bb7346fd768da171b53a740bfe436"
+  integrity sha512-w3WsyxvkJ3ws16InHwXhlDaOyG6Peo4co9U2sVBMePwEDo9r3SsbzX7p43sLUTYbpuA2t9iwJoCXkj/4BuD3Qw==
   dependencies:
     micromatch "^4.0.2"
     slash "^3.0.0"
