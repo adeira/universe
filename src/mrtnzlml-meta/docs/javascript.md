@@ -72,11 +72,15 @@ https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 
 ## Optional chaining gotchas
 
+Optional chaining != error suppression operator.
+
 ```js
 (function() {
   'use strict';
-  undeclared_var?.b; // ReferenceError: undeclared_var is not defined
-  arguments?.callee; // TypeError: 'callee' may not be accessed in strict mode
+  undeclared_var?.b;   // ReferenceError: undeclared_var is not defined
+  arguments?.callee;   // TypeError: 'callee' may not be accessed in strict mode
+  arguments.callee?.() // TypeError: 'callee' may not be accessed in strict mode
+  true?.()             // TypeError: true is not a function
 })();
 ```
 
