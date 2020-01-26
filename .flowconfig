@@ -29,12 +29,11 @@
 ; https://flow.org/en/docs/config/lints/
 [lints]
 all=error
-ambiguous-object-type=off
 dynamic-export=off
 sketchy-null-bool=off
 unclear-type=off
 untyped-import=off
-
+ambiguous-object-type=off
 
 ; This setting complements [lints] section: all the enabled lints still throw errors + these
 ; additional lints are enabled only in strict mode (no need to list here every lint). Local
@@ -42,7 +41,6 @@ untyped-import=off
 ;
 ; https://flow.org/en/docs/strict/
 [strict]
-ambiguous-object-type
 sketchy-null-bool
 unclear-type
 untyped-import

@@ -26,9 +26,9 @@ export const variables = {
   },
 };
 
-type Props = {|
+type Props = {
   +ssrData: RecordMap,
-|};
+};
 
 export default function HotelsQuery(props: Props) {
   return (

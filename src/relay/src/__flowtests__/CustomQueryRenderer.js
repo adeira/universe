@@ -8,10 +8,10 @@ function placeholder() {
   return null;
 }
 
-type Props = {|
+type Props = {
   +query: GraphQLTaggedNode,
   +render: () => React.Node,
-|};
+};
 
 function CustomQueryRenderer(props: Props) {
   const environment = createLocalEnvironment();

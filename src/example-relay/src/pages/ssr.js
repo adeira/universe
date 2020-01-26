@@ -6,9 +6,9 @@ import { fetchQuery, type RecordMap } from '@adeira/relay';
 import createRelayEnvironment from '../createRelayEnvironment';
 import HotelsQuery, { query, variables } from '../Hotels/HotelsQuery';
 
-type Props = {|
+type Props = {
   +ssrData: RecordMap,
-|};
+};
 
 function Ssr(props: Props) {
   return <HotelsQuery ssrData={props.ssrData} />;

@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import createRefetchContainer from '../createRefetchContainer';
 
-class MockComponent extends React.Component<{||}> {}
+class MockComponent extends React.Component<{}> {}
 // $FlowExpectedError: we do not need the refetch query here
 const refetchQueryMock = null;
 

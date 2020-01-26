@@ -1,61 +1,61 @@
 // @flow strict
 
-type Property = {|
+type Property = {
   +type: 'Property',
-  +key: {|
+  +key: {
     +name: string,
-  |},
+  },
   +value: Literal | ObjectExpression,
-|};
+};
 
-type Literal = {|
+type Literal = {
   +type: 'Literal',
   +value: mixed,
-|};
+};
 
-type ObjectExpression = {|
+type ObjectExpression = {
   +type: 'ObjectExpression',
   +properties: $ReadOnlyArray<Property>,
-|};
+};
 
-export type Node = {|
+export type Node = {
   +name: string,
-  +key: {|
+  +key: {
     +name: string,
-  |},
+  },
   +value: string,
-  +callee: {|
+  +callee: {
     +name: string,
-  |},
-  +parent: {|
-    +callee?: {|
+  },
+  +parent: {
+    +callee?: {
       +name: string,
-    |},
-  |},
+    },
+  },
   +arguments?: $ReadOnlyArray<?(ObjectExpression | Literal)>,
   +importKind: string,
-  +specifiers: $ReadOnlyArray<{|
+  +specifiers: $ReadOnlyArray<{
     +imported: Node,
     +importKind: string,
     +start: number,
     +end: number,
     +type: string,
-  |}>,
+  }>,
   +source: Node,
-|};
+};
 
-type SourceCode = {|
+type SourceCode = {
   +getAllComments: () => $ReadOnlyArray<Node>,
-|};
+};
 
-type Context = {|
+type Context = {
   +report: ((Node, string) => void) & (({ +node: Node, ... }) => void),
   +getSourceCode: () => SourceCode,
   +getFilename: () => string,
   +settings: { [key: string]: mixed, ... },
-|};
+};
 
-type ASTNodes = {|
+type ASTNodes = {
   +'NewExpression:exit'?: (node: Node) => void,
   +'Property:exit'?: (node: Node) => void,
   +BlockComment?: (node: Node) => void,
@@ -66,17 +66,17 @@ type ASTNodes = {|
   +Program?: (node: Node) => void,
   +Property?: (node: Node) => void,
   +ImportDeclaration?: (node: Node) => void,
-|};
+};
 
-export type EslintRule = {|
-  +meta: {|
-    +docs: {|
+export type EslintRule = {
+  +meta: {
+    +docs: {
       +description?: string,
       +category?: string,
       +recommended?: boolean,
-    |},
+    },
     +fixable?: boolean,
     +schema: $ReadOnlyArray<empty>,
-  |},
+  },
   +create: Context => ASTNodes,
-|};
+};

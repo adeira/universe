@@ -19,10 +19,10 @@ import type { LocalFormQueryResponse } from './__generated__/LocalFormQuery.grap
 const environment = createLocalEnvironment();
 const consoleStyle = 'color: green; background-color: lightgreen;';
 
-type LocalData = {|
+type LocalData = {
   +subject?: string,
   +message?: string,
-|};
+};
 
 function getLocalStorageData(): LocalData {
   return JSON.parse(window.localStorage.getItem('LocalForm')) ?? {};

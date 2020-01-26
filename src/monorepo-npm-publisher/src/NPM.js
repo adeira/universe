@@ -12,7 +12,7 @@ const NPM = new NPMRegistryClient({
 });
 
 export default {
-  getPackageInfo: (params: {| +package: string, +npmAuthToken: string |}) => {
+  getPackageInfo: (params: { +package: string, +npmAuthToken: string }) => {
     return new Promise<{ +[key: string]: any, ... }>((resolve, reject) => {
       NPM.distTags.fetch(
         URI,
@@ -36,11 +36,11 @@ export default {
     });
   },
 
-  publishPackage: (params: {|
+  publishPackage: (params: {
     +metadata: { [key: string]: any, ... }, // package.json file
     +body: { [key: string]: any, ... },
     +npmAuthToken: string,
-  |}) => {
+  }) => {
     return new Promise<void>((resolve, reject) => {
       NPM.publish(
         URI,

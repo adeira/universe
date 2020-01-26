@@ -7,25 +7,25 @@ import createRequestHandler from './createRequestHandler';
 import createRelayStore from './createRelayStore';
 import type { Environment, RecordMap } from './runtimeTypes.flow';
 
-type Options = {|
+type Options = {
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   +handlerProvider?: string => void,
-  +operationLoader?: {|
+  +operationLoader?: {
     // TODO: verify if the type is correct
     +get: string => Promise<?NormalizationSplitOperation>,
     +load: string => Promise<?NormalizationSplitOperation>,
-  |},
+  },
   +records?: ?RecordMap,
   +gcReleaseBufferSize?: ?number,
-|};
+};
 
-type NormalizationSplitOperation = {|
+type NormalizationSplitOperation = {
   +kind: 'SplitOperation',
   +name: string,
   +metadata: ?{ +[key: string]: mixed, ... },
   +selections: $FlowFixMe,
-|};
+};
 
 function createNetwork(
   fetchFn: (...args: $ReadOnlyArray<any>) => any,

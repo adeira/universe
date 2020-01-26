@@ -22,21 +22,21 @@ const variables = {
   someEnum: 'up',
 };
 
-type NamedMutationVariables = {|
+type NamedMutationVariables = {
   +someNumber: number,
   +someEnum: 'down' | 'up',
-|};
+};
 
-type NamedMutationResponse = {|
-  +commitMutation: ?{|
+type NamedMutationResponse = {
+  +commitMutation: ?{
     +__typename: 'CommitMutationResponse',
-  |},
-|};
+  },
+};
 
-type NamedMutation = {|
+type NamedMutation = {
   +variables: NamedMutationVariables,
   +response: NamedMutationResponse,
-|};
+};
 
 module.exports = {
   validMutation() {
@@ -80,7 +80,7 @@ module.exports = {
       mutation,
       variables,
       // eslint-disable-next-line no-unused-vars
-      onCompleted: (response: {||}) => {},
+      onCompleted: (response: {}) => {},
     });
   },
   invalidAsyncMutation() {

@@ -6,8 +6,8 @@ const React = {
   Component: class Component<S, P> {},
 };
 
-type Props = {||};
-type State = {||};
+type Props = {};
+type State = {};
 
 export default class MyComponent extends React.Component<void, State> {
   props: Props;

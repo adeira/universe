@@ -4,10 +4,10 @@ import { getRequest, createOperationDescriptor } from 'relay-runtime';
 import type { Environment, GraphQLTaggedNode } from '@adeira/relay';
 import type { Variables } from '@adeira/relay-runtime';
 
-type Operation = {|
+type Operation = {
   +query: GraphQLTaggedNode,
   +variables: Variables,
-|};
+};
 
 export default function getDataFromRequest(
   { query, variables }: Operation,

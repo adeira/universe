@@ -11,13 +11,13 @@ import {
   type PaginationRelayProp,
 } from '../index';
 
-type PropsA = {| +relay: RelayProp |};
-type PropsB = {| +relay: RefetchRelayProp |};
-type PropsC = {| +relay: PaginationRelayProp |};
+type PropsA = { +relay: RelayProp };
+type PropsB = { +relay: RefetchRelayProp };
+type PropsC = { +relay: PaginationRelayProp };
 
-type PropsInvalid = {|
-  +relay: {| environment: number |},
-|};
+type PropsInvalid = {
+  +relay: { environment: number },
+};
 
 // this returns Environment which should never be used directly
 const ManuallyCreatedEnvironment = createEnvironment({

@@ -38,14 +38,14 @@ function getTestCases(Container) {
   };
 }
 
-type Props = {|
+type Props = {
   +relay: RelayProp,
-  +data: {|
+  +data: {
     +required: string,
     +$refType: any,
-  |},
+  },
   +fun?: string => void,
-|};
+};
 
 const FunctionalComponent = (props: Props) => <div {...props} />;
 

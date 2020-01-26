@@ -4,9 +4,9 @@ import { RecordSource, Store } from 'relay-runtime';
 
 import type { RecordMap } from './runtimeTypes.flow';
 
-type Options = {|
+type Options = {
   +gcReleaseBufferSize?: ?number,
-|};
+};
 
 export default function createRelayStore(records: ?RecordMap, options: ?Options) {
   const source = new RecordSource(records);

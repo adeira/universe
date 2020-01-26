@@ -2,12 +2,12 @@
 
 /*::
 
-type ApiType = {|
+type ApiType = {
   +assertVersion: number => void,
-  +cache: {|
+  +cache: {
     forever: () => void,
-  |},
-|};
+  },
+};
 
 */
 

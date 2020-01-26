@@ -7,9 +7,9 @@ import { invariant, isObjectEmpty } from '@adeira/js';
 import type { FragmentSpec, $RelayProps } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
-export type RelayProp = {|
+export type RelayProp = {
   +environment: Environment,
-|};
+};
 
 export default function createFragmentContainer<
   Props: { ... },

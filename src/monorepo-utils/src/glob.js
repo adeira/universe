@@ -6,12 +6,12 @@ import { invariant, isObject } from '@adeira/js';
 
 type GlobPattern = string;
 
-type GlobOptions = {|
+type GlobOptions = {
   +absolute?: boolean,
   +cwd?: string,
   +ignore?: $ReadOnlyArray<string>,
   +root?: string,
-|};
+};
 
 type GlobCallback = (error: null | Error, filenames: $ReadOnlyArray<string>) => void;
 

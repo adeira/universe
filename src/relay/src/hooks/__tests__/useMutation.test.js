@@ -26,10 +26,10 @@ afterEach(() => {
   container = null;
 });
 
-type Props = {|
+type Props = {
   +onCompleted: () => void,
   +onError: () => void,
-|};
+};
 
 const TestComponent = (props: Props) => {
   const [addComment, isCommentPending] = useMutation(

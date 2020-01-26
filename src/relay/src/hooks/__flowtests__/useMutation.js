@@ -13,9 +13,9 @@ module.exports = {
   validUsage: () => {
     return function TestComponent() {
       const [executeMutation, isMutationPending] = useMutation(mutation);
-      (executeMutation: ({|
+      (executeMutation: ({
         onCompleted: () => void,
-      |}) => Disposable);
+      }) => Disposable);
       (isMutationPending: boolean);
 
       executeMutation({

@@ -9,7 +9,7 @@ type AnyNestedObject = { +[string]: AnyNestedObject, ... };
 type PackageJSON = {
   +workspaces?:
     | $ReadOnlyArray<string>
-    | {| +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> |},
+    | { +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> },
   +[string]: AnyNestedObject,
   ...
 };

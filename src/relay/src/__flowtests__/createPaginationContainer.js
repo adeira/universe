@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 
 import { createPaginationContainer, graphql, type PaginationRelayProp } from '../index';
 
-type Props = {|
+type Props = {
   +relay: PaginationRelayProp,
-|};
+};
 
 module.exports = {
   validUsage() {

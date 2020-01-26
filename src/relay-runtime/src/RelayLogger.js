@@ -7,7 +7,7 @@ import { isBrowser } from '@adeira/js';
 import type { Variables } from './RelayRuntimeTypes';
 
 export type LogEvent =
-  | {|
+  | {
       +name: 'queryresource.fetch',
       +operation: mixed, // TODO: OperationDescriptor type
       // FetchPolicy from relay-experimental
@@ -16,13 +16,13 @@ export type LogEvent =
       +renderPolicy: string,
       +hasFullQuery: boolean,
       +shouldFetch: boolean,
-    |}
-  | {|
+    }
+  | {
       +name: 'execute.info',
       +transactionID: number,
       +info: mixed,
-    |}
-  | {|
+    }
+  | {
       +name: 'execute.start',
       +transactionID: number,
       +params: {
@@ -33,25 +33,25 @@ export type LogEvent =
         ...
       },
       +variables: Variables,
-    |}
-  | {|
+    }
+  | {
       +name: 'execute.next',
       +transactionID: number,
       +response: mixed, // TODO: GraphQLResponse type
-    |}
-  | {|
+    }
+  | {
       +name: 'execute.error',
       +transactionID: number,
       +error: Error,
-    |}
-  | {|
+    }
+  | {
       +name: 'execute.complete',
       +transactionID: number,
-    |}
-  | {|
+    }
+  | {
       +name: 'execute.unsubscribe',
       +transactionID: number,
-    |};
+    };
 
 function logGroup(logEvent, groupBody?: () => void, groupNote?: string, style: string = ''): void {
   const logName = logEvent.name;

@@ -1,18 +1,18 @@
 // @flow strict
 
-type Diff = {|
+type Diff = {
   +path: string,
   +body: string,
-|};
+};
 
-opaque type ChangesetData = {|
+opaque type ChangesetData = {
   +id: string,
   +timestamp: string,
   +author: string,
   +subject: string,
   +description: string,
   +diffs: Set<Diff>,
-|};
+};
 
 export default class Changeset {
   id: string;

@@ -9,24 +9,24 @@ import createLocalEnvironment from './createLocalEnvironment';
 import type { GraphQLTaggedNode } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
-type RendererProps = {| +[key: string]: any |}; // it can be anything, really
+type RendererProps = { +[key: string]: any }; // it can be anything, really
 
-type CommonProps = {|
+type CommonProps = {
   +query: GraphQLTaggedNode,
   +environment?: Environment,
   +variables?: Variables,
-|};
+};
 
 type Props =
-  | {|
+  | {
       ...CommonProps,
       +onResponse: RendererProps => React.Node,
       +onLoading?: () => React.Node,
-    |}
-  | {|
+    }
+  | {
       ...CommonProps,
-      +render: ({| +props: ?RendererProps |}) => React.Node,
-    |};
+      +render: ({ +props: ?RendererProps }) => React.Node,
+    };
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.

@@ -15,14 +15,14 @@ import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';
 import getSchemaSource from './getSchemaSource';
 
-type ExternalOptions = {|
+type ExternalOptions = {
   +src: string,
   +schema: string,
   +persistMode: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
   +validate: boolean,
   +watch: boolean,
   +language: 'javascript' | 'typescript', // TODO: detect this automatically based on tsconfig.json file?
-|};
+};
 
 const {
   commonTransforms,

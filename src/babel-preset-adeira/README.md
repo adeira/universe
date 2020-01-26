@@ -25,11 +25,12 @@ And use it in your `babel.config.js`:
 
 /*::
 
-type ApiType = {|
-  +cache: {|
+type ApiType = {
+  +assertVersion: number => void,
+  +cache: {
     forever: () => void,
-  |},
-|};
+  },
+};
 
 */
 

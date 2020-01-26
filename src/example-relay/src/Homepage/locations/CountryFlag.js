@@ -6,9 +6,9 @@ import Flag from '@kiwicom/orbit-components/lib/CountryFlag';
 
 import type { CountryFlag_location as CountryFlagDataType } from './__generated__/CountryFlag_location.graphql';
 
-type Props = {|
+type Props = {
   +location: ?CountryFlagDataType,
-|};
+};
 
 function AnywhereFlag() {
   return <Flag dataTest="flag-anywhere" code="anywhere" />;

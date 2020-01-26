@@ -1,11 +1,11 @@
 // @flow strict
 
 export type WorkspaceDependencies = {
-  [string]: {|
+  [string]: {
     +location: string,
     +workspaceDependencies: $ReadOnlyArray<string>,
     +mismatchedWorkspaceDependencies: $ReadOnlyArray<string>,
-  |},
+  },
   ...,
 };
 

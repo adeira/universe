@@ -13,7 +13,7 @@ type RefetchOptions = {
   ...
 };
 
-export type RefetchRelayProp = {|
+export type RefetchRelayProp = {
   +environment: Environment,
   +refetch: (
     refetchVariables:
@@ -26,7 +26,7 @@ export type RefetchRelayProp = {|
     callback: ?(error: ?Error) => void,
     options?: RefetchOptions,
   ) => Disposable,
-|};
+};
 
 export default function createRefetchContainer<
   Props: { ... },

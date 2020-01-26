@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import createPaginationContainer from '../createPaginationContainer';
 
-class MockComponent extends React.Component<{||}> {}
+class MockComponent extends React.Component<{}> {}
 // $FlowExpectedError: we do not need the connection config here
 const connectionConfig = {};
 

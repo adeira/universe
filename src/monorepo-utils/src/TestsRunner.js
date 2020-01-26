@@ -61,10 +61,10 @@ function _runJestTimezoneVariants(config, ciNode: CINode) {
 }
 
 type ExternalConfig = $ReadOnlyArray<string>;
-type CINode = {|
+type CINode = {
   +index: number,
   +total: number,
-|};
+};
 
 /**
  * This script tests the whole application except Yarn Workspaces. Workspaces

@@ -7,17 +7,17 @@ import { invariant, isObjectEmpty } from '@adeira/js';
 import type { FragmentSpec, GraphQLTaggedNode, Disposable, $RelayProps } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
-type ConnectionData = {|
+type ConnectionData = {
   +edges?: ?Array<any>,
-  +pageInfo?: ?{|
+  +pageInfo?: ?{
     +endCursor: ?string,
     +hasNextPage: boolean,
     +hasPreviousPage: boolean,
     +startCursor: ?string,
-  |},
-|};
+  },
+};
 
-type ConnectionConfig = {|
+type ConnectionConfig = {
   +direction?: 'backward' | 'forward',
   +getConnectionFromProps?: (props: {
     +[key: string]: any,
@@ -29,16 +29,16 @@ type ConnectionConfig = {|
   ) => { +[key: string]: any, ... },
   +getVariables: (
     props: { +[key: string]: any, ... },
-    paginationInfo: {|
+    paginationInfo: {
       +count: number,
       +cursor: ?string,
-    |},
+    },
     fragmentVariables: { +[key: string]: any, ... },
   ) => { +[key: string]: any, ... },
   +query: GraphQLTaggedNode,
-|};
+};
 
-export type PaginationRelayProp = {|
+export type PaginationRelayProp = {
   +environment: Environment,
   +hasMore: () => boolean,
   +isLoading: () => boolean,
@@ -48,7 +48,7 @@ export type PaginationRelayProp = {|
     callback: (error: ?Error) => void,
     refetchVariables: ?{ +[key: string]: any, ... },
   ) => ?Disposable,
-|};
+};
 
 export default function createPaginationContainer<
   Props: { ... },

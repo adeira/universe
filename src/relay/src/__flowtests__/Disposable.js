@@ -2,7 +2,7 @@
 
 import { graphql, requestSubscription, type Disposable, type RelayProp } from '../index';
 
-type Props = {| +relay: RelayProp |};
+type Props = { +relay: RelayProp };
 
 type SubscriptionTypeMock = any;
 

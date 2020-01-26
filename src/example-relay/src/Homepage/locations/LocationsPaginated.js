@@ -7,10 +7,10 @@ import Button from '@kiwicom/orbit-components/lib/Button';
 import Location from './Location';
 import type { LocationsPaginated_data as LocationsDataType } from './__generated__/LocationsPaginated_data.graphql';
 
-type Props = {|
+type Props = {
   +data: LocationsDataType,
   +relay: PaginationRelayProp,
-|};
+};
 
 function LocationsPaginated(props: Props) {
   function loadMore() {

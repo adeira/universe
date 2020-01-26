@@ -4,24 +4,24 @@ const path = require('path');
 
 /*::
 
-type ApiType = {|
+type ApiType = {
   +assertVersion: number => void,
-|};
+};
 
 type SupportedTargets = 'js' | 'js-esm' | 'flow';
 type Environments = { [string]: string | $ReadOnlyArray<string>, ... };
 
-type ExternalOptions = {|
+type ExternalOptions = {
   +target?: SupportedTargets,
   +environments?: Environments,
   +debug?: boolean,
-|};
+};
 
-type InternalOptions = {|
+type InternalOptions = {
   +target: SupportedTargets,
   +environments: Environments,
   +debug: boolean,
-|};
+};
 
 type BabelRule = string | [string, { [name: string]: mixed, ... }];
 type BabelRules = $ReadOnlyArray<BabelRule>;

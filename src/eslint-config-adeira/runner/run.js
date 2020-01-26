@@ -18,15 +18,15 @@ const cliEngine = new CLIEngine({
 
 /*::
 
-type Options = {|
+type Options = {
   +testPath: string,
   +config: { [key: string]: any, ... },
   +globalConfig: { [key: string]: any, ... },
-  +extraOptions: {|
+  +extraOptions: {
     +runAll: boolean,
     +noWarnings: boolean,
-  |}
-|}
+  }
+}
 
 */
 

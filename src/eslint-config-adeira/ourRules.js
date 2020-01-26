@@ -270,7 +270,7 @@ module.exports = {
   'flowtype/require-compound-type-alias': OFF,
   'flowtype/require-exact-type': OFF,
   'flowtype/require-indexer-name': OFF,
-  'flowtype/require-inexact-type': ERROR,
+  'flowtype/require-inexact-type': OFF,
   'flowtype/require-parameter-type': OFF,
   'flowtype/require-readonly-react-props': OFF, // TODO: https://github.com/gajus/eslint-plugin-flowtype/pull/400#issuecomment-492828739
   'flowtype/require-return-type': OFF,

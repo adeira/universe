@@ -10,7 +10,7 @@ import type { RecordSourceSelectorProxy } from '../runtimeTypes.flow';
 
 opaque type SelectorData = $FlowFixMe;
 
-type HookMutationConfig<T: MutationParameters> = {|
+type HookMutationConfig<T: MutationParameters> = {
   // This config is essentially `MutationConfig` type except there are some small differences
   // to make the hook interface more friendly. Feel free to expand it as needed.
   +onCompleted: (response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) => void,
@@ -20,7 +20,7 @@ type HookMutationConfig<T: MutationParameters> = {|
   +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
-|};
+};
 
 /**
  * Usage:

@@ -2,17 +2,17 @@
 
 /*::
 
-type ApiType = {|
+type ApiType = {
   +assertVersion: number => void,
-  +cache: {|
+  +cache: {
     forever: () => void,
-  |},
+  },
   +caller: (Caller => boolean) => boolean,
-|};
+};
 
-type Caller = {|
+type Caller = {
   +name: string,
-|};
+};
 
 */
 

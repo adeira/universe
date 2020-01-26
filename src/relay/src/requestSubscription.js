@@ -10,7 +10,7 @@ opaque type SelectorData = $FlowFixMe;
 
 type SubscriptionPayload = { +[key: string]: any, ... };
 
-type Config<T: SubscriptionPayload> = {|
+type Config<T: SubscriptionPayload> = {
   +subscription: GraphQLTaggedNode,
   +variables: Variables,
   +onCompleted?: ?() => void,
@@ -18,7 +18,7 @@ type Config<T: SubscriptionPayload> = {|
   +onNext?: ?(response: ?T) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
-|};
+};
 
 /**
  * The first parameter `environment` should be from `props.relay.environment`

@@ -9,29 +9,29 @@ import type { Variables } from '@adeira/relay-runtime';
 import type { GraphQLTaggedNode } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
-type RendererProps = {| +[key: string]: any |}; // it can be anything, really
+type RendererProps = { +[key: string]: any }; // it can be anything, really
 
-type ReadyState = {|
+type ReadyState = {
   +error: ?Error,
   +props: ?RendererProps,
   +retry: ?() => void,
-|};
+};
 
 type FetchPolicy = 'store-and-network' | 'network-only';
 
-type CommonProps = {|
+type CommonProps = {
   +query: GraphQLTaggedNode,
   +environment?: Environment,
-  +cacheConfig?: {|
+  +cacheConfig?: {
     +force?: ?boolean,
     +poll?: ?number,
-  |},
+  },
   +fetchPolicy?: FetchPolicy,
   +variables?: Variables,
-|};
+};
 
 type Props =
-  | {|
+  | {
       ...CommonProps,
       +onSystemError?: ({
         error: Error,
@@ -40,11 +40,11 @@ type Props =
       }) => React.Node,
       +onLoading?: () => React.Node,
       +onResponse: RendererProps => React.Node,
-    |}
-  | {|
+    }
+  | {
       ...CommonProps,
       +render: ReadyState => React.Node,
-    |};
+    };
 
 export default function QueryRenderer(props: Props) {
   function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState) {

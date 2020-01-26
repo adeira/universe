@@ -8,19 +8,19 @@ export type Uploadables = { +[key: string]: File | Blob, ... };
 type ConcreteArgumentDefinition = $FlowFixMe;
 type ConcreteSelection = $FlowFixMe;
 
-export type Disposable = {|
+export type Disposable = {
   +dispose: () => void,
-|};
+};
 
 // The type of a graphql`...` tagged template expression.
-export opaque type GraphQLTaggedNode = {|
+export opaque type GraphQLTaggedNode = {
   +argumentDefinitions: $ReadOnlyArray<ConcreteArgumentDefinition>,
   +kind: 'Fragment',
   +metadata: ?{ [key: string]: mixed, ... },
   +name: string,
   +selections: $ReadOnlyArray<ConcreteSelection>,
   +type: string,
-|};
+};
 
 export type FragmentSpec = { +[key: string]: GraphQLTaggedNode, ... };
 
@@ -56,37 +56,37 @@ opaque type RangeBehaviorsObject = { [key: string]: RangeOperation, ... };
 
 opaque type RangeBehaviors = RangeBehaviorsFunction | RangeBehaviorsObject;
 
-type RangeAddConfig = {|
+type RangeAddConfig = {
   +type: 'RANGE_ADD',
   +parentName?: string,
   +parentID?: string,
-  +connectionInfo?: $ReadOnlyArray<{|
+  +connectionInfo?: $ReadOnlyArray<{
     +key: string,
     +filters?: Variables,
     +rangeBehavior: RangeOperation,
-  |}>,
+  }>,
   +connectionName?: string,
   +edgeName: string,
   +rangeBehaviors?: RangeBehaviors,
-|};
+};
 
-type RangeDeleteConfig = {|
+type RangeDeleteConfig = {
   +type: 'RANGE_DELETE',
   +parentName?: string,
   +parentID?: string,
-  +connectionKeys?: $ReadOnlyArray<{|
+  +connectionKeys?: $ReadOnlyArray<{
     +key: string,
     +filters?: Variables,
-  |}>,
+  }>,
   +connectionName?: string,
   +deletedIDFieldName: string | $ReadOnlyArray<string>,
   +pathToConnection: $ReadOnlyArray<string>,
-|};
+};
 
-type NodeDeleteConfig = {|
+type NodeDeleteConfig = {
   +type: 'NODE_DELETE',
   +parentName?: string,
   +parentID?: string,
   +connectionName?: string,
   +deletedIDFieldName: string,
-|};
+};

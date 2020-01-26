@@ -14,10 +14,10 @@ type Headers = {
 };
 
 type AdditionalHeaders = Headers | Promise<Headers>;
-type RefetchConfig = {|
+type RefetchConfig = {
   +fetchTimeout?: number,
   +retryDelays?: $ReadOnlyArray<number>,
-|};
+};
 
 export default function createNetworkFetcher(
   graphQLServerURL: string,

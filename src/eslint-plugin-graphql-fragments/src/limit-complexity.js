@@ -4,9 +4,9 @@ const utils = require('./utils');
 
 /*::
 
-type Options = {|
+type Options = {
     +threshold: number,
-|};
+};
 
 type Context = {
   +options: $ReadOnlyArray<?Options>,

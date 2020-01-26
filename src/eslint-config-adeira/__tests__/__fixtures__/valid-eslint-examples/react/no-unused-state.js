@@ -2,14 +2,14 @@
 
 import * as React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
 
-type Props = {|
+type Props = {
   +accessToken?: string,
   +children: React.Node,
-|};
+};
 
-type State = {|
+type State = {
   accessToken: ?string,
-|};
+};
 
 const MyContext: React.Context<State> = React.createContext({
   accessToken: undefined,

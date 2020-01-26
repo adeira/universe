@@ -5,26 +5,26 @@ import type { Variables } from '@adeira/relay-runtime';
 
 import type { RequestNode, Uploadables } from './types.flow';
 
-export type CacheConfig = {|
+export type CacheConfig = {
   +force?: ?boolean,
-|};
+};
 
-type GraphQLResponse = {|
+type GraphQLResponse = {
   +data?: null | { [key: string]: any, ... },
   +errors?: $ReadOnlyArray<{ [key: string]: any, ... }>,
-|};
+};
 
 /**
  * A Sink is an object of methods provided by Observable during construction.
  * The methods are to be called to trigger each event. It also contains a closed
  * field to see if the resulting subscription has closed.
  */
-type Sink = {|
+type Sink = {
   +next: GraphQLResponse => void,
   +error: (Error, isUncaughtThrownError?: boolean) => void,
   +complete: () => void,
   +closed: boolean,
-|};
+};
 
 export default function createRequestHandler(customFetcher: (...args: $ReadOnlyArray<any>) => any) {
   function cleanup() {

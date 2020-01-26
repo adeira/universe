@@ -7,14 +7,14 @@ import { getDataFromRequest } from '@adeira/relay-utils';
 
 import createRelayEnvironment from '../createRelayEnvironment';
 
-type RendererProps = {| +[key: string]: any |};
+type RendererProps = { +[key: string]: any };
 
-type Props = {|
+type Props = {
   +query: GraphQLTaggedNode,
   +variables: { [name: string]: mixed, ... },
   +onResponse: (?RendererProps) => React.Node,
   +ssrData: $FlowFixMe,
-|};
+};
 
 export default function SSRQueryRenderer(props: Props) {
   // We have to re-create the environment here with initialized store for SSR.

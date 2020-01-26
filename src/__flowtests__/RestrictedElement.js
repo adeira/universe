@@ -10,7 +10,7 @@ type ClassComponentRender<+TRender> = Class<
   React$Component<any, any> & interface { render(): TRender },
 >;
 
-export type RestrictedElement<+TElementType: React$ElementType> = {|
+export type RestrictedElement<+TElementType: React$ElementType> = {
   +type:
     | TElementType
     | ClassComponentRender<RestrictedElement<TElementType>>
@@ -21,17 +21,17 @@ export type RestrictedElement<+TElementType: React$ElementType> = {|
 
   +key: React$Key | null,
   +ref: any,
-|};
+};
 
 // You can enforce compositional patterns with RestrictedElement:
-class MenuItem extends React.Component<{||}> {}
-class MenuSeparator extends React.Component<{||}> {}
-class Menu extends React.Component<{|
+class MenuItem extends React.Component<{}> {}
+class MenuSeparator extends React.Component<{}> {}
+class Menu extends React.Component<{
   children: React.ChildrenArray<
     RestrictedElement<typeof MenuItem> | RestrictedElement<typeof MenuSeparator>,
   >,
-|}> {}
-class NotAMenuComponent extends React.Component<{||}> {}
+}> {}
+class NotAMenuComponent extends React.Component<{}> {}
 
 // All the children types allowed.
 const test1 = (
@@ -52,7 +52,7 @@ const test2 = (
   </Menu>
 );
 
-class RendersAMenuItem extends React.Component<{||}> {
+class RendersAMenuItem extends React.Component<{}> {
   render(): React.Element<typeof MenuItem> {
     return <MenuItem />;
   }
@@ -66,7 +66,7 @@ const test3 = (
   </Menu>
 );
 
-class RendersSomethingThatRendersAMenuItem extends React.Component<{||}> {
+class RendersSomethingThatRendersAMenuItem extends React.Component<{}> {
   // You really should just use RestrictedElement here, but I want
   // to demonstrate the flexibility.
   render(): React.Element<typeof RendersAMenuItem> {

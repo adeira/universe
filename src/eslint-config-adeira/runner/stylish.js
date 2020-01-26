@@ -11,21 +11,21 @@ function pluralize(word, count) {
 
 /*::
 
-type Results = $ReadOnlyArray<{|
-  +messages: $ReadOnlyArray<{|
+type Results = $ReadOnlyArray<{
+  +messages: $ReadOnlyArray<{
     +fatal: boolean,
     +severity: number,
     +line: number,
     +column: number,
     +message: string,
     +ruleId: string,
-  |}>,
+  }>,
   +errorCount: number,
   +warningCount: number,
   +fixableErrorCount: number,
   +fixableWarningCount: number,
   +output?: string,
-|}>
+}>
 
 */
 

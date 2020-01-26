@@ -12,7 +12,7 @@ export const isQuery = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'query';
 };
 
-export const forceFetch = (cacheConfig: {| +force?: ?boolean |}): boolean %checks => {
+export const forceFetch = (cacheConfig: { +force?: ?boolean }): boolean %checks => {
   return !!(cacheConfig && cacheConfig.force);
 };
 

@@ -6,9 +6,9 @@ import { createFragmentContainer, graphql } from '@adeira/relay';
 import type { HotelsList_hotels as Hotels } from './__generated__/HotelsList_hotels.graphql';
 import HotelListItem from './HotelListItem';
 
-type Props = {|
+type Props = {
   +hotels: ?Hotels,
-|};
+};
 
 const HotelsList = (props: Props): React.Node => {
   const edges = props.hotels?.edges ?? [];
