@@ -13,7 +13,7 @@ type GraphQLFieldResolveFn = (
 
 type WrapperFunction = (
   resolverFunction: GraphQLFieldResolveFn,
-  field: { [key: string | Symbol]: any, ... },
+  field: { [key: string | symbol]: any, ... },
 ) => () => mixed;
 
 function defaultWrapper(resolveFn) {
@@ -50,7 +50,7 @@ function visitType(type: any, wrapper) {
   }
 }
 
-function wrapField(field: { [key: string | Symbol]: any, ... }, wrapper) {
+function wrapField(field: { [key: string | symbol]: any, ... }, wrapper) {
   const resolveFn = field.resolve;
 
   if (field[SYMBOL_PROCESSED] || !resolveFn) {
