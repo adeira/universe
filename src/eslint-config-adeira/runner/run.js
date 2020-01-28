@@ -33,16 +33,28 @@ type Options = {|
 // TODO: we should eventually get rid of 'create-jest-runner' dependency and use our own
 //  implementation with this built-in mechanism. This way we don't have to iterate all the files
 //  and skipping them.
-const changedFiles = Git.getChangesToTest();
+const getChangedFiles = () => {
+  try {
+    // This fails if git is not initialised or if user has no remote origin
+    // Let's catch the error, and just lint all instead rather than crashing
+    return Git.getChangesToTest();
+  } catch {
+    return null;
+  }
+};
+
+const changedFiles = getChangedFiles();
 
 module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mixed, ... } */ => {
   const start = Date.now();
+  let runAll = extraOptions.runAll || changedFiles === null;
 
-  let runAll = extraOptions.runAll;
-  for (const changedFile of changedFiles) {
-    if (shouldLintAll(changedFile)) {
-      runAll = true;
-      break;
+  if (changedFiles !== null) {
+    for (const changedFile of changedFiles) {
+      if (shouldLintAll(changedFile)) {
+        runAll = true;
+        break;
+      }
     }
   }
 
@@ -56,7 +68,7 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
     });
   }
 
-  if (runAll === false) {
+  if (runAll === false && changedFiles !== null) {
     const normalizedPath = testPath.replace(process.cwd(), '').replace(/^\//, '');
     if (changedFiles.includes(normalizedPath) === false) {
       return skip({
