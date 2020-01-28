@@ -15,10 +15,10 @@
     "is-ci": "^2.0.0",
     "npm-packlist": "^2.0.3",
     "npm-registry-client": "^8.6.0",
-    "rimraf": "^3.0.0",
+    "rimraf": "^3.0.1",
     "semver": "^7.1.1",
     "snapshot-diff": "^0.6.2",
-    "tar": "^5.0.5"
+    "tar": "^6.0.0"
   },
   "peerDependencies": {
     "@babel/core": "^7.7.7"
