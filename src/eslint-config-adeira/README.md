@@ -66,6 +66,12 @@ module.exports = {
 };
 ```
 
+Since the eslint-runner uses jest, you have to install it if you did not already do it:
+
+```
+yarn add jest --dev [--ignore-workspace-root-check]
+```
+
 It is of course possible to run this lint as yet another Jest project (using `options.projects` configuration). To execute this runner you have to call Jest like this:
 
 ```json
