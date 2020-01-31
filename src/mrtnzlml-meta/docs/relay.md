@@ -237,3 +237,10 @@ if (__DEV__) {
   });
 }
 ```
+
+## Common Relay problems
+
+- not using fragments correctly (data-masking misunderstanding)
+- incorrect environment imports (not using the right Environment instance)
+
+TKTK

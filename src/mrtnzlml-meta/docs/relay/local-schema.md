@@ -4,6 +4,8 @@ title: Local Schema
 sidebar_label: Local Schema
 ---
 
+Official docs: https://relay.dev/docs/en/local-state-management
+
 Relay has a built-in support for local-only schema which allows you to work with GraphQL in-memory without sending requests to the server. First define local schema (`schema.local.graphql`):
 
 ```graphql
@@ -51,7 +53,7 @@ Relay.commitLocalUpdate(environment, store => {
 
 More info here: http://facebook.github.io/relay/docs/en/relay-store.html
 
-Protip: create many local GraphQL extensions closely related to one specific part of your application. For example you could create `gdsv.local.graphql` with the following content:
+Another example:
 
 ```graphql
 extend type PNRInfo {
@@ -59,7 +61,7 @@ extend type PNRInfo {
 }
 ```
 
-This way I created `successMessage` client field on `PNRInfo` type and it should be more or less obvious that it's related only to this `GDSV` part. All local schemas are being auto-discovered thanks to `*.graphql` file extension. You can now fetch and render this success message somewhere in GDSV application. Propagation of this message is trivial (you have to fetch the `PNRInfo` ID):
+All local schemas are being auto-discovered thanks to `*.graphql` file extension. You can now fetch and render this success message somewhere in the application. Propagation of this message is trivial (you have to fetch the `PNRInfo` ID):
 
 ```js
 Relay.commitLocalUpdate(environment, store => {

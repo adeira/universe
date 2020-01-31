@@ -38,7 +38,61 @@ TKTK (2 approaches: ephemeral Apollo vs. compile time)
 
 https://github.com/facebook/relay/pull/2641#issuecomment-475335484
 
+## GraphQL server-client communication
+
+GraphQL specification doesn't care about the communication protocol at all. That's on purpose - to be very flexible. This unfortunately creates some additional questions: how should the valid request look like, what format and protocol should we use, how should the error codes look like?
+
+Below I try to explain and _recommend_ one approach via HTTP protocol.
+
+### Valid/Invalid GraphQL request via HTTP
+
+GraphQL client should send a POST request to the server in the following format:
+
+```json5
+{
+  operations: 'required string',
+  variables: {}, // optional
+  operationName: 'optional string', // required when sending more operations
+}
+```
+
+Request should be valid only when:
+
+- the request is valid from HTTP perspective
+- the `operations` string is valid from the GraphQL spec perspective (http://spec.graphql.org/draft/#sec-Validation)
+- the `variables` match the selected operation
+- the operation name exists in the `operations`
+
+It's usually allowed to mix the POST payload with GET arguments (query in POST and variables in GET for example). I'd not recommend that.
+
+TKTK (TODO: stored operations)
+
+### HTTP error codes
+
+HTTP codes should reflect the HTTP communication only, not the actual GraphQL request result. So:
+
+- `200` for successful request even though the response has some errors
+- `400` when the query is missing or invalid (syntax error, validation error)
+- `400` when the variables don't match the operations string (`*`)
+- `400` when the operation name doesn't match the operations string (`*`)
+- `405` for invalid HTTP methods
+- generic `500` for everything else
+
+That's how usually GraphQL servers behave. Unfortunately they quite often ignore cases marked with `*` since they depend on the valid request being specified and there is no such specification (only non-written conventions and recommendations).
+
+TKTK
+
 ## GraphQL errors
+
+There are several GraphQL errors:
+
+- server error (that's the error in GraphQL response, not affecting UI in any way or completely halting it)
+- application specific errors:
+  - user input error (usually used for mutations as a reaction for invalid input)
+  - operation specific error (similar to the user-input error except it has an information about the failed operation - could completely replace the system error)
+  - system error (some generic error which should be reflected in UI - can be replaced by the operation specific error)
+
+TODO: elaborate on how to use them correctly, what are the risks and benefits
 
 See: http://artsy.github.io/blog/2018/10/19/where-art-thou-my-error/
 
