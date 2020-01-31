@@ -18,6 +18,18 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 
 The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
 
+## Persistent queries (stored operations)
+
+Why?
+
+- security (queries whitelist)
+- performance (expensive queries upload, possible server optimizations (skip validations))
+- AB testing (not sending full query strings with `@include` and `@skip`), basically the queries are not meant to be send from the client
+
+How?
+
+TKTK (2 approaches: ephemeral Apollo vs. compile time)
+
 ## Deprecating queries
 
 > We don't clean up old queries and don't allow breaking changes to the schema (but you can for example start returning null for some fields if a feature is removed).
@@ -83,13 +95,13 @@ There are some complications and unanswered questions though:
 Interesting little helper:
 
 ```js
-const dataByTypename = data => data && data.__typename ? { [data.__typename]: data } : {}
+const dataByTypename = data => (data && data.__typename ? { [data.__typename]: data } : {});
 ```
 
 Usage:
 
 ```js
-const { OrderError, OrderStatus } = dataByTypename(orderStatusOrError)
+const { OrderError, OrderStatus } = dataByTypename(orderStatusOrError);
 if (OrderError) {
   // render error component
 }
@@ -144,9 +156,17 @@ fragment CommentFields on Comment {
 }
 ```
 
-## Rate Limiting
+## Rate Limiting, Cost Computation
 
-- http://olafhartig.de/files/HartigPerez_WWW2018_Preprint.pdf
+So far the best idea I ever saw is this one: https://github.com/adeira/universe/blob/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size/semantics-and-complexity-of-graphql.pdf
+
+Experimental implementation here: https://github.com/adeira/universe/tree/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size
+
+TKTK
+
+Alternative approaches:
+
+- https://developer.github.com/v4/guides/resource-limitations/ (TODO: explain why it's worse and when you should consider it)
 - https://twitter.com/__xuorig__/status/1148653318069207041
 
 ## A/B testing in GraphQL
@@ -217,3 +237,14 @@ export type PollingQueryResponse = {|
 ```
 
 Therefore server can return you dynamic response even though Relay generates the meta files statically.
+
+## Little know GraphQL behaviors
+
+> Fields \“sender\” conflict because subfields \“avatar\” conflict because they return conflicting types String and LiveConversationVisitorAvatar. Use different aliases on the fields to fetch both if this was intentional.
+
+When, what, how?
+
+- https://stackoverflow.com/questions/56695262/graphql-error-fieldsconflict-fields-have-different-list-shapes
+- http://spec.graphql.org/June2018/#sec-Field-Selection-Merging
+- https://github.com/graphql/graphql-js/blob/d5a1ba8ce7a348860e814f6526feda1111dc018b/src/validation/__tests__/OverlappingFieldsCanBeMerged-test.js
+- https://github.com/graphql/graphql-js/blob/d5a1ba8ce7a348860e814f6526feda1111dc018b/src/validation/rules/OverlappingFieldsCanBeMerged.js#L107-L160
