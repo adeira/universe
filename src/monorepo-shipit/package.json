@@ -10,7 +10,7 @@
   },
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^0.2.0",
+    "@adeira/js": "^1.0.0",
     "@adeira/logger": "^0.1.0",
     "@adeira/monorepo-utils": "^0.2.0",
     "@adeira/test-utils": "^0.1.0",
