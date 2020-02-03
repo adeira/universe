@@ -10,11 +10,13 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 
 ---
 
+- https://landscape.graphql.org/
 - [artsy/metaphysics](https://github.com/artsy/metaphysics) - proxy of REST APIs with schema stitching for inspiration
 - https://github.com/artsy/README/blob/master/playbooks/graphql-schema-design.md
 - [GraphQL namespaces](https://github.com/facebook/graphql/issues/163) (interesting insights into FB design)
 - https://about.sourcegraph.com/graphql/graphql-at-twitter
 - https://www.infoq.com/presentations/netflix-graphql/
+- https://principledgraphql.com/
 
 The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
 
@@ -81,6 +83,31 @@ HTTP codes should reflect the HTTP communication only, not the actual GraphQL re
 That's how usually GraphQL servers behave. Unfortunately they quite often ignore cases marked with `*` since they depend on the valid request being specified and there is no such specification (only non-written conventions and recommendations).
 
 TKTK
+
+## Overfetching in GraphQL
+
+While it's true that GraphQL improves over-fetching in comparison to REST API quite significantly, it doesn't solve it completely. There are similar issues (different kind of over-fetching):
+
+1. it's quite common to fetch field you don't actually need (Eslint can help with that)
+1. it's possible to fetch the same field many times thanks to GraphQL aliases
+
+   ```graphql
+   fragment XYZ_data on Label {
+     alias_A: id(opaque: false)
+     alias_B: id(opaque: false)
+   }
+   ```
+
+   Returns:
+
+   ```json5
+   {
+     alias_A: '29e9f801-4662-11ea-a6e3-6ff2a97c5f9a',
+     alias_B: '29e9f801-4662-11ea-a6e3-6ff2a97c5f9a', // Again? 🤔
+   }
+   ```
+
+1. data is not being returned in a normalized response which means we are sending a lot of duplicates (list of leads and their labels - the same label is being send many many times), see: https://github.com/graphql/graphql-js/issues/150
 
 ## GraphQL errors
 
