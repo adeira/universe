@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay-runtime",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "index",
   "module": false,
   "sideEffects": false,
@@ -9,7 +9,7 @@
   "description": "An opinionated Relay Runtime wrapper",
   "license": "MIT",
   "dependencies": {
-    "@adeira/js": "^0.2.0",
+    "@adeira/js": "^1.0.0",
     "relay-runtime": "^8.0.0"
   }
 }
