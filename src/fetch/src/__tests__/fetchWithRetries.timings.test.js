@@ -1,6 +1,6 @@
 // @flow
 
-import lolex from 'lolex';
+import fakeTimers from '@sinonjs/fake-timers';
 
 import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
@@ -8,7 +8,7 @@ import fetchWithRetries from '../fetchWithRetries';
 jest.mock('../fetch');
 
 it('works with timeouts and retry delays correctly', () => {
-  const clock = lolex.install();
+  const clock = fakeTimers.install();
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
   const DELTA = 1;

@@ -13,6 +13,6 @@
     "cross-fetch": "^3.0.4"
   },
   "devDependencies": {
-    "lolex": "^5.1.2"
+    "@sinonjs/fake-timers": "^6.0.0"
   }
 }
