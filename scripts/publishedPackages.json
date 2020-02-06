@@ -1,6 +1,7 @@
 [
   "@adeira/babel-preset-adeira",
   "@adeira/eslint-config",
+  "@adeira/eslint-runner",
   "@adeira/fetch",
   "@adeira/flow-bin",
   "@adeira/graphql-bc-checker",
