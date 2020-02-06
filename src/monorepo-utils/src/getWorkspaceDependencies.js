@@ -12,5 +12,15 @@ export default function getWorkspaceDependencies(): WorkspaceDependencies {
     .runSynchronously()
     .getStdout();
 
-  return sanitizeWorkspaces(JSON.parse(JSON.parse(stdout).data));
+  const sanitizeStdout = () => {
+    const data = JSON.parse(stdout);
+    if (data.data === undefined) {
+      // yarn upated how they return data from yarn workspaces info --json, this is to support 1.22.0
+      return data;
+    }
+    // This is how the data has to be parsed prior to 1.22.0
+    return JSON.parse(data.data);
+  };
+
+  return sanitizeWorkspaces(sanitizeStdout());
 }
