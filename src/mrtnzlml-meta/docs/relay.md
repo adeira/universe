@@ -12,6 +12,7 @@ TODO:
 - `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
 - [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
+- TODO: special `__id` field
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
@@ -68,6 +69,37 @@ module.exports = {
 In the future, other entries such as `persistedQueries` and `customScalars` could also be configured as such and allow for projec specific setup.
 
 See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
+
+## GraphQL types without ID field
+
+Ever wondered how are GraphQL types being stored inside Relay Store when the types doesn't have globally unique `ID!` according to GraphQL specification? Here is an example of 2 identical stores _with_ and _without_ the ID: https://gist.github.com/mrtnzlml/e77315a6879ce8de26fe2a164872be09
+
+Basically, Relay will try to use the `ID` field when available (preferable). However, when it's not available, it will construct some unique key which represents the record correctly. Here is an example of the record _with_ ID:
+
+```json
+{
+  "QWxsSG90ZWxBdmFpbGFiaWxpdHlIb3RlbDo0NTA5Njk1": {
+    "__id": "QWxsSG90ZWxBdmFpbGFiaWxpdHlIb3RlbDo0NTA5Njk1",
+    "__typename": "AllHotelAvailabilityHotel",
+    "id": "QWxsSG90ZWxBdmFpbGFiaWxpdHlIb3RlbDo0NTA5Njk1",
+    "name": "Sweet Inn Apartments - Rocafort"
+  }
+}
+```
+
+And here is it _without_ the `ID`:
+
+```json
+{
+  "client:root:allAvailableBookingComHotels(search:{\"checkin\":\"2020-02-13\",\"checkout\":\"2020-02-15\",\"cityId\":\"SG90ZWxDaXR5Oi0zNzI0OTA=\",\"roomsConfiguration\":[{\"adultsCount\":2}]}):edges:0:node": {
+    "__id": "client:root:allAvailableBookingComHotels(search:{\"checkin\":\"2020-02-13\",\"checkout\":\"2020-02-15\",\"cityId\":\"SG90ZWxDaXR5Oi0zNzI0OTA=\",\"roomsConfiguration\":[{\"adultsCount\":2}]}):edges:0:node",
+    "__typename": "AllHotelAvailabilityHotel",
+    "name": "Sweet Inn Apartments - Rocafort"
+  }
+}
+```
+
+As you can see, the ID is composed of the query itself + the path. Moreover, there are also GraphQL arguments which ensures you will always get the correct record (forementioned Relay consistency).
 
 ## Future of `QueryRenderer`/`useQuery` pattern
 
