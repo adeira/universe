@@ -54,7 +54,7 @@ It is important to report any issues with the eslint configuration back so we ca
 
 Also please note that **you should not ignore Eslint warnings**! These warnings are helping you to migrate to the future major version. Some of them will turn into errors in the next major version bump.
 
-# Eslint runner
+# Eslint runner (DEPRECATED - use `@adeira/eslint-runner` package instead)
 
 This package contains special runner for Jest to speedup Eslint checks. It executes Eslint in parallel thanks to Jest workers so it's much faster when you have many files with complicated rules. You have to create special Jest config in order to use this runner (`.jest-eslint.config.js`):
 
