@@ -109,6 +109,8 @@ While it's true that GraphQL improves over-fetching in comparison to REST API qu
 
 1. data is not being returned in a normalized response which means we are sending a lot of duplicates (list of leads and their labels - the same label is being send many many times), see: https://github.com/graphql/graphql-js/issues/150
 
+![GraphQL response overfetching example](/img/graphql-response-overfetching.png)
+
 ## GraphQL errors
 
 There are several GraphQL errors:
