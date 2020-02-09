@@ -15,7 +15,7 @@
     "is-ci": "^2.0.0",
     "npm-packlist": "^2.0.3",
     "npm-registry-client": "^8.6.0",
-    "rimraf": "^3.0.1",
+    "rimraf": "^3.0.2",
     "semver": "^7.1.2",
     "snapshot-diff": "^0.7.0",
     "tar": "^6.0.1"
