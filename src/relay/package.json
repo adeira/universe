@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "yarn eslint src && yarn flow src",
-    "regenerate": "./bin/relay-compiler.js --src=./src/hooks --schema=../example-relay/schema.graphql"
+    "regenerate": "./bin/relay-compiler.js --src=./src --schema=./schema.graphql"
   },
   "dependencies": {
     "@adeira/fetch": "^1.0.1",

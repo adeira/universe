@@ -15,7 +15,7 @@ let onResponse;
 beforeEach(() => {
   environment = createMockEnvironment();
   query = graphql`
-    query QueryRendererQuery @relay_test_operation {
+    query QueryRendererTestQuery @relay_test_operation {
       node(id: "my-id") {
         id
       }

@@ -34,7 +34,7 @@ type Props = {|
 const TestComponent = (props: Props) => {
   const [addComment, isCommentPending] = useMutation(
     graphql`
-      mutation useMutationMutation @relay_test_operation {
+      mutation useMutationTestMutation @relay_test_operation {
         __typename
       }
     `,
@@ -64,17 +64,7 @@ it('calls the mutation as expected', () => {
   });
 
   expect(onError).not.toBeCalled();
-  expect(onCompleted).toBeCalled();
-  expect(onCompleted.mock.calls).toMatchInlineSnapshot(`
-		Array [
-		  Array [
-		    Object {
-		      "__typename": "Mutation",
-		    },
-		    null,
-		  ],
-		]
-	`);
+  expect(onCompleted).toBeCalledWith({ __typename: 'Mutation' }, null);
 });
 
 it('handles partial errors gracefully', () => {
@@ -98,24 +88,10 @@ it('handles partial errors gracefully', () => {
   });
 
   expect(onError).not.toBeCalled();
-  expect(onCompleted).toBeCalled();
-  expect(onCompleted.mock.calls).toMatchInlineSnapshot(`
-		Array [
-		  Array [
-		    Object {
-		      "__typename": "Mutation",
-		    },
-		    Array [
-		      Object {
-		        "message": "aaa",
-		      },
-		      Object {
-		        "message": "bbb",
-		      },
-		    ],
-		  ],
-		]
-	`);
+  expect(onCompleted).toBeCalledWith({ __typename: 'Mutation' }, [
+    { message: 'aaa' },
+    { message: 'bbb' },
+  ]);
 });
 
 it('handles error states gracefully', () => {
@@ -137,12 +113,5 @@ it('handles error states gracefully', () => {
   });
 
   expect(onCompleted).not.toBeCalled();
-  expect(onError).toBeCalled();
-  expect(onError.mock.calls).toMatchInlineSnapshot(`
-		Array [
-		  Array [
-		    [Error: ups],
-		  ],
-		]
-	`);
+  expect(onError).toBeCalledWith(new Error('ups'));
 });

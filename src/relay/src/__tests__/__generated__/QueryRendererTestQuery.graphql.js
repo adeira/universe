@@ -1,25 +1,25 @@
 /**
  * @flow
- * @relayHash 25d06689c9c4a86df15c271912d04a4f
+ * @relayHash 9e5091db0ab6327154c0ea86c51c952e
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type QueryRendererQueryVariables = {||};
-export type QueryRendererQueryResponse = {|
+export type QueryRendererTestQueryVariables = {||};
+export type QueryRendererTestQueryResponse = {|
   +node: ?{|
     +id: string
   |}
 |};
-export type QueryRendererQuery = {|
-  variables: QueryRendererQueryVariables,
-  response: QueryRendererQueryResponse,
+export type QueryRendererTestQuery = {|
+  variables: QueryRendererTestQueryVariables,
+  response: QueryRendererTestQueryResponse,
 |};
 
 /*
-query QueryRendererQuery {
+query QueryRendererTestQuery {
   node(id: "my-id") {
     __typename
     id
@@ -46,7 +46,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "QueryRendererQuery",
+    "name": "QueryRendererTestQuery",
     "type": "RootQuery",
     "metadata": null,
     "argumentDefinitions": [],
@@ -67,7 +67,7 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "QueryRendererQuery",
+    "name": "QueryRendererTestQuery",
     "argumentDefinitions": [],
     "selections": [
       {
@@ -93,9 +93,9 @@ return {
   },
   "params": {
     "operationKind": "query",
-    "name": "QueryRendererQuery",
+    "name": "QueryRendererTestQuery",
     "id": null,
-    "text": "query QueryRendererQuery {\n  node(id: \"my-id\") {\n    __typename\n    id\n  }\n}\n",
+    "text": "query QueryRendererTestQuery {\n  node(id: \"my-id\") {\n    __typename\n    id\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "node": {
@@ -116,5 +116,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = 'eff4ec049f4149500706a066f4030203';
+(node: any).hash = '6da37014e280a934ef08b7983d1c4d94';
 export default node;

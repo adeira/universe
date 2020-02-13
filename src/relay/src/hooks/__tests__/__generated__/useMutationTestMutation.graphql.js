@@ -1,23 +1,23 @@
 /**
  * @flow
- * @relayHash 20397bde88ca14fac97532f7e40772ee
+ * @relayHash a0a47123d5dc1cb17ff751181571190e
  */
 
 /* eslint-disable */
 // flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type useMutationMutationVariables = {||};
-export type useMutationMutationResponse = {|
+export type useMutationTestMutationVariables = {||};
+export type useMutationTestMutationResponse = {|
   +__typename: string
 |};
-export type useMutationMutation = {|
-  variables: useMutationMutationVariables,
-  response: useMutationMutationResponse,
+export type useMutationTestMutation = {|
+  variables: useMutationTestMutationVariables,
+  response: useMutationTestMutationResponse,
 |};
 
 /*
-mutation useMutationMutation {
+mutation useMutationTestMutation {
   __typename
 }
 */
@@ -36,7 +36,7 @@ return {
   "kind": "Request",
   "fragment": {
     "kind": "Fragment",
-    "name": "useMutationMutation",
+    "name": "useMutationTestMutation",
     "type": "RootMutation",
     "metadata": null,
     "argumentDefinitions": [],
@@ -44,15 +44,15 @@ return {
   },
   "operation": {
     "kind": "Operation",
-    "name": "useMutationMutation",
+    "name": "useMutationTestMutation",
     "argumentDefinitions": [],
     "selections": (v0/*: any*/)
   },
   "params": {
     "operationKind": "mutation",
-    "name": "useMutationMutation",
+    "name": "useMutationTestMutation",
     "id": null,
-    "text": "mutation useMutationMutation {\n  __typename\n}\n",
+    "text": "mutation useMutationTestMutation {\n  __typename\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "__typename": {
@@ -67,5 +67,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = 'f6e3cb8144fd79e69d57471f6f533008';
+(node: any).hash = '694437f71cc6444ecd2349f459c64221';
 export default node;
