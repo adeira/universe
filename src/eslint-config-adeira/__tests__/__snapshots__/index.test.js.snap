@@ -916,6 +916,11 @@ Snapshot Diff:
 +     "eslint-comments/no-unlimited-disable": 2,
       "eslint-comments/no-unused-disable": 0,
 @@ --- --- @@
+      "jest/no-try-expect": 0,
+-     "jest/prefer-called-with": 1,
++     "jest/prefer-called-with": 2,
+      "jest/prefer-expect-assertions": 0,
+@@ --- --- @@
       "react/jsx-no-literals": 0,
 -     "react/jsx-no-script-url": 1,
 +     "react/jsx-no-script-url": 2,

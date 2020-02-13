@@ -308,7 +308,7 @@ module.exports = {
   'jest/no-test-return-statement': ERROR,
   'jest/no-truthy-falsy': OFF,
   'jest/no-try-expect': OFF,
-  'jest/prefer-called-with': WARN,
+  'jest/prefer-called-with': NEXT_VERSION_ERROR,
   'jest/prefer-expect-assertions': OFF,
   'jest/prefer-hooks-on-top': ERROR,
   'jest/prefer-inline-snapshots': OFF,
