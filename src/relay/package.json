@@ -28,7 +28,7 @@
     "commander": "^4.1.1",
     "is-ci": "^2.0.0",
     "react-relay": "^8.0.0",
-    "relay-compiler": "^8.0.0",
+    "relay-compiler": "^9.0.0",
     "relay-compiler-language-typescript": "^10.1.5",
     "relay-config": "^8.0.0",
     "relay-runtime": "^8.0.0"
