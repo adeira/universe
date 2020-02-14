@@ -30,7 +30,7 @@
     "react-relay": "^8.0.0",
     "relay-compiler": "^8.0.0",
     "relay-compiler-language-typescript": "^10.1.5",
-    "relay-config": "^8.0.0",
+    "relay-config": "^9.0.0",
     "relay-runtime": "^8.0.0"
   },
   "devDependencies": {
