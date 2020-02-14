@@ -13,6 +13,6 @@
     "@adeira/relay-runtime": "^0.5.0"
   },
   "peerDependencies": {
-    "relay-runtime": "^8.0.0"
+    "relay-runtime": "^9.0.0"
   }
 }
