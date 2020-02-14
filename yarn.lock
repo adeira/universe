@@ -11198,14 +11198,22 @@ relay-runtime@8.0.0, relay-runtime@^8.0.0:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
 
-relay-test-utils@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/relay-test-utils/-/relay-test-utils-8.0.0.tgz#798922dd0ac77246882be82305b6a13f099ddb5d"
-  integrity sha512-n7b9EahBLuUQeq8B7ixy7mpnZa8SxF1QoRy19s3c6bfKyunvs2+IoAfKwxcK1+qPkI9n2qKe7k4Qqb9EmuPUqA==
+relay-runtime@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-9.0.0.tgz#03633be24dc3c8b56e472062de6f103954e3d296"
+  integrity sha512-bBNeNmwMOnqtCvuPnWdgflFSVwuUbGV7m7os8qHCUCSJ52DT5B/m6K4wisVh3eZ0QWYr7hheRDfmR/3UEdUe5A==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
-    relay-runtime "8.0.0"
+
+relay-test-utils@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/relay-test-utils/-/relay-test-utils-9.0.0.tgz#c21890650f82f5a8026459f79952caf43c653e95"
+  integrity sha512-ivOpAihkSb0fp9e+oOtHYE1LpDyXWBQK7ByopjSyMW0UTK/LD17Xw1RJfjC2OGys3fvcxlH3wdqawjdeSSCSdw==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fbjs "^1.0.0"
+    relay-runtime "9.0.0"
 
 remarkable@^1.7.1:
   version "1.7.4"
