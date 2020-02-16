@@ -1,0 +1,17 @@
+// @flow strict-local
+
+import { GraphQLObjectType } from 'graphql';
+
+import locations from './locations/queries/Locations';
+import currency from './currency/queries/Currency';
+
+const RootQuery = new GraphQLObjectType({
+  name: 'RootQuery',
+  description: 'Root Query',
+  fields: {
+    currency,
+    locations,
+  },
+});
+
+export default RootQuery;

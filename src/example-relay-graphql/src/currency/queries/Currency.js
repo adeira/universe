@@ -1,8 +1,8 @@
-// @flow
+// @flow strict-local
 
 import { GraphQLNonNull, GraphQLString } from 'graphql';
 
-import CurrencyType from '../types/Currency';
+import CurrencyType from '../types/output/Currency';
 
 export default {
   type: CurrencyType,

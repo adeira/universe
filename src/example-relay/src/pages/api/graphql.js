@@ -1,10 +1,9 @@
 // @flow
 
 import { ApolloServer } from 'apollo-server-micro';
+import { Schema } from '@adeira/example-relay-graphql';
 
-import schema from '../../graphql/Schema';
-
-const apolloServer = new ApolloServer({ schema, introspection: true, playground: true });
+const apolloServer = new ApolloServer({ schema: Schema, introspection: true, playground: true });
 
 export const config = {
   api: {

@@ -10,7 +10,7 @@ import {
 } from 'graphql-relay';
 
 import locations from '../datasets/locations.json';
-import LocationConnection from '../types/LocationConnection';
+import LocationConnection from '../types/output/LocationConnection';
 
 // There is open discusion how to handle bidirectional pagination:
 // https://github.com/graphql/graphql-relay-js/issues/58
