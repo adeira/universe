@@ -4,5 +4,5 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['@kiwicom/eslint-config/strict'],
+  extends: ['@adeira/eslint-config/strict'],
 };

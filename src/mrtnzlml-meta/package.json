@@ -10,16 +10,17 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.40",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.40",
+    "@docusaurus/core": "^2.0.0-alpha.41",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.41",
     "classnames": "^2.2.6",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
-    "@kiwicom/eslint-config": "^8.4.0",
-    "eslint": "^6.5.1"
+    "@adeira/eslint-config": "^1.2.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0"
   },
   "browserslist": {
     "production": [
