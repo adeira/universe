@@ -28,4 +28,5 @@ jobs:
           yarn run typecheck restart --all
           yarn run lint --all
           yarn run test-only --all
+          yarn workspace @adeira/example-relay test-bc
           yarn run scanner
