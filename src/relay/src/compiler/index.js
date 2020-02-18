@@ -21,7 +21,6 @@ type ExternalOptions = {|
   +persistMode: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
   +validate: boolean,
   +watch: boolean,
-  +language: 'javascript' | 'typescript', // TODO: detect this automatically based on tsconfig.json file?
 |};
 
 const {
@@ -46,12 +45,11 @@ export default async function compiler(externalOptions: ExternalOptions) {
       '**/node_modules/**',
     ],
     include: ['**'],
-    language: 'javascript',
     ...externalOptions,
   };
 
   const reporter = new ConsoleReporter({ verbose: true });
-  const languagePlugin = buildLanguagePlugin(options.language);
+  const languagePlugin = buildLanguagePlugin();
   const srcDir = path.resolve(process.cwd(), options.src);
   const schemaPath = path.resolve(process.cwd(), options.schema);
   const schema = getSchemaSource(schemaPath);
@@ -98,8 +96,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
         options.persistMode,
       ),
       isGeneratedFile: (filePath: string) =>
-        filePath.endsWith(`.graphql.${languagePlugin.outputExtension}`) &&
-        filePath.includes('__generated__'),
+        filePath.endsWith('.graphql.js') && filePath.includes('__generated__'),
       parser: sourceParserName,
       baseParsers: ['graphql'],
     },
