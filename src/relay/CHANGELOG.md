@@ -1,7 +1,5 @@
 # Unreleased
 
-TODO: release stable versions
-
 ---
 
 Changelog before our fork:
