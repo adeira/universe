@@ -59,11 +59,21 @@ const workspaces = getTouchedWorkspaces();
 console.log(Array.from(workspaces)); // -> ['@kiwicom/workspace1', '@kiwicom/workspace2']
 ```
 
-## Working with changes (`Git`) _(unstable)_
+## Working with changes (`Git`)
 
-_TODO_
+```js
+import { Git } from '@adeira/monorepo-utils';
 
-**Read carefully!** We assume that default branch is `master` (`origin/master` in fact because of how GitLab works). This is important to know because it may behave unpredictably when you call for example `getChangesToTest` and your default branch is _not_ master. This is currently not configurable.
+// files with committed changes
+Git.getChangedFiles();
+
+// files with changes staged for the next commit (via "git add")
+Git.getWorktreeChangedFiles();
+
+// and more ...
+```
+
+**Read carefully!** We assume that default branch is `origin/master` as it's common convention in Git. This is important to know because it may behave unpredictably when you call `getChangesToTest` and your default branch is _not_ master and/or your remote repository is not named `origin`. This is currently not configurable.
 
 ## Glob
 
@@ -186,7 +196,7 @@ TZ=Africa/Addis_Ababa monorepo-run-tests
 
 **Do not use this in production!** ([more details](https://babeljs.io/docs/en/babel-node#not-meant-for-production-use))
 
-This binary allows you to run scripts just like with `babel-node` except it takes into account correct Babel configuration (`upward` mode by default) and it doesn't ignore our own Yarn Workspace dependencies while transpiling (`node_modules/@kiwicom/*`). Usage (`package.json`):
+This binary allows you to run scripts just like with `babel-node` except it takes into account correct Babel configuration (`upward` mode by default) and it doesn't ignore our own Yarn Workspace dependencies while transpiling (`node_modules/@adeira/*`). Usage (`package.json`):
 
 ```json
 {
