@@ -65,6 +65,13 @@ _TODO_
 
 **Read carefully!** We assume that default branch is `master` (`origin/master` in fact because of how GitLab works). This is important to know because it may behave unpredictably when you call for example `getChangesToTest` and your default branch is _not_ master. This is currently not configurable.
 
+### `getChangedFiles`
+
+Besides usual methods on `Git`, there is also utility function `getChangedFiles`. How does that differ from `Git.getChangedFiles`?
+
+- `Git.getChangedFiles` is list of **committed** changed files in comparison to master
+- `getChangedFiles` gives you back a list of changed files depending on context - it's a list of changed files if the current branch is master OR list of changed files in your working branch as with `Git.getChangedFiles` plus all changed files that are still uncommitted. As this is usually the function you want to work within custom CI scripts, it also fails in CI environment on any uncommitted changes.
+
 ## Glob
 
 Glob is our wrapper around [Node.js glob library](https://github.com/isaacs/node-glob) which adds additional default configuration (ignores `node_modules` by default), correct Flow types and validation of invalid usages. The API is very similar to the original Glob:
