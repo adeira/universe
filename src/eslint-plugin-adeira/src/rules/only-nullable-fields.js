@@ -25,24 +25,24 @@ module.exports = ({
      *  - in query or types arguments (`args` property)
      *  - direct child of `GraphQLList`
      */
-    let ignoreRule = false;
+    let noOfAllowedNodesVisited = 0;
 
     return {
       Property: node => {
         if (node.key && node.key.name === 'args') {
-          ignoreRule = true;
+          noOfAllowedNodesVisited += 1;
         }
       },
       'Property:exit': node => {
         if (node.key && node.key.name === 'args') {
-          ignoreRule = false;
+          noOfAllowedNodesVisited -= 1;
         }
       },
 
       CallExpression: function(node) {
         // disallow GraphQLNonNull
         if (
-          ignoreRule === false &&
+          noOfAllowedNodesVisited === 0 &&
           node.callee.name === 'GraphQLNonNull' &&
           (node.parent.callee == null || node.parent.callee.name !== 'GraphQLList')
         ) {
@@ -52,12 +52,12 @@ module.exports = ({
 
       NewExpression: function(node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
-          ignoreRule = true;
+          noOfAllowedNodesVisited += 1;
         }
 
         // disallow GraphQLNonNull
         if (
-          ignoreRule === false &&
+          noOfAllowedNodesVisited === 0 &&
           node.callee.name === 'GraphQLNonNull' &&
           (node.parent.callee == null || node.parent.callee.name !== 'GraphQLList')
         ) {
@@ -66,7 +66,7 @@ module.exports = ({
       },
       'NewExpression:exit': function(node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
-          ignoreRule = false;
+          noOfAllowedNodesVisited -= 1;
         }
       },
     };

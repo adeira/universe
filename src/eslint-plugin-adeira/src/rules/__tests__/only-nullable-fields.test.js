@@ -44,6 +44,33 @@ ruleTester.run('only-nullable-fields', rule, {
     '({ fields: {} })',
     '({})',
     '({ ...{} })',
+    `
+      new GraphQLInputObjectType({
+        name: 'Response',
+        fields: {
+          user: {
+            type: new GraphQLNonNull(
+              new GraphQLInputObjectType({
+                name: 'User',
+                fields: {
+                  fullName: { type: new GraphQLNonNull(GraphQLString) },
+                },
+              }),
+            ),
+          },
+          message: {
+            type: new GraphQLNonNull(
+              new GraphQLInputObjectType({
+                name: 'SendCustomerServiceMailMessage',
+                fields: {
+                  language: { type: new GraphQLNonNull(GraphQLString) },
+                },
+              }),
+            ),
+          },
+        },
+      });
+    `,
   ],
 
   invalid: [
