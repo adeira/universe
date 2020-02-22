@@ -25,6 +25,22 @@ ruleTester.run('graphql-require-object-description', rule, {
       },
     });
   `,
+    `
+    export default new GraphQLInputObjectType({
+      name: 'CoordinatesInput',
+      description: 'Coordinates in decimal degrees, e.g. 41.390205 as latitude for Barcelona.',
+      fields: {
+        lat: {
+          type: new GraphQLNonNull(GraphQLFloat),
+          description: 'Latitude.',
+        },
+        lng: {
+          type: new GraphQLNonNull(GraphQLFloat),
+          description: 'Longitude.',
+        },
+      },
+    });
+    `,
   ],
 
   invalid: [
@@ -59,6 +75,21 @@ ruleTester.run('graphql-require-object-description', rule, {
   `,
       errors: [
         "Graph type 'TripSegment' name has no description. Every instance of 'GraphQLObjectType' has to include it to keep the graph well documented.",
+      ],
+    },
+    {
+      code: `
+          export default new GraphQLInputObjectType({
+            name: 'BookingQuery',
+            fields: {
+              bid: {
+                type: new GraphQLNonNull(GraphQLInt),
+              },
+            },
+          });
+      `,
+      errors: [
+        "Graph type 'BookingQuery' name has no description. Every instance of 'GraphQLInputObjectType' has to include it to keep the graph well documented.",
       ],
     },
   ],
