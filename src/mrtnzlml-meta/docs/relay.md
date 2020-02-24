@@ -111,6 +111,54 @@ Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 
 - https://github.com/graphql/graphql-js/pull/2318
 
+`@defer` directive is not really ready in GraphQL world (no matter what framework) but there is a different solution which you can use today. All you need is a refetch container and `@inline` directive. Let's say you want to fetch "note" lazily for some reason. Simply wrap the component into `createRefetchContainer` instead of `createFragmentContainer` and fetch some parts of the fragment conditionally like so:
+
+```js
+export const NoteContainer = createRefetchContainer(
+  NoteContainerWithoutData,
+  {
+    lead: graphql`
+      fragment NoteContainer_lead on Lead
+        @argumentDefinitions(isMounted: { type: "Boolean!", defaultValue: false }) {
+        id
+        ... @include(if: $isMounted) {
+          ...NoteEditor_lead
+          note
+        }
+      }
+    `,
+  },
+  graphql`
+    query NoteContainerDeferredQuery($isMounted: Boolean!, $id: ID!) {
+      lead: node(id: $id) {
+        ...NoteContainer_lead @arguments(isMounted: $isMounted)
+      }
+    }
+  `,
+);
+```
+
+Now, the only thing you have to do is to send the refetch query on mount and you are done:
+
+```js
+useEffect(() => {
+  // you can find `relay` in your props
+  relay.refetch(
+    {
+      isMounted: true,
+      id: lead.id,
+    },
+    undefined,
+    undefined,
+    {
+      fetchPolicy: 'store-or-network', // handy but not necessary
+    },
+  );
+}, [lead.id, relay]);
+```
+
+Kudos: https://relay-modern-course.now.sh/packages/11-simulating-defer/#2
+
 ## Custom Relay Compiler
 
 Most of the people are OK with the default OSS version of Relay Compiler. However, it can be sometimes beneficial to write your own Relay Compiler in order to achieve some advanced features (custom behavior or persisting queries to your server for example). Facebook also uses internally their own Relay Compiler implementation. Here is one example of "why" (source: https://github.com/facebook/relay/commit/f1e2e79462d593d73efb80727bc5dd56b1c43cf6#commitcomment-36337550).
