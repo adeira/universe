@@ -262,7 +262,71 @@ directive @relay_test_operation on QUERY | MUTATION | SUBSCRIPTION
 
 TKTK
 
-- https://github.com/facebook/relay/issues/2807#issuecomment-515690739
+Please note: Relay doesn't have any type information about scalar fields in the _normalization ASTs_ (whether the filed is plural, nullable, Integer or Float, etc). In these cases cases, Relay Payload Generator defaults to String (see: https://github.com/facebook/relay/issues/2807#issuecomment-515690739). This can be solved by using `@relay_test_operation` in your tests.
+
+Generated test payload _WITHOUT_ `@relay_test_operation` directive:
+
+```json
+{
+  "data": {
+    "node": {
+      "__typename": "Lead",
+      "id": "<mock-id-1>",
+      "lead_id": "<Lead-mock-id-2>",
+      "wasSeen": "<mock-value-for-field-\"wasSeen\">",
+      "note": "<mock-value-for-field-\"note\">",
+      "labels": [
+        {
+          "legacyID": "<Label-mock-id-3>",
+          "name": "<mock-value-for-field-\"name\">",
+          "id": "<Label-mock-id-4>"
+        }
+      ],
+      "organization": {
+        "__typename": "Organization",
+        "id": "<Organization-mock-id-5>"
+      },
+      "person": {
+        "__typename": "Person",
+        "id": "<Person-mock-id-6>"
+      },
+      "isArchived": "<mock-value-for-field-\"isArchived\">"
+    }
+  }
+}
+```
+
+Generated test payload _WITH_ `@relay_test_operation` directive (notice the highlighted changes):
+
+```json {5,7,24}
+{
+  "data": {
+    "node": {
+      "__typename": "Lead",
+      "id": "<Node-mock-id-1>", // additional `Node` type-
+      "lead_id": "<Lead-mock-id-2>",
+      "wasSeen": false,
+      "note": "<mock-value-for-field-\"note\">",
+      "labels": [
+        {
+          "legacyID": "<Label-mock-id-3>",
+          "name": "<mock-value-for-field-\"name\">",
+          "id": "<Label-mock-id-4>"
+        }
+      ],
+      "organization": {
+        "__typename": "Organization",
+        "id": "<Organization-mock-id-5>"
+      },
+      "person": {
+        "__typename": "Person",
+        "id": "<Person-mock-id-6>"
+      },
+      "isArchived": false
+    }
+  }
+}
+```
 
 ## @skip, @include
 
