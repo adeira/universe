@@ -115,7 +115,7 @@ https://www.typescriptlang.org/play/index.html#code/MYewdgzgLgBAZiEAuGBvAvjAvDA5
 ```js
 const React = require('react');
 
-function Component({defaultProp = "string"}) {
+function Component({ defaultProp = 'string' }) {
   return null;
 }
 
@@ -127,8 +127,8 @@ This is allowed even though some people would expect something like "Error, defa
 ### Spreads don't preserve read-only-ness
 
 ```js
-type A = {| +readOnlyKey: string |}
-type B = {| ...A, +otherKey: string |}
+type A = {| +readOnlyKey: string |};
+type B = {| ...A, +otherKey: string |};
 
 function test(x: B) {
   x.readOnlyKey = 'overwrite'; // no error ?
@@ -253,7 +253,7 @@ export default (new Logger(): Logger);
 ### Incorrect `JSON.stringify` output type
 
 ```ts
-const x = JSON.stringify(undefined)
+const x = JSON.stringify(undefined);
 x.toLowerCase();
 ```
 
@@ -275,7 +275,7 @@ Patterns like this one are fine from TS perspective:
 
 ```ts
 interface Foo {
-    [id: number]: string;
+  [id: number]: string;
 }
 const a: Foo = ['aaa', 'bbb', 'ccc'];
 ```
@@ -291,3 +291,60 @@ It's very easy to access and use global variables like `length` or `name` (simpl
 This is a common mistake even in large companies:
 
 > We have also been bitten by the 'name' thing at Google, and have also been considering patching it out of our lib.d.ts. I think the fix that behaves how TypeScript does is to split the standard library up further so that a project can opt in or out from the global declarations.
+
+### Too basic refinement
+
+This one is really frustrating. TS forces developers to write incorrect code because of the basic refinement. For [example](https://www.typescriptlang.org/play/?ssl=31&ssc=85&pln=31&pc=66#code/C4TwDgpgBANhCGATAIhY8CWMDOB5SAdhIgPrABO8AxgNYYEDmJcSAJIvOlALxQDeAKCjCo5BIgD2BGCCiRy2KQC4oACkEjNo8VJlQSZcBALwAthBUAiAAoQFUywG4hW4WKS7ZJ8yuwV6DFAAPlAEAK4wMM6aAL7B-C6u7pLSsgaghGYWUJYAMuK29gROiVrJnqFZvv6M8eGR0SJxIRquUAD0AFQAKgAWGNhQAO5YMKEQAG52UABG0ADkAKQSwL128wA0s2HAw9BExFCK5qWaE-AwYdD0UFTw2PtS0BIAZlCr0FRSVGLA0OeXCCDUycKi9AB0nXapxE5VS+kMmR8OWWH3IJViAEo6hEogIYs4BC8wgQqMAMFIoL17oVFAQAHJZEgARlU8jpKhYKDQmBw+GMxDIlFoAWY4nYnHgAG15uypPMALrYwQASAwbzZdjpAH5wekjN5oNxjVB5rT5cEQnKCLr9UijSb5vkkOaCPNlQIVSrfmFyAQ5FqpODDVAAIS8epRDrtKC4ADSWxmO1uElMYBgGDuf0QwwwqygIIIsgyQM9MU9Pr9UBeFweznLRJJZIp-up2FdjPMJAATJqipzxKh0Fg8IRBRRqHRGGK2Bx0DLrYqPWqNdbdW3cEMCNZyBJ5KBVPNDe7l960L7-dbg1kwxHcY5o1Ad3u7KBTceoJIgaEVlAIAAPAZdkpEtTT4bQPHhO1jCqFEVjWdEHxieYoEAPg3AApdssK3PKsaxwCB6wERtSXJSk2w7JkAGY+w5WBBx5Ed+SIUgJxFacuQledZUDN0lQSFc1GtKAADJhPfLIUJua1T0rS8eOvcxb1Ce9H3jRNkzzeZBgIX8hmpXYAElhngAhszUXpgGAMBsCUdp2j8ScJCmcgXhgCQhnBL5THaABHK4-BbbB2mZSiADZKO7ABOaL2nVABaGgIBAOL6DiiQZgAKwgMk0vIFKXnSrKcrbdyCDAXd9xARKQExLCz2AC9q1rAj8SI4kSJbKkaR4zsIBIAAWGjlDopAh15UcBRY4UpyYDi52lbiiiXfj1UEnjdRDcNlMiZVH2fSrxPMFCv2038AKAqAQKMMCIJSPRoMNKxUQQpwoGQtDMK9WSAyKBToC2yMHzsp8KtfWQjwkz8JG-HTdnOvxLv9UD5nAuF7sRGDkUsZ67Fe96MLq768LrVqgA):
+
+```ts
+type leadDetailsOpened_tracking_lead$data = {
+  readonly person:
+    | (
+        | {
+            readonly __typename: 'Person';
+            readonly name: string | null;
+          }
+        | {
+            readonly __typename: 'LeadPerson';
+            readonly name: string | null;
+          }
+        | {
+            /*This will never be '%other', but we need some
+        value in case none of the concrete values match.*/
+            readonly __typename: '%other';
+          }
+      )
+    | null;
+};
+
+function hasPersonName_1(person: leadDetailsOpened_tracking_lead$data['person']) {
+  if (person?.__typename === 'Person' || person?.__typename === 'LeadPerson') {
+    return person.name != null; // OK, but complicated with many types
+  }
+  return false;
+}
+
+function hasPersonName_2(person: leadDetailsOpened_tracking_lead$data['person']) {
+  if (person?.hasOwnProperty('name')) {
+    return person.name != null; // Property 'name' does not exist on type '{ readonly __typename: "%other"; }' 🤨
+  }
+  return false;
+}
+
+function hasPersonName_3(person: leadDetailsOpened_tracking_lead$data['person']) {
+  if (person && 'name' in person) {
+    return person.name != null; // OK, but it's not what I wanted (https://stackoverflow.com/questions/13632999/if-key-in-object-or-ifobject-hasownpropertykey)
+  }
+  return false;
+}
+
+function hasPersonName_4(person: leadDetailsOpened_tracking_lead$data['person']) {
+  if (person?.name != null) {
+    // Property 'name' does not exist on type '{ readonly __typename: "%other"; }' 🤨
+    return person.name != null; // Property 'name' does not exist on type '{ readonly __typename: "%other"; }' 🤨
+  }
+  return false;
+}
+```
+
+Explanation (with possible workaround): https://stackoverflow.com/a/59200046/12646420
