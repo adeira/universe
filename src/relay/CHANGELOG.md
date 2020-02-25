@@ -1,5 +1,7 @@
 # Unreleased
 
+- export `useMutation` from index.js
+
 ---
 
 Changelog before our fork:
