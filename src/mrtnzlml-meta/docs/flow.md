@@ -33,8 +33,12 @@ Showerthoughts:
 
 > A sound type system is one that is not lenient, in that it rejects all invalid programs plus some number of valid programs. A complete type system accepts all valid programs, and some invalid ones to boot. Which to pick?
 
+> A sound type system is one that ensures your program does not get into invalid states. For example, if an expression’s static type is string, at runtime, you are guaranteed only to get a string when you evaluate it.
+
 - https://eschew.wordpress.com/2009/08/31/sound-and-complete/
 - https://stackoverflow.com/a/21437375/3135248
+- https://blog.logrocket.com/is-typescript-worth-it
+- https://dart.dev/guides/language/sound-dart#what-is-soundness
 
 Please note: not everything can be expressed/modeled in your type system so you have to take into account also dynamic errors (division by zero or integer overflow) when writing your program.
 
