@@ -1,14 +1,12 @@
 // @flow
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 
 import useIsMountedRef from './useIsMountedRef';
 import useRelayEnvironment from './useRelayEnvironment';
 import { commitMutation, type MutationParameters } from '../mutations';
 import type { DeclarativeMutationConfig, GraphQLTaggedNode, Disposable } from '../types.flow';
 import type { RecordSourceSelectorProxy } from '../runtimeTypes.flow';
-
-opaque type SelectorData = $FlowFixMe;
 
 type HookMutationConfig<T: MutationParameters> = {|
   // This config is essentially `MutationConfig` type except there are some small differences
@@ -18,7 +16,7 @@ type HookMutationConfig<T: MutationParameters> = {|
   +onError?: (error: Error) => void,
   +optimisticResponse?: $ElementType<T, 'rawResponse'>,
   +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
-  +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
+  +updater?: ?(store: RecordSourceSelectorProxy, data: $ElementType<T, 'response'>) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
 |};
 
@@ -36,54 +34,62 @@ export default function useMutation<T: MutationParameters>(
   mutation: GraphQLTaggedNode,
 ): [(HookMutationConfig<T>) => Disposable, boolean] {
   const environment = useRelayEnvironment();
-  const [isPending, setPending] = useState(false);
-  const requestRef = useRef(null);
   const isMountedRef = useIsMountedRef();
+  const environmentRef = useRef(environment);
+  const mutationRef = useRef(mutation);
+  const inFlightMutationsRef = useRef(new Set());
+  const [isMutationInFlight, setMutationInFlight] = useState(false);
+
+  const cleanup = useCallback(
+    disposable => {
+      if (environmentRef.current === environment && mutationRef.current === mutation) {
+        inFlightMutationsRef.current.delete(disposable);
+        if (isMountedRef.current) {
+          setMutationInFlight(inFlightMutationsRef.current.size > 0);
+        }
+      }
+    },
+    [environment, isMountedRef, mutation],
+  );
+
+  useEffect(() => {
+    if (environmentRef.current !== environment || mutationRef.current !== mutation) {
+      inFlightMutationsRef.current = new Set();
+      if (isMountedRef.current) {
+        setMutationInFlight(false);
+      }
+      environmentRef.current = environment;
+      mutationRef.current = mutation;
+    }
+  }, [environment, isMountedRef, mutation]);
+
   const commit = useCallback(
     config => {
-      if (requestRef.current != null) {
-        return {
-          dispose: () => {
-            return undefined;
-          },
-        };
-      }
-      const relayDisposable = commitMutation<T>(environment, {
+      const disposable = commitMutation<T>(environment, {
         ...config,
         variables: config.variables ?? {},
         onCompleted: (response, errors) => {
-          if (!isMountedRef.current) {
-            return;
-          }
-          requestRef.current = null;
-          setPending(false);
+          cleanup(disposable);
           if (config.onCompleted != null) {
             config.onCompleted(response, errors);
           }
         },
         onError: (error: Error) => {
-          if (!isMountedRef.current) {
-            return;
-          }
-          requestRef.current = null;
-          setPending(false);
+          cleanup(disposable);
           if (config.onError != null) {
             config.onError(error);
           }
         },
         mutation,
       });
-      setPending(true);
-      requestRef.current = relayDisposable;
-      return {
-        dispose: () => {
-          relayDisposable.dispose();
-          requestRef.current = null;
-          setPending(false);
-        },
-      };
+      inFlightMutationsRef.current.add(disposable);
+      if (isMountedRef.current) {
+        setMutationInFlight(true);
+      }
+      return disposable;
     },
-    [environment, mutation, isMountedRef],
+    [cleanup, environment, isMountedRef, mutation],
   );
-  return [commit, isPending];
+
+  return [commit, isMutationInFlight];
 }
