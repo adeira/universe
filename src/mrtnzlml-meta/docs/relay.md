@@ -110,6 +110,8 @@ Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 ## Deferred results
 
 - https://github.com/graphql/graphql-js/pull/2318
+- https://github.com/graphql/graphql-js/pull/2319
+- https://gist.github.com/robrichard/f563fd272f65bdbe8742764f1a149b2b
 
 `@defer` directive is not really ready in GraphQL world (no matter what framework) but there is a different solution which you can use today. All you need is a refetch container and `@inline` directive. Let's say you want to fetch "note" lazily for some reason. Simply wrap the component into `createRefetchContainer` instead of `createFragmentContainer` and fetch some parts of the fragment conditionally like so:
 
