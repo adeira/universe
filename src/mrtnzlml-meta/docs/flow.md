@@ -44,6 +44,31 @@ Please note: not everything can be expressed/modeled in your type system so you 
 
 > Programmers dislike having the computer reject a program that would have run fine, simply because the computer couldn’t make sure it would run fine without actually running it. In short, restrictive type systems drive programmers to more flexible environments.
 
+## Type-safe filter function
+
+```js
+declare function filter<K, V, P: $Pred<1>, T: Array<V> | $ReadOnlyArray<V>>(
+  fn: P,
+  xs: T,
+): Array<$Refine<V, P, 1>>;
+
+const input: $ReadOnlyArray<number | string> = [1, 'a', 2, 3, 'b'];
+
+function isNumber(x: mixed): boolean %checks {
+  return typeof x === 'number';
+}
+
+// const result: $ReadOnlyArray<number> = input.filter(isNumber);
+//                                        ^ Cannot assign `input.filter(...)` to `result` because string [1] is incompatible with number [2] in array element.
+const result: $ReadOnlyArray<number> = input.filter(isNumber);
+
+const result_fixed: $ReadOnlyArray<number> = filter(isNumber, input);
+```
+
+[flow.org/try](https://flow.org/try/#0CYUwxgNghgTiAEAzArgOzAFwJYHtVKwgxBgB4BpAGngDVqAFALngBJ65hSBGAPmoBVmAQRgwoAT1I0e8AD6sASiCjAA8qgjiRYydJ4AKAFDwkqZvUrH4ADwDOzfpYCUw0RNIsliLKhBSG1Lw8ANyGhmB4thjwPgAOyBjMnspqGlpukqjIALYARiRy8FEwPgDmMgC88ADaXNQA5FD11ABM1ADMDbn1ALqhhijo2HgxtgByOfkw+tbM2VjWIMAu8Lk4OBDK+ACkYAAW4ADWtvAA3lZwGMgw+BjisSA4iDbwFW-w9Vl5JPWhAL5hCKoKLwOC2ZBEJJKFTqTTadxfKaVGKoeIYAB03iIJH0WHGkxITlCQJBYIhGAA+t5FsAoSlYekdKRESRkVjiNM8RNvjBqHEEkSgA)
+
+- https://github.com/facebook/flow/issues/1414
+
 ## Force type casting
 
 You may find yourself in a situation where you want to force cast some type despite it's originally defined differently. Example:
