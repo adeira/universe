@@ -23,6 +23,7 @@ Collection of interesting links, articles and project...
 ## B
 
 - [Babel Plugin "Ordering"](https://jamie.build/babel-plugin-ordering.html)
+- [Burnout in Software Development Demystified](https://thevaluable.dev/burnout-software-developer)
 
 ## C
 
