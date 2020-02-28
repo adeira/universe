@@ -239,6 +239,31 @@ fragment CommentFields on Comment {
 }
 ```
 
+> GraphQL doesn't support recursive fragments by design, as this could allow unbounded data-fetching. Relay goes a bit further and offers support for recursion, but it still has to be terminated - you can use @argumentDefinitions to define a boolean value that is used to conditionally include the same fragment, passing @arguments to change the condition. But the recursion still has to terminate statically - e.g. you can have a fixed number of levels of recursion.
+
+[source](https://github.com/facebook/relay/issues/1998#issuecomment-548147456)
+
+```js
+graphql`
+  fragment QuickActivities_recursive on Lead
+    @argumentDefinitions(recurse: { type: "Boolean", defaultValue: false }) {
+    id
+    ... @include(if: $recurse) {
+      ...QuickActivities_recursive
+    }
+  }
+`;
+
+export default createFragmentContainer(XYZ, {
+  lead: graphql`
+    fragment QuickActivities_lead on Lead {
+      id
+      ...QuickActivities_recursive @arguments(recurse: true)
+    }
+  `,
+});
+```
+
 ## Rate Limiting, Cost Computation
 
 So far the best idea I ever saw is this one: https://github.com/adeira/universe/blob/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size/semantics-and-complexity-of-graphql.pdf
