@@ -26,7 +26,7 @@ function _runJest(config, timezone = 'UTC') {
     }
   });
 
-  console.warn(`Running tests in timezone: ${timezone}`); // eslint-disable-line no-console
+  console.warn(`Running tests in timezone: ${process.env.TZ ?? timezone}`); // eslint-disable-line no-console
   return new ShellCommand(
     null,
     'node',
