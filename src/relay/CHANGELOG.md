@@ -1,5 +1,7 @@
 # Unreleased
 
+- Upgrade babel plugin relay
+
 # 1.1.0
 
 - export `useMutation` from index.js
