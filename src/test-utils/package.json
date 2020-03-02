@@ -4,10 +4,10 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/test-utils",
   "license": "MIT",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^1.0.0"
+    "@adeira/js": "^1.2.0"
   }
 }

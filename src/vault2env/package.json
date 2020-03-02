@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/vault2env",
   "license": "MIT",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "sideEffects": false,
   "bin": {
     "vault2env": "bin/index.js"
@@ -12,7 +12,7 @@
   "main": "src/index",
   "dependencies": {
     "@adeira/fetch": "^1.0.1",
-    "@adeira/js": "^1.0.0",
+    "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.1.0",
     "commander": "^4.1.1"
   },

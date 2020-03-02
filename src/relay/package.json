@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "src/index",
   "module": false,
   "sideEffects": false,
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@adeira/fetch": "^1.0.1",
-    "@adeira/js": "^1.0.0",
+    "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.1.0",
     "@adeira/monorepo-utils": "^0.4.0",
     "@adeira/relay-runtime": "^0.6.0",

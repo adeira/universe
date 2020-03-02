@@ -2,10 +2,63 @@
 # yarn lockfile v1
 
 
+"@adeira/flow-bin@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/flow-bin/-/flow-bin-0.1.0.tgz#61c26db2faf3e39d1daa9bc391d426ceb86132f1"
+  integrity sha512-56w9vCMDPOMgF3sycfaM8opud7eo2HyAObYsrdipAUuKYCQifEr/3v4sU1lAqBVXaozBzyw3xzVy4sUwVOLaVA==
+  dependencies:
+    "@adeira/js" "^0.1.0"
+    "@adeira/logger" "^0.1.0"
+    "@adeira/monorepo-utils" "^0.1.0"
+    "@babel/register" "^7.6.0"
+    chalk "^2.4.2"
+    is-ci "^2.0.0"
+
+"@adeira/graphql-global-id@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.4.0.tgz#898d75bda259b4f20e3c0e62ec23c43c15087fbe"
+  integrity sha512-yQBQg10i3CXohxfC40o4FRnIpJqBWMPof5XGv0ypoYOzydvXS5b+1eE0TD/0bM6Mcf6eUYnYeLV0hRc/iLwZtg==
+  dependencies:
+    "@adeira/js" "^0.2.0"
+
 "@adeira/js@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.1.0.tgz#c30444da2000cf545be7d3d99c800c3f3b234c12"
   integrity sha512-yBDdU8r2HRu8KRv/ogJIqeIUsFO8qh3G7D9qfRmyxgzlNdZfE6TTKoW5BQ8bvmMNDkpJa+pQfSvd+U91CYSx5g==
+
+"@adeira/js@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.2.0.tgz#cc1459af8c114af1536b7622a55dc3b905035d13"
+  integrity sha512-IoE5ScsGkabL3jrQ2mNdYwUYkwjUCHsfoV9/hOvOROwh4Y5CeoNlsNoFDKBBm5b5me8ttqwHY0lAT2LCqAP1tA==
+
+"@adeira/logger@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/logger/-/logger-0.1.0.tgz#8c1cce053c1eaf878ef358a09a2c750e2233542c"
+  integrity sha512-uUGZRSdOHL+Mrw4jZWbpWkJvBUoLCosO/sSE2sEF06MKecQyekeTAgzGyH/xsmgF6KSOAz+Q18+JYppojYiGEw==
+  dependencies:
+    "@adeira/js" "^0.1.0"
+    triple-beam "^1.3.0"
+    winston "^3.2.1"
+
+"@adeira/monorepo-utils@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.1.0.tgz#a342e580129d2dc7029b29654e245234e84e6306"
+  integrity sha512-LgwkjSkbYFmhYeiMPK2UFeADkFnMq3XkorS0eI8q1kxF6jcEqgJmI9b4xMt4xnEg/uKb+U/IjssIxWCU28H7UQ==
+  dependencies:
+    "@adeira/js" "^0.1.0"
+    "@babel/register" "^7.6.0"
+    glob "^7.1.5"
+    is-ci "^2.0.0"
+
+"@adeira/monorepo-utils@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.4.0.tgz#1c181ee143a07a682602f9adb61149a8cd7d760a"
+  integrity sha512-vQ/KQrWg1JIQ8BIGXG6f934CQBIFYdRYyLtWTMv/hFkcWr62bv4MITr/oNamaOD7ro43NegBfQfDJe9HRjDr3Q==
+  dependencies:
+    "@adeira/js" "^1.0.0"
+    "@babel/register" "^7.8.3"
+    glob "^7.1.6"
+    is-ci "^2.0.0"
 
 "@adeira/relay-runtime@^0.6.0":
   version "0.6.0"
@@ -14,6 +67,13 @@
   dependencies:
     "@adeira/js" "^1.0.0"
     relay-runtime "^9.0.0"
+
+"@adeira/test-utils@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.1.0.tgz#e0183470d29bc2799998e9a6e5df2476c49f73f2"
+  integrity sha512-mctDT9+t40+0PXk7nQq0xdTSvHS52J1bpmV36r/t6/0Rj7kQi2KB8UuFf68E8mVh2yQ9gYNUGByfYN69O3Bc9Q==
+  dependencies:
+    "@adeira/js" "^0.1.0"
 
 "@ampproject/toolbox-core@^2.0.0":
   version "2.0.0"
@@ -1115,7 +1175,7 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-typescript" "^7.7.2"
 
-"@babel/register@^7.7.4", "@babel/register@^7.8.6":
+"@babel/register@^7.6.0", "@babel/register@^7.7.4", "@babel/register@^7.8.3", "@babel/register@^7.8.6":
   version "7.8.6"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.8.6.tgz#a1066aa6168a73a70c35ef28cc5865ccc087ea69"
   integrity sha512-7IDO93fuRsbyml7bAafBQb3RcBGlCpU4hh5wADA2LJEEcYk92WkwFZ0pHyIi2fb5Auoz1714abETdZKCOxN0CQ==
@@ -6363,7 +6423,7 @@ glob-to-regexp@^0.4.1:
   resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.4.1.tgz#c75297087c851b9a578bd217dd59a92f59fe546e"
   integrity sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@~7.1.1:
+glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.5, glob@^7.1.6, glob@~7.1.1:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
