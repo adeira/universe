@@ -1,5 +1,7 @@
 # Unreleased
 
+# 1.1.2
+
 - Upgrade babel plugin relay
 
 # 1.1.0
