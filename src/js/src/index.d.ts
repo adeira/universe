@@ -1,3 +1,5 @@
+type Maybe<T> = null | undefined | T;
+
 declare module '@adeira/js' {
   export function invariant(condition: boolean, format: string, ...args: ReadonlyArray<any>): void;
 
@@ -9,9 +11,12 @@ declare module '@adeira/js' {
 
   export function isObjectEmpty(value: any): boolean;
 
-  export function nullthrows<T>(x?: T | null, message?: string): void;
+  export function nullthrows<T>(
+    x: Maybe<T>,
+    message?: string,
+  ): T extends null | undefined ? never : T;
 
-  export function sprintf(format: string, ...args: ReadonlyArray<any>): void;
+  export function sprintf(format: string, ...args: ReadonlyArray<any>): string;
 
   export function warning(condition: boolean, format: string, ...args: ReadonlyArray<any>): void;
 }
