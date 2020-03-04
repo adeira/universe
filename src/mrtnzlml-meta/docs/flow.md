@@ -526,3 +526,17 @@ https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 - https://gist.github.com/miyaokamarina/934887ac2aff863b9c73283acfb71cf0
 - https://flow.org/en/docs/types/utilities/#toc-call
 - https://github.com/niieani/typescript-vs-flowtype/issues/37
+
+> (jbrown215)
+> \$Call is a shitty syntax for conditional types, but it exists. You can use overloading to simulate the cases, so:
+
+```flow js
+type Fun = (number => string) & (string => number);
+type SwapNumberAndString<T: number | string> = $Call<Fun, T>;
+```
+
+Is approximately in TS:
+
+```ts
+type SwapNumberAndString<T extends number | string> = T extends number ? string : number;
+```

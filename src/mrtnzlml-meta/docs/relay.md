@@ -12,6 +12,7 @@ TODO:
 - `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
 - [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
+- HTTP persister example: https://github.com/facebook/relay/commit/aaa9588e081d3591ad8d043e924cacfadc06ec80
 - TODO: special `__id` field
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
