@@ -140,6 +140,12 @@ This applies to value spreads as well since they are creating a new object. It's
 
 ## Typescript shenanigans
 
+### Errors 😢👎
+
+By far the worst error message experience in any tool I use on daily basis:
+
+![typescript error example](/img/typescript-error.png)
+
 ### Exact types only on declaration
 
 Typescript types are exact by default but only on declaration. This means it [won't catch](https://typescript-play.js.org/#code/C4TwDgpgBAqgzhATlAvFA3gKClArgxAOwEMBbCALijmEQEtCBzAGmyglOLoBsqb6mmAL6ZMAYwD2hGngIBGKvCSoMbAHQb0spCXJUA5AA99UIcyjrN7TjwMgTZy2q2HXdh6xwhv78zgD0-lAAPKFQUtwgUMAAFnRwUABmXNxwwqKS0sDaiABMigQqWDgazjm6lFBGHhYlVhwp7qaeUKUublX2zelAA) cases like this:
