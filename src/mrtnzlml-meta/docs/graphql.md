@@ -115,7 +115,7 @@ Possible solutions recommended by FB (see the issue):
 - if the mutation / subscription is well scoped, fetch only what changed
 - if not, refer to UI fragments in the mutations/subscriptions so that you fetch everything you might need (potential overfetch)
 
-Typical example for the second case is when you have "create" mutation but you need to display this new element somewhere in the list. What fields should you query to fulfill the list requirements?
+Typical example for the second case is when you have "create" mutation but you need to display this new element somewhere in the list. What fields should you query to fulfill the list requirements? This topic is further elaborated here (specifically "Staleness of Data"): https://relay.dev/docs/en/experimental/a-guided-tour-of-relay#availability-of-cached-data
 
 ![GraphQL response overfetching example](/img/graphql-response-overfetching.png)
 
