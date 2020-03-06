@@ -108,6 +108,14 @@ While it's true that GraphQL improves over-fetching in comparison to REST API qu
    ```
 
 1. data is not being returned in a normalized response which means we are sending a lot of duplicates (list of leads and their labels - the same label is being send many many times), see: https://github.com/graphql/graphql-js/issues/150
+1. Under/over-fetching in GraphQL mutations (maybe Relay specific) https://github.com/facebook/relay/issues/1995
+
+Possible solutions recommended by FB (see the issue):
+
+- if the mutation / subscription is well scoped, fetch only what changed
+- if not, refer to UI fragments in the mutations/subscriptions so that you fetch everything you might need (potential overfetch)
+
+Typical example for the second case is when you have "create" mutation but you need to display this new element somewhere in the list. What fields should you query to fulfill the list requirements?
 
 ![GraphQL response overfetching example](/img/graphql-response-overfetching.png)
 
