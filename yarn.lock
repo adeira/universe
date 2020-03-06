@@ -1430,12 +1430,12 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@kiwicom/orbit-components@^0.76.0":
-  version "0.76.0"
-  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.76.0.tgz#62618f904d02c84485ebf10255bbb8e735125095"
-  integrity sha512-yu+fB+Ya0peesJCIkeNNtfdJ1k1tkVOO+OkvrCRBeDETdNN9zrscMgkaQ/jKYDME94fASA/jnebyo+mpfwFKSQ==
+"@kiwicom/orbit-components@^0.77.0":
+  version "0.77.0"
+  resolved "https://registry.yarnpkg.com/@kiwicom/orbit-components/-/orbit-components-0.77.0.tgz#525ec0a83e7f2fa9c6608d0efe56af59eba8f6ae"
+  integrity sha512-fzHr9eLbh7I2jqmSVP8advLYzVx8B0q10EKoPrt87RCDJc8BIPVvQxgG0PZjBsj7jUpnDaIwpZ0XTAhe7nXvYA==
   dependencies:
-    "@adeira/js" "^0.1.0"
+    "@adeira/js" "^1.2.1"
     "@kiwicom/orbit-design-tokens" "~0.8.0"
 
 "@kiwicom/orbit-design-tokens@~0.8.0":
