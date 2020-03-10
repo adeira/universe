@@ -9100,10 +9100,10 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next-transpile-modules@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-3.0.2.tgz#b289698d453bb7346fd768da171b53a740bfe436"
-  integrity sha512-w3WsyxvkJ3ws16InHwXhlDaOyG6Peo4co9U2sVBMePwEDo9r3SsbzX7p43sLUTYbpuA2t9iwJoCXkj/4BuD3Qw==
+next-transpile-modules@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-3.1.0.tgz#1d69ab34ad62d1ae6c601acc04aa5b25f14d8375"
+  integrity sha512-3XKIeAyvVcrVHYmXpPcTIFgO7kVagbcMr+BFYe08CwlRgDS3VsPcfyq5shDv6L+72yoE+2Cbcxg4QT1jtE0P1A==
   dependencies:
     micromatch "^4.0.2"
     slash "^3.0.0"
