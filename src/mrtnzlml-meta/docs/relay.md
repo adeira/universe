@@ -321,9 +321,17 @@ if (__DEV__) {
 }
 ```
 
-## Common Relay problems
+## Common Relay problems (from user perspective)
 
-- not using fragments correctly (data-masking misunderstanding)
+- users are not using fragments correctly (data-masking misunderstanding)
 - incorrect environment imports (not using the right Environment instance)
 
 TKTK
+
+## Common Relay errors explained
+
+### Relay does not allow `__typename` field on Query, Mutation or Subscription
+
+> Rather than special-case the representation of the root of the graph, Relay generates a "client" record to represent the Query and mutation/subscription objects. Like all other record instances those records have a **typename, but we special-case this typename to be 'ROOT'. Querying for the **typename field would overwrite this value with the actual typename (e.g. Query or whatever you call it in your schema), which messes with a few invariants. It's on our wishlist to make the root record a bit less special, but in practice we couldn't think of a reason to query \_\_typename on the root so we just disallow it for now.
+
+- https://github.com/facebook/relay/commit/793729e7af9c7ee0de971e3d2ed26e5896774640#commitcomment-37652508
