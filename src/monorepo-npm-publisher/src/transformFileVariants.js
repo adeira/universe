@@ -11,9 +11,8 @@ export default function transformFileVariants(
   transpileESM: boolean,
 ): void {
   const getBabelConfig = (target: 'js' | 'js-esm' | 'flow') => {
-    // TODO: load Babel config from the packages instead (if exists)
     return {
-      root: __dirname, // do not lookup any other Babel config
+      rootMode: 'upward',
       presets: [
         [
           '@adeira/babel-preset-adeira',

@@ -2,14 +2,14 @@
   "name": "@adeira/fetch",
   "private": false,
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/fetchWithRetries",
   "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/adeira/universe/tree/master/src/fetch",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
-    "@adeira/js": "^1.0.0",
+    "@adeira/js": "^1.2.0",
     "cross-fetch": "^3.0.4"
   },
   "devDependencies": {

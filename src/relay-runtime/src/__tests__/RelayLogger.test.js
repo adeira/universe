@@ -39,6 +39,6 @@ it('logs in browser', () => {
     'font-weight:bold;',
     '[Relay 1] execute.start',
     'font-weight:normal',
-    ' - test 🔍',
+    ' - test 🔍 (13)',
   );
 });

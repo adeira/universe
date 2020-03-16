@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/monorepo-utils",
   "license": "MIT",
   "private": false,
-  "version": "0.4.0",
+  "version": "0.6.0",
   "main": "src/index",
   "sideEffects": false,
   "engines": {
@@ -15,8 +15,8 @@
     "monorepo-run-tests": "bin/monorepo-run-tests.js"
   },
   "dependencies": {
-    "@babel/register": "^7.8.3",
-    "@adeira/js": "^1.0.0",
+    "@babel/register": "^7.8.6",
+    "@adeira/js": "^1.2.0",
     "glob": "^7.1.6",
     "is-ci": "^2.0.0"
   }

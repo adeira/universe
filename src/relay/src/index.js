@@ -21,6 +21,7 @@ import readInlineData from './readInlineData';
 import RelayEnvironmentProvider from './RelayEnvironmentProvider';
 import requestSubscription from './requestSubscription';
 import useRelayEnvironment from './hooks/useRelayEnvironment';
+import useMutation from './hooks/useMutation';
 
 module.exports = {
   createEnvironment,
@@ -46,6 +47,7 @@ module.exports = {
   // Experimental Relay-specific things (not officially released yet):
   RelayEnvironmentProvider,
   useRelayEnvironment,
+  useMutation,
 };
 
 export type { RelayProp } from './createFragmentContainer';
