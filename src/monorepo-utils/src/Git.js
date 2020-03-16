@@ -4,6 +4,30 @@ import os from 'os';
 
 import ShellCommand from './ShellCommand';
 
+/*::
+
+type DiffFilter =
+  | 'A' // added files
+  | 'C' // copied
+  | 'D' // deleted
+  | 'M' // modified
+  | 'R' // renamed
+  | 'T' // type of file changed
+  | 'U' // unmerged
+  | 'X' // unknown
+  | 'B' // broken pairing
+  | 'a' // lower case letter is negation to exclude such files
+  | 'c'
+  | 'd'
+  | 'm'
+  | 'r'
+  | 't'
+  | 'u'
+  | 'x'
+  | 'b'
+
+ */
+
 function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
   return changes.split(os.EOL).filter(row => row !== '');
 }
@@ -48,6 +72,18 @@ const Git = {
 
   getChangedFiles() /*: $ReadOnlyArray<string> */ {
     const rawChanges = git('diff', '--name-only', 'origin/master...HEAD');
+    return __parseRows(rawChanges);
+  },
+
+  getChangedFilesByFilter(
+    diffFilters /*: $ReadOnlyArray<DiffFilter> */,
+  ) /*: $ReadOnlyArray<string> */ {
+    const rawChanges = git(
+      'diff',
+      '--name-only',
+      'origin/master...HEAD',
+      `--diff-filter=${diffFilters.join('')}`,
+    );
     return __parseRows(rawChanges);
   },
 
