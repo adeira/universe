@@ -19,7 +19,9 @@ module.exports = ({
   create: function(context) {
     return {
       NewExpression: function(node) {
-        if (node.callee.name !== 'GraphQLObjectType') {
+        const instantiatedObject = node.callee.name;
+
+        if (!['GraphQLObjectType', 'GraphQLInputObjectType'].includes(instantiatedObject)) {
           return;
         }
 
@@ -45,9 +47,11 @@ module.exports = ({
           context.report({
             node,
             message:
-              "Graph type '{{type}}' name has no description. Every instance of 'GraphQLObjectType' has to include it to keep the graph well documented.",
+              "Graph type '{{type}}' name has no description. Every instance of " +
+              "'{{objectType}}' has to include it to keep the graph well documented.",
             data: {
               type: typeName,
+              objectType: instantiatedObject,
             },
           });
         }
