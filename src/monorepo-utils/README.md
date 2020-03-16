@@ -64,23 +64,28 @@ console.log(Array.from(workspaces)); // -> ['@kiwicom/workspace1', '@kiwicom/wor
 ```js
 import { Git } from '@adeira/monorepo-utils';
 
-// files with committed changes
+// All files with committed changes on current branch in comparison to origin/master
 Git.getChangedFiles();
 
-// files with changes staged for the next commit (via "git add")
+// Files with changes staged for the next commit (via "git add")
+// Example usage: custom pre-commit hook
+Git.getStagedChangedFiles();
+
+// BOTH changed files staged for commit and not staged files changed since last commit
 Git.getWorktreeChangedFiles();
+
+// All changed or not tracked files OR changes in last commit if current branch is origin/master
+// Example usage: CI script to validate changed files
+Git.getChangesToTest()
 
 // and more ...
 ```
 
-**Read carefully!** We assume that default branch is `origin/master` as it's common convention in Git. This is important to know because it may behave unpredictably when you call `getChangesToTest` and your default branch is _not_ master and/or your remote repository is not named `origin`. This is currently not configurable.
+**Read carefully!** We assume that default branch is `origin/master` as it's common convention in Git. This is important to know because it may behave unpredictably, e.g. when you call `Git.getChangesToTest()` and your default branch is _not_ master and/or your remote repository is not named `origin`. This is currently not configurable.
 
 ### `getChangedFiles`
 
-Besides usual methods on `Git`, there is also utility function `getChangedFiles`. How does that differ from `Git.getChangedFiles`?
-
-- `Git.getChangedFiles` is list of **committed** changed files in comparison to master
-- `getChangedFiles` gives you back a list of changed files depending on context - it's a list of changed files if the current branch is master OR list of changed files in your working branch as with `Git.getChangedFiles` plus all changed files that are still uncommitted. As this is usually the function you want to work within custom CI scripts, it also fails in CI environment on any uncommitted changes.
+Besides usual methods on `Git`, there is also utility function `getChangedFiles`. How does that differ from `Git.getChangedFiles`? `getChangedFiles` fails if CI environment is detected and there are any uncommitted changes. So in most cases you should rather prefer this to fail CI pipeline when some files are accidentally touched or created.
 
 ## Glob
 
