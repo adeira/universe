@@ -91,7 +91,6 @@ esproposal.nullish_coalescing=enable
 experimental.const_params=true
 
 experimental.types_first=false
-experimental.minimal_merge=true
 experimental.well_formed_exports=true
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-preset-adeira
 experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-adeira

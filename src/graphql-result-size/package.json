@@ -1,13 +1,13 @@
 {
   "name": "@adeira/graphql-result-size",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "This module provides an implementation of an algorithm that calculates the (exact) size of GraphQL response objects without actually producing the response.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-result-size",
   "private": false,
   "main": "src/index",
   "license": "MIT",
   "dependencies": {
-    "@adeira/js": "^1.0.0"
+    "@adeira/js": "^1.2.0"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.1.0"

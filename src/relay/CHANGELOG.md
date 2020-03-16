@@ -1,5 +1,13 @@
 # Unreleased
 
+# 1.1.3
+
+- Upgrade babel plugin relay
+
+# 1.1.0
+
+- export `useMutation` from index.js
+
 ---
 
 Changelog before our fork:
