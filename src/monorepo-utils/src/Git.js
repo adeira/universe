@@ -35,7 +35,12 @@ const Git = {
     return __parseRows(rawUntrackedChanges);
   },
 
-  // Returns uncommitted (but staged) changes from Git worktree.
+  getStagedChangedFiles() {
+    const rawWorktreeChanges = git('diff', '--name-only', '--cached');
+    return __parseRows(rawWorktreeChanges);
+  },
+
+  // Returns BOTH files staged for commit and not staged files changed since last commit
   getWorktreeChangedFiles() /*: $ReadOnlyArray<string> */ {
     const rawWorktreeChanges = git('diff', '--name-only', 'HEAD');
     return __parseRows(rawWorktreeChanges);
