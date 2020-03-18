@@ -1,7 +1,11 @@
-type Maybe<T> = null | undefined | T;
-
 declare module '@adeira/js' {
-  export function invariant(condition: boolean, format: string, ...args: ReadonlyArray<any>): void;
+  type Maybe<T> = null | undefined | T;
+
+  export function invariant(
+    condition: boolean,
+    format: string,
+    ...args: ReadonlyArray<any>
+  ): void;
 
   export function isBrowser(): boolean;
 
