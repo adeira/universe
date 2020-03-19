@@ -12,10 +12,10 @@
     "adeira-flow-migrate": "bin/migrate.js"
   },
   "dependencies": {
-    "@babel/register": "^7.9.0",
     "@adeira/js": "^1.2.0",
-    "@adeira/logger": "^0.1.0",
+    "@adeira/logger": "^0.2.0",
     "@adeira/monorepo-utils": "^0.6.0",
+    "@babel/register": "^7.9.0",
     "chalk": "^3.0.0",
     "is-ci": "^2.0.0"
   },

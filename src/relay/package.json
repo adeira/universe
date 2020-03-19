@@ -19,9 +19,9 @@
   "dependencies": {
     "@adeira/fetch": "^1.0.1",
     "@adeira/js": "^1.2.0",
-    "@adeira/logger": "^0.1.0",
+    "@adeira/logger": "^0.2.0",
     "@adeira/monorepo-utils": "^0.6.0",
-    "@adeira/relay-runtime": "^0.6.0",
+    "@adeira/relay-runtime": "^0.8.0",
     "@adeira/signed-source": "^0.1.0",
     "@babel/register": "^7.9.0",
     "babel-plugin-relay": "^9.0.0",
