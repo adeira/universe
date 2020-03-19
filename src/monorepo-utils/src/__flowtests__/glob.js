@@ -31,10 +31,10 @@ module.exports = {
     return glob('pattern', {}, () => {}, 'additional');
   },
   invalidConfig_1(): empty {
+    // $FlowExpectedError: root option must be string
     return glob(
       'pattern',
       {
-        // $FlowExpectedError: root option must be string
         root: true,
       },
       () => {},

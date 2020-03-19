@@ -5,7 +5,6 @@ import { handleData } from '../helpers';
 const jsonMock = jest.fn();
 const textMock = jest.fn();
 
-// $FlowExpectedError: incomplete Response object for testing purposes only
 const createResponse = getMockFunction => ({
   headers: {
     get: getMockFunction,
@@ -22,6 +21,7 @@ it('calls "text" method by default', () => {
   const headersGetMock = jest.fn();
   const response = createResponse(headersGetMock);
 
+  // $FlowExpectedError: incomplete Response object for testing purposes only
   handleData(response);
 
   expect(headersGetMock).toHaveBeenCalledWith('content-type');
@@ -33,6 +33,7 @@ it('calls "json" method when header "content-type" with value "application/json"
   const headersGetMock = jest.fn().mockImplementation(() => 'application/json');
   const response = createResponse(headersGetMock);
 
+  // $FlowExpectedError: incomplete Response object for testing purposes only
   handleData(response);
 
   expect(headersGetMock).toHaveBeenCalledWith('content-type');

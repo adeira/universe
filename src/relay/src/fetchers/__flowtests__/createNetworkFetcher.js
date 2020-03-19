@@ -27,8 +27,8 @@ module.exports = {
     };
   },
   invalidXClient: () => {
+    // $FlowExpectedError: X-Client header should be string, not number
     return createNetworkFetcher('//localhost', {
-      // $FlowExpectedError: X-Client header should be string, not number
       'X-Client': 1,
     });
   },

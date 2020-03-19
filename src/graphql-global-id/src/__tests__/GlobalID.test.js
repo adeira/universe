@@ -28,6 +28,7 @@ function resolveField(
       undefined, // context
       // $FlowExpectedError: this is incomplete info only for test purposes
       {
+        // $FlowExpectedError: this is incomplete info only for test purposes
         parentType: {
           name: typename,
         },
@@ -118,8 +119,8 @@ Object {
   });
 
   it('throws error for original ID being "null"', () => {
-    // $FlowExpectedError: ID fetcher result should not be null
     const idFetcher = () => null;
+    // $FlowExpectedError: ID fetcher should not return null (testing purposes only)
     const field = GlobalID(idFetcher);
     const error = catchError(() => resolveField(field));
     expect(error).toBeInstanceOf(Error);
@@ -128,8 +129,8 @@ Object {
   });
 
   it('throws error for original ID being "undefined"', () => {
-    // $FlowExpectedError: ID fetcher result should nto be undefined
     const idFetcher = () => undefined;
+    // $FlowExpectedError: ID fetcher should not return undefined (testing purposes only)
     const field = GlobalID(idFetcher);
     const error = catchError(() => resolveField(field));
     expect(error).toBeInstanceOf(Error);
