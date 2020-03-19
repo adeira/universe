@@ -13,10 +13,10 @@
   "dependencies": {
     "@adeira/fetch": "^1.0.1",
     "@adeira/js": "^1.2.0",
-    "@adeira/logger": "^0.1.0",
+    "@adeira/logger": "^0.2.0",
     "commander": "^5.0.0"
   },
   "devDependencies": {
-    "@adeira/test-utils": "^0.1.0"
+    "@adeira/test-utils": "^0.2.0"
   }
 }

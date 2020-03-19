@@ -12,9 +12,9 @@
     "chalk": "^3.0.0"
   },
   "devDependencies": {
-    "@adeira/test-utils": "^0.1.0",
-    "strip-ansi": "^6.0.0",
-    "graphql": "^14.6.0"
+    "@adeira/test-utils": "^0.2.0",
+    "graphql": "^14.6.0",
+    "strip-ansi": "^6.0.0"
   },
   "peerDependencies": {
     "graphql": "^14.6.0"
