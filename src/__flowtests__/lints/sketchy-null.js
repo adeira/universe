@@ -1,25 +1,25 @@
 // @flow strict
 
-// $FlowExpectedError: sketchy-null-bool
 const a: ?boolean = true;
+// $FlowExpectedError: sketchy-null-bool
 if (a) {
   // sketchy because "a" could be either null or false
 }
 
-// $FlowExpectedError: sketchy-null-number
 const b: ?number = 5;
+// $FlowExpectedError: sketchy-null-number
 if (b) {
   // sketchy because "b" could be either null or 0
 }
 
-// $FlowExpectedError: sketchy-null-string
 const c: ?string = 'ok';
+// $FlowExpectedError: sketchy-null-string
 if (c) {
   // sketchy because "c" could be either null or ""
 }
 
-// $FlowExpectedError: sketchy-null-mixed
 const d: ?mixed = new Date();
+// $FlowExpectedError: sketchy-null-mixed
 if (d) {
   // sketchy because "d" could be either null or falsey
 }
