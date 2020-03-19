@@ -140,6 +140,7 @@ module.exports = {
   },
   invalidCacheConfig() {
     return (
+      // $FlowExpectedError: this cache config is not valid
       <QueryRenderer
         query={graphql`
           query QueryRenderer {
@@ -147,13 +148,13 @@ module.exports = {
           }
         `}
         onResponse={placeholder}
-        // $FlowExpectedError: this cache config is not valid
         cacheConfig={{ invalid: 'ups' }}
       />
     );
   },
   invalidVariablesValue() {
     return (
+      // $FlowExpectedError: variables can be object or undefined but nothing else
       <QueryRenderer
         query={graphql`
           query QueryRenderer {
@@ -161,7 +162,6 @@ module.exports = {
           }
         `}
         onResponse={placeholder}
-        // $FlowExpectedError: variables can be object or undefined but nothing else
         variables={null}
       />
     );

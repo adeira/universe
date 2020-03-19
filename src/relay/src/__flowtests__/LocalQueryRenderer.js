@@ -53,11 +53,11 @@ module.exports = {
   },
   invalidVariablesValue() {
     return (
+      // $FlowExpectedError: Cannot create LocalQueryRenderer element because null is incompatible with Variables.
       <LocalQueryRenderer
         environment={environment}
         query={query}
         render={placeholder}
-        // $FlowExpectedError: Cannot create LocalQueryRenderer element because null is incompatible with Variables.
         variables={null}
       />
     );

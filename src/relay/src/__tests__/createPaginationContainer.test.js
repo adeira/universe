@@ -5,13 +5,12 @@ import * as React from 'react';
 import createPaginationContainer from '../createPaginationContainer';
 
 class MockComponent extends React.Component<{||}> {}
-// $FlowExpectedError: we do not need the connection config here
-const connectionConfig = {};
 
 it('throws when used with empty fragment spec', () => {
   let error = new Error();
   try {
-    createPaginationContainer(MockComponent, {}, connectionConfig);
+    // $FlowExpectedError: we do not need the connection config here
+    createPaginationContainer(MockComponent, {}, {});
   } catch (_error) {
     error = _error;
   }

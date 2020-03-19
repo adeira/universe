@@ -68,19 +68,18 @@ module.exports = {
     });
   },
   invalidVariables() {
-    // $FlowExpectedError: passed variables are incorrect
     return commitMutation<NamedMutation>(environment, {
       mutation,
+      // $FlowExpectedError: passed variables are incorrect
       variables: { someNumber: '123' },
     });
   },
   invalidOnCompletedType() {
-    // $FlowExpectedError: response type differs from onCompleted declaration
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
-      // eslint-disable-next-line no-unused-vars
-      onCompleted: (response: {||}) => {},
+      // $FlowExpectedError: response type differs from onCompleted declaration
+      onCompleted: (response: {||}) => {}, // eslint-disable-line no-unused-vars
     });
   },
   invalidAsyncMutation() {
