@@ -1194,9 +1194,10 @@ var BoldTodoRenderer = React.lazy(function () {
 });
 
 module.exports = function MyComponent() {
-  return React.createElement(React.Suspense, {
-    fallback: React.createElement("div", null, "Loading...")
-  }, React.createElement(BoldTodoRenderer, null));
+  return (/*#__PURE__*/React.createElement(React.Suspense, {
+      fallback: /*#__PURE__*/React.createElement("div", null, "Loading...")
+    }, /*#__PURE__*/React.createElement(BoldTodoRenderer, null))
+  );
 };
 `;
 
@@ -1279,9 +1280,10 @@ var BoldTodoRenderer = React.lazy(function () {
 });
 
 module.exports = function MyComponent() {
-  return React.createElement(React.Suspense, {
-    fallback: React.createElement("div", null, "Loading...")
-  }, React.createElement(BoldTodoRenderer, null));
+  return (/*#__PURE__*/React.createElement(React.Suspense, {
+      fallback: /*#__PURE__*/React.createElement("div", null, "Loading...")
+    }, /*#__PURE__*/React.createElement(BoldTodoRenderer, null))
+  );
 };
 `;
 
@@ -1715,7 +1717,8 @@ exports.default = Component;
 var React = function React() {};
 
 function Component() {
-  return React.createElement(React.Fragment, null, React.createElement("div", null, "aaa"), React.createElement("div", null, "bbb"));
+  return (/*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "aaa"), /*#__PURE__*/React.createElement("div", null, "bbb"))
+  );
 }
 `;
 
@@ -1768,7 +1771,8 @@ export default function Component(): empty {
 var React = function React() {};
 
 export default function Component() {
-  return React.createElement(React.Fragment, null, React.createElement("div", null, "aaa"), React.createElement("div", null, "bbb"));
+  return (/*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "aaa"), /*#__PURE__*/React.createElement("div", null, "bbb"))
+  );
 }
 `;
 
