@@ -15,7 +15,7 @@
     "monorepo-run-tests": "bin/monorepo-run-tests.js"
   },
   "dependencies": {
-    "@babel/register": "^7.8.6",
+    "@babel/register": "^7.9.0",
     "@adeira/js": "^1.2.0",
     "glob": "^7.1.6",
     "is-ci": "^2.0.0"
