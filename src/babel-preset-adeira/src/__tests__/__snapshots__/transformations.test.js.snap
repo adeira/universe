@@ -1898,9 +1898,9 @@ module.exports = function(a: ?{ +[string]: any, ... }): string {
 "use strict";
 
 module.exports = function (a) {
-  var _ref;
+  var _a$b;
 
-  return (_ref = a === null || a === void 0 ? void 0 : a.b) !== null && _ref !== void 0 ? _ref : 'default';
+  return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
 };
 `;
 
@@ -1930,9 +1930,9 @@ module.exports = function(a: ?{ +[string]: any, ... }): string {
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 module.exports = function (a) {
-  var _ref;
+  var _a$b;
 
-  return (_ref = a === null || a === void 0 ? void 0 : a.b) !== null && _ref !== void 0 ? _ref : 'default';
+  return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
 };
 `;
 
