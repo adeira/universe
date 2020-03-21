@@ -8,7 +8,7 @@
   "main": "src/index",
   "dependencies": {
     "@adeira/js": "^1.2.0",
-    "@babel/runtime": "^7.9.0",
+    "@babel/runtime": "^7.9.2",
     "triple-beam": "^1.3.0",
     "winston": "^3.2.1"
   }
