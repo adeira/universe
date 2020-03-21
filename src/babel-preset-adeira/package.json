@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@adeira/monorepo-utils": "^0.6.0",
-    "@adeira/test-utils": "^0.2.0",
+    "@adeira/test-utils": "^0.5.0",
     "strip-ansi": "^6.0.0"
   },
   "peerDependencies": {

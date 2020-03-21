@@ -34,6 +34,7 @@ type OperationOutput = any | Promise<any>;
 export default function generateTestsFromFixtures( // eslint-disable-line jest/no-export
   fixturesPath: string,
   operation: (input: string) => OperationOutput,
+  snapshotName?: string,
 ): void {
   const fs = require('fs');
   const path = require('path');
@@ -58,12 +59,21 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
   test.each(fixtures)('matches expected output: %s', async file => {
     const input = fs.readFileSync(path.join(fixturesPath, file), 'utf8');
     const output = await getOutputForFixture(input, operation, file);
-    expect({
-      // $FlowIssue: https://github.com/facebook/flow/issues/3258
-      [FIXTURE_TAG]: true,
-      input: input,
-      output: output,
-    }).toMatchSnapshot();
+    if (snapshotName != null) {
+      expect({
+        // $FlowIssue: https://github.com/facebook/flow/issues/3258
+        [FIXTURE_TAG]: true,
+        input: input,
+        output: output,
+      }).toMatchSnapshot(snapshotName);
+    } else {
+      expect({
+        // $FlowIssue: https://github.com/facebook/flow/issues/3258
+        [FIXTURE_TAG]: true,
+        input: input,
+        output: output,
+      }).toMatchSnapshot();
+    }
   });
 }
 

@@ -17,6 +17,6 @@
     "commander": "^5.0.0"
   },
   "devDependencies": {
-    "@adeira/test-utils": "^0.2.0"
+    "@adeira/test-utils": "^0.5.0"
   }
 }

@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: async-function.js 1`] = `
+exports[`matches expected output: async-function.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable no-return-await */
+
+export default async function test(): Promise<string> {
+  return await 'this';
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable no-return-await */
+
+export default async function test(): Promise<string> {
+  return await 'this';
+}
+`;
+
+exports[`matches expected output: async-function.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -52,27 +72,7 @@ function _test() {
 }
 `;
 
-exports[`matches expected output: async-function.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable no-return-await */
-
-export default async function test(): Promise<string> {
-  return await 'this';
-}
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable no-return-await */
-
-export default async function test(): Promise<string> {
-  return await 'this';
-}
-`;
-
-exports[`matches expected output: async-function.js 3`] = `
+exports[`matches expected output: async-function.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -114,7 +114,45 @@ function _test() {
 }
 `;
 
-exports[`matches expected output: babel-issue-8417.js 1`] = `
+exports[`matches expected output: babel-issue-8417.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+// See: https://github.com/babel/babel/issues/8417
+
+class Foo {
+  constructor() {
+    this.a = 5;
+  }
+}
+
+class Bar extends Foo {
+  a: number;
+}
+
+const bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+// See: https://github.com/babel/babel/issues/8417
+
+class Foo {
+  constructor() {
+    this.a = 5;
+  }}
+
+
+class Bar extends Foo {
+  a: number;}
+
+
+const bar = new Bar();
+console.log(bar.a); // should return 5, not undefined
+`;
+
+exports[`matches expected output: babel-issue-8417.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -174,45 +212,7 @@ var bar = new Bar();
 console.log(bar.a); // should return 5, not undefined
 `;
 
-exports[`matches expected output: babel-issue-8417.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-// See: https://github.com/babel/babel/issues/8417
-
-class Foo {
-  constructor() {
-    this.a = 5;
-  }
-}
-
-class Bar extends Foo {
-  a: number;
-}
-
-const bar = new Bar();
-console.log(bar.a); // should return 5, not undefined
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-// See: https://github.com/babel/babel/issues/8417
-
-class Foo {
-  constructor() {
-    this.a = 5;
-  }}
-
-
-class Bar extends Foo {
-  a: number;}
-
-
-const bar = new Bar();
-console.log(bar.a); // should return 5, not undefined
-`;
-
-exports[`matches expected output: babel-issue-8417.js 3`] = `
+exports[`matches expected output: babel-issue-8417.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -267,7 +267,29 @@ var bar = new Bar();
 console.log(bar.a); // should return 5, not undefined
 `;
 
-exports[`matches expected output: babel-issue-8684.js 1`] = `
+exports[`matches expected output: babel-issue-8684.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+// SEE: https://github.com/babel/babel/issues/8684
+/* eslint-disable */
+
+const aaa = 1;
+
+// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+const bbb: string = aaa;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+// SEE: https://github.com/babel/babel/issues/8684
+/* eslint-disable */
+
+const aaa = 1;
+
+// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+const bbb: string = aaa;
+`;
+
+exports[`matches expected output: babel-issue-8684.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
@@ -289,29 +311,7 @@ var aaa = 1; // $FlowExpectedError: this line should stay here because \`aaa\` i
 var bbb = aaa;
 `;
 
-exports[`matches expected output: babel-issue-8684.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-// SEE: https://github.com/babel/babel/issues/8684
-/* eslint-disable */
-
-const aaa = 1;
-
-// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
-const bbb: string = aaa;
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-// SEE: https://github.com/babel/babel/issues/8684
-/* eslint-disable */
-
-const aaa = 1;
-
-// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
-const bbb: string = aaa;
-`;
-
-exports[`matches expected output: babel-issue-8684.js 3`] = `
+exports[`matches expected output: babel-issue-8684.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 // SEE: https://github.com/babel/babel/issues/8684
@@ -331,32 +331,7 @@ var aaa = 1; // $FlowExpectedError: this line should stay here because \`aaa\` i
 var bbb = aaa;
 `;
 
-exports[`matches expected output: babel-issue-9514.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
-
-// See: https://github.com/babel/babel/issues/9514
-
-type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
-
-// prettier-ignore
-export type $RelayProps<Props, RelayPropT> = $ObjMap<
-  $Diff<Props, { relay: RelayPropT | void, ... }>,
-  (<T: () => void>( T) =>  T) &
-  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
-  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
-  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
-  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
-  (<T>(T) => T)
->
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-`;
-
-exports[`matches expected output: babel-issue-9514.js 2`] = `
+exports[`matches expected output: babel-issue-9514.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -397,7 +372,32 @@ $Diff<Props, { relay: RelayPropT | void, ...}>,
 <T>(T) => T)>;
 `;
 
-exports[`matches expected output: babel-issue-9514.js 3`] = `
+exports[`matches expected output: babel-issue-9514.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// See: https://github.com/babel/babel/issues/9514
+
+type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
+
+// prettier-ignore
+export type $RelayProps<Props, RelayPropT> = $ObjMap<
+  $Diff<Props, { relay: RelayPropT | void, ... }>,
+  (<T: () => void>( T) =>  T) &
+  (<T: { +$refType: any, ... }>( T) =>  $FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>(?T) => ?$FragmentRef<T>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray< T>) =>  $ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray< T>) => ?$ReadOnlyArray< $FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>( $ReadOnlyArray<?T>) =>  $ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T: { +$refType: any, ... }>(?$ReadOnlyArray<?T>) => ?$ReadOnlyArray<?$FragmentRef<T>>) &
+  (<T>(T) => T)
+>
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+`;
+
+exports[`matches expected output: babel-issue-9514.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -422,47 +422,7 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
 
 `;
 
-exports[`matches expected output: babel-issue-9810.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
-
-// See: https://github.com/babel/babel/issues/9810
-
-/*:: type TestType = any; */
-
-const executeNodeScript = (
-  aaa /*: string */,
-  bbb /*: number */,
-  ccc /*: any */,
-) /*: TestType */ => {
-  return [aaa, bbb, ccc];
-};
-
-const supportsESM = (target: string) /*: boolean %checks */ => {
-  return target === 'js-esm';
-};
-
-module.exports = { executeNodeScript, supportsESM };
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-// See: https://github.com/babel/babel/issues/9810
-var executeNodeScript = function executeNodeScript(aaa, bbb, ccc) {
-  return [aaa, bbb, ccc];
-};
-
-var supportsESM = function supportsESM(target) {
-  return target === 'js-esm';
-};
-
-module.exports = {
-  executeNodeScript: executeNodeScript,
-  supportsESM: supportsESM
-};
-`;
-
-exports[`matches expected output: babel-issue-9810.js 2`] = `
+exports[`matches expected output: babel-issue-9810.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -506,7 +466,47 @@ const supportsESM = (target: string): boolean %checks => {
 module.exports = { executeNodeScript, supportsESM };
 `;
 
-exports[`matches expected output: babel-issue-9810.js 3`] = `
+exports[`matches expected output: babel-issue-9810.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+// See: https://github.com/babel/babel/issues/9810
+
+/*:: type TestType = any; */
+
+const executeNodeScript = (
+  aaa /*: string */,
+  bbb /*: number */,
+  ccc /*: any */,
+) /*: TestType */ => {
+  return [aaa, bbb, ccc];
+};
+
+const supportsESM = (target: string) /*: boolean %checks */ => {
+  return target === 'js-esm';
+};
+
+module.exports = { executeNodeScript, supportsESM };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+// See: https://github.com/babel/babel/issues/9810
+var executeNodeScript = function executeNodeScript(aaa, bbb, ccc) {
+  return [aaa, bbb, ccc];
+};
+
+var supportsESM = function supportsESM(target) {
+  return target === 'js-esm';
+};
+
+module.exports = {
+  executeNodeScript: executeNodeScript,
+  supportsESM: supportsESM
+};
+`;
+
+exports[`matches expected output: babel-issue-9810.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -544,7 +544,31 @@ module.exports = {
 };
 `;
 
-exports[`matches expected output: babel-issue-9921.js 1`] = `
+exports[`matches expected output: babel-issue-9921.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+#!/usr/bin/env node
+
+// @flow strict-local
+
+// See: https://github.com/babel/babel/issues/9921
+
+/* eslint-disable */
+
+new Set<() => void>([]);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+#!/usr/bin/env node
+
+// @flow strict-local
+
+// See: https://github.com/babel/babel/issues/9921
+
+/* eslint-disable */
+
+new Set<() => void>([]);
+`;
+
+exports[`matches expected output: babel-issue-9921.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 #!/usr/bin/env node
 
@@ -566,31 +590,7 @@ new Set<() => void>([]);
 new Set([]);
 `;
 
-exports[`matches expected output: babel-issue-9921.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-#!/usr/bin/env node
-
-// @flow strict-local
-
-// See: https://github.com/babel/babel/issues/9921
-
-/* eslint-disable */
-
-new Set<() => void>([]);
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-#!/usr/bin/env node
-
-// @flow strict-local
-
-// See: https://github.com/babel/babel/issues/9921
-
-/* eslint-disable */
-
-new Set<() => void>([]);
-`;
-
-exports[`matches expected output: babel-issue-9921.js 3`] = `
+exports[`matches expected output: babel-issue-9921.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 #!/usr/bin/env node
 
@@ -610,20 +610,7 @@ new Set<() => void>([]);
 new Set([]);
 `;
 
-exports[`matches expected output: babel-issue-10040.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-// Babel is currently losing \` ... \` while  tranpiling this type.
-// See: https://github.com/babel/babel/issues/10040
-
-export type ExplicitlyInexact = { foo: number, ... };
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-`;
-
-exports[`matches expected output: babel-issue-10040.js 2`] = `
+exports[`matches expected output: babel-issue-10040.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -641,7 +628,20 @@ export type ExplicitlyInexact = { foo: number, ... };
 export type ExplicitlyInexact = { foo: number, ...};
 `;
 
-exports[`matches expected output: babel-issue-10040.js 3`] = `
+exports[`matches expected output: babel-issue-10040.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel is currently losing \` ... \` while  tranpiling this type.
+// See: https://github.com/babel/babel/issues/10040
+
+export type ExplicitlyInexact = { foo: number, ... };
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+`;
+
+exports[`matches expected output: babel-issue-10040.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -654,7 +654,25 @@ export type ExplicitlyInexact = { foo: number, ... };
 
 `;
 
-exports[`matches expected output: babel-issue-10367.js 1`] = `
+exports[`matches expected output: babel-issue-10367.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// https://github.com/babel/babel/issues/10367
+// https://github.com/babel/babel/pull/10447
+
+const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+// https://github.com/babel/babel/issues/10367
+// https://github.com/babel/babel/pull/10447
+
+const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
+`;
+
+exports[`matches expected output: babel-issue-10367.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -687,25 +705,7 @@ var re = _wrapRegExp(/((?:[\\0-\\t\\x0B\\f\\x0E-\\u2027\\u202A-\\uD7FF\\uE000-\\
 }); // eslint-disable-line no-unused-vars
 `;
 
-exports[`matches expected output: babel-issue-10367.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-// https://github.com/babel/babel/issues/10367
-// https://github.com/babel/babel/pull/10447
-
-const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-// https://github.com/babel/babel/issues/10367
-// https://github.com/babel/babel/pull/10447
-
-const re = /(?<x>.*)/u; // eslint-disable-line no-unused-vars
-`;
-
-exports[`matches expected output: babel-issue-10367.js 3`] = `
+exports[`matches expected output: babel-issue-10367.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -730,7 +730,31 @@ var re = _wrapRegExp(/((?:[\\0-\\t\\x0B\\f\\x0E-\\u2027\\u202A-\\uD7FF\\uE000-\\
 }); // eslint-disable-line no-unused-vars
 `;
 
-exports[`matches expected output: bigint.js 1`] = `
+exports[`matches expected output: bigint.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const theBiggestInt = 9007199254740991n;
+
+const alsoHuge = BigInt(9007199254740991);
+// ↪ 9007199254740991n
+
+const hugeButString = BigInt('9007199254740991');
+// ↪ 9007199254740991n
+`;
+
+exports[`matches expected output: bigint.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -752,31 +776,7 @@ var alsoHuge = BigInt(9007199254740991); // ↪ 9007199254740991n
 var hugeButString = BigInt('9007199254740991'); // ↪ 9007199254740991n
 `;
 
-exports[`matches expected output: bigint.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-const theBiggestInt = 9007199254740991n;
-
-const alsoHuge = BigInt(9007199254740991);
-// ↪ 9007199254740991n
-
-const hugeButString = BigInt('9007199254740991');
-// ↪ 9007199254740991n
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-const theBiggestInt = 9007199254740991n;
-
-const alsoHuge = BigInt(9007199254740991);
-// ↪ 9007199254740991n
-
-const hugeButString = BigInt('9007199254740991');
-// ↪ 9007199254740991n
-`;
-
-exports[`matches expected output: bigint.js 3`] = `
+exports[`matches expected output: bigint.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -796,7 +796,27 @@ var alsoHuge = BigInt(9007199254740991); // ↪ 9007199254740991n
 var hugeButString = BigInt('9007199254740991'); // ↪ 9007199254740991n
 `;
 
-exports[`matches expected output: capturing-groups.js 1`] = `
+exports[`matches expected output: capturing-groups.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/*  eslint-disable no-console */
+
+const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
+
+console.log(re.exec('1999-02-29')?.groups?.year);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/*  eslint-disable no-console */
+
+const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
+
+console.log(re.exec('1999-02-29')?.groups?.year);
+`;
+
+exports[`matches expected output: capturing-groups.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -835,27 +855,7 @@ var re = _wrapRegExp(/([0-9]{4})\\x2D([0-9]{2})\\x2D([0-9]{2})/, {
 console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
 `;
 
-exports[`matches expected output: capturing-groups.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/*  eslint-disable no-console */
-
-const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
-
-console.log(re.exec('1999-02-29')?.groups?.year);
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-/*  eslint-disable no-console */
-
-const re = /(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2})/;
-
-console.log(re.exec('1999-02-29')?.groups?.year);
-`;
-
-exports[`matches expected output: capturing-groups.js 3`] = `
+exports[`matches expected output: capturing-groups.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -886,7 +886,24 @@ var re = _wrapRegExp(/([0-9]{4})\\x2D([0-9]{2})\\x2D([0-9]{2})/, {
 console.log((_re$exec = re.exec('1999-02-29')) === null || _re$exec === void 0 ? void 0 : (_re$exec$groups = _re$exec.groups) === null || _re$exec$groups === void 0 ? void 0 : _re$exec$groups.year);
 `;
 
-exports[`matches expected output: class-fields.js 1`] = `
+exports[`matches expected output: class-fields.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+export default class ClassFields {
+  publicField: number = 1;
+  #privateField: number = 2;
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+export default class ClassFields {
+  publicField: number = 1;
+  #privateField: number = 2;}
+`;
+
+exports[`matches expected output: class-fields.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -924,24 +941,7 @@ exports.default = ClassFields;
 var _privateField = new WeakMap();
 `;
 
-exports[`matches expected output: class-fields.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-export default class ClassFields {
-  publicField: number = 1;
-  #privateField: number = 2;
-}
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-export default class ClassFields {
-  publicField: number = 1;
-  #privateField: number = 2;}
-`;
-
-exports[`matches expected output: class-fields.js 3`] = `
+exports[`matches expected output: class-fields.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -970,42 +970,7 @@ var _privateField = new WeakMap();
 export { ClassFields as default };
 `;
 
-exports[`matches expected output: dev-expression.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable no-console */
-
-if (__DEV__) {
-  const dev = __DEV__ ? 'foo' : 'bar';
-  console.log(dev);
-
-  console.warn({
-    // this shouldn't change (valid object key):
-    __DEV__: 'value',
-
-    // this should change (replaceable __DEV__ value):
-    key: __DEV__,
-  });
-}
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-/* eslint-disable no-console */
-if (process.env.NODE_ENV !== "production") {
-  var dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
-  console.log(dev);
-  console.warn({
-    // this shouldn't change (valid object key):
-    __DEV__: 'value',
-    // this should change (replaceable __DEV__ value):
-    key: process.env.NODE_ENV !== "production"
-  });
-}
-`;
-
-exports[`matches expected output: dev-expression.js 2`] = `
+exports[`matches expected output: dev-expression.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1043,7 +1008,42 @@ if (__DEV__) {
 }
 `;
 
-exports[`matches expected output: dev-expression.js 3`] = `
+exports[`matches expected output: dev-expression.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable no-console */
+
+if (__DEV__) {
+  const dev = __DEV__ ? 'foo' : 'bar';
+  console.log(dev);
+
+  console.warn({
+    // this shouldn't change (valid object key):
+    __DEV__: 'value',
+
+    // this should change (replaceable __DEV__ value):
+    key: __DEV__,
+  });
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable no-console */
+if (process.env.NODE_ENV !== "production") {
+  var dev = process.env.NODE_ENV !== "production" ? 'foo' : 'bar';
+  console.log(dev);
+  console.warn({
+    // this shouldn't change (valid object key):
+    __DEV__: 'value',
+    // this should change (replaceable __DEV__ value):
+    key: process.env.NODE_ENV !== "production"
+  });
+}
+`;
+
+exports[`matches expected output: dev-expression.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1076,7 +1076,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 `;
 
-exports[`matches expected output: dev-expression-abuse-1.error.js 1`] = `
+exports[`matches expected output: dev-expression-abuse-1.error.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1090,7 +1090,7 @@ THROWN EXCEPTION:
 Error: /mock/path/mockFile.js: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
 `;
 
-exports[`matches expected output: dev-expression-abuse-1.error.js 2`] = `
+exports[`matches expected output: dev-expression-abuse-1.error.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1104,7 +1104,7 @@ THROWN EXCEPTION:
 Error: /mock/path/mockFile.js: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
 `;
 
-exports[`matches expected output: dev-expression-abuse-1.error.js 3`] = `
+exports[`matches expected output: dev-expression-abuse-1.error.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1118,7 +1118,7 @@ THROWN EXCEPTION:
 Error: /mock/path/mockFile.js: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
 `;
 
-exports[`matches expected output: dev-expression-abuse-2.error.js 1`] = `
+exports[`matches expected output: dev-expression-abuse-2.error.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1134,7 +1134,7 @@ THROWN EXCEPTION:
 Error: /mock/path/mockFile.js: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
 `;
 
-exports[`matches expected output: dev-expression-abuse-2.error.js 2`] = `
+exports[`matches expected output: dev-expression-abuse-2.error.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1150,7 +1150,7 @@ THROWN EXCEPTION:
 Error: /mock/path/mockFile.js: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
 `;
 
-exports[`matches expected output: dev-expression-abuse-2.error.js 3`] = `
+exports[`matches expected output: dev-expression-abuse-2.error.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1166,53 +1166,7 @@ THROWN EXCEPTION:
 Error: /mock/path/mockFile.js: You are trying to re-declare __DEV__ virtual constant but that's illegal. This constant is being defined by our Babel preset.
 `;
 
-exports[`matches expected output: dynamic-import.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable */
-
-const React = require('react');
-
-const BoldTodoRenderer = React.lazy(() =>
-  import(
-    // $FlowExpectedError: cannot resolve module
-    './BoldTodoRenderer'
-  ),
-);
-
-module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
-  return (
-    <React.Suspense fallback={<div>Loading...</div>}>
-      <BoldTodoRenderer />
-    </React.Suspense>
-  );
-};
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
-
-var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
-
-/* eslint-disable */
-var React = require('react');
-
-var BoldTodoRenderer = React.lazy(function () {
-  return Promise.resolve().then(function () {
-    return (0, _interopRequireWildcard2.default)(require('./BoldTodoRenderer'));
-  });
-});
-
-module.exports = function MyComponent() {
-  return /*#__PURE__*/React.createElement(React.Suspense, {
-    fallback: /*#__PURE__*/React.createElement("div", null, "Loading...")
-  }, /*#__PURE__*/React.createElement(BoldTodoRenderer, null));
-};
-`;
-
-exports[`matches expected output: dynamic-import.js 2`] = `
+exports[`matches expected output: dynamic-import.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1258,7 +1212,53 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 };
 `;
 
-exports[`matches expected output: dynamic-import.js 3`] = `
+exports[`matches expected output: dynamic-import.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const React = require('react');
+
+const BoldTodoRenderer = React.lazy(() =>
+  import(
+    // $FlowExpectedError: cannot resolve module
+    './BoldTodoRenderer'
+  ),
+);
+
+module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <BoldTodoRenderer />
+    </React.Suspense>
+  );
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
+
+/* eslint-disable */
+var React = require('react');
+
+var BoldTodoRenderer = React.lazy(function () {
+  return Promise.resolve().then(function () {
+    return (0, _interopRequireWildcard2.default)(require('./BoldTodoRenderer'));
+  });
+});
+
+module.exports = function MyComponent() {
+  return /*#__PURE__*/React.createElement(React.Suspense, {
+    fallback: /*#__PURE__*/React.createElement("div", null, "Loading...")
+  }, /*#__PURE__*/React.createElement(BoldTodoRenderer, null));
+};
+`;
+
+exports[`matches expected output: dynamic-import.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1297,25 +1297,7 @@ module.exports = function MyComponent() {
 };
 `;
 
-exports[`matches expected output: exponentiation-operator.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable */
-
-const x: number = (1 ** 2) ** (3 ** 4);
-
-console.warn(x);
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-/* eslint-disable */
-var x = Math.pow(Math.pow(1, 2), Math.pow(3, 4));
-console.warn(x);
-`;
-
-exports[`matches expected output: exponentiation-operator.js 2`] = `
+exports[`matches expected output: exponentiation-operator.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1335,7 +1317,25 @@ const x: number = (1 ** 2) ** 3 ** 4;
 console.warn(x);
 `;
 
-exports[`matches expected output: exponentiation-operator.js 3`] = `
+exports[`matches expected output: exponentiation-operator.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const x: number = (1 ** 2) ** (3 ** 4);
+
+console.warn(x);
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+/* eslint-disable */
+var x = Math.pow(Math.pow(1, 2), Math.pow(3, 4));
+console.warn(x);
+`;
+
+exports[`matches expected output: exponentiation-operator.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1351,7 +1351,39 @@ var x = Math.pow(Math.pow(1, 2), Math.pow(3, 4));
 console.warn(x);
 `;
 
-exports[`matches expected output: generator.js 1`] = `
+exports[`matches expected output: generator.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 20
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 20
+`;
+
+exports[`matches expected output: generator.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1403,39 +1435,7 @@ console.log(gen.next().value); // 10
 console.log(gen.next().value); // 20
 `;
 
-exports[`matches expected output: generator.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable */
-
-function* generator(i) {
-  yield i;
-  yield i + 10;
-}
-
-const gen = generator(10);
-
-console.log(gen.next().value); // 10
-console.log(gen.next().value); // 20
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable */
-
-function* generator(i) {
-  yield i;
-  yield i + 10;
-}
-
-const gen = generator(10);
-
-console.log(gen.next().value); // 10
-console.log(gen.next().value); // 20
-`;
-
-exports[`matches expected output: generator.js 3`] = `
+exports[`matches expected output: generator.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1483,26 +1483,7 @@ console.log(gen.next().value); // 10
 console.log(gen.next().value); // 20
 `;
 
-exports[`matches expected output: internal-slot-properties.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-// Babel-eslint currently fails on internal slot properties (this file is excluded in .eslintignore).
-// See: https://github.com/babel/babel-eslint/pull/777
-
-type F = {
-  (): string,
-  (x: boolean): string,
-  [[call]](x: number): string,
-  [[call]]: string => string,
-  ...,
-};
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-`;
-
-exports[`matches expected output: internal-slot-properties.js 2`] = `
+exports[`matches expected output: internal-slot-properties.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1530,7 +1511,26 @@ type F = {
   [[call]]: (string) => string, ...};
 `;
 
-exports[`matches expected output: internal-slot-properties.js 3`] = `
+exports[`matches expected output: internal-slot-properties.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+// Babel-eslint currently fails on internal slot properties (this file is excluded in .eslintignore).
+// See: https://github.com/babel/babel-eslint/pull/777
+
+type F = {
+  (): string,
+  (x: boolean): string,
+  [[call]](x: number): string,
+  [[call]]: string => string,
+  ...,
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+`;
+
+exports[`matches expected output: internal-slot-properties.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1549,7 +1549,19 @@ type F = {
 
 `;
 
-exports[`matches expected output: invariant-global.js 1`] = `
+exports[`matches expected output: invariant-global.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+invariant(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+invariant(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: invariant-global.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -1562,19 +1574,7 @@ invariant(Math.random(), 'This should stay AS IS!');
 invariant(Math.random(), 'This should stay AS IS!');
 `;
 
-exports[`matches expected output: invariant-global.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-invariant(Math.random(), 'This should stay AS IS!');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-invariant(Math.random(), 'This should stay AS IS!');
-`;
-
-exports[`matches expected output: invariant-global.js 3`] = `
+exports[`matches expected output: invariant-global.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -1585,7 +1585,27 @@ invariant(Math.random(), 'This should stay AS IS!');
 invariant(Math.random(), 'This should stay AS IS!');
 `;
 
-exports[`matches expected output: invariant-import.js 1`] = `
+exports[`matches expected output: invariant-import.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { invariant } from '@adeira/js';
+import { something } from 'else';
+
+invariant(Math.random(), 'You shall not pass!');
+invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { invariant } from '@adeira/js';
+import { something } from 'else';
+
+invariant(Math.random(), 'You shall not pass!');
+invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
+`;
+
+exports[`matches expected output: invariant-import.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -1607,27 +1627,7 @@ var _else = require("else");
 !Math.random() ? process.env.NODE_ENV !== "production" ? (0, _js.invariant)(false, 'You shall not pass %s!', 'Jerry') : (0, _js.invariant)(false) : void 0;
 `;
 
-exports[`matches expected output: invariant-import.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-import { invariant } from '@adeira/js';
-import { something } from 'else';
-
-invariant(Math.random(), 'You shall not pass!');
-invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-import { invariant } from '@adeira/js';
-import { something } from 'else';
-
-invariant(Math.random(), 'You shall not pass!');
-invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
-`;
-
-exports[`matches expected output: invariant-import.js 3`] = `
+exports[`matches expected output: invariant-import.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -1645,7 +1645,25 @@ import { something } from 'else';
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass %s!', 'Jerry') : invariant(false) : void 0;
 `;
 
-exports[`matches expected output: invariant-require.js 1`] = `
+exports[`matches expected output: invariant-require.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { invariant } = require('@adeira/js');
+
+invariant(Math.random(), 'You shall not pass!');
+invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { invariant } = require('@adeira/js');
+
+invariant(Math.random(), 'You shall not pass!');
+invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
+`;
+
+exports[`matches expected output: invariant-require.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -1665,25 +1683,7 @@ var _require = require('@adeira/js'),
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass %s!', 'Jerry') : invariant(false) : void 0;
 `;
 
-exports[`matches expected output: invariant-require.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-const { invariant } = require('@adeira/js');
-
-invariant(Math.random(), 'You shall not pass!');
-invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-const { invariant } = require('@adeira/js');
-
-invariant(Math.random(), 'You shall not pass!');
-invariant(Math.random(), 'You shall not pass %s!', 'Jerry');
-`;
-
-exports[`matches expected output: invariant-require.js 3`] = `
+exports[`matches expected output: invariant-require.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -1701,37 +1701,7 @@ var _require = require('@adeira/js'),
 !Math.random() ? process.env.NODE_ENV !== "production" ? invariant(false, 'You shall not pass %s!', 'Jerry') : invariant(false) : void 0;
 `;
 
-exports[`matches expected output: jsx.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-const React = () => {};
-
-export default function Component(): empty {
-  return (
-    <>
-      <div>aaa</div>
-      <div>bbb</div>
-    </>
-  );
-}
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = Component;
-
-var React = function React() {};
-
-function Component() {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "aaa"), /*#__PURE__*/React.createElement("div", null, "bbb"));
-}
-`;
-
-exports[`matches expected output: jsx.js 2`] = `
+exports[`matches expected output: jsx.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1761,7 +1731,37 @@ export default function Component(): empty {
 }
 `;
 
-exports[`matches expected output: jsx.js 3`] = `
+exports[`matches expected output: jsx.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+const React = () => {};
+
+export default function Component(): empty {
+  return (
+    <>
+      <div>aaa</div>
+      <div>bbb</div>
+    </>
+  );
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Component;
+
+var React = function React() {};
+
+function Component() {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "aaa"), /*#__PURE__*/React.createElement("div", null, "bbb"));
+}
+`;
+
+exports[`matches expected output: jsx.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1784,7 +1784,27 @@ export default function Component() {
 }
 `;
 
-exports[`matches expected output: numeric-separators.js 1`] = `
+exports[`matches expected output: numeric-separators.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const budget = 1_000_000_000_000;
+const nibbles = 0b1010_0001_1000_0101;
+const message = 0xa0_b0_c0;
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+/* eslint-disable */
+
+const budget = 1_000_000_000_000;
+const nibbles = 0b1010_0001_1000_0101;
+const message = 0xa0_b0_c0;
+`;
+
+exports[`matches expected output: numeric-separators.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1803,27 +1823,7 @@ var nibbles = 41349;
 var message = 0xa0b0c0;
 `;
 
-exports[`matches expected output: numeric-separators.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable */
-
-const budget = 1_000_000_000_000;
-const nibbles = 0b1010_0001_1000_0101;
-const message = 0xa0_b0_c0;
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-/* eslint-disable */
-
-const budget = 1_000_000_000_000;
-const nibbles = 0b1010_0001_1000_0101;
-const message = 0xa0_b0_c0;
-`;
-
-exports[`matches expected output: numeric-separators.js 3`] = `
+exports[`matches expected output: numeric-separators.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1840,7 +1840,27 @@ var nibbles = 41349;
 var message = 0xa0b0c0;
 `;
 
-exports[`matches expected output: optional-catch-binding.js 1`] = `
+exports[`matches expected output: optional-catch-binding.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow strict
+
+try {
+  // ...
+} catch {
+  // ...
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow strict
+
+try {
+  // ...
+} catch {
+  // ...
+}
+`;
+
+exports[`matches expected output: optional-catch-binding.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1858,27 +1878,7 @@ try {// ...
 }
 `;
 
-exports[`matches expected output: optional-catch-binding.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow strict
-
-try {
-  // ...
-} catch {
-  // ...
-}
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow strict
-
-try {
-  // ...
-} catch {
-  // ...
-}
-`;
-
-exports[`matches expected output: optional-catch-binding.js 3`] = `
+exports[`matches expected output: optional-catch-binding.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
@@ -1894,25 +1894,7 @@ try {// ...
 }
 `;
 
-exports[`matches expected output: optional-chaining.js 1`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
-
-module.exports = function(a: ?{ +[string]: any, ... }): string {
-  return a?.b ?? 'default';
-};
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-"use strict";
-
-module.exports = function (a) {
-  var _a$b;
-
-  return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
-};
-`;
-
-exports[`matches expected output: optional-chaining.js 2`] = `
+exports[`matches expected output: optional-chaining.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -1928,7 +1910,25 @@ module.exports = function (a: ?{ +[string]: any, ...}): string {
 };
 `;
 
-exports[`matches expected output: optional-chaining.js 3`] = `
+exports[`matches expected output: optional-chaining.js: js (old browsers) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+module.exports = function(a: ?{ +[string]: any, ... }): string {
+  return a?.b ?? 'default';
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+"use strict";
+
+module.exports = function (a) {
+  var _a$b;
+
+  return (_a$b = a === null || a === void 0 ? void 0 : a.b) !== null && _a$b !== void 0 ? _a$b : 'default';
+};
+`;
+
+exports[`matches expected output: optional-chaining.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -1944,7 +1944,41 @@ module.exports = function (a) {
 };
 `;
 
-exports[`matches expected output: rest-operator.js 1`] = `
+exports[`matches expected output: rest-operator.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+// @flow
+
+/* eslint-disable no-console */
+
+type AnyObject = { +[key: string]: any, ... };
+
+module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
+  console.warn([1, ...rest]);
+  const { b, ...c } = a;
+  return {
+    ...b,
+    ...c,
+  };
+};
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+// @flow
+
+/* eslint-disable no-console */
+
+type AnyObject = { +[key: string]: any, ...};
+
+module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
+  console.warn([1, ...rest]);
+  const { b, ...c } = a;
+  return {
+    ...b,
+    ...c };
+
+};
+`;
+
+exports[`matches expected output: rest-operator.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -1987,41 +2021,7 @@ module.exports = function (a) {
 };
 `;
 
-exports[`matches expected output: rest-operator.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-// @flow
-
-/* eslint-disable no-console */
-
-type AnyObject = { +[key: string]: any, ... };
-
-module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
-  console.warn([1, ...rest]);
-  const { b, ...c } = a;
-  return {
-    ...b,
-    ...c,
-  };
-};
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-// @flow
-
-/* eslint-disable no-console */
-
-type AnyObject = { +[key: string]: any, ...};
-
-module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
-  console.warn([1, ...rest]);
-  const { b, ...c } = a;
-  return {
-    ...b,
-    ...c };
-
-};
-`;
-
-exports[`matches expected output: rest-operator.js 3`] = `
+exports[`matches expected output: rest-operator.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
@@ -2061,7 +2061,19 @@ module.exports = function (a) {
 };
 `;
 
-exports[`matches expected output: throw-expressions.js 1`] = `
+exports[`matches expected output: throw-expressions.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+() => throw new Error('');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+() => throw new Error('');
+`;
+
+exports[`matches expected output: throw-expressions.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2076,19 +2088,7 @@ exports[`matches expected output: throw-expressions.js 1`] = `
 });
 `;
 
-exports[`matches expected output: throw-expressions.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-() => throw new Error('');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-() => throw new Error('');
-`;
-
-exports[`matches expected output: throw-expressions.js 3`] = `
+exports[`matches expected output: throw-expressions.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2101,7 +2101,19 @@ exports[`matches expected output: throw-expressions.js 3`] = `
 });
 `;
 
-exports[`matches expected output: warning-global.js 1`] = `
+exports[`matches expected output: warning-global.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+warning(Math.random(), 'This should stay AS IS!');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+warning(Math.random(), 'This should stay AS IS!');
+`;
+
+exports[`matches expected output: warning-global.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2114,19 +2126,7 @@ warning(Math.random(), 'This should stay AS IS!');
 warning(Math.random(), 'This should stay AS IS!');
 `;
 
-exports[`matches expected output: warning-global.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-warning(Math.random(), 'This should stay AS IS!');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-warning(Math.random(), 'This should stay AS IS!');
-`;
-
-exports[`matches expected output: warning-global.js 3`] = `
+exports[`matches expected output: warning-global.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2137,7 +2137,27 @@ warning(Math.random(), 'This should stay AS IS!');
 warning(Math.random(), 'This should stay AS IS!');
 `;
 
-exports[`matches expected output: warning-import.js 1`] = `
+exports[`matches expected output: warning-import.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { warning } from '@adeira/js';
+import { something } from 'else';
+
+warning(Math.random(), 'I am warning you!');
+warning(Math.random(), 'I am warning you %s!', 'René');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+import { warning } from '@adeira/js';
+import { something } from 'else';
+
+warning(Math.random(), 'I am warning you!');
+warning(Math.random(), 'I am warning you %s!', 'René');
+`;
+
+exports[`matches expected output: warning-import.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2159,27 +2179,7 @@ process.env.NODE_ENV !== "production" ? (0, _js.warning)(Math.random(), 'I am wa
 process.env.NODE_ENV !== "production" ? (0, _js.warning)(Math.random(), 'I am warning you %s!', 'René') : void 0;
 `;
 
-exports[`matches expected output: warning-import.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-import { warning } from '@adeira/js';
-import { something } from 'else';
-
-warning(Math.random(), 'I am warning you!');
-warning(Math.random(), 'I am warning you %s!', 'René');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-import { warning } from '@adeira/js';
-import { something } from 'else';
-
-warning(Math.random(), 'I am warning you!');
-warning(Math.random(), 'I am warning you %s!', 'René');
-`;
-
-exports[`matches expected output: warning-import.js 3`] = `
+exports[`matches expected output: warning-import.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2197,7 +2197,25 @@ process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you %s!', 'René') : void 0;
 `;
 
-exports[`matches expected output: warning-require.js 1`] = `
+exports[`matches expected output: warning-require.js: flow 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { warning } = require('@adeira/js');
+
+warning(Math.random(), 'I am warning you!');
+warning(Math.random(), 'I am warning you %s!', 'René');
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+/* eslint-disable */
+
+const { warning } = require('@adeira/js');
+
+warning(Math.random(), 'I am warning you!');
+warning(Math.random(), 'I am warning you %s!', 'René');
+`;
+
+exports[`matches expected output: warning-require.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
@@ -2217,25 +2235,7 @@ process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you
 process.env.NODE_ENV !== "production" ? warning(Math.random(), 'I am warning you %s!', 'René') : void 0;
 `;
 
-exports[`matches expected output: warning-require.js 2`] = `
-~~~~~~~~~~ INPUT ~~~~~~~~~~
-/* eslint-disable */
-
-const { warning } = require('@adeira/js');
-
-warning(Math.random(), 'I am warning you!');
-warning(Math.random(), 'I am warning you %s!', 'René');
-
-~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-/* eslint-disable */
-
-const { warning } = require('@adeira/js');
-
-warning(Math.random(), 'I am warning you!');
-warning(Math.random(), 'I am warning you %s!', 'René');
-`;
-
-exports[`matches expected output: warning-require.js 3`] = `
+exports[`matches expected output: warning-require.js: js-esm (with ES6 import/export) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 /* eslint-disable */
 
