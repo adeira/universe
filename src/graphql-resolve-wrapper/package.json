@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {},
   "devDependencies": {
-    "@adeira/test-utils": "^0.1.0"
+    "@adeira/test-utils": "^0.2.0"
   },
   "peerDependencies": {
     "graphql": "^14.5.8"
