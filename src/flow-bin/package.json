@@ -16,10 +16,11 @@
     "@adeira/logger": "^0.2.0",
     "@adeira/monorepo-utils": "^0.6.0",
     "@babel/register": "^7.9.0",
+    "@babel/runtime": "^7.9.0",
     "chalk": "^3.0.0",
     "is-ci": "^2.0.0"
   },
   "peerDependencies": {
-    "flow-bin": "^0.119.1"
+    "flow-bin": "^0.121.0"
   }
 }
