@@ -1,6 +1,7 @@
 export function generateTestsFromFixtures(
   fixturesPath: string,
   operation: (input: string) => any | Promise<any>,
+  snapshotName?: string,
 ): void;
 
 export function evaluateGraphQLResolver(
