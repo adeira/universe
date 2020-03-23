@@ -1,6 +1,6 @@
 // @flow
 
-import type { Variables } from '@adeira/relay-runtime';
+import type { Variables, RecordProxy } from '@adeira/relay-runtime';
 
 import type { Disposable } from './types.flow';
 
@@ -85,22 +85,3 @@ export type RecordSourceSelectorProxy = {|
   +getPluralRootField: (fieldName: string) => ?$ReadOnlyArray<?RecordProxy>,
   +toJSON: () => RecordMap,
 |};
-
-type AnyObject = { +[key: string]: any, ... };
-
-type RecordProxy = $ReadOnly<{|
-  copyFieldsFrom: (sourceRecord: RecordProxy) => void,
-  getDataID: () => string,
-  getLinkedRecord: (name: string, args?: ?AnyObject) => ?RecordProxy,
-  getLinkedRecords: (name: string, args?: ?AnyObject) => ?$ReadOnlyArray<?RecordProxy>,
-  getOrCreateLinkedRecord: (name: string, typeName: string, args?: ?AnyObject) => RecordProxy,
-  getType: () => string,
-  getValue: (name: string, args?: ?AnyObject) => mixed,
-  setLinkedRecord: (record: RecordProxy, name: string, args?: ?AnyObject) => RecordProxy,
-  setLinkedRecords: (
-    records: $ReadOnlyArray<?RecordProxy>,
-    name: string,
-    args?: ?AnyObject,
-  ) => RecordProxy,
-  setValue: (value: mixed, name: string, args?: ?AnyObject) => RecordProxy,
-|}>;
