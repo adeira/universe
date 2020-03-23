@@ -1,5 +1,10 @@
 # Unreleased
 
+# 1.2.0
+
+- Remove record proxy type
+- Import record proxy type from `@adeira/relay-runtime`
+
 # 1.1.3
 
 - Upgrade babel plugin relay
