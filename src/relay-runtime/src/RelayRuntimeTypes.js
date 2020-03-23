@@ -6,19 +6,22 @@ export type Variables = { +[name: string]: $FlowFixMe, ... };
 
 export type DataID = string;
 
-export interface RecordProxy {
-  copyFieldsFrom(source: RecordProxy): void;
-  getDataID(): DataID;
-  getLinkedRecord(name: string, args?: ?Variables): ?RecordProxy;
-  getLinkedRecords(name: string, args?: ?Variables): ?Array<?RecordProxy>;
-  getOrCreateLinkedRecord(name: string, typeName: string, args?: ?Variables): RecordProxy;
-  getType(): string;
-  getValue(name: string, args?: ?Variables): mixed;
-  setLinkedRecord(record: RecordProxy, name: string, args?: ?Variables): RecordProxy;
-  setLinkedRecords(records: Array<?RecordProxy>, name: string, args?: ?Variables): RecordProxy;
-  setValue(value: mixed, name: string, args?: ?Variables): RecordProxy;
-  invalidateRecord(): void;
-}
+export type RecordProxy = $ReadOnly<{|
+  copyFieldsFrom: (sourceRecord: RecordProxy) => void,
+  getDataID: () => string,
+  getLinkedRecord: (name: string, args?: ?Variables) => ?RecordProxy,
+  getLinkedRecords: (name: string, args?: ?Variables) => ?$ReadOnlyArray<?RecordProxy>,
+  getOrCreateLinkedRecord: (name: string, typeName: string, args?: ?Variables) => RecordProxy,
+  getType: () => string,
+  getValue: (name: string, args?: ?Variables) => mixed,
+  setLinkedRecord: (record: RecordProxy, name: string, args?: ?Variables) => RecordProxy,
+  setLinkedRecords: (
+    records: $ReadOnlyArray<?RecordProxy>,
+    name: string,
+    args?: ?Variables,
+  ) => RecordProxy,
+  setValue: (value: mixed, name: string, args?: ?Variables) => RecordProxy,
+|}>;
 
 export interface RecordSourceProxy {
   create(dataID: DataID, typeName: string): RecordProxy;

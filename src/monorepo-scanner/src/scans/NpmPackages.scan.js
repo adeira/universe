@@ -23,5 +23,10 @@ for (const npmPackage of npmPackages) {
       'You are trying to release a non existing package',
     );
     expect(packageJson?.private).toBe(false);
+
+    const packageName = packageJson?.name ?? 'unknown';
+    expect(packageJson?.dependencies?.['@babel/runtime'] !== undefined).toGiveHelp(
+      `Package '${packageName}' is being transpiled via Babel for NPM and it requires '@babel/runtime' to be in dependencies.`,
+    );
   });
 }
