@@ -28,8 +28,11 @@ export function toGlobalId(type: string, id: string | number): OpaqueIDString {
 }
 
 // TODO: find out better way how to do it (type should be just an internal detail - see evaluateGlobalIdField)
-export function __isTypeOf(type: string, opaqueID: OpaqueIDString): boolean {
-  const decodedGlobalID = decode(opaqueID);
+export function __isTypeOf(type: string, opaqueID: mixed): boolean {
+  if (typeof opaqueID !== 'string') {
+    return false;
+  }
+  const decodedGlobalID = decode(((opaqueID: any): OpaqueIDString));
   const delimiterPos = decodedGlobalID.indexOf(':');
   if (delimiterPos === -1) {
     throw new Error(`ID '${opaqueID}' is not valid opaque value.`);

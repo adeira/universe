@@ -194,6 +194,13 @@ describe('__isTypeOf', () => {
     expect(error.name).toBe('Error'); // no 'Invariant Violation'!
     expect(error.message).toBe("ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.");
   });
+
+  it.each([null, undefined, 42, [], new Date()])(
+    'handles incorrect usages gracefully - opaqueID=%p',
+    input => {
+      expect(__isTypeOf('TypeName', input)).toBe(false);
+    },
+  );
 });
 
 describe('evaluateGlobalIdField', () => {
