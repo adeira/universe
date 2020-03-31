@@ -27,8 +27,15 @@ export function toGlobalId(type: string, id: string | number): OpaqueIDString {
   return encode(`${type}:${id}`);
 }
 
-// TODO: find out better way how to do it (type should be just an internal detail - see evaluateGlobalIdField)
+/**
+ * TODO: remove in 1.0.0
+ * @deprecated
+ */
 export function __isTypeOf(type: string, opaqueID: mixed): boolean {
+  return isTypeOf(type, opaqueID);
+}
+
+export function isTypeOf(type: string, opaqueID: mixed): boolean {
   if (typeof opaqueID !== 'string') {
     return false;
   }
@@ -48,7 +55,7 @@ export function __isTypeOf(type: string, opaqueID: mixed): boolean {
  * @deprecated This functions should be used mainly in tests. It doesn't feel
  * right in production code (it's currently used only in hotels).
  */
-export function evaluateGlobalIdField(
+export function DEPRECATED_evaluateGlobalIdField( // eslint-disable-line babel/camelcase
   outputObject: GraphQLObjectType,
   parent?: { [key: string]: any, ... },
   args?: { ... },
