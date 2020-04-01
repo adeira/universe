@@ -61,7 +61,12 @@ directive @stream_connection(
 
 This is how [default connection handler looks like](https://github.com/facebook/relay/blob/fcb2fd951e54fc4541d3bf0514e7c3662ddcf218/packages/relay-runtime/handlers/connection/ConnectionHandler.js).
 
-See also: https://github.com/facebook/relay/issues/2570#issuecomment-438026375
+> `@connection(key: "list_users", filters: [])` means: store the data regardless of the value of `search` -- this could cause a potential problem if there are two components/views sharing the same connection and when the second view fetches the connection with `search: "foo"`, it will overwrite the data fetched with `search: bar` in the first view.
+
+See also:
+
+- https://github.com/facebook/relay/issues/2570#issuecomment-438026375
+- https://github.com/facebook/relay/issues/1808#issuecomment-304519883
 
 ### `dynamicKey_UNSTABLE`
 
