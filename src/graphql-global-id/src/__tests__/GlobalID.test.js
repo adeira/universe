@@ -3,7 +3,13 @@
 import { GraphQLObjectType, GraphQLID } from 'graphql';
 import { nullthrows } from '@adeira/js';
 
-import GlobalID, { fromGlobalId, evaluateGlobalIdField, __isTypeOf, toGlobalId } from '../GlobalID';
+import GlobalID, {
+  fromGlobalId,
+  DEPRECATED_evaluateGlobalIdField, // eslint-disable-line babel/camelcase
+  __isTypeOf,
+  isTypeOf,
+  toGlobalId,
+} from '../GlobalID';
 import type { OpaqueIDString } from '../Encoder';
 
 // This typecast is necessary only for testing purposes. In normal scenarios, you'd create the
@@ -172,13 +178,17 @@ describe('toGlobalId', () => {
     const globalId = toGlobalId(type, id);
 
     expect(fromGlobalId(globalId)).toBe(id.toString());
-    expect(__isTypeOf(type, globalId)).toBe(true);
+    expect(isTypeOf(type, globalId)).toBe(true);
   });
 });
 
-describe('__isTypeOf', () => {
+describe('isTypeOf', () => {
   const ID = GlobalID(() => 42);
   it('resolves the type correctly', () => {
+    expect(isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
+    expect(isTypeOf('TypeName', resolveField(ID))).toBe(true);
+
+    // deprecated:
     expect(__isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
     expect(__isTypeOf('TypeName', resolveField(ID))).toBe(true);
   });
@@ -198,6 +208,9 @@ describe('__isTypeOf', () => {
   it.each([null, undefined, 42, [], new Date()])(
     'handles incorrect usages gracefully - opaqueID=%p',
     input => {
+      expect(isTypeOf('TypeName', input)).toBe(false);
+
+      // deprecated:
       expect(__isTypeOf('TypeName', input)).toBe(false);
     },
   );
@@ -206,7 +219,7 @@ describe('__isTypeOf', () => {
 describe('evaluateGlobalIdField', () => {
   it('works with standard output object', () => {
     expect(
-      evaluateGlobalIdField(
+      DEPRECATED_evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
           description: 'Test',
@@ -220,7 +233,7 @@ describe('evaluateGlobalIdField', () => {
 
   it('throws when trying to use incompatible output type', () => {
     const error = catchError(() =>
-      evaluateGlobalIdField(
+      DEPRECATED_evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
           description: 'Test',
@@ -241,7 +254,7 @@ describe('evaluateGlobalIdField', () => {
 
   it('throws when id filed is missing', () => {
     const error = catchError(() =>
-      evaluateGlobalIdField(
+      DEPRECATED_evaluateGlobalIdField(
         new GraphQLObjectType({
           name: 'Test',
           description: 'Test',
@@ -260,7 +273,7 @@ describe('evaluateGlobalIdField', () => {
 
   it('calls resolver with correct arguments', () => {
     const resolveMock = jest.fn();
-    evaluateGlobalIdField(
+    DEPRECATED_evaluateGlobalIdField(
       new GraphQLObjectType({
         name: 'Test',
         description: 'Test',
@@ -284,7 +297,7 @@ describe('evaluateGlobalIdField', () => {
 
   it('calls resolver with correct additional arguments', () => {
     const resolveMock = jest.fn();
-    evaluateGlobalIdField(
+    DEPRECATED_evaluateGlobalIdField(
       new GraphQLObjectType({
         name: 'Test',
         description: 'Test',

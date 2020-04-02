@@ -50,7 +50,11 @@ const fields = {
 };
 ```
 
-# Restoring original ID
+# `toGlobalId`
+
+TKTK
+
+# Restoring original ID (`fromGlobalId``)
 
 `GlobalID` used in previous examples accepts readable (unmasked ID) and returns opaque ID. You can revert this process in case you need to access the original unmasked ID. Check the following test to get the idea:
 
@@ -63,6 +67,10 @@ it('returns correct original ID', () => {
 ```
 
 You should always use this function because the way how this utility works with masking and unmasking is just an internal detail.
+
+# `isTypeOf`
+
+TKTK
 
 # Tips
 

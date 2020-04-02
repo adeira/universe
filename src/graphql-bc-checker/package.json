@@ -10,7 +10,7 @@
   "dependencies": {
     "@adeira/signed-source": "^0.1.0",
     "@babel/runtime": "^7.9.2",
-    "chalk": "^3.0.0"
+    "chalk": "^4.0.0"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.2.0",
