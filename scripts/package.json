@@ -7,6 +7,6 @@
     "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.2.0",
     "@adeira/monorepo-npm-publisher": "^0.3.0",
-    "chalk": "^3.0.0"
+    "chalk": "^4.0.0"
   }
 }

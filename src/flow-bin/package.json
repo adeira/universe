@@ -17,7 +17,7 @@
     "@adeira/monorepo-utils": "^0.6.0",
     "@babel/register": "^7.9.0",
     "@babel/runtime": "^7.9.2",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "is-ci": "^2.0.0"
   },
   "peerDependencies": {
