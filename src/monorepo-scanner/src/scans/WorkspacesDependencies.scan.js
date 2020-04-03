@@ -21,6 +21,8 @@ const similarities = new Map([
       'unfetch',
     ],
   ],
+  // Design systems
+  ['grommet', ['@kiwicom/orbit-components']],
   [
     // helper functions
     'ramda',
