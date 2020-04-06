@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-"@adeira/graphql-global-id@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@adeira/graphql-global-id/-/graphql-global-id-0.6.0.tgz#6889d26f17e121556e82f1944c6b5280d7954708"
-  integrity sha512-sPXG4X3p0DqmtL2Xz5bZeLQqOeGMtqUQgYCtZPhCVef6foBUkkaa4I7nuLOhYoii1HQniKyjYDG6jzrFr5kiuQ==
-  dependencies:
-    "@adeira/js" "^1.2.0"
-    "@babel/runtime" "^7.8.7"
-
 "@adeira/test-utils@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.2.0.tgz#9e9feef7bb10968d161dcd4a568e760af25b7c50"

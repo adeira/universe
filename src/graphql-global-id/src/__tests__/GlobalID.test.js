@@ -1,15 +1,8 @@
 // @flow
 
-import { GraphQLObjectType, GraphQLID } from 'graphql';
 import { nullthrows } from '@adeira/js';
 
-import GlobalID, {
-  fromGlobalId,
-  DEPRECATED_evaluateGlobalIdField, // eslint-disable-line babel/camelcase
-  __isTypeOf,
-  isTypeOf,
-  toGlobalId,
-} from '../GlobalID';
+import GlobalID, { fromGlobalId, isTypeOf, toGlobalId } from '../GlobalID';
 import type { OpaqueIDString } from '../Encoder';
 
 // This typecast is necessary only for testing purposes. In normal scenarios, you'd create the
@@ -187,19 +180,15 @@ describe('isTypeOf', () => {
   it('resolves the type correctly', () => {
     expect(isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
     expect(isTypeOf('TypeName', resolveField(ID))).toBe(true);
-
-    // deprecated:
-    expect(__isTypeOf('WrongTypeName', resolveField(ID))).toBe(false);
-    expect(__isTypeOf('TypeName', resolveField(ID))).toBe(true);
   });
 
   it('throws an error on invalid opaque ID', () => {
-    let error = catchError(() => __isTypeOf('TypeName', __castOpaque('invalid-value')));
+    let error = catchError(() => isTypeOf('TypeName', __castOpaque('invalid-value')));
     expect(error).toBeInstanceOf(Error);
     expect(error.name).toBe('Error'); // no 'Invariant Violation'!
     expect(error.message).toBe("ID 'invalid-value' is not valid opaque value.");
 
-    error = catchError(() => __isTypeOf('TypeName', __castOpaque('aW52YWxpZC12YWx1ZQ==')));
+    error = catchError(() => isTypeOf('TypeName', __castOpaque('aW52YWxpZC12YWx1ZQ==')));
     expect(error).toBeInstanceOf(Error);
     expect(error.name).toBe('Error'); // no 'Invariant Violation'!
     expect(error.message).toBe("ID 'aW52YWxpZC12YWx1ZQ==' is not valid opaque value.");
@@ -209,114 +198,6 @@ describe('isTypeOf', () => {
     'handles incorrect usages gracefully - opaqueID=%p',
     input => {
       expect(isTypeOf('TypeName', input)).toBe(false);
-
-      // deprecated:
-      expect(__isTypeOf('TypeName', input)).toBe(false);
     },
   );
-});
-
-describe('evaluateGlobalIdField', () => {
-  it('works with standard output object', () => {
-    expect(
-      DEPRECATED_evaluateGlobalIdField(
-        new GraphQLObjectType({
-          name: 'Test',
-          description: 'Test',
-          fields: {
-            id: GlobalID(() => 123),
-          },
-        }),
-      ),
-    ).toBe('VGVzdDoxMjM');
-  });
-
-  it('throws when trying to use incompatible output type', () => {
-    const error = catchError(() =>
-      DEPRECATED_evaluateGlobalIdField(
-        new GraphQLObjectType({
-          name: 'Test',
-          description: 'Test',
-          fields: {
-            id: {
-              type: GraphQLID,
-            },
-          },
-        }),
-      ),
-    );
-    expect(error).toBeInstanceOf(Error);
-    expect(error.name).toBe('Invariant Violation'); // this error is for developers
-    expect(error.message).toBe(
-      "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
-    );
-  });
-
-  it('throws when id filed is missing', () => {
-    const error = catchError(() =>
-      DEPRECATED_evaluateGlobalIdField(
-        new GraphQLObjectType({
-          name: 'Test',
-          description: 'Test',
-          fields: {
-            notIdField: {
-              type: GraphQLID,
-            },
-          },
-        }),
-      ),
-    );
-    expect(error).toBeInstanceOf(Error);
-    expect(error.name).toBe('Invariant Violation'); // this error is for developers
-    expect(error.message).toBe("Unable to evaluate field 'id' because it's missing.");
-  });
-
-  it('calls resolver with correct arguments', () => {
-    const resolveMock = jest.fn();
-    DEPRECATED_evaluateGlobalIdField(
-      new GraphQLObjectType({
-        name: 'Test',
-        description: 'Test',
-        fields: {
-          id: {
-            ...GlobalID(() => 123),
-            resolve: resolveMock,
-          },
-        },
-      }),
-    );
-    expect(resolveMock).toBeCalledWith(
-      undefined, // parent
-      { opaque: true },
-      undefined,
-      {
-        parentType: expect.any(GraphQLObjectType),
-      },
-    );
-  });
-
-  it('calls resolver with correct additional arguments', () => {
-    const resolveMock = jest.fn();
-    DEPRECATED_evaluateGlobalIdField(
-      new GraphQLObjectType({
-        name: 'Test',
-        description: 'Test',
-        fields: {
-          id: {
-            ...GlobalID(() => 123),
-            resolve: resolveMock,
-          },
-        },
-      }),
-      { parent: 'exist' },
-      { testArg: true },
-      { context: 'yes' },
-    );
-    expect(resolveMock).toBeCalledWith(
-      { parent: 'exist' },
-      { opaque: true, testArg: true },
-      { context: 'yes' },
-      { parentType: expect.any(GraphQLObjectType) },
-    );
-  });
 });
