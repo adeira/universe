@@ -4,7 +4,6 @@ import {
   GraphQLNonNull,
   GraphQLID,
   GraphQLBoolean,
-  GraphQLObjectType,
   type GraphQLResolveInfo,
   type GraphQLFieldConfig,
 } from 'graphql';
@@ -27,14 +26,6 @@ export function toGlobalId(type: string, id: string | number): OpaqueIDString {
   return encode(`${type}:${id}`);
 }
 
-/**
- * TODO: remove in 1.0.0
- * @deprecated
- */
-export function __isTypeOf(type: string, opaqueID: mixed): boolean {
-  return isTypeOf(type, opaqueID);
-}
-
 export function isTypeOf(type: string, opaqueID: mixed): boolean {
   if (typeof opaqueID !== 'string') {
     return false;
@@ -46,41 +37,6 @@ export function isTypeOf(type: string, opaqueID: mixed): boolean {
   }
   const unmaskedType = decodedGlobalID.substring(0, delimiterPos);
   return unmaskedType === type;
-}
-
-/**
- * This function returns opaque value of the ID field. It accepts GraphQL
- * output object as a first parameter so the type internal ID is hidden.
- *
- * @deprecated This functions should be used mainly in tests. It doesn't feel
- * right in production code (it's currently used only in hotels).
- */
-export function DEPRECATED_evaluateGlobalIdField( // eslint-disable-line babel/camelcase
-  outputObject: GraphQLObjectType,
-  parent?: { [key: string]: any, ... },
-  args?: { ... },
-  context?: mixed,
-  info?: GraphQLResolveInfo,
-): OpaqueIDString {
-  const idField = outputObject.getFields().id;
-
-  invariant(idField !== undefined, "Unable to evaluate field 'id' because it's missing.");
-
-  invariant(
-    // $FlowIssue: https://github.com/facebook/flow/issues/3258
-    idField[SYMBOL_GLOBAL_ID] === true,
-    "Unable to evaluate field 'id' because provided object is not typeof GlobalID.",
-  );
-
-  const resolveFn = idField.resolve ?? ((...args) => args);
-  return ((String(
-    /* $FlowFixMe(>=0.111.0) This comment suppresses an error when upgrading
-     * Flow. To see the error delete this comment and run Flow. */
-    resolveFn(parent, { ...args, opaque: true }, context ?? undefined, {
-      ...info,
-      parentType: outputObject,
-    }),
-  ): any): OpaqueIDString);
 }
 
 /**

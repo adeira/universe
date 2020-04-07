@@ -5,7 +5,6 @@ export function fromGlobalId(opaqueID: string): string;
 export function toGlobalId(type: string, id: string | number): string;
 
 export function isTypeOf(type: string, opaqueID: unknown): boolean;
-export function __isTypeOf(type: string, opaqueID: unknown): boolean; // TODO: deprecated, remove
 
 type FetchFnType = (object: any, context: any, info: GraphQLResolveInfo) => string | number;
 
