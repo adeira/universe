@@ -143,17 +143,17 @@ module.exports = {
   'no-use-before-define': OFF, // https://github.com/babel/babel-eslint/issues/485
 
   // Node.js and CommonJS (http://eslint.org/docs/rules/#nodejs-and-commonjs)
-  'callback-return': OFF,
-  'global-require': OFF,
-  'handle-callback-err': WARN,
+  'callback-return': OFF, // see: node/callback-return (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'global-require': OFF, // see: node/global-require (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'handle-callback-err': WARN, // see: node/handle-callback-err (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'no-buffer-constructor': WARN,
-  'no-mixed-requires': OFF,
-  'no-new-require': WARN,
-  'no-path-concat': WARN,
-  'no-process-env': OFF,
-  'no-process-exit': OFF,
+  'no-mixed-requires': OFF, // see: node/no-mixed-requires (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'no-new-require': WARN, // see: node/no-new-require (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'no-path-concat': WARN, // see: node/no-path-concat (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'no-process-env': OFF, // see: node/no-process-env (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'no-process-exit': OFF, // see: node/no-process-exit (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'no-restricted-modules': OFF,
-  'no-sync': OFF,
+  'no-sync': OFF, // see: node/no-sync (https://github.com/mysticatea/eslint-plugin-node/pull/206)
 
   // Stylistic Issues (http://eslint.org/docs/rules/#stylistic-issues)
   camelcase: OFF, // see: babel/camelcase
@@ -222,7 +222,7 @@ module.exports = {
   'no-dupe-class-members': ERROR,
   'no-duplicate-imports': OFF,
   'no-new-symbol': WARN,
-  'no-restricted-imports': OFF,
+  'no-restricted-imports': OFF, // see: node/no-restricted-import (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'no-this-before-super': ERROR,
   'no-useless-computed-key': ERROR,
   'no-useless-constructor': ERROR,
@@ -597,8 +597,11 @@ module.exports = {
   'monorepo/no-relative-import': ERROR,
 
   // Node.js (https://github.com/mysticatea/eslint-plugin-node)
+  'node/callback-return': OFF, // see: callback-return (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'node/exports-style': OFF,
   'node/file-extension-in-import': [ERROR, 'always', { '.js': 'never' }],
+  'node/global-require': OFF, // see: global-require (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/handle-callback-err': WARN, // see: handle-callback-err (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'node/no-callback-literal': WARN, // TODO: next version error (?)
   'node/no-deprecated-api': ERROR,
   'node/no-exports-assign': ERROR,
@@ -606,6 +609,14 @@ module.exports = {
   'node/no-extraneous-require': OFF, // see: import/no-extraneous-dependencies
   'node/no-missing-import': OFF,
   'node/no-missing-require': ERROR,
+  'node/no-mixed-requires': OFF, // see: no-mixed-requires (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/no-new-require': WARN, // see: no-new-require (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/no-path-concat': WARN, // see: no-path-concat (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/no-process-env': OFF, // see: no-process-env (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/no-process-exit': OFF, // see: no-process-exit (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/no-restricted-import': OFF, // see: no-restricted-import (https://github.com/mysticatea/eslint-plugin-node/pull/206)
+  'node/no-restricted-require': OFF,
+  'node/no-sync': OFF, // see: no-sync (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'node/no-unpublished-bin': ERROR,
   'node/no-unpublished-import': OFF,
   'node/no-unpublished-require': OFF,
