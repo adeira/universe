@@ -6,7 +6,7 @@ sidebar_label: Exhaustive checking
 
 [flow.org/try](https://flow.org/try/#0C4TwDgpgBAwghgZwgqBeKByAghqAfTAIQwG4AoMgMwFcA7AY2AEsB7WqCADwAs5qFgACk4AuWImQBKKAG8yUKE0pRhaVOmwZpchQoD0eqABMWUAdUqV5UAL4cANkkXLV6jcW3X9hk8aWUIACcIWmAzYAsrBTsIR2gdXQMoNnsQKGBA6mglKAB3aF5aI3sIIyg4e3soegkELxVRDgBbMFBJcmiyGzIgA)
 
-```js {9-10}
+```js
 type Cases = 'A' | 'B';
 
 function exhaust(x: Cases) {
@@ -15,8 +15,10 @@ function exhaust(x: Cases) {
   } else if (x === 'B') {
     // do different stuff
   } else {
+    // highlight-start
     // only true if we handled all cases
     (x: empty);
+    // highlight-end
   }
 }
 ```
@@ -41,7 +43,7 @@ Cannot cast x to empty because string literal C [1] is incompatible with empty [
 
 You can be sure that you covered all the cases this way. Another real-life example:
 
-```js {10}
+```js
 export function exhaustB(reason: 'magicLink' | 'signUpConfirmation' | 'resetPassword') {
   switch (reason) {
     case 'magicLink':
@@ -51,6 +53,7 @@ export function exhaustB(reason: 'magicLink' | 'signUpConfirmation' | 'resetPass
     case 'resetPassword':
       return __('account.you_will_recieve_password');
     default:
+      // highlight-next-line
       return invariant(false, 'Unsupported reason: %j', (reason: empty));
   }
 }
