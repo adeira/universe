@@ -5,7 +5,12 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import useIsMountedRef from './useIsMountedRef';
 import useRelayEnvironment from './useRelayEnvironment';
 import { commitMutation, type MutationParameters } from '../mutations';
-import type { DeclarativeMutationConfig, GraphQLTaggedNode, Disposable } from '../types.flow';
+import type {
+  DeclarativeMutationConfig,
+  GraphQLTaggedNode,
+  Disposable,
+  Uploadables,
+} from '../types.flow';
 import type { RecordSourceSelectorProxy } from '../runtimeTypes.flow';
 
 type HookMutationConfig<T: MutationParameters> = {|
@@ -18,6 +23,7 @@ type HookMutationConfig<T: MutationParameters> = {|
   +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: $ElementType<T, 'response'>) => void,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
+  +uploadables?: Uploadables,
 |};
 
 /**
