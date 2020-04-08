@@ -257,6 +257,10 @@ directive @relay(
 
 TKTK
 
+> The use-case is things like utility functions that are not executing in a React context and therefore don't have access to the context's environment. `@relay(mask:false)` was our earlier solution to this (which as you noted has some issues), `@inline` is its replacement.
+
+https://github.com/relay-tools/relay-compiler-language-typescript/issues/64#issuecomment-564580765
+
 ## @relay_test_operation
 
 Relay docs: https://relay.dev/docs/en/testing-relay-components#relay_test_operation
