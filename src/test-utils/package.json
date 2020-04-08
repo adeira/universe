@@ -4,14 +4,14 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/test-utils",
   "license": "MIT",
   "private": false,
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^1.2.0",
     "@babel/runtime": "^7.9.2"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "graphql": "^14.6.0"
   }
 }
