@@ -323,9 +323,9 @@ if (__DEV__) {
 }
 ```
 
-## Common Relay problems (from user perspective)
+## Common Relay mistakes (from user perspective)
 
-- users are not using fragments correctly (data-masking misunderstanding)
+- users are not using fragments correctly (data-masking misunderstanding, [types generation misunderstanding](https://github.com/relay-tools/relay-compiler-language-typescript/issues/64#issuecomment-458654418))
 - incorrect environment imports (not using the right Environment instance)
 
 TKTK
