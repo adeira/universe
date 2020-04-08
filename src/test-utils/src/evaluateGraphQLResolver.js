@@ -1,5 +1,7 @@
 // @flow
 
+import { coerceInputValue, defaultFieldResolver } from 'graphql';
+
 /**
  * Use this function to evaluate resolvers in test files. Usage:
  *
@@ -18,17 +20,23 @@ export default function evaluateGraphQLResolver(
   argsValue?: { [key: string]: any, ... },
   contextValue?: { [key: string]: any, ... },
 ): any {
-  const resolveFn =
-    field.resolve ||
-    function resolveMock(): string {
-      return testValue[field.name];
-    };
-  const resolvedValue = resolveFn(testValue, argsValue, contextValue, {
-    path: { key: 'mocked' },
-  });
+  const resolvedValue = getResolvedValue(field, testValue, argsValue, contextValue);
 
   if (typeof field.type.serialize === 'function') {
     return field.type.serialize(resolvedValue);
+  } else if (typeof field.type.ofType?.serialize === 'function') {
+    coerceInputValue(resolvedValue, field.type);
+    return field.type.ofType.serialize(resolvedValue);
   }
   return resolvedValue;
+}
+
+function getResolvedValue(field, testValue, argsValue, contextValue): mixed {
+  const resolver = typeof field.resolve === 'function' ? field.resolve : defaultFieldResolver;
+  const info: any = {
+    fieldName: field.name,
+    path: { key: 'mocked' },
+  };
+
+  return resolver(testValue, argsValue ?? {}, contextValue, info);
 }
