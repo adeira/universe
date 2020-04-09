@@ -330,6 +330,28 @@ if (__DEV__) {
 
 TKTK
 
+```ts
+export type CustomFieldsList_customFields = ReadonlyArray<{
+    readonly __typename: "CustomFieldAutocomplete";
+    readonly " $fragmentRefs": FragmentRefs<"CustomFieldAutocomplete_data">;
+    readonly " $refType": "CustomFieldsList_customFields";
+} | {
+    readonly __typename: "CustomFieldDate";
+    readonly date: string;
+    readonly name: string | null;
+    readonly " $fragmentRefs": FragmentRefs<"CustomFieldDate_data">;
+    readonly " $refType": "CustomFieldsList_customFields";
+}>
+
+// type Extract<T, U> = T extends U ? T : never;
+type CustomFieldDateType = Extract<
+	CustomFieldsList_customFields[0], // because of @relay(plural: true)
+	{ readonly __typename: 'CustomFieldDate' }
+>;
+```
+
+^^ this should however be unnecessary since the correct solution is to decompose
+
 ## Common Relay errors explained
 
 ### Relay does not allow `__typename` field on Query, Mutation or Subscription
