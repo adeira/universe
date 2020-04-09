@@ -212,9 +212,10 @@ That's the type which is being used to annotate `optimisticResponse` when you us
 
 See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd44975e
 
-## @refetchable(queryName: " ... ")
+## @refetchable(queryName: " … "), @fetchable(field_name: " … ")
 
 ```graphql
+directive @fetchable(field_name: String!) on OBJECT
 directive @refetchable(queryName: String!) on FRAGMENT_DEFINITION
 ```
 
@@ -242,6 +243,10 @@ export default createRefetchContainer(LocationsPaginatedRefetch, {
   `,
 });
 ```
+
+> For OSS: the `@fetchable` directive is for the schema SDL, not queries, and allows the schema to specify that a) a type is (re)fetchable and b) what field should be used to refetch it. For each `@fetchable` type `Foo`, the schema is expected to define a field on the `Query` type that follows the convention of `fetch__Foo(<name>: ID!): Foo`. This is a generalization of the pattern established with the Node interface and node() root field.
+
+https://github.com/facebook/relay/commit/6ed719438829d02912c862407bbf84a6374f14f3#commitcomment-38371100
 
 ## @relay
 
