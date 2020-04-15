@@ -7,7 +7,7 @@
   "dependencies": {
     "@adeira/js": "^1.2.0",
     "@adeira/monorepo-utils": "^0.6.0",
-    "semver": "^7.3.0"
+    "semver": "^7.3.2"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.2.0"
