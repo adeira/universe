@@ -105,8 +105,8 @@ function Home() {
 
             <p>
               <em>I like changes.</em> I like to do rapid and unexpected changes even though they
-              are big. Sometimes it's may way of escaping stereotype, sometimes it's my way of
-              saying "enough".
+              are big. Sometimes it's my way of escaping stereotype, sometimes it's my way of saying
+              "enough".
             </p>
 
             <p>
@@ -116,7 +116,7 @@ function Home() {
             </p>
 
             <p>
-              <em>I hate when people do shitty job.</em> Escpecially developers! They write shitty
+              <em>I hate when people do shitty job.</em> Especially developers! They write shitty
               code full of bugs, WTF, workarounds and then they are not even embarassed to say that
               programming is an art. Jeez. Can you imagine a plumber or construction worker to do
               the same?
