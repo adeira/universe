@@ -10,12 +10,18 @@ sidebar_label: Git
 - https://stackoverflow.com/questions/600079/how-do-i-clone-a-subdirectory-only-of-a-git-repository/13738951
 - https://medium.com/@porteneuve/fix-conflicts-only-once-with-git-rerere-7d116b2cec67
 - https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols
+- [How can I prevent git from thinking I did a rename](https://stackoverflow.com/questions/15031576/how-can-i-prevent-git-from-thinking-i-did-a-rename)
 
 What happened in last week?
 
 ```
 git log --since=1.week --oneline --no-merges
 ```
+
+## Less known Git features
+
+- https://git-scm.com/docs/git-notes
+- https://git-scm.com/docs/git-rerere
 
 ## New repo with copied history of only currently tracked files
 
