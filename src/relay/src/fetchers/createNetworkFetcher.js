@@ -35,10 +35,10 @@ export default function createNetworkFetcher(
     // token for example) - for this reason we accept object or promise here and we always
     // resolve it as a promise (see tests)
     const resolvedAdditionalHeaders = await Promise.resolve(additionalHeaders);
+    /* $FlowFixMe(>=0.123.0) This comment suppresses an error when upgrading
+     * Flow. To see the error delete this comment and run Flow. */
     const headers = {
       ...getHeaders(uploadables),
-      /* $FlowFixMe(>=0.111.0) This comment suppresses an error when upgrading
-       * Flow. To see the error delete this comment and run Flow. */
       ...resolvedAdditionalHeaders,
     };
 
