@@ -1,7 +1,7 @@
 /**
- * @jest-environment  node
+ * @flow
+ * @jest-environment node
  */
-// @flow
 
 import Logger from '../RelayLogger';
 
@@ -15,7 +15,7 @@ afterEach(() => {
   spy.mockRestore();
 });
 
-it('does not log in node', () => {
+it('does not log in Node.js', () => {
   Logger({
     name: 'execute.start',
     transactionID: 1,
