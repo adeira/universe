@@ -5,6 +5,7 @@
 import { isBrowser } from '@adeira/js';
 
 import type { Variables } from './RelayRuntimeTypes';
+import type { GraphQLResponse } from './RelayNetworkTypes';
 
 export type LogEvent =
   | {|
@@ -37,7 +38,7 @@ export type LogEvent =
   | {|
       +name: 'execute.next',
       +transactionID: number,
-      +response: mixed, // TODO: GraphQLResponse type
+      +response: GraphQLResponse,
     |}
   | {|
       +name: 'execute.error',
@@ -96,9 +97,24 @@ export default function RelayLogger(logEvent: LogEvent) {
       );
       break;
     case 'execute.next':
-      logGroup(logEvent, () => {
-        console.log(`Response: %o`, logEvent.response);
-      });
+      if (Array.isArray(logEvent.response)) {
+        // we do not support batch response with @stream yet
+        console.warn(logEvent.response);
+        break;
+      } else if (logEvent.response.errors !== undefined) {
+        logGroup(
+          logEvent,
+          () => {
+            console.log(`Response: %o`, logEvent.response);
+          },
+          'partial response with errors',
+          'color:orange',
+        );
+      } else {
+        logGroup(logEvent, () => {
+          console.log(`Response: %o`, logEvent.response);
+        });
+      }
       break;
     case 'execute.error':
       logGroup(
