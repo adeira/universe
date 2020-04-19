@@ -18,13 +18,13 @@ module.exports = {
   themeConfig: {
     sidebarCollapsible: false,
     navbar: {
-      title: 'About',
+      title: '👨‍💻',
       // logo: {
       //   alt: 'My Site Logo',
       //   src: 'img/logo.svg',
       // },
       links: [
-        { to: 'docs/flow', label: 'Meta', position: 'left' },
+        { to: 'docs/readme', label: 'Meta', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml',
