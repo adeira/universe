@@ -15,6 +15,7 @@ sidebar_label: Flow all-in
 - https://gajus.github.io/flow-runtime/
 - https://medium.com/flow-type/what-the-flow-team-has-been-up-to-54239c62004f#a548
 - https://github.com/facebook/flow/issues/7365 (Facebook's own Flow adoption?)
+- https://github.com/lessmess-dev/gen-flow-files
 - Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
 
 Showerthoughts:
@@ -241,7 +242,7 @@ experimental.enums=true
 
 And now, you can use this new feature:
 
-```text
+```flow js
 enum E1 {
   A, B
 }
@@ -261,10 +262,25 @@ const c: E2 = '1'; // mmm...
 const d: E2 = E2.A;
 ```
 
+Basic methods support:
+
+```flow js
+enum E {
+  A,
+  B,
+}
+
+E.cast('A'); // string
+E.members(); // Iterable<E>
+E.isValid('A'); // boolean
+```
+
 - https://github.com/gkz/enums
 - https://github.com/facebook/flow/issues/7837
 - https://github.com/babel/babel/pull/10344
 - https://github.com/prettier/prettier/pull/6833
+- https://github.com/babel/babel-eslint/commit/2c754a8189d290f145e23ac962331fd1abd877bd
+- https://github.com/facebook/flow/commit/bc4dcba789b3e1dc1def85787e67cf8e1e85755b
 
 ## Callable objects
 
