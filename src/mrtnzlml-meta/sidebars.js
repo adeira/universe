@@ -35,6 +35,5 @@ module.exports = {
       'relay/uploadables',
     ],
     'Rest of programming': ['git', 'graphql', 'javascript', 'css'],
-    Lifestyle: ['travel', 'travel/coworkings', 'travel/mexico', 'read/links'],
   },
 };

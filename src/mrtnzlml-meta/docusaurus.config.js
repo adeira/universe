@@ -18,13 +18,24 @@ module.exports = {
   themeConfig: {
     sidebarCollapsible: false,
     navbar: {
-      title: '👨‍💻',
-      // logo: {
-      //   alt: 'My Site Logo',
-      //   src: 'img/logo.svg',
-      // },
+      // title: '👨‍💻',
+      logo: {
+        alt: 'My Site Logo',
+        src: 'img/logo.svg',
+      },
       links: [
         { to: 'docs/readme', label: 'Meta', position: 'left' },
+        {
+          href:
+            'https://www.notion.so/mrtnzlml/1b3e12ceba4145029225b6a124226b12?v=d0813bc39df84efa9f47fff4f55b0ad5',
+          label: 'Links',
+          position: 'left',
+        },
+        {
+          href: 'https://www.notion.so/mrtnzlml/Travel-1d885bb8ffb843d69a8c48ba0a94f38b',
+          label: 'Travel',
+          position: 'left',
+        },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml',
