@@ -10,7 +10,10 @@ sidebar_label: JavaScript
 - https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
 - https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/the-super-tiny-compiler.js
 - https://github.com/ehmicky/cross-platform-node-guide, https://shapeshed.com/writing-cross-platform-node/
+- https://github.com/leebyron/spec-md/blob/f1392942b69fb7868baf64129f615f97739d9058/static/linkSelections.js
 - [Computing average in a constant time](https://stackoverflow.com/a/22999488/3135248) (average streaming)
+- [connect.js explained](https://gist.github.com/gaearon/1d19088790e70ac32ea636c025ba424e)
+- [slim-redux.js](https://gist.github.com/gaearon/ffd88b0e4f00b22c3159)
 
 ## Understanding Babel internals
 
@@ -77,10 +80,10 @@ Optional chaining != error suppression operator.
 ```js
 (function() {
   'use strict';
-  undeclared_var?.b;   // ReferenceError: undeclared_var is not defined
-  arguments?.callee;   // TypeError: 'callee' may not be accessed in strict mode
-  arguments.callee?.() // TypeError: 'callee' may not be accessed in strict mode
-  true?.()             // TypeError: true is not a function
+  undeclared_var?.b; // ReferenceError: undeclared_var is not defined
+  arguments?.callee; // TypeError: 'callee' may not be accessed in strict mode
+  arguments.callee?.(); // TypeError: 'callee' may not be accessed in strict mode
+  true?.(); // TypeError: true is not a function
 })();
 ```
 
@@ -114,7 +117,9 @@ TODO: https://github.com/facebook/jest/pull/1688/files
 function foo() {
   const x = { bar: 'bar' };
   %DebugTrackRetainingPath(x);
-  return () => { return x; }
+  return () => {
+    return x;
+  };
 }
 const closure = foo();
 gc();
@@ -344,16 +349,14 @@ So that's difference #2. If the .catch() handler is BEFORE, then it can handle t
 ```js
 function MyResponsiveComponent() {
   const width = useWindowWidth(); // Our custom Hook
-  return (
-    <p>Window width is {width}</p>
-  );
+  return <p>Window width is {width}</p>;
 }
 ```
 
 ```js
 function useWindowWidth() {
   const [width, setWidth] = useState(window.innerWidth);
-  
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -361,7 +364,7 @@ function useWindowWidth() {
       window.removeEventListener('resize', handleResize);
     };
   });
-  
+
   return width;
 }
 ```
