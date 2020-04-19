@@ -20,6 +20,20 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 
 The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
 
+## GraphQL clients
+
+Usually people mention only Apollo or Relay and that's it. Black or white. But that's not fair. There are many many GraphQL clients with very interesting ideas:
+
+- https://github.com/apollographql/apollo-client
+- https://github.com/facebook/relay
+- https://github.com/jaydenseric/graphql-react
+- https://github.com/FormidableLabs/urql
+- https://github.com/gucheen/fetchql
+- https://github.com/prisma-labs/graphql-request
+- https://github.com/kadirahq/lokka
+- https://github.com/arackaf/micro-graphql-react
+- ...
+
 ## Persistent queries (stored operations)
 
 Why?
