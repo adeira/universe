@@ -8,6 +8,7 @@ This file describes experimental and more advanced Relay features. It can be ver
 
 TODO:
 
+- https://github.com/c0m1t/relay-enum-generator
 - Mock Data Generation: https://github.com/facebook/relay/commit/09d317943f6936ffb0002154c389b6d7a507c58d
 - `renderPolicy`: https://github.com/facebook/relay/commit/b1cf05de8770122b30d491c4265df01e161e67c9 (partial/full)
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
