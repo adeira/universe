@@ -188,6 +188,8 @@ Doing that in OSS as well would increase the number of generated files and also 
 
 ## RelayResponseNormalizer: `handleStrippedNulls`
 
+Update: https://github.com/facebook/relay/commit/7a798d16abd08a930a3b249c26697cf92c269639 (`treatMissingFieldsAsNull`)
+
 Please read this: https://github.com/facebook/relay/issues/3052
 
 Relay is able to recover completely missing fields in the response. You can use this knowledge to optimize JSON response from the server. Let's say this is our incoming payload from the server:
