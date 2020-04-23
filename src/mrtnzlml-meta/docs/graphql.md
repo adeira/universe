@@ -24,14 +24,16 @@ The GraphQL grammar is greedy; this means that when given a choice between two d
 
 Usually people mention only Apollo or Relay and that's it. Black or white. But that's not fair. There are many many GraphQL clients with very interesting ideas:
 
-- https://github.com/apollographql/apollo-client
-- https://github.com/facebook/relay
+- https://github.com/apollographql/apollo-client (double declaration, dynamic)
+- https://github.com/facebook/relay (double declaration, static)
 - https://github.com/jaydenseric/graphql-react
-- https://github.com/FormidableLabs/urql
+- https://github.com/FormidableLabs/urql (double declaration)
 - https://github.com/gucheen/fetchql
 - https://github.com/prisma-labs/graphql-request
 - https://github.com/kadirahq/lokka
 - https://github.com/arackaf/micro-graphql-react
+- https://github.com/samdenty/gqless (without [double declaration](https://babel-blade.netlify.app/docs/declarationdeclaration))
+- https://github.com/babel-blade/babel-blade (without [double declaration](https://babel-blade.netlify.app/docs/declarationdeclaration))
 - ...
 
 ## Persistent queries (stored operations)
@@ -66,7 +68,7 @@ GraphQL client should send a POST request to the server in the following format:
 
 ```json5
 {
-  operations: 'required string',
+  operations: 'required string', // usually known as `query` (?)
   variables: {}, // optional
   operationName: 'optional string', // required when sending more operations
 }
@@ -200,7 +202,7 @@ There are some complications and unanswered questions though:
 Interesting little helper:
 
 ```js
-const dataByTypename = data => (data && data.__typename ? { [data.__typename]: data } : {});
+const dataByTypename = (data) => (data && data.__typename ? { [data.__typename]: data } : {});
 ```
 
 Usage:
