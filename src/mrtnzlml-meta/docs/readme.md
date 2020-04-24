@@ -6,7 +6,7 @@ sidebar_label: Personal README
 
 <!-- Inspiration: http://randsinrepose.com/archives/how-to-rands/ -->
 
-What is this? I believe that it's generally very difficult to understand and read other people _correctly_. I hide and filter many things publicly and change my opinions frequently. I know others do it as well. This README should help you to understand some basic stones about me.
+What is this? I believe that it's generally very difficult to understand and read other people _correctly_. I hide and filter many things publicly and change my opinions frequently. Others do it as well. This README should help you to understand some basic stones about me.
 
 ---
 
@@ -42,9 +42,9 @@ I genuinely don't like meetings. Luckily, I don't have that many of them. I am t
 
 Very similar rules applies to how I use Slack. I read everything relevant for me and I am leaving and joining channels frequently (depending on my needs and interests). Don't take it personally when I leave the channel. I prefer when you write me personally.
 
-I might write you during the weekends or outside of working hours. I do not expect you to react before you return back to work and you have time for it. Feel free to do the same.
+I might write you on weekends or outside of working hours. I do not expect you to react before you returned to work and you have time for it. Feel free to do the same.
 
-I dislike unnecessary `@channel` and `@here` mentions in the public messages. Always think whether your message is so important to interrupt my (or any other colleagues') flow. Usually it's not, really.
+I dislike unnecessary `@channel` and `@here` mentions in the public messages. Always think whether your message is so important to interrupt my (or any other colleagues') flow.
 
 ## Miscellaneous
 
@@ -62,7 +62,7 @@ _I work hard._ Doesn't matter on what. I want to be better than others. I want t
 
 _I will not agree blindly._ I always questioned everything. Don't try to convince me about something blindly - it won't work unless I understand it and agree with it. Good way how to convince me is to explain the things reasonably and give me some time for my personal research. I am OK to do 180 turn when I see it's the right way.
 
-_Success motivates me._ I feel energized when I have the opportunity to do something awesome. I feel miserable when I do not have the opportunity and I am treated just like a monkey. Don't waste my potential.
+_Success motivates me._ I feel energized when I have the opportunity to do something awesome. I feel miserable when I do not have the opportunity and I am treated just like a monkey or being ignored. Don't waste my potential.
 
 _I have my moods._ I am fine one minute and then can suddenly turn into a completely different person. I think it's related to my introversion when things simply went too far too quickly. I am working on that.
 
