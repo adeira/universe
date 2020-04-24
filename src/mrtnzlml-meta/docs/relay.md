@@ -15,6 +15,8 @@ TODO:
 - [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
 - HTTP persister example: https://github.com/facebook/relay/commit/aaa9588e081d3591ad8d043e924cacfadc06ec80
 - TODO: special `__id` field
+- https://github.com/relay-tools/relay-connection-handler-plus (use-case: https://github.com/facebook/relay/issues/3065)
+- entrypoints: [prepareEntryPoint](https://github.com/facebook/relay/blob/master/packages/relay-experimental/prepareEntryPoint.js#L26), [EntryPointContainer](https://github.com/facebook/relay/blob/master/packages/relay-experimental/EntryPointContainer.react.js) + tests
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
