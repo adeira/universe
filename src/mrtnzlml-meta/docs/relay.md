@@ -336,26 +336,35 @@ if (__DEV__) {
 TKTK
 
 ```ts
-export type CustomFieldsList_customFields = ReadonlyArray<{
-    readonly __typename: "CustomFieldAutocomplete";
-    readonly " $fragmentRefs": FragmentRefs<"CustomFieldAutocomplete_data">;
-    readonly " $refType": "CustomFieldsList_customFields";
-} | {
-    readonly __typename: "CustomFieldDate";
-    readonly date: string;
-    readonly name: string | null;
-    readonly " $fragmentRefs": FragmentRefs<"CustomFieldDate_data">;
-    readonly " $refType": "CustomFieldsList_customFields";
-}>
+export type CustomFieldsList_customFields = ReadonlyArray<
+  | {
+      readonly __typename: 'CustomFieldAutocomplete';
+      readonly ' $fragmentRefs': FragmentRefs<'CustomFieldAutocomplete_data'>;
+      readonly ' $refType': 'CustomFieldsList_customFields';
+    }
+  | {
+      readonly __typename: 'CustomFieldDate';
+      readonly date: string;
+      readonly name: string | null;
+      readonly ' $fragmentRefs': FragmentRefs<'CustomFieldDate_data'>;
+      readonly ' $refType': 'CustomFieldsList_customFields';
+    }
+>;
 
 // type Extract<T, U> = T extends U ? T : never;
 type CustomFieldDateType = Extract<
-	CustomFieldsList_customFields[0], // because of @relay(plural: true)
-	{ readonly __typename: 'CustomFieldDate' }
+  CustomFieldsList_customFields[0], // because of @relay(plural: true)
+  { readonly __typename: 'CustomFieldDate' }
 >;
 ```
 
 ^^ this should however be unnecessary since the correct solution is to decompose
+
+There is another plot twist into the type generation (Joe Savona on why sometimes the types are a bit weird, especially around interfaces):
+
+> The Flow types are reflecting the data that Relay will actually provide at runtime. We don't encode which types implement which interfaces (even if we encoded it at build time, it could still change on the server in the meantime), so we always read into fragment spreads on abstract types. If the object implements the interface and we've fetched those fields they'll be there, but otherwise they could be missing entirely. Generating a disjoint union wouldn't reflect the actual values RelayReader would produce.
+
+> That being said, it would be nice to have more precise output types, and it's something we're investigating.
 
 ## Common Relay errors explained
 
