@@ -24,7 +24,7 @@ As you can see below, I live in a natural timezone even when I am in the same ci
 {
   "Monday - Friday": {
     "5:00 - 5:20": "Reading 📓",
-    "5:20 - 5:40": "Morning rutine 🚿",
+    "5:20 - 5:40": "Morning routine 🚿",
     "5:40 - 6:00": "Breakfast 🍳",
     "6:00 - 15:00": "Work 👨‍💻",
     "...": "...",
@@ -50,7 +50,7 @@ I dislike unnecessary `@channel` and `@here` mentions in the public messages. Al
 
 _I am an introvert._ That means I loose energy when I am around other people for too long and I recharge my energy by spending time alone. Sounds weird? Check this video to understand my view: [https://www.reddit.com/93u8rj/](https://www.reddit.com/93u8rj/)
 
-_I am a volatile developer._ I like to solve any problem in an untraditional way. I have difficulties to finish things completely though because there is probably something more interesting somewhere else. Development for clients is not for me and I don't do it. [I just got bored, everybody out.](https://youtu.be/cPEnRb6aaS4)
+_I am a [volatile developer](https://randsinrepose.com/archives/stables-and-volatiles/)._ I like to solve any problem in an untraditional way and I prefer product development over development for clients. Definitely [read this article](https://randsinrepose.com/archives/stables-and-volatiles/) to understand what I mean by being volatile. It's very important. [I just got bored, everybody out.](https://youtu.be/cPEnRb6aaS4)
 
 _I like changes._ I like to do rapid and unexpected changes even though they are big. Sometimes it's my way of escaping stereotype, sometimes it's my way of saying "enough". And sometimes it's a result of understanding something better.
 
