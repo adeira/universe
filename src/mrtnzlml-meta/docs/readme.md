@@ -56,10 +56,10 @@ _I am a [volatile developer](https://randsinrepose.com/archives/stables-and-vola
 
 - Prefer to define strategy rather than follow it.
 - Have issues with authority and often have legitimate arguments for anarchy.
-- Can’t conceive of failing, and seek a thrill in risk.
+- Can't conceive of failing, and seek a thrill in risk.
 - See working with others as time-consuming and onerous tasks, prefer to work in small, autonomous groups, and don’t give a shit how you feel.
-- Often don’t build particularly beautiful or stable things, but they sure do build a lot.
-- Are only reliable if it’s in their best interest.
+- Often don't build particularly beautiful or stable things, but they sure do build a lot.
+- Are only reliable if it's in their best interest.
 - Leave a trail of disruption in their wake.
 
 _I like changes._ I like to do rapid and unexpected changes even though they are big. Sometimes it's my way of escaping stereotype, sometimes it's my way of saying "enough". And sometimes it's a result of understanding something better.
