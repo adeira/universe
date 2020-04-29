@@ -23,5 +23,6 @@ export default function createFragmentContainer<
     isObjectEmpty(fragmentSpec) === false,
     'Fragment spec of this fragment container factory cannot be empty.',
   );
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _createFragmentContainer(Component, fragmentSpec);
 }

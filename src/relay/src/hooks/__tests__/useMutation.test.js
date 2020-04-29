@@ -33,9 +33,13 @@ type Props = {|
 
 const TestComponent = (props: Props) => {
   const [addComment, isCommentPending] = useMutation(
+    // $FlowFixMe errors after upgrading to relay 9.1.0
     graphql`
-      mutation useMutationTestMutation @relay_test_operation {
-        __typename
+      mutation useMutationTestMutation($persistedOperations: [StoredOperationInput!]!)
+        @relay_test_operation {
+        createStoredOperations(persistedOperations: $persistedOperations) {
+          __typename
+        }
       }
     `,
   );
@@ -56,6 +60,7 @@ it('calls the mutation as expected', () => {
 
   act(() => {
     render(
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       <RelayEnvironmentProvider environment={EnvironmentMock}>
         <TestComponent onCompleted={onCompleted} onError={onError} />
       </RelayEnvironmentProvider>,
@@ -64,7 +69,14 @@ it('calls the mutation as expected', () => {
   });
 
   expect(onError).not.toBeCalled();
-  expect(onCompleted).toBeCalledWith({ __typename: 'Mutation' }, null);
+  expect(onCompleted).toBeCalledWith(
+    {
+      createStoredOperations: {
+        __typename: 'CreateStoredOperation',
+      },
+    },
+    null,
+  );
 });
 
 it('handles partial errors gracefully', () => {
@@ -74,12 +86,14 @@ it('handles partial errors gracefully', () => {
   const EnvironmentMock = createMockEnvironment();
   EnvironmentMock.mock.queueOperationResolver(operation => {
     const response = MockPayloadGenerator.generate(operation);
+    // $FlowFixMe errors after upgrading to relay 9.1.0
     response.errors = [{ message: 'aaa' }, { message: 'bbb' }];
     return response;
   });
 
   act(() => {
     render(
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       <RelayEnvironmentProvider environment={EnvironmentMock}>
         <TestComponent onCompleted={onCompleted} onError={onError} />
       </RelayEnvironmentProvider>,
@@ -88,10 +102,14 @@ it('handles partial errors gracefully', () => {
   });
 
   expect(onError).not.toBeCalled();
-  expect(onCompleted).toBeCalledWith({ __typename: 'Mutation' }, [
-    { message: 'aaa' },
-    { message: 'bbb' },
-  ]);
+  expect(onCompleted).toBeCalledWith(
+    {
+      createStoredOperations: {
+        __typename: 'CreateStoredOperation',
+      },
+    },
+    [{ message: 'aaa' }, { message: 'bbb' }],
+  );
 });
 
 it('handles error states gracefully', () => {
@@ -105,6 +123,7 @@ it('handles error states gracefully', () => {
 
   act(() => {
     render(
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       <RelayEnvironmentProvider environment={EnvironmentMock}>
         <TestComponent onCompleted={onCompleted} onError={onError} />
       </RelayEnvironmentProvider>,

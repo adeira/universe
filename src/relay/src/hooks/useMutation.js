@@ -97,5 +97,6 @@ export default function useMutation<T: MutationParameters>(
     [cleanup, environment, isMountedRef, mutation],
   );
 
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return [commit, isMutationInFlight];
 }

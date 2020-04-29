@@ -28,5 +28,6 @@ export default function requestSubscription<T: SubscriptionPayload>(
   environment: Environment,
   config: Config<T>,
 ): Disposable {
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _requestSubscription(environment, config);
 }

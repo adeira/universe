@@ -107,6 +107,7 @@ export default function QueryRenderer(props: Props) {
   // Relay QR itself recreates the context with our environment.
   // Relay hooks are using `useRelayEnvironment` with `ReactRelayContext` inside (so we use it as well).
   return (
+    // $FlowFixMe errors after upgrading to relay 9.1.0
     <RelayQueryRenderer environment={environment} render={renderQueryRendererResponse} {...props} />
   );
 }

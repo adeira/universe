@@ -32,6 +32,7 @@ function createNetwork(
   subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
 ) {
   const fetch = createRequestHandler(fetchFn);
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return Network.create(fetch, subscribeFn);
 }
 
@@ -45,9 +46,11 @@ function handlerProvider(handle) {
 
 export default function createEnvironment(options: Options): Environment {
   const { fetchFn, subscribeFn, records, ...rest } = options;
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return new RelayEnvironment({
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn),
+    // $FlowFixMe errors after upgrading to relay 9.1.0
     log: RelayLogger,
     store: createRelayStore(records, {
       gcReleaseBufferSize: options.gcReleaseBufferSize,

@@ -16,5 +16,6 @@ export default function useRelayEnvironment(): Environment {
       'Please make sure a `RelayEnvironmentProvider` has been rendered somewhere as a parent of ' +
       'your component. It should be defined only once in the whole application.',
   );
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return context.environment;
 }

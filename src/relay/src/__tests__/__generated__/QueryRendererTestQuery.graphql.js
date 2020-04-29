@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash 9e5091db0ab6327154c0ea86c51c952e
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type QueryRendererTestQueryVariables = {||};
@@ -36,66 +34,63 @@ var v0 = [
   }
 ],
 v1 = {
-  "kind": "ScalarField",
   "alias": null,
-  "name": "id",
   "args": null,
+  "kind": "ScalarField",
+  "name": "id",
   "storageKey": null
 };
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "QueryRendererTestQuery",
-    "type": "RootQuery",
-    "metadata": null,
     "argumentDefinitions": [],
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "QueryRendererTestQuery",
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "node",
-        "storageKey": "node(id:\"my-id\")",
         "args": (v0/*: any*/),
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "node",
         "plural": false,
         "selections": [
           (v1/*: any*/)
-        ]
+        ],
+        "storageKey": "node(id:\"my-id\")"
       }
-    ]
+    ],
+    "type": "RootQuery"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "QueryRendererTestQuery",
-    "argumentDefinitions": [],
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "node",
-        "storageKey": "node(id:\"my-id\")",
         "args": (v0/*: any*/),
         "concreteType": null,
+        "kind": "LinkedField",
+        "name": "node",
         "plural": false,
         "selections": [
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "__typename",
             "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
             "storageKey": null
           },
           (v1/*: any*/)
-        ]
+        ],
+        "storageKey": "node(id:\"my-id\")"
       }
     ]
   },
   "params": {
-    "operationKind": "query",
-    "name": "QueryRendererTestQuery",
     "id": null,
-    "text": "query QueryRendererTestQuery {\n  node(id: \"my-id\") {\n    __typename\n    id\n  }\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "node": {
@@ -111,7 +106,10 @@ return {
           "nullable": false
         }
       }
-    }
+    },
+    "name": "QueryRendererTestQuery",
+    "operationKind": "query",
+    "text": "query QueryRendererTestQuery {\n  node(id: \"my-id\") {\n    __typename\n    id\n  }\n}\n"
   }
 };
 })();
