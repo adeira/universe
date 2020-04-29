@@ -50,7 +50,15 @@ I dislike unnecessary `@channel` and `@here` mentions in the public messages. Al
 
 _I am an introvert._ That means I loose energy when I am around other people for too long and I recharge my energy by spending time alone. Sounds weird? Check this video to understand my view: [https://www.reddit.com/93u8rj/](https://www.reddit.com/93u8rj/)
 
-_I am a [volatile developer](https://randsinrepose.com/archives/stables-and-volatiles/)._ I like to solve any problem in an untraditional way and I prefer product development over development for clients. Definitely [read this article](https://randsinrepose.com/archives/stables-and-volatiles/) to understand what I mean by being volatile. It's very important. [I just got bored, everybody out.](https://youtu.be/cPEnRb6aaS4)
+_I am a [volatile developer](https://randsinrepose.com/archives/stables-and-volatiles/)._ I like to solve any problem in an untraditional way and I prefer product development over development for clients. Definitely [read this article](https://randsinrepose.com/archives/stables-and-volatiles/) to understand what I mean by being volatile. It's very important. Here is an excerpt from the article. Volatiles are the engineers who:
+
+- Prefer to define strategy rather than follow it.
+- Have issues with authority and often have legitimate arguments for anarchy.
+- Can’t conceive of failing, and seek a thrill in risk.
+- See working with others as time-consuming and onerous tasks, prefer to work in small, autonomous groups, and don’t give a shit how you feel.
+- Often don’t build particularly beautiful or stable things, but they sure do build a lot.
+- Are only reliable if it’s in their best interest.
+- Leave a trail of disruption in their wake.
 
 _I like changes._ I like to do rapid and unexpected changes even though they are big. Sometimes it's my way of escaping stereotype, sometimes it's my way of saying "enough". And sometimes it's a result of understanding something better.
 
@@ -64,10 +72,12 @@ _I will not agree blindly._ I always questioned everything. Don't try to convinc
 
 _Success motivates me._ I feel energized when I have the opportunity to do something awesome. I feel miserable when I do not have the opportunity and I am treated just like a monkey or being ignored. Don't waste my potential.
 
+TODO: what should the external people do when they get into the situation?
 _I have my moods._ I am fine one minute and then can suddenly turn into a completely different person. I think it's related to my introversion when things simply went too far too quickly. I am working on that.
 
 _I don't like to be bored._ Did I suddenly disappear? Did I leave the meeting? I was probably bored or didn't see the point.
 
+TODO: similar
 _I have my focus zone._ Usually, when I am working really hard. I can be in this zone for a long time (hours). And I need some time to get back. I am usually not very friendly during this recovery period because I am still partially in the zone. I am trying to learn how to switch these mods more quickly. Be patient with me, please.
 
 _I want to have things under control._ This way I do things really well. It gives me possibility to say NO when I think it's not OK or to do sudden changes. I am very unhappy when someone treats me as yet another programmer-monkey or when I cannot say NO.
