@@ -30,6 +30,7 @@ beforeEach(() => {
 it('renders default components for loading and success', () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       environment={environment}
       query={query}
       variables={variables}
@@ -57,6 +58,7 @@ it('renders default components for loading and success', () => {
 it('renders default components for loading and generic fail', () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       environment={environment}
       query={query}
       variables={variables}
@@ -82,6 +84,7 @@ it('renders default components for loading and generic fail', () => {
 it('renders default component for response error', () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       environment={environment}
       query={query}
       variables={variables}
@@ -100,6 +103,7 @@ it('renders default component for response error', () => {
 it('renders default component for fail with timeout', () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       environment={environment}
       query={query}
       variables={variables}
@@ -118,6 +122,7 @@ it('renders custom error component', () => {
   }
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
+      // $FlowFixMe errors after upgrading to relay 9.1.0
       environment={environment}
       query={query}
       variables={variables}

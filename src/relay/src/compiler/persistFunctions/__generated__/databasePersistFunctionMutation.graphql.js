@@ -1,10 +1,8 @@
 /**
  * @flow
- * @relayHash a38a448b048a0789762ead728b073734
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type StoredOperationInput = {|
@@ -43,18 +41,15 @@ mutation databasePersistFunctionMutation(
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
     "kind": "LocalArgument",
     "name": "input",
-    "type": "[StoredOperationInput!]!",
-    "defaultValue": null
+    "type": "[StoredOperationInput!]!"
   }
 ],
 v1 = [
   {
-    "kind": "LinkedField",
     "alias": null,
-    "name": "createStoredOperations",
-    "storageKey": null,
     "args": [
       {
         "kind": "Variable",
@@ -63,58 +58,61 @@ v1 = [
       }
     ],
     "concreteType": "CreateStoredOperation",
+    "kind": "LinkedField",
+    "name": "createStoredOperations",
     "plural": false,
     "selections": [
       {
-        "kind": "LinkedField",
         "alias": null,
-        "name": "createdOperations",
-        "storageKey": null,
         "args": null,
         "concreteType": "StoredOperation",
+        "kind": "LinkedField",
+        "name": "createdOperations",
         "plural": true,
         "selections": [
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "operationId",
             "args": null,
+            "kind": "ScalarField",
+            "name": "operationId",
             "storageKey": null
           },
           {
-            "kind": "ScalarField",
             "alias": null,
-            "name": "text",
             "args": null,
+            "kind": "ScalarField",
+            "name": "text",
             "storageKey": null
           }
-        ]
+        ],
+        "storageKey": null
       }
-    ]
+    ],
+    "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
-    "kind": "Fragment",
-    "name": "databasePersistFunctionMutation",
-    "type": "RootMutation",
-    "metadata": null,
     "argumentDefinitions": (v0/*: any*/),
-    "selections": (v1/*: any*/)
+    "kind": "Fragment",
+    "metadata": null,
+    "name": "databasePersistFunctionMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "databasePersistFunctionMutation",
-    "argumentDefinitions": (v0/*: any*/),
     "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "databasePersistFunctionMutation",
     "id": null,
-    "text": "mutation databasePersistFunctionMutation(\n  $input: [StoredOperationInput!]!\n) {\n  createStoredOperations(persistedOperations: $input) {\n    createdOperations {\n      operationId\n      text\n    }\n  }\n}\n",
-    "metadata": {}
+    "metadata": {},
+    "name": "databasePersistFunctionMutation",
+    "operationKind": "mutation",
+    "text": "mutation databasePersistFunctionMutation(\n  $input: [StoredOperationInput!]!\n) {\n  createStoredOperations(persistedOperations: $input) {\n    createdOperations {\n      operationId\n      text\n    }\n  }\n}\n"
   }
 };
 })();

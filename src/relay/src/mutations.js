@@ -42,6 +42,7 @@ export function commitMutation<T: MutationParameters>(
   environment: Environment,
   config: MutationConfig<T>,
 ) {
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _commitMutation(environment, config);
 }
 

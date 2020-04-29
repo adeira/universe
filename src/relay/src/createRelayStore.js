@@ -9,6 +9,8 @@ type Options = {|
 |};
 
 export default function createRelayStore(records: ?RecordMap, options: ?Options) {
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   const source = new RecordSource(records);
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return new Store(source, options);
 }

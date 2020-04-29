@@ -1,15 +1,21 @@
 /**
  * @flow
- * @relayHash a0a47123d5dc1cb17ff751181571190e
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type useMutationTestMutationVariables = {||};
+export type StoredOperationInput = {|
+  operationId: string,
+  text: string,
+|};
+export type useMutationTestMutationVariables = {|
+  persistedOperations: $ReadOnlyArray<StoredOperationInput>
+|};
 export type useMutationTestMutationResponse = {|
-  +__typename: string
+  +createStoredOperations: ?{|
+    +__typename: string
+  |}
 |};
 export type useMutationTestMutation = {|
   variables: useMutationTestMutationVariables,
@@ -17,55 +23,90 @@ export type useMutationTestMutation = {|
 |};
 
 /*
-mutation useMutationTestMutation {
-  __typename
+mutation useMutationTestMutation(
+  $persistedOperations: [StoredOperationInput!]!
+) {
+  createStoredOperations(persistedOperations: $persistedOperations) {
+    __typename
+  }
 }
 */
 
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
-    "kind": "ScalarField",
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "persistedOperations",
+    "type": "[StoredOperationInput!]!"
+  }
+],
+v1 = [
+  {
     "alias": null,
-    "name": "__typename",
-    "args": null,
+    "args": [
+      {
+        "kind": "Variable",
+        "name": "persistedOperations",
+        "variableName": "persistedOperations"
+      }
+    ],
+    "concreteType": "CreateStoredOperation",
+    "kind": "LinkedField",
+    "name": "createStoredOperations",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "__typename",
+        "storageKey": null
+      }
+    ],
     "storageKey": null
   }
 ];
 return {
-  "kind": "Request",
   "fragment": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
-    "name": "useMutationTestMutation",
-    "type": "RootMutation",
     "metadata": null,
-    "argumentDefinitions": [],
-    "selections": (v0/*: any*/)
+    "name": "useMutationTestMutation",
+    "selections": (v1/*: any*/),
+    "type": "RootMutation"
   },
+  "kind": "Request",
   "operation": {
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "useMutationTestMutation",
-    "argumentDefinitions": [],
-    "selections": (v0/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "operationKind": "mutation",
-    "name": "useMutationTestMutation",
     "id": null,
-    "text": "mutation useMutationTestMutation {\n  __typename\n}\n",
     "metadata": {
       "relayTestingSelectionTypeInfo": {
-        "__typename": {
+        "createStoredOperations": {
+          "type": "CreateStoredOperation",
+          "enumValues": null,
+          "plural": false,
+          "nullable": true
+        },
+        "createStoredOperations.__typename": {
           "type": "String",
           "enumValues": null,
           "plural": false,
           "nullable": false
         }
       }
-    }
+    },
+    "name": "useMutationTestMutation",
+    "operationKind": "mutation",
+    "text": "mutation useMutationTestMutation(\n  $persistedOperations: [StoredOperationInput!]!\n) {\n  createStoredOperations(persistedOperations: $persistedOperations) {\n    __typename\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '694437f71cc6444ecd2349f459c64221';
+(node: any).hash = '4852841bf3f0a926c710bc2129e8fa4b';
 export default node;

@@ -37,7 +37,6 @@ export default function formatGeneratedModule({
  */
 
 /* eslint-disable */
-// flowlint untyped-type-import:off
 
 ${documentTypeImport}
 ${typeText || ''}

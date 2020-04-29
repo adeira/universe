@@ -14,5 +14,6 @@ export default function commitLocalUpdate(
   environment: Environment,
   updater: (store: RecordSourceSelectorProxy, data: SelectorData) => void,
 ) {
+  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _commitLocalUpdate(environment, updater);
 }
