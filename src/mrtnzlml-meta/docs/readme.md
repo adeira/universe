@@ -72,7 +72,7 @@ _I will not agree blindly._ I always questioned everything. Don't try to convinc
 
 _Success motivates me._ I feel energized when I have the opportunity to do something awesome. I feel miserable when I do not have the opportunity and I am treated just like a monkey or being ignored. Don't waste my potential.
 
-_I have my moods._ I am fine one minute and then can suddenly turn into a completely different person. I think it's related to my introversion when things simply went too far too quickly. I am working on that.
+_I have my moods._ I am fine one minute and then can suddenly turn into a completely different person. I think it's related to my introversion when things simply went too far too quickly. It primarily affects my personal life and I am working on that.
 
 _I don't like to be bored._ Did I suddenly disappear? Did I leave the meeting? I was probably bored or didn't see the point.
 
