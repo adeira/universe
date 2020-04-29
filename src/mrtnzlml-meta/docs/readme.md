@@ -16,7 +16,7 @@ I am a JavaScript developer at [Pipedrive.com](https://www.pipedrive.com/), orig
 
 I am officially part of Prague office and I spend most of my time here. I am basically never in Tallinn HQ. I used to [travel a lot](https://nomadlist.com/@mrtnzlml) (and still sometimes do) and therefore, I prefer solving every issue remotely if possible. I really enjoy being in different timezone so I can have time for some actual work and life. Do not expect I will react immediately. Do not expect it even when I am in the same city. I do not expect it as well.
 
-## My day
+## My day (during SARS-CoV-2 pandemic)
 
 As you can see below, I live in a natural timezone even when I am in the same city. It's because I wake up very early to get more out of my short day.
 
