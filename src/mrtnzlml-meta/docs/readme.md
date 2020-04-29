@@ -10,7 +10,7 @@ What is this? I believe that it's generally very difficult to understand and rea
 
 ---
 
-I am a JavaScript developer at [Pipedrive.com](https://www.pipedrive.com/), originally from Czech Republic 🇨🇿. Currently, I work with technologies around **GraphQL**, **Relay**, **Flow/TS**, **React (Native)** and similar. I studied very different things and my main interests are also somewhere else, however, this brings me some financial security, so I invest a lot of energy into it. Eventually, I'd like to stop being a programmer.
+I am a JavaScript developer at [Pipedrive.com](https://www.pipedrive.com/), originally from Czech Republic 🇨🇿. Currently, I work with technologies around **GraphQL**, **Relay**, **Flow/TS**, **React (Native)** and similar. I really like it and I believe I am good at it. However, I studied very different things and my main interests are also somewhere else. Programming brings me some financial security and I invest a lot of energy into it but eventually, I'd like to stop being a programmer.
 
 ## My location
 
@@ -34,11 +34,13 @@ As you can see below, I live in a natural timezone even when I am in the same ci
 }
 ```
 
-I usually eat my lunch later (13:00). It's a habit a got in Latin America and I like it. I prefer to eat alone when I can since it's the only time I have for myself. This is the reason why I am most probably not going to attend some late meetings - I am already far away doing something else.
+My work usually ends much later. It's not healthy, I know.
+
+I usually eat my lunch later (13:00). It's a habit a got in Latin America and I like it. I prefer to eat alone when I can since it's the only time I have for myself. But feel free to join me. This time shift is the reason why I am most probably not going to attend some late meetings - I am already far away doing something else.
 
 ## Meetings, Slack
 
-I genuinely don't like meetings. Luckily, I don't have that many of them. I am trying to attend only valuable ones. Please, always **prepare an agenda** for the meeting in advance so we can prepare well. I dislike when I am leaving the meeting without clear outcome and I feel like I just wasted my time there. Outcome from every meeting should be written somewhere. Wanna chat? Let's do it during coffee break instead! Do you prefer a walk outside? Event better! :)
+I genuinely don't like meetings. Luckily, I don't have that many of them. I am trying to attend only valuable ones. Please, always **prepare an agenda** for the meeting in advance so we can prepare well. I dislike when I am leaving the meeting without clear outcome and I feel like I just wasted my time there. Wanna chat? Let's do it during coffee break instead! Do you prefer a walk outside? Event better! :)
 
 Very similar rules applies to how I use Slack. I read everything relevant for me and I am leaving and joining channels frequently (depending on my needs and interests). Don't take it personally when I leave the channel. I prefer when you write me personally.
 
