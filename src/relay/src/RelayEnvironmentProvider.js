@@ -20,6 +20,5 @@ type Props = $ReadOnly<{|
 export default function RelayEnvironmentProvider(props: Props): React.Node {
   const { children, environment } = props;
   const context = useMemo(() => ({ environment }), [environment]);
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   return <ReactRelayContext.Provider value={context}>{children}</ReactRelayContext.Provider>;
 }

@@ -2,7 +2,7 @@
 
 import type { Variables, RecordProxy } from '@adeira/relay-runtime';
 
-import type { Disposable } from './types.flow';
+export type { Environment } from 'react-relay';
 
 type DataID = string;
 
@@ -30,16 +30,6 @@ type ReaderFragment = {|
   +selections: $ReadOnlyArray<$FlowFixMe>,
 |};
 
-/*
- * A selector defines the starting point for a traversal into the graph for the
- * purposes of targeting a subgraph.
- */
-type NormalizationSelector = {|
-  +dataID: DataID,
-  +node: $FlowFixMe,
-  +variables: Variables,
-|};
-
 type SingularReaderSelector = {|
   +kind: 'SingularReaderSelector',
   +dataID: DataID,
@@ -59,22 +49,6 @@ type TypedSnapshot<TData> = {|
 |};
 
 export type Snapshot = TypedSnapshot<?{| +[key: string]: mixed |}>;
-
-// See:
-// - https://facebook.github.io/relay/docs/en/next/relay-store.html
-// - https://relay.dev/docs/en/next/runtime-architecture#store-operations
-type RelayModernStore = {|
-  +getSource: () => RecordSourceSelectorProxy,
-  +lookup: SingularReaderSelector => Snapshot,
-  +retain: NormalizationSelector => Disposable,
-  // improve as needed
-|};
-
-export type Environment = {|
-  +getStore: () => RelayModernStore,
-  +lookup: SingularReaderSelector => Snapshot,
-  // improve as needed
-|};
 
 export type RecordSourceSelectorProxy = {|
   +create: (dataID: string, typeName: string) => RecordProxy,
