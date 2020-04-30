@@ -57,7 +57,6 @@ export default function LocalQueryRenderer(props: Props) {
   return (
     // $FlowFixMe errors after upgrading to relay 9.1.0
     <RelayLocalQueryRenderer
-      // $FlowFixMe errors after upgrading to relay 9.1.0
       environment={environment}
       render={renderQueryRendererResponse}
       {...props}

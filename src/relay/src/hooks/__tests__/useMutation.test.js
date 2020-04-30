@@ -60,7 +60,6 @@ it('calls the mutation as expected', () => {
 
   act(() => {
     render(
-      // $FlowFixMe errors after upgrading to relay 9.1.0
       <RelayEnvironmentProvider environment={EnvironmentMock}>
         <TestComponent onCompleted={onCompleted} onError={onError} />
       </RelayEnvironmentProvider>,
@@ -93,7 +92,6 @@ it('handles partial errors gracefully', () => {
 
   act(() => {
     render(
-      // $FlowFixMe errors after upgrading to relay 9.1.0
       <RelayEnvironmentProvider environment={EnvironmentMock}>
         <TestComponent onCompleted={onCompleted} onError={onError} />
       </RelayEnvironmentProvider>,
@@ -123,7 +121,6 @@ it('handles error states gracefully', () => {
 
   act(() => {
     render(
-      // $FlowFixMe errors after upgrading to relay 9.1.0
       <RelayEnvironmentProvider environment={EnvironmentMock}>
         <TestComponent onCompleted={onCompleted} onError={onError} />
       </RelayEnvironmentProvider>,
