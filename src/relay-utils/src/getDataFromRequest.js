@@ -13,7 +13,6 @@ export default function getDataFromRequest(
   { query, variables }: Operation,
   environment: Environment,
 ) {
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   const request = getRequest(query);
   const operation = createOperationDescriptor(request, variables);
 

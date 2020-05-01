@@ -1,26 +1,17 @@
 // @flow
 
 import type { Variables } from '@adeira/relay-runtime';
+import type { GraphQLTaggedNode as _GraphQLTaggedNode } from 'relay-runtime';
 
+export type GraphQLTaggedNode = _GraphQLTaggedNode;
 export type RequestNode = $FlowFixMe;
 export type Uploadables = { +[key: string]: File | Blob, ... };
-
-type ConcreteArgumentDefinition = $FlowFixMe;
-type ConcreteSelection = $FlowFixMe;
 
 export type Disposable = {|
   +dispose: () => void,
 |};
 
 // The type of a graphql`...` tagged template expression.
-export opaque type GraphQLTaggedNode = {|
-  +argumentDefinitions: $ReadOnlyArray<ConcreteArgumentDefinition>,
-  +kind: 'Fragment',
-  +metadata: ?{ [key: string]: mixed, ... },
-  +name: string,
-  +selections: $ReadOnlyArray<ConcreteSelection>,
-  +type: string,
-|};
 
 export type FragmentSpec = { +[key: string]: GraphQLTaggedNode, ... };
 
