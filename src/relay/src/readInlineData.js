@@ -11,6 +11,5 @@ export default function readInlineData<
   TData,
   TKey: ?{ +$data?: TData, +$fragmentRefs: TRef, ... },
 >(fragment: GraphQLTaggedNode, fragmentRef: TKey): ?TData {
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _readInlineData(fragment, fragmentRef);
 }

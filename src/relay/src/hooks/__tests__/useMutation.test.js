@@ -33,7 +33,6 @@ type Props = {|
 
 const TestComponent = (props: Props) => {
   const [addComment, isCommentPending] = useMutation(
-    // $FlowFixMe errors after upgrading to relay 9.1.0
     graphql`
       mutation useMutationTestMutation($persistedOperations: [StoredOperationInput!]!)
         @relay_test_operation {
