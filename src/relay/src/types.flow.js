@@ -13,7 +13,7 @@ export type Disposable = {|
 
 // The type of a graphql`...` tagged template expression.
 
-export type FragmentSpec = { +[key: string]: GraphQLTaggedNode, ... };
+export type FragmentSpec = { [key: string]: GraphQLTaggedNode, ... };
 
 type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
 
