@@ -277,6 +277,7 @@ Object {
     "jest/lowercase-name": 0,
     "jest/no-alias-methods": 0,
     "jest/no-commented-out-tests": 0,
+    "jest/no-deprecated-functions": 0,
     "jest/no-disabled-tests": 2,
     "jest/no-duplicate-hooks": 2,
     "jest/no-expect-resolves": 0,
