@@ -26,9 +26,11 @@ it("calls event 'execute.start' as expected", () => {
     name: 'execute.start',
     transactionID: 100_000,
     params: {
+      id: null,
       name: 'test',
-      operationKind: 'Node',
+      operationKind: 'query',
       text: 'query Lol{id}',
+      metadata: {},
     },
     variables: {},
   });
