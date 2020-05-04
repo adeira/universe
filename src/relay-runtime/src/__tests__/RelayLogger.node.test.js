@@ -20,9 +20,11 @@ it('does not log in Node.js', () => {
     name: 'execute.start',
     transactionID: 1,
     params: {
+      id: null,
       name: 'test',
-      operationKind: 'Node',
+      operationKind: 'query',
       text: 'query Lol{id}',
+      metadata: {},
     },
     variables: {},
   });
