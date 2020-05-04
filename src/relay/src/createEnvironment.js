@@ -50,7 +50,6 @@ export default function createEnvironment(options: Options): Environment {
   return new RelayEnvironment({
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn),
-    // $FlowFixMe errors after upgrading to relay 9.1.0
     log: RelayLogger,
     store: createRelayStore(records, {
       gcReleaseBufferSize: options.gcReleaseBufferSize,
