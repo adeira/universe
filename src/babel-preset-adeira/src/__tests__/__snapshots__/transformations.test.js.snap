@@ -2017,7 +2017,7 @@ module.exports = function (a) {
   console.warn([1].concat(rest));
   var b = a.b,
       c = (0, _objectWithoutProperties2.default)(a, ["b"]);
-  return _objectSpread({}, b, {}, c);
+  return _objectSpread(_objectSpread({}, b), c);
 };
 `;
 
@@ -2057,7 +2057,7 @@ module.exports = function (a) {
   var b = a.b,
       c = _objectWithoutProperties(a, ["b"]);
 
-  return _objectSpread({}, b, {}, c);
+  return _objectSpread(_objectSpread({}, b), c);
 };
 `;
 
