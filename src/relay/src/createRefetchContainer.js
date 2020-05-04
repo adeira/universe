@@ -40,6 +40,5 @@ export default function createRefetchContainer<
     isObjectEmpty(fragmentSpec) === false,
     'Fragment spec of this refetch container factory cannot be empty.',
   );
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _createRefetchContainer(Component, fragmentSpec, refetchQuery);
 }
