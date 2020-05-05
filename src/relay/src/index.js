@@ -4,6 +4,7 @@ import {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
 } from '@adeira/fetch';
+import { graphql } from 'react-relay';
 
 import commitLocalUpdate from './commitLocalUpdate';
 import { commitMutation, commitMutationAsync } from './mutations';
@@ -14,7 +15,6 @@ import createNetworkFetcher from './fetchers/createNetworkFetcher';
 import createPaginationContainer from './createPaginationContainer';
 import createRefetchContainer from './createRefetchContainer';
 import fetchQuery from './fetchQuery';
-import graphql from './graphql';
 import LocalQueryRenderer from './LocalQueryRenderer';
 import QueryRenderer from './QueryRenderer';
 import readInlineData from './readInlineData';
