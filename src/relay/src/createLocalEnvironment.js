@@ -11,10 +11,9 @@ import type { Environment } from './runtimeTypes.flow';
  * very much API around and should be extended as needed.
  */
 export default function createLocalEnvironment(): Environment {
-  // $FlowFixMe errors after upgrading to relay 9.1.0
+  // $FlowExpectedError: Network is required in relay flow types
   return new RelayEnvironment({
     // notice this environment doesn't have network layer since it's not necessary
-    // $FlowFixMe errors after upgrading to relay 9.1.0
     log: RelayLogger,
     store: createRelayStore(),
   });

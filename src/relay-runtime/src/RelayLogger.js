@@ -3,56 +3,7 @@
 /* eslint-disable no-console */
 
 import { isBrowser } from '@adeira/js';
-
-import type { Variables } from './RelayRuntimeTypes';
-import type { GraphQLResponse } from './RelayNetworkTypes';
-
-export type LogEvent =
-  | {|
-      +name: 'queryresource.fetch',
-      +operation: mixed, // TODO: OperationDescriptor type
-      // FetchPolicy from relay-experimental
-      +fetchPolicy: string,
-      // RenderPolicy from relay-experimental
-      +renderPolicy: string,
-      +hasFullQuery: boolean,
-      +shouldFetch: boolean,
-    |}
-  | {|
-      +name: 'execute.info',
-      +transactionID: number,
-      +info: mixed,
-    |}
-  | {|
-      +name: 'execute.start',
-      +transactionID: number,
-      +params: {
-        // TODO: RequestParameters type
-        +name: string,
-        +operationKind: string,
-        +text: string,
-        ...
-      },
-      +variables: Variables,
-    |}
-  | {|
-      +name: 'execute.next',
-      +transactionID: number,
-      +response: GraphQLResponse,
-    |}
-  | {|
-      +name: 'execute.error',
-      +transactionID: number,
-      +error: Error,
-    |}
-  | {|
-      +name: 'execute.complete',
-      +transactionID: number,
-    |}
-  | {|
-      +name: 'execute.unsubscribe',
-      +transactionID: number,
-    |};
+import type { LogEvent } from 'relay-runtime';
 
 function logGroup(logEvent, groupBody?: () => void, groupNote?: string, style: string = ''): void {
   const logName = logEvent.name;
@@ -91,8 +42,8 @@ export default function RelayLogger(logEvent: LogEvent) {
         },
         `${logEvent.params.name} ${
           logEvent.params.operationKind === 'mutation'
-            ? `📝 (${logEvent.params.text.length})`
-            : `🔍 (${logEvent.params.text.length})`
+            ? `📝 (${logEvent.params.text?.length ?? 0})`
+            : `🔍 (${logEvent.params.text?.length ?? 0})`
         }`,
       );
       break;
@@ -132,6 +83,7 @@ export default function RelayLogger(logEvent: LogEvent) {
       logGroup(logEvent);
       break;
     case 'queryresource.fetch':
+    case 'queryresource.retain':
       // don't even print these
       break;
     default:
@@ -140,6 +92,6 @@ export default function RelayLogger(logEvent: LogEvent) {
   }
 }
 
-function checkEmpty(logEvent: empty): void {
+function checkEmpty(logEvent: { name: empty, ... }): void {
   console.error('Relay: cannot decide how to log event: %s', JSON.stringify(logEvent));
 }
