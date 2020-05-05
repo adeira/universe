@@ -2,9 +2,9 @@
 
 import isCI from 'is-ci';
 import logger from '@adeira/logger';
+import { graphql } from 'react-relay';
 
 import createQueryID from './createQueryID';
-import graphql from '../../graphql';
 import { commitMutation } from '../../mutations';
 import createEnvironment from '../../createEnvironment';
 import createNetworkFetcher from '../../fetchers/createNetworkFetcher';
