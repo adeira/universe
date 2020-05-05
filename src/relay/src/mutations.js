@@ -42,7 +42,13 @@ export function commitMutation<T: MutationParameters>(
   environment: Environment,
   config: MutationConfig<T>,
 ) {
-  // $FlowFixMe errors after upgrading to relay 9.1.0
+  /*
+    $FlowExpectedError: Let's stay with our flow types for now,
+    since they are better than relay's at the moment.
+    One example is RangeBehaviorsFunction, where relay has:
+    [name: string]: $FlowFixMe, while we have the actual
+    allowed rangebehaviors
+  */
   return _commitMutation(environment, config);
 }
 
