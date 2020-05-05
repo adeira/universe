@@ -1,6 +1,7 @@
 // @flow
 
-import graphql from '../graphql';
+import { graphql } from 'react-relay';
+
 import useMutation from './useMutation';
 
 module.exports = {
