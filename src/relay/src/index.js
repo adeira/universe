@@ -53,5 +53,7 @@ module.exports = {
 export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
 export type { RefetchRelayProp } from './createRefetchContainer';
-export type { DeclarativeMutationConfig, Disposable, GraphQLTaggedNode } from './types.flow';
+export type { DeclarativeMutationConfig } from './types.flow';
 export type { Environment, Snapshot, RecordMap } from './runtimeTypes.flow';
+// TODO: Remove from here, and only export from @adeira/relay-runtime
+export type { Disposable, GraphQLTaggedNode } from '@adeira/relay-runtime';

@@ -4,9 +4,8 @@ import * as React from 'react';
 import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
-import type { Variables } from '@adeira/relay-runtime';
+import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
 
-import type { GraphQLTaggedNode } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
 type RendererProps = {| +[key: string]: any |}; // it can be anything, really

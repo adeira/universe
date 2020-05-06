@@ -1,16 +1,12 @@
 // @flow
 
 import { useState, useRef, useCallback, useEffect } from 'react';
+import type { GraphQLTaggedNode, Disposable } from '@adeira/relay-runtime';
 
 import useIsMountedRef from './useIsMountedRef';
 import useRelayEnvironment from './useRelayEnvironment';
 import { commitMutation, type MutationParameters } from '../mutations';
-import type {
-  DeclarativeMutationConfig,
-  GraphQLTaggedNode,
-  Disposable,
-  Uploadables,
-} from '../types.flow';
+import type { DeclarativeMutationConfig, Uploadables } from '../types.flow';
 import type { RecordSourceSelectorProxy } from '../runtimeTypes.flow';
 
 type HookMutationConfig<T: MutationParameters> = {|
@@ -97,6 +93,5 @@ export default function useMutation<T: MutationParameters>(
     [cleanup, environment, isMountedRef, mutation],
   );
 
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   return [commit, isMutationInFlight];
 }

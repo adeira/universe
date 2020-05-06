@@ -1,15 +1,9 @@
 // @flow
 
-import type { Variables } from '@adeira/relay-runtime';
-import type { GraphQLTaggedNode as _GraphQLTaggedNode } from 'relay-runtime';
+import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
 
-export type GraphQLTaggedNode = _GraphQLTaggedNode;
 export type RequestNode = $FlowFixMe;
 export type Uploadables = { +[key: string]: File | Blob, ... };
-
-export type Disposable = {|
-  +dispose: () => void,
-|};
 
 // The type of a graphql`...` tagged template expression.
 
