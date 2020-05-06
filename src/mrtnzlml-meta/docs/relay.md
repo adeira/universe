@@ -373,3 +373,11 @@ There is another plot twist into the type generation (Joe Savona on why sometime
 > Rather than special-case the representation of the root of the graph, Relay generates a "client" record to represent the Query and mutation/subscription objects. Like all other record instances those records have a **typename, but we special-case this typename to be 'ROOT'. Querying for the **typename field would overwrite this value with the actual typename (e.g. Query or whatever you call it in your schema), which messes with a few invariants. It's on our wishlist to make the root record a bit less special, but in practice we couldn't think of a reason to query \_\_typename on the root so we just disallow it for now.
 
 - https://github.com/facebook/relay/commit/793729e7af9c7ee0de971e3d2ed26e5896774640#commitcomment-37652508
+
+A nice workaround was mentioned here: https://github.com/facebook/relay/issues/2471#issuecomment-624238501
+
+```graphql
+... on Query { __typename }
+```
+
+(instead of just `__typename`)
