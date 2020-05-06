@@ -798,6 +798,7 @@ type JestObjectType = {
   * mocked version of the module for you.
   */
  genMockFromModule(moduleName: string): any,
+ createMockFromModule(moduleName: string): any,
  /**
   * Mocks a module with an auto-mocked version when it is being required.
   *

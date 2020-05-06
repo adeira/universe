@@ -1,6 +1,6 @@
 // @flow strict
 
-const fs = jest.genMockFromModule('fs');
+const fs = jest.createMockFromModule('fs');
 
 fs.existsSync = path => path !== '/unknown_path';
 
