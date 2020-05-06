@@ -1,8 +1,7 @@
 // @flow
 
 import { readInlineData as _readInlineData } from 'react-relay';
-
-import type { GraphQLTaggedNode } from './types.flow';
+import type { GraphQLTaggedNode } from '@adeira/relay-runtime';
 
 opaque type FragmentReference = empty;
 

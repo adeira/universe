@@ -3,8 +3,9 @@
 import * as React from 'react';
 import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
 import { invariant, isObjectEmpty } from '@adeira/js';
+import type { GraphQLTaggedNode, Disposable } from '@adeira/relay-runtime';
 
-import type { $RelayProps, FragmentSpec, GraphQLTaggedNode, Disposable } from './types.flow';
+import type { $RelayProps, FragmentSpec } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
 type RefetchOptions = {

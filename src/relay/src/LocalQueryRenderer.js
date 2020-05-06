@@ -3,10 +3,9 @@
 import * as React from 'react';
 import { LocalQueryRenderer as RelayLocalQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant } from '@adeira/js';
-import type { Variables } from '@adeira/relay-runtime';
+import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
 
 import createLocalEnvironment from './createLocalEnvironment';
-import type { GraphQLTaggedNode } from './types.flow';
 import type { Environment } from './runtimeTypes.flow';
 
 type RendererProps = {| +[key: string]: any |}; // it can be anything, really
