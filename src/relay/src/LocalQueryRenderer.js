@@ -24,7 +24,7 @@ type Props =
     |}
   | {|
       ...CommonProps,
-      +render: ({| +props: ?RendererProps |}) => React.Node,
+      +render: ({ +props: ?RendererProps, ... }) => React.Node,
     |};
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
@@ -52,13 +52,13 @@ export default function LocalQueryRenderer(props: Props) {
   // 3) <LQR /> defaults to the default local environment
   const context = React.useContext(ReactRelayContext);
   const environment = props.environment ?? context?.environment ?? createLocalEnvironment();
-
+  const { variables, ...rest } = props;
   return (
-    // $FlowFixMe errors after upgrading to relay 9.1.0
     <RelayLocalQueryRenderer
       environment={environment}
       render={renderQueryRendererResponse}
-      {...props}
+      variables={variables ?? {}}
+      {...rest}
     />
   );
 }
