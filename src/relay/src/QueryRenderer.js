@@ -4,7 +4,7 @@ import * as React from 'react';
 import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
-import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
+import type { Variables, CacheConfig, GraphQLTaggedNode } from '@adeira/relay-runtime';
 
 import type { Environment } from './runtimeTypes.flow';
 
@@ -21,10 +21,7 @@ type FetchPolicy = 'store-and-network' | 'network-only';
 type CommonProps = {|
   +query: GraphQLTaggedNode,
   +environment?: Environment,
-  +cacheConfig?: {|
-    +force?: ?boolean,
-    +poll?: ?number,
-  |},
+  +cacheConfig?: CacheConfig,
   +fetchPolicy?: FetchPolicy,
   +variables?: Variables,
 |};
@@ -106,7 +103,13 @@ export default function QueryRenderer(props: Props) {
   // Relay QR itself recreates the context with our environment.
   // Relay hooks are using `useRelayEnvironment` with `ReactRelayContext` inside (so we use it as well).
   return (
-    // $FlowFixMe errors after upgrading to relay 9.1.0
-    <RelayQueryRenderer environment={environment} render={renderQueryRendererResponse} {...props} />
+    <RelayQueryRenderer
+      environment={environment}
+      render={props.render !== undefined ? props.render : renderQueryRendererResponse}
+      query={props.query}
+      cacheConfig={props.cacheConfig}
+      fetchPolicy={props.fetchPolicy}
+      variables={props.variables ?? {}}
+    />
   );
 }

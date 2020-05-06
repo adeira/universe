@@ -1,8 +1,9 @@
-// @flow strict
+// @flow strict-local
 
+import type { Variables as _Variables } from 'relay-runtime';
 // https://github.com/facebook/relay/blob/master/packages/relay-runtime/util/RelayRuntimeTypes.js
 
-export type Variables = { +[name: string]: $FlowFixMe, ... };
+export type Variables = _Variables;
 
 export type DataID = string;
 
