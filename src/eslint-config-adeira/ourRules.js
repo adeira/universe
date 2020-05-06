@@ -290,7 +290,7 @@ module.exports = {
   'jest/lowercase-name': OFF,
   'jest/no-alias-methods': OFF,
   'jest/no-commented-out-tests': OFF,
-  'jest/no-deprecated-functions': OFF, // TODO: NEXT_VERSION_ERROR (when new Jest is released, probably >25.6.0)
+  'jest/no-deprecated-functions': NEXT_VERSION_ERROR, // TODO: ERROR
   'jest/no-disabled-tests': ERROR,
   'jest/no-duplicate-hooks': ERROR,
   'jest/no-expect-resolves': OFF,

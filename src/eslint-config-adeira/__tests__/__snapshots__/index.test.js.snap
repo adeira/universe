@@ -277,7 +277,7 @@ Object {
     "jest/lowercase-name": 0,
     "jest/no-alias-methods": 0,
     "jest/no-commented-out-tests": 0,
-    "jest/no-deprecated-functions": 0,
+    "jest/no-deprecated-functions": 1,
     "jest/no-disabled-tests": 2,
     "jest/no-duplicate-hooks": 2,
     "jest/no-expect-resolves": 0,
@@ -927,6 +927,11 @@ Snapshot Diff:
 -     "eslint-comments/no-unlimited-disable": 1,
 +     "eslint-comments/no-unlimited-disable": 2,
       "eslint-comments/no-unused-disable": 0,
+@@ --- --- @@
+      "jest/no-commented-out-tests": 0,
+-     "jest/no-deprecated-functions": 1,
++     "jest/no-deprecated-functions": 2,
+      "jest/no-disabled-tests": 2,
 @@ --- --- @@
       "jest/no-try-expect": 0,
 -     "jest/prefer-called-with": 1,
