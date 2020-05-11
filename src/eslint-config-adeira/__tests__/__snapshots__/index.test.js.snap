@@ -922,5 +922,5 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-Compared values have no visual difference.
+[2mCompared values have no visual difference.[22m
 `;

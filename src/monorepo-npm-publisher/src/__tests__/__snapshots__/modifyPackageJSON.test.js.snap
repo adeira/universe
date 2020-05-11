@@ -22,7 +22,7 @@ exports[`matches expected output: missingMainAndModule.json 1`] = `
 }
 ~~~~~
 Snapshot Diff:
-Compared values have no visual difference.
+[2mCompared values have no visual difference.[22m
 `;
 
 exports[`matches expected output: withMain.json 1`] = `
@@ -214,7 +214,7 @@ exports[`matches expected output: withMainAndModuleNoExtension.json 1`] = `
 }
 ~~~~~
 Snapshot Diff:
-Compared values have no visual difference.
+[2mCompared values have no visual difference.[22m
 `;
 
 exports[`matches expected output: withMainNoExtension.json 1`] = `
