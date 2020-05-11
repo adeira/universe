@@ -1,5 +1,7 @@
 # Unreleased
 
+- Upgrade eslint to 7.0.0
+
 # 1.2.0
 
 - Eslint runner no longer crashes if git is not initialised or if there is no git remote. It will fall back to lint all files instead.

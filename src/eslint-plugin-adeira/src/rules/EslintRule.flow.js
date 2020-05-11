@@ -40,6 +40,7 @@ export type Node = {|
     +start: number,
     +end: number,
     +type: string,
+    +range: $ReadOnlyArray<number>,
   |}>,
   +source: Node,
 |};
