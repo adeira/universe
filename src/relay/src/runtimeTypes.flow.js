@@ -1,20 +1,18 @@
 // @flow
 
 import type { Variables, RecordProxy } from '@adeira/relay-runtime';
+import type { RecordMap as _RecordMap } from 'relay-runtime/store/RelayStoreTypes.js.flow';
 
 export type { Environment } from 'react-relay';
+export type { Scheduler, OperationLoader } from 'relay-runtime/store/RelayStoreTypes.js.flow';
+export type { GetDataID } from 'relay-runtime/store/RelayResponseNormalizer.js.flow';
 
 type DataID = string;
-
-/*
- * An individual cached graph object.
- */
-type Record = {| +[key: string]: mixed |};
 
 /**
  * A collection of records keyed by id.
  */
-export type RecordMap = {| +[dataID: DataID]: ?Record |};
+export type RecordMap = _RecordMap;
 
 type ReaderFragment = {|
   +kind: 'Fragment',
