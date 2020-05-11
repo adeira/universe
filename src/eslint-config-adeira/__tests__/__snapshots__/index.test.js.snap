@@ -93,6 +93,7 @@ Object {
     "constructor-super": 2,
     "curly": 0,
     "default-case": 0,
+    "default-case-last": 1,
     "default-param-last": 2,
     "dot-location": "off",
     "dot-notation": 2,
@@ -517,6 +518,7 @@ Object {
     ],
     "no-regex-spaces": 2,
     "no-reserved-keys": "off",
+    "no-restricted-exports": 0,
     "no-restricted-globals": 0,
     "no-restricted-imports": 0,
     "no-restricted-modules": 0,
@@ -561,6 +563,7 @@ Object {
       },
     ],
     "no-use-before-define": 0,
+    "no-useless-backreference": 1,
     "no-useless-call": 1,
     "no-useless-catch": 2,
     "no-useless-computed-key": 2,
@@ -923,6 +926,11 @@ Snapshot Diff:
 + Second value
 
 @@ --- --- @@
+      "default-case": 0,
+-     "default-case-last": 1,
++     "default-case-last": 2,
+      "default-param-last": 2,
+@@ --- --- @@
       "eslint-comments/no-restricted-disable": 0,
 -     "eslint-comments/no-unlimited-disable": 1,
 +     "eslint-comments/no-unlimited-disable": 2,
@@ -937,6 +945,11 @@ Snapshot Diff:
 -     "jest/prefer-called-with": 1,
 +     "jest/prefer-called-with": 2,
       "jest/prefer-expect-assertions": 0,
+@@ --- --- @@
+      "no-use-before-define": 0,
+-     "no-useless-backreference": 1,
++     "no-useless-backreference": 2,
+      "no-useless-call": 1,
 @@ --- --- @@
       "react/jsx-no-literals": 0,
 -     "react/jsx-no-script-url": 1,

@@ -18,6 +18,6 @@
     "is-ci": "^2.0.0"
   },
   "peerDependencies": {
-    "eslint": ">=6.5.1 <7"
+    "eslint": "^7.0.0"
   }
 }

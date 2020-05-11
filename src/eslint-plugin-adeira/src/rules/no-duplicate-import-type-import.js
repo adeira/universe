@@ -13,8 +13,8 @@ function typeNodeSpecifiersToImport(typeNode) {
 }
 function autoFix(typeNode, valueNode, fixer) {
   // Each import has an array of specifiers, we want to append our typeimport after the last import
-  const { start, end, type } = valueNode.specifiers[valueNode.specifiers.length - 1];
-  const range = [start, end];
+  const { type, range } = valueNode.specifiers[valueNode.specifiers.length - 1];
+
   let newImport;
   switch (type) {
     case 'ImportDefaultSpecifier':
