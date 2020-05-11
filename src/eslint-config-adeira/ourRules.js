@@ -1,10 +1,12 @@
 // @flow strict
 
+/* eslint-disable no-unused-vars  */
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+/* eslint-enable no-unused-vars */
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -58,7 +60,7 @@ module.exports = {
   'consistent-return': [ERROR, { treatUndefinedAsUnspecified: false }],
   curly: [ERROR, 'all'],
   'default-case': OFF,
-  'default-case-last': NEXT_VERSION_ERROR,
+  'default-case-last': ERROR,
   'default-param-last': ERROR,
   'dot-notation': ERROR,
   eqeqeq: [ERROR, 'smart'],
@@ -114,7 +116,7 @@ module.exports = {
   'no-useless-call': WARN,
   'no-useless-catch': ERROR,
   'no-useless-concat': ERROR,
-  'no-useless-backreference': NEXT_VERSION_ERROR,
+  'no-useless-backreference': ERROR,
   'no-useless-escape': ERROR,
   'no-useless-return': WARN,
   'no-void': WARN,
@@ -293,7 +295,7 @@ module.exports = {
   'jest/lowercase-name': OFF,
   'jest/no-alias-methods': OFF,
   'jest/no-commented-out-tests': OFF,
-  'jest/no-deprecated-functions': NEXT_VERSION_ERROR, // TODO: ERROR
+  'jest/no-deprecated-functions': ERROR,
   'jest/no-disabled-tests': ERROR,
   'jest/no-duplicate-hooks': ERROR,
   'jest/no-expect-resolves': OFF,
@@ -312,7 +314,7 @@ module.exports = {
   'jest/no-test-return-statement': ERROR,
   'jest/no-truthy-falsy': OFF,
   'jest/no-try-expect': OFF,
-  'jest/prefer-called-with': NEXT_VERSION_ERROR,
+  'jest/prefer-called-with': ERROR,
   'jest/prefer-expect-assertions': OFF,
   'jest/prefer-hooks-on-top': ERROR,
   'jest/prefer-inline-snapshots': OFF,
@@ -466,7 +468,7 @@ module.exports = {
   'react/style-prop-object': ERROR,
   'react/void-dom-elements-no-children': ERROR,
   'react/function-component-definition': OFF,
-  'react/jsx-no-script-url': NEXT_VERSION_ERROR, // TODO: Error
+  'react/jsx-no-script-url': ERROR,
   'react/no-adjacent-inline-elements': OFF,
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
@@ -606,7 +608,7 @@ module.exports = {
   'node/file-extension-in-import': [ERROR, 'always', { '.js': 'never' }],
   'node/global-require': OFF, // see: global-require (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'node/handle-callback-err': WARN, // see: handle-callback-err (https://github.com/mysticatea/eslint-plugin-node/pull/206)
-  'node/no-callback-literal': WARN, // TODO: next version error (?)
+  'node/no-callback-literal': ERROR,
   'node/no-deprecated-api': ERROR,
   'node/no-exports-assign': ERROR,
   'node/no-extraneous-import': OFF, // see: import/no-extraneous-dependencies
@@ -644,7 +646,7 @@ module.exports = {
   'eslint-comments/no-aggregating-enable': OFF,
   'eslint-comments/no-duplicate-disable': ERROR,
   'eslint-comments/no-restricted-disable': OFF,
-  'eslint-comments/no-unlimited-disable': NEXT_VERSION_ERROR,
+  'eslint-comments/no-unlimited-disable': ERROR,
   'eslint-comments/no-unused-disable': OFF,
   'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,

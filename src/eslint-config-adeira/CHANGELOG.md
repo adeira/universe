@@ -1,6 +1,15 @@
 # Unreleased
 
+# 2.0.0
+
 - Upgrade eslint to 7.0.0
+- set `default-case-last` to error
+- set `no-useless-backreference` to error
+- set `jest/no-deprecated-functions` to error
+- set `jest/prefer-called-with` to error
+- set `react/jsx-no-script-url` to error
+- set `node/no-callback-literal` to error
+- set `eslint-comments/no-unlimited-disable` to error
 
 # 1.2.0
 
