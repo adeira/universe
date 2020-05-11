@@ -85,7 +85,8 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
             "last 2 versions",
             "ie >= 11"
           ]
-        }
+        },
+        "bugfixes": true
       }
     ],
     "@babel/preset-react"
@@ -129,7 +130,8 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         "modules": "commonjs",
         "targets": {
           "node": "current"
-        }
+        },
+        "bugfixes": true
       }
     ],
     "@babel/preset-react"
@@ -177,7 +179,8 @@ exports[`emits correct config for target 'js' and environment 'undefined' 1`] = 
             "last 2 versions",
             "ie >= 11"
           ]
-        }
+        },
+        "bugfixes": true
       }
     ],
     "@babel/preset-react"
@@ -224,7 +227,8 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
             "last 2 versions",
             "ie >= 11"
           ]
-        }
+        },
+        "bugfixes": true
       }
     ],
     "@babel/preset-react"
@@ -268,7 +272,8 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         "modules": false,
         "targets": {
           "node": "current"
-        }
+        },
+        "bugfixes": true
       }
     ],
     "@babel/preset-react"
@@ -316,7 +321,8 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' 1`
             "last 2 versions",
             "ie >= 11"
           ]
-        }
+        },
+        "bugfixes": true
       }
     ],
     "@babel/preset-react"

@@ -79,6 +79,7 @@ module.exports = (
           debug: options.debug,
           modules: supportsESM ? false : 'commonjs',
           targets: options.environments,
+          bugfixes: true,
           // TODO - loose: true (?)
         },
       ],
