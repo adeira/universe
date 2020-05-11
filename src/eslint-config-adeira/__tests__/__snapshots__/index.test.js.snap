@@ -93,7 +93,7 @@ Object {
     "constructor-super": 2,
     "curly": 0,
     "default-case": 0,
-    "default-case-last": 1,
+    "default-case-last": 2,
     "default-param-last": 2,
     "dot-location": "off",
     "dot-notation": 2,
@@ -106,7 +106,7 @@ Object {
     "eslint-comments/no-aggregating-enable": 0,
     "eslint-comments/no-duplicate-disable": 2,
     "eslint-comments/no-restricted-disable": 0,
-    "eslint-comments/no-unlimited-disable": 1,
+    "eslint-comments/no-unlimited-disable": 2,
     "eslint-comments/no-unused-disable": 0,
     "eslint-comments/no-unused-enable": 2,
     "eslint-comments/no-use": 0,
@@ -278,7 +278,7 @@ Object {
     "jest/lowercase-name": 0,
     "jest/no-alias-methods": 0,
     "jest/no-commented-out-tests": 0,
-    "jest/no-deprecated-functions": 1,
+    "jest/no-deprecated-functions": 2,
     "jest/no-disabled-tests": 2,
     "jest/no-duplicate-hooks": 2,
     "jest/no-expect-resolves": 0,
@@ -297,7 +297,7 @@ Object {
     "jest/no-test-return-statement": 2,
     "jest/no-truthy-falsy": 0,
     "jest/no-try-expect": 0,
-    "jest/prefer-called-with": 1,
+    "jest/prefer-called-with": 2,
     "jest/prefer-expect-assertions": 0,
     "jest/prefer-hooks-on-top": 2,
     "jest/prefer-inline-snapshots": 0,
@@ -563,7 +563,7 @@ Object {
       },
     ],
     "no-use-before-define": 0,
-    "no-useless-backreference": 1,
+    "no-useless-backreference": 2,
     "no-useless-call": 1,
     "no-useless-catch": 2,
     "no-useless-computed-key": 2,
@@ -589,7 +589,7 @@ Object {
     ],
     "node/global-require": 0,
     "node/handle-callback-err": 1,
-    "node/no-callback-literal": 1,
+    "node/no-callback-literal": 2,
     "node/no-deprecated-api": 2,
     "node/no-exports-assign": 2,
     "node/no-extraneous-import": 0,
@@ -726,7 +726,7 @@ Object {
     "react/jsx-no-comment-textnodes": 2,
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-literals": 0,
-    "react/jsx-no-script-url": 1,
+    "react/jsx-no-script-url": 2,
     "react/jsx-no-target-blank": 0,
     "react/jsx-no-undef": 2,
     "react/jsx-no-useless-fragment": 2,
@@ -922,37 +922,5 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-      "default-case": 0,
--     "default-case-last": 1,
-+     "default-case-last": 2,
-      "default-param-last": 2,
-@@ --- --- @@
-      "eslint-comments/no-restricted-disable": 0,
--     "eslint-comments/no-unlimited-disable": 1,
-+     "eslint-comments/no-unlimited-disable": 2,
-      "eslint-comments/no-unused-disable": 0,
-@@ --- --- @@
-      "jest/no-commented-out-tests": 0,
--     "jest/no-deprecated-functions": 1,
-+     "jest/no-deprecated-functions": 2,
-      "jest/no-disabled-tests": 2,
-@@ --- --- @@
-      "jest/no-try-expect": 0,
--     "jest/prefer-called-with": 1,
-+     "jest/prefer-called-with": 2,
-      "jest/prefer-expect-assertions": 0,
-@@ --- --- @@
-      "no-use-before-define": 0,
--     "no-useless-backreference": 1,
-+     "no-useless-backreference": 2,
-      "no-useless-call": 1,
-@@ --- --- @@
-      "react/jsx-no-literals": 0,
--     "react/jsx-no-script-url": 1,
-+     "react/jsx-no-script-url": 2,
-      "react/jsx-no-target-blank": 0,
+Compared values have no visual difference.
 `;
