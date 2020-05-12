@@ -381,3 +381,11 @@ A nice workaround was mentioned here: https://github.com/facebook/relay/issues/2
 ```
 
 (instead of just `__typename`)
+
+## Current Relay struggles
+
+These are things which are somehow difficult to achieve with current Relay abilities. It's almost like a wishlist:
+
+- Function `readInlineData` doesn't support variables (throws error _"Variables are not yet supported inside @inline fragments."_)
+- How to figure out request is in-flight when using fetch policy `store-and-network` (to show some spinner)?
+- How to access fields with some complicated args (without actually knowing all the possible args combinations in advance).
