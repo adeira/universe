@@ -1,7 +1,12 @@
 // @flow
 
 import { RelayLogger } from '@adeira/relay-runtime';
-import { Network, Environment as RelayEnvironment, ConnectionHandler } from 'relay-runtime';
+import {
+  Network,
+  Environment as RelayEnvironment,
+  ConnectionHandler,
+  type OperationLoader,
+} from 'relay-runtime';
 
 import createRequestHandler from './createRequestHandler';
 import createRelayStore from './createRelayStore';
@@ -11,20 +16,9 @@ type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   +handlerProvider?: string => void,
-  +operationLoader?: {|
-    // TODO: verify if the type is correct
-    +get: string => Promise<?NormalizationSplitOperation>,
-    +load: string => Promise<?NormalizationSplitOperation>,
-  |},
+  +operationLoader?: OperationLoader,
   +records?: ?RecordMap,
   +gcReleaseBufferSize?: ?number,
-|};
-
-type NormalizationSplitOperation = {|
-  +kind: 'SplitOperation',
-  +name: string,
-  +metadata: ?{ +[key: string]: mixed, ... },
-  +selections: $FlowFixMe,
 |};
 
 function createNetwork(
@@ -32,7 +26,6 @@ function createNetwork(
   subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
 ) {
   const fetch = createRequestHandler(fetchFn);
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   return Network.create(fetch, subscribeFn);
 }
 
@@ -45,14 +38,13 @@ function handlerProvider(handle) {
 }
 
 export default function createEnvironment(options: Options): Environment {
-  const { fetchFn, subscribeFn, records, ...rest } = options;
-  // $FlowFixMe errors after upgrading to relay 9.1.0
+  const { fetchFn, subscribeFn, records, gcReleaseBufferSize, ...rest } = options;
   return new RelayEnvironment({
     handlerProvider,
     network: createNetwork(fetchFn, subscribeFn),
     log: RelayLogger,
     store: createRelayStore(records, {
-      gcReleaseBufferSize: options.gcReleaseBufferSize,
+      gcReleaseBufferSize: gcReleaseBufferSize,
     }),
     ...rest,
   });
