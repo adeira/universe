@@ -1,18 +1,9 @@
 // @flow
 
-import { Observable } from 'relay-runtime';
-import type { Variables } from '@adeira/relay-runtime';
+import { Observable, type CacheConfig } from 'relay-runtime';
+import type { Variables, GraphQLResponse } from '@adeira/relay-runtime';
 
 import type { RequestNode, Uploadables } from './types.flow';
-
-export type CacheConfig = {|
-  +force?: ?boolean,
-|};
-
-type GraphQLResponse = {|
-  +data?: null | { [key: string]: any, ... },
-  +errors?: $ReadOnlyArray<{ [key: string]: any, ... }>,
-|};
 
 /**
  * A Sink is an object of methods provided by Observable during construction.
