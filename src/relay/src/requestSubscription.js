@@ -1,24 +1,12 @@
 // @flow
 
-import type { Variables, Disposable, GraphQLTaggedNode } from '@adeira/relay-runtime';
+import type { Disposable } from '@adeira/relay-runtime';
 import { requestSubscription as _requestSubscription } from 'react-relay';
+import type { GraphQLSubscriptionConfig } from 'relay-runtime';
 
-import type { DeclarativeMutationConfig } from './types.flow';
-import type { Environment, RecordSourceSelectorProxy } from './runtimeTypes.flow';
-
-opaque type SelectorData = $FlowFixMe;
+import type { Environment } from './runtimeTypes.flow';
 
 type SubscriptionPayload = { +[key: string]: any, ... };
-
-type Config<T: SubscriptionPayload> = {|
-  +subscription: GraphQLTaggedNode,
-  +variables: Variables,
-  +onCompleted?: ?() => void,
-  +onError?: ?(error: Error) => void,
-  +onNext?: ?(response: ?T) => void,
-  +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
-  +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
-|};
 
 /**
  * The first parameter `environment` should be from `props.relay.environment`
@@ -26,8 +14,7 @@ type Config<T: SubscriptionPayload> = {|
  */
 export default function requestSubscription<T: SubscriptionPayload>(
   environment: Environment,
-  config: Config<T>,
+  config: GraphQLSubscriptionConfig<T>,
 ): Disposable {
-  // $FlowFixMe errors after upgrading to relay 9.1.0
   return _requestSubscription(environment, config);
 }
