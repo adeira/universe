@@ -1,5 +1,13 @@
 # Unreleased
 
+# 1.3.1
+
+- Replace readInline with react-relay implementation.
+
+# 1.3.0
+
+- Upgrade relay packages to 9.1.0
+
 # 1.2.0
 
 - Remove record proxy type
