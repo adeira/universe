@@ -309,6 +309,7 @@ module.exports = {
   'jest/no-jest-import': ERROR,
   'jest/no-large-snapshots': OFF,
   'jest/no-mocks-import': ERROR,
+  'jest/no-restricted-matchers': OFF,
   'jest/no-standalone-expect': ERROR,
   'jest/no-test-callback': OFF,
   'jest/no-test-prefixes': OFF,
