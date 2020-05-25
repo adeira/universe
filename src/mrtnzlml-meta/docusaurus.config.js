@@ -24,7 +24,7 @@ module.exports = {
         src: 'img/logo.svg',
       },
       links: [
-        { to: 'docs', label: 'Meta', position: 'left' },
+        { to: 'docs/readme', label: 'Meta', position: 'left' },
         {
           href: 'https://www.notion.so/mrtnzlml/Travel-1d885bb8ffb843d69a8c48ba0a94f38b',
           label: 'Travel',
@@ -91,8 +91,6 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/mrtnzlml/meta/tree/master/',
-          // routeBasePath: '/',
-          // homePageId: 'readme',
           // showLastUpdateTime: true,
           // showLastUpdateAuthor: true,
         },

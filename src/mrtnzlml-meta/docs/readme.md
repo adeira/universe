@@ -1,5 +1,5 @@
 ---
-id: _index
+id: readme
 title: Personal README
 sidebar_label: Personal README
 ---
