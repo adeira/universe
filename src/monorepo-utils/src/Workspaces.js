@@ -51,7 +51,6 @@ module.exports = {
       });
     });
     return Promise.all(workspacePromises).then(packageJSONLocations => {
-      // $FlowIssue: https://github.com/facebook/flow/issues/7397
       return packageJSONLocations.flat();
     });
   },
