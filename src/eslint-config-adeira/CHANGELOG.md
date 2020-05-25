@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.1.0
+
+- Upgrade eslint to 7.1.0
+
 # 2.0.0
 
 - Upgrade eslint to 7.0.0
