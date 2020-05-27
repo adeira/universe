@@ -110,6 +110,7 @@ Object {
     "eslint-comments/no-unused-disable": 0,
     "eslint-comments/no-unused-enable": 2,
     "eslint-comments/no-use": 0,
+    "eslint-comments/require-description": 0,
     "flowtype/array-style-complex-type": 0,
     "flowtype/array-style-simple-type": 0,
     "flowtype/arrow-parens": 0,

@@ -645,6 +645,7 @@ module.exports = {
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
   'eslint-comments/disable-enable-pair': OFF,
+  'eslint-comments/require-description': OFF,
   'eslint-comments/no-aggregating-enable': OFF,
   'eslint-comments/no-duplicate-disable': ERROR,
   'eslint-comments/no-restricted-disable': OFF,
