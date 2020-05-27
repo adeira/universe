@@ -17,6 +17,8 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 - https://about.sourcegraph.com/graphql/graphql-at-twitter
 - https://www.infoq.com/presentations/netflix-graphql/
 - https://principledgraphql.com/
+- https://www.graphql.com/articles/4-years-of-graphql-lee-byron
+- https://github.com/esseswann/graphql-binary
 
 The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
 
@@ -55,6 +57,12 @@ TKTK (2 approaches: ephemeral Apollo vs. compile time)
 > This is important because Facebook doesn't deprecate mobile clients and force upgrade people (it might be very difficult if you only have 2G mobile internet access). So for example a random Facebook Android installation from 3 years ago still sends its persisted queries and should work!
 
 https://github.com/facebook/relay/pull/2641#issuecomment-475335484
+
+## Unsupported input union workaround
+
+https://github.com/graphql/graphql-spec/blob/master/rfcs/InputUnion.md#-problem-sketch
+
+TKTK
 
 ## GraphQL server-client communication
 
