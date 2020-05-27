@@ -17,6 +17,7 @@ TODO:
 - TODO: special `__id` field
 - https://github.com/relay-tools/relay-connection-handler-plus (use-case: https://github.com/facebook/relay/issues/3065)
 - entrypoints: [prepareEntryPoint](https://github.com/facebook/relay/blob/master/packages/relay-experimental/prepareEntryPoint.js#L26), [EntryPointContainer](https://github.com/facebook/relay/blob/master/packages/relay-experimental/EntryPointContainer.react.js) + tests
+- https://github.com/jstejada/relay-session
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
@@ -286,48 +287,6 @@ const env = new Environment({
 export default env;
 ```
 
-## RelayObservable.onUnhandledError
-
-You can override default behavior of unhandled errors when using Relay Observable:
-
-```js
-import { Observable } from 'relay-runtime';
-
-if (__DEV__) {
-  Observable.onUnhandledError((error, isUncaughtThrownError) => {
-    console.error(error);
-  });
-}
-
-Observable.create( ... )
-```
-
-Default [implementation](https://github.com/facebook/relay/blob/8f4d54522440a8146de794e72ea5bf873016b408/packages/relay-runtime/network/RelayObservable.js#L616-L636):
-
-```js
-if (__DEV__) {
-  // Default implementation of HostReportErrors() in development builds.
-  // Can be replaced by the host application environment.
-  RelayObservable.onUnhandledError((error, isUncaughtThrownError) => {
-    declare function fail(string): void;
-    if (typeof fail === 'function') {
-      // In test environments (Jest), fail() immediately fails the current test.
-      fail(String(error));
-    } else if (isUncaughtThrownError) {
-      // Rethrow uncaught thrown errors on the next frame to avoid breaking
-      // current logic.
-      setTimeout(() => {
-        throw error;
-      });
-    } else if (typeof console !== 'undefined') {
-      // Otherwise, log the unhandled error for visibility.
-      // eslint-disable-next-line no-console
-      console.error('RelayObservable: Unhandled Error', error);
-    }
-  });
-}
-```
-
 ## Common Relay mistakes (from user perspective)
 
 - users are not using fragments correctly (data-masking misunderstanding, [types generation misunderstanding](https://github.com/relay-tools/relay-compiler-language-typescript/issues/64#issuecomment-458654418))
@@ -389,3 +348,17 @@ These are things which are somehow difficult to achieve with current Relay abili
 - Function `readInlineData` doesn't support variables (throws error _"Variables are not yet supported inside @inline fragments."_)
 - How to figure out request is in-flight when using fetch policy `store-and-network` (to show some spinner)?
 - How to access fields with some complicated args (without actually knowing all the possible args combinations in advance).
+
+## On handling of GraphQL errors in Relay
+
+> My general advice for applications is, for now:
+>
+> 1: Establish and enforce a convention in your schema for the values returned in the errors property, and when an error is considered critical enough to return null for data (When nothing can be meaningfully be rendered anyway). For example, for critical errors you might choose to still return data but have errors contain an object with {critical: true, message: '...'}, or you might choose to make data be null. The important part is consistency.
+>
+> 2: Take advantage of this in your network layer. Check the data/errors property for the presence of critical error based on whatever approach you follow from the previous step, and if a critical error is present return {data: null, errors} to Relay. Otherwise pass through the data as-is.
+
+(https://github.com/facebook/relay/issues/1816#issuecomment-304492071)
+
+> The GraphQL errors field is intended for truly exceptional errors such as an invalid query or variable value: things that are not reasonably expected to occur in an application. Invalid user input or a backend service being unavailable are reasonable errors that are expected to occur (hopefully infrequently for the service down case!).
+
+(continue reading here: https://github.com/facebook/relay/issues/2640#issuecomment-461137805)
