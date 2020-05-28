@@ -1,5 +1,9 @@
 # Unreleased
 
+# 0.4.0
+
+- Upgraded dependencies
+
 ---
 
 Changelog before our fork:
