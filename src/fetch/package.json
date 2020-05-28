@@ -10,7 +10,7 @@
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
     "@adeira/js": "^1.2.0",
-    "@babel/runtime": "^7.10.0",
+    "@babel/runtime": "^7.10.1",
     "cross-fetch": "^3.0.4"
   },
   "devDependencies": {
