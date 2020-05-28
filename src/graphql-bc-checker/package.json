@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/signed-source": "^0.1.0",
-    "@babel/runtime": "^7.10.0",
+    "@babel/runtime": "^7.10.1",
     "chalk": "^4.0.0"
   },
   "devDependencies": {
