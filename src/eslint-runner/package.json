@@ -13,9 +13,10 @@
     "@babel/runtime": "^7.10.1",
     "chalk": "^4.0.0",
     "create-jest-runner": "^0.6.0",
+    "deep-equal": "^2.0.3",
+    "is-ci": "^2.0.0",
     "strip-ansi": "^6.0.0",
-    "text-table": "^0.2.0",
-    "is-ci": "^2.0.0"
+    "text-table": "^0.2.0"
   },
   "peerDependencies": {
     "eslint": "^7.0.0"
