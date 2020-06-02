@@ -8,11 +8,9 @@ import type { Variables, CacheConfig, GraphQLTaggedNode } from '@adeira/relay-ru
 
 import type { Environment } from './runtimeTypes.flow';
 
-type RendererProps = {| +[key: string]: any |}; // it can be anything, really
-
-type ReadyState = {|
+type ReadyState<T> = {|
   +error: ?Error,
-  +props: ?RendererProps,
+  +props: T,
   +retry: ?() => void,
 |};
 
@@ -26,7 +24,7 @@ type CommonProps = {|
   +variables?: Variables,
 |};
 
-type Props =
+type Props<T> =
   | {|
       ...CommonProps,
       +onSystemError?: ({
@@ -35,15 +33,15 @@ type Props =
         ...
       }) => React.Node,
       +onLoading?: () => React.Node,
-      +onResponse: RendererProps => React.Node,
+      +onResponse: T => React.Node,
     |}
   | {|
       ...CommonProps,
-      +render: ReadyState => React.Node,
+      +render: (ReadyState<?T>) => React.Node,
     |};
 
-export default function QueryRenderer(props: Props) {
-  function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState) {
+export default function QueryRenderer<T>(props: Props<T>) {
+  function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState<?T>) {
     if (error) {
       if (props.onSystemError) {
         return props.onSystemError({ error, retry });
@@ -74,7 +72,7 @@ export default function QueryRenderer(props: Props) {
       );
     }
 
-    if (!rendererProps) {
+    if (rendererProps == null) {
       return props.onLoading ? props.onLoading() : <div data-testid="loading">Loading...</div>;
     }
 

@@ -8,28 +8,26 @@ import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
 import createLocalEnvironment from './createLocalEnvironment';
 import type { Environment } from './runtimeTypes.flow';
 
-type RendererProps = {| +[key: string]: any |}; // it can be anything, really
-
 type CommonProps = {|
   +query: GraphQLTaggedNode,
   +environment?: Environment,
   +variables?: Variables,
 |};
 
-type Props =
+type Props<T> =
   | {|
       ...CommonProps,
-      +onResponse: RendererProps => React.Node,
+      +onResponse: T => React.Node,
       +onLoading?: () => React.Node,
     |}
   | {|
       ...CommonProps,
-      +render: ({ +props: ?RendererProps, ... }) => React.Node,
+      +render: ({ +props: ?T, ... }) => React.Node,
     |};
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.
-export default function LocalQueryRenderer(props: Props) {
+export default function LocalQueryRenderer<T>(props: Props<T>) {
   function renderQueryRendererResponse({ props: rendererProps }) {
     if (!rendererProps) {
       return props.onLoading ? (
