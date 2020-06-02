@@ -12,7 +12,7 @@
   "dependencies": {
     "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.2.0",
-    "@adeira/monorepo-utils": "^0.6.0",
+    "@adeira/monorepo-utils": "^0.7.0",
     "@adeira/test-utils": "^0.5.0",
     "fast-levenshtein": "^2.0.6"
   }
