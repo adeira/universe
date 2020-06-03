@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "1.3.1",
+  "version": "1.3.2",
   "main": "src/index",
   "module": false,
   "sideEffects": false,

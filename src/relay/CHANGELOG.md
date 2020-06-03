@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.3.2
+
+- Made QueryRender types generic
+
 # 1.3.1
 
 - Replace readInline with react-relay implementation.
