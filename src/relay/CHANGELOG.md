@@ -2,7 +2,7 @@
 
 # 1.3.2
 
-- Made QueryRender types generic
+- `QueryRenderer` types defined as generic
 
 # 1.3.1
 
