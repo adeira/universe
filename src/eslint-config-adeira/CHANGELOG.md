@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.2.1
+
+-  Downgrade prettier to 1.19.1 (should have been major upgrade)
+
 # 2.2.0
 
 - Upgrade eslint to 7.2.0
