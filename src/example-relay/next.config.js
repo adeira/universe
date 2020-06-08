@@ -11,7 +11,7 @@ module.exports = withCustomBabelConfigFile(
       // @x-shipit-enable: 'babel.config.js',
       '.babelrc', // @x-shipit-disable
     ),
-    webpack: (config) => {
+    webpack: config => {
       config.module.rules.push({
         type: 'javascript/auto',
         test: /\.mjs$/,

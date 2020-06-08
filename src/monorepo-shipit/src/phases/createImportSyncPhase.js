@@ -41,7 +41,7 @@ export default function createImportSyncPhase(
     const exportedRepo: SourceRepo = new RepoGit(config.destinationPath);
     const descendantsPath = exportedRepo.findDescendantsPath(mergeBase, 'FETCH_HEAD', new Set([]));
     if (descendantsPath !== null) {
-      descendantsPath.forEach((revision) => {
+      descendantsPath.forEach(revision => {
         const changeset = exportedRepo.getChangesetFromID(revision);
         const filter = config.getDefaultImportitFilter();
         changesets.add(filter(changeset));
@@ -52,14 +52,14 @@ export default function createImportSyncPhase(
     return changesets;
   }
 
-  return function () {
+  return function() {
     const monorepo: DestinationRepo = new RepoGit(config.sourcePath);
     const changesets = getFilteredChangesets();
 
     const branchName = `shipit-import-github-${packageName}-pr-${pullRequestNumber}`;
     monorepo.checkoutBranch(branchName);
 
-    changesets.forEach((changeset) => {
+    changesets.forEach(changeset => {
       if (changeset.isValid()) {
         monorepo.commitPatch(changeset);
       }

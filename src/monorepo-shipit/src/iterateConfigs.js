@@ -7,7 +7,7 @@ import logger from '@adeira/logger';
 import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';
 
-function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void): void {
+function iterateConfigsInPath(rootPath: string, callback: ShipitConfig => void): void {
   const configFiles = globSync('/*.js', {
     root: rootPath,
     ignore: [
@@ -19,7 +19,7 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
   const monorepoPath = findMonorepoRoot();
   const throwedErrors = new Set<Error>();
 
-  configFiles.forEach((configFile) => {
+  configFiles.forEach(configFile => {
     const config = requireAndValidateConfig(configFile);
     const staticConfig = config.getStaticConfig();
     const branches = config.getBranchConfig
@@ -53,7 +53,7 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
   });
 
   if (throwedErrors.size > 0) {
-    throwedErrors.forEach((error) => {
+    throwedErrors.forEach(error => {
       logger.error(error.message);
     });
     process.exitCode = 1;
@@ -62,6 +62,6 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
   }
 }
 
-export default function iterateConfigs(callback: (ShipitConfig) => void): void {
+export default function iterateConfigs(callback: ShipitConfig => void): void {
   iterateConfigsInPath(path.join(__dirname, '..', 'config'), callback);
 }

@@ -53,7 +53,7 @@ it('calls the mutation as expected', () => {
   const onError = jest.fn();
 
   const EnvironmentMock = createMockEnvironment();
-  EnvironmentMock.mock.queueOperationResolver((operation) => {
+  EnvironmentMock.mock.queueOperationResolver(operation => {
     return MockPayloadGenerator.generate(operation);
   });
 
@@ -82,7 +82,7 @@ it('handles partial errors gracefully', () => {
   const onError = jest.fn();
 
   const EnvironmentMock = createMockEnvironment();
-  EnvironmentMock.mock.queueOperationResolver((operation) => {
+  EnvironmentMock.mock.queueOperationResolver(operation => {
     const response = MockPayloadGenerator.generate(operation);
     // $FlowFixMe errors after upgrading to relay 9.1.0
     response.errors = [{ message: 'aaa' }, { message: 'bbb' }];

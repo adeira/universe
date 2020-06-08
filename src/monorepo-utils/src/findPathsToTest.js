@@ -18,7 +18,7 @@ export default function findPathsToTest(
   const relatedWorkspaces = findRelatedWorkspaces(workspaceDependencies, dirtyWorkspaces);
 
   const pathsToTest = new Set<string>();
-  relatedWorkspaces.forEach((relatedWorkspace) => {
+  relatedWorkspaces.forEach(relatedWorkspace => {
     pathsToTest.add(workspaceDependencies[relatedWorkspace].location);
   });
 

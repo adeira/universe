@@ -85,7 +85,7 @@ describe('default wrapper', () => {
 
 describe('custom wrapper', () => {
   beforeEach(() => {
-    wrapResolvers(schema, (resolveFn) => async (...args) => {
+    wrapResolvers(schema, resolveFn => async (...args) => {
       // please note: this effectively turns every resolver into promise
       const value = await resolveFn(...args);
       return typeof value === 'string' ? value.toUpperCase() : value;
@@ -138,13 +138,13 @@ Object {
 });
 
 describe('isSystemType', () => {
-  test.each(['__Type', '__Schema'])('matches system field: %p', (typeName) => {
+  test.each(['__Type', '__Schema'])('matches system field: %p', typeName => {
     expect(isSystemType(typeName)).toBe(true);
   });
 
   test.each(['RootMutation', '_singleUnderscore'])(
     'does not match any other field: %p',
-    (typeName) => {
+    typeName => {
       expect(isSystemType(typeName)).toBe(false);
     },
   );

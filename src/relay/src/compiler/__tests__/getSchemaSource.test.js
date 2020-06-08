@@ -7,7 +7,7 @@ import { Source } from 'graphql';
 import getSchemaSource from '../getSchemaSource';
 
 const basePath = path.join(__dirname, '__fixtures__', 'schemas');
-test.each(fs.readdirSync(basePath))('loads the fixture as expected', (fixturePath) => {
+test.each(fs.readdirSync(basePath))('loads the fixture as expected', fixturePath => {
   expect.assertions(1);
 
   let schemaSource;

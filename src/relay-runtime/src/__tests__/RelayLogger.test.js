@@ -110,7 +110,7 @@ it("calls event 'execute.error' as expected", () => {
 
 test.each(['execute.info', 'execute.complete', 'execute.unsubscribe'])(
   "calls event '%s' as expected",
-  (eventName) => {
+  eventName => {
     // $FlowExpectedError: OK for testing purposes - additional props are being ignored for these events
     Logger({
       name: eventName,

@@ -196,7 +196,7 @@ describe('isTypeOf', () => {
 
   it.each([null, undefined, 42, [], new Date()])(
     'handles incorrect usages gracefully - opaqueID=%p',
-    (input) => {
+    input => {
       expect(isTypeOf('TypeName', input)).toBe(false);
     },
   );

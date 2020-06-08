@@ -35,7 +35,7 @@ function getRequestBodyWithUploadables(request, variables, uploadables): FormDat
   }
   formData.append('variables', JSON.stringify(variables));
 
-  Object.keys(uploadables).forEach((key) => {
+  Object.keys(uploadables).forEach(key => {
     if (Object.prototype.hasOwnProperty.call(uploadables, key)) {
       formData.append(key, uploadables[key]);
     }

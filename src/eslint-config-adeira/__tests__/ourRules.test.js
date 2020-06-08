@@ -8,7 +8,7 @@ import type { EslintConfigRules } from '../EslintConfig.flow';
 test('our rules should not contain deprecated Eslint rules', () => {
   const deprecated = new Set();
 
-  Object.keys(ourRules).forEach((rule) => {
+  Object.keys(ourRules).forEach(rule => {
     if (deprecatedRules.has(rule)) {
       deprecated.add(rule);
     }

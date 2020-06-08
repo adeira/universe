@@ -18,7 +18,7 @@ function _runJest(config, timezone = 'UTC') {
     jestArgs: [],
   };
 
-  config.forEach((arg) => {
+  config.forEach(arg => {
     if (process.allowedNodeEnvironmentFlags.has(arg)) {
       flags.nodeArgs.push(arg);
     } else {
@@ -83,7 +83,7 @@ type CINode = {|
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
 export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  if (externalConfig.some((option) => /^(?!--).+/.test(option))) {
+  if (externalConfig.some(option => /^(?!--).+/.test(option))) {
     // user passed something that is not an option (probably tests regexp)
     // so we give it precedence before our algorithm
     _runJestTimezoneVariants(externalConfig, ciNode);

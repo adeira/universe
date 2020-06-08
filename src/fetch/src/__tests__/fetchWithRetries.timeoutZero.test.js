@@ -3,7 +3,7 @@
 import fetchWithRetries from '../fetchWithRetries';
 import flushPromises from './_flushPromises';
 
-it('preserves fetch timeout of 0s', (done) => {
+it('preserves fetch timeout of 0s', done => {
   expect.assertions(1);
 
   const handleCatch = jest.fn();

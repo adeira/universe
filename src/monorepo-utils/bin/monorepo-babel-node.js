@@ -11,7 +11,7 @@ const flags = {
   execArgv: [],
 };
 
-process.argv.forEach((arg) => {
+process.argv.forEach(arg => {
   if (process.allowedNodeEnvironmentFlags.has(arg)) {
     flags.execArgv.push(arg);
   } else {

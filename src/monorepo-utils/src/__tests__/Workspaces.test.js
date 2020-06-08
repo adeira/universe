@@ -14,7 +14,7 @@ test.each([
       nohoist: ['**/react-native', '**/react-native/**'],
     },
   },
-])('%# resolves workspaces correctly', (packageJSON) => {
+])('%# resolves workspaces correctly', packageJSON => {
   expect(__resolveWorkspaces(packageJSON)).toEqual([
     'src/apps/*',
     'src/finance/**',
@@ -32,6 +32,6 @@ test.each([
       nohoist: ['**/react-native', '**/react-native/**'],
     },
   },
-])('%# fails if there are no workspaces', (packageJSON) => {
+])('%# fails if there are no workspaces', packageJSON => {
   expect(() => __resolveWorkspaces(packageJSON)).toThrow('Cannot find workspaces definition.');
 });

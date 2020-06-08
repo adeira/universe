@@ -13,7 +13,7 @@ import moveDirectoriesReverse from './filters/moveDirectoriesReverse';
 import stripExceptDirectories from './filters/stripExceptDirectories';
 import stripPaths from './filters/stripPaths';
 
-type ChangesetFilter = (Changeset) => Changeset;
+type ChangesetFilter = Changeset => Changeset;
 
 export default class ShipitConfig {
   sourcePath: string;

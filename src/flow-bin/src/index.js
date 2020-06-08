@@ -18,14 +18,16 @@ function command(...commandChunks): ShellCommand {
   logger.log(
     chalk.bold.green('flow'),
     chalk.bold.green(flowBinCommand),
-    ...rest.map((c) => chalk.dim(hideRoot(c))),
+    ...rest.map(c => chalk.dim(hideRoot(c))),
   );
   return new ShellCommand(monorepoRoot, flowBin, ...commandChunks);
 }
 
 export default class FlowWrapper {
   static restartServer(): void {
-    command('stop').setOutputToScreen().runSynchronously();
+    command('stop')
+      .setOutputToScreen()
+      .runSynchronously();
   }
 
   static startServerSilently(runAll: boolean = false): void {

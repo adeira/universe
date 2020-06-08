@@ -53,7 +53,7 @@ const userType = new GraphQLObjectType({
 const { connectionType: friendConnection } = connectionDefinitions({
   name: 'Friend',
   nodeType: userType,
-  resolveNode: (edge) => allUsers[edge.node],
+  resolveNode: edge => allUsers[edge.node],
   edgeFields: () => ({
     friendshipTime: {
       type: GraphQLString,
@@ -70,7 +70,7 @@ const { connectionType: friendConnection } = connectionDefinitions({
 
 const { connectionType: userConnection } = connectionDefinitions({
   nodeType: userType,
-  resolveNode: (edge) => allUsers[edge.node],
+  resolveNode: edge => allUsers[edge.node],
 });
 
 const queryType = new GraphQLObjectType({

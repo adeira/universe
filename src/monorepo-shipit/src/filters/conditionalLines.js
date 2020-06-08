@@ -15,7 +15,7 @@ function process(changeset: Changeset, pattern: RegExp, replacement: string) {
       ...diff,
       body: diff.body
         .split('\n')
-        .map((line) => line.replace(pattern, replacement))
+        .map(line => line.replace(pattern, replacement))
         .join('\n'),
     };
     diffs.add(newDiff);
