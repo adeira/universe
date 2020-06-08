@@ -1,4 +1,4 @@
-# @generated SignedSource<<dccf304bbbd7b28234e3a47e4800f661>>
+# @generated SignedSource<<4d09cfa4c534dd458d4a1cbcc72b6d36>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -7,10 +7,12 @@ schema {
   query: RootQuery
 }
 
+"""The query root of the schema"""
 type RootQuery {
   test: Test
 }
 
+"""A test object type"""
 type Test {
   id: String
 }

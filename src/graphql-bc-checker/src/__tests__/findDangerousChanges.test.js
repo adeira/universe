@@ -14,6 +14,7 @@ import {
 
 const input = new GraphQLInputObjectType({
   name: 'Input',
+  description: 'An input type',
   fields: {
     bbb: { type: GraphQLString },
     aaa: { type: GraphQLString },
@@ -22,6 +23,7 @@ const input = new GraphQLInputObjectType({
 
 const originalSchema = new GraphQLSchema({
   query: new GraphQLObjectType({
+    description: 'An Object type',
     name: 'RootQueryType',
     fields: {
       xxx: {
@@ -54,11 +56,13 @@ it('should not return any dangerous changes', () => {
       query: RootQueryType
     }
 
+    \\"\\"\\"An input type\\"\\"\\"
     input Input {
       aaa: String
       bbb: String
     }
 
+    \\"\\"\\"An Object type\\"\\"\\"
     type RootQueryType {
       xxx(yyy: Input! = {aaa: \\"aaa\\", bbb: \\"bbb\\"}): String
     }
@@ -70,6 +74,7 @@ it('should return dangerous changes', () => {
   const changedSchema = new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'RootQueryType',
+      description: 'A root type',
       fields: {
         xxx: {
           type: GraphQLString,

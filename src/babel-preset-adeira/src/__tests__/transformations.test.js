@@ -43,13 +43,13 @@ function transform(target) {
 
 ['babel-issues', 'features'].forEach((group) => {
   generateTestsFromFixtures(
-    `${__dirname}/__fixtures__/${group}`,
+    path.join(__dirname, '__fixtures__', group),
     transform('js'),
     'js (old browsers)',
   );
-  generateTestsFromFixtures(`${__dirname}/__fixtures__/${group}`, transform('flow'), 'flow');
+  generateTestsFromFixtures(path.join(__dirname, '__fixtures__', group), transform('flow'), 'flow');
   generateTestsFromFixtures(
-    `${__dirname}/__fixtures__/${group}`,
+    path.join(__dirname, '__fixtures__', group),
     transform('js-esm'),
     'js-esm (with ES6 import/export)',
   );

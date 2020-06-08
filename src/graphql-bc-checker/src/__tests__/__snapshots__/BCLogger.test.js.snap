@@ -83,7 +83,7 @@ exports[`matches expected output: missing-block.txt 2`] = `
 `;
 
 exports[`prints warning and updates the schema when backward compatible changes detected 1`] = `
-"# @generated SignedSource<<61fe9f8962efaadd944e6177e2a87d3f>>
+"# @generated SignedSource<<86ed2f83966d01460f6c3d18570a9ce7>>
 
 # <BREAKING-CHANGES-LOG>
 # </BREAKING-CHANGES-LOG>
@@ -92,15 +92,18 @@ schema {
   query: RootQuery
 }
 
+\\"\\"\\"The query root of the schema\\"\\"\\"
 type RootQuery {
   test: Test
   test2: Test2
 }
 
+\\"\\"\\"A test object type\\"\\"\\"
 type Test {
   id: String
 }
 
+\\"\\"\\"A test object type\\"\\"\\"
 type Test2 {
   id: String
 }
