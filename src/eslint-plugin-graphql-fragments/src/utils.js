@@ -32,7 +32,7 @@ function calculateComplexity(node /*: any */) /*: number */ {
 
   function walkGraph(node /*: any */) {
     if (node.kind === 'Document') {
-      node.definitions.forEach(definition => walkGraph(definition));
+      node.definitions.forEach((definition) => walkGraph(definition));
     }
 
     if (['FragmentSpread', 'InlineFragment', 'Field'].includes(node.kind)) {
@@ -50,7 +50,7 @@ function calculateComplexity(node /*: any */) /*: number */ {
     }
 
     if (node.selectionSet && Array.isArray(node.selectionSet.selections)) {
-      node.selectionSet.selections.forEach(selection => walkGraph(selection));
+      node.selectionSet.selections.forEach((selection) => walkGraph(selection));
     }
   }
 

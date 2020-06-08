@@ -42,7 +42,7 @@ const subscriptionConfig = {
   variables: {},
 };
 
-const localUpdater = store => {
+const localUpdater = (store) => {
   const favorite = store.get('unique:ID');
   if (favorite) {
     favorite.setValue(false, 'isNew');

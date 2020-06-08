@@ -14,8 +14,8 @@ test.each([
   ],
 ])('strips packages outside of the defined scope correctly: %#', (roots, inputPaths, expected) => {
   const changeset = new Changeset().withDiffs(
-    new Set(inputPaths.map(path => ({ path, body: 'placeholder' }))),
+    new Set(inputPaths.map((path) => ({ path, body: 'placeholder' }))),
   );
   const diffs = stripExceptDirectories(changeset, roots).getDiffs();
-  expect([...diffs].map(diff => diff.path)).toEqual(expected);
+  expect([...diffs].map((diff) => diff.path)).toEqual(expected);
 });

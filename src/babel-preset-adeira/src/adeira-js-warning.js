@@ -16,7 +16,7 @@ const buildDevExpression = require('./buildDevExpression');
  * This should then be removed by dead code elimination so these warnings are
  * not called in production at all.
  */
-module.exports = function(babel) {
+module.exports = function (babel) {
   const SEEN_SYMBOL = Symbol('SEEN_SYMBOL');
 
   return {
@@ -30,14 +30,14 @@ module.exports = function(babel) {
         }
       },
       CallExpression: {
-        enter: function(path) {
+        enter: function (path) {
           if (path.get('callee').isIdentifier({ name: 'require' })) {
             if (path.node.arguments[0].value === '@adeira/js') {
               this.canPerformChanges = true;
             }
           }
         },
-        exit: function(path) {
+        exit: function (path) {
           const node = path.node;
 
           // do nothing when testing

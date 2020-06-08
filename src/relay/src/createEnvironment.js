@@ -15,7 +15,7 @@ import type { Environment, RecordMap } from './runtimeTypes.flow';
 type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
-  +handlerProvider?: string => void,
+  +handlerProvider?: (string) => void,
   +operationLoader?: OperationLoader,
   +records?: ?RecordMap,
   +gcReleaseBufferSize?: ?number,

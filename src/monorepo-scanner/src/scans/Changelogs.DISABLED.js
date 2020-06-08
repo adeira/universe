@@ -8,7 +8,7 @@ import { Workspaces } from '@adeira/monorepo-utils';
 
 // https://keepachangelog.com/en/1.0.0/
 
-Workspaces.iterateWorkspaces(packageJSONLocation => {
+Workspaces.iterateWorkspaces((packageJSONLocation) => {
   const packagePath = path.dirname(packageJSONLocation);
   // $FlowAllowDynamicImport
   const packageJson = require(packageJSONLocation);

@@ -36,6 +36,7 @@
     "typecheck": "yarn run adeira-flow-bin"
   },
   "resolutions": {
-    "eslint": "~7.2.0"
+    "eslint": "~7.2.0",
+    "prettier": "~2.0.5"
   }
 }

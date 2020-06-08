@@ -16,11 +16,11 @@ expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());
 
 test('our rules should contain every Eslint rule to be explicit', () => {
   // add deprecated rules to the Map to simulate that we are using them
-  deprecatedRules.forEach(rule => {
+  deprecatedRules.forEach((rule) => {
     ourRules.set(rule, true);
   });
 
-  eslintRules.forEach(rule => {
+  eslintRules.forEach((rule) => {
     if (!ourRules.has(rule)) {
       missing.add(rule);
     }

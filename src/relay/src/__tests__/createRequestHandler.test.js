@@ -10,15 +10,15 @@ beforeEach(() => {
 
 const observer = {
   start: () => list.push('start'),
-  next: val => {
+  next: (val) => {
     return list.push(`next:${typeof val === 'object' ? JSON.stringify(val) : val}`);
   },
-  error: err => list.push(err),
+  error: (err) => list.push(err),
   complete: () => list.push('complete'),
   unsubscribe: () => list.push('unsubscribe'),
 };
 
-it('works as expected with query success', done => {
+it('works as expected with query success', (done) => {
   expect.assertions(4);
 
   const requestNode = { operationKind: 'query' };
@@ -47,7 +47,7 @@ it('works as expected with query success', done => {
     .subscribe(observer);
 });
 
-it('works as expected with query error', done => {
+it('works as expected with query error', (done) => {
   expect.assertions(5);
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
@@ -101,7 +101,7 @@ it('works as expected with query error', done => {
     .subscribe(observer);
 });
 
-it('works as expected with mutation', done => {
+it('works as expected with mutation', (done) => {
   expect.assertions(4);
 
   const requestNode = { operationKind: 'mutation' };
@@ -130,7 +130,7 @@ it('works as expected with mutation', done => {
     .subscribe(observer);
 });
 
-it('works as expected with mutation error', done => {
+it('works as expected with mutation error', (done) => {
   expect.assertions(5);
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 

@@ -33,7 +33,7 @@ const locations = findRelatedWorkspaceLocations(workspaces, rootWorkspace);
 
 const monorepoRoot = findMonorepoRoot();
 const buildDir = path.join(os.tmpdir(), buildDirName);
-const projectRoots = [...locations].map(location => path.join(monorepoRoot, location));
+const projectRoots = [...locations].map((location) => path.join(monorepoRoot, location));
 
 let filesCounter = 1;
 function logFromTo(absoluteFrom, absoluteTo) {
@@ -64,7 +64,7 @@ const globIgnore = [
   '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
 ];
 
-(async function() {
+(async function () {
   await rimrafPromise(buildDir);
 
   // 1) + 2) copy source files recursively

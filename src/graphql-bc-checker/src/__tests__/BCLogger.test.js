@@ -9,7 +9,7 @@ import { buildBreakingChangesBlock } from '../BCLogger';
 import testBackwardCompatibility from '../index';
 
 function operation(newBreakingChanges) {
-  return input => buildBreakingChangesBlock(input, newBreakingChanges);
+  return (input) => buildBreakingChangesBlock(input, newBreakingChanges);
 }
 
 generateTestsFromFixtures(`${__dirname}/__fixtures__`, operation());
@@ -28,7 +28,7 @@ generateTestsFromFixtures(
 );
 
 function stringifyMockCalls<T: $ReadOnlyArray<string>>(calls: T): T {
-  return calls.map(call => {
+  return calls.map((call) => {
     return stripAnsi(call.toString().trim());
   });
 }
@@ -55,7 +55,7 @@ it('prints success message when there are no breaking changes', () => {
 it('prints error messages when there are breaking changes', () => {
   const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
   const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-  const processSpy = jest.spyOn(process, 'exit').mockImplementation(code => {
+  const processSpy = jest.spyOn(process, 'exit').mockImplementation((code) => {
     throw new Error(`process.exit(${code}) was called`);
   });
 
@@ -93,7 +93,7 @@ it('prints error messages when there are breaking changes', () => {
 
 it('prints error messages when the schema is manually polluted', () => {
   const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
-  const processSpy = jest.spyOn(process, 'exit').mockImplementation(code => {
+  const processSpy = jest.spyOn(process, 'exit').mockImplementation((code) => {
     throw new Error(`process.exit(${code}) was called`);
   });
 
@@ -118,7 +118,7 @@ it('prints error messages when the schema is manually polluted', () => {
 it('prints warning and updates the schema when backward compatible changes detected', () => {
   const fsSpy = jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
   const consoleSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
-  const processSpy = jest.spyOn(process, 'exit').mockImplementation(code => {
+  const processSpy = jest.spyOn(process, 'exit').mockImplementation((code) => {
     throw new Error(`process.exit(${code}) was called`);
   });
 
