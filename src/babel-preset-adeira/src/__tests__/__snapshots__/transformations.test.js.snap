@@ -1898,7 +1898,7 @@ exports[`matches expected output: optional-chaining.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: ?{ +[string]: any, ... }): string {
+module.exports = function (a: ?{ +[string]: any, ... }): string {
   return a?.b ?? 'default';
 };
 
@@ -1914,7 +1914,7 @@ exports[`matches expected output: optional-chaining.js: js (old browsers) 1`] = 
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: ?{ +[string]: any, ... }): string {
+module.exports = function (a: ?{ +[string]: any, ... }): string {
   return a?.b ?? 'default';
 };
 
@@ -1932,7 +1932,7 @@ exports[`matches expected output: optional-chaining.js: js-esm (with ES6 import/
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow
 
-module.exports = function(a: ?{ +[string]: any, ... }): string {
+module.exports = function (a: ?{ +[string]: any, ... }): string {
   return a?.b ?? 'default';
 };
 
@@ -1952,7 +1952,7 @@ exports[`matches expected output: rest-operator.js: flow 1`] = `
 
 type AnyObject = { +[key: string]: any, ... };
 
-module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
+module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -1986,7 +1986,7 @@ exports[`matches expected output: rest-operator.js: js (old browsers) 1`] = `
 
 type AnyObject = { +[key: string]: any, ... };
 
-module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
+module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {
@@ -2029,7 +2029,7 @@ exports[`matches expected output: rest-operator.js: js-esm (with ES6 import/expo
 
 type AnyObject = { +[key: string]: any, ... };
 
-module.exports = function(a: AnyObject, ...rest: Array<any>): AnyObject {
+module.exports = function (a: AnyObject, ...rest: Array<any>): AnyObject {
   console.warn([1, ...rest]);
   const { b, ...c } = a;
   return {

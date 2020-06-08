@@ -63,9 +63,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   push = (destinationBranch: string) => {
-    this._gitCommand('push', 'origin', destinationBranch)
-      .setOutputToScreen()
-      .runSynchronously();
+    this._gitCommand('push', 'origin', destinationBranch).setOutputToScreen().runSynchronously();
   };
 
   configure = () => {
@@ -75,9 +73,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       'user.name': username,
     })) {
       // $FlowIssue: https://github.com/facebook/flow/issues/2174
-      this._gitCommand('config', key, value)
-        .setOutputToScreen()
-        .runSynchronously();
+      this._gitCommand('config', key, value).setOutputToScreen().runSynchronously();
     }
   };
 
@@ -247,22 +243,15 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     } else {
       const diff = this.renderPatch(changeset);
       try {
-        this._gitCommand('am', '--keep-non-patch', '--keep-cr')
-          .setStdin(diff)
-          .runSynchronously();
+        this._gitCommand('am', '--keep-non-patch', '--keep-cr').setStdin(diff).runSynchronously();
       } catch (error) {
-        this._gitCommand('am', '--abort')
-          .setOutputToScreen()
-          .runSynchronously();
+        this._gitCommand('am', '--abort').setOutputToScreen().runSynchronously();
         throw error;
       }
     }
     // git rev-parse --verify HEAD
     // git --no-pager log -1 --pretty=format:%H
-    return this._gitCommand('rev-parse', '--verify', 'HEAD')
-      .runSynchronously()
-      .getStdout()
-      .trim();
+    return this._gitCommand('rev-parse', '--verify', 'HEAD').runSynchronously().getStdout().trim();
   };
 
   renderPatch = (changeset: Changeset): string => {

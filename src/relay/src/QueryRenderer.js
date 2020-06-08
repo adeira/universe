@@ -33,7 +33,7 @@ type Props<T> =
         ...
       }) => React.Node,
       +onLoading?: () => React.Node,
-      +onResponse: T => React.Node,
+      +onResponse: (T) => React.Node,
     |}
   | {|
       ...CommonProps,

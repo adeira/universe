@@ -60,7 +60,7 @@ export default class ShellCommand {
    * used to trigger arbitrary command execution.
    */
   runSynchronously(): ShellCommandResult {
-    const [command, ...args] = this.command.filter(arg => arg !== '');
+    const [command, ...args] = this.command.filter((arg) => arg !== '');
     const response = nodeChildProcess.spawnSync(command, args, {
       cwd: this.cwd,
       // stdin, stdout, stderr
@@ -76,7 +76,7 @@ export default class ShellCommand {
       maxBuffer: Infinity, // to prevent Error: spawnSync git ENOBUFS
     });
 
-    const maybeThrow = error => {
+    const maybeThrow = (error) => {
       if (this.throwForNonZeroExit === true) {
         throw error;
       }

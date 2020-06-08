@@ -79,5 +79,5 @@ export type EslintRule = {|
     +fixable?: boolean,
     +schema: $ReadOnlyArray<empty>,
   |},
-  +create: Context => ASTNodes,
+  +create: (Context) => ASTNodes,
 |};

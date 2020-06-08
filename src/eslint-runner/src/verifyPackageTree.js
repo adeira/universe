@@ -10,12 +10,12 @@ const path = require('path');
 module.exports = function verifyPackageTree() {
   // $FlowAllowDynamicImport
   const ownPackageJson = require('../package.json');
-  const depsToCheck = Object.keys(ownPackageJson.dependencies).filter(dep =>
+  const depsToCheck = Object.keys(ownPackageJson.dependencies).filter((dep) =>
     dep.startsWith('eslint-plugin'),
   );
 
   const expectedVersionsByDep = {};
-  depsToCheck.forEach(dep => {
+  depsToCheck.forEach((dep) => {
     expectedVersionsByDep[dep] = ownPackageJson.dependencies[dep].replace(/^[~^]/, '');
   });
 
@@ -31,7 +31,7 @@ module.exports = function verifyPackageTree() {
     if (!fs.existsSync(maybeNodeModules)) {
       continue;
     }
-    depsToCheck.forEach(dep => {
+    depsToCheck.forEach((dep) => {
       const maybeDep = path.resolve(maybeNodeModules, dep);
       if (!fs.existsSync(maybeDep)) {
         return;

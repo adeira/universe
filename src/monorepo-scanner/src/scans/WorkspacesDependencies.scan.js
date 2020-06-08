@@ -43,8 +43,8 @@ const exceptions = new Map([
 ]);
 
 describe('dependencies similarities', () => {
-  Workspaces.iterateWorkspaces(packageJSONLocation => {
-    test(`${packageJSONLocation}`, done => {
+  Workspaces.iterateWorkspaces((packageJSONLocation) => {
+    test(`${packageJSONLocation}`, (done) => {
       // $FlowAllowDynamicImport
       const packageJson = require(packageJSONLocation);
       const dependencies = Object.keys(packageJson.dependencies || {});
@@ -52,8 +52,8 @@ describe('dependencies similarities', () => {
       const packageDependencies = dependencies.concat(devDependencies);
 
       for (const [mainDependency, similarDependencies] of similarities.entries()) {
-        similarDependencies.forEach(similarDependency => {
-          packageDependencies.forEach(dependency => {
+        similarDependencies.forEach((similarDependency) => {
+          packageDependencies.forEach((dependency) => {
             if (similarDependency === dependency) {
               // some package is using forbidden dependency but there may be an exception:
               const packageExceptions = exceptions.get(mainDependency) ?? [];

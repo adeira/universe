@@ -8,7 +8,7 @@ import { sprintf } from '@adeira/js';
 
 import type { ILogger } from './ILogger';
 
-const sprintfFormat = format.printf(info => {
+const sprintfFormat = format.printf((info) => {
   // We do not return 'level' here since the API is trying to be similar to 'console.log' and
   // console doesn't print the level.
   const { message: rawMessage, [SPLAT]: splat } = info;

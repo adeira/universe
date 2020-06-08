@@ -7,7 +7,7 @@ import modify from '../modifyPackageJSON';
 
 expect.addSnapshotSerializer(snapshotDiff.getSnapshotDiffSerializer());
 
-generateTestsFromFixtures(`${__dirname}/fixtures`, rawInput => {
+generateTestsFromFixtures(`${__dirname}/fixtures`, (rawInput) => {
   const input = JSON.parse(rawInput);
   const modifiedInput = modify(input);
   const changes = snapshotDiff(input, modifiedInput);

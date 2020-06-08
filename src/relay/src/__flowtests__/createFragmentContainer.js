@@ -44,7 +44,7 @@ type Props = {|
     +required: string,
     +$refType: any,
   |},
-  +fun?: string => void,
+  +fun?: (string) => void,
 |};
 
 const FunctionalComponent = (props: Props) => <div {...props} />;

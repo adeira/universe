@@ -2,7 +2,7 @@
 
 const buildDevExpression = require('./buildDevExpression');
 
-module.exports = function(babel) {
+module.exports = function (babel) {
   return {
     pre() {
       this.canChangeProperty = true;
