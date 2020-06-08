@@ -1,16 +1,22 @@
 /* your custom css */
 
-a {
-  text-decoration: underline;
-}
-
 .projectTitle {
+  text-align: center;
   font-weight: 200;
   color: #fff;
 }
 
 .projectTitle > small {
   font-weight: 200;
+}
+
+.pluginRowBlock {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonWrapper {
+  margin: 0 .5em;
 }
 
 .homeContainer {
@@ -52,3 +58,19 @@ a {
 
 @media only screen and (min-width: 1500px) {
 }
+
+/* CSS variables to override default in Docusaurus 2 */
+--ifm-color-primary: #000000;
+--ifm-color-primary-dark: #000000;
+--ifm-color-primary-darker: #000000;
+--ifm-color-primary-darkest: #000000;
+--ifm-color-primary-light: #000000;
+--ifm-color-primary-lighter: #000000;
+--ifm-color-primary-lightest: #000000;
+--ifm-color-secondary: #004ba0;
+--ifm-color-secondary-dark: #004390;
+--ifm-color-secondary-darker: #004088;
+--ifm-color-secondary-darkest: #003570;
+--ifm-color-secondary-light: #0053b0;
+--ifm-color-secondary-lighter: #0056b8;
+--ifm-color-secondary-lightest: #0062d0;

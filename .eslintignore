@@ -7,3 +7,6 @@ node_modules/
 src/babel-preset-adeira/src/__tests__/__fixtures__/features/internal-slot-properties.js
 
 src/example-relay/__github__/flow-typed
+
+# Adeira.dev Docs build
+src/docs/build/
