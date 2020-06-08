@@ -12,9 +12,9 @@ function operation(newBreakingChanges) {
   return (input) => buildBreakingChangesBlock(input, newBreakingChanges);
 }
 
-generateTestsFromFixtures(`${__dirname}/__fixtures__`, operation());
+generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), operation());
 generateTestsFromFixtures(
-  `${__dirname}/__fixtures__`,
+  path.join(__dirname, '__fixtures__'),
   operation([
     {
       type: 'append',

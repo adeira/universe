@@ -1,9 +1,13 @@
 // @flow strict-local
 
+import path from 'path';
+
 import requireAndValidate from '../requireAndValidateConfig';
 
 it('returns minimal valid config correctly', () => {
-  const config = requireAndValidate(`${__dirname}/fixtures/configs/valid-minimal.js`);
+  const config = requireAndValidate(
+    path.join(__dirname, 'fixtures', 'configs', 'valid-minimal.js'),
+  );
   expect(config).toMatchInlineSnapshot(`
     Object {
       "getPathMappings": [Function],
@@ -24,7 +28,9 @@ it('returns minimal valid config correctly', () => {
 });
 
 it('returns valid config with branches correctly', () => {
-  const config = requireAndValidate(`${__dirname}/fixtures/configs/valid-branches.js`);
+  const config = requireAndValidate(
+    path.join(__dirname, 'fixtures', 'configs', 'valid-branches.js'),
+  );
   expect(config).toMatchInlineSnapshot(`
     Object {
       "getBranchConfig": [Function],
@@ -47,12 +53,16 @@ it('returns valid config with branches correctly', () => {
 
 it('fails when config contains unsupported fields', () => {
   expect(() =>
-    requireAndValidate(`${__dirname}/fixtures/configs/invalid-additional-props-1.js`),
+    requireAndValidate(
+      path.join(__dirname, 'fixtures', 'configs', 'invalid-additional-props-1.js'),
+    ),
   ).toThrowError(
     "Your config contains field 'defaultStrippedFiles' but this is not allowed key. Did you mean 'getStrippedFiles' instead?",
   );
   expect(() =>
-    requireAndValidate(`${__dirname}/fixtures/configs/invalid-additional-props-2.js`),
+    requireAndValidate(
+      path.join(__dirname, 'fixtures', 'configs', 'invalid-additional-props-2.js'),
+    ),
   ).toThrowError(
     "Your config contains field 'defaultPathMappings' but this is not allowed key. Did you mean 'getPathMappings' instead?",
   );
@@ -60,7 +70,9 @@ it('fails when config contains unsupported fields', () => {
 
 it("fails when branch config doesn't have valid keys", () => {
   expect(() =>
-    requireAndValidate(`${__dirname}/fixtures/configs/invalid-misconfigured-branches.js`),
+    requireAndValidate(
+      path.join(__dirname, 'fixtures', 'configs', 'invalid-misconfigured-branches.js'),
+    ),
   ).toThrowError(
     "Your config contains field 'what_is_this' but this is not allowed key. Did you mean 'destination' instead?",
   );
@@ -68,6 +80,6 @@ it("fails when branch config doesn't have valid keys", () => {
 
 it('fails when config does not contain all the required props', () => {
   expect(() =>
-    requireAndValidate(`${__dirname}/fixtures/configs/invalid-missing-props.js`),
+    requireAndValidate(path.join(__dirname, 'fixtures', 'configs/invalid-missing-props.js')),
   ).toThrowError("Configuration field 'getStaticConfig' is required but it's missing.");
 });
