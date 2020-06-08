@@ -11,7 +11,7 @@ import type { RequestNode, Uploadables } from './types.flow';
  * field to see if the resulting subscription has closed.
  */
 type Sink = {|
-  +next: (GraphQLResponse) => void,
+  +next: GraphQLResponse => void,
   +error: (Error, isUncaughtThrownError?: boolean) => void,
   +complete: () => void,
   +closed: boolean,
@@ -30,7 +30,7 @@ export default function createRequestHandler(customFetcher: (...args: $ReadOnlyA
   ) {
     return Observable.create((sink: Sink) => {
       customFetcher(requestNode, variables, uploadables)
-        .then((response) => {
+        .then(response => {
           if (response.errors) {
             // Relay is currently quite opinionated and recommends to either try to render the data
             // or halt the application. It's a smart decisions since these errors are not for the
@@ -38,11 +38,11 @@ export default function createRequestHandler(customFetcher: (...args: $ReadOnlyA
             // render the data. (TODO: allow to log these errors externally)
             //
             // eslint-disable-next-line no-console
-            response.errors.map((error) => console.warn(error.message, error));
+            response.errors.map(error => console.warn(error.message, error));
           }
           sink.next(response);
         })
-        .catch((error) => {
+        .catch(error => {
           sink.error(error);
         })
         .then(() => {

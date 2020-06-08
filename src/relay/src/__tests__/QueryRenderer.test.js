@@ -44,7 +44,7 @@ it('renders default components for loading and success', () => {
   const loading = testInstance.findByProps({ 'data-testid': 'loading' });
   expect(loading).toBeDefined();
 
-  environmentMock.resolveMostRecentOperation((operation) => {
+  environmentMock.resolveMostRecentOperation(operation => {
     return MockPayloadGenerator.generate(operation);
   });
   expect(environmentMock.isLoading(generatedQuery, variables)).toBe(false);

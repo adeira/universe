@@ -17,7 +17,7 @@ type CommonProps = {|
 type Props<T> =
   | {|
       ...CommonProps,
-      +onResponse: (T) => React.Node,
+      +onResponse: T => React.Node,
       +onLoading?: () => React.Node,
     |}
   | {|

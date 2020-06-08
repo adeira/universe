@@ -29,7 +29,7 @@ type Results = $ReadOnlyArray<{|
 
 */
 
-module.exports = function (results /*: Results */) /*: string */ {
+module.exports = function(results /*: Results */) /*: string */ {
   let output = os.EOL;
   let errorCount = 0;
   let warningCount = 0;
@@ -37,7 +37,7 @@ module.exports = function (results /*: Results */) /*: string */ {
   let fixableWarningCount = 0;
   let summaryColor = 'yellow';
 
-  results.forEach((result) => {
+  results.forEach(result => {
     const messages = result.messages;
 
     if (messages.length === 0) {
@@ -51,7 +51,7 @@ module.exports = function (results /*: Results */) /*: string */ {
 
     output +=
       table(
-        messages.map((message) => {
+        messages.map(message => {
           let messageType;
           if (message.fatal || message.severity === 2) {
             messageType = chalk.red('error');
@@ -76,7 +76,7 @@ module.exports = function (results /*: Results */) /*: string */ {
         },
       )
         .split(os.EOL)
-        .map((el) =>
+        .map(el =>
           el.replace(/(?<line>\d+)\s+(?<column>\d+)/, (m, p1, p2) => chalk.dim(`${p1}:${p2}`)),
         )
         .join(os.EOL) + os.EOL;

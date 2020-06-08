@@ -10,7 +10,9 @@ it('tries only once for non-transient HTTP code', async () => {
   const handleNext = jest.fn();
   const handleCatch = jest.fn();
 
-  fetchWithRetries('https://localhost', {}).then(handleNext).catch(handleCatch);
+  fetchWithRetries('https://localhost', {})
+    .then(handleNext)
+    .catch(handleCatch);
 
   fetch.mock.deferreds[0].resolve({
     status: 403, // non-transient HTTP status code (shouldn't retry)

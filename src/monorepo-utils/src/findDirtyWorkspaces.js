@@ -11,9 +11,9 @@ export default function findDirtyWorkspaces(
   changedFiles: $ReadOnlyArray<string>,
 ): $ReadOnlySet<string> {
   const dirtyWorkspaces = new Set<string>();
-  Object.keys(workspaceDependencies).forEach((dependencyName) => {
+  Object.keys(workspaceDependencies).forEach(dependencyName => {
     const value = workspaceDependencies[dependencyName];
-    changedFiles.forEach((changedFile) => {
+    changedFiles.forEach(changedFile => {
       if (new RegExp(value.location).test(changedFile)) {
         dirtyWorkspaces.add(dependencyName);
       }

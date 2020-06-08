@@ -94,7 +94,7 @@ module.exports = {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
-      updater: (store) => {
+      updater: store => {
         // $FlowExpectedError: cannot call store.wtf because property wtf is missing in RecordSourceSelectorProxy
         store.wtf('ups');
 

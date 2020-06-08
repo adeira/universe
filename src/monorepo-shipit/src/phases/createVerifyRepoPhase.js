@@ -39,7 +39,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig) {
 
   const monorepoPath = config.sourcePath;
 
-  return function () {
+  return function() {
     const dirtyExportedRepoPath = getDirtyExportedRepoPath();
     const dirtyExportedRepo = createNewEmptyRepo(dirtyExportedRepoPath);
 

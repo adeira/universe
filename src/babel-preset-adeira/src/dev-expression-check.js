@@ -2,7 +2,7 @@
 
 // This check cannot be part of the 'dev-expression' plugin because we don't run it for Flow target.
 // This check however runs everywhere
-module.exports = function () {
+module.exports = function() {
   return {
     visitor: {
       VariableDeclaration(path) {

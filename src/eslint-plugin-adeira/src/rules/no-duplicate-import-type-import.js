@@ -9,7 +9,7 @@ import type { EslintRule, Node } from './EslintRule.flow';
 function typeNodeSpecifiersToImport(typeNode) {
   // Build the import string, it will result in a string like: type Node, type ElementRef
   // Then caller wraps this accordingly to match it's specific case.
-  return typeNode.specifiers.map((i) => `type ${i.imported.name}`).join(',');
+  return typeNode.specifiers.map(i => `type ${i.imported.name}`).join(',');
 }
 function autoFix(typeNode, valueNode, fixer) {
   // Each import has an array of specifiers, we want to append our typeimport after the last import
@@ -47,17 +47,17 @@ module.exports = ({
   create(context) {
     const imports /* : Array<Node> */ = [];
     return {
-      ImportDeclaration: (node) => {
+      ImportDeclaration: node => {
         // An import like `import React, { type Node } from 'react'` has importKind value
         // An import like `import type { Node } from 'react'` has importKind type;
         const existingNode = imports.find(
-          (i) => i.source.value === node.source.value && i.importKind !== node.importKind,
+          i => i.source.value === node.source.value && i.importKind !== node.importKind,
         );
         if (existingNode != null) {
           context.report({
             node,
             message: `Found duplicate import/type import ${node.source.value}`,
-            fix: (fixer) => {
+            fix: fixer => {
               // We don't know if user did `import React from 'react'; import type { Node } from 'react'`;
               // or `import type { Node } from 'react'; import React from 'react';`
               // Here we identify which import is typeImport and which one is value import

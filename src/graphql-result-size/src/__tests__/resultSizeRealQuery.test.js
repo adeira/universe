@@ -11,7 +11,7 @@ const schema = buildSchema(
   fs.readFileSync(path.join(__dirname, 'testschema-real.graphql'), 'utf8'),
 );
 
-generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), (input) => {
+generateTestsFromFixtures(path.join(__dirname, '__fixtures__'), input => {
   const score = calculate(schema, parse(input));
   return `✅ Score: ${score}`;
 });

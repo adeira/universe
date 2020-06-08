@@ -23,7 +23,7 @@ function violatesBlacklist(packageJson): boolean {
 }
 
 test('all private packages should have private flag set forever', () => {
-  Workspaces.iterateWorkspaces((packageJSONLocation) => {
+  Workspaces.iterateWorkspaces(packageJSONLocation => {
     // $FlowAllowDynamicImport
     const packageJson = require(packageJSONLocation);
 

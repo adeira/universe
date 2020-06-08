@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import { Workspaces } from '@adeira/monorepo-utils';
 
-Workspaces.iterateWorkspaces((packageJSONLocation) => {
+Workspaces.iterateWorkspaces(packageJSONLocation => {
   test(`${packageJSONLocation}`, () => {
     // $FlowAllowDynamicImport
     const packageJson = require(packageJSONLocation);
@@ -43,7 +43,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
       expect(packageJson.main !== undefined || packageJson.bin !== undefined).toBe(true);
 
       const packagePath = path.dirname(packageJSONLocation);
-      ['README.md', 'LICENSE', '.npmignore'].forEach((requiredFilename) => {
+      ['README.md', 'LICENSE', '.npmignore'].forEach(requiredFilename => {
         if (!fs.existsSync(path.join(packagePath, requiredFilename))) {
           throw new Error(`Package ${packageJson.name} is missing ${requiredFilename} file!`);
         }

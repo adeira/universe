@@ -38,7 +38,7 @@ it('works with additional headers', async () => {
 });
 
 it('works with promised headers', async () => {
-  const headers = new Promise((resolve) => {
+  const headers = new Promise(resolve => {
     // simulates somehow difficult and async way how to get headers (real-world example)
     resolve({
       'X-Client': 'https://github.com/adeira/relay-example',

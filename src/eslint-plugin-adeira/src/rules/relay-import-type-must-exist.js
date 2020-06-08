@@ -31,7 +31,7 @@ module.exports = ({
   },
   create(context) {
     return {
-      ImportDeclaration: (node) => {
+      ImportDeclaration: node => {
         if (!isRelayImport(node)) {
           return;
         }
@@ -49,7 +49,7 @@ module.exports = ({
           return;
         }
         const types = extractTypes(generatedSource);
-        node.specifiers.forEach((specifier) => {
+        node.specifiers.forEach(specifier => {
           if (node.importKind !== 'type' && specifier.importKind !== 'type') {
             return;
           }

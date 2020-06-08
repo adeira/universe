@@ -105,7 +105,7 @@ import { getFaction, getShip, getRebels, getEmpire, createShip } from './starWar
  * way we resolve an object that implements node to its type.
  */
 const { nodeInterface, nodeField } = nodeDefinitions(
-  (globalId) => {
+  globalId => {
     const { type, id } = fromGlobalId(globalId);
     if (type === 'Faction') {
       return getFaction(id);
@@ -115,7 +115,7 @@ const { nodeInterface, nodeField } = nodeDefinitions(
     }
     return null;
   },
-  (obj) => {
+  obj => {
     return obj.ships ? factionType : shipType;
   },
 );
@@ -248,11 +248,11 @@ const shipMutation = mutationWithClientMutationId({
   outputFields: {
     ship: {
       type: shipType,
-      resolve: (payload) => getShip(payload.shipId),
+      resolve: payload => getShip(payload.shipId),
     },
     faction: {
       type: factionType,
-      resolve: (payload) => getFaction(payload.factionId),
+      resolve: payload => getFaction(payload.factionId),
     },
   },
   mutateAndGetPayload: ({ shipName, factionId }) => {

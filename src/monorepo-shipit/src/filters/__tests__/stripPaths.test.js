@@ -12,8 +12,8 @@ test.each([
 ])('%s', (testName, stripPatterns, expectedFiles) => {
   const paths = ['foo', 'bar', 'herp/derp', 'herp/derp-derp', 'derp'];
   const changeset = new Changeset().withDiffs(
-    new Set(paths.map((path) => ({ path, body: 'placeholder' }))),
+    new Set(paths.map(path => ({ path, body: 'placeholder' }))),
   );
   const diffs = stripPaths(changeset, stripPatterns).getDiffs();
-  expect([...diffs].map((diff) => diff.path)).toEqual(expectedFiles);
+  expect([...diffs].map(diff => diff.path)).toEqual(expectedFiles);
 });

@@ -33,10 +33,10 @@ module.exports = {
    */
   iterateWorkspaces(cb: (packageJSONLocation: string) => void | Promise<void>): void {
     const rootPackageJSON = findRootPackageJson();
-    __resolveWorkspaces(rootPackageJSON).forEach((workspace) => {
+    __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       globSync(`${workspace}/package.json`, {
         absolute: true,
-      }).forEach((packageJSONLocation) => {
+      }).forEach(packageJSONLocation => {
         cb(packageJSONLocation);
       });
     });
@@ -45,12 +45,12 @@ module.exports = {
   getWorkspacesAsync(baseDirectory: string = __dirname): Promise<$ReadOnlyArray<string>> {
     const rootPackageJSON = findRootPackageJson(baseDirectory);
     const workspaces = __resolveWorkspaces(rootPackageJSON);
-    const workspacePromises = workspaces.map((workspace) => {
+    const workspacePromises = workspaces.map(workspace => {
       return globAsync(`${workspace}/package.json`, {
         absolute: true,
       });
     });
-    return Promise.all(workspacePromises).then((packageJSONLocations) => {
+    return Promise.all(workspacePromises).then(packageJSONLocations => {
       return packageJSONLocations.flat();
     });
   },
@@ -59,7 +59,7 @@ module.exports = {
     // used only in `.jest.config.js` where it's not possible to be async
     const rootPackageJSON = findRootPackageJson(baseDirectory);
     let packageJSONLocations = [];
-    __resolveWorkspaces(rootPackageJSON).forEach((workspace) => {
+    __resolveWorkspaces(rootPackageJSON).forEach(workspace => {
       packageJSONLocations = packageJSONLocations.concat(
         globSync(`${workspace}/package.json`, {
           absolute: true,

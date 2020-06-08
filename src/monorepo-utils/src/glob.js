@@ -40,7 +40,7 @@ function validateInputs(globPattern: GlobPattern, options?: GlobOptions): void {
 type GlobWithCallback = {
   (GlobPattern, GlobCallback): void,
   (GlobPattern, GlobOptions, GlobCallback): void,
-  ...
+  ...,
 };
 
 /**

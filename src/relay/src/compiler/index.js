@@ -136,10 +136,10 @@ function getFilepathsFromGlob(
   },
 ): $ReadOnlyArray<string> {
   const { extensions, include, exclude } = options;
-  const patterns = include.map((inc) => `${inc}/*.+(${extensions.join('|')})`);
+  const patterns = include.map(inc => `${inc}/*.+(${extensions.join('|')})`);
   let filenames = [];
   patterns.forEach(
-    (pattern) =>
+    pattern =>
       (filenames = filenames.concat(
         globSync(pattern, {
           cwd: baseDir,
@@ -181,7 +181,7 @@ function getRelayFileWriter(
 
     if (persistMode && persistMode === 'fs') {
       const persistFunction = require('./persistFunctions/filesystemPersistFunction').default;
-      writerConfig.persistQuery = (query) => {
+      writerConfig.persistQuery = query => {
         const queryMapPath = path.resolve(process.cwd(), 'persisted-queries.json');
         return persistFunction(query, queryMapPath);
       };

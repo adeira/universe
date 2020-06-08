@@ -21,7 +21,7 @@ export type RefetchRelayProp = {|
       | { +[key: string]: any, ... }
       | ((fragmentVariables: { +[key: string]: any, ... }) => {
           +[key: string]: any,
-          ...
+          ...,
         }),
     renderVariables: ?{ +[key: string]: any, ... },
     callback: ?(error: ?Error) => void,
