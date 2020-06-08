@@ -38,12 +38,17 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'prettier/prettier': [
         ERROR,
         {
-          // see: prettier.config.js
-          bracketSpacing: true,
-          printWidth: 100, // see: https://prettier.io/docs/en/options.html#print-width
-          singleQuote: true,
+          printWidth: 100, // Default: 80 ; See https://prettier.io/docs/en/options.html#print-width
           tabWidth: 2,
+          tabs: false,
+          semi: true,
+          singleQuote: true,
+          quoteProps: 'as-needed',
+          jsxSingleQuote: false,
           trailingComma: 'all',
+          bracketSpacing: true,
+          jsxBracketSameLine: false,
+          arrowParens: 'avoid', // Keep 'avoid' from prettier@1 ; See https://prettier.io/docs/en/options.html#arrow-function-parentheses
         },
       ],
     },
