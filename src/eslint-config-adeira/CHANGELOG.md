@@ -1,5 +1,10 @@
 # Unreleased
 
+# 2.2.0
+
+- Upgrade eslint to 7.2.0
+- Upgrade prettier to 2.0.5
+
 # 2.1.0
 
 - Upgrade eslint to 7.1.0
