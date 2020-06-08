@@ -4,13 +4,15 @@
   "license": "UNLICENSED",
   "version": "0.0.0",
   "scripts": {
-    "start": "docusaurus-start",
-    "build": "docusaurus-build",
-    "publish-gh-pages": "docusaurus-publish",
-    "write-translations": "docusaurus-write-translations"
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "publish": "docusaurus publish",
+    "deploy": "docusaurus deploy",
+    "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "docusaurus": "^1.14.4",
+    "@docusaurus/core": "^2.0.0-alpha.56",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.56",
     "react": "^16.13.1"
   }
 }

@@ -1,6 +1,7 @@
 ; https://flow.org/en/docs/config/ignore/
 [ignore]
 <PROJECT_ROOT>/\.git/.*
+<PROJECT_ROOT>/src/docs/build/
 .+/.+\.gzip\.js
 .+/\.next/.+
 
