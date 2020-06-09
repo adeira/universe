@@ -34,7 +34,7 @@ type RangeOperation = 'append' | 'prepend';
 
 opaque type RangeBehaviorsFunction = (connectionArgs: {
   [name: string]: $FlowFixMe,
-  ...,
+  ...
 }) => RangeOperation;
 
 opaque type RangeBehaviorsObject = { [key: string]: RangeOperation, ... };

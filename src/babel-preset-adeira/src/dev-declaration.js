@@ -1,6 +1,6 @@
 /* eslint-disable flowtype/require-valid-file-annotation,flowtype/no-types-missing-file-annotation */
 
-module.exports = function(babel) {
+module.exports = function (babel) {
   const t = babel.types;
 
   const DEV_IDENTIFIER = t.identifier('__DEV__');
@@ -41,7 +41,7 @@ module.exports = function(babel) {
           // transformer is only for 'flow' target.
           for (const comment of (comments: Array<{
             [key: string]: any,
-            ...,
+            ...
           }>)) {
             if (FLOW_DIRECTIVE.test(comment.value)) {
               originalCommentValue = comment.value.trim();

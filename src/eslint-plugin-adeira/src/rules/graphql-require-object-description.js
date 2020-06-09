@@ -16,9 +16,9 @@ module.exports = ({
     schema: [], // no options
   },
 
-  create: function(context) {
+  create: function (context) {
     return {
-      NewExpression: function(node) {
+      NewExpression: function (node) {
         const instantiatedObject = node.callee.name;
 
         if (!['GraphQLObjectType', 'GraphQLInputObjectType'].includes(instantiatedObject)) {
@@ -38,8 +38,8 @@ module.exports = ({
           return;
         }
 
-        const descriptionProp = objectProps.find(property => property.key.name === 'description');
-        const nameProp = objectProps.find(property => property.key.name === 'name');
+        const descriptionProp = objectProps.find((property) => property.key.name === 'description');
+        const nameProp = objectProps.find((property) => property.key.name === 'name');
         const typeName =
           nameProp != null && nameProp.value.value != null ? nameProp.value.value : 'UNKNOWN';
 

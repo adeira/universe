@@ -31,7 +31,7 @@ export default function createSyncPhase(config: ShipitConfig) {
       config.getSourceRoots(),
     );
     if (descendantsPath !== null) {
-      descendantsPath.forEach(revision => {
+      descendantsPath.forEach((revision) => {
         sourceChangesets.add(sourceRepo.getChangesetFromID(revision));
       });
     } else {
@@ -42,20 +42,20 @@ export default function createSyncPhase(config: ShipitConfig) {
 
   function getFilteredChangesets(): Set<Changeset> {
     const filteredChangesets = new Set<Changeset>();
-    getSourceChangesets().forEach(changeset => {
+    getSourceChangesets().forEach((changeset) => {
       const filter = config.getDefaultShipitFilter();
       filteredChangesets.add(filter(changeset));
     });
     return filteredChangesets;
   }
 
-  return function() {
+  return function () {
     const destinationRepo = _getDestinationRepo();
     const changesets = getFilteredChangesets();
 
     destinationRepo.checkoutBranch(config.getDestinationBranch());
 
-    changesets.forEach(changeset => {
+    changesets.forEach((changeset) => {
       if (changeset.isValid()) {
         destinationRepo.commitPatch(changeset);
       }

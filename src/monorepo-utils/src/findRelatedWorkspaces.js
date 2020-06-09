@@ -20,12 +20,12 @@ export default function findRelatedWorkspaces(
   const workspacesToTest = new Set<string>();
 
   (function unwind(touchedWorkspaces) {
-    touchedWorkspaces.forEach(touchedWorkspace => {
+    touchedWorkspaces.forEach((touchedWorkspace) => {
       // add the touched dependencies itself
       workspacesToTest.add(touchedWorkspace);
 
       // find the touched workspaces everywhere in individual `workspaceDependencies`
-      Object.keys(workspaceDependencies).forEach(key => {
+      Object.keys(workspaceDependencies).forEach((key) => {
         if (workspaceDependencies[key].workspaceDependencies.includes(touchedWorkspace)) {
           if (!workspacesToTest.has(key)) {
             workspacesToTest.add(key);

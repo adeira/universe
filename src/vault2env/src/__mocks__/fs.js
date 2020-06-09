@@ -3,19 +3,19 @@
 const fs: any = jest.createMockFromModule('fs');
 
 let mockFiles = Object.create(null);
-fs.__setMockFiles = function(newMockFiles) {
+fs.__setMockFiles = function (newMockFiles) {
   mockFiles = newMockFiles;
 };
 
-fs.existsSync = function(filePath) {
+fs.existsSync = function (filePath) {
   return mockFiles[filePath] !== undefined;
 };
 
-fs.writeFileSync = function(filePath, content) {
+fs.writeFileSync = function (filePath, content) {
   mockFiles[filePath] = content;
 };
 
-fs.readFileSync = function(filePath) {
+fs.readFileSync = function (filePath) {
   return mockFiles[filePath];
 };
 

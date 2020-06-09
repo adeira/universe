@@ -39,7 +39,7 @@ export class Alphabet1 extends React.Component<AplhabetProps, AplhabetState> {
     };
   }
 
-  handleClick: string => void = letter => {
+  handleClick: (string) => void = (letter) => {
     this.setState({ justClicked: letter });
   };
 
@@ -48,7 +48,7 @@ export class Alphabet1 extends React.Component<AplhabetProps, AplhabetState> {
       <div>
         Just clicked: {this.state.justClicked}
         <ul>
-          {this.state.letters.map(letter => (
+          {this.state.letters.map((letter) => (
             <Letter
               key={letter}
               letter={letter}
@@ -65,7 +65,7 @@ export function Alphabet2(): Element<'div'> {
   const [justClicked, updateJustClicked] = useState(null);
   const letters = Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i));
 
-  const handleClick = letter => {
+  const handleClick = (letter) => {
     updateJustClicked(letter);
   };
 
@@ -73,7 +73,7 @@ export function Alphabet2(): Element<'div'> {
     <div>
       Just clicked: {justClicked}
       <ul>
-        {letters.map(letter => (
+        {letters.map((letter) => (
           <Letter
             key={letter}
             letter={letter}

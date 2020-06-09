@@ -52,7 +52,7 @@ const postData = {
 };
 
 const { nodeField, nodeInterface } = nodeDefinitions(
-  globalId => {
+  (globalId) => {
     const { type, id } = fromGlobalId(globalId);
     if (type === 'User') {
       return userData[id];
@@ -65,7 +65,7 @@ const { nodeField, nodeInterface } = nodeDefinitions(
     }
     return null;
   },
-  obj => {
+  (obj) => {
     if (obj.name) {
       return userType;
     }
@@ -96,7 +96,7 @@ const photoType = new GraphQLObjectType({
   interfaces: [nodeInterface],
   description: 'test',
   fields: () => ({
-    id: globalIdField('Photo', obj => obj.photoId),
+    id: globalIdField('Photo', (obj) => obj.photoId),
     width: {
       type: GraphQLInt,
     },

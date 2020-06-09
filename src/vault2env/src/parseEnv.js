@@ -10,7 +10,7 @@ type ParsedEnv = { +[string]: string, ... };
  */
 export default function parseEnv(fileContent: string): ParsedEnv {
   const parsedEnv = {};
-  fileContent.split(os.EOL).forEach(line => {
+  fileContent.split(os.EOL).forEach((line) => {
     if (line !== '') {
       const [key, ...rest] = line.split(/\s?=\s?/);
       parsedEnv[key] = rest.join('=');

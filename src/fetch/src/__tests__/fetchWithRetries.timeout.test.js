@@ -5,7 +5,7 @@ import flushPromises from './_flushPromises';
 
 jest.mock('../fetch');
 
-it('defaults fetch timeout to 15s', done => {
+it('defaults fetch timeout to 15s', (done) => {
   expect.assertions(2);
 
   const handleCatch = jest.fn();

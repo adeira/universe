@@ -2,7 +2,7 @@
 
 import changeNextVersionErrorLevel from '../changeNextVersionErrorLevel';
 
-test.each([0, 1, 2])('it changes next version error 3 to: %i', level => {
+test.each([0, 1, 2])('it changes next version error 3 to: %i', (level) => {
   expect(
     changeNextVersionErrorLevel(
       {

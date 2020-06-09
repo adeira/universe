@@ -15,12 +15,12 @@ const { findMonorepoRoot, Git } = require('@adeira/monorepo-utils');
 const Flow = require('../src/index').default;
 
 const argv = process.argv.splice(2);
-const cli = command => argv.includes(command);
+const cli = (command) => argv.includes(command);
 // Should we forward all unknown commands to Flow?
 const allowedCommands = ['restart', '--all'];
 for (const command of argv) {
   if (!allowedCommands.includes(command)) {
-    const allowedCommandsList = allowedCommands.map(command => `'${command}'`).join(', ');
+    const allowedCommandsList = allowedCommands.map((command) => `'${command}'`).join(', ');
     throw new Error(
       `Command line option "${command}" is not allowed. You have to use one of these: ${allowedCommandsList}`,
     );
@@ -34,7 +34,7 @@ const savedStateFileChangesPath = path.join(monorepoRoot, '.flow.saved_state_fil
 const changedFiles = Git.getChangesToTest();
 fs.writeFileSync(
   savedStateFileChangesPath,
-  changedFiles.filter(file => /\.(?:js|json|flow)$/.test(file)).join(os.EOL) + os.EOL,
+  changedFiles.filter((file) => /\.(?:js|json|flow)$/.test(file)).join(os.EOL) + os.EOL,
 );
 
 if (cli('restart')) {

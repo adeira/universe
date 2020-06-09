@@ -5,7 +5,7 @@ import os from 'os';
 import ShellCommand from './ShellCommand';
 
 function __parseRows(changes /*: string */) /*: $ReadOnlyArray<string> */ {
-  return changes.split(os.EOL).filter(row => row !== '');
+  return changes.split(os.EOL).filter((row) => row !== '');
 }
 
 function git(...args /*: $ReadOnlyArray<string> */): string {

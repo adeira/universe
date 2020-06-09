@@ -38,14 +38,14 @@ test.each([
   ],
 ])('%s', (testName, mapping, inputPaths, expected) => {
   const changeset = new Changeset().withDiffs(
-    new Set(inputPaths.map(path => ({ path, body: 'placeholder' }))),
+    new Set(inputPaths.map((path) => ({ path, body: 'placeholder' }))),
   );
   const diffs = moveDirectories(changeset, mapping).getDiffs();
-  expect([...diffs].map(diff => diff.path)).toEqual(expected);
+  expect([...diffs].map((diff) => diff.path)).toEqual(expected);
 
   const reversedChangeset = new Changeset().withDiffs(diffs);
   const reversedDiffs = moveDirectoriesReverse(reversedChangeset, mapping).getDiffs();
-  expect([...reversedDiffs].map(diff => diff.path)).toEqual(inputPaths);
+  expect([...reversedDiffs].map((diff) => diff.path)).toEqual(inputPaths);
 });
 
 it('throw exception when mapping contains duplicate destinations', () => {

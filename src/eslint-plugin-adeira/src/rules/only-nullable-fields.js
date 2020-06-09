@@ -16,7 +16,7 @@ module.exports = ({
     schema: [], // no options
   },
 
-  create: function(context) {
+  create: function (context) {
     /**
      * Whether should be this rule completely ignored.
      *
@@ -28,18 +28,18 @@ module.exports = ({
     let noOfAllowedNodesVisited = 0;
 
     return {
-      Property: node => {
+      Property: (node) => {
         if (node.key && node.key.name === 'args') {
           noOfAllowedNodesVisited += 1;
         }
       },
-      'Property:exit': node => {
+      'Property:exit': (node) => {
         if (node.key && node.key.name === 'args') {
           noOfAllowedNodesVisited -= 1;
         }
       },
 
-      CallExpression: function(node) {
+      CallExpression: function (node) {
         // disallow GraphQLNonNull
         if (
           noOfAllowedNodesVisited === 0 &&
@@ -50,7 +50,7 @@ module.exports = ({
         }
       },
 
-      NewExpression: function(node) {
+      NewExpression: function (node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           noOfAllowedNodesVisited += 1;
         }
@@ -64,7 +64,7 @@ module.exports = ({
           context.report(node, 'Avoid using GraphQLNonNull.');
         }
       },
-      'NewExpression:exit': function(node) {
+      'NewExpression:exit': function (node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           noOfAllowedNodesVisited -= 1;
         }

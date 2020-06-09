@@ -23,7 +23,7 @@ export default class MyProvider extends React.Component<Props, State> {
     };
   }
 
-  setAccessToken: (?string) => void = accessToken => {
+  setAccessToken: (?string) => void = (accessToken) => {
     this.setState({ accessToken });
   };
 

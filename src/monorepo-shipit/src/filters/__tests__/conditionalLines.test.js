@@ -8,7 +8,7 @@ import RepoGitFake from '../../RepoGitFake';
 import Changeset from '../../Changeset';
 
 function printBodies(changeset: Changeset): string {
-  return [...changeset.getDiffs()].map(diff => diff.body).toString();
+  return [...changeset.getDiffs()].map((diff) => diff.body).toString();
 }
 
 function getChangeset(patchName: string): Changeset {

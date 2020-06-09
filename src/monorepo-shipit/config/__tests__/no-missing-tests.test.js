@@ -12,7 +12,7 @@ test('there is a test file for every config file', () => {
       '**/__[a-z]*__/**', // ignore __tests__, __mocks__, ...
     ],
   });
-  configFilenames.forEach(configFilename => {
+  configFilenames.forEach((configFilename) => {
     const testFilename = configFilename.replace(
       /^(?<path>.+?)(?<file>[^/]+)\.js$/,
       `$1__tests__${path.sep}$2.test.js`,

@@ -12,7 +12,9 @@ export default function stripExceptDirectories(
   rawRoots: Set<string>,
 ): Changeset {
   const roots = new Set();
-  rawRoots.forEach(rawRoot => roots.add(rawRoot.endsWith(path.sep) ? rawRoot : rawRoot + path.sep));
+  rawRoots.forEach((rawRoot) =>
+    roots.add(rawRoot.endsWith(path.sep) ? rawRoot : rawRoot + path.sep),
+  );
   const diffs = new Set();
   for (const diff of changeset.getDiffs()) {
     const path = diff.path;
