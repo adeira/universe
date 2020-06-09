@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.0.3
+
+- `@babel/runtime` added into dependencies
+
 # 1.0.1
 
 - UserAgent header on server changed to `@adeira/fetch (+https://github.com/adeira/universe; %s)`
