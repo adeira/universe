@@ -7,7 +7,7 @@ import stripAnsi from 'strip-ansi';
 import path from 'path';
 
 function transform(target) {
-  return input => {
+  return (input) => {
     try {
       const oldEnv = process.env.NODE_ENV;
       process.env.NODE_ENV = 'production';
@@ -41,7 +41,7 @@ function transform(target) {
   };
 }
 
-['babel-issues', 'features'].forEach(group => {
+['babel-issues', 'features'].forEach((group) => {
   generateTestsFromFixtures(
     path.join(__dirname, '__fixtures__', group),
     transform('js'),

@@ -32,7 +32,7 @@ const userData = {
 };
 
 const { nodeField, nodeInterface } = nodeDefinitions(
-  id => {
+  (id) => {
     return userData[id];
   },
   () => {

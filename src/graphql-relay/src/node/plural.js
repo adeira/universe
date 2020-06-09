@@ -47,7 +47,7 @@ export function pluralIdentifyingRootField(
     resolve(obj, args, context, info) {
       const inputs = args[config.argName];
       return Promise.all(
-        inputs.map(input => Promise.resolve(config.resolveSingleInput(input, context, info))),
+        inputs.map((input) => Promise.resolve(config.resolveSingleInput(input, context, info))),
       );
     },
   };

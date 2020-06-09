@@ -6,7 +6,7 @@ import preset from '../index';
 
 expect.addSnapshotSerializer({
   test: () => true,
-  print: value => {
+  print: (value) => {
     const cwd = path.join(__dirname, '..', '..'); // root of our Babel Preset
     return JSON.stringify(value, null, 2).replace(new RegExp(cwd, 'g'), '<BABEL_PRESET_ROOT>');
   },
@@ -20,8 +20,8 @@ const environments = [
 ];
 
 const matrix = [];
-supportedTargets.forEach(function(target) {
-  environments.forEach(function(environment) {
+supportedTargets.forEach(function (target) {
+  environments.forEach(function (environment) {
     matrix.push([target, environment]);
   });
 });
@@ -30,7 +30,7 @@ test.each(matrix)(
   "emits correct config for target '%s' and environment '%j'",
   (target, environments) => {
     const apiMock = {
-      assertVersion: version => {
+      assertVersion: (version) => {
         if (version !== 7) {
           throw new Error(`Only Babel API version 7 supported, given version: ${version}`);
         }

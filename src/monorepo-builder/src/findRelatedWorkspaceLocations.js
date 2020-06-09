@@ -6,7 +6,7 @@ export type WorkspaceDependencies = {
     +workspaceDependencies: $ReadOnlyArray<string>,
     +mismatchedWorkspaceDependencies: $ReadOnlyArray<string>,
   |},
-  ...,
+  ...
 };
 
 // TODO: DRY with `src/core/monorepo-utils/src/findRelatedWorkspaces.js` somehow (?)

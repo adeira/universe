@@ -47,9 +47,9 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
 };
 
 // TODO: .toWarnDev() ?
-['error', 'warn', 'log', 'info', 'groupCollapsed'].forEach(methodName => {
+['error', 'warn', 'log', 'info', 'groupCollapsed'].forEach((methodName) => {
   const unexpectedConsoleCallStacks = [];
-  const newMethod = function(format, ...args) {
+  const newMethod = function (format, ...args) {
     const stack = new Error().stack;
     unexpectedConsoleCallStacks.push([
       stack.substr(stack.indexOf('\n') + 1),
@@ -77,7 +77,7 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
           `${chalk.red(message)}\n` +
           `${stack
             .split('\n')
-            .map(line => chalk.gray(line))
+            .map((line) => chalk.gray(line))
             .join('\n')}`,
       );
 

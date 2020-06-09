@@ -39,7 +39,7 @@ export function connectionFromPromisedArray<T>(
   dataPromise: Promise<$ReadOnlyArray<T>>,
   args: ConnectionArguments,
 ): Promise<Connection<T>> {
-  return dataPromise.then(data => connectionFromArray(data, args));
+  return dataPromise.then((data) => connectionFromArray(data, args));
 }
 
 /**
@@ -114,7 +114,7 @@ export function connectionFromPromisedArraySlice<T>(
   args: ConnectionArguments,
   arrayInfo: ArraySliceMetaInfo,
 ): Promise<Connection<T>> {
-  return dataPromise.then(data => connectionFromArraySlice(data, args, arrayInfo));
+  return dataPromise.then((data) => connectionFromArraySlice(data, args, arrayInfo));
 }
 
 const PREFIX = 'arrayconnection:';

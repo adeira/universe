@@ -8,7 +8,7 @@ import { ShellCommand } from '@adeira/monorepo-utils';
 import walk from './utils/walk';
 
 export default function strictLint(flowPath: string, strictLintPath: string) {
-  walk(strictLintPath, file => {
+  walk(strictLintPath, (file) => {
     const flowHeader = /^\/\/ @flow$/m;
 
     const fileContent = fs.readFileSync(file, 'utf8');

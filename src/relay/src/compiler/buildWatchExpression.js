@@ -11,8 +11,8 @@ export default function buildWatchExpression(config: {|
   return [
     'allof',
     ['type', 'f'],
-    ['anyof', ...config.extensions.map(ext => ['suffix', ext])],
-    ['anyof', ...config.include.map(include => ['match', include, 'wholename'])],
-    ...config.exclude.map(exclude => ['not', ['match', exclude, 'wholename']]),
+    ['anyof', ...config.extensions.map((ext) => ['suffix', ext])],
+    ['anyof', ...config.include.map((include) => ['match', include, 'wholename'])],
+    ...config.exclude.map((exclude) => ['not', ['match', exclude, 'wholename']]),
   ];
 }

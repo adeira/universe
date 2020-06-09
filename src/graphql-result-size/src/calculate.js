@@ -99,12 +99,12 @@ export function calculate(schema: GraphQLSchema, queryAst: DocumentNode): number
       }
       analyzeField(definition, parentObjectType, fragments);
     } else if (definition.kind === Kind.SELECTION_SET) {
-      definition.selections.forEach(selection => {
+      definition.selections.forEach((selection) => {
         analyzeSubquery(selection, parentObjectType, fragments);
       });
     } else if (definition.kind === Kind.OPERATION_DEFINITION) {
       const variableDefinitions = definition.variableDefinitions ?? [];
-      variableDefinitions.forEach(variableDefinition => {
+      variableDefinitions.forEach((variableDefinition) => {
         const variableName = variableDefinition.variable.name.value;
         const defaultValue = variableDefinition.defaultValue;
         if (defaultValue !== undefined && defaultValue.kind === Kind.INT) {
@@ -125,7 +125,9 @@ export function calculate(schema: GraphQLSchema, queryAst: DocumentNode): number
       analyzeSubquery(definition.selectionSet, objectType, fragments);
     } else if (definition.kind === Kind.FRAGMENT_SPREAD) {
       const fragmentName = definition.name.value;
-      const fragment = nullthrows(fragments.find(fragment => fragment.name.value === fragmentName));
+      const fragment = nullthrows(
+        fragments.find((fragment) => fragment.name.value === fragmentName),
+      );
       const onType = fragment.typeCondition.name.value;
       // TODO: we should ideally deduplicate every `selectionSet`
       analyzeSubquery(fragment.selectionSet, schema.getType(onType), fragments);
@@ -149,7 +151,7 @@ export function calculate(schema: GraphQLSchema, queryAst: DocumentNode): number
     [[], []],
   );
 
-  operationDefinitions.forEach(definition => {
+  operationDefinitions.forEach((definition) => {
     if (isExecutableDefinitionNode(definition)) {
       switch (definition.operation) {
         case 'query':
@@ -171,7 +173,7 @@ export function calculate(schema: GraphQLSchema, queryAst: DocumentNode): number
 function getNumberOfEdgesNew(operationVariables, definition): number | null {
   let first = null;
   if (definition.arguments != null && definition.arguments.length > 0) {
-    const argumentNode = definition.arguments.find(argument => {
+    const argumentNode = definition.arguments.find((argument) => {
       return argument.name.value === 'first' || argument.name.value === 'last';
     });
     if (argumentNode !== undefined) {

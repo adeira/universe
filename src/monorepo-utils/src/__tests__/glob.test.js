@@ -24,13 +24,13 @@ describe('glob', () => {
     expect(() => glob('src/apps/*/package.json', voidCallback)).not.toThrow();
   });
 
-  it('ignores node_modules by default', done => {
+  it('ignores node_modules by default', (done) => {
     glob(
       '/**/*.js',
       { root: path.join(__dirname, 'fixtures', 'glob', 'aaa') },
       (error, filenames) => {
         expect(error).toBeNull();
-        expect(filenames.map(filename => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
+        expect(filenames.map((filename) => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
         Array [
           "/fixtures/glob/aaa/file.js",
           "/fixtures/glob/aaa/subfolder/file.js",
@@ -71,7 +71,7 @@ describe('globSync', () => {
     const filenames = globSync('/**/*.js', {
       root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
-    expect(filenames.map(filename => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
+    expect(filenames.map((filename) => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
         Array [
           "/fixtures/glob/aaa/file.js",
           "/fixtures/glob/aaa/subfolder/file.js",
@@ -102,7 +102,7 @@ describe('globAsync', () => {
     const filenames = await globAsync('/**/*.js', {
       root: path.join(__dirname, 'fixtures', 'glob', 'aaa'),
     });
-    expect(filenames.map(filename => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
+    expect(filenames.map((filename) => filename.replace(__dirname, ''))).toMatchInlineSnapshot(`
         Array [
           "/fixtures/glob/aaa/file.js",
           "/fixtures/glob/aaa/subfolder/file.js",

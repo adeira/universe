@@ -32,7 +32,7 @@ function persistOperation(operationId: string, text: string) {
       variables: {
         input: [{ operationId, text }],
       },
-      onError: error => {
+      onError: (error) => {
         logger.error('TODO: onError', String(error));
         process.exitCode = 1;
       },

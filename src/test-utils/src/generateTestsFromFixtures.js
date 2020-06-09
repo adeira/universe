@@ -13,7 +13,7 @@ const FIXTURE_TAG = Symbol.for('FIXTURE_TAG');
 expect.addSnapshotSerializer({
   print(serializerValue) {
     return Object.keys(serializerValue)
-      .map(key => {
+      .map((key) => {
         const value = serializerValue[key];
         const inspectedValue = isObject(value) ? JSON.stringify(value, null, 2) : value;
         return `~~~~~~~~~~ ${key.toUpperCase()} ~~~~~~~~~~\n${inspectedValue}`;
@@ -45,18 +45,18 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
     expect(fixtures.length > 0).toBe(true);
   });
 
-  const shouldSkip = file => /\.only\.\w+$/.test(file);
+  const shouldSkip = (file) => /\.only\.\w+$/.test(file);
   const onlyFixtures = fixtures.filter(shouldSkip);
   if (onlyFixtures.length) {
     // $FlowFixMe: we need to update our Jest type definitions (TODO)
-    test.skip.each(fixtures.filter(name => !shouldSkip(name)))(
+    test.skip.each(fixtures.filter((name) => !shouldSkip(name)))(
       'matches expected output: %s',
       () => {},
     );
     fixtures = onlyFixtures;
   }
 
-  test.each(fixtures)('matches expected output: %s', async file => {
+  test.each(fixtures)('matches expected output: %s', async (file) => {
     const input = fs.readFileSync(path.join(fixturesPath, file), 'utf8');
     const output = await getOutputForFixture(input, operation, file);
     if (snapshotName != null) {

@@ -6,5 +6,5 @@ export type WorkspaceDependencies = {
     +workspaceDependencies: $ReadOnlyArray<string>,
     +mismatchedWorkspaceDependencies: $ReadOnlyArray<string>,
   |},
-  ...,
+  ...
 };

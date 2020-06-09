@@ -43,7 +43,7 @@ export default function useMutation<T: MutationParameters>(
   const [isMutationInFlight, setMutationInFlight] = useState(false);
 
   const cleanup = useCallback(
-    disposable => {
+    (disposable) => {
       if (environmentRef.current === environment && mutationRef.current === mutation) {
         inFlightMutationsRef.current.delete(disposable);
         if (isMountedRef.current) {
@@ -66,7 +66,7 @@ export default function useMutation<T: MutationParameters>(
   }, [environment, isMountedRef, mutation]);
 
   const commit = useCallback(
-    config => {
+    (config) => {
       const disposable = commitMutation<T>(environment, {
         ...config,
         variables: config.variables ?? {},

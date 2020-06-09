@@ -22,7 +22,7 @@ test.each([
   8e5, // exponential notation
   '123e-2', // exponential notation string
   new Number(42),
-])('value %p is a number', value => {
+])('value %p is a number', (value) => {
   expect(isNumeric(value)).toBe(true);
 });
 
@@ -44,8 +44,8 @@ test.each([
   Number.NEGATIVE_INFINITY,
   new Date(2009, 1, 1),
   new Object(),
-  function() {},
+  function () {},
   [],
-])('value %p is NOT a number', value => {
+])('value %p is NOT a number', (value) => {
   expect(isNumeric(value)).toBe(false);
 });

@@ -9,7 +9,7 @@ import parseEnv from './parseEnv';
 
 export default function writeEnvFile(secrets: { +[key: string]: string, ... }, force: boolean) {
   const output = Object.keys(secrets)
-    .map(key => `${key}=${secrets[key]}`)
+    .map((key) => `${key}=${secrets[key]}`)
     .join(os.EOL);
 
   if (!output) {

@@ -29,14 +29,14 @@ const match = exportedRepoURL.match(gitRegex);
 const packageName = match?.groups?.packageName;
 invariant(packageName != null, 'Cannot figure out package name from: %s', exportedRepoURL);
 
-iterateConfigs(config => {
+iterateConfigs((config) => {
   if (config.exportedRepoURL === exportedRepoURL) {
     new Set<() => void>([
       createClonePhase(config.exportedRepoURL, config.destinationPath),
       createCheckCorruptedRepoPhase(config.destinationPath),
       createCleanPhase(config.destinationPath),
       createImportSyncPhase(config, packageName, pullRequestNumber),
-    ]).forEach(phase => phase());
+    ]).forEach((phase) => phase());
   }
 });
 

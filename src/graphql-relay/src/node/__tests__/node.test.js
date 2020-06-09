@@ -44,7 +44,7 @@ const photoData = {
 };
 
 const { nodeField, nodesField, nodeInterface } = nodeDefinitions(
-  id => {
+  (id) => {
     if (userData[id]) {
       return userData[id];
     }
@@ -53,7 +53,7 @@ const { nodeField, nodesField, nodeInterface } = nodeDefinitions(
     }
     return null;
   },
-  obj => {
+  (obj) => {
     if (userData[obj.id]) {
       return userType;
     }
