@@ -11,7 +11,7 @@
   },
   "main": "src/index",
   "dependencies": {
-    "@adeira/fetch": "^1.0.1",
+    "@adeira/fetch": "^1.0.3",
     "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.2.0",
     "commander": "^5.1.0"
