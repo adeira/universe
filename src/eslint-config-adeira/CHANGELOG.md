@@ -1,5 +1,9 @@
 # Unreleased
 
+# 3.0.0
+
+- Upgrade to prettier 2.0.5
+
 # 2.2.1
 
 -  Downgrade prettier to 1.19.1 (should have been major upgrade)
