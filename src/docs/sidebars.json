@@ -1,9 +1,0 @@
-{
-  "universe": {
-    "Introduction": ["general/introduction"],
-    "Quick start": ["quickStart/quickStartGettingStarted", "quickStart/quickStartLocalState", "quickStart/quickStartSSR"],
-    "Writing Relay app": ["tutorialRelay/tutorialRelayIntroduction"],
-    "Building GraphQL server": ["tutorialServer/tutorialServerIntroduction"],
-    "Developer tools": []
-  }
-}

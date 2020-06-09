@@ -1,14 +1,15 @@
-/* eslint-disable flowtype/require-valid-file-annotation */
+/* eslint-disable flowtype/require-valid-file-annotation, import/no-unresolved */
 
-const React = require('react');
+import * as React from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
 
-module.exports = function Index(props) {
-  const { config: siteConfig, language = '' } = props;
+const Index = () => {
+  const context = useDocusaurusContext();
+  const { siteConfig } = context;
+  const { baseUrl } = siteConfig;
 
-  const { baseUrl, docsUrl } = siteConfig;
-  const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-  const langPart = `${language ? `${language}/` : ''}`;
-  const docUrl = (doc) => `${baseUrl}${docsPart}${langPart}${doc}`;
+  const docUrl = (doc) => `${baseUrl}docs/${doc}`;
 
   const HomeSplash = () => {
     const SplashContainer = (props) => (
@@ -20,10 +21,10 @@ module.exports = function Index(props) {
     );
 
     const ProjectTitle = () => (
-      <h2 className="projectTitle">
-        {siteConfig.title}
-        <small>{siteConfig.tagline}</small>
-      </h2>
+      <header className="projectTitle">
+        <h2>{siteConfig.title}</h2>
+        <h4>{siteConfig.tagline}</h4>
+      </header>
     );
 
     const PromoSection = (props) => (
@@ -232,11 +233,13 @@ module.exports = function Index(props) {
   );
 
   return (
-    <div>
-      <HomeSplash siteConfig={siteConfig} language={language} />
+    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+      <HomeSplash />
       <div className="mainContainer">
         <Description />
       </div>
-    </div>
+    </Layout>
   );
 };
+
+export default Index;
