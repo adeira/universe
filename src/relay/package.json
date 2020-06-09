@@ -17,7 +17,7 @@
     "regenerate": "./bin/relay-compiler.js --src=./src --schema=./schema.graphql"
   },
   "dependencies": {
-    "@adeira/fetch": "^1.0.1",
+    "@adeira/fetch": "^1.0.3",
     "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.2.0",
     "@adeira/monorepo-utils": "^0.7.0",
