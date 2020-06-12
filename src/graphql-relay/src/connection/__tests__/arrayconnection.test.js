@@ -167,7 +167,7 @@ describe('connectionFromArray()', () => {
     it('respects first and after', () => {
       const c = connectionFromArray(letters, {
         first: 2,
-        after: 'YXJyYXljb25uZWN0aW9uOjE=',
+        after: 'YXJyYXljb25uZWN0aW9uOjE=', // after 1
       });
       expect(c).toEqual({
         edges: [
@@ -183,7 +183,7 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjI=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjM=',
-          hasPreviousPage: false,
+          hasPreviousPage: true,
           hasNextPage: true,
         },
       });
@@ -192,7 +192,7 @@ describe('connectionFromArray()', () => {
     it('respects first and after with long first', () => {
       const c = connectionFromArray(letters, {
         first: 10,
-        after: 'YXJyYXljb25uZWN0aW9uOjE=',
+        after: 'YXJyYXljb25uZWN0aW9uOjE=', // after 1
       });
       expect(c).toEqual({
         edges: [
@@ -212,7 +212,7 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjI=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjQ=',
-          hasPreviousPage: false,
+          hasPreviousPage: true,
           hasNextPage: false,
         },
       });
@@ -221,7 +221,7 @@ describe('connectionFromArray()', () => {
     it('respects last and before', () => {
       const c = connectionFromArray(letters, {
         last: 2,
-        before: 'YXJyYXljb25uZWN0aW9uOjM=',
+        before: 'YXJyYXljb25uZWN0aW9uOjM=', // before 3
       });
       expect(c).toEqual({
         edges: [
@@ -238,7 +238,7 @@ describe('connectionFromArray()', () => {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjE=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjI=',
           hasPreviousPage: true,
-          hasNextPage: false,
+          hasNextPage: true,
         },
       });
     });
@@ -246,7 +246,7 @@ describe('connectionFromArray()', () => {
     it('respects last and before with long last', () => {
       const c = connectionFromArray(letters, {
         last: 10,
-        before: 'YXJyYXljb25uZWN0aW9uOjM=',
+        before: 'YXJyYXljb25uZWN0aW9uOjM=', // before 3
       });
       expect(c).toEqual({
         edges: [
@@ -267,7 +267,7 @@ describe('connectionFromArray()', () => {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjA=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjI=',
           hasPreviousPage: false,
-          hasNextPage: false,
+          hasNextPage: true,
         },
       });
     });
@@ -275,8 +275,8 @@ describe('connectionFromArray()', () => {
     it('respects first and after and before, too few', () => {
       const c = connectionFromArray(letters, {
         first: 2,
-        after: 'YXJyYXljb25uZWN0aW9uOjA=',
-        before: 'YXJyYXljb25uZWN0aW9uOjQ=',
+        after: 'YXJyYXljb25uZWN0aW9uOjA=', // 0
+        before: 'YXJyYXljb25uZWN0aW9uOjQ=', // 4
       });
       expect(c).toEqual({
         edges: [
@@ -292,7 +292,7 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjE=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjI=',
-          hasPreviousPage: false,
+          hasPreviousPage: true,
           hasNextPage: true,
         },
       });
@@ -301,8 +301,8 @@ describe('connectionFromArray()', () => {
     it('respects first and after and before, too many', () => {
       const c = connectionFromArray(letters, {
         first: 4,
-        after: 'YXJyYXljb25uZWN0aW9uOjA=',
-        before: 'YXJyYXljb25uZWN0aW9uOjQ=',
+        after: 'YXJyYXljb25uZWN0aW9uOjA=', // 0
+        before: 'YXJyYXljb25uZWN0aW9uOjQ=', // 4
       });
       expect(c).toEqual({
         edges: [
@@ -322,8 +322,8 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjE=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjM=',
-          hasPreviousPage: false,
-          hasNextPage: false,
+          hasPreviousPage: true,
+          hasNextPage: true,
         },
       });
     });
@@ -331,8 +331,8 @@ describe('connectionFromArray()', () => {
     it('respects first and after and before, exactly right', () => {
       const c = connectionFromArray(letters, {
         first: 3,
-        after: 'YXJyYXljb25uZWN0aW9uOjA=',
-        before: 'YXJyYXljb25uZWN0aW9uOjQ=',
+        after: 'YXJyYXljb25uZWN0aW9uOjA=', // 0
+        before: 'YXJyYXljb25uZWN0aW9uOjQ=', // 4
       });
       expect(c).toEqual({
         edges: [
@@ -352,8 +352,8 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjE=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjM=',
-          hasPreviousPage: false,
-          hasNextPage: false,
+          hasPreviousPage: true,
+          hasNextPage: true,
         },
       });
     });
@@ -379,7 +379,7 @@ describe('connectionFromArray()', () => {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjI=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjM=',
           hasPreviousPage: true,
-          hasNextPage: false,
+          hasNextPage: true,
         },
       });
     });
@@ -408,8 +408,8 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjE=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjM=',
-          hasPreviousPage: false,
-          hasNextPage: false,
+          hasPreviousPage: true,
+          hasNextPage: true,
         },
       });
     });
@@ -438,8 +438,8 @@ describe('connectionFromArray()', () => {
         pageInfo: {
           startCursor: 'YXJyYXljb25uZWN0aW9uOjE=',
           endCursor: 'YXJyYXljb25uZWN0aW9uOjM=',
-          hasPreviousPage: false,
-          hasNextPage: false,
+          hasPreviousPage: true,
+          hasNextPage: true,
         },
       });
     });

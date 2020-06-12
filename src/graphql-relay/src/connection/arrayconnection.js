@@ -25,10 +25,24 @@ export function connectionFromArray<T>(
   data: $ReadOnlyArray<T>,
   args: ConnectionArguments,
 ): Connection<T> {
-  return connectionFromArraySlice(data, args, {
+  const { edges, pageInfo } = connectionFromArraySlice(data, args, {
     sliceStart: 0,
     arrayLength: data.length,
   });
+  const firstCursor = offsetToCursor(0);
+  const lastCursor = offsetToCursor(data.length - 1);
+  const lowerBound = cursorToOffset(pageInfo.startCursor ?? firstCursor);
+  const upperBound = cursorToOffset(pageInfo.endCursor ?? lastCursor);
+
+  // there are some data "before" current slice
+  if (lowerBound > 0) {
+    pageInfo.hasPreviousPage = true;
+  }
+  // there are some data "after" current slice
+  if (upperBound < data.length - 1) {
+    pageInfo.hasNextPage = true;
+  }
+  return { edges, pageInfo };
 }
 
 /**
