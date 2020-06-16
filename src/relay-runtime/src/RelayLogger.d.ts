@@ -1,4 +1,10 @@
-type OperationAvailability = 'available' | 'stale' | 'missing';
+type OperationAvailability =
+  | {
+      status: 'available';
+      fetchTime: number | null | undefined;
+    }
+  | { status: 'stale' }
+  | { status: 'missing' };
 
 interface LogEventQueryResourceFetch {
   readonly name: 'queryresource.fetch';

@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@adeira/relay-runtime@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay-runtime/-/relay-runtime-0.11.0.tgz#595e96402fea91e50ee6cba45dda7e7a557389ef"
+  integrity sha512-rxbjhZecBu1U32/aeIA0KHr+D/fedQZwse65eAH7/YQTbtIZIbv6y2sF8kQcM3yrQV/z8ZeZogB8ypNzgkwRuQ==
+  dependencies:
+    "@adeira/js" "^1.2.0"
+    "@babel/runtime" "^7.9.6"
+    relay-runtime "^9.1.0"
+
 "@adeira/test-utils@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.2.0.tgz#9e9feef7bb10968d161dcd4a568e760af25b7c50"
@@ -1292,7 +1301,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.4", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
   version "7.10.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
   integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
