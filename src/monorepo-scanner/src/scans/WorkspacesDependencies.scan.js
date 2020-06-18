@@ -45,7 +45,6 @@ const exceptions = new Map([
 describe('dependencies similarities', () => {
   Workspaces.iterateWorkspaces((packageJSONLocation) => {
     test(`${packageJSONLocation}`, (done) => {
-      // $FlowAllowDynamicImport
       const packageJson = require(packageJSONLocation);
       const dependencies = Object.keys(packageJson.dependencies || {});
       const devDependencies = Object.keys(packageJson.devDependencies || {});

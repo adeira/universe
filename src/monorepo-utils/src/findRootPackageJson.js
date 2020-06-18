@@ -22,7 +22,7 @@ type PackageJSON = {
  */
 export function findRootPackageJson(directory: string = __dirname): PackageJSON {
   const packageJsonPath = findRootPackageJsonPath(directory);
-  // $FlowAllowDynamicImport
+
   return require(packageJsonPath);
 }
 
@@ -43,7 +43,7 @@ export function findRootPackageJsonPath(directory: string = __dirname): string {
 
   try {
     fs.accessSync(packageJSONPath, fs.constants.F_OK);
-    // $FlowAllowDynamicImport
+
     const packageJSON = require(packageJSONPath);
     if (!packageJSON.workspaces) {
       // not a root package.json

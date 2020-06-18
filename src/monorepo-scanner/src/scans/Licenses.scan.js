@@ -13,7 +13,6 @@ import isValidLicense from '../isValidLicense';
 const supportedLicenses = ['UNLICENSED', 'MIT'];
 
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
-  // $FlowAllowDynamicImport
   const packageJson = require(packageJSONLocation);
   test(`License for workspace ${packageJson.name}`, () => {
     const license = packageJson.license;

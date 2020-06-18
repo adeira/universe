@@ -5,7 +5,6 @@ import path from 'path';
 import { Workspaces } from '@adeira/monorepo-utils';
 
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
-  // $FlowAllowDynamicImport
   const packageJson = require(packageJSONLocation);
   test(`${packageJson.name}`, () => {
     const dirname = path.dirname(packageJSONLocation);

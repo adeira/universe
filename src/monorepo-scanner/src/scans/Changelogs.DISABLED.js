@@ -10,7 +10,7 @@ import { Workspaces } from '@adeira/monorepo-utils';
 
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
   const packagePath = path.dirname(packageJSONLocation);
-  // $FlowAllowDynamicImport
+
   const packageJson = require(packageJSONLocation);
 
   if (semver.gte(packageJson.version, '1.1.0')) {

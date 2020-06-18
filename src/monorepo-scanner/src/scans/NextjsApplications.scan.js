@@ -5,7 +5,6 @@ import path from 'path';
 import { Workspaces } from '@adeira/monorepo-utils';
 
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
-  // $FlowAllowDynamicImport
   const packageJSON = require(packageJSONLocation);
   const workspaceLocation = path.dirname(packageJSONLocation);
   const dependencies = packageJSON.dependencies;
@@ -21,7 +20,6 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
         `Your Next.js application ${appName} should contain '${babelRCFile}' file in the workspace root.`,
       );
 
-      // $FlowAllowDynamicImport
       const babelRC = require(babelRCLocation);
 
       expect(babelRC.presets.includes('@adeira/babel-preset-adeira')).toGiveHelp(

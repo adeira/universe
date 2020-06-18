@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 const fs = require('fs');
 const path = require('path');
@@ -8,7 +8,6 @@ const path = require('path');
  * MIT licenced.
  */
 module.exports = function verifyPackageTree() {
-  // $FlowAllowDynamicImport
   const ownPackageJson = require('../package.json');
   const depsToCheck = Object.keys(ownPackageJson.dependencies).filter((dep) =>
     dep.startsWith('eslint-plugin'),

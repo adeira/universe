@@ -29,7 +29,6 @@ import { Workspaces } from '@adeira/monorepo-utils';
 
 Workspaces.iterateWorkspaces(packageJSONLocation => {
   test(packageJSONLocation, () => {
-    // $FlowAllowDynamicImport
     const packageJson = require(packageJSONLocation);
     expect(packageJson.private).not.toBeUndefined();
   });
