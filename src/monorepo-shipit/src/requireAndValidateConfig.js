@@ -36,7 +36,6 @@ function validateObjectKeys(
 }
 
 export default function requireAndValidateConfig(configFile: string) {
-  // $FlowAllowDynamicImport
   const config = require(configFile);
   const allowedFields = new Map([
     // filed name => is required

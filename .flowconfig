@@ -55,6 +55,9 @@ emoji=true
 exact_by_default=true
 include_warnings=true
 
+; Allow require(path.join(__dirname, 'myFile.json'))
+module.ignore_non_literal_requires=true
+
 ; A lot of symlinks will cause Flow's shared hash table to become full.
 ; This should quadruple the size of the hash table (default=19)
 ; See: https://github.com/facebook/flow/issues/3143#issuecomment-270946030
@@ -64,25 +67,6 @@ sharedmemory.hash_table_pow=21
 ; This option lets you alias 'any' with a given string - useful for explaining why you’re using 'any'.
 suppress_type=$FlowFixMe
 
-; We require to explicitly annotate dynamic imports with the following suppress comment.
-; See: https://github.com/facebook/flow/issues/2692 (dangerous because of `any` so not disabled by default)
-suppress_comment=\\(.\\|\n\\)*\\$FlowAllowDynamicImport
-
-; This comment should annotate errors which are expected to occur and it's correct that Flow complains
-; about it. It's frequently used in tests or in flowtests.
-suppress_comment=\\(.\\|\n\\)*\\$FlowExpectedError: .+
-
-; Following comments allow you to suppress some known issues which are already reported or fix is ready.
-; No issue/PR available? Create one!
-suppress_comment=\\(.\\|\n\\)*\\$FlowIssue: https://github.com/\\(facebook/flow\\|flow-typed/flow-typed\\)/issues/[0-9]+
-suppress_comment=\\(.\\|\n\\)*\\$FlowPullRequest: https://github.com/\\(facebook/flow\\|flow-typed/flow-typed\\)/pull/[0-9]+
-
-; Following suppress comments are added to make it compatible with FB codebase or to allow smooth Flow
-; upgrades while not being blocked on some already existing issues. You should not use them in your sources
-; manually. Use $FlowIssue or $FlowPullRequest instead. Please read the following link to understand how
-; is this comment being added automatically to our codebase:
-; https://kiwi.wiki/incubator/universe/docs/monorepo/managing-dependencies/#upgrading-flow-for-the-whole-monorepo
-suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(<VERSION>\\)? *\\(site=[a-z,_]+\\)?)\\)
 
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
@@ -91,20 +75,20 @@ esproposal.nullish_coalescing=enable
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
 
-experimental.types_first=false
-experimental.well_formed_exports=true
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-preset-adeira
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-adeira
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-adeira
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-graphql-fragments
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/fetch
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/flow-bin
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-bc-checker
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-global-id
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-resolve-wrapper
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-result-size
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-utils
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/js
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/signed-source
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/test-utils
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/vault2env
+types_first=false
+well_formed_exports=true
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/babel-preset-adeira
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-config-adeira
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-adeira
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/eslint-plugin-graphql-fragments
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/fetch
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/flow-bin
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-bc-checker
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-global-id
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-resolve-wrapper
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-result-size
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/graphql-utils
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/js
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/signed-source
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/test-utils
+well_formed_exports.whitelist=<PROJECT_ROOT>/src/vault2env

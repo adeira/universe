@@ -87,7 +87,7 @@ const globIgnore = [
   }
 
   // 3) copy root package.json and yarn.lock so we can install the node_module deps
-  // $FlowAllowDynamicImport
+
   const packageJSON = require(path.join(monorepoRoot, 'package.json'), 'utf8');
   await fsPromise.writeFile(
     path.join(buildDir, 'package.json'),

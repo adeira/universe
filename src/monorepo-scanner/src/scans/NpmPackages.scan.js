@@ -8,12 +8,10 @@ const workspaceMap = new Map();
 const root = findMonorepoRoot();
 
 for (const workspaceLocation of workspaceLocations) {
-  // $FlowAllowDynamicImport
   const packageJson = require(workspaceLocation);
   workspaceMap.set(packageJson.name, packageJson);
 }
 
-// $FlowAllowDynamicImport
 const npmPackages = require(path.join(root, 'scripts', 'publishedPackages.json'));
 
 for (const npmPackage of npmPackages) {

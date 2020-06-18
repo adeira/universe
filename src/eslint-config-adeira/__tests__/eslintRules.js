@@ -8,7 +8,6 @@ Object.keys(require('../package.json').dependencies)
   .filter((dep) => dep.startsWith('eslint-plugin'))
   .map((dep) => dep.replace('eslint-plugin-', ''))
   .forEach((plugin) => {
-    // $FlowAllowDynamicImport
     Object.keys(require(`eslint-plugin-${plugin}`).rules).forEach((rule) => {
       eslintRules.add(`${plugin}/${rule}`);
     });

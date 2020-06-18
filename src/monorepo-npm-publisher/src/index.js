@@ -36,7 +36,6 @@ export default async function publish(options: Options) {
   await util.promisify(rimraf)(options.buildCache);
 
   Workspaces.iterateWorkspaces(async (packageJSONLocation) => {
-    // $FlowAllowDynamicImport
     const packageJSONFile = require(packageJSONLocation);
     const packageName = packageJSONFile.name;
     const chalkPackageName = chalk.bold(packageName);
@@ -76,10 +75,7 @@ export default async function publish(options: Options) {
             );
           } else if (filename === 'package.json') {
             log('%s 👉 %s', packageJSONLocation, destinationFileName);
-            const newPackageJSONFile = modifyPackageJSON(
-              // $FlowAllowDynamicImport
-              require(packageJSONLocation),
-            );
+            const newPackageJSONFile = modifyPackageJSON(require(packageJSONLocation));
             fs.writeFileSync(destinationFileName, JSON.stringify(newPackageJSONFile, null, 2));
           } else {
             const originalFilename = path.join(packageFolderPath, filename);

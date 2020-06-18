@@ -3,7 +3,6 @@
 import { createEnvironment } from '../index';
 
 const getOperation = (reference: mixed) => {
-  // $FlowAllowDynamicImport
   return import(`./src/__generated__/${reference}`);
 };
 
