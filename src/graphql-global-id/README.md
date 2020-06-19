@@ -8,7 +8,7 @@ yarn add @adeira/graphql-global-id
 
 # Basic usage
 
-This utility automatically creates correct opaque and globally unique ID type so you don't have to think about it.
+This utility automatically creates correct opaque and globally unique ID type, so you don't have to think about it.
 
 ```js
 import GlobalID from '@adeira/graphql-global-id';
@@ -50,9 +50,13 @@ const fields = {
 };
 ```
 
-# `toGlobalId`
+# Creating opaque ID imperatively (`toGlobalId`)
 
-TKTK
+You can use `toGlobalId` to create the unique and opaque identifier manually. However, try to always use the `GlobalID` type constructor since it handles the type automatically. It's usually a bad practice to use `toGlobalId` in your types unless you really need it. Usage:
+
+```flow js
+const opaqueId = toGlobalId('SomeType', 123);
+```
 
 # Restoring original ID (`fromGlobalId``)
 
@@ -86,3 +90,5 @@ It is possible to fetch both ID versions at the same time in GraphQL:
 ```
 
 This is handy especially when you are migrating old code to this new type. Just change something like deprecated `databaseID` to `databaseID: id(opaque: false)` and that's it.
+
+Generally speaking, it's a bad practice to fetch `id(opaque: false)` without aliasing it! It's because it could lead to unexpected side effects in consistency of your UI. Always use the opaque ID for cache key (never the non-opaque version). Remember, the non-opaque ID is not guaranteed to be globally unique.
