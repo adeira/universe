@@ -6,12 +6,37 @@ import { invariant, isObject } from '@adeira/js';
 
 type GlobPattern = string;
 
-type GlobOptions = {|
-  +absolute?: boolean,
-  +cwd?: string,
-  +ignore?: $ReadOnlyArray<string>,
-  +root?: string,
-|};
+type GlobOptions = $ReadOnly<{|
+  cwd?: string,
+  root?: string,
+  dot?: boolean,
+  nomount?: boolean,
+  mark?: boolean,
+  nosort?: boolean,
+  stat?: boolean,
+  silent?: boolean,
+  strict?: boolean,
+  cache?: {| [path: string]: boolean | 'DIR' | 'FILE' | $ReadOnlyArray<string> |},
+  statCache?: {| [path: string]: false | {| isDirectory(): boolean |} | void |},
+  symlinks?: {| [path: string]: boolean | void |},
+  realpathCache?: {| [path: string]: string |},
+  sync?: boolean,
+  nounique?: boolean,
+  nonull?: boolean,
+  debug?: boolean,
+  nobrace?: boolean,
+  noglobstar?: boolean,
+  noext?: boolean,
+  nocase?: boolean,
+  matchBase?: any,
+  nodir?: boolean,
+  ignore?: string | $ReadOnlyArray<string>,
+  follow?: boolean,
+  realpath?: boolean,
+  nonegate?: boolean,
+  nocomment?: boolean,
+  absolute?: boolean,
+|}>;
 
 type GlobCallback = (error: null | Error, filenames: $ReadOnlyArray<string>) => void;
 
