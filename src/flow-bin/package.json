@@ -14,7 +14,7 @@
   "dependencies": {
     "@adeira/js": "^1.2.0",
     "@adeira/logger": "^0.2.0",
-    "@adeira/monorepo-utils": "^0.7.0",
+    "@adeira/monorepo-utils": "^0.8.0",
     "@babel/register": "^7.10.1",
     "@babel/runtime": "^7.10.2",
     "chalk": "^4.1.0",
