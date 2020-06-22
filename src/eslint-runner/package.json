@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
-    "@babel/register": "^7.10.1",
+    "@babel/register": "^7.10.3",
     "@babel/runtime": "^7.10.2",
     "chalk": "^4.1.0",
     "create-jest-runner": "^0.6.0",
