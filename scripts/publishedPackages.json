@@ -16,5 +16,6 @@
   "@adeira/relay-utils",
   "@adeira/signed-source",
   "@adeira/test-utils",
-  "eslint-plugin-adeira"
+  "eslint-plugin-adeira",
+  "@adeira/graphql-resolve-wrapper"
 ]
