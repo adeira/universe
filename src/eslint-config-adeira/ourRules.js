@@ -315,7 +315,7 @@ module.exports = {
   'jest/no-test-prefixes': OFF,
   'jest/no-test-return-statement': ERROR,
   'jest/no-truthy-falsy': OFF,
-  'jest/no-try-expect': OFF,
+  'jest/no-conditional-expect': OFF,
   'jest/prefer-called-with': ERROR,
   'jest/prefer-expect-assertions': OFF,
   'jest/prefer-hooks-on-top': ERROR,
