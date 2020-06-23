@@ -1,7 +1,7 @@
 # Unreleased
 
 - Eslint upgraded to version 7.3.1
-- New Rules enabled: [`no-promise-executor-return`](https://eslint.org/docs/rules/no-promise-executor-return) and [`no-unreachable-loop`](https://eslint.org/docs/rules/no-unreachable-loop) (warnings in normal mode, errors in strict mode).
+- New Rules enabled: [`no-promise-executor-return`](https://eslint.org/docs/rules/no-promise-executor-return), [`no-unreachable-loop`](https://eslint.org/docs/rules/no-unreachable-loop) and [`jsx-a11y/autocomplete-valid`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/autocomplete-valid.md) (warnings in normal mode, errors in strict mode).
 
 # 3.0.0
 

@@ -487,6 +487,7 @@ module.exports = {
   'jsx-a11y/aria-proptypes': ERROR,
   'jsx-a11y/aria-role': ERROR,
   'jsx-a11y/aria-unsupported-elements': ERROR,
+  'jsx-a11y/autocomplete-valid': NEXT_VERSION_ERROR,
   'jsx-a11y/click-events-have-key-events': OFF,
   'jsx-a11y/control-has-associated-label': OFF,
   'jsx-a11y/heading-has-content': OFF,

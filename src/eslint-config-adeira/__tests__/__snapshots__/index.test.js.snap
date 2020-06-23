@@ -325,6 +325,7 @@ Object {
     "jsx-a11y/aria-proptypes": 2,
     "jsx-a11y/aria-role": 2,
     "jsx-a11y/aria-unsupported-elements": 2,
+    "jsx-a11y/autocomplete-valid": 1,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/control-has-associated-label": 0,
     "jsx-a11y/heading-has-content": 0,
@@ -930,6 +931,11 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ --- --- @@
+      "jsx-a11y/aria-unsupported-elements": 2,
+-     "jsx-a11y/autocomplete-valid": 1,
++     "jsx-a11y/autocomplete-valid": 2,
+      "jsx-a11y/click-events-have-key-events": 0,
 @@ --- --- @@
       "no-process-exit": 0,
 -     "no-promise-executor-return": 1,
