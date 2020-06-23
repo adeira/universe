@@ -26,7 +26,7 @@ import publish from '@adeira/monorepo-npm-publisher';
     // Where to store transpiled code before it's being published.
     buildCache: path.join(
       os.tmpdir(),
-      'com.kiwi.TODO_YOUR_PROJECT.npm', // change please
+      'com.adeira.TODO_YOUR_PROJECT.npm', // change please
       '.build',
     ),
 
