@@ -1,12 +1,10 @@
 // @flow strict
 
-/* eslint-disable no-unused-vars  */
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
-/* eslint-enable no-unused-vars */
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -38,12 +36,14 @@ module.exports = {
   'no-irregular-whitespace': ERROR,
   'no-misleading-character-class': ERROR,
   'no-obj-calls': ERROR,
+  'no-promise-executor-return': NEXT_VERSION_ERROR,
   'no-prototype-builtins': ERROR,
   'no-regex-spaces': ERROR,
   'no-setter-return': ERROR,
   'no-sparse-arrays': ERROR,
   'no-template-curly-in-string': ERROR,
   'no-unreachable': ERROR,
+  'no-unreachable-loop': NEXT_VERSION_ERROR,
   'no-unsafe-finally': ERROR,
   'no-unsafe-negation': ERROR,
   'require-atomic-updates': ERROR,
