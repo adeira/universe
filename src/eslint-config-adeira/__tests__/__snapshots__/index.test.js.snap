@@ -511,6 +511,7 @@ Object {
     "no-plusplus": 0,
     "no-process-env": 0,
     "no-process-exit": 0,
+    "no-promise-executor-return": 1,
     "no-proto": 2,
     "no-prototype-builtins": 2,
     "no-redeclare": Array [
@@ -554,6 +555,7 @@ Object {
     "no-unmodified-loop-condition": 0,
     "no-unneeded-ternary": 1,
     "no-unreachable": 2,
+    "no-unreachable-loop": 1,
     "no-unsafe-finally": 2,
     "no-unsafe-negation": 2,
     "no-unused-expressions": 0,
@@ -925,5 +927,17 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-[2mCompared values have no visual difference.[22m
+- First value
++ Second value
+
+@@ --- --- @@
+      "no-process-exit": 0,
+-     "no-promise-executor-return": 1,
++     "no-promise-executor-return": 2,
+      "no-proto": 2,
+@@ --- --- @@
+      "no-unreachable": 2,
+-     "no-unreachable-loop": 1,
++     "no-unreachable-loop": 2,
+      "no-unsafe-finally": 2,
 `;
