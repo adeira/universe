@@ -24,4 +24,6 @@ module.exports = (new Set([
   // https://github.com/mysticatea/eslint-plugin-node#deprecated-rules
   'node/no-hide-core-modules',
   'node/no-unsupported-features',
+
+  'jest/no-try-expect', // https://github.com/jest-community/eslint-plugin-jest/commit/6d07cadd5f78ed7a64a86792931d49d3cd943d69
 ]) /*: Set<string> */);
