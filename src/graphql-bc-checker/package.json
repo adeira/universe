@@ -4,11 +4,11 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-bc-checker",
   "license": "MIT",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/signed-source": "^0.1.0",
+    "@adeira/signed-source": "^1.0.0",
     "@babel/runtime": "^7.10.3",
     "chalk": "^4.1.0"
   },
