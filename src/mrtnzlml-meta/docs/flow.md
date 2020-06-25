@@ -292,7 +292,7 @@ type MemoizedFactorial = {
   [[call]](number): number,
 };
 
-const factorial: MemoizedFactorial = n => {
+const factorial: MemoizedFactorial = (n) => {
   if (!factorial.cache) {
     factorial.cache = {};
   }
@@ -458,6 +458,10 @@ function add(id: number, name: string) {
 }
 ```
 
+---
+
+_This information is not valid from version 0.126.0+ since indexer properties are now implemented even for exact objects, see: https://github.com/facebook/flow/commit/97e3a103227a381de0fd0be197bf25f6d6b6081a._
+
 Please note: indexer property doesn't make any sense on exact objects:
 
 ```js
@@ -547,7 +551,7 @@ https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 > \$Call is a shitty syntax for conditional types, but it exists. You can use overloading to simulate the cases, so:
 
 ```flow js
-type Fun = (number => string) & (string => number);
+type Fun = ((number) => string) & ((string) => number);
 type SwapNumberAndString<T: number | string> = $Call<Fun, T>;
 ```
 
