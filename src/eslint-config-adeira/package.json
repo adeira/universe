@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "deep-diff": "^1.0.2",
-    "snapshot-diff": "^0.8.0"
+    "snapshot-diff": "^0.8.1"
   },
   "peerDependencies": {
     "eslint": "^7.0.0"
