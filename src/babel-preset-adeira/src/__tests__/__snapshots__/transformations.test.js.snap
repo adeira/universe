@@ -926,6 +926,8 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
+var _privateField = new WeakMap();
+
 var ClassFields = function ClassFields() {
   (0, _classCallCheck2.default)(this, ClassFields);
   (0, _defineProperty2.default)(this, "publicField", 1);
@@ -937,8 +939,6 @@ var ClassFields = function ClassFields() {
 };
 
 exports.default = ClassFields;
-
-var _privateField = new WeakMap();
 `;
 
 exports[`matches expected output: class-fields.js: js-esm (with ES6 import/export) 1`] = `
@@ -954,6 +954,8 @@ export default class ClassFields {
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
 
+var _privateField = new WeakMap();
+
 var ClassFields = function ClassFields() {
   _classCallCheck(this, ClassFields);
 
@@ -964,8 +966,6 @@ var ClassFields = function ClassFields() {
     value: 2
   });
 };
-
-var _privateField = new WeakMap();
 
 export { ClassFields as default };
 `;
