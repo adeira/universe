@@ -24,7 +24,7 @@
     "@adeira/relay-runtime": "^0.11.0",
     "@adeira/signed-source": "^1.0.0",
     "@babel/register": "^7.10.4",
-    "@babel/runtime": "^7.10.3",
+    "@babel/runtime": "^7.10.4",
     "babel-plugin-relay": "^9.1.0",
     "commander": "^5.1.0",
     "is-ci": "^2.0.0",
