@@ -76,20 +76,51 @@ See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78
 
 ## @defer, @stream, @stream_connection
 
+Please note: this directive is still experimental!
+
 ```graphql
 directive @defer(label: String!, if: Boolean = true) on FRAGMENT_SPREAD | INLINE_FRAGMENT
 
 directive @stream(label: String!, initial_count: Int!, if: Boolean = true) on FIELD
 ```
 
-TKTK
+The `@defer` directive may be provided for fragment spreads and inline fragments to inform the executor to delay the execution of the current fragment to indicate deprioritization of the current fragment. A query with `@defer` directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred is delivered in a subsequent response. `@include` and `@skip` take precedence over `@defer`.
+
+```graphql
+query myQuery($shouldDefer: Boolean) {
+   user {
+     name
+     ...someFragment @defer(label: 'someLabel', if: $shouldDefer)
+   }
+}
+fragment someFragment on User {
+  id
+  profile_picture {
+    uri
+  }
+}
+```
+
+The `@stream` directive may be provided for a field of `List` type so that the backend can leverage technology such as asynchronous iterators to provide a partial list in the initial response, and additional list items in subsequent responses. `@include` and `@skip` take presedence over `@stream`.
+
+```graphql example
+query myQuery {
+  user {
+    friends(first: 10) {
+      nodes @stream(label: "friendsStream", initialCount: 5)
+    }
+  }
+}
+```
 
 > A bit more context: as implied from the talk, at Facebook we are currently experimenting with support for `@defer` and `@stream` directives in our GraphQL server and in Relay. Our plan is to get experience using these directives in our apps in order to validate the concept, iterating as appropriate. We're still early in this process and are not yet ready to begin any effort toward standardization, but we will certainly consider this as we get more experience and feel more confident in the approach.
 
 (https://github.com/graphql/graphql-spec/issues/269#issuecomment-528970726)
 
+- https://github.com/graphql/graphql-spec/blob/master/rfcs/DeferStream.md
 - https://github.com/mrtnzlml/relay/pull/172/commits
 - https://github.com/facebook/relay/commit/225cfb60cccdbb649ab16a13ed607de749992d21
+- https://github.com/graphql/graphql-spec/pull/742/files
 
 ## @inline
 
@@ -112,6 +143,8 @@ directive @module(name: String!) on FRAGMENT_SPREAD
 ```
 
 TKTK
+
+See also: [relay/match-module.md](/relay/match-module.md)
 
 ## @raw_response_type
 
