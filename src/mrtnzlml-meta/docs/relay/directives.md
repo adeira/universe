@@ -74,6 +74,28 @@ See also:
 
 See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78dd4827
 
+## @deleteRecord
+
+See: https://github.com/facebook/relay/commit/07ccab7cc637f51f2f15fc75ed824d1de8ede72f (currently unreleased, only on `master`)
+
+```graphql
+directive @deleteRecord on FIELD
+```
+
+Note: the fields must be type of `ID`!
+
+TKTK
+
+Example:
+
+```graphql
+mutation CommentDeleteMutation($input: CommentDeleteInput) {
+  commentDelete(input: $input) {
+    deletedCommentId @deleteRecord # translates to @__clientField(handle:"deleteRecord")
+  }
+}
+```
+
 ## @defer, @stream, @stream_connection
 
 Please note: this directive is still experimental!
