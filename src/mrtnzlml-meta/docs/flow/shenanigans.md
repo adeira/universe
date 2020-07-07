@@ -353,4 +353,25 @@ function hasPersonName_4(person: leadDetailsOpened_tracking_lead$data['person'])
 }
 ```
 
-Explanation (with possible workaround): https://stackoverflow.com/a/59200046/12646420
+Explanation (with a possible workaround): https://stackoverflow.com/a/59200046/12646420
+
+# Void is unsound in TS
+
+```typescript
+type MyFunc = () => void;
+
+const f1: MyFunc = () => null;
+const f2: MyFunc = () => 'string'; // 🤨
+const f3: MyFunc = () => 1; // 🤨
+const f4: MyFunc = () => true; // 🤨
+
+
+let myVar: void;
+
+myVar = null; // ❌ Type 'null' is not assignable to type 'void'.
+myVar = undefined; // ✅
+myVar = 'string'; // ❌ Type '"string"' is not assignable to type 'void'.
+myVar = f2(); // ✅ 😱
+```
+
+https://www.typescriptlang.org/play/?ssl=1&ssc=1&pln=15&pc=1#code/C4TwDgpgBAsiBiBXAdgYygXigCgJSYD4oA3AewEsATAbgFgAoB1U5AZ2CgDMBGALlgQp0WPISjJEAG0l16zNh04AmfnCRpMOfBiIBydgCdyyAOa7qUAPSWogPg3AFLtMW7LgGZVgjSO1FuF63aOcs6KACwe6sJaYsAGiBD+Ng4MKfSSEBwAtiAAagCGBvxkVLIM2fkGmhLSiVCAMuRQACrg0LrVkrpQ5KzipBx5rKzkJsh5AEbpUMCkUy1QusWUugB0ZbkFmiiUEJzGEDRWNoCg5GsVmvqxxma1Dc2Q8wBEhlcPnd29-YPDoxPQ07P3BYUJarejlDZYZR4WpHKCAXg3AIx7DCAA
