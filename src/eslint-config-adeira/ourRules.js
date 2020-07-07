@@ -168,7 +168,7 @@ module.exports = {
   'func-name-matching': OFF,
   'func-names': OFF,
   'func-style': OFF,
-  'id-blacklist': OFF,
+  'id-denylist': OFF,
   'id-length': OFF,
   'id-match': OFF,
   'line-comment-position': OFF,

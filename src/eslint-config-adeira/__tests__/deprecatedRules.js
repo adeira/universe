@@ -11,6 +11,7 @@ module.exports = (new Set([
   'no-negated-in-lhs', // no-unsafe-negation
   'no-spaced-func', // func-call-spacing
   'prefer-reflect', // (no replacement)
+  'id-blacklist', // id-denylist (https://github.com/eslint/eslint/commit/004adae3f959414f56e44e5884f6221e9dcda142)
 
   // https://github.com/babel/eslint-plugin-babel#deprecated
   'babel/array-bracket-spacing', // array-bracket-spacing
