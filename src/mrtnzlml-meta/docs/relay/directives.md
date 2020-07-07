@@ -96,6 +96,34 @@ mutation CommentDeleteMutation($input: CommentDeleteInput) {
 }
 ```
 
+## @appendEdge, @prependEdge
+
+See: https://github.com/facebook/relay/commit/271932432b2846db5dac2effcf7ab756c56e8a65 (currently unreleased, only on `master`)
+
+```graphql
+directive @appendEdge(connections: [String!]!) on FIELD
+directive @prependEdge(connections: [String!]!) on FIELD
+```
+
+TKTK
+
+Example:
+
+```graphql
+mutation CommentCreateMutation($connections: [String!]!, $input: CommentCreateInput) {
+  commentCreate(input: $input) {
+    feedbackCommentEdge @appendEdge(connections: $connections) {
+      cursor
+      node {
+        id
+      }
+    }
+  }
+}
+```
+
+Directive `@appendEdge` translates to `@__clientField(handle: "appendEdge", handleArgs: (connections: $connections))` (similarly for `prependEdge`). See the related mutation handlers: https://github.com/facebook/relay/commit/687d89b4b8c8224bd724b28207dce357102ad307
+
 ## @defer, @stream, @stream_connection
 
 Please note: this directive is still experimental!
