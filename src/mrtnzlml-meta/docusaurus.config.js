@@ -25,11 +25,6 @@ module.exports = {
       },
       links: [
         { to: 'docs/readme', label: 'Meta', position: 'left' },
-        {
-          href: 'https://www.notion.so/mrtnzlml/Travel-1d885bb8ffb843d69a8c48ba0a94f38b',
-          label: 'Travel',
-          position: 'left',
-        },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml',
