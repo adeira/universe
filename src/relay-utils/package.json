@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay-utils",
   "private": false,
-  "version": "0.9.0",
+  "version": "0.10.0",
   "main": "src/index",
   "module": false,
   "sideEffects": false,
@@ -14,6 +14,6 @@
     "@babel/runtime": "^7.10.4"
   },
   "peerDependencies": {
-    "relay-runtime": "^9.0.0"
+    "relay-runtime": "^10.0.0"
   }
 }
