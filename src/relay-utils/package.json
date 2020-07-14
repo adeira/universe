@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@adeira/relay": "^2.0.0",
-    "@adeira/relay-runtime": "^0.12.0",
+    "@adeira/relay-runtime": "^0.13.0",
     "@babel/runtime": "^7.10.4"
   },
   "peerDependencies": {
