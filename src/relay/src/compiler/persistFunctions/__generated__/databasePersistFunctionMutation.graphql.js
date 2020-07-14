@@ -43,8 +43,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "input",
-    "type": "[StoredOperationInput!]!"
+    "name": "input"
   }
 ],
 v1 = [
@@ -98,7 +97,8 @@ return {
     "metadata": null,
     "name": "databasePersistFunctionMutation",
     "selections": (v1/*: any*/),
-    "type": "RootMutation"
+    "type": "RootMutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -108,6 +108,7 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "82a9cf46d8ff437d0ecb66327b30d997",
     "id": null,
     "metadata": {},
     "name": "databasePersistFunctionMutation",

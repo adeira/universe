@@ -11,6 +11,6 @@
   "dependencies": {
     "@adeira/js": "^1.2.2",
     "@babel/runtime": "^7.10.4",
-    "relay-runtime": "^9.1.0"
+    "relay-runtime": "^10.0.0"
   }
 }

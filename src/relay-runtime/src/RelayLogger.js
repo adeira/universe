@@ -82,6 +82,13 @@ export default function RelayLogger(logEvent: LogEvent) {
     case 'execute.unsubscribe':
       logGroup(logEvent);
       break;
+    // New events, maybe add log function later
+    case 'store.notify.complete':
+    case 'store.notify.start':
+    case 'store.gc':
+    case 'store.restore':
+    case 'store.snapshot':
+    case 'store.publish': // End new events
     case 'queryresource.fetch':
     case 'queryresource.retain':
       // don't even print these
