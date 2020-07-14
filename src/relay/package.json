@@ -28,7 +28,7 @@
     "babel-plugin-relay": "^9.1.0",
     "commander": "^5.1.0",
     "is-ci": "^2.0.0",
-    "react-relay": "^9.1.0",
+    "react-relay": "^10.0.0",
     "relay-compiler": "^9.1.0",
     "relay-config": "^9.1.0",
     "relay-runtime": "^9.1.0"
