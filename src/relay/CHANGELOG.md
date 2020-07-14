@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.0.0
+
+- Upgrade relay to 10.0.0
+
 # 1.3.2
 
 - `QueryRenderer` types defined as generic
