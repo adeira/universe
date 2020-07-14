@@ -60,7 +60,8 @@ return {
         "storageKey": "node(id:\"my-id\")"
       }
     ],
-    "type": "RootQuery"
+    "type": "RootQuery",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -90,20 +91,27 @@ return {
     ]
   },
   "params": {
+    "cacheID": "20e35483e29d10c52a39a2a09a63c957",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "node": {
-          "type": "Node",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "Node"
+        },
+        "node.__typename": {
+          "enumValues": null,
+          "nullable": false,
+          "plural": false,
+          "type": "String"
         },
         "node.id": {
-          "type": "ID",
           "enumValues": null,
+          "nullable": false,
           "plural": false,
-          "nullable": false
+          "type": "ID"
         }
       }
     },

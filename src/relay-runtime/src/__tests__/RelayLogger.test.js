@@ -31,6 +31,7 @@ it("calls event 'execute.start' as expected", () => {
       operationKind: 'query',
       text: 'query Lol{id}',
       metadata: {},
+      cacheID: '',
     },
     variables: {},
   });

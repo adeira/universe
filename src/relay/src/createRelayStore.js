@@ -2,7 +2,13 @@
 
 import { RecordSource, Store } from 'relay-runtime';
 
-import type { RecordMap, Scheduler, OperationLoader, GetDataID } from './runtimeTypes.flow';
+import type {
+  RecordMap,
+  Scheduler,
+  OperationLoader,
+  GetDataID,
+  LogFunction,
+} from './runtimeTypes.flow';
 
 type Options = {|
   gcScheduler?: ?Scheduler,
@@ -10,6 +16,7 @@ type Options = {|
   UNSTABLE_DO_NOT_USE_getDataID?: ?GetDataID,
   gcReleaseBufferSize?: ?number,
   queryCacheExpirationTime?: ?number,
+  log?: ?LogFunction,
 |};
 
 export default function createRelayStore(records: ?RecordMap, options?: Options) {

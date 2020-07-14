@@ -6,6 +6,7 @@ import type { RecordMap as _RecordMap } from 'relay-runtime/store/RelayStoreType
 export type { Environment } from 'react-relay';
 export type { Scheduler, OperationLoader } from 'relay-runtime/store/RelayStoreTypes.js.flow';
 export type { GetDataID } from 'relay-runtime/store/RelayResponseNormalizer.js.flow';
+export type { LogFunction } from 'relay-runtime';
 
 type DataID = string;
 

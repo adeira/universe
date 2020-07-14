@@ -37,8 +37,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "persistedOperations",
-    "type": "[StoredOperationInput!]!"
+    "name": "persistedOperations"
   }
 ],
 v1 = [
@@ -74,7 +73,8 @@ return {
     "metadata": null,
     "name": "useMutationTestMutation",
     "selections": (v1/*: any*/),
-    "type": "RootMutation"
+    "type": "RootMutation",
+    "abstractKey": null
   },
   "kind": "Request",
   "operation": {
@@ -84,20 +84,21 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
+    "cacheID": "71add8595c59833765c2923bf59df600",
     "id": null,
     "metadata": {
       "relayTestingSelectionTypeInfo": {
         "createStoredOperations": {
-          "type": "CreateStoredOperation",
           "enumValues": null,
+          "nullable": true,
           "plural": false,
-          "nullable": true
+          "type": "CreateStoredOperation"
         },
         "createStoredOperations.__typename": {
-          "type": "String",
           "enumValues": null,
+          "nullable": false,
           "plural": false,
-          "nullable": false
+          "type": "String"
         }
       }
     },

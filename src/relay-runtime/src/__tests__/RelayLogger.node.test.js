@@ -25,6 +25,7 @@ it('does not log in Node.js', () => {
       operationKind: 'query',
       text: 'query Lol{id}',
       metadata: {},
+      cacheID: '',
     },
     variables: {},
   });
