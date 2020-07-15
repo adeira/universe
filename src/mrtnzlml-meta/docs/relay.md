@@ -75,6 +75,27 @@ In the future, other entries such as `persistedQueries` and `customScalars` coul
 
 See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
+## Enabling feature flags
+
+There are several feature flags hidden in Relay Runtime (obviously a geeky thing) and you can enable them like this:
+
+```js
+require('relay-runtime).RelayFeatureFlags.ENABLE_PRECISE_TYPE_REFINEMENT = true;
+```
+
+Relay 9.0 has these feature flags:
+
+```js
+var RelayFeatureFlags = {
+  ENABLE_VARIABLE_CONNECTION_KEY: false,
+  ENABLE_PARTIAL_RENDERING_DEFAULT: false,
+  ENABLE_RELAY_CONTAINERS_SUSPENSE: false,
+  ENABLE_UNIQUE_MUTATION_ROOT: true,
+};
+```
+
+Source: https://github.com/facebook/relay/issues/3126#issuecomment-658438527
+
 ## GraphQL types without ID field
 
 Ever wondered how are GraphQL types being stored inside Relay Store when the types doesn't have globally unique `ID!` according to GraphQL specification? Here is an example of 2 identical stores _with_ and _without_ the ID: https://gist.github.com/mrtnzlml/e77315a6879ce8de26fe2a164872be09
