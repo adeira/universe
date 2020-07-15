@@ -16,6 +16,8 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
     'src/example-relay/__github__/.github/workflows/continuous-integration.yml',
     '.github/workflows/continuous-integration.yml',
   ],
+  ['src/example-relay/scripts/test-bc.js', 'scripts/test-bc.js'],
+  ['src/example-relay/scripts/jest/setupTests.js', 'scripts/jest/setupTests.js'],
 
   // invalid cases:
   ['src/example-relay/.babelrc.js', undefined], // correctly deleted

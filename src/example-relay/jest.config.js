@@ -7,6 +7,6 @@ const path = require('path');
 module.exports = {
   rootDir: __dirname,
   // @x-shipit-enable: testMatch: ['<rootDir>/**/__tests__/**/?(*.)+(spec|test).js?(x)'],
-  transform: { '^.+\\.js$': '<rootDir>/scripts/jest/custom-transformer.js' }, // @x-shipit-disable,
+  transform: { '^.+\\.js$': '<rootDir>/scripts/jest/custom-transformer.js' }, // @x-shipit-disable
   setupFilesAfterEnv: [path.join(__dirname, 'scripts', 'jest', 'setupTests.js')],
 };
