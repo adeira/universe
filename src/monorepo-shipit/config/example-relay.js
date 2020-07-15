@@ -16,6 +16,6 @@ module.exports = {
     ]);
   },
   getStrippedFiles(): Set<RegExp> {
-    return new Set([/__github__/, /^\.babelrc\.js$/, /scripts/]);
+    return new Set([/__github__/, /^\.babelrc\.js$/]);
   },
 };
