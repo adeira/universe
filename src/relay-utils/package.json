@@ -11,7 +11,7 @@
   "dependencies": {
     "@adeira/relay": "^2.0.0",
     "@adeira/relay-runtime": "^0.13.0",
-    "@babel/runtime": "^7.10.4"
+    "@babel/runtime": "^7.10.5"
   },
   "peerDependencies": {
     "relay-runtime": "^10.0.0"
