@@ -1,5 +1,9 @@
 # Unreleased
 
+# 2.0.1
+
+- Remove handlerProvider from createEnvironment, leaving the default from `react-relay` to be used if the consumer doesn't add one.
+
 # 2.0.0
 
 - Upgrade relay to 10.0.0
