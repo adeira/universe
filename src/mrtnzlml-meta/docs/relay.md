@@ -83,14 +83,14 @@ There are several feature flags hidden in Relay Runtime (obviously a geeky thing
 require('relay-runtime).RelayFeatureFlags.ENABLE_PRECISE_TYPE_REFINEMENT = true;
 ```
 
-Relay 9.0 has these feature flags:
+Relay 10.0 has [these feature flags](https://github.com/facebook/relay/blob/90c81bbd404bee718707f32b7b959a24d0d5b72a/packages/relay-runtime/util/RelayFeatureFlags.js):
 
 ```js
-var RelayFeatureFlags = {
+const RelayFeatureFlags = {
   ENABLE_VARIABLE_CONNECTION_KEY: false,
   ENABLE_PARTIAL_RENDERING_DEFAULT: false,
   ENABLE_RELAY_CONTAINERS_SUSPENSE: false,
-  ENABLE_UNIQUE_MUTATION_ROOT: true,
+  ENABLE_PRECISE_TYPE_REFINEMENT: false,
 };
 ```
 
@@ -290,6 +290,8 @@ Refetch containers are only really meant to be used when you are changing variab
 https://github.com/facebook/relay/issues/2244#issuecomment-355054944
 
 ## RelayNetworkLogger
+
+_Please note: the following text is true only for old Relay versions._
 
 TODO: https://github.com/facebook/relay/issues/2674 !
 
