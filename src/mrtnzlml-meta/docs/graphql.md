@@ -74,11 +74,11 @@ Below I try to explain and _recommend_ one approach via HTTP protocol.
 
 GraphQL client should send a POST request to the server in the following format:
 
-```json5
+```json
 {
-  operations: 'required string', // usually known as `query` (?)
-  variables: {}, // optional
-  operationName: 'optional string', // required when sending more operations
+  "operations": "required string", // usually known as `query` (?)
+  "variables": {}, // optional
+  "operationName": "optional string" // required when sending more operations
 }
 ```
 
@@ -132,7 +132,7 @@ While it's true that GraphQL improves over-fetching in comparison to REST API qu
    ```
 
 1. data is not being returned in a normalized response which means we are sending a lot of duplicates (list of leads and their labels - the same label is being send many many times), see: https://github.com/graphql/graphql-js/issues/150
-1. Under/over-fetching in GraphQL mutations (maybe Relay specific) https://github.com/facebook/relay/issues/1995
+1. Under/over-fetching in GraphQL mutations (maybe Relay specific, however, other libs do not have any better solution as far as I know) https://github.com/facebook/relay/issues/1995
 
 Possible solutions recommended by FB (see the issue):
 
