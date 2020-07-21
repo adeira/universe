@@ -36,6 +36,7 @@ You should be able to see that saved state is being used from logs (logs without
 [2019-08-28 16:09:09.064] Initializing Server (This might take some time)
 [2019-08-28 16:09:09.065] executable=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow
 [2019-08-28 16:09:09.065] version=0.106.2
+// highlight-next-line
 [2019-08-28 16:09:09.065] No saved state available
 [2019-08-28 16:09:09.066] Parsing
 [2019-08-28 16:09:09.754] File /Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/map-or-similar/map-or-similar.min.gzip.js is malformed
@@ -65,6 +66,7 @@ Logs WITH saved state:
 [2019-08-28 16:07:44.641] Initializing Server (This might take some time)
 [2019-08-28 16:07:44.641] executable=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow
 [2019-08-28 16:07:44.641] version=0.106.2
+// highlight-next-line
 [2019-08-28 16:07:44.645] Reading saved-state file at "/Users/mrtnzlml/Work/kiwi-private/incubator/universe/.flow.saved_state"
 [2019-08-28 16:07:44.677] Decompressing saved-state data
 [2019-08-28 16:07:44.835] Denormalizing saved-state data
@@ -111,6 +113,7 @@ Logs WITH saved state and lazy mode
 
 ```text
 [2019-08-28 16:11:47.493] argv=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow start --saved-state-fetcher=local --saved-state-no-fallback --lazy
+// highlight-next-line
 [2019-08-28 16:11:47.493] lazy_mode=fs
 [2019-08-28 16:11:47.493] arch=classic
 [2019-08-28 16:11:47.493] abstract_locations=off
@@ -118,6 +121,7 @@ Logs WITH saved state and lazy mode
 [2019-08-28 16:11:47.516] Initializing Server (This might take some time)
 [2019-08-28 16:11:47.516] executable=/Users/mrtnzlml/Work/kiwi-private/incubator/universe/node_modules/flow-bin/flow-osx-v0.106.2/flow
 [2019-08-28 16:11:47.516] version=0.106.2
+// highlight-next-line
 [2019-08-28 16:11:47.524] Reading saved-state file at "/Users/mrtnzlml/Work/kiwi-private/incubator/universe/.flow.saved_state"
 [2019-08-28 16:11:47.557] Decompressing saved-state data
 [2019-08-28 16:11:47.694] Denormalizing saved-state data
