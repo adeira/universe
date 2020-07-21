@@ -4,6 +4,7 @@ title: JavaScript
 sidebar_label: JavaScript
 ---
 
+- https://justjavascript.com/
 - http://exploringjs.com/es6/
 - https://ponyfoo.com/articles/es6
 - https://developer.mozilla.org/en-US/docs/Web
@@ -80,7 +81,7 @@ https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
 Optional chaining != error suppression operator.
 
 ```js
-(function() {
+(function () {
   'use strict';
   undeclared_var?.b; // ReferenceError: undeclared_var is not defined
   arguments?.callee; // TypeError: 'callee' may not be accessed in strict mode
@@ -257,7 +258,7 @@ Polyfill (to understand the difference better):
 ```js
 Number.isFinite =
   Number.isFinite ||
-  function(value) {
+  function (value) {
     return typeof value === 'number' && isFinite(value);
   };
 ```
@@ -378,7 +379,7 @@ Source: https://gist.github.com/gaearon/cb5add26336003ed8c0004c4ba820eae
 Sleep sort:
 
 ```js
-[3, 5, 1, 8, 2, 4, 9, 6, 7].forEach(num => {
+[3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
   setTimeout(() => console.log(num), num);
 });
 ```
