@@ -16,7 +16,7 @@ I am a JavaScript developer at [Pipedrive.com](https://www.pipedrive.com/), orig
 
 I am officially part of Prague office and I spend most of my time here. I am basically never in Tallinn HQ. I used to [travel a lot](https://nomadlist.com/@mrtnzlml) (and still sometimes do) and therefore, I prefer solving every issue remotely if possible. I really enjoy being in different timezone so I can have time for some actual work and life. Do not expect I will react immediately. Do not expect it even when I am in the same city. I do not expect it as well.
 
-## My day (during SARS-CoV-2 pandemic)
+## My day
 
 As you can see below, I live in a natural timezone even when I am in the same city. It's because I wake up very early to get more out of my short day.
 
@@ -26,7 +26,8 @@ As you can see below, I live in a natural timezone even when I am in the same ci
     "5:00 - 5:20": "Reading 📓",
     "5:20 - 5:40": "Morning routine 🚿",
     "5:40 - 6:00": "Breakfast 🍳",
-    "6:00 - 15:00": "Work 👨‍💻",
+    "6:00 - 7:00": "Commute 🚌",
+    "7:00 - 16:00": "Work 👨‍💻",
     "...": "...",
     "22:00": "Time so sleep (to get full 7 hours) 😴"
   },
@@ -34,7 +35,7 @@ As you can see below, I live in a natural timezone even when I am in the same ci
 }
 ```
 
-My work usually ends much later. It's not healthy, I know.
+My work often ends much later. It's not healthy, I know.
 
 I usually eat my lunch later (13:00). It's a habit a got in Latin America and I like it. I prefer to eat alone when I can since it's the only time I have for myself. But feel free to join me. This time shift is the reason why I am most probably not going to attend some late meetings - I am already far away doing something else.
 
