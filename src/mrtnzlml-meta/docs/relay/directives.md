@@ -124,6 +124,28 @@ mutation CommentCreateMutation($connections: [String!]!, $input: CommentCreateIn
 
 Directive `@appendEdge` translates to `@__clientField(handle: "appendEdge", handleArgs: (connections: $connections))` (similarly for `prependEdge`). See the related mutation handlers: https://github.com/facebook/relay/commit/687d89b4b8c8224bd724b28207dce357102ad307
 
+## @required
+
+```graphql
+enum RequiredFieldAction {
+  NONE
+  LOG
+  THROW
+}
+
+directive @required(action: RequiredFieldAction!) on FIELD
+```
+
+TKTK (https://github.com/facebook/relay/commit/9926676c72667e83abe661ef0df52234eda51542)
+
+```graphql
+query MyQuery {
+  me @required(action: LOG) {
+    name
+  }
+}
+```
+
 ## @defer, @stream, @stream_connection
 
 Please note: this directive is still experimental!
