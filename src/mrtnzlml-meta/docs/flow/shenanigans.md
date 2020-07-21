@@ -36,7 +36,7 @@ let b: int = a[10]  // undefined
 let c = b * 2
 ```
 
-## Flow
+## Flow Shenanigans
 
 ### `boolean` is incompatible with `true | false`
 
@@ -138,7 +138,7 @@ function test(x: B) {
 
 This applies to value spreads as well since they are creating a new object. It's less understandable for these type spreads where value spread is not involved.
 
-## Typescript shenanigans
+## Typescript Shenanigans
 
 ### Errors 😢👎
 
@@ -277,7 +277,7 @@ It's because `JSON.stringify` returns `undefiend` in this case.
 
 ### TS doesn't make a difference between arrays and objects
 
-Patterns like this one are fine from TS perspective:
+Patterns like this one are fine from TS perspective (probably because of structural TS typechecking):
 
 ```ts
 interface Foo {
@@ -355,7 +355,7 @@ function hasPersonName_4(person: leadDetailsOpened_tracking_lead$data['person'])
 
 Explanation (with a possible workaround): https://stackoverflow.com/a/59200046/12646420
 
-# Void is unsound in TS
+### Void is unsound in TS
 
 ```typescript
 type MyFunc = () => void;
@@ -364,7 +364,6 @@ const f1: MyFunc = () => null;
 const f2: MyFunc = () => 'string'; // 🤨
 const f3: MyFunc = () => 1; // 🤨
 const f4: MyFunc = () => true; // 🤨
-
 
 let myVar: void;
 
