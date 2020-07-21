@@ -133,6 +133,13 @@ As you can see, the ID is composed of the query itself + the path. Moreover, the
 
 Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 
+## Relay Compiler WASM & NEON
+
+TKTK
+
+- WASM: https://github.com/facebook/relay/commit/577745cdc0e015f3c723c02ba3467b5ca7b42b2c
+- NEON: https://github.com/facebook/relay/commit/08e012be46c6029abb9cd10b1225f5e2e2881bba (https://neon-bindings.com/docs/intro)
+
 ## Deferred results
 
 - https://github.com/graphql/graphql-js/pull/2318
