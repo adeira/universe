@@ -93,6 +93,12 @@ Optional chaining != error suppression operator.
 - https://v8.dev/features/optional-chaining
 - https://github.com/tc39/proposal-optional-chaining/commit/87e408d375bd749b21d70e65bd0cbbf57d9bcf82
 
+## strictEquals(a, b)
+
+> Write a function called `strictEquals(a, b)` that returns the same value as `a === b`. Your implementation must not use the `===` or `!==` operators.
+
+Solution: https://gist.github.com/gaearon/08a85a33e3d08f3f2ca25fb17bd9d638?ck_subscriber_id=920605104
+
 ## Node.js LTS or not?
 
 > Node LTS is primarily aimed at enterprise use where there may be more resistance to frequent updates, extensive procurement procedures and lengthy test and quality requirements.
