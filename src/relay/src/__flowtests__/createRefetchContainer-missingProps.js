@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable relay/must-colocate-fragment-spreads */
+
 import * as React from 'react';
 
 import { createRefetchContainer, graphql } from '../index';

@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable relay/must-colocate-fragment-spreads */
+
 import { useEffect } from 'react';
 
 import { createPaginationContainer, graphql, type PaginationRelayProp } from '../index';

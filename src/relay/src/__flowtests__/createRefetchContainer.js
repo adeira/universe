@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable relay/must-colocate-fragment-spreads */
+
 import { createRefetchContainer, graphql, type RefetchRelayProp } from '../index';
 
 type Props = {|
