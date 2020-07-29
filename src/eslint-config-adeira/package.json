@@ -16,7 +16,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-jest": "^23.19.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-monorepo": "^0.2.1",
     "eslint-plugin-node": "^11.1.0",
