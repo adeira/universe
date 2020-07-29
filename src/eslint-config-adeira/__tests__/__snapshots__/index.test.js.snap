@@ -289,6 +289,7 @@ Object {
     "jest/no-hooks": 0,
     "jest/no-identical-title": 2,
     "jest/no-if": 0,
+    "jest/no-interpolation-in-snapshots": 1,
     "jest/no-jasmine-globals": 2,
     "jest/no-jest-import": 2,
     "jest/no-large-snapshots": 0,
@@ -931,6 +932,11 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ --- --- @@
+      "jest/no-if": 0,
+-     "jest/no-interpolation-in-snapshots": 1,
++     "jest/no-interpolation-in-snapshots": 2,
+      "jest/no-jasmine-globals": 2,
 @@ --- --- @@
       "jsx-a11y/aria-unsupported-elements": 2,
 -     "jsx-a11y/autocomplete-valid": 1,
