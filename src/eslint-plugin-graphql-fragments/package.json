@@ -18,6 +18,6 @@
     "eslint": "^7.5.0"
   },
   "dependencies": {
-    "graphql": "^14.7.0"
+    "graphql": "^15.3.0"
   }
 }
