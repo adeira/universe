@@ -7,7 +7,7 @@
   "main": "src/index",
   "license": "MIT",
   "dependencies": {
-    "@adeira/js": "^1.2.0"
+    "@adeira/js": "^1.2.4"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.5.0"

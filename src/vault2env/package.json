@@ -12,7 +12,7 @@
   "main": "src/index",
   "dependencies": {
     "@adeira/fetch": "^1.0.3",
-    "@adeira/js": "^1.2.0",
+    "@adeira/js": "^1.2.4",
     "@adeira/logger": "^0.2.0",
     "commander": "^6.0.0"
   },
