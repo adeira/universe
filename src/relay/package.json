@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@adeira/fetch": "^1.0.3",
-    "@adeira/js": "^1.2.0",
+    "@adeira/js": "^1.2.4",
     "@adeira/logger": "^0.2.0",
     "@adeira/monorepo-utils": "^0.8.0",
     "@adeira/relay-runtime": "^0.14.0",
