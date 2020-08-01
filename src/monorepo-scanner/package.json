@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/js": "^1.2.0",
+    "@adeira/js": "^1.2.4",
     "@adeira/monorepo-utils": "^0.8.0",
     "semver": "^7.3.2"
   },
