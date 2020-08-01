@@ -12,7 +12,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
-    "jest": "^26.1.0"
+    "jest": "^26.2.2"
   },
   "peerDependencies": {
     "eslint": "^7.5.0"
