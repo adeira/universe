@@ -23,7 +23,7 @@ module.exports = {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
       },
-      links: [
+      items: [
         { to: 'docs/readme', label: 'Meta', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
