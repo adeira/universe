@@ -16,7 +16,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.2.2",
     "babel-loader": "^8.1.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "flow-bin": "^0.130.0",
     "glob": "^7.1.6",
     "jest": "^26.2.2"
@@ -35,6 +35,6 @@
     "typecheck": "yarn run adeira-flow-bin"
   },
   "resolutions": {
-    "eslint": "~7.5.0"
+    "eslint": "~7.6.0"
   }
 }
