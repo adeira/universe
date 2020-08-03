@@ -522,6 +522,7 @@ module.exports = {
   'relay/graphql-naming': ERROR,
   'relay/graphql-syntax': ERROR,
   'relay/hook-required-argument': ERROR,
+  'relay/must-colocate-fragment-spreads': NEXT_VERSION_ERROR,
   'relay/no-future-added-value': ERROR,
   'relay/unused-fields': ERROR,
 

@@ -1,3 +1,4 @@
+/* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
 import * as React from 'react';

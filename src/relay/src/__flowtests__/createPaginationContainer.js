@@ -1,3 +1,4 @@
+/* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
 import { useEffect } from 'react';
