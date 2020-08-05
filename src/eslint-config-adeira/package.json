@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/eslint-runner": "^0.1.0",
-    "@babel/runtime": "^7.11.1",
+    "@babel/runtime": "^7.11.2",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-adeira": "^0.9.0",
     "eslint-plugin-babel": "^5.3.1",
