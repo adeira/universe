@@ -83,7 +83,7 @@ There are several feature flags hidden in Relay Runtime (obviously a geeky thing
 require('relay-runtime).RelayFeatureFlags.ENABLE_PRECISE_TYPE_REFINEMENT = true;
 ```
 
-Relay 10.0 has [these feature flags](https://github.com/facebook/relay/blob/90c81bbd404bee718707f32b7b959a24d0d5b72a/packages/relay-runtime/util/RelayFeatureFlags.js):
+Latest Relay has [these feature flags](https://github.com/facebook/relay/blob/90c81bbd404bee718707f32b7b959a24d0d5b72a/packages/relay-runtime/util/RelayFeatureFlags.js) to this date:
 
 ```js
 const RelayFeatureFlags = {
@@ -91,6 +91,8 @@ const RelayFeatureFlags = {
   ENABLE_PARTIAL_RENDERING_DEFAULT: false,
   ENABLE_RELAY_CONTAINERS_SUSPENSE: false,
   ENABLE_PRECISE_TYPE_REFINEMENT: false,
+  ENABLE_REACT_FLIGHT_COMPONENT_FIELD: false,
+  ENABLE_REQUIRED_DIRECTIVES: false,
 };
 ```
 

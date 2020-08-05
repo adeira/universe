@@ -128,9 +128,9 @@ Directive `@appendEdge` translates to `@__clientField(handle: "appendEdge", hand
 
 ```graphql
 enum RequiredFieldAction {
-  NONE
-  LOG
-  THROW
+  NONE # severity: 0
+  LOG # severity: 1
+  THROW # severity: 2
 }
 
 directive @required(action: RequiredFieldAction!) on FIELD
@@ -145,6 +145,20 @@ query MyQuery {
   }
 }
 ```
+
+Nested `@required` directives must have compatible severities. For example, the following fragment is invalid:
+
+```graphql
+fragment Foo on User {
+  address @required(action: THROW) {
+    city @required(action: LOG)
+  }
+}
+
+# The @required field [1] may not have an \`action\` less severe than that of its @required parent [2]. [1] should probably be \`action: THROW\`.
+```
+
+This directive also affects generated Flow types (turns the properties into required ones).
 
 ## @defer, @stream, @stream_connection
 
