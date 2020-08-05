@@ -148,7 +148,7 @@ TKTK
 - https://github.com/graphql/graphql-js/pull/2319
 - https://gist.github.com/robrichard/f563fd272f65bdbe8742764f1a149b2b
 
-`@defer` directive is not really ready in GraphQL world (no matter what framework) but there is a different solution which you can use today. All you need is a refetch container and `@inline` directive. Let's say you want to fetch "note" lazily for some reason. Simply wrap the component into `createRefetchContainer` instead of `createFragmentContainer` and fetch some parts of the fragment conditionally like so:
+`@defer` directive is not really ready in GraphQL world (no matter what framework) but there is a different solution which you can use today. All you need is a refetch container and `@include` directive. Let's say you want to fetch "note" lazily for some reason. Simply wrap the component into `createRefetchContainer` instead of `createFragmentContainer` and fetch some parts of the fragment conditionally like so:
 
 ```js
 export const NoteContainer = createRefetchContainer(
