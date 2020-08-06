@@ -82,16 +82,24 @@ See: https://github.com/facebook/relay/commit/07ccab7cc637f51f2f15fc75ed824d1de8
 directive @deleteRecord on FIELD
 ```
 
-Note: the fields must be type of `ID`!
+The fields must be type of `ID` or list of `ID` values!
 
 TKTK
 
 Example:
 
 ```graphql
-mutation CommentDeleteMutation($input: CommentDeleteInput) {
-  commentDelete(input: $input) {
+mutation CommentDeleteMutation(
+  $inputSingular: CommentDeleteInput
+  $inputPlural: CommentsDeleteInput
+) {
+  commentDelete(input: $inputSingular) {
     deletedCommentId @deleteRecord # translates to @__clientField(handle:"deleteRecord")
+  }
+
+  # Or alternativelly, you can use plural version for multiple IDs:
+  commentsDelete(input: $inputPlural) {
+    deletedCommentIds @deleteRecord # also translates to @__clientField(handle:"deleteRecord")
   }
 }
 ```
