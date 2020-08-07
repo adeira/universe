@@ -51,10 +51,16 @@ test('our rules contain "overrides" only to not report "no-unlimited-disable" fo
 });
 
 const prettierRules = prettierConfig.rules;
-test.each(
-  Object.entries(prettierRules),
-)('Eslint rule %p should have value: %p (conflict with Prettier)', (rule, value) =>
-  expect(ourRules.get(rule)).toBe(value),
+test.each(Object.entries(prettierRules))(
+  'Eslint rule %p should have value: %p (conflict with Prettier)',
+  (rule, value) => {
+    // These special rules can have a different value, see:
+    // https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
+    const specialRules = new Set(['curly']);
+    if (!specialRules.has(rule)) {
+      expect(ourRules.get(rule)).toBe(value);
+    }
+  },
 );
 
 // TODO: test for extra rules

@@ -91,7 +91,10 @@ Object {
     ],
     "consistent-this": 0,
     "constructor-super": 2,
-    "curly": 0,
+    "curly": Array [
+      1,
+      "all",
+    ],
     "default-case": 0,
     "default-case-last": 2,
     "default-param-last": 2,

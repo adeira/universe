@@ -1,5 +1,6 @@
 # TODO
 
+- Change `curly` from `WARN` to `ERROR`
 - Remove our Eslint Runner from this package (and release a new master version).
 - Add some kind of Rollout into our runner to be able to enable some rule for only let's say 10% of your files (deterministically). This way you could be increasing this number based on how you progress with some rule. Alternatively:
 - Keep track of the number of warnings/errors so you can fail when this number change. Examples:
