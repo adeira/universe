@@ -1,5 +1,7 @@
 # Unreleased
 
+# 3.1.1
+
 - Fixed broken `curly` rule (warnings).
 
 # 3.1.0
