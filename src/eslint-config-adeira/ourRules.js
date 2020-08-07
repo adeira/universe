@@ -58,7 +58,6 @@ module.exports = {
   'class-methods-use-this': OFF,
   complexity: OFF,
   'consistent-return': [ERROR, { treatUndefinedAsUnspecified: false }],
-  curly: [ERROR, 'all'],
   'default-case': OFF,
   'default-case-last': ERROR,
   'default-param-last': ERROR,

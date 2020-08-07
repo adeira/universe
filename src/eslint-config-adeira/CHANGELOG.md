@@ -1,5 +1,7 @@
 # Unreleased
 
+- Fixed broken `curly` rule (warnings).
+
 # 3.1.0
 
 - New rule `relay/must-colocate-fragment-spreads`

@@ -8,8 +8,9 @@ import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
 
 */
 
-const ERROR = 2;
 const OFF = 0;
+const WARN = 1;
+const ERROR = 2;
 
 /**
  * This is basically copy-pasted detection from the React plugin except it doesn't
@@ -35,6 +36,11 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
     rules: {
       ...rules,
       ...prettierRules,
+      // overwriting Prettier rules, see: https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
+      curly: [
+        WARN, // TODO: ERROR in next major version
+        'all',
+      ],
       'prettier/prettier': [
         ERROR,
         {
