@@ -27,7 +27,7 @@ It memoizes the result internally so when you call it for the second time you'll
 ```js
 import { Workspaces } from '@adeira/monorepo-utils';
 
-Workspaces.iterateWorkspaces(packageJSONLocation => {
+Workspaces.iterateWorkspaces((packageJSONLocation) => {
   test(packageJSONLocation, () => {
     const packageJson = require(packageJSONLocation);
     expect(packageJson.private).not.toBeUndefined();
@@ -75,7 +75,7 @@ Git.getWorktreeChangedFiles();
 
 // All changed or not tracked files OR changes in last commit if current branch is origin/master
 // Example usage: CI script to validate changed files
-Git.getChangesToTest()
+Git.getChangesToTest();
 
 // and more ...
 ```
@@ -105,7 +105,7 @@ Alternatively, you can use the async variant:
 ```js
 import { globAsync } from '@adeira/monorepo-utils';
 
-(async function() {
+(async function () {
   const filenames = await globAsync('/**/*.js', {
     root: path.join(__dirname, 'fixtures'),
   });

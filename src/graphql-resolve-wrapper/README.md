@@ -16,7 +16,7 @@ const Schema = new GraphQLSchema({
   mutation: RootMutation,
 });
 
-wrapResolvers(Schema, resolveFn => async (...args) => {
+wrapResolvers(Schema, (resolveFn) => async (...args) => {
   const value = await resolveFn(...args);
   return typeof value === 'string' ? value.toUpperCase() : value;
 });
@@ -58,7 +58,7 @@ query Test($search: String!) {
 Wrapper:
 
 ```js
-wrapResolvers(Schema, resolveFn => async (ancestor, args, context, info) => {
+wrapResolvers(Schema, (resolveFn) => async (ancestor, args, context, info) => {
   const startAt = process.hrtime.bigint();
   const response = await resolveFn(ancestor, args, context, info);
   console.warn(process.hrtime.bigint() - startAt, JSON.stringify(info.path));
