@@ -165,3 +165,13 @@ it('mocks the fetch', async () => {
 ```
 
 Why mocking `global.fetch` doesn't work? It's because this fetch doesn't use or pollute `global` variable: it uses ponyfill instead of polyfill behind the scenes.
+
+
+### Msw, an alternative to mock fetch
+
+There is an alternative to mocking the fetch function. You can use [msw](https://mswjs.io/)
+What it does is start a service worker (yes it works in node as well) and that service worker stops the network request and returns mocked data.
+
+> "_I found MSW and was thrilled that not only could I still see the mocked responses in my DevTools, but that the mocks didn't have to be written in a Service Worker and could instead live alongside the rest of my app. This made it silly easy to adopt. The fact that I can use it for testing as well makes MSW a huge productivity booster._"
+>
+> – [Kent C. Dodds](https://twitter.com/kentcdodds)
