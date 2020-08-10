@@ -33,7 +33,7 @@ type ApiType = {|
 
 */
 
-module.exports = function(api /*: ApiType */) {
+module.exports = function (api /*: ApiType */) {
   api.assertVersion(7);
   api.cache.forever();
 
@@ -100,7 +100,7 @@ This preset uses `env` preset behind the scenes which means that by default it t
 Use option `target` to enable Flow-only transpilations:
 
 ```js
-module.exports = function(api /*: ApiType */) {
+module.exports = function (api /*: ApiType */) {
   api.assertVersion(7);
   api.cache.forever();
 
@@ -127,7 +127,7 @@ function isWebpack(caller) /*: boolean %checks */ {
   return !!(caller && caller.name === 'babel-loader');
 }
 
-module.exports = function(api /*: ApiType */) {
+module.exports = function (api /*: ApiType */) {
   api.assertVersion(7);
 
   return {
@@ -261,7 +261,7 @@ __DEV__ = true;
 
 //   ↓ ↓ ↓
 
-process.env.NODE_ENV !== 'production' = true;  // ??? 🧐
+process.env.NODE_ENV !== 'production' = true; // ??? 🧐
 ```
 
 Our [Eslint config](https://github.com/adeira/universe/blob/master/src/eslint-config-adeira) can help you to catch such mistakes. You'll get an error in newer versions of this preset:

@@ -255,7 +255,7 @@ export default function App() {
           ...AllLocations_data
         }
       `}
-      render={props => null} // TODO (handleResponse)
+      render={(props) => null} // TODO (handleResponse)
     />
   );
 }

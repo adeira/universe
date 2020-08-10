@@ -32,12 +32,7 @@ import publish from '@adeira/monorepo-npm-publisher';
 
     // Workspaces to publish on NPM. It takes into account only
     // packages with public visibility set in `package.json`.
-    workspaces: new Set([
-      '@adeira/js',
-      '@adeira/fetch',
-      '@adeira/relay',
-      '@adeira/eslint-config',
-    ]),
+    workspaces: new Set(['@adeira/js', '@adeira/fetch', '@adeira/relay', '@adeira/eslint-config']),
 
     npmAuthToken: '*** TODO ***', // see: https://www.npmjs.com/settings/<USERNAME>/tokens
   });

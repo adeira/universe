@@ -168,7 +168,6 @@ function abc() {
 
 As you can see, it's very similar to `invariant` function. Tip: this function can be also handy in tests where you want to guard against nullable values.
 
-
 # `isBrowser`
 
 This function checks if you are running in the browser.
@@ -176,9 +175,9 @@ This function checks if you are running in the browser.
 ```js
 import { isBrowser } from '@adeira/js';
 
-if(isBrowser()) {
+if (isBrowser()) {
   // Safely access window
-  window.location.href = 'https://www.github.com/adeira'
+  window.location.href = 'https://www.github.com/adeira';
 } else {
   // Do server logic for redirect
 }

@@ -156,7 +156,7 @@ Alternatively, you could inline the mock:
 import fetchWithRetriesMock from '@adeira/fetch';
 
 jest.mock('@adeira/fetch', () => {
-  return resource => Promise.resolve(`MODIFIED ${resource.toUpperCase()} 2`);
+  return (resource) => Promise.resolve(`MODIFIED ${resource.toUpperCase()} 2`);
 });
 
 it('mocks the fetch', async () => {
@@ -165,7 +165,6 @@ it('mocks the fetch', async () => {
 ```
 
 Why mocking `global.fetch` doesn't work? It's because this fetch doesn't use or pollute `global` variable: it uses ponyfill instead of polyfill behind the scenes.
-
 
 ### Msw, an alternative to mock fetch
 

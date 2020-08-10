@@ -28,7 +28,7 @@
     "//": [
       "Please do not add new scripts here. Use scripts section in your workspace instead."
     ],
-    "lint": "eslint --config=.eslintrc.js --print-config=babel.config.js | yarn run eslint-config-prettier-check && yarn run jest --config=.jest-eslint.config.js",
+    "lint": "eslint --config=.eslintrc.js --print-config=babel.config.js | yarn run eslint-config-prettier-check && yarn run jest --config=.jest-eslint.config.js && yarn run prettier --check \"src/**/*.md\"",
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run typecheck && yarn run lint && yarn run test-only --ci --colors",
     "test-only": "BABEL_TYPES_8_BREAKING=true yarn run monorepo-babel-node src/monorepo-utils/bin/monorepo-run-tests.js",

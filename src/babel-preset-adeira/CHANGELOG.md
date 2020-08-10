@@ -8,7 +8,7 @@
 
 Changelog before our fork:
 
-```text
+<pre><code>
 # Unreleased
 
 - Output in which file you are trying to redeclare `__DEV__`
@@ -114,4 +114,4 @@ module.exports = {
 # 1.1.0
 
 - Added support for `__DEV__` expression
-```
+</code></pre>
