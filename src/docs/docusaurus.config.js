@@ -24,7 +24,7 @@ module.exports = {
         src: 'img/logo-transparent.png',
         alt: 'Adeira.dev',
       },
-      links: [
+      items: [
         { to: 'docs/general/introduction', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/adeira/universe',
