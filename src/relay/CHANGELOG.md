@@ -1,5 +1,7 @@
 # Unreleased
 
+- Automatically cancel stale requests via fetch `AbortController` (https://developer.mozilla.org/en-US/docs/Web/API/AbortController).
+
 # 2.0.2
 
 - Upgrade relay to 10.0.1

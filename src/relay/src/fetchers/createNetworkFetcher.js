@@ -28,6 +28,7 @@ export default function createNetworkFetcher(
     request: RequestNode,
     variables: Variables,
     uploadables: ?Uploadables,
+    signal: ?AbortSignal,
   ) {
     const body = getRequestBody(request, variables, uploadables);
 
@@ -51,6 +52,7 @@ export default function createNetworkFetcher(
       method: 'POST',
       headers,
       body,
+      signal,
       ...refetchConfig,
     });
 
