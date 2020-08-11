@@ -1,7 +1,8 @@
-This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This function is only a wrapper for any other well known [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). However, this fetch also solves two common problems:
+This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This function is only a wrapper for any other well known [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). However, this fetch also solves these common problems:
 
-- fetch timeouts, and
-- retries
+- fetch timeouts
+- retries, and
+- request cancellations
 
 This makes the fetch function more suitable for real-life production usage because it doesn't hang or fail easily. In other words you are not going to have many open connections just because the API is slow (this could kill your server completely) and your fetch won't give up if the API didn't respond for the first time (just some glitch and one retry would fix it).
 
@@ -96,6 +97,22 @@ import fetchWithRetries, { TimeoutError, ResponseError } from '@adeira/fetch';
     }
   }
 })();
+```
+
+# Request cancellation
+
+You can easily cancel any request via `AbortController` (https://developer.mozilla.org/en-US/docs/Web/API/AbortController) like so:
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+const response = await fetchWithRetries('//localhost', {
+  signal,
+});
+
+// You can cancel it somewhere from your code when needed (Relay network cleanup for example).
+controller.abort();
 ```
 
 # Frequently Asked Questions
