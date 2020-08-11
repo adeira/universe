@@ -2,7 +2,6 @@
 
 import { Observable, type CacheConfig } from 'relay-runtime';
 import type { Variables, GraphQLResponse } from '@adeira/relay-runtime';
-import AbortController from 'abort-controller';
 
 import type { RequestNode, Uploadables } from './types.flow';
 
@@ -25,11 +24,8 @@ export default function createRequestHandler(customFetcher: (...args: $ReadOnlyA
     cacheConfig: CacheConfig,
     uploadables: ?Uploadables,
   ) {
-    const controller = new AbortController();
-    const signal = controller.signal;
-
     return Observable.create((sink: Sink) => {
-      customFetcher(requestNode, variables, uploadables, signal)
+      customFetcher(requestNode, variables, uploadables)
         .then((response) => {
           if (response.errors) {
             // Relay is currently quite opinionated and recommends to either try to render the data
@@ -50,8 +46,7 @@ export default function createRequestHandler(customFetcher: (...args: $ReadOnlyA
         });
 
       return function cleanup() {
-        // called after sink.complete or when Relay unsubscribes
-        controller.abort();
+        // noop, do anything here (called after sink.complete or when Relay unsubscribes)
       };
     });
   };
