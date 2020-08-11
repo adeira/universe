@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 /* eslint-disable no-unused-vars */
 const OFF = 0;

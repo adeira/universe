@@ -1,7 +1,7 @@
 /**
  * @jest-environment  node
  */
-// @flow
+// @flow strict
 
 import isBrowser from '../isBrowser';
 
