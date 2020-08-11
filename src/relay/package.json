@@ -25,7 +25,6 @@
     "@adeira/signed-source": "^1.0.0",
     "@babel/register": "^7.10.5",
     "@babel/runtime": "^7.11.2",
-    "abort-controller": "^3.0.0",
     "babel-plugin-relay": "^10.0.1",
     "commander": "^6.0.0",
     "is-ci": "^2.0.0",
