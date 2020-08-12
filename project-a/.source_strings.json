@@ -1,0 +1,19 @@
+{
+ "phrases": [
+  {
+   "hashToText": {
+    "1tuDtqf8oAGeVmsuO2SxPA==": "Welcome to Razzle"
+   },
+   "filepath": "src/Home.js",
+   "line_beg": 13,
+   "col_beg": 14,
+   "line_end": 13,
+   "col_end": 60,
+   "desc": "Home title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Welcome to Razzle"
+  }
+ ],
+ "childParentMappings": {}
+}
