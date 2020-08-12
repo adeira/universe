@@ -6,13 +6,23 @@
     "start": "razzle start",
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
-    "start:prod": "NODE_ENV=production node build/server.js"
+    "start:prod": "NODE_ENV=production node build/server.js",
+    "fbt:manifest": "fbt-manifest --src=src",
+    "fbt:collect": "fbt-collect --options=__self --pretty --manifest < .src_manifest.json > .source_strings.json",
+    "fbt:translate": "fbt-translate --translations translations/*.json --jenkins > translatedFbts.json"
   },
   "dependencies": {
+    "@babel/register": "^7.10.5",
+    "babel-plugin-fbt": "^0.15.0",
+    "babel-plugin-fbt-runtime": "^0.9.12",
     "express": "^4.17.1",
+    "fbt": "^0.15.0",
     "razzle": "^3.1.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@adeira/babel-preset-adeira": "^0.4.0"
   }
 }
