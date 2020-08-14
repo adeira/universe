@@ -24,7 +24,7 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: 'docs/readme', label: 'Meta', position: 'left' },
+        { to: 'docs/flow', label: 'Meta', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml',
