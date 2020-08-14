@@ -9,7 +9,6 @@
 
 module.exports = {
   meta: {
-    Readme: ['readme'],
     'Flow & TypeScript': [
       'flow',
       'flow/new-spread-model',
