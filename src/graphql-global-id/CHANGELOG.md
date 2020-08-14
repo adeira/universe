@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.1.0
+
+- export Encoder
+
 # 1.0.0
 
 - removed deprecated functions `DEPRECATED_evaluateGlobalIdField` and `__isTypeOf`
