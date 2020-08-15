@@ -11,11 +11,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "jest": "^26.4.0"
   },
   "peerDependencies": {
-    "eslint": "^7.6.0"
+    "eslint": "^7.7.0"
   },
   "dependencies": {
     "graphql": "^14.7.0"
