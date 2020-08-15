@@ -1,5 +1,7 @@
 # Unreleased
 
+- `no-invalid-flow-annotations` checks for typos like `@flow srict`
+
 # 3.1.1
 
 - Fixed broken `curly` rule (warnings).
