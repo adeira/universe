@@ -14,6 +14,9 @@ ruleTester.run('no-invalid-flow-annotations', rule, {
     '// @flow',
     '// @flow strict',
     '// @flow strict-local',
+    `// @flow
+    // This file contains code
+    `,
   ],
 
   invalid: [
@@ -32,6 +35,24 @@ ruleTester.run('no-invalid-flow-annotations', rule, {
     {
       code: '// @flow weak',
       errors: ['Weak mode in Flow is not allowed, use @flow instead.'],
+    },
+    {
+      code: '// @flow trict',
+      errors: [
+        'It appears you have a typo, valid values are @flow, @flow strict and @flow strict-local',
+      ],
+    },
+    {
+      code: '// @flow strict local',
+      errors: [
+        'It appears you have a typo, valid values are @flow, @flow strict and @flow strict-local',
+      ],
+    },
+    {
+      code: '/* @flow strict-lcoal */',
+      errors: [
+        'It appears you have a typo, valid values are @flow, @flow strict and @flow strict-local',
+      ],
     },
   ],
 });
