@@ -1,6 +1,6 @@
 // @flow
 
-import React, { useState } from 'react';
+import * as React from 'react';
 import fbt, { IntlVariations, init } from 'fbt';
 
 import './_app.css';
@@ -9,6 +9,7 @@ type SupportedLocales = 'en_US' | 'es_LA';
 function initTranslations(locale: SupportedLocales) {
   init({
     translations: require('../translatedFbts.json'),
+    // $FlowIssue[cannot-resolve-module] https://github.com/facebook/flow/issues/7673
     fbtEnumManifest: require('../.enum_manifest.json'),
     hooks: {
       getViewerContext: () => ({
@@ -21,8 +22,13 @@ function initTranslations(locale: SupportedLocales) {
 
 initTranslations('en_US');
 
-export default function App({ Component, pageProps }) {
-  const [locale, setLocale] = useState<SupportedLocales>('en_US');
+type Props = {|
+  +Component: any,
+  +pageProps: any,
+|};
+
+export default function App({ Component, pageProps }: Props): React.Node {
+  const [locale, setLocale] = React.useState<SupportedLocales>('en_US');
 
   const handleLanguageSwitch = (locale) => {
     // alternatively, register the translations lazily via `FbtTranslations.registerTranslations`
@@ -30,7 +36,7 @@ export default function App({ Component, pageProps }) {
     setLocale(locale);
   };
 
-  const locales: {| +[SupportedLocales]: string |} = {
+  const locales: {| +[SupportedLocales]: React.Node |} = {
     en_US: <fbt desc="en_US locale name">English</fbt>,
     es_LA: <fbt desc="es_LA locale name">Spanish</fbt>,
   };
@@ -47,7 +53,7 @@ export default function App({ Component, pageProps }) {
       <div>
         <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
           <fbt desc="the main language toggle">
-            Switch to <FbtParam name="language name">{locales[nextLocale]}</FbtParam>
+            Switch to <fbt:param name="language name">{locales[nextLocale]}</fbt:param>
           </fbt>
         </button>
       </div>

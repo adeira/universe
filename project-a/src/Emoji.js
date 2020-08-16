@@ -1,13 +1,13 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 
 type Props = {|
   +label: string,
   +symbol: string,
 |};
 
-export default function Emoji(props: Props) {
+export default function Emoji(props: Props): React.Node {
   return (
     <span
       className="emoji"

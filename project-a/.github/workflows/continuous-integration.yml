@@ -25,3 +25,4 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn run lint
+          yarn run flow

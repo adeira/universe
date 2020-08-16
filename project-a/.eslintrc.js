@@ -14,6 +14,6 @@ module.exports = {
   },
   extends: ["@adeira/eslint-config"],
   rules: {
-    "react/jsx-no-undef": "off",
+    "react/forbid-dom-props": "off", // doesn't support <fbt:param/> namespaced JSX
   },
 };
