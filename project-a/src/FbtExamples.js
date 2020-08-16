@@ -9,7 +9,7 @@ const person = {
   pronounGender: GenderConst.MALE_SINGULAR,
 };
 
-export default function MainContent() {
+export default function FbtExamples() {
   return (
     <>
       <p>
