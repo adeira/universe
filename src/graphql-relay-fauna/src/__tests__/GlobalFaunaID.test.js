@@ -3,7 +3,7 @@
 import { values as FaunaValues } from 'faunadb';
 import { nullthrows } from '@adeira/js';
 
-import GlobalFaunaID from '../GlobalID';
+import GlobalFaunaID from '../index';
 
 function resolveField(field, source, typename, opaque = true) {
   // $FlowExpectedError
