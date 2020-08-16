@@ -6,6 +6,7 @@
     "start": "razzle start",
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
+    "lint": "yarn jest --config=.jest-eslint.config.js",
     "start:prod": "NODE_ENV=production node build/server.js",
     "fbt:manifest": "fbt-manifest --src=src",
     "fbt:collect": "NODE_ENV=development fbt-collect --options=__self --pretty --manifest < .src_manifest.json > .source_strings.json",
@@ -25,6 +26,9 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.4.0",
+    "@adeira/eslint-config": "^3.1.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.7.0",
     "prettier": "^2.0.5"
   }
 }

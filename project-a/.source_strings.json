@@ -84,7 +84,7 @@
    "filepath": "src/FbtExamples.js",
    "line_beg": 45,
    "col_beg": 8,
-   "line_end": 59,
+   "line_end": 54,
    "col_end": 14,
    "desc": "plural example",
    "project": "",
@@ -116,9 +116,9 @@
     "end24pKDi2/oxKff1YEXzQ==": "Buy a new houseboat!"
    },
    "filepath": "src/FbtExamples.js",
-   "line_beg": 63,
+   "line_beg": 58,
    "col_beg": 8,
-   "line_end": 74,
+   "line_end": 69,
    "col_end": 14,
    "desc": "buy prompt",
    "project": "",
@@ -143,9 +143,9 @@
     "end24pKDi2/oxKff1YEXzQ==": "Buy a new houseboat!"
    },
    "filepath": "src/FbtExamples.js",
-   "line_beg": 76,
+   "line_beg": 71,
    "col_beg": 8,
-   "line_end": 82,
+   "line_end": 74,
    "col_end": 14,
    "desc": "buy prompt",
    "project": "",
@@ -169,9 +169,9 @@
     "0X2YW5KgoJxeeRM3nf/NPQ==": "{name} shared their photo with you. they themselves them"
    },
    "filepath": "src/FbtExamples.js",
-   "line_beg": 86,
+   "line_beg": 78,
    "col_beg": 8,
-   "line_end": 95,
+   "line_end": 87,
    "col_end": 14,
    "desc": "pronoun example",
    "project": "",
@@ -224,9 +224,9 @@
     "W1BGNaDZmmhlWKZy0wIxcQ==": "Hello, {name}! {name} shared a link. Tell {name} you liked their houseboat."
    },
    "filepath": "src/FbtExamples.js",
-   "line_beg": 99,
+   "line_beg": 91,
    "col_beg": 8,
-   "line_end": 117,
+   "line_end": 108,
    "col_end": 14,
    "desc": "complex example",
    "project": "",
@@ -266,26 +266,40 @@
   },
   {
    "hashToText": {
-    "ma2mGfydLQ0QoMlyrlx9vw==": "Be careful when entering the café so that the cats do not run away. 🥺"
+    "UkiFNSZbiyi1QaVygxegRA==": "Be careful when entering the café so that the cats do not run away. {=🥺}"
    },
    "filepath": "src/Rules.js",
    "line_beg": 10,
    "col_beg": 8,
-   "line_end": 12,
+   "line_end": 15,
    "col_end": 14,
    "desc": "Rule number 1",
    "project": "",
    "type": "text",
-   "jsfbt": "Be careful when entering the café so that the cats do not run away. 🥺"
+   "jsfbt": "Be careful when entering the café so that the cats do not run away. {=🥺}"
+  },
+  {
+   "hashToText": {
+    "Ujj4vmMnMCMT9E3x3Hu1OQ==": "🥺"
+   },
+   "filepath": "src/Rules.js",
+   "line_beg": 12,
+   "col_beg": 10,
+   "line_end": 14,
+   "col_end": 17,
+   "desc": "In the phrase: \"Be careful when entering the café so that the cats do not run away.{=🥺}\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "🥺"
   },
   {
    "hashToText": {
     "AZBk0HF6F8GgThvh5h0vdg==": "Feel free to play with the cats and have fun. But please, respect their space and do not force them to do things they do not want, such as pulling their tails, whiskers, etc."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 15,
+   "line_beg": 18,
    "col_beg": 8,
-   "line_end": 19,
+   "line_end": 21,
    "col_end": 14,
    "desc": "Rule number 2",
    "project": "",
@@ -297,9 +311,9 @@
     "2fSycF0Q8vnGGrk4RLeKLg==": "Try not to wake up our cats or interrupt them while they are having a snack."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 22,
+   "line_beg": 24,
    "col_beg": 8,
-   "line_end": 25,
+   "line_end": 26,
    "col_end": 14,
    "desc": "Rule number 3",
    "project": "",
@@ -308,26 +322,40 @@
   },
   {
    "hashToText": {
-    "pgC8+iQJT7yQ72FMJAd7NQ==": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}"
+    "e6KZ7IFMwqNVjDLUQlZ6+g==": "We encourage you to take pictures. {=👍} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}"
    },
    "filepath": "src/Rules.js",
-   "line_beg": 28,
+   "line_beg": 29,
    "col_beg": 8,
-   "line_end": 32,
+   "line_end": 36,
    "col_end": 14,
    "desc": "Rule number 4",
    "project": "",
    "type": "text",
-   "jsfbt": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}"
+   "jsfbt": "We encourage you to take pictures. {=👍} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}"
+  },
+  {
+   "hashToText": {
+    "44SrOx9hffHH3/2ZXRWBVQ==": "👍"
+   },
+   "filepath": "src/Rules.js",
+   "line_beg": 31,
+   "col_beg": 10,
+   "line_end": 33,
+   "col_end": 17,
+   "desc": "In the phrase: \"We encourage you to take pictures.{=👍} But prefer to take them without a flash. Don’t forget to tag us on your Instagram{=}\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "👍"
   },
   {
    "hashToText": {
     "5iTUS9k7jab+evPuLeeh7A==": "Our cats have a special healthy food which you can buy from us. Human food might be dangerous for them. Please don’t feed them with your food."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 35,
+   "line_beg": 39,
    "col_beg": 8,
-   "line_end": 39,
+   "line_end": 42,
    "col_end": 14,
    "desc": "Rule number 5",
    "project": "",
@@ -339,9 +367,9 @@
     "/T78HImOiKKs6J26mVLuaQ==": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 42,
+   "line_beg": 45,
    "col_beg": 8,
-   "line_end": 45,
+   "line_end": 47,
    "col_end": 14,
    "desc": "Rule number 6",
    "project": "",
@@ -353,10 +381,10 @@
     "U98Bttt6bmp1PmUACerVug==": "Leave your pets at home. Other pets are not allowed here."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 48,
+   "line_beg": 50,
    "col_beg": 8,
    "line_end": 50,
-   "col_end": 14,
+   "col_end": 97,
    "desc": "Rule number 7",
    "project": "",
    "type": "text",
@@ -405,5 +433,8 @@
    "jsfbt": "Please, follow our rules. Misbehaving guests will be asked to leave."
   }
  ],
- "childParentMappings": {}
+ "childParentMappings": {
+  "1": 0,
+  "5": 4
+ }
 }

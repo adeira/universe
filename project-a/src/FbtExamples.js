@@ -1,10 +1,10 @@
 // @flow strict
 
-import React from "react";
-import fbt, { IntlVariations, GenderConst } from "fbt";
+import React from 'react';
+import fbt, { IntlVariations, GenderConst } from 'fbt';
 
 const person = {
-  name: "John Doe",
+  name: 'John Doe',
   gender: IntlVariations.GENDER_MALE,
   pronounGender: GenderConst.MALE_SINGULAR,
 };
@@ -21,22 +21,22 @@ export default function FbtExamples() {
       <p>
         <fbt desc="param example">
           Hello,
-          <fbt:param name="name">{person.name}</fbt:param>.
+          <FbtParam name="name">{person.name}</FbtParam>.
         </fbt>
 
         <fbt desc="param example">
           Hello,
-          <fbt:name name="name" gender={person.gender}>
+          <FbtName name="name" gender={person.gender}>
             {person.name}
-          </fbt:name>.
+          </FbtName>.
         </fbt>
 
         <fbt desc="param example">
-          <fbt:name name="name" gender={person.gender}>
+          <FbtName name="name" gender={person.gender}>
             {person.name}
-          </fbt:name>
+          </FbtName>
           shared a link. Tell
-          <fbt:same-param name="name" />
+          <FbtSameParam name="name" />
           you liked it.
         </fbt>
       </p>
@@ -44,75 +44,66 @@ export default function FbtExamples() {
       <p>
         <fbt desc="plural example">
           You have
-          <fbt:plural
-            count={-1}
-            name="number of likes"
-            showCount="ifMany"
-            many="likes"
-          >
+          <FbtPlural count={-1} name="number of likes" showCount="ifMany" many="likes">
             a like
-          </fbt:plural>
+          </FbtPlural>
           on your
-          <fbt:plural count={-1} showCount="no">
+          <FbtPlural count={-1} showCount="no">
             photo
-          </fbt:plural>.
+          </FbtPlural>.
         </fbt>
       </p>
 
       <p>
         <fbt desc="buy prompt">
           Buy a new
-          <fbt:enum
+          <FbtEnum
             enum-range={{
-              CAR: "car",
-              HOUSE: "house",
-              BOAT: "boat",
-              HOUSEBOAT: "houseboat",
+              CAR: 'car',
+              HOUSE: 'house',
+              BOAT: 'boat',
+              HOUSEBOAT: 'houseboat',
             }}
-            value={"CAR"}
+            value={'CAR'}
           />!
         </fbt>
 
         <fbt desc="buy prompt">
           Buy a new
-          <fbt:enum
-            enum-range={["car", "house", "boat", "houseboat"]}
-            value={"car"}
-          />!
+          <FbtEnum enum-range={['car', 'house', 'boat', 'houseboat']} value={'car'} />!
         </fbt>
       </p>
 
       <p>
         <fbt desc="pronoun example">
-          <fbt:param name="name">{person.name}</fbt:param>
+          <FbtParam name="name">{person.name}</FbtParam>
           shared
-          <fbt:pronoun type="possessive" gender={person.pronounGender} />
+          <FbtPronoun type="possessive" gender={person.pronounGender} />
           photo with you.
           {/* Other type: */}
-          <fbt:pronoun type="subject" gender={person.pronounGender} />{" "}
-          <fbt:pronoun type="reflexive" gender={person.pronounGender} />{" "}
-          <fbt:pronoun type="object" gender={person.pronounGender} />
+          <FbtPronoun type="subject" gender={person.pronounGender} />{' '}
+          <FbtPronoun type="reflexive" gender={person.pronounGender} />{' '}
+          <FbtPronoun type="object" gender={person.pronounGender} />
         </fbt>
       </p>
 
       <p>
         <fbt desc="complex example">
-          Hello, <fbt:param name="name">{person.name}</fbt:param>!{" "}
-          <fbt:name name="name" gender={person.gender}>
+          Hello, <FbtParam name="name">{person.name}</FbtParam>!{' '}
+          <FbtName name="name" gender={person.gender}>
             {person.name}
-          </fbt:name>{" "}
+          </FbtName>{' '}
           shared a link. Tell
-          <fbt:same-param name="name" />
-          you liked{" "}
-          <fbt:pronoun type="possessive" gender={person.pronounGender} />{" "}
-          <fbt:enum
+          <FbtSameParam name="name" />
+          you liked <FbtPronoun type="possessive" gender={person.pronounGender} />{' '}
+          <FbtEnum
             enum-range={{
-              CAR: "car",
-              HOUSE: "house",
-              BOAT: "boat",
-              HOUSEBOAT: "houseboat",
+              CAR: 'car',
+              HOUSE: 'house',
+              BOAT: 'boat',
+              HOUSEBOAT: 'houseboat',
             }}
-            value={"HOUSE"}
+            value={'HOUSE'}
           />.
         </fbt>
       </p>

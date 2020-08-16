@@ -1,8 +1,10 @@
-const sourceStrings = require("../.source_strings.json");
+// @flow
+
+const sourceStrings = require('../.source_strings.json');
 
 for (const phrase of sourceStrings.phrases) {
   for (const [hash, text] of Object.entries(phrase.hashToText)) {
-    console.warn(`${hash} (${phrase.desc})\nEN: ${text}\nES: \n`);
+    console.warn(`${hash} (${phrase.desc})\nEN: ${text}\nES: \n`); // eslint-disable-line no-console
   }
 }
 
