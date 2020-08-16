@@ -1,6 +1,8 @@
 // @flow
 
-const sourceStrings = require('../.source_strings.json');
+const sourceStrings = require("../.source_strings.json");
+
+// node scripts/fbt-to-txt.js
 
 for (const phrase of sourceStrings.phrases) {
   for (const [hash, text] of Object.entries(phrase.hashToText)) {
@@ -10,8 +12,8 @@ for (const phrase of sourceStrings.phrases) {
 
 /*
 
-ma2mGfydLQ0QoMlyrlx9vw== (Rule number 1)
-EN: Be careful when entering the café so that the cats do not run away. 🥺
+xqoguQxnoeLWkiZgd66KQA== (Rule number 1)
+EN: Be careful when entering the café so that the cats do not run away. {pleading face emoji}
 ES:
 
 AZBk0HF6F8GgThvh5h0vdg== (Rule number 2)
@@ -22,8 +24,8 @@ ES:
 EN: Try not to wake up our cats or interrupt them while they are having a snack.
 ES:
 
-pgC8+iQJT7yQ72FMJAd7NQ== (Rule number 4)
-EN: We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}
+0yUbdcejksJ+Iw6ARTDoag== (Rule number 4)
+EN: We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}
 ES:
 
 5iTUS9k7jab+evPuLeeh7A== (Rule number 5)
