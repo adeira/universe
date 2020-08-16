@@ -37,6 +37,11 @@ export default function App({ Component, pageProps }) {
 
   const nextLocale: SupportedLocales = locale === 'en_US' ? 'es_LA' : 'en_US';
 
+  if (!__DEV__) {
+    // not public yet
+    return null;
+  }
+
   return (
     <React.Fragment key={locale}>
       <div>
