@@ -1,19 +1,19 @@
-// @flow strict
+// @flow
 
-import React from 'react';
+import * as React from 'react';
 import fbt from 'fbt';
 
 import Emoji from './Emoji';
 
-export default function Rules() {
+export default function Rules(): React.Node {
   return (
     <ol>
       <li>
         <fbt desc="Rule number 1">
           Be careful when entering the café so that the cats do not run away.{' '}
-          <FbtParam name="pleading face emoji">
+          <fbt:param name="pleading face emoji">
             <Emoji symbol="🥺" label="pleading face" />
-          </FbtParam>
+          </fbt:param>
         </fbt>
       </li>
       <li>
@@ -30,11 +30,11 @@ export default function Rules() {
       <li>
         <fbt desc="Rule number 4">
           We encourage you to take pictures.{' '}
-          <FbtParam name="thumbs up emoji">
+          <fbt:param name="thumbs up emoji">
             <Emoji symbol="👍" label="thumbs up" />
-          </FbtParam>{' '}
+          </fbt:param>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
-          <FbtParam name="instagram account">{'@tktk'}</FbtParam>.
+          <fbt:param name="instagram account">{'@tktk'}</fbt:param>.
         </fbt>
       </li>
       <li>
