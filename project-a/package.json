@@ -8,8 +8,9 @@
     "test": "razzle test --env=jsdom",
     "start:prod": "NODE_ENV=production node build/server.js",
     "fbt:manifest": "fbt-manifest --src=src",
-    "fbt:collect": "fbt-collect --options=__self --pretty --manifest < .src_manifest.json > .source_strings.json",
-    "fbt:translate": "fbt-translate --translations translations/*.json --jenkins > translatedFbts.json"
+    "fbt:collect": "NODE_ENV=development fbt-collect --options=__self --pretty --manifest < .src_manifest.json > .source_strings.json",
+    "fbt:translate": "fbt-translate --translations translations/*.json --jenkins > translatedFbts.json",
+    "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
     "@babel/register": "^7.10.5",
@@ -23,6 +24,7 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
-    "@adeira/babel-preset-adeira": "^0.4.0"
+    "@adeira/babel-preset-adeira": "^0.4.0",
+    "prettier": "^2.0.5"
   }
 }
