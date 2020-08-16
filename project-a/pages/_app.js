@@ -1,11 +1,9 @@
 // @flow
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { IntlVariations, init } from 'fbt';
 
-import Home from './Home';
-import './App.css';
+import './_app.css';
 
 const viewerContext = {
   GENDER: IntlVariations.GENDER_UNKNOWN,
@@ -20,10 +18,6 @@ init({
   },
 });
 
-const App = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-  </Switch>
-);
-
-export default App;
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+}
