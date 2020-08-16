@@ -1,12 +1,13 @@
-// @flow strict-local
+// @flow
 
 import { invariant } from '@adeira/js';
 import GlobalID, { type OpaqueIDString, encode, decode } from '@adeira/graphql-global-id';
 import { values as FaunaValues, type values$Document as FaunaDocument } from 'faunadb';
+import { type GraphQLFieldConfig } from 'graphql';
 
 type AnyFaunaDocument = FaunaDocument<$Shape<{||}>>;
 
-export default function GlobalFaunaID() {
+export default function GlobalFaunaID(): GraphQLFieldConfig<any, any> {
   const idFetcher = ({ ref }: AnyFaunaDocument) => {
     invariant(ref != null, 'Invalid document. Ref is null or undefined');
     return `${ref.id}`;
@@ -58,7 +59,6 @@ export function idToCollection(id: string): FaunaValues.Ref {
 }
 
 function decodeGlobalId(id: string): string[] {
-  // $FlowExpectedError[unclear-type]
   const _id = ((id: any): OpaqueIDString); // cast string to OpaqueIDString
   return decode(_id)
     .split(':')

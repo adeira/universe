@@ -14,55 +14,66 @@
  * JSON objects in a more complex demo.
  */
 
-const xwing = {
+type Ship = {|
+  id: string,
+  name: string,
+|};
+
+type Fraction = {|
+  id: string,
+  name: string,
+  ships: $ReadOnlyArray<string>,
+|};
+
+const xwing: Ship = {
   id: '1',
   name: 'X-Wing',
 };
 
-const ywing = {
+const ywing: Ship = {
   id: '2',
   name: 'Y-Wing',
 };
 
-const awing = {
+const awing: Ship = {
   id: '3',
   name: 'A-Wing',
 };
 
 // Yeah, technically it's Corellian. But it flew in the service of the rebels,
 // so for the purposes of this demo it's a rebel ship.
-const falcon = {
+const falcon: Ship = {
   id: '4',
   name: 'Millenium Falcon',
 };
 
-const homeOne = {
+const homeOne: Ship = {
   id: '5',
   name: 'Home One',
 };
 
-const tieFighter = {
+const tieFighter: Ship = {
   id: '6',
   name: 'TIE Fighter',
 };
 
-const tieInterceptor = {
+const tieInterceptor: Ship = {
   id: '7',
   name: 'TIE Interceptor',
 };
 
-const executor = {
+const executor: Ship = {
   id: '8',
   name: 'Executor',
 };
 
-const rebels = {
+const rebels: Fraction = {
   id: '1',
   name: 'Alliance to Restore the Republic',
   ships: ['1', '2', '3', '4', '5'],
 };
 
-const empire = {
+const empire: Fraction = {
   id: '2',
   name: 'Galactic Empire',
   ships: ['6', '7', '8'],
@@ -86,7 +97,7 @@ const data = {
 };
 
 let nextShip = 9;
-export function createShip(shipName: string, factionId: string) {
+export function createShip(shipName: string, factionId: string): Ship {
   const newShip = {
     id: String(nextShip++),
     name: shipName,
@@ -96,18 +107,18 @@ export function createShip(shipName: string, factionId: string) {
   return newShip;
 }
 
-export function getShip(id: string) {
+export function getShip(id: string): Ship {
   return data.Ship[id];
 }
 
-export function getFaction(id: string) {
+export function getFaction(id: string): Fraction {
   return data.Faction[id];
 }
 
-export function getRebels() {
+export function getRebels(): Fraction {
   return rebels;
 }
 
-export function getEmpire() {
+export function getEmpire(): Fraction {
   return empire;
 }

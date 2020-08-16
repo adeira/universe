@@ -1,9 +1,10 @@
 // @flow strict
 
 import sanitizeWorkspaces from '../sanitizeWorkspaces';
+import type { WorkspaceDependencies } from '../Workspaces.flow';
 
 // This is actual output of `yarn workspaces info` to this date.
-export default sanitizeWorkspaces({
+export default (sanitizeWorkspaces({
   '@adeira/automator': {
     location: 'src/apps/automator',
     workspaceDependencies: [
@@ -146,4 +147,4 @@ export default sanitizeWorkspaces({
     workspaceDependencies: ['@adeira/fetch'],
     mismatchedWorkspaceDependencies: [],
   },
-});
+}): WorkspaceDependencies);

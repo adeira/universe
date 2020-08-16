@@ -13,5 +13,7 @@
     "@babel/runtime": "^7.11.2",
     "faunadb": "^2.14.2"
   },
-  "devDependencies": {}
+  "peerDependencies": {
+    "graphql": "^15.3.0"
+  }
 }

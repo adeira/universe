@@ -35,7 +35,7 @@ const Git = {
     return __parseRows(rawUntrackedChanges);
   },
 
-  getStagedChangedFiles() {
+  getStagedChangedFiles() /*: $ReadOnlyArray<string> */ {
     const rawWorktreeChanges = git('diff', '--name-only', '--cached');
     return __parseRows(rawWorktreeChanges);
   },
