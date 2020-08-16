@@ -44,7 +44,7 @@
   },
   {
    "hashToText": {
-    "0yUbdcejksJ+Iw6ARTDoag==": "We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}"
+    "J1dL7HxnyAvHJhntHYe5gA==": "We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
    },
    "filepath": "src/Rules.js",
    "line_beg": 31,
@@ -54,7 +54,7 @@
    "desc": "Rule number 4",
    "project": "",
    "type": "text",
-   "jsfbt": "We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}"
+   "jsfbt": "We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
   },
   {
    "hashToText": {
@@ -139,6 +139,48 @@
    "project": "",
    "type": "text",
    "jsfbt": "Please, follow our rules. Misbehaving guests will be asked to leave."
+  },
+  {
+   "hashToText": {
+    "r1fMqYovBqYhpsFe0114fw==": "English"
+   },
+   "filepath": "pages/_app.js",
+   "line_beg": 34,
+   "col_beg": 11,
+   "line_end": 34,
+   "col_end": 54,
+   "desc": "en_US locale name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "English"
+  },
+  {
+   "hashToText": {
+    "QfYfvxrmeuL3vLyxQ1o4Rg==": "Spanish"
+   },
+   "filepath": "pages/_app.js",
+   "line_beg": 35,
+   "col_beg": 11,
+   "line_end": 35,
+   "col_end": 54,
+   "desc": "es_LA locale name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Spanish"
+  },
+  {
+   "hashToText": {
+    "e3QIZTGJM5C7U8Q+kUcnqw==": "Switch to {language name}"
+   },
+   "filepath": "pages/_app.js",
+   "line_beg": 44,
+   "col_beg": 10,
+   "line_end": 46,
+   "col_end": 16,
+   "desc": "the main language toggle",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Switch to {language name}"
   }
  ],
  "childParentMappings": {}

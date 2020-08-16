@@ -34,7 +34,7 @@ export default function Rules() {
             <Emoji symbol="👍" label="thumbs up" />
           </FbtParam>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
-          <FbtParam name="instagram account">{'@tktk'}</FbtParam>
+          <FbtParam name="instagram account">{'@tktk'}</FbtParam>.
         </fbt>
       </li>
       <li>
