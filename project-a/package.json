@@ -1,13 +1,12 @@
 {
-  "name": "my-razzle-app",
+  "name": "my-kochka-app",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "start": "razzle start",
-    "build": "razzle build",
-    "test": "razzle test --env=jsdom",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "yarn jest --config=.jest-eslint.config.js",
-    "start:prod": "NODE_ENV=production node build/server.js",
     "fbt:manifest": "fbt-manifest --src=src",
     "fbt:collect": "NODE_ENV=development fbt-collect --options=__self --pretty --manifest < .src_manifest.json > .source_strings.json",
     "fbt:translate": "fbt-translate --translations translations/*.json --jenkins > translatedFbts.json",
@@ -19,16 +18,16 @@
     "babel-plugin-fbt-runtime": "^0.9.12",
     "express": "^4.17.1",
     "fbt": "^0.15.0",
-    "razzle": "^3.1.6",
+    "next": "^9.5.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^0.4.0",
     "@adeira/eslint-config": "^3.1.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.7.0",
+    "jest": "^26.4.0",
     "prettier": "^2.0.5"
   }
 }

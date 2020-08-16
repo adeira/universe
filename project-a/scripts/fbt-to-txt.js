@@ -1,6 +1,6 @@
 // @flow
 
-const sourceStrings = require("../.source_strings.json");
+const sourceStrings = require('../.source_strings.json');
 
 // node scripts/fbt-to-txt.js
 

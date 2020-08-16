@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import './Home.css';
+// import './Home.css';
 // import KochkaIcon from './KochkaIcon.svg';
 import Rules from './Rules';
 
