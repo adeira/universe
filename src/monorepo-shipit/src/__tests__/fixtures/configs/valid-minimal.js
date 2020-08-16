@@ -3,7 +3,7 @@
 import path from 'path';
 
 module.exports = {
-  getStaticConfig() {
+  getStaticConfig(): { repository: string, ... } {
     return {
       repository: 'git@github.com/adeira/relay-example.git',
     };

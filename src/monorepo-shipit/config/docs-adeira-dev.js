@@ -1,7 +1,7 @@
 // @flow strict
 
 module.exports = {
-  getStaticConfig() {
+  getStaticConfig(): {| repository: string |} {
     return {
       repository: 'git@github.com:adeira/adeira.dev.git',
     };

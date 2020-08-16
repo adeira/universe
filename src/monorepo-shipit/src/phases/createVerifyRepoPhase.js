@@ -21,7 +21,7 @@ import ShipitConfig from '../ShipitConfig';
  * means that either source and destination are out of sync or there is a bug
  * in Shipit project.
  */
-export default function createVerifyRepoPhase(config: ShipitConfig) {
+export default function createVerifyRepoPhase(config: ShipitConfig): () => void {
   function createNewEmptyRepo(path: string) {
     new ShellCommand(path, 'git', 'init').setOutputToScreen().runSynchronously();
     const repo = new RepoGit(path);

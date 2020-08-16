@@ -7,7 +7,7 @@ export default function isValidLicense(license: string): boolean %checks {
 // TODO: Should we report this? Seems like the rule doesn't allow multiline RegExps but regex
 //  literal doesn't feel right in this case.
 // eslint-disable-next-line prefer-regex-literals
-const mitLicenseRegexp = new RegExp(
+const mitLicenseRegexp: RegExp = new RegExp(
   `MIT License
 
 Copyright \\(c\\) [0-9]{4}-present, Adeira(?:\nCopyright \\(c\\) .+)*?

@@ -11,7 +11,7 @@ export default function createImportSyncPhase(
   config: ShipitConfig,
   packageName: string,
   pullRequestNumber: string,
-) {
+): () => void {
   // TODO: make it Git independent
 
   function getFilteredChangesets(): Set<Changeset> {

@@ -20,7 +20,7 @@ const sprintfFormat = format.printf((info) => {
  * https://github.com/winstonjs/winston
  */
 export default class NodejsLogger implements ILogger {
-  #logfile = path.join(os.tmpdir(), 'com.kiwi.universe', 'combined.log');
+  #logfile: string = path.join(os.tmpdir(), 'dev.adeira.universe', 'combined.log');
 
   constructor() {
     winston.loggers.add('datadog', {
@@ -62,11 +62,11 @@ export default class NodejsLogger implements ILogger {
     this._datadog().error(...message);
   }
 
-  _console() {
+  _console(): any {
     return winston.loggers.get('localhost');
   }
 
-  _datadog() {
+  _datadog(): any {
     return winston.loggers.get('datadog');
   }
 }

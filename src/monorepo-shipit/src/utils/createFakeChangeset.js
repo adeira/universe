@@ -5,7 +5,10 @@ import Changeset from '../Changeset';
 /**
  * This changeset contains valid but fake data and should be used only in tests.
  */
-export default function createFakeChangeset(numberOfDiffs: number = 2, basePath: string = '') {
+export default function createFakeChangeset(
+  numberOfDiffs: number = 2,
+  basePath: string = '',
+): Changeset {
   const diffs = new Set();
 
   for (let i = 1; i <= numberOfDiffs; i++) {
