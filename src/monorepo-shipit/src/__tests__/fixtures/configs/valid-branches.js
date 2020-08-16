@@ -3,13 +3,13 @@
 import path from 'path';
 
 module.exports = {
-  getBranchConfig() {
+  getBranchConfig(): { destination: string, source: string, ... } {
     return {
       source: 'source_branch',
       destination: 'destination_branch',
     };
   },
-  getStaticConfig() {
+  getStaticConfig(): { repository: string, ... } {
     return {
       repository: 'git@github.com/adeira/relay-example.git',
     };

@@ -1,10 +1,10 @@
 // @flow strict
 
 module.exports = {
-  getStrippedFiles() {
+  getStrippedFiles(): Set<RegExp> {
     return new Set<RegExp>([/__github__/]);
   },
-  getStaticConfig() {
+  getStaticConfig(): { repository: string, ... } {
     return {
       repository: 'git@github.com/adeira/relay-example.git',
     };

@@ -6,7 +6,7 @@ import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
 
-export default function createSyncPhase(config: ShipitConfig) {
+export default function createSyncPhase(config: ShipitConfig): () => void {
   function _getSourceRepo(): SourceRepo {
     return new RepoGit(config.sourcePath);
   }

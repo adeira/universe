@@ -4,7 +4,7 @@ import { invariant } from '@adeira/js';
 
 import RepoGit from '../RepoGit';
 
-export default function createCheckCorruptedRepoPhase(repoPath: string) {
+export default function createCheckCorruptedRepoPhase(repoPath: string): () => void {
   return () => {
     const repo = new RepoGit(repoPath);
 

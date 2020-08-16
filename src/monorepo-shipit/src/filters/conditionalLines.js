@@ -28,7 +28,7 @@ export function commentLines(
   marker: string = '@x-oss-disable',
   commentStart: string = '//',
   commentEnd: null | string = null,
-) {
+): Changeset {
   const ending = commentEnd === null ? '' : ` ${commentEnd}`;
   const pattern = new RegExp(`^([-+ ]\\s*)(\\S.*) ${_e(commentStart)} ${_e(marker)}${_e(ending)}$`);
   return process(changeset, pattern, `$1${commentStart} ${marker}: $2${ending}`);
@@ -39,7 +39,7 @@ export function uncommentLines(
   marker: string = '@x-oss-disable',
   commentStart: string = '//',
   commentEnd: null | string = null,
-) {
+): Changeset {
   const ending = commentEnd === null ? '' : ` ${commentEnd}`;
   const pattern = new RegExp(`^([-+ ]\\s*)${_e(commentStart)} ${_e(marker)}: (.+)${_e(ending)}$`);
   return process(changeset, pattern, `$1$2 ${commentStart} ${marker}${ending}`);

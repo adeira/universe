@@ -4,7 +4,7 @@ module.exports = {
   defaultStrippedFiles() {
     // this configuration is not supported and should be removed (should be 'getStrippedFiles')
   },
-  getStaticConfig() {
+  getStaticConfig(): { repository: string, ... } {
     return {
       repository: 'git@github.com/adeira/relay-example.git',
     };
