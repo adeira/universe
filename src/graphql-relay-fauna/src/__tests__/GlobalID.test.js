@@ -4,7 +4,7 @@ import { nullthrows } from '@adeira/js';
 import { decode, encode } from '@adeira/graphql-global-id';
 import { values as FaunaValues } from 'faunadb';
 
-import { refToId, idToCollection, idToRef } from '../GlobalID';
+import { refToId, idToCollection, idToRef } from '../index';
 
 const db = new FaunaValues.Ref('MyDb', FaunaValues.Native.DATABASES);
 const collection = new FaunaValues.Ref('MyCol', FaunaValues.Native.COLLECTIONS);
