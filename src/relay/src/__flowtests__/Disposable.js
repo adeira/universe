@@ -9,7 +9,7 @@ type Props = {| +relay: RelayProp |};
 type SubscriptionTypeMock = any;
 
 module.exports = {
-  validUsage: (props: Props) => {
+  validUsage: (props: Props): Disposable => {
     const subscription: Disposable = requestSubscription<SubscriptionTypeMock>(
       props.relay.environment,
       {
@@ -25,7 +25,7 @@ module.exports = {
     );
     return subscription;
   },
-  invalidUsage: (props: Props) => {
+  invalidUsage: (props: Props): number => {
     // $FlowExpectedError: returns `Disposable` and not `number`
     const subscription: number = requestSubscription<SubscriptionTypeMock>(
       props.relay.environment,

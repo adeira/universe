@@ -1,6 +1,6 @@
 // @flow
 
-import type { GraphQLTaggedNode, Variables } from '@adeira/relay-runtime';
+import type { GraphQLTaggedNode, Variables, Disposable } from '@adeira/relay-runtime';
 import { commitMutation as _commitMutation } from 'react-relay';
 
 import type { DeclarativeMutationConfig, Uploadables } from './types.flow';
@@ -41,7 +41,7 @@ type MutationConfig<T: MutationParameters> = {|
 export function commitMutation<T: MutationParameters>(
   environment: Environment,
   config: MutationConfig<T>,
-) {
+): Disposable {
   /*
     $FlowExpectedError: Let's stay with our flow types for now,
     since they are better than relay's at the moment.

@@ -17,13 +17,15 @@ type Sink = {|
   +closed: boolean,
 |};
 
-export default function createRequestHandler(customFetcher: (...args: $ReadOnlyArray<any>) => any) {
-  return function handleRequest(
-    requestNode: RequestNode,
-    variables: Variables,
-    cacheConfig: CacheConfig,
-    uploadables: ?Uploadables,
-  ) {
+export default function createRequestHandler(
+  customFetcher: (...args: $ReadOnlyArray<any>) => any,
+): (
+  requestNode: RequestNode,
+  variables: Variables,
+  cacheConfig: CacheConfig,
+  uploadables: ?Uploadables,
+) => Observable<GraphQLResponse> {
+  return function handleRequest(requestNode, variables, cacheConfig, uploadables) {
     return Observable.create((sink: Sink) => {
       customFetcher(requestNode, variables, uploadables)
         .then((response) => {

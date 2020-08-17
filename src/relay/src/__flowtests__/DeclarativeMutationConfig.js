@@ -1,5 +1,7 @@
 // @flow
 
+import type { Disposable } from '@adeira/relay-runtime';
+
 import { commitMutation, graphql, createLocalEnvironment } from '../index';
 
 const environment = createLocalEnvironment();
@@ -14,7 +16,7 @@ const variables = {};
 type MutationTypeMock = any;
 
 module.exports = {
-  validConfigs: () => {
+  validConfigs: (): Disposable => {
     return commitMutation<MutationTypeMock>(environment, {
       mutation,
       variables,
@@ -46,7 +48,7 @@ module.exports = {
   },
 
   // Invalid examples:
-  invalidConfigType: () => {
+  invalidConfigType: (): Disposable => {
     return commitMutation<MutationTypeMock>(environment, {
       mutation,
       variables,
@@ -58,7 +60,7 @@ module.exports = {
       ],
     });
   },
-  invalidRangeBehaviors: () => {
+  invalidRangeBehaviors: (): Disposable => {
     return commitMutation<MutationTypeMock>(environment, {
       mutation,
       variables,

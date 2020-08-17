@@ -1,5 +1,7 @@
 // @flow
 
+import type { Disposable } from '@adeira/relay-runtime';
+
 import { commitMutation, commitMutationAsync, graphql, createLocalEnvironment } from '../index';
 
 const environment = createLocalEnvironment();
@@ -39,20 +41,20 @@ type NamedMutation = {|
 |};
 
 module.exports = {
-  validMutation() {
+  validMutation(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
     });
   },
-  validAsyncMutation() {
+  validAsyncMutation(): Promise<void> {
     return commitMutationAsync<NamedMutation>(environment, {
       mutation,
       variables,
       // eslint-disable-next-line no-unused-vars
     }).then(({ response }: { +response: NamedMutationResponse, ... }) => {});
   },
-  updater() {
+  updater(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
@@ -61,20 +63,20 @@ module.exports = {
   },
 
   // Invalid usages:
-  missingVariables() {
+  missingVariables(): Disposable {
     // $FlowExpectedError: variables are missing
     return commitMutation<NamedMutation>(environment, {
       mutation,
     });
   },
-  invalidVariables() {
+  invalidVariables(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       // $FlowExpectedError: passed variables are incorrect
       variables: { someNumber: '123' },
     });
   },
-  invalidOnCompletedType() {
+  invalidOnCompletedType(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
@@ -82,7 +84,10 @@ module.exports = {
       onCompleted: (response: {||}) => {}, // eslint-disable-line no-unused-vars
     });
   },
-  invalidAsyncMutation() {
+  invalidAsyncMutation(): Promise<{|
+    +errors: ?$ReadOnlyArray<Error>,
+    +response: $ElementType<NamedMutation, 'response'>,
+  |}> {
     // $FlowExpectedError: onCompleted is disabled in config for commitMutationAsync
     return commitMutationAsync<NamedMutation>(environment, {
       mutation,
@@ -90,7 +95,7 @@ module.exports = {
       variables,
     });
   },
-  invalidUpdater() {
+  invalidUpdater(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,

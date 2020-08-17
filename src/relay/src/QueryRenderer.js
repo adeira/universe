@@ -40,7 +40,7 @@ type Props<T> =
       +render: (ReadyState<?T>) => React.Node,
     |};
 
-export default function QueryRenderer<T>(props: Props<T>) {
+export default function QueryRenderer<T>(props: Props<T>): React.Node {
   function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState<?T>) {
     if (error) {
       if (props.onSystemError) {
