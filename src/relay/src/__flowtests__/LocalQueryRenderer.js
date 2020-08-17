@@ -16,10 +16,10 @@ const query = graphql`
 `;
 
 module.exports = {
-  minimalUsage() {
+  minimalUsage(): React.Node {
     return <LocalQueryRenderer query={query} render={placeholder} />;
   },
-  withUndefinedVariables() {
+  withUndefinedVariables(): React.Node {
     return (
       <LocalQueryRenderer
         environment={environment}
@@ -29,7 +29,7 @@ module.exports = {
       />
     );
   },
-  withEmptyVariables() {
+  withEmptyVariables(): React.Node {
     return (
       <LocalQueryRenderer
         environment={environment}
@@ -41,17 +41,17 @@ module.exports = {
   },
 
   // ERRORS:
-  missingQuery() {
+  missingQuery(): React.Node {
     // $FlowExpectedError: Cannot create LocalQueryRenderer element because property query is missing in props.
     return <LocalQueryRenderer environment={environment} render={placeholder} />;
   },
-  missingRender() {
+  missingRender(): React.Node {
     return (
       // $FlowExpectedError: Cannot create LocalQueryRenderer element because property render is missing in props.
       <LocalQueryRenderer environment={environment} query={query} />
     );
   },
-  invalidVariablesValue() {
+  invalidVariablesValue(): React.Node {
     return (
       // $FlowExpectedError: Cannot create LocalQueryRenderer element because null is incompatible with Variables.
       <LocalQueryRenderer

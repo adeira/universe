@@ -2,7 +2,7 @@
 
 import { createNetworkFetcher } from '../../index';
 
-module.exports = {
+module.exports = ({
   validUsage: () => {
     return {
       case_1: createNetworkFetcher('//localhost', {
@@ -32,4 +32,4 @@ module.exports = {
       'X-Client': 1,
     });
   },
-};
+}: $FlowFixMe);

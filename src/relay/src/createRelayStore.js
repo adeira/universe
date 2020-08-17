@@ -19,7 +19,7 @@ type Options = {|
   log?: ?LogFunction,
 |};
 
-export default function createRelayStore(records: ?RecordMap, options?: Options) {
+export default function createRelayStore(records: ?RecordMap, options?: Options): Store {
   const source = records == null ? new RecordSource() : new RecordSource(records);
   return new Store(source, options);
 }

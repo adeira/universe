@@ -23,12 +23,12 @@ export default function createNetworkFetcher(
   graphQLServerURL: string,
   additionalHeaders: AdditionalHeaders,
   refetchConfig?: RefetchConfig,
-) {
-  return async function fetch(
-    request: RequestNode,
-    variables: Variables,
-    uploadables: ?Uploadables,
-  ) {
+): (
+  request: RequestNode,
+  variables: Variables,
+  uploadables: ?Uploadables,
+) => Promise<$FlowFixMe | string> {
+  return async function fetch(request, variables, uploadables) {
     const body = getRequestBody(request, variables, uploadables);
 
     // sometimes it's necessary to get headers asynchronously (while refreshing authorization

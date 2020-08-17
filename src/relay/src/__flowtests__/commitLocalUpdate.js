@@ -5,7 +5,7 @@ import { commitLocalUpdate, createLocalEnvironment } from '../index';
 const environment = createLocalEnvironment();
 
 module.exports = {
-  validLocalUpdate() {
+  validLocalUpdate(): void {
     return commitLocalUpdate(environment, (store) => {
       const favorite = store.get('unique:ID');
       if (favorite) {
@@ -15,7 +15,7 @@ module.exports = {
   },
 
   // Invalid usages:
-  invalidUpdater() {
+  invalidUpdater(): void {
     return commitLocalUpdate(environment, (store) => {
       // $FlowExpectedError: cannot call store.wtf because property wtf is missing in RecordSourceSelectorProxy
       store.wtf('ups');

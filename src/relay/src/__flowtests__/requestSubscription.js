@@ -1,5 +1,7 @@
 // @flow
 
+import type { Disposable } from '@adeira/relay-runtime';
+
 import { requestSubscription, graphql, createLocalEnvironment } from '../index';
 
 const environment = createLocalEnvironment();
@@ -24,13 +26,13 @@ const variables = {
 type SubscriptionTypeMock = any;
 
 module.exports = {
-  validMutation() {
+  validMutation(): Disposable {
     return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription,
       variables,
     });
   },
-  updater() {
+  updater(): Disposable {
     return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription,
       variables,
@@ -39,7 +41,7 @@ module.exports = {
   },
 
   // Invalid usages:
-  missingVariables() {
+  missingVariables(): Disposable {
     // $FlowExpectedError: variables are missing
     return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription: graphql`

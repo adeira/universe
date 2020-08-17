@@ -21,7 +21,7 @@ function CustomQueryRenderer(props: Props) {
 }
 
 module.exports = {
-  minimalUsage() {
+  minimalUsage(): React.Node {
     return (
       <CustomQueryRenderer
         query={graphql`
@@ -33,7 +33,7 @@ module.exports = {
       />
     );
   },
-  invalidUsage() {
+  invalidUsage(): React.Node {
     return (
       <CustomQueryRenderer
         // $FlowExpectedError: should be `GraphQLTaggedNode` instead

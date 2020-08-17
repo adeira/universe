@@ -11,7 +11,7 @@ const mutation = graphql`
 `;
 
 module.exports = {
-  validUsage: () => {
+  validUsage: (): (() => void) => {
     return function TestComponent() {
       const [executeMutation, isMutationPending] = useMutation(mutation);
       (executeMutation: ({|
@@ -31,7 +31,7 @@ module.exports = {
   },
 
   // Invalid usages:
-  invalidUsage: () => {
+  invalidUsage: (): (() => void) => {
     return function TestComponent() {
       const [executeMutation] = useMutation(mutation);
 

@@ -18,7 +18,7 @@ export default function formatGeneratedModule({
   hash,
   sourceHash,
   devOnlyAssignments,
-}: FormatModuleInput) {
+}: FormatModuleInput): string {
   const documentTypeImport = documentType
     ? `import type { ${documentType} } from 'relay-runtime';`
     : '';
