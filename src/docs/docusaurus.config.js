@@ -43,13 +43,13 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         theme: {
-          customCss: require.resolve('./static/css/custom.css'),
+          customCss: (require.resolve('./static/css/custom.css') /*: string */),
         },
         docs: {
           editUrl: 'https://github.com/adeira/universe/tree/master/src/docs/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: (require.resolve('./sidebars.js') /*: string */),
         },
         scrollToTop: true,
       },
