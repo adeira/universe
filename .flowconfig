@@ -66,7 +66,6 @@ sharedmemory.hash_table_pow=21
 ; This option lets you alias 'any' with a given string - useful for explaining why you’re using 'any'.
 suppress_type=$FlowFixMe
 
-
 esproposal.optional_chaining=enable
 esproposal.nullish_coalescing=enable
 
