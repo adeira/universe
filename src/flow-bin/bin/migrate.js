@@ -6,7 +6,7 @@ import { invariant } from '@adeira/js';
 import strictLint from './migrate/strict-lint';
 import typesFirst from './migrate/types-first';
 
-// yarn monorepo-babel-node src/flow-bin/bin/migrate.js types-first node_modules/.bin/flow src/js
+// yarn monorepo-babel-node src/flow-bin/bin/migrate.js types-first node_modules/.bin/flow src/example-relay
 // yarn monorepo-babel-node src/flow-bin/bin/migrate.js strict-lint node_modules/.bin/flow src/
 
 const argv = process.argv.splice(2);
