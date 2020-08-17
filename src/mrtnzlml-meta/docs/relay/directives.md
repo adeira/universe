@@ -533,3 +533,13 @@ query MyQuery {
   }
 }
 ```
+
+### @react_flight_component
+
+Currently behind `ENABLE_REACT_FLIGHT_COMPONENT_FIELD` feature flag.
+
+```graphql
+directive @react_flight_component(name: String!) on FIELD_DEFINITION
+```
+
+TKTK
