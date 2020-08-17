@@ -1,12 +1,14 @@
 // @flow strict
 
-module.exports = {
-  getStaticConfig(): {| repository: string |} {
+import type { ConfigType } from '../ConfigType.flow';
+
+module.exports = ({
+  getStaticConfig() {
     return {
       repository: 'git@github.com:adeira/relay-example.git',
     };
   },
-  getPathMappings(): Map<string, string> {
+  getPathMappings() {
     return new Map([
       ['src/example-relay/__github__/.flowconfig', '.flowconfig'],
       ['src/example-relay/__github__/babel.config.js', 'babel.config.js'],
@@ -15,7 +17,7 @@ module.exports = {
       ['src/example-relay/', ''],
     ]);
   },
-  getStrippedFiles(): Set<RegExp> {
+  getStrippedFiles() {
     return new Set([/__github__/, /^\.babelrc\.js$/]);
   },
-};
+}: ConfigType);

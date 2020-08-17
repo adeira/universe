@@ -33,13 +33,13 @@ export default class RepoGitFake extends RepoGit {
     this.#testRepoPath = testRepoPath;
   }
 
-  push = () => {};
+  push: (destinationBranch: string) => void = () => {};
 
-  configure = () => {};
+  configure: () => void = () => {};
 
-  checkoutBranch = () => {};
+  checkoutBranch: (branchName: string) => void = () => {};
 
-  clean = () => {};
+  clean: () => void = () => {};
 
   // $FlowExpectedError: this function overwrites the original and returns nothing
   export = (): void => {};
@@ -48,7 +48,7 @@ export default class RepoGitFake extends RepoGit {
     return this.#testRepoPath;
   }
 
-  printFakeRepoHistory() {
+  printFakeRepoHistory(): string {
     return this._gitCommand('log', '--stat', '--pretty=format:SUBJ: %s%nDESC: %b')
       .runSynchronously()
       .getStdout()
