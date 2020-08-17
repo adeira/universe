@@ -2,7 +2,9 @@ This package contains relay utility functions used in the Adeira ecosystem.
 
 ## Install
 
-- yarn add @adeira/relay-utils
+```text
+yarn add @adeira/relay-utils
+```
 
 ## Usage
 
@@ -13,5 +15,11 @@ This package contains relay utility functions used in the Adeira ecosystem.
 ```js
 import { getDataFromRequest } from '@adeira/relay-utils';
 
-const data = getDataFromRequest({ query: props.query, variables: props.variables }, environment);
+const data = getDataFromRequest(
+  {
+    query: props.query,
+    variables: props.variables,
+  },
+  environment,
+);
 ```
