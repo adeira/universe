@@ -22,8 +22,8 @@ export default class ShipitConfig {
   directoryMapping: Map<string, string>;
   strippedFiles: Set<RegExp>;
 
-  #sourceBranch;
-  #destinationBranch;
+  #sourceBranch: string;
+  #destinationBranch: string;
 
   constructor(
     sourcePath: string,

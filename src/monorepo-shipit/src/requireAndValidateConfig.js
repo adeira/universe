@@ -3,6 +3,8 @@
 import { invariant } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
+import type { ConfigType } from '../ConfigType.flow';
+
 function suggest(name: string, alternativeNames: Array<string>): string {
   return alternativeNames.sort((firstEl, secondEl) => {
     const firstScore = levenshtein.get(name, firstEl);
@@ -35,7 +37,7 @@ function validateObjectKeys(
   }
 }
 
-export default function requireAndValidateConfig(configFile: string) {
+export default function requireAndValidateConfig(configFile: string): ConfigType {
   const config = require(configFile);
   const allowedFields = new Map([
     // filed name => is required

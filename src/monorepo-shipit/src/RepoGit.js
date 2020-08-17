@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { invariant } from '@adeira/js';
-import { ShellCommand } from '@adeira/monorepo-utils';
+import { ShellCommand, ShellCommandResult } from '@adeira/monorepo-utils';
 import logger from '@adeira/logger';
 
 import parsePatch from './parsePatch';
@@ -52,7 +52,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     this.#localPath = localPath;
   }
 
-  _gitCommand = (...args: $ReadOnlyArray<string>) => {
+  _gitCommand: (...args: $ReadOnlyArray<string>) => ShellCommand = (...args) => {
     return new ShellCommand(this.#localPath, 'git', '--no-pager', ...args).setEnvironmentVariables(
       new Map([
         // https://git-scm.com/docs/git#_environment_variables
@@ -62,11 +62,11 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     );
   };
 
-  push = (destinationBranch: string) => {
+  push: (destinationBranch: string) => void = (destinationBranch) => {
     this._gitCommand('push', 'origin', destinationBranch).setOutputToScreen().runSynchronously();
   };
 
-  configure = () => {
+  configure: () => void = () => {
     const username = 'adeira-github-bot';
     for (const [key, value] of Object.entries({
       'user.email': accounts.get(username),
@@ -78,7 +78,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   // https://git-scm.com/docs/git-checkout
-  checkoutBranch = (branchName: string): void => {
+  checkoutBranch: (branchName: string) => void = (branchName) => {
     this._gitCommand(
       'checkout',
       '-B', // create (or switch to) a new branch
@@ -88,7 +88,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       .runSynchronously();
   };
 
-  clean = () => {
+  clean: () => void = () => {
     this._gitCommand(
       'clean', // remove untracked files from the working tree
       '-x', // ignore .gitignore
@@ -100,7 +100,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       .runSynchronously();
   };
 
-  isCorrupted = (): boolean => {
+  isCorrupted: () => boolean = () => {
     const exitCode = this._gitCommand('fsck', '--strict')
       .setNoExceptions()
       .runSynchronously()
@@ -108,7 +108,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return exitCode !== 0;
   };
 
-  findLastSourceCommit = (roots: Set<string>): null | string => {
+  findLastSourceCommit: (roots: Set<string>) => null | string = (roots) => {
     const log = this._gitCommand(
       'log',
       '-1',
@@ -130,7 +130,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   // https://stackoverflow.com/a/5189296/3135248
-  findFirstAvailableCommit = (): string => {
+  findFirstAvailableCommit: () => string = () => {
     // Please note, the following command may return multiple roots. For example,
     // `git` repository has 6 roots (and we should take the last one).
     const rawOutput = this._gitCommand('rev-list', '--max-parents=0', 'HEAD')
@@ -140,7 +140,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return rootRevisions[rootRevisions.length - 1];
   };
 
-  getNativePatchFromID = (revision: string): string => {
+  getNativePatchFromID: (revision: string) => string = (revision) => {
     return this._gitCommand(
       'format-patch',
       '--no-renames',
@@ -155,7 +155,10 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       .getStdout();
   };
 
-  getNativeHeaderFromIDWithPatch = (revision: string, patch: string): string => {
+  getNativeHeaderFromIDWithPatch: (revision: string, patch: string) => string = (
+    revision,
+    patch,
+  ) => {
     const fullPatch = this._gitCommand(
       'format-patch',
       '--no-renames',
@@ -174,7 +177,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return fullPatch.replace(patch, '');
   };
 
-  getChangesetFromID = (revision: string): Changeset => {
+  getChangesetFromID: (revision: string) => Changeset = (revision) => {
     logger.log(`Filtering changeset for: ${revision}`);
     const patch = this.getNativePatchFromID(revision);
     const header = this.getNativeHeaderFromIDWithPatch(revision, patch);
@@ -182,7 +185,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return changeset.withID(revision);
   };
 
-  getChangesetFromExportedPatch = (header: string, patch: string): Changeset => {
+  getChangesetFromExportedPatch: (header: string, patch: string) => Changeset = (header, patch) => {
     const changeset = parsePatchHeader(header);
     const diffs = new Set();
     for (const hunk of parsePatch(patch)) {
@@ -194,7 +197,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return changeset.withDiffs(diffs);
   };
 
-  parseDiffHunk = (hunk: string) => {
+  parseDiffHunk: (hunk: string) => null | {| +body: string, +path: string |} = (hunk) => {
     const [head, tail] = splitHead(hunk, '\n');
     const match = head.match(/^diff --git [ab]\/(?:.*?) [ab]\/(?<path>.*?)$/);
     if (!match) {
@@ -206,11 +209,11 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   // TODO: originally `findNextCommit` - pls reconsider
-  findDescendantsPath = (
+  findDescendantsPath: (
     baseRevision: string,
     headRevision: string,
     roots: Set<string>,
-  ): null | $ReadOnlyArray<string> => {
+  ) => null | $ReadOnlyArray<string> = (baseRevision, headRevision, roots) => {
     const log = this._gitCommand(
       'log',
       '--reverse',
@@ -227,7 +230,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return trimmedLog === '' ? null : trimmedLog.split('\n');
   };
 
-  commitPatch = (changeset: Changeset): string => {
+  commitPatch: (changeset: Changeset) => string = (changeset) => {
     if (changeset.getDiffs().size === 0) {
       // This is an empty commit, which `git am` does not handle properly.
       this._gitCommand(
@@ -254,7 +257,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return this._gitCommand('rev-parse', '--verify', 'HEAD').runSynchronously().getStdout().trim();
   };
 
-  renderPatch = (changeset: Changeset): string => {
+  renderPatch: (changeset: Changeset) => string = (changeset) => {
     let renderedDiffs = '';
     const diffs = changeset.getDiffs();
     invariant(diffs.size > 0, 'It is not possible to render empty commit.'); // https://stackoverflow.com/a/34692447
@@ -282,7 +285,10 @@ ${renderedDiffs}
    * snapshot of HEAD revision and exports it to the destination path.
    * Please note: this export is unfiltered.
    */
-  export = (exportedRepoPath: string, roots: Set<string>) => {
+  export: (exportedRepoPath: string, roots: Set<string>) => ShellCommandResult = (
+    exportedRepoPath,
+    roots,
+  ) => {
     const archivePath = path.join(exportedRepoPath, 'archive.tar.gz');
     this._gitCommand(
       'archive',

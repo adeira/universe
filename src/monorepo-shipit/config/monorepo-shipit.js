@@ -1,12 +1,14 @@
 // @flow strict
 
-module.exports = {
-  getStaticConfig(): {| repository: string |} {
+import type { ConfigType } from '../ConfigType.flow';
+
+module.exports = ({
+  getStaticConfig() {
     return {
       repository: 'git@github.com:adeira/shipit.git',
     };
   },
-  getPathMappings(): Map<string, string> {
+  getPathMappings() {
     return new Map([['src/monorepo-shipit/', '']]);
   },
-};
+}: ConfigType);

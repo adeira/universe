@@ -1,10 +1,13 @@
 // @flow strict
 
-module.exports = {
-  getStrippedFiles(): Set<RegExp> {
+import type { ConfigType } from '../../../../ConfigType.flow';
+
+// $FlowExpectedError[prop-missing]
+module.exports = ({
+  getStrippedFiles() {
     return new Set<RegExp>([/__github__/]);
   },
-  getStaticConfig(): { repository: string, ... } {
+  getStaticConfig() {
     return {
       repository: 'git@github.com/adeira/relay-example.git',
     };
@@ -12,4 +15,4 @@ module.exports = {
   defaultPathMappings() {
     // this configuration is not supported and should be removed (should be 'getPathMappings')
   },
-};
+}: ConfigType);
