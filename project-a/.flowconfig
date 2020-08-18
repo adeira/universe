@@ -1,10 +1,13 @@
 [ignore]
 <PROJECT_ROOT>/\.git/.*
 
+
 [include]
+
 
 [libs]
 ./flow-typed/
+
 
 [lints]
 all=error
@@ -13,15 +16,21 @@ sketchy-null-bool=off
 unclear-type=off
 untyped-import=off
 
+
 [options]
 types_first=true
 module.ignore_non_literal_requires=true
+
+; TODO: this is probably not a good idea (because of Universe)
+module.name_mapper='^src' ->'<PROJECT_ROOT>/src'
+
 
 [strict]
 ambiguous-object-type
 sketchy-null-bool
 unclear-type
 untyped-import
+
 
 [declarations]
 .+/node_modules/.+
