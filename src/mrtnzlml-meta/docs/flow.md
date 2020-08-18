@@ -152,6 +152,8 @@ bin/flow status <ROOT>
 
 ## Types-first architecture
 
+See: https://medium.com/flow-type/types-first-a-scalable-new-architecture-for-flow-3d8c7ba1d4eb
+
 Types-first is a new architecture which significantly improves the overall performance. It requires a bunch more type annotations (which is why it wasn't recommended widely yet) but it's production-ready and everything is way faster if you add the needed type annotations. You can enable it like so:
 
 ```ini
@@ -164,10 +166,15 @@ It requires that every exported type be annotated and I'd certainly recommend it
 
 > The reason we needed to get the enforcement right for input positions in 0.85 was to enable things like flow autofix to actually be able to infer types. With the input annotations we can infer the output ones and insert them via a codemod!
 
-You can codeshift the codebase like so (manual changes recommended):
+You can codeshift the codebase like so (see: https://flow.org/en/docs/cli/annotate-exports/; manual changes recommended):
 
 ```text
-$ flow autofix exports --help
+flow codemod annotate-exports \
+  --write \
+  --repeat \
+  --log-level info \
+  /path/to/folder \
+  2> out.log
 ```
 
 It is better to migrate the codebase gradually step by step like so:
@@ -175,8 +182,8 @@ It is better to migrate the codebase gradually step by step like so:
 ```ini
 experimental.types_first=false
 experimental.well_formed_exports=true
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/js
-experimental.well_formed_exports.whitelist=<PROJECT_ROOT>/src/packages/relay
+experimental.well_formed_exports.includes=<PROJECT_ROOT>/src/packages/js
+experimental.well_formed_exports.includes=<PROJECT_ROOT>/src/packages/relay
 ; ...
 ```
 
