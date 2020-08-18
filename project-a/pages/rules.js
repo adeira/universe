@@ -3,7 +3,7 @@
 import * as React from 'react';
 import fbt from 'fbt';
 
-import Emoji from './Emoji';
+import Emoji from 'src/Emoji';
 
 export default function Rules(): React.Node {
   return (
