@@ -51,7 +51,7 @@ const localUpdater = (store) => {
   }
 };
 
-module.exports = {
+module.exports = ({
   commitMutation: {
     correctUsageA(props: PropsA): Disposable {
       return commitMutation(props.relay.environment, mutationConfig);
@@ -112,4 +112,4 @@ module.exports = {
       return commitLocalUpdate(ManuallyCreatedEnvironment, localUpdater);
     },
   },
-};
+}: $FlowFixMe);

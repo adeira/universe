@@ -2,7 +2,7 @@
 
 import { graphql } from '../index';
 
-module.exports = {
+module.exports = ({
   correctUsage() {
     return graphql`
       query graphql_correctUsage {
@@ -17,4 +17,4 @@ module.exports = {
     // $FlowExpectedError: input should be only string
     return graphql([1, 2]);
   },
-};
+}: $FlowFixMe);

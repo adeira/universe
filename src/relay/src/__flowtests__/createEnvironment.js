@@ -6,7 +6,7 @@ const getOperation = (reference: mixed) => {
   return import(`./src/__generated__/${reference}`);
 };
 
-module.exports = {
+module.exports = ({
   validMinimalUsage: () => {
     return createEnvironment({
       fetchFn: () => false,
@@ -33,4 +33,4 @@ module.exports = {
       fetcherFn: () => false,
     });
   },
-};
+}: $FlowFixMe);

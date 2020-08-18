@@ -14,6 +14,11 @@ type Caller = {|
   +name: string,
 |};
 
+type BabelConfig = {|
+  +presets: $ReadOnlyArray<string | [string, { ... }]>,
+  +babelrcRoots: $ReadOnlyArray<string>,
+|};
+
 */
 
 function isWebpack(caller) /*: boolean %checks */ {
@@ -21,7 +26,7 @@ function isWebpack(caller) /*: boolean %checks */ {
   return !!(caller && caller.name === 'babel-loader');
 }
 
-module.exports = function(api /*: ApiType */) {
+module.exports = function (api /*: ApiType */) /*: BabelConfig */ {
   api.assertVersion(7);
 
   return {

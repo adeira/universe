@@ -10,7 +10,7 @@ const query = graphql`
 `;
 const variables = {};
 
-module.exports = {
+module.exports = ({
   validUsage: () => {
     return fetchQuery(environment, query, variables);
   },
@@ -20,4 +20,4 @@ module.exports = {
     // $FlowExpectedError: Cannot call fetchQuery because function [1] requires another argument.
     return fetchQuery(environment, query);
   },
-};
+}: $FlowFixMe);

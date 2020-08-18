@@ -3,14 +3,13 @@
 
 import * as React from 'react';
 
-import { createRefetchContainer, graphql } from '../index';
+import { createRefetchContainer, graphql, type RefetchContainerType } from '../index';
 
-// $FlowExpectedError: Missing type annotation for props.
 function FunctionalFragmentExport(props) {
   return <div {...props} />;
 }
 
-export default createRefetchContainer(
+export default (createRefetchContainer(
   FunctionalFragmentExport,
   {
     functionalComponents: graphql`
@@ -24,4 +23,4 @@ export default createRefetchContainer(
       ...createRefetchContainerMissingProps_data
     }
   `,
-);
+): RefetchContainerType<{||}>);

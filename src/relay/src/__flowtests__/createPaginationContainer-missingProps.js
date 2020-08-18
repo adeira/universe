@@ -3,14 +3,13 @@
 
 import * as React from 'react';
 
-import { createPaginationContainer, graphql } from '../index';
+import { createPaginationContainer, graphql, type PaginationContainerType } from '../index';
 
-// $FlowExpectedError: Missing type annotation for props.
 function FunctionalFragmentExport(props) {
   return <div {...props} />;
 }
 
-export default createPaginationContainer(
+export default (createPaginationContainer(
   FunctionalFragmentExport,
   {
     functionalComponents: graphql`
@@ -27,4 +26,4 @@ export default createPaginationContainer(
       }
     `,
   },
-);
+): PaginationContainerType<{||}>);
