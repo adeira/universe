@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-global-id",
   "license": "MIT",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
