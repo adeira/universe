@@ -2,10 +2,18 @@
 
 import * as React from 'react';
 
-// import KochkaIcon from './KochkaIcon.svg';
+import KochkaIcon from '../src/svg/KochkaIcon';
 
-export default class Home extends React.Component<{||}> {
-  render(): React.Node {
-    return <>{/* <img src={KochkaIcon} className="Home-logo" alt="logo" /> */}</>;
-  }
+export default function Home(): React.Node {
+  return (
+    <div style={{ width: 150, height: 150 }}>
+      <KochkaIcon />
+      <h1>KOCHKA</h1>
+      <h2>CAFÉ</h2>
+      <p>TODO: address</p>
+      <p>TODO: opening hours</p>
+      <p>TODO: contact (?)</p>
+      <p>TODO: social networks</p>
+    </div>
+  );
 }

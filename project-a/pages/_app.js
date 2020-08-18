@@ -1,9 +1,11 @@
 // @flow
 
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import fbt, { IntlVariations, init } from 'fbt';
 
 import './_app.css';
+import Navigation from '../src/Navigation';
 
 type SupportedLocales = 'en_US' | 'es_LA';
 function initTranslations(locale: SupportedLocales) {
@@ -21,6 +23,15 @@ function initTranslations(locale: SupportedLocales) {
 }
 
 initTranslations('en_US');
+
+if (
+  __DEV__ &&
+  typeof window !== 'undefined' // process.browser should work as well (https://github.com/vercel/next.js/issues/2473#issuecomment-362119102)
+) {
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  const axe = require('react-axe');
+  axe(React, ReactDOM, 1000);
+}
 
 type Props = {|
   +Component: any,
@@ -50,13 +61,10 @@ export default function App({ Component, pageProps }: Props): React.Node {
 
   return (
     <React.Fragment key={locale}>
-      <div>
-        <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
-          <fbt desc="the main language toggle">
-            Switch to <fbt:param name="language name">{locales[nextLocale]}</fbt:param>
-          </fbt>
-        </button>
-      </div>
+      <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
+        {locales[nextLocale]}
+      </button>
+      <Navigation />
       <Component {...pageProps} />
     </React.Fragment>
   );

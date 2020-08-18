@@ -2223,7 +2223,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
   integrity sha512-zg7Hz2k5lI8kb7U32998pRRFin7zJlkfezGJjUc2heaD4Pw2wObakCDVzkKztTm/Ln7eiVvYsjqak0Ed4LkMDA==
 
-axe-core@^3.5.4:
+axe-core@^3.5.0, axe-core@^3.5.4:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.5.tgz#84315073b53fa3c0c51676c588d59da09a192227"
   integrity sha512-5P0QZ6J5xGikH780pghEdbEKijCTrruK9KxtPZCFWUpef0f6GipO+xEZ5GKCb020mmqgbiNO6TcA55CriL784Q==
@@ -7146,6 +7146,14 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-axe@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/react-axe/-/react-axe-3.5.3.tgz#38dac84e20cdf3e09e5752eb405b30c5ac845fa8"
+  integrity sha512-WDKAoLVsC6rsmYboXThY7OnVDaQOOOecySHJJjggn1cFOJyWtzNh2uiV3oSxoAolONGTi22G9zKDxw53g/8Vqg==
+  dependencies:
+    axe-core "^3.5.0"
+    requestidlecallback "^0.3.0"
+
 react-dom@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
@@ -7391,6 +7399,11 @@ request@^2.88.2:
     tough-cookie "~2.5.0"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
+
+requestidlecallback@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/requestidlecallback/-/requestidlecallback-0.3.0.tgz#6fb74e0733f90df3faa4838f9f6a2a5f9b742ac5"
+  integrity sha1-b7dOBzP5DfP6pIOPn2oqX5t0KsU=
 
 require-directory@^2.1.1:
   version "2.1.1"
