@@ -1,5 +1,7 @@
 // @flow
 
+import type { Disposable } from '@adeira/relay-runtime';
+
 import {
   graphql,
   commitMutation,
@@ -51,20 +53,20 @@ const localUpdater = (store) => {
 
 module.exports = {
   commitMutation: {
-    correctUsageA(props: PropsA) {
+    correctUsageA(props: PropsA): Disposable {
       return commitMutation(props.relay.environment, mutationConfig);
     },
-    correctUsageB(props: PropsB) {
+    correctUsageB(props: PropsB): Disposable {
       return commitMutation(props.relay.environment, mutationConfig);
     },
-    correctUsageC(props: PropsC) {
+    correctUsageC(props: PropsC): Disposable {
       return commitMutation(props.relay.environment, mutationConfig);
     },
-    incorrectUsageA(props: PropsInvalid) {
+    incorrectUsageA(props: PropsInvalid): Disposable {
       // $FlowExpectedError: this environment is invalid and should not be accepted
       return commitMutation(props.relay.environment, mutationConfig);
     },
-    incorrectUsageB() {
+    incorrectUsageB(): Disposable {
       // environment _should_ be passed down from props (currently no error)
       return commitMutation(ManuallyCreatedEnvironment, mutationConfig);
     },
@@ -92,20 +94,20 @@ module.exports = {
     },
   },
   commitLocalUpdate: {
-    correctUsageA(props: PropsA) {
+    correctUsageA(props: PropsA): void {
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
-    correctUsageB(props: PropsB) {
+    correctUsageB(props: PropsB): void {
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
-    correctUsageC(props: PropsC) {
+    correctUsageC(props: PropsC): void {
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
-    incorrectUsageA(props: PropsInvalid) {
+    incorrectUsageA(props: PropsInvalid): void {
       // $FlowExpectedError: this environment is invalid and should not be accepted
       return commitLocalUpdate(props.relay.environment, localUpdater);
     },
-    incorrectUsageB() {
+    incorrectUsageB(): void {
       // environment _should_ be passed down from props (currently no error)
       return commitLocalUpdate(ManuallyCreatedEnvironment, localUpdater);
     },

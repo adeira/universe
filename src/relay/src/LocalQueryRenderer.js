@@ -27,7 +27,7 @@ type Props<T> =
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.
-export default function LocalQueryRenderer<T>(props: Props<T>) {
+export default function LocalQueryRenderer<T>(props: Props<T>): React.Node {
   function renderQueryRendererResponse({ props: rendererProps }) {
     if (!rendererProps) {
       return props.onLoading ? (

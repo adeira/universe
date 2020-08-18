@@ -16,7 +16,7 @@ export const forceFetch = (cacheConfig: {| +force?: ?boolean |}): boolean %check
   return !!(cacheConfig && cacheConfig.force);
 };
 
-export const handleData = (response: Response) => {
+export const handleData = (response: Response): Promise<$FlowFixMe> | Promise<string> => {
   const contentType = response.headers.get('content-type');
   if (contentType != null && contentType.indexOf('application/json') !== -1) {
     return response.json();
@@ -67,7 +67,9 @@ export function getRequestBody(
   return getRequestBodyWithoutUplodables(request, variables);
 }
 
-export const getHeaders = (uploadables: ?Uploadables) => {
+export const getHeaders = (
+  uploadables: ?Uploadables,
+): {| +Accept: string, +'Content-type'?: string |} => {
   if (uploadables) {
     return {
       Accept: '*/*',

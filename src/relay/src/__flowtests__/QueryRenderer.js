@@ -11,7 +11,7 @@ function placeholder() {
 const environment = createLocalEnvironment();
 
 module.exports = {
-  minimalUsage() {
+  minimalUsage(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -23,7 +23,7 @@ module.exports = {
       />
     );
   },
-  minimalWithVariables() {
+  minimalWithVariables(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -36,7 +36,7 @@ module.exports = {
       />
     );
   },
-  minimalUsageExtended() {
+  minimalUsageExtended(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -50,7 +50,7 @@ module.exports = {
       />
     );
   },
-  customEnvironment() {
+  customEnvironment(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -63,7 +63,7 @@ module.exports = {
       />
     );
   },
-  customImplementation() {
+  customImplementation(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -76,7 +76,7 @@ module.exports = {
       />
     );
   },
-  validCacheConfig() {
+  validCacheConfig(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -89,7 +89,7 @@ module.exports = {
       />
     );
   },
-  withVariables() {
+  withVariables(): React.Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -104,15 +104,15 @@ module.exports = {
   },
 
   // ERRORS:
-  missingQuery1() {
+  missingQuery1(): React.Node {
     // $FlowExpectedError: missing query property
     return <QueryRenderer onResponse={placeholder} />;
   },
-  missingQuery2() {
+  missingQuery2(): React.Node {
     // $FlowExpectedError: missing query property
     return <QueryRenderer render={placeholder} />;
   },
-  missingOnResponseOrRender() {
+  missingOnResponseOrRender(): React.Node {
     return (
       // $FlowExpectedError: must use 'onResponse' or 'render' property
       <QueryRenderer
@@ -124,7 +124,7 @@ module.exports = {
       />
     );
   },
-  mixedRenderAndOnResponse() {
+  mixedRenderAndOnResponse(): React.Node {
     return (
       // $FlowExpectedError: use 'onResponse' or 'render' but not both
       <QueryRenderer
@@ -138,7 +138,7 @@ module.exports = {
       />
     );
   },
-  invalidCacheConfig() {
+  invalidCacheConfig(): React.Node {
     return (
       // $FlowExpectedError: this cache config is not valid
       <QueryRenderer
@@ -152,7 +152,7 @@ module.exports = {
       />
     );
   },
-  invalidVariablesValue() {
+  invalidVariablesValue(): React.Node {
     return (
       // $FlowExpectedError: variables can be object or undefined but nothing else
       <QueryRenderer
