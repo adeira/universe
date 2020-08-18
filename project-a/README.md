@@ -20,3 +20,7 @@ curl -X POST https://api.poeditor.com/v2/terms/add \
      -d id="366279" \
      -d data="[{\"term\":\"Add new list\"}]"
 ```
+
+## SVGs
+
+https://svg2jsx.com/

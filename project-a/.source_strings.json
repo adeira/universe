@@ -2,12 +2,40 @@
  "phrases": [
   {
    "hashToText": {
+    "cOPTdTvU9otUSM39tpvTKQ==": "Homepage"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 11,
+   "col_beg": 10,
+   "line_end": 11,
+   "col_end": 64,
+   "desc": "navigation link to homepage",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Homepage"
+  },
+  {
+   "hashToText": {
+    "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 16,
+   "col_beg": 10,
+   "line_end": 16,
+   "col_end": 62,
+   "desc": "navigation link to rules",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Our rules"
+  },
+  {
+   "hashToText": {
     "r1fMqYovBqYhpsFe0114fw==": "English"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 40,
+   "line_beg": 51,
    "col_beg": 11,
-   "line_end": 40,
+   "line_end": 51,
    "col_end": 54,
    "desc": "en_US locale name",
    "project": "",
@@ -19,28 +47,14 @@
     "QfYfvxrmeuL3vLyxQ1o4Rg==": "Spanish"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 41,
+   "line_beg": 52,
    "col_beg": 11,
-   "line_end": 41,
+   "line_end": 52,
    "col_end": 54,
    "desc": "es_LA locale name",
    "project": "",
    "type": "text",
    "jsfbt": "Spanish"
-  },
-  {
-   "hashToText": {
-    "e3QIZTGJM5C7U8Q+kUcnqw==": "Switch to {language name}"
-   },
-   "filepath": "pages/_app.js",
-   "line_beg": 55,
-   "col_beg": 10,
-   "line_end": 57,
-   "col_end": 16,
-   "desc": "the main language toggle",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Switch to {language name}"
   },
   {
    "hashToText": {
