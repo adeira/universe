@@ -1,6 +1,11 @@
 // @flow
 
+import * as React from 'react';
 import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
+
+import type { RelayProp } from './createFragmentContainer';
+import type { RefetchRelayProp } from './createRefetchContainer';
+import type { PaginationRelayProp } from './createPaginationContainer';
 
 export type RequestNode = $FlowFixMe;
 export type Uploadables = { +[key: string]: File | Blob, ... };
@@ -75,3 +80,11 @@ type NodeDeleteConfig = {|
   +connectionName?: string,
   +deletedIDFieldName: string,
 |};
+
+export type FragmentContainerType<Props> = React.ComponentType<$RelayProps<Props, RelayProp>>;
+
+export type RefetchContainerType<Props> = React.ComponentType<$RelayProps<Props, RefetchRelayProp>>;
+
+export type PaginationContainerType<Props> = React.ComponentType<
+  $RelayProps<Props, PaginationRelayProp>,
+>;

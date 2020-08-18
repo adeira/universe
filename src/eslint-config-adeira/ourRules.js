@@ -1,5 +1,11 @@
 // @flow strict
 
+/*::
+
+import type { EslintConfigRules } from './EslintConfig.flow';
+
+*/
+
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
@@ -10,7 +16,7 @@ const NEXT_VERSION_ERROR = 3; // special value changed later depending on the re
 // in the future versions. This change requires major version bump. It's not
 // safe to immediately switch from OFF to ERROR. Some time for migration is
 // needed (WARN serves this purpose).
-module.exports = {
+module.exports = ({
   // Possible Errors (http://eslint.org/docs/rules/#possible-errors)
   'for-direction': ERROR,
   'getter-return': ERROR,
@@ -665,4 +671,4 @@ module.exports = {
   'adeira/valid-test-folder': ERROR,
   'adeira/no-duplicate-import-type-import': ERROR,
   'adeira/graphql-require-object-description': WARN,
-};
+} /*: EslintConfigRules */);

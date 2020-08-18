@@ -1,5 +1,22 @@
 # Unreleased
 
+- Added new Flow utils `FragmentContainerType`, `RefetchContainerType` and `PaginationContainerType` which will help you to migrate to the new `types-first` Flow architecture (https://medium.com/flow-type/types-first-a-scalable-new-architecture-for-flow-3d8c7ba1d4eb). Example:
+
+  ```js
+  import { createFragmentContainer, graphql, type FragmentContainerType } from '@adeira/relay';
+
+  // ...
+
+  export default (createFragmentContainer(Location, {
+    location: graphql`
+      fragment Location_location on Location {
+        name
+        country
+      }
+    `,
+  }): FragmentContainerType<Props>);
+  ```
+
 # 2.0.2
 
 - Upgrade relay to 10.0.1

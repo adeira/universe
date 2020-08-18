@@ -55,7 +55,7 @@ const ClassComponent = class extends React.Component<Props> {
   }
 };
 
-module.exports = {
+module.exports = ({
   functionalComponents: getTestCases(
     createFragmentContainer(FunctionalComponent, {
       functionalComponents: graphql`
@@ -87,4 +87,4 @@ module.exports = {
       `,
     ),
   ),
-};
+}: $FlowFixMe);

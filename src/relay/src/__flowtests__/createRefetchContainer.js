@@ -7,7 +7,7 @@ type Props = {|
   +relay: RefetchRelayProp,
 |};
 
-module.exports = {
+module.exports = ({
   validUsage() {
     return createRefetchContainer(
       (props: Props) => {
@@ -27,4 +27,4 @@ module.exports = {
       `,
     );
   },
-};
+}: $FlowFixMe);

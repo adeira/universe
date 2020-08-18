@@ -9,7 +9,7 @@ type Props = {|
   +relay: PaginationRelayProp,
 |};
 
-module.exports = {
+module.exports = ({
   validUsage() {
     return createPaginationContainer(
       (props: Props) => {
@@ -35,4 +35,4 @@ module.exports = {
       },
     );
   },
-};
+}: $FlowFixMe);

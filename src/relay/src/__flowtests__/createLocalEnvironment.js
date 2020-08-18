@@ -2,7 +2,7 @@
 
 import { createLocalEnvironment } from '../index';
 
-module.exports = {
+module.exports = ({
   validMinimalUsage: () => {
     return createLocalEnvironment();
   },
@@ -14,4 +14,4 @@ module.exports = {
       something: false,
     });
   },
-};
+}: $FlowFixMe);
