@@ -43,3 +43,23 @@ blockquote {
 * * * * * * * * { background-color: rgba(0,255,0,.2); }
 * * * * * * * * * { background-color: rgba(0,0,255,.2); }
 */
+
+/*
+h2 ~ h1,
+h3 ~ h1,
+h4 ~ h1,
+h5 ~ h1,
+h6 ~ h1,
+h3 ~ h2:first-of-type,
+h4 ~ h2:first-of-type,
+h5 ~ h2:first-of-type,
+h6 ~ h2:first-of-type,
+h4 ~ h3:first-of-type,
+h5 ~ h3:first-of-type,
+h6 ~ h3:first-of-type,
+h5 ~ h4:first-of-type,
+h6 ~ h4:first-of-type,
+h6 ~ h5:first-of-type {
+  border: 2px dotted red !important;
+}
+*/

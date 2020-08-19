@@ -31,6 +31,40 @@ TODO:
 - https://github.com/zth/relay-utils
 - https://github.com/zth/reason-relay
 
+## Relay Developer Tools
+
+You can find Relay Devtools here: https://chrome.google.com/webstore/detail/relay-developer-tools/ncedobpgnmkhcmnnkcimnobpfepidadl/related
+
+Don't confuse them with the old devtools. This version is the new one:
+
+![GraphQL response overfetching example](/img/relay-new-devtools.png)
+
+Alternatively, you can also access the store directly (similarly to how the devtools are doing) from your dev console. To do so, you simply need to register a `__RELAY_DEVTOOLS_HOOK__` **before** creating your Relay Environment:
+
+```js
+if (
+  process.env.NODE_ENV === 'development' &&
+  window.__RELAY_DEVTOOLS_HOOK__ === undefined &&
+  window.__RELAY__ === undefined
+) {
+  window.__RELAY_DEVTOOLS_HOOK__ = {
+    registerEnvironment: (environment: Environment) => {
+      window.__RELAY__ = {
+        store: (dataID: string | null = null) => {
+          const source = environment.getStore().getSource();
+          if (dataID === null) {
+            return source.toJSON();
+          }
+          return source.get(dataID);
+        },
+      };
+    },
+  };
+}
+```
+
+The usage is simple: call `__RELAY__.store()` from your console _or_ call it with some record ID which is in the store `__RELAY__.store('client:root')`. Both of these calls should print the Relay Store content or the single record content respectively.
+
 ## Relay Config (`relay.config.js`)
 
 Relay supports configuration via CLI but also via configuration files using official NPM package [`relay-config`](https://www.npmjs.com/package/relay-config). Configuration files work only when you install this package. Relay Config relies on [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to do its bidding. It’s configured to load from:
