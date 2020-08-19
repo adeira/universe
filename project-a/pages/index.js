@@ -16,7 +16,11 @@ export default function Home(): React.Node {
         <h2>CAFÉ</h2>
       </div>
       <div className={sx(styles.info)}>
-        <p>Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico</p>
+        <p>
+          <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
+            Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
+          </a>
+        </p>
         <p>TODO: opening hours</p>
         <p>TODO: contact (?)</p>
         <p>TODO: social networks</p>

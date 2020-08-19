@@ -62,13 +62,13 @@ export default function App({ Component, pageProps }: Props): React.Node {
 
   return (
     <div key={locale} className={sx(styles.root)}>
-      <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
-        {locales[nextLocale]}
-      </button>
       <Navigation />
       <div className={sx(styles.content)}>
         <Component {...pageProps} />
       </div>
+      <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
+        {locales[nextLocale]}
+      </button>
     </div>
   );
 }

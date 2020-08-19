@@ -32,6 +32,7 @@ type SheetDefinitions = {|
 
 // https://reactnative.dev/docs/stylesheet
 // https://twitter.com/wongmjane/status/1187411809667436550
+// TODO: improve the types so that Flow suggestions work correctly (and it type checks)
 function sx(styleDefinition: StyleSheet): string {
   /* $FlowExpectedError: This is intentional. We type it so that it looks like we accept the style
    * sheet, however, we are actually getting here the already generated class names. */
