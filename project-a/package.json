@@ -13,6 +13,7 @@
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
+    "@adeira/murmur-hash": "^0.1.0",
     "@babel/register": "^7.10.5",
     "babel-plugin-fbt": "^0.15.0",
     "babel-plugin-fbt-runtime": "^0.9.12",

@@ -3,11 +3,22 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+import { renderStatic } from '../src/sx';
+
+type InitialProps = {|
+  +renderPage: () => $FlowFixMe,
+|};
+
 export default class MyDocument extends Document {
-  // static async getInitialProps(ctx) {
-  //   const initialProps = await Document.getInitialProps(ctx);
-  //   return { ...initialProps };
-  // }
+  static getInitialProps({
+    renderPage,
+  }: InitialProps): Promise<{|
+    +html: $FlowFixMe,
+    +css: string,
+  |}> {
+    const { html, css } = renderStatic(renderPage);
+    return { ...html, css };
+  }
 
   render(): React.Node {
     return (
@@ -16,7 +27,9 @@ export default class MyDocument extends Document {
           'en' // TODO: dynamic if possible
         }
       >
-        <Head />
+        <Head>
+          <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+        </Head>
         <body>
           <Main />
           <NextScript />
