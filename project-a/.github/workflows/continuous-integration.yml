@@ -4,7 +4,7 @@ on: [push]
 
 env:
   CI: true
-  FORCE_COLOR: "1" # https://github.com/chalk/chalk/issues/203
+  FORCE_COLOR: '1' # https://github.com/chalk/chalk/issues/203
 
 jobs:
   build:
@@ -24,5 +24,6 @@ jobs:
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
-          yarn run lint
           yarn run flow
+          yarn run lint
+          yarn run test

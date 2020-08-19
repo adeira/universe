@@ -2,20 +2,11 @@
 
 import murmurHash from '@adeira/murmur-hash';
 
+import transformValue from './transformValue';
+
 function transformStyleName(styleName: string): string {
   // TODO: improve (it's naive, but does the job)
   return styleName.replace(/[A-Z]/g, (s) => `-${s.toLowerCase()}`);
-}
-
-function transformValue(styleName: string, styleValue: string | number): string | number {
-  // TODO:
-  //  - simplify #ffffff to #fff
-  //  - generate font-sizes using REMs (https://engineering.fb.com/web/facebook-com-accessibility/)
-  //  - postcss + autoprefixer (?)
-  if (typeof styleValue === 'number') {
-    return isUnitlessNumber[styleName] ? styleValue : `${styleValue}px`;
-  }
-  return styleValue;
 }
 
 // Here we are collecting all the styles while doing SSR.
@@ -60,7 +51,7 @@ sx.create = function create(sheetDefinitions: SheetDefinitions): SheetDefinition
       styleBuffer.set(
         hash,
         // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
-        `${transformedStyleName}:${transformValue(transformedStyleName, styleValue)}`,
+        `${transformedStyleName}:${transformValue(styleName, styleValue)}`,
       );
       hashes.add(hash);
     }
@@ -70,54 +61,3 @@ sx.create = function create(sheetDefinitions: SheetDefinitions): SheetDefinition
 };
 
 export default sx;
-
-/**
- * CSS properties which accept numbers but are not in units of "px".
- * https://github.com/facebook/react/blob/87b3e2d257e49b6d2c8e662830fc8f3c7d62f85f/packages/react-dom/src/shared/CSSProperty.js
- */
-export const isUnitlessNumber = {
-  animationIterationCount: true,
-  borderImageOutset: true,
-  borderImageSlice: true,
-  borderImageWidth: true,
-  boxFlex: true,
-  boxFlexGroup: true,
-  boxOrdinalGroup: true,
-  columnCount: true,
-  columns: true,
-  flex: true,
-  flexGrow: true,
-  flexPositive: true,
-  flexShrink: true,
-  flexNegative: true,
-  flexOrder: true,
-  gridArea: true,
-  gridRow: true,
-  gridRowEnd: true,
-  gridRowSpan: true,
-  gridRowStart: true,
-  gridColumn: true,
-  gridColumnEnd: true,
-  gridColumnSpan: true,
-  gridColumnStart: true,
-  fontWeight: true,
-  lineClamp: true,
-  lineHeight: true,
-  opacity: true,
-  order: true,
-  orphans: true,
-  tabSize: true,
-  widows: true,
-  zIndex: true,
-  zoom: true,
-
-  // SVG-related properties
-  fillOpacity: true,
-  floodOpacity: true,
-  stopOpacity: true,
-  strokeDasharray: true,
-  strokeDashoffset: true,
-  strokeMiterlimit: true,
-  strokeOpacity: true,
-  strokeWidth: true,
-};
