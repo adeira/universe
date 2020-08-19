@@ -69,6 +69,13 @@
     glob "^7.1.6"
     is-ci "^2.0.0"
 
+"@adeira/murmur-hash@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/murmur-hash/-/murmur-hash-0.1.0.tgz#ed79f38f20da3616d7c6be62bb9c08dfb9a155d1"
+  integrity sha512-UMMmb0XQ9eZYUiYyRTJt7xPQduHyYsTb1FLry4ERij/0fIjD4VJk/8skxLMM24CrdeYxgLkXvkzmOkPsrhw81A==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+
 "@ampproject/toolbox-core@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@ampproject/toolbox-core/-/toolbox-core-2.6.0.tgz#9824d5f133d82106a9bf0774920843c69fa5c869"

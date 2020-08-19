@@ -6,6 +6,7 @@ import fbt, { IntlVariations, init } from 'fbt';
 
 import './_app.css';
 import Navigation from '../src/Navigation';
+import sx from '../src/sx';
 
 type SupportedLocales = 'en_US' | 'es_LA';
 function initTranslations(locale: SupportedLocales) {
@@ -60,12 +61,32 @@ export default function App({ Component, pageProps }: Props): React.Node {
   }
 
   return (
-    <React.Fragment key={locale}>
+    <div key={locale} className={sx(styles.root)}>
       <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
         {locales[nextLocale]}
       </button>
       <Navigation />
-      <Component {...pageProps} />
-    </React.Fragment>
+      <div className={sx(styles.content)}>
+        <Component {...pageProps} />
+      </div>
+    </div>
   );
 }
+
+const styles = sx.create({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: '#6c1610',
+    color: '#fff',
+    height: '100vh',
+  },
+  content: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
