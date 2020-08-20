@@ -20,28 +20,31 @@ it('returns correct style names', () => {
   });
 
   expect(styles('aaa')).toBe('');
-  expect(styles('bbb')).toBe(hashStyle('{"color":"white"}'));
-  expect(styles('ccc')).toBe(`${hashStyle('{"color":"white"}')} ${hashStyle('{"zIndex":10}')}`);
-  expect(styles('ccc')).toMatchInlineSnapshot(`"_1srGyL _4FosMJ"`);
+  expect(styles('bbb')).toBe(hashStyle('color#white'));
+  expect(styles('ccc')).toBe(`${hashStyle('color#white')} ${hashStyle('zIndex#10')}`);
+  expect(styles('ccc')).toMatchInlineSnapshot(`"_2JOURe _4hmVar"`);
 });
 
 it('supports multiple styles', () => {
   // Why is this important? See:
   // https://youtu.be/9JZHodNR184?t=334
 
+  const redHash = hashStyle('color#red');
+  const blueHash = hashStyle('color#blue');
+
   expect(
     create({
       red: { color: 'red' },
       blue: { color: 'blue' },
     })('red', 'blue'),
-  ).toBe(`${hashStyle('{"color":"red"}')} ${hashStyle('{"color":"blue"}')}`);
+  ).toBe(`${redHash} ${blueHash}`);
 
   expect(
     create({
       red: { color: 'red' },
       blue: { color: 'blue' },
     })('blue', 'red'),
-  ).toBe(`${hashStyle('{"color":"blue"}')} ${hashStyle('{"color":"red"}')}`);
+  ).toBe(`${blueHash} ${redHash}`);
 
   // changed order of style definitions:
   expect(
@@ -49,14 +52,14 @@ it('supports multiple styles', () => {
       blue: { color: 'blue' },
       red: { color: 'red' },
     })('blue', 'red'),
-  ).toBe(`${hashStyle('{"color":"blue"}')} ${hashStyle('{"color":"red"}')}`);
+  ).toBe(`${blueHash} ${redHash}`);
 
   expect(
     create({
       blue: { color: 'blue' },
       red: { color: 'red' },
     })('red', 'blue'),
-  ).toBe(`${hashStyle('{"color":"red"}')} ${hashStyle('{"color":"blue"}')}`);
+  ).toBe(`${redHash} ${blueHash}`);
 
   // multiple styles:
   expect(
@@ -64,16 +67,12 @@ it('supports multiple styles', () => {
       red: { color: 'red', zIndex: 1 },
       blue: { color: 'blue' },
     })('red', 'blue'),
-  ).toBe(
-    `${hashStyle('{"color":"red"}')} ${hashStyle('{"zIndex":1}')} ${hashStyle('{"color":"blue"}')}`,
-  );
+  ).toBe(`${redHash} ${hashStyle('zIndex#1')} ${blueHash}`);
 
   expect(
     create({
       red: { color: 'red', zIndex: 1 },
       blue: { color: 'blue' },
     })('blue', 'red'),
-  ).toBe(
-    `${hashStyle('{"color":"blue"}')} ${hashStyle('{"color":"red"}')} ${hashStyle('{"zIndex":1}')}`,
-  );
+  ).toBe(`${blueHash} ${redHash} ${hashStyle('zIndex#1')}`);
 });
