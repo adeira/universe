@@ -2,10 +2,10 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 ## TODOs and Ideas
 
-- CSS pseudo classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+- pseudo CSS elements (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
 - media queries
 - autoprefixer via browserlist
-- babel transpilation
+- babel transpilation (compile time instead of runtime)
 - support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
 
 ## Motivation
@@ -63,6 +63,27 @@ export function ExampleComponent() {
 const styles = sx.create({
   red: { color: 'red' },
   blue: { color: 'blue' },
+});
+```
+
+### Pseudo CSS classes
+
+TKTK
+
+```jsx
+export function ExampleComponent() {
+  return <a className={styles('link', 'linkHover')}>link</a>;
+}
+
+const styles = sx.create({
+  link: {
+    textDecoration: 'none',
+  },
+  linkHover: sx.pseudo({
+    hover: {
+      textDecoration: 'underline',
+    },
+  }),
 });
 ```
 
