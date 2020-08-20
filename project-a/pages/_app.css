@@ -20,3 +20,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+:root,
+.__kk-light-mode {
+  --main-bg-color: #6c1610;
+}

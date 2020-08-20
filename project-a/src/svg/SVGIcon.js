@@ -7,7 +7,7 @@ type Props = {|
   +viewBox: string,
 |};
 
-export default function BaseSVG(props: Props): React.Node {
+export default function SVGIcon(props: Props): React.Node {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox={props.viewBox}>
       {props.children}

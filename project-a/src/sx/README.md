@@ -1,8 +1,9 @@
-TKTK (what is it)
+In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
 ## TODOs
 
-- CSS pseudo classes
+- multiple styles as an input (`styles('red', 'blue')`), TODO: test the ordering (https://youtu.be/9JZHodNR184?t=334)
+- CSS pseudo classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 - media queries
 - autoprefixer via browserlist
 - babel transpilation (long in the future)
@@ -20,7 +21,7 @@ import * as React from 'react';
 import sx from './sx'; // TODO
 
 export default function Example() {
-  return <div className={sx(styles.example)}>example</div>;
+  return <div className={styles('example')}>example</div>;
 }
 
 const styles = sx.create({

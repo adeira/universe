@@ -7,15 +7,15 @@ import KochkaIcon from '../src/svg/KochkaIcon';
 
 export default function Home(): React.Node {
   return (
-    <div className={sx(styles.root)}>
-      <div className={sx(styles.logo)}>
-        <div className={sx(styles.icon)}>
+    <div className={styles('root')}>
+      <div className={styles('logo')}>
+        <div className={styles('icon')}>
           <KochkaIcon />
         </div>
         <h1>KOCHKA</h1>
         <h2>CAFÉ</h2>
       </div>
-      <div className={sx(styles.info)}>
+      <div className={styles('info')}>
         <p>
           <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
             Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico

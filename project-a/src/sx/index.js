@@ -30,33 +30,29 @@ type SheetDefinitions = {|
   +[sheetName: string]: StyleSheet,
 |};
 
-// TODO: improve the types so that Flow suggestions work correctly (and it type checks)
-function sx(styleDefinition: StyleSheet): string {
-  /* $FlowExpectedError: This is intentional. We type it so that it looks like we accept the style
-   * sheet, however, we are actually getting here the already generated class names. */
-  return styleDefinition;
-}
-
-// The return type here is actually incorrect (on purpose). Should be `string`.
-sx.create = function create(sheetDefinitions: SheetDefinitions): SheetDefinitions {
-  const classNames = {};
-  for (const [sheetDefinitionName, sheetDefinition] of Object.entries(sheetDefinitions)) {
-    const hashes = new Set();
-    // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
-    for (const [styleName, styleValue] of Object.entries(sheetDefinition)) {
-      const style = JSON.stringify({ [styleName]: styleValue }); // TODO: stable stringify
-      const hash = murmurHash(style).replace(/^[0-9]/, (s) => `_${s}`); // CSS class cannot start with number
-      const transformedStyleName = transformStyleName(styleName);
-      styleBuffer.set(
-        hash,
+const sx: {|
+  +create: <T: SheetDefinitions>(sheetDefinitions: T) => ($Keys<T>) => string,
+|} = {
+  create: function create(sheetDefinitions) {
+    const classNames = {};
+    for (const [sheetDefinitionName, sheetDefinition] of Object.entries(sheetDefinitions)) {
+      const hashes = new Set();
+      // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
+      for (const [styleName, styleValue] of Object.entries(sheetDefinition)) {
+        const style = JSON.stringify({ [styleName]: styleValue }); // TODO: stable stringify
+        const hash = murmurHash(style).replace(/^[0-9]/, (s) => `_${s}`); // CSS class cannot start with number
+        const transformedStyleName = transformStyleName(styleName);
         // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
-        `${transformedStyleName}:${transformValue(styleName, styleValue)}`,
-      );
-      hashes.add(hash);
+        styleBuffer.set(hash, `${transformedStyleName}:${transformValue(styleName, styleValue)}`);
+        hashes.add(hash);
+      }
+      classNames[sheetDefinitionName] = Array.from(hashes).join(' ');
     }
-    classNames[sheetDefinitionName] = Array.from(hashes).join(' ');
-  }
-  return classNames;
+
+    return function sx(sheetDefinitionName) {
+      return classNames[sheetDefinitionName];
+    };
+  },
 };
 
 export default sx;
