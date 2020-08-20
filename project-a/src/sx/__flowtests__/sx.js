@@ -2,17 +2,27 @@
 
 import React, { type Node } from 'react';
 
-import create from '../create';
+import sx from '../index';
 
 export function NoErrors(): Node {
-  const styles = create({
+  const styles = sx.create({
     red: { color: 'red' },
   });
   return <div className={styles('red')} />;
 }
 
+export function NoErrorsWithPseudo(): Node {
+  const styles = sx.create({
+    red: { color: 'red' },
+    blue: sx.pseudo({
+      hover: { color: 'blue' },
+    }),
+  });
+  return <div className={styles('red', 'blue')} />;
+}
+
 export function NoErrorsMoreStylesheetNames(): Node {
-  const styles = create({
+  const styles = sx.create({
     red: { color: 'red' },
     blue: { color: 'blue' },
   });
@@ -21,7 +31,7 @@ export function NoErrorsMoreStylesheetNames(): Node {
 
 export function InvalidStylesheetName(): Node {
   // $FlowExpectedError[prop-missing]
-  const styles = create({
+  const styles = sx.create({
     red: { color: 'red' },
   });
   return <div className={styles('invalid')} />;
@@ -29,7 +39,8 @@ export function InvalidStylesheetName(): Node {
 
 export function InvalidCSSProperty(): Node {
   // $FlowExpectedError[prop-missing]
-  const styles = create({
+  const styles = sx.create({
+    // $FlowExpectedError[incompatible-call]
     red: { wtf: 'wtf' },
   });
   return <div className={styles('invalid')} />;

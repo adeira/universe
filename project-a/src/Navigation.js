@@ -10,12 +10,12 @@ export default function Navigation(): React.Node {
     <nav>
       <ul className={styles('ul')}>
         <li className={styles('li')}>
-          <a href="/" className={styles('link')}>
+          <a href="/" className={styles('link', 'linkHover')}>
             <fbt desc="navigation link to homepage">Homepage</fbt>
           </a>
         </li>
         <li className={styles('li')}>
-          <a href="/rules" className={styles('link')}>
+          <a href="/rules" className={styles('link', 'linkHover')}>
             <fbt desc="navigation link to rules">Our rules</fbt>
           </a>
         </li>
@@ -38,9 +38,14 @@ const styles = sx.create({
   },
   link: {
     textDecoration: 'none',
-    // TODO: consider something like `sx.pseudo( ... )`
-    // ':hover': {
-    //   textDecoration: 'underline',
-    // },
   },
+  linkHover: sx.pseudo({
+    hover: {
+      textDecoration: 'underline',
+      color: 'black', // TODO: remove
+    },
+    focus: {
+      color: 'red', // TODO: remove
+    },
+  }),
 });
