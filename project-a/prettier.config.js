@@ -7,4 +7,5 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   trailingComma: 'all',
+  quoteProps: 'consistent', // TODO: port to Universe
 };

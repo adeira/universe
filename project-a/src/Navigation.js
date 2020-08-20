@@ -36,7 +36,6 @@ const styles = sx.create({
     padding: 15,
     fontSize: 32,
   },
-  // TODO: Eslint quotes consistent
   link: {
     textDecoration: 'none',
     // TODO: consider something like `sx.pseudo( ... )`
