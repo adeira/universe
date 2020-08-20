@@ -10,7 +10,9 @@ type SheetDefinitions = {|
   +[sheetName: string]: AllCSSPropertyTypes,
 |};
 
-export default function create<T: SheetDefinitions>(sheetDefinitions: T): ($Keys<T>) => string {
+export default function create<T: SheetDefinitions>(
+  sheetDefinitions: T,
+): (...$ReadOnlyArray<$Keys<T>>) => string {
   const classNames = {};
   for (const [sheetDefinitionName, sheetDefinition] of Object.entries(sheetDefinitions)) {
     const hashes = new Set();
@@ -26,7 +28,11 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): ($Keys
     classNames[sheetDefinitionName] = Array.from(hashes).join(' ');
   }
 
-  return function sx(sheetDefinitionName: $Keys<T>): string {
-    return classNames[sheetDefinitionName];
+  return function sx(...sheetDefinitionNames) {
+    const classes = [];
+    for (const sheetDefinitionName of sheetDefinitionNames) {
+      classes.push(classNames[sheetDefinitionName]);
+    }
+    return classes.join(' ');
   };
 }
