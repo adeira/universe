@@ -2,12 +2,11 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 ## TODOs and Ideas
 
-- multiple styles as an input (`styles('red', 'blue')`), TODO: test the ordering (https://youtu.be/9JZHodNR184?t=334)
 - CSS pseudo classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 - media queries
 - autoprefixer via browserlist
 - babel transpilation
-- support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts) 
+- support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
 
 ## Motivation
 
@@ -49,6 +48,42 @@ The example above will generate something like this:
 ```
 
 TKTK: SSR stylesheet print
+
+## Features
+
+### Multiple stylesheets
+
+The final style depend on the order of `classNames` rather than the styles definition.
+
+```jsx
+export function ExampleComponent() {
+  return <div className={styles('red', 'blue')} />;
+}
+
+const styles = sx.create({
+  red: { color: 'red' },
+  blue: { color: 'blue' },
+});
+```
+
+### Precise Flow types
+
+```jsx
+export function ExampleComponent() {
+  return <div className={styles('aaa')} />;
+}
+
+const styles = sx.create({
+  aaa: {
+    unknownProperty: 'red', // <<< this CSS property is incorrect
+  },
+});
+```
+
+```text
+Cannot call create with object literal bound to sheetDefinitions because property unknownProperty is missing in
+AllCSSPropertyTypes [1] but exists in object literal [2] in property aaa. [prop-missing]
+```
 
 ## Prior Art
 
