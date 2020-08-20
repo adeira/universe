@@ -3,6 +3,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 ## TODOs and Ideas
 
 - pseudo CSS elements (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+- styles precedence - we must merge/overwrite identical properties with different values (https://youtu.be/9JZHodNR184?t=334)
 - media queries
 - autoprefixer via browserlist
 - babel transpilation (compile time instead of runtime)

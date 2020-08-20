@@ -20,17 +20,23 @@ it('returns correct style names', () => {
   });
 
   expect(styles('aaa')).toBe('');
-  expect(styles('bbb')).toBe(hashStyle('color#white'));
-  expect(styles('ccc')).toBe(`${hashStyle('color#white')} ${hashStyle('zIndex#10')}`);
-  expect(styles('ccc')).toMatchInlineSnapshot(`"_2JOURe _4hmVar"`);
+  expect(styles('bbb')).toBe(hashStyle('color#white#'));
+  expect(styles('ccc')).toBe(`${hashStyle('color#white#')} ${hashStyle('zIndex#10#')}`);
+  expect(styles('ccc')).toMatchInlineSnapshot(`"_1AT41S _3nbDXn"`);
 });
 
 it('supports multiple styles', () => {
-  // Why is this important? See:
-  // https://youtu.be/9JZHodNR184?t=334
+  // TODO: this should be changed to make it predictable:
+  //
+  //  blue: { color: 'blue' },
+  //  red: { color: 'red' },
+  //   +
+  //  <div className={styles('red', 'blue')}>blue</div>
+  //  <div className={styles('blue', 'red')}>red</div>
 
-  const redHash = hashStyle('color#red');
-  const blueHash = hashStyle('color#blue');
+  const redHash = hashStyle('color#red#');
+  const blueHash = hashStyle('color#blue#');
+  const ziHash = hashStyle('zIndex#1#');
 
   expect(
     create({
@@ -67,12 +73,12 @@ it('supports multiple styles', () => {
       red: { color: 'red', zIndex: 1 },
       blue: { color: 'blue' },
     })('red', 'blue'),
-  ).toBe(`${redHash} ${hashStyle('zIndex#1')} ${blueHash}`);
+  ).toBe(`${redHash} ${ziHash} ${blueHash}`);
 
   expect(
     create({
       red: { color: 'red', zIndex: 1 },
       blue: { color: 'blue' },
     })('blue', 'red'),
-  ).toBe(`${blueHash} ${redHash} ${hashStyle('zIndex#1')}`);
+  ).toBe(`${blueHash} ${redHash} ${ziHash}`);
 });

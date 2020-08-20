@@ -12,8 +12,16 @@ type SheetDefinitions = {|
     | {| +__pseudoClasses: {| +[string]: AllCSSPropertyTypes |} |},
 |};
 
-function hashStylePair(styleName: string, styleValue: string): string {
-  return hashStyle(`${styleName}#${styleValue}`);
+function hashStylePair(styleName: string, styleValue: string, pseudoClass: string = ''): string {
+  // We need to hash the pseudo-classes as well otherwise it could happen that we generate such CSS, for example:
+  //
+  //  ._2Iiue4{color:red}
+  //  ._2Iiue4:focus{color:red}
+  //
+  // That's an issue because we cannot express that it should be red ONLY when focused in HTML (it would be red always):
+  //
+  //  <a href="/rules" class="_2Iiue4">Our rules</a>
+  return hashStyle(`${styleName}#${styleValue}#${pseudoClass}`);
 }
 
 function renderStylePair(styleName, styleValue) {
@@ -36,7 +44,7 @@ export default function create<T: SheetDefinitions>(
       // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
       for (const [styleName, styleValue] of Object.entries(pseudoClassStyles)) {
         // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
-        const hash = hashStylePair(styleName, styleValue);
+        const hash = hashStylePair(styleName, styleValue, pseudoClass);
         styleBuffer.set(hash + pseudoClass, renderStylePair(styleName, styleValue));
         hashes.add(hash);
       }
