@@ -12,10 +12,8 @@ type SheetDefinitions = {|
     | {| +__pseudoClasses: {| +[string]: AllCSSPropertyTypes |} |},
 |};
 
-function hashStylePair(styleName, styleValue) {
-  // TODO: stable stringify
-  const style = JSON.stringify({ [styleName]: styleValue });
-  return hashStyle(style);
+function hashStylePair(styleName: string, styleValue: string): string {
+  return hashStyle(`${styleName}#${styleValue}`);
 }
 
 function renderStylePair(styleName, styleValue) {
@@ -37,6 +35,7 @@ export default function create<T: SheetDefinitions>(
     )) {
       // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
       for (const [styleName, styleValue] of Object.entries(pseudoClassStyles)) {
+        // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
         const hash = hashStylePair(styleName, styleValue);
         styleBuffer.set(hash + pseudoClass, renderStylePair(styleName, styleValue));
         hashes.add(hash);
@@ -49,6 +48,7 @@ export default function create<T: SheetDefinitions>(
     const hashes = new Set();
     // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
     for (const [styleName, styleValue] of Object.entries(sheetDefinition)) {
+      // $FlowIssue[incompatible-call] https://github.com/facebook/flow/issues/5838
       const hash = hashStylePair(styleName, styleValue);
       styleBuffer.set(hash, renderStylePair(styleName, styleValue));
       hashes.add(hash);

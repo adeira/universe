@@ -20,21 +20,21 @@ it('works as expected', () => {
       .css.split(' ')
       .join('\n'),
   ).toMatchInlineSnapshot(`
-    "._3YIoOd{color:red}
-    ._1m8jIp{color:blue}
-    ._3YIoOd:hover{color:red}
-    ._1m8jIp:focus{color:blue}
-    ._444sSt:focus{font-size:2rem}"
+    "._2Iiue4{color:red}
+    ._4rU9YR{color:blue}
+    ._2Iiue4:hover{color:red}
+    ._4rU9YR:focus{color:blue}
+    ._3NgSZx:focus{font-size:2rem}"
   `);
 
-  expect(styles('red')).toMatchInlineSnapshot(`"_3YIoOd"`);
-  expect(styles('blue')).toMatchInlineSnapshot(`"_1m8jIp"`);
+  expect(styles('red')).toMatchInlineSnapshot(`"_2Iiue4"`);
+  expect(styles('blue')).toMatchInlineSnapshot(`"_4rU9YR"`);
 
-  expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_3YIoOd _1m8jIp"`);
-  expect(styles('blue', 'red')).toMatchInlineSnapshot(`"_1m8jIp _3YIoOd"`);
+  expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_2Iiue4 _4rU9YR"`);
+  expect(styles('blue', 'red')).toMatchInlineSnapshot(`"_4rU9YR _2Iiue4"`);
 
-  expect(styles('red', 'redPseudo')).toMatchInlineSnapshot(`"_3YIoOd _1m8jIp _444sSt"`);
-  expect(styles('red', 'blue', 'redPseudo')).toMatchInlineSnapshot(`"_3YIoOd _1m8jIp _444sSt"`);
-  expect(styles('red', 'redPseudo', 'blue')).toMatchInlineSnapshot(`"_3YIoOd _1m8jIp _444sSt"`);
-  expect(styles('blue', 'red', 'redPseudo')).toMatchInlineSnapshot(`"_1m8jIp _3YIoOd _444sSt"`);
+  expect(styles('red', 'redPseudo')).toMatchInlineSnapshot(`"_2Iiue4 _4rU9YR _3NgSZx"`);
+  expect(styles('red', 'blue', 'redPseudo')).toMatchInlineSnapshot(`"_2Iiue4 _4rU9YR _3NgSZx"`);
+  expect(styles('red', 'redPseudo', 'blue')).toMatchInlineSnapshot(`"_2Iiue4 _4rU9YR _3NgSZx"`);
+  expect(styles('blue', 'red', 'redPseudo')).toMatchInlineSnapshot(`"_4rU9YR _2Iiue4 _3NgSZx"`);
 });
