@@ -1,12 +1,13 @@
 In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
-## TODOs
+## TODOs and Ideas
 
 - multiple styles as an input (`styles('red', 'blue')`), TODO: test the ordering (https://youtu.be/9JZHodNR184?t=334)
 - CSS pseudo classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 - media queries
 - autoprefixer via browserlist
-- babel transpilation (long in the future)
+- babel transpilation
+- support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts) 
 
 ## Motivation
 

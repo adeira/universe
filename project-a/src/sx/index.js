@@ -1,12 +1,13 @@
-// @flow strict
+// @flow
 
 import murmurHash from '@adeira/murmur-hash';
+import { paramCase } from 'change-case';
 
 import transformValue from './transformValue';
+import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
 
 function transformStyleName(styleName: string): string {
-  // TODO: improve (it's naive, but does the job)
-  return styleName.replace(/[A-Z]/g, (s) => `-${s.toLowerCase()}`);
+  return paramCase(styleName);
 }
 
 // Here we are collecting all the styles while doing SSR.
@@ -22,12 +23,8 @@ export function renderStatic(renderFunc: () => $FlowFixMe): {| +html: $FlowFixMe
   return { html: renderFunc(), css };
 }
 
-type StyleSheet = {|
-  +[styleName: string]: $FlowFixMe,
-|};
-
 type SheetDefinitions = {|
-  +[sheetName: string]: StyleSheet,
+  +[sheetName: string]: AllCSSPropertyTypes,
 |};
 
 const sx: {|
