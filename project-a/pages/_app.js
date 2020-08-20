@@ -57,7 +57,7 @@ export default function App({ Component, pageProps }: Props): React.Node {
 
   if (!__DEV__) {
     // not public yet
-    return null;
+    return <div>TKTK</div>;
   }
 
   return (
