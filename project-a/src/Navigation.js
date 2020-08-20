@@ -8,14 +8,14 @@ import sx from './sx';
 export default function Navigation(): React.Node {
   return (
     <nav>
-      <ul className={sx(styles.ul)}>
-        <li className={sx(styles.li)}>
-          <a href="/" className={sx(styles.link)}>
+      <ul className={styles('ul')}>
+        <li className={styles('li')}>
+          <a href="/" className={styles('link')}>
             <fbt desc="navigation link to homepage">Homepage</fbt>
           </a>
         </li>
-        <li className={sx(styles.li)}>
-          <a href="/rules" className={sx(styles.link)}>
+        <li className={styles('li')}>
+          <a href="/rules" className={styles('link')}>
             <fbt desc="navigation link to rules">Our rules</fbt>
           </a>
         </li>
@@ -36,7 +36,12 @@ const styles = sx.create({
     padding: 15,
     fontSize: 32,
   },
+  // TODO: Eslint quotes consistent
   link: {
     textDecoration: 'none',
+    // TODO: consider something like `sx.pseudo( ... )`
+    // ':hover': {
+    //   textDecoration: 'underline',
+    // },
   },
 });
