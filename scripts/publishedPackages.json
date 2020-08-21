@@ -18,6 +18,7 @@
   "@adeira/relay-runtime",
   "@adeira/relay-utils",
   "@adeira/signed-source",
+  "@adeira/sx",
   "@adeira/test-utils",
   "eslint-plugin-adeira"
 ]
