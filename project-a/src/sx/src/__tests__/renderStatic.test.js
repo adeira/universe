@@ -21,15 +21,15 @@ it('works as expected', () => {
       .css.split(' ')
       .join('\n'),
   ).toMatchInlineSnapshot(`
-    "._2Iiue4{color:red}
-    ._4rU9YR{color:blue}"
+    ".wUqnh{color:red}
+    ._4fo5TC{color:blue}"
   `);
 
-  expect(styles('red')).toMatchInlineSnapshot(`"_2Iiue4"`);
-  expect(styles('blue')).toMatchInlineSnapshot(`"_4rU9YR"`);
+  expect(styles('red')).toMatchInlineSnapshot(`"wUqnh"`);
+  expect(styles('blue')).toMatchInlineSnapshot(`"_4fo5TC"`);
 
-  expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_2Iiue4 _4rU9YR"`);
-  expect(styles('blue', 'red')).toMatchInlineSnapshot(`"_4rU9YR _2Iiue4"`);
+  expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_4fo5TC"`); // blue wins
+  expect(styles('blue', 'red')).toMatchInlineSnapshot(`"wUqnh"`); // red wins
 
   // TODO
   // expect(styles('red', 'redPseudo')).toMatchInlineSnapshot(`"XV7OP _2RYg40 _2OQH2W _1cWYLU"`);

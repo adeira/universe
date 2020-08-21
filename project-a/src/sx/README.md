@@ -2,10 +2,10 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 ## TODOs and Ideas
 
-- styles precedence - we must merge/overwrite identical properties with different values (https://youtu.be/9JZHodNR184?t=334)
 - pseudo CSS classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 - pseudo CSS elements (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
 - media queries
+- advanced CSS selectors like `img:not[alt]`, `div [data-test="lol"]`, `button [disabled]` (should it exist if we have JS?)
 - autoprefixer via browserlist
 - babel transpilation (compile time instead of runtime)
 - support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
