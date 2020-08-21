@@ -8,7 +8,7 @@ import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSP
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
-type AllCSSPseudos = {
+type AllCSSPseudos = {|
   +'::after'?: AllCSSPropertyTypes,
   +'::before'?: AllCSSPropertyTypes,
   +':active'?: AllCSSPropertyTypes,
@@ -16,11 +16,11 @@ type AllCSSPseudos = {
   +':focus-within'?: AllCSSPropertyTypes,
   +':hover'?: AllCSSPropertyTypes,
   +':visited'?: AllCSSPropertyTypes,
-  ...
-};
+|};
 
+type AllCSSProperties = {| ...AllCSSPropertyTypes, ...AllCSSPseudos |};
 type SheetDefinitions = {|
-  +[sheetName: string]: AllCSSPropertyTypes | AllCSSPseudos,
+  +[sheetName: string]: AllCSSProperties,
 |};
 
 function hashStylePair(

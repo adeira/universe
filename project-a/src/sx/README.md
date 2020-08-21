@@ -124,8 +124,9 @@ export function FlowComponent() {
 
 const styles = sx.create({
   aaa: {
-    // $FlowExpectedError
-    unknownProperty: 'red', // <<< this CSS property is incorrect
+    unknownProperty: 'red', // Flow error: `unknownProperty` is not a CSS property
+    zIndex: '10', // Flow error: should be number instead
+    alignContent: 'unknown', // Flow error: value `unknown` is not alowed for CSS `align-content`
   },
 });
 ```
