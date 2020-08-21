@@ -1,6 +1,6 @@
 {
   "name": "@adeira/sx",
-  "description": "Atomic CSS (not only) for Next.js applications",
+  "description": "Atomic CSS-in-JS (not only) for Next.js applications",
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx",
   "license": "MIT",
   "private": false,
