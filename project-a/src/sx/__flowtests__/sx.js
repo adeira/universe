@@ -11,15 +11,16 @@ export function NoErrors(): Node {
   return <div className={styles('red')} />;
 }
 
-export function NoErrorsWithPseudo(): Node {
-  const styles = sx.create({
-    red: { color: 'red' },
-    blue: sx.pseudo({
-      hover: { color: 'blue' },
-    }),
-  });
-  return <div className={styles('red', 'blue')} />;
-}
+// TODO
+// export function NoErrorsWithPseudo(): Node {
+//   const styles = sx.create({
+//     red: { color: 'red' },
+//     blue: sx.pseudo({
+//       hover: { color: 'blue' },
+//     }),
+//   });
+//   return <div className={styles('red', 'blue')} />;
+// }
 
 export function NoErrorsMoreStylesheetNames(): Node {
   const styles = sx.create({

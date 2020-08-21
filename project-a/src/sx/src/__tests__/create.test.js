@@ -20,9 +20,9 @@ it('returns correct style names', () => {
   });
 
   expect(styles('aaa')).toBe('');
-  expect(styles('bbb')).toBe(hashStyle('color#white#'));
-  expect(styles('ccc')).toBe(`${hashStyle('color#white#')} ${hashStyle('zIndex#10#')}`);
-  expect(styles('ccc')).toMatchInlineSnapshot(`"_1AT41S _3nbDXn"`);
+  expect(styles('bbb')).toBe(hashStyle('color#white'));
+  expect(styles('ccc')).toBe(`${hashStyle('color#white')} ${hashStyle('zIndex#10')}`);
+  expect(styles('ccc')).toMatchInlineSnapshot(`"_2JOURe _4hmVar"`);
 });
 
 it('supports multiple styles', () => {
@@ -34,9 +34,9 @@ it('supports multiple styles', () => {
   //  <div className={styles('red', 'blue')}>blue</div>
   //  <div className={styles('blue', 'red')}>red</div>
 
-  const redHash = hashStyle('color#red#');
-  const blueHash = hashStyle('color#blue#');
-  const ziHash = hashStyle('zIndex#1#');
+  const redHash = hashStyle('color#red');
+  const blueHash = hashStyle('color#blue');
+  const ziHash = hashStyle('zIndex#1');
 
   expect(
     create({
