@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a787083ddf1f6d9831b8aace263a081d>>
+ * @generated SignedSource<<db55ac730de0995308e4151a2bfa578d>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -8,31 +8,59 @@
 
 export type AllCSSPropertyTypes = {|
   +alignContent?:
-    | 'stretch'
     | 'center'
+    | 'start'
+    | 'end'
     | 'flex-start'
     | 'flex-end'
+    | 'normal'
+    | 'baseline'
+    | 'first baseline'
+    | 'last baseline'
     | 'space-between'
     | 'space-around'
+    | 'space-evenly'
+    | 'stretch'
+    | 'safe center'
+    | 'unsafe center'
+    | 'inherit'
     | 'initial'
-    | 'inherit',
+    | 'unset',
   +alignItems?:
+    | 'normal'
     | 'stretch'
     | 'center'
+    | 'start'
+    | 'end'
     | 'flex-start'
     | 'flex-end'
     | 'baseline'
+    | 'first baseline'
+    | 'last baseline'
+    | 'safe center'
+    | 'unsafe center'
+    | 'inherit'
     | 'initial'
-    | 'inherit',
+    | 'unset',
   +alignSelf?:
     | 'auto'
-    | 'stretch'
+    | 'normal'
     | 'center'
+    | 'start'
+    | 'end'
+    | 'self-start'
+    | 'self-end'
     | 'flex-start'
     | 'flex-end'
     | 'baseline'
+    | 'first baseline'
+    | 'last baseline'
+    | 'stretch'
+    | 'safe center'
+    | 'unsafe center'
+    | 'inherit'
     | 'initial'
-    | 'inherit',
+    | 'unset',
   +alignmentBaseline?: string | number,
   +all?: string | number,
   +animation?: string | number,
@@ -40,7 +68,7 @@ export type AllCSSPropertyTypes = {|
   +animationDirection?: string | number,
   +animationDuration?: string | number,
   +animationFillMode?: string | number,
-  +animationIterationCount?: string | number,
+  +animationIterationCount?: number,
   +animationName?: string | number,
   +animationPlayState?: string | number,
   +animationTimingFunction?: string | number,
@@ -95,11 +123,11 @@ export type AllCSSPropertyTypes = {|
   +borderEndEndRadius?: string | number,
   +borderEndStartRadius?: string | number,
   +borderImage?: string | number,
-  +borderImageOutset?: string | number,
+  +borderImageOutset?: number,
   +borderImageRepeat?: string | number,
-  +borderImageSlice?: string | number,
+  +borderImageSlice?: number,
   +borderImageSource?: string | number,
-  +borderImageWidth?: string | number,
+  +borderImageWidth?: number,
   +borderInline?: string | number,
   +borderInlineColor?: string | number,
   +borderInlineEnd?: string | number,
@@ -153,7 +181,7 @@ export type AllCSSPropertyTypes = {|
   +colorAdjust?: string | number,
   +colorInterpolationFilters?: string | number,
   +colorScheme?: string | number,
-  +columnCount?: string | number,
+  +columnCount?: number,
   +columnFill?: string | number,
   +columnGap?: string | number,
   +columnRule?: string | number,
@@ -162,7 +190,7 @@ export type AllCSSPropertyTypes = {|
   +columnRuleWidth?: string | number,
   +columnSpan?: string | number,
   +columnWidth?: string | number,
-  +columns?: string | number,
+  +columns?: number,
   +contain?: string | number,
   +containIntrinsicSize?: string | number,
   +content?: string | number,
@@ -184,26 +212,26 @@ export type AllCSSPropertyTypes = {|
   +fillBreak?: string | number,
   +fillColor?: string | number,
   +fillImage?: string | number,
-  +fillOpacity?: string | number,
+  +fillOpacity?: number,
   +fillOrigin?: string | number,
   +fillPosition?: string | number,
   +fillRepeat?: string | number,
   +fillRule?: string | number,
   +fillSize?: string | number,
   +filter?: string | number,
-  +flex?: string | number,
+  +flex?: number,
   +flexBasis?: string | number,
   +flexDirection?: string | number,
   +flexFlow?: string | number,
-  +flexGrow?: string | number,
-  +flexShrink?: string | number,
+  +flexGrow?: number,
+  +flexShrink?: number,
   +flexWrap?: string | number,
   +float?: string | number,
   +floatDefer?: string | number,
   +floatOffset?: string | number,
   +floatReference?: string | number,
   +floodColor?: string | number,
-  +floodOpacity?: string | number,
+  +floodOpacity?: number,
   +flow?: string | number,
   +flowFrom?: string | number,
   +flowInto?: string | number,
@@ -214,7 +242,7 @@ export type AllCSSPropertyTypes = {|
   +fontLanguageOverride?: string | number,
   +fontOpticalSizing?: string | number,
   +fontPalette?: string | number,
-  +fontSize?: string | number,
+  +fontSize?: number,
   +fontSizeAdjust?: string | number,
   +fontStretch?: string | number,
   +fontStyle?: string | number,
@@ -231,23 +259,23 @@ export type AllCSSPropertyTypes = {|
   +fontVariantNumeric?: string | number,
   +fontVariantPosition?: string | number,
   +fontVariationSettings?: string | number,
-  +fontWeight?: string | number,
+  +fontWeight?: number,
   +footnoteDisplay?: string | number,
   +footnotePolicy?: string | number,
   +forcedColorAdjust?: string | number,
   +gap?: string | number,
   +glyphOrientationVertical?: string | number,
   +grid?: string | number,
-  +gridArea?: string | number,
+  +gridArea?: number,
   +gridAutoColumns?: string | number,
   +gridAutoFlow?: string | number,
   +gridAutoRows?: string | number,
-  +gridColumn?: string | number,
-  +gridColumnEnd?: string | number,
-  +gridColumnStart?: string | number,
-  +gridRow?: string | number,
-  +gridRowEnd?: string | number,
-  +gridRowStart?: string | number,
+  +gridColumn?: number,
+  +gridColumnEnd?: number,
+  +gridColumnStart?: number,
+  +gridRow?: number,
+  +gridRowEnd?: number,
+  +gridRowStart?: number,
   +gridTemplate?: string | number,
   +gridTemplateAreas?: string | number,
   +gridTemplateColumns?: string | number,
@@ -284,9 +312,9 @@ export type AllCSSPropertyTypes = {|
   +letterSpacing?: string | number,
   +lightingColor?: string | number,
   +lineBreak?: string | number,
-  +lineClamp?: string | number,
+  +lineClamp?: number,
   +lineGrid?: string | number,
-  +lineHeight?: string | number,
+  +lineHeight?: number,
   +lineHeightStep?: string | number,
   +linePadding?: string | number,
   +lineSnap?: string | number,
@@ -355,9 +383,9 @@ export type AllCSSPropertyTypes = {|
   +offsetPath?: string | number,
   +offsetPosition?: string | number,
   +offsetRotate?: string | number,
-  +opacity?: string | number,
-  +order?: string | number,
-  +orphans?: string | number,
+  +opacity?: number,
+  +order?: number,
+  +orphans?: number,
   +outline?: string | number,
   +outlineColor?: string | number,
   +outlineOffset?: string | number,
@@ -472,20 +500,20 @@ export type AllCSSPropertyTypes = {|
   +strokeDashCorner?: string | number,
   +strokeDashJustify?: string | number,
   +strokeDashadjust?: string | number,
-  +strokeDasharray?: string | number,
+  +strokeDasharray?: number,
   +strokeDashcorner?: string | number,
-  +strokeDashoffset?: string | number,
+  +strokeDashoffset?: number,
   +strokeImage?: string | number,
   +strokeLinecap?: string | number,
   +strokeLinejoin?: string | number,
-  +strokeMiterlimit?: string | number,
-  +strokeOpacity?: string | number,
+  +strokeMiterlimit?: number,
+  +strokeOpacity?: number,
   +strokeOrigin?: string | number,
   +strokePosition?: string | number,
   +strokeRepeat?: string | number,
   +strokeSize?: string | number,
-  +strokeWidth?: string | number,
-  +tabSize?: string | number,
+  +strokeWidth?: number,
+  +tabSize?: number,
   +tableLayout?: string | number,
   +textAlign?: string | number,
   +textAlignAll?: string | number,
@@ -546,7 +574,7 @@ export type AllCSSPropertyTypes = {|
   +voiceVolume?: string | number,
   +volume?: string | number,
   +whiteSpace?: string | number,
-  +widows?: string | number,
+  +widows?: number,
   +width?: string | number,
   +willChange?: string | number,
   +wordBoundaryDetection?: string | number,
@@ -560,5 +588,5 @@ export type AllCSSPropertyTypes = {|
   +wrapInside?: string | number,
   +wrapThrough?: string | number,
   +writingMode?: string | number,
-  +zIndex?: string | number,
+  +zIndex?: number,
 |};
