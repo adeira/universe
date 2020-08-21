@@ -1,0 +1,20 @@
+{
+  "name": "@adeira/sx",
+  "description": "Atomic CSS (not only) for Next.js applications",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/sx",
+  "license": "MIT",
+  "private": false,
+  "version": "0.1.0",
+  "main": "index",
+  "sideEffects": false,
+  "dependencies": {
+    "@adeira/murmur-hash": "^0.1.0",
+    "@adeira/signed-source": "^1.0.0",
+    "@babel/runtime": "^7.11.2",
+    "change-case": "^4.1.1",
+    "prettier": "^2.0.5"
+  },
+  "devDependencies": {
+    "react": "^16.13.1"
+  }
+}
