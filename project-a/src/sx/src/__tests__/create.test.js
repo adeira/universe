@@ -3,24 +3,23 @@
 import create from '../create';
 
 it('returns sx function', () => {
+  // TODO: disallow empty styles and calling non-existing stylesheets
   expect(create({ aaa: {} })).toBeInstanceOf(Function);
 });
 
 it('returns correct style names', () => {
   const styles = create({
-    aaa: {},
-    bbb: {
+    aaa: {
       color: 'white',
     },
-    ccc: {
+    bbb: {
       color: 'white',
       zIndex: 10,
     },
   });
 
-  expect(styles('aaa')).toBe('');
-  expect(styles('bbb')).toMatchInlineSnapshot(`"_20MWPt"`);
-  expect(styles('ccc')).toMatchInlineSnapshot(`"_20MWPt _3eC2WW"`);
+  expect(styles('aaa')).toMatchInlineSnapshot(`"_20MWPt"`);
+  expect(styles('bbb')).toMatchInlineSnapshot(`"_20MWPt _3eC2WW"`);
 });
 
 it('supports multiple styles', () => {

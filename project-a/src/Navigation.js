@@ -37,16 +37,9 @@ const styles = sx.create({
     fontSize: 32,
   },
   link: {
-    textDecoration: 'none',
+    'textDecoration': 'none',
+    ':hover': {
+      textDecoration: 'underline',
+    },
   },
-  // TODO
-  // linkHover: sx.pseudo({
-  //   hover: {
-  //     textDecoration: 'underline',
-  //     color: 'black', // TODO: remove
-  //   },
-  //   focus: {
-  //     color: 'red', // TODO: remove
-  //   },
-  // }),
 });
