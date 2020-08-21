@@ -1,7 +1,10 @@
 // @flow strict
 
 // https://engineering.fb.com/web/facebook-com-accessibility/
-export default function transformValue(styleName: string, styleValue: string | number): string {
+export default function transformValue(
+  styleName: string,
+  styleValue?: string | number = '',
+): string {
   // TODO:
   //  - simplify #ffffff to #fff
   //  - postcss + autoprefixer (?)

@@ -8,7 +8,7 @@ export function renderStatic(renderFunc: () => $FlowFixMe): {| +html: $FlowFixMe
   let css = '';
   let prefix = '';
   for (const [key, value] of styleBuffer) {
-    css += `${prefix}.${key}{${value}}`;
+    css += `${prefix}.${key}{${value.styleName}:${value.styleValue}}`;
     prefix = ' ';
   }
   return { html: renderFunc(), css };
