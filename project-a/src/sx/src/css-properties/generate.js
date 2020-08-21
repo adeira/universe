@@ -6,6 +6,20 @@ const prettier = require('prettier'); // eslint-disable-line import/no-extraneou
 const SignedSource = require('@adeira/signed-source').default;
 const { camelCase } = require('change-case');
 
+const definedProperties = new Map();
+definedProperties.set(
+  'alignItems',
+  "'stretch' | 'center' | 'flex-start' | 'flex-end' | 'baseline' | 'initial' | 'inherit'",
+);
+definedProperties.set(
+  'alignSelf',
+  "'auto'|'stretch'|'center'|'flex-start'|'flex-end'|'baseline'|'initial'|'inherit'",
+);
+definedProperties.set(
+  'alignContent',
+  "'stretch'|'center'|'flex-start'|'flex-end'|'space-between'|'space-around'|'initial'|'inherit'",
+);
+
 const allProperties = new Set();
 const sourceJSON = path.join(__dirname, 'all-properties.en.json');
 const allPropertiesRaw = require(sourceJSON);
@@ -21,7 +35,11 @@ for (const rawProperty of allPropertiesRaw) {
 
 let flowPrint = '';
 for (const property of allProperties) {
-  flowPrint += `+'${property}'?: string | number,\n`;
+  let value = 'string | number';
+  if (definedProperties.has(property)) {
+    value = definedProperties.get(property) || value;
+  }
+  flowPrint += `+'${property}'?: ${value},\n`;
 }
 
 const flowTemplate = SignedSource.signFile(`
