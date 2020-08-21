@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7b3ddf3891a24296ffd664c131f93172>>
+ * @generated SignedSource<<a787083ddf1f6d9831b8aace263a081d>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -7,9 +7,32 @@
  */
 
 export type AllCSSPropertyTypes = {|
-  +alignContent?: string | number,
-  +alignItems?: string | number,
-  +alignSelf?: string | number,
+  +alignContent?:
+    | 'stretch'
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-around'
+    | 'initial'
+    | 'inherit',
+  +alignItems?:
+    | 'stretch'
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'baseline'
+    | 'initial'
+    | 'inherit',
+  +alignSelf?:
+    | 'auto'
+    | 'stretch'
+    | 'center'
+    | 'flex-start'
+    | 'flex-end'
+    | 'baseline'
+    | 'initial'
+    | 'inherit',
   +alignmentBaseline?: string | number,
   +all?: string | number,
   +animation?: string | number,
