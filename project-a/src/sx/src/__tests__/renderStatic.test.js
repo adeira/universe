@@ -1,28 +1,39 @@
 // @flow
 
-import sx, { renderStatic } from '../../index';
+import sx from '../../index';
 
 it('works as expected', () => {
   const styles = sx.create({
     red: { color: 'red' },
     blue: { color: 'blue' },
-    // TODO
-    // redPseudo: sx.pseudo({
-    //   hover: { color: 'red' },
-    //   focus: {
-    //     color: 'blue',
-    //     fontSize: 32,
-    //   },
-    // }),
+    pseudo: {
+      'color': 'green',
+      ':hover': {
+        color: 'red',
+        textDecoration: 'underline',
+      },
+      ':focus': {
+        color: 'purple',
+      },
+      '::after': {
+        content: '🤓',
+      },
+    },
   });
 
   expect(
-    renderStatic(() => null)
+    sx
+      .renderStatic(() => null)
       .css.split(' ')
       .join('\n'),
   ).toMatchInlineSnapshot(`
     ".wUqnh{color:red}
-    ._4fo5TC{color:blue}"
+    ._4fo5TC{color:blue}
+    .PJDYD{color:green}
+    ._4sFdkU:hover{color:red}
+    ._22QzO9:hover{text-decoration:underline}
+    ._3stS2V:focus{color:purple}
+    ._14RYUP::after{content:\\"🤓\\"}"
   `);
 
   expect(styles('red')).toMatchInlineSnapshot(`"wUqnh"`);
@@ -31,15 +42,6 @@ it('works as expected', () => {
   expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_4fo5TC"`); // blue wins
   expect(styles('blue', 'red')).toMatchInlineSnapshot(`"wUqnh"`); // red wins
 
-  // TODO
-  // expect(styles('red', 'redPseudo')).toMatchInlineSnapshot(`"XV7OP _2RYg40 _2OQH2W _1cWYLU"`);
-  // expect(styles('red', 'blue', 'redPseudo')).toMatchInlineSnapshot(
-  //   `"XV7OP _4ut9aF _2RYg40 _2OQH2W _1cWYLU"`,
-  // );
-  // expect(styles('red', 'redPseudo', 'blue')).toMatchInlineSnapshot(
-  //   `"XV7OP _2RYg40 _2OQH2W _1cWYLU _4ut9aF"`,
-  // );
-  // expect(styles('blue', 'red', 'redPseudo')).toMatchInlineSnapshot(
-  //   `"_4ut9aF XV7OP _2RYg40 _2OQH2W _1cWYLU"`,
-  // );
+  expect(styles('pseudo')).toMatchInlineSnapshot(`"PJDYD _4sFdkU _22QzO9 _3stS2V _14RYUP"`);
+  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"wUqnh _4sFdkU _22QzO9 _3stS2V _14RYUP"`); // red wins (non-hover)
 });

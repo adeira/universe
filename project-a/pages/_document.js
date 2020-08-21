@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-import { renderStatic } from '../src/sx';
+import sx from '../src/sx';
 
 type InitialProps = {|
   +renderPage: () => $FlowFixMe,
@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
     +html: $FlowFixMe,
     +css: string,
   |}> {
-    const { html, css } = renderStatic(renderPage);
+    const { html, css } = sx.renderStatic(renderPage);
     return { ...html, css };
   }
 

@@ -1,26 +1,26 @@
 In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
-## TODOs and Ideas
-
-- pseudo CSS classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
-- pseudo CSS elements (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
-- media queries
-- advanced CSS selectors like `img:not[alt]`, `div [data-test="lol"]`, `button [disabled]` (should it exist if we have JS?)
-- autoprefixer via browserlist
-- babel transpilation (compile time instead of runtime)
-- support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
-
-## Motivation
-
-TKTK (logarithmic style size growth, FB)
+```text
+TODOs and Ideas:
+ - media queries (?)
+ - autoprefixer via browserlist
+ - babel transpilation (compile time instead of runtime)
+ - support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
+```
 
 ## Installation and Usage
 
-TKTK
+First, install the package from NPM:
+
+```text
+yarn add @adeira/sx
+```
+
+Create a stylesheet and use it to generate `className` props for React:
 
 ```jsx
 import * as React from 'react';
-import sx from './sx'; // TODO
+import sx from '@adeira/sx';
 
 export default function Example() {
   return <div className={styles('example')}>example</div>;
@@ -49,17 +49,42 @@ The example above will generate something like this:
 }
 ```
 
-TKTK: SSR stylesheet print
+Finally, render somewhere the styles and HTML. Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document) would be:
+
+```jsx
+import sx from '@adeira/sx';
+
+export default class MyDocument extends Document {
+  static getInitialProps({ renderPage }) {
+    const { html, css } = sx.renderStatic(renderPage);
+    return { ...html, css };
+  }
+
+  render(): React.Node {
+    return (
+      <Html>
+        <Head>
+          <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+```
 
 ## Features
 
 ### Multiple stylesheets
 
-The final style depend on the order of `classNames` rather than the styles definition.
+The final style depend on the order of `styles` arguments rather than the styles definition.
 
 ```jsx
-export function ExampleComponent() {
-  return <div className={styles('red', 'blue')} />;
+export function BlueComponent() {
+  return <div className={styles('red', 'blue')}>I am BLUE</div>;
 }
 
 const styles = sx.create({
@@ -68,23 +93,41 @@ const styles = sx.create({
 });
 ```
 
-### Precise Flow types
+### Pseudo CSS classes and elements
 
 ```jsx
-export function ExampleComponent() {
+export function LinkComponent() {
+  return <a className={styles('link')}>link</a>;
+}
+
+const styles = sx.create({
+  link: {
+    'textDecoration': 'none',
+    ':hover': {
+      textDecoration: 'underline',
+    },
+    '::after': {
+      content: '∞',
+    },
+  },
+});
+```
+
+### Precise Flow types
+
+SX knows about every property which exists in CSS and tries to help with mistakes when writing the styles.
+
+```jsx
+export function FlowComponent() {
   return <div className={styles('aaa')} />;
 }
 
 const styles = sx.create({
   aaa: {
+    // $FlowExpectedError
     unknownProperty: 'red', // <<< this CSS property is incorrect
   },
 });
-```
-
-```text
-Cannot call create with object literal bound to sheetDefinitions because property unknownProperty is missing in
-AllCSSPropertyTypes [1] but exists in object literal [2] in property aaa. [prop-missing]
 ```
 
 ## Prior Art

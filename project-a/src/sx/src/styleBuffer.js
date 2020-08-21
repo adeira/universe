@@ -6,5 +6,6 @@ export default (new Map(): Map<
   {|
     +styleName: string,
     +styleValue: string,
+    +pseudo?: string,
   |},
 >);

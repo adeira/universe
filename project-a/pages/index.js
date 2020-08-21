@@ -7,7 +7,7 @@ import KochkaIcon from '../src/svg/KochkaIcon';
 
 export default function Home(): React.Node {
   return (
-    <div className={styles('root')}>
+    <div>
       <div className={styles('logo')}>
         <div className={styles('icon')}>
           <KochkaIcon />
@@ -30,7 +30,6 @@ export default function Home(): React.Node {
 }
 
 const styles = sx.create({
-  root: {},
   logo: {
     display: 'flex',
     flexDirection: 'column',
