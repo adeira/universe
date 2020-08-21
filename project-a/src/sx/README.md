@@ -2,8 +2,9 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 ## TODOs and Ideas
 
-- pseudo CSS elements (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
 - styles precedence - we must merge/overwrite identical properties with different values (https://youtu.be/9JZHodNR184?t=334)
+- pseudo CSS classes (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
+- pseudo CSS elements (https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
 - media queries
 - autoprefixer via browserlist
 - babel transpilation (compile time instead of runtime)
@@ -64,27 +65,6 @@ export function ExampleComponent() {
 const styles = sx.create({
   red: { color: 'red' },
   blue: { color: 'blue' },
-});
-```
-
-### Pseudo CSS classes
-
-TKTK
-
-```jsx
-export function ExampleComponent() {
-  return <a className={styles('link', 'linkHover')}>link</a>;
-}
-
-const styles = sx.create({
-  link: {
-    textDecoration: 'none',
-  },
-  linkHover: sx.pseudo({
-    hover: {
-      textDecoration: 'underline',
-    },
-  }),
 });
 ```
 
