@@ -56,6 +56,7 @@ export function InvalidCSSPseudoProperty(): Node {
   const styles = sx.create({
     // $FlowExpectedError[incompatible-call]
     red: {
+      // $FlowExpectedError[incompatible-call]
       ':hover': -1,
     },
   });

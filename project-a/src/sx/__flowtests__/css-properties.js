@@ -8,9 +8,11 @@ sx.create({
     zIndex: 10,
   },
   InvalidPropertyValue: {
-    alignContent: 'unknown', // TODO: make this type-check (should throw)
+    // $FlowExpectedError[incompatible-call]
+    alignContent: 'unknown',
   },
   InvalidPropertyType: {
-    zIndex: '10', // TODO: make this type-check (should throw)
+    // $FlowExpectedError[incompatible-call]
+    zIndex: '10',
   },
 });
