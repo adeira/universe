@@ -1,4 +1,4 @@
-In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
+In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has its own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
 ```text
 TODOs and Ideas:
@@ -80,7 +80,7 @@ export default class MyDocument extends Document {
 
 ### Multiple stylesheets
 
-The final style depend on the order of `styles` arguments rather than the styles definition.
+The final style depends on the order of `styles` arguments rather than the style definitions.
 
 ```jsx
 export function BlueComponent() {
