@@ -1,7 +1,7 @@
 https://www.w3.org/Style/CSS/all-properties.en.html
 
 ```text
-node src/sx/css-properties/generate.js
+node src/sx/src/css-properties/generate.js
 ```
 
 ## Status codes
