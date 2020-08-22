@@ -3,7 +3,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 ```text
 TODOs and Ideas:
  - media queries (?)
- - autoprefixer via browserlist
+ - autoprefixer via browserlist (https://github.com/robinweser/inline-style-prefixer?)
  - babel transpilation (compile time instead of runtime)
  - support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
 ```
