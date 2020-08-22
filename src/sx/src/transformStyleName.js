@@ -1,7 +1,7 @@
 // @flow
 
-import { paramCase } from 'change-case';
+import * as changeCase from 'change-case';
 
 export default function transformStyleName(styleName: string): string {
-  return paramCase(styleName);
+  return changeCase.paramCase(styleName);
 }
