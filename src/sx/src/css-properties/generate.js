@@ -1,20 +1,20 @@
 // @flow
 
-const fs = require('fs');
-const path = require('path');
-const prettier = require('prettier');
-const SignedSource = require('@adeira/signed-source').default;
-const { camelCase } = require('change-case');
+import fs from 'fs';
+import path from 'path';
+import prettier from 'prettier';
+import SignedSource from '@adeira/signed-source';
+import * as changeCase from 'change-case';
 
-const CustomPropertyTypes = require('./CustomPropertyTypes');
-const isUnitlessNumber = require('./isUnitlessNumber');
+import CustomPropertyTypes from './CustomPropertyTypes';
+import isUnitlessNumber from './isUnitlessNumber';
 
 const allProperties = new Set();
 const sourceJSON = path.join(__dirname, 'all-properties.en.json');
 const allPropertiesRaw = require(sourceJSON);
 
 for (const rawProperty of allPropertiesRaw) {
-  const propertyName = camelCase(rawProperty.property);
+  const propertyName = changeCase.camelCase(rawProperty.property);
   if (propertyName !== '') {
     allProperties.add(propertyName);
   }
@@ -47,7 +47,7 @@ export type AllCSSPropertyTypes = {|
 `);
 
 prettier.resolveConfig(sourceJSON).then((options) => {
-  const formatted = prettier.format(flowTemplate, options);
+  const formatted = prettier.format(flowTemplate, { filepath: 'mock.js', ...options });
   fs.writeFileSync(
     path.join(__dirname, '__generated__', 'AllCSSPropertyTypes.js'),
     formatted,

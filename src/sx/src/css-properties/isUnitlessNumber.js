@@ -4,7 +4,7 @@
  * CSS properties which accept numbers but are not in units of "px".
  * https://github.com/facebook/react/blob/87b3e2d257e49b6d2c8e662830fc8f3c7d62f85f/packages/react-dom/src/shared/CSSProperty.js
  */
-module.exports = {
+export default {
   // SX specific start
   fontSize: true,
   // SX specific end

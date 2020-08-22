@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<db55ac730de0995308e4151a2bfa578d>>
+ * @generated SignedSource<<f345315f99ba80eee39c4ab78f4f25ea>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -204,7 +204,34 @@ export type AllCSSPropertyTypes = {|
   +cueBefore?: string | number,
   +cursor?: string | number,
   +direction?: string | number,
-  +display?: string | number,
+  +display?:
+    | 'block'
+    | 'inline'
+    | 'run-in'
+    | 'flow'
+    | 'flow-root'
+    | 'table'
+    | 'flex'
+    | 'grid'
+    | 'ruby'
+    | 'table-row-group'
+    | 'table-header-group'
+    | 'table-footer-group'
+    | 'table-row'
+    | 'table-cell'
+    | 'table-column-group'
+    | 'table-column'
+    | 'table-caption'
+    | 'ruby-base'
+    | 'ruby-text'
+    | 'ruby-base-container'
+    | 'contents'
+    | 'none'
+    | 'inline-block'
+    | 'inline-list-item'
+    | 'inline-table'
+    | 'inline-flex'
+    | 'inline-grid',
   +dominantBaseline?: string | number,
   +elevation?: string | number,
   +emptyCells?: string | number,
@@ -221,11 +248,31 @@ export type AllCSSPropertyTypes = {|
   +filter?: string | number,
   +flex?: number,
   +flexBasis?: string | number,
-  +flexDirection?: string | number,
-  +flexFlow?: string | number,
+  +flexDirection?:
+    | 'row'
+    | 'row-reverse'
+    | 'column'
+    | 'column-reverse'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
+  +flexFlow?:
+    | 'row'
+    | 'row-reverse'
+    | 'column'
+    | 'column-reverse'
+    | 'nowrap'
+    | 'wrap'
+    | 'wrap-reverse'
+    | 'row nowrap'
+    | 'column wrap'
+    | 'column-reverse wrap-reverse'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +flexGrow?: number,
   +flexShrink?: number,
-  +flexWrap?: string | number,
+  +flexWrap?: 'nowrap' | 'wrap' | 'wrap-reverse' | 'inherit' | 'initial' | 'unset',
   +float?: string | number,
   +floatDefer?: string | number,
   +floatOffset?: string | number,

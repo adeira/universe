@@ -1,8 +1,7 @@
 // @flow strict
 
 import { isColor, normalizeColor } from './colorNormalizer';
-
-const isUnitlessNumber = require('./css-properties/isUnitlessNumber');
+import isUnitlessNumber from './css-properties/isUnitlessNumber';
 
 export default function transformValue(
   styleName: string,

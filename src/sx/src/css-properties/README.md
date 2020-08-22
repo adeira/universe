@@ -1,7 +1,8 @@
-https://www.w3.org/Style/CSS/all-properties.en.html
+- https://www.w3.org/Style/CSS/all-properties.en.html
+- https://www.w3.org/Style/CSS/all-properties.en.json
 
 ```text
-node src/sx/src/css-properties/generate.js
+yarn monorepo-babel-node src/sx/src/css-properties/generate.js
 ```
 
 ## Status codes
