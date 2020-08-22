@@ -35,12 +35,12 @@ it('works as expected', () => {
       .css.split(' ')
       .join('\n'),
   ).toMatchInlineSnapshot(`
-    ".wUqnh{color:red}
-    ._4fo5TC{color:blue}
-    .PJDYD{color:green}
-    ._4sFdkU:hover{color:red}
+    ".wUqnh{color:#f00}
+    ._4fo5TC{color:#00f}
+    .PJDYD{color:#008000}
+    ._4sFdkU:hover{color:#f00}
     ._22QzO9:hover{text-decoration:underline}
-    ._3stS2V:focus{color:purple}
+    ._3stS2V:focus{color:#800080}
     ._14RYUP::after{content:\\"🤓\\"}"
   `);
 
