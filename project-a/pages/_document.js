@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-
-import sx from '../src/sx';
+import * as sx from '@adeira/sx';
 
 type InitialProps = {|
   +renderPage: () => $FlowFixMe,

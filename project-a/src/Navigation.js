@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import fbt from 'fbt';
-
-import sx from './sx';
+import * as sx from '@adeira/sx';
 
 export default function Navigation(): React.Node {
   return (

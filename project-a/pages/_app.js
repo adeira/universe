@@ -3,10 +3,10 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import fbt, { IntlVariations, init } from 'fbt';
+import * as sx from '@adeira/sx';
 
 import './_app.css';
 import Navigation from '../src/Navigation';
-import sx from '../src/sx';
 
 type SupportedLocales = 'en_US' | 'es_LA';
 function initTranslations(locale: SupportedLocales) {
