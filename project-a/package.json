@@ -15,13 +15,10 @@
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
-    "@adeira/murmur-hash": "^0.1.0",
-    "@adeira/signed-source": "^1.0.0",
+    "@adeira/sx": "^0.4.0",
     "@babel/register": "^7.10.5",
     "babel-plugin-fbt": "^0.15.0",
     "babel-plugin-fbt-runtime": "^0.9.12",
-    "change-case": "^4.1.1",
-    "express": "^4.17.1",
     "fbt": "^0.15.0",
     "next": "^9.5.2",
     "react": "^16.13.1",

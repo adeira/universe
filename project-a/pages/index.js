@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
+import * as sx from '@adeira/sx';
 
-import sx from '../src/sx';
 import KochkaIcon from '../src/svg/KochkaIcon';
 
 export default function Home(): React.Node {
