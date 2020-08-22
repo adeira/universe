@@ -1,7 +1,7 @@
 // @flow
 
 import hashStyle from './hashStyle';
-import styleBuffer from './styleBuffer';
+import { styleBuffer } from './styleBuffer';
 import transformStyleName from './transformStyleName';
 import transformValue from './transformValue';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';

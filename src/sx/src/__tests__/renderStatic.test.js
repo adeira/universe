@@ -1,6 +1,14 @@
 // @flow
 
+import prettier from 'prettier';
+
 import sx from '../../index';
+import { styleBuffer, mediaStyleBuffer } from '../styleBuffer';
+
+beforeEach(() => {
+  styleBuffer.clear();
+  mediaStyleBuffer.clear();
+});
 
 it('works as expected', () => {
   const styles = sx.create({
@@ -44,4 +52,37 @@ it('works as expected', () => {
 
   expect(styles('pseudo')).toMatchInlineSnapshot(`"PJDYD _4sFdkU _22QzO9 _3stS2V _14RYUP"`);
   expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"wUqnh _4sFdkU _22QzO9 _3stS2V _14RYUP"`); // red wins (non-hover)
+});
+
+it('renders media queries properly', () => {
+  mediaStyleBuffer.set(
+    '@media(max-width:500px)',
+    new Map([['aaaHash', { styleName: 'color', styleValue: '#fff' }]]),
+  );
+
+  mediaStyleBuffer.set(
+    '@media(max-width:1000px)',
+    new Map([
+      ['aaaHash', { styleName: 'color', styleValue: '#fff' }],
+      ['bbbHash', { styleName: 'color', styleValue: '#000' }],
+    ]),
+  );
+
+  expect(prettier.format(sx.renderStatic(() => null).css, { filepath: 'test.css' }))
+    .toMatchInlineSnapshot(`
+    "@media (max-width: 500px) {
+      .aaaHash {
+        color: #fff;
+      }
+    }
+    @media (max-width: 1000px) {
+      .aaaHash {
+        color: #fff;
+      }
+      .bbbHash {
+        color: #000;
+      }
+    }
+    "
+  `);
 });
