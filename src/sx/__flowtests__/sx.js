@@ -2,7 +2,7 @@
 
 import React, { type Node } from 'react';
 
-import sx from '../index';
+import * as sx from '../index';
 
 export function NoErrors(): Node {
   const styles = sx.create({
