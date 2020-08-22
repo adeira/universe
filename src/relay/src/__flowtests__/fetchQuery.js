@@ -17,7 +17,7 @@ module.exports = ({
 
   // Invalid usages:
   missingVariables: () => {
-    // $FlowExpectedError: Cannot call fetchQuery because function [1] requires another argument.
+    // $FlowExpectedError[incompatible-call]: Cannot call fetchQuery because function [1] requires another argument.
     return fetchQuery(environment, query);
   },
 }: $FlowFixMe);

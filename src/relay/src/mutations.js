@@ -42,13 +42,14 @@ export function commitMutation<T: MutationParameters>(
   environment: Environment,
   config: MutationConfig<T>,
 ): Disposable {
-  /*
-    $FlowExpectedError: Let's stay with our flow types for now,
-    since they are better than relay's at the moment.
-    One example is RangeBehaviorsFunction, where relay has:
-    [name: string]: $FlowFixMe, while we have the actual
-    allowed rangebehaviors
-  */
+  // Let's stay with our flow types for now, since they are better than relay's at the moment.
+  // One example is RangeBehaviorsFunction, where relay has: [name: string]: $FlowFixMe, while
+  // we have the actual allowed rangebehaviors
+
+  // $FlowExpectedError[incompatible-call]
+  // $FlowExpectedError[incompatible-exact]
+  // $FlowExpectedError[incompatible-variance]
+  // $FlowExpectedError[prop-missing]
   return _commitMutation(environment, config);
 }
 

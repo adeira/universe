@@ -57,7 +57,7 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
     ]);
   };
 
-  // $FlowExpectedError: these properties are not normally writable but it's expected in this case
+  // $FlowExpectedError[cannot-write]: these properties are not normally writable but it's expected in this case
   console[methodName] = newMethod;
 
   global.beforeEach(() => {

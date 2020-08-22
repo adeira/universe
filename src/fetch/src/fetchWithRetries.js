@@ -21,7 +21,7 @@ function isNodejs(): boolean %checks {
   // Next.js has global `process` object even in Browser so we have to be more thorough here.
   // Please, leave it written exactly like this: we have to first check if `process` exists
   // manually (a?.b would fail otherwise). Then we cannot assume `versions` exist.
-  // $FlowExpectedError: field `versions` doesn't have to exist (see Browsers env)
+  // $FlowExpectedError[unnecessary-optional-chain]: field `versions` doesn't have to exist (see Browsers env)
   return typeof process !== 'undefined' && process.versions?.node !== undefined;
 }
 
@@ -65,7 +65,7 @@ export default function fetchWithRetries(
       const request = fetch(resource, {
         ...init,
         headers: {
-          /* $FlowFixMe(>=0.111.0) This comment suppresses an error when
+          /* $FlowFixMe[exponential-spread](>=0.111.0) This comment suppresses an error when
            * upgrading Flow. To see the error delete this comment and run Flow.
            */
           ...environmentHeaders,

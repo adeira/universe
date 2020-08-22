@@ -46,7 +46,7 @@ const test2 = (
   <Menu>
     <MenuItem />
     <MenuSeparator />
-    {/* $FlowExpectedError: NotAMenuComponent is not allowed in the restricted children elements
+    {/* $FlowExpectedError[incompatible-type] : NotAMenuComponent is not allowed in the restricted children elements
      * in Menu component. Only MenuItem and MenuSeparator are allowed. ✅ */}
     <NotAMenuComponent />
   </Menu>

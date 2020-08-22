@@ -6,7 +6,7 @@ const React = require('react');
 
 const BoldTodoRenderer = React.lazy(() =>
   import(
-    // $FlowExpectedError: cannot resolve module
+    // $FlowExpectedError[cannot-resolve-module]
     './BoldTodoRenderer'
   ),
 );

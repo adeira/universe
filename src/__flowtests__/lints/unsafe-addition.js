@@ -5,5 +5,5 @@
 const a = null;
 const b = 1;
 
-// $FlowExpectedError: unsafe-addition
+// $FlowExpectedError[unsafe-addition]
 console.log(b / a);

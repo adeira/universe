@@ -22,7 +22,7 @@ export default function sanitizeWorkspaces(
 ): WorkspaceDependencies {
   const sanitizedWorkspaces = {};
   for (const [workspaceName, config] of Object.entries(workspaceDependencies)) {
-    // $FlowIssue: https://github.com/facebook/flow/issues/2174
+    // $FlowIssue[incompatible-use]: https://github.com/facebook/flow/issues/2174
     const location = config.location;
     sanitizedWorkspaces[workspaceName] = {
       ...config,

@@ -85,7 +85,7 @@ export default function globalIdField(
 
       return unmaskedIdFetcher ? unmaskedIdFetcher(obj, context, info) : id;
     },
-    // $FlowIssue: https://github.com/facebook/flow/issues/3258
+    // $FlowIssue[invalid-computed-prop]: https://github.com/facebook/flow/issues/3258
     [SYMBOL_GLOBAL_ID]: true,
   };
 }

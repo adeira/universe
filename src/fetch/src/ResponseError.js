@@ -14,14 +14,14 @@ type ResponseErrorType = {
 function ResponseError(response: Response, message?: string): ResponseErrorType {
   const instance = new Error(message);
 
-  // $FlowExpectedError: property 'error.response' is unknown in Error (but that's fine, we are extending here)
+  // $FlowExpectedError[prop-missing]: property 'error.response' is unknown in Error (but that's fine, we are extending here)
   instance.response = response;
   setPrototypeOf(instance, Object.getPrototypeOf(this));
   if (Error.captureStackTrace) {
     Error.captureStackTrace(instance, ResponseError);
   }
 
-  // $FlowExpectedError: property 'error.response' is unknown in Error (but that's fine, we are extending here)
+  // $FlowExpectedError[prop-missing]: property 'error.response' is unknown in Error (but that's fine, we are extending here)
   return instance;
 }
 

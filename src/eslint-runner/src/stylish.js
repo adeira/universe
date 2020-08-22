@@ -88,7 +88,7 @@ module.exports = function (results /*: Results */) /*: string */ {
     if (fixableErrorCount > 0 || fixableWarningCount > 0) {
       output +=
         os.EOL +
-        // $FlowExpectedError: indexer property is missing in Chalk (problem of Chalk)
+        // $FlowExpectedError[prop-missing]: indexer property is missing in Chalk (problem of Chalk)
         chalk[summaryColor].bold(
           [
             '  ',

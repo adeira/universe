@@ -19,19 +19,19 @@ module.exports = {
 
   // INVALID EXAMPLES:
   invalidPattern(): empty {
-    // $FlowExpectedError: pattern should be string, not object
+    // $FlowExpectedError[incompatible-call]: pattern should be string, not object
     return glob({}, () => {});
   },
   missingCallback(): empty {
-    // $FlowExpectedError: at least 2 arguments expected
+    // $FlowExpectedError[incompatible-call]: at least 2 arguments expected
     return glob('pattern');
   },
   tooManyArgs(): empty {
-    // $FlowExpectedError: max 3 arguments expected
+    // $FlowExpectedError[incompatible-call]: max 3 arguments expected
     return glob('pattern', {}, () => {}, 'additional');
   },
   invalidConfig_1(): empty {
-    // $FlowExpectedError: root option must be string
+    // $FlowExpectedError[incompatible-call]: root option must be string
     return glob(
       'pattern',
       {
@@ -41,11 +41,11 @@ module.exports = {
     );
   },
   invalidConfig_2(): empty {
-    // $FlowExpectedError: config must be object
+    // $FlowExpectedError[incompatible-call]: config must be object
     return glob('pattern', 'config', () => {});
   },
   invalidCombination(): empty {
-    // $FlowExpectedError: missing callback
+    // $FlowExpectedError[incompatible-call]: missing callback
     return glob('pattern', {});
   },
 };

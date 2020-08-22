@@ -2,5 +2,5 @@
 
 /* eslint-disable */
 
-// $FlowExpectedError: untyped-import
+// $FlowExpectedError[untyped-import]
 import { XYZ } from './__untypedFile';

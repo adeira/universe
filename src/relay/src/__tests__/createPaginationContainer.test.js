@@ -9,7 +9,7 @@ class MockComponent extends React.Component<{||}> {}
 it('throws when used with empty fragment spec', () => {
   let error = new Error();
   try {
-    // $FlowExpectedError: we do not need the connection config here
+    // $FlowExpectedError[prop-missing]: we do not need the connection config here
     createPaginationContainer(MockComponent, {}, {});
   } catch (_error) {
     error = _error;

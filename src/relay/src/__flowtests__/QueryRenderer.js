@@ -105,16 +105,16 @@ module.exports = {
 
   // ERRORS:
   missingQuery1(): React.Node {
-    // $FlowExpectedError: missing query property
+    // $FlowExpectedError[incompatible-type]: missing query property
     return <QueryRenderer onResponse={placeholder} />;
   },
   missingQuery2(): React.Node {
-    // $FlowExpectedError: missing query property
+    // $FlowExpectedError[incompatible-type]: missing query property
     return <QueryRenderer render={placeholder} />;
   },
   missingOnResponseOrRender(): React.Node {
     return (
-      // $FlowExpectedError: must use 'onResponse' or 'render' property
+      // $FlowExpectedError[incompatible-type]: must use 'onResponse' or 'render' property
       <QueryRenderer
         query={graphql`
           query QueryRenderer {
@@ -126,7 +126,7 @@ module.exports = {
   },
   mixedRenderAndOnResponse(): React.Node {
     return (
-      // $FlowExpectedError: use 'onResponse' or 'render' but not both
+      // $FlowExpectedError[incompatible-type]: use 'onResponse' or 'render' but not both
       <QueryRenderer
         query={graphql`
           query QueryRenderer {
@@ -140,7 +140,7 @@ module.exports = {
   },
   invalidCacheConfig(): React.Node {
     return (
-      // $FlowExpectedError: this cache config is not valid
+      // $FlowExpectedError[incompatible-type]: this cache config is not valid
       <QueryRenderer
         query={graphql`
           query QueryRenderer {
@@ -154,7 +154,7 @@ module.exports = {
   },
   invalidVariablesValue(): React.Node {
     return (
-      // $FlowExpectedError: variables can be object or undefined but nothing else
+      // $FlowExpectedError[incompatible-type]: variables can be object or undefined but nothing else
       <QueryRenderer
         query={graphql`
           query QueryRenderer {

@@ -89,7 +89,7 @@ it('renders default component for response error', () => {
     />,
   );
   environment.mock.rejectMostRecentOperation(
-    // $FlowExpectedError: incomplete Response object for testing purposes only
+    // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
     new FetchResponseError({ status: 500, statusText: 'fail' }),
   );
   const error = testRenderer.root.findByProps({ 'data-testid': 'error' });

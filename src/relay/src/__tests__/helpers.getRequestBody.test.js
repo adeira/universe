@@ -46,7 +46,7 @@ it('returns request body with uploadables', () => {
 
   expect(formData).toBeInstanceOf(FormData);
 
-  // $FlowExpectedError: Flow knows it could be a string as well but we know it's a FormData type
+  // $FlowExpectedError[incompatible-call]: Flow knows it could be a string as well but we know it's a FormData type
   expect(serializeFormData(formData)).toMatchInlineSnapshot(`
 Object {
   "bar": File {},
@@ -71,7 +71,7 @@ it('returns request body with uploadables - persistent queries', () => {
 
   expect(formData).toBeInstanceOf(FormData);
 
-  // $FlowExpectedError: Flow knows it could be a string as well but we know it's a FormData type
+  // $FlowExpectedError[incompatible-call]: Flow knows it could be a string as well but we know it's a FormData type
   expect(serializeFormData(formData)).toMatchInlineSnapshot(`
 Object {
   "bar": File {},

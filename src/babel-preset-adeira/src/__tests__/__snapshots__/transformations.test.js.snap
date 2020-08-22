@@ -275,7 +275,7 @@ exports[`matches expected output: babel-issue-8684.js: flow 1`] = `
 
 const aaa = 1;
 
-// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -285,7 +285,7 @@ const bbb: string = aaa;
 
 const aaa = 1;
 
-// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 const bbb: string = aaa;
 `;
 
@@ -297,7 +297,7 @@ exports[`matches expected output: babel-issue-8684.js: js (old browsers) 1`] = `
 
 const aaa = 1;
 
-// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
@@ -306,7 +306,7 @@ const bbb: string = aaa;
 // SEE: https://github.com/babel/babel/issues/8684
 
 /* eslint-disable */
-var aaa = 1; // $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+var aaa = 1; // $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 
 var bbb = aaa;
 `;
@@ -319,14 +319,14 @@ exports[`matches expected output: babel-issue-8684.js: js-esm (with ES6 import/e
 
 const aaa = 1;
 
-// $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+// $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 const bbb: string = aaa;
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // SEE: https://github.com/babel/babel/issues/8684
 
 /* eslint-disable */
-var aaa = 1; // $FlowExpectedError: this line should stay here because \`aaa\` is incompatible with \`bbb\`
+var aaa = 1; // $FlowExpectedError[incompatible-type]: this line should stay here because \`aaa\` is incompatible with \`bbb\`
 
 var bbb = aaa;
 `;
@@ -1176,7 +1176,7 @@ const React = require('react');
 
 const BoldTodoRenderer = React.lazy(() =>
   import(
-    // $FlowExpectedError: cannot resolve module
+    // $FlowExpectedError[cannot-resolve-module]
     './BoldTodoRenderer'
   ),
 );
@@ -1198,7 +1198,7 @@ const React = require('react');
 
 const BoldTodoRenderer = React.lazy(() =>
 import(
-// $FlowExpectedError: cannot resolve module
+// $FlowExpectedError[cannot-resolve-module]
 './BoldTodoRenderer'));
 
 
@@ -1222,7 +1222,7 @@ const React = require('react');
 
 const BoldTodoRenderer = React.lazy(() =>
   import(
-    // $FlowExpectedError: cannot resolve module
+    // $FlowExpectedError[cannot-resolve-module]
     './BoldTodoRenderer'
   ),
 );
@@ -1268,7 +1268,7 @@ const React = require('react');
 
 const BoldTodoRenderer = React.lazy(() =>
   import(
-    // $FlowExpectedError: cannot resolve module
+    // $FlowExpectedError[cannot-resolve-module]
     './BoldTodoRenderer'
   ),
 );
@@ -1286,7 +1286,7 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 var React = require('react');
 
 var BoldTodoRenderer = React.lazy(function () {
-  return import( // $FlowExpectedError: cannot resolve module
+  return import( // $FlowExpectedError[cannot-resolve-module]
   './BoldTodoRenderer');
 });
 

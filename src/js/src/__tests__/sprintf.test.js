@@ -108,7 +108,7 @@ it('JSON format handles circular references', () => {
   const obj = {
     a: 'foo',
   };
-  // $FlowExpectedError: Intentional circular reference created
+  // $FlowExpectedError[prop-missing]: Intentional circular reference created
   obj.b = obj;
   expect(sprintf('%j', obj)).toBe('{"a":"foo","b":"[Circular]"}');
 });

@@ -36,7 +36,7 @@ module.exports = {
   invalidUsage(): React.Node {
     return (
       <CustomQueryRenderer
-        // $FlowExpectedError: should be `GraphQLTaggedNode` instead
+        // $FlowExpectedError[incompatible-type]: should be `GraphQLTaggedNode` instead
         query="invalid_query_type"
         render={placeholder}
       />

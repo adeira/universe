@@ -53,7 +53,7 @@ module.exports = {
       mutation,
       variables,
       configs: [
-        // $FlowExpectedError: RANGE_WTF is not allowed type
+        // $FlowExpectedError[incompatible-call]: RANGE_WTF is not allowed type
         {
           type: 'RANGE_WTF',
         },
@@ -71,7 +71,7 @@ module.exports = {
           connectionInfo: [
             {
               key: 'FavoritesList_favorites',
-              // $FlowExpectedError: unsupported range behavior
+              // $FlowExpectedError[incompatible-call]: unsupported range behavior
               rangeBehavior: 'unsupported',
             },
           ],

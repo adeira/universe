@@ -24,7 +24,7 @@ it('uses sprintf behind the scenes', () => {
 });
 
 it('complains when used without a warning message', () => {
-  // $FlowExpectedError: warning requires second argument
+  // $FlowExpectedError[incompatible-call]: warning requires second argument
   expect(() => warning(false)).toThrowErrorMatchingInlineSnapshot(
     '"`warning(condition, format, ...args)` requires a warning message argument"',
   );

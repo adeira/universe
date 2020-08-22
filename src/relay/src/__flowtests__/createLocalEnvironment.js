@@ -9,7 +9,7 @@ module.exports = ({
 
   // Invalid usages:
   invalidUsage: () => {
-    // $FlowExpectedError: Cannot call createLocalEnvironment because no arguments are expected by function [1].
+    // $FlowExpectedError[extra-arg]
     return createLocalEnvironment({
       something: false,
     });

@@ -9,7 +9,7 @@ class MockComponent extends React.Component<{||}> {}
 it('throws when used with empty fragment spec', () => {
   let error = new Error();
   try {
-    // $FlowExpectedError: we do not need the refetch query here
+    // $FlowExpectedError[incompatible-call]: we do not need the refetch query here
     createRefetchContainer(MockComponent, {}, null);
   } catch (_error) {
     error = _error;

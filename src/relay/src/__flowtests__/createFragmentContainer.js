@@ -12,11 +12,11 @@ const validData = {
 function getTestCases(Container) {
   return {
     checkMissingProperty() {
-      // $FlowExpectedError: missing `data` property
+      // $FlowExpectedError[prop-missing]: missing `data` property
       return <Container />;
     },
     checkInvalidProperty() {
-      // $FlowExpectedError: data property value should be fragment object (not number)
+      // $FlowExpectedError[incompatible-type]: data property value should be fragment object (not number)
       return <Container data={1} />;
     },
     checkValidProperty() {
@@ -24,7 +24,7 @@ function getTestCases(Container) {
     },
     checkToManyProperties() {
       return (
-        // $FlowExpectedError: `extraProp` should not be here
+        // $FlowExpectedError[prop-missing]: `extraProp` should not be here
         <Container data={validData} extraProp={-1} />
       );
     },
@@ -32,7 +32,7 @@ function getTestCases(Container) {
       return <Container data={validData} fun={(_: string) => {}} />; // eslint-disable-line no-unused-vars
     },
     checkInvalidFunctionProperty() {
-      // $FlowExpectedError: function argument should be string, not number
+      // $FlowExpectedError[incompatible-type]: function argument should be string, not number
       return <Container data={validData} fun={(_: number) => {}} />; // eslint-disable-line no-unused-vars
     },
   };
@@ -79,7 +79,8 @@ module.exports = ({
   legacyFunctionalComponents: getTestCases(
     createFragmentContainer(
       FunctionalComponent,
-      // $FlowExpectedError: cannot call createFragmentContainer with template string bound to fragmentSpec because GraphQLTaggedNode is incompatible with FragmentSpec
+      // $FlowExpectedError[incompatible-call]
+      // $FlowExpectedError[incompatible-variance]
       graphql`
         query createFragmentContainer_functionalComponents {
           __typename

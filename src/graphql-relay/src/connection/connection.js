@@ -76,7 +76,7 @@ type GraphQLConnectionDefinitions = {
 
 function resolveMaybeThunk<T>(thingOrThunk: Thunk<T>): T {
   return typeof thingOrThunk === 'function'
-    ? // $FlowFixMe - if it's a function, we assume a thunk without arguments
+    ? // $FlowFixMe[incompatible-use]: if it's a function, we assume a thunk without arguments
       thingOrThunk()
     : thingOrThunk;
 }

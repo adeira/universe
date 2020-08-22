@@ -42,7 +42,7 @@ describe('glob', () => {
   });
 
   it('throws when used with two callbacks', () => {
-    // $FlowExpectedError: second argument cannot be callback
+    // $FlowExpectedError[incompatible-call]: second argument cannot be callback
     expect(() => glob('pattern', voidCallback, voidCallback)).toThrowError(
       'Glob function accepts only one callback.',
     );

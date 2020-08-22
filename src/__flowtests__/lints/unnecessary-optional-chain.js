@@ -7,7 +7,8 @@ type Foo = {
 
 declare var foo: Foo;
 
-// $FlowExpectedError: unnecessary-optional-chain
+// $FlowExpectedError[signature-verification-failure]
+// $FlowExpectedError[unnecessary-optional-chain]
 export const x = foo?.bar;
 
 // ~~~~~
@@ -22,5 +23,6 @@ type Baz = {
 
 declare var baz: ?Baz;
 
-// $FlowExpectedError: unnecessary-optional-chain
+// $FlowExpectedError[signature-verification-failure]
+// $FlowExpectedError[unnecessary-optional-chain]
 export const y = baz?.bar?.foo;
