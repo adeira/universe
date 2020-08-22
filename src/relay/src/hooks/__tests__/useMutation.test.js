@@ -84,7 +84,8 @@ it('handles partial errors gracefully', () => {
   const EnvironmentMock = createMockEnvironment();
   EnvironmentMock.mock.queueOperationResolver((operation) => {
     const response = MockPayloadGenerator.generate(operation);
-    // $FlowFixMe errors after upgrading to relay 9.1.0
+    // $FlowFixMe[cannot-write]: errors after upgrading to relay 9.1.0
+    // $FlowFixMe[prop-missing]: errors after upgrading to relay 9.1.0
     response.errors = [{ message: 'aaa' }, { message: 'bbb' }];
     return response;
   });

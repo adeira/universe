@@ -48,7 +48,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
     ...externalOptions,
   };
 
-  // $FlowFixMe errors after upgrading to relay 9.1.0
+  // $FlowFixMe[prop-missing]: errors after upgrading to relay 9.1.0
   const reporter = new ConsoleReporter({ verbose: true });
   const languagePlugin = buildLanguagePlugin();
   const srcDir = path.resolve(process.cwd(), options.src);
@@ -105,7 +105,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
 
   const codegenRunner = new CodegenRunner({
     reporter,
-    // $FlowFixMe errors after upgrading to relay 9.1.0
+    // $FlowFixMe[incompatible-call]: errors after upgrading to relay 9.1.0
     parserConfigs,
     writerConfigs,
     onlyValidate: options.validate,
@@ -113,7 +113,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
   });
 
   const result: 'HAS_CHANGES' | 'NO_CHANGES' | 'ERROR' = options.watch
-    ? // $FlowFixMe errors after upgrading to relay 9.1.0
+    ? // $FlowFixMe[incompatible-call]: errors after upgrading to relay 9.1.0
       await codegenRunner.watchAll()
     : await codegenRunner.compileAll();
 
@@ -190,7 +190,7 @@ function getRelayFileWriter(
     }
 
     return RelayFileWriter.writeAll({
-      // $FlowFixMe errors after upgrading to relay 9.1.0
+      // $FlowFixMe[incompatible-call]: errors after upgrading to relay 9.1.0
       config: writerConfig,
       onlyValidate,
       schema,

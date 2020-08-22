@@ -14,7 +14,7 @@ module.exports = ({
     return graphql(['correct']);
   },
   incorrectUsage() {
-    // $FlowExpectedError: input should be only string
+    // $FlowExpectedError[incompatible-call]: input should be only string
     return graphql([1, 2]);
   },
 }: $FlowFixMe);

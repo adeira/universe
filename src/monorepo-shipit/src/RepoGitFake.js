@@ -25,7 +25,7 @@ export default class RepoGitFake extends RepoGit {
         'git',
         'config',
         key,
-        // $FlowIssue: https://github.com/facebook/flow/issues/2174
+        // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/2174
         value,
       ).runSynchronously();
     }
@@ -41,7 +41,8 @@ export default class RepoGitFake extends RepoGit {
 
   clean: () => void = () => {};
 
-  // $FlowExpectedError: this function overwrites the original and returns nothing
+  // $FlowExpectedError[signature-verification-failure]
+  // $FlowExpectedError[incompatible-extend]: this function overwrites the original and returns nothing
   export = (): void => {};
 
   getFakeRepoPath(): string {

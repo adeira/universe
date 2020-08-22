@@ -10,7 +10,7 @@ jest.mock('fs');
 const envLocation = path.join(process.cwd(), '.env');
 
 function createEnvFile(content: string) {
-  // $FlowExpectedError: this method exists only in our custom mock
+  // $FlowExpectedError[prop-missing]: this method exists only in our custom mock
   fs.__setMockFiles({
     [envLocation]: content,
   });

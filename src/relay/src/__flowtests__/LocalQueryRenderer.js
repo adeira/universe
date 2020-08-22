@@ -42,18 +42,18 @@ module.exports = {
 
   // ERRORS:
   missingQuery(): React.Node {
-    // $FlowExpectedError: Cannot create LocalQueryRenderer element because property query is missing in props.
+    // $FlowExpectedError[incompatible-type]: Cannot create LocalQueryRenderer element because property query is missing in props.
     return <LocalQueryRenderer environment={environment} render={placeholder} />;
   },
   missingRender(): React.Node {
     return (
-      // $FlowExpectedError: Cannot create LocalQueryRenderer element because property render is missing in props.
+      // $FlowExpectedError[incompatible-type]: Cannot create LocalQueryRenderer element because property render is missing in props.
       <LocalQueryRenderer environment={environment} query={query} />
     );
   },
   invalidVariablesValue(): React.Node {
     return (
-      // $FlowExpectedError: Cannot create LocalQueryRenderer element because null is incompatible with Variables.
+      // $FlowExpectedError[incompatible-type]: Cannot create LocalQueryRenderer element because null is incompatible with Variables.
       <LocalQueryRenderer
         environment={environment}
         query={query}

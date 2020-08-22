@@ -35,12 +35,12 @@ module.exports = {
     return function TestComponent() {
       const [executeMutation] = useMutation(mutation);
 
-      // $FlowExpectedError: property onCompleted is missing
+      // $FlowExpectedError[prop-missing]: property onCompleted is missing
       executeMutation({
         variables: {},
       });
 
-      // $FlowExpectedError: property onCompleted is missing, property wtfIsThis is missing in HookMutationConfig
+      // $FlowExpectedError[prop-missing]: property onCompleted is missing, property wtfIsThis is missing in HookMutationConfig
       executeMutation({
         wtfIsThis: {},
       });

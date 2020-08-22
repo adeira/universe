@@ -126,7 +126,7 @@ export function globalIdField(
     type: new GraphQLNonNull(GraphQLID),
     resolve: (obj, args, context, info) =>
       toGlobalId(
-        // $FlowFixMe
+        // $FlowFixMe[sketchy-null-string]
         typeName || info.parentType.name,
         idFetcher ? idFetcher(obj, context, info) : obj.id,
       ),

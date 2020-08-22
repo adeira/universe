@@ -72,7 +72,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       'user.email': accounts.get(username),
       'user.name': username,
     })) {
-      // $FlowIssue: https://github.com/facebook/flow/issues/2174
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/2174
       this._gitCommand('config', key, value).setOutputToScreen().runSynchronously();
     }
   };

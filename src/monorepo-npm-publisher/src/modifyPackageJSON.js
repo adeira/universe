@@ -23,7 +23,7 @@ export default function modifyPackageJSON(packageJSONFile: PackageJSON): Package
   if (main == null) {
     // add main as a module without extension
     return {
-      // $FlowIssue: https://github.com/facebook/flow/issues/8074
+      // $FlowIssue[incompatible-use]: https://github.com/facebook/flow/issues/8074
       main: module.replace(/\.mjs$/, ''),
       module,
       ...rest,

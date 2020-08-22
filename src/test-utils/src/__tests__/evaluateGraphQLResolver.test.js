@@ -35,7 +35,7 @@ describe('evaluateGraphQLResolver', () => {
 
     expect(evaluateGraphQLResolver(value, { value: 42 })).toBe(42);
     expect(() => evaluateGraphQLResolver(value, { value: null })).toThrowError(
-      'Invalid value null: Expected non-nullable type Int! not to be null',
+      'Invalid value null: Expected non-nullable type "Int!" not to be null',
     );
     expect(() => evaluateGraphQLResolver(value, { value: 9999999999 })).toThrowError(
       'Int cannot represent non 32-bit signed integer value: 9999999999',

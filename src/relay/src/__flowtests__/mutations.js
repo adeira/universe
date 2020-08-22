@@ -64,7 +64,7 @@ module.exports = {
 
   // Invalid usages:
   missingVariables(): Disposable {
-    // $FlowExpectedError: variables are missing
+    // $FlowExpectedError[prop-missing]: variables are missing
     return commitMutation<NamedMutation>(environment, {
       mutation,
     });
@@ -72,7 +72,8 @@ module.exports = {
   invalidVariables(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
-      // $FlowExpectedError: passed variables are incorrect
+      // $FlowExpectedError[prop-missing]: passed variables are incorrect
+      // $FlowExpectedError[incompatible-call]: passed variables are incorrect
       variables: { someNumber: '123' },
     });
   },
@@ -80,7 +81,7 @@ module.exports = {
     return commitMutation<NamedMutation>(environment, {
       mutation,
       variables,
-      // $FlowExpectedError: response type differs from onCompleted declaration
+      // $FlowExpectedError[prop-missing]: response type differs from onCompleted declaration
       onCompleted: (response: {||}) => {}, // eslint-disable-line no-unused-vars
     });
   },
@@ -88,7 +89,7 @@ module.exports = {
     +errors: ?$ReadOnlyArray<Error>,
     +response: $ElementType<NamedMutation, 'response'>,
   |}> {
-    // $FlowExpectedError: onCompleted is disabled in config for commitMutationAsync
+    // $FlowExpectedError[prop-missing]: onCompleted is disabled in config for commitMutationAsync
     return commitMutationAsync<NamedMutation>(environment, {
       mutation,
       onCompleted: () => {},
@@ -100,12 +101,12 @@ module.exports = {
       mutation,
       variables,
       updater: (store) => {
-        // $FlowExpectedError: cannot call store.wtf because property wtf is missing in RecordSourceSelectorProxy
+        // $FlowExpectedError[prop-missing]: cannot call store.wtf because property wtf is missing in RecordSourceSelectorProxy
         store.wtf('ups');
 
         const record = store.get('unique:ID');
         if (record) {
-          // $FlowExpectedError: cannot call record.wtf because property wtf is missing in RecordProxy
+          // $FlowExpectedError[prop-missing]: cannot call record.wtf because property wtf is missing in RecordProxy
           record.wtf('ups');
         }
       },

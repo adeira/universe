@@ -48,7 +48,7 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
   const shouldSkip = (file) => /\.only\.\w+$/.test(file);
   const onlyFixtures = fixtures.filter(shouldSkip);
   if (onlyFixtures.length) {
-    // $FlowFixMe: we need to update our Jest type definitions (TODO)
+    // $FlowFixMe[prop-missing]: we need to update our Jest type definitions (TODO)
     test.skip.each(fixtures.filter((name) => !shouldSkip(name)))(
       'matches expected output: %s',
       () => {},
@@ -61,14 +61,14 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
     const output = await getOutputForFixture(input, operation, file);
     if (snapshotName != null) {
       expect({
-        // $FlowIssue: https://github.com/facebook/flow/issues/3258
+        // $FlowIssue[invalid-computed-prop]: https://github.com/facebook/flow/issues/3258
         [FIXTURE_TAG]: true,
         input: input,
         output: output,
       }).toMatchSnapshot(snapshotName);
     } else {
       expect({
-        // $FlowIssue: https://github.com/facebook/flow/issues/3258
+        // $FlowIssue[invalid-computed-prop]: https://github.com/facebook/flow/issues/3258
         [FIXTURE_TAG]: true,
         input: input,
         output: output,

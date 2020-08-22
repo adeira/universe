@@ -50,7 +50,8 @@ invariant(
 // possible to "fetch" the schema since there is no URL. Such projects has to sign their
 // snapshot manually.
 
-// $FlowFixMe errors after upgrading to relay 9.1.0
+// $FlowFixMe[prop-missing]: errors after upgrading to relay 9.1.0
+// $FlowFixMe[incompatible-call]: errors after upgrading to relay 9.1.0
 compiler(config).catch((error) => {
   Logger.error(error);
   process.exit(1);

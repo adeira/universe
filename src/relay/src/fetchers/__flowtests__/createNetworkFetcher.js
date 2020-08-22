@@ -18,16 +18,16 @@ module.exports = ({
   // Invalid usages:
   missingXClient: () => {
     return {
-      // $FlowExpectedError: missing X-Client header
+      // $FlowExpectedError[incompatible-call]: missing X-Client header
       case_1: createNetworkFetcher('//localhost', {
         'Different-Header': 'err',
       }),
-      // $FlowExpectedError: missing X-Client header
+      // $FlowExpectedError[incompatible-call]: missing X-Client header
       case_2: createNetworkFetcher('//localhost'),
     };
   },
   invalidXClient: () => {
-    // $FlowExpectedError: X-Client header should be string, not number
+    // $FlowExpectedError[incompatible-call]: X-Client header should be string, not number
     return createNetworkFetcher('//localhost', {
       'X-Client': 1,
     });

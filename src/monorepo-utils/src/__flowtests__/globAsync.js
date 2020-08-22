@@ -18,21 +18,24 @@ module.exports = {
 
   // INVALID EXAMPLES:
   invalidPattern(): empty {
-    // $FlowExpectedError: pattern should not be an object
+    // $FlowExpectedError[incompatible-call]: pattern should not be an object
+    // $FlowExpectedError[incompatible-return]
     return globAsync({});
   },
   tooManyArgs(): empty {
-    // $FlowExpectedError: max 2 arguments expected
+    // $FlowExpectedError[extra-arg]: max 2 arguments expected
+    // $FlowExpectedError[incompatible-return]
     return globAsync('pattern', {}, () => {});
   },
   invalidConfig_1(): empty | Promise<$ReadOnlyArray<string>> {
     return globAsync('pattern', {
-      // $FlowExpectedError: root option must be string
+      // $FlowExpectedError[incompatible-call]: root option must be string
       root: true,
     });
   },
   invalidConfig_2(): empty {
-    // $FlowExpectedError: second argument should be config object
+    // $FlowExpectedError[incompatible-exact]: second argument should be config object
+    // $FlowExpectedError[incompatible-return]
     return globAsync('pattern', () => {});
   },
 };

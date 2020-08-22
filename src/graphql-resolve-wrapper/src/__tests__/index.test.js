@@ -56,7 +56,7 @@ beforeEach(() => {
     }),
   });
 
-  // $FlowExpectedError: `getTypeMap` may return anything but I know it's object type in this case
+  // $FlowExpectedError[incompatible-type]: `getTypeMap` may return anything but I know it's object type in this case
   const rootQueryType: GraphQLObjectType = schema.getQueryType();
   fields = rootQueryType.getFields();
 });
@@ -155,7 +155,7 @@ describe('fields info', () => {
 
   beforeEach(() => {
     wrapResolvers(schema, (resolveFn, field) =>
-      // $FlowExpectedError: we are not returning resolve function here
+      // $FlowExpectedError[incompatible-call]: we are not returning resolve function here
       filteredFields.push({
         name: field.name,
         type: field.type,

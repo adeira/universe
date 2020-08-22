@@ -7,6 +7,7 @@ import type { ConfigType } from '../../../../ConfigType.flow';
 module.exports = ({
   // $FlowExpectedError[prop-missing]
   getBranchConfig() {
+    // $FlowExpectedError[prop-missing]
     return {
       // should be 'source' and 'destination'
       what_is_this: 'source_branch',

@@ -31,7 +31,7 @@ function detectReactVersion() {
 
 module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: EslintConfig */ {
   return {
-    /* $FlowFixMe(>=0.115.0) This comment suppresses an error when upgrading
+    /* $FlowFixMe[incompatible-return](>=0.115.0) This comment suppresses an error when upgrading
      * Flow. To see the error delete this comment and run Flow. */
     rules: {
       ...rules,

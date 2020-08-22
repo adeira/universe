@@ -25,14 +25,14 @@ module.exports = {
 
   // INVALID EXAMPLES:
   unknownOptions(): Promise<Response> {
-    // $FlowExpectedError: property 'unknown' is not allowed
+    // $FlowExpectedError[prop-missing]: property 'unknown' is not allowed
     return fetch('127.0.0.1', {
       unknown: 'wtf',
     });
   },
   invalidValue(): Promise<Response> {
     return fetch('127.0.0.1', {
-      // $FlowExpectedError: value 'unknown' is not allowed
+      // $FlowExpectedError[incompatible-call]: value 'unknown' is not allowed
       credentials: 'unknown',
     });
   },

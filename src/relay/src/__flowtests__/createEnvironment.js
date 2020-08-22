@@ -28,7 +28,7 @@ module.exports = ({
 
   // Invalid usages:
   invalidUsage: () => {
-    // $FlowExpectedError: property 'fetcherFn' should be in fact 'fetchFn'
+    // $FlowExpectedError[prop-missing]: property 'fetcherFn' should be in fact 'fetchFn'
     return createEnvironment({
       fetcherFn: () => false,
     });

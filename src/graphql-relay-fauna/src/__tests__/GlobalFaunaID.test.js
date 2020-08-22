@@ -6,14 +6,14 @@ import { nullthrows } from '@adeira/js';
 import GlobalFaunaID from '../index';
 
 function resolveField(field, source, typename, opaque = true) {
-  // $FlowExpectedError
+  // $FlowExpectedError[not-a-function]
   return field.resolve(
     source,
     { opaque },
     undefined, // context
-    // $FlowExpectedError: this is incomplete info only for test purposes
+    // $FlowExpectedError[prop-missing]: this is incomplete info only for test purposes
     {
-      // $FlowExpectedError: this is incomplete info only for test purposes
+      // $FlowExpectedError[incompatible-call]: this is incomplete info only for test purposes
       parentType: {
         name: typename,
       },

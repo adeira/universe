@@ -434,29 +434,35 @@ declare module 'faunadb' {
 
   declare export function query$Object(fields: ExprArg): Expr;
 
+  // $FlowFixMe[incompatible-type]
   declare export function query$Lambda(f: query$Lambda): Expr;
 
   declare export function query$Lambda(var_name: ExprArg, expr: ExprArg): Expr;
 
   declare export function query$Call(ref: ExprArg, ...args: ExprArg[]): Expr;
 
+  // $FlowFixMe[incompatible-type]
   declare export function query$Query(lambda: ExprArg | query$Lambda): Expr;
 
+  // $FlowFixMe[incompatible-type]
   declare export function query$Map(collection: ExprArg, lambda_expr: ExprArg | query$Lambda): Expr;
 
   declare export function query$Merge(
     object: ExprArg,
     values: ExprArg,
+    // $FlowFixMe[incompatible-type]
     resolver?: Expr | query$Lambda,
   ): Expr;
 
   declare export function query$Foreach(
     collection: ExprArg,
+    // $FlowFixMe[incompatible-type]
     lambda_expr: ExprArg | query$Lambda,
   ): Expr;
 
   declare export function query$Filter(
     collection: ExprArg,
+    // $FlowFixMe[incompatible-type]
     lambda_expr: ExprArg | query$Lambda,
   ): Expr;
 
@@ -577,6 +583,7 @@ declare module 'faunadb' {
 
   declare export function query$Distinct(set: ExprArg): Expr;
 
+  // $FlowFixMe[incompatible-type]
   declare export function query$Join(source: ExprArg, target: ExprArg | query$Lambda): Expr;
 
   declare export function query$Range(set: ExprArg, from: ExprArg, to: ExprArg): Expr;

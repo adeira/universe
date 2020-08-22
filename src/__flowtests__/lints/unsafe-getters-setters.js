@@ -3,12 +3,13 @@
 /* eslint-disable */
 
 export const o = {
-  // $FlowExpectedError: unsafe-getters-setters
+  // $FlowExpectedError[signature-verification-failure]
+  // $FlowExpectedError[unsafe-getters-setters]
   get a() {
     return 4;
   },
 
-  // $FlowExpectedError: unsafe-getters-setters
+  // $FlowExpectedError[unsafe-getters-setters]
   set b(x: number) {
     this.c = x;
   },

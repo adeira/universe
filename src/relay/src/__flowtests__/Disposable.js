@@ -26,7 +26,7 @@ module.exports = {
     return subscription;
   },
   invalidUsage: (props: Props): number => {
-    // $FlowExpectedError: returns `Disposable` and not `number`
+    // $FlowExpectedError[incompatible-type]: returns `Disposable` and not `number`
     const subscription: number = requestSubscription<SubscriptionTypeMock>(
       props.relay.environment,
       {

@@ -42,7 +42,7 @@ module.exports = {
 
   // Invalid usages:
   missingVariables(): Disposable {
-    // $FlowExpectedError: variables are missing
+    // $FlowExpectedError[prop-missing]: variables are missing
     return requestSubscription<SubscriptionTypeMock>(environment, {
       subscription: graphql`
         subscription requestSubscription {

@@ -17,12 +17,12 @@ module.exports = {
   // Invalid usages:
   invalidUpdater(): void {
     return commitLocalUpdate(environment, (store) => {
-      // $FlowExpectedError: cannot call store.wtf because property wtf is missing in RecordSourceSelectorProxy
+      // $FlowExpectedError[prop-missing]: cannot call store.wtf because property wtf is missing in RecordSourceSelectorProxy
       store.wtf('ups');
 
       const record = store.get('unique:ID');
       if (record) {
-        // $FlowExpectedError: cannot call record.wtf because property wtf is missing in RecordProxy
+        // $FlowExpectedError[prop-missing]: cannot call record.wtf because property wtf is missing in RecordProxy
         record.wtf('ups');
       }
     });
