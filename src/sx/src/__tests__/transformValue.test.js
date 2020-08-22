@@ -17,6 +17,9 @@ test.each`
   ${'color'}    | ${'#ffffff'}        | ${'#fff'}
   ${'color'}    | ${'#fffff0'}        | ${'#fffff0'}
   ${'color'}    | ${'#ABCDEF'}        | ${'#abcdef'}
+  ${'color'}    | ${'white'}          | ${'#fff'}
+  ${'color'}    | ${'aqua'}           | ${'#0ff'}
+  ${'color'}    | ${'chocolate'}      | ${'#d2691e'}
   ${'content'}  | ${'🦕'}             | ${'"🦕"'}
 `(
   '$styleName:$styleValue => $styleName:$expectedValue',
