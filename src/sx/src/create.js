@@ -1,5 +1,7 @@
 // @flow
 
+import { invariant, isObjectEmpty } from '@adeira/js';
+
 import hashStyle from './hashStyle';
 import { styleBuffer } from './styleBuffer';
 import transformStyleName from './transformStyleName';
@@ -34,6 +36,11 @@ function hashStylePair(
 export default function create<T: SheetDefinitions>(
   sheetDefinitions: T,
 ): (...$ReadOnlyArray<$Keys<T>>) => string {
+  invariant(
+    isObjectEmpty(sheetDefinitions) === false,
+    `Function 'sx.create' cannot be called with empty stylesheet definition.`,
+  );
+
   // 1) stylesheet definitions:
   //
   // {
@@ -82,6 +89,11 @@ export default function create<T: SheetDefinitions>(
 
   Object.keys(sheetDefinitions).forEach((sheetDefinitionName) => {
     const sheetDefinitionValues = sheetDefinitions[sheetDefinitionName];
+    invariant(
+      isObjectEmpty(sheetDefinitionValues) === false,
+      `Stylesheet '%s' must have at least one CSS property.`,
+      sheetDefinitionName,
+    );
     Object.keys(sheetDefinitionValues).forEach((key) => {
       if (key.startsWith(':')) {
         const values = ((sheetDefinitionValues: any): AllCSSPseudos);
@@ -113,9 +125,19 @@ export default function create<T: SheetDefinitions>(
   });
 
   return function sx(...sheetDefinitionNames) {
+    invariant(
+      sheetDefinitionNames.length > 0,
+      'SX must be called with at least one stylesheet name.',
+    );
     const selectedStyles = {};
     for (const sheetDefinitionName of sheetDefinitionNames) {
       const hashedValues = hashedSheetDefinitions[sheetDefinitionName];
+      invariant(
+        hashedValues != null,
+        `SX was called with '%s' stylesheet name but it doesn't exist. Available names are: %j`,
+        sheetDefinitionName,
+        Object.keys(hashedSheetDefinitions),
+      );
       Object.keys(hashedValues).forEach((styleKey) => {
         selectedStyles[styleKey] = hashedValues[styleKey];
       });
