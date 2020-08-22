@@ -19,7 +19,7 @@
     "eslint": "^7.7.0",
     "flow-bin": "^0.132.0",
     "glob": "^7.1.6",
-    "jest": "^26.4.1"
+    "jest": "^26.4.2"
   },
   "jest": {
     "testRegex": "/scripts/jest/dontRunJestDirectly\\.js$"
