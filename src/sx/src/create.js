@@ -1,7 +1,7 @@
 // @flow
 
 import hashStyle from './hashStyle';
-import { styleBuffer } from './styleBuffer';
+import { styleBuffer, mediaStyleBuffer } from './styleBuffer';
 import transformStyleName from './transformStyleName';
 import transformValue from './transformValue';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
@@ -18,7 +18,7 @@ type AllCSSPseudos = {|
   +':visited'?: AllCSSPropertyTypes,
 |};
 
-type AllCSSProperties = {| ...AllCSSPropertyTypes, ...AllCSSPseudos |};
+export type AllCSSProperties = {| ...AllCSSPropertyTypes, ...AllCSSPseudos |};
 type SheetDefinitions = {|
   +[sheetName: string]: AllCSSProperties,
 |};
@@ -86,8 +86,8 @@ export default function create<T: SheetDefinitions>(
       if (key.startsWith(':')) {
         const values = ((sheetDefinitionValues: any): AllCSSPseudos);
         const pseudo = ((key: any): $Keys<typeof values>); // :hover, ::after
-
         const pseudoStyles = values[pseudo];
+
         if (pseudoStyles == null) {
           return; // this should never happen (?)
         }
@@ -98,6 +98,36 @@ export default function create<T: SheetDefinitions>(
             key: pseudoStyleName,
             sheetDefinitionName,
           });
+        });
+      } else if (key === '__mediaQuery') {
+        // What if mediaStyles have pseudo classes 🤔
+        const mediaObject = ((sheetDefinitionValues[key]: any): AllCSSProperties);
+        const { mediaQuery, styles: mediaStyles } = mediaObject;
+
+        if (mediaStyles == null) {
+          return; // this should never happen (?)
+        }
+
+        let buffer = mediaStyleBuffer.get(mediaQuery);
+
+        if (buffer == null) {
+          mediaStyleBuffer.set(mediaQuery, new Map());
+          buffer = mediaStyleBuffer.get(mediaQuery);
+        }
+
+        Object.keys(mediaStyles).forEach((styleName) => {
+          const styleValue = mediaStyles[styleName];
+          const hash = hashStylePair(styleName, styleValue, mediaQuery);
+
+          buffer.set(hash, {
+            styleName: transformStyleName(styleName),
+            styleValue: transformValue(styleName, styleValue),
+          });
+
+          if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
+            hashedSheetDefinitions[sheetDefinitionName] = {};
+          }
+          hashedSheetDefinitions[sheetDefinitionName][styleName + mediaQuery] = hash;
         });
       } else {
         const values = ((sheetDefinitionValues: any): AllCSSPropertyTypes);

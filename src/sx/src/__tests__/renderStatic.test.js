@@ -13,7 +13,16 @@ beforeEach(() => {
 it('works as expected', () => {
   const styles = sx.create({
     red: { color: 'red' },
-    blue: { color: 'blue' },
+    blue: {
+      color: 'blue',
+    },
+    media: {
+      color: 'red',
+      ...sx.media('@media (min-width: 600px)', {
+        color: 'blue',
+        marginRight: '2px',
+      }),
+    },
     pseudo: {
       color: 'green',
       ':hover': {
@@ -41,11 +50,13 @@ it('works as expected', () => {
     ._4sFdkU:hover{color:#f00}
     ._22QzO9:hover{text-decoration:underline}
     ._3stS2V:focus{color:#800080}
-    ._14RYUP::after{content:\\"🤓\\"}"
+    ._14RYUP::after{content:\\"🤓\\"}@media(min-width:600px){._1Zlcse{color:#00f}
+    ._2N3qFR{margin-right:2px}}"
   `);
 
   expect(styles('red')).toMatchInlineSnapshot(`"wUqnh"`);
   expect(styles('blue')).toMatchInlineSnapshot(`"_4fo5TC"`);
+  expect(styles('media')).toMatchInlineSnapshot(`"wUqnh _1Zlcse _2N3qFR"`);
 
   expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_4fo5TC"`); // blue wins
   expect(styles('blue', 'red')).toMatchInlineSnapshot(`"wUqnh"`); // red wins
