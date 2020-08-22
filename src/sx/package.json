@@ -4,9 +4,10 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx",
   "license": "MIT",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "index",
   "sideEffects": false,
+  "module": false,
   "dependencies": {
     "@adeira/murmur-hash": "^0.1.0",
     "@adeira/signed-source": "^1.0.0",
