@@ -2,7 +2,7 @@
 
 import prettier from 'prettier';
 
-import sx from '../../index';
+import * as sx from '../../index';
 import { styleBuffer, mediaStyleBuffer } from '../styleBuffer';
 
 beforeEach(() => {

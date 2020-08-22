@@ -20,7 +20,7 @@ Create a stylesheet and use it to generate `className` props for React:
 
 ```jsx
 import * as React from 'react';
-import sx from '@adeira/sx';
+import * as sx from '@adeira/sx';
 
 export default function Example() {
   return <div className={styles('example')}>example</div>;
@@ -52,7 +52,7 @@ The example above will generate something like this:
 Finally, render somewhere the styles and HTML. Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document) would be:
 
 ```jsx
-import sx from '@adeira/sx';
+import * as sx from '@adeira/sx';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
