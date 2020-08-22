@@ -9,6 +9,7 @@
   "sideEffects": false,
   "module": false,
   "dependencies": {
+    "@adeira/js": "^1.2.4",
     "@adeira/murmur-hash": "^0.1.0",
     "@adeira/signed-source": "^1.0.0",
     "@babel/runtime": "^7.11.2",
