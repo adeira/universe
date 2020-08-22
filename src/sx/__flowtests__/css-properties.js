@@ -7,12 +7,12 @@ sx.create({
     color: 'red',
     zIndex: 10,
   },
+  // $FlowExpectedError[incompatible-call]
   InvalidPropertyValue: {
-    // $FlowExpectedError[incompatible-call]
     alignContent: 'unknown',
   },
+  // $FlowExpectedError[incompatible-call]
   InvalidPropertyType: {
-    // $FlowExpectedError[incompatible-call]
     zIndex: '10',
   },
 });

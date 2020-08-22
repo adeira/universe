@@ -10,12 +10,30 @@ beforeEach(() => {
   mediaStyleBuffer.clear();
 });
 
+it('supports pseudo classes', () => {
+  sx.create({
+    link: { color: 'red' },
+    linkHover: sx.pseudo({
+      ':hover': { color: 'blue' },
+    }),
+  });
+
+  expect(
+    sx
+      .renderStatic(() => null)
+      .css.split(' ')
+      .join('\n'),
+  ).toMatchInlineSnapshot(`
+    ".wUqnh{color:#f00}
+    .UddGc:hover{color:#00f}"
+  `);
+});
+
 it('works as expected', () => {
   const styles = sx.create({
     red: { color: 'red' },
     blue: { color: 'blue' },
-    pseudo: {
-      color: 'green',
+    pseudo: sx.pseudo({
       ':hover': {
         color: 'red',
         textDecoration: 'underline',
@@ -26,7 +44,7 @@ it('works as expected', () => {
       '::after': {
         content: '🤓',
       },
-    },
+    }),
   });
 
   expect(
@@ -37,7 +55,6 @@ it('works as expected', () => {
   ).toMatchInlineSnapshot(`
     ".wUqnh{color:#f00}
     ._4fo5TC{color:#00f}
-    .PJDYD{color:#008000}
     ._4sFdkU:hover{color:#f00}
     ._22QzO9:hover{text-decoration:underline}
     ._3stS2V:focus{color:#800080}
@@ -50,8 +67,8 @@ it('works as expected', () => {
   expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_4fo5TC"`); // blue wins
   expect(styles('blue', 'red')).toMatchInlineSnapshot(`"wUqnh"`); // red wins
 
-  expect(styles('pseudo')).toMatchInlineSnapshot(`"PJDYD _4sFdkU _22QzO9 _3stS2V _14RYUP"`);
-  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"wUqnh _4sFdkU _22QzO9 _3stS2V _14RYUP"`); // red wins (non-hover)
+  expect(styles('pseudo')).toMatchInlineSnapshot(`"_4sFdkU _22QzO9 _3stS2V _14RYUP"`);
+  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"_4sFdkU _22QzO9 _3stS2V _14RYUP wUqnh"`);
 });
 
 it('renders media queries properly', () => {

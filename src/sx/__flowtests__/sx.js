@@ -15,15 +15,17 @@ export function NoErrorsWithPseudo(): Node {
   const styles = sx.create({
     red: {
       color: 'red',
+    },
+    redPseudo: sx.pseudo({
       ':hover': {
         color: 'blue',
       },
       '::after': {
         content: '★',
       },
-    },
+    }),
   });
-  return <div className={styles('red')}>I am blue on hover</div>;
+  return <div className={styles('red', 'redPseudo')}>I am blue on hover</div>;
 }
 
 export function NoErrorsMoreStylesheetNames(): Node {
@@ -45,17 +47,20 @@ export function InvalidStylesheetName(): Node {
 export function InvalidCSSProperty(): Node {
   // $FlowExpectedError[prop-missing]
   const styles = sx.create({
-    red: { wtf: 'wtf' },
+    // $FlowExpectedError[incompatible-call]
+    red: {
+      wtf: 'wtf',
+    },
   });
   return <div className={styles('invalid')} />;
 }
 
 export function InvalidCSSPseudoProperty(): Node {
   const styles = sx.create({
-    red: {
+    red: sx.pseudo({
       // $FlowExpectedError[incompatible-call]
       ':hover': -1,
-    },
+    }),
   });
   return <div className={styles('red')} />;
 }

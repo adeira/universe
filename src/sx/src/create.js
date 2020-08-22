@@ -8,7 +8,7 @@ import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSP
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
-type AllCSSPseudos = {|
+export type AllCSSPseudos = {|
   +'::after'?: AllCSSPropertyTypes,
   +'::before'?: AllCSSPropertyTypes,
   +':active'?: AllCSSPropertyTypes,
@@ -18,9 +18,11 @@ type AllCSSPseudos = {|
   +':visited'?: AllCSSPropertyTypes,
 |};
 
-type AllCSSProperties = {| ...AllCSSPropertyTypes, ...AllCSSPseudos |};
 type SheetDefinitions = {|
-  +[sheetName: string]: AllCSSProperties,
+  +[sheetName: string]:
+    | AllCSSPropertyTypes
+    | {| +__pseudoClasses: AllCSSPseudos |}
+    | {| +__mediaQueries: AllCSSPseudos |}, // TODO (not implemented yet)
 |};
 
 function hashStylePair(
@@ -65,6 +67,7 @@ export default function create<T: SheetDefinitions>(
   const hashedSheetDefinitions = {};
 
   function hashAndSaveStyles({ pseudo = '', styles, key, sheetDefinitionName }) {
+    // $FlowFixMe[incompatible-use]
     const styleValue = styles[key];
     const hash = hashStylePair(key, styleValue, pseudo);
     styleBuffer.set(hash, {
@@ -76,40 +79,37 @@ export default function create<T: SheetDefinitions>(
     if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
       hashedSheetDefinitions[sheetDefinitionName] = {};
     }
-
     hashedSheetDefinitions[sheetDefinitionName][`${key}${pseudo}`] = hash;
   }
 
   Object.keys(sheetDefinitions).forEach((sheetDefinitionName) => {
     const sheetDefinitionValues = sheetDefinitions[sheetDefinitionName];
-    Object.keys(sheetDefinitionValues).forEach((key) => {
-      if (key.startsWith(':')) {
-        const values = ((sheetDefinitionValues: any): AllCSSPseudos);
-        const pseudo = ((key: any): $Keys<typeof values>); // :hover, ::after
-
-        const pseudoStyles = values[pseudo];
-        if (pseudoStyles == null) {
-          return; // this should never happen (?)
-        }
-        Object.keys(pseudoStyles).forEach((pseudoStyleName) => {
+    if (sheetDefinitionValues.__pseudoClasses) {
+      const pseudoClasses = sheetDefinitionValues.__pseudoClasses;
+      Object.keys(pseudoClasses).forEach((pseudoName) => {
+        // we could leverage a bit of recursion here
+        // $FlowFixMe[not-an-object]
+        Object.keys(pseudoClasses[pseudoName]).forEach((pseudoStyleName) => {
           hashAndSaveStyles({
-            pseudo,
-            styles: pseudoStyles,
+            pseudo: pseudoName,
+            styles: pseudoClasses[pseudoName],
             key: pseudoStyleName,
             sheetDefinitionName,
           });
         });
-      } else {
-        const values = ((sheetDefinitionValues: any): AllCSSPropertyTypes);
-        const styleName = ((key: any): $Keys<typeof values>);
-
+      });
+    } else if (sheetDefinitionValues.__mediaQueries) {
+      // TODO (not implemented yet)
+    } else {
+      // normal style definitions
+      Object.keys(sheetDefinitionValues).forEach((key) => {
         hashAndSaveStyles({
-          styles: values,
-          key: styleName,
+          styles: sheetDefinitionValues,
+          key,
           sheetDefinitionName,
         });
-      }
-    });
+      });
+    }
   });
 
   return function sx(...sheetDefinitionNames) {

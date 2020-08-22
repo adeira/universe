@@ -96,20 +96,24 @@ const styles = sx.create({
 ### Pseudo CSS classes and elements
 
 ```jsx
+import * as sx from '@adeira/sx';
+
 export function LinkComponent() {
-  return <a className={styles('link')}>link</a>;
+  return <a className={styles('link', 'linkHover')}>link</a>;
 }
 
 const styles = sx.create({
   link: {
     textDecoration: 'none',
+  },
+  linkHover: sx.pseudo({
     ':hover': {
       textDecoration: 'underline',
     },
     '::after': {
       content: '∞',
     },
-  },
+  }),
 });
 ```
 
