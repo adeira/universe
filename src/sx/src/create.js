@@ -63,6 +63,23 @@ export default function create<T: SheetDefinitions>(
   // 5) collect the values of the final object and print them as `className`
 
   const hashedSheetDefinitions = {};
+
+  function hashAndSaveStyles({ pseudo = '', styles, key, sheetDefinitionName }) {
+    const styleValue = styles[key];
+    const hash = hashStylePair(key, styleValue, pseudo);
+    styleBuffer.set(hash, {
+      styleName: transformStyleName(key),
+      styleValue: transformValue(key, styleValue),
+      pseudo,
+    });
+
+    if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
+      hashedSheetDefinitions[sheetDefinitionName] = {};
+    }
+
+    hashedSheetDefinitions[sheetDefinitionName][`${key}${pseudo}`] = hash;
+  }
+
   Object.keys(sheetDefinitions).forEach((sheetDefinitionName) => {
     const sheetDefinitionValues = sheetDefinitions[sheetDefinitionName];
     Object.keys(sheetDefinitionValues).forEach((key) => {
@@ -75,32 +92,22 @@ export default function create<T: SheetDefinitions>(
           return; // this should never happen (?)
         }
         Object.keys(pseudoStyles).forEach((pseudoStyleName) => {
-          const pseudoStyleValue = pseudoStyles[pseudoStyleName];
-          const hash = hashStylePair(pseudoStyleName, pseudoStyleValue, pseudo);
-          styleBuffer.set(hash, {
-            styleName: transformStyleName(pseudoStyleName),
-            styleValue: transformValue(pseudoStyleName, pseudoStyleValue),
-            pseudo: pseudo,
+          hashAndSaveStyles({
+            pseudo,
+            styles: pseudoStyles,
+            key: pseudoStyleName,
+            sheetDefinitionName,
           });
-          if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
-            hashedSheetDefinitions[sheetDefinitionName] = {};
-          }
-          hashedSheetDefinitions[sheetDefinitionName][pseudoStyleName + pseudo] = hash;
         });
       } else {
         const values = ((sheetDefinitionValues: any): AllCSSPropertyTypes);
         const styleName = ((key: any): $Keys<typeof values>);
 
-        const styleValue = values[styleName];
-        const hash = hashStylePair(styleName, styleValue);
-        styleBuffer.set(hash, {
-          styleName: transformStyleName(styleName),
-          styleValue: transformValue(styleName, styleValue),
+        hashAndSaveStyles({
+          styles: values,
+          key: styleName,
+          sheetDefinitionName,
         });
-        if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
-          hashedSheetDefinitions[sheetDefinitionName] = {};
-        }
-        hashedSheetDefinitions[sheetDefinitionName][styleName] = hash;
       }
     });
   });
