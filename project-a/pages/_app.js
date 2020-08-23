@@ -63,12 +63,12 @@ export default function App({ Component, pageProps }: Props): React.Node {
   return (
     <div key={locale} className={styles('root')}>
       <Navigation />
-      <div className={styles('content')}>
-        <Component {...pageProps} />
+      <Component {...pageProps} />
+      <div className={styles('footer')}>
+        <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
+          {locales[nextLocale]}
+        </button>
       </div>
-      <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
-        {locales[nextLocale]}
-      </button>
     </div>
   );
 }
@@ -77,16 +77,11 @@ const styles = sx.create({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    minHeight: '100vh',
+    color: 'var(--font-color)',
     backgroundColor: 'var(--main-bg-color)',
-    color: '#fff',
-    height: '100vh',
   },
-  content: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+  footer: {
+    margin: 10,
   },
 });

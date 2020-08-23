@@ -4,13 +4,17 @@ import * as React from 'react';
 
 type Props = {|
   +children: React.Node,
+  +color: string,
+  +size: number,
   +viewBox: string,
 |};
 
 export default function SVGIcon(props: Props): React.Node {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={props.viewBox}>
-      {props.children}
-    </svg>
+    <div style={{ width: props.size }}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox={props.viewBox} fill={props.color}>
+        {props.children}
+      </svg>
+    </div>
   );
 }
