@@ -3,7 +3,7 @@
 import { invariant, isObjectEmpty } from '@adeira/js';
 
 import hashStyle from './hashStyle';
-import { styleBuffer } from './styleBuffer';
+import { styleBuffer, mediaStyleBuffer } from './styleBuffer';
 import transformStyleName from './transformStyleName';
 import transformValue from './transformValue';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
@@ -20,7 +20,12 @@ type AllCSSPseudos = {|
   +':visited'?: AllCSSPropertyTypes,
 |};
 
-type AllCSSProperties = {| ...AllCSSPropertyTypes, ...AllCSSPseudos |};
+type AllCSSProperties = {|
+  ...AllCSSPropertyTypes,
+  ...AllCSSPseudos,
+  +[string]: AllCSSPropertyTypes, // @media, @keyframes, ...
+|};
+
 type SheetDefinitions = {|
   +[sheetName: string]: AllCSSProperties,
 |};
@@ -83,7 +88,6 @@ export default function create<T: SheetDefinitions>(
     if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
       hashedSheetDefinitions[sheetDefinitionName] = {};
     }
-
     hashedSheetDefinitions[sheetDefinitionName][`${key}${pseudo}`] = hash;
   }
 
@@ -95,7 +99,14 @@ export default function create<T: SheetDefinitions>(
       sheetDefinitionName,
     );
     Object.keys(sheetDefinitionValues).forEach((key) => {
+      // Stylesheet definition value can be one of:
+      //  - pseudo class/element (:hover)
+      //  - media query (@media print)
+      //  - normal style definitions
+
       if (key.startsWith(':')) {
+        // Conditional refinement cannot work here since Flow cannot analyze _content_ of the string.
+        // Therefore, we are changing the types here manually, see: https://mrtnzlml.com/docs/flow#force-type-casting
         const values = ((sheetDefinitionValues: any): AllCSSPseudos);
         const pseudo = ((key: any): $Keys<typeof values>); // :hover, ::after
 
@@ -111,7 +122,45 @@ export default function create<T: SheetDefinitions>(
             sheetDefinitionName,
           });
         });
+      } else if (key.startsWith('@media')) {
+        // Conditional refinement cannot work here since Flow cannot analyze _content_ of the string.
+        // Therefore, we are changing the types here manually, see: https://mrtnzlml.com/docs/flow#force-type-casting
+        const values = ((sheetDefinitionValues: any): {| +[string]: AllCSSPropertyTypes |});
+        const mediaName = ((key: any): $Keys<typeof values>);
+
+        const mediaStyles = values[mediaName];
+        Object.keys(mediaStyles).forEach((mediaStyleName) => {
+          const mediaStyleValue = mediaStyles[mediaStyleName];
+          const hash = hashStylePair(mediaStyleName, mediaStyleValue);
+          const media = mediaStyleBuffer.get(mediaName);
+          if (media != null) {
+            media.set(hash, {
+              styleName: transformStyleName(mediaStyleName),
+              styleValue: transformValue(mediaStyleName, mediaStyleValue),
+            });
+          } else {
+            mediaStyleBuffer.set(
+              mediaName,
+              new Map([
+                [
+                  hash,
+                  {
+                    styleName: transformStyleName(mediaStyleName),
+                    styleValue: transformValue(mediaStyleName, mediaStyleValue),
+                  },
+                ],
+              ]),
+            );
+          }
+
+          if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
+            hashedSheetDefinitions[sheetDefinitionName] = {};
+          }
+          hashedSheetDefinitions[sheetDefinitionName][`${mediaStyleName}${mediaName}`] = hash;
+        });
       } else {
+        // Conditional refinement cannot work here since Flow cannot analyze _content_ of the string.
+        // Therefore, we are changing the types here manually, see: https://mrtnzlml.com/docs/flow#force-type-casting
         const values = ((sheetDefinitionValues: any): AllCSSPropertyTypes);
         const styleName = ((key: any): $Keys<typeof values>);
 
@@ -142,6 +191,8 @@ export default function create<T: SheetDefinitions>(
         selectedStyles[styleKey] = hashedValues[styleKey];
       });
     }
-    return Object.values(selectedStyles).join(' ');
+    const classes = Object.values(selectedStyles);
+    const uniqueClasses = [...new Set(classes)];
+    return uniqueClasses.join(' ');
   };
 }

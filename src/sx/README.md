@@ -2,7 +2,9 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 ```text
 TODOs and Ideas:
- - media queries (?)
+ - @keyframes (https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
+ - nested media/pseudo/keyframe
+ - better DX when in __DEV__
  - autoprefixer via browserlist (https://github.com/robinweser/inline-style-prefixer?)
  - babel transpilation (compile time instead of runtime)
  - support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
@@ -19,7 +21,6 @@ yarn add @adeira/sx
 Create a stylesheet and use it to generate `className` props for React:
 
 ```jsx
-import * as React from 'react';
 import * as sx from '@adeira/sx';
 
 export default function Example() {
@@ -83,8 +84,13 @@ export default class MyDocument extends Document {
 The final style depends on the order of `styles` arguments rather than the style definitions.
 
 ```jsx
-export function BlueComponent() {
-  return <div className={styles('red', 'blue')}>I am BLUE</div>;
+export function ColorfulComponent() {
+  return (
+    <>
+      <div className={styles('red', 'blue')}>I am BLUE</div>
+      <div className={styles('blue', 'red')}>I am RED</div>
+    </>
+  );
 }
 
 const styles = sx.create({
@@ -113,6 +119,28 @@ const styles = sx.create({
 });
 ```
 
+### Media queries
+
+_Note: we support only one level of media queries at this moment, they cannot be nested._
+
+```jsx
+export function MediaComponent() {
+  return <a className={styles('text')}>text</a>;
+}
+
+const styles = sx.create({
+  text: {
+    fontSize: 16,
+    '@media print': {
+      fontSize: 12,
+    },
+    '@media screen': {
+      fontSize: 14,
+    },
+  },
+});
+```
+
 ### Precise Flow types
 
 SX knows about every property which exists in CSS and tries to help with mistakes when writing the styles.
@@ -130,6 +158,22 @@ const styles = sx.create({
   },
 });
 ```
+
+## Architecture
+
+First, `@adeira/sx` takes all your CSS-in-JS definitions, normalizes it and then fills style buffer and hash registry.
+
+```text
++-------------+   style normalization   +-----------------+
+|  CSS-in-JS  | --------+-------------> |  Style buffer   | ---> CSS
+|   styles    |         |               +-----------------+
++-------------+         |
+                        |               +-----------------+
+                        \-------------> |  Hash registry  | ---> HTML
+                                        +-----------------+
+```
+
+Style buffer contains all the style information which is eventually being printed as an atomic CSS. Hash registry contains all the hashed styles (essentially CSS classes) and prints them into your HTML output.
 
 ## Prior Art
 

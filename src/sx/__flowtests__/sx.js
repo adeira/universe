@@ -45,7 +45,10 @@ export function InvalidStylesheetName(): Node {
 export function InvalidCSSProperty(): Node {
   // $FlowExpectedError[prop-missing]
   const styles = sx.create({
-    red: { wtf: 'wtf' },
+    red: {
+      // $FlowExpectedError[incompatible-call]
+      wtf: 'wtf',
+    },
   });
   return <div className={styles('invalid')} />;
 }
