@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: media-queries.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    "color": "red",
+    "@media print": {
+      "color": "red"
+    },
+    "@media (min-width: 30em) and (max-width: 50em)": {
+      "color": "blue"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+.wUqnh {
+  color: #f00;
+}
+@media print {
+  .wUqnh {
+    color: #f00;
+  }
+}
+@media (min-width: 30em) and (max-width: 50em) {
+  ._4fo5TC {
+    color: #00f;
+  }
+}
+
+`;
+
+exports[`matches expected output: media-queries-multiple.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "aaa": {
+    "color": "red",
+    "fontSize": 32,
+    "@media print": {
+      "color": "red",
+      "fontSize": 16
+    },
+    "@media (min-width: 30em) and (max-width: 50em)": {
+      "color": "blue"
+    }
+  },
+  "bbb": {
+    "@media print": {
+      "color": "green"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+.wUqnh {
+  color: #f00;
+}
+._2ZJp7Y {
+  font-size: 2rem;
+}
+@media print {
+  .wUqnh {
+    color: #f00;
+  }
+  .Zld8p {
+    font-size: 1rem;
+  }
+  .PJDYD {
+    color: #008000;
+  }
+}
+@media (min-width: 30em) and (max-width: 50em) {
+  ._4fo5TC {
+    color: #00f;
+  }
+}
+
+`;
+
+exports[`matches expected output: pseudo-classes.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "link": {
+    "textDecoration": "none",
+    ":hover": {
+      "textDecoration": "underline"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._134wwt {
+  text-decoration: none;
+}
+._22QzO9:hover {
+  text-decoration: underline;
+}
+
+`;
+
+exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "link": {
+    "textDecoration": "none",
+    ":hover": {
+      "textDecoration": "none",
+      "color": "red"
+    },
+    ":active": {
+      "color": "red"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._134wwt {
+  text-decoration: none;
+}
+.XJjf5:hover {
+  text-decoration: none;
+}
+._4sFdkU:hover {
+  color: #f00;
+}
+.ERwS0:active {
+  color: #f00;
+}
+
+`;
+
+exports[`matches expected output: pseudo-elements.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "link": {
+    "textDecoration": "none",
+    ":hover": {
+      "textDecoration": "underline"
+    },
+    "::after": {
+      "content": "∞"
+    },
+    "::before": {
+      "content": "∞"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._134wwt {
+  text-decoration: none;
+}
+._22QzO9:hover {
+  text-decoration: underline;
+}
+._2Rpe4g::after {
+  content: "∞";
+}
+._3ou8wp::before {
+  content: "∞";
+}
+
+`;
+
+exports[`matches expected output: simple-stylesheet.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "redStyle": {
+    "color": "red"
+  },
+  "blueStyle": {
+    "color": "blue"
+  },
+  "greenStyle": {
+    "color": "green"
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+.wUqnh {
+  color: #f00;
+}
+._4fo5TC {
+  color: #00f;
+}
+.PJDYD {
+  color: #008000;
+}
+
+`;

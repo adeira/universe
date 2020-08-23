@@ -1,0 +1,14 @@
+{
+  "link": {
+    "textDecoration": "none",
+    ":hover": {
+      "textDecoration": "underline"
+    },
+    "::after": {
+      "content": "∞"
+    },
+    "::before": {
+      "content": "∞"
+    }
+  }
+}

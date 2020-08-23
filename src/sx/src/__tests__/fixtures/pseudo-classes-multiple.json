@@ -1,0 +1,12 @@
+{
+  "link": {
+    "textDecoration": "none",
+    ":hover": {
+      "textDecoration": "none",
+      "color": "red"
+    },
+    ":active": {
+      "color": "red"
+    }
+  }
+}
