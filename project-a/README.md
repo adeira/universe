@@ -23,4 +23,5 @@ curl -X POST https://api.poeditor.com/v2/terms/add \
 
 ## SVGs
 
-https://svg2jsx.com/
+- https://vecta.io/nano
+- https://svg2jsx.com/

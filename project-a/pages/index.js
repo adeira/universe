@@ -3,44 +3,43 @@
 import * as React from 'react';
 import * as sx from '@adeira/sx';
 
-import KochkaIcon from '../src/svg/KochkaIcon';
+import { Logo } from '../src/Logo';
 
 export default function Home(): React.Node {
   return (
-    <div>
-      <div className={styles('logo')}>
-        <div className={styles('icon')}>
-          <KochkaIcon />
-        </div>
-        <h1>KOCHKA</h1>
-        <h2>CAFÉ</h2>
+    <div className={styles('root')}>
+      <div className={styles('center')}>
+        <Logo />
       </div>
-      <div className={styles('info')}>
-        <p>
-          <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
-            Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
-          </a>
-        </p>
-        <p>TODO: opening hours</p>
-        <p>TODO: contact (?)</p>
-        <p>TODO: social networks</p>
+      <div className={styles('bottomInfo')}>
+        {/* <p>TODO: contact (?)</p> */}
+        {/* <p>TODO: social networks</p> */}
+        <div>Monday - Friday 8am - 6pm</div>
+        <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
+          Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
+        </a>
       </div>
     </div>
   );
 }
 
 const styles = sx.create({
-  logo: {
+  root: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  center: {
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    margin: '0 auto',
+    justifyContent: 'center',
   },
-  icon: {
-    width: 150,
-    height: 150,
-  },
-  info: {
+  bottomInfo: {
+    flex: 0,
+    marginTop: 10,
+    marginBottom: 10,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

@@ -59,6 +59,13 @@
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-0.2.0.tgz#cc1459af8c114af1536b7622a55dc3b905035d13"
   integrity sha512-IoE5ScsGkabL3jrQ2mNdYwUYkwjUCHsfoV9/hOvOROwh4Y5CeoNlsNoFDKBBm5b5me8ttqwHY0lAT2LCqAP1tA==
 
+"@adeira/js@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.2.4.tgz#f32b514b68963f60f3314a2e6badeeb8d8e3c52d"
+  integrity sha512-Hg5GtRtrfso3ZwZsQcTNeEb1OG8LrLUuRQtZS/XojfnLhXEFPGHMP2ysKSVp3BKL6rjF/L2p5WVbLhuuPIXXAg==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+
 "@adeira/monorepo-utils@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.2.0.tgz#60d0d6ddaed3b70d92f0e2291d1447103e7ae7be"
@@ -83,11 +90,12 @@
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-"@adeira/sx@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.4.0.tgz#d96ba37a1dfcc79eab857ae8506052ee936124ef"
-  integrity sha512-dd5+VnK+bSIaIeWY/cNp4EJAExikyKu/gOrjiHQpHnViEsR7V4+0uOjOshtPvayz2k2fUJx/4ZGWlumKOarYsA==
+"@adeira/sx@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.5.0.tgz#7bc9b56e3ea7e8a18339529ab12496af946ea745"
+  integrity sha512-3RKCA2UzyPJCJ1TVIebLG10ubcGY4oa9zp0FOzKvIcm6B9hC01uW7rgaUttZQVOJQyblLIk3oWVU7etDogfBVg==
   dependencies:
+    "@adeira/js" "^1.2.4"
     "@adeira/murmur-hash" "^0.1.0"
     "@adeira/signed-source" "^1.0.0"
     "@babel/runtime" "^7.11.2"
@@ -1275,7 +1283,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.6":
+"@babel/runtime@^7.10.1", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.6":
   version "7.11.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==
