@@ -28,6 +28,6 @@ const styles = sx.create({
     marginBottom: 20,
   },
   text: {
-    marginTop: 50,
+    marginTop: 60,
   },
 });
