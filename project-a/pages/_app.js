@@ -4,11 +4,12 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import fbt, { IntlVariations, init } from 'fbt';
 import * as sx from '@adeira/sx';
+import { useRouter } from 'next/router';
 
 import './_app.css';
 import Navigation from '../src/Navigation';
 
-type SupportedLocales = 'en_US' | 'es_LA';
+type SupportedLocales = 'en_US' | 'es_MX';
 function initTranslations(locale: SupportedLocales) {
   init({
     translations: require('../translatedFbts.json'),
@@ -22,8 +23,6 @@ function initTranslations(locale: SupportedLocales) {
     },
   });
 }
-
-initTranslations('en_US');
 
 if (
   __DEV__ &&
@@ -39,21 +38,33 @@ type Props = {|
   +pageProps: any,
 |};
 
-export default function App({ Component, pageProps }: Props): React.Node {
-  const [locale, setLocale] = React.useState<SupportedLocales>('en_US');
+export default function MyApp({ Component, pageProps }: Props): React.Node {
+  const router = useRouter();
+  // TODO: useLocalStorage()
+  const lang = router.query.lang; // TODO: wrap it and properly validate it!
+
+  initTranslations(lang === 'en' ? 'en_US' : 'es_MX'); // TODO: DRY (URL => FBT)
+
+  const [locale, setLocale] = React.useState<SupportedLocales>(
+    lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
+  );
 
   const handleLanguageSwitch = (locale) => {
     // alternatively, register the translations lazily via `FbtTranslations.registerTranslations`
     initTranslations(locale);
     setLocale(locale);
+
+    // TODO: decompose and fix
+    const lang = locale === 'en_US' ? 'en' : '';
+    router.push('/([lang])?', `/${lang}`);
   };
 
   const locales: {| +[SupportedLocales]: React.Node |} = {
     en_US: <fbt desc="en_US locale name">English</fbt>,
-    es_LA: <fbt desc="es_LA locale name">Spanish</fbt>,
+    es_MX: <fbt desc="es_MX locale name">Spanish</fbt>,
   };
 
-  const nextLocale: SupportedLocales = locale === 'en_US' ? 'es_LA' : 'en_US';
+  const nextLocale: SupportedLocales = locale === 'en_US' ? 'es_MX' : 'en_US';
 
   if (!__DEV__) {
     // not public yet
@@ -61,13 +72,15 @@ export default function App({ Component, pageProps }: Props): React.Node {
   }
 
   return (
-    <div key={locale} className={styles('root')}>
-      <Navigation />
-      <Component {...pageProps} />
-      <div className={styles('footer')}>
-        <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
-          {locales[nextLocale]}
-        </button>
+    <div key={locale} className={styles('background')}>
+      <div className={styles('root')}>
+        <Navigation />
+        <Component {...pageProps} />
+        <div className={styles('footer')}>
+          <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
+            {locales[nextLocale]}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -79,7 +92,11 @@ const styles = sx.create({
     flexDirection: 'column',
     minHeight: '100vh',
     color: 'var(--font-color)',
-    backgroundColor: 'var(--main-bg-color)',
+    backgroundColor: 'var(--main-bg-color-transparent)',
+  },
+  background: {
+    backgroundImage: 'url(coffee-background.jpg)',
+    backgroundSize: 'cover',
   },
   footer: {
     margin: 10,

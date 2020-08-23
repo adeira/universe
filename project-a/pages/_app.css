@@ -23,6 +23,7 @@ a {
 
 :root,
 .__kk-light-mode {
-  --main-bg-color: #6c1610;
+  --main-bg-color: rgba(108, 22, 16);
+  --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
   --font-color: #ffffff;
 }

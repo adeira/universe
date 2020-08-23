@@ -21,7 +21,9 @@ curl -X POST https://api.poeditor.com/v2/terms/add \
      -d data="[{\"term\":\"Add new list\"}]"
 ```
 
-## SVGs
+## Images, SVGs, PNGs, JPGs
 
+- https://unsplash.com/
 - https://vecta.io/nano
 - https://svg2jsx.com/
+- https://tinypng.com/
