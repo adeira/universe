@@ -21,6 +21,7 @@ import {
 
 import { nodeDefinitions } from '../node';
 
+// prettier-ignore
 const userData = {
   '1': {
     id: 1,
@@ -32,6 +33,7 @@ const userData = {
   },
 };
 
+// prettier-ignore
 const photoData = {
   '3': {
     id: 3,

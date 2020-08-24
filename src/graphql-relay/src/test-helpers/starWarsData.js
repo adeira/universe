@@ -80,10 +80,12 @@ const empire: Fraction = {
 };
 
 const data = {
+  // prettier-ignore
   Faction: {
     '1': rebels,
     '2': empire,
   },
+  // prettier-ignore
   Ship: {
     '1': xwing,
     '2': ywing,
