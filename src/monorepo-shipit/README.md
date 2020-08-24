@@ -38,6 +38,8 @@ One of the filters modifies commit summaries and adds `adeira-source-id` signatu
 
 ## Configuration
 
+Real-world examples: https://github.com/adeira/universe/tree/master/src/monorepo-shipit/config
+
 Each project has its own configuration directly in Shipit workspace. If you want it to work with another project then you have to create a new configuration (with configuration tests):
 
 ```js
@@ -207,7 +209,7 @@ The only filter being applied when importing the projects is filter which moves 
 
 # Main differences from facebook/fbshipit
 
-- our version is tailored for Kiwi.com needs and infra, not Facebook ones
+- our version is tailored for our needs and infra, not Facebook ones
 - our version doesn't support [Mercurial](https://www.mercurial-scm.org/) and it's written in JS (not in Hack)
 - our version doesn't support [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 - we _do not_ sync internal LFS storage with GitHub LFS (currently unused)
