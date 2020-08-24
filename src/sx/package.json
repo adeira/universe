@@ -17,7 +17,7 @@
     "css-tree": "^1.0.0-alpha.39",
     "fast-levenshtein": "^3.0.0",
     "mdn-data": "^2.0.11",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.1"
   },
   "peerDependencies": {
     "react": "^16.13.1"

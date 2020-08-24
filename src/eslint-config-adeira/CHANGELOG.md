@@ -3,7 +3,7 @@
 - Rule `adeira/no-invalid-flow-annotations` checks for typos like `@flow srict` (should be `@flow strict`).
 - Rule `flowtype/no-weak-types` now returns warnings for `Object` and `Function` Flow types.
 - Rule [`no-loss-of-precision`](https://eslint.org/docs/rules/no-loss-of-precision) finally supports numeric separators so we enabled it (warnings or errors in a strict mode).
-- Prettier rule `quoteProps` changed to "consistent".
+- Prettier option `quoteProps` changed to "consistent".
 - Minimal required Eslint dependency version changed to `^7.8.1` (`no-loss-of-precision` requires it).
 
 # 3.1.1

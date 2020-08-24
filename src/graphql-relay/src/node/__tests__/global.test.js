@@ -18,6 +18,7 @@ import {
 
 import { fromGlobalId, globalIdField, nodeDefinitions } from '../node';
 
+// prettier-ignore
 const userData = {
   '1': {
     id: 1,
@@ -29,6 +30,7 @@ const userData = {
   },
 };
 
+// prettier-ignore
 const photoData = {
   '1': {
     photoId: 1,
@@ -40,6 +42,7 @@ const photoData = {
   },
 };
 
+// prettier-ignore
 const postData = {
   '1': {
     id: 1,

@@ -35,7 +35,7 @@ const TestComponent = (props: Props) => {
   const [addComment, isCommentPending] = useMutation(
     graphql`
       mutation useMutationTestMutation($persistedOperations: [StoredOperationInput!]!)
-        @relay_test_operation {
+      @relay_test_operation {
         createStoredOperations(persistedOperations: $persistedOperations) {
           __typename
         }
