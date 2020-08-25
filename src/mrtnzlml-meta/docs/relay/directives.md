@@ -34,6 +34,20 @@ fragment TodoList_list on TodoList
 }
 ```
 
+Note: directive `argumentDefinitions` might be deprecated soon in favor of the following syntax:
+
+```graphql
+fragment Foo($localId: ID!) on User {
+  id
+}
+```
+
+This syntax is still experimental and behind feature flags in both graphql-js and Relay. References:
+
+- https://github.com/graphql/graphql-spec/issues/204
+- https://github.com/facebook/relay/commit/5c0c466769980c0a3ce76c495522b009d607cf62
+- https://github.com/graphql/graphql-js/commit/ce0a4b9c76423edaddc2d9c65661189d0dba77cd
+
 ## @connection, @stream_connection
 
 Relay docs: https://relay.dev/docs/en/graphql-in-relay.html#connectionkey-string-filters-string
