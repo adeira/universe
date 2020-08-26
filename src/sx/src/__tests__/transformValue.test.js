@@ -12,6 +12,8 @@ test.each`
   ${'fontSize'} | ${16}               | ${'1rem'}
   ${'fontSize'} | ${24}               | ${'1.5rem'}
   ${'fontSize'} | ${32}               | ${'2rem'}
+  ${'fontSize'} | ${'1.25rem'}        | ${'1.25rem'}
+  ${'fontSize'} | ${'small'}          | ${'small'}
   ${'color'}    | ${'#123456'}        | ${'#123456'}
   ${'color'}    | ${'#123ABC'}        | ${'#123abc'}
   ${'color'}    | ${'#ffffff'}        | ${'#fff'}
