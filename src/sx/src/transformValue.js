@@ -7,7 +7,7 @@ export default function transformValue(
   styleName: string,
   styleValue?: string | number = '',
 ): string {
-  if (styleName === 'fontSize') {
+  if (styleName === 'fontSize' && typeof styleValue === 'number') {
     // px -> rem (we expect `font-size: 16px;` to be set by default)
     // https://engineering.fb.com/web/facebook-com-accessibility/
     const defaultFontSize = 16;
