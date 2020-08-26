@@ -94,6 +94,7 @@ export default function create<T: SheetDefinitions>(
   Object.keys(sheetDefinitions).forEach((sheetDefinitionName) => {
     const sheetDefinitionValues = sheetDefinitions[sheetDefinitionName];
     invariant(
+      // TODO: change to warning
       isObjectEmpty(sheetDefinitionValues) === false,
       `Stylesheet '%s' must have at least one CSS property.`,
       sheetDefinitionName,
