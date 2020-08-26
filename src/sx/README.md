@@ -56,6 +56,7 @@ Finally, render somewhere the styles and HTML. Example for Next.js with [custom 
 
 ```jsx
 import * as sx from '@adeira/sx';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -63,7 +64,7 @@ export default class MyDocument extends Document {
     return { ...html, css };
   }
 
-  render(): React.Node {
+  render() {
     return (
       <Html>
         <Head>
