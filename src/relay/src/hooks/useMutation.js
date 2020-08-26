@@ -15,6 +15,7 @@ type HookMutationConfig<T: MutationParameters> = {|
   +onCompleted: (response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) => void,
   +variables?: $ElementType<T, 'variables'>,
   +onError?: (error: Error) => void,
+  +onUnsubscribe?: ?() => void,
   +optimisticResponse?: $ElementType<T, 'rawResponse'>,
   +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: $ElementType<T, 'response'>) => void,
@@ -81,6 +82,9 @@ export default function useMutation<T: MutationParameters>(
           if (config.onError != null) {
             config.onError(error);
           }
+        },
+        onUnsubscribe: () => {
+          cleanup(disposable);
         },
         mutation,
       });

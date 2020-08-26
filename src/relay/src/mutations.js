@@ -21,6 +21,7 @@ type MutationConfig<T: MutationParameters> = {|
   // TODO: 2 kinds of errors? What about changing the interface a little bit to make it more obvious?
   +onCompleted?: ?(response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) => void,
   +onError?: ?(error: Error) => void,
+  +onUnsubscribe?: ?() => void,
   +optimisticResponse?: $ElementType<{| +rawResponse?: { ... }, ...T |}, 'rawResponse'>,
   +optimisticUpdater?: ?(store: RecordSourceSelectorProxy) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
