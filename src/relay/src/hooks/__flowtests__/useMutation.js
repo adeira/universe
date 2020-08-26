@@ -26,6 +26,7 @@ module.exports = {
       executeMutation({
         variables: {},
         onCompleted: () => {},
+        onUnsubscribe: () => {},
       });
     };
   },
