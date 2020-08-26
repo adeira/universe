@@ -2,6 +2,8 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 ```text
 TODOs and Ideas:
+ - padding/marginVertical, padding/marginHorizontal
+ - bug: media queries are not being reset while developing (until you restart the server)
  - @keyframes (https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
  - nested media/pseudo/keyframe
  - better DX when in __DEV__
