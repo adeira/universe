@@ -109,6 +109,26 @@ In the future, other entries such as `persistedQueries` and `customScalars` coul
 
 See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
 
+## What is `__isNode`?
+
+The `__isNode` field here is fetched so that Relay can determine whether the object that is returned (whose type we don't know statically) implements the `Node` interface or not. The mutation will be transformed as follows:
+
+```graphql
+mutation SidebarLayoutMarkAsSeenMutation($leadID: ID!) @raw_response_type {
+  updateLead(input: { id: $leadID, wasSeen: true }) {
+    wasSeen
+    ... on Node {
+      __isNode: __typename # if this field is present, we know the return type implements `Node`
+      id
+    }
+  }
+}
+```
+
+So your optimistic response should include `__isNode: 'Lead'` if the type implements Node, or exclude that key if the type does not implement Node.
+
+Source: https://github.com/facebook/relay/issues/3129#issuecomment-659439154 (Thanks [@josephsavona](https://github.com/josephsavona)!)
+
 ## Enabling feature flags
 
 There are several feature flags hidden in Relay Runtime (obviously a geeky thing) and you can enable them like this:
@@ -191,7 +211,7 @@ export const NoteContainer = createRefetchContainer(
   {
     lead: graphql`
       fragment NoteContainer_lead on Lead
-        @argumentDefinitions(isMounted: { type: "Boolean!", defaultValue: false }) {
+      @argumentDefinitions(isMounted: { type: "Boolean!", defaultValue: false }) {
         id
         ... @include(if: $isMounted) {
           ...NoteEditor_lead
