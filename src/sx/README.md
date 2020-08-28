@@ -5,7 +5,6 @@ TODOs and Ideas:
  - padding/marginVertical, padding/marginHorizontal
  - bug: media queries are not being reset while developing (until you restart the server)
  - @keyframes (https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
- - nested media/pseudo/keyframe
  - better DX when in __DEV__
  - autoprefixer via browserlist (https://github.com/robinweser/inline-style-prefixer?)
  - babel transpilation (compile time instead of runtime)
@@ -124,8 +123,6 @@ const styles = sx.create({
 
 ### Media queries
 
-_Note: we support only one level of media queries at this moment, they cannot be nested._
-
 ```jsx
 export function MediaComponent() {
   return <a className={styles('text')}>text</a>;
@@ -139,6 +136,9 @@ const styles = sx.create({
     },
     '@media screen': {
       fontSize: 14,
+      ':hover': {
+        color: 'pink',
+      },
     },
   },
 });
