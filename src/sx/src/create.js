@@ -24,7 +24,10 @@ type AllCSSPseudos = {|
 type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudos,
-  +[string]: AllCSSPropertyTypes, // @media, @keyframes, ...
+  +[string]: {|
+    ...AllCSSPropertyTypes,
+    ...AllCSSPseudos,
+  |}, // @media, @keyframes, ...
 |};
 
 type SheetDefinitions = {|
@@ -85,103 +88,60 @@ export default function create<T: SheetDefinitions>(
 
   const hashedSheetDefinitions = {};
 
-  function hashAndSaveStyles({ pseudo = '', styles, key, sheetDefinitionName }) {
-    const styleValue = styles[key];
-    const hash = hashStylePair(key, styleValue, pseudo);
-    styleBuffer.set(hash, {
-      styleName: transformStyleName(key),
-      styleValue: transformValue(key, styleValue),
-      pseudo,
-    });
-
-    if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
-      hashedSheetDefinitions[sheetDefinitionName] = {};
+  function getMediaBuffer(mediaName) {
+    let media = mediaStyleBuffer.get(mediaName);
+    if (media == null) {
+      mediaStyleBuffer.set(mediaName, new Map([]));
+      media = mediaStyleBuffer.get(mediaName);
     }
-    hashedSheetDefinitions[sheetDefinitionName][`${key}${pseudo}`] = hash;
+    invariant(media != null, 'Media is undefined, but that should not be possible');
+    return media;
   }
 
-  Object.keys(sheetDefinitions).forEach((sheetDefinitionName) => {
-    const sheetDefinitionValues = sheetDefinitions[sheetDefinitionName];
+  function iterateEntries(entries, className, buffer, objectType = '') {
+    if (entries.length === 0) {
+      return;
+    }
+
+    const [property, value] = entries.shift();
+    const pseudo = objectType.startsWith(':') ? objectType : '';
+
+    if (typeof property === 'string' && typeof value !== 'object') {
+      const styleValue = ((value: any): string | number);
+      const hash = hashStylePair(
+        property,
+        styleValue,
+        objectType.startsWith(':') ? objectType : '',
+      );
+
+      buffer.set(hash, {
+        styleName: transformStyleName(property),
+        styleValue: transformValue(property, styleValue),
+        pseudo,
+      });
+
+      if (hashedSheetDefinitions[className] === undefined) {
+        hashedSheetDefinitions[className] = {};
+      }
+      hashedSheetDefinitions[className][`${property}${objectType}`] = hash;
+    } else if (typeof value === 'object' && value != null) {
+      const nextBuffer = property.startsWith('@media') ? getMediaBuffer(property) : buffer;
+
+      iterateEntries(Object.entries(value), className, nextBuffer, property);
+    }
+    iterateEntries(entries, className, buffer, objectType);
+  }
+
+  for (const key of Object.keys(sheetDefinitions)) {
     invariant(
       // TODO: change to warning
-      isObjectEmpty(sheetDefinitionValues) === false,
+      isObjectEmpty(sheetDefinitions[key]) === false,
       `Stylesheet '%s' must have at least one CSS property.`,
-      sheetDefinitionName,
+      key,
     );
-    Object.keys(sheetDefinitionValues).forEach((key) => {
-      // Stylesheet definition value can be one of:
-      //  - pseudo class/element (:hover)
-      //  - media query (@media print)
-      //  - normal style definitions
-
-      if (key.startsWith(':')) {
-        // Conditional refinement cannot work here since Flow cannot analyze _content_ of the string.
-        // Therefore, we are changing the types here manually, see: https://mrtnzlml.com/docs/flow#force-type-casting
-        const values = ((sheetDefinitionValues: any): AllCSSPseudos);
-        const pseudo = ((key: any): $Keys<typeof values>); // :hover, ::after
-
-        const pseudoStyles = values[pseudo];
-        if (pseudoStyles == null) {
-          return; // this should never happen (?)
-        }
-        Object.keys(pseudoStyles).forEach((pseudoStyleName) => {
-          hashAndSaveStyles({
-            pseudo,
-            styles: pseudoStyles,
-            key: pseudoStyleName,
-            sheetDefinitionName,
-          });
-        });
-      } else if (key.startsWith('@media')) {
-        // Conditional refinement cannot work here since Flow cannot analyze _content_ of the string.
-        // Therefore, we are changing the types here manually, see: https://mrtnzlml.com/docs/flow#force-type-casting
-        const values = ((sheetDefinitionValues: any): {| +[string]: AllCSSPropertyTypes |});
-        const mediaName = ((key: any): $Keys<typeof values>);
-
-        const mediaStyles = values[mediaName];
-        Object.keys(mediaStyles).forEach((mediaStyleName) => {
-          const mediaStyleValue = mediaStyles[mediaStyleName];
-          const hash = hashStylePair(mediaStyleName, mediaStyleValue);
-          const media = mediaStyleBuffer.get(mediaName);
-          if (media != null) {
-            media.set(hash, {
-              styleName: transformStyleName(mediaStyleName),
-              styleValue: transformValue(mediaStyleName, mediaStyleValue),
-            });
-          } else {
-            mediaStyleBuffer.set(
-              mediaName,
-              new Map([
-                [
-                  hash,
-                  {
-                    styleName: transformStyleName(mediaStyleName),
-                    styleValue: transformValue(mediaStyleName, mediaStyleValue),
-                  },
-                ],
-              ]),
-            );
-          }
-
-          if (hashedSheetDefinitions[sheetDefinitionName] === undefined) {
-            hashedSheetDefinitions[sheetDefinitionName] = {};
-          }
-          hashedSheetDefinitions[sheetDefinitionName][`${mediaStyleName}${mediaName}`] = hash;
-        });
-      } else {
-        // Conditional refinement cannot work here since Flow cannot analyze _content_ of the string.
-        // Therefore, we are changing the types here manually, see: https://mrtnzlml.com/docs/flow#force-type-casting
-        const values = ((sheetDefinitionValues: any): AllCSSPropertyTypes);
-        const styleName = ((key: any): $Keys<typeof values>);
-
-        hashAndSaveStyles({
-          styles: values,
-          key: styleName,
-          sheetDefinitionName,
-        });
-      }
-    });
-  });
+    const entries = Object.entries(sheetDefinitions[key]);
+    iterateEntries(entries, key, styleBuffer);
+  }
 
   return function sx(...sheetDefinitionNames) {
     invariant(

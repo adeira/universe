@@ -113,3 +113,33 @@ it('renders media queries properly', () => {
     "
   `);
 });
+
+it('supports pseudo classes in media queries', () => {
+  sx.create({
+    media: {
+      color: 'red',
+      '@media print': {
+        color: 'red',
+        ':hover': {
+          color: 'pink',
+        },
+      },
+    },
+  });
+
+  expect(prettier.format(sx.renderStatic(() => null).css, { filepath: 'test.css' }))
+    .toMatchInlineSnapshot(`
+    ".wUqnh {
+      color: #f00;
+    }
+    @media print {
+      .wUqnh {
+        color: #f00;
+      }
+      ._4rAdwD:hover {
+        color: #ffc0cb;
+      }
+    }
+    "
+  `);
+});
