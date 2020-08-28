@@ -1,6 +1,7 @@
 // @flow
 
 import { invariant, isObjectEmpty } from '@adeira/js';
+import levenshtein from 'fast-levenshtein';
 
 import hashStyle from './hashStyle';
 import { styleBuffer, mediaStyleBuffer } from './styleBuffer';
@@ -36,6 +37,14 @@ function hashStylePair(
   pseudo?: string = '',
 ): string {
   return hashStyle(`${styleName}${styleValue}${pseudo}`);
+}
+
+function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): string {
+  return alternativeNames.sort((firstEl, secondEl) => {
+    const firstScore = levenshtein.get(sheetDefinitionName, firstEl);
+    const secondScore = levenshtein.get(sheetDefinitionName, secondEl);
+    return firstScore - secondScore;
+  })[0];
 }
 
 export default function create<T: SheetDefinitions>(
@@ -184,9 +193,9 @@ export default function create<T: SheetDefinitions>(
       const hashedValues = hashedSheetDefinitions[sheetDefinitionName];
       invariant(
         hashedValues != null,
-        `SX was called with '%s' stylesheet name but it doesn't exist. Available names are: %j`,
+        `SX was called with '%s' stylesheet name but it doesn't exist. Did you mean '%s' instead?`,
         sheetDefinitionName,
-        Object.keys(hashedSheetDefinitions),
+        suggest(sheetDefinitionName, Object.keys(hashedSheetDefinitions)),
       );
       Object.keys(hashedValues).forEach((styleKey) => {
         selectedStyles[styleKey] = hashedValues[styleKey];
