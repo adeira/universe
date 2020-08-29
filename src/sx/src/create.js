@@ -52,7 +52,7 @@ function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): 
 
 export default function create<T: SheetDefinitions>(
   sheetDefinitions: T,
-): (...$ReadOnlyArray<$Keys<T>>) => string {
+): (...$ReadOnlyArray<?$Keys<T> | false>) => string {
   invariant(
     isObjectEmpty(sheetDefinitions) === false,
     `Function 'sx.create' cannot be called with empty stylesheet definition.`,
@@ -149,16 +149,19 @@ export default function create<T: SheetDefinitions>(
     );
     const selectedStyles = {};
     for (const sheetDefinitionName of sheetDefinitionNames) {
-      const hashedValues = hashedSheetDefinitions[sheetDefinitionName];
-      invariant(
-        hashedValues != null,
-        `SX was called with '%s' stylesheet name but it doesn't exist. Did you mean '%s' instead?`,
-        sheetDefinitionName,
-        suggest(sheetDefinitionName, Object.keys(hashedSheetDefinitions)),
-      );
-      Object.keys(hashedValues).forEach((styleKey) => {
-        selectedStyles[styleKey] = hashedValues[styleKey];
-      });
+      if (sheetDefinitionName != null && sheetDefinitionName !== false) {
+        // stylesheet definition name can be nullable when selecting conditionally
+        const hashedValues = hashedSheetDefinitions[sheetDefinitionName];
+        invariant(
+          hashedValues != null,
+          `SX was called with '%s' stylesheet name but it doesn't exist. Did you mean '%s' instead?`,
+          sheetDefinitionName,
+          suggest(sheetDefinitionName, Object.keys(hashedSheetDefinitions)),
+        );
+        Object.keys(hashedValues).forEach((styleKey) => {
+          selectedStyles[styleKey] = hashedValues[styleKey];
+        });
+      }
     }
     const classes = Object.values(selectedStyles);
     const uniqueClasses = [...new Set(classes)];
