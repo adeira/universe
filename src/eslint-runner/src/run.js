@@ -7,7 +7,7 @@ const CLIEngine = require('eslint').CLIEngine;
 const isCI = require('is-ci');
 const { Git } = require('@adeira/monorepo-utils');
 
-const formatter = require('./stylish');
+const formatter = require('./codeframe');
 const shouldLintAll = require('./shouldLintAll').default;
 
 const PERFORM_FIXES = isCI === false;
@@ -94,12 +94,13 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
   const result = report.results[0];
 
   if (result.errorCount === 0 && result.warningCount > 0 && extraOptions.noWarnings === false) {
-    return passWithWarning({
+    // it has some warnings (we render them as TODOs)
+    return todoWithMessage({
       start,
       end,
       test: {
         path: testPath,
-        warningMessage: formatter(errorResults),
+        errorMessage: formatter(errorResults),
       },
     });
   } else if (result.errorCount > 0) {
@@ -113,17 +114,23 @@ module.exports = ({ testPath, extraOptions } /*: Options */) /*: { +[string]: mi
     });
   }
 
-  return pass({ start, end, test: { path: testPath } });
+  return pass({
+    start,
+    end,
+    test: {
+      path: testPath,
+    },
+  });
 };
 
-function passWithWarning({ start, end, test }) {
+function todoWithMessage({ start, end, test }) {
   return {
     console: null,
-    failureMessage: test.warningMessage,
+    failureMessage: test.errorMessage,
     numFailingTests: 0,
-    numPassingTests: 1,
+    numPassingTests: 0,
     numPendingTests: 0,
-    numTodoTests: 0,
+    numTodoTests: 1,
     perfStats: {
       end: new Date(start).getTime(),
       start: new Date(end).getTime(),
@@ -144,10 +151,10 @@ function passWithWarning({ start, end, test }) {
       {
         ancestorTitles: [],
         duration: end - start,
-        failureMessages: [test.warningMessage],
+        failureMessages: [test.errorMessage],
         fullName: test.path,
-        numPassingAsserts: test.warningMessage ? 1 : 0,
-        status: test.warningMessage ? 'failed' : 'passed',
+        numPassingAsserts: 1,
+        status: 'passed',
         title: '',
       },
     ],
