@@ -1,6 +1,7 @@
 # Unreleased
 
-- `no-invalid-flow-annotations` checks for typos like `@flow srict`
+- Rule `no-invalid-flow-annotations` checks for typos like `@flow srict` (should be `@flow strict`).
+- Rule `flowtype/no-weak-types` now returns warnings for `Object` and `Function` Flow types.
 
 # 3.1.1
 
