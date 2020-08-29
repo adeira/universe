@@ -1,5 +1,7 @@
 # Unreleased
 
+# 2.1.0
+
 - Added new Flow utils `FragmentContainerType`, `RefetchContainerType` and `PaginationContainerType` which will help you to migrate to the new `types-first` Flow architecture (https://medium.com/flow-type/types-first-a-scalable-new-architecture-for-flow-3d8c7ba1d4eb). Example:
 
   ```js
