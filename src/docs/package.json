@@ -11,8 +11,8 @@
     "write-translations": "docusaurus write-translations"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.61",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.61",
+    "@docusaurus/core": "^2.0.0-alpha.62",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.62",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
