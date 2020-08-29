@@ -3,7 +3,7 @@ const WARN = 1;
 const ERROR = 2;
 
 module.exports = {
-  parser: 'babel-eslint', // TODO: consider moving this into `eslint-config-kiwicom`
+  parser: 'babel-eslint', // TODO: consider moving this into `eslint-config-adeira`
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -13,7 +13,7 @@ module.exports = {
   },
   root: true, // stop ESLint from looking for a configuration file in parent folders
   env: {
-    // TODO: consider moving this into `eslint-config-kiwicom`
+    // TODO: consider moving this into `eslint-config-adeira`
     es6: true,
     jest: true,
     node: true,
@@ -60,15 +60,6 @@ module.exports = {
           '**/__flowtests__/**',
           '**/__tests__/**',
         ],
-      },
-    ],
-    'flowtype/no-weak-types': [
-      ERROR,
-      {
-        // codeshift: https://github.com/facebook/flow/issues/7291
-        any: false,
-        Object: true, // { +[key: string]: any, ... }
-        Function: true, // (...args: $ReadOnlyArray<any>) => any   -OR-   { [[call]]: any, ... }
       },
     ],
   },

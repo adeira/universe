@@ -277,7 +277,15 @@ module.exports = ({
   'flowtype/no-primitive-constructor-types': WARN,
   'flowtype/no-types-missing-file-annotation': ERROR,
   'flowtype/no-unused-expressions': [ERROR, { allowTaggedTemplates: true }],
-  'flowtype/no-weak-types': OFF,
+  'flowtype/no-weak-types': [
+    NEXT_VERSION_ERROR,
+    {
+      // codeshift: https://github.com/facebook/flow/issues/7291
+      any: false,
+      Object: true, // { +[key: string]: any, ... }
+      Function: true, // (...args: $ReadOnlyArray<any>) => any   -OR-   { [[call]]: any, ... }
+    },
+  ],
   'flowtype/require-compound-type-alias': OFF,
   'flowtype/require-exact-type': OFF,
   'flowtype/require-indexer-name': OFF,
