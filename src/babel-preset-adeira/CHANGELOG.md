@@ -1,8 +1,12 @@
 # Unreleased
 
+# 1.0.0
+
+- Stable release (upgraded dependencies and some internal changes).
+
 # 0.4.0
 
-- Upgraded dependencies
+- Upgraded dependencies.
 
 ---
 
