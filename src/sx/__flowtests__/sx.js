@@ -35,21 +35,21 @@ export function NoErrorsMoreStylesheetNames(): Node {
 }
 
 export function InvalidStylesheetName(): Node {
-  // $FlowExpectedError[prop-missing]
   const styles = sx.create({
     red: { color: 'red' },
   });
+  // $FlowExpectedError[incompatible-call]
   return <div className={styles('invalid')} />;
 }
 
 export function InvalidCSSProperty(): Node {
-  // $FlowExpectedError[prop-missing]
   const styles = sx.create({
     red: {
       // $FlowExpectedError[incompatible-call]
       wtf: 'wtf',
     },
   });
+  // $FlowExpectedError[incompatible-call]
   return <div className={styles('invalid')} />;
 }
 
