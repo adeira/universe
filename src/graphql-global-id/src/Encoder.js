@@ -17,7 +17,7 @@ const encodeTable = {
 
 const decodeTable = {
   '-': '+',
-  _: '/',
+  '_': '/',
   '~': '=',
 };
 

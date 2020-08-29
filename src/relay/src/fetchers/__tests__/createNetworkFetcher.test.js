@@ -28,7 +28,7 @@ it('works with additional headers', async () => {
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-type': 'application/json',
       'X-Custom': 'Bearer 123',
       'X-Client': 'https://github.com/adeira/relay-example',
@@ -51,7 +51,7 @@ it('works with promised headers', async () => {
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-type': 'application/json',
       'X-Client': 'https://github.com/adeira/relay-example',
     },
@@ -75,7 +75,7 @@ it('accepts refetchConfig', async () => {
   expect(originalFetch).toHaveBeenCalledWith('//localhost', {
     body: expectedBody,
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-type': 'application/json',
       'X-Client': 'https://github.com/adeira/relay-example',
     },

@@ -69,14 +69,14 @@ export function getRequestBody(
 
 export const getHeaders = (
   uploadables: ?Uploadables,
-): {| +Accept: string, +'Content-type'?: string |} => {
+): {| +'Accept': string, +'Content-type'?: string |} => {
   if (uploadables) {
     return {
       Accept: '*/*',
     };
   }
   return {
-    Accept: 'application/json',
+    'Accept': 'application/json',
     'Content-type': 'application/json',
   };
 };

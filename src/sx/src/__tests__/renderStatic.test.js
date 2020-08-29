@@ -22,7 +22,7 @@ it('works as expected', () => {
     red: { color: 'red' },
     blue: { color: 'blue' },
     pseudo: {
-      color: 'green',
+      'color': 'green',
       ':hover': {
         color: 'red',
         textDecoration: 'underline',
@@ -64,7 +64,7 @@ it('works as expected', () => {
 it('supports media queries', () => {
   const styles = sx.create({
     red: {
-      color: 'red',
+      'color': 'red',
       '@media print': {
         color: 'red', // can result in the same CSS class and it would be nice to deduplicate it
       },
@@ -117,9 +117,9 @@ it('renders media queries properly', () => {
 it('supports pseudo classes in media queries', () => {
   sx.create({
     media: {
-      color: 'red',
+      'color': 'red',
       '@media print': {
-        color: 'red',
+        'color': 'red',
         ':hover': {
           color: 'pink',
         },

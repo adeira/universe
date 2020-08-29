@@ -4,8 +4,8 @@ import * as sx from '../index';
 
 sx.create({
   NoIssues: {
-    color: 'red',
-    zIndex: 10,
+    'color': 'red',
+    'zIndex': 10,
     ':hover': {
       color: 'blue',
     },

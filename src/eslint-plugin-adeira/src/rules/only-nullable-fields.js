@@ -28,7 +28,7 @@ module.exports = ({
     let noOfAllowedNodesVisited = 0;
 
     return {
-      Property: (node) => {
+      'Property': (node) => {
         if (node.key && node.key.name === 'args') {
           noOfAllowedNodesVisited += 1;
         }
@@ -39,7 +39,7 @@ module.exports = ({
         }
       },
 
-      CallExpression: function (node) {
+      'CallExpression': function (node) {
         // disallow GraphQLNonNull
         if (
           noOfAllowedNodesVisited === 0 &&
@@ -50,7 +50,7 @@ module.exports = ({
         }
       },
 
-      NewExpression: function (node) {
+      'NewExpression': function (node) {
         if (node.callee.name === 'GraphQLInputObjectType') {
           noOfAllowedNodesVisited += 1;
         }

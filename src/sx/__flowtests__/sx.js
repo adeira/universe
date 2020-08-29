@@ -14,7 +14,7 @@ export function NoErrors(): Node {
 export function NoErrorsWithPseudo(): Node {
   const styles = sx.create({
     red: {
-      color: 'red',
+      'color': 'red',
       ':hover': {
         color: 'blue',
       },

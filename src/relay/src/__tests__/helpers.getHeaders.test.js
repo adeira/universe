@@ -4,7 +4,7 @@ import { getHeaders } from '../helpers';
 
 it('returns correct headers for request without uploadables', () => {
   expect(getHeaders()).toEqual({
-    Accept: 'application/json',
+    'Accept': 'application/json',
     'Content-type': 'application/json',
   });
 });
