@@ -84,12 +84,20 @@ it('supports multiple styles', () => {
 });
 
 it('validates incorrect usage', () => {
+  const consoleSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
+
   expect(() => create({})).toThrowErrorMatchingInlineSnapshot(
     `"Function 'sx.create' cannot be called with empty stylesheet definition."`,
   );
-  expect(() => create({ aaa: {} })).toThrowErrorMatchingInlineSnapshot(
-    `"Stylesheet 'aaa' must have at least one CSS property."`,
-  );
+
+  create({
+    aaa: {
+      // useful to allow (with a warning though) when user wants to temporarily comment out the stylesheet
+    },
+  });
+  expect(consoleSpy).toBeCalledTimes(1);
+  expect(consoleSpy).toBeCalledWith("Stylesheet 'aaa' must have at least one CSS property.");
+  consoleSpy.mockRestore();
 
   // $FlowExpectedError[prop-missing] ccc
   const styles = create({
@@ -101,5 +109,8 @@ it('validates incorrect usage', () => {
   );
   expect(() => styles('bbc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'bbc' stylesheet name but it doesn't exist. Did you mean 'bbb' instead?"`,
+  );
+  expect(() => styles('ccc')).toThrowErrorMatchingInlineSnapshot(
+    `"SX was called with 'ccc' stylesheet name but it doesn't exist. Did you mean 'aaa' instead?"`,
   );
 });
