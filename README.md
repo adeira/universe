@@ -2,17 +2,21 @@
 
 [![Adeira logo](/src/docs/static/img/logo-banner.png)](https://adeira.dev/)
 
-This project is an open-source fork of some _public_ projects created when we worked together in Kiwi.com. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
+Universe monorepo is an open-source collection of projects created in our free time. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
 
 [![Continuous Integration](https://github.com/adeira/universe/workflows/Continuous%20Integration/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22Continuous+Integration%22)
 
 ## What can you find here?
 
-- [relay](/src/relay) - Relay Modern GraphQL client with flow support, query logging, stored operations or support for uploadables
+- [relay](/src/relay) - Relay Modern GraphQL client with Flow support, query logging, stored operations or support for uploadables
 - [fetch](/src/fetch) - isomorphic fetch with retries and timeout
 - [graphql-bc-checker](/src/graphql-bc-checker) - utility to test your schema against accidental breaking changes
+- [eslint-runner](/src/eslint-runner) - eslint runner faster than Eslint itself
+- [sx](/src/sx) - our CSS-in-JS solution outputting atomic CSS
+- … and many more, see READMEs of individual packages located in [`/src`](/src)
 
-... and more, see READMEs of individual packages located in `/src`. <!-- TODO put there link to adeira.dev: "and more, check out adeira.dev" -->
+<!-- TODO put there link to adeira.dev: "and more, check out adeira.dev" -->
+<!-- generate this list automatically? or commpletely remove it? -->
 
 :point_right: Check out our Relay [demo app](https://relay-example.adeira.now.sh/) and its [source code](https://github.com/adeira/relay-example) to see how it works together :point_left:
 
@@ -24,9 +28,9 @@ cd universe
 yarn install
 ```
 
-Please note: you have to use Yarn. It won't work with NPM!
+_Please note: you have to use Yarn. It won't work with NPM!_
 
-## Monorepo structure
+## Universe monorepo structure
 
 Overall picture of this monorepo:
 
@@ -43,7 +47,7 @@ Overall picture of this monorepo:
 │   ├── fetch/
 │   ├── js/
 │   ├── relay/
-│   └── .../
+│   └── …
 ├── .eslintrc.js                          # global Eslint config
 ├── .flowconfig                           # global Flow config
 └── package.json                          # global workspaces definition

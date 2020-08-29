@@ -20,9 +20,10 @@ Adeira Universe uses Contributor Covenant, read [the full text](/CODE_OF_CONDUCT
 
 ## Reporting an issue
 
-All the stuff in this monorepo comes from the needs of our  daily jobs. Your use case may differ, so any suggestion for improvement is highly welcomed.
+All the stuff in this monorepo comes from the needs of our daily jobs. Your use case may differ, so any suggestion for improvement is highly welcomed.
 
 Have you found a bug? It's not pleasant, but such things happen. Help us to get rid of it quickly, create new issue and provide as much information as possible:
+
 - What is the package name and its version?
 - Did it work in previous version?
 - Which operating system, browser or node version do you use?
@@ -102,5 +103,3 @@ Every package with version greater than 1.0 (ignoring patch version) must have `
 This changelog is being tested so you have to follow this format otherwise new version won't be released and the test will fail.
 
 When you send MR with new feature or bug fixing reported issue, we might ask you to add short description under `unreleased` during code review. Once it's merged to master, changes are released by bumping package version and updating its `CHANGELOG.md` as e.g. can be seen here: https://github.com/adeira/universe/pull/93
-
-
