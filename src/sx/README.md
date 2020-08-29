@@ -1,16 +1,5 @@
 In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has its own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
-```text
-TODOs and Ideas:
- - padding/marginVertical, padding/marginHorizontal
- - bug: media queries are not being reset while developing (until you restart the server)
- - @keyframes (https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
- - better DX when in __DEV__
- - autoprefixer via browserlist (https://github.com/robinweser/inline-style-prefixer?)
- - babel transpilation (compile time instead of runtime)
- - support for `marginEnd`, `marginVertical` and so on like in RN (for LRT/RTL layouts)
-```
-
 ## Installation and Usage
 
 First, install the package from NPM:

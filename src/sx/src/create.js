@@ -1,6 +1,6 @@
 // @flow
 
-import { invariant, isObjectEmpty } from '@adeira/js';
+import { invariant, isObjectEmpty, warning } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
 import hashStyle from './hashStyle';
@@ -133,8 +133,7 @@ export default function create<T: SheetDefinitions>(
   }
 
   for (const key of Object.keys(sheetDefinitions)) {
-    invariant(
-      // TODO: change to warning
+    warning(
       isObjectEmpty(sheetDefinitions[key]) === false,
       `Stylesheet '%s' must have at least one CSS property.`,
       key,
