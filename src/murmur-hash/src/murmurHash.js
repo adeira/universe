@@ -46,8 +46,10 @@ export default function murmurHash(str: string): string {
   switch (rem) {
     case 3:
       k ^= str.charCodeAt(len + 2) << 16;
+    // falls through
     case 2:
       k ^= str.charCodeAt(len + 1) << 8;
+    // falls through
     case 1:
       k ^= str.charCodeAt(len);
 
