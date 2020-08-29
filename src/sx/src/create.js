@@ -21,13 +21,26 @@ type AllCSSPseudos = {|
   +':visited'?: AllCSSPropertyTypes,
 |};
 
+// https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries
+type MediaQueries = {|
+  ...AllCSSPropertyTypes,
+  ...AllCSSPseudos,
+|};
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
+type KeyFrames = {|
+  +from: AllCSSPropertyTypes,
+  +to: AllCSSPropertyTypes,
+  +[number]: AllCSSPropertyTypes, // percentages
+|};
+
+// https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
+type AtRules = MediaQueries | KeyFrames;
+
 type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudos,
-  +[string]: {|
-    ...AllCSSPropertyTypes,
-    ...AllCSSPseudos,
-  |}, // @media, @keyframes, ...
+  +[string]: AtRules,
 |};
 
 type SheetDefinitions = {|
@@ -125,6 +138,8 @@ export default function create<T: SheetDefinitions>(
       }
       hashedSheetDefinitions[className][`${property}${objectType}`] = hash;
     } else if (typeof value === 'object' && value != null) {
+      invariant(!property.startsWith('@keyframes'), 'Keyframes are not supported yet.');
+
       const nextBuffer = property.startsWith('@media') ? getMediaBuffer(property) : buffer;
 
       iterateEntries(Object.entries(value), className, nextBuffer, property);
