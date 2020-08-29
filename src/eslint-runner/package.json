@@ -1,21 +1,23 @@
 {
   "name": "@adeira/eslint-runner",
-  "description": "Eslint runner which is faster than Eslint itself 🤯.",
+  "description": "Eslint runner for large projects - faster than Eslint itself. 🤯",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-runner",
   "license": "MIT",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index",
   "sideEffects": false,
   "dependencies": {
     "@adeira/monorepo-utils": "^0.8.0",
+    "@babel/code-frame": "^7.10.4",
     "@babel/register": "^7.10.5",
     "@babel/runtime": "^7.11.2",
     "chalk": "^4.1.0",
     "create-jest-runner": "^0.7.0",
+    "is-ci": "^2.0.0",
+    "progress": "^2.0.3",
     "strip-ansi": "^6.0.0",
-    "text-table": "^0.2.0",
-    "is-ci": "^2.0.0"
+    "text-table": "^0.2.0"
   },
   "peerDependencies": {
     "eslint": "^7.0.0"
