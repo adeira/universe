@@ -37,7 +37,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       ...rules,
       ...prettierRules,
       // overwriting Prettier rules, see: https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
-      curly: [
+      'curly': [
         WARN, // TODO: ERROR in next major version
         'all',
       ],
@@ -50,6 +50,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
           singleQuote: true,
           tabWidth: 2,
           trailingComma: 'all',
+          quoteProps: 'consistent',
         },
       ],
     },
@@ -60,7 +61,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
           extensions: ['.js', '.jsx', '.android.js', '.ios.js', '.native.js', '.web.js'],
         },
       },
-      react: {
+      'react': {
         version: detectReactVersion(),
       },
     },

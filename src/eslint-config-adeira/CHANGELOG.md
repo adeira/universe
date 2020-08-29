@@ -2,6 +2,7 @@
 
 - Rule `no-invalid-flow-annotations` checks for typos like `@flow srict` (should be `@flow strict`).
 - Rule `flowtype/no-weak-types` now returns warnings for `Object` and `Function` Flow types.
+- Prettier rule `quoteProps` changed to "consistent".
 
 # 3.1.1
 

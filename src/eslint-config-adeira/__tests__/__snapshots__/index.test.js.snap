@@ -138,7 +138,14 @@ Object {
         "allowTaggedTemplates": true,
       },
     ],
-    "flowtype/no-weak-types": 0,
+    "flowtype/no-weak-types": Array [
+      1,
+      Object {
+        "Function": true,
+        "Object": true,
+        "any": false,
+      },
+    ],
     "flowtype/object-type-delimiter": "off",
     "flowtype/require-compound-type-alias": 0,
     "flowtype/require-exact-type": 0,
@@ -670,6 +677,7 @@ Object {
       Object {
         "bracketSpacing": true,
         "printWidth": 100,
+        "quoteProps": "consistent",
         "singleQuote": true,
         "tabWidth": 2,
         "trailingComma": "all",
@@ -936,6 +944,11 @@ Snapshot Diff:
 - First value
 + Second value
 
+@@ --- --- @@
+      "flowtype/no-weak-types": Array [
+-       1,
++       2,
+        Object {
 @@ --- --- @@
       "jest/no-if": 0,
 -     "jest/no-interpolation-in-snapshots": 1,

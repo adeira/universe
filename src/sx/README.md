@@ -110,7 +110,7 @@ export function LinkComponent() {
 
 const styles = sx.create({
   link: {
-    textDecoration: 'none',
+    'textDecoration': 'none',
     ':hover': {
       textDecoration: 'underline',
     },
@@ -130,12 +130,12 @@ export function MediaComponent() {
 
 const styles = sx.create({
   text: {
-    fontSize: 16,
+    'fontSize': 16,
     '@media print': {
       fontSize: 12,
     },
     '@media screen': {
-      fontSize: 14,
+      'fontSize': 14,
       ':hover': {
         color: 'pink',
       },

@@ -32,7 +32,7 @@ const filename = path.join(process.cwd(), program.filename);
   const response = await fetch(program.resource, {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
       'X-Client': '@adeira/relay schema fetcher',
     },

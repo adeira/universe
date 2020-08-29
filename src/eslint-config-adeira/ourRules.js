@@ -62,13 +62,13 @@ module.exports = ({
   'array-callback-return': ERROR,
   'block-scoped-var': OFF,
   'class-methods-use-this': OFF,
-  complexity: OFF,
+  'complexity': OFF,
   'consistent-return': [ERROR, { treatUndefinedAsUnspecified: false }],
   'default-case': OFF,
   'default-case-last': ERROR,
   'default-param-last': ERROR,
   'dot-notation': ERROR,
-  eqeqeq: [ERROR, 'smart'],
+  'eqeqeq': [ERROR, 'smart'],
   'grouped-accessor-pairs': OFF,
   'guard-for-in': ERROR,
   'max-classes-per-file': OFF,
@@ -131,14 +131,14 @@ module.exports = ({
   'prefer-named-capture-group': ERROR,
   'prefer-promise-reject-errors': WARN,
   'prefer-regex-literals': ERROR,
-  radix: ERROR,
+  'radix': ERROR,
   'require-await': ERROR,
   'require-unicode-regexp': OFF,
   'vars-on-top': ERROR,
-  yoda: ERROR,
+  'yoda': ERROR,
 
   // Strict Mode (http://eslint.org/docs/rules/#strict-mode)
-  strict: WARN,
+  'strict': WARN,
 
   // Variables (http://eslint.org/docs/rules/#variables)
   'init-declarations': OFF,
@@ -167,7 +167,7 @@ module.exports = ({
   'no-sync': OFF, // see: node/no-sync (https://github.com/mysticatea/eslint-plugin-node/pull/206)
 
   // Stylistic Issues (http://eslint.org/docs/rules/#stylistic-issues)
-  camelcase: OFF, // see: babel/camelcase
+  'camelcase': OFF, // see: babel/camelcase
   'capitalized-comments': OFF,
   'consistent-this': OFF,
   'func-name-matching': OFF,
@@ -607,7 +607,7 @@ module.exports = ({
   'import/order': [
     ERROR,
     {
-      groups: [['builtin', 'external'], ['parent', 'sibling'], 'index'],
+      'groups': [['builtin', 'external'], ['parent', 'sibling'], 'index'],
       'newlines-between': 'always',
     },
   ],
