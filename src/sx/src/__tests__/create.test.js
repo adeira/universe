@@ -99,7 +99,7 @@ it('validates incorrect usage', () => {
   expect(() => styles()).toThrowErrorMatchingInlineSnapshot(
     `"SX must be called with at least one stylesheet name."`,
   );
-  expect(() => styles('ccc')).toThrowErrorMatchingInlineSnapshot(
-    `"SX was called with 'ccc' stylesheet name but it doesn't exist. Available names are: [\\"aaa\\",\\"bbb\\"]"`,
+  expect(() => styles('bbc')).toThrowErrorMatchingInlineSnapshot(
+    `"SX was called with 'bbc' stylesheet name but it doesn't exist. Did you mean 'bbb' instead?"`,
   );
 });
