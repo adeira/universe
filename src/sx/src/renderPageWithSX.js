@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 
-import { styleBuffer, mediaStyleBuffer } from './styleBuffer';
-import renderAtomicClasses from './css-renderers/renderAtomicClasses';
-import renderMediaQuery from './css-renderers/renderMediaQuery';
+import styleCollector, { StyleNode } from './StyleCollector';
+import renderAtomicClass from './css-renderers/renderAtomicClass';
 
 type RenderPageResult = {|
   +html: string,
@@ -12,16 +11,29 @@ type RenderPageResult = {|
   +styles: $ReadOnlyArray<any>,
 |};
 
-// Not: this is currently a bit Next.js centric, we can make it more abstract later
+function renderAtomic(styleCollector, prefix = '') {
+  let sxStyle = '';
+  styleCollector.forEach((value, key) => {
+    if (value instanceof StyleNode) {
+      sxStyle += `${prefix}${renderAtomicClass({
+        className: key,
+        styleName: value.propertyName,
+        styleValue: value.styleValue,
+        pseudo: value.pseudo,
+      })}`;
+    } else {
+      sxStyle += `${key} {${renderAtomic(value.styles)}}`;
+    }
+  });
+
+  return sxStyle;
+}
+
+// Note: this is currently a bit Next.js centric, we can make it more abstract later
 export default function renderPageWithSX(renderPage: () => any): RenderPageResult {
   const html = renderPage();
 
-  let prefix = '';
-  let sxStyle = renderAtomicClasses(Array.from(styleBuffer.values()));
-  for (const [key, value] of mediaStyleBuffer) {
-    sxStyle += `${prefix}${renderMediaQuery(key, Array.from(value.values()))}}`;
-    prefix = ' ';
-  }
+  const sxStyle = renderAtomic(styleCollector.styles);
 
   return {
     ...html,

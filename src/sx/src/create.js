@@ -1,13 +1,10 @@
 // @flow
 
-import { invariant, isObjectEmpty, warning } from '@adeira/js';
+import { invariant, isObjectEmpty } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
-import hashStyle from './hashStyle';
-import { styleBuffer, mediaStyleBuffer } from './styleBuffer';
-import transformStyleName from './transformStyleName';
-import transformValue from './transformValue';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
+import styleCollector from './StyleCollector';
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
@@ -47,14 +44,6 @@ type SheetDefinitions = {|
   +[sheetName: string]: AllCSSProperties,
 |};
 
-function hashStylePair(
-  styleName: string,
-  styleValue?: string | number = '',
-  pseudo?: string = '',
-): string {
-  return hashStyle(`${styleName}${styleValue}${pseudo}`);
-}
-
 function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): string {
   return alternativeNames.sort((firstEl, secondEl) => {
     const firstScore = levenshtein.get(sheetDefinitionName, firstEl);
@@ -73,62 +62,7 @@ export default function create<T: SheetDefinitions>(
 
   const hashedSheetDefinitions = {};
 
-  function getMediaBuffer(mediaName) {
-    let media = mediaStyleBuffer.get(mediaName);
-    if (media == null) {
-      mediaStyleBuffer.set(mediaName, new Map([]));
-      media = mediaStyleBuffer.get(mediaName);
-    }
-    invariant(media != null, 'Media is undefined, but that should not be possible');
-    return media;
-  }
-
-  function iterateEntries(entries, className, buffer, objectType = '') {
-    if (entries.length === 0) {
-      return;
-    }
-
-    const [property, value] = entries.shift();
-    const pseudo = objectType.startsWith(':') ? objectType : '';
-
-    if (typeof property === 'string' && typeof value !== 'object') {
-      const styleValue = ((value: any): string | number);
-      const hash = hashStylePair(
-        property,
-        styleValue,
-        objectType.startsWith(':') ? objectType : '',
-      );
-
-      buffer.set(hash, {
-        className: hash,
-        styleName: transformStyleName(property),
-        styleValue: transformValue(property, styleValue),
-        pseudo,
-      });
-
-      if (hashedSheetDefinitions[className] === undefined) {
-        hashedSheetDefinitions[className] = {};
-      }
-      hashedSheetDefinitions[className][`${property}${objectType}`] = hash;
-    } else if (typeof value === 'object' && value != null) {
-      invariant(!property.startsWith('@keyframes'), 'Keyframes are not supported yet.');
-
-      const nextBuffer = property.startsWith('@media') ? getMediaBuffer(property) : buffer;
-
-      iterateEntries(Object.entries(value), className, nextBuffer, property);
-    }
-    iterateEntries(entries, className, buffer, objectType);
-  }
-
-  for (const key of Object.keys(sheetDefinitions)) {
-    warning(
-      isObjectEmpty(sheetDefinitions[key]) === false,
-      `Stylesheet '%s' must have at least one CSS property.`,
-      key,
-    );
-    const entries = Object.entries(sheetDefinitions[key]);
-    iterateEntries(entries, key, styleBuffer);
-  }
+  styleCollector.addStyles(sheetDefinitions, hashedSheetDefinitions);
 
   return function sx(...sheetDefinitionNames) {
     invariant(
