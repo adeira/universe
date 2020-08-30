@@ -83,6 +83,22 @@ it('supports multiple styles', () => {
   ).toMatchInlineSnapshot(`"wUqnh _2FdJlr"`); // red + zIndex
 });
 
+it('supports conditional calls', () => {
+  const isDisabled = false;
+  const isEnabled = !isDisabled;
+
+  const styles = create({
+    button: { color: 'red' }, // wUqnh
+    disabled: { color: 'blue' }, // _4fo5TC
+  });
+
+  expect(styles('button', 'disabled')).toMatchInlineSnapshot(`"_4fo5TC"`); // disabled wins
+  expect(styles('button', isDisabled ? 'disabled' : null)).toMatchInlineSnapshot(`"wUqnh"`);
+  expect(styles('button', isDisabled ? 'disabled' : undefined)).toMatchInlineSnapshot(`"wUqnh"`);
+  expect(styles('button', isDisabled && 'disabled')).toMatchInlineSnapshot(`"wUqnh"`);
+  expect(styles('button', isEnabled && 'disabled')).toMatchInlineSnapshot(`"_4fo5TC"`);
+});
+
 it('validates incorrect usage', () => {
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
 
@@ -99,7 +115,6 @@ it('validates incorrect usage', () => {
   expect(consoleSpy).toBeCalledWith("Stylesheet 'aaa' must have at least one CSS property.");
   consoleSpy.mockRestore();
 
-  // $FlowExpectedError[prop-missing] ccc
   const styles = create({
     aaa: { color: 'red' },
     bbb: { color: 'blue' },
@@ -107,9 +122,11 @@ it('validates incorrect usage', () => {
   expect(() => styles()).toThrowErrorMatchingInlineSnapshot(
     `"SX must be called with at least one stylesheet name."`,
   );
+  // $FlowExpectedError[incompatible-call] ccc
   expect(() => styles('bbc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'bbc' stylesheet name but it doesn't exist. Did you mean 'bbb' instead?"`,
   );
+  // $FlowExpectedError[incompatible-call] ccc
   expect(() => styles('ccc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'ccc' stylesheet name but it doesn't exist. Did you mean 'aaa' instead?"`,
   );
