@@ -7,11 +7,10 @@ import { sprintf } from '@adeira/js';
 import TestRenderer from 'react-test-renderer';
 
 import * as sx from '../../index';
-import { styleBuffer, mediaStyleBuffer } from '../styleBuffer';
+import styleCollector from '../StyleCollector';
 
 beforeEach(() => {
-  styleBuffer.clear();
-  mediaStyleBuffer.clear();
+  styleCollector.styles.clear();
 });
 
 const renderPageMock = () => ({
