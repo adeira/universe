@@ -1,6 +1,7 @@
 // @flow strict
 
 type GenericStyleBuffer = {|
+  +className: string,
   +styleName: string,
   +styleValue: string,
   +pseudo?: string,

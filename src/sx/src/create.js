@@ -128,6 +128,7 @@ export default function create<T: SheetDefinitions>(
       );
 
       buffer.set(hash, {
+        className: hash,
         styleName: transformStyleName(property),
         styleValue: transformValue(property, styleValue),
         pseudo,
