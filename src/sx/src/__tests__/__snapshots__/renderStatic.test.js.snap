@@ -29,6 +29,12 @@ exports[`matches expected output: media-queries.json 1`] = `
   }
 }
 
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('test')}
+  ↓ ↓ ↓
+class="wUqnh _4fo5TC"
+
 `;
 
 exports[`matches expected output: media-queries-multiple.json 1`] = `
@@ -76,6 +82,51 @@ exports[`matches expected output: media-queries-multiple.json 1`] = `
   }
 }
 
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('aaa')}
+  ↓ ↓ ↓
+class="wUqnh _2ZJp7Y Zld8p _4fo5TC"
+
+className={styles('bbb')}
+  ↓ ↓ ↓
+class="PJDYD"
+
+`;
+
+exports[`matches expected output: media-queries-nested-pseudo.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "media": {
+    "color": "red",
+    "@media print": {
+      "color": "red",
+      ":hover": {
+        "color": "pink"
+      }
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+.wUqnh {
+  color: #f00;
+}
+@media print {
+  .wUqnh {
+    color: #f00;
+  }
+  ._4rAdwD:hover {
+    color: #ffc0cb;
+  }
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('media')}
+  ↓ ↓ ↓
+class="wUqnh _4rAdwD"
+
 `;
 
 exports[`matches expected output: pseudo-classes.json 1`] = `
@@ -96,6 +147,12 @@ exports[`matches expected output: pseudo-classes.json 1`] = `
 ._22QzO9:hover {
   text-decoration: underline;
 }
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('link')}
+  ↓ ↓ ↓
+class="_134wwt _22QzO9"
 
 `;
 
@@ -127,6 +184,12 @@ exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
 .ERwS0:active {
   color: #f00;
 }
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('link')}
+  ↓ ↓ ↓
+class="_134wwt XJjf5 _4sFdkU ERwS0"
 
 `;
 
@@ -161,6 +224,12 @@ exports[`matches expected output: pseudo-elements.json 1`] = `
   content: "∞";
 }
 
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('link')}
+  ↓ ↓ ↓
+class="_134wwt _22QzO9 _2Rpe4g _3ou8wp"
+
 `;
 
 exports[`matches expected output: simple-stylesheet.json 1`] = `
@@ -187,5 +256,19 @@ exports[`matches expected output: simple-stylesheet.json 1`] = `
 .PJDYD {
   color: #008000;
 }
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('redStyle')}
+  ↓ ↓ ↓
+class="wUqnh"
+
+className={styles('blueStyle')}
+  ↓ ↓ ↓
+class="_4fo5TC"
+
+className={styles('greenStyle')}
+  ↓ ↓ ↓
+class="PJDYD"
 
 `;
