@@ -1,6 +1,6 @@
 // @flow
 
 import create from './src/create';
-import renderStatic from './src/renderStatic';
+import renderPageWithSX from './src/renderPageWithSX';
 
-export { create, renderStatic };
+export { create, renderPageWithSX };
