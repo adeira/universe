@@ -4,6 +4,7 @@
 <PROJECT_ROOT>/src/docs/build/
 .+/.+\.gzip\.js
 .+/\.next/.+
+<PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/.*/output.js
 
 
 ; https://flow.org/en/docs/config/untyped/
