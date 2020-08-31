@@ -4,6 +4,7 @@ import path from 'path';
 import prettier from 'prettier';
 import { generateTestsFromFixtures } from '@adeira/test-utils';
 import { sprintf } from '@adeira/js';
+import TestRenderer from 'react-test-renderer';
 
 import * as sx from '../../index';
 import { styleBuffer, mediaStyleBuffer } from '../styleBuffer';
@@ -13,6 +14,12 @@ beforeEach(() => {
   mediaStyleBuffer.clear();
 });
 
+const renderPageMock = () => ({
+  html: '',
+  head: [''],
+  styles: [''],
+});
+
 generateTestsFromFixtures(path.join(__dirname, 'fixtures'), (input) => {
   const stylesheetsDefinition = JSON.parse(input);
   const styles = sx.create(stylesheetsDefinition);
@@ -20,7 +27,9 @@ generateTestsFromFixtures(path.join(__dirname, 'fixtures'), (input) => {
   let output = '';
 
   // 1) print final atomic CSS
-  output += prettier.format(sx.renderStatic(() => null).css, { filepath: 'test.css' });
+  const renderer = TestRenderer.create(sx.renderPageWithSX(renderPageMock).styles[0]);
+  const css = renderer.root.children[0].toString();
+  output += prettier.format(css, { filepath: 'test.css' });
 
   output += '\n~~~~~~~~~~ USAGE ~~~~~~~~~~\n';
 
@@ -58,21 +67,6 @@ it('works as expected', () => {
       },
     },
   });
-
-  expect(
-    sx
-      .renderStatic(() => null)
-      .css.split(' ')
-      .join('\n'),
-  ).toMatchInlineSnapshot(`
-    ".wUqnh{color:#f00}
-    ._4fo5TC{color:#00f}
-    .PJDYD{color:#008000}
-    ._4sFdkU:hover{color:#f00}
-    ._22QzO9:hover{text-decoration:underline}
-    ._3stS2V:focus{color:#800080}
-    ._14RYUP::after{content:\\"🤓\\"}"
-  `);
 
   expect(styles('red')).toMatchInlineSnapshot(`"wUqnh"`);
   expect(styles('blue')).toMatchInlineSnapshot(`"_4fo5TC"`);
