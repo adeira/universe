@@ -1,7 +1,5 @@
 Experimental port of [Tailwind CSS](https://tailwindcss.com/) (version 1.8.7) into [SX](https://github.com/adeira/sx).
 
-> Not ready for production yet!
-
 ## Usage
 
 ```js
@@ -44,6 +42,21 @@ You can see SX Tailwind in action:
 
 ```
 yarn storybook
+```
+
+## Install
+
+```
+yarn add @adeira/sx-tailwind
+yarn add --dev @adeira/babel-plugin-transform-sx-tailwind
+```
+
+Register the plugin in your Babel config (e.g. `.babelrc`):
+
+```
+{
+  "plugins": ["@adeira/babel-plugin-transform-sx-tailwind"]
+}
 ```
 
 ## Develop
