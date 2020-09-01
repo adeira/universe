@@ -28,43 +28,24 @@ const styles = sx.create({
 
 The example above will generate something like this:
 
-```css
-._444sSt {
-  font-size: 2rem;
-}
-._1qVfLL {
-  padding: 0px;
-}
-._3nPNZx {
-  text-decoration: none;
-}
+```text
+._444sSt { font-size: 2rem; }
+._1qVfLL { padding: 0px; }
+._3nPNZx { text-decoration: none; }
 ```
 
 Finally, render somewhere the styles and HTML. Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document) would be:
 
 ```jsx
 import * as sx from '@adeira/sx';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document from 'next/document';
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }) {
-    const { html, css } = sx.renderStatic(renderPage);
-    return { ...html, css };
+  static getInitialProps(ctx: DocumentContext) {
+    return sx.renderPageWithSX(ctx.renderPage);
   }
 
-  render() {
-    return (
-      <Html>
-        <Head>
-          <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+  // `render` is not needed to change
 }
 ```
 
