@@ -71,34 +71,6 @@ export default function create<T: SheetDefinitions>(
     `Function 'sx.create' cannot be called with empty stylesheet definition.`,
   );
 
-  // 1) stylesheet definitions:
-  //
-  // {
-  //   blue: { color: 'blue' },
-  //   default: { color: 'red', fontSize: 32 },
-  // };
-
-  // 2) generate atomic CSS:
-  //
-  // .c0 { color: blue }
-  // .c1 { color: red }
-  // .c2 { font-size: 2rem }
-
-  // 3) transform the stylesheet:
-  //
-  // {
-  //   blue: { color: 'c0' },
-  //   default: { color: 'c1', fontSize: 'c2' },
-  // };
-
-  // 4) pass this object to SX so it can resolve it properly:
-  //  a) styles('default', 'blue')
-  //   { color: 'c0', 'fontSize: 'c2' }
-  //  b) styles(blue, 'default')
-  //   { color: 'c1', 'fontSize: 'c2' }
-
-  // 5) collect the values of the final object and print them as `className`
-
   const hashedSheetDefinitions = {};
 
   function getMediaBuffer(mediaName) {
