@@ -8,6 +8,7 @@ test.each`
   ${'width'}    | ${150}              | ${'150px'}
   ${'height'}   | ${150}              | ${'150px'}
   ${'zIndex'}   | ${10}               | ${'10'}
+  ${'zIndex'}   | ${'auto'}           | ${'auto'}
   ${'fontSize'} | ${8}                | ${'0.5rem'}
   ${'fontSize'} | ${16}               | ${'1rem'}
   ${'fontSize'} | ${24}               | ${'1.5rem'}
