@@ -13,7 +13,7 @@
     "@adeira/eslint-config": "^3.1.0",
     "@adeira/eslint-runner": "^0.2.0",
     "@adeira/flow-bin": "^0.3.0",
-    "@babel/core": "^7.11.4",
+    "@babel/core": "^7.11.5",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
