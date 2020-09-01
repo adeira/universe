@@ -118,6 +118,21 @@ declare var composeReverse: $ComposeReverse;
 
 More info: https://github.com/facebook/flow/commit/ab9bf44c725efd2ed6d7e1e957c5566b6eb6f688
 
+## `$CharSet`
+
+Handy utility for things like regexp flags or for any other case where the flags (chars) cannot repeat.
+
+```js
+type RegExpFlags = $CharSet<'gimsuy'>;
+
+const a: RegExpFlags = 'miug' // OK
+const b: RegExpFlags = 'iii' // not OK! ("i" is duplicated)
+const c: RegExpFlags = 'abc' // not OK! ("a", "b", "c" are not valid members)
+```
+
+- https://github.com/facebook/flow/issues/4654
+- https://github.com/microsoft/TypeScript/issues/6579
+
 ## Contributing to native libdevs
 
 First, you have to build Flow locally (check official README for updated instructions: https://github.com/facebook/flow):
