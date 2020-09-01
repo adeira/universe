@@ -198,3 +198,5 @@ Internally, these steps are happening:
 - https://reactnative.dev/docs/stylesheet
 - https://github.com/Khan/aphrodite
 - https://github.com/johanholmerin/style9
+- https://github.com/styled-components/styled-components
+- https://github.com/4Catalyzer/astroturf
