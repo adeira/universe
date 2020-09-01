@@ -88,6 +88,11 @@ module.exports = {
           editUrl: 'https://github.com/mrtnzlml/meta/tree/master/',
           // showLastUpdateTime: true,
           // showLastUpdateAuthor: true,
+          versions: {
+            current: {
+              label: 'current',
+            },
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
