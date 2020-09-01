@@ -148,6 +148,50 @@ First, `@adeira/sx` takes all your CSS-in-JS definitions, normalizes it and then
 
 Style buffer contains all the style information which is eventually being printed as an atomic CSS. Hash registry contains all the hashed styles (essentially CSS classes) and prints them into your HTML output.
 
+Internally, these steps are happening:
+
+1. `sx.create` gets stylesheet definition:
+
+   ```json
+   {
+     "blue": { "color": "blue" },
+     "default": { "color": "red", "fontSize": 32 }
+   }
+   ```
+
+2. it generates atomic CSS from it (this is where style buffer and hash registry starts acting)
+
+   ```text
+   .c0 { color: blue }
+   .c1 { color: red }
+   .c2 { font-size: 2rem }
+   ```
+
+3. we transform the original stylesheet using these new atomic classes:
+
+   ```json
+   {
+     "blue": { "color": "c0" },
+     "default": { "color": "c1", "fontSize": "c2" }
+   }
+   ```
+
+4. now, we reduce the styles to solve specificity issues, there are two example cases:
+
+   1. `styles('default', 'blue')` resolves like so:
+
+      ```json
+      { "color": "c0", "fontSize": "c2" }
+      ```
+
+   2. `styles('blue', 'default')` resolves to (notice the change in color, overwritten by default - different from how CSS behaves):
+
+      ```json
+      { "color": "c1", "fontSize": "c2" }
+      ```
+
+5. and finally, we collect the values of the final object and print them as `className`
+
 ## Prior Art
 
 - https://twitter.com/wongmjane/status/1187411809667436550
