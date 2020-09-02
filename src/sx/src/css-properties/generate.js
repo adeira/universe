@@ -27,7 +27,11 @@ for (const property of allProperties) {
   let flowType = isUnitlessNumber[property] ? 'number' : 'string | number';
   const definedProperty = CustomPropertyTypes.get(property);
   if (definedProperty != null) {
-    flowType = definedProperty.map((t) => `"${t}"`).join('|');
+    flowType = definedProperty
+      .map((type) => {
+        return typeof type === 'symbol' ? Symbol.keyFor(type) : `"${type}"`;
+      })
+      .join('|');
   }
   flowPrint += `+'${property}'?: ${flowType},\n`;
 }

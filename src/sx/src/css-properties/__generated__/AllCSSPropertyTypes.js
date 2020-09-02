@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f345315f99ba80eee39c4ab78f4f25ea>>
+ * @generated SignedSource<<0ecf39476dba597a276b49be38dac905>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -635,5 +635,5 @@ export type AllCSSPropertyTypes = {|
   +wrapInside?: string | number,
   +wrapThrough?: string | number,
   +writingMode?: string | number,
-  +zIndex?: number,
+  +zIndex?: number | 'auto' | 'inherit' | 'initial' | 'unset',
 |};

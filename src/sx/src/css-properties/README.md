@@ -17,3 +17,7 @@ yarn monorepo-babel-node src/sx/src/css-properties/generate.js
 | PR           | Proposed Recommendation                     |
 | REC          | Recommendation                              |
 | NOTE         | Working Group Note                          |
+
+## Improving generated Flow types
+
+To make the generated Flow types more precise, overwrite the types in `CustomPropertyTypes` file. Otherwise, only imprecise `string | number` type will be used.
