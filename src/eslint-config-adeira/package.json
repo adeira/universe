@@ -32,6 +32,6 @@
     "snapshot-diff": "^0.8.1"
   },
   "peerDependencies": {
-    "eslint": "^7.0.0"
+    "eslint": "^7.8.1"
   }
 }

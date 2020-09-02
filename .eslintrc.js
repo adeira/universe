@@ -5,8 +5,8 @@ const ERROR = 2;
 module.exports = {
   parser: 'babel-eslint', // TODO: consider moving this into `eslint-config-adeira`
   parserOptions: {
-    ecmaVersion: 2020,
     sourceType: 'module',
+    ecmaVersion: 2021,
     ecmaFeatures: {
       jsx: false,
     },

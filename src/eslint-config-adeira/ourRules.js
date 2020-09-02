@@ -96,7 +96,7 @@ module.exports = ({
   'no-labels': [ERROR, { allowLoop: true, allowSwitch: true }],
   'no-lone-blocks': ERROR,
   'no-loop-func': ERROR,
-  'no-loss-of-precision': OFF, // this gives false error with numeric separators: https://github.com/eslint/eslint/issues/13346#issuecomment-633077619
+  'no-loss-of-precision': NEXT_VERSION_ERROR,
   'no-magic-numbers': OFF,
   'no-multi-str': ERROR,
   'no-new-func': ERROR,
