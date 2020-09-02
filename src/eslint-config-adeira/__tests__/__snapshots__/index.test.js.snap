@@ -497,7 +497,7 @@ Object {
     "no-lone-blocks": 2,
     "no-lonely-if": 2,
     "no-loop-func": 2,
-    "no-loss-of-precision": 0,
+    "no-loss-of-precision": 1,
     "no-magic-numbers": 0,
     "no-misleading-character-class": 2,
     "no-mixed-operators": 0,
@@ -959,6 +959,11 @@ Snapshot Diff:
 -     "jsx-a11y/autocomplete-valid": 1,
 +     "jsx-a11y/autocomplete-valid": 2,
       "jsx-a11y/click-events-have-key-events": 0,
+@@ --- --- @@
+      "no-loop-func": 2,
+-     "no-loss-of-precision": 1,
++     "no-loss-of-precision": 2,
+      "no-magic-numbers": 0,
 @@ --- --- @@
       "no-process-exit": 0,
 -     "no-promise-executor-return": 1,
