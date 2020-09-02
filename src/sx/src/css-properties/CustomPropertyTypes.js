@@ -1,5 +1,7 @@
 /* eslint-disable flowtype/require-valid-file-annotation */
 
+const FLOW_TYPE_NUMBER = Symbol.for('number');
+
 export default new Map([
   [
     // https://developer.mozilla.org/en-US/docs/Web/CSS/align-content
@@ -131,5 +133,10 @@ export default new Map([
     // https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap
     'flexWrap',
     ['nowrap', 'wrap', 'wrap-reverse', 'inherit', 'initial', 'unset'],
+  ],
+  [
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/z-index
+    'zIndex',
+    [FLOW_TYPE_NUMBER, 'auto', 'inherit', 'initial', 'unset'],
   ],
 ]);

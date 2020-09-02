@@ -22,12 +22,15 @@ sx.create({
       to: { transform: 'translateX(100%)' },
     },
   },
+  NoIssuesAlternative: {
+    zIndex: 'auto',
+  },
   InvalidPropertyValue: {
     // $FlowExpectedError[incompatible-call]
     alignContent: 'unknown',
   },
   InvalidPropertyType: {
-    // $FlowExpectedError[incompatible-call]
+    // $FlowExpectedError[incompatible-call]: should be number or one of predefined strings
     zIndex: '10',
   },
   // TODO: we currently cannot type check this (falls into `@media` group)
