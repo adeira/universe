@@ -1,4 +1,4 @@
-An opinionated Relay Runtime wrapper.
+An opinionated Relay Runtime wrapper with nice query logging.
 
 ## Install
 
@@ -6,16 +6,24 @@ An opinionated Relay Runtime wrapper.
 
 ## Usage
 
-### Logger
+TKTK
 
-Rich log output into browser console (only in development)
+### Lazy, Eager and Debug logger
+
+You can enable rich log output into browser console like so:
 
 ```js
-import { RelayLogger } from '@adeira/relay-runtime';
+import {
+  RelayLazyLogger, // less verbose, waits for operations to complete
+  RelayEagerLogger, // more verbose, logs events as they arrive
+  RelayDebugLogger, // very verbose, logs everything
+} from '@adeira/relay-runtime';
 
 return new Environment({
-  log: RelayLogger,
-  network: ...,
-  store: ...,
+  log: RelayLazyLogger, // or RelayEagerLogger or RelayDebugLogger
+  // network: ...,
+  // store: ...,
 });
 ```
+
+The logs are being printed only during development.

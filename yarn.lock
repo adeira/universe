@@ -9,6 +9,15 @@
   dependencies:
     "@babel/runtime" "^7.11.2"
 
+"@adeira/relay-runtime@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay-runtime/-/relay-runtime-0.14.0.tgz#79038394150253bce1a853edc1892f1a9e518d45"
+  integrity sha512-vFBVgq/Bq13nn16onVUAIlVUxrIJyiycu6Ht2ljroF+zYrEh4bQUHz3xrADJpHT/gBT9zSIGn1+w65bn1+BMuQ==
+  dependencies:
+    "@adeira/js" "^1.2.2"
+    "@babel/runtime" "^7.10.5"
+    relay-runtime "^10.0.1"
+
 "@adeira/test-utils@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.2.0.tgz#9e9feef7bb10968d161dcd4a568e760af25b7c50"
@@ -1226,7 +1235,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@7.11.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@7.11.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.10.5", "@babel/runtime@^7.11.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.11.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.11.2.tgz#f549c13c754cc40b87644b9fa9f09a6a95fe0736"
   integrity sha512-TeWkU52so0mPtDcaCTxNBI/IHiz0pZgr8VEFqXFtZWpYD08ZB6FaSwVAS8MKRQAP3bYKiVjwysOJgMFY28o6Tw==

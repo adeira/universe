@@ -1,15 +1,15 @@
 {
   "name": "@adeira/relay-runtime",
   "private": false,
-  "version": "0.14.0",
+  "version": "0.15.0",
   "main": "index",
   "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/adeira/universe/tree/master/src/relay-runtime",
-  "description": "An opinionated Relay Runtime wrapper",
+  "description": "An opinionated Relay Runtime wrapper with nice query logging",
   "license": "MIT",
   "dependencies": {
-    "@adeira/js": "^1.2.2",
+    "@adeira/js": "^1.2.4",
     "@babel/runtime": "^7.11.2",
     "relay-runtime": "^10.0.1"
   }

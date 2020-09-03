@@ -1,6 +1,6 @@
 // @flow
 
-import { RelayLogger } from '@adeira/relay-runtime';
+import { RelayEagerLogger } from '@adeira/relay-runtime';
 import { Network, Environment as RelayEnvironment, type OperationLoader } from 'relay-runtime';
 
 import createRequestHandler from './createRequestHandler';
@@ -28,7 +28,7 @@ export default function createEnvironment(options: Options): Environment {
   const { fetchFn, subscribeFn, records, gcReleaseBufferSize, ...rest } = options;
   return new RelayEnvironment({
     network: createNetwork(fetchFn, subscribeFn),
-    log: RelayLogger,
+    log: RelayEagerLogger, // TODO: use `RelayLazyLogger` once it's ready and tested - it's better
     store: createRelayStore(records, {
       gcReleaseBufferSize: gcReleaseBufferSize,
     }),
