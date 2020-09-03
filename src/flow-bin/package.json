@@ -21,6 +21,6 @@
     "is-ci": "^2.0.0"
   },
   "peerDependencies": {
-    "flow-bin": "^0.132.0"
+    "flow-bin": "^0.133.0"
   }
 }
