@@ -1,6 +1,6 @@
 // @flow
 
-import { RelayLogger } from '@adeira/relay-runtime';
+import { RelayEagerLogger } from '@adeira/relay-runtime';
 import { Environment as RelayEnvironment } from 'relay-runtime';
 
 import createRelayStore from './createRelayStore';
@@ -14,7 +14,7 @@ export default function createLocalEnvironment(): Environment {
   // $FlowExpectedError[prop-missing]: Network is required in relay flow types
   return new RelayEnvironment({
     // notice this environment doesn't have network layer since it's not necessary
-    log: RelayLogger,
+    log: RelayEagerLogger,
     store: createRelayStore(),
   });
 }
