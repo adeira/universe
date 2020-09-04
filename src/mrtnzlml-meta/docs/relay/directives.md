@@ -22,10 +22,10 @@ query TodoListQuery($userID: ID) {
 
 ```graphql
 fragment TodoList_list on TodoList
-  @argumentDefinitions(
-    count: { type: "Int", defaultValue: 10 } # Optional argument
-    userID: { type: "ID" } # Required argument
-  ) {
+@argumentDefinitions(
+  count: { type: "Int", defaultValue: 10 } # Optional argument
+  userID: { type: "ID" } # Required argument
+) {
   title
   todoItems(userID: $userID, first: $count) {
     # Use fragment arguments here as variables
@@ -118,16 +118,19 @@ mutation CommentDeleteMutation(
 }
 ```
 
-## @appendEdge, @prependEdge
-
-See: https://github.com/facebook/relay/commit/271932432b2846db5dac2effcf7ab756c56e8a65 (currently unreleased, only on `master`)
+## @appendEdge, @prependEdge, @appendNode, @prependNode
 
 ```graphql
 directive @appendEdge(connections: [String!]!) on FIELD
 directive @prependEdge(connections: [String!]!) on FIELD
+directive @appendNode(connections: [String!]!, edgeTypeName: String!) on FIELD
+directive @prependNode(connections: [String!]!, edgeTypeName: String!) on FIELD
 ```
 
-TKTK
+These new directives will help you to update the store declaratively. You can used them to append/prepend connection edges OR create and edge and append/prepend them (in case of `*Node` directives). See (currently unreleased, only on `master`):
+
+- https://github.com/facebook/relay/commit/271932432b2846db5dac2effcf7ab756c56e8a65
+- https://github.com/facebook/relay/commit/0fe732dabc16087c64413ec717340f18ba95bc14
 
 Example:
 
@@ -366,10 +369,10 @@ TKTK
 export default createRefetchContainer(LocationsPaginatedRefetch, {
   data: graphql`
     fragment LocationsPaginatedRefetch_data on RootQuery
-      @argumentDefinitions(count: { type: "Int", defaultValue: 20 }, after: { type: "String" })
-      @refetchable(queryName: "LocationsPaginatedRefetchRefetchQuery") {
+    @argumentDefinitions(count: { type: "Int", defaultValue: 20 }, after: { type: "String" })
+    @refetchable(queryName: "LocationsPaginatedRefetchRefetchQuery") {
       incrementalPagination: allLocations(first: $count, after: $after)
-        @connection(key: "allLocations_incrementalPagination") {
+      @connection(key: "allLocations_incrementalPagination") {
         edges {
           node {
             id
