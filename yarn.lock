@@ -5083,7 +5083,7 @@ css-tree@1.0.0-alpha.37:
     mdn-data "2.0.4"
     source-map "^0.6.1"
 
-css-tree@1.0.0-alpha.39:
+css-tree@1.0.0-alpha.39, css-tree@^1.0.0-alpha.39:
   version "1.0.0-alpha.39"
   resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha.39.tgz#2bff3ffe1bb3f776cf7eefd91ee5cba77a149eeb"
   integrity sha512-7UvkEYgBAHRG9Nt980lYxjsTrCyHFN53ky3wVsDkiMdVqylqRt+Zc+jm5qw7/qyOvN2dHSYtX0e4MbCCExSvnA==
@@ -9593,6 +9593,11 @@ mdn-data@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
   integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
+
+mdn-data@^2.0.11:
+  version "2.0.11"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.11.tgz#d2fc3d7fc3ff852375c775fe5283d1e374c4c95d"
+  integrity sha512-ADeJti8mfWxdXqoudn3HZFHA0UMJ18zaKVnEiL6dTwNg99ZGMMc78CA5TxbqWui4iA417ZOYkWkl+Ssv3ItQDw==
 
 mdurl@^1.0.0:
   version "1.0.1"

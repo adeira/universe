@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx",
   "license": "MIT",
   "private": false,
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "index",
   "sideEffects": false,
   "module": false,
@@ -14,7 +14,9 @@
     "@adeira/signed-source": "^1.0.0",
     "@babel/runtime": "^7.11.2",
     "change-case": "^4.1.1",
+    "css-tree": "^1.0.0-alpha.39",
     "fast-levenshtein": "^3.0.0",
+    "mdn-data": "^2.0.11",
     "prettier": "^2.0.5"
   },
   "peerDependencies": {
