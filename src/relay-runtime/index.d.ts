@@ -1,1 +1,1 @@
-export { RelayLogger } from './src/RelayLogger';
+export { RelayEagerLogger } from './src/RelayEagerLogger';

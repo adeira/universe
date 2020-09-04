@@ -3,7 +3,7 @@
  * @jest-environment jsdom
  */
 
-import Logger from '../RelayLogger';
+import RelayEagerLogger from '../RelayEagerLogger';
 
 let consoleLogSpy;
 let consoleErrorSpy;
@@ -22,7 +22,7 @@ afterEach(() => {
 });
 
 it("calls event 'execute.start' as expected", () => {
-  Logger({
+  RelayEagerLogger({
     name: 'execute.start',
     transactionID: 100_000,
     params: {
@@ -84,7 +84,7 @@ test.each([
     ],
   ],
 ])("%#) calls event 'execute.next' as expected", (response, groupCollapsedArgs) => {
-  Logger({
+  RelayEagerLogger({
     name: 'execute.next',
     transactionID: 100_000,
     response,
@@ -94,7 +94,7 @@ test.each([
 });
 
 it("calls event 'execute.error' as expected", () => {
-  Logger({
+  RelayEagerLogger({
     name: 'execute.error',
     transactionID: 100_000,
     error: new Error('oops'),
@@ -113,7 +113,7 @@ test.each(['execute.info', 'execute.complete', 'execute.unsubscribe'])(
   "calls event '%s' as expected",
   (eventName) => {
     // $FlowExpectedError[speculation-ambiguous]: OK for testing purposes - additional props are being ignored for these events
-    Logger({
+    RelayEagerLogger({
       name: eventName,
       transactionID: 100_001,
     });
