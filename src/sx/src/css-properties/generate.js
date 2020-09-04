@@ -7,7 +7,6 @@ import SignedSource from '@adeira/signed-source';
 import * as changeCase from 'change-case';
 
 import CustomPropertyTypes from './CustomPropertyTypes';
-import isUnitlessNumber from './isUnitlessNumber';
 
 const allProperties = new Set();
 const sourceJSON = path.join(__dirname, 'all-properties.en.json');
@@ -24,7 +23,7 @@ for (const rawProperty of allPropertiesRaw) {
 
 let flowPrint = '';
 for (const property of allProperties) {
-  let flowType = isUnitlessNumber[property] ? 'number' : 'string | number';
+  let flowType = 'string | number';
   const definedProperty = CustomPropertyTypes.get(property);
   if (definedProperty != null) {
     flowType = definedProperty

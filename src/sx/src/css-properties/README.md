@@ -20,4 +20,4 @@ yarn monorepo-babel-node src/sx/src/css-properties/generate.js
 
 ## Improving generated Flow types
 
-To make the generated Flow types more precise, overwrite the types in `CustomPropertyTypes` file. Otherwise, only imprecise `string | number` type will be used.
+To make the generated Flow types more precise, overwrite the types in `CustomPropertyTypes` file. Otherwise, only imprecise `string | number` type will be used. It's not necessary to change the type there if you don't know _all_ the allowed values and the resulting time would not be more precise.
