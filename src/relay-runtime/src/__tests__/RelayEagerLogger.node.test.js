@@ -3,7 +3,7 @@
  * @jest-environment node
  */
 
-import Logger from '../RelayLogger';
+import RelayEagerLogger from '../RelayEagerLogger';
 
 let spy;
 
@@ -16,7 +16,7 @@ afterEach(() => {
 });
 
 it('does not log in Node.js', () => {
-  Logger({
+  RelayEagerLogger({
     name: 'execute.start',
     transactionID: 1,
     params: {
