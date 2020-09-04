@@ -1,23 +1,10 @@
-- https://www.w3.org/Style/CSS/all-properties.en.html
-- https://www.w3.org/Style/CSS/all-properties.en.json
-
 ```text
-yarn monorepo-babel-node src/sx/src/css-properties/generate.js
+yarn monorepo-babel-node src/sx/src/css-properties/generateFlowTypes.js
 ```
 
-## Status codes
+First, we get all the _unprefixed_ CSS properties from W3 and later we try to resolve the property values from `mdn/data` package. The correct way how to improve the generated files is to update MDN data (or improve our generator in case of some unsupported syntaxes).
 
-| Abbreviation | Full name                                   |
-| ------------ | ------------------------------------------- |
-| ED           | Editors' Draft (not a W3C Technical Report) |
-| FPWD         | First Public Working Draft                  |
-| WD           | Working Draft                               |
-| LC           | Last Call Working Draft                     |
-| CR           | Candidate Recommendation                    |
-| PR           | Proposed Recommendation                     |
-| REC          | Recommendation                              |
-| NOTE         | Working Group Note                          |
+## Sources of data
 
-## Improving generated Flow types
-
-To make the generated Flow types more precise, overwrite the types in `CustomPropertyTypes` file. Otherwise, only imprecise `string | number` type will be used. It's not necessary to change the type there if you don't know _all_ the allowed values and the resulting time would not be more precise.
+- https://www.w3.org/Style/CSS/all-properties.en.json (https://www.w3.org/Style/CSS/all-properties.en.html)
+- https://github.com/mdn/data (https://github.com/mdn/data/blob/master/css/syntaxes.md, https://developer.mozilla.org/en-US/docs/Web/CSS/Value_definition_syntax)
