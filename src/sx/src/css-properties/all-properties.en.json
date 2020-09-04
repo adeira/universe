@@ -91,7 +91,7 @@
   },
   {
     "property": "alignment-baseline",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-alignment-baseline",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-alignment-baseline",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -511,7 +511,7 @@
   },
   {
     "property": "baseline-shift",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-baseline-shift",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-baseline-shift",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -523,7 +523,7 @@
   },
   {
     "property": "baseline-source",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-baseline-source",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-baseline-source",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -2737,7 +2737,7 @@
   },
   {
     "property": "dominant-baseline",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-dominant-baseline",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-dominant-baseline",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -4423,7 +4423,7 @@
   },
   {
     "property": "initial-letter",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-initial-letter",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-initial-letter",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -4435,7 +4435,7 @@
   },
   {
     "property": "initial-letter-align",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-initial-letter-align",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-initial-letter-align",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -4447,7 +4447,7 @@
   },
   {
     "property": "initial-letter-wrap",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-initial-letter-wrap",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-initial-letter-wrap",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -4471,7 +4471,7 @@
   },
   {
     "property": "inline-sizing",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-inline-sizing",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-inline-sizing",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -4711,7 +4711,7 @@
   },
   {
     "property": "leading-trim",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-leading-trim",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-leading-trim",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -4849,7 +4849,7 @@
   },
   {
     "property": "line-height",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-line-height",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-line-height",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -8395,7 +8395,7 @@
   },
   {
     "property": "text-edge",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-text-edge",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-text-edge",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
@@ -8983,7 +8983,7 @@
   },
   {
     "property": "vertical-align",
-    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200618/#propdef-vertical-align",
+    "url": "https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-vertical-align",
     "status": "WD",
     "title": "CSS Inline Layout Module Level 3"
   },
