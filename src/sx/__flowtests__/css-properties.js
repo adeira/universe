@@ -27,7 +27,7 @@ sx.create({
   },
   InvalidPropertyValue: {
     // $FlowExpectedError[incompatible-call]
-    alignContent: 'unknown',
+    position: 'absolutely',
   },
   InvalidPropertyType: {
     // $FlowExpectedError[incompatible-call]: should be number or one of predefined strings
