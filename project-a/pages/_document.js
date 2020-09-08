@@ -8,15 +8,15 @@ type InitialProps = {|
   +renderPage: () => $FlowFixMe,
 |};
 
+type RenderPageResult = {|
+  +html: string,
+  +head: $ReadOnlyArray<React.Node>,
+  +styles: $ReadOnlyArray<any>,
+|};
+
 export default class MyDocument extends Document {
-  static getInitialProps({
-    renderPage,
-  }: InitialProps): Promise<{|
-    +html: $FlowFixMe,
-    +css: string,
-  |}> {
-    const { html, css } = sx.renderStatic(renderPage);
-    return { ...html, css };
+  static getInitialProps({ renderPage }: InitialProps): RenderPageResult {
+    return sx.renderPageWithSX(renderPage);
   }
 
   render(): React.Node {
