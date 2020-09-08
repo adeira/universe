@@ -3,6 +3,11 @@ yarn install
 yarn dev
 ```
 
+## TODO (final checklist)
+
+- [ ] check 404 pages
+- [ ] check multilanguage variants
+
 ## Localization
 
 ```text

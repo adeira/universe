@@ -7,7 +7,6 @@ import * as sx from '@adeira/sx';
 import { useRouter } from 'next/router';
 
 import './_app.css';
-import Navigation from '../src/Navigation';
 
 type SupportedLocales = 'en_US' | 'es_MX';
 function initTranslations(locale: SupportedLocales) {
@@ -68,19 +67,22 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
   if (!__DEV__) {
     // not public yet
-    return <div>TKTK</div>;
+    return (
+      <div className={styles('root', 'soon')}>
+        <fbt desc="soon">soon</fbt>
+      </div>
+    );
   }
 
   return (
-    <div key={locale} className={styles('background')}>
-      <div className={styles('root')}>
-        <Navigation />
-        <Component {...pageProps} />
-        <div className={styles('footer')}>
-          <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
-            {locales[nextLocale]}
-          </button>
-        </div>
+    <div key={locale} className={styles('root')}>
+      <Component {...pageProps} />
+
+      {/* TODO: make it reusable */}
+      <div className={styles('footer')}>
+        <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
+          {locales[nextLocale]}
+        </button>
       </div>
     </div>
   );
@@ -88,15 +90,14 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
 const styles = sx.create({
   root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
+    backgroundColor: 'var(--main-bg-color)',
     color: 'var(--font-color)',
-    backgroundColor: 'var(--main-bg-color-transparent)',
   },
-  background: {
-    backgroundImage: 'url(coffee-background.jpg)',
-    backgroundSize: 'cover',
+  soon: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    minHeight: '100vh',
   },
   footer: {
     margin: 10,

@@ -25,5 +25,6 @@ a {
 .__kk-light-mode {
   --main-bg-color: rgba(108, 22, 16);
   --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
+  --main-bg-colorHover: rgb(128, 22, 16);
   --font-color: #ffffff;
 }
