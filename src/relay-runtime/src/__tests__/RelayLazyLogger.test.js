@@ -21,7 +21,7 @@ afterEach(() => {
   groupCollapsed.mockRestore();
 });
 
-it('works as expected', () => {
+it('logs execute.complete as expected', () => {
   RelayLazyLogger({
     name: 'execute.start',
     transactionID: 100_000,
@@ -44,6 +44,39 @@ it('works as expected', () => {
   expect(consoleLogSpy).toHaveBeenCalledTimes(2);
   expect(consoleLogSpy).toHaveBeenCalledWith('Variables: %o', {});
   expect(consoleLogSpy).toHaveBeenCalledWith('Response: %o', undefined);
+  expect(consoleErrorSpy).not.toHaveBeenCalled();
   expect(groupCollapsed).toHaveBeenCalledTimes(1);
   expect(groupCollapsed).toHaveBeenCalledWith('%c%s', 'font-weight:bold;', '[Relay query] Lol');
+});
+
+it('logs execute.error as expected', () => {
+  RelayLazyLogger({
+    name: 'execute.start',
+    transactionID: 100_000,
+    params: {
+      id: null,
+      name: 'Lol',
+      operationKind: 'query',
+      text: 'query Lol{id}',
+      metadata: {},
+      cacheID: '',
+    },
+    variables: {},
+  });
+
+  RelayLazyLogger({
+    name: 'execute.error',
+    transactionID: 100_000,
+    error: new Error('ups'),
+  });
+
+  expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+  expect(consoleErrorSpy).toHaveBeenCalledWith(new Error('ups'));
+  expect(consoleLogSpy).not.toHaveBeenCalled();
+  expect(groupCollapsed).toHaveBeenCalledTimes(1);
+  expect(groupCollapsed).toHaveBeenCalledWith(
+    '%c%s',
+    'font-weight:bold;color:red',
+    '[Relay query] Lol',
+  );
 });
