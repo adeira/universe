@@ -292,6 +292,7 @@ Object {
     "jest/no-conditional-expect": 0,
     "jest/no-deprecated-functions": 2,
     "jest/no-disabled-tests": 2,
+    "jest/no-done-callback": 0,
     "jest/no-duplicate-hooks": 2,
     "jest/no-expect-resolves": 0,
     "jest/no-export": 2,
