@@ -1,5 +1,15 @@
 In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has its own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
+- [Installation and Usage](#installation-and-usage)
+- [Features](#features)
+  - [Multiple stylesheets](#multiple-stylesheets)
+  - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
+  - [Media queries](#media-queries)
+  - [Nested media queries](#nested-media-queries)
+  - [Precise Flow types](#precise-flow-types)
+- [Architecture](#architecture)
+- [Prior Art](#prior-art)
+
 ## Installation and Usage
 
 First, install the package from NPM:
@@ -108,6 +118,27 @@ const styles = sx.create({
       'fontSize': 14,
       ':hover': {
         color: 'pink',
+      },
+    },
+  },
+});
+```
+
+### Nested media queries
+
+See: https://www.w3.org/TR/css3-conditional/#processing
+
+```jsx
+export function NestedMediaComponent() {
+  return <a className={styles('text')}>text</a>;
+}
+
+const styles = sx.create({
+  text: {
+    '@media print': {
+      'color': 'red',
+      '@media (max-width: 12cm)': {
+        color: 'blue',
       },
     },
   },

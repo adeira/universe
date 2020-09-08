@@ -100,21 +100,15 @@ it('supports conditional calls', () => {
 });
 
 it('validates incorrect usage', () => {
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
-
-  expect(() => create({})).toThrowErrorMatchingInlineSnapshot(
-    `"Function 'sx.create' cannot be called with empty stylesheet definition."`,
-  );
-
   create({
     aaa: {
       // useful to allow (with a warning though) when user wants to temporarily comment out the stylesheet
     },
   });
-  // TODO: Re enable this
-  // expect(consoleSpy).toBeCalledTimes(1);
-  // expect(consoleSpy).toBeCalledWith("Stylesheet 'aaa' must have at least one CSS property.");
-  consoleSpy.mockRestore();
+
+  expect(() => create({})).toThrowErrorMatchingInlineSnapshot(
+    `"Function 'sx.create' cannot be called with empty stylesheet definition."`,
+  );
 
   const styles = create({
     aaa: { color: 'red' },
