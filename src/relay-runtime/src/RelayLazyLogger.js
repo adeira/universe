@@ -18,13 +18,15 @@ const logEventsMap = new Map<
   },
 >();
 
+function createGroupMessage(operationName: ?string, operationKind: ?string): string {
+  return `[Relay${operationKind != null ? ` ${operationKind}` : ''}] ${operationName ?? ''}`;
+}
+
 // Very similar to the eager one except it waits for the response and prints all the information at once.
 export default function RelayLazyLogger(logEvent: LogEvent) {
   if (!__DEV__ || !isBrowser()) {
     return;
   }
-
-  // TODO: log errors
 
   if (logEvent.name === 'execute.start') {
     logEventsMap.set(logEvent.transactionID, {
@@ -43,15 +45,21 @@ export default function RelayLazyLogger(logEvent: LogEvent) {
     }
   } else if (logEvent.name === 'execute.complete' || logEvent.name === 'execute.unsubscribe') {
     const savedEvent = logEventsMap.get(logEvent.transactionID);
-    const operationKind = savedEvent?.operationKind;
-    const operationName = savedEvent?.operationName ?? '';
-    const groupMessage = `[Relay${operationKind ? ` ${operationKind}` : ''}] ${operationName}`;
-    logGroup(groupMessage, () => {
+    logGroup(createGroupMessage(savedEvent?.operationName, savedEvent?.operationKind), () => {
       console.log(`Variables: %o`, savedEvent?.variables);
       console.log(`Response: %o`, savedEvent?.response);
     });
+  } else if (logEvent.name === 'execute.error') {
+    const savedEvent = logEventsMap.get(logEvent.transactionID);
+    logGroup(
+      createGroupMessage(savedEvent?.operationName, savedEvent?.operationKind),
+      () => {
+        console.error(logEvent.error);
+      },
+      undefined,
+      'color:red',
+    );
   } else if (
-    logEvent.name === 'execute.error' ||
     logEvent.name === 'execute.info' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
