@@ -3,10 +3,15 @@ yarn install
 yarn dev
 ```
 
+```text
+yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
+```
+
 ## TODO (final checklist)
 
 - [ ] check 404 pages
 - [ ] check multilanguage variants
+- [ ] check accessibility
 
 ## Localization
 

@@ -1,5 +1,9 @@
 /* Only real global things here! */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   background: #fff;
@@ -17,8 +21,8 @@ a {
   text-decoration: underline;
 }
 
-* {
-  box-sizing: border-box;
+h1 {
+  font-weight: unset;
 }
 
 :root,
@@ -27,4 +31,14 @@ a {
   --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
   --main-bg-colorHover: rgb(128, 22, 16);
   --font-color: #ffffff;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */
+@font-face {
+  font-display: auto;
+  font-family: 'GidoleKochka';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gidole'), url('/fonts/Gidole-Regular-subset.ttf') format('truetype');
+  unicode-range: U+20, U+41, U+43, U+46, U+48, U+4B, U+4F, U+C9; /* KOCHKA CAFÉ */
 }

@@ -215,9 +215,9 @@
     "IzFfJjXIA/D1eX7qE42cMA==": "homepage"
    },
    "filepath": "pages/rules.js",
-   "line_beg": 18,
+   "line_beg": 19,
    "col_beg": 12,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 60,
    "desc": "link back to homepage",
    "project": "",
@@ -229,9 +229,9 @@
     "8v4VuHO67r26sOSBDmSlmQ==": "close"
    },
    "filepath": "pages/rules.js",
-   "line_beg": 30,
+   "line_beg": 28,
    "col_beg": 12,
-   "line_end": 30,
+   "line_end": 28,
    "col_end": 58,
    "desc": "link to close the page",
    "project": "",
