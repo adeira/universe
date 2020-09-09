@@ -2,12 +2,26 @@
  "phrases": [
   {
    "hashToText": {
+    "xOEP2NClrTfKXNMmS96lmQ==": "Skip to main"
+   },
+   "filepath": "src/components/a11y/SkipLink.js",
+   "line_beg": 11,
+   "col_beg": 6,
+   "line_end": 11,
+   "col_end": 52,
+   "desc": "skip link title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Skip to main"
+  },
+  {
+   "hashToText": {
     "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 31,
+   "line_beg": 32,
    "col_beg": 14,
-   "line_end": 31,
+   "line_end": 32,
    "col_end": 66,
    "desc": "navigation link to rules",
    "project": "",
@@ -19,9 +33,9 @@
     "/O6Dq8+1MXE78iO89LjgJg==": "Our cats"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 40,
+   "line_beg": 41,
    "col_beg": 14,
-   "line_end": 40,
+   "line_end": 41,
    "col_end": 68,
    "desc": "navigation link to our cats",
    "project": "",

@@ -22,25 +22,26 @@ export default function HomepageNavigation(): React.Node {
   }
 
   return (
-    <nav className={styles('nav')}>
+    // TODO: <nav role=""/> => <Nav />
+    <nav role="navigation" className={styles('nav')}>
       <ul className={styles('ul')}>
-        <Link {...getLinkProps('/rules')}>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles('link')}>
-            <li className={styles('li')}>
+        <li className={styles('li')}>
+          <Link {...getLinkProps('/rules')}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className={styles('link')}>
               <fbt desc="navigation link to rules">Our rules</fbt>
-            </li>
-          </a>
-        </Link>
+            </a>
+          </Link>
+        </li>
 
-        <Link {...getLinkProps('/cats')}>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles('link')}>
-            <li className={styles('li')}>
+        <li className={styles('li')}>
+          <Link {...getLinkProps('/cats')}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className={styles('link')}>
               <fbt desc="navigation link to our cats">Our cats</fbt>
-            </li>
-          </a>
-        </Link>
+            </a>
+          </Link>
+        </li>
 
         {/* TODO: social networks */}
       </ul>
@@ -63,14 +64,18 @@ const styles = sx.create({
     margin: 0,
   },
   li: {
+    padding: 0,
+    margin: 0,
+    fontSize: 30,
+    borderBottom: '1px solid transparent',
+  },
+  link: {
+    'textDecoration': 'none',
     'padding': 15,
-    'fontSize': 30,
-    'borderBottom': '1px solid transparent',
+    'paddingLeft': 20,
+    'paddingRight': 20,
     ':hover': {
       borderBottom: '1px solid white',
     },
-  },
-  link: {
-    textDecoration: 'none',
   },
 });
