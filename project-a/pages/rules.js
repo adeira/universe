@@ -1,41 +1,44 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import Head from 'next/head';
 import fbt from 'fbt';
+import * as sx from '@adeira/sx';
 
-import Rules from '../src/Rules';
-import NavigationBack from '../src/svg/NavigationBack';
-import NavigationClose from '../src/svg/NavigationClose';
 import Heading from '../src/components/Heading';
+import NavigationBack from '../src/svg/NavigationBack';
+import Rules from '../src/Rules';
 
 export default function RulesPage(): React.Node {
   return (
-    <div className={styles('wrapper')}>
-      <div className={styles('subpageNavigation')}>
-        <div className={styles('subpageNavigationButton')}>
-          <NavigationBack />
-          <div>
-            <fbt desc="link back to homepage">homepage</fbt>
+    <>
+      <Head>
+        <title>
+          {/* TODO: translations, reuse main title */}
+          KOCHKA café · Our rules
+        </title>
+      </Head>
+
+      <div className={styles('wrapper')}>
+        <div className={styles('subpageNavigation')}>
+          <div className={styles('subpageNavigationButton')}>
+            <NavigationBack />
+            <div>
+              <fbt desc="link back to homepage">homepage</fbt>
+            </div>
           </div>
+
+          <Heading>Our rules</Heading>
         </div>
 
-        <Heading>Our rules</Heading>
-
-        <div className={styles('subpageNavigationButton')}>
-          <NavigationClose />
-          <div>
-            <fbt desc="link to close the page">close</fbt>
-          </div>
+        <div className={styles('contentWrapper')}>
+          <Rules />
         </div>
       </div>
-
-      <div className={styles('contentWrapper')}>
-        <Rules />
-      </div>
-    </div>
+    </>
   );
 }
+
 const styles = sx.create({
   wrapper: {
     display: 'flex',

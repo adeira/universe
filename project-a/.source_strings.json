@@ -16,31 +16,60 @@
   },
   {
    "hashToText": {
+    "X0za9m5hbaqA8jA971SbSA==": "Visit our unique cat café in Mexico City every {=Monday - Friday 8am - 6pm}"
+   },
+   "filepath": "src/Homepage.js",
+   "line_beg": 22,
+   "col_beg": 12,
+   "line_end": 25,
+   "col_end": 18,
+   "desc": "call to action message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Visit our unique cat café in Mexico City every {=Monday - Friday 8am - 6pm}"
+  },
+  {
+   "hashToText": {
+    "2H3jMzb+gMl/xQ/DaZHFgA==": "Monday - Friday 8am - 6pm"
+   },
+   "filepath": "src/Homepage.js",
+   "line_beg": 24,
+   "col_beg": 14,
+   "line_end": 24,
+   "col_end": 56,
+   "desc": "In the phrase: \"Visit our unique cat café in Mexico City every{=Monday - Friday 8am - 6pm}\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Monday - Friday 8am - 6pm"
+  },
+  {
+   "hashToText": {
     "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 32,
    "col_beg": 14,
-   "line_end": 32,
-   "col_end": 66,
+   "line_end": 34,
+   "col_end": 20,
    "desc": "navigation link to rules",
    "project": "",
+   "preserveWhitespace": true,
    "type": "text",
    "jsfbt": "Our rules"
   },
   {
    "hashToText": {
-    "/O6Dq8+1MXE78iO89LjgJg==": "Our cats"
+    "pCeBTtIIfZ+0g8Cn1NwLXQ==": "Instagram"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 41,
+   "line_beg": 43,
    "col_beg": 14,
-   "line_end": 41,
-   "col_end": 68,
-   "desc": "navigation link to our cats",
+   "line_end": 43,
+   "col_end": 74,
+   "desc": "navigation link to our Instagram",
    "project": "",
    "type": "text",
-   "jsfbt": "Our cats"
+   "jsfbt": "Instagram"
   },
   {
    "hashToText": {
@@ -91,7 +120,7 @@
    "filepath": "src/Rules.js",
    "line_beg": 32,
    "col_beg": 8,
-   "line_end": 41,
+   "line_end": 43,
    "col_end": 14,
    "desc": "Rule number 4",
    "project": "",
@@ -103,9 +132,9 @@
     "5iTUS9k7jab+evPuLeeh7A==": "Our cats have a special healthy food which you can buy from us. Human food might be dangerous for them. Please don’t feed them with your food."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 44,
+   "line_beg": 46,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 49,
    "col_end": 14,
    "desc": "Rule number 5",
    "project": "",
@@ -117,9 +146,9 @@
     "/T78HImOiKKs6J26mVLuaQ==": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 50,
+   "line_beg": 52,
    "col_beg": 8,
-   "line_end": 52,
+   "line_end": 54,
    "col_end": 14,
    "desc": "Rule number 6",
    "project": "",
@@ -131,9 +160,9 @@
     "U98Bttt6bmp1PmUACerVug==": "Leave your pets at home. Other pets are not allowed here."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 55,
+   "line_beg": 57,
    "col_beg": 8,
-   "line_end": 55,
+   "line_end": 57,
    "col_end": 97,
    "desc": "Rule number 7",
    "project": "",
@@ -145,9 +174,9 @@
     "itv8A/4Pvi/UCI1hEPlLpQ==": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 58,
+   "line_beg": 60,
    "col_beg": 8,
-   "line_end": 62,
+   "line_end": 64,
    "col_end": 14,
    "desc": "Rule number 8",
    "project": "",
@@ -159,9 +188,9 @@
     "eEHP2QM079xkRqVGx7HUlQ==": "Hygiene is important. Wash your hand when playing with our cats."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 65,
+   "line_beg": 67,
    "col_beg": 8,
-   "line_end": 67,
+   "line_end": 69,
    "col_end": 14,
    "desc": "Rule number 9",
    "project": "",
@@ -173,9 +202,9 @@
     "4EOS7M5k/RGGg6oLo32EHw==": "Please, follow our rules. Misbehaving guests will be asked to leave."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 70,
+   "line_beg": 72,
    "col_beg": 8,
-   "line_end": 72,
+   "line_end": 74,
    "col_end": 14,
    "desc": "Rule number 10",
    "project": "",
@@ -184,40 +213,12 @@
   },
   {
    "hashToText": {
-    "r1fMqYovBqYhpsFe0114fw==": "English"
-   },
-   "filepath": "pages/_app.js",
-   "line_beg": 62,
-   "col_beg": 11,
-   "line_end": 62,
-   "col_end": 54,
-   "desc": "en_US locale name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "English"
-  },
-  {
-   "hashToText": {
-    "fgIunVC6+xGt1X1jh/pG5A==": "Spanish"
-   },
-   "filepath": "pages/_app.js",
-   "line_beg": 63,
-   "col_beg": 11,
-   "line_end": 63,
-   "col_end": 54,
-   "desc": "es_MX locale name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Spanish"
-  },
-  {
-   "hashToText": {
     "Y+yXhoRGvaBKx2PwwWejLA==": "soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 72,
+   "line_beg": 56,
    "col_beg": 8,
-   "line_end": 72,
+   "line_end": 56,
    "col_end": 35,
    "desc": "soon",
    "project": "",
@@ -229,28 +230,14 @@
     "IzFfJjXIA/D1eX7qE42cMA==": "homepage"
    },
    "filepath": "pages/rules.js",
-   "line_beg": 19,
-   "col_beg": 12,
-   "line_end": 19,
-   "col_end": 60,
+   "line_beg": 27,
+   "col_beg": 14,
+   "line_end": 27,
+   "col_end": 62,
    "desc": "link back to homepage",
    "project": "",
    "type": "text",
    "jsfbt": "homepage"
-  },
-  {
-   "hashToText": {
-    "8v4VuHO67r26sOSBDmSlmQ==": "close"
-   },
-   "filepath": "pages/rules.js",
-   "line_beg": 28,
-   "col_beg": 12,
-   "line_end": 28,
-   "col_end": 58,
-   "desc": "link to close the page",
-   "project": "",
-   "type": "text",
-   "jsfbt": "close"
   }
  ],
  "childParentMappings": {}
