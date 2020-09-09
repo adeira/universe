@@ -7,6 +7,10 @@ yarn dev
 yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 ```
 
+## TODO (development)
+
+- use `SkipLink`
+
 ## TODO (final checklist)
 
 - [ ] check 404 and other error pages
