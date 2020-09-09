@@ -1,9 +1,17 @@
 // @flow
 
 import * as React from 'react';
+import Head from 'next/head';
 
 import Homepage from '../../src/Homepage';
 
 export default function IndexPageLang(): React.Node {
-  return <Homepage />;
+  return (
+    <>
+      <Head>
+        <title>KOCHKA café</title>
+      </Head>
+      <Homepage />
+    </>
+  );
 }
