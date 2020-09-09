@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import * as sx from '@adeira/sx';
+import fbt from 'fbt';
 
 import { Logo } from './Logo';
 import HomepageNavigation from './HomepageNavigation';
@@ -18,7 +19,10 @@ export default function Homepage(): React.Node {
           <div className={styles('bottomInfo')}>
             {/* <p>TODO: contact (?)</p> */}
             {/* <p>TODO: social networks</p> */}
-            <div>Monday - Friday 8am - 6pm</div>
+            <fbt desc="call to action message">
+              Visit our unique cat café in Mexico City every{' '}
+              <strong>Monday - Friday 8am - 6pm</strong>
+            </fbt>
             <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
               Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
             </a>

@@ -40,30 +40,14 @@ type Props = {|
 export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   // TODO: useLocalStorage()
+  // TODO: fix this
   const lang = router.query.lang; // TODO: wrap it and properly validate it!
 
   initTranslations(lang === 'en' ? 'en_US' : 'es_MX'); // TODO: DRY (URL => FBT)
 
-  const [locale, setLocale] = React.useState<SupportedLocales>(
+  const [locale] = React.useState<SupportedLocales>(
     lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
   );
-
-  const handleLanguageSwitch = (locale) => {
-    // alternatively, register the translations lazily via `FbtTranslations.registerTranslations`
-    initTranslations(locale);
-    setLocale(locale);
-
-    // TODO: decompose and fix
-    const lang = locale === 'en_US' ? 'en' : '';
-    router.push('/([lang])?', `/${lang}`);
-  };
-
-  const locales: {| +[SupportedLocales]: React.Node |} = {
-    en_US: <fbt desc="en_US locale name">English</fbt>,
-    es_MX: <fbt desc="es_MX locale name">Spanish</fbt>,
-  };
-
-  const nextLocale: SupportedLocales = locale === 'en_US' ? 'es_MX' : 'en_US';
 
   if (!__DEV__) {
     // not public yet
@@ -77,13 +61,6 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   return (
     <div key={locale} className={styles('root')}>
       <Component {...pageProps} />
-
-      {/* TODO: make it reusable */}
-      <div className={styles('footer')}>
-        <button type="button" onClick={() => handleLanguageSwitch(nextLocale)}>
-          {locales[nextLocale]}
-        </button>
-      </div>
     </div>
   );
 }
@@ -98,8 +75,5 @@ const styles = sx.create({
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-  },
-  footer: {
-    margin: 10,
   },
 });

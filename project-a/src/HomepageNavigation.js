@@ -29,21 +29,21 @@ export default function HomepageNavigation(): React.Node {
           <Link {...getLinkProps('/rules')}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className={styles('link')}>
-              <fbt desc="navigation link to rules">Our rules</fbt>
+              <fbt desc="navigation link to rules" preserveWhitespace={true}>
+                Our&nbsp;rules
+              </fbt>
             </a>
           </Link>
         </li>
 
         <li className={styles('li')}>
-          <Link {...getLinkProps('/cats')}>
+          <Link href="#TODO">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className={styles('link')}>
-              <fbt desc="navigation link to our cats">Our cats</fbt>
+              <fbt desc="navigation link to our Instagram">Instagram</fbt>
             </a>
           </Link>
         </li>
-
-        {/* TODO: social networks */}
       </ul>
     </nav>
   );
