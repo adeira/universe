@@ -7,6 +7,7 @@ import fbt from 'fbt';
 import Rules from '../src/Rules';
 import NavigationBack from '../src/svg/NavigationBack';
 import NavigationClose from '../src/svg/NavigationClose';
+import Heading from '../src/components/Heading';
 
 export default function RulesPage(): React.Node {
   return (
@@ -19,10 +20,7 @@ export default function RulesPage(): React.Node {
           </div>
         </div>
 
-        {/* TODO: heading component */}
-        <div>
-          <h1>Our rules</h1>
-        </div>
+        <Heading>Our rules</Heading>
 
         <div className={styles('subpageNavigationButton')}>
           <NavigationClose />
