@@ -10,7 +10,7 @@ yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 ## TODO (final checklist)
 
 - [ ] check 404 and other error pages
-- [ ] check multilanguage variants
+- [ ] check multilanguage variants and translations
 - [ ] check accessibility
 
 ## Localization
