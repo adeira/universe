@@ -11,7 +11,12 @@ type Props = {|
 export default function Section(props: Props): React.Node {
   return (
     <HeadingLevel.Consumer>
-      {(level) => <HeadingLevel.Provider value={level + 1}>{props.children}</HeadingLevel.Provider>}
+      {(level) => (
+        <HeadingLevel.Provider value={level + 1}>
+          {/* eslint-disable-next-line react/forbid-elements */}
+          <section>{props.children}</section>
+        </HeadingLevel.Provider>
+      )}
     </HeadingLevel.Consumer>
   );
 }

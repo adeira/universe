@@ -9,6 +9,7 @@ type Props = {|
   +className?: string,
 |};
 
+// https://web.dev/headings-and-landmarks/
 export default function Heading(props: Props): React.Node {
   // TODO: make sure H1 is used only once
   return (
