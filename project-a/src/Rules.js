@@ -35,7 +35,9 @@ export default function Rules(): React.Node {
             <Emoji symbol="👍" label="thumbs up" />
           </fbt:param>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
-          <fbt:param name="instagram account">{'@tktk'}</fbt:param>.
+          <fbt:param name="instagram account">
+            <a href="https://www.instagram.com/kochkacafe/">@kochkacafe</a>
+          </fbt:param>.
         </fbt>
       </li>
       <li className={styles('listItem')}>
