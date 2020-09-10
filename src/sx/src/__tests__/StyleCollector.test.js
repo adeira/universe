@@ -118,7 +118,7 @@ it('works with mediaQueries', () => {
     Map {
       "@media (min-width: 900px)" => StyleCollector {
         "addStyles": [Function],
-        "mediaName": "@media (min-width: 900px)",
+        "atRuleName": "@media (min-width: 900px)",
         "styles": Map {
           "_4fo5TC" => StyleNode {
             "propertyName": "color",
@@ -129,7 +129,7 @@ it('works with mediaQueries', () => {
       },
       "@media print" => StyleCollector {
         "addStyles": [Function],
-        "mediaName": "@media print",
+        "atRuleName": "@media print",
         "styles": Map {
           "wUqnh" => StyleNode {
             "propertyName": "color",
@@ -138,7 +138,7 @@ it('works with mediaQueries', () => {
           },
           "@media (max-width: 12cm)" => StyleCollector {
             "addStyles": [Function],
-            "mediaName": "@media (max-width: 12cm)",
+            "atRuleName": "@media (max-width: 12cm)",
             "styles": Map {
               "_4fo5TC" => StyleNode {
                 "propertyName": "color",

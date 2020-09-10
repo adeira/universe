@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`matches expected output: @supports.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    "@supports (display: grid)": {
+      "display": "grid"
+    },
+    "@supports not (display: grid)": {
+      "float": "right"
+    }
+  },
+  "testComplex": {
+    "@supports (display: table-cell) and ((display: list-item) and (display:run-in))": {
+      "color": "red"
+    },
+    "@supports (transform-style: preserve) or (-moz-transform-style: preserve) or (-o-transform-style: preserve) or (-webkit-transform-style: preserve)": {
+      "color": "red"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+@supports (display: grid) {
+  ._3oUfxs {
+    display: grid;
+  }
+}
+@supports not (display: grid) {
+  ._2Q4zfo {
+    float: right;
+  }
+}
+@supports (display: table-cell) and ((display: list-item) and (display: run-in)) {
+  .wUqnh {
+    color: #f00;
+  }
+}
+@supports (transform-style: preserve) or (-moz-transform-style: preserve) or
+  (-o-transform-style: preserve) or (-webkit-transform-style: preserve) {
+  .wUqnh {
+    color: #f00;
+  }
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('test')}
+  ↓ ↓ ↓
+class="_3oUfxs _2Q4zfo"
+
+className={styles('testComplex')}
+  ↓ ↓ ↓
+class="wUqnh"
+
+`;
+
+exports[`matches expected output: @supports-nested.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    "@supports (display: grid)": {
+      "color": "red",
+      "@supports not (display: grid)": {
+        "color": "blue",
+        "@supports (display: table-cell) and ((display: list-item) and (display:run-in))": {
+          "color": "orange"
+        }
+      }
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+@supports (display: grid) {
+  .wUqnh {
+    color: #f00;
+  }
+  @supports not (display: grid) {
+    ._4fo5TC {
+      color: #00f;
+    }
+    @supports (display: table-cell) and
+      ((display: list-item) and (display: run-in)) {
+      ._4ufr6B {
+        color: #ffa500;
+      }
+    }
+  }
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('test')}
+  ↓ ↓ ↓
+class="wUqnh _4fo5TC _4ufr6B"
+
+`;
+
+exports[`matches expected output: @unknown.error.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    "@unknown": {
+      "color": "red"
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+THROWN EXCEPTION:
+
+Error: Unsupported at rule "@unknown"
+`;
+
 exports[`matches expected output: media-queries.json 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
@@ -124,6 +238,95 @@ exports[`matches expected output: media-queries-nested.json 1`] = `
 className={styles('test')}
   ↓ ↓ ↓
 class="wUqnh _4fo5TC"
+
+`;
+
+exports[`matches expected output: media-queries-nested-deep.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    "@media (max-width: 10cm)": {
+      "color": "#F00000",
+      "backgroundColor": "#FFFFFF",
+      "@media (max-width: 9cm)": {
+        "color": "#0F0000",
+        "backgroundColor": "#FFFFFF",
+        "@media (max-width: 8cm)": {
+          "color": "#00F000",
+          "backgroundColor": "#FFFFFF",
+          "@media (max-width: 7cm)": {
+            "color": "#000F00",
+            "backgroundColor": "#FFFFFF",
+            "@media (max-width: 6cm)": {
+              "color": "#0000F0",
+              "backgroundColor": "#FFFFFF",
+              "@media (max-width: 5cm)": {
+                "color": "#00000F",
+                "backgroundColor": "#FFFFFF"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+@media (max-width: 10cm) {
+  ._1U1jA9 {
+    color: #f00000;
+  }
+  ._4lYNbZ {
+    background-color: #fff;
+  }
+  @media (max-width: 9cm) {
+    ._2cr3oP {
+      color: #0f0000;
+    }
+    ._4lYNbZ {
+      background-color: #fff;
+    }
+    @media (max-width: 8cm) {
+      ._4zgUMg {
+        color: #00f000;
+      }
+      ._4lYNbZ {
+        background-color: #fff;
+      }
+      @media (max-width: 7cm) {
+        ._3XFQyd {
+          color: #000f00;
+        }
+        ._4lYNbZ {
+          background-color: #fff;
+        }
+        @media (max-width: 6cm) {
+          .CSuN9 {
+            color: #0000f0;
+          }
+          ._4lYNbZ {
+            background-color: #fff;
+          }
+          @media (max-width: 5cm) {
+            ._3BdYKq {
+              color: #00000f;
+            }
+            ._4lYNbZ {
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('test')}
+  ↓ ↓ ↓
+class="_1U1jA9 _4lYNbZ _2cr3oP _4zgUMg _3XFQyd CSuN9 _3BdYKq"
 
 `;
 

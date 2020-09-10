@@ -4,8 +4,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 - [Features](#features)
   - [Multiple stylesheets](#multiple-stylesheets)
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
-  - [Media queries](#media-queries)
-  - [Nested media queries](#nested-media-queries)
+  - [`@media` and `@supports`](#media-and-supports)
   - [Precise Flow types](#precise-flow-types)
 - [Architecture](#architecture)
 - [Prior Art](#prior-art)
@@ -101,7 +100,7 @@ const styles = sx.create({
 });
 ```
 
-### Media queries
+### `@media` and `@supports`
 
 ```jsx
 export function MediaComponent() {
@@ -124,15 +123,9 @@ const styles = sx.create({
 });
 ```
 
-### Nested media queries
-
-See: https://www.w3.org/TR/css3-conditional/#processing
+Media queries can also be nested (see: https://www.w3.org/TR/css3-conditional/#processing):
 
 ```jsx
-export function NestedMediaComponent() {
-  return <a className={styles('text')}>text</a>;
-}
-
 const styles = sx.create({
   text: {
     '@media print': {
@@ -140,6 +133,21 @@ const styles = sx.create({
       '@media (max-width: 12cm)': {
         color: 'blue',
       },
+    },
+  },
+});
+```
+
+The same rules apply to `@supports` at rule (including infinite nesting):
+
+```jsx
+const styles = sx.create({
+  text: {
+    '@supports (display: grid)': {
+      display: 'grid',
+    },
+    '@supports not (display: grid)': {
+      float: 'right',
     },
   },
 });
@@ -157,7 +165,7 @@ export function FlowComponent() {
 const styles = sx.create({
   aaa: {
     unknownProperty: 'red', // Flow error: `unknownProperty` is not a CSS property
-    zIndex: '10', // Flow error: should be number instead
+    zIndex: '10', // Flow error: should be number (or 'auto') instead
     alignContent: 'unknown', // Flow error: value `unknown` is not alowed for CSS `align-content`
   },
 });
@@ -225,9 +233,12 @@ Internally, these steps are happening:
 
 ## Prior Art
 
-- https://twitter.com/wongmjane/status/1187411809667436550
-- https://reactnative.dev/docs/stylesheet
-- https://github.com/Khan/aphrodite
-- https://github.com/johanholmerin/style9
-- https://github.com/styled-components/styled-components
+_sorted alphabetically_
+
 - https://github.com/4Catalyzer/astroturf
+- https://github.com/cssinjs/jss
+- https://github.com/johanholmerin/style9
+- https://github.com/Khan/aphrodite
+- https://github.com/styled-components/styled-components
+- https://reactnative.dev/docs/stylesheet
+- https://twitter.com/wongmjane/status/1187411809667436550
