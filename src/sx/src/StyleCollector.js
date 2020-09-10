@@ -1,5 +1,7 @@
 // @flow
 
+import { sprintf } from '@adeira/js';
+
 import hashStyle from './hashStyle';
 import transformStyleName from './transformStyleName';
 import transformValue from './transformValue';
@@ -26,11 +28,11 @@ export class StyleNode {
 
 class StyleCollector {
   styles: Map<string, StyleNode | StyleCollector>;
-  mediaName: ?string;
+  atRuleName: ?string;
 
   constructor(mediaName?: string) {
     this.styles = new Map();
-    this.mediaName = mediaName;
+    this.atRuleName = mediaName;
   }
 
   addStyles: ({ ... }, { ... }, ?string) => void = (
@@ -42,7 +44,7 @@ class StyleCollector {
       if (hashedSheetDefinitions[className] === undefined) {
         hashedSheetDefinitions[className] = {};
       }
-      hashedSheetDefinitions[className][`${property}${this.mediaName ?? pseudo}`] = hash;
+      hashedSheetDefinitions[className][`${property}${this.atRuleName ?? pseudo}`] = hash;
     };
 
     const iterateEntries = (entries, pseudo = '', className = '') => {
@@ -63,13 +65,15 @@ class StyleCollector {
           new StyleNode(transformStyleName(property), transformValue(property, styleValue), pseudo),
         );
       } else if (typeof styleValue === 'object' && styleValue != null) {
-        if (property.startsWith('@media')) {
+        if (property.startsWith('@media') || property.startsWith('@supports')) {
           // Media queries are represented by their own style collector, this way we can have as
           // many nested levels as needed
           const collector =
             ((this.styles.get(property): any): StyleCollector) ?? new StyleCollector(property);
           this.styles.set(property, collector);
           collector.addStyles(styleValue, hashedSheetDefinitions, className);
+        } else if (property.startsWith('@')) {
+          throw new Error(sprintf('Unsupported at rule "%s"', property));
         } else {
           const isPseudo = property.startsWith(':');
           iterateEntries(
