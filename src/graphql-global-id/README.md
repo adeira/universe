@@ -58,7 +58,7 @@ You can use `toGlobalId` to create the unique and opaque identifier manually. Ho
 const opaqueId = toGlobalId('SomeType', 123);
 ```
 
-# Restoring original ID (`fromGlobalId``)
+# Restoring original ID (`fromGlobalId`)
 
 `GlobalID` used in previous examples accepts readable (unmasked ID) and returns opaque ID. You can revert this process in case you need to access the original unmasked ID. Check the following test to get the idea:
 
