@@ -35,7 +35,7 @@ h1 {
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */
 @font-face {
-  font-display: auto;
+  font-display: swap;
   font-family: 'GidoleKochka';
   font-style: normal;
   font-weight: 400;

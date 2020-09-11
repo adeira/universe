@@ -22,8 +22,7 @@ export default function Navigation(): React.Node {
   }
 
   return (
-    // TODO: <nav role=""/> => <Nav />
-    <nav role="navigation" className={styles('nav')}>
+    <nav className={styles('nav')}>
       <ul className={styles('ul')}>
         <li className={styles('li')}>
           <Link {...getLinkProps('/rules')}>

@@ -11,7 +11,7 @@ type Props = {|
 export default function Facebook(props: Props): React.Node {
   const { color = '#fff' } = props;
   return (
-    <SVGIcon viewBox="0 0 504 504" color={color} size={25}>
+    <SVGIcon viewBox="0 0 504 504" color={color} size={40}>
       <defs>
         <path id="a" d="M0 .159h503.841V503.94H0z" />
       </defs>
