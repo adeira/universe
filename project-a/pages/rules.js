@@ -5,8 +5,8 @@ import Head from 'next/head';
 import fbt from 'fbt';
 import * as sx from '@adeira/sx';
 
-import Heading from '../src/components/Heading';
-import NavigationBack from '../src/svg/NavigationBack';
+import Heading from '../src/design/Heading';
+import NavigationBack from '../src/design/svg/NavigationBack';
 import Rules from '../src/Rules';
 
 export default function RulesPage(): React.Node {

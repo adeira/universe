@@ -5,26 +5,33 @@ import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import { Logo } from './Logo';
-import HomepageNavigation from './HomepageNavigation';
+import Navigation from './Homepage/Navigation';
+import SocialMediaIcons from './Homepage/SocialMediaIcons';
 
 export default function Homepage(): React.Node {
   return (
     <div className={styles('background')}>
       <div className={styles('backgroundOverlay')}>
-        <HomepageNavigation />
+        <Navigation />
         <div className={styles('root')}>
           <div className={styles('center')}>
             <Logo />
+
+            <div>
+              <fbt desc="catch phrase">REAL CATS + COFFEE + DUMPLINGS</fbt>
+            </div>
           </div>
+
           <div className={styles('bottomInfo')}>
             {/* <p>TODO: contact (?)</p> */}
-            {/* <p>TODO: social networks</p> */}
-            <fbt desc="call to action message">
-              Visit our unique cat café in Mexico City every{' '}
-              <strong>Monday - Friday 8am - 6pm</strong>
-            </fbt>
+            <SocialMediaIcons />
+            <strong>
+              <fbt desc="opening hours">Monday - Friday 8am - 6pm</fbt>
+            </strong>
             <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
-              Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
+              <fbt desc="address">
+                Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
+              </fbt>
             </a>
           </div>
         </div>
@@ -44,7 +51,7 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   bottomInfo: {
     flex: 0,
