@@ -11,6 +11,7 @@ export default function IndexPage(): React.Node {
       <Head>
         <title>KOCHKA café</title>
       </Head>
+
       <Homepage />
     </>
   );

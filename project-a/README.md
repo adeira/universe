@@ -10,6 +10,7 @@ yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 ## TODO (development)
 
 - use `SkipLink`
+- fix all TODOs
 
 ## TODO (final checklist)
 

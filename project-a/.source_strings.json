@@ -4,7 +4,7 @@
    "hashToText": {
     "xOEP2NClrTfKXNMmS96lmQ==": "Skip to main"
    },
-   "filepath": "src/components/a11y/SkipLink.js",
+   "filepath": "src/design/SkipLink.js",
    "line_beg": 11,
    "col_beg": 6,
    "line_end": 11,
@@ -16,37 +16,51 @@
   },
   {
    "hashToText": {
-    "X0za9m5hbaqA8jA971SbSA==": "Visit our unique cat café in Mexico City every {=Monday - Friday 8am - 6pm}"
+    "zmF9lDcnPv0DZ+Wpv6KQPw==": "REAL CATS + COFFEE + DUMPLINGS"
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 22,
-   "col_beg": 12,
-   "line_end": 25,
-   "col_end": 18,
-   "desc": "call to action message",
+   "line_beg": 21,
+   "col_beg": 14,
+   "line_end": 21,
+   "col_end": 75,
+   "desc": "catch phrase",
    "project": "",
    "type": "text",
-   "jsfbt": "Visit our unique cat café in Mexico City every {=Monday - Friday 8am - 6pm}"
+   "jsfbt": "REAL CATS + COFFEE + DUMPLINGS"
   },
   {
    "hashToText": {
-    "2H3jMzb+gMl/xQ/DaZHFgA==": "Monday - Friday 8am - 6pm"
+    "Jtw/XkgxoVH1y9vrSmRIbQ==": "Monday - Friday 8am - 6pm"
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 24,
+   "line_beg": 29,
    "col_beg": 14,
-   "line_end": 24,
-   "col_end": 56,
-   "desc": "In the phrase: \"Visit our unique cat café in Mexico City every{=Monday - Friday 8am - 6pm}\"",
+   "line_end": 29,
+   "col_end": 71,
+   "desc": "opening hours",
    "project": "",
    "type": "text",
    "jsfbt": "Monday - Friday 8am - 6pm"
   },
   {
    "hashToText": {
+    "NUhL34P63zZM36A/XnsyPw==": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
+   },
+   "filepath": "src/Homepage.js",
+   "line_beg": 32,
+   "col_beg": 14,
+   "line_end": 34,
+   "col_end": 20,
+   "desc": "address",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
+  },
+  {
+   "hashToText": {
     "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
    },
-   "filepath": "src/HomepageNavigation.js",
+   "filepath": "src/Homepage/Navigation.js",
    "line_beg": 32,
    "col_beg": 14,
    "line_end": 34,
@@ -59,17 +73,17 @@
   },
   {
    "hashToText": {
-    "pCeBTtIIfZ+0g8Cn1NwLXQ==": "Instagram"
+    "aCVYa8MOEv6iOiCPo5kHOQ==": "Menu"
    },
-   "filepath": "src/HomepageNavigation.js",
+   "filepath": "src/Homepage/Navigation.js",
    "line_beg": 43,
    "col_beg": 14,
    "line_end": 43,
-   "col_end": 74,
-   "desc": "navigation link to our Instagram",
+   "col_end": 64,
+   "desc": "navigation link to our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Instagram"
+   "jsfbt": "Menu"
   },
   {
    "hashToText": {
