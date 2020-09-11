@@ -20,7 +20,7 @@
     "babel-plugin-fbt": "^0.15.1",
     "babel-plugin-fbt-runtime": "^0.9.12",
     "fbt": "^0.15.0",
-    "next": "^9.5.2",
+    "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
