@@ -1,6 +1,6 @@
 **This package doesn't support React Native**
 
-This preset simplifies Babel configuration for modern JavaScript we use at Kiwi.com.
+This preset simplifies Babel configuration for modern JavaScript we use at Adeira.
 
 - [Installation and Usage](#installation-and-usage)
 - [Configuration](#configuration)
@@ -142,6 +142,8 @@ module.exports = function (api /*: ApiType */) {
   };
 };
 ```
+
+Note that the above mentioned is also necessary to enable code-splitting with `import(...)`. The default (if no target is set), will be `commonjs`, and it will not code split your dynamic imports.
 
 ## Different environments
 
