@@ -23,7 +23,7 @@
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "eslint-plugin-relay": "^1.8.1",
     "prettier": "^2.0.5"
   },
