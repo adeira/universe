@@ -31,9 +31,9 @@ export default function RulesPage(): React.Node {
           <Heading>Our rules</Heading>
         </div>
 
-        <div className={styles('contentWrapper')}>
+        <main id="main" className={styles('contentWrapper')}>
           <Rules />
-        </div>
+        </main>
       </div>
     </>
   );

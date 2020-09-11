@@ -11,6 +11,7 @@ yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 
 - use `SkipLink`
 - fix all TODOs
+- lighthouse check (mobile and desktop - incognito mode!)
 
 ## TODO (final checklist)
 
@@ -24,17 +25,7 @@ yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 yarn run fbt
 ```
 
-https://poeditor.com/docs/api
-
-```text
-curl -X POST https://api.poeditor.com/v2/languages/available \
-     -d api_token="XYZ"
-
-curl -X POST https://api.poeditor.com/v2/terms/add \
-     -d api_token="XYZ" \
-     -d id="366279" \
-     -d data="[{\"term\":\"Add new list\"}]"
-```
+https://crowdin.com/project/kochkacommx (public project)
 
 ## Images, SVGs, PNGs, JPGs
 

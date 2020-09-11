@@ -13,7 +13,7 @@ export default function Homepage(): React.Node {
     <div className={styles('background')}>
       <div className={styles('backgroundOverlay')}>
         <Navigation />
-        <div className={styles('root')}>
+        <main id="main" className={styles('root')}>
           <div className={styles('center')}>
             <Logo />
 
@@ -28,13 +28,15 @@ export default function Homepage(): React.Node {
             <strong>
               <fbt desc="opening hours">Monday - Friday 8am - 6pm</fbt>
             </strong>
-            <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
-              <fbt desc="address">
-                Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
-              </fbt>
-            </a>
+            <div className={styles('address')}>
+              <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
+                <fbt desc="address">
+                  Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
+                </fbt>
+              </a>
+            </div>
           </div>
-        </div>
+        </main>
       </div>
     </div>
   );
@@ -70,5 +72,8 @@ const styles = sx.create({
     flexDirection: 'column',
     minHeight: '100vh',
     backgroundColor: 'var(--main-bg-color-transparent)',
+  },
+  address: {
+    textAlign: 'center',
   },
 });

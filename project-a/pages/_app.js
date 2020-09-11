@@ -7,6 +7,7 @@ import * as sx from '@adeira/sx';
 import { useRouter } from 'next/router';
 
 import './_app.css';
+import SkipLink from '../src/design/SkipLink';
 
 type SupportedLocales = 'en_US' | 'es_MX';
 function initTranslations(locale: SupportedLocales) {
@@ -60,6 +61,7 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
   return (
     <div key={locale} className={styles('root')}>
+      <SkipLink />
       <Component {...pageProps} />
     </div>
   );

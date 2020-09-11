@@ -47,10 +47,10 @@
     "NUhL34P63zZM36A/XnsyPw==": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 32,
-   "col_beg": 14,
-   "line_end": 34,
-   "col_end": 20,
+   "line_beg": 33,
+   "col_beg": 16,
+   "line_end": 35,
+   "col_end": 22,
    "desc": "address",
    "project": "",
    "type": "text",
@@ -61,9 +61,9 @@
     "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
    },
    "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 32,
+   "line_beg": 31,
    "col_beg": 14,
-   "line_end": 34,
+   "line_end": 33,
    "col_end": 20,
    "desc": "navigation link to rules",
    "project": "",
@@ -76,14 +76,42 @@
     "aCVYa8MOEv6iOiCPo5kHOQ==": "Menu"
    },
    "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 43,
+   "line_beg": 42,
    "col_beg": 14,
-   "line_end": 43,
+   "line_end": 42,
    "col_end": 64,
    "desc": "navigation link to our menu",
    "project": "",
    "type": "text",
    "jsfbt": "Menu"
+  },
+  {
+   "hashToText": {
+    "4hzwDqzKYoJYiTxo5Erg4A==": "link to KOCHKA Café Instagram page"
+   },
+   "filepath": "src/Homepage/SocialMediaIcons.js",
+   "line_beg": 18,
+   "col_beg": 12,
+   "line_end": 18,
+   "col_end": 97,
+   "desc": "aria label of our Instagram link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "link to KOCHKA Café Instagram page"
+  },
+  {
+   "hashToText": {
+    "5QbuAWwkViB3in/V8u59bg==": "link to KOCHKA Café facebook page"
+   },
+   "filepath": "src/Homepage/SocialMediaIcons.js",
+   "line_beg": 29,
+   "col_beg": 12,
+   "line_end": 29,
+   "col_end": 95,
+   "desc": "aria label of our Facebook link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "link to KOCHKA Café facebook page"
   },
   {
    "hashToText": {
@@ -230,9 +258,9 @@
     "Y+yXhoRGvaBKx2PwwWejLA==": "soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 56,
+   "line_beg": 57,
    "col_beg": 8,
-   "line_end": 56,
+   "line_end": 57,
    "col_end": 35,
    "desc": "soon",
    "project": "",
