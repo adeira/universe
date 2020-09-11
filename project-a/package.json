@@ -30,7 +30,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.8.1",
     "flow-bin": "^0.133.0",
-    "jest": "^26.4.0",
+    "jest": "^26.4.2",
     "prettier": "^2.1.1",
     "react-axe": "^3.5.3"
   }
