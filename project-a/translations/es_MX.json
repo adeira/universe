@@ -1,66 +1,6 @@
 {
     "fb-locale": "es_MX",
     "translations": {
-        "xOEP2NClrTfKXNMmS96lmQ==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "Skip to main",
-                    "variations": []
-                }
-            ]
-        },
-        "zmF9lDcnPv0DZ+Wpv6KQPw==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "REAL CATS + COFFEE + DUMPLINGS",
-                    "variations": []
-                }
-            ]
-        },
-        "Jtw\/XkgxoVH1y9vrSmRIbQ==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "Monday - Friday 8am - 6pm",
-                    "variations": []
-                }
-            ]
-        },
-        "NUhL34P63zZM36A\/XnsyPw==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico",
-                    "variations": []
-                }
-            ]
-        },
-        "Zt2ENEDUNYv6HlNFEwkbYw==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "Our rules",
-                    "variations": []
-                }
-            ]
-        },
-        "aCVYa8MOEv6iOiCPo5kHOQ==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "Menu",
-                    "variations": []
-                }
-            ]
-        },
         "xqoguQxnoeLWkiZgd66KQA==": {
             "tokens": [],
             "types": [],
@@ -157,26 +97,6 @@
             "translations": [
                 {
                     "translation": "Te pedimos de la manera más atenta que respetes las reglas. En caso de que alguien las rompa, le pediremos que se retire.",
-                    "variations": []
-                }
-            ]
-        },
-        "Y+yXhoRGvaBKx2PwwWejLA==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "soon",
-                    "variations": []
-                }
-            ]
-        },
-        "IzFfJjXIA\/D1eX7qE42cMA==": {
-            "tokens": [],
-            "types": [],
-            "translations": [
-                {
-                    "translation": "homepage",
                     "variations": []
                 }
             ]
