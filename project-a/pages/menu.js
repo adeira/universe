@@ -2,6 +2,9 @@
 
 import * as React from 'react';
 import Head from 'next/head';
+import fbt from 'fbt';
+
+import Subpage from '../src/Subpage';
 
 export default function MenuPage(): React.Node {
   return (
@@ -13,7 +16,9 @@ export default function MenuPage(): React.Node {
         </title>
       </Head>
 
-      <div>TODO</div>
+      <Subpage heading={<fbt desc="Manu page heading">Menu</fbt>}>
+        <div>TODO</div>
+      </Subpage>
     </>
   );
 }

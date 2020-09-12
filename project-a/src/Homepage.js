@@ -4,7 +4,8 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import { Logo } from './Logo';
+import Footer from './Footer';
+import Logo from './Logo';
 import Navigation from './Homepage/Navigation';
 import SocialMediaIcons from './Homepage/SocialMediaIcons';
 
@@ -25,16 +26,7 @@ export default function Homepage(): React.Node {
           <div className={styles('bottomInfo')}>
             {/* <p>TODO: contact (?)</p> */}
             <SocialMediaIcons />
-            <strong>
-              <fbt desc="opening hours">Monday - Friday 8am - 6pm</fbt>
-            </strong>
-            <div className={styles('address')}>
-              <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
-                <fbt desc="address">
-                  Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
-                </fbt>
-              </a>
-            </div>
+            <Footer />
           </div>
         </main>
       </div>
@@ -72,8 +64,5 @@ const styles = sx.create({
     flexDirection: 'column',
     minHeight: '100vh',
     backgroundColor: 'var(--main-bg-color-transparent)',
-  },
-  address: {
-    textAlign: 'center',
   },
 });

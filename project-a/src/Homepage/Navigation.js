@@ -25,21 +25,21 @@ export default function Navigation(): React.Node {
     <nav className={styles('nav')}>
       <ul className={styles('ul')}>
         <li className={styles('li')}>
+          <Link {...getLinkProps('/menu')}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a className={styles('link')}>
+              <fbt desc="navigation link to our menu">Menu</fbt>
+            </a>
+          </Link>
+        </li>
+
+        <li className={styles('li')}>
           <Link {...getLinkProps('/rules')}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className={styles('link')}>
               <fbt desc="navigation link to rules" preserveWhitespace={true}>
                 Our&nbsp;rules
               </fbt>
-            </a>
-          </Link>
-        </li>
-
-        <li className={styles('li')}>
-          <Link {...getLinkProps('/menu')}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className={styles('link')}>
-              <fbt desc="navigation link to our menu">Menu</fbt>
             </a>
           </Link>
         </li>

@@ -6,7 +6,7 @@ import * as sx from '@adeira/sx';
 import Heading from './design/Heading';
 import KochkaIcon from './design/svg/KochkaIcon';
 
-export function Logo(): React.Node {
+export default function Logo(): React.Node {
   return (
     <div className={styles('logoWrapper')}>
       <KochkaIcon />

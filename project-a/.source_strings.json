@@ -16,27 +16,13 @@
   },
   {
    "hashToText": {
-    "zmF9lDcnPv0DZ+Wpv6KQPw==": "REAL CATS + COFFEE + DUMPLINGS"
-   },
-   "filepath": "src/Homepage.js",
-   "line_beg": 21,
-   "col_beg": 14,
-   "line_end": 21,
-   "col_end": 75,
-   "desc": "catch phrase",
-   "project": "",
-   "type": "text",
-   "jsfbt": "REAL CATS + COFFEE + DUMPLINGS"
-  },
-  {
-   "hashToText": {
     "Jtw/XkgxoVH1y9vrSmRIbQ==": "Monday - Friday 8am - 6pm"
    },
-   "filepath": "src/Homepage.js",
-   "line_beg": 29,
-   "col_beg": 14,
-   "line_end": 29,
-   "col_end": 71,
+   "filepath": "src/Footer.js",
+   "line_beg": 11,
+   "col_beg": 8,
+   "line_end": 11,
+   "col_end": 65,
    "desc": "opening hours",
    "project": "",
    "type": "text",
@@ -46,11 +32,11 @@
    "hashToText": {
     "NUhL34P63zZM36A/XnsyPw==": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
    },
-   "filepath": "src/Homepage.js",
-   "line_beg": 33,
-   "col_beg": 16,
-   "line_end": 35,
-   "col_end": 22,
+   "filepath": "src/Footer.js",
+   "line_beg": 15,
+   "col_beg": 10,
+   "line_end": 17,
+   "col_end": 16,
    "desc": "address",
    "project": "",
    "type": "text",
@@ -58,32 +44,46 @@
   },
   {
    "hashToText": {
-    "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
+    "zmF9lDcnPv0DZ+Wpv6KQPw==": "REAL CATS + COFFEE + DUMPLINGS"
    },
-   "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 31,
+   "filepath": "src/Homepage.js",
+   "line_beg": 22,
    "col_beg": 14,
-   "line_end": 33,
-   "col_end": 20,
-   "desc": "navigation link to rules",
+   "line_end": 22,
+   "col_end": 75,
+   "desc": "catch phrase",
    "project": "",
-   "preserveWhitespace": true,
    "type": "text",
-   "jsfbt": "Our rules"
+   "jsfbt": "REAL CATS + COFFEE + DUMPLINGS"
   },
   {
    "hashToText": {
     "aCVYa8MOEv6iOiCPo5kHOQ==": "Menu"
    },
    "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 42,
+   "line_beg": 31,
    "col_beg": 14,
-   "line_end": 42,
+   "line_end": 31,
    "col_end": 64,
    "desc": "navigation link to our menu",
    "project": "",
    "type": "text",
    "jsfbt": "Menu"
+  },
+  {
+   "hashToText": {
+    "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
+   },
+   "filepath": "src/Homepage/Navigation.js",
+   "line_beg": 40,
+   "col_beg": 14,
+   "line_end": 42,
+   "col_end": 20,
+   "desc": "navigation link to rules",
+   "project": "",
+   "preserveWhitespace": true,
+   "type": "text",
+   "jsfbt": "Our rules"
   },
   {
    "hashToText": {
@@ -255,6 +255,20 @@
   },
   {
    "hashToText": {
+    "IzFfJjXIA/D1eX7qE42cMA==": "homepage"
+   },
+   "filepath": "src/Subpage.js",
+   "line_beg": 22,
+   "col_beg": 12,
+   "line_end": 22,
+   "col_end": 60,
+   "desc": "link back to homepage",
+   "project": "",
+   "type": "text",
+   "jsfbt": "homepage"
+  },
+  {
+   "hashToText": {
     "Y+yXhoRGvaBKx2PwwWejLA==": "soon"
    },
    "filepath": "pages/_app.js",
@@ -269,17 +283,31 @@
   },
   {
    "hashToText": {
-    "IzFfJjXIA/D1eX7qE42cMA==": "homepage"
+    "TMcf+Kgy/eAdh6ABUK6Ndg==": "Menu"
    },
-   "filepath": "pages/rules.js",
-   "line_beg": 27,
-   "col_beg": 14,
-   "line_end": 27,
-   "col_end": 62,
-   "desc": "link back to homepage",
+   "filepath": "pages/menu.js",
+   "line_beg": 19,
+   "col_beg": 24,
+   "line_end": 19,
+   "col_end": 64,
+   "desc": "Manu page heading",
    "project": "",
    "type": "text",
-   "jsfbt": "homepage"
+   "jsfbt": "Menu"
+  },
+  {
+   "hashToText": {
+    "9t2U+t3HWnK6yqwqVkvPiQ==": "Our rules"
+   },
+   "filepath": "pages/rules.js",
+   "line_beg": 20,
+   "col_beg": 24,
+   "line_end": 20,
+   "col_end": 74,
+   "desc": "Our rules page heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Our rules"
   }
  ],
  "childParentMappings": {}
