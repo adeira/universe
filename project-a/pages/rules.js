@@ -1,13 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import Head from 'next/head';
 import fbt from 'fbt';
-import * as sx from '@adeira/sx';
+import Head from 'next/head';
 
-import Heading from '../src/design/Heading';
-import NavigationBack from '../src/design/svg/NavigationBack';
 import Rules from '../src/Rules';
+import Subpage from '../src/Subpage';
 
 export default function RulesPage(): React.Node {
   return (
@@ -19,52 +17,9 @@ export default function RulesPage(): React.Node {
         </title>
       </Head>
 
-      <div className={styles('wrapper')}>
-        <div className={styles('subpageNavigation')}>
-          <div className={styles('subpageNavigationButton')}>
-            <NavigationBack />
-            <div>
-              <fbt desc="link back to homepage">homepage</fbt>
-            </div>
-          </div>
-
-          <Heading>Our rules</Heading>
-        </div>
-
-        <main id="main" className={styles('contentWrapper')}>
-          <Rules />
-        </main>
-      </div>
+      <Subpage heading={<fbt desc="Our rules page heading">Our rules</fbt>}>
+        <Rules />
+      </Subpage>
     </>
   );
 }
-
-const styles = sx.create({
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-  },
-  subpageNavigation: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 50,
-  },
-  subpageNavigationButton: {
-    'display': 'flex',
-    'flexDirection': 'column',
-    'alignItems': 'center',
-    'fontVariant': 'all-small-caps',
-    'fontSize': 14,
-    'padding': 10,
-    ':hover': {
-      backgroundColor: 'var(--main-bg-colorHover)',
-    },
-  },
-  contentWrapper: {
-    maxWidth: 750,
-    margin: '0 auto',
-  },
-});
