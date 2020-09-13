@@ -1,4 +1,4 @@
-Experimental port of [Tailwind CSS](https://tailwindcss.com/) (version 1.8.3) into [SX](https://github.com/adeira/sx).
+Experimental port of [Tailwind CSS](https://tailwindcss.com/) (version 1.8.7) into [SX](https://github.com/adeira/sx).
 
 > Not ready for production yet!
 
