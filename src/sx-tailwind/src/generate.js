@@ -11,25 +11,66 @@ import generateSX from './sxGenerator';
 const css = fs.readFileSync(path.join(__dirname, 'tailwind.css'));
 const styles = generateSX(css);
 
-const code = SignedSource.signFile(`
+const codeStyles = SignedSource.signFile(`
 /**
  * ${SignedSource.getSigningToken()}
  * @flow
  *
- * Tailwind CSS file converted into SX stylesheets
+ * Tailwind CSS file converted into stylesheets for SX
  *
  * @see https://tailwindcss.com/
  * @see https://github.com/adeira/sx
  */
 
-import * as sx from '@adeira/sx';
+import { type TailwindClassNames } from './types';
 
-const sxTailwind: { +[key: string]: any, ... } = sx.create(${JSON.stringify(styles)});
-
-export default sxTailwind;
+export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze(${JSON.stringify(
+  styles,
+)});
 `);
 
+const codeTypes = SignedSource.signFile(`
+/**
+ * ${SignedSource.getSigningToken()}
+ * @flow
+ *
+ * Union type of all Tailwind CSS classes
+ *
+ * @see https://tailwindcss.com/
+ */
+
+export type TailwindClassNames = "${Object.keys(styles).join('"|"')}";
+`);
+
+const codeSxt = SignedSource.signFile(`
+/**
+ * ${SignedSource.getSigningToken()}
+ * @flow
+ */
+
+import * as sx from '@adeira/sx';
+
+import { tailwindStyles } from './tailwindStyles';
+import { type TailwindClassNames } from './types';
+
+export function sxt(...names: $ReadOnlyArray<TailwindClassNames>): string {
+  const styles = Object.fromEntries(
+    names.filter((name) => name in tailwindStyles).map((name) => [name, tailwindStyles[name]]),
+  );
+
+  return sx.create(styles)(...names);
+}
+`);
+
+const filesConfig = [
+  { code: codeStyles, filename: 'tailwindStyles.js' },
+  { code: codeSxt, filename: 'sxt.js' },
+  { code: codeTypes, filename: 'types.js' },
+];
+
 prettier.resolveConfig(__filename).then((options) => {
-  const formatted = prettier.format(code, { filepath: 'mock.js', ...options });
-  fs.writeFileSync(path.join(__dirname, '__generated__', 'sxTailwind.js'), formatted, 'utf8');
+  filesConfig.forEach(({ code, filename }) => {
+    const formatted = prettier.format(code, { filepath: 'mock.js', ...options });
+    fs.writeFileSync(path.join(__dirname, '__generated__', filename), formatted, 'utf8');
+  });
 });
