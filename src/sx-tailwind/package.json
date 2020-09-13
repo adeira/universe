@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx-tailwind",
   "license": "MIT",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index",
   "sideEffects": false,
   "module": false,
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@adeira/signed-source": "^1.0.0",
-    "@adeira/sx": "^0.10.0",
+    "@adeira/sx": "^0.11.0",
     "change-case": "^4.1.1",
     "css-tree": "^1.0.0-alpha.39",
     "prettier": "^2.1.2"

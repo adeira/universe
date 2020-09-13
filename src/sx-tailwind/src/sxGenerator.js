@@ -13,50 +13,101 @@ const UNITLESS_PROPS = new Set(['line-height', 'font-size']);
 
 export default function generateSX(css: string | Buffer): { +[key: string]: any, ... } {
   const ast = csstree.parse(css);
-  const sx = {};
+  const styles = walk(ast);
+  return reorderMediaQueries(styles);
+}
 
+function walk(ast: { +[key: string]: any, ... }): { +[key: string]: any, ... } {
+  const styles = {};
   csstree.walk(ast, {
     enter(node) {
-      if (node.type === 'ClassSelector') {
-        if (this.atrule != null) {
-          return;
+      if (node.type === 'Atrule') {
+        if (!node.visited) {
+          const name = `@${node.name} ${csstree.generate(node.prelude)}`;
+          const rules = walk(node.block);
+          if (Object.keys(rules).length === 0) {
+            return;
+          }
+          styles[name] = { ...rules };
+          node.visited = true;
         }
+      }
+      if (node.type === 'Rule') {
+        if (!node.visited) {
+          const className = getClassName(node);
+          const pseudoClassSelector = getPseudoSelectorName(node);
+          const declarations = getDeclarations(node);
 
-        const pseudoClassSelector = getPseudoSelectorName(this.rule);
-        const className = node.name.replace(/\\/g, '');
-        const declarations = new Map();
+          if (className == null || declarations.size === 0 || pseudoClassSelector === ':not') {
+            return;
+          }
 
-        this.rule.block.children
-          .filter((i) => i.type === 'Declaration')
-          .filter(({ property }) => isSupportedProp(property))
-          .forEach(({ property, value }) => {
-            const sxProperty = changeCase.camelCase(property);
-            const sxValue = getSXValue(value, property);
+          styles[className] =
+            pseudoClassSelector != null
+              ? { [pseudoClassSelector]: Object.fromEntries(declarations) }
+              : Object.fromEntries(declarations);
 
-            if (!declarations.has(sxProperty) && !isVendorPrefixed(sxValue)) {
-              declarations.set(sxProperty, sxValue);
-            }
-          });
-
-        if (declarations.size === 0 || pseudoClassSelector === 'not') {
-          return;
+          node.visited = true;
         }
-        sx[className] =
-          pseudoClassSelector != null
-            ? { [`:${pseudoClassSelector}`]: Object.fromEntries(declarations) }
-            : Object.fromEntries(declarations);
       }
     },
   });
 
-  return sx;
+  return styles;
+}
+
+function reorderMediaQueries(styles: { +[key: string]: any, ... }): { +[key: string]: any, ... } {
+  const reStyles = {};
+  Object.entries(styles).forEach(([key, rules]) => {
+    if (key.startsWith('@media ')) {
+      // $FlowExpectedError[incompatible-call]
+      Object.entries(reorderMediaQueries(rules)).forEach(([className, rules]) => {
+        reStyles[className] = addOrMergeRules(reStyles, className, { [key]: rules });
+      });
+    } else {
+      reStyles[key] = addOrMergeRules(reStyles, key, rules);
+    }
+  });
+  return reStyles;
+}
+
+function addOrMergeRules(styles, key, rules) {
+  return styles[key] ? { ...styles[key], ...rules } : rules;
+}
+
+function getDeclarations(rule: { +[key: string]: any, ... }): Map<string, string | number> {
+  const declarations = new Map();
+  rule.block.children
+    .filter((i) => i.type === 'Declaration')
+    .filter(({ property }) => isSupportedProp(property))
+    .forEach(({ property, value }) => {
+      const sxProperty = changeCase.camelCase(property);
+      const sxValue = getSXValue(value, property);
+
+      if (!declarations.has(sxProperty) && !isVendorPrefixed(sxValue)) {
+        declarations.set(sxProperty, sxValue);
+      }
+    });
+
+  return declarations;
+}
+
+function getClassName(rule: { +[key: string]: any, ... }): ?string {
+  const classSelector = rule.prelude.children
+    .first()
+    .children.filter((i) => i.type === 'ClassSelector')
+    .first();
+
+  return classSelector?.name?.replace(/\\/g, '');
 }
 
 function getPseudoSelectorName(rule: { +[key: string]: any, ... }): ?string {
-  return rule.prelude.children
+  const pseudoSelector = rule.prelude.children
     .first()
     .children.filter((i) => i.type === 'PseudoClassSelector')
-    .first()?.name;
+    .first();
+
+  return pseudoSelector == null ? null : `:${pseudoSelector.name}`;
 }
 
 function getSXValue(value: { +[key: string]: any, ... }, property: string): string | number {
