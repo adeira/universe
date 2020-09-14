@@ -19,6 +19,7 @@ export default function Homepage(): React.Node {
             <Logo />
 
             <div>
+              {/* TODO: popups explaining what is each of the elements (photo) */}
               <fbt desc="catch phrase">REAL CATS + COFFEE + DUMPLINGS</fbt>
             </div>
           </div>

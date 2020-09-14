@@ -8,10 +8,14 @@ import Instagram from '../design/svg/__generated__/Instagram';
 import Facebook from '../design/svg/__generated__/Facebook';
 import socialLinks from '../socialLinks';
 
-export default function SocialMediaIcons(): React.Node {
+type Props = {|
+  +vertical?: boolean,
+|};
+
+export default function SocialMediaIcons(props: Props): React.Node {
   return (
-    <div className={styles('icons')}>
-      <div className={styles('icon')}>
+    <div className={styles('icons', props.vertical && 'iconsVertical')}>
+      <div className={styles(props.vertical ? 'iconVertical' : 'icon')}>
         <a
           href={socialLinks.instagramURL}
           aria-label={
@@ -22,7 +26,8 @@ export default function SocialMediaIcons(): React.Node {
           <Instagram />
         </a>
       </div>
-      <div className={styles('icon')}>
+
+      <div className={styles(props.vertical ? 'iconVertical' : 'icon')}>
         <a
           href={socialLinks.facebookURL}
           aria-label={
@@ -44,6 +49,9 @@ const styles = sx.create({
     marginTop: 20,
     marginBottom: 20,
   },
+  iconsVertical: {
+    flexDirection: 'column',
+  },
   icon: {
     'paddingLeft': 20,
     'paddingRight': 20,
@@ -52,6 +60,16 @@ const styles = sx.create({
     },
     ':last-child': {
       paddingRight: 0,
+    },
+  },
+  iconVertical: {
+    'paddingBottom': 15,
+    'paddingTop': 15,
+    ':first-child': {
+      paddingTop: 0,
+    },
+    ':last-child': {
+      paddingBottom: 0,
     },
   },
 });

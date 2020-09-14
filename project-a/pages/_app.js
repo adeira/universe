@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import fbt, { IntlVariations, init } from 'fbt';
 import * as sx from '@adeira/sx';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import './_app.css';
 import SkipLink from '../src/design/SkipLink';
@@ -61,6 +62,9 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
   return (
     <div key={locale} className={styles('root')}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <SkipLink />
       <Component {...pageProps} />
     </div>
@@ -69,7 +73,6 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
 const styles = sx.create({
   root: {
-    backgroundColor: 'var(--main-bg-color)',
     color: 'var(--font-color)',
   },
   soon: {
