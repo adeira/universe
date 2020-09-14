@@ -13,7 +13,7 @@ export default function Facebook(props: Props): React.Node {
   return (
     <SVGIcon viewBox="0 0 1024 1024" color={color} size={40}>
       <defs>
-        <path id="a" d="M.06.04H1024v1017.74H.06z" />
+        <path d="M.06.04H1024v1017.74H.06z" />
       </defs>
       <g fill="none" fillRule="evenodd">
         <path

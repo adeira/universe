@@ -8,14 +8,14 @@ import Logo from './Logo';
 
 export default function SubpageHeader(): React.Node {
   return (
-    <div className={styles('headerBackground')}>
+    <header className={styles('headerBackground')}>
       <div className={styles('socialMedia')}>
         <SocialMediaIcons vertical={true} />
       </div>
       <div className={styles('header')}>
         <Logo />
       </div>
-    </div>
+    </header>
   );
 }
 

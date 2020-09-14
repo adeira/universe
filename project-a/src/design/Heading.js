@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import * as React from 'react';
 
@@ -10,8 +10,8 @@ type Props = {|
 |};
 
 // https://web.dev/headings-and-landmarks/
+// https://github.com/jonathantneal/h-element-spec/issues/1
 export default function Heading(props: Props): React.Node {
-  // TODO: make sure H1 is used only once
   return (
     <HeadingLevel.Consumer>
       {(level) => {

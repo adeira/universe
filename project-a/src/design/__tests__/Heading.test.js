@@ -30,11 +30,17 @@ it('renders top level by default', () => {
   expect(container?.innerHTML).toMatchInlineSnapshot(`"<h1>level one</h1>"`);
 });
 
+// TODO: How should this actually behave? 🤔
 // <>
 //   <Heading>level one</Heading>   -> h1
 //   <Heading>level one</Heading>   -> h2
 // </>
 it.todo('renders H1 only once');
+
+// <Heading>
+//   <Heading>level one</Heading>
+// </Heading>
+it.todo("doesn't allow nested headers");
 
 it('renders maximum 6 levels', () => {
   render(

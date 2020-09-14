@@ -1,7 +1,25 @@
-/* Only real global things here! */
-
 * {
   box-sizing: border-box;
+}
+
+:root,
+.__kk-light-mode {
+  --main-bg-color: rgba(108, 22, 16);
+  --main-bg-color-dark: #480500;
+  --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
+  --main-bg-colorHover: rgb(128, 22, 16);
+  --font-color-light: #ffffff;
+  --font-color-dark: #1c1e21;
+}
+
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */
+@font-face {
+  font-display: swap;
+  font-family: 'GidoleKochka';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gidole'), url('/fonts/Gidole-Regular-subset.ttf') format('truetype');
+  unicode-range: U+20, U+41, U+43, U+46, U+48, U+4B, U+4F, U+C9; /* KOCHKA CAFÉ */
 }
 
 html,
@@ -37,22 +55,14 @@ h6 {
   margin-inline-start: 0;
 }
 
-:root,
-.__kk-light-mode {
-  --main-bg-color: rgba(108, 22, 16);
-  --main-bg-color-dark: #480500;
-  --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
-  --main-bg-colorHover: rgb(128, 22, 16);
-  --font-color-light: #ffffff;
-  --font-color-dark: #1c1e21;
+h1 {
+  font-size: 2rem;
 }
 
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */
-@font-face {
-  font-display: swap;
-  font-family: 'GidoleKochka';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Gidole'), url('/fonts/Gidole-Regular-subset.ttf') format('truetype');
-  unicode-range: U+20, U+41, U+43, U+46, U+48, U+4B, U+4F, U+C9; /* KOCHKA CAFÉ */
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
 }

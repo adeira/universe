@@ -6,6 +6,7 @@ import HeadingLevel from './HeadingLevel';
 
 type Props = {|
   +children: React.Node,
+  +className?: string,
 |};
 
 export default function Section(props: Props): React.Node {
@@ -14,7 +15,7 @@ export default function Section(props: Props): React.Node {
       {(level) => (
         <HeadingLevel.Provider value={level + 1}>
           {/* eslint-disable-next-line react/forbid-elements */}
-          <section>{props.children}</section>
+          <section {...props}>{props.children}</section>
         </HeadingLevel.Provider>
       )}
     </HeadingLevel.Consumer>
