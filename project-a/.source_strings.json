@@ -314,9 +314,9 @@
     "FwqTtCQekqRnNHaq7wBxIw==": "Menu"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 21,
+   "line_beg": 22,
    "col_beg": 22,
-   "line_end": 21,
+   "line_end": 22,
    "col_end": 60,
    "desc": "menu page title",
    "project": "",
@@ -325,31 +325,45 @@
   },
   {
    "hashToText": {
-    "En1QWAaepJZsZeLU3DDN6w==": "Sweet Dumplings"
+    "qTi+uC+IskJlO3OJUAktFQ==": "Sweet Dumplings"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 24,
-   "col_beg": 12,
-   "line_end": 24,
-   "col_end": 79,
-   "desc": "sweet dumplings title in our menu",
+   "line_beg": 27,
+   "col_beg": 16,
+   "line_end": 27,
+   "col_end": 86,
+   "desc": "sweet dumplings subtitle in our menu",
    "project": "",
    "type": "text",
    "jsfbt": "Sweet Dumplings"
   },
   {
    "hashToText": {
-    "w4FoKO3NhAbk6BdpAZFJnQ==": "Savory Dumplings"
+    "t5V1cpabCbQkUc19Sc2NSw==": "Savory Dumplings"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 29,
-   "col_beg": 12,
-   "line_end": 29,
-   "col_end": 75,
-   "desc": "savory dumplings in our menu",
+   "line_beg": 37,
+   "col_beg": 16,
+   "line_end": 37,
+   "col_end": 88,
+   "desc": "savory dumplings subtitle in our menu",
    "project": "",
    "type": "text",
    "jsfbt": "Savory Dumplings"
+  },
+  {
+   "hashToText": {
+    "LKMO5BWwRSp4pHxWfv3uLg==": "Coffee"
+   },
+   "filepath": "pages/menu.js",
+   "line_beg": 49,
+   "col_beg": 16,
+   "line_end": 49,
+   "col_end": 68,
+   "desc": "coffee subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Coffee"
   },
   {
    "hashToText": {

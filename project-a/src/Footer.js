@@ -6,7 +6,7 @@ import fbt from 'fbt';
 
 export default function Footer(): React.Node {
   return (
-    <>
+    <div className={styles('wrapper')}>
       <strong>
         <fbt desc="opening hours">Monday - Friday 8am - 6pm</fbt>
       </strong>
@@ -17,11 +17,16 @@ export default function Footer(): React.Node {
           </fbt>
         </a>
       </div>
-    </>
+    </div>
   );
 }
 
 const styles = sx.create({
+  wrapper: {
+    textAlign: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+  },
   address: {
     textAlign: 'center',
   },

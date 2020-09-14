@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 
 import Heading from './design/Heading';
-import Footer from './Footer';
+import SubpageFooter from './SubpageFooter';
 import SubpageHeader from './SubpageHeader';
 import SubpageNavigation from './SubpageNavigation';
 
@@ -20,13 +20,14 @@ export default function Subpage(props: Props): React.Node {
       <SubpageHeader />
 
       <main id="main" className={styles('main')}>
-        {/* TODO: H1! */}
-        <Heading>{props.title}</Heading>
+        <div className={styles('heading')}>
+          <Heading>{props.title}</Heading>
+        </div>
         {props.children}
       </main>
 
       <footer className={styles('footer')}>
-        <Footer />
+        <SubpageFooter />
       </footer>
     </div>
   );
@@ -42,6 +43,13 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    width: '75vw',
+    margin: '0 auto',
+    minHeight: '40vh',
+  },
+  heading: {
+    marginTop: 20,
+    marginBottom: 40,
   },
   footer: {
     color: 'var(--font-color-dark)',

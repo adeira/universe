@@ -6,7 +6,7 @@ import fbt from 'fbt';
 
 export default function SubpageNavigation(): React.Node {
   return (
-    <div className={styles('navigation')}>
+    <nav className={styles('navigation')}>
       <div>
         {/* TODO: href */}
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -26,7 +26,7 @@ export default function SubpageNavigation(): React.Node {
           <fbt desc="subpage navigation link to our rules">Our rules</fbt>
         </a>
       </div>
-    </div>
+    </nav>
   );
 }
 
