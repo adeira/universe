@@ -314,10 +314,10 @@
     "FwqTtCQekqRnNHaq7wBxIw==": "Menu"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 31,
-   "col_beg": 12,
-   "line_end": 31,
-   "col_end": 50,
+   "line_beg": 21,
+   "col_beg": 22,
+   "line_end": 21,
+   "col_end": 60,
    "desc": "menu page title",
    "project": "",
    "type": "text",
@@ -328,10 +328,10 @@
     "En1QWAaepJZsZeLU3DDN6w==": "Sweet Dumplings"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 36,
-   "col_beg": 16,
-   "line_end": 36,
-   "col_end": 83,
+   "line_beg": 24,
+   "col_beg": 12,
+   "line_end": 24,
+   "col_end": 79,
    "desc": "sweet dumplings title in our menu",
    "project": "",
    "type": "text",
@@ -342,14 +342,28 @@
     "w4FoKO3NhAbk6BdpAZFJnQ==": "Savory Dumplings"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 41,
-   "col_beg": 16,
-   "line_end": 41,
-   "col_end": 79,
+   "line_beg": 29,
+   "col_beg": 12,
+   "line_end": 29,
+   "col_end": 75,
    "desc": "savory dumplings in our menu",
    "project": "",
    "type": "text",
    "jsfbt": "Savory Dumplings"
+  },
+  {
+   "hashToText": {
+    "N6wljqJbw60oJCcAVPjGkg==": "Our rules"
+   },
+   "filepath": "pages/rules.js",
+   "line_beg": 20,
+   "col_beg": 22,
+   "line_end": 20,
+   "col_end": 70,
+   "desc": "our rules page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Our rules"
   }
  ],
  "childParentMappings": {}

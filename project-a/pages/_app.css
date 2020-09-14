@@ -43,7 +43,8 @@ h6 {
   --main-bg-color-dark: #480500;
   --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
   --main-bg-colorHover: rgb(128, 22, 16);
-  --font-color: #ffffff;
+  --font-color-light: #ffffff;
+  --font-color-dark: #1c1e21;
 }
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */

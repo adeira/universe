@@ -10,19 +10,19 @@ export default function SubpageNavigation(): React.Node {
       <div>
         {/* TODO: href */}
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">
+        <a href="#" className={styles('link')}>
           <fbt desc="subpage navigation link to homepage">Homepage</fbt>
         </a>
       </div>
       <div>
         {/* TODO: href */}
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">
+        <a href="#" className={styles('link')}>
           <fbt desc="subpage navigation link to menu">Menu</fbt>
         </a>
         {/* TODO: href */}
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">
+        <a href="#" className={styles('link')}>
           <fbt desc="subpage navigation link to our rules">Our rules</fbt>
         </a>
       </div>
@@ -36,5 +36,11 @@ const styles = sx.create({
     padding: 10,
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  link: {
+    'paddingRight': 10,
+    ':last-child': {
+      paddingRight: 0,
+    },
   },
 });
