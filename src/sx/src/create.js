@@ -22,6 +22,7 @@ type AllCSSPseudos = {|
 type MediaQueries = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudos,
+  +[string]: MediaQueries, // media queries can be recursively nested
 |};
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
@@ -37,7 +38,7 @@ type AtRules = MediaQueries | KeyFrames;
 type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudos,
-  +[string]: AtRules,
+  +[string]: AtRules, // we are unable to statically typecheck the key because it can be almost anything
 |};
 
 type SheetDefinitions = {|

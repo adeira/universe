@@ -21,6 +21,13 @@ sx.create({
       50: { marginTop: 'translateX(50%)' },
       to: { transform: 'translateX(100%)' },
     },
+    '@media (min-width: 640px)': {
+      '@media (min-width: 650px)': {
+        '@media (min-width: 660px)': {
+          maxWidth: '670px',
+        },
+      },
+    },
   },
   NoIssuesAlternative: {
     zIndex: 'auto',
@@ -33,12 +40,6 @@ sx.create({
     // $FlowExpectedError[incompatible-call]: should be number or one of predefined strings
     zIndex: '10',
   },
-  // TODO: we currently cannot type check this (falls into `@media` group)
-  // InvalidKeyframesKey: {
-  //   '@keyframes identifier': {
-  //     color: 'red', // should be from/to/%
-  //   },
-  // },
   UnknownProperty: {
     // $FlowExpectedError[incompatible-call]
     unknownProperty: 'red',
@@ -49,10 +50,17 @@ sx.create({
       unknownProperty: 'red',
     },
   },
-  // TODO: we currently cannot type check this (falls into `@media` group)
-  // UnsupportedAtRules: {
-  //   '@supports (display: grid)': {
-  //     display: 'grid',
-  //   },
-  // },
+
+  // TODO: we currently cannot type check these (falls into `@media` group, at-rules):
+  InvalidKeyframesKey: {
+    '@keyframes identifier': {
+      color: 'red', // should be from/to/%
+    },
+  },
+  UnsupportedAtRules: {
+    // should throw since we do not support `@page`
+    '@page': {
+      color: 'red',
+    },
+  },
 });
