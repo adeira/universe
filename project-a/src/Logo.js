@@ -11,7 +11,7 @@ export default function Logo(): React.Node {
     <div className={styles('logoWrapper')}>
       <KochkaIcon />
 
-      <div className={styles('text')}>
+      <div className={styles('heading')}>
         <Heading className={styles('kochka')}>
           KOCHKA
           <span className={styles('cafe')}>
@@ -29,11 +29,11 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 40,
+    marginBottom: 40,
   },
-  text: {
-    marginTop: 20,
+  heading: {
+    marginTop: 40,
     fontFamily: 'GidoleKochka',
   },
   kochka: {

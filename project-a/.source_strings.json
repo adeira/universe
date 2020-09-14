@@ -47,9 +47,9 @@
     "zmF9lDcnPv0DZ+Wpv6KQPw==": "REAL CATS + COFFEE + DUMPLINGS"
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 22,
+   "line_beg": 23,
    "col_beg": 14,
-   "line_end": 22,
+   "line_end": 23,
    "col_end": 75,
    "desc": "catch phrase",
    "project": "",
@@ -90,9 +90,9 @@
     "4hzwDqzKYoJYiTxo5Erg4A==": "link to KOCHKA Café Instagram page"
    },
    "filepath": "src/Homepage/SocialMediaIcons.js",
-   "line_beg": 18,
+   "line_beg": 22,
    "col_beg": 12,
-   "line_end": 18,
+   "line_end": 22,
    "col_end": 97,
    "desc": "aria label of our Instagram link",
    "project": "",
@@ -104,9 +104,9 @@
     "5QbuAWwkViB3in/V8u59bg==": "link to KOCHKA Café facebook page"
    },
    "filepath": "src/Homepage/SocialMediaIcons.js",
-   "line_beg": 29,
+   "line_beg": 34,
    "col_beg": 12,
-   "line_end": 29,
+   "line_end": 34,
    "col_end": 95,
    "desc": "aria label of our Facebook link",
    "project": "",
@@ -255,26 +255,54 @@
   },
   {
    "hashToText": {
-    "IzFfJjXIA/D1eX7qE42cMA==": "homepage"
+    "5mHlC9lFyeiGVLHKaRx0TA==": "Homepage"
    },
-   "filepath": "src/Subpage.js",
-   "line_beg": 22,
-   "col_beg": 12,
-   "line_end": 22,
-   "col_end": 60,
-   "desc": "link back to homepage",
+   "filepath": "src/SubpageNavigation.js",
+   "line_beg": 14,
+   "col_beg": 10,
+   "line_end": 14,
+   "col_end": 72,
+   "desc": "subpage navigation link to homepage",
    "project": "",
    "type": "text",
-   "jsfbt": "homepage"
+   "jsfbt": "Homepage"
+  },
+  {
+   "hashToText": {
+    "MMmM57ozhi6rWy4ycRjsCw==": "Menu"
+   },
+   "filepath": "src/SubpageNavigation.js",
+   "line_beg": 21,
+   "col_beg": 10,
+   "line_end": 21,
+   "col_end": 64,
+   "desc": "subpage navigation link to menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Menu"
+  },
+  {
+   "hashToText": {
+    "yWIjiQyD+BjXv8eLub1vaA==": "Our rules"
+   },
+   "filepath": "src/SubpageNavigation.js",
+   "line_beg": 26,
+   "col_beg": 10,
+   "line_end": 26,
+   "col_end": 74,
+   "desc": "subpage navigation link to our rules",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Our rules"
   },
   {
    "hashToText": {
     "Y+yXhoRGvaBKx2PwwWejLA==": "soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 57,
+   "line_beg": 58,
    "col_beg": 8,
-   "line_end": 57,
+   "line_end": 58,
    "col_end": 35,
    "desc": "soon",
    "project": "",
@@ -283,31 +311,45 @@
   },
   {
    "hashToText": {
-    "TMcf+Kgy/eAdh6ABUK6Ndg==": "Menu"
+    "FwqTtCQekqRnNHaq7wBxIw==": "Menu"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 19,
-   "col_beg": 24,
-   "line_end": 19,
-   "col_end": 64,
-   "desc": "Manu page heading",
+   "line_beg": 31,
+   "col_beg": 12,
+   "line_end": 31,
+   "col_end": 50,
+   "desc": "menu page title",
    "project": "",
    "type": "text",
    "jsfbt": "Menu"
   },
   {
    "hashToText": {
-    "9t2U+t3HWnK6yqwqVkvPiQ==": "Our rules"
+    "En1QWAaepJZsZeLU3DDN6w==": "Sweet Dumplings"
    },
-   "filepath": "pages/rules.js",
-   "line_beg": 20,
-   "col_beg": 24,
-   "line_end": 20,
-   "col_end": 74,
-   "desc": "Our rules page heading",
+   "filepath": "pages/menu.js",
+   "line_beg": 36,
+   "col_beg": 16,
+   "line_end": 36,
+   "col_end": 83,
+   "desc": "sweet dumplings title in our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Our rules"
+   "jsfbt": "Sweet Dumplings"
+  },
+  {
+   "hashToText": {
+    "w4FoKO3NhAbk6BdpAZFJnQ==": "Savory Dumplings"
+   },
+   "filepath": "pages/menu.js",
+   "line_beg": 41,
+   "col_beg": 16,
+   "line_end": 41,
+   "col_end": 79,
+   "desc": "savory dumplings in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Savory Dumplings"
   }
  ],
  "childParentMappings": {}
