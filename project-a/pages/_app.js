@@ -73,7 +73,7 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
 const styles = sx.create({
   root: {
-    color: 'var(--font-color)',
+    color: 'var(--font-color-light)',
   },
   soon: {
     display: 'flex',

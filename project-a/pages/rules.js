@@ -1,9 +1,11 @@
 // @flow
 
 import * as React from 'react';
+import fbt from 'fbt';
 import Head from 'next/head';
 
 import Rules from '../src/Rules';
+import Subpage from '../src/Subpage';
 
 export default function RulesPage(): React.Node {
   return (
@@ -15,8 +17,9 @@ export default function RulesPage(): React.Node {
         </title>
       </Head>
 
-      {/* TODO: apply subpage styles from "Menu" */}
-      <Rules />
+      <Subpage title={<fbt desc="our rules page title">Our rules</fbt>}>
+        <Rules />
+      </Subpage>
     </>
   );
 }
