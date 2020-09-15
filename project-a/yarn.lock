@@ -90,10 +90,10 @@
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-"@adeira/sx@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.10.0.tgz#55c4dfc5cd282eb1b82654d87a305f68f1fe6fdf"
-  integrity sha512-h3DTL6yphh5V7NH+mXTC9ft7iBn1tJY1pnv+dUPLlVzhXTz5348ZgUaEM2iaEE4S8FHMxDpgmUdaXV5eFF8XzA==
+"@adeira/sx@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.11.0.tgz#b1cca103ac0c865c2ec821f4b0821d111a3b0dc5"
+  integrity sha512-tfCTgbZ9g/wlZIKzALWBnhyLwIHrUBDV2bOEB6v3ZZ4xaQC839NxSfc/FRk8uBw+RmyNiKiZiGkXF68fEz522g==
   dependencies:
     "@adeira/js" "^1.2.4"
     "@adeira/murmur-hash" "^0.1.0"
