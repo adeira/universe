@@ -1,0 +1,21 @@
+{
+  "name": "@adeira/sx-tailwind",
+  "description": "Tailwind CSS ported into SX",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/sx-tailwind",
+  "license": "MIT",
+  "private": true,
+  "version": "0.1.0",
+  "main": "index",
+  "sideEffects": false,
+  "module": false,
+  "scripts": {
+    "generate": "yarn monorepo-babel-node src/generate.js"
+  },
+  "dependencies": {
+    "@adeira/signed-source": "^1.0.0",
+    "@adeira/sx": "^0.10.0",
+    "change-case": "^4.1.1",
+    "css-tree": "^1.0.0-alpha.39",
+    "prettier": "^2.0.5"
+  }
+}
