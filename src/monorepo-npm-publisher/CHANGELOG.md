@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.0.0
+
+- Updated dependencies
+
 # 0.3.0
 
 - Set root mode to upwards to apply consumer projects babel config
