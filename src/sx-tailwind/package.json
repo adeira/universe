@@ -16,6 +16,6 @@
     "@adeira/sx": "^0.10.0",
     "change-case": "^4.1.1",
     "css-tree": "^1.0.0-alpha.39",
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.2"
   }
 }
