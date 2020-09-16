@@ -16,6 +16,7 @@ This package is intended to be run by CI server.
 
 ```js
 import path from 'path';
+import os from 'os';
 import publish from '@adeira/monorepo-npm-publisher';
 
 (async () => {
