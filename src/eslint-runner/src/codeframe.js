@@ -6,27 +6,29 @@ const { codeFrameColumns } = require('@babel/code-frame');
 
 /*::
 
-type Results = $ReadOnlyArray<{|
+// https://eslint.org/docs/developer-guide/nodejs-api#-lintresult-type
+type Results = $ReadOnlyArray<{
   +filePath: string,
-  +messages: $ReadOnlyArray<{|
-    +ruleId: string,
-    +severity: number,
-    +nodeType: string,
+  +messages: $ReadOnlyArray<{
+    +ruleId: string | null,
+    +severity: 1 | 2,
     +message: string,
-    +messageId: string,
-    +endLine: number,
-    +endColumn: number,
-    +fatal?: boolean,
     +line?: number,
     +column?: number,
-  |}>,
-  +errorCount: number,
-  +warningCount: number,
+    +endLine: number,
+    +endColumn: number,
+    +ruleId: string,
+    +fatal?: boolean,
+    ...
+  }>,
   +fixableErrorCount: number,
   +fixableWarningCount: number,
-  +source: string,
+  +errorCount: number,
+  +warningCount: number,
   +output?: string,
-|}>
+  +source: string,
+  ...
+}>
 
 type Options = {|
   +highlightCode: boolean,
@@ -84,18 +86,24 @@ module.exports = function (results /*: Results */, options /*: ?Options */) /*: 
 
   const resultsWithMessages = results.filter((result) => result.messages.length > 0);
 
-  const output = resultsWithMessages
-    .reduce((resultsOutput, result) => {
-      const messages = result.messages.map(
-        (message) => `${formatMessage(message, result, options)}\n\n`,
-      );
+  const outputWarnings = resultsWithMessages.reduce((resultsOutput, result) => {
+    const messages = result.messages
+      .filter((message) => message.severity === 1) // warnings
+      .map((message) => `${formatMessage(message, result, options)}\n\n`);
 
-      errors += result.errorCount;
-      warnings += result.warningCount;
+    warnings += result.warningCount;
+    return resultsOutput.concat(messages);
+  }, []);
 
-      return resultsOutput.concat(messages);
-    }, [])
-    .join('\n');
+  const outputErrors = resultsWithMessages.reduce((resultsOutput, result) => {
+    const messages = result.messages
+      .filter((message) => message.severity === 2) // errors
+      .map((message) => `${formatMessage(message, result, options)}\n\n`);
 
+    errors += result.errorCount;
+    return resultsOutput.concat(messages);
+  }, []);
+
+  const output = outputWarnings.concat(outputErrors).join('\n');
   return errors + warnings > 0 ? output : '';
 };
