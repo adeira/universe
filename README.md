@@ -10,13 +10,36 @@ See: https://adeira.dev/ for more info.
 
 ## Quick start
 
+First, install [Bazelisk](https://github.com/bazelbuild/bazelisk/) if you don't have it yet:
+
+```bash
+brew install bazelisk
+```
+
+Now, you can clone the repository and install it:
+
 ```bash
 git clone --depth=100 git@github.com:adeira/universe.git
 cd universe
-yarn install
+bazel run @nodejs//:yarn
 ```
 
-_Please note: you have to use Yarn. It won't work with NPM!_
+And finally, run the tests, build or anything you want. The repository should be ready:
+
+```bash
+bazel test //...
+bazel build //...
+bazel query //...
+```
+
+Note: first build might take longer time - it's normal. Consecutive builds will be _much_ faster.
+
+To autofix Bazel files run:
+
+```bash
+# TODO: move this somewhere else (should not be in "quick start" section)
+bazel run --build_tag_filters=manual //:buildifier.fix
+```
 
 What now? There are many projects under [`src/`](/src) and all of them are tested and linted together (with many monorepo optimizations). You can try to run all the checks:
 

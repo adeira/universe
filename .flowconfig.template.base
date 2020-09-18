@@ -68,6 +68,10 @@ react.runtime=automatic
 ; Allow dynamic `require(path.join(__dirname, 'myFile.json'))`
 module.ignore_non_literal_requires=true
 
+; Bazel build interop
+module.system.node.main_field=source
+module.system.node.main_field=main
+
 ; This option lets you alias 'any' with a given string - useful for explaining why you’re using 'any'.
 suppress_type=$FlowFixMe
 
