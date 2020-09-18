@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import './_app.css';
+import Logo from '../src/Logo';
 import SkipLink from '../src/design/SkipLink';
 
 type SupportedLocales = 'en_US' | 'es_MX';
@@ -55,7 +56,10 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
     // not public yet
     return (
       <div className={styles('root', 'soon')}>
-        <fbt desc="soon">soon</fbt>
+        <Logo />
+        <em>
+          <fbt desc="coming soon">coming soon</fbt>
+        </em>
       </div>
     );
   }
@@ -77,8 +81,10 @@ const styles = sx.create({
   },
   soon: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
+    backgroundColor: 'var(--main-bg-color)',
   },
 });
