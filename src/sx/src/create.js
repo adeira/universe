@@ -3,25 +3,14 @@
 import { invariant, isObjectEmpty } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
-import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
 import styleCollector from './StyleCollector';
-
-// https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
-// https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
-type AllCSSPseudos = {|
-  +'::after'?: AllCSSPropertyTypes,
-  +'::before'?: AllCSSPropertyTypes,
-  +':active'?: AllCSSPropertyTypes,
-  +':focus'?: AllCSSPropertyTypes,
-  +':focus-within'?: AllCSSPropertyTypes,
-  +':hover'?: AllCSSPropertyTypes,
-  +':visited'?: AllCSSPropertyTypes,
-|};
+import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
+import type { AllCSSPseudoTypes } from './css-properties/__generated__/AllCSSPseudoTypes';
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries
 type MediaQueries = {|
   ...AllCSSPropertyTypes,
-  ...AllCSSPseudos,
+  ...AllCSSPseudoTypes,
   +[string]: MediaQueries, // media queries can be recursively nested
 |};
 
@@ -37,7 +26,7 @@ type AtRules = MediaQueries | KeyFrames;
 
 type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
-  ...AllCSSPseudos,
+  ...AllCSSPseudoTypes,
   +[string]: AtRules, // we are unable to statically typecheck the key because it can be almost anything
 |};
 
