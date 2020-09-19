@@ -40,6 +40,14 @@ sx.create({
     // $FlowExpectedError[incompatible-call]: should be number or one of predefined strings
     zIndex: '10',
   },
+  // $FlowExpectedError[prop-missing] cannot be nested
+  InvalidNestedPseudos: {
+    '::before': {
+      '::before': {
+        content: '∞',
+      },
+    },
+  },
   UnknownProperty: {
     // $FlowExpectedError[incompatible-call]
     unknownProperty: 'red',
@@ -61,6 +69,26 @@ sx.create({
     // should throw since we do not support `@page`
     '@page': {
       color: 'red',
+    },
+  },
+  UnsupportedPseudoRule: {
+    // ideally, should throw
+    '::unknown-pseudo': {
+      color: 'red',
+    },
+  },
+  UnsupportedPseudoFormat: {
+    // should be `:nth-child(4n)`
+    ':nth-child': {
+      color: 'red',
+    },
+  },
+  NestedComplexPseudos: {
+    ':nth-child(4n)': {
+      // nested pseudos should not be allowed, but we cannot detect it
+      ':nth-child(4n)': {
+        color: 'lime',
+      },
     },
   },
 });

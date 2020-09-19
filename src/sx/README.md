@@ -155,7 +155,7 @@ const styles = sx.create({
 
 ### Precise Flow types
 
-SX knows about every property which exists in CSS and tries to help with mistakes when writing the styles.
+SX knows about almost every property or rule which exists in CSS and tries to help with mistakes when writing the styles.
 
 ```jsx
 export function FlowComponent() {
@@ -170,6 +170,8 @@ const styles = sx.create({
   },
 });
 ```
+
+Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries - they cannot be statically analyzed. These situations are usually complemented with runtime checks and eventually even Eslint rules.
 
 ## Architecture
 
