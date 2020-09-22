@@ -1,12 +1,32 @@
 {
     "fb-locale": "es_MX",
     "translations": {
-        "zmF9lDcnPv0DZ+Wpv6KQPw==": {
+        "xOEP2NClrTfKXNMmS96lmQ==": {
             "tokens": [],
             "types": [],
             "translations": [
                 {
-                    "translation": "GATOS + CAFÉ + DUMPLINGS",
+                    "translation": "Inicio",
+                    "variations": []
+                }
+            ]
+        },
+        "Jtw\/XkgxoVH1y9vrSmRIbQ==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Lunes - Viernes 8:00 - 18:00",
+                    "variations": []
+                }
+            ]
+        },
+        "NUhL34P63zZM36A\/XnsyPw==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico",
                     "variations": []
                 }
             ]
@@ -17,6 +37,36 @@
             "translations": [
                 {
                     "translation": "Menú",
+                    "variations": []
+                }
+            ]
+        },
+        "Zt2ENEDUNYv6HlNFEwkbYw==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Reglamento",
+                    "variations": []
+                }
+            ]
+        },
+        "4hzwDqzKYoJYiTxo5Erg4A==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Enlace a Instagram de KOCHKA Café",
+                    "variations": []
+                }
+            ]
+        },
+        "5QbuAWwkViB3in\/V8u59bg==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Enlace a Facebook de KOCHKA Café",
                     "variations": []
                 }
             ]
@@ -96,7 +146,7 @@
             "types": [],
             "translations": [
                 {
-                    "translation": "No somos responsables de las lesiones que nuestros gatos te puedan ocasionar – son muy juguetones y pueden arañarte sin querer. Presta atención especialmente a los niños que te acompañen. Puedes hacer uso de nuestro botiquín de primeros auxilios si lo necesitas.",
+                    "translation": "No somos responsables de las lesiones que nuestros gatos te puedan ocasionar (son muy juguetones y pueden arañarte sin querer). Pon atención especialmente a los niños que te acompañen. Puedes hacer uso de nuestro botiquín de primeros auxilios si lo necesitas.",
                     "variations": []
                 }
             ]
@@ -117,6 +167,86 @@
             "translations": [
                 {
                     "translation": "Te pedimos de la manera más atenta que respetes las reglas. En caso de que alguien las rompa, le pediremos que se retire.",
+                    "variations": []
+                }
+            ]
+        },
+        "5mHlC9lFyeiGVLHKaRx0TA==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Inicio",
+                    "variations": []
+                }
+            ]
+        },
+        "MMmM57ozhi6rWy4ycRjsCw==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Menú",
+                    "variations": []
+                }
+            ]
+        },
+        "yWIjiQyD+BjXv8eLub1vaA==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Reglamento",
+                    "variations": []
+                }
+            ]
+        },
+        "FwqTtCQekqRnNHaq7wBxIw==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Menú",
+                    "variations": []
+                }
+            ]
+        },
+        "qTi+uC+IskJlO3OJUAktFQ==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Dumplings dulces",
+                    "variations": []
+                }
+            ]
+        },
+        "t5V1cpabCbQkUc19Sc2NSw==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Dumplings salados",
+                    "variations": []
+                }
+            ]
+        },
+        "LKMO5BWwRSp4pHxWfv3uLg==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Café",
+                    "variations": []
+                }
+            ]
+        },
+        "N6wljqJbw60oJCcAVPjGkg==": {
+            "tokens": [],
+            "types": [],
+            "translations": [
+                {
+                    "translation": "Reglamento",
                     "variations": []
                 }
             ]
