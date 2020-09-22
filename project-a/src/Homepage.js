@@ -20,7 +20,7 @@ export default function Homepage(): React.Node {
 
             <div>
               {/* TODO: popups explaining what is each of the elements (photo) */}
-              <fbt desc="catch phrase">REAL CATS + COFFEE + DUMPLINGS</fbt>
+              <fbt desc="catch phrase">REAL CATS + DUMPLINGS + COFFEE</fbt>
             </div>
           </div>
 
