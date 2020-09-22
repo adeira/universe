@@ -44,7 +44,7 @@
   },
   {
    "hashToText": {
-    "zmF9lDcnPv0DZ+Wpv6KQPw==": "REAL CATS + COFFEE + DUMPLINGS"
+    "YLzBdvonuLATQ5FpiPMgEw==": "REAL CATS + DUMPLINGS + COFFEE"
    },
    "filepath": "src/Homepage.js",
    "line_beg": 23,
@@ -54,7 +54,7 @@
    "desc": "catch phrase",
    "project": "",
    "type": "text",
-   "jsfbt": "REAL CATS + COFFEE + DUMPLINGS"
+   "jsfbt": "REAL CATS + DUMPLINGS + COFFEE"
   },
   {
    "hashToText": {
@@ -297,17 +297,17 @@
   },
   {
    "hashToText": {
-    "Y+yXhoRGvaBKx2PwwWejLA==": "soon"
+    "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 58,
-   "col_beg": 8,
-   "line_end": 58,
-   "col_end": 35,
-   "desc": "soon",
+   "line_beg": 61,
+   "col_beg": 10,
+   "line_end": 61,
+   "col_end": 51,
+   "desc": "coming soon",
    "project": "",
    "type": "text",
-   "jsfbt": "soon"
+   "jsfbt": "coming soon"
   },
   {
    "hashToText": {
