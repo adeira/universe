@@ -3,7 +3,7 @@
 
 // TODO: DRY with monorepo-utils/bin/monorepo-babel-node-runner.js
 require('@babel/register')({
-  ignore: [/node_modules\/(?!@kiwicom)/],
+  ignore: [/node_modules\/(?!@adeira)/],
   rootMode: 'upward',
 });
 

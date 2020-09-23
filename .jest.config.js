@@ -4,7 +4,7 @@
 // we can prevent calling `yarn jest` directly. It wouldn't work with config
 // name `jest.config.js` because this config is being loaded automatically.
 
-require('@babel/register'); // to be able to use non-transpiled '@kiwicom/monorepo' here
+require('@babel/register'); // to be able to use non-transpiled '@adeira/monorepo-utils' here
 
 const fs = require('fs');
 const path = require('path');
@@ -32,10 +32,7 @@ const commonProjectConfig = {
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
   if (fs.existsSync(configPath)) {
-    console.warn(
-      'Loaded additional config %s',
-      configPath.replace(__dirname, ''),
-    );
+    console.warn('Loaded additional config %s', configPath.replace(__dirname, ''));
     return require(configPath);
   }
   return {};
@@ -48,7 +45,7 @@ module.exports = {
   reporters: ['default'],
   rootDir: __dirname,
   verbose: false,
-  projects: Workspaces.getWorkspacesSync().map(packageJSONLocation => {
+  projects: Workspaces.getWorkspacesSync().map((packageJSONLocation) => {
     const packageJSON = require(packageJSONLocation);
     const workspaceDirname = path.dirname(packageJSONLocation);
     return {
@@ -56,9 +53,7 @@ module.exports = {
       rootDir: workspaceDirname,
       testMatch: ['**/' + TESTS_GLOB],
       ...commonProjectConfig,
-      ...tryToLoadWorkspaceConfig(
-        path.join(workspaceDirname, 'jest.config.js'),
-      ),
+      ...tryToLoadWorkspaceConfig(path.join(workspaceDirname, 'jest.config.js')),
     };
   }),
 };

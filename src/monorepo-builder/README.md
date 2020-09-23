@@ -27,5 +27,5 @@ yarn monorepo-babel-node src/core/monorepo-builder/src/index.js <ROOT_WORKSPACE_
 So for example:
 
 ```text
-yarn monorepo-babel-node src/core/monorepo-builder/src/index.js @kiwicom/graphql com.kiwi.universe.graphql.build
+yarn monorepo-babel-node src/core/monorepo-builder/src/index.js @adeira/graphql com.adeira.universe.graphql.build
 ```
