@@ -2,7 +2,7 @@
   "name": "@adeira/fetch",
   "private": false,
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "src/fetchWithRetries",
   "module": false,
   "sideEffects": false,

@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.0.4
+
+- internal stylistic changes, dependencies bump, documentation updates
+
 # 1.0.3
 
 - `@babel/runtime` added into dependencies
