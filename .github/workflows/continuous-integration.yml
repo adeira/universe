@@ -19,10 +19,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        id: flow-cache
+        with:
+          path: .flow.saved_state
+          key: ${{ runner.os }}-flow-${{ hashFiles('**/.flow.saved_state') }}
+          restore-keys: |
+            ${{ runner.os }}-flow-
+
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
