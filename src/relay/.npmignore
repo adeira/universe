@@ -2,3 +2,5 @@ __flowtests__
 __github__
 __tests__
 .eslintrc.js
+BUILD.bazel
+BUILD
