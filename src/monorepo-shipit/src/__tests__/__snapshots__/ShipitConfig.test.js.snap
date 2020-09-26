@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`creates and runs the default filters 1`] = `
+Changeset {
+  "author": "John Doe <john@doe.com>",
+  "description": "Test description
+
+adeira-source-id: 1234567890",
+  "diffs": Set {
+    Object {
+      "body": "new file mode 100644
+index 0000000000000000000000000000000000000000..1111111111111111111111111111111111111111
+--- /dev/null
++++ b//destination_path/fakeFile_1.txt
+@@ -0,0 +1 @@
++fake content",
+      "path": "/destination_path/fakeFile_1.txt",
+    },
+    Object {
+      "body": "new file mode 100644
+index 0000000000000000000000000000000000000000..1111111111111111111111111111111111111111
+--- /dev/null
++++ b//destination_path/fakeFile_2.txt
+@@ -0,0 +1 @@
++fake content",
+      "path": "/destination_path/fakeFile_2.txt",
+    },
+  },
+  "id": "1234567890",
+  "subject": "Test subject",
+  "timestamp": "Mon, 16 July 2019 10:55:04 -0100",
+}
+`;

@@ -70,11 +70,19 @@ export default class ShipitConfig {
       const ch2 = stripExceptDirectories(ch1, this.getSourceRoots());
       const ch3 = moveDirectories(ch2, this.directoryMapping);
       const ch4 = stripPaths(ch3, this.strippedFiles);
+      const ch5 = stripPaths(
+        ch4,
+        new Set([
+          // These files are being stripped by default. It's currently not configurable.
+          /^BUILD(?:\.bazel)?$/,
+          /^WORKSPACE(?:\.bazel)?$/,
+        ]),
+      );
 
       // First we comment out lines marked with `@x-shipit-disable`.
-      const ch5 = commentLines(ch4, '@x-shipit-disable', '//', null);
+      const ch6 = commentLines(ch5, '@x-shipit-disable', '//', null);
       // Then we uncomment lines marked with `@x-shipit-enable`.
-      return uncommentLines(ch5, '@x-shipit-enable', '//', null);
+      return uncommentLines(ch6, '@x-shipit-enable', '//', null);
     };
   }
 
