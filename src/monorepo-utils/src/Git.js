@@ -52,8 +52,14 @@ const Git = {
   },
 
   getChangedFiles() /*: $ReadOnlyArray<string> */ {
-    const rawChanges = git('diff', '--name-only', 'origin/master...HEAD');
-    return __parseRows(rawChanges);
+    try {
+      const rawChanges = git('diff', '--name-only', 'origin/master...HEAD');
+      return __parseRows(rawChanges);
+    } catch {
+      // This command above fails if you have no remote, this should work until you add a remote
+      const rawChanges = git('diff', '--name-only', 'master...HEAD');
+      return __parseRows(rawChanges);
+    }
   },
 
   getLastCommitChanges() /*: $ReadOnlyArray<string> */ {
