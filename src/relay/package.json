@@ -20,7 +20,7 @@
     "@adeira/fetch": "^1.0.3",
     "@adeira/js": "^1.2.4",
     "@adeira/logger": "^0.2.0",
-    "@adeira/monorepo-utils": "^0.8.0",
+    "@adeira/monorepo-utils": "^0.9.0",
     "@adeira/relay-runtime": "^0.17.0",
     "@adeira/signed-source": "^1.0.0",
     "@babel/register": "^7.11.5",
