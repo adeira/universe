@@ -6,11 +6,18 @@ import isCI from 'is-ci';
 import { ShellCommand, findMonorepoRoot } from '@adeira/monorepo-utils';
 import logger from '@adeira/logger';
 
-const monorepoRoot = findMonorepoRoot();
-const flowBin = path.join(monorepoRoot, 'node_modules', '.bin', 'flow');
+export const root: string = (() => {
+  try {
+    return findMonorepoRoot();
+  } catch {
+    // In case it is not used in a monorepo, fallback to process.cwd
+    return process.cwd();
+  }
+})();
+const flowBin = path.join(root, 'node_modules', '.bin', 'flow');
 
 function hideRoot(string) {
-  return string.replace(new RegExp(monorepoRoot, 'g'), chalk.italic('<PROJECT_ROOT>'));
+  return string.replace(new RegExp(root, 'g'), chalk.italic('<PROJECT_ROOT>'));
 }
 
 function command(...commandChunks): ShellCommand {
@@ -20,7 +27,7 @@ function command(...commandChunks): ShellCommand {
     chalk.bold.green(flowBinCommand),
     ...rest.map((c) => chalk.dim(hideRoot(c))),
   );
-  return new ShellCommand(monorepoRoot, flowBin, ...commandChunks);
+  return new ShellCommand(root, flowBin, ...commandChunks);
 }
 
 export default class FlowWrapper {
@@ -63,7 +70,7 @@ export default class FlowWrapper {
   }
 
   static saveState(savedStatePath: string): void {
-    command('save-state', `--root=${monorepoRoot}`, `--out=${savedStatePath}`)
+    command('save-state', `--root=${root}`, `--out=${savedStatePath}`)
       .setOutputToScreen()
       .runSynchronously();
   }

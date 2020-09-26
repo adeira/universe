@@ -10,9 +10,9 @@ require('@babel/register')({
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const { findMonorepoRoot, Git } = require('@adeira/monorepo-utils');
+const { Git } = require('@adeira/monorepo-utils');
 
-const Flow = require('../src/index').default;
+const { default: Flow, root } = require('../src/index');
 
 const argv = process.argv.splice(2);
 const cli = (command) => argv.includes(command);
@@ -27,9 +27,8 @@ for (const command of argv) {
   }
 }
 
-const monorepoRoot = findMonorepoRoot();
-const savedStatePath = path.join(monorepoRoot, '.flow.saved_state');
-const savedStateFileChangesPath = path.join(monorepoRoot, '.flow.saved_state_file_changes');
+const savedStatePath = path.join(root, '.flow.saved_state');
+const savedStateFileChangesPath = path.join(root, '.flow.saved_state_file_changes');
 
 const changedFiles = Git.getChangesToTest();
 fs.writeFileSync(

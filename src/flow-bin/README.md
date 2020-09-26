@@ -93,3 +93,6 @@ yarn flow                (this runs Flow directly on already optimized server)
 # Additional resources
 
 - https://github.com/facebook/flow/blob/2f02130fe8fdc195b41fb6ee4c2c97aae9f35268/tests/saved_state_init_recheck/test.sh
+
+**Read carefully!** This package relies on `@adeira/monorepo-utils` and git. We assume that default branch is `origin/master` as it's common convention in Git. This is currently not configurable.
+This package will not work unless you are using git.
