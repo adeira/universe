@@ -1,11 +1,11 @@
 // @flow
 
 import RepoGitFake from '../RepoGitFake';
-import createFakeChangeset from '../utils/createFakeChangeset';
+import createMockChangeset from '../utils/createMockChangeset';
 
 it('can commit empty changeset', () => {
   const repo = new RepoGitFake();
-  const changeset = createFakeChangeset(0);
+  const changeset = createMockChangeset(0);
   repo.commitPatch(changeset);
   expect(repo.printFakeRepoHistory()).toMatchInlineSnapshot(`
     "SUBJ: Test subject
@@ -15,7 +15,7 @@ it('can commit empty changeset', () => {
 
 it('commits changeset with single diff correctly', () => {
   const repo = new RepoGitFake();
-  const changeset = createFakeChangeset(1);
+  const changeset = createMockChangeset(1);
   repo.commitPatch(changeset);
 
   expect(repo.printFakeRepoHistory()).toMatchInlineSnapshot(`
@@ -29,7 +29,7 @@ it('commits changeset with single diff correctly', () => {
 
 it('commits changeset with multiple diffs correctly', () => {
   const repo = new RepoGitFake();
-  const changeset = createFakeChangeset(3);
+  const changeset = createMockChangeset(3);
   repo.commitPatch(changeset);
 
   expect(repo.printFakeRepoHistory()).toMatchInlineSnapshot(`

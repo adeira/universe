@@ -12,5 +12,9 @@ testExportedPaths(path.join(__dirname, '..', 'monorepo-shipit.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
+  ['src/monorepo-shipit/BUILD.bazel', undefined], // correctly deleted
+  ['src/monorepo-shipit/BUILD', undefined], // correctly deleted
+  ['src/monorepo-shipit/WORKSPACE.bazel', undefined], // correctly deleted
+  ['src/monorepo-shipit/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);
