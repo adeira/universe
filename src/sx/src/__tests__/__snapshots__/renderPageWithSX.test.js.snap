@@ -151,6 +151,40 @@ class="wUqnh _4fo5TC"
 
 `;
 
+exports[`matches expected output: media-queries-goes-last.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "aaa": {
+    "@media (min-width: 640px)": {
+      "color": "#00f"
+    }
+  },
+  "bbb": {
+    "color": "#0f0"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._9MIuv {
+  color: #0f0;
+}
+@media (min-width: 640px) {
+  ._2dHaKY {
+    color: #00f;
+  }
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('aaa')}
+  ↓ ↓ ↓
+class="_2dHaKY"
+
+className={styles('bbb')}
+  ↓ ↓ ↓
+class="_9MIuv"
+
+`;
+
 exports[`matches expected output: media-queries-multiple.json 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {

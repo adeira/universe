@@ -1,0 +1,10 @@
+{
+  "aaa": {
+    "@media (min-width: 640px)": {
+      "color": "#00f"
+    }
+  },
+  "bbb": {
+    "color": "#0f0"
+  }
+}

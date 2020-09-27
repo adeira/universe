@@ -26,7 +26,7 @@ export class StyleNode {
   }
 }
 
-class StyleCollector {
+export class StyleCollector {
   styles: Map<string, StyleNode | StyleCollector>;
   atRuleName: ?string;
 
