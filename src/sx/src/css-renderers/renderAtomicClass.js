@@ -5,6 +5,7 @@ type Input = {|
   +styleName: string,
   +styleValue: string,
   +pseudo?: string,
+  +bumpSpecificity?: boolean,
 |};
 
 export default function renderAtomicClass({
@@ -12,6 +13,8 @@ export default function renderAtomicClass({
   styleName,
   styleValue,
   pseudo,
+  bumpSpecificity,
 }: Input): string {
-  return `.${className}${pseudo ?? ''}{${styleName}:${styleValue}}`;
+  const classSelector = `.${className}`.repeat(bumpSpecificity === true ? 2 : 1);
+  return `${classSelector}${pseudo ?? ''}{${styleName}:${styleValue}}`;
 }
