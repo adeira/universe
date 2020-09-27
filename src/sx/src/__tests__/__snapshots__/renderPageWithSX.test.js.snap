@@ -133,12 +133,12 @@ exports[`matches expected output: media-queries.json 1`] = `
   color: #f00;
 }
 @media print {
-  .wUqnh {
+  .wUqnh.wUqnh {
     color: #f00;
   }
 }
 @media (min-width: 30em) and (max-width: 50em) {
-  ._4fo5TC {
+  ._4fo5TC._4fo5TC {
     color: #00f;
   }
 }
@@ -180,18 +180,18 @@ exports[`matches expected output: media-queries-multiple.json 1`] = `
   font-size: 2rem;
 }
 @media print {
-  .wUqnh {
+  .wUqnh.wUqnh {
     color: #f00;
   }
-  .Zld8p {
+  .Zld8p.Zld8p {
     font-size: 1rem;
   }
-  .PJDYD {
+  .PJDYD.PJDYD {
     color: #008000;
   }
 }
 @media (min-width: 30em) and (max-width: 50em) {
-  ._4fo5TC {
+  ._4fo5TC._4fo5TC {
     color: #00f;
   }
 }
@@ -223,11 +223,11 @@ exports[`matches expected output: media-queries-nested.json 1`] = `
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media print {
-  .wUqnh {
+  .wUqnh.wUqnh {
     color: #f00;
   }
   @media (max-width: 12cm) {
-    ._4fo5TC {
+    ._4fo5TC._4fo5TC {
       color: #00f;
     }
   }
@@ -274,45 +274,45 @@ exports[`matches expected output: media-queries-nested-deep.json 1`] = `
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media (max-width: 10cm) {
-  ._1U1jA9 {
+  ._1U1jA9._1U1jA9 {
     color: #f00000;
   }
-  ._4lYNbZ {
+  ._4lYNbZ._4lYNbZ {
     background-color: #fff;
   }
   @media (max-width: 9cm) {
-    ._2cr3oP {
+    ._2cr3oP._2cr3oP {
       color: #0f0000;
     }
-    ._4lYNbZ {
+    ._4lYNbZ._4lYNbZ {
       background-color: #fff;
     }
     @media (max-width: 8cm) {
-      ._4zgUMg {
+      ._4zgUMg._4zgUMg {
         color: #00f000;
       }
-      ._4lYNbZ {
+      ._4lYNbZ._4lYNbZ {
         background-color: #fff;
       }
       @media (max-width: 7cm) {
-        ._3XFQyd {
+        ._3XFQyd._3XFQyd {
           color: #000f00;
         }
-        ._4lYNbZ {
+        ._4lYNbZ._4lYNbZ {
           background-color: #fff;
         }
         @media (max-width: 6cm) {
-          .CSuN9 {
+          .CSuN9.CSuN9 {
             color: #0000f0;
           }
-          ._4lYNbZ {
+          ._4lYNbZ._4lYNbZ {
             background-color: #fff;
           }
           @media (max-width: 5cm) {
-            ._3BdYKq {
+            ._3BdYKq._3BdYKq {
               color: #00000f;
             }
-            ._4lYNbZ {
+            ._4lYNbZ._4lYNbZ {
               background-color: #fff;
             }
           }
@@ -349,10 +349,10 @@ exports[`matches expected output: media-queries-nested-pseudo.json 1`] = `
   color: #f00;
 }
 @media print {
-  .wUqnh {
+  .wUqnh.wUqnh {
     color: #f00;
   }
-  ._4rAdwD:hover {
+  ._4rAdwD._4rAdwD:hover {
     color: #ffc0cb;
   }
 }
