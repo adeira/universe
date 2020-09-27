@@ -135,7 +135,7 @@ it('ignores vendor prefixed values', () => {
   `);
 });
 
-it('removes units from line-height', () => {
+it('does not remove rem units from line-height', () => {
   const css = `.leading-5 {
     line-height: 1.25rem;
   }`;
@@ -143,13 +143,13 @@ it('removes units from line-height', () => {
   expect(generate(css)).toMatchInlineSnapshot(`
     Object {
       "leading-5": Object {
-        "lineHeight": 1.25,
+        "lineHeight": "1.25rem",
       },
     }
   `);
 });
 
-it('removes units from font-size', () => {
+it('does not remove rem units from font-size', () => {
   const css = `.text-xs {
     font-size: 0.75rem;
   }`;
@@ -157,7 +157,35 @@ it('removes units from font-size', () => {
   expect(generate(css)).toMatchInlineSnapshot(`
     Object {
       "text-xs": Object {
-        "fontSize": 0.75,
+        "fontSize": "0.75rem",
+      },
+    }
+  `);
+});
+
+it('removes px units from line-height', () => {
+  const css = `.leading-5 {
+      line-height: 30px;
+    }`;
+
+  expect(generate(css)).toMatchInlineSnapshot(`
+    Object {
+      "leading-5": Object {
+        "lineHeight": 30,
+      },
+    }
+  `);
+});
+
+it('removes px units from font-size', () => {
+  const css = `.text-xs {
+      font-size: 24px;
+    }`;
+
+  expect(generate(css)).toMatchInlineSnapshot(`
+    Object {
+      "text-xs": Object {
+        "fontSize": 24,
       },
     }
   `);

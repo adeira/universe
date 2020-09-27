@@ -111,20 +111,18 @@ function getPseudoSelectorName(rule: { +[key: string]: any, ... }): ?string {
 }
 
 function getSXValue(value: { +[key: string]: any, ... }, property: string): string | number {
-  if (
-    UNITLESS_PROPS.has(property) &&
-    value.type === 'Value' &&
-    value.children.getSize() === 1 &&
-    value.children.first().type === 'Dimension'
-  ) {
-    return Number(value.children.first().value);
+  const children =
+    value.type === 'Value' && value.children.getSize() === 1 && value.children.first();
+
+  if (!children) {
+    return csstree.generate(value);
   }
 
-  return value.type === 'Value' &&
-    value.children.getSize() === 1 &&
-    value.children.first().type === 'Number'
-    ? Number(value.children.first().value)
-    : csstree.generate(value);
+  if (UNITLESS_PROPS.has(property) && children.type === 'Dimension' && children.unit === 'px') {
+    return Number(children.value);
+  }
+
+  return children.type === 'Number' ? Number(children.value) : csstree.generate(value);
 }
 
 function isSupportedProp(property: string): boolean {
