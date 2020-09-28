@@ -20,12 +20,9 @@ export default class MyDocument extends Document {
   }
 
   render(): React.Node {
+    // TODO: `lang`
     return (
-      <Html
-        lang={
-          'en' // TODO: dynamic if possible
-        }
-      >
+      <Html>
         <Head>
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148481588-2" />
           <script
