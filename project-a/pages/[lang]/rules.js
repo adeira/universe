@@ -4,8 +4,8 @@ import * as React from 'react';
 import fbt from 'fbt';
 import Head from 'next/head';
 
-import Rules from '../src/Rules';
-import Subpage from '../src/Subpage';
+import Rules from '../../src/Rules';
+import Subpage from '../../src/Subpage';
 
 export default function RulesPage(): React.Node {
   return (

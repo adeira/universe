@@ -43,7 +43,6 @@ type Props = {|
 export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   // TODO: useLocalStorage()
-  // TODO: fix this
   const lang = router.query.lang; // TODO: wrap it and properly validate it!
 
   initTranslations(lang === 'en' ? 'en_US' : 'es_MX'); // TODO: DRY (URL => FBT)

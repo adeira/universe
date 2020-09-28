@@ -21,7 +21,7 @@ export default function SubpageHeader(): React.Node {
 
 const styles = sx.create({
   headerBackground: {
-    backgroundImage: 'url(coffee-background.jpg)',
+    backgroundImage: 'url(/coffee-background.jpg)',
     backgroundSize: 'cover',
   },
   header: {

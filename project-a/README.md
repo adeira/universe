@@ -11,7 +11,7 @@ yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 
 - fix all TODOs
 - lighthouse check (mobile and desktop - incognito mode!)
-- multilanguage routes
+- favicon
 
 ## TODO (final checklist)
 
