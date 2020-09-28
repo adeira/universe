@@ -4,27 +4,24 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
+import NavigationLink from './NavigationLink';
+
 export default function SubpageNavigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <div>
-        {/* TODO: href */}
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#" className={styles('link')}>
+        <NavigationLink href="/" className={styles('link')}>
           <fbt desc="subpage navigation link to homepage">Homepage</fbt>
-        </a>
+        </NavigationLink>
       </div>
       <div>
-        {/* TODO: href */}
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#" className={styles('link')}>
+        <NavigationLink href="/menu" className={styles('link')}>
           <fbt desc="subpage navigation link to menu">Menu</fbt>
-        </a>
-        {/* TODO: href */}
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#" className={styles('link')}>
+        </NavigationLink>
+
+        <NavigationLink href="/rules" className={styles('link')}>
           <fbt desc="subpage navigation link to our rules">Our rules</fbt>
-        </a>
+        </NavigationLink>
       </div>
     </nav>
   );
@@ -38,9 +35,14 @@ const styles = sx.create({
     justifyContent: 'space-between',
   },
   link: {
-    'paddingRight': 10,
+    'fontSize': 20,
+    'paddingRight': 15,
+    'textDecoration': 'none',
     ':last-child': {
       paddingRight: 0,
+    },
+    ':hover': {
+      textDecoration: 'underline',
     },
   },
 });
