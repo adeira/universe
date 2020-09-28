@@ -6,8 +6,8 @@ import { useRouter } from 'next/router';
 
 type Props = {|
   +href: string,
-  +className: string,
   +children: React.Node,
+  +className?: string,
 |};
 
 /**

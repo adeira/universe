@@ -8,7 +8,9 @@ import fbt from 'fbt';
 export default function SkipLink(): React.Node {
   return (
     <a className={styles('skipLink')} href="#main">
-      <fbt desc="skip link title">Skip to main</fbt>
+      <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+        Skip to content
+      </fbt>
     </a>
   );
 }

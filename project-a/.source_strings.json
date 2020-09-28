@@ -2,17 +2,17 @@
  "phrases": [
   {
    "hashToText": {
-    "xOEP2NClrTfKXNMmS96lmQ==": "Skip to main"
+    "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "src/design/SkipLink.js",
    "line_beg": 11,
    "col_beg": 6,
-   "line_end": 11,
-   "col_end": 52,
-   "desc": "skip link title",
+   "line_end": 13,
+   "col_end": 12,
+   "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
    "type": "text",
-   "jsfbt": "Skip to main"
+   "jsfbt": "Skip to content"
   },
   {
    "hashToText": {
@@ -308,6 +308,48 @@
    "project": "",
    "type": "text",
    "jsfbt": "coming soon"
+  },
+  {
+   "hashToText": {
+    "NpcZj+UkPbW2MN/55RRw+w==": "Page Not Found"
+   },
+   "filepath": "pages/404.js",
+   "line_beg": 26,
+   "col_beg": 12,
+   "line_end": 26,
+   "col_end": 67,
+   "desc": "page not found heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Page Not Found"
+  },
+  {
+   "hashToText": {
+    "Qr9e1v30qLiew6DJI9IGGg==": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere."
+   },
+   "filepath": "pages/404.js",
+   "line_beg": 29,
+   "col_beg": 12,
+   "line_end": 32,
+   "col_end": 18,
+   "desc": "page not found explanation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere."
+  },
+  {
+   "hashToText": {
+    "bGETY4UjHAPYzub5GiMNzA==": "Go back to Homepage"
+   },
+   "filepath": "pages/404.js",
+   "line_beg": 36,
+   "col_beg": 14,
+   "line_end": 36,
+   "col_end": 82,
+   "desc": "go back to homepage link title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Go back to Homepage"
   },
   {
    "hashToText": {
