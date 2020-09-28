@@ -9,7 +9,8 @@
   "sideEffects": false,
   "module": false,
   "scripts": {
-    "generate": "yarn monorepo-babel-node src/generate.js"
+    "generate": "yarn monorepo-babel-node src/generate.js",
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@adeira/signed-source": "^1.0.0",
@@ -17,5 +18,15 @@
     "change-case": "^4.1.1",
     "css-tree": "^1.0.0-alpha.39",
     "prettier": "^2.1.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@adeira/babel-preset-adeira": "^1.0.0",
+    "@babel/core": "^7.11.6",
+    "@storybook/addon-essentials": "^6.0.22",
+    "@storybook/addon-links": "^6.0.22",
+    "@storybook/react": "^6.0.22"
   }
 }

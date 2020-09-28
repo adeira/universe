@@ -24,6 +24,14 @@ export default function Button() {
     </button>;
 ```
 
+## Demo
+
+You can see SX Tailwind in action:
+
+```
+yarn storybook
+```
+
 ## Develop
 
 Generate stylesheets and helper files:
