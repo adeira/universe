@@ -11,18 +11,20 @@ type RenderPageResult = {|
   +styles: $ReadOnlyArray<any>,
 |};
 
-function renderAtomic(styleCollector, prefix = '') {
+function renderAtomic(styleCollector, bumpSpecificity = false) {
   let sxStyle = '';
   styleCollector.forEach((value, key) => {
     if (value instanceof StyleNode) {
-      sxStyle += `${prefix}${renderAtomicClass({
+      sxStyle += `${renderAtomicClass({
         className: key,
         styleName: value.propertyName,
         styleValue: value.styleValue,
         pseudo: value.pseudo,
+        bumpSpecificity,
       })}`;
     } else {
-      sxStyle += `${key} {${renderAtomic(value.styles)}}`;
+      const bumpSpecificity = key.startsWith('@media ');
+      sxStyle += `${key} {${renderAtomic(value.styles, bumpSpecificity)}}`;
     }
   });
 

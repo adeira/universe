@@ -12,6 +12,6 @@
     "fast-levenshtein": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.9.0"
+    "eslint": "^7.10.0"
   }
 }

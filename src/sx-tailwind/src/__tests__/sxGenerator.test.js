@@ -34,14 +34,49 @@ it('works with pseudo class selector', () => {
   `);
 });
 
-it('skips classes in media query', () => {
+it('supports classes in media query', () => {
   const css = `@media (min-width: 640px) {
     .container {
       max-width: 640px;
     }
   }`;
 
-  expect(generate(css)).toMatchInlineSnapshot(`Object {}`);
+  expect(generate(css)).toMatchInlineSnapshot(`
+    Object {
+      "container": Object {
+        "@media (min-width:640px)": Object {
+          "maxWidth": "640px",
+        },
+      },
+    }
+  `);
+});
+
+it('supports nested media queries', () => {
+  const css = `@media (min-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        max-width: 640px;
+      }
+    }
+  }`;
+
+  expect(generate(css)).toMatchInlineSnapshot(`
+    Object {
+      "container": Object {
+        "@media (min-width:768px)": Object {
+          "@media (min-width:640px)": Object {
+            "maxWidth": "640px",
+          },
+          "width": "100%",
+        },
+      },
+    }
+  `);
 });
 
 it('generates multiple declarations', () => {
@@ -147,6 +182,16 @@ it('does not overwrite declarations', () => {
 it('skips empty styles', () => {
   const css = `.hover\\:-skew-y-12:hover {
     --transform-skew-y: -12deg;
+  }`;
+
+  expect(generate(css)).toMatchInlineSnapshot(`Object {}`);
+});
+
+it('skips empty media queries', () => {
+  const css = `@keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }`;
 
   expect(generate(css)).toMatchInlineSnapshot(`Object {}`);
