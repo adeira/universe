@@ -1,0 +1,20 @@
+load("//:bazel/macros/build_yarn_workspace.bzl", "build_yarn_workspace")
+load("//:bazel/macros/test_yarn_workspace.bzl", "test_yarn_workspace")
+
+build_yarn_workspace(
+    name = "sx",
+    package_name = "@adeira/sx",
+)
+
+test_yarn_workspace(
+    name = "test",
+    deps = [
+        "@npm//change-case",
+        "@npm//fast-levenshtein",
+        "@npm//prettier",
+        "@npm//react-test-renderer",
+        "@universe//src/js",
+        "@universe//src/murmur-hash",
+        "@universe//src/test-utils",
+    ],
+)

@@ -1,0 +1,39 @@
+name: Continuous Integration (Bazel)
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      # TODO: use CI cache
+
+      - name: Install bazelisk
+        run: |
+          curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v1.6.1/bazelisk-linux-amd64"
+          mkdir -p "${GITHUB_WORKSPACE}/bin/"
+          mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
+          chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
+
+      - name: Bazel version
+        run: |
+          "${GITHUB_WORKSPACE}/bin/bazel" version
+
+      # TODO: run Flow and other checks as well
+      # https://bazelbuild.github.io/rules_nodejs/dependencies.html
+      - name: Install NPM dependencies
+        run: |
+          "${GITHUB_WORKSPACE}/bin/bazel" run @nodejs//:yarn -- --frozen-lockfile
+
+      - name: Run Buldifier lint
+        run: |
+          "${GITHUB_WORKSPACE}/bin/bazel" run --build_tag_filters=manual //:buildifier.lint
+
+      # TODO: run Bazel test
+
+      - name: Build
+        run: |
+          "${GITHUB_WORKSPACE}/bin/bazel" build //...
