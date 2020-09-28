@@ -17,6 +17,8 @@ export default function Footer(): React.Node {
           </fbt>
         </a>
       </div>
+
+      {/* TODO: language switch */}
     </div>
   );
 }

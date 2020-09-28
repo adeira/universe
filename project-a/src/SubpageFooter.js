@@ -15,8 +15,8 @@ export default function SubpageFooter(): React.Node {
 
 const styles = sx.create({
   wrapper: {
-    marginTop: 50,
-    padding: 50,
+    marginTop: '5vw',
+    padding: '5vw',
     backgroundColor: '#e9e9e9',
   },
 });

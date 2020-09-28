@@ -4,24 +4,24 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import NavigationLink from './NavigationLink';
+import Link from './Link';
 
 export default function SubpageNavigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <div>
-        <NavigationLink href="/" className={styles('link')}>
+        <Link href="/" className={styles('link')}>
           <fbt desc="subpage navigation link to homepage">Homepage</fbt>
-        </NavigationLink>
+        </Link>
       </div>
       <div>
-        <NavigationLink href="/menu" className={styles('link')}>
+        <Link href="/menu" className={styles('link')}>
           <fbt desc="subpage navigation link to menu">Menu</fbt>
-        </NavigationLink>
+        </Link>
 
-        <NavigationLink href="/rules" className={styles('link')}>
+        <Link href="/rules" className={styles('link')}>
           <fbt desc="subpage navigation link to our rules">Our rules</fbt>
-        </NavigationLink>
+        </Link>
       </div>
     </nav>
   );
@@ -33,6 +33,9 @@ const styles = sx.create({
     padding: 10,
     display: 'flex',
     justifyContent: 'space-between',
+    position: 'sticky',
+    top: 0,
+    zIndex: 1,
   },
   link: {
     'fontSize': 20,

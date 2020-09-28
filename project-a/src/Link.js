@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
 type Props = {|
@@ -14,16 +14,16 @@ type Props = {|
  * Use this link without worrying about the route language:
  *
  * ```
- * <NavigationLink href="/menu">
+ * <Link href="/menu">
  * ```
  *
  * (no `/en/menu` and similar)
  */
-export default function NavigationLink(props: Props): React.Node {
+export default function Link(props: Props): React.Node {
   const router = useRouter();
 
   function getLinkProps(path: string) {
-    const lang = router.query.lang; // TODO: wrap it and properly validate it!
+    const lang = router.query.lang; // TODO: properly validate it!
     const linkProps = {
       href: lang == null ? path : `/[lang]${path}`,
       as: undefined,
@@ -35,9 +35,9 @@ export default function NavigationLink(props: Props): React.Node {
   }
 
   return (
-    <Link {...getLinkProps(props.href)}>
+    <NextLink {...getLinkProps(props.href)}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a className={props.className}>{props.children}</a>
-    </Link>
+    </NextLink>
   );
 }

@@ -57,7 +57,7 @@ const styles = sx.create({
     alignItems: 'center',
   },
   background: {
-    backgroundImage: 'url(coffee-background.jpg)',
+    backgroundImage: 'url(/coffee-background.jpg)',
     backgroundSize: 'cover',
   },
   backgroundOverlay: {

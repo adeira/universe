@@ -5,9 +5,9 @@ import * as sx from '@adeira/sx';
 import Head from 'next/head';
 import fbt from 'fbt';
 
-import Heading from '../src/design/Heading';
-import Section from '../src/design/Section';
-import Subpage from '../src/Subpage';
+import Heading from '../../src/design/Heading';
+import Section from '../../src/design/Section';
+import Subpage from '../../src/Subpage';
 
 export default function MenuPage(): React.Node {
   return (

@@ -6,7 +6,7 @@ import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import Heading from '../src/design/Heading';
-import NavigationLink from '../src/NavigationLink';
+import Link from '../src/Link';
 
 export default function Custom404(): React.Node {
   // TODO: log this page and the reason why it happened
@@ -32,9 +32,9 @@ export default function Custom404(): React.Node {
             </fbt>
           </p>
           <p>
-            <NavigationLink href="/">
+            <Link href="/">
               <fbt desc="go back to homepage link title">Go back to Homepage</fbt>
-            </NavigationLink>
+            </Link>
           </p>
         </main>
       </div>
