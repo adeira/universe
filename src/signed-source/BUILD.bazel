@@ -1,0 +1,11 @@
+load("//:bazel/macros/build_yarn_workspace.bzl", "build_yarn_workspace")
+load("//:bazel/macros/test_yarn_workspace.bzl", "test_yarn_workspace")
+
+build_yarn_workspace(
+    name = "signed-source",
+    package_name = "@adeira/signed-source",
+)
+
+test_yarn_workspace(
+    name = "test",
+)

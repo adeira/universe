@@ -1,0 +1,16 @@
+load("//:bazel/macros/build_yarn_workspace.bzl", "build_yarn_workspace")
+load("//:bazel/macros/test_yarn_workspace.bzl", "test_yarn_workspace")
+
+build_yarn_workspace(
+    name = "eslint_plugin_adeira",
+    package_name = "@adeira/eslint-plugin-adeira",
+)
+
+test_yarn_workspace(
+    name = "test",
+    deps = [
+        "@npm//babel-eslint",
+        "@npm//eslint",
+        "@npm//fast-levenshtein",
+    ],
+)
