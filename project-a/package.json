@@ -9,9 +9,9 @@
     "start": "next start",
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "test": "yarn jest",
-    "fbt:manifest": "fbt-manifest --src=src --src=pages",
-    "fbt:collect": "NODE_ENV=development fbt-collect --options=__self --pretty --manifest < .src_manifest.json > .source_strings.json",
-    "fbt:translate": "fbt-translate --translations translations/*.json --jenkins > translatedFbts.json",
+    "fbt:manifest": "fbt-manifest --src=src --src=pages --enum-manifest=translations/.enum_manifest.json --src-manifest=translations/.src_manifest.json",
+    "fbt:collect": "fbt-collect --options=__self --pretty --manifest < translations/.src_manifest.json > translations/.source_strings.json",
+    "fbt:translate": "fbt-translate --source-strings=translations/.source_strings.json --pretty --translations translations/in/*.json --output-dir=translations/out --jenkins",
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
