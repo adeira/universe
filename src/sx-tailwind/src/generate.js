@@ -42,29 +42,8 @@ const codeTypes = SignedSource.signFile(`
 export type TailwindClassNames = "${Object.keys(styles).join('"|"')}";
 `);
 
-const codeSxt = SignedSource.signFile(`
-/**
- * ${SignedSource.getSigningToken()}
- * @flow
- */
-
-import * as sx from '@adeira/sx';
-
-import { tailwindStyles } from './tailwindStyles';
-import { type TailwindClassNames } from './types';
-
-export function sxt(...names: $ReadOnlyArray<TailwindClassNames>): string {
-  const styles = Object.fromEntries(
-    names.filter((name) => name in tailwindStyles).map((name) => [name, tailwindStyles[name]]),
-  );
-
-  return sx.create(styles)(...names);
-}
-`);
-
 const filesConfig = [
   { code: codeStyles, filename: 'tailwindStyles.js' },
-  { code: codeSxt, filename: 'sxt.js' },
   { code: codeTypes, filename: 'types.js' },
 ];
 
