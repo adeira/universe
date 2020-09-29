@@ -11,7 +11,7 @@ import './_app.css';
 import Logo from '../src/Logo';
 import SkipLink from '../src/design/SkipLink';
 
-type SupportedLocales = 'en-US' | 'es-MX';
+type SupportedLocales = 'en_US' | 'es_MX';
 
 if (
   __DEV__ &&
@@ -33,19 +33,19 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   const lang = router.query.lang; // TODO: wrap it and properly validate it!
 
   init({
-    translations: require('../translations/out/es-MX.json'), // TODO
+    translations: require('../translations/out/es_MX.json'), // TODO
     // $FlowIssue[cannot-resolve-module] https://github.com/facebook/flow/issues/7673
     fbtEnumManifest: require('../translations/.enum_manifest.json'),
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale: lang === 'en' ? 'en-US' : 'es-MX', // TODO: DRY (URL => FBT)
+        locale: lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
       }),
     },
   });
 
   const [locale] = React.useState<SupportedLocales>(
-    lang === 'en' ? 'en-US' : 'es-MX', // TODO: DRY (URL => FBT)
+    lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
   );
 
   if (!__DEV__) {
