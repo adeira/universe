@@ -11,20 +11,7 @@ import './_app.css';
 import Logo from '../src/Logo';
 import SkipLink from '../src/design/SkipLink';
 
-type SupportedLocales = 'en_US' | 'es_MX';
-function initTranslations(locale: SupportedLocales) {
-  init({
-    translations: require('../translatedFbts.json'),
-    // $FlowIssue[cannot-resolve-module] https://github.com/facebook/flow/issues/7673
-    fbtEnumManifest: require('../.enum_manifest.json'),
-    hooks: {
-      getViewerContext: () => ({
-        GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale,
-      }),
-    },
-  });
-}
+type SupportedLocales = 'en-US' | 'es-MX';
 
 if (
   __DEV__ &&
@@ -45,10 +32,20 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   // TODO: useLocalStorage()
   const lang = router.query.lang; // TODO: wrap it and properly validate it!
 
-  initTranslations(lang === 'en' ? 'en_US' : 'es_MX'); // TODO: DRY (URL => FBT)
+  init({
+    translations: require('../translations/out/es-MX.json'), // TODO
+    // $FlowIssue[cannot-resolve-module] https://github.com/facebook/flow/issues/7673
+    fbtEnumManifest: require('../translations/.enum_manifest.json'),
+    hooks: {
+      getViewerContext: () => ({
+        GENDER: IntlVariations.GENDER_UNKNOWN,
+        locale: lang === 'en' ? 'en-US' : 'es-MX', // TODO: DRY (URL => FBT)
+      }),
+    },
+  });
 
   const [locale] = React.useState<SupportedLocales>(
-    lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
+    lang === 'en' ? 'en-US' : 'es-MX', // TODO: DRY (URL => FBT)
   );
 
   if (!__DEV__) {
