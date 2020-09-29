@@ -1,5 +1,5 @@
 // @flow
 
-import { sxt } from './src/__generated__/sxt';
+import { sxt, tailwind } from './src/sxTailwind';
 
-export { sxt };
+export { sxt, tailwind };
