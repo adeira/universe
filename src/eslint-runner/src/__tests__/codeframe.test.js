@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import stripAnsi from 'strip-ansi';
 
-import codeframe from '../codeframe';
+import codeframe, { type Results } from '../codeframe';
 
 function getMockMessage(severity: 'warning' | 'error') {
   return {
@@ -20,10 +20,21 @@ function getMockMessage(severity: 'warning' | 'error') {
   };
 }
 
-function getMockResults(messages) {
+function getMockUnusedDirectiveMessage() {
+  return {
+    ruleId: null,
+    message: 'Unused eslint-disable directive (MOCK).',
+    line: 3,
+    column: 1,
+    severity: 2,
+    nodeType: null,
+  };
+}
+
+function getMockResults(messages): Results {
   return [
     {
-      filePath: 'src/test.js',
+      filePath: 'src/sleepSort.js',
       messages,
       errorCount: 1,
       warningCount: 1,
@@ -41,6 +52,7 @@ it('prints the error as expected', () => {
 
 it('prints the warnings first', () => {
   const results = getMockResults([
+    getMockUnusedDirectiveMessage(),
     getMockMessage('error'),
     getMockMessage('warning'),
     getMockMessage('error'),
@@ -49,5 +61,10 @@ it('prints the warnings first', () => {
     getMockMessage('warning'),
   ]);
 
+  expect(stripAnsi(codeframe(results, { highlightCode: false }))).toMatchSnapshot();
+});
+
+it('prints unused eslint-disable directive correctly', () => {
+  const results = getMockResults([getMockUnusedDirectiveMessage()]);
   expect(stripAnsi(codeframe(results, { highlightCode: false }))).toMatchSnapshot();
 });

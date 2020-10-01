@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`prints the error as expected 1`] = `
-"TODO (rule-id-111) at src/test.js:4:0
+"TODO (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -11,7 +11,7 @@ exports[`prints the error as expected 1`] = `
   7 | 
 
 
-ERROR (rule-id-111) at src/test.js:4:0
+ERROR (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -24,7 +24,7 @@ ERROR (rule-id-111) at src/test.js:4:0
 `;
 
 exports[`prints the warnings first 1`] = `
-"TODO (rule-id-111) at src/test.js:4:0
+"TODO (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -34,7 +34,7 @@ exports[`prints the warnings first 1`] = `
   7 | 
 
 
-TODO (rule-id-111) at src/test.js:4:0
+TODO (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -44,7 +44,7 @@ TODO (rule-id-111) at src/test.js:4:0
   7 | 
 
 
-TODO (rule-id-111) at src/test.js:4:0
+TODO (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -54,7 +54,7 @@ TODO (rule-id-111) at src/test.js:4:0
   7 | 
 
 
-TODO (rule-id-111) at src/test.js:4:0
+TODO (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -64,7 +64,17 @@ TODO (rule-id-111) at src/test.js:4:0
   7 | 
 
 
-ERROR (rule-id-111) at src/test.js:4:0
+ERROR at src/sleepSort.js:3:1
+  1 | // @flow strict
+  2 | 
+> 3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
+    | ^ Unused eslint-disable directive (MOCK)
+  4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
+  5 |   setTimeout(() => console.log(num), num);
+  6 | });
+
+
+ERROR (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -74,7 +84,7 @@ ERROR (rule-id-111) at src/test.js:4:0
   7 | 
 
 
-ERROR (rule-id-111) at src/test.js:4:0
+ERROR (rule-id-111) at src/sleepSort.js:4:0
   2 | 
   3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
 > 4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
@@ -82,6 +92,19 @@ ERROR (rule-id-111) at src/test.js:4:0
   5 |   setTimeout(() => console.log(num), num);
   6 | });
   7 | 
+
+"
+`;
+
+exports[`prints unused eslint-disable directive correctly 1`] = `
+"ERROR at src/sleepSort.js:3:1
+  1 | // @flow strict
+  2 | 
+> 3 | // https://twitter.com/JavaScriptDaily/status/856267407106682880 😇
+    | ^ Unused eslint-disable directive (MOCK)
+  4 | [3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
+  5 |   setTimeout(() => console.log(num), num);
+  6 | });
 
 "
 `;
