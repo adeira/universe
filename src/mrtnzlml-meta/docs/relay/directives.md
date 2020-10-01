@@ -118,6 +118,26 @@ mutation CommentDeleteMutation(
 }
 ```
 
+## @deleteEdge
+
+As the name hints at, this particular directive allows you to remove a node's edge from the provided connections. Please note that this directive does not _delete the node_, only edge(s) for the node. There's `deleteRecord` already for deleting a record, which can be combined with this directive.
+
+It's intended to be used like this:
+
+```graphql
+mutation DeleteComment($input: DeleteCommentInput!, $connections: [String!]!) {
+  deleteComment(input: $input) {
+    deletedCommentId @deleteEdge(connections: $connections)
+    # This will delete any edge for the node with id `deletedCommentId` from the
+    # connections provided through `$connections`
+  }
+}
+```
+
+It works for single IDs (as demonstrated above) as well as a list of IDs.
+
+See: https://github.com/facebook/relay/commit/01d65b3cbeb8098025546627b76855d6c5c7112a
+
 ## @appendEdge, @prependEdge, @appendNode, @prependNode
 
 ```graphql
