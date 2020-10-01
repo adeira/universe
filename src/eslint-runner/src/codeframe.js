@@ -7,7 +7,7 @@ const { codeFrameColumns } = require('@babel/code-frame');
 /*::
 
 // https://eslint.org/docs/developer-guide/nodejs-api#-lintresult-type
-type Results = $ReadOnlyArray<{
+export type Results = $ReadOnlyArray<{
   +filePath: string,
   +messages: $ReadOnlyArray<{
     +ruleId: string | null,
@@ -15,9 +15,8 @@ type Results = $ReadOnlyArray<{
     +message: string,
     +line?: number,
     +column?: number,
-    +endLine: number,
-    +endColumn: number,
-    +ruleId: string,
+    +endLine?: number,
+    +endColumn?: number,
     +fatal?: boolean,
     ...
   }>,
@@ -50,7 +49,8 @@ function formatMessage(message, parentResult, options) {
   const type =
     message.fatal || message.severity === 2 ? chalk.red.bold('ERROR') : chalk.magenta.bold('TODO');
   const msg = `${chalk.bold(message.message.replace(/(?<msg>[^ ])\.$/u, '$1'))}`;
-  const ruleId = message.fatal ? '' : chalk.dim(`(${message.ruleId})`);
+  const ruleId =
+    message.fatal === true || message.ruleId == null ? '' : chalk.dim(`(${message.ruleId})`);
   const filePath = formatFilePath(parentResult.filePath, message.line, message.column);
   const sourceCode = parentResult.output != null ? parentResult.output : parentResult.source;
 
@@ -61,19 +61,19 @@ function formatMessage(message, parentResult, options) {
   const result = [firstLine];
 
   if (sourceCode) {
+    const location = {
+      start: { line: message.line, column: message.column },
+      end: undefined,
+    };
+    if (message.endLine != null && message.endColumn != null) {
+      location.end = { line: message.endLine, column: message.endColumn };
+    }
     result.push(
-      codeFrameColumns(
-        sourceCode,
-        {
-          start: { line: message.line, column: message.column },
-          end: { line: message.endLine, column: message.endColumn },
-        },
-        {
-          highlightCode: true,
-          ...options,
-          message: msg,
-        },
-      ),
+      codeFrameColumns(sourceCode, location, {
+        highlightCode: true,
+        ...options,
+        message: msg,
+      }),
     );
   }
 
