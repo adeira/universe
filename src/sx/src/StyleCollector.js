@@ -10,8 +10,9 @@ function hashStylePair(
   styleName: string,
   styleValue?: string | number = '',
   pseudo?: string = '',
+  atRule?: string | null = '',
 ): string {
-  return hashStyle(`${styleName}${styleValue}${pseudo}`);
+  return hashStyle(`${styleName}${styleValue}${pseudo}${atRule ?? ''}`);
 }
 
 export class StyleNode {
@@ -56,7 +57,7 @@ class StyleCollector {
         typeof property === 'string' &&
         (typeof styleValue === 'number' || typeof styleValue === 'string')
       ) {
-        const hash = hashStylePair(property, styleValue, pseudo);
+        const hash = hashStylePair(property, styleValue, pseudo, this.atRuleName);
 
         addToSheetDefinitions(className ?? '', property, hash, pseudo);
 

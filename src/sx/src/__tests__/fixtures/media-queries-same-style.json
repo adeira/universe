@@ -1,0 +1,11 @@
+{
+  "style1": {
+    "@media (min-width: 1280px)": {
+      "color": "red"
+    },
+    "color": "blue"
+  },
+  "style2": {
+    "color": "red"
+  }
+}

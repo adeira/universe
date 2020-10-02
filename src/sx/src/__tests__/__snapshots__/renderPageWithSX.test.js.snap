@@ -23,23 +23,23 @@ exports[`matches expected output: @supports.json 1`] = `
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
-  ._3oUfxs {
+  ._3GKV06 {
     display: grid;
   }
 }
 @supports not (display: grid) {
-  ._2Q4zfo {
+  ._1cjV2G {
     float: right;
   }
 }
 @supports (display: table-cell) and ((display: list-item) and (display: run-in)) {
-  .wUqnh {
+  ._3DO79H {
     color: #f00;
   }
 }
 @supports (transform-style: preserve) or (-moz-transform-style: preserve) or
   (-o-transform-style: preserve) or (-webkit-transform-style: preserve) {
-  .wUqnh {
+  ._4mzMj8 {
     color: #f00;
   }
 }
@@ -48,11 +48,11 @@ exports[`matches expected output: @supports.json 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="_3oUfxs _2Q4zfo"
+class="_3GKV06 _1cjV2G"
 
 className={styles('testComplex')}
   ↓ ↓ ↓
-class="wUqnh"
+class="_3DO79H _4mzMj8"
 
 `;
 
@@ -74,16 +74,16 @@ exports[`matches expected output: @supports-nested.json 1`] = `
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
-  .wUqnh {
+  ._3LkwQx {
     color: #f00;
   }
   @supports not (display: grid) {
-    ._4fo5TC {
+    ._3KVzHX {
       color: #00f;
     }
     @supports (display: table-cell) and
       ((display: list-item) and (display: run-in)) {
-      ._4ufr6B {
+      ._39dw1H {
         color: #ffa500;
       }
     }
@@ -94,7 +94,7 @@ exports[`matches expected output: @supports-nested.json 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="wUqnh _4fo5TC _4ufr6B"
+class="_3LkwQx _3KVzHX _39dw1H"
 
 `;
 
@@ -133,12 +133,12 @@ exports[`matches expected output: media-queries.json 1`] = `
   color: #f00;
 }
 @media print {
-  .wUqnh.wUqnh {
+  .zIzjk.zIzjk {
     color: #f00;
   }
 }
 @media (min-width: 30em) and (max-width: 50em) {
-  ._4fo5TC._4fo5TC {
+  ._27Xk5F._27Xk5F {
     color: #00f;
   }
 }
@@ -147,7 +147,7 @@ exports[`matches expected output: media-queries.json 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="wUqnh _4fo5TC"
+class="wUqnh zIzjk _27Xk5F"
 
 `;
 
@@ -180,18 +180,18 @@ exports[`matches expected output: media-queries-multiple.json 1`] = `
   font-size: 2rem;
 }
 @media print {
-  .wUqnh.wUqnh {
+  .zIzjk.zIzjk {
     color: #f00;
   }
-  .Zld8p.Zld8p {
+  .uxyoC.uxyoC {
     font-size: 1rem;
   }
-  .PJDYD.PJDYD {
+  .v2909.v2909 {
     color: #008000;
   }
 }
 @media (min-width: 30em) and (max-width: 50em) {
-  ._4fo5TC._4fo5TC {
+  ._27Xk5F._27Xk5F {
     color: #00f;
   }
 }
@@ -200,11 +200,11 @@ exports[`matches expected output: media-queries-multiple.json 1`] = `
 
 className={styles('aaa')}
   ↓ ↓ ↓
-class="wUqnh _2ZJp7Y Zld8p _4fo5TC"
+class="wUqnh _2ZJp7Y zIzjk uxyoC _27Xk5F"
 
 className={styles('bbb')}
   ↓ ↓ ↓
-class="PJDYD"
+class="v2909"
 
 `;
 
@@ -223,11 +223,11 @@ exports[`matches expected output: media-queries-nested.json 1`] = `
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media print {
-  .wUqnh.wUqnh {
+  .zIzjk.zIzjk {
     color: #f00;
   }
   @media (max-width: 12cm) {
-    ._4fo5TC._4fo5TC {
+    .Uxdbe.Uxdbe {
       color: #00f;
     }
   }
@@ -237,7 +237,7 @@ exports[`matches expected output: media-queries-nested.json 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="wUqnh _4fo5TC"
+class="zIzjk Uxdbe"
 
 `;
 
@@ -274,45 +274,45 @@ exports[`matches expected output: media-queries-nested-deep.json 1`] = `
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media (max-width: 10cm) {
-  ._1U1jA9._1U1jA9 {
+  ._4bGnnn._4bGnnn {
     color: #f00000;
   }
-  ._4lYNbZ._4lYNbZ {
+  ._1kQaJH._1kQaJH {
     background-color: #fff;
   }
   @media (max-width: 9cm) {
-    ._2cr3oP._2cr3oP {
+    ._21BNws._21BNws {
       color: #0f0000;
     }
-    ._4lYNbZ._4lYNbZ {
+    ._3Lm6Uw._3Lm6Uw {
       background-color: #fff;
     }
     @media (max-width: 8cm) {
-      ._4zgUMg._4zgUMg {
+      ._2sV160._2sV160 {
         color: #00f000;
       }
-      ._4lYNbZ._4lYNbZ {
+      ._1bLvdm._1bLvdm {
         background-color: #fff;
       }
       @media (max-width: 7cm) {
-        ._3XFQyd._3XFQyd {
+        ._3TWByw._3TWByw {
           color: #000f00;
         }
-        ._4lYNbZ._4lYNbZ {
+        ._1adr9y._1adr9y {
           background-color: #fff;
         }
         @media (max-width: 6cm) {
-          .CSuN9.CSuN9 {
+          ._1EWUxi._1EWUxi {
             color: #0000f0;
           }
-          ._4lYNbZ._4lYNbZ {
+          ._2g7PIB._2g7PIB {
             background-color: #fff;
           }
           @media (max-width: 5cm) {
-            ._3BdYKq._3BdYKq {
+            ._3l858s._3l858s {
               color: #00000f;
             }
-            ._4lYNbZ._4lYNbZ {
+            ._22f0H3._22f0H3 {
               background-color: #fff;
             }
           }
@@ -326,7 +326,7 @@ exports[`matches expected output: media-queries-nested-deep.json 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="_1U1jA9 _4lYNbZ _2cr3oP _4zgUMg _3XFQyd CSuN9 _3BdYKq"
+class="_4bGnnn _1kQaJH _21BNws _3Lm6Uw _2sV160 _1bLvdm _3TWByw _1adr9y _1EWUxi _2g7PIB _3l858s _22f0H3"
 
 `;
 
@@ -349,10 +349,10 @@ exports[`matches expected output: media-queries-nested-pseudo.json 1`] = `
   color: #f00;
 }
 @media print {
-  .wUqnh.wUqnh {
+  .zIzjk.zIzjk {
     color: #f00;
   }
-  ._4rAdwD._4rAdwD:hover {
+  ._1oLCEM._1oLCEM:hover {
     color: #ffc0cb;
   }
 }
@@ -361,7 +361,45 @@ exports[`matches expected output: media-queries-nested-pseudo.json 1`] = `
 
 className={styles('media')}
   ↓ ↓ ↓
-class="wUqnh _4rAdwD"
+class="wUqnh _1oLCEM"
+
+`;
+
+exports[`matches expected output: media-queries-same-style.json 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "style1": {
+    "@media (min-width: 1280px)": {
+      "color": "red"
+    },
+    "color": "blue"
+  },
+  "style2": {
+    "color": "red"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+@media (min-width: 1280px) {
+  ._3ZCUJ6._3ZCUJ6 {
+    color: #f00;
+  }
+}
+._4fo5TC {
+  color: #00f;
+}
+.wUqnh {
+  color: #f00;
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('style1')}
+  ↓ ↓ ↓
+class="_3ZCUJ6 _4fo5TC"
+
+className={styles('style2')}
+  ↓ ↓ ↓
+class="wUqnh"
 
 `;
 

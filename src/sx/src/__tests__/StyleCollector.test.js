@@ -120,7 +120,7 @@ it('works with mediaQueries', () => {
         "addStyles": [Function],
         "atRuleName": "@media (min-width: 900px)",
         "styles": Map {
-          "_4fo5TC" => StyleNode {
+          "jwIA4" => StyleNode {
             "propertyName": "color",
             "pseudo": "",
             "styleValue": "#00f",
@@ -131,7 +131,7 @@ it('works with mediaQueries', () => {
         "addStyles": [Function],
         "atRuleName": "@media print",
         "styles": Map {
-          "wUqnh" => StyleNode {
+          "zIzjk" => StyleNode {
             "propertyName": "color",
             "pseudo": "",
             "styleValue": "#f00",
@@ -140,7 +140,7 @@ it('works with mediaQueries', () => {
             "addStyles": [Function],
             "atRuleName": "@media (max-width: 12cm)",
             "styles": Map {
-              "_4fo5TC" => StyleNode {
+              "Uxdbe" => StyleNode {
                 "propertyName": "color",
                 "pseudo": "",
                 "styleValue": "#00f",
@@ -155,11 +155,11 @@ it('works with mediaQueries', () => {
   expect(styleMap).toMatchInlineSnapshot(`
     Object {
       "nestedMedia": Object {
-        "color@media (max-width: 12cm)": "_4fo5TC",
-        "color@media print": "wUqnh",
+        "color@media (max-width: 12cm)": "Uxdbe",
+        "color@media print": "zIzjk",
       },
       "test": Object {
-        "color@media (min-width: 900px)": "_4fo5TC",
+        "color@media (min-width: 900px)": "jwIA4",
       },
     }
   `);
