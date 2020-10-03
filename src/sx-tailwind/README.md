@@ -24,6 +24,20 @@ export default function Button() {
     </button>;
 ```
 
+Faster copy&paste from Tailwind examples can be done with `tailwind` helper. The downside is you don't get a type check here, only warnings in the console during development mode when the invalid class name is used.
+
+```js
+import { tailwind } from '@adeira/sxTailwind';
+
+export default function Button() {
+  return (
+    <button
+      className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded')}
+    >
+      Button
+    </button>;
+```
+
 ## Demo
 
 You can see SX Tailwind in action:
@@ -34,8 +48,8 @@ yarn storybook
 
 ## Develop
 
-Generate stylesheets and helper files:
+Generate stylesheets and types:
 
 ```
-yarn monorepo-babel-node src/generate.js
+yarn generate
 ```
