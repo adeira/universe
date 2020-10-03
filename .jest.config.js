@@ -48,12 +48,23 @@ module.exports = {
   projects: Workspaces.getWorkspacesSync().map((packageJSONLocation) => {
     const packageJSON = require(packageJSONLocation);
     const workspaceDirname = path.dirname(packageJSONLocation);
+    const projectConfig = tryToLoadWorkspaceConfig(path.join(workspaceDirname, 'jest.config.js'));
+
+    if (projectConfig.setupFilesAfterEnv != null) {
+      // Adding setup files in workspace will overwrite the root one
+      // So rather merge them together
+      projectConfig.setupFilesAfterEnv = projectConfig.setupFilesAfterEnv.concat(
+        commonProjectConfig.setupFilesAfterEnv,
+      );
+
+    }
+
     return {
       displayName: packageJSON.name,
       rootDir: workspaceDirname,
       testMatch: ['**/' + TESTS_GLOB],
       ...commonProjectConfig,
-      ...tryToLoadWorkspaceConfig(path.join(workspaceDirname, 'jest.config.js')),
+      ...projectConfig,
     };
   }),
 };
