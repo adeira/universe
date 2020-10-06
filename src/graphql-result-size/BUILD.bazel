@@ -1,0 +1,16 @@
+load("//:bazel/macros/build_yarn_workspace.bzl", "build_yarn_workspace")
+load("//:bazel/macros/test_yarn_workspace.bzl", "test_yarn_workspace")
+
+build_yarn_workspace(
+    name = "graphql-result-size",
+    package_name = "@adeira/graphql-result-size",
+)
+
+test_yarn_workspace(
+    name = "test",
+    deps = [
+        "@npm//graphql",
+        "@universe//src/js",
+        "@universe//src/test-utils",
+    ],
+)

@@ -1,0 +1,14 @@
+load("//:bazel/macros/build_yarn_workspace.bzl", "build_yarn_workspace")
+load("//:bazel/macros/test_yarn_workspace.bzl", "test_yarn_workspace")
+
+build_yarn_workspace(
+    name = "relay-runtime",
+    package_name = "@adeira/relay-runtime",
+)
+
+test_yarn_workspace(
+    name = "test",
+    deps = [
+        "@universe//src/js",
+    ],
+)
