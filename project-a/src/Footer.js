@@ -4,6 +4,8 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
+import LanguageSwitch from './LanguageSwitch';
+
 export default function Footer(): React.Node {
   return (
     <div className={styles('wrapper')}>
@@ -18,7 +20,9 @@ export default function Footer(): React.Node {
         </a>
       </div>
 
-      {/* TODO: language switch */}
+      <div className={styles('languageSwitch')}>
+        <LanguageSwitch />
+      </div>
     </div>
   );
 }
@@ -31,5 +35,8 @@ const styles = sx.create({
   },
   address: {
     textAlign: 'center',
+  },
+  languageSwitch: {
+    marginTop: 20,
   },
 });
