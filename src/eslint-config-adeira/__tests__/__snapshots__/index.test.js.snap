@@ -4,7 +4,6 @@ exports[`rules snapshot: all stable rules 1`] = `
 Object {
   "globals": Object {
     "FormData": "readonly",
-    "__": "readonly",
     "__DEV__": "readonly",
     "global": "readonly",
     "globalThis": "readonly",

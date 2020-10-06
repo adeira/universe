@@ -1,5 +1,7 @@
 # Unreleased
 
+- Remove `__` global, legacy of Nitrolib from Kiwi.com, see: https://kiwicom.github.io/nitrolib/services.html#intl
+
 # 3.2.0
 
 - Rule `adeira/no-invalid-flow-annotations` checks for typos like `@flow srict` (should be `@flow strict`).

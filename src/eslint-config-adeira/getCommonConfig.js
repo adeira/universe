@@ -69,7 +69,6 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
     globals: {
       global: 'readonly', // TODO: make it 'off'
       globalThis: 'readonly', // https://github.com/tc39/proposal-global
-      __: 'readonly', // https://kiwicom.github.io/nitrolib/services.html#intl
       __DEV__: 'readonly',
       FormData: 'readonly', // https://developer.mozilla.org/en-US/docs/Web/API/FormData
     },
