@@ -19,9 +19,9 @@
     "Jtw/XkgxoVH1y9vrSmRIbQ==": "Monday - Friday 8am - 6pm"
    },
    "filepath": "src/Footer.js",
-   "line_beg": 11,
+   "line_beg": 13,
    "col_beg": 8,
-   "line_end": 11,
+   "line_end": 13,
    "col_end": 65,
    "desc": "opening hours",
    "project": "",
@@ -33,9 +33,9 @@
     "NUhL34P63zZM36A/XnsyPw==": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
    },
    "filepath": "src/Footer.js",
-   "line_beg": 15,
+   "line_beg": 17,
    "col_beg": 10,
-   "line_end": 17,
+   "line_end": 19,
    "col_end": 16,
    "desc": "address",
    "project": "",
@@ -112,6 +112,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "link to KOCHKA Café facebook page"
+  },
+  {
+   "hashToText": {
+    "fVERyObLjAqQYpoXOEwdFg==": "Switch to English"
+   },
+   "filepath": "src/LanguageSwitch.js",
+   "line_beg": 16,
+   "col_beg": 13,
+   "line_end": 16,
+   "col_end": 71,
+   "desc": "switch to english link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Switch to English"
+  },
+  {
+   "hashToText": {
+    "+reVR4P2dm8ptoPbJ+qFFQ==": "Switch to Spanish"
+   },
+   "filepath": "src/LanguageSwitch.js",
+   "line_beg": 17,
+   "col_beg": 13,
+   "line_end": 17,
+   "col_end": 71,
+   "desc": "switch to spanish link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Switch to Spanish"
   },
   {
    "hashToText": {
