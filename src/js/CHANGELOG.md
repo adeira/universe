@@ -1,5 +1,7 @@
 # Unreleased
 
+- TS types removed, use [`@types/adeira__js`](https://www.npmjs.com/package/@types/adeira__js), see: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/48501
+
 # 1.2.4
 
 - Extend `isObjectEmpty` to check for non-enumerable properties
