@@ -72,16 +72,29 @@
   },
   {
    "hashToText": {
-    "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
+    "hHL1jf58Ql60JFDCN3aK1g==": "Adoption"
    },
    "filepath": "src/Homepage/Navigation.js",
    "line_beg": 21,
    "col_beg": 12,
-   "line_end": 23,
-   "col_end": 18,
+   "line_end": 21,
+   "col_end": 66,
+   "desc": "navigation link to adoption",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adoption"
+  },
+  {
+   "hashToText": {
+    "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
+   },
+   "filepath": "src/Homepage/Navigation.js",
+   "line_beg": 27,
+   "col_beg": 12,
+   "line_end": 27,
+   "col_end": 69,
    "desc": "navigation link to rules",
    "project": "",
-   "preserveWhitespace": true,
    "type": "text",
    "jsfbt": "Our rules"
   },
@@ -311,12 +324,26 @@
   },
   {
    "hashToText": {
-    "yWIjiQyD+BjXv8eLub1vaA==": "Our rules"
+    "AczYHaAuus/G8A3Lx2F4Nw==": "Adoption"
    },
    "filepath": "src/SubpageNavigation.js",
    "line_beg": 23,
    "col_beg": 10,
    "line_end": 23,
+   "col_end": 72,
+   "desc": "subpage navigation link to adoption",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adoption"
+  },
+  {
+   "hashToText": {
+    "yWIjiQyD+BjXv8eLub1vaA==": "Our rules"
+   },
+   "filepath": "src/SubpageNavigation.js",
+   "line_beg": 27,
+   "col_beg": 10,
+   "line_end": 27,
    "col_end": 74,
    "desc": "subpage navigation link to our rules",
    "project": "",
@@ -336,6 +363,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "coming soon"
+  },
+  {
+   "hashToText": {
+    "Id2zIowP1OXDBLoGtCtamw==": "kitten image placeholder"
+   },
+   "filepath": "pages/[lang]/adoption.js",
+   "line_beg": 13,
+   "col_beg": 11,
+   "line_end": 13,
+   "col_end": 78,
+   "desc": "kitten image placeholder",
+   "project": "",
+   "type": "text",
+   "jsfbt": "kitten image placeholder"
+  },
+  {
+   "hashToText": {
+    "q63vFDLz6FRACyQQcehUwA==": "Adoption"
+   },
+   "filepath": "pages/[lang]/adoption.js",
+   "line_beg": 21,
+   "col_beg": 20,
+   "line_end": 21,
+   "col_end": 66,
+   "desc": "adoption page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adoption"
   },
   {
    "hashToText": {
