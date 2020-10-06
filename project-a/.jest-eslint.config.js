@@ -1,6 +1,7 @@
 module.exports = {
   displayName: 'lint',
-  runner: '@adeira/eslint-config/runner',
+  reporters: ['@adeira/eslint-runner/reporter'],
+  runner: '@adeira/eslint-runner',
   testMatch: [
     //
     '<rootDir>/pages/**/*.js',

@@ -9,12 +9,13 @@
     "start": "next start",
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "test": "yarn jest",
-    "fbt:manifest": "fbt-manifest --src=src --src=pages --enum-manifest=translations/.enum_manifest.json --src-manifest=translations/.src_manifest.json",
-    "fbt:collect": "fbt-collect --options=__self --pretty --manifest < translations/.src_manifest.json > translations/.source_strings.json",
-    "fbt:translate": "fbt-translate --source-strings=translations/.source_strings.json --pretty --translations translations/in/*.json --output-dir=translations/out --jenkins",
+    "fbt:manifest": "fbt-manifest --src=src --src=pages --enum-manifest=translations/enum_manifest.json --src-manifest=translations/src_manifest.json",
+    "fbt:collect": "fbt-collect --options=__self --pretty --manifest < translations/src_manifest.json > translations/source_strings.json",
+    "fbt:translate": "fbt-translate --source-strings=translations/source_strings.json --pretty --translations translations/in/*.json --output-dir=translations/out --jenkins",
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
+    "@adeira/js": "^1.2.4",
     "@adeira/sx": "^0.13.0",
     "@babel/register": "^7.11.5",
     "babel-plugin-fbt": "^0.15.1",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^1.0.0",
     "@adeira/eslint-config": "^3.2.0",
+    "@adeira/eslint-runner": "^0.4.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.10.0",
     "flow-bin": "^0.135.0",

@@ -2,16 +2,17 @@
 
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import fbt, { IntlVariations, init } from 'fbt';
+import fbt from 'fbt';
 import * as sx from '@adeira/sx';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import App from 'next/app';
 
 import './_app.css';
 import Logo from '../src/Logo';
 import SkipLink from '../src/design/SkipLink';
-
-type SupportedLocales = 'en_US' | 'es_MX';
+import ViewerContextProvider from '../src/ViewerContextProvider';
+import initTranslations from '../translations/init';
 
 if (
   __DEV__ &&
@@ -27,26 +28,11 @@ type Props = {|
   +pageProps: any,
 |};
 
-export default function MyApp({ Component, pageProps }: Props): React.Node {
+function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   // TODO: useLocalStorage()
   const lang = router.query.lang; // TODO: wrap it and properly validate it!
-
-  init({
-    translations: require('../translations/out/es_MX.json'), // TODO
-    // $FlowIssue[cannot-resolve-module] https://github.com/facebook/flow/issues/7673
-    fbtEnumManifest: require('../translations/.enum_manifest.json'),
-    hooks: {
-      getViewerContext: () => ({
-        GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale: lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
-      }),
-    },
-  });
-
-  const [locale] = React.useState<SupportedLocales>(
-    lang === 'en' ? 'en_US' : 'es_MX', // TODO: DRY (URL => FBT)
-  );
+  const languageTag = initTranslations(lang);
 
   if (!__DEV__) {
     // not public yet
@@ -61,13 +47,15 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   }
 
   return (
-    <div key={locale} className={styles('root')}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      <SkipLink />
-      <Component {...pageProps} />
-    </div>
+    <ViewerContextProvider languageTag={languageTag}>
+      <div className={styles('root')}>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        </Head>
+        <SkipLink />
+        <Component {...pageProps} />
+      </div>
+    </ViewerContextProvider>
   );
 }
 
@@ -84,3 +72,14 @@ const styles = sx.create({
     backgroundColor: 'var(--main-bg-color)',
   },
 });
+
+// This disables the ability to perform automatic static optimization, causing every page in
+// the app to be server-side rendered (needed for the translations to be properly loaded).
+//
+MyApp.getInitialProps = async (appContext: $FlowFixMe): $FlowFixMe => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+  return { ...appProps };
+};
+
+export default MyApp;

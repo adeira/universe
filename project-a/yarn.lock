@@ -56,6 +56,22 @@
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
+"@adeira/eslint-runner@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-0.4.0.tgz#a1cf9edbe55bdbb5c8611338de2153de819d8d77"
+  integrity sha512-5lRBlZcpJ27b3MuRusuzAF1ggqBSanSpWwg6oplqamXhKe4K0NfTGgInK5s4kYpsbGs8hXHX2wggCccGhhrcCA==
+  dependencies:
+    "@adeira/monorepo-utils" "^0.9.0"
+    "@babel/code-frame" "^7.10.4"
+    "@babel/register" "^7.11.5"
+    "@babel/runtime" "^7.11.2"
+    chalk "^4.1.0"
+    create-jest-runner "^0.7.0"
+    is-ci "^2.0.0"
+    progress "^2.0.3"
+    strip-ansi "^6.0.0"
+    text-table "^0.2.0"
+
 "@adeira/js@^1.2.0", "@adeira/js@^1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.2.4.tgz#f32b514b68963f60f3314a2e6badeeb8d8e3c52d"
@@ -71,6 +87,17 @@
     "@adeira/js" "^1.2.0"
     "@babel/register" "^7.10.1"
     "@babel/runtime" "^7.10.2"
+    glob "^7.1.6"
+    is-ci "^2.0.0"
+
+"@adeira/monorepo-utils@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.9.0.tgz#56d985f6b00b8d87a3319310b8695f8b7c24509d"
+  integrity sha512-IbEVcEdKIpDo1dFKe13JwDNVhLZqDO34t8T5NvJr5Meqq1ha91byiZcI5h8CqGN3yqU+XiCqDqdX8XlJ1ITq5w==
+  dependencies:
+    "@adeira/js" "^1.2.4"
+    "@babel/register" "^7.11.5"
+    "@babel/runtime" "^7.11.2"
     glob "^7.1.6"
     is-ci "^2.0.0"
 
