@@ -2,18 +2,18 @@
 
 import * as React from 'react';
 
+import useViewerContext from '../hooks/useViewerContext';
+
 type Props = {|
   +amount: number,
 |};
 
 export default function Money(props: Props): React.Node {
+  const viewerContext = useViewerContext();
+
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
-  // TODO: create an application context and change the price locale accordingly (same with _app)
-  return new Intl.NumberFormat(
-    'es-MX', // en-US
-    {
-      style: 'currency',
-      currency: 'MXN',
-    },
-  ).format(props.amount);
+  return new Intl.NumberFormat(viewerContext.languageTag.bcp47, {
+    style: 'currency',
+    currency: 'MXN', // prices are currently always in Mexican Pesos
+  }).format(props.amount);
 }
