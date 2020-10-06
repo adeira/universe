@@ -10,6 +10,8 @@ export default function Navigation(): React.Node {
   return (
     <nav className={styles('nav')}>
       <ul className={styles('ul')}>
+        {/* TODO: DRY with SubpageNavigation */}
+
         <li className={styles('li')}>
           <Link href="/menu" className={styles('link')}>
             <fbt desc="navigation link to our menu">Menu</fbt>
@@ -17,14 +19,18 @@ export default function Navigation(): React.Node {
         </li>
 
         <li className={styles('li')}>
-          <Link href="/rules" className={styles('link')}>
-            <fbt desc="navigation link to rules" preserveWhitespace={true}>
-              Our&nbsp;rules
-            </fbt>
+          <Link href="/adoption" className={styles('link')}>
+            <fbt desc="navigation link to adoption">Adoption</fbt>
           </Link>
         </li>
 
-        {/* TODO (eventually): eshop, adoption */}
+        <li className={styles('li')}>
+          <Link href="/rules" className={styles('link')}>
+            <fbt desc="navigation link to rules">Our&nbsp;rules</fbt>
+          </Link>
+        </li>
+
+        {/* TODO (eventually): eshop */}
       </ul>
     </nav>
   );

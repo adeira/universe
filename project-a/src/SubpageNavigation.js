@@ -15,8 +15,14 @@ export default function SubpageNavigation(): React.Node {
         </Link>
       </div>
       <div>
+        {/* TODO: DRY with Navigation */}
+
         <Link href="/menu" className={styles('link')}>
           <fbt desc="subpage navigation link to menu">Menu</fbt>
+        </Link>
+
+        <Link href="/adoption" className={styles('link')}>
+          <fbt desc="subpage navigation link to adoption">Adoption</fbt>
         </Link>
 
         <Link href="/rules" className={styles('link')}>
