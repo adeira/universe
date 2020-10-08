@@ -3,6 +3,7 @@
 import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 type Props = {|
   +screenSize?: 'small' | 'large',
@@ -17,20 +18,22 @@ type MenuItemProps = {|
 function MenuItem({ label, href, screenSize }: MenuItemProps): Node {
   const router = useRouter();
   return (
-    <a
-      href={href}
-      className={tailwind(
-        `flex items-center px-2 ${
-          screenSize === 'small' ? 'py-4 text-base' : 'py-2 text-sm'
-        } leading-6 font-medium rounded-md transition ease-in-out duration-150 my-1 focus:outline-none focus:bg-teal-500 ${
-          router.pathname === href
-            ? 'text-white bg-teal-500'
-            : 'text-teal-100 hover:text-white hover:bg-teal-500'
-        }`,
-      )}
-    >
-      {label}
-    </a>
+    <Link href={href}>
+      <a
+        href={href}
+        className={tailwind(
+          `flex items-center px-2 ${
+            screenSize === 'small' ? 'py-4 text-base' : 'py-2 text-sm'
+          } leading-6 font-medium rounded-md transition ease-in-out duration-150 my-1 focus:outline-none focus:bg-teal-500 ${
+            router.pathname === href
+              ? 'text-white bg-teal-500'
+              : 'text-teal-100 hover:text-white hover:bg-teal-500'
+          }`,
+        )}
+      >
+        {label}
+      </a>
+    </Link>
   );
 }
 
@@ -43,15 +46,17 @@ export default function Sidebar({ screenSize = 'large' }: Props): Node {
     >
       <div className={tailwind(`flex ${screenSize === 'small' ? 'w-full' : 'w-64'}`)}>
         <div className={tailwind('flex-grow bg-teal-600 pt-5 pb-4 overflow-y-auto')}>
-          <a href="/">
-            <div
-              className={tailwind(
-                'flex items-center flex-shrink-0 px-4 text-white text-4xl font-extrabold tracking-tighter',
-              )}
-            >
-              SX Tailwind
-            </div>
-          </a>
+          <Link href="/">
+            <a href="/">
+              <div
+                className={tailwind(
+                  'flex items-center flex-shrink-0 px-4 text-white text-4xl font-extrabold tracking-tighter',
+                )}
+              >
+                SX Tailwind
+              </div>
+            </a>
+          </Link>
 
           <div className={tailwind('mt-5 flex-1 flex flex-col overflow-y-auto')}>
             <div className={tailwind('overflow-y-auto')}>

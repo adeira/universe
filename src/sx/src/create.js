@@ -1,8 +1,9 @@
 // @flow
 
-import { invariant, isObjectEmpty } from '@adeira/js';
+import { invariant, isBrowser, isObjectEmpty } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
+import injectRuntimeStyles from './injectRuntimeStyles';
 import styleCollector from './StyleCollector';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
 import type { AllCSSPseudoTypes } from './css-properties/__generated__/AllCSSPseudoTypes';
@@ -50,7 +51,11 @@ export default function create<T: SheetDefinitions>(
     `Function 'sx.create' cannot be called with empty stylesheet definition.`,
   );
 
-  const { hashRegistry } = styleCollector.collect(sheetDefinitions);
+  const { hashRegistry, styleBuffer } = styleCollector.collect(sheetDefinitions);
+
+  if (isBrowser()) {
+    injectRuntimeStyles(styleBuffer);
+  }
 
   return function sx(...sheetDefinitionNames) {
     invariant(

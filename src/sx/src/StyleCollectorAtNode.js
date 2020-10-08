@@ -1,6 +1,6 @@
 // @flow
 
-import { type StyleCollectorNodeInterface, type PrintConfig } from './StyleCollectorNode';
+import type { PrintConfig, StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
 
 /**
  * Represents any "at" rule:
@@ -48,11 +48,11 @@ export default class StyleCollectorAtNode implements StyleCollectorNodeInterface
   }
 
   // eslint-disable-next-line no-unused-vars
-  print(config?: PrintConfig): string {
+  printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
     let output = '';
     this.nodes.forEach((node) => {
-      output += node.print({ bumpSpecificity: true });
+      output += node.printNodes({ bumpSpecificity: true }).join('');
     });
-    return `${this.atRuleName}{${output}}`;
+    return [`${this.atRuleName}{${output}}`];
   }
 }

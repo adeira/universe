@@ -2,10 +2,13 @@
 
 import expandShorthandProperties from '../expandShorthandProperties';
 
+function printNodes(node) {
+  return node.printNodes().join('');
+}
+
 it('ignores unknown properties', () => {
-  expect(
-    expandShorthandProperties('unknownProperty', 'thisShouldNotChange').map((node) => node.print()),
-  ).toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('unknownProperty', 'thisShouldNotChange').map(printNodes))
+    .toMatchInlineSnapshot(`
     Array [
       "._3BbwKd{unknown-property:thisShouldNotChange}",
     ]
@@ -13,8 +16,7 @@ it('ignores unknown properties', () => {
 });
 
 it('expands background as expected', () => {
-  expect(expandShorthandProperties('background', 'red').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('background', 'red').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2rGYXd{background-image:none}",
       ".vSqk6{background-position:0% 0%}",
@@ -27,8 +29,7 @@ it('expands background as expected', () => {
     ]
   `);
 
-  expect(expandShorthandProperties('background', 'none').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('background', 'none').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2rGYXd{background-image:none}",
       ".vSqk6{background-position:0% 0%}",
@@ -44,10 +45,9 @@ it('expands background as expected', () => {
 
 it('ignores more complex background syntaxes', () => {
   expect(
-    expandShorthandProperties(
-      'background',
-      'no-repeat url("../../media/examples/lizard.png")',
-    ).map((node) => node.print()),
+    expandShorthandProperties('background', 'no-repeat url("../../media/examples/lizard.png")').map(
+      printNodes,
+    ),
   ).toMatchInlineSnapshot(`
     Array [
       "._3yHEnM{background:no-repeat url(\\"../../media/examples/lizard.png\\")}",
@@ -56,8 +56,7 @@ it('ignores more complex background syntaxes', () => {
 });
 
 it('expands border as expected', () => {
-  expect(expandShorthandProperties('border', 'red').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('border', 'red').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._37Z8WG{border-width:medium}",
       "._1QzWHp{border-style:none}",
@@ -67,11 +66,8 @@ it('expands border as expected', () => {
 });
 
 it('ignores more complex border syntaxes', () => {
-  expect(
-    expandShorthandProperties('border', '4mm ridge rgba(170, 50, 220, .6)').map((node) =>
-      node.print(),
-    ),
-  ).toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('border', '4mm ridge rgba(170, 50, 220, .6)').map(printNodes))
+    .toMatchInlineSnapshot(`
     Array [
       "._4kdXYU{border:4mm ridge rgba(170, 50, 220, .6)}",
     ]
@@ -80,7 +76,7 @@ it('ignores more complex border syntaxes', () => {
 
 it('expands margins and paddings as expected', () => {
   // 1) single number
-  expect(expandShorthandProperties('margin', 0).map((node) => node.print())).toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('margin', 0).map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._4pgUgJ{margin-top:0px}",
       "._37wPvZ{margin-right:0px}",
@@ -88,8 +84,7 @@ it('expands margins and paddings as expected', () => {
       "._3DMcik{margin-left:0px}",
     ]
   `);
-  expect(expandShorthandProperties('padding', 0).map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('padding', 0).map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2YU8Lt{padding-top:0px}",
       "._1b3SDU{padding-right:0px}",
@@ -99,8 +94,7 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 1) single string value
-  expect(expandShorthandProperties('margin', '10px').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('margin', '10px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
       "._42OSNq{margin-right:10px}",
@@ -108,8 +102,7 @@ it('expands margins and paddings as expected', () => {
       "._21Xfw8{margin-left:10px}",
     ]
   `);
-  expect(expandShorthandProperties('padding', '10px').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('padding', '10px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
       "._18S2bQ{padding-right:10px}",
@@ -119,8 +112,7 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 2) two values
-  expect(expandShorthandProperties('margin', '10px 20px').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('margin', '10px 20px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
       "._4098WN{margin-right:20px}",
@@ -128,8 +120,7 @@ it('expands margins and paddings as expected', () => {
       "._1yVWfq{margin-left:20px}",
     ]
   `);
-  expect(expandShorthandProperties('padding', '10px 20px').map((node) => node.print()))
-    .toMatchInlineSnapshot(`
+  expect(expandShorthandProperties('padding', '10px 20px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
       "._3PTJRo{padding-right:20px}",
@@ -139,7 +130,7 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 3) three values
-  expect(expandShorthandProperties('margin', '10px 20px 30px').map((node) => node.print()))
+  expect(expandShorthandProperties('margin', '10px 20px 30px').map(printNodes))
     .toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
@@ -148,7 +139,7 @@ it('expands margins and paddings as expected', () => {
       "._1yVWfq{margin-left:20px}",
     ]
   `);
-  expect(expandShorthandProperties('padding', '10px 20px 30px').map((node) => node.print()))
+  expect(expandShorthandProperties('padding', '10px 20px 30px').map(printNodes))
     .toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
@@ -159,7 +150,7 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 4) four values
-  expect(expandShorthandProperties('margin', '10px 20px 30px 40px').map((node) => node.print()))
+  expect(expandShorthandProperties('margin', '10px 20px 30px 40px').map(printNodes))
     .toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
@@ -168,7 +159,7 @@ it('expands margins and paddings as expected', () => {
       "._2frFkL{margin-left:40px}",
     ]
   `);
-  expect(expandShorthandProperties('padding', '10px 20px 30px 40px').map((node) => node.print()))
+  expect(expandShorthandProperties('padding', '10px 20px 30px 40px').map(printNodes))
     .toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
