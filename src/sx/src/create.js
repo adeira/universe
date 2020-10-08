@@ -50,9 +50,7 @@ export default function create<T: SheetDefinitions>(
     `Function 'sx.create' cannot be called with empty stylesheet definition.`,
   );
 
-  const hashedSheetDefinitions = {};
-
-  styleCollector.addStyles(sheetDefinitions, hashedSheetDefinitions);
+  const { hashRegistry } = styleCollector.collect(sheetDefinitions);
 
   return function sx(...sheetDefinitionNames) {
     invariant(
@@ -63,15 +61,15 @@ export default function create<T: SheetDefinitions>(
     for (const sheetDefinitionName of sheetDefinitionNames) {
       if (sheetDefinitionName != null && sheetDefinitionName !== false) {
         // stylesheet definition name can be nullable when selecting conditionally
-        const hashedValues = hashedSheetDefinitions[sheetDefinitionName];
+        const hashedValues = hashRegistry.get(sheetDefinitionName);
         invariant(
           hashedValues != null,
           `SX was called with '%s' stylesheet name but it doesn't exist. Did you mean '%s' instead?`,
           sheetDefinitionName,
-          suggest(sheetDefinitionName, Object.keys(hashedSheetDefinitions)),
+          suggest(sheetDefinitionName, [...hashRegistry.keys()]),
         );
-        Object.keys(hashedValues).forEach((styleKey) => {
-          selectedStyles[styleKey] = hashedValues[styleKey];
+        [...hashedValues.keys()].forEach((styleKey) => {
+          selectedStyles[styleKey] = hashedValues.get(styleKey);
         });
       }
     }
