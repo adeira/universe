@@ -179,11 +179,11 @@ First, `@adeira/sx` takes all your CSS-in-JS definitions, normalizes it and then
 
 ```text
 +-------------+   style normalization   +-----------------+
-|  CSS-in-JS  | --------+-------------> |  Style buffer   | ---> CSS
+|  CSS-in-JS  | --------+-------------> |  Style buffer   | ---> CSS output
 |   styles    |         |               +-----------------+
 +-------------+         |
                         |               +-----------------+
-                        \-------------> |  Hash registry  | ---> HTML
+                        \-------------> |  Hash registry  | ---> HTML classes
                                         +-----------------+
 ```
 

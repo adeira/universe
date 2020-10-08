@@ -7,11 +7,6 @@ import { sprintf } from '@adeira/js';
 import TestRenderer from 'react-test-renderer';
 
 import * as sx from '../../index';
-import styleCollector from '../StyleCollector';
-
-beforeEach(() => {
-  styleCollector.styles.clear();
-});
 
 const renderPageMock = () => ({
   html: '',

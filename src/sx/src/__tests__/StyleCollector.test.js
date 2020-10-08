@@ -2,101 +2,109 @@
 
 import styleCollector from '../StyleCollector';
 
-afterEach(() => {
-  styleCollector.styles.clear();
-});
-
 it('works with simple styles', () => {
-  const styleMap = {};
-
-  styleCollector.addStyles(
-    {
+  expect(
+    styleCollector.collect({
       test: { color: 'blue' },
       lol: {
         fontSize: 16,
         color: 'blue',
       },
-    },
-    styleMap,
-  );
-
-  expect(styleCollector.styles).toMatchInlineSnapshot(`
-    Map {
-      "_4fo5TC" => StyleNode {
-        "propertyName": "color",
-        "pseudo": "",
-        "styleValue": "#00f",
-      },
-      "Zld8p" => StyleNode {
-        "propertyName": "font-size",
-        "pseudo": "",
-        "styleValue": "1rem",
-      },
-    }
-  `);
-  expect(styleMap).toMatchInlineSnapshot(`
+    }),
+  ).toMatchInlineSnapshot(`
     Object {
-      "lol": Object {
-        "color": "_4fo5TC",
-        "fontSize": "Zld8p",
+      "hashRegistry": Map {
+        "test" => Map {
+          "color" => "_4fo5TC",
+        },
+        "lol" => Map {
+          "fontSize" => "Zld8p",
+          "color" => "_4fo5TC",
+        },
       },
-      "test": Object {
-        "color": "_4fo5TC",
+      "styleBuffer": Map {
+        "test" => Set {
+          StyleCollectorNode {
+            "hash": "_4fo5TC",
+            "styleName": "color",
+            "styleValue": "#00f",
+          },
+        },
+        "lol" => Set {
+          StyleCollectorNode {
+            "hash": "Zld8p",
+            "styleName": "font-size",
+            "styleValue": "1rem",
+          },
+          StyleCollectorNode {
+            "hash": "_4fo5TC",
+            "styleName": "color",
+            "styleValue": "#00f",
+          },
+        },
       },
     }
   `);
 });
 
 it('works with pseudo styles', () => {
-  const styleMap = {};
-  styleCollector.addStyles(
-    {
+  expect(
+    styleCollector.collect({
       lol: {
         'fontSize': 16,
         'color': 'blue',
         ':hover': {
           color: 'pink',
+          textDecoration: 'underline',
         },
       },
-    },
-    styleMap,
-  );
-
-  expect(styleCollector.styles).toMatchInlineSnapshot(`
-    Map {
-      "Zld8p" => StyleNode {
-        "propertyName": "font-size",
-        "pseudo": "",
-        "styleValue": "1rem",
-      },
-      "_4fo5TC" => StyleNode {
-        "propertyName": "color",
-        "pseudo": "",
-        "styleValue": "#00f",
-      },
-      "_4rAdwD" => StyleNode {
-        "propertyName": "color",
-        "pseudo": ":hover",
-        "styleValue": "#ffc0cb",
-      },
-    }
-  `);
-
-  expect(styleMap).toMatchInlineSnapshot(`
+    }),
+  ).toMatchInlineSnapshot(`
     Object {
-      "lol": Object {
-        "color": "_4fo5TC",
-        "color:hover": "_4rAdwD",
-        "fontSize": "Zld8p",
+      "hashRegistry": Map {
+        "lol" => Map {
+          "fontSize" => "Zld8p",
+          "color" => "_4fo5TC",
+          "color:hover" => "_4rAdwD",
+          "textDecoration:hover" => "_22QzO9",
+        },
+      },
+      "styleBuffer": Map {
+        "lol" => Set {
+          StyleCollectorNode {
+            "hash": "Zld8p",
+            "styleName": "font-size",
+            "styleValue": "1rem",
+          },
+          StyleCollectorNode {
+            "hash": "_4fo5TC",
+            "styleName": "color",
+            "styleValue": "#00f",
+          },
+          StyleCollectorPseudoNode {
+            "nodes": Set {
+              StyleCollectorNode {
+                "hash": "_4rAdwD",
+                "styleName": "color",
+                "styleValue": "#ffc0cb",
+              },
+              StyleCollectorNode {
+                "hash": "_22QzO9",
+                "styleName": "text-decoration",
+                "styleValue": "underline",
+              },
+            },
+            "pseudo": ":hover",
+          },
+        },
       },
     }
   `);
 });
 
 it('works with mediaQueries', () => {
-  const styleMap = {};
-  styleCollector.addStyles(
-    {
+  expect(
+    styleCollector.collect({
       test: {
         '@media (min-width: 900px)': {
           color: 'blue',
@@ -110,56 +118,53 @@ it('works with mediaQueries', () => {
           },
         },
       },
-    },
-    styleMap,
-  );
-
-  expect(styleCollector.styles).toMatchInlineSnapshot(`
-    Map {
-      "@media (min-width: 900px)" => StyleCollector {
-        "addStyles": [Function],
-        "atRuleName": "@media (min-width: 900px)",
-        "styles": Map {
-          "jwIA4" => StyleNode {
-            "propertyName": "color",
-            "pseudo": "",
-            "styleValue": "#00f",
-          },
+    }),
+  ).toMatchInlineSnapshot(`
+    Object {
+      "hashRegistry": Map {
+        "test" => Map {
+          "color@media (min-width: 900px)" => "jwIA4",
+        },
+        "nestedMedia" => Map {
+          "color@media print" => "zIzjk",
+          "color@media (max-width: 12cm)" => "Uxdbe",
         },
       },
-      "@media print" => StyleCollector {
-        "addStyles": [Function],
-        "atRuleName": "@media print",
-        "styles": Map {
-          "zIzjk" => StyleNode {
-            "propertyName": "color",
-            "pseudo": "",
-            "styleValue": "#f00",
-          },
-          "@media (max-width: 12cm)" => StyleCollector {
-            "addStyles": [Function],
-            "atRuleName": "@media (max-width: 12cm)",
-            "styles": Map {
-              "Uxdbe" => StyleNode {
-                "propertyName": "color",
-                "pseudo": "",
+      "styleBuffer": Map {
+        "test" => Set {
+          StyleCollectorAtNode {
+            "atRuleName": "@media (min-width: 900px)",
+            "nodes": Set {
+              StyleCollectorNode {
+                "hash": "jwIA4",
+                "styleName": "color",
                 "styleValue": "#00f",
               },
             },
           },
         },
-      },
-    }
-  `);
-
-  expect(styleMap).toMatchInlineSnapshot(`
-    Object {
-      "nestedMedia": Object {
-        "color@media (max-width: 12cm)": "Uxdbe",
-        "color@media print": "zIzjk",
-      },
-      "test": Object {
-        "color@media (min-width: 900px)": "jwIA4",
+        "nestedMedia" => Set {
+          StyleCollectorAtNode {
+            "atRuleName": "@media print",
+            "nodes": Set {
+              StyleCollectorNode {
+                "hash": "zIzjk",
+                "styleName": "color",
+                "styleValue": "#f00",
+              },
+              StyleCollectorAtNode {
+                "atRuleName": "@media (max-width: 12cm)",
+                "nodes": Set {
+                  StyleCollectorNode {
+                    "hash": "Uxdbe",
+                    "styleName": "color",
+                    "styleValue": "#00f",
+                  },
+                },
+              },
+            },
+          },
+        },
       },
     }
   `);
