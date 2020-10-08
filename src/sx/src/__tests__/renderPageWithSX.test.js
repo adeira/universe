@@ -7,11 +7,16 @@ import { sprintf } from '@adeira/js';
 import TestRenderer from 'react-test-renderer';
 
 import * as sx from '../../index';
+import StyleCollector from '../StyleCollector';
 
 const renderPageMock = () => ({
   html: '',
   head: [''],
   styles: [''],
+});
+
+afterEach(() => {
+  StyleCollector.reset();
 });
 
 generateTestsFromFixtures(path.join(__dirname, 'fixtures'), (input) => {

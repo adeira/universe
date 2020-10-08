@@ -1,6 +1,6 @@
 // @flow
 
-import { type PrintableNode, type PrintConfig } from './StyleCollectorNode';
+import { type StyleCollectorNodeInterface, type PrintConfig } from './StyleCollectorNode';
 
 /**
  * Represents any "at" rule:
@@ -30,13 +30,21 @@ import { type PrintableNode, type PrintConfig } from './StyleCollectorNode';
  * }
  * ```
  */
-export default class StyleCollectorAtNode implements PrintableNode {
+export default class StyleCollectorAtNode implements StyleCollectorNodeInterface {
   atRuleName: string;
-  nodes: Set<PrintableNode>;
+  nodes: Map<string, StyleCollectorNodeInterface>;
 
-  constructor(atRuleName: string, nodes: Set<PrintableNode>) {
+  constructor(atRuleName: string, nodes: Map<string, StyleCollectorNodeInterface>) {
     this.atRuleName = atRuleName;
     this.nodes = nodes;
+  }
+
+  addNodes(nodes: Map<string, StyleCollectorNodeInterface>) {
+    this.nodes = new Map([...this.nodes, ...nodes]);
+  }
+
+  getAtRuleName(): string {
+    return this.atRuleName;
   }
 
   // eslint-disable-next-line no-unused-vars

@@ -6,10 +6,10 @@ import StyleCollectorPseudoNode from '../StyleCollectorPseudoNode';
 it('works as expected', () => {
   const node = new StyleCollectorPseudoNode(
     ':hover',
-    new Set([
-      new StyleCollectorNode('color', 'red'),
-      new StyleCollectorNode('color', 'lime'),
-      new StyleCollectorNode('color', 'blue'),
+    new Map([
+      ['c0', new StyleCollectorNode('color', 'red')],
+      ['c1', new StyleCollectorNode('color', 'lime')],
+      ['c2', new StyleCollectorNode('color', 'blue')],
     ]),
   );
   expect(node.getPseudo()).toBe(':hover');

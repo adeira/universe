@@ -1,5 +1,5 @@
 {
-  "link": {
+  "aaa": {
     "textDecoration": "none",
     ":hover": {
       "textDecoration": "none",
@@ -7,6 +7,11 @@
     },
     ":active": {
       "color": "red"
+    }
+  },
+  "bbb": {
+    ":hover": {
+      "color": "blue"
     }
   }
 }

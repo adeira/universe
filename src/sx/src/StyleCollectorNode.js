@@ -1,5 +1,7 @@
 // @flow
 
+import { invariant } from '@adeira/js';
+
 import hashStyle from './hashStyle';
 import transformValue from './transformValue';
 import transformStyleName from './transformStyleName';
@@ -9,8 +11,9 @@ export type PrintConfig = {|
   +bumpSpecificity?: boolean,
 |};
 
-export interface PrintableNode {
+export interface StyleCollectorNodeInterface {
   print(config?: PrintConfig): string;
+  addNodes(nodes: Map<string, StyleCollectorNodeInterface>): void;
 }
 
 /**
@@ -30,7 +33,7 @@ export interface PrintableNode {
  * }
  * ```
  */
-export default class StyleCollectorNode implements PrintableNode {
+export default class StyleCollectorNode implements StyleCollectorNodeInterface {
   hash: string;
   styleName: string;
   styleValue: string | number;
@@ -39,6 +42,11 @@ export default class StyleCollectorNode implements PrintableNode {
     this.hash = hashStyle(`${styleName}${styleValue}${hashSeed}`);
     this.styleName = transformStyleName(styleName);
     this.styleValue = transformValue(styleName, styleValue);
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  addNodes(nodes: Map<string, StyleCollectorNodeInterface>) {
+    invariant(false, 'StyleCollectorNode cannot have nested nodes,');
   }
 
   getHash(): string {
