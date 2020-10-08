@@ -186,15 +186,13 @@ exports[`matches expected output: media-queries-multiple.json 1`] = `
   .uxyoC.uxyoC {
     font-size: 1rem;
   }
+  .v2909.v2909 {
+    color: #008000;
+  }
 }
 @media (min-width: 30em) and (max-width: 50em) {
   ._27Xk5F._27Xk5F {
     color: #00f;
-  }
-}
-@media print {
-  .v2909.v2909 {
-    color: #008000;
   }
 }
 
@@ -435,7 +433,7 @@ class="_134wwt _22QzO9"
 exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
-  "link": {
+  "aaa": {
     "textDecoration": "none",
     ":hover": {
       "textDecoration": "none",
@@ -443,6 +441,11 @@ exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
     },
     ":active": {
       "color": "red"
+    }
+  },
+  "bbb": {
+    ":hover": {
+      "color": "blue"
     }
   }
 }
@@ -457,15 +460,22 @@ exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
 ._4sFdkU:hover {
   color: #f00;
 }
+.UddGc:hover {
+  color: #00f;
+}
 .ERwS0:active {
   color: #f00;
 }
 
 ~~~~~~~~~~ USAGE ~~~~~~~~~~
 
-className={styles('link')}
+className={styles('aaa')}
   ↓ ↓ ↓
 class="_134wwt XJjf5 _4sFdkU ERwS0"
+
+className={styles('bbb')}
+  ↓ ↓ ↓
+class="UddGc"
 
 `;
 

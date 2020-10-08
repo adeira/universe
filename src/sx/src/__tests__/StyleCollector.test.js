@@ -1,10 +1,14 @@
 // @flow
 
-import styleCollector from '../StyleCollector';
+import StyleCollector from '../StyleCollector';
+
+afterEach(() => {
+  StyleCollector.reset();
+});
 
 it('works with simple styles', () => {
   expect(
-    styleCollector.collect({
+    StyleCollector.collect({
       test: { color: 'blue' },
       lol: {
         fontSize: 16,
@@ -23,24 +27,15 @@ it('works with simple styles', () => {
         },
       },
       "styleBuffer": Map {
-        "test" => Set {
-          StyleCollectorNode {
-            "hash": "_4fo5TC",
-            "styleName": "color",
-            "styleValue": "#00f",
-          },
+        "_4fo5TC" => StyleCollectorNode {
+          "hash": "_4fo5TC",
+          "styleName": "color",
+          "styleValue": "#00f",
         },
-        "lol" => Set {
-          StyleCollectorNode {
-            "hash": "Zld8p",
-            "styleName": "font-size",
-            "styleValue": "1rem",
-          },
-          StyleCollectorNode {
-            "hash": "_4fo5TC",
-            "styleName": "color",
-            "styleValue": "#00f",
-          },
+        "Zld8p" => StyleCollectorNode {
+          "hash": "Zld8p",
+          "styleName": "font-size",
+          "styleValue": "1rem",
         },
       },
     }
@@ -49,7 +44,7 @@ it('works with simple styles', () => {
 
 it('works with pseudo styles', () => {
   expect(
-    styleCollector.collect({
+    StyleCollector.collect({
       lol: {
         'fontSize': 16,
         'color': 'blue',
@@ -70,32 +65,30 @@ it('works with pseudo styles', () => {
         },
       },
       "styleBuffer": Map {
-        "lol" => Set {
-          StyleCollectorNode {
-            "hash": "Zld8p",
-            "styleName": "font-size",
-            "styleValue": "1rem",
-          },
-          StyleCollectorNode {
-            "hash": "_4fo5TC",
-            "styleName": "color",
-            "styleValue": "#00f",
-          },
-          StyleCollectorPseudoNode {
-            "nodes": Set {
-              StyleCollectorNode {
-                "hash": "_4rAdwD",
-                "styleName": "color",
-                "styleValue": "#ffc0cb",
-              },
-              StyleCollectorNode {
-                "hash": "_22QzO9",
-                "styleName": "text-decoration",
-                "styleValue": "underline",
-              },
+        "Zld8p" => StyleCollectorNode {
+          "hash": "Zld8p",
+          "styleName": "font-size",
+          "styleValue": "1rem",
+        },
+        "_4fo5TC" => StyleCollectorNode {
+          "hash": "_4fo5TC",
+          "styleName": "color",
+          "styleValue": "#00f",
+        },
+        ":hover" => StyleCollectorPseudoNode {
+          "nodes": Map {
+            "_4rAdwD" => StyleCollectorNode {
+              "hash": "_4rAdwD",
+              "styleName": "color",
+              "styleValue": "#ffc0cb",
             },
-            "pseudo": ":hover",
+            "_22QzO9" => StyleCollectorNode {
+              "hash": "_22QzO9",
+              "styleName": "text-decoration",
+              "styleValue": "underline",
+            },
           },
+          "pseudo": ":hover",
         },
       },
     }
@@ -104,7 +97,7 @@ it('works with pseudo styles', () => {
 
 it('works with mediaQueries', () => {
   expect(
-    styleCollector.collect({
+    StyleCollector.collect({
       test: {
         '@media (min-width: 900px)': {
           color: 'blue',
@@ -131,35 +124,31 @@ it('works with mediaQueries', () => {
         },
       },
       "styleBuffer": Map {
-        "test" => Set {
-          StyleCollectorAtNode {
-            "atRuleName": "@media (min-width: 900px)",
-            "nodes": Set {
-              StyleCollectorNode {
-                "hash": "jwIA4",
-                "styleName": "color",
-                "styleValue": "#00f",
-              },
+        "@media (min-width: 900px)" => StyleCollectorAtNode {
+          "atRuleName": "@media (min-width: 900px)",
+          "nodes": Map {
+            "jwIA4" => StyleCollectorNode {
+              "hash": "jwIA4",
+              "styleName": "color",
+              "styleValue": "#00f",
             },
           },
         },
-        "nestedMedia" => Set {
-          StyleCollectorAtNode {
-            "atRuleName": "@media print",
-            "nodes": Set {
-              StyleCollectorNode {
-                "hash": "zIzjk",
-                "styleName": "color",
-                "styleValue": "#f00",
-              },
-              StyleCollectorAtNode {
-                "atRuleName": "@media (max-width: 12cm)",
-                "nodes": Set {
-                  StyleCollectorNode {
-                    "hash": "Uxdbe",
-                    "styleName": "color",
-                    "styleValue": "#00f",
-                  },
+        "@media print" => StyleCollectorAtNode {
+          "atRuleName": "@media print",
+          "nodes": Map {
+            "zIzjk" => StyleCollectorNode {
+              "hash": "zIzjk",
+              "styleName": "color",
+              "styleValue": "#f00",
+            },
+            "@media (max-width: 12cm)" => StyleCollectorAtNode {
+              "atRuleName": "@media (max-width: 12cm)",
+              "nodes": Map {
+                "Uxdbe" => StyleCollectorNode {
+                  "hash": "Uxdbe",
+                  "styleName": "color",
+                  "styleValue": "#00f",
                 },
               },
             },

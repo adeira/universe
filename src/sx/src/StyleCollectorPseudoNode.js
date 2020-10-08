@@ -1,6 +1,6 @@
 // @flow
 
-import { type PrintableNode, type PrintConfig } from './StyleCollectorNode';
+import { type StyleCollectorNodeInterface, type PrintConfig } from './StyleCollectorNode';
 
 /**
  * Represents basic style node with pseudo class:
@@ -24,13 +24,17 @@ import { type PrintableNode, type PrintConfig } from './StyleCollectorNode';
  * }
  * ```
  */
-export default class StyleCollectorPseudoNode implements PrintableNode {
+export default class StyleCollectorPseudoNode implements StyleCollectorNodeInterface {
   pseudo: string;
-  nodes: Set<PrintableNode>;
+  nodes: Map<string, StyleCollectorNodeInterface>;
 
-  constructor(pseudo: string, nodes: Set<PrintableNode>) {
+  constructor(pseudo: string, nodes: Map<string, StyleCollectorNodeInterface>) {
     this.pseudo = pseudo;
     this.nodes = nodes;
+  }
+
+  addNodes(nodes: Map<string, StyleCollectorNodeInterface>) {
+    this.nodes = new Map([...this.nodes, ...nodes]);
   }
 
   getPseudo(): string {
