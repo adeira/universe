@@ -14,10 +14,18 @@ it('works as expected', () => {
   );
   expect(node.getPseudo()).toBe(':hover');
 
-  expect(node.print()).toMatchInlineSnapshot(
-    `"._324Crd:hover{color:#f00}._9MIuv:hover{color:#0f0}._2dHaKY:hover{color:#00f}"`,
-  );
-  expect(node.print({ bumpSpecificity: true })).toMatchInlineSnapshot(
-    `"._324Crd._324Crd:hover{color:#f00}._9MIuv._9MIuv:hover{color:#0f0}._2dHaKY._2dHaKY:hover{color:#00f}"`,
-  );
+  expect(node.printNodes()).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd:hover{color:#f00}",
+      "._9MIuv:hover{color:#0f0}",
+      "._2dHaKY:hover{color:#00f}",
+    ]
+  `);
+  expect(node.printNodes({ bumpSpecificity: true })).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd._324Crd:hover{color:#f00}",
+      "._9MIuv._9MIuv:hover{color:#0f0}",
+      "._2dHaKY._2dHaKY:hover{color:#00f}",
+    ]
+  `);
 });

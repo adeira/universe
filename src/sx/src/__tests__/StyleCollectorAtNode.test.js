@@ -19,7 +19,9 @@ it('works as expected', () => {
     ]),
   );
 
-  expect(node.print()).toMatchInlineSnapshot(
-    `"@media print{._324Crd._324Crd{color:#f00}._2dHaKY._2dHaKY:hover{color:#00f}}"`,
-  );
+  expect(node.printNodes()).toMatchInlineSnapshot(`
+    Array [
+      "@media print{._324Crd._324Crd{color:#f00}._2dHaKY._2dHaKY:hover{color:#00f}}",
+    ]
+  `);
 });

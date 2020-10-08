@@ -5,7 +5,7 @@ import { invariant, warning } from '@adeira/js';
 import expandShorthandProperties from './expandShorthandProperties';
 import StyleCollectorAtNode from './StyleCollectorAtNode';
 import StyleCollectorPseudoNode from './StyleCollectorPseudoNode';
-import { type StyleCollectorNodeInterface } from './StyleCollectorNode';
+import { type StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
 
 // "hashRegistry": Map {
 //   "aaa" => Map {
@@ -35,7 +35,7 @@ type HashRegistryType = Map<string, Map<string, string>>;
 //     "styleValue": "#00f",
 //   },
 // },
-type StyleBufferType = Map<string, StyleCollectorNodeInterface>;
+export type StyleBufferType = Map<string, StyleCollectorNodeInterface>;
 
 class StyleCollector {
   #styleBuffer: StyleBufferType = new Map();
@@ -107,7 +107,7 @@ class StyleCollector {
   print(): string {
     let sxStyle = '';
     this.#styleBuffer.forEach((node) => {
-      sxStyle += node.print();
+      sxStyle += node.printNodes().join('');
     });
     return sxStyle;
   }

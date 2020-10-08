@@ -7,22 +7,42 @@ it('works as expected', () => {
   expect(node.getHash()).toBe('_324Crd');
   expect(node.getStyleName()).toBe('color');
   expect(node.getStyleValue()).toBe('#f00');
-  expect(node.print()).toBe('._324Crd{color:#f00}');
-  expect(node.print({ pseudo: ':hover' })).toBe('._324Crd:hover{color:#f00}');
+  expect(node.printNodes()).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd{color:#f00}",
+    ]
+  `);
+  expect(node.printNodes({ pseudo: ':hover' })).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd:hover{color:#f00}",
+    ]
+  `);
   expect(
-    node.print({
+    node.printNodes({
       pseudo: ':hover',
       bumpSpecificity: true,
     }),
-  ).toBe('._324Crd._324Crd:hover{color:#f00}');
+  ).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd._324Crd:hover{color:#f00}",
+    ]
+  `);
 });
 
 it('hashed the transformed values rather than raw input', () => {
   const node1 = new StyleCollectorNode('color', 'red');
   const node2 = new StyleCollectorNode('color', '#f00');
 
-  expect(node1.print()).toMatchInlineSnapshot(`"._324Crd{color:#f00}"`);
-  expect(node2.print()).toMatchInlineSnapshot(`"._324Crd{color:#f00}"`);
-  expect(node1.print()).toBe(node2.print());
+  expect(node1.printNodes()).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd{color:#f00}",
+    ]
+  `);
+  expect(node2.printNodes()).toMatchInlineSnapshot(`
+    Array [
+      "._324Crd{color:#f00}",
+    ]
+  `);
+  expect(node1.printNodes()).toStrictEqual(node2.printNodes());
   expect(node1.getHash()).toBe(node2.getHash());
 });

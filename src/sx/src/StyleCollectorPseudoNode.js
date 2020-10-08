@@ -1,6 +1,6 @@
 // @flow
 
-import { type StyleCollectorNodeInterface, type PrintConfig } from './StyleCollectorNode';
+import type { PrintConfig, StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
 
 /**
  * Represents basic style node with pseudo class:
@@ -41,10 +41,10 @@ export default class StyleCollectorPseudoNode implements StyleCollectorNodeInter
     return this.pseudo;
   }
 
-  print(config?: PrintConfig): string {
-    let output = '';
+  printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
+    let output = [];
     this.nodes.forEach((node) => {
-      output += node.print({ ...config, pseudo: this.pseudo });
+      output = output.concat(node.printNodes({ ...config, pseudo: this.pseudo }));
     });
     return output;
   }

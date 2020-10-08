@@ -5,16 +5,7 @@ import { invariant } from '@adeira/js';
 import hashStyle from './hashStyle';
 import transformValue from './transformValue';
 import transformStyleName from './transformStyleName';
-
-export type PrintConfig = {|
-  +pseudo?: string,
-  +bumpSpecificity?: boolean,
-|};
-
-export interface StyleCollectorNodeInterface {
-  print(config?: PrintConfig): string;
-  addNodes(nodes: Map<string, StyleCollectorNodeInterface>): void;
-}
+import type { PrintConfig, StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
 
 /**
  * Represents the most basic style node:
@@ -61,9 +52,9 @@ export default class StyleCollectorNode implements StyleCollectorNodeInterface {
     return this.styleValue;
   }
 
-  print(config?: PrintConfig): string {
+  printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
     const className = `.${this.hash}`.repeat(config?.bumpSpecificity === true ? 2 : 1);
     const pseudo = config?.pseudo ?? '';
-    return `${className}${pseudo}{${this.styleName}:${this.styleValue}}`;
+    return [`${className}${pseudo}{${this.styleName}:${this.styleValue}}`];
   }
 }

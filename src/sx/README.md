@@ -7,6 +7,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [`@media` and `@supports`](#media-and-supports)
   - [Precise Flow types](#precise-flow-types)
 - [Production usage considerations](#production-usage-considerations)
+- [Server-side rendering](#server-side-rendering)
 - [Architecture](#architecture)
 - [Prior Art](#prior-art)
 
@@ -39,7 +40,7 @@ const styles = sx.create({
 });
 ```
 
-The example above will generate something like this:
+That's it. The example above will generate atomic CSS like this:
 
 ```text
 ._1DKsqE { font-size: 32px; }
@@ -47,20 +48,7 @@ The example above will generate something like this:
 .stDQH { background-color: var(--main-bg-color); }
 ```
 
-Finally, render somewhere the styles and HTML. Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document) would be:
-
-```jsx
-import * as sx from '@adeira/sx';
-import Document from 'next/document';
-
-export default class MyDocument extends Document {
-  static getInitialProps(ctx: DocumentContext) {
-    return sx.renderPageWithSX(ctx.renderPage);
-  }
-
-  // `render` is not needed to change
-}
-```
+It's highly recommended enabling [server-side rendered styles](#server-side-rendering) for production use (see below).
 
 ## Features
 
@@ -231,6 +219,27 @@ Sometimes it's hard or even impossible to have sound types for some CSS properti
 
 1. SX does not include any CSS reset or CSS normalization. It's because we couldn't decide which strategy would be the best. We concluded that each user should choose their own strategy (either reset, normalizer or nothing) alongside SX.
 1. _TKTK (Babel transpilation)_
+
+## Server-side rendering
+
+_This is an optional part, `@adeira/sx` will work even without it. However, it's highly recommended._
+
+Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document):
+
+```jsx
+import * as sx from '@adeira/sx';
+import Document from 'next/document';
+
+export default class MyDocument extends Document {
+  static getInitialProps(ctx: DocumentContext) {
+    return sx.renderPageWithSX(ctx.renderPage);
+  }
+
+  // `render` is not needed to change
+}
+```
+
+This simple code should create a `style` tag in your HTML header with all the CSS styles geenrated by SX.
 
 ## Architecture
 
