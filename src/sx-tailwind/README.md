@@ -5,7 +5,7 @@ Experimental port of [Tailwind CSS](https://tailwindcss.com/) (version 1.8.7) in
 ## Usage
 
 ```js
-import { sxt } from '@adeira/sxTailwind';
+import { sxt } from '@adeira/sx-tailwind';
 
 export default function Button() {
   return (
@@ -27,7 +27,7 @@ export default function Button() {
 Faster copy&paste from Tailwind examples can be done with `tailwind` helper. The downside is you don't get a type check here, only warnings in the console during development mode when the invalid class name is used.
 
 ```js
-import { tailwind } from '@adeira/sxTailwind';
+import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Button() {
   return (
