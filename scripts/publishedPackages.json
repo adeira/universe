@@ -19,6 +19,7 @@
   "@adeira/relay-utils",
   "@adeira/signed-source",
   "@adeira/sx",
+  "@adeira/sx-tailwind",
   "@adeira/test-utils",
   "eslint-plugin-adeira"
 ]
