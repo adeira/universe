@@ -34,10 +34,12 @@ jest.mock('@adeira/monorepo-utils', () => {
       }
 
       runSynchronously() {
+        // $FlowExpectedError[escaped-generic]
         return this;
       }
 
       setEnvironmentVariables() {
+        // $FlowExpectedError[escaped-generic]
         return this;
       }
     },
