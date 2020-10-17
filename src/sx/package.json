@@ -12,7 +12,7 @@
     "@adeira/js": "^1.2.4",
     "@adeira/murmur-hash": "^0.1.0",
     "@adeira/signed-source": "^1.0.0",
-    "@babel/runtime": "^7.11.2",
+    "@babel/runtime": "^7.12.1",
     "change-case": "^4.1.1",
     "css-tree": "^1.0.0-alpha.39",
     "fast-levenshtein": "^3.0.0",
@@ -20,13 +20,13 @@
     "prettier": "^2.1.2"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
+    "react": "^16.14.0"
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.6.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-test-renderer": "^16.13.1"
   }
 }
