@@ -10,8 +10,8 @@
   "dependencies": {
     "@adeira/monorepo-utils": "^0.9.0",
     "@babel/code-frame": "^7.10.4",
-    "@babel/register": "^7.11.5",
-    "@babel/runtime": "^7.11.2",
+    "@babel/register": "^7.12.1",
+    "@babel/runtime": "^7.12.1",
     "chalk": "^4.1.0",
     "create-jest-runner": "^0.7.0",
     "is-ci": "^2.0.0",

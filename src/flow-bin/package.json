@@ -15,8 +15,8 @@
     "@adeira/js": "^1.2.4",
     "@adeira/logger": "^0.3.0",
     "@adeira/monorepo-utils": "^0.9.0",
-    "@babel/register": "^7.11.5",
-    "@babel/runtime": "^7.11.2",
+    "@babel/register": "^7.12.1",
+    "@babel/runtime": "^7.12.1",
     "chalk": "^4.1.0",
     "is-ci": "^2.0.0"
   },
