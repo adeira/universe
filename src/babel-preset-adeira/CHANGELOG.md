@@ -1,5 +1,9 @@
 # Unreleased
 
+# 1.1.0
+
+- Upgraded babel dependencies
+
 # 1.0.0
 
 - Stable release (upgraded dependencies and some internal changes).
