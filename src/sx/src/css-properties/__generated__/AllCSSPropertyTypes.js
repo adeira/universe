@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3fa3657b0c376090299606971730b8fa>>
+ * @generated SignedSource<<ce42071ba6d85da0181585e6c981f7f1>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -29,7 +29,7 @@ export type AllCSSPropertyTypes = {|
   +backgroundAttachment?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-attachment
   +backgroundBlendMode?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-blend-mode
   +backgroundClip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-clip
-  +backgroundColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-color
+  +backgroundColor?: string, // https://developer.mozilla.org/docs/Web/CSS/background-color
   +backgroundImage?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-image
   +backgroundOrigin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-origin
   +backgroundPosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-position
@@ -90,12 +90,12 @@ export type AllCSSPropertyTypes = {|
   +borderInlineStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-style
   +borderInlineWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-width
   +borderLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left
-  +borderLeftColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left-color
+  +borderLeftColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-left-color
   +borderLeftStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left-style
   +borderLeftWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left-width
   +borderRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-radius
   +borderRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right
-  +borderRightColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right-color
+  +borderRightColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-right-color
   +borderRightStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right-style
   +borderRightWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right-width
   +borderSpacing?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-spacing
@@ -103,7 +103,7 @@ export type AllCSSPropertyTypes = {|
   +borderStartStartRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-start-start-radius
   +borderStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-style
   +borderTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top
-  +borderTopColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-color
+  +borderTopColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-top-color
   +borderTopLeftRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius
   +borderTopRightRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius
   +borderTopStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-style
@@ -170,7 +170,7 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +caret?: number | string,
-  +caretColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/caret-color
+  +caretColor?: string, // https://developer.mozilla.org/docs/Web/CSS/caret-color
   +caretShape?: number | string,
   +chains?: number | string,
   +clear?:  // https://developer.mozilla.org/docs/Web/CSS/clear
@@ -186,7 +186,7 @@ export type AllCSSPropertyTypes = {|
   +clip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip
   +clipPath?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip-path
   +clipRule?: number | string,
-  +color?: number | string, // https://developer.mozilla.org/docs/Web/CSS/color
+  +color?: string, // https://developer.mozilla.org/docs/Web/CSS/color
   +colorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/color-adjust
   +colorInterpolationFilters?: number | string,
   +colorScheme?: number | string,
@@ -194,7 +194,7 @@ export type AllCSSPropertyTypes = {|
   +columnFill?: 'auto' | 'balance' | 'balance-all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-fill
   +columnGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-gap
   +columnRule?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-rule
-  +columnRuleColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-rule-color
+  +columnRuleColor?: string, // https://developer.mozilla.org/docs/Web/CSS/column-rule-color
   +columnRuleStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-rule-style
   +columnRuleWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-rule-width
   +columnSpan?: 'none' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-span
@@ -444,7 +444,7 @@ export type AllCSSPropertyTypes = {|
   +order?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/order
   +orphans?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/orphans
   +outline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/outline
-  +outlineColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/outline-color
+  +outlineColor?: string, // https://developer.mozilla.org/docs/Web/CSS/outline-color
   +outlineOffset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/outline-offset
   +outlineStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/outline-style
   +outlineWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/outline-width
@@ -657,7 +657,7 @@ export type AllCSSPropertyTypes = {|
     | 'unset',
   +textCombineUpright?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-combine-upright
   +textDecoration?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration
-  +textDecorationColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-color
+  +textDecorationColor?: string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-color
   +textDecorationLine?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-line
   +textDecorationSkip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-skip
   +textDecorationSkipBox?: number | string,
@@ -677,7 +677,7 @@ export type AllCSSPropertyTypes = {|
   +textDecorationThickness?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-thickness
   +textEdge?: number | string,
   +textEmphasis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis
-  +textEmphasisColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-color
+  +textEmphasisColor?: string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-color
   +textEmphasisPosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-position
   +textEmphasisSkip?: number | string,
   +textEmphasisStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-style
