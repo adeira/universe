@@ -8,7 +8,6 @@
   "main": "index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/eslint-runner": "^0.4.0",
     "@babel/runtime": "^7.12.1",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-adeira": "^0.10.0",
@@ -32,6 +31,9 @@
     "snapshot-diff": "^0.8.1"
   },
   "peerDependencies": {
-    "eslint": "^7.8.1"
+    "eslint": ">=7.8.1"
+  },
+  "optionalDependencies": {
+    "@adeira/eslint-runner": "^0.4.0"
   }
 }

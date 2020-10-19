@@ -1,7 +1,10 @@
 # Unreleased
 
+Note: should be released as a new major version.
+
 - Remove `__` global, legacy of Nitrolib from Kiwi.com, see: https://kiwicom.github.io/nitrolib/services.html#intl
 - Set `flowtype/require-readonly-react-props` to warning in normal mode and error in strict mode
+- Eslint Runner is no longer part of this package. Please use `@adeira/eslint-runner` package instead for better experience.
 
 # 3.2.0
 
