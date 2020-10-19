@@ -15,19 +15,19 @@ type CommonProps = {|
 |};
 
 type Props<T> =
-  | {|
+  | $ReadOnly<{|
       ...CommonProps,
       +onResponse: (T) => React.Node,
       +onLoading?: () => React.Node,
-    |}
-  | {|
+    |}>
+  | $ReadOnly<{|
       ...CommonProps,
       +render: ({ +props: ?T, ... }) => React.Node,
-    |};
+    |}>;
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.
-export default function LocalQueryRenderer<T>(props: Props<T>): React.Node {
+export default function LocalQueryRenderer<T>(props: $ReadOnly<Props<T>>): React.Node {
   function renderQueryRendererResponse({ props: rendererProps }) {
     if (!rendererProps) {
       return props.onLoading ? (

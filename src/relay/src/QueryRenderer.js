@@ -25,7 +25,7 @@ type CommonProps = {|
 |};
 
 type Props<T> =
-  | {|
+  | $ReadOnly<{|
       ...CommonProps,
       +onSystemError?: ({
         error: Error,
@@ -34,13 +34,13 @@ type Props<T> =
       }) => React.Node,
       +onLoading?: () => React.Node,
       +onResponse: (T) => React.Node,
-    |}
-  | {|
+    |}>
+  | $ReadOnly<{|
       ...CommonProps,
       +render: (ReadyState<?T>) => React.Node,
-    |};
+    |}>;
 
-export default function QueryRenderer<T>(props: Props<T>): React.Node {
+export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): React.Node {
   function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState<?T>) {
     if (error) {
       if (props.onSystemError) {

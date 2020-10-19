@@ -291,7 +291,7 @@ module.exports = ({
   'flowtype/require-indexer-name': OFF,
   'flowtype/require-inexact-type': ERROR,
   'flowtype/require-parameter-type': OFF,
-  'flowtype/require-readonly-react-props': OFF, // TODO: https://github.com/gajus/eslint-plugin-flowtype/pull/400#issuecomment-492828739
+  'flowtype/require-readonly-react-props': NEXT_VERSION_ERROR,
   'flowtype/require-return-type': OFF,
   'flowtype/require-types-at-top': OFF,
   'flowtype/require-valid-file-annotation': [ERROR, 'always'],

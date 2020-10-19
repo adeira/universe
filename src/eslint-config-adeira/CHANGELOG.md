@@ -1,6 +1,7 @@
 # Unreleased
 
 - Remove `__` global, legacy of Nitrolib from Kiwi.com, see: https://kiwicom.github.io/nitrolib/services.html#intl
+- Set `flowtype/require-readonly-react-props` to warning in normal mode and error in strict mode
 
 # 3.2.0
 
