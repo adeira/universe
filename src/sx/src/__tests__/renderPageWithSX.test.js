@@ -1,51 +1,10 @@
 // @flow
 
-import path from 'path';
-import prettier from 'prettier';
-import { generateTestsFromFixtures } from '@adeira/test-utils';
-import { sprintf } from '@adeira/js';
-import TestRenderer from 'react-test-renderer';
-
 import * as sx from '../../index';
 import StyleCollector from '../StyleCollector';
 
-const renderPageMock = () => ({
-  html: '',
-  head: [''],
-  styles: [''],
-});
-
 afterEach(() => {
   StyleCollector.reset();
-});
-
-generateTestsFromFixtures(path.join(__dirname, 'fixtures'), (input) => {
-  const stylesheetsDefinition = JSON.parse(input);
-  const styles = sx.create(stylesheetsDefinition);
-
-  let output = '';
-
-  // 1) print final atomic CSS
-  const renderer = TestRenderer.create(sx.renderPageWithSX(renderPageMock).styles[0]);
-  const css = renderer.root.children[0].toString();
-  output += prettier.format(css, { filepath: 'test.css' });
-
-  output += '\n~~~~~~~~~~ USAGE ~~~~~~~~~~\n';
-
-  // 2) print CSS classes when calling the stylesheet name
-  Object.keys(stylesheetsDefinition).forEach((stylesheetName) => {
-    output += sprintf(
-      `
-className={styles('%s')}
-  ↓ ↓ ↓
-class="%s"
-`,
-      stylesheetName,
-      styles(stylesheetName),
-    );
-  });
-
-  return output;
 });
 
 it('works as expected', () => {

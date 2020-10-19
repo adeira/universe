@@ -235,12 +235,6 @@
   },
   {
     "property": "appearance",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-appearance",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
-  },
-  {
-    "property": "appearance",
     "url": "https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#propdef-appearance",
     "status": "WD",
     "title": "CSS Basic User Interface Module Level 4"
@@ -1879,6 +1873,12 @@
   },
   {
     "property": "box-sizing",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-box-sizing",
+    "status": "ED",
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+  },
+  {
+    "property": "box-sizing",
     "url": "https://www.w3.org/TR/2018/REC-css-ui-3-20180621/#propdef-box-sizing",
     "status": "REC",
     "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
@@ -2029,27 +2029,21 @@
   },
   {
     "property": "caret",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-caret",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
-  },
-  {
-    "property": "caret",
     "url": "https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#propdef-caret",
     "status": "WD",
     "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "caret-color",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-caret-color",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-caret-color",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "caret-color",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-caret-color",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-caret-color",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "caret-color",
@@ -2068,12 +2062,6 @@
     "url": "https://drafts.csswg.org/css-ui-4/#propdef-caret-shape",
     "status": "ED",
     "title": "CSS Basic User Interface Module Level 4"
-  },
-  {
-    "property": "caret-shape",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-caret-shape",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "caret-shape",
@@ -2383,15 +2371,15 @@
   },
   {
     "property": "contain",
-    "url": "https://drafts.csswg.org/css-contain-2/#propdef-contain",
+    "url": "https://drafts.csswg.org/css-contain-1/#propdef-contain",
     "status": "ED",
-    "title": "CSS Containment Module Level 2"
+    "title": "CSS Containment Module Level 1"
   },
   {
     "property": "contain",
-    "url": "https://drafts.csswg.org/css-contain/#propdef-contain",
+    "url": "https://drafts.csswg.org/css-contain-2/#propdef-contain",
     "status": "ED",
-    "title": "CSS Containment Module Level 1"
+    "title": "CSS Containment Module Level 2"
   },
   {
     "property": "contain",
@@ -2452,12 +2440,6 @@
     "url": "https://drafts.csswg.org/css-contain-2/#propdef-content-visibility",
     "status": "ED",
     "title": "CSS Containment Module Level 2"
-  },
-  {
-    "property": "content-visibility",
-    "url": "https://drafts.csswg.org/css-contain/#propdef-content-visibility",
-    "status": "ED",
-    "title": "CSS Containment Module Level 1"
   },
   {
     "property": "content-visibility",
@@ -2623,15 +2605,15 @@
   },
   {
     "property": "cursor",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-cursor",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-cursor",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "cursor",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-cursor",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-cursor",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "cursor",
@@ -3127,15 +3109,15 @@
   },
   {
     "property": "font",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font",
@@ -3169,15 +3151,15 @@
   },
   {
     "property": "font-family",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-family",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-family",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-family",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-family",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-family",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-family",
@@ -3205,15 +3187,15 @@
   },
   {
     "property": "font-feature-settings",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-feature-settings",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-feature-settings",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-feature-settings",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-feature-settings",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-feature-settings",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-feature-settings",
@@ -3229,15 +3211,15 @@
   },
   {
     "property": "font-kerning",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-kerning",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-kerning",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-kerning",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-kerning",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-kerning",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-kerning",
@@ -3259,12 +3241,6 @@
   },
   {
     "property": "font-language-override",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-language-override",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-language-override",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-language-override",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
@@ -3274,12 +3250,6 @@
     "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-optical-sizing",
     "status": "ED",
     "title": "CSS Fonts Module Level 4"
-  },
-  {
-    "property": "font-optical-sizing",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-optical-sizing",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-optical-sizing",
@@ -3295,12 +3265,6 @@
   },
   {
     "property": "font-palette",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-palette",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-palette",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-palette",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
@@ -3313,15 +3277,15 @@
   },
   {
     "property": "font-size",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-size",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-size",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-size",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-size",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-size",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-size",
@@ -3349,15 +3313,15 @@
   },
   {
     "property": "font-size-adjust",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-size-adjust",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-size-adjust",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-size-adjust",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-size-adjust",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-size-adjust",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-size-adjust",
@@ -3373,15 +3337,15 @@
   },
   {
     "property": "font-stretch",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-stretch",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-stretch",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-stretch",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-stretch",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-stretch",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-stretch",
@@ -3403,15 +3367,15 @@
   },
   {
     "property": "font-style",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-style",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-style",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-style",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-style",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-style",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-style",
@@ -3439,15 +3403,15 @@
   },
   {
     "property": "font-synthesis",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-synthesis",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-synthesis",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-synthesis",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-synthesis",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-synthesis",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-synthesis",
@@ -3469,12 +3433,6 @@
   },
   {
     "property": "font-synthesis-small-caps",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-synthesis-small-caps",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-synthesis-small-caps",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-synthesis-small-caps",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
@@ -3484,12 +3442,6 @@
     "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-synthesis-style",
     "status": "ED",
     "title": "CSS Fonts Module Level 4"
-  },
-  {
-    "property": "font-synthesis-style",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-synthesis-style",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-synthesis-style",
@@ -3505,12 +3457,6 @@
   },
   {
     "property": "font-synthesis-weight",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-synthesis-weight",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-synthesis-weight",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-synthesis-weight",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
@@ -3523,15 +3469,15 @@
   },
   {
     "property": "font-variant",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-variant",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-variant",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant",
@@ -3565,27 +3511,21 @@
   },
   {
     "property": "font-variant-alternates",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-alternates",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-variant-alternates",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-variant-alternates",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-caps",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-caps",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-caps",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-variant-caps",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-caps",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-caps",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-caps",
@@ -3601,15 +3541,15 @@
   },
   {
     "property": "font-variant-east-asian",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-east-asian",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-east-asian",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-variant-east-asian",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-east-asian",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-east-asian",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-east-asian",
@@ -3631,27 +3571,21 @@
   },
   {
     "property": "font-variant-emoji",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-emoji",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-variant-emoji",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-variant-emoji",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-ligatures",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-ligatures",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-ligatures",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-variant-ligatures",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-ligatures",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-ligatures",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-ligatures",
@@ -3667,15 +3601,15 @@
   },
   {
     "property": "font-variant-numeric",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-numeric",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-numeric",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-variant-numeric",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-numeric",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-numeric",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-numeric",
@@ -3691,15 +3625,15 @@
   },
   {
     "property": "font-variant-position",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-position",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-position",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-variant-position",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variant-position",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-variant-position",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-variant-position",
@@ -3721,12 +3655,6 @@
   },
   {
     "property": "font-variation-settings",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-variation-settings",
-    "status": "ED",
-    "title": "CSS Fonts Module Level 3"
-  },
-  {
-    "property": "font-variation-settings",
     "url": "https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-variation-settings",
     "status": "WD",
     "title": "CSS Fonts Module Level 4"
@@ -3739,15 +3667,15 @@
   },
   {
     "property": "font-weight",
-    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-weight",
+    "url": "https://drafts.csswg.org/css-fonts-3/#propdef-font-weight",
     "status": "ED",
-    "title": "CSS Fonts Module Level 4"
+    "title": "CSS Fonts Module Level 3"
   },
   {
     "property": "font-weight",
-    "url": "https://drafts.csswg.org/css-fonts/#propdef-font-weight",
+    "url": "https://drafts.csswg.org/css-fonts-4/#propdef-font-weight",
     "status": "ED",
-    "title": "CSS Fonts Module Level 3"
+    "title": "CSS Fonts Module Level 4"
   },
   {
     "property": "font-weight",
@@ -5839,12 +5767,6 @@
   },
   {
     "property": "nav-down",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-nav-down",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
-  },
-  {
-    "property": "nav-down",
     "url": "https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#propdef-nav-down",
     "status": "WD",
     "title": "CSS Basic User Interface Module Level 4"
@@ -5854,12 +5776,6 @@
     "url": "https://drafts.csswg.org/css-ui-4/#propdef-nav-left",
     "status": "ED",
     "title": "CSS Basic User Interface Module Level 4"
-  },
-  {
-    "property": "nav-left",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-nav-left",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "nav-left",
@@ -5875,12 +5791,6 @@
   },
   {
     "property": "nav-right",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-nav-right",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
-  },
-  {
-    "property": "nav-right",
     "url": "https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#propdef-nav-right",
     "status": "WD",
     "title": "CSS Basic User Interface Module Level 4"
@@ -5890,12 +5800,6 @@
     "url": "https://drafts.csswg.org/css-ui-4/#propdef-nav-up",
     "status": "ED",
     "title": "CSS Basic User Interface Module Level 4"
-  },
-  {
-    "property": "nav-up",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-nav-up",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "nav-up",
@@ -6091,15 +5995,15 @@
   },
   {
     "property": "outline",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-outline",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "outline",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-outline",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "outline",
@@ -6133,15 +6037,15 @@
   },
   {
     "property": "outline-color",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-color",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-outline-color",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "outline-color",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-outline-color",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-color",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "outline-color",
@@ -6169,15 +6073,15 @@
   },
   {
     "property": "outline-offset",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-offset",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-outline-offset",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "outline-offset",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-outline-offset",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-offset",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "outline-offset",
@@ -6199,15 +6103,15 @@
   },
   {
     "property": "outline-style",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-style",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-outline-style",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "outline-style",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-outline-style",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-style",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "outline-style",
@@ -6241,15 +6145,15 @@
   },
   {
     "property": "outline-width",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-width",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-outline-width",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "outline-width",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-outline-width",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-outline-width",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "outline-width",
@@ -7015,15 +6919,15 @@
   },
   {
     "property": "resize",
-    "url": "https://drafts.csswg.org/css-ui-4/#propdef-resize",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-resize",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 4"
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "resize",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-resize",
+    "url": "https://drafts.csswg.org/css-ui-4/#propdef-resize",
     "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+    "title": "CSS Basic User Interface Module Level 4"
   },
   {
     "property": "resize",
@@ -8599,6 +8503,12 @@
   },
   {
     "property": "text-overflow",
+    "url": "https://drafts.csswg.org/css-ui-3/#propdef-text-overflow",
+    "status": "ED",
+    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
+  },
+  {
+    "property": "text-overflow",
     "url": "https://www.w3.org/TR/2018/REC-css-ui-3-20180621/#propdef-text-overflow",
     "status": "REC",
     "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
@@ -8944,12 +8854,6 @@
     "url": "https://drafts.csswg.org/css-ui-4/#propdef-user-select",
     "status": "ED",
     "title": "CSS Basic User Interface Module Level 4"
-  },
-  {
-    "property": "user-select",
-    "url": "https://drafts.csswg.org/css-ui/#propdef-user-select",
-    "status": "ED",
-    "title": "CSS Basic User Interface Module Level 3 (CSS3 UI)"
   },
   {
     "property": "user-select",

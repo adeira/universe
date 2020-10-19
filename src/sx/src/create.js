@@ -30,7 +30,7 @@ type AllCSSProperties = {|
   +[string]: AtRules, // we are unable to statically typecheck the key because it can be almost anything
 |};
 
-type SheetDefinitions = {|
+export type SheetDefinitions = {|
   +[sheetName: string]: AllCSSProperties,
 |};
 
