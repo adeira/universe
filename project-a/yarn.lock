@@ -181,6 +181,14 @@
   dependencies:
     cross-fetch "3.0.5"
 
+"@axe-core/react@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.0.0.tgz#2c1206a65505bb0945fe9856673ed9a724639791"
+  integrity sha512-/hwpydX/JkP+uWfHd4pFAAq0hgGbdmEf4m3SPuhacgjkVwmYhmltAPHXShswcKhys086jKJ402CGmy/BKNF9og==
+  dependencies:
+    axe-core "^4.0.1"
+    requestidlecallback "^0.3.0"
+
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.5.5":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -2898,10 +2906,15 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
   integrity sha512-zg7Hz2k5lI8kb7U32998pRRFin7zJlkfezGJjUc2heaD4Pw2wObakCDVzkKztTm/Ln7eiVvYsjqak0Ed4LkMDA==
 
-axe-core@^3.5.0, axe-core@^3.5.4:
+axe-core@^3.5.4:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.5.tgz#84315073b53fa3c0c51676c588d59da09a192227"
   integrity sha512-5P0QZ6J5xGikH780pghEdbEKijCTrruK9KxtPZCFWUpef0f6GipO+xEZ5GKCb020mmqgbiNO6TcA55CriL784Q==
+
+axe-core@^4.0.1:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.0.2.tgz#c7cf7378378a51fcd272d3c09668002a4990b1cb"
+  integrity sha512-arU1h31OGFu+LPrOLGZ7nB45v940NMDMEJeNmbutu57P+UFDVnkZg3e+J1I2HJRZ9hT7gO8J91dn/PMrAiKakA==
 
 axobject-query@^2.1.2:
   version "2.2.0"
@@ -7736,18 +7749,10 @@ randomfill@^1.0.3:
     randombytes "^2.0.5"
     safe-buffer "^5.1.0"
 
-react-axe@^3.5.4:
-  version "3.5.4"
-  resolved "https://registry.yarnpkg.com/react-axe/-/react-axe-3.5.4.tgz#f59b9ea08eb82341f53cb26c5c53724417bc8c8f"
-  integrity sha512-5xNO0QVCCEZnJiyhAGox0MGFyclgU3XL8se+5H+whdxV1VTtA9/uux9BSCF5mGNSgtSZkb+tQtrOaF+zGf/oWw==
-  dependencies:
-    axe-core "^3.5.0"
-    requestidlecallback "^0.3.0"
-
-react-dom@^16.13.1:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
-  integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+react-dom@^16.14.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

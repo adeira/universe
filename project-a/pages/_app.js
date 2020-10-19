@@ -19,7 +19,7 @@ if (
   typeof window !== 'undefined' // process.browser should work as well (https://github.com/vercel/next.js/issues/2473#issuecomment-362119102)
 ) {
   // eslint-disable-next-line import/no-extraneous-dependencies
-  const axe = require('react-axe');
+  const axe = require('@axe-core/react');
   axe(React, ReactDOM, 1000);
 }
 
