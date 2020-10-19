@@ -1,9 +1,15 @@
-Simple utility to manage our ID fields in GraphQL correctly. The generated values are validated and URL compatible + it's typed for both Flow and Typescript.
+Simple utility to manage our ID fields in GraphQL correctly. The generated values are validated and URL compatible + it's typed for Flow.
 
 # Install
 
 ```text
 yarn add @adeira/graphql-global-id
+```
+
+Optionally, install TS types (Flow types are included by default):
+
+```text
+yarn add --dev @types/adeira__graphql-global-id
 ```
 
 # Basic usage
