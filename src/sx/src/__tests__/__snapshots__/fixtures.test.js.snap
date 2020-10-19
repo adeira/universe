@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches expected output: @supports.json 1`] = `
+exports[`matches expected output: @supports.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "test": {
@@ -20,7 +20,6 @@ exports[`matches expected output: @supports.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
   ._3GKV06._3GKV06 {
@@ -56,7 +55,7 @@ class="_3DO79H _4mzMj8"
 
 `;
 
-exports[`matches expected output: @supports-nested.json 1`] = `
+exports[`matches expected output: @supports-nested.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "test": {
@@ -71,7 +70,6 @@ exports[`matches expected output: @supports-nested.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
   ._3LkwQx._3LkwQx {
@@ -98,7 +96,7 @@ class="_3LkwQx _3KVzHX _39dw1H"
 
 `;
 
-exports[`matches expected output: @unknown.error.json 1`] = `
+exports[`matches expected output: @unknown.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "test": {
@@ -107,14 +105,13 @@ exports[`matches expected output: @unknown.error.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-THROWN EXCEPTION:
+⚠️ THROWN EXCEPTION:
 
 Invariant Violation: Unsupported rule "@unknown"
 `;
 
-exports[`matches expected output: media-queries.json 1`] = `
+exports[`matches expected output: media-queries.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "test": {
@@ -127,7 +124,6 @@ exports[`matches expected output: media-queries.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .wUqnh {
   color: #f00;
@@ -151,7 +147,7 @@ class="wUqnh zIzjk _27Xk5F"
 
 `;
 
-exports[`matches expected output: media-queries-multiple.json 1`] = `
+exports[`matches expected output: media-queries-multiple.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "aaa": {
@@ -171,7 +167,6 @@ exports[`matches expected output: media-queries-multiple.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .wUqnh {
   color: #f00;
@@ -208,7 +203,7 @@ class="v2909"
 
 `;
 
-exports[`matches expected output: media-queries-nested.json 1`] = `
+exports[`matches expected output: media-queries-nested.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "test": {
@@ -220,7 +215,6 @@ exports[`matches expected output: media-queries-nested.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media print {
   .zIzjk.zIzjk {
@@ -241,7 +235,7 @@ class="zIzjk Uxdbe"
 
 `;
 
-exports[`matches expected output: media-queries-nested-deep.json 1`] = `
+exports[`matches expected output: media-queries-nested-deep.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "test": {
@@ -271,7 +265,6 @@ exports[`matches expected output: media-queries-nested-deep.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media (max-width: 10cm) {
   ._4bGnnn._4bGnnn {
@@ -330,7 +323,7 @@ class="_4bGnnn _1kQaJH _21BNws _3Lm6Uw _2sV160 _1bLvdm _3TWByw _1adr9y _1EWUxi _
 
 `;
 
-exports[`matches expected output: media-queries-nested-pseudo.json 1`] = `
+exports[`matches expected output: media-queries-nested-pseudo.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "media": {
@@ -343,7 +336,6 @@ exports[`matches expected output: media-queries-nested-pseudo.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .wUqnh {
   color: #f00;
@@ -365,7 +357,7 @@ class="wUqnh zIzjk _4rAdwD"
 
 `;
 
-exports[`matches expected output: media-queries-same-style.json 1`] = `
+exports[`matches expected output: media-queries-same-style.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "style1": {
@@ -403,7 +395,7 @@ class="wUqnh"
 
 `;
 
-exports[`matches expected output: pseudo-classes.json 1`] = `
+exports[`matches expected output: pseudo-classes.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "link": {
@@ -413,7 +405,6 @@ exports[`matches expected output: pseudo-classes.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 ._134wwt {
   text-decoration: none;
@@ -430,7 +421,7 @@ class="_134wwt _22QzO9"
 
 `;
 
-exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
+exports[`matches expected output: pseudo-classes-multiple.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "aaa": {
@@ -449,7 +440,6 @@ exports[`matches expected output: pseudo-classes-multiple.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 ._134wwt {
   text-decoration: none;
@@ -479,7 +469,7 @@ class="UddGc"
 
 `;
 
-exports[`matches expected output: pseudo-elements.json 1`] = `
+exports[`matches expected output: pseudo-elements.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "link": {
@@ -495,7 +485,6 @@ exports[`matches expected output: pseudo-elements.json 1`] = `
     }
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 ._134wwt {
   text-decoration: none;
@@ -518,7 +507,7 @@ class="_134wwt _22QzO9 _2Rpe4g _3ou8wp"
 
 `;
 
-exports[`matches expected output: simple-stylesheet.json 1`] = `
+exports[`matches expected output: simple-stylesheet.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "redStyle": {
@@ -531,7 +520,6 @@ exports[`matches expected output: simple-stylesheet.json 1`] = `
     "color": "green"
   }
 }
-
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .wUqnh {
   color: #f00;
