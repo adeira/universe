@@ -16,7 +16,7 @@
     "change-case": "^4.1.1",
     "css-tree": "^1.0.0-alpha.39",
     "fast-levenshtein": "^3.0.0",
-    "mdn-data": "^2.0.11",
+    "mdn-data": "^2.0.12",
     "prettier": "^2.1.2"
   },
   "peerDependencies": {
