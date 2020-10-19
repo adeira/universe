@@ -4,6 +4,12 @@ This package contains some useful utilities to help you write JavaScript better.
 yarn add @adeira/js
 ```
 
+Optionally, install TS types (Flow types are included by default):
+
+```text
+yarn add --dev @types/adeira__js
+```
+
 # `invariant`, `warning`
 
 Use these functions instead of traditional error throwing or `console.warn`. Compare these two examples:
