@@ -243,4 +243,5 @@ _sorted alphabetically_
 - https://github.com/Khan/aphrodite
 - https://github.com/styled-components/styled-components
 - https://reactnative.dev/docs/stylesheet
+- https://sebastienlorber.com/atomic-css-in-js
 - https://twitter.com/wongmjane/status/1187411809667436550
