@@ -6,6 +6,12 @@ This package allows you to do basically whatever you want with the resolvers.
 yarn add @adeira/graphql-resolve-wrapper
 ```
 
+Optionally, install TS types (Flow types are included by default):
+
+```text
+yarn add --dev @types/adeira__graphql-resolve-wrapper
+```
+
 # Usage
 
 _Note: this function mutates the GraphQL schema (it replaces the `resolve` function)._
