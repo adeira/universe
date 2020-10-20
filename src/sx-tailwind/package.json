@@ -13,7 +13,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@adeira/js": "^1.2.4",
+    "@adeira/js": "^1.3.0",
     "@adeira/signed-source": "^1.0.0",
     "@adeira/sx": "^0.13.0",
     "@babel/runtime": "^7.12.1",
