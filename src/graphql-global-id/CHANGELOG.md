@@ -1,5 +1,10 @@
 # Unreleased
 
+# 1.2.0
+
+- TS types removed, use [`@types/adeira__graphql-global-id`](https://www.npmjs.com/package/@types/adeira__graphql-global-id), see: https://github.com/DefinitelyTyped/DefinitelyTyped/pull/48922
+- Internal changes, dependency upgrades
+
 # 1.1.0
 
 - export Encoder
