@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@adeira/graphql-global-id": "^1.1.0",
-    "@adeira/js": "^1.2.3",
+    "@adeira/js": "^1.3.0",
     "@babel/runtime": "^7.12.1",
     "faunadb": "^3.0.1"
   },
