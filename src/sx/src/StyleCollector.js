@@ -61,6 +61,9 @@ class StyleCollector {
           }
         } else if (maybeName.startsWith(':')) {
           // pseudo type (:hover, ::after, ...)
+          for (const key of Object.keys(maybeValue)) {
+            invariant(key.startsWith(':') === false, 'Nested pseudo classes are not allowed.');
+          }
           const nodes = traverse(styleSheetName, maybeValue, new Map(), maybeName);
           if (styleBuffer.has(maybeName)) {
             styleBuffer.get(maybeName)?.addNodes(nodes);
