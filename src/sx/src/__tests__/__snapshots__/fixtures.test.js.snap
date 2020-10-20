@@ -469,6 +469,49 @@ class="UddGc"
 
 `;
 
+exports[`matches expected output: pseudo-classes-nested-1.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    ":hover": {
+      "color": "red",
+      ":hover": {
+        "color": "green",
+        ":hover": {
+          "color": "blue"
+        }
+      }
+    }
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+⚠️ THROWN EXCEPTION:
+
+Invariant Violation: Nested pseudo classes are not allowed.
+`;
+
+exports[`matches expected output: pseudo-classes-nested-2.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "test": {
+    ":hover::after": {
+      "content": "this is OK"
+    }
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._2BDpfz:hover::after {
+  content: "this is OK";
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('test')}
+  ↓ ↓ ↓
+class="_2BDpfz"
+
+`;
+
 exports[`matches expected output: pseudo-elements.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
@@ -507,7 +550,7 @@ class="_134wwt _22QzO9 _2Rpe4g _3ou8wp"
 
 `;
 
-exports[`matches expected output: simple-stylesheet.js 1`] = `
+exports[`matches expected output: simple.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "redStyle": {
@@ -544,5 +587,39 @@ class="_4fo5TC"
 className={styles('greenStyle')}
   ↓ ↓ ↓
 class="PJDYD"
+
+`;
+
+exports[`matches expected output: simple-with-duplicates.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "aaa": {
+    "color": "red"
+  },
+  "bbb": {
+    "color": "red"
+  },
+  "ccc": {
+    "color": "red"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+.wUqnh {
+  color: #f00;
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('aaa')}
+  ↓ ↓ ↓
+class="wUqnh"
+
+className={styles('bbb')}
+  ↓ ↓ ↓
+class="wUqnh"
+
+className={styles('ccc')}
+  ↓ ↓ ↓
+class="wUqnh"
 
 `;
