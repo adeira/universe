@@ -10,3 +10,6 @@ src/example-relay/__github__/flow-typed
 
 # Adeira.dev Docs build
 src/docs/build/
+
+# SX Tailwind Babel plugin fixtures
+src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures
