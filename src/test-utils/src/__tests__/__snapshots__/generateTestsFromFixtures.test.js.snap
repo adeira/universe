@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches expected output: aaa.error.txt 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+aaa error
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+THROWN EXCEPTION:
+
+Error: correctly failed
+`;
+
+exports[`matches expected output: aaa.txt 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+aaa
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+AAA
+
+`;
+
+exports[`matches expected output: aaa.txt 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+aaa
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+AAA
+
+`;
+
+exports[`matches expected output: aaa.txt 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+aaa
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "payload": "\\"aaa\\\\n\\"",
+  "p": {
+    "r": {
+      "e": {
+        "t": {
+          "t": {
+            "y": true
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+exports[`matches expected output: aaa.txt: custom snapshot name (no modifications) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+aaa
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+aaa
+
+`;
+
+exports[`matches expected output: bbb.txt 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+bbb
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+BBB
+
+`;
+
+exports[`matches expected output: bbb.txt 2`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+bbb
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+BBB
+
+`;
+
+exports[`matches expected output: bbb.txt 3`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+bbb
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "payload": "\\"bbb\\\\n\\"",
+  "p": {
+    "r": {
+      "e": {
+        "t": {
+          "t": {
+            "y": true
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+exports[`matches expected output: bbb.txt: custom snapshot name (no modifications) 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+bbb
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+bbb
+
+`;
