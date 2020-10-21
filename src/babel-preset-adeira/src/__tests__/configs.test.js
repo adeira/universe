@@ -18,17 +18,20 @@ const environments = [
   { node: 'current' },
   { browsers: ['last 2 versions', 'ie >= 11'] },
 ];
+const reactRuntimes = ['automatic', 'classic'];
 
 const matrix = [];
 supportedTargets.forEach(function (target) {
   environments.forEach(function (environment) {
-    matrix.push([target, environment]);
+    reactRuntimes.forEach(function (runtime) {
+      matrix.push([target, environment, runtime]);
+    });
   });
 });
 
 test.each(matrix)(
-  "emits correct config for target '%s' and environment '%j'",
-  (target, environments) => {
+  "emits correct config for target '%s' and environment '%j' and reactEnvironment '%s'",
+  (target, environments, reactRuntime) => {
     const apiMock = {
       assertVersion: (version) => {
         if (version !== 7) {
@@ -36,6 +39,6 @@ test.each(matrix)(
         }
       },
     };
-    expect(preset(apiMock, { target, environments })).toMatchSnapshot();
+    expect(preset(apiMock, { target, environments, reactRuntime })).toMatchSnapshot();
   },
 );

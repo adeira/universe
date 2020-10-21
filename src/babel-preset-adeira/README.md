@@ -6,6 +6,7 @@ This preset simplifies Babel configuration for modern JavaScript we use at Adeir
 - [Configuration](#configuration)
   - [Transpilation targets](#transpilation-targets)
   - [Different environments](#different-environments)
+  - [New JSX transform](#new-jsx-transform)
 - [Transpilation features explained](#transpilation-features-explained)
   - [`__DEV__` expression](#__dev__-expression)
   - [`invariant` and `warning` functions](#invariant-and-warning-functions)
@@ -239,6 +240,27 @@ Using plugins:
 
 Using polyfills: No polyfills were added, since the `useBuiltIns` option was not set.
 ```
+
+## New JSX transform
+
+This packages supports the new JSX transform from `1.2.0`. See https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+
+You can use it like this:
+
+```js
+module.exports = {
+  presets: [
+    [
+      '@adeira/babel-preset-adeira',
+      {
+        reactRuntime: 'automatic',
+      },
+    ],
+  ],
+};
+```
+
+Note that the default is `classic`.
 
 # Transpilation features explained
 

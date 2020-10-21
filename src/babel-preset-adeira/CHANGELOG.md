@@ -1,5 +1,7 @@
 # Unreleased
 
+- Add support for new jsx transform, see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+
 # 1.1.0
 
 - Upgraded babel dependencies
