@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-tester": "^9.2.0"
+    "babel-plugin-tester": "^10.0.0"
   }
 }
