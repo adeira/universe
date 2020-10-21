@@ -15,12 +15,14 @@ type ExternalOptions = {|
   +target?: SupportedTargets,
   +environments?: Environments,
   +debug?: boolean,
+  +reactRuntime?: 'automatic' | 'classic',
 |};
 
 type InternalOptions = {|
   +target: SupportedTargets,
   +environments: Environments,
   +debug: boolean,
+  +reactRuntime: 'automatic' | 'classic',
 |};
 
 type BabelRule = string | [string, { [name: string]: mixed, ... }];
@@ -45,6 +47,7 @@ module.exports = (
       ],
     },
     debug: externalOptions.debug || false,
+    reactRuntime: externalOptions.reactRuntime || 'classic', // TODO: From next major version use 'automatic' as default
   };
 
   let presets /*: BabelRules */ = [];
@@ -83,7 +86,12 @@ module.exports = (
           // TODO - loose: true (?)
         },
       ],
-      '@babel/preset-react',
+      [
+        '@babel/preset-react',
+        {
+          runtime: options.reactRuntime,
+        },
+      ],
     ]);
     plugins = plugins.concat([
       path.join(__dirname, 'dev-expression.js'),
