@@ -1,3 +1,13 @@
+```text
+yarn add @adeira/test-utils
+```
+
+Optionally, install TS types (Flow types are included by default):
+
+```text
+yarn add --dev @types/adeira__test-utils
+```
+
 # `generateTestsFromFixtures`
 
 This function loads all the fixtures (their file content) from your folder and it snapshots the result of your callback operation. This is handy when you have several example files, you want to perform some operation on top of them and snapshot the results.
