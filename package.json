@@ -37,6 +37,8 @@
     "typecheck": "yarn run adeira-flow-bin"
   },
   "resolutions": {
-    "graphql": "^15.0.0"
+    "graphql": "^15.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   }
 }
