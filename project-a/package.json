@@ -15,7 +15,7 @@
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate"
   },
   "dependencies": {
-    "@adeira/js": "^1.2.4",
+    "@adeira/js": "^1.3.0",
     "@adeira/sx": "^0.13.0",
     "@babel/register": "^7.12.1",
     "babel-plugin-fbt": "^0.15.1",
