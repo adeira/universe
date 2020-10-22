@@ -1,0 +1,39 @@
+[ignore]
+
+[untyped]
+
+[declarations]
+.+/node_modules/.+
+
+[include]
+
+[libs]
+./flow-typed/
+
+[lints]
+all=error
+ambiguous-object-type=off
+sketchy-null-bool=off
+unclear-type=off
+untyped-import=off
+
+[strict]
+ambiguous-object-type
+sketchy-null-bool
+unclear-type
+untyped-import
+
+[options]
+emoji=true
+exact_by_default=true
+include_warnings=true
+
+; Allow dynamic `require(path.join(__dirname, 'myFile.json'))`
+module.ignore_non_literal_requires=true
+
+; This option lets you alias 'any' with a given string - useful for explaining why you’re using 'any'.
+suppress_type=$FlowFixMe
+
+; This option is always ON in the strict mode. We are enabling it even for the classic mode.
+; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
+experimental.const_params=true
