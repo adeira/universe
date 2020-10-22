@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adeira/babel-preset-adeira@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/babel-preset-adeira/-/babel-preset-adeira-1.1.0.tgz#ae54f96db1f934dace32adf70536397e02897ff5"
-  integrity sha512-iyFQ1YRhDq+mJkEUr2nPpLxT4gmFDmxKlCHRvWlNrtf45xQdX6A3UMhAhYqGzAkKg9V4aqjmfTl6ZV3oacXXnA==
+"@adeira/babel-preset-adeira@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/babel-preset-adeira/-/babel-preset-adeira-1.2.0.tgz#6967552e75bbbf38691de8c10d4945b7cf59d91f"
+  integrity sha512-/lAqKRHue4eo0P/SEtgivp2dXCJCknoTuoJoKzNvy43aHRFtV/SurB56URnUS0aUyaf0jdP9uMLzUNM4tLf3mg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.12.1"
     "@babel/plugin-proposal-numeric-separator" "^7.12.1"
