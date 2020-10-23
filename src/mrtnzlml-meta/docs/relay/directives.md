@@ -580,3 +580,15 @@ directive @react_flight_component(name: String!) on FIELD_DEFINITION
 ```
 
 TKTK
+
+### @preloadable
+
+```graphql
+query Query @preloadable {
+  node(id: "foo") {
+    id
+  }
+}
+```
+
+See: https://github.com/facebook/relay/commit/10df4d834da3a31e3d855837ad47e323568332ce
