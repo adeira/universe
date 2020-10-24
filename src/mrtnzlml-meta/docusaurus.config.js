@@ -17,6 +17,14 @@ module.exports = {
   projectName: 'meta', // Usually your repo name.
   themeConfig: {
     sidebarCollapsible: false,
+    announcementBar: {
+      id: 'github_sponsor', // Any value that will identify this message.
+      content:
+        '⭐️ Do you like the content? You can buy me a coffee via <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/mrtnzlml">GitHub Sponsors</a>! ⭐️',
+      backgroundColor: '#d0d0d0', // Defaults to `#fff`.
+      // textColor: '#091E42', // Defaults to `#000`.
+      isCloseable: false, // Defaults to `true`.
+    },
     navbar: {
       // title: '👨‍💻',
       logo: {
