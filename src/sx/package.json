@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@adeira/test-utils": "^0.6.0",
-    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "react": "^16.14.0",
     "react-test-renderer": "^16.14.0"
