@@ -6,6 +6,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
   - [`@media` and `@supports`](#media-and-supports)
   - [Precise Flow types](#precise-flow-types)
+  - [CSS reset](#css-reset)
 - [Architecture](#architecture)
 - [Prior Art](#prior-art)
 
@@ -172,6 +173,38 @@ const styles = sx.create({
 ```
 
 Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries - they cannot be statically analyzed. These situations are usually complemented with runtime checks and eventually even Eslint rules.
+
+### CSS reset
+
+You can opt in to add the most common CSS reset automatically. Usage like this:
+
+```jsx
+import * as sx from '@adeira/sx';
+import Document from 'next/document';
+
+export default class MyDocument extends Document {
+  static getInitialProps(ctx: DocumentContext) {
+    return sx.renderPageWithSX(ctx.renderPage, { includeReset: true });
+  }
+
+  // `render` is not needed to change
+}
+```
+
+This will add the following css to your stylesheet:
+
+```css
+body {
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+```
 
 ## Architecture
 
