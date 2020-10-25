@@ -6,7 +6,7 @@ import murmurHash from '@adeira/murmur-hash';
 import { tailwindStyles } from '@adeira/sx-tailwind';
 
 module.exports = function sxTailwindBabelPlugin(): any {
-  const styles = [];
+  const stylesCollector = [];
   let tailwindCallee = '';
   let sxtCallee = '';
   let stylesVarName = 'styles';
@@ -39,12 +39,14 @@ module.exports = function sxTailwindBabelPlugin(): any {
           return;
         }
         if (path.node.value.expression.callee.name === sxtCallee) {
-          path.node.value.expression.arguments.forEach((a) => styles.push(a.value));
+          path.node.value.expression.arguments.forEach((a) => stylesCollector.push(a.value));
           path.node.value.expression.callee.name = stylesVarName;
         } else if (path.node.value.expression.callee.name === tailwindCallee) {
-          path.node.value.expression.arguments[0].value
-            .split(' ')
-            .forEach((style) => styles.push(style));
+          const styles = [];
+          path.node.value.expression.arguments[0].value.split(' ').forEach((style) => {
+            stylesCollector.push(style);
+            styles.push(style);
+          });
 
           const attribute = t.jsxAttribute(
             t.jsxIdentifier('className'),
@@ -65,7 +67,7 @@ module.exports = function sxTailwindBabelPlugin(): any {
         },
         exit(path) {
           const declarations = Object.fromEntries(
-            styles.map((style) => [style, tailwindStyles[style]]),
+            stylesCollector.map((style) => [style, tailwindStyles[style]]),
           );
           if (Object.keys(declarations).length === 0) {
             return;
