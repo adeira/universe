@@ -5,6 +5,11 @@ import { render, screen } from '@testing-library/react';
 
 import * as sx from '../../index';
 import { normalizeColor } from '../colorNormalizer';
+import collector from '../StyleCollector';
+
+afterEach(() => {
+  collector.reset();
+});
 
 const styles = sx.create({
   red: { color: 'red' },
@@ -50,4 +55,33 @@ it('applies correct styles', () => {
 
   const pseudoRed = screen.getByText('pseudo red');
   expect(pseudoRed).toHaveStyle(`color:${normalizeColor('red')}`); // red wins (non-hover)
+});
+
+it('includes reset', () => {
+  render(
+    <div data-test="container">
+      {sx.renderPageWithSX(jest.fn(), { includeReset: true }).styles}
+    </div>,
+  );
+
+  // eslint-disable-next-line no-undef
+  expect(document.querySelector('[data-adeira-sx="true"]')).toMatchInlineSnapshot(`
+    <style
+      data-adeira-sx="true"
+    >
+      
+    body {
+      box-sizing: border-box;
+    }
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+      
+    </style>
+  `);
 });
