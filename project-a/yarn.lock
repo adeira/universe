@@ -115,19 +115,19 @@
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-"@adeira/sx@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.13.0.tgz#4077a909b782ed94928bca8d5afd285d9e2da2d9"
-  integrity sha512-67wn2P6jrizSP8MKDeOpVWZV5Gq8Pf9t4FF5DqC7ooemilWduFZnFur4JPYqWHy3Tl+JxMLDRcXGsMZkZifALQ==
+"@adeira/sx@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.14.0.tgz#93f11566dab8a2f71c4c190c6a4a0344cff6230f"
+  integrity sha512-cwlxutTaavds6H7ShkDQYizbwI4WG3eEtyaj7iUwrisoWQAc9LIQNhXGFFLDoGgdFr8bnQUghVQjtR+pu01QJw==
   dependencies:
-    "@adeira/js" "^1.2.4"
+    "@adeira/js" "^1.3.0"
     "@adeira/murmur-hash" "^0.1.0"
     "@adeira/signed-source" "^1.0.0"
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.1"
     change-case "^4.1.1"
     css-tree "^1.0.0-alpha.39"
     fast-levenshtein "^3.0.0"
-    mdn-data "^2.0.11"
+    mdn-data "^2.0.12"
     prettier "^2.1.2"
 
 "@ampproject/toolbox-core@^2.6.0":
@@ -6611,10 +6611,10 @@ mdn-data@2.0.6:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
   integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
 
-mdn-data@^2.0.11:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.11.tgz#d2fc3d7fc3ff852375c775fe5283d1e374c4c95d"
-  integrity sha512-ADeJti8mfWxdXqoudn3HZFHA0UMJ18zaKVnEiL6dTwNg99ZGMMc78CA5TxbqWui4iA417ZOYkWkl+Ssv3ItQDw==
+mdn-data@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.12.tgz#bbb658d08b38f574bbb88f7b83703defdcc46844"
+  integrity sha512-ULbAlgzVb8IqZ0Hsxm6hHSlQl3Jckst2YEQS7fODu9ilNWy2LvcoSY7TRFIktABP2mdppBioc66va90T+NUs8Q==
 
 memory-fs@^0.4.1:
   version "0.4.1"
