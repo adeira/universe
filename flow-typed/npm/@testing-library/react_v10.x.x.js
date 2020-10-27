@@ -1,5 +1,5 @@
-// flow-typed signature: 33dd9cece301f116aa0387025f5b4345
-// flow-typed version: 7ad57fc095/@testing-library/react_v10.x.x/flow_>=v0.104.x
+// flow-typed signature: 2ec4c8cd8f67266b906a8137b83f9fc7
+// flow-typed version: 11a906f160/@testing-library/react_v10.x.x/flow_>=v0.104.x
 
 declare module '@testing-library/react' {
   // This type comes from
@@ -54,10 +54,10 @@ declare module '@testing-library/react' {
     waitForElementOptions?: WaitForElementOptions
   ) => Promise<HTMLElement[]>;
 
-  declare type GetByBoundAttribute = <T: HTMLElement = HTMLElement>(
+  declare type GetByBoundAttribute = (
     text: TextMatch,
     options?: TextMatchOptions
-  ) => T;
+  ) => HTMLElement;
 
   declare type FindByBoundAttribute = (
     text: TextMatch,
