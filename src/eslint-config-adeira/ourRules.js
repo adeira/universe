@@ -6,11 +6,12 @@ import type { EslintConfigRules } from './EslintConfig.flow';
 
 */
 
+/* eslint-disable no-unused-vars */
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
-
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+/* eslint-enable no-unused-vars */
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -42,14 +43,14 @@ module.exports = ({
   'no-irregular-whitespace': ERROR,
   'no-misleading-character-class': ERROR,
   'no-obj-calls': ERROR,
-  'no-promise-executor-return': NEXT_VERSION_ERROR,
+  'no-promise-executor-return': ERROR,
   'no-prototype-builtins': ERROR,
   'no-regex-spaces': ERROR,
   'no-setter-return': ERROR,
   'no-sparse-arrays': ERROR,
   'no-template-curly-in-string': ERROR,
   'no-unreachable': ERROR,
-  'no-unreachable-loop': NEXT_VERSION_ERROR,
+  'no-unreachable-loop': ERROR,
   'no-unsafe-finally': ERROR,
   'no-unsafe-negation': ERROR,
   'require-atomic-updates': ERROR,
@@ -96,7 +97,7 @@ module.exports = ({
   'no-labels': [ERROR, { allowLoop: true, allowSwitch: true }],
   'no-lone-blocks': ERROR,
   'no-loop-func': ERROR,
-  'no-loss-of-precision': NEXT_VERSION_ERROR,
+  'no-loss-of-precision': ERROR,
   'no-magic-numbers': OFF,
   'no-multi-str': ERROR,
   'no-new-func': ERROR,
@@ -278,7 +279,7 @@ module.exports = ({
   'flowtype/no-types-missing-file-annotation': ERROR,
   'flowtype/no-unused-expressions': [ERROR, { allowTaggedTemplates: true }],
   'flowtype/no-weak-types': [
-    NEXT_VERSION_ERROR,
+    ERROR,
     {
       // codeshift: https://github.com/facebook/flow/issues/7291
       any: false,
@@ -291,7 +292,7 @@ module.exports = ({
   'flowtype/require-indexer-name': OFF,
   'flowtype/require-inexact-type': ERROR,
   'flowtype/require-parameter-type': OFF,
-  'flowtype/require-readonly-react-props': NEXT_VERSION_ERROR,
+  'flowtype/require-readonly-react-props': ERROR,
   'flowtype/require-return-type': OFF,
   'flowtype/require-types-at-top': OFF,
   'flowtype/require-valid-file-annotation': [ERROR, 'always'],
@@ -320,7 +321,7 @@ module.exports = ({
   'jest/no-hooks': OFF, // TODO: WARN (?)
   'jest/no-identical-title': ERROR,
   'jest/no-if': OFF,
-  'jest/no-interpolation-in-snapshots': NEXT_VERSION_ERROR,
+  'jest/no-interpolation-in-snapshots': ERROR,
   'jest/no-jasmine-globals': ERROR,
   'jest/no-jest-import': ERROR,
   'jest/no-large-snapshots': OFF,
@@ -502,7 +503,7 @@ module.exports = ({
   'jsx-a11y/aria-proptypes': ERROR,
   'jsx-a11y/aria-role': ERROR,
   'jsx-a11y/aria-unsupported-elements': ERROR,
-  'jsx-a11y/autocomplete-valid': NEXT_VERSION_ERROR,
+  'jsx-a11y/autocomplete-valid': ERROR,
   'jsx-a11y/click-events-have-key-events': OFF,
   'jsx-a11y/control-has-associated-label': OFF,
   'jsx-a11y/heading-has-content': OFF,
@@ -536,7 +537,7 @@ module.exports = ({
   'relay/graphql-naming': ERROR,
   'relay/graphql-syntax': ERROR,
   'relay/hook-required-argument': ERROR,
-  'relay/must-colocate-fragment-spreads': NEXT_VERSION_ERROR,
+  'relay/must-colocate-fragment-spreads': ERROR,
   'relay/no-future-added-value': ERROR,
   'relay/unused-fields': ERROR,
 
@@ -655,8 +656,8 @@ module.exports = ({
   'node/prefer-global/text-encoder': OFF,
   'node/prefer-global/url': ERROR,
   'node/prefer-global/url-search-params': OFF,
-  'node/prefer-promises/dns': OFF, // TODO: WARN (?)
-  'node/prefer-promises/fs': OFF, // TODO: WARN (?)
+  'node/prefer-promises/dns': OFF,
+  'node/prefer-promises/fs': OFF,
   'node/process-exit-as-throw': OFF, // TODO: WARN (?)
   'node/shebang': ERROR,
 

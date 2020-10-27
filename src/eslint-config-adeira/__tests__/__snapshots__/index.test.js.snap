@@ -91,7 +91,7 @@ Object {
     "consistent-this": 0,
     "constructor-super": 2,
     "curly": Array [
-      1,
+      2,
       "all",
     ],
     "default-case": 0,
@@ -138,7 +138,7 @@ Object {
       },
     ],
     "flowtype/no-weak-types": Array [
-      1,
+      2,
       Object {
         "Function": true,
         "Object": true,
@@ -151,7 +151,7 @@ Object {
     "flowtype/require-indexer-name": 0,
     "flowtype/require-inexact-type": 2,
     "flowtype/require-parameter-type": 0,
-    "flowtype/require-readonly-react-props": 1,
+    "flowtype/require-readonly-react-props": 2,
     "flowtype/require-return-type": 0,
     "flowtype/require-types-at-top": 0,
     "flowtype/require-valid-file-annotation": Array [
@@ -299,7 +299,7 @@ Object {
     "jest/no-hooks": 0,
     "jest/no-identical-title": 2,
     "jest/no-if": 0,
-    "jest/no-interpolation-in-snapshots": 1,
+    "jest/no-interpolation-in-snapshots": 2,
     "jest/no-jasmine-globals": 2,
     "jest/no-jest-import": 2,
     "jest/no-large-snapshots": 0,
@@ -336,7 +336,7 @@ Object {
     "jsx-a11y/aria-proptypes": 2,
     "jsx-a11y/aria-role": 2,
     "jsx-a11y/aria-unsupported-elements": 2,
-    "jsx-a11y/autocomplete-valid": 1,
+    "jsx-a11y/autocomplete-valid": 2,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/control-has-associated-label": 0,
     "jsx-a11y/heading-has-content": 0,
@@ -497,7 +497,7 @@ Object {
     "no-lone-blocks": 2,
     "no-lonely-if": 2,
     "no-loop-func": 2,
-    "no-loss-of-precision": 1,
+    "no-loss-of-precision": 2,
     "no-magic-numbers": 0,
     "no-misleading-character-class": 2,
     "no-mixed-operators": 0,
@@ -523,7 +523,7 @@ Object {
     "no-plusplus": 0,
     "no-process-env": 0,
     "no-process-exit": 0,
-    "no-promise-executor-return": 1,
+    "no-promise-executor-return": 2,
     "no-proto": 2,
     "no-prototype-builtins": 2,
     "no-redeclare": Array [
@@ -567,7 +567,7 @@ Object {
     "no-unmodified-loop-condition": 0,
     "no-unneeded-ternary": 1,
     "no-unreachable": 2,
-    "no-unreachable-loop": 1,
+    "no-unreachable-loop": 2,
     "no-unsafe-finally": 2,
     "no-unsafe-negation": 2,
     "no-unused-expressions": 0,
@@ -859,7 +859,7 @@ Object {
     "relay/graphql-naming": 2,
     "relay/graphql-syntax": 2,
     "relay/hook-required-argument": 2,
-    "relay/must-colocate-fragment-spreads": 1,
+    "relay/must-colocate-fragment-spreads": 2,
     "relay/no-future-added-value": 2,
     "relay/unused-fields": 2,
     "require-atomic-updates": 2,
@@ -941,47 +941,5 @@ Object {
 
 exports[`rules snapshot: diff of stable and strict rules 1`] = `
 Snapshot Diff:
-- First value
-+ Second value
-
-@@ --- --- @@
-      "flowtype/no-weak-types": Array [
--       1,
-+       2,
-        Object {
-@@ --- --- @@
-      "flowtype/require-parameter-type": 0,
--     "flowtype/require-readonly-react-props": 1,
-+     "flowtype/require-readonly-react-props": 2,
-      "flowtype/require-return-type": 0,
-@@ --- --- @@
-      "jest/no-if": 0,
--     "jest/no-interpolation-in-snapshots": 1,
-+     "jest/no-interpolation-in-snapshots": 2,
-      "jest/no-jasmine-globals": 2,
-@@ --- --- @@
-      "jsx-a11y/aria-unsupported-elements": 2,
--     "jsx-a11y/autocomplete-valid": 1,
-+     "jsx-a11y/autocomplete-valid": 2,
-      "jsx-a11y/click-events-have-key-events": 0,
-@@ --- --- @@
-      "no-loop-func": 2,
--     "no-loss-of-precision": 1,
-+     "no-loss-of-precision": 2,
-      "no-magic-numbers": 0,
-@@ --- --- @@
-      "no-process-exit": 0,
--     "no-promise-executor-return": 1,
-+     "no-promise-executor-return": 2,
-      "no-proto": 2,
-@@ --- --- @@
-      "no-unreachable": 2,
--     "no-unreachable-loop": 1,
-+     "no-unreachable-loop": 2,
-      "no-unsafe-finally": 2,
-@@ --- --- @@
-      "relay/hook-required-argument": 2,
--     "relay/must-colocate-fragment-spreads": 1,
-+     "relay/must-colocate-fragment-spreads": 2,
-      "relay/no-future-added-value": 2,
+Compared values have no visual difference.
 `;
