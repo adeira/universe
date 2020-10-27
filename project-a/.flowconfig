@@ -18,7 +18,7 @@ untyped-import=off
 
 
 [options]
-;facebook.fbt=Fbt
+facebook.fbt=FbtWithoutString
 types_first=true
 module.ignore_non_literal_requires=true
 
