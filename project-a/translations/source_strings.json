@@ -47,9 +47,9 @@
     "YLzBdvonuLATQ5FpiPMgEw==": "REAL CATS + DUMPLINGS + COFFEE"
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 23,
++   "line_beg": 24,
    "col_beg": 14,
-   "line_end": 23,
+   "line_end": 24,
    "col_end": 75,
    "desc": "catch phrase",
    "project": "",
@@ -58,12 +58,26 @@
   },
   {
    "hashToText": {
+    "WTkOySZFstu+ZeKuWKvHGg==": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
+   },
+   "filepath": "src/Homepage.js",
+   "line_beg": 27,
+   "col_beg": 12,
+   "line_end": 30,
+   "col_end": 18,
+   "desc": "mailchimp subscribe call to action text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
+  },
+  {
+   "hashToText": {
     "aCVYa8MOEv6iOiCPo5kHOQ==": "Menu"
    },
    "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 17,
+   "line_beg": 20,
    "col_beg": 12,
-   "line_end": 17,
+   "line_end": 20,
    "col_end": 62,
    "desc": "navigation link to our menu",
    "project": "",
@@ -75,10 +89,10 @@
     "hHL1jf58Ql60JFDCN3aK1g==": "Adoption"
    },
    "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 23,
-   "col_beg": 12,
-   "line_end": 23,
-   "col_end": 66,
+   "line_beg": 27,
+   "col_beg": 14,
+   "line_end": 27,
+   "col_end": 68,
    "desc": "navigation link to adoption",
    "project": "",
    "type": "text",
@@ -89,9 +103,9 @@
     "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
    },
    "filepath": "src/Homepage/Navigation.js",
-   "line_beg": 29,
+   "line_beg": 34,
    "col_beg": 12,
-   "line_end": 29,
+   "line_end": 34,
    "col_end": 69,
    "desc": "navigation link to rules",
    "project": "",
@@ -153,6 +167,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "Switch to Spanish"
+  },
+  {
+   "hashToText": {
+    "DxYKWKSGL4TlF/UCjPxraw==": "Email Address"
+   },
+   "filepath": "src/Mailchimp/SignupForm.js",
+   "line_beg": 32,
+   "col_beg": 12,
+   "line_end": 32,
+   "col_end": 89,
+   "desc": "email address placeholder of a subscribe form",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Email Address"
+  },
+  {
+   "hashToText": {
+    "3gn4gj3UPVu7liOVZ+/SCg==": "Let me know!"
+   },
+   "filepath": "src/Mailchimp/SignupForm.js",
+   "line_beg": 62,
+   "col_beg": 17,
+   "line_end": 62,
+   "col_end": 88,
+   "desc": "'let me know' button of a subscribe form",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Let me know!"
   },
   {
    "hashToText": {
@@ -299,9 +341,9 @@
     "5mHlC9lFyeiGVLHKaRx0TA==": "Homepage"
    },
    "filepath": "src/SubpageNavigation.js",
-   "line_beg": 14,
+   "line_beg": 17,
    "col_beg": 10,
-   "line_end": 14,
+   "line_end": 17,
    "col_end": 72,
    "desc": "subpage navigation link to homepage",
    "project": "",
@@ -313,9 +355,9 @@
     "MMmM57ozhi6rWy4ycRjsCw==": "Menu"
    },
    "filepath": "src/SubpageNavigation.js",
-   "line_beg": 21,
+   "line_beg": 24,
    "col_beg": 10,
-   "line_end": 21,
+   "line_end": 24,
    "col_end": 64,
    "desc": "subpage navigation link to menu",
    "project": "",
@@ -327,10 +369,10 @@
     "AczYHaAuus/G8A3Lx2F4Nw==": "Adoption"
    },
    "filepath": "src/SubpageNavigation.js",
-   "line_beg": 25,
-   "col_beg": 10,
-   "line_end": 25,
-   "col_end": 72,
+   "line_beg": 29,
+   "col_beg": 12,
+   "line_end": 29,
+   "col_end": 74,
    "desc": "subpage navigation link to adoption",
    "project": "",
    "type": "text",
@@ -341,9 +383,9 @@
     "yWIjiQyD+BjXv8eLub1vaA==": "Our rules"
    },
    "filepath": "src/SubpageNavigation.js",
-   "line_beg": 29,
+   "line_beg": 34,
    "col_beg": 10,
-   "line_end": 29,
+   "line_end": 34,
    "col_end": 74,
    "desc": "subpage navigation link to our rules",
    "project": "",

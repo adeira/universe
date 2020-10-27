@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Logo from './Logo';
 import Navigation from './Homepage/Navigation';
 import SocialMediaIcons from './Homepage/SocialMediaIcons';
+import SignupForm from './Mailchimp/SignupForm';
 
 export default function Homepage(): React.Node {
   return (
@@ -22,6 +23,12 @@ export default function Homepage(): React.Node {
               {/* TODO: popups explaining what is each of the elements (photo) */}
               <fbt desc="catch phrase">REAL CATS + DUMPLINGS + COFFEE</fbt>
             </div>
+
+            <fbt desc="mailchimp subscribe call to action text">
+              We are not opening quite yet. Would you like to be notified when we do? Subscribe to
+              our newsletter, and we will let you know!
+            </fbt>
+            <SignupForm />
           </div>
 
           <div className={styles('bottomInfo')}>
