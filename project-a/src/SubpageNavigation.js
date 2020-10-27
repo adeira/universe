@@ -5,8 +5,11 @@ import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import Link from './Link';
+import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function SubpageNavigation(): React.Node {
+  const pageAdoptionEnabled = useFeatureFlag('page-adoption-enabled');
+
   return (
     <nav className={styles('navigation')}>
       <div>
@@ -21,9 +24,11 @@ export default function SubpageNavigation(): React.Node {
           <fbt desc="subpage navigation link to menu">Menu</fbt>
         </Link>
 
-        <Link href="/adoption" className={styles('link')}>
-          <fbt desc="subpage navigation link to adoption">Adoption</fbt>
-        </Link>
+        {pageAdoptionEnabled === true && (
+          <Link href="/adoption" className={styles('link')}>
+            <fbt desc="subpage navigation link to adoption">Adoption</fbt>
+          </Link>
+        )}
 
         <Link href="/rules" className={styles('link')}>
           <fbt desc="subpage navigation link to our rules">Our rules</fbt>
