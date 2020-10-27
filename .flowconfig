@@ -2,9 +2,9 @@
 [ignore]
 <PROJECT_ROOT>/\.git/.*
 <PROJECT_ROOT>/src/docs/build/
+<PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/.*/output.js
 .+/.+\.gzip\.js
 .+/\.next/.+
-<PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/.*/output.js
 
 
 ; https://flow.org/en/docs/config/untyped/
@@ -54,6 +54,7 @@ untyped-import
 emoji=true
 exact_by_default=true
 include_warnings=true
+facebook.fbt=FbtWithoutString
 
 ; Allow dynamic `require(path.join(__dirname, 'myFile.json'))`
 module.ignore_non_literal_requires=true
