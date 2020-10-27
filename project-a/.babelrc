@@ -1,5 +1,13 @@
 {
-  "presets": ["@adeira/babel-preset-adeira"],
+  "presets": [
+    [
+      "@adeira/babel-preset-adeira",
+      {
+        // TODO: https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+        "reactRuntime": "automatic"
+      }
+    ]
+  ],
   "plugins": [
     ["babel-plugin-fbt", { "extraOptions": { "__self": true } }],
     "babel-plugin-fbt-runtime"
