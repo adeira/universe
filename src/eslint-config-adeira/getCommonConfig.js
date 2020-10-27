@@ -8,9 +8,11 @@ import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
 
 */
 
+/* eslint-disable no-unused-vars */
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
+/* eslint-enable no-unused-vars */
 
 /**
  * This is basically copy-pasted detection from the React plugin except it doesn't
@@ -37,10 +39,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       ...rules,
       ...prettierRules,
       // overwriting Prettier rules, see: https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
-      'curly': [
-        WARN, // TODO: ERROR in next major version
-        'all',
-      ],
+      'curly': [ERROR, 'all'],
       'prettier/prettier': [
         ERROR,
         {
