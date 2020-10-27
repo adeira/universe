@@ -26,6 +26,7 @@ module.exports = {
           { element: 'h4', message: 'use <Heading> instead' },
           { element: 'h5', message: 'use <Heading> instead' },
           { element: 'h6', message: 'use <Heading> instead' },
+          { element: 'input', message: 'use <Input> or <InputSubmit> instead' },
           { element: 'section', message: 'use <Seading> instead' },
         ],
       },
