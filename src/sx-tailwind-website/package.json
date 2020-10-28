@@ -16,7 +16,7 @@
     "react-syntax-highlighter": "^15.3.0"
   },
   "devDependencies": {
-    "@adeira/babel-plugin-transform-sx-tailwind": "^0.5.1",
+    "@adeira/babel-plugin-transform-sx-tailwind": "^0.6.0",
     "@adeira/babel-preset-adeira": "^1.1.0",
     "flow-bin": "^0.137.0"
   },
