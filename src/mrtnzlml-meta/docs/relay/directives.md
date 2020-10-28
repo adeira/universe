@@ -90,7 +90,7 @@ See: https://github.com/facebook/relay/commit/3ea3ac7d4f64f9260c69f49316a92cdc78
 
 ## @deleteRecord
 
-See: https://github.com/facebook/relay/commit/07ccab7cc637f51f2f15fc75ed824d1de8ede72f (currently unreleased, only on `master`)
+See: https://github.com/facebook/relay/commit/07ccab7cc637f51f2f15fc75ed824d1de8ede72f (available from Relay version 10.0.0)
 
 ```graphql
 directive @deleteRecord on FIELD
