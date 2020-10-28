@@ -20,7 +20,6 @@ export default class MyDocument extends Document {
   }
 
   render(): React.Node {
-    // TODO: `lang`
     return (
       <Html>
         <Head>

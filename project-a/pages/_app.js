@@ -30,9 +30,7 @@ type Props = {|
 
 function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
-  // TODO: useLocalStorage()
-  const lang = router.query.lang; // TODO: wrap it and properly validate it!
-  const languageTag = initTranslations(lang);
+  const languageTag = initTranslations(router.locale);
 
   if (!__DEV__) {
     // not public yet
