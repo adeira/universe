@@ -6,6 +6,8 @@ import * as sx from '@adeira/sx';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
+import P from '../components/P';
+import Link from '../components/Link';
 import Traditional from './alerts/Traditional';
 import ModernWithBadge from './alerts/ModernWithBadge';
 import LeftAccentBorder from './alerts/LeftAccentBorder';
@@ -17,7 +19,10 @@ import Banner from './alerts/Banner';
 export default function Alerts(): React.Node {
   return (
     <Layout title="Alerts">
-      <p>Examples of building alert components with SX Tailwind.</p>
+      <P>
+        Examples of building alert components with SX Tailwind. Compare with{' '}
+        <Link href="https://tailwindcss.com/components/alerts">originals on Tailwind CSS</Link>.
+      </P>
 
       <H2>Traditional</H2>
       <Traditional />
