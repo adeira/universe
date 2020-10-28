@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Subpage from '../../src/Subpage';
+import Subpage from '../src/Subpage';
 
 function FakeKittenImage() {
   return (

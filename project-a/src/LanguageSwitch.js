@@ -4,10 +4,12 @@ import * as React from 'react';
 import * as sx from '@adeira/sx';
 import fbt from 'fbt';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 
 import useViewerContext from './hooks/useViewerContext';
 
 export default function LanguageSwitch(): React.Node {
+  const router = useRouter();
   const viewerContext = useViewerContext();
 
   // eventually we could offer to switch language and region independently
@@ -23,7 +25,7 @@ export default function LanguageSwitch(): React.Node {
     if (viewerContext.languageTag.url !== languageTagURL) {
       // do not switch to the current language
       languageSwitch.push(
-        <NextLink href="/[lang]" as={`/${languageTagURL}`} key={languageTagURL}>
+        <NextLink href={router.route} key={languageTagURL} locale={languageTagURL}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a className={styles('link')}>{linkText}</a>
         </NextLink>,
