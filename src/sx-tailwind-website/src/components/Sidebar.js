@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
+import { useRouter } from 'next/router';
 
 type Props = {|
   +label: string,
@@ -9,11 +10,17 @@ type Props = {|
 |};
 
 function MenuItem({ label, href }: Props): React.Node {
+  const router = useRouter();
+
   return (
     <a
       href={href}
       className={tailwind(
-        'flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md transition ease-in-out duration-150 my-1 focus:outline-none focus:bg-teal-500 text-teal-100 hover:text-white hover:bg-teal-500',
+        `flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md transition ease-in-out duration-150 my-1 focus:outline-none focus:bg-teal-500 ${
+          router.pathname === href
+            ? 'text-white bg-teal-500'
+            : 'text-teal-100 hover:text-white hover:bg-teal-500'
+        }`,
       )}
     >
       {label}

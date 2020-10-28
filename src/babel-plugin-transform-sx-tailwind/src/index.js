@@ -12,6 +12,8 @@ const t = require('@babel/types');
 const murmurHash = require('@adeira/murmur-hash').default;
 const { tailwindStyles } = require('@adeira/sx-tailwind');
 
+const TemplateLiteralHandler = require('./TemplateLiteralHandler').default;
+
 module.exports = function sxTailwindBabelPlugin() /*: any */ {
   let stylesCollector = [];
   let tailwindCallee = '';
@@ -49,22 +51,26 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
           path.node.value.expression.arguments.forEach((a) => stylesCollector.push(a.value));
           path.node.value.expression.callee.name = stylesVarName;
         } else if (path.node.value.expression.callee.name === tailwindCallee) {
-          const styles = [];
-          path.node.value.expression.arguments[0].value.split(' ').forEach((style) => {
-            stylesCollector.push(style);
-            styles.push(style);
+          path.scope.traverse(path.node, {
+            TemplateLiteral(path) {
+              TemplateLiteralHandler(path, stylesCollector, stylesVarName);
+            },
           });
 
-          const attribute = t.jsxAttribute(
-            t.jsxIdentifier('className'),
-            t.jsxExpressionContainer(
-              t.callExpression(
-                t.identifier(stylesVarName),
-                styles.map((style) => t.stringLiteral(style)),
-              ),
-            ),
-          );
-          path.replaceWith(attribute);
+          if (
+            path.node.value.expression.arguments.length === 1 &&
+            path.node.value.expression.arguments[0].type === 'StringLiteral'
+          ) {
+            const styles = path.node.value.expression.arguments[0].value
+              .split(' ')
+              .filter((s) => s !== '');
+            stylesCollector.push(...styles);
+
+            path.node.value.expression = t.callExpression(
+              t.identifier(stylesVarName),
+              styles.map((style) => t.stringLiteral(style)),
+            );
+          }
         }
       },
       Program: {
