@@ -15,7 +15,7 @@
   "dependencies": {
     "@adeira/js": "^1.3.0",
     "@adeira/signed-source": "^1.0.0",
-    "@adeira/sx": "^0.14.0",
+    "@adeira/sx": "^0.15.0",
     "@babel/runtime": "^7.12.1",
     "change-case": "^4.1.1",
     "css-tree": "^1.0.0-alpha.39",
