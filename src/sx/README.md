@@ -95,7 +95,7 @@ const styles = sx.create({
       textDecoration: 'underline',
     },
     '::after': {
-      content: '∞',
+      content: '"∞"',
     },
   },
 });

@@ -19,7 +19,7 @@ export function NoErrorsWithPseudo(): Node {
         color: 'blue',
       },
       '::after': {
-        content: '★',
+        content: '"★"',
       },
     },
   });

@@ -37,10 +37,14 @@ export default function renderPageWithSX(
   return {
     ...html,
     styles: [
-      <style key="adeira-sx" data-adeira-sx={true}>
-        {options?.includeReset === true && cssReset}
-        {StyleCollector.print()}
-      </style>,
+      // We need to render this as html, else things like `content: "ok"` will be rendered as `content: &quot;ok&quot;`, and it is not valid css
+      <style
+        key="adeira-sx"
+        data-adeira-sx={true}
+        dangerouslySetInnerHTML={{
+          __html: `${options?.includeReset === true ? cssReset : ''}${StyleCollector.print()}`,
+        }}
+      />,
     ],
   };
 }

@@ -45,10 +45,10 @@ test.each(fixturesPaths)('matches expected output: %s', (fixturePath) => {
 
   try {
     const styles = sx.create(stylesheetsDefinition);
-
     // 2) atomic CSS
     const renderer = TestRenderer.create(sx.renderPageWithSX(renderPageMock).styles[0]);
-    const css = renderer.root.children[0].toString();
+
+    const css = renderer.root.props.dangerouslySetInnerHTML.__html;
     const output = prettier.format(css, { filepath: 'test.css' });
 
     // 3) usage resulting CSS class names
