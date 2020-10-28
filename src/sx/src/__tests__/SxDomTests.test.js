@@ -24,7 +24,7 @@ const styles = sx.create({
       color: 'purple',
     },
     '::after': {
-      content: '🤓',
+      content: '"🤓"',
     },
   },
 });
@@ -81,7 +81,6 @@ it('includes reset', () => {
       box-sizing: inherit;
     }
 
-      
     </style>
   `);
 });

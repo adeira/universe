@@ -495,12 +495,12 @@ exports[`matches expected output: pseudo-classes-nested-2.js 1`] = `
 {
   "test": {
     ":hover::after": {
-      "content": "this is OK"
+      "content": "\\"this is OK\\""
     }
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-._2BDpfz:hover::after {
+._4yRZ3O:hover::after {
   content: "this is OK";
 }
 
@@ -508,7 +508,7 @@ exports[`matches expected output: pseudo-classes-nested-2.js 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="_2BDpfz"
+class="_4yRZ3O"
 
 `;
 
@@ -521,10 +521,10 @@ exports[`matches expected output: pseudo-elements.js 1`] = `
       "textDecoration": "underline"
     },
     "::after": {
-      "content": "∞"
+      "content": "\\"∞\\""
     },
     "::before": {
-      "content": "∞"
+      "content": "\\"∞\\""
     }
   }
 }
@@ -535,10 +535,10 @@ exports[`matches expected output: pseudo-elements.js 1`] = `
 ._22QzO9:hover {
   text-decoration: underline;
 }
-._2Rpe4g::after {
+._2sj7wN::after {
   content: "∞";
 }
-._3ou8wp::before {
+._4vATsH::before {
   content: "∞";
 }
 
@@ -546,7 +546,43 @@ exports[`matches expected output: pseudo-elements.js 1`] = `
 
 className={styles('link')}
   ↓ ↓ ↓
-class="_134wwt _22QzO9 _2Rpe4g _3ou8wp"
+class="_134wwt _22QzO9 _2sj7wN _4vATsH"
+
+`;
+
+exports[`matches expected output: pseudo-elements-2.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "ul": {
+    "counterReset": "my-reset"
+  },
+  "li": {
+    "counterIncrement": "my-reset",
+    "::before": {
+      "content": "counter(my-reset)"
+    }
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._3UELKF {
+  counter-reset: my-reset;
+}
+.FmLKl {
+  counter-increment: my-reset;
+}
+._3ybBud::before {
+  content: counter(my-reset);
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('ul')}
+  ↓ ↓ ↓
+class="_3UELKF"
+
+className={styles('li')}
+  ↓ ↓ ↓
+class="FmLKl _3ybBud"
 
 `;
 

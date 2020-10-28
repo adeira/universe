@@ -10,7 +10,7 @@ sx.create({
       color: 'blue',
     },
     '::after': {
-      content: '∞',
+      content: '"∞"',
     },
     '@media (min-width: 30em) and (max-width: 50em)': {
       color: 'blue',
@@ -44,7 +44,7 @@ sx.create({
   InvalidNestedPseudos: {
     '::before': {
       '::before': {
-        content: '∞',
+        content: '"∞"',
       },
     },
   },

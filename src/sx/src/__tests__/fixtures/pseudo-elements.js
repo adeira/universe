@@ -9,10 +9,10 @@ export default ({
       textDecoration: 'underline',
     },
     '::after': {
-      content: '∞',
+      content: '"∞"',
     },
     '::before': {
-      content: '∞',
+      content: '"∞"',
     },
   },
 }: SheetDefinitions);

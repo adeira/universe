@@ -21,7 +21,7 @@ it('works as expected', () => {
         color: 'purple',
       },
       '::after': {
-        content: '🤓',
+        content: '"🤓"',
       },
     },
   });
@@ -32,6 +32,6 @@ it('works as expected', () => {
   expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_4fo5TC"`); // blue wins
   expect(styles('blue', 'red')).toMatchInlineSnapshot(`"wUqnh"`); // red wins
 
-  expect(styles('pseudo')).toMatchInlineSnapshot(`"PJDYD _4sFdkU _22QzO9 _3stS2V _14RYUP"`);
-  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"wUqnh _4sFdkU _22QzO9 _3stS2V _14RYUP"`); // red wins (non-hover)
+  expect(styles('pseudo')).toMatchInlineSnapshot(`"PJDYD _4sFdkU _22QzO9 _3stS2V _3Wiz8a"`);
+  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"wUqnh _4sFdkU _22QzO9 _3stS2V _3Wiz8a"`); // red wins (non-hover)
 });
