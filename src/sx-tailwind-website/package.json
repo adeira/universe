@@ -18,11 +18,14 @@
   "devDependencies": {
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.2.0",
     "@adeira/babel-preset-adeira": "^1.1.0",
-    "flow-bin": "^0.136.0"
+    "flow-bin": "^0.136.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
-    "start": "next dev",
-    "start-production": "next start",
-    "build": "next build"
+    "dev": "next",
+    "build": "next build",
+    "preexport": "yarn run build",
+    "export": "next export",
+    "start": "serve out"
   }
 }
