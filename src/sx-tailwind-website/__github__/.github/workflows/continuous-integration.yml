@@ -26,4 +26,4 @@ jobs:
         run: |
           yarn install --frozen-lockfile
           yarn run flow
-          yarn run build
+          yarn run export

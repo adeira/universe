@@ -1,10 +1,14 @@
 # Unreleased
 
-Note: should be released as a new major version.
+# 4.0.0
+
+This is a major release mainly focused on separating Eslint Runner. Do wou need some help with the breaking changes? Let us know!
 
 - Remove `__` global, legacy of Nitrolib from Kiwi.com, see: https://kiwicom.github.io/nitrolib/services.html#intl
-- Set `flowtype/require-readonly-react-props` to warning in normal mode and error in strict mode
+- Set `flowtype/require-readonly-react-props` to throw errors
 - Eslint Runner is no longer part of this package. Please use `@adeira/eslint-runner` package instead for better experience.
+- Rule `curly` changed back from warnings to errors (see 3.1.1)
+- Rules `no-promise-executor-return`, `no-unreachable-loop`, `no-loss-of-precision`, `flowtype/no-weak-types`, `jest/no-interpolation-in-snapshots`, `jsx-a11y/autocomplete-valid` and `relay/must-colocate-fragment-spreads` promoted from warnings (errors in a strict mode) to always throw an error.
 
 # 3.2.0
 

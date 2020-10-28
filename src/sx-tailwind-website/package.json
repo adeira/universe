@@ -8,7 +8,7 @@
     "@adeira/monorepo-utils": "^0.9.0",
     "@adeira/sx": "^0.14.0",
     "@adeira/sx-tailwind": "^0.4.1",
-    "next": "^9.5.3",
+    "next": "^10.0.0",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^4.1.0",
     "react": "^16.14.0",
@@ -18,11 +18,14 @@
   "devDependencies": {
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.2.0",
     "@adeira/babel-preset-adeira": "^1.1.0",
-    "flow-bin": "^0.136.0"
+    "flow-bin": "^0.136.0",
+    "serve": "^11.3.2"
   },
   "scripts": {
-    "start": "next dev",
-    "start-production": "next start",
-    "build": "next build"
+    "dev": "next",
+    "build": "next build",
+    "preexport": "yarn run build",
+    "export": "next export",
+    "start": "serve out"
   }
 }
