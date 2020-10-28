@@ -45,6 +45,9 @@ export default function Sidebar(): React.Node {
               <nav className={tailwind('px-2')}>
                 <MenuItem label="Documentation" href="/" />
                 <MenuItem label="Alerts" href="/tailwind-css/alerts" />
+                <MenuItem label="Buttons" href="/tailwind-css/buttons" />
+                <MenuItem label="Cards" href="/tailwind-css/cards" />
+                <MenuItem label="Forms" href="/tailwind-css/forms" />
               </nav>
             </div>
           </div>
