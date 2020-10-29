@@ -9,6 +9,7 @@ type JestConfig = {|
   +testMatch?: $ReadOnlyArray<string>,
   +transform?: {| +[string]: string |},
   +setupFilesAfterEnv?: $ReadOnlyArray<string>,
+  +setupFiles?: $ReadOnlyArray<string>,
 |};
 
 */
@@ -20,4 +21,5 @@ module.exports = ({
   // @x-shipit-enable: testMatch: ['<rootDir>/**/__tests__/**/?(*.)+(spec|test).js?(x)'],
   transform: { '^.+\\.js$': '<rootDir>/scripts/jest/custom-transformer.js' }, // @x-shipit-disable
   setupFilesAfterEnv: [path.join(__dirname, 'scripts', 'jest', 'setupTests.js')],
+  setupFiles: [path.join(__dirname, 'scripts', 'jest', 'setEnvVars.js')],
 } /*: JestConfig */);
