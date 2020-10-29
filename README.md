@@ -1,6 +1,6 @@
 # Adeira Universe
 
-[![Adeira logo](/src/docs/static/img/logo-banner.png)](https://adeira.dev/)
+[![Adeira logo](/src/adeira.dev/static/img/logo-banner.png)](https://adeira.dev/)
 
 Universe monorepo is an open-source collection of projects created in our free time. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
 
