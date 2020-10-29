@@ -1,8 +1,6 @@
 // @flow
 
 import * as React from 'react';
-// eslint-disable-next-line no-unused-vars
-import * as sx from '@adeira/sx';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';

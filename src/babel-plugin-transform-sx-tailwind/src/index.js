@@ -1,12 +1,17 @@
 // @flow
 
-import template from '@babel/template';
-import * as t from '@babel/types';
-import murmurHash from '@adeira/murmur-hash';
-import { tailwindStyles } from '@adeira/sx-tailwind';
+require('@babel/register')({
+  ignore: [/node_modules\/(?!@adeira)/],
+  rootMode: 'upward',
+});
 
-module.exports = function sxTailwindBabelPlugin(): any {
-  const stylesCollector = [];
+const template = require('@babel/template').default;
+const t = require('@babel/types');
+const murmurHash = require('@adeira/murmur-hash').default;
+const { tailwindStyles } = require('@adeira/sx-tailwind');
+
+module.exports = function sxTailwindBabelPlugin() /*: any */ {
+  let stylesCollector = [];
   let tailwindCallee = '';
   let sxtCallee = '';
   let stylesVarName = 'styles';
@@ -30,11 +35,11 @@ module.exports = function sxTailwindBabelPlugin(): any {
       },
       JSXAttribute(path) {
         if (
-          path.node?.name?.type !== 'JSXIdentifier' ||
-          path.node.name?.name !== 'className' ||
-          path.node.value?.type !== 'JSXExpressionContainer' ||
-          path.node.value.expression?.type !== 'CallExpression' ||
-          path.node.value.expression?.callee?.type !== 'Identifier'
+          path.node.name.type !== 'JSXIdentifier' ||
+          path.node.name.name !== 'className' ||
+          path.node.value.type !== 'JSXExpressionContainer' ||
+          path.node.value.expression.type !== 'CallExpression' ||
+          path.node.value.expression.callee.type !== 'Identifier'
         ) {
           return;
         }
@@ -62,6 +67,7 @@ module.exports = function sxTailwindBabelPlugin(): any {
       },
       Program: {
         enter(path, state) {
+          stylesCollector = [];
           const filename = state.file.opts.filename.split('/').slice(-2).join('/');
           stylesVarName = `__styles_${murmurHash(filename)}`;
         },
