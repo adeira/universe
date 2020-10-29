@@ -57,7 +57,7 @@ it('applies correct styles', () => {
   expect(pseudoRed).toHaveStyle(`color:${normalizeColor('red')}`); // red wins (non-hover)
 });
 
-it('includes reset', () => {
+it('includes CSS reset', () => {
   render(
     <div data-test="container">
       {sx.renderPageWithSX(jest.fn(), { includeReset: true }).styles}
@@ -69,18 +69,7 @@ it('includes reset', () => {
     <style
       data-adeira-sx="true"
     >
-      
-    body {
-      box-sizing: border-box;
-    }
-    *,
-    *::after,
-    *::before {
-      margin: 0;
-      padding: 0;
-      box-sizing: inherit;
-    }
-
+      html,body{font-size:16px;box-sizing:border-box}*,*::after,*::before{margin:0;padding:0;box-sizing:inherit}
     </style>
   `);
 });

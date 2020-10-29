@@ -184,7 +184,9 @@ import Document from 'next/document';
 
 export default class MyDocument extends Document {
   static getInitialProps(ctx: DocumentContext) {
-    return sx.renderPageWithSX(ctx.renderPage, { includeReset: true });
+    return sx.renderPageWithSX(ctx.renderPage, {
+      includeReset: true, // <<<
+    });
   }
 
   // `render` is not needed to change
@@ -194,9 +196,12 @@ export default class MyDocument extends Document {
 This will add the following css to your stylesheet:
 
 ```css
+html,
 body {
+  font-size: 16px;
   box-sizing: border-box;
 }
+
 *,
 *::after,
 *::before {
@@ -205,6 +210,8 @@ body {
   box-sizing: inherit;
 }
 ```
+
+You might wonder why does it include the `font-size: 16px`? It's because SX automatically converts numbers to REM units and it expects `16px` to be the document base.
 
 ## Architecture
 
