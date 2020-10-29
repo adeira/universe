@@ -32,13 +32,13 @@ exports[`matches expected output: @supports.js 1`] = `
   }
 }
 @supports (display: table-cell) and ((display: list-item) and (display: run-in)) {
-  ._3DO79H._3DO79H {
+  ._3u8TFK._3u8TFK {
     color: #f00;
   }
 }
 @supports (transform-style: preserve) or (-moz-transform-style: preserve) or
   (-o-transform-style: preserve) or (-webkit-transform-style: preserve) {
-  ._4mzMj8._4mzMj8 {
+  ._2gYAIc._2gYAIc {
     color: #f00;
   }
 }
@@ -51,7 +51,7 @@ class="_3GKV06 _1cjV2G"
 
 className={styles('testComplex')}
   ↓ ↓ ↓
-class="_3DO79H _4mzMj8"
+class="_3u8TFK _2gYAIc"
 
 `;
 
@@ -72,16 +72,16 @@ exports[`matches expected output: @supports-nested.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @supports (display: grid) {
-  ._3LkwQx._3LkwQx {
+  ._4gBjL3._4gBjL3 {
     color: #f00;
   }
   @supports not (display: grid) {
-    ._3KVzHX._3KVzHX {
+    ._2HFxQl._2HFxQl {
       color: #00f;
     }
     @supports (display: table-cell) and
       ((display: list-item) and (display: run-in)) {
-      ._39dw1H._39dw1H {
+      ._1gIn7I._1gIn7I {
         color: #ffa500;
       }
     }
@@ -92,7 +92,7 @@ exports[`matches expected output: @supports-nested.js 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="_3LkwQx _3KVzHX _39dw1H"
+class="_4gBjL3 _2HFxQl _1gIn7I"
 
 `;
 
@@ -125,16 +125,16 @@ exports[`matches expected output: media-queries.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-.wUqnh {
+._324Crd {
   color: #f00;
 }
 @media print {
-  .zIzjk.zIzjk {
+  .O347H.O347H {
     color: #f00;
   }
 }
 @media (min-width: 30em) and (max-width: 50em) {
-  ._27Xk5F._27Xk5F {
+  ._3yLn7C._3yLn7C {
     color: #00f;
   }
 }
@@ -143,7 +143,7 @@ exports[`matches expected output: media-queries.js 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="wUqnh zIzjk _27Xk5F"
+class="_324Crd O347H _3yLn7C"
 
 `;
 
@@ -168,25 +168,25 @@ exports[`matches expected output: media-queries-multiple.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-.wUqnh {
+._324Crd {
   color: #f00;
 }
-._2ZJp7Y {
+._39TI5z {
   font-size: 2rem;
 }
 @media print {
-  .zIzjk.zIzjk {
+  .O347H.O347H {
     color: #f00;
   }
-  .uxyoC.uxyoC {
+  .ZJMnP.ZJMnP {
     font-size: 1rem;
   }
-  .v2909.v2909 {
+  ._1Yuw4C._1Yuw4C {
     color: #008000;
   }
 }
 @media (min-width: 30em) and (max-width: 50em) {
-  ._27Xk5F._27Xk5F {
+  ._3yLn7C._3yLn7C {
     color: #00f;
   }
 }
@@ -195,11 +195,11 @@ exports[`matches expected output: media-queries-multiple.js 1`] = `
 
 className={styles('aaa')}
   ↓ ↓ ↓
-class="wUqnh _2ZJp7Y zIzjk uxyoC _27Xk5F"
+class="_324Crd _39TI5z O347H ZJMnP _3yLn7C"
 
 className={styles('bbb')}
   ↓ ↓ ↓
-class="v2909"
+class="_1Yuw4C"
 
 `;
 
@@ -217,11 +217,11 @@ exports[`matches expected output: media-queries-nested.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media print {
-  .zIzjk.zIzjk {
+  .O347H.O347H {
     color: #f00;
   }
   @media (max-width: 12cm) {
-    .Uxdbe.Uxdbe {
+    ._3XWcpy._3XWcpy {
       color: #00f;
     }
   }
@@ -231,7 +231,7 @@ exports[`matches expected output: media-queries-nested.js 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="zIzjk Uxdbe"
+class="O347H _3XWcpy"
 
 `;
 
@@ -267,45 +267,45 @@ exports[`matches expected output: media-queries-nested-deep.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media (max-width: 10cm) {
-  ._4bGnnn._4bGnnn {
+  ._2Y4Iwc._2Y4Iwc {
     color: #f00000;
   }
-  ._1kQaJH._1kQaJH {
+  ._4yjauT._4yjauT {
     background-color: #fff;
   }
   @media (max-width: 9cm) {
-    ._21BNws._21BNws {
+    ._33Zsp._33Zsp {
       color: #0f0000;
     }
-    ._3Lm6Uw._3Lm6Uw {
+    ._356q9B._356q9B {
       background-color: #fff;
     }
     @media (max-width: 8cm) {
-      ._2sV160._2sV160 {
+      ._3e6rQn._3e6rQn {
         color: #00f000;
       }
-      ._1bLvdm._1bLvdm {
+      ._2G8HFc._2G8HFc {
         background-color: #fff;
       }
       @media (max-width: 7cm) {
-        ._3TWByw._3TWByw {
+        ._5cFAt._5cFAt {
           color: #000f00;
         }
-        ._1adr9y._1adr9y {
+        ._1uNKjr._1uNKjr {
           background-color: #fff;
         }
         @media (max-width: 6cm) {
-          ._1EWUxi._1EWUxi {
+          ._3Y2upP._3Y2upP {
             color: #0000f0;
           }
-          ._2g7PIB._2g7PIB {
+          ._1j0v0B._1j0v0B {
             background-color: #fff;
           }
           @media (max-width: 5cm) {
-            ._3l858s._3l858s {
+            ._1yZ6Vs._1yZ6Vs {
               color: #00000f;
             }
-            ._22f0H3._22f0H3 {
+            ._1gfVcg._1gfVcg {
               background-color: #fff;
             }
           }
@@ -319,7 +319,7 @@ exports[`matches expected output: media-queries-nested-deep.js 1`] = `
 
 className={styles('test')}
   ↓ ↓ ↓
-class="_4bGnnn _1kQaJH _21BNws _3Lm6Uw _2sV160 _1bLvdm _3TWByw _1adr9y _1EWUxi _2g7PIB _3l858s _22f0H3"
+class="_2Y4Iwc _4yjauT _33Zsp _356q9B _3e6rQn _2G8HFc _5cFAt _1uNKjr _3Y2upP _1j0v0B _1yZ6Vs _1gfVcg"
 
 `;
 
@@ -337,14 +337,14 @@ exports[`matches expected output: media-queries-nested-pseudo.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-.wUqnh {
+._324Crd {
   color: #f00;
 }
 @media print {
-  .zIzjk.zIzjk {
+  .O347H.O347H {
     color: #f00;
   }
-  ._4rAdwD._4rAdwD:hover {
+  ._2sykgO._2sykgO:hover {
     color: #ffc0cb;
   }
 }
@@ -353,7 +353,7 @@ exports[`matches expected output: media-queries-nested-pseudo.js 1`] = `
 
 className={styles('media')}
   ↓ ↓ ↓
-class="wUqnh zIzjk _4rAdwD"
+class="_324Crd O347H _2sykgO"
 
 `;
 
@@ -372,14 +372,14 @@ exports[`matches expected output: media-queries-same-style.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 @media (min-width: 1280px) {
-  ._3ZCUJ6._3ZCUJ6 {
+  ._4k1sZK._4k1sZK {
     color: #f00;
   }
 }
-._4fo5TC {
+._2dHaKY {
   color: #00f;
 }
-.wUqnh {
+._324Crd {
   color: #f00;
 }
 
@@ -387,11 +387,11 @@ exports[`matches expected output: media-queries-same-style.js 1`] = `
 
 className={styles('style1')}
   ↓ ↓ ↓
-class="_3ZCUJ6 _4fo5TC"
+class="_4k1sZK _2dHaKY"
 
 className={styles('style2')}
   ↓ ↓ ↓
-class="wUqnh"
+class="_324Crd"
 
 `;
 
@@ -406,10 +406,10 @@ exports[`matches expected output: pseudo-classes.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-._134wwt {
+.v2kHO {
   text-decoration: none;
 }
-._22QzO9:hover {
+.crve5:hover {
   text-decoration: underline;
 }
 
@@ -417,7 +417,7 @@ exports[`matches expected output: pseudo-classes.js 1`] = `
 
 className={styles('link')}
   ↓ ↓ ↓
-class="_134wwt _22QzO9"
+class="v2kHO crve5"
 
 `;
 
@@ -441,19 +441,19 @@ exports[`matches expected output: pseudo-classes-multiple.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-._134wwt {
+.v2kHO {
   text-decoration: none;
 }
-.XJjf5:hover {
+._30RBbb:hover {
   text-decoration: none;
 }
-._4sFdkU:hover {
+._1O0igU:hover {
   color: #f00;
 }
-.UddGc:hover {
+._3nDIb1:hover {
   color: #00f;
 }
-.ERwS0:active {
+._2kD1Fb:active {
   color: #f00;
 }
 
@@ -461,11 +461,11 @@ exports[`matches expected output: pseudo-classes-multiple.js 1`] = `
 
 className={styles('aaa')}
   ↓ ↓ ↓
-class="_134wwt XJjf5 _4sFdkU ERwS0"
+class="v2kHO _30RBbb _1O0igU _2kD1Fb"
 
 className={styles('bbb')}
   ↓ ↓ ↓
-class="UddGc"
+class="_3nDIb1"
 
 `;
 
@@ -529,10 +529,10 @@ exports[`matches expected output: pseudo-elements.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-._134wwt {
+.v2kHO {
   text-decoration: none;
 }
-._22QzO9:hover {
+.crve5:hover {
   text-decoration: underline;
 }
 ._2sj7wN::after {
@@ -546,7 +546,7 @@ exports[`matches expected output: pseudo-elements.js 1`] = `
 
 className={styles('link')}
   ↓ ↓ ↓
-class="_134wwt _22QzO9 _2sj7wN _4vATsH"
+class="v2kHO crve5 _2sj7wN _4vATsH"
 
 `;
 
@@ -564,10 +564,10 @@ exports[`matches expected output: pseudo-elements-2.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-._3UELKF {
+._33076O {
   counter-reset: my-reset;
 }
-.FmLKl {
+._3DgpOy {
   counter-increment: my-reset;
 }
 ._3ybBud::before {
@@ -578,11 +578,11 @@ exports[`matches expected output: pseudo-elements-2.js 1`] = `
 
 className={styles('ul')}
   ↓ ↓ ↓
-class="_3UELKF"
+class="_33076O"
 
 className={styles('li')}
   ↓ ↓ ↓
-class="FmLKl _3ybBud"
+class="_3DgpOy _3ybBud"
 
 `;
 
@@ -600,13 +600,13 @@ exports[`matches expected output: simple.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-.wUqnh {
+._324Crd {
   color: #f00;
 }
-._4fo5TC {
+._2dHaKY {
   color: #00f;
 }
-.PJDYD {
+.mRoJ3 {
   color: #008000;
 }
 
@@ -614,15 +614,49 @@ exports[`matches expected output: simple.js 1`] = `
 
 className={styles('redStyle')}
   ↓ ↓ ↓
-class="wUqnh"
+class="_324Crd"
 
 className={styles('blueStyle')}
   ↓ ↓ ↓
-class="_4fo5TC"
+class="_2dHaKY"
 
 className={styles('greenStyle')}
   ↓ ↓ ↓
-class="PJDYD"
+class="mRoJ3"
+
+`;
+
+exports[`matches expected output: simple-transforms.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "red_one": {
+    "color": "red"
+  },
+  "red_two": {
+    "color": "#f00"
+  },
+  "red_three": {
+    "color": "#FF0000"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._324Crd {
+  color: #f00;
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('red_one')}
+  ↓ ↓ ↓
+class="_324Crd"
+
+className={styles('red_two')}
+  ↓ ↓ ↓
+class="_324Crd"
+
+className={styles('red_three')}
+  ↓ ↓ ↓
+class="_324Crd"
 
 `;
 
@@ -640,7 +674,7 @@ exports[`matches expected output: simple-with-duplicates.js 1`] = `
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-.wUqnh {
+._324Crd {
   color: #f00;
 }
 
@@ -648,14 +682,14 @@ exports[`matches expected output: simple-with-duplicates.js 1`] = `
 
 className={styles('aaa')}
   ↓ ↓ ↓
-class="wUqnh"
+class="_324Crd"
 
 className={styles('bbb')}
   ↓ ↓ ↓
-class="wUqnh"
+class="_324Crd"
 
 className={styles('ccc')}
   ↓ ↓ ↓
-class="wUqnh"
+class="_324Crd"
 
 `;

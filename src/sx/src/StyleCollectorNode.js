@@ -39,9 +39,9 @@ export default class StyleCollectorNode implements StyleCollectorNodeInterface {
   styleValue: string | number;
 
   constructor(styleName: string, styleValue: string | number, hashSeed: string = '') {
-    this.hash = hashStyle(`${styleName}${styleValue}${hashSeed}`);
     this.styleName = transformStyleName(styleName);
     this.styleValue = transformValue(styleName, styleValue);
+    this.hash = hashStyle(`${this.styleName}${this.styleValue}${hashSeed}`);
   }
 
   // eslint-disable-next-line no-unused-vars

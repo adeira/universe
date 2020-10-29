@@ -15,9 +15,9 @@ it('works as expected', () => {
   expect(node.getPseudo()).toBe(':hover');
 
   expect(node.print()).toMatchInlineSnapshot(
-    `".wUqnh:hover{color:#f00}.y21qO:hover{color:#0f0}._4fo5TC:hover{color:#00f}"`,
+    `"._324Crd:hover{color:#f00}._9MIuv:hover{color:#0f0}._2dHaKY:hover{color:#00f}"`,
   );
   expect(node.print({ bumpSpecificity: true })).toMatchInlineSnapshot(
-    `".wUqnh.wUqnh:hover{color:#f00}.y21qO.y21qO:hover{color:#0f0}._4fo5TC._4fo5TC:hover{color:#00f}"`,
+    `"._324Crd._324Crd:hover{color:#f00}._9MIuv._9MIuv:hover{color:#0f0}._2dHaKY._2dHaKY:hover{color:#00f}"`,
   );
 });
