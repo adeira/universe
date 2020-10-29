@@ -132,8 +132,10 @@ It's fairly straightforward to rename things inside your specified root and ship
 ```js
 module.exports = {
   getPathMappings(): Map<string, string> {
-    return new Map([['src/packages/monorepo/', '']]);
-    // ... add new root here, keep the old one as well
+    return new Map([
+      ['src/path-old/', ''],
+      ['src/path-new/', ''], // add a new root here, keep the old one as well
+    ]);
   },
 };
 ```
