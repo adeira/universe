@@ -2,8 +2,6 @@
 
 import * as React from 'react';
 import App from 'next/app';
-// eslint-disable-next-line no-unused-vars
-import * as sx from '@adeira/sx';
 import Head from 'next/head';
 
 export default class MyApp extends App {
