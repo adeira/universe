@@ -9,9 +9,6 @@ module.exports = ({
     };
   },
   getPathMappings() {
-    return new Map([
-      ['src/docs/', ''], // TODO: remove
-      ['src/adeira.dev/', ''],
-    ]);
+    return new Map([['src/adeira.dev/', '']]);
   },
 }: ConfigType);
