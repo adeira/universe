@@ -20,6 +20,6 @@ it('works as expected', () => {
   );
 
   expect(node.print()).toMatchInlineSnapshot(
-    `"@media print{.wUqnh.wUqnh{color:#f00}._4fo5TC._4fo5TC:hover{color:#00f}}"`,
+    `"@media print{._324Crd._324Crd{color:#f00}._2dHaKY._2dHaKY:hover{color:#00f}}"`,
   );
 });

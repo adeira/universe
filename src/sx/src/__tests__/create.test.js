@@ -17,8 +17,8 @@ it('returns correct style names', () => {
     },
   });
 
-  expect(styles('aaa')).toMatchInlineSnapshot(`"_20MWPt"`);
-  expect(styles('bbb')).toMatchInlineSnapshot(`"_20MWPt _3eC2WW"`);
+  expect(styles('aaa')).toMatchInlineSnapshot(`"kO7Od"`);
+  expect(styles('bbb')).toMatchInlineSnapshot(`"kO7Od XVfeR"`);
 });
 
 it('supports multiple styles', () => {
@@ -32,10 +32,10 @@ it('supports multiple styles', () => {
 
   // Some values for reference:
   expect(create({ red: { color: 'red' }, blue: { color: 'blue' } })('red')).toMatchInlineSnapshot(
-    `"wUqnh"`,
+    `"_324Crd"`,
   );
   expect(create({ red: { color: 'red' }, blue: { color: 'blue' } })('blue')).toMatchInlineSnapshot(
-    `"_4fo5TC"`,
+    `"_2dHaKY"`,
   );
 
   expect(
@@ -43,14 +43,14 @@ it('supports multiple styles', () => {
       red: { color: 'red' },
       blue: { color: 'blue' },
     })('red', 'blue'),
-  ).toMatchInlineSnapshot(`"_4fo5TC"`); // result should be only BLUE
+  ).toMatchInlineSnapshot(`"_2dHaKY"`); // result should be only BLUE
 
   expect(
     create({
       red: { color: 'red' },
       blue: { color: 'blue' },
     })('blue', 'red'),
-  ).toMatchInlineSnapshot(`"wUqnh"`); // result should be only RED
+  ).toMatchInlineSnapshot(`"_324Crd"`); // result should be only RED
 
   // changed order of style definitions:
   expect(
@@ -58,14 +58,14 @@ it('supports multiple styles', () => {
       blue: { color: 'blue' },
       red: { color: 'red' },
     })('blue', 'red'),
-  ).toMatchInlineSnapshot(`"wUqnh"`);
+  ).toMatchInlineSnapshot(`"_324Crd"`);
 
   expect(
     create({
       blue: { color: 'blue' },
       red: { color: 'red' },
     })('red', 'blue'),
-  ).toMatchInlineSnapshot(`"_4fo5TC"`);
+  ).toMatchInlineSnapshot(`"_2dHaKY"`);
 
   // multiple styles:
   expect(
@@ -73,14 +73,14 @@ it('supports multiple styles', () => {
       red: { color: 'red', zIndex: 1 },
       blue: { color: 'blue' },
     })('red', 'blue'),
-  ).toMatchInlineSnapshot(`"_4fo5TC _2FdJlr"`); // blue + zIndex
+  ).toMatchInlineSnapshot(`"_2dHaKY _1SymEZ"`); // blue + zIndex
 
   expect(
     create({
       red: { color: 'red', zIndex: 1 },
       blue: { color: 'blue' },
     })('blue', 'red'),
-  ).toMatchInlineSnapshot(`"wUqnh _2FdJlr"`); // red + zIndex
+  ).toMatchInlineSnapshot(`"_324Crd _1SymEZ"`); // red + zIndex
 });
 
 it('supports conditional calls', () => {
@@ -92,11 +92,11 @@ it('supports conditional calls', () => {
     disabled: { color: 'blue' }, // _4fo5TC
   });
 
-  expect(styles('button', 'disabled')).toMatchInlineSnapshot(`"_4fo5TC"`); // disabled wins
-  expect(styles('button', isDisabled ? 'disabled' : null)).toMatchInlineSnapshot(`"wUqnh"`);
-  expect(styles('button', isDisabled ? 'disabled' : undefined)).toMatchInlineSnapshot(`"wUqnh"`);
-  expect(styles('button', isDisabled && 'disabled')).toMatchInlineSnapshot(`"wUqnh"`);
-  expect(styles('button', isEnabled && 'disabled')).toMatchInlineSnapshot(`"_4fo5TC"`);
+  expect(styles('button', 'disabled')).toMatchInlineSnapshot(`"_2dHaKY"`); // disabled wins
+  expect(styles('button', isDisabled ? 'disabled' : null)).toMatchInlineSnapshot(`"_324Crd"`);
+  expect(styles('button', isDisabled ? 'disabled' : undefined)).toMatchInlineSnapshot(`"_324Crd"`);
+  expect(styles('button', isDisabled && 'disabled')).toMatchInlineSnapshot(`"_324Crd"`);
+  expect(styles('button', isEnabled && 'disabled')).toMatchInlineSnapshot(`"_2dHaKY"`);
 });
 
 it('validates incorrect usage', () => {

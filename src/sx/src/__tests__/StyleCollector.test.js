@@ -19,21 +19,21 @@ it('works with simple styles', () => {
     Object {
       "hashRegistry": Map {
         "test" => Map {
-          "color" => "_4fo5TC",
+          "color" => "_2dHaKY",
         },
         "lol" => Map {
-          "fontSize" => "Zld8p",
-          "color" => "_4fo5TC",
+          "fontSize" => "_9bPFv",
+          "color" => "_2dHaKY",
         },
       },
       "styleBuffer": Map {
-        "_4fo5TC" => StyleCollectorNode {
-          "hash": "_4fo5TC",
+        "_2dHaKY" => StyleCollectorNode {
+          "hash": "_2dHaKY",
           "styleName": "color",
           "styleValue": "#00f",
         },
-        "Zld8p" => StyleCollectorNode {
-          "hash": "Zld8p",
+        "_9bPFv" => StyleCollectorNode {
+          "hash": "_9bPFv",
           "styleName": "font-size",
           "styleValue": "1rem",
         },
@@ -58,32 +58,32 @@ it('works with pseudo styles', () => {
     Object {
       "hashRegistry": Map {
         "lol" => Map {
-          "fontSize" => "Zld8p",
-          "color" => "_4fo5TC",
-          "color:hover" => "_4rAdwD",
-          "textDecoration:hover" => "_22QzO9",
+          "fontSize" => "_9bPFv",
+          "color" => "_2dHaKY",
+          "color:hover" => "_2sykgO",
+          "textDecoration:hover" => "crve5",
         },
       },
       "styleBuffer": Map {
-        "Zld8p" => StyleCollectorNode {
-          "hash": "Zld8p",
+        "_9bPFv" => StyleCollectorNode {
+          "hash": "_9bPFv",
           "styleName": "font-size",
           "styleValue": "1rem",
         },
-        "_4fo5TC" => StyleCollectorNode {
-          "hash": "_4fo5TC",
+        "_2dHaKY" => StyleCollectorNode {
+          "hash": "_2dHaKY",
           "styleName": "color",
           "styleValue": "#00f",
         },
         ":hover" => StyleCollectorPseudoNode {
           "nodes": Map {
-            "_4rAdwD" => StyleCollectorNode {
-              "hash": "_4rAdwD",
+            "_2sykgO" => StyleCollectorNode {
+              "hash": "_2sykgO",
               "styleName": "color",
               "styleValue": "#ffc0cb",
             },
-            "_22QzO9" => StyleCollectorNode {
-              "hash": "_22QzO9",
+            "crve5" => StyleCollectorNode {
+              "hash": "crve5",
               "styleName": "text-decoration",
               "styleValue": "underline",
             },
@@ -116,19 +116,19 @@ it('works with mediaQueries', () => {
     Object {
       "hashRegistry": Map {
         "test" => Map {
-          "color@media (min-width: 900px)" => "jwIA4",
+          "color@media (min-width: 900px)" => "_1iHvvo",
         },
         "nestedMedia" => Map {
-          "color@media print" => "zIzjk",
-          "color@media (max-width: 12cm)" => "Uxdbe",
+          "color@media print" => "O347H",
+          "color@media (max-width: 12cm)" => "_3XWcpy",
         },
       },
       "styleBuffer": Map {
         "@media (min-width: 900px)" => StyleCollectorAtNode {
           "atRuleName": "@media (min-width: 900px)",
           "nodes": Map {
-            "jwIA4" => StyleCollectorNode {
-              "hash": "jwIA4",
+            "_1iHvvo" => StyleCollectorNode {
+              "hash": "_1iHvvo",
               "styleName": "color",
               "styleValue": "#00f",
             },
@@ -137,16 +137,16 @@ it('works with mediaQueries', () => {
         "@media print" => StyleCollectorAtNode {
           "atRuleName": "@media print",
           "nodes": Map {
-            "zIzjk" => StyleCollectorNode {
-              "hash": "zIzjk",
+            "O347H" => StyleCollectorNode {
+              "hash": "O347H",
               "styleName": "color",
               "styleValue": "#f00",
             },
             "@media (max-width: 12cm)" => StyleCollectorAtNode {
               "atRuleName": "@media (max-width: 12cm)",
               "nodes": Map {
-                "Uxdbe" => StyleCollectorNode {
-                  "hash": "Uxdbe",
+                "_3XWcpy" => StyleCollectorNode {
+                  "hash": "_3XWcpy",
                   "styleName": "color",
                   "styleValue": "#00f",
                 },

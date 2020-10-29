@@ -26,12 +26,12 @@ it('works as expected', () => {
     },
   });
 
-  expect(styles('red')).toMatchInlineSnapshot(`"wUqnh"`);
-  expect(styles('blue')).toMatchInlineSnapshot(`"_4fo5TC"`);
+  expect(styles('red')).toMatchInlineSnapshot(`"_324Crd"`);
+  expect(styles('blue')).toMatchInlineSnapshot(`"_2dHaKY"`);
 
-  expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_4fo5TC"`); // blue wins
-  expect(styles('blue', 'red')).toMatchInlineSnapshot(`"wUqnh"`); // red wins
+  expect(styles('red', 'blue')).toMatchInlineSnapshot(`"_2dHaKY"`); // blue wins
+  expect(styles('blue', 'red')).toMatchInlineSnapshot(`"_324Crd"`); // red wins
 
-  expect(styles('pseudo')).toMatchInlineSnapshot(`"PJDYD _4sFdkU _22QzO9 _3stS2V _3Wiz8a"`);
-  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"wUqnh _4sFdkU _22QzO9 _3stS2V _3Wiz8a"`); // red wins (non-hover)
+  expect(styles('pseudo')).toMatchInlineSnapshot(`"mRoJ3 _1O0igU crve5 _2DlVUN _3Wiz8a"`);
+  expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"_324Crd _1O0igU crve5 _2DlVUN _3Wiz8a"`); // red wins (non-hover)
 });
