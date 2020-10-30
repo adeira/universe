@@ -1,9 +1,10 @@
 // @flow
 
-require('@babel/register')({
-  ignore: [/node_modules\/(?!@adeira)/],
-  rootMode: 'upward',
-});
+// prettier-ignore
+require('@babel/register')({ // @x-shipit-disable
+  ignore: [/node_modules\/(?!@adeira)/], // @x-shipit-disable
+  rootMode: 'upward', // @x-shipit-disable
+}); // @x-shipit-disable
 
 const template = require('@babel/template').default;
 const t = require('@babel/types');
