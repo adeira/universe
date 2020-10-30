@@ -13,19 +13,18 @@
     "next-transpile-modules": "^4.1.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-syntax-highlighter": "^15.2.1"
+    "react-syntax-highlighter": "^15.3.0"
   },
   "devDependencies": {
-    "@adeira/babel-plugin-transform-sx-tailwind": "^0.2.0",
+    "@adeira/babel-plugin-transform-sx-tailwind": "^0.3.0",
     "@adeira/babel-preset-adeira": "^1.1.0",
-    "flow-bin": "^0.136.0",
-    "serve": "^11.3.2"
+    "flow-bin": "^0.137.0"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
     "preexport": "yarn run build",
     "export": "next export",
-    "start": "serve out"
+    "start": "next start"
   }
 }
