@@ -248,6 +248,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       try {
         this._gitCommand('am', '--keep-non-patch', '--keep-cr').setStdin(diff).runSynchronously();
       } catch (error) {
+        this._gitCommand('am', '--show-current-patch').setOutputToScreen().runSynchronously();
         this._gitCommand('am', '--abort').setOutputToScreen().runSynchronously();
         throw error;
       }
