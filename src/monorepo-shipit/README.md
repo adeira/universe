@@ -1,13 +1,39 @@
-Monorepo Shipit takes care of exporting and importing our source-codes from our private GitLab monorepo into any other Git repository. It can export even from our monorepo to another monorepo. We use it open-source some of our packages to our [GitHub](https://github.com/adeira). This way we can develop just like we are used to in one monorepo but we can contribute back to the community by making some of our codes open.
+Monorepo Shipit takes care of exporting and importing our projects from GitHub monorepo into any other Git repository. It can export even from our monorepo to another monorepo. In theory, it can export even to different VCS, not just Git. We use it open-source some of our code to our [Adeira](https://github.com/adeira) GitHub organization.
+
+_Are you interested in using Shipit for your own monorepo? Get in touch and we can discuss necessary changes._
+
+- [Shipit part](#shipit-part)
+  - [Configuration](#configuration)
+  - [Filters](#filters)
+    - [Filter `moveDirectories`](#filter--movedirectories-)
+    - [Filter of conditional comments (`commentLines`)](#filter-of-conditional-comments---commentlines--)
+  - [Renaming project roots](#renaming-project-roots)
+  - [Linear history](#linear-history)
+- [Importit part _(unstable)_](#importit-part---unstable--)
+  - [Filters](#filters-1)
+- [Main differences from facebook/fbshipit](#main-differences-from-facebook-fbshipit)
+- [Prior art](#prior-art)
 
 # Shipit part
 
-First, we try to extract relevant commits of our package we want to opensource. Each commit is converted into so called "changeset" which is immutable structure representing one commit. One changeset can contain many diffs which describe changes in one individual file. It's very common to modify many files in commit even outside of the public package. Moreover paths in our internal monorepo are very different from the open-sourced version. Therefore, we apply some filters to hide non-relevant or secret files and to adjust paths in the changeset to match open-source expectations. These modified changesets are then pushed applied in the cloned open-source repository and pushed to the GitHub service.
+Shipit part is responsible for exporting code from our monorepo somewhere else.
+
+Here is how it works. First, we try to extract relevant commits of each project we want to export. Each commit is converted into so called _changeset_ which is an immutable structure representing one commit and doesn't depend on Git or any other VCS. Each changeset can contain many diffs describing changes in each individual file.
+
+```text
+                                        ↗  diff
+             ↗  commit_1  →  changeset  →  diff
+Git history  →  commit_2  →  changeset       ⠇
+             ↘  commit_3  →  changeset
+                   ⠇             ⠇
+```
+
+Paths in our monorepo are very different from the exported version. Therefore, we apply some filters to hide non-relevant or secret files and to adjust paths in the exported repo version. These modified changesets are then pushed to individual GitHub repositories.
 
 ```text
    .-----------------------------------.
    |                                   |
-   |          GitLab Monorepo          |
+   |      adeira/universe monorepo     |
    |                                   |
    `-----------------------------------`
       v              v              v
@@ -27,33 +53,33 @@ First, we try to extract relevant commits of our package we want to opensource. 
       |              |         | GH repo | <------.
       |              v         `---------`        |      .--------------------.
       |         .---------.                       |      |                    |
-      |         | GH repo | <---------------------+----> |   GitHub service   |
+      |         | GH repo | <---------------------+----> |       GitHub       |
       v         `---------`                       |      |                    |
  .---------.                                      |      `--------------------`
  | GH repo | <------------------------------------`
  `---------`
 ```
 
-One of the filters modifies commit summaries and adds `adeira-source-id` signature which helps us to identify which changes we pushed last time and just amend latest internal changes. These filters work with the parsed changesets which gives you incredible flexibility: you can for example completely remove some lines from the open-source version. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the public repository then just add a new filter and manually remove them from GitHub.
+One of the filters modifies commit descriptions and adds `adeira-source-id` signature which helps us to identify which changes we pushed last time so we can just amend latest changes next time. These filters work with the parsed changesets which gives you an incredible flexibility: you can for example completely remove some lines from the exported code. However, please note that this whole process works with diffs and therefore new filter won't update existing files in GitHub unless you touch them. So, for instance, if you want to remove some files from the exported repository then just add a new filter and manually change the code in the exported repository.
 
 ## Configuration
 
 Real-world examples: https://github.com/adeira/universe/tree/master/src/monorepo-shipit/config
 
-Each project has its own configuration directly in Shipit workspace. If you want it to work with another project then you have to create a new configuration (with configuration tests):
+Each project has its own configuration directly in Shipit workspace. If you want it to work with another project then you have to create a new configuration (with configuration tests), for example:
 
 ```js
 module.exports = {
   getStaticConfig() {
     return {
-      repository: 'git@github.com/adeira/relay-example.git', // see: https://git-scm.com/docs/git-clone#_git_urls_a_id_urls_a
+      repository: 'git@github.com/adeira/relay-example.git', // see: https://git-scm.com/docs/git-clone/#_git_urls
     };
   },
   getPathMappings(): Map<string, string> {
     return new Map([
-      ['src/incubator/example-relay/__github__/.circleci', '.circleci'],
-      ['src/incubator/example-relay/__github__/.flowconfig', '.flowconfig'],
-      ['src/incubator/example-relay/', ''],
+      ['src/example-relay/__github__/.circleci', '.circleci'],
+      ['src/example-relay/__github__/.flowconfig', '.flowconfig'],
+      ['src/example-relay/', ''],
     ]);
   },
   getStrippedFiles(): Set<RegExp> {
@@ -67,22 +93,47 @@ Read more about available filters and how to use them below.
 
 ## Filters
 
-There are various filters applied on exported changesets to make it work properly. Currently we apply these filters:
+There are various filters applied on exported changesets to make it work properly. Currently we apply these filters in _exactly_ this order:
 
-- `PathFilters.stripExceptDirectories`
-- `PathFilters.moveDirectories`
-- conditional comments filter (only `// @x-shipit-enable` and `// @x-shipit-disable` supported at this moment)
+1. `addTrackingData` - adds `adeira-source-id` into the commit description which helps us identify the latest synchronized changes
+2. `stripExceptDirectories` - makes sure we publish only files relevant to the workspace that is being exported
+3. `moveDirectories` - makes sure that we export correct paths (our projects are located in for example `src/packages/fetch` but we want to have these files in the root on GitHub rather than the original monorepo path), uses `getPathMappings` configuration (see below)
+4. `stripPaths` - removes unwanted files based on `getStrippedFiles` configuration
+5. `stripPaths` - removes additional unwanted defaults (currently only `BUILD` and `WORKSPACE` Bazel specifics)
+6. `commentLines` - comments out lines marked with `@x-shipit-disable` (see below)
+7. `commentLines` - uncomment lines marked with `@x-shipit-enable` (see below)
 
-The first filter makes sure that we publish only files relevant to the workspace that is being open-sourced. This filter is automatic. Second `moveDirectories` filter makes sure that we publish correct paths for opensource. It's because our packages are located in for example `src/packages/fetch` but we want to have these files in the root on GitHub (not nested in `src/packages/fetch`).
+Order of these filters is significant and has one important implication: it's not possible to "replace" file with different version for OSS. For example, you **cannot** do this:
 
-### Filter `PathFilters.moveDirectories`
+```js
+module.exports = {
+  getPathMappings() {
+    return new Map([
+      ['src/example/__github__/.babelrc.js', '.babelrc.js'],
+      ['src/example/', ''],
+    ]);
+  },
+  getStrippedFiles() {
+    return new Set([
+      /^\.babelrc\.js$/, // replaced by the one in __github__
+      /__github__/,
+    ]);
+  },
+};
+```
 
-This filter maps our internal directories to OSS directories and vice versa. Typical minimalistic mapping looks like this:
+It's because the Babel config file is first moved from `__github__` to the repository root and later it's stripped (see filters 3 and 4). It would not work even if we'd change order of the filters (`__github__` would be first stripped and later there is no Babel config to move).
+
+_Are you interested in having this improved? Let us know._
+
+### Filter `moveDirectories`
+
+This filter maps our internal directories to exported directories and vice versa. Typical minimalistic mapping looks like this:
 
 ```js
 new Map([
   // from, to
-  ['src/packages/fetch/', ''],
+  ['src/fetch/', ''],
 ]);
 ```
 
@@ -90,12 +141,12 @@ This maps all the files from our [fetch](https://github.com/adeira/universe/tree
 
 ```js
 new Map([
-  ['src/packages/fetch/__github__/', ''], // trailing slash is significant
-  ['src/packages/fetch/', ''],
+  ['src/fetch/__github__/', ''], // trailing slash is significant
+  ['src/fetch/', ''],
 ]);
 ```
 
-This mapping moves all the files from `__github__` to the root. There are two things you should understand. Firstly, order matters. First mapping route takes precedence and should be therefore more specific. Secondly, this mapping is irreversible (read more about what does it mean in Importit part).
+This mapping moves all the files from `__github__` to the root. There are two things you should understand. Firstly, order matters. First mapping route takes precedence and should be therefore more specific. Secondly, this mapping is irreversible (read more about what does it mean in [Importit part](#importit-part-_unstable_)).
 
 And finally this is how you'd map your package to the subfolder on GitHub (good for shipping from our monorepo to different monorepo or when you are avoiding previously mentioned irreversibility):
 
@@ -103,7 +154,7 @@ And finally this is how you'd map your package to the subfolder on GitHub (good 
 new Map([['src/packages/fetch/', 'packages/fetch/']]);
 ```
 
-### Filter of conditional comments
+### Filter of conditional comments (`commentLines`)
 
 This filter is handy when you need to enable or disable some lines when exporting the project for OSS. Look at for example this example (code in our private monorepo):
 
@@ -123,7 +174,7 @@ someFunctionCallWithDifferentOSSRepresentation(
 );
 ```
 
-Please note: this is just an example, currently we support only `// @x-shipit-enable` and `// @x-shipit-disable` in this exact format. However, logic of this filter is independent on this marker so it's possible to build on top of this and even make it project specific.
+Please note: this is just an example, currently we support only `// @x-shipit-enable` and `// @x-shipit-disable` in this exact format.
 
 ## Renaming project roots
 
@@ -165,7 +216,7 @@ For this reason Shipit requires linear Git history only (it works with reversed 
 
 # Importit part _(unstable)_
 
-**Only imports from GitHub are currently supported.**
+**Only imports from GitHub are currently supported. Help us to improve this part.**
 
 This is how you'd import a pull request #1 from GitHub into your local branch:
 
@@ -173,12 +224,12 @@ This is how you'd import a pull request #1 from GitHub into your local branch:
 yarn monorepo-babel-node src/monorepo-shipit/bin/importit.js git@github.com:adeira/fetch.git 1
 ```
 
-The idea is that you will tweak it for us if needed, test it in our monorepo and eventually send a merge request to the monorepo. Technically, _Importit_ part works just like _Shipit_ except in the opposite direction:
+Technically, _Importit_ part works just like _Shipit_ except in the opposite direction and from pull requests:
 
 ```text
    .-----------------------------------.
    |                                   |
-   |          GitLab Monorepo          |
+   |      adeira/universe monorepo     |
    |                                   |
    `-----------------------------------`
       ^              ^              ^
@@ -194,15 +245,15 @@ The idea is that you will tweak it for us if needed, test it in our monorepo and
 | Changeset |  | Changeset |  | Changeset |
 `-----------`  `-----------`  `-----------`
       ^              ^              ^
-      |              |         .---------.
-      |              |         | GH repo | <------.
-      |              |         `---------`        |      .--------------------.
-      |         .---------.                       |      |                    |
-      |         | GH repo | <---------------------+----> |   GitHub service   |
-      |         `---------`                       |      |                    |
- .---------.                                      |      `--------------------`
- | GH repo | <------------------------------------`
- `---------`
+      |              |         .---------------.
+      |              |         | GH repo PR #1 |
+      |              |         `---------------`
+      |         .----------------.
+      |         | GH repo PR #21 |
+      |         `----------------`
+ .----------------.
+ | GH repo PR #42 |
+ `----------------`
 ```
 
 ## Filters
