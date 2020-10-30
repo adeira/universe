@@ -7,7 +7,6 @@ import testExportedPaths from './testExportedPaths';
 testExportedPaths(path.join(__dirname, '..', 'adeira-dev.js'), [
   ['src/adeira.dev/package.json', 'package.json'],
   ['src/adeira.dev/README.md', 'README.md'],
-  ['src/adeira.dev/core/Footer.js', 'core/Footer.js'],
   ['src/adeira.dev/docs/general/introduction.md', 'docs/general/introduction.md'],
 
   // invalid cases:
