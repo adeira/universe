@@ -4,19 +4,14 @@ import * as React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
-const Index = () => {
+export default function Index() {
   const context = useDocusaurusContext();
   const { siteConfig } = context;
-  const { baseUrl } = siteConfig;
-
-  const docUrl = (doc) => `${baseUrl}docs/${doc}`;
 
   const HomeSplash = () => {
     const SplashContainer = (props) => (
       <div className="homeContainer">
-        <div className="homeSplashFade">
-          <div className="wrapper homeWrapper">{props.children}</div>
-        </div>
+        <div className="wrapper homeWrapper">{props.children}</div>
       </div>
     );
 
@@ -27,30 +22,10 @@ const Index = () => {
       </header>
     );
 
-    const PromoSection = (props) => (
-      <div className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
-        </div>
-      </div>
-    );
-
-    const Button = (props) => (
-      <div className="pluginWrapper buttonWrapper">
-        <a className="button inverseButton" href={props.href} target={props.target}>
-          {props.children}
-        </a>
-      </div>
-    );
-
     return (
       <SplashContainer>
         <div className="inner">
           <ProjectTitle siteConfig={siteConfig} />
-          <PromoSection>
-            <Button href={docUrl('general/introduction')}>Get Started</Button>
-            <Button href="https://github.com/adeira/universe">GitHub</Button>
-          </PromoSection>
         </div>
       </SplashContainer>
     );
@@ -58,31 +33,25 @@ const Index = () => {
 
   const Description = () => (
     <div className="adeiraHomepageContainer">
-      <h2>About adeira/universe</h2>
       <p>
         <code>adeira/universe</code> is monorepo with the collections of libraries we write to make
         our code better & more efficient. All the libraries listed below were created and developed
-        to satisfy the needs of daily work and are battle tested in our production applications.
+        to satisfy the needs of daily work and are battle-tested in our production applications.
       </p>
       <p>
-        Most of tools cover these topics: <strong>GraphQL & Relay</strong>, <strong>ESLint</strong>{' '}
-        or utilities for monorepo and CI scripts.
+        Most of the tools cover these topics: <strong>GraphQL & Relay</strong>,{' '}
+        <strong>ESLint</strong> or utilities for monorepo and CI scripts.
       </p>
-      <h2>Contribute to the ecosystem!</h2>
+      <h2>Selected packages included in our monorepo</h2>
       <p>
-        <span role="img" aria-label="backhand index finger pointing right">
-          👉
-        </span>{' '}
-        <strong>
-          <a href="https://github.com/adeira/universe/blob/master/README.md" target="_blank">
-            Install & Run this monorepo
-          </a>
-        </strong>
+        Also available on <a href="https://www.npmjs.com/org/adeira">NPM</a>
       </p>
-      <h2>
-        Packages included in monorepo (available on{' '}
-        <a href="https://www.npmjs.com/org/adeira">npm</a>)
-      </h2>
+      <p>
+        Complete list of all our projects:{' '}
+        <a href="https://github.com/adeira/universe/tree/master/src">
+          https://github.com/adeira/universe/tree/master/src
+        </a>
+      </p>
       <h3>Utility libraries</h3>
       <ul>
         <li>
@@ -240,6 +209,4 @@ const Index = () => {
       </div>
     </Layout>
   );
-};
-
-export default Index;
+}

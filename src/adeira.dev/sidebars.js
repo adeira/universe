@@ -1,7 +1,3 @@
-// @flow strict
+/* eslint-disable flowtype/require-valid-file-annotation */
 
-module.exports = {
-  universe: {
-    'Getting started': ['general/introduction'],
-  },
-};
+module.exports = {};

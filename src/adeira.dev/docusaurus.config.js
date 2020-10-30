@@ -3,7 +3,7 @@
 module.exports = {
   url: 'https://adeira.dev/',
   baseUrl: '/',
-  favicon: 'img/favicons/favicon.ico',
+  favicon: 'img/favicon.ico',
   title: 'adeira/universe', // Title for your website.
   tagline: 'Universe of libs to write better code.',
   // Add custom scripts here that would be placed in <script> tags.
@@ -25,7 +25,17 @@ module.exports = {
         alt: 'Adeira.dev',
       },
       items: [
-        { to: 'docs/general/introduction', label: 'Docs', position: 'left' },
+        // { to: 'docs/general/introduction', label: 'Docs', position: 'left' },
+        {
+          href: 'https://relay-example.adeira.dev/',
+          label: 'Relay Example',
+          position: 'left',
+        },
+        {
+          href: 'https://sx-tailwind.adeira.dev/',
+          label: 'SX Tailwind',
+          position: 'left',
+        },
         {
           href: 'https://github.com/adeira/universe',
           label: 'GitHub',
