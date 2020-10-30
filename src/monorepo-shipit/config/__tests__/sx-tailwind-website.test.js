@@ -18,7 +18,11 @@ testExportedPaths(path.join(__dirname, '..', 'sx-tailwind-website.js'), [
 
   // invalid cases:
   ['src/sx-tailwind-website/next.config.js', undefined], // correctly deleted
-  ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['src/sx-tailwind-website/__github__/unknown.js', undefined], // correctly deleted
+  ['src/sx-tailwind-website/BUILD.bazel', undefined], // correctly deleted
+  ['src/sx-tailwind-website/BUILD', undefined], // correctly deleted
+  ['src/sx-tailwind-website/WORKSPACE.bazel', undefined], // correctly deleted
+  ['src/sx-tailwind-website/WORKSPACE', undefined], // correctly deleted
+  ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);
