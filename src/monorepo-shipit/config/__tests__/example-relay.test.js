@@ -6,9 +6,7 @@ import testExportedPaths from './testExportedPaths';
 
 testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
   ['src/example-relay/package.json', 'package.json'],
-  ['src/example-relay/pages/index.js', 'pages/index.js'],
-  ['src/example-relay/src/locations/CountryFlag.js', 'src/locations/CountryFlag.js'],
-  ['src/example-relay/__generated__/AppQuery.graphql.js', '__generated__/AppQuery.graphql.js'],
+  ['src/example-relay/src/pages/index.js', 'src/pages/index.js'],
   ['src/example-relay/__github__/.flowconfig', '.flowconfig'],
   ['src/example-relay/__github__/babel.config.js', 'babel.config.js'],
   ['src/example-relay/__github__/flow-typed/globals.js', 'flow-typed/globals.js'],

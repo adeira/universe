@@ -11,11 +11,7 @@ type ApiType = {|
 
 type BabelConfig = {|
   +presets: $ReadOnlyArray<string>,
-  +env: {|
-    +production: {|
-      +plugins: $ReadOnlyArray<string>,
-    |}
-  |}
+  +plugins: $ReadOnlyArray<string>,
 |}
 
 */
