@@ -22,7 +22,7 @@ it('works with simple styles', () => {
           "color" => "_2dHaKY",
         },
         "lol" => Map {
-          "fontSize" => "_9bPFv",
+          "font-size" => "_9bPFv",
           "color" => "_2dHaKY",
         },
       },
@@ -58,10 +58,10 @@ it('works with pseudo styles', () => {
     Object {
       "hashRegistry": Map {
         "lol" => Map {
-          "fontSize" => "_9bPFv",
+          "font-size" => "_9bPFv",
           "color" => "_2dHaKY",
           "color:hover" => "_2sykgO",
-          "textDecoration:hover" => "crve5",
+          "text-decoration:hover" => "crve5",
         },
       },
       "styleBuffer": Map {

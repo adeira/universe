@@ -1,7 +1,10 @@
 // @flow
 
+/* global document */
+
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
+import prettier from 'prettier';
 
 import * as sx from '../../index';
 import { normalizeColor } from '../colorNormalizer';
@@ -11,25 +14,25 @@ afterEach(() => {
   collector.reset();
 });
 
-const styles = sx.create({
-  red: { color: 'red' },
-  blue: { color: 'blue' },
-  pseudo: {
-    'color': 'green',
-    ':hover': {
-      color: 'pink',
-      textDecoration: 'underline',
-    },
-    ':focus': {
-      color: 'purple',
-    },
-    '::after': {
-      content: '"🤓"',
-    },
-  },
-});
-
 it('applies correct styles', () => {
+  const styles = sx.create({
+    red: { color: 'red' },
+    blue: { color: 'blue' },
+    pseudo: {
+      'color': 'green',
+      ':hover': {
+        color: 'pink',
+        textDecoration: 'underline',
+      },
+      ':focus': {
+        color: 'purple',
+      },
+      '::after': {
+        content: '"🤓"',
+      },
+    },
+  });
+
   render(
     <>
       {sx.renderPageWithSX(jest.fn()).styles}
@@ -64,12 +67,8 @@ it('includes reset', () => {
     </div>,
   );
 
-  // eslint-disable-next-line no-undef
-  expect(document.querySelector('[data-adeira-sx="true"]')).toMatchInlineSnapshot(`
-    <style
-      data-adeira-sx="true"
-    >
-      
+  expect(document.querySelector('[data-adeira-sx="true"]')?.innerHTML).toMatchInlineSnapshot(`
+    "
     body {
       box-sizing: border-box;
     }
@@ -80,7 +79,117 @@ it('includes reset', () => {
       padding: 0;
       box-sizing: inherit;
     }
-
-    </style>
+    "
   `);
+});
+
+it('correctly handles shorthand properties specificity', () => {
+  const styles = sx.create({
+    primary: { marginTop: '10px' },
+    button: { margin: 0 },
+  });
+
+  expect(styles('primary')).toMatchInlineSnapshot(`"_3sgLnu"`);
+  expect(styles('button')).toMatchInlineSnapshot(`"_4pgUgJ _37wPvZ _32zari _3DMcik"`);
+  expect(styles('primary', 'button')).toBe(styles('button'));
+  expect(styles('button', 'primary')).toMatchInlineSnapshot(`"_3sgLnu _37wPvZ _32zari _3DMcik"`);
+
+  render(
+    <>
+      {sx.renderPageWithSX(jest.fn()).styles}
+      <div className={styles('button', 'primary')}>test 1</div>
+      <div className={styles('primary', 'button')}>test 2</div>
+    </>,
+  );
+
+  expect(
+    prettier.format(document.querySelector('[data-adeira-sx="true"]')?.innerHTML, {
+      filepath: 'test.css',
+    }),
+  ).toMatchInlineSnapshot(`
+    "._3sgLnu {
+      margin-top: 10px;
+    }
+    ._4pgUgJ {
+      margin-top: 0px;
+    }
+    ._37wPvZ {
+      margin-right: 0px;
+    }
+    ._32zari {
+      margin-bottom: 0px;
+    }
+    ._3DMcik {
+      margin-left: 0px;
+    }
+    "
+  `);
+
+  const test1 = screen.getByText('test 1');
+  expect(test1).not.toHaveStyle(`margin:0`);
+  expect(test1).toHaveStyle(`margin-top:10px`);
+
+  const test2 = screen.getByText('test 2');
+  expect(test2).not.toHaveStyle(`margin-top:10px`);
+  expect(test2).toHaveStyle(`margin-top:0`);
+});
+
+it('handles background:none specificity correctly', () => {
+  const styles = sx.create({
+    bgBlue: {
+      background: 'blue',
+    },
+    bgNone: {
+      background: 'none',
+    },
+  });
+
+  render(
+    <>
+      {sx.renderPageWithSX(jest.fn()).styles}
+      <div className={styles('bgBlue', 'bgNone')}>test_1</div>
+      <div className={styles('bgNone', 'bgBlue')}>test_2</div>
+    </>,
+  );
+
+  expect(
+    prettier.format(document.querySelector('[data-adeira-sx="true"]')?.innerHTML, {
+      filepath: 'test.css',
+    }),
+  ).toMatchInlineSnapshot(`
+    "._2rGYXd {
+      background-image: none;
+    }
+    .vSqk6 {
+      background-position: 0% 0%;
+    }
+    ._1m2K58 {
+      background-size: auto auto;
+    }
+    ._2RyIOg {
+      background-repeat: repeat;
+    }
+    ._87W4L {
+      background-origin: padding-box;
+    }
+    ._3IDiTj {
+      background-clip: border-box;
+    }
+    ._376SiR {
+      background-attachment: scroll;
+    }
+    ._30SC3G {
+      background-color: #00f;
+    }
+    ._15yiKT {
+      background-color: transparent;
+    }
+    "
+  `);
+
+  const test1 = screen.getByText('test_1');
+  expect(test1).toHaveStyle(`background-color:${normalizeColor('transparent')}`);
+
+  const test2 = screen.getByText('test_2');
+  expect(test2).toHaveStyle(`background-color:${normalizeColor('blue')}`);
 });
