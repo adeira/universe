@@ -636,7 +636,7 @@ Object {
     "node/prefer-global/url-search-params": 0,
     "node/prefer-promises/dns": 0,
     "node/prefer-promises/fs": 0,
-    "node/process-exit-as-throw": 0,
+    "node/process-exit-as-throw": 2,
     "node/shebang": 2,
     "nonblock-statement-body-position": "off",
     "object-curly-newline": "off",
