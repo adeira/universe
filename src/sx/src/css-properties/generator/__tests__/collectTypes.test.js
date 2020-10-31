@@ -7,13 +7,18 @@ it('works with keywords and groups', () => {
   expect(collectTypes('true | false')).toEqual(new Set(['true', 'false']));
 });
 
-it('handles special types correctly', () => {
+it('handles scalar types correctly', () => {
   expect(collectTypes('<integer>')).toEqual(new Set([FLOW_TYPE_NUMBER]));
   expect(collectTypes('<number>')).toEqual(new Set([FLOW_TYPE_NUMBER]));
-  expect(collectTypes('<percentage>')).toEqual(new Set([FLOW_TYPE_STRING]));
+  expect(collectTypes('<string>')).toEqual(new Set([FLOW_TYPE_STRING]));
+});
+
+it('handles special types correctly', () => {
   expect(collectTypes('<length-percentage>')).toEqual(
     new Set([FLOW_TYPE_NUMBER, FLOW_TYPE_STRING]),
   );
+  expect(collectTypes('<length>')).toEqual(new Set([FLOW_TYPE_NUMBER, FLOW_TYPE_STRING]));
+  expect(collectTypes('<percentage>')).toEqual(new Set([FLOW_TYPE_STRING]));
 });
 
 it('handles simple multipliers correctly', () => {
@@ -28,7 +33,7 @@ it('panics for more complex syntaxes', () => {
   expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
     Array [
       Array [
-        "❌ PANIC (unsupported Group): <number-percentage>{1,4} && fill?",
+        "❌ PANIC 1 (unsupported Group): <number-percentage>{1,4} && fill?",
       ],
     ]
   `);
