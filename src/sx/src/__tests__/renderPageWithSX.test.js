@@ -35,3 +35,19 @@ it('works as expected', () => {
   expect(styles('pseudo')).toMatchInlineSnapshot(`"mRoJ3 _1O0igU crve5 _2DlVUN _3Wiz8a"`);
   expect(styles('pseudo', 'red')).toMatchInlineSnapshot(`"_324Crd _1O0igU crve5 _2DlVUN _3Wiz8a"`); // red wins (non-hover)
 });
+
+it('does not output conflicting classes', () => {
+  const styles = sx.create({
+    aaa: {
+      margin: 0, // expanded to margin-top, margin-left, margin-bottom and margin-right
+    },
+    bbb: { marginTop: 10 },
+  });
+
+  expect(styles('aaa')).toMatchInlineSnapshot(`"_4pgUgJ _37wPvZ _32zari _3DMcik"`);
+  expect(styles('bbb')).toMatchInlineSnapshot(`"_3sgLnu"`);
+
+  expect(styles('aaa', 'bbb')).toMatchInlineSnapshot(`"_3sgLnu _37wPvZ _32zari _3DMcik"`);
+  expect(styles('bbb', 'aaa')).toBe(styles('aaa'));
+  expect(styles('aaa', 'aaa')).toBe(styles('aaa'));
+});

@@ -2,7 +2,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
 
 - [Installation and Usage](#installation-and-usage)
 - [Features](#features)
-  - [Multiple stylesheets](#multiple-stylesheets)
+  - [Multiple stylesheets precedence](#multiple-stylesheets-precedence)
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
   - [`@media` and `@supports`](#media-and-supports)
   - [Precise Flow types](#precise-flow-types)
@@ -61,9 +61,9 @@ export default class MyDocument extends Document {
 
 ## Features
 
-### Multiple stylesheets
+### Multiple stylesheets precedence
 
-The final style depends on the order of `styles` arguments rather than the style definitions.
+The final style depends on the order of `styles` arguments rather than the style definitions as it's usual in plain CSS:
 
 ```jsx
 export function ColorfulComponent() {
@@ -79,6 +79,58 @@ const styles = sx.create({
   red: { color: 'red' },
   blue: { color: 'blue' },
 });
+```
+
+This makes it very predictable and easy to use. It works similarly for shorthand CSS properties (however, try to avoid them - see below):
+
+```jsx
+export function ButtonsComponent() {
+  return (
+    <>
+      <button className={styles('button', 'primary')}>WITH margin top 10px</button>
+      <button className={styles('primary', 'button')}>WITHOUT margin top</button>
+    </>
+  );
+}
+
+const styles = sx.create({
+  primary: { marginTop: '10px' },
+  button: { margin: 0 },
+});
+```
+
+It's better to avoid shorthand CSS properties in SX because it yields larger output. Using explicit properties like `background-color`, `margin-top` and similar will result in a smaller output since we can leverage browser defaults better. It's because all shorthand properties need to be expanded into their initial values (which is normally job of a web browser). Without expanding them, we could not resolve cases like this one:
+
+```js
+const styles = sx.create({
+  bgBlue: {
+    background: 'blue',
+  },
+  bgNone: {
+    background: 'none',
+  },
+});
+
+<div className={styles('bgBlue', 'bgNone')}>I am blue or without background?</div>;
+```
+
+The `div` should not have a color. We achieve this effect by expanding the `background` property and merging it together with the other `background shorthand. The resulting style would be:
+
+```text
+background-image: none
+background-position: 0% 0%
+background-size: auto auto
+background-repeat: repeat
+background-origin: padding-box
+background-clip: border-box
+background-attachment: scroll
+background-color: transparent
+```
+
+Changing the styles order would result in a blue `div` (this is different from how CSS normally works but it's more obvious in CSS-in-JS context):
+
+```js
+<div className={styles('bgNone', 'bgBlue')}>I am BLUE!</div>
 ```
 
 ### Pseudo CSS classes and elements
@@ -274,6 +326,7 @@ _sorted alphabetically_
 - https://github.com/cssinjs/jss
 - https://github.com/johanholmerin/style9
 - https://github.com/Khan/aphrodite
+- https://github.com/necolas/react-native-web
 - https://github.com/styled-components/styled-components
 - https://reactnative.dev/docs/stylesheet
 - https://sebastienlorber.com/atomic-css-in-js

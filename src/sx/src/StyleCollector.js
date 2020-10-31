@@ -2,9 +2,10 @@
 
 import { invariant, warning } from '@adeira/js';
 
+import expandShorthandProperties from './expandShorthandProperties';
 import StyleCollectorAtNode from './StyleCollectorAtNode';
-import StyleCollectorNode, { type StyleCollectorNodeInterface } from './StyleCollectorNode';
 import StyleCollectorPseudoNode from './StyleCollectorPseudoNode';
+import { type StyleCollectorNodeInterface } from './StyleCollectorNode';
 
 // "hashRegistry": Map {
 //   "aaa" => Map {
@@ -50,14 +51,16 @@ class StyleCollector {
         const maybeValue = styleSheetObject[maybeName];
         if (typeof maybeValue === 'number' || typeof maybeValue === 'string') {
           // basic leaf type
-          const node = new StyleCollectorNode(maybeName, maybeValue, hashSeed);
-          styleBuffer.set(node.getHash(), node);
-          // add record to the hash registry
-          const hashRegistryKey = `${maybeName}${hashSeed}`;
-          if (hashRegistry.has(styleSheetName)) {
-            hashRegistry.get(styleSheetName)?.set(hashRegistryKey, node.getHash());
-          } else {
-            hashRegistry.set(styleSheetName, new Map([[hashRegistryKey, node.getHash()]]));
+          const nodes = expandShorthandProperties(maybeName, maybeValue, hashSeed);
+          for (const node of nodes) {
+            styleBuffer.set(node.getHash(), node);
+            // add record to the hash registry
+            const hashRegistryKey = `${node.getStyleName()}${hashSeed}`;
+            if (hashRegistry.has(styleSheetName)) {
+              hashRegistry.get(styleSheetName)?.set(hashRegistryKey, node.getHash());
+            } else {
+              hashRegistry.set(styleSheetName, new Map([[hashRegistryKey, node.getHash()]]));
+            }
           }
         } else if (maybeName.startsWith(':')) {
           // pseudo type (:hover, ::after, ...)
