@@ -247,8 +247,8 @@
   },
   {
     "property": "aspect-ratio",
-    "url": "https://www.w3.org/TR/2020/WD-css-sizing-4-20200526/#propdef-aspect-ratio",
-    "status": "FPWD",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-4-20201020/#propdef-aspect-ratio",
+    "status": "WD",
     "title": "CSS Box Sizing Module Level 4"
   },
   {
@@ -1869,7 +1869,7 @@
     "property": "box-sizing",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-box-sizing",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "box-sizing",
@@ -1885,9 +1885,9 @@
   },
   {
     "property": "box-sizing",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-box-sizing",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-box-sizing",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "box-snap",
@@ -2401,8 +2401,8 @@
   },
   {
     "property": "contain-intrinsic-size",
-    "url": "https://www.w3.org/TR/2020/WD-css-sizing-4-20200526/#propdef-contain-intrinsic-size",
-    "status": "FPWD",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-4-20201020/#propdef-contain-intrinsic-size",
+    "status": "WD",
     "title": "CSS Box Sizing Module Level 4"
   },
   {
@@ -3799,13 +3799,13 @@
   },
   {
     "property": "grid",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3823,13 +3823,13 @@
   },
   {
     "property": "grid-area",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-area",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-area",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-area",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-area",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-area",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3847,13 +3847,13 @@
   },
   {
     "property": "grid-auto-columns",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-auto-columns",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-auto-columns",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-auto-columns",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-auto-columns",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-auto-columns",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3871,13 +3871,13 @@
   },
   {
     "property": "grid-auto-flow",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-auto-flow",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-auto-flow",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-auto-flow",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-auto-flow",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-auto-flow",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3895,13 +3895,13 @@
   },
   {
     "property": "grid-auto-rows",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-auto-rows",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-auto-rows",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-auto-rows",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-auto-rows",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-auto-rows",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3919,13 +3919,13 @@
   },
   {
     "property": "grid-column",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-column",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-column",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-column",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-column",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-column",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3943,13 +3943,13 @@
   },
   {
     "property": "grid-column-end",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-column-end",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-column-end",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-column-end",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-column-end",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-column-end",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3967,13 +3967,13 @@
   },
   {
     "property": "grid-column-start",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-column-start",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-column-start",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-column-start",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-column-start",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-column-start",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -3991,13 +3991,13 @@
   },
   {
     "property": "grid-row",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-row",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-row",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-row",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-row",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-row",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4015,13 +4015,13 @@
   },
   {
     "property": "grid-row-end",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-row-end",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-row-end",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-row-end",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-row-end",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-row-end",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4039,13 +4039,13 @@
   },
   {
     "property": "grid-row-start",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-row-start",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-row-start",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-row-start",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-row-start",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-row-start",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4075,13 +4075,13 @@
   },
   {
     "property": "grid-template",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-template",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-template",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-template",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-template",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-template",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4111,13 +4111,13 @@
   },
   {
     "property": "grid-template-areas",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-template-areas",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-template-areas",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-template-areas",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-template-areas",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-template-areas",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4147,13 +4147,13 @@
   },
   {
     "property": "grid-template-columns",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-template-columns",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-template-columns",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-template-columns",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-template-columns",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-template-columns",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4183,13 +4183,13 @@
   },
   {
     "property": "grid-template-rows",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-1-20200818/#propdef-grid-template-rows",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-1-20201021/#propdef-grid-template-rows",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 1"
   },
   {
     "property": "grid-template-rows",
-    "url": "https://www.w3.org/TR/2020/CR-css-grid-2-20200818/#propdef-grid-template-rows",
+    "url": "https://www.w3.org/TR/2020/CRD-css-grid-2-20201021/#propdef-grid-template-rows",
     "status": "CR",
     "title": "CSS Grid Layout Module Level 2"
   },
@@ -4215,7 +4215,7 @@
     "property": "height",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-height",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "height",
@@ -4231,9 +4231,9 @@
   },
   {
     "property": "height",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-height",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-height",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "hyphenate-character",
@@ -4969,7 +4969,7 @@
   },
   {
     "property": "margin",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-margin",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-margin",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -5047,7 +5047,7 @@
   },
   {
     "property": "margin-bottom",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-margin-bottom",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-margin-bottom",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -5137,7 +5137,7 @@
   },
   {
     "property": "margin-left",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-margin-left",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-margin-left",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -5179,7 +5179,7 @@
   },
   {
     "property": "margin-right",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-margin-right",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-margin-right",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -5221,7 +5221,7 @@
   },
   {
     "property": "margin-top",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-margin-top",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-margin-top",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -5577,7 +5577,7 @@
     "property": "max-height",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-max-height",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "max-height",
@@ -5593,9 +5593,9 @@
   },
   {
     "property": "max-height",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-max-height",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-max-height",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "max-inline-size",
@@ -5643,7 +5643,7 @@
     "property": "max-width",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-max-width",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "max-width",
@@ -5659,9 +5659,9 @@
   },
   {
     "property": "max-width",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-max-width",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-max-width",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "min-block-size",
@@ -5685,7 +5685,7 @@
     "property": "min-height",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-min-height",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "min-height",
@@ -5701,9 +5701,9 @@
   },
   {
     "property": "min-height",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-min-height",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-min-height",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "min-inline-size",
@@ -5727,7 +5727,7 @@
     "property": "min-width",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-min-width",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "min-width",
@@ -5743,9 +5743,9 @@
   },
   {
     "property": "min-width",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-min-width",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-min-width",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "mix-blend-mode",
@@ -6385,7 +6385,7 @@
   },
   {
     "property": "padding",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-padding",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-padding",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -6463,7 +6463,7 @@
   },
   {
     "property": "padding-bottom",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-padding-bottom",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-padding-bottom",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -6541,7 +6541,7 @@
   },
   {
     "property": "padding-left",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-padding-left",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-padding-left",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -6583,7 +6583,7 @@
   },
   {
     "property": "padding-right",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-padding-right",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-padding-right",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -6625,7 +6625,7 @@
   },
   {
     "property": "padding-top",
-    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20200421/#propdef-padding-top",
+    "url": "https://www.w3.org/TR/2020/WD-css-box-3-20201028/#propdef-padding-top",
     "status": "WD",
     "title": "CSS Box Model Module Level 3"
   },
@@ -9111,7 +9111,7 @@
     "property": "width",
     "url": "https://drafts.csswg.org/css-sizing-3/#propdef-width",
     "status": "ED",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "width",
@@ -9127,9 +9127,9 @@
   },
   {
     "property": "width",
-    "url": "https://www.w3.org/TR/2019/WD-css-sizing-3-20190522/#propdef-width",
+    "url": "https://www.w3.org/TR/2020/WD-css-sizing-3-20201023/#propdef-width",
     "status": "WD",
-    "title": "CSS Intrinsic & Extrinsic Sizing Module Level 3"
+    "title": "CSS Box Sizing Module Level 3"
   },
   {
     "property": "will-change",
