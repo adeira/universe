@@ -658,7 +658,7 @@ module.exports = ({
   'node/prefer-global/url-search-params': OFF,
   'node/prefer-promises/dns': OFF,
   'node/prefer-promises/fs': OFF,
-  'node/process-exit-as-throw': OFF, // TODO: WARN (?)
+  'node/process-exit-as-throw': ERROR,
   'node/shebang': ERROR,
 
   // Eslint comments (https://github.com/mysticatea/eslint-plugin-eslint-comments)
