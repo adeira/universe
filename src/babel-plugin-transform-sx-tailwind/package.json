@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/babel-plugin-transform-sx-tailwind",
   "license": "MIT",
   "private": false,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "src/index",
   "sideEffects": false,
   "module": false,
