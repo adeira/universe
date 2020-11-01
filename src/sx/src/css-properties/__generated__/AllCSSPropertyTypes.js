@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4ea2828ec91d3cfa8ee210c706717cd5>>
+ * @generated SignedSource<<fa484023dbe3b7c6f6a3ae571323decb>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -10,7 +10,6 @@ export type AllCSSPropertyTypes = {|
   +alignContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-content
   +alignItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-items
   +alignSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-self
-  +alignmentBaseline?: number | string,
   +all?: 'initial' | 'inherit' | 'unset' | 'revert', // https://developer.mozilla.org/docs/Web/CSS/all
   +animation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation
   +animationDelay?: string, // https://developer.mozilla.org/docs/Web/CSS/animation-delay
@@ -43,6 +42,7 @@ export type AllCSSPropertyTypes = {|
     | 'unset',
   +aspectRatio?: string, // https://developer.mozilla.org/docs/Web/CSS/aspect-ratio
   +azimuth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/azimuth
+  +backdropFilter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/backdrop-filter
   +backfaceVisibility?: 'visible' | 'hidden' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/backface-visibility
   +background?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background
   +backgroundAttachment?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-attachment
@@ -52,23 +52,17 @@ export type AllCSSPropertyTypes = {|
   +backgroundImage?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-image
   +backgroundOrigin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-origin
   +backgroundPosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-position
+  +backgroundPositionX?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-position-x
+  +backgroundPositionY?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-position-y
   +backgroundRepeat?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-repeat
   +backgroundSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-size
-  +baselineShift?: number | string,
-  +baselineSource?: number | string,
-  +blockEllipsis?: number | string,
+  +blockOverflow?: string,
   +blockSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/block-size
-  +blockStep?: number | string,
-  +blockStepAlign?: number | string,
-  +blockStepInsert?: number | string,
-  +blockStepRound?: number | string,
-  +blockStepSize?: number | string,
-  +bookmarkLabel?: number | string,
-  +bookmarkLevel?: number | string,
-  +bookmarkState?: number | string,
   +border?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border
   +borderBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block
   +borderBlockColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-color
+  +borderBlockStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-style
+  +borderBlockWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-width
   +borderBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-end
   +borderBlockEndColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-end-color
   +borderBlockEndStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-end-style
@@ -77,8 +71,6 @@ export type AllCSSPropertyTypes = {|
   +borderBlockStartColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-start-color
   +borderBlockStartStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-start-style
   +borderBlockStartWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-start-width
-  +borderBlockStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-style
-  +borderBlockWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-block-width
   +borderBottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom
   +borderBottomColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-color
   +borderBottomLeftRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius
@@ -98,7 +90,6 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +borderBottomWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-width
-  +borderBoundary?: number | string,
   +borderCollapse?: 'collapse' | 'separate' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/border-collapse
   +borderColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-color
   +borderEndEndRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-end-end-radius
@@ -110,8 +101,10 @@ export type AllCSSPropertyTypes = {|
   +borderImageSource?: string, // https://developer.mozilla.org/docs/Web/CSS/border-image-source
   +borderImageWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-image-width
   +borderInline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline
-  +borderInlineColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-color
   +borderInlineEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-end
+  +borderInlineColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-color
+  +borderInlineStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-style
+  +borderInlineWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-width
   +borderInlineEndColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-end-color
   +borderInlineEndStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-end-style
   +borderInlineEndWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-end-width
@@ -119,8 +112,6 @@ export type AllCSSPropertyTypes = {|
   +borderInlineStartColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-start-color
   +borderInlineStartStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-start-style
   +borderInlineStartWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-start-width
-  +borderInlineStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-style
-  +borderInlineWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-width
   +borderLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left
   +borderLeftColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-left-color
   +borderLeftStyle?:  // https://developer.mozilla.org/docs/Web/CSS/border-left-style
@@ -181,10 +172,24 @@ export type AllCSSPropertyTypes = {|
   +borderTopWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-width
   +borderWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-width
   +bottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/bottom
+  +boxAlign?: 'start' | 'center' | 'end' | 'baseline' | 'stretch' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-align
   +boxDecorationBreak?: 'slice' | 'clone' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-decoration-break
+  +boxDirection?: 'normal' | 'reverse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-direction
+  +boxFlex?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-flex
+  +boxFlexGroup?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-flex-group
+  +boxLines?: 'single' | 'multiple' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-lines
+  +boxOrdinalGroup?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-ordinal-group
+  +boxOrient?:  // https://developer.mozilla.org/docs/Web/CSS/box-orient
+    | 'horizontal'
+    | 'vertical'
+    | 'inline-axis'
+    | 'block-axis'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
+  +boxPack?: 'start' | 'center' | 'end' | 'justify' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-pack
   +boxShadow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/box-shadow
   +boxSizing?: 'content-box' | 'border-box' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-sizing
-  +boxSnap?: number | string,
   +breakAfter?:  // https://developer.mozilla.org/docs/Web/CSS/break-after
     | 'auto'
     | 'avoid'
@@ -240,10 +245,7 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +caret?: number | string,
   +caretColor?: string, // https://developer.mozilla.org/docs/Web/CSS/caret-color
-  +caretShape?: number | string,
-  +chains?: number | string,
   +clear?:  // https://developer.mozilla.org/docs/Web/CSS/clear
     | 'none'
     | 'left'
@@ -256,11 +258,8 @@ export type AllCSSPropertyTypes = {|
     | 'unset',
   +clip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip
   +clipPath?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip-path
-  +clipRule?: number | string,
   +color?: string, // https://developer.mozilla.org/docs/Web/CSS/color
   +colorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/color-adjust
-  +colorInterpolationFilters?: number | string,
-  +colorScheme?: number | string,
   +columnCount?: number | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-count
   +columnFill?: 'auto' | 'balance' | 'balance-all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-fill
   +columnGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-gap
@@ -272,32 +271,14 @@ export type AllCSSPropertyTypes = {|
   +columnWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-width
   +columns?: number | string, // https://developer.mozilla.org/docs/Web/CSS/columns
   +contain?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain
-  +containIntrinsicSize?: number | string,
   +content?: number | string, // https://developer.mozilla.org/docs/Web/CSS/content
-  +contentVisibility?: number | string,
-  +continue?: number | string,
   +counterIncrement?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-increment
   +counterReset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-reset
   +counterSet?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-set
-  +cue?: number | string,
-  +cueAfter?: number | string,
-  +cueBefore?: number | string,
   +cursor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/cursor
   +direction?: 'ltr' | 'rtl' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/direction
   +display?: number | string, // https://developer.mozilla.org/docs/Web/CSS/display
-  +dominantBaseline?: number | string,
-  +elevation?: number | string,
   +emptyCells?: 'show' | 'hide' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/empty-cells
-  +fill?: number | string,
-  +fillBreak?: number | string,
-  +fillColor?: number | string,
-  +fillImage?: number | string,
-  +fillOpacity?: number | string,
-  +fillOrigin?: number | string,
-  +fillPosition?: number | string,
-  +fillRepeat?: number | string,
-  +fillRule?: number | string,
-  +fillSize?: number | string,
   +filter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/filter
   +flex?: number | string, // https://developer.mozilla.org/docs/Web/CSS/flex
   +flexBasis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/flex-basis
@@ -322,29 +303,19 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +floatDefer?: number | string,
-  +floatOffset?: number | string,
-  +floatReference?: number | string,
-  +floodColor?: number | string,
-  +floodOpacity?: number | string,
-  +flow?: number | string,
-  +flowFrom?: number | string,
-  +flowInto?: number | string,
   +font?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font
   +fontFamily?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-family
   +fontFeatureSettings?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-feature-settings
   +fontKerning?: 'auto' | 'normal' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-kerning
   +fontLanguageOverride?: string, // https://developer.mozilla.org/docs/Web/CSS/font-language-override
   +fontOpticalSizing?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-optical-sizing
-  +fontPalette?: number | string,
+  +fontVariationSettings?: string | number, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
   +fontSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size
   +fontSizeAdjust?: 'none' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
+  +fontSmooth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-smooth
   +fontStretch?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-stretch
   +fontStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-style
   +fontSynthesis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-synthesis
-  +fontSynthesisSmallCaps?: number | string,
-  +fontSynthesisStyle?: number | string,
-  +fontSynthesisWeight?: number | string,
   +fontVariant?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant
   +fontVariantAlternates?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-alternates
   +fontVariantCaps?:  // https://developer.mozilla.org/docs/Web/CSS/font-variant-caps
@@ -359,17 +330,11 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +fontVariantEastAsian?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-east-asian
-  +fontVariantEmoji?: number | string,
   +fontVariantLigatures?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-ligatures
   +fontVariantNumeric?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
   +fontVariantPosition?: 'normal' | 'sub' | 'super' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-variant-position
-  +fontVariationSettings?: string | number, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
   +fontWeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-weight
-  +footnoteDisplay?: number | string,
-  +footnotePolicy?: number | string,
-  +forcedColorAdjust?: number | string,
   +gap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/gap
-  +glyphOrientationVertical?: number | string,
   +grid?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid
   +gridArea?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-area
   +gridAutoColumns?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-auto-columns
@@ -377,9 +342,12 @@ export type AllCSSPropertyTypes = {|
   +gridAutoRows?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-auto-rows
   +gridColumn?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-column
   +gridColumnEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-column-end
+  +gridColumnGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-gap
   +gridColumnStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-column-start
+  +gridGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/gap
   +gridRow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-row
   +gridRowEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-row-end
+  +gridRowGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/row-gap
   +gridRowStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-row-start
   +gridTemplate?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-template
   +gridTemplateAreas?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-template-areas
@@ -387,15 +355,19 @@ export type AllCSSPropertyTypes = {|
   +gridTemplateRows?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-template-rows
   +hangingPunctuation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/hanging-punctuation
   +height?: number | string, // https://developer.mozilla.org/docs/Web/CSS/height
-  +hyphenateCharacter?: number | string,
-  +hyphenateLimitChars?: number | string,
-  +hyphenateLimitLast?: number | string,
-  +hyphenateLimitLines?: number | string,
-  +hyphenateLimitZone?: number | string,
   +hyphens?: 'none' | 'manual' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/hyphens
   +imageOrientation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/image-orientation
   +imageRendering?: 'auto' | 'crisp-edges' | 'pixelated' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/image-rendering
   +imageResolution?: number | string,
+  +imeMode?:  // https://developer.mozilla.org/docs/Web/CSS/ime-mode
+    | 'auto'
+    | 'normal'
+    | 'active'
+    | 'inactive'
+    | 'disabled'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +initialLetter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/initial-letter
   +initialLetterAlign?:  // https://developer.mozilla.org/docs/Web/CSS/initial-letter-align
     | 'auto'
@@ -405,9 +377,7 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +initialLetterWrap?: number | string,
   +inlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inline-size
-  +inlineSizing?: number | string,
   +inset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset
   +insetBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block
   +insetBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block-end
@@ -419,10 +389,8 @@ export type AllCSSPropertyTypes = {|
   +justifyContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-content
   +justifyItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-items
   +justifySelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-self
-  +leadingTrim?: number | string,
   +left?: number | string, // https://developer.mozilla.org/docs/Web/CSS/left
   +letterSpacing?: number | string, // https://developer.mozilla.org/docs/Web/CSS/letter-spacing
-  +lightingColor?: number | string,
   +lineBreak?:  // https://developer.mozilla.org/docs/Web/CSS/line-break
     | 'auto'
     | 'loose'
@@ -433,11 +401,8 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +lineClamp?: 'none' | number | 'inherit' | 'initial' | 'unset',
-  +lineGrid?: number | string,
   +lineHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/line-height
   +lineHeightStep?: number | string, // https://developer.mozilla.org/docs/Web/CSS/line-height-step
-  +linePadding?: number | string,
-  +lineSnap?: number | string,
   +listStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/list-style
   +listStyleImage?: number | string, // https://developer.mozilla.org/docs/Web/CSS/list-style-image
   +listStylePosition?: 'inside' | 'outside' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/list-style-position
@@ -447,7 +412,6 @@ export type AllCSSPropertyTypes = {|
   +marginBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-block-end
   +marginBlockStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-block-start
   +marginBottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-bottom
-  +marginBreak?: number | string,
   +marginInline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-inline
   +marginInlineEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-inline-end
   +marginInlineStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-inline-start
@@ -455,15 +419,6 @@ export type AllCSSPropertyTypes = {|
   +marginRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-right
   +marginTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin-top
   +marginTrim?: 'none' | 'in-flow' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/margin-trim
-  +marker?: number | string,
-  +markerEnd?: number | string,
-  +markerKnockoutLeft?: number | string,
-  +markerKnockoutRight?: number | string,
-  +markerMid?: number | string,
-  +markerPattern?: number | string,
-  +markerSegment?: number | string,
-  +markerSide?: number | string,
-  +markerStart?: number | string,
   +mask?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask
   +maskBorder?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-border
   +maskBorderMode?: 'luminance' | 'alpha' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/mask-border-mode
@@ -510,10 +465,6 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +navDown?: number | string,
-  +navLeft?: number | string,
-  +navRight?: number | string,
-  +navUp?: number | string,
   +objectFit?:  // https://developer.mozilla.org/docs/Web/CSS/object-fit
     | 'fill'
     | 'contain'
@@ -549,7 +500,7 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +overflowClipMargin?: number | string,
+  +overflowClipBox?: 'padding-box' | 'content-box' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Mozilla/CSS/overflow-clip-box
   +overflowInline?:
     | 'visible'
     | 'hidden'
@@ -578,7 +529,6 @@ export type AllCSSPropertyTypes = {|
   +paddingLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/padding-left
   +paddingRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/padding-right
   +paddingTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/padding-top
-  +page?: number | string,
   +pageBreakAfter?:  // https://developer.mozilla.org/docs/Web/CSS/page-break-after
     | 'auto'
     | 'always'
@@ -602,17 +552,26 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +pageBreakInside?: 'auto' | 'avoid' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/page-break-inside
-  +pause?: number | string,
-  +pauseAfter?: number | string,
-  +pauseBefore?: number | string,
+  +paintOrder?: number | string, // https://developer.mozilla.org/docs/Web/CSS/paint-order
   +perspective?: number | string, // https://developer.mozilla.org/docs/Web/CSS/perspective
   +perspectiveOrigin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/perspective-origin
-  +pitch?: number | string,
-  +pitchRange?: number | string,
   +placeContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/place-content
   +placeItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/place-items
   +placeSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/place-self
-  +playDuring?: number | string,
+  +pointerEvents?:  // https://developer.mozilla.org/docs/Web/CSS/pointer-events
+    | 'auto'
+    | 'none'
+    | 'visiblePainted'
+    | 'visibleFill'
+    | 'visibleStroke'
+    | 'visible'
+    | 'painted'
+    | 'fill'
+    | 'stroke'
+    | 'all'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +position?:  // https://developer.mozilla.org/docs/Web/CSS/position
     | 'static'
     | 'relative'
@@ -622,9 +581,7 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +propertyName?: number | string,
   +quotes?: number | string, // https://developer.mozilla.org/docs/Web/CSS/quotes
-  +regionFragment?: number | string,
   +resize?:  // https://developer.mozilla.org/docs/Web/CSS/resize
     | 'none'
     | 'both'
@@ -635,10 +592,6 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +rest?: number | string,
-  +restAfter?: number | string,
-  +restBefore?: number | string,
-  +richness?: number | string,
   +right?: number | string, // https://developer.mozilla.org/docs/Web/CSS/right
   +rotate?: number | string, // https://developer.mozilla.org/docs/Web/CSS/rotate
   +rowGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/row-gap
@@ -651,75 +604,45 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +rubyMerge?: 'separate' | 'collapse' | 'auto' | 'inherit' | 'initial' | 'unset',
-  +rubyOverhang?: number | string,
   +rubyPosition?: 'over' | 'under' | 'inter-character' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/ruby-position
-  +running?: number | string,
   +scale?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scale
+  +scrollbarColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scrollbar-color
+  +scrollbarWidth?: 'auto' | 'thin' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scrollbar-width
   +scrollBehavior?: 'auto' | 'smooth' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-behavior
   +scrollMargin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin
   +scrollMarginBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block
-  +scrollMarginBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block-end
   +scrollMarginBlockStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block-start
+  +scrollMarginBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-block-end
   +scrollMarginBottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-bottom
   +scrollMarginInline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline
-  +scrollMarginInlineEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline-end
   +scrollMarginInlineStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline-start
+  +scrollMarginInlineEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-inline-end
   +scrollMarginLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-left
   +scrollMarginRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-right
   +scrollMarginTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin-top
   +scrollPadding?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding
   +scrollPaddingBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block
-  +scrollPaddingBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block-end
   +scrollPaddingBlockStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block-start
+  +scrollPaddingBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-block-end
   +scrollPaddingBottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-bottom
   +scrollPaddingInline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline
-  +scrollPaddingInlineEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline-end
   +scrollPaddingInlineStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline-start
+  +scrollPaddingInlineEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-inline-end
   +scrollPaddingLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-left
   +scrollPaddingRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-right
   +scrollPaddingTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-top
   +scrollSnapAlign?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-align
+  +scrollSnapCoordinate?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-coordinate
+  +scrollSnapDestination?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-destination
+  +scrollSnapPointsX?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-points-x
+  +scrollSnapPointsY?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-points-y
   +scrollSnapStop?: 'normal' | 'always' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-stop
   +scrollSnapType?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type
-  +scrollbarColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scrollbar-color
-  +scrollbarGutter?: number | string,
-  +scrollbarWidth?: 'auto' | 'thin' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scrollbar-width
+  +scrollSnapTypeX?: 'none' | 'mandatory' | 'proximity' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type-x
+  +scrollSnapTypeY?: 'none' | 'mandatory' | 'proximity' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type-y
   +shapeImageThreshold?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-image-threshold
-  +shapeInside?: number | string,
   +shapeMargin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-margin
   +shapeOutside?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-outside
-  +spatialNavigationAction?: number | string,
-  +spatialNavigationContain?: number | string,
-  +spatialNavigationFunction?: number | string,
-  +speak?: number | string,
-  +speakAs?: number | string,
-  +speakHeader?: number | string,
-  +speakNumeral?: number | string,
-  +speakPunctuation?: number | string,
-  +speechRate?: number | string,
-  +stress?: number | string,
-  +stringSet?: number | string,
-  +stroke?: number | string,
-  +strokeAlign?: number | string,
-  +strokeAlignment?: number | string,
-  +strokeBreak?: number | string,
-  +strokeColor?: number | string,
-  +strokeDashCorner?: number | string,
-  +strokeDashJustify?: number | string,
-  +strokeDashadjust?: number | string,
-  +strokeDasharray?: number | string,
-  +strokeDashcorner?: number | string,
-  +strokeDashoffset?: number | string,
-  +strokeImage?: number | string,
-  +strokeLinecap?: number | string,
-  +strokeLinejoin?: number | string,
-  +strokeMiterlimit?: number | string,
-  +strokeOpacity?: number | string,
-  +strokeOrigin?: number | string,
-  +strokePosition?: number | string,
-  +strokeRepeat?: number | string,
-  +strokeSize?: number | string,
-  +strokeWidth?: number | string,
   +tabSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/tab-size
   +tableLayout?: 'auto' | 'fixed' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/table-layout
   +textAlign?:  // https://developer.mozilla.org/docs/Web/CSS/text-align
@@ -733,7 +656,6 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +textAlignAll?: number | string,
   +textAlignLast?:  // https://developer.mozilla.org/docs/Web/CSS/text-align-last
     | 'auto'
     | 'start'
@@ -750,11 +672,7 @@ export type AllCSSPropertyTypes = {|
   +textDecorationColor?: string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-color
   +textDecorationLine?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-line
   +textDecorationSkip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-skip
-  +textDecorationSkipBox?: number | string,
   +textDecorationSkipInk?: 'auto' | 'all' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/text-decoration-skip-ink
-  +textDecorationSkipInset?: number | string,
-  +textDecorationSkipSelf?: number | string,
-  +textDecorationSkipSpaces?: number | string,
   +textDecorationStyle?:  // https://developer.mozilla.org/docs/Web/CSS/text-decoration-style
     | 'solid'
     | 'double'
@@ -765,13 +683,10 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +textDecorationThickness?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-decoration-thickness
-  +textEdge?: number | string,
   +textEmphasis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis
   +textEmphasisColor?: string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-color
   +textEmphasisPosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-position
-  +textEmphasisSkip?: number | string,
   +textEmphasisStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-emphasis-style
-  +textGroupAlign?: number | string,
   +textIndent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-indent
   +textJustify?:  // https://developer.mozilla.org/docs/Web/CSS/text-justify
     | 'auto'
@@ -783,10 +698,16 @@ export type AllCSSPropertyTypes = {|
     | 'unset',
   +textOrientation?: 'mixed' | 'upright' | 'sideways' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/text-orientation
   +textOverflow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-overflow
+  +textRendering?:  // https://developer.mozilla.org/docs/Web/CSS/text-rendering
+    | 'auto'
+    | 'optimizeSpeed'
+    | 'optimizeLegibility'
+    | 'geometricPrecision'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +textShadow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-shadow
-  +textSpaceCollapse?: number | string,
-  +textSpaceTrim?: number | string,
-  +textSpacing?: number | string,
+  +textSizeAdjust?: string, // https://developer.mozilla.org/docs/Web/CSS/text-size-adjust
   +textTransform?:  // https://developer.mozilla.org/docs/Web/CSS/text-transform
     | 'none'
     | 'capitalize'
@@ -799,8 +720,8 @@ export type AllCSSPropertyTypes = {|
     | 'unset',
   +textUnderlineOffset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-underline-offset
   +textUnderlinePosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/text-underline-position
-  +textWrap?: number | string,
   +top?: number | string, // https://developer.mozilla.org/docs/Web/CSS/top
+  +touchAction?: number | string, // https://developer.mozilla.org/docs/Web/CSS/touch-action
   +transform?: number | string, // https://developer.mozilla.org/docs/Web/CSS/transform
   +transformBox?:  // https://developer.mozilla.org/docs/Web/CSS/transform-box
     | 'content-box'
@@ -832,15 +753,6 @@ export type AllCSSPropertyTypes = {|
   +userSelect?: 'auto' | 'text' | 'none' | 'contain' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/user-select
   +verticalAlign?: string | number, // https://developer.mozilla.org/docs/Web/CSS/vertical-align
   +visibility?: 'visible' | 'hidden' | 'collapse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/visibility
-  +voiceBalance?: number | string,
-  +voiceDuration?: number | string,
-  +voiceFamily?: number | string,
-  +voicePitch?: number | string,
-  +voiceRange?: number | string,
-  +voiceRate?: number | string,
-  +voiceStress?: number | string,
-  +voiceVolume?: number | string,
-  +volume?: number | string,
   +whiteSpace?:  // https://developer.mozilla.org/docs/Web/CSS/white-space
     | 'normal'
     | 'pre'
@@ -854,16 +766,9 @@ export type AllCSSPropertyTypes = {|
   +widows?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/widows
   +width?: number | string, // https://developer.mozilla.org/docs/Web/CSS/width
   +willChange?: number | string, // https://developer.mozilla.org/docs/Web/CSS/will-change
-  +wordBoundaryDetection?: number | string,
-  +wordBoundaryExpansion?: number | string,
   +wordBreak?: 'normal' | 'break-all' | 'keep-all' | 'break-word' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/word-break
   +wordSpacing?: number | string, // https://developer.mozilla.org/docs/Web/CSS/word-spacing
   +wordWrap?: 'normal' | 'break-word' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/overflow-wrap
-  +wrapAfter?: number | string,
-  +wrapBefore?: number | string,
-  +wrapFlow?: number | string,
-  +wrapInside?: number | string,
-  +wrapThrough?: number | string,
   +writingMode?:  // https://developer.mozilla.org/docs/Web/CSS/writing-mode
     | 'horizontal-tb'
     | 'vertical-rl'
@@ -874,4 +779,5 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +zIndex?: 'auto' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/z-index
+  +zoom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/zoom
 |};
