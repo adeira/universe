@@ -38,11 +38,7 @@ export default function Button() {
 
 ## Demo
 
-You can see SX Tailwind in action:
-
-```
-yarn storybook
-```
+[sx-tailwind.adeira.dev](https://sx-tailwind.adeira.dev/)
 
 ## Install
 

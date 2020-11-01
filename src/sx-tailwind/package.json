@@ -9,8 +9,7 @@
   "sideEffects": false,
   "module": false,
   "scripts": {
-    "generate": "yarn monorepo-babel-node src/generate.js",
-    "storybook": "start-storybook -p 6006"
+    "generate": "yarn monorepo-babel-node src/generate.js"
   },
   "dependencies": {
     "@adeira/js": "^1.3.0",
@@ -27,9 +26,6 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^1.2.0",
-    "@babel/core": "^7.12.3",
-    "@storybook/addon-essentials": "^6.0.28",
-    "@storybook/addon-links": "^6.0.28",
-    "@storybook/react": "^6.0.28"
+    "@babel/core": "^7.12.3"
   }
 }
