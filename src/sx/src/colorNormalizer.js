@@ -19,11 +19,27 @@ function hex6ToHex3(value: string): string {
   return value;
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 export function isColor(value: string): boolean {
   if (typeof value !== 'string') {
     return false;
   }
-  return cssColorNames.has(value) || /^#[0-9a-f]{3}$/i.test(value) || /^#[0-9a-f]{6}$/i.test(value);
+
+  // TODO: consider `currentcolor` (can be used as `background-color:currentcolor` for example)
+  return (
+    value === 'transparent' ||
+    cssColorNames.has(value) || // keyword values
+    /^#[0-9a-f]{3}$/i.test(value) || // RGB hexadecimal shorthand
+    /^#[0-9a-f]{4}$/i.test(value) || // RGB hexadecimal shorthand (with alpha)
+    /^#[0-9a-f]{6}$/i.test(value) || // RGB hexadecimal full
+    /^#[0-9a-f]{8}$/i.test(value) || // RGB hexadecimal full (with alpha)
+    // RGB[A] functional (simplified):
+    /^rgba?\(\s*[0-9.]+%?\s*,\s*[0-9.]+%?\s*,\s*[0-9.]+%?\s*(?:,\s*[0-9.]+%?\s*)?\)$/i.test(
+      value,
+    ) ||
+    // HSL[A] functional (simplified):
+    /^hsla?\(\s*.+\s*,\s*[0-9.]+%\s*,\s*[0-9.]+%\s*(?:,\s*[0-9.]+%?\s*)?\)$/i.test(value)
+  );
 }
 
 // Taken from https://github.com/bahamas10/css-color-names/blob/master/css-color-names.json
