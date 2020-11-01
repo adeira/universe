@@ -1,24 +1,10 @@
-# Adeira Universe
-
 [![Adeira logo](/src/adeira.dev/static/img/logo-banner.png)](https://adeira.dev/)
 
-Universe monorepo is an open-source collection of projects created in our free time. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
+`adeira/universe` monorepo is an open-source collection of projects created in our free time. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
 
-[![Continuous Integration](https://github.com/adeira/universe/workflows/Continuous%20Integration/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22Continuous+Integration%22)
+[![Continuous Integration](https://github.com/adeira/universe/workflows/Continuous%20Integration/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22Continuous+Integration%22) [![Shipit](https://github.com/adeira/universe/workflows/Shipit/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3AShipit) [![NPM Publisher](https://github.com/adeira/universe/workflows/NPM%20Publisher/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22NPM+Publisher%22)
 
-## What can you find here?
-
-- [relay](/src/relay) - Relay Modern GraphQL client with Flow support, query logging, stored operations or support for uploadables
-- [fetch](/src/fetch) - isomorphic fetch with retries and timeout
-- [graphql-bc-checker](/src/graphql-bc-checker) - utility to test your schema against accidental breaking changes
-- [eslint-runner](/src/eslint-runner) - eslint runner faster than Eslint itself
-- [sx](/src/sx) - our CSS-in-JS solution outputting atomic CSS
-- … and many more, see READMEs of individual packages located in [`/src`](/src)
-
-<!-- TODO put there link to adeira.dev: "and more, check out adeira.dev" -->
-<!-- generate this list automatically? or commpletely remove it? -->
-
-:point_right: Check out our Relay [demo app](https://relay-example.adeira.now.sh/) and its [source code](https://github.com/adeira/relay-example) to see how it works together :point_left:
+See: https://adeira.dev/ for more info.
 
 ## Quick start
 
@@ -30,40 +16,55 @@ yarn install
 
 _Please note: you have to use Yarn. It won't work with NPM!_
 
-## Universe monorepo structure
+What now? There are many projects under [`src/`](/src) and all of them are tested and linted together (with many monorepo optimizations). You can try to run all the checks:
+
+```text
+yarn test
+```
+
+It runs only the necessary checks based on what changed last. This monorepo si divided into many workspaces. You can access commands of each workspace like so:
+
+```text
+yarn workspace @adeira/example-relay start
+```
+
+Specific workspace names can be found in individual `package.json` files of each workspace.
+
+_Do you need tore help? Feel free to ask. :)_
+
+## `adeira/universe` monorepo structure
 
 Overall picture of this monorepo:
 
 ```text
 /
 ├── .github/
-│   ├── workflows/                        # global GitHub CI job definitions
+│   ├── workflows/              # global GitHub CI job definitions
 ├── .yarn/
-│   └── releases/                         # Yarn itself
-├── flow-typed/                           # external Flow types definitions
+│   └── releases/               # Yarn itself
+├── flow-typed/                 # external Flow types definitions
 ├── node_modules/
-├── scripts/                              # support scripts for this monorepo
-├── src/                                  # all the source codes
+├── scripts/                    # support scripts for this monorepo
+├── src/                        # all the source codes (workspaces)
 │   ├── fetch/
 │   ├── js/
 │   ├── relay/
 │   └── …
-├── .eslintrc.js                          # global Eslint config
-├── .flowconfig                           # global Flow config
-└── package.json                          # global workspaces definition
+├── .eslintrc.js                # global Eslint config
+├── .flowconfig                 # global Flow config
+└── package.json                # global workspaces definition
 ```
 
-As you can see we store all the code of this monorepo in `src` folder which contains additional subfolders for each project. You will spend most of the time there. Tools like Eslint and Flow (+ the whole testing system) is defined globally for everyone.
+As you can see we store all the code of this monorepo in [`src/`](/src) folder which contains additional subfolders for each project. You will spend most of the time there. Tools like Eslint and Flow (+ the whole testing system) is defined globally for everyone.
 
-Notes:
-
-1. We require you to install Yarn version 1.0+ but the actual version used when working with Universe is defined in `.yarnrc` and it's stored in `.yarn/release`. Your local Yarn version us just an initial executor for the actual Yarn.
-1. Flow typed folder is our code as well (even though it's generated by some tool). This means that if the definitions are not OK then fix them just like you'd write any other source code.
+_Node: we require you to install Yarn version 1.0+ but the actual version used when working with Universe is defined in `.yarnrc` and it's stored in `.yarn/release`. Your local Yarn version us just an initial executor for the actual Yarn._
 
 ## Contributing
 
 Check our [Contribution guide](/CONTRIBUTING.md) on how to report issues, suggest improvements, commit changes and release.
 
-## Additional resources
+## Information for `adeira/universe` maintainers
 
-- [Relay and GraphQL best practices videos](https://code.kiwi.com/relay-and-graphql-best-practices-b09ce1d6d7ea) to learn how to build an app step by step
+- [adeira.slack.com](https://app.slack.com/) - our internal Slack channel
+- [Figma designs](https://www.figma.com/file/bAVVTRg9w2vDJ1Hph82hky/Adeira)
+- [https://vercel.com/adeira](https://vercel.com/adeira) - our Vercel platform for deployments

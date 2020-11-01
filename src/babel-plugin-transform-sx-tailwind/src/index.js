@@ -1,10 +1,11 @@
 // @flow
 
-// prettier-ignore
-require('@babel/register')({ // @x-shipit-disable
-  ignore: [/node_modules\/(?!@adeira)/], // @x-shipit-disable
-  rootMode: 'upward', // @x-shipit-disable
-}); // @x-shipit-disable
+// BEGIN-ADEIRA-UNIVERSE-INTERNAL
+require('@babel/register')({
+  ignore: [/node_modules\/(?!@adeira)/],
+  rootMode: 'upward',
+});
+// END-ADEIRA-UNIVERSE-INTERNAL
 
 const template = require('@babel/template').default;
 const t = require('@babel/types');
