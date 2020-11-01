@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ce42071ba6d85da0181585e6c981f7f1>>
+ * @generated SignedSource<<4ea2828ec91d3cfa8ee210c706717cd5>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -21,13 +21,32 @@ export type AllCSSPropertyTypes = {|
   +animationName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-name
   +animationPlayState?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-play-state
   +animationTimingFunction?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-timing-function
-  +appearance?: number | string, // https://developer.mozilla.org/docs/Web/CSS/appearance
+  +appearance?:  // https://developer.mozilla.org/docs/Web/CSS/appearance
+    | 'none'
+    | 'auto'
+    | 'textfield'
+    | 'menulist-button'
+    | 'searchfield'
+    | 'textarea'
+    | 'push-button'
+    | 'slider-horizontal'
+    | 'checkbox'
+    | 'radio'
+    | 'square-button'
+    | 'menulist'
+    | 'listbox'
+    | 'meter'
+    | 'progress-bar'
+    | 'button'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +aspectRatio?: string, // https://developer.mozilla.org/docs/Web/CSS/aspect-ratio
   +azimuth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/azimuth
   +backfaceVisibility?: 'visible' | 'hidden' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/backface-visibility
   +background?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background
   +backgroundAttachment?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-attachment
-  +backgroundBlendMode?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-blend-mode
+  +backgroundBlendMode?: string, // https://developer.mozilla.org/docs/Web/CSS/background-blend-mode
   +backgroundClip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-clip
   +backgroundColor?: string, // https://developer.mozilla.org/docs/Web/CSS/background-color
   +backgroundImage?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background-image
@@ -64,7 +83,20 @@ export type AllCSSPropertyTypes = {|
   +borderBottomColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-color
   +borderBottomLeftRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-left-radius
   +borderBottomRightRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-right-radius
-  +borderBottomStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-style
+  +borderBottomStyle?:  // https://developer.mozilla.org/docs/Web/CSS/border-bottom-style
+    | 'none'
+    | 'hidden'
+    | 'dotted'
+    | 'dashed'
+    | 'solid'
+    | 'double'
+    | 'groove'
+    | 'ridge'
+    | 'inset'
+    | 'outset'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +borderBottomWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-bottom-width
   +borderBoundary?: number | string,
   +borderCollapse?: 'collapse' | 'separate' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/border-collapse
@@ -75,7 +107,7 @@ export type AllCSSPropertyTypes = {|
   +borderImageOutset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-image-outset
   +borderImageRepeat?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-image-repeat
   +borderImageSlice?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-image-slice
-  +borderImageSource?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-image-source
+  +borderImageSource?: string, // https://developer.mozilla.org/docs/Web/CSS/border-image-source
   +borderImageWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-image-width
   +borderInline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline
   +borderInlineColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-color
@@ -91,12 +123,38 @@ export type AllCSSPropertyTypes = {|
   +borderInlineWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-inline-width
   +borderLeft?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left
   +borderLeftColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-left-color
-  +borderLeftStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left-style
+  +borderLeftStyle?:  // https://developer.mozilla.org/docs/Web/CSS/border-left-style
+    | 'none'
+    | 'hidden'
+    | 'dotted'
+    | 'dashed'
+    | 'solid'
+    | 'double'
+    | 'groove'
+    | 'ridge'
+    | 'inset'
+    | 'outset'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +borderLeftWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-left-width
   +borderRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-radius
   +borderRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right
   +borderRightColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-right-color
-  +borderRightStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right-style
+  +borderRightStyle?:  // https://developer.mozilla.org/docs/Web/CSS/border-right-style
+    | 'none'
+    | 'hidden'
+    | 'dotted'
+    | 'dashed'
+    | 'solid'
+    | 'double'
+    | 'groove'
+    | 'ridge'
+    | 'inset'
+    | 'outset'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +borderRightWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-right-width
   +borderSpacing?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-spacing
   +borderStartEndRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-start-end-radius
@@ -106,7 +164,20 @@ export type AllCSSPropertyTypes = {|
   +borderTopColor?: string, // https://developer.mozilla.org/docs/Web/CSS/border-top-color
   +borderTopLeftRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-left-radius
   +borderTopRightRadius?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-right-radius
-  +borderTopStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-style
+  +borderTopStyle?:  // https://developer.mozilla.org/docs/Web/CSS/border-top-style
+    | 'none'
+    | 'hidden'
+    | 'dotted'
+    | 'dashed'
+    | 'solid'
+    | 'double'
+    | 'groove'
+    | 'ridge'
+    | 'inset'
+    | 'outset'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +borderTopWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-width
   +borderWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-width
   +bottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/bottom
@@ -263,7 +334,7 @@ export type AllCSSPropertyTypes = {|
   +fontFamily?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-family
   +fontFeatureSettings?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-feature-settings
   +fontKerning?: 'auto' | 'normal' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-kerning
-  +fontLanguageOverride?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-language-override
+  +fontLanguageOverride?: string, // https://developer.mozilla.org/docs/Web/CSS/font-language-override
   +fontOpticalSizing?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-optical-sizing
   +fontPalette?: number | string,
   +fontSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size
@@ -292,7 +363,7 @@ export type AllCSSPropertyTypes = {|
   +fontVariantLigatures?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-ligatures
   +fontVariantNumeric?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
   +fontVariantPosition?: 'normal' | 'sub' | 'super' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-variant-position
-  +fontVariationSettings?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
+  +fontVariationSettings?: string | number, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
   +fontWeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-weight
   +footnoteDisplay?: number | string,
   +footnotePolicy?: number | string,
@@ -399,7 +470,7 @@ export type AllCSSPropertyTypes = {|
   +maskBorderOutset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-border-outset
   +maskBorderRepeat?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-border-repeat
   +maskBorderSlice?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-border-slice
-  +maskBorderSource?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-border-source
+  +maskBorderSource?: string, // https://developer.mozilla.org/docs/Web/CSS/mask-border-source
   +maskBorderWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-border-width
   +maskClip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-clip
   +maskComposite?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-composite
@@ -419,7 +490,26 @@ export type AllCSSPropertyTypes = {|
   +minHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/min-height
   +minInlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/min-inline-size
   +minWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/min-width
-  +mixBlendMode?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode
+  +mixBlendMode?:  // https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode
+    | 'normal'
+    | 'multiply'
+    | 'screen'
+    | 'overlay'
+    | 'darken'
+    | 'lighten'
+    | 'color-dodge'
+    | 'color-burn'
+    | 'hard-light'
+    | 'soft-light'
+    | 'difference'
+    | 'exclusion'
+    | 'hue'
+    | 'saturation'
+    | 'color'
+    | 'luminosity'
+    | 'inherit'
+    | 'initial'
+    | 'unset',
   +navDown?: number | string,
   +navLeft?: number | string,
   +navRight?: number | string,
