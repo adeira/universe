@@ -6,6 +6,7 @@ sx.create({
   NoIssues: {
     'color': 'red',
     'zIndex': 10,
+    'pointerEvents': 'visible',
     ':hover': {
       color: 'blue',
     },

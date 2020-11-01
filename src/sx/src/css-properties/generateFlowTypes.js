@@ -10,19 +10,17 @@ import * as changeCase from 'change-case';
 import collectTypes from './generator/collectTypes';
 import { FLOW_TYPE_NUMBER, FLOW_TYPE_STRING } from './generator/flowTypes';
 
-const allProperties = new Set();
-const sourceJSON = path.join(__dirname, 'all-properties.en.json');
-const allPropertiesRaw = require(sourceJSON);
-
-for (const rawProperty of allPropertiesRaw) {
-  // the properties are duplicated in the list
-  allProperties.add(rawProperty.property);
+const allProperties = new Map();
+for (const rawPropertyName of Object.keys(mdnData.css.properties)) {
+  const rawProperty = mdnData.css.properties[rawPropertyName];
+  // we don't want prefixed properties
+  if (/^(?!-)/.test(rawPropertyName)) {
+    allProperties.set(rawPropertyName, rawProperty);
+  }
 }
 
 let flowPrint = '';
-for (const property of allProperties) {
-  const propertyData = mdnData.css.properties[property];
-
+allProperties.forEach((propertyData, property) => {
   // default Flow type
   let flowTypes = new Set([FLOW_TYPE_NUMBER, FLOW_TYPE_STRING]);
 
@@ -56,7 +54,7 @@ for (const property of allProperties) {
     const mdnUrlComment = propertyData?.mdn_url != null ? `// ${propertyData.mdn_url}` : '';
     flowPrint += `+'${propertyName}'?:${mdnUrlComment}\n${flowType},`;
   }
-}
+});
 
 const flowTemplate = SignedSource.signFile(`
 /**
