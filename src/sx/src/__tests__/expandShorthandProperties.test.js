@@ -2,6 +2,16 @@
 
 import expandShorthandProperties from '../expandShorthandProperties';
 
+it('ignores unknown properties', () => {
+  expect(
+    expandShorthandProperties('unknownProperty', 'thisShouldNotChange').map((node) => node.print()),
+  ).toMatchInlineSnapshot(`
+    Array [
+      "._3BbwKd{unknown-property:thisShouldNotChange}",
+    ]
+  `);
+});
+
 it('expands background as expected', () => {
   expect(expandShorthandProperties('background', 'red').map((node) => node.print()))
     .toMatchInlineSnapshot(`
@@ -45,12 +55,25 @@ it('ignores more complex background syntaxes', () => {
   `);
 });
 
-it('ignores unknown properties', () => {
+it('expands border as expected', () => {
+  expect(expandShorthandProperties('border', 'red').map((node) => node.print()))
+    .toMatchInlineSnapshot(`
+    Array [
+      "._37Z8WG{border-width:medium}",
+      "._1QzWHp{border-style:none}",
+      "._3mBzuo{border-color:#f00}",
+    ]
+  `);
+});
+
+it('ignores more complex border syntaxes', () => {
   expect(
-    expandShorthandProperties('unknownProperty', 'thisShouldNotChange').map((node) => node.print()),
+    expandShorthandProperties('border', '4mm ridge rgba(170, 50, 220, .6)').map((node) =>
+      node.print(),
+    ),
   ).toMatchInlineSnapshot(`
     Array [
-      "._3BbwKd{unknown-property:thisShouldNotChange}",
+      "._4kdXYU{border:4mm ridge rgba(170, 50, 220, .6)}",
     ]
   `);
 });
