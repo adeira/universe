@@ -19,7 +19,7 @@ test.each`
   ${'#11ffee00'}                  | ${true}
   ${'#11ffeeff'}                  | ${true}
   ${'transparent'}                | ${true}
-  ${'currentcolor'}               | ${false}
+  ${'currentcolor'}               | ${true}
   ${'rgb(255,255,128)'}           | ${true}
   ${'RGB(255,255,128)'}           | ${true}
   ${'rgb(255, 255, 128)'}         | ${true}

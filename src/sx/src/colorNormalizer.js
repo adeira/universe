@@ -25,9 +25,9 @@ export function isColor(value: string): boolean {
     return false;
   }
 
-  // TODO: consider `currentcolor` (can be used as `background-color:currentcolor` for example)
   return (
     value === 'transparent' ||
+    value === 'currentcolor' ||
     cssColorNames.has(value) || // keyword values
     /^#[0-9a-f]{3}$/i.test(value) || // RGB hexadecimal shorthand
     /^#[0-9a-f]{4}$/i.test(value) || // RGB hexadecimal shorthand (with alpha)
