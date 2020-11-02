@@ -4982,10 +4982,10 @@ fbjs@^1.0.0:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
 
-fbt@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.15.0.tgz#e7aff024bdfde871b98f90c0fe7697ce7667009d"
-  integrity sha512-d/Zlg0VspTJQjHc6epHn5DnZKN4EjrqwpCbX7UiTzpqQ4VO/h0LdQDxbyVSDTvQUcQ0MWMMe4aUAtlEFxW9s9g==
+fbt@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.0.tgz#ec46688086daa98ca18230ab8c70026d3de15743"
+  integrity sha512-QT5K+aF2b/7CH4takZeYIBAqH9cATV2IXV5kCmI5lWfPMssv34sDbBYJjoWNEV3nU/kDBogCr3QOahuOh8hPMw==
   dependencies:
     invariant "^2.2.4"
 
