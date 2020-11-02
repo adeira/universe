@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a673f4baa5dc0b8454e5db58b479860a>>
+ * @generated SignedSource<<12300650a60674a55cbe8943614a9fef>>
  * @flow
  *
  * Union type of all Tailwind CSS classes
@@ -1557,6 +1557,8 @@ export type TailwindClassNames =
   | 'sm:focus:placeholder-pink-700'
   | 'sm:focus:placeholder-pink-800'
   | 'sm:focus:placeholder-pink-900'
+  | 'sm:pointer-events-none'
+  | 'sm:pointer-events-auto'
   | 'sm:static'
   | 'sm:fixed'
   | 'sm:absolute'
@@ -3776,6 +3778,8 @@ export type TailwindClassNames =
   | 'md:focus:placeholder-pink-700'
   | 'md:focus:placeholder-pink-800'
   | 'md:focus:placeholder-pink-900'
+  | 'md:pointer-events-none'
+  | 'md:pointer-events-auto'
   | 'md:static'
   | 'md:fixed'
   | 'md:absolute'
@@ -5995,6 +5999,8 @@ export type TailwindClassNames =
   | 'lg:focus:placeholder-pink-700'
   | 'lg:focus:placeholder-pink-800'
   | 'lg:focus:placeholder-pink-900'
+  | 'lg:pointer-events-none'
+  | 'lg:pointer-events-auto'
   | 'lg:static'
   | 'lg:fixed'
   | 'lg:absolute'
@@ -8214,6 +8220,8 @@ export type TailwindClassNames =
   | 'xl:focus:placeholder-pink-700'
   | 'xl:focus:placeholder-pink-800'
   | 'xl:focus:placeholder-pink-900'
+  | 'xl:pointer-events-none'
+  | 'xl:pointer-events-auto'
   | 'xl:static'
   | 'xl:fixed'
   | 'xl:absolute'
@@ -10432,6 +10440,8 @@ export type TailwindClassNames =
   | 'focus:placeholder-pink-700'
   | 'focus:placeholder-pink-800'
   | 'focus:placeholder-pink-900'
+  | 'pointer-events-none'
+  | 'pointer-events-auto'
   | 'static'
   | 'fixed'
   | 'absolute'

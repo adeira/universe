@@ -3,12 +3,7 @@
 import csstree from 'css-tree';
 import * as changeCase from 'change-case';
 
-const NOT_SUPPORTED_PROPS = new Set([
-  'grid-gap',
-  'grid-row-gap',
-  'grid-column-gap',
-  'pointer-events',
-]);
+const NOT_SUPPORTED_PROPS = new Set(['grid-gap', 'grid-row-gap', 'grid-column-gap']);
 const UNITLESS_PROPS = new Set(['line-height', 'font-size']);
 
 export default function generateSX(css: string | Buffer): { +[key: string]: any, ... } {
