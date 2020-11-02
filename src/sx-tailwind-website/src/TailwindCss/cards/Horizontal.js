@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Horizontal(): React.Node {
+export default function Horizontal(): Node {
   return (
     <div className={tailwind('max-w-sm w-full lg:max-w-full lg:flex')}>
       <div

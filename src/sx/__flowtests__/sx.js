@@ -1,6 +1,6 @@
 // @flow
 
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 
 import * as sx from '../index';
 

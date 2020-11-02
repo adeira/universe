@@ -7,7 +7,7 @@ import/no-extraneous-dependencies,
 react/no-multi-comp
 */
 
-import React, { useState, type Element } from 'react';
+import { PureComponent, Component, useState, type Element } from 'react';
 
 type LetterProps = {|
   +letter: string,
@@ -16,7 +16,7 @@ type LetterProps = {|
 
 const A = 65; // ASCII character code
 
-class Letter extends React.PureComponent<LetterProps> {
+class Letter extends PureComponent<LetterProps> {
   render() {
     console.warn('Rendering letter %s', this.props.letter);
     return <li onClick={this.props.onClick}>{this.props.letter}</li>;
@@ -30,7 +30,7 @@ type AplhabetState = {|
   letters: $ReadOnlyArray<string>,
 |};
 
-export class Alphabet1 extends React.Component<AplhabetProps, AplhabetState> {
+export class Alphabet1 extends Component<AplhabetProps, AplhabetState> {
   constructor(props: AplhabetProps) {
     super(props);
     this.state = {

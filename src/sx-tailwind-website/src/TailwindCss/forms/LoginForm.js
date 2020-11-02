@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function LoginForm(): React.Node {
+export default function LoginForm(): Node {
   return (
     <div className={tailwind('w-full max-w-xs')}>
       <form className={tailwind('bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4')}>

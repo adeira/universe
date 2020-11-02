@@ -1,12 +1,12 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import StyleCollector from './StyleCollector';
 
 type RenderPageResult = {|
   +html: string,
-  +head: $ReadOnlyArray<React.Node>,
+  +head: $ReadOnlyArray<Node>,
   +styles: $ReadOnlyArray<any>,
 |};
 

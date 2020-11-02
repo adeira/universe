@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
@@ -12,7 +12,7 @@ import FormGrid from './forms/FormGrid';
 import UnderlineForm from './forms/UnderlineForm';
 import CustomSelect from './forms/CustomSelect';
 
-export default function Cards(): React.Node {
+export default function Cards(): Node {
   return (
     <Layout title="Forms">
       <P>

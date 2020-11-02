@@ -1,5 +1,7 @@
 # Unreleased
 
+- Change to use the new [JSX transforms](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
+
 # 2.1.0
 
 - Added new Flow utils `FragmentContainerType`, `RefetchContainerType` and `PaginationContainerType` which will help you to migrate to the new `types-first` Flow architecture (https://medium.com/flow-type/types-first-a-scalable-new-architecture-for-flow-3d8c7ba1d4eb). Example:

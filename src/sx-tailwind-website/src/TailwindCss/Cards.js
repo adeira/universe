@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
@@ -9,7 +9,7 @@ import Link from '../components/Link';
 import Stacked from './cards/Stacked';
 import Horizontal from './cards/Horizontal';
 
-export default function Cards(): React.Node {
+export default function Cards(): Node {
   return (
     <Layout title="Cards">
       <P>

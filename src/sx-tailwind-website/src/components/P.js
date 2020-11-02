@@ -1,12 +1,12 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
 type Props = {|
-  +children: React.Node,
+  +children: Node,
 |};
 
-export default function P({ children }: Props): React.Node {
+export default function P({ children }: Props): Node {
   return <p className={tailwind('text-gray-700')}>{children}</p>;
 }

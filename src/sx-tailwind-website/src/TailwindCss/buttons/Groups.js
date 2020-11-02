@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Groups(): React.Node {
+export default function Groups(): Node {
   return (
     <div className={tailwind('inline-flex')}>
       <button

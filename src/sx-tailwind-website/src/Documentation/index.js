@@ -1,12 +1,12 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
 import SyntaxHighlighter from '../components/SyntaxHighlighter';
 
-export default function Homepage(): React.Node {
+export default function Homepage(): Node {
   return (
     <Layout title="Documentation">
       <H2>Install</H2>

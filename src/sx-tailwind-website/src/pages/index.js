@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Documentation from '../Documentation';
 
-export default function Root(): React.Node {
+export default function Root(): Node {
   return <Documentation />;
 }

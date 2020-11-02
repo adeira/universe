@@ -1,5 +1,5 @@
 // @flow
-import React, { type Element } from 'react';
+import type { Element } from 'react';
 import * as sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
   return (

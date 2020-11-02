@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
@@ -16,7 +16,7 @@ import Elevated from './buttons/Elevated';
 import Groups from './buttons/Groups';
 import Icons from './buttons/Icons';
 
-export default function Buttons(): React.Node {
+export default function Buttons(): Node {
   return (
     <Layout title="Buttons">
       <P>

@@ -1,6 +1,6 @@
 // @flow
 
-import React, { type Node } from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 import * as sx from '@adeira/sx';
 

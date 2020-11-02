@@ -2,7 +2,6 @@
 
 /* global document */
 
-import * as React from 'react';
 import { normalizeColor } from '@adeira/css-colors';
 import { render, screen } from '@testing-library/react';
 import prettier from 'prettier';

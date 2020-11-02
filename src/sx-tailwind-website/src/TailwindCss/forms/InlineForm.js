@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function InlineForm(): React.Node {
+export default function InlineForm(): Node {
   return (
     <form className={tailwind('w-full max-w-sm')}>
       <div className={tailwind('md:flex md:items-center mb-6')}>

@@ -1,7 +1,5 @@
 // @flow
 
-import * as React from 'react';
-
 import { createFragmentContainer, graphql, type FragmentContainerType } from '../index';
 
 function FunctionalFragmentExport(props) {

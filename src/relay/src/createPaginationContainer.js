@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType, ElementConfig } from 'react';
 import {
   createPaginationContainer as _createPaginationContainer,
   type RelayPaginationProp as _RelayPaginationProp,
@@ -12,14 +12,11 @@ import type { FragmentSpec, $RelayProps } from './types.flow';
 
 export type PaginationRelayProp = _RelayPaginationProp;
 
-export default function createPaginationContainer<
-  Props: { ... },
-  TComponent: React.ComponentType<Props>,
->(
+export default function createPaginationContainer<Props: { ... }, TComponent: ComponentType<Props>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
   connectionConfig: ConnectionConfig,
-): React.ComponentType<$RelayProps<React.ElementConfig<TComponent>, PaginationRelayProp>> {
+): ComponentType<$RelayProps<ElementConfig<TComponent>, PaginationRelayProp>> {
   invariant(
     isObjectEmpty(fragmentSpec) === false,
     'Fragment spec of this pagination container factory cannot be empty.',

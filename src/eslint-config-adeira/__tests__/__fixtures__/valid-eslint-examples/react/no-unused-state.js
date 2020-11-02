@@ -1,21 +1,22 @@
 // @flow strict
 
-import * as React from 'react'; // eslint-disable-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { createContext, Component, type Node, type Context, type Element } from 'react';
 
 type Props = {|
   +accessToken?: string,
-  +children: React.Node,
+  +children: Node,
 |};
 
 type State = {|
   accessToken: ?string,
 |};
 
-const MyContext: React.Context<State> = React.createContext({
+const MyContext: Context<State> = createContext({
   accessToken: undefined,
 });
 
-export default class MyProvider extends React.Component<Props, State> {
+export default class MyProvider extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -27,7 +28,7 @@ export default class MyProvider extends React.Component<Props, State> {
     this.setState({ accessToken });
   };
 
-  render(): React.Element<typeof MyContext.Provider> {
+  render(): Element<typeof MyContext.Provider> {
     return <MyContext.Provider value={this.state}>{this.props.children}</MyContext.Provider>;
   }
 }

@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import { useContext, type Node } from 'react';
 import { LocalQueryRenderer as RelayLocalQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant } from '@adeira/js';
 import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
@@ -17,17 +17,17 @@ type CommonProps = {|
 type Props<T> =
   | $ReadOnly<{|
       ...CommonProps,
-      +onResponse: (T) => React.Node,
-      +onLoading?: () => React.Node,
+      +onResponse: (T) => Node,
+      +onLoading?: () => Node,
     |}>
   | $ReadOnly<{|
       ...CommonProps,
-      +render: ({ +props: ?T, ... }) => React.Node,
+      +render: ({ +props: ?T, ... }) => Node,
     |}>;
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.
-export default function LocalQueryRenderer<T>(props: $ReadOnly<Props<T>>): React.Node {
+export default function LocalQueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
   function renderQueryRendererResponse({ props: rendererProps }) {
     if (!rendererProps) {
       return props.onLoading ? (
@@ -48,7 +48,7 @@ export default function LocalQueryRenderer<T>(props: $ReadOnly<Props<T>>): React
   // 1) <LQR environment={Env} /> always win
   // 2) <LQR /> checks whether we provide Environment via `RelayEnvironmentProvider`
   // 3) <LQR /> defaults to the default local environment
-  const context = React.useContext(ReactRelayContext);
+  const context = useContext(ReactRelayContext);
   const environment = props.environment ?? context?.environment ?? createLocalEnvironment();
   const { variables, ...rest } = props;
   return (

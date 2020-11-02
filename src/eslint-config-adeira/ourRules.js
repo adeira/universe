@@ -429,7 +429,7 @@ module.exports = ({
   'react/prefer-read-only-props': OFF,
   'react/prefer-stateless-function': OFF,
   'react/prop-types': OFF, // we use Flow instead,
-  'react/react-in-jsx-scope': WARN,
+  'react/react-in-jsx-scope': OFF,
   'react/require-default-props': OFF,
   'react/require-optimization': OFF,
   'react/require-render-return': ERROR,

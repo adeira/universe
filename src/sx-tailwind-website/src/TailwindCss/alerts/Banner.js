@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Banner(): React.Node {
+export default function Banner(): Node {
   return (
     <div
       className={tailwind('bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3')}

@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Stacked(): React.Node {
+export default function Stacked(): Node {
   return (
     <div className={tailwind('max-w-sm rounded overflow-hidden shadow-lg')}>
       <img

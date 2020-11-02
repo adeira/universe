@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 import { useRouter } from 'next/router';
 
@@ -9,9 +9,8 @@ type Props = {|
   +href: string,
 |};
 
-function MenuItem({ label, href }: Props): React.Node {
+function MenuItem({ label, href }: Props): Node {
   const router = useRouter();
-
   return (
     <a
       href={href}
@@ -28,7 +27,7 @@ function MenuItem({ label, href }: Props): React.Node {
   );
 }
 
-export default function Sidebar(): React.Node {
+export default function Sidebar(): Node {
   return (
     <div className={tailwind('hidden lg:flex lg:flex-shrink-0')}>
       <div className={tailwind('flex w-64')}>

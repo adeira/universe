@@ -2,6 +2,8 @@
 
 - Enable [`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/process-exit-as-throw.md) rule. This is potentially breaking, however, the impact should be minimal and the migration simple.
 
+- Set `react/react-in-jsx-scope` to `OFF` since we are now using the new JSX transform internally.
+
 # 4.0.0
 
 This is a major release mainly focused on separating Eslint Runner. Do wou need some help with the breaking changes? Let us know!

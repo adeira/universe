@@ -2,7 +2,7 @@
 
 /* global document */
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { graphql } from 'relay-runtime';

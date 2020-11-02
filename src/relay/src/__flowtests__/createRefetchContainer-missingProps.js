@@ -1,8 +1,6 @@
 /* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
-import * as React from 'react';
-
 import { createRefetchContainer, graphql, type RefetchContainerType } from '../index';
 
 function FunctionalFragmentExport(props) {

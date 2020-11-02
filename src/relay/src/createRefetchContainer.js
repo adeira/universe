@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType, ElementConfig } from 'react';
 import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
 import { invariant, isObjectEmpty } from '@adeira/js';
 import type { GraphQLTaggedNode, Disposable } from '@adeira/relay-runtime';
@@ -29,14 +29,11 @@ export type RefetchRelayProp = {|
   ) => Disposable,
 |};
 
-export default function createRefetchContainer<
-  Props: { ... },
-  TComponent: React.ComponentType<Props>,
->(
+export default function createRefetchContainer<Props: { ... }, TComponent: ComponentType<Props>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
   refetchQuery: GraphQLTaggedNode,
-): React.ComponentType<$RelayProps<React.ElementConfig<TComponent>, RefetchRelayProp>> {
+): ComponentType<$RelayProps<ElementConfig<TComponent>, RefetchRelayProp>> {
   invariant(
     isObjectEmpty(fragmentSpec) === false,
     'Fragment spec of this refetch container factory cannot be empty.',
