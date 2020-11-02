@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8874362ee0be103dd9334251e5613cd4>>
+ * @generated SignedSource<<0ff0abeda029f7346275052e048086fa>>
  * @flow
  *
  * Tailwind CSS file converted into stylesheets for SX
@@ -2676,6 +2676,8 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'sm:focus:placeholder-pink-900': {
     '@media (min-width:640px)': { ':focus': { color: '#702459' } },
   },
+  'sm:pointer-events-none': { '@media (min-width:640px)': { pointerEvents: 'none' } },
+  'sm:pointer-events-auto': { '@media (min-width:640px)': { pointerEvents: 'auto' } },
   'sm:static': { '@media (min-width:640px)': { position: 'static' } },
   'sm:fixed': { '@media (min-width:640px)': { position: 'fixed' } },
   'sm:absolute': { '@media (min-width:640px)': { position: 'absolute' } },
@@ -6160,6 +6162,8 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'md:focus:placeholder-pink-900': {
     '@media (min-width:768px)': { ':focus': { color: '#702459' } },
   },
+  'md:pointer-events-none': { '@media (min-width:768px)': { pointerEvents: 'none' } },
+  'md:pointer-events-auto': { '@media (min-width:768px)': { pointerEvents: 'auto' } },
   'md:static': { '@media (min-width:768px)': { position: 'static' } },
   'md:fixed': { '@media (min-width:768px)': { position: 'fixed' } },
   'md:absolute': { '@media (min-width:768px)': { position: 'absolute' } },
@@ -9653,6 +9657,8 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'lg:focus:placeholder-pink-900': {
     '@media (min-width:1024px)': { ':focus': { color: '#702459' } },
   },
+  'lg:pointer-events-none': { '@media (min-width:1024px)': { pointerEvents: 'none' } },
+  'lg:pointer-events-auto': { '@media (min-width:1024px)': { pointerEvents: 'auto' } },
   'lg:static': { '@media (min-width:1024px)': { position: 'static' } },
   'lg:fixed': { '@media (min-width:1024px)': { position: 'fixed' } },
   'lg:absolute': { '@media (min-width:1024px)': { position: 'absolute' } },
@@ -13162,6 +13168,8 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'xl:focus:placeholder-pink-900': {
     '@media (min-width:1280px)': { ':focus': { color: '#702459' } },
   },
+  'xl:pointer-events-none': { '@media (min-width:1280px)': { pointerEvents: 'none' } },
+  'xl:pointer-events-auto': { '@media (min-width:1280px)': { pointerEvents: 'auto' } },
   'xl:static': { '@media (min-width:1280px)': { position: 'static' } },
   'xl:fixed': { '@media (min-width:1280px)': { position: 'fixed' } },
   'xl:absolute': { '@media (min-width:1280px)': { position: 'absolute' } },
@@ -15598,6 +15606,8 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'focus:placeholder-pink-700': { ':focus': { color: '#b83280' } },
   'focus:placeholder-pink-800': { ':focus': { color: '#97266d' } },
   'focus:placeholder-pink-900': { ':focus': { color: '#702459' } },
+  'pointer-events-none': { pointerEvents: 'none' },
+  'pointer-events-auto': { pointerEvents: 'auto' },
   'static': { position: 'static' },
   'fixed': { position: 'fixed' },
   'absolute': { position: 'absolute' },
