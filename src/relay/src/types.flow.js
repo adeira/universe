@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { ComponentType } from 'react';
 import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
 
 import type { RelayProp } from './createFragmentContainer';
@@ -81,10 +81,8 @@ type NodeDeleteConfig = {|
   +deletedIDFieldName: string,
 |};
 
-export type FragmentContainerType<Props> = React.ComponentType<$RelayProps<Props, RelayProp>>;
+export type FragmentContainerType<Props> = ComponentType<$RelayProps<Props, RelayProp>>;
 
-export type RefetchContainerType<Props> = React.ComponentType<$RelayProps<Props, RefetchRelayProp>>;
+export type RefetchContainerType<Props> = ComponentType<$RelayProps<Props, RefetchRelayProp>>;
 
-export type PaginationContainerType<Props> = React.ComponentType<
-  $RelayProps<Props, PaginationRelayProp>,
->;
+export type PaginationContainerType<Props> = ComponentType<$RelayProps<Props, PaginationRelayProp>>;

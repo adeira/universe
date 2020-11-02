@@ -22,7 +22,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
 
       const babelRC = require(babelRCLocation);
 
-      expect(babelRC.presets.includes('@adeira/babel-preset-adeira')).toGiveHelp(
+      expect(babelRC.presets.flat().includes('@adeira/babel-preset-adeira')).toGiveHelp(
         `Your Next.js application ${appName} should contain '${babelRCFile}' file with '@adeira/babel-preset-adeira' preset.`,
       );
 

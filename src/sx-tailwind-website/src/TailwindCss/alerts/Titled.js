@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Titled(): React.Node {
+export default function Titled(): Node {
   return (
     <div role="alert">
       <div className={tailwind('bg-red-500 text-white font-bold rounded-t px-4 py-2')}>Danger</div>

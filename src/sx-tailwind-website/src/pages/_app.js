@@ -1,11 +1,11 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 
 export default class MyApp extends App {
-  render(): React.Node {
+  render(): Node {
     const { Component, pageProps } = this.props;
     return (
       <>

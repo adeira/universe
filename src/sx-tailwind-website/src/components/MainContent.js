@@ -1,14 +1,14 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
 type Props = {|
   +title: string,
-  +children: React.Node,
+  +children: Node,
 |};
 
-export default function MainContent({ title, children }: Props): React.Node {
+export default function MainContent({ title, children }: Props): Node {
   return (
     <main className={tailwind('flex-1 relative pb-8 z-0 overflow-y-auto')}>
       <div className={tailwind('bg-white shadow')}>

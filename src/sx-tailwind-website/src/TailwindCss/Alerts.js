@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
@@ -14,7 +14,7 @@ import Solid from './alerts/Solid';
 import TopAccentBorder from './alerts/TopAccentBorder';
 import Banner from './alerts/Banner';
 
-export default function Alerts(): React.Node {
+export default function Alerts(): Node {
   return (
     <Layout title="Alerts">
       <P>

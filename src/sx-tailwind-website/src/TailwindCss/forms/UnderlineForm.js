@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function UnderlineForm(): React.Node {
+export default function UnderlineForm(): Node {
   return (
     <form className={tailwind('w-full max-w-sm')}>
       <div className={tailwind('flex items-center border-b border-teal-500 py-2')}>

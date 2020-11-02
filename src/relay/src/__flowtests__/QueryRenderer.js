@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import { QueryRenderer, graphql, createLocalEnvironment } from '../index';
 
@@ -11,7 +11,7 @@ function placeholder() {
 const environment = createLocalEnvironment();
 
 module.exports = {
-  minimalUsage(): React.Node {
+  minimalUsage(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -23,7 +23,7 @@ module.exports = {
       />
     );
   },
-  minimalWithVariables(): React.Node {
+  minimalWithVariables(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -36,7 +36,7 @@ module.exports = {
       />
     );
   },
-  minimalUsageExtended(): React.Node {
+  minimalUsageExtended(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -50,7 +50,7 @@ module.exports = {
       />
     );
   },
-  customEnvironment(): React.Node {
+  customEnvironment(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -63,7 +63,7 @@ module.exports = {
       />
     );
   },
-  customImplementation(): React.Node {
+  customImplementation(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -76,7 +76,7 @@ module.exports = {
       />
     );
   },
-  validCacheConfig(): React.Node {
+  validCacheConfig(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -89,7 +89,7 @@ module.exports = {
       />
     );
   },
-  withVariables(): React.Node {
+  withVariables(): Node {
     return (
       <QueryRenderer
         query={graphql`
@@ -104,15 +104,15 @@ module.exports = {
   },
 
   // ERRORS:
-  missingQuery1(): React.Node {
+  missingQuery1(): Node {
     // $FlowExpectedError[incompatible-type]: missing query property
     return <QueryRenderer onResponse={placeholder} />;
   },
-  missingQuery2(): React.Node {
+  missingQuery2(): Node {
     // $FlowExpectedError[incompatible-type]: missing query property
     return <QueryRenderer render={placeholder} />;
   },
-  missingOnResponseOrRender(): React.Node {
+  missingOnResponseOrRender(): Node {
     return (
       // $FlowExpectedError[incompatible-type]: must use 'onResponse' or 'render' property
       <QueryRenderer
@@ -124,7 +124,7 @@ module.exports = {
       />
     );
   },
-  mixedRenderAndOnResponse(): React.Node {
+  mixedRenderAndOnResponse(): Node {
     return (
       // $FlowExpectedError[incompatible-type]: use 'onResponse' or 'render' but not both
       <QueryRenderer
@@ -138,7 +138,7 @@ module.exports = {
       />
     );
   },
-  invalidCacheConfig(): React.Node {
+  invalidCacheConfig(): Node {
     return (
       // $FlowExpectedError[incompatible-type]: this cache config is not valid
       <QueryRenderer
@@ -152,7 +152,7 @@ module.exports = {
       />
     );
   },
-  invalidVariablesValue(): React.Node {
+  invalidVariablesValue(): Node {
     return (
       // $FlowExpectedError[incompatible-type]: variables can be object or undefined but nothing else
       <QueryRenderer

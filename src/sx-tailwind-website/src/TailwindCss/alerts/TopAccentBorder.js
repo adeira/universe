@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function TopAccentBorder(): React.Node {
+export default function TopAccentBorder(): Node {
   return (
     <div
       className={tailwind(

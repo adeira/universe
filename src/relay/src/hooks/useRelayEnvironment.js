@@ -1,13 +1,13 @@
 // @flow
 
-import * as React from 'react';
+import { useContext } from 'react';
 import { ReactRelayContext } from 'react-relay';
 import { invariant } from '@adeira/js';
 
 import type { Environment } from '../runtimeTypes.flow';
 
 export default function useRelayEnvironment(): Environment {
-  const context = React.useContext(ReactRelayContext);
+  const context = useContext(ReactRelayContext);
   invariant(
     context != null,
     'useRelayEnvironment: Expected to have found a Relay environment provided by' +

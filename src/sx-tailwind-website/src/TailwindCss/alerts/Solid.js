@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Solid(): React.Node {
+export default function Solid(): Node {
   return (
     <div
       className={tailwind('flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3')}

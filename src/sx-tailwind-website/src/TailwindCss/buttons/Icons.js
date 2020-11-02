@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function Icons(): React.Node {
+export default function Icons(): Node {
   return (
     <button
       className={tailwind(

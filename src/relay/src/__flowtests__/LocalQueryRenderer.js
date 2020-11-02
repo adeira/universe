@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 
 import { LocalQueryRenderer, graphql, createLocalEnvironment } from '../index';
 
@@ -16,10 +16,10 @@ const query = graphql`
 `;
 
 module.exports = {
-  minimalUsage(): React.Node {
+  minimalUsage(): Node {
     return <LocalQueryRenderer query={query} render={placeholder} />;
   },
-  withUndefinedVariables(): React.Node {
+  withUndefinedVariables(): Node {
     return (
       <LocalQueryRenderer
         environment={environment}
@@ -29,7 +29,7 @@ module.exports = {
       />
     );
   },
-  withEmptyVariables(): React.Node {
+  withEmptyVariables(): Node {
     return (
       <LocalQueryRenderer
         environment={environment}
@@ -41,17 +41,17 @@ module.exports = {
   },
 
   // ERRORS:
-  missingQuery(): React.Node {
+  missingQuery(): Node {
     // $FlowExpectedError[incompatible-type]: Cannot create LocalQueryRenderer element because property query is missing in props.
     return <LocalQueryRenderer environment={environment} render={placeholder} />;
   },
-  missingRender(): React.Node {
+  missingRender(): Node {
     return (
       // $FlowExpectedError[incompatible-type]: Cannot create LocalQueryRenderer element because property render is missing in props.
       <LocalQueryRenderer environment={environment} query={query} />
     );
   },
-  invalidVariablesValue(): React.Node {
+  invalidVariablesValue(): Node {
     return (
       // $FlowExpectedError[incompatible-type]: Cannot create LocalQueryRenderer element because null is incompatible with Variables.
       <LocalQueryRenderer

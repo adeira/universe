@@ -1,6 +1,6 @@
 // @flow
 
-import React, { type Element } from 'react';
+import type { Element } from 'react';
 import { tailwind as myTailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Element<'button'> {

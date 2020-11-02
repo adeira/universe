@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function FormGrid(): React.Node {
+export default function FormGrid(): Node {
   return (
     <form className={tailwind('w-full max-w-lg')}>
       <div className={tailwind('flex flex-wrap -mx-3 mb-6')}>

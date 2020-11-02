@@ -1,9 +1,9 @@
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
-export default function ModernWithBadge(): React.Node {
+export default function ModernWithBadge(): Node {
   return (
     <div className={tailwind('bg-indigo-900 text-center py-4 lg:px-4')}>
       <div

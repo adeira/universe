@@ -1,6 +1,5 @@
 // @flow
 
-import * as React from 'react';
 import ReactTestRenderer from 'react-test-renderer';
 import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
 

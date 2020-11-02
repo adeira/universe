@@ -1,7 +1,7 @@
 /* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
-import * as React from 'react';
+import type { Node } from 'react';
 import type { GraphQLTaggedNode } from '@adeira/relay-runtime';
 
 import { QueryRenderer, graphql, createLocalEnvironment } from '../index';
@@ -12,7 +12,7 @@ function placeholder() {
 
 type Props = {|
   +query: GraphQLTaggedNode,
-  +render: () => React.Node,
+  +render: () => Node,
 |};
 
 function CustomQueryRenderer(props: Props) {
@@ -21,7 +21,7 @@ function CustomQueryRenderer(props: Props) {
 }
 
 module.exports = {
-  minimalUsage(): React.Node {
+  minimalUsage(): Node {
     return (
       <CustomQueryRenderer
         query={graphql`
@@ -33,7 +33,7 @@ module.exports = {
       />
     );
   },
-  invalidUsage(): React.Node {
+  invalidUsage(): Node {
     return (
       <CustomQueryRenderer
         // $FlowExpectedError[incompatible-type]: should be `GraphQLTaggedNode` instead

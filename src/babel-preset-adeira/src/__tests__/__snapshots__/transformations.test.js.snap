@@ -1705,9 +1705,11 @@ exports[`matches expected output: jsx.js: flow 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
+import type { Node } from 'react';
+
 const React = () => {};
 
-export default function Component(): empty {
+export default function Component(): Node {
   return (
     <>
       <div>aaa</div>
@@ -1719,9 +1721,11 @@ export default function Component(): empty {
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 // @flow strict
 
+import type { Node } from 'react';
+
 const React = () => {};
 
-export default function Component(): empty {
+export default function Component(): Node {
   return (
     <>
       <div>aaa</div>
@@ -1735,9 +1739,11 @@ exports[`matches expected output: jsx.js: js (old browsers) 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
+import type { Node } from 'react';
+
 const React = () => {};
 
-export default function Component(): empty {
+export default function Component(): Node {
   return (
     <>
       <div>aaa</div>
@@ -1765,9 +1771,11 @@ exports[`matches expected output: jsx.js: js-esm (with ES6 import/export) 1`] = 
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 // @flow strict
 
+import type { Node } from 'react';
+
 const React = () => {};
 
-export default function Component(): empty {
+export default function Component(): Node {
   return (
     <>
       <div>aaa</div>

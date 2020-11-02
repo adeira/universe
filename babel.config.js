@@ -35,6 +35,7 @@ module.exports = function (api /*: ApiType */) /*: BabelConfig */ {
         '@adeira/babel-preset-adeira',
         {
           target: api.caller(isWebpack) ? 'js-esm' : 'js',
+          reactRuntime: 'automatic',
         },
       ],
     ],

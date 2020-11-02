@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import { useContext, type Node } from 'react';
 import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
 import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
@@ -31,16 +31,16 @@ type Props<T> =
         error: Error,
         retry: ?() => void,
         ...
-      }) => React.Node,
-      +onLoading?: () => React.Node,
-      +onResponse: (T) => React.Node,
+      }) => Node,
+      +onLoading?: () => Node,
+      +onResponse: (T) => Node,
     |}>
   | $ReadOnly<{|
       ...CommonProps,
-      +render: (ReadyState<?T>) => React.Node,
+      +render: (ReadyState<?T>) => Node,
     |}>;
 
-export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): React.Node {
+export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
   function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState<?T>) {
     if (error) {
       if (props.onSystemError) {
@@ -87,7 +87,7 @@ export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): React.Node
   // 1) <QR environment={Env} /> always win
   // 2) <QR /> checks whether we provide Environment via `RelayEnvironmentProvider`
   // 3) throw if no environment is set
-  const context = React.useContext(ReactRelayContext);
+  const context = useContext(ReactRelayContext);
   const environment = props.environment ?? context?.environment;
 
   invariant(

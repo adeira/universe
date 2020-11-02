@@ -1,6 +1,6 @@
 // @flow
 
-import * as React from 'react';
+import { Component } from 'react';
 
 import { createFragmentContainer, graphql, type RelayProp } from '../index';
 
@@ -49,7 +49,7 @@ type Props = {|
 
 const FunctionalComponent = (props: Props) => <div {...props} />;
 
-const ClassComponent = class extends React.Component<Props> {
+const ClassComponent = class extends Component<Props> {
   render() {
     return JSON.stringify(this.props.relay.environment);
   }
