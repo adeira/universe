@@ -28,9 +28,12 @@ body {
   color: #1c1e21;
   direction: ltr;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-size: 1rem;
 }
 
 a {
