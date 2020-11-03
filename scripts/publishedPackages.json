@@ -1,6 +1,7 @@
 [
   "@adeira/babel-plugin-transform-sx-tailwind",
   "@adeira/babel-preset-adeira",
+  "@adeira/css-colors",
   "@adeira/eslint-config",
   "@adeira/eslint-runner",
   "@adeira/fetch",

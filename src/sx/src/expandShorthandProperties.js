@@ -1,7 +1,8 @@
 // @flow
 
+import { isColor } from '@adeira/css-colors';
+
 import StyleCollectorNode from './StyleCollectorNode';
-import { isColor } from './colorNormalizer';
 
 /**
  * Purpose of this function is to expand shorthand CSS properties which could cause conflics

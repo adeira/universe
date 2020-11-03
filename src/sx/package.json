@@ -9,6 +9,7 @@
   "sideEffects": false,
   "module": false,
   "dependencies": {
+    "@adeira/css-colors": "^0.1.0",
     "@adeira/js": "^1.3.0",
     "@adeira/murmur-hash": "^0.1.0",
     "@adeira/signed-source": "^1.0.0",

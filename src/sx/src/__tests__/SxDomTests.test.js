@@ -3,11 +3,11 @@
 /* global document */
 
 import * as React from 'react';
+import { normalizeColor } from '@adeira/css-colors';
 import { render, screen } from '@testing-library/react';
 import prettier from 'prettier';
 
 import * as sx from '../../index';
-import { normalizeColor } from '../colorNormalizer';
 import collector from '../StyleCollector';
 
 afterEach(() => {
