@@ -44,6 +44,8 @@ export default function expandShorthandProperties(
 ): $ReadOnlyArray<StyleCollectorNode> {
   // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Background_Properties
   if (propertyName === 'background') {
+    // Note: we currently ignore more complex syntaxes at this moment
+    // see: https://developer.mozilla.org/en-US/docs/Web/CSS/background#Formal_syntax
     const background = new Map([
       ['backgroundImage', new StyleCollectorNode('backgroundImage', 'none', hashSeed)],
       ['backgroundPosition', new StyleCollectorNode('backgroundPosition', '0% 0%', hashSeed)],
@@ -54,8 +56,6 @@ export default function expandShorthandProperties(
       ['backgroundAttachment', new StyleCollectorNode('backgroundAttachment', 'scroll', hashSeed)],
       ['backgroundColor', new StyleCollectorNode('backgroundColor', 'transparent', hashSeed)],
     ]);
-    // Note: we ignore more complex syntaxes at this moment
-    // see: https://developer.mozilla.org/en-US/docs/Web/CSS/background#Formal_syntax
     if (isColor(propertyValue)) {
       background.set(
         'backgroundColor',
@@ -68,6 +68,22 @@ export default function expandShorthandProperties(
         new StyleCollectorNode('backgroundImage', propertyValue, hashSeed),
       );
       return Array.from(background.values());
+    }
+  }
+
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Border_Properties
+  if (propertyName === 'border') {
+    // Note: we currently ignore more complex syntaxes at this moment
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/border#Formal_syntax
+    const border = new Map([
+      // all these properties are actually shorthands as well so we should consider expanding them further
+      ['borderWidth', new StyleCollectorNode('borderWidth', 'medium', hashSeed)],
+      ['borderStyle', new StyleCollectorNode('borderStyle', 'none', hashSeed)],
+      ['borderColor', new StyleCollectorNode('borderColor', 'currentcolor', hashSeed)],
+    ]);
+    if (isColor(propertyValue)) {
+      border.set('borderColor', new StyleCollectorNode('borderColor', propertyValue, hashSeed));
+      return Array.from(border.values());
     }
   }
 
@@ -121,7 +137,6 @@ export default function expandShorthandProperties(
 
   // TODO (inspired by React Native Web - https://github.com/necolas/react-native-web/):
   //  - https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Font_Properties
-  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Border_Properties
   //
   //  - borderColor: ['borderTopColor', 'borderRightColor', 'borderBottomColor', 'borderLeftColor'],
   //  - borderRadius: ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'],
@@ -129,12 +144,6 @@ export default function expandShorthandProperties(
   //  - borderWidth: ['borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth'],
   //  - overflow: ['overflowX', 'overflowY'],
   //  - overscrollBehavior: ['overscrollBehaviorX', 'overscrollBehaviorY'],
-  //
-  //  RNW specifics:
-  //  - marginHorizontal: ['marginRight', 'marginLeft'],
-  //  - marginVertical: ['marginTop', 'marginBottom'],
-  //  - paddingHorizontal: ['paddingRight', 'paddingLeft'],
-  //  - paddingVertical: ['paddingTop', 'paddingBottom'],
 
   return [new StyleCollectorNode(propertyName, propertyValue, hashSeed)];
 }
