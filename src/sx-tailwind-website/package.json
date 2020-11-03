@@ -8,7 +8,7 @@
     "@adeira/monorepo-utils": "^0.9.0",
     "@adeira/sx": "^0.15.1",
     "@adeira/sx-tailwind": "^0.4.2",
-    "next": "^10.0.0",
+    "next": "^10.0.1",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^4.1.0",
     "react": "^17.0.1",
