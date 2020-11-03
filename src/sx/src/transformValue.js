@@ -1,6 +1,7 @@
 // @flow strict
 
-import { isColor, normalizeColor } from './colorNormalizer';
+import { isColor, normalizeColor } from '@adeira/css-colors';
+
 import isUnitlessNumber from './css-properties/isUnitlessNumber';
 
 export default function transformValue(

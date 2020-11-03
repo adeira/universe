@@ -1,49 +1,8 @@
 // @flow strict
 
-export function normalizeColor(value: string): string {
-  const colorValue = cssColorNames.get(value) ?? value;
-  if (!/^#[0-9a-f]{6}$/i.test(colorValue)) {
-    return value.toLowerCase();
-  }
-  return hex6ToHex3(colorValue.toLowerCase());
-}
-
-function hex6ToHex3(value: string): string {
-  const r = value[1];
-  const g = value[3];
-  const b = value[5];
-
-  if (r === value[2] && g === value[4] && b === value[6]) {
-    return `#${r}${g}${b}`;
-  }
-  return value;
-}
-
-// https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-export function isColor(value: string): boolean {
-  if (typeof value !== 'string') {
-    return false;
-  }
-
-  return (
-    value === 'transparent' ||
-    value === 'currentcolor' ||
-    cssColorNames.has(value) || // keyword values
-    /^#[0-9a-f]{3}$/i.test(value) || // RGB hexadecimal shorthand
-    /^#[0-9a-f]{4}$/i.test(value) || // RGB hexadecimal shorthand (with alpha)
-    /^#[0-9a-f]{6}$/i.test(value) || // RGB hexadecimal full
-    /^#[0-9a-f]{8}$/i.test(value) || // RGB hexadecimal full (with alpha)
-    // RGB[A] functional (simplified):
-    /^rgba?\(\s*[0-9.]+%?\s*,\s*[0-9.]+%?\s*,\s*[0-9.]+%?\s*(?:,\s*[0-9.]+%?\s*)?\)$/i.test(
-      value,
-    ) ||
-    // HSL[A] functional (simplified):
-    /^hsla?\(\s*.+\s*,\s*[0-9.]+%\s*,\s*[0-9.]+%\s*(?:,\s*[0-9.]+%?\s*)?\)$/i.test(value)
-  );
-}
-
 // Taken from https://github.com/bahamas10/css-color-names/blob/master/css-color-names.json
-const cssColorNames: Map<string, string> = new Map([
+// Should match with https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords
+export default (new Map([
   ['aliceblue', '#f0f8ff'],
   ['antiquewhite', '#faebd7'],
   ['aqua', '#00ffff'],
@@ -192,4 +151,4 @@ const cssColorNames: Map<string, string> = new Map([
   ['whitesmoke', '#f5f5f5'],
   ['yellow', '#ffff00'],
   ['yellowgreen', '#9acd32'],
-]);
+]): Map<string, string>);
