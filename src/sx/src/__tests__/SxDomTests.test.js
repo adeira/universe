@@ -60,29 +60,6 @@ it('applies correct styles', () => {
   expect(pseudoRed).toHaveStyle(`color:${normalizeColor('red')}`); // red wins (non-hover)
 });
 
-it('includes reset', () => {
-  render(
-    <div data-test="container">
-      {sx.renderPageWithSX(jest.fn(), { includeReset: true }).styles}
-    </div>,
-  );
-
-  expect(document.querySelector('[data-adeira-sx="true"]')?.innerHTML).toMatchInlineSnapshot(`
-    "
-    body {
-      box-sizing: border-box;
-    }
-    *,
-    *::after,
-    *::before {
-      margin: 0;
-      padding: 0;
-      box-sizing: inherit;
-    }
-    "
-  `);
-});
-
 it('correctly handles shorthand properties specificity', () => {
   const styles = sx.create({
     primary: { marginTop: '10px' },
