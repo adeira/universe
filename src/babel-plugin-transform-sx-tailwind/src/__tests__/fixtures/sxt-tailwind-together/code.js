@@ -14,12 +14,7 @@ export default function Example(): Node {
       </button>
 
       <button
-        className={sxt(
-          'bg-blue-500',
-          'hover:bg-blue-700',
-          'text-black',
-          'rounded',
-        )}
+        className={sxt('bg-blue-500', 'hover:bg-blue-700', 'text-black', 'rounded')}
         type="button"
       >
         SXT Button
