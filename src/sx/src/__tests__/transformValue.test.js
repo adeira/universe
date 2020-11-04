@@ -9,10 +9,10 @@ test.each`
   ${'height'}   | ${150}              | ${'150px'}
   ${'zIndex'}   | ${10}               | ${'10'}
   ${'zIndex'}   | ${'auto'}           | ${'auto'}
-  ${'fontSize'} | ${8}                | ${'0.5rem'}
-  ${'fontSize'} | ${16}               | ${'1rem'}
-  ${'fontSize'} | ${24}               | ${'1.5rem'}
-  ${'fontSize'} | ${32}               | ${'2rem'}
+  ${'fontSize'} | ${8}                | ${'8px'}
+  ${'fontSize'} | ${16}               | ${'16px'}
+  ${'fontSize'} | ${24}               | ${'24px'}
+  ${'fontSize'} | ${32}               | ${'32px'}
   ${'fontSize'} | ${'1.25rem'}        | ${'1.25rem'}
   ${'fontSize'} | ${'small'}          | ${'small'}
   ${'color'}    | ${'#123456'}        | ${'#123456'}
