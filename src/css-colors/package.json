@@ -2,12 +2,13 @@
   "name": "@adeira/css-colors",
   "description": "Utility functions for working with CSS/HTML colors.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/css-colors",
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "sideEffects": false,
   "private": false,
   "main": "src/index",
   "license": "MIT",
   "dependencies": {
     "@adeira/js": "^1.3.0",
-    "@babel/runtime": "^7.12.1"
+    "@babel/runtime": "^7.12.5"
   }
 }
