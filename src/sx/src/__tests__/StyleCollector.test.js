@@ -22,7 +22,7 @@ it('works with simple styles', () => {
           "color" => "_2dHaKY",
         },
         "lol" => Map {
-          "font-size" => "_9bPFv",
+          "font-size" => "_39Fbhf",
           "color" => "_2dHaKY",
         },
       },
@@ -32,10 +32,10 @@ it('works with simple styles', () => {
           "styleName": "color",
           "styleValue": "#00f",
         },
-        "_9bPFv" => StyleCollectorNode {
-          "hash": "_9bPFv",
+        "_39Fbhf" => StyleCollectorNode {
+          "hash": "_39Fbhf",
           "styleName": "font-size",
-          "styleValue": "1rem",
+          "styleValue": "16px",
         },
       },
     }
@@ -58,17 +58,17 @@ it('works with pseudo styles', () => {
     Object {
       "hashRegistry": Map {
         "lol" => Map {
-          "font-size" => "_9bPFv",
+          "font-size" => "_39Fbhf",
           "color" => "_2dHaKY",
           "color:hover" => "_2sykgO",
           "text-decoration:hover" => "crve5",
         },
       },
       "styleBuffer": Map {
-        "_9bPFv" => StyleCollectorNode {
-          "hash": "_9bPFv",
+        "_39Fbhf" => StyleCollectorNode {
+          "hash": "_39Fbhf",
           "styleName": "font-size",
-          "styleValue": "1rem",
+          "styleValue": "16px",
         },
         "_2dHaKY" => StyleCollectorNode {
           "hash": "_2dHaKY",

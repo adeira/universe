@@ -171,15 +171,15 @@ exports[`matches expected output: media-queries-multiple.js 1`] = `
 ._324Crd {
   color: #f00;
 }
-._39TI5z {
-  font-size: 2rem;
+._1DKsqE {
+  font-size: 32px;
 }
 @media print {
   .O347H.O347H {
     color: #f00;
   }
-  .ZJMnP.ZJMnP {
-    font-size: 1rem;
+  .gdWvu.gdWvu {
+    font-size: 16px;
   }
   ._1Yuw4C._1Yuw4C {
     color: #008000;
@@ -195,7 +195,7 @@ exports[`matches expected output: media-queries-multiple.js 1`] = `
 
 className={styles('aaa')}
   ↓ ↓ ↓
-class="_324Crd _39TI5z O347H ZJMnP _3yLn7C"
+class="_324Crd _1DKsqE O347H gdWvu _3yLn7C"
 
 className={styles('bbb')}
   ↓ ↓ ↓

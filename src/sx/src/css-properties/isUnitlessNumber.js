@@ -5,10 +5,6 @@
  * https://github.com/facebook/react/blob/87b3e2d257e49b6d2c8e662830fc8f3c7d62f85f/packages/react-dom/src/shared/CSSProperty.js
  */
 export default {
-  // SX specific start
-  fontSize: true,
-  // SX specific end
-
   animationIterationCount: true,
   borderImageOutset: true,
   borderImageSlice: true,

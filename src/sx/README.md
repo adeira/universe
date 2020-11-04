@@ -28,7 +28,7 @@ export default function Example() {
 
 const styles = sx.create({
   example: {
-    fontSize: 32, // converted to REM units (fonts only)
+    fontSize: 32, // converted to PX units
     padding: 0, // converted to PX units
     textDecoration: 'none',
   },
@@ -38,7 +38,7 @@ const styles = sx.create({
 The example above will generate something like this:
 
 ```text
-._444sSt { font-size: 2rem; }
+._444sSt { font-size: 32px; }
 ._1qVfLL { padding: 0px; }
 ._3nPNZx { text-decoration: none; }
 ```
@@ -228,7 +228,7 @@ Sometimes it's hard or even impossible to have sound types for some CSS properti
 ## Production usage considerations
 
 1. SX does not include any CSS reset or CSS normalization. It's because we couldn't decide which strategy would be the best. We concluded that each user should choose their own strategy (either reset, normalizer or nothing) alongside SX.
-2. _TKTK (Babel transpilation, font-size)_
+1. _TKTK (Babel transpilation)_
 
 ## Architecture
 
@@ -262,7 +262,7 @@ Internally, these steps are happening:
    ```text
    .c0 { color: blue }
    .c1 { color: red }
-   .c2 { font-size: 2rem }
+   .c2 { font-size: 32px }
    ```
 
 3. we transform the original stylesheet using these new atomic classes:
