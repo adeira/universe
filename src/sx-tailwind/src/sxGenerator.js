@@ -4,7 +4,15 @@ import csstree from 'css-tree';
 import * as changeCase from 'change-case';
 
 const NOT_SUPPORTED_PROPS = new Set(['grid-gap', 'grid-row-gap', 'grid-column-gap']);
-const UNITLESS_PROPS = new Set(['line-height', 'font-size']);
+const TRANSFORM_VARS = new Set([
+  '--transform-translate-x',
+  '--transform-translate-y',
+  '--transform-rotate',
+  '--transform-skew-x',
+  '--transform-skew-y',
+  '--transform-scale-x',
+  '--transform-scale-y',
+]);
 
 export default function generateSX(css: string | Buffer): { +[key: string]: any, ... } {
   const ast = csstree.parse(css);
@@ -76,8 +84,8 @@ function getDeclarations(rule: { +[key: string]: any, ... }): Map<string, string
     .filter((i) => i.type === 'Declaration')
     .filter(({ property }) => isSupportedProp(property))
     .forEach(({ property, value }) => {
-      const sxProperty = changeCase.camelCase(property);
-      const sxValue = getSXValue(value, property);
+      const sxProperty = TRANSFORM_VARS.has(property) ? property : changeCase.camelCase(property);
+      const sxValue = getSXValue(value);
 
       if (!declarations.has(sxProperty) && !isVendorPrefixed(sxValue)) {
         declarations.set(sxProperty, sxValue);
@@ -105,22 +113,21 @@ function getPseudoSelectorName(rule: { +[key: string]: any, ... }): ?string {
   return pseudoSelector == null ? null : `:${pseudoSelector.name}`;
 }
 
-function getSXValue(value: { +[key: string]: any, ... }, property: string): string | number {
+function getSXValue(value: { +[key: string]: any, ... }): string | number {
   const children =
     value.type === 'Value' && value.children.getSize() === 1 && value.children.first();
 
   if (!children) {
-    return csstree.generate(value);
-  }
-
-  if (UNITLESS_PROPS.has(property) && children.type === 'Dimension' && children.unit === 'px') {
-    return Number(children.value);
+    return csstree.generate(value).toString().trim();
   }
 
   return children.type === 'Number' ? Number(children.value) : csstree.generate(value);
 }
 
 function isSupportedProp(property: string): boolean {
+  if (TRANSFORM_VARS.has(property)) {
+    return true;
+  }
   return (
     !property.startsWith('--') && !isVendorPrefixed(property) && !NOT_SUPPORTED_PROPS.has(property)
   );
