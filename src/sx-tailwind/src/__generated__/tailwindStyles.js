@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0ff0abeda029f7346275052e048086fa>>
+ * @generated SignedSource<<f173513a5b22c8294e4319fb8f6b58d5>>
  * @flow
  *
  * Tailwind CSS file converted into stylesheets for SX
@@ -3433,7 +3433,14 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'sm:row-end-auto': { '@media (min-width:640px)': { gridRowEnd: 'auto' } },
   'sm:transform': {
     '@media (min-width:640px)': {
-      transform:
+      '--transform-translate-x': '0',
+      '--transform-translate-y': '0',
+      '--transform-rotate': '0',
+      '--transform-skew-x': '0',
+      '--transform-skew-y': '0',
+      '--transform-scale-x': '1',
+      '--transform-scale-y': '1',
+      'transform':
         'translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))',
     },
   },
@@ -3447,6 +3454,985 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'sm:origin-bottom-left': { '@media (min-width:640px)': { transformOrigin: 'bottom left' } },
   'sm:origin-left': { '@media (min-width:640px)': { transformOrigin: 'left' } },
   'sm:origin-top-left': { '@media (min-width:640px)': { transformOrigin: 'top left' } },
+  'sm:scale-0': {
+    '@media (min-width:640px)': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+  },
+  'sm:scale-50': {
+    '@media (min-width:640px)': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+  },
+  'sm:scale-75': {
+    '@media (min-width:640px)': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+  },
+  'sm:scale-90': {
+    '@media (min-width:640px)': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+  },
+  'sm:scale-95': {
+    '@media (min-width:640px)': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+  },
+  'sm:scale-100': {
+    '@media (min-width:640px)': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+  },
+  'sm:scale-105': {
+    '@media (min-width:640px)': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+  },
+  'sm:scale-110': {
+    '@media (min-width:640px)': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+  },
+  'sm:scale-125': {
+    '@media (min-width:640px)': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+  },
+  'sm:scale-150': {
+    '@media (min-width:640px)': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+  },
+  'sm:scale-x-0': { '@media (min-width:640px)': { '--transform-scale-x': '0' } },
+  'sm:scale-x-50': { '@media (min-width:640px)': { '--transform-scale-x': '.5' } },
+  'sm:scale-x-75': { '@media (min-width:640px)': { '--transform-scale-x': '.75' } },
+  'sm:scale-x-90': { '@media (min-width:640px)': { '--transform-scale-x': '.9' } },
+  'sm:scale-x-95': { '@media (min-width:640px)': { '--transform-scale-x': '.95' } },
+  'sm:scale-x-100': { '@media (min-width:640px)': { '--transform-scale-x': '1' } },
+  'sm:scale-x-105': { '@media (min-width:640px)': { '--transform-scale-x': '1.05' } },
+  'sm:scale-x-110': { '@media (min-width:640px)': { '--transform-scale-x': '1.1' } },
+  'sm:scale-x-125': { '@media (min-width:640px)': { '--transform-scale-x': '1.25' } },
+  'sm:scale-x-150': { '@media (min-width:640px)': { '--transform-scale-x': '1.5' } },
+  'sm:scale-y-0': { '@media (min-width:640px)': { '--transform-scale-y': '0' } },
+  'sm:scale-y-50': { '@media (min-width:640px)': { '--transform-scale-y': '.5' } },
+  'sm:scale-y-75': { '@media (min-width:640px)': { '--transform-scale-y': '.75' } },
+  'sm:scale-y-90': { '@media (min-width:640px)': { '--transform-scale-y': '.9' } },
+  'sm:scale-y-95': { '@media (min-width:640px)': { '--transform-scale-y': '.95' } },
+  'sm:scale-y-100': { '@media (min-width:640px)': { '--transform-scale-y': '1' } },
+  'sm:scale-y-105': { '@media (min-width:640px)': { '--transform-scale-y': '1.05' } },
+  'sm:scale-y-110': { '@media (min-width:640px)': { '--transform-scale-y': '1.1' } },
+  'sm:scale-y-125': { '@media (min-width:640px)': { '--transform-scale-y': '1.25' } },
+  'sm:scale-y-150': { '@media (min-width:640px)': { '--transform-scale-y': '1.5' } },
+  'sm:hover:scale-0': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'sm:hover:scale-50': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'sm:hover:scale-75': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'sm:hover:scale-90': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'sm:hover:scale-95': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'sm:hover:scale-100': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'sm:hover:scale-105': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'sm:hover:scale-110': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'sm:hover:scale-125': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'sm:hover:scale-150': {
+    '@media (min-width:640px)': {
+      ':hover': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'sm:hover:scale-x-0': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '0' } },
+  },
+  'sm:hover:scale-x-50': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '.5' } },
+  },
+  'sm:hover:scale-x-75': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '.75' } },
+  },
+  'sm:hover:scale-x-90': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '.9' } },
+  },
+  'sm:hover:scale-x-95': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '.95' } },
+  },
+  'sm:hover:scale-x-100': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '1' } },
+  },
+  'sm:hover:scale-x-105': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '1.05' } },
+  },
+  'sm:hover:scale-x-110': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '1.1' } },
+  },
+  'sm:hover:scale-x-125': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '1.25' } },
+  },
+  'sm:hover:scale-x-150': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-x': '1.5' } },
+  },
+  'sm:hover:scale-y-0': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '0' } },
+  },
+  'sm:hover:scale-y-50': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '.5' } },
+  },
+  'sm:hover:scale-y-75': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '.75' } },
+  },
+  'sm:hover:scale-y-90': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '.9' } },
+  },
+  'sm:hover:scale-y-95': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '.95' } },
+  },
+  'sm:hover:scale-y-100': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '1' } },
+  },
+  'sm:hover:scale-y-105': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '1.05' } },
+  },
+  'sm:hover:scale-y-110': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '1.1' } },
+  },
+  'sm:hover:scale-y-125': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '1.25' } },
+  },
+  'sm:hover:scale-y-150': {
+    '@media (min-width:640px)': { ':hover': { '--transform-scale-y': '1.5' } },
+  },
+  'sm:focus:scale-0': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'sm:focus:scale-50': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'sm:focus:scale-75': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'sm:focus:scale-90': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'sm:focus:scale-95': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'sm:focus:scale-100': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'sm:focus:scale-105': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'sm:focus:scale-110': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'sm:focus:scale-125': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'sm:focus:scale-150': {
+    '@media (min-width:640px)': {
+      ':focus': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'sm:focus:scale-x-0': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '0' } },
+  },
+  'sm:focus:scale-x-50': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '.5' } },
+  },
+  'sm:focus:scale-x-75': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '.75' } },
+  },
+  'sm:focus:scale-x-90': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '.9' } },
+  },
+  'sm:focus:scale-x-95': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '.95' } },
+  },
+  'sm:focus:scale-x-100': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '1' } },
+  },
+  'sm:focus:scale-x-105': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '1.05' } },
+  },
+  'sm:focus:scale-x-110': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '1.1' } },
+  },
+  'sm:focus:scale-x-125': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '1.25' } },
+  },
+  'sm:focus:scale-x-150': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-x': '1.5' } },
+  },
+  'sm:focus:scale-y-0': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '0' } },
+  },
+  'sm:focus:scale-y-50': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '.5' } },
+  },
+  'sm:focus:scale-y-75': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '.75' } },
+  },
+  'sm:focus:scale-y-90': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '.9' } },
+  },
+  'sm:focus:scale-y-95': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '.95' } },
+  },
+  'sm:focus:scale-y-100': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '1' } },
+  },
+  'sm:focus:scale-y-105': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '1.05' } },
+  },
+  'sm:focus:scale-y-110': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '1.1' } },
+  },
+  'sm:focus:scale-y-125': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '1.25' } },
+  },
+  'sm:focus:scale-y-150': {
+    '@media (min-width:640px)': { ':focus': { '--transform-scale-y': '1.5' } },
+  },
+  'sm:rotate-0': { '@media (min-width:640px)': { '--transform-rotate': '0' } },
+  'sm:rotate-45': { '@media (min-width:640px)': { '--transform-rotate': '45deg' } },
+  'sm:rotate-90': { '@media (min-width:640px)': { '--transform-rotate': '90deg' } },
+  'sm:rotate-180': { '@media (min-width:640px)': { '--transform-rotate': '180deg' } },
+  'sm:-rotate-180': { '@media (min-width:640px)': { '--transform-rotate': '-180deg' } },
+  'sm:-rotate-90': { '@media (min-width:640px)': { '--transform-rotate': '-90deg' } },
+  'sm:-rotate-45': { '@media (min-width:640px)': { '--transform-rotate': '-45deg' } },
+  'sm:hover:rotate-0': { '@media (min-width:640px)': { ':hover': { '--transform-rotate': '0' } } },
+  'sm:hover:rotate-45': {
+    '@media (min-width:640px)': { ':hover': { '--transform-rotate': '45deg' } },
+  },
+  'sm:hover:rotate-90': {
+    '@media (min-width:640px)': { ':hover': { '--transform-rotate': '90deg' } },
+  },
+  'sm:hover:rotate-180': {
+    '@media (min-width:640px)': { ':hover': { '--transform-rotate': '180deg' } },
+  },
+  'sm:hover:-rotate-180': {
+    '@media (min-width:640px)': { ':hover': { '--transform-rotate': '-180deg' } },
+  },
+  'sm:hover:-rotate-90': {
+    '@media (min-width:640px)': { ':hover': { '--transform-rotate': '-90deg' } },
+  },
+  'sm:hover:-rotate-45': {
+    '@media (min-width:640px)': { ':hover': { '--transform-rotate': '-45deg' } },
+  },
+  'sm:focus:rotate-0': { '@media (min-width:640px)': { ':focus': { '--transform-rotate': '0' } } },
+  'sm:focus:rotate-45': {
+    '@media (min-width:640px)': { ':focus': { '--transform-rotate': '45deg' } },
+  },
+  'sm:focus:rotate-90': {
+    '@media (min-width:640px)': { ':focus': { '--transform-rotate': '90deg' } },
+  },
+  'sm:focus:rotate-180': {
+    '@media (min-width:640px)': { ':focus': { '--transform-rotate': '180deg' } },
+  },
+  'sm:focus:-rotate-180': {
+    '@media (min-width:640px)': { ':focus': { '--transform-rotate': '-180deg' } },
+  },
+  'sm:focus:-rotate-90': {
+    '@media (min-width:640px)': { ':focus': { '--transform-rotate': '-90deg' } },
+  },
+  'sm:focus:-rotate-45': {
+    '@media (min-width:640px)': { ':focus': { '--transform-rotate': '-45deg' } },
+  },
+  'sm:translate-x-0': { '@media (min-width:640px)': { '--transform-translate-x': '0' } },
+  'sm:translate-x-1': { '@media (min-width:640px)': { '--transform-translate-x': '0.25rem' } },
+  'sm:translate-x-2': { '@media (min-width:640px)': { '--transform-translate-x': '0.5rem' } },
+  'sm:translate-x-3': { '@media (min-width:640px)': { '--transform-translate-x': '0.75rem' } },
+  'sm:translate-x-4': { '@media (min-width:640px)': { '--transform-translate-x': '1rem' } },
+  'sm:translate-x-5': { '@media (min-width:640px)': { '--transform-translate-x': '1.25rem' } },
+  'sm:translate-x-6': { '@media (min-width:640px)': { '--transform-translate-x': '1.5rem' } },
+  'sm:translate-x-8': { '@media (min-width:640px)': { '--transform-translate-x': '2rem' } },
+  'sm:translate-x-10': { '@media (min-width:640px)': { '--transform-translate-x': '2.5rem' } },
+  'sm:translate-x-12': { '@media (min-width:640px)': { '--transform-translate-x': '3rem' } },
+  'sm:translate-x-16': { '@media (min-width:640px)': { '--transform-translate-x': '4rem' } },
+  'sm:translate-x-20': { '@media (min-width:640px)': { '--transform-translate-x': '5rem' } },
+  'sm:translate-x-24': { '@media (min-width:640px)': { '--transform-translate-x': '6rem' } },
+  'sm:translate-x-32': { '@media (min-width:640px)': { '--transform-translate-x': '8rem' } },
+  'sm:translate-x-40': { '@media (min-width:640px)': { '--transform-translate-x': '10rem' } },
+  'sm:translate-x-48': { '@media (min-width:640px)': { '--transform-translate-x': '12rem' } },
+  'sm:translate-x-56': { '@media (min-width:640px)': { '--transform-translate-x': '14rem' } },
+  'sm:translate-x-64': { '@media (min-width:640px)': { '--transform-translate-x': '16rem' } },
+  'sm:translate-x-px': { '@media (min-width:640px)': { '--transform-translate-x': '1px' } },
+  'sm:-translate-x-1': { '@media (min-width:640px)': { '--transform-translate-x': '-0.25rem' } },
+  'sm:-translate-x-2': { '@media (min-width:640px)': { '--transform-translate-x': '-0.5rem' } },
+  'sm:-translate-x-3': { '@media (min-width:640px)': { '--transform-translate-x': '-0.75rem' } },
+  'sm:-translate-x-4': { '@media (min-width:640px)': { '--transform-translate-x': '-1rem' } },
+  'sm:-translate-x-5': { '@media (min-width:640px)': { '--transform-translate-x': '-1.25rem' } },
+  'sm:-translate-x-6': { '@media (min-width:640px)': { '--transform-translate-x': '-1.5rem' } },
+  'sm:-translate-x-8': { '@media (min-width:640px)': { '--transform-translate-x': '-2rem' } },
+  'sm:-translate-x-10': { '@media (min-width:640px)': { '--transform-translate-x': '-2.5rem' } },
+  'sm:-translate-x-12': { '@media (min-width:640px)': { '--transform-translate-x': '-3rem' } },
+  'sm:-translate-x-16': { '@media (min-width:640px)': { '--transform-translate-x': '-4rem' } },
+  'sm:-translate-x-20': { '@media (min-width:640px)': { '--transform-translate-x': '-5rem' } },
+  'sm:-translate-x-24': { '@media (min-width:640px)': { '--transform-translate-x': '-6rem' } },
+  'sm:-translate-x-32': { '@media (min-width:640px)': { '--transform-translate-x': '-8rem' } },
+  'sm:-translate-x-40': { '@media (min-width:640px)': { '--transform-translate-x': '-10rem' } },
+  'sm:-translate-x-48': { '@media (min-width:640px)': { '--transform-translate-x': '-12rem' } },
+  'sm:-translate-x-56': { '@media (min-width:640px)': { '--transform-translate-x': '-14rem' } },
+  'sm:-translate-x-64': { '@media (min-width:640px)': { '--transform-translate-x': '-16rem' } },
+  'sm:-translate-x-px': { '@media (min-width:640px)': { '--transform-translate-x': '-1px' } },
+  'sm:-translate-x-full': { '@media (min-width:640px)': { '--transform-translate-x': '-100%' } },
+  'sm:-translate-x-1/2': { '@media (min-width:640px)': { '--transform-translate-x': '-50%' } },
+  'sm:translate-x-1/2': { '@media (min-width:640px)': { '--transform-translate-x': '50%' } },
+  'sm:translate-x-full': { '@media (min-width:640px)': { '--transform-translate-x': '100%' } },
+  'sm:translate-y-0': { '@media (min-width:640px)': { '--transform-translate-y': '0' } },
+  'sm:translate-y-1': { '@media (min-width:640px)': { '--transform-translate-y': '0.25rem' } },
+  'sm:translate-y-2': { '@media (min-width:640px)': { '--transform-translate-y': '0.5rem' } },
+  'sm:translate-y-3': { '@media (min-width:640px)': { '--transform-translate-y': '0.75rem' } },
+  'sm:translate-y-4': { '@media (min-width:640px)': { '--transform-translate-y': '1rem' } },
+  'sm:translate-y-5': { '@media (min-width:640px)': { '--transform-translate-y': '1.25rem' } },
+  'sm:translate-y-6': { '@media (min-width:640px)': { '--transform-translate-y': '1.5rem' } },
+  'sm:translate-y-8': { '@media (min-width:640px)': { '--transform-translate-y': '2rem' } },
+  'sm:translate-y-10': { '@media (min-width:640px)': { '--transform-translate-y': '2.5rem' } },
+  'sm:translate-y-12': { '@media (min-width:640px)': { '--transform-translate-y': '3rem' } },
+  'sm:translate-y-16': { '@media (min-width:640px)': { '--transform-translate-y': '4rem' } },
+  'sm:translate-y-20': { '@media (min-width:640px)': { '--transform-translate-y': '5rem' } },
+  'sm:translate-y-24': { '@media (min-width:640px)': { '--transform-translate-y': '6rem' } },
+  'sm:translate-y-32': { '@media (min-width:640px)': { '--transform-translate-y': '8rem' } },
+  'sm:translate-y-40': { '@media (min-width:640px)': { '--transform-translate-y': '10rem' } },
+  'sm:translate-y-48': { '@media (min-width:640px)': { '--transform-translate-y': '12rem' } },
+  'sm:translate-y-56': { '@media (min-width:640px)': { '--transform-translate-y': '14rem' } },
+  'sm:translate-y-64': { '@media (min-width:640px)': { '--transform-translate-y': '16rem' } },
+  'sm:translate-y-px': { '@media (min-width:640px)': { '--transform-translate-y': '1px' } },
+  'sm:-translate-y-1': { '@media (min-width:640px)': { '--transform-translate-y': '-0.25rem' } },
+  'sm:-translate-y-2': { '@media (min-width:640px)': { '--transform-translate-y': '-0.5rem' } },
+  'sm:-translate-y-3': { '@media (min-width:640px)': { '--transform-translate-y': '-0.75rem' } },
+  'sm:-translate-y-4': { '@media (min-width:640px)': { '--transform-translate-y': '-1rem' } },
+  'sm:-translate-y-5': { '@media (min-width:640px)': { '--transform-translate-y': '-1.25rem' } },
+  'sm:-translate-y-6': { '@media (min-width:640px)': { '--transform-translate-y': '-1.5rem' } },
+  'sm:-translate-y-8': { '@media (min-width:640px)': { '--transform-translate-y': '-2rem' } },
+  'sm:-translate-y-10': { '@media (min-width:640px)': { '--transform-translate-y': '-2.5rem' } },
+  'sm:-translate-y-12': { '@media (min-width:640px)': { '--transform-translate-y': '-3rem' } },
+  'sm:-translate-y-16': { '@media (min-width:640px)': { '--transform-translate-y': '-4rem' } },
+  'sm:-translate-y-20': { '@media (min-width:640px)': { '--transform-translate-y': '-5rem' } },
+  'sm:-translate-y-24': { '@media (min-width:640px)': { '--transform-translate-y': '-6rem' } },
+  'sm:-translate-y-32': { '@media (min-width:640px)': { '--transform-translate-y': '-8rem' } },
+  'sm:-translate-y-40': { '@media (min-width:640px)': { '--transform-translate-y': '-10rem' } },
+  'sm:-translate-y-48': { '@media (min-width:640px)': { '--transform-translate-y': '-12rem' } },
+  'sm:-translate-y-56': { '@media (min-width:640px)': { '--transform-translate-y': '-14rem' } },
+  'sm:-translate-y-64': { '@media (min-width:640px)': { '--transform-translate-y': '-16rem' } },
+  'sm:-translate-y-px': { '@media (min-width:640px)': { '--transform-translate-y': '-1px' } },
+  'sm:-translate-y-full': { '@media (min-width:640px)': { '--transform-translate-y': '-100%' } },
+  'sm:-translate-y-1/2': { '@media (min-width:640px)': { '--transform-translate-y': '-50%' } },
+  'sm:translate-y-1/2': { '@media (min-width:640px)': { '--transform-translate-y': '50%' } },
+  'sm:translate-y-full': { '@media (min-width:640px)': { '--transform-translate-y': '100%' } },
+  'sm:hover:translate-x-0': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '0' } },
+  },
+  'sm:hover:translate-x-1': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '0.25rem' } },
+  },
+  'sm:hover:translate-x-2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '0.5rem' } },
+  },
+  'sm:hover:translate-x-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '0.75rem' } },
+  },
+  'sm:hover:translate-x-4': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '1rem' } },
+  },
+  'sm:hover:translate-x-5': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '1.25rem' } },
+  },
+  'sm:hover:translate-x-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '1.5rem' } },
+  },
+  'sm:hover:translate-x-8': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '2rem' } },
+  },
+  'sm:hover:translate-x-10': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '2.5rem' } },
+  },
+  'sm:hover:translate-x-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '3rem' } },
+  },
+  'sm:hover:translate-x-16': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '4rem' } },
+  },
+  'sm:hover:translate-x-20': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '5rem' } },
+  },
+  'sm:hover:translate-x-24': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '6rem' } },
+  },
+  'sm:hover:translate-x-32': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '8rem' } },
+  },
+  'sm:hover:translate-x-40': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '10rem' } },
+  },
+  'sm:hover:translate-x-48': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '12rem' } },
+  },
+  'sm:hover:translate-x-56': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '14rem' } },
+  },
+  'sm:hover:translate-x-64': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '16rem' } },
+  },
+  'sm:hover:translate-x-px': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '1px' } },
+  },
+  'sm:hover:-translate-x-1': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'sm:hover:-translate-x-2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'sm:hover:-translate-x-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'sm:hover:-translate-x-4': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-1rem' } },
+  },
+  'sm:hover:-translate-x-5': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'sm:hover:-translate-x-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'sm:hover:-translate-x-8': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-2rem' } },
+  },
+  'sm:hover:-translate-x-10': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'sm:hover:-translate-x-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-3rem' } },
+  },
+  'sm:hover:-translate-x-16': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-4rem' } },
+  },
+  'sm:hover:-translate-x-20': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-5rem' } },
+  },
+  'sm:hover:-translate-x-24': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-6rem' } },
+  },
+  'sm:hover:-translate-x-32': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-8rem' } },
+  },
+  'sm:hover:-translate-x-40': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-10rem' } },
+  },
+  'sm:hover:-translate-x-48': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-12rem' } },
+  },
+  'sm:hover:-translate-x-56': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-14rem' } },
+  },
+  'sm:hover:-translate-x-64': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-16rem' } },
+  },
+  'sm:hover:-translate-x-px': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-1px' } },
+  },
+  'sm:hover:-translate-x-full': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-100%' } },
+  },
+  'sm:hover:-translate-x-1/2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '-50%' } },
+  },
+  'sm:hover:translate-x-1/2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '50%' } },
+  },
+  'sm:hover:translate-x-full': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-x': '100%' } },
+  },
+  'sm:hover:translate-y-0': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '0' } },
+  },
+  'sm:hover:translate-y-1': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '0.25rem' } },
+  },
+  'sm:hover:translate-y-2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '0.5rem' } },
+  },
+  'sm:hover:translate-y-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '0.75rem' } },
+  },
+  'sm:hover:translate-y-4': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '1rem' } },
+  },
+  'sm:hover:translate-y-5': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '1.25rem' } },
+  },
+  'sm:hover:translate-y-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '1.5rem' } },
+  },
+  'sm:hover:translate-y-8': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '2rem' } },
+  },
+  'sm:hover:translate-y-10': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '2.5rem' } },
+  },
+  'sm:hover:translate-y-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '3rem' } },
+  },
+  'sm:hover:translate-y-16': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '4rem' } },
+  },
+  'sm:hover:translate-y-20': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '5rem' } },
+  },
+  'sm:hover:translate-y-24': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '6rem' } },
+  },
+  'sm:hover:translate-y-32': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '8rem' } },
+  },
+  'sm:hover:translate-y-40': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '10rem' } },
+  },
+  'sm:hover:translate-y-48': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '12rem' } },
+  },
+  'sm:hover:translate-y-56': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '14rem' } },
+  },
+  'sm:hover:translate-y-64': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '16rem' } },
+  },
+  'sm:hover:translate-y-px': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '1px' } },
+  },
+  'sm:hover:-translate-y-1': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'sm:hover:-translate-y-2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'sm:hover:-translate-y-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'sm:hover:-translate-y-4': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-1rem' } },
+  },
+  'sm:hover:-translate-y-5': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'sm:hover:-translate-y-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'sm:hover:-translate-y-8': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-2rem' } },
+  },
+  'sm:hover:-translate-y-10': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'sm:hover:-translate-y-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-3rem' } },
+  },
+  'sm:hover:-translate-y-16': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-4rem' } },
+  },
+  'sm:hover:-translate-y-20': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-5rem' } },
+  },
+  'sm:hover:-translate-y-24': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-6rem' } },
+  },
+  'sm:hover:-translate-y-32': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-8rem' } },
+  },
+  'sm:hover:-translate-y-40': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-10rem' } },
+  },
+  'sm:hover:-translate-y-48': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-12rem' } },
+  },
+  'sm:hover:-translate-y-56': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-14rem' } },
+  },
+  'sm:hover:-translate-y-64': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-16rem' } },
+  },
+  'sm:hover:-translate-y-px': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-1px' } },
+  },
+  'sm:hover:-translate-y-full': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-100%' } },
+  },
+  'sm:hover:-translate-y-1/2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '-50%' } },
+  },
+  'sm:hover:translate-y-1/2': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '50%' } },
+  },
+  'sm:hover:translate-y-full': {
+    '@media (min-width:640px)': { ':hover': { '--transform-translate-y': '100%' } },
+  },
+  'sm:focus:translate-x-0': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '0' } },
+  },
+  'sm:focus:translate-x-1': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '0.25rem' } },
+  },
+  'sm:focus:translate-x-2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '0.5rem' } },
+  },
+  'sm:focus:translate-x-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '0.75rem' } },
+  },
+  'sm:focus:translate-x-4': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '1rem' } },
+  },
+  'sm:focus:translate-x-5': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '1.25rem' } },
+  },
+  'sm:focus:translate-x-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '1.5rem' } },
+  },
+  'sm:focus:translate-x-8': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '2rem' } },
+  },
+  'sm:focus:translate-x-10': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '2.5rem' } },
+  },
+  'sm:focus:translate-x-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '3rem' } },
+  },
+  'sm:focus:translate-x-16': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '4rem' } },
+  },
+  'sm:focus:translate-x-20': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '5rem' } },
+  },
+  'sm:focus:translate-x-24': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '6rem' } },
+  },
+  'sm:focus:translate-x-32': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '8rem' } },
+  },
+  'sm:focus:translate-x-40': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '10rem' } },
+  },
+  'sm:focus:translate-x-48': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '12rem' } },
+  },
+  'sm:focus:translate-x-56': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '14rem' } },
+  },
+  'sm:focus:translate-x-64': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '16rem' } },
+  },
+  'sm:focus:translate-x-px': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '1px' } },
+  },
+  'sm:focus:-translate-x-1': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'sm:focus:-translate-x-2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'sm:focus:-translate-x-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'sm:focus:-translate-x-4': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-1rem' } },
+  },
+  'sm:focus:-translate-x-5': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'sm:focus:-translate-x-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'sm:focus:-translate-x-8': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-2rem' } },
+  },
+  'sm:focus:-translate-x-10': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'sm:focus:-translate-x-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-3rem' } },
+  },
+  'sm:focus:-translate-x-16': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-4rem' } },
+  },
+  'sm:focus:-translate-x-20': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-5rem' } },
+  },
+  'sm:focus:-translate-x-24': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-6rem' } },
+  },
+  'sm:focus:-translate-x-32': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-8rem' } },
+  },
+  'sm:focus:-translate-x-40': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-10rem' } },
+  },
+  'sm:focus:-translate-x-48': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-12rem' } },
+  },
+  'sm:focus:-translate-x-56': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-14rem' } },
+  },
+  'sm:focus:-translate-x-64': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-16rem' } },
+  },
+  'sm:focus:-translate-x-px': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-1px' } },
+  },
+  'sm:focus:-translate-x-full': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-100%' } },
+  },
+  'sm:focus:-translate-x-1/2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '-50%' } },
+  },
+  'sm:focus:translate-x-1/2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '50%' } },
+  },
+  'sm:focus:translate-x-full': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-x': '100%' } },
+  },
+  'sm:focus:translate-y-0': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '0' } },
+  },
+  'sm:focus:translate-y-1': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '0.25rem' } },
+  },
+  'sm:focus:translate-y-2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '0.5rem' } },
+  },
+  'sm:focus:translate-y-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '0.75rem' } },
+  },
+  'sm:focus:translate-y-4': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '1rem' } },
+  },
+  'sm:focus:translate-y-5': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '1.25rem' } },
+  },
+  'sm:focus:translate-y-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '1.5rem' } },
+  },
+  'sm:focus:translate-y-8': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '2rem' } },
+  },
+  'sm:focus:translate-y-10': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '2.5rem' } },
+  },
+  'sm:focus:translate-y-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '3rem' } },
+  },
+  'sm:focus:translate-y-16': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '4rem' } },
+  },
+  'sm:focus:translate-y-20': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '5rem' } },
+  },
+  'sm:focus:translate-y-24': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '6rem' } },
+  },
+  'sm:focus:translate-y-32': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '8rem' } },
+  },
+  'sm:focus:translate-y-40': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '10rem' } },
+  },
+  'sm:focus:translate-y-48': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '12rem' } },
+  },
+  'sm:focus:translate-y-56': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '14rem' } },
+  },
+  'sm:focus:translate-y-64': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '16rem' } },
+  },
+  'sm:focus:translate-y-px': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '1px' } },
+  },
+  'sm:focus:-translate-y-1': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'sm:focus:-translate-y-2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'sm:focus:-translate-y-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'sm:focus:-translate-y-4': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-1rem' } },
+  },
+  'sm:focus:-translate-y-5': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'sm:focus:-translate-y-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'sm:focus:-translate-y-8': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-2rem' } },
+  },
+  'sm:focus:-translate-y-10': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'sm:focus:-translate-y-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-3rem' } },
+  },
+  'sm:focus:-translate-y-16': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-4rem' } },
+  },
+  'sm:focus:-translate-y-20': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-5rem' } },
+  },
+  'sm:focus:-translate-y-24': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-6rem' } },
+  },
+  'sm:focus:-translate-y-32': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-8rem' } },
+  },
+  'sm:focus:-translate-y-40': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-10rem' } },
+  },
+  'sm:focus:-translate-y-48': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-12rem' } },
+  },
+  'sm:focus:-translate-y-56': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-14rem' } },
+  },
+  'sm:focus:-translate-y-64': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-16rem' } },
+  },
+  'sm:focus:-translate-y-px': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-1px' } },
+  },
+  'sm:focus:-translate-y-full': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-100%' } },
+  },
+  'sm:focus:-translate-y-1/2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '-50%' } },
+  },
+  'sm:focus:translate-y-1/2': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '50%' } },
+  },
+  'sm:focus:translate-y-full': {
+    '@media (min-width:640px)': { ':focus': { '--transform-translate-y': '100%' } },
+  },
+  'sm:skew-x-0': { '@media (min-width:640px)': { '--transform-skew-x': '0' } },
+  'sm:skew-x-3': { '@media (min-width:640px)': { '--transform-skew-x': '3deg' } },
+  'sm:skew-x-6': { '@media (min-width:640px)': { '--transform-skew-x': '6deg' } },
+  'sm:skew-x-12': { '@media (min-width:640px)': { '--transform-skew-x': '12deg' } },
+  'sm:-skew-x-12': { '@media (min-width:640px)': { '--transform-skew-x': '-12deg' } },
+  'sm:-skew-x-6': { '@media (min-width:640px)': { '--transform-skew-x': '-6deg' } },
+  'sm:-skew-x-3': { '@media (min-width:640px)': { '--transform-skew-x': '-3deg' } },
+  'sm:skew-y-0': { '@media (min-width:640px)': { '--transform-skew-y': '0' } },
+  'sm:skew-y-3': { '@media (min-width:640px)': { '--transform-skew-y': '3deg' } },
+  'sm:skew-y-6': { '@media (min-width:640px)': { '--transform-skew-y': '6deg' } },
+  'sm:skew-y-12': { '@media (min-width:640px)': { '--transform-skew-y': '12deg' } },
+  'sm:-skew-y-12': { '@media (min-width:640px)': { '--transform-skew-y': '-12deg' } },
+  'sm:-skew-y-6': { '@media (min-width:640px)': { '--transform-skew-y': '-6deg' } },
+  'sm:-skew-y-3': { '@media (min-width:640px)': { '--transform-skew-y': '-3deg' } },
+  'sm:hover:skew-x-0': { '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '0' } } },
+  'sm:hover:skew-x-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '3deg' } },
+  },
+  'sm:hover:skew-x-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '6deg' } },
+  },
+  'sm:hover:skew-x-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '12deg' } },
+  },
+  'sm:hover:-skew-x-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '-12deg' } },
+  },
+  'sm:hover:-skew-x-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '-6deg' } },
+  },
+  'sm:hover:-skew-x-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-x': '-3deg' } },
+  },
+  'sm:hover:skew-y-0': { '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '0' } } },
+  'sm:hover:skew-y-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '3deg' } },
+  },
+  'sm:hover:skew-y-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '6deg' } },
+  },
+  'sm:hover:skew-y-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '12deg' } },
+  },
+  'sm:hover:-skew-y-12': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '-12deg' } },
+  },
+  'sm:hover:-skew-y-6': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '-6deg' } },
+  },
+  'sm:hover:-skew-y-3': {
+    '@media (min-width:640px)': { ':hover': { '--transform-skew-y': '-3deg' } },
+  },
+  'sm:focus:skew-x-0': { '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '0' } } },
+  'sm:focus:skew-x-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '3deg' } },
+  },
+  'sm:focus:skew-x-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '6deg' } },
+  },
+  'sm:focus:skew-x-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '12deg' } },
+  },
+  'sm:focus:-skew-x-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '-12deg' } },
+  },
+  'sm:focus:-skew-x-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '-6deg' } },
+  },
+  'sm:focus:-skew-x-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-x': '-3deg' } },
+  },
+  'sm:focus:skew-y-0': { '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '0' } } },
+  'sm:focus:skew-y-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '3deg' } },
+  },
+  'sm:focus:skew-y-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '6deg' } },
+  },
+  'sm:focus:skew-y-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '12deg' } },
+  },
+  'sm:focus:-skew-y-12': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '-12deg' } },
+  },
+  'sm:focus:-skew-y-6': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '-6deg' } },
+  },
+  'sm:focus:-skew-y-3': {
+    '@media (min-width:640px)': { ':focus': { '--transform-skew-y': '-3deg' } },
+  },
   'sm:transition-none': { '@media (min-width:640px)': { transitionProperty: 'none' } },
   'sm:transition-all': { '@media (min-width:640px)': { transitionProperty: 'all' } },
   'sm:transition': {
@@ -6919,7 +7905,14 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'md:row-end-auto': { '@media (min-width:768px)': { gridRowEnd: 'auto' } },
   'md:transform': {
     '@media (min-width:768px)': {
-      transform:
+      '--transform-translate-x': '0',
+      '--transform-translate-y': '0',
+      '--transform-rotate': '0',
+      '--transform-skew-x': '0',
+      '--transform-skew-y': '0',
+      '--transform-scale-x': '1',
+      '--transform-scale-y': '1',
+      'transform':
         'translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))',
     },
   },
@@ -6933,6 +7926,985 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'md:origin-bottom-left': { '@media (min-width:768px)': { transformOrigin: 'bottom left' } },
   'md:origin-left': { '@media (min-width:768px)': { transformOrigin: 'left' } },
   'md:origin-top-left': { '@media (min-width:768px)': { transformOrigin: 'top left' } },
+  'md:scale-0': {
+    '@media (min-width:768px)': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+  },
+  'md:scale-50': {
+    '@media (min-width:768px)': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+  },
+  'md:scale-75': {
+    '@media (min-width:768px)': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+  },
+  'md:scale-90': {
+    '@media (min-width:768px)': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+  },
+  'md:scale-95': {
+    '@media (min-width:768px)': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+  },
+  'md:scale-100': {
+    '@media (min-width:768px)': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+  },
+  'md:scale-105': {
+    '@media (min-width:768px)': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+  },
+  'md:scale-110': {
+    '@media (min-width:768px)': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+  },
+  'md:scale-125': {
+    '@media (min-width:768px)': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+  },
+  'md:scale-150': {
+    '@media (min-width:768px)': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+  },
+  'md:scale-x-0': { '@media (min-width:768px)': { '--transform-scale-x': '0' } },
+  'md:scale-x-50': { '@media (min-width:768px)': { '--transform-scale-x': '.5' } },
+  'md:scale-x-75': { '@media (min-width:768px)': { '--transform-scale-x': '.75' } },
+  'md:scale-x-90': { '@media (min-width:768px)': { '--transform-scale-x': '.9' } },
+  'md:scale-x-95': { '@media (min-width:768px)': { '--transform-scale-x': '.95' } },
+  'md:scale-x-100': { '@media (min-width:768px)': { '--transform-scale-x': '1' } },
+  'md:scale-x-105': { '@media (min-width:768px)': { '--transform-scale-x': '1.05' } },
+  'md:scale-x-110': { '@media (min-width:768px)': { '--transform-scale-x': '1.1' } },
+  'md:scale-x-125': { '@media (min-width:768px)': { '--transform-scale-x': '1.25' } },
+  'md:scale-x-150': { '@media (min-width:768px)': { '--transform-scale-x': '1.5' } },
+  'md:scale-y-0': { '@media (min-width:768px)': { '--transform-scale-y': '0' } },
+  'md:scale-y-50': { '@media (min-width:768px)': { '--transform-scale-y': '.5' } },
+  'md:scale-y-75': { '@media (min-width:768px)': { '--transform-scale-y': '.75' } },
+  'md:scale-y-90': { '@media (min-width:768px)': { '--transform-scale-y': '.9' } },
+  'md:scale-y-95': { '@media (min-width:768px)': { '--transform-scale-y': '.95' } },
+  'md:scale-y-100': { '@media (min-width:768px)': { '--transform-scale-y': '1' } },
+  'md:scale-y-105': { '@media (min-width:768px)': { '--transform-scale-y': '1.05' } },
+  'md:scale-y-110': { '@media (min-width:768px)': { '--transform-scale-y': '1.1' } },
+  'md:scale-y-125': { '@media (min-width:768px)': { '--transform-scale-y': '1.25' } },
+  'md:scale-y-150': { '@media (min-width:768px)': { '--transform-scale-y': '1.5' } },
+  'md:hover:scale-0': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'md:hover:scale-50': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'md:hover:scale-75': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'md:hover:scale-90': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'md:hover:scale-95': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'md:hover:scale-100': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'md:hover:scale-105': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'md:hover:scale-110': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'md:hover:scale-125': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'md:hover:scale-150': {
+    '@media (min-width:768px)': {
+      ':hover': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'md:hover:scale-x-0': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '0' } },
+  },
+  'md:hover:scale-x-50': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '.5' } },
+  },
+  'md:hover:scale-x-75': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '.75' } },
+  },
+  'md:hover:scale-x-90': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '.9' } },
+  },
+  'md:hover:scale-x-95': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '.95' } },
+  },
+  'md:hover:scale-x-100': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '1' } },
+  },
+  'md:hover:scale-x-105': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '1.05' } },
+  },
+  'md:hover:scale-x-110': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '1.1' } },
+  },
+  'md:hover:scale-x-125': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '1.25' } },
+  },
+  'md:hover:scale-x-150': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-x': '1.5' } },
+  },
+  'md:hover:scale-y-0': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '0' } },
+  },
+  'md:hover:scale-y-50': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '.5' } },
+  },
+  'md:hover:scale-y-75': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '.75' } },
+  },
+  'md:hover:scale-y-90': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '.9' } },
+  },
+  'md:hover:scale-y-95': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '.95' } },
+  },
+  'md:hover:scale-y-100': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '1' } },
+  },
+  'md:hover:scale-y-105': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '1.05' } },
+  },
+  'md:hover:scale-y-110': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '1.1' } },
+  },
+  'md:hover:scale-y-125': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '1.25' } },
+  },
+  'md:hover:scale-y-150': {
+    '@media (min-width:768px)': { ':hover': { '--transform-scale-y': '1.5' } },
+  },
+  'md:focus:scale-0': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'md:focus:scale-50': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'md:focus:scale-75': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'md:focus:scale-90': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'md:focus:scale-95': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'md:focus:scale-100': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'md:focus:scale-105': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'md:focus:scale-110': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'md:focus:scale-125': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'md:focus:scale-150': {
+    '@media (min-width:768px)': {
+      ':focus': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'md:focus:scale-x-0': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '0' } },
+  },
+  'md:focus:scale-x-50': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '.5' } },
+  },
+  'md:focus:scale-x-75': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '.75' } },
+  },
+  'md:focus:scale-x-90': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '.9' } },
+  },
+  'md:focus:scale-x-95': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '.95' } },
+  },
+  'md:focus:scale-x-100': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '1' } },
+  },
+  'md:focus:scale-x-105': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '1.05' } },
+  },
+  'md:focus:scale-x-110': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '1.1' } },
+  },
+  'md:focus:scale-x-125': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '1.25' } },
+  },
+  'md:focus:scale-x-150': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-x': '1.5' } },
+  },
+  'md:focus:scale-y-0': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '0' } },
+  },
+  'md:focus:scale-y-50': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '.5' } },
+  },
+  'md:focus:scale-y-75': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '.75' } },
+  },
+  'md:focus:scale-y-90': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '.9' } },
+  },
+  'md:focus:scale-y-95': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '.95' } },
+  },
+  'md:focus:scale-y-100': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '1' } },
+  },
+  'md:focus:scale-y-105': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '1.05' } },
+  },
+  'md:focus:scale-y-110': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '1.1' } },
+  },
+  'md:focus:scale-y-125': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '1.25' } },
+  },
+  'md:focus:scale-y-150': {
+    '@media (min-width:768px)': { ':focus': { '--transform-scale-y': '1.5' } },
+  },
+  'md:rotate-0': { '@media (min-width:768px)': { '--transform-rotate': '0' } },
+  'md:rotate-45': { '@media (min-width:768px)': { '--transform-rotate': '45deg' } },
+  'md:rotate-90': { '@media (min-width:768px)': { '--transform-rotate': '90deg' } },
+  'md:rotate-180': { '@media (min-width:768px)': { '--transform-rotate': '180deg' } },
+  'md:-rotate-180': { '@media (min-width:768px)': { '--transform-rotate': '-180deg' } },
+  'md:-rotate-90': { '@media (min-width:768px)': { '--transform-rotate': '-90deg' } },
+  'md:-rotate-45': { '@media (min-width:768px)': { '--transform-rotate': '-45deg' } },
+  'md:hover:rotate-0': { '@media (min-width:768px)': { ':hover': { '--transform-rotate': '0' } } },
+  'md:hover:rotate-45': {
+    '@media (min-width:768px)': { ':hover': { '--transform-rotate': '45deg' } },
+  },
+  'md:hover:rotate-90': {
+    '@media (min-width:768px)': { ':hover': { '--transform-rotate': '90deg' } },
+  },
+  'md:hover:rotate-180': {
+    '@media (min-width:768px)': { ':hover': { '--transform-rotate': '180deg' } },
+  },
+  'md:hover:-rotate-180': {
+    '@media (min-width:768px)': { ':hover': { '--transform-rotate': '-180deg' } },
+  },
+  'md:hover:-rotate-90': {
+    '@media (min-width:768px)': { ':hover': { '--transform-rotate': '-90deg' } },
+  },
+  'md:hover:-rotate-45': {
+    '@media (min-width:768px)': { ':hover': { '--transform-rotate': '-45deg' } },
+  },
+  'md:focus:rotate-0': { '@media (min-width:768px)': { ':focus': { '--transform-rotate': '0' } } },
+  'md:focus:rotate-45': {
+    '@media (min-width:768px)': { ':focus': { '--transform-rotate': '45deg' } },
+  },
+  'md:focus:rotate-90': {
+    '@media (min-width:768px)': { ':focus': { '--transform-rotate': '90deg' } },
+  },
+  'md:focus:rotate-180': {
+    '@media (min-width:768px)': { ':focus': { '--transform-rotate': '180deg' } },
+  },
+  'md:focus:-rotate-180': {
+    '@media (min-width:768px)': { ':focus': { '--transform-rotate': '-180deg' } },
+  },
+  'md:focus:-rotate-90': {
+    '@media (min-width:768px)': { ':focus': { '--transform-rotate': '-90deg' } },
+  },
+  'md:focus:-rotate-45': {
+    '@media (min-width:768px)': { ':focus': { '--transform-rotate': '-45deg' } },
+  },
+  'md:translate-x-0': { '@media (min-width:768px)': { '--transform-translate-x': '0' } },
+  'md:translate-x-1': { '@media (min-width:768px)': { '--transform-translate-x': '0.25rem' } },
+  'md:translate-x-2': { '@media (min-width:768px)': { '--transform-translate-x': '0.5rem' } },
+  'md:translate-x-3': { '@media (min-width:768px)': { '--transform-translate-x': '0.75rem' } },
+  'md:translate-x-4': { '@media (min-width:768px)': { '--transform-translate-x': '1rem' } },
+  'md:translate-x-5': { '@media (min-width:768px)': { '--transform-translate-x': '1.25rem' } },
+  'md:translate-x-6': { '@media (min-width:768px)': { '--transform-translate-x': '1.5rem' } },
+  'md:translate-x-8': { '@media (min-width:768px)': { '--transform-translate-x': '2rem' } },
+  'md:translate-x-10': { '@media (min-width:768px)': { '--transform-translate-x': '2.5rem' } },
+  'md:translate-x-12': { '@media (min-width:768px)': { '--transform-translate-x': '3rem' } },
+  'md:translate-x-16': { '@media (min-width:768px)': { '--transform-translate-x': '4rem' } },
+  'md:translate-x-20': { '@media (min-width:768px)': { '--transform-translate-x': '5rem' } },
+  'md:translate-x-24': { '@media (min-width:768px)': { '--transform-translate-x': '6rem' } },
+  'md:translate-x-32': { '@media (min-width:768px)': { '--transform-translate-x': '8rem' } },
+  'md:translate-x-40': { '@media (min-width:768px)': { '--transform-translate-x': '10rem' } },
+  'md:translate-x-48': { '@media (min-width:768px)': { '--transform-translate-x': '12rem' } },
+  'md:translate-x-56': { '@media (min-width:768px)': { '--transform-translate-x': '14rem' } },
+  'md:translate-x-64': { '@media (min-width:768px)': { '--transform-translate-x': '16rem' } },
+  'md:translate-x-px': { '@media (min-width:768px)': { '--transform-translate-x': '1px' } },
+  'md:-translate-x-1': { '@media (min-width:768px)': { '--transform-translate-x': '-0.25rem' } },
+  'md:-translate-x-2': { '@media (min-width:768px)': { '--transform-translate-x': '-0.5rem' } },
+  'md:-translate-x-3': { '@media (min-width:768px)': { '--transform-translate-x': '-0.75rem' } },
+  'md:-translate-x-4': { '@media (min-width:768px)': { '--transform-translate-x': '-1rem' } },
+  'md:-translate-x-5': { '@media (min-width:768px)': { '--transform-translate-x': '-1.25rem' } },
+  'md:-translate-x-6': { '@media (min-width:768px)': { '--transform-translate-x': '-1.5rem' } },
+  'md:-translate-x-8': { '@media (min-width:768px)': { '--transform-translate-x': '-2rem' } },
+  'md:-translate-x-10': { '@media (min-width:768px)': { '--transform-translate-x': '-2.5rem' } },
+  'md:-translate-x-12': { '@media (min-width:768px)': { '--transform-translate-x': '-3rem' } },
+  'md:-translate-x-16': { '@media (min-width:768px)': { '--transform-translate-x': '-4rem' } },
+  'md:-translate-x-20': { '@media (min-width:768px)': { '--transform-translate-x': '-5rem' } },
+  'md:-translate-x-24': { '@media (min-width:768px)': { '--transform-translate-x': '-6rem' } },
+  'md:-translate-x-32': { '@media (min-width:768px)': { '--transform-translate-x': '-8rem' } },
+  'md:-translate-x-40': { '@media (min-width:768px)': { '--transform-translate-x': '-10rem' } },
+  'md:-translate-x-48': { '@media (min-width:768px)': { '--transform-translate-x': '-12rem' } },
+  'md:-translate-x-56': { '@media (min-width:768px)': { '--transform-translate-x': '-14rem' } },
+  'md:-translate-x-64': { '@media (min-width:768px)': { '--transform-translate-x': '-16rem' } },
+  'md:-translate-x-px': { '@media (min-width:768px)': { '--transform-translate-x': '-1px' } },
+  'md:-translate-x-full': { '@media (min-width:768px)': { '--transform-translate-x': '-100%' } },
+  'md:-translate-x-1/2': { '@media (min-width:768px)': { '--transform-translate-x': '-50%' } },
+  'md:translate-x-1/2': { '@media (min-width:768px)': { '--transform-translate-x': '50%' } },
+  'md:translate-x-full': { '@media (min-width:768px)': { '--transform-translate-x': '100%' } },
+  'md:translate-y-0': { '@media (min-width:768px)': { '--transform-translate-y': '0' } },
+  'md:translate-y-1': { '@media (min-width:768px)': { '--transform-translate-y': '0.25rem' } },
+  'md:translate-y-2': { '@media (min-width:768px)': { '--transform-translate-y': '0.5rem' } },
+  'md:translate-y-3': { '@media (min-width:768px)': { '--transform-translate-y': '0.75rem' } },
+  'md:translate-y-4': { '@media (min-width:768px)': { '--transform-translate-y': '1rem' } },
+  'md:translate-y-5': { '@media (min-width:768px)': { '--transform-translate-y': '1.25rem' } },
+  'md:translate-y-6': { '@media (min-width:768px)': { '--transform-translate-y': '1.5rem' } },
+  'md:translate-y-8': { '@media (min-width:768px)': { '--transform-translate-y': '2rem' } },
+  'md:translate-y-10': { '@media (min-width:768px)': { '--transform-translate-y': '2.5rem' } },
+  'md:translate-y-12': { '@media (min-width:768px)': { '--transform-translate-y': '3rem' } },
+  'md:translate-y-16': { '@media (min-width:768px)': { '--transform-translate-y': '4rem' } },
+  'md:translate-y-20': { '@media (min-width:768px)': { '--transform-translate-y': '5rem' } },
+  'md:translate-y-24': { '@media (min-width:768px)': { '--transform-translate-y': '6rem' } },
+  'md:translate-y-32': { '@media (min-width:768px)': { '--transform-translate-y': '8rem' } },
+  'md:translate-y-40': { '@media (min-width:768px)': { '--transform-translate-y': '10rem' } },
+  'md:translate-y-48': { '@media (min-width:768px)': { '--transform-translate-y': '12rem' } },
+  'md:translate-y-56': { '@media (min-width:768px)': { '--transform-translate-y': '14rem' } },
+  'md:translate-y-64': { '@media (min-width:768px)': { '--transform-translate-y': '16rem' } },
+  'md:translate-y-px': { '@media (min-width:768px)': { '--transform-translate-y': '1px' } },
+  'md:-translate-y-1': { '@media (min-width:768px)': { '--transform-translate-y': '-0.25rem' } },
+  'md:-translate-y-2': { '@media (min-width:768px)': { '--transform-translate-y': '-0.5rem' } },
+  'md:-translate-y-3': { '@media (min-width:768px)': { '--transform-translate-y': '-0.75rem' } },
+  'md:-translate-y-4': { '@media (min-width:768px)': { '--transform-translate-y': '-1rem' } },
+  'md:-translate-y-5': { '@media (min-width:768px)': { '--transform-translate-y': '-1.25rem' } },
+  'md:-translate-y-6': { '@media (min-width:768px)': { '--transform-translate-y': '-1.5rem' } },
+  'md:-translate-y-8': { '@media (min-width:768px)': { '--transform-translate-y': '-2rem' } },
+  'md:-translate-y-10': { '@media (min-width:768px)': { '--transform-translate-y': '-2.5rem' } },
+  'md:-translate-y-12': { '@media (min-width:768px)': { '--transform-translate-y': '-3rem' } },
+  'md:-translate-y-16': { '@media (min-width:768px)': { '--transform-translate-y': '-4rem' } },
+  'md:-translate-y-20': { '@media (min-width:768px)': { '--transform-translate-y': '-5rem' } },
+  'md:-translate-y-24': { '@media (min-width:768px)': { '--transform-translate-y': '-6rem' } },
+  'md:-translate-y-32': { '@media (min-width:768px)': { '--transform-translate-y': '-8rem' } },
+  'md:-translate-y-40': { '@media (min-width:768px)': { '--transform-translate-y': '-10rem' } },
+  'md:-translate-y-48': { '@media (min-width:768px)': { '--transform-translate-y': '-12rem' } },
+  'md:-translate-y-56': { '@media (min-width:768px)': { '--transform-translate-y': '-14rem' } },
+  'md:-translate-y-64': { '@media (min-width:768px)': { '--transform-translate-y': '-16rem' } },
+  'md:-translate-y-px': { '@media (min-width:768px)': { '--transform-translate-y': '-1px' } },
+  'md:-translate-y-full': { '@media (min-width:768px)': { '--transform-translate-y': '-100%' } },
+  'md:-translate-y-1/2': { '@media (min-width:768px)': { '--transform-translate-y': '-50%' } },
+  'md:translate-y-1/2': { '@media (min-width:768px)': { '--transform-translate-y': '50%' } },
+  'md:translate-y-full': { '@media (min-width:768px)': { '--transform-translate-y': '100%' } },
+  'md:hover:translate-x-0': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '0' } },
+  },
+  'md:hover:translate-x-1': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '0.25rem' } },
+  },
+  'md:hover:translate-x-2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '0.5rem' } },
+  },
+  'md:hover:translate-x-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '0.75rem' } },
+  },
+  'md:hover:translate-x-4': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '1rem' } },
+  },
+  'md:hover:translate-x-5': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '1.25rem' } },
+  },
+  'md:hover:translate-x-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '1.5rem' } },
+  },
+  'md:hover:translate-x-8': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '2rem' } },
+  },
+  'md:hover:translate-x-10': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '2.5rem' } },
+  },
+  'md:hover:translate-x-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '3rem' } },
+  },
+  'md:hover:translate-x-16': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '4rem' } },
+  },
+  'md:hover:translate-x-20': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '5rem' } },
+  },
+  'md:hover:translate-x-24': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '6rem' } },
+  },
+  'md:hover:translate-x-32': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '8rem' } },
+  },
+  'md:hover:translate-x-40': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '10rem' } },
+  },
+  'md:hover:translate-x-48': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '12rem' } },
+  },
+  'md:hover:translate-x-56': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '14rem' } },
+  },
+  'md:hover:translate-x-64': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '16rem' } },
+  },
+  'md:hover:translate-x-px': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '1px' } },
+  },
+  'md:hover:-translate-x-1': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'md:hover:-translate-x-2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'md:hover:-translate-x-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'md:hover:-translate-x-4': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-1rem' } },
+  },
+  'md:hover:-translate-x-5': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'md:hover:-translate-x-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'md:hover:-translate-x-8': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-2rem' } },
+  },
+  'md:hover:-translate-x-10': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'md:hover:-translate-x-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-3rem' } },
+  },
+  'md:hover:-translate-x-16': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-4rem' } },
+  },
+  'md:hover:-translate-x-20': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-5rem' } },
+  },
+  'md:hover:-translate-x-24': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-6rem' } },
+  },
+  'md:hover:-translate-x-32': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-8rem' } },
+  },
+  'md:hover:-translate-x-40': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-10rem' } },
+  },
+  'md:hover:-translate-x-48': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-12rem' } },
+  },
+  'md:hover:-translate-x-56': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-14rem' } },
+  },
+  'md:hover:-translate-x-64': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-16rem' } },
+  },
+  'md:hover:-translate-x-px': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-1px' } },
+  },
+  'md:hover:-translate-x-full': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-100%' } },
+  },
+  'md:hover:-translate-x-1/2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '-50%' } },
+  },
+  'md:hover:translate-x-1/2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '50%' } },
+  },
+  'md:hover:translate-x-full': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-x': '100%' } },
+  },
+  'md:hover:translate-y-0': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '0' } },
+  },
+  'md:hover:translate-y-1': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '0.25rem' } },
+  },
+  'md:hover:translate-y-2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '0.5rem' } },
+  },
+  'md:hover:translate-y-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '0.75rem' } },
+  },
+  'md:hover:translate-y-4': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '1rem' } },
+  },
+  'md:hover:translate-y-5': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '1.25rem' } },
+  },
+  'md:hover:translate-y-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '1.5rem' } },
+  },
+  'md:hover:translate-y-8': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '2rem' } },
+  },
+  'md:hover:translate-y-10': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '2.5rem' } },
+  },
+  'md:hover:translate-y-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '3rem' } },
+  },
+  'md:hover:translate-y-16': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '4rem' } },
+  },
+  'md:hover:translate-y-20': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '5rem' } },
+  },
+  'md:hover:translate-y-24': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '6rem' } },
+  },
+  'md:hover:translate-y-32': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '8rem' } },
+  },
+  'md:hover:translate-y-40': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '10rem' } },
+  },
+  'md:hover:translate-y-48': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '12rem' } },
+  },
+  'md:hover:translate-y-56': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '14rem' } },
+  },
+  'md:hover:translate-y-64': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '16rem' } },
+  },
+  'md:hover:translate-y-px': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '1px' } },
+  },
+  'md:hover:-translate-y-1': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'md:hover:-translate-y-2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'md:hover:-translate-y-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'md:hover:-translate-y-4': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-1rem' } },
+  },
+  'md:hover:-translate-y-5': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'md:hover:-translate-y-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'md:hover:-translate-y-8': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-2rem' } },
+  },
+  'md:hover:-translate-y-10': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'md:hover:-translate-y-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-3rem' } },
+  },
+  'md:hover:-translate-y-16': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-4rem' } },
+  },
+  'md:hover:-translate-y-20': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-5rem' } },
+  },
+  'md:hover:-translate-y-24': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-6rem' } },
+  },
+  'md:hover:-translate-y-32': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-8rem' } },
+  },
+  'md:hover:-translate-y-40': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-10rem' } },
+  },
+  'md:hover:-translate-y-48': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-12rem' } },
+  },
+  'md:hover:-translate-y-56': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-14rem' } },
+  },
+  'md:hover:-translate-y-64': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-16rem' } },
+  },
+  'md:hover:-translate-y-px': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-1px' } },
+  },
+  'md:hover:-translate-y-full': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-100%' } },
+  },
+  'md:hover:-translate-y-1/2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '-50%' } },
+  },
+  'md:hover:translate-y-1/2': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '50%' } },
+  },
+  'md:hover:translate-y-full': {
+    '@media (min-width:768px)': { ':hover': { '--transform-translate-y': '100%' } },
+  },
+  'md:focus:translate-x-0': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '0' } },
+  },
+  'md:focus:translate-x-1': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '0.25rem' } },
+  },
+  'md:focus:translate-x-2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '0.5rem' } },
+  },
+  'md:focus:translate-x-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '0.75rem' } },
+  },
+  'md:focus:translate-x-4': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '1rem' } },
+  },
+  'md:focus:translate-x-5': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '1.25rem' } },
+  },
+  'md:focus:translate-x-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '1.5rem' } },
+  },
+  'md:focus:translate-x-8': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '2rem' } },
+  },
+  'md:focus:translate-x-10': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '2.5rem' } },
+  },
+  'md:focus:translate-x-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '3rem' } },
+  },
+  'md:focus:translate-x-16': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '4rem' } },
+  },
+  'md:focus:translate-x-20': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '5rem' } },
+  },
+  'md:focus:translate-x-24': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '6rem' } },
+  },
+  'md:focus:translate-x-32': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '8rem' } },
+  },
+  'md:focus:translate-x-40': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '10rem' } },
+  },
+  'md:focus:translate-x-48': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '12rem' } },
+  },
+  'md:focus:translate-x-56': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '14rem' } },
+  },
+  'md:focus:translate-x-64': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '16rem' } },
+  },
+  'md:focus:translate-x-px': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '1px' } },
+  },
+  'md:focus:-translate-x-1': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'md:focus:-translate-x-2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'md:focus:-translate-x-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'md:focus:-translate-x-4': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-1rem' } },
+  },
+  'md:focus:-translate-x-5': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'md:focus:-translate-x-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'md:focus:-translate-x-8': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-2rem' } },
+  },
+  'md:focus:-translate-x-10': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'md:focus:-translate-x-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-3rem' } },
+  },
+  'md:focus:-translate-x-16': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-4rem' } },
+  },
+  'md:focus:-translate-x-20': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-5rem' } },
+  },
+  'md:focus:-translate-x-24': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-6rem' } },
+  },
+  'md:focus:-translate-x-32': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-8rem' } },
+  },
+  'md:focus:-translate-x-40': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-10rem' } },
+  },
+  'md:focus:-translate-x-48': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-12rem' } },
+  },
+  'md:focus:-translate-x-56': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-14rem' } },
+  },
+  'md:focus:-translate-x-64': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-16rem' } },
+  },
+  'md:focus:-translate-x-px': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-1px' } },
+  },
+  'md:focus:-translate-x-full': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-100%' } },
+  },
+  'md:focus:-translate-x-1/2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '-50%' } },
+  },
+  'md:focus:translate-x-1/2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '50%' } },
+  },
+  'md:focus:translate-x-full': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-x': '100%' } },
+  },
+  'md:focus:translate-y-0': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '0' } },
+  },
+  'md:focus:translate-y-1': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '0.25rem' } },
+  },
+  'md:focus:translate-y-2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '0.5rem' } },
+  },
+  'md:focus:translate-y-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '0.75rem' } },
+  },
+  'md:focus:translate-y-4': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '1rem' } },
+  },
+  'md:focus:translate-y-5': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '1.25rem' } },
+  },
+  'md:focus:translate-y-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '1.5rem' } },
+  },
+  'md:focus:translate-y-8': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '2rem' } },
+  },
+  'md:focus:translate-y-10': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '2.5rem' } },
+  },
+  'md:focus:translate-y-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '3rem' } },
+  },
+  'md:focus:translate-y-16': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '4rem' } },
+  },
+  'md:focus:translate-y-20': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '5rem' } },
+  },
+  'md:focus:translate-y-24': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '6rem' } },
+  },
+  'md:focus:translate-y-32': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '8rem' } },
+  },
+  'md:focus:translate-y-40': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '10rem' } },
+  },
+  'md:focus:translate-y-48': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '12rem' } },
+  },
+  'md:focus:translate-y-56': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '14rem' } },
+  },
+  'md:focus:translate-y-64': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '16rem' } },
+  },
+  'md:focus:translate-y-px': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '1px' } },
+  },
+  'md:focus:-translate-y-1': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'md:focus:-translate-y-2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'md:focus:-translate-y-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'md:focus:-translate-y-4': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-1rem' } },
+  },
+  'md:focus:-translate-y-5': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'md:focus:-translate-y-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'md:focus:-translate-y-8': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-2rem' } },
+  },
+  'md:focus:-translate-y-10': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'md:focus:-translate-y-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-3rem' } },
+  },
+  'md:focus:-translate-y-16': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-4rem' } },
+  },
+  'md:focus:-translate-y-20': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-5rem' } },
+  },
+  'md:focus:-translate-y-24': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-6rem' } },
+  },
+  'md:focus:-translate-y-32': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-8rem' } },
+  },
+  'md:focus:-translate-y-40': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-10rem' } },
+  },
+  'md:focus:-translate-y-48': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-12rem' } },
+  },
+  'md:focus:-translate-y-56': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-14rem' } },
+  },
+  'md:focus:-translate-y-64': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-16rem' } },
+  },
+  'md:focus:-translate-y-px': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-1px' } },
+  },
+  'md:focus:-translate-y-full': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-100%' } },
+  },
+  'md:focus:-translate-y-1/2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '-50%' } },
+  },
+  'md:focus:translate-y-1/2': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '50%' } },
+  },
+  'md:focus:translate-y-full': {
+    '@media (min-width:768px)': { ':focus': { '--transform-translate-y': '100%' } },
+  },
+  'md:skew-x-0': { '@media (min-width:768px)': { '--transform-skew-x': '0' } },
+  'md:skew-x-3': { '@media (min-width:768px)': { '--transform-skew-x': '3deg' } },
+  'md:skew-x-6': { '@media (min-width:768px)': { '--transform-skew-x': '6deg' } },
+  'md:skew-x-12': { '@media (min-width:768px)': { '--transform-skew-x': '12deg' } },
+  'md:-skew-x-12': { '@media (min-width:768px)': { '--transform-skew-x': '-12deg' } },
+  'md:-skew-x-6': { '@media (min-width:768px)': { '--transform-skew-x': '-6deg' } },
+  'md:-skew-x-3': { '@media (min-width:768px)': { '--transform-skew-x': '-3deg' } },
+  'md:skew-y-0': { '@media (min-width:768px)': { '--transform-skew-y': '0' } },
+  'md:skew-y-3': { '@media (min-width:768px)': { '--transform-skew-y': '3deg' } },
+  'md:skew-y-6': { '@media (min-width:768px)': { '--transform-skew-y': '6deg' } },
+  'md:skew-y-12': { '@media (min-width:768px)': { '--transform-skew-y': '12deg' } },
+  'md:-skew-y-12': { '@media (min-width:768px)': { '--transform-skew-y': '-12deg' } },
+  'md:-skew-y-6': { '@media (min-width:768px)': { '--transform-skew-y': '-6deg' } },
+  'md:-skew-y-3': { '@media (min-width:768px)': { '--transform-skew-y': '-3deg' } },
+  'md:hover:skew-x-0': { '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '0' } } },
+  'md:hover:skew-x-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '3deg' } },
+  },
+  'md:hover:skew-x-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '6deg' } },
+  },
+  'md:hover:skew-x-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '12deg' } },
+  },
+  'md:hover:-skew-x-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '-12deg' } },
+  },
+  'md:hover:-skew-x-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '-6deg' } },
+  },
+  'md:hover:-skew-x-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-x': '-3deg' } },
+  },
+  'md:hover:skew-y-0': { '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '0' } } },
+  'md:hover:skew-y-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '3deg' } },
+  },
+  'md:hover:skew-y-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '6deg' } },
+  },
+  'md:hover:skew-y-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '12deg' } },
+  },
+  'md:hover:-skew-y-12': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '-12deg' } },
+  },
+  'md:hover:-skew-y-6': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '-6deg' } },
+  },
+  'md:hover:-skew-y-3': {
+    '@media (min-width:768px)': { ':hover': { '--transform-skew-y': '-3deg' } },
+  },
+  'md:focus:skew-x-0': { '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '0' } } },
+  'md:focus:skew-x-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '3deg' } },
+  },
+  'md:focus:skew-x-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '6deg' } },
+  },
+  'md:focus:skew-x-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '12deg' } },
+  },
+  'md:focus:-skew-x-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '-12deg' } },
+  },
+  'md:focus:-skew-x-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '-6deg' } },
+  },
+  'md:focus:-skew-x-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-x': '-3deg' } },
+  },
+  'md:focus:skew-y-0': { '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '0' } } },
+  'md:focus:skew-y-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '3deg' } },
+  },
+  'md:focus:skew-y-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '6deg' } },
+  },
+  'md:focus:skew-y-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '12deg' } },
+  },
+  'md:focus:-skew-y-12': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '-12deg' } },
+  },
+  'md:focus:-skew-y-6': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '-6deg' } },
+  },
+  'md:focus:-skew-y-3': {
+    '@media (min-width:768px)': { ':focus': { '--transform-skew-y': '-3deg' } },
+  },
   'md:transition-none': { '@media (min-width:768px)': { transitionProperty: 'none' } },
   'md:transition-all': { '@media (min-width:768px)': { transitionProperty: 'all' } },
   'md:transition': {
@@ -10430,7 +12402,14 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'lg:row-end-auto': { '@media (min-width:1024px)': { gridRowEnd: 'auto' } },
   'lg:transform': {
     '@media (min-width:1024px)': {
-      transform:
+      '--transform-translate-x': '0',
+      '--transform-translate-y': '0',
+      '--transform-rotate': '0',
+      '--transform-skew-x': '0',
+      '--transform-skew-y': '0',
+      '--transform-scale-x': '1',
+      '--transform-scale-y': '1',
+      'transform':
         'translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))',
     },
   },
@@ -10444,6 +12423,985 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'lg:origin-bottom-left': { '@media (min-width:1024px)': { transformOrigin: 'bottom left' } },
   'lg:origin-left': { '@media (min-width:1024px)': { transformOrigin: 'left' } },
   'lg:origin-top-left': { '@media (min-width:1024px)': { transformOrigin: 'top left' } },
+  'lg:scale-0': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+  },
+  'lg:scale-50': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+  },
+  'lg:scale-75': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+  },
+  'lg:scale-90': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+  },
+  'lg:scale-95': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+  },
+  'lg:scale-100': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+  },
+  'lg:scale-105': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+  },
+  'lg:scale-110': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+  },
+  'lg:scale-125': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+  },
+  'lg:scale-150': {
+    '@media (min-width:1024px)': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+  },
+  'lg:scale-x-0': { '@media (min-width:1024px)': { '--transform-scale-x': '0' } },
+  'lg:scale-x-50': { '@media (min-width:1024px)': { '--transform-scale-x': '.5' } },
+  'lg:scale-x-75': { '@media (min-width:1024px)': { '--transform-scale-x': '.75' } },
+  'lg:scale-x-90': { '@media (min-width:1024px)': { '--transform-scale-x': '.9' } },
+  'lg:scale-x-95': { '@media (min-width:1024px)': { '--transform-scale-x': '.95' } },
+  'lg:scale-x-100': { '@media (min-width:1024px)': { '--transform-scale-x': '1' } },
+  'lg:scale-x-105': { '@media (min-width:1024px)': { '--transform-scale-x': '1.05' } },
+  'lg:scale-x-110': { '@media (min-width:1024px)': { '--transform-scale-x': '1.1' } },
+  'lg:scale-x-125': { '@media (min-width:1024px)': { '--transform-scale-x': '1.25' } },
+  'lg:scale-x-150': { '@media (min-width:1024px)': { '--transform-scale-x': '1.5' } },
+  'lg:scale-y-0': { '@media (min-width:1024px)': { '--transform-scale-y': '0' } },
+  'lg:scale-y-50': { '@media (min-width:1024px)': { '--transform-scale-y': '.5' } },
+  'lg:scale-y-75': { '@media (min-width:1024px)': { '--transform-scale-y': '.75' } },
+  'lg:scale-y-90': { '@media (min-width:1024px)': { '--transform-scale-y': '.9' } },
+  'lg:scale-y-95': { '@media (min-width:1024px)': { '--transform-scale-y': '.95' } },
+  'lg:scale-y-100': { '@media (min-width:1024px)': { '--transform-scale-y': '1' } },
+  'lg:scale-y-105': { '@media (min-width:1024px)': { '--transform-scale-y': '1.05' } },
+  'lg:scale-y-110': { '@media (min-width:1024px)': { '--transform-scale-y': '1.1' } },
+  'lg:scale-y-125': { '@media (min-width:1024px)': { '--transform-scale-y': '1.25' } },
+  'lg:scale-y-150': { '@media (min-width:1024px)': { '--transform-scale-y': '1.5' } },
+  'lg:hover:scale-0': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'lg:hover:scale-50': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'lg:hover:scale-75': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'lg:hover:scale-90': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'lg:hover:scale-95': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'lg:hover:scale-100': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'lg:hover:scale-105': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'lg:hover:scale-110': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'lg:hover:scale-125': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'lg:hover:scale-150': {
+    '@media (min-width:1024px)': {
+      ':hover': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'lg:hover:scale-x-0': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '0' } },
+  },
+  'lg:hover:scale-x-50': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '.5' } },
+  },
+  'lg:hover:scale-x-75': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '.75' } },
+  },
+  'lg:hover:scale-x-90': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '.9' } },
+  },
+  'lg:hover:scale-x-95': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '.95' } },
+  },
+  'lg:hover:scale-x-100': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '1' } },
+  },
+  'lg:hover:scale-x-105': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '1.05' } },
+  },
+  'lg:hover:scale-x-110': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '1.1' } },
+  },
+  'lg:hover:scale-x-125': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '1.25' } },
+  },
+  'lg:hover:scale-x-150': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-x': '1.5' } },
+  },
+  'lg:hover:scale-y-0': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '0' } },
+  },
+  'lg:hover:scale-y-50': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '.5' } },
+  },
+  'lg:hover:scale-y-75': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '.75' } },
+  },
+  'lg:hover:scale-y-90': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '.9' } },
+  },
+  'lg:hover:scale-y-95': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '.95' } },
+  },
+  'lg:hover:scale-y-100': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '1' } },
+  },
+  'lg:hover:scale-y-105': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '1.05' } },
+  },
+  'lg:hover:scale-y-110': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '1.1' } },
+  },
+  'lg:hover:scale-y-125': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '1.25' } },
+  },
+  'lg:hover:scale-y-150': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-scale-y': '1.5' } },
+  },
+  'lg:focus:scale-0': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'lg:focus:scale-50': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'lg:focus:scale-75': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'lg:focus:scale-90': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'lg:focus:scale-95': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'lg:focus:scale-100': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'lg:focus:scale-105': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'lg:focus:scale-110': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'lg:focus:scale-125': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'lg:focus:scale-150': {
+    '@media (min-width:1024px)': {
+      ':focus': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'lg:focus:scale-x-0': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '0' } },
+  },
+  'lg:focus:scale-x-50': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '.5' } },
+  },
+  'lg:focus:scale-x-75': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '.75' } },
+  },
+  'lg:focus:scale-x-90': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '.9' } },
+  },
+  'lg:focus:scale-x-95': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '.95' } },
+  },
+  'lg:focus:scale-x-100': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '1' } },
+  },
+  'lg:focus:scale-x-105': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '1.05' } },
+  },
+  'lg:focus:scale-x-110': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '1.1' } },
+  },
+  'lg:focus:scale-x-125': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '1.25' } },
+  },
+  'lg:focus:scale-x-150': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-x': '1.5' } },
+  },
+  'lg:focus:scale-y-0': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '0' } },
+  },
+  'lg:focus:scale-y-50': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '.5' } },
+  },
+  'lg:focus:scale-y-75': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '.75' } },
+  },
+  'lg:focus:scale-y-90': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '.9' } },
+  },
+  'lg:focus:scale-y-95': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '.95' } },
+  },
+  'lg:focus:scale-y-100': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '1' } },
+  },
+  'lg:focus:scale-y-105': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '1.05' } },
+  },
+  'lg:focus:scale-y-110': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '1.1' } },
+  },
+  'lg:focus:scale-y-125': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '1.25' } },
+  },
+  'lg:focus:scale-y-150': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-scale-y': '1.5' } },
+  },
+  'lg:rotate-0': { '@media (min-width:1024px)': { '--transform-rotate': '0' } },
+  'lg:rotate-45': { '@media (min-width:1024px)': { '--transform-rotate': '45deg' } },
+  'lg:rotate-90': { '@media (min-width:1024px)': { '--transform-rotate': '90deg' } },
+  'lg:rotate-180': { '@media (min-width:1024px)': { '--transform-rotate': '180deg' } },
+  'lg:-rotate-180': { '@media (min-width:1024px)': { '--transform-rotate': '-180deg' } },
+  'lg:-rotate-90': { '@media (min-width:1024px)': { '--transform-rotate': '-90deg' } },
+  'lg:-rotate-45': { '@media (min-width:1024px)': { '--transform-rotate': '-45deg' } },
+  'lg:hover:rotate-0': { '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '0' } } },
+  'lg:hover:rotate-45': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '45deg' } },
+  },
+  'lg:hover:rotate-90': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '90deg' } },
+  },
+  'lg:hover:rotate-180': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '180deg' } },
+  },
+  'lg:hover:-rotate-180': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '-180deg' } },
+  },
+  'lg:hover:-rotate-90': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '-90deg' } },
+  },
+  'lg:hover:-rotate-45': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-rotate': '-45deg' } },
+  },
+  'lg:focus:rotate-0': { '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '0' } } },
+  'lg:focus:rotate-45': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '45deg' } },
+  },
+  'lg:focus:rotate-90': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '90deg' } },
+  },
+  'lg:focus:rotate-180': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '180deg' } },
+  },
+  'lg:focus:-rotate-180': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '-180deg' } },
+  },
+  'lg:focus:-rotate-90': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '-90deg' } },
+  },
+  'lg:focus:-rotate-45': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-rotate': '-45deg' } },
+  },
+  'lg:translate-x-0': { '@media (min-width:1024px)': { '--transform-translate-x': '0' } },
+  'lg:translate-x-1': { '@media (min-width:1024px)': { '--transform-translate-x': '0.25rem' } },
+  'lg:translate-x-2': { '@media (min-width:1024px)': { '--transform-translate-x': '0.5rem' } },
+  'lg:translate-x-3': { '@media (min-width:1024px)': { '--transform-translate-x': '0.75rem' } },
+  'lg:translate-x-4': { '@media (min-width:1024px)': { '--transform-translate-x': '1rem' } },
+  'lg:translate-x-5': { '@media (min-width:1024px)': { '--transform-translate-x': '1.25rem' } },
+  'lg:translate-x-6': { '@media (min-width:1024px)': { '--transform-translate-x': '1.5rem' } },
+  'lg:translate-x-8': { '@media (min-width:1024px)': { '--transform-translate-x': '2rem' } },
+  'lg:translate-x-10': { '@media (min-width:1024px)': { '--transform-translate-x': '2.5rem' } },
+  'lg:translate-x-12': { '@media (min-width:1024px)': { '--transform-translate-x': '3rem' } },
+  'lg:translate-x-16': { '@media (min-width:1024px)': { '--transform-translate-x': '4rem' } },
+  'lg:translate-x-20': { '@media (min-width:1024px)': { '--transform-translate-x': '5rem' } },
+  'lg:translate-x-24': { '@media (min-width:1024px)': { '--transform-translate-x': '6rem' } },
+  'lg:translate-x-32': { '@media (min-width:1024px)': { '--transform-translate-x': '8rem' } },
+  'lg:translate-x-40': { '@media (min-width:1024px)': { '--transform-translate-x': '10rem' } },
+  'lg:translate-x-48': { '@media (min-width:1024px)': { '--transform-translate-x': '12rem' } },
+  'lg:translate-x-56': { '@media (min-width:1024px)': { '--transform-translate-x': '14rem' } },
+  'lg:translate-x-64': { '@media (min-width:1024px)': { '--transform-translate-x': '16rem' } },
+  'lg:translate-x-px': { '@media (min-width:1024px)': { '--transform-translate-x': '1px' } },
+  'lg:-translate-x-1': { '@media (min-width:1024px)': { '--transform-translate-x': '-0.25rem' } },
+  'lg:-translate-x-2': { '@media (min-width:1024px)': { '--transform-translate-x': '-0.5rem' } },
+  'lg:-translate-x-3': { '@media (min-width:1024px)': { '--transform-translate-x': '-0.75rem' } },
+  'lg:-translate-x-4': { '@media (min-width:1024px)': { '--transform-translate-x': '-1rem' } },
+  'lg:-translate-x-5': { '@media (min-width:1024px)': { '--transform-translate-x': '-1.25rem' } },
+  'lg:-translate-x-6': { '@media (min-width:1024px)': { '--transform-translate-x': '-1.5rem' } },
+  'lg:-translate-x-8': { '@media (min-width:1024px)': { '--transform-translate-x': '-2rem' } },
+  'lg:-translate-x-10': { '@media (min-width:1024px)': { '--transform-translate-x': '-2.5rem' } },
+  'lg:-translate-x-12': { '@media (min-width:1024px)': { '--transform-translate-x': '-3rem' } },
+  'lg:-translate-x-16': { '@media (min-width:1024px)': { '--transform-translate-x': '-4rem' } },
+  'lg:-translate-x-20': { '@media (min-width:1024px)': { '--transform-translate-x': '-5rem' } },
+  'lg:-translate-x-24': { '@media (min-width:1024px)': { '--transform-translate-x': '-6rem' } },
+  'lg:-translate-x-32': { '@media (min-width:1024px)': { '--transform-translate-x': '-8rem' } },
+  'lg:-translate-x-40': { '@media (min-width:1024px)': { '--transform-translate-x': '-10rem' } },
+  'lg:-translate-x-48': { '@media (min-width:1024px)': { '--transform-translate-x': '-12rem' } },
+  'lg:-translate-x-56': { '@media (min-width:1024px)': { '--transform-translate-x': '-14rem' } },
+  'lg:-translate-x-64': { '@media (min-width:1024px)': { '--transform-translate-x': '-16rem' } },
+  'lg:-translate-x-px': { '@media (min-width:1024px)': { '--transform-translate-x': '-1px' } },
+  'lg:-translate-x-full': { '@media (min-width:1024px)': { '--transform-translate-x': '-100%' } },
+  'lg:-translate-x-1/2': { '@media (min-width:1024px)': { '--transform-translate-x': '-50%' } },
+  'lg:translate-x-1/2': { '@media (min-width:1024px)': { '--transform-translate-x': '50%' } },
+  'lg:translate-x-full': { '@media (min-width:1024px)': { '--transform-translate-x': '100%' } },
+  'lg:translate-y-0': { '@media (min-width:1024px)': { '--transform-translate-y': '0' } },
+  'lg:translate-y-1': { '@media (min-width:1024px)': { '--transform-translate-y': '0.25rem' } },
+  'lg:translate-y-2': { '@media (min-width:1024px)': { '--transform-translate-y': '0.5rem' } },
+  'lg:translate-y-3': { '@media (min-width:1024px)': { '--transform-translate-y': '0.75rem' } },
+  'lg:translate-y-4': { '@media (min-width:1024px)': { '--transform-translate-y': '1rem' } },
+  'lg:translate-y-5': { '@media (min-width:1024px)': { '--transform-translate-y': '1.25rem' } },
+  'lg:translate-y-6': { '@media (min-width:1024px)': { '--transform-translate-y': '1.5rem' } },
+  'lg:translate-y-8': { '@media (min-width:1024px)': { '--transform-translate-y': '2rem' } },
+  'lg:translate-y-10': { '@media (min-width:1024px)': { '--transform-translate-y': '2.5rem' } },
+  'lg:translate-y-12': { '@media (min-width:1024px)': { '--transform-translate-y': '3rem' } },
+  'lg:translate-y-16': { '@media (min-width:1024px)': { '--transform-translate-y': '4rem' } },
+  'lg:translate-y-20': { '@media (min-width:1024px)': { '--transform-translate-y': '5rem' } },
+  'lg:translate-y-24': { '@media (min-width:1024px)': { '--transform-translate-y': '6rem' } },
+  'lg:translate-y-32': { '@media (min-width:1024px)': { '--transform-translate-y': '8rem' } },
+  'lg:translate-y-40': { '@media (min-width:1024px)': { '--transform-translate-y': '10rem' } },
+  'lg:translate-y-48': { '@media (min-width:1024px)': { '--transform-translate-y': '12rem' } },
+  'lg:translate-y-56': { '@media (min-width:1024px)': { '--transform-translate-y': '14rem' } },
+  'lg:translate-y-64': { '@media (min-width:1024px)': { '--transform-translate-y': '16rem' } },
+  'lg:translate-y-px': { '@media (min-width:1024px)': { '--transform-translate-y': '1px' } },
+  'lg:-translate-y-1': { '@media (min-width:1024px)': { '--transform-translate-y': '-0.25rem' } },
+  'lg:-translate-y-2': { '@media (min-width:1024px)': { '--transform-translate-y': '-0.5rem' } },
+  'lg:-translate-y-3': { '@media (min-width:1024px)': { '--transform-translate-y': '-0.75rem' } },
+  'lg:-translate-y-4': { '@media (min-width:1024px)': { '--transform-translate-y': '-1rem' } },
+  'lg:-translate-y-5': { '@media (min-width:1024px)': { '--transform-translate-y': '-1.25rem' } },
+  'lg:-translate-y-6': { '@media (min-width:1024px)': { '--transform-translate-y': '-1.5rem' } },
+  'lg:-translate-y-8': { '@media (min-width:1024px)': { '--transform-translate-y': '-2rem' } },
+  'lg:-translate-y-10': { '@media (min-width:1024px)': { '--transform-translate-y': '-2.5rem' } },
+  'lg:-translate-y-12': { '@media (min-width:1024px)': { '--transform-translate-y': '-3rem' } },
+  'lg:-translate-y-16': { '@media (min-width:1024px)': { '--transform-translate-y': '-4rem' } },
+  'lg:-translate-y-20': { '@media (min-width:1024px)': { '--transform-translate-y': '-5rem' } },
+  'lg:-translate-y-24': { '@media (min-width:1024px)': { '--transform-translate-y': '-6rem' } },
+  'lg:-translate-y-32': { '@media (min-width:1024px)': { '--transform-translate-y': '-8rem' } },
+  'lg:-translate-y-40': { '@media (min-width:1024px)': { '--transform-translate-y': '-10rem' } },
+  'lg:-translate-y-48': { '@media (min-width:1024px)': { '--transform-translate-y': '-12rem' } },
+  'lg:-translate-y-56': { '@media (min-width:1024px)': { '--transform-translate-y': '-14rem' } },
+  'lg:-translate-y-64': { '@media (min-width:1024px)': { '--transform-translate-y': '-16rem' } },
+  'lg:-translate-y-px': { '@media (min-width:1024px)': { '--transform-translate-y': '-1px' } },
+  'lg:-translate-y-full': { '@media (min-width:1024px)': { '--transform-translate-y': '-100%' } },
+  'lg:-translate-y-1/2': { '@media (min-width:1024px)': { '--transform-translate-y': '-50%' } },
+  'lg:translate-y-1/2': { '@media (min-width:1024px)': { '--transform-translate-y': '50%' } },
+  'lg:translate-y-full': { '@media (min-width:1024px)': { '--transform-translate-y': '100%' } },
+  'lg:hover:translate-x-0': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '0' } },
+  },
+  'lg:hover:translate-x-1': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '0.25rem' } },
+  },
+  'lg:hover:translate-x-2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '0.5rem' } },
+  },
+  'lg:hover:translate-x-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '0.75rem' } },
+  },
+  'lg:hover:translate-x-4': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '1rem' } },
+  },
+  'lg:hover:translate-x-5': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '1.25rem' } },
+  },
+  'lg:hover:translate-x-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '1.5rem' } },
+  },
+  'lg:hover:translate-x-8': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '2rem' } },
+  },
+  'lg:hover:translate-x-10': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '2.5rem' } },
+  },
+  'lg:hover:translate-x-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '3rem' } },
+  },
+  'lg:hover:translate-x-16': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '4rem' } },
+  },
+  'lg:hover:translate-x-20': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '5rem' } },
+  },
+  'lg:hover:translate-x-24': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '6rem' } },
+  },
+  'lg:hover:translate-x-32': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '8rem' } },
+  },
+  'lg:hover:translate-x-40': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '10rem' } },
+  },
+  'lg:hover:translate-x-48': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '12rem' } },
+  },
+  'lg:hover:translate-x-56': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '14rem' } },
+  },
+  'lg:hover:translate-x-64': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '16rem' } },
+  },
+  'lg:hover:translate-x-px': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '1px' } },
+  },
+  'lg:hover:-translate-x-1': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'lg:hover:-translate-x-2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'lg:hover:-translate-x-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'lg:hover:-translate-x-4': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-1rem' } },
+  },
+  'lg:hover:-translate-x-5': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'lg:hover:-translate-x-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'lg:hover:-translate-x-8': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-2rem' } },
+  },
+  'lg:hover:-translate-x-10': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'lg:hover:-translate-x-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-3rem' } },
+  },
+  'lg:hover:-translate-x-16': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-4rem' } },
+  },
+  'lg:hover:-translate-x-20': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-5rem' } },
+  },
+  'lg:hover:-translate-x-24': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-6rem' } },
+  },
+  'lg:hover:-translate-x-32': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-8rem' } },
+  },
+  'lg:hover:-translate-x-40': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-10rem' } },
+  },
+  'lg:hover:-translate-x-48': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-12rem' } },
+  },
+  'lg:hover:-translate-x-56': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-14rem' } },
+  },
+  'lg:hover:-translate-x-64': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-16rem' } },
+  },
+  'lg:hover:-translate-x-px': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-1px' } },
+  },
+  'lg:hover:-translate-x-full': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-100%' } },
+  },
+  'lg:hover:-translate-x-1/2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '-50%' } },
+  },
+  'lg:hover:translate-x-1/2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '50%' } },
+  },
+  'lg:hover:translate-x-full': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-x': '100%' } },
+  },
+  'lg:hover:translate-y-0': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '0' } },
+  },
+  'lg:hover:translate-y-1': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '0.25rem' } },
+  },
+  'lg:hover:translate-y-2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '0.5rem' } },
+  },
+  'lg:hover:translate-y-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '0.75rem' } },
+  },
+  'lg:hover:translate-y-4': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '1rem' } },
+  },
+  'lg:hover:translate-y-5': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '1.25rem' } },
+  },
+  'lg:hover:translate-y-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '1.5rem' } },
+  },
+  'lg:hover:translate-y-8': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '2rem' } },
+  },
+  'lg:hover:translate-y-10': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '2.5rem' } },
+  },
+  'lg:hover:translate-y-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '3rem' } },
+  },
+  'lg:hover:translate-y-16': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '4rem' } },
+  },
+  'lg:hover:translate-y-20': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '5rem' } },
+  },
+  'lg:hover:translate-y-24': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '6rem' } },
+  },
+  'lg:hover:translate-y-32': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '8rem' } },
+  },
+  'lg:hover:translate-y-40': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '10rem' } },
+  },
+  'lg:hover:translate-y-48': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '12rem' } },
+  },
+  'lg:hover:translate-y-56': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '14rem' } },
+  },
+  'lg:hover:translate-y-64': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '16rem' } },
+  },
+  'lg:hover:translate-y-px': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '1px' } },
+  },
+  'lg:hover:-translate-y-1': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'lg:hover:-translate-y-2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'lg:hover:-translate-y-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'lg:hover:-translate-y-4': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-1rem' } },
+  },
+  'lg:hover:-translate-y-5': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'lg:hover:-translate-y-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'lg:hover:-translate-y-8': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-2rem' } },
+  },
+  'lg:hover:-translate-y-10': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'lg:hover:-translate-y-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-3rem' } },
+  },
+  'lg:hover:-translate-y-16': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-4rem' } },
+  },
+  'lg:hover:-translate-y-20': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-5rem' } },
+  },
+  'lg:hover:-translate-y-24': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-6rem' } },
+  },
+  'lg:hover:-translate-y-32': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-8rem' } },
+  },
+  'lg:hover:-translate-y-40': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-10rem' } },
+  },
+  'lg:hover:-translate-y-48': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-12rem' } },
+  },
+  'lg:hover:-translate-y-56': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-14rem' } },
+  },
+  'lg:hover:-translate-y-64': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-16rem' } },
+  },
+  'lg:hover:-translate-y-px': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-1px' } },
+  },
+  'lg:hover:-translate-y-full': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-100%' } },
+  },
+  'lg:hover:-translate-y-1/2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '-50%' } },
+  },
+  'lg:hover:translate-y-1/2': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '50%' } },
+  },
+  'lg:hover:translate-y-full': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-translate-y': '100%' } },
+  },
+  'lg:focus:translate-x-0': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '0' } },
+  },
+  'lg:focus:translate-x-1': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '0.25rem' } },
+  },
+  'lg:focus:translate-x-2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '0.5rem' } },
+  },
+  'lg:focus:translate-x-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '0.75rem' } },
+  },
+  'lg:focus:translate-x-4': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '1rem' } },
+  },
+  'lg:focus:translate-x-5': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '1.25rem' } },
+  },
+  'lg:focus:translate-x-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '1.5rem' } },
+  },
+  'lg:focus:translate-x-8': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '2rem' } },
+  },
+  'lg:focus:translate-x-10': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '2.5rem' } },
+  },
+  'lg:focus:translate-x-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '3rem' } },
+  },
+  'lg:focus:translate-x-16': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '4rem' } },
+  },
+  'lg:focus:translate-x-20': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '5rem' } },
+  },
+  'lg:focus:translate-x-24': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '6rem' } },
+  },
+  'lg:focus:translate-x-32': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '8rem' } },
+  },
+  'lg:focus:translate-x-40': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '10rem' } },
+  },
+  'lg:focus:translate-x-48': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '12rem' } },
+  },
+  'lg:focus:translate-x-56': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '14rem' } },
+  },
+  'lg:focus:translate-x-64': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '16rem' } },
+  },
+  'lg:focus:translate-x-px': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '1px' } },
+  },
+  'lg:focus:-translate-x-1': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'lg:focus:-translate-x-2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'lg:focus:-translate-x-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'lg:focus:-translate-x-4': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-1rem' } },
+  },
+  'lg:focus:-translate-x-5': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'lg:focus:-translate-x-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'lg:focus:-translate-x-8': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-2rem' } },
+  },
+  'lg:focus:-translate-x-10': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'lg:focus:-translate-x-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-3rem' } },
+  },
+  'lg:focus:-translate-x-16': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-4rem' } },
+  },
+  'lg:focus:-translate-x-20': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-5rem' } },
+  },
+  'lg:focus:-translate-x-24': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-6rem' } },
+  },
+  'lg:focus:-translate-x-32': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-8rem' } },
+  },
+  'lg:focus:-translate-x-40': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-10rem' } },
+  },
+  'lg:focus:-translate-x-48': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-12rem' } },
+  },
+  'lg:focus:-translate-x-56': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-14rem' } },
+  },
+  'lg:focus:-translate-x-64': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-16rem' } },
+  },
+  'lg:focus:-translate-x-px': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-1px' } },
+  },
+  'lg:focus:-translate-x-full': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-100%' } },
+  },
+  'lg:focus:-translate-x-1/2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '-50%' } },
+  },
+  'lg:focus:translate-x-1/2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '50%' } },
+  },
+  'lg:focus:translate-x-full': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-x': '100%' } },
+  },
+  'lg:focus:translate-y-0': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '0' } },
+  },
+  'lg:focus:translate-y-1': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '0.25rem' } },
+  },
+  'lg:focus:translate-y-2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '0.5rem' } },
+  },
+  'lg:focus:translate-y-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '0.75rem' } },
+  },
+  'lg:focus:translate-y-4': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '1rem' } },
+  },
+  'lg:focus:translate-y-5': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '1.25rem' } },
+  },
+  'lg:focus:translate-y-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '1.5rem' } },
+  },
+  'lg:focus:translate-y-8': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '2rem' } },
+  },
+  'lg:focus:translate-y-10': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '2.5rem' } },
+  },
+  'lg:focus:translate-y-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '3rem' } },
+  },
+  'lg:focus:translate-y-16': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '4rem' } },
+  },
+  'lg:focus:translate-y-20': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '5rem' } },
+  },
+  'lg:focus:translate-y-24': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '6rem' } },
+  },
+  'lg:focus:translate-y-32': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '8rem' } },
+  },
+  'lg:focus:translate-y-40': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '10rem' } },
+  },
+  'lg:focus:translate-y-48': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '12rem' } },
+  },
+  'lg:focus:translate-y-56': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '14rem' } },
+  },
+  'lg:focus:translate-y-64': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '16rem' } },
+  },
+  'lg:focus:translate-y-px': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '1px' } },
+  },
+  'lg:focus:-translate-y-1': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'lg:focus:-translate-y-2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'lg:focus:-translate-y-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'lg:focus:-translate-y-4': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-1rem' } },
+  },
+  'lg:focus:-translate-y-5': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'lg:focus:-translate-y-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'lg:focus:-translate-y-8': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-2rem' } },
+  },
+  'lg:focus:-translate-y-10': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'lg:focus:-translate-y-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-3rem' } },
+  },
+  'lg:focus:-translate-y-16': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-4rem' } },
+  },
+  'lg:focus:-translate-y-20': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-5rem' } },
+  },
+  'lg:focus:-translate-y-24': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-6rem' } },
+  },
+  'lg:focus:-translate-y-32': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-8rem' } },
+  },
+  'lg:focus:-translate-y-40': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-10rem' } },
+  },
+  'lg:focus:-translate-y-48': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-12rem' } },
+  },
+  'lg:focus:-translate-y-56': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-14rem' } },
+  },
+  'lg:focus:-translate-y-64': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-16rem' } },
+  },
+  'lg:focus:-translate-y-px': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-1px' } },
+  },
+  'lg:focus:-translate-y-full': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-100%' } },
+  },
+  'lg:focus:-translate-y-1/2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '-50%' } },
+  },
+  'lg:focus:translate-y-1/2': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '50%' } },
+  },
+  'lg:focus:translate-y-full': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-translate-y': '100%' } },
+  },
+  'lg:skew-x-0': { '@media (min-width:1024px)': { '--transform-skew-x': '0' } },
+  'lg:skew-x-3': { '@media (min-width:1024px)': { '--transform-skew-x': '3deg' } },
+  'lg:skew-x-6': { '@media (min-width:1024px)': { '--transform-skew-x': '6deg' } },
+  'lg:skew-x-12': { '@media (min-width:1024px)': { '--transform-skew-x': '12deg' } },
+  'lg:-skew-x-12': { '@media (min-width:1024px)': { '--transform-skew-x': '-12deg' } },
+  'lg:-skew-x-6': { '@media (min-width:1024px)': { '--transform-skew-x': '-6deg' } },
+  'lg:-skew-x-3': { '@media (min-width:1024px)': { '--transform-skew-x': '-3deg' } },
+  'lg:skew-y-0': { '@media (min-width:1024px)': { '--transform-skew-y': '0' } },
+  'lg:skew-y-3': { '@media (min-width:1024px)': { '--transform-skew-y': '3deg' } },
+  'lg:skew-y-6': { '@media (min-width:1024px)': { '--transform-skew-y': '6deg' } },
+  'lg:skew-y-12': { '@media (min-width:1024px)': { '--transform-skew-y': '12deg' } },
+  'lg:-skew-y-12': { '@media (min-width:1024px)': { '--transform-skew-y': '-12deg' } },
+  'lg:-skew-y-6': { '@media (min-width:1024px)': { '--transform-skew-y': '-6deg' } },
+  'lg:-skew-y-3': { '@media (min-width:1024px)': { '--transform-skew-y': '-3deg' } },
+  'lg:hover:skew-x-0': { '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '0' } } },
+  'lg:hover:skew-x-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '3deg' } },
+  },
+  'lg:hover:skew-x-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '6deg' } },
+  },
+  'lg:hover:skew-x-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '12deg' } },
+  },
+  'lg:hover:-skew-x-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '-12deg' } },
+  },
+  'lg:hover:-skew-x-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '-6deg' } },
+  },
+  'lg:hover:-skew-x-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-x': '-3deg' } },
+  },
+  'lg:hover:skew-y-0': { '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '0' } } },
+  'lg:hover:skew-y-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '3deg' } },
+  },
+  'lg:hover:skew-y-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '6deg' } },
+  },
+  'lg:hover:skew-y-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '12deg' } },
+  },
+  'lg:hover:-skew-y-12': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '-12deg' } },
+  },
+  'lg:hover:-skew-y-6': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '-6deg' } },
+  },
+  'lg:hover:-skew-y-3': {
+    '@media (min-width:1024px)': { ':hover': { '--transform-skew-y': '-3deg' } },
+  },
+  'lg:focus:skew-x-0': { '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '0' } } },
+  'lg:focus:skew-x-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '3deg' } },
+  },
+  'lg:focus:skew-x-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '6deg' } },
+  },
+  'lg:focus:skew-x-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '12deg' } },
+  },
+  'lg:focus:-skew-x-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '-12deg' } },
+  },
+  'lg:focus:-skew-x-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '-6deg' } },
+  },
+  'lg:focus:-skew-x-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-x': '-3deg' } },
+  },
+  'lg:focus:skew-y-0': { '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '0' } } },
+  'lg:focus:skew-y-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '3deg' } },
+  },
+  'lg:focus:skew-y-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '6deg' } },
+  },
+  'lg:focus:skew-y-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '12deg' } },
+  },
+  'lg:focus:-skew-y-12': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '-12deg' } },
+  },
+  'lg:focus:-skew-y-6': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '-6deg' } },
+  },
+  'lg:focus:-skew-y-3': {
+    '@media (min-width:1024px)': { ':focus': { '--transform-skew-y': '-3deg' } },
+  },
   'lg:transition-none': { '@media (min-width:1024px)': { transitionProperty: 'none' } },
   'lg:transition-all': { '@media (min-width:1024px)': { transitionProperty: 'all' } },
   'lg:transition': {
@@ -13941,7 +16899,14 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'xl:row-end-auto': { '@media (min-width:1280px)': { gridRowEnd: 'auto' } },
   'xl:transform': {
     '@media (min-width:1280px)': {
-      transform:
+      '--transform-translate-x': '0',
+      '--transform-translate-y': '0',
+      '--transform-rotate': '0',
+      '--transform-skew-x': '0',
+      '--transform-skew-y': '0',
+      '--transform-scale-x': '1',
+      '--transform-scale-y': '1',
+      'transform':
         'translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))',
     },
   },
@@ -13955,6 +16920,985 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'xl:origin-bottom-left': { '@media (min-width:1280px)': { transformOrigin: 'bottom left' } },
   'xl:origin-left': { '@media (min-width:1280px)': { transformOrigin: 'left' } },
   'xl:origin-top-left': { '@media (min-width:1280px)': { transformOrigin: 'top left' } },
+  'xl:scale-0': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+  },
+  'xl:scale-50': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+  },
+  'xl:scale-75': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+  },
+  'xl:scale-90': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+  },
+  'xl:scale-95': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+  },
+  'xl:scale-100': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+  },
+  'xl:scale-105': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+  },
+  'xl:scale-110': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+  },
+  'xl:scale-125': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+  },
+  'xl:scale-150': {
+    '@media (min-width:1280px)': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+  },
+  'xl:scale-x-0': { '@media (min-width:1280px)': { '--transform-scale-x': '0' } },
+  'xl:scale-x-50': { '@media (min-width:1280px)': { '--transform-scale-x': '.5' } },
+  'xl:scale-x-75': { '@media (min-width:1280px)': { '--transform-scale-x': '.75' } },
+  'xl:scale-x-90': { '@media (min-width:1280px)': { '--transform-scale-x': '.9' } },
+  'xl:scale-x-95': { '@media (min-width:1280px)': { '--transform-scale-x': '.95' } },
+  'xl:scale-x-100': { '@media (min-width:1280px)': { '--transform-scale-x': '1' } },
+  'xl:scale-x-105': { '@media (min-width:1280px)': { '--transform-scale-x': '1.05' } },
+  'xl:scale-x-110': { '@media (min-width:1280px)': { '--transform-scale-x': '1.1' } },
+  'xl:scale-x-125': { '@media (min-width:1280px)': { '--transform-scale-x': '1.25' } },
+  'xl:scale-x-150': { '@media (min-width:1280px)': { '--transform-scale-x': '1.5' } },
+  'xl:scale-y-0': { '@media (min-width:1280px)': { '--transform-scale-y': '0' } },
+  'xl:scale-y-50': { '@media (min-width:1280px)': { '--transform-scale-y': '.5' } },
+  'xl:scale-y-75': { '@media (min-width:1280px)': { '--transform-scale-y': '.75' } },
+  'xl:scale-y-90': { '@media (min-width:1280px)': { '--transform-scale-y': '.9' } },
+  'xl:scale-y-95': { '@media (min-width:1280px)': { '--transform-scale-y': '.95' } },
+  'xl:scale-y-100': { '@media (min-width:1280px)': { '--transform-scale-y': '1' } },
+  'xl:scale-y-105': { '@media (min-width:1280px)': { '--transform-scale-y': '1.05' } },
+  'xl:scale-y-110': { '@media (min-width:1280px)': { '--transform-scale-y': '1.1' } },
+  'xl:scale-y-125': { '@media (min-width:1280px)': { '--transform-scale-y': '1.25' } },
+  'xl:scale-y-150': { '@media (min-width:1280px)': { '--transform-scale-y': '1.5' } },
+  'xl:hover:scale-0': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'xl:hover:scale-50': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'xl:hover:scale-75': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'xl:hover:scale-90': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'xl:hover:scale-95': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'xl:hover:scale-100': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'xl:hover:scale-105': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'xl:hover:scale-110': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'xl:hover:scale-125': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'xl:hover:scale-150': {
+    '@media (min-width:1280px)': {
+      ':hover': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'xl:hover:scale-x-0': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '0' } },
+  },
+  'xl:hover:scale-x-50': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '.5' } },
+  },
+  'xl:hover:scale-x-75': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '.75' } },
+  },
+  'xl:hover:scale-x-90': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '.9' } },
+  },
+  'xl:hover:scale-x-95': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '.95' } },
+  },
+  'xl:hover:scale-x-100': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '1' } },
+  },
+  'xl:hover:scale-x-105': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '1.05' } },
+  },
+  'xl:hover:scale-x-110': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '1.1' } },
+  },
+  'xl:hover:scale-x-125': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '1.25' } },
+  },
+  'xl:hover:scale-x-150': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-x': '1.5' } },
+  },
+  'xl:hover:scale-y-0': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '0' } },
+  },
+  'xl:hover:scale-y-50': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '.5' } },
+  },
+  'xl:hover:scale-y-75': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '.75' } },
+  },
+  'xl:hover:scale-y-90': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '.9' } },
+  },
+  'xl:hover:scale-y-95': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '.95' } },
+  },
+  'xl:hover:scale-y-100': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '1' } },
+  },
+  'xl:hover:scale-y-105': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '1.05' } },
+  },
+  'xl:hover:scale-y-110': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '1.1' } },
+  },
+  'xl:hover:scale-y-125': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '1.25' } },
+  },
+  'xl:hover:scale-y-150': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-scale-y': '1.5' } },
+  },
+  'xl:focus:scale-0': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+    },
+  },
+  'xl:focus:scale-50': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+    },
+  },
+  'xl:focus:scale-75': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+    },
+  },
+  'xl:focus:scale-90': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+    },
+  },
+  'xl:focus:scale-95': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+    },
+  },
+  'xl:focus:scale-100': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+    },
+  },
+  'xl:focus:scale-105': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+    },
+  },
+  'xl:focus:scale-110': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+    },
+  },
+  'xl:focus:scale-125': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+    },
+  },
+  'xl:focus:scale-150': {
+    '@media (min-width:1280px)': {
+      ':focus': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+    },
+  },
+  'xl:focus:scale-x-0': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '0' } },
+  },
+  'xl:focus:scale-x-50': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '.5' } },
+  },
+  'xl:focus:scale-x-75': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '.75' } },
+  },
+  'xl:focus:scale-x-90': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '.9' } },
+  },
+  'xl:focus:scale-x-95': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '.95' } },
+  },
+  'xl:focus:scale-x-100': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '1' } },
+  },
+  'xl:focus:scale-x-105': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '1.05' } },
+  },
+  'xl:focus:scale-x-110': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '1.1' } },
+  },
+  'xl:focus:scale-x-125': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '1.25' } },
+  },
+  'xl:focus:scale-x-150': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-x': '1.5' } },
+  },
+  'xl:focus:scale-y-0': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '0' } },
+  },
+  'xl:focus:scale-y-50': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '.5' } },
+  },
+  'xl:focus:scale-y-75': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '.75' } },
+  },
+  'xl:focus:scale-y-90': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '.9' } },
+  },
+  'xl:focus:scale-y-95': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '.95' } },
+  },
+  'xl:focus:scale-y-100': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '1' } },
+  },
+  'xl:focus:scale-y-105': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '1.05' } },
+  },
+  'xl:focus:scale-y-110': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '1.1' } },
+  },
+  'xl:focus:scale-y-125': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '1.25' } },
+  },
+  'xl:focus:scale-y-150': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-scale-y': '1.5' } },
+  },
+  'xl:rotate-0': { '@media (min-width:1280px)': { '--transform-rotate': '0' } },
+  'xl:rotate-45': { '@media (min-width:1280px)': { '--transform-rotate': '45deg' } },
+  'xl:rotate-90': { '@media (min-width:1280px)': { '--transform-rotate': '90deg' } },
+  'xl:rotate-180': { '@media (min-width:1280px)': { '--transform-rotate': '180deg' } },
+  'xl:-rotate-180': { '@media (min-width:1280px)': { '--transform-rotate': '-180deg' } },
+  'xl:-rotate-90': { '@media (min-width:1280px)': { '--transform-rotate': '-90deg' } },
+  'xl:-rotate-45': { '@media (min-width:1280px)': { '--transform-rotate': '-45deg' } },
+  'xl:hover:rotate-0': { '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '0' } } },
+  'xl:hover:rotate-45': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '45deg' } },
+  },
+  'xl:hover:rotate-90': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '90deg' } },
+  },
+  'xl:hover:rotate-180': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '180deg' } },
+  },
+  'xl:hover:-rotate-180': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '-180deg' } },
+  },
+  'xl:hover:-rotate-90': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '-90deg' } },
+  },
+  'xl:hover:-rotate-45': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-rotate': '-45deg' } },
+  },
+  'xl:focus:rotate-0': { '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '0' } } },
+  'xl:focus:rotate-45': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '45deg' } },
+  },
+  'xl:focus:rotate-90': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '90deg' } },
+  },
+  'xl:focus:rotate-180': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '180deg' } },
+  },
+  'xl:focus:-rotate-180': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '-180deg' } },
+  },
+  'xl:focus:-rotate-90': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '-90deg' } },
+  },
+  'xl:focus:-rotate-45': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-rotate': '-45deg' } },
+  },
+  'xl:translate-x-0': { '@media (min-width:1280px)': { '--transform-translate-x': '0' } },
+  'xl:translate-x-1': { '@media (min-width:1280px)': { '--transform-translate-x': '0.25rem' } },
+  'xl:translate-x-2': { '@media (min-width:1280px)': { '--transform-translate-x': '0.5rem' } },
+  'xl:translate-x-3': { '@media (min-width:1280px)': { '--transform-translate-x': '0.75rem' } },
+  'xl:translate-x-4': { '@media (min-width:1280px)': { '--transform-translate-x': '1rem' } },
+  'xl:translate-x-5': { '@media (min-width:1280px)': { '--transform-translate-x': '1.25rem' } },
+  'xl:translate-x-6': { '@media (min-width:1280px)': { '--transform-translate-x': '1.5rem' } },
+  'xl:translate-x-8': { '@media (min-width:1280px)': { '--transform-translate-x': '2rem' } },
+  'xl:translate-x-10': { '@media (min-width:1280px)': { '--transform-translate-x': '2.5rem' } },
+  'xl:translate-x-12': { '@media (min-width:1280px)': { '--transform-translate-x': '3rem' } },
+  'xl:translate-x-16': { '@media (min-width:1280px)': { '--transform-translate-x': '4rem' } },
+  'xl:translate-x-20': { '@media (min-width:1280px)': { '--transform-translate-x': '5rem' } },
+  'xl:translate-x-24': { '@media (min-width:1280px)': { '--transform-translate-x': '6rem' } },
+  'xl:translate-x-32': { '@media (min-width:1280px)': { '--transform-translate-x': '8rem' } },
+  'xl:translate-x-40': { '@media (min-width:1280px)': { '--transform-translate-x': '10rem' } },
+  'xl:translate-x-48': { '@media (min-width:1280px)': { '--transform-translate-x': '12rem' } },
+  'xl:translate-x-56': { '@media (min-width:1280px)': { '--transform-translate-x': '14rem' } },
+  'xl:translate-x-64': { '@media (min-width:1280px)': { '--transform-translate-x': '16rem' } },
+  'xl:translate-x-px': { '@media (min-width:1280px)': { '--transform-translate-x': '1px' } },
+  'xl:-translate-x-1': { '@media (min-width:1280px)': { '--transform-translate-x': '-0.25rem' } },
+  'xl:-translate-x-2': { '@media (min-width:1280px)': { '--transform-translate-x': '-0.5rem' } },
+  'xl:-translate-x-3': { '@media (min-width:1280px)': { '--transform-translate-x': '-0.75rem' } },
+  'xl:-translate-x-4': { '@media (min-width:1280px)': { '--transform-translate-x': '-1rem' } },
+  'xl:-translate-x-5': { '@media (min-width:1280px)': { '--transform-translate-x': '-1.25rem' } },
+  'xl:-translate-x-6': { '@media (min-width:1280px)': { '--transform-translate-x': '-1.5rem' } },
+  'xl:-translate-x-8': { '@media (min-width:1280px)': { '--transform-translate-x': '-2rem' } },
+  'xl:-translate-x-10': { '@media (min-width:1280px)': { '--transform-translate-x': '-2.5rem' } },
+  'xl:-translate-x-12': { '@media (min-width:1280px)': { '--transform-translate-x': '-3rem' } },
+  'xl:-translate-x-16': { '@media (min-width:1280px)': { '--transform-translate-x': '-4rem' } },
+  'xl:-translate-x-20': { '@media (min-width:1280px)': { '--transform-translate-x': '-5rem' } },
+  'xl:-translate-x-24': { '@media (min-width:1280px)': { '--transform-translate-x': '-6rem' } },
+  'xl:-translate-x-32': { '@media (min-width:1280px)': { '--transform-translate-x': '-8rem' } },
+  'xl:-translate-x-40': { '@media (min-width:1280px)': { '--transform-translate-x': '-10rem' } },
+  'xl:-translate-x-48': { '@media (min-width:1280px)': { '--transform-translate-x': '-12rem' } },
+  'xl:-translate-x-56': { '@media (min-width:1280px)': { '--transform-translate-x': '-14rem' } },
+  'xl:-translate-x-64': { '@media (min-width:1280px)': { '--transform-translate-x': '-16rem' } },
+  'xl:-translate-x-px': { '@media (min-width:1280px)': { '--transform-translate-x': '-1px' } },
+  'xl:-translate-x-full': { '@media (min-width:1280px)': { '--transform-translate-x': '-100%' } },
+  'xl:-translate-x-1/2': { '@media (min-width:1280px)': { '--transform-translate-x': '-50%' } },
+  'xl:translate-x-1/2': { '@media (min-width:1280px)': { '--transform-translate-x': '50%' } },
+  'xl:translate-x-full': { '@media (min-width:1280px)': { '--transform-translate-x': '100%' } },
+  'xl:translate-y-0': { '@media (min-width:1280px)': { '--transform-translate-y': '0' } },
+  'xl:translate-y-1': { '@media (min-width:1280px)': { '--transform-translate-y': '0.25rem' } },
+  'xl:translate-y-2': { '@media (min-width:1280px)': { '--transform-translate-y': '0.5rem' } },
+  'xl:translate-y-3': { '@media (min-width:1280px)': { '--transform-translate-y': '0.75rem' } },
+  'xl:translate-y-4': { '@media (min-width:1280px)': { '--transform-translate-y': '1rem' } },
+  'xl:translate-y-5': { '@media (min-width:1280px)': { '--transform-translate-y': '1.25rem' } },
+  'xl:translate-y-6': { '@media (min-width:1280px)': { '--transform-translate-y': '1.5rem' } },
+  'xl:translate-y-8': { '@media (min-width:1280px)': { '--transform-translate-y': '2rem' } },
+  'xl:translate-y-10': { '@media (min-width:1280px)': { '--transform-translate-y': '2.5rem' } },
+  'xl:translate-y-12': { '@media (min-width:1280px)': { '--transform-translate-y': '3rem' } },
+  'xl:translate-y-16': { '@media (min-width:1280px)': { '--transform-translate-y': '4rem' } },
+  'xl:translate-y-20': { '@media (min-width:1280px)': { '--transform-translate-y': '5rem' } },
+  'xl:translate-y-24': { '@media (min-width:1280px)': { '--transform-translate-y': '6rem' } },
+  'xl:translate-y-32': { '@media (min-width:1280px)': { '--transform-translate-y': '8rem' } },
+  'xl:translate-y-40': { '@media (min-width:1280px)': { '--transform-translate-y': '10rem' } },
+  'xl:translate-y-48': { '@media (min-width:1280px)': { '--transform-translate-y': '12rem' } },
+  'xl:translate-y-56': { '@media (min-width:1280px)': { '--transform-translate-y': '14rem' } },
+  'xl:translate-y-64': { '@media (min-width:1280px)': { '--transform-translate-y': '16rem' } },
+  'xl:translate-y-px': { '@media (min-width:1280px)': { '--transform-translate-y': '1px' } },
+  'xl:-translate-y-1': { '@media (min-width:1280px)': { '--transform-translate-y': '-0.25rem' } },
+  'xl:-translate-y-2': { '@media (min-width:1280px)': { '--transform-translate-y': '-0.5rem' } },
+  'xl:-translate-y-3': { '@media (min-width:1280px)': { '--transform-translate-y': '-0.75rem' } },
+  'xl:-translate-y-4': { '@media (min-width:1280px)': { '--transform-translate-y': '-1rem' } },
+  'xl:-translate-y-5': { '@media (min-width:1280px)': { '--transform-translate-y': '-1.25rem' } },
+  'xl:-translate-y-6': { '@media (min-width:1280px)': { '--transform-translate-y': '-1.5rem' } },
+  'xl:-translate-y-8': { '@media (min-width:1280px)': { '--transform-translate-y': '-2rem' } },
+  'xl:-translate-y-10': { '@media (min-width:1280px)': { '--transform-translate-y': '-2.5rem' } },
+  'xl:-translate-y-12': { '@media (min-width:1280px)': { '--transform-translate-y': '-3rem' } },
+  'xl:-translate-y-16': { '@media (min-width:1280px)': { '--transform-translate-y': '-4rem' } },
+  'xl:-translate-y-20': { '@media (min-width:1280px)': { '--transform-translate-y': '-5rem' } },
+  'xl:-translate-y-24': { '@media (min-width:1280px)': { '--transform-translate-y': '-6rem' } },
+  'xl:-translate-y-32': { '@media (min-width:1280px)': { '--transform-translate-y': '-8rem' } },
+  'xl:-translate-y-40': { '@media (min-width:1280px)': { '--transform-translate-y': '-10rem' } },
+  'xl:-translate-y-48': { '@media (min-width:1280px)': { '--transform-translate-y': '-12rem' } },
+  'xl:-translate-y-56': { '@media (min-width:1280px)': { '--transform-translate-y': '-14rem' } },
+  'xl:-translate-y-64': { '@media (min-width:1280px)': { '--transform-translate-y': '-16rem' } },
+  'xl:-translate-y-px': { '@media (min-width:1280px)': { '--transform-translate-y': '-1px' } },
+  'xl:-translate-y-full': { '@media (min-width:1280px)': { '--transform-translate-y': '-100%' } },
+  'xl:-translate-y-1/2': { '@media (min-width:1280px)': { '--transform-translate-y': '-50%' } },
+  'xl:translate-y-1/2': { '@media (min-width:1280px)': { '--transform-translate-y': '50%' } },
+  'xl:translate-y-full': { '@media (min-width:1280px)': { '--transform-translate-y': '100%' } },
+  'xl:hover:translate-x-0': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '0' } },
+  },
+  'xl:hover:translate-x-1': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '0.25rem' } },
+  },
+  'xl:hover:translate-x-2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '0.5rem' } },
+  },
+  'xl:hover:translate-x-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '0.75rem' } },
+  },
+  'xl:hover:translate-x-4': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '1rem' } },
+  },
+  'xl:hover:translate-x-5': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '1.25rem' } },
+  },
+  'xl:hover:translate-x-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '1.5rem' } },
+  },
+  'xl:hover:translate-x-8': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '2rem' } },
+  },
+  'xl:hover:translate-x-10': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '2.5rem' } },
+  },
+  'xl:hover:translate-x-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '3rem' } },
+  },
+  'xl:hover:translate-x-16': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '4rem' } },
+  },
+  'xl:hover:translate-x-20': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '5rem' } },
+  },
+  'xl:hover:translate-x-24': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '6rem' } },
+  },
+  'xl:hover:translate-x-32': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '8rem' } },
+  },
+  'xl:hover:translate-x-40': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '10rem' } },
+  },
+  'xl:hover:translate-x-48': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '12rem' } },
+  },
+  'xl:hover:translate-x-56': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '14rem' } },
+  },
+  'xl:hover:translate-x-64': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '16rem' } },
+  },
+  'xl:hover:translate-x-px': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '1px' } },
+  },
+  'xl:hover:-translate-x-1': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'xl:hover:-translate-x-2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'xl:hover:-translate-x-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'xl:hover:-translate-x-4': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-1rem' } },
+  },
+  'xl:hover:-translate-x-5': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'xl:hover:-translate-x-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'xl:hover:-translate-x-8': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-2rem' } },
+  },
+  'xl:hover:-translate-x-10': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'xl:hover:-translate-x-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-3rem' } },
+  },
+  'xl:hover:-translate-x-16': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-4rem' } },
+  },
+  'xl:hover:-translate-x-20': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-5rem' } },
+  },
+  'xl:hover:-translate-x-24': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-6rem' } },
+  },
+  'xl:hover:-translate-x-32': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-8rem' } },
+  },
+  'xl:hover:-translate-x-40': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-10rem' } },
+  },
+  'xl:hover:-translate-x-48': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-12rem' } },
+  },
+  'xl:hover:-translate-x-56': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-14rem' } },
+  },
+  'xl:hover:-translate-x-64': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-16rem' } },
+  },
+  'xl:hover:-translate-x-px': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-1px' } },
+  },
+  'xl:hover:-translate-x-full': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-100%' } },
+  },
+  'xl:hover:-translate-x-1/2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '-50%' } },
+  },
+  'xl:hover:translate-x-1/2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '50%' } },
+  },
+  'xl:hover:translate-x-full': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-x': '100%' } },
+  },
+  'xl:hover:translate-y-0': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '0' } },
+  },
+  'xl:hover:translate-y-1': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '0.25rem' } },
+  },
+  'xl:hover:translate-y-2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '0.5rem' } },
+  },
+  'xl:hover:translate-y-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '0.75rem' } },
+  },
+  'xl:hover:translate-y-4': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '1rem' } },
+  },
+  'xl:hover:translate-y-5': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '1.25rem' } },
+  },
+  'xl:hover:translate-y-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '1.5rem' } },
+  },
+  'xl:hover:translate-y-8': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '2rem' } },
+  },
+  'xl:hover:translate-y-10': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '2.5rem' } },
+  },
+  'xl:hover:translate-y-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '3rem' } },
+  },
+  'xl:hover:translate-y-16': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '4rem' } },
+  },
+  'xl:hover:translate-y-20': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '5rem' } },
+  },
+  'xl:hover:translate-y-24': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '6rem' } },
+  },
+  'xl:hover:translate-y-32': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '8rem' } },
+  },
+  'xl:hover:translate-y-40': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '10rem' } },
+  },
+  'xl:hover:translate-y-48': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '12rem' } },
+  },
+  'xl:hover:translate-y-56': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '14rem' } },
+  },
+  'xl:hover:translate-y-64': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '16rem' } },
+  },
+  'xl:hover:translate-y-px': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '1px' } },
+  },
+  'xl:hover:-translate-y-1': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'xl:hover:-translate-y-2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'xl:hover:-translate-y-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'xl:hover:-translate-y-4': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-1rem' } },
+  },
+  'xl:hover:-translate-y-5': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'xl:hover:-translate-y-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'xl:hover:-translate-y-8': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-2rem' } },
+  },
+  'xl:hover:-translate-y-10': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'xl:hover:-translate-y-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-3rem' } },
+  },
+  'xl:hover:-translate-y-16': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-4rem' } },
+  },
+  'xl:hover:-translate-y-20': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-5rem' } },
+  },
+  'xl:hover:-translate-y-24': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-6rem' } },
+  },
+  'xl:hover:-translate-y-32': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-8rem' } },
+  },
+  'xl:hover:-translate-y-40': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-10rem' } },
+  },
+  'xl:hover:-translate-y-48': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-12rem' } },
+  },
+  'xl:hover:-translate-y-56': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-14rem' } },
+  },
+  'xl:hover:-translate-y-64': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-16rem' } },
+  },
+  'xl:hover:-translate-y-px': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-1px' } },
+  },
+  'xl:hover:-translate-y-full': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-100%' } },
+  },
+  'xl:hover:-translate-y-1/2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '-50%' } },
+  },
+  'xl:hover:translate-y-1/2': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '50%' } },
+  },
+  'xl:hover:translate-y-full': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-translate-y': '100%' } },
+  },
+  'xl:focus:translate-x-0': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '0' } },
+  },
+  'xl:focus:translate-x-1': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '0.25rem' } },
+  },
+  'xl:focus:translate-x-2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '0.5rem' } },
+  },
+  'xl:focus:translate-x-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '0.75rem' } },
+  },
+  'xl:focus:translate-x-4': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '1rem' } },
+  },
+  'xl:focus:translate-x-5': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '1.25rem' } },
+  },
+  'xl:focus:translate-x-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '1.5rem' } },
+  },
+  'xl:focus:translate-x-8': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '2rem' } },
+  },
+  'xl:focus:translate-x-10': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '2.5rem' } },
+  },
+  'xl:focus:translate-x-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '3rem' } },
+  },
+  'xl:focus:translate-x-16': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '4rem' } },
+  },
+  'xl:focus:translate-x-20': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '5rem' } },
+  },
+  'xl:focus:translate-x-24': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '6rem' } },
+  },
+  'xl:focus:translate-x-32': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '8rem' } },
+  },
+  'xl:focus:translate-x-40': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '10rem' } },
+  },
+  'xl:focus:translate-x-48': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '12rem' } },
+  },
+  'xl:focus:translate-x-56': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '14rem' } },
+  },
+  'xl:focus:translate-x-64': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '16rem' } },
+  },
+  'xl:focus:translate-x-px': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '1px' } },
+  },
+  'xl:focus:-translate-x-1': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-0.25rem' } },
+  },
+  'xl:focus:-translate-x-2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-0.5rem' } },
+  },
+  'xl:focus:-translate-x-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-0.75rem' } },
+  },
+  'xl:focus:-translate-x-4': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-1rem' } },
+  },
+  'xl:focus:-translate-x-5': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-1.25rem' } },
+  },
+  'xl:focus:-translate-x-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-1.5rem' } },
+  },
+  'xl:focus:-translate-x-8': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-2rem' } },
+  },
+  'xl:focus:-translate-x-10': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-2.5rem' } },
+  },
+  'xl:focus:-translate-x-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-3rem' } },
+  },
+  'xl:focus:-translate-x-16': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-4rem' } },
+  },
+  'xl:focus:-translate-x-20': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-5rem' } },
+  },
+  'xl:focus:-translate-x-24': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-6rem' } },
+  },
+  'xl:focus:-translate-x-32': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-8rem' } },
+  },
+  'xl:focus:-translate-x-40': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-10rem' } },
+  },
+  'xl:focus:-translate-x-48': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-12rem' } },
+  },
+  'xl:focus:-translate-x-56': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-14rem' } },
+  },
+  'xl:focus:-translate-x-64': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-16rem' } },
+  },
+  'xl:focus:-translate-x-px': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-1px' } },
+  },
+  'xl:focus:-translate-x-full': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-100%' } },
+  },
+  'xl:focus:-translate-x-1/2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '-50%' } },
+  },
+  'xl:focus:translate-x-1/2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '50%' } },
+  },
+  'xl:focus:translate-x-full': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-x': '100%' } },
+  },
+  'xl:focus:translate-y-0': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '0' } },
+  },
+  'xl:focus:translate-y-1': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '0.25rem' } },
+  },
+  'xl:focus:translate-y-2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '0.5rem' } },
+  },
+  'xl:focus:translate-y-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '0.75rem' } },
+  },
+  'xl:focus:translate-y-4': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '1rem' } },
+  },
+  'xl:focus:translate-y-5': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '1.25rem' } },
+  },
+  'xl:focus:translate-y-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '1.5rem' } },
+  },
+  'xl:focus:translate-y-8': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '2rem' } },
+  },
+  'xl:focus:translate-y-10': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '2.5rem' } },
+  },
+  'xl:focus:translate-y-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '3rem' } },
+  },
+  'xl:focus:translate-y-16': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '4rem' } },
+  },
+  'xl:focus:translate-y-20': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '5rem' } },
+  },
+  'xl:focus:translate-y-24': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '6rem' } },
+  },
+  'xl:focus:translate-y-32': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '8rem' } },
+  },
+  'xl:focus:translate-y-40': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '10rem' } },
+  },
+  'xl:focus:translate-y-48': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '12rem' } },
+  },
+  'xl:focus:translate-y-56': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '14rem' } },
+  },
+  'xl:focus:translate-y-64': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '16rem' } },
+  },
+  'xl:focus:translate-y-px': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '1px' } },
+  },
+  'xl:focus:-translate-y-1': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-0.25rem' } },
+  },
+  'xl:focus:-translate-y-2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-0.5rem' } },
+  },
+  'xl:focus:-translate-y-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-0.75rem' } },
+  },
+  'xl:focus:-translate-y-4': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-1rem' } },
+  },
+  'xl:focus:-translate-y-5': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-1.25rem' } },
+  },
+  'xl:focus:-translate-y-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-1.5rem' } },
+  },
+  'xl:focus:-translate-y-8': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-2rem' } },
+  },
+  'xl:focus:-translate-y-10': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-2.5rem' } },
+  },
+  'xl:focus:-translate-y-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-3rem' } },
+  },
+  'xl:focus:-translate-y-16': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-4rem' } },
+  },
+  'xl:focus:-translate-y-20': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-5rem' } },
+  },
+  'xl:focus:-translate-y-24': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-6rem' } },
+  },
+  'xl:focus:-translate-y-32': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-8rem' } },
+  },
+  'xl:focus:-translate-y-40': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-10rem' } },
+  },
+  'xl:focus:-translate-y-48': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-12rem' } },
+  },
+  'xl:focus:-translate-y-56': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-14rem' } },
+  },
+  'xl:focus:-translate-y-64': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-16rem' } },
+  },
+  'xl:focus:-translate-y-px': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-1px' } },
+  },
+  'xl:focus:-translate-y-full': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-100%' } },
+  },
+  'xl:focus:-translate-y-1/2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '-50%' } },
+  },
+  'xl:focus:translate-y-1/2': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '50%' } },
+  },
+  'xl:focus:translate-y-full': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-translate-y': '100%' } },
+  },
+  'xl:skew-x-0': { '@media (min-width:1280px)': { '--transform-skew-x': '0' } },
+  'xl:skew-x-3': { '@media (min-width:1280px)': { '--transform-skew-x': '3deg' } },
+  'xl:skew-x-6': { '@media (min-width:1280px)': { '--transform-skew-x': '6deg' } },
+  'xl:skew-x-12': { '@media (min-width:1280px)': { '--transform-skew-x': '12deg' } },
+  'xl:-skew-x-12': { '@media (min-width:1280px)': { '--transform-skew-x': '-12deg' } },
+  'xl:-skew-x-6': { '@media (min-width:1280px)': { '--transform-skew-x': '-6deg' } },
+  'xl:-skew-x-3': { '@media (min-width:1280px)': { '--transform-skew-x': '-3deg' } },
+  'xl:skew-y-0': { '@media (min-width:1280px)': { '--transform-skew-y': '0' } },
+  'xl:skew-y-3': { '@media (min-width:1280px)': { '--transform-skew-y': '3deg' } },
+  'xl:skew-y-6': { '@media (min-width:1280px)': { '--transform-skew-y': '6deg' } },
+  'xl:skew-y-12': { '@media (min-width:1280px)': { '--transform-skew-y': '12deg' } },
+  'xl:-skew-y-12': { '@media (min-width:1280px)': { '--transform-skew-y': '-12deg' } },
+  'xl:-skew-y-6': { '@media (min-width:1280px)': { '--transform-skew-y': '-6deg' } },
+  'xl:-skew-y-3': { '@media (min-width:1280px)': { '--transform-skew-y': '-3deg' } },
+  'xl:hover:skew-x-0': { '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '0' } } },
+  'xl:hover:skew-x-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '3deg' } },
+  },
+  'xl:hover:skew-x-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '6deg' } },
+  },
+  'xl:hover:skew-x-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '12deg' } },
+  },
+  'xl:hover:-skew-x-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '-12deg' } },
+  },
+  'xl:hover:-skew-x-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '-6deg' } },
+  },
+  'xl:hover:-skew-x-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-x': '-3deg' } },
+  },
+  'xl:hover:skew-y-0': { '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '0' } } },
+  'xl:hover:skew-y-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '3deg' } },
+  },
+  'xl:hover:skew-y-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '6deg' } },
+  },
+  'xl:hover:skew-y-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '12deg' } },
+  },
+  'xl:hover:-skew-y-12': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '-12deg' } },
+  },
+  'xl:hover:-skew-y-6': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '-6deg' } },
+  },
+  'xl:hover:-skew-y-3': {
+    '@media (min-width:1280px)': { ':hover': { '--transform-skew-y': '-3deg' } },
+  },
+  'xl:focus:skew-x-0': { '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '0' } } },
+  'xl:focus:skew-x-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '3deg' } },
+  },
+  'xl:focus:skew-x-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '6deg' } },
+  },
+  'xl:focus:skew-x-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '12deg' } },
+  },
+  'xl:focus:-skew-x-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '-12deg' } },
+  },
+  'xl:focus:-skew-x-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '-6deg' } },
+  },
+  'xl:focus:-skew-x-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-x': '-3deg' } },
+  },
+  'xl:focus:skew-y-0': { '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '0' } } },
+  'xl:focus:skew-y-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '3deg' } },
+  },
+  'xl:focus:skew-y-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '6deg' } },
+  },
+  'xl:focus:skew-y-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '12deg' } },
+  },
+  'xl:focus:-skew-y-12': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '-12deg' } },
+  },
+  'xl:focus:-skew-y-6': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '-6deg' } },
+  },
+  'xl:focus:-skew-y-3': {
+    '@media (min-width:1280px)': { ':focus': { '--transform-skew-y': '-3deg' } },
+  },
   'xl:transition-none': { '@media (min-width:1280px)': { transitionProperty: 'none' } },
   'xl:transition-all': { '@media (min-width:1280px)': { transitionProperty: 'all' } },
   'xl:transition': {
@@ -16256,7 +20200,14 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'row-end-7': { gridRowEnd: 7 },
   'row-end-auto': { gridRowEnd: 'auto' },
   'transform': {
-    transform:
+    '--transform-translate-x': '0',
+    '--transform-translate-y': '0',
+    '--transform-rotate': '0',
+    '--transform-skew-x': '0',
+    '--transform-skew-y': '0',
+    '--transform-scale-x': '1',
+    '--transform-scale-y': '1',
+    'transform':
       'translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y))',
   },
   'transform-none': { transform: 'none' },
@@ -16269,6 +20220,405 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'origin-bottom-left': { transformOrigin: 'bottom left' },
   'origin-left': { transformOrigin: 'left' },
   'origin-top-left': { transformOrigin: 'top left' },
+  'scale-0': { '--transform-scale-x': '0', '--transform-scale-y': '0' },
+  'scale-50': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' },
+  'scale-75': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' },
+  'scale-90': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' },
+  'scale-95': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' },
+  'scale-100': { '--transform-scale-x': '1', '--transform-scale-y': '1' },
+  'scale-105': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' },
+  'scale-110': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' },
+  'scale-125': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' },
+  'scale-150': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' },
+  'scale-x-0': { '--transform-scale-x': '0' },
+  'scale-x-50': { '--transform-scale-x': '.5' },
+  'scale-x-75': { '--transform-scale-x': '.75' },
+  'scale-x-90': { '--transform-scale-x': '.9' },
+  'scale-x-95': { '--transform-scale-x': '.95' },
+  'scale-x-100': { '--transform-scale-x': '1' },
+  'scale-x-105': { '--transform-scale-x': '1.05' },
+  'scale-x-110': { '--transform-scale-x': '1.1' },
+  'scale-x-125': { '--transform-scale-x': '1.25' },
+  'scale-x-150': { '--transform-scale-x': '1.5' },
+  'scale-y-0': { '--transform-scale-y': '0' },
+  'scale-y-50': { '--transform-scale-y': '.5' },
+  'scale-y-75': { '--transform-scale-y': '.75' },
+  'scale-y-90': { '--transform-scale-y': '.9' },
+  'scale-y-95': { '--transform-scale-y': '.95' },
+  'scale-y-100': { '--transform-scale-y': '1' },
+  'scale-y-105': { '--transform-scale-y': '1.05' },
+  'scale-y-110': { '--transform-scale-y': '1.1' },
+  'scale-y-125': { '--transform-scale-y': '1.25' },
+  'scale-y-150': { '--transform-scale-y': '1.5' },
+  'hover:scale-0': { ':hover': { '--transform-scale-x': '0', '--transform-scale-y': '0' } },
+  'hover:scale-50': { ':hover': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' } },
+  'hover:scale-75': { ':hover': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' } },
+  'hover:scale-90': { ':hover': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' } },
+  'hover:scale-95': { ':hover': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' } },
+  'hover:scale-100': { ':hover': { '--transform-scale-x': '1', '--transform-scale-y': '1' } },
+  'hover:scale-105': { ':hover': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' } },
+  'hover:scale-110': { ':hover': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' } },
+  'hover:scale-125': { ':hover': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' } },
+  'hover:scale-150': { ':hover': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' } },
+  'hover:scale-x-0': { ':hover': { '--transform-scale-x': '0' } },
+  'hover:scale-x-50': { ':hover': { '--transform-scale-x': '.5' } },
+  'hover:scale-x-75': { ':hover': { '--transform-scale-x': '.75' } },
+  'hover:scale-x-90': { ':hover': { '--transform-scale-x': '.9' } },
+  'hover:scale-x-95': { ':hover': { '--transform-scale-x': '.95' } },
+  'hover:scale-x-100': { ':hover': { '--transform-scale-x': '1' } },
+  'hover:scale-x-105': { ':hover': { '--transform-scale-x': '1.05' } },
+  'hover:scale-x-110': { ':hover': { '--transform-scale-x': '1.1' } },
+  'hover:scale-x-125': { ':hover': { '--transform-scale-x': '1.25' } },
+  'hover:scale-x-150': { ':hover': { '--transform-scale-x': '1.5' } },
+  'hover:scale-y-0': { ':hover': { '--transform-scale-y': '0' } },
+  'hover:scale-y-50': { ':hover': { '--transform-scale-y': '.5' } },
+  'hover:scale-y-75': { ':hover': { '--transform-scale-y': '.75' } },
+  'hover:scale-y-90': { ':hover': { '--transform-scale-y': '.9' } },
+  'hover:scale-y-95': { ':hover': { '--transform-scale-y': '.95' } },
+  'hover:scale-y-100': { ':hover': { '--transform-scale-y': '1' } },
+  'hover:scale-y-105': { ':hover': { '--transform-scale-y': '1.05' } },
+  'hover:scale-y-110': { ':hover': { '--transform-scale-y': '1.1' } },
+  'hover:scale-y-125': { ':hover': { '--transform-scale-y': '1.25' } },
+  'hover:scale-y-150': { ':hover': { '--transform-scale-y': '1.5' } },
+  'focus:scale-0': { ':focus': { '--transform-scale-x': '0', '--transform-scale-y': '0' } },
+  'focus:scale-50': { ':focus': { '--transform-scale-x': '.5', '--transform-scale-y': '.5' } },
+  'focus:scale-75': { ':focus': { '--transform-scale-x': '.75', '--transform-scale-y': '.75' } },
+  'focus:scale-90': { ':focus': { '--transform-scale-x': '.9', '--transform-scale-y': '.9' } },
+  'focus:scale-95': { ':focus': { '--transform-scale-x': '.95', '--transform-scale-y': '.95' } },
+  'focus:scale-100': { ':focus': { '--transform-scale-x': '1', '--transform-scale-y': '1' } },
+  'focus:scale-105': { ':focus': { '--transform-scale-x': '1.05', '--transform-scale-y': '1.05' } },
+  'focus:scale-110': { ':focus': { '--transform-scale-x': '1.1', '--transform-scale-y': '1.1' } },
+  'focus:scale-125': { ':focus': { '--transform-scale-x': '1.25', '--transform-scale-y': '1.25' } },
+  'focus:scale-150': { ':focus': { '--transform-scale-x': '1.5', '--transform-scale-y': '1.5' } },
+  'focus:scale-x-0': { ':focus': { '--transform-scale-x': '0' } },
+  'focus:scale-x-50': { ':focus': { '--transform-scale-x': '.5' } },
+  'focus:scale-x-75': { ':focus': { '--transform-scale-x': '.75' } },
+  'focus:scale-x-90': { ':focus': { '--transform-scale-x': '.9' } },
+  'focus:scale-x-95': { ':focus': { '--transform-scale-x': '.95' } },
+  'focus:scale-x-100': { ':focus': { '--transform-scale-x': '1' } },
+  'focus:scale-x-105': { ':focus': { '--transform-scale-x': '1.05' } },
+  'focus:scale-x-110': { ':focus': { '--transform-scale-x': '1.1' } },
+  'focus:scale-x-125': { ':focus': { '--transform-scale-x': '1.25' } },
+  'focus:scale-x-150': { ':focus': { '--transform-scale-x': '1.5' } },
+  'focus:scale-y-0': { ':focus': { '--transform-scale-y': '0' } },
+  'focus:scale-y-50': { ':focus': { '--transform-scale-y': '.5' } },
+  'focus:scale-y-75': { ':focus': { '--transform-scale-y': '.75' } },
+  'focus:scale-y-90': { ':focus': { '--transform-scale-y': '.9' } },
+  'focus:scale-y-95': { ':focus': { '--transform-scale-y': '.95' } },
+  'focus:scale-y-100': { ':focus': { '--transform-scale-y': '1' } },
+  'focus:scale-y-105': { ':focus': { '--transform-scale-y': '1.05' } },
+  'focus:scale-y-110': { ':focus': { '--transform-scale-y': '1.1' } },
+  'focus:scale-y-125': { ':focus': { '--transform-scale-y': '1.25' } },
+  'focus:scale-y-150': { ':focus': { '--transform-scale-y': '1.5' } },
+  'rotate-0': { '--transform-rotate': '0' },
+  'rotate-45': { '--transform-rotate': '45deg' },
+  'rotate-90': { '--transform-rotate': '90deg' },
+  'rotate-180': { '--transform-rotate': '180deg' },
+  '-rotate-180': { '--transform-rotate': '-180deg' },
+  '-rotate-90': { '--transform-rotate': '-90deg' },
+  '-rotate-45': { '--transform-rotate': '-45deg' },
+  'hover:rotate-0': { ':hover': { '--transform-rotate': '0' } },
+  'hover:rotate-45': { ':hover': { '--transform-rotate': '45deg' } },
+  'hover:rotate-90': { ':hover': { '--transform-rotate': '90deg' } },
+  'hover:rotate-180': { ':hover': { '--transform-rotate': '180deg' } },
+  'hover:-rotate-180': { ':hover': { '--transform-rotate': '-180deg' } },
+  'hover:-rotate-90': { ':hover': { '--transform-rotate': '-90deg' } },
+  'hover:-rotate-45': { ':hover': { '--transform-rotate': '-45deg' } },
+  'focus:rotate-0': { ':focus': { '--transform-rotate': '0' } },
+  'focus:rotate-45': { ':focus': { '--transform-rotate': '45deg' } },
+  'focus:rotate-90': { ':focus': { '--transform-rotate': '90deg' } },
+  'focus:rotate-180': { ':focus': { '--transform-rotate': '180deg' } },
+  'focus:-rotate-180': { ':focus': { '--transform-rotate': '-180deg' } },
+  'focus:-rotate-90': { ':focus': { '--transform-rotate': '-90deg' } },
+  'focus:-rotate-45': { ':focus': { '--transform-rotate': '-45deg' } },
+  'translate-x-0': { '--transform-translate-x': '0' },
+  'translate-x-1': { '--transform-translate-x': '0.25rem' },
+  'translate-x-2': { '--transform-translate-x': '0.5rem' },
+  'translate-x-3': { '--transform-translate-x': '0.75rem' },
+  'translate-x-4': { '--transform-translate-x': '1rem' },
+  'translate-x-5': { '--transform-translate-x': '1.25rem' },
+  'translate-x-6': { '--transform-translate-x': '1.5rem' },
+  'translate-x-8': { '--transform-translate-x': '2rem' },
+  'translate-x-10': { '--transform-translate-x': '2.5rem' },
+  'translate-x-12': { '--transform-translate-x': '3rem' },
+  'translate-x-16': { '--transform-translate-x': '4rem' },
+  'translate-x-20': { '--transform-translate-x': '5rem' },
+  'translate-x-24': { '--transform-translate-x': '6rem' },
+  'translate-x-32': { '--transform-translate-x': '8rem' },
+  'translate-x-40': { '--transform-translate-x': '10rem' },
+  'translate-x-48': { '--transform-translate-x': '12rem' },
+  'translate-x-56': { '--transform-translate-x': '14rem' },
+  'translate-x-64': { '--transform-translate-x': '16rem' },
+  'translate-x-px': { '--transform-translate-x': '1px' },
+  '-translate-x-1': { '--transform-translate-x': '-0.25rem' },
+  '-translate-x-2': { '--transform-translate-x': '-0.5rem' },
+  '-translate-x-3': { '--transform-translate-x': '-0.75rem' },
+  '-translate-x-4': { '--transform-translate-x': '-1rem' },
+  '-translate-x-5': { '--transform-translate-x': '-1.25rem' },
+  '-translate-x-6': { '--transform-translate-x': '-1.5rem' },
+  '-translate-x-8': { '--transform-translate-x': '-2rem' },
+  '-translate-x-10': { '--transform-translate-x': '-2.5rem' },
+  '-translate-x-12': { '--transform-translate-x': '-3rem' },
+  '-translate-x-16': { '--transform-translate-x': '-4rem' },
+  '-translate-x-20': { '--transform-translate-x': '-5rem' },
+  '-translate-x-24': { '--transform-translate-x': '-6rem' },
+  '-translate-x-32': { '--transform-translate-x': '-8rem' },
+  '-translate-x-40': { '--transform-translate-x': '-10rem' },
+  '-translate-x-48': { '--transform-translate-x': '-12rem' },
+  '-translate-x-56': { '--transform-translate-x': '-14rem' },
+  '-translate-x-64': { '--transform-translate-x': '-16rem' },
+  '-translate-x-px': { '--transform-translate-x': '-1px' },
+  '-translate-x-full': { '--transform-translate-x': '-100%' },
+  '-translate-x-1/2': { '--transform-translate-x': '-50%' },
+  'translate-x-1/2': { '--transform-translate-x': '50%' },
+  'translate-x-full': { '--transform-translate-x': '100%' },
+  'translate-y-0': { '--transform-translate-y': '0' },
+  'translate-y-1': { '--transform-translate-y': '0.25rem' },
+  'translate-y-2': { '--transform-translate-y': '0.5rem' },
+  'translate-y-3': { '--transform-translate-y': '0.75rem' },
+  'translate-y-4': { '--transform-translate-y': '1rem' },
+  'translate-y-5': { '--transform-translate-y': '1.25rem' },
+  'translate-y-6': { '--transform-translate-y': '1.5rem' },
+  'translate-y-8': { '--transform-translate-y': '2rem' },
+  'translate-y-10': { '--transform-translate-y': '2.5rem' },
+  'translate-y-12': { '--transform-translate-y': '3rem' },
+  'translate-y-16': { '--transform-translate-y': '4rem' },
+  'translate-y-20': { '--transform-translate-y': '5rem' },
+  'translate-y-24': { '--transform-translate-y': '6rem' },
+  'translate-y-32': { '--transform-translate-y': '8rem' },
+  'translate-y-40': { '--transform-translate-y': '10rem' },
+  'translate-y-48': { '--transform-translate-y': '12rem' },
+  'translate-y-56': { '--transform-translate-y': '14rem' },
+  'translate-y-64': { '--transform-translate-y': '16rem' },
+  'translate-y-px': { '--transform-translate-y': '1px' },
+  '-translate-y-1': { '--transform-translate-y': '-0.25rem' },
+  '-translate-y-2': { '--transform-translate-y': '-0.5rem' },
+  '-translate-y-3': { '--transform-translate-y': '-0.75rem' },
+  '-translate-y-4': { '--transform-translate-y': '-1rem' },
+  '-translate-y-5': { '--transform-translate-y': '-1.25rem' },
+  '-translate-y-6': { '--transform-translate-y': '-1.5rem' },
+  '-translate-y-8': { '--transform-translate-y': '-2rem' },
+  '-translate-y-10': { '--transform-translate-y': '-2.5rem' },
+  '-translate-y-12': { '--transform-translate-y': '-3rem' },
+  '-translate-y-16': { '--transform-translate-y': '-4rem' },
+  '-translate-y-20': { '--transform-translate-y': '-5rem' },
+  '-translate-y-24': { '--transform-translate-y': '-6rem' },
+  '-translate-y-32': { '--transform-translate-y': '-8rem' },
+  '-translate-y-40': { '--transform-translate-y': '-10rem' },
+  '-translate-y-48': { '--transform-translate-y': '-12rem' },
+  '-translate-y-56': { '--transform-translate-y': '-14rem' },
+  '-translate-y-64': { '--transform-translate-y': '-16rem' },
+  '-translate-y-px': { '--transform-translate-y': '-1px' },
+  '-translate-y-full': { '--transform-translate-y': '-100%' },
+  '-translate-y-1/2': { '--transform-translate-y': '-50%' },
+  'translate-y-1/2': { '--transform-translate-y': '50%' },
+  'translate-y-full': { '--transform-translate-y': '100%' },
+  'hover:translate-x-0': { ':hover': { '--transform-translate-x': '0' } },
+  'hover:translate-x-1': { ':hover': { '--transform-translate-x': '0.25rem' } },
+  'hover:translate-x-2': { ':hover': { '--transform-translate-x': '0.5rem' } },
+  'hover:translate-x-3': { ':hover': { '--transform-translate-x': '0.75rem' } },
+  'hover:translate-x-4': { ':hover': { '--transform-translate-x': '1rem' } },
+  'hover:translate-x-5': { ':hover': { '--transform-translate-x': '1.25rem' } },
+  'hover:translate-x-6': { ':hover': { '--transform-translate-x': '1.5rem' } },
+  'hover:translate-x-8': { ':hover': { '--transform-translate-x': '2rem' } },
+  'hover:translate-x-10': { ':hover': { '--transform-translate-x': '2.5rem' } },
+  'hover:translate-x-12': { ':hover': { '--transform-translate-x': '3rem' } },
+  'hover:translate-x-16': { ':hover': { '--transform-translate-x': '4rem' } },
+  'hover:translate-x-20': { ':hover': { '--transform-translate-x': '5rem' } },
+  'hover:translate-x-24': { ':hover': { '--transform-translate-x': '6rem' } },
+  'hover:translate-x-32': { ':hover': { '--transform-translate-x': '8rem' } },
+  'hover:translate-x-40': { ':hover': { '--transform-translate-x': '10rem' } },
+  'hover:translate-x-48': { ':hover': { '--transform-translate-x': '12rem' } },
+  'hover:translate-x-56': { ':hover': { '--transform-translate-x': '14rem' } },
+  'hover:translate-x-64': { ':hover': { '--transform-translate-x': '16rem' } },
+  'hover:translate-x-px': { ':hover': { '--transform-translate-x': '1px' } },
+  'hover:-translate-x-1': { ':hover': { '--transform-translate-x': '-0.25rem' } },
+  'hover:-translate-x-2': { ':hover': { '--transform-translate-x': '-0.5rem' } },
+  'hover:-translate-x-3': { ':hover': { '--transform-translate-x': '-0.75rem' } },
+  'hover:-translate-x-4': { ':hover': { '--transform-translate-x': '-1rem' } },
+  'hover:-translate-x-5': { ':hover': { '--transform-translate-x': '-1.25rem' } },
+  'hover:-translate-x-6': { ':hover': { '--transform-translate-x': '-1.5rem' } },
+  'hover:-translate-x-8': { ':hover': { '--transform-translate-x': '-2rem' } },
+  'hover:-translate-x-10': { ':hover': { '--transform-translate-x': '-2.5rem' } },
+  'hover:-translate-x-12': { ':hover': { '--transform-translate-x': '-3rem' } },
+  'hover:-translate-x-16': { ':hover': { '--transform-translate-x': '-4rem' } },
+  'hover:-translate-x-20': { ':hover': { '--transform-translate-x': '-5rem' } },
+  'hover:-translate-x-24': { ':hover': { '--transform-translate-x': '-6rem' } },
+  'hover:-translate-x-32': { ':hover': { '--transform-translate-x': '-8rem' } },
+  'hover:-translate-x-40': { ':hover': { '--transform-translate-x': '-10rem' } },
+  'hover:-translate-x-48': { ':hover': { '--transform-translate-x': '-12rem' } },
+  'hover:-translate-x-56': { ':hover': { '--transform-translate-x': '-14rem' } },
+  'hover:-translate-x-64': { ':hover': { '--transform-translate-x': '-16rem' } },
+  'hover:-translate-x-px': { ':hover': { '--transform-translate-x': '-1px' } },
+  'hover:-translate-x-full': { ':hover': { '--transform-translate-x': '-100%' } },
+  'hover:-translate-x-1/2': { ':hover': { '--transform-translate-x': '-50%' } },
+  'hover:translate-x-1/2': { ':hover': { '--transform-translate-x': '50%' } },
+  'hover:translate-x-full': { ':hover': { '--transform-translate-x': '100%' } },
+  'hover:translate-y-0': { ':hover': { '--transform-translate-y': '0' } },
+  'hover:translate-y-1': { ':hover': { '--transform-translate-y': '0.25rem' } },
+  'hover:translate-y-2': { ':hover': { '--transform-translate-y': '0.5rem' } },
+  'hover:translate-y-3': { ':hover': { '--transform-translate-y': '0.75rem' } },
+  'hover:translate-y-4': { ':hover': { '--transform-translate-y': '1rem' } },
+  'hover:translate-y-5': { ':hover': { '--transform-translate-y': '1.25rem' } },
+  'hover:translate-y-6': { ':hover': { '--transform-translate-y': '1.5rem' } },
+  'hover:translate-y-8': { ':hover': { '--transform-translate-y': '2rem' } },
+  'hover:translate-y-10': { ':hover': { '--transform-translate-y': '2.5rem' } },
+  'hover:translate-y-12': { ':hover': { '--transform-translate-y': '3rem' } },
+  'hover:translate-y-16': { ':hover': { '--transform-translate-y': '4rem' } },
+  'hover:translate-y-20': { ':hover': { '--transform-translate-y': '5rem' } },
+  'hover:translate-y-24': { ':hover': { '--transform-translate-y': '6rem' } },
+  'hover:translate-y-32': { ':hover': { '--transform-translate-y': '8rem' } },
+  'hover:translate-y-40': { ':hover': { '--transform-translate-y': '10rem' } },
+  'hover:translate-y-48': { ':hover': { '--transform-translate-y': '12rem' } },
+  'hover:translate-y-56': { ':hover': { '--transform-translate-y': '14rem' } },
+  'hover:translate-y-64': { ':hover': { '--transform-translate-y': '16rem' } },
+  'hover:translate-y-px': { ':hover': { '--transform-translate-y': '1px' } },
+  'hover:-translate-y-1': { ':hover': { '--transform-translate-y': '-0.25rem' } },
+  'hover:-translate-y-2': { ':hover': { '--transform-translate-y': '-0.5rem' } },
+  'hover:-translate-y-3': { ':hover': { '--transform-translate-y': '-0.75rem' } },
+  'hover:-translate-y-4': { ':hover': { '--transform-translate-y': '-1rem' } },
+  'hover:-translate-y-5': { ':hover': { '--transform-translate-y': '-1.25rem' } },
+  'hover:-translate-y-6': { ':hover': { '--transform-translate-y': '-1.5rem' } },
+  'hover:-translate-y-8': { ':hover': { '--transform-translate-y': '-2rem' } },
+  'hover:-translate-y-10': { ':hover': { '--transform-translate-y': '-2.5rem' } },
+  'hover:-translate-y-12': { ':hover': { '--transform-translate-y': '-3rem' } },
+  'hover:-translate-y-16': { ':hover': { '--transform-translate-y': '-4rem' } },
+  'hover:-translate-y-20': { ':hover': { '--transform-translate-y': '-5rem' } },
+  'hover:-translate-y-24': { ':hover': { '--transform-translate-y': '-6rem' } },
+  'hover:-translate-y-32': { ':hover': { '--transform-translate-y': '-8rem' } },
+  'hover:-translate-y-40': { ':hover': { '--transform-translate-y': '-10rem' } },
+  'hover:-translate-y-48': { ':hover': { '--transform-translate-y': '-12rem' } },
+  'hover:-translate-y-56': { ':hover': { '--transform-translate-y': '-14rem' } },
+  'hover:-translate-y-64': { ':hover': { '--transform-translate-y': '-16rem' } },
+  'hover:-translate-y-px': { ':hover': { '--transform-translate-y': '-1px' } },
+  'hover:-translate-y-full': { ':hover': { '--transform-translate-y': '-100%' } },
+  'hover:-translate-y-1/2': { ':hover': { '--transform-translate-y': '-50%' } },
+  'hover:translate-y-1/2': { ':hover': { '--transform-translate-y': '50%' } },
+  'hover:translate-y-full': { ':hover': { '--transform-translate-y': '100%' } },
+  'focus:translate-x-0': { ':focus': { '--transform-translate-x': '0' } },
+  'focus:translate-x-1': { ':focus': { '--transform-translate-x': '0.25rem' } },
+  'focus:translate-x-2': { ':focus': { '--transform-translate-x': '0.5rem' } },
+  'focus:translate-x-3': { ':focus': { '--transform-translate-x': '0.75rem' } },
+  'focus:translate-x-4': { ':focus': { '--transform-translate-x': '1rem' } },
+  'focus:translate-x-5': { ':focus': { '--transform-translate-x': '1.25rem' } },
+  'focus:translate-x-6': { ':focus': { '--transform-translate-x': '1.5rem' } },
+  'focus:translate-x-8': { ':focus': { '--transform-translate-x': '2rem' } },
+  'focus:translate-x-10': { ':focus': { '--transform-translate-x': '2.5rem' } },
+  'focus:translate-x-12': { ':focus': { '--transform-translate-x': '3rem' } },
+  'focus:translate-x-16': { ':focus': { '--transform-translate-x': '4rem' } },
+  'focus:translate-x-20': { ':focus': { '--transform-translate-x': '5rem' } },
+  'focus:translate-x-24': { ':focus': { '--transform-translate-x': '6rem' } },
+  'focus:translate-x-32': { ':focus': { '--transform-translate-x': '8rem' } },
+  'focus:translate-x-40': { ':focus': { '--transform-translate-x': '10rem' } },
+  'focus:translate-x-48': { ':focus': { '--transform-translate-x': '12rem' } },
+  'focus:translate-x-56': { ':focus': { '--transform-translate-x': '14rem' } },
+  'focus:translate-x-64': { ':focus': { '--transform-translate-x': '16rem' } },
+  'focus:translate-x-px': { ':focus': { '--transform-translate-x': '1px' } },
+  'focus:-translate-x-1': { ':focus': { '--transform-translate-x': '-0.25rem' } },
+  'focus:-translate-x-2': { ':focus': { '--transform-translate-x': '-0.5rem' } },
+  'focus:-translate-x-3': { ':focus': { '--transform-translate-x': '-0.75rem' } },
+  'focus:-translate-x-4': { ':focus': { '--transform-translate-x': '-1rem' } },
+  'focus:-translate-x-5': { ':focus': { '--transform-translate-x': '-1.25rem' } },
+  'focus:-translate-x-6': { ':focus': { '--transform-translate-x': '-1.5rem' } },
+  'focus:-translate-x-8': { ':focus': { '--transform-translate-x': '-2rem' } },
+  'focus:-translate-x-10': { ':focus': { '--transform-translate-x': '-2.5rem' } },
+  'focus:-translate-x-12': { ':focus': { '--transform-translate-x': '-3rem' } },
+  'focus:-translate-x-16': { ':focus': { '--transform-translate-x': '-4rem' } },
+  'focus:-translate-x-20': { ':focus': { '--transform-translate-x': '-5rem' } },
+  'focus:-translate-x-24': { ':focus': { '--transform-translate-x': '-6rem' } },
+  'focus:-translate-x-32': { ':focus': { '--transform-translate-x': '-8rem' } },
+  'focus:-translate-x-40': { ':focus': { '--transform-translate-x': '-10rem' } },
+  'focus:-translate-x-48': { ':focus': { '--transform-translate-x': '-12rem' } },
+  'focus:-translate-x-56': { ':focus': { '--transform-translate-x': '-14rem' } },
+  'focus:-translate-x-64': { ':focus': { '--transform-translate-x': '-16rem' } },
+  'focus:-translate-x-px': { ':focus': { '--transform-translate-x': '-1px' } },
+  'focus:-translate-x-full': { ':focus': { '--transform-translate-x': '-100%' } },
+  'focus:-translate-x-1/2': { ':focus': { '--transform-translate-x': '-50%' } },
+  'focus:translate-x-1/2': { ':focus': { '--transform-translate-x': '50%' } },
+  'focus:translate-x-full': { ':focus': { '--transform-translate-x': '100%' } },
+  'focus:translate-y-0': { ':focus': { '--transform-translate-y': '0' } },
+  'focus:translate-y-1': { ':focus': { '--transform-translate-y': '0.25rem' } },
+  'focus:translate-y-2': { ':focus': { '--transform-translate-y': '0.5rem' } },
+  'focus:translate-y-3': { ':focus': { '--transform-translate-y': '0.75rem' } },
+  'focus:translate-y-4': { ':focus': { '--transform-translate-y': '1rem' } },
+  'focus:translate-y-5': { ':focus': { '--transform-translate-y': '1.25rem' } },
+  'focus:translate-y-6': { ':focus': { '--transform-translate-y': '1.5rem' } },
+  'focus:translate-y-8': { ':focus': { '--transform-translate-y': '2rem' } },
+  'focus:translate-y-10': { ':focus': { '--transform-translate-y': '2.5rem' } },
+  'focus:translate-y-12': { ':focus': { '--transform-translate-y': '3rem' } },
+  'focus:translate-y-16': { ':focus': { '--transform-translate-y': '4rem' } },
+  'focus:translate-y-20': { ':focus': { '--transform-translate-y': '5rem' } },
+  'focus:translate-y-24': { ':focus': { '--transform-translate-y': '6rem' } },
+  'focus:translate-y-32': { ':focus': { '--transform-translate-y': '8rem' } },
+  'focus:translate-y-40': { ':focus': { '--transform-translate-y': '10rem' } },
+  'focus:translate-y-48': { ':focus': { '--transform-translate-y': '12rem' } },
+  'focus:translate-y-56': { ':focus': { '--transform-translate-y': '14rem' } },
+  'focus:translate-y-64': { ':focus': { '--transform-translate-y': '16rem' } },
+  'focus:translate-y-px': { ':focus': { '--transform-translate-y': '1px' } },
+  'focus:-translate-y-1': { ':focus': { '--transform-translate-y': '-0.25rem' } },
+  'focus:-translate-y-2': { ':focus': { '--transform-translate-y': '-0.5rem' } },
+  'focus:-translate-y-3': { ':focus': { '--transform-translate-y': '-0.75rem' } },
+  'focus:-translate-y-4': { ':focus': { '--transform-translate-y': '-1rem' } },
+  'focus:-translate-y-5': { ':focus': { '--transform-translate-y': '-1.25rem' } },
+  'focus:-translate-y-6': { ':focus': { '--transform-translate-y': '-1.5rem' } },
+  'focus:-translate-y-8': { ':focus': { '--transform-translate-y': '-2rem' } },
+  'focus:-translate-y-10': { ':focus': { '--transform-translate-y': '-2.5rem' } },
+  'focus:-translate-y-12': { ':focus': { '--transform-translate-y': '-3rem' } },
+  'focus:-translate-y-16': { ':focus': { '--transform-translate-y': '-4rem' } },
+  'focus:-translate-y-20': { ':focus': { '--transform-translate-y': '-5rem' } },
+  'focus:-translate-y-24': { ':focus': { '--transform-translate-y': '-6rem' } },
+  'focus:-translate-y-32': { ':focus': { '--transform-translate-y': '-8rem' } },
+  'focus:-translate-y-40': { ':focus': { '--transform-translate-y': '-10rem' } },
+  'focus:-translate-y-48': { ':focus': { '--transform-translate-y': '-12rem' } },
+  'focus:-translate-y-56': { ':focus': { '--transform-translate-y': '-14rem' } },
+  'focus:-translate-y-64': { ':focus': { '--transform-translate-y': '-16rem' } },
+  'focus:-translate-y-px': { ':focus': { '--transform-translate-y': '-1px' } },
+  'focus:-translate-y-full': { ':focus': { '--transform-translate-y': '-100%' } },
+  'focus:-translate-y-1/2': { ':focus': { '--transform-translate-y': '-50%' } },
+  'focus:translate-y-1/2': { ':focus': { '--transform-translate-y': '50%' } },
+  'focus:translate-y-full': { ':focus': { '--transform-translate-y': '100%' } },
+  'skew-x-0': { '--transform-skew-x': '0' },
+  'skew-x-3': { '--transform-skew-x': '3deg' },
+  'skew-x-6': { '--transform-skew-x': '6deg' },
+  'skew-x-12': { '--transform-skew-x': '12deg' },
+  '-skew-x-12': { '--transform-skew-x': '-12deg' },
+  '-skew-x-6': { '--transform-skew-x': '-6deg' },
+  '-skew-x-3': { '--transform-skew-x': '-3deg' },
+  'skew-y-0': { '--transform-skew-y': '0' },
+  'skew-y-3': { '--transform-skew-y': '3deg' },
+  'skew-y-6': { '--transform-skew-y': '6deg' },
+  'skew-y-12': { '--transform-skew-y': '12deg' },
+  '-skew-y-12': { '--transform-skew-y': '-12deg' },
+  '-skew-y-6': { '--transform-skew-y': '-6deg' },
+  '-skew-y-3': { '--transform-skew-y': '-3deg' },
+  'hover:skew-x-0': { ':hover': { '--transform-skew-x': '0' } },
+  'hover:skew-x-3': { ':hover': { '--transform-skew-x': '3deg' } },
+  'hover:skew-x-6': { ':hover': { '--transform-skew-x': '6deg' } },
+  'hover:skew-x-12': { ':hover': { '--transform-skew-x': '12deg' } },
+  'hover:-skew-x-12': { ':hover': { '--transform-skew-x': '-12deg' } },
+  'hover:-skew-x-6': { ':hover': { '--transform-skew-x': '-6deg' } },
+  'hover:-skew-x-3': { ':hover': { '--transform-skew-x': '-3deg' } },
+  'hover:skew-y-0': { ':hover': { '--transform-skew-y': '0' } },
+  'hover:skew-y-3': { ':hover': { '--transform-skew-y': '3deg' } },
+  'hover:skew-y-6': { ':hover': { '--transform-skew-y': '6deg' } },
+  'hover:skew-y-12': { ':hover': { '--transform-skew-y': '12deg' } },
+  'hover:-skew-y-12': { ':hover': { '--transform-skew-y': '-12deg' } },
+  'hover:-skew-y-6': { ':hover': { '--transform-skew-y': '-6deg' } },
+  'hover:-skew-y-3': { ':hover': { '--transform-skew-y': '-3deg' } },
+  'focus:skew-x-0': { ':focus': { '--transform-skew-x': '0' } },
+  'focus:skew-x-3': { ':focus': { '--transform-skew-x': '3deg' } },
+  'focus:skew-x-6': { ':focus': { '--transform-skew-x': '6deg' } },
+  'focus:skew-x-12': { ':focus': { '--transform-skew-x': '12deg' } },
+  'focus:-skew-x-12': { ':focus': { '--transform-skew-x': '-12deg' } },
+  'focus:-skew-x-6': { ':focus': { '--transform-skew-x': '-6deg' } },
+  'focus:-skew-x-3': { ':focus': { '--transform-skew-x': '-3deg' } },
+  'focus:skew-y-0': { ':focus': { '--transform-skew-y': '0' } },
+  'focus:skew-y-3': { ':focus': { '--transform-skew-y': '3deg' } },
+  'focus:skew-y-6': { ':focus': { '--transform-skew-y': '6deg' } },
+  'focus:skew-y-12': { ':focus': { '--transform-skew-y': '12deg' } },
+  'focus:-skew-y-12': { ':focus': { '--transform-skew-y': '-12deg' } },
+  'focus:-skew-y-6': { ':focus': { '--transform-skew-y': '-6deg' } },
+  'focus:-skew-y-3': { ':focus': { '--transform-skew-y': '-3deg' } },
   'transition-none': { transitionProperty: 'none' },
   'transition-all': { transitionProperty: 'all' },
   'transition': {

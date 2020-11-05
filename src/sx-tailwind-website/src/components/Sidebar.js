@@ -61,6 +61,11 @@ export default function Sidebar({ screenSize = 'large' }: Props): Node {
                 <MenuItem label="Buttons" href="/tailwind-css/buttons" screenSize={screenSize} />
                 <MenuItem label="Cards" href="/tailwind-css/cards" screenSize={screenSize} />
                 <MenuItem label="Forms" href="/tailwind-css/forms" screenSize={screenSize} />
+                <MenuItem
+                  label="Transitions"
+                  href="/tailwind-css/transitions"
+                  screenSize={screenSize}
+                />
               </nav>
             </div>
           </div>

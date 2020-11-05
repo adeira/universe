@@ -163,34 +163,6 @@ it('does not remove rem units from font-size', () => {
   `);
 });
 
-it('removes px units from line-height', () => {
-  const css = `.leading-5 {
-      line-height: 30px;
-    }`;
-
-  expect(generate(css)).toMatchInlineSnapshot(`
-    Object {
-      "leading-5": Object {
-        "lineHeight": 30,
-      },
-    }
-  `);
-});
-
-it('removes px units from font-size', () => {
-  const css = `.text-xs {
-      font-size: 24px;
-    }`;
-
-  expect(generate(css)).toMatchInlineSnapshot(`
-    Object {
-      "text-xs": Object {
-        "fontSize": 24,
-      },
-    }
-  `);
-});
-
 it('does not overwrite declarations', () => {
   const css = `.bg-black {
     --bg-opacity: 1;
@@ -208,9 +180,7 @@ it('does not overwrite declarations', () => {
 });
 
 it('skips empty styles', () => {
-  const css = `.hover\\:-skew-y-12:hover {
-    --transform-skew-y: -12deg;
-  }`;
+  const css = `.hover\\:empty-style:hover {}`;
 
   expect(generate(css)).toMatchInlineSnapshot(`Object {}`);
 });
