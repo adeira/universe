@@ -1,6 +1,8 @@
 # Unreleased
 
-- Set reactRuntime to `automatic` as default. This means that if you are not using the new JSX transform, see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html, you need to set `reactRuntime: 'classic'` as an option to this package. 
+# 2.0.0
+
+- Set reactRuntime to `automatic` as default. This means that if you are not using the new JSX transform, see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html, you need to set `reactRuntime: 'classic'` as an option to this package.
 
 # 1.2.0
 
