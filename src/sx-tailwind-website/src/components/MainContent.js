@@ -3,6 +3,8 @@
 import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
 
+import Hamburger from './sidebar/Hamburger';
+
 type Props = {|
   +title: string,
   +children: Node,
@@ -11,8 +13,9 @@ type Props = {|
 export default function MainContent({ title, children }: Props): Node {
   return (
     <main className={tailwind('flex-1 relative pb-8 z-0 overflow-y-auto')}>
-      <div className={tailwind('bg-white shadow')}>
-        <div className={tailwind('px-4 py-6 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8')}>
+      <div className={tailwind('bg-white shadow flex')}>
+        <Hamburger />
+        <div className={tailwind('px-4 py-6 sm:px-6 lg:px-8')}>
           <h1
             className={tailwind(
               'text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate',
