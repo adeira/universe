@@ -47,7 +47,7 @@ module.exports = (
       ],
     },
     debug: externalOptions.debug || false,
-    reactRuntime: externalOptions.reactRuntime || 'classic', // TODO: From next major version use 'automatic' as default
+    reactRuntime: externalOptions.reactRuntime || 'automatic',
   };
 
   let presets /*: BabelRules */ = [];

@@ -243,9 +243,11 @@ Using polyfills: No polyfills were added, since the `useBuiltIns` option was not
 
 ## New JSX transform
 
-This packages supports the new JSX transform from `1.2.0`. See https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+This packages uses the new JSX transform as default from `2.0.0`. See https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
 
-You can use it like this:
+Optional support for the new JSX transform was added in `1.2.0`.
+
+If you want to use the classical version with this package from `2.0.0` (having `import React from 'react';` in all files) you can use it like this:
 
 ```js
 module.exports = {
@@ -253,14 +255,14 @@ module.exports = {
     [
       '@adeira/babel-preset-adeira',
       {
-        reactRuntime: 'automatic',
+        reactRuntime: 'classic',
       },
     ],
   ],
 };
 ```
 
-Note that the default is `classic`.
+If you want to use the new JSX transform, you don't need to specifically set `reactRuntime: 'automatic'`.
 
 # Transpilation features explained
 

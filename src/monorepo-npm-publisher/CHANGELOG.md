@@ -1,5 +1,7 @@
 # Unreleased
 
+- Upgrade `@adeira/babel-preset-adeira` to 2.0.0. This has some implications on the transpiled content released to npm from this package. We should not release a new version of this package before we figure out a way to let the user decide which kind of react-transform he/she wants to use.
+
 # 1.0.0
 
 - Updated dependencies
