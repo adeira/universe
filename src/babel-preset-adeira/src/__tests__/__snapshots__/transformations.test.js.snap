@@ -1242,6 +1242,8 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
+var _jsxRuntime = require("react/jsx-runtime");
+
 /* eslint-disable */
 var React = require('react');
 
@@ -1252,9 +1254,12 @@ var BoldTodoRenderer = React.lazy(function () {
 });
 
 module.exports = function MyComponent() {
-  return /*#__PURE__*/React.createElement(React.Suspense, {
-    fallback: /*#__PURE__*/React.createElement("div", null, "Loading...")
-  }, /*#__PURE__*/React.createElement(BoldTodoRenderer, null));
+  return /*#__PURE__*/(0, _jsxRuntime.jsx)(React.Suspense, {
+    fallback: /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      children: "Loading..."
+    }),
+    children: /*#__PURE__*/(0, _jsxRuntime.jsx)(BoldTodoRenderer, {})
+  });
 };
 `;
 
@@ -1282,6 +1287,8 @@ module.exports = function MyComponent(): React.Element<typeof React.Suspense> {
 };
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import { jsx as _jsx } from "react/jsx-runtime";
+
 /* eslint-disable */
 var React = require('react');
 
@@ -1291,9 +1298,12 @@ var BoldTodoRenderer = React.lazy(function () {
 });
 
 module.exports = function MyComponent() {
-  return /*#__PURE__*/React.createElement(React.Suspense, {
-    fallback: /*#__PURE__*/React.createElement("div", null, "Loading...")
-  }, /*#__PURE__*/React.createElement(BoldTodoRenderer, null));
+  return /*#__PURE__*/_jsx(React.Suspense, {
+    fallback: /*#__PURE__*/_jsx("div", {
+      children: "Loading..."
+    }),
+    children: /*#__PURE__*/_jsx(BoldTodoRenderer, {})
+  });
 };
 `;
 
@@ -1760,10 +1770,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = Component;
 
+var _jsxRuntime = require("react/jsx-runtime");
+
 var React = function React() {};
 
 function Component() {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "aaa"), /*#__PURE__*/React.createElement("div", null, "bbb"));
+  return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+    children: [/*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      children: "aaa"
+    }), /*#__PURE__*/(0, _jsxRuntime.jsx)("div", {
+      children: "bbb"
+    })]
+  });
 }
 `;
 
@@ -1785,10 +1803,20 @@ export default function Component(): Node {
 }
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+import { jsx as _jsx } from "react/jsx-runtime";
+import { jsxs as _jsxs } from "react/jsx-runtime";
+import { Fragment as _Fragment } from "react/jsx-runtime";
+
 var React = function React() {};
 
 export default function Component() {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", null, "aaa"), /*#__PURE__*/React.createElement("div", null, "bbb"));
+  return /*#__PURE__*/_jsxs(_Fragment, {
+    children: [/*#__PURE__*/_jsx("div", {
+      children: "aaa"
+    }), /*#__PURE__*/_jsx("div", {
+      children: "bbb"
+    })]
+  });
 }
 `;
 
