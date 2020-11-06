@@ -2,8 +2,8 @@
 
 import type { Node } from 'react';
 
-import Documentation from '../Documentation';
+import Homepage from '../Homepage';
 
 export default function Root(): Node {
-  return <Documentation />;
+  return <Homepage />;
 }
