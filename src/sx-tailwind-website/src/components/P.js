@@ -8,5 +8,5 @@ type Props = {|
 |};
 
 export default function P({ children }: Props): Node {
-  return <p className={tailwind('text-gray-700')}>{children}</p>;
+  return <p className={tailwind('text-gray-700 mb-4')}>{children}</p>;
 }

@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 import H2 from '../components/H2';
 import SyntaxHighlighter from '../components/SyntaxHighlighter';
 
-export default function Homepage(): Node {
+export default function Documentation(): Node {
   return (
     <Layout title="Documentation">
       <H2>Install</H2>

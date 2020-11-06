@@ -26,7 +26,7 @@ export default function MainContent({ title, children }: Props): Node {
         </div>
       </div>
       <div className={tailwind('mt-8')}>
-        <div className={tailwind('max-w-6xl mx-auto px-4 sm:px-6 lg:px-8')}>{children}</div>
+        <div className={tailwind('max-w-4xl mr-auto px-4 sm:px-6 lg:px-8')}>{children}</div>
       </div>
     </main>
   );
