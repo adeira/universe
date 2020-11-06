@@ -28,6 +28,7 @@ export default function transformFileVariants(
           '@adeira/babel-preset-adeira',
           {
             target,
+            reactRuntime: 'automatic',
           },
         ],
       ],
