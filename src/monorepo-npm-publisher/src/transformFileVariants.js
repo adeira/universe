@@ -19,6 +19,7 @@ export default function transformFileVariants(
   originalFilename: string,
   destinationFilename: string,
   transpileESM: boolean,
+  reactRuntime?: 'automatic' | 'classic',
 ): void {
   const getBabelConfig = (target: 'js' | 'js-esm' | 'flow') => {
     return {
@@ -28,7 +29,7 @@ export default function transformFileVariants(
           '@adeira/babel-preset-adeira',
           {
             target,
-            reactRuntime: 'automatic',
+            reactRuntime: reactRuntime ?? 'automatic',
           },
         ],
       ],
