@@ -13,9 +13,9 @@ class JestProgressBarReporter {
 
   onTestStart() {
     if (this._bar == null) {
-      this._bar = new ProgressBar(':bar :current/:total :percent', {
+      this._bar = new ProgressBar(':bar :current/:total', {
         complete: '█',
-        incomplete: ' ',
+        incomplete: '░',
         total: this._numTotalTestSuites,
       });
     }
