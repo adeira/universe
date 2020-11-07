@@ -36,6 +36,7 @@ import publish from '@adeira/monorepo-npm-publisher';
     workspaces: new Set(['@adeira/js', '@adeira/fetch', '@adeira/relay', '@adeira/eslint-config']),
 
     npmAuthToken: '*** TODO ***', // see: https://www.npmjs.com/settings/<USERNAME>/tokens
+    reactRuntime: 'classic', // or `automatic` if you want to use the new JSX transform. 'automatic' is the default option. see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
   });
 })();
 ```

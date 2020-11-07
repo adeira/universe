@@ -21,6 +21,7 @@ type Options = {|
   +buildCache: string,
   +npmAuthToken: string,
   +workspaces: Set<string>,
+  +reactRuntime?: 'automatic' | 'classic',
 |};
 
 export default async function publish(options: Options) {
@@ -72,6 +73,7 @@ export default async function publish(options: Options) {
               path.join(packageFolderPath, filename),
               destinationFileName,
               packageJSONFile.module,
+              options.reactRuntime,
             );
           } else if (filename === 'package.json') {
             log('%s 👉 %s', packageJSONLocation, destinationFileName);

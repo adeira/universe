@@ -1,6 +1,7 @@
 # Unreleased
 
-- Upgrade `@adeira/babel-preset-adeira` to 2.0.0. This has some implications on the transpiled content released to npm from this package. We should not release a new version of this package before we figure out a way to let the user decide which kind of react-transform he/she wants to use.
+- Upgrade `@adeira/babel-preset-adeira` to 2.0.0.
+- Breaking Change: Add reactRuntime option. You can set it to `automatic` to use the new [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html), or set it to `classic` to use the classical version. Note that `automatic` is the default.
 
 # 1.0.0
 
