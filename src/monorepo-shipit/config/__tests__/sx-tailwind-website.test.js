@@ -12,7 +12,7 @@ testExportedPaths(path.join(__dirname, '..', 'sx-tailwind-website.js'), [
   ['src/sx-tailwind-website/__github__/.flowconfig', '.flowconfig'],
   ['src/sx-tailwind-website/__github__/babel.config.js', 'babel.config.js'],
   ['src/sx-tailwind-website/__github__/flow-typed/globals.js', 'flow-typed/globals.js'],
-  ['src/sx-tailwind-website/src/Documentation/index.js', 'src/Documentation/index.js'],
+  ['src/sx-tailwind-website/src/components/Code.js', 'src/components/Code.js'],
   ['src/sx-tailwind-website/src/pages/index.js', 'src/pages/index.js'],
   ['src/sx-tailwind-website/package.json', 'package.json'],
 
