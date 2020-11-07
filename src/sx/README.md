@@ -23,14 +23,17 @@ Create a stylesheet and use it to generate `className` props for React:
 import * as sx from '@adeira/sx';
 
 export default function Example() {
+  // className={styles('example')}
+  //   ↓ ↓ ↓
+  // class="_1DKsqE v2kHO stDQH"
   return <div className={styles('example')}>example</div>;
 }
 
 const styles = sx.create({
   example: {
     fontSize: 32, // converted to PX units
-    padding: 0, // converted to PX units
     textDecoration: 'none',
+    backgroundColor: 'var(--main-bg-color)', // CSS variables are supported as well
   },
 });
 ```
@@ -38,9 +41,9 @@ const styles = sx.create({
 The example above will generate something like this:
 
 ```text
-._444sSt { font-size: 32px; }
-._1qVfLL { padding: 0px; }
-._3nPNZx { text-decoration: none; }
+._1DKsqE { font-size: 32px; }
+.v2kHO { text-decoration: none; }
+.stDQH { background-color: var(--main-bg-color); }
 ```
 
 Finally, render somewhere the styles and HTML. Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document) would be:
@@ -223,7 +226,7 @@ const styles = sx.create({
 });
 ```
 
-Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries - they cannot be statically analyzed. These situations are usually complemented with runtime checks and eventually even Eslint rules.
+Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries or CSS variables - they cannot be statically analyzed. These situations are usually complemented with runtime checks and eventually even Eslint rules.
 
 ## Production usage considerations
 
