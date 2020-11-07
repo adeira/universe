@@ -57,7 +57,7 @@ export default function Sidebar({ screenSize = 'large' }: Props): Node {
             <div className={tailwind('overflow-y-auto')}>
               <nav className={tailwind('px-2')}>
                 <MenuItem label="Intro" href="/" screenSize={screenSize} />
-                <MenuItem label="Documentation" href="/tailwind-css/" screenSize={screenSize} />
+                <MenuItem label="Documentation" href="/tailwind-css" screenSize={screenSize} />
                 <MenuItem label="Alerts" href="/tailwind-css/alerts" screenSize={screenSize} />
                 <MenuItem label="Buttons" href="/tailwind-css/buttons" screenSize={screenSize} />
                 <MenuItem label="Cards" href="/tailwind-css/cards" screenSize={screenSize} />
