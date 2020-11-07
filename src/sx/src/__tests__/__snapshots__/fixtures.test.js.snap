@@ -586,6 +586,34 @@ class="_3DgpOy _3ybBud"
 
 `;
 
+exports[`matches expected output: readme-example.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "example": {
+    "fontSize": 32,
+    "textDecoration": "none",
+    "backgroundColor": "var(--main-bg-color)"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._1DKsqE {
+  font-size: 32px;
+}
+.v2kHO {
+  text-decoration: none;
+}
+.stDQH {
+  background-color: var(--main-bg-color);
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('example')}
+  ↓ ↓ ↓
+class="_1DKsqE v2kHO stDQH"
+
+`;
+
 exports[`matches expected output: simple.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
@@ -691,5 +719,49 @@ class="_324Crd"
 className={styles('ccc')}
   ↓ ↓ ↓
 class="_324Crd"
+
+`;
+
+exports[`matches expected output: variables.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  ":root": {
+    "--main-bg-color": "pink",
+    "--someCOMPLEXvalue": "3px 6px rgb(20, 32, 54)"
+  },
+  "body": {
+    "backgroundColor": "var(--main-bg-color)"
+  },
+  "bodyWithFallback": {
+    "backgroundColor": "var(--someCOMPLEXvalue, blue)"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._4qI4JK {
+  --main-bg-color: #ffc0cb;
+}
+._3zBmgU {
+  --someCOMPLEXvalue: 3px 6px rgb(20, 32, 54);
+}
+.stDQH {
+  background-color: var(--main-bg-color);
+}
+.VMgiK {
+  background-color: var(--someCOMPLEXvalue, blue);
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles(':root')}
+  ↓ ↓ ↓
+class="_4qI4JK _3zBmgU"
+
+className={styles('body')}
+  ↓ ↓ ↓
+class="stDQH"
+
+className={styles('bodyWithFallback')}
+  ↓ ↓ ↓
+class="VMgiK"
 
 `;
