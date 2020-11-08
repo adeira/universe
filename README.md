@@ -68,3 +68,21 @@ Check our [Contribution guide](/CONTRIBUTING.md) on how to report issues, sugges
 - [adeira.slack.com](https://app.slack.com/) - our internal Slack channel
 - [Figma designs](https://www.figma.com/file/bAVVTRg9w2vDJ1Hph82hky/Adeira)
 - [https://vercel.com/adeira](https://vercel.com/adeira) - our Vercel platform for deployments
+
+## Troubleshooting
+
+Things go broken and sometimes it's difficult to understand what's going on. This section should help with these tricky problems. Please help us expand it as you go.
+
+### When running tests
+
+Problem:
+
+```text
+TypeError: /Work/adeira/universe/src/relay/.babelrc.js: Error while loading config - yield* (intermediate value)(intermediate value)(intermediate value)(intermediate value) is not iterable
+```
+
+Solution:
+
+```text
+yarn test-only --clearCache
+```
