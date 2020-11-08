@@ -6,6 +6,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
   - [`@media` and `@supports`](#media-and-supports)
   - [Precise Flow types](#precise-flow-types)
+- [Production usage considerations](#production-usage-considerations)
 - [Architecture](#architecture)
 - [Prior Art](#prior-art)
 
@@ -83,7 +84,9 @@ const styles = sx.create({
 });
 ```
 
-This makes it very predictable and easy to use. It works similarly for shorthand CSS properties (however, try to avoid them - see below):
+This makes it very predictable and easy to use. Always call `className={styles('red', 'blue')}` instead of `` className={`${styles('red')} ${styles('blue')}`} ``! This is very important because the first call guarantees to resolve the CSS precedence correctly as opposed to the second call which does not and might behave unpredictably.
+
+It works similarly for shorthand CSS properties (however, try to avoid them - see below):
 
 ```jsx
 export function ButtonsComponent() {
@@ -105,12 +108,8 @@ It's better to avoid shorthand CSS properties in SX because it yields larger out
 
 ```js
 const styles = sx.create({
-  bgBlue: {
-    background: 'blue',
-  },
-  bgNone: {
-    background: 'none',
-  },
+  bgBlue: { background: 'blue' },
+  bgNone: { background: 'none' },
 });
 
 <div className={styles('bgBlue', 'bgNone')}>I am blue or without background?</div>;
