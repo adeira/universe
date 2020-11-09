@@ -37,38 +37,26 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
           path.replaceWith(sxImport);
         }
       },
-      JSXAttribute(path) {
-        if (
-          path.node.name.type !== 'JSXIdentifier' ||
-          path.node.name.name !== 'className' ||
-          path.node.value.type !== 'JSXExpressionContainer' ||
-          path.node.value.expression.type !== 'CallExpression' ||
-          path.node.value.expression.callee.type !== 'Identifier'
-        ) {
-          return;
-        }
-        if (path.node.value.expression.callee.name === sxtCallee) {
-          path.node.value.expression.arguments.forEach((a) => stylesCollector.push(a.value));
-          path.node.value.expression.callee.name = stylesVarName;
-        } else if (path.node.value.expression.callee.name === tailwindCallee) {
-          path.scope.traverse(path.node, {
+      CallExpression(path) {
+        if (path.node.callee.name === sxtCallee) {
+          path.node.arguments.forEach((a) => stylesCollector.push(a.value));
+          path.node.callee.name = stylesVarName;
+        } else if (path.node.callee.name === tailwindCallee) {
+          path.traverse({
             TemplateLiteral(path) {
               TemplateLiteralHandler(path, stylesCollector, stylesVarName);
             },
           });
 
-          if (
-            path.node.value.expression.arguments.length === 1 &&
-            path.node.value.expression.arguments[0].type === 'StringLiteral'
-          ) {
-            const styles = path.node.value.expression.arguments[0].value
-              .split(' ')
-              .filter((s) => s !== '');
+          if (path.node.arguments.length === 1 && path.node.arguments[0].type === 'StringLiteral') {
+            const styles = path.node.arguments[0].value.split(' ').filter((s) => s !== '');
             stylesCollector.push(...styles);
 
-            path.node.value.expression = t.callExpression(
-              t.identifier(stylesVarName),
-              styles.map((style) => t.stringLiteral(style)),
+            path.replaceWith(
+              t.callExpression(
+                t.identifier(stylesVarName),
+                styles.map((style) => t.stringLiteral(style)),
+              ),
             );
           }
         }
@@ -83,13 +71,12 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
           const declarations = Object.fromEntries(
             stylesCollector.map((style) => [style, tailwindStyles[style]]),
           );
-          if (Object.keys(declarations).length === 0) {
-            return;
-          }
 
-          path.node.body.push(
-            template.ast(`const ${stylesVarName} = sx.create(${JSON.stringify(declarations)})`),
-          );
+          if (Object.keys(declarations).length > 0) {
+            path.node.body.push(
+              template.ast(`const ${stylesVarName} = sx.create(${JSON.stringify(declarations)})`),
+            );
+          }
 
           // is there SX imported twice?
           const sxImports = path.node.body.reduce((a, { type, source, specifiers }, index) => {

@@ -10,7 +10,8 @@ export default function Example(): Element<'button'> {
       Button
     </button>
   );
-}
+} // eslint-disable-next-line no-unused-vars
+
 const styles = 'Here I am';
 
 const __styles_zlbba = sx.create({

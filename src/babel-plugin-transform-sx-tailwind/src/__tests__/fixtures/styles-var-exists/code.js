@@ -14,4 +14,5 @@ export default function Example(): Element<'button'> {
   );
 }
 
+// eslint-disable-next-line no-unused-vars
 const styles = 'Here I am';

@@ -2,11 +2,6 @@
 import type { Node } from 'react';
 import * as sx from '@adeira/sx';
 export default function Example(): Node {
-  const foo = (
-    <>
-      <div></div>
-    </>
-  );
   return (
     <div>
       <div className={styles('text-red')}>Red text</div>

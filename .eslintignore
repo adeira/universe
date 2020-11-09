@@ -13,4 +13,4 @@ src/sx-tailwind-website/__github__/flow-typed
 src/docs/build/
 
 # SX Tailwind Babel plugin fixtures
-src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures
+src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/*/output.js
