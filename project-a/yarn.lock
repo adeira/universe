@@ -97,10 +97,10 @@
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-"@adeira/sx@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.17.0.tgz#65e884b8580a69895195573437716adef4877d69"
-  integrity sha512-p5DVgUaOefYiCOZJuj8GH0tE1+kgcQPQJ7o721DhYEBkScVir9mwsrShq/AJz/AOP8b1PUNbq45sG6nQNG1H/g==
+"@adeira/sx@^0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.18.0.tgz#3888c4e416f5ddc04c9c80096583bd115a4447eb"
+  integrity sha512-fDn4FsYeOFFqJLq8obUfvoT2SQ491kRhAEnQtNpHVrSyvLOOkHdBBQuff9+lNJjKY5agP5uMTmGx/LUJTbGUkA==
   dependencies:
     "@adeira/css-colors" "^0.2.0"
     "@adeira/js" "^1.3.0"
