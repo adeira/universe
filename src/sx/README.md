@@ -20,6 +20,12 @@ First, install the package from NPM:
 yarn add @adeira/sx
 ```
 
+It's highly recommended (but optional) to use related Eslint plugin as well:
+
+```text
+yarn add --dev eslint-plugin-sx
+```
+
 Create a stylesheet and use it to generate `className` props for React:
 
 ```jsx

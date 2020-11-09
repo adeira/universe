@@ -50,7 +50,7 @@ type ASTNodes = {|
 |};
 
 export type EslintRule = {|
-  +meta: {|
+  +meta?: {|
     +type?: 'problem' | 'suggestion' | 'layout',
     +docs?: {|
       +description?: string,
