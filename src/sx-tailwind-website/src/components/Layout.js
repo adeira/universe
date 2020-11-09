@@ -16,7 +16,7 @@ type Props = {|
 export default function Layout({ title, children }: Props): Node {
   const { isOpen } = useContext(SidebarContext);
   return (
-    <div className={tailwind('h-screen flex overflow-hidden bg-gray-100')}>
+    <div className={tailwind('font-sans h-screen flex overflow-hidden bg-gray-100')}>
       {/* TODO: use artsy/fresnel */}
       {isOpen && (
         <Overlay>

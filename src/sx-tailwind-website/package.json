@@ -13,10 +13,11 @@
     "next-transpile-modules": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-syntax-highlighter": "^15.3.0"
+    "react-syntax-highlighter": "^15.3.0",
+    "tailwindcss": "1.8.7"
   },
   "devDependencies": {
-    "@adeira/babel-plugin-transform-sx-tailwind": "^0.7.0",
+    "@adeira/babel-plugin-transform-sx-tailwind": "^0.8.0",
     "@adeira/babel-preset-adeira": "^2.0.0",
     "flow-bin": "^0.137.0"
   },
