@@ -23,5 +23,6 @@
   "@adeira/sx",
   "@adeira/sx-tailwind",
   "@adeira/test-utils",
-  "eslint-plugin-adeira"
+  "eslint-plugin-adeira",
+  "eslint-plugin-sx"
 ]
