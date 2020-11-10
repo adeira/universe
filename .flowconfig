@@ -2,7 +2,6 @@
 [ignore]
 <PROJECT_ROOT>/\.git/.*
 <PROJECT_ROOT>/src/docs/build/
-<PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/.*/output.js
 .+/.+\.gzip\.js
 .+/\.next/.+
 

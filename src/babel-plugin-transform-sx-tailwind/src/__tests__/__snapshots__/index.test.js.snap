@@ -1,0 +1,821 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`transform SX Tailwind custom-font.js: custom-font.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  return (
+    <>
+      <div className={tailwind('font-sans')}>Sans text</div>
+      <div className={tailwind('font-mono')}>Monospace text</div>
+    </>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return (
+    <>
+      <div className={__styles_3xR9dL('font-sans')}>Sans text</div>
+      <div className={__styles_3xR9dL('font-mono')}>Monospace text</div>
+    </>
+  );
+}
+
+const __styles_3xR9dL = sx.create({
+  'font-sans': {
+    fontFamily: 'Inter,sans-serif',
+  },
+  'font-mono': {
+    fontFamily: '"Courier New"',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind nested.js: nested.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  return (
+    <div className={tailwind('text-white bg-black')}>
+      White on black
+      <div className={tailwind('text-black bg-white')}>Black on white</div>
+    </div>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return (
+    <div className={__styles_BKbxA('text-white', 'bg-black')}>
+      White on black
+      <div className={__styles_BKbxA('text-black', 'bg-white')}>Black on white</div>
+    </div>
+  );
+}
+
+const __styles_BKbxA = sx.create({
+  'text-white': {
+    color: '#fff',
+  },
+  'bg-black': {
+    backgroundColor: '#000',
+  },
+  'text-black': {
+    color: '#000',
+  },
+  'bg-white': {
+    backgroundColor: '#fff',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind no-sx-used.js: no-sx-used.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+
+export default function Example(): Element<'button'> {
+  return (
+    <button className="my-button" type="button">
+      Button
+    </button>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+export default function Example(): Element<'button'> {
+  return (
+    <button className="my-button" type="button">
+      Button
+    </button>
+  );
+}
+
+
+`;
+
+exports[`transform SX Tailwind styles-var-exists.js: styles-var-exists.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+// eslint-disable-next-line no-unused-vars
+const styles = 'Here I am';
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={__styles_23kAuc('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold')}
+      type="button"
+    >
+      Button
+    </button>
+  );
+} // eslint-disable-next-line no-unused-vars
+
+const styles = 'Here I am';
+
+const __styles_23kAuc = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind sx-already-imported.js: sx-already-imported.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+import * as sx from '@adeira/sx';
+
+export default function Example(): Node {
+  return (
+    <div>
+      <div className={styles('text-red')}>Red text</div>
+      <button
+        className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
+        type="button"
+      >
+        Button
+      </button>
+    </div>
+  );
+}
+
+const styles = sx.create({
+  'text-red': {
+    color: 'red',
+  },
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return (
+    <div>
+      <div className={styles('text-red')}>Red text</div>
+      <button
+        className={__styles_1ZiIri('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold')}
+        type="button"
+      >
+        Button
+      </button>
+    </div>
+  );
+}
+const styles = sx.create({
+  'text-red': {
+    color: 'red',
+  },
+});
+
+const __styles_1ZiIri = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind sx-imported-alias.js: sx-imported-alias.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+import { create } from '@adeira/sx';
+
+export default function Example(): Node {
+  return (
+    <>
+      <div className={styles('text-red')}>Red text</div>
+      <button
+        className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
+        type="button"
+      >
+        Button
+      </button>
+    </>
+  );
+}
+
+const styles = create({
+  'text-red': {
+    color: 'red',
+  },
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Node } from 'react';
+import * as sx from '@adeira/sx';
+import { create } from '@adeira/sx';
+export default function Example(): Node {
+  return (
+    <>
+      <div className={styles('text-red')}>Red text</div>
+      <button
+        className={__styles_1DNe5q('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold')}
+        type="button"
+      >
+        Button
+      </button>
+    </>
+  );
+}
+const styles = create({
+  'text-red': {
+    color: 'red',
+  },
+});
+
+const __styles_1DNe5q = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind sxt.js: sxt.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+import { sxt } from '@adeira/sx-tailwind';
+
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={sxt(
+        'bg-blue-500',
+        'hover:bg-blue-700',
+        'text-white',
+        'font-bold',
+        'py-2',
+        'px-4',
+        'rounded',
+      )}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={__styles_4kfYDG(
+        'bg-blue-500',
+        'hover:bg-blue-700',
+        'text-white',
+        'font-bold',
+        'py-2',
+        'px-4',
+        'rounded',
+      )}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+const __styles_4kfYDG = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+  'py-2': {
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
+  },
+  'px-4': {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
+  'rounded': {
+    borderRadius: '0.25rem',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind sxt-aliased.js: sxt-aliased.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+import { sxt as mySxt } from '@adeira/sx-tailwind';
+
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={mySxt(
+        'bg-blue-500',
+        'hover:bg-blue-700',
+        'text-white',
+        'font-bold',
+        'py-2',
+        'px-4',
+        'rounded',
+      )}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={__styles_4dNnJd(
+        'bg-blue-500',
+        'hover:bg-blue-700',
+        'text-white',
+        'font-bold',
+        'py-2',
+        'px-4',
+        'rounded',
+      )}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+const __styles_4dNnJd = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+  'py-2': {
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
+  },
+  'px-4': {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
+  'rounded': {
+    borderRadius: '0.25rem',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind sxt-tailwind-together.js: sxt-tailwind-together.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { sxt, tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  return (
+    <>
+      <button
+        className={tailwind('bg-red-500 hover:bg-red-700 text-white font-bold')}
+        type="button"
+      >
+        Tailwind Button
+      </button>
+
+      <button
+        className={sxt('bg-blue-500', 'hover:bg-blue-700', 'text-black', 'rounded')}
+        type="button"
+      >
+        SXT Button
+      </button>
+    </>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return (
+    <>
+      <button
+        className={__styles_4bzGGG('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold')}
+        type="button"
+      >
+        Tailwind Button
+      </button>
+
+      <button
+        className={__styles_4bzGGG('bg-blue-500', 'hover:bg-blue-700', 'text-black', 'rounded')}
+        type="button"
+      >
+        SXT Button
+      </button>
+    </>
+  );
+}
+
+const __styles_4bzGGG = sx.create({
+  'bg-red-500': {
+    backgroundColor: '#f56565',
+  },
+  'hover:bg-red-700': {
+    ':hover': {
+      backgroundColor: '#c53030',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-black': {
+    color: '#000',
+  },
+  'rounded': {
+    borderRadius: '0.25rem',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind tailwind.js: tailwind.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={__styles_2ffLsS('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold')}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+const __styles_2ffLsS = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind tailwind-aliased.js: tailwind-aliased.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+import { tailwind as myTailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={myTailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Element<'button'> {
+  return (
+    <button
+      className={__styles_3dQzTp('bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold')}
+      type="button"
+    >
+      Button
+    </button>
+  );
+}
+
+const __styles_3dQzTp = sx.create({
+  'bg-blue-500': {
+    backgroundColor: '#4299e1',
+  },
+  'hover:bg-blue-700': {
+    ':hover': {
+      backgroundColor: '#2b6cb0',
+    },
+  },
+  'text-white': {
+    color: '#fff',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind template-literal.js: template-literal.js 1`] = `
+
+// @flow
+
+import React, { type Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  return <div className={tailwind(\`text-black bg-white\`)}>Lorem lipsum</div>;
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import React, { type Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return <div className={__styles_3noU6Y('text-black', 'bg-white')}>Lorem lipsum</div>;
+}
+
+const __styles_3noU6Y = sx.create({
+  'text-black': {
+    color: '#000',
+  },
+  'bg-white': {
+    backgroundColor: '#fff',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind template-literal-condition.js: template-literal-condition.js 1`] = `
+
+// @flow
+
+import React, { type Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  const darkMode = true;
+  return (
+    <div
+      className={tailwind(
+        \`px-4 font-bold \${darkMode ? \`text-white bg-black\` : 'text-black bg-white'} rounded\`,
+      )}
+    >
+      Lorem lipsum
+    </div>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import React, { type Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  const darkMode = true;
+  return (
+    <div
+      className={__styles_2LFzAe(
+        'px-4',
+        'font-bold',
+        ...(darkMode ? ['text-white', 'bg-black'] : ['text-black', 'bg-white']),
+        'rounded',
+      )}
+    >
+      Lorem lipsum
+    </div>
+  );
+}
+
+const __styles_2LFzAe = sx.create({
+  'text-white': {
+    color: '#fff',
+  },
+  'bg-black': {
+    backgroundColor: '#000',
+  },
+  'text-black': {
+    color: '#000',
+  },
+  'bg-white': {
+    backgroundColor: '#fff',
+  },
+  'px-4': {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
+  'font-bold': {
+    fontWeight: 700,
+  },
+  'rounded': {
+    borderRadius: '0.25rem',
+  },
+});
+
+
+`;
+
+exports[`transform SX Tailwind template-literal-expression.js: template-literal-expression.js 1`] = `
+
+// @flow
+
+import React, { type Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+import * as sx from '@adeira/sx';
+
+export default function Example(): Node {
+  return <div className={\`\${tailwind('px-4')} \${styles('customStyle')}\`}>Lorem lipsum</div>;
+}
+
+const styles = sx.create({
+  customStyle: { transform: 'translateX(10px)' },
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import React, { type Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return <div className={\`\${__styles_4ozVnl('px-4')} \${styles('customStyle')}\`}>Lorem lipsum</div>;
+}
+const styles = sx.create({
+  customStyle: {
+    transform: 'translateX(10px)',
+  },
+});
+
+const __styles_4ozVnl = sx.create({
+  'px-4': {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+  },
+});
+
+
+`;
