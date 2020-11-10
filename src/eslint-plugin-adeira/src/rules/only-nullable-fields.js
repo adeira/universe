@@ -1,9 +1,7 @@
-// @flow strict
+// @flow
 
 /*::
-
-import type { EslintRule } from './EslintRule.flow';
-
+import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
 module.exports = ({
@@ -44,6 +42,8 @@ module.exports = ({
         if (
           noOfAllowedNodesVisited === 0 &&
           node.callee.name === 'GraphQLNonNull' &&
+          node.parent &&
+          // $FlowFixMe[prop-missing] - discovered when creating `@adeira/flow-types-eslint`
           (node.parent.callee == null || node.parent.callee.name !== 'GraphQLList')
         ) {
           context.report(node, 'Avoid using GraphQLNonNull.');
