@@ -75,10 +75,14 @@ Things go broken and sometimes it's difficult to understand what's going on. Thi
 
 ### When running tests
 
-Problem:
+Problem (some unexpected Babel behavior which doesn't seem to be a code problem):
 
 ```text
-TypeError: /Work/adeira/universe/src/relay/.babelrc.js: Error while loading config - yield* (intermediate value)(intermediate value)(intermediate value)(intermediate value) is not iterable
+TypeError: /adeira/universe/src/relay/.babelrc.js: Error while loading config - yield* (intermediate value)(intermediate value)(intermediate value)(intermediate value) is not iterable
+```
+
+```text
+TypeError: [BABEL] /adeira/universe/src/sx/src/__tests__/StyleCollectorPseudoNode.test.js: (0 , _parser(...).parse) is not a function
 ```
 
 Solution:

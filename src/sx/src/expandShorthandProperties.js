@@ -5,7 +5,7 @@ import { isColor } from '@adeira/css-colors';
 import StyleCollectorNode from './StyleCollectorNode';
 
 /**
- * Purpose of this function is to expand shorthand CSS properties which could cause conflics
+ * Purpose of this function is to expand shorthand CSS properties which could cause conflicts
  * when defined together. Imagine the following example:
  *
  * ```
@@ -36,7 +36,7 @@ import StyleCollectorNode from './StyleCollectorNode';
  *
  * This way SX is not dependent on the CSS rules insertion order but rather on the markup.
  *
- * @see https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Tricky_edge_cases
  */
 export default function expandShorthandProperties(
   propertyName: string,
@@ -136,15 +136,28 @@ export default function expandShorthandProperties(
     }
   }
 
-  // TODO (inspired by React Native Web - https://github.com/necolas/react-native-web/):
-  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Font_Properties
-  //
-  //  - borderColor: ['borderTopColor', 'borderRightColor', 'borderBottomColor', 'borderLeftColor'],
-  //  - borderRadius: ['borderTopLeftRadius', 'borderTopRightRadius', 'borderBottomRightRadius', 'borderBottomLeftRadius'],
-  //  - borderStyle: ['borderTopStyle', 'borderRightStyle', 'borderBottomStyle', 'borderLeftStyle'],
-  //  - borderWidth: ['borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth'],
-  //  - overflow: ['overflowX', 'overflowY'],
-  //  - overscrollBehavior: ['overscrollBehaviorX', 'overscrollBehaviorY'],
+  if (propertyName === 'overflow') {
+    // The `overflow` property is specified as one or two keywords. If two keywords are specified,
+    // the first applies to `overflow-x` and the second to `overflow-y`. Otherwise, both `overflow-x`
+    // and `overflow-y` are set to the same value.
+    const chunks = propertyValue.split(/\s/);
+    if (chunks.length === 2) {
+      return [
+        new StyleCollectorNode('overflowX', chunks[0], hashSeed),
+        new StyleCollectorNode('overflowY', chunks[1], hashSeed),
+      ];
+    }
+    return [
+      new StyleCollectorNode('overflowX', propertyValue, hashSeed),
+      new StyleCollectorNode('overflowY', propertyValue, hashSeed),
+    ];
+  }
+
+  // TODO:
+  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/font
+  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+  //  - ...
 
   return [new StyleCollectorNode(propertyName, propertyValue, hashSeed)];
 }
