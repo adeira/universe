@@ -142,6 +142,38 @@ const styles = sx.create({
 });
 ```
 
+Note that if you want to add some styling of the same property with different pseudo classes, there might be some specificity issues. Say you want to do this:
+
+```js
+const styles = sx.create({
+  button: {
+    ':hover': {
+      color: 'pink',
+    },
+    ':active': {
+      color: 'blue',
+    },
+  },
+});
+```
+
+These 2 rules will have the same specificity, and the one defined last in the stylesheet will win. It may or may not help to change order in this style, because the class could be created by a different rule. What will help is to raise the specificity of the active class. You can do this:
+
+```js
+const styles = sx.create({
+  button: {
+    ':hover': {
+      color: 'pink',
+    },
+    ':active:hover': {
+      color: 'blue',
+    },
+  },
+});
+```
+
+The `:active:hover` now has higher specificity than `:hover` and the result will be what you expected.
+
 ### `@media` and `@supports`
 
 ```jsx
