@@ -169,3 +169,30 @@ it('handles background:none specificity correctly', () => {
   const test2 = screen.getByText('test_2');
   expect(test2).toHaveStyle(`background-color:${normalizeColor('blue')}`);
 });
+
+it('works with keyframes', () => {
+  const animation = sx.keyframes({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+  });
+  const styles = sx.create({
+    myClass: {
+      animationName: animation,
+      animationDuration: '2s',
+    },
+  });
+
+  const { container } = render(
+    <>
+      {sx.renderPageWithSX(jest.fn()).styles}
+      <div className={styles('myClass')}>test_1</div>
+    </>,
+  );
+  expect(container.querySelector('[data-adeira-sx]')).toMatchInlineSnapshot(`
+    <style
+      data-adeira-sx="true"
+    >
+      .P4y5l{animation-name:_2rMlJa}.HDQox{animation-duration:2s}@keyframes _2rMlJa {from {opacity:0;}to {opacity:1;}}
+    </style>
+  `);
+});

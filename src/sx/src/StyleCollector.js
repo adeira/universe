@@ -39,6 +39,7 @@ export type StyleBufferType = Map<string, StyleCollectorNodeInterface>;
 
 class StyleCollector {
   #styleBuffer: StyleBufferType = new Map();
+  #keyframes: Map<string, string> = new Map();
 
   collect(baseStyleSheet: {|
     +[sheetName: string]: $FlowFixMe,
@@ -109,11 +110,23 @@ class StyleCollector {
     this.#styleBuffer.forEach((node) => {
       sxStyle += node.printNodes().join('');
     });
+    this.#keyframes.forEach((node) => {
+      sxStyle += node;
+    });
     return sxStyle;
+  }
+
+  addKeyframe(name: string, value: string): boolean {
+    if (this.#keyframes.has(name)) {
+      return true;
+    }
+    this.#keyframes.set(name, value);
+    return false;
   }
 
   reset(): void {
     this.#styleBuffer.clear();
+    this.#keyframes.clear();
   }
 }
 
