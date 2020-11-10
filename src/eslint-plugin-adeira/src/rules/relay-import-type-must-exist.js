@@ -1,13 +1,11 @@
-// @flow strict
+// @flow
 
 const path = require('path');
 
 const readFileSync = require('../readFileSync');
 
 /*::
-
-import type { EslintRule } from './EslintRule.flow';
-
+import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
 function isRelayImport(node) {
@@ -53,7 +51,7 @@ module.exports = ({
           if (node.importKind !== 'type' && specifier.importKind !== 'type') {
             return;
           }
-          if (!types.includes(specifier.imported.name)) {
+          if (specifier.imported && !types.includes(specifier.imported.name)) {
             context.report(
               specifier.imported,
               `"${
