@@ -236,7 +236,7 @@ module.exports = ({
   'no-new-symbol': WARN,
   'no-restricted-imports': OFF, // see: node/no-restricted-import (https://github.com/mysticatea/eslint-plugin-node/pull/206)
   'no-this-before-super': ERROR,
-  'no-useless-computed-key': ERROR,
+  'no-useless-computed-key': OFF, // Flow doesn't work with non-string literal property keys, https://github.com/facebook/flow/issues/380
   'no-useless-constructor': ERROR,
   'no-var': ERROR,
   'no-useless-rename': WARN,

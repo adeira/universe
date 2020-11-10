@@ -583,7 +583,7 @@ Object {
     "no-useless-backreference": 2,
     "no-useless-call": 1,
     "no-useless-catch": 2,
-    "no-useless-computed-key": 2,
+    "no-useless-computed-key": 0,
     "no-useless-concat": 2,
     "no-useless-constructor": 2,
     "no-useless-escape": 2,
