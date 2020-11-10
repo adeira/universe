@@ -54,8 +54,8 @@ sx.create({
     unknownProperty: 'red',
   },
   UnknownPropertyInsideMedia: {
-    // $FlowExpectedError[incompatible-call]
     '@media print': {
+      // $FlowExpectedError[incompatible-call]
       unknownProperty: 'red',
     },
   },

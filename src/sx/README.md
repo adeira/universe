@@ -5,6 +5,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [Multiple stylesheets precedence](#multiple-stylesheets-precedence)
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
   - [`@media` and `@supports`](#media-and-supports)
+  - [Keyframes](#keyframes)
   - [Precise Flow types](#precise-flow-types)
 - [Production usage considerations](#production-usage-considerations)
 - [Server-side rendering](#server-side-rendering)
@@ -225,6 +226,41 @@ const styles = sx.create({
     },
   },
 });
+```
+
+### Keyframes
+
+SX also has support for keyframes, it exports a function that generates an animation name from the input you give it. You can use it like this:
+
+```jsx
+export function AnimatedComponent() {
+  return <div className={styles('text')}>text</div>;
+}
+
+const fadeIn = sx.keyframes({
+  '0%': {
+    opacity: 0,
+  },
+  '50%, 55%': {
+    opacity: 0.3,
+  },
+  '100%': {
+    opacity: 1,
+  },
+});
+
+const styles = sx.create({
+  text: {
+    animationName: fadeIn,
+    animationDuration: '2s',
+  },
+});
+```
+
+It also supports `from` and `to` for simpler animations.
+
+```js
+const simple = sx.keyframes({ from: { opacity: 0 }, to: { opacity: 1 } });
 ```
 
 ### Precise Flow types

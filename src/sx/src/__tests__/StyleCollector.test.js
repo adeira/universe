@@ -158,3 +158,13 @@ it('works with mediaQueries', () => {
     }
   `);
 });
+
+it('works with keyframes', () => {
+  expect(
+    StyleCollector.addKeyframe('_1kFWtB', `@keyframes _1kFWtB {from {opacity: 0}to {opacity:1}}`),
+  ).toBe(false);
+
+  expect(
+    StyleCollector.addKeyframe('_1kFWtB', `@keyframes _1kFWtB {from {opacity: 0}to {opacity:1}}`),
+  ).toBe(true);
+});

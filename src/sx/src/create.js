@@ -15,15 +15,8 @@ type MediaQueries = {|
   +[string]: MediaQueries, // media queries can be recursively nested
 |};
 
-// https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes
-type KeyFrames = {|
-  +from: AllCSSPropertyTypes,
-  +to: AllCSSPropertyTypes,
-  +[number]: AllCSSPropertyTypes, // percentages
-|};
-
 // https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
-type AtRules = MediaQueries | KeyFrames;
+type AtRules = MediaQueries;
 
 type AllCSSProperties = {|
   ...AllCSSPropertyTypes,

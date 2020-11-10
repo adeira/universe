@@ -13,8 +13,7 @@ import type { StyleBufferType } from './StyleCollector';
 opaque type StyleElementType = HTMLStyleElement | null;
 let styleAdeiraSXTag: StyleElementType = null;
 
-// https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
-export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
+const getStyleTag = (): CSSStyleSheet => {
   if (styleAdeiraSXTag === null) {
     styleAdeiraSXTag = ((document.querySelector('style[data-adeira-sx]'): any): StyleElementType);
     if (styleAdeiraSXTag === null) {
@@ -25,36 +24,62 @@ export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
       styleAdeiraSXTag.setAttribute('data-adeira-sx', '');
       htmlHead?.appendChild(styleAdeiraSXTag);
     }
-
-    invariant(
-      styleAdeiraSXTag != null,
-      'SX cannot render any styles because <style data-adeira-sx /> was not found and could not be created in the HTML document.',
-    );
   }
 
   const styleSheet = styleAdeiraSXTag.sheet;
+
   invariant(
     styleSheet != null,
     'SX cannot apply runtime styles because HTMLStyleElement.sheet does not exist.',
   );
 
-  function findStyleRule(selectorText) {
-    for (const cssRule of styleSheet.cssRules) {
-      // eslint-disable-next-line no-undef
-      if (cssRule.type === CSSRule.STYLE_RULE) {
-        const styleRule = ((cssRule: any): CSSStyleRule);
-        if (styleRule.selectorText === `.${selectorText}`) {
-          return true;
-        }
+  return styleSheet;
+};
+
+function hasStyleRule(match: (CSSRule) => boolean) {
+  const styleSheet = getStyleTag();
+  for (const cssRule of styleSheet.cssRules) {
+    if (match(cssRule)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+export function injectRuntimeKeyframes(css: string, name: string) {
+  const styleSheet = getStyleTag();
+
+  const matchFunction = (cssRule) => {
+    if (cssRule.type === CSSRule.KEYFRAMES_RULE) {
+      const rule: CSSKeyframesRule = (cssRule: any);
+      return rule.name === name;
+    }
+    return false;
+  };
+
+  if (hasStyleRule(matchFunction) === false) {
+    styleSheet.insertRule(css, styleSheet.cssRules.length);
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
+export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
+  const styleSheet = getStyleTag();
+
+  const matchFunction = (node) => (cssRule) => {
+    if (cssRule.type === CSSRule.STYLE_RULE) {
+      const styleRule = ((cssRule: any): CSSStyleRule);
+      if (styleRule.selectorText === `.${node.getHash()}`) {
+        return true;
       }
     }
     return false;
-  }
+  };
 
   const insertIndex = styleSheet.cssRules.length;
   styleBuffer.forEach((node) => {
     if (node instanceof StyleCollectorNode) {
-      if (findStyleRule(node.getHash()) === false) {
+      if (hasStyleRule(matchFunction(node)) === false) {
         // apply missing styles
         styleSheet.insertRule(node.printNodes().join(''), insertIndex);
       }
