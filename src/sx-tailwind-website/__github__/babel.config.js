@@ -1,4 +1,6 @@
-// @flow strict
+// @flow
+
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 /*::
 
@@ -11,7 +13,7 @@ type ApiType = {|
 
 type BabelConfig = {|
   +presets: $ReadOnlyArray<string | [string, { ... }]>,
-  +plugins: $ReadOnlyArray<string>,
+  +plugins: $ReadOnlyArray<string | [string, { ... }]>,
 |}
 
 */
@@ -22,6 +24,19 @@ module.exports = function (api /*: ApiType */) /*: BabelConfig */ {
 
   return {
     presets: ['@adeira/babel-preset-adeira', 'next/babel'],
-    plugins: ['@adeira/babel-plugin-transform-sx-tailwind'],
+    plugins: [
+      [
+        '@adeira/babel-plugin-transform-sx-tailwind',
+        {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+              },
+            },
+          },
+        },
+      ],
+    ],
   };
 };

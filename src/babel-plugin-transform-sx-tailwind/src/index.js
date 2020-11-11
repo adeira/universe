@@ -10,8 +10,9 @@ require('@babel/register')({
 const template = require('@babel/template').default;
 const t = require('@babel/types');
 const murmurHash = require('@adeira/murmur-hash').default;
-const { tailwindStyles } = require('@adeira/sx-tailwind');
+const resolveConfig = require('tailwindcss/resolveConfig');
 
+const getCssDeclarations = require('./getCssDeclarations').default;
 const TemplateLiteralHandler = require('./TemplateLiteralHandler').default;
 
 module.exports = function sxTailwindBabelPlugin() /*: any */ {
@@ -67,9 +68,11 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
           const filename = state.file.opts.filename.split('/').slice(-2).join('/');
           stylesVarName = `__styles_${murmurHash(filename)}`;
         },
-        exit(path) {
+        exit(path, state) {
+          const tailwindConfig = resolveConfig(state.opts);
+
           const declarations = Object.fromEntries(
-            stylesCollector.map((style) => [style, tailwindStyles[style]]),
+            stylesCollector.map((style) => [style, getCssDeclarations(style, tailwindConfig)]),
           );
 
           if (Object.keys(declarations).length > 0) {
