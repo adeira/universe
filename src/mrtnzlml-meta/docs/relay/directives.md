@@ -592,3 +592,14 @@ query Query @preloadable {
 ```
 
 See: https://github.com/facebook/relay/commit/10df4d834da3a31e3d855837ad47e323568332ce
+
+### @fixme_fat_interface
+
+```graphql
+directive @fixme_fat_interface on FIELD
+```
+
+See:
+
+- https://github.com/facebook/relay/search?q=%22fixme_fat_interface%22
+- https://github.com/facebook/relay/commit/15918a54d49f51ee656a44a6acec53dbe75ca372
