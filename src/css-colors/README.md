@@ -39,10 +39,11 @@ normalizeColor('#663399'); // #639
 normalizeColor('rebeccapurple'); // #639
 ```
 
-## HEX 6 to HEX 3
+## HEX to HEX
 
 ```js
-import { hex6ToHex3 } from '@adeira/css-colors';
+import { hex3ToHex6, hex6ToHex3 } from '@adeira/css-colors';
 
+hex3ToHex6('#639'); // #663399
 hex6ToHex3('#663399'); // #639
 ```
