@@ -4,13 +4,13 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/babel-plugin-transform-sx-tailwind",
   "license": "MIT",
   "private": false,
-  "version": "0.8.0",
+  "version": "0.9.0",
   "main": "src/index",
   "sideEffects": false,
   "module": false,
   "dependencies": {
     "@adeira/murmur-hash": "^0.2.1",
-    "@adeira/sx-tailwind": "^0.5.0",
+    "@adeira/sx-tailwind": "^0.6.0",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.5",
     "@babel/template": "^7.10.4",
@@ -18,6 +18,7 @@
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
+    "@babel/plugin-transform-regenerator": "^7.12.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-tester": "^10.0.0"
   }

@@ -26,6 +26,7 @@ pluginTester({
     plugins: [
       '@babel/plugin-syntax-flow', //
       '@babel/plugin-syntax-jsx',
+      '@babel/plugin-transform-regenerator',
     ],
   },
 });
