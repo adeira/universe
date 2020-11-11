@@ -1,9 +1,7 @@
-// @flow strict
+// @flow
 
 /*::
-
-import type { EslintRule } from './EslintRule.flow';
-
+import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
 function isRelayImport(node) {

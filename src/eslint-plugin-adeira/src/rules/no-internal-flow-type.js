@@ -1,9 +1,7 @@
-// @flow strict
+// @flow
 
 /*::
-
-import type { EslintRule } from './EslintRule.flow';
-
+import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
 // We enumerate here all the React components Flow patches internally. It's because we don't want

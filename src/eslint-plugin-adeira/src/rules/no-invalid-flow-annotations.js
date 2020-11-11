@@ -3,9 +3,7 @@
 const levenshtein = require('fast-levenshtein');
 
 /*::
-
-import type { EslintRule } from './EslintRule.flow';
-
+import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
 function suggest(name /*: string */, alternativeNames /*: Array<string> */) /*: string */ {
