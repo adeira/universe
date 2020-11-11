@@ -14,7 +14,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-syntax-highlighter": "^15.3.0",
-    "tailwindcss": "1.8.7"
+    "tailwindcss": "1.9.6"
   },
   "devDependencies": {
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.8.0",
