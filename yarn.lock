@@ -10031,7 +10031,7 @@ mdast-util-to-string@^1.1.0:
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-1.1.0.tgz#27055500103f51637bd07d01da01eb1967a43527"
   integrity sha512-jVU0Nr2B9X3MU4tSK7JP1CMkSvOj7X5l/GboG1tKRw52lLF1x2Ju92Ms9tNetCcbfX3hzlM73zYo2NKkWSfF/A==
 
-mdn-data@2.0.12, mdn-data@^2.0.12:
+mdn-data@2.0.12:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.12.tgz#bbb658d08b38f574bbb88f7b83703defdcc46844"
   integrity sha512-ULbAlgzVb8IqZ0Hsxm6hHSlQl3Jckst2YEQS7fODu9ilNWy2LvcoSY7TRFIktABP2mdppBioc66va90T+NUs8Q==
@@ -10045,6 +10045,11 @@ mdn-data@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
   integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
+
+mdn-data@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.13.tgz#e418a5b701c71064561cae7ea5c66548ca23279e"
+  integrity sha512-MyjPYDFwHK+mKHVGWVmY0DkvH67Qy8eLrF9Xc3TKLxrE0T+KtbdqE1oNrqtCu0llIqGq3ax/4ajWqEoCLu48hA==
 
 mdurl@^1.0.0:
   version "1.0.1"
