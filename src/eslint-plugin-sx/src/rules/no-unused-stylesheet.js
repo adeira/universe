@@ -4,6 +4,9 @@
 import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
+const getImportSpecifiers = require('./utils/getImportSpecifiers');
+const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
+
 // This rule makes sure that all defined stylesheets are used AND all used stylesheets are defined.
 module.exports = ({
   create: function (context) {
@@ -27,45 +30,26 @@ module.exports = ({
     return {
       // TODO: add support for `require("@adeira/sx")`
       'ImportDeclaration'(node) {
-        if (node.source.value === '@adeira/sx') {
-          for (const specifier of node.specifiers) {
-            if (specifier.type === 'ImportNamespaceSpecifier') {
-              // import * as sx from '@adeira/sx'
-              // import * as tada from '@adeira/sx'
-              importNamespaceSpecifier = specifier.local.name; // "sx" or "tada"
-            } else if (specifier.type === 'ImportSpecifier') {
-              // import { create } from '@adeira/sx';
-              // import { create as sxCreate } from '@adeira/sx';
-              importSpecifier = specifier.local.name; // "create" or "sxCreate"
-            }
-          }
-        }
+        const { importNamespaceSpecifier: _ins, importSpecifier: _is } = getImportSpecifiers(node);
+        importNamespaceSpecifier = _ins;
+        importSpecifier = _is;
       },
 
       // const styles = sx.create({})
       //       ^^^^^^^^^^^^^^^^^^^^^^
       //       | id |
       'VariableDeclarator'(node) {
-        const nodeCallee =
-          node.init && node.init.type === 'CallExpression' ? node.init.callee : undefined;
-        if (
-          nodeCallee &&
-          node.init &&
-          node.init.arguments &&
-          ((nodeCallee.object &&
-            nodeCallee.object.name === importNamespaceSpecifier && // "sx" in sx.create({})
-            nodeCallee.property &&
-            nodeCallee.property.name === 'create') || // "create" in sx.create({})
-            nodeCallee.name === importSpecifier) // "sxCreate" in sxCreate({})
-        ) {
-          if (node.init.arguments.length > 1) {
+        if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifier)) {
+          const initArguments = (node.init && node.init.arguments) || [];
+
+          if (initArguments.length > 1) {
             context.report({
               node,
               message: 'SX create was called with too many arguments. Only one is allowed.',
             });
           }
 
-          const firstArgument = node.init.arguments[0];
+          const firstArgument = initArguments[0];
           if ((firstArgument && firstArgument.type) !== 'ObjectExpression') {
             context.report({
               node,

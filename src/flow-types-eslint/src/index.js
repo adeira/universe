@@ -2,13 +2,13 @@
 
 import type { CallExpression } from './types/CallExpression';
 import type { Identifier } from './types/Identifier';
-import type { ImportDeclaration } from './types/ImportDeclaration';
+import type { ImportDeclaration as _ImportDeclaration } from './types/ImportDeclaration';
 import type { ImportDefaultSpecifier } from './types/ImportDefaultSpecifier';
 import type { ImportSpecifier } from './types/ImportSpecifier';
 import type { NewExpression } from './types/NewExpression';
 import type { Program } from './types/Program';
 import type { Property } from './types/Property';
-import type { VariableDeclarator } from './types/VariableDeclarator';
+import type { VariableDeclarator as _VariableDeclarator } from './types/VariableDeclarator';
 
 // Inspiration (but obviously a different tool):
 // https://github.com/babel/babel/blob/08c7280167a8dd7696c16ac70e36d5d3120962a9/packages/babel-parser/src/types.js
@@ -31,7 +31,7 @@ type ASTNodes = {|
   ) => void,
   +'CallExpression'?: (node: CallExpression) => void,
   +'Identifier'?: (node: Identifier) => void,
-  +'ImportDeclaration'?: (node: ImportDeclaration) => void,
+  +'ImportDeclaration'?: (node: _ImportDeclaration) => void,
   +'ImportDefaultSpecifier'?: (node: ImportDefaultSpecifier) => void,
   +'ImportSpecifier'?: (node: ImportSpecifier) => void,
   +'JSXExpressionContainer'?: (
@@ -46,8 +46,11 @@ type ASTNodes = {|
   +'Program:exit'?: (node: Program) => void,
   +'Property'?: (node: Property) => void,
   +'Property:exit'?: (node: Property) => void,
-  +'VariableDeclarator'?: (node: VariableDeclarator) => void,
+  +'VariableDeclarator'?: (node: _VariableDeclarator) => void,
 |};
+
+export type VariableDeclarator = _VariableDeclarator;
+export type ImportDeclaration = _ImportDeclaration;
 
 export type EslintRule = {|
   +meta?: {|

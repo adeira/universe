@@ -30,10 +30,7 @@ module.exports = {
     },
   ],
 
-  plugins: ['eslint-plugin-sx'], // TODO: move to `eslint-config-adeira`
-
   rules: {
-    'sx/no-unused-stylesheet': ERROR, // TODO: move to `eslint-config-adeira`
     'no-restricted-imports': [
       ERROR,
       {
