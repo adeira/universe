@@ -4,52 +4,60 @@ import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
 import SignedSource from '@adeira/signed-source';
+import resolveConfig from 'tailwindcss/resolveConfig';
 
-import generateSX from './sxGenerator';
+import convertToSx from './tailwindToSx';
 
-// wget https://unpkg.com/tailwindcss@1.8.3/dist/tailwind.css
-const css = fs.readFileSync(path.join(__dirname, 'tailwind.css'));
-const styles = generateSX(css);
+const tailwindConfig = resolveConfig({});
 
-const codeStyles = SignedSource.signFile(`
-/**
- * ${SignedSource.getSigningToken()}
- * @flow
- *
- * Tailwind CSS file converted into stylesheets for SX
- *
- * @see https://tailwindcss.com/
- * @see https://github.com/adeira/sx
- */
+(async function run() {
+  const styles = await convertToSx(
+    `@tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    `,
+    tailwindConfig,
+  );
 
-import { type TailwindClassNames } from './types';
+  const codeStyles = SignedSource.signFile(`
+  /**
+   * ${SignedSource.getSigningToken()}
+   * @flow
+   *
+   * Tailwind CSS file converted into stylesheets for SX
+   *
+   * @see https://tailwindcss.com/
+   * @see https://github.com/adeira/sx
+   */
 
-export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze(${JSON.stringify(
-  styles,
-)});
-`);
+  import { type TailwindClassNames } from './types';
 
-const codeTypes = SignedSource.signFile(`
-/**
- * ${SignedSource.getSigningToken()}
- * @flow
- *
- * Union type of all Tailwind CSS classes
- *
- * @see https://tailwindcss.com/
- */
+  export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze(${JSON.stringify(
+    styles,
+  )});
+  `);
 
-export type TailwindClassNames = "${Object.keys(styles).join('"|"')}";
-`);
+  const codeTypes = SignedSource.signFile(`
+  /**
+   * ${SignedSource.getSigningToken()}
+   * @flow
+   *
+   * Union type of all Tailwind CSS classes
+   *
+   * @see https://tailwindcss.com/
+   */
 
-const filesConfig = [
-  { code: codeStyles, filename: 'tailwindStyles.js' },
-  { code: codeTypes, filename: 'types.js' },
-];
+  export type TailwindClassNames = "${Object.keys(styles).join('"|"')}";
+  `);
 
-prettier.resolveConfig(__filename).then((options) => {
+  const filesConfig = [
+    { code: codeStyles, filename: 'tailwindStyles.js' },
+    { code: codeTypes, filename: 'types.js' },
+  ];
+
+  const options = await prettier.resolveConfig(__filename);
   filesConfig.forEach(({ code, filename }) => {
     const formatted = prettier.format(code, { filepath: 'mock.js', ...options });
     fs.writeFileSync(path.join(__dirname, '__generated__', filename), formatted, 'utf8');
   });
-});
+})();

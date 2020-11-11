@@ -7,7 +7,7 @@
     "@adeira/js": "^1.2.4",
     "@adeira/monorepo-utils": "^0.9.0",
     "@adeira/sx": "^0.19.0",
-    "@adeira/sx-tailwind": "^0.5.0",
+    "@adeira/sx-tailwind": "^0.6.0",
     "next": "^10.0.1",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^4.1.0",
@@ -17,7 +17,7 @@
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
-    "@adeira/babel-plugin-transform-sx-tailwind": "^0.8.0",
+    "@adeira/babel-plugin-transform-sx-tailwind": "^0.9.0",
     "@adeira/babel-preset-adeira": "^2.0.0",
     "flow-bin": "^0.138.0"
   },

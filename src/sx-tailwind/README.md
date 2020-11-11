@@ -1,4 +1,4 @@
-Experimental port of [Tailwind CSS](https://tailwindcss.com/) (version 1.8.7) into [SX](https://github.com/adeira/sx).
+Experimental port of [Tailwind CSS](https://tailwindcss.com/) (version 1.9.6) into [SX](https://github.com/adeira/sx).
 
 ## Usage
 

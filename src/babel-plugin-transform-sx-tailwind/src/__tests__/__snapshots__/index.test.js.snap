@@ -74,16 +74,20 @@ export default function Example(): Node {
 
 const __styles_BKbxA = sx.create({
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'bg-black': {
-    backgroundColor: '#000',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(0, 0, 0, var(--bg-opacity))',
   },
   'text-black': {
-    color: '#000',
+    '--text-opacity': '1',
+    'color': 'rgba(0, 0, 0, var(--text-opacity))',
   },
   'bg-white': {
-    backgroundColor: '#fff',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(255, 255, 255, var(--bg-opacity))',
   },
 });
 
@@ -160,15 +164,18 @@ const styles = 'Here I am';
 
 const __styles_23kAuc = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -232,15 +239,18 @@ const styles = sx.create({
 
 const __styles_1ZiIri = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -305,15 +315,18 @@ const styles = create({
 
 const __styles_1DNe5q = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -375,15 +388,18 @@ export default function Example(): Element<'button'> {
 
 const __styles_4kfYDG = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -456,15 +472,18 @@ export default function Example(): Element<'button'> {
 
 const __styles_4dNnJd = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -539,29 +558,35 @@ export default function Example(): Node {
 
 const __styles_4bzGGG = sx.create({
   'bg-red-500': {
-    backgroundColor: '#f56565',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(245, 101, 101, var(--bg-opacity))',
   },
   'hover:bg-red-700': {
     ':hover': {
-      backgroundColor: '#c53030',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(197, 48, 48, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
   },
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-black': {
-    color: '#000',
+    '--text-opacity': '1',
+    'color': 'rgba(0, 0, 0, var(--text-opacity))',
   },
   'rounded': {
     borderRadius: '0.25rem',
@@ -607,15 +632,18 @@ export default function Example(): Element<'button'> {
 
 const __styles_2ffLsS = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -661,15 +689,18 @@ export default function Example(): Element<'button'> {
 
 const __styles_3dQzTp = sx.create({
   'bg-blue-500': {
-    backgroundColor: '#4299e1',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(66, 153, 225, var(--bg-opacity))',
   },
   'hover:bg-blue-700': {
     ':hover': {
-      backgroundColor: '#2b6cb0',
+      '--bg-opacity': '1',
+      'backgroundColor': 'rgba(43, 108, 176, var(--bg-opacity))',
     },
   },
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'font-bold': {
     fontWeight: 700,
@@ -701,10 +732,12 @@ export default function Example(): Node {
 
 const __styles_3noU6Y = sx.create({
   'text-black': {
-    color: '#000',
+    '--text-opacity': '1',
+    'color': 'rgba(0, 0, 0, var(--text-opacity))',
   },
   'bg-white': {
-    backgroundColor: '#fff',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(255, 255, 255, var(--bg-opacity))',
   },
 });
 
@@ -754,16 +787,20 @@ export default function Example(): Node {
 
 const __styles_2LFzAe = sx.create({
   'text-white': {
-    color: '#fff',
+    '--text-opacity': '1',
+    'color': 'rgba(255, 255, 255, var(--text-opacity))',
   },
   'bg-black': {
-    backgroundColor: '#000',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(0, 0, 0, var(--bg-opacity))',
   },
   'text-black': {
-    color: '#000',
+    '--text-opacity': '1',
+    'color': 'rgba(0, 0, 0, var(--text-opacity))',
   },
   'bg-white': {
-    backgroundColor: '#fff',
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(255, 255, 255, var(--bg-opacity))',
   },
   'px-4': {
     paddingLeft: '1rem',
