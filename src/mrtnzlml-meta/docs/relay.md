@@ -14,7 +14,8 @@ TODO:
 - New GC release buffer: https://github.com/mrtnzlml/relay/pull/126/commits/6ed264413ba8cdd586d695e5ed234951ee9eca13
 - [complex arguments with nested variables are now supported](https://github.com/facebook/relay/commit/5da3be070283c6dcd42774ba33c1590db65fe3c7)
 - HTTP persister example: https://github.com/facebook/relay/commit/aaa9588e081d3591ad8d043e924cacfadc06ec80
-- TODO: special `__id` field
+- special `__id` field
+- special `__token` field (https://github.com/facebook/relay/commit/018af6da244e1242833e1bd89e8762c1409bee6d)
 - https://github.com/relay-tools/relay-connection-handler-plus (use-case: https://github.com/facebook/relay/issues/3065)
 - entrypoints: [prepareEntryPoint](https://github.com/facebook/relay/blob/master/packages/relay-experimental/prepareEntryPoint.js#L26), [EntryPointContainer](https://github.com/facebook/relay/blob/master/packages/relay-experimental/EntryPointContainer.react.js) + tests
 - https://github.com/jstejada/relay-session
