@@ -2,7 +2,7 @@
   "name": "eslint-plugin-sx",
   "description": "Eslint plugin for @adeira/sx",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-sx",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "private": false,
   "keywords": [

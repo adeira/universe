@@ -86,6 +86,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'eslint-plugin-node',
       'eslint-plugin-eslint-comments',
       'eslint-plugin-adeira',
+      'eslint-plugin-sx',
       'eslint-plugin-prettier',
     ],
 

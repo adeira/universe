@@ -6,12 +6,10 @@ import type { EslintConfigRules } from './EslintConfig.flow';
 
 */
 
-/* eslint-disable no-unused-vars */
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
-/* eslint-enable no-unused-vars */
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -681,4 +679,8 @@ module.exports = ({
   'adeira/valid-test-folder': ERROR,
   'adeira/no-duplicate-import-type-import': ERROR,
   'adeira/graphql-require-object-description': WARN,
+
+  // Adeira SX custom rules
+  'sx/no-concatenated-classes': NEXT_VERSION_ERROR,
+  'sx/no-unused-stylesheet': NEXT_VERSION_ERROR,
 } /*: EslintConfigRules */);

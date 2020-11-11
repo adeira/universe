@@ -38,5 +38,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
+- [no-concatenated-classes](docs/rules/no-concatenated-classes.md)
 - [no-unused-stylesheet](docs/rules/no-unused-stylesheet.md)
-- TODO
+- ...

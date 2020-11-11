@@ -3,6 +3,7 @@
 - Enable [`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/process-exit-as-throw.md) rule. This is potentially breaking, however, the impact should be minimal and the migration simple.
 - Set `react/react-in-jsx-scope` to `OFF` since we are now using the new JSX transform internally.
 - Turn off `no-useless-computed-key`
+- Added experimental `eslint-plugin-sx` rules for [`@adeira/sx`](https://github.com/adeira/sx)
 
 # 4.0.0
 
