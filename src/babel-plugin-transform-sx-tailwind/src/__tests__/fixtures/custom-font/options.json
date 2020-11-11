@@ -1,0 +1,10 @@
+{
+  "theme": {
+    "extend": {
+      "fontFamily": {
+        "sans": ["Inter", "sans-serif"],
+        "mono": "\"Courier New\""
+      }
+    }
+  }
+}
