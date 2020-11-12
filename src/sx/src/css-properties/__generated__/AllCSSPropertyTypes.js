@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fa484023dbe3b7c6f6a3ae571323decb>>
+ * @generated SignedSource<<788146c566ca71e2c94b0c8baddb7251>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -10,6 +10,7 @@ export type AllCSSPropertyTypes = {|
   +alignContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-content
   +alignItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-items
   +alignSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-self
+  +alignTracks?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-tracks
   +all?: 'initial' | 'inherit' | 'unset' | 'revert', // https://developer.mozilla.org/docs/Web/CSS/all
   +animation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation
   +animationDelay?: string, // https://developer.mozilla.org/docs/Web/CSS/animation-delay
@@ -389,6 +390,7 @@ export type AllCSSPropertyTypes = {|
   +justifyContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-content
   +justifyItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-items
   +justifySelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-self
+  +justifyTracks?: number | string, // https://developer.mozilla.org/docs/Web/CSS/justify-tracks
   +left?: number | string, // https://developer.mozilla.org/docs/Web/CSS/left
   +letterSpacing?: number | string, // https://developer.mozilla.org/docs/Web/CSS/letter-spacing
   +lineBreak?:  // https://developer.mozilla.org/docs/Web/CSS/line-break
@@ -436,6 +438,8 @@ export type AllCSSPropertyTypes = {|
   +maskRepeat?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-repeat
   +maskSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/mask-size
   +maskType?: 'luminance' | 'alpha' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/mask-type
+  +masonryAutoFlow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/masonry-auto-flow
+  +mathStyle?: 'normal' | 'compact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/math-style
   +maxBlockSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/max-block-size
   +maxHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/max-height
   +maxInlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/max-inline-size
@@ -607,6 +611,7 @@ export type AllCSSPropertyTypes = {|
   +rubyPosition?: 'over' | 'under' | 'inter-character' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/ruby-position
   +scale?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scale
   +scrollbarColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scrollbar-color
+  +scrollbarGutter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scrollbar-gutter
   +scrollbarWidth?: 'auto' | 'thin' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scrollbar-width
   +scrollBehavior?: 'auto' | 'smooth' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-behavior
   +scrollMargin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-margin
