@@ -45,6 +45,18 @@ Please note: not everything can be expressed/modeled in your type system so you 
 
 > Programmers dislike having the computer reject a program that would have run fine, simply because the computer couldn’t make sure it would run fine without actually running it. In short, restrictive type systems drive programmers to more flexible environments.
 
+## New generics
+
+TKTK
+
+```ini
+[options]
+generate_tests=false
+```
+
+- https://github.com/facebook/flow/search?p=1&q=%22%5Bnew-generics%5D%22&type=commits
+- https://github.com/facebook/flow/search?p=1&q=%22generate_tests%22&type=code
+
 ## Type-safe filter function
 
 ```js
@@ -125,9 +137,9 @@ Handy utility for things like regexp flags or for any other case where the flags
 ```js
 type RegExpFlags = $CharSet<'gimsuy'>;
 
-const a: RegExpFlags = 'miug' // OK
-const b: RegExpFlags = 'iii' // not OK! ("i" is duplicated)
-const c: RegExpFlags = 'abc' // not OK! ("a", "b", "c" are not valid members)
+const a: RegExpFlags = 'miug'; // OK
+const b: RegExpFlags = 'iii'; // not OK! ("i" is duplicated)
+const c: RegExpFlags = 'abc'; // not OK! ("a", "b", "c" are not valid members)
 ```
 
 - https://github.com/facebook/flow/issues/4654
