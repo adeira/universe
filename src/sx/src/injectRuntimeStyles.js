@@ -76,8 +76,9 @@ export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
     return false;
   };
 
-  const insertIndex = styleSheet.cssRules.length;
   styleBuffer.forEach((node) => {
+    const insertIndex = styleSheet.cssRules.length;
+
     if (node instanceof StyleCollectorNode) {
       if (hasStyleRule(matchFunction(node)) === false) {
         // apply missing styles
