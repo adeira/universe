@@ -1,6 +1,7 @@
 // @flow
 
 import { isColor } from '@adeira/css-colors';
+import { isNumeric } from '@adeira/js';
 
 import StyleCollectorNode from './StyleCollectorNode';
 
@@ -136,6 +137,7 @@ export default function expandShorthandProperties(
     }
   }
 
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
   if (propertyName === 'overflow') {
     // The `overflow` property is specified as one or two keywords. If two keywords are specified,
     // the first applies to `overflow-x` and the second to `overflow-y`. Otherwise, both `overflow-x`
@@ -153,10 +155,69 @@ export default function expandShorthandProperties(
     ];
   }
 
-  // TODO:
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+  if (propertyName === 'flex') {
+    // Initial values:
+    // - flex-grow: 0
+    // - flex-shrink: 1
+    // - flex-basis: auto
+    const chunks = propertyValue.split(/\s/);
+    if (chunks.length === 1) {
+      if (isNumeric(chunks[0])) {
+        return [
+          new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
+          new StyleCollectorNode('flexShrink', 1, hashSeed),
+          new StyleCollectorNode('flexBasis', 0, hashSeed),
+        ];
+      } else if (chunks[0] === 'initial') {
+        return [
+          new StyleCollectorNode('flexGrow', 0, hashSeed),
+          new StyleCollectorNode('flexShrink', 1, hashSeed),
+          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
+        ];
+      } else if (chunks[0] === 'auto') {
+        return [
+          new StyleCollectorNode('flexGrow', 1, hashSeed),
+          new StyleCollectorNode('flexShrink', 1, hashSeed),
+          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
+        ];
+      } else if (chunks[0] === 'none') {
+        return [
+          new StyleCollectorNode('flexGrow', 0, hashSeed),
+          new StyleCollectorNode('flexShrink', 0, hashSeed),
+          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
+        ];
+      }
+      return [
+        new StyleCollectorNode('flexGrow', 0, hashSeed),
+        new StyleCollectorNode('flexShrink', 1, hashSeed),
+        new StyleCollectorNode('flexBasis', chunks[0], hashSeed),
+      ];
+    } else if (chunks.length === 2) {
+      if (isNumeric(chunks[1])) {
+        return [
+          new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
+          new StyleCollectorNode('flexShrink', chunks[1], hashSeed),
+          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
+        ];
+      }
+      return [
+        new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
+        new StyleCollectorNode('flexShrink', 1, hashSeed),
+        new StyleCollectorNode('flexBasis', chunks[1], hashSeed),
+      ];
+    }
+    return [
+      new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
+      new StyleCollectorNode('flexShrink', chunks[1], hashSeed),
+      new StyleCollectorNode('flexBasis', chunks[2], hashSeed),
+    ];
+  }
+
+  // TODO (https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#See_also):
   //  - https://developer.mozilla.org/en-US/docs/Web/CSS/animation
   //  - https://developer.mozilla.org/en-US/docs/Web/CSS/font
-  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/flex
+  //  - https://developer.mozilla.org/en-US/docs/Web/CSS/transition
   //  - ...
 
   return [new StyleCollectorNode(propertyName, propertyValue, hashSeed)];
