@@ -13,8 +13,8 @@ import { FLOW_TYPE_NUMBER, FLOW_TYPE_STRING } from './generator/flowTypes';
 const allProperties = new Map();
 for (const rawPropertyName of Object.keys(mdnData.css.properties)) {
   const rawProperty = mdnData.css.properties[rawPropertyName];
-  // we don't want prefixed properties
-  if (/^(?!-)/.test(rawPropertyName)) {
+  if (['standard', 'experimental'].includes(rawProperty.status)) {
+    // we do not generate "obsolete" and "nonstandard" properties
     allProperties.set(rawPropertyName, rawProperty);
   }
 }
