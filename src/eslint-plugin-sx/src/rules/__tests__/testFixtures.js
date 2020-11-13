@@ -1,10 +1,11 @@
 // @flow
 
-import type { EslintRule } from '@adeira/flow-types-eslint';
 import fs from 'fs';
 import path from 'path';
-import { extract, parse } from 'jest-docblock';
 import { RuleTester } from 'eslint';
+import { extract, parse } from 'jest-docblock';
+import { sprintf } from '@adeira/js';
+import type { EslintRule } from '@adeira/flow-types-eslint';
 
 export default function testFixtures({
   rule,
@@ -27,7 +28,9 @@ export default function testFixtures({
     const docblock = extract(code);
     const pragmas = parse(docblock);
     if (pragmas.eslintExpectedError == null) {
-      throw new Error('Test fixture must define at least one @eslintExpectedError pragma.');
+      throw new Error(
+        sprintf("Test fixture '%s' must define at least one @eslintExpectedError pragma.", fixture),
+      );
     }
     if (Array.isArray(pragmas.eslintExpectedError)) {
       invalidFixtures.push({

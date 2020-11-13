@@ -4,7 +4,7 @@
 import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
-const getImportSpecifiers = require('./utils/getImportSpecifiers');
+const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
 const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 
 /**
@@ -41,9 +41,11 @@ module.exports = ({
     return {
       // TODO: add support for `require("@adeira/sx")`
       'ImportDeclaration'(node) {
-        const { importNamespaceSpecifier: _ins, importSpecifier: _is } = getImportSpecifiers(node);
-        importNamespaceSpecifier = _ins;
-        importSpecifier = _is;
+        const importSpecifiers = getSXImportSpecifiers(node);
+        if (importSpecifiers !== null) {
+          importNamespaceSpecifier = importSpecifiers.importNamespaceSpecifier;
+          importSpecifier = importSpecifiers.importSpecifier;
+        }
       },
       'VariableDeclarator'(node) {
         if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifier)) {
@@ -64,10 +66,12 @@ module.exports = ({
         for (const relevantTemplateLiteralNode of relevantTemplateLiterals) {
           let sxTemplateCallExpressions = 0;
 
-          for (const expression of relevantTemplateLiteralNode.expression.expressions) {
-            if (expression.type === 'CallExpression') {
-              if (expression.callee.name === sxFunctionName) {
-                sxTemplateCallExpressions += 1;
+          if (relevantTemplateLiteralNode.expression.type === 'TemplateLiteral') {
+            for (const expression of relevantTemplateLiteralNode.expression.expressions) {
+              if (expression.type === 'CallExpression') {
+                if (expression.callee.name === sxFunctionName) {
+                  sxTemplateCallExpressions += 1;
+                }
               }
             }
           }
