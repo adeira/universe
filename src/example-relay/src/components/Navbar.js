@@ -106,6 +106,9 @@ function Navbar() {
 }
 
 const styles = sx.create({
+  notUsing: {
+    opacity: 0,
+  },
   nav: {
     width: '100%',
     maxHeight: '71px',
