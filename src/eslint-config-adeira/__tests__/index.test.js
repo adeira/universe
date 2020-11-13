@@ -84,6 +84,8 @@ test('rules snapshot', () => {
     snapshotDiff(stableRules, strictRules, {
       contextLines: 1,
       stablePatchmarks: true,
+      aAnnotation: 'Value for stable rules',
+      bAnnotation: 'Value for STRICT rules',
     }),
   ).toMatchSnapshot('diff of stable and strict rules');
 });
