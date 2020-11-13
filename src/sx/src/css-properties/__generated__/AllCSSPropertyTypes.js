@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<788146c566ca71e2c94b0c8baddb7251>>
+ * @generated SignedSource<<b3454eee7f6e1d556beceb3774fe6b69>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -7,6 +7,7 @@
  */
 
 export type AllCSSPropertyTypes = {|
+  +webkitLineClamp?: 'none' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/-webkit-line-clamp
   +alignContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-content
   +alignItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-items
   +alignSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-self
@@ -42,7 +43,6 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +aspectRatio?: string, // https://developer.mozilla.org/docs/Web/CSS/aspect-ratio
-  +azimuth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/azimuth
   +backdropFilter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/backdrop-filter
   +backfaceVisibility?: 'visible' | 'hidden' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/backface-visibility
   +background?: number | string, // https://developer.mozilla.org/docs/Web/CSS/background
@@ -173,22 +173,7 @@ export type AllCSSPropertyTypes = {|
   +borderTopWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-top-width
   +borderWidth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/border-width
   +bottom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/bottom
-  +boxAlign?: 'start' | 'center' | 'end' | 'baseline' | 'stretch' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-align
   +boxDecorationBreak?: 'slice' | 'clone' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-decoration-break
-  +boxDirection?: 'normal' | 'reverse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-direction
-  +boxFlex?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-flex
-  +boxFlexGroup?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-flex-group
-  +boxLines?: 'single' | 'multiple' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-lines
-  +boxOrdinalGroup?: number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-ordinal-group
-  +boxOrient?:  // https://developer.mozilla.org/docs/Web/CSS/box-orient
-    | 'horizontal'
-    | 'vertical'
-    | 'inline-axis'
-    | 'block-axis'
-    | 'inherit'
-    | 'initial'
-    | 'unset',
-  +boxPack?: 'start' | 'center' | 'end' | 'justify' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-pack
   +boxShadow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/box-shadow
   +boxSizing?: 'content-box' | 'border-box' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/box-sizing
   +breakAfter?:  // https://developer.mozilla.org/docs/Web/CSS/break-after
@@ -313,7 +298,6 @@ export type AllCSSPropertyTypes = {|
   +fontVariationSettings?: string | number, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
   +fontSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size
   +fontSizeAdjust?: 'none' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
-  +fontSmooth?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-smooth
   +fontStretch?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-stretch
   +fontStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-style
   +fontSynthesis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-synthesis
@@ -343,12 +327,9 @@ export type AllCSSPropertyTypes = {|
   +gridAutoRows?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-auto-rows
   +gridColumn?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-column
   +gridColumnEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-column-end
-  +gridColumnGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-gap
   +gridColumnStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-column-start
-  +gridGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/gap
   +gridRow?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-row
   +gridRowEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-row-end
-  +gridRowGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/row-gap
   +gridRowStart?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-row-start
   +gridTemplate?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-template
   +gridTemplateAreas?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-template-areas
@@ -360,15 +341,6 @@ export type AllCSSPropertyTypes = {|
   +imageOrientation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/image-orientation
   +imageRendering?: 'auto' | 'crisp-edges' | 'pixelated' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/image-rendering
   +imageResolution?: number | string,
-  +imeMode?:  // https://developer.mozilla.org/docs/Web/CSS/ime-mode
-    | 'auto'
-    | 'normal'
-    | 'active'
-    | 'inactive'
-    | 'disabled'
-    | 'inherit'
-    | 'initial'
-    | 'unset',
   +initialLetter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/initial-letter
   +initialLetterAlign?:  // https://developer.mozilla.org/docs/Web/CSS/initial-letter-align
     | 'auto'
@@ -504,7 +476,6 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +overflowClipBox?: 'padding-box' | 'content-box' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Mozilla/CSS/overflow-clip-box
   +overflowInline?:
     | 'visible'
     | 'hidden'
@@ -637,14 +608,8 @@ export type AllCSSPropertyTypes = {|
   +scrollPaddingRight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-right
   +scrollPaddingTop?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-padding-top
   +scrollSnapAlign?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-align
-  +scrollSnapCoordinate?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-coordinate
-  +scrollSnapDestination?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-destination
-  +scrollSnapPointsX?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-points-x
-  +scrollSnapPointsY?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-points-y
   +scrollSnapStop?: 'normal' | 'always' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-stop
   +scrollSnapType?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type
-  +scrollSnapTypeX?: 'none' | 'mandatory' | 'proximity' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type-x
-  +scrollSnapTypeY?: 'none' | 'mandatory' | 'proximity' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/scroll-snap-type-y
   +shapeImageThreshold?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-image-threshold
   +shapeMargin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-margin
   +shapeOutside?: number | string, // https://developer.mozilla.org/docs/Web/CSS/shape-outside
@@ -755,7 +720,6 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
-  +userSelect?: 'auto' | 'text' | 'none' | 'contain' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/user-select
   +verticalAlign?: string | number, // https://developer.mozilla.org/docs/Web/CSS/vertical-align
   +visibility?: 'visible' | 'hidden' | 'collapse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/visibility
   +whiteSpace?:  // https://developer.mozilla.org/docs/Web/CSS/white-space
@@ -784,5 +748,4 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +zIndex?: 'auto' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/z-index
-  +zoom?: number | string, // https://developer.mozilla.org/docs/Web/CSS/zoom
 |};
