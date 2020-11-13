@@ -19,7 +19,7 @@
   "devDependencies": {
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.8.0",
     "@adeira/babel-preset-adeira": "^2.0.0",
-    "flow-bin": "^0.137.0"
+    "flow-bin": "^0.138.0"
   },
   "scripts": {
     "dev": "next",
