@@ -4,7 +4,7 @@
 import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
-const getImportSpecifiers = require('./utils/getImportSpecifiers');
+const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
 const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 
 // This rule makes sure that all defined stylesheets are used AND all used stylesheets are defined.
@@ -30,9 +30,11 @@ module.exports = ({
     return {
       // TODO: add support for `require("@adeira/sx")`
       'ImportDeclaration'(node) {
-        const { importNamespaceSpecifier: _ins, importSpecifier: _is } = getImportSpecifiers(node);
-        importNamespaceSpecifier = _ins;
-        importSpecifier = _is;
+        const importSpecifiers = getSXImportSpecifiers(node);
+        if (importSpecifiers !== null) {
+          importNamespaceSpecifier = importSpecifiers.importNamespaceSpecifier;
+          importSpecifier = importSpecifiers.importSpecifier;
+        }
       },
 
       // const styles = sx.create({})
@@ -78,13 +80,24 @@ module.exports = ({
 
       // className={styles('aaa')}
       //           ^^^^^^^^^^^^^^^
-      'JSXExpressionContainer'(node) {
-        const usedNames = new Set();
-        const expressionArguments = node.expression.arguments || [];
-        if (expressionArguments.length === 0) {
-          // some unexpected "className" construct
-          unableToAnalyzeUsedStylesheets = true;
+      'JSXAttribute'(node) {
+        if (
+          node.name.type !== 'JSXIdentifier' ||
+          node.name.name !== 'className' ||
+          node.value.type !== 'JSXExpressionContainer'
+        ) {
+          return;
         }
+
+        if (node.value.expression.type !== 'CallExpression') {
+          // some unexpected "className" construct (fail gracefully)
+          unableToAnalyzeUsedStylesheets = true;
+          return;
+        }
+
+        const usedNames = new Set();
+        const classNameExpressions = node.value.expression;
+        const expressionArguments = classNameExpressions.arguments || [];
         for (const argument of expressionArguments) {
           if (argument.type === 'Literal') {
             usedNames.add(argument.value);
@@ -98,10 +111,13 @@ module.exports = ({
           }
         }
 
-        if (node.expression.callee) {
-          const maybeCaptured = usedStylesheetNames.get(node.expression.callee.name);
+        if (classNameExpressions.callee) {
+          const maybeCaptured = usedStylesheetNames.get(classNameExpressions.callee.name);
           const alreadyCaptured = maybeCaptured ? maybeCaptured : [];
-          usedStylesheetNames.set(node.expression.callee.name, [...alreadyCaptured, ...usedNames]);
+          usedStylesheetNames.set(classNameExpressions.callee.name, [
+            ...alreadyCaptured,
+            ...usedNames,
+          ]);
         }
       },
 
@@ -116,7 +132,8 @@ module.exports = ({
           if (usedNames == null) {
             context.report({
               node, // TODO: improve the location by using more accurate node (?)
-              message: 'SX function "{{functionName}}" was not used anywhere in JSX.',
+              message:
+                'SX function "{{functionName}}" was not used anywhere in the "className" JSX attribute.',
               data: { functionName: callee },
             });
           }

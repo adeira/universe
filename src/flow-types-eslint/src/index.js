@@ -5,6 +5,8 @@ import type { Identifier } from './types/Identifier';
 import type { ImportDeclaration as _ImportDeclaration } from './types/ImportDeclaration';
 import type { ImportDefaultSpecifier } from './types/ImportDefaultSpecifier';
 import type { ImportSpecifier } from './types/ImportSpecifier';
+import type { JSXAttribute } from './types/JSXAttribute';
+import type { JSXExpressionContainer } from './types/JSXExpressionContainer';
 import type { NewExpression } from './types/NewExpression';
 import type { Program } from './types/Program';
 import type { Property } from './types/Property';
@@ -34,9 +36,8 @@ type ASTNodes = {|
   +'ImportDeclaration'?: (node: _ImportDeclaration) => void,
   +'ImportDefaultSpecifier'?: (node: ImportDefaultSpecifier) => void,
   +'ImportSpecifier'?: (node: ImportSpecifier) => void,
-  +'JSXExpressionContainer'?: (
-    node: any, // TODO
-  ) => void,
+  +'JSXAttribute'?: (node: JSXAttribute) => void,
+  +'JSXExpressionContainer'?: (node: JSXExpressionContainer) => void,
   +'LineComment'?: (
     node: any, // TODO
   ) => void,

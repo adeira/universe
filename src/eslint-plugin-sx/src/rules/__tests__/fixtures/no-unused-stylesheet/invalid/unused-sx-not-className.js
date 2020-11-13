@@ -7,11 +7,13 @@
 import type { Node } from 'react';
 import * as sx from '@adeira/sx';
 
-export default function MyComponent(): Node {
-  return null;
+export default function Navbar(): Node {
+  // "styles" is essentially unused here since it's not used in "className"
+  return <div style={styles('aaa')} />;
 }
 
-// eslint-disable-next-line no-unused-vars
 const styles = sx.create({
-  aaa: { color: 'red' },
+  aaa: {
+    color: 'red',
+  },
 });
