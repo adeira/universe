@@ -40,4 +40,5 @@ Then configure the rules you want to use under the rules section.
 
 - [no-concatenated-classes](docs/rules/no-concatenated-classes.md)
 - [no-unused-stylesheet](docs/rules/no-unused-stylesheet.md)
+- [valid-usage](docs/rules/valid-usage.md)
 - ...

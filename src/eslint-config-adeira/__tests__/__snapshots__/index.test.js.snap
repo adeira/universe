@@ -904,6 +904,7 @@ Object {
     "switch-colon-spacing": "off",
     "sx/no-concatenated-classes": 1,
     "sx/no-unused-stylesheet": 1,
+    "sx/valid-usage": 1,
     "symbol-description": 2,
     "template-curly-spacing": "off",
     "template-tag-spacing": "off",
@@ -951,7 +952,9 @@ Snapshot Diff:
       "switch-colon-spacing": "off",
 -     "sx/no-concatenated-classes": 1,
 -     "sx/no-unused-stylesheet": 1,
+-     "sx/valid-usage": 1,
 +     "sx/no-concatenated-classes": 2,
 +     "sx/no-unused-stylesheet": 2,
++     "sx/valid-usage": 2,
       "symbol-description": 2,
 `;

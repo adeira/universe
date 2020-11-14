@@ -683,4 +683,5 @@ module.exports = ({
   // Adeira SX custom rules
   'sx/no-concatenated-classes': NEXT_VERSION_ERROR,
   'sx/no-unused-stylesheet': NEXT_VERSION_ERROR,
+  'sx/valid-usage': NEXT_VERSION_ERROR,
 } /*: EslintConfigRules */);
