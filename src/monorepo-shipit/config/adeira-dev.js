@@ -9,6 +9,12 @@ module.exports = ({
     };
   },
   getPathMappings() {
-    return new Map([['src/adeira.dev/', '']]);
+    return new Map([
+      ['src/adeira.dev/__github__/babel.config.js', 'babel.config.js'],
+      ['src/adeira.dev/', ''],
+    ]);
+  },
+  getStrippedFiles() {
+    return new Set([/__github__/, /^\.babelrc\.js$/]);
   },
 }: ConfigType);
