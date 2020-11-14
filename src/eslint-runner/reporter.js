@@ -43,7 +43,8 @@ class JestProgressBarReporter {
 
   onTestStart() /*: void */ {
     if (this._bar == null) {
-      this._bar = new ProgressBar(':bar :current/:total', {
+      // Note that the space behind :total is necessary so that the cursor doesn't cover the last number of the total.
+      this._bar = new ProgressBar(':bar :current/:total ', {
         complete: '█',
         incomplete: '░',
         total: this._numTotalTestSuites,
