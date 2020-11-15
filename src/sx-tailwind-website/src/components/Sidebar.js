@@ -77,6 +77,11 @@ export default function Sidebar({ screenSize = 'large' }: Props): Node {
                   href="/tailwind-css/gradients"
                   screenSize={screenSize}
                 />
+                <MenuItem
+                  label="Animations"
+                  href="/tailwind-css/animations"
+                  screenSize={screenSize}
+                />
               </nav>
             </div>
           </div>

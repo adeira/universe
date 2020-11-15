@@ -13,8 +13,11 @@ it('supports translateY', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "-translate-y-1": Object {
-        "--transform-translate-y": "-0.25rem",
+      "keyframes": Object {},
+      "styles": Object {
+        "-translate-y-1": Object {
+          "--transform-translate-y": "-0.25rem",
+        },
       },
     }
   `);
@@ -27,8 +30,11 @@ it('supports translateX', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "translate-x-10": Object {
-        "--transform-translate-x": "2.5rem",
+      "keyframes": Object {},
+      "styles": Object {
+        "translate-x-10": Object {
+          "--transform-translate-x": "2.5rem",
+        },
       },
     }
   `);
@@ -41,9 +47,12 @@ it('supports skewY', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "hover:-skew-y-12": Object {
-        ":hover": Object {
-          "--transform-skew-y": "-12deg",
+      "keyframes": Object {},
+      "styles": Object {
+        "hover:-skew-y-12": Object {
+          ":hover": Object {
+            "--transform-skew-y": "-12deg",
+          },
         },
       },
     }
@@ -57,8 +66,11 @@ it('supports skewX', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "skew-x-0": Object {
-        "--transform-skew-x": "0",
+      "keyframes": Object {},
+      "styles": Object {
+        "skew-x-0": Object {
+          "--transform-skew-x": "0",
+        },
       },
     }
   `);
@@ -71,9 +83,12 @@ it('supports rotate', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "sm:hover:-rotate-90": Object {
-        ":hover": Object {
-          "--transform-rotate": "-90deg",
+      "keyframes": Object {},
+      "styles": Object {
+        "sm:hover:-rotate-90": Object {
+          ":hover": Object {
+            "--transform-rotate": "-90deg",
+          },
         },
       },
     }
@@ -88,9 +103,12 @@ it('supports scale', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "scale-75": Object {
-        "--transform-scale-x": ".75",
-        "--transform-scale-y": ".75",
+      "keyframes": Object {},
+      "styles": Object {
+        "scale-75": Object {
+          "--transform-scale-x": ".75",
+          "--transform-scale-y": ".75",
+        },
       },
     }
   `);

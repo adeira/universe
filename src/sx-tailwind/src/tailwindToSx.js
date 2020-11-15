@@ -14,14 +14,31 @@ import purgeUnusedStyles from 'tailwindcss/lib/lib/purgeUnusedStyles';
 import processPlugins from 'tailwindcss/lib/util/processPlugins';
 import corePlugins from 'tailwindcss/lib/corePlugins';
 
+type SxTailwindDefinitions = {|
+  +keyframes: {| +[string]: any |},
+  +styles: {| +[string]: any |},
+|};
+
 export default async function convert(
   css: string,
   tailwindConfig: {| +[string]: any |},
-): Promise<{| +[string]: any |}> {
+): Promise<SxTailwindDefinitions> {
   const processor = getTailwindProcessor(tailwindConfig);
   const postCss = await processor.process(css, { from: '' });
 
   const styles = new Map<string, any>();
+  const keyframes = new Map<string, any>();
+
+  postCss.root.walkAtRules((atRule) => {
+    if (atRule.name !== 'keyframes') {
+      return;
+    }
+    const rules = new Map();
+    atRule.walkRules(({ selector, nodes }) => {
+      rules.set(selector, Object.fromEntries(nodes.map((node) => [node.prop, node.value])));
+    });
+    keyframes.set(atRule.params, Object.fromEntries(rules.entries()));
+  });
 
   postCss.root.walkRules((rule) => {
     if (!rule.selector.startsWith('.') || rule.selector.includes('>')) {
@@ -29,9 +46,10 @@ export default async function convert(
     }
 
     const [cssClass, pseudoClass] = parseSelector(rule.selector);
-    const declarations = rule.nodes
+    const declarations = [];
+    rule.nodes
       .filter((node) => !isVendorPrefixed(node.prop) && !isVendorPrefixed(node.value))
-      .map((node) => formatDeclaration(node));
+      .forEach((node) => declarations.push(...formatDeclaration(node)));
 
     const mediaQuery =
       rule.parent.name === 'media' ? `@${rule.parent.name} ${rule.parent.params}` : null;
@@ -42,7 +60,10 @@ export default async function convert(
     }
   });
 
-  return Object.fromEntries(styles.entries());
+  return {
+    styles: Object.fromEntries(styles.entries()),
+    keyframes: Object.fromEntries(keyframes.entries()),
+  };
 }
 
 function assembleStyleDefinition(
@@ -78,7 +99,24 @@ function parseSelector(selector: string): [string, string | null] {
 function formatDeclaration(declarationNode) {
   const name = declarationNode.prop;
   const value = declarationNode.value;
-  return [formatDeclarationName(name), formatDeclarationValue(name, value)];
+
+  if (name === 'animation') {
+    return formatAnimationDeclaration(value);
+  }
+  return [[formatDeclarationName(name), formatDeclarationValue(name, value)]];
+}
+
+function formatAnimationDeclaration(value: string) {
+  if (value === 'none') {
+    return [['animation', 'none']];
+  }
+
+  const parts = value.toString().split(' ');
+  const animationName = parts.shift();
+  return [
+    ['animation', parts.join(' ')],
+    ['animationName', animationName],
+  ];
 }
 
 function formatDeclarationName(name: string): string {

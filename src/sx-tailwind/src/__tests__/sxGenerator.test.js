@@ -14,9 +14,12 @@ it('works with class selector', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "rounded-sm": Object {
-        "borderRadius": "0.125rem",
-        "borderWidth": 2,
+      "keyframes": Object {},
+      "styles": Object {
+        "rounded-sm": Object {
+          "borderRadius": "0.125rem",
+          "borderWidth": 2,
+        },
       },
     }
   `);
@@ -29,9 +32,12 @@ it('works with pseudo class selector', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "focus:shadow-outline": Object {
-        ":focus": Object {
-          "boxShadow": "0 0 0 3px rgba(66, 153, 225, 0.5)",
+      "keyframes": Object {},
+      "styles": Object {
+        "focus:shadow-outline": Object {
+          ":focus": Object {
+            "boxShadow": "0 0 0 3px rgba(66, 153, 225, 0.5)",
+          },
         },
       },
     }
@@ -47,9 +53,12 @@ it('supports classes in media query', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "container": Object {
-        "@media (min-width: 640px)": Object {
-          "maxWidth": "640px",
+      "keyframes": Object {},
+      "styles": Object {
+        "container": Object {
+          "@media (min-width: 640px)": Object {
+            "maxWidth": "640px",
+          },
         },
       },
     }
@@ -96,14 +105,17 @@ it('generates multiple declarations', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "focus:shadow-outline": Object {
-        ":focus": Object {
-          "boxShadow": "0 0 0 3px rgba(66, 153, 225, 0.5)",
+      "keyframes": Object {},
+      "styles": Object {
+        "focus:shadow-outline": Object {
+          ":focus": Object {
+            "boxShadow": "0 0 0 3px rgba(66, 153, 225, 0.5)",
+          },
         },
-      },
-      "rounded-sm": Object {
-        "borderRadius": "0.125rem",
-        "borderWidth": 2,
+        "rounded-sm": Object {
+          "borderRadius": "0.125rem",
+          "borderWidth": 2,
+        },
       },
     }
   `);
@@ -118,8 +130,11 @@ it('ignores vendor prefixed declarations', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "appearance-none": Object {
-        "appearance": "none",
+      "keyframes": Object {},
+      "styles": Object {
+        "appearance-none": Object {
+          "appearance": "none",
+        },
       },
     }
   `);
@@ -133,8 +148,11 @@ it('ignores vendor prefixed values', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "sticky": Object {
-        "position": "sticky",
+      "keyframes": Object {},
+      "styles": Object {
+        "sticky": Object {
+          "position": "sticky",
+        },
       },
     }
   `);
@@ -147,8 +165,11 @@ it('does not remove rem units from line-height', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "leading-5": Object {
-        "lineHeight": "1.25rem",
+      "keyframes": Object {},
+      "styles": Object {
+        "leading-5": Object {
+          "lineHeight": "1.25rem",
+        },
       },
     }
   `);
@@ -161,8 +182,11 @@ it('does not remove rem units from font-size', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "text-xs": Object {
-        "fontSize": "0.75rem",
+      "keyframes": Object {},
+      "styles": Object {
+        "text-xs": Object {
+          "fontSize": "0.75rem",
+        },
       },
     }
   `);
@@ -177,9 +201,12 @@ it('does overwrite declarations', async () => {
 
   expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
     Object {
-      "bg-black": Object {
-        "--bg-opacity": "1",
-        "backgroundColor": "rgba(0, 0, 0, var(--bg-opacity))",
+      "keyframes": Object {},
+      "styles": Object {
+        "bg-black": Object {
+          "--bg-opacity": "1",
+          "backgroundColor": "rgba(0, 0, 0, var(--bg-opacity))",
+        },
       },
     }
   `);
@@ -188,17 +215,48 @@ it('does overwrite declarations', async () => {
 it('skips empty styles', async () => {
   const css = `.hover\\:empty-style:hover {}`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`Object {}`);
+  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+    Object {
+      "keyframes": Object {},
+      "styles": Object {},
+    }
+  `);
 });
 
-it('skips unsupported at-rules', async () => {
+it('supports keyframes at-rules', async () => {
   const css = `@keyframes spin {
     to {
       transform: rotate(360deg);
     }
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`Object {}`);
+  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+    Object {
+      "keyframes": Object {
+        "spin": Object {
+          "to": Object {
+            "transform": "rotate(360deg)",
+          },
+        },
+      },
+      "styles": Object {},
+    }
+  `);
+});
+
+it('skips unsupported at-rules', async () => {
+  const css = `@font-face {
+    font-family: "Open Sans";
+    src: url("/fonts/OpenSans-Regular-webfont.woff2") format("woff2"),
+         url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
+  }`;
+
+  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+    Object {
+      "keyframes": Object {},
+      "styles": Object {},
+    }
+  `);
 });
 
 it('skips :not pseudo class selectors', async () => {
@@ -208,5 +266,10 @@ it('skips :not pseudo class selectors', async () => {
     margin-bottom: calc(0px * var(--space-y-reverse));
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`Object {}`);
+  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+    Object {
+      "keyframes": Object {},
+      "styles": Object {},
+    }
+  `);
 });
