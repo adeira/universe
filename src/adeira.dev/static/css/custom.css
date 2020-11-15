@@ -1,3 +1,7 @@
+:root {
+  --adeira-primary-color: #55e0c6;
+}
+
 .projectTitle {
   text-align: center;
 }
@@ -12,9 +16,9 @@
 }
 
 .homeContainer {
-  background-color: #55e0c6;
+  background-color: var(--adeira-primary-color);
   padding: 40px;
-  color: #000;
+  color: var(--ifm-color-gray-900);
 }
 
 .adeiraHomepageContainer {
