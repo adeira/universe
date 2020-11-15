@@ -22,7 +22,7 @@ const customConfig = {
 it('supports custom config', async () => {
   const config = resolveConfig(customConfig);
 
-  const sxTailwind = await convertToSx(
+  const { styles, keyframes } = await convertToSx(
     `@tailwind base;
     @tailwind components;
     @tailwind utilities;
@@ -30,16 +30,17 @@ it('supports custom config', async () => {
     config,
   );
 
-  expect(Object.keys(sxTailwind)).toHaveLength(21870);
+  expect(Object.keys(styles)).toHaveLength(21870);
+  expect(Object.keys(keyframes)).toHaveLength(4);
 
-  expect(sxTailwind['text-adeira-green']).toMatchInlineSnapshot(`
+  expect(styles['text-adeira-green']).toMatchInlineSnapshot(`
     Object {
       "--text-opacity": "1",
       "color": "rgba(85, 224, 198, var(--text-opacity))",
     }
   `);
 
-  expect(sxTailwind['tablet:font-bold']).toMatchInlineSnapshot(`
+  expect(styles['tablet:font-bold']).toMatchInlineSnapshot(`
     Object {
       "@media (min-width: 720px)": Object {
         "fontWeight": 700,

@@ -1,6 +1,6 @@
 // @flow
 
-const { tailwindStyles } = require('@adeira/sx-tailwind');
+const { tailwindStyles, tailwindKeyframes } = require('@adeira/sx-tailwind');
 
 export default function getCssDeclarations(
   utilityName /*: any */,
@@ -19,7 +19,14 @@ export default function getCssDeclarations(
     };
   }
 
-  return tailwindStyles[utilityName];
+  const tailwindUtility = tailwindStyles[utilityName];
+  const keyframe = tailwindKeyframes[tailwindUtility.animationName];
+  if (tailwindUtility != null && keyframe != null) {
+    tailwindUtility.animationName = `sx.keyframes(${JSON.stringify(keyframe)})`;
+    return tailwindUtility;
+  }
+
+  return tailwindUtility;
 }
 
 function toString(value /*: string | string[] */) /*: string */ {

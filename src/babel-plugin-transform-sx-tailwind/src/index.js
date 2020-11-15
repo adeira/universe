@@ -79,6 +79,18 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
             path.node.body.push(
               template.ast(`const ${stylesVarName} = sx.create(${JSON.stringify(declarations)})`),
             );
+            // if animation is used, transform "sx.keyframe" string into call expression
+            path.traverse({
+              ObjectProperty(path) {
+                if (path.node.key.value !== 'animationName') {
+                  return;
+                }
+                const sxKeyframe = template.ast(path.node.value.value);
+                path.replaceWith(
+                  t.objectProperty(t.identifier('animationName'), sxKeyframe.expression),
+                );
+              },
+            });
           }
 
           // is there SX imported twice?

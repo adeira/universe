@@ -1,5 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`transform SX Tailwind animation.js: animation.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  return (
+    <span className={tailwind('flex h-3 w-3')}>
+      <span
+        className={tailwind(
+          'animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75',
+        )}
+      />
+      <span className={tailwind('relative inline-flex rounded-full h-3 w-3 bg-pink-500')} />
+    </span>
+  );
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Node } from 'react';
+import * as sx from '@adeira/sx';
+export default function Example(): Node {
+  return (
+    <span className={__styles_3xIUAp('flex', 'h-3', 'w-3')}>
+      <span
+        className={__styles_3xIUAp(
+          'animate-ping',
+          'absolute',
+          'inline-flex',
+          'h-full',
+          'w-full',
+          'rounded-full',
+          'bg-pink-400',
+          'opacity-75',
+        )}
+      />
+      <span
+        className={__styles_3xIUAp(
+          'relative',
+          'inline-flex',
+          'rounded-full',
+          'h-3',
+          'w-3',
+          'bg-pink-500',
+        )}
+      />
+    </span>
+  );
+}
+
+const __styles_3xIUAp = sx.create({
+  'flex': {
+    display: 'flex',
+  },
+  'h-3': {
+    height: '0.75rem',
+  },
+  'w-3': {
+    width: '0.75rem',
+  },
+  'animate-ping': {
+    animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite',
+    animationName: sx.keyframes({
+      '75%, 100%': {
+        transform: 'scale(2)',
+        opacity: '0',
+      },
+    }),
+  },
+  'absolute': {
+    position: 'absolute',
+  },
+  'inline-flex': {
+    display: 'inline-flex',
+  },
+  'h-full': {
+    height: '100%',
+  },
+  'w-full': {
+    width: '100%',
+  },
+  'rounded-full': {
+    borderRadius: '9999px',
+  },
+  'bg-pink-400': {
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(246, 135, 179, var(--bg-opacity))',
+  },
+  'opacity-75': {
+    opacity: 0.75,
+  },
+  'relative': {
+    position: 'relative',
+  },
+  'bg-pink-500': {
+    '--bg-opacity': '1',
+    'backgroundColor': 'rgba(237, 100, 166, var(--bg-opacity))',
+  },
+});
+
+
+`;
+
 exports[`transform SX Tailwind custom-font.js: custom-font.js 1`] = `
 
 // @flow

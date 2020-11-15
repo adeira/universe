@@ -11,7 +11,7 @@ import convertToSx from './tailwindToSx';
 const tailwindConfig = resolveConfig({});
 
 (async function run() {
-  const styles = await convertToSx(
+  const { styles, keyframes } = await convertToSx(
     `@tailwind base;
     @tailwind components;
     @tailwind utilities;
@@ -31,6 +31,10 @@ const tailwindConfig = resolveConfig({});
    */
 
   import { type TailwindClassNames } from './types';
+
+  export const tailwindKeyframes: {| +[string]: any |} = Object.freeze(${JSON.stringify(
+    keyframes,
+  )});
 
   export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze(${JSON.stringify(
     styles,
