@@ -2,7 +2,7 @@
   "name": "eslint-plugin-sx",
   "description": "Eslint plugin for @adeira/sx",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-sx",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "private": false,
   "keywords": [
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^1.3.0",
+    "@babel/code-frame": "^7.10.4",
     "eslint": "^7.1.0",
     "jest-docblock": "^26.0.0"
   },

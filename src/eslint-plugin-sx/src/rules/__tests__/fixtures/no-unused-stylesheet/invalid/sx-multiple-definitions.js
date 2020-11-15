@@ -1,7 +1,7 @@
 /**
  * @flow
- * @eslintExpectedError Unused stylesheet: bbb (defined via "foo" variable)
  * @eslintExpectedError Unused stylesheet: aaa (defined via "bar" variable)
+ * @eslintExpectedError Unused stylesheet: bbb (defined via "foo" variable)
  */
 
 import type { Node } from 'react';
