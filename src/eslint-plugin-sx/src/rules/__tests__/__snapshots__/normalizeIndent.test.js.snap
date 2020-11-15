@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`normalizes indent correctly 1`] = `
+"
+import * as sx from '@adeira/sx';
+const styles = sx.create({
+  aaa: {
+    color: blue,
+  }
+});
+"
+`;

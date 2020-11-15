@@ -1,7 +1,7 @@
 /**
  * @flow
- * @eslintExpectedError Unused stylesheet: aaa (defined via "styles" variable)
  * @eslintExpectedError Unknown stylesheet used: yadada (not defined anywhere)
+ * @eslintExpectedError Unused stylesheet: aaa (defined via "styles" variable)
  */
 
 import type { Node } from 'react';
