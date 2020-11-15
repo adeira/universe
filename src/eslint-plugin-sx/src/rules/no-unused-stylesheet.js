@@ -23,9 +23,12 @@ module.exports = ({
     // stylesheet names which were defined via `sx.create`
     // const xxx = sx.create({yyy, zzz})   =>   Map([["xxx", ["yyy", "zzz"]]])
     const definedStylesheetNames = new Map();
+    const definedStylesheetNodes = new Map();
+    const definedStylesheetNameNodes = new Map();
 
     // xxx('aaa', 'bbb')   =>   Map([["xxx", [aaaNode, bbbNode]]])
     const usedStylesheetNames = new Map();
+    const usedStylesheetNodes = new Map();
 
     let unableToAnalyzeUsedStylesheets = false;
 
@@ -49,12 +52,13 @@ module.exports = ({
           const firstArgumentProperties = (firstArgument && firstArgument.properties) || [];
           for (const property of firstArgumentProperties) {
             const alreadyCaptured = definedStylesheetNames.get(node.id.name) || [];
-            definedStylesheetNames.set(node.id.name, [
-              ...alreadyCaptured,
+            const propertyName =
               property.key.name || // in case property is type of "Identifier"
-                property.key.value, // in case property is type of "Literal"
-            ]);
+              property.key.value; // in case property is type of "Literal"
+            definedStylesheetNames.set(node.id.name, [...alreadyCaptured, propertyName]);
+            definedStylesheetNameNodes.set(propertyName, property);
           }
+          definedStylesheetNodes.set(node.id.name, node);
         }
       },
 
@@ -79,16 +83,20 @@ module.exports = ({
         const classNameExpressions = node.value.expression;
         const expressionArguments = classNameExpressions.arguments || [];
         for (const argument of expressionArguments) {
+          let value;
           if (argument.type === 'Literal') {
-            usedNames.add(argument.value);
+            value = argument.value;
           } else if (argument.type === 'TemplateLiteral') {
-            usedNames.add(argument.quasis[0].value.raw);
+            value = argument.quasis[0].value.raw;
           } else if (argument.type === 'LogicalExpression') {
-            usedNames.add(argument.right.value);
+            value = argument.right.value;
           } else {
             // TODO: more cases (deeper analysis)
             unableToAnalyzeUsedStylesheets = true;
+            return;
           }
+          usedNames.add(value);
+          usedStylesheetNodes.set(value, argument);
         }
 
         if (classNameExpressions.callee) {
@@ -110,8 +118,10 @@ module.exports = ({
         definedStylesheetNames.forEach((definedNames, callee) => {
           const usedNames = usedStylesheetNames.get(callee);
           if (usedNames == null) {
+            const definedNode = definedStylesheetNodes.get(callee);
             context.report({
-              node, // TODO: improve the location by using more accurate node (?)
+              node,
+              loc: definedNode ? definedNode.loc : undefined,
               message:
                 'SX function "{{functionName}}" was not used anywhere in the "className" JSX attribute.',
               data: { functionName: callee },
@@ -123,8 +133,10 @@ module.exports = ({
               return !(usedNames && usedNames.includes(name));
             }) || [];
           for (const name of definedButNotUsed) {
+            const definedNameNode = definedStylesheetNameNodes.get(name);
             context.report({
-              node, // TODO: improve the location by using more accurate node (?)
+              node,
+              loc: definedNameNode ? definedNameNode.loc : undefined,
               message:
                 'Unused stylesheet: {{stylesheetName}} (defined via "{{definedBy}}" variable)',
               data: {
@@ -141,8 +153,10 @@ module.exports = ({
               })) ||
             [];
           for (const name of usedButNotDefined) {
+            const usedNode = usedStylesheetNodes.get(name);
             context.report({
-              node, // TODO: improve the location by using more accurate node (?)
+              node,
+              loc: usedNode ? usedNode.loc : undefined,
               message: 'Unknown stylesheet used: {{stylesheetName}} (not defined anywhere)',
               data: {
                 stylesheetName: name,
