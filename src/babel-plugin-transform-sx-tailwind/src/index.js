@@ -82,13 +82,14 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
             // if animation is used, transform "sx.keyframe" string into call expression
             path.traverse({
               ObjectProperty(path) {
-                if (path.node.key.value !== 'animationName') {
+                if (
+                  typeof path.node.key.value !== 'string' ||
+                  !path.node.key.value.startsWith('--animation-name-')
+                ) {
                   return;
                 }
                 const sxKeyframe = template.ast(path.node.value.value);
-                path.replaceWith(
-                  t.objectProperty(t.identifier('animationName'), sxKeyframe.expression),
-                );
+                path.node.value = sxKeyframe.expression;
               },
             });
           }
