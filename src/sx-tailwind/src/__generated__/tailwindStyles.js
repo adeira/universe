@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7ab4ae7d60a2da4f542c89a8336e2bdb>>
+ * @generated SignedSource<<786a033d1340826d2e61dcf074de6686>>
  * @flow
  *
  * Tailwind CSS file converted into stylesheets for SX
@@ -9735,13 +9735,26 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'delay-700': { transitionDelay: '700ms' },
   'delay-1000': { transitionDelay: '1000ms' },
   'animate-none': { animation: 'none' },
-  'animate-spin': { animation: '1s linear infinite', animationName: 'spin' },
-  'animate-ping': { animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite', animationName: 'ping' },
-  'animate-pulse': {
-    animation: '2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-    animationName: 'pulse',
+  'animate-spin': {
+    'animation': 'var(--animation-name-spin) 1s linear infinite',
+    '--animation-name-spin': 'spin',
+    'animationName': 'spin',
   },
-  'animate-bounce': { animation: '1s infinite', animationName: 'bounce' },
+  'animate-ping': {
+    'animation': 'var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+    '--animation-name-ping': 'ping',
+    'animationName': 'ping',
+  },
+  'animate-pulse': {
+    'animation': 'var(--animation-name-pulse) 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+    '--animation-name-pulse': 'pulse',
+    'animationName': 'pulse',
+  },
+  'animate-bounce': {
+    'animation': 'var(--animation-name-bounce) 1s infinite',
+    '--animation-name-bounce': 'bounce',
+    'animationName': 'bounce',
+  },
   'sm:container': { '@media (min-width: 1280px)': { maxWidth: '1280px' } },
   'sm:sr-only': {
     '@media (min-width: 640px)': {
@@ -24782,22 +24795,32 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'sm:delay-1000': { '@media (min-width: 640px)': { transitionDelay: '1000ms' } },
   'sm:animate-none': { '@media (min-width: 640px)': { animation: 'none' } },
   'sm:animate-spin': {
-    '@media (min-width: 640px)': { animation: '1s linear infinite', animationName: 'spin' },
+    '@media (min-width: 640px)': {
+      'animation': 'var(--animation-name-spin) 1s linear infinite',
+      '--animation-name-spin': 'spin',
+      'animationName': 'spin',
+    },
   },
   'sm:animate-ping': {
     '@media (min-width: 640px)': {
-      animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite',
-      animationName: 'ping',
+      'animation': 'var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      '--animation-name-ping': 'ping',
+      'animationName': 'ping',
     },
   },
   'sm:animate-pulse': {
     '@media (min-width: 640px)': {
-      animation: '2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      animationName: 'pulse',
+      'animation': 'var(--animation-name-pulse) 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      '--animation-name-pulse': 'pulse',
+      'animationName': 'pulse',
     },
   },
   'sm:animate-bounce': {
-    '@media (min-width: 640px)': { animation: '1s infinite', animationName: 'bounce' },
+    '@media (min-width: 640px)': {
+      'animation': 'var(--animation-name-bounce) 1s infinite',
+      '--animation-name-bounce': 'bounce',
+      'animationName': 'bounce',
+    },
   },
   'md:container': { '@media (min-width: 1280px)': { maxWidth: '1280px' } },
   'md:sr-only': {
@@ -39839,22 +39862,32 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'md:delay-1000': { '@media (min-width: 768px)': { transitionDelay: '1000ms' } },
   'md:animate-none': { '@media (min-width: 768px)': { animation: 'none' } },
   'md:animate-spin': {
-    '@media (min-width: 768px)': { animation: '1s linear infinite', animationName: 'spin' },
+    '@media (min-width: 768px)': {
+      'animation': 'var(--animation-name-spin) 1s linear infinite',
+      '--animation-name-spin': 'spin',
+      'animationName': 'spin',
+    },
   },
   'md:animate-ping': {
     '@media (min-width: 768px)': {
-      animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite',
-      animationName: 'ping',
+      'animation': 'var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      '--animation-name-ping': 'ping',
+      'animationName': 'ping',
     },
   },
   'md:animate-pulse': {
     '@media (min-width: 768px)': {
-      animation: '2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      animationName: 'pulse',
+      'animation': 'var(--animation-name-pulse) 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      '--animation-name-pulse': 'pulse',
+      'animationName': 'pulse',
     },
   },
   'md:animate-bounce': {
-    '@media (min-width: 768px)': { animation: '1s infinite', animationName: 'bounce' },
+    '@media (min-width: 768px)': {
+      'animation': 'var(--animation-name-bounce) 1s infinite',
+      '--animation-name-bounce': 'bounce',
+      'animationName': 'bounce',
+    },
   },
   'lg:container': { '@media (min-width: 1280px)': { maxWidth: '1280px' } },
   'lg:sr-only': {
@@ -54928,22 +54961,32 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'lg:delay-1000': { '@media (min-width: 1024px)': { transitionDelay: '1000ms' } },
   'lg:animate-none': { '@media (min-width: 1024px)': { animation: 'none' } },
   'lg:animate-spin': {
-    '@media (min-width: 1024px)': { animation: '1s linear infinite', animationName: 'spin' },
+    '@media (min-width: 1024px)': {
+      'animation': 'var(--animation-name-spin) 1s linear infinite',
+      '--animation-name-spin': 'spin',
+      'animationName': 'spin',
+    },
   },
   'lg:animate-ping': {
     '@media (min-width: 1024px)': {
-      animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite',
-      animationName: 'ping',
+      'animation': 'var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      '--animation-name-ping': 'ping',
+      'animationName': 'ping',
     },
   },
   'lg:animate-pulse': {
     '@media (min-width: 1024px)': {
-      animation: '2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      animationName: 'pulse',
+      'animation': 'var(--animation-name-pulse) 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      '--animation-name-pulse': 'pulse',
+      'animationName': 'pulse',
     },
   },
   'lg:animate-bounce': {
-    '@media (min-width: 1024px)': { animation: '1s infinite', animationName: 'bounce' },
+    '@media (min-width: 1024px)': {
+      'animation': 'var(--animation-name-bounce) 1s infinite',
+      '--animation-name-bounce': 'bounce',
+      'animationName': 'bounce',
+    },
   },
   'xl:container': { '@media (min-width: 1280px)': { maxWidth: '1280px' } },
   'xl:sr-only': {
@@ -70017,21 +70060,31 @@ export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze({
   'xl:delay-1000': { '@media (min-width: 1280px)': { transitionDelay: '1000ms' } },
   'xl:animate-none': { '@media (min-width: 1280px)': { animation: 'none' } },
   'xl:animate-spin': {
-    '@media (min-width: 1280px)': { animation: '1s linear infinite', animationName: 'spin' },
+    '@media (min-width: 1280px)': {
+      'animation': 'var(--animation-name-spin) 1s linear infinite',
+      '--animation-name-spin': 'spin',
+      'animationName': 'spin',
+    },
   },
   'xl:animate-ping': {
     '@media (min-width: 1280px)': {
-      animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite',
-      animationName: 'ping',
+      'animation': 'var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+      '--animation-name-ping': 'ping',
+      'animationName': 'ping',
     },
   },
   'xl:animate-pulse': {
     '@media (min-width: 1280px)': {
-      animation: '2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      animationName: 'pulse',
+      'animation': 'var(--animation-name-pulse) 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      '--animation-name-pulse': 'pulse',
+      'animationName': 'pulse',
     },
   },
   'xl:animate-bounce': {
-    '@media (min-width: 1280px)': { animation: '1s infinite', animationName: 'bounce' },
+    '@media (min-width: 1280px)': {
+      'animation': 'var(--animation-name-bounce) 1s infinite',
+      '--animation-name-bounce': 'bounce',
+      'animationName': 'bounce',
+    },
   },
 });
