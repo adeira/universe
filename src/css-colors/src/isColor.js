@@ -60,7 +60,7 @@ function isHSLA(value: string): boolean %checks {
 }
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-export default function isColor(value: string): boolean {
+export default function isColor(value: string | number): boolean {
   if (typeof value !== 'string') {
     return false;
   }
