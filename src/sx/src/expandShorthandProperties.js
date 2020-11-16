@@ -41,7 +41,7 @@ import StyleCollectorNode from './StyleCollectorNode';
  */
 export default function expandShorthandProperties(
   propertyName: string,
-  propertyValue: any,
+  propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {
   // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Background_Properties
@@ -138,7 +138,7 @@ export default function expandShorthandProperties(
   }
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
-  if (propertyName === 'overflow') {
+  if (propertyName === 'overflow' && typeof propertyValue === 'string') {
     // The `overflow` property is specified as one or two keywords. If two keywords are specified,
     // the first applies to `overflow-x` and the second to `overflow-y`. Otherwise, both `overflow-x`
     // and `overflow-y` are set to the same value.
@@ -156,7 +156,7 @@ export default function expandShorthandProperties(
   }
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/flex
-  if (propertyName === 'flex') {
+  if (propertyName === 'flex' && typeof propertyValue === 'string') {
     // Initial values:
     // - flex-grow: 0
     // - flex-shrink: 1

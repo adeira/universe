@@ -204,6 +204,12 @@ it('expands overflow as expected', () => {
 });
 
 it('expands flex as expected', () => {
+  expect(expandShorthandProperties('flex', 1).map(printNodes)).toMatchInlineSnapshot(`
+    Array [
+      "._1PiKJ8{flex:1}",
+    ]
+  `);
+
   // Keyword values
   expect(expandShorthandProperties('flex', 'auto').map(printNodes)).toMatchInlineSnapshot(`
     Array [
