@@ -14,9 +14,9 @@ const getVariableDeclaratorCalleeName = require('./utils/getVariableDeclaratorCa
  */
 module.exports = ({
   create: function (context) {
-    // import * as sx from '@adeira/sx'
-    //             ^^
-    let importNamespaceSpecifier = null;
+    // import sx from '@adeira/sx'
+    //        ^^
+    let importDefaultSpecifier = null;
 
     // import { create as sxCreate } from '@adeira/sx';
     //                    ^^^^^^^^
@@ -31,7 +31,7 @@ module.exports = ({
       ImportDeclaration(node) {
         const importSpecifiers = getSXImportSpecifiers(node);
         if (importSpecifiers !== null) {
-          importNamespaceSpecifier = importSpecifiers.importNamespaceSpecifier;
+          importDefaultSpecifier = importSpecifiers.importDefaultSpecifier;
           importSpecifierCreate = importSpecifiers.importSpecifierCreate;
           importSpecifierKeyframes = importSpecifiers.importSpecifierKeyframes;
         }
@@ -43,11 +43,11 @@ module.exports = ({
       VariableDeclarator(node) {
         if (
           // "sx.create" and "sx.keyframes" are essentially the same from the validation point of view
-          isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifierCreate) ||
-          isSXKeyframesVariableDeclarator(node, importNamespaceSpecifier, importSpecifierKeyframes)
+          isSXVariableDeclarator(node, importDefaultSpecifier, importSpecifierCreate) ||
+          isSXKeyframesVariableDeclarator(node, importDefaultSpecifier, importSpecifierKeyframes)
         ) {
           const initArguments = (node.init && node.init.arguments) || [];
-          const calleeName = getVariableDeclaratorCalleeName(node, importNamespaceSpecifier);
+          const calleeName = getVariableDeclaratorCalleeName(node, importDefaultSpecifier);
 
           if (initArguments.length > 1) {
             context.report({

@@ -24,7 +24,7 @@ export default function Example(): Node {
 
 // @flow
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return (
     <span className={__styles_3xIUAp('flex', 'h-3', 'w-3')}>
@@ -127,7 +127,7 @@ export default function Example(): Node {
 
 // @flow
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return (
     <>
@@ -186,7 +186,7 @@ export default function Example(): Node {
 
 // @flow
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return (
     <div className={__styles_BKbxA('text-white', 'bg-black')}>
@@ -272,7 +272,7 @@ const styles = 'Here I am';
 
 // @flow
 import type { Element } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
   return (
     <button
@@ -315,7 +315,7 @@ exports[`transform SX Tailwind sx-already-imported.js: sx-already-imported.js 1`
 
 import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function Example(): Node {
   return (
@@ -341,7 +341,7 @@ const styles = sx.create({
 
 // @flow
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return (
     <div>
@@ -416,7 +416,7 @@ const styles = create({
 
 // @flow
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import { create } from '@adeira/sx';
 export default function Example(): Node {
   return (
@@ -490,7 +490,7 @@ export default function Example(): Element<'button'> {
 
 // @flow
 import type { Element } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
   return (
     <button
@@ -574,7 +574,7 @@ export default function Example(): Element<'button'> {
 
 // @flow
 import type { Element } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
   return (
     <button
@@ -659,7 +659,7 @@ export default function Example(): Node {
 
 // @flow
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return (
     <>
@@ -742,7 +742,7 @@ export default function Example(): Element<'button'> {
 
 // @flow
 import type { Element } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
   return (
     <button
@@ -799,7 +799,7 @@ export default function Example(): Element<'button'> {
 
 // @flow
 import type { Element } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
   return (
     <button
@@ -849,7 +849,7 @@ export default function Example(): Node {
 
 // @flow
 import React, { type Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return <div className={__styles_3noU6Y('text-black', 'bg-white')}>Lorem lipsum</div>;
 }
@@ -892,7 +892,7 @@ export default function Example(): Node {
 
 // @flow
 import React, { type Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   const darkMode = true;
   return (
@@ -947,7 +947,7 @@ exports[`transform SX Tailwind template-literal-expression.js: template-literal-
 
 import React, { type Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function Example(): Node {
   return <div className={\`\${tailwind('px-4')} \${styles('customStyle')}\`}>Lorem lipsum</div>;
@@ -961,7 +961,7 @@ const styles = sx.create({
 
 // @flow
 import React, { type Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return <div className={\`\${__styles_4ozVnl('px-4')} \${styles('customStyle')}\`}>Lorem lipsum</div>;
 }

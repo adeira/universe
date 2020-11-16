@@ -23,6 +23,6 @@
     "jest-docblock": "^26.0.0"
   },
   "peerDependencies": {
-    "@adeira/sx": "^0.20.0"
+    "@adeira/sx": "^0.21.0"
   }
 }

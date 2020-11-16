@@ -6,6 +6,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
   - [`@media` and `@supports`](#media-and-supports)
   - [Keyframes](#keyframes)
+  - [Composability and customizability](#composability-and-customizability)
   - [Precise Flow types](#precise-flow-types)
 - [Production usage considerations](#production-usage-considerations)
 - [Server-side rendering](#server-side-rendering)
@@ -29,7 +30,7 @@ yarn add --dev eslint-plugin-sx
 Create a stylesheet and use it to generate `className` props for React:
 
 ```jsx
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function Example() {
   // className={styles('example')}
@@ -266,6 +267,39 @@ const simple = sx.keyframes({
 });
 ```
 
+### Composability and customizability
+
+SX supports composability with external styles. Have a look at this base component example (uses [Flow](https://github.com/facebook/flow) types):
+
+```flow js
+import sx, { type AllCSSPropertyTypes } from '@adeira/sx';
+
+type Props = {|
+  +xstyle: {|
+    +marginTop: number, // you can restrict what styles are customizable
+  |},
+  +ystyle?: AllCSSPropertyTypes, // or allow any style
+|};
+
+const styles = sx.create({ default: { fontSize: 16 } });
+
+function MyBaseComponent(props: Props) {
+  return <div className={sx(styles.default, props.xstyle)} />;
+}
+```
+
+Now, let's say we are building a design library and we want to affect the base styles externally. Here is how would our customized (wrapper) component look like:
+
+```flow js
+const styles = sx.create({ spacing: { marginTop: 4 } });
+
+function MyCustomComponent() {
+  return <MyBaseComponent xstyle={styles.spacing} />;
+}
+```
+
+Always prefer this style of customization instead of concatenating or prop-drilling external CSS classes in your components.
+
 ### Precise Flow types
 
 SX knows about almost every property or rule which exists in CSS and tries to help with mistakes when writing the styles.
@@ -298,7 +332,7 @@ _This is an optional part, `@adeira/sx` will work even without it. However, it's
 Example for Next.js with [custom document](https://nextjs.org/docs/advanced-features/custom-document):
 
 ```jsx
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import Document from 'next/document';
 
 export default class MyDocument extends Document {

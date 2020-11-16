@@ -15,13 +15,10 @@ type MediaQueries = {|
   +[string]: MediaQueries, // media queries can be recursively nested
 |};
 
-// https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
-type AtRules = MediaQueries;
-
 type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudoTypes,
-  +[string]: AtRules, // we are unable to statically typecheck the key because it can be almost anything
+  +[string]: MediaQueries, // we are unable to statically typecheck the key because it can be almost anything
 |};
 
 export type SheetDefinitions = {|
@@ -36,9 +33,12 @@ function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): 
   })[0];
 }
 
-export default function create<T: SheetDefinitions>(
-  sheetDefinitions: T,
-): (...$ReadOnlyArray<?$Keys<T> | false>) => string {
+type CreateReturnType<T> = {|
+  (...$ReadOnlyArray<?$Keys<T> | false>): string,
+  +[$Keys<T>]: Map<string, string>,
+|};
+
+export default function create<T: SheetDefinitions>(sheetDefinitions: T): CreateReturnType<T> {
   invariant(
     isObjectEmpty(sheetDefinitions) === false,
     `Function 'sx.create' cannot be called with empty stylesheet definition.`,
@@ -50,7 +50,7 @@ export default function create<T: SheetDefinitions>(
     injectRuntimeStyles(styleBuffer);
   }
 
-  return function sx(...sheetDefinitionNames) {
+  function sxFunction(...sheetDefinitionNames) {
     invariant(
       sheetDefinitionNames.length > 0,
       'SX must be called with at least one stylesheet name.',
@@ -74,5 +74,12 @@ export default function create<T: SheetDefinitions>(
     const classes = Object.values(selectedStyles);
     const uniqueClasses = [...new Set(classes)];
     return uniqueClasses.join(' ');
-  };
+  }
+
+  // expose the hash registry for external styles merging
+  hashRegistry.forEach((value, key) => {
+    sxFunction[key] = value;
+  });
+
+  return sxFunction;
 }

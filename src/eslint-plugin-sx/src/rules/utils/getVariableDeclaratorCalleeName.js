@@ -6,12 +6,12 @@ import type { VariableDeclarator } from '@adeira/flow-types-eslint';
 
 module.exports = function getVariableDeclaratorCalleeName(
   node /*: VariableDeclarator */,
-  importNamespaceSpecifier /*: string | null */,
+  importDefaultSpecifier /*: string | null */,
 ) /*: string | null */ {
   if (node.init != null && node.init.type === 'CallExpression' && node.init.callee) {
     if (
       node.init.callee.object &&
-      node.init.callee.object.name === importNamespaceSpecifier // "sx" in sx.create({})
+      node.init.callee.object.name === importDefaultSpecifier // "sx" in sx.create({})
     ) {
       return node.init.callee.property.name; // "create" in sx.create({})
     }

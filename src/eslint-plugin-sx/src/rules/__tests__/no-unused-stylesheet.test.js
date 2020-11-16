@@ -27,7 +27,7 @@ const ruleTester = new RuleTester({
 const invalidTests = [
   {
     code: normalizeIndent`
-      import * as sx from '@adeira/sx';
+      import sx from '@adeira/sx';
       const styles = sx.create({
         aaa: {
           color: blue,
@@ -53,7 +53,7 @@ const invalidTests = [
   },
   {
     code: normalizeIndent`
-      import * as sx from '@adeira/sx';
+      import sx from '@adeira/sx';
       export default function TestComponent() {
         return <div className={styles('bbb')} />
       }

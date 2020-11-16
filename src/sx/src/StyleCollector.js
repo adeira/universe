@@ -16,7 +16,7 @@ import { type StyleCollectorNodeInterface } from './StyleCollectorNodeInterface'
 //     "color" => "c2",
 //   },
 // },
-type HashRegistryType = Map<string, Map<string, string>>;
+export type HashRegistryType = Map<string, Map<string, string>>;
 
 // "styleBuffer": Map {
 //   "c0" => StyleCollectorNode {

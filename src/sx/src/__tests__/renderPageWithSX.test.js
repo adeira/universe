@@ -1,6 +1,6 @@
 // @flow
 
-import * as sx from '../../index';
+import sx from '../../index';
 import StyleCollector from '../StyleCollector';
 
 afterEach(() => {

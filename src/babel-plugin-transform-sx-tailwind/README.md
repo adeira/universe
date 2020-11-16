@@ -7,7 +7,7 @@ This has a positive impact on the final bundle size because the huge Tailwind de
 ```diff
 import React from 'react';
 - import { tailwind } from '@adeira/sx-tailwind';
-+ import * as sx from '@adeira/sx';
++ import sx from '@adeira/sx';
 
 export default function Example() {
   return (

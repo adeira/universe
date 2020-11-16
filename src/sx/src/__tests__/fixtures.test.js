@@ -7,7 +7,7 @@ import prettier from 'prettier';
 import TestRenderer from 'react-test-renderer';
 import { isObject, sprintf } from '@adeira/js';
 
-import * as sx from '../../index';
+import sx from '../../index';
 import StyleCollector from '../StyleCollector';
 
 const fixturesPath = path.join(__dirname, 'fixtures');

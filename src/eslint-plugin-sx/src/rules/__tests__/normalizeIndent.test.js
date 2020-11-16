@@ -4,7 +4,7 @@ import normalizeIndent from './normalizeIndent';
 
 it('normalizes indent correctly', () => {
   expect(normalizeIndent`
-    import * as sx from '@adeira/sx';
+    import sx from '@adeira/sx';
     const styles = sx.create({
       aaa: {
         color: blue,

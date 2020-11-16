@@ -34,7 +34,7 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
             }
           });
 
-          const sxImport = template.ast(`import * as sx from '@adeira/sx'`);
+          const sxImport = template.ast(`import sx from '@adeira/sx'`);
           path.replaceWith(sxImport);
         }
       },
@@ -100,7 +100,7 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
               type === 'ImportDeclaration' &&
               source.value === '@adeira/sx' &&
               Array.isArray(specifiers) &&
-              specifiers[0].type === 'ImportNamespaceSpecifier'
+              specifiers[0].type === 'ImportDefaultSpecifier'
             ) {
               a.push(index);
             }

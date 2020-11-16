@@ -6,7 +6,7 @@
  * @see https://github.com/adeira/universe/pull/1323
  */
 
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import type { Node } from 'react'; // keep the import order exactly like this (first SX, second React)
 
 export default function Navbar(): Node {

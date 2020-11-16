@@ -4,7 +4,7 @@
  */
 
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function MyComponent(): Node {
   return <div className={styles('aaa')} />;

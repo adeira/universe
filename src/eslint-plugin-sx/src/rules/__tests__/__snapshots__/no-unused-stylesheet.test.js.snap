@@ -2,7 +2,7 @@
 
 exports[`reports correct lines and columns: SX function "styles" was not used anywhere in the "className" JSX attribute. 1`] = `
 "  1 | 
-  2 | import * as sx from '@adeira/sx';
+  2 | import sx from '@adeira/sx';
 > 3 | const styles = sx.create({
     |       ^^^^^^^^^^^^^^^^^^^^
 > 4 |   aaa: {
@@ -17,7 +17,7 @@ exports[`reports correct lines and columns: SX function "styles" was not used an
 `;
 
 exports[`reports correct lines and columns: Unknown stylesheet used: bbb (not defined anywhere) 1`] = `
-"  2 | import * as sx from '@adeira/sx';
+"  2 | import sx from '@adeira/sx';
   3 | export default function TestComponent() {
 > 4 |   return <div className={styles('bbb')} />
     |                                 ^^^^^
@@ -27,7 +27,7 @@ exports[`reports correct lines and columns: Unknown stylesheet used: bbb (not de
 `;
 
 exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via "styles" variable) 1`] = `
-"  2 | import * as sx from '@adeira/sx';
+"  2 | import sx from '@adeira/sx';
   3 | const styles = sx.create({
 > 4 |   aaa: {
     |   ^^^^^^

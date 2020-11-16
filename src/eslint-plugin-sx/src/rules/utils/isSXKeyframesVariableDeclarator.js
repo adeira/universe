@@ -6,7 +6,7 @@ import type { VariableDeclarator } from '@adeira/flow-types-eslint';
 
 module.exports = function isSXKeyframesVariableDeclarator(
   node /*: VariableDeclarator */,
-  importNamespaceSpecifier /*: string | null */,
+  importDefaultSpecifier /*: string | null */,
   importSpecifier /*: string | null */,
 ) /*: boolean */ {
   return (
@@ -15,7 +15,7 @@ module.exports = function isSXKeyframesVariableDeclarator(
     node.init.callee &&
     node.init.arguments &&
     ((node.init.callee.object &&
-      node.init.callee.object.name === importNamespaceSpecifier && // "sx" in sx.keyframes({})
+      node.init.callee.object.name === importDefaultSpecifier && // "sx" in sx.keyframes({})
       node.init.callee.property &&
       node.init.callee.property.name === 'keyframes') || // "keyframes" in sx.keyframes({})
       node.init.callee.name === importSpecifier) // "sxKeyframes" in sxKeyframes({})

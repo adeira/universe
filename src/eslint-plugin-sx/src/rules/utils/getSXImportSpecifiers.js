@@ -5,7 +5,7 @@
 import type { ImportDeclaration } from '@adeira/flow-types-eslint';
 
 type ReturnType = {|
-  +importNamespaceSpecifier: null | string,
+  +importDefaultSpecifier: null | string,
   +importSpecifierCreate: null | string,
   +importSpecifierKeyframes: null | string,
 |};
@@ -15,9 +15,9 @@ type ReturnType = {|
 module.exports = function getSXImportSpecifiers(
   node /*: ImportDeclaration */,
 ) /*: ReturnType | null */ {
-  // import * as sx from '@adeira/sx'
-  //             ^^
-  let importNamespaceSpecifier = null;
+  // import sx from '@adeira/sx'
+  //        ^^
+  let importDefaultSpecifier = null;
 
   // import { create as sxCreate } from '@adeira/sx';
   //                    ^^^^^^^^
@@ -32,10 +32,10 @@ module.exports = function getSXImportSpecifiers(
   }
 
   for (const specifier of node.specifiers) {
-    if (specifier.type === 'ImportNamespaceSpecifier') {
-      // import * as sx from '@adeira/sx'
-      // import * as tada from '@adeira/sx'
-      importNamespaceSpecifier = specifier.local.name; // "sx" or "tada"
+    if (specifier.type === 'ImportDefaultSpecifier') {
+      // import sx from '@adeira/sx'
+      // import tada from '@adeira/sx'
+      importDefaultSpecifier = specifier.local.name; // "sx" or "tada"
     } else if (specifier.type === 'ImportSpecifier' && specifier.imported.name === 'create') {
       // import { create } from '@adeira/sx';
       // import { create as sxCreate } from '@adeira/sx';
@@ -48,7 +48,7 @@ module.exports = function getSXImportSpecifiers(
   }
 
   return {
-    importNamespaceSpecifier,
+    importDefaultSpecifier,
     importSpecifierCreate,
     importSpecifierKeyframes,
   };
