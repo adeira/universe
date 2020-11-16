@@ -4522,6 +4522,13 @@ eslint-plugin-relay@^1.8.1:
   dependencies:
     graphql "^14.0.0 || ^15.0.0-rc.1"
 
+eslint-plugin-sx@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.5.0.tgz#553021caa271cdc305b999e2c7da4500e86b9b3b"
+  integrity sha512-lutNC8etrlt5zPev35dzinEURF3flpbSln5JGz++H0gYZ/70+3lJqV7xaXClBcqZfFDmPVmSUTcYQ1PSl4Fi3A==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 eslint-rule-composer@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz#79320c927b0c5c0d3d3d2b76c8b4a488f25bbaf9"
