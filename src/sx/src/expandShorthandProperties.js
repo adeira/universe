@@ -1,8 +1,10 @@
 // @flow
 
-import { isColor } from '@adeira/css-colors';
-import { isNumeric } from '@adeira/js';
-
+import expandBackground from './shorthand-properties/expandBackground';
+import expandBorder from './shorthand-properties/expandBorder';
+import expandFlex from './shorthand-properties/expandFlex';
+import expandMarginPadding from './shorthand-properties/expandMarginPadding';
+import expandOverflow from './shorthand-properties/expandOverflow';
 import StyleCollectorNode from './StyleCollectorNode';
 
 /**
@@ -44,181 +46,24 @@ export default function expandShorthandProperties(
   propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Background_Properties
-  if (propertyName === 'background') {
-    // Note: we currently ignore more complex syntaxes at this moment
-    // see: https://developer.mozilla.org/en-US/docs/Web/CSS/background#Formal_syntax
-    const background = new Map([
-      ['backgroundImage', new StyleCollectorNode('backgroundImage', 'none', hashSeed)],
-      ['backgroundPosition', new StyleCollectorNode('backgroundPosition', '0% 0%', hashSeed)],
-      ['backgroundSize', new StyleCollectorNode('backgroundSize', 'auto auto', hashSeed)],
-      ['backgroundRepeat', new StyleCollectorNode('backgroundRepeat', 'repeat', hashSeed)],
-      ['backgroundOrigin', new StyleCollectorNode('backgroundOrigin', 'padding-box', hashSeed)],
-      ['backgroundClip', new StyleCollectorNode('backgroundClip', 'border-box', hashSeed)],
-      ['backgroundAttachment', new StyleCollectorNode('backgroundAttachment', 'scroll', hashSeed)],
-      ['backgroundColor', new StyleCollectorNode('backgroundColor', 'transparent', hashSeed)],
-    ]);
-    if (isColor(propertyValue)) {
-      background.set(
-        'backgroundColor',
-        new StyleCollectorNode('backgroundColor', propertyValue, hashSeed),
-      );
-      return Array.from(background.values());
-    } else if (propertyValue === 'none') {
-      background.set(
-        'backgroundImage',
-        new StyleCollectorNode('backgroundImage', propertyValue, hashSeed),
-      );
-      return Array.from(background.values());
-    }
-  }
-
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Border_Properties
-  if (propertyName === 'border') {
-    // Note: we currently ignore more complex syntaxes at this moment
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/border#Formal_syntax
-    const border = new Map([
-      // all these properties are actually shorthands as well so we should consider expanding them further
-      ['borderWidth', new StyleCollectorNode('borderWidth', 'medium', hashSeed)],
-      ['borderStyle', new StyleCollectorNode('borderStyle', 'none', hashSeed)],
-      ['borderColor', new StyleCollectorNode('borderColor', 'currentcolor', hashSeed)],
-    ]);
-    if (isColor(propertyValue)) {
-      border.set('borderColor', new StyleCollectorNode('borderColor', propertyValue, hashSeed));
-      return Array.from(border.values());
-    }
-  }
-
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#Margin_and_Padding_Properties
-  if (propertyName === 'margin' || propertyName === 'padding') {
-    const top = `${propertyName}Top`;
-    const right = `${propertyName}Right`;
-    const bottom = `${propertyName}Bottom`;
-    const left = `${propertyName}Left`;
-    if (typeof propertyValue === 'string') {
-      const chunks = propertyValue.split(/\s+/);
-      if (chunks.length === 1) {
-        const chunk = chunks[0];
-        return [
-          new StyleCollectorNode(top, chunk, hashSeed),
-          new StyleCollectorNode(right, chunk, hashSeed),
-          new StyleCollectorNode(bottom, chunk, hashSeed),
-          new StyleCollectorNode(left, chunk, hashSeed),
-        ];
-      } else if (chunks.length === 2) {
-        return [
-          new StyleCollectorNode(top, chunks[0], hashSeed),
-          new StyleCollectorNode(right, chunks[1], hashSeed),
-          new StyleCollectorNode(bottom, chunks[0], hashSeed),
-          new StyleCollectorNode(left, chunks[1], hashSeed),
-        ];
-      } else if (chunks.length === 3) {
-        return [
-          new StyleCollectorNode(top, chunks[0], hashSeed),
-          new StyleCollectorNode(right, chunks[1], hashSeed),
-          new StyleCollectorNode(bottom, chunks[2], hashSeed),
-          new StyleCollectorNode(left, chunks[1], hashSeed),
-        ];
-      } else if (chunks.length === 4) {
-        return [
-          new StyleCollectorNode(top, chunks[0], hashSeed),
-          new StyleCollectorNode(right, chunks[1], hashSeed),
-          new StyleCollectorNode(bottom, chunks[2], hashSeed),
-          new StyleCollectorNode(left, chunks[3], hashSeed),
-        ];
-      }
-    } else if (typeof propertyValue === 'number') {
-      return [
-        new StyleCollectorNode(top, propertyValue, hashSeed),
-        new StyleCollectorNode(right, propertyValue, hashSeed),
-        new StyleCollectorNode(bottom, propertyValue, hashSeed),
-        new StyleCollectorNode(left, propertyValue, hashSeed),
-      ];
-    }
-  }
-
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/overflow
-  if (propertyName === 'overflow' && typeof propertyValue === 'string') {
-    // The `overflow` property is specified as one or two keywords. If two keywords are specified,
-    // the first applies to `overflow-x` and the second to `overflow-y`. Otherwise, both `overflow-x`
-    // and `overflow-y` are set to the same value.
-    const chunks = propertyValue.split(/\s/);
-    if (chunks.length === 2) {
-      return [
-        new StyleCollectorNode('overflowX', chunks[0], hashSeed),
-        new StyleCollectorNode('overflowY', chunks[1], hashSeed),
-      ];
-    }
-    return [
-      new StyleCollectorNode('overflowX', propertyValue, hashSeed),
-      new StyleCollectorNode('overflowY', propertyValue, hashSeed),
-    ];
-  }
-
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/flex
-  if (propertyName === 'flex' && typeof propertyValue === 'string') {
-    // Initial values:
-    // - flex-grow: 0
-    // - flex-shrink: 1
-    // - flex-basis: auto
-    const chunks = propertyValue.split(/\s/);
-    if (chunks.length === 1) {
-      if (isNumeric(chunks[0])) {
-        return [
-          new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
-          new StyleCollectorNode('flexShrink', 1, hashSeed),
-          new StyleCollectorNode('flexBasis', 0, hashSeed),
-        ];
-      } else if (chunks[0] === 'initial') {
-        return [
-          new StyleCollectorNode('flexGrow', 0, hashSeed),
-          new StyleCollectorNode('flexShrink', 1, hashSeed),
-          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
-        ];
-      } else if (chunks[0] === 'auto') {
-        return [
-          new StyleCollectorNode('flexGrow', 1, hashSeed),
-          new StyleCollectorNode('flexShrink', 1, hashSeed),
-          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
-        ];
-      } else if (chunks[0] === 'none') {
-        return [
-          new StyleCollectorNode('flexGrow', 0, hashSeed),
-          new StyleCollectorNode('flexShrink', 0, hashSeed),
-          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
-        ];
-      }
-      return [
-        new StyleCollectorNode('flexGrow', 0, hashSeed),
-        new StyleCollectorNode('flexShrink', 1, hashSeed),
-        new StyleCollectorNode('flexBasis', chunks[0], hashSeed),
-      ];
-    } else if (chunks.length === 2) {
-      if (isNumeric(chunks[1])) {
-        return [
-          new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
-          new StyleCollectorNode('flexShrink', chunks[1], hashSeed),
-          new StyleCollectorNode('flexBasis', 'auto', hashSeed),
-        ];
-      }
-      return [
-        new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
-        new StyleCollectorNode('flexShrink', 1, hashSeed),
-        new StyleCollectorNode('flexBasis', chunks[1], hashSeed),
-      ];
-    }
-    return [
-      new StyleCollectorNode('flexGrow', chunks[0], hashSeed),
-      new StyleCollectorNode('flexShrink', chunks[1], hashSeed),
-      new StyleCollectorNode('flexBasis', chunks[2], hashSeed),
-    ];
-  }
-
   // TODO (https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties#See_also):
   //  - https://developer.mozilla.org/en-US/docs/Web/CSS/animation
   //  - https://developer.mozilla.org/en-US/docs/Web/CSS/font
   //  - https://developer.mozilla.org/en-US/docs/Web/CSS/transition
   //  - ...
 
+  if (propertyName === 'background') {
+    return expandBackground(propertyName, propertyValue, hashSeed);
+  } else if (propertyName === 'border') {
+    return expandBorder(propertyName, propertyValue, hashSeed);
+  } else if (propertyName === 'margin' || propertyName === 'padding') {
+    return expandMarginPadding(propertyName, propertyValue, hashSeed);
+  } else if (propertyName === 'overflow') {
+    return expandOverflow(propertyName, propertyValue, hashSeed);
+  } else if (propertyName === 'flex') {
+    return expandFlex(propertyName, propertyValue, hashSeed);
+  }
+
+  // could not be expanded
   return [new StyleCollectorNode(propertyName, propertyValue, hashSeed)];
 }
