@@ -4,26 +4,26 @@ import type { Node } from 'react';
 
 import Layout from '../components/Layout';
 import H2 from '../components/H2';
-import SyntaxHighlighter from '../components/SyntaxHighlighter';
+import CodeBlock from '../components/CodeBlock';
 
 export default function Documentation(): Node {
   return (
     <Layout title="Documentation">
       <H2>Install</H2>
-      <SyntaxHighlighter language="bash">
+      <CodeBlock language="bash">
         {`yarn add @adeira/sx-tailwind
 yarn add --dev @adeira/babel-plugin-transform-sx-tailwind`}
-      </SyntaxHighlighter>
+      </CodeBlock>
 
       <H2>Babel config</H2>
-      <SyntaxHighlighter language="jsx">
+      <CodeBlock>
         {`{
   'plugins': ['@adeira/babel-plugin-transform-sx-tailwind']
 }`}
-      </SyntaxHighlighter>
+      </CodeBlock>
 
       <H2>Usage</H2>
-      <SyntaxHighlighter language="jsx">
+      <CodeBlock>
         {`import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Button() {
@@ -35,7 +35,7 @@ export default function Button() {
     </button>
   );
 }`}
-      </SyntaxHighlighter>
+      </CodeBlock>
     </Layout>
   );
 }
