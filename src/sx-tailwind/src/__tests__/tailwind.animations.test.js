@@ -23,25 +23,29 @@ it('converts Tailwind default animations', async () => {
 
   expect(styles['animate-spin']).toMatchInlineSnapshot(`
     Object {
-      "animation": "1s linear infinite",
+      "--animation-name-spin": "spin",
+      "animation": "var(--animation-name-spin) 1s linear infinite",
       "animationName": "spin",
     }
   `);
   expect(styles['animate-ping']).toMatchInlineSnapshot(`
-      Object {
-        "animation": "1s cubic-bezier(0, 0, 0.2, 1) infinite",
-        "animationName": "ping",
-      }
-    `);
+    Object {
+      "--animation-name-ping": "ping",
+      "animation": "var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+      "animationName": "ping",
+    }
+  `);
   expect(styles['animate-pulse']).toMatchInlineSnapshot(`
     Object {
-      "animation": "2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      "--animation-name-pulse": "pulse",
+      "animation": "var(--animation-name-pulse) 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       "animationName": "pulse",
     }
   `);
   expect(styles['animate-bounce']).toMatchInlineSnapshot(`
     Object {
-      "animation": "1s infinite",
+      "--animation-name-bounce": "bounce",
+      "animation": "var(--animation-name-bounce) 1s infinite",
       "animationName": "bounce",
     }
   `);
