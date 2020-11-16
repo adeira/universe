@@ -65,8 +65,8 @@ const __styles_3xIUAp = sx.create({
     width: '0.75rem',
   },
   'animate-ping': {
-    animation: '1s cubic-bezier(0, 0, 0.2, 1) infinite',
-    animationName: sx.keyframes({
+    'animation': 'var(--animation-name-ping) 1s cubic-bezier(0, 0, 0.2, 1) infinite',
+    '--animation-name-ping': sx.keyframes({
       '75%, 100%': {
         transform: 'scale(2)',
         opacity: '0',
