@@ -1,6 +1,6 @@
 // @flow
 
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import { warning } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 

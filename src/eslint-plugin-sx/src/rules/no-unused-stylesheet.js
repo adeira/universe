@@ -12,9 +12,9 @@ const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
  */
 module.exports = ({
   create: function (context) {
-    // import * as sx from '@adeira/sx'
-    //             ^^
-    let importNamespaceSpecifier = null;
+    // import sx from '@adeira/sx'
+    //        ^^
+    let importDefaultSpecifier = null;
 
     // import { create as sxCreate } from '@adeira/sx';
     //                    ^^^^^^^^
@@ -37,7 +37,7 @@ module.exports = ({
       'ImportDeclaration'(node) {
         const importSpecifiers = getSXImportSpecifiers(node);
         if (importSpecifiers !== null) {
-          importNamespaceSpecifier = importSpecifiers.importNamespaceSpecifier;
+          importDefaultSpecifier = importSpecifiers.importDefaultSpecifier;
           importSpecifierCreate = importSpecifiers.importSpecifierCreate;
         }
       },
@@ -46,7 +46,7 @@ module.exports = ({
       //       ^^^^^^^^^^^^^^^^^^^^^^
       //       | id |
       'VariableDeclarator'(node) {
-        if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifierCreate)) {
+        if (isSXVariableDeclarator(node, importDefaultSpecifier, importSpecifierCreate)) {
           const initArguments = (node.init && node.init.arguments) || [];
           const firstArgument = initArguments[0];
           const firstArgumentProperties = (firstArgument && firstArgument.properties) || [];

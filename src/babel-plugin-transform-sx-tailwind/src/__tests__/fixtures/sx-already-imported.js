@@ -2,7 +2,7 @@
 
 import type { Node } from 'react';
 import { tailwind } from '@adeira/sx-tailwind';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function Example(): Node {
   return (

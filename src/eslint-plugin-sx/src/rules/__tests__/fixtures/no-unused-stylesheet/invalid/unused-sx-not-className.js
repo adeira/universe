@@ -5,7 +5,7 @@
  */
 
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function Navbar(): Node {
   // "styles" is essentially unused here since it's not used in "className"

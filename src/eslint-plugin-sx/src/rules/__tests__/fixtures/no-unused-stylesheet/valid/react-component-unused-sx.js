@@ -1,7 +1,7 @@
 // @flow
 
 import type { Node } from 'react';
-import * as tada from '@adeira/sx'; // eslint-disable-line no-unused-vars
+import tada from '@adeira/sx'; // eslint-disable-line no-unused-vars
 
 export default function MyComponent(): Node {
   return styles('ok');

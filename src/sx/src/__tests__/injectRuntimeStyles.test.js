@@ -4,7 +4,7 @@
 
 import { render } from '@testing-library/react';
 
-import * as sx from '../../index';
+import sx from '../../index';
 
 it('injects runtime styles', () => {
   render(<style data-adeira-sx />);

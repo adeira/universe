@@ -6,7 +6,7 @@ import { normalizeColor } from '@adeira/css-colors';
 import { render, screen } from '@testing-library/react';
 import prettier from 'prettier';
 
-import * as sx from '../../index';
+import sx from '../../index';
 import collector from '../StyleCollector';
 
 afterEach(() => {

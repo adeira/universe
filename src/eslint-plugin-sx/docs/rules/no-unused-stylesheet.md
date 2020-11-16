@@ -7,7 +7,7 @@ This rule aims to find unused SX stylesheet definitions.
 Examples of **incorrect** code for this rule:
 
 ```jsx
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function MyComponent() {
   return null;
@@ -20,7 +20,7 @@ const styles = sx.create({
 ```
 
 ```jsx
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function MyComponent() {
   return <div className={styles('aaa')} />;
@@ -36,7 +36,7 @@ const styles = sx.create({
 Examples of **correct** code for this rule:
 
 ```jsx
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 export default function MyComponent() {
   return <div className={styles('aaa')} />;

@@ -4,7 +4,7 @@
  */
 
 import type { Node } from 'react';
-import * as tada from '@adeira/sx';
+import tada from '@adeira/sx';
 
 export default function MyComponent(): Node {
   // Should be:
