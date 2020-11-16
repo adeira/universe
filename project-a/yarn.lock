@@ -65,6 +65,22 @@
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
+"@adeira/eslint-runner@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-1.0.1.tgz#50cc40027895fa51b4106bb75eb4989c390ac57a"
+  integrity sha512-xgWRYrr9J2IswvwTPDvVT8dW548PRzvcxaGDibT2mz9SgO4CTxo+uMkjyDC/Lop4S99pJyFW1Ysj4hmaNzfF8g==
+  dependencies:
+    "@adeira/monorepo-utils" "^0.9.0"
+    "@babel/code-frame" "^7.10.4"
+    "@babel/register" "^7.12.1"
+    "@babel/runtime" "^7.12.5"
+    chalk "^4.1.0"
+    create-jest-runner "^0.7.0"
+    is-ci "^2.0.0"
+    progress "^2.0.3"
+    strip-ansi "^6.0.0"
+    text-table "^0.2.0"
+
 "@adeira/js@^1.2.4", "@adeira/js@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.3.0.tgz#e3dbd9009570190f504b8b775ed8a77822e330bf"
