@@ -1,5 +1,8 @@
 # Unreleased
 
+# 2.2.0
+
+- Upgraded Relay to version 10.1.0, see: https://github.com/facebook/relay/releases/tag/v10.1.0
 - Change to use the new [JSX transforms](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html)
 
 # 2.1.0

@@ -9,8 +9,8 @@
   "description": "Relay utils used at Adeira ecosystem",
   "license": "MIT",
   "dependencies": {
-    "@adeira/relay": "^2.0.3",
-    "@adeira/relay-runtime": "^0.17.0",
+    "@adeira/relay": "^2.2.0",
+    "@adeira/relay-runtime": "^0.18.0",
     "@babel/runtime": "^7.12.5"
   },
   "peerDependencies": {
