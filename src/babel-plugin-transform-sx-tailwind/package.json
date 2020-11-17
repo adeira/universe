@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/babel-plugin-transform-sx-tailwind",
   "license": "MIT",
   "private": false,
-  "version": "0.11.0",
+  "version": "0.12.0",
   "main": "src/index",
   "sideEffects": false,
   "module": false,
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/plugin-transform-regenerator": "^7.12.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-tester": "^10.0.0"
+    "babel-plugin-tester": "^10.0.0",
+    "jest-serializer-path": "^0.1.15"
   }
 }

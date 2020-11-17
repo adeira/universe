@@ -2461,7 +2461,18 @@
     "@types/babel__core" "*"
     "@types/prettier" "*"
 
-"@types/babel__core@*", "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
+"@types/babel__core@*":
+  version "7.1.12"
+  resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.12.tgz#4d8e9e51eb265552a7e4f1ff2219ab6133bdfb2d"
+  integrity sha512-wMTHiiTiBAAPebqaPiPDLFA4LYPKr6Ph0Xq/6rq1Ur3v66HXyG+clfR9CNETkD7MQS8ZHvpQOtA53DLws5WAEQ==
+  dependencies:
+    "@babel/parser" "^7.1.0"
+    "@babel/types" "^7.0.0"
+    "@types/babel__generator" "*"
+    "@types/babel__template" "*"
+    "@types/babel__traverse" "*"
+
+"@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.10"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.10.tgz#ca58fc195dd9734e77e57c6f2df565623636ab40"
   integrity sha512-x8OM8XzITIMyiwl5Vmo2B1cR1S1Ipkyv4mdlbJjMa1lmuKvKY9FrBbEANIaMlnWn5Rf7uO+rC/VgYabNkE17Hw==
@@ -7614,7 +7625,7 @@ graphql-upload@^8.0.2:
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
-"graphql@^14.0.0 || ^15.0.0-rc.1", graphql@^15.0.0, graphql@^15.3.0:
+"graphql@^14.0.0 || ^15.0.0-rc.1", graphql@^15.3.0:
   version "15.4.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.4.0.tgz#e459dea1150da5a106486ba7276518b5295a4347"
   integrity sha512-EB3zgGchcabbsU9cFe1j+yxdzKQKAbGUWRb13DsrsMN1yyfmmIq+2+L5MqVWcDCE4V89R5AyUOi7sMOGxdsYtA==
@@ -9232,6 +9243,15 @@ jest-runtime@^26.6.3:
     strip-bom "^4.0.0"
     yargs "^15.4.1"
 
+jest-serializer-path@^0.1.15:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/jest-serializer-path/-/jest-serializer-path-0.1.15.tgz#68528c98e3f8be652484f1c3876228f6864bd662"
+  integrity sha512-sXb+Ckz9LK5bB5sRAXFeG/nwhGn1XBKayy9xhPpgOmAWaljJiS+VN/xJ3P4I19jZ+WejowvO/kES+A9HePTMvQ==
+  dependencies:
+    lodash.clonedeep "^4.5.0"
+    lodash.iserror "^3.1.1"
+    slash "^2.0.0"
+
 jest-serializer@^26.5.0:
   version "26.5.0"
   resolved "https://registry.yarnpkg.com/jest-serializer/-/jest-serializer-26.5.0.tgz#f5425cc4c5f6b4b355f854b5f0f23ec6b962bc13"
@@ -9759,6 +9779,11 @@ lodash.chunk@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.chunk/-/lodash.chunk-4.2.0.tgz#66e5ce1f76ed27b4303d8c6512e8d1216e8106bc"
   integrity sha1-ZuXOH3btJ7QwPYxlEujRIW6BBrw=
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
+
 lodash.curry@^4.0.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.curry/-/lodash.curry-4.1.1.tgz#248e36072ede906501d75966200a86dab8b23170"
@@ -9803,6 +9828,11 @@ lodash.has@^4.5.2:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.has/-/lodash.has-4.5.2.tgz#d19f4dc1095058cccbe2b0cdf4ee0fe4aa37c862"
   integrity sha1-0Z9NwQlQWMzL4rDN9O4P5Ko3yGI=
+
+lodash.iserror@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.iserror/-/lodash.iserror-3.1.1.tgz#297b9a05fab6714bc2444d7cc19d1d7c44b5ecec"
+  integrity sha1-KXuaBfq2cUvCRE18wZ0dfES17Ow=
 
 lodash.isplainobject@^4.0.6:
   version "4.0.6"

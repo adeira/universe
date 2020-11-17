@@ -18,7 +18,7 @@
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
-    "@adeira/babel-plugin-transform-sx-tailwind": "^0.11.0",
+    "@adeira/babel-plugin-transform-sx-tailwind": "^0.12.0",
     "@adeira/babel-preset-adeira": "^2.0.0",
     "flow-bin": "^0.138.0"
   },

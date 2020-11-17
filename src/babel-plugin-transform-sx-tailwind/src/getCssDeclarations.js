@@ -20,6 +20,10 @@ export default function getCssDeclarations(
   }
 
   const tailwindUtility = tailwindStyles[utilityName];
+  if (tailwindUtility == null) {
+    // TODO: maybe a typo, suggest correct utility name
+    throw new Error(`Unknow utility name: ${utilityName}`);
+  }
   const keyframe = tailwindKeyframes[tailwindUtility.animationName];
   if (tailwindUtility != null && keyframe != null) {
     const cssVarName = `--animation-name-${tailwindUtility.animationName}`;
