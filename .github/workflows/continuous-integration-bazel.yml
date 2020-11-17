@@ -28,9 +28,10 @@ jobs:
         run: |
           "${GITHUB_WORKSPACE}/bin/bazel" run @nodejs//:yarn -- --frozen-lockfile
 
-      - name: Run Buldifier lint
-        run: |
-          "${GITHUB_WORKSPACE}/bin/bazel" run --build_tag_filters=manual //:buildifier.lint
+      # TODO: slow without proper CI cache
+      # - name: Run Buldifier lint
+      #   run: |
+      #     "${GITHUB_WORKSPACE}/bin/bazel" run --build_tag_filters=manual //:buildifier.lint
 
       # TODO: run Bazel test
 
