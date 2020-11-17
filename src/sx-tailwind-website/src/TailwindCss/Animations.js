@@ -6,10 +6,11 @@ import Layout from '../components/Layout';
 import H2 from '../components/H2';
 import P from '../components/P';
 import Link from '../components/Link';
-import Ping from './animations/Ping';
-import Spin from './animations/Spin';
-import Pulse from './animations/Pulse';
-import Bounce from './animations/Bounce';
+import Ping, { code as codePing } from './animations/Ping';
+import Spin, { code as codeSpin } from './animations/Spin';
+import Pulse, { code as codePulse } from './animations/Pulse';
+import Bounce, { code as codeBounce } from './animations/Bounce';
+import Showcase from '../components/Showcase';
 
 export default function Animations(): Node {
   return (
@@ -20,16 +21,24 @@ export default function Animations(): Node {
       </P>
 
       <H2>Ping</H2>
-      <Ping />
+      <Showcase code={codePing}>
+        <Ping />
+      </Showcase>
 
       <H2>Spin</H2>
-      <Spin />
+      <Showcase code={codeSpin}>
+        <Spin />
+      </Showcase>
 
       <H2>Pulse</H2>
-      <Pulse />
+      <Showcase code={codePulse}>
+        <Pulse />
+      </Showcase>
 
       <H2>Bounce</H2>
-      <Bounce />
+      <Showcase code={codeBounce}>
+        <Bounce />
+      </Showcase>
     </Layout>
   );
 }

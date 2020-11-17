@@ -38,3 +38,11 @@ export default function Sping(): Node {
     </span>
   );
 }
+
+export const code = `<button type="button" class={tailwind('bg-indigo-600 ...')} disabled>
+  <svg class={tailwind('animate-spin h-5 w-5 mr-3 ...')} fill="none" viewBox="0 0 24 24">
+    {/* ... */}
+  </svg>
+  Processing
+</button>
+`;
