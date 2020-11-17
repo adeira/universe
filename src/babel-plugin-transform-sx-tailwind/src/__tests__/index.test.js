@@ -12,13 +12,7 @@ expect.addSnapshotSerializer(serializer);
 const plugin = require('../');
 
 const fixtures = loadFixtures(path.join(__dirname, 'fixtures'));
-const invalidFixtures = loadFixtures(path.join(__dirname, 'fixtures/error'), {
-  error: Error,
-  formatResult: (result) => {
-    const [, ...parts] = result.split(':');
-    return `Error: ${parts.join(':')}`;
-  },
-});
+const invalidFixtures = loadFixtures(path.join(__dirname, 'fixtures/error'), { error: Error });
 
 pluginTester({
   plugin,
@@ -27,7 +21,7 @@ pluginTester({
   tests: [...fixtures, ...invalidFixtures],
   babelOptions: {
     plugins: [
-      '@babel/plugin-syntax-flow', //
+      '@babel/plugin-syntax-flow',
       '@babel/plugin-syntax-jsx',
       '@babel/plugin-transform-regenerator',
     ],

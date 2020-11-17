@@ -162,7 +162,7 @@ export default function Example(): Node {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-Error: <PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/error/invalid-utility-class.js: Unknow utility name: bg-bleu-500
+Error: <PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/error/invalid-utility-class.js: Unknow utility name: bg-bleu-500. Did you mean "bg-blue-500" instead?
 
 `;
 

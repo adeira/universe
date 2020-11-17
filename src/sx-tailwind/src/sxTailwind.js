@@ -35,7 +35,11 @@ function suggestClassName(className: ?string): string {
     return '';
   }
 
-  return Object.keys(tailwindStyles).sort((first, second) => {
+  return suggestUtility(className, tailwindStyles);
+}
+
+export function suggestUtility(className: string, styles: {| +[string]: any |}): string {
+  return Object.keys(styles).sort((first, second) => {
     const firstScore = levenshtein.get(className, first);
     const secondScore = levenshtein.get(className, second);
     return firstScore - secondScore;
