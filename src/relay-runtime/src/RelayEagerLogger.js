@@ -63,6 +63,7 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
   ) {
     logGroup(groupMessage);
   } else if (
+    logEvent.name === 'entrypoint.root.consume' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
     logEvent.name === 'store.gc' ||

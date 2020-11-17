@@ -60,6 +60,7 @@ export default function RelayLazyLogger(logEvent: LogEvent) {
       'color:red',
     );
   } else if (
+    logEvent.name === 'entrypoint.root.consume' ||
     logEvent.name === 'execute.info' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
