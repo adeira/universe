@@ -65,10 +65,10 @@
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
-"@adeira/eslint-runner@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-1.0.1.tgz#50cc40027895fa51b4106bb75eb4989c390ac57a"
-  integrity sha512-xgWRYrr9J2IswvwTPDvVT8dW548PRzvcxaGDibT2mz9SgO4CTxo+uMkjyDC/Lop4S99pJyFW1Ysj4hmaNzfF8g==
+"@adeira/eslint-runner@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-1.0.2.tgz#29f9dfad00bdd0741ac348739988852524ada0c2"
+  integrity sha512-BwAMVkyPfu7n6laUfQLVlRjAlL6NGNHNXvOpu7n3Az6/iVWCZr3w3uto/+551sue4+hmgxcsgP53HqKyaS1QDw==
   dependencies:
     "@adeira/monorepo-utils" "^0.9.0"
     "@babel/code-frame" "^7.10.4"
