@@ -1,6 +1,6 @@
 /**
  * @flow
- * @eslintExpectedError SX function "create" was called with too many arguments. Only one is allowed.
+ * @eslintExpectedError SX function "keyframes" was called with too many arguments. Only one is allowed.
  */
 
 import type { Node } from 'react';
@@ -10,12 +10,17 @@ export default function MyComponent(): Node {
   return <div className={styles('aaa')} />;
 }
 
-const styles = sx.create(
+const animation = sx.keyframes(
   {
-    aaa: {
-      color: 'red',
-    },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
   },
   // $FlowExpectedError[extra-arg] - for testing purposes
   'unknown argument',
 );
+
+const styles = sx.create({
+  aaa: {
+    animationName: animation,
+  },
+});

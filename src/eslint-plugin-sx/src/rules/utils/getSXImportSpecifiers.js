@@ -6,7 +6,8 @@ import type { ImportDeclaration } from '@adeira/flow-types-eslint';
 
 type ReturnType = {|
   +importNamespaceSpecifier: null | string,
-  +importSpecifier: null | string,
+  +importSpecifierCreate: null | string,
+  +importSpecifierKeyframes: null | string,
 |};
 
 */
@@ -20,7 +21,11 @@ module.exports = function getSXImportSpecifiers(
 
   // import { create as sxCreate } from '@adeira/sx';
   //                    ^^^^^^^^
-  let importSpecifier = null;
+  let importSpecifierCreate = null;
+
+  // import { keyframes as sxKeyframes } from '@adeira/sx';
+  //                    ^^^^^^^^
+  let importSpecifierKeyframes = null;
 
   if (node.source.value !== '@adeira/sx') {
     return null;
@@ -31,15 +36,20 @@ module.exports = function getSXImportSpecifiers(
       // import * as sx from '@adeira/sx'
       // import * as tada from '@adeira/sx'
       importNamespaceSpecifier = specifier.local.name; // "sx" or "tada"
-    } else if (specifier.type === 'ImportSpecifier') {
+    } else if (specifier.type === 'ImportSpecifier' && specifier.imported.name === 'create') {
       // import { create } from '@adeira/sx';
       // import { create as sxCreate } from '@adeira/sx';
-      importSpecifier = specifier.local.name; // "create" or "sxCreate"
+      importSpecifierCreate = specifier.local.name; // "create" or "sxCreate"
+    } else if (specifier.type === 'ImportSpecifier' && specifier.imported.name === 'keyframes') {
+      // import { keyframes } from '@adeira/sx';
+      // import { keyframes as sxKeyframes } from '@adeira/sx';
+      importSpecifierKeyframes = specifier.local.name; // "create" or "sxCreate"
     }
   }
 
   return {
     importNamespaceSpecifier,
-    importSpecifier,
+    importSpecifierCreate,
+    importSpecifierKeyframes,
   };
 };

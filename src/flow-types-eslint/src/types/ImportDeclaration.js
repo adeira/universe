@@ -8,6 +8,7 @@ import type { ImportDefaultSpecifier } from './ImportDefaultSpecifier';
 
 export type ImportDeclaration = $ReadOnly<{|
   ...INode,
+  +type: 'ImportDeclaration',
   +importKind: string,
   +source: Literal,
   +specifiers: $ReadOnlyArray<ImportDefaultSpecifier | ImportNamespaceSpecifier | ImportSpecifier>,
