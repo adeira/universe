@@ -671,14 +671,15 @@ module.exports = ({
   'eslint-comments/no-use': OFF,
 
   // Adeira custom rules
-  'adeira/only-nullable-fields': ERROR,
-  'adeira/no-invalid-flow-annotations': ERROR,
+  'adeira/flow-use-readonly-spread': OFF, // opt-in when needed
+  'adeira/graphql-require-object-description': WARN,
+  'adeira/no-duplicate-import-type-import': ERROR,
   'adeira/no-internal-flow-type': ERROR,
+  'adeira/no-invalid-flow-annotations': ERROR,
+  'adeira/only-nullable-fields': ERROR,
   'adeira/relay-import-no-values': ERROR,
   'adeira/relay-import-type-must-exist': ERROR,
   'adeira/valid-test-folder': ERROR,
-  'adeira/no-duplicate-import-type-import': ERROR,
-  'adeira/graphql-require-object-description': WARN,
 
   // Adeira SX custom rules
   'sx/no-concatenated-classes': NEXT_VERSION_ERROR,

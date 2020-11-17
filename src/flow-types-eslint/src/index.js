@@ -10,6 +10,7 @@ import type { JSXExpressionContainer } from './types/JSXExpressionContainer';
 import type { NewExpression } from './types/NewExpression';
 import type { Program } from './types/Program';
 import type { Property } from './types/Property';
+import type { TypeAlias } from './types/TypeAlias';
 import type { VariableDeclarator as _VariableDeclarator } from './types/VariableDeclarator';
 
 // Inspiration (but obviously a different tool):
@@ -47,6 +48,7 @@ type ASTNodes = {|
   +'Program:exit'?: (node: Program) => void,
   +'Property'?: (node: Property) => void,
   +'Property:exit'?: (node: Property) => void,
+  +'TypeAlias'?: (node: TypeAlias) => void,
   +'VariableDeclarator'?: (node: _VariableDeclarator) => void,
 |};
 
@@ -63,6 +65,7 @@ export type EslintRule = {|
     |},
     +fixable?: boolean,
     +schema?: $ReadOnlyArray<empty>,
+    +messages?: {| +[string]: string |},
   |},
   +create: (Context) => ASTNodes,
 |};

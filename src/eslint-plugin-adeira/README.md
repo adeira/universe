@@ -39,6 +39,42 @@ Prefers `React.Node` over `React$Node` types.
 
 This rule disallows `@noflow` and `@flow weak` annotations. The only valid annotations are `@flow`, `@flow strict` and `@flow strict-local`.
 
+## `flow-use-readonly-spread`
+
+```flow js
+type INode = {|
+  +type: string,
+  +range: [number, number],
+  +parent: null | INode,
+|};
+
+// Error: Identifier must be $ReadOnly<…> to prevent accidental loss of readonly-ness
+type Identifier = {|
+  ...INode,
+  +name: string,
+|};
+```
+
+These types are not readonly anymore, see:
+
+```flow js
+const x: Identifier = { name: '', type: '', range: [1, 2], parent: null };
+
+x.type = 'Should not be writable!';
+x.name = 'Should not be writable!';
+```
+
+The `Identifier` type should be written like this:
+
+```flow js
+type Identifier = $ReadOnly<{|
+  ...INode,
+  +name: string,
+|}>;
+```
+
+Try it: [flow.org/try](https://flow.org/try/#0C4TwDgpgBAkgcgewCbQLxQN4B8BQUoDUokAXFAM7ABOAlgHYDmANHoVQIaMRkDadArgFsARhCpMoAkWIC6LfATDsqEOsDICANpqhZYiFCywBfANw4cAektQAsv0pRRUACQAlCOyQB5OppAAhDjE0DAoajQAZjRiUOjunj5+IAA82KwAdFnwyBDyhHTsgtwU1PTMOCYAfOY4AMYIdI4AHmRhqsBRMVRxmIXFJABEgxIhQyNQHFwkPACMTABMclBKKmokWprGFs0ZIb0A5ADKABYI-JpIkgjATtAA7rTA7MKaEAEH5rv9aFDHZxcrnQbncoI8aM9Xu9PjggA)
+
 ## `only-nullable-fields`
 
 This rule aims to remove all dangerous uses of `GraphQLNonNull` on GraphQL type fields. Why? It's a best practice to use nullable fields and not to rely on a returned value. This way every frontend implementation must handle the situation when API returns `null` because everything will break eventually. Non-nullable fields would in case of failure destroy the whole type and could bubble-up destroying the whole GraphQL response.
