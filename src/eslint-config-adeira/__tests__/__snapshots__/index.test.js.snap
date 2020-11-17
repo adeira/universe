@@ -42,6 +42,7 @@ Object {
         "setWithoutGet": true,
       },
     ],
+    "adeira/flow-use-readonly-spread": 0,
     "adeira/graphql-require-object-description": 1,
     "adeira/no-duplicate-import-type-import": 2,
     "adeira/no-internal-flow-type": 2,
