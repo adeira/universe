@@ -113,8 +113,10 @@ function formatAnimationDeclaration(value: string) {
 
   const parts = value.toString().split(' ');
   const animationName = parts.shift();
+  const cssVarName = `--animation-name-${animationName}`;
   return [
-    ['animation', parts.join(' ')],
+    ['animation', [`var(${cssVarName})`, ...parts].join(' ')],
+    [cssVarName, animationName],
     ['animationName', animationName],
   ];
 }

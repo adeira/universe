@@ -7,13 +7,13 @@ Eslint rules for [@adeira/sx](https://www.npmjs.com/package/@adeira/sx)
 You'll first need to install [ESLint](http://eslint.org):
 
 ```
-$ npm i eslint --save-dev
+yarn add --dev eslint
 ```
 
 Next, install `eslint-plugin-sx`:
 
 ```
-$ npm install eslint-plugin-sx --save-dev
+yarn add --dev eslint-plugin-sx
 ```
 
 ## Usage
@@ -31,7 +31,9 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "sx/no-unused-stylesheet": 2
+    "sx/no-concatenated-classes": 2,
+    "sx/no-unused-stylesheet": 2,
+    "sx/valid-usage": 2
   }
 }
 ```

@@ -22,7 +22,9 @@ export default function getCssDeclarations(
   const tailwindUtility = tailwindStyles[utilityName];
   const keyframe = tailwindKeyframes[tailwindUtility.animationName];
   if (tailwindUtility != null && keyframe != null) {
-    tailwindUtility.animationName = `sx.keyframes(${JSON.stringify(keyframe)})`;
+    const cssVarName = `--animation-name-${tailwindUtility.animationName}`;
+    tailwindUtility[cssVarName] = `sx.keyframes(${JSON.stringify(keyframe)})`;
+    delete tailwindUtility.animationName;
     return tailwindUtility;
   }
 
