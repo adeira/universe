@@ -1,6 +1,6 @@
 // @flow
 
-const { tailwindStyles, tailwindKeyframes } = require('@adeira/sx-tailwind');
+const { tailwindStyles, tailwindKeyframes, suggestUtility } = require('@adeira/sx-tailwind');
 
 export default function getCssDeclarations(
   utilityName /*: any */,
@@ -21,8 +21,10 @@ export default function getCssDeclarations(
 
   const tailwindUtility = tailwindStyles[utilityName];
   if (tailwindUtility == null) {
-    // TODO: maybe a typo, suggest correct utility name
-    throw new Error(`Unknow utility name: ${utilityName}`);
+    const suggestedName = suggestUtility(utilityName, tailwindStyles);
+    throw new Error(
+      `Unknow utility name: ${utilityName}. Did you mean "${suggestedName}" instead?`,
+    );
   }
   const keyframe = tailwindKeyframes[tailwindUtility.animationName];
   if (tailwindUtility != null && keyframe != null) {
