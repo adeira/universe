@@ -149,6 +149,23 @@ const __styles_3xR9dL = sx.create({
 
 `;
 
+exports[`transform SX Tailwind invalid-utility-class.js: invalid-utility-class.js 1`] = `
+
+// @flow
+
+import type { Node } from 'react';
+import { tailwind } from '@adeira/sx-tailwind';
+
+export default function Example(): Node {
+  return <div className={tailwind('bg-bleu-500')}>Button</div>;
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+Error: <PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtures/error/invalid-utility-class.js: Unknow utility name: bg-bleu-500
+
+`;
+
 exports[`transform SX Tailwind nested.js: nested.js 1`] = `
 
 // @flow
