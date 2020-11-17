@@ -244,15 +244,9 @@ export function AnimatedComponent() {
 }
 
 const fadeIn = sx.keyframes({
-  '0%': {
-    opacity: 0,
-  },
-  '50%, 55%': {
-    opacity: 0.3,
-  },
-  '100%': {
-    opacity: 1,
-  },
+  '0%': { opacity: 0 },
+  '50%, 55%': { opacity: 0.3 },
+  '100%': { opacity: 1 },
 });
 
 const styles = sx.create({
@@ -266,7 +260,10 @@ const styles = sx.create({
 It also supports `from` and `to` for simpler animations.
 
 ```js
-const simple = sx.keyframes({ from: { opacity: 0 }, to: { opacity: 1 } });
+const simple = sx.keyframes({
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+});
 ```
 
 ### Precise Flow types

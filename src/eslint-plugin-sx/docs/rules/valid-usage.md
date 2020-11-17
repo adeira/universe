@@ -8,6 +8,7 @@ Examples of **incorrect** code for this rule:
 
 ```jsx
 const styles = sx.create(); // should not be empty ⚠️
+const animation = sx.keyframes(); // should not be empty ⚠️
 ```
 
 ```jsx
@@ -50,4 +51,4 @@ _none_
 
 ## When Not To Use It
 
-TKTK
+There should be no valid reason to turn this rule off.

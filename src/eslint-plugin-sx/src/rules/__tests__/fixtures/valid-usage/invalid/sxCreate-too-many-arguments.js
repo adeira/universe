@@ -1,16 +1,16 @@
 /**
  * @flow
- * @eslintExpectedError SX function "create" was called with too many arguments. Only one is allowed.
+ * @eslintExpectedError SX function "sxCreate" was called with too many arguments. Only one is allowed.
  */
 
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import { create as sxCreate } from '@adeira/sx';
 
 export default function MyComponent(): Node {
   return <div className={styles('aaa')} />;
 }
 
-const styles = sx.create(
+const styles = sxCreate(
   {
     aaa: {
       color: 'red',

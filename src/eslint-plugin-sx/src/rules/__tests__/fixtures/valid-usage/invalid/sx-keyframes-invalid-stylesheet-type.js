@@ -1,6 +1,6 @@
 /**
  * @flow
- * @eslintExpectedError Each SX "create" property must be an object.
+ * @eslintExpectedError Each SX "keyframes" property must be an object.
  */
 
 import type { Node } from 'react';
@@ -10,7 +10,13 @@ export default function MyComponent(): Node {
   return <div className={styles('aaa')} />;
 }
 
-const styles = sx.create({
+const animation = sx.keyframes({
   // $FlowExpectedError[incompatible-call] for testing purposes
   aaa: 'this should be an object',
+});
+
+const styles = sx.create({
+  aaa: {
+    animationName: animation,
+  },
 });

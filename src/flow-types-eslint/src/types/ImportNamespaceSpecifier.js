@@ -7,5 +7,6 @@ import type { Identifier } from './Identifier';
 //        ^^^^^^^^
 export type ImportNamespaceSpecifier = $ReadOnly<{|
   ...INode,
+  +type: 'ImportNamespaceSpecifier',
   +local: Identifier,
 |}>;

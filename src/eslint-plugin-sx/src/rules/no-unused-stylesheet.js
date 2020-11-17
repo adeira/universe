@@ -18,7 +18,7 @@ module.exports = ({
 
     // import { create as sxCreate } from '@adeira/sx';
     //                    ^^^^^^^^
-    let importSpecifier = null;
+    let importSpecifierCreate = null;
 
     // stylesheet names which were defined via `sx.create`
     // const xxx = sx.create({yyy, zzz})   =>   Map([["xxx", ["yyy", "zzz"]]])
@@ -38,7 +38,7 @@ module.exports = ({
         const importSpecifiers = getSXImportSpecifiers(node);
         if (importSpecifiers !== null) {
           importNamespaceSpecifier = importSpecifiers.importNamespaceSpecifier;
-          importSpecifier = importSpecifiers.importSpecifier;
+          importSpecifierCreate = importSpecifiers.importSpecifierCreate;
         }
       },
 
@@ -46,7 +46,7 @@ module.exports = ({
       //       ^^^^^^^^^^^^^^^^^^^^^^
       //       | id |
       'VariableDeclarator'(node) {
-        if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifier)) {
+        if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifierCreate)) {
           const initArguments = (node.init && node.init.arguments) || [];
           const firstArgument = initArguments[0];
           const firstArgumentProperties = (firstArgument && firstArgument.properties) || [];

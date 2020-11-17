@@ -7,6 +7,7 @@ import type { Identifier } from './Identifier';
 //          ^^^  ^^^
 export type ImportSpecifier = $ReadOnly<{|
   ...INode,
+  +type: 'ImportSpecifier',
   +imported: Identifier,
   +importKind: null | 'type',
   +local: Identifier,

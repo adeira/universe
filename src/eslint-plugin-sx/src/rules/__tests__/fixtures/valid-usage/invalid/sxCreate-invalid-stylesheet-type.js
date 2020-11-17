@@ -1,16 +1,16 @@
 /**
  * @flow
- * @eslintExpectedError Each SX "create" property must be an object.
+ * @eslintExpectedError Each SX "sxCreate" property must be an object.
  */
 
 import type { Node } from 'react';
-import * as sx from '@adeira/sx';
+import { create as sxCreate } from '@adeira/sx';
 
 export default function MyComponent(): Node {
   return <div className={styles('aaa')} />;
 }
 
-const styles = sx.create({
+const styles = sxCreate({
   // $FlowExpectedError[incompatible-call] for testing purposes
   aaa: 'this should be an object',
 });

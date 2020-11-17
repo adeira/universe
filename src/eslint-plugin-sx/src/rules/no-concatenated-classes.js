@@ -31,7 +31,7 @@ module.exports = ({
 
     // import { create as sxCreate } from '@adeira/sx';
     //                    ^^^^^^^^
-    let importSpecifier = null;
+    let importSpecifierCreate = null;
 
     // "styles" in "let styles = sx.create({})
     let sxFunctionName = null;
@@ -44,16 +44,16 @@ module.exports = ({
         const importSpecifiers = getSXImportSpecifiers(node);
         if (importSpecifiers !== null) {
           importNamespaceSpecifier = importSpecifiers.importNamespaceSpecifier;
-          importSpecifier = importSpecifiers.importSpecifier;
+          importSpecifierCreate = importSpecifiers.importSpecifierCreate;
         }
       },
       'VariableDeclarator'(node) {
-        if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifier)) {
+        if (isSXVariableDeclarator(node, importNamespaceSpecifier, importSpecifierCreate)) {
           sxFunctionName = node.id.name;
         }
       },
       'JSXExpressionContainer'(node) {
-        if (importNamespaceSpecifier == null && importSpecifier == null) {
+        if (importNamespaceSpecifier == null && importSpecifierCreate == null) {
           // not in an @adeira/sx scope, early exit
           return;
         }

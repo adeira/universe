@@ -53,4 +53,4 @@ _none_
 
 ## When Not To Use It
 
-TKTK
+There should be no valid reason to turn this rule off. It helps with a dead code elimination.
