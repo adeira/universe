@@ -20,7 +20,7 @@ First, install the package from NPM:
 yarn add @adeira/sx
 ```
 
-It's highly recommended (but optional) to use related Eslint plugin as well:
+It's highly recommended (but optional) to use related [eslint-plugin-sx](https://github.com/adeira/eslint-plugin-sx) as well:
 
 ```text
 yarn add --dev eslint-plugin-sx
