@@ -25,3 +25,13 @@ export default function Groups(): Node {
     </div>
   );
 }
+
+export const code = `<div className={tailwind('inline-flex')}>
+  <button className={tailwind('bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l')}>
+    Prev
+  </button>
+  <button className={tailwind('bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r')}>
+    Next
+  </button>
+</div>
+`;
