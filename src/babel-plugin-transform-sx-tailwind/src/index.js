@@ -18,7 +18,6 @@ const TemplateLiteralHandler = require('./TemplateLiteralHandler').default;
 module.exports = function sxTailwindBabelPlugin() /*: any */ {
   let stylesCollector = [];
   let tailwindCallee = '';
-  let sxtCallee = '';
   let stylesVarName = 'styles';
 
   return {
@@ -29,8 +28,6 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
           path.node.specifiers.forEach(({ imported, local }) => {
             if (imported.name === 'tailwind') {
               tailwindCallee = local.name;
-            } else if (imported.name === 'sxt') {
-              sxtCallee = local.name;
             }
           });
 
@@ -39,10 +36,7 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
         }
       },
       CallExpression(path) {
-        if (path.node.callee.name === sxtCallee) {
-          path.node.arguments.forEach((a) => stylesCollector.push(a.value));
-          path.node.callee.name = stylesVarName;
-        } else if (path.node.callee.name === tailwindCallee) {
+        if (path.node.callee.name === tailwindCallee) {
           path.traverse({
             TemplateLiteral(path) {
               TemplateLiteralHandler(path, stylesCollector, stylesVarName);
