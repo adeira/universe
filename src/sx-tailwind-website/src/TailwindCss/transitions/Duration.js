@@ -35,3 +35,8 @@ export default function Duration(): Node {
     </>
   );
 }
+
+export const code = `<button className={tailwind( 'transition duration-150 ease-in-out ...')}>Hover me</button>
+<button className={tailwind( 'transition duration-300 ease-in-out ...')}>Hover me</button>
+<button className={tailwind( 'transition duration-700 ease-in-out ...')}>Hover me</button>
+`;
