@@ -120,6 +120,8 @@ mutation CommentDeleteMutation(
 
 ## @deleteEdge
 
+Released in version 10.1.0, see: https://github.com/facebook/relay/releases/tag/v10.1.0
+
 As the name hints at, this particular directive allows you to remove a node's edge from the provided connections. Please note that this directive does not _delete the node_, only edge(s) for the node. There's `deleteRecord` already for deleting a record, which can be combined with this directive.
 
 It's intended to be used like this:
@@ -140,6 +142,8 @@ See: https://github.com/facebook/relay/commit/01d65b3cbeb8098025546627b76855d6c5
 
 ## @appendEdge, @prependEdge, @appendNode, @prependNode
 
+Released in version 10.1.0, see: https://github.com/facebook/relay/releases/tag/v10.1.0
+
 ```graphql
 directive @appendEdge(connections: [String!]!) on FIELD
 directive @prependEdge(connections: [String!]!) on FIELD
@@ -147,7 +151,7 @@ directive @appendNode(connections: [String!]!, edgeTypeName: String!) on FIELD
 directive @prependNode(connections: [String!]!, edgeTypeName: String!) on FIELD
 ```
 
-These new directives will help you to update the store declaratively. You can used them to append/prepend connection edges OR create and edge and append/prepend them (in case of `*Node` directives). See (currently unreleased, only on `master`):
+These new directives will help you to update the store declaratively. You can used them to append/prepend connection edges OR create and edge and append/prepend them (in case of `*Node` directives). See:
 
 - https://github.com/facebook/relay/commit/271932432b2846db5dac2effcf7ab756c56e8a65
 - https://github.com/facebook/relay/commit/0fe732dabc16087c64413ec717340f18ba95bc14
