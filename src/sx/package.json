@@ -15,7 +15,7 @@
     "@adeira/signed-source": "^1.0.0",
     "@babel/runtime": "^7.12.5",
     "change-case": "^4.1.1",
-    "css-tree": "^1.1.0",
+    "css-tree": "^1.1.1",
     "fast-levenshtein": "^3.0.0",
     "json-stable-stringify": "^1.0.1",
     "mdn-data": "^2.0.14",
