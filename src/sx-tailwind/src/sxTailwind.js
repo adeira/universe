@@ -7,14 +7,6 @@ import levenshtein from 'fast-levenshtein';
 import { tailwindStyles } from './__generated__/tailwindStyles';
 import { type TailwindClassNames } from './__generated__/types';
 
-export function sxt(...names: $ReadOnlyArray<TailwindClassNames>): string {
-  const styles = Object.fromEntries(
-    names.filter((name) => name in tailwindStyles).map((name) => [name, tailwindStyles[name]]),
-  );
-
-  return sx.create(styles)(...names);
-}
-
 export function tailwind(classes: string): string {
   const invalidClassNames = classes.split(' ').filter((name) => !(name in tailwindStyles));
   warning(
@@ -27,7 +19,10 @@ export function tailwind(classes: string): string {
   const classNames = ((classes
     .split(' ')
     .filter((name) => name in tailwindStyles): any): $ReadOnlyArray<TailwindClassNames>);
-  return sxt(...classNames);
+  const styles = Object.fromEntries(
+    classNames.filter((name) => name in tailwindStyles).map((name) => [name, tailwindStyles[name]]),
+  );
+  return sx.create(styles)(...classNames);
 }
 
 function suggestClassName(className: ?string): string {
