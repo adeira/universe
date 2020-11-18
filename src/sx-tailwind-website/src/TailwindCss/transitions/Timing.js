@@ -35,3 +35,8 @@ export default function Timing(): Node {
     </>
   );
 }
+
+export const code = `<button className={tailwind('transition duration-700 ease-in ...')}>Hover me</button>
+<button className={tailwind('transition duration-700 ease-out ...')}>Hover me</button>
+<button className={tailwind('transition duration-700 ease-in-out ...')}>Hover me</button>
+`;

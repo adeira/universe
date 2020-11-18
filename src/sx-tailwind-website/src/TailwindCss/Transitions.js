@@ -6,10 +6,11 @@ import Layout from '../components/Layout';
 import H2 from '../components/H2';
 import P from '../components/P';
 import Link from '../components/Link';
-import Transition from './transitions/Transition';
-import Duration from './transitions/Duration';
-import Timing from './transitions/Timing';
-import Delay from './transitions/Delay';
+import Transition, { code as codeTransition } from './transitions/Transition';
+import Duration, { code as codeDuration } from './transitions/Duration';
+import Timing, { code as codeTiming } from './transitions/Timing';
+import Delay, { code as codeDelay } from './transitions/Delay';
+import Showcase from '../components/Showcase';
 
 export default function Transitions(): Node {
   return (
@@ -23,16 +24,24 @@ export default function Transitions(): Node {
       </P>
 
       <H2>Transition</H2>
-      <Transition />
+      <Showcase code={codeTransition}>
+        <Transition />
+      </Showcase>
 
       <H2>Duration</H2>
-      <Duration />
+      <Showcase code={codeDuration}>
+        <Duration />
+      </Showcase>
 
       <H2>Timing function</H2>
-      <Timing />
+      <Showcase code={codeTiming}>
+        <Timing />
+      </Showcase>
 
       <H2>Delay</H2>
-      <Delay />
+      <Showcase code={codeDelay}>
+        <Delay />
+      </Showcase>
     </Layout>
   );
 }

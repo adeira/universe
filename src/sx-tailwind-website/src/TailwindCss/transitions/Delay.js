@@ -35,3 +35,8 @@ export default function Delay(): Node {
     </>
   );
 }
+
+export const code = `<button className={tailwind('transition delay-150 duration-300 ease-in-out ...')}>Hover me</button>
+<button className={tailwind('transition delay-300 duration-300 ease-in-out ...')}>Hover me</button>
+<button className={tailwind('transition delay-700 duration-300 ease-in-out ...')}>Hover me</button>
+`;

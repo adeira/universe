@@ -6,9 +6,10 @@ import Layout from '../components/Layout';
 import H2 from '../components/H2';
 import P from '../components/P';
 import Link from '../components/Link';
-import StartingColor from './gradients/StartingColor';
-import EndingColor from './gradients/EndingColor';
-import MiddleColor from './gradients/MiddleColor';
+import StartingColor, { code as codeStartingColor } from './gradients/StartingColor';
+import EndingColor, { code as codeEndingColor } from './gradients/EndingColor';
+import MiddleColor, { code as codeMiddleColor } from './gradients/MiddleColor';
+import Showcase from '../components/Showcase';
 
 export default function Gradients(): Node {
   return (
@@ -22,13 +23,19 @@ export default function Gradients(): Node {
       </P>
 
       <H2>Starting color</H2>
-      <StartingColor />
+      <Showcase code={codeStartingColor}>
+        <StartingColor />
+      </Showcase>
 
       <H2>Ending color</H2>
-      <EndingColor />
+      <Showcase code={codeEndingColor}>
+        <EndingColor />
+      </Showcase>
 
       <H2>Middle color</H2>
-      <MiddleColor />
+      <Showcase code={codeMiddleColor}>
+        <MiddleColor />
+      </Showcase>
     </Layout>
   );
 }

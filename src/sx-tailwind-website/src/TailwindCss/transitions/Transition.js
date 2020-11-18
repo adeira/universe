@@ -15,3 +15,8 @@ export default function Transition(): Node {
     </button>
   );
 }
+
+export const code = `<button className={tailwind('transition duration-500 ease-in-out bg-blue-500 hover:bg-red-500 transform hover:-translate-y-1 hover:scale-x-110 hover:scale-y-110 ...')}>
+  Hover me
+</button>
+`;
