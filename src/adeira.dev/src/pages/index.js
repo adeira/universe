@@ -1,5 +1,6 @@
 /* eslint-disable flowtype/require-valid-file-annotation, import/no-unresolved */
 
+import * as React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
