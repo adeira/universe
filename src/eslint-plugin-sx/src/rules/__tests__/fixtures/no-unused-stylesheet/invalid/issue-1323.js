@@ -1,6 +1,6 @@
 /**
  * @flow
- * @eslintExpectedError SX function "styles" was not used anywhere in the "className" JSX attribute.
+ * @eslintExpectedError SX function "styles" was not used anywhere in the code.
  * @eslintExpectedError Unused stylesheet: notUsing (defined via "styles" variable)
  *
  * @see https://github.com/adeira/universe/pull/1323

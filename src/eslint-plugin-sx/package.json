@@ -2,7 +2,7 @@
   "name": "eslint-plugin-sx",
   "description": "Eslint plugin for @adeira/sx",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-sx",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "license": "MIT",
   "private": false,
   "module": false,
@@ -20,7 +20,8 @@
     "@adeira/js": "^1.3.0",
     "@babel/code-frame": "^7.10.4",
     "eslint": "^7.1.0",
-    "jest-docblock": "^26.0.0"
+    "jest-docblock": "^26.0.0",
+    "react": "^17.0.1"
   },
   "peerDependencies": {
     "@adeira/sx": "^0.21.0"

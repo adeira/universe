@@ -36,7 +36,7 @@ const invalidTests = [
     `,
     errors: [
       {
-        message: 'SX function "styles" was not used anywhere in the "className" JSX attribute.',
+        message: 'SX function "styles" was not used anywhere in the code.',
         line: 3,
         column: 7,
         endLine: 7,
