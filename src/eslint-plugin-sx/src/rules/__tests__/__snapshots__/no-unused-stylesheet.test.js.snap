@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`reports correct lines and columns: SX function "styles" was not used anywhere in the "className" JSX attribute. 1`] = `
+exports[`reports correct lines and columns: SX function "styles" was not used anywhere in the code. 1`] = `
 "  1 | 
   2 | import sx from '@adeira/sx';
 > 3 | const styles = sx.create({

@@ -7,8 +7,10 @@
 import type { Node } from 'react';
 import sx from '@adeira/sx';
 
+const fakeCallExpression = (fake: string) => fake;
+
 export default function MyComponent(): Node {
-  return null;
+  return <div className={fakeCallExpression('aaa')} />;
 }
 
 // eslint-disable-next-line no-unused-vars

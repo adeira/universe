@@ -44,7 +44,7 @@ module.exports = ({
 
       // const styles = sx.create({})
       //       ^^^^^^^^^^^^^^^^^^^^^^
-      //       | id |
+      //       { id }   {    init    }
       'VariableDeclarator'(node) {
         if (isSXVariableDeclarator(node, importDefaultSpecifier, importSpecifierCreate)) {
           const initArguments = (node.init && node.init.arguments) || [];
@@ -62,27 +62,24 @@ module.exports = ({
         }
       },
 
-      // className={styles('aaa')}
-      //           ^^^^^^^^^^^^^^^
-      'JSXAttribute'(node) {
-        if (
-          node.name.type !== 'JSXIdentifier' ||
-          node.name.name !== 'className' ||
-          node.value.type !== 'JSXExpressionContainer'
-        ) {
-          return;
-        }
-
-        if (node.value.expression.type !== 'CallExpression') {
-          // some unexpected "className" construct (fail gracefully)
-          unableToAnalyzeUsedStylesheets = true;
-          return;
+      // styles('aaa')
+      // ^^^^^^^^^^^^^
+      'CallExpression'(node) {
+        const expressionArguments = node.arguments || [];
+        for (const argument of expressionArguments) {
+          if (argument.type === 'ObjectExpression') {
+            // could be most likely SX styles definition (backout but continue analyzing)
+            return;
+          } else if (!['Literal', 'TemplateLiteral', 'LogicalExpression'].includes(argument.type)) {
+            // backout early if we cannot recognize (or do not support) the 'CallExpression' pattern
+            unableToAnalyzeUsedStylesheets = true;
+            return;
+          }
         }
 
         const usedNames = new Set();
-        const classNameExpressions = node.value.expression;
-        const expressionArguments = classNameExpressions.arguments || [];
         for (const argument of expressionArguments) {
+          // TODO: more cases (deeper analysis)
           let value;
           if (argument.type === 'Literal') {
             value = argument.value;
@@ -90,23 +87,14 @@ module.exports = ({
             value = argument.quasis[0].value.raw;
           } else if (argument.type === 'LogicalExpression') {
             value = argument.right.value;
-          } else {
-            // TODO: more cases (deeper analysis)
-            unableToAnalyzeUsedStylesheets = true;
-            return;
           }
           usedNames.add(value);
           usedStylesheetNodes.set(value, argument);
         }
 
-        if (classNameExpressions.callee) {
-          const maybeCaptured = usedStylesheetNames.get(classNameExpressions.callee.name);
-          const alreadyCaptured = maybeCaptured ? maybeCaptured : [];
-          usedStylesheetNames.set(classNameExpressions.callee.name, [
-            ...alreadyCaptured,
-            ...usedNames,
-          ]);
-        }
+        const maybeCaptured = usedStylesheetNames.get(node.callee.name);
+        const alreadyCaptured = maybeCaptured ? maybeCaptured : [];
+        usedStylesheetNames.set(node.callee.name, [...alreadyCaptured, ...usedNames]);
       },
 
       'Program:exit'(node) {
@@ -122,8 +110,7 @@ module.exports = ({
             context.report({
               node,
               loc: definedNode ? definedNode.loc : undefined,
-              message:
-                'SX function "{{functionName}}" was not used anywhere in the "className" JSX attribute.',
+              message: 'SX function "{{functionName}}" was not used anywhere in the code.',
               data: { functionName: callee },
             });
           }

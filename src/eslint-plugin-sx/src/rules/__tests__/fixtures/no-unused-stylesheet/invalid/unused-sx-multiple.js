@@ -1,8 +1,8 @@
 /**
  * @flow
- * @eslintExpectedError SX function "styles1" was not used anywhere in the "className" JSX attribute.
+ * @eslintExpectedError SX function "styles1" was not used anywhere in the code.
  * @eslintExpectedError Unused stylesheet: aaa (defined via "styles1" variable)
- * @eslintExpectedError SX function "styles3" was not used anywhere in the "className" JSX attribute.
+ * @eslintExpectedError SX function "styles3" was not used anywhere in the code.
  * @eslintExpectedError Unused stylesheet: ccc (defined via "styles3" variable)
  */
 
