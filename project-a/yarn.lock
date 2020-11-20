@@ -113,10 +113,10 @@
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-"@adeira/sx@^0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.20.0.tgz#0ede241c0e8d4e6180329e49b0c5d9e00b954cdd"
-  integrity sha512-XBqrUWG89MNj4DNBOHPvj4Paaf56yAz2e0Je8qekoXmg9uB8gjtFzHNO4XYyr2i8Xz1DBw3AIb5/SjkMuRZ6rQ==
+"@adeira/sx@^0.21.0":
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.21.0.tgz#e8aac6df002591c540f68790a17750e8385ae273"
+  integrity sha512-DU3OZ0v+R5qSa1Bos/sNczZgPZ2VVB05jT84Yz/sWDmGjC711380eBWqz3B6D8/bM9J91I+xKZ6r/0JjMF0u3A==
   dependencies:
     "@adeira/css-colors" "^0.3.0"
     "@adeira/js" "^1.3.0"
@@ -124,7 +124,7 @@
     "@adeira/signed-source" "^1.0.0"
     "@babel/runtime" "^7.12.5"
     change-case "^4.1.1"
-    css-tree "^1.0.1"
+    css-tree "^1.1.1"
     fast-levenshtein "^3.0.0"
     json-stable-stringify "^1.0.1"
     mdn-data "^2.0.14"
@@ -3125,12 +3125,12 @@ css-loader@4.3.0:
     schema-utils "^2.7.1"
     semver "^7.3.2"
 
-css-tree@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.1.tgz#7726678dfe2a57993a018d9dce519bf1760e3b6d"
-  integrity sha512-WroX+2MvsYcRGP8QA0p+rxzOniT/zpAoQ/DTKDSJzh5T3IQKUkFHeIIfgIapm2uaP178GWY3Mime1qbk8GO/tA==
+css-tree@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.1.1.tgz#30b8c0161d9fb4e9e2141d762589b6ec2faebd2e"
+  integrity sha512-NVN42M2fjszcUNpDbdkvutgQSlFYsr1z7kqeuCagHnNLBfYor6uP1WL1KrkmdYZ5Y1vTBCIOI/C/+8T98fJ71w==
   dependencies:
-    mdn-data "2.0.12"
+    mdn-data "2.0.14"
     source-map "^0.6.1"
 
 css.escape@^1.5.0:
@@ -3873,10 +3873,10 @@ eslint-plugin-relay@^1.8.1:
   dependencies:
     graphql "^14.0.0 || ^15.0.0-rc.1"
 
-eslint-plugin-sx@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.6.0.tgz#150465f8a11b8451c42ab4a292e7a95906e7a386"
-  integrity sha512-lcu/G8fs1iC7N/4AjjwbMN0omNOFf+GUcQw+cBHjXqWuCFHySruETsmKFMZ/J9JF+YRSoWvhGXvzrwhsnNNwhg==
+eslint-plugin-sx@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.7.0.tgz#dbf1b7713c3516769652444c9f60c17c44ab576a"
+  integrity sha512-QNP6+vkgfmLmyo9NqKilrDY4MySZdbPrHrNPtDHf/lCws6i89DUOrdjCjzLvtn+ChrMgas+Wpp7CAy7tkveoWw==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
@@ -5988,12 +5988,7 @@ md5.js@^1.3.4:
     inherits "^2.0.1"
     safe-buffer "^5.1.2"
 
-mdn-data@2.0.12:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.12.tgz#bbb658d08b38f574bbb88f7b83703defdcc46844"
-  integrity sha512-ULbAlgzVb8IqZ0Hsxm6hHSlQl3Jckst2YEQS7fODu9ilNWy2LvcoSY7TRFIktABP2mdppBioc66va90T+NUs8Q==
-
-mdn-data@^2.0.14:
+mdn-data@2.0.14, mdn-data@^2.0.14:
   version "2.0.14"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
   integrity sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==
