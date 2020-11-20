@@ -1,7 +1,7 @@
 /**
  * @flow
- * @eslintExpectedError Unknown stylesheet used: yadada (not defined anywhere)
- * @eslintExpectedError Unused stylesheet: aaa (defined via "styles" variable)
+ * @eslintExpectedError (12:33;12:41) Unknown stylesheet used: yadada (not defined anywhere)
+ * @eslintExpectedError (16:3;18:4) Unused stylesheet: aaa (defined via "styles" variable)
  */
 
 import type { Node } from 'react';
@@ -13,5 +13,7 @@ export default function MyComponent(): Node {
 }
 
 const styles = sx.create({
-  aaa: { color: 'red' },
+  aaa: {
+    color: 'red',
+  },
 });
