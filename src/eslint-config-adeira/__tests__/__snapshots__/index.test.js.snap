@@ -517,6 +517,7 @@ Object {
     "no-new-require": 1,
     "no-new-symbol": 1,
     "no-new-wrappers": 1,
+    "no-nonoctal-decimal-escape": 1,
     "no-obj-calls": 2,
     "no-octal": 2,
     "no-octal-escape": 2,
@@ -949,6 +950,11 @@ Snapshot Diff:
 - Value for stable rules
 + Value for STRICT rules
 
+@@ --- --- @@
+      "no-new-wrappers": 1,
+-     "no-nonoctal-decimal-escape": 1,
++     "no-nonoctal-decimal-escape": 2,
+      "no-obj-calls": 2,
 @@ --- --- @@
       "switch-colon-spacing": "off",
 -     "sx/no-concatenated-classes": 1,
