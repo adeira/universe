@@ -10,18 +10,46 @@ require('@babel/register')({
 const template = require('@babel/template').default;
 const t = require('@babel/types');
 const murmurHash = require('@adeira/murmur-hash').default;
-const resolveConfig = require('tailwindcss/resolveConfig');
+const childProcess = require('child_process');
+const findCacheDir = require('find-cache-dir');
+const fs = require('fs');
+const path = require('path');
+const hash = require('object-hash');
 
 const getCssDeclarations = require('./getCssDeclarations').default;
 const TemplateLiteralHandler = require('./TemplateLiteralHandler').default;
+
+const PLUGIN_NAME = 'sx-tailwind-babel-transform';
 
 module.exports = function sxTailwindBabelPlugin() /*: any */ {
   let stylesCollector = [];
   let tailwindCallee = '';
   let stylesVarName = 'styles';
+  let styles = {};
+  let keyframes = {};
 
   return {
-    name: 'sx-tailwind-babel-transform',
+    name: PLUGIN_NAME,
+    pre(state) {
+      const cacheDir = findCacheDir({ name: PLUGIN_NAME });
+      if (!fs.existsSync(cacheDir)) {
+        fs.mkdirSync(cacheDir, { recursive: true });
+      }
+      const options = state.opts.plugins.find((p) => p.key === PLUGIN_NAME).options;
+      const cacheFile = path.join(cacheDir, `styles_${hash(options)}.json`);
+
+      if (!fs.existsSync(cacheFile)) {
+        // This way async code can be called in sync process (Babel is sync, Tailwind processor async)
+        childProcess.execFileSync('node', [
+          `${getCurrentDir()}createCache.js`,
+          JSON.stringify({ options, cacheFile }),
+        ]);
+      }
+
+      const cache = require(cacheFile);
+      keyframes = cache.keyframes;
+      styles = cache.styles;
+    },
     visitor: {
       ImportDeclaration(path) {
         if (path.node.source.value === '@adeira/sx-tailwind') {
@@ -62,11 +90,9 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
           const filename = state.file.opts.filename.split('/').slice(-2).join('/');
           stylesVarName = `__styles_${murmurHash(filename)}`;
         },
-        exit(path, state) {
-          const tailwindConfig = resolveConfig(state.opts);
-
+        exit(path) {
           const declarations = Object.fromEntries(
-            stylesCollector.map((style) => [style, getCssDeclarations(style, tailwindConfig)]),
+            stylesCollector.map((style) => [style, getCssDeclarations(style, keyframes, styles)]),
           );
 
           if (Object.keys(declarations).length > 0) {
@@ -108,3 +134,23 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
     },
   };
 };
+
+function getCurrentDir() /*: string */ {
+  const monorepoDir = './src/babel-plugin-transform-sx-tailwind/src/';
+  const packageDir = './node_modules/@adeira/babel-plugin-transform-sx-tailwind/src/';
+  const vercelDir = '../babel-plugin-transform-sx-tailwind/src/';
+
+  if (fs.existsSync(monorepoDir)) {
+    return monorepoDir;
+  }
+
+  if (fs.existsSync(packageDir)) {
+    return packageDir;
+  }
+
+  if (fs.existsSync(vercelDir)) {
+    return vercelDir;
+  }
+
+  throw Error(`Error, can't detect current working dir! cwd: ${process.cwd()}`);
+}

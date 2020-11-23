@@ -2,18 +2,12 @@
 
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import convertToSx from '../tailwindToSx';
+import { generateTailwind } from '../tailwindToSx';
 
 const tailwindConfig = resolveConfig({});
 
 it('converts Tailwind default animations', async () => {
-  const { styles, keyframes } = await convertToSx(
-    `@tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    `,
-    tailwindConfig,
-  );
+  const { styles, keyframes } = await generateTailwind(tailwindConfig);
 
   expect(styles['animate-none']).toMatchInlineSnapshot(`
     Object {

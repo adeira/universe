@@ -2,7 +2,7 @@
 
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import convertToSx from '../tailwindToSx';
+import { generateTailwind } from '../tailwindToSx';
 
 const customConfig = {
   theme: {
@@ -22,21 +22,15 @@ const customConfig = {
 it('supports custom config', async () => {
   const config = resolveConfig(customConfig);
 
-  const { styles, keyframes } = await convertToSx(
-    `@tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    `,
-    config,
-  );
+  const { styles, keyframes } = await generateTailwind(config);
 
-  expect(Object.keys(styles)).toHaveLength(21870);
+  expect(Object.keys(styles)).toHaveLength(40495);
   expect(Object.keys(keyframes)).toHaveLength(4);
 
   expect(styles['text-adeira-green']).toMatchInlineSnapshot(`
     Object {
-      "--text-opacity": "1",
-      "color": "rgba(85, 224, 198, var(--text-opacity))",
+      "--tw-text-opacity": "1",
+      "color": "rgba(85, 224, 198, var(--tw-text-opacity))",
     }
   `);
 

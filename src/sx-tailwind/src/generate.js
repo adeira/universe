@@ -6,18 +6,12 @@ import prettier from 'prettier';
 import SignedSource from '@adeira/signed-source';
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import convertToSx from './tailwindToSx';
+import { generateTailwind } from './tailwindToSx';
 
 const tailwindConfig = resolveConfig({});
 
 (async function run() {
-  const { styles, keyframes } = await convertToSx(
-    `@tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    `,
-    tailwindConfig,
-  );
+  const { styles, keyframes } = await generateTailwind(tailwindConfig);
 
   const codeStyles = SignedSource.signFile(`
   /**
@@ -30,15 +24,11 @@ const tailwindConfig = resolveConfig({});
    * @see https://github.com/adeira/sx
    */
 
-  import { type TailwindClassNames } from './types';
-
   export const tailwindKeyframes: {| +[string]: any |} = Object.freeze(${JSON.stringify(
     keyframes,
   )});
 
-  export const tailwindStyles: {| +[TailwindClassNames]: any |} = Object.freeze(${JSON.stringify(
-    styles,
-  )});
+  export const tailwindStyles: {| +[string]: any |} = Object.freeze(${JSON.stringify(styles)});
   `);
 
   const codeTypes = SignedSource.signFile(`

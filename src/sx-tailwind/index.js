@@ -1,6 +1,6 @@
 // @flow
 
 import { tailwind, suggestUtility } from './src/sxTailwind';
-import { tailwindStyles, tailwindKeyframes } from './src/__generated__/tailwindStyles';
+import tailwindToSx, { generateTailwind } from './src/tailwindToSx';
 
-export { tailwind, tailwindStyles, tailwindKeyframes, suggestUtility };
+export { tailwind, suggestUtility, tailwindToSx, generateTailwind };

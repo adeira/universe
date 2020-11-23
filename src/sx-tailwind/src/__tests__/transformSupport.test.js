@@ -113,3 +113,20 @@ it('supports scale', async () => {
     }
   `);
 });
+
+it('supports selectors starting with number', async () => {
+  const css = `.\\32xl\\:bg-transparent {
+    background-color: transparent;
+  }`;
+
+  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+    Object {
+      "keyframes": Object {},
+      "styles": Object {
+        "2xl:bg-transparent": Object {
+          "backgroundColor": "transparent",
+        },
+      },
+    }
+  `);
+});
