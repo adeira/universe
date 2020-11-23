@@ -209,10 +209,10 @@
   resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.3.0.tgz#9467a232f4e7cf9da67836d599752c48760e2c99"
   integrity sha512-IHOBEcxJ8NUzTcvOLq19Zt8Yhz5cgy+z9W/VUhU1hpFdJAbwfQWa4PVIVjo4Kuudfv2e6nGS6FnbfJ/2O7Et4w==
 
-"@babel/cli@^7.12.7":
-  version "7.12.7"
-  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.7.tgz#63a3c38bddff02a1c633c70f2fd03019af6bf977"
-  integrity sha512-vE1fidQsaWnQVs4SItkuCdi3+uXqjbhw4cIKp8aawKxOnTnlvxYMzXSeMAqo6alldQRFQYb198YQfW0Sp1jl5Q==
+"@babel/cli@^7.12.8":
+  version "7.12.8"
+  resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.12.8.tgz#3b24ed2fd5da353ee6f19e8935ff8c93b5fe8430"
+  integrity sha512-/6nQj11oaGhLmZiuRUfxsujiPDc9BBReemiXgIbxc+M5W+MIiFKYwvNDJvBfnGKNsJTKbUfEheKc9cwoPHAVQA==
   dependencies:
     commander "^4.0.1"
     convert-source-map "^1.1.0"
