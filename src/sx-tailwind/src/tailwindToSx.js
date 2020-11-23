@@ -19,6 +19,16 @@ type SxTailwindDefinitions = {|
   +styles: {| +[string]: any |},
 |};
 
+export function generateTailwind(config: {| +[string]: any |}): Promise<SxTailwindDefinitions> {
+  return convert(
+    ` @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    `,
+    config,
+  );
+}
+
 export default async function convert(
   css: string,
   tailwindConfig: {| +[string]: any |},
@@ -41,7 +51,11 @@ export default async function convert(
   });
 
   postCss.root.walkRules((rule) => {
-    if (!rule.selector.startsWith('.') || rule.selector.includes('>')) {
+    if (
+      !rule.selector.startsWith('.') ||
+      rule.selector.includes('>') ||
+      rule.selector.includes(',') // multiple selectors not supported yet
+    ) {
       return;
     }
 
@@ -91,7 +105,11 @@ function parseSelector(selector: string): [string, string | null] {
   const [part, pseudoClass] = last.split(':');
   parts.push(part);
 
-  const cssClass = parts.join(':').replace(/^\./, '').replace('\\/', '/');
+  const cssClass = parts
+    .join(':')
+    .replace(/^\.\\32/, '2') // .2xl is "escaped" as .\32xl in CSS
+    .replace(/^\./, '')
+    .replace('\\/', '/');
 
   return [cssClass, pseudoClass];
 }
@@ -152,6 +170,12 @@ function isVendorPrefixed(value: string | number): boolean {
 
 // see https://github.com/tailwindlabs/tailwindcss/blob/master/src/processTailwindFeatures.js
 function getTailwindProcessor(config) {
+  Object.entries(config.variants).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      config.variants[key] = value.filter((v) => v !== 'group-hover');
+    }
+  });
+
   const plugins = [...corePlugins(config), ...(config.plugins ?? [])];
   const processedPlugins = processPlugins(plugins, config);
 

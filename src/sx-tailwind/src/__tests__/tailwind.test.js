@@ -2,26 +2,20 @@
 
 import resolveConfig from 'tailwindcss/resolveConfig';
 
-import convertToSx from '../tailwindToSx';
+import { generateTailwind } from '../tailwindToSx';
 
 const tailwindConfig = resolveConfig({});
 
 it('converts whole Tailwind', async () => {
-  const { styles, keyframes } = await convertToSx(
-    `@tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    `,
-    tailwindConfig,
-  );
+  const { styles, keyframes } = await generateTailwind(tailwindConfig);
 
-  expect(Object.keys(styles)).toHaveLength(18120);
+  expect(Object.keys(styles)).toHaveLength(34530);
   expect(Object.keys(keyframes)).toHaveLength(4);
 
-  expect(styles['bg-orange-300']).toMatchInlineSnapshot(`
+  expect(styles['bg-red-300']).toMatchInlineSnapshot(`
     Object {
-      "--bg-opacity": "1",
-      "backgroundColor": "rgba(251, 211, 141, var(--bg-opacity))",
+      "--tw-bg-opacity": "1",
+      "backgroundColor": "rgba(252, 165, 165, var(--tw-bg-opacity))",
     }
   `);
 
@@ -33,11 +27,13 @@ it('converts whole Tailwind', async () => {
       }
     `);
 
-  expect(styles['lg:focus:shadow-outline']).toMatchInlineSnapshot(`
+  expect(styles['lg:focus:ring']).toMatchInlineSnapshot(`
     Object {
       "@media (min-width: 1024px)": Object {
         ":focus": Object {
-          "boxShadow": "0 0 0 3px rgba(66, 153, 225, 0.5)",
+          "--tw-ring-offset-shadow": "var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)",
+          "--tw-ring-shadow": "var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)",
+          "boxShadow": "var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)",
         },
       },
     }
