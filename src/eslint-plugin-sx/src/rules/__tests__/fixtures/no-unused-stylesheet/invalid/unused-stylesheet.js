@@ -1,7 +1,7 @@
 /**
  * @flow
- * @eslintExpectedError Unused stylesheet: bbb (defined via "styles" variable)
- * @eslintExpectedError Unused stylesheet: ccc (defined via "styles" variable)
+ * @eslintExpectedError (16:3;16:25) Unused stylesheet: bbb (defined via "styles" variable)
+ * @eslintExpectedError (17:3;17:26) Unused stylesheet: ccc (defined via "styles" variable)
  */
 
 import type { Node } from 'react';

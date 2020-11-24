@@ -1,9 +1,9 @@
 /**
  * @flow
- * @eslintExpectedError SX function "styles1" was not used anywhere in the code.
- * @eslintExpectedError Unused stylesheet: aaa (defined via "styles1" variable)
- * @eslintExpectedError SX function "styles3" was not used anywhere in the code.
- * @eslintExpectedError Unused stylesheet: ccc (defined via "styles3" variable)
+ * @eslintExpectedError (17:7;19:3) SX function "styles1" was not used anywhere in the code.
+ * @eslintExpectedError (18:3;18:24) Unused stylesheet: aaa (defined via "styles1" variable)
+ * @eslintExpectedError (26:7;28:3) SX function "styles3" was not used anywhere in the code.
+ * @eslintExpectedError (27:3;27:24) Unused stylesheet: ccc (defined via "styles3" variable)
  */
 
 import type { Node } from 'react';

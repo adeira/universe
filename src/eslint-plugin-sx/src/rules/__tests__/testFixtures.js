@@ -7,6 +7,32 @@ import { extract, parse } from 'jest-docblock';
 import { sprintf } from '@adeira/js';
 import type { EslintRule } from '@adeira/flow-types-eslint';
 
+function createErrorObject(
+  pragma: string,
+): {
+  +message?: string,
+  +line?: number,
+  +column?: number,
+  +endLine?: number,
+  +endColumn?: number,
+  ...
+} {
+  const locations = pragma.match(
+    /\((?<line>\d+):(?<column>\d+);(?<endLine>\d+):(?<endColumn>\d+)\)\s+(?<message>.+)/,
+  );
+  const error = {};
+  error.message = pragma;
+  if (locations) {
+    const groups = locations.groups;
+    error.message = groups?.message;
+    error.line = Number(groups?.line);
+    error.column = Number(groups?.column);
+    error.endLine = Number(groups?.endLine);
+    error.endColumn = Number(groups?.endColumn);
+  }
+  return error;
+}
+
 export default function testFixtures({
   rule,
   validFixturesPath,
@@ -35,12 +61,12 @@ export default function testFixtures({
     if (Array.isArray(pragmas.eslintExpectedError)) {
       invalidFixtures.push({
         code,
-        errors: pragmas.eslintExpectedError.map((message) => ({ message })),
+        errors: pragmas.eslintExpectedError.map((message) => createErrorObject(message)),
       });
     } else {
       invalidFixtures.push({
         code,
-        errors: [{ message: pragmas.eslintExpectedError }],
+        errors: [createErrorObject(pragmas.eslintExpectedError)],
       });
     }
   }
