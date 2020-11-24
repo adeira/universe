@@ -61,15 +61,19 @@ _Node: we require you to install Yarn version 1.0+ but the actual version used w
 
 ## Contributing
 
-Check our [Contribution guide](/CONTRIBUTING.md) on how to report issues, suggest improvements, commit changes and release.
+Check our [Contribution guide](/.github/CONTRIBUTING.md) on how to report issues, suggest improvements, commit changes and release.
 
 ## Information for `adeira/universe` maintainers
 
 - [adeira.slack.com](https://app.slack.com/) - our internal Slack channel
 - [Figma designs](https://www.figma.com/file/bAVVTRg9w2vDJ1Hph82hky/Adeira)
 - [https://vercel.com/adeira](https://vercel.com/adeira) - our Vercel platform for deployments
+- [Kodiak dashboard](https://app.kodiakhq.com/) - automated PR merging
 
 ## Troubleshooting
+
+<details>
+<summary>Click to expand</summary>
 
 Things go broken and sometimes it's difficult to understand what's going on. This section should help with these tricky problems. Please help us expand it as you go.
 
@@ -90,3 +94,5 @@ Solution:
 ```text
 yarn test-only --clearCache
 ```
+
+</details>
