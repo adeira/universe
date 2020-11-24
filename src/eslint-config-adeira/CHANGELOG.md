@@ -1,10 +1,11 @@
 # Unreleased
 
-- Enable [`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/process-exit-as-throw.md) rule. This is potentially breaking, however, the impact should be minimal and the migration simple.
-- Set `react/react-in-jsx-scope` to `OFF` since we are now using the new JSX transform internally.
-- Turn off `no-useless-computed-key` (in order to ease Flow support)
-- Added experimental `eslint-plugin-sx` rules for [`@adeira/sx`](https://github.com/adeira/sx)
+- Enable [`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/process-exit-as-throw.md) rule. This is potentially breaking, however, the impact should be minimal and the migration simple. Let us know in case it caused troubles, please.
+- Set [`react/react-in-jsx-scope`](https://github.com/yannickcr/eslint-plugin-react/blob/edbbd7931902ec0b1cc1941df4155e39acc06f31/docs/rules/react-in-jsx-scope.md) to `OFF` since we are now using the new JSX transform internally.
+- Turn off [`no-useless-computed-key`](https://eslint.org/docs/rules/no-useless-computed-key) (in order to ease Flow support)
+- Added experimental [`eslint-plugin-sx`](https://github.com/adeira/eslint-plugin-sx) rules for [`@adeira/sx`](https://github.com/adeira/sx)
 - Added new [`no-nonoctal-decimal-escape`](https://eslint.org/docs/rules/no-nonoctal-decimal-escape) rule (warnings or errors in strict mode)
+- Peer dependency changed to `eslint` version >=7.14.0 (https://eslint.org/blog/2020/11/eslint-v7.14.0-released). This version is needed for the new [`no-nonoctal-decimal-escape`](https://eslint.org/docs/rules/no-nonoctal-decimal-escape) rule.
 
 # 4.0.0
 
