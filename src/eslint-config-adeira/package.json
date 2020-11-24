@@ -24,7 +24,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-relay": "^1.8.1",
-    "eslint-plugin-sx": "^0.7.0",
+    "eslint-plugin-sx": "^0.8.0",
     "prettier": "^2.2.0"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "snapshot-diff": "^0.8.1"
   },
   "peerDependencies": {
-    "eslint": ">=7.8.1"
+    "eslint": ">=7.14.0"
   },
   "optionalDependencies": {
     "@adeira/eslint-runner": "^1.0.0"
