@@ -9,7 +9,7 @@
     "@adeira/sx": "^0.21.0",
     "@adeira/sx-tailwind": "^0.10.0",
     "hast-util-to-html": "^7.1.2",
-    "next": "^10.0.2",
+    "next": "^10.0.3",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^4.1.0",
     "react": "^17.0.1",
