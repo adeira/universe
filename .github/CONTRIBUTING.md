@@ -1,6 +1,6 @@
 # Thanks for contributing to Adeira Universe.
 
-We want to push changes to the `master` branch as soon as possible and we consider `master` branch to be a stable branch (with continuous deployments from this branch). Every change should go through Merge Request (MR) and code review and we prefer smaller MRs even though the feature is not completely finished yet.
+We want to push changes to the `master` branch as soon as possible and we consider `master` branch to be a stable branch (with continuous deployments from this branch). Every change should go through Pull Request (PR) and code review and we prefer smaller PRs even though the feature is not completely finished yet.
 
 This project is a monorepo so please consult documentation for your project. However, these simple rules apply in general:
 
@@ -8,7 +8,7 @@ This project is a monorepo so please consult documentation for your project. How
 - update the documentation if needed
 - ensure the test suite passes (`yarn test`)
 - make sure it actually works by trying it
-- submit a merge request and wait for the code review (do not let it die)
+- submit a pull request and wait for the code review (do not let it die)
 
 Every change is automatically deployed from the `master` if the tests are green.
 
@@ -47,7 +47,7 @@ TL;DR:
 - Wrap the body at 72 characters
 - Use the body to explain _what_ and _why_ vs. _how_
 
-Please note that these rules are not enforced in any way and you should not get blocked on it. Need more than 50 characters? Use more - don't worry about it that much. But have these rules in your mind. They will significantly improve the way how you contribute. Also, do not consider Merge Request (MR) messages to be source of truth. They are not part of Git history. Commit message and body is always source of the truth. It's not unusual to have MR without any description but with 5 commits containing proper explanation.
+Please note that these rules are not enforced in any way and you should not get blocked on it. Need more than 50 characters? Use more - don't worry about it that much. But have these rules in your mind. They will significantly improve the way how you contribute. Also, do not consider Pull Request (PR) messages to be source of truth. They are not part of Git history. Commit message and body is always source of the truth. It's not unusual to have PR without any description but with 5 commits containing proper explanation.
 
 There is one more trick related to monorepo (but works really well anywhere, not only in monorepo): prefix the commit title with part of application it relates to. Examples:
 
@@ -102,4 +102,4 @@ Every package with version greater than 1.0 (ignoring patch version) must have `
 
 This changelog is being tested so you have to follow this format otherwise new version won't be released and the test will fail.
 
-When you send MR with new feature or bug fixing reported issue, we might ask you to add short description under `unreleased` during code review. Once it's merged to master, changes are released by bumping package version and updating its `CHANGELOG.md` as e.g. can be seen here: https://github.com/adeira/universe/pull/93
+When you send PR with new feature or bug fixing reported issue, we might ask you to add short description under `unreleased` during code review. Once it's merged to master, changes are released by bumping package version and updating its `CHANGELOG.md` as e.g. can be seen here: https://github.com/adeira/universe/pull/93
