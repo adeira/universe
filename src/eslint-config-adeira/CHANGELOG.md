@@ -1,5 +1,7 @@
 # Unreleased
 
+# 4.1.0
+
 - Enable [`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/process-exit-as-throw.md) rule. This is potentially breaking, however, the impact should be minimal and the migration simple. Let us know in case it caused troubles, please.
 - Set [`react/react-in-jsx-scope`](https://github.com/yannickcr/eslint-plugin-react/blob/edbbd7931902ec0b1cc1941df4155e39acc06f31/docs/rules/react-in-jsx-scope.md) to `OFF` since we are now using the new JSX transform internally.
 - Turn off [`no-useless-computed-key`](https://eslint.org/docs/rules/no-useless-computed-key) (in order to ease Flow support)
