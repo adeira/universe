@@ -20,7 +20,7 @@
   "devDependencies": {
     "@adeira/eslint-config": "^3.1.1",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.7.0",
+    "eslint": "^7.14.0",
     "flow-bin": "^0.138.0"
   },
   "browserslist": {
