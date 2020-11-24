@@ -32,7 +32,7 @@
     "snapshot-diff": "^0.8.1"
   },
   "peerDependencies": {
-    "eslint": ">=7.8.1"
+    "eslint": ">=7.14.0"
   },
   "optionalDependencies": {
     "@adeira/eslint-runner": "^1.0.0"
