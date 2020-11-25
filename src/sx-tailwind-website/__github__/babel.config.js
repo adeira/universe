@@ -1,6 +1,7 @@
 // @flow
 
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 /*::
 
@@ -29,6 +30,18 @@ module.exports = function (api /*: ApiType */) /*: BabelConfig */ {
         '@adeira/babel-plugin-transform-sx-tailwind',
         {
           theme: {
+            colors: {
+              white: '#fff',
+              transparent: 'transparent',
+              blue: colors.blue,
+              gray: colors.trueGray,
+              indigo: colors.indigo,
+              orange: colors.orange,
+              pink: colors.pink,
+              purple: colors.purple,
+              red: colors.rose,
+              teal: colors.teal,
+            },
             extend: {
               fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans],
