@@ -3863,10 +3863,10 @@ eslint-plugin-relay@^1.8.1:
   dependencies:
     graphql "^14.0.0 || ^15.0.0-rc.1"
 
-eslint-plugin-sx@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.7.0.tgz#dbf1b7713c3516769652444c9f60c17c44ab576a"
-  integrity sha512-QNP6+vkgfmLmyo9NqKilrDY4MySZdbPrHrNPtDHf/lCws6i89DUOrdjCjzLvtn+ChrMgas+Wpp7CAy7tkveoWw==
+eslint-plugin-sx@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.8.0.tgz#4d36d73ac99c304e43cf8cba3092e60037bf39ec"
+  integrity sha512-ioVs0X4upc2bTImhhhFMC4Q1fa4xIs7Sza/hpZXKSXcuojRz9AwEQphG6dUxQVyS05zogMCC/3TCZ4xGJ/n7NQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
