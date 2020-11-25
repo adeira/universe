@@ -12,6 +12,7 @@
     "next": "^10.0.3",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^4.1.0",
+    "postcss": "^8.1.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "refractor": "^3.2.0",
@@ -22,9 +23,6 @@
     "@adeira/babel-preset-adeira": "^2.0.0",
     "@babel/core": "^7.12.9",
     "flow-bin": "^0.138.0"
-  },
-  "peerDependencies": {
-    "postcss": "^8.1.10"
   },
   "scripts": {
     "dev": "next",
