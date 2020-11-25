@@ -24,48 +24,33 @@
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/eslint-config@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.0.0.tgz#99997e89282bcc8ae8753c60c8d956e03584d221"
-  integrity sha512-RhgjNRA+7/VAUq32CV+CHtvQUHNn4EYWvm9TZ4nnxBeXHfDHU77+VwyvyTfMB4V91NltU+Fpl9xT7HfdhvOimQ==
+"@adeira/eslint-config@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.1.0.tgz#a7ff3c870dde4509139437a2f014253e5caf7a76"
+  integrity sha512-HLanC1qeyPXFCWdJRw6bCsSAqnBh0Ru9Gn01fuZGPb/yDx1HbcETkIp48sl0DLQEH/pLDRx7yAanrvqahnc/yw==
   dependencies:
-    "@babel/runtime" "^7.12.1"
+    "@babel/runtime" "^7.12.5"
     eslint-config-prettier "^6.14.0"
-    eslint-plugin-adeira "^0.10.0"
+    eslint-plugin-adeira "^0.11.0"
     eslint-plugin-babel "^5.3.1"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-flowtype "^5.2.0"
     eslint-plugin-import "^2.22.1"
-    eslint-plugin-jest "^24.1.0"
+    eslint-plugin-jest "^24.1.3"
     eslint-plugin-jsx-a11y "^6.4.1"
-    eslint-plugin-monorepo "^0.2.1"
+    eslint-plugin-monorepo "^0.3.2"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-prefer-object-spread "^1.2.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.2.0"
     eslint-plugin-relay "^1.8.1"
-    prettier "^2.1.2"
+    eslint-plugin-sx "^0.8.0"
+    prettier "^2.2.0"
   optionalDependencies:
-    "@adeira/eslint-runner" "^0.4.0"
+    "@adeira/eslint-runner" "^1.0.0"
 
-"@adeira/eslint-runner@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-0.4.0.tgz#a1cf9edbe55bdbb5c8611338de2153de819d8d77"
-  integrity sha512-5lRBlZcpJ27b3MuRusuzAF1ggqBSanSpWwg6oplqamXhKe4K0NfTGgInK5s4kYpsbGs8hXHX2wggCccGhhrcCA==
-  dependencies:
-    "@adeira/monorepo-utils" "^0.9.0"
-    "@babel/code-frame" "^7.10.4"
-    "@babel/register" "^7.11.5"
-    "@babel/runtime" "^7.11.2"
-    chalk "^4.1.0"
-    create-jest-runner "^0.7.0"
-    is-ci "^2.0.0"
-    progress "^2.0.3"
-    strip-ansi "^6.0.0"
-    text-table "^0.2.0"
-
-"@adeira/eslint-runner@^1.0.2":
+"@adeira/eslint-runner@^1.0.0", "@adeira/eslint-runner@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-1.0.2.tgz#29f9dfad00bdd0741ac348739988852524ada0c2"
   integrity sha512-BwAMVkyPfu7n6laUfQLVlRjAlL6NGNHNXvOpu7n3Az6/iVWCZr3w3uto/+551sue4+hmgxcsgP53HqKyaS1QDw==
@@ -3715,12 +3700,12 @@ eslint-module-utils@^2.1.1, eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-adeira@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.10.0.tgz#866ecfdd84bc9efd914d0c1ccba4d1a45352460f"
-  integrity sha512-RurcKG96aYXiOnumdiIE2WWHs3Z6M9Cwb/vIdWFVpPbyk7+kW6fwnlepfJAOjl6kZTrNyrFCLYxzyhQtiFbl1Q==
+eslint-plugin-adeira@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.11.0.tgz#0a3491e74ab3f4929118ec4fc184b66530c0418b"
+  integrity sha512-IyyLjiXLpP/xlM8ER+J+Nc06HuVjjb52Q3sUwbI+QN5ZQjch2NMnvGziv7bwC7zsp+qAkwU6UAtoU4UI61i2CQ==
   dependencies:
-    "@babel/runtime" "^7.11.2"
+    "@babel/runtime" "^7.12.5"
     fast-levenshtein "^3.0.0"
 
 eslint-plugin-babel@^5.3.1:
@@ -3773,10 +3758,10 @@ eslint-plugin-import@^2.22.1:
     resolve "^1.17.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-jest@^24.1.0:
-  version "24.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.1.0.tgz#6708037d7602e5288ce877fd0103f329dc978361"
-  integrity sha512-827YJ+E8B9PvXu/0eiVSNFfxxndbKv+qE/3GSMhdorCaeaOehtqHGX2YDW9B85TEOre9n/zscledkFW/KbnyGg==
+eslint-plugin-jest@^24.1.3:
+  version "24.1.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.1.3.tgz#fa3db864f06c5623ff43485ca6c0e8fc5fe8ba0c"
+  integrity sha512-dNGGjzuEzCE3d5EPZQ/QGtmlMotqnYWD/QpCZ1UuZlrMAdhG5rldh0N0haCvhGnUkSeuORS5VNROwF9Hrgn3Lg==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
@@ -3797,10 +3782,10 @@ eslint-plugin-jsx-a11y@^6.4.1:
     jsx-ast-utils "^3.1.0"
     language-tags "^1.0.5"
 
-eslint-plugin-monorepo@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-monorepo/-/eslint-plugin-monorepo-0.2.1.tgz#96cfc4af241077675f40d7017377897fb8ea537b"
-  integrity sha512-82JaAjuajVAsDT+pMvdt275H6F55H3MEofaMZbJurGqfXpPDT4eayTgYyyjfd1XR8VD1S+ORbuHCULnSqNyD9g==
+eslint-plugin-monorepo@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-monorepo/-/eslint-plugin-monorepo-0.3.2.tgz#bc546cbe84b21ae6a7622f261bf9fe73b1524367"
+  integrity sha512-CypTAqHjTR05XxzqDj7x88oVu2GiqqQA/datD9kIwciHzpj0oE4YbTdyEFFKADgd7dbd21KliSlUpOvo626FBw==
   dependencies:
     eslint-module-utils "^2.1.1"
     get-monorepo-packages "^1.1.0"
@@ -3862,6 +3847,13 @@ eslint-plugin-relay@^1.8.1:
   integrity sha512-7xhyLDq3Bv5q+lKZUMYcRHq1OdFsgjuY5hAu3NNY+TkPPsdcp80de7eEJ8Ux5M3YJpnyr2UAHGksx5Exx6+I7g==
   dependencies:
     graphql "^14.0.0 || ^15.0.0-rc.1"
+
+eslint-plugin-sx@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.8.0.tgz#4d36d73ac99c304e43cf8cba3092e60037bf39ec"
+  integrity sha512-ioVs0X4upc2bTImhhhFMC4Q1fa4xIs7Sza/hpZXKSXcuojRz9AwEQphG6dUxQVyS05zogMCC/3TCZ4xGJ/n7NQ==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 eslint-plugin-sx@^0.8.0:
   version "0.8.0"
