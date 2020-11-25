@@ -166,12 +166,12 @@
   dependencies:
     cross-fetch "3.0.5"
 
-"@axe-core/react@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.0.0.tgz#2c1206a65505bb0945fe9856673ed9a724639791"
-  integrity sha512-/hwpydX/JkP+uWfHd4pFAAq0hgGbdmEf4m3SPuhacgjkVwmYhmltAPHXShswcKhys086jKJ402CGmy/BKNF9og==
+"@axe-core/react@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.1.0.tgz#775ee92d3c8e61658e65a02946f8772a0cc45c39"
+  integrity sha512-S5DtZFIoAdUgLNJIIFiz6Bnaf3Dzul5X+TYPT9+0z/Po3d1jlTCQq2SVKfZceVsiw5jcTr4owaS2pNWz82c7GA==
   dependencies:
-    axe-core "^4.0.1"
+    axe-core "^4.1.1"
     requestidlecallback "^0.3.0"
 
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
@@ -2202,10 +2202,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
   integrity sha512-zg7Hz2k5lI8kb7U32998pRRFin7zJlkfezGJjUc2heaD4Pw2wObakCDVzkKztTm/Ln7eiVvYsjqak0Ed4LkMDA==
 
-axe-core@^4.0.1, axe-core@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.0.2.tgz#c7cf7378378a51fcd272d3c09668002a4990b1cb"
-  integrity sha512-arU1h31OGFu+LPrOLGZ7nB45v940NMDMEJeNmbutu57P+UFDVnkZg3e+J1I2HJRZ9hT7gO8J91dn/PMrAiKakA==
+axe-core@^4.0.2, axe-core@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.1.tgz#70a7855888e287f7add66002211a423937063eaf"
+  integrity sha512-5Kgy8Cz6LPC9DJcNb3yjAXTu3XihQgEdnIg50c//zOC/MyLP0Clg+Y8Sh9ZjjnvBrDZU4DgXS9C3T9r4/scGZQ==
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -3847,13 +3847,6 @@ eslint-plugin-relay@^1.8.1:
   integrity sha512-7xhyLDq3Bv5q+lKZUMYcRHq1OdFsgjuY5hAu3NNY+TkPPsdcp80de7eEJ8Ux5M3YJpnyr2UAHGksx5Exx6+I7g==
   dependencies:
     graphql "^14.0.0 || ^15.0.0-rc.1"
-
-eslint-plugin-sx@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.8.0.tgz#4d36d73ac99c304e43cf8cba3092e60037bf39ec"
-  integrity sha512-ioVs0X4upc2bTImhhhFMC4Q1fa4xIs7Sza/hpZXKSXcuojRz9AwEQphG6dUxQVyS05zogMCC/3TCZ4xGJ/n7NQ==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
 
 eslint-plugin-sx@^0.8.0:
   version "0.8.0"
