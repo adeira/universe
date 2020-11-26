@@ -14,6 +14,7 @@ _LINT_WARNINGS = [
     "+unsorted-dict-items",
 ]
 
+# bazel run --build_tag_filters=manual //:buildifier.lint
 buildifier(
     name = "buildifier.lint",
     lint_mode = "warn",
@@ -23,6 +24,7 @@ buildifier(
     verbose = True,
 )
 
+# bazel run --build_tag_filters=manual //:buildifier.fix
 buildifier(
     name = "buildifier.fix",
     lint_mode = "fix",

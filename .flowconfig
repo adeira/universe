@@ -4,6 +4,10 @@
 .+/.+\.gzip\.js
 .+/\.next/.+
 
+; React Narive forks some components by platform
+; TODO: we should have another .flowconfig.android with ignore of ios.js files
+.*/*[.]android.js
+
 ; Do not use <PROJECT_ROOT> for Bazel, see: https://github.com/facebook/flow/issues/2250
 .+/bazel-bin/.+
 .+/bazel-out/.+

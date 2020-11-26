@@ -1,0 +1,26 @@
+# TODO: https://tulipemoutarde.be/posts/bazel-for-mobile-apps-part-2/
+
+load("@build_bazel_rules_apple//apple:ios.bzl", "ios_application")
+load("@rules_cc//cc:defs.bzl", "objc_library")
+
+objc_library(
+    name = "YaComisteClasses",
+    srcs = [
+        "YaComiste/AppDelegate.m",
+        "YaComiste/main.m",
+    ],
+    hdrs = glob(["YaComiste/*.h"]),
+    data = ["YaComiste/LaunchScreen.storyboard"],
+)
+
+ios_application(
+    name = "ios-app",
+    bundle_id = "com.mrtnzlml.native.example.YaComiste",
+    families = [
+        "iphone",
+    ],
+    infoplists = [":YaComiste/Info.plist"],
+    minimum_os_version = "11.0",
+    visibility = ["//visibility:public"],
+    deps = [":YaComisteClasses"],
+)
