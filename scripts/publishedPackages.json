@@ -6,6 +6,7 @@
   "@adeira/eslint-runner",
   "@adeira/fetch",
   "@adeira/flow-bin",
+  "@adeira/flow-config-parser",
   "@adeira/graphql-bc-checker",
   "@adeira/graphql-global-id",
   "@adeira/graphql-relay",
