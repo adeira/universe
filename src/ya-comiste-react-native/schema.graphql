@@ -1,0 +1,42 @@
+type Query {
+  entrypoint(
+    id: String! # TODO: limit to only supported pages? (com.myApp.Explore)
+  ): Entrypoint
+}
+
+type Entrypoint {
+  blocks: [EntrypointBlock]
+}
+
+type EntrypointBlock {
+  id: ID!
+
+  """
+  Technically, `block` can always return any block, however, some combinations don't make sense.
+  It's up to the server to decide which blocks can be nested/returned and which cannot in the given context.
+  """
+  block(supported: [String!]!): SDUIBlock
+}
+
+union SDUIBlock = CardBlock | DescriptionBlock | JumbotronBlock | ScrollViewHorizontalBlock
+
+type CardBlock {
+  id: ID!
+  pageID: String!
+}
+
+type JumbotronBlock {
+  id: ID!
+  title: String!
+}
+
+type ScrollViewHorizontalBlock {
+  id: ID!
+  title: String!
+  blocks: [EntrypointBlock] # TODO: naming (a bit weird in this context)
+}
+
+type DescriptionBlock {
+  id: ID!
+  text: String!
+}

@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 import { findRootPackageJsonPath } from '@adeira/monorepo-utils';
 
-// https://docs.gitlab.com/ee/user/project/code_owners.html
+// https://help.github.com/articles/about-codeowners/
 
 function* iterateRules() {
   const root = path.dirname(findRootPackageJsonPath());

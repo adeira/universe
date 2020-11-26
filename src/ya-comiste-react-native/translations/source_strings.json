@@ -1,0 +1,89 @@
+{
+ "phrases": [
+  {
+   "hashToText": {
+    "MBAzA16FRNFdbHv1XKZzyg==": "Explore"
+   },
+   "filepath": "src/entrypoints/Explore.js",
+   "line_beg": 58,
+   "col_beg": 13,
+   "line_end": 58,
+   "col_end": 51,
+   "desc": "Explore screen title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Explore"
+  },
+  {
+   "hashToText": {
+    "WObiOOmQJeyELwhK37D2tw==": "Map"
+   },
+   "filepath": "src/entrypoints/Explore.js",
+   "line_beg": 67,
+   "col_beg": 15,
+   "line_end": 67,
+   "col_end": 64,
+   "desc": "Link to the map from Explore screen",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Map"
+  },
+  {
+   "hashToText": {
+    "Wk57kthUqNN+LjEcMFb0VQ==": "Explore map"
+   },
+   "filepath": "src/entrypoints/ExploreMap.js",
+   "line_beg": 39,
+   "col_beg": 13,
+   "line_end": 39,
+   "col_end": 59,
+   "desc": "Explore map screen title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Explore map"
+  },
+  {
+   "hashToText": {
+    "VP3WxEIktUdt2K3ZdsDSAg==": "Explore more"
+   },
+   "filepath": "src/entrypoints/ExploreMore.js",
+   "line_beg": 18,
+   "col_beg": 13,
+   "line_end": 18,
+   "col_end": 61,
+   "desc": "Explore more screen title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Explore more"
+  },
+  {
+   "hashToText": {
+    "KVnsb8drRTj8rt5VGGDV4A==": "Profile"
+   },
+   "filepath": "src/entrypoints/Profile.js",
+   "line_beg": 22,
+   "col_beg": 13,
+   "line_end": 22,
+   "col_end": 51,
+   "desc": "Profile screen title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Profile"
+  },
+  {
+   "hashToText": {
+    "nWRXRrdl0B1TYfp6+5Qsbw==": "Publish"
+   },
+   "filepath": "src/entrypoints/Publish.js",
+   "line_beg": 22,
+   "col_beg": 13,
+   "line_end": 22,
+   "col_end": 51,
+   "desc": "Publish screen title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Publish"
+  }
+ ],
+ "childParentMappings": {}
+}
