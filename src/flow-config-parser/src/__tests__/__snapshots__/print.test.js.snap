@@ -1,20 +1,17 @@
-# @generated SignedSource<<a2c6e8cf57b16e0580b189be4f5ead10>>
-#
-# To regenerate run:
-# yarn monorepo-babel-node scripts/generateFlow.js
-#
-[declarations]
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prints the config correctly 1`] = `
+"[declarations]
 .+/node_modules/.+
 
 [ignore]
-<PROJECT_ROOT>/\.git/.*
-.+/.+\.gzip\.js
-.+/\.next/.+
+<PROJECT_ROOT>/\\\\.git/.*
+.+/.+\\\\.gzip\\\\.js
+.+/\\\\.next/.+
 .+/bazel-bin/.+
 .+/bazel-out/.+
 .+/bazel-testlogs/.+
 .+/bazel-universe/.+
-.*/*[.]android.js
 
 [include]
 
@@ -50,4 +47,5 @@ untyped-import
 
 
 [version]
-
+"
+`;
