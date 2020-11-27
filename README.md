@@ -95,4 +95,6 @@ Solution:
 yarn test-only --clearCache
 ```
 
+You can also try to delete `node_modules/.cache/@babel/` folder.
+
 </details>

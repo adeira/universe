@@ -4518,15 +4518,14 @@ babel-jest@^26.6.3:
     graceful-fs "^4.2.4"
     slash "^3.0.0"
 
-babel-loader@^8.2.1:
-  version "8.2.1"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.1.tgz#e53313254677e86f27536f5071d807e01d24ec00"
-  integrity sha512-dMF8sb2KQ8kJl21GUjkW1HWmcsL39GOV5vnzjqrCzEPNY0S0UfMLnumidiwIajDSBmKhYf5iRW+HXaM4cvCKBw==
+babel-loader@^8.2.1, babel-loader@^8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
+  integrity sha512-JvTd0/D889PQBtUXJ2PXaKU/pjZDMtHA9V2ecm+eNRmmBCMR09a+fmpGTNwnJtFmFl5Ei7Vy47LjBb+L0wQ99g==
   dependencies:
-    find-cache-dir "^2.1.0"
+    find-cache-dir "^3.3.1"
     loader-utils "^1.4.0"
-    make-dir "^2.1.0"
-    pify "^4.0.1"
+    make-dir "^3.1.0"
     schema-utils "^2.6.5"
 
 babel-plugin-apply-mdx-type-prop@1.6.21:
@@ -4615,10 +4614,10 @@ babel-plugin-macros@^2.0.0:
     cosmiconfig "^6.0.0"
     resolve "^1.12.0"
 
-babel-plugin-relay@0.0.0-master-c51b0e4a:
-  version "0.0.0-master-c51b0e4a"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-0.0.0-master-c51b0e4a.tgz#a4a42e18d94c278422624d3f89ae8209cbe642df"
-  integrity sha512-KDJBvKGj1WcW1sIRE3YUPk1WfCDtouscvgF9pTDPuH14YCWPyD41GvGcSTR/AeEFR1A0lXf/azzZUIGUVXX+PA==
+babel-plugin-relay@0.0.0-master-fa1c75d2:
+  version "0.0.0-master-fa1c75d2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-0.0.0-master-fa1c75d2.tgz#e8223893f4eb44a41a74ccf7ca280af9fd8ecd01"
+  integrity sha512-rawI4B+oZvmCzu7s8YpaOV/vgWar8VZrV0hJ3kbWag1d/Syyt1DKevOk7pNnSRFkvN9k7xWK9itQ2uDk6xa+zA==
   dependencies:
     babel-plugin-macros "^2.0.0"
 
@@ -7272,6 +7271,14 @@ enhanced-resolve@^4.3.0:
     graceful-fs "^4.1.2"
     memory-fs "^0.5.0"
     tapable "^1.0.0"
+
+enhanced-resolve@^5.3.2:
+  version "5.3.2"
+  resolved "https://registry.yarnpkg.com/enhanced-resolve/-/enhanced-resolve-5.3.2.tgz#142295dda51aaaff049cf256459dc9a82a0b67f3"
+  integrity sha512-G28GCrglCAH6+EqMN2D+Q2wCUS1O1vVQJBn8ME2I/Api41YBe4vLWWRBOUbwDH7vwzSZdljxwTRVqnf+sm6XqQ==
+  dependencies:
+    graceful-fs "^4.2.4"
+    tapable "^2.0.0"
 
 enquirer@^2.3.5:
   version "2.3.6"
@@ -11610,7 +11617,7 @@ make-dir@^2.0.0, make-dir@^2.1.0:
     pify "^4.0.1"
     semver "^5.6.0"
 
-make-dir@^3.0.0, make-dir@^3.0.2:
+make-dir@^3.0.0, make-dir@^3.0.2, make-dir@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
@@ -12464,13 +12471,12 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-next-transpile-modules@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-4.1.0.tgz#b2d4bd29f3d4179014f7615720f360fdeec67ff7"
-  integrity sha512-brb9S2Dq7l01fV0fdZw1pO2cWMu7fFTclIV2nccmX2Jzwtz1c9iScPMqGyWP6/wglOPOColoJlHzOrSG6cnEIQ==
+next-transpile-modules@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/next-transpile-modules/-/next-transpile-modules-5.0.0.tgz#a457295223d500454741de084170b920b68bfe63"
+  integrity sha512-cImsh2YAq++sLpeOdUMRKwDFretSmJQyA/qToH84tBZXFe3L/bwTECd82M2K/dIklnvxmK1xbihDNksfMrnq/Q==
   dependencies:
-    micromatch "^4.0.2"
-    slash "^3.0.0"
+    enhanced-resolve "^5.3.2"
 
 next@^10.0.3:
   version "10.0.3"
@@ -14949,15 +14955,15 @@ react-refresh@^0.4.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.4.3.tgz#966f1750c191672e76e16c2efa569150cc73ab53"
   integrity sha512-Hwln1VNuGl/6bVwnd0Xdn1e84gT/8T9aYNL+HAKDArLCS7LWjwr7StE30IEYbIkx0Vi3vs+coQxe+SQDbGbbpA==
 
-react-relay@0.0.0-master-c51b0e4a:
-  version "0.0.0-master-c51b0e4a"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-0.0.0-master-c51b0e4a.tgz#c12a3fdca8674c5e0f4aade825e4a6f78ad32bcf"
-  integrity sha512-ZnpWFpO0a7kI/kQYk0sK6qUAcy8bvE81RObj2dKqJSfXwIg9jGiKAce8cT3swzV9MM0IDEpIYFZg6g1iaCBsmA==
+react-relay@0.0.0-master-fa1c75d2:
+  version "0.0.0-master-fa1c75d2"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-0.0.0-master-fa1c75d2.tgz#951890507786bcb6f6b08a155c7567b879fb9144"
+  integrity sha512-mMTZZ51drbPYSMYaUGRTU2WYV9wZkqc2BYarlLS1c4pYKgK+YdrnrXIfwT8zJFGsCIufkmU1dAl4NAYeN0KjXw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
     nullthrows "^1.1.1"
-    relay-runtime "0.0.0-master-c51b0e4a"
+    relay-runtime "0.0.0-master-fa1c75d2"
 
 react-relay@^10.1.0:
   version "10.1.0"
@@ -15299,10 +15305,10 @@ relateurl@^0.2.7:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-relay-compiler@0.0.0-master-c51b0e4a:
-  version "0.0.0-master-c51b0e4a"
-  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-0.0.0-master-c51b0e4a.tgz#c314a8608e7eaaa2c866a0bf77de48ccd7c26362"
-  integrity sha512-5AAzlERM0xvK1vyvetsxk24cC14C1chzrI6+9nBNHqGLRU0VllGA8+hsXVR7AgrxFDk93NrtE1hE3yIy2A07+w==
+relay-compiler@0.0.0-master-fa1c75d2:
+  version "0.0.0-master-fa1c75d2"
+  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-0.0.0-master-fa1c75d2.tgz#9d03be24008201adb1645d07ec84001d947b7925"
+  integrity sha512-EeoCEyNqMBr2YqmTRrtgAoMEMv6j4TE5UWvP/+RXzB4oX7od0utpgr7sGyWSB8UEaQkAnxB9Tb0boiPgmyM4zA==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.5.0"
@@ -15317,7 +15323,7 @@ relay-compiler@0.0.0-master-c51b0e4a:
     glob "^7.1.1"
     immutable "~3.7.6"
     nullthrows "^1.1.1"
-    relay-runtime "0.0.0-master-c51b0e4a"
+    relay-runtime "0.0.0-master-fa1c75d2"
     signedsource "^1.0.0"
     yargs "^15.3.1"
 
@@ -15343,10 +15349,10 @@ relay-compiler@^10.1.0:
     signedsource "^1.0.0"
     yargs "^15.3.1"
 
-relay-config@0.0.0-master-c51b0e4a:
-  version "0.0.0-master-c51b0e4a"
-  resolved "https://registry.yarnpkg.com/relay-config/-/relay-config-0.0.0-master-c51b0e4a.tgz#01b96e400f852ee43b2d262ef71daf4d0bbc7486"
-  integrity sha512-gKS7tACyJnFUyUfxliUBWksCWMcIqFmgQ3PX1EoygLZme3Y7ysMqWc/TyGR4nwuEouya8WpUfcM4xZfZd45E0Q==
+relay-config@0.0.0-master-fa1c75d2:
+  version "0.0.0-master-fa1c75d2"
+  resolved "https://registry.yarnpkg.com/relay-config/-/relay-config-0.0.0-master-fa1c75d2.tgz#c1b76469376ef0ca22fefe54ec5ab7072e7fcfc8"
+  integrity sha512-cf4+pC64nDNHAnY9EkXZvXMRRhUfguOliyXQyKthOMJMFbh+FD55G3THnhKNuWQw83UmAIRsGDWf0CSg+eGH5A==
   dependencies:
     cosmiconfig "^5.0.5"
 
@@ -15357,10 +15363,10 @@ relay-config@^10.1.0:
   dependencies:
     cosmiconfig "^5.0.5"
 
-relay-runtime@0.0.0-master-c51b0e4a:
-  version "0.0.0-master-c51b0e4a"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-0.0.0-master-c51b0e4a.tgz#961821c7310762d31754edc1496d7f4341e11c2c"
-  integrity sha512-Fx7X2au6osXQBQKKWaybM8eOmGGJLwUaAkl1mPsGF4wowudSqvxvXaPr+58oO+lU7TKY8T/3zaqDShJhwJ2Bhg==
+relay-runtime@0.0.0-master-fa1c75d2:
+  version "0.0.0-master-fa1c75d2"
+  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-0.0.0-master-fa1c75d2.tgz#749efc1af6b4e405b0d8d1a6e696b636354547f7"
+  integrity sha512-AS6k3iaNqjlNUIxRD+edg7rZpqVIEAP0Nik9yVuPVylpyDyVt6Bbz6Q/b5KgGV2w4yFdksGos/LmU254Qitlxw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
@@ -16968,6 +16974,11 @@ tapable@^1.0.0, tapable@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
   integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
+
+tapable@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.1.1.tgz#b01cc1902d42a7bb30514e320ce21c456f72fd3f"
+  integrity sha512-Wib1S8m2wdpLbmQz0RBEVosIyvb/ykfKXf3ZIDqvWoMg/zTNm6G/tDSuUM61J1kNCDXWJrLHGSFeMhAG+gAGpQ==
 
 tar-fs@^2.0.0, tar-fs@^2.1.0:
   version "2.1.0"

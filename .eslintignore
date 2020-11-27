@@ -3,11 +3,5 @@
 
 node_modules/
 
-# Reported issue (must be excluded here since it fails on parsing): https://github.com/babel/babel-eslint/pull/777
-src/babel-preset-adeira/src/__tests__/__fixtures__/features/internal-slot-properties.js
-
 src/example-relay/__github__/flow-typed
 src/sx-tailwind-website/__github__/flow-typed
-
-# Adeira.dev Docs build
-src/docs/build/

@@ -1,3 +1,5 @@
+The purpose of the application is to fight food waste: connect businesses with food surplus and people wanting this cheaper surplus.
+
 ![#6633ff](https://via.placeholder.com/15/6633ff/000000?text=+) `#6633ff`
 
 ## Run
@@ -7,11 +9,7 @@
 yarn workspace @adeira/ya-comiste-react-native ios
 ```
 
-Experimental way (currently broken):
-
-```text
-bazel run //src/ya-comiste-react-native/ios:ios-app
-```
+TODO: Bazel
 
 ## Develop
 
@@ -51,3 +49,18 @@ yarn workspace @adeira/ya-comiste-react-native react-native-bundle-visualizer
 
 - Icons: https://icons.getbootstrap.com/
 - Figma: https://www.figma.com/file/kf82oGWoCEpNNUw34RNKRn/Untitled?node-id=0%3A1
+
+## Upgrading RN
+
+Follow: https://react-native-community.github.io/upgrade-helper/
+
+Cleanup aka _nuke everything_ (when something goes wrong):
+
+```text
+(cd src/ya-comiste-react-native/ios && rm -rf Pods)
+(cd src/ya-comiste-react-native/ios && pod cache clean --all)
+(cd src/ya-comiste-react-native/ios && pod install)
+
+watchman watch-del-all
+yarn workspace @adeira/ya-comiste-react-native start --reset-cache
+```
