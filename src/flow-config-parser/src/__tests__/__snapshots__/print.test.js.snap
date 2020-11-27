@@ -37,6 +37,8 @@ module.ignore_non_literal_requires=true
 suppress_type=$FlowFixMe
 experimental.const_params=true
 
+[rollouts]
+
 [strict]
 ambiguous-object-type
 sketchy-null-bool
