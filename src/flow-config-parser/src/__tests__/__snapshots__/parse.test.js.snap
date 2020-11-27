@@ -23,6 +23,7 @@ exports[`matches expected output: .flowconfig.declarations 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": null
@@ -40,6 +41,7 @@ exports[`matches expected output: .flowconfig.empty 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": null
@@ -74,6 +76,7 @@ exports[`matches expected output: .flowconfig.empty-sections 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": null
@@ -169,6 +172,7 @@ exports[`matches expected output: .flowconfig.empty-sections-comments 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": null
@@ -204,6 +208,7 @@ exports[`matches expected output: .flowconfig.ignore 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": null
@@ -233,6 +238,7 @@ exports[`matches expected output: .flowconfig.include 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": null
@@ -286,6 +292,7 @@ exports[`matches expected output: .flowconfig.invalid 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": "0.138.0"
@@ -424,6 +431,89 @@ well_formed_exports.includes=<PROJECT_ROOT>/dirB
       "<PROJECT_ROOT>/dirB"
     ]
   },
+  "rollouts": null,
+  "strict": [],
+  "untyped": [],
+  "version": null
+}
+`;
+
+exports[`matches expected output: .flowconfig.rollout_duplicate_names 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+[rollouts]
+foo=20% on, 80% off
+foo=30% on, 70% off
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "declarations": [],
+  "ignore": [],
+  "include": [],
+  "libs": [],
+  "lints": null,
+  "options": null,
+  "rollouts": {
+    "foo": "30% on, 70% off"
+  },
+  "strict": [],
+  "untyped": [],
+  "version": null
+}
+`;
+
+exports[`matches expected output: .flowconfig.rollouts-ignore 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+[ignore]
+(ignore_everything=true).*\\.js
+
+[rollouts]
+ignore_everything=0% true, 100% false
+
+[options]
+experimental.well_formed_exports=true
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "declarations": [],
+  "ignore": [
+    "(ignore_everything=true).*\\\\.js"
+  ],
+  "include": [],
+  "libs": [],
+  "lints": null,
+  "options": {
+    "experimental.well_formed_exports": true
+  },
+  "rollouts": {
+    "ignore_everything": "0% true, 100% false"
+  },
+  "strict": [],
+  "untyped": [],
+  "version": null
+}
+`;
+
+exports[`matches expected output: .flowconfig.rollouts-options 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+[rollouts]
+formed_exports=80% on, 20% off
+
+[options]
+(formed_exports=on) experimental.well_formed_exports=true
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "declarations": [],
+  "ignore": [],
+  "include": [],
+  "libs": [],
+  "lints": null,
+  "options": {
+    "experimental.well_formed_exports": true
+  },
+  "rollouts": {
+    "formed_exports": "80% on, 20% off"
+  },
   "strict": [],
   "untyped": [],
   "version": null
@@ -545,6 +635,7 @@ experimental.const_params=true
     ],
     "experimental.const_params": true
   },
+  "rollouts": null,
   "strict": [
     "ambiguous-object-type",
     "sketchy-null-bool",
@@ -574,6 +665,7 @@ exports[`matches expected output: .flowconfig.untyped 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [
     ".*/third_party/.*",
@@ -600,6 +692,7 @@ exports[`matches expected output: .flowconfig.version 1`] = `
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": ">=0.138.0 <0.140.0"

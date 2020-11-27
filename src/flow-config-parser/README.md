@@ -4,6 +4,8 @@ Permissive [Flow config](https://flow.org/en/docs/config/) parser.
 yarn add @adeira/flow-config-parser
 ```
 
+# Supported functions
+
 ## `parse`
 
 Parse function doesn't do any magic. It simply takes the `.flowconfig` as a first argument and returns object with the config values:
@@ -27,6 +29,7 @@ Returns:
   "libs": [],
   "lints": null,
   "options": null,
+  "rollouts": null,
   "strict": [],
   "untyped": [],
   "version": ">=0.138.0 <0.140.0"
@@ -72,4 +75,44 @@ munge_underscores=false
 
 ## `print`
 
-TKTK
+Print function takes the parsed config and prints it into `.flowconfig` format:
+
+```js
+const parsedConfig = parse(' … '); // original config
+print(parsedConfig);
+```
+
+# Caveats
+
+This parser supports `[rollouts]` parsing only partially. Specifically, it omits rollout annotations when parsing. So for example, this config:
+
+```text
+[rollouts]
+formed_exports=80% on, 20% off
+
+[options]
+(formed_exports=on) experimental.well_formed_exports=true
+```
+
+Returns the following object after being parsed (notice the missing `(formed_exports=on)`):
+
+```json
+{
+  "declarations": [],
+  "ignore": [],
+  "include": [],
+  "libs": [],
+  "lints": null,
+  "options": {
+    "experimental.well_formed_exports": true
+  },
+  "rollouts": {
+    "formed_exports": "80% on, 20% off"
+  },
+  "strict": [],
+  "untyped": [],
+  "version": null
+}
+```
+
+It's because we didn't implement the options merging (on purpose). Rollouts seem to be quite internal and not very often used. However, we might change this if there is a real interest.

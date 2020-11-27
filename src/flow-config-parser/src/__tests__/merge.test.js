@@ -31,6 +31,8 @@ it('merges [ignore] correctly', () => {
 
     [options]
 
+    [rollouts]
+
     [strict]
 
 
@@ -82,6 +84,8 @@ it('merges [options] correctly', () => {
     module.file_ext=.baz
     munge_underscores=false
 
+    [rollouts]
+
     [strict]
 
 
@@ -120,6 +124,8 @@ it('merges [version] correctly', () => {
     [lints]
 
     [options]
+
+    [rollouts]
 
     [strict]
 
