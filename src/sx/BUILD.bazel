@@ -15,8 +15,8 @@ test_yarn_workspace(
         "@npm//fast-levenshtein",
         "@npm//prettier",
         "@npm//react-test-renderer",
+        "@universe//src/fixtures-tester",
         "@universe//src/js",
         "@universe//src/murmur-hash",
-        "@universe//src/test-utils",
     ],
 )

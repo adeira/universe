@@ -97,4 +97,22 @@ yarn test-only --clearCache
 
 You can also try to delete `node_modules/.cache/@babel/` folder.
 
+---
+
+Problem:
+
+```text
+node:internal/process/promises:218
+          triggerUncaughtException(err, true /* fromPromise */);
+          ^
+
+[UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). The promise rejected with the reason "Error: secret error ccc".] {
+  code: 'ERR_UNHANDLED_REJECTION'
+}
+```
+
+This happens on Node.js version 15 due to this Jest issue: https://github.com/facebook/jest/issues/10784
+
+Solution: switch to later (LTS) Node.js version (`nvm use 14`) to see the full error message and run the test again.
+
 </details>

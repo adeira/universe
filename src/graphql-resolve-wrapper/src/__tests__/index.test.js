@@ -9,9 +9,9 @@ import {
   GraphQLNonNull,
   GraphQLList,
 } from 'graphql';
-import { evaluateGraphQLResolver } from '@adeira/test-utils';
 
 import { wrapResolvers, isSystemType } from '../index';
+import evaluateGraphQLResolver from './evaluateGraphQLResolver';
 
 let fields, schema;
 beforeEach(() => {

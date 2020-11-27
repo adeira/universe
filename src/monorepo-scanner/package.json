@@ -10,6 +10,6 @@
     "semver": "^7.3.2"
   },
   "devDependencies": {
-    "@adeira/test-utils": "^0.6.0"
+    "@adeira/fixtures-tester": "^0.1.0"
   }
 }

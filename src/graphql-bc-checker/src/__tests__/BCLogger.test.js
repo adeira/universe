@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import stripAnsi from 'strip-ansi';
-import { generateTestsFromFixtures } from '@adeira/test-utils';
+import { generateTestsFromFixtures } from '@adeira/fixtures-tester';
 
 import { buildBreakingChangesBlock } from '../BCLogger';
 import testBackwardCompatibility from '../index';

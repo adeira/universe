@@ -1,7 +1,7 @@
 // @flow
 
 import snapshotDiff from 'snapshot-diff';
-import { generateTestsFromFixtures } from '@adeira/test-utils';
+import { generateTestsFromFixtures } from '@adeira/fixtures-tester';
 import path from 'path';
 
 import modify from '../modifyPackageJSON';
