@@ -10,9 +10,9 @@ test_yarn_workspace(
     name = "test",
     deps = [
         "@npm//fast-levenshtein",
+        "@universe//src/fixtures-tester",
         "@universe//src/js",
         "@universe//src/logger",
         "@universe//src/monorepo-utils",
-        "@universe//src/test-utils",
     ],
 )

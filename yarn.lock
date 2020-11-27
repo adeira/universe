@@ -2,20 +2,6 @@
 # yarn lockfile v1
 
 
-"@adeira/murmur-hash@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/murmur-hash/-/murmur-hash-0.1.0.tgz#ed79f38f20da3616d7c6be62bb9c08dfb9a155d1"
-  integrity sha512-UMMmb0XQ9eZYUiYyRTJt7xPQduHyYsTb1FLry4ERij/0fIjD4VJk/8skxLMM24CrdeYxgLkXvkzmOkPsrhw81A==
-  dependencies:
-    "@babel/runtime" "^7.11.2"
-
-"@adeira/test-utils@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@adeira/test-utils/-/test-utils-0.2.0.tgz#9e9feef7bb10968d161dcd4a568e760af25b7c50"
-  integrity sha512-RhnDtUQMNmhzQyGtjewXckGtBvn15qNOnNrIy5fnLTAY1vjowjglKpB+AXl2eq7xpkf+2k6R4J7v06NYU2HmQw==
-  dependencies:
-    "@adeira/js" "^1.2.0"
-
 "@algolia/cache-browser-local-storage@4.5.1":
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/@algolia/cache-browser-local-storage/-/cache-browser-local-storage-4.5.1.tgz#bdf58c30795683fd48310c552c3a10f10fb26e2b"

@@ -13,7 +13,7 @@
     "chalk": "^4.1.0"
   },
   "devDependencies": {
-    "@adeira/test-utils": "^0.6.0",
+    "@adeira/fixtures-tester": "^0.1.0",
     "graphql": "^15.3.0",
     "strip-ansi": "^6.0.0"
   },

@@ -5,6 +5,7 @@
   "@adeira/eslint-config",
   "@adeira/eslint-runner",
   "@adeira/fetch",
+  "@adeira/fixtures-tester",
   "@adeira/flow-bin",
   "@adeira/graphql-bc-checker",
   "@adeira/graphql-global-id",
@@ -22,7 +23,6 @@
   "@adeira/signed-source",
   "@adeira/sx",
   "@adeira/sx-tailwind",
-  "@adeira/test-utils",
   "eslint-plugin-adeira",
   "eslint-plugin-sx"
 ]

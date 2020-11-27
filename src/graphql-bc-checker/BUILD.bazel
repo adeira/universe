@@ -10,8 +10,8 @@ test_yarn_workspace(
     name = "test",
     deps = [
         "@npm//graphql",
+        "@universe//src/fixtures-tester",
         "@universe//src/js",
         "@universe//src/signed-source",
-        "@universe//src/test-utils",
     ],
 )
