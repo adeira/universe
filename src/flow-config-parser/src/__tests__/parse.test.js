@@ -1,7 +1,7 @@
 // @flow
 
 import path from 'path';
-import { generateTestsFromFixtures } from '@adeira/test-utils';
+import { generateTestsFromFixtures } from '@adeira/fixtures-tester';
 
 import parse from '../parse';
 
