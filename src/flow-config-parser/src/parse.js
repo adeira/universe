@@ -12,13 +12,14 @@ export default function parse(input: string): ParsedConfig {
     .filter((line) => line.length > 0);
 
   const parsedConfig = {
-    // default values
+    // default values (TODO: remove and do not return defaults?)
     declarations: [],
     ignore: [],
     include: [],
     libs: [],
     lints: null,
     options: null,
+    rollouts: null,
     strict: [],
     untyped: [],
     version: null,
@@ -46,8 +47,10 @@ export default function parse(input: string): ParsedConfig {
     } else if (currentSection === 'version') {
       parsedConfig[currentSection] = line;
     } else {
-      // process it as a key/value
-      const keyValueMatch = line.match(/(?<rawKey>.+)\s*?=\s*?(?<rawValue>.+)/);
+      // process it as a key/value (while ignoring rollout annotations since we do not merge them properly, yet)
+      const keyValueMatch = line.match(
+        /^(?:(?<rollout>\(.+\))\s?)?(?<rawKey>.+)\s*?=\s*?(?<rawValue>.+)$/,
+      );
       if (keyValueMatch) {
         const rawKey = keyValueMatch.groups?.rawKey;
         const rawValue = keyValueMatch.groups?.rawValue;

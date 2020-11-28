@@ -9,6 +9,7 @@ export type ParsedConfig = {|
   libs: List,
   lints: $FlowFixMe,
   options: $FlowFixMe,
+  rollouts: $FlowFixMe,
   strict: List,
   untyped: List,
   version: $FlowFixMe,
