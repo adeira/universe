@@ -19,24 +19,30 @@ https://github.com/facebook/relay/issues/130#issuecomment-133078797
 - https://principledgraphql.com/
 - https://www.graphql.com/articles/4-years-of-graphql-lee-byron
 - https://github.com/esseswann/graphql-binary
+- https://github.com/join-monster/join-monster
 
 The GraphQL grammar is greedy; this means that when given a choice between two definitions in a production, the rule matching the longest sequence of tokens prevails. See: https://github.com/facebook/graphql/issues/539#issuecomment-455821685
 
 ## GraphQL clients
 
-Usually people mention only Apollo or Relay and that's it. Black or white. But that's not fair. There are many many GraphQL clients with very interesting ideas:
+Usually people mention only Apollo or Relay and that's it. Black or white. But that's not fair. There are many many GraphQL clients with very interesting ideas (sorted alphabetically):
 
 - https://github.com/apollographql/apollo-client (double declaration, dynamic)
+- https://github.com/arackaf/micro-graphql-react
+- https://github.com/babel-blade/babel-blade (without [double declaration](https://babel-blade.netlify.app/docs/declarationdeclaration))
 - https://github.com/facebook/relay (double declaration, static)
-- https://github.com/jaydenseric/graphql-react
 - https://github.com/FormidableLabs/urql (double declaration)
 - https://github.com/gucheen/fetchql
-- https://github.com/prisma-labs/graphql-request
+- https://github.com/jaydenseric/graphql-react
 - https://github.com/kadirahq/lokka
-- https://github.com/arackaf/micro-graphql-react
+- https://github.com/prisma-labs/graphql-request
 - https://github.com/samdenty/gqless (without [double declaration](https://babel-blade.netlify.app/docs/declarationdeclaration))
-- https://github.com/babel-blade/babel-blade (without [double declaration](https://babel-blade.netlify.app/docs/declarationdeclaration))
-- ...
+- …
+
+Moreover, there are even non-JS clients:
+
+- https://github.com/graphql-rust/graphql-client (Rust)
+- …
 
 ## Persistent queries (stored operations)
 
@@ -278,7 +284,7 @@ fragment CommentFields on Comment {
 ```js
 graphql`
   fragment QuickActivities_recursive on Lead
-    @argumentDefinitions(recurse: { type: "Boolean", defaultValue: false }) {
+  @argumentDefinitions(recurse: { type: "Boolean", defaultValue: false }) {
     id
     ... @include(if: $recurse) {
       ...QuickActivities_recursive
@@ -298,7 +304,7 @@ export default createFragmentContainer(XYZ, {
 
 ## Rate Limiting, Cost Computation
 
-So far the best idea I ever saw is this one: https://github.com/adeira/universe/blob/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size/semantics-and-complexity-of-graphql.pdf
+So far the best idea I ever saw is this one: https://github.com/adeira/universe/blob/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size/semantics-and-complexity-of-graphql.pdf (alternative reading: [Result size calculation for Facebook’s GraphQL query language](https://www.diva-portal.org/smash/get/diva2:1237221/FULLTEXT01.pdf))
 
 Experimental implementation here: https://github.com/adeira/universe/tree/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size
 
