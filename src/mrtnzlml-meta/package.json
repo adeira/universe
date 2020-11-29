@@ -7,10 +7,11 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy"
+    "deploy": "docusaurus deploy",
+    "lint": "yarn jest --config=.jest-eslint.config.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.68",
+    "@docusaurus/core": "^2.0.0-alpha.69",
     "@docusaurus/preset-classic": "^2.0.0-alpha.69",
     "classnames": "^2.2.6",
     "prettier": "^2.2.0",
@@ -19,9 +20,11 @@
   },
   "devDependencies": {
     "@adeira/eslint-config": "^4.1.0",
+    "@adeira/eslint-runner": "^1.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.14.0",
-    "flow-bin": "^0.138.0"
+    "flow-bin": "^0.138.0",
+    "jest": "^26.6.3"
   },
   "browserslist": {
     "production": [

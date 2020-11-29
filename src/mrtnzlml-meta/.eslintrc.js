@@ -4,5 +4,5 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['@adeira/eslint-config/strict'],
+  extends: ['@adeira/eslint-config'],
 };
