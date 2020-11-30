@@ -20,23 +20,27 @@ function hideRoot(string) {
   return string.replace(new RegExp(root, 'g'), chalk.italic('<PROJECT_ROOT>'));
 }
 
-function command(...commandChunks): ShellCommand {
+type FlowOptions = $ReadOnlyArray<string>;
+
+function command(flowOptions: FlowOptions, ...commandChunks): ShellCommand {
   const [flowBinCommand, ...rest] = commandChunks;
   logger.log(
     chalk.bold.green('flow'),
     chalk.bold.green(flowBinCommand),
-    ...rest.map((c) => chalk.dim(hideRoot(c))),
+    ...flowOptions.map((c) => chalk.bold.dim(hideRoot(c))),
+    ...rest.map((c) => chalk.italic.dim(hideRoot(c))),
   );
-  return new ShellCommand(root, flowBin, ...commandChunks);
+  return new ShellCommand(root, flowBin, flowBinCommand, ...flowOptions, ...rest);
 }
 
 export default class FlowWrapper {
-  static restartServer(): void {
-    command('stop').setOutputToScreen().runSynchronously();
+  static restartServer(flowOptions: FlowOptions): void {
+    command(flowOptions, 'stop').setOutputToScreen().runSynchronously();
   }
 
-  static startServerSilently(runAll: boolean = false): void {
+  static startServerSilently(flowOptions: FlowOptions, runAll: boolean = false): void {
     command(
+      flowOptions,
       'start',
       '--wait-for-recheck=true',
       `--lazy-mode=${runAll ? 'none' : 'fs'}`,
@@ -50,14 +54,15 @@ export default class FlowWrapper {
       .runSynchronously();
   }
 
-  static forceRecheck(inputFile: string): void {
-    command('force-recheck', '--focus', `--input-file=${inputFile}`)
+  static forceRecheck(flowOptions: FlowOptions, inputFile: string): void {
+    command(flowOptions, 'force-recheck', '--focus', `--input-file=${inputFile}`)
       .setOutputToScreen()
       .runSynchronously();
   }
 
-  static checkStatus(): number {
+  static checkStatus(flowOptions: FlowOptions): number {
     return command(
+      flowOptions,
       'status',
       `--color=${isCI ? 'always' : 'auto'}`,
       // Why "0" warnings by default? It's because we use them to check that flowtests work correctly. Important!
@@ -69,8 +74,8 @@ export default class FlowWrapper {
       .getExitCode();
   }
 
-  static saveState(savedStatePath: string): void {
-    command('save-state', `--root=${root}`, `--out=${savedStatePath}`)
+  static saveState(flowOptions: FlowOptions, savedStatePath: string): void {
+    command(flowOptions, 'save-state', `--root=${root}`, `--out=${savedStatePath}`)
       .setOutputToScreen()
       .runSynchronously();
   }
