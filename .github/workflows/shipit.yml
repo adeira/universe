@@ -13,7 +13,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.3.4
+        with:
+          # Number of commits to fetch. 0 indicates all history for all branches and tags (Shipit requires it).
+          fetch-depth: 0
       - name: Use Node.js 15.x
         uses: actions/setup-node@v2.1.2
         with:
