@@ -16,16 +16,6 @@ const { default: Flow, root } = require('../src/index');
 
 const argv = process.argv.splice(2);
 const cli = (command) => argv.includes(command);
-// Should we forward all unknown commands to Flow?
-const allowedCommands = ['restart', '--all'];
-for (const command of argv) {
-  if (!allowedCommands.includes(command)) {
-    const allowedCommandsList = allowedCommands.map((command) => `'${command}'`).join(', ');
-    throw new Error(
-      `Command line option "${command}" is not allowed. You have to use one of these: ${allowedCommandsList}`,
-    );
-  }
-}
 
 const savedStatePath = path.join(root, '.flow.saved_state');
 const savedStateFileChangesPath = path.join(root, '.flow.saved_state_file_changes');
@@ -36,22 +26,26 @@ fs.writeFileSync(
   changedFiles.filter((file) => /\.(?:js|json|flow)$/.test(file)).join(os.EOL) + os.EOL,
 );
 
+const flowOptions = argv.filter((option) => {
+  return !['restart', '--all'].includes(option);
+});
+
 if (cli('restart')) {
-  Flow.restartServer();
+  Flow.restartServer(flowOptions);
 }
-Flow.startServerSilently(cli('--all'));
+Flow.startServerSilently(flowOptions, cli('--all'));
 
 if (!fs.existsSync(savedStatePath)) {
   // This is probably a first start so saved state doesn't exist and saved-state-force-recheck didn't work.
   // Therefore, we have to refocus manually (lazy mode would start from 0 files otherwise).
-  Flow.forceRecheck(savedStateFileChangesPath);
+  Flow.forceRecheck(flowOptions, savedStateFileChangesPath);
 }
 
-const statusExitCode = Flow.checkStatus();
+const statusExitCode = Flow.checkStatus(flowOptions);
 if (statusExitCode === 0 && !cli('--all')) {
   // We assume that there are 0 errors when saving the state. It's not necessary to save the state
   // when running with `--all` since it's not being used.
-  Flow.saveState(savedStatePath);
+  Flow.saveState(flowOptions, savedStatePath);
 } else {
   process.exit(statusExitCode);
 }

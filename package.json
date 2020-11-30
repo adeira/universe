@@ -12,7 +12,7 @@
     "@adeira/babel-preset-adeira": "^2.0.0",
     "@adeira/eslint-config": "^4.1.0",
     "@adeira/eslint-runner": "^1.0.0",
-    "@adeira/flow-bin": "^0.4.0",
+    "@adeira/flow-bin": "^0.5.0",
     "@babel/cli": "^7.12.8",
     "@babel/core": "^7.12.9",
     "babel-eslint": "^10.1.0",
@@ -34,7 +34,9 @@
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run typecheck && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
     "test-only": "BABEL_TYPES_8_BREAKING=true yarn run monorepo-babel-node src/monorepo-utils/bin/monorepo-run-tests.js",
-    "typecheck": "yarn run adeira-flow-bin"
+    "typecheck": "yarn run typecheck-ios && yarn run typecheck-android",
+    "typecheck-ios": "yarn run adeira-flow-bin --flowconfig-name=.flowconfig.ios",
+    "typecheck-android": "yarn run adeira-flow-bin --flowconfig-name=.flowconfig.android"
   },
   "resolutions": {
     "graphql": "^15.0.0"
