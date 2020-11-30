@@ -8,6 +8,12 @@ Read more about MurmurHash in this Stack Overflow question: [MurmurHash - what i
 yarn add @adeira/murmur-hash
 ```
 
+Optionally, install TS types (Flow types are included by default):
+
+```text
+yarn add --dev @types/adeira__murmur-hash
+```
+
 # Basic usage
 
 ```js
@@ -17,5 +23,3 @@ const data = { arg: { count: 20, start: 0, end: 5 } };
 const hash = murmurHash(JSON.stringify(data));
 console.log(hash); // 4gykY2
 ```
-
-Flow and Typescript supported.
