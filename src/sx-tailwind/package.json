@@ -19,7 +19,7 @@
     "change-case": "^4.1.1",
     "fast-levenshtein": "^3.0.0",
     "postcss": "^8.1.10",
-    "prettier": "^2.2.0",
+    "prettier": "^2.2.1",
     "tailwindcss": "^2.0.1"
   },
   "peerDependencies": {
