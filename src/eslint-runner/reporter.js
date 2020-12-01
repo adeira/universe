@@ -18,7 +18,22 @@ type RunCompleteResults = {|
   +numTotalTestSuites: number,
   +numTotalTests: number,
   +openHandles: $ReadOnlyArray<any>, // TODO
-  +snapshot: any, // TODO
+  +snapshot: {|
+    +added: number,
+    +didUpdate: boolean,
+    +failure: boolean,
+    +filesAdded: number,
+    +filesRemoved: number,
+    +filesRemovedList: $ReadOnlyArray<string>,
+    +filesUnmatched: number,
+    +filesUpdated: number,
+    +matched: number,
+    +total: number,
+    +unchecked: number,
+    +uncheckedKeysByFile: number,
+    +unmatched: number,
+    +updated: number,
+  |},
   +startTime: number,
   +success: boolean,
   +wasInterrupted: boolean,
@@ -57,6 +72,8 @@ class JestProgressBarReporter {
   }
 
   onRunComplete(test /*: any */, results /*: RunCompleteResults */) /*: void */ {
+    // TODO: there might be an obsolete .snap file which causes Eslint Runner to fail (should be handle it?)
+
     results.testResults.forEach(({ failureMessage }) => {
       if (failureMessage != null) {
         console.log(failureMessage);
