@@ -9,16 +9,16 @@
 /*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type CardFragment$ref: FragmentReference;
-declare export opaque type CardFragment$fragmentType: CardFragment$ref;
-export type CardFragment = {|
+declare export opaque type SDUICardFragment$ref: FragmentReference;
+declare export opaque type SDUICardFragment$fragmentType: SDUICardFragment$ref;
+export type SDUICardFragment = {|
   +pageID: string,
-  +$refType: CardFragment$ref,
+  +$refType: SDUICardFragment$ref,
 |};
-export type CardFragment$data = CardFragment;
-export type CardFragment$key = {
-  +$data?: CardFragment$data,
-  +$fragmentRefs: CardFragment$ref,
+export type SDUICardFragment$data = SDUICardFragment;
+export type SDUICardFragment$key = {
+  +$data?: SDUICardFragment$data,
+  +$fragmentRefs: SDUICardFragment$ref,
   ...
 };
 */
@@ -28,7 +28,7 @@ const node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "CardFragment",
+  "name": "SDUICardFragment",
   "selections": [
     {
       "alias": null,
@@ -38,10 +38,10 @@ const node/*: ReaderFragment*/ = {
       "storageKey": null
     }
   ],
-  "type": "CardBlock",
+  "type": "SDUICardComponent",
   "abstractKey": null
 };
 // prettier-ignore
-(node/*: any*/).hash = '9e84a4936a77bf22f710e5ea0167467b';
+(node/*: any*/).hash = 'a88f4360c36948c355b229be9a766651';
 
 module.exports = node;

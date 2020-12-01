@@ -4,7 +4,7 @@ import * as React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { graphql } from 'react-relay';
 
-import EntrypointRenderer from '../EntrypointRenderer';
+import SDUISectionRenderer from '../SDUISectionRenderer';
 import QueryRenderer from '../relay/QueryRenderer';
 import type { ExploreDetailQueryResponse } from './__generated__/ExploreDetailQuery.graphql';
 
@@ -17,8 +17,8 @@ function ExploreDetail(props: Props): React.Node {
     <QueryRenderer
       query={graphql`
         query ExploreDetailQuery($entrypointID: String!) {
-          entrypoint(id: $entrypointID) {
-            ...EntrypointRendererFragment
+          mobileEntrypointSections(id: $entrypointID) {
+            ...SDUISectionRendererFragment
           }
         }
       `}
@@ -28,9 +28,9 @@ function ExploreDetail(props: Props): React.Node {
       render={(relayProps: ExploreDetailQueryResponse) => {
         return (
           <SafeAreaView style={styles.safeAreaView}>
-            <EntrypointRenderer
+            <SDUISectionRenderer
               componentId={props.componentId} // TODO: do it better
-              entrypoint={relayProps.entrypoint}
+              sections={relayProps.mobileEntrypointSections}
             />
             <View style={styles.ctaPanel}>
               <TouchableOpacity

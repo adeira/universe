@@ -1,52 +1,81 @@
 {
   "data": {
-    "entrypoint": {
-      "blocks": [
-        {
-          "id": "8017CBE2-5AF1-4752-9FBB-39F88427EE6A",
-          "block": {
-            "__typename": "ScrollViewHorizontalBlock",
-            "id": "A3AB14B7-EE4C-401D-97E5-F4AAD854A20D",
-            "title": "Places nearby",
-            "blocks": [
-              {
-                "id": "5C14946A-CB3C-4077-9505-7F9CA19D8228",
-                "block": {
-                  "__typename": "CardBlock",
-                  "id": "B46C23D7-BAB0-4714-AE5C-EFA366D299E2",
-                  "pageID": "com.yaComiste.ExploreDetail"
-                }
-              },
-              {
-                "id": "185AC338-89EE-4290-B99F-C6F6B72EA5FB",
-                "block": {
-                  "__typename": "CardBlock",
-                  "id": "D3F89ABC-7D5C-4689-8158-469278CA25F9",
-                  "pageID": "com.yaComiste.ExploreDetail"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "id": "0C1E2C93-DAD4-47B9-A295-91036DDD9E13",
-          "block": {
-            "__typename": "ScrollViewHorizontalBlock",
-            "id": "E35783AD-AB6A-4DE0-AF80-215078AE872A",
-            "title": "Vegan restaurants",
-            "blocks": [
-              {
-                "id": "72BB2E2D-FC0D-4EF4-96D8-D109C0F443F3",
-                "block": {
-                  "__typename": "CardBlock",
-                  "id": "D53BCB97-5EA8-4F47-A533-1C8168FE12BD",
-                  "pageID": "com.yaComiste.ExploreDetail"
-                }
-              }
-            ]
-          }
+    "mobileEntrypointSections": [
+      {
+        "id": "8017CBE2-5AF1-4752-9FBB-39F88427EE6A",
+        "component": {
+          "__typename": "SDUIScrollViewHorizontalComponent",
+          "id": "A3AB14B7-EE4C-401D-97E5-F4AAD854A20D",
+          "title": "Places nearby",
+          "cards": [
+            {
+              "__typename": "SDUICardComponent",
+              "id": "B46C23D7-BAB0-4714-AE5C-EFA366D299E2",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "D3F89ABC-7D5C-4689-8158-469278CA25F9",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "2F18B756-E4C9-421A-8A50-31AF9E55A751",
+              "pageID": "com.yaComiste.ExploreDetail"
+            }
+          ]
         }
-      ]
-    }
+      },
+      {
+        "id": "2A4CF869-244F-4708-8F45-8A25ED1456DE",
+        "component": {
+          "__typename": "SDUIScrollViewHorizontalComponent",
+          "id": "5E70008B-5A2A-4B8B-89CA-A0CC5D391FCF",
+          "title": "Bakeries nearby",
+          "cards": [
+            {
+              "__typename": "SDUICardComponent",
+              "id": "E1096006-8EA1-43E0-AA20-40E0CAF3F091",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "E882653C-F29F-4FD1-8373-2B4FFFD2653D",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "142B092A-0F73-45FE-A3BA-DA86C3F6E55E",
+              "pageID": "com.yaComiste.ExploreDetail"
+            }
+          ]
+        }
+      },
+      {
+        "id": "0C1E2C93-DAD4-47B9-A295-91036DDD9E13",
+        "component": {
+          "__typename": "SDUIScrollViewHorizontalComponent",
+          "id": "E35783AD-AB6A-4DE0-AF80-215078AE872A",
+          "title": "Vegan restaurants",
+          "cards": [
+            {
+              "__typename": "SDUICardComponent",
+              "id": "D53BCB97-5EA8-4F47-A533-1C8168FE12BD",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "CD705ADE-EC7D-49DE-9FE7-D5A54E9C00C1",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "4B6180E7-7AD3-4C41-B7F0-BDFA5691D9D6",
+              "pageID": "com.yaComiste.ExploreDetail"
+            }
+          ]
+        }
+      }
+    ]
   }
 }

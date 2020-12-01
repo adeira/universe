@@ -5,7 +5,7 @@ import { Navigation } from 'react-native-navigation';
 import { fbt, IntlVariations, init as fbtInit } from 'fbt';
 import { graphql } from 'react-relay';
 
-import EntrypointRenderer from '../EntrypointRenderer';
+import SDUISectionRenderer from '../SDUISectionRenderer';
 import QueryRenderer from '../relay/QueryRenderer';
 
 // TODO: use on every page (?)
@@ -45,8 +45,8 @@ function Explore(props: Props): React.Node {
     <QueryRenderer
       query={graphql`
         query ExploreQuery($entrypointID: String!) {
-          entrypoint(id: $entrypointID) {
-            ...EntrypointRendererFragment
+          mobileEntrypointSections(id: $entrypointID) {
+            ...SDUISectionRendererFragment
           }
         }
       `}
@@ -55,9 +55,9 @@ function Explore(props: Props): React.Node {
       }}
       render={(relayProps) => {
         return (
-          <EntrypointRenderer
+          <SDUISectionRenderer
             componentId={props.componentId} // TODO: do it better
-            entrypoint={relayProps.entrypoint}
+            sections={relayProps.mobileEntrypointSections}
           />
         );
       }}

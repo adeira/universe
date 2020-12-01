@@ -5,13 +5,13 @@ import { View, Text, StyleSheet } from 'react-native';
 import { createFragmentContainer, graphql } from 'react-relay';
 
 import type { FragmentContainerType } from '../relay/relayTypes';
-import type { JumbotronFragment } from './__generated__/JumbotronFragment.graphql';
+import type { SDUIJumbotronFragment } from './__generated__/SDUIJumbotronFragment.graphql';
 
 type Props = {|
-  +data: JumbotronFragment,
+  +data: SDUIJumbotronFragment,
 |};
 
-function Jumbotron(props: Props): React.Node {
+function SDUIJumbotron(props: Props): React.Node {
   return (
     <View style={styles.jumbo}>
       <Text style={styles.title}>{props.data.title}</Text>
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default (createFragmentContainer(Jumbotron, {
+export default (createFragmentContainer(SDUIJumbotron, {
   data: graphql`
-    fragment JumbotronFragment on JumbotronBlock {
+    fragment SDUIJumbotronFragment on SDUIJumbotronComponent {
       title
     }
   `,

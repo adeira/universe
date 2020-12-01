@@ -8,14 +8,14 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type EntrypointRendererFragment$ref = any;
+type SDUISectionRendererFragment$ref = any;
 export type ExploreDetailQueryVariables = {|
   entrypointID: string
 |};
 export type ExploreDetailQueryResponse = {|
-  +entrypoint: ?{|
-    +$fragmentRefs: EntrypointRendererFragment$ref
-  |}
+  +mobileEntrypointSections: $ReadOnlyArray<{|
+    +$fragmentRefs: SDUISectionRendererFragment$ref
+  |}>
 |};
 export type ExploreDetailQuery = {|
   variables: ExploreDetailQueryVariables,
@@ -28,78 +28,52 @@ export type ExploreDetailQuery = {|
 query ExploreDetailQuery(
   $entrypointID: String!
 ) {
-  entrypoint(id: $entrypointID) {
-    ...EntrypointRendererFragment
+  mobileEntrypointSections(id: $entrypointID) {
+    ...SDUISectionRendererFragment
+    id
   }
 }
 
-fragment BlockRendererFragment on EntrypointBlock {
-  block(supported: ["Card", "Description", "Jumbotron", "ScrollViewHorizontal"]) {
-    __typename
-    ... on CardBlock {
-      __typename
-      ...CardFragment
-    }
-    ... on DescriptionBlock {
-      __typename
-      ...DescriptionFragment
-    }
-    ... on JumbotronBlock {
-      __typename
-      ...JumbotronFragment
-    }
-    ... on ScrollViewHorizontalBlock {
-      __typename
-      ...ScrollViewHorizontalFragment
-    }
-  }
-}
-
-fragment BlockRendererFragment_1oSDhm on EntrypointBlock {
-  block(supported: ["Card", "Description", "Jumbotron", "ScrollViewHorizontal"]) {
-    __typename
-    ... on CardBlock {
-      __typename
-      ...CardFragment
-    }
-    ... on DescriptionBlock {
-      __typename
-      ...DescriptionFragment
-    }
-    ... on JumbotronBlock {
-      __typename
-      ...JumbotronFragment
-    }
-    ... on ScrollViewHorizontalBlock {
-      __typename
-    }
-  }
-}
-
-fragment CardFragment on CardBlock {
+fragment SDUICardFragment on SDUICardComponent {
   pageID
 }
 
-fragment DescriptionFragment on DescriptionBlock {
+fragment SDUIDescriptionFragment on SDUIDescriptionComponent {
   text
 }
 
-fragment EntrypointRendererFragment on Entrypoint {
-  blocks {
+fragment SDUIJumbotronFragment on SDUIJumbotronComponent {
+  title
+}
+
+fragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {
+  title
+  cards {
     id
-    ...BlockRendererFragment
+    ...SDUICardFragment
   }
 }
 
-fragment JumbotronFragment on JumbotronBlock {
-  title
-}
-
-fragment ScrollViewHorizontalFragment on ScrollViewHorizontalBlock {
-  title
-  blocks {
-    id
-    ...BlockRendererFragment_1oSDhm
+fragment SDUISectionRendererFragment on SDUISection {
+  id
+  component(supported: ["SDUICardComponent", "SDUIDescriptionComponent", "SDUIJumbotronComponent", "SDUIScrollViewHorizontalComponent"]) {
+    __typename
+    ... on SDUICardComponent {
+      __typename
+      ...SDUICardFragment
+    }
+    ... on SDUIDescriptionComponent {
+      __typename
+      ...SDUIDescriptionFragment
+    }
+    ... on SDUIJumbotronComponent {
+      __typename
+      ...SDUIJumbotronFragment
+    }
+    ... on SDUIScrollViewHorizontalComponent {
+      __typename
+      ...SDUIScrollViewHorizontalFragment
+    }
   }
 }
 */
@@ -126,67 +100,19 @@ v2 = {
   "name": "id",
   "storageKey": null
 },
-v3 = [
-  {
-    "kind": "Literal",
-    "name": "supported",
-    "value": [
-      "Card",
-      "Description",
-      "Jumbotron",
-      "ScrollViewHorizontal"
-    ]
-  }
-],
-v4 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "__typename",
+  "name": "pageID",
   "storageKey": null
 },
-v5 = {
-  "kind": "InlineFragment",
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "pageID",
-      "storageKey": null
-    }
-  ],
-  "type": "CardBlock",
-  "abstractKey": null
-},
-v6 = {
-  "kind": "InlineFragment",
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "text",
-      "storageKey": null
-    }
-  ],
-  "type": "DescriptionBlock",
-  "abstractKey": null
-},
-v7 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "title",
   "storageKey": null
-},
-v8 = {
-  "kind": "InlineFragment",
-  "selections": [
-    (v7/*: any*/)
-  ],
-  "type": "JumbotronBlock",
-  "abstractKey": null
 };
 return {
   "fragment": {
@@ -198,15 +124,15 @@ return {
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "Entrypoint",
+        "concreteType": "SDUISection",
         "kind": "LinkedField",
-        "name": "entrypoint",
-        "plural": false,
+        "name": "mobileEntrypointSections",
+        "plural": true,
         "selections": [
           {
             "args": null,
             "kind": "FragmentSpread",
-            "name": "EntrypointRendererFragment"
+            "name": "SDUISectionRendererFragment"
           }
         ],
         "storageKey": null
@@ -224,72 +150,91 @@ return {
       {
         "alias": null,
         "args": (v1/*: any*/),
-        "concreteType": "Entrypoint",
+        "concreteType": "SDUISection",
         "kind": "LinkedField",
-        "name": "entrypoint",
-        "plural": false,
+        "name": "mobileEntrypointSections",
+        "plural": true,
         "selections": [
+          (v2/*: any*/),
           {
             "alias": null,
-            "args": null,
-            "concreteType": "EntrypointBlock",
-            "kind": "LinkedField",
-            "name": "blocks",
-            "plural": true,
-            "selections": [
-              (v2/*: any*/),
+            "args": [
               {
-                "alias": null,
-                "args": (v3/*: any*/),
-                "concreteType": null,
-                "kind": "LinkedField",
-                "name": "block",
-                "plural": false,
-                "selections": [
-                  (v4/*: any*/),
-                  (v5/*: any*/),
-                  (v6/*: any*/),
-                  (v8/*: any*/),
-                  {
-                    "kind": "InlineFragment",
-                    "selections": [
-                      (v7/*: any*/),
-                      {
-                        "alias": null,
-                        "args": null,
-                        "concreteType": "EntrypointBlock",
-                        "kind": "LinkedField",
-                        "name": "blocks",
-                        "plural": true,
-                        "selections": [
-                          (v2/*: any*/),
-                          {
-                            "alias": null,
-                            "args": (v3/*: any*/),
-                            "concreteType": null,
-                            "kind": "LinkedField",
-                            "name": "block",
-                            "plural": false,
-                            "selections": [
-                              (v4/*: any*/),
-                              (v5/*: any*/),
-                              (v6/*: any*/),
-                              (v8/*: any*/)
-                            ],
-                            "storageKey": "block(supported:[\"Card\",\"Description\",\"Jumbotron\",\"ScrollViewHorizontal\"])"
-                          }
-                        ],
-                        "storageKey": null
-                      }
-                    ],
-                    "type": "ScrollViewHorizontalBlock",
-                    "abstractKey": null
-                  }
-                ],
-                "storageKey": "block(supported:[\"Card\",\"Description\",\"Jumbotron\",\"ScrollViewHorizontal\"])"
+                "kind": "Literal",
+                "name": "supported",
+                "value": [
+                  "SDUICardComponent",
+                  "SDUIDescriptionComponent",
+                  "SDUIJumbotronComponent",
+                  "SDUIScrollViewHorizontalComponent"
+                ]
               }
             ],
-            "storageKey": null
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "component",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "__typename",
+                "storageKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v3/*: any*/)
+                ],
+                "type": "SDUICardComponent",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "text",
+                    "storageKey": null
+                  }
+                ],
+                "type": "SDUIDescriptionComponent",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v4/*: any*/)
+                ],
+                "type": "SDUIJumbotronComponent",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v4/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "SDUICardComponent",
+                    "kind": "LinkedField",
+                    "name": "cards",
+                    "plural": true,
+                    "selections": [
+                      (v2/*: any*/),
+                      (v3/*: any*/)
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "type": "SDUIScrollViewHorizontalComponent",
+                "abstractKey": null
+              }
+            ],
+            "storageKey": "component(supported:[\"SDUICardComponent\",\"SDUIDescriptionComponent\",\"SDUIJumbotronComponent\",\"SDUIScrollViewHorizontalComponent\"])"
           }
         ],
         "storageKey": null
@@ -297,16 +242,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "f6296aa45cdc8e26e42626af4d6c0aca",
+    "cacheID": "1e133d039f22a9c9ad5e5899376076f4",
     "id": null,
     "metadata": {},
     "name": "ExploreDetailQuery",
     "operationKind": "query",
-    "text": "query ExploreDetailQuery(\n  $entrypointID: String!\n) {\n  entrypoint(id: $entrypointID) {\n    ...EntrypointRendererFragment\n  }\n}\n\nfragment BlockRendererFragment on EntrypointBlock {\n  block(supported: [\"Card\", \"Description\", \"Jumbotron\", \"ScrollViewHorizontal\"]) {\n    __typename\n    ... on CardBlock {\n      __typename\n      ...CardFragment\n    }\n    ... on DescriptionBlock {\n      __typename\n      ...DescriptionFragment\n    }\n    ... on JumbotronBlock {\n      __typename\n      ...JumbotronFragment\n    }\n    ... on ScrollViewHorizontalBlock {\n      __typename\n      ...ScrollViewHorizontalFragment\n    }\n  }\n}\n\nfragment BlockRendererFragment_1oSDhm on EntrypointBlock {\n  block(supported: [\"Card\", \"Description\", \"Jumbotron\", \"ScrollViewHorizontal\"]) {\n    __typename\n    ... on CardBlock {\n      __typename\n      ...CardFragment\n    }\n    ... on DescriptionBlock {\n      __typename\n      ...DescriptionFragment\n    }\n    ... on JumbotronBlock {\n      __typename\n      ...JumbotronFragment\n    }\n    ... on ScrollViewHorizontalBlock {\n      __typename\n    }\n  }\n}\n\nfragment CardFragment on CardBlock {\n  pageID\n}\n\nfragment DescriptionFragment on DescriptionBlock {\n  text\n}\n\nfragment EntrypointRendererFragment on Entrypoint {\n  blocks {\n    id\n    ...BlockRendererFragment\n  }\n}\n\nfragment JumbotronFragment on JumbotronBlock {\n  title\n}\n\nfragment ScrollViewHorizontalFragment on ScrollViewHorizontalBlock {\n  title\n  blocks {\n    id\n    ...BlockRendererFragment_1oSDhm\n  }\n}\n"
+    "text": "query ExploreDetailQuery(\n  $entrypointID: String!\n) {\n  mobileEntrypointSections(id: $entrypointID) {\n    ...SDUISectionRendererFragment\n    id\n  }\n}\n\nfragment SDUICardFragment on SDUICardComponent {\n  pageID\n}\n\nfragment SDUIDescriptionFragment on SDUIDescriptionComponent {\n  text\n}\n\nfragment SDUIJumbotronFragment on SDUIJumbotronComponent {\n  title\n}\n\nfragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {\n  title\n  cards {\n    id\n    ...SDUICardFragment\n  }\n}\n\nfragment SDUISectionRendererFragment on SDUISection {\n  id\n  component(supported: [\"SDUICardComponent\", \"SDUIDescriptionComponent\", \"SDUIJumbotronComponent\", \"SDUIScrollViewHorizontalComponent\"]) {\n    __typename\n    ... on SDUICardComponent {\n      __typename\n      ...SDUICardFragment\n    }\n    ... on SDUIDescriptionComponent {\n      __typename\n      ...SDUIDescriptionFragment\n    }\n    ... on SDUIJumbotronComponent {\n      __typename\n      ...SDUIJumbotronFragment\n    }\n    ... on SDUIScrollViewHorizontalComponent {\n      __typename\n      ...SDUIScrollViewHorizontalFragment\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'b3b1c5358adfa71af1d9c2b899f032c4';
+(node/*: any*/).hash = '09ad3cc5f59086acf1ba22440e774376';
 
 module.exports = node;
