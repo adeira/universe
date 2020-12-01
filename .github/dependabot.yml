@@ -13,6 +13,8 @@ updates:
     labels:
       - 'dependencies'
       - 'automerge' # see Kodiak `merge.automerge_label`
+    ignore:
+      - dependency-name: 'react-native' # RN almost always requires manual intervention and doesn't work by default
 
   - package-ecosystem: 'github-actions'
     directory: '/'
