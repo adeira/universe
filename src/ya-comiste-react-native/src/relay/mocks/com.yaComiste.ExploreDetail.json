@@ -1,42 +1,42 @@
 {
   "data": {
-    "entrypoint": {
-      "blocks": [
-        {
-          "id": "F9CCDD49-1E24-43B4-9080-94D351AAEF3D",
-          "block": {
-            "__typename": "JumbotronBlock",
-            "id": "119805BA-6415-4DCC-8E91-E3FDB381AD83",
-            "title": "My awesome restaurant"
-          }
-        },
-        {
-          "id": "A9CFE2C9-0B34-4F01-B7A2-A9D5D73B1593",
-          "block": {
-            "__typename": "DescriptionBlock",
-            "id": "1525DCD7-36C1-458D-A4C0-651F1ED47A94",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vulputate vestibulum justo sit amet ullamcorper. Proin diam massa, sagittis sit amet bibendum sit amet, porta ac metus. Donec venenatis consectetur nisi, sit amet aliquam nulla scelerisque sed. Donec et pretium ante. Sed accumsan nisi ut augue fermentum semper. Proin ullamcorper est eget lacinia blandit. Etiam et nunc nec augue maximus blandit vel et purus. Suspendisse potenti. Duis lacus purus, consequat ac convallis eu, feugiat vel purus. Morbi posuere in sapien ut ullamcorper. Ut ultrices tortor risus. Nam vulputate venenatis erat, eget semper nisl placerat quis."
-          }
-        },
-        {
-          "id": "D0C40F56-8B58-4F02-9606-0BD42A6194B2",
-          "block": {
-            "__typename": "ScrollViewHorizontalBlock",
-            "id": "08621FCE-8D18-4006-A04A-69AA593F5F67",
-            "title": "Places nearby",
-            "blocks": [
-              {
-                "id": "D61D491C-B098-44E9-BB1B-1C62CA0D4444",
-                "block": {
-                  "__typename": "CardBlock",
-                  "id": "B59C2AD3-A44A-4E0A-B2D9-EEBFD0F56FC1",
-                  "pageID": "com.yaComiste.ExploreDetail"
-                }
-              }
-            ]
-          }
+    "mobileEntrypointSections": [
+      {
+        "id": "F9CCDD49-1E24-43B4-9080-94D351AAEF3D",
+        "component": {
+          "__typename": "SDUIJumbotronComponent",
+          "id": "119805BA-6415-4DCC-8E91-E3FDB381AD83",
+          "title": "My awesome restaurant"
         }
-      ]
-    }
+      },
+      {
+        "id": "A9CFE2C9-0B34-4F01-B7A2-A9D5D73B1593",
+        "component": {
+          "__typename": "SDUIDescriptionComponent",
+          "id": "1525DCD7-36C1-458D-A4C0-651F1ED47A94",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vulputate vestibulum justo sit amet ullamcorper. Proin diam massa, sagittis sit amet bibendum sit amet, porta ac metus. Donec venenatis consectetur nisi, sit amet aliquam nulla scelerisque sed. Donec et pretium ante. Sed accumsan nisi ut augue fermentum semper. Proin ullamcorper est eget lacinia blandit. Etiam et nunc nec augue maximus blandit vel et purus. Suspendisse potenti. Duis lacus purus, consequat ac convallis eu, feugiat vel purus. Morbi posuere in sapien ut ullamcorper. Ut ultrices tortor risus. Nam vulputate venenatis erat, eget semper nisl placerat quis."
+        }
+      },
+      {
+        "id": "D0C40F56-8B58-4F02-9606-0BD42A6194B2",
+        "component": {
+          "__typename": "SDUIScrollViewHorizontalComponent",
+          "id": "08621FCE-8D18-4006-A04A-69AA593F5F67",
+          "title": "Places nearby",
+          "cards": [
+            {
+              "__typename": "SDUICardComponent",
+              "id": "B59C2AD3-A44A-4E0A-B2D9-EEBFD0F56FC1",
+              "pageID": "com.yaComiste.ExploreDetail"
+            },
+            {
+              "__typename": "SDUICardComponent",
+              "id": "386D1E30-3FEC-4687-A276-8D4712643162",
+              "pageID": "com.yaComiste.ExploreDetail"
+            }
+          ]
+        }
+      }
+    ]
   }
 }

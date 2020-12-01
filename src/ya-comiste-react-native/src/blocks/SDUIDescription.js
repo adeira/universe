@@ -6,15 +6,15 @@ import { createFragmentContainer, graphql } from 'react-relay';
 import type { TextLayoutEvent } from 'react-native/Libraries/Types/CoreEventTypes';
 
 import type { FragmentContainerType } from '../relay/relayTypes';
-import type { DescriptionFragment } from './__generated__/DescriptionFragment.graphql';
+import type { SDUIDescriptionFragment } from './__generated__/SDUIDescriptionFragment.graphql';
 
 type Props = {|
-  +data: DescriptionFragment,
+  +data: SDUIDescriptionFragment,
 |};
 
 const LINES_LENGTH_COLLAPSED = 5;
 
-function Description(props: Props): React.Node {
+function SDUIDescription(props: Props): React.Node {
   const [hasMoreLines, setHasMoreLines] = React.useState(false);
   const [showMoreLines, setShowMoreLines] = React.useState(false);
 
@@ -65,9 +65,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default (createFragmentContainer(Description, {
+export default (createFragmentContainer(SDUIDescription, {
   data: graphql`
-    fragment DescriptionFragment on DescriptionBlock {
+    fragment SDUIDescriptionFragment on SDUIDescriptionComponent {
       text
     }
   `,

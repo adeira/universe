@@ -1,42 +1,37 @@
 type Query {
-  entrypoint(
-    id: String! # TODO: limit to only supported pages? (com.myApp.Explore)
-  ): Entrypoint
+  mobileEntrypointSections(
+    id: String! # TODO: limit to only supported pages? (com.yaComiste.Explore)
+  ): [SDUISection!]!
 }
 
-type Entrypoint {
-  blocks: [EntrypointBlock]
-}
-
-type EntrypointBlock {
+type SDUISection {
   id: ID!
-
-  """
-  Technically, `block` can always return any block, however, some combinations don't make sense.
-  It's up to the server to decide which blocks can be nested/returned and which cannot in the given context.
-  """
-  block(supported: [String!]!): SDUIBlock # TODO: more like `renderer` (?)
+  component(supported: [String!]!): SDUIComponent
 }
 
-union SDUIBlock = CardBlock | DescriptionBlock | JumbotronBlock | ScrollViewHorizontalBlock
+union SDUIComponent =
+    SDUICardComponent
+  | SDUIDescriptionComponent
+  | SDUIJumbotronComponent
+  | SDUIScrollViewHorizontalComponent
 
-type CardBlock {
+type SDUICardComponent {
   id: ID!
   pageID: String!
 }
 
-type JumbotronBlock {
-  id: ID!
-  title: String!
-}
-
-type ScrollViewHorizontalBlock {
-  id: ID!
-  title: String!
-  blocks: [EntrypointBlock] # TODO: naming (a bit weird in this context)
-}
-
-type DescriptionBlock {
+type SDUIDescriptionComponent {
   id: ID!
   text: String!
+}
+
+type SDUIJumbotronComponent {
+  id: ID!
+  title: String!
+}
+
+type SDUIScrollViewHorizontalComponent {
+  id: ID!
+  title: String!
+  cards: [SDUICardComponent]
 }
