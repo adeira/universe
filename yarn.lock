@@ -14887,10 +14887,10 @@ react-native-bundle-visualizer@^2.2.1:
     rimraf "^3.0.2"
     source-map-explorer "^2.4.2"
 
-react-native-navigation@^7.3.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.4.0.tgz#a79d15216a2d380c40285c2ab0231af66e7e3adc"
-  integrity sha512-Cj8qaXImefEk7euqehmxrOJFAlPrmIyOwSOUpkci5iLDcOOPubjwgX4J/T366h651BMAppp6BUypnUC6AJT6Dw==
+react-native-navigation@^7.5.0:
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.5.0.tgz#76b7afd7f0fc3b5a2dd50bd4e088df85d52c6a67"
+  integrity sha512-qG0I8VE83UrHANuh+Q+OWidPCAUPUYoBt5mT4cMvcqPXfgAtxWR9UViNRiCvXVfYphzPOBm6NyIHdN1nZgfz3w==
   dependencies:
     hoist-non-react-statics "3.x.x"
     lodash "4.17.x"
@@ -14898,10 +14898,10 @@ react-native-navigation@^7.3.0:
     react-lifecycles-compat "2.0.0"
     tslib "1.9.3"
 
-react-native@0.63.3:
-  version "0.63.3"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.63.3.tgz#4a7f6540e049ff41810887bbd1125abc4672f3bf"
-  integrity sha512-71wq13uNo5W8QVQnFlnzZ3AD+XgUBYGhpsxysQFW/hJ8GAt/J5o+Bvhy81FXichp6IBDJDh/JgfHH2gNji8dFA==
+react-native@0.63.4:
+  version "0.63.4"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.63.4.tgz#2210fdd404c94a5fa6b423c6de86f8e48810ec36"
+  integrity sha512-I4kM8kYO2mWEYUFITMcpRulcy4/jd+j9T6PbIzR0FuMcz/xwd+JwHoLPa1HmCesvR1RDOw9o4D+OFLwuXXfmGw==
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@react-native-community/cli" "^4.10.0"

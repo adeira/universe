@@ -1,0 +1,18 @@
+---
+source: crates/server/src/graphql_schema.rs
+expression: "super::create_graphql_schema().as_schema_language()"
+---
+type Query {
+  mobileEntrypointSections(id: ID!): [SDUISection!]!
+}
+
+type SDUISection {
+  "GraphQL description \u129327"
+  id: String!
+  title: String!
+}
+
+schema {
+  query: Query
+}
+

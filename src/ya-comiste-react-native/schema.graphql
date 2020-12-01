@@ -15,7 +15,7 @@ type EntrypointBlock {
   Technically, `block` can always return any block, however, some combinations don't make sense.
   It's up to the server to decide which blocks can be nested/returned and which cannot in the given context.
   """
-  block(supported: [String!]!): SDUIBlock
+  block(supported: [String!]!): SDUIBlock # TODO: more like `renderer` (?)
 }
 
 union SDUIBlock = CardBlock | DescriptionBlock | JumbotronBlock | ScrollViewHorizontalBlock
