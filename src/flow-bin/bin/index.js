@@ -36,7 +36,7 @@ if (cli('restart')) {
 Flow.startServerSilently(flowOptions, cli('--all'));
 
 if (!fs.existsSync(savedStatePath)) {
-  // This is probably a first start so saved state doesn't exist and saved-state-force-recheck didn't work.
+  // This is probably a first start so saved state doesn't exist and --saved-state-force-recheck didn't work.
   // Therefore, we have to refocus manually (lazy mode would start from 0 files otherwise).
   Flow.forceRecheck(flowOptions, savedStateFileChangesPath);
 }
