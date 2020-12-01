@@ -20,6 +20,7 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
+      - 'automerge' # see Kodiak `merge.automerge_label`
 
   - package-ecosystem: 'cargo'
     directory: '/src/ya-comiste-rust/'
@@ -27,3 +28,4 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
+      - 'automerge' # see Kodiak `merge.automerge_label`
