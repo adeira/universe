@@ -22,3 +22,10 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
+
+  - package-ecosystem: 'cargo'
+    directory: '/src/ya-comiste-rust/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
