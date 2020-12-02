@@ -9,7 +9,6 @@ This server is written in Rust, exposes GraphQL API (via Warp) and works with Ar
 ```text
 (cd src/ya-comiste-rust && cargo run)
 (cd src/ya-comiste-rust && cargo fmt)
-(cd src/ya-comiste-rust && cargo check)
 (cd src/ya-comiste-rust && cargo clippy)
 (cd src/ya-comiste-rust && cargo test --offline)
 ```
@@ -26,13 +25,13 @@ brew services start arangodb
 /usr/local/opt/arangodb/sbin/arangod
 ```
 
-- http://127.0.0.1:8529/ (user `ya-comiste`, no password)
+- http://127.0.0.1:8529/ (user `ya-comiste-rust`, no password)
 
 Example query:
 
 ```graphql
 {
-  mobileEntrypointSections(id: "entrypoints/com.yaComiste.Explore") {
+  mobileEntrypointSections(key: "com.yaComiste.Explore") {
     id
     title
   }
@@ -57,6 +56,10 @@ RETURN vertex
 ```
 
 See graph traversals: https://www.arangodb.com/docs/stable/aql/graphs-traversals.html
+
+- `_id` - document handle (uniquely identifies a document in the database)
+- `_key` - document's primary key (uniquely identifies a document in the collection it is stored in)
+- `_rev` - document revision
 
 ## Arangodump & Arangorestore
 

@@ -1,7 +1,5 @@
-use crate::graphql_context::Context;
+use graphql::graphql_context::Context;
 
-/// Entrypoint represents a single entrypoint of the mobile application.
-/// TODO: maybe `MobileEntrypoint` would be a better name so we are future proof?
 #[derive(Clone, Debug, serde::Deserialize)]
 pub struct SDUISection {
     pub id: juniper::ID,

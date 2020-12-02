@@ -3,7 +3,7 @@ source: crates/server/src/graphql_schema.rs
 expression: "super::create_graphql_schema().as_schema_language()"
 ---
 type Query {
-  mobileEntrypointSections(id: ID!): [SDUISection!]!
+  mobileEntrypointSections(key: String!): [SDUISection!]!
 }
 
 type SDUISection {
