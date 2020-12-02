@@ -6,14 +6,14 @@ import { TouchableHighlight, View, StyleSheet } from 'react-native';
 import { createFragmentContainer, graphql } from 'react-relay';
 
 import type { FragmentContainerType } from '../relay/relayTypes';
-import type { CardFragment } from './__generated__/CardFragment.graphql';
+import type { SDUICardFragment } from './__generated__/SDUICardFragment.graphql';
 
 type Props = {|
-  +data: CardFragment,
+  +data: SDUICardFragment,
   +componentId: string,
 |};
 
-function Card(props: Props): React.Node {
+function SDUICard(props: Props): React.Node {
   return (
     <View style={styles.wrapper}>
       <TouchableHighlight
@@ -52,9 +52,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default (createFragmentContainer(Card, {
+export default (createFragmentContainer(SDUICard, {
   data: graphql`
-    fragment CardFragment on CardBlock {
+    fragment SDUICardFragment on SDUICardComponent {
       pageID
     }
   `,

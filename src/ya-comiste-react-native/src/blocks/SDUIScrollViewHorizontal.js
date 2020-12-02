@@ -5,18 +5,18 @@ import { PlatformColor, ScrollView, StyleSheet, Text, TouchableOpacity, View } f
 import { createFragmentContainer, graphql } from 'react-relay';
 import { Navigation } from 'react-native-navigation';
 
-import BlockRenderer from '../BlockRenderer';
+import SDUICard from './SDUICard';
 import type { FragmentContainerType } from '../relay/relayTypes';
-import type { ScrollViewHorizontalFragment } from './__generated__/ScrollViewHorizontalFragment.graphql';
+import type { SDUIScrollViewHorizontalFragment } from './__generated__/SDUIScrollViewHorizontalFragment.graphql';
 
 type Props = {|
-  +row: ScrollViewHorizontalFragment,
+  +row: SDUIScrollViewHorizontalFragment,
   +componentId: string,
 |};
 
-function ScrollViewHorizontal(props: Props) {
+function SDUIScrollViewHorizontal(props: Props) {
   const row = props.row;
-  const numberOfBlocks = row.blocks?.length ?? 0;
+  const numberOfCards = row.cards?.length ?? 0;
   return (
     <>
       <View style={styles.titleWrapper}>
@@ -48,19 +48,19 @@ function ScrollViewHorizontal(props: Props) {
         }}
         snapToInterval={260}
         contentContainerStyle={{
-          width: 260 * numberOfBlocks + 20, // width of the card * number of cards + end (TODO)
+          width: 260 * numberOfCards + 20, // width of the card * number of cards + end (TODO)
           marginHorizontal: 20,
         }}
       >
-        {row.blocks?.map((innerBlock) => {
-          if (innerBlock == null) {
+        {row.cards?.map((card) => {
+          if (card == null) {
             return null; // TODO
           }
           return (
-            <BlockRenderer
+            <SDUICard
               componentId={props.componentId} // TODO: better
-              key={innerBlock.id}
-              block={innerBlock}
+              key={card.id}
+              data={card}
             />
           );
         })}
@@ -86,13 +86,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default (createFragmentContainer(ScrollViewHorizontal, {
+export default (createFragmentContainer(SDUIScrollViewHorizontal, {
   row: graphql`
-    fragment ScrollViewHorizontalFragment on ScrollViewHorizontalBlock {
+    fragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {
       title
-      blocks {
+      cards {
         id
-        ...BlockRendererFragment @arguments(allowRecursion: false)
+        ...SDUICardFragment
       }
     }
   `,
