@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/murmur-hash",
   "license": "MIT",
   "private": false,
-  "version": "0.2.1",
+  "version": "1.0.0",
   "main": "src/murmurHash",
   "sideEffects": false,
   "dependencies": {
