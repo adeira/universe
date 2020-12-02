@@ -25,7 +25,7 @@ type FlowOptions = $ReadOnlyArray<string>;
 function command(flowOptions: FlowOptions, ...commandChunks): ShellCommand {
   const [flowBinCommand, ...rest] = commandChunks;
   logger.log(
-    chalk.bold.green('flow'),
+    chalk.green('flow'),
     chalk.bold.green(flowBinCommand),
     ...flowOptions.map((c) => chalk.bold.dim(hideRoot(c))),
     ...rest.map((c) => chalk.italic.dim(hideRoot(c))),
@@ -38,14 +38,13 @@ export default class FlowWrapper {
     command(flowOptions, 'stop').setOutputToScreen().runSynchronously();
   }
 
-  static startServerSilently(flowOptions: FlowOptions, runAll: boolean = false): void {
+  static startServerSilently(flowOptions: FlowOptions, runAll: boolean): void {
     command(
       flowOptions,
       'start',
       '--wait-for-recheck=true',
       `--lazy-mode=${runAll ? 'none' : 'fs'}`,
       `--saved-state-fetcher=${runAll ? 'none' : 'local'}`,
-      '--saved-state-no-fallback',
       // This option will take '.flow.saved_state_file_changes' into account and perform startup recheck.
       // This way we can uncover already existing errors (otherwise lazy mode starts with 0 files).
       '--saved-state-force-recheck',
@@ -55,7 +54,7 @@ export default class FlowWrapper {
   }
 
   static forceRecheck(flowOptions: FlowOptions, inputFile: string): void {
-    command(flowOptions, 'force-recheck', '--focus', `--input-file=${inputFile}`)
+    command(flowOptions, 'force-recheck', '--no-auto-start', '--focus', `--input-file=${inputFile}`)
       .setOutputToScreen()
       .runSynchronously();
   }
@@ -64,6 +63,7 @@ export default class FlowWrapper {
     return command(
       flowOptions,
       'status',
+      '--no-auto-start',
       `--color=${isCI ? 'always' : 'auto'}`,
       // Why "0" warnings by default? It's because we use them to check that flowtests work correctly. Important!
       '--max-warnings=0',
@@ -75,7 +75,13 @@ export default class FlowWrapper {
   }
 
   static saveState(flowOptions: FlowOptions, savedStatePath: string): void {
-    command(flowOptions, 'save-state', `--root=${root}`, `--out=${savedStatePath}`)
+    command(
+      flowOptions,
+      'save-state',
+      '--no-auto-start',
+      `--root=${root}`,
+      `--out=${savedStatePath}`,
+    )
       .setOutputToScreen()
       .runSynchronously();
   }
