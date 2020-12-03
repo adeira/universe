@@ -2,7 +2,9 @@
 
 `adeira/universe` monorepo is an open-source collection of projects created in our free time. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
 
-[![Continuous Integration](https://github.com/adeira/universe/workflows/Continuous%20Integration/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22Continuous+Integration%22) [![Shipit](https://github.com/adeira/universe/workflows/Shipit/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3AShipit) [![NPM Publisher](https://github.com/adeira/universe/workflows/NPM%20Publisher/badge.svg)](https://github.com/adeira/universe/actions?query=workflow%3A%22NPM+Publisher%22)
+![Continuous Integration (JavaScript)](<https://github.com/adeira/universe/workflows/Continuous%20Integration%20(JavaScript)/badge.svg>) ![Continuous Integration (Rust)](<https://github.com/adeira/universe/workflows/Continuous%20Integration%20(Rust)/badge.svg>) ![Continuous Integration (Bazel)](<https://github.com/adeira/universe/workflows/Continuous%20Integration%20(Bazel)/badge.svg>)
+
+![Shipit](https://github.com/adeira/universe/workflows/Shipit/badge.svg) ![NPM Publisher](https://github.com/adeira/universe/workflows/NPM%20Publisher/badge.svg)
 
 See: https://adeira.dev/ for more info.
 
