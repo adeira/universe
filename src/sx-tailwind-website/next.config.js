@@ -9,6 +9,7 @@ module.exports = (withCustomBabelConfigFile(
     '@adeira/css-colors',
     '@adeira/js',
     '@adeira/monorepo-utils',
+    '@adeira/murmur-hash',
     '@adeira/sx',
     '@adeira/sx-tailwind',
   ])({
