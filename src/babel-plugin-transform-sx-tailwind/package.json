@@ -17,7 +17,7 @@
     "@babel/types": "^7.12.7",
     "find-cache-dir": "^3.3.1",
     "object-hash": "^2.0.3",
-    "postcss": "^8.1.9",
+    "postcss": "^8.1.13",
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
