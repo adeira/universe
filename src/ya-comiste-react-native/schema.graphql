@@ -1,7 +1,5 @@
 type Query {
-  mobileEntrypointSections(
-    id: String! # TODO: limit to only supported pages? (com.yaComiste.Explore)
-  ): [SDUISection!]!
+  mobileEntrypointSections(id: String!): [SDUISection!]!
 }
 
 type SDUISection {
