@@ -1,7 +1,6 @@
 // This declaration will look for a file named `XXX.rs` or `XXX/mod.rs` and will
 // insert its contents inside a module named `XXX` under this scope
 mod graphql_schema;
-mod sdui_blocks;
 
 use crate::graphql_schema::create_graphql_schema;
 use graphql::graphql_context::Context;

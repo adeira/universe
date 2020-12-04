@@ -33,7 +33,16 @@ Example query:
 {
   mobileEntrypointSections(key: "com.yaComiste.Explore") {
     id
-    title
+    __typename
+    component(supported: ["SDUIScrollViewHorizontalComponent"]) {
+      __typename
+      ... on SDUICardComponent {
+        id
+      }
+      ... on SDUIScrollViewHorizontalComponent {
+        id
+      }
+    }
   }
 }
 ```
@@ -42,6 +51,8 @@ Example query:
 
 - setup CI for Rust
 - DB strings and source-code translations
+- dataloaders
+- DB schema validations
 
 # ArangoDB
 

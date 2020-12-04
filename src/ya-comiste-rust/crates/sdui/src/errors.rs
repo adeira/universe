@@ -4,6 +4,7 @@
 /// use sdui::errors::ModelError;
 /// assert_eq!(format!("{}", ModelError::LogicError("ups".to_string())), "Logic error: ups")
 /// ```
+#[derive(Debug)]
 pub enum ModelError {
     // TODO: naming (SDUIError?)
     DatabaseError(arangors::ClientError),
