@@ -1,8 +1,7 @@
 // @flow
 
 import path from 'path';
-
-import testFixtures from './testFixtures';
+import testFixtures from '@adeira/eslint-fixtures-tester';
 
 const fixturesPath = path.join(__dirname, 'fixtures', 'no-concatenated-classes');
 const validFixturesPath = path.join(fixturesPath, 'valid');
