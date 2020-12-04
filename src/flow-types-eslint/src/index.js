@@ -19,6 +19,7 @@ export type Node = any; // TODO
 
 type SourceCode = {|
   +getAllComments: () => $ReadOnlyArray<Node>,
+  +text: string,
 |};
 
 type Context = {|
@@ -48,6 +49,7 @@ type ASTNodes = {|
   +'Program:exit'?: (node: Program) => void,
   +'Property'?: (node: Property) => void,
   +'Property:exit'?: (node: Property) => void,
+  +'TaggedTemplateExpression'?: (node: any) => void, // TODO
   +'TypeAlias'?: (node: TypeAlias) => void,
   +'VariableDeclarator'?: (node: _VariableDeclarator) => void,
 |};

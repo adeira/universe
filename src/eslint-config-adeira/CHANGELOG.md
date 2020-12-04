@@ -1,6 +1,7 @@
 # Unreleased
 
 - Disabled rule `relay/graphql-naming` which is no longer accurate. We might enable it later again once this issue gets resolved: https://github.com/relayjs/eslint-plugin-relay/issues/107
+- Rule [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) now ignores argument with special name `_`. This is handy when you really want to have some unused argument there (for example because your typechecker expects it).
 
 # 4.1.0
 
