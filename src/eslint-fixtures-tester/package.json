@@ -1,0 +1,18 @@
+{
+  "name": "@adeira/eslint-fixtures-tester",
+  "version": "0.0.0",
+  "main": "src/index",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@adeira/flow-types-eslint": "0.0.0",
+    "@adeira/js": "^1.3.0",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
+    "eslint": "^7.14.0",
+    "jest-docblock": "^26.0.0"
+  },
+  "peerDependencies": {
+    "eslint": "^7.14.0"
+  }
+}

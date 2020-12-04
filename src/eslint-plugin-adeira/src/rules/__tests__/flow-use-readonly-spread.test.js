@@ -1,72 +1,14 @@
 // @flow
 
-const RuleTester = require('eslint').RuleTester;
+import path from 'path';
+import testFixtures from '@adeira/eslint-fixtures-tester';
 
-const rule = require('../flow-use-readonly-spread');
+const fixturesPath = path.join(__dirname, 'fixtures', 'flow-use-readonly-spread');
+const validFixturesPath = path.join(fixturesPath, 'valid');
+const invalidFixturesPath = path.join(fixturesPath, 'invalid');
 
-const ruleTester = new RuleTester({
-  parser: require.resolve('babel-eslint'),
-});
-
-ruleTester.run('flow-use-readonly-spread', rule, {
-  valid: [
-    `
-    type Identifier = $ReadOnly<{|
-      ...INode,
-      +name: string,
-    |}>;
-`,
-    `
-    type Identifier = $ReadOnly<{|
-      ...INode,
-      -name: string,
-    |}>;
-`,
-    `
-    type Identifier = $ReadOnly<{|
-      ...INode,
-      name: string,
-    |}>;
-`,
-    `
-    type Identifier = {|
-      ...INode,
-      name: string,
-    |};
-`,
-    `
-    type Identifier = {|
-      ...INode,
-      name: string,
-      +surname: string,
-    |};
-`,
-    `
-    type Identifier = {|
-      +name: string,
-    |};
-`,
-  ],
-
-  invalid: [
-    {
-      code: `
-        type Identifier = {|
-          ...INode,
-          +aaa: string,
-        |};
-      `,
-      errors: [{ messageId: 'readonlySpread' }],
-    },
-    {
-      code: `
-        type Identifier = {|
-          ...INode,
-          +aaa: string,
-          +bbb: string,
-        |};
-      `,
-      errors: [{ messageId: 'readonlySpread' }],
-    },
-  ],
+testFixtures({
+  rule: require('../flow-use-readonly-spread'),
+  validFixturesPath,
+  invalidFixturesPath,
 });
