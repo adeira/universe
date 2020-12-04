@@ -4,7 +4,6 @@ use crate::sdui_component::SDUIComponent;
 use crate::sdui_section::SDUISection;
 use arangodb::connection;
 
-/// Note: this function doesn't return `section.component` on purpose.
 pub async fn get_all_sections_for_entrypoint_key(
     entrypoint_key: String,
 ) -> Result<Vec<SDUISection>, ModelError> {
@@ -16,15 +15,11 @@ pub async fn get_all_sections_for_entrypoint_key(
         .query(
             "
             FOR section IN 1..1 OUTBOUND @entrypoint_id entrypoint_sections
-            LET component = section.component
             SORT section.order ASC
-            RETURN {
-                id: section._id,
-            }
+            RETURN section
             ",
         )
         .bind_var("entrypoint_id", entrypoint._id.to_string())
-        .batch_size(1)
         .build();
 
     match db.aql_query::<SDUISection>(aql).await {
@@ -33,39 +28,32 @@ pub async fn get_all_sections_for_entrypoint_key(
     }
 }
 
-pub async fn get_section_component(
+pub async fn get_section_components(
     section_id: String,
     supported: Vec<String>,
-) -> Result<SDUIComponent, ModelError> {
+) -> Result<Vec<SDUIComponent>, ModelError> {
     let conn = connection().await;
     let db = conn.db("ya-comiste").await.unwrap();
 
-    // TODO: change the component ID to be unique (how to 🤔)
     let aql = arangors::AqlQuery::builder()
         .query(
             "
-            LET section = DOCUMENT(@section_id)
-            LET component = section.component
+            FOR component IN 1..1 OUTBOUND @section_id section_components
             FILTER component.typename IN @supported_typenames
             LIMIT 1
             RETURN {
-                typename: component.typename,
-                id: CONCAT(section._id, '~', component.typename),
+                _serde_union_tag: component.typename,
+                _serde_union_content: component,
             }
             ",
         )
         .bind_var("section_id", section_id)
         .bind_var("supported_typenames", supported)
-        .batch_size(1)
         .build();
 
-    match db.aql_query::<SDUIComponent>(aql).await {
-        Ok(r) => match r.first() {
-            Some(first) => Ok(first.to_owned()),
-            None => Err(ModelError::LogicError(
-                "no supported component available".to_string(),
-            )),
-        },
+    let result = db.aql_query::<SDUIComponent>(aql).await;
+    match result {
+        Ok(r) => Ok(r),
         Err(e) => Err(ModelError::DatabaseError(e)),
     }
 }
