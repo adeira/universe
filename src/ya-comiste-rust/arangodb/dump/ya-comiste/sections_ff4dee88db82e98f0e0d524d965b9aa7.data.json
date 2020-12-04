@@ -1,2 +1,2 @@
-{"type":2300,"data":{"_key":"9810","_id":"sections/9810","_rev":"_bff1zcW---","section_order":1,"title":"Places nearby","type":"SDUIScrollViewHorizontalComponent"}}
-{"type":2300,"data":{"_key":"10771","_id":"sections/10771","_rev":"_bff2ICi---","section_order":2,"title":"Bakeries nearby","type":"SDUIScrollViewHorizontalComponent"}}
+{"type":2300,"data":{"_key":"9810","_id":"sections/9810","_rev":"_bgLK4YO---","order":1,"component":{"typename":"SDUIScrollViewHorizontalComponent"}}}
+{"type":2300,"data":{"_key":"10771","_id":"sections/10771","_rev":"_bgLL-8W---","order":2,"component":{"typename":"SDUIScrollViewHorizontalComponent"}}}

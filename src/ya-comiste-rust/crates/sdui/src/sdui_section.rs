@@ -1,9 +1,11 @@
+use crate::model::sdui_sections::get_section_component;
+use crate::sdui_component::SDUIComponent;
 use graphql::graphql_context::Context;
 
 #[derive(Clone, Debug, serde::Deserialize)]
 pub struct SDUISection {
-    pub id: juniper::ID,
-    pub title: String,
+    pub id: String,
+    pub component: Option<SDUIComponent>,
 }
 
 // impl SDUISection {
@@ -14,12 +16,15 @@ pub struct SDUISection {
 
 #[juniper::graphql_object(context = Context)]
 impl SDUISection {
-    #[graphql(description = "GraphQL description 🤯")]
-    fn id(&self) -> &str {
-        &self.id
+    fn id(&self) -> juniper::ID {
+        juniper::ID::new(&self.id)
     }
 
-    fn title(&self) -> &str {
-        &self.title
+    async fn component(&self, supported: Vec<String>) -> Option<SDUIComponent> {
+        // We might get a component which is not supported by the client yet (defined by `supported`).
+        match get_section_component(self.id.to_string(), supported).await {
+            Ok(component) => Some(component),
+            Err(_) => None,
+        }
     }
 }
