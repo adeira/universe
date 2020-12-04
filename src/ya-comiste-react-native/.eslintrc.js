@@ -10,6 +10,5 @@ module.exports = {
   rules: {
     // TODO: use @adeira/relay
     'no-restricted-imports': OFF,
-    'relay/graphql-naming': OFF,
   },
 };

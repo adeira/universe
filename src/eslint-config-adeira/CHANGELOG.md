@@ -1,5 +1,7 @@
 # Unreleased
 
+- Disabled rule `relay/graphql-naming` which is no longer accurate. We might enable it later again once this issue gets resolved: https://github.com/relayjs/eslint-plugin-relay/issues/107
+
 # 4.1.0
 
 - Enable [`node/process-exit-as-throw`](https://github.com/mysticatea/eslint-plugin-node/blob/master/docs/rules/process-exit-as-throw.md) rule. This is potentially breaking, however, the impact should be minimal and the migration simple. Let us know in case it caused troubles, please.
