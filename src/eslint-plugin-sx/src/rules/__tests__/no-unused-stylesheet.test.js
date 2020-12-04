@@ -3,9 +3,9 @@
 import path from 'path';
 import { RuleTester } from 'eslint';
 import { codeFrameColumns } from '@babel/code-frame';
+import testFixtures from '@adeira/eslint-fixtures-tester';
 
 import normalizeIndent from './normalizeIndent';
-import testFixtures from './testFixtures';
 
 const fixturesPath = path.join(__dirname, 'fixtures', 'no-unused-stylesheet');
 const validFixturesPath = path.join(fixturesPath, 'valid');

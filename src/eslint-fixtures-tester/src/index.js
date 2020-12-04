@@ -72,7 +72,7 @@ export default function testFixtures({
   }
 
   const ruleTester = new RuleTester({
-    parser: require.resolve('babel-eslint'),
+    parser: require.resolve('@babel/eslint-parser'),
   });
 
   ruleTester.run('no-unused-stylesheet', rule, {
