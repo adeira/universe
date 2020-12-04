@@ -8,7 +8,7 @@ use warp::Filter;
 
 #[tokio::main]
 async fn main() {
-    std::env::set_var("RUST_LOG", "warp_server");
+    std::env::set_var("RUST_LOG", "warp_server,arangors=trace");
     env_logger::init();
 
     let state = warp::any().map(|| Context);

@@ -39,6 +39,12 @@ Example query:
       ... on SDUICardComponent {
         id
       }
+      ... on SDUIDescriptionComponent {
+        id
+      }
+      ... on SDUIJumbotronComponent {
+        id
+      }
       ... on SDUIScrollViewHorizontalComponent {
         id
       }
