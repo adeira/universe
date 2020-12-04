@@ -97,4 +97,4 @@ It is possible to fetch both ID versions at the same time in GraphQL:
 
 This is handy especially when you are migrating old code to this new type. Just change something like deprecated `databaseID` to `databaseID: id(opaque: false)` and that's it.
 
-Generally speaking, it's a bad practice to fetch `id(opaque: false)` without aliasing it! It's because it could lead to unexpected side effects in consistency of your UI. Always use the opaque ID for cache key (never the non-opaque version). Remember, the non-opaque ID is not guaranteed to be globally unique.
+**Important note:** it's a bad practice to fetch `id(opaque: false)` without aliasing it! It's because it could lead to unexpected side effects in consistency of your UI. Always use the opaque ID for cache key (never the non-opaque version). Remember, the non-opaque ID is not guaranteed to be globally unique. Our [`@adeira/eslint-config`](https://github.com/adeira/eslint-config-adeira) can help you to catch this mistake.
