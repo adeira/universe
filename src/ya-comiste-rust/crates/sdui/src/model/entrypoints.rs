@@ -10,10 +10,7 @@ pub async fn get_all_entrypoints() -> Result<Vec<Entrypoint>, ModelError> {
         .query(
             "
             FOR entrypoint IN entrypoints
-            RETURN {
-                _id: entrypoint._id,
-                _key: entrypoint._key,
-            }
+            RETURN entrypoint
             ",
         )
         .batch_size(1)
@@ -35,14 +32,10 @@ pub async fn get_entrypoint(entrypoint_key: &str) -> Result<Entrypoint, ModelErr
             "
             FOR entrypoint IN entrypoints
             FILTER entrypoint._key == @entrypoint_key
-            RETURN {
-                _id: entrypoint._id,
-                _key: entrypoint._key,
-            }
+            RETURN entrypoint
             ",
         )
         .bind_var("entrypoint_key", entrypoint_key)
-        .batch_size(1)
         .build();
 
     match db.aql_query::<Entrypoint>(aql).await {
