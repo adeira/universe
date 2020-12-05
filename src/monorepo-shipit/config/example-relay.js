@@ -18,6 +18,6 @@ module.exports = ({
     ]);
   },
   getStrippedFiles() {
-    return new Set([/__github__/, /^\.babelrc\.js$/]);
+    return new Set([/__github__/, /^\.babelrc\.js$/, /scripts\/getTranspileWorkspaces.js/]);
   },
 }: ConfigType);
