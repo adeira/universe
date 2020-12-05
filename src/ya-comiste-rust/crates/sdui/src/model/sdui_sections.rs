@@ -2,15 +2,15 @@ use crate::errors::ModelError;
 use crate::model::entrypoints::get_entrypoint;
 use crate::sdui_component::SDUIComponent;
 use crate::sdui_section::SDUISection;
-use arangodb::connection;
 
 pub async fn get_all_sections_for_entrypoint_key(
+    pool: arangodb::ConnectionPool,
     entrypoint_key: String,
 ) -> Result<Vec<SDUISection>, ModelError> {
-    let conn = connection().await;
-    let db = conn.db("ya-comiste").await.unwrap();
+    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
+    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
 
-    let entrypoint = get_entrypoint(&entrypoint_key).await?;
+    let entrypoint = get_entrypoint(pool, &entrypoint_key).await?;
     let aql = arangors::AqlQuery::builder()
         .query(
             "
@@ -29,11 +29,12 @@ pub async fn get_all_sections_for_entrypoint_key(
 }
 
 pub async fn get_section_components(
+    pool: arangodb::ConnectionPool,
     section_id: String,
     supported: Vec<String>,
 ) -> Result<Vec<SDUIComponent>, ModelError> {
-    let conn = connection().await;
-    let db = conn.db("ya-comiste").await.unwrap();
+    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
+    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
 
     let aql = arangors::AqlQuery::builder()
         .query(

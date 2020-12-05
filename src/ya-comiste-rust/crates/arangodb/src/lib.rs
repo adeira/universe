@@ -1,3 +1,5 @@
+mod pool;
+
 const ARANGODB_HOST: &str = "http://127.0.0.1:8529/";
 const NORMAL_USERNAME: &str = "ya-comiste-rust"; // TODO: change!
 const NORMAL_PASSWORD: &str = ""; // TODO: change!
@@ -58,12 +60,18 @@ pub fn get_arangodb_host() -> String {
         .unwrap_or_else(|_| ARANGODB_HOST.to_owned())
 }
 
-pub async fn connection() -> arangors::Connection {
+pub type ConnectionPool = deadpool::managed::Pool<arangors::Connection, arangors::ClientError>;
+pub fn get_database_connection_pool() -> ConnectionPool {
     let host = get_arangodb_host();
-    let user = get_normal_user();
+    let username = get_normal_user();
     let password = get_normal_password();
 
-    arangors::Connection::establish_basic_auth(&host, &user, &password)
-        .await
-        .unwrap()
+    deadpool::managed::Pool::new(
+        pool::ConnectionManager {
+            host,
+            username,
+            password,
+        },
+        16, // maximum number of connections ever created (TODO: what should be the maximum size realistically?)
+    )
 }
