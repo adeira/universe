@@ -3,16 +3,23 @@
 mod graphql_schema;
 
 use crate::graphql_schema::create_graphql_schema;
+use arangodb::get_database_connection_pool;
 use graphql::graphql_context::Context;
 use warp::Filter;
 
 #[tokio::main]
 async fn main() {
-    std::env::set_var("RUST_LOG", "warp_server,arangors=trace");
+    std::env::set_var("RUST_LOG", "warp_server,arangodb=trace");
     env_logger::init();
 
-    let state = warp::any().map(|| Context);
-    let graphql_filter = juniper_warp::make_graphql_filter(create_graphql_schema(), state.boxed());
+    let context_extractor = warp::any()
+        .map(|| Context {
+            pool: get_database_connection_pool(),
+        })
+        .boxed();
+
+    let graphql_filter =
+        juniper_warp::make_graphql_filter(create_graphql_schema(), context_extractor);
     let graphiql_filter = juniper_warp::graphiql_filter("/graphql", None);
 
     let cors = warp::cors().allow_methods(vec!["GET", "POST"]);

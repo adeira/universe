@@ -23,9 +23,15 @@ impl SDUISection {
         juniper::ID::new(&self._id)
     }
 
-    async fn component(&self, supported: Vec<String>) -> FieldResult<Option<SDUIComponent>> {
+    async fn component(
+        &self,
+        supported: Vec<String>,
+        context: &Context,
+    ) -> FieldResult<Option<SDUIComponent>> {
         // We might get a component which is not supported by the client yet (defined by `supported`).
-        let components = get_section_components(self._id.to_string(), supported).await;
+        let connection_pool = context.pool.to_owned();
+        let components =
+            get_section_components(connection_pool, self._id.to_string(), supported).await;
         match components {
             Ok(c) => Ok(match c.first() {
                 Some(component) => Some(component.to_owned()),
