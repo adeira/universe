@@ -8,7 +8,7 @@
   "main": "index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/monorepo-utils": "^0.9.0",
+    "@adeira/monorepo-utils": "^0.10.0",
     "@babel/code-frame": "^7.10.4",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.5",
