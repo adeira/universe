@@ -203,6 +203,8 @@ It is also possible to enforce one specific timezone with `TZ` environment varia
 TZ=Africa/Addis_Ababa monorepo-run-tests
 ```
 
+If you specifically want to test all files you can run `yarn run monorepo-run-tests --all`. The test runner will also run all tests when it detects changes to `.jest.config.js`, or any files specified at `setupFiles` and `setupFilesAfterEnv`. Note that it will only look for changes at the root level and not setup files registered under `projects.setupFilesAfterEnv`.
+
 ## Binary `monorepo-babel-node`
 
 **Do not use this in production!** ([more details](https://babeljs.io/docs/en/babel-node#not-meant-for-production-use))

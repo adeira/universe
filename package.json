@@ -33,7 +33,7 @@
     "lint": "eslint --config=.eslintrc.js --print-config=babel.config.js | yarn run eslint-config-prettier-check && yarn run prettier --check \"src/**/*.md\" && yarn run jest --config=.jest-eslint.config.js",
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run typecheck && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
-    "test-only": "BABEL_TYPES_8_BREAKING=true yarn run monorepo-babel-node src/monorepo-utils/bin/monorepo-run-tests.js",
+    "test-only": "src/monorepo-utils/bin/monorepo-run-tests.js",
     "typecheck": "yarn run typecheck-ios && yarn run typecheck-android",
     "typecheck-ios": "yarn run adeira-flow-bin --flowconfig-name=.flowconfig.ios",
     "typecheck-android": "yarn run adeira-flow-bin --flowconfig-name=.flowconfig.android"
