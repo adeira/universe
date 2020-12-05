@@ -82,7 +82,11 @@ type CINode = {|
  * Hopefully, this is going to be resolved and then we can completely remove
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
-export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
+export function runTests(
+  externalConfig: ExternalConfig,
+  ciNode: CINode,
+  setupFiles: $ReadOnlyArray<string>,
+) {
   if (externalConfig.some((option) => /^(?!--).+/.test(option))) {
     // user passed something that is not an option (probably tests regexp)
     // so we give it precedence before our algorithm
@@ -93,6 +97,14 @@ export function runTests(externalConfig: ExternalConfig, ciNode: CINode) {
   const workspaceDependencies = getWorkspaceDependencies();
 
   const changedFiles = getChangedFiles();
+
+  if (changedFiles.some((file) => setupFiles.includes(file))) {
+    // eslint-disable-next-line no-console
+    console.warn('DETECTED CHANGE IN CONFIG FILE. RUNNING ALL TESTS');
+    runAllTests(externalConfig, ciNode);
+    return;
+  }
+
   const pathsToTest = findPathsToTest(workspaceDependencies, changedFiles);
 
   if (pathsToTest.size > 0 || changedFiles.length > 0) {

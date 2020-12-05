@@ -45,6 +45,7 @@ module.exports = {
   reporters: ['default'],
   rootDir: __dirname,
   verbose: false,
+  setupFilesAfterEnv: commonProjectConfig.setupFilesAfterEnv, // specified here so it triggers all tests to run if changed.
   projects: Workspaces.getWorkspacesSync().map((packageJSONLocation) => {
     const packageJSON = require(packageJSONLocation);
     const workspaceDirname = path.dirname(packageJSONLocation);
