@@ -9,7 +9,7 @@ build_yarn_workspace(
 test_yarn_workspace(
     name = "test",
     deps = [
-        "@npm//babel-eslint",
+        "@npm//@babel/eslint-parser",
         "@npm//eslint",
         "@npm//fast-levenshtein",
     ],

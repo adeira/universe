@@ -5,7 +5,7 @@ const RuleTester = require('eslint').RuleTester;
 const rule = require('../relay-import-no-values');
 
 const ruleTester = new RuleTester({
-  parser: require.resolve('babel-eslint'),
+  parser: require.resolve('@babel/eslint-parser'),
 });
 
 ruleTester.run('no-values', rule, {
