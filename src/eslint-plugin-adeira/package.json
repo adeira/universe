@@ -1,10 +1,10 @@
 {
   "name": "eslint-plugin-adeira",
-  "description": "Additional Eslint rules for Adeira projects. Do not use directly - use @adeira/eslint-config instead.",
+  "description": "Additional Eslint rules for Adeira projects. Prefer to use @adeira/eslint-config instead.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira",
   "license": "MIT",
   "private": false,
-  "version": "0.11.0",
+  "version": "0.12.0",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
@@ -14,6 +14,7 @@
   "devDependencies": {
     "@adeira/eslint-fixtures-tester": "0.0.0",
     "@adeira/flow-types-eslint": "0.0.0",
+    "@babel/eslint-parser": "^7.12.1",
     "eslint": "^7.14.0"
   },
   "peerDependencies": {
