@@ -74,8 +74,8 @@ export default class ShipitConfig {
         ch4,
         new Set([
           // These files are being stripped by default. It's currently not configurable.
-          /BUILD(?:\.bazel)?$/,
-          /WORKSPACE(?:\.bazel)?$/,
+          /^BUILD(?:\.bazel)?$/,
+          /^WORKSPACE(?:\.bazel)?$/,
         ]),
       );
 
