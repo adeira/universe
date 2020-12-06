@@ -26,4 +26,5 @@ testExportedPaths(path.join(__dirname, '..', 'example-relay.js'), [
   ['src/example-relay/WORKSPACE.bazel', undefined], // correctly deleted
   ['src/example-relay/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
+  ['src/example-relay/scripts/getTranspileWorkspaces.js', undefined], // correctly deleted
 ]);
