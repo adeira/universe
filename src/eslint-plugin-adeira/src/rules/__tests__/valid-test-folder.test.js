@@ -5,7 +5,7 @@ const RuleTester = require('eslint').RuleTester;
 const rule = require('../valid-test-folder');
 
 const ruleTester = new RuleTester({
-  parser: require.resolve('babel-eslint'),
+  parser: require.resolve('@babel/eslint-parser'),
 });
 
 ruleTester.run('valid-test-folder', rule, {
