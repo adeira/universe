@@ -1,0 +1,30 @@
+diff --git a/src/ya-comiste-react-native/ios/YaComiste/Images.xcassets/Logo (no background).imageset/Contents.json b/src/ya-comiste-react-native/ios/YaComiste/Images.xcassets/Logo (no background).imageset/Contents.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..fb7887c2e2ec937f47e9a58a22ffc8fd705379ff
+--- /dev/null
++++ b/src/ya-comiste-react-native/ios/YaComiste/Images.xcassets/Logo (no background).imageset/Contents.json
+@@ -0,0 +1,21 @@
++{
++  "images" : [
++    {
++      "idiom" : "universal",
++      "scale" : "1x"
++    },
++    {
++      "idiom" : "universal",
++      "scale" : "2x"
++    },
++    {
++      "filename" : "100.png",
++      "idiom" : "universal",
++      "scale" : "3x"
++    }
++  ],
++  "info" : {
++    "author" : "xcode",
++    "version" : 1
++  }
++}
+--
+2.9.3
+
