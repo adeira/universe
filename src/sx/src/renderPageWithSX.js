@@ -1,6 +1,8 @@
 // @flow
 
 import type { Node } from 'react';
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
 
 import StyleCollector from './StyleCollector';
 
@@ -14,6 +16,8 @@ type RenderPageResult = {|
 export default function renderPageWithSX(renderPage: () => any): RenderPageResult {
   const html = renderPage();
 
+  const cssStyles = postcss([autoprefixer]).process(StyleCollector.print()).css;
+
   return {
     ...html,
     styles: [
@@ -21,7 +25,7 @@ export default function renderPageWithSX(renderPage: () => any): RenderPageResul
       <style
         key="adeira-sx"
         data-adeira-sx={true}
-        dangerouslySetInnerHTML={{ __html: StyleCollector.print() }}
+        dangerouslySetInnerHTML={{ __html: cssStyles }}
       />,
     ],
   };

@@ -3,6 +3,8 @@
 /* global document */
 
 import { invariant, warning } from '@adeira/js';
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
 
 import StyleCollectorAtNode from './StyleCollectorAtNode';
 import StyleCollectorNode from './StyleCollectorNode';
@@ -65,6 +67,7 @@ export function injectRuntimeKeyframes(css: string, name: string) {
 // https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model
 export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
   const styleSheet = getStyleTag();
+  const prefixer = postcss([autoprefixer]);
 
   const matchFunction = (node) => (cssRule) => {
     if (cssRule.type === CSSRule.STYLE_RULE) {
@@ -82,16 +85,19 @@ export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
     if (node instanceof StyleCollectorNode) {
       if (hasStyleRule(matchFunction(node)) === false) {
         // apply missing styles
-        styleSheet.insertRule(node.printNodes().join(''), insertIndex);
+        const rule = prefixer.process(node.printNodes().join('')).css;
+        styleSheet.insertRule(rule, insertIndex);
       }
     } else if (node instanceof StyleCollectorAtNode) {
       // TODO: make sure we are not adding already added styles (?)
-      styleSheet.insertRule(node.printNodes().join(''), insertIndex);
+      const rule = prefixer.process(node.printNodes().join('')).css;
+      styleSheet.insertRule(rule, insertIndex);
     } else if (node instanceof StyleCollectorPseudoNode) {
       const nodes = node.printNodes();
       for (const nodeElement of nodes) {
         // TODO: make sure we are not adding already added styles (?)
-        styleSheet.insertRule(nodeElement, insertIndex);
+        const rule = prefixer.process(nodeElement).css;
+        styleSheet.insertRule(rule, insertIndex);
       }
     } else {
       warning(false, 'Node not supported in runtime styles: %j', node);

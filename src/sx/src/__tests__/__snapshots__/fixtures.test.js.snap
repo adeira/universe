@@ -36,8 +36,7 @@ exports[`matches expected output: @supports.js 1`] = `
     color: #f00;
   }
 }
-@supports (transform-style: preserve) or (-moz-transform-style: preserve) or
-  (-o-transform-style: preserve) or (-webkit-transform-style: preserve) {
+@supports (transform-style: preserve) or (-webkit-transform-style: preserve) {
   ._2gYAIc._2gYAIc {
     color: #f00;
   }
@@ -111,6 +110,27 @@ exports[`matches expected output: @unknown.js 1`] = `
 Invariant Violation: Unsupported rule "@unknown"
 `;
 
+exports[`matches expected output: autoprefix.js 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+{
+  "title": {
+    "backgroundClip": "text"
+  }
+}
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+._2D4soO {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+~~~~~~~~~~ USAGE ~~~~~~~~~~
+
+className={styles('title')}
+  ↓ ↓ ↓
+class="_2D4soO"
+
+`;
+
 exports[`matches expected output: keyframes-from-to.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
@@ -120,7 +140,16 @@ exports[`matches expected output: keyframes-from-to.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 .P4y5l {
+  -webkit-animation-name: _2rMlJa;
   animation-name: _2rMlJa;
+}
+@-webkit-keyframes _2rMlJa {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes _2rMlJa {
   from {
@@ -148,7 +177,19 @@ exports[`matches expected output: keyframes-percentage.js 1`] = `
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 ._4BANPA {
+  -webkit-animation-name: gg1lu;
   animation-name: gg1lu;
+}
+@-webkit-keyframes gg1lu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.7;
+  }
 }
 @keyframes gg1lu {
   0% {

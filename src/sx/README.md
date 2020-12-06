@@ -8,6 +8,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [Keyframes](#keyframes)
   - [Composability and customizability](#composability-and-customizability)
   - [Precise Flow types](#precise-flow-types)
+  - [Autoprefixer support](#autoprefixer-support)
 - [Production usage considerations](#production-usage-considerations)
 - [Server-side rendering](#server-side-rendering)
 - [Architecture](#architecture)
@@ -319,6 +320,29 @@ const styles = sx.create({
 ```
 
 Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries or CSS variables - they cannot be statically analyzed. These situations are usually complemented with runtime checks and eventually even Eslint rules.
+
+### Autoprefixer support
+
+Vendor prefixes are automatically added whenever needed.
+
+```js
+const styles = sx.create({
+  title: {
+    backgroundClip: 'text',
+  },
+});
+```
+
+The example above will generate CSS like this:
+
+```css
+._2D4soO {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+```
+
+This feature is provided by [Autoprefixer](https://github.com/postcss/autoprefixer) so [you can specify](https://github.com/postcss/autoprefixer#browsers) the browsers you want to support.
 
 ## Production usage considerations
 

@@ -192,7 +192,7 @@ it('works with keyframes', () => {
     <style
       data-adeira-sx="true"
     >
-      .P4y5l{animation-name:_2rMlJa}.HDQox{animation-duration:2s}@keyframes _2rMlJa {from {opacity:0;}to {opacity:1;}}
+      .P4y5l{-webkit-animation-name:_2rMlJa;animation-name:_2rMlJa}.HDQox{-webkit-animation-duration:2s;animation-duration:2s}@-webkit-keyframes _2rMlJa {from {opacity:0;}to {opacity:1;}}@keyframes _2rMlJa {from {opacity:0;}to {opacity:1;}}
     </style>
   `);
 });
