@@ -5,7 +5,7 @@ import { invariant } from '@adeira/js';
 import RepoGit from '../RepoGit';
 
 export default function createCheckCorruptedRepoPhase(repoPath: string): () => void {
-  return () => {
+  const phase = function () {
     const repo = new RepoGit(repoPath);
 
     // We should eventually nuke the repo and clone it again. But we do not
@@ -13,4 +13,7 @@ export default function createCheckCorruptedRepoPhase(repoPath: string): () => v
     // to nuke monorepo in CI.
     invariant(repo.isCorrupted() === false, `Repo located in '${repoPath}' is corrupted.`);
   };
+
+  phase.readableName = 'Check if repository is corrupted';
+  return phase;
 }

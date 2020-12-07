@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import Changeset from '../Changeset';
 
@@ -10,15 +10,13 @@ test('immutability of the changesets', () => {
     .withAuthor('John Doe')
     .withSubject('Subject 1')
     .withDescription('new description')
+    .withDebugMessage('DEBUG %s', 'yadada')
     .withDiffs(
       new Set([
         { path: 'aaa', body: 'AAA' },
         { path: 'bbb', body: 'BBB' },
       ]),
     );
-  const modifiedChangeset2 = modifiedChangeset1
-    .withDescription('even newer description')
-    .withDiffs(new Set([{ path: 'ccc', body: 'CCC' }]));
 
   // everything in the original changeset should be undefined
   expect(originalChangeset).toMatchInlineSnapshot(`Changeset {}`);
@@ -27,6 +25,9 @@ test('immutability of the changesets', () => {
   expect(modifiedChangeset1).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
+      "debugMessages": Array [
+        "DEBUG yadada",
+      ],
       "description": "new description",
       "diffs": Set {
         Object {
@@ -44,10 +45,19 @@ test('immutability of the changesets', () => {
     }
   `);
 
+  const modifiedChangeset2 = modifiedChangeset1
+    .withDescription('even newer description')
+    .withDebugMessage('DEBUG %s', 'should be appended')
+    .withDiffs(new Set([{ path: 'ccc', body: 'CCC' }]));
+
   // should be similar to modified changeset 1 but with some changed values
   expect(modifiedChangeset2).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
+      "debugMessages": Array [
+        "DEBUG yadada",
+        "DEBUG should be appended",
+      ],
       "description": "even newer description",
       "diffs": Set {
         Object {

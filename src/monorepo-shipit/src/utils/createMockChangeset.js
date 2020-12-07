@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import Changeset from '../Changeset';
 import createMockDiff from './createMockDiff';

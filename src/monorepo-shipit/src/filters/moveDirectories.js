@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import _esc from './_esc';
 import Changeset from '../Changeset';
