@@ -47,6 +47,10 @@ Example query:
       }
       ... on SDUIScrollViewHorizontalComponent {
         id
+        cards {
+          id
+          __typename
+        }
       }
     }
   }

@@ -4,6 +4,7 @@ expression: "super::create_graphql_schema().as_schema_language()"
 ---
 type SDUIScrollViewHorizontalComponent {
   id: ID!
+  cards: [SDUICardComponent!]!
 }
 
 type SDUIDescriptionComponent {
