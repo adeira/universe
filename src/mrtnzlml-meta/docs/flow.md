@@ -278,7 +278,8 @@ And now, you can use this new feature:
 
 ```flow js
 enum E1 {
-  A, B
+  A,
+  B,
 }
 
 enum E2 of number {
@@ -318,13 +319,15 @@ E.isValid('A'); // boolean
 
 ## Callable objects
 
-```js
-type MemoizedFactorial = {
-  cache: {
+This type allows you to use the function as a function and as an object at the same time.
+
+```flow js
+type MemoizedFactorial = {|
+  +cache: {
     [number]: number,
   },
-  [[call]](number): number,
-};
+  (number): number,
+|};
 
 const factorial: MemoizedFactorial = (n) => {
   if (!factorial.cache) {
@@ -338,10 +341,25 @@ const factorial: MemoizedFactorial = (n) => {
 };
 ```
 
+See: https://flow.org/en/docs/types/functions/#toc-callable-objects
+
+Alternatively, you can use so called _internal slot property_:
+
+```flow js
+type MemoizedFactorial = {|
+  +cache: {
+    [number]: number,
+  },
+  [[call]](number): number,
+|};
+```
+
 - https://github.com/facebook/flow/pull/7790/files
 - https://github.com/niieani/typescript-vs-flowtype/pull/55/files
 - https://github.com/facebook/flow/commit/954a72704a6338778c940239573045b28c716488
 - https://github.com/facebook/flow/commit/732eae55e102cdb7dfa7b6a85f0147d48c3afed7
+
+Support of internal slot properties in tools like Babel or Eslint is not great though.
 
 ## Interesting Flow commands
 
