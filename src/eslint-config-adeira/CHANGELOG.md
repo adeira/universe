@@ -2,6 +2,12 @@
 
 - Disabled rule `relay/graphql-naming` which is no longer accurate. We might enable it later again once this issue gets resolved: https://github.com/relayjs/eslint-plugin-relay/issues/107
 - Rule [`no-unused-vars`](https://eslint.org/docs/rules/no-unused-vars) now ignores argument with special name `_`. This is handy when you really want to have some unused argument there (for example because your typechecker expects it).
+- Rule [`no-unsafe-optional-chaining`](https://eslint.org/docs/rules/no-unsafe-optional-chaining) enabled (warnings or errors in strict mode). Requires Eslint version >=7.15.0. You should have no issues if you use [`unnecessary-optional-chain`](https://flow.org/en/docs/linting/rule-reference/#toc-unnecessary-optional-chain) Flow lint (highly recommended). Flowconfig example:
+
+  ```ini
+  [lints]
+  unnecessary-optional-chain=error
+  ```
 
 # 4.1.0
 
