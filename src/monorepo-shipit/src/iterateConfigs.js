@@ -43,10 +43,7 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
     // OK can be exported successfully (and not being affected by irrelevant
     // failures).
     try {
-      logger.log(`~~~~~ ${cfg.exportedRepoURL}`);
-      logger.log(`Cloning into: ${cfg.destinationPath}`);
       callback(cfg);
-      logger.log('✅ done');
     } catch (error) {
       throwedErrors.add(new Error(`${cfg.exportedRepoURL}: ${error}`));
     }

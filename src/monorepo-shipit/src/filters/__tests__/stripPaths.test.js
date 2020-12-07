@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import stripPaths from '../stripPaths';
 import Changeset from '../../Changeset';

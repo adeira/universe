@@ -1,4 +1,7 @@
-// @flow strict
+// @flow
+
+import { sprintf } from '@adeira/js';
+import logger from '@adeira/logger';
 
 type Diff = {|
   +path: string,
@@ -12,6 +15,7 @@ opaque type ChangesetData = {|
   +subject: string,
   +description: string,
   +diffs: Set<Diff>,
+  +debugMessages: Array<string>,
 |};
 
 export default class Changeset {
@@ -21,6 +25,7 @@ export default class Changeset {
   subject: string;
   description: string;
   diffs: Set<Diff>;
+  debugMessages: Array<string>;
 
   isValid(): boolean {
     return this.diffs.size > 0;
@@ -78,6 +83,20 @@ export default class Changeset {
     return this.__clone({ diffs });
   }
 
+  withDebugMessage(string: string, ...args: $ReadOnlyArray<string>): Changeset {
+    const messages = this.debugMessages ?? [];
+    return this.__clone({
+      debugMessages: messages.concat(sprintf(string, ...args)),
+    });
+  }
+
+  dumpDebugMessages(): void {
+    logger.log(sprintf('  DEBUG %s (%s)', this.getID(), this.getSubject()));
+    for (const debugMessage of this.debugMessages) {
+      logger.log('    %s', debugMessage);
+    }
+  }
+
   __clone(newProps: { [$Keys<ChangesetData>]: $Values<ChangesetData>, ... }): Changeset {
     return Object.assign(
       Object.create(this),
@@ -88,6 +107,7 @@ export default class Changeset {
         subject: this.subject,
         description: this.description,
         diffs: this.diffs,
+        debugMessages: this.debugMessages,
       },
       newProps,
     );
