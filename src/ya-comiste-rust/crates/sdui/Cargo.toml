@@ -12,4 +12,4 @@ arangodb = { path = "../arangodb" }
 arangors = "0.4.5"
 graphql = { path = "../graphql" }
 juniper = { git = "https://github.com/graphql-rust/juniper" }
-serde = "1.0.117"
+serde = "1.0.118"
