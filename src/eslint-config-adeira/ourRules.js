@@ -51,6 +51,7 @@ module.exports = ({
   'no-unreachable-loop': ERROR,
   'no-unsafe-finally': ERROR,
   'no-unsafe-negation': ERROR,
+  'no-unsafe-optional-chaining': NEXT_VERSION_ERROR,
   'require-atomic-updates': ERROR,
   'use-isnan': [ERROR, { enforceForSwitchCase: true }],
   'valid-jsdoc': OFF,
