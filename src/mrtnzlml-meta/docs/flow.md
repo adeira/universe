@@ -17,6 +17,7 @@ sidebar_label: Flow all-in
 - https://github.com/facebook/flow/issues/7365 (Facebook's own Flow adoption?)
 - https://github.com/lessmess-dev/gen-flow-files
 - Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
+- type checking for `this` annotations in functions: https://github.com/facebook/flow/commit/fb6a836ef7d8d3ae842ac9df67e4c83698cbffb4
 
 Showerthoughts:
 
