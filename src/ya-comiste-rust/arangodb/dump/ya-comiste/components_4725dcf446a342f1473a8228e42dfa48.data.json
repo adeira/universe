@@ -1,2 +1,5 @@
-{"type":2300,"data":{"_key":"150572","_id":"components/150572","_rev":"_bgSOIDO---","typename":"SDUIScrollViewHorizontalComponent","title":"Places nearby"}}
-{"type":2300,"data":{"_key":"153974","_id":"components/153974","_rev":"_bgTSyiy---","typename":"SDUIScrollViewHorizontalComponent","title":"Bakeries nearby"}}
+{"type":2300,"data":{"_key":"222027","_id":"components/222027","_rev":"_bgiv8xa---","typename":"SDUICardComponent"}}
+{"type":2300,"data":{"_key":"150572","_id":"components/150572","_rev":"_bgiwEri---","typename":"SDUIScrollViewHorizontalComponent"}}
+{"type":2300,"data":{"_key":"153974","_id":"components/153974","_rev":"_bgiwLAO---","typename":"SDUIScrollViewHorizontalComponent"}}
+{"type":2300,"data":{"_key":"222078","_id":"components/222078","_rev":"_bgiwpNu---","typename":"SDUICardComponent"}}
+{"type":2300,"data":{"_key":"222094","_id":"components/222094","_rev":"_bgiw396---","typename":"SDUICardComponent"}}
