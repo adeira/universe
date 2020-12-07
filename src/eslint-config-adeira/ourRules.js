@@ -234,6 +234,7 @@ module.exports = ({
   ],
 
   // ECMAScript 6 (http://eslint.org/docs/rules/#ecmascript-6)
+  'arrow-body-style': OFF,
   'constructor-super': ERROR,
   'no-class-assign': WARN,
   'no-const-assign': ERROR,
@@ -246,6 +247,7 @@ module.exports = ({
   'no-useless-constructor': ERROR,
   'no-useless-rename': WARN,
   'no-var': ERROR,
+  'prefer-arrow-callback': OFF,
   'object-shorthand': OFF,
   'prefer-const': [ERROR, { destructuring: 'all' }],
   'prefer-destructuring': OFF,
