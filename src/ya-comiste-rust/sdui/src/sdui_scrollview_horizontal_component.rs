@@ -1,6 +1,6 @@
+use crate::graphql_context::Context;
 use crate::model::scrollview_horizontal::get_card_components;
 use crate::sdui_card_component::SDUICardComponent;
-use graphql::graphql_context::Context;
 use juniper::{FieldError, FieldResult};
 
 #[derive(Clone, Debug, serde::Deserialize)]

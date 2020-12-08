@@ -1,8 +1,8 @@
-use graphql::graphql_context::Context;
+use crate::errors::ModelError;
+use crate::graphql_context::Context;
+use crate::model::sdui_sections::get_all_sections_for_entrypoint_key;
+use crate::sdui_section::SDUISection;
 use juniper::{EmptyMutation, EmptySubscription, FieldError, FieldResult, RootNode};
-use sdui::errors::ModelError;
-use sdui::model::sdui_sections::get_all_sections_for_entrypoint_key;
-use sdui::sdui_section::SDUISection;
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
