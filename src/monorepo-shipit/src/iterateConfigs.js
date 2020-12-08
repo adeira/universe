@@ -17,7 +17,7 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
   });
 
   const monorepoPath = findMonorepoRoot();
-  const throwedErrors = new Set<Error>();
+  const throwedErrors = new Map<string, Error>();
 
   configFiles.forEach((configFile) => {
     const config = requireAndValidateConfig(configFile);
@@ -45,13 +45,14 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
     try {
       callback(cfg);
     } catch (error) {
-      throwedErrors.add(new Error(`${cfg.exportedRepoURL}: ${error}`));
+      throwedErrors.set(cfg.exportedRepoURL, error);
     }
   });
 
   if (throwedErrors.size > 0) {
-    throwedErrors.forEach((error) => {
-      logger.error(error.message);
+    throwedErrors.forEach((error, repoURL) => {
+      logger.error(repoURL, error.name);
+      logger.error(error.stack);
     });
     process.exitCode = 1;
   } else {

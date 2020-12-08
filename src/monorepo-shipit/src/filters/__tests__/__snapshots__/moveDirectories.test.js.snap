@@ -3,7 +3,7 @@
 exports[`handles complex filenames requiring regexp escaping correctly 1`] = `
 Changeset {
   "author": undefined,
-  "debugMessages": undefined,
+  "debugMessages": Array [],
   "description": "MOCKED_HEADER",
   "diffs": Set {
     Object {

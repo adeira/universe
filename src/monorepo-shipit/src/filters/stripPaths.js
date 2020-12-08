@@ -2,18 +2,13 @@
 
 import Changeset from '../Changeset';
 
-function matchesAnyPattern(path: string, stripPatterns: Set<RegExp>, changeset: Changeset) {
+function matchesAnyPattern(path: string, stripPatterns: Set<RegExp>): RegExp | null {
   for (const stripPattern of stripPatterns) {
     if (stripPattern.test(path)) {
-      changeset.withDebugMessage(
-        'STRIP FILE: "%s" matches pattern "%s"',
-        path,
-        stripPattern.toString(),
-      );
-      return true;
+      return stripPattern;
     }
   }
-  return false;
+  return null;
 }
 
 /**
@@ -23,14 +18,23 @@ export default function stripPaths(changeset: Changeset, stripPatterns: Set<RegE
   if (stripPatterns.size === 0) {
     return changeset;
   }
+
+  let newChangeset = changeset;
   const diffs = new Set();
   for (const diff of changeset.getDiffs()) {
     const path = diff.path;
-    if (matchesAnyPattern(path, stripPatterns, changeset)) {
+    const match = matchesAnyPattern(path, stripPatterns);
+    if (match !== null) {
       // stripping because matching pattern was found
+      newChangeset = newChangeset.withDebugMessage(
+        'STRIP FILE: "%s" matches pattern "%s"',
+        path,
+        match.toString(),
+      );
       continue;
     }
     diffs.add(diff);
   }
-  return changeset.withDiffs(diffs);
+
+  return newChangeset.withDiffs(diffs);
 }

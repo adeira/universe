@@ -18,8 +18,12 @@ test('immutability of the changesets', () => {
       ]),
     );
 
-  // everything in the original changeset should be undefined
-  expect(originalChangeset).toMatchInlineSnapshot(`Changeset {}`);
+  // everything in the original changeset should be empty
+  expect(originalChangeset).toMatchInlineSnapshot(`
+    Changeset {
+      "debugMessages": Array [],
+    }
+  `);
 
   // this should have new values
   expect(modifiedChangeset1).toMatchInlineSnapshot(`

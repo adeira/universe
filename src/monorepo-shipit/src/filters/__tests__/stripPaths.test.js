@@ -14,6 +14,9 @@ test.each([
   const changeset = new Changeset().withDiffs(
     new Set(paths.map((path) => ({ path, body: 'placeholder' }))),
   );
-  const diffs = stripPaths(changeset, stripPatterns).getDiffs();
+
+  const newChangeset = stripPaths(changeset, stripPatterns);
+  const diffs = newChangeset.getDiffs();
   expect([...diffs].map((diff) => diff.path)).toEqual(expectedFiles);
+  expect(newChangeset.debugMessages).toMatchSnapshot();
 });

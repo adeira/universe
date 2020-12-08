@@ -3,6 +3,7 @@
 // @flow strict-local
 
 import logger from '@adeira/logger';
+import chalk from 'chalk';
 
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
@@ -26,9 +27,9 @@ iterateConfigs((config) => {
     createVerifyRepoPhase(config),
     createPushPhase(config),
   ]).forEach((phase) => {
-    logger.log('Starting phase: %s', phase.readableName);
+    logger.log(`${chalk.dim('Starting phase:')} %s`, phase.readableName);
     phase();
-    logger.log('Finished phase: %s', phase.readableName);
+    logger.log(`${chalk.dim('Finished phase:')} %s`, phase.readableName);
   });
   logger.log(''); // just to add a new line between each config
 });

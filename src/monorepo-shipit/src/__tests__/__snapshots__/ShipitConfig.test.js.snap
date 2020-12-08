@@ -3,7 +3,9 @@
 exports[`creates and runs the default filters 1`] = `
 Changeset {
   "author": "John Doe <john@doe.com>",
-  "debugMessages": undefined,
+  "debugMessages": Array [
+    "ADD TRACKING DATA: \\"adeira-source-id: 1234567890\\"",
+  ],
   "description": "Test description
 
 adeira-source-id: 1234567890",

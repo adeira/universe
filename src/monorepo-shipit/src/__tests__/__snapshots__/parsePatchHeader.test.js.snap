@@ -14,7 +14,8 @@ Subject: [PATCH] Docs: add Relay and GraphQL related videos from our internal
   "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
   "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
   "subject": "Docs: add Relay and GraphQL related videos from our internal JS Saturday",
-  "description": ""
+  "description": "",
+  "debugMessages": []
 }
 `;
 
@@ -33,7 +34,8 @@ Formerly known as '@mrtnzlml/relay'
   "timestamp": "Mon, 4 Feb 2019 13:29:04 -0600",
   "author": "Automator <adeira@example.com>",
   "subject": "Import and publish '@adeira/relay' (0.1.0)",
-  "description": "Formerly known as '@mrtnzlml/relay'"
+  "description": "Formerly known as '@mrtnzlml/relay'",
+  "debugMessages": []
 }
 `;
 
@@ -50,6 +52,7 @@ Subject: [PATCH] Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 �
   "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
   "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
   "subject": "Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 😅",
-  "description": ""
+  "description": "",
+  "debugMessages": []
 }
 `;

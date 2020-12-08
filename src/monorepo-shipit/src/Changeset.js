@@ -25,7 +25,7 @@ export default class Changeset {
   subject: string;
   description: string;
   diffs: Set<Diff>;
-  debugMessages: Array<string>;
+  debugMessages: Array<string> = [];
 
   isValid(): boolean {
     return this.diffs.size > 0;
@@ -84,7 +84,7 @@ export default class Changeset {
   }
 
   withDebugMessage(string: string, ...args: $ReadOnlyArray<string>): Changeset {
-    const messages = this.debugMessages ?? [];
+    const messages = this.debugMessages;
     return this.__clone({
       debugMessages: messages.concat(sprintf(string, ...args)),
     });
