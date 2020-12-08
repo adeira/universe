@@ -1,7 +1,6 @@
 // @flow strict-local
 
 import { ShellCommand } from '@adeira/monorepo-utils';
-import logger from '@adeira/logger';
 
 import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';
@@ -44,8 +43,6 @@ export default function createImportSyncPhase(
         const filter = config.getDefaultImportitFilter();
         changesets.add(filter(changeset));
       });
-    } else {
-      logger.warn(`Skipping since there are no changes to filter from ${mergeBase}.`);
     }
     return changesets;
   }

@@ -1,33 +1,38 @@
 // @flow strict-local
 
-import stripDescriptions from '../stripDescriptions';
+import addTrackingData from '../addTrackingData';
 import Changeset from '../../Changeset';
 
-it('strips commit descriptions correctly', () => {
+it('adds tracking data', () => {
   const changeset = new Changeset()
+    .withID('MOCK_COMMIT_ID')
     .withAuthor('John Doe')
     .withSubject('Commit subject')
-    .withDescription('This description should be stripped.');
+    .withDescription('Commit description');
 
   expect(changeset).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
       "debugMessages": Array [],
-      "description": "This description should be stripped.",
+      "description": "Commit description",
       "diffs": undefined,
-      "id": undefined,
+      "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
       "timestamp": undefined,
     }
   `);
 
-  expect(stripDescriptions(changeset)).toMatchInlineSnapshot(`
+  expect(addTrackingData(changeset)).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
-      "debugMessages": Array [],
-      "description": "",
+      "debugMessages": Array [
+        "ADD TRACKING DATA: \\"adeira-source-id: MOCK_COMMIT_ID\\"",
+      ],
+      "description": "Commit description
+
+    adeira-source-id: MOCK_COMMIT_ID",
       "diffs": undefined,
-      "id": undefined,
+      "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
       "timestamp": undefined,
     }

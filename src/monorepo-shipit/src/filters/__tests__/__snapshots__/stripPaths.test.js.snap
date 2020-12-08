@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multiple patterns 1`] = `
+Array [
+  "STRIP FILE: \\"foo\\" matches pattern \\"/^foo$/\\"",
+  "STRIP FILE: \\"bar\\" matches pattern \\"/^bar$/\\"",
+]
+`;
+
+exports[`No change 1`] = `Array []`;
+
+exports[`Remove directory 1`] = `
+Array [
+  "STRIP FILE: \\"herp/derp\\" matches pattern \\"/^herp\\\\//\\"",
+  "STRIP FILE: \\"herp/derp-derp\\" matches pattern \\"/^herp\\\\//\\"",
+]
+`;
+
+exports[`Remove file 1`] = `
+Array [
+  "STRIP FILE: \\"herp/derp\\" matches pattern \\"/(?:^|\\\\/)derp(?:\\\\/|$)/\\"",
+  "STRIP FILE: \\"derp\\" matches pattern \\"/(?:^|\\\\/)derp(?:\\\\/|$)/\\"",
+]
+`;
+
+exports[`Remove top level file 1`] = `
+Array [
+  "STRIP FILE: \\"bar\\" matches pattern \\"/^bar$/\\"",
+]
+`;

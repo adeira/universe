@@ -1,7 +1,5 @@
 // @flow strict-local
 
-import logger from '@adeira/logger';
-
 import RepoGit, { type SourceRepo, type DestinationRepo } from '../RepoGit';
 import Changeset from '../Changeset';
 import ShipitConfig from '../ShipitConfig';
@@ -34,8 +32,6 @@ export default function createSyncPhase(config: ShipitConfig): () => void {
       descendantsPath.forEach((revision) => {
         sourceChangesets.add(sourceRepo.getChangesetFromID(revision));
       });
-    } else {
-      logger.warn(`Skipping since there are no changes to filter from ${initialRevision}.`);
     }
     return sourceChangesets;
   }
