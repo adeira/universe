@@ -34,8 +34,8 @@ function command(flowOptions: FlowOptions, ...commandChunks): ShellCommand {
 }
 
 export default class FlowWrapper {
-  static restartServer(flowOptions: FlowOptions): void {
-    command(flowOptions, 'stop').setOutputToScreen().runSynchronously();
+  static stopServer(flowOptions: FlowOptions): number {
+    return command(flowOptions, 'stop').setOutputToScreen().runSynchronously().getExitCode();
   }
 
   static startServerSilently(flowOptions: FlowOptions, runAll: boolean): void {

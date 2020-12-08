@@ -29,8 +29,8 @@ jobs:
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
-          yarn run typecheck-ios --all
-          yarn run typecheck-android --all
+          yarn run adeira-flow-bin --flowconfig-name=.flowconfig
+          yarn run adeira-flow-bin --flowconfig-name=.flowconfig.android
           yarn run lint
           yarn run test-only
           yarn workspace @adeira/example-relay test-bc

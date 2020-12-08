@@ -30,7 +30,9 @@ ${config}
 }
 
 fs.writeFileSync(
-  path.join(__dirname, '..', '.flowconfig.ios'),
+  // for convenience we generate the IOS config without `*.ios` so Flow
+  // can find the config automatically (without specifying --flowconfig-name)
+  path.join(__dirname, '..', '.flowconfig'),
   getFlowconfigTemplate(mergedIOSConfig),
 );
 
