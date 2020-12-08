@@ -9,8 +9,12 @@ pub struct Query;
 
 #[juniper::graphql_object(context = Context)]
 impl Query {
-    async fn mobile_entrypoint_sections(key: String) -> FieldResult<Vec<SDUISection>> {
-        match get_all_sections_for_entrypoint_key(key).await {
+    async fn mobile_entrypoint_sections(
+        key: String,
+        context: &Context,
+    ) -> FieldResult<Vec<SDUISection>> {
+        let connection_pool = context.pool.to_owned();
+        match get_all_sections_for_entrypoint_key(connection_pool, key).await {
             Ok(s) => Ok(s),
             // Err(e) => Err(FieldError::from(e)),
             Err(e) => match e {
