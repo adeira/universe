@@ -25,13 +25,13 @@
     "@adeira/signed-source": "^1.0.0",
     "@babel/register": "^7.12.1",
     "@babel/runtime": "^7.12.5",
-    "babel-plugin-relay": "^10.1.0",
+    "babel-plugin-relay": "^10.1.1",
     "commander": "^6.2.0",
     "is-ci": "^2.0.0",
-    "react-relay": "^10.1.0",
-    "relay-compiler": "^10.1.0",
-    "relay-config": "^10.1.0",
-    "relay-runtime": "^10.1.0"
+    "react-relay": "^10.1.1",
+    "relay-compiler": "^10.1.1",
+    "relay-config": "^10.1.1",
+    "relay-runtime": "^10.1.1"
   },
   "devDependencies": {
     "react": "^17.0.1",
