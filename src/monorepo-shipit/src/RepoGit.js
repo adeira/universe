@@ -4,7 +4,6 @@ import fs from 'fs';
 import path from 'path';
 import { invariant } from '@adeira/js';
 import { ShellCommand, ShellCommandResult } from '@adeira/monorepo-utils';
-import logger from '@adeira/logger';
 
 import parsePatch from './parsePatch';
 import parsePatchHeader from './parsePatchHeader';
@@ -63,7 +62,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   push: (destinationBranch: string) => void = (destinationBranch) => {
-    this._gitCommand('push', 'origin', destinationBranch).setOutputToScreen().runSynchronously();
+    this._gitCommand('push', 'origin', destinationBranch).runSynchronously();
   };
 
   configure: () => void = () => {
@@ -73,7 +72,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       'user.name': username,
     })) {
       // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/2174
-      this._gitCommand('config', key, value).setOutputToScreen().runSynchronously();
+      this._gitCommand('config', key, value).runSynchronously();
     }
   };
 
@@ -83,9 +82,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       'checkout',
       '-B', // create (or switch to) a new branch
       branchName,
-    )
-      .setOutputToScreen()
-      .runSynchronously();
+    ).runSynchronously();
   };
 
   clean: () => void = () => {
@@ -95,9 +92,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       '-f', // force
       '-f', // double force
       '-d', // remove untracked directories in addition to untracked files
-    )
-      .setOutputToScreen()
-      .runSynchronously();
+    ).runSynchronously();
   };
 
   isCorrupted: () => boolean = () => {
@@ -178,7 +173,6 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
   };
 
   getChangesetFromID: (revision: string) => Changeset = (revision) => {
-    logger.log(`Filtering changeset for: ${revision}`);
     const patch = this.getNativePatchFromID(revision);
     const header = this.getNativeHeaderFromIDWithPatch(revision, patch);
     const changeset = this.getChangesetFromExportedPatch(header, patch);
@@ -297,14 +291,10 @@ ${renderedDiffs}
       `--output=${archivePath}`,
       'HEAD', // TODO
       ...roots,
-    )
-      .setOutputToScreen()
-      .runSynchronously();
+    ).runSynchronously();
     // Previously, we used only STDIN but that didn't work for some binary files like images for some reason.
     // So now we create an actual archive and use this instead.
-    return new ShellCommand(exportedRepoPath, 'tar', '-xvf', archivePath)
-      .setOutputToScreen()
-      .runSynchronously();
+    return new ShellCommand(exportedRepoPath, 'tar', '-xvf', archivePath).runSynchronously();
   };
 
   getEmptyTreeHash(): string {

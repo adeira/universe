@@ -1,10 +1,15 @@
-// @flow strict
+// @flow
 
 import Changeset from '../Changeset';
 
-function matchesAnyPattern(path: string, stripPatterns: Set<RegExp>) {
+function matchesAnyPattern(path: string, stripPatterns: Set<RegExp>, changeset: Changeset) {
   for (const stripPattern of stripPatterns) {
     if (stripPattern.test(path)) {
+      changeset.withDebugMessage(
+        'STRIP FILE: "%s" matches pattern "%s"',
+        path,
+        stripPattern.toString(),
+      );
       return true;
     }
   }
@@ -21,7 +26,7 @@ export default function stripPaths(changeset: Changeset, stripPatterns: Set<RegE
   const diffs = new Set();
   for (const diff of changeset.getDiffs()) {
     const path = diff.path;
-    if (matchesAnyPattern(path, stripPatterns)) {
+    if (matchesAnyPattern(path, stripPatterns, changeset)) {
       // stripping because matching pattern was found
       continue;
     }

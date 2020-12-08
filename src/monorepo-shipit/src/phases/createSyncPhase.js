@@ -49,16 +49,20 @@ export default function createSyncPhase(config: ShipitConfig): () => void {
     return filteredChangesets;
   }
 
-  return function () {
+  const phase = function () {
     const destinationRepo = _getDestinationRepo();
     const changesets = getFilteredChangesets();
 
     destinationRepo.checkoutBranch(config.getDestinationBranch());
 
     changesets.forEach((changeset) => {
+      changeset.dumpDebugMessages();
       if (changeset.isValid()) {
         destinationRepo.commitPatch(changeset);
       }
     });
   };
+
+  phase.readableName = 'Synchronize repository';
+  return phase;
 }

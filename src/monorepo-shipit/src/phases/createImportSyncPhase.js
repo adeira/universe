@@ -21,9 +21,7 @@ export default function createImportSyncPhase(
       'fetch',
       'origin',
       `refs/pull/${pullRequestNumber}/head`,
-    )
-      .setOutputToScreen()
-      .runSynchronously();
+    ).runSynchronously();
 
     // 'git rev-parse FETCH_HEAD' to get actual hash
     const mergeBase = new ShellCommand(

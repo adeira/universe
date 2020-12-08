@@ -12,6 +12,7 @@ it('strips commit descriptions correctly', () => {
   expect(changeset).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
+      "debugMessages": undefined,
       "description": "This description should be stripped.",
       "diffs": undefined,
       "id": undefined,
@@ -23,6 +24,7 @@ it('strips commit descriptions correctly', () => {
   expect(stripDescriptions(changeset)).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
+      "debugMessages": undefined,
       "description": "",
       "diffs": undefined,
       "id": undefined,
