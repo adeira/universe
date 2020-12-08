@@ -1,10 +1,12 @@
 use crate::errors::ModelError;
 use crate::sdui_card_component::SDUICardComponent;
-use arangodb::connection;
 
-pub async fn get_card_components(component_id: &str) -> Result<Vec<SDUICardComponent>, ModelError> {
-    let conn = connection().await;
-    let db = conn.db("ya-comiste").await.unwrap();
+pub async fn get_card_components(
+    pool: arangodb::ConnectionPool,
+    component_id: &str,
+) -> Result<Vec<SDUICardComponent>, ModelError> {
+    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
+    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
 
     let aql = arangors::AqlQuery::builder()
         .query(
