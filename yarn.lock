@@ -4616,10 +4616,10 @@ babel-plugin-relay@0.0.0-master-fa1c75d2:
   dependencies:
     babel-plugin-macros "^2.0.0"
 
-babel-plugin-relay@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-10.1.0.tgz#2b3c08089ee8531b139899cb56e8b5296d9ce5c6"
-  integrity sha512-9Z/Smvr/j8hWKNmDUAnTt0qkLpJN4yvKznYLTKKByV0jclyuQIGcDYbxUzzcuJGz4hXBoXGQwBdydrmVatc7sQ==
+babel-plugin-relay@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-10.1.1.tgz#8547a164e00a465dc027528c63fec1a50042a154"
+  integrity sha512-xcM/f1Jt7K7VM0gk0DG3wPr6af8UqLcFOZvghl5sNRlVfDQFHunFvONY6bSNeudJLjnLo/qIZMxCCmosCcUKUw==
   dependencies:
     babel-plugin-macros "^2.0.0"
 
@@ -14989,15 +14989,15 @@ react-relay@0.0.0-master-fa1c75d2:
     nullthrows "^1.1.1"
     relay-runtime "0.0.0-master-fa1c75d2"
 
-react-relay@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-10.1.0.tgz#49c6d34b50cf7f99c3d28327bb804ee9bf756023"
-  integrity sha512-xtjgtrVTxIji2VWtlOA+93eVo3uNtZI1aFgRAOaQ58ITLNB3gMAlFX6V4u25XJKKWCIEL1GmVdGSiZQ0So6zYA==
+react-relay@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-10.1.1.tgz#93d37b6b234d68a320cb4e8f5f442ec1ed76b4d5"
+  integrity sha512-GABUeGpz4a3yu0t2aS84Gwnz2hhaVKhHIw7QBNkNlA9jcCOfSgRZS8iERMS9ia9q9yJgryws+DOJXrrFRrzIiA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
     nullthrows "^1.1.1"
-    relay-runtime "10.1.0"
+    relay-runtime "10.1.1"
 
 react-router-config@^5.1.1:
   version "5.1.1"
@@ -15351,10 +15351,10 @@ relay-compiler@0.0.0-master-fa1c75d2:
     signedsource "^1.0.0"
     yargs "^15.3.1"
 
-relay-compiler@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-10.1.0.tgz#fb4672cdbe9b54869a3a79759edd8c2d91609cbe"
-  integrity sha512-HPqc3N3tNgEgUH5+lTr5lnLbgnsZMt+MRiyS0uAVNhuPY2It0X1ZJG+9qdA3L9IqKFUNwVn6zTO7RArjMZbARQ==
+relay-compiler@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-10.1.1.tgz#215c2b8b597c0b149f0b837f4784de14bb3f4476"
+  integrity sha512-TPxauDIYBnqlIN5QFWPahXoNvQXUR+bWgYljYhk3gSY7ufeLaTLKeuHbW+RXj54AQjyfJBFrHaSSaIn8Qylzwg==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.5.0"
@@ -15369,7 +15369,7 @@ relay-compiler@^10.1.0:
     glob "^7.1.1"
     immutable "~3.7.6"
     nullthrows "^1.1.1"
-    relay-runtime "10.1.0"
+    relay-runtime "10.1.1"
     signedsource "^1.0.0"
     yargs "^15.3.1"
 
@@ -15380,10 +15380,10 @@ relay-config@0.0.0-master-fa1c75d2:
   dependencies:
     cosmiconfig "^5.0.5"
 
-relay-config@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/relay-config/-/relay-config-10.1.0.tgz#a730b959cd5e246290c117b5d3b108d343da8b8d"
-  integrity sha512-/eE0wr/qjVld7MGqavK+GMWYjM+A81ijtjW/ud4y4gE/s6JYQ6ZpPqDKoJ0gNAn0nWKCZkhLC2Yqzu4BCV67sg==
+relay-config@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/relay-config/-/relay-config-10.1.1.tgz#77f2625afbeeb29581569df918a2ffb196026c35"
+  integrity sha512-GR0L+qfECHk6GdIVcrW6RJNQEtJfio2uIITSRwvzMu1V4nUFJ9TBb9S1Dt4qwXkOjVYP8I8MeoUss7eqpsazaQ==
   dependencies:
     cosmiconfig "^5.0.5"
 
@@ -15395,15 +15395,7 @@ relay-runtime@0.0.0-master-fa1c75d2:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.0"
 
-relay-runtime@10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-10.1.0.tgz#4753bf36e95e8d862cef33608e3d98b4ed730d16"
-  integrity sha512-bxznLnQ1ST6APN/cFi7l0FpjbZVchWQjjhj9mAuJBuUqNNCh9uV+UTRhpQF7Q8ycsPp19LHTpVyGhYb0ustuRQ==
-  dependencies:
-    "@babel/runtime" "^7.0.0"
-    fbjs "^3.0.0"
-
-relay-runtime@10.1.1, relay-runtime@^10.1.0:
+relay-runtime@10.1.1, relay-runtime@^10.1.1:
   version "10.1.1"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-10.1.1.tgz#bd5e4645f07fa5cdb5a72868414ad205d48ccc72"
   integrity sha512-kDw1VQiHwJ+rrD6BQBvHsESVeIGAWpmdm7SolClkW3bvt/ZIzqR/GAhCIUE7YZD5TuoEX4umETWksB2/4Mmdxg==
