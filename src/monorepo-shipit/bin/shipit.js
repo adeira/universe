@@ -2,6 +2,8 @@
 
 // @flow strict-local
 
+import logger from '@adeira/logger';
+
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
 import createCheckCorruptedRepoPhase from '../src/phases/createCheckCorruptedRepoPhase';
@@ -10,13 +12,23 @@ import createSyncPhase from '../src/phases/createSyncPhase';
 import createVerifyRepoPhase from '../src/phases/createVerifyRepoPhase';
 import createPushPhase from '../src/phases/createPushPhase';
 
+type Phase = {|
+  (): void,
+  +readableName: string,
+|};
+
 iterateConfigs((config) => {
-  new Set<() => void>([
+  new Set<Phase>([
     createClonePhase(config.exportedRepoURL, config.destinationPath),
     createCheckCorruptedRepoPhase(config.destinationPath),
     createCleanPhase(config.destinationPath),
     createSyncPhase(config),
     createVerifyRepoPhase(config),
     createPushPhase(config),
-  ]).forEach((phase) => phase());
+  ]).forEach((phase) => {
+    logger.log('Starting phase: %s', phase.readableName);
+    phase();
+    logger.log('Finished phase: %s', phase.readableName);
+  });
+  logger.log(''); // just to add a new line between each config
 });

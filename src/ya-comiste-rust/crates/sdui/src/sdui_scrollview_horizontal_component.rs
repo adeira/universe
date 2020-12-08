@@ -16,8 +16,9 @@ impl SDUIScrollViewHorizontalComponent {
         juniper::ID::new(&self._id)
     }
 
-    async fn cards(&self) -> FieldResult<Vec<SDUICardComponent>> {
-        match get_card_components(&self._id).await {
+    async fn cards(&self, context: &Context) -> FieldResult<Vec<SDUICardComponent>> {
+        let connection_pool = context.pool.to_owned();
+        match get_card_components(connection_pool, &self._id).await {
             Ok(components) => Ok(components),
             Err(err) => Err(FieldError::from(err)),
         }

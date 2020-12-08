@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import moveDirectories from '../moveDirectories';
 import moveDirectoriesReverse from '../moveDirectoriesReverse';

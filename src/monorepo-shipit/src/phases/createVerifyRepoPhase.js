@@ -23,7 +23,7 @@ import ShipitConfig from '../ShipitConfig';
  */
 export default function createVerifyRepoPhase(config: ShipitConfig): () => void {
   function createNewEmptyRepo(path: string) {
-    new ShellCommand(path, 'git', 'init').setOutputToScreen().runSynchronously();
+    new ShellCommand(path, 'git', 'init').runSynchronously();
     const repo = new RepoGit(path);
     repo.configure();
     return repo;
@@ -39,16 +39,14 @@ export default function createVerifyRepoPhase(config: ShipitConfig): () => void 
 
   const monorepoPath = config.sourcePath;
 
-  return function () {
+  const phase = function () {
     const dirtyExportedRepoPath = getDirtyExportedRepoPath();
     const dirtyExportedRepo = createNewEmptyRepo(dirtyExportedRepoPath);
 
     const monorepo = new RepoGit(monorepoPath);
     monorepo.export(dirtyExportedRepoPath, config.getSourceRoots());
 
-    new ShellCommand(dirtyExportedRepoPath, 'git', 'add', '.', '--force')
-      .setOutputToScreen()
-      .runSynchronously();
+    new ShellCommand(dirtyExportedRepoPath, 'git', 'add', '.', '--force').runSynchronously();
 
     new ShellCommand(
       dirtyExportedRepoPath,
@@ -73,13 +71,9 @@ export default function createVerifyRepoPhase(config: ShipitConfig): () => void 
       'add',
       'shipit_destination',
       config.destinationPath, // notice we don't use URL here but locally updated repo instead
-    )
-      .setOutputToScreen()
-      .runSynchronously();
+    ).runSynchronously();
 
-    new ShellCommand(filteredRepoPath, 'git', 'fetch', 'shipit_destination')
-      .setOutputToScreen()
-      .runSynchronously();
+    new ShellCommand(filteredRepoPath, 'git', 'fetch', 'shipit_destination').runSynchronously();
 
     const diffStats = new ShellCommand(
       filteredRepoPath,
@@ -94,9 +88,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig): () => void 
       .getStdout()
       .trim();
 
-    if (diffStats === '') {
-      logger.log('✅ Exported repo is in SYNC!');
-    } else {
+    if (diffStats !== '') {
       const diff = new ShellCommand(
         filteredRepoPath,
         'git',
@@ -110,7 +102,10 @@ export default function createVerifyRepoPhase(config: ShipitConfig): () => void 
         .runSynchronously()
         .getStdout();
       logger.error(diff);
-      throw new Error('👾 Repository is out of SYNC!');
+      throw new Error('❌ Repository is out of SYNC!');
     }
   };
+
+  phase.readableName = 'Verify integrity of the repository';
+  return phase;
 }

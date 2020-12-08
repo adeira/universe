@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import os from 'os';
 import fs from 'fs';

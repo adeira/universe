@@ -3,6 +3,7 @@
 exports[`creates and runs the default filters 1`] = `
 Changeset {
   "author": "John Doe <john@doe.com>",
+  "debugMessages": undefined,
   "description": "Test description
 
 adeira-source-id: 1234567890",
