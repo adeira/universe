@@ -1,7 +1,11 @@
-// @flow strict
+// @flow
 
-import moveDirectories from '../moveDirectories';
+import fs from 'fs';
+import path from 'path';
+
 import Changeset from '../../Changeset';
+import moveDirectories from '../moveDirectories';
+import RepoGitFake from '../../RepoGitFake';
 
 test.each([
   [
@@ -49,10 +53,32 @@ test.each([
       'aaafile', // this can be a gotcha for someone
     ],
   ],
+  [
+    'path with special regex characters',
+    new Map([['Logo (no background).imageset/', 'logo_no_background_imageset/']]),
+    ['Logo (no background).imageset/Contents.json'],
+    ['logo_no_background_imageset/Contents.json'],
+  ],
 ])('%s', (testName, mapping, inputPaths, expected) => {
   const changeset = new Changeset().withDiffs(
     new Set(inputPaths.map((path) => ({ path, body: 'placeholder' }))),
   );
   const diffs = moveDirectories(changeset, mapping).getDiffs();
   expect([...diffs].map((diff) => diff.path)).toEqual(expected);
+});
+
+it('handles complex filenames requiring regexp escaping correctly', () => {
+  const repo = new RepoGitFake();
+  const patch = fs.readFileSync(path.join(__dirname, 'fixtures', 'new-file-complex.patch'), 'utf8');
+  const changeset = repo.getChangesetFromExportedPatch('MOCKED_HEADER', patch);
+
+  expect(
+    moveDirectories(
+      changeset,
+      new Map([
+        ['src/ya-comiste-react-native/', 'react-native/'],
+        ['src/ya-comiste-rust/', 'rust/'],
+      ]),
+    ),
+  ).toMatchSnapshot();
 });

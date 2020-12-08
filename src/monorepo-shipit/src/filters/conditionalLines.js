@@ -1,12 +1,7 @@
 // @flow strict
 
 import Changeset from '../Changeset';
-
-// https://github.com/lodash/lodash/blob/f8c7064d450cc068144c4dad1d63535cba25ae6d/escapeRegExp.js
-function _e(s) {
-  // RegExp.escape substitute
-  return s.replace(/[\\^$.*+?()[\]{}|]/g, '\\$&');
-}
+import _esc from './_esc';
 
 function process(changeset: Changeset, pattern: RegExp, replacement: string) {
   const diffs = new Set();
@@ -30,7 +25,9 @@ export function commentLines(
   commentEnd: null | string = null,
 ): Changeset {
   const ending = commentEnd === null ? '' : ` ${commentEnd}`;
-  const pattern = new RegExp(`^([-+ ]\\s*)(\\S.*) ${_e(commentStart)} ${_e(marker)}${_e(ending)}$`);
+  const pattern = new RegExp(
+    `^([-+ ]\\s*)(\\S.*) ${_esc(commentStart)} ${_esc(marker)}${_esc(ending)}$`,
+  );
   return process(changeset, pattern, `$1${commentStart} ${marker}: $2${ending}`);
 }
 
@@ -41,6 +38,8 @@ export function uncommentLines(
   commentEnd: null | string = null,
 ): Changeset {
   const ending = commentEnd === null ? '' : ` ${commentEnd}`;
-  const pattern = new RegExp(`^([-+ ]\\s*)${_e(commentStart)} ${_e(marker)}: (.+)${_e(ending)}$`);
+  const pattern = new RegExp(
+    `^([-+ ]\\s*)${_esc(commentStart)} ${_esc(marker)}: (.+)${_esc(ending)}$`,
+  );
   return process(changeset, pattern, `$1$2 ${commentStart} ${marker}${ending}`);
 }
