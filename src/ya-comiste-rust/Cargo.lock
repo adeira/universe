@@ -651,14 +651,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "graphql"
-version = "0.0.0"
-dependencies = [
- "arangodb",
- "juniper",
-]
-
-[[package]]
 name = "graphql-parser"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1597,7 +1589,7 @@ version = "0.0.0"
 dependencies = [
  "arangodb",
  "arangors",
- "graphql",
+ "insta",
  "juniper",
  "serde",
 ]
@@ -1710,16 +1702,11 @@ name = "server"
 version = "0.0.0"
 dependencies = [
  "arangodb",
- "arangors",
  "env_logger",
- "graphql",
- "insta",
  "juniper",
  "juniper_warp",
  "log",
  "sdui",
- "serde",
- "serde_json",
  "tokio 0.2.23",
  "warp",
 ]

@@ -1,6 +1,6 @@
+use crate::graphql_context::Context;
 use crate::model::sdui_sections::get_section_components;
 use crate::sdui_component::SDUIComponent;
-use graphql::graphql_context::Context;
 use juniper::{FieldError, FieldResult};
 
 #[derive(Clone, Debug, serde::Deserialize)]
@@ -10,12 +10,6 @@ pub struct SDUISection {
     _rev: String,
     order: i16, // ±32767
 }
-
-// impl SDUISection {
-//     fn not_exposed_to_graphql(&self) -> &str {
-//         &self.title
-//     }
-// }
 
 #[juniper::graphql_object(context = Context)]
 impl SDUISection {
