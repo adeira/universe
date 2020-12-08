@@ -56,6 +56,25 @@ How?
 
 TKTK (2 approaches: ephemeral Apollo vs. compile time)
 
+## Optimizing GraphQL server DB queries
+
+Quotation from the following source: https://github.com/graphql/graphql-js/issues/623#issuecomment-266851309
+
+> ### Here are some things we do at Facebook:
+> #### Caching
+> First and foremost, we cache as much as possible. All along as I've been saying "load the data" - at Facebook that's usually shorthand for "check the cache first, otherwise load from the database". We invalidate our caches at write time so they can be long-lived. We use tech like memcached (but redis can also be a good option) to save the results of raw database queries.
+> 
+> While memcached and redis are much faster than SQL, they still often require going between services or physical machines, so another layer of cache that you might consider is an in-memory cache in your API service's runtime. This can be trickier to implement though, you'll need a good cache policy and need to ensure you don't leak sensitive data between requests.
+>
+> When using caching, subsequent loads to { post(id: 1) { id, ... } will just be a fast cache lookup (though we still run the access control rules every time). When paginating through lists of things, this layer of caching makes loading the post much cheaper.
+>
+> #### Partial Fetches
+> The initial place to start with fetching data from storage is to load all the data you might need for an object. Maybe that's a SELECT * from SQL, for example. For smaller types, that's probably just fine, but for types with lots of data that might be overkill. Users are often a good example of a type that can end up with a lot of fields of data.
+>
+> One technique we've used before is to only fetch the critical data about a type when first encountering it (typically at least the data required to do access control). Then any fields requested for data loaded in that initial critical load can be returned directly, but if a field is requested that didn't come with the initial data, then a subsequent load is made. For example, since it's not that common to load a Facebook User's birthday, we don't load that information every time we encounter a User.
+
+Another interesting comment: https://github.com/graphql/graphql-js/issues/700#issuecomment-276421515
+
 ## Deprecating queries
 
 > We don't clean up old queries and don't allow breaking changes to the schema (but you can for example start returning null for some fields if a feature is removed).
