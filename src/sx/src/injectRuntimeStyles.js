@@ -3,6 +3,7 @@
 /* global document */
 
 import { invariant, warning } from '@adeira/js';
+import { compile, serialize, stringify, prefixer, middleware } from 'stylis';
 
 import StyleCollectorAtNode from './StyleCollectorAtNode';
 import StyleCollectorNode from './StyleCollectorNode';
@@ -58,7 +59,12 @@ export function injectRuntimeKeyframes(css: string, name: string) {
   };
 
   if (hasStyleRule(matchFunction) === false) {
-    styleSheet.insertRule(css, styleSheet.cssRules.length);
+    const rules = [];
+    serialize(compile(css), middleware([prefixer, (rule) => rules.push(rule)]));
+
+    rules.forEach((rule) => {
+      styleSheet.insertRule(serialize([rule], stringify), styleSheet.cssRules.length);
+    });
   }
 }
 
@@ -82,16 +88,25 @@ export default function injectRuntimeStyles(styleBuffer: StyleBufferType) {
     if (node instanceof StyleCollectorNode) {
       if (hasStyleRule(matchFunction(node)) === false) {
         // apply missing styles
-        styleSheet.insertRule(node.printNodes().join(''), insertIndex);
+        const rule = serialize(
+          compile(node.printNodes({ trailingSemicolon: true }).join('')),
+          middleware([prefixer, stringify]),
+        );
+        styleSheet.insertRule(rule, insertIndex);
       }
     } else if (node instanceof StyleCollectorAtNode) {
       // TODO: make sure we are not adding already added styles (?)
-      styleSheet.insertRule(node.printNodes().join(''), insertIndex);
+      const rule = serialize(
+        compile(node.printNodes({ trailingSemicolon: true }).join('')),
+        middleware([prefixer, stringify]),
+      );
+      styleSheet.insertRule(rule, insertIndex);
     } else if (node instanceof StyleCollectorPseudoNode) {
-      const nodes = node.printNodes();
+      const nodes = node.printNodes({ trailingSemicolon: true });
       for (const nodeElement of nodes) {
         // TODO: make sure we are not adding already added styles (?)
-        styleSheet.insertRule(nodeElement, insertIndex);
+        const rule = serialize(compile(nodeElement), middleware([prefixer, stringify]));
+        styleSheet.insertRule(rule, insertIndex);
       }
     } else {
       warning(false, 'Node not supported in runtime styles: %j', node);

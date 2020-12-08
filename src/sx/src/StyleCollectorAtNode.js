@@ -47,11 +47,10 @@ export default class StyleCollectorAtNode implements StyleCollectorNodeInterface
     return this.atRuleName;
   }
 
-  // eslint-disable-next-line no-unused-vars
   printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
     let output = '';
     this.nodes.forEach((node) => {
-      output += node.printNodes({ bumpSpecificity: true }).join('');
+      output += node.printNodes({ ...config, bumpSpecificity: true }).join('');
     });
     return [`${this.atRuleName}{${output}}`];
   }

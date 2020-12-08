@@ -9,6 +9,7 @@ import Link from '../components/Link';
 import StartingColor, { code as codeStartingColor } from './gradients/StartingColor';
 import EndingColor, { code as codeEndingColor } from './gradients/EndingColor';
 import MiddleColor, { code as codeMiddleColor } from './gradients/MiddleColor';
+import TextBackground, { code as codeTextBackground } from './gradients/TextBackground';
 import Showcase from '../components/Showcase';
 
 export default function Gradients(): Node {
@@ -35,6 +36,11 @@ export default function Gradients(): Node {
       <H2>Middle color</H2>
       <Showcase code={codeMiddleColor}>
         <MiddleColor />
+      </Showcase>
+
+      <H2>Text background</H2>
+      <Showcase code={codeTextBackground}>
+        <TextBackground />
       </Showcase>
     </Layout>
   );
