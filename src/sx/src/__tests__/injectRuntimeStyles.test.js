@@ -23,7 +23,7 @@ it('injects runtime styles', () => {
   expect(styleTag?.sheet?.cssRules).toMatchInlineSnapshot(`
     Array [
       CSSStyleRule {
-        "__ends": 19,
+        "__ends": 20,
         "__starts": 0,
         "parentRule": null,
         "parentStyleSheet": CSSStyleSheet {
@@ -43,7 +43,7 @@ it('injects runtime styles', () => {
         },
       },
       CSSStyleRule {
-        "__ends": 21,
+        "__ends": 22,
         "__starts": 0,
         "parentRule": null,
         "parentStyleSheet": CSSStyleSheet {

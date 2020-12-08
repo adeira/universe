@@ -108,7 +108,7 @@ class StyleCollector {
   print(): string {
     let sxStyle = '';
     this.#styleBuffer.forEach((node) => {
-      sxStyle += node.printNodes().join('');
+      sxStyle += node.printNodes({ trailingSemicolon: true }).join('');
     });
     this.#keyframes.forEach((node) => {
       sxStyle += node;
