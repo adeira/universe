@@ -61,7 +61,12 @@ export default function RelayLazyLogger(logEvent: LogEvent) {
     );
   } else if (
     logEvent.name === 'entrypoint.root.consume' ||
-    logEvent.name === 'execute.info' ||
+    logEvent.name === 'network.complete' ||
+    logEvent.name === 'network.error' ||
+    logEvent.name === 'network.info' ||
+    logEvent.name === 'network.next' ||
+    logEvent.name === 'network.start' ||
+    logEvent.name === 'network.unsubscribe' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
     logEvent.name === 'store.gc' ||

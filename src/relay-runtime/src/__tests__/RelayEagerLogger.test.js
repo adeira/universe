@@ -109,7 +109,7 @@ it("calls event 'execute.error' as expected", () => {
   );
 });
 
-test.each(['execute.info', 'execute.complete', 'execute.unsubscribe'])(
+test.each(['execute.complete', 'execute.unsubscribe'])(
   "calls event '%s' as expected",
   (eventName) => {
     // $FlowExpectedError[speculation-ambiguous]: OK for testing purposes - additional props are being ignored for these events
