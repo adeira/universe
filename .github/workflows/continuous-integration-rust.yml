@@ -7,29 +7,25 @@ on:
       - 'src/ya-comiste-rust/**'
 
 jobs:
-  build-macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2.3.4
+  build-targets-apple-linux:
+    strategy:
+      fail-fast: true
+      matrix:
+        manifest:
+          - 'src/ya-comiste-rust/Cargo.toml'
+        os:
+          - macos-latest
+          - ubuntu-latest
+        include:
+          - os: macos-latest
+            target: x86_64-apple-darwin # 64-bit OSX (10.7+, Lion+)
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu # 64-bit Linux (kernel 2.6.32+, glibc 2.11+)
 
-      # https://github.com/actions-rs/toolchain
-      - uses: actions-rs/toolchain@v1.0.7
-        with:
-          profile: minimal
-          toolchain: stable
-          target: x86_64-apple-darwin # 64-bit OSX (10.7+, Lion+)
+    runs-on: ${{ matrix.os }}
 
-      # https://github.com/actions-rs/cargo
-      - name: Run all tests
-        uses: actions-rs/cargo@v1.0.3
-        with:
-          command: test
-          args: >-
-            --manifest-path src/ya-comiste-rust/Cargo.toml
-            --target x86_64-apple-darwin
-
-  build-linux:
-    runs-on: ubuntu-latest
+    # On Macos we only test the code (to make sure it works for development)
+    # On Linux we also run Clippy and try to build it for production
     steps:
       - uses: actions/checkout@v2.3.4
 
@@ -39,15 +35,16 @@ jobs:
           profile: minimal
           components: clippy
           toolchain: stable
-          target: x86_64-unknown-linux-gnu # 64-bit Linux (kernel 2.6.32+, glibc 2.11+)
+          target: ${{ matrix.target }}
 
       # https://github.com/actions-rs/clippy-check
       - uses: actions-rs/clippy-check@v1.0.7
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           args: >-
-            --manifest-path src/ya-comiste-rust/Cargo.toml
-            --target x86_64-unknown-linux-gnu
+            --manifest-path ${{ matrix.manifest }}
+            --target ${{ matrix.target }}
 
       # https://github.com/actions-rs/cargo
       - name: Run all tests
@@ -55,15 +52,16 @@ jobs:
         with:
           command: test
           args: >-
-            --manifest-path src/ya-comiste-rust/Cargo.toml
-            --target x86_64-unknown-linux-gnu
+            --manifest-path ${{ matrix.manifest }}
+            --target ${{ matrix.target }}
 
       # https://github.com/actions-rs/cargo
       - name: Try to build a release
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: actions-rs/cargo@v1.0.3
         with:
           command: build
           args: >-
-            --manifest-path src/ya-comiste-rust/Cargo.toml
-            --target x86_64-unknown-linux-gnu
+            --manifest-path ${{ matrix.manifest }}
+            --target ${{ matrix.target }}
             --release
