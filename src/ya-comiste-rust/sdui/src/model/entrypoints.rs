@@ -11,9 +11,10 @@ pub async fn get_entrypoint(
     let aql = arangors::AqlQuery::builder()
         .query(
             "
-            FOR entrypoint IN entrypoints
-            FILTER entrypoint._key == @entrypoint_key
-            RETURN entrypoint
+            WITH entrypoints
+            FOR vertex IN entrypoints
+              FILTER vertex._key == @entrypoint_key
+              RETURN vertex
             ",
         )
         .bind_var("entrypoint_key", entrypoint_key)

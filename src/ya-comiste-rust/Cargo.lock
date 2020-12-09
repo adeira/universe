@@ -1591,6 +1591,7 @@ dependencies = [
  "arangors",
  "insta",
  "juniper",
+ "log",
  "serde",
 ]
 

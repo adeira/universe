@@ -72,23 +72,31 @@ Why ArangoDB? At the time of writing, it was essentially the most promising mult
 - `_key` - document's primary key (uniquely identifies a document in the collection it is stored in)
 - `_rev` - document revision
 
+Resources:
+
+- [Best Practices for AQL Graph Queries](https://www.arangodb.com/2020/05/best-practices-for-aql-graph-queries/)
+
 ## Arangodump & Arangorestore
 
-Database backup (empty password):
+Database backup **without** data (empty password):
 
 ```text
 arangodump \
+    --server.password="" \
+    --server.database=ya-comiste \
     --output-directory="src/ya-comiste-rust/__dump" \
-    --all-databases=true \
+    --include-system-collections=true \
     --overwrite=true \
     --compress-output=false \
-    --maskings="src/ya-comiste-rust/__dump/masking.json"
+    --dump-data=true
 ```
+
+Note: `--include-system-collections=true` + `--dump-data=true` is important because we are using named graphs and they are stored in a `_graphs` system collection. Eventually, we should probably split the dump into system exports with data and structural exports of the application. We are also not exporting `_system` DB at all.
 
 Database restore:
 
 ```text
 arangorestore \
     --input-directory="src/ya-comiste-rust/__dump" \
-    --all-databases=true
+    --server.database=ya-comiste
 ```

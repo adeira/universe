@@ -11,9 +11,10 @@ pub async fn get_card_components(
     let aql = arangors::AqlQuery::builder()
         .query(
             "
-            FOR component IN 1..1 OUTBOUND @component_id component_components
-            FILTER component.typename == 'SDUICardComponent'
-            RETURN component
+            WITH component_components, components
+            FOR vertex IN 1..1 OUTBOUND @component_id component_components
+              FILTER vertex.typename == 'SDUICardComponent'
+              RETURN vertex
             ",
         )
         .bind_var("component_id", component_id)
