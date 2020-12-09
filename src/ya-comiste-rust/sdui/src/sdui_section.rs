@@ -8,6 +8,8 @@ pub struct SDUISection {
     _id: String,
     _key: String,
     _rev: String,
+    _from: String,
+    _to: String,
     order: i16, // ±32767
 }
 
@@ -24,12 +26,25 @@ impl SDUISection {
     ) -> FieldResult<Option<SDUIComponent>> {
         // We might get a component which is not supported by the client yet (defined by `supported`).
         let connection_pool = context.pool.to_owned();
-        let components =
-            get_section_components(connection_pool, self._id.to_string(), supported).await;
+        let components = get_section_components(
+            connection_pool,
+            self._from.to_string(),
+            self._id.to_string(),
+            &supported,
+        )
+        .await;
+
         match components {
             Ok(c) => Ok(match c.first() {
                 Some(component) => Some(component.to_owned()),
-                None => None, // TODO: log this missing supported component situation (?)
+                None => {
+                    log::warn!(
+                        "No component found for section ID '{}' and supported selection: {}",
+                        &self._id,
+                        &supported.join(", ")
+                    );
+                    None
+                }
             }),
             Err(e) => Err(FieldError::from(e)),
         }

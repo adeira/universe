@@ -5,7 +5,7 @@ use warp::Filter;
 
 #[tokio::main]
 async fn main() {
-    std::env::set_var("RUST_LOG", "warp_server,arangodb=trace");
+    std::env::set_var("RUST_LOG", "warp_server,arangodb=trace,sdui=info");
     env_logger::init();
 
     let context_extractor = warp::any()
