@@ -24,14 +24,14 @@
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/eslint-config@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.1.0.tgz#a7ff3c870dde4509139437a2f014253e5caf7a76"
-  integrity sha512-HLanC1qeyPXFCWdJRw6bCsSAqnBh0Ru9Gn01fuZGPb/yDx1HbcETkIp48sl0DLQEH/pLDRx7yAanrvqahnc/yw==
+"@adeira/eslint-config@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.2.0.tgz#ee8e1c766908548eb27da71f9e06c01dc8c15ad7"
+  integrity sha512-jWgDmnUbS7mKwyJmFO8ztBNYoxGpfTsfacl6bu+TXnJUl3DARfTOuyH98EaYps4lDY8EQSwhYY7s3BnuuMbXpA==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    eslint-config-prettier "^6.14.0"
-    eslint-plugin-adeira "^0.11.0"
+    eslint-config-prettier "^7.0.0"
+    eslint-plugin-adeira "^0.12.0"
     eslint-plugin-babel "^5.3.1"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-flowtype "^5.2.0"
@@ -41,12 +41,12 @@
     eslint-plugin-monorepo "^0.3.2"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-prefer-object-spread "^1.2.1"
-    eslint-plugin-prettier "^3.1.4"
+    eslint-plugin-prettier "^3.2.0"
     eslint-plugin-react "^7.21.5"
     eslint-plugin-react-hooks "^4.2.0"
     eslint-plugin-relay "^1.8.1"
     eslint-plugin-sx "^0.8.0"
-    prettier "^2.2.0"
+    prettier "^2.2.1"
   optionalDependencies:
     "@adeira/eslint-runner" "^1.0.0"
 
@@ -3677,12 +3677,10 @@ escodegen@^1.14.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^6.14.0:
-  version "6.15.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
-  integrity sha512-a1+kOYLR8wMGustcgAjdydMsQ2A/2ipRPwRKUmfYaSxc9ZPcrku080Ctl6zrZzZNs/U82MjSv+qKREkoq3bJaw==
-  dependencies:
-    get-stdin "^6.0.0"
+eslint-config-prettier@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-7.0.0.tgz#c1ae4106f74e6c0357f44adb076771d032ac0e97"
+  integrity sha512-8Y8lGLVPPZdaNA7JXqnvETVC7IiVRgAP6afQu9gOQRn90YY3otMNh+x7Vr2vMePQntF+5erdSUBqSzCmU/AxaQ==
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -3700,10 +3698,10 @@ eslint-module-utils@^2.1.1, eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-adeira@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.11.0.tgz#0a3491e74ab3f4929118ec4fc184b66530c0418b"
-  integrity sha512-IyyLjiXLpP/xlM8ER+J+Nc06HuVjjb52Q3sUwbI+QN5ZQjch2NMnvGziv7bwC7zsp+qAkwU6UAtoU4UI61i2CQ==
+eslint-plugin-adeira@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.12.0.tgz#c0eda32827fbe3ab205d5256efd9ad02d0f724e4"
+  integrity sha512-SzEXr2Qw9QJ7ebZ9Pdrx44YaS5O53zcQeNy6zaihmjjRhRjlOxDUOr5O0kBcOcSkiqe+4AsYb9aJXrm/4N+aPw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     fast-levenshtein "^3.0.0"
@@ -3812,10 +3810,10 @@ eslint-plugin-prefer-object-spread@^1.2.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-prefer-object-spread/-/eslint-plugin-prefer-object-spread-1.2.1.tgz#27fb91853690cceb3ae6101d9c8aecc6a67a402c"
   integrity sha1-J/uRhTaQzOs65hAdnIrsxqZ6QCw=
 
-eslint-plugin-prettier@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.1.4.tgz#168ab43154e2ea57db992a2cd097c828171f75c2"
-  integrity sha512-jZDa8z76klRqo+TdGDTFJSavwbnWK2ZpqGKNZ+VvweMW516pDUMmQ2koXvxEE4JhzNvTv+radye/bWGBmA6jmg==
+eslint-plugin-prettier@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.2.0.tgz#af391b2226fa0e15c96f36c733f6e9035dbd952c"
+  integrity sha512-kOUSJnFjAUFKwVxuzy6sA5yyMx6+o9ino4gCdShzBNx4eyFRudWRYKCFolKjoM40PEiuU6Cn7wBLfq3WsGg7qg==
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
@@ -4448,11 +4446,6 @@ get-package-type@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/get-package-type/-/get-package-type-0.1.0.tgz#8de2d803cff44df3bc6c456e6668b36c3926e11a"
   integrity sha512-pjzuKtY64GYfWizNAJ0fr9VqttZkNiK2iS430LtIHzjBEr6bX8Am2zm4sW4Ro5wjWW5cAlRL1qAMTcXbjNAO2Q==
-
-get-stdin@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/get-stdin/-/get-stdin-6.0.0.tgz#9e09bf712b360ab9225e812048f71fde9c89657b"
-  integrity sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==
 
 get-stream@^4.0.0:
   version "4.1.0"
@@ -6974,7 +6967,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.1.2, prettier@^2.2.0, prettier@^2.2.1:
+prettier@^2.1.2, prettier@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
