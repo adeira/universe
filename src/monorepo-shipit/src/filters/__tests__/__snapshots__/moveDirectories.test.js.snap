@@ -2,7 +2,6 @@
 
 exports[`handles complex filenames requiring regexp escaping correctly 1`] = `
 Changeset {
-  "author": undefined,
   "debugMessages": Array [],
   "description": "MOCKED_HEADER",
   "diffs": Set {
@@ -37,8 +36,5 @@ index 0000000000000000000000000000000000000000..fb7887c2e2ec937f47e9a58a22ffc8fd
       "path": "react-native/ios/YaComiste/Images.xcassets/Logo (no background).imageset/Contents.json",
     },
   },
-  "id": undefined,
-  "subject": undefined,
-  "timestamp": undefined,
 }
 `;

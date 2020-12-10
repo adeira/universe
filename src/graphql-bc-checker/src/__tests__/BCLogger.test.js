@@ -27,7 +27,7 @@ generateTestsFromFixtures(
   ]),
 );
 
-function stringifyMockCalls<T: $ReadOnlyArray<string>>(calls: T): T {
+function stringifyMockCalls(calls: Array<string>): Array<string> {
   return calls.map((call) => {
     return stripAnsi(call.toString().trim());
   });
