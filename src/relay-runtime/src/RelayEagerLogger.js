@@ -56,14 +56,16 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
       undefined,
       'color:red',
     );
-  } else if (
-    logEvent.name === 'execute.complete' ||
-    logEvent.name === 'execute.info' ||
-    logEvent.name === 'execute.unsubscribe'
-  ) {
+  } else if (logEvent.name === 'execute.complete' || logEvent.name === 'execute.unsubscribe') {
     logGroup(groupMessage);
   } else if (
     logEvent.name === 'entrypoint.root.consume' ||
+    logEvent.name === 'network.complete' ||
+    logEvent.name === 'network.error' ||
+    logEvent.name === 'network.info' ||
+    logEvent.name === 'network.next' ||
+    logEvent.name === 'network.start' ||
+    logEvent.name === 'network.unsubscribe' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
     logEvent.name === 'store.gc' ||

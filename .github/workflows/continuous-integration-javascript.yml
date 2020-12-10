@@ -29,7 +29,8 @@ jobs:
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
-          yarn run typecheck
+          yarn run typecheck-ios --all
+          yarn run typecheck-android --all
           yarn run lint
           yarn run test-only
           yarn workspace @adeira/example-relay test-bc
