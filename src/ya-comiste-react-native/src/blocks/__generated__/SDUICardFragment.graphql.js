@@ -12,7 +12,8 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type SDUICardFragment$ref: FragmentReference;
 declare export opaque type SDUICardFragment$fragmentType: SDUICardFragment$ref;
 export type SDUICardFragment = {|
-  +pageID: string,
+  +entrypointKey: string,
+  +title: string,
   +$refType: SDUICardFragment$ref,
 |};
 export type SDUICardFragment$data = SDUICardFragment;
@@ -34,7 +35,14 @@ const node/*: ReaderFragment*/ = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
-      "name": "pageID",
+      "name": "entrypointKey",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "title",
       "storageKey": null
     }
   ],
@@ -42,6 +50,6 @@ const node/*: ReaderFragment*/ = {
   "abstractKey": null
 };
 // prettier-ignore
-(node/*: any*/).hash = 'a88f4360c36948c355b229be9a766651';
+(node/*: any*/).hash = '35a3c462e69646e28fdf7c9a33823657';
 
 module.exports = node;

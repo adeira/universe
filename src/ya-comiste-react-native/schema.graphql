@@ -1,5 +1,5 @@
 type Query {
-  mobileEntrypointSections(id: String!): [SDUISection!]!
+  mobileEntrypointSections(key: String!): [SDUISection!]!
 }
 
 type SDUISection {
@@ -15,7 +15,8 @@ union SDUIComponent =
 
 type SDUICardComponent {
   id: ID!
-  pageID: String!
+  entrypointKey: String!
+  title: String!
 }
 
 type SDUIDescriptionComponent {

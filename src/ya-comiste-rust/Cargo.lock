@@ -1593,6 +1593,7 @@ dependencies = [
  "juniper",
  "log",
  "serde",
+ "serde_json",
 ]
 
 [[package]]

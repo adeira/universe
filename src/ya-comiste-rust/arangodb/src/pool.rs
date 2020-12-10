@@ -36,19 +36,19 @@ impl Manager<Connection, ClientError> for ConnectionManager {
                         Ok(()) // recycle ✅
                     }
                     _ => {
-                        log::trace!("Unable to recycle the connection (DB response invalid) 🙅");
+                        log::error!("Unable to recycle the connection (DB response invalid) 🙅");
                         Err(RecycleError::Message(
                             "unable to recycle the connection".to_string(),
                         ))
                     }
                 },
                 Err(err) => {
-                    log::trace!("Unable to recycle the connection (DB query unsuccessful) 🙅");
+                    log::error!("Unable to recycle the connection (DB query unsuccessful) 🙅");
                     Err(RecycleError::Message(err.to_string()))
                 }
             },
             Err(err) => {
-                log::trace!("Unable to recycle the connection (DB unreachable) 🙅");
+                log::error!("Unable to recycle the connection (DB unreachable) 🙅");
                 Err(RecycleError::Message(err.to_string()))
             }
         }
