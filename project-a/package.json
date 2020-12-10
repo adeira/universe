@@ -17,7 +17,7 @@
   "dependencies": {
     "@adeira/js": "^1.3.0",
     "@adeira/sx": "^0.21.0",
-    "@babel/register": "^7.12.1",
+    "@babel/register": "^7.12.10",
     "babel-plugin-fbt": "^0.16.0",
     "babel-plugin-fbt-runtime": "^0.9.12",
     "fbt": "^0.16.0",
