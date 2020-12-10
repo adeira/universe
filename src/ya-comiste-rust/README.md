@@ -78,7 +78,7 @@ Resources:
 
 ## Arangodump & Arangorestore
 
-Database backup **without** data (empty password):
+Database backup **with** data (empty password):
 
 ```text
 arangodump \

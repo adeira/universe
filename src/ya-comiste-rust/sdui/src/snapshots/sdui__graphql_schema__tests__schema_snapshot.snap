@@ -4,19 +4,24 @@ expression: "super::create_graphql_schema().as_schema_language()"
 ---
 type SDUIScrollViewHorizontalComponent {
   id: ID!
+  title: String!
   cards: [SDUICardComponent!]!
 }
 
 type SDUIDescriptionComponent {
   id: ID!
+  text: String!
 }
 
 type SDUIJumbotronComponent {
   id: ID!
+  title: String!
 }
 
 type SDUICardComponent {
   id: ID!
+  entrypointKey: String!
+  title: String!
 }
 
 type Query {

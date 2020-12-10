@@ -12,7 +12,7 @@ pub async fn get_card_components(
         .query(
             "
             WITH component_components, components
-            FOR vertex IN 1..1 OUTBOUND @component_id component_components
+            FOR vertex IN 1..1 OUTBOUND @component_id GRAPH sdui
               FILTER vertex.typename == 'SDUICardComponent'
               RETURN vertex
             ",

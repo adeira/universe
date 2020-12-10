@@ -1,15 +1,22 @@
 // @flow
 
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
+import fetch from '@adeira/fetch';
 
-function fetchQuery(operation, variables) {
-  // TODO: specify JSON.schema
-  if (variables.entrypointID === 'com.yaComiste.Explore') {
-    return require('./mocks/com.yaComiste.Explore.json');
-  } else if (variables.entrypointID === 'com.yaComiste.ExploreDetail') {
-    return require('./mocks/com.yaComiste.ExploreDetail.json');
-  }
-  throw new Error(`Relay: unknown operation: ${operation.name}`);
+async function fetchQuery(request, variables) {
+  const response = await fetch('http://127.0.0.1:8080/graphql', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: request.text,
+      variables,
+    }),
+  });
+
+  return response.json();
 }
 
 export default (new Environment({

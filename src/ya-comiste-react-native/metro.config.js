@@ -23,6 +23,7 @@ module.exports = ({
   watchFolders: [
     // root node_modules
     path.resolve(__dirname, '..', '..', 'node_modules'),
+    path.resolve(__dirname, '..', 'fetch'), // @adeira/fetch
     path.resolve(__dirname, '..', 'js'), // @adeira/js
   ],
   transformer: {
