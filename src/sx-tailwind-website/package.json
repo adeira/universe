@@ -22,7 +22,7 @@
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.15.0",
     "@adeira/babel-preset-adeira": "^2.0.0",
     "@babel/core": "^7.12.10",
-    "flow-bin": "^0.138.0"
+    "flow-bin": "^0.140.0"
   },
   "scripts": {
     "dev": "next",

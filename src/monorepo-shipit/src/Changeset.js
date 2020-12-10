@@ -98,18 +98,6 @@ export default class Changeset {
   }
 
   __clone(newProps: { [$Keys<ChangesetData>]: $Values<ChangesetData>, ... }): Changeset {
-    return Object.assign(
-      Object.create(this),
-      {
-        id: this.id,
-        timestamp: this.timestamp,
-        author: this.author,
-        subject: this.subject,
-        description: this.description,
-        diffs: this.diffs,
-        debugMessages: this.debugMessages,
-      },
-      newProps,
-    );
+    return Object.assign(Object.create(Object.getPrototypeOf(this)), this, newProps);
   }
 }

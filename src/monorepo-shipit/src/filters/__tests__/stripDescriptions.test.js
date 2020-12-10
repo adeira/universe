@@ -14,10 +14,7 @@ it('strips commit descriptions correctly', () => {
       "author": "John Doe",
       "debugMessages": Array [],
       "description": "This description should be stripped.",
-      "diffs": undefined,
-      "id": undefined,
       "subject": "Commit subject",
-      "timestamp": undefined,
     }
   `);
 
@@ -26,10 +23,7 @@ it('strips commit descriptions correctly', () => {
       "author": "John Doe",
       "debugMessages": Array [],
       "description": "",
-      "diffs": undefined,
-      "id": undefined,
       "subject": "Commit subject",
-      "timestamp": undefined,
     }
   `);
 });

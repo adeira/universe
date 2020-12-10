@@ -15,10 +15,8 @@ it('adds tracking data', () => {
       "author": "John Doe",
       "debugMessages": Array [],
       "description": "Commit description",
-      "diffs": undefined,
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
-      "timestamp": undefined,
     }
   `);
 
@@ -31,10 +29,8 @@ it('adds tracking data', () => {
       "description": "Commit description
 
     adeira-source-id: MOCK_COMMIT_ID",
-      "diffs": undefined,
       "id": "MOCK_COMMIT_ID",
       "subject": "Commit subject",
-      "timestamp": undefined,
     }
   `);
 });

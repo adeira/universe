@@ -11,11 +11,11 @@ Subject: [PATCH] Docs: add Relay and GraphQL related videos from our internal
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
-  "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
-  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
-  "subject": "Docs: add Relay and GraphQL related videos from our internal JS Saturday",
+  "debugMessages": [],
   "description": "",
-  "debugMessages": []
+  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
+  "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
+  "subject": "Docs: add Relay and GraphQL related videos from our internal JS Saturday"
 }
 `;
 
@@ -31,11 +31,11 @@ Formerly known as '@mrtnzlml/relay'
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
-  "timestamp": "Mon, 4 Feb 2019 13:29:04 -0600",
-  "author": "Automator <adeira@example.com>",
-  "subject": "Import and publish '@adeira/relay' (0.1.0)",
+  "debugMessages": [],
   "description": "Formerly known as '@mrtnzlml/relay'",
-  "debugMessages": []
+  "author": "Automator <adeira@example.com>",
+  "timestamp": "Mon, 4 Feb 2019 13:29:04 -0600",
+  "subject": "Import and publish '@adeira/relay' (0.1.0)"
 }
 `;
 
@@ -49,10 +49,10 @@ Subject: [PATCH] Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 �
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
-  "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
-  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
-  "subject": "Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 😅",
+  "debugMessages": [],
   "description": "",
-  "debugMessages": []
+  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
+  "timestamp": "Wed, 10 Apr 2019 16:50:47 -0500",
+  "subject": "Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 😅"
 }
 `;

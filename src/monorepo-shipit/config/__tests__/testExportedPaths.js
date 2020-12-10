@@ -1,9 +1,5 @@
 // @flow strict-local
 
-import fs from 'fs';
-import path from 'path';
-import { findMonorepoRoot } from '@adeira/monorepo-utils';
-
 import Changeset from '../../src/Changeset';
 import ShipitConfig from '../../src/ShipitConfig';
 import requireAndValidateConfig from '../../src/requireAndValidateConfig';
@@ -19,7 +15,6 @@ export default function testExportedPaths(
   >,
 ) {
   const config = requireAndValidateConfig(configPath);
-  const monorepoRoot = findMonorepoRoot();
 
   test.each(mapping)('mapping: %s -> %s', (input, output) => {
     const defaultFilter = new ShipitConfig(
@@ -36,10 +31,6 @@ export default function testExportedPaths(
     if (output === undefined) {
       expect(...outputDataset.getDiffs()).toBeUndefined();
     } else {
-      // 1. verify the path we are testing actually exists (and therefore the test makes sense)
-      expect(fs.existsSync(path.join(monorepoRoot, input))).toBe(true);
-
-      // 2. make sure it's being exported correctly
       expect(...outputDataset.getDiffs()).toEqual({
         body: 'mocked',
         path: output,
