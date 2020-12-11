@@ -5,8 +5,7 @@ pub async fn get_card_components(
     pool: arangodb::ConnectionPool,
     component_id: &str,
 ) -> Result<Vec<SDUICardComponent>, ModelError> {
-    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
-    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
+    let db = pool.db().await;
 
     let aql = arangors::AqlQuery::builder()
         .query(

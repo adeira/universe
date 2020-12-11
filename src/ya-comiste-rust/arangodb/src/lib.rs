@@ -1,8 +1,11 @@
+use deadpool::managed::Pool;
+
 mod pool;
 
 const ARANGODB_HOST: &str = "http://127.0.0.1:8529/";
 const NORMAL_USERNAME: &str = "ya-comiste-rust"; // TODO: change!
 const NORMAL_PASSWORD: &str = ""; // TODO: change!
+const PRODUCTION_DB_NAME: &str = "ya-comiste";
 
 /// Default ArangoDB (normal) user:
 ///
@@ -60,18 +63,55 @@ pub fn get_arangodb_host() -> String {
         .unwrap_or_else(|_| ARANGODB_HOST.to_owned())
 }
 
-pub type ConnectionPool = deadpool::managed::Pool<arangors::Connection, arangors::ClientError>;
+#[derive(Clone)]
+pub struct ConnectionPool {
+    pub pool: Pool<arangors::Connection, arangors::ClientError>,
+}
+
+type Database = arangors::Database<arangors::client::reqwest::ReqwestClient>;
+
+impl ConnectionPool {
+    pub async fn db(&self) -> Database {
+        let status = &self.pool.status();
+        log::trace!(
+            "Connection pool status: max_size={}, size={}, available={}",
+            // The maximum size of the pool
+            status.max_size,
+            // The current size of the pool
+            status.size,
+            // The number of available objects in the pool. If there are no objects in the pool
+            // this number can become negative and stores the number of futures waiting for an object.
+            status.available
+        );
+
+        // We use `unwrap` here because not being able to access the database is an unrecoverable
+        // situation and we want to panic. Not sure what to do otherwise (?).
+        let connection = &self.pool.get().await.unwrap();
+        connection.db(PRODUCTION_DB_NAME).await.unwrap()
+    }
+}
+
 pub fn get_database_connection_pool() -> ConnectionPool {
     let host = get_arangodb_host();
     let username = get_normal_user();
     let password = get_normal_password();
 
-    deadpool::managed::Pool::new(
+    // Maximum number of connections ever created.
+    // TODO: what should be the actual maximum size?
+    // https://github.com/arangodb/arangodb/blob/35c278cdf3b7985f8ed2042dfef8d22c2dd2ed07/arangod/Network/ConnectionPool.h#L65
+    let max_pool_size = num_cpus::get_physical() * 4;
+
+    let connection_pool = deadpool::managed::Pool::new(
         pool::ConnectionManager {
             host,
             username,
             password,
         },
-        16, // maximum number of connections ever created (TODO: what should be the maximum size realistically?)
-    )
+        max_pool_size,
+    );
+
+    log::trace!("Creating (empty) database connection pool 🔥");
+    ConnectionPool {
+        pool: connection_pool,
+    }
 }
