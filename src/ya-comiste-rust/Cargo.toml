@@ -1,7 +1,6 @@
 [workspace]
 members = [
-  "crates/arangodb",
-  "crates/graphql",
-  "crates/sdui",
-  "crates/server",
+  "arangodb",
+  "sdui",
+  "server",
 ]

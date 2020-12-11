@@ -1,0 +1,36 @@
+---
+source: sdui/src/graphql_schema.rs
+expression: "super::create_graphql_schema().as_schema_language()"
+---
+type SDUIScrollViewHorizontalComponent {
+  id: ID!
+  cards: [SDUICardComponent!]!
+}
+
+type SDUIDescriptionComponent {
+  id: ID!
+}
+
+type SDUIJumbotronComponent {
+  id: ID!
+}
+
+type SDUICardComponent {
+  id: ID!
+}
+
+type Query {
+  mobileEntrypointSections(key: String!): [SDUISection!]!
+}
+
+type SDUISection {
+  id: ID!
+  component(supported: [String!]!): SDUIComponent
+}
+
+union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
+
+schema {
+  query: Query
+}
+
