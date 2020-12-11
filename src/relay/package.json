@@ -23,7 +23,7 @@
     "@adeira/monorepo-utils": "^0.10.0",
     "@adeira/relay-runtime": "^0.18.0",
     "@adeira/signed-source": "^1.0.0",
-    "@babel/register": "^7.12.1",
+    "@babel/register": "^7.12.10",
     "@babel/runtime": "^7.12.5",
     "babel-plugin-relay": "^10.1.1",
     "commander": "^6.2.0",
