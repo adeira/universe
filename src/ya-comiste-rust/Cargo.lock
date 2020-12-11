@@ -29,6 +29,7 @@ dependencies = [
  "async-trait",
  "deadpool",
  "log",
+ "num_cpus",
 ]
 
 [[package]]

@@ -5,8 +5,7 @@ pub async fn get_component_content(
     pool: &arangodb::ConnectionPool,
     component_id: &str,
 ) -> Result<SDUIContent, ModelError> {
-    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
-    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
+    let db = pool.db().await;
 
     let aql = arangors::AqlQuery::builder()
         .query(
