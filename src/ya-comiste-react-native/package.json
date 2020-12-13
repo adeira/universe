@@ -19,6 +19,7 @@
     ]
   },
   "dependencies": {
+    "@adeira/fetch": "^1.0.4",
     "@adeira/js": "^1.3.0",
     "@react-native-mapbox-gl/maps": "^8.1.0-rc.9",
     "babel-plugin-fbt": "^0.16.0",

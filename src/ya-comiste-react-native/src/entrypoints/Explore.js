@@ -44,14 +44,14 @@ function Explore(props: Props): React.Node {
   return (
     <QueryRenderer
       query={graphql`
-        query ExploreQuery($entrypointID: String!) {
-          mobileEntrypointSections(id: $entrypointID) {
+        query ExploreQuery($entrypointKey: String!) {
+          mobileEntrypointSections(key: $entrypointKey) {
             ...SDUISectionRendererFragment
           }
         }
       `}
       variables={{
-        entrypointID: 'com.yaComiste.Explore',
+        entrypointKey: 'com.yaComiste.Explore',
       }}
       render={(relayProps) => {
         return (

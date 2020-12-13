@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
-import { TouchableHighlight, View, StyleSheet } from 'react-native';
+import { TouchableHighlight, View, StyleSheet, Text } from 'react-native';
 import { createFragmentContainer, graphql } from 'react-relay';
 
 import type { FragmentContainerType } from '../relay/relayTypes';
@@ -22,7 +22,7 @@ function SDUICard(props: Props): React.Node {
         onPress={() => {
           Navigation.push(props.componentId, {
             component: {
-              name: props.data.pageID, // TODO: additional props to know which detail to open (graph ID)
+              name: props.data.entrypointKey, // TODO: additional props to know which detail to open (graph ID)
               // options: {
               //   topBar: {
               //     title: {
@@ -34,7 +34,9 @@ function SDUICard(props: Props): React.Node {
           });
         }}
       >
-        <View style={styles.cardMock} />
+        <View style={styles.cardMock}>
+          <Text>{props.data.title}</Text>
+        </View>
       </TouchableHighlight>
     </View>
   );
@@ -55,7 +57,8 @@ const styles = StyleSheet.create({
 export default (createFragmentContainer(SDUICard, {
   data: graphql`
     fragment SDUICardFragment on SDUICardComponent {
-      pageID
+      entrypointKey
+      title
     }
   `,
 }): FragmentContainerType<Props>);

@@ -7,8 +7,7 @@ pub async fn get_all_sections_for_entrypoint_key(
     pool: arangodb::ConnectionPool,
     entrypoint_key: String,
 ) -> Result<Vec<SDUISection>, ModelError> {
-    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
-    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
+    let db = pool.db().await;
 
     let entrypoint = get_entrypoint(pool, &entrypoint_key).await?;
     let aql = arangors::AqlQuery::builder()
@@ -35,8 +34,7 @@ pub async fn get_section_components(
     section_id: String,
     supported: &[String],
 ) -> Result<Vec<SDUIComponent>, ModelError> {
-    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
-    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
+    let db = pool.db().await;
 
     let aql = arangors::AqlQuery::builder()
         .query(

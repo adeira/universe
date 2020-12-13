@@ -7,9 +7,18 @@ pub struct ConnectionManager {
     pub password: String,
 }
 
-/// Opening a new database connection every time one is both inefficient and
-/// can lead to resource exhaustion under high traffic conditions. A connection pool
-/// maintains a set of open connections to a database, handing them out for repeated use.
+/// Opening a new database connection every time one is both inefficient and can lead to
+/// resource exhaustion under high traffic conditions. A connection pool maintains a set
+/// of open connections to a database, handing them out for repeated use.
+///
+/// This connection pool uses [Deadpool](https://github.com/bikeshedder/deadpool) in its managed
+/// form. Here is how it behaves at the moment:
+///
+/// - It starts the pool at the beginning of the application lifetime and opens the connections
+///   as needed (but only when needed).
+/// - When the application reaches maximum allowed connection number, other requests for a new
+///   connection are queued and waiting for it to be available. This means that the application
+///   might be responding slowly when it's choking. We might change this to panic instead (?).
 #[async_trait::async_trait]
 impl Manager<Connection, ClientError> for ConnectionManager {
     /// Creates a new instance of the ArangoDB connection.
@@ -36,19 +45,19 @@ impl Manager<Connection, ClientError> for ConnectionManager {
                         Ok(()) // recycle ✅
                     }
                     _ => {
-                        log::trace!("Unable to recycle the connection (DB response invalid) 🙅");
+                        log::error!("Unable to recycle the connection (DB response invalid) 🙅");
                         Err(RecycleError::Message(
                             "unable to recycle the connection".to_string(),
                         ))
                     }
                 },
                 Err(err) => {
-                    log::trace!("Unable to recycle the connection (DB query unsuccessful) 🙅");
+                    log::error!("Unable to recycle the connection (DB query unsuccessful) 🙅");
                     Err(RecycleError::Message(err.to_string()))
                 }
             },
             Err(err) => {
-                log::trace!("Unable to recycle the connection (DB unreachable) 🙅");
+                log::error!("Unable to recycle the connection (DB unreachable) 🙅");
                 Err(RecycleError::Message(err.to_string()))
             }
         }

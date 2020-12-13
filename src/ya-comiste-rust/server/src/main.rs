@@ -8,9 +8,12 @@ async fn main() {
     std::env::set_var("RUST_LOG", "warp_server,arangodb=trace,sdui=info");
     env_logger::init();
 
+    // Create database connection wrapper only once per application lifetime!
+    let database_connection_pool = get_database_connection_pool();
+
     let context_extractor = warp::any()
-        .map(|| Context {
-            pool: get_database_connection_pool(),
+        .map(move || Context {
+            pool: database_connection_pool.to_owned(),
         })
         .boxed();
 

@@ -5,14 +5,13 @@ pub async fn get_card_components(
     pool: arangodb::ConnectionPool,
     component_id: &str,
 ) -> Result<Vec<SDUICardComponent>, ModelError> {
-    let conn = pool.get().await.unwrap(); // TODO: DRY, no unwrap
-    let db = conn.db("ya-comiste").await.unwrap(); // TODO: DRY, no unwrap
+    let db = pool.db().await;
 
     let aql = arangors::AqlQuery::builder()
         .query(
             "
             WITH component_components, components
-            FOR vertex IN 1..1 OUTBOUND @component_id component_components
+            FOR vertex IN 1..1 OUTBOUND @component_id GRAPH sdui
               FILTER vertex.typename == 'SDUICardComponent'
               RETURN vertex
             ",
