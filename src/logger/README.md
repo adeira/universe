@@ -1,11 +1,7 @@
-Multiplatform logger with support for Node.js, Browser and React Native. It's designed to work almost everywhere we need and to support services like Datadog logs easily.
+_This package is currently work in progress._
 
-# Installation
+Multiplatform logger with support for Node.js, Browser and React Native.
 
 ```text
 yarn add @adeira/logger
 ```
-
-# Usage
-
-_This package is currently work in progress._
