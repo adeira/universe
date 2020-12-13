@@ -1,15 +1,12 @@
 {
   "name": "@adeira/logger",
-  "description": "Multiplatform logger (Node.js, Browser, RN) with Datadog support",
+  "description": "Multiplatform logger (Node.js, Browser, RN)",
   "homepage": "https://github.com/adeira/universe/tree/master/src/logger",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": false,
   "license": "MIT",
   "main": "src/index",
   "dependencies": {
-    "@adeira/js": "^1.3.0",
-    "@babel/runtime": "^7.12.5",
-    "triple-beam": "^1.3.0",
-    "winston": "^3.3.3"
+    "@babel/runtime": "^7.12.5"
   }
 }

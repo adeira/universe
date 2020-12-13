@@ -6,7 +6,7 @@
   "dependencies": {
     "@adeira/flow-config-parser": "^0.2.0",
     "@adeira/js": "^1.2.4",
-    "@adeira/logger": "^0.3.0",
+    "@adeira/logger": "^0.4.0",
     "@adeira/monorepo-npm-publisher": "^1.0.0",
     "@adeira/monorepo-utils": "^0.10.0",
     "@adeira/signed-source": "^1.0.0",
