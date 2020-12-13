@@ -10,6 +10,8 @@ publish = false
 [dependencies]
 arangodb = { path = "../arangodb" }
 arangors = "0.4.5"
+async-trait = "0.1.42"
+dataloader = "0.13.2"
 juniper = { git = "https://github.com/graphql-rust/juniper" }
 log = "0.4.0"
 serde = "1.0.118"

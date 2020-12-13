@@ -1,11 +1,15 @@
 use arangodb::get_database_connection_pool;
 use sdui::graphql_context::Context;
 use sdui::graphql_schema::create_graphql_schema;
+use sdui::model::component_content::get_content_dataloader;
 use warp::Filter;
 
 #[tokio::main]
 async fn main() {
-    std::env::set_var("RUST_LOG", "warp_server,arangodb=trace,sdui=info");
+    std::env::set_var(
+        "RUST_LOG",
+        "warp_server,arangodb=trace,sdui=trace,server=trace",
+    );
     env_logger::init();
 
     // Create database connection wrapper only once per application lifetime!
@@ -14,6 +18,7 @@ async fn main() {
     let context_extractor = warp::any()
         .map(move || Context {
             pool: database_connection_pool.to_owned(),
+            content_dataloader: get_content_dataloader(&database_connection_pool),
         })
         .boxed();
 

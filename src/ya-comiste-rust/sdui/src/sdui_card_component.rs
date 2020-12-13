@@ -1,7 +1,6 @@
 use crate::graphql_context::Context;
-use crate::model::component_content::get_component_content;
 use crate::sdui_content::SDUIContent;
-use juniper::FieldResult;
+use juniper::{FieldError, FieldResult};
 
 #[derive(Clone, Debug, serde::Deserialize)]
 pub struct SDUICardComponent {
@@ -21,12 +20,18 @@ impl SDUICardComponent {
         "com.yaComiste.ExploreDetail".to_string()
     }
 
+    #[graphql(description = "Title is a crucial part of the card component so it's not optional.")]
     async fn title(&self, context: &Context) -> FieldResult<String> {
-        let content = get_component_content(&context.pool, &self._id).await?;
-
+        let content = context.content_dataloader.load(self._id.to_owned()).await;
         match content {
-            SDUIContent::Restaurant(restaurant) => Ok(restaurant.name),
-            SDUIContent::Shop(shop) => Ok(shop.name),
+            Some(c) => match c {
+                SDUIContent::Restaurant(restaurant) => Ok(restaurant.name),
+                SDUIContent::Shop(shop) => Ok(shop.name),
+            },
+            None => Err(FieldError::from(format!(
+                "No title found for card component ID: {}",
+                &self._id,
+            ))),
         }
     }
 }

@@ -20,7 +20,7 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
 ```text
 (cd src/ya-comiste-rust && cargo run)
 (cd src/ya-comiste-rust && cargo fmt)
-(cd src/ya-comiste-rust && cargo clippy)
+(cd src/ya-comiste-rust && cargo clippy --all-targets)
 (cd src/ya-comiste-rust && cargo test --offline)
 ```
 
