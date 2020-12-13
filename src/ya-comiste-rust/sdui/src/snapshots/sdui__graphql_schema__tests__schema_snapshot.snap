@@ -21,6 +21,7 @@ type SDUIJumbotronComponent {
 type SDUICardComponent {
   id: ID!
   entrypointKey: String!
+  "Title is a crucial part of the card component so it's not optional."
   title: String!
 }
 

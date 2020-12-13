@@ -42,7 +42,10 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # `--all-targets` + `--all-features`   (in order to also check tests and non-default crate features)
           args: >-
+            --all-targets
+            --all-features
             --manifest-path ${{ matrix.manifest }}
             --target ${{ matrix.target }}
 
