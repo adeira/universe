@@ -10,7 +10,7 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type SDUISectionRendererFragment$ref = any;
 export type ExploreQueryVariables = {|
-  entrypointID: string
+  entrypointKey: string
 |};
 export type ExploreQueryResponse = {|
   +mobileEntrypointSections: $ReadOnlyArray<{|
@@ -26,16 +26,17 @@ export type ExploreQuery = {|
 
 /*
 query ExploreQuery(
-  $entrypointID: String!
+  $entrypointKey: String!
 ) {
-  mobileEntrypointSections(id: $entrypointID) {
+  mobileEntrypointSections(key: $entrypointKey) {
     ...SDUISectionRendererFragment
     id
   }
 }
 
 fragment SDUICardFragment on SDUICardComponent {
-  pageID
+  entrypointKey
+  title
 }
 
 fragment SDUIDescriptionFragment on SDUIDescriptionComponent {
@@ -83,14 +84,14 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "entrypointID"
+    "name": "entrypointKey"
   }
 ],
 v1 = [
   {
     "kind": "Variable",
-    "name": "id",
-    "variableName": "entrypointID"
+    "name": "key",
+    "variableName": "entrypointKey"
   }
 ],
 v2 = {
@@ -104,7 +105,7 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "pageID",
+  "name": "entrypointKey",
   "storageKey": null
 },
 v4 = {
@@ -185,7 +186,8 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v3/*: any*/)
+                  (v3/*: any*/),
+                  (v4/*: any*/)
                 ],
                 "type": "SDUICardComponent",
                 "abstractKey": null
@@ -225,7 +227,8 @@ return {
                     "plural": true,
                     "selections": [
                       (v2/*: any*/),
-                      (v3/*: any*/)
+                      (v3/*: any*/),
+                      (v4/*: any*/)
                     ],
                     "storageKey": null
                   }
@@ -242,16 +245,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "f1efe469e967f1d09fb2b679325e77db",
+    "cacheID": "b7cb01cd3a25228aac2c6799a52335e5",
     "id": null,
     "metadata": {},
     "name": "ExploreQuery",
     "operationKind": "query",
-    "text": "query ExploreQuery(\n  $entrypointID: String!\n) {\n  mobileEntrypointSections(id: $entrypointID) {\n    ...SDUISectionRendererFragment\n    id\n  }\n}\n\nfragment SDUICardFragment on SDUICardComponent {\n  pageID\n}\n\nfragment SDUIDescriptionFragment on SDUIDescriptionComponent {\n  text\n}\n\nfragment SDUIJumbotronFragment on SDUIJumbotronComponent {\n  title\n}\n\nfragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {\n  title\n  cards {\n    id\n    ...SDUICardFragment\n  }\n}\n\nfragment SDUISectionRendererFragment on SDUISection {\n  id\n  component(supported: [\"SDUICardComponent\", \"SDUIDescriptionComponent\", \"SDUIJumbotronComponent\", \"SDUIScrollViewHorizontalComponent\"]) {\n    __typename\n    ... on SDUICardComponent {\n      __typename\n      ...SDUICardFragment\n    }\n    ... on SDUIDescriptionComponent {\n      __typename\n      ...SDUIDescriptionFragment\n    }\n    ... on SDUIJumbotronComponent {\n      __typename\n      ...SDUIJumbotronFragment\n    }\n    ... on SDUIScrollViewHorizontalComponent {\n      __typename\n      ...SDUIScrollViewHorizontalFragment\n    }\n  }\n}\n"
+    "text": "query ExploreQuery(\n  $entrypointKey: String!\n) {\n  mobileEntrypointSections(key: $entrypointKey) {\n    ...SDUISectionRendererFragment\n    id\n  }\n}\n\nfragment SDUICardFragment on SDUICardComponent {\n  entrypointKey\n  title\n}\n\nfragment SDUIDescriptionFragment on SDUIDescriptionComponent {\n  text\n}\n\nfragment SDUIJumbotronFragment on SDUIJumbotronComponent {\n  title\n}\n\nfragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {\n  title\n  cards {\n    id\n    ...SDUICardFragment\n  }\n}\n\nfragment SDUISectionRendererFragment on SDUISection {\n  id\n  component(supported: [\"SDUICardComponent\", \"SDUIDescriptionComponent\", \"SDUIJumbotronComponent\", \"SDUIScrollViewHorizontalComponent\"]) {\n    __typename\n    ... on SDUICardComponent {\n      __typename\n      ...SDUICardFragment\n    }\n    ... on SDUIDescriptionComponent {\n      __typename\n      ...SDUIDescriptionFragment\n    }\n    ... on SDUIJumbotronComponent {\n      __typename\n      ...SDUIJumbotronFragment\n    }\n    ... on SDUIScrollViewHorizontalComponent {\n      __typename\n      ...SDUIScrollViewHorizontalFragment\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '5e9ba114d09e073afaf4b666f930deec';
+(node/*: any*/).hash = '279bf4fcacf67a4b2436fea7080e80ca';
 
 module.exports = node;

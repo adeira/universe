@@ -12,4 +12,9 @@ impl SDUIJumbotronComponent {
     fn id(&self) -> juniper::ID {
         juniper::ID::new(&self._id)
     }
+
+    fn title(&self) -> String {
+        // TODO
+        "TODO".to_string()
+    }
 }

@@ -16,14 +16,14 @@ function ExploreDetail(props: Props): React.Node {
   return (
     <QueryRenderer
       query={graphql`
-        query ExploreDetailQuery($entrypointID: String!) {
-          mobileEntrypointSections(id: $entrypointID) {
+        query ExploreDetailQuery($entrypointKey: String!) {
+          mobileEntrypointSections(key: $entrypointKey) {
             ...SDUISectionRendererFragment
           }
         }
       `}
       variables={{
-        entrypointID: 'com.yaComiste.ExploreDetail',
+        entrypointKey: 'com.yaComiste.ExploreDetail',
       }}
       render={(relayProps: ExploreDetailQueryResponse) => {
         return (
