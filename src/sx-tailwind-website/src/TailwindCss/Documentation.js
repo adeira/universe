@@ -11,8 +11,7 @@ export default function Documentation(): Node {
     <Layout title="Documentation">
       <H2>Install</H2>
       <CodeBlock language="bash">
-        {`yarn add @adeira/sx-tailwind
-yarn add --dev @adeira/babel-plugin-transform-sx-tailwind`}
+        {`yarn add --dev @adeira/babel-plugin-transform-sx-tailwind`}
       </CodeBlock>
 
       <H2>Babel config</H2>
@@ -24,13 +23,9 @@ yarn add --dev @adeira/babel-plugin-transform-sx-tailwind`}
 
       <H2>Usage</H2>
       <CodeBlock>
-        {`import { tailwind } from '@adeira/sx-tailwind';
-
-export default function Button() {
+        {`export default function Button() {
   return (
-    <button
-      className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded')}
-    >
+    <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Button
     </button>
   );

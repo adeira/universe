@@ -1,17 +1,13 @@
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 import sx from '@adeira/sx';
 
 export default function Example(): Node {
   return (
     <div>
       <div className={styles('text-red')}>Red text</div>
-      <button
-        className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
-        type="button"
-      >
+      <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold" type="button">
         Button
       </button>
     </div>

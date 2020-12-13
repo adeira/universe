@@ -5,7 +5,6 @@ import refractor from 'refractor/core';
 import toHtml from 'hast-util-to-html';
 import jsx from 'refractor/lang/jsx';
 import bash from 'refractor/lang/bash';
-import { tailwind } from '@adeira/sx-tailwind';
 
 refractor.register(jsx);
 refractor.register(bash);
@@ -26,9 +25,7 @@ export default function SyntaxHighlighter({
   return (
     <pre
       data-language={language}
-      className={tailwind(
-        `text-sm bg-gray-800 whitespace-pre p-4 ${attached ? 'rounded-b-lg' : 'rounded-lg'}`,
-      )}
+      sxt={`text-sm bg-gray-800 whitespace-pre p-4 ${attached ? 'rounded-b-lg' : 'rounded-lg'}`}
       dangerouslySetInnerHTML={{
         __html: highlightedText,
       }}

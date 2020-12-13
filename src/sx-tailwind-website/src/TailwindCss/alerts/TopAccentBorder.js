@@ -1,20 +1,17 @@
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function TopAccentBorder(): Node {
   return (
     <div
-      className={tailwind(
-        'bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md',
-      )}
+      sxt="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
       role="alert"
     >
-      <div className={tailwind('flex')}>
-        <div className={tailwind('py-1')}>
+      <div sxt="flex">
+        <div sxt="py-1">
           <svg
-            className={tailwind('fill-current h-6 w-6 text-teal-500 mr-4')}
+            sxt="fill-current h-6 w-6 text-teal-500 mr-4"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >
@@ -22,8 +19,8 @@ export default function TopAccentBorder(): Node {
           </svg>
         </div>
         <div>
-          <p className={tailwind('font-bold')}>Our privacy policy has changed</p>
-          <p className={tailwind('text-sm')}>Make sure you know how these changes affect you.</p>
+          <p sxt="font-bold">Our privacy policy has changed</p>
+          <p sxt="text-sm">Make sure you know how these changes affect you.</p>
         </div>
       </div>
     </div>

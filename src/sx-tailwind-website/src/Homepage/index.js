@@ -35,7 +35,7 @@ export default function Homepage(): Node {
       <P>
         There&apos;s no need to learn anything new if you already know Tailwind CSS and React. Where
         in HTML you wrote <Code>{`class="text-gray-900"`}</Code> you&apos;ll write{' '}
-        <Code>{`className={tailwind('text-gray-900')}`}</Code> in React.
+        <Code>{`sxt="text-gray-900"`}</Code> in React.
       </P>
       <P>
         See for yourself in the{' '}

@@ -10,7 +10,7 @@ export default function TemplateLiteralHandler(
   if (path.node.expressions.length === 0) {
     // Simple template literal without any expressions
     const classNames = path.node.quasis.map((q) => q.value.raw).join(' ');
-    path.replaceWith(t.StringLiteral(classNames));
+    path.parentPath.replaceWith(t.StringLiteral(classNames));
   } else {
     // some expressions inside of the template literal
     const conditionals = path.node.expressions
@@ -37,14 +37,36 @@ export default function TemplateLiteralHandler(
       stylesCollector.push(...literals.map((l) => l.value));
       args.set(q.start, literals);
     });
+
     const sortedArgs = Array.from(args.keys())
       .sort()
       .map((i) => args.get(i))
       .flat();
 
-    const expression = t.callExpression(t.identifier(stylesVarName), sortedArgs);
-    path.parentPath.replaceWith(expression);
+    const jsxExpression = getJsxExpression(path, sortedArgs, stylesVarName);
+    const jsxAttribute = t.jsxAttribute(
+      t.jsxIdentifier('className'),
+      t.jsxExpressionContainer(jsxExpression),
+    );
+    path.parentPath.parentPath.replaceWith(jsxAttribute);
   }
+}
+
+function getJsxExpression(path, sortedArgs, stylesVarName) {
+  const callExpressions = path.node.expressions.filter((e) => e.type === 'CallExpression');
+  if (callExpressions.length === 0) {
+    return t.callExpression(t.identifier(stylesVarName), sortedArgs);
+  }
+
+  const expressions = [
+    t.callExpression(t.identifier(stylesVarName), sortedArgs),
+    ...callExpressions,
+  ].sort((a, b) => a.start - b.start);
+
+  const quasis = expressions.map((e, i) => t.templateElement({ raw: i === 0 ? '' : ' ' }));
+  quasis.push(t.templateElement({ raw: '' }, true));
+
+  return t.templateLiteral(quasis, expressions);
 }
 
 function getStringLiterals(input) {

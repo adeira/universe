@@ -1,23 +1,18 @@
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Groups(): Node {
   return (
-    <div className={tailwind('inline-flex')}>
+    <div sxt="inline-flex">
       <button
-        className={tailwind(
-          'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l',
-        )}
+        sxt="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
         type="button"
       >
         Prev
       </button>
       <button
-        className={tailwind(
-          'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r',
-        )}
+        sxt="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
         type="button"
       >
         Next
@@ -26,11 +21,11 @@ export default function Groups(): Node {
   );
 }
 
-export const code = `<div className={tailwind('inline-flex')}>
-  <button className={tailwind('bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l')}>
+export const code = `<div sxt="inline-flex">
+  <button sxt="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
     Prev
   </button>
-  <button className={tailwind('bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r')}>
+  <button sxt="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
     Next
   </button>
 </div>

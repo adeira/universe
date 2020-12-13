@@ -1,33 +1,26 @@
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Timing(): Node {
   return (
     <>
       <button
-        className={tailwind(
-          'transition duration-700 ease-in transform hover:scale-125 bg-blue-500 text-white font-bold py-2 px-4 mr-8 rounded',
-        )}
+        sxt="transition duration-700 ease-in transform hover:scale-125 bg-blue-500 text-white font-bold py-2 px-4 mr-8 rounded"
         type="button"
       >
         Hover me
       </button>
 
       <button
-        className={tailwind(
-          'transition duration-700 ease-out transform hover:scale-125 bg-blue-500 text-white font-bold py-2 px-4 mr-8 rounded',
-        )}
+        sxt="transition duration-700 ease-out transform hover:scale-125 bg-blue-500 text-white font-bold py-2 px-4 mr-8 rounded"
         type="button"
       >
         Hover me
       </button>
 
       <button
-        className={tailwind(
-          'transition duration-700 ease-in-out transform hover:scale-125 bg-blue-500 text-white font-bold py-2 px-4 mr-8 rounded',
-        )}
+        sxt="transition duration-700 ease-in-out transform hover:scale-125 bg-blue-500 text-white font-bold py-2 px-4 mr-8 rounded"
         type="button"
       >
         Hover me
@@ -36,7 +29,7 @@ export default function Timing(): Node {
   );
 }
 
-export const code = `<button className={tailwind('transition duration-700 ease-in ...')}>Hover me</button>
-<button className={tailwind('transition duration-700 ease-out ...')}>Hover me</button>
-<button className={tailwind('transition duration-700 ease-in-out ...')}>Hover me</button>
+export const code = `<button sxt="transition duration-700 ease-in ...">Hover me</button>
+<button sxt="transition duration-700 ease-out ...">Hover me</button>
+<button sxt="transition duration-700 ease-in-out ...">Hover me</button>
 `;

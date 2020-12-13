@@ -5,17 +5,12 @@ exports[`transform SX Tailwind animation.js: animation.js 1`] = `
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Node {
   return (
-    <span className={tailwind('flex h-3 w-3')}>
-      <span
-        className={tailwind(
-          'animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75',
-        )}
-      />
-      <span className={tailwind('relative inline-flex rounded-full h-3 w-3 bg-pink-500')} />
+    <span sxt="flex h-3 w-3">
+      <span sxt="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75" />
+      <span sxt="relative inline-flex rounded-full h-3 w-3 bg-pink-500" />
     </span>
   );
 }
@@ -112,13 +107,12 @@ exports[`transform SX Tailwind custom-font.js: custom-font.js 1`] = `
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Node {
   return (
     <>
-      <div className={tailwind('font-sans')}>Sans text</div>
-      <div className={tailwind('font-mono')}>Monospace text</div>
+      <div sxt="font-sans">Sans text</div>
+      <div sxt="font-mono">Monospace text</div>
     </>
   );
 }
@@ -154,10 +148,9 @@ exports[`transform SX Tailwind invalid-utility-class.js: invalid-utility-class.j
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Node {
-  return <div className={tailwind('bg-bleu-500')}>Button</div>;
+  return <div sxt="bg-bleu-500">Button</div>;
 }
 
       ↓ ↓ ↓ ↓ ↓ ↓
@@ -171,13 +164,12 @@ exports[`transform SX Tailwind nested.js: nested.js 1`] = `
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Node {
   return (
-    <div className={tailwind('text-white bg-black')}>
+    <div sxt="text-white bg-black">
       White on black
-      <div className={tailwind('text-black bg-white')}>Black on white</div>
+      <div sxt="text-black bg-white">Black on white</div>
     </div>
   );
 }
@@ -252,14 +244,10 @@ exports[`transform SX Tailwind styles-var-exists.js: styles-var-exists.js 1`] = 
 // @flow
 
 import type { Element } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Element<'button'> {
   return (
-    <button
-      className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
-      type="button"
-    >
+    <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold" type="button">
       Button
     </button>
   );
@@ -314,17 +302,13 @@ exports[`transform SX Tailwind sx-already-imported.js: sx-already-imported.js 1`
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 import sx from '@adeira/sx';
 
 export default function Example(): Node {
   return (
     <div>
       <div className={styles('text-red')}>Red text</div>
-      <button
-        className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
-        type="button"
-      >
+      <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold" type="button">
         Button
       </button>
     </div>
@@ -389,17 +373,13 @@ exports[`transform SX Tailwind sx-imported-alias.js: sx-imported-alias.js 1`] = 
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 import { create } from '@adeira/sx';
 
 export default function Example(): Node {
   return (
     <>
       <div className={styles('text-red')}>Red text</div>
-      <button
-        className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
-        type="button"
-      >
+      <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold" type="button">
         Button
       </button>
     </>
@@ -416,8 +396,8 @@ const styles = create({
 
 // @flow
 import type { Node } from 'react';
-import sx from '@adeira/sx';
 import { create } from '@adeira/sx';
+import sx from '@adeira/sx';
 export default function Example(): Node {
   return (
     <>
@@ -465,14 +445,10 @@ exports[`transform SX Tailwind tailwind.js: tailwind.js 1`] = `
 // @flow
 
 import type { Element } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Element<'button'> {
   return (
-    <button
-      className={tailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
-      type="button"
-    >
+    <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold" type="button">
       Button
     </button>
   );
@@ -522,14 +498,10 @@ exports[`transform SX Tailwind tailwind-aliased.js: tailwind-aliased.js 1`] = `
 // @flow
 
 import type { Element } from 'react';
-import { tailwind as myTailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Element<'button'> {
   return (
-    <button
-      className={myTailwind('bg-blue-500 hover:bg-blue-700 text-white font-bold')}
-      type="button"
-    >
+    <button sxt="bg-blue-500 hover:bg-blue-700 text-white font-bold" type="button">
       Button
     </button>
   );
@@ -579,10 +551,9 @@ exports[`transform SX Tailwind template-literal.js: template-literal.js 1`] = `
 // @flow
 
 import React, { type Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Node {
-  return <div className={tailwind(\`text-black bg-white\`)}>Lorem lipsum</div>;
+  return <div sxt={\`text-black bg-white\`}>Lorem lipsum</div>;
 }
 
       ↓ ↓ ↓ ↓ ↓ ↓
@@ -613,16 +584,11 @@ exports[`transform SX Tailwind template-literal-condition.js: template-literal-c
 // @flow
 
 import React, { type Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Example(): Node {
   const darkMode = true;
   return (
-    <div
-      className={tailwind(
-        \`px-4 font-bold \${darkMode ? \`text-white bg-black\` : 'text-black bg-white'} rounded\`,
-      )}
-    >
+    <div sxt={\`px-4 font-bold \${darkMode ? \`text-white bg-black\` : 'text-black bg-white'} rounded\`}>
       Lorem lipsum
     </div>
   );
@@ -686,11 +652,10 @@ exports[`transform SX Tailwind template-literal-expression.js: template-literal-
 // @flow
 
 import React, { type Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 import sx from '@adeira/sx';
 
 export default function Example(): Node {
-  return <div className={\`\${tailwind('px-4')} \${styles('customStyle')}\`}>Lorem lipsum</div>;
+  return <div sxt={\`px-4 \${styles('customStyle')}\`}>Lorem lipsum</div>;
 }
 
 const styles = sx.create({

@@ -1,21 +1,18 @@
 // @flow
 
 import type { Node } from 'react';
-import { tailwind } from '@adeira/sx-tailwind';
 
 export default function Traditional(): Node {
   return (
     <div
-      className={tailwind(
-        'bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative',
-      )}
+      sxt="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
       role="alert"
     >
-      <strong className={tailwind('font-bold')}>Holy smokes! </strong>
-      <span className={tailwind('block sm:inline')}>Something seriously bad happened.</span>
-      <span className={tailwind('absolute top-0 bottom-0 right-0 px-4 py-3')}>
+      <strong sxt="font-bold">Holy smokes! </strong>
+      <span sxt="block sm:inline">Something seriously bad happened.</span>
+      <span sxt="absolute top-0 bottom-0 right-0 px-4 py-3">
         <svg
-          className={tailwind('fill-current h-6 w-6 text-red-500')}
+          sxt="fill-current h-6 w-6 text-red-500"
           role="button"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
