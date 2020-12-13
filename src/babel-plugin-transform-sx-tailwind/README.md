@@ -6,13 +6,12 @@ This has a positive impact on the final bundle size because the huge Tailwind de
 
 ```diff
 import React from 'react';
-- import { tailwind } from '@adeira/sx-tailwind';
 + import sx from '@adeira/sx';
 
 export default function Example() {
   return (
     <button
--      className={tailwind('bg-blue-500 text-white font-bold')}
+-      sxt="bg-blue-500 text-white font-bold"
 +      className={__styles('bg-blue-500', 'text-white', 'font-bold')}
       type="button"
     >

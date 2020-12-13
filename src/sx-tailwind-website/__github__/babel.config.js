@@ -1,5 +1,7 @@
 // @flow
 
+/* eslint-disable import/no-extraneous-dependencies */
+
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
@@ -31,7 +33,7 @@ module.exports = function (api /*: ApiType */) /*: BabelConfig */ {
         {
           theme: {
             colors: {
-              white: '#fff',
+              white: colors.white,
               transparent: 'transparent',
               blue: colors.blue,
               gray: colors.trueGray,

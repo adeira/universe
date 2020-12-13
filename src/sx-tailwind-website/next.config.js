@@ -5,14 +5,7 @@ const withTranspileModules = require('next-transpile-modules');
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config');
 
 module.exports = (withCustomBabelConfigFile(
-  withTranspileModules([
-    '@adeira/css-colors',
-    '@adeira/js',
-    '@adeira/monorepo-utils',
-    '@adeira/murmur-hash',
-    '@adeira/sx',
-    '@adeira/sx-tailwind',
-  ])({
+  withTranspileModules(['@adeira/css-colors', '@adeira/js', '@adeira/murmur-hash', '@adeira/sx'])({
     babelConfigFile: path.join(__dirname, '.babelrc.js'),
     webpack: (config) => {
       config.module.rules.push({

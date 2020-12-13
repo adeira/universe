@@ -1,6 +1,7 @@
 // @flow strict
 
-const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors');
 
 module.exports = {
   presets: ['@adeira/babel-preset-adeira', 'next/babel'],
@@ -8,9 +9,9 @@ module.exports = {
     [
       '@adeira/babel-plugin-transform-sx-tailwind',
       {
-        "theme": {
+        theme: {
           colors: {
-            white: '#fff',
+            white: colors.white,
             transparent: 'transparent',
             blue: colors.blue,
             gray: colors.trueGray,
@@ -21,28 +22,13 @@ module.exports = {
             red: colors.rose,
             teal: colors.teal,
           },
-          "extend": {
-            "fontFamily": {
-              "sans": [
-                'Inter',
-                'system-ui',
-                '-apple-system',
-                'BlinkMacSystemFont',
-                '"Segoe UI"',
-                'Roboto',
-                '"Helvetica Neue"',
-                'Arial',
-                '"Noto Sans"',
-                'sans-serif',
-                '"Apple Color Emoji"',
-                '"Segoe UI Emoji"',
-                '"Segoe UI Symbol"',
-                '"Noto Color Emoji"',
-              ]
-            }
-          }
-        }
-      }
-    ]
+          extend: {
+            fontFamily: {
+              sans: ['Inter', ...defaultTheme.fontFamily.sans],
+            },
+          },
+        },
+      },
+    ],
   ],
 };
