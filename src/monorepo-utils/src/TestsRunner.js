@@ -1,18 +1,11 @@
 // @flow
 
-import { invariant } from '@adeira/js';
-
 import findPathsToTest from './findPathsToTest';
 import getChangedFiles from './getChangedFiles';
 import ShellCommand from './ShellCommand';
 import getWorkspaceDependencies from './getWorkspaceDependencies';
 
-function _runJest(config, timezone = 'UTC') {
-  if (process.env.TZ === undefined) {
-    // Do not overwrite TZ when user sets it explicitly (only when it's undefined).
-    process.env.TZ = timezone;
-  }
-
+function _runJest(config) {
   const flags = {
     nodeArgs: [],
     jestArgs: [],
@@ -26,7 +19,6 @@ function _runJest(config, timezone = 'UTC') {
     }
   });
 
-  console.warn(`Running tests in timezone: ${process.env.TZ ?? timezone}`); // eslint-disable-line no-console
   return new ShellCommand(
     null,
     'node',
@@ -40,31 +32,7 @@ function _runJest(config, timezone = 'UTC') {
     .runSynchronously();
 }
 
-function _runJestTimezoneVariants(config, ciNode: CINode) {
-  if (ciNode.total > 1) {
-    const index = ciNode.index - 1;
-    const timezones = [
-      'UTC',
-      'Asia/Tokyo', // +9
-      'America/Lima', // -5
-    ];
-
-    invariant(
-      timezones[index] !== undefined,
-      `CI node with index ${ciNode.index} is not supported.`,
-    );
-
-    _runJest(config, timezones[index]);
-  } else {
-    _runJest(config, 'UTC');
-  }
-}
-
 type ExternalConfig = $ReadOnlyArray<string>;
-type CINode = {|
-  +index: number,
-  +total: number,
-|};
 
 /**
  * This script tests the whole application except Yarn Workspaces. Workspaces
@@ -82,15 +50,11 @@ type CINode = {|
  * Hopefully, this is going to be resolved and then we can completely remove
  * this script. See: https://github.com/facebook/jest/issues/6062
  */
-export function runTests(
-  externalConfig: ExternalConfig,
-  ciNode: CINode,
-  setupFiles: $ReadOnlyArray<string>,
-) {
+export function runTests(externalConfig: ExternalConfig, setupFiles: $ReadOnlyArray<string>): void {
   if (externalConfig.some((option) => /^(?!--).+/.test(option))) {
     // user passed something that is not an option (probably tests regexp)
     // so we give it precedence before our algorithm
-    _runJestTimezoneVariants(externalConfig, ciNode);
+    _runJest(externalConfig);
     return;
   }
 
@@ -101,7 +65,7 @@ export function runTests(
   if (changedFiles.some((file) => setupFiles.includes(file))) {
     // eslint-disable-next-line no-console
     console.warn('DETECTED CHANGE IN CONFIG FILE. RUNNING ALL TESTS');
-    runAllTests(externalConfig, ciNode);
+    runAllTests(externalConfig);
     return;
   }
 
@@ -111,10 +75,10 @@ export function runTests(
     // we are running tests only when we have dirty workspaces OR when we
     // have some files to test outside of our workspaces (system level tests)
     const jestConfig = Array.from(pathsToTest).concat(changedFiles);
-    _runJestTimezoneVariants(jestConfig.concat(externalConfig), ciNode);
+    _runJest(jestConfig.concat(externalConfig));
   }
 }
 
-export function runAllTests(externalConfig: ExternalConfig, ciNode: CINode) {
-  _runJestTimezoneVariants(externalConfig.length > 0 ? externalConfig : [], ciNode);
+export function runAllTests(externalConfig: ExternalConfig): void {
+  _runJest(externalConfig.length > 0 ? externalConfig : []);
 }
