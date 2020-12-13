@@ -2,8 +2,6 @@
 
 import type { ILogger } from './ILogger';
 
-// https://github.com/facebookincubator/fbt/blob/master/runtime/nonfb/mocks/Banzai.js
-
 export default class Logger implements ILogger {
   #logger: ILogger;
 
@@ -13,12 +11,9 @@ export default class Logger implements ILogger {
     } else if (typeof process !== 'undefined' && process.env.NODE_ENV === 'test') {
       const NullLogger = require('./NullLogger').default;
       this.#logger = new NullLogger();
-    } else if (typeof process !== 'undefined') {
-      const NodejsLogger = require('./NodejsLogger').default;
-      this.#logger = new NodejsLogger();
-    } else if (typeof window !== 'undefined') {
-      const BrowserLogger = require('./BrowserLogger').default;
-      this.#logger = new BrowserLogger();
+    } else if (typeof window !== 'undefined' || typeof process !== 'undefined') {
+      const ConsoleLogger = require('./ConsoleLogger').default;
+      this.#logger = new ConsoleLogger();
     } else {
       if (typeof console !== 'undefined') {
         // eslint-disable-next-line no-console

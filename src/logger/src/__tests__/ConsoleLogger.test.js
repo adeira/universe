@@ -1,10 +1,10 @@
 // @flow
 
 import Logger from '../Logger';
-import BrowserLogger from '../BrowserLogger';
+import ConsoleLogger from '../ConsoleLogger';
 
 test.each([
-  // logger input (will be spreaded) => expected output
+  // logger input (will be spread) => expected output
   [['single'], [['single']]],
   [['aaa', 'bbb', 'ccc'], [['aaa', 'bbb', 'ccc']]],
   [['a %s c', 'b'], [['a %s c', 'b']]],
@@ -12,7 +12,7 @@ test.each([
   const spyLog = jest.spyOn(console, 'log').mockImplementation(() => {});
   const spyWarn = jest.spyOn(console, 'warn').mockImplementation(() => {});
   const spyError = jest.spyOn(console, 'error').mockImplementation(() => {});
-  const logger = new Logger(new BrowserLogger());
+  const logger = new Logger(new ConsoleLogger());
 
   function clearLocalMocks() {
     spyLog.mockClear();

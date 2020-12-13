@@ -4,7 +4,7 @@ import type { ILogger } from './ILogger';
 
 /* eslint-disable no-console */
 
-export default class BrowserLogger implements ILogger {
+export default class ConsoleLogger implements ILogger {
   log(...message: $ReadOnlyArray<string>) {
     console.log(...message);
   }
