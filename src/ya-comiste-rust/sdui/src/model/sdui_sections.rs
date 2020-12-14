@@ -2,14 +2,16 @@ use crate::errors::ModelError;
 use crate::model::entrypoints::get_entrypoint;
 use crate::sdui_component::SDUIComponent;
 use crate::sdui_section::SDUISection;
+use crate::user::User;
 
 pub async fn get_all_sections_for_entrypoint_key(
-    pool: arangodb::ConnectionPool,
-    entrypoint_key: String,
+    user: &User, // TODO: use the current user
+    pool: &arangodb::ConnectionPool,
+    entrypoint_key: &str,
 ) -> Result<Vec<SDUISection>, ModelError> {
     let db = pool.db().await;
 
-    let entrypoint = get_entrypoint(pool, &entrypoint_key).await?;
+    let entrypoint = get_entrypoint(user, pool, &entrypoint_key).await?;
     let aql = arangors::AqlQuery::builder()
         .query(
             "
@@ -29,9 +31,10 @@ pub async fn get_all_sections_for_entrypoint_key(
 }
 
 pub async fn get_section_components(
-    pool: arangodb::ConnectionPool,
-    entrypoint_key: String,
-    section_id: String,
+    user: &User, // TODO: use the current user
+    pool: &arangodb::ConnectionPool,
+    entrypoint_key: &str,
+    section_id: &str,
     supported: &[String],
 ) -> Result<Vec<SDUIComponent>, ModelError> {
     let db = pool.db().await;
@@ -50,8 +53,8 @@ pub async fn get_section_components(
               }
             ",
         )
-        .bind_var("entrypoint_key", entrypoint_key)
-        .bind_var("section_id", section_id)
+        .bind_var("entrypoint_key", entrypoint_key.to_owned())
+        .bind_var("section_id", section_id.to_owned())
         .bind_var("supported_typenames", supported.to_owned())
         .build();
 

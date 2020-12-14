@@ -84,10 +84,18 @@ impl ConnectionPool {
             status.available
         );
 
-        // We use `unwrap` here because not being able to access the database is an unrecoverable
-        // situation and we want to panic. Not sure what to do otherwise (?).
-        let connection = &self.pool.get().await.unwrap();
-        connection.db(PRODUCTION_DB_NAME).await.unwrap()
+        // We use `unwrap` (`expect`) here because not being able to access the database is an
+        // unrecoverable situation and we want to panic. Not sure what to do otherwise (?).
+        let connection = &self
+            .pool
+            .get()
+            .await
+            .expect("could not get database connection from the pool");
+
+        connection
+            .db(PRODUCTION_DB_NAME)
+            .await
+            .expect("could not access production database")
     }
 }
 

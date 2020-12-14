@@ -1,8 +1,10 @@
 use crate::entrypoint::Entrypoint;
 use crate::errors::ModelError;
+use crate::user::User;
 
 pub async fn get_entrypoint(
-    pool: arangodb::ConnectionPool,
+    user: &User, // TODO: use the current user
+    pool: &arangodb::ConnectionPool,
     entrypoint_key: &str,
 ) -> Result<Entrypoint, ModelError> {
     let db = pool.db().await;

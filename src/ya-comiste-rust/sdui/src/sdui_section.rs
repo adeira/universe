@@ -27,9 +27,10 @@ impl SDUISection {
         // We might get a component which is not supported by the client yet (defined by `supported`).
         let connection_pool = context.pool.to_owned();
         let components = get_section_components(
-            connection_pool,
-            self._from.to_string(),
-            self._id.to_string(),
+            &context.user,
+            &connection_pool,
+            &self._from.to_string(),
+            &self._id.to_string(),
             &supported,
         )
         .await;

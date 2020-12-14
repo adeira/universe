@@ -1,5 +1,6 @@
 use crate::errors::ModelError;
 use crate::sdui_content::{SDUIComponentContent, SDUIContent};
+use crate::user::User;
 use dataloader::non_cached::Loader;
 use dataloader::BatchFn;
 use std::collections::HashMap;
@@ -7,13 +8,15 @@ use std::collections::HashMap;
 #[derive(Clone)]
 pub struct ContentLoadFn {
     pool: arangodb::ConnectionPool,
+    user: User,
 }
 
 #[async_trait::async_trait]
 impl BatchFn<String, Option<SDUIContent>> for ContentLoadFn {
     async fn load(&mut self, component_ids: &[String]) -> HashMap<String, Option<SDUIContent>> {
         log::trace!("Loading component content for: {:?}", component_ids);
-        let component_contents = get_component_contents(&self.pool, component_ids.to_vec()).await;
+        let component_contents =
+            get_component_contents(&self.user, &self.pool, component_ids.to_vec()).await;
         match component_contents {
             Ok(component_contents) => component_contents,
             // Alternatively, return errors (since the swallows DB errors)?
@@ -25,15 +28,20 @@ impl BatchFn<String, Option<SDUIContent>> for ContentLoadFn {
 
 pub type ContentDataloaderType = Loader<String, Option<SDUIContent>, ContentLoadFn>;
 
-pub fn get_content_dataloader(pool: &arangodb::ConnectionPool) -> ContentDataloaderType {
+pub fn get_content_dataloader(
+    user: &User,
+    pool: &arangodb::ConnectionPool,
+) -> ContentDataloaderType {
     Loader::new(ContentLoadFn {
         pool: pool.to_owned(),
+        user: user.to_owned(),
     })
     .with_yield_count(100)
 }
 
 /// It already returns Dataloader friendly output given the component IDs.
 async fn get_component_contents(
+    user: &User, // TODO: use the current user
     pool: &arangodb::ConnectionPool,
     component_ids: Vec<String>,
 ) -> Result<HashMap<String, Option<SDUIContent>>, ModelError> {
