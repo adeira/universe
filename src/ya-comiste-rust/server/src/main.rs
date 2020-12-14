@@ -2,6 +2,7 @@ use arangodb::get_database_connection_pool;
 use sdui::graphql_context::Context;
 use sdui::graphql_schema::create_graphql_schema;
 use sdui::model::component_content::get_content_dataloader;
+use sdui::user::{AnonymousUser, User};
 use warp::Filter;
 
 #[tokio::main]
@@ -16,9 +17,18 @@ async fn main() {
     let database_connection_pool = get_database_connection_pool();
 
     let context_extractor = warp::any()
-        .map(move || Context {
-            pool: database_connection_pool.to_owned(),
-            content_dataloader: get_content_dataloader(&database_connection_pool),
+        .and(warp::header::optional::<String>("authorization"))
+        .map(move |auth_header: Option<String>| {
+            let user = match auth_header {
+                // TODO: implement proper auth
+                Some(_) => User::AnonymousUser(AnonymousUser::new()),
+                None => User::AnonymousUser(AnonymousUser::new()),
+            };
+            Context {
+                pool: database_connection_pool.to_owned(),
+                content_dataloader: get_content_dataloader(&user, &database_connection_pool),
+                user,
+            }
         })
         .boxed();
 
