@@ -2821,10 +2821,10 @@
     sudo-prompt "^9.0.0"
     wcwidth "^1.0.1"
 
-"@react-native-mapbox-gl/maps@^8.1.0-rc.9":
-  version "8.1.0-rc.9"
-  resolved "https://registry.yarnpkg.com/@react-native-mapbox-gl/maps/-/maps-8.1.0-rc.9.tgz#2c9a296e06dba695184adc7b63fe8835e75eff47"
-  integrity sha512-Vp0c0rbBKlAG2x6SQHqWUQDRfhfqdOAPY+scIQVOiakCV2cLhPHOEhSB6hJHla/p5j8hR/WVaxTX4NBAbX9jbQ==
+"@react-native-mapbox-gl/maps@^8.1.0-rc10":
+  version "8.1.0-rc10"
+  resolved "https://registry.yarnpkg.com/@react-native-mapbox-gl/maps/-/maps-8.1.0-rc10.tgz#49f8e3f2836ef525f4710f5c53feb01e33b05eb5"
+  integrity sha512-La5lrefdqHD1Y2F7950UgCTOlCWHMFh020L/UiGUEg54zaHbLtdZjVQZjxlTeuDt6DbUkIHDvdkGWK5AgEUhQw==
   dependencies:
     "@mapbox/geo-viewport" ">= 0.4.0"
     "@turf/along" ">= 4.0.0 <7.0.0"
