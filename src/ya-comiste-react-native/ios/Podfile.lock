@@ -1,7 +1,7 @@
 PODS:
-  - "@react-native-mapbox-gl-mapbox-static (5.8.0)"
+  - "@react-native-mapbox-gl-mapbox-static (5.9.0)"
   - boost-for-react-native (1.63.0)
-  - CocoaAsyncSocket (7.6.4)
+  - CocoaAsyncSocket (7.6.5)
   - CocoaLibEvent (1.0.0)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.63.4)
@@ -68,7 +68,7 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - Mapbox-iOS-SDK (5.8.0):
+  - Mapbox-iOS-SDK (5.9.0):
     - MapboxMobileEvents (= 0.10.2)
   - MapboxMobileEvents (0.10.2)
   - OpenSSL-Universal (1.0.2.20):
@@ -240,21 +240,21 @@ PODS:
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
   - React-jsinspector (0.63.4)
-  - react-native-mapbox-gl (8.1.0-rc.9):
-    - "@react-native-mapbox-gl-mapbox-static (~> 5.8.0)"
-    - Mapbox-iOS-SDK (~> 5.8.0)
+  - react-native-mapbox-gl (8.1.0-rc10):
+    - "@react-native-mapbox-gl-mapbox-static (~> 5.9.0)"
+    - Mapbox-iOS-SDK (~> 5.9.0)
     - React
     - React-Core
-    - react-native-mapbox-gl/DynamicLibrary (= 8.1.0-rc.9)
-    - react-native-mapbox-gl/StaticLibraryFixer (= 8.1.0-rc.9)
-  - react-native-mapbox-gl/DynamicLibrary (8.1.0-rc.9):
-    - "@react-native-mapbox-gl-mapbox-static (~> 5.8.0)"
-    - Mapbox-iOS-SDK (~> 5.8.0)
+    - react-native-mapbox-gl/DynamicLibrary (= 8.1.0-rc10)
+    - react-native-mapbox-gl/StaticLibraryFixer (= 8.1.0-rc10)
+  - react-native-mapbox-gl/DynamicLibrary (8.1.0-rc10):
+    - "@react-native-mapbox-gl-mapbox-static (~> 5.9.0)"
+    - Mapbox-iOS-SDK (~> 5.9.0)
     - React
     - React-Core
-  - react-native-mapbox-gl/StaticLibraryFixer (8.1.0-rc.9):
-    - "@react-native-mapbox-gl-mapbox-static (~> 5.8.0)"
-    - Mapbox-iOS-SDK (~> 5.8.0)
+  - react-native-mapbox-gl/StaticLibraryFixer (8.1.0-rc10):
+    - "@react-native-mapbox-gl-mapbox-static (~> 5.9.0)"
+    - Mapbox-iOS-SDK (~> 5.9.0)
     - React
     - React-Core
   - React-RCTActionSheet (0.63.4):
@@ -458,11 +458,11 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  "@react-native-mapbox-gl-mapbox-static": e247172bc43f47757f47d6cec1b325b1ab3e9287
+  "@react-native-mapbox-gl-mapbox-static": 83c0e0ba33597bb694735ffb136d3d96780af37d
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaLibEvent: 2fab71b8bd46dd33ddb959f7928ec5909f838e3f
-  DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
+  DoubleConversion: cde416483dac037923206447da6e1454df403714
   FBLazyVector: 3bb422f41b18121b71783a905c10e58606f7dc3e
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
   Flipper: be611d4b742d8c87fbae2ca5f44603a02539e365
@@ -473,8 +473,8 @@ SPEC CHECKSUMS:
   Flipper-RSocket: 64e7431a55835eb953b0bf984ef3b90ae9fdddd7
   FlipperKit: ab353d41aea8aae2ea6daaf813e67496642f3d7d
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
-  glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
-  Mapbox-iOS-SDK: 02590a60fe300810c55432219a0caaa1338fbafb
+  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
+  Mapbox-iOS-SDK: a5915700ec84bc1a7f8b3e746d474789e35b7956
   MapboxMobileEvents: 2bc0ca2eedb627b73cf403258dce2b2fa98074a6
   OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
   RCTRequired: 082f10cd3f905d6c124597fd1c14f6f2655ff65e
@@ -487,7 +487,7 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-mapbox-gl: 2a4b1bbfb5708b4c997d312ad73337bafdc5baf5
+  react-native-mapbox-gl: de3af5d5dea2882fcf8b5720cb1656eeecffd1fc
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
