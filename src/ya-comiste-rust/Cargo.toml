@@ -3,4 +3,5 @@ members = [
   "arangodb",
   "sdui",
   "server",
+  "signedsource",
 ]

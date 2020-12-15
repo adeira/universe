@@ -16,7 +16,7 @@ type Props = {|
 
 function SDUIScrollViewHorizontal(props: Props) {
   const row = props.row;
-  const numberOfCards = row.cards?.length ?? 0;
+  const numberOfCards = row.cards.length ?? 0;
   return (
     <>
       <View style={styles.titleWrapper}>
@@ -52,7 +52,7 @@ function SDUIScrollViewHorizontal(props: Props) {
           marginHorizontal: 20,
         }}
       >
-        {row.cards?.map((card) => {
+        {row.cards.map((card) => {
           if (card == null) {
             return null; // TODO
           }

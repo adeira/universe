@@ -19,6 +19,9 @@ testExportedPaths(path.join(__dirname, '..', 'ya-comiste.js'), [
   ['src/ya-comiste-rust/Cargo.lock', 'rust/Cargo.lock'],
   ['src/ya-comiste-rust/Cargo.toml', 'rust/Cargo.toml'],
 
+  // Meta
+  ['src/ya-comiste-meta/schema.graphql', 'meta/schema.graphql'],
+
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
   ['src/ya-comiste-react-native/BUILD.bazel', undefined], // correctly deleted

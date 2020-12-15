@@ -1,0 +1,15 @@
+[package]
+name = "signedsource"
+edition = "2018"
+version = "0.0.0"
+authors = ["Facebook", "Martin Zlámal <mrtnzlml@gmail.com>"]
+license = "MIT"
+publish = ["crates-io"]
+repository = "https://github.com/adeira/universe"
+description = "Utility for signing and verifying generated files."
+
+[dependencies]
+hex = "0.4.2"
+lazy_static = "1.4.0"
+md-5 = "0.9.1"
+regex = "1.4.2"
