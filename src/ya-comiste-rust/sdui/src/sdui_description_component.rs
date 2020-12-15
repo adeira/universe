@@ -15,6 +15,6 @@ impl SDUIDescriptionComponent {
 
     fn text(&self) -> String {
         // TODO
-        "TODO".to_string()
+        "TODO from SDUIDescriptionComponent (Rust BE)".to_string()
     }
 }

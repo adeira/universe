@@ -15,6 +15,6 @@ impl SDUIJumbotronComponent {
 
     fn title(&self) -> String {
         // TODO
-        "TODO".to_string()
+        "TODO from SDUIJumbotronComponent (Rust BE)".to_string()
     }
 }

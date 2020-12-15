@@ -3,10 +3,8 @@
 import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
 import { fbt, IntlVariations, init as fbtInit } from 'fbt';
-import { graphql } from 'react-relay';
 
-import SDUISectionRenderer from '../SDUISectionRenderer';
-import QueryRenderer from '../relay/QueryRenderer';
+import EntrypointQueryRenderer from '../relay/EntrypointQueryRenderer';
 
 // TODO: use on every page (?)
 // $FlowFixMe[prop-missing]
@@ -42,25 +40,9 @@ function Explore(props: Props): React.Node {
   }, [props.componentId]);
 
   return (
-    <QueryRenderer
-      query={graphql`
-        query ExploreQuery($entrypointKey: String!) {
-          mobileEntrypointSections(key: $entrypointKey) {
-            ...SDUISectionRendererFragment
-          }
-        }
-      `}
-      variables={{
-        entrypointKey: 'com.yaComiste.Explore',
-      }}
-      render={(relayProps) => {
-        return (
-          <SDUISectionRenderer
-            componentId={props.componentId} // TODO: do it better
-            sections={relayProps.mobileEntrypointSections}
-          />
-        );
-      }}
+    <EntrypointQueryRenderer
+      entrypointKey="com.yaComiste.Explore"
+      componentId={props.componentId} // TODO: do it better
     />
   );
 }
