@@ -9,23 +9,23 @@
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
 type SDUISectionRendererFragment$ref = any;
-export type ExploreQueryVariables = {|
+export type EntrypointQueryRendererQueryVariables = {|
   entrypointKey: string
 |};
-export type ExploreQueryResponse = {|
+export type EntrypointQueryRendererQueryResponse = {|
   +mobileEntrypointSections: $ReadOnlyArray<{|
     +$fragmentRefs: SDUISectionRendererFragment$ref
   |}>
 |};
-export type ExploreQuery = {|
-  variables: ExploreQueryVariables,
-  response: ExploreQueryResponse,
+export type EntrypointQueryRendererQuery = {|
+  variables: EntrypointQueryRendererQueryVariables,
+  response: EntrypointQueryRendererQueryResponse,
 |};
 */
 
 
 /*
-query ExploreQuery(
+query EntrypointQueryRendererQuery(
   $entrypointKey: String!
 ) {
   mobileEntrypointSections(key: $entrypointKey) {
@@ -128,7 +128,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ExploreQuery",
+    "name": "EntrypointQueryRendererQuery",
     "selections": [
       {
         "alias": null,
@@ -154,7 +154,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ExploreQuery",
+    "name": "EntrypointQueryRendererQuery",
     "selections": [
       {
         "alias": null,
@@ -255,16 +255,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "dd4d79f1e40640a9d0c101ab3a53d490",
+    "cacheID": "d2a7cc42443e09478960e9b90d428cd5",
     "id": null,
     "metadata": {},
-    "name": "ExploreQuery",
+    "name": "EntrypointQueryRendererQuery",
     "operationKind": "query",
-    "text": "query ExploreQuery(\n  $entrypointKey: String!\n) {\n  mobileEntrypointSections(key: $entrypointKey) {\n    ...SDUISectionRendererFragment\n    id\n  }\n}\n\nfragment SDUICardFragment on SDUICardComponent {\n  entrypointKey\n  title\n  imageBackgroundUrl\n}\n\nfragment SDUIDescriptionFragment on SDUIDescriptionComponent {\n  text\n}\n\nfragment SDUIJumbotronFragment on SDUIJumbotronComponent {\n  title\n}\n\nfragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {\n  title\n  cards {\n    id\n    ...SDUICardFragment\n  }\n}\n\nfragment SDUISectionRendererFragment on SDUISection {\n  id\n  component(supported: [\"SDUICardComponent\", \"SDUIDescriptionComponent\", \"SDUIJumbotronComponent\", \"SDUIScrollViewHorizontalComponent\"]) {\n    __typename\n    ... on SDUICardComponent {\n      __typename\n      ...SDUICardFragment\n    }\n    ... on SDUIDescriptionComponent {\n      __typename\n      ...SDUIDescriptionFragment\n    }\n    ... on SDUIJumbotronComponent {\n      __typename\n      ...SDUIJumbotronFragment\n    }\n    ... on SDUIScrollViewHorizontalComponent {\n      __typename\n      ...SDUIScrollViewHorizontalFragment\n    }\n  }\n}\n"
+    "text": "query EntrypointQueryRendererQuery(\n  $entrypointKey: String!\n) {\n  mobileEntrypointSections(key: $entrypointKey) {\n    ...SDUISectionRendererFragment\n    id\n  }\n}\n\nfragment SDUICardFragment on SDUICardComponent {\n  entrypointKey\n  title\n  imageBackgroundUrl\n}\n\nfragment SDUIDescriptionFragment on SDUIDescriptionComponent {\n  text\n}\n\nfragment SDUIJumbotronFragment on SDUIJumbotronComponent {\n  title\n}\n\nfragment SDUIScrollViewHorizontalFragment on SDUIScrollViewHorizontalComponent {\n  title\n  cards {\n    id\n    ...SDUICardFragment\n  }\n}\n\nfragment SDUISectionRendererFragment on SDUISection {\n  id\n  component(supported: [\"SDUICardComponent\", \"SDUIDescriptionComponent\", \"SDUIJumbotronComponent\", \"SDUIScrollViewHorizontalComponent\"]) {\n    __typename\n    ... on SDUICardComponent {\n      __typename\n      ...SDUICardFragment\n    }\n    ... on SDUIDescriptionComponent {\n      __typename\n      ...SDUIDescriptionFragment\n    }\n    ... on SDUIJumbotronComponent {\n      __typename\n      ...SDUIJumbotronFragment\n    }\n    ... on SDUIScrollViewHorizontalComponent {\n      __typename\n      ...SDUIScrollViewHorizontalFragment\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '279bf4fcacf67a4b2436fea7080e80ca';
+(node/*: any*/).hash = 'f9068bf56270c717c17a4d67a0d5f4f7';
 
 module.exports = node;

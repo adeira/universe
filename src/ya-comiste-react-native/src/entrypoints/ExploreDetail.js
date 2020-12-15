@@ -2,11 +2,8 @@
 
 import * as React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { graphql } from 'react-relay';
 
-import SDUISectionRenderer from '../SDUISectionRenderer';
-import QueryRenderer from '../relay/QueryRenderer';
-import type { ExploreDetailQueryResponse } from './__generated__/ExploreDetailQuery.graphql';
+import EntrypointQueryRenderer from '../relay/EntrypointQueryRenderer';
 
 type Props = {|
   +componentId: string,
@@ -14,38 +11,25 @@ type Props = {|
 
 function ExploreDetail(props: Props): React.Node {
   return (
-    <QueryRenderer
-      query={graphql`
-        query ExploreDetailQuery($entrypointKey: String!) {
-          mobileEntrypointSections(key: $entrypointKey) {
-            ...SDUISectionRendererFragment
-          }
-        }
-      `}
-      variables={{
-        entrypointKey: 'com.yaComiste.ExploreDetail',
-      }}
-      render={(relayProps: ExploreDetailQueryResponse) => {
-        return (
-          <SafeAreaView style={styles.safeAreaView}>
-            <SDUISectionRenderer
-              componentId={props.componentId} // TODO: do it better
-              sections={relayProps.mobileEntrypointSections}
-            />
-            <View style={styles.ctaPanel}>
-              <TouchableOpacity
-                activeOpacity={0.75}
-                onPress={() => {
-                  // TODO
-                }}
-                style={styles.ctaButton}
-              >
-                <Text style={styles.ctaButtonText}>Make a reservation (?)</Text>
-              </TouchableOpacity>
-            </View>
-          </SafeAreaView>
-        );
-      }}
+    <EntrypointQueryRenderer
+      entrypointKey="com.yaComiste.ExploreDetail"
+      componentId={props.componentId} // TODO: do it better
+      render={(sduiSectionRenderer) => (
+        <SafeAreaView style={styles.safeAreaView}>
+          {sduiSectionRenderer}
+          <View style={styles.ctaPanel}>
+            <TouchableOpacity
+              activeOpacity={0.75}
+              onPress={() => {
+                // TODO
+              }}
+              style={styles.ctaButton}
+            >
+              <Text style={styles.ctaButtonText}>Make a reservation (?)</Text>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
+      )}
     />
   );
 }

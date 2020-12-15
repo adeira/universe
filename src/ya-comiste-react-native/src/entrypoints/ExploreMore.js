@@ -1,11 +1,28 @@
 // @flow
 
 import * as React from 'react';
-import { Text } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { fbt } from 'fbt';
 
-function ExploreMore(): React.Node {
-  return <Text>app.ExploreMore</Text>;
+import EntrypointQueryRenderer from '../relay/EntrypointQueryRenderer';
+
+type Props = {|
+  +componentId: string,
+|};
+
+function ExploreMore(props: Props): React.Node {
+  return (
+    <EntrypointQueryRenderer
+      entrypointKey="com.yaComiste.ExploreMore"
+      componentId={props.componentId} // TODO: do it better
+      render={(sduiSectionRenderer) => (
+        <ScrollView>
+          <Text>TODO (com.yaComiste.ExploreMore)</Text>
+          {sduiSectionRenderer}
+        </ScrollView>
+      )}
+    />
+  );
 }
 
 ExploreMore.options = {

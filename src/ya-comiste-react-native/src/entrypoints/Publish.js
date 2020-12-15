@@ -4,11 +4,24 @@ import * as React from 'react';
 import { Text, ScrollView } from 'react-native';
 import { fbt } from 'fbt';
 
-function Publish(): React.Node {
+import EntrypointQueryRenderer from '../relay/EntrypointQueryRenderer';
+
+type Props = {|
+  +componentId: string,
+|};
+
+function Publish(props: Props): React.Node {
   return (
-    <ScrollView>
-      <Text>app.Publish</Text>
-    </ScrollView>
+    <EntrypointQueryRenderer
+      entrypointKey="com.yaComiste.Publish"
+      componentId={props.componentId} // TODO: do it better
+      render={(sduiSectionRenderer) => (
+        <ScrollView>
+          <Text>TODO (com.yaComiste.Publish)</Text>
+          {sduiSectionRenderer}
+        </ScrollView>
+      )}
+    />
   );
 }
 

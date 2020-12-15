@@ -1,14 +1,20 @@
 // @flow
 
 import * as React from 'react';
-import { Text, ScrollView } from 'react-native';
 import { fbt } from 'fbt';
 
-function Profile(): React.Node {
+import EntrypointQueryRenderer from '../relay/EntrypointQueryRenderer';
+
+type Props = {|
+  +componentId: string,
+|};
+
+function Profile(props: Props): React.Node {
   return (
-    <ScrollView>
-      <Text>app.Profile</Text>
-    </ScrollView>
+    <EntrypointQueryRenderer
+      entrypointKey="com.yaComiste.Profile"
+      componentId={props.componentId} // TODO: do it better
+    />
   );
 }
 
