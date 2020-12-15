@@ -23,6 +23,7 @@ type SDUICardComponent {
   entrypointKey: String!
   "Title is a crucial part of the card component so it's not optional."
   title: String!
+  imageBackgroundUrl: String
 }
 
 type Query {

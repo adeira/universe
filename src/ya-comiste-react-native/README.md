@@ -31,7 +31,7 @@ yarn workspace @adeira/ya-comiste-react-native react-native-bundle-visualizer
 ## Must Have
 
 - 🚧 running on Android because Latam is mainly for Android (currently not available)
-- 🚧 running on iOS
+- ✅ running on iOS
 - 🚧 possibility to use the application without any login
 - 🚧 actions (pre-order, create) possible only after account creation
 - 🚧 dark mode (https://reactnative.dev/docs/usecolorscheme)
