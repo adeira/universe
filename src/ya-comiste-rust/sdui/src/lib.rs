@@ -5,6 +5,7 @@ pub mod graphql_schema;
 pub mod model;
 pub mod sdui_section;
 
+mod resolve_cloudfront_url;
 mod sdui_card_component;
 mod sdui_component;
 mod sdui_content;

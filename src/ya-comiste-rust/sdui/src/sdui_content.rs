@@ -4,6 +4,7 @@ pub struct Restaurant {
     _key: String,
     _rev: String,
     pub name: String,
+    pub image_background: Option<String>,
 }
 
 impl Restaurant {
@@ -18,6 +19,7 @@ pub struct Shop {
     _key: String,
     _rev: String,
     pub name: String,
+    pub image_background: Option<String>,
 }
 
 impl Shop {
@@ -68,6 +70,7 @@ mod tests {
                 _key: "123456".to_string(),
                 _rev: "_abcdefg---".to_string(),
                 name: "El Cardenal".to_string(),
+                image_background: None,
             })
         );
     }
@@ -92,6 +95,7 @@ mod tests {
                 _key: "123456".to_string(),
                 _rev: "_abcdefg---".to_string(),
                 name: "OXXO Santa Catarina".to_string(),
+                image_background: None,
             })
         );
     }
@@ -119,6 +123,7 @@ mod tests {
                     _key: "123456".to_string(),
                     _rev: "_abcdefg---".to_string(),
                     name: "OXXO Santa Catarina".to_string(),
+                    image_background: None,
                 })
             }
         );

@@ -14,6 +14,7 @@ declare export opaque type SDUICardFragment$fragmentType: SDUICardFragment$ref;
 export type SDUICardFragment = {|
   +entrypointKey: string,
   +title: string,
+  +imageBackgroundUrl: ?string,
   +$refType: SDUICardFragment$ref,
 |};
 export type SDUICardFragment$data = SDUICardFragment;
@@ -44,12 +45,19 @@ const node/*: ReaderFragment*/ = {
       "kind": "ScalarField",
       "name": "title",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "imageBackgroundUrl",
+      "storageKey": null
     }
   ],
   "type": "SDUICardComponent",
   "abstractKey": null
 };
 // prettier-ignore
-(node/*: any*/).hash = '35a3c462e69646e28fdf7c9a33823657';
+(node/*: any*/).hash = 'd29ce486270ce1840bad006259df29f5';
 
 module.exports = node;

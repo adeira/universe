@@ -17,6 +17,7 @@ type SDUICardComponent {
   id: ID!
   entrypointKey: String!
   title: String!
+  imageBackgroundUrl: String
 }
 
 type SDUIDescriptionComponent {
