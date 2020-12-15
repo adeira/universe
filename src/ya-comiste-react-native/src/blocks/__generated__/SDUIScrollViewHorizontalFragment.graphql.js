@@ -14,7 +14,7 @@ declare export opaque type SDUIScrollViewHorizontalFragment$ref: FragmentReferen
 declare export opaque type SDUIScrollViewHorizontalFragment$fragmentType: SDUIScrollViewHorizontalFragment$ref;
 export type SDUIScrollViewHorizontalFragment = {|
   +title: string,
-  +cards: ?$ReadOnlyArray<?{|
+  +cards: $ReadOnlyArray<{|
     +id: string,
     +$fragmentRefs: SDUICardFragment$ref,
   |}>,
