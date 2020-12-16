@@ -4607,17 +4607,10 @@ babel-plugin-macros@^2.0.0:
     cosmiconfig "^6.0.0"
     resolve "^1.12.0"
 
-babel-plugin-relay@0.0.0-master-fa1c75d2:
-  version "0.0.0-master-fa1c75d2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-0.0.0-master-fa1c75d2.tgz#e8223893f4eb44a41a74ccf7ca280af9fd8ecd01"
-  integrity sha512-rawI4B+oZvmCzu7s8YpaOV/vgWar8VZrV0hJ3kbWag1d/Syyt1DKevOk7pNnSRFkvN9k7xWK9itQ2uDk6xa+zA==
-  dependencies:
-    babel-plugin-macros "^2.0.0"
-
-babel-plugin-relay@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-10.1.1.tgz#8547a164e00a465dc027528c63fec1a50042a154"
-  integrity sha512-xcM/f1Jt7K7VM0gk0DG3wPr6af8UqLcFOZvghl5sNRlVfDQFHunFvONY6bSNeudJLjnLo/qIZMxCCmosCcUKUw==
+babel-plugin-relay@10.1.2, babel-plugin-relay@^10.1.2:
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-10.1.2.tgz#8f85ea9a92f9b173fe534960f08c6a7d58c6925d"
+  integrity sha512-vaGaRcO/5axeTSCRgEvFUMIsOJdSItORqCftDWfoA0nHpXbLgonmiPNGMkNx0rjDYVz2wm7ktA/Fc13twZ2lDQ==
   dependencies:
     babel-plugin-macros "^2.0.0"
 
