@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Navigation } from 'react-native-navigation';
-import { TouchableHighlight, View, StyleSheet, Text } from 'react-native';
+import { TouchableHighlight, View, StyleSheet, Text, ImageBackground } from 'react-native';
 import { createFragmentContainer, graphql } from 'react-relay';
 
 import type { FragmentContainerType } from '../relay/relayTypes';
@@ -34,9 +34,15 @@ function SDUICard(props: Props): React.Node {
           });
         }}
       >
-        <View style={styles.cardMock}>
-          <Text>{props.data.title}</Text>
-        </View>
+        <ImageBackground
+          style={styles.cardImageWrapper}
+          imageStyle={styles.cardImage}
+          source={{ uri: props.data.imageBackgroundUrl }}
+        >
+          <View style={styles.cardTextWrapper}>
+            <Text style={styles.cardText}>{props.data.title}</Text>
+          </View>
+        </ImageBackground>
       </TouchableHighlight>
     </View>
   );
@@ -46,11 +52,28 @@ const styles = StyleSheet.create({
   wrapper: {
     marginRight: 10,
   },
-  cardMock: {
+  cardImageWrapper: {
     width: 250,
     height: 150,
     backgroundColor: 'lightgrey',
-    borderRadius: 4,
+    borderRadius: 5,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+  },
+  cardImage: {
+    borderRadius: 5,
+  },
+  cardTextWrapper: {
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    padding: 8,
+  },
+  cardText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
@@ -59,6 +82,7 @@ export default (createFragmentContainer(SDUICard, {
     fragment SDUICardFragment on SDUICardComponent {
       entrypointKey
       title
+      imageBackgroundUrl
     }
   `,
 }): FragmentContainerType<Props>);
