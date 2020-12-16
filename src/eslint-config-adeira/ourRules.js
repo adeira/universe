@@ -502,6 +502,15 @@ module.exports = ({
   'react-hooks/rules-of-hooks': ERROR,
   'react-hooks/exhaustive-deps': ERROR,
 
+  // React Native (https://github.com/intellicode/eslint-plugin-react-native)
+  'react-native/no-color-literals': OFF,
+  'react-native/no-inline-styles': OFF,
+  'react-native/no-raw-text': OFF, // TODO: takes normal React into account as well, not only RN
+  'react-native/no-single-element-style-arrays': NEXT_VERSION_ERROR,
+  'react-native/no-unused-styles': NEXT_VERSION_ERROR,
+  'react-native/sort-styles': OFF,
+  'react-native/split-platform-components': OFF,
+
   // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
   'jsx-a11y/accessible-emoji': ERROR,
   'jsx-a11y/alt-text': ERROR,
