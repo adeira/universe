@@ -39,7 +39,7 @@
     "metro-react-native-babel-preset": "^0.59.0",
     "react-native-bundle-visualizer": "^2.2.1",
     "react-test-renderer": "16.13.1",
-    "relay-compiler": "0.0.0-master-fa1c75d2",
+    "relay-compiler": "10.1.2",
     "relay-config": "0.0.0-master-fa1c75d2"
   },
   "jest": {
