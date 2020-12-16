@@ -1,4 +1,5 @@
 use crate::graphql_context::Context;
+use crate::resolve_cloudfront_url::resolve_cloudfront_url;
 use crate::sdui_content::SDUIContent;
 use juniper::{FieldError, FieldResult};
 
@@ -32,6 +33,23 @@ impl SDUICardComponent {
                 "No title found for card component ID: {}",
                 &self._id,
             ))),
+        }
+    }
+
+    async fn image_background_url(&self, context: &Context) -> Option<String> {
+        let content = context.content_dataloader.load(self._id.to_owned()).await;
+        match content {
+            Some(c) => match c {
+                SDUIContent::Restaurant(restaurant) => match restaurant.image_background {
+                    Some(image_background) => Some(resolve_cloudfront_url(&*image_background)),
+                    None => None,
+                },
+                SDUIContent::Shop(shop) => match shop.image_background {
+                    Some(image_background) => Some(resolve_cloudfront_url(&*image_background)),
+                    None => None,
+                },
+            },
+            None => None,
         }
     }
 }
