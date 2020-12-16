@@ -14,7 +14,7 @@
     "@babel/register": "^7.12.10",
     "@babel/runtime": "^7.12.5",
     "@babel/template": "^7.12.7",
-    "@babel/types": "^7.12.10",
+    "@babel/types": "^7.12.11",
     "find-cache-dir": "^3.3.1",
     "object-hash": "^2.0.3",
     "postcss": "^8.2.1",
