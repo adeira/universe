@@ -21,9 +21,9 @@ afterEach(() => {
   groupCollapsed.mockRestore();
 });
 
-it('logs execute.complete as expected', () => {
+it('logs network.complete as expected', () => {
   RelayLazyLogger({
-    name: 'execute.start',
+    name: 'network.start',
     transactionID: 100_000,
     params: {
       id: null,
@@ -37,7 +37,7 @@ it('logs execute.complete as expected', () => {
   });
 
   RelayLazyLogger({
-    name: 'execute.complete',
+    name: 'network.complete',
     transactionID: 100_000,
   });
 
@@ -49,9 +49,9 @@ it('logs execute.complete as expected', () => {
   expect(groupCollapsed).toHaveBeenCalledWith('%c%s', 'font-weight:bold;', '[Relay query] Lol');
 });
 
-it('logs execute.error as expected', () => {
+it('logs network.error as expected', () => {
   RelayLazyLogger({
-    name: 'execute.start',
+    name: 'network.start',
     transactionID: 100_000,
     params: {
       id: null,
@@ -65,7 +65,7 @@ it('logs execute.error as expected', () => {
   });
 
   RelayLazyLogger({
-    name: 'execute.error',
+    name: 'network.error',
     transactionID: 100_000,
     error: new Error('ups'),
   });

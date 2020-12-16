@@ -17,7 +17,7 @@ afterEach(() => {
 
 it('does not log in Node.js', () => {
   RelayEagerLogger({
-    name: 'execute.start',
+    name: 'network.start',
     transactionID: 1,
     params: {
       id: null,

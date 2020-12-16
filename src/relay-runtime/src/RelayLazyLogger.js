@@ -28,13 +28,13 @@ export default function RelayLazyLogger(logEvent: LogEvent) {
     return;
   }
 
-  if (logEvent.name === 'execute.start') {
+  if (logEvent.name === 'network.start') {
     logEventsMap.set(logEvent.transactionID, {
       operationKind: logEvent.params.operationKind,
       operationName: logEvent.params.name,
       variables: logEvent.variables,
     });
-  } else if (logEvent.name === 'execute.next') {
+  } else if (logEvent.name === 'network.next') {
     // TODO: log subscriptions as they arrive
     const savedEvent = logEventsMap.get(logEvent.transactionID);
     if (savedEvent) {
@@ -43,13 +43,13 @@ export default function RelayLazyLogger(logEvent: LogEvent) {
         response: logEvent.response,
       });
     }
-  } else if (logEvent.name === 'execute.complete' || logEvent.name === 'execute.unsubscribe') {
+  } else if (logEvent.name === 'network.complete' || logEvent.name === 'network.unsubscribe') {
     const savedEvent = logEventsMap.get(logEvent.transactionID);
     logGroup(createGroupMessage(savedEvent?.operationName, savedEvent?.operationKind), () => {
       console.log(`Variables: %o`, savedEvent?.variables);
       console.log(`Response: %o`, savedEvent?.response);
     });
-  } else if (logEvent.name === 'execute.error') {
+  } else if (logEvent.name === 'network.error') {
     const savedEvent = logEventsMap.get(logEvent.transactionID);
     logGroup(
       createGroupMessage(savedEvent?.operationName, savedEvent?.operationKind),
@@ -61,12 +61,7 @@ export default function RelayLazyLogger(logEvent: LogEvent) {
     );
   } else if (
     logEvent.name === 'entrypoint.root.consume' ||
-    logEvent.name === 'network.complete' ||
-    logEvent.name === 'network.error' ||
     logEvent.name === 'network.info' ||
-    logEvent.name === 'network.next' ||
-    logEvent.name === 'network.start' ||
-    logEvent.name === 'network.unsubscribe' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
     logEvent.name === 'store.gc' ||

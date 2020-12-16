@@ -17,7 +17,7 @@ afterEach(() => {
 
 it('does not log in Node.js', () => {
   RelayLazyLogger({
-    name: 'execute.start',
+    name: 'network.start',
     transactionID: 100_000,
     params: {
       id: null,
@@ -31,7 +31,7 @@ it('does not log in Node.js', () => {
   });
 
   RelayLazyLogger({
-    name: 'execute.complete',
+    name: 'network.complete',
     transactionID: 100_000,
   });
 
