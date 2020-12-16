@@ -16,7 +16,7 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
   const transactionID = logEvent.transactionID != null ? logEvent.transactionID : 99_998; // so it clearly results in "-1"
   const groupMessage = `[Relay ${transactionID - 99_999}] ${logEvent.name}`;
 
-  if (logEvent.name === 'execute.start') {
+  if (logEvent.name === 'network.start') {
     logGroup(
       groupMessage,
       () => {
@@ -29,7 +29,7 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
           : `🔍 (${logEvent.params.text?.length ?? 0})`
       }`,
     );
-  } else if (logEvent.name === 'execute.next') {
+  } else if (logEvent.name === 'network.next') {
     if (Array.isArray(logEvent.response)) {
       // we do not support batch response with @stream yet
       console.warn(logEvent.response);
@@ -47,7 +47,7 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
         console.log(`Response: %o`, logEvent.response);
       });
     }
-  } else if (logEvent.name === 'execute.error') {
+  } else if (logEvent.name === 'network.error') {
     logGroup(
       groupMessage,
       () => {
@@ -56,16 +56,11 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
       undefined,
       'color:red',
     );
-  } else if (logEvent.name === 'execute.complete' || logEvent.name === 'execute.unsubscribe') {
+  } else if (logEvent.name === 'network.complete' || logEvent.name === 'network.unsubscribe') {
     logGroup(groupMessage);
   } else if (
     logEvent.name === 'entrypoint.root.consume' ||
-    logEvent.name === 'network.complete' ||
-    logEvent.name === 'network.error' ||
     logEvent.name === 'network.info' ||
-    logEvent.name === 'network.next' ||
-    logEvent.name === 'network.start' ||
-    logEvent.name === 'network.unsubscribe' ||
     logEvent.name === 'queryresource.fetch' ||
     logEvent.name === 'queryresource.retain' ||
     logEvent.name === 'store.gc' ||

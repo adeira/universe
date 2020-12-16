@@ -21,9 +21,9 @@ afterEach(() => {
   groupCollapsed.mockRestore();
 });
 
-it("calls event 'execute.start' as expected", () => {
+it("calls event 'network.start' as expected", () => {
   RelayEagerLogger({
-    name: 'execute.start',
+    name: 'network.start',
     transactionID: 100_000,
     params: {
       id: null,
@@ -43,7 +43,7 @@ it("calls event 'execute.start' as expected", () => {
   expect(groupCollapsed).toHaveBeenCalledWith(
     '%c%s%c%s',
     'font-weight:bold;',
-    '[Relay 1] execute.start',
+    '[Relay 1] network.start',
     'font-weight:normal',
     ' - test 🔍 (13)',
   );
@@ -51,14 +51,14 @@ it("calls event 'execute.start' as expected", () => {
 
 test.each([
   // response => groupCollapsedArgs
-  [{ data: null, extensions: {} }, ['%c%s', 'font-weight:bold;', '[Relay 1] execute.next']],
-  [{ data: 'mock' }, ['%c%s', 'font-weight:bold;', '[Relay 1] execute.next']],
+  [{ data: null, extensions: {} }, ['%c%s', 'font-weight:bold;', '[Relay 1] network.next']],
+  [{ data: 'mock' }, ['%c%s', 'font-weight:bold;', '[Relay 1] network.next']],
   [
     { errors: 'oops' },
     [
       '%c%s%c%s',
       'font-weight:bold;color:orange',
-      '[Relay 1] execute.next',
+      '[Relay 1] network.next',
       'font-weight:normal',
       ' - partial response with errors',
     ],
@@ -68,7 +68,7 @@ test.each([
     [
       '%c%s%c%s',
       'font-weight:bold;color:orange',
-      '[Relay 1] execute.next',
+      '[Relay 1] network.next',
       'font-weight:normal',
       ' - partial response with errors',
     ],
@@ -78,14 +78,14 @@ test.each([
     [
       '%c%s%c%s',
       'font-weight:bold;color:orange',
-      '[Relay 1] execute.next',
+      '[Relay 1] network.next',
       'font-weight:normal',
       ' - partial response with errors',
     ],
   ],
-])("%#) calls event 'execute.next' as expected", (response, groupCollapsedArgs) => {
+])("%#) calls event 'network.next' as expected", (response, groupCollapsedArgs) => {
   RelayEagerLogger({
-    name: 'execute.next',
+    name: 'network.next',
     transactionID: 100_000,
     response,
   });
@@ -93,9 +93,9 @@ test.each([
   expect(groupCollapsed).toHaveBeenCalledWith(...groupCollapsedArgs);
 });
 
-it("calls event 'execute.error' as expected", () => {
+it("calls event 'network.error' as expected", () => {
   RelayEagerLogger({
-    name: 'execute.error',
+    name: 'network.error',
     transactionID: 100_000,
     error: new Error('oops'),
   });
@@ -105,11 +105,11 @@ it("calls event 'execute.error' as expected", () => {
   expect(groupCollapsed).toHaveBeenCalledWith(
     '%c%s',
     'font-weight:bold;color:red',
-    '[Relay 1] execute.error',
+    '[Relay 1] network.error',
   );
 });
 
-test.each(['execute.complete', 'execute.unsubscribe'])(
+test.each(['network.complete', 'network.unsubscribe'])(
   "calls event '%s' as expected",
   (eventName) => {
     // $FlowExpectedError[speculation-ambiguous]: OK for testing purposes - additional props are being ignored for these events
