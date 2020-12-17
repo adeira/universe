@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rules for React Native added. Specifically, we enabled these rules: [`react-native/no-single-element-style-arrays`](https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-single-element-style-arrays.md) and [`react-native/no-unused-styles`](https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-unused-styles.md) (as usual: warnings or errors in a strict mode).
+
 # 4.2.0
 
 - Disabled rule `relay/graphql-naming` which is no longer accurate. We might enable it later again once this issue gets resolved: https://github.com/relayjs/eslint-plugin-relay/issues/107
