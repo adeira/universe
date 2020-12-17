@@ -1,0 +1,13 @@
+[package]
+name = "auth"
+version = "0.0.0"
+authors = ["Martin Zlámal <mrtnzlml@gmail.com>"]
+edition = "2018"
+publish = false
+
+[dependencies]
+insta = "1.3.0"
+jsonwebtoken = "7.2.0"
+log = "0.4.11"
+reqwest = { version = "0.10.10", features = ["json", "blocking"] }
+serde = { version = "1.0.118", features = ["derive"] }

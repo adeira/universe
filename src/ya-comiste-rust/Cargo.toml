@@ -1,6 +1,7 @@
 [workspace]
 members = [
   "arangodb",
+  "auth",
   "sdui",
   "server",
   "signedsource",
