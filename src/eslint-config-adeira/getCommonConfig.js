@@ -73,7 +73,6 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
     },
 
     plugins: [
-      'eslint-plugin-babel',
       'eslint-plugin-flowtype',
       'eslint-plugin-jest',
       'eslint-plugin-prefer-object-spread',

@@ -55,7 +55,7 @@ module.exports = ({
   'require-atomic-updates': ERROR,
   'use-isnan': [ERROR, { enforceForSwitchCase: true }],
   'valid-jsdoc': OFF,
-  'valid-typeof': OFF, // see: babel/valid-typeof
+  'valid-typeof': ERROR,
 
   // Best Practices (http://eslint.org/docs/rules/#best-practices)
   'accessor-pairs': [WARN, { setWithoutGet: true }],
@@ -175,7 +175,13 @@ module.exports = ({
   'no-sync': OFF, // see: node/no-sync (https://github.com/mysticatea/eslint-plugin-node/pull/206)
 
   // Stylistic Issues (http://eslint.org/docs/rules/#stylistic-issues)
-  'camelcase': OFF, // see: babel/camelcase
+  'camelcase': [
+    ERROR,
+    {
+      ignoreDestructuring: false,
+      properties: 'never', // it's quite common to have object properties mixed
+    },
+  ],
   'capitalized-comments': OFF,
   'consistent-this': OFF,
   'func-name-matching': OFF,
@@ -259,19 +265,6 @@ module.exports = ({
   'require-yield': ERROR,
   'sort-imports': OFF,
   'symbol-description': ERROR,
-
-  // Babel (https://github.com/babel/eslint-plugin-babel)
-  'babel/camelcase': [
-    ERROR,
-    {
-      ignoreDestructuring: false,
-      properties: 'never', // it's quite common to have object properties mixed
-    },
-  ],
-  'babel/new-cap': OFF,
-  'babel/no-invalid-this': OFF,
-  'babel/no-unused-expressions': OFF, // see: flow/no-unused-expressions
-  'babel/valid-typeof': ERROR,
 
   // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
   'flowtype/array-style-complex-type': OFF,
