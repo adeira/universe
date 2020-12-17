@@ -29,7 +29,7 @@
     "react-native": "0.63.4",
     "react-native-navigation": "^7.6.0",
     "react-relay": "0.0.0-master-fa1c75d2",
-    "relay-runtime": "0.0.0-master-fa1c75d2"
+    "relay-runtime": "10.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
