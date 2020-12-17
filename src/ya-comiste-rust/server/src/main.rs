@@ -9,7 +9,7 @@ use warp::Filter;
 async fn main() {
     std::env::set_var(
         "RUST_LOG",
-        "warp_server,arangodb=trace,sdui=trace,server=trace",
+        "warp_server,arangodb=trace,auth=trace,sdui=trace,server=trace",
     );
     env_logger::init();
 

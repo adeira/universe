@@ -79,6 +79,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
       'eslint-plugin-prefer-object-spread',
       'eslint-plugin-react',
       'eslint-plugin-react-hooks',
+      'eslint-plugin-react-native',
       'eslint-plugin-jsx-a11y',
       'eslint-plugin-relay',
       'eslint-plugin-import',

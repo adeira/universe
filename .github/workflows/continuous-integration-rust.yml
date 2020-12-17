@@ -55,6 +55,7 @@ jobs:
         with:
           command: test
           args: >-
+            --no-fail-fast
             --manifest-path ${{ matrix.manifest }}
             --target ${{ matrix.target }}
 
