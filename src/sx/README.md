@@ -51,10 +51,16 @@ const styles = sx.create({
 
 That's it. The example above will generate atomic CSS like this:
 
-```text
-._1DKsqE { font-size: 32px; }
-.v2kHO { text-decoration: none; }
-.stDQH { background-color: var(--main-bg-color); }
+```css
+._1DKsqE {
+  font-size: 32px;
+}
+.v2kHO {
+  text-decoration: none;
+}
+.stDQH {
+  background-color: var(--main-bg-color);
+}
 ```
 
 It's highly recommended enabling [server-side rendered styles](#server-side-rendering) for production use (see below).
@@ -272,7 +278,7 @@ const simple = sx.keyframes({
 
 SX supports composability with external styles. Have a look at this base component example (uses [Flow](https://github.com/facebook/flow) types):
 
-```flow js
+```js
 import sx, { type AllCSSPropertyTypes } from '@adeira/sx';
 
 type Props = {|
@@ -291,7 +297,7 @@ function MyBaseComponent(props: Props) {
 
 Now, let's say we are building a design library and we want to affect the base styles externally. Here is how would our customized (wrapper) component look like:
 
-```flow js
+```js
 const styles = sx.create({ spacing: { marginTop: 4 } });
 
 function MyCustomComponent() {
@@ -397,10 +403,16 @@ Internally, these steps are happening:
 
 2. it generates atomic CSS from it (this is where style buffer and hash registry starts acting)
 
-   ```text
-   .c0 { color: blue }
-   .c1 { color: red }
-   .c2 { font-size: 32px }
+   ```css
+   .c0 {
+     color: blue;
+   }
+   .c1 {
+     color: red;
+   }
+   .c2 {
+     font-size: 32px;
+   }
    ```
 
 3. we transform the original stylesheet using these new atomic classes:
