@@ -1,4 +1,4 @@
-# @generated SignedSource<<ba194ec77ce4444ac9cb74c4bef59b7e>>
+# @generated SignedSource<<058e4e1f9a520144921a9263176babbf>>
 
 type SDUIScrollViewHorizontalComponent {
   id: ID!
@@ -6,9 +6,29 @@ type SDUIScrollViewHorizontalComponent {
   cards: [SDUICardComponent!]!
 }
 
+type DeauthorizeMobilePayload {
+  success: Boolean!
+}
+
 type SDUIDescriptionComponent {
   id: ID!
   text: String!
+}
+
+type Mutation {
+  """
+    This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
+    device) and returns authorization payload. There is no concept of sign-in and sign-up
+    because every user with a valid JWT ID token will be either authorized OR registered and
+    authorized. Invalid tokens and disabled tokens will be rejected.
+  """
+  authorizeMobile(googleIdToken: String!): AuthorizeMobilePayload!
+  """
+    The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
+    make the mobile application unsigned. Mobile applications should remove the session token
+    once deauthorized.
+  """
+  deauthorizeMobile(sessionToken: String!): DeauthorizeMobilePayload!
 }
 
 type SDUIJumbotronComponent {
@@ -26,6 +46,8 @@ type SDUICardComponent {
 
 type Query {
   mobileEntrypointSections(key: String!): [SDUISection!]!
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
 }
 
 type SDUISection {
@@ -35,6 +57,25 @@ type SDUISection {
 
 union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
 
+type WhoamiPayload {
+  id: ID
+  """
+    Human readable type should be used only for testing purposes. The format is not guaranteed
+    and can change in the future completely.
+  """
+  humanReadableType: String
+}
+
+type AuthorizeMobilePayload {
+  success: Boolean!
+  """
+    Session token should be send with every GraphQL request which requires auth.
+    Returns `None` if the request was not successful.
+  """
+  sessionToken: String
+}
+
 schema {
   query: Query
+  mutation: Mutation
 }

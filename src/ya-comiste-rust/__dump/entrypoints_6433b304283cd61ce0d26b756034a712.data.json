@@ -1,2 +1,5 @@
 {"type":2300,"data":{"_key":"com.yaComiste.Explore","_id":"entrypoints/com.yaComiste.Explore","_rev":"_bepZodO---"}}
 {"type":2300,"data":{"_key":"com.yaComiste.ExploreDetail","_id":"entrypoints/com.yaComiste.ExploreDetail","_rev":"_bepZ8k6---"}}
+{"type":2300,"data":{"_key":"com.yaComiste.ExploreMore","_id":"entrypoints/com.yaComiste.ExploreMore","_rev":"_bkT713W---"}}
+{"type":2300,"data":{"_key":"com.yaComiste.Profile","_id":"entrypoints/com.yaComiste.Profile","_rev":"_bkU-ZXu---"}}
+{"type":2300,"data":{"_key":"com.yaComiste.Publish","_id":"entrypoints/com.yaComiste.Publish","_rev":"_bkUBN0G---"}}

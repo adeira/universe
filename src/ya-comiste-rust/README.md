@@ -1,16 +1,19 @@
-TODO:
+TODOs:
 
-- DB strings and source-code translations
-- dataloaders for GraphQL queries
-- DB schema validations (JSON schema)
-- server monitoring and error reporting (?)
+```text
+001 - DB strings and source-code translations
+002 - DB schema validations (JSON schema)
+003 - server monitoring and error reporting (?)
+004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
+005 - implement https://github.com/woltapp/blurhash
+006 - use Bazel https://bazelbuild.github.io/rules_rust/
+```
 
 # Rust server
 
 This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp)), exposes GraphQL API (via [Juniper](https://github.com/graphql-rust/juniper)) and works with [ArangoDB](https://github.com/arangodb/arangodb) database behind the scenes.
 
-- Rust tl;dr: https://doc.rust-lang.org/stable/rust-by-example/
-- Rust book: https://doc.rust-lang.org/book/
+- Rust: https://www.rust-lang.org/learn
 - Juniper: https://graphql-rust.github.io/juniper/current/
 - ArangoDB: https://www.arangodb.com/docs/stable/ (multi-model DB)
 - JSON Schema validator: https://www.jsonschemavalidator.net/
@@ -18,13 +21,13 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
 ## Install and run
 
 ```text
-(cd src/ya-comiste-rust && cargo run)
-(cd src/ya-comiste-rust && cargo fmt)
+(cd src/ya-comiste-rust && cargo run --bin server)
 (cd src/ya-comiste-rust && cargo clippy --all-targets)
 (cd src/ya-comiste-rust && cargo test --offline)
+(cd src/ya-comiste-rust && cargo doc --open --no-deps)
 ```
 
-The server will be accessible here: http://127.0.0.1:8080/
+The server will be accessible here: http://127.0.0.1:8080/graphql (use https://insomnia.rest/graphql/)
 
 Start the database:
 

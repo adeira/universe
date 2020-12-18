@@ -1,10 +1,10 @@
 use crate::model::component_content::ContentDataloaderType;
-use crate::user::User;
+use auth::users::User;
 
 #[derive(Clone)]
 pub struct Context {
-    pub pool: arangodb::ConnectionPool,
     pub content_dataloader: ContentDataloaderType,
+    pub pool: arangodb::ConnectionPool,
     pub user: User,
 }
 

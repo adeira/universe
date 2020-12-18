@@ -1,8 +1,8 @@
-use crate::errors::ModelError;
 use crate::model::entrypoints::get_entrypoint;
 use crate::sdui_component::SDUIComponent;
 use crate::sdui_section::SDUISection;
-use crate::user::User;
+use arangodb::errors::ModelError;
+use auth::users::User;
 
 pub async fn get_all_sections_for_entrypoint_key(
     user: &User, // TODO: use the current user

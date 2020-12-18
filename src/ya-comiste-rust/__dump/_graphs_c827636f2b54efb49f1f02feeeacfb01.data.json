@@ -1,2 +1,3 @@
 {"type":2300,"data":{"_key":"sdui_content","_id":"_graphs/sdui_content","_rev":"_bg1aXBm---","edgeDefinitions":[{"collection":"component_content","from":["components"],"to":["restaurants","shops"]}],"orphanCollections":[]}}
 {"type":2300,"data":{"_key":"sdui","_id":"_graphs/sdui","_rev":"_bifmCFm---","edgeDefinitions":[{"collection":"component_components","from":["components"],"to":["components"]},{"collection":"entrypoint_components","from":["entrypoints"],"to":["components"]}],"orphanCollections":[]}}
+{"type":2300,"data":{"_key":"sessions","_id":"_graphs/sessions","_rev":"_blb7AXq---","edgeDefinitions":[{"collection":"user_sessions","from":["users"],"to":["sessions"]}],"orphanCollections":[]}}

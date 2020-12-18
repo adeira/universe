@@ -1,6 +1,6 @@
-use crate::errors::ModelError;
 use crate::sdui_content::{SDUIComponentContent, SDUIContent};
-use crate::user::User;
+use arangodb::errors::ModelError;
+use auth::users::User;
 use dataloader::non_cached::Loader;
 use dataloader::BatchFn;
 use std::collections::HashMap;

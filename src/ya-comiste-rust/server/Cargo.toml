@@ -9,6 +9,7 @@ publish = false
 
 [dependencies]
 arangodb = { path = "../arangodb" }
+auth = { path = "../auth" }
 env_logger = "0.8.2"
 juniper = { git = "https://github.com/graphql-rust/juniper" }
 juniper_warp = { git = "https://github.com/graphql-rust/juniper" }
@@ -16,3 +17,6 @@ log = "0.4.0"
 sdui = { path = "../sdui" }
 tokio = { version = "0.2", features = ["rt-core", "macros"] }
 warp = "0.2.5"
+
+[dev-dependencies]
+proptest = "0.10.1"
