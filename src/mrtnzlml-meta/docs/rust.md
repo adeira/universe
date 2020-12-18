@@ -16,6 +16,7 @@ https://www.rust-lang.org/
 - https://blog.burntsushi.net/rust-error-handling/
 - https://gitlab.com/qonfucius/aragog
 - https://doc.rust-lang.org/std/collections/index.html
+- https://rust-lang-nursery.github.io/rust-cookbook/intro.html
 
 ## Interesting Stack Overflow questions
 
