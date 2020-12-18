@@ -8,31 +8,43 @@
  */
 
 module.exports = {
-  meta: {
-    'Flow & TypeScript': [
-      'flow',
-      'flow/new-spread-model',
-      'flow/saved-state',
-      'flow/unsealed-objects',
-      'flow/configuration',
-      'flow/debugging',
-      {
-        type: 'category',
-        label: 'Patterns',
-        items: [
-          'flow/patterns/exhaustive-checking', //
-          'flow/patterns/restricted-element',
-        ],
-      },
-      'flow/shenanigans',
-    ],
-    Relay: [
-      'relay',
-      'relay/directives',
-      'relay/local-schema',
-      'relay/match-module',
-      'relay/uploadables',
-    ],
-    'Rest of programming': ['git', 'graphql', 'javascript', 'css'],
-  },
+  meta: [
+    {
+      type: 'category',
+      label: 'Flow & TypeScript',
+      items: [
+        { type: 'doc', id: 'flow' },
+        { type: 'doc', id: 'flow/new-spread-model' },
+        { type: 'doc', id: 'flow/saved-state' },
+        { type: 'doc', id: 'flow/unsealed-objects' },
+        { type: 'doc', id: 'flow/configuration' },
+        { type: 'doc', id: 'flow/debugging' },
+        {
+          type: 'category',
+          label: 'Patterns',
+          items: [
+            'flow/patterns/exhaustive-checking', //
+            'flow/patterns/restricted-element',
+          ],
+        },
+        { type: 'doc', id: 'flow/shenanigans' },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Relay',
+      items: [
+        { type: 'doc', id: 'relay' },
+        { type: 'doc', id: 'relay/directives' },
+        { type: 'doc', id: 'relay/local-schema' },
+        { type: 'doc', id: 'relay/match-module' },
+        { type: 'doc', id: 'relay/uploadables' },
+      ],
+    },
+    { type: 'doc', id: 'rust' },
+    { type: 'doc', id: 'git' },
+    { type: 'doc', id: 'graphql' },
+    { type: 'doc', id: 'javascript' },
+    { type: 'doc', id: 'css' },
+  ],
 };
