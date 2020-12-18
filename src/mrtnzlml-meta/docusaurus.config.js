@@ -16,11 +16,14 @@ module.exports = {
   organizationName: 'mrtnzlml', // Usually your GitHub org/user name.
   projectName: 'meta', // Usually your repo name.
   themeConfig: {
-    sidebarCollapsible: false,
+    sidebarCollapsible: true,
+    prism: {
+      additionalLanguages: ['rust'],
+    },
     announcementBar: {
       id: 'github_sponsor', // Any value that will identify this message.
       content:
-        '⭐️ Do you like the content? You can buy me a coffee via <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/mrtnzlml">GitHub Sponsors</a>! ⭐️',
+        '⭐️ Have you found the content helpful? You can buy me a coffee via <a target="_blank" rel="noopener noreferrer" href="https://github.com/sponsors/mrtnzlml">GitHub Sponsors</a>! ⭐️',
       backgroundColor: '#d0d0d0', // Defaults to `#fff`.
       // textColor: '#091E42', // Defaults to `#000`.
       isCloseable: false, // Defaults to `true`.
