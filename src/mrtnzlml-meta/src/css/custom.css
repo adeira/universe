@@ -22,11 +22,6 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
 }
 
-blockquote {
-  padding: 0.5rem;
-  border-left: 2px solid lightgrey;
-}
-
 .docusaurus-highlight-code-line {
   background-color: rgb(73, 81, 111);
 }

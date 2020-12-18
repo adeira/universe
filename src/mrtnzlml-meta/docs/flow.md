@@ -19,9 +19,9 @@ sidebar_label: Flow all-in
 - Paper: [Fast and Precise Type Checking for JavaScript](https://arxiv.org/pdf/1708.08021.pdf)
 - type checking for `this` annotations in functions: https://github.com/facebook/flow/commit/fb6a836ef7d8d3ae842ac9df67e4c83698cbffb4
 
-Showerthoughts:
-
-> flow infers the widest type that makes your code work ... if you don't want inference to widen your type, the solution is always to annotate
+:::tip
+Flow infers the widest type that makes your code work. If you don't want inference to widen your type, the solution is always to annotate.
+:::
 
 ## Oncalls in Facebook (Flow related)
 

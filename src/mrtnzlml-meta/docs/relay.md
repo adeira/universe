@@ -4,7 +4,9 @@ title: Relay all-in
 sidebar_label: Relay all-in
 ---
 
+:::note
 This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
+:::
 
 TODO:
 
@@ -23,7 +25,7 @@ TODO:
 
 > There are different tradeoffs across completeness, consistency, and performance, and there isn't one approach that is appropriate for every app. Relay focuses on cases where consistency matters: if you don't need consistency then a simpler/lighter solution can be more appropriate. ([source](https://github.com/facebook/relay/issues/2237#issuecomment-525420993))
 
-## Useful Links (learning resources):
+## Useful Links (learning resources)
 
 - https://github.com/adeira/relay-example
 - https://github.com/sibelius/relay-modern-network-deep-dive
