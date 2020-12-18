@@ -1,6 +1,6 @@
-use crate::errors::ModelError;
 use crate::sdui_card_component::SDUICardComponent;
-use crate::user::User;
+use arangodb::errors::ModelError;
+use auth::users::User;
 
 pub async fn get_card_components(
     user: &User, // TODO: use the current user

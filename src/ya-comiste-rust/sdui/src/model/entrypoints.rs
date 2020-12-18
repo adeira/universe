@@ -1,6 +1,6 @@
 use crate::entrypoint::Entrypoint;
-use crate::errors::ModelError;
-use crate::user::User;
+use arangodb::errors::ModelError;
+use auth::users::User;
 
 pub async fn get_entrypoint(
     user: &User, // TODO: use the current user

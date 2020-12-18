@@ -1,3 +1,4 @@
 {"type":2300,"data":{"_key":"272268","_id":"entrypoint_components/272268","_from":"entrypoints/com.yaComiste.Explore","_to":"components/150572","_rev":"_bg11k5K---","order":1}}
 {"type":2300,"data":{"_key":"272284","_id":"entrypoint_components/272284","_from":"entrypoints/com.yaComiste.Explore","_to":"components/153974","_rev":"_bg111FK---","order":2}}
 {"type":2300,"data":{"_key":"293666","_id":"entrypoint_components/293666","_from":"entrypoints/com.yaComiste.ExploreDetail","_to":"components/293613","_rev":"_bimilOK---","order":1}}
+{"type":2300,"data":{"_key":"458782","_id":"entrypoint_components/458782","_from":"entrypoints/com.yaComiste.Profile","_to":"components/458738","_rev":"_bkUE09i---","order":1}}

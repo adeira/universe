@@ -2,6 +2,7 @@
 pub enum AuthError {
     InvalidToken(String), // unable the use the token because working with it somehow failed
     JSONWebTokenError(jsonwebtoken::errors::Error),
+    DatabaseError(arangodb::errors::ModelError),
 }
 
 impl std::fmt::Display for AuthError {
@@ -10,10 +11,17 @@ impl std::fmt::Display for AuthError {
     }
 }
 
-// so we can use the `?` operator
+// so we can use the `?` operator with JWT errors
 impl From<jsonwebtoken::errors::Error> for AuthError {
     fn from(err: jsonwebtoken::errors::Error) -> AuthError {
         AuthError::JSONWebTokenError(err)
+    }
+}
+
+// so we can use the `?` operator with DB errors
+impl From<arangodb::errors::ModelError> for AuthError {
+    fn from(err: arangodb::errors::ModelError) -> AuthError {
+        AuthError::DatabaseError(err)
     }
 }
 

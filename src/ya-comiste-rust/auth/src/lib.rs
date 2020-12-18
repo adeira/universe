@@ -1,145 +1,79 @@
+use crate::certs::CachedCerts;
+use crate::error::AuthError;
+use crate::google::verify_id_token_integrity;
+use crate::session::{create_user_session, delete_user_session, find_session_by_user};
+use crate::users::{
+    create_user_by_google_claims, find_user_by_google_claims, get_user_by_session_token,
+    AnonymousUser, User,
+};
+
 pub mod certs;
+pub mod google;
+pub mod session;
+pub mod users;
 
 mod cache_control;
 mod error;
 
-use crate::error::AuthError;
-use certs::CachedCerts;
-use jsonwebtoken::{decode, decode_header, Algorithm, DecodingKey, TokenData, Validation};
-use serde::{Deserialize, Serialize};
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct Claims {
-    // These six fields are included in all Google ID Tokens.
-    iss: String, // Issuer (who created and signed this token)
-    sub: String, // Subject (whom the token refers to)
-    azp: String, // Authorized party (the party to which this token was issues)
-    aud: String, // Audience (who or what the token is intended for)
-    iat: usize,  // Issued at (seconds since Unix epoch)
-    exp: usize,  // Expiration time (seconds since Unix epoch)
-
-    // These seven fields are only included when the user has granted the "profile" and
-    // "email" OAuth scopes to the application.
-    email: Option<String>,
-    email_verified: Option<bool>,
-    name: Option<String>,
-    picture: Option<String>,
-    given_name: Option<String>,
-    family_name: Option<String>,
-    locale: Option<String>,
-}
-
-/// To verify that the token is valid, ensure that the following criteria are satisfied:
+/// This function tries to authorize the user by Google ID token (rejects otherwise).
 ///
-/// 1. The ID token is properly signed by Google. Use Google's public keys (available in JWK or PEM
-///    format) to verify the token's signature. These keys are regularly rotated; examine the
-///    `Cache-Control` header in the response to determine when you should retrieve them again.
-///    - JWK: https://www.googleapis.com/oauth2/v3/certs (we use this one)
-///    - PEM: https://www.googleapis.com/oauth2/v1/certs
-/// 2. The value of `aud` in the ID token is equal to one of your app's client IDs. This check is
-///    necessary to prevent ID tokens issued to a malicious app being used to access data about the
-///    same user on your app's backend server.
-/// 3. The value of `iss` in the ID token is equal to `accounts.google.com` or `https://accounts.google.com`.
-/// 4. The expiry time (`exp`) of the ID token has not passed.
+/// 1. validate the Google ID token (and immediately reject if not valid)
+/// 2a. retrieve the existing user
+/// 2b. create a new user (if it doesn't exist yet)
+/// 3. generate and store new sessions token for this user and return it back
 ///
-/// See: https://developers.google.com/identity/sign-in/ios/backend-auth#verify-the-integrity-of-the-id-token
-pub fn verify_id_token_integrity<T: CachedCerts>(
-    id_token: &str,
-    cached_certs: &mut T,
-) -> Result<TokenData<Claims>, AuthError> {
-    // unsafe_* to remind that this header was not verified
-    let unsafe_header = decode_header(&id_token)?;
-    if let Some(kid) = unsafe_header.kid {
-        if let Some(key) = cached_certs.get_key_by_kid(&*kid) {
-            let validation = Validation {
-                leeway: 30,                // seconds
-                validate_exp: !cfg!(test), // 4. (disabled in tests)
-                validate_nbf: false,       // NBF (not before) not present in the token
-                aud: Some(
-                    // 2.
-                    vec![String::from(
-                        "245356693889-h3aj8e88fsnqch8gdcfh8isf8hruic7n.apps.googleusercontent.com", // iOS client ID
-                    )]
-                    .into_iter()
-                    .collect(),
-                ),
-                // TODO: the second `iss` value as well (?)
-                iss: Some(String::from("https://accounts.google.com")), // 3.
-                algorithms: vec![
-                    Algorithm::RS256, // we assume it's always RS256 - is it true?
-                ],
-                ..Default::default()
-            };
+/// It essentially transforms Google ID token to our Session Token.
+pub async fn authorize(
+    pool: &arangodb::ConnectionPool,
+    google_id_token: &str,
+) -> Result<String, error::AuthError> {
+    let mut cached_certs = certs::CachedCertsProduction::new();
+    let token_data = verify_id_token_integrity(&google_id_token, &mut cached_certs).await?; // (1.)
 
-            Ok(decode::<Claims>(
-                &id_token,
-                &DecodingKey::from_rsa_components(&key.modulus(), &key.exponent()), // 1. (prolly the most important)
-                &validation,
-            )?)
-        } else {
-            Err(AuthError::InvalidToken(format!(
-                "cannot obtain Google certificate for key ID: '{}'",
-                kid
-            )))
+    match find_user_by_google_claims(&pool, &token_data.claims.subject()).await {
+        Some(user) => {
+            // the user already exists (2a.)
+            match find_session_by_user(&pool, &user).await {
+                Some(session) => Ok(session.key()), // session already exists, good (3.)
+                None => {
+                    // session doesn't exist (but user does), let's create a new session
+                    let session_token = session::generate_session_token();
+                    create_user_session(&pool, &session_token, &user).await?;
+                    Ok(session_token) // (3.)
+                }
+            }
         }
-    } else {
-        Err(AuthError::InvalidToken(String::from(
-            "cannot get 'kid' from the token header",
-        )))
+        None => {
+            // new user with valid Google ID token - let's register it (2b.)
+            match create_user_by_google_claims(&pool, &token_data.claims).await {
+                Ok(new_user) => {
+                    let session_token = session::generate_session_token();
+                    create_user_session(&pool, &session_token, &new_user).await?;
+                    Ok(session_token) // (3.)
+                }
+                Err(e) => Err(AuthError::DatabaseError(e)),
+            }
+        }
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::certs::CachedCertsMock;
+/// This function "deauthorizes" the user by invalidating the session in our DB (removing it).
+/// It returns `true` if the operation was successful.
+pub async fn deauthorize(
+    pool: &arangodb::ConnectionPool,
+    session_token: &str,
+) -> Result<bool, error::AuthError> {
+    delete_user_session(&pool, &session_token).await?;
+    Ok(true) // success
+}
 
-    #[test]
-    fn validate_jwt_token_valid() {
-        // the following token is valid (signed by Google) but expired
-        let valid_id_token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxOTdiZjJlODdiZDE5MDU1NzVmOWI2ZTVlYjQyNmVkYTVkNTc0ZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyNDUzNTY2OTM4ODktaDNhajhlODhmc25xY2g4Z2RjZmg4aXNmOGhydWljN24uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyNDUzNTY2OTM4ODktaDNhajhlODhmc25xY2g4Z2RjZmg4aXNmOGhydWljN24uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDgyNjk0NTM1NzgxODc4ODY0MzUiLCJlbWFpbCI6Im1ydG56bG1sQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiSGtZUldGOWJsZ0lVbjR2S09JcUFjQSIsIm5vbmNlIjoiVVFzZkVwM2FnaXp4TDBRWGFScS10cHpwOU1yNlBaUzlOYV9FY0dkM2t0cyIsIm5hbWUiOiJNYXJ0aW4gWmzDoW1hbCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ19abVdZSEhNZWlfQVFkY2tWYVBxTGlrQmtOWUpPTnl5UjBRcVdmV3M9czk2LWMiLCJnaXZlbl9uYW1lIjoiTWFydGluIiwiZmFtaWx5X25hbWUiOiJabMOhbWFsIiwibG9jYWxlIjoiZW4iLCJpYXQiOjE2MDgwNzI5NDMsImV4cCI6MTYwODA3NjU0M30.m4edhGdRMVRs8MJ-y2I1Ax_sUU2svAvaOk10j27a2tdwVYHiG9C1zvsyM8LOeWxVNRTT5XwhFPODK8h15kpb9-k1lQqApD5g-oyYMhi2xWgZ_G7-e5xC_Pm6tLAbmN7VwMJXiipdebEXfnaf2n_yipmhI0xs3BRhtj7kYBqQlcpW2YDPjS-3zV4SeEmwFsjhySS1uOZAnD_zM1vMkSluibF9gemp0o6CVc-DYj1jPXx4iRlPBlTCkQ-BCZNpDRqFOlLRGcRtNPd1P9yDWFOutqg0hcbEZN8hUTXd62CrvQ4iRHNetnOzJ5v2bxBlmWbHzvlKav8OKK9SlJCDM83qMw";
-        insta::assert_debug_snapshot!(verify_id_token_integrity(
-            valid_id_token,
-            &mut CachedCertsMock::new()
-        ));
-    }
-
-    #[test]
-    fn validate_jwt_token_invalid() {
-        assert_eq!(
-            format!(
-                "{:?}",
-                verify_id_token_integrity("invalid", &mut CachedCertsMock::new())
-                    .err()
-                    .unwrap()
-            ),
-            "JSONWebTokenError(Error(InvalidToken))"
-        );
-    }
-
-    #[test]
-    fn validate_jwt_token_invalid_header() {
-        // technically, this JWT token is valid but doesn't comply with our Google Sign-In
-        // expectations so we reject it
-        assert_eq!(
-            format!("{:?}", verify_id_token_integrity(
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-                &mut CachedCertsMock::new()
-            ).err().unwrap()),
-            r#"InvalidToken("cannot get \'kid\' from the token header")"#
-        );
-    }
-
-    #[test]
-    fn validate_jwt_token_invalid_algo() {
-        // technically, this JWT token is valid but doesn't comply with our Google Sign-In
-        // expectations so we reject it
-        assert_eq!(
-            format!("{:?}", verify_id_token_integrity(
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyMyJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.szMUBsawz52NUN3aIlpCIBDtbzB9U-G_tfG58c7PTKQ",
-                &mut CachedCertsMock::new()
-            ).err().unwrap()),
-            r#"JSONWebTokenError(Error(InvalidAlgorithm))"#
-        );
+/// This function verifies the session token and returns either authorized OR anonymous user.
+pub async fn resolve_user_from_session_token(
+    pool: &arangodb::ConnectionPool,
+    session_token: &str,
+) -> User {
+    match get_user_by_session_token(&pool, &session_token).await {
+        Ok(user) => User::AuthorizedUser(user),
+        Err(_) => User::AnonymousUser(AnonymousUser::new()),
     }
 }

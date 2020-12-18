@@ -1,11 +1,21 @@
-use crate::errors::ModelError;
 use crate::graphql_context::Context;
 use crate::model::sdui_sections::get_all_sections_for_entrypoint_key;
 use crate::sdui_section::SDUISection;
-use juniper::{EmptyMutation, EmptySubscription, FieldError, FieldResult, RootNode};
+use arangodb::errors::ModelError;
+use auth::users::User;
+use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
+
+#[derive(juniper::GraphQLObject)]
+struct WhoamiPayload {
+    id: Option<juniper::ID>,
+
+    /// Human readable type should be used only for testing purposes. The format is not guaranteed
+    /// and can change in the future completely.
+    human_readable_type: Option<String>,
+}
 
 #[juniper::graphql_object(context = Context)]
 impl Query {
@@ -20,19 +30,94 @@ impl Query {
             Err(e) => match e {
                 ModelError::DatabaseError(e) => Err(FieldError::from(e)), // TODO: hide and log these errors
                 ModelError::LogicError(e) => Err(FieldError::from(e)),
+                ModelError::SerdeError(e) => Err(FieldError::from(e)),
+            },
+        }
+    }
+
+    /// Returns information about the current user (can be authenticated or anonymous).
+    async fn whoami(context: &Context) -> WhoamiPayload {
+        match &context.user {
+            User::AuthorizedUser(user) => WhoamiPayload {
+                id: Some(juniper::ID::from(user.id())),
+                human_readable_type: Some(String::from("authorized user")),
+            },
+            User::AnonymousUser(user) => WhoamiPayload {
+                id: Some(juniper::ID::from(user.id())),
+                human_readable_type: Some(String::from("anonymous user")),
+            },
+            User::UnauthorizedUser(user) => WhoamiPayload {
+                id: Some(juniper::ID::from(user.id())),
+                human_readable_type: Some(String::from("unauthorized (but not anonymous) user")),
             },
         }
     }
 }
 
-pub type Schema = RootNode<'static, Query, EmptyMutation<Context>, EmptySubscription<Context>>;
+#[derive(Clone, Copy, Debug)]
+pub struct Mutation;
+
+#[derive(juniper::GraphQLObject)]
+struct AuthorizeMobilePayload {
+    success: bool,
+
+    /// Session token should be send with every GraphQL request which requires auth.
+    /// Returns `None` if the request was not successful.
+    session_token: Option<String>,
+}
+
+#[derive(juniper::GraphQLObject)]
+struct DeauthorizeMobilePayload {
+    success: bool,
+}
+
+#[juniper::graphql_object(context = Context)]
+impl Mutation {
+    /// This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
+    /// device) and returns authorization payload. There is no concept of sign-in and sign-up
+    /// because every user with a valid JWT ID token will be either authorized OR registered and
+    /// authorized. Invalid tokens and disabled tokens will be rejected.
+    async fn authorize_mobile(
+        google_id_token: String,
+        context: &Context,
+    ) -> FieldResult<AuthorizeMobilePayload> {
+        let connection_pool = context.pool.to_owned();
+        let session_token = auth::authorize(&connection_pool, &google_id_token).await;
+        match session_token {
+            Ok(session_token) => Ok(AuthorizeMobilePayload {
+                success: true,
+                session_token: Some(session_token),
+            }),
+            Err(e) => {
+                log::error!("{}", e);
+                Ok(AuthorizeMobilePayload {
+                    success: false,
+                    session_token: None,
+                    // TODO: return rejection reason from AuthError as well (?)
+                })
+            }
+        }
+    }
+
+    /// The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
+    /// make the mobile application unsigned. Mobile applications should remove the session token
+    /// once deauthorized.
+    async fn deauthorize_mobile(
+        session_token: String,
+        context: &Context,
+    ) -> DeauthorizeMobilePayload {
+        let connection_pool = context.pool.to_owned();
+        match auth::deauthorize(&connection_pool, &session_token).await {
+            Ok(_) => DeauthorizeMobilePayload { success: true },
+            Err(_) => DeauthorizeMobilePayload { success: false },
+        }
+    }
+}
+
+pub type Schema = RootNode<'static, Query, Mutation, EmptySubscription<Context>>;
 
 pub fn create_graphql_schema() -> Schema {
-    Schema::new(
-        Query,
-        EmptyMutation::<Context>::new(),
-        EmptySubscription::<Context>::new(),
-    )
+    Schema::new(Query, Mutation, EmptySubscription::<Context>::new())
 }
 
 #[cfg(test)]
