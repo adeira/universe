@@ -102,6 +102,49 @@ const __styles_3xIUAp = sx.create({
 
 `;
 
+exports[`transform SX Tailwind conditional-operator.js: conditional-operator.js 1`] = `
+
+// @flow
+
+import type { Element } from 'react';
+
+export default function Example(isVisible: boolean): Element<'div'> {
+  return <div sxt={isVisible ? 'block visible' : 'hidden invisible'}>Lorem lipsum</div>;
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+// @flow
+import type { Element } from 'react';
+import sx from '@adeira/sx';
+export default function Example(isVisible: boolean): Element<'div'> {
+  return (
+    <div
+      className={__styles_1spSrF(...(isVisible ? ['block', 'visible'] : ['hidden', 'invisible']))}
+    >
+      Lorem lipsum
+    </div>
+  );
+}
+
+const __styles_1spSrF = sx.create({
+  block: {
+    display: 'block',
+  },
+  visible: {
+    visibility: 'visible',
+  },
+  hidden: {
+    display: 'none',
+  },
+  invisible: {
+    visibility: 'hidden',
+  },
+});
+
+
+`;
+
 exports[`transform SX Tailwind custom-font.js: custom-font.js 1`] = `
 
 // @flow
