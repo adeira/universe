@@ -18,6 +18,7 @@ const hash = require('object-hash');
 const getCssDeclarations = require('./getCssDeclarations').default;
 const TemplateLiteralHandler = require('./TemplateLiteralHandler').default;
 const StringLiteralHandler = require('./StringLiteralHandler').default;
+const ConditionalExpressionHandler = require('./ConditionalExpressionHandler').default;
 
 const PLUGIN_NAME = 'sx-tailwind-babel-transform';
 
@@ -62,6 +63,13 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
             TemplateLiteralHandler(path, stylesCollector, stylesVarName);
           },
         });
+
+        if (
+          path.node.value.type === 'JSXExpressionContainer' &&
+          path.node.value.expression.type === 'ConditionalExpression'
+        ) {
+          ConditionalExpressionHandler(path, stylesCollector, stylesVarName);
+        }
 
         if (path.node.value.type === 'StringLiteral') {
           StringLiteralHandler(path, stylesCollector, stylesVarName);
@@ -121,20 +129,17 @@ module.exports = function sxTailwindBabelPlugin() /*: any */ {
 };
 
 function getCurrentDir() /*: string */ {
-  const monorepoDir = './src/babel-plugin-transform-sx-tailwind/src/';
-  const packageDir = './node_modules/@adeira/babel-plugin-transform-sx-tailwind/src/';
-  const vercelDir = '../babel-plugin-transform-sx-tailwind/src/';
+  const possibleDirs = [
+    './src/babel-plugin-transform-sx-tailwind/src/', // Adeira Universe monorepo
+    './node_modules/@adeira/babel-plugin-transform-sx-tailwind/src/', // NPM package
+    '../../node_modules/@adeira/babel-plugin-transform-sx-tailwind/src/', // standard monorepo
+    '../babel-plugin-transform-sx-tailwind/src/', // Vercel CI
+  ];
 
-  if (fs.existsSync(monorepoDir)) {
-    return monorepoDir;
-  }
+  const dir = possibleDirs.find((d) => fs.existsSync(d));
 
-  if (fs.existsSync(packageDir)) {
-    return packageDir;
-  }
-
-  if (fs.existsSync(vercelDir)) {
-    return vercelDir;
+  if (dir != null) {
+    return dir;
   }
 
   throw Error(`Error, can't detect current working dir! cwd: ${process.cwd()}`);
