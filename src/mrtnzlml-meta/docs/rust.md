@@ -83,6 +83,33 @@ fib_tests! {
 }
 ```
 
+An interesting alternative approach is to use [proptest](https://github.com/AltSysrq/proptest):
+
+```rust
+proptest! {
+    #[test]
+    fn parses_all_valid_dates(s in "[0-9]{4}-[0-9]{2}-[0-9]{2}") {
+        parse_date(&s).unwrap();
+    }
+}
+```
+
+Or with extra config:
+
+```rust
+proptest! {
+    #![proptest_config(ProptestConfig {
+      cases: 1000, .. ProptestConfig::default()
+    })]
+    #[test]
+    fn parse_authorization_header_proptest(token in "[a-zA-Z0-9-._~+/]+") {
+        println!("Bearer {}", token); // visible only with `cargo test -- --nocapture`
+        let result = parse_authorization_header(format!("Bearer {}", token).as_str()).unwrap();
+        prop_assert_eq!(result, token)
+    }
+}
+```
+
 ## Reading and writing files
 
 https://stackoverflow.com/a/31193386/3135248
