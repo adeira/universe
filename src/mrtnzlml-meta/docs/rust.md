@@ -26,7 +26,36 @@ https://www.rust-lang.org/
 - [How to mock external dependencies in tests?](https://stackoverflow.com/q/51919079/3135248)
 - [Why is there a large performance impact when looping over an array with 240 or more elements?](https://stackoverflow.com/q/57458460/3135248)
 
-## How can I create parameterized tests in Rust?
+## Difference between `Copy` and `Clone`
+
+Copies happen implicitly, for example as part of an assignment `y = x`. The behavior of `Copy` is not overloadable; it is always a simple bit-wise copy.
+
+Cloning is an explicit action, `x.clone()`. The implementation of `Clone` can provide any type-specific behavior necessary to duplicate values safely. For example, the implementation of `Clone` for `String` needs to copy the pointed-to string buffer in the heap. A simple bitwise copy of `String` values would merely copy the pointer, leading to a double free down the line. For this reason, `String` is `Clone` but not `Copy`.
+
+`Clone` is a supertrait of `Copy`, so everything which is `Copy` must also implement `Clone`. If a type is `Copy` then its `Clone` implementation only needs to return `*self`:
+
+```rust
+struct MyStruct;
+
+impl Copy for MyStruct { }
+
+impl Clone for MyStruct {
+    fn clone(&self) -> MyStruct {
+        *self
+    }
+}
+```
+
+Source: https://github.com/rust-lang/rust/blob/2e6eaceedeeda764056eb0e2134735793533770d/src/libcore/marker.rs#L272
+
+Different wording:
+
+- `Copy` is implicit, inexpensive, and cannot be re-implemented (memcpy)
+- `Clone` is explicit, may be expensive, and may be re-implement arbitrarily
+
+Read this interesting question: https://stackoverflow.com/q/31012923/3135248
+
+## How to create parameterized tests in Rust?
 
 https://stackoverflow.com/q/34662713/3135248
 
