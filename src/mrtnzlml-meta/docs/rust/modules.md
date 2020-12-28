@@ -9,14 +9,22 @@ Coming from JavaScript world, understanding Rust modules was a bit challenging. 
 There are 3 important keywords ([source](https://dev.to/hertz4/rust-module-essentials-12oi)):
 
 - `mod` declares a module
-- `pub` exposes (something)
-- `use` pulls things in
+- `pub` exposes an item by a single level
+- `use` pulls things in from an absolute path to the current scope
 
 I recommend creating `experiments` package if you want to try these examples and run them via:
 
 ```text
 cargo run --bin experiments
 ```
+
+Sources:
+
+- https://doc.rust-lang.org/reference/items/modules.html
+- https://doc.rust-lang.org/reference/items/use-declarations.html
+- https://doc.rust-lang.org/reference/visibility-and-privacy.html
+- https://dev.to/hertz4/rust-module-essentials-12oi
+- https://stackoverflow.com/q/28010796/3135248
 
 ## In-place (in-file) modules
 
