@@ -41,7 +41,14 @@ module.exports = {
         { type: 'doc', id: 'relay/uploadables' },
       ],
     },
-    { type: 'doc', id: 'rust' },
+    {
+      type: 'category',
+      label: 'Rust',
+      items: [
+        { type: 'doc', id: 'rust' },
+        { type: 'doc', id: 'rust/modules' },
+      ],
+    },
     { type: 'doc', id: 'git' },
     { type: 'doc', id: 'graphql' },
     { type: 'doc', id: 'javascript' },
