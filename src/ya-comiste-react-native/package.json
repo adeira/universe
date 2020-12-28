@@ -27,7 +27,7 @@
     "fbt": "^0.16.0",
     "react": "16.13.1",
     "react-native": "0.63.4",
-    "react-native-navigation": "^7.6.0",
+    "react-native-navigation": "^7.7.0",
     "react-relay": "0.0.0-master-c02d9722",
     "relay-runtime": "0.0.0-master-c02d9722"
   },
