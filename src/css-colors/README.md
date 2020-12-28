@@ -29,6 +29,20 @@ isColor('rgb(255, 255, 128)'); // true
 isColor('hsl(50, 33%, 25)'); // false (should be 25%)
 ```
 
+## Is the color bright or dark?
+
+This function can be used to detect whether the color is bright or dark so you can decide whether you should use white or black text for the color background (for example).
+
+```js
+import { isDark, isBright } from '@adeira/css-colors';
+
+isDark([0, 0, 0]); // true (it's black)
+isBright([0, 0, 0]); // false
+
+isDark([255, 255, 255]); // false (it's white)
+isBright([255, 255, 255]); // true
+```
+
 ## Normalize colors
 
 ```js
