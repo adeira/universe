@@ -438,7 +438,7 @@ These are things which are somehow difficult to achieve with current Relay abili
 
 - Function `readInlineData` doesn't support variables (throws error _"Variables are not yet supported inside @inline fragments."_)
 - How to figure out request is in-flight when using fetch policy `store-and-network` (to show some spinner)?
-- How to access fields with some complicated args (without actually knowing all the possible args combinations in advance).
+- How to access fields with some complicated args (without actually knowing all the possible args combinations in advance). See: https://github.com/facebook/relay/issues/3077
 
 ## On handling of GraphQL errors in Relay
 
