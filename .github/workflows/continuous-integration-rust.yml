@@ -60,6 +60,18 @@ jobs:
             --target ${{ matrix.target }}
 
       # https://github.com/actions-rs/cargo
+      # TODO: replace with `--include-ignored` once it's in stable Rust Compiler
+      - name: Run all IGNORED tests
+        uses: actions-rs/cargo@v1.0.3
+        with:
+          command: test
+          args: >-
+            --no-fail-fast
+            --manifest-path ${{ matrix.manifest }}
+            --target ${{ matrix.target }}
+            -- --ignored
+
+      # https://github.com/actions-rs/cargo
       - name: Try to build a release
         if: ${{ matrix.os == 'ubuntu-latest' }}
         uses: actions-rs/cargo@v1.0.3
