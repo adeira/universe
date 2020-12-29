@@ -70,7 +70,10 @@ async fn main() {
         )
         .boxed();
 
-    let cors = warp::cors().allow_methods(vec!["GET", "POST"]);
+    let cors = warp::cors()
+        .allow_any_origin() // TODO
+        .allow_headers(vec!["x-client", "content-type"])
+        .allow_methods(vec![warp::http::Method::POST]);
     let log = warp::log("warp_server");
 
     let filter = warp::post()
