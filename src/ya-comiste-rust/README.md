@@ -15,8 +15,10 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
 
 - Rust: https://www.rust-lang.org/learn
 - Juniper: https://graphql-rust.github.io/juniper/current/
-- ArangoDB: https://www.arangodb.com/docs/stable/ (multi-model DB)
-- JSON Schema validator: https://www.jsonschemavalidator.net/
+- ArangoDB:
+  - https://www.arangodb.com/docs/stable/ (multi-model DB)
+  - https://www.arangodb.com/docs/stable/data-modeling-documents-schema-validation.html
+  - JSON Schema validator: https://www.jsonschemavalidator.net/
 
 ## Install and run
 

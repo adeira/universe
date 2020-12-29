@@ -1,0 +1,24 @@
+{
+  "message": "",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["type"],
+    "properties": {
+      "type": {
+        "type": "string"
+      },
+      "google": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["sub"],
+        "properties": {
+          "sub": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

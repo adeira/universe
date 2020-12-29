@@ -1,0 +1,8 @@
+{
+  "message": "the edge object must be empty",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false
+  }
+}
