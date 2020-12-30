@@ -8,7 +8,12 @@
 
 * @mrtnzlml @tbergq @jaroslav-kubicek @michalsanger
 
-/src/ya-comiste-backoffice/ @mrtnzlml
-/src/ya-comiste-meta/ @mrtnzlml
-/src/ya-comiste-react-native/ @mrtnzlml
-/src/ya-comiste-rust/ @mrtnzlml
+# Why @adeira-github-bot? GitHub doesn't allow self-approve
+# of the PRs. However, at least one approval is required by
+# any codeowner. So @adeira-github-bot helps us to approve
+# these PRs for projects with one owner.
+
+/src/ya-comiste-backoffice/ @mrtnzlml @adeira-github-bot
+/src/ya-comiste-meta/ @mrtnzlml @adeira-github-bot
+/src/ya-comiste-react-native/ @mrtnzlml @adeira-github-bot
+/src/ya-comiste-rust/ @mrtnzlml @adeira-github-bot
