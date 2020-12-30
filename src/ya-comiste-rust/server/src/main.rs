@@ -1,12 +1,15 @@
+use crate::arangodb::{get_database_connection_pool, ConnectionPool};
+use crate::auth::users::{AnonymousUser, User};
 use crate::headers::parse_authorization_header;
-use arangodb::{get_database_connection_pool, ConnectionPool};
-use auth::users::{AnonymousUser, User};
-use sdui::graphql_context::Context;
-use sdui::graphql_schema::create_graphql_schema;
-use sdui::model::component_content::get_content_dataloader;
+use crate::sdui::graphql_context::Context;
+use crate::sdui::graphql_schema::create_graphql_schema;
+use crate::sdui::model::component_content::get_content_dataloader;
 use warp::Filter;
 
+mod arangodb;
+mod auth;
 mod headers;
+mod sdui;
 
 #[tokio::main]
 async fn main() {
