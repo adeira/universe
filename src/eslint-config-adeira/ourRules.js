@@ -393,7 +393,7 @@ module.exports = ({
     },
   ],
   'react/jsx-no-comment-textnodes': ERROR,
-  'react/jsx-no-constructed-context-values': OFF,
+  'react/jsx-no-constructed-context-values': NEXT_VERSION_ERROR,
   'react/jsx-no-duplicate-props': ERROR,
   'react/jsx-no-literals': OFF,
   'react/jsx-no-target-blank': OFF,

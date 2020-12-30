@@ -1,5 +1,7 @@
 # Unreleased
 
+- Rule [`react/jsx-no-constructed-context-values`](https://github.com/yannickcr/eslint-plugin-react/pull/2763) enabled (warnings or errors in strict mode).
+
 # 4.3.0
 
 - New rules for React Native added. Specifically, we enabled these rules: [`react-native/no-single-element-style-arrays`](https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-single-element-style-arrays.md) and [`react-native/no-unused-styles`](https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-unused-styles.md) (as usual: warnings or errors in a strict mode).
