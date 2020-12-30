@@ -2,6 +2,7 @@
 
 - New rules for React Native added. Specifically, we enabled these rules: [`react-native/no-single-element-style-arrays`](https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-single-element-style-arrays.md) and [`react-native/no-unused-styles`](https://github.com/Intellicode/eslint-plugin-react-native/blob/master/docs/rules/no-unused-styles.md) (as usual: warnings or errors in a strict mode).
 - Removed deprecated [`eslint-plugin-babel`](https://www.npmjs.com/package/eslint-plugin-babel). There is a replacement [`@babel/eslint-plugin`](https://www.npmjs.com/package/@babel/eslint-plugin) available, however, it should not be necessary (it fixes some edge-cases which we do not support anyway and rest of the fixes was already ported back to Eslint). This change should be fully backward compatible while keeping the same functionality. Please, let us know in case of any difficulties.
+- Rule `react-hooks/exhaustive-deps` now takes `useRecoilCallback` hook into account as well (see: https://recoiljs.org/docs/introduction/installation#eslint and [`useRecoilCallback`](https://recoiljs.org/docs/api-reference/core/useRecoilCallback) for more information).
 
 # 4.2.0
 
