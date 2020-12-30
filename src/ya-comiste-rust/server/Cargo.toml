@@ -8,15 +8,26 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-arangodb = { path = "../arangodb" }
-auth = { path = "../auth" }
+arangors = "0.4.5"
+async-trait = "0.1.42"
+dataloader = "0.13.2"
+deadpool = { version = "0.7.0", features = ["managed"] }
 env_logger = "0.8.2"
+jsonwebtoken = "7.2.0"
 juniper = { git = "https://github.com/graphql-rust/juniper" }
 juniper_warp = { git = "https://github.com/graphql-rust/juniper" }
-log = "0.4.0"
-sdui = { path = "../sdui" }
+lazy_static = "1.4.0"
+log = "0.4.11"
+num_cpus = "1.13.0"
+rand = "0.8.0"
+reqwest = { version = "0.10.10", features = ["json", "blocking"] }
+serde = "1.0.118"
+serde_json = "1.0.61"
+signedsource = { path = "../signedsource" }
 tokio = { version = "0.2", features = ["rt-core", "macros"] }
 warp = "0.2.5"
 
 [dev-dependencies]
 proptest = "0.10.1"
+tokio = { version = "0.2", features = ["rt-core", "macros"] }
+insta = "1.4.0"
