@@ -1,6 +1,6 @@
 // @flow
 
-import { createContext, useState, type Context, type Node } from 'react';
+import { createContext, useState, useMemo, type Context, type Node } from 'react';
 
 type Props = {|
   +children: Node,
@@ -24,7 +24,14 @@ export default function SidebarContextProvider({ children }: Props): Node {
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
-  return (
-    <SidebarContext.Provider value={{ isOpen, open, close }}>{children}</SidebarContext.Provider>
+  const contextVal = useMemo(
+    () => ({
+      isOpen,
+      open,
+      close,
+    }),
+    [isOpen],
   );
+
+  return <SidebarContext.Provider value={contextVal}>{children}</SidebarContext.Provider>;
 }

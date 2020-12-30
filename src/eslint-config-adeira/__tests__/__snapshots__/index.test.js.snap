@@ -755,7 +755,7 @@ Object {
       },
     ],
     "react/jsx-no-comment-textnodes": 2,
-    "react/jsx-no-constructed-context-values": 0,
+    "react/jsx-no-constructed-context-values": 1,
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-literals": 0,
     "react/jsx-no-script-url": 2,
@@ -978,6 +978,11 @@ Snapshot Diff:
 +     "react-native/no-single-element-style-arrays": 2,
 +     "react-native/no-unused-styles": 2,
       "react-native/sort-styles": 0,
+@@ --- --- @@
+      "react/jsx-no-comment-textnodes": 2,
+-     "react/jsx-no-constructed-context-values": 1,
++     "react/jsx-no-constructed-context-values": 2,
+      "react/jsx-no-duplicate-props": 2,
 @@ --- --- @@
       "switch-colon-spacing": "off",
 -     "sx/no-concatenated-classes": 1,
