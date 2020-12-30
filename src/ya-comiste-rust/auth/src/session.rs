@@ -28,7 +28,7 @@ pub fn generate_session_token() -> String {
     let mut rng = rand::thread_rng();
     let session_token: String = (0..64)
         .map(|_| {
-            let idx = rng.gen_range(0, CHARSET.len());
+            let idx = rng.gen_range(0..CHARSET.len());
             CHARSET[idx] as char
         })
         .collect();
@@ -179,6 +179,13 @@ mod tests {
 
     #[test]
     fn generate_session_token_test() {
-        assert_eq!(generate_session_token().len(), 64);
+        let mut previous_token = String::from("");
+        for _ in 0..1000 {
+            let new_token = generate_session_token();
+            assert_eq!(new_token.len(), 64);
+            assert_ne!(new_token, previous_token);
+            previous_token = new_token;
+            assert_eq!(previous_token.len(), 64);
+        }
     }
 }
