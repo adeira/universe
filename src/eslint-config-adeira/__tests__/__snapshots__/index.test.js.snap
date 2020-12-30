@@ -686,7 +686,12 @@ Object {
     "quote-props": "off",
     "quotes": 0,
     "radix": 2,
-    "react-hooks/exhaustive-deps": 2,
+    "react-hooks/exhaustive-deps": Array [
+      2,
+      Object {
+        "additionalHooks": "useRecoilCallback",
+      },
+    ],
     "react-hooks/rules-of-hooks": 2,
     "react-native/no-color-literals": 0,
     "react-native/no-inline-styles": 0,

@@ -495,7 +495,13 @@ module.exports = ({
 
   // React Hooks (https://www.npmjs.com/package/eslint-plugin-react-hooks)
   'react-hooks/rules-of-hooks': ERROR,
-  'react-hooks/exhaustive-deps': ERROR,
+  'react-hooks/exhaustive-deps': [
+    ERROR,
+    {
+      // https://recoiljs.org/docs/introduction/installation/#eslint
+      additionalHooks: 'useRecoilCallback', // should be regex!
+    },
+  ],
 
   // React Native (https://github.com/intellicode/eslint-plugin-react-native)
   'react-native/no-color-literals': OFF,
