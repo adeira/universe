@@ -738,6 +738,7 @@ Object {
     "react/jsx-key": 2,
     "react/jsx-max-depth": 0,
     "react/jsx-max-props-per-line": "off",
+    "react/jsx-newline": 0,
     "react/jsx-no-bind": Array [
       2,
       Object {
@@ -749,6 +750,7 @@ Object {
       },
     ],
     "react/jsx-no-comment-textnodes": 2,
+    "react/jsx-no-constructed-context-values": 0,
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-literals": 0,
     "react/jsx-no-script-url": 2,
