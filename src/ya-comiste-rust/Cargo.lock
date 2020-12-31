@@ -16,12 +16,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "anyhow"
-version = "1.0.34"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf8dcb5b4bbaa28653b647d8c77bd4ed40183b48882e130c1f1ffb73de069fd7"
-
-[[package]]
 name = "arangors"
 version = "0.4.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1127,22 +1121,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "juniper_warp"
-version = "0.6.0"
-source = "git+https://github.com/graphql-rust/juniper#4467b291532eee851a2ab58d6d6f15e1e631cfe6"
-dependencies = [
- "anyhow",
- "bytes",
- "futures",
- "juniper",
- "serde",
- "serde_json",
- "thiserror",
- "tokio 0.2.23",
- "warp",
-]
-
-[[package]]
 name = "kernel32-sys"
 version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2079,10 +2057,10 @@ dependencies = [
  "dataloader",
  "deadpool",
  "env_logger",
+ "futures",
  "insta",
  "jsonwebtoken",
  "juniper",
- "juniper_warp",
  "lazy_static",
  "log",
  "num_cpus",

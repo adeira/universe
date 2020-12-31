@@ -13,9 +13,9 @@ async-trait = "0.1.42"
 dataloader = "0.13.2"
 deadpool = { version = "0.7.0", features = ["managed"] }
 env_logger = "0.8.2"
+futures = "0.3.8"
 jsonwebtoken = "7.2.0"
 juniper = { git = "https://github.com/graphql-rust/juniper" }
-juniper_warp = { git = "https://github.com/graphql-rust/juniper" }
 lazy_static = "1.4.0"
 log = "0.4.11"
 num_cpus = "1.13.0"
