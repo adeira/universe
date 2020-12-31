@@ -1,7 +1,13 @@
 ---
 id: uploadables
-title: Uploadables
+title: Relay Uploadables
 sidebar_label: Uploadables
+keywords:
+  - relay
+  - graphql
+  - file upload
+  - uploadables
+  - multipart
 ---
 
 Sending normal GraphQL mutation is trivial:
@@ -20,13 +26,16 @@ It sends POST request with these headers:
 Accept: application/json
 Content-type: application/json
 User-Agent: Mozilla/5.0
- ...
+ …
 ```
 
 And with this request payload:
 
 ```json
-{ "query": "mutation TestMutation {\n  test(input: \"test\")\n}\n", "variables": {} }
+{
+  "query": "mutation TestMutation {\n  test(input: \"test\")\n}\n",
+  "variables": {}
+}
 ```
 
 We can use the same POST request to send our files as well. To do so, you have to use uploadables from Relay and `multipart/form-data` content type. Mutation is similar:
@@ -57,7 +66,7 @@ With these headers:
 Accept: */*
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryshXxygBlT4ATOyhW
 User-Agent: Mozilla/5.0
- ...
+ …
 ```
 
 And with these form data:
@@ -87,7 +96,7 @@ bar
 ------WebKitFormBoundaryshXxygBlT4ATOyhW--
 ```
 
-Plase note - it's good idea to create GraphQL type representing the file and send it in the query as well. Look at how Absinthe is doing it:
+Please note - it's a good idea to create GraphQL type representing the file and send it in the query as well. Look at how [Absinthe is doing it](https://hexdocs.pm/absinthe/file-uploads.html):
 
 ```
 $ curl -X POST \\
@@ -98,6 +107,8 @@ localhost:4000/graphql
 ```
 
 They send the actual files and query as `multipart/form-data` as well but they require the file name (with underscore) in the query and it will fail if these two things do not match. Simple and elegant.
+
+> By treating uploads as regular arguments we get all the usual GraphQL argument benefits (such as validation and documentation)---which we wouldn't get if we were merely putting them in the context as in other implementations.
 
 - https://github.com/facebook/relay/issues/1844#issuecomment-316893590
 - https://hexdocs.pm/absinthe/file-uploads.html

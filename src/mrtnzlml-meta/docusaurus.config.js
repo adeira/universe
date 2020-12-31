@@ -18,6 +18,7 @@ module.exports = {
   themeConfig: {
     sidebarCollapsible: true,
     prism: {
+      // https://prismjs.com/#supported-languages
       additionalLanguages: ['rust'],
     },
     announcementBar: {
