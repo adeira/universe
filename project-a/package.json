@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^2.0.0",
-    "@adeira/eslint-config": "^4.2.0",
+    "@adeira/eslint-config": "^4.3.0",
     "@adeira/eslint-runner": "^1.0.2",
     "@axe-core/react": "^4.1.0",
     "babel-eslint": "^10.1.0",
