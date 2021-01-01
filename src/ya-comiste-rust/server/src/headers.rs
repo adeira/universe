@@ -1,6 +1,6 @@
 const BEARER_PREFIX: &str = "Bearer ";
 
-pub fn parse_authorization_header(header: &str) -> Result<String, String> {
+pub(crate) fn parse_authorization_header(header: &str) -> Result<String, String> {
     if header.is_empty() {
         return Err(String::from("empty authorization header"));
     }
