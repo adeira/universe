@@ -9,7 +9,7 @@
     "next": "^10.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "refractor": "^3.2.0"
+    "refractor": "^3.3.0"
   },
   "devDependencies": {
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.17.0",
