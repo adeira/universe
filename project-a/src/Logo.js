@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 import Heading from './design/Heading';
 import KochkaIcon from './design/svg/KochkaIcon';
@@ -17,7 +17,7 @@ export default function Logo(props: Props): React.Node {
       <KochkaIcon size={150} />
 
       <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
-        <Heading className={styles('kochka')}>
+        <Heading xstyle={styles.kochka}>
           KOCHKA
           <span className={styles('cafe')}>
             {/* TODO: this should be even lighter (fontWeight:100) */}
@@ -48,6 +48,7 @@ const styles = sx.create({
     marginTop: 20,
     marginLeft: 40,
   },
+  // eslint-disable-next-line sx/no-unused-stylesheet
   kochka: {
     fontSize: 60,
     letterSpacing: '.8rem',

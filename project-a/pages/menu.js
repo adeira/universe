@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import Head from 'next/head';
 import fbt from 'fbt';
 
@@ -22,7 +22,7 @@ export default function MenuPage(): React.Node {
 
       <Subpage title={<fbt desc="menu page title">Menu</fbt>}>
         <div className={styles('menuRow')}>
-          <Section className={styles('menuColumn')}>
+          <Section xstyle={styles.menuColumn}>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="sweet dumplings subtitle in our menu">Sweet Dumplings</fbt>
@@ -68,7 +68,7 @@ export default function MenuPage(): React.Node {
             </div>
           </Section>
 
-          <Section className={styles('menuColumn')}>
+          <Section xstyle={styles.menuColumn}>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="savory dumplings subtitle in our menu">Savory Dumplings</fbt>
@@ -96,7 +96,7 @@ export default function MenuPage(): React.Node {
         </div>
 
         <div className={styles('menuRow')}>
-          <Section className={styles('menuColumn')}>
+          <Section xstyle={styles.menuColumn}>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="coffee subtitle in our menu">Coffee</fbt>
@@ -134,7 +134,7 @@ export default function MenuPage(): React.Node {
             </div>
           </Section>
 
-          <Section className={styles('menuColumn')}>
+          <Section xstyle={styles.menuColumn}>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="other subtitle in our menu">Other</fbt>
@@ -170,6 +170,7 @@ const styles = sx.create({
     marginBottom: 30,
     width: '100%',
   },
+  // eslint-disable-next-line sx/no-unused-stylesheet
   menuColumn: {
     'display': 'flex',
     'flexDirection': 'column',

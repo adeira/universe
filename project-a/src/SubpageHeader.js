@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 import SocialMediaIcons from './Homepage/SocialMediaIcons';
 import Logo from './Logo';

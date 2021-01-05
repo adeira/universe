@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import fbt from 'fbt';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';

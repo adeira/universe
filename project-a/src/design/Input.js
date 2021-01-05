@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 
 type Props = {|
   +name: string,
@@ -11,15 +11,19 @@ type Props = {|
   +id?: string,
   +placeholder?: FbtWithoutString,
   +tabIndex?: number,
+  +xstyle?: $FlowFixMe, // TODO: https://github.com/adeira/universe/issues/1584
 |};
 
 export default function Input(props: Props): React.Node {
+  const stylesheetA = styles.inputDefault;
+  const stylesheetB = props.xstyle ?? new Map(); // TODO: https://github.com/adeira/universe/pull/1583
+
   // eslint-disable-next-line react/forbid-elements
-  return <input className={styles('input')} {...props} />;
+  return <input className={sx(stylesheetA, stylesheetB)} {...props} />;
 }
 
 const styles = sx.create({
-  input: {
+  inputDefault: {
     paddingLeft: '.75rem',
     paddingRight: '.75rem',
     paddingTop: '.5rem',

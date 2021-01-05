@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import Link from './Link';
@@ -13,24 +13,24 @@ export default function SubpageNavigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <div>
-        <Link href="/" className={styles('link')}>
+        <Link href="/" xstyle={styles.link}>
           <fbt desc="subpage navigation link to homepage">Homepage</fbt>
         </Link>
       </div>
       <div>
         {/* TODO: DRY with Navigation */}
 
-        <Link href="/menu" className={styles('link')}>
+        <Link href="/menu" xstyle={styles.link}>
           <fbt desc="subpage navigation link to menu">Menu</fbt>
         </Link>
 
         {pageAdoptionEnabled === true && (
-          <Link href="/adoption" className={styles('link')}>
+          <Link href="/adoption" xstyle={styles.link}>
             <fbt desc="subpage navigation link to adoption">Adoption</fbt>
           </Link>
         )}
 
-        <Link href="/rules" className={styles('link')}>
+        <Link href="/rules" xstyle={styles.link}>
           <fbt desc="subpage navigation link to our rules">Our rules</fbt>
         </Link>
       </div>
@@ -48,6 +48,7 @@ const styles = sx.create({
     top: 0,
     zIndex: 1,
   },
+  // eslint-disable-next-line sx/no-unused-stylesheet
   link: {
     'fontSize': 20,
     'paddingRight': 15,

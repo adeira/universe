@@ -3,7 +3,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import fbt from 'fbt';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import App from 'next/app';
@@ -11,6 +11,7 @@ import App from 'next/app';
 import './_app.css';
 import Logo from '../src/Logo';
 import SkipLink from '../src/design/SkipLink';
+import SignupForm from '../src/Mailchimp/SignupForm';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initTranslations from '../translations/init';
 
@@ -37,15 +38,26 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   const languageTag = initTranslations(router.locale);
 
-  if (!__DEV__) {
-    // TODO: move here the newsletter form
+  const isProduction = __DEV__ === false;
+  if (isProduction) {
     // not public yet
     return (
-      <div className={styles('root', 'soon')}>
-        <Logo />
-        <em>
-          <fbt desc="coming soon">coming soon</fbt>
-        </em>
+      <div className={styles('root', 'rootSoon')}>
+        <div className={styles('rootSoonOverlay')}>
+          <Logo />
+          {/* TODO: make sure the form works correctly */}
+          {__DEV__ ? (
+            <div className={styles('form')}>
+              <div className={styles('formText')}>
+                <fbt desc="mailchimp subscribe call to action text">
+                  We are not opening quite yet. Would you like to be notified when we do? Subscribe
+                  to our newsletter, and we will let you know!
+                </fbt>
+              </div>
+              <SignupForm />
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }
@@ -67,13 +79,31 @@ const styles = sx.create({
   root: {
     color: 'var(--font-color-light)',
   },
-  soon: {
+  rootSoon: {
+    backgroundImage: 'url(/coffee-background.jpg)',
+    backgroundSize: 'cover',
+  },
+  rootSoonOverlay: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: '100vh',
-    backgroundColor: 'var(--main-bg-color)',
+    padding: 50,
+    backgroundColor: 'var(--main-bg-color-transparent)',
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginTop: 50,
+  },
+  formText: {
+    maxWidth: 470,
+    marginBottom: 20,
+    fontStyle: 'italic',
   },
 });
 
