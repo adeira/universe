@@ -47,28 +47,14 @@
     "YLzBdvonuLATQ5FpiPMgEw==": "REAL CATS + DUMPLINGS + COFFEE"
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 24,
+   "line_beg": 23,
    "col_beg": 14,
-   "line_end": 24,
+   "line_end": 23,
    "col_end": 75,
    "desc": "catch phrase",
    "project": "",
    "type": "text",
    "jsfbt": "REAL CATS + DUMPLINGS + COFFEE"
-  },
-  {
-   "hashToText": {
-    "WTkOySZFstu+ZeKuWKvHGg==": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
-   },
-   "filepath": "src/Homepage.js",
-   "line_beg": 27,
-   "col_beg": 12,
-   "line_end": 30,
-   "col_end": 18,
-   "desc": "mailchimp subscribe call to action text",
-   "project": "",
-   "type": "text",
-   "jsfbt": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
   },
   {
    "hashToText": {
@@ -187,9 +173,9 @@
     "3gn4gj3UPVu7liOVZ+/SCg==": "Let me know!"
    },
    "filepath": "src/Mailchimp/SignupForm.js",
-   "line_beg": 62,
+   "line_beg": 63,
    "col_beg": 17,
-   "line_end": 62,
+   "line_end": 63,
    "col_end": 88,
    "desc": "'let me know' button of a subscribe form",
    "project": "",
@@ -394,17 +380,17 @@
   },
   {
    "hashToText": {
-    "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
+    "WTkOySZFstu+ZeKuWKvHGg==": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 47,
-   "col_beg": 10,
-   "line_end": 47,
-   "col_end": 51,
-   "desc": "coming soon",
+   "line_beg": 52,
+   "col_beg": 16,
+   "line_end": 55,
+   "col_end": 22,
+   "desc": "mailchimp subscribe call to action text",
    "project": "",
    "type": "text",
-   "jsfbt": "coming soon"
+   "jsfbt": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
   },
   {
    "hashToText": {
@@ -674,17 +660,17 @@
   },
   {
    "hashToText": {
-    "lXUYpiJx8meo1u1rLIID6g==": "Cappucino"
+    "/aQ2Dy2JH+W2rNEXeAcKbQ==": "Cappuccino"
    },
    "filepath": "pages/menu.js",
    "line_beg": 118,
    "col_beg": 14,
    "line_end": 118,
-   "col_end": 58,
-   "desc": "coffee cappucino",
+   "col_end": 60,
+   "desc": "coffee cappuccino",
    "project": "",
    "type": "text",
-   "jsfbt": "Cappucino"
+   "jsfbt": "Cappuccino"
   },
   {
    "hashToText": {
@@ -730,17 +716,31 @@
   },
   {
    "hashToText": {
-    "cZ30Fyi2JTrBPyyCZbTCWw==": "soda"
+    "gMWC9MSp8vmuRAiWRKXGjg==": "{=TODO}"
    },
    "filepath": "pages/menu.js",
    "line_beg": 144,
    "col_beg": 14,
-   "line_end": 144,
-   "col_end": 47,
+   "line_end": 146,
+   "col_end": 20,
    "desc": "other soda",
    "project": "",
    "type": "text",
-   "jsfbt": "soda"
+   "jsfbt": "{=TODO}"
+  },
+  {
+   "hashToText": {
+    "qARqDH+ElMFVt1DzFml4kQ==": "TODO"
+   },
+   "filepath": "pages/menu.js",
+   "line_beg": 145,
+   "col_beg": 16,
+   "line_end": 145,
+   "col_end": 29,
+   "desc": "In the phrase: \"{=TODO}\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "TODO"
   },
   {
    "hashToText": {
@@ -755,6 +755,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "Our rules"
+  },
+  {
+   "hashToText": {
+    "lEcyIM6PAl3ApKvUU7R7rg==": "Categories"
+   },
+   "filepath": "pages/shop.js",
+   "line_beg": 26,
+   "col_beg": 12,
+   "line_end": 26,
+   "col_end": 72,
+   "desc": "shop categories selection title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Categories"
+  },
+  {
+   "hashToText": {
+    "O5z+CsBhzyOWUxxF2Dbzuw==": "Relevance"
+   },
+   "filepath": "pages/shop.js",
+   "line_beg": 56,
+   "col_beg": 12,
+   "line_end": 56,
+   "col_end": 70,
+   "desc": "shop relevance selection title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Relevance"
   }
  ],
  "childParentMappings": {}
