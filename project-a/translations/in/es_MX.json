@@ -1,6 +1,16 @@
 {
   "fb-locale": "es_MX",
   "translations": {
+    "9NSktf8Wasdbln+avfGiWQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Skip to content",
+          "variations": []
+        }
+      ]
+    },
     "Jtw/XkgxoVH1y9vrSmRIbQ==": {
       "tokens": [],
       "types": [],
@@ -31,12 +41,32 @@
         }
       ]
     },
+    "WTkOySZFstu+ZeKuWKvHGg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!",
+          "variations": []
+        }
+      ]
+    },
     "aCVYa8MOEv6iOiCPo5kHOQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Menú",
+          "variations": []
+        }
+      ]
+    },
+    "hHL1jf58Ql60JFDCN3aK1g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adoption",
           "variations": []
         }
       ]
@@ -67,6 +97,46 @@
       "translations": [
         {
           "translation": "Enlace a Facebook de KOCHKA Café",
+          "variations": []
+        }
+      ]
+    },
+    "fVERyObLjAqQYpoXOEwdFg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Switch to English",
+          "variations": []
+        }
+      ]
+    },
+    "+reVR4P2dm8ptoPbJ+qFFQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Switch to Spanish",
+          "variations": []
+        }
+      ]
+    },
+    "DxYKWKSGL4TlF/UCjPxraw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Email Address",
+          "variations": []
+        }
+      ]
+    },
+    "3gn4gj3UPVu7liOVZ+/SCg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Let me know!",
           "variations": []
         }
       ]
@@ -191,6 +261,16 @@
         }
       ]
     },
+    "AczYHaAuus/G8A3Lx2F4Nw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adoption",
+          "variations": []
+        }
+      ]
+    },
     "yWIjiQyD+BjXv8eLub1vaA==": {
       "tokens": [],
       "types": [],
@@ -207,6 +287,56 @@
       "translations": [
         {
           "translation": "Próximamente",
+          "variations": []
+        }
+      ]
+    },
+    "NpcZj+UkPbW2MN/55RRw+w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Page Not Found",
+          "variations": []
+        }
+      ]
+    },
+    "Qr9e1v30qLiew6DJI9IGGg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Page you are trying to access could not be found. It could happen because the page was deleted or we have a broken link somewhere.",
+          "variations": []
+        }
+      ]
+    },
+    "bGETY4UjHAPYzub5GiMNzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Go back to Homepage",
+          "variations": []
+        }
+      ]
+    },
+    "Id2zIowP1OXDBLoGtCtamw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "kitten image placeholder",
+          "variations": []
+        }
+      ]
+    },
+    "q63vFDLz6FRACyQQcehUwA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adoption",
           "variations": []
         }
       ]
@@ -231,6 +361,56 @@
         }
       ]
     },
+    "5iHUQDce3mVPNzpzIQaYBw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ferrero",
+          "variations": []
+        }
+      ]
+    },
+    "0kiTp40ON1fVVqDdL9QTag==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Zarzamora + Philadelphia",
+          "variations": []
+        }
+      ]
+    },
+    "vxQvNlNZE5+K2O4oRDzNdA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Oreo + Chocolate blanco",
+          "variations": []
+        }
+      ]
+    },
+    "J7C2FVfCsfmd9a0pwEzTnA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Plátano + Lechera",
+          "variations": []
+        }
+      ]
+    },
+    "VmlLyj2v1Cqt8mliV0wOCA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Fresa + coco",
+          "variations": []
+        }
+      ]
+    },
     "t5V1cpabCbQkUc19Sc2NSw==": {
       "tokens": [],
       "types": [],
@@ -241,12 +421,112 @@
         }
       ]
     },
+    "SeBE+pGmn00wK3DIW1AeQQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Pizza",
+          "variations": []
+        }
+      ]
+    },
+    "TM+8y3uHpE9TSHQyg8hQMA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Choriqueso",
+          "variations": []
+        }
+      ]
+    },
+    "HtilRqaeRn24yj8r/UY78Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Hawaiano",
+          "variations": []
+        }
+      ]
+    },
     "LKMO5BWwRSp4pHxWfv3uLg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Café",
+          "variations": []
+        }
+      ]
+    },
+    "/epfePfrGcHgr350PJlO8A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Espresso",
+          "variations": []
+        }
+      ]
+    },
+    "FhbbT23dVqvnF0w57D4A/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Americano",
+          "variations": []
+        }
+      ]
+    },
+    "lXUYpiJx8meo1u1rLIID6g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cappucino",
+          "variations": []
+        }
+      ]
+    },
+    "Jo96bwQOld3PFaYr54NkKw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Latte",
+          "variations": []
+        }
+      ]
+    },
+    "Uu0pASljQPLpg76lmS8oTA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Flat White",
+          "variations": []
+        }
+      ]
+    },
+    "CzxSuTKSwKmHdQjWueIPRw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Other",
+          "variations": []
+        }
+      ]
+    },
+    "cZ30Fyi2JTrBPyyCZbTCWw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "soda",
           "variations": []
         }
       ]

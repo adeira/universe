@@ -38,6 +38,7 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   const languageTag = initTranslations(router.locale);
 
   if (!__DEV__) {
+    // TODO: move here the newsletter form
     // not public yet
     return (
       <div className={styles('root', 'soon')}>
