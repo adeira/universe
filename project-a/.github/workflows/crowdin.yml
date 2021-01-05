@@ -1,0 +1,31 @@
+name: Crowdin Action
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  synchronize-with-crowdin:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/crowdin-action
+      - name: crowdin action
+        uses: crowdin/github-action@1.0.16
+        with:
+          upload_sources: true
+          upload_translations: false
+          download_translations: false
+          source: '/translations/source_strings.json'
+          dryrun_action: true # TODO: remove once it's working correctly
+
+          # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
+          # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
+          project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
+
+          # A personal access token, not to be confused with Crowdin API v1 "API key"
+          # See https://crowdin.com/settings#api-key to generate a token
+          token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
