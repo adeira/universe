@@ -6,12 +6,17 @@ import * as sx from '@adeira/sx';
 import Heading from './design/Heading';
 import KochkaIcon from './design/svg/KochkaIcon';
 
-export default function Logo(): React.Node {
-  return (
-    <div className={styles('logoWrapper')}>
-      <KochkaIcon />
+type Props = {|
+  +horizontal?: boolean,
+|};
 
-      <div className={styles('heading')}>
+export default function Logo(props: Props): React.Node {
+  const isHorizontal = props.horizontal === true;
+  return (
+    <div className={styles('logoWrapper', isHorizontal && 'logoWrapperHorizontal')}>
+      <KochkaIcon size={150} />
+
+      <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
         <Heading className={styles('kochka')}>
           KOCHKA
           <span className={styles('cafe')}>
@@ -32,9 +37,16 @@ const styles = sx.create({
     marginTop: 40,
     marginBottom: 40,
   },
+  logoWrapperHorizontal: {
+    flexDirection: 'row',
+  },
   heading: {
     marginTop: 40,
     fontFamily: 'GidoleKochka',
+  },
+  headingHorizontal: {
+    marginTop: 20,
+    marginLeft: 40,
   },
   kochka: {
     fontSize: 60,

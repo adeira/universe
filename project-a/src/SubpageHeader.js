@@ -13,7 +13,7 @@ export default function SubpageHeader(): React.Node {
         <SocialMediaIcons vertical={true} />
       </div>
       <div className={styles('header')}>
-        <Logo />
+        <Logo horizontal={true} />
       </div>
     </header>
   );
@@ -25,7 +25,6 @@ const styles = sx.create({
     backgroundSize: 'cover',
   },
   header: {
-    paddingTop: '20px',
     backgroundColor: 'var(--main-bg-color-transparent)',
     display: 'flex',
     flexDirection: 'column',
@@ -34,6 +33,6 @@ const styles = sx.create({
   socialMedia: {
     position: 'absolute',
     left: 20,
-    top: 150, // TODO: more dynamic into the layout? (50%)
+    top: 90,
   },
 });
