@@ -24,9 +24,9 @@ export default function MenuPage(): React.Node {
         <div className={styles('menuRow')}>
           <Section className={styles('menuColumn')}>
             <Heading>
-              <span className={styles('menuHeading')}>
+              <div className={styles('menuHeading')}>
                 <fbt desc="sweet dumplings subtitle in our menu">Sweet Dumplings</fbt>
-              </span>
+              </div>
             </Heading>
             <div className={styles('priceRow')}>
               <div>
@@ -70,9 +70,9 @@ export default function MenuPage(): React.Node {
 
           <Section className={styles('menuColumn')}>
             <Heading>
-              <span className={styles('menuHeading')}>
+              <div className={styles('menuHeading')}>
                 <fbt desc="savory dumplings subtitle in our menu">Savory Dumplings</fbt>
-              </span>
+              </div>
             </Heading>
             <div className={styles('priceRow')}>
               <fbt desc="sweet dumpling with pizza flavor">Pizza</fbt>
@@ -98,9 +98,9 @@ export default function MenuPage(): React.Node {
         <div className={styles('menuRow')}>
           <Section className={styles('menuColumn')}>
             <Heading>
-              <span className={styles('menuHeading')}>
+              <div className={styles('menuHeading')}>
                 <fbt desc="coffee subtitle in our menu">Coffee</fbt>
-              </span>
+              </div>
             </Heading>
             <div className={styles('priceRow')}>
               <fbt desc="coffee espresso">Espresso</fbt>
@@ -136,12 +136,14 @@ export default function MenuPage(): React.Node {
 
           <Section className={styles('menuColumn')}>
             <Heading>
-              <span className={styles('menuHeading')}>
+              <div className={styles('menuHeading')}>
                 <fbt desc="other subtitle in our menu">Other</fbt>
-              </span>
+              </div>
             </Heading>
             <div className={styles('priceRow')}>
-              <fbt desc="other soda">soda</fbt>
+              <fbt desc="other soda">
+                <em>TODO</em>
+              </fbt>
               <div>
                 <Money amount={30} />
               </div>
@@ -158,28 +160,27 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 5,
+    marginBottom: 10,
   },
   menuRow: {
-    'display': 'flex',
-    'flexDirection': 'row',
-    'justifyContent': 'space-evenly',
-    // 'width': '100%',
-    'marginBottom': 30,
-    ':last-child': {
-      marginBottom: 0,
-    },
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-evenly',
+    marginBottom: 30,
+    width: '100%',
   },
   menuColumn: {
     'display': 'flex',
     'flexDirection': 'column',
-    'marginRight': 50,
-    // 'width': '50%',
+    'flexBasis': 350,
+    'marginRight': 20,
     ':last-child': {
       marginRight: 0,
     },
   },
   menuHeading: {
     textTransform: 'uppercase',
+    marginBottom: 15,
   },
 });
