@@ -30,11 +30,11 @@ import renderPageWithSX from './src/renderPageWithSX';
  */
 function composeStylesheets(
   stylesheetA: Map<string, string>,
-  stylesheetB: Map<string, string>,
+  stylesheetB: ?Map<string, string>,
 ): string {
   // Should we support deeply nested styles or leave it like this and overwrite them?
   // Note: this is very similar what `styles('aaa', 'bbb')` does internally when merging.
-  const merged = new Map([...stylesheetA, ...stylesheetB]);
+  const merged = stylesheetB ? new Map([...stylesheetA, ...stylesheetB]) : stylesheetA;
   const classes = [...merged.values()];
   const uniqueClasses = [...new Set(classes)];
   return uniqueClasses.join(' ');
