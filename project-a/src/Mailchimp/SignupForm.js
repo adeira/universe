@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import * as sx from '@adeira/sx';
+import sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import Input from '../design/Input';
@@ -38,6 +38,7 @@ export default function SignupForm(): React.Node {
               emailValue: event.target.value,
             }))
           }
+          xstyle={styles.emailInput}
         />
         <div id="mce-responses" className="clear">
           <div className="response" id="mce-error-response" style={{ display: 'none' }} />
@@ -72,5 +73,8 @@ const styles = sx.create({
   row: {
     display: 'flex',
     flexDirection: 'row',
+  },
+  emailInput: {
+    marginRight: 5,
   },
 });
