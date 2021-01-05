@@ -19,8 +19,8 @@ jobs:
           upload_sources: true
           upload_translations: false
           download_translations: false
-          source: '/translations/source_strings.json'
-          translation: '/translations/in/%locale_with_underscore%.json'
+          source: 'translations/source_strings.json'
+          translation: 'translations/in/%locale_with_underscore%.json'
 
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
