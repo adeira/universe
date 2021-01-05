@@ -11,13 +11,14 @@ import SubpageNavigation from './SubpageNavigation';
 type Props = {|
   +children: React.Node,
   +title: React.Node,
+  +withJumbotron?: boolean,
 |};
 
 export default function Subpage(props: Props): React.Node {
   return (
     <div className={styles('wrapper')}>
       <SubpageNavigation />
-      <SubpageHeader />
+      {props.withJumbotron === false ? null : <SubpageHeader />}
 
       <main id="main" className={styles('main')}>
         <div className={styles('heading')}>

@@ -115,7 +115,7 @@ export default function MenuPage(): React.Node {
               </div>
             </div>
             <div className={styles('priceRow')}>
-              <fbt desc="coffee cappucino">Cappucino</fbt>
+              <fbt desc="coffee cappuccino">Cappuccino</fbt>
               <div>
                 <Money amount={30} />
               </div>
