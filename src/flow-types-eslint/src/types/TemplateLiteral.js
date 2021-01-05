@@ -10,6 +10,7 @@ import type { TemplateElement } from './TemplateElement';
 
 export type TemplateLiteral = $ReadOnly<{|
   ...INode,
+  +type: 'TemplateLiteral',
   +expressions: $ReadOnlyArray<
     StringLiteral | NumericalLiteral | ObjectExpression | ArrowFunctionExpression | CallExpression, // ... possibly others
   >,

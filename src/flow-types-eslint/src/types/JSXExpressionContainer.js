@@ -3,6 +3,7 @@
 import type { CallExpression } from './CallExpression';
 import type { INode } from './INode';
 import type { Literal } from './Literal';
+import type { MemberExpression } from './MemberExpression';
 import type { ObjectExpression } from './ObjectExpression';
 import type { TemplateLiteral } from './TemplateLiteral';
 
@@ -10,5 +11,5 @@ import type { TemplateLiteral } from './TemplateLiteral';
 //            ^^^^^^^^^^^^^^^^^^
 export type JSXExpressionContainer = $ReadOnly<{|
   ...INode,
-  +expression: ObjectExpression | CallExpression | Literal | TemplateLiteral, // possibly others ...
+  +expression: ObjectExpression | CallExpression | Literal | TemplateLiteral | MemberExpression, // possibly others ...
 |}>;
