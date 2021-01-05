@@ -30,14 +30,38 @@ export default function MenuPage(): React.Node {
             </Heading>
             <div className={styles('priceRow')}>
               <div>
-                <fbt desc="sweet dumpling with chocolate flavor">Chocolate</fbt>
+                <fbt desc="sweet dumpling with ferrero flavor">Ferrero</fbt>
               </div>
               <div>
                 <Money amount={30} />
               </div>
             </div>
             <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with strawberry flavor">Strawberry</fbt>
+              <fbt desc="sweet dumpling with blackberry/philadephia flavor">
+                Blackberry + Philadelpia
+              </fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="sweet dumpling with oreo/white chocolate flavor">
+                Oreo + White Chocolate
+              </fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="sweet dumpling with banana/condensed milk flavor">
+                Banana + Condensed Milk
+              </fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="sweet dumpling with strawberry/coconut flavor">Strawberry + coconut</fbt>
               <div>
                 <Money amount={30} />
               </div>
@@ -57,7 +81,13 @@ export default function MenuPage(): React.Node {
               </div>
             </div>
             <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with manchego flavor">Manchego</fbt>
+              <fbt desc="sweet dumpling with chorizo/cheese flavor">Chorizo + cheese</fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="sweet dumpling with hawaiano flavor">Hawaiano</fbt>
               <div>
                 <Money amount={30} />
               </div>
@@ -73,13 +103,45 @@ export default function MenuPage(): React.Node {
               </span>
             </Heading>
             <div className={styles('priceRow')}>
-              <div>Todododo</div>
+              <fbt desc="coffee espresso">Espresso</fbt>
               <div>
                 <Money amount={30} />
               </div>
             </div>
             <div className={styles('priceRow')}>
-              <div>Todododo</div>
+              <fbt desc="coffee americano">Americano</fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="coffee cappucino">Cappucino</fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="coffee latte">Latte</fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+            <div className={styles('priceRow')}>
+              <fbt desc="coffee flat white">Flat White</fbt>
+              <div>
+                <Money amount={30} />
+              </div>
+            </div>
+          </Section>
+
+          <Section className={styles('menuColumn')}>
+            <Heading>
+              <span className={styles('menuHeading')}>
+                <fbt desc="other subtitle in our menu">Other</fbt>
+              </span>
+            </Heading>
+            <div className={styles('priceRow')}>
+              <fbt desc="other soda">soda</fbt>
               <div>
                 <Money amount={30} />
               </div>
