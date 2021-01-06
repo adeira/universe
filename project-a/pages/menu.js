@@ -21,8 +21,8 @@ export default function MenuPage(): React.Node {
       </Head>
 
       <Subpage title={<fbt desc="menu page title">Menu</fbt>}>
-        <div className={styles('menuRow')}>
-          <Section xstyle={styles.menuColumn}>
+        <div className={styles('menuGrid')}>
+          <Section>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="sweet dumplings subtitle in our menu">Sweet Dumplings</fbt>
@@ -68,7 +68,7 @@ export default function MenuPage(): React.Node {
             </div>
           </Section>
 
-          <Section xstyle={styles.menuColumn}>
+          <Section>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="savory dumplings subtitle in our menu">Savory Dumplings</fbt>
@@ -93,10 +93,8 @@ export default function MenuPage(): React.Node {
               </div>
             </div>
           </Section>
-        </div>
 
-        <div className={styles('menuRow')}>
-          <Section xstyle={styles.menuColumn}>
+          <Section>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="coffee subtitle in our menu">Coffee</fbt>
@@ -134,7 +132,7 @@ export default function MenuPage(): React.Node {
             </div>
           </Section>
 
-          <Section xstyle={styles.menuColumn}>
+          <Section>
             <Heading>
               <div className={styles('menuHeading')}>
                 <fbt desc="other subtitle in our menu">Other</fbt>
@@ -162,22 +160,14 @@ const styles = sx.create({
     justifyContent: 'space-between',
     marginBottom: 10,
   },
-  menuRow: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
-    marginBottom: 30,
-    width: '100%',
-  },
-  // eslint-disable-next-line sx/no-unused-stylesheet
-  menuColumn: {
-    'display': 'flex',
-    'flexDirection': 'column',
-    'flexBasis': 350,
-    'marginRight': 20,
-    ':last-child': {
-      marginRight: 0,
+  menuGrid: {
+    'margin': '0 auto',
+    'display': 'grid',
+    'gridTemplateRows': 'auto',
+    'gap': '2rem',
+    'gridTemplateColumns': 'repeat(2, [start] minmax(300px, 450px) [end])',
+    '@media (max-width: 840px)': {
+      gridTemplateColumns: 'repeat(1, [start] minmax(300px, 450px) [end])',
     },
   },
   menuHeading: {
