@@ -23,6 +23,11 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          {/* <link rel="icon" href="/favicon.ico" /> */}
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <meta name="theme-color" content="#6C1610" />
+
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148481588-2" />
           <script
             dangerouslySetInnerHTML={{
