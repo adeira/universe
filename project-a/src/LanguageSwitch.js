@@ -65,6 +65,7 @@ const styles = sx.create({
     'backgroundColor': 'transparent',
     'cursor': 'pointer',
     'textDecoration': 'none',
+    'color': 'inherit',
     ':hover': {
       textDecoration: 'underline',
     },

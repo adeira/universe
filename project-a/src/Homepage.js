@@ -4,7 +4,7 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Footer from './Footer';
+import HomepageFooter from './HomepageFooter';
 import Logo from './Logo';
 import HomepageNavigation from './HomepageNavigation';
 import SocialMediaIcons from './SocialMediaIcons';
@@ -27,7 +27,7 @@ export default function Homepage(): React.Node {
           <div className={styles('bottomInfo')}>
             {/* <p>TODO: contact (?)</p> */}
             <SocialMediaIcons />
-            <Footer />
+            <HomepageFooter />
           </div>
         </main>
       </div>

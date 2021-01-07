@@ -16,9 +16,23 @@
   },
   {
    "hashToText": {
+    "YLzBdvonuLATQ5FpiPMgEw==": "REAL CATS + DUMPLINGS + COFFEE"
+   },
+   "filepath": "src/Homepage.js",
+   "line_beg": 23,
+   "col_beg": 14,
+   "line_end": 23,
+   "col_end": 75,
+   "desc": "catch phrase",
+   "project": "",
+   "type": "text",
+   "jsfbt": "REAL CATS + DUMPLINGS + COFFEE"
+  },
+  {
+   "hashToText": {
     "Jtw/XkgxoVH1y9vrSmRIbQ==": "Monday - Friday 8am - 6pm"
    },
-   "filepath": "src/Footer.js",
+   "filepath": "src/HomepageFooter.js",
    "line_beg": 13,
    "col_beg": 8,
    "line_end": 13,
@@ -32,7 +46,7 @@
    "hashToText": {
     "NUhL34P63zZM36A/XnsyPw==": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
    },
-   "filepath": "src/Footer.js",
+   "filepath": "src/HomepageFooter.js",
    "line_beg": 18,
    "col_beg": 10,
    "line_end": 20,
@@ -41,20 +55,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
-  },
-  {
-   "hashToText": {
-    "YLzBdvonuLATQ5FpiPMgEw==": "REAL CATS + DUMPLINGS + COFFEE"
-   },
-   "filepath": "src/Homepage.js",
-   "line_beg": 23,
-   "col_beg": 14,
-   "line_end": 23,
-   "col_end": 75,
-   "desc": "catch phrase",
-   "project": "",
-   "type": "text",
-   "jsfbt": "REAL CATS + DUMPLINGS + COFFEE"
   },
   {
    "hashToText": {
@@ -380,12 +380,26 @@
   },
   {
    "hashToText": {
+    "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
+   },
+   "filepath": "pages/_app.js",
+   "line_beg": 51,
+   "col_beg": 14,
+   "line_end": 51,
+   "col_end": 55,
+   "desc": "coming soon",
+   "project": "",
+   "type": "text",
+   "jsfbt": "coming soon"
+  },
+  {
+   "hashToText": {
     "WTkOySZFstu+ZeKuWKvHGg==": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 52,
+   "line_beg": 57,
    "col_beg": 16,
-   "line_end": 55,
+   "line_end": 60,
    "col_end": 22,
    "desc": "mailchimp subscribe call to action text",
    "project": "",

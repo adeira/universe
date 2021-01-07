@@ -6,7 +6,7 @@ import fbt from 'fbt';
 
 import LanguageSwitch from './LanguageSwitch';
 
-export default function Footer(): React.Node {
+export default function HomepageFooter(): React.Node {
   return (
     <div className={styles('wrapper')}>
       <strong>
