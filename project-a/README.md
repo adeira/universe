@@ -13,7 +13,6 @@ yarn run flow && yarn run lint --all && yarn run test && yarn run fbt
 
 - fix all TODOs
 - lighthouse check (mobile and desktop - incognito mode!)
-- favicon
 - `Money` component locale (application context)
 
 ## TODO (final checklist)
