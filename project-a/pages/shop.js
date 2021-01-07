@@ -6,8 +6,10 @@ import sx from '@adeira/sx';
 import Head from 'next/head';
 
 import Heading from '../src/design/Heading';
-import ProductCard from '../src/design/ProductCard';
+// import ProductCarrangeMap.jsd from '../src/design/ProductCard';
+import Section from '../src/design/Section';
 import Skeleton from '../src/design/Skeleton';
+import rangeMap from '../src/utils/rangeMap';
 import Subpage from '../src/Subpage';
 
 export default function Shop(): React.Node {
@@ -20,53 +22,54 @@ export default function Shop(): React.Node {
         </title>
       </Head>
 
-      <Subpage withJumbotron={false} title={'TODO (replace with full width and categories)'}>
-        <div>
-          <Heading>
-            <fbt desc="shop categories selection title">Categories</fbt>
-          </Heading>
-        </div>
+      <Subpage withJumbotron={false} withFullWidth={true} title={'TKTK'}>
+        <Section xstyle={styles.shopGrid}>
+          <div>
+            <Heading>
+              <fbt desc="shop categories selection title">All Categories</fbt>
+            </Heading>
+            <div>
+              <a href="#todo">Tktk</a>
+            </div>
+            <div>
+              <a href="#todo">Shop All</a>
+            </div>
+          </div>
 
-        <div className={styles('products')}>
-          <div className={styles('product')}>
-            <Skeleton />
+          <div className={styles('productsGrid')}>
+            {/* Loading screen: */}
+            {rangeMap(12, (i) => (
+              <Skeleton key={i} />
+            ))}
           </div>
-          <div className={styles('product')}>
-            <Skeleton />
-          </div>
-          <div className={styles('product')}>
-            <Skeleton />
-          </div>
-        </div>
 
-        <div className={styles('products')}>
-          <div className={styles('product')}>
-            <ProductCard />
+          <div>
+            <Heading>
+              <fbt desc="shop relevance selection title">Relevance</fbt>
+            </Heading>
+            <div>
+              <a href="#todo">Price: Low to high</a>
+            </div>
+            <div>
+              <a href="#todo">Price: High to low</a>
+            </div>
           </div>
-          <div className={styles('product')}>
-            <ProductCard />
-          </div>
-          <div className={styles('product')}>
-            <ProductCard />
-          </div>
-        </div>
-
-        <div>
-          <Heading>
-            <fbt desc="shop relevance selection title">Relevance</fbt>
-          </Heading>
-        </div>
+        </Section>
       </Subpage>
     </>
   );
 }
 
 const styles = sx.create({
-  products: {
-    display: 'flex',
-    flexDirection: 'row',
+  shopGrid: {
+    width: '100%',
+    display: 'grid',
+    gridTemplateColumns: '250px minmax(250px, 1fr) 250px',
+    gap: '1rem',
   },
-  product: {
-    marginRight: 5,
+  productsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gap: '1rem',
   },
 });

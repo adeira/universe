@@ -12,6 +12,7 @@ type Props = {|
   +children: React.Node,
   +title: React.Node,
   +withJumbotron?: boolean,
+  +withFullWidth?: boolean,
 |};
 
 export default function Subpage(props: Props): React.Node {
@@ -20,7 +21,7 @@ export default function Subpage(props: Props): React.Node {
       <SubpageNavigation />
       {props.withJumbotron === false ? null : <SubpageHeader />}
 
-      <main id="main" className={styles('main')}>
+      <main id="main" className={styles('main', props.withFullWidth && 'mainFullWidth')}>
         <div className={styles('heading')}>
           <Heading>{props.title}</Heading>
         </div>
@@ -47,6 +48,9 @@ const styles = sx.create({
     width: '75vw',
     margin: '0 auto',
     minHeight: '40vh',
+  },
+  mainFullWidth: {
+    width: '100%',
   },
   heading: {
     marginTop: 20,
