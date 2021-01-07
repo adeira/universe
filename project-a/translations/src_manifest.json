@@ -1,1 +1,23 @@
-{"translations/enum_manifest.json":["src/__tests__/LanguageTag.test.js","src/design/Input.js","src/design/InputSubmit.js","src/design/SkipLink.js","src/Footer.js","src/Homepage.js","src/Homepage/Navigation.js","src/Homepage/SocialMediaIcons.js","src/LanguageSwitch.js","src/LanguageTag.js","src/Mailchimp/SignupForm.js","src/Rules.js","src/SubpageNavigation.js","pages/_app.js","pages/404.js","pages/adoption.js","pages/menu.js","pages/rules.js","pages/shop.js"]}
+{
+  "translations/enum_manifest.json": [
+    "src/__tests__/LanguageTag.test.js",
+    "src/design/Input.js",
+    "src/design/InputSubmit.js",
+    "src/design/SkipLink.js",
+    "src/Footer.js",
+    "src/Homepage.js",
+    "src/HomepageNavigation.js",
+    "src/LanguageTag.js",
+    "src/LayoutNavigation.js",
+    "src/Mailchimp/SignupForm.js",
+    "src/Rules.js",
+    "src/SocialMediaIcons.js",
+    "pages/_app.js",
+    "pages/404.js",
+    "pages/adoption.js",
+    "pages/cart.js",
+    "pages/menu.js",
+    "pages/rules.js",
+    "pages/shop.js"
+  ]
+}

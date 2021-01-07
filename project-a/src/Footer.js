@@ -12,7 +12,8 @@ export default function Footer(): React.Node {
       <strong>
         <fbt desc="opening hours">Monday - Friday 8am - 6pm</fbt>
       </strong>
-      <div className={styles('address')}>
+
+      <div>
         <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
           <fbt desc="address">
             Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
@@ -29,12 +30,11 @@ export default function Footer(): React.Node {
 
 const styles = sx.create({
   wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 10,
-  },
-  address: {
-    textAlign: 'center',
   },
   languageSwitch: {
     marginTop: 20,

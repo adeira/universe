@@ -8,7 +8,7 @@ import fbt from 'fbt';
 import Heading from '../src/design/Heading';
 import Money from '../src/design/Money';
 import Section from '../src/design/Section';
-import Subpage from '../src/Subpage';
+import Layout from '../src/Layout';
 
 export default function MenuPage(): React.Node {
   return (
@@ -20,7 +20,10 @@ export default function MenuPage(): React.Node {
         </title>
       </Head>
 
-      <Subpage title={<fbt desc="menu page title">Menu</fbt>}>
+      <Layout
+        title={<fbt desc="menu page title">Our menu</fbt>}
+        subtitle={<fbt desc="menu page subtitle">What do we offer</fbt>}
+      >
         <div className={styles('menuGrid')}>
           <Section>
             <Heading>
@@ -148,7 +151,7 @@ export default function MenuPage(): React.Node {
             </div>
           </Section>
         </div>
-      </Subpage>
+      </Layout>
     </>
   );
 }

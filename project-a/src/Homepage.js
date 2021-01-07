@@ -6,14 +6,14 @@ import fbt from 'fbt';
 
 import Footer from './Footer';
 import Logo from './Logo';
-import Navigation from './Homepage/Navigation';
-import SocialMediaIcons from './Homepage/SocialMediaIcons';
+import HomepageNavigation from './HomepageNavigation';
+import SocialMediaIcons from './SocialMediaIcons';
 
 export default function Homepage(): React.Node {
   return (
     <div className={styles('background')}>
       <div className={styles('backgroundOverlay')}>
-        <Navigation />
+        <HomepageNavigation />
         <main id="main" className={styles('root')}>
           <div className={styles('center')}>
             <Logo />

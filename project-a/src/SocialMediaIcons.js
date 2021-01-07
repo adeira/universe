@@ -4,12 +4,14 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Instagram from '../design/svg/__generated__/Instagram';
-import Facebook from '../design/svg/__generated__/Facebook';
-import socialLinks from '../socialLinks';
+import Instagram from './design/svg/__generated__/Instagram';
+import Facebook from './design/svg/__generated__/Facebook';
+import socialLinks from './socialLinks';
 
 type Props = {|
   +vertical?: boolean,
+  +color?: string,
+  +size?: number,
 |};
 
 export default function SocialMediaIcons(props: Props): React.Node {
@@ -23,7 +25,7 @@ export default function SocialMediaIcons(props: Props): React.Node {
           }
           target="_blank"
         >
-          <Instagram />
+          <Instagram color={props.color} size={props.size} />
         </a>
       </div>
 
@@ -35,7 +37,7 @@ export default function SocialMediaIcons(props: Props): React.Node {
           }
           target="_blank"
         >
-          <Facebook />
+          <Facebook color={props.color} size={props.size} />
         </a>
       </div>
     </div>
