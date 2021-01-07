@@ -15,7 +15,6 @@ const loading = sx.keyframes({
 const styles = sx.create({
   skeleton: {
     height: 250,
-    width: 250,
     backgroundImage: 'linear-gradient(270deg, #f8f9fa, #e9ecef, #e9ecef, #f8f9fa)',
     backgroundSize: '400% 100%',
     animationName: loading,
