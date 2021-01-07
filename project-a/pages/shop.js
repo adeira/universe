@@ -10,7 +10,7 @@ import Heading from '../src/design/Heading';
 import Section from '../src/design/Section';
 import Skeleton from '../src/design/Skeleton';
 import rangeMap from '../src/utils/rangeMap';
-import Subpage from '../src/Subpage';
+import Layout from '../src/Layout';
 
 export default function Shop(): React.Node {
   return (
@@ -22,7 +22,13 @@ export default function Shop(): React.Node {
         </title>
       </Head>
 
-      <Subpage withJumbotron={false} withFullWidth={true} title={'TKTK'}>
+      <Layout
+        withFullWidth={true}
+        title={<fbt desc="shop page title">Online shop</fbt>}
+        subtitle={
+          <fbt desc="shop page subtitle">Support our cats by buying some of our products</fbt>
+        }
+      >
         <Section xstyle={styles.shopGrid}>
           <div>
             <Heading>
@@ -55,7 +61,7 @@ export default function Shop(): React.Node {
             </div>
           </div>
         </Section>
-      </Subpage>
+      </Layout>
     </>
   );
 }

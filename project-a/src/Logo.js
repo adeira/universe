@@ -7,6 +7,7 @@ import Heading from './design/Heading';
 import KochkaIcon from './design/svg/KochkaIcon';
 
 type Props = {|
+  +color?: string,
   +horizontal?: boolean,
 |};
 
@@ -14,7 +15,7 @@ export default function Logo(props: Props): React.Node {
   const isHorizontal = props.horizontal === true;
   return (
     <div className={styles('logoWrapper', isHorizontal && 'logoWrapperHorizontal')}>
-      <KochkaIcon size={150} />
+      <KochkaIcon size={50} color={props.color} />
 
       <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
         <Heading xstyle={styles.kochka}>
@@ -34,30 +35,26 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginTop: 40,
-    marginBottom: 40,
   },
   logoWrapperHorizontal: {
     flexDirection: 'row',
   },
   heading: {
-    marginTop: 40,
     fontFamily: 'GidoleKochka',
   },
   headingHorizontal: {
-    marginTop: 20,
-    marginLeft: 40,
+    marginLeft: 20,
   },
   // eslint-disable-next-line sx/no-unused-stylesheet
   kochka: {
-    fontSize: 60,
+    fontSize: 20,
     letterSpacing: '.8rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   cafe: {
-    fontSize: 25,
+    fontSize: 10,
     letterSpacing: '.4rem',
   },
 });

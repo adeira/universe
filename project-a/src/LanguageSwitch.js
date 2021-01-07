@@ -2,10 +2,11 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import fbt from 'fbt';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
+import FlagMX from './design/svg/__generated__/flags/mx';
+import FlagUS from './design/svg/__generated__/flags/us';
 import useViewerContext from './hooks/useViewerContext';
 
 export default function LanguageSwitch(): React.Node {
@@ -14,9 +15,23 @@ export default function LanguageSwitch(): React.Node {
 
   // eventually we could offer to switch language and region independently
   const languagesMap = {
-    // TODO: How to translate this correctly? We should have it in the language we are switching to. 🤔
-    'en-us': <fbt desc="switch to english link">Switch to English</fbt>,
-    'es-mx': <fbt desc="switch to spanish link">Switch to Spanish</fbt>,
+    // TODO: how to reuse FBT here?
+    'en-us': (
+      <div className={styles('linkInner')}>
+        Switch to English
+        <span className={styles('emoji')}>
+          <FlagUS size={16} />
+        </span>
+      </div>
+    ),
+    'es-mx': (
+      <div className={styles('linkInner')}>
+        Cambiar a Español
+        <span className={styles('emoji')}>
+          <FlagMX size={16} />
+        </span>
+      </div>
+    ),
   };
 
   const languageSwitch = [];
@@ -26,8 +41,9 @@ export default function LanguageSwitch(): React.Node {
       // do not switch to the current language
       languageSwitch.push(
         <NextLink href={router.route} key={languageTagURL} locale={languageTagURL}>
-          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a className={styles('link')}>{linkText}</a>
+          <button type="button" className={styles('link')}>
+            {linkText}
+          </button>
         </NextLink>,
       );
     }
@@ -36,10 +52,25 @@ export default function LanguageSwitch(): React.Node {
 }
 
 const styles = sx.create({
+  emoji: {
+    height: '1em',
+    width: '1em',
+    margin: '0 .05em 0 .5em',
+    verticalAlign: '-0.1em',
+  },
   link: {
+    'border': '1px solid lightgrey',
+    'borderRadius': 4,
+    'padding': '1rem',
+    'backgroundColor': 'transparent',
+    'cursor': 'pointer',
     'textDecoration': 'none',
     ':hover': {
       textDecoration: 'underline',
     },
+  },
+  linkInner: {
+    display: 'flex',
+    flexDirection: 'row',
   },
 });

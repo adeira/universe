@@ -6,12 +6,13 @@ import SVGIcon from '../SVGIcon';
 
 type Props = {|
   +color?: string,
+  +size?: number,
 |};
 
 export default function Facebook(props: Props): React.Node {
-  const { color = '#fff' } = props;
+  const { color = '#fff', size = 40 } = props;
   return (
-    <SVGIcon viewBox="0 0 504 504" color={color} size={40}>
+    <SVGIcon viewBox="0 0 504 504" color={color} size={size}>
       <defs>
         <path d="M0 .159h503.841V503.94H0z" />
       </defs>

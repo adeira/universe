@@ -4,7 +4,7 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Subpage from '../src/Subpage';
+import Layout from '../src/Layout';
 
 function FakeKittenImage() {
   return (
@@ -18,7 +18,7 @@ function FakeKittenImage() {
 
 export default function Adoption(): React.Node {
   return (
-    <Subpage title={<fbt desc="adoption page title">Adoption</fbt>}>
+    <Layout title={<fbt desc="adoption page title">Adoption</fbt>}>
       {/* TODO */}
       {/* <p> */}
       {/*   <fbt desc="">We are not just a cat café. We want to help.</fbt> */}
@@ -30,7 +30,7 @@ export default function Adoption(): React.Node {
         <FakeKittenImage />
         <FakeKittenImage />
       </div>
-    </Subpage>
+    </Layout>
   );
 }
 

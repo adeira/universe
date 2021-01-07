@@ -4,11 +4,12 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Link from '../Link';
-import useFeatureFlag from '../hooks/useFeatureFlag';
+import Link from './Link';
+import useFeatureFlag from './hooks/useFeatureFlag';
 
-export default function Navigation(): React.Node {
+export default function HomepageNavigation(): React.Node {
   const pageAdoptionEnabled = useFeatureFlag('page-adoption-enabled');
+  const pageShopEnabled = useFeatureFlag('page-shop-enabled');
 
   return (
     <nav className={styles('nav')}>
@@ -35,7 +36,13 @@ export default function Navigation(): React.Node {
           </Link>
         </li>
 
-        {/* TODO (eventually): eshop */}
+        {pageShopEnabled === true && (
+          <li className={styles('li')}>
+            <Link href="/shop" xstyle={styles.link}>
+              <fbt desc="navigation link to shop">Shop</fbt>
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
