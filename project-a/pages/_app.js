@@ -46,6 +46,11 @@ function MyApp({ Component, pageProps }: Props): React.Node {
         <div className={styles('rootSoonOverlay')}>
           <Logo />
           {/* TODO: make sure the form works correctly */}
+          <div className={styles('form')}>
+            <em>
+              <fbt desc="coming soon">coming soon</fbt>
+            </em>
+          </div>
           {__DEV__ ? (
             <div className={styles('form')}>
               <div className={styles('formText')}>

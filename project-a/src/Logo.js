@@ -9,18 +9,20 @@ import KochkaIcon from './design/svg/KochkaIcon';
 type Props = {|
   +color?: string,
   +horizontal?: boolean,
+  +size?: 'small' | 'large',
 |};
 
 export default function Logo(props: Props): React.Node {
   const isHorizontal = props.horizontal === true;
+  const isSmall = props.size === 'small';
   return (
     <div className={styles('logoWrapper', isHorizontal && 'logoWrapperHorizontal')}>
-      <KochkaIcon size={50} color={props.color} />
+      <KochkaIcon size={isSmall ? 50 : 150} color={props.color} />
 
       <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
-        <Heading xstyle={styles.kochka}>
+        <Heading xstyle={isSmall ? styles.kochkaSmall : styles.kochka}>
           KOCHKA
-          <span className={styles('cafe')}>
+          <span className={styles('cafe', isSmall && 'cafeSmall')}>
             {/* TODO: this should be even lighter (fontWeight:100) */}
             CAFÉ
           </span>
@@ -47,6 +49,13 @@ const styles = sx.create({
   },
   // eslint-disable-next-line sx/no-unused-stylesheet
   kochka: {
+    fontSize: 60,
+    letterSpacing: '.8rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  kochkaSmall: {
     fontSize: 20,
     letterSpacing: '.8rem',
     display: 'flex',
@@ -54,7 +63,10 @@ const styles = sx.create({
     alignItems: 'center',
   },
   cafe: {
-    fontSize: 10,
+    fontSize: 25,
     letterSpacing: '.4rem',
+  },
+  cafeSmall: {
+    fontSize: 10,
   },
 });

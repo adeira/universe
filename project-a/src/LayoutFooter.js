@@ -13,7 +13,7 @@ export default function LayoutFooter(): React.Node {
     <div className={styles('wrapper')}>
       <div className={styles('row')}>
         <div className={styles('column', 'columnLeft')}>
-          <Logo horizontal={true} color="#1c1e21" />
+          <Logo horizontal={true} color="#1c1e21" size="small" />
         </div>
         <div className={styles('column', 'columnLeft')}>
           <div>
