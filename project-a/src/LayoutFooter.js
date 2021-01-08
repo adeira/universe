@@ -1,10 +1,12 @@
 // @flow
 
+import fbt from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
 
 // import Footer from './Footer';
 import LanguageSwitch from './LanguageSwitch';
+import Link from './Link';
 import Logo from './Logo';
 import SocialMediaIcons from './SocialMediaIcons';
 
@@ -17,16 +19,24 @@ export default function LayoutFooter(): React.Node {
         </div>
         <div className={styles('column', 'columnLeft')}>
           <div>
-            <a href="#todo">Home</a>
+            <Link href="/">
+              <fbt desc="footer navigation link to homepage">Home</fbt>
+            </Link>
           </div>
           <div>
-            <a href="#todo">Menu</a>
+            <Link href="/menu">
+              <fbt desc="footer navigation link to café menu">Café&nbsp;menu</fbt>
+            </Link>
           </div>
           <div>
-            <a href="#todo">Our rules</a>
+            <Link href="/rules">
+              <fbt desc="footer navigation link to café rules">Café&nbsp;rules</fbt>
+            </Link>
           </div>
           <div>
-            <a href="#todo">Shop</a>
+            <Link href="/shop">
+              <fbt desc="footer navigation link to shop">Shop</fbt>
+            </Link>
           </div>
         </div>
         <div className={styles('column', 'columnLeft')}>

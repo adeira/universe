@@ -16,8 +16,6 @@ export default function LayoutNavigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <div>
-        {/* TODO: DRY with Homepage/Navigation */}
-
         <Link href="/" xstyle={styles.link}>
           <span className={styles('linkHomepageIcon')}>
             <KochkaIcon size={20} />
@@ -26,11 +24,11 @@ export default function LayoutNavigation(): React.Node {
         </Link>
 
         <Link href="/menu" xstyle={styles.link}>
-          <fbt desc="subpage navigation link to menu">Café menu</fbt>
+          <fbt desc="subpage navigation link to menu">Café&nbsp;menu</fbt>
         </Link>
 
         <Link href="/rules" xstyle={styles.link}>
-          <fbt desc="subpage navigation link to our rules">Café rules</fbt>
+          <fbt desc="subpage navigation link to our rules">Café&nbsp;rules</fbt>
         </Link>
 
         {pageAdoptionEnabled === true && (
