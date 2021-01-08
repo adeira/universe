@@ -18,11 +18,13 @@ function FakeKittenImage() {
 
 export default function Adoption(): React.Node {
   return (
-    <Layout title={<fbt desc="adoption page title">Adoption</fbt>}>
-      {/* TODO */}
-      {/* <p> */}
-      {/*   <fbt desc="">We are not just a cat café. We want to help.</fbt> */}
-      {/* </p> */}
+    <Layout
+      withFullWidth={true}
+      title={<fbt desc="adoption page title">Adoption</fbt>}
+      subtitle={
+        <fbt desc="adoption page subtitle">We are not just a cat café. We want to help.</fbt>
+      }
+    >
       <div className={styles('root')}>
         <FakeKittenImage />
         <FakeKittenImage />

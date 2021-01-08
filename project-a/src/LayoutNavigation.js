@@ -26,7 +26,7 @@ export default function LayoutNavigation(): React.Node {
         </Link>
 
         <Link href="/menu" xstyle={styles.link}>
-          <fbt desc="subpage navigation link to menu">Café Menu</fbt>
+          <fbt desc="subpage navigation link to menu">Café menu</fbt>
         </Link>
 
         <Link href="/rules" xstyle={styles.link}>
