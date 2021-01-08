@@ -97,6 +97,27 @@ module.exports = ({
         usedStylesheetNames.set(node.callee.name, [...alreadyCaptured, ...usedNames]);
       },
 
+      // xstyle={styles.spacing}        xstyle={styles['spacing']}
+      //         ^^^^^^^^^^^^^^    or           ^^^^^^^^^^^^^^^^^
+      'JSXExpressionContainer'(node) {
+        // used when composing styles via `sx(…)`
+        // we limit it for JSX on purpose (to simplify things)
+        const expression = node.expression;
+        if (expression.type !== 'MemberExpression') {
+          return;
+        }
+
+        let stylesheetName = null;
+        if (expression.property.name != null) {
+          stylesheetName = expression.property.name;
+        } else if (expression.property.value != null) {
+          stylesheetName = expression.property.value;
+        }
+        const maybeCaptured = usedStylesheetNames.get(expression.object.name);
+        const alreadyCaptured = maybeCaptured ? maybeCaptured : [];
+        usedStylesheetNames.set(expression.object.name, [...alreadyCaptured, stylesheetName]);
+      },
+
       'Program:exit'(node) {
         if (unableToAnalyzeUsedStylesheets === true) {
           // backout early in cases we are not 100% sure about it
