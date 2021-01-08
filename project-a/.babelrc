@@ -1,7 +1,13 @@
 {
   "presets": ["@adeira/babel-preset-adeira"],
   "plugins": [
-    ["babel-plugin-fbt", { "extraOptions": { "__self": true } }],
+    [
+      "babel-plugin-fbt",
+      {
+        "extraOptions": { "__self": true },
+        "fbtCommonPath": "../../translations/common.js"
+      }
+    ],
     "babel-plugin-fbt-runtime",
     "relay"
   ]

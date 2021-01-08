@@ -24,11 +24,11 @@ export default function LayoutNavigation(): React.Node {
         </Link>
 
         <Link href="/menu" xstyle={styles.link}>
-          <fbt desc="subpage navigation link to menu">Café&nbsp;menu</fbt>
+          <fbt common={true}>Café&nbsp;menu</fbt>
         </Link>
 
         <Link href="/rules" xstyle={styles.link}>
-          <fbt desc="subpage navigation link to our rules">Café&nbsp;rules</fbt>
+          <fbt common={true}>Café&nbsp;rules</fbt>
         </Link>
 
         {pageAdoptionEnabled === true && (
@@ -39,7 +39,7 @@ export default function LayoutNavigation(): React.Node {
 
         {pageShopEnabled === true && (
           <Link href="/shop" xstyle={styles.link}>
-            <fbt desc="subpage navigation link to shop">Shop</fbt>
+            <fbt common={true}>Shop</fbt>
           </Link>
         )}
       </div>
