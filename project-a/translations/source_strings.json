@@ -170,6 +170,48 @@
   },
   {
    "hashToText": {
+    "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 45,
+   "col_beg": 14,
+   "line_end": 45,
+   "col_end": 83,
+   "desc": "footer navigation link to terms of use",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Terms of use"
+  },
+  {
+   "hashToText": {
+    "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 50,
+   "col_beg": 14,
+   "line_end": 50,
+   "col_end": 97,
+   "desc": "footer navigation link to shipping and returns",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Shipping & Returns"
+  },
+  {
+   "hashToText": {
+    "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 55,
+   "col_beg": 14,
+   "line_end": 55,
+   "col_end": 87,
+   "desc": "footer navigation link to privacy policy",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Privacy Policy"
+  },
+  {
+   "hashToText": {
     "r5n7Y7WnZDVhAfNuaM1Veg==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
@@ -601,6 +643,62 @@
    "project": "",
    "type": "text",
    "jsfbt": "our shop"
+  },
+  {
+   "hashToText": {
+    "9ggp9xUsB/b5GuzF9ovCJg==": "Privacy Policy"
+   },
+   "filepath": "pages/legal/privacy.js",
+   "line_beg": 11,
+   "col_beg": 13,
+   "line_end": 11,
+   "col_end": 71,
+   "desc": "privacy policy page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Privacy Policy"
+  },
+  {
+   "hashToText": {
+    "ft/VX/kflZT+cJ7tDxay3w==": "How we handle your data"
+   },
+   "filepath": "pages/legal/privacy.js",
+   "line_beg": 12,
+   "col_beg": 16,
+   "line_end": 12,
+   "col_end": 86,
+   "desc": "privacy policy page subtitle",
+   "project": "",
+   "type": "text",
+   "jsfbt": "How we handle your data"
+  },
+  {
+   "hashToText": {
+    "hJ8qGTJjAWkopKNNpixseQ==": "Shipping & Returns"
+   },
+   "filepath": "pages/legal/shipping.js",
+   "line_beg": 10,
+   "col_beg": 19,
+   "line_end": 10,
+   "col_end": 87,
+   "desc": "shipping and returns page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Shipping & Returns"
+  },
+  {
+   "hashToText": {
+    "zUHUK5wk9AK2m6HCgafXDQ==": "Terms of use"
+   },
+   "filepath": "pages/legal/terms.js",
+   "line_beg": 10,
+   "col_beg": 19,
+   "line_end": 10,
+   "col_end": 73,
+   "desc": "terms of use page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Terms of use"
   },
   {
    "hashToText": {

@@ -41,13 +41,19 @@ export default function LayoutFooter(): React.Node {
         </div>
         <div className={styles('column', 'columnLeft')}>
           <div>
-            <a href="#todo">Terms of use</a>
+            <Link href="/legal/terms">
+              <fbt desc="footer navigation link to terms of use">Terms of use</fbt>
+            </Link>
           </div>
           <div>
-            <a href="#todo">Shipping & Returns</a>
+            <Link href="/legal/shipping">
+              <fbt desc="footer navigation link to shipping and returns">Shipping & Returns</fbt>
+            </Link>
           </div>
           <div>
-            <a href="#todo">Privacy Policy</a>
+            <Link href="/legal/privacy">
+              <fbt desc="footer navigation link to privacy policy">Privacy Policy</fbt>
+            </Link>
           </div>
         </div>
         <div className={styles('column', 'columnRight')}>
