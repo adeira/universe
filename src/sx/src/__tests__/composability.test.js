@@ -90,3 +90,10 @@ it('merges more complex styles correctly', () => {
   expect(sx(styles.default, externalStyles.custom)).toMatchInlineSnapshot(`"_4xrWBp _4j9tl4"`);
   expect(sx(externalStyles.custom, styles.default)).toMatchInlineSnapshot(`"_39Fbhf vovX4"`);
 });
+
+it('handles nullable second argument gracefully', () => {
+  // This is convenient when the overwriting styles are optional.
+  const styles = sx.create({ default: { fontSize: 16 } });
+  expect(sx(styles.default, null)).toBe(styles('default'));
+  expect(sx(styles.default, undefined)).toBe(styles('default'));
+});
