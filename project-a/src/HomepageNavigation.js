@@ -16,7 +16,7 @@ export default function HomepageNavigation(): React.Node {
       <ul className={styles('ul')}>
         <li className={styles('li')}>
           <Link href="/menu" xstyle={styles.link}>
-            <fbt desc="navigation link to our menu">Café&nbsp;menu</fbt>
+            <fbt common={true}>Café&nbsp;menu</fbt>
           </Link>
         </li>
 
@@ -30,14 +30,14 @@ export default function HomepageNavigation(): React.Node {
 
         <li className={styles('li')}>
           <Link href="/rules" xstyle={styles.link}>
-            <fbt desc="navigation link to rules">Café&nbsp;rules</fbt>
+            <fbt common={true}>Café&nbsp;rules</fbt>
           </Link>
         </li>
 
         {pageShopEnabled === true && (
           <li className={styles('li')}>
             <Link href="/shop" xstyle={styles.link}>
-              <fbt desc="navigation link to shop">Shop</fbt>
+              <fbt common={true}>Shop</fbt>
             </Link>
           </li>
         )}

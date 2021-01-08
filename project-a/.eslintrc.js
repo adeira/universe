@@ -14,12 +14,7 @@ module.exports = {
     },
   },
   extends: ['@adeira/eslint-config'],
-  plugins: ['eslint-plugin-sx'], // TODO: remove with a new 'eslint-config-adeira' version
   rules: {
-    'sx/no-concatenated-classes': 2,
-    'sx/no-unused-stylesheet': 2,
-    'sx/valid-usage': 2,
-
     'react/forbid-dom-props': 'off', // doesn't support <fbt:param/> namespaced JSX
     'react/forbid-elements': [
       'error',

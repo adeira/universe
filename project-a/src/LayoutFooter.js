@@ -25,17 +25,17 @@ export default function LayoutFooter(): React.Node {
           </div>
           <div>
             <Link href="/menu">
-              <fbt desc="footer navigation link to café menu">Café&nbsp;menu</fbt>
+              <fbt common={true}>Café&nbsp;menu</fbt>
             </Link>
           </div>
           <div>
             <Link href="/rules">
-              <fbt desc="footer navigation link to café rules">Café&nbsp;rules</fbt>
+              <fbt common={true}>Café&nbsp;rules</fbt>
             </Link>
           </div>
           <div>
             <Link href="/shop">
-              <fbt desc="footer navigation link to shop">Shop</fbt>
+              <fbt common={true}>Shop</fbt>
             </Link>
           </div>
         </div>

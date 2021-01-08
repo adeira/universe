@@ -55,6 +55,7 @@ const styles = sx.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  // eslint-disable-next-line sx/no-unused-stylesheet
   kochkaSmall: {
     fontSize: 20,
     letterSpacing: '.8rem',
