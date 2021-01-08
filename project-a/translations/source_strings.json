@@ -58,26 +58,26 @@
   },
   {
    "hashToText": {
-    "aCVYa8MOEv6iOiCPo5kHOQ==": "Menu"
+    "Jo7a+ISIl/bkJN50/fxwbg==": "Café menu"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 21,
+   "line_beg": 19,
    "col_beg": 12,
-   "line_end": 21,
-   "col_end": 62,
+   "line_end": 19,
+   "col_end": 72,
    "desc": "navigation link to our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Menu"
+   "jsfbt": "Café menu"
   },
   {
    "hashToText": {
     "hHL1jf58Ql60JFDCN3aK1g==": "Adoption"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 28,
+   "line_beg": 26,
    "col_beg": 14,
-   "line_end": 28,
+   "line_end": 26,
    "col_end": 68,
    "desc": "navigation link to adoption",
    "project": "",
@@ -86,28 +86,84 @@
   },
   {
    "hashToText": {
-    "Zt2ENEDUNYv6HlNFEwkbYw==": "Our rules"
+    "lRjfSnnf7uathJR1MSzl6Q==": "Café rules"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 35,
+   "line_beg": 33,
    "col_beg": 12,
-   "line_end": 35,
-   "col_end": 69,
+   "line_end": 33,
+   "col_end": 70,
    "desc": "navigation link to rules",
    "project": "",
    "type": "text",
-   "jsfbt": "Our rules"
+   "jsfbt": "Café rules"
   },
   {
    "hashToText": {
     "LMQfKfjxTVXRgvwkAk+Fdg==": "Shop"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 42,
+   "line_beg": 40,
    "col_beg": 14,
-   "line_end": 42,
+   "line_end": 40,
    "col_end": 60,
    "desc": "navigation link to shop",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Shop"
+  },
+  {
+   "hashToText": {
+    "aXxSvQiGicujVYYnDVIkiA==": "Home"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 23,
+   "col_beg": 14,
+   "line_end": 23,
+   "col_end": 71,
+   "desc": "footer navigation link to homepage",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Home"
+  },
+  {
+   "hashToText": {
+    "rRJZk3qdalhhzVCysbKiKQ==": "Café menu"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 28,
+   "col_beg": 14,
+   "line_end": 28,
+   "col_end": 82,
+   "desc": "footer navigation link to café menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Café menu"
+  },
+  {
+   "hashToText": {
+    "2YcjJNRls4GDuT8NGu7szw==": "Café rules"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 33,
+   "col_beg": 14,
+   "line_end": 33,
+   "col_end": 84,
+   "desc": "footer navigation link to café rules",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Café rules"
+  },
+  {
+   "hashToText": {
+    "meaQ6XZLwOcmvvtkdMFjJw==": "Shop"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 38,
+   "col_beg": 14,
+   "line_end": 38,
+   "col_end": 67,
+   "desc": "footer navigation link to shop",
    "project": "",
    "type": "text",
    "jsfbt": "Shop"
@@ -117,9 +173,9 @@
     "r5n7Y7WnZDVhAfNuaM1Veg==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 25,
+   "line_beg": 23,
    "col_beg": 10,
-   "line_end": 25,
+   "line_end": 23,
    "col_end": 68,
    "desc": "subpage navigation link to homepage",
    "project": "",
@@ -131,10 +187,10 @@
     "pyEJhARsV76U6bhf7ZEGxQ==": "Café menu"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 29,
+   "line_beg": 27,
    "col_beg": 10,
-   "line_end": 29,
-   "col_end": 69,
+   "line_end": 27,
+   "col_end": 74,
    "desc": "subpage navigation link to menu",
    "project": "",
    "type": "text",
@@ -145,10 +201,10 @@
     "lX0Yw8merHAZKK+GSfVxQA==": "Café rules"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 33,
+   "line_beg": 31,
    "col_beg": 10,
-   "line_end": 33,
-   "col_end": 75,
+   "line_end": 31,
+   "col_end": 80,
    "desc": "subpage navigation link to our rules",
    "project": "",
    "type": "text",
@@ -159,9 +215,9 @@
     "AczYHaAuus/G8A3Lx2F4Nw==": "Adoption"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 38,
+   "line_beg": 36,
    "col_beg": 12,
-   "line_end": 38,
+   "line_end": 36,
    "col_end": 74,
    "desc": "subpage navigation link to adoption",
    "project": "",
@@ -173,9 +229,9 @@
     "zfMktfxC9JV0VI8vkjsADw==": "Shop"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 44,
+   "line_beg": 42,
    "col_beg": 12,
-   "line_end": 44,
+   "line_end": 42,
    "col_end": 66,
    "desc": "subpage navigation link to shop",
    "project": "",

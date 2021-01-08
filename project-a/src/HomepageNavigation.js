@@ -14,11 +14,9 @@ export default function HomepageNavigation(): React.Node {
   return (
     <nav className={styles('nav')}>
       <ul className={styles('ul')}>
-        {/* TODO: DRY with SubpageNavigation */}
-
         <li className={styles('li')}>
           <Link href="/menu" xstyle={styles.link}>
-            <fbt desc="navigation link to our menu">Menu</fbt>
+            <fbt desc="navigation link to our menu">Café&nbsp;menu</fbt>
           </Link>
         </li>
 
@@ -32,7 +30,7 @@ export default function HomepageNavigation(): React.Node {
 
         <li className={styles('li')}>
           <Link href="/rules" xstyle={styles.link}>
-            <fbt desc="navigation link to rules">Our&nbsp;rules</fbt>
+            <fbt desc="navigation link to rules">Café&nbsp;rules</fbt>
           </Link>
         </li>
 
