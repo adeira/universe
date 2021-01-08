@@ -7,6 +7,7 @@ import type { ImportDefaultSpecifier } from './types/ImportDefaultSpecifier';
 import type { ImportSpecifier } from './types/ImportSpecifier';
 import type { JSXAttribute } from './types/JSXAttribute';
 import type { JSXExpressionContainer } from './types/JSXExpressionContainer';
+import type { MemberExpression } from './types/MemberExpression';
 import type { NewExpression } from './types/NewExpression';
 import type { Program } from './types/Program';
 import type { Property } from './types/Property';
@@ -43,6 +44,7 @@ type ASTNodes = {|
   +'LineComment'?: (
     node: any, // TODO
   ) => void,
+  +'MemberExpression'?: (node: MemberExpression) => void,
   +'NewExpression'?: (node: NewExpression) => void,
   +'NewExpression:exit'?: (node: NewExpression) => void,
   +'Program'?: (node: Program) => void,
