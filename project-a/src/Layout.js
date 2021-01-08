@@ -1,5 +1,6 @@
 // @flow
 
+import Head from 'next/head';
 import * as React from 'react';
 import sx from '@adeira/sx';
 
@@ -17,22 +18,28 @@ type Props = {|
 // TODO: rename to Layout
 export default function Layout(props: Props): React.Node {
   return (
-    <div className={styles('wrapper')}>
-      <LayoutNavigation />
+    <>
+      <Head>
+        <title>KOCHKA café · {props.title}</title>
+      </Head>
 
-      <div className={styles('heading')}>
-        <Heading>{props.title}</Heading>
-        <div className={styles('subtitle')}>{props.subtitle}</div>
+      <div className={styles('wrapper')}>
+        <LayoutNavigation />
+
+        <div className={styles('heading')}>
+          <Heading>{props.title}</Heading>
+          <div className={styles('subtitle')}>{props.subtitle}</div>
+        </div>
+
+        <main id="main" className={styles('main', props.withFullWidth && 'mainFullWidth')}>
+          {props.children}
+        </main>
+
+        <footer className={styles('footer')}>
+          <LayoutFooter />
+        </footer>
       </div>
-
-      <main id="main" className={styles('main', props.withFullWidth && 'mainFullWidth')}>
-        {props.children}
-      </main>
-
-      <footer className={styles('footer')}>
-        <LayoutFooter />
-      </footer>
-    </div>
+    </>
   );
 }
 

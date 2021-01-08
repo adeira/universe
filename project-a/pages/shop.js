@@ -3,7 +3,6 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
-import Head from 'next/head';
 
 import Heading from '../src/design/Heading';
 // import ProductCarrangeMap.jsd from '../src/design/ProductCard';
@@ -14,55 +13,46 @@ import Layout from '../src/Layout';
 
 export default function Shop(): React.Node {
   return (
-    <>
-      <Head>
-        <title>
-          {/* TODO: translations, reuse main title */}
-          KOCHKA café · Shop
-        </title>
-      </Head>
-
-      <Layout
-        withFullWidth={true}
-        title={<fbt desc="shop page title">Online shop</fbt>}
-        subtitle={
-          <fbt desc="shop page subtitle">Support our cats by buying some of our products</fbt>
-        }
-      >
-        <Section xstyle={styles.shopGrid}>
+    <Layout
+      withFullWidth={true}
+      title={<fbt desc="shop page title">Online shop</fbt>}
+      subtitle={
+        <fbt desc="shop page subtitle">Support our cats by buying some of our products</fbt>
+      }
+    >
+      <Section xstyle={styles.shopGrid}>
+        <div>
+          <Heading>
+            <fbt desc="shop categories selection title">All Categories</fbt>
+          </Heading>
           <div>
-            <Heading>
-              <fbt desc="shop categories selection title">All Categories</fbt>
-            </Heading>
-            <div>
-              <a href="#todo">Tktk</a>
-            </div>
-            <div>
-              <a href="#todo">Shop All</a>
-            </div>
+            <a href="#todo">Tktk</a>
           </div>
-
-          <div className={styles('productsGrid')}>
-            {/* Loading screen: */}
-            {rangeMap(12, (i) => (
-              <Skeleton key={i} />
-            ))}
-          </div>
-
           <div>
-            <Heading>
-              <fbt desc="shop relevance selection title">Relevance</fbt>
-            </Heading>
-            <div>
-              <a href="#todo">Price: Low to high</a>
-            </div>
-            <div>
-              <a href="#todo">Price: High to low</a>
-            </div>
+            <a href="#todo">Shop All</a>
           </div>
-        </Section>
-      </Layout>
-    </>
+        </div>
+
+        <div className={styles('productsGrid')}>
+          {/* Loading screen: */}
+          {rangeMap(12, (i) => (
+            <Skeleton key={i} />
+          ))}
+        </div>
+
+        <div>
+          <Heading>
+            <fbt desc="shop relevance selection title">Relevance</fbt>
+          </Heading>
+          <div>
+            <a href="#todo">Price: Low to high</a>
+          </div>
+          <div>
+            <a href="#todo">Price: High to low</a>
+          </div>
+        </div>
+      </Section>
+    </Layout>
   );
 }
 

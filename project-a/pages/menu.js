@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import Head from 'next/head';
 import fbt from 'fbt';
 
 import Heading from '../src/design/Heading';
@@ -12,147 +11,136 @@ import Layout from '../src/Layout';
 
 export default function MenuPage(): React.Node {
   return (
-    <>
-      <Head>
-        <title>
-          {/* TODO: translations, reuse main title */}
-          KOCHKA café · Menu
-        </title>
-      </Head>
+    <Layout
+      title={<fbt desc="menu page title">Café menu</fbt>}
+      subtitle={<fbt desc="menu page subtitle">What do we offer</fbt>}
+    >
+      <div className={styles('menuGrid')}>
+        <Section>
+          <Heading>
+            <div className={styles('menuHeading')}>
+              <fbt desc="sweet dumplings subtitle in our menu">Sweet Dumplings</fbt>
+            </div>
+          </Heading>
+          <div className={styles('priceRow')}>
+            <div>
+              <fbt desc="sweet dumpling with ferrero flavor">Ferrero</fbt>
+            </div>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with blackberry/philadephia flavor">
+              Blackberry + Philadelpia
+            </fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with oreo/white chocolate flavor">Oreo + White Chocolate</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with banana/condensed milk flavor">
+              Banana + Condensed Milk
+            </fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with strawberry/coconut flavor">Strawberry + coconut</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+        </Section>
 
-      <Layout
-        title={<fbt desc="menu page title">Our menu</fbt>}
-        subtitle={<fbt desc="menu page subtitle">What do we offer</fbt>}
-      >
-        <div className={styles('menuGrid')}>
-          <Section>
-            <Heading>
-              <div className={styles('menuHeading')}>
-                <fbt desc="sweet dumplings subtitle in our menu">Sweet Dumplings</fbt>
-              </div>
-            </Heading>
-            <div className={styles('priceRow')}>
-              <div>
-                <fbt desc="sweet dumpling with ferrero flavor">Ferrero</fbt>
-              </div>
-              <div>
-                <Money amount={30} />
-              </div>
+        <Section>
+          <Heading>
+            <div className={styles('menuHeading')}>
+              <fbt desc="savory dumplings subtitle in our menu">Savory Dumplings</fbt>
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with blackberry/philadephia flavor">
-                Blackberry + Philadelpia
-              </fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+          </Heading>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with pizza flavor">Pizza</fbt>
+            <div>
+              <Money amount={30} />
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with oreo/white chocolate flavor">
-                Oreo + White Chocolate
-              </fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with chorizo/cheese flavor">Chorizo + cheese</fbt>
+            <div>
+              <Money amount={30} />
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with banana/condensed milk flavor">
-                Banana + Condensed Milk
-              </fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with hawaiano flavor">Hawaiano</fbt>
+            <div>
+              <Money amount={30} />
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with strawberry/coconut flavor">Strawberry + coconut</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
-            </div>
-          </Section>
+          </div>
+        </Section>
 
-          <Section>
-            <Heading>
-              <div className={styles('menuHeading')}>
-                <fbt desc="savory dumplings subtitle in our menu">Savory Dumplings</fbt>
-              </div>
-            </Heading>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with pizza flavor">Pizza</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+        <Section>
+          <Heading>
+            <div className={styles('menuHeading')}>
+              <fbt desc="coffee subtitle in our menu">Coffee</fbt>
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with chorizo/cheese flavor">Chorizo + cheese</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+          </Heading>
+          <div className={styles('priceRow')}>
+            <fbt desc="coffee espresso">Espresso</fbt>
+            <div>
+              <Money amount={30} />
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="sweet dumpling with hawaiano flavor">Hawaiano</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="coffee americano">Americano</fbt>
+            <div>
+              <Money amount={30} />
             </div>
-          </Section>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="coffee cappuccino">Cappuccino</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="coffee latte">Latte</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="coffee flat white">Flat White</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+        </Section>
 
-          <Section>
-            <Heading>
-              <div className={styles('menuHeading')}>
-                <fbt desc="coffee subtitle in our menu">Coffee</fbt>
-              </div>
-            </Heading>
-            <div className={styles('priceRow')}>
-              <fbt desc="coffee espresso">Espresso</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+        <Section>
+          <Heading>
+            <div className={styles('menuHeading')}>
+              <fbt desc="other subtitle in our menu">Other</fbt>
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="coffee americano">Americano</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
+          </Heading>
+          <div className={styles('priceRow')}>
+            <fbt desc="other soda">
+              <em>TODO</em>
+            </fbt>
+            <div>
+              <Money amount={30} />
             </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="coffee cappuccino">Cappuccino</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
-            </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="coffee latte">Latte</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
-            </div>
-            <div className={styles('priceRow')}>
-              <fbt desc="coffee flat white">Flat White</fbt>
-              <div>
-                <Money amount={30} />
-              </div>
-            </div>
-          </Section>
-
-          <Section>
-            <Heading>
-              <div className={styles('menuHeading')}>
-                <fbt desc="other subtitle in our menu">Other</fbt>
-              </div>
-            </Heading>
-            <div className={styles('priceRow')}>
-              <fbt desc="other soda">
-                <em>TODO</em>
-              </fbt>
-              <div>
-                <Money amount={30} />
-              </div>
-            </div>
-          </Section>
-        </div>
-      </Layout>
-    </>
+          </div>
+        </Section>
+      </div>
+    </Layout>
   );
 }
 
