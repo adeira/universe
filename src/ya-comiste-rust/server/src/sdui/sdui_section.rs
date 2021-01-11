@@ -1,4 +1,4 @@
-use crate::sdui::graphql_context::Context;
+use crate::graphql_context::Context;
 use crate::sdui::model::sdui_sections::get_section_components;
 use crate::sdui::sdui_component::SDUIComponent;
 use juniper::{FieldError, FieldResult};

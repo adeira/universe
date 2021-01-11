@@ -7,10 +7,11 @@ use crate::auth::users::{
     AnonymousUser, User,
 };
 
-pub mod certs;
-pub mod google;
-pub mod session;
-pub mod users;
+pub(crate) mod api;
+pub(crate) mod certs;
+pub(crate) mod google;
+pub(crate) mod session;
+pub(crate) mod users;
 
 mod cache_control;
 mod error;

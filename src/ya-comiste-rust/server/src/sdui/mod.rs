@@ -1,8 +1,7 @@
-pub mod entrypoint;
-pub mod graphql_context;
-pub mod graphql_schema;
-pub mod model;
-pub mod sdui_section;
+pub(crate) mod api;
+pub(crate) mod entrypoint;
+pub(crate) mod model;
+pub(crate) mod sdui_section;
 
 mod resolve_cloudfront_url;
 mod sdui_card_component;
