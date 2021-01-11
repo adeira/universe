@@ -1,4 +1,4 @@
-use crate::sdui::graphql_context::Context;
+use crate::graphql_context::Context;
 use crate::sdui::resolve_cloudfront_url::resolve_cloudfront_url;
 use crate::sdui::sdui_content::SDUIContent;
 use juniper::{FieldError, FieldResult};

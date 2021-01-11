@@ -1,10 +1,12 @@
 use crate::arangodb::get_database_connection_pool;
-use crate::sdui::graphql_schema::create_graphql_schema;
+use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
 use warp::Filter;
 
 mod arangodb;
 mod auth;
+mod graphql_context;
+mod graphql_schema;
 mod headers;
 mod sdui;
 
@@ -37,17 +39,18 @@ mod models {
 }
 
 mod handlers {
-    use crate::arangodb::ConnectionPool;
-    use crate::models::get_current_user;
-    use crate::sdui::graphql_context::Context;
-    use crate::sdui::graphql_schema::Schema;
-    use crate::sdui::model::component_content::get_content_dataloader;
     use futures::stream::TryStreamExt;
     use juniper::http::GraphQLRequest;
     use std::convert::Infallible;
     use std::sync::Arc;
     use warp::filters::multipart::{FormData, Part};
     use warp::http::StatusCode;
+
+    use crate::arangodb::ConnectionPool;
+    use crate::graphql_context::Context;
+    use crate::graphql_schema::Schema;
+    use crate::models::get_current_user;
+    use crate::sdui::model::component_content::get_content_dataloader;
 
     pub async fn graphql_post(
         request: GraphQLRequest,
@@ -80,8 +83,8 @@ mod handlers {
 
 mod filters {
     use crate::arangodb::ConnectionPool;
+    use crate::graphql_schema::Schema;
     use crate::headers::parse_authorization_header;
-    use crate::sdui::graphql_schema::Schema;
     use juniper::http::GraphQLRequest;
     use std::sync::Arc;
     use warp::Filter;

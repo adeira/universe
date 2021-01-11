@@ -1,4 +1,4 @@
-use crate::sdui::graphql_context::Context;
+use crate::graphql_context::Context;
 use crate::sdui::sdui_card_component::SDUICardComponent;
 use crate::sdui::sdui_description_component::SDUIDescriptionComponent;
 use crate::sdui::sdui_jumbotron_component::SDUIJumbotronComponent;

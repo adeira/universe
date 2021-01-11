@@ -1,4 +1,4 @@
-# @generated SignedSource<<058e4e1f9a520144921a9263176babbf>>
+# @generated SignedSource<<4c833b4e4ee7d0aae7abb7e38c6906e6>>
 
 type SDUIScrollViewHorizontalComponent {
   id: ID!
@@ -44,6 +44,7 @@ type SDUICardComponent {
   imageBackgroundUrl: String
 }
 
+"Root query of the graph."
 type Query {
   mobileEntrypointSections(key: String!): [SDUISection!]!
   "Returns information about the current user (can be authenticated or anonymous)."
