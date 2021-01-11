@@ -1,56 +1,30 @@
-use crate::arangodb::errors::ModelError;
-use crate::auth::users::User;
-use crate::sdui::graphql_context::Context;
-use crate::sdui::model::sdui_sections::get_all_sections_for_entrypoint_key;
+use crate::graphql_context::Context;
 use crate::sdui::sdui_section::SDUISection;
-use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
+use juniper::{EmptySubscription, FieldResult, RootNode};
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
 
-#[derive(juniper::GraphQLObject)]
-struct WhoamiPayload {
-    id: Option<juniper::ID>,
-
-    /// Human readable type should be used only for testing purposes. The format is not guaranteed
-    /// and can change in the future completely.
-    human_readable_type: Option<String>,
-}
-
-#[juniper::graphql_object(context = Context)]
+/// Unfortunately, due to Rust limitations, it's not possible to implement custom queries per crate.
+/// Therefore, we have to have one main "god" query which exposes the public interface. Good side of
+/// this is that it forces us to make these resolvers as thin as possible and moving all the business
+/// logic lower in the app structure.
+#[juniper::graphql_object(
+    context = Context,
+    name = "Query",
+    description = "Root query of the graph.",
+)]
 impl Query {
     async fn mobile_entrypoint_sections(
         key: String,
         context: &Context,
     ) -> FieldResult<Vec<SDUISection>> {
-        let connection_pool = context.pool.to_owned();
-        match get_all_sections_for_entrypoint_key(&context.user, &connection_pool, &key).await {
-            Ok(s) => Ok(s),
-            // Err(e) => Err(FieldError::from(e)),
-            Err(e) => match e {
-                ModelError::DatabaseError(e) => Err(FieldError::from(e)), // TODO: hide and log these errors
-                ModelError::LogicError(e) => Err(FieldError::from(e)),
-                ModelError::SerdeError(e) => Err(FieldError::from(e)),
-            },
-        }
+        crate::sdui::api::mobile_entrypoint_sections(key, context).await
     }
 
     /// Returns information about the current user (can be authenticated or anonymous).
-    async fn whoami(context: &Context) -> WhoamiPayload {
-        match &context.user {
-            User::AuthorizedUser(user) => WhoamiPayload {
-                id: Some(juniper::ID::from(user.id())),
-                human_readable_type: Some(String::from("authorized user")),
-            },
-            User::AnonymousUser(user) => WhoamiPayload {
-                id: Some(juniper::ID::from(user.id())),
-                human_readable_type: Some(String::from("anonymous user")),
-            },
-            User::UnauthorizedUser(user) => WhoamiPayload {
-                id: Some(juniper::ID::from(user.id())),
-                human_readable_type: Some(String::from("unauthorized (but not anonymous) user")),
-            },
-        }
+    async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
+        crate::auth::api::whoami(context).await
     }
 }
 

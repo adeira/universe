@@ -1,0 +1,28 @@
+use crate::auth::users::User;
+use crate::graphql_context::Context;
+
+#[derive(juniper::GraphQLObject)]
+pub struct WhoamiPayload {
+    id: Option<juniper::ID>,
+
+    /// Human readable type should be used only for testing purposes. The format is not guaranteed
+    /// and can change in the future completely.
+    human_readable_type: Option<String>,
+}
+
+pub async fn whoami(context: &Context) -> WhoamiPayload {
+    match &context.user {
+        User::AuthorizedUser(user) => WhoamiPayload {
+            id: Some(juniper::ID::from(user.id())),
+            human_readable_type: Some(String::from("authorized user")),
+        },
+        User::AnonymousUser(user) => WhoamiPayload {
+            id: Some(juniper::ID::from(user.id())),
+            human_readable_type: Some(String::from("anonymous user")),
+        },
+        User::UnauthorizedUser(user) => WhoamiPayload {
+            id: Some(juniper::ID::from(user.id())),
+            human_readable_type: Some(String::from("unauthorized (but not anonymous) user")),
+        },
+    }
+}

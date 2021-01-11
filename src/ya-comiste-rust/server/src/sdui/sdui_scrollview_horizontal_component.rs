@@ -1,4 +1,4 @@
-use crate::sdui::graphql_context::Context;
+use crate::graphql_context::Context;
 use crate::sdui::model::scrollview_horizontal::get_card_components;
 use crate::sdui::sdui_card_component::SDUICardComponent;
 use juniper::{FieldError, FieldResult};

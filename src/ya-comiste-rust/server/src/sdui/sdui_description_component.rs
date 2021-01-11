@@ -1,4 +1,4 @@
-use crate::sdui::graphql_context::Context;
+use crate::graphql_context::Context;
 
 #[derive(Clone, Debug, serde::Deserialize)]
 pub struct SDUIDescriptionComponent {

@@ -1,6 +1,6 @@
 use super::filters;
 use crate::arangodb::get_database_connection_pool;
-use crate::sdui::graphql_schema::create_graphql_schema;
+use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
 use warp::http::StatusCode;
