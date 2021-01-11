@@ -1,35 +1,34 @@
 // @flow
 
 import * as React from 'react';
-import sx from '@adeira/sx';
+import { createEnvironment, createNetworkFetcher, graphql, QueryRenderer } from '@adeira/relay';
 
-import Navigation from '../src/Navigation';
+const Environment = createEnvironment({
+  fetchFn: createNetworkFetcher('http://127.0.0.1:8080/graphql', {
+    'X-Client': 'ya-comiste-backoffice',
+  }),
+});
 
 export default function Home(): React.Node {
   return (
-    <div className={styles('screen')}>
-      <div className={styles('navigationWrapper')}>
-        <Navigation />
-      </div>
-      <div className={styles('main')}>TODO (add/edit/delete product + prices, upload photos)</div>
+    <div>
+      TODO (dashboard)
+      <hr />
+      <QueryRenderer
+        environment={Environment}
+        /* eslint-disable relay/unused-fields */
+        query={graphql`
+          query pagesQuery {
+            whoami {
+              id
+            }
+          }
+        `}
+        /* eslint-enable relay/unused-fields */
+        onResponse={(relayProps) => {
+          return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
+        }}
+      />
     </div>
   );
 }
-
-const styles = sx.create({
-  screen: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  navigationWrapper: {
-    backgroundColor: '#ddd',
-    padding: 5,
-    height: '100vh',
-    flex: 2,
-  },
-  main: {
-    backgroundColor: 'white',
-    flex: 10,
-    padding: 5,
-  },
-});
