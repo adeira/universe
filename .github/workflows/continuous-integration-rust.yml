@@ -1,10 +1,6 @@
 name: Continuous Integration (Rust)
 
-on:
-  push:
-    paths:
-      - '.github/workflows/**'
-      - 'src/ya-comiste-rust/**'
+on: [push]
 
 jobs:
   build-targets-apple-linux:
