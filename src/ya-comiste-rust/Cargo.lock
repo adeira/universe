@@ -2056,6 +2056,7 @@ version = "0.0.0"
 dependencies = [
  "arangors",
  "async-trait",
+ "data-encoding",
  "dataloader",
  "deadpool",
  "env_logger",
@@ -2069,6 +2070,7 @@ dependencies = [
  "proptest",
  "rand 0.8.1",
  "reqwest",
+ "ring",
  "serde",
  "serde_json",
  "signedsource",

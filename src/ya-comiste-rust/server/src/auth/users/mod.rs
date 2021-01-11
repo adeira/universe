@@ -87,16 +87,16 @@ pub async fn create_user_by_google_claims(
 /// It either updates the existing sessions (last access time) or returns an error if the session
 /// doesn't exist (so the user is not logged in).
 /// TODO(004) add integration tests
-pub async fn get_user_by_session_token(
+pub async fn get_user_by_session_token_hash(
     pool: &crate::arangodb::ConnectionPool,
-    session_token: &str,
+    session_token_hash: &str,
 ) -> Result<AuthorizedUser, ModelError> {
     let db = pool.db().await;
 
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
-            LET session_key = @session_token
+            LET session_key = @session_token_hash
             LET session_id = CONCAT_SEPARATOR('/', 'sessions', session_key)
 
             FOR vertex IN 1..1 INBOUND session_id GRAPH 'sessions'
@@ -112,7 +112,7 @@ pub async fn get_user_by_session_token(
             })
             "#,
         )
-        .bind_var("session_token", session_token)
+        .bind_var("session_token_hash", session_token_hash)
         .build();
 
     let users_vector = db.aql_query::<AuthorizedUser>(aql).await?;

@@ -1,8 +1,9 @@
 #[derive(Debug)]
 pub enum AuthError {
+    AlreadyAuthorized,
+    DatabaseError(crate::arangodb::errors::ModelError),
     InvalidToken(String), // unable the use the token because working with it somehow failed
     JSONWebTokenError(jsonwebtoken::errors::Error),
-    DatabaseError(crate::arangodb::errors::ModelError),
 }
 
 impl std::fmt::Display for AuthError {
