@@ -1,4 +1,4 @@
-# @generated SignedSource<<4c833b4e4ee7d0aae7abb7e38c6906e6>>
+# @generated SignedSource<<e2eabfeada964ef2bf749c41a1683663>>
 
 type SDUIScrollViewHorizontalComponent {
   id: ID!
@@ -21,12 +21,17 @@ type Mutation {
     device) and returns authorization payload. There is no concept of sign-in and sign-up
     because every user with a valid JWT ID token will be either authorized OR registered and
     authorized. Invalid tokens and disabled tokens will be rejected.
+
+    Please note: repeated calls will result in error since we cannot authorize the user twice
+    and we cannot return the previous token either (since it's hashed).
   """
   authorizeMobile(googleIdToken: String!): AuthorizeMobilePayload!
   """
     The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
     make the mobile application unsigned. Mobile applications should remove the session token
     once deauthorized.
+
+    Repeated calls will result in failure since it's not possible to deauthorize twice.
   """
   deauthorizeMobile(sessionToken: String!): DeauthorizeMobilePayload!
 }

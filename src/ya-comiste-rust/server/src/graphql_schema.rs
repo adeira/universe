@@ -51,6 +51,9 @@ impl Mutation {
     /// device) and returns authorization payload. There is no concept of sign-in and sign-up
     /// because every user with a valid JWT ID token will be either authorized OR registered and
     /// authorized. Invalid tokens and disabled tokens will be rejected.
+    ///
+    /// Please note: repeated calls will result in error since we cannot authorize the user twice
+    /// and we cannot return the previous token either (since it's hashed).
     async fn authorize_mobile(
         google_id_token: String,
         context: &Context,
@@ -76,8 +79,10 @@ impl Mutation {
     /// The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
     /// make the mobile application unsigned. Mobile applications should remove the session token
     /// once deauthorized.
+    ///
+    /// Repeated calls will result in failure since it's not possible to deauthorize twice.
     async fn deauthorize_mobile(
-        session_token: String,
+        session_token: String, // TODO: this could be removed (?) - we can use the user from context
         context: &Context,
     ) -> DeauthorizeMobilePayload {
         let connection_pool = context.pool.to_owned();
