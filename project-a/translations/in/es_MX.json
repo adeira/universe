@@ -1,6 +1,16 @@
 {
   "fb-locale": "es_MX",
   "translations": {
+    "9NSktf8Wasdbln+avfGiWQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ir al contenido",
+          "variations": []
+        }
+      ]
+    },
     "YLzBdvonuLATQ5FpiPMgEw==": {
       "tokens": [],
       "types": [],
@@ -11,52 +21,12 @@
         }
       ]
     },
-    "aCVYa8MOEv6iOiCPo5kHOQ==": {
+    "Jtw/XkgxoVH1y9vrSmRIbQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "4hzwDqzKYoJYiTxo5Erg4A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "enlace a Instagram de KOCHKA Café",
-          "variations": []
-        }
-      ]
-    },
-    "5QbuAWwkViB3in/V8u59bg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "enlace a Facebook de KOCHKA Café",
-          "variations": []
-        }
-      ]
-    },
-    "fVERyObLjAqQYpoXOEwdFg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Cambiar a inglés",
-          "variations": []
-        }
-      ]
-    },
-    "+reVR4P2dm8ptoPbJ+qFFQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Cambiar a español",
+          "translation": "Lunes - Viernes 8:00 - 18:00",
           "variations": []
         }
       ]
@@ -67,6 +37,16 @@
       "translations": [
         {
           "translation": "Correo electrónico",
+          "variations": []
+        }
+      ]
+    },
+    "3gn4gj3UPVu7liOVZ+/SCg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Quiero saber!",
           "variations": []
         }
       ]
@@ -101,6 +81,16 @@
         }
       ]
     },
+    "J1dL7HxnyAvHJhntHYe5gA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Toma todas las fotos que quieras, de preferencia sin flash. {thumbs up emoji} No olvides etiquetarnos en Instagram {instagram account}.",
+          "variations": []
+        }
+      ]
+    },
     "5iTUS9k7jab+evPuLeeh7A==": {
       "tokens": [],
       "types": [],
@@ -131,6 +121,16 @@
         }
       ]
     },
+    "itv8A/4Pvi/UCI1hEPlLpQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "No somos responsables de las lesiones que nuestros gatos te puedan ocasionar (son muy juguetones y pueden arañarte sin querer). Pon atención especialmente a los niños que te acompañen. Puedes hacer uso de nuestro botiquín de primeros auxilios si lo necesitas.",
+          "variations": []
+        }
+      ]
+    },
     "eEHP2QM079xkRqVGx7HUlQ==": {
       "tokens": [],
       "types": [],
@@ -151,22 +151,52 @@
         }
       ]
     },
-    "5mHlC9lFyeiGVLHKaRx0TA==": {
+    "4hzwDqzKYoJYiTxo5Erg4A==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Inicio",
+          "translation": "enlace a Instagram de KOCHKA Café",
           "variations": []
         }
       ]
     },
-    "MMmM57ozhi6rWy4ycRjsCw==": {
+    "5QbuAWwkViB3in/V8u59bg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Menú",
+          "translation": "enlace a Facebook de KOCHKA Café",
+          "variations": []
+        }
+      ]
+    },
+    "+9If2Wz1/auQYgoiMqI3JQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "próximamente",
+          "variations": []
+        }
+      ]
+    },
+    "WTkOySZFstu+ZeKuWKvHGg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Todavía no abrimos ¿Te gustaría recibir una notificación cuando lo hagamos? Suscríbete a nuestro newsletter y te avisaremos.",
+          "variations": []
+        }
+      ]
+    },
+    "Qr9e1v30qLiew6DJI9IGGg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "No se pudo encontrar la página a la que está intentando acceder. Podría suceder porque la página fue eliminada o porque hay un enlace roto.",
           "variations": []
         }
       ]
@@ -181,12 +211,12 @@
         }
       ]
     },
-    "FwqTtCQekqRnNHaq7wBxIw==": {
+    "Id2zIowP1OXDBLoGtCtamw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Menú",
+          "translation": "imagen de gato por definir",
           "variations": []
         }
       ]
@@ -221,6 +251,16 @@
         }
       ]
     },
+    "vxQvNlNZE5+K2O4oRDzNdA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Oreo + Chocolate blanco",
+          "variations": []
+        }
+      ]
+    },
     "J7C2FVfCsfmd9a0pwEzTnA==": {
       "tokens": [],
       "types": [],
@@ -237,6 +277,16 @@
       "translations": [
         {
           "translation": "Fresa + coco",
+          "variations": []
+        }
+      ]
+    },
+    "t5V1cpabCbQkUc19Sc2NSw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Dumplings salados",
           "variations": []
         }
       ]
@@ -317,6 +367,16 @@
       "translations": [
         {
           "translation": "Flat White",
+          "variations": []
+        }
+      ]
+    },
+    "CzxSuTKSwKmHdQjWueIPRw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Otros",
           "variations": []
         }
       ]

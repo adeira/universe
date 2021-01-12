@@ -1027,9 +1027,9 @@
     "M7rR/kOLux0twb9muLT+Nw==": "Online shop"
    },
    "filepath": "pages/shop.js",
-   "line_beg": 18,
+   "line_beg": 19,
    "col_beg": 13,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 58,
    "desc": "shop page title",
    "project": "",
@@ -1041,9 +1041,9 @@
     "bQxirHhLBpNG49T54JXMeg==": "Support our cats by buying some of our products"
    },
    "filepath": "pages/shop.js",
-   "line_beg": 20,
+   "line_beg": 21,
    "col_beg": 8,
-   "line_end": 20,
+   "line_end": 21,
    "col_end": 92,
    "desc": "shop page subtitle",
    "project": "",
@@ -1055,9 +1055,9 @@
     "NcqbHXZZBCZpEDNCbNjypg==": "All Categories"
    },
    "filepath": "pages/shop.js",
-   "line_beg": 26,
+   "line_beg": 27,
    "col_beg": 12,
-   "line_end": 26,
+   "line_end": 27,
    "col_end": 76,
    "desc": "shop categories selection title",
    "project": "",
@@ -1069,14 +1069,28 @@
     "O5z+CsBhzyOWUxxF2Dbzuw==": "Relevance"
    },
    "filepath": "pages/shop.js",
-   "line_beg": 45,
+   "line_beg": 48,
    "col_beg": 12,
-   "line_end": 45,
+   "line_end": 48,
    "col_end": 70,
    "desc": "shop relevance selection title",
    "project": "",
    "type": "text",
    "jsfbt": "Relevance"
+  },
+  {
+   "hashToText": {
+    "AkhC2+55/oIiu+KklPJBVw==": "TODO"
+   },
+   "filepath": "pages/shop/[product_id].js",
+   "line_beg": 12,
+   "col_beg": 40,
+   "line_end": 12,
+   "col_end": 67,
+   "desc": "TODO",
+   "project": "",
+   "type": "text",
+   "jsfbt": "TODO"
   }
  ],
  "childParentMappings": {}
