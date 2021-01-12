@@ -30,3 +30,21 @@ test.each`
     expect(transformValue(styleName, styleValue)).toBe(expectedValue);
   },
 );
+
+test.each`
+  rawValue     | normalizedValue
+  ${'0.1'}     | ${'.1'}
+  ${'1.1'}     | ${'1.1'}
+  ${'0.75rem'} | ${'.75rem'}
+  ${'.75rem'}  | ${'.75rem'}
+  ${'75rem'}   | ${'75rem'}
+  ${'4px'}     | ${'4px'}
+  ${'.4px'}    | ${'.4px'}
+  ${'0.4px'}   | ${'.4px'}
+  ${'0px'}     | ${'0px'}
+  ${0}         | ${'0px'}
+  ${10}        | ${'10px'}
+  ${0.1}       | ${'.1px'}
+`('transforms $rawValue into $normalizedValue', ({ rawValue, normalizedValue }) => {
+  expect(transformValue('any', rawValue)).toBe(normalizedValue);
+});

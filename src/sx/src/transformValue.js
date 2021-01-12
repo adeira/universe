@@ -4,6 +4,10 @@ import { isColor, normalizeColor } from '@adeira/css-colors';
 
 import isUnitlessNumber from './css-properties/isUnitlessNumber';
 
+function stripLeadingZero(value: string): string {
+  return value.replace(/^0(?<val>\..+)/, '$1');
+}
+
 export default function transformValue(
   styleName: string,
   styleValue?: string | number = '',
@@ -13,8 +17,7 @@ export default function transformValue(
     return normalizeColor(styleValue);
   } else if (typeof styleValue === 'number') {
     // 42 -> 42px (unless it's unit-less property like zIndex)
-    return isUnitlessNumber[styleName] ? `${styleValue}` : `${styleValue}px`;
+    return stripLeadingZero(isUnitlessNumber[styleName] ? `${styleValue}` : `${styleValue}px`);
   }
-
-  return `${styleValue}`;
+  return stripLeadingZero(`${styleValue}`);
 }
