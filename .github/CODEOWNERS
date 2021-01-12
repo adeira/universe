@@ -6,14 +6,15 @@
 # the repo. Unless a later match takes precedence, they will
 # be requested for review when someone opens a pull request.
 
-* @mrtnzlml @tbergq @jaroslav-kubicek @michalsanger
+* @adeira/devs
 
 # Why @adeira-github-bot? GitHub doesn't allow self-approve
 # of the PRs. However, at least one approval is required by
-# any codeowner. So @adeira-github-bot helps us to approve
-# these PRs for projects with one owner.
+# any codeowner and the projects below are having only one
+# main developer. Other Adeira devs can approve these PRs if
+# they want but @adeira-github-bot helps if they don't.
 
-/src/ya-comiste-backoffice/ @mrtnzlml @adeira-github-bot
-/src/ya-comiste-meta/ @mrtnzlml @adeira-github-bot
-/src/ya-comiste-react-native/ @mrtnzlml @adeira-github-bot
-/src/ya-comiste-rust/ @mrtnzlml @adeira-github-bot
+/src/ya-comiste-backoffice/ @adeira/devs @adeira-github-bot
+/src/ya-comiste-meta/ @adeira/devs @adeira-github-bot
+/src/ya-comiste-react-native/ @adeira/devs @adeira-github-bot
+/src/ya-comiste-rust/ @adeira/devs @adeira-github-bot
