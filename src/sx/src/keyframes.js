@@ -32,7 +32,7 @@ const transformKey = (key: string) => key.replace(/\s/g, '');
 
 export default function keyframes(styleDefinitions: KeyFrames): string {
   let cssDefinition = '';
-  // from {maxHeight: 0, opacity: 0} should be the same as from{opacity: 0, maxHeight:0}
+  // `from{maxHeight:0,opacity:0}` should be the same as `from{opacity:0,maxHeight:0}`
   const parsedDefinitions: KeyFrames = JSON.parse(stringify(styleDefinitions));
 
   for (const key of Object.keys(parsedDefinitions)) {
