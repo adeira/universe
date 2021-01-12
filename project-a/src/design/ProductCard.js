@@ -6,6 +6,7 @@ import sx from '@adeira/sx';
 import Heading from './Heading';
 
 export default function ProductCard(): React.Node {
+  // TODO: use Blurhash when loading the images
   return (
     <div className={styles('wrapper')}>
       <Heading xstyle={styles.productTitle}>
