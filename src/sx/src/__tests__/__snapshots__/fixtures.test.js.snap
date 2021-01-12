@@ -173,15 +173,15 @@ exports[`matches expected output: keyframes-percentage.js 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 {
   "aaa": {
-    "animationName": "gg1lu"
+    "animationName": "a2yPF"
   }
 }
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
-._4BANPA {
-  -webkit-animation-name: gg1lu;
-  animation-name: gg1lu;
+._3SIQcJ {
+  -webkit-animation-name: a2yPF;
+  animation-name: a2yPF;
 }
-@-webkit-keyframes gg1lu {
+@-webkit-keyframes a2yPF {
   0% {
     opacity: 0;
   }
@@ -192,7 +192,7 @@ exports[`matches expected output: keyframes-percentage.js 1`] = `
     opacity: 0.7;
   }
 }
-@keyframes gg1lu {
+@keyframes a2yPF {
   0% {
     opacity: 0;
   }
@@ -208,7 +208,7 @@ exports[`matches expected output: keyframes-percentage.js 1`] = `
 
 className={styles('aaa')}
   ↓ ↓ ↓
-class="_4BANPA"
+class="_3SIQcJ"
 
 `;
 
