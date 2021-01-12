@@ -14,12 +14,19 @@ mod models {
     use crate::arangodb::ConnectionPool;
     use crate::auth::users::{AnonymousUser, User};
 
-    pub async fn get_current_user(pool: &ConnectionPool, session_token: &Option<String>) -> User {
+    pub(crate) async fn get_current_user(
+        pool: &ConnectionPool,
+        session_token: &Option<String>,
+    ) -> User {
         match session_token {
             Some(session_token) => {
                 match crate::auth::resolve_user_from_session_token(&pool, &session_token).await {
-                    // TODO: should at this point anonymous/unauthorized user be considered an error (?)
+                    User::AdminUser(user) => {
+                        log::info!("Using admin user: {} 👍👍", user.id());
+                        User::AdminUser(user)
+                    }
                     User::AnonymousUser(user) => {
+                        // TODO: should at this point anonymous user be considered an error (?)
                         log::info!("Using anonymous user (unmatched session token) 👊");
                         User::AnonymousUser(user)
                     }
@@ -27,7 +34,6 @@ mod models {
                         log::info!("Using authorized user: {} 👍", user.id());
                         User::AuthorizedUser(user)
                     }
-                    User::UnauthorizedUser(user) => User::UnauthorizedUser(user),
                 }
             }
             None => {
@@ -52,7 +58,7 @@ mod handlers {
     use crate::models::get_current_user;
     use crate::sdui::model::component_content::get_content_dataloader;
 
-    pub async fn graphql_post(
+    pub(crate) async fn graphql_post(
         request: GraphQLRequest,
         pool: ConnectionPool,
         schema: Arc<Schema>,
@@ -68,7 +74,7 @@ mod handlers {
         Ok(warp::reply::json(&response)) // TODO: take `response.is_ok()` into account
     }
 
-    pub async fn graphql_multipart(
+    pub(crate) async fn graphql_multipart(
         form_data: FormData,
         _pool: ConnectionPool,
     ) -> Result<impl warp::Reply, Infallible> {
@@ -90,7 +96,7 @@ mod filters {
     use warp::Filter;
 
     /// The 2 filters combined.
-    pub fn graphql(
+    pub(crate) fn graphql(
         pool: ConnectionPool,
         schema: Schema,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
@@ -100,7 +106,7 @@ mod filters {
     }
 
     /// POST /graphql with JSON body
-    pub fn graphql_post(
+    pub(crate) fn graphql_post(
         pool: ConnectionPool,
         schema: Arc<Schema>,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
@@ -114,7 +120,7 @@ mod filters {
     }
 
     /// POST /graphql-upload with form multipart
-    pub fn graphql_multipart(
+    pub(crate) fn graphql_multipart(
         pool: ConnectionPool,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
         warp::path!("graphql-upload")
