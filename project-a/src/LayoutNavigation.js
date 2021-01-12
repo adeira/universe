@@ -67,24 +67,8 @@ const styles = sx.create({
   },
   // eslint-disable-next-line sx/no-unused-stylesheet
   link: {
-    'fontSize': 20,
-    'marginRight': 20,
-    'textDecoration': 'none',
-    'opacity': 0.9,
-    ':hover': {
-      opacity: 1,
-    },
-  },
-  // eslint-disable-next-line sx/no-unused-stylesheet
-  linkHomepage: {
-    'display': 'flex',
-    'flexDirection': 'row',
-    'fontSize': 20,
-    'textDecoration': 'none',
-    'opacity': 0.9,
-    ':hover': {
-      opacity: 1,
-    },
+    fontSize: 20,
+    marginRight: 20,
   },
   linkHomepageIcon: {
     display: 'inline-block',
