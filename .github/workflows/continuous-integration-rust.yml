@@ -3,7 +3,7 @@ name: Continuous Integration (Rust)
 on: [push]
 
 jobs:
-  build-targets-apple-linux:
+  build-all-targets:
     strategy:
       fail-fast: true
       matrix:
@@ -20,8 +20,6 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
-    # On Macos we only test the code (to make sure it works for development)
-    # On Linux we also run Clippy and try to build it for production
     steps:
       - uses: actions/checkout@v2.3.4
 
@@ -35,7 +33,6 @@ jobs:
 
       # https://github.com/actions-rs/clippy-check
       - uses: actions-rs/clippy-check@v1.0.7
-        if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # `--all-targets` + `--all-features`   (in order to also check tests and non-default crate features)
@@ -67,14 +64,3 @@ jobs:
       #       --manifest-path ${{ matrix.manifest }}
       #       --target ${{ matrix.target }}
       #       -- --ignored
-
-      # https://github.com/actions-rs/cargo
-      - name: Try to build a release
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        uses: actions-rs/cargo@v1.0.3
-        with:
-          command: build
-          args: >-
-            --manifest-path ${{ matrix.manifest }}
-            --target ${{ matrix.target }}
-            --release
