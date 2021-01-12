@@ -744,68 +744,54 @@
   },
   {
    "hashToText": {
-    "5iHUQDce3mVPNzpzIQaYBw==": "Ferrero"
+    "r6+8MA3WZVJhursyq93xUw==": "Lemon pie"
    },
    "filepath": "pages/menu.js",
    "line_beg": 27,
    "col_beg": 14,
    "line_end": 27,
-   "col_end": 74,
-   "desc": "sweet dumpling with ferrero flavor",
+   "col_end": 78,
+   "desc": "sweet dumpling with lemon pie flavor",
    "project": "",
    "type": "text",
-   "jsfbt": "Ferrero"
+   "jsfbt": "Lemon pie"
   },
   {
    "hashToText": {
-    "0kiTp40ON1fVVqDdL9QTag==": "Blackberry + Philadelpia"
+    "tt7X47ntzWcKr/vIGPMX0w==": "Oreo"
    },
    "filepath": "pages/menu.js",
    "line_beg": 34,
    "col_beg": 12,
-   "line_end": 36,
-   "col_end": 18,
-   "desc": "sweet dumpling with blackberry/philadephia flavor",
+   "line_end": 34,
+   "col_end": 66,
+   "desc": "sweet dumpling with oreo flavor",
    "project": "",
    "type": "text",
-   "jsfbt": "Blackberry + Philadelpia"
+   "jsfbt": "Oreo"
   },
   {
    "hashToText": {
-    "vxQvNlNZE5+K2O4oRDzNdA==": "Oreo + White Chocolate"
+    "utJujK5SPtxGsK/xzRC5yA==": "Rice with milk"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 42,
+   "line_beg": 40,
    "col_beg": 12,
-   "line_end": 42,
-   "col_end": 100,
-   "desc": "sweet dumpling with oreo/white chocolate flavor",
+   "line_end": 40,
+   "col_end": 86,
+   "desc": "sweet dumpling with rice with milk flavor",
    "project": "",
    "type": "text",
-   "jsfbt": "Oreo + White Chocolate"
-  },
-  {
-   "hashToText": {
-    "J7C2FVfCsfmd9a0pwEzTnA==": "Banana + Condensed Milk"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 48,
-   "col_beg": 12,
-   "line_end": 50,
-   "col_end": 18,
-   "desc": "sweet dumpling with banana/condensed milk flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Banana + Condensed Milk"
+   "jsfbt": "Rice with milk"
   },
   {
    "hashToText": {
     "VmlLyj2v1Cqt8mliV0wOCA==": "Strawberry + coconut"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 56,
+   "line_beg": 46,
    "col_beg": 12,
-   "line_end": 56,
+   "line_end": 46,
    "col_end": 96,
    "desc": "sweet dumpling with strawberry/coconut flavor",
    "project": "",
@@ -814,12 +800,26 @@
   },
   {
    "hashToText": {
+    "yHj+pjsSA3Gl6Pdw7L7KUA==": "Apple + cinnamon"
+   },
+   "filepath": "pages/menu.js",
+   "line_beg": 52,
+   "col_beg": 12,
+   "line_end": 52,
+   "col_end": 93,
+   "desc": "sweet dumpling with apple/cinnamon milk flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Apple + cinnamon"
+  },
+  {
+   "hashToText": {
     "t5V1cpabCbQkUc19Sc2NSw==": "Savory Dumplings"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 66,
+   "line_beg": 62,
    "col_beg": 14,
-   "line_end": 66,
+   "line_end": 62,
    "col_end": 86,
    "desc": "savory dumplings subtitle in our menu",
    "project": "",
@@ -831,9 +831,9 @@
     "SeBE+pGmn00wK3DIW1AeQQ==": "Pizza"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 70,
+   "line_beg": 66,
    "col_beg": 12,
-   "line_end": 70,
+   "line_end": 66,
    "col_end": 68,
    "desc": "sweet dumpling with pizza flavor",
    "project": "",
@@ -845,9 +845,9 @@
     "TM+8y3uHpE9TSHQyg8hQMA==": "Chorizo + cheese"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 76,
+   "line_beg": 72,
    "col_beg": 12,
-   "line_end": 76,
+   "line_end": 72,
    "col_end": 88,
    "desc": "sweet dumpling with chorizo/cheese flavor",
    "project": "",
@@ -859,9 +859,9 @@
     "HtilRqaeRn24yj8r/UY78Q==": "Hawaiano"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 82,
+   "line_beg": 78,
    "col_beg": 12,
-   "line_end": 82,
+   "line_end": 78,
    "col_end": 74,
    "desc": "sweet dumpling with hawaiano flavor",
    "project": "",
@@ -870,12 +870,26 @@
   },
   {
    "hashToText": {
+    "p/wI+Wdasj+udEWR2E3e7g==": "Cochinita pibil"
+   },
+   "filepath": "pages/menu.js",
+   "line_beg": 84,
+   "col_beg": 12,
+   "line_end": 84,
+   "col_end": 88,
+   "desc": "sweet dumpling with cochinita pibil flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Cochinita pibil"
+  },
+  {
+   "hashToText": {
     "LKMO5BWwRSp4pHxWfv3uLg==": "Coffee"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 92,
+   "line_beg": 94,
    "col_beg": 14,
-   "line_end": 92,
+   "line_end": 94,
    "col_end": 66,
    "desc": "coffee subtitle in our menu",
    "project": "",
@@ -887,9 +901,9 @@
     "/epfePfrGcHgr350PJlO8A==": "Espresso"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 96,
+   "line_beg": 98,
    "col_beg": 12,
-   "line_end": 96,
+   "line_end": 98,
    "col_end": 54,
    "desc": "coffee espresso",
    "project": "",
@@ -901,9 +915,9 @@
     "FhbbT23dVqvnF0w57D4A/A==": "Americano"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 102,
+   "line_beg": 104,
    "col_beg": 12,
-   "line_end": 102,
+   "line_end": 104,
    "col_end": 56,
    "desc": "coffee americano",
    "project": "",
@@ -915,9 +929,9 @@
     "/aQ2Dy2JH+W2rNEXeAcKbQ==": "Cappuccino"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 108,
+   "line_beg": 110,
    "col_beg": 12,
-   "line_end": 108,
+   "line_end": 110,
    "col_end": 58,
    "desc": "coffee cappuccino",
    "project": "",
@@ -929,9 +943,9 @@
     "Jo96bwQOld3PFaYr54NkKw==": "Latte"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 114,
+   "line_beg": 116,
    "col_beg": 12,
-   "line_end": 114,
+   "line_end": 116,
    "col_end": 48,
    "desc": "coffee latte",
    "project": "",
@@ -943,9 +957,9 @@
     "Uu0pASljQPLpg76lmS8oTA==": "Flat White"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 120,
+   "line_beg": 122,
    "col_beg": 12,
-   "line_end": 120,
+   "line_end": 122,
    "col_end": 58,
    "desc": "coffee flat white",
    "project": "",
@@ -957,9 +971,9 @@
     "CzxSuTKSwKmHdQjWueIPRw==": "Other"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 130,
+   "line_beg": 132,
    "col_beg": 14,
-   "line_end": 130,
+   "line_end": 132,
    "col_end": 64,
    "desc": "other subtitle in our menu",
    "project": "",
@@ -971,9 +985,9 @@
     "gMWC9MSp8vmuRAiWRKXGjg==": "{=TODO}"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 134,
+   "line_beg": 136,
    "col_beg": 12,
-   "line_end": 136,
+   "line_end": 138,
    "col_end": 18,
    "desc": "other soda",
    "project": "",
@@ -985,9 +999,9 @@
     "qARqDH+ElMFVt1DzFml4kQ==": "TODO"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 135,
+   "line_beg": 137,
    "col_beg": 14,
-   "line_end": 135,
+   "line_end": 137,
    "col_end": 27,
    "desc": "In the phrase: \"{=TODO}\"",
    "project": "",
