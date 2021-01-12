@@ -12,17 +12,17 @@ pub struct WhoamiPayload {
 
 pub async fn whoami(context: &Context) -> WhoamiPayload {
     match &context.user {
+        User::AdminUser(user) => WhoamiPayload {
+            id: Some(juniper::ID::from(user.id())),
+            human_readable_type: Some(String::from("admin user")),
+        },
         User::AuthorizedUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
-            human_readable_type: Some(String::from("authorized user")),
+            human_readable_type: Some(String::from("authorized regular user")),
         },
         User::AnonymousUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("anonymous user")),
-        },
-        User::UnauthorizedUser(user) => WhoamiPayload {
-            id: Some(juniper::ID::from(user.id())),
-            human_readable_type: Some(String::from("unauthorized (but not anonymous) user")),
         },
     }
 }
