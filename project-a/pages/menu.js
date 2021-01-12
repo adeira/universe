@@ -24,36 +24,32 @@ export default function MenuPage(): React.Node {
           </Heading>
           <div className={styles('priceRow')}>
             <div>
-              <fbt desc="sweet dumpling with ferrero flavor">Ferrero</fbt>
+              <fbt desc="sweet dumpling with lemon pie flavor">Lemon pie</fbt>
             </div>
             <div>
               <Money amount={30} />
             </div>
           </div>
           <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with blackberry/philadephia flavor">
-              Blackberry + Philadelpia
-            </fbt>
+            <fbt desc="sweet dumpling with oreo flavor">Oreo</fbt>
             <div>
               <Money amount={30} />
             </div>
           </div>
           <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with oreo/white chocolate flavor">Oreo + White Chocolate</fbt>
-            <div>
-              <Money amount={30} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with banana/condensed milk flavor">
-              Banana + Condensed Milk
-            </fbt>
+            <fbt desc="sweet dumpling with rice with milk flavor">Rice with milk</fbt>
             <div>
               <Money amount={30} />
             </div>
           </div>
           <div className={styles('priceRow')}>
             <fbt desc="sweet dumpling with strawberry/coconut flavor">Strawberry + coconut</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with apple/cinnamon milk flavor">Apple + cinnamon</fbt>
             <div>
               <Money amount={30} />
             </div>
@@ -80,6 +76,12 @@ export default function MenuPage(): React.Node {
           </div>
           <div className={styles('priceRow')}>
             <fbt desc="sweet dumpling with hawaiano flavor">Hawaiano</fbt>
+            <div>
+              <Money amount={30} />
+            </div>
+          </div>
+          <div className={styles('priceRow')}>
+            <fbt desc="sweet dumpling with cochinita pibil flavor">Cochinita pibil</fbt>
             <div>
               <Money amount={30} />
             </div>
