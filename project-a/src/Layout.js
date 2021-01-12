@@ -13,9 +13,9 @@ type Props = {|
   +title: React.Node,
   +subtitle?: React.Node,
   +withFullWidth?: boolean,
+  +withHiddenTitle?: boolean,
 |};
 
-// TODO: rename to Layout
 export default function Layout(props: Props): React.Node {
   return (
     <>
@@ -26,10 +26,12 @@ export default function Layout(props: Props): React.Node {
       <div className={styles('wrapper')}>
         <LayoutNavigation />
 
-        <div className={styles('heading')}>
-          <Heading>{props.title}</Heading>
-          <div className={styles('subtitle')}>{props.subtitle}</div>
-        </div>
+        {props.withHiddenTitle === true ? null : (
+          <div className={styles('heading')}>
+            <Heading>{props.title}</Heading>
+            <div className={styles('subtitle')}>{props.subtitle}</div>
+          </div>
+        )}
 
         <main id="main" className={styles('main', props.withFullWidth && 'mainFullWidth')}>
           {props.children}
@@ -61,8 +63,8 @@ const styles = sx.create({
   },
   mainFullWidth: {
     maxWidth: '100%',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
+    paddingLeft: 0,
+    paddingRight: 0,
   },
   heading: {
     display: 'flex',

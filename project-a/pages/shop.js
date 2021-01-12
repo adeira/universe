@@ -37,7 +37,9 @@ export default function Shop(): React.Node {
         <div className={styles('productsGrid')}>
           {/* Loading screen (first Skeleton, then Blurhash, then the actual image): */}
           {rangeMap(12, (i) => (
-            <Skeleton key={i} />
+            <Link href={`/shop/${'todo'}`}>
+              <Skeleton key={i} />
+            </Link>
           ))}
         </div>
 
