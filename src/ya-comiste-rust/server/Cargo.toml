@@ -18,12 +18,12 @@ futures = "0.3.9"
 jsonwebtoken = "7.2.0"
 juniper = "0.15.1"
 lazy_static = "1.4.0"
-log = "0.4.11"
+log = "0.4.13"
 num_cpus = "1.13.0"
 rand = "0.8.1"
 reqwest = { version = "0.10.10", features = ["json", "blocking"] }
 ring = "0.16.5"
-serde = "1.0.118"
+serde = "1.0.119"
 serde_json = "1.0.61"
 signedsource = { path = "../signedsource" }
 tokio = { version = "0.2", features = ["rt-core", "macros"] }
