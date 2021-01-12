@@ -64,16 +64,12 @@ const styles = sx.create({
     padding: 0,
     margin: 0,
     fontSize: 30,
-    borderBottom: '1px solid transparent',
   },
   // eslint-disable-next-line sx/no-unused-stylesheet
   link: {
-    'textDecoration': 'none',
-    'padding': 15,
-    'paddingLeft': 20,
-    'paddingRight': 20,
-    ':hover': {
-      borderBottom: '1px solid white',
-    },
+    textDecoration: 'none',
+    padding: 15,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 });

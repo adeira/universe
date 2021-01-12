@@ -5,9 +5,10 @@ import fbt from 'fbt';
 import sx from '@adeira/sx';
 
 import Heading from '../src/design/Heading';
-// import ProductCarrangeMap.jsd from '../src/design/ProductCard';
+// import ProductCard from '../src/design/ProductCard';
 import Section from '../src/design/Section';
 import Skeleton from '../src/design/Skeleton';
+import Link from '../src/Link';
 import rangeMap from '../src/utils/rangeMap';
 import Layout from '../src/Layout';
 
@@ -26,10 +27,10 @@ export default function Shop(): React.Node {
             <fbt desc="shop categories selection title">All Categories</fbt>
           </Heading>
           <div>
-            <a href="#todo">Tktk</a>
+            <Link href="#todo">Tktk</Link>
           </div>
           <div>
-            <a href="#todo">Shop All</a>
+            <Link href="#todo">Shop All</Link>
           </div>
         </div>
 
@@ -45,10 +46,10 @@ export default function Shop(): React.Node {
             <fbt desc="shop relevance selection title">Relevance</fbt>
           </Heading>
           <div>
-            <a href="#todo">Price: Low to high</a>
+            <Link href="#todo">Price: Low to high</Link>
           </div>
           <div>
-            <a href="#todo">Price: High to low</a>
+            <Link href="#todo">Price: High to low</Link>
           </div>
         </div>
       </Section>
