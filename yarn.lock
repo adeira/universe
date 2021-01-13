@@ -2871,6 +2871,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@sinonjs/fake-timers@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-7.0.0.tgz#0e52d092d8cf38ae38afca66e0758fda209cb0a4"
+  integrity sha512-z+0YKn3lGU6u68nICTl8AnKmx6ANzqARqDusNgBHXFCqG8tMp/4TYbRNjyghpwM7X3fq/hNEK8uEIqfC6IQb/A==
+  dependencies:
+    "@sinonjs/commons" "^1.7.0"
+
 "@svgr/babel-plugin-add-jsx-attribute@^5.4.0":
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-5.4.0.tgz#81ef61947bb268eb9d50523446f9c638fb355906"
