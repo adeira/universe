@@ -480,9 +480,9 @@ checksum = "993a608597367c6377b258c25d7120740f00ed23a2252b729b1932dd7866f908"
 
 [[package]]
 name = "dataloader"
-version = "0.13.2"
+version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f36890beb8382136bbeafc8429cb8c7479a70379d4946cfb36d8357fcdaf5f11"
+checksum = "730c46307af66e10aa278fa92d6a5591b976a4859f8463329c77be3982e6ab4f"
 dependencies = [
  "async-std",
  "async-trait",
