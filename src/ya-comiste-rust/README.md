@@ -7,6 +7,7 @@ TODOs:
 004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
 005 - implement https://github.com/woltapp/blurhash
 006 - use Bazel https://bazelbuild.github.io/rules_rust/
+007 - DB migrations
 ```
 
 # Rust server
@@ -25,7 +26,6 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
 ```text
 (cd src/ya-comiste-rust && cargo run --bin server)
 (cd src/ya-comiste-rust && cargo clippy --all-targets)
-(cd src/ya-comiste-rust && cargo test --offline)
 (cd src/ya-comiste-rust && cargo doc --open --no-deps)
 ```
 
@@ -68,6 +68,20 @@ Example GraphQL query:
   }
 }
 ```
+
+## Testing
+
+```text
+(cd src/ya-comiste-rust && cargo test --offline)
+```
+
+There are some extra tests which are slow or require extra infrastructure (network access, ArangoDB). There tests are ignored by default but can be executed manually:
+
+```text
+(cd src/ya-comiste-rust && cargo test --offline -- --ignored)
+```
+
+Ignored tests are not being run on CI (at least not yet)!
 
 # ArangoDB
 

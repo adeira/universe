@@ -1,13 +1,12 @@
 use crate::auth::certs::CachedCerts;
+use crate::auth::dal::sessions::{create_user_session, delete_user_session, find_session_by_user};
+use crate::auth::dal::users::{
+    create_user_by_google_claims, find_user_by_google_claims, get_user_by_session_token_hash,
+};
 use crate::auth::error::AuthError;
 use crate::auth::google::verify_id_token_integrity;
-use crate::auth::session::{
-    create_user_session, delete_user_session, derive_session_token_hash, find_session_by_user,
-};
-use crate::auth::users::{
-    create_user_by_google_claims, find_user_by_google_claims, get_user_by_session_token_hash,
-    AnonymousUser, User,
-};
+use crate::auth::session::derive_session_token_hash;
+use crate::auth::users::{AdminUser, AnonymousUser, AuthorizedUser, User};
 
 pub(crate) mod api;
 pub(crate) mod certs;
@@ -16,6 +15,7 @@ pub(crate) mod session;
 pub(crate) mod users;
 
 mod cache_control;
+mod dal;
 mod error;
 
 /// This function tries to authorize the user by Google ID token (rejects otherwise).
@@ -25,7 +25,8 @@ mod error;
 /// 2b. create a new user if it doesn't exist yet and generate and store new session token
 ///
 /// It essentially transforms Google ID token to our Session Token.
-pub async fn authorize(
+// TODO: pub(in crate::auth)
+pub(in crate) async fn authorize(
     pool: &crate::arangodb::ConnectionPool,
     google_id_token: &str,
 ) -> Result<String, error::AuthError> {
@@ -63,7 +64,8 @@ pub async fn authorize(
 
 /// This function "deauthorizes" the user by invalidating the session in our DB (removing it).
 /// It returns `true` if the operation was successful.
-pub async fn deauthorize(
+// TODO: pub(in crate::auth)
+pub(in crate) async fn deauthorize(
     pool: &crate::arangodb::ConnectionPool,
     session_token: &str,
 ) -> Result<bool, error::AuthError> {
@@ -73,13 +75,18 @@ pub async fn deauthorize(
 }
 
 /// This function verifies the session token and returns either authorized OR anonymous user.
-pub async fn resolve_user_from_session_token(
+// TODO: pub(in crate::auth)
+pub(in crate) async fn resolve_user_from_session_token(
     pool: &crate::arangodb::ConnectionPool,
     session_token: &str,
 ) -> User {
     let session_token_hash = derive_session_token_hash(&session_token);
     match get_user_by_session_token_hash(&pool, &session_token_hash).await {
-        Ok(user) => User::AuthorizedUser(user),
+        Ok(user) => match user.r#type().as_ref() {
+            "regular" => User::AuthorizedUser(AuthorizedUser::from(user)),
+            "admin" => User::AdminUser(AdminUser::from(user)),
+            _ => User::AnonymousUser(AnonymousUser::new()),
+        },
         Err(_) => User::AnonymousUser(AnonymousUser::new()),
     }
 }

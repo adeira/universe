@@ -7,6 +7,7 @@ const ARANGODB_HOST: &str = "http://127.0.0.1:8529/";
 const NORMAL_USERNAME: &str = "ya-comiste-rust"; // TODO: change!
 const NORMAL_PASSWORD: &str = ""; // TODO: change!
 const PRODUCTION_DB_NAME: &str = "ya-comiste";
+const TEST_DB_NAME: &str = "ya-comiste-test";
 
 /// Default ArangoDB (normal) user:
 ///
@@ -93,10 +94,17 @@ impl ConnectionPool {
             .await
             .expect("could not get database connection from the pool");
 
-        connection
-            .db(PRODUCTION_DB_NAME)
-            .await
-            .expect("could not access production database")
+        if cfg!(test) {
+            connection
+                .db(TEST_DB_NAME)
+                .await
+                .expect("could not access test database")
+        } else {
+            connection
+                .db(PRODUCTION_DB_NAME)
+                .await
+                .expect("could not access production database")
+        }
     }
 }
 
