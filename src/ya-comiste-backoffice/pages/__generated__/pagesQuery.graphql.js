@@ -5,19 +5,19 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type NavigationQueryVariables = {||};
-export type NavigationQueryResponse = {|
+export type pagesQueryVariables = {||};
+export type pagesQueryResponse = {|
   +whoami: {|
     +id: ?string
   |}
 |};
-export type NavigationQuery = {|
-  variables: NavigationQueryVariables,
-  response: NavigationQueryResponse,
+export type pagesQuery = {|
+  variables: pagesQueryVariables,
+  response: pagesQueryResponse,
 |};
 
 /*
-query NavigationQuery {
+query pagesQuery {
   whoami {
     id
   }
@@ -50,7 +50,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "NavigationQuery",
+    "name": "pagesQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -59,19 +59,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "NavigationQuery",
+    "name": "pagesQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "801b3bcf7eb85d9e1cbc4b5123e4524c",
+    "cacheID": "518df86b7ff0fd30547d9f9d9345af6f",
     "id": null,
     "metadata": {},
-    "name": "NavigationQuery",
+    "name": "pagesQuery",
     "operationKind": "query",
-    "text": "query NavigationQuery {\n  whoami {\n    id\n  }\n}\n"
+    "text": "query pagesQuery {\n  whoami {\n    id\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '860156c1562305699158db0dc89f7b18';
+(node: any).hash = 'e3b35f066647ed5440767915b9648c4b';
 export default node;

@@ -25,6 +25,25 @@ pub struct Claims {
 }
 
 impl Claims {
+    #[cfg(test)]
+    pub(crate) fn mock(sub: &Option<String>) -> Claims {
+        Claims {
+            iss: String::from(""),
+            sub: sub.clone().unwrap_or_else(|| String::from("")),
+            azp: String::from(""),
+            aud: String::from(""),
+            iat: 0,
+            exp: 0,
+            email: None,
+            email_verified: None,
+            name: None,
+            picture: None,
+            given_name: None,
+            family_name: None,
+            locale: None,
+        }
+    }
+
     pub(crate) fn subject(&self) -> &String {
         &self.sub
     }

@@ -2,39 +2,24 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { QueryRenderer, graphql, createEnvironment, createNetworkFetcher } from '@adeira/relay';
-
-const Environment = createEnvironment({
-  fetchFn: createNetworkFetcher('http://127.0.0.1:8080/graphql', {
-    'X-Client': 'ya-comiste-backoffice',
-  }),
-});
+import Link from 'next/link';
 
 export default function Navigation(): React.Node {
   return (
-    <>
-      <div className={styles('navigation')}>
+    <nav className={styles('navigation')}>
+      <Link href="/">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">Products</a>
+        <a>Home</a>
+      </Link>
+      <Link href="/products">
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">Users</a>
-      </div>
-      <QueryRenderer
-        environment={Environment}
-        /* eslint-disable relay/unused-fields */
-        query={graphql`
-          query NavigationQuery {
-            whoami {
-              id
-            }
-          }
-        `}
-        /* eslint-enable relay/unused-fields */
-        onResponse={(relayProps) => {
-          return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
-        }}
-      />
-    </>
+        <a>Products</a>
+      </Link>
+      <Link href="/users">
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a>Users</a>
+      </Link>
+    </nav>
   );
 }
 
