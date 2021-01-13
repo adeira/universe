@@ -22,14 +22,12 @@ type Props = {|
  */
 export default function Link(props: Props): React.Node {
   const router = useRouter();
-  const removeMe = new Map(); // TODO: https://github.com/adeira/universe/pull/1583
-
   const isActive = router.pathname === props.href;
 
   return (
     <NextLink href={props.href} locale={router.locale}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a className={sx(isActive ? styles.active : styles.inactive, props.xstyle ?? removeMe)}>
+      <a className={sx(isActive ? styles.active : styles.inactive, props.xstyle)}>
         {props.children}
       </a>
     </NextLink>

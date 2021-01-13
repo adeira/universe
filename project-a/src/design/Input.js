@@ -15,11 +15,8 @@ type Props = {|
 |};
 
 export default function Input(props: Props): React.Node {
-  const stylesheetA = styles.inputDefault;
-  const stylesheetB = props.xstyle ?? new Map(); // TODO: https://github.com/adeira/universe/pull/1583
-
   // eslint-disable-next-line react/forbid-elements
-  return <input className={sx(stylesheetA, stylesheetB)} {...props} />;
+  return <input className={sx(styles.inputDefault, props.xstyle)} {...props} />;
 }
 
 const styles = sx.create({

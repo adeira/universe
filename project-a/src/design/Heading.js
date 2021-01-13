@@ -14,7 +14,7 @@ type Props = {|
 // https://github.com/jonathantneal/h-element-spec/issues/1
 export default function Heading(props: Props): React.Node {
   const removeMe = new Map(); // TODO: https://github.com/adeira/universe/pull/1583
-  const className = sx(props.xstyle ?? removeMe, removeMe);
+  const className = sx(props.xstyle ?? removeMe);
   return (
     <HeadingLevel.Consumer>
       {(level) => {
