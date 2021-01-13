@@ -15,13 +15,13 @@ impl Default for AnonymousUser {
 }
 
 impl AnonymousUser {
-    pub fn new() -> AnonymousUser {
+    pub(crate) fn new() -> AnonymousUser {
         AnonymousUser {
             id: String::from("users/1"), // hardcoded DB value (should always exist!)
         }
     }
 
-    pub fn id(&self) -> String {
+    pub(crate) fn id(&self) -> String {
         self.id.to_owned()
     }
 }
