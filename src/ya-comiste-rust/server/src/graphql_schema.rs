@@ -62,6 +62,20 @@ impl Mutation {
     ) -> crate::auth::api::DeauthorizeMobilePayload {
         crate::auth::api::deauthorize_mobile(&session_token, &context).await
     }
+
+    async fn product_create(
+        context: &Context,
+        product_input: crate::commerce::api::ProductInput,
+    ) -> crate::commerce::api::ProductOrError {
+        crate::commerce::api::create_product(&context, &product_input).await
+    }
+
+    async fn product_delete(
+        context: &Context,
+        product_id: juniper::ID,
+    ) -> crate::commerce::api::ProductOrError {
+        crate::commerce::api::delete_product(&context, &product_id.to_string()).await
+    }
 }
 
 pub type Schema = RootNode<'static, Query, Mutation, EmptySubscription<Context>>;

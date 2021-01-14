@@ -2862,10 +2862,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sinonjs/fake-timers@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-7.0.0.tgz#0e52d092d8cf38ae38afca66e0758fda209cb0a4"
-  integrity sha512-z+0YKn3lGU6u68nICTl8AnKmx6ANzqARqDusNgBHXFCqG8tMp/4TYbRNjyghpwM7X3fq/hNEK8uEIqfC6IQb/A==
+"@sinonjs/fake-timers@^7.0.1":
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@sinonjs/fake-timers/-/fake-timers-7.0.1.tgz#3d6a1a07584637f77827d61ebebfa50c2b7fa991"
+  integrity sha512-EUWub7DGK3if4F8S1Gx7QjodtU8rV6267Oi40APc4jLDIEUiXAL1sIfvsAPMEWgFwz41RsyA4NpSp/IaJ0y/Gg==
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
