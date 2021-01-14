@@ -1,14 +1,4 @@
-# @generated SignedSource<<d719641901256358820623506f838a26>>
-
-type SDUIScrollViewHorizontalComponent {
-  id: ID!
-  title: String!
-  cards: [SDUICardComponent!]!
-}
-
-type DeauthorizeMobilePayload {
-  success: Boolean!
-}
+# @generated SignedSource<<70291e885d34ddbdd60d0f93a4537d7a>>
 
 type SDUIDescriptionComponent {
   id: ID!
@@ -35,11 +25,15 @@ type Mutation {
     Repeated calls will result in failure since it's not possible to deauthorize twice.
   """
   deauthorizeMobile(sessionToken: String!): DeauthorizeMobilePayload!
+  productCreate(productInput: ProductInput!): ProductOrError!
+  productDelete(productId: ID!): ProductOrError!
 }
 
-type SDUIJumbotronComponent {
-  id: ID!
-  title: String!
+input ProductInput {
+  name: String!
+  description: String!
+  images: [String!]!
+  price: ProductPriceInput!
 }
 
 type SDUICardComponent {
@@ -57,11 +51,6 @@ type Query {
   whoami: WhoamiPayload!
 }
 
-type SDUISection {
-  id: ID!
-  component(supported: [String!]!): SDUIComponent
-}
-
 union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
 
 type WhoamiPayload {
@@ -71,6 +60,69 @@ type WhoamiPayload {
     and can change in the future completely.
   """
   humanReadableType: String
+}
+
+union ProductOrError = Product | ProductError
+
+type ProductError {
+  message: String!
+}
+
+type SDUIScrollViewHorizontalComponent {
+  id: ID!
+  title: String!
+  cards: [SDUICardComponent!]!
+}
+
+type DeauthorizeMobilePayload {
+  success: Boolean!
+}
+
+input ProductPriceInput {
+  unitAmount: Int!
+}
+
+type SDUIJumbotronComponent {
+  id: ID!
+  title: String!
+}
+
+type Product {
+  id: ID!
+  "The product’s name, meant to be displayable to the customer."
+  name: String!
+  """
+    The product’s description, meant to be displayable to the customer. Use this field to
+    optionally store a long form explanation of the product being sold for your own rendering
+    purposes.
+  """
+  description: String!
+  "A list of up to 8 URLs of images for this product, meant to be displayable to the customer."
+  images: [String!]!
+  """
+    A label that represents units of this product in Stripe and on customers’ receipts and
+    invoices. When set, this will be included in associated invoice line item descriptions.
+  """
+  unitLabel: String!
+  price: ProductPrice!
+}
+
+type ProductPrice {
+  """
+    Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
+    lowercase. Currently, we support only "mxn" currency.
+  """
+  currency: String!
+  """
+    The unit amount in centavo to be charged, represented as a whole integer if possible.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """
+  unitAmount: Int!
+}
+
+type SDUISection {
+  id: ID!
+  component(supported: [String!]!): SDUIComponent
 }
 
 type AuthorizeMobilePayload {
