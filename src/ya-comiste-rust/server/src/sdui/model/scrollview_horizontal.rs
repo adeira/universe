@@ -1,9 +1,7 @@
 use crate::arangodb::errors::ModelError;
-use crate::auth::users::User;
 use crate::sdui::sdui_card_component::SDUICardComponent;
 
 pub async fn get_card_components(
-    user: &User, // TODO: use the current user
     pool: &crate::arangodb::ConnectionPool,
     component_id: &str,
 ) -> Result<Vec<SDUICardComponent>, ModelError> {

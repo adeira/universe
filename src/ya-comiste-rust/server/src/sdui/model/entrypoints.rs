@@ -1,9 +1,7 @@
 use crate::arangodb::errors::ModelError;
-use crate::auth::users::User;
 use crate::sdui::entrypoint::Entrypoint;
 
 pub async fn get_entrypoint(
-    user: &User, // TODO: use the current user
     pool: &crate::arangodb::ConnectionPool,
     entrypoint_key: &str,
 ) -> Result<Entrypoint, ModelError> {

@@ -15,8 +15,7 @@ pub struct ContentLoadFn {
 impl BatchFn<String, Option<SDUIContent>> for ContentLoadFn {
     async fn load(&mut self, component_ids: &[String]) -> HashMap<String, Option<SDUIContent>> {
         log::trace!("Loading component content for: {:?}", component_ids);
-        let component_contents =
-            get_component_contents(&self.user, &self.pool, component_ids.to_vec()).await;
+        let component_contents = get_component_contents(&self.pool, component_ids.to_vec()).await;
         match component_contents {
             Ok(component_contents) => component_contents,
             // Alternatively, return errors (since the swallows DB errors)?
@@ -41,7 +40,6 @@ pub fn get_content_dataloader(
 
 /// It already returns Dataloader friendly output given the component IDs.
 async fn get_component_contents(
-    user: &User, // TODO: use the current user
     pool: &crate::arangodb::ConnectionPool,
     component_ids: Vec<String>,
 ) -> Result<HashMap<String, Option<SDUIContent>>, ModelError> {

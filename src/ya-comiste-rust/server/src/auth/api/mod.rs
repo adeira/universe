@@ -45,7 +45,7 @@ pub(crate) struct DeauthorizeMobilePayload {
 }
 
 pub(crate) async fn authorize_mobile(
-    google_id_token: &String,
+    google_id_token: &str,
     context: &Context,
 ) -> FieldResult<AuthorizeMobilePayload> {
     let connection_pool = context.pool.to_owned();
@@ -67,7 +67,7 @@ pub(crate) async fn authorize_mobile(
 }
 
 pub(crate) async fn deauthorize_mobile(
-    session_token: &String, // TODO: this could be removed (?) - we can use the user from context
+    session_token: &str, // TODO: this could be removed (?) - we can use the user from context
     context: &Context,
 ) -> DeauthorizeMobilePayload {
     let connection_pool = context.pool.to_owned();

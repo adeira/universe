@@ -104,7 +104,7 @@ pub(in crate::commerce) async fn update_product() {
 
 pub(in crate::commerce) async fn delete_product(
     context: &Context,
-    product_id: &String,
+    product_id: &str,
 ) -> Result<Product, ModelError> {
     match &context.user {
         User::AdminUser(_) => delete_product_authorized(&context.pool, &product_id).await,
@@ -164,7 +164,7 @@ async fn create_product_authorized(
 // TODO(004) - integration tests
 async fn delete_product_authorized(
     pool: &ConnectionPool,
-    product_id: &String,
+    product_id: &str,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
 
@@ -177,7 +177,7 @@ async fn delete_product_authorized(
               RETURN OLD
             "#,
         )
-        .bind_var("product_id", product_id.clone())
+        .bind_var("product_id", product_id)
         .build();
 
     let old_product_vector = db.aql_query::<Product>(remove_aql).await;
