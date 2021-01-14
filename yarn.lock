@@ -331,16 +331,7 @@
     eslint-visitor-keys "^1.3.0"
     semver "^6.3.0"
 
-"@babel/generator@^7.0.0", "@babel/generator@^7.11.6", "@babel/generator@^7.12.10", "@babel/generator@^7.5.0", "@babel/generator@^7.9.0":
-  version "7.12.10"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.12.10.tgz#2b188fc329fb8e4f762181703beffc0fe6df3460"
-  integrity sha512-6mCdfhWgmqLdtTkhXjnIz0LcdVCd26wS2JXRtj2XY0u5klDsXBREA/pG5NVOuVnF2LUrBGNFtQkIqqTbblg0ww==
-  dependencies:
-    "@babel/types" "^7.12.10"
-    jsesc "^2.5.1"
-    source-map "^0.5.0"
-
-"@babel/generator@^7.12.5":
+"@babel/generator@^7.0.0", "@babel/generator@^7.11.6", "@babel/generator@^7.12.10", "@babel/generator@^7.12.5", "@babel/generator@^7.5.0", "@babel/generator@^7.9.0":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.12.11.tgz#98a7df7b8c358c9a37ab07a24056853016aba3af"
   integrity sha512-Ggg6WPOJtSi8yYQvLVjG8F/TlpWDlKx0OpS4Kt+xMQPs5OaGYWy+v1A+1TvxI6sAMGZpKWWoAQ1DaeQbImlItA==
@@ -4613,10 +4604,10 @@ babel-plugin-fbt-runtime@^0.9.13:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
 
-babel-plugin-fbt@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.16.0.tgz#be7143a59fa0d9fb27d9d15e859ce0c6e1cd31a3"
-  integrity sha512-A38Gy+OuPh6g3wXKeR1rSqLUbLzRnF9CkrQN8482xNjlMAbt1M76zePx7j+6H9QYSuyUqMC4HDHmOSaAHHi5oA==
+babel-plugin-fbt@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.17.0.tgz#03cf1a5fcb223c65fcdabb1a16d2dda40723b170"
+  integrity sha512-lAMWxFF7mqsgKUFC/oL0k5Vj0N8uq8YS/Wnj4kxjZmF37qjP+xf5T7Mn+BbFsHXWteeJFXZTyi5gtvNY+XZY8Q==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
