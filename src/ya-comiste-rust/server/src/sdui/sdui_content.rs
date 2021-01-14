@@ -7,12 +7,6 @@ pub struct Restaurant {
     pub image_background: Option<String>,
 }
 
-impl Restaurant {
-    pub fn id(&self) -> String {
-        self._id.to_owned()
-    }
-}
-
 #[derive(Clone, Debug, serde::Deserialize, PartialEq)]
 pub struct Shop {
     _id: String,
@@ -20,12 +14,6 @@ pub struct Shop {
     _rev: String,
     pub name: String,
     pub image_background: Option<String>,
-}
-
-impl Shop {
-    pub fn id(&self) -> String {
-        self._id.to_owned()
-    }
 }
 
 #[derive(Clone, Debug, serde::Deserialize, PartialEq)]

@@ -21,7 +21,7 @@ pub async fn mobile_entrypoint_sections(
     context: &Context,
 ) -> FieldResult<Vec<SDUISection>> {
     let connection_pool = context.pool.to_owned();
-    match get_all_sections_for_entrypoint_key(&context.user, &connection_pool, &key).await {
+    match get_all_sections_for_entrypoint_key(&connection_pool, &key).await {
         Ok(s) => Ok(s),
         // Err(e) => Err(FieldError::from(e)),
         Err(e) => match e {

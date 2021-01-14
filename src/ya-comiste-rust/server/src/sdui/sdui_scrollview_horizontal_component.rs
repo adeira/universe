@@ -22,7 +22,7 @@ impl SDUIScrollViewHorizontalComponent {
     }
 
     async fn cards(&self, context: &Context) -> FieldResult<Vec<SDUICardComponent>> {
-        match get_card_components(&context.user, &context.pool, &self._id).await {
+        match get_card_components(&context.pool, &self._id).await {
             Ok(components) => Ok(components),
             Err(err) => Err(FieldError::from(err)),
         }
