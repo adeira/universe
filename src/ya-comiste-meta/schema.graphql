@@ -1,4 +1,4 @@
-# @generated SignedSource<<e2eabfeada964ef2bf749c41a1683663>>
+# @generated SignedSource<<d719641901256358820623506f838a26>>
 
 type SDUIScrollViewHorizontalComponent {
   id: ID!
@@ -15,6 +15,7 @@ type SDUIDescriptionComponent {
   text: String!
 }
 
+"Root mutation of the graph."
 type Mutation {
   """
     This function accepts Google ID token (after receiving it from Google Sign-In in a mobile

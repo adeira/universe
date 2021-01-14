@@ -31,21 +31,11 @@ impl Query {
 #[derive(Clone, Copy, Debug)]
 pub struct Mutation;
 
-#[derive(juniper::GraphQLObject)]
-struct AuthorizeMobilePayload {
-    success: bool,
-
-    /// Session token should be send with every GraphQL request which requires auth.
-    /// Returns `None` if the request was not successful.
-    session_token: Option<String>,
-}
-
-#[derive(juniper::GraphQLObject)]
-struct DeauthorizeMobilePayload {
-    success: bool,
-}
-
-#[juniper::graphql_object(context = Context)]
+#[juniper::graphql_object(
+    context = Context,
+    name = "Mutation",
+    description = "Root mutation of the graph.",
+)]
 impl Mutation {
     /// This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
     /// device) and returns authorization payload. There is no concept of sign-in and sign-up
@@ -57,23 +47,8 @@ impl Mutation {
     async fn authorize_mobile(
         google_id_token: String,
         context: &Context,
-    ) -> FieldResult<AuthorizeMobilePayload> {
-        let connection_pool = context.pool.to_owned();
-        let session_token = crate::auth::authorize(&connection_pool, &google_id_token).await;
-        match session_token {
-            Ok(session_token) => Ok(AuthorizeMobilePayload {
-                success: true,
-                session_token: Some(session_token),
-            }),
-            Err(e) => {
-                log::error!("{}", e);
-                Ok(AuthorizeMobilePayload {
-                    success: false,
-                    session_token: None,
-                    // TODO: return rejection reason from AuthError as well (?)
-                })
-            }
-        }
+    ) -> FieldResult<crate::auth::api::AuthorizeMobilePayload> {
+        crate::auth::api::authorize_mobile(&google_id_token, &context).await
     }
 
     /// The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
@@ -84,12 +59,8 @@ impl Mutation {
     async fn deauthorize_mobile(
         session_token: String, // TODO: this could be removed (?) - we can use the user from context
         context: &Context,
-    ) -> DeauthorizeMobilePayload {
-        let connection_pool = context.pool.to_owned();
-        match crate::auth::deauthorize(&connection_pool, &session_token).await {
-            Ok(_) => DeauthorizeMobilePayload { success: true },
-            Err(_) => DeauthorizeMobilePayload { success: false },
-        }
+    ) -> crate::auth::api::DeauthorizeMobilePayload {
+        crate::auth::api::deauthorize_mobile(&session_token, &context).await
     }
 }
 
