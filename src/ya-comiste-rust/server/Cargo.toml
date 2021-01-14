@@ -20,7 +20,7 @@ juniper = "0.15.1"
 lazy_static = "1.4.0"
 log = "0.4.13"
 num_cpus = "1.13.0"
-rand = "0.8.1"
+rand = "0.8.2"
 reqwest = { version = "0.10.10", features = ["json", "blocking"] }
 ring = "0.16.5"
 serde = "1.0.119"
