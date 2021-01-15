@@ -10,7 +10,8 @@ it('is instance of Error and TimeoutError', () => {
   // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
   const error = new ResponseError(fetchResponse, 'ups');
   expect(error).toBeInstanceOf(Error);
-  // $FlowExpectedError[incompatible-type]: function is incompatible with statics of existential (?)
+  /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+   * upgrading Flow. To see the error delete this comment and run Flow. */
   expect(error).toBeInstanceOf(ResponseError);
 });
 
