@@ -13,7 +13,7 @@
     "@adeira/relay": "^2.2.0",
     "@adeira/sx": "^0.23.0",
     "formik": "^2.2.6",
-    "next": "10.0.4",
+    "next": "10.0.5",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^6.0.0",
     "react": "17.0.1",
