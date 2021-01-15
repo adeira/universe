@@ -20,11 +20,11 @@
     "@adeira/flow-types-eslint": "0.0.0",
     "@babel/code-frame": "^7.12.11",
     "@babel/eslint-parser": "^7.12.1",
-    "eslint": "^7.17.0",
+    "eslint": "^7.18.0",
     "react": "^17.0.1"
   },
   "peerDependencies": {
     "@adeira/sx": "^0.23.0",
-    "eslint": "^7.17.0"
+    "eslint": "^7.18.0"
   }
 }
