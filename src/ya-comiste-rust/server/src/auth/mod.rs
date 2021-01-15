@@ -9,14 +9,14 @@ use crate::auth::session::derive_session_token_hash;
 use crate::auth::users::{AdminUser, AnonymousUser, AuthorizedUser, User};
 
 pub(crate) mod api;
-pub(crate) mod certs;
-pub(crate) mod google;
-pub(crate) mod session;
 pub(crate) mod users;
 
 mod cache_control;
+mod certs;
 mod dal;
 mod error;
+mod google;
+mod session;
 
 /// This function tries to authorize the user by Google ID token (rejects otherwise).
 ///
@@ -25,8 +25,7 @@ mod error;
 /// 2b. create a new user if it doesn't exist yet and generate and store new session token
 ///
 /// It essentially transforms Google ID token to our Session Token.
-// TODO: pub(in crate::auth)
-pub(in crate) async fn authorize(
+pub(in crate::auth) async fn authorize(
     pool: &crate::arangodb::ConnectionPool,
     google_id_token: &str,
 ) -> Result<String, error::AuthError> {
@@ -64,8 +63,7 @@ pub(in crate) async fn authorize(
 
 /// This function "deauthorizes" the user by invalidating the session in our DB (removing it).
 /// It returns `true` if the operation was successful.
-// TODO: pub(in crate::auth)
-pub(in crate) async fn deauthorize(
+pub(in crate::auth) async fn deauthorize(
     pool: &crate::arangodb::ConnectionPool,
     session_token: &str,
 ) -> Result<bool, error::AuthError> {
@@ -75,7 +73,6 @@ pub(in crate) async fn deauthorize(
 }
 
 /// This function verifies the session token and returns either authorized OR anonymous user.
-// TODO: pub(in crate::auth)
 pub(in crate) async fn resolve_user_from_session_token(
     pool: &crate::arangodb::ConnectionPool,
     session_token: &str,

@@ -11,6 +11,7 @@ module.exports = ({
   },
   getPathMappings() {
     return new Map([
+      ['src/ya-comiste-backoffice/', 'backoffice/'],
       ['src/ya-comiste-meta/', 'meta/'],
       ['src/ya-comiste-react-native/', 'react-native/'],
       ['src/ya-comiste-rust/', 'rust/'],

@@ -18,7 +18,7 @@
     "flow-bin": "^0.141.0",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^6.0.0",
-    "postcss": "^8.2.2",
+    "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2"
   },
   "scripts": {
