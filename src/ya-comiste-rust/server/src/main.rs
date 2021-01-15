@@ -5,6 +5,7 @@ use warp::Filter;
 
 mod arangodb;
 mod auth;
+mod commerce;
 mod graphql_context;
 mod graphql_schema;
 mod headers;

@@ -1,17 +1,15 @@
 use crate::arangodb::errors::ModelError;
-use crate::auth::users::User;
 use crate::sdui::model::entrypoints::get_entrypoint;
 use crate::sdui::sdui_component::SDUIComponent;
 use crate::sdui::sdui_section::SDUISection;
 
 pub async fn get_all_sections_for_entrypoint_key(
-    user: &User, // TODO: use the current user
     pool: &crate::arangodb::ConnectionPool,
     entrypoint_key: &str,
 ) -> Result<Vec<SDUISection>, ModelError> {
     let db = pool.db().await;
 
-    let entrypoint = get_entrypoint(user, pool, &entrypoint_key).await?;
+    let entrypoint = get_entrypoint(pool, &entrypoint_key).await?;
     let aql = arangors::AqlQuery::builder()
         .query(
             "
@@ -31,7 +29,6 @@ pub async fn get_all_sections_for_entrypoint_key(
 }
 
 pub async fn get_section_components(
-    user: &User, // TODO: use the current user
     pool: &crate::arangodb::ConnectionPool,
     entrypoint_key: &str,
     section_id: &str,
