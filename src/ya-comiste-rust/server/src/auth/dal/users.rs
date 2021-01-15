@@ -139,27 +139,28 @@ mod tests {
     #[ignore]
     #[tokio::test]
     async fn create_user_by_google_claims_test() {
-        // TODO(007): init DB migrations
-
         let pool = get_database_connection_pool();
-        let mock_sub = "sub:12345";
+        crate::migrations::migrate(&pool).await;
+
+        let mock_subject = "sub:12345";
 
         // cleanup first just in case the previous test failed mid-flight
-        delete_user_by_google_claims(&pool, &mock_sub).await;
-        let user = find_user_by_google_claims(&pool, &mock_sub).await;
+        delete_user_by_google_claims(&pool, &mock_subject).await;
+        let user = find_user_by_google_claims(&pool, &mock_subject).await;
         assert_eq!(user.is_none(), true);
 
         let user =
-            create_user_by_google_claims(&pool, &Claims::mock(&Some(String::from(mock_sub)))).await;
+            create_user_by_google_claims(&pool, &Claims::mock(&Some(String::from(mock_subject))))
+                .await;
         assert_eq!(user.is_ok(), true);
 
-        let user = find_user_by_google_claims(&pool, &mock_sub).await;
+        let user = find_user_by_google_claims(&pool, &mock_subject).await;
         assert_eq!(user.is_some(), true);
         assert_eq!(user.unwrap().r#type(), "regular");
 
         // cleanup
-        delete_user_by_google_claims(&pool, &mock_sub).await;
-        let user = find_user_by_google_claims(&pool, &mock_sub).await;
+        delete_user_by_google_claims(&pool, &mock_subject).await;
+        let user = find_user_by_google_claims(&pool, &mock_subject).await;
         assert_eq!(user.is_none(), true);
     }
 }

@@ -1,14 +1,14 @@
 TODOs:
 
 ```text
-001 - DB strings and source-code translations
-002 - DB schema validations (JSON schema)
-003 - server monitoring and error reporting (?)
-004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
-005 - implement https://github.com/woltapp/blurhash
-006 - use Bazel https://bazelbuild.github.io/rules_rust/
-007 - DB migrations
-008 - queries whitelisting
+🚧 001 - DB strings and source-code translations
+🚧 002 - DB schema validations (JSON schema)
+🚧 003 - server monitoring and error reporting (?)
+🚧 004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
+🚧 005 - implement https://github.com/woltapp/blurhash
+🚧 006 - use Bazel https://bazelbuild.github.io/rules_rust/
+✅ 007 - DB migrations
+🚧 008 - queries whitelisting
 ```
 
 # Rust server

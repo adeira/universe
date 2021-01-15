@@ -9,6 +9,7 @@ mod commerce;
 mod graphql_context;
 mod graphql_schema;
 mod headers;
+mod migrations;
 mod sdui;
 
 mod models {
@@ -176,6 +177,11 @@ async fn main() {
     // Create database connection pool only once per application lifetime so we can reuse it
     // for the following requests. DO NOT create it in the GraphQL context extractor!
     let pool = get_database_connection_pool();
+
+    // Preferably, migrations would NOT be ran during the server start.
+    // But we do it now for the simplicity.
+    migrations::migrate(&pool).await;
+
     let schema = create_graphql_schema();
 
     let cors = warp::cors()
