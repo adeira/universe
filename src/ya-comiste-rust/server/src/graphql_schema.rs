@@ -22,6 +22,29 @@ impl Query {
         crate::sdui::api::mobile_entrypoint_sections(key, context).await
     }
 
+    async fn search_products(
+        context: &Context,
+        client_locale: crate::commerce::api::ClientLocale,
+        price_sort_direction: crate::commerce::api::PriceSortDirection,
+        search_term: Option<String>,
+    ) -> Option<Vec<Option<crate::commerce::api::Product>>> {
+        crate::commerce::api::search_products(
+            &context,
+            &client_locale,
+            &price_sort_direction,
+            &search_term,
+        )
+        .await
+    }
+
+    async fn get_product(
+        context: &Context,
+        client_locale: crate::commerce::api::ClientLocale,
+        product_id: juniper::ID,
+    ) -> Option<crate::commerce::api::Product> {
+        crate::commerce::api::get_product(&context, &client_locale, &product_id.to_string()).await
+    }
+
     /// Returns information about the current user (can be authenticated or anonymous).
     async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
         crate::auth::api::whoami(context).await

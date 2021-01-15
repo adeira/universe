@@ -1,4 +1,9 @@
-# @generated SignedSource<<70291e885d34ddbdd60d0f93a4537d7a>>
+# @generated SignedSource<<c24f9690e86484dc6625055d16ad005c>>
+
+enum PriceSortDirection {
+  LOW_TO_HIGH
+  HIGH_TO_LOW
+}
 
 type SDUIDescriptionComponent {
   id: ID!
@@ -29,6 +34,11 @@ type Mutation {
   productDelete(productId: ID!): ProductOrError!
 }
 
+enum ClientLocale {
+  en_US
+  es_MX
+}
+
 input ProductInput {
   name: String!
   description: String!
@@ -47,6 +57,8 @@ type SDUICardComponent {
 "Root query of the graph."
 type Query {
   mobileEntrypointSections(key: String!): [SDUISection!]!
+  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
 }
