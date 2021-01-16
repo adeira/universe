@@ -41,8 +41,11 @@ export default class RepoGitFake extends RepoGit {
 
   clean: () => void = () => {};
 
-  // $FlowExpectedError[signature-verification-failure]
-  // $FlowExpectedError[incompatible-extend]: this function overwrites the original and returns nothing
+  /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+   * upgrading Flow. To see the error delete this comment and run Flow. */
+  /* $FlowFixMe[signature-verification-failure] This comment suppresses an
+   * error when upgrading Flow. To see the error delete this comment and run
+   * Flow. */
   export = (): void => {};
 
   getFakeRepoPath(): string {

@@ -45,6 +45,8 @@ export default function parse(input: string): ParsedConfig {
       // process it as a list
       parsedConfig[currentSection].push(line);
     } else if (currentSection === 'version') {
+      /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+       * upgrading Flow. To see the error delete this comment and run Flow. */
       parsedConfig[currentSection] = line;
     } else {
       // process it as a key/value (while ignoring rollout annotations since we do not merge them properly, yet)

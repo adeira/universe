@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<b3454eee7f6e1d556beceb3774fe6b69>>
+ * @generated SignedSource<<91ad6265147fa1c51e8cdced2d42e07f>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -258,6 +258,7 @@ export type AllCSSPropertyTypes = {|
   +columns?: number | string, // https://developer.mozilla.org/docs/Web/CSS/columns
   +contain?: number | string, // https://developer.mozilla.org/docs/Web/CSS/contain
   +content?: number | string, // https://developer.mozilla.org/docs/Web/CSS/content
+  +contentVisibility?: 'visible' | 'auto' | 'hidden' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/content-visibility
   +counterIncrement?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-increment
   +counterReset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-reset
   +counterSet?: number | string, // https://developer.mozilla.org/docs/Web/CSS/counter-set
@@ -319,6 +320,7 @@ export type AllCSSPropertyTypes = {|
   +fontVariantNumeric?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-variant-numeric
   +fontVariantPosition?: 'normal' | 'sub' | 'super' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-variant-position
   +fontWeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-weight
+  +forcedColorAdjust?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/forced-color-adjust
   +gap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/gap
   +grid?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid
   +gridArea?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-area
@@ -720,6 +722,7 @@ export type AllCSSPropertyTypes = {|
     | 'inherit'
     | 'initial'
     | 'unset',
+  +userSelect?: 'auto' | 'text' | 'none' | 'contain' | 'all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/user-select
   +verticalAlign?: string | number, // https://developer.mozilla.org/docs/Web/CSS/vertical-align
   +visibility?: 'visible' | 'hidden' | 'collapse' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/visibility
   +whiteSpace?:  // https://developer.mozilla.org/docs/Web/CSS/white-space
