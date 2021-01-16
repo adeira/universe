@@ -113,7 +113,8 @@ export default async function compiler(externalOptions: ExternalOptions) {
   });
 
   const result: 'HAS_CHANGES' | 'NO_CHANGES' | 'ERROR' = options.watch
-    ? // $FlowFixMe[incompatible-call]: errors after upgrading to relay 9.1.0
+    ? /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+       * upgrading Flow. To see the error delete this comment and run Flow. */
       await codegenRunner.watchAll()
     : await codegenRunner.compileAll();
 

@@ -23,6 +23,8 @@ TimeoutError.prototype = (Object.create(Error.prototype, {
   },
 }): { constructor: typeof Error, ... });
 
+/* $FlowFixMe[incompatible-function-indexer] This comment suppresses an error
+ * when upgrading Flow. To see the error delete this comment and run Flow. */
 setPrototypeOf(TimeoutError, Error);
 
 export default TimeoutError;
