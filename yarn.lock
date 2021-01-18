@@ -14890,10 +14890,10 @@ react-native-bundle-visualizer@^2.2.1:
     rimraf "^3.0.2"
     source-map-explorer "^2.4.2"
 
-react-native-navigation@^7.8.3:
-  version "7.8.3"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.8.3.tgz#bee7aec7ee1826c2e3885ff7281938f4617ec61c"
-  integrity sha512-4z/0O6UnL3mNDxLEzsh/QG/N85qTVQtjUadUlzPZ2HtGMbfOWVfy03WY7ZNKfy5BmLvrURA0TYpSxk1mkNBeDA==
+react-native-navigation@^7.8.4:
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-7.8.4.tgz#7f4594c072408f36881d61e60f3cef45f34c4acf"
+  integrity sha512-uqJ+KY89d+xYKxJXaYKpmj7MpbSHPs+OY1i1ZiFAeuwYc9hDhJ1JX3jDQ/igtnc4vJOvlW2FVXg/zbyc4MAmGQ==
   dependencies:
     hoist-non-react-statics "3.x.x"
     lodash "4.17.x"
