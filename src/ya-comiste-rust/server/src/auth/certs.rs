@@ -168,7 +168,7 @@ mod tests {
     use super::*;
     use crate::auth::google::verify_id_token_integrity;
 
-    #[ignore]
+    // TODO: could eventually be #[ignore]
     #[tokio::test]
     async fn test_valid_instant_and_keys_download() {
         // This test actually calls the Google API because it's absolutely essential
@@ -189,7 +189,7 @@ mod tests {
     // TODO: how to test a success scenario (where to get a valid ID token?)
     // https://stackoverflow.com/questions/17657879/does-google-provide-test-users-for-integration-testing
 
-    #[ignore]
+    // TODO: could eventually be #[ignore]
     #[tokio::test]
     async fn it_returns_error_on_invalid_token() {
         let id_token = "invalid_id_token";
@@ -203,7 +203,7 @@ mod tests {
         );
     }
 
-    #[ignore]
+    // TODO: could eventually be #[ignore]
     #[tokio::test]
     async fn it_returns_error_on_incompatible_token_header() {
         // this JWT token is technically valid but not for Google auth (invalid JWT header)
@@ -218,7 +218,7 @@ mod tests {
         );
     }
 
-    #[ignore]
+    // TODO: could eventually be #[ignore]
     #[tokio::test]
     async fn it_returns_error_on_unsigned_token() {
         // this JWT token is valid but not signed by google => rejected
