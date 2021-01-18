@@ -84,6 +84,10 @@ There are some extra tests which are slow or require extra infrastructure (netwo
 
 Ignored tests are not being run on CI (at least not yet)!
 
+## Database migrations
+
+Database migrations are currently being run automatically during the server start. It's not and ideal or final solution but it's "good enough" for now.
+
 # ArangoDB
 
 Why ArangoDB? At the time of writing, it was essentially the most promising multi-model open-source DB (with graph support) out there. Source: https://db-engines.com/en/ranking/graph+dbms
