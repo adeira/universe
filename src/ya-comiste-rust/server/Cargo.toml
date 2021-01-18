@@ -17,7 +17,7 @@ deadpool = { version = "0.7.0", features = ["managed"] }
 env_logger = "0.8.2"
 futures = "0.3.12"
 jsonwebtoken = "7.2.0"
-juniper = "0.15.1"
+juniper = "0.15.2"
 lazy_static = "1.4.0"
 log = "0.4.13"
 num_cpus = "1.13.0"
