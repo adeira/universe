@@ -4,6 +4,12 @@ use arangors::document::options::InsertOptions;
 use arangors::ClientError;
 use serde::{Deserialize, Serialize};
 
+pub(in crate::migrations) trait ArangoDocument {
+    /// This key makes sure we don't create the same document twice by accident
+    /// when running the migrations repeatedly.
+    fn idempotency_key(&self) -> &str;
+}
+
 pub(in crate::migrations) async fn create_collection(
     db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
     collection_name: &str,
@@ -40,14 +46,16 @@ pub(in crate::migrations) async fn create_collection(
     }
 }
 
-pub(in crate::migrations) async fn create_document<T: Serialize + for<'de> Deserialize<'de>>(
+pub(in crate::migrations) async fn create_document<T>(
     db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
     collection_name: &str,
     document: T,
-    document_key: &str, // TODO: how to do it better? (it's already in User struct)
-) -> Result<(), ClientError> {
+) -> Result<(), ClientError>
+where
+    T: Serialize + for<'de> Deserialize<'de> + ArangoDocument,
+{
     let collection = db.collection(&collection_name).await.unwrap(); // TODO
-    match collection.document::<T>(document_key).await {
+    match collection.document::<T>(document.idempotency_key()).await {
         Ok(_) => {
             // user already exists
             Ok(())

@@ -1,4 +1,4 @@
-use crate::migrations::utils::{create_collection, create_document};
+use crate::migrations::utils::{create_collection, create_document, ArangoDocument};
 use arangors::collection::CollectionType;
 use arangors::ClientError;
 
@@ -7,6 +7,12 @@ struct ProductUnit {
     _key: String,
     en_US: String,
     es_MX: String,
+}
+
+impl ArangoDocument for ProductUnit {
+    fn idempotency_key(&self) -> &str {
+        &self._key
+    }
 }
 
 pub async fn migrate(
@@ -111,7 +117,6 @@ pub async fn migrate(
             en_US: String::from("piece"),
             es_MX: String::from("pieza"),
         },
-        "piece",
     )
     .await
 }
