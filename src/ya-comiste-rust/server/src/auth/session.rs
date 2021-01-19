@@ -64,6 +64,28 @@ pub struct Session {
     _rev: String,
     _key: String,
     last_access: String,
+    r#type: SessionType,
+}
+
+impl Session {
+    pub fn key(&self) -> &String {
+        &self._key
+    }
+}
+
+#[derive(Clone, Deserialize)]
+pub enum SessionType {
+    MOBILE,
+    WEBAPP,
+}
+
+impl std::fmt::Display for SessionType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            SessionType::MOBILE => write!(f, "mobile"),
+            SessionType::WEBAPP => write!(f, "webapp"),
+        }
+    }
 }
 
 #[cfg(test)]

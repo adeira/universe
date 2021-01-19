@@ -7,8 +7,11 @@ use futures::future::BoxFuture;
 
 mod utils;
 
-// mod v5__create_index_ttl_sessions;
-automod::dir!("server/src/migrations");
+mod v0__migrations_init;
+mod v1__create_collection_users_sessions;
+mod v2__create_document_user_anonymous;
+mod v3__create_document_user_admin;
+mod v4__create_collection_products;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct MigrationRecord {
@@ -31,20 +34,17 @@ pub async fn migrate(pool: &ConnectionPool) {
         ("v0__migrations_init", |db| {
             Box::pin(v0__migrations_init::migrate(&db))
         }),
-        ("v1__create_collection_users", |db| {
-            Box::pin(v1__create_collection_users::migrate(&db))
+        ("v1__create_collection_users_sessions", |db| {
+            Box::pin(v1__create_collection_users_sessions::migrate(&db))
         }),
         ("v2__create_document_user_anonymous", |db| {
             Box::pin(v2__create_document_user_anonymous::migrate(&db))
         }),
-        ("v3__create_collection_sessions", |db| {
-            Box::pin(v3__create_collection_sessions::migrate(&db))
+        ("v3__create_document_user_admin", |db| {
+            Box::pin(v3__create_document_user_admin::migrate(&db))
         }),
         ("v4__create_collection_products", |db| {
             Box::pin(v4__create_collection_products::migrate(&db))
-        }),
-        ("v5__create_index_ttl_sessions", |db| {
-            Box::pin(v5__create_index_ttl_sessions::migrate(&db))
         }),
     ];
 
