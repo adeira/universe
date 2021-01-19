@@ -1,5 +1,5 @@
 use crate::arangodb::errors::ModelError;
-use crate::auth::session::Session;
+use crate::auth::session::{Session, SessionType};
 use crate::auth::users::AnyUser;
 
 /// TODO(004) add integration tests
@@ -51,6 +51,7 @@ pub(crate) async fn create_user_session(
               INSERT {
                 _key: @session_token_hash,
                 last_access: DATE_ISO8601(DATE_NOW()),
+                type: @session_type,
               } INTO sessions
               OPTIONS {
                 overwrite: true,
@@ -76,6 +77,7 @@ pub(crate) async fn create_user_session(
             "#,
         )
         .bind_var("session_token_hash", session_token_hash)
+        .bind_var("session_type", format!("{}", SessionType::MOBILE)) // TODO
         .bind_var("user_id", user.id())
         .build();
 

@@ -1,6 +1,7 @@
 use arangors::collection::options::{CreateOptions, CreateParameters};
 use arangors::collection::CollectionType;
 use arangors::document::options::InsertOptions;
+use arangors::index::Index;
 use arangors::ClientError;
 use serde::{Deserialize, Serialize};
 
@@ -71,5 +72,16 @@ where
                 Err(e) => Err(e),
             }
         }
+    }
+}
+
+pub(in crate::migrations) async fn create_index(
+    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    collection_name: &str,
+    index: &Index,
+) -> Result<(), ClientError> {
+    match db.create_index(collection_name, &index).await {
+        Ok(_) => Ok(()),
+        Err(e) => Err(e),
     }
 }

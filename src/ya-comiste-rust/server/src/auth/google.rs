@@ -25,6 +25,10 @@ pub struct Claims {
 }
 
 impl Claims {
+    pub(crate) fn subject(&self) -> &String {
+        &self.sub
+    }
+
     #[cfg(test)]
     pub(crate) fn mock(sub: &Option<String>) -> Claims {
         Claims {
@@ -42,10 +46,6 @@ impl Claims {
             family_name: None,
             locale: None,
         }
-    }
-
-    pub(crate) fn subject(&self) -> &String {
-        &self.sub
     }
 }
 
@@ -77,9 +77,14 @@ pub async fn verify_id_token_integrity<T: CachedCerts>(
                 validate_nbf: false,       // NBF (not before) not present in the token
                 aud: Some(
                     // 2.
-                    vec![String::from(
-                        "245356693889-h3aj8e88fsnqch8gdcfh8isf8hruic7n.apps.googleusercontent.com", // iOS client ID
-                    )]
+                    vec![
+                        String::from(
+                            "245356693889-63qeuc6183hab6be342blikbknsvqrhk.apps.googleusercontent.com", // Web client ID
+                        ),
+                        String::from(
+                            "245356693889-h3aj8e88fsnqch8gdcfh8isf8hruic7n.apps.googleusercontent.com", // iOS client ID
+                        )
+                    ]
                     .into_iter()
                     .collect(),
                 ),
