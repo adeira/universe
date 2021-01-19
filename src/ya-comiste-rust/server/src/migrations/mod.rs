@@ -7,6 +7,7 @@ use futures::future::BoxFuture;
 
 mod utils;
 
+// mod v5__create_index_ttl_sessions;
 automod::dir!("server/src/migrations");
 
 #[derive(serde::Serialize, serde::Deserialize)]
@@ -41,6 +42,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v4__create_collection_products", |db| {
             Box::pin(v4__create_collection_products::migrate(&db))
+        }),
+        ("v5__create_index_ttl_sessions", |db| {
+            Box::pin(v5__create_index_ttl_sessions::migrate(&db))
         }),
     ];
 
