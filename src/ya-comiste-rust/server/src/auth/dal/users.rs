@@ -139,6 +139,9 @@ mod tests {
     #[ignore]
     #[tokio::test]
     async fn create_user_by_google_claims_test() {
+        // TODO: run the tests in transaction (?) and serially (?) and handle the cleanups better
+        //  (requires https://github.com/fMeow/arangors/commit/1be43ebef82a66ff1f203845b279a1ac8907da67)
+
         let pool = get_database_connection_pool();
         crate::migrations::migrate(&pool).await;
 
