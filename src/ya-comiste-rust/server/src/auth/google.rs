@@ -1,4 +1,4 @@
-use crate::auth::certs::CachedCerts;
+use crate::auth::certs::{CachedCerts, CertKey};
 use crate::auth::error::AuthError;
 use jsonwebtoken::{decode, decode_header, Algorithm, DecodingKey, TokenData, Validation};
 use serde::{Deserialize, Serialize};
@@ -49,6 +49,50 @@ impl Claims {
     }
 }
 
+fn create_id_token_validation(iss: &str) -> Validation {
+    Validation {
+        leeway: 30,                // seconds
+        validate_exp: !cfg!(test), // disabled in tests
+        validate_nbf: false,       // NBF (not before) not present in the token
+        aud: Some(
+            vec![
+                String::from(
+                    "245356693889-63qeuc6183hab6be342blikbknsvqrhk.apps.googleusercontent.com", // Web client ID
+                ),
+                String::from(
+                    "245356693889-h3aj8e88fsnqch8gdcfh8isf8hruic7n.apps.googleusercontent.com", // iOS client ID
+                ),
+            ]
+            .into_iter()
+            .collect(),
+        ),
+        iss: Some(String::from(iss)),
+        algorithms: vec![
+            Algorithm::RS256, // we assume it's always RS256 - is it true?
+        ],
+        ..Default::default()
+    }
+}
+
+fn validate_id_token(id_token: &str, cert: &CertKey) -> Result<TokenData<Claims>, AuthError> {
+    let decoding_key = &DecodingKey::from_rsa_components(&cert.modulus(), &cert.exponent());
+    match decode(
+        &id_token,
+        &decoding_key,
+        &create_id_token_validation("https://accounts.google.com"),
+    ) {
+        Ok(token_data) => Ok(token_data),
+        Err(_) => {
+            // OK, so the first call failed. Let's try the alternative `iss` before failing:
+            Ok(decode(
+                &id_token,
+                &decoding_key,
+                &create_id_token_validation("accounts.google.com"),
+            )?)
+        }
+    }
+}
+
 /// To verify that the token is valid, ensure that the following criteria are satisfied:
 ///
 /// 1. The ID token is properly signed by Google. Use Google's public keys (available in JWK or PEM
@@ -59,7 +103,7 @@ impl Claims {
 /// 2. The value of `aud` in the ID token is equal to one of your app's client IDs. This check is
 ///    necessary to prevent ID tokens issued to a malicious app being used to access data about the
 ///    same user on your app's backend server.
-/// 3. The value of `iss` in the ID token is equal to `accounts.google.com` or `https://accounts.google.com`.
+/// 3. The value of `iss` in the ID token is equal to "accounts.google.com" or "https://accounts.google.com".
 /// 4. The expiry time (`exp`) of the ID token has not passed.
 ///
 /// See: https://developers.google.com/identity/sign-in/ios/backend-auth#verify-the-integrity-of-the-id-token
@@ -71,36 +115,7 @@ pub async fn verify_id_token_integrity<T: CachedCerts>(
     let unsafe_header = decode_header(&id_token)?;
     if let Some(kid) = unsafe_header.kid {
         if let Some(key) = cached_certs.get_key_by_kid(&*kid).await {
-            let validation = Validation {
-                leeway: 30,                // seconds
-                validate_exp: !cfg!(test), // 4. (disabled in tests)
-                validate_nbf: false,       // NBF (not before) not present in the token
-                aud: Some(
-                    // 2.
-                    vec![
-                        String::from(
-                            "245356693889-63qeuc6183hab6be342blikbknsvqrhk.apps.googleusercontent.com", // Web client ID
-                        ),
-                        String::from(
-                            "245356693889-h3aj8e88fsnqch8gdcfh8isf8hruic7n.apps.googleusercontent.com", // iOS client ID
-                        )
-                    ]
-                    .into_iter()
-                    .collect(),
-                ),
-                // TODO: the second `iss` value as well (?)
-                iss: Some(String::from("https://accounts.google.com")), // 3.
-                algorithms: vec![
-                    Algorithm::RS256, // we assume it's always RS256 - is it true?
-                ],
-                ..Default::default()
-            };
-
-            Ok(decode::<Claims>(
-                &id_token,
-                &DecodingKey::from_rsa_components(&key.modulus(), &key.exponent()), // 1. (prolly the most important)
-                &validation,
-            )?)
+            validate_id_token(&id_token, &key)
         } else {
             Err(AuthError::InvalidToken(format!(
                 "cannot obtain Google certificate for key ID: '{}'",
