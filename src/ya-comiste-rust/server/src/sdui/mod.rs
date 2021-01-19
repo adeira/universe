@@ -3,7 +3,6 @@ pub(crate) mod entrypoint;
 pub(crate) mod model;
 pub(crate) mod sdui_section;
 
-mod resolve_cloudfront_url;
 mod sdui_card_component;
 mod sdui_component;
 mod sdui_content;
