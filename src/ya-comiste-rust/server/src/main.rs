@@ -9,6 +9,7 @@ mod commerce;
 mod graphql_context;
 mod graphql_schema;
 mod headers;
+mod images;
 mod migrations;
 mod sdui;
 

@@ -1,5 +1,5 @@
 ---
-source: server/src/sdui/resolve_cloudfront_url.rs
+source: server/src/images/mod.rs
 expression: "resolve_cloudfront_url(\"test.png\")"
 ---
 https://d3uc46g155tf3t.cloudfront.net/test.png

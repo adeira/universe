@@ -12,6 +12,7 @@ mod v1__create_collection_users_sessions;
 mod v2__create_document_user_anonymous;
 mod v3__create_document_user_admin;
 mod v4__create_collection_products;
+mod v5__create_collection_images;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct MigrationRecord {
@@ -45,6 +46,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v4__create_collection_products", |db| {
             Box::pin(v4__create_collection_products::migrate(&db))
+        }),
+        ("v5__create_collection_images", |db| {
+            Box::pin(v5__create_collection_images::migrate(&db))
         }),
     ];
 

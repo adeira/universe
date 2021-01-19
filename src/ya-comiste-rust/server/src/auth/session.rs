@@ -67,12 +67,6 @@ pub struct Session {
     r#type: SessionType,
 }
 
-impl Session {
-    pub fn key(&self) -> &String {
-        &self._key
-    }
-}
-
 #[derive(Clone, Deserialize)]
 pub enum SessionType {
     MOBILE,
