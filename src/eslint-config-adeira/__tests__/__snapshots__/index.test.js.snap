@@ -743,7 +743,7 @@ Object {
     "react/jsx-key": 2,
     "react/jsx-max-depth": 0,
     "react/jsx-max-props-per-line": "off",
-    "react/jsx-newline": 0,
+    "react/jsx-newline": "off",
     "react/jsx-no-bind": Array [
       2,
       Object {
