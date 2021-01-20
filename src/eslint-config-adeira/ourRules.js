@@ -381,7 +381,6 @@ module.exports = ({
   'react/jsx-handler-names': OFF,
   'react/jsx-key': ERROR,
   'react/jsx-max-depth': OFF,
-  'react/jsx-newline': OFF,
   'react/jsx-no-bind': [
     ERROR,
     {
