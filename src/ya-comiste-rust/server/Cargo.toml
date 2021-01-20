@@ -27,7 +27,7 @@ reqwest = { version = "0.10.10", features = ["json", "blocking"] }
 ring = "0.16.5"
 rusoto_core = "0.45.0"
 rusoto_s3 = "0.45.0"
-serde = "1.0.119"
+serde = "1.0.120"
 serde_json = "1.0.61"
 signedsource = { path = "../signedsource" }
 tokio = { version = "0.2", features = ["rt-core", "macros"] }
