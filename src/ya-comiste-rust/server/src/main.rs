@@ -11,6 +11,7 @@ mod graphql_schema;
 mod headers;
 mod images;
 mod migrations;
+mod pos;
 mod sdui;
 
 mod models {
@@ -44,6 +45,30 @@ mod models {
             }
         }
     }
+
+    pub(crate) async fn get_current_admin_user(
+        pool: &ConnectionPool,
+        session_token: &Option<String>,
+    ) -> Result<User, ()> {
+        match session_token {
+            Some(session_token) => {
+                match crate::auth::resolve_user_from_session_token(&pool, &session_token).await {
+                    User::AdminUser(user) => {
+                        log::info!("Using admin user: {} 👍👍", user.id());
+                        Ok(User::AdminUser(user))
+                    }
+                    _ => {
+                        log::error!("Only admin allowed 🛑");
+                        Err(())
+                    }
+                }
+            }
+            None => {
+                log::error!("Only admin allowed 🛑");
+                Err(())
+            }
+        }
+    }
 }
 
 mod handlers {
@@ -57,7 +82,7 @@ mod handlers {
     use crate::arangodb::ConnectionPool;
     use crate::graphql_context::Context;
     use crate::graphql_schema::Schema;
-    use crate::models::get_current_user;
+    use crate::models::{get_current_admin_user, get_current_user};
     use crate::sdui::model::component_content::get_content_dataloader;
 
     /// An API error serializable to JSON.
@@ -73,6 +98,32 @@ mod handlers {
         session_token: Option<String>,
     ) -> Result<Box<dyn warp::Reply>, Infallible> {
         match get_current_user(&pool, &session_token).await {
+            Ok(user) => {
+                let context = Context {
+                    pool: pool.clone(),
+                    content_dataloader: get_content_dataloader(&user, &pool),
+                    user,
+                };
+                let response = request.execute(&schema, &context).await;
+                Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
+            }
+            Err(_) => {
+                let code = StatusCode::FORBIDDEN;
+                let json = warp::reply::json(&ErrorMessage {
+                    code: code.as_u16(),
+                });
+                Ok(Box::new(warp::reply::with_status(json, code)))
+            }
+        }
+    }
+
+    pub(crate) async fn graphql_post_backoffice(
+        request: GraphQLRequest,
+        pool: ConnectionPool,
+        schema: Arc<Schema>,
+        session_token: Option<String>,
+    ) -> Result<Box<dyn warp::Reply>, Infallible> {
+        match get_current_admin_user(&pool, &session_token).await {
             Ok(user) => {
                 let context = Context {
                     pool: pool.clone(),
@@ -113,14 +164,16 @@ mod filters {
     use std::sync::Arc;
     use warp::Filter;
 
-    /// The 2 filters combined.
+    /// The 3 filters below combined.
     pub(crate) fn graphql(
         pool: ConnectionPool,
         schema: Schema,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
         let schema = Arc::new(schema); // TODO: is this the right way?
         let post_json_schema = schema.clone();
-        graphql_post(pool.clone(), post_json_schema).or(graphql_multipart(pool))
+        graphql_post(pool.clone(), post_json_schema.clone())
+            .or(graphql_post_backoffice(pool.clone(), post_json_schema))
+            .or(graphql_multipart(pool))
     }
 
     /// POST /graphql with JSON body
@@ -135,6 +188,20 @@ mod filters {
             .and(with_graphql_schema(schema))
             .and(with_session_token())
             .and_then(crate::handlers::graphql_post)
+    }
+
+    /// POST /graphql-backoffice with JSON body
+    pub(crate) fn graphql_post_backoffice(
+        pool: ConnectionPool,
+        schema: Arc<Schema>,
+    ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+        warp::path!("graphql-backoffice")
+            .and(warp::post())
+            .and(with_json_body())
+            .and(with_database_connection_pool(pool))
+            .and(with_graphql_schema(schema))
+            .and(with_session_token())
+            .and_then(crate::handlers::graphql_post_backoffice)
     }
 
     /// POST /graphql-upload with form multipart
@@ -212,8 +279,9 @@ async fn main() {
     let socket = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 8080);
     log::info!(target: "warp_server", "Listening on {}", socket);
     // TODO: how to fetch these routes automatically (?)
-    log::info!(target: "warp_server", " - POST /graphql          (JSON)");
-    log::info!(target: "warp_server", " - POST /graphql-upload   (multipart)");
+    log::info!(target: "warp_server", " - POST /graphql              (JSON)");
+    log::info!(target: "warp_server", " - POST /graphql-backoffice   (JSON)");
+    log::info!(target: "warp_server", " - POST /graphql-upload       (multipart)");
     warp::serve(routes).run(socket).await
 }
 
