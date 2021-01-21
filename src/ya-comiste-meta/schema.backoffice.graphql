@@ -1,107 +1,17 @@
-# @generated SignedSource<<95b81d7c7205aa5c6b3e38299e487799>>
+# @generated SignedSource<<b290be20d90d68588a0c230f8f402937>>
 
-enum PriceSortDirection {
-  LOW_TO_HIGH
-  HIGH_TO_LOW
+input ProductPriceInput {
+  unitAmount: Int!
 }
 
 type POS {
   listProducts: [Product]
 }
 
-type SDUIDescriptionComponent {
-  id: ID!
-  text: String!
-}
-
 "Root mutation of the graph."
 type Mutation {
-  """
-    This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
-    device) and returns authorization payload. There is no concept of sign-in and sign-up
-    because every user with a valid JWT ID token will be either authorized OR registered and
-    authorized. Invalid tokens and disabled tokens will be rejected.
-
-    Please note: repeated calls will result in error since we cannot authorize the user twice
-    and we cannot return the previous token either (since it's hashed).
-  """
-  authorizeMobile(googleIdToken: String!): AuthorizeMobilePayload!
-  """
-    The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
-    make the mobile application unsigned. Mobile applications should remove the session token
-    once deauthorized.
-
-    Repeated calls will result in failure since it's not possible to deauthorize twice.
-  """
-  deauthorizeMobile(sessionToken: String!): DeauthorizeMobilePayload!
   productCreate(productInput: ProductInput!): ProductOrError!
   productDelete(productId: ID!): ProductOrError!
-}
-
-enum ClientLocale {
-  en_US
-  es_MX
-}
-
-input ProductInput {
-  name: String!
-  description: String!
-  images: [String!]!
-  price: ProductPriceInput!
-}
-
-type SDUICardComponent {
-  id: ID!
-  entrypointKey: String!
-  "Title is a crucial part of the card component so it's not optional."
-  title: String!
-  imageBackgroundUrl: String
-}
-
-"Root query of the graph."
-type Query {
-  mobileEntrypointSections(key: String!): [SDUISection!]!
-  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
-  "Returns information about the current user (can be authenticated or anonymous)."
-  whoami: WhoamiPayload!
-  pos: POS!
-}
-
-union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
-
-type WhoamiPayload {
-  id: ID
-  """
-    Human readable type should be used only for testing purposes. The format is not guaranteed
-    and can change in the future completely.
-  """
-  humanReadableType: String
-}
-
-union ProductOrError = Product | ProductError
-
-type ProductError {
-  message: String!
-}
-
-type SDUIScrollViewHorizontalComponent {
-  id: ID!
-  title: String!
-  cards: [SDUICardComponent!]!
-}
-
-type DeauthorizeMobilePayload {
-  success: Boolean!
-}
-
-input ProductPriceInput {
-  unitAmount: Int!
-}
-
-type SDUIJumbotronComponent {
-  id: ID!
-  title: String!
 }
 
 type Product {
@@ -124,6 +34,13 @@ type Product {
   price: ProductPrice!
 }
 
+input ProductInput {
+  name: String!
+  description: String!
+  images: [String!]!
+  price: ProductPriceInput!
+}
+
 type ProductPrice {
   """
     Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
@@ -137,18 +54,26 @@ type ProductPrice {
   unitAmount: Int!
 }
 
-type SDUISection {
-  id: ID!
-  component(supported: [String!]!): SDUIComponent
+"Root query of the graph."
+type Query {
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  pos: POS!
 }
 
-type AuthorizeMobilePayload {
-  success: Boolean!
+type WhoamiPayload {
+  id: ID
   """
-    Session token should be send with every GraphQL request which requires auth.
-    Returns `None` if the request was not successful.
+    Human readable type should be used only for testing purposes. The format is not guaranteed
+    and can change in the future completely.
   """
-  sessionToken: String
+  humanReadableType: String
+}
+
+union ProductOrError = Product | ProductError
+
+type ProductError {
+  message: String!
 }
 
 schema {

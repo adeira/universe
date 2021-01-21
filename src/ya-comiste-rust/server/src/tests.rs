@@ -1,6 +1,6 @@
 use super::filters;
 use crate::arangodb::get_database_connection_pool;
-use crate::graphql_schema::create_graphql_schema;
+use crate::graphql_schema::{create_private_graphql_schema, create_public_graphql_schema};
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
 use warp::http::StatusCode;
@@ -8,9 +8,11 @@ use warp::test::request;
 
 #[tokio::test]
 async fn test_graphql_post_query() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let resp = request()
         .method("POST")
@@ -29,9 +31,11 @@ async fn test_graphql_post_query() {
 
 #[tokio::test]
 async fn test_graphql_post_mutation() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let resp = request()
         .method("POST")
@@ -51,9 +55,11 @@ async fn test_graphql_post_mutation() {
 #[ignore]
 #[tokio::test]
 async fn test_graphql_post_forbidden() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let resp = request()
         .method("POST")
@@ -73,9 +79,11 @@ async fn test_graphql_post_forbidden() {
 
 #[tokio::test]
 async fn test_graphql_multipart_query() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let boundary = "--abcdef1234--";
     let body = format!(
@@ -109,9 +117,11 @@ async fn test_graphql_multipart_query() {
 
 #[tokio::test]
 async fn test_graphql_post_query_fail() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let resp = request()
         .method("POST")
@@ -135,9 +145,11 @@ async fn test_graphql_post_query_fail() {
 
 #[tokio::test]
 async fn test_graphql_unknown_method_get() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let resp = request()
         .method("GET")
@@ -150,9 +162,11 @@ async fn test_graphql_unknown_method_get() {
 
 #[tokio::test]
 async fn test_graphql_syntax_error() {
-    let pool = get_database_connection_pool();
-    let schema = create_graphql_schema();
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(
+        get_database_connection_pool(),
+        create_public_graphql_schema(),
+        create_private_graphql_schema(),
+    );
 
     let resp = request()
         .method("POST")

@@ -1,5 +1,5 @@
 use crate::arangodb::get_database_connection_pool;
-use graphql_schema::create_graphql_schema;
+use graphql_schema::{create_private_graphql_schema, create_public_graphql_schema};
 use std::net::{Ipv4Addr, SocketAddrV4};
 use warp::Filter;
 
@@ -81,7 +81,7 @@ mod handlers {
 
     use crate::arangodb::ConnectionPool;
     use crate::graphql_context::Context;
-    use crate::graphql_schema::Schema;
+    use crate::graphql_schema::{PrivateSchema, PublicSchema};
     use crate::models::{get_current_admin_user, get_current_user};
     use crate::sdui::model::component_content::get_content_dataloader;
 
@@ -94,7 +94,7 @@ mod handlers {
     pub(crate) async fn graphql_post(
         request: GraphQLRequest,
         pool: ConnectionPool,
-        schema: Arc<Schema>,
+        public_schema: Arc<PublicSchema>,
         session_token: Option<String>,
     ) -> Result<Box<dyn warp::Reply>, Infallible> {
         match get_current_user(&pool, &session_token).await {
@@ -104,7 +104,7 @@ mod handlers {
                     content_dataloader: get_content_dataloader(&user, &pool),
                     user,
                 };
-                let response = request.execute(&schema, &context).await;
+                let response = request.execute(&public_schema, &context).await;
                 Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
             }
             Err(_) => {
@@ -120,7 +120,7 @@ mod handlers {
     pub(crate) async fn graphql_post_backoffice(
         request: GraphQLRequest,
         pool: ConnectionPool,
-        schema: Arc<Schema>,
+        private_schema: Arc<PrivateSchema>,
         session_token: Option<String>,
     ) -> Result<Box<dyn warp::Reply>, Infallible> {
         match get_current_admin_user(&pool, &session_token).await {
@@ -130,7 +130,7 @@ mod handlers {
                     content_dataloader: get_content_dataloader(&user, &pool),
                     user,
                 };
-                let response = request.execute(&schema, &context).await;
+                let response = request.execute(&private_schema, &context).await;
                 Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
             }
             Err(_) => {
@@ -158,7 +158,7 @@ mod handlers {
 
 mod filters {
     use crate::arangodb::ConnectionPool;
-    use crate::graphql_schema::Schema;
+    use crate::graphql_schema::{PrivateSchema, PublicSchema};
     use crate::headers::parse_authorization_header;
     use juniper::http::GraphQLRequest;
     use std::sync::Arc;
@@ -167,25 +167,26 @@ mod filters {
     /// The 3 filters below combined.
     pub(crate) fn graphql(
         pool: ConnectionPool,
-        schema: Schema,
+        public_schema: PublicSchema,
+        private_schema: PrivateSchema,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
-        let schema = Arc::new(schema); // TODO: is this the right way?
-        let post_json_schema = schema.clone();
-        graphql_post(pool.clone(), post_json_schema.clone())
-            .or(graphql_post_backoffice(pool.clone(), post_json_schema))
+        let public_schema = Arc::new(public_schema); // TODO: is this the right way?
+        let private_schema = Arc::new(private_schema); // TODO: is this the right way?
+        graphql_post(pool.clone(), public_schema.clone())
+            .or(graphql_post_backoffice(pool.clone(), private_schema))
             .or(graphql_multipart(pool))
     }
 
     /// POST /graphql with JSON body
     pub(crate) fn graphql_post(
         pool: ConnectionPool,
-        schema: Arc<Schema>,
+        public_schema: Arc<PublicSchema>,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
         warp::path!("graphql")
             .and(warp::post())
             .and(with_json_body())
             .and(with_database_connection_pool(pool))
-            .and(with_graphql_schema(schema))
+            .and(with_public_graphql_schema(public_schema))
             .and(with_session_token())
             .and_then(crate::handlers::graphql_post)
     }
@@ -193,13 +194,13 @@ mod filters {
     /// POST /graphql-backoffice with JSON body
     pub(crate) fn graphql_post_backoffice(
         pool: ConnectionPool,
-        schema: Arc<Schema>,
+        private_schema: Arc<PrivateSchema>,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
         warp::path!("graphql-backoffice")
             .and(warp::post())
             .and(with_json_body())
             .and(with_database_connection_pool(pool))
-            .and(with_graphql_schema(schema))
+            .and(with_private_graphql_schema(private_schema))
             .and(with_session_token())
             .and_then(crate::handlers::graphql_post_backoffice)
     }
@@ -229,10 +230,17 @@ mod filters {
         warp::any().map(move || pool.clone())
     }
 
-    fn with_graphql_schema(
-        schema: Arc<Schema>,
-    ) -> impl Filter<Extract = (Arc<Schema>,), Error = std::convert::Infallible> + Clone {
-        warp::any().map(move || schema.clone())
+    fn with_public_graphql_schema(
+        public_schema: Arc<PublicSchema>,
+    ) -> impl Filter<Extract = (Arc<PublicSchema>,), Error = std::convert::Infallible> + Clone {
+        warp::any().map(move || public_schema.clone())
+    }
+
+    fn with_private_graphql_schema(
+        private_schema: Arc<PrivateSchema>,
+    ) -> impl Filter<Extract = (Arc<PrivateSchema>,), Error = std::convert::Infallible> + Clone
+    {
+        warp::any().map(move || private_schema.clone())
     }
 
     fn with_session_token(
@@ -265,7 +273,8 @@ async fn main() {
     // But we do it now for the simplicity.
     migrations::migrate(&pool).await;
 
-    let schema = create_graphql_schema();
+    let public_graphql_schema = create_public_graphql_schema();
+    let private_graphql_schema = create_private_graphql_schema();
 
     let cors = warp::cors()
         .allow_any_origin() // TODO
@@ -273,7 +282,7 @@ async fn main() {
         .allow_methods(vec![warp::http::Method::POST]);
 
     // This opens a possibility for other REST endpoints (webhooks for example).
-    let api = filters::graphql(pool, schema);
+    let api = filters::graphql(pool, public_graphql_schema, private_graphql_schema);
     let routes = api.with(warp::log("warp_server")).with(cors);
 
     let socket = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 8080);
