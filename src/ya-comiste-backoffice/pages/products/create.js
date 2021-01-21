@@ -4,55 +4,59 @@ import * as React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import sx from '@adeira/sx';
 
+import Layout from '../../src/Layout';
+
 export default function ProductsCreatePage(): React.Node {
   return (
-    <Formik
-      initialValues={{
-        name: '',
-        description: '',
-      }}
-      validate={(values) => {
-        const errors = {};
-        if (!values.name) {
-          errors.name = 'Product name is required';
-        }
-        if (!values.description) {
-          errors.description = 'Product description is required';
-        }
-        return errors;
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          // eslint-disable-next-line no-undef,no-alert
-          alert(JSON.stringify(values, null, 2)); // TODO (graphql mutation)
-          setSubmitting(false);
-        }, 400);
-      }}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <div className={styles('row')}>
-            <label>
-              Product name
-              <Field type="text" name="name" />
-              <ErrorMessage name="name" component={CustomErrorMessage} />
-            </label>
-          </div>
+    <Layout>
+      <Formik
+        initialValues={{
+          name: '',
+          description: '',
+        }}
+        validate={(values) => {
+          const errors = {};
+          if (!values.name) {
+            errors.name = 'Product name is required';
+          }
+          if (!values.description) {
+            errors.description = 'Product description is required';
+          }
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            // eslint-disable-next-line no-undef,no-alert
+            alert(JSON.stringify(values, null, 2)); // TODO (graphql mutation)
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <div className={styles('row')}>
+              <label>
+                Product name
+                <Field type="text" name="name" />
+                <ErrorMessage name="name" component={CustomErrorMessage} />
+              </label>
+            </div>
 
-          <div className={styles('row')}>
-            <label>
-              Product description
-              <Field type="text" name="description" as="textarea" />
-              <ErrorMessage name="description" component={CustomErrorMessage} />
-            </label>
-          </div>
+            <div className={styles('row')}>
+              <label>
+                Product description
+                <Field type="text" name="description" as="textarea" />
+                <ErrorMessage name="description" component={CustomErrorMessage} />
+              </label>
+            </div>
 
-          <button type="submit" disabled={isSubmitting}>
-            Create
-          </button>
-        </Form>
-      )}
-    </Formik>
+            <button type="submit" disabled={isSubmitting}>
+              Create
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </Layout>
   );
 }
 

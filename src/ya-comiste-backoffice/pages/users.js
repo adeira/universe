@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 
+import Layout from '../src/Layout';
+
 export default function UsersPage(): React.Node {
-  return <div>TODO (view users, change permissions)</div>;
+  return <Layout>TODO (view users, change permissions)</Layout>;
 }

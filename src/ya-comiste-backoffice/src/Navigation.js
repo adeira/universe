@@ -2,29 +2,21 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import Link from 'next/link';
 import fbt from 'fbt';
+
+import Link from './Link';
 
 export default function Navigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <Link href="/">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a>
-          <fbt desc="navigation link to the homepage">Home</fbt>
-        </a>
+        <fbt desc="navigation link to the homepage">Home</fbt>
       </Link>
       <Link href="/products">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a>
-          <fbt desc="navigation link to products">Products</fbt>
-        </a>
+        <fbt desc="navigation link to products">Products</fbt>
       </Link>
       <Link href="/users">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a>
-          <fbt desc="navigation link to users">Users</fbt>
-        </a>
+        <fbt desc="navigation link to users">Users</fbt>
       </Link>
 
       <div className={styles('separator')}>
@@ -32,10 +24,7 @@ export default function Navigation(): React.Node {
       </div>
 
       <Link href="/pos">
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a>
-          <fbt desc="navigation link to point of sales">POS</fbt>
-        </a>
+        <fbt desc="navigation link to point of sales">POS</fbt>
       </Link>
     </nav>
   );
