@@ -20,28 +20,27 @@ mod models {
     pub(crate) async fn get_current_user(
         pool: &ConnectionPool,
         session_token: &Option<String>,
-    ) -> User {
+    ) -> Result<User, ()> {
         match session_token {
             Some(session_token) => {
                 match crate::auth::resolve_user_from_session_token(&pool, &session_token).await {
                     User::AdminUser(user) => {
                         log::info!("Using admin user: {} 👍👍", user.id());
-                        User::AdminUser(user)
+                        Ok(User::AdminUser(user))
                     }
-                    User::AnonymousUser(user) => {
-                        // TODO: should at this point anonymous user be considered an error (?)
-                        log::info!("Using anonymous user (unmatched session token) 👊");
-                        User::AnonymousUser(user)
+                    User::AnonymousUser(_) => {
+                        log::error!("Unmatched session token 🛑");
+                        Err(())
                     }
                     User::AuthorizedUser(user) => {
                         log::info!("Using authorized user: {} 👍", user.id());
-                        User::AuthorizedUser(user)
+                        Ok(User::AuthorizedUser(user))
                     }
                 }
             }
             None => {
-                log::warn!("Using anonymous user (unable to extract 'authorization' header) 👎");
-                User::AnonymousUser(AnonymousUser::new())
+                log::info!("Using anonymous user (no 'authorization' header) 👍");
+                Ok(User::AnonymousUser(AnonymousUser::new()))
             }
         }
     }
@@ -61,20 +60,36 @@ mod handlers {
     use crate::models::get_current_user;
     use crate::sdui::model::component_content::get_content_dataloader;
 
+    /// An API error serializable to JSON.
+    #[derive(serde::Serialize)]
+    struct ErrorMessage {
+        code: u16,
+    }
+
     pub(crate) async fn graphql_post(
         request: GraphQLRequest,
         pool: ConnectionPool,
         schema: Arc<Schema>,
         session_token: Option<String>,
-    ) -> Result<impl warp::Reply, Infallible> {
-        let user = get_current_user(&pool, &session_token).await;
-        let context = Context {
-            pool: pool.clone(),
-            content_dataloader: get_content_dataloader(&user, &pool),
-            user, // TODO: should be only authorized OR anonymous (not unathorized?)
-        };
-        let response = request.execute(&schema, &context).await;
-        Ok(warp::reply::json(&response)) // TODO: take `response.is_ok()` into account
+    ) -> Result<Box<dyn warp::Reply>, Infallible> {
+        match get_current_user(&pool, &session_token).await {
+            Ok(user) => {
+                let context = Context {
+                    pool: pool.clone(),
+                    content_dataloader: get_content_dataloader(&user, &pool),
+                    user,
+                };
+                let response = request.execute(&schema, &context).await;
+                Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
+            }
+            Err(_) => {
+                let code = StatusCode::FORBIDDEN;
+                let json = warp::reply::json(&ErrorMessage {
+                    code: code.as_u16(),
+                });
+                Ok(Box::new(warp::reply::with_status(json, code)))
+            }
+        }
     }
 
     pub(crate) async fn graphql_multipart(
@@ -159,7 +174,7 @@ mod filters {
             match auth_header {
                 Some(auth_header) => match parse_authorization_header(&*auth_header) {
                     Ok(session_token) => Some(session_token),
-                    Err(_) => None,
+                    Err(_) => None, // TODO: reject instead (?)
                 },
                 None => None,
             }
