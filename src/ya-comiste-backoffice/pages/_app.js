@@ -5,8 +5,11 @@ import * as React from 'react';
 
 import '../styles/globals.css';
 import Navigation from '../src/Navigation';
+import initTranslations from '../translations/init';
 
 export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node {
+  initTranslations();
+
   return (
     <div className={styles('mainGrid')}>
       <header className={styles('navigation')}>
