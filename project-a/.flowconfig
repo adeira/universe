@@ -19,7 +19,6 @@ untyped-import=off
 
 [options]
 facebook.fbt=FbtWithoutString
-types_first=true
 module.ignore_non_literal_requires=true
 
 ; TODO: this is probably not a good idea (because of Universe)
