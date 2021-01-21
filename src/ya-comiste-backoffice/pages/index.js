@@ -3,6 +3,8 @@
 import * as React from 'react';
 import { createEnvironment, createNetworkFetcher, graphql, QueryRenderer } from '@adeira/relay';
 
+import Layout from '../src/Layout';
+
 const Environment = createEnvironment({
   fetchFn: createNetworkFetcher('http://127.0.0.1:8080/graphql', {
     'X-Client': 'ya-comiste-backoffice',
@@ -11,7 +13,7 @@ const Environment = createEnvironment({
 
 export default function Home(): React.Node {
   return (
-    <div>
+    <Layout>
       TODO (dashboard)
       <hr />
       <QueryRenderer
@@ -29,6 +31,6 @@ export default function Home(): React.Node {
           return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
         }}
       />
-    </div>
+    </Layout>
   );
 }
