@@ -52,9 +52,6 @@ const styles = sx.create({
   },
   main: {
     color: 'var(--font-color-dark)',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
     maxWidth: '45rem',
     margin: '0 auto',
     minHeight: '40vh',
