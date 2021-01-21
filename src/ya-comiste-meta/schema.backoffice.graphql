@@ -1,8 +1,12 @@
-# @generated SignedSource<<c24f9690e86484dc6625055d16ad005c>>
+# @generated SignedSource<<95b81d7c7205aa5c6b3e38299e487799>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
   HIGH_TO_LOW
+}
+
+type POS {
+  listProducts: [Product]
 }
 
 type SDUIDescriptionComponent {
@@ -61,6 +65,7 @@ type Query {
   getProduct(clientLocale: ClientLocale!, productId: ID!): Product
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
+  pos: POS!
 }
 
 union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent

@@ -1,15 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import { createEnvironment, createNetworkFetcher, graphql, QueryRenderer } from '@adeira/relay';
+import { graphql } from '@adeira/relay';
 
 import Layout from '../src/Layout';
-
-const Environment = createEnvironment({
-  fetchFn: createNetworkFetcher('http://127.0.0.1:8080/graphql', {
-    'X-Client': 'ya-comiste-backoffice',
-  }),
-});
+import QueryRenderer from '../src/QueryRenderer';
 
 export default function Home(): React.Node {
   return (
@@ -17,7 +12,6 @@ export default function Home(): React.Node {
       TODO (dashboard)
       <hr />
       <QueryRenderer
-        environment={Environment}
         /* eslint-disable relay/unused-fields */
         query={graphql`
           query pagesQuery {
