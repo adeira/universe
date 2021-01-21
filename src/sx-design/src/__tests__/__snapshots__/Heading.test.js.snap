@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders maximum 6 levels 1`] = `
+"<h1>level one</h1>
+<section>
+  <h2>level two</h2>
+  <section>
+    <h3>level three</h3>
+    <section>
+      <h4>level four</h4>
+      <section>
+        <h5>level five</h5>
+        <section>
+          <h6>level six</h6>
+          <section>
+            <h6>level six again</h6>
+            <h6>level six again</h6>
+          </section>
+          <h6>level six</h6>
+        </section>
+        <h5>level five</h5>
+      </section>
+      <h4>level four</h4>
+    </section>
+    <h3>level three</h3>
+  </section>
+  <h2>level two</h2>
+</section>
+"
+`;
