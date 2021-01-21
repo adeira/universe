@@ -3,7 +3,10 @@ use crate::sdui::sdui_section::SDUISection;
 use juniper::{EmptySubscription, FieldResult, RootNode};
 
 #[derive(Clone, Copy, Debug)]
-pub struct Query;
+pub struct PublicQuery;
+
+#[derive(Clone, Copy, Debug)]
+pub struct PrivateQuery;
 
 /// Unfortunately, due to Rust limitations, it's not possible to implement custom queries per crate.
 /// Therefore, we have to have one main "god" query which exposes the public interface. Good side of
@@ -14,9 +17,7 @@ pub struct Query;
     name = "Query",
     description = "Root query of the graph.",
 )]
-impl Query {
-    // TODO: separate public and backoffice GraphQL schema
-
+impl PublicQuery {
     async fn mobile_entrypoint_sections(
         key: String,
         context: &Context,
@@ -46,7 +47,14 @@ impl Query {
     ) -> Option<crate::commerce::api::Product> {
         crate::commerce::api::get_product(&context, &client_locale, &product_id.to_string()).await
     }
+}
 
+#[juniper::graphql_object(
+    context = Context,
+    name = "Query",
+    description = "Root query of the graph.",
+)]
+impl PrivateQuery {
     /// Returns information about the current user (can be authenticated or anonymous).
     async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
         crate::auth::api::whoami(context).await
@@ -58,16 +66,17 @@ impl Query {
 }
 
 #[derive(Clone, Copy, Debug)]
-pub struct Mutation;
+pub struct PublicMutation;
+
+#[derive(Clone, Copy, Debug)]
+pub struct PrivateMutation;
 
 #[juniper::graphql_object(
     context = Context,
     name = "Mutation",
     description = "Root mutation of the graph.",
 )]
-impl Mutation {
-    // TODO: separate public and backoffice GraphQL schema
-
+impl PublicMutation {
     /// This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
     /// device) and returns authorization payload. There is no concept of sign-in and sign-up
     /// because every user with a valid JWT ID token will be either authorized OR registered and
@@ -93,7 +102,14 @@ impl Mutation {
     ) -> crate::auth::api::DeauthorizeMobilePayload {
         crate::auth::api::deauthorize_mobile(&session_token, &context).await
     }
+}
 
+#[juniper::graphql_object(
+    context = Context,
+    name = "Mutation",
+    description = "Root mutation of the graph.",
+)]
+impl PrivateMutation {
     async fn product_create(
         context: &Context,
         product_input: crate::commerce::api::ProductInput,
@@ -109,10 +125,25 @@ impl Mutation {
     }
 }
 
-pub type Schema = RootNode<'static, Query, Mutation, EmptySubscription<Context>>;
+pub type PublicSchema = RootNode<'static, PublicQuery, PublicMutation, EmptySubscription<Context>>;
 
-pub fn create_graphql_schema() -> Schema {
-    Schema::new(Query, Mutation, EmptySubscription::<Context>::new())
+pub fn create_public_graphql_schema() -> PublicSchema {
+    PublicSchema::new(
+        PublicQuery,
+        PublicMutation,
+        EmptySubscription::<Context>::new(),
+    )
+}
+
+pub type PrivateSchema =
+    RootNode<'static, PrivateQuery, PrivateMutation, EmptySubscription<Context>>;
+
+pub fn create_private_graphql_schema() -> PrivateSchema {
+    PrivateSchema::new(
+        PrivateQuery,
+        PrivateMutation,
+        EmptySubscription::<Context>::new(),
+    )
 }
 
 #[cfg(test)]
@@ -120,18 +151,15 @@ mod tests {
     use std::fs;
     use std::path::Path;
 
-    fn test_graphql_schema_snapshot(new_schema_path: &str, saved_schema_path: &str) {
+    fn test_graphql_schema_snapshot(schema: &str, new_schema_path: &str, saved_schema_path: &str) {
         let saved_schema_snapshot =
             fs::read_to_string(saved_schema_path).expect("unable to read schema file");
 
         assert!(signedsource::is_signed(&saved_schema_snapshot));
         assert!(signedsource::is_valid_signature(&saved_schema_snapshot));
 
-        let new_schema_snapshot = signedsource::sign_file(&format!(
-            "# {}\n\n{}",
-            signedsource::SIGNING_TOKEN,
-            super::create_graphql_schema().as_schema_language()
-        ));
+        let new_schema_snapshot =
+            signedsource::sign_file(&format!("# {}\n\n{}", signedsource::SIGNING_TOKEN, schema));
 
         if saved_schema_snapshot != new_schema_snapshot {
             fs::write(new_schema_path, new_schema_snapshot)
@@ -151,7 +179,11 @@ mod tests {
         // public clients. How to do it better?
         let new_schema_path = "./../../ya-comiste-meta/schema.public.graphql.new";
         let saved_schema_path = "./../../ya-comiste-meta/schema.public.graphql";
-        test_graphql_schema_snapshot(new_schema_path, saved_schema_path);
+        test_graphql_schema_snapshot(
+            &super::create_public_graphql_schema().as_schema_language(),
+            &new_schema_path,
+            &saved_schema_path,
+        );
     }
 
     #[test]
@@ -160,6 +192,10 @@ mod tests {
         // backoffice clients. How to do it better?
         let new_schema_path = "./../../ya-comiste-meta/schema.backoffice.graphql.new";
         let saved_schema_path = "./../../ya-comiste-meta/schema.backoffice.graphql";
-        test_graphql_schema_snapshot(new_schema_path, saved_schema_path);
+        test_graphql_schema_snapshot(
+            &super::create_private_graphql_schema().as_schema_language(),
+            &new_schema_path,
+            &saved_schema_path,
+        );
     }
 }
