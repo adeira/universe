@@ -1,0 +1,75 @@
+{
+  "phrases": [
+    {
+      "hashToText": {
+        "EX/o2WuR0ou1BNovRq6qGw==": "Home"
+      },
+      "filepath": "src/Navigation.js",
+      "line_beg": 14,
+      "col_beg": 10,
+      "line_end": 14,
+      "col_end": 64,
+      "desc": "navigation link to the homepage",
+      "project": "",
+      "type": "text",
+      "jsfbt": "Home"
+    },
+    {
+      "hashToText": {
+        "LoFyLbW8JA2D6AsDR+C2sw==": "Products"
+      },
+      "filepath": "src/Navigation.js",
+      "line_beg": 20,
+      "col_beg": 10,
+      "line_end": 20,
+      "col_end": 64,
+      "desc": "navigation link to products",
+      "project": "",
+      "type": "text",
+      "jsfbt": "Products"
+    },
+    {
+      "hashToText": {
+        "/c/KJABZ8aQaoTbRsJOIPg==": "Users"
+      },
+      "filepath": "src/Navigation.js",
+      "line_beg": 26,
+      "col_beg": 10,
+      "line_end": 26,
+      "col_end": 58,
+      "desc": "navigation link to users",
+      "project": "",
+      "type": "text",
+      "jsfbt": "Users"
+    },
+    {
+      "hashToText": {
+        "ZeDRJ5cUr5jhEkyCMgIPmA==": "POS"
+      },
+      "filepath": "src/Navigation.js",
+      "line_beg": 37,
+      "col_beg": 10,
+      "line_end": 37,
+      "col_end": 65,
+      "desc": "navigation link to point of sales",
+      "project": "",
+      "type": "text",
+      "jsfbt": "POS"
+    },
+    {
+      "hashToText": {
+        "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
+      },
+      "filepath": "pages/products.js",
+      "line_beg": 13,
+      "col_beg": 10,
+      "line_end": 13,
+      "col_end": 78,
+      "desc": "link for create a new product",
+      "project": "",
+      "type": "text",
+      "jsfbt": "Create a new product"
+    }
+  ],
+  "childParentMappings": {}
+}
