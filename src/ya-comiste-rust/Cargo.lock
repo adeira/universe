@@ -287,7 +287,7 @@ dependencies = [
 [[package]]
 name = "blurhash-wasm"
 version = "0.2.0"
-source = "git+https://github.com/fpapado/blurhash-rust-wasm?branch=master#2dfccd19ac39b2f1427e6100c1f342c4a9c78535"
+source = "git+https://github.com/fpapado/blurhash-rust-wasm?branch=master#a81e33c46a10a63f1f0ed25aa48a6e3066d26804"
 dependencies = [
  "console_error_panic_hook",
  "js-sys",
