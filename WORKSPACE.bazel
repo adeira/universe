@@ -72,3 +72,23 @@ http_archive(
 load("@com_github_bazelbuild_buildtools//buildifier:deps.bzl", "buildifier_dependencies")
 
 buildifier_dependencies()
+
+# Rust support:
+
+http_archive(
+    name = "io_bazel_rules_rust",
+    sha256 = "132d5a98a5f1697e8b418cd04d370736659afa159728ae616daae39a2d955dd4",
+    strip_prefix = "rules_rust-951eae5f2131648637c4eb943c9899f92af2ff65",
+    urls = [
+        # Master branch as of 21 Jan 2021
+        "https://github.com/bazelbuild/rules_rust/archive/951eae5f2131648637c4eb943c9899f92af2ff65.tar.gz",
+    ],
+)
+
+load("@io_bazel_rules_rust//rust:repositories.bzl", "rust_repositories")
+
+rust_repositories(version = "1.49.0", edition = "2018")
+
+load("//third_party/cargo:crates.bzl", "raze_fetch_remote_crates")
+
+raze_fetch_remote_crates()

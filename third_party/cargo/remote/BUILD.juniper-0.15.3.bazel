@@ -1,0 +1,81 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load(
+    "@io_bazel_rules_rust//rust:rust.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_test",
+)
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//third_party/cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "restricted",  # BSD-2-Clause from expression "BSD-2-Clause"
+])
+
+# Generated Targets
+
+# Unsupported target "bench" with type "bench" omitted
+
+rust_library(
+    name = "juniper",
+    srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "bson",
+        "chrono",
+        "default",
+        "graphql-parser",
+        "graphql-parser-integration",
+        "schema-language",
+        "url",
+        "uuid",
+    ],
+    crate_root = "src/lib.rs",
+    crate_type = "lib",
+    data = [] + [
+        "src/introspection/query.graphql",
+        "src/introspection/query_without_descriptions.graphql",
+    ],
+    edition = "2018",
+    proc_macro_deps = [
+        "@raze__async_trait__0_1_42//:async_trait",
+        "@raze__futures_enum__0_1_15//:futures_enum",
+        "@raze__juniper_codegen__0_15_3//:juniper_codegen",
+    ],
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+    version = "0.15.3",
+    # buildifier: leave-alone
+    deps = [
+        "@raze__bson__1_1_0//:bson",
+        "@raze__chrono__0_4_19//:chrono",
+        "@raze__fnv__1_0_7//:fnv",
+        "@raze__futures__0_3_12//:futures",
+        "@raze__graphql_parser__0_3_0//:graphql_parser",
+        "@raze__indexmap__1_6_0//:indexmap",
+        "@raze__serde__1_0_123//:serde",
+        "@raze__static_assertions__1_1_0//:static_assertions",
+        "@raze__url__2_2_0//:url",
+        "@raze__uuid__0_8_1//:uuid",
+    ],
+)
