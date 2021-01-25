@@ -65,38 +65,6 @@ async fn test_graphql_post_forbidden() {
 }
 
 #[tokio::test]
-async fn test_graphql_multipart_query() {
-    let boundary = "--abcdef1234--";
-    let body = format!(
-        r#"
-         --{0}
-         content-disposition: form-data; name="query"
-
-         query {{ __typename }}
-         --{0}--
-         "#,
-        boundary
-    );
-
-    let resp = request()
-        .method("POST")
-        .path("/graphql-upload")
-        .header("content-length", body.len())
-        .header(
-            "content-type",
-            format!("multipart/form-data; boundary={}", boundary),
-        )
-        .body(body)
-        .reply(&create_graphql_api_filter())
-        .await;
-
-    assert_eq!(resp.status(), StatusCode::NOT_IMPLEMENTED);
-}
-
-// TODO: test_graphql_multipart_mutation
-// TODO: test_graphql_multipart_forbidden
-
-#[tokio::test]
 async fn test_graphql_post_query_fail() {
     let resp = request()
         .method("POST")
@@ -116,6 +84,37 @@ async fn test_graphql_post_query_fail() {
     );
 }
 
+#[tokio::test]
+async fn test_graphql_multipart_query() {
+    let boundary = "--abcdef1234--";
+    let body = format!(
+        r#"
+         --{0}
+         content-disposition: form-data; name="query"
+
+         query {{ __typename }}
+         --{0}--
+         "#,
+        boundary
+    );
+
+    let resp = request()
+        .method("POST")
+        .path("/graphql")
+        .header("content-length", body.len())
+        .header(
+            "content-type",
+            format!("multipart/form-data; boundary={}", boundary),
+        )
+        .body(body)
+        .reply(&create_graphql_api_filter())
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::NOT_IMPLEMENTED);
+}
+
+// TODO: test_graphql_multipart_mutation
+// TODO: test_graphql_multipart_forbidden
 // TODO: test_graphql_multipart_query_fail
 
 #[tokio::test]
@@ -127,6 +126,17 @@ async fn test_graphql_unknown_method_get() {
         .await;
 
     assert_eq!(resp.status(), StatusCode::METHOD_NOT_ALLOWED);
+}
+
+#[tokio::test]
+async fn test_graphql_unknown_path() {
+    let resp = request()
+        .method("POST")
+        .path("/graphqlx")
+        .reply(&create_graphql_api_filter())
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::NOT_FOUND);
 }
 
 #[tokio::test]

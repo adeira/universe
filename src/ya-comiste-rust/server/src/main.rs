@@ -97,7 +97,7 @@ mod handlers {
         form_data: FormData,
         _pool: ConnectionPool,
     ) -> Result<impl warp::Reply, Infallible> {
-        let parts: Result<Vec<Part>, warp::Error> = form_data.try_collect().await;
+        let _parts: Result<Vec<Part>, warp::Error> = form_data.try_collect().await;
         // TODO: implement (https://blog.logrocket.com/file-upload-and-download-in-rust/)
         //  - process the query (via `graphql_post`)
         //  - process the files (limit `content_type` and file size)
@@ -114,7 +114,7 @@ mod filters {
     use std::sync::Arc;
     use warp::Filter;
 
-    /// The 3 filters below combined.
+    /// The 2 GraphQL filters below combined.
     pub(crate) fn graphql(
         pool: ConnectionPool,
         schema: Schema,
@@ -123,7 +123,7 @@ mod filters {
         graphql_post(pool.clone(), schema).or(graphql_multipart(pool))
     }
 
-    /// POST /graphql with JSON body
+    /// POST /graphql with 'application/json' body
     pub(crate) fn graphql_post(
         pool: ConnectionPool,
         schema: Arc<Schema>,
@@ -137,11 +137,11 @@ mod filters {
             .and_then(crate::handlers::graphql_post)
     }
 
-    /// POST /graphql-upload with form multipart
+    /// POST /graphql with 'multipart/form-data' body
     pub(crate) fn graphql_multipart(
         pool: ConnectionPool,
     ) -> impl Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
-        warp::path!("graphql-upload")
+        warp::path!("graphql")
             .and(warp::post())
             .and(warp::multipart::form())
             .and(with_database_connection_pool(pool))
@@ -211,9 +211,9 @@ async fn main() {
 
     let socket = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 8080);
     log::info!(target: "warp_server", "Listening on {}", socket);
-    // TODO: how to fetch these routes automatically (?)
-    log::info!(target: "warp_server", " - POST /graphql          (JSON)");
-    log::info!(target: "warp_server", " - POST /graphql-upload   (multipart)"); // TODO: merge into `/graphql`
+    // TODO: how to display these routes automatically (?)
+    log::info!(target: "warp_server", " - POST /graphql   (application/json)");
+    log::info!(target: "warp_server", " - POST /graphql   (multipart/form-data)");
     warp::serve(routes).run(socket).await
 }
 
