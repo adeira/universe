@@ -1,19 +1,18 @@
 use super::filters;
 use crate::arangodb::get_database_connection_pool;
-use crate::graphql_schema::{create_private_graphql_schema, create_public_graphql_schema};
+use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
 use warp::http::StatusCode;
 use warp::test::request;
 
+fn create_graphql_api_filter(
+) -> impl warp::Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+    filters::graphql(get_database_connection_pool(), create_graphql_schema())
+}
+
 #[tokio::test]
 async fn test_graphql_post_query() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let resp = request()
         .method("POST")
         .path("/graphql")
@@ -22,7 +21,7 @@ async fn test_graphql_post_query() {
             None,
             None,
         ))
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -31,12 +30,6 @@ async fn test_graphql_post_query() {
 
 #[tokio::test]
 async fn test_graphql_post_mutation() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let resp = request()
         .method("POST")
         .path("/graphql")
@@ -45,7 +38,7 @@ async fn test_graphql_post_mutation() {
             None,
             None,
         ))
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -55,12 +48,6 @@ async fn test_graphql_post_mutation() {
 #[ignore]
 #[tokio::test]
 async fn test_graphql_post_forbidden() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let resp = request()
         .method("POST")
         .path("/graphql")
@@ -70,7 +57,7 @@ async fn test_graphql_post_forbidden() {
             None,
             None,
         ))
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -79,12 +66,6 @@ async fn test_graphql_post_forbidden() {
 
 #[tokio::test]
 async fn test_graphql_multipart_query() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let boundary = "--abcdef1234--";
     let body = format!(
         r#"
@@ -106,7 +87,7 @@ async fn test_graphql_multipart_query() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::NOT_IMPLEMENTED);
@@ -117,12 +98,6 @@ async fn test_graphql_multipart_query() {
 
 #[tokio::test]
 async fn test_graphql_post_query_fail() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let resp = request()
         .method("POST")
         .path("/graphql")
@@ -131,7 +106,7 @@ async fn test_graphql_post_query_fail() {
             None,
             None,
         ))
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -145,16 +120,10 @@ async fn test_graphql_post_query_fail() {
 
 #[tokio::test]
 async fn test_graphql_unknown_method_get() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let resp = request()
         .method("GET")
         .path("/graphql?query={__typename}")
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::METHOD_NOT_ALLOWED);
@@ -162,12 +131,6 @@ async fn test_graphql_unknown_method_get() {
 
 #[tokio::test]
 async fn test_graphql_syntax_error() {
-    let api = filters::graphql(
-        get_database_connection_pool(),
-        create_public_graphql_schema(),
-        create_private_graphql_schema(),
-    );
-
     let resp = request()
         .method("POST")
         .path("/graphql")
@@ -176,7 +139,7 @@ async fn test_graphql_syntax_error() {
             None,
             None,
         ))
-        .reply(&api)
+        .reply(&create_graphql_api_filter())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
