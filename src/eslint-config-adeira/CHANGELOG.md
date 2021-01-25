@@ -1,6 +1,9 @@
 # Unreleased
 
+# 4.4.0
+
 - Rule [`react/jsx-no-constructed-context-values`](https://github.com/yannickcr/eslint-plugin-react/pull/2763) enabled (warnings or errors in strict mode).
+- Upgrade dependencies
 
 # 4.3.0
 
