@@ -1,18 +1,12 @@
-# @generated SignedSource<<69b1e09a27a8e901d38c8f4b856dd31c>>
-
-type SDUIScrollViewHorizontalComponent {
-  id: ID!
-  title: String!
-  cards: [SDUICardComponent!]!
-}
+# @generated SignedSource<<95b81d7c7205aa5c6b3e38299e487799>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
   HIGH_TO_LOW
 }
 
-type DeauthorizeMobilePayload {
-  success: Boolean!
+type POS {
+  listProducts: [Product]
 }
 
 type SDUIDescriptionComponent {
@@ -40,6 +34,69 @@ type Mutation {
     Repeated calls will result in failure since it's not possible to deauthorize twice.
   """
   deauthorizeMobile(sessionToken: String!): DeauthorizeMobilePayload!
+  productCreate(productInput: ProductInput!): ProductOrError!
+  productDelete(productId: ID!): ProductOrError!
+}
+
+enum ClientLocale {
+  en_US
+  es_MX
+}
+
+input ProductInput {
+  name: String!
+  description: String!
+  images: [String!]!
+  price: ProductPriceInput!
+}
+
+type SDUICardComponent {
+  id: ID!
+  entrypointKey: String!
+  "Title is a crucial part of the card component so it's not optional."
+  title: String!
+  imageBackgroundUrl: String
+}
+
+"Root query of the graph."
+type Query {
+  mobileEntrypointSections(key: String!): [SDUISection!]!
+  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  pos: POS!
+}
+
+union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
+
+type WhoamiPayload {
+  id: ID
+  """
+    Human readable type should be used only for testing purposes. The format is not guaranteed
+    and can change in the future completely.
+  """
+  humanReadableType: String
+}
+
+union ProductOrError = Product | ProductError
+
+type ProductError {
+  message: String!
+}
+
+type SDUIScrollViewHorizontalComponent {
+  id: ID!
+  title: String!
+  cards: [SDUICardComponent!]!
+}
+
+type DeauthorizeMobilePayload {
+  success: Boolean!
+}
+
+input ProductPriceInput {
+  unitAmount: Int!
 }
 
 type SDUIJumbotronComponent {
@@ -67,19 +124,6 @@ type Product {
   price: ProductPrice!
 }
 
-enum ClientLocale {
-  en_US
-  es_MX
-}
-
-type SDUICardComponent {
-  id: ID!
-  entrypointKey: String!
-  "Title is a crucial part of the card component so it's not optional."
-  title: String!
-  imageBackgroundUrl: String
-}
-
 type ProductPrice {
   """
     Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
@@ -93,19 +137,10 @@ type ProductPrice {
   unitAmount: Int!
 }
 
-"Root query of the graph."
-type Query {
-  mobileEntrypointSections(key: String!): [SDUISection!]!
-  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
-}
-
 type SDUISection {
   id: ID!
   component(supported: [String!]!): SDUIComponent
 }
-
-union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
 
 type AuthorizeMobilePayload {
   success: Boolean!
