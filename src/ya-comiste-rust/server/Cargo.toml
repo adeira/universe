@@ -34,4 +34,4 @@ warp = "0.2.5"
 [dev-dependencies]
 proptest = "0.10.1"
 tokio = { version = "0.2", features = ["rt-core", "macros"] }
-insta = "1.5.2"
+insta = "1.5.3"
