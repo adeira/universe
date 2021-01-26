@@ -72,10 +72,3 @@ http_archive(
 load("@com_github_bazelbuild_buildtools//buildifier:deps.bzl", "buildifier_dependencies")
 
 buildifier_dependencies()
-
-# TODO: remove with React Native >=0.64.0
-# https://github.com/ReactiveX/rxjs/issues/4061
-local_repository(
-  name = "ignore_rxjs_module",
-  path = "./src/ya-comiste-react-native/node_modules/rxjs/src",
-)
