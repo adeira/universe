@@ -1,5 +1,6 @@
+use crate::auth::users::AnyUser;
 use crate::graphql_context::Context;
-use juniper::{EmptySubscription, FieldResult, RootNode};
+use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
@@ -40,6 +41,13 @@ impl Query {
     /// Returns information about the current user (can be authenticated or anonymous).
     async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
         crate::auth::api::whoami(context).await
+    }
+
+    async fn list_users(context: &Context) -> FieldResult<Vec<AnyUser>> {
+        match crate::auth::api::list_users(&context).await {
+            Ok(result) => Ok(result),
+            Err(e) => Err(FieldError::from(e)),
+        }
     }
 
     fn pos() -> crate::pos::api::POS {
