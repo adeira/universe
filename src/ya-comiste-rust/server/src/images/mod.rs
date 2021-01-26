@@ -26,7 +26,6 @@ pub(in crate) fn resolve_cloudfront_url(path: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::path::Path;
 
     #[test]
     fn blurhash_test() {

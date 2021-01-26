@@ -9,7 +9,7 @@ import {
 } from '@adeira/relay';
 
 const Environment = createEnvironment({
-  fetchFn: createNetworkFetcher('http://127.0.0.1:8080/graphql-backoffice', {
+  fetchFn: createNetworkFetcher('http://127.0.0.1:8080/graphql', {
     'X-Client': 'ya-comiste-backoffice',
   }),
 });
