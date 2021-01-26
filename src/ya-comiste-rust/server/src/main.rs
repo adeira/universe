@@ -12,14 +12,13 @@ mod headers;
 mod images;
 mod migrations;
 mod pos;
-mod sdui;
 mod warp_graphql;
 
 #[tokio::main]
 async fn main() {
     std::env::set_var(
         "RUST_LOG",
-        "warp_server,arangodb=trace,auth=trace,sdui=trace,server=trace",
+        "warp_server,arangodb=trace,auth=trace,server=trace",
     );
     env_logger::builder().format_timestamp(None).init();
 
