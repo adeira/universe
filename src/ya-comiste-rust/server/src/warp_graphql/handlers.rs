@@ -2,7 +2,6 @@ use crate::arangodb::ConnectionPool;
 use crate::auth::users::User;
 use crate::graphql_context::Context;
 use crate::graphql_schema::Schema;
-use crate::sdui::model::component_content::get_content_dataloader;
 use crate::warp_graphql::models::get_current_user;
 use bytes::BufMut;
 use futures::{TryFutureExt, TryStreamExt};
@@ -30,9 +29,8 @@ pub(in crate::warp_graphql) async fn graphql_post(
         Ok(user) => {
             let context = Context {
                 pool: pool.clone(),
-                content_dataloader: get_content_dataloader(&user, &pool),
-                user,
                 uploadables: None,
+                user,
             };
             let response = request.execute(&schema, &context).await;
             Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
@@ -93,9 +91,8 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
 
             let context = Context {
                 pool: pool.clone(),
-                content_dataloader: get_content_dataloader(&user, &pool),
-                user: user.clone(),
                 uploadables: Some(parts.clone()),
+                user: user.clone(),
             };
 
             if parts.keys().len() > 0 {

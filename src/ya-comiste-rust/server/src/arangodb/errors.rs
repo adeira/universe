@@ -6,7 +6,6 @@
 /// ```
 #[derive(Debug)]
 pub enum ModelError {
-    // TODO: naming (SDUIError?)
     DatabaseError(arangors::ClientError),
     LogicError(String),
     SerdeError(serde_json::Error),

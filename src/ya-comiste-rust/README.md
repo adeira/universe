@@ -40,36 +40,6 @@ brew services start arangodb
 
 The database will be available here: http://127.0.0.1:8529/ (user `ya-comiste-rust`, no password)
 
-Example GraphQL query:
-
-```graphql
-{
-  mobileEntrypointSections(key: "com.yaComiste.Explore") {
-    id
-    __typename
-    component(supported: ["SDUIScrollViewHorizontalComponent"]) {
-      __typename
-      ... on SDUICardComponent {
-        id
-      }
-      ... on SDUIDescriptionComponent {
-        id
-      }
-      ... on SDUIJumbotronComponent {
-        id
-      }
-      ... on SDUIScrollViewHorizontalComponent {
-        id
-        cards {
-          id
-          __typename
-        }
-      }
-    }
-  }
-}
-```
-
 ## Testing
 
 ```text
