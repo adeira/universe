@@ -1,4 +1,4 @@
-# @generated SignedSource<<a2600d300b8100902da75273329279f7>>
+# @generated SignedSource<<8999ec1cdeec7095f1c54286bf9fbdfd>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -11,6 +11,10 @@ type POS {
 
 type DeauthorizeMobilePayload {
   success: Boolean!
+}
+
+type ProductError {
+  message: String!
 }
 
 input ProductPriceInput {
@@ -92,6 +96,7 @@ type Query {
   getProduct(clientLocale: ClientLocale!, productId: ID!): Product
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
+  listUsers: [AnyUser!]!
   pos: POS!
 }
 
@@ -115,8 +120,9 @@ type AuthorizeMobilePayload {
 
 union ProductOrError = Product | ProductError
 
-type ProductError {
-  message: String!
+""
+type AnyUser {
+  id: String!
 }
 
 schema {
