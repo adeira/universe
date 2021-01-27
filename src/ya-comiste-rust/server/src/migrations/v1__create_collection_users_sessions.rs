@@ -1,5 +1,6 @@
-use crate::migrations::utils::{create_collection, create_index};
+use crate::migrations::utils::{create_collection, create_graph, create_index};
 use arangors::collection::CollectionType;
+use arangors::graph::{EdgeDefinition, Graph};
 use arangors::index::{Index, IndexSettings};
 use arangors::ClientError;
 
@@ -97,6 +98,20 @@ pub async fn migrate(
                 // Mobile session token is long-lived (one year = 365 * 24 * 60 * 60)
                 expire_after: 31_536_000,
             })
+            .build(),
+    )
+    .await?;
+
+    // 5. create sessions graph
+    create_graph(
+        &db,
+        Graph::builder()
+            .name(String::from("sessions"))
+            .edge_definitions(vec![EdgeDefinition {
+                collection: String::from("user_sessions"),
+                from: vec![String::from("users")],
+                to: vec![String::from("sessions")],
+            }])
             .build(),
     )
     .await

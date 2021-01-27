@@ -1,6 +1,7 @@
 use arangors::collection::options::{CreateOptions, CreateParameters};
 use arangors::collection::CollectionType;
 use arangors::document::options::InsertOptions;
+use arangors::graph::Graph;
 use arangors::index::Index;
 use arangors::ClientError;
 use serde::{Deserialize, Serialize};
@@ -83,5 +84,24 @@ pub(in crate::migrations) async fn create_index(
     match db.create_index(collection_name, &index).await {
         Ok(_) => Ok(()),
         Err(e) => Err(e),
+    }
+}
+
+pub(in crate::migrations) async fn create_graph(
+    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    graph: Graph,
+) -> Result<(), ClientError> {
+    match db.graph(&*graph.name).await {
+        Ok(_) => {
+            // graph already exists
+            Ok(())
+        }
+        Err(_) => {
+            // graph doesn't exist yet, let's create it
+            match db.create_graph(graph, false).await {
+                Ok(_) => Ok(()),
+                Err(e) => Err(e),
+            }
+        }
     }
 }
