@@ -85,3 +85,25 @@ rust_library(
         "@raze__url__2_2_0//:url",
     ],
 )
+
+# Unsupported target "analyzer" with type "test" omitted
+
+# Unsupported target "aql" with type "test" omitted
+
+# Unsupported target "collection" with type "test" omitted
+
+# Unsupported target "common" with type "test" omitted
+
+# Unsupported target "connection" with type "test" omitted
+
+# Unsupported target "database" with type "test" omitted
+
+# Unsupported target "document" with type "test" omitted
+
+# Unsupported target "graph" with type "test" omitted
+
+# Unsupported target "index" with type "test" omitted
+
+# Unsupported target "transaction" with type "test" omitted
+
+# Unsupported target "view" with type "test" omitted
