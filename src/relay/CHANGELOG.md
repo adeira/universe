@@ -1,5 +1,7 @@
 # Unreleased
 
+- Use `RelayLazyLogger` instead of `RelayEagerLogger` by default.
+
 # 2.2.0
 
 - Upgraded Relay to version 10.1.0, see: https://github.com/facebook/relay/releases/tag/v10.1.0
