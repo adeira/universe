@@ -48,8 +48,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
     ...externalOptions,
   };
 
-  // $FlowFixMe[prop-missing]: errors after upgrading to relay 9.1.0
-  const reporter = new ConsoleReporter({ verbose: true });
+  const reporter = new ConsoleReporter({ verbose: false, quiet: false });
   const languagePlugin = buildLanguagePlugin();
   const srcDir = path.resolve(process.cwd(), options.src);
   const schemaPath = path.resolve(process.cwd(), options.schema);

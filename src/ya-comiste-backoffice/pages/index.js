@@ -17,6 +17,7 @@ export default function Home(): React.Node {
           query pagesQuery {
             whoami {
               id
+              humanReadableType
             }
           }
         `}

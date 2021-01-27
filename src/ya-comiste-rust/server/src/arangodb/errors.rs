@@ -6,9 +6,9 @@
 /// ```
 #[derive(Debug)]
 pub enum ModelError {
-    // TODO: naming (SDUIError?)
     DatabaseError(arangors::ClientError),
     LogicError(String),
+    PermissionsError(String),
     SerdeError(serde_json::Error),
 }
 
@@ -31,6 +31,7 @@ impl std::fmt::Display for ModelError {
         match *self {
             ModelError::DatabaseError(ref err) => write!(f, "Database error: {}", err.to_string()),
             ModelError::LogicError(ref err) => write!(f, "Logic error: {}", err),
+            ModelError::PermissionsError(ref err) => write!(f, "Permissions error: {}", err),
             ModelError::SerdeError(ref err) => write!(f, "Serde error: {}", err),
         }
     }

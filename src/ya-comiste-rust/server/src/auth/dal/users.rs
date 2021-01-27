@@ -2,6 +2,23 @@ use crate::arangodb::errors::ModelError;
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
+pub(crate) async fn list_all_users(
+    pool: &crate::arangodb::ConnectionPool,
+) -> Result<Vec<AnyUser>, ModelError> {
+    let db = pool.db().await;
+
+    let aql = arangors::AqlQuery::builder()
+        .query(
+            r#"
+            FOR user IN users
+              RETURN user
+            "#,
+        )
+        .build();
+
+    Ok(db.aql_query::<AnyUser>(aql).await?)
+}
+
 /// Returns unauthorized user based on Google Claims (`sub`) or `None` if such user couldn't be found.
 pub(crate) async fn find_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,

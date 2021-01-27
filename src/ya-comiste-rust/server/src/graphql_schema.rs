@@ -1,6 +1,6 @@
+use crate::auth::users::AnyUser;
 use crate::graphql_context::Context;
-use crate::sdui::sdui_section::SDUISection;
-use juniper::{EmptySubscription, FieldResult, RootNode};
+use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
@@ -15,13 +15,6 @@ pub struct Query;
     description = "Root query of the graph.",
 )]
 impl Query {
-    async fn mobile_entrypoint_sections(
-        key: String,
-        context: &Context,
-    ) -> FieldResult<Vec<SDUISection>> {
-        crate::sdui::api::mobile_entrypoint_sections(key, context).await
-    }
-
     async fn search_products(
         context: &Context,
         client_locale: crate::commerce::api::ClientLocale,
@@ -48,6 +41,13 @@ impl Query {
     /// Returns information about the current user (can be authenticated or anonymous).
     async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
         crate::auth::api::whoami(context).await
+    }
+
+    async fn list_users(context: &Context) -> FieldResult<Vec<AnyUser>> {
+        match crate::auth::api::list_users(&context).await {
+            Ok(result) => Ok(result),
+            Err(e) => Err(FieldError::from(e)),
+        }
     }
 
     fn pos() -> crate::pos::api::POS {

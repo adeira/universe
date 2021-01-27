@@ -1,4 +1,4 @@
-# @generated SignedSource<<95b81d7c7205aa5c6b3e38299e487799>>
+# @generated SignedSource<<8999ec1cdeec7095f1c54286bf9fbdfd>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -9,9 +9,16 @@ type POS {
   listProducts: [Product]
 }
 
-type SDUIDescriptionComponent {
-  id: ID!
-  text: String!
+type DeauthorizeMobilePayload {
+  success: Boolean!
+}
+
+type ProductError {
+  message: String!
+}
+
+input ProductPriceInput {
+  unitAmount: Int!
 }
 
 "Root mutation of the graph."
@@ -38,72 +45,6 @@ type Mutation {
   productDelete(productId: ID!): ProductOrError!
 }
 
-enum ClientLocale {
-  en_US
-  es_MX
-}
-
-input ProductInput {
-  name: String!
-  description: String!
-  images: [String!]!
-  price: ProductPriceInput!
-}
-
-type SDUICardComponent {
-  id: ID!
-  entrypointKey: String!
-  "Title is a crucial part of the card component so it's not optional."
-  title: String!
-  imageBackgroundUrl: String
-}
-
-"Root query of the graph."
-type Query {
-  mobileEntrypointSections(key: String!): [SDUISection!]!
-  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
-  "Returns information about the current user (can be authenticated or anonymous)."
-  whoami: WhoamiPayload!
-  pos: POS!
-}
-
-union SDUIComponent = SDUICardComponent | SDUIDescriptionComponent | SDUIJumbotronComponent | SDUIScrollViewHorizontalComponent
-
-type WhoamiPayload {
-  id: ID
-  """
-    Human readable type should be used only for testing purposes. The format is not guaranteed
-    and can change in the future completely.
-  """
-  humanReadableType: String
-}
-
-union ProductOrError = Product | ProductError
-
-type ProductError {
-  message: String!
-}
-
-type SDUIScrollViewHorizontalComponent {
-  id: ID!
-  title: String!
-  cards: [SDUICardComponent!]!
-}
-
-type DeauthorizeMobilePayload {
-  success: Boolean!
-}
-
-input ProductPriceInput {
-  unitAmount: Int!
-}
-
-type SDUIJumbotronComponent {
-  id: ID!
-  title: String!
-}
-
 type Product {
   id: ID!
   "The product’s name, meant to be displayable to the customer."
@@ -124,6 +65,18 @@ type Product {
   price: ProductPrice!
 }
 
+enum ClientLocale {
+  en_US
+  es_MX
+}
+
+input ProductInput {
+  name: String!
+  description: String!
+  images: [String!]!
+  price: ProductPriceInput!
+}
+
 type ProductPrice {
   """
     Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
@@ -137,9 +90,23 @@ type ProductPrice {
   unitAmount: Int!
 }
 
-type SDUISection {
-  id: ID!
-  component(supported: [String!]!): SDUIComponent
+"Root query of the graph."
+type Query {
+  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  listUsers: [AnyUser!]!
+  pos: POS!
+}
+
+type WhoamiPayload {
+  id: ID
+  """
+    Human readable type should be used only for testing purposes. The format is not guaranteed
+    and can change in the future completely.
+  """
+  humanReadableType: String
 }
 
 type AuthorizeMobilePayload {
@@ -149,6 +116,13 @@ type AuthorizeMobilePayload {
     Returns `None` if the request was not successful.
   """
   sessionToken: String
+}
+
+union ProductOrError = Product | ProductError
+
+""
+type AnyUser {
+  id: String!
 }
 
 schema {

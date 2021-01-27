@@ -1,4 +1,6 @@
-use crate::auth::users::User;
+use crate::arangodb::errors::ModelError;
+use crate::auth::dal::users::list_all_users;
+use crate::auth::users::{AnyUser, User};
 use crate::graphql_context::Context;
 use juniper::FieldResult;
 
@@ -25,6 +27,19 @@ pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("anonymous user")),
         },
+    }
+}
+
+pub(crate) async fn list_users(context: &Context) -> Result<Vec<AnyUser>, ModelError> {
+    match &context.user {
+        // only admin can list all the users
+        User::AdminUser(_) => match list_all_users(&context.pool).await {
+            Ok(list) => Ok(list),
+            Err(e) => Err(e),
+        },
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admin can list all the users",
+        ))),
     }
 }
 
