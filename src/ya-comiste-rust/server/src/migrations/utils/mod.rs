@@ -3,6 +3,7 @@ use arangors::collection::CollectionType;
 use arangors::document::options::InsertOptions;
 use arangors::graph::Graph;
 use arangors::index::Index;
+use arangors::view::ViewOptions;
 use arangors::ClientError;
 use serde::{Deserialize, Serialize};
 
@@ -99,6 +100,26 @@ pub(in crate::migrations) async fn create_graph(
         Err(_) => {
             // graph doesn't exist yet, let's create it
             match db.create_graph(graph, false).await {
+                Ok(_) => Ok(()),
+                Err(e) => Err(e),
+            }
+        }
+    }
+}
+
+pub(in crate::migrations) async fn create_view(
+    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    view_name: &str,
+    view: ViewOptions,
+) -> Result<(), ClientError> {
+    match db.view(&view_name).await {
+        Ok(_) => {
+            // view already exists
+            Ok(())
+        }
+        Err(_) => {
+            // view doesn't exist yet, let's create it
+            match db.create_view(view).await {
                 Ok(_) => Ok(()),
                 Err(e) => Err(e),
             }
