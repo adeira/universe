@@ -5,23 +5,21 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type pagesQueryVariables = {||};
-export type pagesQueryResponse = {|
-  +whoami: {|
-    +id: ?string,
-    +humanReadableType: ?string,
-  |}
+export type usersQueryVariables = {||};
+export type usersQueryResponse = {|
+  +listUsers: $ReadOnlyArray<{|
+    +id: string
+  |}>
 |};
-export type pagesQuery = {|
-  variables: pagesQueryVariables,
-  response: pagesQueryResponse,
+export type usersQuery = {|
+  variables: usersQueryVariables,
+  response: usersQueryResponse,
 |};
 
 /*
-query pagesQuery {
-  whoami {
+query usersQuery {
+  listUsers {
     id
-    humanReadableType
   }
 }
 */
@@ -31,23 +29,16 @@ var v0 = [
   {
     "alias": null,
     "args": null,
-    "concreteType": "WhoamiPayload",
+    "concreteType": "AnyUser",
     "kind": "LinkedField",
-    "name": "whoami",
-    "plural": false,
+    "name": "listUsers",
+    "plural": true,
     "selections": [
       {
         "alias": null,
         "args": null,
         "kind": "ScalarField",
         "name": "id",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "humanReadableType",
         "storageKey": null
       }
     ],
@@ -59,7 +50,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "pagesQuery",
+    "name": "usersQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -68,19 +59,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "pagesQuery",
+    "name": "usersQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "188baf57f6f6e9a4be17cc14323413d5",
+    "cacheID": "fad0a34a01dad8f38108642a18ee7c3e",
     "id": null,
     "metadata": {},
-    "name": "pagesQuery",
+    "name": "usersQuery",
     "operationKind": "query",
-    "text": "query pagesQuery {\n  whoami {\n    id\n    humanReadableType\n  }\n}\n"
+    "text": "query usersQuery {\n  listUsers {\n    id\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8d643bac00ee2016ed71694ddbbe904a';
+(node: any).hash = '0ce7ae2ea5afc34c20b816438a487560';
 export default node;
