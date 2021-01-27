@@ -8,7 +8,7 @@ publish = false
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-arangors = "0.4.5"
+arangors = "0.4.6"
 async-trait = "0.1.42"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "0.5.6"
