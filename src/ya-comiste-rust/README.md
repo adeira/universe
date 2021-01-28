@@ -94,3 +94,18 @@ arangorestore \
     --input-directory="src/ya-comiste-rust/__dump" \
     --server.database=ya-comiste
 ```
+
+Arangosh access:
+
+```text
+arangosh \
+    --server.password="" \
+    --server.database=ya-comiste
+```
+
+For example, to delete analyzers:
+
+```js
+var analyzers = require('@arangodb/analyzers');
+analyzers.remove('bigram');
+```

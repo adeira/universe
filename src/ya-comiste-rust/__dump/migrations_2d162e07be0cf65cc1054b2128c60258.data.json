@@ -1,6 +1,0 @@
-{"type":2300,"data":{"_key":"v0__migrations_init","_id":"migrations/v0__migrations_init","_rev":"_buK32-G---"}}
-{"type":2300,"data":{"_key":"v1__create_collection_users_sessions","_id":"migrations/v1__create_collection_users_sessions","_rev":"_buK32-q---"}}
-{"type":2300,"data":{"_key":"v2__create_document_user_anonymous","_id":"migrations/v2__create_document_user_anonymous","_rev":"_buK32_----"}}
-{"type":2300,"data":{"_key":"v3__create_document_user_admin","_id":"migrations/v3__create_document_user_admin","_rev":"_buK32_a---"}}
-{"type":2300,"data":{"_key":"v4__create_collection_products","_id":"migrations/v4__create_collection_products","_rev":"_buK32_2---"}}
-{"type":2300,"data":{"_key":"v5__create_collection_images","_id":"migrations/v5__create_collection_images","_rev":"_buMHQ9----"}}
