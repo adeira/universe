@@ -198,7 +198,8 @@ async fn test_graphql_multipart_upload_forbidden() {
     let body = format!(
         "\
          --{0}\r\n\
-         content-disposition: form-data; name=\"field_name\"; filename=\"file.png\"\r\n\r\n\
+         content-disposition: form-data; name=\"\"; filename=\"test.png\"\r\n\
+         content-type: image/png\r\n\r\n\
          some binary content mock\r\n\
          --{0}\r\n\
          content-disposition: form-data; name=\"query\"\r\n\r\n\
@@ -222,11 +223,49 @@ async fn test_graphql_multipart_upload_forbidden() {
 
     // Requests which contain additional fields (uploads) require admin auth.
     // Requests with only query/variable/operation_name are allowed without admin auth.
-    assert_eq!(resp.status(), StatusCode::FORBIDDEN);
     assert_eq!(
         resp.body(),
         r#"{"code":403,"message":"admin required when uploading"}"#
     );
+    assert_eq!(resp.status(), StatusCode::FORBIDDEN);
+}
+
+#[tokio::test]
+async fn test_graphql_multipart_upload_forbidden_unkown_content_type() {
+    let boundary = "--abcdef1234--";
+    let body = format!(
+        "\
+         --{0}\r\n\
+         content-disposition: form-data; name=\"\"; filename=\"test.pdf\"\r\n\
+         content-type: application/pdf\r\n\r\n\
+         some binary content mock\r\n\
+         --{0}\r\n\
+         content-disposition: form-data; name=\"query\"\r\n\r\n\
+         query {{ __typename }}\r\n\
+         --{0}--\r\n\
+         ",
+        boundary
+    );
+
+    let resp = request()
+        .method("POST")
+        .path("/graphql")
+        .header("content-length", body.len())
+        .header(
+            "content-type",
+            format!("multipart/form-data; boundary={}", boundary),
+        )
+        .body(body)
+        .reply(&create_graphql_api_filter())
+        .await;
+
+    // Requests which contain additional fields (uploads) require admin auth.
+    // Requests with only query/variable/operation_name are allowed without admin auth.
+    assert_eq!(
+        resp.body(),
+        r#"{"code":400,"message":"invalid uploadable file type: application/pdf"}"#
+    );
+    assert_eq!(resp.status(), StatusCode::BAD_REQUEST);
 }
 
 #[tokio::test]
@@ -267,8 +306,9 @@ async fn test_graphql_multipart_query_missing() {
     let body = format!(
         "\
          --{0}\r\n\
-         content-disposition: form-data; name=\"text\"\r\n\r\n\
-         yadada\r\n\
+         content-disposition: form-data; name=\"\"; filename=\"test.png\"\r\n\
+         content-type: image/png\r\n\r\n\
+         some binary content mock\r\n\
          --{0}--\r\n\
          ",
         boundary
@@ -292,8 +332,6 @@ async fn test_graphql_multipart_query_missing() {
         r#"{"code":400,"message":"Query is a required field when using multipart GraphQL."}"#
     );
 }
-
-// TODO: test multipart files upload
 
 #[tokio::test]
 async fn test_server_unknown_method_get() {

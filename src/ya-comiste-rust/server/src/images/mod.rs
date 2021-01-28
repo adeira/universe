@@ -1,6 +1,6 @@
 // This module should be responsible for processing images:
 // 1) generate blurhashes and save all the info into database (TODO)
-// 2) strip images metadata (TODO)
+// 2) strip EXIF images metadata (TODO)
 // 3) upload images to S3 (TODO, via `rusoto_s3`)
 
 use blurhash_wasm::{encode, EncodingError};
