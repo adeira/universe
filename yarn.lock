@@ -6876,10 +6876,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-faunadb@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.0.0.tgz#5fd922b811bd40154e3b5234f39cac512f464f51"
-  integrity sha512-tXiGthGdbInZ6hzdmGFxnxqsQe2mKq+pnOc+zHZYXtD8TDgKWpK0F9M0tmRpD0uoQUrBHzXU7hxE24pJJxPdbQ==
+faunadb@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.0.1.tgz#e04bdfaf473fb7e562f6a288a8030006083d2c1c"
+  integrity sha512-IQD8DJc2xgvEZtg5uCYMTUbORzQ801NIXkM6XndRmFQSnkd/zSp3OaQgRzrcmiUcaiZZqNeQwFDyLM8Nt1r7Pw==
   dependencies:
     abort-controller "^3.0.0"
     base64-js "^1.2.0"

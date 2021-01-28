@@ -61,7 +61,6 @@ describe('idToCollection', () => {
 
     const collection = idToCollection(id);
 
-    expect(collection._isFaunaRef).toBe(true);
     expect(collection.id).toBe('MyCol');
     expect(collection.database).toBeUndefined();
   });
@@ -71,9 +70,7 @@ describe('idToCollection', () => {
 
     const collection = idToCollection(id);
 
-    expect(collection._isFaunaRef).toBe(true);
     expect(collection.id).toBe('MyCol');
-    expect(collection.database?._isFaunaRef).toBe(true);
     expect(collection.database?.id).toBe('MyDb');
   });
 
@@ -94,9 +91,7 @@ describe('idToRef', () => {
     const ref = idToRef(id);
 
     expect(id).toMatchInlineSnapshot(`"TXlDb2w6MTIzNDU"`);
-    expect(ref._isFaunaRef).toBe(true);
     expect(ref.id).toBe('12345');
-    expect(ref.collection?._isFaunaRef).toBe(true);
     expect(ref.collection?.id).toBe('MyCol');
     expect(ref.collection?.database).toBeUndefined();
   });
@@ -106,10 +101,8 @@ describe('idToRef', () => {
     const ref = idToRef(id);
 
     expect(id).toMatchInlineSnapshot(`"TXlEYjpNeUNvbDoxMjM0NQ"`);
-    expect(ref._isFaunaRef).toBe(true);
     expect(ref.id).toBe('12345');
     expect(ref.collection?.id).toBe('MyCol');
-    expect(ref.collection?.database?._isFaunaRef).toBe(true);
     expect(ref.collection?.database?.id).toBe('MyDb');
   });
 

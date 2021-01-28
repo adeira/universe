@@ -23,11 +23,11 @@ export default function GlobalFaunaID(): GraphQLFieldConfig<any, any> {
 function refToString(ref: FaunaValues.Ref): string {
   const { id, collection } = ref;
 
-  if (collection?.database?._isFaunaRef === true) {
+  if (collection?.database != null) {
     return `${collection.database.id}:${collection.id}:${id}`;
   }
 
-  invariant(collection?._isFaunaRef === true, 'Invalid input. Ref is missing a collection');
+  invariant(typeof collection?.id === 'string', 'Invalid input. Ref is missing a collection');
 
   return `${collection.id}:${id}`;
 }
