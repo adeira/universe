@@ -21,7 +21,7 @@ image = "0.23.12"
 jsonwebtoken = "7.2.0"
 juniper = "0.15.3"
 lazy_static = "1.4.0"
-log = "0.4.13"
+log = "0.4.14"
 num_cpus = "1.13.0"
 rand = "0.8.3"
 reqwest = { version = "0.10.10", features = ["json", "blocking"] }
