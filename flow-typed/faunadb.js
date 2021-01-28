@@ -39,7 +39,6 @@ declare module 'faunadb' {
     collection?: values$Ref;
     class?: values$Ref;
     database?: values$Ref;
-    +_isFaunaRef?: boolean;
   }
 
   declare export class values$Native {
