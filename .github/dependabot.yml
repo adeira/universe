@@ -13,8 +13,7 @@ updates:
     labels:
       - 'dependencies'
       - 'automerge' # see Kodiak `merge.automerge_label`
-    ignore:
-      - dependency-name: 'react-native' # RN almost always requires manual intervention and doesn't work by default
+    open-pull-requests-limit: 10
 
   - package-ecosystem: 'github-actions'
     directory: '/'
@@ -23,6 +22,7 @@ updates:
     labels:
       - 'dependencies'
       - 'automerge' # see Kodiak `merge.automerge_label`
+    open-pull-requests-limit: 10
 
   - package-ecosystem: 'cargo'
     directory: '/src/ya-comiste-rust/'
@@ -31,3 +31,4 @@ updates:
     labels:
       - 'dependencies'
       - 'automerge' # see Kodiak `merge.automerge_label`
+    open-pull-requests-limit: 10
