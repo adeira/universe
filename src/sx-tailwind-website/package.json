@@ -17,7 +17,7 @@
     "@babel/core": "^7.12.10",
     "flow-bin": "^0.143.1",
     "next-plugin-custom-babel-config": "^1.0.4",
-    "next-transpile-modules": "^6.0.0",
+    "next-transpile-modules": "^6.1.0",
     "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2"
   },
