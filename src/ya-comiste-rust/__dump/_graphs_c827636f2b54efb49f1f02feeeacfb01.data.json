@@ -1,1 +1,0 @@
-{"type":2300,"data":{"_key":"sessions","_id":"_graphs/sessions","_rev":"_bwDBgnS---","edgeDefinitions":[{"collection":"user_sessions","from":["users"],"to":["sessions"]}],"orphanCollections":[]}}
