@@ -56,7 +56,7 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
     ];
 
-    log::info!("Checking pending database migrations");
+    tracing::info!("Checking pending database migrations");
     for (migration_name, migration) in &migrations {
         if let Ok(migrations) = db.collection("migrations").await {
             if migrations
@@ -81,16 +81,16 @@ pub async fn migrate(pool: &ConnectionPool) {
                         InsertOptions::builder().return_new(true).build(),
                     );
                     match result_future.await {
-                        Ok(_) => log::info!("{} ✅", migration_name),
+                        Ok(_) => tracing::info!("{} ✅", migration_name),
                         Err(e) => {
-                            log::error!("{} ❌", migration_name);
+                            tracing::error!("{} ❌", migration_name);
                             panic!("{:?}", e)
                         }
                     }
                 }
             }
             Err(e) => {
-                log::error!("{} ❌", migration_name);
+                tracing::error!("{} ❌", migration_name);
                 panic!("{:?}", e)
             }
         }

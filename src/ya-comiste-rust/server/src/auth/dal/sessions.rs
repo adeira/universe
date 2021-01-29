@@ -25,7 +25,7 @@ pub(crate) async fn find_session_by_user(
             None => None,
         },
         Err(err) => {
-            log::error!("{}", err);
+            tracing::error!("{}", err);
             None
         }
     }

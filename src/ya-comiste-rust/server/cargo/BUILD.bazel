@@ -67,15 +67,6 @@ alias(
 )
 
 alias(
-    name = "env_logger",
-    actual = "@raze__env_logger__0_8_2//:env_logger",
-    tags = [
-        "cargo-raze",
-        "manual",
-    ],
-)
-
-alias(
     name = "futures",
     actual = "@raze__futures__0_3_12//:futures",
     tags = [
@@ -114,15 +105,6 @@ alias(
 alias(
     name = "lazy_static",
     actual = "@raze__lazy_static__1_4_0//:lazy_static",
-    tags = [
-        "cargo-raze",
-        "manual",
-    ],
-)
-
-alias(
-    name = "log",
-    actual = "@raze__log__0_4_14//:log",
     tags = [
         "cargo-raze",
         "manual",
@@ -186,6 +168,33 @@ alias(
 alias(
     name = "tokio",
     actual = "@raze__tokio__1_1_1//:tokio",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "tracing",
+    actual = "@raze__tracing__0_1_22//:tracing",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "tracing_subscriber",
+    actual = "@raze__tracing_subscriber__0_2_15//:tracing_subscriber",
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+)
+
+alias(
+    name = "uuid",
+    actual = "@raze__uuid__0_8_2//:uuid",
     tags = [
         "cargo-raze",
         "manual",

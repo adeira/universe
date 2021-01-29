@@ -25,18 +25,29 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0"
+    "notice",  # Apache-2.0 from expression "Apache-2.0 OR MIT"
 ])
 
 # Generated Targets
 
+# Unsupported target "format_str" with type "bench" omitted
+
+# Unsupported target "invalid_parse_str" with type "bench" omitted
+
+# Unsupported target "mod" with type "bench" omitted
+
+# Unsupported target "serde_support" with type "bench" omitted
+
+# Unsupported target "valid_parse_str" with type "bench" omitted
+
 rust_library(
-    name = "insta",
+    name = "uuid",
     srcs = glob(["**/*.rs"]),
     crate_features = [
-        "colors",
-        "console",
         "default",
+        "getrandom",
+        "std",
+        "v4",
     ],
     crate_root = "src/lib.rs",
     crate_type = "lib",
@@ -49,27 +60,9 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "1.5.3",
+    version = "0.8.2",
     # buildifier: leave-alone
     deps = [
-        "@raze__console__0_14_0//:console",
-        "@raze__lazy_static__1_4_0//:lazy_static",
-        "@raze__serde__1_0_123//:serde",
-        "@raze__serde_json__1_0_61//:serde_json",
-        "@raze__serde_yaml__0_8_14//:serde_yaml",
-        "@raze__similar__0_3_0//:similar",
-        "@raze__uuid__0_8_2//:uuid",
+        "@raze__getrandom__0_2_0//:getrandom",
     ],
 )
-
-# Unsupported target "test_basic" with type "test" omitted
-
-# Unsupported target "test_glob" with type "test" omitted
-
-# Unsupported target "test_inline" with type "test" omitted
-
-# Unsupported target "test_redaction" with type "test" omitted
-
-# Unsupported target "test_settings" with type "test" omitted
-
-# Unsupported target "test_suffixes" with type "test" omitted

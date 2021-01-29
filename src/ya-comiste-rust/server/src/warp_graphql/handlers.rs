@@ -46,7 +46,7 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
     authorization_header: Option<String>,
 ) -> Result<Box<dyn Reply>, Rejection> {
     let parts: Vec<Part> = form_data.try_collect().await.map_err(|e| {
-        log::error!("multipart error: {}", e);
+        tracing::error!("multipart error: {}", e);
         warp::reject::reject()
     })?;
 
@@ -144,7 +144,7 @@ async fn try_fold_multipart_stream(part: Part) -> Result<Vec<u8>, Rejection> {
         })
         .await
         .map_err(|e| {
-            log::error!("error reading multipart stream: {}", e);
+            tracing::error!("error reading multipart stream: {}", e);
             warp::reject::reject()
         })
 }
@@ -155,7 +155,7 @@ fn reject_with_permissions_error(message: Option<&str>) -> Result<Box<dyn Reply>
         code: code.as_u16(),
         message: match message {
             Some(message) => {
-                log::error!("{}", message.to_string());
+                tracing::error!("{}", message.to_string());
                 Some(message.to_string())
             }
             None => None,
@@ -165,7 +165,7 @@ fn reject_with_permissions_error(message: Option<&str>) -> Result<Box<dyn Reply>
 }
 
 fn reject_with_error_message(message: &str) -> Result<Box<dyn Reply>, Rejection> {
-    log::error!("{}", message.to_string());
+    tracing::error!("{}", message.to_string());
     let code = StatusCode::BAD_REQUEST;
     let json = warp::reply::json(&ErrorMessage {
         code: code.as_u16(),

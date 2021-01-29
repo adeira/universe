@@ -77,7 +77,7 @@ impl CachedCertsProduction {
     fn get_cached_cert(&mut self, kid: &str) -> Option<CertKey> {
         match _read_keys().get(kid) {
             Some(key) => {
-                log::trace!(
+                tracing::trace!(
                     "Reading cached certificated from memory (valid until: {:?}) ⚡️",
                     _read_valid_until()
                 );
@@ -89,7 +89,7 @@ impl CachedCertsProduction {
 
     async fn fetch_new_certs(&mut self, kid: &str) -> Option<CertKey> {
         let certs_url = "https://www.googleapis.com/oauth2/v3/certs";
-        log::trace!(
+        tracing::trace!(
             "Fetching new OAuth2 certificates from: {} (was valid until: {:?}) ⚡️",
             certs_url,
             _read_valid_until()
