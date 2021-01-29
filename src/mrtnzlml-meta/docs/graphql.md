@@ -37,6 +37,7 @@ Usually people mention only Apollo or Relay and that's it. Black or white. But t
 - https://github.com/kadirahq/lokka
 - https://github.com/prisma-labs/graphql-request
 - https://github.com/samdenty/gqless (without [double declaration](https://babel-blade.netlify.app/docs/declarationdeclaration))
+- https://github.com/zth/reason-relay
 - …
 
 Moreover, there are even non-JS clients:
@@ -49,6 +50,8 @@ Moreover, there are even non-JS clients:
 - https://github.com/graphql/graphql-js (JavaScript)
 - https://github.com/graphql-rust/juniper (Rust)
 - https://github.com/absinthe-graphql/absinthe (Elixir)
+- https://github.com/graphql-dotnet/graphql-dotnet (C#)
+- https://github.com/graphql-go/graphql (Go)
 - …
 
 _Do you know more? Please submit a PR!_
