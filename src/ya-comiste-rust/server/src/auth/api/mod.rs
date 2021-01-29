@@ -71,7 +71,7 @@ pub(crate) async fn authorize_mobile(
             session_token: Some(session_token),
         }),
         Err(e) => {
-            log::error!("{}", e);
+            tracing::error!("{}", e);
             Ok(AuthorizeMobilePayload {
                 success: false,
                 session_token: None,

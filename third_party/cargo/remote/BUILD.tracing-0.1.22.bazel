@@ -38,13 +38,19 @@ rust_library(
     name = "tracing",
     srcs = glob(["**/*.rs"]),
     crate_features = [
+        "attributes",
+        "default",
         "log",
         "std",
+        "tracing-attributes",
     ],
     crate_root = "src/lib.rs",
     crate_type = "lib",
     data = [],
     edition = "2018",
+    proc_macro_deps = [
+        "@raze__tracing_attributes__0_1_11//:tracing_attributes",
+    ],
     rustc_flags = [
         "--cap-lints=allow",
     ],

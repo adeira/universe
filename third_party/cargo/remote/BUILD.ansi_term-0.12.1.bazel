@@ -25,20 +25,26 @@ package(default_visibility = [
 ])
 
 licenses([
-    "unencumbered",  # Unlicense from expression "Unlicense OR MIT"
+    "notice",  # MIT from expression "MIT"
 ])
 
 # Generated Targets
 
+# Unsupported target "256_colours" with type "example" omitted
+
+# Unsupported target "basic_colours" with type "example" omitted
+
+# Unsupported target "rgb_colours" with type "example" omitted
+
 rust_library(
-    name = "termcolor",
+    name = "ansi_term",
     srcs = glob(["**/*.rs"]),
     crate_features = [
     ],
     crate_root = "src/lib.rs",
     crate_type = "lib",
     data = [],
-    edition = "2018",
+    edition = "2015",
     rustc_flags = [
         "--cap-lints=allow",
     ],
@@ -46,7 +52,7 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "1.1.2",
+    version = "0.12.1",
     # buildifier: leave-alone
     deps = [
     ],

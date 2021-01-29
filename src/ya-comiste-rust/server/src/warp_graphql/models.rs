@@ -19,15 +19,15 @@ pub(in crate::warp_graphql) async fn get_current_user(
                     match crate::auth::resolve_user_from_session_token(&pool, &session_token).await
                     {
                         User::AdminUser(user) => {
-                            log::info!("Using admin user: {} 👍👍", user.id());
+                            tracing::info!("Using admin user: {} 👍👍", user.id());
                             Ok(User::AdminUser(user))
                         }
                         User::AnonymousUser(_) => {
-                            log::error!("Unmatched session token 🛑");
+                            tracing::error!("Unmatched session token 🛑");
                             Err(String::from("Session token doesn't mach any user."))
                         }
                         User::AuthorizedUser(user) => {
-                            log::info!("Using authorized user: {} 👍", user.id());
+                            tracing::info!("Using authorized user: {} 👍", user.id());
                             Ok(User::AuthorizedUser(user))
                         }
                     }
@@ -39,7 +39,7 @@ pub(in crate::warp_graphql) async fn get_current_user(
         }
         None => {
             // auth header not present => anonymous user
-            log::info!("Using anonymous user (no 'authorization' header) 👍");
+            tracing::info!("Using anonymous user (no 'authorization' header) 👍");
             Ok(User::AnonymousUser(AnonymousUser::new()))
         }
     }

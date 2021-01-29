@@ -25,27 +25,17 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0 OR MIT"
+    "notice",  # MIT from expression "MIT"
 ])
 
 # Generated Targets
 
-# Unsupported target "format_str" with type "bench" omitted
-
-# Unsupported target "invalid_parse_str" with type "bench" omitted
-
-# Unsupported target "mod" with type "bench" omitted
-
-# Unsupported target "serde_support" with type "bench" omitted
-
-# Unsupported target "valid_parse_str" with type "bench" omitted
+# Unsupported target "bench" with type "bench" omitted
 
 rust_library(
-    name = "uuid",
+    name = "sharded_slab",
     srcs = glob(["**/*.rs"]),
     crate_features = [
-        "default",
-        "std",
     ],
     crate_root = "src/lib.rs",
     crate_type = "lib",
@@ -58,8 +48,9 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "0.8.1",
+    version = "0.1.1",
     # buildifier: leave-alone
     deps = [
+        "@raze__lazy_static__1_4_0//:lazy_static",
     ],
 )

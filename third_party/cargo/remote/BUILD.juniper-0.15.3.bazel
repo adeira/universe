@@ -76,6 +76,6 @@ rust_library(
         "@raze__serde__1_0_123//:serde",
         "@raze__static_assertions__1_1_0//:static_assertions",
         "@raze__url__2_2_0//:url",
-        "@raze__uuid__0_8_1//:uuid",
+        "@raze__uuid__0_8_2//:uuid",
     ],
 )

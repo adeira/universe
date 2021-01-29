@@ -23,7 +23,7 @@ pub struct ConnectionManager {
 impl Manager<Connection, ClientError> for ConnectionManager {
     /// Creates a new instance of the ArangoDB connection.
     async fn create(&self) -> Result<Connection, ClientError> {
-        log::trace!("Creating a new ArangoDB connection 💎");
+        tracing::trace!("Creating a new ArangoDB connection 💎");
         let connection =
             arangors::Connection::establish_basic_auth(&self.host, &self.username, &self.password);
         match connection.await {
@@ -41,23 +41,25 @@ impl Manager<Connection, ClientError> for ConnectionManager {
             Ok(db) => match db.aql_str::<i8>("RETURN 1").await {
                 Ok(result) => match result {
                     _ if result[0] == 1 => {
-                        log::trace!("Recycling existing ArangoDB connection ♻️");
+                        tracing::trace!("Recycling existing ArangoDB connection ♻️");
                         Ok(()) // recycle ✅
                     }
                     _ => {
-                        log::error!("Unable to recycle the connection (DB response invalid) 🙅");
+                        tracing::error!(
+                            "Unable to recycle the connection (DB response invalid) 🙅"
+                        );
                         Err(RecycleError::Message(
                             "unable to recycle the connection".to_string(),
                         ))
                     }
                 },
                 Err(err) => {
-                    log::error!("Unable to recycle the connection (DB query unsuccessful) 🙅");
+                    tracing::error!("Unable to recycle the connection (DB query unsuccessful) 🙅");
                     Err(RecycleError::Message(err.to_string()))
                 }
             },
             Err(err) => {
-                log::error!("Unable to recycle the connection (DB unreachable) 🙅");
+                tracing::error!("Unable to recycle the connection (DB unreachable) 🙅");
                 Err(RecycleError::Message(err.to_string()))
             }
         }

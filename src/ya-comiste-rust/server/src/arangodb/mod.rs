@@ -76,7 +76,7 @@ type Database = arangors::Database<arangors::client::reqwest::ReqwestClient>;
 impl ConnectionPool {
     pub async fn db(&self) -> Database {
         let status = &self.pool.status();
-        log::trace!(
+        tracing::trace!(
             "Connection pool status: max_size={}, size={}, available={}",
             // The maximum size of the pool
             status.max_size,
@@ -109,7 +109,7 @@ async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
         Err(ClientError::Arango(ArangoError { .. })) => {
             // TODO: check 1228 - ERROR_ARANGO_DATABASE_NOT_FOUND code
             // https://www.arangodb.com/docs/stable/appendix-error-codes.html
-            log::info!("🥶 Cold start - creating a new database 🥶");
+            tracing::info!("🥶 Cold start - creating a new database 🥶");
             connection
                 .create_database(db_name)
                 .await
@@ -140,7 +140,7 @@ pub fn get_database_connection_pool() -> ConnectionPool {
         max_pool_size,
     );
 
-    log::trace!("Creating (empty) database connection pool 🔥");
+    tracing::trace!("Creating (empty) database connection pool 🔥");
     ConnectionPool {
         pool: connection_pool,
     }

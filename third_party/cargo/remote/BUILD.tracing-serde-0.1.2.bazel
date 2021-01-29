@@ -25,18 +25,15 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # Apache-2.0 from expression "Apache-2.0"
+    "notice",  # MIT from expression "MIT"
 ])
 
 # Generated Targets
 
 rust_library(
-    name = "insta",
+    name = "tracing_serde",
     srcs = glob(["**/*.rs"]),
     crate_features = [
-        "colors",
-        "console",
-        "default",
     ],
     crate_root = "src/lib.rs",
     crate_type = "lib",
@@ -49,27 +46,10 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "1.5.3",
+    version = "0.1.2",
     # buildifier: leave-alone
     deps = [
-        "@raze__console__0_14_0//:console",
-        "@raze__lazy_static__1_4_0//:lazy_static",
         "@raze__serde__1_0_123//:serde",
-        "@raze__serde_json__1_0_61//:serde_json",
-        "@raze__serde_yaml__0_8_14//:serde_yaml",
-        "@raze__similar__0_3_0//:similar",
-        "@raze__uuid__0_8_2//:uuid",
+        "@raze__tracing_core__0_1_17//:tracing_core",
     ],
 )
-
-# Unsupported target "test_basic" with type "test" omitted
-
-# Unsupported target "test_glob" with type "test" omitted
-
-# Unsupported target "test_inline" with type "test" omitted
-
-# Unsupported target "test_redaction" with type "test" omitted
-
-# Unsupported target "test_settings" with type "test" omitted
-
-# Unsupported target "test_suffixes" with type "test" omitted
