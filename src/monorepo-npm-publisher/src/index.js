@@ -49,64 +49,68 @@ export default async function publish(options: Options) {
       const packageFolderPath = path.dirname(packageJSONLocation);
       const packageFolderName = path.basename(packageFolderPath);
 
-      const data = await NPM.getPackageInfo({
-        package: packageName,
-        npmAuthToken: options.npmAuthToken,
-      });
+      try {
+        const data = await NPM.getPackageInfo({
+          package: packageName,
+          npmAuthToken: options.npmAuthToken,
+        });
 
-      if (!semver.gt(packageJSONFile.version, data.latest)) {
-        log('✅ Skipping %s because there is nothing to release', chalkPackageName);
-      } else {
-        log('🚀 Preparing %s for release', chalkPackageName);
+        if (!semver.gt(packageJSONFile.version, data.latest)) {
+          log('✅ Skipping %s because there is nothing to release', chalkPackageName);
+        } else {
+          log('🚀 Preparing %s for release', chalkPackageName);
 
-        const filenames = await packlist({ path: packageFolderPath });
-        for (const filename of filenames) {
-          const destinationFileName = path.join(options.buildCache, packageFolderName, filename);
+          const filenames = await packlist({ path: packageFolderPath });
+          for (const filename of filenames) {
+            const destinationFileName = path.join(options.buildCache, packageFolderName, filename);
 
-          fs.mkdirSync(path.dirname(destinationFileName), {
-            recursive: true,
-          });
+            fs.mkdirSync(path.dirname(destinationFileName), {
+              recursive: true,
+            });
 
-          if (filename.endsWith('.js')) {
-            // this transforms and copy the file
-            transformFileVariants(
-              path.join(packageFolderPath, filename),
-              destinationFileName,
-              packageJSONFile.module,
-              options.reactRuntime,
-            );
-          } else if (filename === 'package.json') {
-            log('%s 👉 %s', packageJSONLocation, destinationFileName);
-            const newPackageJSONFile = modifyPackageJSON(require(packageJSONLocation));
-            fs.writeFileSync(destinationFileName, JSON.stringify(newPackageJSONFile, null, 2));
+            if (filename.endsWith('.js')) {
+              // this transforms and copy the file
+              transformFileVariants(
+                path.join(packageFolderPath, filename),
+                destinationFileName,
+                packageJSONFile.module,
+                options.reactRuntime,
+              );
+            } else if (filename === 'package.json') {
+              log('%s 👉 %s', packageJSONLocation, destinationFileName);
+              const newPackageJSONFile = modifyPackageJSON(require(packageJSONLocation));
+              fs.writeFileSync(destinationFileName, JSON.stringify(newPackageJSONFile, null, 2));
+            } else {
+              const originalFilename = path.join(packageFolderPath, filename);
+              log('%s 👉 %s', originalFilename, destinationFileName);
+              fs.copyFileSync(originalFilename, destinationFileName);
+            }
+          }
+
+          await tar.create(
+            {
+              gzip: true,
+              cwd: options.buildCache,
+              portable: true,
+              file: path.join(options.buildCache, `${packageFolderName}.tgz`),
+            },
+            [packageFolderName],
+          );
+
+          if (options.dryRun === false) {
+            await NPM.publishPackage({
+              metadata: packageJSONFile,
+              body: fs.createReadStream(path.join(options.buildCache, `${packageFolderName}.tgz`)),
+              npmAuthToken: options.npmAuthToken,
+            });
+
+            log('👍 PUBLISHED %s version %s', chalkPackageName, packageJSONFile.version);
           } else {
-            const originalFilename = path.join(packageFolderPath, filename);
-            log('%s 👉 %s', originalFilename, destinationFileName);
-            fs.copyFileSync(originalFilename, destinationFileName);
+            log('❌ Skipped publishing of %s because of DRY RUN.', chalkPackageName);
           }
         }
-
-        await tar.create(
-          {
-            gzip: true,
-            cwd: options.buildCache,
-            portable: true,
-            file: path.join(options.buildCache, `${packageFolderName}.tgz`),
-          },
-          [packageFolderName],
-        );
-
-        if (options.dryRun === false) {
-          await NPM.publishPackage({
-            metadata: packageJSONFile,
-            body: fs.createReadStream(path.join(options.buildCache, `${packageFolderName}.tgz`)),
-            npmAuthToken: options.npmAuthToken,
-          });
-
-          log('👍 PUBLISHED %s version %s', chalkPackageName, packageJSONFile.version);
-        } else {
-          log('❌ Skipped publishing of %s because of DRY RUN.', chalkPackageName);
-        }
+      } catch (e) {
+        log('❌ Skipping %s because of NPM error: %s', chalkPackageName, e.message);
       }
     }
   });
