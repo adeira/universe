@@ -27,10 +27,10 @@ export default {
           if (error) {
             if (error.statusCode !== 404) {
               // 404 indicates that the package doesn't exist (yet)
-              reject(error);
+              return reject(error);
             }
           }
-          resolve({
+          return resolve({
             ...data,
             latest: data.latest ?? '0.0.0', // missing in case of 404
           });
