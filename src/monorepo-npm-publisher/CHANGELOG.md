@@ -2,6 +2,7 @@
 
 - Upgrade `@adeira/babel-preset-adeira` to 2.0.0.
 - Breaking Change: Add reactRuntime option. You can set it to `automatic` to use the new [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html), or set it to `classic` to use the classical version. Note that `automatic` is the default.
+- Improved NPM API error handling
 
 # 1.0.0
 
