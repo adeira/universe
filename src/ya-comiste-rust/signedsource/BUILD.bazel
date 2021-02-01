@@ -1,0 +1,22 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@io_bazel_rules_rust//rust:rust.bzl", "rust_library", "rust_test")
+
+rust_library(
+    name = "signedsource",
+    srcs = [
+        "src/lib.rs",
+        "src/tests.rs",
+    ],
+    deps = [
+        "//src/ya-comiste-rust/signedsource/cargo:hex",
+        "//src/ya-comiste-rust/signedsource/cargo:lazy_static",
+        "//src/ya-comiste-rust/signedsource/cargo:md_5",
+        "//src/ya-comiste-rust/signedsource/cargo:regex",
+    ],
+)
+
+rust_test(
+    name = "signedsource_test",
+    crate = ":signedsource",
+)

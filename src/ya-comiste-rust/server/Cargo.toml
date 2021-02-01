@@ -12,7 +12,7 @@ arangors = "0.4.6"
 async-trait = "0.1.42"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "0.5.6"
-data-encoding = "2.3.1"
+data-encoding = "2.3.2"
 dataloader = "0.14.0"
 deadpool = { version = "0.7.0", features = ["managed"] }
 env_logger = "0.8.2"
@@ -28,11 +28,11 @@ reqwest = { version = "0.10.10", features = ["json", "blocking"] }
 ring = "0.16.5"
 serde = "1.0.123"
 serde_json = "1.0.61"
-signedsource = { path = "../signedsource" }
 tokio = { version = "0.2", features = ["rt-core", "macros"] }
 warp = "0.2.5"
 
 [dev-dependencies]
-proptest = "0.10.1"
-tokio = { version = "0.2", features = ["rt-core", "macros"] }
 insta = "1.5.3"
+proptest = "0.10.1"
+signedsource = { path = "../signedsource" }
+tokio = { version = "0.2", features = ["rt-core", "macros"] }

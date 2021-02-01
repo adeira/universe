@@ -1,0 +1,89 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load(
+    "@io_bazel_rules_rust//rust:rust.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_test",
+)
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//third_party/cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT"
+])
+
+# Generated Targets
+
+# Unsupported target "decode" with type "bench" omitted
+
+# Unsupported target "encode" with type "bench" omitted
+
+rust_library(
+    name = "image",
+    srcs = glob(["**/*.rs"]),
+    aliases = {
+        "@raze__jpeg_decoder__0_1_20//:jpeg_decoder": "jpeg",
+    },
+    crate_features = [
+        "bmp",
+        "dds",
+        "default",
+        "dxt",
+        "farbfeld",
+        "gif",
+        "hdr",
+        "ico",
+        "jpeg",
+        "jpeg_rayon",
+        "png",
+        "pnm",
+        "scoped_threadpool",
+        "tga",
+        "tiff",
+        "webp",
+    ],
+    crate_root = "src/lib.rs",
+    crate_type = "lib",
+    data = [] + [
+        "README.md",
+    ],
+    edition = "2018",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "manual",
+    ],
+    version = "0.23.12",
+    # buildifier: leave-alone
+    deps = [
+        "@raze__bytemuck__1_5_0//:bytemuck",
+        "@raze__byteorder__1_3_4//:byteorder",
+        "@raze__color_quant__1_1_0//:color_quant",
+        "@raze__gif__0_11_1//:gif",
+        "@raze__jpeg_decoder__0_1_20//:jpeg_decoder",
+        "@raze__num_iter__0_1_42//:num_iter",
+        "@raze__num_rational__0_3_2//:num_rational",
+        "@raze__num_traits__0_2_14//:num_traits",
+        "@raze__png__0_16_8//:png",
+        "@raze__scoped_threadpool__0_1_9//:scoped_threadpool",
+        "@raze__tiff__0_6_1//:tiff",
+    ],
+)
