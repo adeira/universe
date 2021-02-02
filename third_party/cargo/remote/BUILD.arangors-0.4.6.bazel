@@ -77,7 +77,7 @@ rust_library(
         "@raze__base64__0_13_0//:base64",
         "@raze__http__0_2_1//:http",
         "@raze__log__0_4_14//:log",
-        "@raze__reqwest__0_10_10//:reqwest",
+        "@raze__reqwest__0_11_0//:reqwest",
         "@raze__serde__1_0_123//:serde",
         "@raze__serde_json__1_0_61//:serde_json",
         "@raze__serde_qs__0_7_0//:serde_qs",

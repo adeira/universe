@@ -40,6 +40,8 @@ licenses([
 
 # Unsupported target "server" with type "example" omitted
 
+# Unsupported target "srv_accept_unmasked_frames" with type "example" omitted
+
 rust_library(
     name = "tungstenite",
     srcs = glob(["**/*.rs"]),
@@ -56,17 +58,17 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "0.11.1",
+    version = "0.12.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__base64__0_12_3//:base64",
+        "@raze__base64__0_13_0//:base64",
         "@raze__byteorder__1_3_4//:byteorder",
-        "@raze__bytes__0_5_6//:bytes",
+        "@raze__bytes__1_0_1//:bytes",
         "@raze__http__0_2_1//:http",
         "@raze__httparse__1_3_4//:httparse",
-        "@raze__input_buffer__0_3_1//:input_buffer",
+        "@raze__input_buffer__0_4_0//:input_buffer",
         "@raze__log__0_4_14//:log",
-        "@raze__rand__0_7_3//:rand",
+        "@raze__rand__0_8_3//:rand",
         "@raze__sha_1__0_9_2//:sha_1",
         "@raze__url__2_2_0//:url",
         "@raze__utf_8__0_7_5//:utf_8",

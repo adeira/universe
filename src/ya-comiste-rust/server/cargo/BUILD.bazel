@@ -32,7 +32,7 @@ alias(
 
 alias(
     name = "bytes",
-    actual = "@raze__bytes__0_5_6//:bytes",
+    actual = "@raze__bytes__1_0_1//:bytes",
     tags = [
         "cargo-raze",
         "manual",
@@ -149,7 +149,7 @@ alias(
 
 alias(
     name = "reqwest",
-    actual = "@raze__reqwest__0_10_10//:reqwest",
+    actual = "@raze__reqwest__0_11_0//:reqwest",
     tags = [
         "cargo-raze",
         "manual",
@@ -158,7 +158,7 @@ alias(
 
 alias(
     name = "ring",
-    actual = "@raze__ring__0_16_19//:ring",
+    actual = "@raze__ring__0_16_20//:ring",
     tags = [
         "cargo-raze",
         "manual",
@@ -185,7 +185,7 @@ alias(
 
 alias(
     name = "tokio",
-    actual = "@raze__tokio__0_2_23//:tokio",
+    actual = "@raze__tokio__1_1_1//:tokio",
     tags = [
         "cargo-raze",
         "manual",
@@ -194,7 +194,7 @@ alias(
 
 alias(
     name = "warp",
-    actual = "@raze__warp__0_2_5//:warp",
+    actual = "@raze__warp__0_3_0//:warp",
     tags = [
         "cargo-raze",
         "manual",

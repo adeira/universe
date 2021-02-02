@@ -30,15 +30,21 @@ licenses([
 
 # Generated Targets
 
-# Unsupported target "download-rust-lang" with type "example" omitted
+# Unsupported target "autobahn-client" with type "example" omitted
 
-# Unsupported target "tls-echo" with type "example" omitted
+# Unsupported target "autobahn-server" with type "example" omitted
+
+# Unsupported target "client" with type "example" omitted
+
+# Unsupported target "echo-server" with type "example" omitted
+
+# Unsupported target "interval-server" with type "example" omitted
+
+# Unsupported target "server" with type "example" omitted
 
 rust_library(
-    name = "tokio_tls",
+    name = "tokio_tungstenite",
     srcs = glob(["**/*.rs"]),
-    aliases = {
-    },
     crate_features = [
     ],
     crate_root = "src/lib.rs",
@@ -52,30 +58,17 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "0.3.1",
+    version = "0.13.0",
     # buildifier: leave-alone
     deps = [
-        "@raze__native_tls__0_2_6//:native_tls",
-        "@raze__tokio__0_2_23//:tokio",
-    ] + selects.with_or({
-        # cfg(all(not(target_os = "macos"), not(windows), not(target_os = "ios")))
-        (
-            "@io_bazel_rules_rust//rust/platform:x86_64-unknown-linux-gnu",
-        ): [
-        ],
-        "//conditions:default": [],
-    }) + selects.with_or({
-        # cfg(any(target_os = "macos", target_os = "ios"))
-        (
-            "@io_bazel_rules_rust//rust/platform:x86_64-apple-darwin",
-        ): [
-        ],
-        "//conditions:default": [],
-    }),
+        "@raze__futures_util__0_3_12//:futures_util",
+        "@raze__log__0_4_14//:log",
+        "@raze__pin_project__1_0_2//:pin_project",
+        "@raze__tokio__1_1_1//:tokio",
+        "@raze__tungstenite__0_12_0//:tungstenite",
+    ],
 )
 
-# Unsupported target "bad" with type "test" omitted
+# Unsupported target "communication" with type "test" omitted
 
-# Unsupported target "google" with type "test" omitted
-
-# Unsupported target "smoke" with type "test" omitted
+# Unsupported target "handshakes" with type "test" omitted
