@@ -60,7 +60,10 @@ async fn test_graphql_post_forbidden() {
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
-    assert_eq!(resp.body(), r#"{"code":403,"message":null}"#);
+    assert_eq!(
+        resp.body(),
+        r#"{"code":403,"message":"Session token doesn't mach any user."}"#
+    );
 }
 
 #[tokio::test]
@@ -189,7 +192,10 @@ async fn test_graphql_multipart_forbidden() {
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
-    assert_eq!(resp.body(), r#"{"code":403,"message":null}"#);
+    assert_eq!(
+        resp.body(),
+        r#"{"code":403,"message":"Session token doesn't mach any user."}"#
+    );
 }
 
 #[tokio::test]

@@ -25,22 +25,20 @@ package(default_visibility = [
 ])
 
 licenses([
-    "notice",  # BSD-3-Clause from expression "BSD-3-Clause"
+    "notice",  # Apache-2.0 from expression "Apache-2.0 OR MIT"
 ])
 
 # Generated Targets
 
-# Unsupported target "hello" with type "example" omitted
-
 rust_library(
-    name = "fuchsia_zircon_sys",
+    name = "lock_api",
     srcs = glob(["**/*.rs"]),
     crate_features = [
     ],
     crate_root = "src/lib.rs",
     crate_type = "lib",
     data = [],
-    edition = "2015",
+    edition = "2018",
     rustc_flags = [
         "--cap-lints=allow",
     ],
@@ -48,8 +46,9 @@ rust_library(
         "cargo-raze",
         "manual",
     ],
-    version = "0.3.3",
+    version = "0.4.2",
     # buildifier: leave-alone
     deps = [
+        "@raze__scopeguard__1_1_0//:scopeguard",
     ],
 )

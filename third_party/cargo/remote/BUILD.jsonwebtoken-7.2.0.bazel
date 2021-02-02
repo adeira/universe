@@ -51,7 +51,7 @@ rust_library(
     deps = [
         "@raze__base64__0_12_3//:base64",
         "@raze__pem__0_8_2//:pem",
-        "@raze__ring__0_16_19//:ring",
+        "@raze__ring__0_16_20//:ring",
         "@raze__serde__1_0_123//:serde",
         "@raze__serde_json__1_0_61//:serde_json",
         "@raze__simple_asn1__0_4_1//:simple_asn1",
