@@ -34,7 +34,7 @@
     "@adeira/babel-preset-adeira": "^2.0.1",
     "@adeira/eslint-config": "^4.4.0",
     "@adeira/eslint-runner": "^1.0.2",
-    "@axe-core/react": "^4.1.0",
+    "@axe-core/react": "^4.1.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.19.0",
     "flow-bin": "^0.143.1",

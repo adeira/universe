@@ -21,12 +21,7 @@ if (
 ) {
   // eslint-disable-next-line import/no-extraneous-dependencies
   const axe = require('@axe-core/react');
-  axe(
-    React,
-    ReactDOM,
-    1000,
-    {}, // https://github.com/dequelabs/axe-core-npm/issues/176
-  );
+  axe(React, ReactDOM, 1000);
 }
 
 type Props = {|
