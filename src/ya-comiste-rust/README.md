@@ -60,6 +60,14 @@ Database migrations are currently being run automatically during the server star
 
 # ArangoDB
 
+- https://www.arangodb.com/
+- https://hub.docker.com/r/arangodb/arangodb/
+
+```bash
+# DEVELOPMENT ONLY!
+docker run -e ARANGO_NO_AUTH=1 -p 8529:8529 -d --name arangodb-instance arangodb
+```
+
 Why ArangoDB? At the time of writing, it was essentially the most promising multi-model open-source DB (with graph support) out there. Source: https://db-engines.com/en/ranking/graph+dbms
 
 - `_id` - document handle (uniquely identifies a document in the database)
