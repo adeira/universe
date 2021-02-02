@@ -110,6 +110,7 @@ export default async function publish(options: Options) {
           }
         }
       } catch (e) {
+        process.exitCode = 1;
         log('❌ Skipping %s because of NPM error: %s', chalkPackageName, e.message);
       }
     }
