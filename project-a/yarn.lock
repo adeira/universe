@@ -24,13 +24,13 @@
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/eslint-config@^4.3.0":
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.3.0.tgz#5db6aae6790124acede59ae6db6d643326fcf984"
-  integrity sha512-QcuxCh9FVMOQ+zw9dhqKCxdUZgtllv3qfdyAQ6dV1lIK7Ca2ioFncXFAbYuM386ESjqb/6Hy5rjm4+EFqKmH4g==
+"@adeira/eslint-config@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.4.0.tgz#4d58dd4da56e14c03f10ca37ed5c7968f6b9b0ff"
+  integrity sha512-ambD0IeI+xrCD/dOwEEa0MHekwS2XRJ3lbWbaiQXWJF+5Pi3PB0I0k5pS/H7iiWkqUXIlouN/kHPjZ5oUAa1IQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    eslint-config-prettier "^7.1.0"
+    eslint-config-prettier "^7.2.0"
     eslint-plugin-adeira "^0.12.0"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-flowtype "^5.2.0"
@@ -40,12 +40,12 @@
     eslint-plugin-monorepo "^0.3.2"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-prefer-object-spread "^1.2.1"
-    eslint-plugin-prettier "^3.3.0"
+    eslint-plugin-prettier "^3.3.1"
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
     eslint-plugin-react-native "^3.10.0"
     eslint-plugin-relay "^1.8.1"
-    eslint-plugin-sx "^0.8.0"
+    eslint-plugin-sx "^0.9.0"
     prettier "^2.2.1"
   optionalDependencies:
     "@adeira/eslint-runner" "^1.0.0"
@@ -3312,10 +3312,10 @@ escodegen@^1.14.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-7.1.0.tgz#5402eb559aa94b894effd6bddfa0b1ca051c858f"
-  integrity sha512-9sm5/PxaFG7qNJvJzTROMM1Bk1ozXVTKI0buKOyb0Bsr1hrwi0H/TzxF/COtf1uxikIK8SwhX7K6zg78jAzbeA==
+eslint-config-prettier@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-7.2.0.tgz#f4a4bd2832e810e8cc7c1411ec85b3e85c0c53f9"
+  integrity sha512-rV4Qu0C3nfJKPOAhFujFxB7RMP+URFyQqqOZW9DMRD7ZDTFyjaIlETU3xzHELt++4ugC0+Jm084HQYkkJe+Ivg==
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -3438,7 +3438,7 @@ eslint-plugin-prefer-object-spread@^1.2.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-prefer-object-spread/-/eslint-plugin-prefer-object-spread-1.2.1.tgz#27fb91853690cceb3ae6101d9c8aecc6a67a402c"
   integrity sha1-J/uRhTaQzOs65hAdnIrsxqZ6QCw=
 
-eslint-plugin-prettier@^3.3.0:
+eslint-plugin-prettier@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.3.1.tgz#7079cfa2497078905011e6f82e8dd8453d1371b7"
   integrity sha512-Rq3jkcFY8RYeQLgk2cCwuc0P7SEFwDravPhsJZOQ5N4YI4DSg50NyqJ/9gdZHzQlHf8MvafSesbNJCcP/FF6pQ==
@@ -3487,10 +3487,10 @@ eslint-plugin-relay@^1.8.1:
   dependencies:
     graphql "^14.0.0 || ^15.0.0-rc.1"
 
-eslint-plugin-sx@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.8.0.tgz#4d36d73ac99c304e43cf8cba3092e60037bf39ec"
-  integrity sha512-ioVs0X4upc2bTImhhhFMC4Q1fa4xIs7Sza/hpZXKSXcuojRz9AwEQphG6dUxQVyS05zogMCC/3TCZ4xGJ/n7NQ==
+eslint-plugin-sx@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sx/-/eslint-plugin-sx-0.9.0.tgz#50f5d99870ae6dec6042fb5b40e6c54c3298b511"
+  integrity sha512-FmOGfz6RrVzoQYoIDMspnyJVwcts6Y+PENMxy/SJtNW2UM7g8rYvsfeWjoAvfUuI0/gPrASGtLlfNLSfCzOwSg==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
