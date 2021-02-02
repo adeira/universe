@@ -1,3 +1,4 @@
+use arangors::{ArangoError, ClientError, Connection};
 use deadpool::managed::Pool;
 
 pub mod errors;
@@ -67,7 +68,7 @@ pub fn get_arangodb_host() -> String {
 
 #[derive(Clone)]
 pub struct ConnectionPool {
-    pub pool: Pool<arangors::Connection, arangors::ClientError>,
+    pub pool: Pool<Connection, ClientError>,
 }
 
 type Database = arangors::Database<arangors::client::reqwest::ReqwestClient>;
@@ -95,15 +96,27 @@ impl ConnectionPool {
             .expect("could not get database connection from the pool");
 
         if cfg!(test) {
-            connection
-                .db(TEST_DB_NAME)
-                .await
-                .expect("could not access test database")
+            get_or_create_db(&connection, &TEST_DB_NAME).await
         } else {
+            get_or_create_db(&connection, &PRODUCTION_DB_NAME).await
+        }
+    }
+}
+
+async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
+    match connection.db(db_name).await {
+        Ok(database) => database,
+        Err(ClientError::Arango(ArangoError { .. })) => {
+            // TODO: check 1228 - ERROR_ARANGO_DATABASE_NOT_FOUND code
+            // https://www.arangodb.com/docs/stable/appendix-error-codes.html
+            log::info!("🥶 Cold start - creating a new database 🥶");
             connection
-                .db(PRODUCTION_DB_NAME)
+                .create_database(db_name)
                 .await
-                .expect("could not access production database")
+                .expect(format!("could not create '{}' database", db_name).as_ref())
+        }
+        Err(error) => {
+            panic!("could not access '{}' database: {:?}", db_name, error)
         }
     }
 }
