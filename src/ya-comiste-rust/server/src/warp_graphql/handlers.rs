@@ -10,7 +10,7 @@ use std::collections::HashMap;
 use std::sync::Arc;
 use warp::filters::multipart::Part;
 use warp::http::StatusCode;
-use warp::multipart;
+use warp::{multipart, Rejection, Reply};
 
 /// An API error serializable to JSON.
 #[derive(serde::Serialize)]
@@ -23,9 +23,9 @@ pub(in crate::warp_graphql) async fn graphql_post(
     request: GraphQLRequest,
     pool: ConnectionPool,
     schema: Arc<Schema>,
-    session_token: Option<String>,
-) -> Result<Box<dyn warp::Reply>, warp::Rejection> {
-    match get_current_user(&pool, &session_token).await {
+    authorization_header: Option<String>,
+) -> Result<Box<dyn Reply>, Rejection> {
+    match get_current_user(&pool, &authorization_header).await {
         Ok(user) => {
             let context = Context {
                 pool: pool.clone(),
@@ -35,7 +35,7 @@ pub(in crate::warp_graphql) async fn graphql_post(
             let response = request.execute(&schema, &context).await;
             Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
         }
-        Err(_) => reject_with_permissions_error(None),
+        Err(e) => reject_with_permissions_error(Some(&e)),
     }
 }
 
@@ -43,8 +43,8 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
     form_data: multipart::FormData,
     pool: ConnectionPool,
     schema: Arc<Schema>,
-    session_token: Option<String>,
-) -> Result<Box<dyn warp::Reply>, warp::Rejection> {
+    authorization_header: Option<String>,
+) -> Result<Box<dyn Reply>, Rejection> {
     let parts: Vec<Part> = form_data.try_collect().await.map_err(|e| {
         log::error!("multipart error: {}", e);
         warp::reject::reject()
@@ -110,7 +110,7 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
             .map(|v| serde_json::from_str(&v).unwrap()),
     );
 
-    match get_current_user(&pool, &session_token).await {
+    match get_current_user(&pool, &authorization_header).await {
         Ok(user) => {
             let context = Context {
                 pool: pool.clone(),
@@ -132,11 +132,11 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
                 Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
             }
         }
-        Err(_) => reject_with_permissions_error(None),
+        Err(e) => reject_with_permissions_error(Some(&e)),
     }
 }
 
-async fn try_fold_multipart_stream(part: Part) -> Result<Vec<u8>, warp::Rejection> {
+async fn try_fold_multipart_stream(part: Part) -> Result<Vec<u8>, Rejection> {
     part.stream()
         .try_fold(Vec::new(), |mut vec, data| {
             vec.put(data);
@@ -149,9 +149,7 @@ async fn try_fold_multipart_stream(part: Part) -> Result<Vec<u8>, warp::Rejectio
         })
 }
 
-fn reject_with_permissions_error(
-    message: Option<&str>,
-) -> Result<Box<dyn warp::Reply>, warp::Rejection> {
+fn reject_with_permissions_error(message: Option<&str>) -> Result<Box<dyn Reply>, Rejection> {
     let code = StatusCode::FORBIDDEN;
     let json = warp::reply::json(&ErrorMessage {
         code: code.as_u16(),
@@ -166,7 +164,7 @@ fn reject_with_permissions_error(
     Ok(Box::new(warp::reply::with_status(json, code)))
 }
 
-fn reject_with_error_message(message: &str) -> Result<Box<dyn warp::Reply>, warp::Rejection> {
+fn reject_with_error_message(message: &str) -> Result<Box<dyn Reply>, Rejection> {
     log::error!("{}", message.to_string());
     let code = StatusCode::BAD_REQUEST;
     let json = warp::reply::json(&ErrorMessage {

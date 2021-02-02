@@ -42,13 +42,12 @@ def raze_fetch_remote_crates():
     )
 
     maybe(
-        http_archive,
+        new_git_repository,
         name = "raze__arangors__0_4_6",
-        url = "https://crates.io/api/v1/crates/arangors/0.4.6/download",
-        type = "tar.gz",
-        sha256 = "5ec8d33513c3e90b950e85289ac926b83d8e2d5ae4a9da6f796cfb05e9a20032",
-        strip_prefix = "arangors-0.4.6",
+        remote = "https://github.com/mrtnzlml/arangors",
+        commit = "39b5c673b994832d12ca989fe7cccd2a08b0211a",
         build_file = Label("//third_party/cargo/remote:BUILD.arangors-0.4.6.bazel"),
+        init_submodules = True,
     )
 
     maybe(

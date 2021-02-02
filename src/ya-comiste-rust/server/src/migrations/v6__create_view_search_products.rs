@@ -1,0 +1,85 @@
+use crate::migrations::utils::create_view;
+use arangors::analyzer::AnalyzerFeature::{Frequency, Norm, Position};
+use arangors::analyzer::{AnalyzerInfo, NgramAnalyzerProperties, NgramStreamType};
+use arangors::view::{ArangoSearchViewLink, ArangoSearchViewPropertiesOptions, ViewOptions};
+use arangors::ClientError;
+use std::collections::HashMap;
+
+pub async fn migrate(
+    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+) -> Result<(), ClientError> {
+    db.create_analyzer(AnalyzerInfo::Ngram {
+        name: String::from("bigram"),
+        features: Some(vec![Frequency, Norm, Position]),
+        properties: Some(
+            NgramAnalyzerProperties::builder()
+                .min(2)
+                .max(2)
+                .preserve_original(false)
+                .stream_type(NgramStreamType::Utf8)
+                .build(),
+        ),
+    })
+    .await?;
+
+    let mut links = HashMap::new();
+    let mut links_fields = HashMap::new();
+    let mut links_fields_translations = HashMap::new();
+
+    links_fields_translations.insert(
+        String::from("es_MX"),
+        ArangoSearchViewLink {
+            analyzers: Some(vec![String::from("text_es"), String::from("bigram")]),
+            fields: None,
+            include_all_fields: None,
+            track_list_positions: None,
+            store_values: None,
+        },
+    );
+    links_fields_translations.insert(
+        String::from("en_US"),
+        ArangoSearchViewLink {
+            analyzers: Some(vec![String::from("text_en"), String::from("bigram")]),
+            fields: None,
+            include_all_fields: None,
+            track_list_positions: None,
+            store_values: None,
+        },
+    );
+
+    links_fields.insert(
+        String::from("translations"),
+        ArangoSearchViewLink {
+            analyzers: None,
+            fields: Some(links_fields_translations),
+            include_all_fields: Some(true),
+            track_list_positions: None,
+            store_values: None,
+        },
+    );
+
+    links.insert(
+        String::from("products"),
+        ArangoSearchViewLink {
+            analyzers: None,
+            fields: Some(links_fields),
+            include_all_fields: Some(false),
+            track_list_positions: None,
+            store_values: None,
+        },
+    );
+
+    create_view(
+        &db,
+        "search_products",
+        ViewOptions::builder()
+            .name(String::from("search_products"))
+            .properties(
+                ArangoSearchViewPropertiesOptions::builder()
+                    .links(links)
+                    .build(),
+            )
+            .build(),
+    )
+    .await
+}

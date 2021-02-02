@@ -95,9 +95,7 @@ arangorestore \
     --server.database=ya-comiste
 ```
 
-## Fulltext search
-
-There are 2 custom analyzers at this moment:
+Arangosh access:
 
 ```text
 arangosh \
@@ -105,40 +103,9 @@ arangosh \
     --server.database=ya-comiste
 ```
 
-```js
-var analyzers = require('@arangodb/analyzers');
-analyzers.save(
-  'text_en_ngrams',
-  'text',
-  {
-    locale: 'en.utf-8',
-    accent: false,
-    case: 'lower',
-    stemming: false,
-    edgeNgram: {
-      min: 2,
-      max: 2,
-      preserveOriginal: false,
-      // streamType: 'utf8',
-    },
-    stopwords: [],
-    stopwords: ['the'], // TODO
-  },
-  ['frequency', 'norm', 'position'],
-);
-```
+For example, to delete analyzers:
 
 ```js
 var analyzers = require('@arangodb/analyzers');
-analyzers.save(
-  'bigram',
-  'ngram',
-  {
-    min: 2,
-    max: 2,
-    preserveOriginal: false,
-    streamType: 'utf8',
-  },
-  ['frequency', 'norm', 'position'],
-);
+analyzers.remove('bigram');
 ```

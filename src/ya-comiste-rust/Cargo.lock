@@ -24,8 +24,7 @@ dependencies = [
 [[package]]
 name = "arangors"
 version = "0.4.6"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5ec8d33513c3e90b950e85289ac926b83d8e2d5ae4a9da6f796cfb05e9a20032"
+source = "git+https://github.com/mrtnzlml/arangors?branch=master-fork#39b5c673b994832d12ca989fe7cccd2a08b0211a"
 dependencies = [
  "async-trait",
  "base64 0.13.0",
@@ -2105,9 +2104,9 @@ dependencies = [
 
 [[package]]
 name = "ring"
-version = "0.16.19"
+version = "0.16.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "024a1e66fea74c66c66624ee5622a7ff0e4b73a13b4f5c326ddb50c708944226"
+checksum = "3053cf52e236a3ed746dfc745aa9cacf1b791d846bdaf412f60a8d7d6e17c8fc"
 dependencies = [
  "cc",
  "libc",
