@@ -3,11 +3,8 @@ name: Continuous Integration (Bazel)
 on: [push]
 
 jobs:
-  build:
+  run-bazel:
     runs-on: ubuntu-latest
-
-    env:
-      GOOGLE_APPLICATION_CREDENTIALS: gcp_service_account_key.json
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -39,11 +36,8 @@ jobs:
       #   run: |
       #     "${GITHUB_WORKSPACE}/bin/bazel" run --build_tag_filters=manual //:buildifier.lint
 
-      - name: Set up GCP credentials (for Bazel Remote Cache)
-        run: echo -n ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }} | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
-
       - name: Build
         run: |
-          "${GITHUB_WORKSPACE}/bin/bazel" build --remote_cache=${{ secrets.GCP_BAZEL_REMOTE_CACHE_BUCKET }} --google_default_credentials //...
+          "${GITHUB_WORKSPACE}/bin/bazel" build //...
 
       # TODO: run Bazel test
