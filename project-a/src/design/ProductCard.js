@@ -22,7 +22,6 @@ const styles = sx.create({
     width: 250,
     display: 'flex',
   },
-  // eslint-disable-next-line sx/no-unused-stylesheet
   productTitle: {
     display: 'flex',
     padding: 20,

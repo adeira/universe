@@ -65,7 +65,6 @@ const styles = sx.create({
     top: 0,
     zIndex: 1,
   },
-  // eslint-disable-next-line sx/no-unused-stylesheet
   link: {
     fontSize: 20,
     marginRight: 20,
