@@ -8,6 +8,7 @@ rust_binary(
     deps = [
         "//src/ya-comiste-rust/server/cargo:arangors",
         "//src/ya-comiste-rust/server/cargo:bytes",
+        "//src/ya-comiste-rust/server/cargo:clap",
         "//src/ya-comiste-rust/server/cargo:data_encoding",
         "//src/ya-comiste-rust/server/cargo:dataloader",
         "//src/ya-comiste-rust/server/cargo:deadpool",

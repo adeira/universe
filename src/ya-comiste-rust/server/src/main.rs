@@ -36,6 +36,14 @@ fn init_tracing() {
 async fn main() {
     init_tracing();
 
+    let cli_matches = clap::app_from_crate!()
+        .arg(
+            clap::Arg::new("no-migrations")
+                .long("no-migrations")
+                .about("Skips database migrations"),
+        )
+        .get_matches();
+
     // TODO: how to display these routes automatically (?)
     let server_addr = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 8080);
     println!(
@@ -51,9 +59,11 @@ async fn main() {
     // for the following requests. DO NOT create it in the GraphQL context extractor!
     let pool = get_database_connection_pool();
 
-    // Preferably, migrations would NOT be ran during the server start.
-    // But we do it now for the simplicity.
-    migrations::migrate(&pool).await;
+    if !cli_matches.is_present("no-migrations") {
+        // Preferably, migrations would NOT be ran during the server start.
+        // But we do it now for the simplicity.
+        migrations::migrate(&pool).await;
+    }
 
     let schema = create_graphql_schema();
     let graphql_api = warp_graphql::filters::graphql(pool, schema);
