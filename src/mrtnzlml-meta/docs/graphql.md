@@ -68,6 +68,10 @@ How?
 
 TKTK (2 approaches: ephemeral Apollo vs. compile time)
 
+Additional links:
+
+- https://chillicream.com/docs/hotchocolate/v10/execution-engine/persisted-queries
+
 ## Optimizing GraphQL server DB queries
 
 Quotation from the following source: https://github.com/graphql/graphql-js/issues/623#issuecomment-266851309
