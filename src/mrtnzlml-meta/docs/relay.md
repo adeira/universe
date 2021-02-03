@@ -44,6 +44,8 @@ Don't confuse them with the old devtools. This version is the new one:
 
 ![GraphQL response overfetching example](/img/relay-new-devtools.png)
 
+There is also a community fork worth trying: https://github.com/oslabs-beta/protostar-relay
+
 Alternatively, you can also access the store directly (similarly to how the devtools are doing) from your dev console. To do so, you simply need to register a `__RELAY_DEVTOOLS_HOOK__` **before** creating your Relay Environment:
 
 ```js
