@@ -19,7 +19,7 @@ pub(crate) async fn list_all_users(
     Ok(db.aql_query::<AnyUser>(aql).await?)
 }
 
-/// Returns unauthorized user based on Google Claims (`sub`) or `None` if such user couldn't be found.
+/// Returns user based on Google Claims (`sub`) or `None` if such user couldn't be found.
 pub(crate) async fn find_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,
     subject: &str,
@@ -48,8 +48,9 @@ pub(crate) async fn find_user_by_google_claims(
     }
 }
 
-/// It either updates the existing sessions (last access time) or returns an error if the session
-/// doesn't exist (so the user is not logged in).
+/// Returns user by session token HASH. It also tries to updates the existing session (last access
+/// time) or returns an error if the session doesn't exist (so the user is not logged in).
+///
 /// TODO(004) add integration tests
 pub async fn get_user_by_session_token_hash(
     pool: &crate::arangodb::ConnectionPool,
@@ -157,7 +158,7 @@ mod tests {
     #[tokio::test]
     async fn create_user_by_google_claims_test() {
         // TODO: run the tests in transaction (?) and serially (?) and handle the cleanups better
-        //  (requires https://github.com/fMeow/arangors/commit/1be43ebef82a66ff1f203845b279a1ac8907da67)
+        //       maybe create a database per test (?)
 
         let pool = get_database_connection_pool();
         crate::migrations::migrate(&pool).await;

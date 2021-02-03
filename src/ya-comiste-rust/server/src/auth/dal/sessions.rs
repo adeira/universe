@@ -31,12 +31,10 @@ pub(crate) async fn find_session_by_user(
     }
 }
 
-/// Creates a new user session and links it with the user. The session is updated if it already
-/// exists (updates the last access time). This should not happen very often though since there is
-/// no need to call "authorize" when the user is already authorized.
+/// Creates a new user session and links it with the user.
 ///
 /// TODO(004) add integration tests
-pub(crate) async fn create_user_session(
+pub(crate) async fn create_new_user_session(
     pool: &crate::arangodb::ConnectionPool,
     session_token_hash: &str,
     user: &AnyUser,
@@ -53,26 +51,15 @@ pub(crate) async fn create_user_session(
                 last_access: DATE_ISO8601(DATE_NOW()),
                 type: @session_type,
               } INTO sessions
-              OPTIONS {
-                overwrite: true,
-                overwriteMode: "update",
-                waitForSync: true,
-              }
               RETURN NEW
             )
 
-            LET session_id = CONCAT_SEPARATOR('/', 'sessions', @session_token_hash)
             INSERT {
               _key: @session_token_hash,
               _from: @user_id,
-              _to: session_id,
+              _to: new_session._id,
             } INTO user_sessions
-            OPTIONS {
-              overwrite: true,
-              overwriteMode: "update",
-              waitForSync: true,
-            }
-            LET edge = NEW
+
             RETURN new_session
             "#,
         )
@@ -100,6 +87,9 @@ pub(crate) async fn delete_user_session(
     session_token_hash: &str,
 ) -> Result<Session, ModelError> {
     let db = pool.db().await;
+
+    // TODO: do not remove mobile/webapp sessions if it's from a different source
+    //       (webapp should not deauthorize mobile)
 
     let remove_sessions_aql = arangors::AqlQuery::builder()
         .query(

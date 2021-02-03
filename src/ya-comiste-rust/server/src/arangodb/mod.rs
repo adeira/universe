@@ -113,7 +113,7 @@ async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
             connection
                 .create_database(db_name)
                 .await
-                .expect(format!("could not create '{}' database", db_name).as_ref())
+                .unwrap_or_else(|_| panic!("could not create '{}' database", db_name))
         }
         Err(error) => {
             panic!("could not access '{}' database: {:?}", db_name, error)

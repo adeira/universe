@@ -1,4 +1,4 @@
-# @generated SignedSource<<8999ec1cdeec7095f1c54286bf9fbdfd>>
+# @generated SignedSource<<9a788370796f9cf62b9733f95d46f676>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -29,12 +29,13 @@ type Mutation {
     because every user with a valid JWT ID token will be either authorized OR registered and
     authorized. Invalid tokens and disabled tokens will be rejected.
 
-    Please note: repeated calls will result in error since we cannot authorize the user twice
-    and we cannot return the previous token either (since it's hashed).
+    Repeated calls will result in a new session token and deauthorization of the previous
+    token (if it exist). Original session token is returned back only once and cannot be
+    retrieved later (it's irreversibly hashed in the database).
   """
   authorizeMobile(googleIdToken: String!): AuthorizeMobilePayload!
   """
-    The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
+    The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
     make the mobile application unsigned. Mobile applications should remove the session token
     once deauthorized.
 
