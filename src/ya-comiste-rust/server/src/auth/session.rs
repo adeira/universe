@@ -67,9 +67,19 @@ pub struct Session {
     r#type: SessionType,
 }
 
+impl Session {
+    /// It is not possible to retrieve back the original session token, only hash (similar to how
+    /// passwords would work).
+    pub fn session_token_hash(&self) -> &String {
+        &self._key
+    }
+}
+
 #[derive(Clone, Deserialize)]
 pub enum SessionType {
+    #[serde(rename = "mobile")]
     MOBILE,
+    #[serde(rename = "webapp")]
     WEBAPP,
 }
 

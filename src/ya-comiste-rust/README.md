@@ -65,7 +65,17 @@ Database migrations are currently being run automatically during the server star
 
 ```bash
 # DEVELOPMENT ONLY!
-docker run -e ARANGO_NO_AUTH=1 -p 8529:8529 -d --name arangodb-instance arangodb
+
+docker run \
+  --memory=512m \
+  --cpus=1 \
+  -e ARANGODB_OVERRIDE_DETECTED_TOTAL_MEMORY=512m \
+  -e ARANGODB_OVERRIDE_DETECTED_NUMBER_OF_CORES=1 \
+  -e ARANGO_NO_AUTH=1 \
+  -p 8529:8529 \
+  -d \
+  --name=arangodb-instance \
+  arangodb
 ```
 
 Why ArangoDB? At the time of writing, it was essentially the most promising multi-model open-source DB (with graph support) out there. Source: https://db-engines.com/en/ranking/graph+dbms

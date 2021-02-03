@@ -69,8 +69,9 @@ impl Mutation {
     /// because every user with a valid JWT ID token will be either authorized OR registered and
     /// authorized. Invalid tokens and disabled tokens will be rejected.
     ///
-    /// Please note: repeated calls will result in error since we cannot authorize the user twice
-    /// and we cannot return the previous token either (since it's hashed).
+    /// Repeated calls will result in a new session token and deauthorization of the previous
+    /// token (if it exist). Original session token is returned back only once and cannot be
+    /// retrieved later (it's irreversibly hashed in the database).
     async fn authorize_mobile(
         google_id_token: String,
         context: &Context,
@@ -78,7 +79,7 @@ impl Mutation {
         crate::auth::api::authorize_mobile(&google_id_token, &context).await
     }
 
-    /// The purpose of this `deauthorize` mutation is to remove the active sessions and efectivelly
+    /// The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
     /// make the mobile application unsigned. Mobile applications should remove the session token
     /// once deauthorized.
     ///
