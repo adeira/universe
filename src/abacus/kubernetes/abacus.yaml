@@ -1,0 +1,124 @@
+apiVersion: 'database.arangodb.com/v1alpha'
+kind: 'ArangoDeployment'
+metadata:
+  name: 'arangodb-single-server'
+spec:
+  mode: Single
+  image: 'arangodb/arangodb:3.7.9'
+  tls:
+    caSecretName: None # TODO
+  auth:
+    jwtSecretName: None # TODO
+  single:
+    storageClassName: my-local-ssd
+    overrideDetectedTotalMemory: True
+    resources:
+      requests:
+        cpu: 1
+        memory: 512M
+      limits:
+        cpu: 2
+        memory: 1024M
+
+---
+apiVersion: 'storage.arangodb.com/v1alpha'
+kind: 'ArangoLocalStorage'
+metadata:
+  name: 'arangodb-single-server-storage'
+spec:
+  storageClass:
+    name: my-local-ssd
+    isDefault: true
+  localPath:
+    - /Users/martinzlamal/Desktop/arango-storage # TODO
+
+---
+apiVersion: 'batch/v1beta1'
+kind: 'CronJob'
+metadata:
+  name: 'arangodb-single-server-backup'
+spec:
+  #          ┌───────────── minute (0 - 59)
+  #          │ ┌───────────── hour (0 - 23)
+  #          │ │ ┌───────────── day of the month (1 - 31)
+  #          │ │ │ ┌───────────── month (1 - 12)
+  #          │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday;
+  #          │ │ │ │ │                                   7 is also Sunday on some systems)
+  #          │ │ │ │ │
+  #          │ │ │ │ │
+  schedule: '*/5 * * * *' # every 5 minutes
+  #schedule: '0 * * * *' # equivalent to `@hourly`
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          initContainers:
+            - name: dump-create
+              image: 'arangodb/arangodb:3.7.9'
+              args:
+                - 'arangodump'
+                # https://<deployment-name>.<namespace>.svc:8529
+                - '--server.endpoint=tcp://arangodb-single-server.default.svc.cluster.local:8529' # TODO: ssl://…
+                #- '--server.username=$(username)'
+                #- '--server.password=$(password)'
+                - '--server.authentication=false'
+                - '--server.database=abacus'
+                - '--output-directory=/tmp/dump'
+                - '--overwrite=true' # TODO
+              volumeMounts:
+                - name: dump
+                  mountPath: /tmp/dump
+          containers:
+            - name: db-dump-upload
+              image: amazon/aws-cli:2.1.29
+              command: ['/bin/sh', '-c']
+              args: ['aws --help']
+              #args: ['aws s3 sync /tmp/dump s3://bucket/$(date -I)']
+              volumeMounts:
+                - name: dump
+                  mountPath: /tmp/dump
+          volumes:
+            - name: dump
+              emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: abacus-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: abacus
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abacus-deployment
+  labels:
+    app: abacus
+spec:
+  # Careful with changing the replicas - we are currently running DB migrations during the app start.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abacus
+  template:
+    metadata:
+      labels:
+        app: abacus
+    spec:
+      containers:
+        - name: abacus
+          image: mrtnzlml/abacus
+          ports:
+            - containerPort: 5000
+          args:
+            - '--arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529' # TODO: https://…
