@@ -40,7 +40,7 @@ async fn main() {
     init_tracing();
 
     // TODO: how to display these routes automatically (?)
-    let server_addr = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 5000);
+    let server_addr = SocketAddrV4::new(Ipv4Addr::new(0, 0, 0, 0), 5000);
     println!(
         r#"
         Starting server on {}

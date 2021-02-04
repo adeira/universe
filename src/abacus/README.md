@@ -1,30 +1,5 @@
 # 🧮 ABACUS - Rust Backend
 
-TODOs:
-
-```text
-🚧 001 - DB strings and source-code translations
-🚧 002 - DB schema validations (JSON schema)
-🚧 003 - server monitoring and error reporting (?)
-🚧 004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
-✅ 005 - implement https://github.com/woltapp/blurhash
-🚧 006 - use Bazel https://bazelbuild.github.io/rules_rust/
-✅ 007 - DB migrations
-🚧 008 - queries whitelisting (persistent queries)
-🚧 009 - explore WASM on server instead of Docker (https://github.com/deislabs/krustlet)
-```
-
-Required ENV variables:
-
-```text
-AWS_ACCESS_KEY_ID       - S3 rusoto
-AWS_SECRET_ACCESS_KEY   - S3 rusoto
-
-TODO: ArangoDB ENVs
-```
-
-# Rust server
-
 This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp)), exposes GraphQL API (via [Juniper](https://github.com/graphql-rust/juniper)) and works with [ArangoDB](https://github.com/arangodb/arangodb) database behind the scenes.
 
 - Rust: https://www.rust-lang.org/learn
@@ -34,19 +9,6 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
   - https://www.arangodb.com/docs/stable/data-modeling-documents-schema-validation.html
   - JSON Schema validator: https://www.jsonschemavalidator.net/
 
-```bash
-# Executed from `src/abacus` context
-
-docker build --tag abacus --file Dockerfile .
-docker run \
-  --memory=64m \
-  --cpus=0.1 \
-  -p 8080:8080 \
-  -d \
-  --name=abacus \
-  abacus
-```
-
 ## Install and run
 
 ```text
@@ -55,15 +17,22 @@ docker run \
 (cd src/abacus && cargo doc --open --no-deps)
 ```
 
-The server will be accessible here: http://127.0.0.1:8080/graphql (use https://insomnia.rest/graphql/)
+The server will be accessible on: http://0.0.0.0:5000/graphql (use https://insomnia.rest/graphql/)
 
-Start the database:
+Required ENV variables:
+
+```text
+AWS_ACCESS_KEY_ID       - S3 rusoto
+AWS_SECRET_ACCESS_KEY   - S3 rusoto
+```
+
+Start the database (TODO - prefer k8s version):
 
 ```text
 brew services start arangodb
 ```
 
-The database will be available here: http://127.0.0.1:8529/ (user `abacus`, no password)
+The database will be available on: http://127.0.0.1:8529/ (user `abacus`, no password)
 
 ## Testing
 
@@ -77,13 +46,13 @@ There are some extra tests which are slow or require extra infrastructure (netwo
 (cd src/abacus && cargo test --offline -- --ignored)
 ```
 
-Ignored tests are not being run on CI (at least not yet)!
+Note: ignored tests are not being run on CI (at least not yet)!
 
 ## Database migrations
 
-Database migrations are currently being run automatically during the server start. It's not and ideal or final solution but it's "good enough" for now.
+Database migrations are currently being run automatically during the server start. It's not and ideal or final solution, but it's "good enough" for now.
 
-# ArangoDB
+## ArangoDB
 
 - https://www.arangodb.com/
 - https://hub.docker.com/r/arangodb/arangodb/
@@ -113,7 +82,7 @@ Resources:
 
 - [Best Practices for AQL Graph Queries](https://www.arangodb.com/2020/05/best-practices-for-aql-graph-queries/)
 
-## Arangodump & Arangorestore
+### Arangodump & Arangorestore
 
 Database backup **with** data (empty password):
 
@@ -151,4 +120,19 @@ For example, to delete analyzers:
 ```js
 var analyzers = require('@arangodb/analyzers');
 analyzers.remove('bigram');
+```
+
+## TODOs
+
+```text
+🚧 001 - DB strings and source-code translations
+🚧 002 - DB schema validations (JSON schema)
+🚧 003 - server monitoring and error reporting (?)
+🚧 004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
+✅ 005 - implement https://github.com/woltapp/blurhash
+🚧 006 - use Bazel https://bazelbuild.github.io/rules_rust/
+✅ 007 - DB migrations
+🚧 008 - queries whitelisting (persistent queries)
+🚧 009 - explore WASM on server instead of Docker (https://github.com/deislabs/krustlet)
+🚧 010 - ArangoDB database backups (k8s)
 ```

@@ -1,3 +1,8 @@
+##
+## docker build --tag abacus --file Dockerfile .
+##
+
+
 FROM rust:1.51.0 AS builder
 # Let's switch our working directory to `app` (equivalent to `cd app`)
 # The `app` folder will be created for us by Docker in case it does not
@@ -14,5 +19,6 @@ WORKDIR app
 # Copy the compiled binary from the builder environment
 # to our runtime environment
 COPY --from=builder /app/target/release/server server
+EXPOSE 5000/tcp
 # When `docker run` is executed, launch the binary!
 ENTRYPOINT ["./server"]
