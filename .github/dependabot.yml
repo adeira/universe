@@ -32,3 +32,12 @@ updates:
       - 'dependencies'
       - 'automerge' # see Kodiak `merge.automerge_label`
     open-pull-requests-limit: 10
+
+  - package-ecosystem: 'docker'
+    directory: '/src/ya-comiste-rust/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
+      - 'automerge' # see Kodiak `merge.automerge_label`
+    open-pull-requests-limit: 10
