@@ -1,4 +1,4 @@
-# @generated SignedSource<<7357c984690a59b36c1c8bd2b41def47>>
+# @generated SignedSource<<ae49cb9ae55943d5887942a3c1b7b525>>
 #
 # To regenerate run:
 # yarn monorepo-babel-node scripts/generateFlow.js
@@ -14,7 +14,6 @@
 .+/bazel-out/.+
 .+/bazel-testlogs/.+
 .+/bazel-universe/.+
-.*/*[.]android.js
 
 [include]
 

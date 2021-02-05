@@ -55,10 +55,15 @@ export default async function publish(options: Options) {
           npmAuthToken: options.npmAuthToken,
         });
 
-        if (!semver.gt(packageJSONFile.version, data.latest)) {
-          log('✅ Skipping %s because there is nothing to release', chalkPackageName);
+        const latest = data.latest;
+        if (!semver.gt(packageJSONFile.version, latest)) {
+          log(
+            '✅ Skipping %s because there is nothing to release (latest: %s)',
+            chalkPackageName,
+            latest,
+          );
         } else {
-          log('🚀 Preparing %s for release', chalkPackageName);
+          log('🚀 Preparing %s for release (latest: %s)', chalkPackageName, latest);
 
           const filenames = await packlist({ path: packageFolderPath });
           for (const filename of filenames) {

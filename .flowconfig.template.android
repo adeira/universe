@@ -1,4 +1,0 @@
-; https://flow.org/en/docs/config/ignore/
-[ignore]
-; React Native forks some components by platform
-.*/*[.]ios.js
