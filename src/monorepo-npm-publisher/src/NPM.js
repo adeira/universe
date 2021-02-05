@@ -11,12 +11,16 @@ const NPM = new NPMRegistryClient({
   },
 });
 
+type PackageInfoPayload = {|
+  +latest: string,
+|};
+
 export default {
   getPackageInfo: (params: {|
     +package: string,
     +npmAuthToken: string,
-  |}): Promise<{| +[key: string]: any |}> => {
-    return new Promise<{ +[key: string]: any, ... }>((resolve, reject) => {
+  |}): Promise<PackageInfoPayload> => {
+    return new Promise<PackageInfoPayload>((resolve, reject) => {
       NPM.distTags.fetch(
         URI,
         {
@@ -25,15 +29,14 @@ export default {
         },
         (error, data /* , raw, res */) => {
           if (error) {
-            if (error.statusCode !== 404) {
-              // 404 indicates that the package doesn't exist (yet)
-              return reject(error);
+            if (error.statusCode === 404 || error.statusCode === 403) {
+              // Package probably doesn't exist (yet). Originally, NPM api was returning 404
+              // in this case but somewhere around beginning of 2021 started returning 403.
+              return resolve({ latest: '0.0.0' });
             }
+            return reject(error);
           }
-          return resolve({
-            ...data,
-            latest: data.latest ?? '0.0.0', // missing in case of 404
-          });
+          return resolve({ latest: data.latest });
         },
       );
     });
