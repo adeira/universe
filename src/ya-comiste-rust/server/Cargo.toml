@@ -17,7 +17,7 @@ data-encoding = "2.3.2"
 dataloader = "0.14.0"
 deadpool = { version = "0.7.0", features = ["managed"] }
 futures = "0.3.12"
-image = "0.23.12"
+image = "0.23.13"
 jsonwebtoken = "7.2.0"
 juniper = "0.15.3"
 lazy_static = "1.4.0"
