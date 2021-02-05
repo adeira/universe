@@ -8,7 +8,7 @@
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/signed-source": "^1.0.0",
+    "@adeira/signed-source": "^2.0.0",
     "@babel/runtime": "^7.12.5",
     "chalk": "^4.1.0"
   },
