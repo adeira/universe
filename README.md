@@ -11,7 +11,7 @@ See: https://adeira.dev/ for more info.
 ## Quick start
 
 ```text
-git clone git@github.com:adeira/universe.git
+git clone --depth=100 git@github.com:adeira/universe.git
 cd universe
 yarn install
 ```
@@ -32,7 +32,7 @@ yarn workspace @adeira/example-relay start
 
 Specific workspace names can be found in individual `package.json` files of each workspace.
 
-_Do you need tore help? Feel free to ask. :)_
+_Do you need some help? Feel free to [ask](https://github.com/adeira/universe/discussions). :)_
 
 ## `adeira/universe` monorepo structure
 
