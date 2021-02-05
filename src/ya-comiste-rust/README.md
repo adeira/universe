@@ -22,6 +22,19 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
   - https://www.arangodb.com/docs/stable/data-modeling-documents-schema-validation.html
   - JSON Schema validator: https://www.jsonschemavalidator.net/
 
+```bash
+# Executed from `src/ya-comiste-rust` context
+
+docker build --tag ya-comiste-rust --file Dockerfile .
+docker run \
+  --memory=64m \
+  --cpus=0.1 \
+  -p 8080:8080 \
+  -d \
+  --name=ya-comiste-rust \
+  ya-comiste-rust
+```
+
 ## Install and run
 
 ```text
