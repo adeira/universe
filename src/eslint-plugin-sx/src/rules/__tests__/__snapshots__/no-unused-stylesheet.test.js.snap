@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`reports correct lines and columns: SX function "styles" was not used anywhere in the code. 1`] = `
-"  1 | 
+"  1 |
   2 | import sx from '@adeira/sx';
 > 3 | const styles = sx.create({
     |       ^^^^^^^^^^^^^^^^^^^^
@@ -13,7 +13,7 @@ exports[`reports correct lines and columns: SX function "styles" was not used an
     | ^^^^^^^^
 > 7 | });
     | ^^^
-  8 | "
+  8 |"
 `;
 
 exports[`reports correct lines and columns: Unknown stylesheet used: bbb (not defined anywhere) 1`] = `
@@ -36,7 +36,7 @@ exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via 
 > 6 |   }
     | ^^^^
   7 | });
-  8 | "
+  8 |"
 `;
 
 exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via "styles" variable) 2`] = `
@@ -45,5 +45,5 @@ exports[`reports correct lines and columns: Unused stylesheet: aaa (defined via 
 > 7 |   aaa: { color: blue }
     |   ^^^^^^^^^^^^^^^^^^^^
   8 | });
-  9 | "
+  9 |"
 `;
