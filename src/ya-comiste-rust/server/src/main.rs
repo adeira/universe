@@ -70,8 +70,8 @@ async fn main() {
     let routes = graphql_api
         .with(
             warp::cors()
-                .allow_any_origin() // TODO
-                .allow_headers(vec!["x-client", "content-type"])
+                .allow_origin("http://localhost:3000") // TODO
+                .allow_headers(vec!["authorization", "content-type", "x-client"])
                 .allow_methods(vec![warp::http::Method::POST]),
         )
         .with(warp::trace(|_info| {
@@ -79,7 +79,11 @@ async fn main() {
                 "request",
                 id = %uuid::Uuid::new_v4(),
             )
-        }));
+        }))
+        .with(
+            // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
+            warp::compression::gzip(),
+        );
 
     // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
     warp::serve(routes).run(server_addr).await
