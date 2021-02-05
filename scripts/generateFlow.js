@@ -7,14 +7,9 @@ import SignedSource from '@adeira/signed-source';
 
 // yarn monorepo-babel-node scripts/generateFlow.js
 
-const mergedIOSConfig = merge(
+const mergedConfig = merge(
   fs.readFileSync(path.join(__dirname, '..', '.flowconfig.template.base'), 'utf8'),
-  fs.readFileSync(path.join(__dirname, '..', '.flowconfig.template.ios'), 'utf8'),
-);
-
-const mergedAndroidConfig = merge(
-  fs.readFileSync(path.join(__dirname, '..', '.flowconfig.template.base'), 'utf8'),
-  fs.readFileSync(path.join(__dirname, '..', '.flowconfig.template.android'), 'utf8'),
+  '', // custom config which can be merged with the base template
 );
 
 // TODO: collect and merge .flowconfig(s) from all around the monorepo
@@ -33,10 +28,5 @@ fs.writeFileSync(
   // for convenience we generate the IOS config without `*.ios` so Flow
   // can find the config automatically (without specifying --flowconfig-name)
   path.join(__dirname, '..', '.flowconfig'),
-  getFlowconfigTemplate(mergedIOSConfig),
-);
-
-fs.writeFileSync(
-  path.join(__dirname, '..', '.flowconfig.android'),
-  getFlowconfigTemplate(mergedAndroidConfig),
+  getFlowconfigTemplate(mergedConfig),
 );
