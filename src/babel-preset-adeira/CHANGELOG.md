@@ -1,5 +1,7 @@
 # Unreleased
 
+Support for Node.js 12 has been removed. This package might continue working on older Node.js versions, however, it's highly recommended upgrading to Node.js version 14 or newer. For more details, see: https://nodejs.org/en/about/releases/, or discuss here: https://github.com/adeira/universe/discussions/1588
+
 # 2.0.0
 
 - Set reactRuntime to `automatic` as default. This means that if you are not using the new JSX transform, see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html, you need to set `reactRuntime: 'classic'` as an option to this package.
