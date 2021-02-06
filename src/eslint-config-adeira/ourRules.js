@@ -558,6 +558,7 @@ module.exports = ({
   'relay/must-colocate-fragment-spreads': ERROR,
   'relay/no-future-added-value': ERROR,
   'relay/unused-fields': ERROR,
+  'relay/function-required-argument': NEXT_VERSION_ERROR,
 
   // import (https://github.com/benmosher/eslint-plugin-import)
   'import/default': OFF,
