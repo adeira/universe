@@ -869,6 +869,7 @@ Object {
     "react/style-prop-object": 2,
     "react/void-dom-elements-no-children": 2,
     "relay/compat-uses-vars": 0,
+    "relay/function-required-argument": 1,
     "relay/generated-flow-types": 2,
     "relay/graphql-naming": 0,
     "relay/graphql-syntax": 2,
@@ -983,6 +984,11 @@ Snapshot Diff:
 -     "react/jsx-no-constructed-context-values": 1,
 +     "react/jsx-no-constructed-context-values": 2,
       "react/jsx-no-duplicate-props": 2,
+@@ --- --- @@
+      "relay/compat-uses-vars": 0,
+-     "relay/function-required-argument": 1,
++     "relay/function-required-argument": 2,
+      "relay/generated-flow-types": 2,
 @@ --- --- @@
       "switch-colon-spacing": "off",
 -     "sx/no-concatenated-classes": 1,
