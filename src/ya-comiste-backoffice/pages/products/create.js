@@ -2,11 +2,17 @@
 
 import * as React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import sx from '@adeira/sx';
 
 import Layout from '../../src/Layout';
 
 export default function ProductsCreatePage(): React.Node {
+  const yupProductSchema = Yup.object().shape({
+    name: Yup.string().required('Product name is required'),
+    description: Yup.string().required('Product description is required'),
+  });
+
   return (
     <Layout>
       <Formik
@@ -14,16 +20,7 @@ export default function ProductsCreatePage(): React.Node {
           name: '',
           description: '',
         }}
-        validate={(values) => {
-          const errors = {};
-          if (!values.name) {
-            errors.name = 'Product name is required';
-          }
-          if (!values.description) {
-            errors.description = 'Product description is required';
-          }
-          return errors;
-        }}
+        validationSchema={yupProductSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             // eslint-disable-next-line no-undef,no-alert
