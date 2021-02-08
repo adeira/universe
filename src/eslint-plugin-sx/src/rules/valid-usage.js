@@ -46,7 +46,7 @@ module.exports = ({
           isSXVariableDeclarator(node, importDefaultSpecifier, importSpecifierCreate) ||
           isSXKeyframesVariableDeclarator(node, importDefaultSpecifier, importSpecifierKeyframes)
         ) {
-          const initArguments = (node.init && node.init.arguments) || [];
+          const initArguments = node.init?.arguments || [];
           const calleeName = getVariableDeclaratorCalleeName(node, importDefaultSpecifier);
 
           if (initArguments.length > 1) {
@@ -59,7 +59,7 @@ module.exports = ({
           }
 
           const firstArgument = initArguments[0];
-          if ((firstArgument && firstArgument.type) !== 'ObjectExpression') {
+          if (firstArgument?.type !== 'ObjectExpression') {
             context.report({
               node,
               message:
@@ -68,7 +68,7 @@ module.exports = ({
             });
           }
 
-          const firstArgumentProperties = (firstArgument && firstArgument.properties) || [];
+          const firstArgumentProperties = firstArgument?.properties ?? [];
           for (const property of firstArgumentProperties) {
             if (property.value.type !== 'ObjectExpression') {
               context.report({
