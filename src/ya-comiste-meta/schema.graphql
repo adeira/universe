@@ -1,4 +1,4 @@
-# @generated SignedSource<<dfaeee8b0b06ec00b2f02f47f4a69379>>
+# @generated SignedSource<<430e40274588944b94c883ec6d9fa715>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -86,8 +86,8 @@ input ProductPriceInput {
 }
 
 input ProductMultilingualInputTranslations {
-  name: String!
-  description: String!
+  name: String
+  description: String
 }
 
 """

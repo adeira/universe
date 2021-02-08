@@ -1,1 +1,1 @@
-{"translations/enum_manifest.json":["src/AuthButtons.js","src/Navigation.js","pages/pos.js","pages/products.js"]}
+{"translations/enum_manifest.json":["src/AuthButtons.js","src/Navigation.js","src/products/createProductFormSchema.js","pages/pos.js","pages/products.js","pages/products/create.js"]}

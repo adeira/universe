@@ -40,7 +40,8 @@ pub async fn migrate(
                     ],
                     "properties": {
                       "sub": {
-                        "type": "string"
+                        "type": "string",
+                        "minLength": 1
                       }
                     }
                   }

@@ -10,8 +10,8 @@ export type sessionPosQueryResponse = {|
   +pos: {|
     +listProducts: ?$ReadOnlyArray<?{|
       +id: string,
-      +name: string,
-      +description: string,
+      +name: ?string,
+      +description: ?string,
       +images: $ReadOnlyArray<string>,
       +unitLabel: string,
       +price: {|

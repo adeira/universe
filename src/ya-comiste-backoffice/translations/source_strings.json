@@ -5,9 +5,9 @@
     "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 42,
+   "line_beg": 43,
    "col_beg": 24,
-   "line_end": 42,
+   "line_end": 43,
    "col_end": 81,
    "desc": "login unknown error",
    "project": "",
@@ -19,9 +19,9 @@
     "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 48,
+   "line_beg": 49,
    "col_beg": 20,
-   "line_end": 48,
+   "line_end": 49,
    "col_end": 77,
    "desc": "login unknown error",
    "project": "",
@@ -86,6 +86,90 @@
   },
   {
    "hashToText": {
+    "c0PkRJ4iPzn52mQA9ajdTQ==": "At least one product name version (english or spanish) is required"
+   },
+   "filepath": "src/products/createProductFormSchema.js",
+   "line_beg": 24,
+   "col_beg": 8,
+   "line_end": 27,
+   "col_end": 9,
+   "desc": "EN name form field validation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "At least one product name version (english or spanish) is required"
+  },
+  {
+   "hashToText": {
+    "bWVvNWweH2Ue7yzho+olWw==": "At least one product name version (english or spanish) is required"
+   },
+   "filepath": "src/products/createProductFormSchema.js",
+   "line_beg": 34,
+   "col_beg": 8,
+   "line_end": 37,
+   "col_end": 9,
+   "desc": "ES name form field validation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "At least one product name version (english or spanish) is required"
+  },
+  {
+   "hashToText": {
+    "C5f8Z96npQxELI4uPP2/lg==": "At least one product description (english or spanish) is required"
+   },
+   "filepath": "src/products/createProductFormSchema.js",
+   "line_beg": 44,
+   "col_beg": 8,
+   "line_end": 47,
+   "col_end": 9,
+   "desc": "EN description form field validation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "At least one product description (english or spanish) is required"
+  },
+  {
+   "hashToText": {
+    "8IDfeBB/BYCtzTajliJTog==": "At least one product description (english or spanish) is required"
+   },
+   "filepath": "src/products/createProductFormSchema.js",
+   "line_beg": 54,
+   "col_beg": 8,
+   "line_end": 57,
+   "col_end": 9,
+   "desc": "ES description form field validation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "At least one product description (english or spanish) is required"
+  },
+  {
+   "hashToText": {
+    "hG18c6F/tkr5u5MuaDp4ug==": "Product price is a required field"
+   },
+   "filepath": "src/products/createProductFormSchema.js",
+   "line_beg": 62,
+   "col_beg": 16,
+   "line_end": 62,
+   "col_end": 95,
+   "desc": "price form field validation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product price is a required field"
+  },
+  {
+   "hashToText": {
+    "yzI38uykFY/ub9AvbwWW7g==": "Product price must be a positive number"
+   },
+   "filepath": "src/products/createProductFormSchema.js",
+   "line_beg": 65,
+   "col_beg": 8,
+   "line_end": 65,
+   "col_end": 93,
+   "desc": "price form field validation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product price must be a positive number"
+  },
+  {
+   "hashToText": {
     "ocdQ+rrBysji8WMh+QyUuQ==": "Start a new POS session"
    },
    "filepath": "pages/pos.js",
@@ -111,6 +195,118 @@
    "project": "",
    "type": "text",
    "jsfbt": "Create a new product"
+  },
+  {
+   "hashToText": {
+    "++v4PaDnNZtPpJ5lx41T4g==": "All good! ✅"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 64,
+   "col_beg": 30,
+   "line_end": 64,
+   "col_end": 92,
+   "desc": "success message after creating a product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "All good! ✅"
+  },
+  {
+   "hashToText": {
+    "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 70,
+   "col_beg": 10,
+   "line_end": 73,
+   "col_end": 11,
+   "desc": "generic failure message after creating a product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Something unexpected happened and server could not process the request! 🙈"
+  },
+  {
+   "hashToText": {
+    "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 104,
+   "col_beg": 16,
+   "line_end": 104,
+   "col_end": 100,
+   "desc": "form field name for product name in english",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product name (English)"
+  },
+  {
+   "hashToText": {
+    "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 112,
+   "col_beg": 16,
+   "line_end": 112,
+   "col_end": 100,
+   "desc": "form field name for product name in spanish",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product name (Spanish)"
+  },
+  {
+   "hashToText": {
+    "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 120,
+   "col_beg": 16,
+   "line_end": 122,
+   "col_end": 22,
+   "desc": "form field name for product description in english",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product description (English)"
+  },
+  {
+   "hashToText": {
+    "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 130,
+   "col_beg": 16,
+   "line_end": 132,
+   "col_end": 22,
+   "desc": "form field name for product description in spanish",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product description (Spanish)"
+  },
+  {
+   "hashToText": {
+    "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 140,
+   "col_beg": 16,
+   "line_end": 140,
+   "col_end": 79,
+   "desc": "form field name for product price",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Price (MXN)"
+  },
+  {
+   "hashToText": {
+    "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
+   },
+   "filepath": "pages/products/create.js",
+   "line_beg": 148,
+   "col_beg": 16,
+   "line_end": 148,
+   "col_end": 87,
+   "desc": "form field name for product pictures",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product pictures"
   }
  ],
  "childParentMappings": {}
