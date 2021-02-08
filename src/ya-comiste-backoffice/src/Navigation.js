@@ -5,6 +5,7 @@ import sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import Link from './Link';
+import { LogoutButton } from './AuthButtons';
 
 export default function Navigation(): React.Node {
   return (
@@ -26,6 +27,12 @@ export default function Navigation(): React.Node {
       <Link href="/pos">
         <fbt desc="navigation link to point of sales">POS</fbt>
       </Link>
+
+      <div className={styles('separator')}>
+        <hr />
+      </div>
+
+      <LogoutButton />
     </nav>
   );
 }

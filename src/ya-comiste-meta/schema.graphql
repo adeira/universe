@@ -1,4 +1,4 @@
-# @generated SignedSource<<9a788370796f9cf62b9733f95d46f676>>
+# @generated SignedSource<<202de0c217378c6d26240f306f986cc5>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -9,16 +9,8 @@ type POS {
   listProducts: [Product]
 }
 
-type DeauthorizeMobilePayload {
+type DeauthorizePayload {
   success: Boolean!
-}
-
-type ProductError {
-  message: String!
-}
-
-input ProductPriceInput {
-  unitAmount: Int!
 }
 
 "Root mutation of the graph."
@@ -35,15 +27,67 @@ type Mutation {
   """
   authorizeMobile(googleIdToken: String!): AuthorizeMobilePayload!
   """
+    Technically, this is very similar to `authorize_mobile` except the token handling is a bit
+    different. Firstly, the session expires after just a few hours (of inactivity). Secondly,
+    the session token should be securely stored somewhere in the browser.
+  """
+  authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
+  """
     The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
-    make the mobile application unsigned. Mobile applications should remove the session token
-    once deauthorized.
+    make the mobile application/webapp unsigned. Applications should remove the session token
+    once de-authorized.
 
     Repeated calls will result in failure since it's not possible to deauthorize twice.
   """
-  deauthorizeMobile(sessionToken: String!): DeauthorizeMobilePayload!
+  deauthorize(sessionToken: String!): DeauthorizePayload!
   productCreate(productInput: ProductInput!): ProductOrError!
   productDelete(productId: ID!): ProductOrError!
+}
+
+enum ClientLocale {
+  en_US
+  es_MX
+}
+
+input ProductInput {
+  name: String!
+  description: String!
+  images: [String!]!
+  price: ProductPriceInput!
+}
+
+"Root query of the graph."
+type Query {
+  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  listUsers: [AnyUser!]!
+  pos: POS!
+}
+
+type WhoamiPayload {
+  id: ID
+  """
+    Human readable type should be used only for testing purposes. The format is not guaranteed
+    and can change in the future completely.
+  """
+  humanReadableType: String
+}
+
+union ProductOrError = Product | ProductError
+
+type ProductError {
+  message: String!
+}
+
+input ProductPriceInput {
+  unitAmount: Int!
+}
+
+""
+type AnyUser {
+  id: String!
 }
 
 type Product {
@@ -66,18 +110,6 @@ type Product {
   price: ProductPrice!
 }
 
-enum ClientLocale {
-  en_US
-  es_MX
-}
-
-input ProductInput {
-  name: String!
-  description: String!
-  images: [String!]!
-  price: ProductPriceInput!
-}
-
 type ProductPrice {
   """
     Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
@@ -91,27 +123,10 @@ type ProductPrice {
   unitAmount: Int!
 }
 
-"Root query of the graph."
-type Query {
-  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
-  "Returns information about the current user (can be authenticated or anonymous)."
-  whoami: WhoamiPayload!
-  listUsers: [AnyUser!]!
-  pos: POS!
-}
-
-type WhoamiPayload {
-  id: ID
-  """
-    Human readable type should be used only for testing purposes. The format is not guaranteed
-    and can change in the future completely.
-  """
-  humanReadableType: String
-}
-
-type AuthorizeMobilePayload {
+type AuthorizeWebappPayload {
   success: Boolean!
+  "Failure message is available only when success=false."
+  failureMessage: String
   """
     Session token should be send with every GraphQL request which requires auth.
     Returns `None` if the request was not successful.
@@ -119,11 +134,15 @@ type AuthorizeMobilePayload {
   sessionToken: String
 }
 
-union ProductOrError = Product | ProductError
-
-""
-type AnyUser {
-  id: String!
+type AuthorizeMobilePayload {
+  success: Boolean!
+  "Failure message is available only when success=false."
+  failureMessage: String
+  """
+    Session token should be send with every GraphQL request which requires auth.
+    Returns `None` if the request was not successful.
+  """
+  sessionToken: String
 }
 
 schema {

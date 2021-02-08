@@ -1,10 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import { graphql } from '@adeira/relay';
+import { graphql, QueryRenderer } from '@adeira/relay';
 
 import Layout from '../src/Layout';
-import QueryRenderer from '../src/QueryRenderer';
 
 export default function Home(): React.Node {
   return (

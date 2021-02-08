@@ -2,10 +2,9 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { graphql } from '@adeira/relay';
+import { graphql, QueryRenderer } from '@adeira/relay';
 
 import Link from '../../src/Link';
-import QueryRenderer from '../../src/QueryRenderer';
 import useSelectedItemsApi from '../../src/pos/recoil/selectedItemsState';
 
 export default function POSSessionPage(): React.Node {
