@@ -24,10 +24,10 @@
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/eslint-config@^4.4.0":
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-4.4.0.tgz#4d58dd4da56e14c03f10ca37ed5c7968f6b9b0ff"
-  integrity sha512-ambD0IeI+xrCD/dOwEEa0MHekwS2XRJ3lbWbaiQXWJF+5Pi3PB0I0k5pS/H7iiWkqUXIlouN/kHPjZ5oUAa1IQ==
+"@adeira/eslint-config@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-5.0.0.tgz#0ce9762cfc6ef57314d74d5a774b600caad82f93"
+  integrity sha512-ZiDVehKk31FqsjtplBYvMay2OpjM9WrRyKawuhHncoLtYkLC6fkI95uUkC/uHrB03sMO50eDQjlA/8rujA40Xw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     eslint-config-prettier "^7.2.0"
