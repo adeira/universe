@@ -35,6 +35,6 @@
     "eslint": ">=7.14.0"
   },
   "optionalDependencies": {
-    "@adeira/eslint-runner": "^1.0.0"
+    "@adeira/eslint-runner": "^2.0.0"
   }
 }
