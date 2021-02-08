@@ -1,54 +1,163 @@
 // @flow
 
 import * as React from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import sx from '@adeira/sx';
+import { fbt } from 'fbt';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { graphql, useMutation } from '@adeira/relay';
+import { useState } from 'react';
 
 import Layout from '../../src/Layout';
+import createProductFormSchema from '../../src/products/createProductFormSchema';
+import type { createProductCreateMutation } from './__generated__/createProductCreateMutation.graphql';
 
 export default function ProductsCreatePage(): React.Node {
-  const yupProductSchema = Yup.object().shape({
-    name: Yup.string().required('Product name is required'),
-    description: Yup.string().required('Product description is required'),
-  });
+  const [files, setFiles] = useState();
+  const [statusBarMessage, setStatusBarMessage] = useState(null);
+
+  const [productCreate] = useMutation<createProductCreateMutation>(graphql`
+    mutation createProductCreateMutation(
+      $productImagesNames: [ProductImageUploadable!]!
+      $productPriceUnitAmount: Int!
+      $enTranslations: ProductMultilingualInputTranslations
+      $esTranslations: ProductMultilingualInputTranslations
+    ) {
+      productCreate(
+        productMultilingualInput: {
+          images: $productImagesNames
+          price: { unitAmount: $productPriceUnitAmount }
+          en_US: $enTranslations
+          es_MX: $esTranslations
+        }
+      ) {
+        ... on Product {
+          __typename
+        }
+        ... on ProductError {
+          __typename
+          message
+        }
+      }
+    }
+  `);
+
+  const handleFormSubmit = (values, { setSubmitting, resetForm }) => {
+    productCreate({
+      uploadables: files,
+      variables: {
+        productImagesNames: ['TODO'], // TODO
+        productPriceUnitAmount: values.price,
+        enTranslations: {
+          name: values.name_en,
+          description: values.description_en,
+        },
+        esTranslations: {
+          name: values.name_es,
+          description: values.description_es,
+        },
+      },
+      onCompleted: ({ productCreate }) => {
+        if (productCreate.__typename === 'ProductError') {
+          setStatusBarMessage(productCreate.message);
+          setSubmitting(false);
+        } else {
+          setStatusBarMessage(fbt('All good! ✅', 'success message after creating a product'));
+          resetForm();
+        }
+      },
+      onError: () => {
+        setStatusBarMessage(
+          fbt(
+            'Something unexpected happened and server could not process the request! 🙈',
+            'generic failure message after creating a product',
+          ),
+        );
+        setSubmitting(false);
+      },
+    });
+  };
+
+  const formInitialValues = {
+    name_en: null,
+    name_es: null,
+    description_en: null,
+    description_es: null,
+    price: null,
+  };
 
   return (
     <Layout>
+      {/* TODO: extract this into some global status bar for the whole application */}
+      {statusBarMessage != null ? (
+        <div className={styles('statusBar')}>{statusBarMessage}</div>
+      ) : null}
+
       <Formik
-        initialValues={{
-          name: '',
-          description: '',
-        }}
-        validationSchema={yupProductSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            // eslint-disable-next-line no-undef,no-alert
-            alert(JSON.stringify(values, null, 2)); // TODO (graphql mutation)
-            setSubmitting(false);
-          }, 400);
-        }}
+        initialValues={formInitialValues}
+        validationSchema={createProductFormSchema()}
+        onSubmit={handleFormSubmit}
       >
         {({ isSubmitting }) => (
           <Form>
             <div className={styles('row')}>
               <label>
-                Product name
-                <Field type="text" name="name" />
-                <ErrorMessage name="name" component={CustomErrorMessage} />
+                <fbt desc="form field name for product name in english">Product name (English)</fbt>
+                <Field type="text" name="name_en" />
+                <ErrorMessage name="name_en" component={CustomErrorMessage} />
               </label>
             </div>
 
             <div className={styles('row')}>
               <label>
-                Product description
-                <Field type="text" name="description" as="textarea" />
-                <ErrorMessage name="description" component={CustomErrorMessage} />
+                <fbt desc="form field name for product name in spanish">Product name (Spanish)</fbt>
+                <Field type="text" name="name_es" />
+                <ErrorMessage name="name_es" component={CustomErrorMessage} />
+              </label>
+            </div>
+
+            <div className={styles('row')}>
+              <label>
+                <fbt desc="form field name for product description in english">
+                  Product description (English)
+                </fbt>
+                <Field type="text" name="description_en" as="textarea" />
+                <ErrorMessage name="description_en" component={CustomErrorMessage} />
+              </label>
+            </div>
+
+            <div className={styles('row')}>
+              <label>
+                <fbt desc="form field name for product description in spanish">
+                  Product description (Spanish)
+                </fbt>
+                <Field type="text" name="description_es" as="textarea" />
+                <ErrorMessage name="description_es" component={CustomErrorMessage} />
+              </label>
+            </div>
+
+            <div className={styles('row')}>
+              <label>
+                <fbt desc="form field name for product price">Price (MXN)</fbt>
+                <Field type="number" name="price" />
+                <ErrorMessage name="price" component={CustomErrorMessage} />
+              </label>
+            </div>
+
+            <div className={styles('row')}>
+              <label>
+                <fbt desc="form field name for product pictures">Product pictures</fbt>
+                <Field
+                  type="file"
+                  name="images"
+                  multiple={true}
+                  accept="image/jpeg,image/png"
+                  onChange={({ target }) => setFiles(target.files)}
+                />
               </label>
             </div>
 
             <button type="submit" disabled={isSubmitting}>
-              Create
+              Create a new product
             </button>
           </Form>
         )}
@@ -67,5 +176,8 @@ const styles = sx.create({
   },
   error: {
     color: 'red',
+  },
+  statusBar: {
+    backgroundColor: 'orange',
   },
 });

@@ -20,10 +20,12 @@ pub async fn migrate(
                 "required": ["filename", "blurhash"],
                 "properties": {
                   "filename": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   },
                   "blurhash": {
-                    "type": "string"
+                    "type": "string",
+                    "minLength": 1
                   }
                 }
               }

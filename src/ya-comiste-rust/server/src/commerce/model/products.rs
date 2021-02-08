@@ -115,8 +115,8 @@ impl From<ProductImageUploadable> for serde_json::Value {
 
 #[derive(juniper::GraphQLInputObject)]
 pub struct ProductMultilingualInputTranslations {
-    pub(in crate::commerce) name: String,
-    pub(in crate::commerce) description: String,
+    pub(in crate::commerce) name: Option<String>,
+    pub(in crate::commerce) description: Option<String>,
 }
 
 // See `ClientLocale`
@@ -145,12 +145,30 @@ pub(in crate::commerce) async fn create_product(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Product, ModelError> {
+    // At least one translation variant must exist
     if product_multilingual_input.en_us.is_none() && product_multilingual_input.es_mx.is_none() {
         return Err(ModelError::LogicalError(String::from(
             "Product with at least one language must be defined.",
         )));
     }
 
+    // At least name or description must exist in each translation (user can send EN:name and ES:desc, that's fine)
+    if let Some(en_us) = &product_multilingual_input.en_us {
+        if en_us.name.is_none() && en_us.description.is_none() {
+            return Err(ModelError::LogicalError(String::from(
+                "Product must have at least one of name or description for each language version.",
+            )));
+        }
+    }
+    if let Some(es_mx) = &product_multilingual_input.es_mx {
+        if es_mx.name.is_none() && es_mx.description.is_none() {
+            return Err(ModelError::LogicalError(String::from(
+                "Product must have at least one of name or description for each language version.",
+            )));
+        }
+    }
+
+    // Price must be higher than zero
     if product_multilingual_input.price.unit_amount < 0 {
         return Err(ModelError::LogicalError(String::from(
             "Product price cannot be smaller than zero.",

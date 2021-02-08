@@ -230,8 +230,8 @@ mod tests {
                 images: vec![],
                 price: ProductPriceInput { unit_amount: -1 },
                 en_us: Some(ProductMultilingualInputTranslations {
-                    name: "Product name in english".to_string(),
-                    description: "Product description in english".to_string(),
+                    name: Some("Product name in english".to_string()),
+                    description: Some("Product description in english".to_string()),
                 }),
                 es_mx: None,
             },
@@ -269,8 +269,8 @@ mod tests {
                 price: ProductPriceInput { unit_amount: -1 },
                 en_us: None,
                 es_mx: Some(ProductMultilingualInputTranslations {
-                    name: "Product name in SPANISH".to_string(),
-                    description: "Product description in SPANISH".to_string(),
+                    name: Some("Product name in SPANISH".to_string()),
+                    description: Some("Product description in SPANISH".to_string()),
                 }),
             },
         )

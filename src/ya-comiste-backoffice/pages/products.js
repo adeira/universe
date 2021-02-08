@@ -1,5 +1,6 @@
 // @flow
 
+import { graphql, QueryRenderer } from '@adeira/relay';
 import * as React from 'react';
 import fbt from 'fbt';
 
@@ -16,6 +17,30 @@ export default function ProductsPage(): React.Node {
       <hr />
 
       <div>TODO (add/edit/delete product + prices, upload photos)</div>
+
+      {/* TODO: search even inactive products in BO! */}
+      <QueryRenderer
+        /* eslint-disable relay/unused-fields */
+        query={graphql`
+          query productsQuery {
+            searchProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+              id
+              name
+              description
+              images
+              unitLabel
+              price {
+                unitAmount
+                currency
+              }
+            }
+          }
+        `}
+        /* eslint-enable relay/unused-fields */
+        onResponse={(relayProps) => {
+          return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
+        }}
+      />
     </Layout>
   );
 }

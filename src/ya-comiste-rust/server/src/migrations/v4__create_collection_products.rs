@@ -31,20 +31,24 @@ pub async fn migrate(
               "images": {
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "minLength": 1
                 }
               },
               "unit_label": {
-                "type": "string"
+                "type": "string",
+                  "minLength": 1
               },
               "active": {
                 "type": "boolean"
               },
               "created": {
-                "type": "string"
+                "type": "string",
+                  "minLength": 1
               },
               "updated": {
-                "type": "string"
+                "type": "string",
+                  "minLength": 1
               },
               "price": {
                 "type": "object",
@@ -53,6 +57,7 @@ pub async fn migrate(
                 "properties": {
                   "currency": {
                     "type": "string",
+                    "minLength": 1,
                     "enum": ["mxn"]
                   },
                   "unit_amount": {
@@ -70,10 +75,12 @@ pub async fn migrate(
                     "required": ["name", "description"],
                     "properties": {
                       "name": {
-                        "type": ["string", "null"]
+                        "type": ["string", "null"],
+                        "minLength": 1
                       },
                       "description": {
-                        "type": ["string", "null"]
+                        "type": ["string", "null"],
+                        "minLength": 1
                       }
                     }
                   },
@@ -83,10 +90,12 @@ pub async fn migrate(
                     "required": ["name", "description"],
                     "properties": {
                       "name": {
-                        "type": ["string", "null"]
+                        "type": ["string", "null"],
+                        "minLength": 1
                       },
                       "description": {
-                        "type": ["string", "null"]
+                        "type": ["string", "null"],
+                        "minLength": 1
                       }
                     }
                   }
