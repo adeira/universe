@@ -1,5 +1,7 @@
 # Unreleased
 
+# 2.0.0
+
 - Support for Node.js 12 has been removed. This package might continue working on older Node.js versions, however, it's highly recommended upgrading to Node.js version 14 or newer. For more details, see: https://nodejs.org/en/about/releases/, or discuss here: https://github.com/adeira/universe/discussions/1588
 - Upgrade `@adeira/babel-preset-adeira` to 2.0.0.
 - Breaking Change: Add reactRuntime option. You can set it to `automatic` to use the new [JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html), or set it to `classic` to use the classical version. Note that `automatic` is the default.
