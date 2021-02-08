@@ -551,6 +551,7 @@ module.exports = ({
 
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
   'relay/compat-uses-vars': OFF, // we do not use Relay Compat
+  'relay/function-required-argument': NEXT_VERSION_ERROR,
   'relay/generated-flow-types': ERROR,
   'relay/graphql-naming': OFF, // no longer needed, see: https://github.com/facebook/relay/commit/ff1c10bc6595f3715f29660b46f779e000be9c70
   'relay/graphql-syntax': ERROR,
@@ -558,7 +559,6 @@ module.exports = ({
   'relay/must-colocate-fragment-spreads': ERROR,
   'relay/no-future-added-value': ERROR,
   'relay/unused-fields': ERROR,
-  'relay/function-required-argument': NEXT_VERSION_ERROR,
 
   // import (https://github.com/benmosher/eslint-plugin-import)
   'import/default': OFF,
