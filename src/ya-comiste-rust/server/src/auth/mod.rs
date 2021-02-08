@@ -35,9 +35,24 @@ mod session;
 pub(in crate::auth) async fn authorize(
     pool: &crate::arangodb::ConnectionPool,
     google_id_token: &str,
+    whitelisted_google_subs: &Option<Vec<&str>>,
 ) -> Result<String, error::AuthError> {
     let mut cached_certs = certs::CachedCertsProduction::new();
     let token_data = verify_id_token_integrity(&google_id_token, &mut cached_certs).await?; // (1.)
+    let token_sub = token_data.claims.subject();
+
+    if let Some(whitelisted_google_subs) = whitelisted_google_subs {
+        if whitelisted_google_subs
+            .iter()
+            .find(|&sub| sub == token_sub)
+            .is_none()
+        {
+            return Err(error::AuthError::InvalidToken(format!(
+                "Cannot authorize this token because its subject is not whitelisted ({}).",
+                token_sub
+            )));
+        }
+    }
 
     match find_user_by_google_claims(&pool, &token_data.claims.subject()).await {
         // the user already exists (2a.)

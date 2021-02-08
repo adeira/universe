@@ -12,9 +12,9 @@ type Props = {|
 export default function Layout(props: Props): React.Node {
   return (
     <div className={styles('mainGrid')}>
-      <nav className={styles('navigation')}>
+      <div className={styles('navigation')}>
         <Navigation />
-      </nav>
+      </div>
       <main className={styles('main')}>{props.children}</main>
     </div>
   );

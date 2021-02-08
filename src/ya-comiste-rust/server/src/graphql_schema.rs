@@ -79,16 +79,26 @@ impl Mutation {
         crate::auth::api::authorize_mobile(&google_id_token, &context).await
     }
 
+    /// Technically, this is very similar to `authorize_mobile` except the token handling is a bit
+    /// different. Firstly, the session expires after just a few hours (of inactivity). Secondly,
+    /// the session token should be securely stored somewhere in the browser.
+    async fn authorize_webapp(
+        google_id_token: String,
+        context: &Context,
+    ) -> FieldResult<crate::auth::api::AuthorizeWebappPayload> {
+        crate::auth::api::authorize_webapp(&google_id_token, &context).await
+    }
+
     /// The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
-    /// make the mobile application unsigned. Mobile applications should remove the session token
-    /// once deauthorized.
+    /// make the mobile application/webapp unsigned. Applications should remove the session token
+    /// once de-authorized.
     ///
     /// Repeated calls will result in failure since it's not possible to deauthorize twice.
-    async fn deauthorize_mobile(
+    async fn deauthorize(
         session_token: String, // TODO: this could be removed (?) - we can use the user from context
         context: &Context,
-    ) -> crate::auth::api::DeauthorizeMobilePayload {
-        crate::auth::api::deauthorize_mobile(&session_token, &context).await
+    ) -> crate::auth::api::DeauthorizePayload {
+        crate::auth::api::deauthorize(&session_token, &context).await
     }
 
     async fn product_create(
