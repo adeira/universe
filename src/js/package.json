@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/js",
   "license": "MIT",
   "private": false,
-  "version": "1.3.0",
+  "version": "2.0.0",
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
