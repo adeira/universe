@@ -7,3 +7,7 @@ Support for Node.js 12 has been removed. This package might continue working on 
 # 1.1.0
 
 - added new functions `isBright` and `isDark`
+
+# 1.0.0
+
+Initial stable release.

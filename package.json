@@ -11,7 +11,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^2.0.0",
     "@adeira/eslint-config": "^5.0.0",
-    "@adeira/eslint-runner": "^1.0.0",
+    "@adeira/eslint-runner": "^2.0.0",
     "@adeira/flow-bin": "^0.7.0",
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
