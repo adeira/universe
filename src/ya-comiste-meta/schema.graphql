@@ -1,4 +1,4 @@
-# @generated SignedSource<<202de0c217378c6d26240f306f986cc5>>
+# @generated SignedSource<<dfaeee8b0b06ec00b2f02f47f4a69379>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -40,20 +40,13 @@ type Mutation {
     Repeated calls will result in failure since it's not possible to deauthorize twice.
   """
   deauthorize(sessionToken: String!): DeauthorizePayload!
-  productCreate(productInput: ProductInput!): ProductOrError!
+  productCreate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
   productDelete(productId: ID!): ProductOrError!
 }
 
 enum ClientLocale {
   en_US
   es_MX
-}
-
-input ProductInput {
-  name: String!
-  description: String!
-  images: [String!]!
-  price: ProductPriceInput!
 }
 
 "Root query of the graph."
@@ -81,9 +74,30 @@ type ProductError {
   message: String!
 }
 
+input ProductMultilingualInput {
+  images: [ProductImageUploadable!]!
+  price: ProductPriceInput!
+  en_US: ProductMultilingualInputTranslations
+  es_MX: ProductMultilingualInputTranslations
+}
+
 input ProductPriceInput {
   unitAmount: Int!
 }
+
+input ProductMultilingualInputTranslations {
+  name: String!
+  description: String!
+}
+
+"""
+
+        This type should be used together with GraphQL uploads and it should hold the file names
+        being uploaded. It's used together with the actual uploaded files for validation purposes.
+        Only files which are defined using this scalar will be processed.
+
+"""
+scalar ProductImageUploadable
 
 ""
 type AnyUser {
@@ -93,13 +107,13 @@ type AnyUser {
 type Product {
   id: ID!
   "The product’s name, meant to be displayable to the customer."
-  name: String!
+  name: String
   """
     The product’s description, meant to be displayable to the customer. Use this field to
     optionally store a long form explanation of the product being sold for your own rendering
     purposes.
   """
-  description: String!
+  description: String
   "A list of up to 8 URLs of images for this product, meant to be displayable to the customer."
   images: [String!]!
   """

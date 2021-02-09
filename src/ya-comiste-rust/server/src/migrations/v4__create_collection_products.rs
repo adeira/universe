@@ -70,10 +70,10 @@ pub async fn migrate(
                     "required": ["name", "description"],
                     "properties": {
                       "name": {
-                        "type": "string"
+                        "type": ["string", "null"]
                       },
                       "description": {
-                        "type": "string"
+                        "type": ["string", "null"]
                       }
                     }
                   },
@@ -83,10 +83,10 @@ pub async fn migrate(
                     "required": ["name", "description"],
                     "properties": {
                       "name": {
-                        "type": "string"
+                        "type": ["string", "null"]
                       },
                       "description": {
-                        "type": "string"
+                        "type": ["string", "null"]
                       }
                     }
                   }
