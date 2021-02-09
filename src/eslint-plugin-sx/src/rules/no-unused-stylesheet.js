@@ -47,13 +47,13 @@ module.exports = ({
       //       { id }   {    init    }
       'VariableDeclarator'(node) {
         if (isSXVariableDeclarator(node, importDefaultSpecifier, importSpecifierCreate)) {
-          const initArguments = (node.init && node.init.arguments) || [];
+          const initArguments = node.init?.arguments || [];
           const firstArgument = initArguments[0];
-          const firstArgumentProperties = (firstArgument && firstArgument.properties) || [];
+          const firstArgumentProperties = firstArgument?.properties ?? [];
           for (const property of firstArgumentProperties) {
-            const alreadyCaptured = definedStylesheetNames.get(node.id.name) || [];
+            const alreadyCaptured = definedStylesheetNames.get(node.id.name) ?? [];
             const propertyName =
-              property.key.name || // in case property is type of "Identifier"
+              property.key.name ?? // in case property is type of "Identifier"
               property.key.value; // in case property is type of "Literal"
             definedStylesheetNames.set(node.id.name, [...alreadyCaptured, propertyName]);
             definedStylesheetNameNodes.set(propertyName, property);
@@ -65,7 +65,7 @@ module.exports = ({
       // styles('aaa')
       // ^^^^^^^^^^^^^
       'CallExpression'(node) {
-        const expressionArguments = node.arguments || [];
+        const expressionArguments = node.arguments ?? [];
         for (const argument of expressionArguments) {
           if (argument.type === 'ObjectExpression') {
             // could be most likely SX styles definition (backout but continue analyzing)
@@ -93,7 +93,7 @@ module.exports = ({
         }
 
         const maybeCaptured = usedStylesheetNames.get(node.callee.name);
-        const alreadyCaptured = maybeCaptured ? maybeCaptured : [];
+        const alreadyCaptured = maybeCaptured ?? [];
         usedStylesheetNames.set(node.callee.name, [...alreadyCaptured, ...usedNames]);
       },
 
@@ -114,7 +114,7 @@ module.exports = ({
           stylesheetName = expression.property.value;
         }
         const maybeCaptured = usedStylesheetNames.get(expression.object.name);
-        const alreadyCaptured = maybeCaptured ? maybeCaptured : [];
+        const alreadyCaptured = maybeCaptured ?? [];
         usedStylesheetNames.set(expression.object.name, [...alreadyCaptured, stylesheetName]);
       },
 
@@ -138,8 +138,8 @@ module.exports = ({
 
           const definedButNotUsed =
             definedNames.filter((name) => {
-              return !(usedNames && usedNames.includes(name));
-            }) || [];
+              return !usedNames?.includes(name);
+            }) ?? [];
           for (const name of definedButNotUsed) {
             const definedNameNode = definedStylesheetNameNodes.get(name);
             context.report({
@@ -155,11 +155,9 @@ module.exports = ({
           }
 
           const usedButNotDefined =
-            (usedNames &&
-              usedNames.filter((name) => {
-                return !(definedNames && definedNames.includes(name));
-              })) ||
-            [];
+            usedNames?.filter((name) => {
+              return !definedNames.includes(name);
+            }) ?? [];
           for (const name of usedButNotDefined) {
             const usedNode = usedStylesheetNodes.get(name);
             context.report({
