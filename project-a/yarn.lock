@@ -82,13 +82,13 @@
     strip-ansi "^6.0.0"
     text-table "^0.2.0"
 
-"@adeira/fetch@^1.0.3":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-1.0.4.tgz#1028494edd39ceee29b9c9396972dccc260d33e6"
-  integrity sha512-UA+z+TZpCJx8TK9gRzaI5DNyPAkLSURQiWGJYyNQyeE9l0oc8Ziif7qYC93gMLePeUI1PA0t8Z0r4po35rJN8A==
+"@adeira/fetch@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/fetch/-/fetch-2.0.0.tgz#41f9b2c8f2fa7d8a78714a8d42c7cd1de1a29adf"
+  integrity sha512-kEg130Qe18V+w06lQDw+h5ovPrPi362EqdxkwCbT7RgQK027M3r3Vcb6Zj6hp0voeAC50/QG6JdH67DIMvLNIA==
   dependencies:
-    "@adeira/js" "^1.2.4"
-    "@babel/runtime" "^7.11.2"
+    "@adeira/js" "^1.3.0"
+    "@babel/runtime" "^7.12.5"
     cross-fetch "^3.0.6"
 
 "@adeira/js@^1.2.4", "@adeira/js@^1.3.0":
@@ -150,17 +150,17 @@
     "@babel/runtime" "^7.12.5"
     relay-runtime "^10.1.3"
 
-"@adeira/relay@^2.2.1":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-2.2.1.tgz#303049d1e2296dc9bfd698edca90e05451196542"
-  integrity sha512-YvmRLRnqEpCCpYH/VL9oasjJ+RyfdxOj2vuZ+LKwvdwCs1Cwq2RTNtMnWezRXktgbt4JXzw5OF/zC+sxR+LakQ==
+"@adeira/relay@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-3.0.0.tgz#75d7a4627f11ba30abcf37fe739b899b6ba3ac07"
+  integrity sha512-a3uCS+IZs4nIko+i3fPtf3JDli80vdKOHrMEq7RYW6Yme1fYMC/mzQZEw2Bg0lUVu0MGeSLtwcgDajXJFbzvxg==
   dependencies:
-    "@adeira/fetch" "^1.0.3"
-    "@adeira/js" "^1.3.0"
+    "@adeira/fetch" "^2.0.0"
+    "@adeira/js" "^2.0.0"
     "@adeira/logger" "^0.4.0"
     "@adeira/monorepo-utils" "^0.11.0"
     "@adeira/relay-runtime" "^0.20.0"
-    "@adeira/signed-source" "^1.0.0"
+    "@adeira/signed-source" "^2.0.0"
     "@babel/register" "^7.12.10"
     "@babel/runtime" "^7.12.5"
     babel-plugin-relay "^10.1.3"
@@ -177,6 +177,13 @@
   integrity sha512-S3DU0pCr8l0GyWhJwDdkOZrm9fn+xxi3Q/mbpn5lUq1Uo52i7V2tJgcH1IcOskWIFYe0bFdnhT+OCZDW1aQglg==
   dependencies:
     "@babel/runtime" "^7.10.3"
+
+"@adeira/signed-source@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-2.0.0.tgz#74b8d0cee6c89b1ef88c88088a59bba5a7aeab48"
+  integrity sha512-NgR1c4iJSBLHY1J7cDIM0dcRV3wktNwHhmFrAC8PpkvcLX10ecMKgdfpNp3elBJ5R93/XA4ra6Qn0eOO/cGh0Q==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
 
 "@adeira/sx@^0.23.0":
   version "0.23.0"
