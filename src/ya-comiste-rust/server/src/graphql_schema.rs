@@ -103,9 +103,9 @@ impl Mutation {
 
     async fn product_create(
         context: &Context,
-        product_input: crate::commerce::api::ProductInput,
+        product_multilingual_input: crate::commerce::api::ProductMultilingualInput,
     ) -> crate::commerce::api::ProductOrError {
-        crate::commerce::api::create_product(&context, &product_input).await
+        crate::commerce::api::create_product(&context, &product_multilingual_input).await
     }
 
     async fn product_delete(
