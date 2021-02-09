@@ -50,7 +50,7 @@
   optionalDependencies:
     "@adeira/eslint-runner" "^1.0.0"
 
-"@adeira/eslint-runner@^1.0.0", "@adeira/eslint-runner@^1.0.2":
+"@adeira/eslint-runner@^1.0.0":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-1.0.2.tgz#29f9dfad00bdd0741ac348739988852524ada0c2"
   integrity sha512-BwAMVkyPfu7n6laUfQLVlRjAlL6NGNHNXvOpu7n3Az6/iVWCZr3w3uto/+551sue4+hmgxcsgP53HqKyaS1QDw==
@@ -58,6 +58,22 @@
     "@adeira/monorepo-utils" "^0.9.0"
     "@babel/code-frame" "^7.10.4"
     "@babel/register" "^7.12.1"
+    "@babel/runtime" "^7.12.5"
+    chalk "^4.1.0"
+    create-jest-runner "^0.7.0"
+    is-ci "^2.0.0"
+    progress "^2.0.3"
+    strip-ansi "^6.0.0"
+    text-table "^0.2.0"
+
+"@adeira/eslint-runner@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-2.0.0.tgz#13c4d96a643079379850ec8663e45d3795c8c9f0"
+  integrity sha512-Vrk5kgvECImyKXsc6yofbqfLPLc7CbfDV9dSjZIuXqgDGaiIqWREWJWgU0/Wj4Qguy+QZLVk7R3F8b/F6g3hPA==
+  dependencies:
+    "@adeira/monorepo-utils" "^0.11.0"
+    "@babel/code-frame" "^7.12.11"
+    "@babel/register" "^7.12.10"
     "@babel/runtime" "^7.12.5"
     chalk "^4.1.0"
     create-jest-runner "^0.7.0"
