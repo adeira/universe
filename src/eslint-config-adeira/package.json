@@ -33,8 +33,5 @@
   },
   "peerDependencies": {
     "eslint": ">=7.14.0"
-  },
-  "optionalDependencies": {
-    "@adeira/eslint-runner": "^2.0.0"
   }
 }

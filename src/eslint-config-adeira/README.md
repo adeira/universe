@@ -54,31 +54,6 @@ It is important to report any issues with the eslint configuration back so we ca
 
 Also please note that **you should not ignore Eslint warnings**! These warnings are helping you to migrate to the future major version. Some of them will turn into errors in the next major version bump.
 
-# Custom Eslint Runner
-
-Custom Eslint Runner was moved to a different package so you can use it independently, see: [@adeira/eslint-runner](https://github.com/adeira/universe/tree/master/src/eslint-runner)
-
-## Tip
-
-You can benefit from the main Jest executor much more. You can for example use watch mode to watch changes in one directory:
-
-```text
-yarn run lint src/packages/relay --watch [--all]
-```
-
-Basically, every Jest watch option is available:
-
-```text
-Watch Usage
- › Press a to run all tests.
- › Press f to run only failed tests.
- › Press o to only run tests related to changed files.
- › Press p to filter by a filename regex pattern.
- › Press t to filter by a test name regex pattern.
- › Press q to quit watch mode.
- › Press Enter to trigger a test run.
-```
-
 # Prior art
 
 - https://github.com/facebook/fbjs
