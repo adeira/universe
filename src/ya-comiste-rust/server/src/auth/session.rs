@@ -73,6 +73,11 @@ impl Session {
     pub fn session_token_hash(&self) -> &String {
         &self._key
     }
+
+    #[cfg(test)]
+    pub fn session_type(&self) -> &SessionType {
+        &self.r#type
+    }
 }
 
 #[derive(Clone, Deserialize)]

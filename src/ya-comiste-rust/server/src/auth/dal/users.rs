@@ -2,6 +2,7 @@ use crate::arangodb::errors::ModelError;
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
+/// TODO(004) add integration tests
 pub(crate) async fn list_all_users(
     pool: &crate::arangodb::ConnectionPool,
 ) -> Result<Vec<AnyUser>, ModelError> {
@@ -118,6 +119,7 @@ pub(crate) async fn create_user_by_google_claims(
     }
 }
 
+/// TODO(004) add integration tests
 #[cfg(test)]
 pub(crate) async fn delete_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,
@@ -151,37 +153,43 @@ pub(crate) async fn delete_user_by_google_claims(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangodb::get_database_connection_pool;
+    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
     use crate::auth::google::Claims;
 
     #[ignore]
     #[tokio::test]
-    async fn create_user_by_google_claims_test() {
-        // TODO: run the tests in transaction (?) and serially (?) and handle the cleanups better
-        //       maybe create a database per test (?)
+    async fn create_regular_user_by_google_claims_test() {
+        let db_name = "create_regular_user_by_google_claims_test";
+        let pool = prepare_empty_test_database(&db_name).await;
 
-        let pool = get_database_connection_pool();
-        crate::migrations::migrate(&pool).await;
-
-        let mock_subject = "sub:12345";
-
-        // cleanup first just in case the previous test failed mid-flight
-        delete_user_by_google_claims(&pool, &mock_subject).await;
-        let user = find_user_by_google_claims(&pool, &mock_subject).await;
-        assert_eq!(user.is_none(), true);
-
-        let user =
-            create_user_by_google_claims(&pool, &Claims::mock(&Some(String::from(mock_subject))))
-                .await;
+        // 1) create a regular user
+        let user = create_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
         assert_eq!(user.is_ok(), true);
 
-        let user = find_user_by_google_claims(&pool, &mock_subject).await;
+        // 2) try to find it and verify its values
+        let user = find_user_by_google_claims(&pool, "sub:12345").await;
         assert_eq!(user.is_some(), true);
         assert_eq!(user.unwrap().r#type(), "regular");
 
-        // cleanup
-        delete_user_by_google_claims(&pool, &mock_subject).await;
-        let user = find_user_by_google_claims(&pool, &mock_subject).await;
-        assert_eq!(user.is_none(), true);
+        cleanup_test_database(&db_name).await;
+    }
+
+    #[ignore]
+    #[tokio::test]
+    async fn create_admin_user_by_google_claims_test() {
+        let db_name = "create_admin_user_by_google_claims_test";
+        let pool = prepare_empty_test_database(&db_name).await;
+
+        // 1) create an admin user (this SUB must always exist)
+        let user =
+            create_user_by_google_claims(&pool, &Claims::mock("108269453578187886435")).await;
+        assert_eq!(user.is_ok(), true);
+
+        // 2) try to find it and verify its values
+        let user = find_user_by_google_claims(&pool, "108269453578187886435").await;
+        assert_eq!(user.is_some(), true);
+        assert_eq!(user.unwrap().r#type(), "admin");
+
+        cleanup_test_database(&db_name).await;
     }
 }

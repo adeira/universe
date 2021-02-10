@@ -2,7 +2,6 @@ use crate::arangodb::errors::ModelError;
 use crate::auth::session::{Session, SessionType};
 use crate::auth::users::AnyUser;
 
-/// TODO(004) add integration tests
 pub(crate) async fn find_session_by_user(
     pool: &crate::arangodb::ConnectionPool,
     user: &AnyUser,
@@ -32,8 +31,6 @@ pub(crate) async fn find_session_by_user(
 }
 
 /// Creates a new user session and links it with the user.
-///
-/// TODO(004) add integration tests
 pub(crate) async fn create_new_user_session(
     pool: &crate::arangodb::ConnectionPool,
     session_token_hash: &str,
@@ -64,7 +61,7 @@ pub(crate) async fn create_new_user_session(
             "#,
         )
         .bind_var("session_token_hash", session_token_hash)
-        .bind_var("session_type", format!("{}", SessionType::MOBILE)) // TODO
+        .bind_var("session_type", format!("{}", SessionType::WEBAPP)) // TODO
         .bind_var("user_id", user.id())
         .build();
 
@@ -112,5 +109,41 @@ pub(crate) async fn delete_user_session(
         None => Err(ModelError::LogicError(String::from(
             "unable to fetch old sessions",
         ))),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+
+    #[ignore]
+    #[tokio::test]
+    async fn create_new_user_session_test() {
+        let db_name = "create_new_user_session_test";
+        let pool = prepare_empty_test_database(&db_name).await;
+
+        let test_user = AnyUser::mock();
+
+        // 1) create a new session for the test user
+        let session =
+            create_new_user_session(&pool, "d99278e7-8f98-482a-ab9e-df93c380546e", &test_user)
+                .await;
+        assert_eq!(session.is_ok(), true);
+
+        // 2) try to fetch it an asset it
+        let session = find_session_by_user(&pool, &test_user)
+            .await
+            .expect("could not find test session");
+        assert_eq!(
+            session.session_token_hash(),
+            "d99278e7-8f98-482a-ab9e-df93c380546e"
+        );
+        assert_eq!(
+            session.session_type().to_string(),
+            "webapp" // TODO: the types are not properly implemented yet
+        );
+
+        cleanup_test_database(&db_name).await;
     }
 }

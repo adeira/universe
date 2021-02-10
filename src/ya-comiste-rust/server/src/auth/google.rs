@@ -30,10 +30,10 @@ impl Claims {
     }
 
     #[cfg(test)]
-    pub(crate) fn mock(sub: &Option<String>) -> Claims {
+    pub(crate) fn mock(sub: &str) -> Claims {
         Claims {
             iss: String::from(""),
-            sub: sub.clone().unwrap_or_else(|| String::from("")),
+            sub: sub.to_string(),
             azp: String::from(""),
             aud: String::from(""),
             iat: 0,

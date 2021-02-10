@@ -38,4 +38,14 @@ impl AnyUser {
     pub(crate) fn r#type(&self) -> String {
         self.r#type.to_owned()
     }
+
+    #[cfg(test)]
+    pub(crate) fn mock() -> Self {
+        Self {
+            _id: String::from("users/42"),
+            _rev: String::from(""),
+            _key: String::from("42"),
+            r#type: String::from("regular"),
+        }
+    }
 }

@@ -1,13 +1,21 @@
-use crate::arangodb::get_database_connection_pool;
+use crate::arangodb::{get_database_connection_pool, prepare_empty_test_database};
 use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
 use warp::http::StatusCode;
 use warp::test::request;
 
-fn create_graphql_api_filter(
+async fn create_graphql_api_filter(
+    db_name: Option<&str>,
 ) -> impl warp::Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
-    crate::warp_graphql::filters::graphql(get_database_connection_pool(), create_graphql_schema())
+    let pool = get_database_connection_pool(db_name);
+    if let Some(db_name) = db_name {
+        prepare_empty_test_database(db_name).await;
+    }
+
+    crate::warp_graphql::filters::graphql(pool, create_graphql_schema())
+
+    // TODO: DB cleanup (?)
 }
 
 #[tokio::test]
@@ -20,7 +28,7 @@ async fn test_graphql_post_query() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -37,7 +45,7 @@ async fn test_graphql_post_mutation() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -56,7 +64,7 @@ async fn test_graphql_post_forbidden() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(Some("test_graphql_post_forbidden")).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -66,6 +74,7 @@ async fn test_graphql_post_forbidden() {
     );
 }
 
+#[ignore]
 #[tokio::test]
 async fn test_graphql_post_query_fail() {
     let resp = request()
@@ -76,7 +85,7 @@ async fn test_graphql_post_query_fail() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(Some("test_graphql_post_query_fail")).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -96,7 +105,7 @@ async fn test_graphql_post_syntax_error() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -128,7 +137,7 @@ async fn test_graphql_multipart_query() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -157,7 +166,7 @@ async fn test_graphql_multipart_mutation() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -188,7 +197,7 @@ async fn test_graphql_multipart_forbidden() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(Some("test_graphql_multipart_forbidden")).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -224,7 +233,7 @@ async fn test_graphql_multipart_upload_forbidden() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     // Requests which contain additional fields (uploads) require admin auth.
@@ -262,7 +271,7 @@ async fn test_graphql_multipart_upload_forbidden_unkown_content_type() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     // Requests which contain additional fields (uploads) require admin auth.
@@ -296,7 +305,7 @@ async fn test_graphql_multipart_query_fail() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -329,7 +338,7 @@ async fn test_graphql_multipart_query_missing() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::BAD_REQUEST);
@@ -344,7 +353,7 @@ async fn test_server_unknown_method_get() {
     let resp = request()
         .method("GET")
         .path("/graphql?query={__typename}")
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::METHOD_NOT_ALLOWED);
@@ -355,7 +364,7 @@ async fn test_server_unknown_path() {
     let resp = request()
         .method("POST")
         .path("/graphqlx")
-        .reply(&create_graphql_api_filter())
+        .reply(&create_graphql_api_filter(None).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::NOT_FOUND);
