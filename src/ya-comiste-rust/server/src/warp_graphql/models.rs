@@ -52,7 +52,7 @@ mod tests {
 
     #[tokio::test]
     async fn get_current_user_without_authorization_header() {
-        let pool = get_database_connection_pool();
+        let pool = get_database_connection_pool(None);
         assert!(matches!(
             get_current_user(&pool, &None).await.unwrap(),
             User::AnonymousUser { .. }
@@ -61,7 +61,7 @@ mod tests {
 
     #[tokio::test]
     async fn get_current_user_with_empty_authorization_header() {
-        let pool = get_database_connection_pool();
+        let pool = get_database_connection_pool(None);
         insta::assert_snapshot!(
             get_current_user(&pool, &Some(String::from("")))
             .await
@@ -73,7 +73,7 @@ mod tests {
 
     #[tokio::test]
     async fn get_current_user_with_unparseable_authorization_header() {
-        let pool = get_database_connection_pool();
+        let pool = get_database_connection_pool(None);
         insta::assert_snapshot!(
             get_current_user(&pool, &Some(String::from("XYZ")))
             .await

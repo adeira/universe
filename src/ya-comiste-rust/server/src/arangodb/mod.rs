@@ -1,4 +1,6 @@
 use arangors::{ArangoError, ClientError, Connection};
+#[cfg(test)]
+use deadpool::managed::Object;
 use deadpool::managed::Pool;
 
 pub mod errors;
@@ -7,8 +9,6 @@ mod pool;
 const ARANGODB_HOST: &str = "http://127.0.0.1:8529/";
 const NORMAL_USERNAME: &str = "ya-comiste-rust"; // TODO: change!
 const NORMAL_PASSWORD: &str = ""; // TODO: change!
-const PRODUCTION_DB_NAME: &str = "ya-comiste";
-const TEST_DB_NAME: &str = "ya-comiste-test";
 
 /// Default ArangoDB (normal) user:
 ///
@@ -69,6 +69,7 @@ pub fn get_arangodb_host() -> String {
 #[derive(Clone)]
 pub struct ConnectionPool {
     pub pool: Pool<Connection, ClientError>,
+    pub db_name: Option<String>,
 }
 
 type Database = arangors::Database<arangors::client::reqwest::ReqwestClient>;
@@ -95,11 +96,15 @@ impl ConnectionPool {
             .await
             .expect("could not get database connection from the pool");
 
-        if cfg!(test) {
-            get_or_create_db(&connection, &TEST_DB_NAME).await
-        } else {
-            get_or_create_db(&connection, &PRODUCTION_DB_NAME).await
-        }
+        get_or_create_db(&connection, &self.db_name.as_ref().unwrap()).await
+    }
+
+    #[cfg(test)]
+    pub async fn connection(&self) -> Object<Connection, ClientError> {
+        self.pool
+            .get()
+            .await
+            .expect("could not get database connection from the pool")
     }
 }
 
@@ -121,7 +126,9 @@ async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
     }
 }
 
-pub fn get_database_connection_pool() -> ConnectionPool {
+/// Database name `None` indicates that the test doesn't actually need a database and should fail
+/// if the application tries to access it anyway.
+pub fn get_database_connection_pool(db_name: Option<&str>) -> ConnectionPool {
     let host = get_arangodb_host();
     let username = get_normal_user();
     let password = get_normal_password();
@@ -143,5 +150,36 @@ pub fn get_database_connection_pool() -> ConnectionPool {
     tracing::trace!("Creating (empty) database connection pool 🔥");
     ConnectionPool {
         pool: connection_pool,
+        db_name: db_name.map(String::from),
     }
+}
+
+/// Creates an empty database for test purposes. Each test should define custom `db_name` to
+/// avoid conflicts with other tests. The following steps are performed:
+///
+/// 1) the DB is deleted (if it already exists for some reason)
+/// 2) database migrations are applied
+///
+/// TODO: how to properly construct the `db_name` to keep it sane?
+#[cfg(test)]
+pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
+    cleanup_test_database(db_name).await;
+    let pool = get_database_connection_pool(Some(db_name));
+    crate::migrations::migrate(&pool).await;
+    pool
+}
+
+/// This function cleanup the test database by removing it completely.
+#[cfg(test)]
+pub async fn cleanup_test_database(db_name: &str) -> ConnectionPool {
+    let pool = get_database_connection_pool(Some(db_name));
+    let connection = pool.connection().await;
+    if connection.db(&db_name).await.is_ok() {
+        // database already exists, let's delete it
+        connection
+            .drop_database(db_name) // Should we throw if it already exists?
+            .await
+            .unwrap_or_else(|_| panic!("Could not delete the test database: {}", db_name));
+    }
+    pool
 }
