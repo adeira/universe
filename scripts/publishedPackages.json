@@ -4,7 +4,6 @@
   "@adeira/css-colors",
   "@adeira/eslint-config",
   "@adeira/eslint-fixtures-tester",
-  "@adeira/eslint-runner",
   "@adeira/fetch",
   "@adeira/fixtures-tester",
   "@adeira/flow-config-parser",
