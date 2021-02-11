@@ -9,7 +9,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/js": "^2.0.0",
-    "@babel/runtime": "^7.12.5"
+    "@babel/runtime": "^7.12.13"
   },
   "peerDependencies": {
     "graphql": "^14.5.8"
