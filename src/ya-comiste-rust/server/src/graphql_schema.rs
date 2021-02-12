@@ -17,7 +17,7 @@ pub struct Query;
 impl Query {
     async fn search_products(
         context: &Context,
-        client_locale: crate::commerce::api::ClientLocale,
+        client_locale: crate::commerce::api::SupportedLocale,
         price_sort_direction: crate::commerce::api::PriceSortDirection,
         search_term: Option<String>,
     ) -> Option<Vec<Option<crate::commerce::api::Product>>> {
@@ -32,7 +32,7 @@ impl Query {
 
     async fn get_product(
         context: &Context,
-        client_locale: crate::commerce::api::ClientLocale,
+        client_locale: crate::commerce::api::SupportedLocale,
         product_id: juniper::ID,
     ) -> Option<crate::commerce::api::Product> {
         crate::commerce::api::get_product(&context, &client_locale, &product_id.to_string()).await

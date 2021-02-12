@@ -1,5 +1,5 @@
 use crate::auth::users::User;
-use crate::commerce::api::{ClientLocale, PriceSortDirection, Product};
+use crate::commerce::api::{PriceSortDirection, Product, SupportedLocale};
 use crate::graphql_context::Context;
 
 pub(crate) struct POS;
@@ -19,7 +19,7 @@ pub(in crate::pos) async fn list_products(context: &Context) -> Option<Vec<Optio
 
     crate::commerce::api::search_products(
         &context,
-        &ClientLocale::EnUS,            // TODO
+        &SupportedLocale::EnUS,         // TODO
         &PriceSortDirection::HighToLow, // TODO
         &None,
     )
