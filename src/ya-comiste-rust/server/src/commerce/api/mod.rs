@@ -3,7 +3,7 @@ use crate::graphql_context::Context;
 pub use crate::commerce::model::products::ClientLocale;
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
-pub use crate::commerce::model::products::ProductInput;
+pub use crate::commerce::model::products::ProductMultilingualInput;
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -16,11 +16,14 @@ pub enum ProductOrError {
     ProductError(ProductError),
 }
 
+/// Exposes the create product API publicly to be used in GraphQL (or any other API as a matter of fact).
 pub(crate) async fn create_product(
     context: &Context,
-    product_input: &ProductInput,
+    product_multilingual_input: &ProductMultilingualInput,
 ) -> ProductOrError {
-    match crate::commerce::model::products::create_product(&context, &product_input).await {
+    match crate::commerce::model::products::create_product(&context, &product_multilingual_input)
+        .await
+    {
         Ok(product) => ProductOrError::Product(product),
         Err(e) => ProductOrError::ProductError(ProductError {
             message: String::from(e),
