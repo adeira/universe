@@ -1,9 +1,9 @@
 use crate::graphql_context::Context;
 
-pub use crate::commerce::model::products::ClientLocale;
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
+pub use crate::commerce::model::products::SupportedLocale;
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -33,7 +33,7 @@ pub(crate) async fn create_product(
 
 pub(crate) async fn search_products(
     context: &Context,
-    client_locale: &ClientLocale,
+    client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
 ) -> Option<Vec<Option<Product>>> {
@@ -52,7 +52,7 @@ pub(crate) async fn search_products(
 
 pub(crate) async fn get_product(
     context: &Context,
-    client_locale: &ClientLocale,
+    client_locale: &SupportedLocale,
     product_id: &str,
 ) -> Option<Product> {
     let product =

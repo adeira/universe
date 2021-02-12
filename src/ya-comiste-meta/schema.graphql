@@ -1,4 +1,4 @@
-# @generated SignedSource<<430e40274588944b94c883ec6d9fa715>>
+# @generated SignedSource<<3d195c313137668beaddb492bffb4300>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -44,15 +44,15 @@ type Mutation {
   productDelete(productId: ID!): ProductOrError!
 }
 
-enum ClientLocale {
+enum SupportedLocale {
   en_US
   es_MX
 }
 
 "Root query of the graph."
 type Query {
-  searchProducts(clientLocale: ClientLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: ClientLocale!, productId: ID!): Product
+  searchProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  getProduct(clientLocale: SupportedLocale!, productId: ID!): Product
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
   listUsers: [AnyUser!]!
@@ -77,8 +77,7 @@ type ProductError {
 input ProductMultilingualInput {
   images: [ProductImageUploadable!]!
   price: ProductPriceInput!
-  en_US: ProductMultilingualInputTranslations
-  es_MX: ProductMultilingualInputTranslations
+  translations: [ProductMultilingualInputTranslations!]!
 }
 
 input ProductPriceInput {
@@ -86,6 +85,7 @@ input ProductPriceInput {
 }
 
 input ProductMultilingualInputTranslations {
+  locale: SupportedLocale!
   name: String
   description: String
 }

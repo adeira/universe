@@ -5,15 +5,16 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
+  locale: SupportedLocale,
   name?: ?string,
   description?: ?string,
 |};
 export type createProductCreateMutationVariables = {|
   productImagesNames: $ReadOnlyArray<any>,
   productPriceUnitAmount: number,
-  enTranslations?: ?ProductMultilingualInputTranslations,
-  esTranslations?: ?ProductMultilingualInputTranslations,
+  translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
 |};
 export type createProductCreateMutationResponse = {|
   +productCreate: {|
@@ -36,10 +37,9 @@ export type createProductCreateMutation = {|
 mutation createProductCreateMutation(
   $productImagesNames: [ProductImageUploadable!]!
   $productPriceUnitAmount: Int!
-  $enTranslations: ProductMultilingualInputTranslations
-  $esTranslations: ProductMultilingualInputTranslations
+  $translations: [ProductMultilingualInputTranslations!]!
 ) {
-  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount}, en_US: $enTranslations, es_MX: $esTranslations}) {
+  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount}, translations: $translations}) {
     __typename
     ... on Product {
       __typename
@@ -53,39 +53,26 @@ mutation createProductCreateMutation(
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "enTranslations"
-},
-v1 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "esTranslations"
-},
-v2 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "productImagesNames"
-},
-v3 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "productPriceUnitAmount"
-},
-v4 = [
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "productImagesNames"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "productPriceUnitAmount"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "translations"
+  }
+],
+v1 = [
   {
     "fields": [
-      {
-        "kind": "Variable",
-        "name": "en_US",
-        "variableName": "enTranslations"
-      },
-      {
-        "kind": "Variable",
-        "name": "es_MX",
-        "variableName": "esTranslations"
-      },
       {
         "kind": "Variable",
         "name": "images",
@@ -101,20 +88,25 @@ v4 = [
         ],
         "kind": "ObjectValue",
         "name": "price"
+      },
+      {
+        "kind": "Variable",
+        "name": "translations",
+        "variableName": "translations"
       }
     ],
     "kind": "ObjectValue",
     "name": "productMultilingualInput"
   }
 ],
-v5 = {
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v6 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -123,19 +115,14 @@ v6 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": [
-      (v0/*: any*/),
-      (v1/*: any*/),
-      (v2/*: any*/),
-      (v3/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "createProductCreateMutation",
     "selections": [
       {
         "alias": null,
-        "args": (v4/*: any*/),
+        "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "productCreate",
@@ -144,7 +131,7 @@ return {
           {
             "kind": "InlineFragment",
             "selections": [
-              (v5/*: any*/)
+              (v2/*: any*/)
             ],
             "type": "Product",
             "abstractKey": null
@@ -152,8 +139,8 @@ return {
           {
             "kind": "InlineFragment",
             "selections": [
-              (v5/*: any*/),
-              (v6/*: any*/)
+              (v2/*: any*/),
+              (v3/*: any*/)
             ],
             "type": "ProductError",
             "abstractKey": null
@@ -167,28 +154,23 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [
-      (v2/*: any*/),
-      (v3/*: any*/),
-      (v0/*: any*/),
-      (v1/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "createProductCreateMutation",
     "selections": [
       {
         "alias": null,
-        "args": (v4/*: any*/),
+        "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
         "name": "productCreate",
         "plural": false,
         "selections": [
-          (v5/*: any*/),
+          (v2/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
-              (v6/*: any*/)
+              (v3/*: any*/)
             ],
             "type": "ProductError",
             "abstractKey": null
@@ -199,15 +181,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "913784df938577ddc30713c44943bb16",
+    "cacheID": "963ffbd5a147fec0fb3663c2cdceb555",
     "id": null,
     "metadata": {},
     "name": "createProductCreateMutation",
     "operationKind": "mutation",
-    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $enTranslations: ProductMultilingualInputTranslations\n  $esTranslations: ProductMultilingualInputTranslations\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount}, en_US: $enTranslations, es_MX: $esTranslations}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
+    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount}, translations: $translations}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'e40689759fc4cffb4a4726b593f3e122';
+(node: any).hash = '8b33dfa96fb611f61825e39967c154b6';
 export default node;

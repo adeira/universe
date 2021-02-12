@@ -19,15 +19,13 @@ export default function ProductsCreatePage(): React.Node {
     mutation createProductCreateMutation(
       $productImagesNames: [ProductImageUploadable!]!
       $productPriceUnitAmount: Int!
-      $enTranslations: ProductMultilingualInputTranslations
-      $esTranslations: ProductMultilingualInputTranslations
+      $translations: [ProductMultilingualInputTranslations!]!
     ) {
       productCreate(
         productMultilingualInput: {
           images: $productImagesNames
           price: { unitAmount: $productPriceUnitAmount }
-          en_US: $enTranslations
-          es_MX: $esTranslations
+          translations: $translations
         }
       ) {
         ... on Product {
@@ -47,14 +45,18 @@ export default function ProductsCreatePage(): React.Node {
       variables: {
         productImagesNames: ['TODO'], // TODO
         productPriceUnitAmount: values.price,
-        enTranslations: {
-          name: values.name_en,
-          description: values.description_en,
-        },
-        esTranslations: {
-          name: values.name_es,
-          description: values.description_es,
-        },
+        translations: [
+          {
+            locale: 'en_US',
+            name: values.name_en,
+            description: values.description_en,
+          },
+          {
+            locale: 'es_MX',
+            name: values.name_es,
+            description: values.description_es,
+          },
+        ],
       },
       onCompleted: ({ productCreate }) => {
         if (productCreate.__typename === 'ProductError') {
