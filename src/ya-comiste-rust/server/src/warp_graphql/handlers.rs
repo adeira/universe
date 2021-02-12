@@ -149,6 +149,7 @@ async fn try_fold_multipart_stream(part: Part) -> Result<Vec<u8>, Rejection> {
         })
 }
 
+#[allow(clippy::unnecessary_wraps)]
 fn reject_with_permissions_error(message: Option<&str>) -> Result<Box<dyn Reply>, Rejection> {
     let code = StatusCode::FORBIDDEN;
     let json = warp::reply::json(&ErrorMessage {
@@ -164,6 +165,7 @@ fn reject_with_permissions_error(message: Option<&str>) -> Result<Box<dyn Reply>
     Ok(Box::new(warp::reply::with_status(json, code)))
 }
 
+#[allow(clippy::unnecessary_wraps)]
 fn reject_with_error_message(message: &str) -> Result<Box<dyn Reply>, Rejection> {
     tracing::error!("{}", message.to_string());
     let code = StatusCode::BAD_REQUEST;
