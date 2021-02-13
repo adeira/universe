@@ -9,30 +9,7 @@ pub async fn migrate(
         &db,
         "images",
         &CollectionType::Document,
-        &serde_json::from_str(
-            r##"
-            {
-              "message": "",
-              "level": "strict",
-              "rule": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["filename", "blurhash"],
-                "properties": {
-                  "filename": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "blurhash": {
-                    "type": "string",
-                    "minLength": 1
-                  }
-                }
-              }
-            }
-            "##,
-        )
-        .unwrap(),
+        &serde_json::from_str(std::include_str!("json_schemas/images.json")).unwrap(),
     )
     .await
 }
