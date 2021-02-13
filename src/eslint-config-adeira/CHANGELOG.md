@@ -1,6 +1,7 @@
 # Unreleased
 
 - New rule `relay/function-required-argument` enabled (warnings or errors in strict mode). See: https://github.com/relayjs/eslint-plugin-relay/pull/108
+- Legacy [`prefer-object-spread/prefer-object-spread`](https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread) rule replaced with [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) while keeping the backward compatibility (warnings as before and errors in strict lint mode).
 
 # 5.0.0
 

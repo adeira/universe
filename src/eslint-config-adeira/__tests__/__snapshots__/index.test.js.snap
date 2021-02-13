@@ -21,7 +21,6 @@ Object {
   "plugins": Array [
     "eslint-plugin-flowtype",
     "eslint-plugin-jest",
-    "eslint-plugin-prefer-object-spread",
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
     "eslint-plugin-react-native",
@@ -665,8 +664,7 @@ Object {
     "prefer-exponentiation-operator": 2,
     "prefer-named-capture-group": 2,
     "prefer-numeric-literals": 0,
-    "prefer-object-spread": 0,
-    "prefer-object-spread/prefer-object-spread": 1,
+    "prefer-object-spread": 1,
     "prefer-promise-reject-errors": 1,
     "prefer-regex-literals": 2,
     "prefer-rest-params": 1,
@@ -972,6 +970,11 @@ Snapshot Diff:
 -     "no-unsafe-optional-chaining": 1,
 +     "no-unsafe-optional-chaining": 2,
       "no-unused-expressions": 0,
+@@ --- --- @@
+      "prefer-numeric-literals": 0,
+-     "prefer-object-spread": 1,
++     "prefer-object-spread": 2,
+      "prefer-promise-reject-errors": 1,
 @@ --- --- @@
       "react-native/no-raw-text": 0,
 -     "react-native/no-single-element-style-arrays": 1,
