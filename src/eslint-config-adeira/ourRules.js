@@ -688,6 +688,22 @@ module.exports = ({
   'eslint-comments/no-unused-enable': ERROR,
   'eslint-comments/no-use': OFF,
 
+  // JavaScript promises (https://github.com/xjamundx/eslint-plugin-promise)
+  'promise/always-return': OFF,
+  'promise/avoid-new': OFF,
+  'promise/catch-or-return': OFF,
+  'promise/no-callback-in-promise': OFF,
+  'promise/no-native': OFF,
+  'promise/no-nesting': WARN,
+  'promise/no-new-statics': NEXT_VERSION_ERROR,
+  'promise/no-promise-in-callback': OFF,
+  'promise/no-return-in-finally': OFF,
+  'promise/no-return-wrap': NEXT_VERSION_ERROR,
+  'promise/param-names': NEXT_VERSION_ERROR,
+  'promise/prefer-await-to-callbacks': OFF,
+  'promise/prefer-await-to-then': OFF,
+  'promise/valid-params': NEXT_VERSION_ERROR,
+
   // Adeira custom rules
   'adeira/flow-use-readonly-spread': OFF, // opt-in when needed
   'adeira/graphql-require-object-description': WARN,
