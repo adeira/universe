@@ -481,9 +481,9 @@
     "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 51,
+   "line_beg": 46,
    "col_beg": 14,
-   "line_end": 51,
+   "line_end": 46,
    "col_end": 55,
    "desc": "coming soon",
    "project": "",
@@ -495,9 +495,9 @@
     "WTkOySZFstu+ZeKuWKvHGg==": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 57,
+   "line_beg": 52,
    "col_beg": 16,
-   "line_end": 60,
+   "line_end": 55,
    "col_end": 22,
    "desc": "mailchimp subscribe call to action text",
    "project": "",
