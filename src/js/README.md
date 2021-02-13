@@ -188,3 +188,17 @@ if (isBrowser()) {
   // Do server logic for redirect
 }
 ```
+
+# `rangeMap`
+
+This function is useful when you want to quickly iterate specified number of elements. For example, printing a grid of product placeholders while loading the actual products:
+
+```jsx
+import { rangeMap } from '@adeira/js';
+
+<div className={styles('productsGrid')}>
+  {rangeMap(12, (i) => (
+    <Skeleton key={i} />
+  ))}
+</div>;
+```
