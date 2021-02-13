@@ -12,7 +12,7 @@
     "monorepo-run-tests": "bin/monorepo-run-tests.js"
   },
   "dependencies": {
-    "@adeira/js": "^2.0.0",
+    "@adeira/js": "^2.1.0",
     "@babel/register": "^7.12.13",
     "@babel/runtime": "^7.12.13",
     "glob": "^7.1.6",

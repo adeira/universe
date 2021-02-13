@@ -9,7 +9,7 @@
   "description": "An opinionated Relay Runtime wrapper with nice query logging",
   "license": "MIT",
   "dependencies": {
-    "@adeira/js": "^2.0.0",
+    "@adeira/js": "^2.1.0",
     "@babel/runtime": "^7.12.13",
     "relay-runtime": "^10.1.3"
   }
