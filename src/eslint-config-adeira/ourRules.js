@@ -225,7 +225,7 @@ module.exports = ({
   'operator-assignment': WARN,
   'padding-line-between-statements': OFF,
   'prefer-exponentiation-operator': ERROR,
-  'prefer-object-spread': OFF,
+  'prefer-object-spread': NEXT_VERSION_ERROR,
   'require-jsdoc': OFF,
   'sort-keys': OFF,
   'sort-vars': OFF,
@@ -351,9 +351,6 @@ module.exports = ({
   'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
   'jest/valid-title': ERROR,
-
-  // prefer-object-spread (https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread)
-  'prefer-object-spread/prefer-object-spread': WARN,
 
   // React (https://github.com/yannickcr/eslint-plugin-react)
   'react/boolean-prop-naming': OFF,
