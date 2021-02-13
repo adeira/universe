@@ -35,8 +35,8 @@ pub(in crate::commerce) async fn create_product(
               created: DATE_ISO8601(DATE_NOW()),
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
-                currency: "mxn",
-                unit_amount: @product_price_unit_amount
+                unit_amount: @product_price_unit_amount,
+                unit_amount_currency: "MXN",
               },
               translations: MERGE(translations)
             } INTO products

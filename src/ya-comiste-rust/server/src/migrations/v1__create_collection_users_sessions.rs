@@ -12,45 +12,7 @@ pub async fn migrate(
         &db,
         "users",
         &CollectionType::Document,
-        &serde_json::from_str(
-            r##"
-            {
-              "message": "",
-              "level": "strict",
-              "rule": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": [
-                  "type"
-                ],
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "enum": [
-                      "anonymous",
-                      "regular",
-                      "admin"
-                    ]
-                  },
-                  "google": {
-                    "type": "object",
-                    "additionalProperties": true,
-                    "required": [
-                      "sub"
-                    ],
-                    "properties": {
-                      "sub": {
-                        "type": "string",
-                        "minLength": 1
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            "##,
-        )
-        .unwrap(),
+        &serde_json::from_str(std::include_str!("json_schemas/users.json")).unwrap(),
     )
     .await?;
 

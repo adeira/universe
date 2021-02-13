@@ -1,0 +1,26 @@
+{
+  "message": "",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["type"],
+    "properties": {
+      "type": {
+        "type": "string",
+        "enum": ["anonymous", "regular", "admin"]
+      },
+      "google": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["sub"],
+        "properties": {
+          "sub": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

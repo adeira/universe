@@ -1,0 +1,19 @@
+{
+  "message": "",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["filename", "blurhash"],
+    "properties": {
+      "filename": {
+        "type": "string",
+        "minLength": 1
+      },
+      "blurhash": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}
