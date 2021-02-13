@@ -3,8 +3,8 @@
 import Head from 'next/head';
 import * as React from 'react';
 import sx from '@adeira/sx';
+import { Heading } from '@adeira/sx-design';
 
-import Heading from './design/Heading';
 import LayoutFooter from './LayoutFooter';
 import LayoutNavigation from './LayoutNavigation';
 

@@ -192,6 +192,13 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
+"@adeira/sx-design@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.1.0.tgz#299e4e66e75a0b56414364fa09cdf526b1f89039"
+  integrity sha512-GSDJkgv85E7F84qKGWfM9XXYyEZdLdTPgUDaneeQvl5d1JxJ1nsq/2irgrJ1+m4tbkQ5JtCPyCvqJI3viiPTWg==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+
 "@adeira/sx@^0.23.0":
   version "0.23.0"
   resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.23.0.tgz#0224a81aa72795716ef6e78d6146ed0c9a748d1b"
