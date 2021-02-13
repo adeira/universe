@@ -3,13 +3,13 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
+import { rangeMap } from '@adeira/js';
 
 import Heading from '../src/design/Heading';
 // import ProductCard from '../src/design/ProductCard';
 import Section from '../src/design/Section';
 import Skeleton from '../src/design/Skeleton';
 import Link from '../src/Link';
-import rangeMap from '../src/utils/rangeMap';
 import Layout from '../src/Layout';
 
 export default function Shop(): React.Node {

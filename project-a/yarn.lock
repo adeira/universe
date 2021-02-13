@@ -105,6 +105,13 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
+"@adeira/js@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/js/-/js-2.1.0.tgz#499842cb6d4039331c5e8bf519f8db2898b17e90"
+  integrity sha512-oicensIS7cf4R4hxDwKTHSwDLNA+V6jD90KGqSCqDupQepOceCfI/uXk4OClDtAmJioOMT4t7QAewmH5pC0VdA==
+  dependencies:
+    "@babel/runtime" "^7.12.13"
+
 "@adeira/logger@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@adeira/logger/-/logger-0.4.0.tgz#8e1d506102ab3c1896a4e9c219c767e2c025ed70"
@@ -1190,6 +1197,13 @@
   version "7.12.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
   integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
+"@babel/runtime@^7.12.13":
+  version "7.12.13"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
+  integrity sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
