@@ -3,8 +3,8 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
+import { Heading } from '@adeira/sx-design';
 
-import Heading from '../../src/design/Heading';
 import Layout from '../../src/Layout';
 
 export default function ShopProductPage(): React.Node {

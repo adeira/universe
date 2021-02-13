@@ -2,11 +2,10 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
+import { Heading, Section } from '@adeira/sx-design';
 import fbt from 'fbt';
 
-import Heading from '../src/design/Heading';
 import Money from '../src/design/Money';
-import Section from '../src/design/Section';
 import Layout from '../src/Layout';
 
 export default function MenuPage(): React.Node {
