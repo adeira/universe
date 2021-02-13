@@ -49,8 +49,16 @@ impl Product {
 
 #[juniper::graphql_object]
 impl Product {
+    /// Product ID is unique in our whole GraphQL universe. Please note however, that it's not URL
+    /// friendly.
     fn id(&self) -> juniper::ID {
         juniper::ID::from(self._id.to_owned())
+    }
+
+    /// Product KEY is unique only amongst other products but can potentially conflict with other
+    /// keys of other types. Use product ID if you want truly unique value.
+    fn key(&self) -> juniper::ID {
+        juniper::ID::from(self._key.to_owned())
     }
 
     /// The product’s name, meant to be displayable to the customer.
@@ -81,15 +89,19 @@ impl Product {
     }
 }
 
+#[derive(juniper::GraphQLEnum, Clone, Deserialize, Debug)]
+pub enum SupportedCurrency {
+    MXN,
+}
+
 #[derive(juniper::GraphQLObject, Clone, Deserialize, Debug)]
 struct ProductPrice {
-    /// Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
-    /// lowercase. Currently, we support only "mxn" currency.
-    currency: String,
-
     /// The unit amount in centavo to be charged, represented as a whole integer if possible.
     /// Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
     unit_amount: i32,
+
+    /// Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html).
+    unit_amount_currency: SupportedCurrency,
 }
 
 /// This type should be used together with GraphQL uploads and it should hold the file names being
@@ -135,7 +147,7 @@ pub struct ProductMultilingualInput {
 
 #[derive(juniper::GraphQLInputObject)]
 pub struct ProductPriceInput {
-    // currency: String, // TODO: always "mxn" at this moment
+    // currency: String, // TODO: always "MXN" at this moment
     pub(in crate::commerce) unit_amount: i32,
 }
 

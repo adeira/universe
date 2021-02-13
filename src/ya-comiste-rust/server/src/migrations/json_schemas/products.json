@@ -1,0 +1,84 @@
+{
+  "message": "",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["images", "unit_label", "active", "created", "updated", "price", "translations"],
+    "properties": {
+      "images": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "unit_label": {
+        "type": "string",
+        "minLength": 1
+      },
+      "active": {
+        "type": "boolean"
+      },
+      "created": {
+        "type": "string",
+        "minLength": 1
+      },
+      "updated": {
+        "type": "string",
+        "minLength": 1
+      },
+      "price": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["unit_amount", "unit_amount_currency"],
+        "properties": {
+          "unit_amount": {
+            "type": "number"
+          },
+          "unit_amount_currency": {
+            "type": "string",
+            "minLength": 1,
+            "enum": ["MXN"]
+          }
+        }
+      },
+      "translations": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "en_US": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "description"],
+            "properties": {
+              "name": {
+                "type": ["string", "null"],
+                "minLength": 1
+              },
+              "description": {
+                "type": ["string", "null"],
+                "minLength": 1
+              }
+            }
+          },
+          "es_MX": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "description"],
+            "properties": {
+              "name": {
+                "type": ["string", "null"],
+                "minLength": 1
+              },
+              "description": {
+                "type": ["string", "null"],
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

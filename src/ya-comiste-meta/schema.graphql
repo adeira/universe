@@ -1,4 +1,4 @@
-# @generated SignedSource<<3d195c313137668beaddb492bffb4300>>
+# @generated SignedSource<<bca78caebd4a1eb3e6b3b5f05beb2068>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -11,6 +11,10 @@ type POS {
 
 type DeauthorizePayload {
   success: Boolean!
+}
+
+enum SupportedCurrency {
+  MXN
 }
 
 "Root mutation of the graph."
@@ -90,6 +94,11 @@ input ProductMultilingualInputTranslations {
   description: String
 }
 
+""
+type AnyUser {
+  id: String!
+}
+
 """
 
         This type should be used together with GraphQL uploads and it should hold the file names
@@ -99,13 +108,17 @@ input ProductMultilingualInputTranslations {
 """
 scalar ProductImageUploadable
 
-""
-type AnyUser {
-  id: String!
-}
-
 type Product {
+  """
+    Product ID is unique in our whole GraphQL universe. Please note however, that it's not URL
+    friendly.
+  """
   id: ID!
+  """
+    Product KEY is unique only amongst other products but can potentially conflict with other
+    keys of other types. Use product ID if you want truly unique value.
+  """
+  key: ID!
   "The product’s name, meant to be displayable to the customer."
   name: String
   """
@@ -126,15 +139,12 @@ type Product {
 
 type ProductPrice {
   """
-    Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html), in
-    lowercase. Currently, we support only "mxn" currency.
-  """
-  currency: String!
-  """
     The unit amount in centavo to be charged, represented as a whole integer if possible.
     Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
   """
   unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)."
+  unitAmountCurrency: SupportedCurrency!
 }
 
 type AuthorizeWebappPayload {

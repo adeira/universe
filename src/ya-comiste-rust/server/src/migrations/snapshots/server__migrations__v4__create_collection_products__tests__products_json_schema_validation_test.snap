@@ -1,0 +1,44 @@
+---
+source: server/src/migrations/v4__create_collection_products.rs
+expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"active\" : false,\n                           \"created\" : \"\", \"updated\" : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           {\n                               \"en_US\" : { \"name\" : \"\", \"description\" : \"\" },\n                               \"es_MX\" : { \"name\" : \"\", \"description\" : \"\" }\n                           }\n                       }))"
+---
+{
+  "errors": [
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/unit_label"
+    },
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/created"
+    },
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/updated"
+    },
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/translations/en_US/name"
+    },
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/translations/en_US/description"
+    },
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/translations/es_MX/name"
+    },
+    {
+      "code": "min_length",
+      "title": "MinLength condition is not met",
+      "path": "/translations/es_MX/description"
+    }
+  ],
+  "missing": []
+}

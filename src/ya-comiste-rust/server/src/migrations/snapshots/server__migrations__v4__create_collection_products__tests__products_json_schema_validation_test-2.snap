@@ -1,0 +1,44 @@
+---
+source: server/src/migrations/v4__create_collection_products.rs
+expression: "schema.validate(&json!({ }))"
+---
+{
+  "errors": [
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/images"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/unit_label"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/active"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/created"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/updated"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/price"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
+      "path": "/translations"
+    }
+  ],
+  "missing": []
+}

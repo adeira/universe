@@ -18,101 +18,11 @@ impl ArangoDocument for ProductUnit {
 pub async fn migrate(
     db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
 ) -> Result<(), ClientError> {
-    let json_schema_products = serde_json::from_str(
-        r##"
-        {
-          "message": "",
-          "level": "strict",
-          "rule": {
-            "type": "object",
-            "additionalProperties": false,
-            "required": ["images", "unit_label", "active", "created", "updated", "price", "translations"],
-            "properties": {
-              "images": {
-                "type": "array",
-                "items": {
-                  "type": "string",
-                  "minLength": 1
-                }
-              },
-              "unit_label": {
-                "type": "string",
-                  "minLength": 1
-              },
-              "active": {
-                "type": "boolean"
-              },
-              "created": {
-                "type": "string",
-                  "minLength": 1
-              },
-              "updated": {
-                "type": "string",
-                  "minLength": 1
-              },
-              "price": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["currency", "unit_amount"],
-                "properties": {
-                  "currency": {
-                    "type": "string",
-                    "minLength": 1,
-                    "enum": ["mxn"]
-                  },
-                  "unit_amount": {
-                    "type": "number"
-                  }
-                }
-              },
-              "translations": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "en_US": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": ["name", "description"],
-                    "properties": {
-                      "name": {
-                        "type": ["string", "null"],
-                        "minLength": 1
-                      },
-                      "description": {
-                        "type": ["string", "null"],
-                        "minLength": 1
-                      }
-                    }
-                  },
-                  "es_MX": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "required": ["name", "description"],
-                    "properties": {
-                      "name": {
-                        "type": ["string", "null"],
-                        "minLength": 1
-                      },
-                      "description": {
-                        "type": ["string", "null"],
-                        "minLength": 1
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        "##,
-    )
-    .unwrap();
-
     create_collection(
         &db,
         "products",
         &CollectionType::Document,
-        &json_schema_products,
+        &serde_json::from_str(std::include_str!("json_schemas/products.json")).unwrap(),
     )
     .await?;
 
@@ -128,4 +38,73 @@ pub async fn migrate(
         },
     )
     .await
+}
+
+#[cfg(test)]
+mod tests {
+    use serde_json::json;
+    use valico::json_schema;
+
+    #[test]
+    fn products_json_schema_validation_test() {
+        let arangodb_schema = serde_json::from_str::<serde_json::Value>(std::include_str!(
+            "json_schemas/products.json"
+        ))
+        .unwrap();
+
+        let mut scope = json_schema::Scope::new();
+        let schema = scope
+            .compile_and_return(arangodb_schema.get("rule").unwrap().clone(), false)
+            .unwrap();
+
+        // valid input:
+        assert_eq!(
+            schema
+                .validate(&json!({
+                  "images": [],
+                  "unit_label": "TKTK",
+                  "active": false,
+                  "created": "TKTK",
+                  "updated": "TKTK",
+                  "price": {
+                    "unit_amount": 42,
+                    "unit_amount_currency": "MXN"
+                  },
+                  "translations": {
+                    "en_US": {
+                      "name": "TKTK",
+                      "description": "TKTK"
+                    }
+                  }
+                }))
+                .is_valid(),
+            true
+        );
+
+        // empty strings should not be allowed:
+        insta::assert_json_snapshot!(schema.validate(&json!({
+          "images": [],
+          "unit_label": "",
+          "active": false,
+          "created": "",
+          "updated": "",
+          "price": {
+            "unit_amount": 42,
+            "unit_amount_currency": "MXN"
+          },
+          "translations": {
+            "en_US": {
+              "name": "",
+              "description": ""
+            },
+            "es_MX": {
+              "name": "",
+              "description": ""
+            }
+          }
+        })));
+
+        // missing fields should be captured:
+        insta::assert_json_snapshot!(schema.validate(&json!({})));
+    }
 }
