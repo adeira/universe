@@ -95,7 +95,7 @@ pub enum SupportedCurrency {
 
 #[derive(juniper::GraphQLObject, Clone, Deserialize, Debug)]
 struct ProductPrice {
-    /// The unit amount in centavo to be charged, represented as a whole integer if possible.
+    /// The unit amount in centavo to be charged, represented as a whole integer.
     /// Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
     unit_amount: i32,
 
@@ -146,8 +146,12 @@ pub struct ProductMultilingualInput {
 
 #[derive(juniper::GraphQLInputObject)]
 pub struct ProductPriceInput {
-    // currency: String, // TODO: always "MXN" at this moment
+    /// The unit amount in centavo to be charged, represented as a whole integer.
+    /// Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
     pub(in crate::commerce) unit_amount: i32,
+
+    /// Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html).
+    pub(in crate::commerce) unit_amount_currency: SupportedCurrency,
 }
 
 /// Takes care of the business logic and forwards the call lower to the DAL layer when everything
@@ -318,7 +322,10 @@ mod tests {
                     &context,
                     &ProductMultilingualInput {
                         images: vec![],
-                        price: ProductPriceInput { unit_amount: -1 },
+                        price: ProductPriceInput {
+                            unit_amount: -1,
+                            unit_amount_currency: SupportedCurrency::MXN
+                        },
                         translations: vec![]
                     }
                 )
@@ -340,7 +347,10 @@ mod tests {
                     &context,
                     &ProductMultilingualInput {
                         images: vec![],
-                        price: ProductPriceInput { unit_amount: -1 },
+                        price: ProductPriceInput {
+                            unit_amount: -1,
+                            unit_amount_currency: SupportedCurrency::MXN
+                        },
                         translations: vec![ProductMultilingualInputTranslations {
                             locale: SupportedLocale::EnUS,
                             name: None,
@@ -366,7 +376,10 @@ mod tests {
                     &context,
                     &ProductMultilingualInput {
                         images: vec![],
-                        price: ProductPriceInput { unit_amount: -1 },
+                        price: ProductPriceInput {
+                            unit_amount: -1,
+                            unit_amount_currency: SupportedCurrency::MXN
+                        },
                         translations: vec![ProductMultilingualInputTranslations {
                             locale: SupportedLocale::EnUS,
                             name: Some("EN name".to_string()),

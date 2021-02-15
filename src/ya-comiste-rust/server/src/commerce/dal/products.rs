@@ -279,7 +279,7 @@ mod tests {
     use super::*;
     use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
     use crate::commerce::model::products::{
-        ProductMultilingualInputTranslations, ProductPriceInput,
+        ProductMultilingualInputTranslations, ProductPriceInput, SupportedCurrency,
     };
 
     #[ignore]
@@ -293,7 +293,10 @@ mod tests {
             &pool,
             &ProductMultilingualInput {
                 images: vec![],
-                price: ProductPriceInput { unit_amount: -1 },
+                price: ProductPriceInput {
+                    unit_amount: -1,
+                    unit_amount_currency: SupportedCurrency::MXN,
+                },
                 translations: vec![ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EnUS,
                     name: Some("Product name in english".to_string()),
@@ -332,7 +335,10 @@ mod tests {
             &pool,
             &ProductMultilingualInput {
                 images: vec![],
-                price: ProductPriceInput { unit_amount: -1 },
+                price: ProductPriceInput {
+                    unit_amount: -1,
+                    unit_amount_currency: SupportedCurrency::MXN,
+                },
                 translations: vec![ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EsMX,
                     name: Some("Product name in SPANISH".to_string()),
@@ -373,7 +379,10 @@ mod tests {
             &pool,
             &ProductMultilingualInput {
                 images: vec![],
-                price: ProductPriceInput { unit_amount: -1 },
+                price: ProductPriceInput {
+                    unit_amount: -1,
+                    unit_amount_currency: SupportedCurrency::MXN,
+                },
                 translations: vec![
                     ProductMultilingualInputTranslations {
                         locale: SupportedLocale::EnUS,
@@ -432,7 +441,10 @@ mod tests {
             &pool,
             &ProductMultilingualInput {
                 images: vec![],
-                price: ProductPriceInput { unit_amount: -1 },
+                price: ProductPriceInput {
+                    unit_amount: -1,
+                    unit_amount_currency: SupportedCurrency::MXN,
+                },
                 translations: vec![
                     ProductMultilingualInputTranslations {
                         locale: SupportedLocale::EnUS,
@@ -493,7 +505,10 @@ mod tests {
             &pool,
             &ProductMultilingualInput {
                 images: vec![],
-                price: ProductPriceInput { unit_amount: -1 },
+                price: ProductPriceInput {
+                    unit_amount: -1,
+                    unit_amount_currency: SupportedCurrency::MXN,
+                },
                 translations: vec![ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EnUS,
                     name: Some("Product name in english".to_string()),

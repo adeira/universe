@@ -39,7 +39,7 @@ mutation createProductCreateMutation(
   $productPriceUnitAmount: Int!
   $translations: [ProductMultilingualInputTranslations!]!
 ) {
-  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount}, translations: $translations}) {
+  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations}) {
     __typename
     ... on Product {
       __typename
@@ -84,6 +84,11 @@ v1 = [
             "kind": "Variable",
             "name": "unitAmount",
             "variableName": "productPriceUnitAmount"
+          },
+          {
+            "kind": "Literal",
+            "name": "unitAmountCurrency",
+            "value": "MXN"
           }
         ],
         "kind": "ObjectValue",
@@ -181,15 +186,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "963ffbd5a147fec0fb3663c2cdceb555",
+    "cacheID": "73f575d318f7224c3fd7780045612b47",
     "id": null,
     "metadata": {},
     "name": "createProductCreateMutation",
     "operationKind": "mutation",
-    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount}, translations: $translations}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
+    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8b33dfa96fb611f61825e39967c154b6';
+(node: any).hash = '4cf1c3d7eb136dee913367127434df8b';
 export default node;

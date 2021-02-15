@@ -1,4 +1,4 @@
-# @generated SignedSource<<e24bcabb32aca564438c4fa32fb78afe>>
+# @generated SignedSource<<99e5904c7c136df5c3dbc8bf820f740e>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -98,7 +98,11 @@ input ProductMultilingualInput {
 }
 
 input ProductPriceInput {
-  unitAmount: Int!
+  """
+    The unit amount in centavo to be charged, represented as a whole integer.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """ unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
 }
 
 input ProductMultilingualInputTranslations {
@@ -152,7 +156,7 @@ type Product {
 
 type ProductPrice {
   """
-    The unit amount in centavo to be charged, represented as a whole integer if possible.
+    The unit amount in centavo to be charged, represented as a whole integer.
     Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
   """
   unitAmount: Int!
