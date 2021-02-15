@@ -1,5 +1,7 @@
 # Unreleased
 
+# 5.1.0
+
 - New rule `relay/function-required-argument` enabled (warnings or errors in strict mode). See: https://github.com/relayjs/eslint-plugin-relay/pull/108
 - Legacy [`prefer-object-spread/prefer-object-spread`](https://github.com/bryanrsmith/eslint-plugin-prefer-object-spread) rule replaced with [`prefer-object-spread`](https://eslint.org/docs/rules/prefer-object-spread) while keeping the backward compatibility (warnings as before and errors in strict lint mode).
 - New rules enforce best practices for JavaScript promises added: [`promise/no-nesting`](https://github.com/xjamundx/eslint-plugin-promise/blob/HEAD/docs/rules/no-nesting.md), [`promise/no-new-statics`](https://github.com/xjamundx/eslint-plugin-promise/blob/HEAD/docs/rules/no-new-statics.md), [`promise/no-return-wrap`](https://github.com/xjamundx/eslint-plugin-promise/blob/HEAD/docs/rules/no-return-wrap.md), [`promise/param-names`](https://github.com/xjamundx/eslint-plugin-promise/blob/HEAD/docs/rules/param-names.md) and [`promise/valid-params`](https://github.com/xjamundx/eslint-plugin-promise/blob/HEAD/docs/rules/valid-params.md) (warnings or errors in a strict mode for backward compatibility)
