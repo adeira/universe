@@ -156,6 +156,7 @@ pub(in crate::commerce) async fn search_products(
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
+    search_all: &bool,
 ) -> Result<Vec<Option<Product>>, ModelError> {
     let db = pool.db().await;
     let sort_direction = match price_sort_direction {
@@ -169,7 +170,7 @@ pub(in crate::commerce) async fn search_products(
             r#"
             FOR product IN search_products
               LIMIT 0, 24
-              FILTER product.active == true
+              FILTER @search_all == true ?  (product.active IN [true, false]) : (product.active IN [true])
               SORT product.price.unit_amount @price_sort_direction
 
               LET translations = product.translations[@eshop_locale].name != null
@@ -195,7 +196,7 @@ pub(in crate::commerce) async fn search_products(
               SEARCH BOOST(NGRAM_MATCH(product.translations[supported_lang].name, @search_term, 0.7, "bigram"), 1.1)
                   OR BOOST(NGRAM_MATCH(product.translations[supported_lang].description, @search_term, 0.7, "bigram"), 1.0)
               LIMIT 0, 24
-              FILTER product.active == true
+              FILTER @search_all == true ?  (product.active IN [true, false]) : (product.active IN [true])
               SORT BM25(product) DESC
               SORT product.price.unit_amount @price_sort_direction
 
@@ -215,9 +216,11 @@ pub(in crate::commerce) async fn search_products(
     let aql = match search_term {
         Some(search_term) => search_fulltext_aql
             .bind_var("search_term", search_term.clone())
+            .bind_var("search_all", *search_all)
             .bind_var("eshop_locale", format!("{}", client_locale))
             .bind_var("price_sort_direction", sort_direction),
         None => search_aql
+            .bind_var("search_all", *search_all)
             .bind_var("eshop_locale", format!("{}", client_locale))
             .bind_var("price_sort_direction", sort_direction),
     };

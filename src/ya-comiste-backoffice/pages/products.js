@@ -23,7 +23,7 @@ export default function ProductsPage(): React.Node {
         /* eslint-disable relay/unused-fields */
         query={graphql`
           query productsQuery {
-            searchProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+            searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
               id
               name
               description

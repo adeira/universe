@@ -8,7 +8,7 @@ import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type productsQueryVariables = {||};
 export type productsQueryResponse = {|
-  +searchProducts: ?$ReadOnlyArray<?{|
+  +searchAllProducts: ?$ReadOnlyArray<?{|
     +id: string,
     +name: ?string,
     +description: ?string,
@@ -27,7 +27,7 @@ export type productsQuery = {|
 
 /*
 query productsQuery {
-  searchProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+  searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
     id
     name
     description
@@ -59,7 +59,7 @@ var v0 = [
     ],
     "concreteType": "Product",
     "kind": "LinkedField",
-    "name": "searchProducts",
+    "name": "searchAllProducts",
     "plural": true,
     "selections": [
       {
@@ -123,7 +123,7 @@ var v0 = [
         "storageKey": null
       }
     ],
-    "storageKey": "searchProducts(clientLocale:\"en_US\",priceSortDirection:\"LOW_TO_HIGH\")"
+    "storageKey": "searchAllProducts(clientLocale:\"en_US\",priceSortDirection:\"LOW_TO_HIGH\")"
   }
 ];
 return {
@@ -144,15 +144,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "cfdfa5cceafda987681d705c94acb227",
+    "cacheID": "bec5c0b3ca8e82017bcc9d2b631f1952",
     "id": null,
     "metadata": {},
     "name": "productsQuery",
     "operationKind": "query",
-    "text": "query productsQuery {\n  searchProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    name\n    description\n    images\n    unitLabel\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
+    "text": "query productsQuery {\n  searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    name\n    description\n    images\n    unitLabel\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'c9ab1bd1b8f7965306a4b4ab6e04201c';
+(node: any).hash = '5de0dedf8ef0fb83777a80d4db6366ed';
 export default node;

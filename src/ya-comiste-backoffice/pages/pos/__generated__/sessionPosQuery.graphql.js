@@ -9,7 +9,7 @@ export type SupportedCurrency = "MXN" | "%future added value";
 export type sessionPosQueryVariables = {||};
 export type sessionPosQueryResponse = {|
   +pos: {|
-    +listProducts: ?$ReadOnlyArray<?{|
+    +listPublishedProducts: ?$ReadOnlyArray<?{|
       +id: string,
       +name: ?string,
       +description: ?string,
@@ -30,7 +30,7 @@ export type sessionPosQuery = {|
 /*
 query sessionPosQuery {
   pos {
-    listProducts {
+    listPublishedProducts {
       id
       name
       description
@@ -60,7 +60,7 @@ var v0 = [
         "args": null,
         "concreteType": "Product",
         "kind": "LinkedField",
-        "name": "listProducts",
+        "name": "listPublishedProducts",
         "plural": true,
         "selections": [
           {
@@ -148,15 +148,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "5580352fbe70d5a663d2c50f1ee05e23",
+    "cacheID": "8e4d6a76976214a6885c43fe7e2fb6a6",
     "id": null,
     "metadata": {},
     "name": "sessionPosQuery",
     "operationKind": "query",
-    "text": "query sessionPosQuery {\n  pos {\n    listProducts {\n      id\n      name\n      description\n      images\n      unitLabel\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query sessionPosQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      description\n      images\n      unitLabel\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8fefc33933c9062833d6c882d18b2234';
+(node: any).hash = 'f22c20e8d010b47e89204ecf852a6c04';
 export default node;
