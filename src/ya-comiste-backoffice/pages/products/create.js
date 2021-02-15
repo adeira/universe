@@ -24,7 +24,7 @@ export default function ProductsCreatePage(): React.Node {
       productCreate(
         productMultilingualInput: {
           images: $productImagesNames
-          price: { unitAmount: $productPriceUnitAmount }
+          price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
           translations: $translations
         }
       ) {
@@ -44,7 +44,7 @@ export default function ProductsCreatePage(): React.Node {
       uploadables: files,
       variables: {
         productImagesNames: ['TODO'], // TODO
-        productPriceUnitAmount: values.price,
+        productPriceUnitAmount: values.price * 100, // adjusting for centavo
         translations: [
           {
             locale: 'en_US',
