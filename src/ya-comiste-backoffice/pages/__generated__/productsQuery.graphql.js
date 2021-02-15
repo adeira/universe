@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type SupportedCurrency = "MXN" | "%future added value";
 export type productsQueryVariables = {||};
 export type productsQueryResponse = {|
   +searchProducts: ?$ReadOnlyArray<?{|
@@ -15,7 +16,7 @@ export type productsQueryResponse = {|
     +unitLabel: string,
     +price: {|
       +unitAmount: number,
-      +currency: string,
+      +unitAmountCurrency: SupportedCurrency,
     |},
   |}>
 |};
@@ -34,7 +35,7 @@ query productsQuery {
     unitLabel
     price {
       unitAmount
-      currency
+      unitAmountCurrency
     }
   }
 }
@@ -115,7 +116,7 @@ var v0 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "currency",
+            "name": "unitAmountCurrency",
             "storageKey": null
           }
         ],
@@ -143,15 +144,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "b942cbc829229877f3e1bf1bf6191819",
+    "cacheID": "cfdfa5cceafda987681d705c94acb227",
     "id": null,
     "metadata": {},
     "name": "productsQuery",
     "operationKind": "query",
-    "text": "query productsQuery {\n  searchProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    name\n    description\n    images\n    unitLabel\n    price {\n      unitAmount\n      currency\n    }\n  }\n}\n"
+    "text": "query productsQuery {\n  searchProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    name\n    description\n    images\n    unitLabel\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'c68c9330d7f77e8cd1f83094102b294d';
+(node: any).hash = 'c9ab1bd1b8f7965306a4b4ab6e04201c';
 export default node;

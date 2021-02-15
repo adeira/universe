@@ -36,26 +36,8 @@ export default function createProductFormSchema(): $FlowFixMe {
           'ES name form field validation message',
         ),
       ),
-    description_en: Yup.string()
-      .nullable()
-      // $FlowExpectedError[prop-missing] custom method
-      .requiredIf(
-        'description_es',
-        fbt(
-          'At least one product description (english or spanish) is required',
-          'EN description form field validation message',
-        ),
-      ),
-    description_es: Yup.string()
-      .nullable()
-      // $FlowExpectedError[prop-missing] custom method
-      .requiredIf(
-        'description_en',
-        fbt(
-          'At least one product description (english or spanish) is required',
-          'ES description form field validation message',
-        ),
-      ),
+    description_en: Yup.string().nullable(),
+    description_es: Yup.string().nullable(),
     price: Yup.number()
       .nullable()
       // $FlowExpectedError[incompatible-call] YUP expects string and not FBTString

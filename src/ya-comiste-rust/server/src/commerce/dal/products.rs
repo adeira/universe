@@ -14,19 +14,12 @@ pub(in crate::commerce) async fn create_product(
 
     // TODO: categories
     // TODO: dynamic `unit_label`
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
 
     let insert_aql = arangors::AqlQuery::builder()
         .query(
             r#"
-            LET translations = (
-              FOR t IN @translations
-                RETURN {
-                  [t.lang]: {
-                    name: t.name,
-                    description: t.description
-                  }
-                }
-            )
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
 
             INSERT {
               images: @product_images,
@@ -38,15 +31,31 @@ pub(in crate::commerce) async fn create_product(
                 unit_amount: @product_price_unit_amount,
                 unit_amount_currency: "MXN",
               },
-              translations: MERGE(translations)
+              translations: MERGE(
+                FOR t IN @translations
+                  RETURN {
+                    [t.lang]: {
+                      name: t.name,
+                      description: t.description
+                    }
+                  }
+              )
             } INTO products
             LET product = NEW
-            RETURN product.translations[@eshop_lang].name != null
-              ? UNSET(MERGE_RECURSIVE(product, product.translations[@eshop_lang]), "translations")
-              : UNSET(MERGE_RECURSIVE(product, product.translations[FIRST(ATTRIBUTES(product.translations))]), "translations")
+
+            LET translations = product.translations[@eshop_locale].name != null
+              ? product.translations[@eshop_locale]
+              : FIRST(
+                  FOR fallback_locale IN ATTRIBUTES(product.translations)
+                  FILTER product.translations[fallback_locale].name != null
+                  RETURN product.translations[fallback_locale]
+                )
+
+            LET product_with_unit_label = MERGE(product, { unit_label: unit_label_translated } )
+            RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
             "#,
         )
-        .bind_var("eshop_lang", String::from("en_US")) // TODO
+        .bind_var("eshop_locale", String::from("en_US")) // TODO
         .bind_var("product_images", product_multilingual_input.images.clone())
         .bind_var(
             "product_price_unit_amount",
@@ -87,7 +96,7 @@ pub(in crate::commerce) async fn create_product(
 
 /// Returns a single product (or error). It tries to return the translations according to the shop
 /// locale, however, it fallbacks to the first available translation if it cannot find the correct
-/// translation (it should be always available though).
+/// translation (based on the product name).
 pub(in crate::commerce) async fn get_product(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
@@ -95,16 +104,25 @@ pub(in crate::commerce) async fn get_product(
     product_active: &bool,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
             LET product = DOCUMENT(@product_id)
             FILTER product.active == @product_active
-            RETURN product.translations[@eshop_lang].name != null
-              ? UNSET(MERGE_RECURSIVE(product, product.translations[@eshop_lang]), "translations")
-              : UNSET(MERGE_RECURSIVE(product, product.translations[FIRST(ATTRIBUTES(product.translations))]), "translations")
+
+            LET translations = product.translations[@eshop_locale].name != null
+              ? product.translations[@eshop_locale]
+              : FIRST(
+                  FOR fallback_locale IN ATTRIBUTES(product.translations)
+                  FILTER product.translations[fallback_locale].name != null
+                  RETURN product.translations[fallback_locale]
+                )
+
+            LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] } )
+            RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
             "#,
-        ).bind_var("eshop_lang", format!("{}", client_locale))
+        ).bind_var("eshop_locale", format!("{}", client_locale))
         .bind_var("product_id", product_id)
         .bind_var("product_active", json!(product_active));
 
@@ -145,6 +163,7 @@ pub(in crate::commerce) async fn search_products(
         PriceSortDirection::HighToLow => "DESC",
     };
 
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let search_aql = arangors::AqlQuery::builder()
         .query(
             r#"
@@ -152,11 +171,17 @@ pub(in crate::commerce) async fn search_products(
               LIMIT 0, 24
               FILTER product.active == true
               SORT product.price.unit_amount @price_sort_direction
-              LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_lang] } )
-              LET product_translated = product_with_unit_label.translations[@eshop_lang] != null
-                ? UNSET(MERGE_RECURSIVE(product_with_unit_label, product_with_unit_label.translations[@eshop_lang]), "translations")
-                : UNSET(MERGE_RECURSIVE(product_with_unit_label, product_with_unit_label.translations[FIRST(ATTRIBUTES(product_with_unit_label.translations))]), "translations")
-              RETURN product_translated
+
+              LET translations = product.translations[@eshop_locale].name != null
+                ? product.translations[@eshop_locale]
+                : FIRST(
+                    FOR fallback_locale IN ATTRIBUTES(product.translations)
+                    FILTER product.translations[fallback_locale].name != null
+                    RETURN product.translations[fallback_locale]
+                  )
+
+              LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] } )
+              RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
             "#,
         );
 
@@ -173,27 +198,75 @@ pub(in crate::commerce) async fn search_products(
               FILTER product.active == true
               SORT BM25(product) DESC
               SORT product.price.unit_amount @price_sort_direction
-              LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_lang] } )
-              LET product_translated = product_with_unit_label.translations[@eshop_lang] != null
-                ? UNSET(MERGE_RECURSIVE(product_with_unit_label, product_with_unit_label.translations[@eshop_lang]), "translations")
-                : UNSET(MERGE_RECURSIVE(product_with_unit_label, product_with_unit_label.translations[FIRST(ATTRIBUTES(product_with_unit_label.translations))]), "translations")
-              RETURN product_translated
+
+              LET translations = product.translations[@eshop_locale].name != null
+                ? product.translations[@eshop_locale]
+                : FIRST(
+                    FOR fallback_locale IN ATTRIBUTES(product.translations)
+                    FILTER product.translations[fallback_locale].name != null
+                    RETURN product.translations[fallback_locale]
+                  )
+
+              LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] } )
+              RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
             "#,
         );
 
     let aql = match search_term {
         Some(search_term) => search_fulltext_aql
             .bind_var("search_term", search_term.clone())
-            .bind_var("eshop_lang", format!("{}", client_locale))
+            .bind_var("eshop_locale", format!("{}", client_locale))
             .bind_var("price_sort_direction", sort_direction),
         None => search_aql
-            .bind_var("eshop_lang", format!("{}", client_locale))
+            .bind_var("eshop_locale", format!("{}", client_locale))
             .bind_var("price_sort_direction", sort_direction),
     };
 
     let product_vector = db.aql_query::<Option<Product>>(aql.build()).await;
     match product_vector {
         Ok(product_vector) => Ok(product_vector),
+        Err(e) => Err(ModelError::DatabaseError(e)),
+    }
+}
+
+pub(in crate::commerce) async fn delete_product(
+    pool: &ConnectionPool,
+    product_id: &str,
+) -> Result<Product, ModelError> {
+    let db = pool.db().await;
+
+    let remove_aql = arangors::AqlQuery::builder()
+        .query(
+            r#"
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+
+            LET product = DOCUMENT(@product_id)
+            REMOVE product IN products
+
+            LET translations = product.translations[@eshop_locale].name != null
+              ? product.translations[@eshop_locale]
+              : FIRST(
+                  FOR fallback_locale IN ATTRIBUTES(product.translations)
+                  FILTER product.translations[fallback_locale].name != null
+                  RETURN product.translations[fallback_locale]
+                )
+
+            LET product_with_unit_label = MERGE(product, { unit_label: unit_label_translated } )
+            RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
+            "#,
+        )
+        .bind_var("eshop_locale", String::from("en_US")) // TODO
+        .bind_var("product_id", product_id)
+        .build();
+
+    let old_product_vector = db.aql_query::<Product>(remove_aql).await;
+    match old_product_vector {
+        Ok(old_product_vector) => match old_product_vector.first() {
+            Some(product) => Ok(product.to_owned()),
+            None => Err(ModelError::LogicalError(String::from(
+                "Cannot fetch deleted product.",
+            ))),
+        },
         Err(e) => Err(ModelError::DatabaseError(e)),
     }
 }
@@ -225,19 +298,20 @@ mod tests {
                 }],
             },
         )
-        .await;
-        assert_eq!(created_product.is_ok(), true);
+        .await
+        .unwrap();
 
         // 2) try to find the newly created product
         let found_product = get_product(
             &pool,
             &SupportedLocale::EnUS,
-            &created_product.unwrap().id(),
+            &created_product.id(),
             &false, // the product should be inactive at this point (until manually activated)
         )
-        .await;
+        .await
+        .unwrap();
         assert_eq!(
-            found_product.unwrap().name(),
+            found_product.name(),
             Some("Product name in english".to_string())
         );
 
@@ -263,8 +337,8 @@ mod tests {
                 }],
             },
         )
-        .await;
-        assert_eq!(created_product.is_ok(), true);
+        .await
+        .unwrap();
 
         // 2) try to find the newly created product - please note that we are trying to fetch the
         //    english version even though it's not available and the result should fallback to the
@@ -272,12 +346,13 @@ mod tests {
         let found_product = get_product(
             &pool,
             &SupportedLocale::EnUS,
-            &created_product.unwrap().id(),
+            &created_product.id(),
             &false, // the product should be inactive at this point (until manually activated)
         )
-        .await;
+        .await
+        .unwrap();
         assert_eq!(
-            found_product.unwrap().name(),
+            found_product.name(),
             Some("Product name in SPANISH".to_string())
         );
 
@@ -310,20 +385,20 @@ mod tests {
                 ],
             },
         )
-        .await;
-        assert_eq!(created_product.is_ok(), true);
+        .await
+        .unwrap();
 
         // 2) try to find the newly created product in both client locales
-        let created_product = created_product.unwrap();
         let found_en_product = get_product(
             &pool,
             &SupportedLocale::EnUS,
             &created_product.id(),
             &false, // the product should be inactive at this point (until manually activated)
         )
-        .await;
+        .await
+        .unwrap();
         assert_eq!(
-            found_en_product.unwrap().name(),
+            found_en_product.name(),
             Some("Product name in english".to_string())
         );
 
@@ -333,9 +408,10 @@ mod tests {
             &created_product.id(),
             &false, // the product should be inactive at this point (until manually activated)
         )
-        .await;
+        .await
+        .unwrap();
         assert_eq!(
-            found_es_product.unwrap().name(),
+            found_es_product.name(),
             Some("Product name in SPANISH".to_string())
         );
 
@@ -368,11 +444,10 @@ mod tests {
                 ],
             },
         )
-        .await;
-        assert_eq!(created_product.is_ok(), true);
+        .await
+        .unwrap();
 
         // 2) try to find the newly created product in both client locales
-        let created_product = created_product.unwrap();
         let found_en_product = get_product(
             &pool,
             &SupportedLocale::EnUS,
@@ -395,10 +470,42 @@ mod tests {
         )
         .await
         .unwrap();
-        assert_eq!(found_es_product.name(), None);
         assert_eq!(
-            found_es_product.description(),
-            Some("Product description in SPANISH".to_string())
+            found_es_product.name(),
+            Some("Product name in english".to_string()) // we fall back to EN because ES name is missing
+        );
+        assert_eq!(found_es_product.description(), None);
+
+        cleanup_test_database(&db_name).await;
+    }
+
+    #[ignore]
+    #[tokio::test]
+    async fn delete_product_test() {
+        let db_name = "delete_product_test";
+        let pool = prepare_empty_test_database(&db_name).await;
+
+        // 1) create a product to be later deleted
+        let created_product = create_product(
+            &pool,
+            &ProductMultilingualInput {
+                images: vec![],
+                price: ProductPriceInput { unit_amount: -1 },
+                translations: vec![ProductMultilingualInputTranslations {
+                    locale: SupportedLocale::EnUS,
+                    name: Some("Product name in english".to_string()),
+                    description: Some("Product description in english".to_string()),
+                }],
+            },
+        )
+        .await
+        .unwrap();
+
+        // 2) try to delete the newly created product
+        let deleted_product = delete_product(&pool, &created_product.id()).await.unwrap();
+        assert_eq!(
+            deleted_product.name(),
+            Some("Product name in english".to_string())
         );
 
         cleanup_test_database(&db_name).await;

@@ -114,40 +114,12 @@
   },
   {
    "hashToText": {
-    "C5f8Z96npQxELI4uPP2/lg==": "At least one product description (english or spanish) is required"
-   },
-   "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 44,
-   "col_beg": 8,
-   "line_end": 47,
-   "col_end": 9,
-   "desc": "EN description form field validation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "At least one product description (english or spanish) is required"
-  },
-  {
-   "hashToText": {
-    "8IDfeBB/BYCtzTajliJTog==": "At least one product description (english or spanish) is required"
-   },
-   "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 54,
-   "col_beg": 8,
-   "line_end": 57,
-   "col_end": 9,
-   "desc": "ES description form field validation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "At least one product description (english or spanish) is required"
-  },
-  {
-   "hashToText": {
     "hG18c6F/tkr5u5MuaDp4ug==": "Product price is a required field"
    },
    "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 62,
+   "line_beg": 44,
    "col_beg": 16,
-   "line_end": 62,
+   "line_end": 44,
    "col_end": 95,
    "desc": "price form field validation message",
    "project": "",
@@ -159,9 +131,9 @@
     "yzI38uykFY/ub9AvbwWW7g==": "Product price must be a positive number"
    },
    "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 65,
+   "line_beg": 47,
    "col_beg": 8,
-   "line_end": 65,
+   "line_end": 47,
    "col_end": 93,
    "desc": "price form field validation message",
    "project": "",
@@ -187,9 +159,9 @@
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "pages/products.js",
-   "line_beg": 13,
+   "line_beg": 14,
    "col_beg": 8,
-   "line_end": 13,
+   "line_end": 14,
    "col_end": 76,
    "desc": "link for create a new product",
    "project": "",
@@ -201,9 +173,9 @@
     "++v4PaDnNZtPpJ5lx41T4g==": "All good! ✅"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 64,
+   "line_beg": 66,
    "col_beg": 30,
-   "line_end": 64,
+   "line_end": 66,
    "col_end": 92,
    "desc": "success message after creating a product",
    "project": "",
@@ -215,9 +187,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 70,
+   "line_beg": 72,
    "col_beg": 10,
-   "line_end": 73,
+   "line_end": 75,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -229,9 +201,9 @@
     "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 104,
+   "line_beg": 106,
    "col_beg": 16,
-   "line_end": 104,
+   "line_end": 106,
    "col_end": 100,
    "desc": "form field name for product name in english",
    "project": "",
@@ -243,9 +215,9 @@
     "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 112,
+   "line_beg": 114,
    "col_beg": 16,
-   "line_end": 112,
+   "line_end": 114,
    "col_end": 100,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -257,9 +229,9 @@
     "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 120,
+   "line_beg": 122,
    "col_beg": 16,
-   "line_end": 122,
+   "line_end": 124,
    "col_end": 22,
    "desc": "form field name for product description in english",
    "project": "",
@@ -271,9 +243,9 @@
     "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 130,
+   "line_beg": 132,
    "col_beg": 16,
-   "line_end": 132,
+   "line_end": 134,
    "col_end": 22,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -285,9 +257,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 140,
+   "line_beg": 142,
    "col_beg": 16,
-   "line_end": 140,
+   "line_end": 142,
    "col_end": 79,
    "desc": "form field name for product price",
    "project": "",
@@ -299,9 +271,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 148,
+   "line_beg": 150,
    "col_beg": 16,
-   "line_end": 148,
+   "line_end": 150,
    "col_end": 87,
    "desc": "form field name for product pictures",
    "project": "",
