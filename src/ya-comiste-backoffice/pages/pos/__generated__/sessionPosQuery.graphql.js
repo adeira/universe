@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type SupportedCurrency = "MXN" | "%future added value";
 export type sessionPosQueryVariables = {||};
 export type sessionPosQueryResponse = {|
   +pos: {|
@@ -16,7 +17,7 @@ export type sessionPosQueryResponse = {|
       +unitLabel: string,
       +price: {|
         +unitAmount: number,
-        +currency: string,
+        +unitAmountCurrency: SupportedCurrency,
       |},
     |}>
   |}
@@ -37,7 +38,7 @@ query sessionPosQuery {
       unitLabel
       price {
         unitAmount
-        currency
+        unitAmountCurrency
       }
     }
   }
@@ -116,7 +117,7 @@ var v0 = [
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "currency",
+                "name": "unitAmountCurrency",
                 "storageKey": null
               }
             ],
@@ -147,15 +148,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "dd75b0da7cad399523fe24bb25cdbf9c",
+    "cacheID": "5580352fbe70d5a663d2c50f1ee05e23",
     "id": null,
     "metadata": {},
     "name": "sessionPosQuery",
     "operationKind": "query",
-    "text": "query sessionPosQuery {\n  pos {\n    listProducts {\n      id\n      name\n      description\n      images\n      unitLabel\n      price {\n        unitAmount\n        currency\n      }\n    }\n  }\n}\n"
+    "text": "query sessionPosQuery {\n  pos {\n    listProducts {\n      id\n      name\n      description\n      images\n      unitLabel\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '222c6fb64b4ae67a1116200e4cac802b';
+(node: any).hash = '8fefc33933c9062833d6c882d18b2234';
 export default node;

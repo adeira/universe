@@ -55,7 +55,7 @@ export default function POSSessionPage(): React.Node {
                   unitLabel
                   price {
                     unitAmount
-                    currency
+                    unitAmountCurrency
                   }
                 }
               }

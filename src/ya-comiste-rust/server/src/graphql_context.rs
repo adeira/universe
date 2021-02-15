@@ -1,3 +1,7 @@
+#[cfg(test)]
+use crate::arangodb::get_database_connection_pool;
+#[cfg(test)]
+use crate::auth::users::AnonymousUser;
 use crate::auth::users::User;
 use std::collections::HashMap;
 
@@ -21,3 +25,14 @@ pub struct Context {
 }
 
 impl juniper::Context for Context {}
+
+#[cfg(test)]
+impl Context {
+    pub fn create_mock() -> Self {
+        Self {
+            pool: get_database_connection_pool(None),
+            uploadables: None,
+            user: User::AnonymousUser(AnonymousUser::new()),
+        }
+    }
+}

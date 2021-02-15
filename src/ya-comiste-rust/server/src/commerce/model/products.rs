@@ -1,4 +1,3 @@
-use crate::arangodb::ConnectionPool;
 use crate::auth::users::User;
 use crate::commerce::model::errors::ModelError;
 use crate::graphql_context::Context;
@@ -154,13 +153,19 @@ pub struct ProductPriceInput {
 /// Takes care of the business logic and forwards the call lower to the DAL layer when everything
 /// is OK. Specifically, it validates the input values to make sense and it checks permissions
 /// because only admin can create a product.
+///
+/// # Validation rules
+///
+/// 1. There must be at least one translation variant available.
+/// 3. There must be at least one product name somewhere in all the translation variants.
+/// 4. Price cannot be bellow zero (must be positive).
 pub(in crate::commerce) async fn create_product(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Product, ModelError> {
     let translations = &product_multilingual_input.translations;
 
-    // At least one translation variant must exist.
+    // At least one translation variant must exist:
     if translations.is_empty() {
         return Err(ModelError::LogicalError(String::from(
             "Product must have at least one translation variant.",
@@ -177,17 +182,7 @@ pub(in crate::commerce) async fn create_product(
         )));
     }
 
-    // At least one description in any translation version must exist.
-    if let None = translations
-        .iter()
-        .find(|&translation| translation.description.is_some())
-    {
-        return Err(ModelError::LogicalError(String::from(
-            "Product must have at least one description in any translation version.",
-        )));
-    }
-
-    // Price must be higher than zero
+    // Price must be higher than zero:
     if product_multilingual_input.price.unit_amount < 0 {
         return Err(ModelError::LogicalError(String::from(
             "Product price cannot be smaller than zero.",
@@ -275,43 +270,90 @@ pub(in crate::commerce) async fn delete_product(
     product_id: &str,
 ) -> Result<Product, ModelError> {
     match &context.user {
-        User::AdminUser(_) => delete_product_authorized(&context.pool, &product_id).await,
+        User::AdminUser(_) => {
+            crate::commerce::dal::products::delete_product(&context.pool, &product_id).await
+        }
         _ => Err(ModelError::PermissionsError(String::from(
             "Only admins can delete products.",
         ))),
     }
 }
 
-// TODO(004) - integration tests
-// TODO: move to DAL
-async fn delete_product_authorized(
-    pool: &ConnectionPool,
-    product_id: &str,
-) -> Result<Product, ModelError> {
-    let db = pool.db().await;
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-    let remove_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
-            LET product = DOCUMENT(@product_id)
-            REMOVE product IN products
-            RETURN product.translations[@eshop_lang] != null
-              ? UNSET(MERGE_RECURSIVE(product, product.translations[@eshop_lang]), "translations")
-              : UNSET(MERGE_RECURSIVE(product, product.translations[FIRST(ATTRIBUTES(product.translations))]), "translations")
-            "#,
-        )
-        .bind_var("eshop_lang", String::from("en_US")) // TODO
-        .bind_var("product_id", product_id)
-        .build();
+    #[tokio::test]
+    async fn create_product_validation_missing_translations_test() {
+        let context = Context::create_mock();
+        assert_eq!(
+            format!(
+                "{:?}",
+                create_product(
+                    &context,
+                    &ProductMultilingualInput {
+                        images: vec![],
+                        price: ProductPriceInput { unit_amount: -1 },
+                        translations: vec![]
+                    }
+                )
+                .await
+                .err()
+                .unwrap()
+            ),
+            "LogicalError(\"Product must have at least one translation variant.\")"
+        );
+    }
 
-    let old_product_vector = db.aql_query::<Product>(remove_aql).await;
-    match old_product_vector {
-        Ok(old_product_vector) => match old_product_vector.first() {
-            Some(product) => Ok(product.to_owned()),
-            None => Err(ModelError::LogicalError(String::from(
-                "Cannot fetch deleted product.",
-            ))),
-        },
-        Err(e) => Err(ModelError::DatabaseError(e)),
+    #[tokio::test]
+    async fn create_product_validation_missing_name_test() {
+        let context = Context::create_mock();
+        assert_eq!(
+            format!(
+                "{:?}",
+                create_product(
+                    &context,
+                    &ProductMultilingualInput {
+                        images: vec![],
+                        price: ProductPriceInput { unit_amount: -1 },
+                        translations: vec![ProductMultilingualInputTranslations {
+                            locale: SupportedLocale::EnUS,
+                            name: None,
+                            description: Some("EN description".to_string())
+                        }]
+                    }
+                )
+                .await
+                .err()
+                .unwrap()
+            ),
+            "LogicalError(\"Product must have at least one name in any translation version.\")"
+        );
+    }
+
+    #[tokio::test]
+    async fn create_product_validation_price_below_zero_test() {
+        let context = Context::create_mock();
+        assert_eq!(
+            format!(
+                "{:?}",
+                create_product(
+                    &context,
+                    &ProductMultilingualInput {
+                        images: vec![],
+                        price: ProductPriceInput { unit_amount: -1 },
+                        translations: vec![ProductMultilingualInputTranslations {
+                            locale: SupportedLocale::EnUS,
+                            name: Some("EN name".to_string()),
+                            description: None
+                        }]
+                    }
+                )
+                .await
+                .err()
+                .unwrap()
+            ),
+            "LogicalError(\"Product price cannot be smaller than zero.\")"
+        );
     }
 }

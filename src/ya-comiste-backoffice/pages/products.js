@@ -31,7 +31,7 @@ export default function ProductsPage(): React.Node {
               unitLabel
               price {
                 unitAmount
-                currency
+                unitAmountCurrency
               }
             }
           }
