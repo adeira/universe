@@ -47,7 +47,7 @@ export default function POSSessionPage(): React.Node {
           query={graphql`
             query sessionPosQuery {
               pos {
-                listProducts {
+                listPublishedProducts {
                   id
                   name
                   description

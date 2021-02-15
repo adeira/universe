@@ -15,13 +15,32 @@ pub struct Query;
     description = "Root query of the graph.",
 )]
 impl Query {
-    async fn search_products(
+    /// Searches all published (publicly accessible) products. Everyone can do it without any
+    /// special permission so it should be used on FE.
+    async fn search_published_products(
         context: &Context,
         client_locale: crate::commerce::api::SupportedLocale,
         price_sort_direction: crate::commerce::api::PriceSortDirection,
         search_term: Option<String>,
     ) -> Option<Vec<Option<crate::commerce::api::Product>>> {
-        crate::commerce::api::search_products(
+        crate::commerce::api::search_published_products(
+            &context,
+            &client_locale,
+            &price_sort_direction,
+            &search_term,
+        )
+        .await
+    }
+
+    /// Searches all products (published and unpublished). Requires admin permissions so it should
+    /// be used only in backoffice to administer the products.
+    async fn search_all_products(
+        context: &Context,
+        client_locale: crate::commerce::api::SupportedLocale,
+        price_sort_direction: crate::commerce::api::PriceSortDirection,
+        search_term: Option<String>,
+    ) -> Option<Vec<Option<crate::commerce::api::Product>>> {
+        crate::commerce::api::search_all_products(
             &context,
             &client_locale,
             &price_sort_direction,

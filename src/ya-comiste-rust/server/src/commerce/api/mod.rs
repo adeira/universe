@@ -31,13 +31,32 @@ pub(crate) async fn create_product(
     }
 }
 
-pub(crate) async fn search_products(
+pub(crate) async fn search_published_products(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
 ) -> Option<Vec<Option<Product>>> {
-    match crate::commerce::model::products::search_products(
+    match crate::commerce::model::products::search_published_products(
+        &context,
+        &client_locale,
+        &price_sort_direction,
+        &search_term,
+    )
+    .await
+    {
+        Ok(products) => Some(products),
+        Err(_) => None, // TODO: log this error (?)
+    }
+}
+
+pub(crate) async fn search_all_products(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    price_sort_direction: &PriceSortDirection,
+    search_term: &Option<String>,
+) -> Option<Vec<Option<Product>>> {
+    match crate::commerce::model::products::search_all_products(
         &context,
         &client_locale,
         &price_sort_direction,

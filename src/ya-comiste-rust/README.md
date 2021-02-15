@@ -8,7 +8,8 @@ TODOs:
 🚧 005 - implement https://github.com/woltapp/blurhash
 🚧 006 - use Bazel https://bazelbuild.github.io/rules_rust/
 ✅ 007 - DB migrations
-🚧 008 - queries whitelisting
+🚧 008 - queries whitelisting (persistent queries)
+🚧 009 - explore WASM on server instead of Docker (https://github.com/deislabs/krustlet)
 ```
 
 # Rust server

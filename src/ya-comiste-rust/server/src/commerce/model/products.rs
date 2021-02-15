@@ -228,7 +228,7 @@ impl std::fmt::Display for SupportedLocale {
     }
 }
 
-pub(in crate::commerce) async fn search_products(
+pub(in crate::commerce) async fn search_published_products(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
@@ -240,8 +240,33 @@ pub(in crate::commerce) async fn search_products(
         &client_locale,
         &price_sort_direction,
         &search_term,
+        &false, // do not search all (active only)
     )
     .await
+}
+
+pub(in crate::commerce) async fn search_all_products(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    price_sort_direction: &PriceSortDirection,
+    search_term: &Option<String>,
+) -> Result<Vec<Option<Product>>, ModelError> {
+    match &context.user {
+        User::AdminUser(_) => {
+            // Only admin can search all products
+            crate::commerce::dal::products::search_products(
+                &context.pool,
+                &client_locale,
+                &price_sort_direction,
+                &search_term,
+                &true, // search all including inactive
+            )
+            .await
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admin can search all products",
+        ))),
+    }
 }
 
 // TODO: rename to "get_active_product"/"get_activated_product"?
