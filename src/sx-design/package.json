@@ -12,7 +12,8 @@
     "@adeira/js": "^2.1.0",
     "@babel/runtime": "^7.12.13",
     "blurhash": "^1.1.3",
-    "react-blurhash": "^0.1.3"
+    "react-blurhash": "^0.1.3",
+    "react-device-detect": "^1.15.0"
   },
   "peerDependencies": {
     "@adeira/sx": "^0.23.0",
