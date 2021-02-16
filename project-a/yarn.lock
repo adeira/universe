@@ -24,12 +24,12 @@
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/eslint-config@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-5.0.0.tgz#0ce9762cfc6ef57314d74d5a774b600caad82f93"
-  integrity sha512-ZiDVehKk31FqsjtplBYvMay2OpjM9WrRyKawuhHncoLtYkLC6fkI95uUkC/uHrB03sMO50eDQjlA/8rujA40Xw==
+"@adeira/eslint-config@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-5.1.0.tgz#297f926da3a37ed5effadc14824d31d870e46a23"
+  integrity sha512-4WdSbyYxP8YPWZa9sfCwwF7JQSduwuNUuDwLqAX7LHwIxrsEGKcquk8xzyUJ9My7ueZZGuKFBme1f+KhblZRzA==
   dependencies:
-    "@babel/runtime" "^7.12.5"
+    "@babel/runtime" "^7.12.13"
     eslint-config-prettier "^7.2.0"
     eslint-plugin-adeira "^0.12.0"
     eslint-plugin-eslint-comments "^3.2.0"
@@ -39,32 +39,16 @@
     eslint-plugin-jsx-a11y "^6.4.1"
     eslint-plugin-monorepo "^0.3.2"
     eslint-plugin-node "^11.1.0"
-    eslint-plugin-prefer-object-spread "^1.2.1"
     eslint-plugin-prettier "^3.3.1"
+    eslint-plugin-promise "^4.3.1"
     eslint-plugin-react "^7.22.0"
     eslint-plugin-react-hooks "^4.2.0"
     eslint-plugin-react-native "^3.10.0"
-    eslint-plugin-relay "^1.8.1"
+    eslint-plugin-relay "^1.8.2"
     eslint-plugin-sx "^0.9.0"
     prettier "^2.2.1"
   optionalDependencies:
-    "@adeira/eslint-runner" "^1.0.0"
-
-"@adeira/eslint-runner@^1.0.0":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-runner/-/eslint-runner-1.0.2.tgz#29f9dfad00bdd0741ac348739988852524ada0c2"
-  integrity sha512-BwAMVkyPfu7n6laUfQLVlRjAlL6NGNHNXvOpu7n3Az6/iVWCZr3w3uto/+551sue4+hmgxcsgP53HqKyaS1QDw==
-  dependencies:
-    "@adeira/monorepo-utils" "^0.9.0"
-    "@babel/code-frame" "^7.10.4"
-    "@babel/register" "^7.12.1"
-    "@babel/runtime" "^7.12.5"
-    chalk "^4.1.0"
-    create-jest-runner "^0.7.0"
-    is-ci "^2.0.0"
-    progress "^2.0.3"
-    strip-ansi "^6.0.0"
-    text-table "^0.2.0"
+    "@adeira/eslint-runner" "^2.0.0"
 
 "@adeira/eslint-runner@^2.0.0":
   version "2.0.0"
@@ -91,7 +75,7 @@
     "@babel/runtime" "^7.12.5"
     cross-fetch "^3.0.6"
 
-"@adeira/js@^1.2.4", "@adeira/js@^1.3.0":
+"@adeira/js@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@adeira/js/-/js-1.3.0.tgz#e3dbd9009570190f504b8b775ed8a77822e330bf"
   integrity sha512-cr28wwyEhmyKZK9Y72br/DcmPthuyynq8S1nkXMbTiv3MsDuT+y18onsNc+wIqJBxwVN60Yv2JEGzT3m+zLK0A==
@@ -127,17 +111,6 @@
     "@adeira/js" "^1.3.0"
     "@babel/register" "^7.12.10"
     "@babel/runtime" "^7.12.5"
-    glob "^7.1.6"
-    is-ci "^2.0.0"
-
-"@adeira/monorepo-utils@^0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@adeira/monorepo-utils/-/monorepo-utils-0.9.0.tgz#56d985f6b00b8d87a3319310b8695f8b7c24509d"
-  integrity sha512-IbEVcEdKIpDo1dFKe13JwDNVhLZqDO34t8T5NvJr5Meqq1ha91byiZcI5h8CqGN3yqU+XiCqDqdX8XlJ1ITq5w==
-  dependencies:
-    "@adeira/js" "^1.2.4"
-    "@babel/register" "^7.11.5"
-    "@babel/runtime" "^7.11.2"
     glob "^7.1.6"
     is-ci "^2.0.0"
 
@@ -1130,7 +1103,7 @@
     "@babel/plugin-transform-react-jsx-development" "^7.12.12"
     "@babel/plugin-transform-react-pure-annotations" "^7.12.1"
 
-"@babel/register@^7.11.5", "@babel/register@^7.12.1", "@babel/register@^7.12.10", "@babel/register@^7.12.13":
+"@babel/register@^7.12.10", "@babel/register@^7.12.13":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/register/-/register-7.12.13.tgz#e9cb57618264f2944634da941ba9755088ef9ec5"
   integrity sha512-fnCeRXj970S9seY+973oPALQg61TRvAaW0nRDe1f4ytKqM3fZgsNXewTZWmqZedg74LFIRpg/11dsrPZZvYs2g==
@@ -3391,17 +3364,17 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-prefer-object-spread@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-prefer-object-spread/-/eslint-plugin-prefer-object-spread-1.2.1.tgz#27fb91853690cceb3ae6101d9c8aecc6a67a402c"
-  integrity sha1-J/uRhTaQzOs65hAdnIrsxqZ6QCw=
-
 eslint-plugin-prettier@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.3.1.tgz#7079cfa2497078905011e6f82e8dd8453d1371b7"
   integrity sha512-Rq3jkcFY8RYeQLgk2cCwuc0P7SEFwDravPhsJZOQ5N4YI4DSg50NyqJ/9gdZHzQlHf8MvafSesbNJCcP/FF6pQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-promise@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-4.3.1.tgz#61485df2a359e03149fdafc0a68b0e030ad2ac45"
+  integrity sha512-bY2sGqyptzFBDLh/GMbAxfdJC+b0f23ME63FOE4+Jao0oZ3E1LEwFtWJX/1pGMJLiTtrSSern2CRM/g+dfc0eQ==
 
 eslint-plugin-react-hooks@^4.2.0:
   version "4.2.0"
@@ -3438,12 +3411,12 @@ eslint-plugin-react@^7.22.0:
     resolve "^1.18.1"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-relay@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-relay/-/eslint-plugin-relay-1.8.1.tgz#7363b1c134cfa3468377d46eadaa3a2b9b73dfcf"
-  integrity sha512-7xhyLDq3Bv5q+lKZUMYcRHq1OdFsgjuY5hAu3NNY+TkPPsdcp80de7eEJ8Ux5M3YJpnyr2UAHGksx5Exx6+I7g==
+eslint-plugin-relay@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-relay/-/eslint-plugin-relay-1.8.2.tgz#925f59231e39dfc076b3cbb39ef793c13381579e"
+  integrity sha512-bqIfXJnPMd6iHPitONSi8JqxrWQWaX4Rqk1shusKDlUu5vswUgoqOEGgqE8nDu6SmejBUZMz0vY+ROvq5wqOsw==
   dependencies:
-    graphql "^14.0.0 || ^15.0.0-rc.1"
+    graphql "^14.0.0 || ^15.0.0"
 
 eslint-plugin-sx@^0.9.0:
   version "0.9.0"
@@ -4088,10 +4061,10 @@ graceful-fs@^4.1.2, graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
-"graphql@^14.0.0 || ^15.0.0-rc.1":
-  version "15.4.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.4.0.tgz#e459dea1150da5a106486ba7276518b5295a4347"
-  integrity sha512-EB3zgGchcabbsU9cFe1j+yxdzKQKAbGUWRb13DsrsMN1yyfmmIq+2+L5MqVWcDCE4V89R5AyUOi7sMOGxdsYtA==
+"graphql@^14.0.0 || ^15.0.0":
+  version "15.5.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.0.tgz#39d19494dbe69d1ea719915b578bf920344a69d5"
+  integrity sha512-OmaM7y0kaK31NKG31q4YbD2beNYa6jBBKtMFT6gLYJljHLJr42IqJ8KX08u3Li/0ifzTU5HjmoOOrwa5BRLeDA==
 
 growly@^1.3.0:
   version "1.3.0"
