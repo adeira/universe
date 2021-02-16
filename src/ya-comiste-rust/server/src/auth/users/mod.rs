@@ -26,7 +26,6 @@ pub struct AnyUser {
     _rev: String,
     #[graphql(skip)]
     _key: String,
-    #[graphql(skip)]
     r#type: String,
 }
 
