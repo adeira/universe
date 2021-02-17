@@ -12,9 +12,6 @@ export type sessionPosQueryResponse = {|
     +listPublishedProducts: ?$ReadOnlyArray<?{|
       +id: string,
       +name: ?string,
-      +description: ?string,
-      +images: $ReadOnlyArray<string>,
-      +unitLabel: string,
       +price: {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
@@ -33,9 +30,6 @@ query sessionPosQuery {
     listPublishedProducts {
       id
       name
-      description
-      images
-      unitLabel
       price {
         unitAmount
         unitAmountCurrency
@@ -75,27 +69,6 @@ var v0 = [
             "args": null,
             "kind": "ScalarField",
             "name": "name",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "description",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "images",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "unitLabel",
             "storageKey": null
           },
           {
@@ -148,15 +121,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "8e4d6a76976214a6885c43fe7e2fb6a6",
+    "cacheID": "1c57b118f119cacf4629555d39538c51",
     "id": null,
     "metadata": {},
     "name": "sessionPosQuery",
     "operationKind": "query",
-    "text": "query sessionPosQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      description\n      images\n      unitLabel\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query sessionPosQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'f22c20e8d010b47e89204ecf852a6c04';
+(node: any).hash = '5818f30bddf8c4cf3cf2b92d4817e9e4';
 export default node;

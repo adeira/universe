@@ -10,10 +10,8 @@ export type productsQueryVariables = {||};
 export type productsQueryResponse = {|
   +searchAllProducts: ?$ReadOnlyArray<?{|
     +id: string,
+    +key: string,
     +name: ?string,
-    +description: ?string,
-    +images: $ReadOnlyArray<string>,
-    +unitLabel: string,
     +price: {|
       +unitAmount: number,
       +unitAmountCurrency: SupportedCurrency,
@@ -29,10 +27,8 @@ export type productsQuery = {|
 query productsQuery {
   searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
     id
+    key
     name
-    description
-    images
-    unitLabel
     price {
       unitAmount
       unitAmountCurrency
@@ -73,28 +69,14 @@ var v0 = [
         "alias": null,
         "args": null,
         "kind": "ScalarField",
+        "name": "key",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
         "name": "name",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "description",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "images",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "unitLabel",
         "storageKey": null
       },
       {
@@ -144,15 +126,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "bec5c0b3ca8e82017bcc9d2b631f1952",
+    "cacheID": "645a850f48e87c09db8796e65d3fe2c1",
     "id": null,
     "metadata": {},
     "name": "productsQuery",
     "operationKind": "query",
-    "text": "query productsQuery {\n  searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    name\n    description\n    images\n    unitLabel\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
+    "text": "query productsQuery {\n  searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    key\n    name\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '5de0dedf8ef0fb83777a80d4db6366ed';
+(node: any).hash = '3a377fdee8c21aa4556656f6438a4141';
 export default node;

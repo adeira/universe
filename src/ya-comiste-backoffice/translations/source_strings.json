@@ -159,9 +159,9 @@
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "pages/products.js",
-   "line_beg": 14,
+   "line_beg": 17,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 17,
    "col_end": 76,
    "desc": "link for create a new product",
    "project": "",
