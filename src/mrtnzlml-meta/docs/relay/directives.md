@@ -607,3 +607,7 @@ See:
 
 - https://github.com/facebook/relay/search?q=%22fixme_fat_interface%22
 - https://github.com/facebook/relay/commit/15918a54d49f51ee656a44a6acec53dbe75ca372
+
+### @no_inline
+
+See: https://github.com/facebook/relay/commit/3526b424d7ec3d3ff07d8587951d2fb176b1868f
