@@ -8,7 +8,8 @@ import type { ConcreteRequest } from 'relay-runtime';
 export type usersQueryVariables = {||};
 export type usersQueryResponse = {|
   +listUsers: $ReadOnlyArray<{|
-    +id: string
+    +id: string,
+    +type: string,
   |}>
 |};
 export type usersQuery = {|
@@ -20,6 +21,7 @@ export type usersQuery = {|
 query usersQuery {
   listUsers {
     id
+    type
   }
 }
 */
@@ -39,6 +41,13 @@ var v0 = [
         "args": null,
         "kind": "ScalarField",
         "name": "id",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "type",
         "storageKey": null
       }
     ],
@@ -63,15 +72,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "fad0a34a01dad8f38108642a18ee7c3e",
+    "cacheID": "1f3c81c7459101e6924990f1ef736f9b",
     "id": null,
     "metadata": {},
     "name": "usersQuery",
     "operationKind": "query",
-    "text": "query usersQuery {\n  listUsers {\n    id\n  }\n}\n"
+    "text": "query usersQuery {\n  listUsers {\n    id\n    type\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '0ce7ae2ea5afc34c20b816438a487560';
+(node: any).hash = 'cf05a69743fbf336f7abad775dbd97ab';
 export default node;

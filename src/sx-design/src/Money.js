@@ -2,10 +2,12 @@
 
 import * as React from 'react';
 
+import type { SupportedCurrencies, SupportedLocales } from './constants';
+
 type Props = {|
   +priceUnitAmount: number,
-  +priceUnitAmountCurrency: 'MXN', // TODO: expand as needed
-  +locale: 'en-US', // TODO: expand as needed
+  +priceUnitAmountCurrency: SupportedCurrencies,
+  +locale: SupportedLocales,
 |};
 
 export default function Money(props: Props): React.Node {
