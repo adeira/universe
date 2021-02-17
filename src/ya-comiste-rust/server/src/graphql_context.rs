@@ -1,5 +1,5 @@
 #[cfg(test)]
-use crate::arangodb::get_database_connection_pool;
+use crate::arangodb::get_database_connection_pool_mock;
 #[cfg(test)]
 use crate::auth::users::AnonymousUser;
 use crate::auth::users::User;
@@ -30,7 +30,7 @@ impl juniper::Context for Context {}
 impl Context {
     pub fn create_mock() -> Self {
         Self {
-            pool: get_database_connection_pool(None),
+            pool: get_database_connection_pool_mock(),
             uploadables: None,
             user: User::AnonymousUser(AnonymousUser::new()),
         }

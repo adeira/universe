@@ -177,9 +177,10 @@ pub(in crate::commerce) async fn create_product(
     }
 
     // At least one name in any translation version must exist.
-    if let None = translations
+    if translations
         .iter()
         .find(|&translation| translation.name.is_some())
+        .is_none()
     {
         return Err(ModelError::LogicalError(String::from(
             "Product must have at least one name in any translation version.",

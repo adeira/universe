@@ -1,4 +1,6 @@
-use crate::arangodb::{get_database_connection_pool, prepare_empty_test_database};
+use crate::arangodb::{
+    get_database_connection_pool, get_database_connection_pool_mock, prepare_empty_test_database,
+};
 use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
@@ -8,9 +10,12 @@ use warp::test::request;
 async fn create_graphql_api_filter(
     db_name: Option<&str>,
 ) -> impl warp::Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
-    let pool = get_database_connection_pool(db_name);
+    let pool;
     if let Some(db_name) = db_name {
         prepare_empty_test_database(db_name).await;
+        pool = get_database_connection_pool(db_name);
+    } else {
+        pool = get_database_connection_pool_mock();
     }
 
     crate::warp_graphql::filters::graphql(pool, create_graphql_schema())

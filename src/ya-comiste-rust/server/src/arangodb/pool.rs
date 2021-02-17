@@ -2,7 +2,8 @@ use arangors::{ClientError, Connection};
 use deadpool::managed::{Manager, RecycleError};
 
 pub struct ConnectionManager {
-    pub host: String,
+    pub db_host: String,
+    pub db_name: String,
     pub username: String,
     pub password: String,
 }
@@ -24,8 +25,11 @@ impl Manager<Connection, ClientError> for ConnectionManager {
     /// Creates a new instance of the ArangoDB connection.
     async fn create(&self) -> Result<Connection, ClientError> {
         tracing::trace!("Creating a new ArangoDB connection 💎");
-        let connection =
-            arangors::Connection::establish_basic_auth(&self.host, &self.username, &self.password);
+        let connection = arangors::Connection::establish_basic_auth(
+            &self.db_host,
+            &self.username,
+            &self.password,
+        );
         match connection.await {
             Ok(connection) => Ok(connection),
             Err(err) => Err(err),
@@ -37,7 +41,7 @@ impl Manager<Connection, ClientError> for ConnectionManager {
         &self,
         conn: &mut Connection,
     ) -> deadpool::managed::RecycleResult<ClientError> {
-        match conn.db("ya-comiste").await {
+        match conn.db(&self.db_name).await {
             Ok(db) => match db.aql_str::<i8>("RETURN 1").await {
                 Ok(result) => match result {
                     _ if result[0] == 1 => {
@@ -59,7 +63,10 @@ impl Manager<Connection, ClientError> for ConnectionManager {
                 }
             },
             Err(err) => {
-                tracing::error!("Unable to recycle the connection (DB unreachable) 🙅");
+                tracing::error!(
+                    "Unable to recycle the connection (DB '{}' unreachable) 🙅",
+                    &self.db_name
+                );
                 Err(RecycleError::Message(err.to_string()))
             }
         }
