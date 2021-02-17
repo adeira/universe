@@ -3,12 +3,13 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 import { graphql, QueryRenderer } from '@adeira/relay';
+import { Heading } from '@adeira/sx-design';
 
 import Layout from '../src/Layout';
 
 export default function UsersPage(): React.Node {
   return (
-    <Layout>
+    <Layout heading={<Heading>List of users</Heading>}>
       <div>TODO (view users, change permissions)</div>
       <QueryRenderer
         query={graphql`

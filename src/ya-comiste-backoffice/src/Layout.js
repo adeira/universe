@@ -2,11 +2,13 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
+import { Section } from '@adeira/sx-design';
 
 import Navigation from './Navigation';
 
 type Props = {|
   +children: React.Node,
+  +heading?: React.Node,
 |};
 
 export default function Layout(props: Props): React.Node {
@@ -15,7 +17,10 @@ export default function Layout(props: Props): React.Node {
       <div className={styles('navigation')}>
         <Navigation />
       </div>
-      <main className={styles('main')}>{props.children}</main>
+      <main className={styles('main')}>
+        {props.heading ?? null}
+        <Section>{props.children}</Section>
+      </main>
     </div>
   );
 }

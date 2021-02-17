@@ -5,6 +5,7 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { graphql, useMutation } from '@adeira/relay';
+import { Heading } from '@adeira/sx-design';
 import { useState } from 'react';
 
 import Layout from '../../src/Layout';
@@ -88,7 +89,7 @@ export default function ProductsCreatePage(): React.Node {
   };
 
   return (
-    <Layout>
+    <Layout heading={<Heading>Create a new product</Heading>}>
       {/* TODO: extract this into some global status bar for the whole application */}
       {statusBarMessage != null ? (
         <div className={styles('statusBar')}>{statusBarMessage}</div>

@@ -3,6 +3,8 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 import { graphql, QueryRenderer } from '@adeira/relay';
+import { ProductCard, Skeleton } from '@adeira/sx-design';
+import { rangeMap } from '@adeira/js';
 
 import Link from '../../src/Link';
 import useSelectedItemsApi from '../../src/pos/recoil/selectedItemsState';
@@ -43,16 +45,12 @@ export default function POSSessionPage(): React.Node {
         </button>
 
         <QueryRenderer
-          /* eslint-disable relay/unused-fields */
           query={graphql`
             query sessionPosQuery {
               pos {
                 listPublishedProducts {
                   id
                   name
-                  description
-                  images
-                  unitLabel
                   price {
                     unitAmount
                     unitAmountCurrency
@@ -61,10 +59,18 @@ export default function POSSessionPage(): React.Node {
               }
             }
           `}
-          /* eslint-enable relay/unused-fields */
-          onResponse={(relayProps) => {
-            return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
-          }}
+          onLoading={() => rangeMap(12, (i) => <Skeleton key={i} />)}
+          onResponse={({ pos: { listPublishedProducts: products } }) =>
+            products.map((product) => (
+              <ProductCard
+                key={product.id}
+                title={product.name}
+                priceUnitAmount={product.price.unitAmount}
+                priceUnitAmountCurrency={product.price.unitAmountCurrency}
+                imgBlurhash="LEHV6nWB2yk8pyoJadR*.7kCMdnj" // TODO
+              />
+            ))
+          }
         />
         <Link href="/pos">Close POS view</Link>
       </main>
