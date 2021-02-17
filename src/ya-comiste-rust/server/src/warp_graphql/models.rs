@@ -48,11 +48,11 @@ pub(in crate::warp_graphql) async fn get_current_user(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangodb::get_database_connection_pool;
+    use crate::arangodb::get_database_connection_pool_mock;
 
     #[tokio::test]
     async fn get_current_user_without_authorization_header() {
-        let pool = get_database_connection_pool(None);
+        let pool = get_database_connection_pool_mock();
         assert!(matches!(
             get_current_user(&pool, &None).await.unwrap(),
             User::AnonymousUser { .. }
@@ -61,7 +61,7 @@ mod tests {
 
     #[tokio::test]
     async fn get_current_user_with_empty_authorization_header() {
-        let pool = get_database_connection_pool(None);
+        let pool = get_database_connection_pool_mock();
         insta::assert_snapshot!(
             get_current_user(&pool, &Some(String::from("")))
             .await
@@ -73,7 +73,7 @@ mod tests {
 
     #[tokio::test]
     async fn get_current_user_with_unparseable_authorization_header() {
-        let pool = get_database_connection_pool(None);
+        let pool = get_database_connection_pool_mock();
         insta::assert_snapshot!(
             get_current_user(&pool, &Some(String::from("XYZ")))
             .await

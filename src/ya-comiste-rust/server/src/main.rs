@@ -62,7 +62,7 @@ async fn main() {
 
     // Create database connection pool only once per application lifetime so we can reuse it
     // for the following requests. DO NOT create it in the GraphQL context extractor!
-    let pool = get_database_connection_pool(cli_matches.value_of("db-name"));
+    let pool = get_database_connection_pool(cli_matches.value_of("db-name").unwrap());
 
     if !cli_matches.is_present("no-migrations") {
         // Preferably, migrations would NOT be ran during the server start.

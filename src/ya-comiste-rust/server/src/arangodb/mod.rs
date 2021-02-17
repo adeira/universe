@@ -24,7 +24,7 @@ const NORMAL_PASSWORD: &str = ""; // TODO: change!
 /// std::env::set_var("ARANGO_USER", "yadada");
 /// assert_eq!(get_normal_user(), "yadada")
 /// ```
-pub fn get_normal_user() -> String {
+fn get_normal_user() -> String {
     std::env::var("ARANGO_USER").unwrap_or_else(|_| NORMAL_USERNAME.to_owned())
 }
 
@@ -42,7 +42,7 @@ pub fn get_normal_user() -> String {
 /// std::env::set_var("ARANGO_PASSWORD", "custom_pswd");
 /// assert_eq!(get_normal_password(), "custom_pswd")
 /// ```
-pub fn get_normal_password() -> String {
+fn get_normal_password() -> String {
     std::env::var("ARANGO_PASSWORD").unwrap_or_else(|_| NORMAL_PASSWORD.to_owned())
 }
 
@@ -60,7 +60,7 @@ pub fn get_normal_password() -> String {
 /// std::env::set_var("ARANGODB_HOST", "0.0.0.0:1234");
 /// assert_eq!(get_arangodb_host(), "http://0.0.0.0:1234")
 /// ```
-pub fn get_arangodb_host() -> String {
+fn get_arangodb_host() -> String {
     std::env::var("ARANGODB_HOST")
         .map(|s| format!("http://{}", s))
         .unwrap_or_else(|_| ARANGODB_HOST.to_owned())
@@ -69,7 +69,7 @@ pub fn get_arangodb_host() -> String {
 #[derive(Clone)]
 pub struct ConnectionPool {
     pub pool: Pool<Connection, ClientError>,
-    pub db_name: Option<String>,
+    db_name: String,
 }
 
 type Database = arangors::Database<arangors::client::reqwest::ReqwestClient>;
@@ -96,7 +96,7 @@ impl ConnectionPool {
             .await
             .expect("could not get database connection from the pool");
 
-        get_or_create_db(&connection, &self.db_name.as_ref().unwrap()).await
+        get_or_create_db(&connection, &self.db_name).await
     }
 
     #[cfg(test)]
@@ -128,11 +128,7 @@ async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
 
 /// Database name `None` indicates that the test doesn't actually need a database and should fail
 /// if the application tries to access it anyway.
-pub fn get_database_connection_pool(db_name: Option<&str>) -> ConnectionPool {
-    let host = get_arangodb_host();
-    let username = get_normal_user();
-    let password = get_normal_password();
-
+pub fn get_database_connection_pool(db_name: &str) -> ConnectionPool {
     // Maximum number of connections ever created.
     // TODO: what should be the actual maximum size?
     // https://github.com/arangodb/arangodb/blob/35c278cdf3b7985f8ed2042dfef8d22c2dd2ed07/arangod/Network/ConnectionPool.h#L65
@@ -140,18 +136,27 @@ pub fn get_database_connection_pool(db_name: Option<&str>) -> ConnectionPool {
 
     let connection_pool = deadpool::managed::Pool::new(
         pool::ConnectionManager {
-            host,
-            username,
-            password,
+            db_host: get_arangodb_host(),
+            db_name: db_name.to_string(),
+            username: get_normal_user(),
+            password: get_normal_password(),
         },
         max_pool_size,
     );
 
-    tracing::trace!("Creating (empty) database connection pool 🔥");
+    tracing::trace!(
+        "Creating (empty) database connection pool for: '{}' 🔥",
+        db_name
+    );
     ConnectionPool {
         pool: connection_pool,
-        db_name: db_name.map(String::from),
+        db_name: db_name.to_string(),
     }
+}
+
+#[cfg(test)]
+pub fn get_database_connection_pool_mock() -> ConnectionPool {
+    get_database_connection_pool("mock_database_name")
 }
 
 /// Creates an empty database for test purposes. Each test should define custom `db_name` to
@@ -164,7 +169,7 @@ pub fn get_database_connection_pool(db_name: Option<&str>) -> ConnectionPool {
 #[cfg(test)]
 pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
     cleanup_test_database(db_name).await;
-    let pool = get_database_connection_pool(Some(db_name));
+    let pool = get_database_connection_pool(db_name);
     crate::migrations::migrate(&pool).await;
     pool
 }
@@ -172,7 +177,7 @@ pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
 /// This function cleanup the test database by removing it completely.
 #[cfg(test)]
 pub async fn cleanup_test_database(db_name: &str) -> ConnectionPool {
-    let pool = get_database_connection_pool(Some(db_name));
+    let pool = get_database_connection_pool(db_name);
     let connection = pool.connection().await;
     if connection.db(&db_name).await.is_ok() {
         // database already exists, let's delete it
