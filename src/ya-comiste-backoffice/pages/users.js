@@ -1,7 +1,8 @@
 // @flow
 
-import { graphql, QueryRenderer } from '@adeira/relay';
 import * as React from 'react';
+import sx from '@adeira/sx';
+import { graphql, QueryRenderer } from '@adeira/relay';
 
 import Layout from '../src/Layout';
 
@@ -10,19 +11,36 @@ export default function UsersPage(): React.Node {
     <Layout>
       <div>TODO (view users, change permissions)</div>
       <QueryRenderer
-        /* eslint-disable relay/unused-fields */
         query={graphql`
           query usersQuery {
             listUsers {
               id
+              type
             }
           }
         `}
-        /* eslint-enable relay/unused-fields */
-        onResponse={(relayProps) => {
-          return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
+        onResponse={({ listUsers: users }) => {
+          return users.map((user) => {
+            return (
+              <div key={user.id} className={styles('row')}>
+                <div>{user.id}</div>
+                <div>{user.type}</div>
+              </div>
+            );
+          });
         }}
       />
     </Layout>
   );
 }
+
+const styles = sx.create({
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: '.5rem',
+    paddingBottom: '.5rem',
+    borderBottom: '1px solid lightgrey',
+  },
+});
