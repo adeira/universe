@@ -30,6 +30,20 @@
   },
   {
    "hashToText": {
+    "ZmoOgkWDunmOx3U/8Us9hg==": "Logout"
+   },
+   "filepath": "src/AuthButtons.js",
+   "line_beg": 98,
+   "col_beg": 6,
+   "line_end": 98,
+   "col_end": 50,
+   "desc": "logout button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Logout"
+  },
+  {
+   "hashToText": {
     "EX/o2WuR0ou1BNovRq6qGw==": "Home"
    },
    "filepath": "src/Navigation.js",
@@ -72,17 +86,17 @@
   },
   {
    "hashToText": {
-    "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
+    "TKgcCR3fzwZPAVS/D5xT/g==": "Open POS ↝"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 28,
+   "line_beg": 24,
    "col_beg": 8,
-   "line_end": 28,
-   "col_end": 68,
+   "line_end": 24,
+   "col_end": 70,
    "desc": "navigation link to point of sales",
    "project": "",
    "type": "text",
-   "jsfbt": "Open POS"
+   "jsfbt": "Open POS ↝"
   },
   {
    "hashToText": {
@@ -142,13 +156,27 @@
   },
   {
    "hashToText": {
+    "0BsTiPapD1k7SKNIyzq9Og==": "Products inventory"
+   },
+   "filepath": "pages/products.js",
+   "line_beg": 18,
+   "col_beg": 10,
+   "line_end": 18,
+   "col_end": 70,
+   "desc": "product inventory title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products inventory"
+  },
+  {
+   "hashToText": {
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "pages/products.js",
-   "line_beg": 17,
-   "col_beg": 8,
-   "line_end": 17,
-   "col_end": 76,
+   "line_beg": 24,
+   "col_beg": 17,
+   "line_end": 24,
+   "col_end": 85,
    "desc": "link for create a new product",
    "project": "",
    "type": "text",
@@ -251,6 +279,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "Product pictures"
+  },
+  {
+   "hashToText": {
+    "KPaU2v3S7qUH0pj1rVBMaw==": "List of users"
+   },
+   "filepath": "pages/users.js",
+   "line_beg": 16,
+   "col_beg": 10,
+   "line_end": 16,
+   "col_end": 61,
+   "desc": "list of users title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "List of users"
   }
  ],
  "childParentMappings": {}

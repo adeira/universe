@@ -1,7 +1,7 @@
 // @flow strict
 
 module.exports = {
-  presets: ['@adeira/babel-preset-adeira', 'next/babel'],
+  presets: ['next/babel', '@adeira/babel-preset-adeira'],
   plugins: [
     [
       'babel-plugin-fbt',

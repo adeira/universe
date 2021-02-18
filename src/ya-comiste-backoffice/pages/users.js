@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react';
+import fbt from 'fbt';
 import sx from '@adeira/sx';
 import { graphql, QueryRenderer } from '@adeira/relay';
 import { Heading } from '@adeira/sx-design';
@@ -9,7 +10,13 @@ import Layout from '../src/Layout';
 
 export default function UsersPage(): React.Node {
   return (
-    <Layout heading={<Heading>List of users</Heading>}>
+    <Layout
+      heading={
+        <Heading>
+          <fbt desc="list of users title">List of users</fbt>
+        </Heading>
+      }
+    >
       <div>TODO (view users, change permissions)</div>
       <QueryRenderer
         query={graphql`

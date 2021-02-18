@@ -12,15 +12,19 @@ import Link from '../src/Link';
 
 export default function ProductsPage(): React.Node {
   return (
-    <Layout heading={<Heading>Products inventory</Heading>}>
-      <Link href="/products/create">
-        <fbt desc="link for create a new product">Create a new product</fbt>
-      </Link>
-
-      <hr />
-
-      <div>TODO (add/edit/delete product + prices, upload photos)</div>
-
+    <Layout
+      heading={
+        <Heading>
+          <fbt desc="product inventory title">Products inventory</fbt>
+        </Heading>
+      }
+      links={[
+        {
+          href: '/products/create',
+          title: <fbt desc="link for create a new product">Create a new product</fbt>,
+        },
+      ]}
+    >
       <div className={styles('productsGrid')}>
         <QueryRenderer
           query={graphql`
