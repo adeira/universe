@@ -5,6 +5,7 @@ import sx from '@adeira/sx';
 import { Section } from '@adeira/sx-design';
 
 import Navigation from './Navigation';
+import StatusBar from './StatusBar';
 
 type Props = {|
   +children: React.Node,
@@ -17,7 +18,10 @@ export default function Layout(props: Props): React.Node {
       <div className={styles('navigation')}>
         <Navigation />
       </div>
+
       <main className={styles('main')}>
+        <StatusBar />
+
         {props.heading ?? null}
         <Section>{props.children}</Section>
       </main>
@@ -29,7 +33,6 @@ const styles = sx.create({
   mainGrid: {
     display: 'grid',
     gridTemplateColumns: '200px 1fr',
-    gap: '1rem',
   },
   navigation: {
     backgroundColor: '#ddd',
@@ -38,6 +41,6 @@ const styles = sx.create({
   },
   main: {
     backgroundColor: 'white',
-    padding: 5,
+    padding: '1rem',
   },
 });

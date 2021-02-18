@@ -7,14 +7,16 @@ import { fbt } from 'fbt';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { graphql, useMutation } from '@adeira/relay';
 import { useState } from 'react';
+import { useSetRecoilState } from 'recoil';
 
 import Layout from '../../src/Layout';
 import createProductFormSchema from '../../src/products/createProductFormSchema';
+import { uiStatusBarMessageAtom } from '../../src/recoil/uiStatusBarMessageAtom';
 import type { createProductCreateMutation } from './__generated__/createProductCreateMutation.graphql';
 
 export default function ProductsCreatePage(): React.Node {
   const [files, setFiles] = useState();
-  const [statusBarMessage, setStatusBarMessage] = useState(null);
+  const setStatusBarMessage = useSetRecoilState(uiStatusBarMessageAtom);
 
   const [productCreate] = useMutation<createProductCreateMutation>(graphql`
     mutation createProductCreateMutation(
@@ -23,7 +25,7 @@ export default function ProductsCreatePage(): React.Node {
       $translations: [ProductMultilingualInputTranslations!]!
       $visibility: [ProductMultilingualInputVisibility!]!
     ) {
-      productCreate(
+      result: productCreate(
         productMultilingualInput: {
           images: $productImagesNames
           price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
@@ -33,6 +35,7 @@ export default function ProductsCreatePage(): React.Node {
       ) {
         ... on Product {
           __typename
+          name
         }
         ... on ProductError {
           __typename
@@ -71,12 +74,16 @@ export default function ProductsCreatePage(): React.Node {
         ],
         visibility: values.visibility,
       },
-      onCompleted: ({ productCreate }) => {
+      onCompleted: ({ result }) => {
         setSubmitting(false);
-        if (productCreate.__typename === 'ProductError') {
-          setStatusBarMessage(productCreate.message);
-        } else {
-          setStatusBarMessage(fbt('All good! ✅', 'success message after creating a product'));
+        if (result.__typename === 'ProductError') {
+          setStatusBarMessage(result.message);
+        } else if (result.__typename === 'Product') {
+          setStatusBarMessage(
+            <>
+              Product <strong>{result.name}</strong> created!
+            </>,
+          );
           resetForm();
         }
       },
@@ -94,11 +101,6 @@ export default function ProductsCreatePage(): React.Node {
 
   return (
     <Layout heading={<Heading>Create a new product</Heading>}>
-      {/* TODO: extract this into some global status bar for the whole application */}
-      {statusBarMessage != null ? (
-        <div className={styles('statusBar')}>{statusBarMessage}</div>
-      ) : null}
-
       <Formik
         initialValues={formInitialValues}
         validationSchema={createProductFormSchema()}
@@ -193,8 +195,5 @@ const styles = sx.create({
   },
   error: {
     color: 'red',
-  },
-  statusBar: {
-    backgroundColor: 'orange',
   },
 });
