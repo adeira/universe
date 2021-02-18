@@ -18,8 +18,19 @@
       "images": {
         "type": "array",
         "items": {
-          "type": "string",
-          "minLength": 1
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["filename", "blurhash"],
+          "properties": {
+            "filename": {
+              "type": "string",
+              "minLength": 1
+            },
+            "blurhash": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
         }
       },
       "unit_label": {

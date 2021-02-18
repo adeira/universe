@@ -156,26 +156,12 @@
   },
   {
    "hashToText": {
-    "++v4PaDnNZtPpJ5lx41T4g==": "All good! ✅"
-   },
-   "filepath": "pages/products/create.js",
-   "line_beg": 70,
-   "col_beg": 30,
-   "line_end": 70,
-   "col_end": 92,
-   "desc": "success message after creating a product",
-   "project": "",
-   "type": "text",
-   "jsfbt": "All good! ✅"
-  },
-  {
-   "hashToText": {
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 76,
-   "col_beg": 10,
-   "line_end": 79,
+   "line_beg": 97,
+   "col_beg": 19,
+   "line_end": 100,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -187,9 +173,9 @@
     "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 111,
+   "line_beg": 118,
    "col_beg": 16,
-   "line_end": 111,
+   "line_end": 118,
    "col_end": 100,
    "desc": "form field name for product name in english",
    "project": "",
@@ -201,9 +187,9 @@
     "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 119,
+   "line_beg": 126,
    "col_beg": 16,
-   "line_end": 119,
+   "line_end": 126,
    "col_end": 100,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -215,9 +201,9 @@
     "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 127,
+   "line_beg": 134,
    "col_beg": 16,
-   "line_end": 129,
+   "line_end": 136,
    "col_end": 22,
    "desc": "form field name for product description in english",
    "project": "",
@@ -229,9 +215,9 @@
     "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 137,
+   "line_beg": 144,
    "col_beg": 16,
-   "line_end": 139,
+   "line_end": 146,
    "col_end": 22,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -243,9 +229,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 147,
+   "line_beg": 154,
    "col_beg": 16,
-   "line_end": 147,
+   "line_end": 154,
    "col_end": 79,
    "desc": "form field name for product price",
    "project": "",
@@ -257,9 +243,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 155,
+   "line_beg": 162,
    "col_beg": 16,
-   "line_end": 155,
+   "line_end": 162,
    "col_end": 87,
    "desc": "form field name for product pictures",
    "project": "",

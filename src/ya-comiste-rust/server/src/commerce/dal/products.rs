@@ -4,12 +4,14 @@ use crate::commerce::model::products::{
     PriceSortDirection, Product, ProductMultilingualInput, ProductMultilingualInputVisibility,
     SupportedLocale,
 };
+use crate::images::Image;
 use serde_json::json;
 
 /// Takes care of creating the product inside ArangoDB.
 pub(in crate::commerce) async fn create_product(
     pool: &ConnectionPool,
     product_multilingual_input: &ProductMultilingualInput,
+    images: &Vec<Image>,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
 
@@ -57,7 +59,7 @@ pub(in crate::commerce) async fn create_product(
             "#,
         )
         .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .bind_var("product_images", product_multilingual_input.images.clone())
+        .bind_var("product_images", json!(images))
         .bind_var(
             "product_visibility",
             json!(product_multilingual_input.visibility),

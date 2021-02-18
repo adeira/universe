@@ -29,6 +29,9 @@ export default function ProductsPage(): React.Node {
                 id
                 key
                 name
+                imageCover {
+                  blurhash
+                }
                 price {
                   unitAmount
                   unitAmountCurrency
@@ -44,7 +47,7 @@ export default function ProductsPage(): React.Node {
                   title={product.name}
                   priceUnitAmount={product.price.unitAmount / 100}
                   priceUnitAmountCurrency={product.price.unitAmountCurrency}
-                  imgBlurhash="LEHV6nWB2yk8pyoJadR*.7kCMdnj" // TODO
+                  imgBlurhash={product.imageCover?.blurhash}
                   // TODO: `imgSrc`
                 />
               </Link>

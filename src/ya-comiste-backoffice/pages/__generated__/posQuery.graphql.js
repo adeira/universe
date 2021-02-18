@@ -12,6 +12,9 @@ export type posQueryResponse = {|
     +listPublishedProducts: ?$ReadOnlyArray<?{|
       +id: string,
       +name: ?string,
+      +imageCover: ?{|
+        +blurhash: string
+      |},
       +price: {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
@@ -30,6 +33,9 @@ query posQuery {
     listPublishedProducts {
       id
       name
+      imageCover {
+        blurhash
+      }
       price {
         unitAmount
         unitAmountCurrency
@@ -69,6 +75,24 @@ var v0 = [
             "args": null,
             "kind": "ScalarField",
             "name": "name",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "Image",
+            "kind": "LinkedField",
+            "name": "imageCover",
+            "plural": false,
+            "selections": [
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "blurhash",
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           },
           {
@@ -121,15 +145,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "e5c814df10c835872806e9678c651cb0",
+    "cacheID": "ea184e07c34dd6ae3464c310ab2460d1",
     "id": null,
     "metadata": {},
     "name": "posQuery",
     "operationKind": "query",
-    "text": "query posQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query posQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'dfa425f2da6703d4c203cd26cb26347c';
+(node: any).hash = 'c3b2ff52ad35b0ac050322648aacea98';
 export default node;

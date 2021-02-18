@@ -33,10 +33,11 @@ const styles = sx.create({
   mainGrid: {
     display: 'grid',
     gridTemplateColumns: '200px 1fr',
+    minHeight: '100vh',
   },
   navigation: {
     backgroundColor: '#ddd',
-    height: '100vh',
+    height: '100%',
     padding: 5,
   },
   main: {

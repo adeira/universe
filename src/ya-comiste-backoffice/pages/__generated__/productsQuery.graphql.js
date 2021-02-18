@@ -12,6 +12,9 @@ export type productsQueryResponse = {|
     +id: string,
     +key: string,
     +name: ?string,
+    +imageCover: ?{|
+      +blurhash: string
+    |},
     +price: {|
       +unitAmount: number,
       +unitAmountCurrency: SupportedCurrency,
@@ -29,6 +32,9 @@ query productsQuery {
     id
     key
     name
+    imageCover {
+      blurhash
+    }
     price {
       unitAmount
       unitAmountCurrency
@@ -82,6 +88,24 @@ var v0 = [
       {
         "alias": null,
         "args": null,
+        "concreteType": "Image",
+        "kind": "LinkedField",
+        "name": "imageCover",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "blurhash",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
         "concreteType": "ProductPrice",
         "kind": "LinkedField",
         "name": "price",
@@ -126,15 +150,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "645a850f48e87c09db8796e65d3fe2c1",
+    "cacheID": "db04316cedb2e679c1856ff4c8698635",
     "id": null,
     "metadata": {},
     "name": "productsQuery",
     "operationKind": "query",
-    "text": "query productsQuery {\n  searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    key\n    name\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
+    "text": "query productsQuery {\n  searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n    id\n    key\n    name\n    imageCover {\n      blurhash\n    }\n    price {\n      unitAmount\n      unitAmountCurrency\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '3a377fdee8c21aa4556656f6438a4141';
+(node: any).hash = '4a028a71e67aa10057e978a22361fffc';
 export default node;

@@ -1,3 +1,5 @@
+use crate::images::ModelError as ImagesModelError;
+
 #[derive(Debug)]
 pub enum ModelError {
     DatabaseError(arangors::ClientError),
@@ -13,6 +15,15 @@ impl From<ModelError> for String {
             }
             ModelError::LogicalError(e) => e, // TODO: hide the error (?)
             ModelError::PermissionsError(e) => e, // TODO: hide the error (?)
+        }
+    }
+}
+
+impl From<ImagesModelError> for ModelError {
+    fn from(error: ImagesModelError) -> Self {
+        match error {
+            ImagesModelError::PermissionsError(e) => ModelError::PermissionsError(e),
+            ImagesModelError::ProcessingError(e) => ModelError::LogicalError(e),
         }
     }
 }

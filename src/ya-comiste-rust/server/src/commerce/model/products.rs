@@ -1,6 +1,7 @@
 use crate::auth::users::User;
 use crate::commerce::model::errors::ModelError;
 use crate::graphql_context::Context;
+use crate::images::Image;
 use serde::{Deserialize, Serialize};
 
 /// This design was originally taken from Stripe API but was significantly changed (simplified).
@@ -19,7 +20,7 @@ pub struct Product {
     _key: String,
     name: Option<String>,        // Option: might be missing translation
     description: Option<String>, // Option: might be missing translation
-    images: Vec<String>,
+    images: Vec<Image>,
     unit_label: String,
     price: ProductPrice,
 
@@ -43,6 +44,11 @@ impl Product {
     #[cfg(test)]
     pub(in crate::commerce) fn description(&self) -> Option<String> {
         self.description.to_owned()
+    }
+
+    #[cfg(test)]
+    pub(in crate::commerce) fn images(&self) -> Vec<Image> {
+        self.images.to_owned()
     }
 }
 
@@ -72,9 +78,16 @@ impl Product {
         self.description.to_owned()
     }
 
-    /// A list of up to 8 URLs of images for this product, meant to be displayable to the customer.
-    fn images(&self) -> Vec<String> {
+    /// A list of images for this product, meant to be displayable to the customer. You can get
+    /// image cover via `imageCover` field.
+    fn images(&self) -> Vec<Image> {
         self.images.to_owned()
+    }
+
+    /// Returns the most important image which should be displayed as a product cover. Other images
+    /// are available under field `images`.
+    fn image_cover(&self) -> Option<&Image> {
+        self.images.first()
     }
 
     /// A label that represents units of this product in Stripe and on customers’ receipts and
@@ -115,7 +128,7 @@ struct ProductPrice {
       Only files which are defined using this scalar will be processed.
     "
 )]
-pub(in crate::commerce) struct ProductImageUploadable(String);
+pub(crate) struct ProductImageUploadable(String);
 
 impl std::fmt::Display for ProductImageUploadable {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
@@ -148,7 +161,7 @@ pub enum ProductMultilingualInputVisibility {
 
 #[derive(juniper::GraphQLInputObject)]
 pub struct ProductMultilingualInput {
-    pub(in crate::commerce) images: Vec<ProductImageUploadable>,
+    pub(crate) images: Vec<ProductImageUploadable>,
     // unit_label: String, // TODO: always "piece" at this moment
     pub(in crate::commerce) price: ProductPriceInput,
     pub(in crate::commerce) translations: Vec<ProductMultilingualInputTranslations>,
@@ -225,9 +238,15 @@ pub(in crate::commerce) async fn create_product(
 
     match &context.user {
         User::AdminUser(_) => {
+            let mut images = vec![];
+            if context.uploadables.is_some() {
+                images =
+                    crate::images::process_images(&context, &product_multilingual_input).await?;
+            }
             crate::commerce::dal::products::create_product(
                 &context.pool,
                 &product_multilingual_input,
+                &images,
             )
             .await
         }

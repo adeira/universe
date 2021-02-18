@@ -11,12 +11,12 @@ import { useSetRecoilState } from 'recoil';
 
 import Layout from '../../src/Layout';
 import createProductFormSchema from '../../src/products/createProductFormSchema';
-import { uiStatusBarMessageAtom } from '../../src/recoil/uiStatusBarMessageAtom';
+import { uiStatusBarAtom } from '../../src/recoil/uiStatusBarAtom';
 import type { createProductCreateMutation } from './__generated__/createProductCreateMutation.graphql';
 
 export default function ProductsCreatePage(): React.Node {
-  const [files, setFiles] = useState();
-  const setStatusBarMessage = useSetRecoilState(uiStatusBarMessageAtom);
+  const [files, setFiles] = useState(undefined);
+  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
   const [productCreate] = useMutation<createProductCreateMutation>(graphql`
     mutation createProductCreateMutation(
@@ -58,7 +58,7 @@ export default function ProductsCreatePage(): React.Node {
     productCreate({
       uploadables: files,
       variables: {
-        productImagesNames: ['TODO'], // TODO
+        productImagesNames: Array.from(files ?? []).map((file) => file.name),
         productPriceUnitAmount: values.price * 100, // adjusting for centavo
         translations: [
           {
@@ -77,24 +77,29 @@ export default function ProductsCreatePage(): React.Node {
       onCompleted: ({ result }) => {
         setSubmitting(false);
         if (result.__typename === 'ProductError') {
-          setStatusBarMessage(result.message);
+          setStatusBar({ message: result.message, type: 'ERROR' });
         } else if (result.__typename === 'Product') {
-          setStatusBarMessage(
-            <>
-              Product <strong>{result.name}</strong> created!
-            </>,
-          );
+          setStatusBar({
+            message: (
+              <>
+                Product <strong>{result.name}</strong> created! ✅
+              </>
+            ),
+            type: 'SUCCESS',
+          });
           resetForm();
+          setFiles(undefined);
         }
       },
       onError: () => {
         setSubmitting(false);
-        setStatusBarMessage(
-          fbt(
+        setStatusBar({
+          message: fbt(
             'Something unexpected happened and server could not process the request! 🙈',
             'generic failure message after creating a product',
           ),
-        );
+          type: 'ERROR',
+        });
       },
     });
   };
