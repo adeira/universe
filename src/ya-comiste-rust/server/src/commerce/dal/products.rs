@@ -1,7 +1,8 @@
 use crate::arangodb::ConnectionPool;
 use crate::commerce::model::errors::ModelError;
 use crate::commerce::model::products::{
-    PriceSortDirection, Product, ProductMultilingualInput, SupportedLocale,
+    PriceSortDirection, Product, ProductMultilingualInput, ProductMultilingualInputVisibility,
+    SupportedLocale,
 };
 use serde_json::json;
 
@@ -12,7 +13,6 @@ pub(in crate::commerce) async fn create_product(
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
 
-    // TODO: categories
     // TODO: dynamic `unit_label`
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
 
@@ -25,6 +25,7 @@ pub(in crate::commerce) async fn create_product(
               images: @product_images,
               unit_label: "product_units/piece",
               active: false,
+              visibility: @product_visibility,
               created: DATE_ISO8601(DATE_NOW()),
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
@@ -57,6 +58,10 @@ pub(in crate::commerce) async fn create_product(
         )
         .bind_var("eshop_locale", String::from("en_US")) // TODO
         .bind_var("product_images", product_multilingual_input.images.clone())
+        .bind_var(
+            "product_visibility",
+            json!(product_multilingual_input.visibility),
+        )
         .bind_var(
             "product_price_unit_amount",
             product_multilingual_input.price.unit_amount,
@@ -157,6 +162,7 @@ pub(in crate::commerce) async fn search_products(
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
     search_all: &bool,
+    visibility: &Option<ProductMultilingualInputVisibility>,
 ) -> Result<Vec<Option<Product>>, ModelError> {
     let db = pool.db().await;
     let sort_direction = match price_sort_direction {
@@ -170,7 +176,8 @@ pub(in crate::commerce) async fn search_products(
             r#"
             FOR product IN search_products
               LIMIT 0, 24
-              FILTER @search_all == true ?  (product.active IN [true, false]) : (product.active IN [true])
+              FILTER @search_all == true ? true : (product.active IN [true])
+              FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT product.price.unit_amount @price_sort_direction
 
               LET translations = product.translations[@eshop_locale].name != null
@@ -186,6 +193,7 @@ pub(in crate::commerce) async fn search_products(
             "#,
         );
 
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     // This should be almost identical with the previous one except it uses fulltext search across
     // all supported languages and it additionally sorts the results by relevance.
     let search_fulltext_aql = arangors::AqlQuery::builder()
@@ -196,7 +204,8 @@ pub(in crate::commerce) async fn search_products(
               SEARCH BOOST(NGRAM_MATCH(product.translations[supported_lang].name, @search_term, 0.7, "bigram"), 1.1)
                   OR BOOST(NGRAM_MATCH(product.translations[supported_lang].description, @search_term, 0.7, "bigram"), 1.0)
               LIMIT 0, 24
-              FILTER @search_all == true ?  (product.active IN [true, false]) : (product.active IN [true])
+              FILTER @search_all == true ? true : (product.active IN [true])
+              FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT BM25(product) DESC
               SORT product.price.unit_amount @price_sort_direction
 
@@ -217,10 +226,24 @@ pub(in crate::commerce) async fn search_products(
         Some(search_term) => search_fulltext_aql
             .bind_var("search_term", search_term.clone())
             .bind_var("search_all", *search_all)
+            .bind_var(
+                "visibility",
+                match visibility {
+                    Some(visibility) => json!(visibility),
+                    None => json!(null),
+                },
+            )
             .bind_var("eshop_locale", format!("{}", client_locale))
             .bind_var("price_sort_direction", sort_direction),
         None => search_aql
             .bind_var("search_all", *search_all)
+            .bind_var(
+                "visibility",
+                match visibility {
+                    Some(visibility) => json!(visibility),
+                    None => json!(null),
+                },
+            )
             .bind_var("eshop_locale", format!("{}", client_locale))
             .bind_var("price_sort_direction", sort_direction),
     };
@@ -271,261 +294,5 @@ pub(in crate::commerce) async fn delete_product(
             ))),
         },
         Err(e) => Err(ModelError::DatabaseError(e)),
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
-    use crate::commerce::model::products::{
-        ProductMultilingualInputTranslations, ProductPriceInput, SupportedCurrency,
-    };
-
-    #[ignore]
-    #[tokio::test]
-    async fn create_product_english_to_english_test() {
-        let db_name = "create_product_english_to_english_test";
-        let pool = prepare_empty_test_database(&db_name).await;
-
-        // 1) create a product with english name and description
-        let created_product = create_product(
-            &pool,
-            &ProductMultilingualInput {
-                images: vec![],
-                price: ProductPriceInput {
-                    unit_amount: -1,
-                    unit_amount_currency: SupportedCurrency::MXN,
-                },
-                translations: vec![ProductMultilingualInputTranslations {
-                    locale: SupportedLocale::EnUS,
-                    name: Some("Product name in english".to_string()),
-                    description: Some("Product description in english".to_string()),
-                }],
-            },
-        )
-        .await
-        .unwrap();
-
-        // 2) try to find the newly created product
-        let found_product = get_product(
-            &pool,
-            &SupportedLocale::EnUS,
-            &created_product.id(),
-            &false, // the product should be inactive at this point (until manually activated)
-        )
-        .await
-        .unwrap();
-        assert_eq!(
-            found_product.name(),
-            Some("Product name in english".to_string())
-        );
-
-        cleanup_test_database(&db_name).await;
-    }
-
-    #[ignore]
-    #[tokio::test]
-    async fn create_product_spanish_to_english_test() {
-        let db_name = "create_product_spanish_to_english_test";
-        let pool = prepare_empty_test_database(&db_name).await;
-
-        // 1) create a product with spanish name and description
-        let created_product = create_product(
-            &pool,
-            &ProductMultilingualInput {
-                images: vec![],
-                price: ProductPriceInput {
-                    unit_amount: -1,
-                    unit_amount_currency: SupportedCurrency::MXN,
-                },
-                translations: vec![ProductMultilingualInputTranslations {
-                    locale: SupportedLocale::EsMX,
-                    name: Some("Product name in SPANISH".to_string()),
-                    description: Some("Product description in SPANISH".to_string()),
-                }],
-            },
-        )
-        .await
-        .unwrap();
-
-        // 2) try to find the newly created product - please note that we are trying to fetch the
-        //    english version even though it's not available and the result should fallback to the
-        //    first available language which is spanish in this case
-        let found_product = get_product(
-            &pool,
-            &SupportedLocale::EnUS,
-            &created_product.id(),
-            &false, // the product should be inactive at this point (until manually activated)
-        )
-        .await
-        .unwrap();
-        assert_eq!(
-            found_product.name(),
-            Some("Product name in SPANISH".to_string())
-        );
-
-        cleanup_test_database(&db_name).await;
-    }
-
-    #[ignore]
-    #[tokio::test]
-    async fn create_product_all_languages_test() {
-        let db_name = "create_product_all_languages_test";
-        let pool = prepare_empty_test_database(&db_name).await;
-
-        // 1) create a product with english AND spanish name and description
-        let created_product = create_product(
-            &pool,
-            &ProductMultilingualInput {
-                images: vec![],
-                price: ProductPriceInput {
-                    unit_amount: -1,
-                    unit_amount_currency: SupportedCurrency::MXN,
-                },
-                translations: vec![
-                    ProductMultilingualInputTranslations {
-                        locale: SupportedLocale::EnUS,
-                        name: Some("Product name in english".to_string()),
-                        description: Some("Product description in english".to_string()),
-                    },
-                    ProductMultilingualInputTranslations {
-                        locale: SupportedLocale::EsMX,
-                        name: Some("Product name in SPANISH".to_string()),
-                        description: Some("Product description in SPANISH".to_string()),
-                    },
-                ],
-            },
-        )
-        .await
-        .unwrap();
-
-        // 2) try to find the newly created product in both client locales
-        let found_en_product = get_product(
-            &pool,
-            &SupportedLocale::EnUS,
-            &created_product.id(),
-            &false, // the product should be inactive at this point (until manually activated)
-        )
-        .await
-        .unwrap();
-        assert_eq!(
-            found_en_product.name(),
-            Some("Product name in english".to_string())
-        );
-
-        let found_es_product = get_product(
-            &pool,
-            &SupportedLocale::EsMX,
-            &created_product.id(),
-            &false, // the product should be inactive at this point (until manually activated)
-        )
-        .await
-        .unwrap();
-        assert_eq!(
-            found_es_product.name(),
-            Some("Product name in SPANISH".to_string())
-        );
-
-        cleanup_test_database(&db_name).await;
-    }
-
-    #[ignore]
-    #[tokio::test]
-    async fn create_product_mixed_languages_test() {
-        let db_name = "create_product_mixed_languages_test";
-        let pool = prepare_empty_test_database(&db_name).await;
-
-        // 1) create a product with english name AND spanish description (notice how it's mixed)
-        let created_product = create_product(
-            &pool,
-            &ProductMultilingualInput {
-                images: vec![],
-                price: ProductPriceInput {
-                    unit_amount: -1,
-                    unit_amount_currency: SupportedCurrency::MXN,
-                },
-                translations: vec![
-                    ProductMultilingualInputTranslations {
-                        locale: SupportedLocale::EnUS,
-                        name: Some("Product name in english".to_string()),
-                        description: None,
-                    },
-                    ProductMultilingualInputTranslations {
-                        locale: SupportedLocale::EsMX,
-                        name: None,
-                        description: Some("Product description in SPANISH".to_string()),
-                    },
-                ],
-            },
-        )
-        .await
-        .unwrap();
-
-        // 2) try to find the newly created product in both client locales
-        let found_en_product = get_product(
-            &pool,
-            &SupportedLocale::EnUS,
-            &created_product.id(),
-            &false, // the product should be inactive at this point (until manually activated)
-        )
-        .await
-        .unwrap();
-        assert_eq!(
-            found_en_product.name(),
-            Some("Product name in english".to_string())
-        );
-        assert_eq!(found_en_product.description(), None);
-
-        let found_es_product = get_product(
-            &pool,
-            &SupportedLocale::EsMX,
-            &created_product.id(),
-            &false, // the product should be inactive at this point (until manually activated)
-        )
-        .await
-        .unwrap();
-        assert_eq!(
-            found_es_product.name(),
-            Some("Product name in english".to_string()) // we fall back to EN because ES name is missing
-        );
-        assert_eq!(found_es_product.description(), None);
-
-        cleanup_test_database(&db_name).await;
-    }
-
-    #[ignore]
-    #[tokio::test]
-    async fn delete_product_test() {
-        let db_name = "delete_product_test";
-        let pool = prepare_empty_test_database(&db_name).await;
-
-        // 1) create a product to be later deleted
-        let created_product = create_product(
-            &pool,
-            &ProductMultilingualInput {
-                images: vec![],
-                price: ProductPriceInput {
-                    unit_amount: -1,
-                    unit_amount_currency: SupportedCurrency::MXN,
-                },
-                translations: vec![ProductMultilingualInputTranslations {
-                    locale: SupportedLocale::EnUS,
-                    name: Some("Product name in english".to_string()),
-                    description: Some("Product description in english".to_string()),
-                }],
-            },
-        )
-        .await
-        .unwrap();
-
-        // 2) try to delete the newly created product
-        let deleted_product = delete_product(&pool, &created_product.id()).await.unwrap();
-        assert_eq!(
-            deleted_product.name(),
-            Some("Product name in english".to_string())
-        );
-
-        cleanup_test_database(&db_name).await;
     }
 }

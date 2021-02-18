@@ -136,12 +136,41 @@ pub struct ProductMultilingualInputTranslations {
     pub(in crate::commerce) description: Option<String>,
 }
 
+/// Specifies additional visibility of the product. Each product is always visible in the backoffice
+/// but can additionally be displayed in POS, eshop (public) or both.
+#[derive(juniper::GraphQLEnum, Copy, Clone, Serialize)]
+pub enum ProductMultilingualInputVisibility {
+    /// Visible in eshop only (therefore it's public).
+    ESHOP,
+    /// Visible in POS only (accessible to authorized users).
+    POS,
+}
+
 #[derive(juniper::GraphQLInputObject)]
 pub struct ProductMultilingualInput {
     pub(in crate::commerce) images: Vec<ProductImageUploadable>,
     // unit_label: String, // TODO: always "piece" at this moment
     pub(in crate::commerce) price: ProductPriceInput,
     pub(in crate::commerce) translations: Vec<ProductMultilingualInputTranslations>,
+    pub(in crate::commerce) visibility: Vec<ProductMultilingualInputVisibility>,
+}
+
+impl Default for ProductMultilingualInput {
+    fn default() -> Self {
+        ProductMultilingualInput {
+            images: vec![],
+            price: ProductPriceInput {
+                unit_amount: 0,
+                unit_amount_currency: SupportedCurrency::MXN,
+            },
+            translations: vec![ProductMultilingualInputTranslations {
+                locale: SupportedLocale::EnUS,
+                name: Some(String::from("EN default name")),
+                description: None,
+            }],
+            visibility: vec![],
+        }
+    }
 }
 
 #[derive(juniper::GraphQLInputObject)]
@@ -238,6 +267,7 @@ pub(in crate::commerce) async fn search_published_products(
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
+    visibility: &ProductMultilingualInputVisibility,
 ) -> Result<Vec<Option<Product>>, ModelError> {
     // Anyone can search the products (it's not limited to admins only).
     crate::commerce::dal::products::search_products(
@@ -246,6 +276,7 @@ pub(in crate::commerce) async fn search_published_products(
         &price_sort_direction,
         &search_term,
         &false, // do not search all (active only)
+        &Some(*visibility),
     )
     .await
 }
@@ -265,6 +296,7 @@ pub(in crate::commerce) async fn search_all_products(
                 &price_sort_direction,
                 &search_term,
                 &true, // search all including inactive
+                &None, // no visibility restrictions
             )
             .await
         }
@@ -322,12 +354,8 @@ mod tests {
                 create_product(
                     &context,
                     &ProductMultilingualInput {
-                        images: vec![],
-                        price: ProductPriceInput {
-                            unit_amount: -1,
-                            unit_amount_currency: SupportedCurrency::MXN
-                        },
-                        translations: vec![]
+                        translations: vec![],
+                        ..Default::default()
                     }
                 )
                 .await
@@ -347,16 +375,12 @@ mod tests {
                 create_product(
                     &context,
                     &ProductMultilingualInput {
-                        images: vec![],
-                        price: ProductPriceInput {
-                            unit_amount: -1,
-                            unit_amount_currency: SupportedCurrency::MXN
-                        },
                         translations: vec![ProductMultilingualInputTranslations {
                             locale: SupportedLocale::EnUS,
                             name: None,
                             description: Some("EN description".to_string())
-                        }]
+                        }],
+                        ..Default::default()
                     }
                 )
                 .await
@@ -376,16 +400,11 @@ mod tests {
                 create_product(
                     &context,
                     &ProductMultilingualInput {
-                        images: vec![],
                         price: ProductPriceInput {
                             unit_amount: -1,
                             unit_amount_currency: SupportedCurrency::MXN
                         },
-                        translations: vec![ProductMultilingualInputTranslations {
-                            locale: SupportedLocale::EnUS,
-                            name: Some("EN name".to_string()),
-                            description: None
-                        }]
+                        ..Default::default()
                     }
                 )
                 .await

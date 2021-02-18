@@ -1,5 +1,7 @@
 use crate::auth::users::User;
-use crate::commerce::api::{PriceSortDirection, Product, SupportedLocale};
+use crate::commerce::api::{
+    PriceSortDirection, Product, ProductMultilingualInputVisibility, SupportedLocale,
+};
 use crate::graphql_context::Context;
 
 pub(crate) struct POS;
@@ -26,6 +28,7 @@ pub(in crate::pos) async fn list_published_products(
         &SupportedLocale::EnUS,         // TODO
         &PriceSortDirection::HighToLow, // TODO
         &None,
+        &ProductMultilingualInputVisibility::POS,
     )
     .await
 }

@@ -1,4 +1,5 @@
 use crate::auth::users::AnyUser;
+use crate::commerce::api::ProductMultilingualInputVisibility;
 use crate::graphql_context::Context;
 use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
 
@@ -28,6 +29,7 @@ impl Query {
             &client_locale,
             &price_sort_direction,
             &search_term,
+            &ProductMultilingualInputVisibility::ESHOP,
         )
         .await
     }

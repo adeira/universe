@@ -4,7 +4,16 @@
   "rule": {
     "type": "object",
     "additionalProperties": false,
-    "required": ["images", "unit_label", "active", "created", "updated", "price", "translations"],
+    "required": [
+      "images",
+      "unit_label",
+      "active",
+      "visibility",
+      "created",
+      "updated",
+      "price",
+      "translations"
+    ],
     "properties": {
       "images": {
         "type": "array",
@@ -19,6 +28,14 @@
       },
       "active": {
         "type": "boolean"
+      },
+      "visibility": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1,
+          "enum": ["POS", "ESHOP"]
+        }
       },
       "created": {
         "type": "string",

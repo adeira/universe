@@ -72,17 +72,17 @@
   },
   {
    "hashToText": {
-    "ZeDRJ5cUr5jhEkyCMgIPmA==": "POS"
+    "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 28,
    "col_beg": 8,
    "line_end": 28,
-   "col_end": 63,
+   "col_end": 68,
    "desc": "navigation link to point of sales",
    "project": "",
    "type": "text",
-   "jsfbt": "POS"
+   "jsfbt": "Open POS"
   },
   {
    "hashToText": {
@@ -142,20 +142,6 @@
   },
   {
    "hashToText": {
-    "ocdQ+rrBysji8WMh+QyUuQ==": "Start a new POS session"
-   },
-   "filepath": "pages/pos.js",
-   "line_beg": 13,
-   "col_beg": 8,
-   "line_end": 13,
-   "col_end": 84,
-   "desc": "start new POS session button title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Start a new POS session"
-  },
-  {
-   "hashToText": {
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "pages/products.js",
@@ -173,9 +159,9 @@
     "++v4PaDnNZtPpJ5lx41T4g==": "All good! ✅"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 66,
+   "line_beg": 70,
    "col_beg": 30,
-   "line_end": 66,
+   "line_end": 70,
    "col_end": 92,
    "desc": "success message after creating a product",
    "project": "",
@@ -187,9 +173,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 72,
+   "line_beg": 76,
    "col_beg": 10,
-   "line_end": 75,
+   "line_end": 79,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -201,9 +187,9 @@
     "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 106,
+   "line_beg": 111,
    "col_beg": 16,
-   "line_end": 106,
+   "line_end": 111,
    "col_end": 100,
    "desc": "form field name for product name in english",
    "project": "",
@@ -215,9 +201,9 @@
     "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 114,
+   "line_beg": 119,
    "col_beg": 16,
-   "line_end": 114,
+   "line_end": 119,
    "col_end": 100,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -229,9 +215,9 @@
     "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 122,
+   "line_beg": 127,
    "col_beg": 16,
-   "line_end": 124,
+   "line_end": 129,
    "col_end": 22,
    "desc": "form field name for product description in english",
    "project": "",
@@ -243,9 +229,9 @@
     "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 132,
+   "line_beg": 137,
    "col_beg": 16,
-   "line_end": 134,
+   "line_end": 139,
    "col_end": 22,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -257,9 +243,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 142,
+   "line_beg": 147,
    "col_beg": 16,
-   "line_end": 142,
+   "line_end": 147,
    "col_end": 79,
    "desc": "form field name for product price",
    "project": "",
@@ -271,9 +257,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 150,
+   "line_beg": 155,
    "col_beg": 16,
-   "line_end": 150,
+   "line_end": 155,
    "col_end": 87,
    "desc": "form field name for product pictures",
    "project": "",
