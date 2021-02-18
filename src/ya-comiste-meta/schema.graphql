@@ -1,4 +1,4 @@
-# @generated SignedSource<<4ca9c564c37a6bd8987ddd5cede21eb5>>
+# @generated SignedSource<<7feda1af7bdb11443644ac1cc024478a>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -57,6 +57,15 @@ enum SupportedLocale {
   es_MX
 }
 
+"""
+  Specifies additional visibility of the product. Each product is always visible in the backoffice
+  but can additionally be displayed in POS, eshop (public) or both.
+"""
+enum ProductMultilingualInputVisibility {
+  "Visible in eshop only (therefore it's public)." ESHOP
+  "Visible in POS only (accessible to authorized users)." POS
+}
+
 "Root query of the graph."
 type Query {
   """
@@ -95,6 +104,7 @@ input ProductMultilingualInput {
   images: [ProductImageUploadable!]!
   price: ProductPriceInput!
   translations: [ProductMultilingualInputTranslations!]!
+  visibility: [ProductMultilingualInputVisibility!]!
 }
 
 input ProductPriceInput {

@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
+import { Kbd, Heading } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { graphql, useMutation } from '@adeira/relay';
-import { Heading } from '@adeira/sx-design';
 import { useState } from 'react';
 
 import Layout from '../../src/Layout';
@@ -21,12 +21,14 @@ export default function ProductsCreatePage(): React.Node {
       $productImagesNames: [ProductImageUploadable!]!
       $productPriceUnitAmount: Int!
       $translations: [ProductMultilingualInputTranslations!]!
+      $visibility: [ProductMultilingualInputVisibility!]!
     ) {
       productCreate(
         productMultilingualInput: {
           images: $productImagesNames
           price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
           translations: $translations
+          visibility: $visibility
         }
       ) {
         ... on Product {
@@ -40,6 +42,15 @@ export default function ProductsCreatePage(): React.Node {
     }
   `);
 
+  const formInitialValues = {
+    name_en: '',
+    name_es: '',
+    description_en: '',
+    description_es: '',
+    price: '',
+    visibility: ['POS'],
+  };
+
   const handleFormSubmit = (values, { setSubmitting, resetForm }) => {
     productCreate({
       uploadables: files,
@@ -49,43 +60,36 @@ export default function ProductsCreatePage(): React.Node {
         translations: [
           {
             locale: 'en_US',
-            name: values.name_en,
-            description: values.description_en,
+            name: values.name_en || null,
+            description: values.description_en || null,
           },
           {
             locale: 'es_MX',
-            name: values.name_es,
-            description: values.description_es,
+            name: values.name_es || null,
+            description: values.description_es || null,
           },
         ],
+        visibility: values.visibility,
       },
       onCompleted: ({ productCreate }) => {
+        setSubmitting(false);
         if (productCreate.__typename === 'ProductError') {
           setStatusBarMessage(productCreate.message);
-          setSubmitting(false);
         } else {
           setStatusBarMessage(fbt('All good! ✅', 'success message after creating a product'));
           resetForm();
         }
       },
       onError: () => {
+        setSubmitting(false);
         setStatusBarMessage(
           fbt(
             'Something unexpected happened and server could not process the request! 🙈',
             'generic failure message after creating a product',
           ),
         );
-        setSubmitting(false);
       },
     });
-  };
-
-  const formInitialValues = {
-    name_en: null,
-    name_es: null,
-    description_en: null,
-    description_es: null,
-    price: null,
   };
 
   return (
@@ -156,6 +160,16 @@ export default function ProductsCreatePage(): React.Node {
                   accept="image/jpeg,image/png"
                   onChange={({ target }) => setFiles(target.files)}
                 />
+              </label>
+            </div>
+
+            <div className={styles('row')}>
+              <label>
+                Visibility (use <Kbd code="SHIFT" /> or <Kbd code="CTRL" /> to select more)
+                <Field name="visibility" as="select" multiple={true} size={2}>
+                  <option value="POS">Visible in POS</option>
+                  <option value="ESHOP">Visible in eshop (public!)</option>
+                </Field>
               </label>
             </div>
 

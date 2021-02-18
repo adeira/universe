@@ -65,6 +65,7 @@ mod tests {
                   "unit_label": "TKTK",
                   "active": false,
                   "created": "TKTK",
+                  "visibility": ["POS", "ESHOP"],
                   "updated": "TKTK",
                   "price": {
                     "unit_amount": 42,
@@ -87,6 +88,7 @@ mod tests {
           "unit_label": "",
           "active": false,
           "created": "",
+          "visibility": [],
           "updated": "",
           "price": {
             "unit_amount": 42,

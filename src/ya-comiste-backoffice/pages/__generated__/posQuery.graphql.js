@@ -6,8 +6,8 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-export type sessionPosQueryVariables = {||};
-export type sessionPosQueryResponse = {|
+export type posQueryVariables = {||};
+export type posQueryResponse = {|
   +pos: {|
     +listPublishedProducts: ?$ReadOnlyArray<?{|
       +id: string,
@@ -19,13 +19,13 @@ export type sessionPosQueryResponse = {|
     |}>
   |}
 |};
-export type sessionPosQuery = {|
-  variables: sessionPosQueryVariables,
-  response: sessionPosQueryResponse,
+export type posQuery = {|
+  variables: posQueryVariables,
+  response: posQueryResponse,
 |};
 
 /*
-query sessionPosQuery {
+query posQuery {
   pos {
     listPublishedProducts {
       id
@@ -108,7 +108,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "sessionPosQuery",
+    "name": "posQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -117,19 +117,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "sessionPosQuery",
+    "name": "posQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "1c57b118f119cacf4629555d39538c51",
+    "cacheID": "e5c814df10c835872806e9678c651cb0",
     "id": null,
     "metadata": {},
-    "name": "sessionPosQuery",
+    "name": "posQuery",
     "operationKind": "query",
-    "text": "query sessionPosQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query posQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '5818f30bddf8c4cf3cf2b92d4817e9e4';
+(node: any).hash = 'dfa425f2da6703d4c203cd26cb26347c';
 export default node;

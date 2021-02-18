@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
   locale: SupportedLocale,
@@ -15,6 +16,7 @@ export type createProductCreateMutationVariables = {|
   productImagesNames: $ReadOnlyArray<any>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
+  visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
 |};
 export type createProductCreateMutationResponse = {|
   +productCreate: {|
@@ -38,8 +40,9 @@ mutation createProductCreateMutation(
   $productImagesNames: [ProductImageUploadable!]!
   $productPriceUnitAmount: Int!
   $translations: [ProductMultilingualInputTranslations!]!
+  $visibility: [ProductMultilingualInputVisibility!]!
 ) {
-  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations}) {
+  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
     __typename
     ... on Product {
       __typename
@@ -68,6 +71,11 @@ var v0 = [
     "defaultValue": null,
     "kind": "LocalArgument",
     "name": "translations"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "visibility"
   }
 ],
 v1 = [
@@ -98,6 +106,11 @@ v1 = [
         "kind": "Variable",
         "name": "translations",
         "variableName": "translations"
+      },
+      {
+        "kind": "Variable",
+        "name": "visibility",
+        "variableName": "visibility"
       }
     ],
     "kind": "ObjectValue",
@@ -186,15 +199,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "73f575d318f7224c3fd7780045612b47",
+    "cacheID": "1cb857db0f1fa777d56f28627ef00995",
     "id": null,
     "metadata": {},
     "name": "createProductCreateMutation",
     "operationKind": "mutation",
-    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
+    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '4cf1c3d7eb136dee913367127434df8b';
+(node: any).hash = '5d1e75dafe89b3d98d20090d5f680682';
 export default node;

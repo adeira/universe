@@ -25,7 +25,7 @@ export default function Navigation(): React.Node {
       </div>
 
       <Link href="/pos">
-        <fbt desc="navigation link to point of sales">POS</fbt>
+        <fbt desc="navigation link to point of sales">Open POS</fbt>
       </Link>
 
       <div className={styles('separator')}>

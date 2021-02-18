@@ -3,6 +3,7 @@ use crate::graphql_context::Context;
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
+pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
 pub use crate::commerce::model::products::SupportedLocale;
 
 #[derive(juniper::GraphQLObject)]
@@ -36,12 +37,14 @@ pub(crate) async fn search_published_products(
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
+    visibility: &ProductMultilingualInputVisibility,
 ) -> Option<Vec<Option<Product>>> {
     match crate::commerce::model::products::search_published_products(
         &context,
         &client_locale,
         &price_sort_direction,
         &search_term,
+        &visibility,
     )
     .await
     {

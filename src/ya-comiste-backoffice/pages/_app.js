@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 import sx from '@adeira/sx';
 import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 
+import './_app.css';
 import '../styles/globals.css';
 import { LoginButton } from '../src/AuthButtons';
 import constants from '../src/constants';

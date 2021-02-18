@@ -22,6 +22,11 @@ expression: "schema.validate(&json!({ }))"
     {
       "code": "required",
       "title": "This property is required",
+      "path": "/visibility"
+    },
+    {
+      "code": "required",
+      "title": "This property is required",
       "path": "/created"
     },
     {
