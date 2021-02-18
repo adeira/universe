@@ -19,8 +19,9 @@ export type createProductCreateMutationVariables = {|
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
 |};
 export type createProductCreateMutationResponse = {|
-  +productCreate: {|
-    +__typename: "Product"
+  +result: {|
+    +__typename: "Product",
+    +name: ?string,
   |} | {|
     +__typename: "ProductError",
     +message: string,
@@ -42,10 +43,11 @@ mutation createProductCreateMutation(
   $translations: [ProductMultilingualInputTranslations!]!
   $visibility: [ProductMultilingualInputVisibility!]!
 ) {
-  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
+  result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
     __typename
     ... on Product {
       __typename
+      name
     }
     ... on ProductError {
       __typename
@@ -128,6 +130,13 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "message",
   "storageKey": null
 };
@@ -139,7 +148,7 @@ return {
     "name": "createProductCreateMutation",
     "selections": [
       {
-        "alias": null,
+        "alias": "result",
         "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
@@ -149,7 +158,8 @@ return {
           {
             "kind": "InlineFragment",
             "selections": [
-              (v2/*: any*/)
+              (v2/*: any*/),
+              (v3/*: any*/)
             ],
             "type": "Product",
             "abstractKey": null
@@ -158,7 +168,7 @@ return {
             "kind": "InlineFragment",
             "selections": [
               (v2/*: any*/),
-              (v3/*: any*/)
+              (v4/*: any*/)
             ],
             "type": "ProductError",
             "abstractKey": null
@@ -177,7 +187,7 @@ return {
     "name": "createProductCreateMutation",
     "selections": [
       {
-        "alias": null,
+        "alias": "result",
         "args": (v1/*: any*/),
         "concreteType": null,
         "kind": "LinkedField",
@@ -190,6 +200,14 @@ return {
             "selections": [
               (v3/*: any*/)
             ],
+            "type": "Product",
+            "abstractKey": null
+          },
+          {
+            "kind": "InlineFragment",
+            "selections": [
+              (v4/*: any*/)
+            ],
             "type": "ProductError",
             "abstractKey": null
           }
@@ -199,15 +217,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "1cb857db0f1fa777d56f28627ef00995",
+    "cacheID": "7fbd84e280a5a990dd8e10096455dd71",
     "id": null,
     "metadata": {},
     "name": "createProductCreateMutation",
     "operationKind": "mutation",
-    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
+    "text": "mutation createProductCreateMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n    __typename\n    ... on Product {\n      __typename\n      name\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '5d1e75dafe89b3d98d20090d5f680682';
+(node: any).hash = 'f257107e5c76092e5b0b6bc2a2b0d14b';
 export default node;
