@@ -1,4 +1,4 @@
-# @generated SignedSource<<7feda1af7bdb11443644ac1cc024478a>>
+# @generated SignedSource<<7725f7178030d76a1a357ddf1afce3a9>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -155,8 +155,16 @@ type Product {
     purposes.
   """
   description: String
-  "A list of up to 8 URLs of images for this product, meant to be displayable to the customer."
-  images: [String!]!
+  """
+    A list of images for this product, meant to be displayable to the customer. You can get
+    image cover via `imageCover` field.
+  """
+  images: [Image!]!
+  """
+    Returns the most important image which should be displayed as a product cover. Other images
+    are available under field `images`.
+  """
+  imageCover: Image
   """
     A label that represents units of this product in Stripe and on customers’ receipts and
     invoices. When set, this will be included in associated invoice line item descriptions.
@@ -195,6 +203,12 @@ type AuthorizeMobilePayload {
     Returns `None` if the request was not successful.
   """
   sessionToken: String
+}
+
+type Image {
+  filename: String!
+  "See: https://blurha.sh/"
+  blurhash: String!
 }
 
 schema {

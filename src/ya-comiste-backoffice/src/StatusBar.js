@@ -4,21 +4,26 @@ import sx from '@adeira/sx';
 import React, { type Node } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { uiStatusBarMessageAtom } from './recoil/uiStatusBarMessageAtom';
+import { uiStatusBarAtom } from './recoil/uiStatusBarAtom';
 
 export default function StatusBar(): Node {
-  const [statusBarMessage, setStatusBarMessage] = useRecoilState(uiStatusBarMessageAtom);
+  const [statusBar, setStatusBar] = useRecoilState(uiStatusBarAtom);
 
-  if (statusBarMessage == null) {
+  if (statusBar.message == null) {
     return null;
   }
 
+  const classes = {
+    SUCCESS: 'statusBarSuccess',
+    ERROR: 'statusBarError',
+  };
+
   return (
-    <div className={styles('statusBar')}>
-      <div className={styles('statusBarContent')}>{statusBarMessage}</div>
+    <div className={styles('statusBar', statusBar.type != null && classes[statusBar.type])}>
+      <div className={styles('statusBarContent')}>{statusBar.message}</div>
       <button
         type="button"
-        onClick={() => setStatusBarMessage(null)}
+        onClick={() => setStatusBar({ message: null })}
         className={styles('statusBarClose')}
       >
         <svg
@@ -37,12 +42,23 @@ export default function StatusBar(): Node {
   );
 }
 
+// Warning colors: #fffbe6, #ffe58f
 const styles = sx.create({
   statusBar: {
     display: 'flex',
     padding: '1rem',
+    borderWidth: 1,
+    borderStyle: 'solid',
+    backgroundColor: '#e6f7ff', // defaults to "info" colors
+    borderColor: '#91d5ff',
+  },
+  statusBarSuccess: {
     backgroundColor: '#f6ffed',
-    border: '1px solid #b7eb8f',
+    borderColor: '#b7eb8f',
+  },
+  statusBarError: {
+    backgroundColor: '#fff2f0',
+    borderColor: '#ffccc7',
   },
   statusBarContent: {
     flex: 1,

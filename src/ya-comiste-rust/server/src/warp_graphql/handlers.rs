@@ -1,6 +1,6 @@
 use crate::arangodb::ConnectionPool;
 use crate::auth::users::User;
-use crate::graphql_context::{Context, ContextUploadable};
+use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
 use crate::graphql_schema::Schema;
 use crate::warp_graphql::models::get_current_user;
 use bytes::BufMut;
@@ -66,16 +66,26 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
             }
             _ => {
                 // uploadables
+                let filename = part.filename().unwrap_or_else(|| part.name()).to_string();
                 match part.content_type() {
                     Some(file_type) => match file_type {
-                        "image/jpeg" | "image/png" => {
-                            // allowed file types
-                            let part_name = part.name().to_string();
-                            let part_content_type = file_type.to_string();
-                            let part_value = try_fold_multipart_stream(part).await?;
+                        // allowed file types
+                        "image/jpeg" => {
                             uploadable_chunks.insert(
-                                part_name,
-                                ContextUploadable::new(part_value, part_content_type),
+                                filename,
+                                ContextUploadable::new(
+                                    try_fold_multipart_stream(part).await?,
+                                    ContextUploadableContentType::ImageJpeg,
+                                ),
+                            );
+                        }
+                        "image/png" => {
+                            uploadable_chunks.insert(
+                                filename,
+                                ContextUploadable::new(
+                                    try_fold_multipart_stream(part).await?,
+                                    ContextUploadableContentType::ImagePng,
+                                ),
                             );
                         }
                         invalid_file_type => {

@@ -6,14 +6,28 @@ use crate::auth::users::User;
 use std::collections::HashMap;
 
 #[derive(Clone)]
+pub enum ContextUploadableContentType {
+    ImagePng,
+    ImageJpeg,
+}
+
+#[derive(Clone)]
 pub struct ContextUploadable {
     data: Vec<u8>,
-    content_type: String,
+    content_type: ContextUploadableContentType,
 }
 
 impl ContextUploadable {
-    pub fn new(data: Vec<u8>, content_type: String) -> Self {
+    pub fn new(data: Vec<u8>, content_type: ContextUploadableContentType) -> Self {
         ContextUploadable { data, content_type }
+    }
+
+    pub fn data(&self) -> Vec<u8> {
+        self.data.to_owned()
+    }
+
+    pub fn content_type(&self) -> ContextUploadableContentType {
+        self.content_type.to_owned()
     }
 }
 

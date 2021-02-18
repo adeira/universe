@@ -51,6 +51,9 @@ export default function POSSessionPage(): React.Node {
                 listPublishedProducts {
                   id
                   name
+                  imageCover {
+                    blurhash
+                  }
                   price {
                     unitAmount
                     unitAmountCurrency
@@ -67,7 +70,8 @@ export default function POSSessionPage(): React.Node {
                 title={product.name}
                 priceUnitAmount={product.price.unitAmount}
                 priceUnitAmountCurrency={product.price.unitAmountCurrency}
-                imgBlurhash="LEHV6nWB2yk8pyoJadR*.7kCMdnj" // TODO
+                imgBlurhash={product.imageCover?.blurhash}
+                // TODO: `imgSrc`
               />
             ))
           }

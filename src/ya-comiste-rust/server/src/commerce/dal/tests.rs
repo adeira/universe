@@ -1,8 +1,10 @@
 use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
 use crate::commerce::dal::products::{create_product, delete_product, get_product};
 use crate::commerce::model::products::{
-    ProductMultilingualInput, ProductMultilingualInputTranslations, SupportedLocale,
+    ProductImageUploadable, ProductMultilingualInput, ProductMultilingualInputTranslations,
+    SupportedLocale,
 };
+use crate::images::Image;
 
 #[ignore]
 #[tokio::test]
@@ -21,6 +23,7 @@ async fn create_product_english_to_english_test() {
             }],
             ..Default::default()
         },
+        &vec![],
     )
     .await
     .unwrap();
@@ -59,6 +62,7 @@ async fn create_product_spanish_to_english_test() {
             }],
             ..Default::default()
         },
+        &vec![],
     )
     .await
     .unwrap();
@@ -106,6 +110,7 @@ async fn create_product_all_languages_test() {
             ],
             ..Default::default()
         },
+        &vec![],
     )
     .await
     .unwrap();
@@ -164,6 +169,7 @@ async fn create_product_mixed_languages_test() {
             ],
             ..Default::default()
         },
+        &vec![],
     )
     .await
     .unwrap();
@@ -217,6 +223,7 @@ async fn delete_product_test() {
             }],
             ..Default::default()
         },
+        &vec![],
     )
     .await
     .unwrap();
