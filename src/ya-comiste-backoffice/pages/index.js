@@ -8,8 +8,6 @@ import Layout from '../src/Layout';
 export default function Home(): React.Node {
   return (
     <Layout>
-      TODO (dashboard)
-      <hr />
       <QueryRenderer
         /* eslint-disable relay/unused-fields */
         query={graphql`

@@ -95,7 +95,7 @@ export function LogoutButton(): Node {
         });
       }}
     >
-      Logout
+      <fbt desc="logout button title">Logout</fbt>
     </button>
   );
 }

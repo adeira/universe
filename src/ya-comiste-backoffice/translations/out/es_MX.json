@@ -1,14 +1,16 @@
 {
   "es_MX": {
     "3JkX8r": "Some unknown error happened",
+    "eiaXU": "Logout",
     "3gmClg": "Home",
     "3gfKIG": "Products",
     "434sA7": "Users",
-    "G4Uk0": "Open POS",
+    "ywCTq": "Open POS ↝",
     "3lr9bS": "At least one product name version (english or spanish) is required",
     "y9561": "At least one product name version (english or spanish) is required",
     "2iKIB7": "Product price is a required field",
     "1amPNl": "Product price must be a positive number",
+    "1EmzJe": "Products inventory",
     "TeM0w": "Create a new product",
     "2Hiw4D": "Something unexpected happened and server could not process the request! 🙈",
     "XJKZk": "Product name (English)",
@@ -16,6 +18,7 @@
     "3pJ0hK": "Product description (English)",
     "4zWpu5": "Product description (Spanish)",
     "2bNH0I": "Price (MXN)",
-    "2zrj5f": "Product pictures"
+    "2zrj5f": "Product pictures",
+    "1L1D6r": "List of users"
   }
 }
