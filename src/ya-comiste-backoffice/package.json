@@ -22,7 +22,7 @@
     "babel-plugin-fbt-runtime": "^0.9.13",
     "fbt": "^0.16.1",
     "formik": "^2.2.6",
-    "next": "^10.0.5",
+    "next": "^10.0.7",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^6.3.0",
     "react": "^17.0.1",
