@@ -97,6 +97,14 @@ it('supports conditional calls', () => {
   expect(styles('button', isDisabled ? 'disabled' : undefined)).toMatchInlineSnapshot(`"_324Crd"`);
   expect(styles('button', isDisabled && 'disabled')).toMatchInlineSnapshot(`"_324Crd"`);
   expect(styles('button', isEnabled && 'disabled')).toMatchInlineSnapshot(`"_2dHaKY"`);
+
+  // alternative syntax:
+  expect(styles({ button: true })).toMatchInlineSnapshot(`"_324Crd"`);
+  expect(() => styles({ button: false })).toThrowErrorMatchingInlineSnapshot(
+    `"SX must be called with at least one stylesheet name."`,
+  );
+  expect(styles({ button: true, disabled: isDisabled })).toMatchInlineSnapshot(`"_324Crd"`);
+  expect(styles({ button: true, disabled: isEnabled })).toMatchInlineSnapshot(`"_2dHaKY"`);
 });
 
 it('validates incorrect usage', () => {
