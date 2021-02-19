@@ -150,7 +150,7 @@ const c: RegExpFlags = 'abc'; // not OK! ("a", "b", "c" are not valid members)
 
 First, you have to build Flow locally (check official README for updated instructions: https://github.com/facebook/flow):
 
-```text
+```bash
 brew install opam                       # http://opam.ocaml.org/
 opam init
 opam switch create . --deps-only -y     # install OCaml and Flow's dependencies
@@ -160,22 +160,29 @@ make
 
 Now, you can start making changes to libdevs:
 
-```text
+```bash
 make
 bash ./runtests.sh -t node_tests bin/flow
-bash ./runtests.sh -t node_tests -r bin/flow
+bash ./runtests.sh -t node_tests -r bin/flow    # to write snapshots
 ```
 
 Please note, building like this should be faster for local development:
 
-```text
+```bash
 make build-flow-debug
 ```
 
 Now, you can use this new binary from source in your application to test new features. Just use newly built `bin/flow` instead of Flow binary from NPM like so:
 
-```text
+```bash
 bin/flow status <ROOT>
+```
+
+What to do when something goes wrong during the build?
+
+```bash
+make clean
+make build-flow-debug
 ```
 
 ## Types-first architecture
