@@ -15,7 +15,7 @@ type MediaQueries = {|
   +[string]: MediaQueries, // media queries can be recursively nested
 |};
 
-type AllCSSProperties = {|
+export type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudoTypes,
   +[string]: MediaQueries, // we are unable to statically typecheck the key because it can be almost anything
@@ -36,7 +36,7 @@ function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): 
 type CreateReturnType<T> = {|
   (...$ReadOnlyArray<?$Keys<T> | false>): string, // conditional strings `styles(isRed && 'red')`
   ({| +[$Keys<T>]: boolean |}): string, // conditional object `styles({ red: isRed })`
-  +[$Keys<T>]: Map<string, string>,
+  +[$Keys<T>]: AllCSSProperties, // for external styles merging
 |};
 
 export default function create<T: SheetDefinitions>(sheetDefinitions: T): CreateReturnType<T> {
@@ -85,9 +85,9 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
   }
 
   // expose the hash registry for external styles merging
-  hashRegistry.forEach((value, key) => {
-    sxFunction[key] = value;
-  });
+  for (const sheetDefinitionKey of Object.keys(sheetDefinitions)) {
+    sxFunction[sheetDefinitionKey] = sheetDefinitions[sheetDefinitionKey];
+  }
 
   return sxFunction;
 }

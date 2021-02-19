@@ -16,7 +16,7 @@
     "react-device-detect": "^1.15.0"
   },
   "peerDependencies": {
-    "@adeira/sx": "^0.23.0",
+    "@adeira/sx": "^0.24.0",
     "react": "^17.0.1"
   },
   "devDependencies": {
