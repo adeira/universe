@@ -1,6 +1,6 @@
 // @flow
 
-import { invariant, isBrowser, isObjectEmpty } from '@adeira/js';
+import { invariant, isBrowser, isObjectEmpty, isObject } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
 import injectRuntimeStyles from './injectRuntimeStyles';
@@ -34,7 +34,8 @@ function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): 
 }
 
 type CreateReturnType<T> = {|
-  (...$ReadOnlyArray<?$Keys<T> | false>): string,
+  (...$ReadOnlyArray<?$Keys<T> | false>): string, // conditional strings `styles(isRed && 'red')`
+  ({| +[$Keys<T>]: boolean |}): string, // conditional object `styles({ red: isRed })`
   +[$Keys<T>]: Map<string, string>,
 |};
 
@@ -50,7 +51,14 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
     injectRuntimeStyles(styleBuffer);
   }
 
-  function sxFunction(...sheetDefinitionNames) {
+  function sxFunction(maybeObject, ...styleSheetsSelectors) {
+    let sheetDefinitionNames;
+    if (isObject(maybeObject)) {
+      sheetDefinitionNames = Object.keys(maybeObject).filter((key) => maybeObject[key] === true);
+    } else {
+      sheetDefinitionNames = [maybeObject, ...styleSheetsSelectors].filter((el) => el != null);
+    }
+
     invariant(
       sheetDefinitionNames.length > 0,
       'SX must be called with at least one stylesheet name.',

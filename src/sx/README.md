@@ -7,6 +7,7 @@ In conventional applications, CSS rules are duplicated throughout the stylesheet
   - [`@media` and `@supports`](#media-and-supports)
   - [Keyframes](#keyframes)
   - [Composability and customizability](#composability-and-customizability)
+  - [Conditional styling](#conditional-styling)
   - [Precise Flow types](#precise-flow-types)
   - [Automatic vendor prefixes](#automatic-vendor-prefixes)
 - [Production usage considerations](#production-usage-considerations)
@@ -307,6 +308,40 @@ function MyCustomComponent() {
 
 Always prefer this style of customization instead of concatenating or prop-drilling external CSS classes in your components.
 
+### Conditional styling
+
+Sometimes it's necessary to apply styles conditionally. For example, changing button styles when the button should be disabled. Or different styles for active links in your menu. There are 2 way how to do it in SX:
+
+1. inline conditions
+
+```js
+const styles = sx.create({
+  button: { margin: 4 },
+  disabled: { opacity: 0.5 },
+});
+
+function MyConditionalComponent({ isDisabled }) {
+  return (
+    <>
+      <button style={styles('button', isDisabled && 'disabled')} />
+      <button style={styles('button', isDisabled ? 'disabled' : null)} />
+    </>
+  );
+}
+```
+
+2. object conditions
+
+```js
+// same styles as above
+
+function MyConditionalComponent({ isDisabled }) {
+  return <button style={styles({ button: true, disabled: isDisabled })} />;
+}
+```
+
+Both styles are equivalent, and it's up to you which one do you choose (they cannot be combined). The resulting style would be `margin` + conditional `opacity`.
+
 ### Precise Flow types
 
 SX knows about almost every property or rule which exists in CSS and tries to help with mistakes when writing the styles.
@@ -453,3 +488,4 @@ _sorted alphabetically_
 - https://reactnative.dev/docs/stylesheet
 - https://sebastienlorber.com/atomic-css-in-js
 - https://twitter.com/wongmjane/status/1187411809667436550
+- https://youtu.be/9JZHodNR184
