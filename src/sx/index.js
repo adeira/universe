@@ -12,7 +12,7 @@
  * @flow
  */
 
-import create from './src/create';
+import create, { type AllCSSProperties } from './src/create';
 import keyframes from './src/keyframes';
 import renderPageWithSX from './src/renderPageWithSX';
 
@@ -27,17 +27,19 @@ import renderPageWithSX from './src/renderPageWithSX';
  *
  * <div className={sx(styles.default, externalStyles.spacing)} />;
  * ```
+ *
+ * It does so by literally merging the 2 objects together and calling `sx.create` on the result.
  */
-function composeStylesheets(
-  stylesheetA: Map<string, string>,
-  stylesheetB: ?Map<string, string>,
-): string {
+function composeStylesheets(...stylesheets: $ReadOnlyArray<?AllCSSProperties>): ?string {
   // Should we support deeply nested styles or leave it like this and overwrite them?
-  // Note: this is very similar what `styles('aaa', 'bbb')` does internally when merging.
-  const merged = stylesheetB ? new Map([...stylesheetA, ...stylesheetB]) : stylesheetA;
-  const classes = [...merged.values()];
-  const uniqueClasses = [...new Set(classes)];
-  return uniqueClasses.join(' ');
+  const mergedStylesheet = Object.assign({}, ...stylesheets);
+  if (Object.keys(mergedStylesheet).length === 0) {
+    // happens when composing "nothing" which is a valid input
+    return undefined;
+  }
+  return create({
+    __internal_compose_stylesheets: mergedStylesheet,
+  })('__internal_compose_stylesheets');
 }
 
 composeStylesheets.create = create;
@@ -46,4 +48,5 @@ composeStylesheets.renderPageWithSX = renderPageWithSX;
 
 export { create, keyframes, renderPageWithSX };
 export default composeStylesheets;
+export type { AllCSSProperties } from './src/create';
 export type { AllCSSPropertyTypes } from './src/css-properties/__generated__/AllCSSPropertyTypes';

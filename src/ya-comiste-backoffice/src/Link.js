@@ -3,18 +3,18 @@
 import * as React from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import sx from '@adeira/sx';
+import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {|
   +href: string,
   +children: React.Node,
-  +xstyle?: $FlowFixMe, // TODO: https://github.com/adeira/universe/issues/1584
+  +xstyle?: AllCSSProperties,
 |};
 
 export default function Link(props: Props): React.Node {
   const router = useRouter();
 
-  let isActive = false;
+  let isActive;
   if (props.href === '/') {
     isActive = router.pathname === props.href;
   } else {

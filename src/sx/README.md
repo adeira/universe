@@ -280,13 +280,10 @@ const simple = sx.keyframes({
 SX supports composability with external styles. Have a look at this base component example (uses [Flow](https://github.com/facebook/flow) types):
 
 ```js
-import sx, { type AllCSSPropertyTypes } from '@adeira/sx';
+import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {|
-  +xstyle: {|
-    +marginTop: number, // you can restrict what styles are customizable
-  |},
-  +ystyle?: AllCSSPropertyTypes, // or allow any style
+  +xstyle?: AllCSSProperties,
 |};
 
 const styles = sx.create({ default: { fontSize: 16 } });
@@ -306,7 +303,7 @@ function MyCustomComponent() {
 }
 ```
 
-Always prefer this style of customization instead of concatenating or prop-drilling external CSS classes in your components.
+Always prefer this style of customization instead of concatenating or prop-drilling external CSS classes in your components. You can merge as many stylesheets as you want with `sx(…)` function.
 
 ### Conditional styling
 

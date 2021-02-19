@@ -1,6 +1,6 @@
 // @flow
 
-import * as sx from '../index';
+import sx from '../index';
 
 sx.create({
   NoIssues: {
