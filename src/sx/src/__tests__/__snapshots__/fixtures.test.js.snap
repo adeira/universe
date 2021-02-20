@@ -854,8 +854,8 @@ exports[`matches expected output: variables.js 1`] = `
 .stDQH {
   background-color: var(--main-bg-color);
 }
-.VMgiK {
-  background-color: var(--someCOMPLEXvalue, blue);
+.S1vUl {
+  background-color: var(--someCOMPLEXvalue, #00f);
 }
 
 ~~~~~~~~~~ USAGE ~~~~~~~~~~
@@ -870,6 +870,6 @@ class="stDQH"
 
 className={styles('bodyWithFallback')}
   ↓ ↓ ↓
-class="VMgiK"
+class="S1vUl"
 
 `;
