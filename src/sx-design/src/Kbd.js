@@ -28,8 +28,8 @@ export default function Kbd(props: Props): Node {
 const styles = sx.create({
   kbd: {
     borderRadius: '3px',
-    border: '1px solid #b4b4b4',
-    color: '#333',
+    border: 'var(--sx-kbd-border, 1px solid #b4b4b4)',
+    color: 'var(--sx-color-dark, #1c1e21)',
     display: 'inline-block',
     fontSize: '0.85em',
     fontWeight: '700',
