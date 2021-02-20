@@ -12,7 +12,31 @@ export default function transformValue(
   styleName: string,
   styleValue?: string | number = '',
 ): string {
-  if (typeof styleValue === 'string' && isColor(styleValue)) {
+  if (typeof styleValue === 'string' && styleValue.startsWith('var(')) {
+    // color normalization of CSS variables defaults (https://developer.mozilla.org/en-US/docs/Web/CSS/var())
+    const separator = ',';
+    const index = styleValue.indexOf(separator);
+    if (index === -1) {
+      // no default value => early return
+      return styleValue;
+    }
+    const splits = [
+      styleValue.slice(
+        4, // "var("
+        index,
+      ),
+      styleValue
+        .slice(
+          index + separator.length,
+          -1, // ")"
+        )
+        .trim(),
+    ];
+    if (isColor(splits[1])) {
+      return `var(${splits[0]},${normalizeColor(splits[1])})`;
+    }
+    return `var(${splits[0]},${splits[1]})`;
+  } else if (typeof styleValue === 'string' && isColor(styleValue)) {
     // color normalization (to reduce duplicates in the atomic result)
     return normalizeColor(styleValue);
   } else if (typeof styleValue === 'number') {
