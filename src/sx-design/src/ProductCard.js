@@ -131,12 +131,12 @@ const styles = sx.create({
     padding: '1rem',
   },
   highlight: {
-    color: '#1c1e21',
-    backgroundColor: 'white',
+    color: 'var(--sx-color-dark, #1c1e21)',
+    backgroundColor: 'var(--sx-color-light, white)',
   },
   highlightHover: {
-    color: 'white',
-    backgroundColor: '#1c1e21',
+    color: 'var(--sx-color-light, white)',
+    backgroundColor: 'var(--sx-color-dark, #1c1e21)',
   },
   heading: {
     margin: 0,
