@@ -16,10 +16,10 @@
     "@babel/preset-react" "^7.12.13"
     "@babel/runtime" "^7.12.5"
 
-"@adeira/css-colors@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/css-colors/-/css-colors-1.1.0.tgz#17f0720bde382615b4649046876019236c61ea2a"
-  integrity sha512-130sdGyFU/nHPv9YQa9LsIZNrtfau4Aap9MkwVYUn4mLczo5Ip15bbsQh7vIEH/5p6mjT95zc88bb4dBfkdipQ==
+"@adeira/css-colors@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/css-colors/-/css-colors-2.0.0.tgz#e61fecac1a7997d41dc65c6c01cbeb2aaf27ab37"
+  integrity sha512-DYVMPYzt6yS2ac2UuP33VI9YKccv++jJv+FRL15ca+bW0REUz5Xkd513EnR+432OCCgqdq4eBHnYQCggWY//3g==
   dependencies:
     "@adeira/js" "^1.3.0"
     "@babel/runtime" "^7.12.5"
@@ -107,10 +107,10 @@
     glob "^7.1.6"
     is-ci "^2.0.0"
 
-"@adeira/murmur-hash@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@adeira/murmur-hash/-/murmur-hash-1.0.0.tgz#afae65a2594e88534e584719d4bbf378ebbb31df"
-  integrity sha512-25fMeYioLAybzT3pC3BBvmuRSeTPmbqJs+gfi+McqD/M10F9/gEaIY8fagLNuZKcjyHmSp5ZxbNJMvETx7YEkw==
+"@adeira/murmur-hash@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@adeira/murmur-hash/-/murmur-hash-2.0.0.tgz#994be0d60e3ca16a65711ebf14c0c8a0e1248726"
+  integrity sha512-2zWvSbOSA+fjHlPfk1GIqRgRpnUZQe0Jjszq1kqo/FQKVKOZyOYhNOsEBAL+Qhn+h2Vu+8n9Wu+DPfzGnlmelA==
   dependencies:
     "@babel/runtime" "^7.12.5"
 
@@ -144,13 +144,6 @@
     relay-config "^10.1.3"
     relay-runtime "^10.1.3"
 
-"@adeira/signed-source@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-1.0.0.tgz#005aa489b1fbedaa51604a91ec3d90dca92a1b34"
-  integrity sha512-S3DU0pCr8l0GyWhJwDdkOZrm9fn+xxi3Q/mbpn5lUq1Uo52i7V2tJgcH1IcOskWIFYe0bFdnhT+OCZDW1aQglg==
-  dependencies:
-    "@babel/runtime" "^7.10.3"
-
 "@adeira/signed-source@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@adeira/signed-source/-/signed-source-2.0.0.tgz#74b8d0cee6c89b1ef88c88088a59bba5a7aeab48"
@@ -168,23 +161,23 @@
     blurhash "^1.1.3"
     react-blurhash "^0.1.3"
 
-"@adeira/sx@^0.23.0":
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.23.0.tgz#0224a81aa72795716ef6e78d6146ed0c9a748d1b"
-  integrity sha512-OXXt/mADRLhdgkmf063M3UJcffb26RmvvRWKBKyLOg2y+tIwVaGDkoKgAisQmys2MAvFHfgW21st5vw3Rs3FBg==
+"@adeira/sx@^0.24.0":
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx/-/sx-0.24.0.tgz#3eb6020f56e537a961c2f663d6ab6f2efd10f04b"
+  integrity sha512-Jy+Bg7IwgKGZE3qY0uZoxs3RS2loHes4rJmgNiDGXKDmBL75vWcALe/d5Ql0pjqbSD+MgGz8spMHC5DCpX90bw==
   dependencies:
-    "@adeira/css-colors" "^1.1.0"
-    "@adeira/js" "^1.3.0"
-    "@adeira/murmur-hash" "^1.0.0"
-    "@adeira/signed-source" "^1.0.0"
-    "@babel/runtime" "^7.12.5"
+    "@adeira/css-colors" "^2.0.0"
+    "@adeira/js" "^2.1.0"
+    "@adeira/murmur-hash" "^2.0.0"
+    "@adeira/signed-source" "^2.0.0"
+    "@babel/runtime" "^7.12.13"
     change-case "^4.1.2"
     css-tree "^1.1.2"
     fast-levenshtein "^3.0.0"
     json-stable-stringify "^1.0.1"
-    mdn-data "^2.0.14"
+    mdn-data "^2.0.16"
     prettier "^2.2.1"
-    stylis "^4.0.6"
+    stylis "^4.0.7"
 
 "@axe-core/react@^4.1.1":
   version "4.1.1"
@@ -1125,7 +1118,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
   version "7.12.13"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
   integrity sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw==
@@ -5385,10 +5378,10 @@ mdn-data@2.0.14:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.14.tgz#7113fc4281917d63ce29b43446f701e68c25ba50"
   integrity sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow==
 
-mdn-data@^2.0.14:
-  version "2.0.15"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.15.tgz#4b31efd913cc9b0d8d99123033fbb805f458c541"
-  integrity sha512-1e9FFjfvzeTxVzBtcbAFDw9R+i+ka92rb9aT4TrV/68ZuLpM2kff4jatBDs/I/VvKPBLjCqv6/BtnD+pnAxyMg==
+mdn-data@^2.0.16:
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.16.tgz#b4f8cf050e4d679cbd185d1daf6370c3f434d731"
+  integrity sha512-z5eL/oKlBXGWk8MRrzk8Ll+owSRCXppDPJ5zBtoHhk4MUEVG5MEkHy5gdzvqpB53LUc+4F9CSVDcdgwKSY1Crg==
 
 merge-stream@^2.0.0:
   version "2.0.0"
@@ -7356,10 +7349,10 @@ stylis@3.5.4:
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
   integrity sha512-8/3pSmthWM7lsPBKv7NXkzn2Uc9W7NotcwGNpJaa3k7WMM1XDCA4MgT5k/8BIexd5ydZdboXtU90XH9Ec4Bv/Q==
 
-stylis@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.6.tgz#0d8b97b6bc4748bea46f68602b6df27641b3c548"
-  integrity sha512-1igcUEmYFBEO14uQHAJhCUelTR5jPztfdVKrYxRnDa5D5Dn3w0NxXupJNPr/VV/yRfZYEAco8sTIRZzH3sRYKg==
+stylis@^4.0.7:
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.7.tgz#412a90c28079417f3d27c028035095e4232d2904"
+  integrity sha512-OFFeUXFgwnGOKvEXaSv0D0KQ5ADP0n6g3SVONx6I/85JzNZ3u50FRwB3lVIk1QO2HNdI75tbVzc4Z66Gdp9voA==
 
 supports-color@^5.3.0:
   version "5.5.0"
