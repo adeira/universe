@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import sx from '@adeira/sx';
+import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {|
   +name: string,
@@ -11,7 +11,7 @@ type Props = {|
   +id?: string,
   +placeholder?: FbtWithoutString,
   +tabIndex?: number,
-  +xstyle?: $FlowFixMe, // TODO: https://github.com/adeira/universe/issues/1584
+  +xstyle?: AllCSSProperties,
 |};
 
 export default function Input(props: Props): React.Node {
