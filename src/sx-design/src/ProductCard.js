@@ -8,12 +8,13 @@ import { useState } from 'react';
 
 import Heading from './Heading';
 import Money from './Money';
-import type { SupportedCurrencies } from './constants';
+import type { SupportedCurrencies, SupportedLocales } from './constants';
 
 type Props = {|
   +title: string,
   +priceUnitAmount: number,
   +priceUnitAmountCurrency: SupportedCurrencies,
+  +locale: SupportedLocales,
   +imgBlurhash?: string,
   +imgSrc?: string,
   +imgAlt?: string,
@@ -77,9 +78,7 @@ export default function ProductCard(props: Props): React.Node {
           <Money
             priceUnitAmount={props.priceUnitAmount}
             priceUnitAmountCurrency={props.priceUnitAmountCurrency}
-            locale={
-              'en-US' // TODO
-            }
+            locale={props.locale}
           />
         </span>
       </div>
