@@ -125,7 +125,8 @@ it('merges more complex styles correctly', () => {
 });
 
 it('handles nullable arguments gracefully', () => {
-  // This is convenient when the overwriting styles are optional.
+  // This is convenient when the overwriting styles are optional:
+  // sx(styles.default, isActive ? props.xstyle : null)
   const styles = sx.create({ default: { fontSize: 16 } });
 
   expect(sx(styles.default, null)).toBe(styles('default'));
@@ -138,4 +139,14 @@ it('handles nullable arguments gracefully', () => {
 
   expect(sx(null, styles.default)).toBe(styles('default'));
   expect(sx(undefined, styles.default)).toBe(styles('default'));
+});
+
+it('handles conditional arguments gracefully', () => {
+  // This is convenient when the overwriting styles are optional:
+  // sx(styles.default, isActive && props.xstyle)
+  const styles = sx.create({ default: { fontSize: 16 } });
+
+  expect(sx(styles.default, false)).toBe(styles('default'));
+  expect(sx(false, styles.default)).toBe(styles('default'));
+  expect(sx(false, false)).toBeUndefined();
 });
