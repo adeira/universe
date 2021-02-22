@@ -24,12 +24,14 @@ program
   .option('--filename <path>', undefined, 'schema.graphql')
   .parse(process.argv);
 
-invariant(program.resource, 'Option --resource is required.');
+const options = program.opts();
 
-const filename = path.join(process.cwd(), program.filename);
+invariant(options.resource, 'Option --resource is required.');
+
+const filename = path.join(process.cwd(), options.filename);
 
 (async () => {
-  const response = await fetch(program.resource, {
+  const response = await fetch(options.resource, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
