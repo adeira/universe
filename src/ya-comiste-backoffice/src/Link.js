@@ -25,8 +25,8 @@ export default function Link(props: Props): React.Node {
   return (
     <NextLink href={props.href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a className={sx(styles.default, props.xstyle, isActive ? props.xstyleActive : null)}>
-        <span className={styles(isActive && 'active')}>{props.children}</span>
+      <a className={sx(styles.default, props.xstyle, isActive && props.xstyleActive)}>
+        {props.children}
       </a>
     </NextLink>
   );
@@ -41,8 +41,5 @@ const styles = sx.create({
     ':hover': {
       textDecoration: 'underline',
     },
-  },
-  active: {
-    color: '#3b85ff',
   },
 });
