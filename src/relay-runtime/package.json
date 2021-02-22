@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@adeira/js": "^2.1.0",
-    "@babel/runtime": "^7.12.13",
+    "@babel/runtime": "^7.12.18",
     "relay-runtime": "^10.1.3"
   }
 }
