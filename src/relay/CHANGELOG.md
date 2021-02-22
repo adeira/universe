@@ -1,6 +1,8 @@
 # Unreleased
 
-- Fetch schema script fixed
+# 3.0.1
+
+- `adeira-fetch-schema` script fixed
 
 # 3.0.0
 
