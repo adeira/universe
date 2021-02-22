@@ -1,10 +1,11 @@
-use crate::graphql_context::Context;
-
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
 pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
 pub use crate::commerce::model::products::SupportedLocale;
+
+use crate::commerce::model::errors::ModelError;
+use crate::graphql_context::Context;
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -27,7 +28,7 @@ pub(crate) async fn create_product(
     {
         Ok(product) => ProductOrError::Product(product),
         Err(e) => ProductOrError::ProductError(ProductError {
-            message: String::from(e),
+            message: e.to_string(),
         }),
     }
 }
@@ -49,7 +50,10 @@ pub(crate) async fn search_published_products(
     .await
     {
         Ok(products) => Some(products),
-        Err(_) => None, // TODO: log this error (?)
+        Err(e) => {
+            tracing::error!("{}", e);
+            None
+        }
     }
 }
 
@@ -68,7 +72,10 @@ pub(crate) async fn search_all_products(
     .await
     {
         Ok(products) => Some(products),
-        Err(_) => None, // TODO: log this error (?)
+        Err(e) => {
+            tracing::error!("{}", e);
+            None
+        }
     }
 }
 
@@ -76,20 +83,15 @@ pub(crate) async fn get_product(
     context: &Context,
     client_locale: &SupportedLocale,
     product_id: &str,
-) -> Option<Product> {
-    let product =
-        crate::commerce::model::products::get_product(&context, &client_locale, &product_id).await;
-    match product {
-        Ok(product) => Some(product),
-        Err(_) => None, // TODO: log this error (?)
-    }
+) -> Result<Product, ModelError> {
+    crate::commerce::model::products::get_product(&context, &client_locale, &product_id).await
 }
 
 pub(crate) async fn delete_product(context: &Context, product_id: &str) -> ProductOrError {
     match crate::commerce::model::products::delete_product(&context, &product_id).await {
         Ok(product) => ProductOrError::Product(product),
         Err(e) => ProductOrError::ProductError(ProductError {
-            message: String::from(e),
+            message: e.to_string(),
         }),
     }
 }
