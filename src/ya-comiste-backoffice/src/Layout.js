@@ -14,6 +14,7 @@ type Props = {|
   +links?: $ReadOnlyArray<{|
     +href: string,
     +title: FbtWithoutString,
+    +titleStyle?: {| +[styleName: string]: string |},
   |}>,
 |};
 
@@ -34,7 +35,7 @@ export default function Layout(props: Props): Node {
             ? props.links.map((link, index) => {
                 return (
                   <Link key={index} href={link.href} xstyle={styles.link}>
-                    {link.title}
+                    <span style={link.titleStyle}>{link.title}</span>
                   </Link>
                 );
               })
@@ -72,8 +73,10 @@ const styles = sx.create({
     'padding': '.5rem 1rem',
     'borderRadius': 4,
     'border': '1px solid #e9eff3',
+    'backgroundColor': '#e9eff3',
+    'marginRight': '.5rem',
     ':hover': {
-      backgroundColor: '#e9eff3',
+      color: '#3b85ff',
     },
   },
 });

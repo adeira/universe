@@ -32,6 +32,7 @@ export default function Navigation(): React.Node {
 }
 
 const linkActiveStylesheet = {
+  color: '#3b85ff',
   backgroundColor: 'white',
   borderColor: '#e9eff3',
   borderTopLeftRadius: 4,
