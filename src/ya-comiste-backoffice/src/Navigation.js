@@ -10,17 +10,17 @@ import { LogoutButton } from './AuthButtons';
 export default function Navigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
-      <Link href="/" xstyle={styles.link}>
+      <Link href="/" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to the homepage">Home</fbt>
       </Link>
-      <Link href="/products" xstyle={styles.link}>
+      <Link href="/products" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to products">Products</fbt>
       </Link>
-      <Link href="/users" xstyle={styles.link}>
+      <Link href="/users" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to users">Users</fbt>
       </Link>
 
-      <Link href="/pos" xstyle={styles.link}>
+      <Link href="/pos" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to point of sales">Open POS ↝</fbt>
       </Link>
 
@@ -30,6 +30,14 @@ export default function Navigation(): React.Node {
     </nav>
   );
 }
+
+const linkActiveStylesheet = {
+  backgroundColor: 'white',
+  borderColor: '#e9eff3',
+  borderTopLeftRadius: 4,
+  borderBottomLeftRadius: 4,
+  textDecoration: 'none',
+};
 
 const styles = sx.create({
   navigation: {
@@ -48,15 +56,9 @@ const styles = sx.create({
     'borderWidth': '1px 0 1px 1px',
     'borderStyle': 'solid',
     'borderColor': 'transparent',
-    ':hover': {
-      // TODO: do this even for active links (see gitbook design for inspiration)
-      backgroundColor: 'white',
-      borderColor: '#e9eff3',
-      borderTopLeftRadius: 4,
-      borderBottomLeftRadius: 4,
-      textDecoration: 'none',
-    },
+    ':hover': linkActiveStylesheet,
   },
+  linkActive: linkActiveStylesheet,
   spacing: {
     flex: 1,
   },
