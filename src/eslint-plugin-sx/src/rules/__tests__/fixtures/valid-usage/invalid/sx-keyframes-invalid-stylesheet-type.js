@@ -1,6 +1,6 @@
 /**
  * @flow
- * @eslintExpectedError Each SX "keyframes" property must be an object.
+ * @eslintExpectedError (15:3;15:34) Each SX "keyframes" property must be an object but "aaa" is not.
  */
 
 import type { Node } from 'react';

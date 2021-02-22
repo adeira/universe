@@ -70,11 +70,18 @@ module.exports = ({
 
           const firstArgumentProperties = firstArgument?.properties ?? [];
           for (const property of firstArgumentProperties) {
-            if (property.value.type !== 'ObjectExpression') {
+            if (
+              property.value.type !== 'ObjectExpression' &&
+              property.value.type !== 'Identifier'
+            ) {
               context.report({
-                node,
-                message: 'Each SX "{{calleeName}}" property must be an object.',
-                data: { calleeName },
+                node: property,
+                message:
+                  'Each SX "{{calleeName}}" property must be an object but "{{propertyName}}" is not.',
+                data: {
+                  calleeName,
+                  propertyName: property.key.name,
+                },
               });
             }
           }
