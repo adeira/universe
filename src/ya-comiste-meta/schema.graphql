@@ -1,4 +1,4 @@
-# @generated SignedSource<<7725f7178030d76a1a357ddf1afce3a9>>
+# @generated SignedSource<<cf8e03fc2601602659ddf7e4f8a2158e>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -78,7 +78,7 @@ type Query {
     be used only in backoffice to administer the products.
   """
   searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: SupportedLocale!, productId: ID!): Product
+  getProduct(clientLocale: SupportedLocale!, productId: ID!): Product!
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
   listUsers: [AnyUser!]!

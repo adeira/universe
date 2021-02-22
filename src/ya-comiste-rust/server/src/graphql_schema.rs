@@ -55,8 +55,13 @@ impl Query {
         context: &Context,
         client_locale: crate::commerce::api::SupportedLocale,
         product_id: juniper::ID,
-    ) -> Option<crate::commerce::api::Product> {
-        crate::commerce::api::get_product(&context, &client_locale, &product_id.to_string()).await
+    ) -> FieldResult<crate::commerce::api::Product> {
+        match crate::commerce::api::get_product(&context, &client_locale, &product_id.to_string())
+            .await
+        {
+            Ok(product) => Ok(product),
+            Err(e) => Err(FieldError::from(e)),
+        }
     }
 
     /// Returns information about the current user (can be authenticated or anonymous).

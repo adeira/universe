@@ -1,10 +1,8 @@
 use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
 use crate::commerce::dal::products::{create_product, delete_product, get_product};
 use crate::commerce::model::products::{
-    ProductImageUploadable, ProductMultilingualInput, ProductMultilingualInputTranslations,
-    SupportedLocale,
+    ProductMultilingualInput, ProductMultilingualInputTranslations, SupportedLocale,
 };
-use crate::images::Image;
 
 #[ignore]
 #[tokio::test]

@@ -7,23 +7,45 @@ pub enum ModelError {
     PermissionsError(String),
 }
 
-impl From<ModelError> for String {
-    fn from(error: ModelError) -> String {
-        match error {
-            ModelError::DatabaseError(e) => {
-                format!("{:?}", e) // TODO: hide the error (?)
-            }
-            ModelError::LogicalError(e) => e, // TODO: hide the error (?)
-            ModelError::PermissionsError(e) => e, // TODO: hide the error (?)
-        }
-    }
-}
-
 impl From<ImagesModelError> for ModelError {
     fn from(error: ImagesModelError) -> Self {
         match error {
             ImagesModelError::PermissionsError(e) => ModelError::PermissionsError(e),
             ImagesModelError::ProcessingError(e) => ModelError::LogicalError(e),
         }
+    }
+}
+
+impl std::fmt::Display for ModelError {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        match *self {
+            ModelError::DatabaseError(ref err) => write!(f, "Database error: {}", err.to_string()),
+            ModelError::LogicalError(ref err) => write!(f, "Logical error: {}", err),
+            ModelError::PermissionsError(ref err) => write!(f, "Permissions error: {}", err),
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn logical_error_to_string_test() {
+        assert_eq!(
+            format!("{}", ModelError::LogicalError(String::from("test message"))),
+            String::from("Logical error: test message")
+        )
+    }
+
+    #[test]
+    fn permissions_error_to_string_test() {
+        assert_eq!(
+            format!(
+                "{}",
+                ModelError::PermissionsError(String::from("test message"))
+            ),
+            String::from("Permissions error: test message")
+        )
     }
 }
