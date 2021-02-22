@@ -21,9 +21,6 @@ untyped-import=off
 facebook.fbt=FbtWithoutString
 module.ignore_non_literal_requires=true
 
-; TODO: this is probably not a good idea (because of Universe)
-module.name_mapper='^src' ->'<PROJECT_ROOT>/src'
-
 
 [strict]
 ambiguous-object-type
