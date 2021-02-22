@@ -52,6 +52,7 @@ export default function ProductsPage(): React.Node {
                   priceUnitAmount={product.price.unitAmount / 100}
                   priceUnitAmountCurrency={product.price.unitAmountCurrency}
                   imgBlurhash={product.imageCover?.blurhash}
+                  locale="en-US" // TODO
                   // TODO: `imgSrc`
                 />
               </Link>

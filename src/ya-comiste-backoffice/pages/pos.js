@@ -71,6 +71,7 @@ export default function POSSessionPage(): React.Node {
                 priceUnitAmount={product.price.unitAmount}
                 priceUnitAmountCurrency={product.price.unitAmountCurrency}
                 imgBlurhash={product.imageCover?.blurhash}
+                locale="en-US" // TODO
                 // TODO: `imgSrc`
               />
             ))
