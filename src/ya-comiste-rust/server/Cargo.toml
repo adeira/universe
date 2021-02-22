@@ -38,4 +38,4 @@ insta = "1.6.3"
 proptest = "0.10.1"
 signedsource = { path = "../signedsource" }
 tokio = { version = "1.2.0", features = ["full"] }
-valico = "3.5.0"
+valico = "3.6.0"
