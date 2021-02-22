@@ -52,4 +52,3 @@ composeStylesheets.renderPageWithSX = renderPageWithSX;
 export { create, keyframes, renderPageWithSX };
 export default composeStylesheets;
 export type { AllCSSProperties } from './src/create';
-export type { AllCSSPropertyTypes } from './src/css-properties/__generated__/AllCSSPropertyTypes';
