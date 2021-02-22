@@ -9,6 +9,7 @@ type Props = {|
   +href: string,
   +children: React.Node,
   +xstyle?: AllCSSProperties,
+  +xstyleActive?: AllCSSProperties,
 |};
 
 export default function Link(props: Props): React.Node {
@@ -24,7 +25,7 @@ export default function Link(props: Props): React.Node {
   return (
     <NextLink href={props.href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a className={sx(styles.default, props.xstyle)}>
+      <a className={sx(styles.default, props.xstyle, isActive ? props.xstyleActive : null)}>
         <span className={styles(isActive && 'active')}>{props.children}</span>
       </a>
     </NextLink>

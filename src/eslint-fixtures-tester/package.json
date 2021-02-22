@@ -1,9 +1,11 @@
 {
   "name": "@adeira/eslint-fixtures-tester",
-  "version": "0.0.0",
+  "description": "Eslint fixtures tester utility.",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-fixtures-tester",
+  "version": "0.1.0",
   "main": "src/index",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.0",
