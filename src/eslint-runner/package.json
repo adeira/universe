@@ -11,7 +11,7 @@
     "@adeira/monorepo-utils": "^0.11.0",
     "@babel/code-frame": "^7.12.11",
     "@babel/register": "^7.13.0",
-    "@babel/runtime": "^7.12.13",
+    "@babel/runtime": "^7.13.2",
     "chalk": "^4.1.0",
     "create-jest-runner": "^0.7.0",
     "is-ci": "^2.0.0",
