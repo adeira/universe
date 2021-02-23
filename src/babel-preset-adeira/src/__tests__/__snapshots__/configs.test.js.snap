@@ -173,7 +173,12 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -226,7 +231,12 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -276,7 +286,12 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -326,7 +341,12 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -380,7 +400,12 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -434,7 +459,12 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -487,7 +517,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -540,7 +575,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -590,7 +630,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -640,7 +685,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -694,7 +744,12 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
@@ -748,7 +803,12 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
-    "@babel/plugin-transform-flow-strip-types",
+    [
+      "@babel/plugin-transform-flow-strip-types",
+      {
+        "allowDeclareFields": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-numeric-separator",
