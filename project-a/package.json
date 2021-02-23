@@ -19,7 +19,7 @@
     "@adeira/js": "^2.1.0",
     "@adeira/relay": "^3.0.0",
     "@adeira/sx": "^0.24.0",
-    "@adeira/sx-design": "^0.2.0",
+    "@adeira/sx-design": "^0.3.0",
     "@babel/register": "^7.12.13",
     "babel-plugin-fbt": "^0.16.0",
     "babel-plugin-fbt-runtime": "^0.9.13",
