@@ -13,7 +13,7 @@
     "@adeira/monorepo-utils": "^0.11.0",
     "@babel/runtime": "^7.13.4",
     "chalk": "^4.1.0",
-    "is-ci": "^2.0.0",
+    "is-ci": "^3.0.0",
     "npm-packlist": "^2.1.4",
     "npm-registry-client": "^8.6.0",
     "rimraf": "^3.0.2",
