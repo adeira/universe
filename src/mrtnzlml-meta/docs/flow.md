@@ -29,6 +29,10 @@ Flow infers the widest type that makes your code work. If you don't want inferen
 
 (source Discord)
 
+## Exit codes
+
+Flow exited with some numeric exit code and you are not sure what does it mean? You can find these exit codes here: https://github.com/facebook/flow/blob/eaffc8cdf09fb268c6f9ab9914685cbbd562e534/src/common/exit_status/flowExitStatus.ml
+
 ## Sound vs. complete
 
 > A sound type system (or analysis) is one that rejects all erroneous programs, and a complete system accepts all correct programs.
