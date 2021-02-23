@@ -6206,10 +6206,10 @@ eslint-plugin-eslint-comments@^3.2.0:
     escape-string-regexp "^1.0.5"
     ignore "^5.0.5"
 
-eslint-plugin-flowtype@^5.2.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-5.2.1.tgz#15abd9e3b0f3432abc030d71948802be8eac12c5"
-  integrity sha512-uXZbEzC7iGmJLoOQ4aQVLrmNGqz5il4lTblB9wmq8R53GnCkv4/Y4K0WiJ6v07rpHHI1kOm6NTp8V//P5xTqBA==
+eslint-plugin-flowtype@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-5.3.0.tgz#5cd1f222633294444d695202e3322ce0262f5a41"
+  integrity sha512-QMA0+QXL+5bXM91T6qeO1yriEL79a6spXs1VUWk9IwExiNxl3AV8OFS8H4gsfYM54tIzMbF6qt8Z6J02r37ABw==
   dependencies:
     lodash "^4.17.15"
     string-natural-compare "^3.0.1"
