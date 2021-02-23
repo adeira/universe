@@ -37,8 +37,8 @@ module.exports = (
   api.assertVersion(7);
 
   const options /*: InternalOptions */ = {
-    target: externalOptions.target || 'js',
-    environments: externalOptions.environments || {
+    target: externalOptions.target ?? 'js',
+    environments: externalOptions.environments ?? {
       node: 'current',
       browsers: [
         // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
@@ -46,8 +46,8 @@ module.exports = (
         'ie >= 11',
       ],
     },
-    debug: externalOptions.debug || false,
-    reactRuntime: externalOptions.reactRuntime || 'automatic',
+    debug: externalOptions.debug ?? false,
+    reactRuntime: externalOptions.reactRuntime ?? 'automatic',
   };
 
   let presets /*: BabelRules */ = [];
@@ -83,7 +83,6 @@ module.exports = (
           modules: supportsESM ? false : 'commonjs',
           targets: options.environments,
           bugfixes: true,
-          // TODO - loose: true (?)
         },
       ],
       [
@@ -97,7 +96,15 @@ module.exports = (
       path.join(__dirname, 'dev-expression.js'),
       path.join(__dirname, 'adeira-js-invariant.js'),
       path.join(__dirname, 'adeira-js-warning.js'),
-      '@babel/plugin-transform-flow-strip-types', // https://github.com/babel/babel/issues/8417
+      [
+        '@babel/plugin-transform-flow-strip-types',
+        {
+          // See: https://babeljs.io/docs/en/babel-plugin-transform-flow-strip-types#allowdeclarefields
+          // See: https://github.com/babel/babel/pull/11178
+          // See: https://github.com/facebook/flow/commit/11b7adbf85ea237cfc01d1b8dc6f6dcdbc299157
+          allowDeclareFields: true,
+        },
+      ],
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-numeric-separator',
@@ -113,7 +120,7 @@ module.exports = (
     ]);
   } else {
     /*:: (target: empty) */
-    throw new Error('options.target must be one of "js" or "flow".');
+    throw new Error('options.target must be one of "js", "js-esm" or "flow".');
   }
 
   return {
