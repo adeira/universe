@@ -11,7 +11,7 @@ use serde_json::json;
 pub(in crate::commerce) async fn create_product(
     pool: &ConnectionPool,
     product_multilingual_input: &ProductMultilingualInput,
-    images: &Vec<Image>,
+    images: &[Image],
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
 

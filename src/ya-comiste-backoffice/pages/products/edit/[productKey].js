@@ -84,7 +84,11 @@ export default function ProductsEditPage(): React.Node {
       onResponse={(relayProps) => (
         <>
           <LayoutHeading
-            heading={<Heading>Edit product {productKey}</Heading>}
+            heading={
+              <Heading>
+                <fbt desc="edit product page heading">Edit product</fbt>
+              </Heading>
+            }
             links={[
               {
                 href: '/products',

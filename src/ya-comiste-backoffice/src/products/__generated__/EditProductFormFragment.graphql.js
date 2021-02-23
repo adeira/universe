@@ -5,13 +5,16 @@
 /* eslint-disable */
 
 import type { ReaderFragment } from 'relay-runtime';
+export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type EditProductFormFragment$ref: FragmentReference;
 declare export opaque type EditProductFormFragment$fragmentType: EditProductFormFragment$ref;
 export type EditProductFormFragment = {|
+  +revision: string,
   +price: {|
     +unitAmount: number
   |},
+  +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +$refType: EditProductFormFragment$ref,
 |};
 export type EditProductFormFragment$data = EditProductFormFragment;
@@ -31,6 +34,13 @@ const node: ReaderFragment = {
     {
       "alias": null,
       "args": null,
+      "kind": "ScalarField",
+      "name": "revision",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
       "concreteType": "ProductPrice",
       "kind": "LinkedField",
       "name": "price",
@@ -45,11 +55,18 @@ const node: ReaderFragment = {
         }
       ],
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "visibility",
+      "storageKey": null
     }
   ],
   "type": "Product",
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '53231412314e3cbb7bf4baa93487c424';
+(node: any).hash = '9b1bbeeaa7f32755390176edc11223c6';
 export default node;

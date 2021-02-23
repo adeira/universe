@@ -35,9 +35,11 @@ query ProductKeyGetQuery(
 }
 
 fragment EditProductFormFragment on Product {
+  revision
   price {
     unitAmount
   }
+  visibility
 }
 */
 
@@ -119,6 +121,13 @@ return {
           {
             "alias": null,
             "args": null,
+            "kind": "ScalarField",
+            "name": "revision",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
             "concreteType": "ProductPrice",
             "kind": "LinkedField",
             "name": "price",
@@ -138,6 +147,13 @@ return {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
+            "name": "visibility",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
             "name": "id",
             "storageKey": null
           }
@@ -147,12 +163,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "430a654f4d6e6447d930d341c8bc8949",
+    "cacheID": "afd5934821e6653613dca07bfc26f0fa",
     "id": null,
     "metadata": {},
     "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n    key\n    ...EditProductFormFragment\n    id\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  price {\n    unitAmount\n  }\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n    key\n    ...EditProductFormFragment\n    id\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n}\n"
   }
 };
 })();

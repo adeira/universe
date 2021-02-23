@@ -22,11 +22,11 @@ pub struct Product {
     description: Option<String>, // Option: might be missing translation
     images: Vec<Image>,
     unit_label: String,
-    price: ProductPrice,
-
     /// Product should not be active until it has all the translations, pictures and other
     /// requirements fulfilled.
     active: bool,
+    visibility: Vec<ProductMultilingualInputVisibility>,
+    price: ProductPrice,
 }
 
 // Methods defined by `juniper::graphql_object` cannot be accessed directly from within the Rust code 🤔
@@ -71,6 +71,25 @@ impl Product {
         juniper::ID::from(self._key.to_owned())
     }
 
+    /// The read-only `revision` value should be used as a pre-condition for mutations, to avoid
+    /// "lost update" situations when editing the product. That is, if a client fetches a product
+    /// from the server, modifies it locally (but with the `revision` value untouched) and sends it
+    /// back to the server to update the product, but meanwhile the product was changed by another
+    /// operation, then the revisions do not match anymore and the operation is cancelled by the
+    /// server. Without this mechanism, the client would accidentally overwrite changes made
+    /// to the product without knowing about it.
+    ///
+    /// When an existing product is updated or replaced successfully, our database will create a
+    /// new revision value. From a user perspective, there is just one single product revision
+    /// present per different `key` at every point in time. There is no built-in system to
+    /// automatically keep a history of all changes done to a product and old versions of a
+    /// product can not be restored via the `revision` value.
+    ///
+    /// For more information see: https://www.arangodb.com/docs/stable/data-modeling-documents-document-address.html#document-revision
+    fn revision(&self) -> juniper::ID {
+        juniper::ID::from(self._rev.to_owned())
+    }
+
     /// The product’s name, meant to be displayable to the customer.
     fn name(&self) -> Option<String> {
         self.name.to_owned()
@@ -103,6 +122,10 @@ impl Product {
 
     fn price(&self) -> ProductPrice {
         self.price.to_owned()
+    }
+
+    fn visibility(&self) -> Vec<ProductMultilingualInputVisibility> {
+        self.visibility.to_owned()
     }
 }
 
@@ -156,7 +179,7 @@ pub struct ProductMultilingualInputTranslations {
 
 /// Specifies additional visibility of the product. Each product is always visible in the backoffice
 /// but can additionally be displayed in POS, eshop (public) or both.
-#[derive(juniper::GraphQLEnum, Copy, Clone, Serialize)]
+#[derive(juniper::GraphQLEnum, Copy, Clone, Serialize, Deserialize, Debug)]
 pub enum ProductMultilingualInputVisibility {
     /// Visible in eshop only (therefore it's public).
     ESHOP,
@@ -267,7 +290,7 @@ pub enum PriceSortDirection {
     HighToLow,
 }
 
-#[derive(juniper::GraphQLEnum, Serialize, Deserialize, Debug)]
+#[derive(juniper::GraphQLEnum, Serialize, Deserialize, Debug, Clone)]
 pub enum SupportedLocale {
     #[graphql(name = "en_US")]
     #[serde(rename = "en_US")]
