@@ -16,6 +16,6 @@
     "@babel/register": "^7.13.0",
     "@babel/runtime": "^7.13.4",
     "glob": "^7.1.6",
-    "is-ci": "^2.0.0"
+    "is-ci": "^3.0.0"
   }
 }
