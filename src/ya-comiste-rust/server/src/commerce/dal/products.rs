@@ -104,10 +104,10 @@ pub(in crate::commerce) async fn create_product(
 /// Returns a single product (or error). It tries to return the translations according to the shop
 /// locale, however, it fallbacks to the first available translation if it cannot find the correct
 /// translation (based on the product name).
-pub(in crate::commerce) async fn get_product(
+pub(in crate::commerce) async fn get_product_by_key(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
-    product_id: &str,
+    product_key: &str,
     product_active: &bool,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
@@ -115,7 +115,7 @@ pub(in crate::commerce) async fn get_product(
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
-            LET product = DOCUMENT(@product_id)
+            LET product = DOCUMENT(products, @product_key)
             FILTER product.active == @product_active
 
             LET translations = product.translations[@eshop_locale].name != null
@@ -130,7 +130,7 @@ pub(in crate::commerce) async fn get_product(
             RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
             "#,
         ).bind_var("eshop_locale", format!("{}", client_locale))
-        .bind_var("product_id", product_id)
+        .bind_var("product_key", product_key)
         .bind_var("product_active", json!(product_active));
 
     let product_vector = db.aql_query::<Product>(aql.build()).await;
@@ -138,8 +138,8 @@ pub(in crate::commerce) async fn get_product(
         Ok(product_vector) => match product_vector.first() {
             Some(product) => Ok(product.to_owned()),
             None => Err(ModelError::LogicalError(format!(
-                "Cannot fetch the product with id: {}",
-                product_id
+                "database didn't return anything for product with key: {}",
+                product_key
             ))),
         },
         Err(e) => Err(ModelError::DatabaseError(e)),
@@ -259,7 +259,7 @@ pub(in crate::commerce) async fn search_products(
 
 pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
-    product_id: &str,
+    product_key: &str,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
 
@@ -267,8 +267,7 @@ pub(in crate::commerce) async fn delete_product(
         .query(
             r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
-
-            LET product = DOCUMENT(@product_id)
+            LET product = DOCUMENT(products, @product_key)
             REMOVE product IN products
 
             LET translations = product.translations[@eshop_locale].name != null
@@ -284,7 +283,7 @@ pub(in crate::commerce) async fn delete_product(
             "#,
         )
         .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .bind_var("product_id", product_id)
+        .bind_var("product_key", product_key)
         .build();
 
     let old_product_vector = db.aql_query::<Product>(remove_aql).await;

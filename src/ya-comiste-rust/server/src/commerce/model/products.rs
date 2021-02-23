@@ -37,6 +37,11 @@ impl Product {
     }
 
     #[cfg(test)]
+    pub(in crate::commerce) fn key(&self) -> String {
+        self._id.to_owned()
+    }
+
+    #[cfg(test)]
     pub(in crate::commerce) fn name(&self) -> Option<String> {
         self.name.to_owned()
     }
@@ -325,17 +330,17 @@ pub(in crate::commerce) async fn search_all_products(
     }
 }
 
-// TODO: rename to "get_active_product"/"get_activated_product"?
-pub(in crate::commerce) async fn get_product(
+// TODO: rename to "get_active_product_by_key"/"get_activated_product_by_key"?
+pub(in crate::commerce) async fn get_product_by_key(
     context: &Context,
     client_locale: &SupportedLocale,
-    product_id: &str,
+    product_key: &str,
 ) -> Result<Product, ModelError> {
     // Anyone can get the product (it's not limited to admins only).
-    crate::commerce::dal::products::get_product(
+    crate::commerce::dal::products::get_product_by_key(
         &context.pool,
         &client_locale,
-        &product_id,
+        &product_key,
         &true, // product must be active to be publicly available
     )
     .await
@@ -348,11 +353,11 @@ pub(in crate::commerce) async fn update_product() {
 
 pub(in crate::commerce) async fn delete_product(
     context: &Context,
-    product_id: &str,
+    product_key: &str,
 ) -> Result<Product, ModelError> {
     match &context.user {
         User::AdminUser(_) => {
-            crate::commerce::dal::products::delete_product(&context.pool, &product_id).await
+            crate::commerce::dal::products::delete_product(&context.pool, &product_key).await
         }
         _ => Err(ModelError::PermissionsError(String::from(
             "Only admins can delete products.",

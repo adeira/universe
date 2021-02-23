@@ -35,7 +35,7 @@ export default function Link(props: Props): React.Node {
 const styles = sx.create({
   default: {
     'color': '#5c6a77',
-    'fontWeight': '500',
+    'fontSize': 16,
     'cursor': 'pointer',
     'textDecoration': 'none',
     ':hover': {

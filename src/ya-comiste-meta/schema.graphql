@@ -1,4 +1,4 @@
-# @generated SignedSource<<cf8e03fc2601602659ddf7e4f8a2158e>>
+# @generated SignedSource<<0a72cb20881085f5e090e97eabfbe745>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -49,7 +49,7 @@ type Mutation {
   """
   deauthorize(sessionToken: String!): DeauthorizePayload!
   productCreate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
-  productDelete(productId: ID!): ProductOrError!
+  productDelete(productKey: ID!): ProductOrError!
 }
 
 enum SupportedLocale {
@@ -78,7 +78,7 @@ type Query {
     be used only in backoffice to administer the products.
   """
   searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProduct(clientLocale: SupportedLocale!, productId: ID!): Product!
+  getProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
   listUsers: [AnyUser!]!

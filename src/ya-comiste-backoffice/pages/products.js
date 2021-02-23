@@ -3,16 +3,17 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
-import { graphql, QueryRenderer } from '@adeira/relay';
+import { graphql } from '@adeira/relay';
 import { rangeMap } from '@adeira/js';
 import { Skeleton, ProductCard, Heading } from '@adeira/sx-design';
 
-import Layout from '../src/Layout';
+import LayoutQueryRenderer from '../src/LayoutQueryRenderer';
+import LayoutHeading from '../src/LayoutHeading';
 import Link from '../src/Link';
 
 export default function ProductsPage(): React.Node {
-  return (
-    <Layout
+  const CommonHeader = (
+    <LayoutHeading
       heading={
         <Heading>
           <fbt desc="product inventory title">Products inventory</fbt>
@@ -24,43 +25,62 @@ export default function ProductsPage(): React.Node {
           title: <fbt desc="link for create a new product">Create a new product</fbt>,
         },
       ]}
-    >
-      <div className={styles('productsGrid')}>
-        <QueryRenderer
-          query={graphql`
-            query productsQuery {
-              searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
-                id
-                key
-                name
-                imageCover {
-                  blurhash
-                }
-                price {
-                  unitAmount
-                  unitAmountCurrency
-                }
-              }
+    />
+  );
+
+  return (
+    <LayoutQueryRenderer
+      variables={{}}
+      query={graphql`
+        query productsQuery {
+          searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+            id
+            key
+            name
+            imageCover {
+              blurhash
             }
-          `}
-          onLoading={() => rangeMap(12, (i) => <Skeleton key={i} />)}
-          onResponse={({ searchAllProducts: products }) =>
-            products.map((product) => (
-              <Link key={product.id} href={`/products/edit/${product.key}`}>
-                <ProductCard
-                  title={product.name}
-                  priceUnitAmount={product.price.unitAmount / 100}
-                  priceUnitAmountCurrency={product.price.unitAmountCurrency}
-                  imgBlurhash={product.imageCover?.blurhash}
-                  locale="en-US" // TODO
-                  // TODO: `imgSrc`
-                />
-              </Link>
-            ))
+            price {
+              unitAmount
+              unitAmountCurrency
+            }
           }
-        />
-      </div>
-    </Layout>
+        }
+      `}
+      onLoading={() => {
+        return (
+          <>
+            {CommonHeader}
+            <div className={styles('productsGrid')}>
+              {rangeMap(12, (i) => (
+                <Skeleton key={i} />
+              ))}
+            </div>
+          </>
+        );
+      }}
+      onResponse={({ searchAllProducts: products }) => {
+        return (
+          <>
+            {CommonHeader}
+            <div className={styles('productsGrid')}>
+              {products.map((product) => (
+                <Link key={product.id} href={`/products/edit/${product.key}`}>
+                  <ProductCard
+                    title={product.name}
+                    priceUnitAmount={product.price.unitAmount / 100}
+                    priceUnitAmountCurrency={product.price.unitAmountCurrency}
+                    imgBlurhash={product.imageCover?.blurhash}
+                    locale="en-US" // TODO
+                    // TODO: `imgSrc`
+                  />
+                </Link>
+              ))}
+            </div>
+          </>
+        );
+      }}
+    />
   );
 }
 
