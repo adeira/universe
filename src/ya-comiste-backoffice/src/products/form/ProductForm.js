@@ -25,6 +25,7 @@ type FormikBag = {|
 |};
 
 type Props = {|
+  +submitButtonTitle: FbtWithoutString,
   +initialValues: FormValues,
   +onUploadablesChange: (FileList) => void,
   +onSubmit: (FormValues, FormikBag) => void,
@@ -108,7 +109,7 @@ export default function ProductForm(props: Props): Node {
           </div>
 
           <button type="submit" disabled={isSubmitting}>
-            Create a new product
+            {props.submitButtonTitle}
           </button>
         </Form>
       )}

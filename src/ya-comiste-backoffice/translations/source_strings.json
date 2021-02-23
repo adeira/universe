@@ -114,6 +114,20 @@
   },
   {
    "hashToText": {
+    "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
+   },
+   "filepath": "src/products/CreateProductForm.js",
+   "line_beg": 112,
+   "col_beg": 8,
+   "line_end": 112,
+   "col_end": 86,
+   "desc": "create product form submit button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Create a new product"
+  },
+  {
+   "hashToText": {
     "c0PkRJ4iPzn52mQA9ajdTQ==": "At least one product name version (english or spanish) is required"
    },
    "filepath": "src/products/createProductFormSchema.js",
@@ -170,12 +184,26 @@
   },
   {
    "hashToText": {
+    "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
+   },
+   "filepath": "src/products/EditProductForm.js",
+   "line_beg": 30,
+   "col_beg": 25,
+   "line_end": 30,
+   "col_end": 93,
+   "desc": "edit product form submit button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Save changes"
+  },
+  {
+   "hashToText": {
     "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 45,
+   "line_beg": 46,
    "col_beg": 14,
-   "line_end": 45,
+   "line_end": 46,
    "col_end": 98,
    "desc": "form field name for product name in english",
    "project": "",
@@ -187,9 +215,9 @@
     "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 53,
+   "line_beg": 54,
    "col_beg": 14,
-   "line_end": 53,
+   "line_end": 54,
    "col_end": 98,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -201,9 +229,9 @@
     "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 61,
+   "line_beg": 62,
    "col_beg": 14,
-   "line_end": 63,
+   "line_end": 64,
    "col_end": 20,
    "desc": "form field name for product description in english",
    "project": "",
@@ -215,9 +243,9 @@
     "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 71,
+   "line_beg": 72,
    "col_beg": 14,
-   "line_end": 73,
+   "line_end": 74,
    "col_end": 20,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -229,9 +257,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 81,
+   "line_beg": 82,
    "col_beg": 14,
-   "line_end": 81,
+   "line_end": 82,
    "col_end": 77,
    "desc": "form field name for product price",
    "project": "",
@@ -243,9 +271,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 89,
+   "line_beg": 90,
    "col_beg": 14,
-   "line_end": 89,
+   "line_end": 90,
    "col_end": 85,
    "desc": "form field name for product pictures",
    "project": "",
@@ -257,9 +285,9 @@
     "0BsTiPapD1k7SKNIyzq9Og==": "Products inventory"
    },
    "filepath": "pages/products.js",
-   "line_beg": 18,
+   "line_beg": 19,
    "col_beg": 10,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 70,
    "desc": "product inventory title",
    "project": "",
@@ -271,9 +299,9 @@
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "pages/products.js",
-   "line_beg": 24,
+   "line_beg": 25,
    "col_beg": 17,
-   "line_end": 24,
+   "line_end": 25,
    "col_end": 85,
    "desc": "link for create a new product",
    "project": "",
@@ -285,10 +313,10 @@
     "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 15,
-   "col_beg": 10,
-   "line_end": 15,
-   "col_end": 82,
+   "line_beg": 20,
+   "col_beg": 18,
+   "line_end": 20,
+   "col_end": 90,
    "desc": "create a new product page heading",
    "project": "",
    "type": "text",
@@ -299,24 +327,38 @@
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 21,
-   "col_beg": 17,
-   "line_end": 21,
-   "col_end": 91,
+   "line_beg": 26,
+   "col_beg": 25,
+   "line_end": 26,
+   "col_end": 99,
    "desc": "go back to products navigation button",
    "project": "",
    "type": "text",
    "jsfbt": "Products inventory"
+  },
+  {
+   "hashToText": {
+    "N4YZT+GlkQir3UlP1/V2Og==": "Edit product"
+   },
+   "filepath": "pages/products/edit/[productKey].js",
+   "line_beg": 89,
+   "col_beg": 16,
+   "line_end": 89,
+   "col_end": 72,
+   "desc": "edit product page heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Edit product"
   },
   {
    "hashToText": {
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
    "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 28,
-   "col_beg": 17,
-   "line_end": 28,
-   "col_end": 91,
+   "line_beg": 95,
+   "col_beg": 23,
+   "line_end": 95,
+   "col_end": 97,
    "desc": "go back to products navigation button",
    "project": "",
    "type": "text",
@@ -324,26 +366,40 @@
   },
   {
    "hashToText": {
-    "wx008fc5s2Mij2EDAuzNIw==": "Delete product (TODO)"
+    "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
    },
    "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 32,
-   "col_beg": 17,
-   "line_end": 32,
-   "col_end": 89,
+   "line_beg": 100,
+   "col_beg": 18,
+   "line_end": 102,
+   "col_end": 24,
+   "desc": "delete product confirmation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Are you sure you want to delete the product?"
+  },
+  {
+   "hashToText": {
+    "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
+   },
+   "filepath": "pages/products/edit/[productKey].js",
+   "line_beg": 104,
+   "col_beg": 23,
+   "line_end": 104,
+   "col_end": 88,
    "desc": "delete product navigation button",
    "project": "",
    "type": "text",
-   "jsfbt": "Delete product (TODO)"
+   "jsfbt": "Delete product"
   },
   {
    "hashToText": {
     "KPaU2v3S7qUH0pj1rVBMaw==": "List of users"
    },
    "filepath": "pages/users.js",
-   "line_beg": 16,
+   "line_beg": 17,
    "col_beg": 10,
-   "line_end": 16,
+   "line_end": 17,
    "col_end": 61,
    "desc": "list of users title",
    "project": "",

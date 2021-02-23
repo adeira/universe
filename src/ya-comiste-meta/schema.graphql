@@ -1,4 +1,4 @@
-# @generated SignedSource<<0a72cb20881085f5e090e97eabfbe745>>
+# @generated SignedSource<<7e91fdece93a994a4afcc720de463735>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -52,11 +52,6 @@ type Mutation {
   productDelete(productKey: ID!): ProductOrError!
 }
 
-enum SupportedLocale {
-  en_US
-  es_MX
-}
-
 """
   Specifies additional visibility of the product. Each product is always visible in the backoffice
   but can additionally be displayed in POS, eshop (public) or both.
@@ -64,6 +59,11 @@ enum SupportedLocale {
 enum ProductMultilingualInputVisibility {
   "Visible in eshop only (therefore it's public)." ESHOP
   "Visible in POS only (accessible to authorized users)." POS
+}
+
+enum SupportedLocale {
+  en_US
+  es_MX
 }
 
 "Root query of the graph."
@@ -147,6 +147,24 @@ type Product {
     keys of other types. Use product ID if you want truly unique value.
   """
   key: ID!
+  """
+    The read-only `revision` value should be used as a pre-condition for mutations, to avoid
+    "lost update" situations when editing the product. That is, if a client fetches a product
+    from the server, modifies it locally (but with the `revision` value untouched) and sends it
+    back to the server to update the product, but meanwhile the product was changed by another
+    operation, then the revisions do not match anymore and the operation is cancelled by the
+    server. Without this mechanism, the client would accidentally overwrite changes made
+    to the product without knowing about it.
+
+    When an existing product is updated or replaced successfully, our database will create a
+    new revision value. From a user perspective, there is just one single product revision
+    present per different `key` at every point in time. There is no built-in system to
+    automatically keep a history of all changes done to a product and old versions of a
+    product can not be restored via the `revision` value.
+
+    For more information see: https://www.arangodb.com/docs/stable/data-modeling-documents-document-address.html#document-revision
+  """
+  revision: ID!
   "The product’s name, meant to be displayable to the customer."
   name: String
   """
@@ -171,6 +189,7 @@ type Product {
   """
   unitLabel: String!
   price: ProductPrice!
+  visibility: [ProductMultilingualInputVisibility!]!
 }
 
 type ProductPrice {

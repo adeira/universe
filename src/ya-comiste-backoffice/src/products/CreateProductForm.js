@@ -108,6 +108,9 @@ export default function CreateProductForm(): Node {
 
   return (
     <ProductForm
+      submitButtonTitle={
+        <fbt desc="create product form submit button title">Create a new product</fbt>
+      }
       initialValues={formInitialValues}
       onUploadablesChange={(files) => setFiles(files)}
       onSubmit={handleFormSubmit}
