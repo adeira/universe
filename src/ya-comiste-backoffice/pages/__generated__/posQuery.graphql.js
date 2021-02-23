@@ -50,7 +50,7 @@ var v0 = [
   {
     "alias": null,
     "args": null,
-    "concreteType": "POS",
+    "concreteType": "POSQuery",
     "kind": "LinkedField",
     "name": "pos",
     "plural": false,

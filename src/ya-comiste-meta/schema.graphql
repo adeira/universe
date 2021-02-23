@@ -1,11 +1,11 @@
-# @generated SignedSource<<7e91fdece93a994a4afcc720de463735>>
+# @generated SignedSource<<3cdf709ef619d44e1701f4cf3343885f>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
   HIGH_TO_LOW
 }
 
-type POS {
+type POSQuery {
   """
     Lists published products for POS. Requires admin permissions so it should be used only in
     POS after logging in.
@@ -48,7 +48,12 @@ type Mutation {
     Repeated calls will result in failure since it's not possible to deauthorize twice.
   """
   deauthorize(sessionToken: String!): DeauthorizePayload!
+  commerce: CommerceMutation!
+}
+
+type CommerceMutation {
   productCreate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  productUpdate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
   productDelete(productKey: ID!): ProductOrError!
 }
 
@@ -68,21 +73,11 @@ enum SupportedLocale {
 
 "Root query of the graph."
 type Query {
-  """
-    Searches all published (publicly accessible) products. Everyone can do it without any
-    special permission so it should be used on FE.
-  """
-  searchPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  """
-    Searches all products (published and unpublished). Requires admin permissions so it should
-    be used only in backoffice to administer the products.
-  """
-  searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
-  getProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
   listUsers: [AnyUser!]!
-  pos: POS!
+  commerce: CommerceQuery!
+  pos: POSQuery!
 }
 
 type WhoamiPayload {
@@ -96,6 +91,12 @@ type WhoamiPayload {
 
 union ProductOrError = Product | ProductError
 
+""
+type AnyUser {
+  id: String!
+  type: String!
+}
+
 type ProductError {
   message: String!
 }
@@ -107,24 +108,26 @@ input ProductMultilingualInput {
   visibility: [ProductMultilingualInputVisibility!]!
 }
 
+type CommerceQuery {
+  """
+    Searches all published (publicly accessible) products. Everyone can do it without any
+    special permission so it should be used on FE.
+  """
+  searchPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  """
+    Searches all products (published and unpublished). Requires admin permissions so it should
+    be used only in backoffice to administer the products.
+  """
+  searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  getProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
+}
+
 input ProductPriceInput {
   """
     The unit amount in centavo to be charged, represented as a whole integer.
     Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
   """ unitAmount: Int!
   "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
-}
-
-input ProductMultilingualInputTranslations {
-  locale: SupportedLocale!
-  name: String
-  description: String
-}
-
-""
-type AnyUser {
-  id: String!
-  type: String!
 }
 
 """
@@ -135,6 +138,12 @@ type AnyUser {
 
 """
 scalar ProductImageUploadable
+
+input ProductMultilingualInputTranslations {
+  locale: SupportedLocale!
+  name: String
+  description: String
+}
 
 type Product {
   """

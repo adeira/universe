@@ -1,5 +1,4 @@
 use crate::auth::users::AnyUser;
-use crate::commerce::api::ProductMultilingualInputVisibility;
 use crate::graphql_context::Context;
 use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
 
@@ -16,58 +15,6 @@ pub struct Query;
     description = "Root query of the graph.",
 )]
 impl Query {
-    /// Searches all published (publicly accessible) products. Everyone can do it without any
-    /// special permission so it should be used on FE.
-    async fn search_published_products(
-        context: &Context,
-        client_locale: crate::commerce::api::SupportedLocale,
-        price_sort_direction: crate::commerce::api::PriceSortDirection,
-        search_term: Option<String>,
-    ) -> Option<Vec<Option<crate::commerce::api::Product>>> {
-        crate::commerce::api::search_published_products(
-            &context,
-            &client_locale,
-            &price_sort_direction,
-            &search_term,
-            &ProductMultilingualInputVisibility::ESHOP,
-        )
-        .await
-    }
-
-    /// Searches all products (published and unpublished). Requires admin permissions so it should
-    /// be used only in backoffice to administer the products.
-    async fn search_all_products(
-        context: &Context,
-        client_locale: crate::commerce::api::SupportedLocale,
-        price_sort_direction: crate::commerce::api::PriceSortDirection,
-        search_term: Option<String>,
-    ) -> Option<Vec<Option<crate::commerce::api::Product>>> {
-        crate::commerce::api::search_all_products(
-            &context,
-            &client_locale,
-            &price_sort_direction,
-            &search_term,
-        )
-        .await
-    }
-
-    async fn get_product_by_key(
-        context: &Context,
-        client_locale: crate::commerce::api::SupportedLocale,
-        product_key: juniper::ID,
-    ) -> FieldResult<crate::commerce::api::Product> {
-        match crate::commerce::api::get_product_by_key(
-            &context,
-            &client_locale,
-            &product_key.to_string(),
-        )
-        .await
-        {
-            Ok(product) => Ok(product),
-            Err(e) => Err(FieldError::from(e)),
-        }
-    }
-
     /// Returns information about the current user (can be authenticated or anonymous).
     async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
         crate::auth::api::whoami(context).await
@@ -80,8 +27,12 @@ impl Query {
         }
     }
 
-    fn pos() -> crate::pos::api::POS {
-        crate::pos::api::POS {}
+    fn commerce() -> crate::commerce::api::CommerceQuery {
+        crate::commerce::api::CommerceQuery {}
+    }
+
+    fn pos() -> crate::pos::api::POSQuery {
+        crate::pos::api::POSQuery {}
     }
 }
 
@@ -131,18 +82,8 @@ impl Mutation {
         crate::auth::api::deauthorize(&session_token, &context).await
     }
 
-    async fn product_create(
-        context: &Context,
-        product_multilingual_input: crate::commerce::api::ProductMultilingualInput,
-    ) -> crate::commerce::api::ProductOrError {
-        crate::commerce::api::create_product(&context, &product_multilingual_input).await
-    }
-
-    async fn product_delete(
-        context: &Context,
-        product_key: juniper::ID,
-    ) -> crate::commerce::api::ProductOrError {
-        crate::commerce::api::delete_product(&context, &product_key.to_string()).await
+    fn commerce() -> crate::commerce::api::CommerceMutation {
+        crate::commerce::api::CommerceMutation {}
     }
 }
 

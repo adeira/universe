@@ -9,15 +9,17 @@ export type ProductKeyDeleteMutationVariables = {|
   productKey: string
 |};
 export type ProductKeyDeleteMutationResponse = {|
-  +productOrError: {|
-    +__typename: "Product"
-  |} | {|
-    +__typename: "ProductError",
-    +message: string,
-  |} | {|
-    // This will never be '%other', but we need some
-    // value in case none of the concrete values match.
-    +__typename: "%other"
+  +commerce: {|
+    +productOrError: {|
+      +__typename: "Product"
+    |} | {|
+      +__typename: "ProductError",
+      +message: string,
+    |} | {|
+      // This will never be '%other', but we need some
+      // value in case none of the concrete values match.
+      +__typename: "%other"
+    |}
   |}
 |};
 export type ProductKeyDeleteMutation = {|
@@ -29,14 +31,16 @@ export type ProductKeyDeleteMutation = {|
 mutation ProductKeyDeleteMutation(
   $productKey: ID!
 ) {
-  productOrError: productDelete(productKey: $productKey) {
-    __typename
-    ... on Product {
+  commerce {
+    productOrError: productDelete(productKey: $productKey) {
       __typename
-    }
-    ... on ProductError {
-      __typename
-      message
+      ... on Product {
+        __typename
+      }
+      ... on ProductError {
+        __typename
+        message
+      }
     }
   }
 }
@@ -79,29 +83,40 @@ return {
     "name": "ProductKeyDeleteMutation",
     "selections": [
       {
-        "alias": "productOrError",
-        "args": (v1/*: any*/),
-        "concreteType": null,
+        "alias": null,
+        "args": null,
+        "concreteType": "CommerceMutation",
         "kind": "LinkedField",
-        "name": "productDelete",
+        "name": "commerce",
         "plural": false,
         "selections": [
           {
-            "kind": "InlineFragment",
+            "alias": "productOrError",
+            "args": (v1/*: any*/),
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "productDelete",
+            "plural": false,
             "selections": [
-              (v2/*: any*/)
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v2/*: any*/)
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v2/*: any*/),
+                  (v3/*: any*/)
+                ],
+                "type": "ProductError",
+                "abstractKey": null
+              }
             ],
-            "type": "Product",
-            "abstractKey": null
-          },
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/)
-            ],
-            "type": "ProductError",
-            "abstractKey": null
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -117,21 +132,32 @@ return {
     "name": "ProductKeyDeleteMutation",
     "selections": [
       {
-        "alias": "productOrError",
-        "args": (v1/*: any*/),
-        "concreteType": null,
+        "alias": null,
+        "args": null,
+        "concreteType": "CommerceMutation",
         "kind": "LinkedField",
-        "name": "productDelete",
+        "name": "commerce",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           {
-            "kind": "InlineFragment",
+            "alias": "productOrError",
+            "args": (v1/*: any*/),
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "productDelete",
+            "plural": false,
             "selections": [
-              (v3/*: any*/)
+              (v2/*: any*/),
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v3/*: any*/)
+                ],
+                "type": "ProductError",
+                "abstractKey": null
+              }
             ],
-            "type": "ProductError",
-            "abstractKey": null
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -139,15 +165,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "7aea1ac0cde4d63ec220af576cb5b100",
+    "cacheID": "a7a07123c0cb28b21ebdf8c19816e2e2",
     "id": null,
     "metadata": {},
     "name": "ProductKeyDeleteMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductKeyDeleteMutation(\n  $productKey: ID!\n) {\n  productOrError: productDelete(productKey: $productKey) {\n    __typename\n    ... on Product {\n      __typename\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
+    "text": "mutation ProductKeyDeleteMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productDelete(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '96076dded274d80e58dbbfebd1d7f29e';
+(node: any).hash = '4df5acfdcda8bcc2fb1c2abc9f6c3675';
 export default node;

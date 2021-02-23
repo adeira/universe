@@ -6,6 +6,7 @@ pub use crate::commerce::model::products::SupportedLocale;
 
 use crate::commerce::model::errors::ModelError;
 use crate::graphql_context::Context;
+use juniper::{FieldError, FieldResult};
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -18,21 +19,119 @@ pub enum ProductOrError {
     ProductError(ProductError),
 }
 
-/// Exposes the create product API publicly to be used in GraphQL (or any other API as a matter of fact).
-pub(crate) async fn create_product(
-    context: &Context,
-    product_multilingual_input: &ProductMultilingualInput,
-) -> ProductOrError {
-    match crate::commerce::model::products::create_product(&context, &product_multilingual_input)
+pub(crate) struct CommerceQuery;
+pub(crate) struct CommerceMutation;
+
+#[juniper::graphql_object(context = Context)]
+impl CommerceQuery {
+    /// Searches all published (publicly accessible) products. Everyone can do it without any
+    /// special permission so it should be used on FE.
+    async fn search_published_products(
+        context: &Context,
+        client_locale: SupportedLocale,
+        price_sort_direction: PriceSortDirection,
+        search_term: Option<String>,
+    ) -> Option<Vec<Option<Product>>> {
+        search_published_products(
+            &context,
+            &client_locale,
+            &price_sort_direction,
+            &search_term,
+            &ProductMultilingualInputVisibility::ESHOP,
+        )
         .await
-    {
-        Ok(product) => ProductOrError::Product(product),
-        Err(e) => ProductOrError::ProductError(ProductError {
-            message: e.to_string(),
-        }),
+    }
+
+    /// Searches all products (published and unpublished). Requires admin permissions so it should
+    /// be used only in backoffice to administer the products.
+    async fn search_all_products(
+        context: &Context,
+        client_locale: SupportedLocale,
+        price_sort_direction: PriceSortDirection,
+        search_term: Option<String>,
+    ) -> Option<Vec<Option<Product>>> {
+        match crate::commerce::model::products::search_all_products(
+            &context,
+            &client_locale,
+            &price_sort_direction,
+            &search_term,
+        )
+        .await
+        {
+            Ok(products) => Some(products),
+            Err(e) => {
+                tracing::error!("{}", e);
+                None
+            }
+        }
+    }
+
+    async fn get_product_by_key(
+        context: &Context,
+        client_locale: SupportedLocale,
+        product_key: juniper::ID,
+    ) -> FieldResult<Product> {
+        match crate::commerce::model::products::get_product_by_key(
+            &context,
+            &client_locale,
+            &product_key,
+        )
+        .await
+        {
+            Ok(product) => Ok(product),
+            Err(e) => Err(FieldError::from(e)),
+        }
     }
 }
 
+#[juniper::graphql_object(context = Context)]
+impl CommerceMutation {
+    async fn product_create(
+        context: &Context,
+        product_multilingual_input: ProductMultilingualInput,
+    ) -> ProductOrError {
+        match crate::commerce::model::products::create_product(
+            &context,
+            &product_multilingual_input,
+        )
+        .await
+        {
+            Ok(product) => ProductOrError::Product(product),
+            Err(e) => ProductOrError::ProductError(ProductError {
+                message: e.to_string(),
+            }),
+        }
+    }
+
+    // TODO: require product `revision` ID!
+    async fn product_update(
+        context: &Context,
+        product_multilingual_input: ProductMultilingualInput,
+    ) -> ProductOrError {
+        match crate::commerce::model::products::update_product(
+            &context,
+            &product_multilingual_input,
+        )
+        .await
+        {
+            Ok(product) => ProductOrError::Product(product),
+            Err(e) => ProductOrError::ProductError(ProductError {
+                message: e.to_string(),
+            }),
+        }
+    }
+
+    async fn product_delete(context: &Context, product_key: juniper::ID) -> ProductOrError {
+        match crate::commerce::model::products::delete_product(&context, &product_key).await {
+            Ok(product) => ProductOrError::Product(product),
+            Err(e) => ProductOrError::ProductError(ProductError {
+                message: e.to_string(),
+            }),
+        }
+    }
+}
+
+// This function is exposed to GraphQL commerce module as well as to POS module (hence not inlined).
 pub(crate) async fn search_published_products(
     context: &Context,
     client_locale: &SupportedLocale,
@@ -54,45 +153,5 @@ pub(crate) async fn search_published_products(
             tracing::error!("{}", e);
             None
         }
-    }
-}
-
-pub(crate) async fn search_all_products(
-    context: &Context,
-    client_locale: &SupportedLocale,
-    price_sort_direction: &PriceSortDirection,
-    search_term: &Option<String>,
-) -> Option<Vec<Option<Product>>> {
-    match crate::commerce::model::products::search_all_products(
-        &context,
-        &client_locale,
-        &price_sort_direction,
-        &search_term,
-    )
-    .await
-    {
-        Ok(products) => Some(products),
-        Err(e) => {
-            tracing::error!("{}", e);
-            None
-        }
-    }
-}
-
-pub(crate) async fn get_product_by_key(
-    context: &Context,
-    client_locale: &SupportedLocale,
-    product_key: &str,
-) -> Result<Product, ModelError> {
-    crate::commerce::model::products::get_product_by_key(&context, &client_locale, &product_key)
-        .await
-}
-
-pub(crate) async fn delete_product(context: &Context, product_key: &str) -> ProductOrError {
-    match crate::commerce::model::products::delete_product(&context, &product_key).await {
-        Ok(product) => ProductOrError::Product(product),
-        Err(e) => ProductOrError::ProductError(ProductError {
-            message: e.to_string(),
-        }),
     }
 }
