@@ -10,7 +10,7 @@
   "module": false,
   "dependencies": {
     "@adeira/js": "^2.1.0",
-    "@babel/runtime": "^7.13.2",
+    "@babel/runtime": "^7.13.4",
     "blurhash": "^1.1.3",
     "react-blurhash": "^0.1.3",
     "react-device-detect": "^1.15.0"
