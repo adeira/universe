@@ -224,19 +224,14 @@ pub struct ProductPriceInput {
     pub(in crate::commerce) unit_amount_currency: SupportedCurrency,
 }
 
-/// Takes care of the business logic and forwards the call lower to the DAL layer when everything
-/// is OK. Specifically, it validates the input values to make sense and it checks permissions
-/// because only admin can create a product.
-///
 /// # Validation rules
 ///
 /// 1. There must be at least one translation variant available.
 /// 3. There must be at least one product name somewhere in all the translation variants.
 /// 4. Price cannot be bellow zero (must be positive).
-pub(in crate::commerce) async fn create_product(
-    context: &Context,
+fn validate_product_multilingual_input(
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<Product, ModelError> {
+) -> Result<(), ModelError> {
     let translations = &product_multilingual_input.translations;
 
     // At least one translation variant must exist:
@@ -264,24 +259,7 @@ pub(in crate::commerce) async fn create_product(
         )));
     }
 
-    match &context.user {
-        User::AdminUser(_) => {
-            let mut images = vec![];
-            if context.uploadables.is_some() {
-                images =
-                    crate::images::process_images(&context, &product_multilingual_input).await?;
-            }
-            crate::commerce::dal::products::create_product(
-                &context.pool,
-                &product_multilingual_input,
-                &images,
-            )
-            .await
-        }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "Only admins can create products.",
-        ))),
-    }
+    Ok(())
 }
 
 #[derive(juniper::GraphQLEnum)]
@@ -369,9 +347,47 @@ pub(in crate::commerce) async fn get_product_by_key(
     .await
 }
 
-pub(in crate::commerce) async fn update_product() {
-    // TODO (authorized only)
-    unimplemented!()
+/// Takes care of the business logic and forwards the call lower to the DAL layer when everything
+/// is OK. Specifically, it validates the input values to make sense and it checks permissions
+/// because only admin can create a product.
+pub(in crate::commerce) async fn create_product(
+    context: &Context,
+    product_multilingual_input: &ProductMultilingualInput,
+) -> Result<Product, ModelError> {
+    validate_product_multilingual_input(&product_multilingual_input)?;
+    match &context.user {
+        User::AdminUser(_) => {
+            let mut images = vec![];
+            if context.uploadables.is_some() {
+                images =
+                    crate::images::process_images(&context, &product_multilingual_input).await?;
+            }
+            crate::commerce::dal::products::create_product(
+                &context.pool,
+                &product_multilingual_input,
+                &images,
+            )
+            .await
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admins can create products",
+        ))),
+    }
+}
+
+pub(in crate::commerce) async fn update_product(
+    context: &Context,
+    product_multilingual_input: &ProductMultilingualInput,
+) -> Result<Product, ModelError> {
+    validate_product_multilingual_input(&product_multilingual_input)?;
+    match &context.user {
+        User::AdminUser(_) => {
+            unimplemented!() // TODO
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admins can update products",
+        ))),
+    }
 }
 
 pub(in crate::commerce) async fn delete_product(

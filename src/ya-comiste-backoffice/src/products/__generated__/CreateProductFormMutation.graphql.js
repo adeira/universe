@@ -19,16 +19,18 @@ export type CreateProductFormMutationVariables = {|
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
 |};
 export type CreateProductFormMutationResponse = {|
-  +result: {|
-    +__typename: "Product",
-    +name: ?string,
-  |} | {|
-    +__typename: "ProductError",
-    +message: string,
-  |} | {|
-    // This will never be '%other', but we need some
-    // value in case none of the concrete values match.
-    +__typename: "%other"
+  +commerce: {|
+    +result: {|
+      +__typename: "Product",
+      +name: ?string,
+    |} | {|
+      +__typename: "ProductError",
+      +message: string,
+    |} | {|
+      // This will never be '%other', but we need some
+      // value in case none of the concrete values match.
+      +__typename: "%other"
+    |}
   |}
 |};
 export type CreateProductFormMutation = {|
@@ -43,15 +45,17 @@ mutation CreateProductFormMutation(
   $translations: [ProductMultilingualInputTranslations!]!
   $visibility: [ProductMultilingualInputVisibility!]!
 ) {
-  result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
-    __typename
-    ... on Product {
+  commerce {
+    result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
       __typename
-      name
-    }
-    ... on ProductError {
-      __typename
-      message
+      ... on Product {
+        __typename
+        name
+      }
+      ... on ProductError {
+        __typename
+        message
+      }
     }
   }
 }
@@ -148,30 +152,41 @@ return {
     "name": "CreateProductFormMutation",
     "selections": [
       {
-        "alias": "result",
-        "args": (v1/*: any*/),
-        "concreteType": null,
+        "alias": null,
+        "args": null,
+        "concreteType": "CommerceMutation",
         "kind": "LinkedField",
-        "name": "productCreate",
+        "name": "commerce",
         "plural": false,
         "selections": [
           {
-            "kind": "InlineFragment",
+            "alias": "result",
+            "args": (v1/*: any*/),
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "productCreate",
+            "plural": false,
             "selections": [
-              (v2/*: any*/),
-              (v3/*: any*/)
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v2/*: any*/),
+                  (v3/*: any*/)
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v2/*: any*/),
+                  (v4/*: any*/)
+                ],
+                "type": "ProductError",
+                "abstractKey": null
+              }
             ],
-            "type": "Product",
-            "abstractKey": null
-          },
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v2/*: any*/),
-              (v4/*: any*/)
-            ],
-            "type": "ProductError",
-            "abstractKey": null
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -187,29 +202,40 @@ return {
     "name": "CreateProductFormMutation",
     "selections": [
       {
-        "alias": "result",
-        "args": (v1/*: any*/),
-        "concreteType": null,
+        "alias": null,
+        "args": null,
+        "concreteType": "CommerceMutation",
         "kind": "LinkedField",
-        "name": "productCreate",
+        "name": "commerce",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           {
-            "kind": "InlineFragment",
+            "alias": "result",
+            "args": (v1/*: any*/),
+            "concreteType": null,
+            "kind": "LinkedField",
+            "name": "productCreate",
+            "plural": false,
             "selections": [
-              (v3/*: any*/)
+              (v2/*: any*/),
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v3/*: any*/)
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  (v4/*: any*/)
+                ],
+                "type": "ProductError",
+                "abstractKey": null
+              }
             ],
-            "type": "Product",
-            "abstractKey": null
-          },
-          {
-            "kind": "InlineFragment",
-            "selections": [
-              (v4/*: any*/)
-            ],
-            "type": "ProductError",
-            "abstractKey": null
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -217,15 +243,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "4917b3ce01688817176b64906e05cab1",
+    "cacheID": "f581c0e5f2fce2b629307d8b6d002a2d",
     "id": null,
     "metadata": {},
     "name": "CreateProductFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateProductFormMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n    __typename\n    ... on Product {\n      __typename\n      name\n    }\n    ... on ProductError {\n      __typename\n      message\n    }\n  }\n}\n"
+    "text": "mutation CreateProductFormMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '09853d2a65528cd115eb4865f833ea3b';
+(node: any).hash = '85e4af9267ef9411e1e38f541ef7e68b';
 export default node;
