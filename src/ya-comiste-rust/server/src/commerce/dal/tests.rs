@@ -1,5 +1,5 @@
 use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
-use crate::commerce::dal::products::{create_product, delete_product, get_product};
+use crate::commerce::dal::products::{create_product, delete_product, get_product_by_key};
 use crate::commerce::model::products::{
     ProductMultilingualInput, ProductMultilingualInputTranslations, SupportedLocale,
 };
@@ -27,10 +27,10 @@ async fn create_product_english_to_english_test() {
     .unwrap();
 
     // 2) try to find the newly created product
-    let found_product = get_product(
+    let found_product = get_product_by_key(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.id(),
+        &created_product.key(),
         &false, // the product should be inactive at this point (until manually activated)
     )
     .await
@@ -68,10 +68,10 @@ async fn create_product_spanish_to_english_test() {
     // 2) try to find the newly created product - please note that we are trying to fetch the
     //    english version even though it's not available and the result should fallback to the
     //    first available language which is spanish in this case
-    let found_product = get_product(
+    let found_product = get_product_by_key(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.id(),
+        &created_product.key(),
         &false, // the product should be inactive at this point (until manually activated)
     )
     .await
@@ -114,10 +114,10 @@ async fn create_product_all_languages_test() {
     .unwrap();
 
     // 2) try to find the newly created product in both client locales
-    let found_en_product = get_product(
+    let found_en_product = get_product_by_key(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.id(),
+        &created_product.key(),
         &false, // the product should be inactive at this point (until manually activated)
     )
     .await
@@ -127,10 +127,10 @@ async fn create_product_all_languages_test() {
         Some("Product name in english".to_string())
     );
 
-    let found_es_product = get_product(
+    let found_es_product = get_product_by_key(
         &pool,
         &SupportedLocale::EsMX,
-        &created_product.id(),
+        &created_product.key(),
         &false, // the product should be inactive at this point (until manually activated)
     )
     .await
@@ -173,10 +173,10 @@ async fn create_product_mixed_languages_test() {
     .unwrap();
 
     // 2) try to find the newly created product in both client locales
-    let found_en_product = get_product(
+    let found_en_product = get_product_by_key(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.id(),
+        &created_product.key(),
         &false, // the product should be inactive at this point (until manually activated)
     )
     .await
@@ -187,10 +187,10 @@ async fn create_product_mixed_languages_test() {
     );
     assert_eq!(found_en_product.description(), None);
 
-    let found_es_product = get_product(
+    let found_es_product = get_product_by_key(
         &pool,
         &SupportedLocale::EsMX,
-        &created_product.id(),
+        &created_product.key(),
         &false, // the product should be inactive at this point (until manually activated)
     )
     .await
@@ -227,7 +227,7 @@ async fn delete_product_test() {
     .unwrap();
 
     // 2) try to delete the newly created product
-    let deleted_product = delete_product(&pool, &created_product.id()).await.unwrap();
+    let deleted_product = delete_product(&pool, &created_product.key()).await.unwrap();
     assert_eq!(
         deleted_product.name(),
         Some("Product name in english".to_string())

@@ -3,42 +3,51 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
-import { graphql, QueryRenderer } from '@adeira/relay';
+import { graphql } from '@adeira/relay';
 import { Heading } from '@adeira/sx-design';
 
-import Layout from '../src/Layout';
+import LayoutHeading from '../src/LayoutHeading';
+import LayoutQueryRenderer from '../src/LayoutQueryRenderer';
 
 export default function UsersPage(): React.Node {
-  return (
-    <Layout
+  const CommonHeader = (
+    <LayoutHeading
       heading={
         <Heading>
           <fbt desc="list of users title">List of users</fbt>
         </Heading>
       }
-    >
-      <div>TODO (view users, change permissions)</div>
-      <QueryRenderer
-        query={graphql`
-          query usersQuery {
-            listUsers {
-              id
-              type
-            }
+    />
+  );
+
+  return (
+    <LayoutQueryRenderer
+      query={graphql`
+        query usersQuery {
+          listUsers {
+            id
+            type
           }
-        `}
-        onResponse={({ listUsers: users }) => {
-          return users.map((user) => {
-            return (
-              <div key={user.id} className={styles('row')}>
-                <div>{user.id}</div>
-                <div>{user.type}</div>
-              </div>
-            );
-          });
-        }}
-      />
-    </Layout>
+        }
+      `}
+      onLoading={() => CommonHeader}
+      onResponse={({ listUsers: users }) => {
+        return (
+          <>
+            {CommonHeader}
+            <pre>TODO (view users, change permissions)</pre>
+            {users.map((user) => {
+              return (
+                <div key={user.id} className={styles('row')}>
+                  <div>{user.id}</div>
+                  <div>{user.type}</div>
+                </div>
+              );
+            })}
+          </>
+        );
+      }}
+    />
   );
 }
 

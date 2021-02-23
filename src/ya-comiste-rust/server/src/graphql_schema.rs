@@ -51,13 +51,17 @@ impl Query {
         .await
     }
 
-    async fn get_product(
+    async fn get_product_by_key(
         context: &Context,
         client_locale: crate::commerce::api::SupportedLocale,
-        product_id: juniper::ID,
+        product_key: juniper::ID,
     ) -> FieldResult<crate::commerce::api::Product> {
-        match crate::commerce::api::get_product(&context, &client_locale, &product_id.to_string())
-            .await
+        match crate::commerce::api::get_product_by_key(
+            &context,
+            &client_locale,
+            &product_key.to_string(),
+        )
+        .await
         {
             Ok(product) => Ok(product),
             Err(e) => Err(FieldError::from(e)),
@@ -136,9 +140,9 @@ impl Mutation {
 
     async fn product_delete(
         context: &Context,
-        product_id: juniper::ID,
+        product_key: juniper::ID,
     ) -> crate::commerce::api::ProductOrError {
-        crate::commerce::api::delete_product(&context, &product_id.to_string()).await
+        crate::commerce::api::delete_product(&context, &product_key.to_string()).await
     }
 }
 

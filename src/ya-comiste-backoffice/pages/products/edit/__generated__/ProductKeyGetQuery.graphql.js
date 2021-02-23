@@ -7,26 +7,28 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type EditProductFormFragment$ref = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductKeyQueryVariables = {|
+export type ProductKeyGetQueryVariables = {|
   clientLocale: SupportedLocale,
-  productId: string,
+  productKey: string,
 |};
-export type ProductKeyQueryResponse = {|
-  +product: ?{|
-    +$fragmentRefs: EditProductFormFragment$ref
+export type ProductKeyGetQueryResponse = {|
+  +product: {|
+    +key: string,
+    +$fragmentRefs: EditProductFormFragment$ref,
   |}
 |};
-export type ProductKeyQuery = {|
-  variables: ProductKeyQueryVariables,
-  response: ProductKeyQueryResponse,
+export type ProductKeyGetQuery = {|
+  variables: ProductKeyGetQueryVariables,
+  response: ProductKeyGetQueryResponse,
 |};
 
 /*
-query ProductKeyQuery(
+query ProductKeyGetQuery(
   $clientLocale: SupportedLocale!
-  $productId: ID!
+  $productKey: ID!
 ) {
-  product: getProduct(clientLocale: $clientLocale, productId: $productId) {
+  product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+    key
     ...EditProductFormFragment
     id
   }
@@ -49,7 +51,7 @@ var v0 = [
   {
     "defaultValue": null,
     "kind": "LocalArgument",
-    "name": "productId"
+    "name": "productKey"
   }
 ],
 v1 = [
@@ -60,25 +62,33 @@ v1 = [
   },
   {
     "kind": "Variable",
-    "name": "productId",
-    "variableName": "productId"
+    "name": "productKey",
+    "variableName": "productKey"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "key",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ProductKeyQuery",
+    "name": "ProductKeyGetQuery",
     "selections": [
       {
         "alias": "product",
         "args": (v1/*: any*/),
         "concreteType": "Product",
         "kind": "LinkedField",
-        "name": "getProduct",
+        "name": "getProductByKey",
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -95,16 +105,17 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ProductKeyQuery",
+    "name": "ProductKeyGetQuery",
     "selections": [
       {
         "alias": "product",
         "args": (v1/*: any*/),
         "concreteType": "Product",
         "kind": "LinkedField",
-        "name": "getProduct",
+        "name": "getProductByKey",
         "plural": false,
         "selections": [
+          (v2/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -136,15 +147,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "05bc69b3cdebe4fe8d9ff7d9dd92e53a",
+    "cacheID": "430a654f4d6e6447d930d341c8bc8949",
     "id": null,
     "metadata": {},
-    "name": "ProductKeyQuery",
+    "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyQuery(\n  $clientLocale: SupportedLocale!\n  $productId: ID!\n) {\n  product: getProduct(clientLocale: $clientLocale, productId: $productId) {\n    ...EditProductFormFragment\n    id\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  price {\n    unitAmount\n  }\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n    key\n    ...EditProductFormFragment\n    id\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  price {\n    unitAmount\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '612bbc89ceb02936f4e383260a277675';
+(node: any).hash = 'e8a7dc6c2d97aaee20212a3c200245ad';
 export default node;

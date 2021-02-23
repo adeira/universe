@@ -79,16 +79,17 @@ pub(crate) async fn search_all_products(
     }
 }
 
-pub(crate) async fn get_product(
+pub(crate) async fn get_product_by_key(
     context: &Context,
     client_locale: &SupportedLocale,
-    product_id: &str,
+    product_key: &str,
 ) -> Result<Product, ModelError> {
-    crate::commerce::model::products::get_product(&context, &client_locale, &product_id).await
+    crate::commerce::model::products::get_product_by_key(&context, &client_locale, &product_key)
+        .await
 }
 
-pub(crate) async fn delete_product(context: &Context, product_id: &str) -> ProductOrError {
-    match crate::commerce::model::products::delete_product(&context, &product_id).await {
+pub(crate) async fn delete_product(context: &Context, product_key: &str) -> ProductOrError {
+    match crate::commerce::model::products::delete_product(&context, &product_key).await {
         Ok(product) => ProductOrError::Product(product),
         Err(e) => ProductOrError::ProductError(ProductError {
             message: e.to_string(),
