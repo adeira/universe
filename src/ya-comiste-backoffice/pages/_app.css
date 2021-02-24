@@ -15,3 +15,7 @@ body {
 body {
   font-size: 1rem;
 }
+
+a[target='_blank']:after {
+  content: ' ↝';
+}

@@ -6,11 +6,12 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-export type posQueryVariables = {||};
-export type posQueryResponse = {|
+export type ProductsGridPosQueryVariables = {||};
+export type ProductsGridPosQueryResponse = {|
   +pos: {|
     +listPublishedProducts: ?$ReadOnlyArray<?{|
       +id: string,
+      +key: string,
       +name: ?string,
       +imageCover: ?{|
         +blurhash: string
@@ -22,16 +23,17 @@ export type posQueryResponse = {|
     |}>
   |}
 |};
-export type posQuery = {|
-  variables: posQueryVariables,
-  response: posQueryResponse,
+export type ProductsGridPosQuery = {|
+  variables: ProductsGridPosQueryVariables,
+  response: ProductsGridPosQueryResponse,
 |};
 
 /*
-query posQuery {
+query ProductsGridPosQuery {
   pos {
     listPublishedProducts {
       id
+      key
       name
       imageCover {
         blurhash
@@ -68,6 +70,13 @@ var v0 = [
             "args": null,
             "kind": "ScalarField",
             "name": "id",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "key",
             "storageKey": null
           },
           {
@@ -132,7 +141,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "posQuery",
+    "name": "ProductsGridPosQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -141,19 +150,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "posQuery",
+    "name": "ProductsGridPosQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "ea184e07c34dd6ae3464c310ab2460d1",
+    "cacheID": "29ffc4f5814ef1a73c470c52ab22e0ee",
     "id": null,
     "metadata": {},
-    "name": "posQuery",
+    "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query posQuery {\n  pos {\n    listPublishedProducts {\n      id\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery {\n  pos {\n    listPublishedProducts {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'c3b2ff52ad35b0ac050322648aacea98';
+(node: any).hash = 'ff4bc6edc4f2de771510da450c658637';
 export default node;

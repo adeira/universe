@@ -20,8 +20,8 @@ export default function Navigation(): React.Node {
         <fbt desc="navigation link to users">Users</fbt>
       </Link>
 
-      <Link href="/pos" xstyle={styles.link} xstyleActive={styles.linkActive}>
-        <fbt desc="navigation link to point of sales">Open POS ↝</fbt>
+      <Link href="/pos" target="_blank" xstyle={styles.link} xstyleActive={styles.linkActive}>
+        <fbt desc="navigation link to point of sales">Open POS</fbt>
       </Link>
 
       <div className={styles('spacing')} />

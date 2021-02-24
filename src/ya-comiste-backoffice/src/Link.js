@@ -10,6 +10,7 @@ type Props = {|
   +children: React.Node,
   +xstyle?: AllCSSProperties,
   +xstyleActive?: AllCSSProperties,
+  +target?: '_blank',
 |};
 
 export default function Link(props: Props): React.Node {
@@ -25,7 +26,10 @@ export default function Link(props: Props): React.Node {
   return (
     <NextLink href={props.href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a className={sx(styles.default, props.xstyle, isActive && props.xstyleActive)}>
+      <a
+        className={sx(styles.default, props.xstyle, isActive && props.xstyleActive)}
+        target={props.target ?? '_self'}
+      >
         {props.children}
       </a>
     </NextLink>
