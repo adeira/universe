@@ -86,26 +86,54 @@
   },
   {
    "hashToText": {
-    "TKgcCR3fzwZPAVS/D5xT/g==": "Open POS ↝"
+    "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 24,
    "col_beg": 8,
    "line_end": 24,
-   "col_end": 70,
+   "col_end": 68,
    "desc": "navigation link to point of sales",
    "project": "",
    "type": "text",
-   "jsfbt": "Open POS ↝"
+   "jsfbt": "Open POS"
+  },
+  {
+   "hashToText": {
+    "2tRuKypPdC4cVimxRa+TiA==": "Selected {totalSelectedItems} items for {totalPrice} MXN"
+   },
+   "filepath": "src/pos/ProductsSelected.js",
+   "line_beg": 21,
+   "col_beg": 9,
+   "line_end": 27,
+   "col_end": 9,
+   "desc": "summary of selected items in POS",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Selected {totalSelectedItems} items for {totalPrice} MXN"
+  },
+  {
+   "hashToText": {
+    "PC14QKnL5FhvZY6grvaMWA==": "Checkout"
+   },
+   "filepath": "src/pos/ProductsSelected.js",
+   "line_beg": 31,
+   "col_beg": 10,
+   "line_end": 31,
+   "col_end": 58,
+   "desc": "checkout button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Checkout"
   },
   {
    "hashToText": {
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 99,
+   "line_beg": 101,
    "col_beg": 19,
-   "line_end": 102,
+   "line_end": 104,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -117,9 +145,9 @@
     "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
    },
    "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 112,
+   "line_beg": 114,
    "col_beg": 8,
-   "line_end": 112,
+   "line_end": 114,
    "col_end": 86,
    "desc": "create product form submit button title",
    "project": "",
@@ -187,9 +215,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 30,
+   "line_beg": 34,
    "col_beg": 25,
-   "line_end": 30,
+   "line_end": 34,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",
@@ -341,9 +369,9 @@
     "N4YZT+GlkQir3UlP1/V2Og==": "Edit product"
    },
    "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 89,
+   "line_beg": 93,
    "col_beg": 16,
-   "line_end": 89,
+   "line_end": 93,
    "col_end": 72,
    "desc": "edit product page heading",
    "project": "",
@@ -355,9 +383,9 @@
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
    "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 95,
+   "line_beg": 99,
    "col_beg": 23,
-   "line_end": 95,
+   "line_end": 99,
    "col_end": 97,
    "desc": "go back to products navigation button",
    "project": "",
@@ -369,9 +397,9 @@
     "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
    },
    "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 100,
+   "line_beg": 104,
    "col_beg": 18,
-   "line_end": 102,
+   "line_end": 106,
    "col_end": 24,
    "desc": "delete product confirmation message",
    "project": "",
@@ -383,9 +411,9 @@
     "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
    },
    "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 104,
+   "line_beg": 108,
    "col_beg": 23,
-   "line_end": 104,
+   "line_end": 108,
    "col_end": 88,
    "desc": "delete product navigation button",
    "project": "",
