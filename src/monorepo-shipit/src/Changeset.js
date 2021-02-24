@@ -19,12 +19,12 @@ opaque type ChangesetData = {|
 |};
 
 export default class Changeset {
-  id: string;
-  timestamp: string;
-  author: string;
-  subject: string;
-  description: string;
-  diffs: Set<Diff>;
+  declare id: string;
+  declare timestamp: string;
+  declare author: string;
+  declare subject: string;
+  declare description: string;
+  declare diffs: Set<Diff>;
   debugMessages: Array<string> = [];
 
   isValid(): boolean {
