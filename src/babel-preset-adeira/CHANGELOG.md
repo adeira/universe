@@ -1,5 +1,27 @@
 # Unreleased
 
+Breaking changes ahead!
+
+- Enabled `allowDeclareFields` options for `@babel/plugin-transform-flow-strip-types`. This is the default in Babel 8. You should migrate all type only fields to use `declare` syntax like so:
+
+  ```js
+  class C {
+    declare foo: string;
+    bar: string;
+  }
+
+  // becomes
+  class C {
+    bar;
+  }
+  ```
+
+  For more information visit the following links:
+
+  - https://babeljs.io/docs/en/babel-plugin-transform-flow-strip-types#allowdeclarefields
+  - https://github.com/babel/babel/pull/11178
+  - https://github.com/facebook/flow/commit/11b7adbf85ea237cfc01d1b8dc6f6dcdbc299157
+
 # 3.0.0
 
 Support for Node.js 12 has been removed. This package might continue working on older Node.js versions, however, it's highly recommended upgrading to Node.js version 14 or newer. For more details, see: https://nodejs.org/en/about/releases/, or discuss here: https://github.com/adeira/universe/discussions/1588
