@@ -21,21 +21,23 @@ export default function CreateProductForm(): Node {
       $translations: [ProductMultilingualInputTranslations!]!
       $visibility: [ProductMultilingualInputVisibility!]!
     ) {
-      result: productCreate(
-        productMultilingualInput: {
-          images: $productImagesNames
-          price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
-          translations: $translations
-          visibility: $visibility
-        }
-      ) {
-        ... on Product {
-          __typename
-          name
-        }
-        ... on ProductError {
-          __typename
-          message
+      commerce {
+        result: productCreate(
+          productMultilingualInput: {
+            images: $productImagesNames
+            price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
+            translations: $translations
+            visibility: $visibility
+          }
+        ) {
+          ... on Product {
+            __typename
+            name
+          }
+          ... on ProductError {
+            __typename
+            message
+          }
         }
       }
     }
@@ -76,7 +78,7 @@ export default function CreateProductForm(): Node {
         ],
         visibility: values.visibility,
       },
-      onCompleted: ({ result }) => {
+      onCompleted: ({ commerce: { result } }) => {
         setSubmitting(false);
         if (result.__typename === 'ProductError') {
           setStatusBar({ message: result.message, type: 'ERROR' });
@@ -108,6 +110,9 @@ export default function CreateProductForm(): Node {
 
   return (
     <ProductForm
+      submitButtonTitle={
+        <fbt desc="create product form submit button title">Create a new product</fbt>
+      }
       initialValues={formInitialValues}
       onUploadablesChange={(files) => setFiles(files)}
       onSubmit={handleFormSubmit}

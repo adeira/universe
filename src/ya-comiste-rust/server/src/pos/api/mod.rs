@@ -4,10 +4,10 @@ use crate::commerce::api::{
 };
 use crate::graphql_context::Context;
 
-pub(crate) struct POS;
+pub(crate) struct POSQuery;
 
 #[juniper::graphql_object(context = Context)]
-impl POS {
+impl POSQuery {
     /// Lists published products for POS. Requires admin permissions so it should be used only in
     /// POS after logging in.
     async fn list_published_products(context: &Context) -> Option<Vec<Option<Product>>> {

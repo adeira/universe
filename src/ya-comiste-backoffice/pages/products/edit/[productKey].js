@@ -21,13 +21,15 @@ export default function ProductsEditPage(): React.Node {
   const [deleteProductMutation] = useMutation(
     graphql`
       mutation ProductKeyDeleteMutation($productKey: ID!) {
-        productOrError: productDelete(productKey: $productKey) {
-          ... on Product {
-            __typename
-          }
-          ... on ProductError {
-            __typename
-            message
+        commerce {
+          productOrError: productDelete(productKey: $productKey) {
+            ... on Product {
+              __typename
+            }
+            ... on ProductError {
+              __typename
+              message
+            }
           }
         }
       }
@@ -50,7 +52,7 @@ export default function ProductsEditPage(): React.Node {
           type: 'ERROR',
         });
       },
-      onCompleted: ({ productOrError }) => {
+      onCompleted: ({ commerce: { productOrError } }) => {
         if (productOrError.__typename === 'Product') {
           setStatusBar({
             message: 'Product successfully deleted. ✅',
@@ -75,23 +77,29 @@ export default function ProductsEditPage(): React.Node {
       }}
       query={graphql`
         query ProductKeyGetQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
-          product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-            key
-            ...EditProductFormFragment
+          commerce {
+            product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+              key
+              ...EditProductFormFragment
+            }
           }
         }
       `}
-      onResponse={(relayProps) => (
+      onResponse={({ commerce }) => (
         <>
           <LayoutHeading
-            heading={<Heading>Edit product {productKey}</Heading>}
+            heading={
+              <Heading>
+                <fbt desc="edit product page heading">Edit product</fbt>
+              </Heading>
+            }
             links={[
               {
                 href: '/products',
                 title: <fbt desc="go back to products navigation button">Products inventory</fbt>,
               },
               {
-                onClick: () => handleDeleteProduct(relayProps.product.key),
+                onClick: () => handleDeleteProduct(commerce.product.key),
                 confirmMessage: (
                   <fbt desc="delete product confirmation message">
                     Are you sure you want to delete the product?
@@ -102,7 +110,7 @@ export default function ProductsEditPage(): React.Node {
               },
             ]}
           />
-          <EditProductForm product={relayProps.product} />
+          <EditProductForm product={commerce.product} />
         </>
       )}
     />

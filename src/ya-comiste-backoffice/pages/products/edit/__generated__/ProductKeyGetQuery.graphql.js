@@ -12,9 +12,11 @@ export type ProductKeyGetQueryVariables = {|
   productKey: string,
 |};
 export type ProductKeyGetQueryResponse = {|
-  +product: {|
-    +key: string,
-    +$fragmentRefs: EditProductFormFragment$ref,
+  +commerce: {|
+    +product: {|
+      +key: string,
+      +$fragmentRefs: EditProductFormFragment$ref,
+    |}
   |}
 |};
 export type ProductKeyGetQuery = {|
@@ -27,17 +29,21 @@ query ProductKeyGetQuery(
   $clientLocale: SupportedLocale!
   $productKey: ID!
 ) {
-  product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-    key
-    ...EditProductFormFragment
-    id
+  commerce {
+    product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+      key
+      ...EditProductFormFragment
+      id
+    }
   }
 }
 
 fragment EditProductFormFragment on Product {
+  revision
   price {
     unitAmount
   }
+  visibility
 }
 */
 
@@ -81,18 +87,29 @@ return {
     "name": "ProductKeyGetQuery",
     "selections": [
       {
-        "alias": "product",
-        "args": (v1/*: any*/),
-        "concreteType": "Product",
+        "alias": null,
+        "args": null,
+        "concreteType": "CommerceQuery",
         "kind": "LinkedField",
-        "name": "getProductByKey",
+        "name": "commerce",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           {
-            "args": null,
-            "kind": "FragmentSpread",
-            "name": "EditProductFormFragment"
+            "alias": "product",
+            "args": (v1/*: any*/),
+            "concreteType": "Product",
+            "kind": "LinkedField",
+            "name": "getProductByKey",
+            "plural": false,
+            "selections": [
+              (v2/*: any*/),
+              {
+                "args": null,
+                "kind": "FragmentSpread",
+                "name": "EditProductFormFragment"
+              }
+            ],
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -108,37 +125,62 @@ return {
     "name": "ProductKeyGetQuery",
     "selections": [
       {
-        "alias": "product",
-        "args": (v1/*: any*/),
-        "concreteType": "Product",
+        "alias": null,
+        "args": null,
+        "concreteType": "CommerceQuery",
         "kind": "LinkedField",
-        "name": "getProductByKey",
+        "name": "commerce",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
           {
-            "alias": null,
-            "args": null,
-            "concreteType": "ProductPrice",
+            "alias": "product",
+            "args": (v1/*: any*/),
+            "concreteType": "Product",
             "kind": "LinkedField",
-            "name": "price",
+            "name": "getProductByKey",
             "plural": false,
             "selections": [
+              (v2/*: any*/),
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "unitAmount",
+                "name": "revision",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "ProductPrice",
+                "kind": "LinkedField",
+                "name": "price",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "unitAmount",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "visibility",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
                 "storageKey": null
               }
             ],
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
             "storageKey": null
           }
         ],
@@ -147,15 +189,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "430a654f4d6e6447d930d341c8bc8949",
+    "cacheID": "4b45ec183b261fd0dc9bd2ea05e83c34",
     "id": null,
     "metadata": {},
     "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n    key\n    ...EditProductFormFragment\n    id\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  price {\n    unitAmount\n  }\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'e8a7dc6c2d97aaee20212a3c200245ad';
+(node: any).hash = '5dfda432bc7910d7228feef5965298a4';
 export default node;

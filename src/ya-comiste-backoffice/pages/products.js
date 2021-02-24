@@ -33,16 +33,18 @@ export default function ProductsPage(): React.Node {
       variables={{}}
       query={graphql`
         query productsQuery {
-          searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
-            id
-            key
-            name
-            imageCover {
-              blurhash
-            }
-            price {
-              unitAmount
-              unitAmountCurrency
+          commerce {
+            searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+              id
+              key
+              name
+              imageCover {
+                blurhash
+              }
+              price {
+                unitAmount
+                unitAmountCurrency
+              }
             }
           }
         }
@@ -59,7 +61,7 @@ export default function ProductsPage(): React.Node {
           </>
         );
       }}
-      onResponse={({ searchAllProducts: products }) => {
+      onResponse={({ commerce: { searchAllProducts: products } }) => {
         return (
           <>
             {CommonHeader}
