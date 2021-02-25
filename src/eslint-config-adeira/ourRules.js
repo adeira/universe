@@ -289,7 +289,6 @@ module.exports = ({
       Function: true, // (...args: $ReadOnlyArray<any>) => any   -OR-   { [[call]]: any, ... }
     },
   ],
-  'flowtype/object-type-curly-spacing': OFF,
   'flowtype/require-compound-type-alias': OFF,
   'flowtype/require-exact-type': OFF,
   'flowtype/require-indexer-name': OFF,
