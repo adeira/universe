@@ -3,39 +3,21 @@
 import { fbt } from 'fbt';
 import * as Yup from 'yup';
 
+/**
+ * To simplify things, product must have filled names in all languages and it must have a price.
+ * Rest of the fields is optional but the product cannot be activated before all the fields are
+ * filled.
+ */
 export default function createProductFormSchema(): $FlowFixMe {
-  Yup.addMethod(Yup.string, 'requiredIf', function (fieldName, message) {
-    return this.test('requiredIf', message, function (value, context) {
-      const { path, createError, parent } = context;
-      const anyHasValue = parent[fieldName] != null && parent[fieldName] !== '';
-
-      // returns `CreateError` current value is empty and no value is found
-      // returns `false` if current value is not empty and one other field is not empty.
-      return !value && !anyHasValue ? createError({ path, message }) : true;
-    });
-  });
-
   return Yup.object().shape({
-    name_en: Yup.string()
-      .nullable()
-      // $FlowExpectedError[prop-missing] custom method
-      .requiredIf(
-        'name_es',
-        fbt(
-          'At least one product name version (english or spanish) is required',
-          'EN name form field validation message',
-        ),
-      ),
-    name_es: Yup.string()
-      .nullable()
-      // $FlowExpectedError[prop-missing] custom method
-      .requiredIf(
-        'name_en',
-        fbt(
-          'At least one product name version (english or spanish) is required',
-          'ES name form field validation message',
-        ),
-      ),
+    name_en: Yup.string().required(
+      // $FlowExpectedError[incompatible-call] YUP expects string and not FBTString
+      fbt('English product name version is required', 'english name form field validation message'),
+    ),
+    name_es: Yup.string().required(
+      // $FlowExpectedError[incompatible-call] YUP expects string and not FBTString
+      fbt('Spanish product name version is required', 'spanish name form field validation message'),
+    ),
     description_en: Yup.string().nullable(),
     description_es: Yup.string().nullable(),
     price: Yup.number()

@@ -156,40 +156,40 @@
   },
   {
    "hashToText": {
-    "c0PkRJ4iPzn52mQA9ajdTQ==": "At least one product name version (english or spanish) is required"
+    "PuBcEtz2gVA/g2IgDKLtDg==": "English product name version is required"
    },
    "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 24,
-   "col_beg": 8,
-   "line_end": 27,
-   "col_end": 9,
-   "desc": "EN name form field validation message",
+   "line_beg": 15,
+   "col_beg": 6,
+   "line_end": 15,
+   "col_end": 99,
+   "desc": "english name form field validation message",
    "project": "",
    "type": "text",
-   "jsfbt": "At least one product name version (english or spanish) is required"
+   "jsfbt": "English product name version is required"
   },
   {
    "hashToText": {
-    "bWVvNWweH2Ue7yzho+olWw==": "At least one product name version (english or spanish) is required"
+    "KEevPPim20vMq3ey4NmXcQ==": "Spanish product name version is required"
    },
    "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 34,
-   "col_beg": 8,
-   "line_end": 37,
-   "col_end": 9,
-   "desc": "ES name form field validation message",
+   "line_beg": 19,
+   "col_beg": 6,
+   "line_end": 19,
+   "col_end": 99,
+   "desc": "spanish name form field validation message",
    "project": "",
    "type": "text",
-   "jsfbt": "At least one product name version (english or spanish) is required"
+   "jsfbt": "Spanish product name version is required"
   },
   {
    "hashToText": {
     "hG18c6F/tkr5u5MuaDp4ug==": "Product price is a required field"
    },
    "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 44,
+   "line_beg": 26,
    "col_beg": 16,
-   "line_end": 44,
+   "line_end": 26,
    "col_end": 95,
    "desc": "price form field validation message",
    "project": "",
@@ -201,9 +201,9 @@
     "yzI38uykFY/ub9AvbwWW7g==": "Product price must be a positive number"
    },
    "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 47,
+   "line_beg": 29,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 29,
    "col_end": 93,
    "desc": "price form field validation message",
    "project": "",
@@ -215,9 +215,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 34,
+   "line_beg": 38,
    "col_beg": 25,
-   "line_end": 34,
+   "line_end": 38,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",

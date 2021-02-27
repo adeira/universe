@@ -9,7 +9,7 @@ export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future adde
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
   locale: SupportedLocale,
-  name?: ?string,
+  name: string,
   description?: ?string,
 |};
 export type CreateProductFormMutationVariables = {|
@@ -22,7 +22,7 @@ export type CreateProductFormMutationResponse = {|
   +commerce: {|
     +result: {|
       +__typename: "Product",
-      +name: ?string,
+      +name: string,
     |} | {|
       +__typename: "ProductError",
       +message: string,
