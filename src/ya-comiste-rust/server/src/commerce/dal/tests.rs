@@ -1,5 +1,8 @@
 use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
-use crate::commerce::dal::products::{create_product, delete_product, get_product_by_key};
+use crate::commerce::api::PriceSortDirection;
+use crate::commerce::dal::products::{
+    create_product, delete_product, get_product_by_key, search_products,
+};
 use crate::commerce::model::products::{
     ProductMultilingualInput, ProductMultilingualInputTranslations, SupportedLocale,
 };
@@ -16,12 +19,12 @@ async fn create_product_english_to_english_test() {
         &ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
-                name: Some("Product name in english".to_string()),
+                name: "Product name in english".to_string(),
                 description: Some("Product description in english".to_string()),
             }],
             ..Default::default()
         },
-        &vec![],
+        &[],
     )
     .await
     .unwrap();
@@ -35,51 +38,7 @@ async fn create_product_english_to_english_test() {
     )
     .await
     .unwrap();
-    assert_eq!(
-        found_product.name(),
-        Some("Product name in english".to_string())
-    );
-
-    cleanup_test_database(&db_name).await;
-}
-
-#[ignore]
-#[tokio::test]
-async fn create_product_spanish_to_english_test() {
-    let db_name = "create_product_spanish_to_english_test";
-    let pool = prepare_empty_test_database(&db_name).await;
-
-    // 1) create a product with spanish name and description
-    let created_product = create_product(
-        &pool,
-        &ProductMultilingualInput {
-            translations: vec![ProductMultilingualInputTranslations {
-                locale: SupportedLocale::EsMX,
-                name: Some("Product name in SPANISH".to_string()),
-                description: Some("Product description in SPANISH".to_string()),
-            }],
-            ..Default::default()
-        },
-        &vec![],
-    )
-    .await
-    .unwrap();
-
-    // 2) try to find the newly created product - please note that we are trying to fetch the
-    //    english version even though it's not available and the result should fallback to the
-    //    first available language which is spanish in this case
-    let found_product = get_product_by_key(
-        &pool,
-        &SupportedLocale::EnUS,
-        &created_product.key(),
-        &false, // the product should be inactive at this point (until manually activated)
-    )
-    .await
-    .unwrap();
-    assert_eq!(
-        found_product.name(),
-        Some("Product name in SPANISH".to_string())
-    );
+    assert_eq!(found_product.name(), "Product name in english".to_string());
 
     cleanup_test_database(&db_name).await;
 }
@@ -97,18 +56,18 @@ async fn create_product_all_languages_test() {
             translations: vec![
                 ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EnUS,
-                    name: Some("Product name in english".to_string()),
+                    name: "Product name in english".to_string(),
                     description: Some("Product description in english".to_string()),
                 },
                 ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EsMX,
-                    name: Some("Product name in SPANISH".to_string()),
+                    name: "Product name in SPANISH".to_string(),
                     description: Some("Product description in SPANISH".to_string()),
                 },
             ],
             ..Default::default()
         },
-        &vec![],
+        &[],
     )
     .await
     .unwrap();
@@ -124,7 +83,7 @@ async fn create_product_all_languages_test() {
     .unwrap();
     assert_eq!(
         found_en_product.name(),
-        Some("Product name in english".to_string())
+        "Product name in english".to_string()
     );
 
     let found_es_product = get_product_by_key(
@@ -137,7 +96,7 @@ async fn create_product_all_languages_test() {
     .unwrap();
     assert_eq!(
         found_es_product.name(),
-        Some("Product name in SPANISH".to_string())
+        "Product name in SPANISH".to_string()
     );
 
     cleanup_test_database(&db_name).await;
@@ -145,61 +104,88 @@ async fn create_product_all_languages_test() {
 
 #[ignore]
 #[tokio::test]
-async fn create_product_mixed_languages_test() {
-    let db_name = "create_product_mixed_languages_test";
+async fn search_products_test() {
+    let db_name = "search_products_test";
     let pool = prepare_empty_test_database(&db_name).await;
 
-    // 1) create a product with english name AND spanish description (notice how it's mixed)
-    let created_product = create_product(
+    // 1) create a product to be later searched
+    create_product(
         &pool,
         &ProductMultilingualInput {
-            translations: vec![
-                ProductMultilingualInputTranslations {
-                    locale: SupportedLocale::EnUS,
-                    name: Some("Product name in english".to_string()),
-                    description: None,
-                },
-                ProductMultilingualInputTranslations {
-                    locale: SupportedLocale::EsMX,
-                    name: None,
-                    description: Some("Product description in SPANISH".to_string()),
-                },
-            ],
+            translations: vec![ProductMultilingualInputTranslations {
+                locale: SupportedLocale::EnUS,
+                name: "Product name in english".to_string(),
+                description: Some("Product description in english".to_string()),
+            }],
             ..Default::default()
         },
-        &vec![],
+        &[],
     )
     .await
     .unwrap();
 
-    // 2) try to find the newly created product in both client locales
-    let found_en_product = get_product_by_key(
+    // TODO: This is super ugly (potentially flaky) but we need to wait for the search view
+    //       to be ready. How to do it better?
+    let five_seconds = std::time::Duration::from_secs(5);
+    std::thread::sleep(five_seconds);
+
+    // 2) try to search all products
+    let searched_products = search_products(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.key(),
-        &false, // the product should be inactive at this point (until manually activated)
+        &PriceSortDirection::LowToHigh,
+        &None, // search term (return all)
+        &true, // search all (even inactive ones)
+        &None, // visibility (everywhere)
     )
     .await
     .unwrap();
-    assert_eq!(
-        found_en_product.name(),
-        Some("Product name in english".to_string())
-    );
-    assert_eq!(found_en_product.description(), None);
 
-    let found_es_product = get_product_by_key(
+    insta::assert_debug_snapshot!(searched_products);
+
+    cleanup_test_database(&db_name).await;
+}
+
+#[ignore]
+#[tokio::test]
+async fn search_products_fulltext_test() {
+    let db_name = "search_products_fulltext_test";
+    let pool = prepare_empty_test_database(&db_name).await;
+
+    // 1) create a product to be later searched
+    create_product(
         &pool,
-        &SupportedLocale::EsMX,
-        &created_product.key(),
-        &false, // the product should be inactive at this point (until manually activated)
+        &ProductMultilingualInput {
+            translations: vec![ProductMultilingualInputTranslations {
+                locale: SupportedLocale::EnUS,
+                name: "Product name in english".to_string(),
+                description: Some("Product description in english".to_string()),
+            }],
+            ..Default::default()
+        },
+        &[],
     )
     .await
     .unwrap();
-    assert_eq!(
-        found_es_product.name(),
-        Some("Product name in english".to_string()) // we fall back to EN because ES name is missing
-    );
-    assert_eq!(found_es_product.description(), None);
+
+    // TODO: This is super ugly (potentially flaky) but we need to wait for the search view
+    //       to be ready. How to do it better?
+    let five_seconds = std::time::Duration::from_secs(5);
+    std::thread::sleep(five_seconds);
+
+    // 2) try to search the product
+    let searched_products = search_products(
+        &pool,
+        &SupportedLocale::EnUS,
+        &PriceSortDirection::LowToHigh,
+        &Some(String::from("in english")), // search term
+        &true,                             // search all (even inactive ones)
+        &None,                             // visibility (everywhere)
+    )
+    .await
+    .unwrap();
+
+    insta::assert_debug_snapshot!(searched_products);
 
     cleanup_test_database(&db_name).await;
 }
@@ -216,12 +202,12 @@ async fn delete_product_test() {
         &ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
-                name: Some("Product name in english".to_string()),
+                name: "Product name in english".to_string(),
                 description: Some("Product description in english".to_string()),
             }],
             ..Default::default()
         },
-        &vec![],
+        &[],
     )
     .await
     .unwrap();
@@ -230,7 +216,7 @@ async fn delete_product_test() {
     let deleted_product = delete_product(&pool, &created_product.key()).await.unwrap();
     assert_eq!(
         deleted_product.name(),
-        Some("Product name in english".to_string())
+        "Product name in english".to_string()
     );
 
     cleanup_test_database(&db_name).await;

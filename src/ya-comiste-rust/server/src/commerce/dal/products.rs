@@ -17,7 +17,6 @@ pub(in crate::commerce) async fn create_product(
 
     // TODO: dynamic `unit_label`
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-
     let insert_aql = arangors::AqlQuery::builder()
         .query(
             r#"
@@ -34,28 +33,21 @@ pub(in crate::commerce) async fn create_product(
                 unit_amount: @product_price_unit_amount,
                 unit_amount_currency: "MXN",
               },
-              translations: MERGE(
-                FOR t IN @translations
-                  RETURN {
-                    [t.lang]: {
-                      name: t.name,
-                      description: t.description
-                    }
-                  }
-              )
+              translations: @translations
             } INTO products
             LET product = NEW
 
-            LET translations = product.translations[@eshop_locale].name != null
-              ? product.translations[@eshop_locale]
-              : FIRST(
-                  FOR fallback_locale IN ATTRIBUTES(product.translations)
-                  FILTER product.translations[fallback_locale].name != null
-                  RETURN product.translations[fallback_locale]
-                )
+            LET t = FIRST(
+              FOR t IN product.translations
+                FILTER t.name != null AND t.locale == @eshop_locale
+                RETURN t
+            )
 
-            LET product_with_unit_label = MERGE(product, { unit_label: unit_label_translated } )
-            RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
+            RETURN MERGE(
+              product,
+              { unit_label: unit_label_translated },
+              { name: t.name, description: t.description }
+            )
             "#,
         )
         .bind_var("eshop_locale", String::from("en_US")) // TODO
@@ -70,23 +62,7 @@ pub(in crate::commerce) async fn create_product(
         )
         .bind_var(
             "translations",
-            product_multilingual_input
-                .translations
-                .iter()
-                .map(|translation| {
-                    json!({
-                        "lang": translation.locale,
-                        "name": match &translation.name {
-                            Some(name) => json!(name),
-                            None => json!(null),
-                        },
-                        "description": match &translation.description {
-                            Some(description) => json!(description),
-                            None => json!(null),
-                        },
-                    })
-                })
-                .collect::<Vec<_>>(),
+            json!(product_multilingual_input.translations),
         );
 
     let product_vector = db.aql_query::<Product>(insert_aql.build()).await;
@@ -101,9 +77,7 @@ pub(in crate::commerce) async fn create_product(
     }
 }
 
-/// Returns a single product (or error). It tries to return the translations according to the shop
-/// locale, however, it fallbacks to the first available translation if it cannot find the correct
-/// translation (based on the product name).
+/// Returns a single product (or error).
 pub(in crate::commerce) async fn get_product_by_key(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
@@ -118,18 +92,20 @@ pub(in crate::commerce) async fn get_product_by_key(
             LET product = DOCUMENT(products, @product_key)
             FILTER product.active == @product_active
 
-            LET translations = product.translations[@eshop_locale].name != null
-              ? product.translations[@eshop_locale]
-              : FIRST(
-                  FOR fallback_locale IN ATTRIBUTES(product.translations)
-                  FILTER product.translations[fallback_locale].name != null
-                  RETURN product.translations[fallback_locale]
-                )
+            LET t = FIRST(
+              FOR t IN product.translations
+                FILTER t.name != null AND t.locale == @eshop_locale
+                RETURN t
+            )
 
-            LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] } )
-            RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
+            RETURN MERGE(
+              product,
+              { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+              { name: t.name, description: t.description }
+            )
             "#,
-        ).bind_var("eshop_locale", format!("{}", client_locale))
+        )
+        .bind_var("eshop_locale", format!("{}", client_locale))
         .bind_var("product_key", product_key)
         .bind_var("product_active", json!(product_active));
 
@@ -147,15 +123,10 @@ pub(in crate::commerce) async fn get_product_by_key(
 }
 
 /// Performs search of products based on the specified criteria and returns products with merged
-/// translations based on the eshop language. It tries to find the right translation, but if it
-/// cannot, it returns the first available translation. The thinking is that we should always have
-/// the correct translations available otherwise the product should not be activated.
+/// translations based on the eshop language.
 ///
 /// Optionally, you can specify a search term. In this case, it performs the same search except it
-/// performs additional fulltext search and additionally sorts the results by relevance. Please
-/// note that we are trying to search across all available translations but still returning the
-/// translated object (it might find a match in EN description but return translated description
-/// in Spanish anyway - depending on the eshop language).
+/// performs additional fulltext search and additionally sorts the results by relevance.
 ///
 /// TODO(004) - integration tests
 pub(in crate::commerce) async fn search_products(
@@ -173,27 +144,27 @@ pub(in crate::commerce) async fn search_products(
     };
 
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let search_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    let search_aql = arangors::AqlQuery::builder().query(
+        r#"
             FOR product IN search_products
               LIMIT 0, 24
               FILTER @search_all == true ? true : (product.active IN [true])
               FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT product.price.unit_amount @price_sort_direction
 
-              LET translations = product.translations[@eshop_locale].name != null
-                ? product.translations[@eshop_locale]
-                : FIRST(
-                    FOR fallback_locale IN ATTRIBUTES(product.translations)
-                    FILTER product.translations[fallback_locale].name != null
-                    RETURN product.translations[fallback_locale]
-                  )
+              LET t = FIRST(
+                FOR t IN product.translations
+                  FILTER t.name != null AND t.locale == @eshop_locale
+                  RETURN t
+              )
 
-              LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] } )
-              RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
+              RETURN MERGE(
+                product,
+                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                { name: t.name, description: t.description }
+              )
             "#,
-        );
+    );
 
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     // This should be almost identical with the previous one except it uses fulltext search across
@@ -201,26 +172,26 @@ pub(in crate::commerce) async fn search_products(
     let search_fulltext_aql = arangors::AqlQuery::builder()
         .query(
             r#"
-            FOR supported_lang IN ["es_MX", "en_US"]
             FOR product IN search_products
-              SEARCH BOOST(NGRAM_MATCH(product.translations[supported_lang].name, @search_term, 0.7, "bigram"), 1.1)
-                  OR BOOST(NGRAM_MATCH(product.translations[supported_lang].description, @search_term, 0.7, "bigram"), 1.0)
+              SEARCH BOOST(NGRAM_MATCH(product.translations.name, @search_term, 0.7, "bigram"), 1.1)
+                  OR BOOST(NGRAM_MATCH(product.translations.description, @search_term, 0.7, "bigram"), 1.0)
               LIMIT 0, 24
               FILTER @search_all == true ? true : (product.active IN [true])
               FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT BM25(product) DESC
               SORT product.price.unit_amount @price_sort_direction
 
-              LET translations = product.translations[@eshop_locale].name != null
-                ? product.translations[@eshop_locale]
-                : FIRST(
-                    FOR fallback_locale IN ATTRIBUTES(product.translations)
-                    FILTER product.translations[fallback_locale].name != null
-                    RETURN product.translations[fallback_locale]
-                  )
+              LET t = FIRST(
+                FOR t IN product.translations
+                  FILTER t.name != null AND t.locale == @eshop_locale
+                  RETURN t
+              )
 
-              LET product_with_unit_label = MERGE(product, { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] } )
-              RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
+              RETURN MERGE(
+                product,
+                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                { name: t.name, description: t.description }
+              )
             "#,
         );
 
@@ -270,16 +241,17 @@ pub(in crate::commerce) async fn delete_product(
             LET product = DOCUMENT(products, @product_key)
             REMOVE product IN products
 
-            LET translations = product.translations[@eshop_locale].name != null
-              ? product.translations[@eshop_locale]
-              : FIRST(
-                  FOR fallback_locale IN ATTRIBUTES(product.translations)
-                  FILTER product.translations[fallback_locale].name != null
-                  RETURN product.translations[fallback_locale]
-                )
+            LET t = FIRST(
+              FOR t IN product.translations
+                FILTER t.name != null AND t.locale == @eshop_locale
+                RETURN t
+            )
 
-            LET product_with_unit_label = MERGE(product, { unit_label: unit_label_translated } )
-            RETURN UNSET(MERGE_RECURSIVE(product_with_unit_label, translations), "translations")
+            RETURN MERGE(
+              product,
+              { unit_label: unit_label_translated },
+              { name: t.name, description: t.description }
+            )
             "#,
         )
         .bind_var("eshop_locale", String::from("en_US")) // TODO

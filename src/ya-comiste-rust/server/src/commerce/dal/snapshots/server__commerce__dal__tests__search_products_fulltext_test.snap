@@ -1,0 +1,31 @@
+---
+source: server/src/commerce/dal/tests.rs
+expression: searched_products
+---
+[
+    Some(
+        Product {
+            name: "Product name in english",
+            description: Some(
+                "Product description in english",
+            ),
+            images: [],
+            unit_label: "piece",
+            active: false,
+            visibility: [],
+            price: ProductPrice {
+                unit_amount: 0,
+                unit_amount_currency: MXN,
+            },
+            translations: [
+                ProductMultilingualTranslations {
+                    locale: EnUS,
+                    name: "Product name in english",
+                    description: Some(
+                        "Product description in english",
+                    ),
+                },
+            ],
+        },
+    ),
+]

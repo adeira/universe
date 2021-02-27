@@ -12,7 +12,7 @@ export type productsQueryResponse = {|
     +searchAllProducts: ?$ReadOnlyArray<?{|
       +id: string,
       +key: string,
-      +name: ?string,
+      +name: string,
       +imageCover: ?{|
         +blurhash: string
       |},

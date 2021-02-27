@@ -67,12 +67,12 @@ export default function CreateProductForm(): Node {
         translations: [
           {
             locale: 'en_US',
-            name: values.name_en || null,
+            name: values.name_en,
             description: values.description_en || null,
           },
           {
             locale: 'es_MX',
-            name: values.name_es || null,
+            name: values.name_es,
             description: values.description_es || null,
           },
         ],

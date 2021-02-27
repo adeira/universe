@@ -44,6 +44,11 @@ fragment EditProductFormFragment on Product {
     unitAmount
   }
   visibility
+  translations {
+    locale
+    name
+    description
+  }
 }
 */
 
@@ -176,6 +181,38 @@ return {
               {
                 "alias": null,
                 "args": null,
+                "concreteType": "ProductMultilingualTranslations",
+                "kind": "LinkedField",
+                "name": "translations",
+                "plural": true,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "locale",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "name",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "description",
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
                 "kind": "ScalarField",
                 "name": "id",
                 "storageKey": null
@@ -189,12 +226,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "4b45ec183b261fd0dc9bd2ea05e83c34",
+    "cacheID": "a9d026c6a5b3e060c41541590157fcd7",
     "id": null,
     "metadata": {},
     "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n"
   }
 };
 })();

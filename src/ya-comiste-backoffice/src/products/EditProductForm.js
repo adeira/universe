@@ -14,14 +14,18 @@ type Props = {|
 function EditProductForm(props: Props) {
   const [, setFiles] = useState(undefined);
 
+  // TODO: move to the server (?)
+  const en = props.product?.translations.find((t) => t.locale === 'en_US') ?? {};
+  const es = props.product?.translations.find((t) => t.locale === 'es_MX') ?? {};
+
   const productPrice = props.product?.price.unitAmount;
   const productVisibility = props.product?.visibility ?? [];
 
   const formInitialValues: FormValues = {
-    name_en: '', // TODO
-    name_es: '', // TODO
-    description_en: '', // TODO
-    description_es: '', // TODO
+    name_en: en.name,
+    name_es: es.name,
+    description_en: en.description ?? '',
+    description_es: es.description ?? '',
     price: productPrice != null ? productPrice / 100 : '',
     // $FlowIssue[incompatible-type]: https://github.com/facebook/flow/issues/1414
     visibility: productVisibility,
@@ -50,6 +54,11 @@ export default (createFragmentContainer(EditProductForm, {
         unitAmount
       }
       visibility
+      translations {
+        locale
+        name
+        description
+      }
     }
   `,
 }): FragmentContainerType<Props>);

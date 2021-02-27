@@ -6,6 +6,7 @@
 
 import type { ReaderFragment } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type EditProductFormFragment$ref: FragmentReference;
 declare export opaque type EditProductFormFragment$fragmentType: EditProductFormFragment$ref;
@@ -15,6 +16,11 @@ export type EditProductFormFragment = {|
     +unitAmount: number
   |},
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
+  +translations: $ReadOnlyArray<{|
+    +locale: SupportedLocale,
+    +name: string,
+    +description: ?string,
+  |}>,
   +$refType: EditProductFormFragment$ref,
 |};
 export type EditProductFormFragment$data = EditProductFormFragment;
@@ -62,11 +68,43 @@ const node: ReaderFragment = {
       "kind": "ScalarField",
       "name": "visibility",
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "ProductMultilingualTranslations",
+      "kind": "LinkedField",
+      "name": "translations",
+      "plural": true,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "locale",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "name",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "description",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
     }
   ],
   "type": "Product",
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '9b1bbeeaa7f32755390176edc11223c6';
+(node: any).hash = '71f2cbf738e9f2e50a00f084439fdc12';
 export default node;
