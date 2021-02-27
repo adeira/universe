@@ -1,6 +1,6 @@
 ---
 source: server/src/migrations/v4__create_collection_products.rs
-expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"active\" : false,\n                           \"created\" : \"\", \"updated\" : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           {\n                               \"en_US\" : { \"name\" : \"\", \"description\" : \"\" },\n                               \"es_MX\" : { \"name\" : \"\", \"description\" : \"\" }\n                           }\n                       }))"
+expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"active\" : false,\n                           \"created\" : \"\", \"visibility\" : [], \"updated\" : \"\",\n                           \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            }]\n                       }))"
 ---
 {
   "errors": [
@@ -22,22 +22,22 @@ expression: "schema.validate(&json!({\n                           \"images\" : [
     {
       "code": "min_length",
       "title": "MinLength condition is not met",
-      "path": "/translations/en_US/name"
+      "path": "/translations/0/name"
     },
     {
       "code": "min_length",
       "title": "MinLength condition is not met",
-      "path": "/translations/en_US/description"
+      "path": "/translations/0/description"
     },
     {
       "code": "min_length",
       "title": "MinLength condition is not met",
-      "path": "/translations/es_MX/name"
+      "path": "/translations/1/name"
     },
     {
       "code": "min_length",
       "title": "MinLength condition is not met",
-      "path": "/translations/es_MX/description"
+      "path": "/translations/1/description"
     }
   ],
   "missing": []

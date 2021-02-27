@@ -103,13 +103,16 @@ impl CommerceMutation {
         }
     }
 
-    // TODO: require product `revision` ID!
     async fn product_update(
         context: &Context,
+        product_key: juniper::ID,
+        product_revision: juniper::ID,
         product_multilingual_input: ProductMultilingualInput,
     ) -> ProductOrError {
         match crate::commerce::model::products::update_product(
             &context,
+            &product_key,
+            &product_revision,
             &product_multilingual_input,
         )
         .await

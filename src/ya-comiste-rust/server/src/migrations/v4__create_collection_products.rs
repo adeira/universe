@@ -71,12 +71,13 @@ mod tests {
                     "unit_amount": 42,
                     "unit_amount_currency": "MXN"
                   },
-                  "translations": {
-                    "en_US": {
+                  "translations": [
+                    {
+                      "locale": "en_US",
                       "name": "TKTK",
                       "description": "TKTK"
                     }
-                  }
+                  ]
                 }))
                 .is_valid(),
             true
@@ -94,16 +95,18 @@ mod tests {
             "unit_amount": 42,
             "unit_amount_currency": "MXN"
           },
-          "translations": {
-            "en_US": {
+          "translations": [
+            {
+              "locale": "en_US",
               "name": "",
               "description": ""
             },
-            "es_MX": {
+            {
+              "locale": "es_MX",
               "name": "",
               "description": ""
             }
-          }
+          ]
         })));
 
         // missing fields should be captured:

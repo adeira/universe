@@ -13,13 +13,15 @@ use serde::{Deserialize, Serialize};
 ///
 /// - https://help.shopify.com/en/manual/products/add-update-products
 /// - https://www.arangodb.com/docs/stable/data-modeling-monetary-data-without-precision-loss.html
-#[derive(Clone, Deserialize, Debug)]
+#[derive(Clone, Deserialize)]
 pub struct Product {
     _id: String,
     _rev: String,
     _key: String,
-    name: Option<String>,        // Option: might be missing translation
-    description: Option<String>, // Option: might be missing translation
+    /// Resolved product name (from translations based on the eshop locale).
+    name: String,
+    /// Resolved product description (from translations based on the eshop locale).
+    description: Option<String>,
     images: Vec<Image>,
     unit_label: String,
     /// Product should not be active until it has all the translations, pictures and other
@@ -27,6 +29,23 @@ pub struct Product {
     active: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
     price: ProductPrice,
+    translations: Vec<ProductMultilingualTranslations>,
+}
+
+impl std::fmt::Debug for Product {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // skipping `_id`, `_key` and `_rev` which are not stable
+        f.debug_struct("Product")
+            .field("name", &self.name)
+            .field("description", &self.description)
+            .field("images", &self.images)
+            .field("unit_label", &self.unit_label)
+            .field("active", &self.active)
+            .field("visibility", &self.visibility)
+            .field("price", &self.price)
+            .field("translations", &self.translations)
+            .finish()
+    }
 }
 
 // Methods defined by `juniper::graphql_object` cannot be accessed directly from within the Rust code 🤔
@@ -42,7 +61,7 @@ impl Product {
     }
 
     #[cfg(test)]
-    pub(in crate::commerce) fn name(&self) -> Option<String> {
+    pub(in crate::commerce) fn name(&self) -> String {
         self.name.to_owned()
     }
 
@@ -90,12 +109,12 @@ impl Product {
         juniper::ID::from(self._rev.to_owned())
     }
 
-    /// The product’s name, meant to be displayable to the customer.
-    fn name(&self) -> Option<String> {
+    /// The product's name, meant to be displayable to the customer.
+    fn name(&self) -> String {
         self.name.to_owned()
     }
 
-    /// The product’s description, meant to be displayable to the customer. Use this field to
+    /// The product's description, meant to be displayable to the customer. Use this field to
     /// optionally store a long form explanation of the product being sold for your own rendering
     /// purposes.
     fn description(&self) -> Option<String> {
@@ -126,6 +145,13 @@ impl Product {
 
     fn visibility(&self) -> Vec<ProductMultilingualInputVisibility> {
         self.visibility.to_owned()
+    }
+
+    /// Exposes all available product translations. What is the difference between `translations`
+    /// and `name`/`description`? Name and description are localized based on the eshop locale,
+    /// however, translations are all the available translations ignoring the locale.
+    fn translations(&self) -> Vec<ProductMultilingualTranslations> {
+        self.translations.to_owned()
     }
 }
 
@@ -170,10 +196,17 @@ impl From<ProductImageUploadable> for serde_json::Value {
     }
 }
 
-#[derive(juniper::GraphQLInputObject, Debug)]
+#[derive(juniper::GraphQLInputObject, Debug, Serialize, Clone)]
 pub struct ProductMultilingualInputTranslations {
     pub(in crate::commerce) locale: SupportedLocale,
-    pub(in crate::commerce) name: Option<String>,
+    pub(in crate::commerce) name: String,
+    pub(in crate::commerce) description: Option<String>,
+}
+
+#[derive(juniper::GraphQLObject, Debug, Deserialize, Clone)]
+pub struct ProductMultilingualTranslations {
+    pub(in crate::commerce) locale: SupportedLocale,
+    pub(in crate::commerce) name: String,
     pub(in crate::commerce) description: Option<String>,
 }
 
@@ -206,7 +239,7 @@ impl Default for ProductMultilingualInput {
             },
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
-                name: Some(String::from("EN default name")),
+                name: String::from("EN default name"),
                 description: None,
             }],
             visibility: vec![],
@@ -227,8 +260,8 @@ pub struct ProductPriceInput {
 /// # Validation rules
 ///
 /// 1. There must be at least one translation variant available.
-/// 3. There must be at least one product name somewhere in all the translation variants.
-/// 4. Price cannot be bellow zero (must be positive).
+/// 2. Each translation variant must have a name, description is optional (enforced by the input type).
+/// 3. Price cannot be bellow zero (must be positive).
 fn validate_product_multilingual_input(
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<(), ModelError> {
@@ -238,17 +271,6 @@ fn validate_product_multilingual_input(
     if translations.is_empty() {
         return Err(ModelError::LogicalError(String::from(
             "Product must have at least one translation variant.",
-        )));
-    }
-
-    // At least one name in any translation version must exist.
-    if translations
-        .iter()
-        .find(|&translation| translation.name.is_some())
-        .is_none()
-    {
-        return Err(ModelError::LogicalError(String::from(
-            "Product must have at least one name in any translation version.",
         )));
     }
 
@@ -377,6 +399,8 @@ pub(in crate::commerce) async fn create_product(
 
 pub(in crate::commerce) async fn update_product(
     context: &Context,
+    product_key: &str,
+    product_revision: &str,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Product, ModelError> {
     validate_product_multilingual_input(&product_multilingual_input)?;
@@ -426,31 +450,6 @@ mod tests {
                 .unwrap()
             ),
             "LogicalError(\"Product must have at least one translation variant.\")"
-        );
-    }
-
-    #[tokio::test]
-    async fn create_product_validation_missing_name_test() {
-        let context = Context::create_mock();
-        assert_eq!(
-            format!(
-                "{:?}",
-                create_product(
-                    &context,
-                    &ProductMultilingualInput {
-                        translations: vec![ProductMultilingualInputTranslations {
-                            locale: SupportedLocale::EnUS,
-                            name: None,
-                            description: Some("EN description".to_string())
-                        }],
-                        ..Default::default()
-                    }
-                )
-                .await
-                .err()
-                .unwrap()
-            ),
-            "LogicalError(\"Product must have at least one name in any translation version.\")"
         );
     }
 
