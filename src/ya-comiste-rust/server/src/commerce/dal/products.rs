@@ -82,7 +82,7 @@ pub(in crate::commerce) async fn get_product_by_key(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
     product_key: &str,
-    product_active: &bool,
+    product_active_only: &bool,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
@@ -90,7 +90,7 @@ pub(in crate::commerce) async fn get_product_by_key(
         .query(
             r#"
             LET product = DOCUMENT(products, @product_key)
-            FILTER product.active == @product_active
+            FILTER @product_active_only ? product.active == @product_active_only : true
 
             LET t = FIRST(
               FOR t IN product.translations
@@ -107,7 +107,7 @@ pub(in crate::commerce) async fn get_product_by_key(
         )
         .bind_var("eshop_locale", format!("{}", client_locale))
         .bind_var("product_key", product_key)
-        .bind_var("product_active", json!(product_active));
+        .bind_var("product_active_only", json!(product_active_only));
 
     let product_vector = db.aql_query::<Product>(aql.build()).await;
     match product_vector {

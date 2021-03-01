@@ -78,7 +78,10 @@ export default function ProductsEditPage(): React.Node {
       query={graphql`
         query ProductKeyGetQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
           commerce {
-            product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+            product: getUnpublishedProductByKey(
+              clientLocale: $clientLocale
+              productKey: $productKey
+            ) {
               key
               ...EditProductFormFragment
             }
@@ -97,6 +100,18 @@ export default function ProductsEditPage(): React.Node {
               {
                 href: '/products',
                 title: <fbt desc="go back to products navigation button">Products inventory</fbt>,
+              },
+              {
+                onClick: () => {
+                  // TODO
+                },
+                confirmMessage: (
+                  <fbt desc="publish product button confirmation message">
+                    Are you sure you want to publish this product?
+                  </fbt>
+                ),
+                title: <fbt desc="publish product button title">Publish product (TODO)</fbt>,
+                titleStyle: styles.publish,
               },
               {
                 onClick: () => handleDeleteProduct(commerce.product.key),
@@ -122,6 +137,12 @@ const styles = sx.create({
     'color': 'darkred',
     ':hover': {
       color: 'red',
+    },
+  },
+  publish: {
+    'color': 'green',
+    ':hover': {
+      color: 'limegreen',
     },
   },
 });

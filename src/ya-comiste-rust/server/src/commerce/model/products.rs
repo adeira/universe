@@ -353,8 +353,7 @@ pub(in crate::commerce) async fn search_all_products(
     }
 }
 
-// TODO: rename to "get_active_product_by_key"/"get_activated_product_by_key"?
-pub(in crate::commerce) async fn get_product_by_key(
+pub(in crate::commerce) async fn get_published_product_by_key(
     context: &Context,
     client_locale: &SupportedLocale,
     product_key: &str,
@@ -367,6 +366,28 @@ pub(in crate::commerce) async fn get_product_by_key(
         &true, // product must be active to be publicly available
     )
     .await
+}
+
+pub(in crate::commerce) async fn get_unpublished_product_by_key(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_key: &str,
+) -> Result<Product, ModelError> {
+    // Only ADMIN can do this!
+    match &context.user {
+        User::AdminUser(_) => {
+            crate::commerce::dal::products::get_product_by_key(
+                &context.pool,
+                &client_locale,
+                &product_key,
+                &false, // any product (active on inactive)
+            )
+            .await
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admins can access unpublished products",
+        ))),
+    }
 }
 
 /// Takes care of the business logic and forwards the call lower to the DAL layer when everything
