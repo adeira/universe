@@ -8,7 +8,7 @@
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.13.7",
+    "@babel/runtime": "^7.13.8",
     "fast-levenshtein": "^3.0.0"
   },
   "devDependencies": {
