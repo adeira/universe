@@ -427,7 +427,15 @@ pub(in crate::commerce) async fn update_product(
     validate_product_multilingual_input(&product_multilingual_input)?;
     match &context.user {
         User::AdminUser(_) => {
-            unimplemented!() // TODO
+            // TODO: handle images (see `create_product`)
+            crate::commerce::dal::products::update_product(
+                &context.pool,
+                &product_key,
+                &product_revision,
+                &product_multilingual_input,
+                &[],
+            )
+            .await
         }
         _ => Err(ModelError::PermissionsError(String::from(
             "only admins can update products",

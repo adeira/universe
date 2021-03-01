@@ -20,7 +20,7 @@ export type FormValues = {|
 
 // https://formik.org/docs/api/withFormik#the-formikbag
 type FormikBag = {|
-  +resetForm: () => void,
+  +resetForm: ({| +values: FormValues |} | void) => void,
   +setSubmitting: (boolean) => void,
 |};
 
