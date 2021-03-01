@@ -13,6 +13,7 @@ mod v2__create_document_user_anonymous;
 mod v3__create_document_user_admin;
 mod v4__create_collection_products;
 mod v5__create_view_search_products;
+mod v6__create_collection_tracking;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct MigrationRecord {
@@ -49,6 +50,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v5__create_view_search_products", |db| {
             Box::pin(v5__create_view_search_products::migrate(&db))
+        }),
+        ("v6__create_collection_tracking", |db| {
+            Box::pin(v6__create_collection_tracking::migrate(&db))
         }),
     ];
 

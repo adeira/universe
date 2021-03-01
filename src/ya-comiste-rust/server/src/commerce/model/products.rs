@@ -50,8 +50,7 @@ impl std::fmt::Debug for Product {
 
 // Methods defined by `juniper::graphql_object` cannot be accessed directly from within the Rust code 🤔
 impl Product {
-    #[cfg(test)]
-    pub(in crate::commerce) fn id(&self) -> String {
+    pub(crate) fn id(&self) -> String {
         self._id.to_owned()
     }
 
@@ -359,13 +358,18 @@ pub(in crate::commerce) async fn get_published_product_by_key(
     product_key: &str,
 ) -> Result<Product, ModelError> {
     // Anyone can get the product (it's not limited to admins only).
-    crate::commerce::dal::products::get_product_by_key(
+    let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
         &client_locale,
         &product_key,
         &true, // product must be active to be publicly available
     )
-    .await
+    .await?;
+
+    // Record what product user visited:
+    crate::tracking::user_visited_product(&context.pool, &context.user, &product).await;
+
+    Ok(product)
 }
 
 pub(in crate::commerce) async fn get_unpublished_product_by_key(
