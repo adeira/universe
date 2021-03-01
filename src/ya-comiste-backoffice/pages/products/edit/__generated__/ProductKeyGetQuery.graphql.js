@@ -39,6 +39,7 @@ query ProductKeyGetQuery(
 }
 
 fragment EditProductFormFragment on Product {
+  key
   revision
   price {
     unitAmount
@@ -226,12 +227,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b7609bb527c8e2a5df47f61d65fc3c9e",
+    "cacheID": "70c21e6114d9c2f2aaaba01c82331347",
     "id": null,
     "metadata": {},
     "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n"
   }
 };
 })();

@@ -11,6 +11,7 @@ import type { FragmentReference } from "relay-runtime";
 declare export opaque type EditProductFormFragment$ref: FragmentReference;
 declare export opaque type EditProductFormFragment$fragmentType: EditProductFormFragment$ref;
 export type EditProductFormFragment = {|
+  +key: string,
   +revision: string,
   +price: {|
     +unitAmount: number
@@ -37,6 +38,13 @@ const node: ReaderFragment = {
   "metadata": null,
   "name": "EditProductFormFragment",
   "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "key",
+      "storageKey": null
+    },
     {
       "alias": null,
       "args": null,
@@ -106,5 +114,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '71f2cbf738e9f2e50a00f084439fdc12';
+(node: any).hash = '920d807cf20c6aa26711073307470a9d';
 export default node;
