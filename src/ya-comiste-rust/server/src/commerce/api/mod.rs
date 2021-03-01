@@ -66,12 +66,31 @@ impl CommerceQuery {
         }
     }
 
-    async fn get_product_by_key(
+    /// Returns one publicly available product by its key. Anyone can call this resolver.
+    async fn get_published_product_by_key(
         context: &Context,
         client_locale: SupportedLocale,
         product_key: juniper::ID,
     ) -> FieldResult<Product> {
-        match crate::commerce::model::products::get_product_by_key(
+        match crate::commerce::model::products::get_published_product_by_key(
+            &context,
+            &client_locale,
+            &product_key,
+        )
+        .await
+        {
+            Ok(product) => Ok(product),
+            Err(e) => Err(FieldError::from(e)),
+        }
+    }
+
+    /// Only admins can call this function! It returns published OR unpublished product by its key.
+    async fn get_unpublished_product_by_key(
+        context: &Context,
+        client_locale: SupportedLocale,
+        product_key: juniper::ID,
+    ) -> FieldResult<Product> {
+        match crate::commerce::model::products::get_unpublished_product_by_key(
             &context,
             &client_locale,
             &product_key,
