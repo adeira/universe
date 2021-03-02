@@ -2,9 +2,8 @@
 // @flow
 
 import type { Node } from 'react';
-import type { GraphQLTaggedNode } from '@adeira/relay-runtime';
 
-import { QueryRenderer, graphql, createLocalEnvironment } from '../index';
+import { QueryRenderer, graphql, createLocalEnvironment, type GraphQLTaggedNode } from '../index';
 
 function placeholder() {
   return null;

@@ -1,8 +1,13 @@
 // @flow
 
-import { getRequest, createOperationDescriptor, type Snapshot } from 'relay-runtime';
-import type { Environment, GraphQLTaggedNode } from '@adeira/relay';
-import type { Variables } from '@adeira/relay-runtime';
+import {
+  createOperationDescriptor,
+  getRequest,
+  type Snapshot,
+  type GraphQLTaggedNode,
+  type Variables,
+} from 'relay-runtime';
+import type { Environment } from 'react-relay';
 
 type Operation = {|
   +query: GraphQLTaggedNode,

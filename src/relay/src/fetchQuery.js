@@ -1,10 +1,7 @@
 // @flow
 
-import { fetchQuery as relayFetchQuery } from 'react-relay';
-import type { OperationType } from 'relay-runtime';
-import type { GraphQLTaggedNode } from '@adeira/relay-runtime';
-
-import type { Environment } from './runtimeTypes.flow';
+import { fetchQuery as relayFetchQuery, type Environment } from 'react-relay';
+import type { OperationType, GraphQLTaggedNode } from 'relay-runtime';
 
 // https://relay.dev/docs/en/fetch-query
 export default function fetchQuery<T: OperationType>(

@@ -20,8 +20,6 @@
   "@adeira/monorepo-utils",
   "@adeira/murmur-hash",
   "@adeira/relay",
-  "@adeira/relay-runtime",
-  "@adeira/relay-utils",
   "@adeira/signed-source",
   "@adeira/sx",
   "@adeira/sx-design",

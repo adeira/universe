@@ -1,11 +1,10 @@
 // @flow
 
 import type { ComponentType, ElementConfig } from 'react';
-import { createFragmentContainer as _createFragmentContainer } from 'react-relay';
+import { createFragmentContainer as _createFragmentContainer, type Environment } from 'react-relay';
 import { invariant, isObjectEmpty } from '@adeira/js';
 
 import type { FragmentSpec, $RelayProps } from './types.flow';
-import type { Environment } from './runtimeTypes.flow';
 
 export type RelayProp = {|
   +environment: Environment,

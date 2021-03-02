@@ -1,8 +1,6 @@
 // @flow
 
-import type { Disposable } from '@adeira/relay-runtime';
-
-import { commitMutation, graphql, createLocalEnvironment } from '../index';
+import { commitMutation, graphql, createLocalEnvironment, type Disposable } from '../index';
 
 const environment = createLocalEnvironment();
 const mutation = graphql`

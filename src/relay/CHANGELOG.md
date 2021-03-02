@@ -1,5 +1,7 @@
 # Unreleased
 
+- Packages `@adeira/relay-runtime` and `@adeira/relay-utils` merged to this package. Everything should work without any extra changes (except for updating the exports). Please, let us know in case we missed something.
+
 # 3.0.1
 
 - `adeira-fetch-schema` script fixed

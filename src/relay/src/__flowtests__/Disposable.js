@@ -1,8 +1,6 @@
 // @flow
 
-import type { Disposable } from '@adeira/relay-runtime';
-
-import { graphql, requestSubscription, type RelayProp } from '../index';
+import { graphql, requestSubscription, type RelayProp, type Disposable } from '../index';
 
 type Props = {| +relay: RelayProp |};
 

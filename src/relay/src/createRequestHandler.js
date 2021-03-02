@@ -1,7 +1,6 @@
 // @flow
 
-import { Observable, type CacheConfig } from 'relay-runtime';
-import type { Variables, GraphQLResponse } from '@adeira/relay-runtime';
+import { Observable, type CacheConfig, type Variables, type GraphQLResponse } from 'relay-runtime';
 
 import type { RequestNode, Uploadables } from './types.flow';
 

@@ -1,11 +1,16 @@
 // @flow
 
-import { RelayLazyLogger } from '@adeira/relay-runtime';
-import { Network, Environment as RelayEnvironment, type OperationLoader } from 'relay-runtime';
+import {
+  Network,
+  Environment as RelayEnvironment,
+  type OperationLoader,
+  type Environment,
+} from 'relay-runtime';
 
-import createRequestHandler from './createRequestHandler';
 import createRelayStore from './createRelayStore';
-import type { Environment, RecordMap } from './runtimeTypes.flow';
+import createRequestHandler from './createRequestHandler';
+import RelayLazyLogger from './loggers/RelayLazyLogger';
+import type { RecordMap } from './runtimeTypes.flow';
 
 type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,

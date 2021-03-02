@@ -1,7 +1,7 @@
 // @flow
 
 import { useState, useRef, useCallback, useEffect } from 'react';
-import type { GraphQLTaggedNode, Disposable } from '@adeira/relay-runtime';
+import type { GraphQLTaggedNode, Disposable } from 'relay-runtime';
 
 import useIsMountedRef from './useIsMountedRef';
 import useRelayEnvironment from './useRelayEnvironment';

@@ -1,7 +1,7 @@
 // @flow
 
 import type { ComponentType } from 'react';
-import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
+import type { Variables, GraphQLTaggedNode } from 'relay-runtime';
 
 import type { RelayProp } from './createFragmentContainer';
 import type { RefetchRelayProp } from './createRefetchContainer';

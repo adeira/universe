@@ -1,8 +1,6 @@
 // @flow
 
-import type { Disposable } from '@adeira/relay-runtime';
-
-import { useMutation, graphql } from '../index';
+import { useMutation, graphql, type Disposable } from '../../index';
 
 const mutation = graphql`
   mutation useMutation {

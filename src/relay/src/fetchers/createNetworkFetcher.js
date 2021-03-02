@@ -2,7 +2,7 @@
 
 import fetchWithRetries from '@adeira/fetch';
 import { invariant } from '@adeira/js';
-import type { Variables } from '@adeira/relay-runtime';
+import type { Variables } from 'relay-runtime';
 
 import { handleData, getRequestBody, getHeaders } from '../helpers';
 import type { RequestNode, Uploadables } from '../types.flow';

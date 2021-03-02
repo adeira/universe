@@ -2,9 +2,8 @@
 
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { QueryRenderer, type GraphQLTaggedNode } from '@adeira/relay';
+import { QueryRenderer, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
 import { Section } from '@adeira/sx-design';
-import type { Variables } from '@adeira/relay-runtime';
 
 import Navigation from './Navigation';
 
