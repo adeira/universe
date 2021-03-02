@@ -1,6 +1,6 @@
 // @flow strict-local
 
-import type { Variables } from '@adeira/relay-runtime';
+import type { Variables } from 'relay-runtime';
 
 import type { Uploadables, RequestNode } from './types.flow';
 

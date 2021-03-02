@@ -1,12 +1,11 @@
 // @flow
 
-import type { ComponentType, ElementConfig } from 'react';
-import { createRefetchContainer as _createRefetchContainer } from 'react-relay';
+import { createRefetchContainer as _createRefetchContainer, type Environment } from 'react-relay';
 import { invariant, isObjectEmpty } from '@adeira/js';
-import type { GraphQLTaggedNode, Disposable } from '@adeira/relay-runtime';
+import type { ComponentType, ElementConfig } from 'react';
+import type { Disposable, GraphQLTaggedNode } from 'relay-runtime';
 
 import type { $RelayProps, FragmentSpec } from './types.flow';
-import type { Environment } from './runtimeTypes.flow';
 
 type RefetchOptions = {
   +force?: boolean,

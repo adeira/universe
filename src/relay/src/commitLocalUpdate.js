@@ -1,9 +1,7 @@
 // @flow
 
-import { commitLocalUpdate as _commitLocalUpdate } from 'react-relay';
+import { commitLocalUpdate as _commitLocalUpdate, type Environment } from 'react-relay';
 import type { StoreUpdater } from 'relay-runtime';
-
-import type { Environment } from './runtimeTypes.flow';
 
 /**
  * The first parameter `environment` should be from `props.relay.environment`

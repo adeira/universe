@@ -1,16 +1,15 @@
 // @flow
 
-import type { Disposable } from '@adeira/relay-runtime';
-
 import {
   graphql,
   commitMutation,
   requestSubscription,
   commitLocalUpdate,
   createEnvironment,
-  type RelayProp,
-  type RefetchRelayProp,
+  type Disposable,
   type PaginationRelayProp,
+  type RefetchRelayProp,
+  type RelayProp,
 } from '../index';
 
 type PropsA = {| +relay: RelayProp |};

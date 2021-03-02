@@ -1,54 +1,28 @@
 // @flow
 
-import {
+// Our additions:
+export {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
 } from '@adeira/fetch';
-import { graphql, readInlineData } from 'react-relay';
+export { default as createEnvironment } from './createEnvironment';
+export { default as createLocalEnvironment } from './createLocalEnvironment';
+export { default as createNetworkFetcher } from './fetchers/createNetworkFetcher';
+export { default as getDataFromRequest } from './getDataFromRequest';
+export { default as RelayDebugLogger } from './loggers/RelayDebugLogger';
+export { default as RelayEagerLogger } from './loggers/RelayEagerLogger';
+export { default as RelayLazyLogger } from './loggers/RelayLazyLogger';
 
-import commitLocalUpdate from './commitLocalUpdate';
-import { commitMutation, commitMutationAsync } from './mutations';
-import createEnvironment from './createEnvironment';
-import createFragmentContainer from './createFragmentContainer';
-import createLocalEnvironment from './createLocalEnvironment';
-import createNetworkFetcher from './fetchers/createNetworkFetcher';
-import createPaginationContainer from './createPaginationContainer';
-import createRefetchContainer from './createRefetchContainer';
-import fetchQuery from './fetchQuery';
-import LocalQueryRenderer from './LocalQueryRenderer';
-import QueryRenderer from './QueryRenderer';
-import RelayEnvironmentProvider from './RelayEnvironmentProvider';
-import requestSubscription from './requestSubscription';
-import useRelayEnvironment from './hooks/useRelayEnvironment';
-import useMutation from './hooks/useMutation';
-
-module.exports = {
-  createEnvironment,
-  createLocalEnvironment,
-  createNetworkFetcher,
-  FetchResponseError,
-  FetchTimeoutError,
-
-  // Relay-specific things:
-  commitLocalUpdate,
-  commitMutation,
-  commitMutationAsync,
-  createFragmentContainer,
-  createPaginationContainer,
-  createRefetchContainer,
-  fetchQuery,
-  graphql,
-  LocalQueryRenderer,
-  QueryRenderer,
-  readInlineData,
-  requestSubscription,
-
-  // Experimental Relay-specific things (not officially released yet):
-  RelayEnvironmentProvider,
-  useRelayEnvironment,
-  useMutation,
-};
-
+// Relay-specific (wrapped) things:
+export { default as commitLocalUpdate } from './commitLocalUpdate';
+export { commitMutation, commitMutationAsync } from './mutations';
+export { default as createFragmentContainer } from './createFragmentContainer';
+export { default as createPaginationContainer } from './createPaginationContainer';
+export { default as createRefetchContainer } from './createRefetchContainer';
+export { default as fetchQuery } from './fetchQuery';
+export { default as LocalQueryRenderer } from './LocalQueryRenderer';
+export { default as QueryRenderer } from './QueryRenderer';
+export { default as requestSubscription } from './requestSubscription';
 export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
 export type { RefetchRelayProp } from './createRefetchContainer';
@@ -58,6 +32,21 @@ export type {
   PaginationContainerType,
   RefetchContainerType,
 } from './types.flow';
-export type { Environment, Snapshot, RecordMap } from './runtimeTypes.flow';
-// TODO: Remove from here, and only export from @adeira/relay-runtime
-export type { Disposable, GraphQLTaggedNode } from '@adeira/relay-runtime';
+export type { RecordMap } from './runtimeTypes.flow';
+
+// Relay-specific (reexported) things:
+export { graphql, readInlineData } from 'react-relay';
+export { ConnectionHandler } from 'relay-runtime';
+export type { Environment } from 'react-relay';
+export type {
+  GraphQLTaggedNode,
+  Disposable,
+  Variables,
+  CacheConfig,
+  Snapshot,
+} from 'relay-runtime';
+
+// Experimental Relay-specific things (not officially released yet):
+export { default as RelayEnvironmentProvider } from './RelayEnvironmentProvider';
+export { default as useMutation } from './hooks/useMutation';
+export { default as useRelayEnvironment } from './hooks/useRelayEnvironment';

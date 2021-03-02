@@ -1,10 +1,7 @@
 // @flow
 
-import type { Disposable } from '@adeira/relay-runtime';
-import { requestSubscription as _requestSubscription } from 'react-relay';
-import type { GraphQLSubscriptionConfig } from 'relay-runtime';
-
-import type { Environment } from './runtimeTypes.flow';
+import { requestSubscription as _requestSubscription, type Environment } from 'react-relay';
+import type { GraphQLSubscriptionConfig, Disposable } from 'relay-runtime';
 
 type SubscriptionPayload = { +[key: string]: any, ... };
 

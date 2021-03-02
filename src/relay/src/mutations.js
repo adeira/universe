@@ -1,10 +1,10 @@
 // @flow
 
-import type { GraphQLTaggedNode, Variables, Disposable } from '@adeira/relay-runtime';
-import { commitMutation as _commitMutation } from 'react-relay';
+import { commitMutation as _commitMutation, type Environment } from 'react-relay';
+import type { GraphQLTaggedNode, Variables, Disposable } from 'relay-runtime';
 
 import type { DeclarativeMutationConfig, Uploadables } from './types.flow';
-import type { Environment, RecordSourceSelectorProxy } from './runtimeTypes.flow';
+import type { RecordSourceSelectorProxy } from './runtimeTypes.flow';
 
 opaque type SelectorData = $FlowFixMe;
 

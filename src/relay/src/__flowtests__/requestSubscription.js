@@ -1,8 +1,6 @@
 // @flow
 
-import type { Disposable } from '@adeira/relay-runtime';
-
-import { requestSubscription, graphql, createLocalEnvironment } from '../index';
+import { requestSubscription, graphql, createLocalEnvironment, type Disposable } from '../index';
 
 const environment = createLocalEnvironment();
 

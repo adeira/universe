@@ -1,10 +1,10 @@
 // @flow
 
-import { RelayLazyLogger } from '@adeira/relay-runtime';
 import { Environment as RelayEnvironment } from 'relay-runtime';
+import type { Environment } from 'react-relay';
 
 import createRelayStore from './createRelayStore';
-import type { Environment } from './runtimeTypes.flow';
+import RelayLazyLogger from './loggers/RelayLazyLogger';
 
 /**
  * This is just an alternative environment factory for LocalQueryRenderer. There is currently not

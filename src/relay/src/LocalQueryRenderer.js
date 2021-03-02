@@ -1,12 +1,15 @@
 // @flow
 
 import { useContext, type Node } from 'react';
-import { LocalQueryRenderer as RelayLocalQueryRenderer, ReactRelayContext } from 'react-relay';
+import {
+  LocalQueryRenderer as RelayLocalQueryRenderer,
+  ReactRelayContext,
+  type Environment,
+} from 'react-relay';
 import { invariant } from '@adeira/js';
-import type { Variables, GraphQLTaggedNode } from '@adeira/relay-runtime';
+import type { Variables, GraphQLTaggedNode } from 'relay-runtime';
 
 import createLocalEnvironment from './createLocalEnvironment';
-import type { Environment } from './runtimeTypes.flow';
 
 type CommonProps = {|
   +query: GraphQLTaggedNode,

@@ -1,9 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { ReactRelayContext } from 'react-relay';
-
-import type { Environment } from './runtimeTypes.flow';
+import { ReactRelayContext, type Environment } from 'react-relay';
 
 const { useMemo } = React;
 

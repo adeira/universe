@@ -1,12 +1,14 @@
 // @flow
 
 import { useContext, type Node } from 'react';
-import { QueryRenderer as RelayQueryRenderer, ReactRelayContext } from 'react-relay';
+import {
+  QueryRenderer as RelayQueryRenderer,
+  ReactRelayContext,
+  type Environment,
+} from 'react-relay';
 import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
-import type { Variables, CacheConfig, GraphQLTaggedNode } from '@adeira/relay-runtime';
-
-import type { Environment } from './runtimeTypes.flow';
+import type { Variables, CacheConfig, GraphQLTaggedNode } from 'relay-runtime';
 
 type ReadyState<T> = {|
   +error: ?Error,

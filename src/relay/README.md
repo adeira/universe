@@ -289,3 +289,23 @@ function loadMore() {
 ```
 
 Similar rules apply to pagination container which solves one particular use-case of refetch container: "load more" pagination. The difference is that you have to use `type PaginationRelayProp` instead.
+
+## Lazy, Eager and Debug logger
+
+You can enable rich log output into browser console like so:
+
+```js
+import {
+  RelayLazyLogger, // less verbose, waits for operations to complete
+  RelayEagerLogger, // more verbose, logs events as they arrive
+  RelayDebugLogger, // very verbose, logs everything
+} from '@adeira/relay';
+
+return new Environment({
+  log: RelayLazyLogger, // or RelayEagerLogger or RelayDebugLogger
+  // network: ...,
+  // store: ...,
+});
+```
+
+The logs are being printed only during development.
