@@ -1,8 +1,14 @@
 // @flow
 
-import { Observable, type CacheConfig, type Variables, type GraphQLResponse } from 'relay-runtime';
+import {
+  Observable,
+  type CacheConfig,
+  type Variables,
+  type GraphQLResponse,
+  type UploadableMap,
+} from 'relay-runtime';
 
-import type { RequestNode, Uploadables } from './types.flow';
+import type { RequestNode } from './types.flow';
 
 /**
  * A Sink is an object of methods provided by Observable during construction.
@@ -22,7 +28,7 @@ export default function createRequestHandler(
   requestNode: RequestNode,
   variables: Variables,
   cacheConfig: CacheConfig,
-  uploadables: ?Uploadables,
+  uploadables: ?UploadableMap,
 ) => Observable<GraphQLResponse> {
   return function handleRequest(requestNode, variables, cacheConfig, uploadables) {
     return Observable.create((sink: Sink) => {

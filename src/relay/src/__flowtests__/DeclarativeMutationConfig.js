@@ -69,8 +69,8 @@ module.exports = {
           connectionInfo: [
             {
               key: 'FavoritesList_favorites',
-              // $FlowExpectedError[incompatible-call]: unsupported range behavior
-              rangeBehavior: 'unsupported',
+              // $FlowExpectedError[incompatible-call]: should be a string
+              rangeBehavior: -1,
             },
           ],
         },
