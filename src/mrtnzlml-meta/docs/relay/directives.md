@@ -434,6 +434,16 @@ TKTK
 
 https://github.com/relay-tools/relay-compiler-language-typescript/issues/64#issuecomment-564580765
 
+## @relay_client_component
+
+TKTK
+
+```graphql
+directive @relay_client_component on FRAGMENT_SPREAD
+```
+
+https://github.com/facebook/relay/commit/bf16266c24af3c6753c349d61c601a9c92e4a893
+
 ## @relay_test_operation
 
 Relay docs: https://relay.dev/docs/en/testing-relay-components#relay_test_operation
