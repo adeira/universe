@@ -2247,6 +2247,8 @@ dependencies = [
 [[package]]
 name = "signedsource"
 version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1fc8fd4678445a7b564a251011cb2242919ce46ad2e2f81c98794c591a08d323"
 dependencies = [
  "hex",
  "lazy_static",

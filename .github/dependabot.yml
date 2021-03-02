@@ -25,7 +25,7 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'cargo'
-    directory: '/src/ya-comiste-rust/'
+    directory: '/src/'
     schedule:
       interval: 'daily'
     labels:

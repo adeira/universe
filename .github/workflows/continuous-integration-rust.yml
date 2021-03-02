@@ -8,6 +8,7 @@ jobs:
       fail-fast: true
       matrix:
         manifest:
+          - 'src/signedsource-rs/Cargo.toml'
           - 'src/ya-comiste-rust/Cargo.toml'
         os:
           - macos-latest
