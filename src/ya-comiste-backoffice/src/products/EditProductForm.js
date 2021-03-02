@@ -1,11 +1,20 @@
 // @flow
 
+import { invariant } from '@adeira/js';
 import { fbt } from 'fbt';
 import React, { useState } from 'react';
-import { graphql, createFragmentContainer, type FragmentContainerType } from '@adeira/relay';
+import {
+  createFragmentContainer,
+  graphql,
+  type FragmentContainerType,
+  useMutation,
+} from '@adeira/relay';
+import { useSetRecoilState } from 'recoil';
 
 import ProductForm, { type FormValues } from './form/ProductForm';
+import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import type { EditProductFormFragment } from './__generated__/EditProductFormFragment.graphql';
+import type { EditProductFormMutation } from './__generated__/EditProductFormMutation.graphql';
 
 type Props = {|
   +product: null | EditProductFormFragment,
@@ -13,34 +22,137 @@ type Props = {|
 
 function EditProductForm(props: Props) {
   const [, setFiles] = useState(undefined);
+  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
-  // TODO: move to the server (?)
-  const en = props.product?.translations.find((t) => t.locale === 'en_US') ?? {};
-  const es = props.product?.translations.find((t) => t.locale === 'es_MX') ?? {};
+  const [productUpdate] = useMutation<EditProductFormMutation>(graphql`
+    mutation EditProductFormMutation(
+      $productKey: ID!
+      $productRevision: ID!
+      $productImagesNames: [ProductImageUploadable!]!
+      $productPriceUnitAmount: Int!
+      $translations: [ProductMultilingualInputTranslations!]!
+      $visibility: [ProductMultilingualInputVisibility!]!
+    ) {
+      commerce {
+        result: productUpdate(
+          productKey: $productKey
+          productRevision: $productRevision
+          productMultilingualInput: {
+            images: $productImagesNames
+            price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
+            translations: $translations
+            visibility: $visibility
+          }
+        ) {
+          ... on Product {
+            __typename
+            name
+            price {
+              unitAmount
+            }
+            visibility
+            translations {
+              locale
+              name
+              description
+            }
+          }
+          ... on ProductError {
+            __typename
+            message
+          }
+        }
+      }
+    }
+  `);
 
-  const productPrice = props.product?.price.unitAmount;
-  const productVisibility = props.product?.visibility ?? [];
+  const getProductValues = (product): FormValues => {
+    // TODO: move to the server (?)
+    const en = product?.translations.find((t) => t.locale === 'en_US') ?? {};
+    const es = product?.translations.find((t) => t.locale === 'es_MX') ?? {};
 
-  const formInitialValues: FormValues = {
-    name_en: en.name,
-    name_es: es.name,
-    description_en: en.description ?? '',
-    description_es: es.description ?? '',
-    price: productPrice != null ? productPrice / 100 : '',
-    // $FlowIssue[incompatible-type]: https://github.com/facebook/flow/issues/1414
-    visibility: productVisibility,
+    const productPrice = product?.price.unitAmount;
+    const productVisibility = product?.visibility ?? [];
+
+    return {
+      name_en: en.name,
+      name_es: es.name,
+      description_en: en.description ?? '',
+      description_es: es.description ?? '',
+      price: productPrice != null ? productPrice / 100 : '',
+      // $FlowIssue[incompatible-return]: https://github.com/facebook/flow/issues/1414
+      visibility: productVisibility,
+    };
   };
 
-  // TODO: use product revision
+  const handleFormSubmit = (values, { setSubmitting, resetForm }) => {
+    const price = values.price;
+    invariant(
+      typeof price === 'number' && price > 0,
+      'Product price should be at this point validated and higher than zero.',
+    );
+
+    const files = undefined; // TODO!
+
+    productUpdate({
+      uploadables: files,
+      variables: {
+        productKey: props.product?.key ?? '',
+        productRevision: props.product?.revision ?? '',
+        productImagesNames: Array.from(files ?? []).map((file) => file.name),
+        productPriceUnitAmount: price * 100, // adjusting for centavo
+        translations: [
+          {
+            locale: 'en_US',
+            name: values.name_en,
+            description: values.description_en || null,
+          },
+          {
+            locale: 'es_MX',
+            name: values.name_es,
+            description: values.description_es || null,
+          },
+        ],
+        visibility: values.visibility,
+      },
+      onCompleted: ({ commerce: { result } }) => {
+        setSubmitting(false);
+        if (result.__typename === 'ProductError') {
+          setStatusBar({ message: result.message, type: 'ERROR' });
+        } else if (result.__typename === 'Product') {
+          setStatusBar({
+            message: (
+              <>
+                Product <strong>{result.name}</strong> updated! ✅
+              </>
+            ),
+            type: 'SUCCESS',
+          });
+          resetForm({
+            values: getProductValues(result),
+          });
+          setFiles(undefined);
+        }
+      },
+      onError: () => {
+        setSubmitting(false);
+        setStatusBar({
+          message: fbt(
+            'Something unexpected happened and server could not process the request! 🙈',
+            'generic failure message after creating a product',
+          ),
+          type: 'ERROR',
+        });
+      },
+    });
+  };
 
   return (
     <ProductForm
       submitButtonTitle={<fbt desc="edit product form submit button title">Save changes</fbt>}
-      initialValues={formInitialValues}
+      initialValues={getProductValues(props.product)}
       onUploadablesChange={(files) => setFiles(files)}
-      onSubmit={() => {
-        // TODO
-      }}
+      onSubmit={handleFormSubmit}
     />
   );
 }
@@ -48,7 +160,7 @@ function EditProductForm(props: Props) {
 export default (createFragmentContainer(EditProductForm, {
   product: graphql`
     fragment EditProductFormFragment on Product {
-      # eslint-disable-next-line relay/unused-fields
+      key
       revision
       price {
         unitAmount

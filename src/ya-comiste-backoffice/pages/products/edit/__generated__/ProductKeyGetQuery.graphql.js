@@ -30,7 +30,7 @@ query ProductKeyGetQuery(
   $productKey: ID!
 ) {
   commerce {
-    product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
+    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
       key
       ...EditProductFormFragment
       id
@@ -39,6 +39,7 @@ query ProductKeyGetQuery(
 }
 
 fragment EditProductFormFragment on Product {
+  key
   revision
   price {
     unitAmount
@@ -104,7 +105,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": "Product",
             "kind": "LinkedField",
-            "name": "getProductByKey",
+            "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
               (v2/*: any*/),
@@ -142,7 +143,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": "Product",
             "kind": "LinkedField",
-            "name": "getProductByKey",
+            "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
               (v2/*: any*/),
@@ -226,15 +227,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a9d026c6a5b3e060c41541590157fcd7",
+    "cacheID": "70c21e6114d9c2f2aaaba01c82331347",
     "id": null,
     "metadata": {},
     "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '5dfda432bc7910d7228feef5965298a4';
+(node: any).hash = '4f26f49838b7a2b8397a000438c97e37';
 export default node;

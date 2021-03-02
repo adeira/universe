@@ -50,8 +50,7 @@ impl std::fmt::Debug for Product {
 
 // Methods defined by `juniper::graphql_object` cannot be accessed directly from within the Rust code 🤔
 impl Product {
-    #[cfg(test)]
-    pub(in crate::commerce) fn id(&self) -> String {
+    pub(crate) fn id(&self) -> String {
         self._id.to_owned()
     }
 
@@ -353,20 +352,46 @@ pub(in crate::commerce) async fn search_all_products(
     }
 }
 
-// TODO: rename to "get_active_product_by_key"/"get_activated_product_by_key"?
-pub(in crate::commerce) async fn get_product_by_key(
+pub(in crate::commerce) async fn get_published_product_by_key(
     context: &Context,
     client_locale: &SupportedLocale,
     product_key: &str,
 ) -> Result<Product, ModelError> {
     // Anyone can get the product (it's not limited to admins only).
-    crate::commerce::dal::products::get_product_by_key(
+    let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
         &client_locale,
         &product_key,
         &true, // product must be active to be publicly available
     )
-    .await
+    .await?;
+
+    // Record what product user visited:
+    crate::tracking::user_visited_product(&context.pool, &context.user, &product).await;
+
+    Ok(product)
+}
+
+pub(in crate::commerce) async fn get_unpublished_product_by_key(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_key: &str,
+) -> Result<Product, ModelError> {
+    // Only ADMIN can do this!
+    match &context.user {
+        User::AdminUser(_) => {
+            crate::commerce::dal::products::get_product_by_key(
+                &context.pool,
+                &client_locale,
+                &product_key,
+                &false, // any product (active on inactive)
+            )
+            .await
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admins can access unpublished products",
+        ))),
+    }
 }
 
 /// Takes care of the business logic and forwards the call lower to the DAL layer when everything
@@ -406,7 +431,15 @@ pub(in crate::commerce) async fn update_product(
     validate_product_multilingual_input(&product_multilingual_input)?;
     match &context.user {
         User::AdminUser(_) => {
-            unimplemented!() // TODO
+            // TODO: handle images (see `create_product`)
+            crate::commerce::dal::products::update_product(
+                &context.pool,
+                &product_key,
+                &product_revision,
+                &product_multilingual_input,
+                &[],
+            )
+            .await
         }
         _ => Err(ModelError::PermissionsError(String::from(
             "only admins can update products",

@@ -77,12 +77,84 @@ pub(in crate::commerce) async fn create_product(
     }
 }
 
+/// TODO(004) - integration tests
+pub(in crate::commerce) async fn update_product(
+    pool: &ConnectionPool,
+    product_key: &str,
+    product_revision: &str,
+    product_multilingual_input: &ProductMultilingualInput,
+    images: &[Image],
+) -> Result<Product, ModelError> {
+    let db = pool.db().await;
+
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
+    let insert_aql = arangors::AqlQuery::builder()
+        .query(
+            r#"
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+
+            UPDATE {
+              _key: @product_key,
+              _rev: @product_rev,
+              images: @product_images,
+              visibility: @product_visibility,
+              updated: DATE_ISO8601(DATE_NOW()),
+              price: {
+                unit_amount: @product_price_unit_amount,
+                unit_amount_currency: "MXN",
+              },
+              translations: @translations
+            } IN products OPTIONS { ignoreRevs: false }
+            LET product = NEW
+
+            LET t = FIRST(
+              FOR t IN product.translations
+                FILTER t.name != null AND t.locale == @eshop_locale
+                RETURN t
+            )
+
+            RETURN MERGE(
+              product,
+              { unit_label: unit_label_translated },
+              { name: t.name, description: t.description }
+            )
+            "#,
+        )
+        .bind_var("product_key", product_key)
+        .bind_var("product_rev", product_revision)
+        .bind_var("eshop_locale", String::from("en_US")) // TODO
+        .bind_var("product_images", json!(images))
+        .bind_var(
+            "product_visibility",
+            json!(product_multilingual_input.visibility),
+        )
+        .bind_var(
+            "product_price_unit_amount",
+            product_multilingual_input.price.unit_amount,
+        )
+        .bind_var(
+            "translations",
+            json!(product_multilingual_input.translations),
+        );
+
+    let product_vector = db.aql_query::<Product>(insert_aql.build()).await;
+    match product_vector {
+        Ok(product_vector) => match product_vector.first() {
+            Some(product) => Ok(product.to_owned()),
+            None => Err(ModelError::LogicalError(String::from(
+                "Cannot fetch the product.",
+            ))),
+        },
+        Err(e) => Err(ModelError::DatabaseError(e)),
+    }
+}
+
 /// Returns a single product (or error).
 pub(in crate::commerce) async fn get_product_by_key(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
     product_key: &str,
-    product_active: &bool,
+    product_active_only: &bool,
 ) -> Result<Product, ModelError> {
     let db = pool.db().await;
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
@@ -90,7 +162,7 @@ pub(in crate::commerce) async fn get_product_by_key(
         .query(
             r#"
             LET product = DOCUMENT(products, @product_key)
-            FILTER product.active == @product_active
+            FILTER @product_active_only ? product.active == @product_active_only : true
 
             LET t = FIRST(
               FOR t IN product.translations
@@ -107,7 +179,7 @@ pub(in crate::commerce) async fn get_product_by_key(
         )
         .bind_var("eshop_locale", format!("{}", client_locale))
         .bind_var("product_key", product_key)
-        .bind_var("product_active", json!(product_active));
+        .bind_var("product_active_only", json!(product_active_only));
 
     let product_vector = db.aql_query::<Product>(aql.build()).await;
     match product_vector {

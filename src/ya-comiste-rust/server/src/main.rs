@@ -15,6 +15,7 @@ mod headers;
 mod images;
 mod migrations;
 mod pos;
+mod tracking;
 mod warp_graphql;
 
 // https://www.lpalmieri.com/posts/2020-09-27-zero-to-production-4-are-we-observable-yet/
