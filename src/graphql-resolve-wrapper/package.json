@@ -8,7 +8,7 @@
   "main": "src/index",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.13.8"
+    "@babel/runtime": "^7.13.9"
   },
   "peerDependencies": {
     "graphql": "^15.1.0"
