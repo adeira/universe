@@ -34,6 +34,7 @@ it('logs network.complete as expected', () => {
       cacheID: '',
     },
     variables: {},
+    cacheConfig: {},
   });
 
   RelayLazyLogger({
@@ -62,6 +63,7 @@ it('logs network.error as expected', () => {
       cacheID: '',
     },
     variables: {},
+    cacheConfig: {},
   });
 
   RelayLazyLogger({

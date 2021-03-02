@@ -1,5 +1,6 @@
 # Unreleased
 
+- Relay dependencies upgraded to version `11.0.0-rc.0`, see: https://github.com/facebook/relay/releases/tag/v11.0.0-rc.0
 - Packages `@adeira/relay-runtime` and `@adeira/relay-utils` merged to this package. Everything should work without any extra changes (except for updating the exports). Please, let us know in case we missed something.
 
 # 3.0.1

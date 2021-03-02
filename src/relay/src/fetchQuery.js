@@ -1,6 +1,6 @@
 // @flow
 
-import { fetchQuery as relayFetchQuery, type Environment } from 'react-relay';
+import { fetchQuery_DEPRECATED as relayFetchQuery, type Environment } from 'react-relay';
 import type { OperationType, GraphQLTaggedNode } from 'relay-runtime';
 
 // https://relay.dev/docs/en/fetch-query

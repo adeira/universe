@@ -1,6 +1,6 @@
 // @flow
 
-// Our additions:
+// Our `@adeira/relay` additions:
 export {
   ResponseError as FetchResponseError,
   TimeoutError as FetchTimeoutError,
@@ -13,7 +13,7 @@ export { default as RelayDebugLogger } from './loggers/RelayDebugLogger';
 export { default as RelayEagerLogger } from './loggers/RelayEagerLogger';
 export { default as RelayLazyLogger } from './loggers/RelayLazyLogger';
 
-// Relay-specific (wrapped) things:
+// Relay Modern (wrapped):
 export { default as commitLocalUpdate } from './commitLocalUpdate';
 export { commitMutation, commitMutationAsync } from './mutations';
 export { default as createFragmentContainer } from './createFragmentContainer';
@@ -27,26 +27,27 @@ export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
 export type { RefetchRelayProp } from './createRefetchContainer';
 export type {
-  DeclarativeMutationConfig,
   FragmentContainerType,
   PaginationContainerType,
   RefetchContainerType,
 } from './types.flow';
 export type { RecordMap } from './runtimeTypes.flow';
 
-// Relay-specific (reexported) things:
+// Relay Hooks (wrapped)
+export { default as useMutation } from './useMutation';
+
+// Relay Modern (re-exported):
 export { graphql, readInlineData } from 'react-relay';
 export { ConnectionHandler } from 'relay-runtime';
 export type { Environment } from 'react-relay';
 export type {
-  GraphQLTaggedNode,
-  Disposable,
-  Variables,
   CacheConfig,
+  DeclarativeMutationConfig,
+  Disposable,
+  GraphQLTaggedNode,
   Snapshot,
+  Variables,
 } from 'relay-runtime';
 
-// Experimental Relay-specific things (not officially released yet):
-export { default as RelayEnvironmentProvider } from './RelayEnvironmentProvider';
-export { default as useMutation } from './hooks/useMutation';
-export { default as useRelayEnvironment } from './hooks/useRelayEnvironment';
+// Relay Hooks (re-exported):
+export { RelayEnvironmentProvider, useRelayEnvironment } from 'react-relay';

@@ -2,10 +2,10 @@
 
 import fetchWithRetries from '@adeira/fetch';
 import { invariant } from '@adeira/js';
-import type { Variables } from 'relay-runtime';
+import type { Variables, UploadableMap } from 'relay-runtime';
 
 import { handleData, getRequestBody, getHeaders } from '../helpers';
-import type { RequestNode, Uploadables } from '../types.flow';
+import type { RequestNode } from '../types.flow';
 
 type Headers = {
   +[string]: string,
@@ -26,7 +26,7 @@ export default function createNetworkFetcher(
 ): (
   request: RequestNode,
   variables: Variables,
-  uploadables: ?Uploadables,
+  uploadables: ?UploadableMap,
 ) => Promise<$FlowFixMe | string> {
   return async function fetch(request, variables, uploadables) {
     const body = getRequestBody(request, variables, uploadables);

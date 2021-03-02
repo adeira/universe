@@ -66,6 +66,7 @@ export default function RelayEagerLogger(logEvent: LogEvent) {
     logEvent.name === 'store.gc' ||
     logEvent.name === 'store.notify.complete' ||
     logEvent.name === 'store.notify.start' ||
+    logEvent.name === 'store.notify.subscription' ||
     logEvent.name === 'store.publish' ||
     logEvent.name === 'store.restore' ||
     logEvent.name === 'store.snapshot'
