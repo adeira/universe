@@ -10,7 +10,7 @@ See: https://adeira.dev/ for more info.
 
 ## Quick start
 
-```text
+```bash
 git clone --depth=100 git@github.com:adeira/universe.git
 cd universe
 yarn install
@@ -20,13 +20,13 @@ _Please note: you have to use Yarn. It won't work with NPM!_
 
 What now? There are many projects under [`src/`](/src) and all of them are tested and linted together (with many monorepo optimizations). You can try to run all the checks:
 
-```text
+```bash
 yarn test
 ```
 
 It runs only the necessary checks based on what changed last. This monorepo si divided into many workspaces. You can access commands of each workspace like so:
 
-```text
+```bash
 yarn workspace @adeira/example-relay start
 ```
 
@@ -93,7 +93,7 @@ TypeError: [BABEL] /adeira/universe/src/sx/src/__tests__/StyleCollectorPseudoNod
 
 Solution:
 
-```text
+```bash
 yarn test-only --clearCache
 ```
 
@@ -116,5 +116,23 @@ node:internal/process/promises:218
 This happens on Node.js version 15 due to this Jest issue: https://github.com/facebook/jest/issues/10784
 
 Solution: switch to later (LTS) Node.js version (`nvm use 14`) to see the full error message and run the test again.
+
+---
+
+Problem:
+
+```text
+jest-haste-map: Watchman crawl failed. Retrying once with node crawler.
+Usually this happens when watchman isn't running. Create an empty `.watchmanconfig` file in your project's root folder or initialize a git or hg repository in your project.
+Error: Watchman error: query failed: synchronization failed: Operation timed out. Make sure watchman is running for this project. See https://facebook.github.io/watchman/docs/troubleshooting.
+```
+
+And all the scripts (lints, tests) are slow or unresponsive.
+
+Solution:
+
+```bash
+watchman shutdown-server
+```
 
 </details>
