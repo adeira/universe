@@ -3,8 +3,9 @@
 import {
   Network,
   Environment as RelayEnvironment,
-  type OperationLoader,
   type Environment,
+  type LogFunction,
+  type OperationLoader,
 } from 'relay-runtime';
 
 import createRelayStore from './createRelayStore';
@@ -19,6 +20,7 @@ type Options = {|
   +operationLoader?: OperationLoader,
   +records?: ?RecordMap,
   +gcReleaseBufferSize?: ?number,
+  +log?: LogFunction,
 |};
 
 function createNetwork(
