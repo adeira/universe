@@ -1,5 +1,6 @@
 // @flow
 
+import { Money, MoneyFn } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
@@ -8,27 +9,63 @@ import Link from '../Link';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
 export default function ProductsSelected(): React.Node {
-  const { selectedItems, stats } = useSelectedItemsApi();
+  const { selectedItems, stats, increaseUnits, decreaseUnits } = useSelectedItemsApi();
 
   return (
     <div className={styles('wrapper')}>
       <div className={styles('selectedItems')}>
-        {/* TODO (selected products, +- buttons) */}
-        <pre>{JSON.stringify(selectedItems, null, 2)}</pre>
+        {selectedItems.size === 0 ? (
+          <fbt desc="text when nothing is selected in POS">Nothing selected yet</fbt>
+        ) : null}
+        {selectedItems.map((selectedItem) => (
+          <div key={selectedItem.itemID} className={styles('selectedItemRow')}>
+            <div className={styles('selectedItemTitle')}>
+              <strong>{selectedItem.itemTitle}</strong>
+              <br />
+              {selectedItem.units}x for{' '}
+              <Money
+                locale="en-US" // TODO
+                priceUnitAmount={selectedItem.itemUnitAmount}
+                priceUnitAmountCurrency="MXN"
+              />{' '}
+              per unit
+            </div>
+            <div className={styles('selectedItemControls')}>
+              <button
+                type="button"
+                className={styles('selectedItemControlButton')}
+                onClick={() => increaseUnits(selectedItem.itemID)}
+              >
+                +
+              </button>
+              <button
+                type="button"
+                className={styles('selectedItemControlButton')}
+                onClick={() => decreaseUnits(selectedItem.itemID)}
+              >
+                -
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
       <div className={styles('stats')}>
         {/* TODO: https://github.com/facebook/fbt/pull/137 */}
         {fbt(
-          `Selected ${fbt.param(
-            'totalSelectedItems',
-            stats.totalSelectedItems,
-          )} items for ${fbt.param('totalPrice', stats.totalPrice)} MXN`,
+          `${fbt.param('totalSelectedItems', stats.totalSelectedItems)} items for ${fbt.param(
+            'totalPrice',
+            MoneyFn({
+              locale: 'en-US', // TODO
+              priceUnitAmount: stats.totalPrice,
+              priceUnitAmountCurrency: 'MXN',
+            }),
+          )}`,
           'summary of selected items in POS',
         )}
       </div>
       <div className={styles('checkout')}>
-        <Link href="/pos/checkout">
-          <fbt desc="checkout button title">Checkout</fbt>
+        <Link href="/pos/checkout" xstyle={styles.checkoutLink}>
+          <fbt desc="checkout button title">Proceed to checkout</fbt>
         </Link>
       </div>
     </div>
@@ -44,8 +81,28 @@ const styles = sx.create({
   },
   selectedItems: {
     flex: 1,
-    padding: '1rem',
-    backgroundColor: 'lightgray',
+    backgroundColor: '#f2f2f2',
+  },
+  selectedItemRow: {
+    'paddingLeft': '1rem',
+    'paddingRight': '1rem',
+    'paddingBottom': '.5rem',
+    'display': 'flex',
+    'flexDirection': 'row',
+    ':first-child': {
+      paddingTop: '1rem',
+    },
+  },
+  selectedItemTitle: {
+    width: '100%',
+  },
+  selectedItemControls: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  selectedItemControlButton: {
+    width: 45,
+    height: 45,
   },
   stats: {
     padding: '1rem',
@@ -53,6 +110,10 @@ const styles = sx.create({
   },
   checkout: {
     padding: '1rem',
-    backgroundColor: '#3b85ff',
+    backgroundColor: 'green',
+  },
+  checkoutLink: {
+    fontSize: 25,
+    color: 'white',
   },
 });

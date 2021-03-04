@@ -100,31 +100,45 @@
   },
   {
    "hashToText": {
-    "2tRuKypPdC4cVimxRa+TiA==": "Selected {totalSelectedItems} items for {totalPrice} MXN"
+    "9uWJJI15gvfuaDi3bpoT2w==": "Nothing selected yet"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 21,
+   "line_beg": 18,
+   "col_beg": 10,
+   "line_end": 18,
+   "col_end": 85,
+   "desc": "text when nothing is selected in POS",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Nothing selected yet"
+  },
+  {
+   "hashToText": {
+    "EAFd1PD0L8GS/sTNRO5dzA==": "{totalSelectedItems} items for {totalPrice}"
+   },
+   "filepath": "src/pos/ProductsSelected.js",
+   "line_beg": 54,
    "col_beg": 9,
-   "line_end": 27,
+   "line_end": 64,
    "col_end": 9,
    "desc": "summary of selected items in POS",
    "project": "",
    "type": "text",
-   "jsfbt": "Selected {totalSelectedItems} items for {totalPrice} MXN"
+   "jsfbt": "{totalSelectedItems} items for {totalPrice}"
   },
   {
    "hashToText": {
-    "PC14QKnL5FhvZY6grvaMWA==": "Checkout"
+    "nIpABsKUotYCJOCxk8ZWTg==": "Proceed to checkout"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 31,
+   "line_beg": 68,
    "col_beg": 10,
-   "line_end": 31,
-   "col_end": 58,
+   "line_end": 68,
+   "col_end": 69,
    "desc": "checkout button title",
    "project": "",
    "type": "text",
-   "jsfbt": "Checkout"
+   "jsfbt": "Proceed to checkout"
   },
   {
    "hashToText": {
