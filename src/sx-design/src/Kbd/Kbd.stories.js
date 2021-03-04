@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-import Kbd from '../Kbd';
+import Kbd from './Kbd';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
