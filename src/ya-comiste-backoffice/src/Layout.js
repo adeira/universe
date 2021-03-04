@@ -2,23 +2,15 @@
 
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { QueryRenderer, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
 import { Section } from '@adeira/sx-design';
 
 import Navigation from './Navigation';
 
-type Props<T> =
-  | {|
-      +onResponse: (null) => Node,
-    |}
-  | {|
-      +query: GraphQLTaggedNode,
-      +onResponse: (T) => Node,
-      +onLoading?: () => Node,
-      +variables?: Variables,
-    |};
+type Props = {|
+  +children: Node,
+|};
 
-export default function LayoutQueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
+export default function Layout(props: Props): Node {
   return (
     <div className={styles('mainGrid')}>
       <div className={styles('navigation')}>
@@ -27,16 +19,7 @@ export default function LayoutQueryRenderer<T>(props: $ReadOnly<Props<T>>): Node
 
       <main className={styles('main')}>
         <Section>
-          {props.query ? (
-            <QueryRenderer
-              query={props.query}
-              variables={props.variables ?? {}}
-              onLoading={props.onLoading}
-              onResponse={props.onResponse}
-            />
-          ) : (
-            props.onResponse(null)
-          )}
+          <React.Suspense fallback={'Loading…'}>{props.children}</React.Suspense>
         </Section>
       </main>
     </div>

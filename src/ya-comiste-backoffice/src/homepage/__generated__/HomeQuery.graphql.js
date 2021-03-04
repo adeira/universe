@@ -5,20 +5,20 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type pagesQueryVariables = {||};
-export type pagesQueryResponse = {|
+export type HomeQueryVariables = {||};
+export type HomeQueryResponse = {|
   +whoami: {|
     +id: ?string,
     +humanReadableType: ?string,
   |}
 |};
-export type pagesQuery = {|
-  variables: pagesQueryVariables,
-  response: pagesQueryResponse,
+export type HomeQuery = {|
+  variables: HomeQueryVariables,
+  response: HomeQueryResponse,
 |};
 
 /*
-query pagesQuery {
+query HomeQuery {
   whoami {
     id
     humanReadableType
@@ -59,7 +59,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "pagesQuery",
+    "name": "HomeQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -68,19 +68,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "pagesQuery",
+    "name": "HomeQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "188baf57f6f6e9a4be17cc14323413d5",
+    "cacheID": "22bbad59fe48ceefb9625f7c5a6eb867",
     "id": null,
     "metadata": {},
-    "name": "pagesQuery",
+    "name": "HomeQuery",
     "operationKind": "query",
-    "text": "query pagesQuery {\n  whoami {\n    id\n    humanReadableType\n  }\n}\n"
+    "text": "query HomeQuery {\n  whoami {\n    id\n    humanReadableType\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8d643bac00ee2016ed71694ddbbe904a';
+(node: any).hash = 'ea89eba3cc995284961c5c73eb2927b5';
 export default node;

@@ -7,7 +7,8 @@ import { graphql } from '@adeira/relay';
 import { rangeMap } from '@adeira/js';
 import { Skeleton, ProductCard, Heading } from '@adeira/sx-design';
 
-import LayoutQueryRenderer from '../src/LayoutQueryRenderer';
+// eslint-disable-next-line camelcase
+import LayoutQueryRenderer_DEPRECATED from '../src/LayoutQueryRenderer_DEPRECATED';
 import LayoutHeading from '../src/LayoutHeading';
 import Link from '../src/Link';
 
@@ -29,7 +30,8 @@ export default function ProductsPage(): React.Node {
   );
 
   return (
-    <LayoutQueryRenderer
+    // eslint-disable-next-line react/jsx-pascal-case
+    <LayoutQueryRenderer_DEPRECATED
       variables={{}}
       query={graphql`
         query productsQuery {

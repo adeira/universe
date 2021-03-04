@@ -10,7 +10,8 @@ import { useSetRecoilState } from 'recoil';
 
 import LayoutHeading from '../../../src/LayoutHeading';
 import EditProductForm from '../../../src/products/EditProductForm';
-import LayoutQueryRenderer from '../../../src/LayoutQueryRenderer';
+// eslint-disable-next-line camelcase
+import LayoutQueryRenderer_DEPRECATED from '../../../src/LayoutQueryRenderer_DEPRECATED';
 import { uiStatusBarAtom } from '../../../src/recoil/uiStatusBarAtom';
 
 export default function ProductsEditPage(): React.Node {
@@ -70,7 +71,8 @@ export default function ProductsEditPage(): React.Node {
   };
 
   return (
-    <LayoutQueryRenderer
+    // eslint-disable-next-line react/jsx-pascal-case
+    <LayoutQueryRenderer_DEPRECATED
       variables={{
         productKey: productKey,
         clientLocale: 'en_US', // TODO: customizable locale

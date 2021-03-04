@@ -1,27 +1,14 @@
 // @flow
 
 import * as React from 'react';
-import { graphql } from '@adeira/relay';
 
-import LayoutQueryRenderer from '../src/LayoutQueryRenderer';
+import Home from '../src/homepage/Home';
+import Layout from '../src/Layout';
 
-export default function Home(): React.Node {
+export default function Homepage(): React.Node {
   return (
-    <LayoutQueryRenderer
-      variables={{}}
-      /* eslint-disable relay/unused-fields */
-      query={graphql`
-        query pagesQuery {
-          whoami {
-            id
-            humanReadableType
-          }
-        }
-      `}
-      /* eslint-enable relay/unused-fields */
-      onResponse={(relayProps) => {
-        return <pre>{JSON.stringify(relayProps, null, 2)}</pre>;
-      }}
-    />
+    <Layout>
+      <Home />
+    </Layout>
   );
 }
