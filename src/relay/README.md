@@ -2,16 +2,16 @@ This package is **opinionated Relay wrapper** used in the Adeira ecosystem. Goal
 
 - query logging during development
 - network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/adeira/universe/tree/master/src/fetch))
-- support for uploadables
+- support for files uploading via GraphQL
 - stored operations (known as persistent queries)
 - correct Relay environment context handling
 - Flow types and best practices included!
 
 More info about Relay, prior art:
 
-- [Relay Docs](https://relay.dev/docs/en/introduction-to-relay.html)
+- [Relay Docs](https://relay.dev/docs/en/introduction-to-relay)
 - [Relay Modern Network Deep Dive](https://medium.com/entria/relay-modern-network-deep-dive-ec187629dfd3)
-- [Advanced Relay topics](https://github.com/mrtnzlml/meta/blob/master/relay.md)
+- [Advanced Relay topics](https://mrtnzlml.com/docs/relay)
 - [Relay Example](https://github.com/adeira/relay-example)
 
 # Install
@@ -115,7 +115,7 @@ This API is high-level on purpose but it's possible to decompose it when you nee
 
 ## Relay Compiler
 
-_Missing some info in docs? Please send a merge request._
+_Missing some info in docs? Please send a pull request._
 
 We use our own `adeira-relay-compiler` which adds some additional features:
 
@@ -292,7 +292,7 @@ Similar rules apply to pagination container which solves one particular use-case
 
 ## Lazy, Eager and Debug logger
 
-You can enable rich log output into browser console like so:
+You can change rich log output into browser console like so (the default is `RelayLazyLogger`):
 
 ```js
 import {
@@ -301,10 +301,9 @@ import {
   RelayDebugLogger, // very verbose, logs everything
 } from '@adeira/relay';
 
-return new Environment({
+const Environment = createEnvironment({
   log: RelayLazyLogger, // or RelayEagerLogger or RelayDebugLogger
-  // network: ...,
-  // store: ...,
+  // …
 });
 ```
 
