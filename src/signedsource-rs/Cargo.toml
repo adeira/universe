@@ -9,7 +9,7 @@ repository = "https://github.com/adeira/universe"
 description = "Utility for signing and verifying generated files."
 
 [dependencies]
-hex = "0.4.2"
+hex = "0.4.3"
 lazy_static = "1.4.0"
 md-5 = "0.9.1"
 regex = "1.4.3"
