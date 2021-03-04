@@ -22,6 +22,7 @@ export { default as fetchQuery } from './fetchQuery';
 export { default as LocalQueryRenderer } from './LocalQueryRenderer';
 export { default as QueryRenderer } from './QueryRenderer';
 export { default as requestSubscription } from './requestSubscription';
+export { default as useLazyLoadQuery } from './useLazyLoadQuery';
 export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
 export type { RefetchRelayProp } from './createRefetchContainer';
@@ -57,7 +58,6 @@ export {
   RelayEnvironmentProvider,
   useEntryPointLoader,
   useFragment,
-  useLazyLoadQuery,
   usePaginationFragment,
   usePreloadedQuery,
   useQueryLoader,
