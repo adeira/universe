@@ -21,16 +21,25 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge' # see Kodiak `merge.automerge_label`
+      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'cargo'
-    directory: '/src/'
+    directory: '/src/signedsource-rs/'
     schedule:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge' # see Kodiak `merge.automerge_label`
+      - 'automerge'
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: 'cargo'
+    directory: '/src/ya-comiste-rust/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
+      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'docker'
@@ -39,5 +48,5 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge' # see Kodiak `merge.automerge_label`
+      - 'automerge'
     open-pull-requests-limit: 10

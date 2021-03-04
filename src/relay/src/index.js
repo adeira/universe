@@ -36,8 +36,7 @@ export type { RecordMap } from './runtimeTypes.flow';
 export { default as useMutation } from './useMutation';
 
 // Relay Modern (re-exported):
-export { graphql, readInlineData, commitLocalUpdate } from 'react-relay';
-export { ConnectionHandler } from 'relay-runtime';
+export { graphql, readInlineData, commitLocalUpdate, ConnectionHandler } from 'react-relay/legacy';
 export type { Environment } from 'react-relay';
 export type {
   CacheConfig,
@@ -49,4 +48,19 @@ export type {
 } from 'relay-runtime';
 
 // Relay Hooks (re-exported):
-export { RelayEnvironmentProvider, useRelayEnvironment } from 'react-relay';
+export {
+  EntryPointContainer,
+  loadEntryPoint,
+  loadQuery,
+  RelayEnvironmentProvider,
+  useEntryPointLoader,
+  useFragment,
+  useLazyLoadQuery,
+  usePaginationFragment,
+  usePreloadedQuery,
+  useQueryLoader,
+  useRefetchableFragment,
+  useRelayEnvironment,
+  useSubscribeToInvalidationState,
+  useSubscription,
+} from 'react-relay';
