@@ -44,7 +44,9 @@ export type {
   DeclarativeMutationConfig,
   Disposable,
   GraphQLTaggedNode,
+  PayloadError,
   Snapshot,
+  UploadableMap,
   Variables,
 } from 'relay-runtime';
 
