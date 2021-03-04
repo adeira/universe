@@ -11,10 +11,12 @@ import useSelectedItemsApi from './recoil/selectedItemsState';
 export default function ProductsGrid(): Node {
   const { select } = useSelectedItemsApi();
 
-  const handleDemoItemClick = (itemID, unitAmount) => {
+  const handleItemClick = (productID, product) => {
     select({
-      itemID,
-      itemUnitAmount: unitAmount,
+      itemID: productID,
+      itemTitle: product.name,
+      itemUnitAmount: product.price.unitAmount,
+      units: 1,
     });
   };
 
@@ -55,7 +57,7 @@ export default function ProductsGrid(): Node {
                 type="button"
                 key={product.id}
                 className={styles('productButton')}
-                onClick={() => handleDemoItemClick(product.key, product.price.unitAmount)}
+                onClick={() => handleItemClick(product.key, product)}
               >
                 <ProductCard
                   title={product.name}
@@ -85,5 +87,6 @@ const styles = sx.create({
     padding: 0,
     textAlign: 'inherit',
     cursor: 'pointer',
+    border: 'none',
   },
 });

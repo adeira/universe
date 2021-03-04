@@ -14,7 +14,6 @@ export { default as RelayEagerLogger } from './loggers/RelayEagerLogger';
 export { default as RelayLazyLogger } from './loggers/RelayLazyLogger';
 
 // Relay Modern (wrapped):
-export { default as commitLocalUpdate } from './commitLocalUpdate';
 export { commitMutation, commitMutationAsync } from './mutations';
 export { default as createFragmentContainer } from './createFragmentContainer';
 export { default as createPaginationContainer } from './createPaginationContainer';
@@ -37,7 +36,7 @@ export type { RecordMap } from './runtimeTypes.flow';
 export { default as useMutation } from './useMutation';
 
 // Relay Modern (re-exported):
-export { graphql, readInlineData } from 'react-relay';
+export { graphql, readInlineData, commitLocalUpdate } from 'react-relay';
 export { ConnectionHandler } from 'relay-runtime';
 export type { Environment } from 'react-relay';
 export type {
