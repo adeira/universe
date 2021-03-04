@@ -3,7 +3,7 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-import HeadingLevel from './HeadingLevel';
+import HeadingLevel from '../HeadingLevel';
 
 type Props = {|
   +children: React.Node,
