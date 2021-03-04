@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<91ad6265147fa1c51e8cdced2d42e07f>>
+ * @generated SignedSource<<e1cef639311b427a222ff7769e0b7998>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -380,7 +380,7 @@ export type AllCSSPropertyTypes = {|
   +lineHeight?: number | string, // https://developer.mozilla.org/docs/Web/CSS/line-height
   +lineHeightStep?: number | string, // https://developer.mozilla.org/docs/Web/CSS/line-height-step
   +listStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/list-style
-  +listStyleImage?: number | string, // https://developer.mozilla.org/docs/Web/CSS/list-style-image
+  +listStyleImage?: string, // https://developer.mozilla.org/docs/Web/CSS/list-style-image
   +listStylePosition?: 'inside' | 'outside' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/list-style-position
   +listStyleType?: number | string, // https://developer.mozilla.org/docs/Web/CSS/list-style-type
   +margin?: number | string, // https://developer.mozilla.org/docs/Web/CSS/margin
