@@ -229,9 +229,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 140,
+   "line_beg": 154,
    "col_beg": 19,
-   "line_end": 143,
+   "line_end": 157,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -243,9 +243,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 152,
+   "line_beg": 166,
    "col_beg": 25,
-   "line_end": 152,
+   "line_end": 166,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",
