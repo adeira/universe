@@ -7,7 +7,8 @@ import { graphql } from '@adeira/relay';
 import { Heading } from '@adeira/sx-design';
 
 import LayoutHeading from '../src/LayoutHeading';
-import LayoutQueryRenderer from '../src/LayoutQueryRenderer';
+// eslint-disable-next-line camelcase
+import LayoutQueryRenderer_DEPRECATED from '../src/LayoutQueryRenderer_DEPRECATED';
 
 export default function UsersPage(): React.Node {
   const CommonHeader = (
@@ -21,7 +22,8 @@ export default function UsersPage(): React.Node {
   );
 
   return (
-    <LayoutQueryRenderer
+    // eslint-disable-next-line react/jsx-pascal-case
+    <LayoutQueryRenderer_DEPRECATED
       query={graphql`
         query usersQuery {
           listUsers {

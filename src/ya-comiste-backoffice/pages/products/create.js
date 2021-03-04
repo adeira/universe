@@ -5,12 +5,14 @@ import { fbt } from 'fbt';
 import { Heading } from '@adeira/sx-design';
 
 import LayoutHeading from '../../src/LayoutHeading';
-import LayoutQueryRenderer from '../../src/LayoutQueryRenderer';
+// eslint-disable-next-line camelcase
+import LayoutQueryRenderer_DEPRECATED from '../../src/LayoutQueryRenderer_DEPRECATED';
 import CreateProductForm from '../../src/products/CreateProductForm';
 
 export default function ProductsCreatePage(): React.Node {
   return (
-    <LayoutQueryRenderer
+    // eslint-disable-next-line react/jsx-pascal-case
+    <LayoutQueryRenderer_DEPRECATED
       onResponse={() => {
         return (
           <>
