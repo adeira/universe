@@ -28,6 +28,9 @@ export type RefetchRelayProp = {|
   ) => Disposable,
 |};
 
+/**
+ * @deprecated use `useRefetchableFragment` instead
+ */
 export default function createRefetchContainer<Props: { ... }, TComponent: ComponentType<Props>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,

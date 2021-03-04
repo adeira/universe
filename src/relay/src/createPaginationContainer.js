@@ -12,6 +12,9 @@ import type { FragmentSpec, $RelayProps } from './types.flow';
 
 export type PaginationRelayProp = _RelayPaginationProp;
 
+/**
+ * @deprecated use `usePaginationFragment` instead
+ */
 export default function createPaginationContainer<Props: { ... }, TComponent: ComponentType<Props>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec,
