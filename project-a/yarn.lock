@@ -151,13 +151,13 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-"@adeira/sx-design@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.3.0.tgz#e2a856200814963e7ba8de15b0043de1393b968c"
-  integrity sha512-BdSeiJhG9bAuOT78haOvkt0YxR+J+IHb3tH7d8DYXLLIYx2Ru4ytjzp7Jn2Y2RC58ywYEhBNf7NO+d8dyvpHyg==
+"@adeira/sx-design@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.4.0.tgz#2447366a7bcb474a91adc5788ce17da876b5c067"
+  integrity sha512-ATG+rMDiJXBm+zje8yDQl+6+T+Bu+JAIfiX88k8AmQ05BVli+lUJmpB+scZb4+ZQJJxykWKcs/fuF/XVbi79uA==
   dependencies:
     "@adeira/js" "^2.1.0"
-    "@babel/runtime" "^7.12.13"
+    "@babel/runtime" "^7.13.9"
     blurhash "^1.1.3"
     react-blurhash "^0.1.3"
     react-device-detect "^1.15.0"
@@ -1119,10 +1119,10 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
-  version "7.12.13"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz#0a21452352b02542db0ffb928ac2d3ca7cb6d66d"
-  integrity sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw==
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.13.9", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4":
+  version "7.13.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.13.9.tgz#97dbe2116e2630c489f22e0656decd60aaa1fcee"
+  integrity sha512-aY2kU+xgJ3dJ1eU6FMB9EH8dIe8dmusF1xEku52joLvw6eAFN0AI+WxCLDnpev2LEejWBAy2sBvBOBAjI3zmvA==
   dependencies:
     regenerator-runtime "^0.13.4"
 
