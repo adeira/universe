@@ -28,6 +28,7 @@ it('does not log in Node.js', () => {
       cacheID: '',
     },
     variables: {},
+    cacheConfig: {},
   });
 
   RelayLazyLogger({

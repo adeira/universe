@@ -20,7 +20,6 @@ export default function LinkButton(props: Props): React.Node {
 const styles = sx.create({
   default: {
     'color': '#5c6a77',
-    'fontSize': 16,
     'cursor': 'pointer',
     'textDecoration': 'none',
     ':hover': {

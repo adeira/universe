@@ -1,10 +1,14 @@
 // @flow
 
 import { commitMutation as _commitMutation, type Environment } from 'react-relay';
-import type { GraphQLTaggedNode, Variables, Disposable } from 'relay-runtime';
-
-import type { DeclarativeMutationConfig, Uploadables } from './types.flow';
-import type { RecordSourceSelectorProxy } from './runtimeTypes.flow';
+import type {
+  GraphQLTaggedNode,
+  Variables,
+  Disposable,
+  UploadableMap,
+  RecordSourceSelectorProxy,
+  DeclarativeMutationConfig,
+} from 'relay-runtime';
 
 opaque type SelectorData = $FlowFixMe;
 
@@ -25,7 +29,7 @@ type MutationConfig<T: MutationParameters> = {|
   +optimisticResponse?: $ElementType<{| +rawResponse?: { ... }, ...T |}, 'rawResponse'>,
   +optimisticUpdater?: ?(store: RecordSourceSelectorProxy) => void,
   +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
-  +uploadables?: Uploadables,
+  +uploadables?: UploadableMap,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
 |};
 
@@ -48,7 +52,6 @@ export function commitMutation<T: MutationParameters>(
   // we have the actual allowed rangebehaviors
 
   // $FlowExpectedError[incompatible-call]
-  // $FlowExpectedError[incompatible-exact]
   // $FlowExpectedError[incompatible-variance]
   // $FlowExpectedError[prop-missing]
   return _commitMutation(environment, config);

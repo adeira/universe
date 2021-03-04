@@ -13,7 +13,7 @@ import type {
 type Options = {|
   gcScheduler?: ?Scheduler,
   operationLoader?: ?OperationLoader,
-  UNSTABLE_DO_NOT_USE_getDataID?: ?GetDataID,
+  getDataID?: ?GetDataID,
   gcReleaseBufferSize?: ?number,
   queryCacheExpirationTime?: ?number,
   log?: ?LogFunction,

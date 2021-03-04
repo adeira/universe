@@ -1,6 +1,6 @@
 // @flow
 
-import { useMutation, graphql, type Disposable } from '../../index';
+import { useMutation, graphql, type Disposable } from '../index';
 
 const mutation = graphql`
   mutation useMutation {

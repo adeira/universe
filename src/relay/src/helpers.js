@@ -1,8 +1,8 @@
 // @flow strict-local
 
-import type { Variables } from 'relay-runtime';
+import type { Variables, UploadableMap } from 'relay-runtime';
 
-import type { Uploadables, RequestNode } from './types.flow';
+import type { RequestNode } from './types.flow';
 
 export const isMutation = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'mutation';
@@ -59,7 +59,7 @@ function getRequestBodyWithoutUplodables(request, variables): string {
 export function getRequestBody(
   request: RequestNode,
   variables: Variables,
-  uploadables: ?Uploadables,
+  uploadables: ?UploadableMap,
 ): string | FormData {
   if (uploadables) {
     return getRequestBodyWithUploadables(request, variables, uploadables);
@@ -68,7 +68,7 @@ export function getRequestBody(
 }
 
 export const getHeaders = (
-  uploadables: ?Uploadables,
+  uploadables: ?UploadableMap,
 ): {| +'Accept': string, +'Content-type'?: string |} => {
   if (uploadables) {
     return {

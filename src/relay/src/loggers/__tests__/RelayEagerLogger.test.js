@@ -34,6 +34,7 @@ it("calls event 'network.start' as expected", () => {
       cacheID: '',
     },
     variables: {},
+    cacheConfig: {},
   });
 
   expect(consoleLogSpy).toHaveBeenCalledTimes(2);
