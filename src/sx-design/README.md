@@ -24,3 +24,11 @@ SX Design uses [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/
 ```
 
 https://caniuse.com/css-variables
+
+## Development
+
+To start storybook run:
+
+```text
+yarn workspace @adeira/sx-design storybook
+```

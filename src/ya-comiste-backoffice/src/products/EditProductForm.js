@@ -2,27 +2,41 @@
 
 import { invariant } from '@adeira/js';
 import { fbt } from 'fbt';
-import React, { useState } from 'react';
-import {
-  createFragmentContainer,
-  graphql,
-  type FragmentContainerType,
-  useMutation,
-} from '@adeira/relay';
+import React, { useState, type Node } from 'react';
+import { graphql, useFragment, useMutation } from '@adeira/relay';
 import { useSetRecoilState } from 'recoil';
 
 import ProductForm, { type FormValues } from './form/ProductForm';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
-import type { EditProductFormFragment } from './__generated__/EditProductFormFragment.graphql';
+import type { EditProductFormFragment$key } from './__generated__/EditProductFormFragment.graphql';
 import type { EditProductFormMutation } from './__generated__/EditProductFormMutation.graphql';
 
 type Props = {|
-  +product: null | EditProductFormFragment,
+  +product: ?EditProductFormFragment$key,
 |};
 
-function EditProductForm(props: Props) {
+export default function EditProductForm(props: Props): Node {
   const [, setFiles] = useState(undefined);
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
+
+  const product = useFragment<?EditProductFormFragment$key>(
+    graphql`
+      fragment EditProductFormFragment on Product {
+        key
+        revision
+        price {
+          unitAmount
+        }
+        visibility
+        translations {
+          locale
+          name
+          description
+        }
+      }
+    `,
+    props.product,
+  );
 
   const [productUpdate] = useMutation<EditProductFormMutation>(graphql`
     mutation EditProductFormMutation(
@@ -97,8 +111,8 @@ function EditProductForm(props: Props) {
     productUpdate({
       uploadables: files,
       variables: {
-        productKey: props.product?.key ?? '',
-        productRevision: props.product?.revision ?? '',
+        productKey: product?.key ?? '',
+        productRevision: product?.revision ?? '',
         productImagesNames: Array.from(files ?? []).map((file) => file.name),
         productPriceUnitAmount: price * 100, // adjusting for centavo
         translations: [
@@ -150,27 +164,9 @@ function EditProductForm(props: Props) {
   return (
     <ProductForm
       submitButtonTitle={<fbt desc="edit product form submit button title">Save changes</fbt>}
-      initialValues={getProductValues(props.product)}
+      initialValues={getProductValues(product)}
       onUploadablesChange={(files) => setFiles(files)}
       onSubmit={handleFormSubmit}
     />
   );
 }
-
-export default (createFragmentContainer(EditProductForm, {
-  product: graphql`
-    fragment EditProductFormFragment on Product {
-      key
-      revision
-      price {
-        unitAmount
-      }
-      visibility
-      translations {
-        locale
-        name
-        description
-      }
-    }
-  `,
-}): FragmentContainerType<Props>);
