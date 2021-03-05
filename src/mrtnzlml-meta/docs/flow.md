@@ -287,6 +287,52 @@ E.isValid('A'); // boolean
 - https://github.com/babel/babel-eslint/commit/2c754a8189d290f145e23ac962331fd1abd877bd
 - https://github.com/facebook/flow/commit/bc4dcba789b3e1dc1def85787e67cf8e1e85755b
 
+## Declaration with `mixins`
+
+Mixins (not [React mixins](https://reactjs.org/blog/2016/07/13/mixins-considered-harmful.html)) are a little know feature in Flow which is no longer being publicly advertised (even though [it used to be in docs](https://github.com/facebook/flow/commit/5c4297bcfa0f577e6f989ad188a7b8d1633b2df4)).
+
+You can declare a class which mixes in 1 or more other classes with the `mixins` keyword. Mixing class `B` into class `A` copies `B`'s fields and methods into `A`. Note, however, that any fields or methods that `B` inherits are not copied over. Mixins are for code reuse, not for multiple inheritance.
+
+Example:
+
+```js
+// You can mixin more than one class
+declare class MyClass extends Child mixins MixinA, MixinB {}
+declare class MixinA {
+  a: number;
+  b: number;
+}
+// Mixing in MixinB will NOT mix in MixinBase
+declare class MixinB extends MixinBase {}
+declare class MixinBase {
+  c: number;
+}
+declare class Child extends Base {
+  a: string;
+  c: string;
+}
+declare class Base {
+  b: string;
+}
+
+var c = new MyClass();
+(c.a: number); // Both Child and MixinA provide `a`, so MixinA wins
+(c.b: number); // The same principle holds for `b`, which Child inherits
+(c.c: string); // mixins does not copy inherited properties, so `c` comes from Child
+```
+
+You can combine `mixins` with `implements` as well:
+
+```js
+declare interface Test {
+  test(): void;
+}
+
+declare class MyClass extends Child mixins MixinA, MixinB implements Test {
+  test(): void;
+}
+```
+
 ## Callable objects
 
 This type allows you to use the function as a function and as an object at the same time.
