@@ -21,6 +21,7 @@ const styles = sx.create({
   default: {
     'color': '#5c6a77',
     'cursor': 'pointer',
+    'fontSize': 'inherit',
     'textDecoration': 'none',
     ':hover': {
       textDecoration: 'underline',
