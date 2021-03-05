@@ -23,10 +23,14 @@ const getStyleTag = (): CSSStyleSheet => {
       styleAdeiraSXTag = document.createElement('style');
       styleAdeiraSXTag.type = 'text/css';
       styleAdeiraSXTag.setAttribute('data-adeira-sx', '');
+      /* $FlowFixMe[incompatible-call] This comment suppresses an error when
+       * upgrading Flow. To see the error delete this comment and run Flow. */
       htmlHead?.appendChild(styleAdeiraSXTag);
     }
   }
 
+  /* $FlowFixMe[incompatible-use] This comment suppresses an error when
+   * upgrading Flow. To see the error delete this comment and run Flow. */
   const styleSheet = styleAdeiraSXTag.sheet;
 
   invariant(
