@@ -63,16 +63,6 @@ impl Product {
     pub(in crate::commerce) fn name(&self) -> String {
         self.name.to_owned()
     }
-
-    #[cfg(test)]
-    pub(in crate::commerce) fn description(&self) -> Option<String> {
-        self.description.to_owned()
-    }
-
-    #[cfg(test)]
-    pub(in crate::commerce) fn images(&self) -> Vec<Image> {
-        self.images.to_owned()
-    }
 }
 
 #[juniper::graphql_object]
