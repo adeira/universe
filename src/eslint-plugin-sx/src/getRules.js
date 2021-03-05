@@ -13,10 +13,10 @@ module.exports = function getRules(
     encoding: 'utf8',
     withFileTypes: true,
   })) {
-    // $FlowIssue[prop-missing]: https://github.com/facebook/flow/pull/8532
-    if (dirent.isFile() && /\.js$/.test(dirent.name)) {
-      // $FlowIssue[prop-missing]: https://github.com/facebook/flow/pull/8532
-      const ruleFile = dirent.name;
+    /* $FlowFixMe[incompatible-type] This comment suppresses an error when
+     * upgrading Flow. To see the error delete this comment and run Flow. */
+    const ruleFile /*: string */ = dirent.name;
+    if (dirent.isFile() && /\.js$/.test(ruleFile)) {
       const ruleName = ruleFile.replace(/\.js$/, '');
       rules[ruleName] = require(path.join(rulesPath, ruleFile));
     }
