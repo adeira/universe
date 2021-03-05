@@ -9,37 +9,26 @@ require('@babel/register')({
   rootMode: 'upward-optional',
 });
 
-const program = require('commander');
 const { invariant } = require('@adeira/js');
 const Logger = require('@adeira/logger').default;
 const RelayConfig = require('relay-config');
 
 const compiler = require('../src/compiler').default;
+const { relayCompilerOptions } = require('./commander/options');
 
-program
-  // Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
-  .option('--src <src>')
-  .option('--schema <schema>')
-  .option('--persist-mode <fs|remote>')
-  .option('--validate', 'Activates validate only mode', false)
-  .option(
-    '--watch',
-    'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
-    false,
-  )
-  .parse(process.argv);
+const options = relayCompilerOptions(process.argv);
 
 const config = {
-  src: program.src, // required
-  schema: program.schema, // required
-  persistMode: program.persistMode,
-  validate: program.validate,
-  watch: program.watch,
+  src: options.src, // required
+  schema: options.schema, // required
+  persistMode: options.persistMode,
+  validate: options.validate,
+  watch: options.watch,
   ...RelayConfig.loadConfig(),
 };
 
-invariant(config.src, 'Option --src is required.');
-invariant(config.schema, 'Option --schema is required.');
+invariant(config.src != null, 'Option --src is required.');
+invariant(config.schema != null, 'Option --schema is required.');
 invariant(
   config.persistMode === undefined || config.persistMode === 'fs',
   'Only filesystem persist mode is currently supported.',
