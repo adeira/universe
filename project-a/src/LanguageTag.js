@@ -1,9 +1,8 @@
 // @flow strict
 
 export type LanguageTagType = {|
-  +bcp47: string,
-  +fbt: string,
-  +url: string,
+  +bcp47: string, // en-US
+  +url: string, // en-us
 |};
 
 const SUPPORTED_PRIMARY_LANGUAGE_SUBTAGS = ['en', 'es'];
@@ -44,7 +43,6 @@ class LanguageTag {
   __formatLanguageTag(primaryLanguageSubtag: string, regionSubtag: string): LanguageTagType {
     return {
       bcp47: `${primaryLanguageSubtag.toLowerCase()}-${regionSubtag.toUpperCase()}`,
-      fbt: `${primaryLanguageSubtag.toLowerCase()}_${regionSubtag.toUpperCase()}`,
       url: `${primaryLanguageSubtag}-${regionSubtag}`.toLowerCase(),
     };
   }

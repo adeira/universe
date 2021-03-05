@@ -6,7 +6,6 @@ it('returns default language as expected', () => {
   expect(LanguageTag.getDefaultLanguageTag()).toMatchInlineSnapshot(`
     Object {
       "bcp47": "es-MX",
-      "fbt": "es_MX",
       "url": "es-mx",
     }
   `);
