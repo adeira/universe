@@ -110,7 +110,7 @@ const styles = sx.create({
   },
   checkout: {
     padding: '1rem',
-    backgroundColor: 'green',
+    backgroundColor: 'var(--ycbo-success-background)',
   },
   checkoutLink: {
     fontSize: 25,
