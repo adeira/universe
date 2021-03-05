@@ -37,6 +37,7 @@ module.exports = {
       },
       items: [
         { to: 'docs/flow', label: 'Meta', position: 'left' },
+        { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml',
