@@ -5,7 +5,7 @@ sidebar_label: Flow Archive
 ---
 
 :::danger deprecated
-This is a collection of outdated sections that are no longer valid or somehow inaccurate. Current docs can be found here: [meta](../flow)
+This is a collection of outdated sections that are no longer valid or somehow inaccurate. Current docs can be found here: [flow meta](../flow)
 :::
 
 ## Types-first architecture

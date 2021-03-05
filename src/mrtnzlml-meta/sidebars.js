@@ -54,4 +54,8 @@ module.exports = {
     { type: 'doc', id: 'javascript' },
     { type: 'doc', id: 'css' },
   ],
+  archive: [
+    { type: 'doc', id: 'archive/flow' },
+    { type: 'doc', id: 'archive/relay' },
+  ],
 };

@@ -197,13 +197,6 @@ As you can see, the ID is composed of the query itself + the path. Moreover, the
 
 Source: https://github.com/facebook/relay/issues/2864#issuecomment-535108266
 
-## Relay Compiler WASM & NEON
-
-TKTK
-
-- WASM: https://github.com/facebook/relay/commit/577745cdc0e015f3c723c02ba3467b5ca7b42b2c
-- NEON: https://github.com/facebook/relay/commit/08e012be46c6029abb9cd10b1225f5e2e2881bba (https://neon-bindings.com/docs/intro)
-
 ## Deferred results
 
 - https://github.com/graphql/graphql-js/pull/2318
@@ -352,34 +345,6 @@ When `refetch` is called and the `refetchQuery` is executed, Relay doesn't actua
 Refetch containers are only really meant to be used when you are changing variables in the component fragment. If you don't want or need to include variables in the fragment, you could go one level up and set new variables directly in the QueryRenderer (using props or state).
 
 https://github.com/facebook/relay/issues/2244#issuecomment-355054944
-
-## RelayNetworkLogger
-
-_Please note: the following text is true only for old Relay versions._
-
-TODO: https://github.com/facebook/relay/issues/2674 !
-
-```js
-import RelayNetworkLogger from 'relay-runtime/lib/RelayNetworkLogger';
-
-import fetchFunction from './fetchFunction';
-import subscribeFunction from './subscribeFunction';
-
-const fetch = __DEV__ ? RelayNetworkLogger.wrapFetch(fetchFunction) : fetchFunction;
-
-const subscribe = __DEV__ ? RelayNetworkLogger.wrapSubscribe(subscribeFunction) : subscribeFunction;
-
-const network = Network.create(fetch, subscribe);
-const source = new RecordSource();
-const store = new Store(source);
-
-const env = new Environment({
-  network,
-  store,
-});
-
-export default env;
-```
 
 ## Common Relay mistakes (from user perspective)
 
