@@ -14,13 +14,18 @@ type TranslationDict = {|
 
 export default function initTranslations(lang: ?string): LanguageTagType {
   const languageTag = LanguageTag.detectLanguageTag(lang);
+  const locale = languageTag.bcp47;
 
-  let translations: TranslationDict = { en_US: {} };
+  let translations: TranslationDict = { 'en-US': {} };
   try {
     // Beware! Make sure this is secure when changing these lines.
-    translations = require(`../translations/out/${languageTag.fbt}.json`);
+    translations = require(`../translations/out/${locale}.json`);
   } catch {
-    warning(false, "Couldn't load translation for language tag: %s", languageTag.fbt);
+    warning(
+      locale === 'en-US', // `en-US` is the default so don't want for it
+      "Couldn't load translation for language tag: %s",
+      locale,
+    );
   }
 
   fbtInit({
@@ -29,7 +34,7 @@ export default function initTranslations(lang: ?string): LanguageTagType {
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale: languageTag.fbt,
+        locale: locale,
       }),
     },
   });
