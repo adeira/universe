@@ -14,13 +14,15 @@ mod v3__create_document_user_admin;
 mod v4__create_collection_products;
 mod v5__create_view_search_products;
 mod v6__create_collection_tracking;
+mod v7__create_collection_pos_checkouts;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct MigrationRecord {
     _key: String,
 }
 
-// This migrations should be written to be idempotent: not to fail when they are run repeatedly.
+/// All migrations should be written to be idempotent: not to fail when they are run repeatedly.
+/// Please note: the migration engine currently doesn't care about the order or anything (it's quite naive).
 pub async fn migrate(pool: &ConnectionPool) {
     let db = pool.db().await;
 
@@ -53,6 +55,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v6__create_collection_tracking", |db| {
             Box::pin(v6__create_collection_tracking::migrate(&db))
+        }),
+        ("v7__create_collection_pos_checkouts", |db| {
+            Box::pin(v7__create_collection_pos_checkouts::migrate(&db))
         }),
     ];
 

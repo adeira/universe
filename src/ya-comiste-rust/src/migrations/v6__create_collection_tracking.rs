@@ -1,4 +1,4 @@
-use crate::migrations::utils::{create_collection, create_document, ArangoDocument};
+use crate::migrations::utils::create_collection;
 use arangors::collection::CollectionType;
 use arangors::ClientError;
 

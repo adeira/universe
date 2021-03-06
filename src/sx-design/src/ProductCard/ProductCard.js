@@ -6,9 +6,9 @@ import sx from '@adeira/sx';
 import { Blurhash } from 'react-blurhash';
 import { useState } from 'react';
 
-import Heading from './Heading';
-import Money from './Money';
-import type { SupportedCurrencies, SupportedLocales } from './constants';
+import Heading from '../Heading/Heading';
+import Money from '../Money/Money';
+import type { SupportedCurrencies, SupportedLocales } from '../constants';
 
 type Props = {|
   +title: string,

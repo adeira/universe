@@ -10,6 +10,9 @@ export type RelayProp = {|
   +environment: Environment,
 |};
 
+/**
+ * @deprecated use `useFragment` instead
+ */
 export default function createFragmentContainer<Props: { ... }, TComponent: ComponentType<Props>>(
   Component: TComponent,
   fragmentSpec: FragmentSpec, // this is intentionally different to force the best practices

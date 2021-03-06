@@ -19,7 +19,7 @@ export default function EditProductForm(props: Props): Node {
   const [, setFiles] = useState(undefined);
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
-  const product = useFragment<?EditProductFormFragment$key>(
+  const product = useFragment(
     graphql`
       fragment EditProductFormFragment on Product {
         key
