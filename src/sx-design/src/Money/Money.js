@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import type { SupportedCurrencies, SupportedLocales } from './constants';
+import type { SupportedCurrencies, SupportedLocales } from '../constants';
 
 type Props = {|
   +priceUnitAmount: number,
