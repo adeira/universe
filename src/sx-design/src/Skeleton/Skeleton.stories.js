@@ -1,0 +1,35 @@
+/**
+ * https://storybook.js.org/docs/react/writing-stories/introduction
+ * @flow
+ */
+
+import sx from '@adeira/sx';
+import React from 'react';
+
+import Skeleton from './Skeleton';
+
+// 👇 This default export determines where your story goes in the story list
+export default {
+  title: 'Example/Skeleton',
+  component: Skeleton,
+};
+
+const styles = sx.create({
+  productsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gap: '1rem',
+  },
+});
+
+// 👇 We create a "template" of how args map to rendering
+const Template = (args) => (
+  <div className={styles('productsGrid')}>
+    <Skeleton {...args} />
+    <Skeleton {...args} />
+  </div>
+);
+
+// 👇 Each story then reuses that template
+export const Default: $FlowFixMe = Template.bind({});
+Default.storyName = 'Default';
