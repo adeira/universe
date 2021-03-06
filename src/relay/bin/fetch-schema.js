@@ -11,7 +11,6 @@ require('@babel/register')({
 
 const fs = require('fs');
 const path = require('path');
-const program = require('commander');
 const { invariant } = require('@adeira/js');
 const fetch = require('@adeira/fetch').default;
 const logger = require('@adeira/logger').default;
@@ -19,19 +18,17 @@ const SignedSource = require('@adeira/signed-source').default;
 const { lexicographicSortSchema } = require('graphql');
 const { buildClientSchema, getIntrospectionQuery, printSchema } = require('graphql/utilities');
 
-program
-  .option('--resource <url>')
-  .option('--filename <path>', undefined, 'schema.graphql')
-  .parse(process.argv);
+const { fetchSchemaOptions } = require('./commander/options');
 
-const options = program.opts();
+const options = fetchSchemaOptions(process.argv);
 
-invariant(options.resource, 'Option --resource is required.');
+const resource = options.resource;
+invariant(resource != null, 'Option --resource is required.');
 
 const filename = path.join(process.cwd(), options.filename);
 
 (async () => {
-  const response = await fetch(options.resource, {
+  const response = await fetch(resource, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',

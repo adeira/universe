@@ -100,6 +100,76 @@
   },
   {
    "hashToText": {
+    "Uwsynldmzkm43wwA8z+rWQ==": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
+   },
+   "filepath": "src/pos/Checkout.js",
+   "line_beg": 57,
+   "col_beg": 8,
+   "line_end": 60,
+   "col_end": 9,
+   "desc": "reset checkout session confirmation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
+  },
+  {
+   "hashToText": {
+    "T61CEaVqIFGOoto/TXxy5A==": "⬅ Go back"
+   },
+   "filepath": "src/pos/Checkout.js",
+   "line_beg": 74,
+   "col_beg": 10,
+   "line_end": 74,
+   "col_end": 57,
+   "desc": "go back to POS text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "⬅ Go back"
+  },
+  {
+   "hashToText": {
+    "X15wJnkWMiCincs1C+MeFw==": "Did you receive the money?"
+   },
+   "filepath": "src/pos/Checkout.js",
+   "line_beg": 84,
+   "col_beg": 8,
+   "line_end": 84,
+   "col_end": 88,
+   "desc": "checkout question before continuing",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Did you receive the money?"
+  },
+  {
+   "hashToText": {
+    "MfLT6Yq4YBMxi+dW96zMNg==": "Yes, finish checkout"
+   },
+   "filepath": "src/pos/Checkout.js",
+   "line_beg": 93,
+   "col_beg": 10,
+   "line_end": 93,
+   "col_end": 77,
+   "desc": "process checkout button text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Yes, finish checkout"
+  },
+  {
+   "hashToText": {
+    "P3UvwgozOxL8sg8ODM5D/A==": "No, start over"
+   },
+   "filepath": "src/pos/Checkout.js",
+   "line_beg": 101,
+   "col_beg": 10,
+   "line_end": 101,
+   "col_end": 69,
+   "desc": "reset checkout button text",
+   "project": "",
+   "type": "text",
+   "jsfbt": "No, start over"
+  },
+  {
+   "hashToText": {
     "9uWJJI15gvfuaDi3bpoT2w==": "Nothing selected yet"
    },
    "filepath": "src/pos/ProductsSelected.js",
@@ -229,9 +299,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 140,
+   "line_beg": 154,
    "col_beg": 19,
-   "line_end": 143,
+   "line_end": 157,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -243,9 +313,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 152,
+   "line_beg": 166,
    "col_beg": 25,
-   "line_end": 152,
+   "line_end": 166,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",
@@ -335,6 +405,118 @@
    "project": "",
    "type": "text",
    "jsfbt": "Product pictures"
+  },
+  {
+   "hashToText": {
+    "bK+ktgyahP617ibw4AAiBg==": "Oh no! Something is broken."
+   },
+   "filepath": "pages/pos/checkout/failure.js",
+   "line_beg": 15,
+   "col_beg": 8,
+   "line_end": 15,
+   "col_end": 84,
+   "desc": "oh no failure checkout message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Oh no! Something is broken."
+  },
+  {
+   "hashToText": {
+    "s8rtQvFOZDW+FkdYzzzvlw==": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!"
+   },
+   "filepath": "pages/pos/checkout/failure.js",
+   "line_beg": 20,
+   "col_beg": 10,
+   "line_end": 25,
+   "col_end": 16,
+   "desc": "checkout failure help message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!"
+  },
+  {
+   "hashToText": {
+    "egBP6SSzVrgpJrhdIdlR2A==": "what, how many, for how much"
+   },
+   "filepath": "pages/pos/checkout/failure.js",
+   "line_beg": 21,
+   "col_beg": 61,
+   "line_end": 23,
+   "col_end": 21,
+   "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "what, how many, for how much"
+  },
+  {
+   "hashToText": {
+    "Li6yQ40dR8ad7DoBK/xCGg==": "let us know"
+   },
+   "filepath": "pages/pos/checkout/failure.js",
+   "line_beg": 24,
+   "col_beg": 12,
+   "line_end": 24,
+   "col_end": 40,
+   "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
+   "project": "",
+   "type": "text",
+   "jsfbt": "let us know"
+  },
+  {
+   "hashToText": {
+    "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
+   },
+   "filepath": "pages/pos/checkout/failure.js",
+   "line_beg": 35,
+   "col_beg": 8,
+   "line_end": 35,
+   "col_end": 80,
+   "desc": "start a new POS session button",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Start a new POS session"
+  },
+  {
+   "hashToText": {
+    "+WJ8s6/GCuVjuiX9CDxdzg==": "Well done!"
+   },
+   "filepath": "pages/pos/checkout/success.js",
+   "line_beg": 15,
+   "col_beg": 8,
+   "line_end": 15,
+   "col_end": 71,
+   "desc": "well done checkout success message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Well done!"
+  },
+  {
+   "hashToText": {
+    "ZG+l+9644F97vASBBKmFzg==": "You can now go back and serve another customer!"
+   },
+   "filepath": "pages/pos/checkout/success.js",
+   "line_beg": 20,
+   "col_beg": 10,
+   "line_end": 22,
+   "col_end": 16,
+   "desc": "success checkout help message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "You can now go back and serve another customer!"
+  },
+  {
+   "hashToText": {
+    "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
+   },
+   "filepath": "pages/pos/checkout/success.js",
+   "line_beg": 26,
+   "col_beg": 8,
+   "line_end": 26,
+   "col_end": 80,
+   "desc": "start a new POS session button",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Start a new POS session"
   },
   {
    "hashToText": {
