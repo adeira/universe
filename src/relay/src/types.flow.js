@@ -31,8 +31,17 @@ export type $RelayProps<Props, RelayPropT> = $ObjMap<
   (<T>(T) => T)
 >
 
+/**
+ * @deprecated use `useFragment` which doesn't need explicit Flow types
+ */
 export type FragmentContainerType<Props> = ComponentType<$RelayProps<Props, RelayProp>>;
 
+/**
+ * @deprecated use `useRefetchableFragment` which doesn't need explicit Flow types
+ */
 export type RefetchContainerType<Props> = ComponentType<$RelayProps<Props, RefetchRelayProp>>;
 
+/**
+ * @deprecated use `usePaginationFragment` which doesn't need explicit Flow types
+ */
 export type PaginationContainerType<Props> = ComponentType<$RelayProps<Props, PaginationRelayProp>>;

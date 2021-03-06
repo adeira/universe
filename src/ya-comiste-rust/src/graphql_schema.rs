@@ -85,6 +85,10 @@ impl Mutation {
     fn commerce() -> crate::commerce::api::CommerceMutation {
         crate::commerce::api::CommerceMutation {}
     }
+
+    fn pos() -> crate::pos::api::POSMutation {
+        crate::pos::api::POSMutation {}
+    }
 }
 
 pub type Schema = RootNode<'static, Query, Mutation, EmptySubscription<Context>>;

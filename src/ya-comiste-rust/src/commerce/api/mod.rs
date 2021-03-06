@@ -2,9 +2,9 @@ pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
 pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
+pub use crate::commerce::model::products::SupportedCurrency;
 pub use crate::commerce::model::products::SupportedLocale;
 
-use crate::commerce::model::errors::ModelError;
 use crate::graphql_context::Context;
 use juniper::{FieldError, FieldResult};
 
