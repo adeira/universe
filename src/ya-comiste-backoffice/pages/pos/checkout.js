@@ -2,11 +2,8 @@
 
 import * as React from 'react';
 
+import Checkout from '../../src/pos/Checkout';
+
 export default function POSCheckoutPage(): React.Node {
-  return (
-    <div>
-      TODO: checkout (help with the money returning, mutate server and show success screen to
-      redirect back)
-    </div>
-  );
+  return <Checkout />;
 }
