@@ -15,10 +15,22 @@ export default function Checkout(): Node {
   const { stats } = useSelectedItemsApi();
   const router = useRouter();
 
+  // TODO:
   const [checkout, isCheckoutPending] = useMutation<CheckoutMutation>(graphql`
     mutation CheckoutMutation {
       pos {
-        checkout {
+        checkout(
+          input: {
+            selectedProducts: [
+              {
+                productKey: "TODO"
+                productUnits: -1
+                productPriceUnitAmount: -1
+                productPriceUnitAmountCurrency: MXN
+              }
+            ]
+          }
+        ) {
           __typename
           ... on PosCheckoutPayload {
             id

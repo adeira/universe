@@ -144,7 +144,7 @@ impl Product {
     }
 }
 
-#[derive(juniper::GraphQLEnum, Clone, Deserialize, Debug)]
+#[derive(juniper::GraphQLEnum, Clone, Serialize, Deserialize, Debug)]
 pub enum SupportedCurrency {
     MXN,
 }

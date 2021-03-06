@@ -29,7 +29,7 @@ export type CheckoutMutation = {|
 /*
 mutation CheckoutMutation {
   pos {
-    checkout {
+    checkout(input: {selectedProducts: [{productKey: "TODO", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {
       __typename
       ... on PosCheckoutPayload {
         id
@@ -54,7 +54,22 @@ var v0 = [
     "selections": [
       {
         "alias": null,
-        "args": null,
+        "args": [
+          {
+            "kind": "Literal",
+            "name": "input",
+            "value": {
+              "selectedProducts": [
+                {
+                  "productKey": "TODO",
+                  "productPriceUnitAmount": -1,
+                  "productPriceUnitAmountCurrency": "MXN",
+                  "productUnits": -1
+                }
+              ]
+            }
+          }
+        ],
         "concreteType": null,
         "kind": "LinkedField",
         "name": "checkout",
@@ -96,7 +111,7 @@ var v0 = [
             "abstractKey": null
           }
         ],
-        "storageKey": null
+        "storageKey": "checkout(input:{\"selectedProducts\":[{\"productKey\":\"TODO\",\"productPriceUnitAmount\":-1,\"productPriceUnitAmountCurrency\":\"MXN\",\"productUnits\":-1}]})"
       }
     ],
     "storageKey": null
@@ -120,15 +135,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "dcd642327774268176dc053cf6f9a86f",
+    "cacheID": "bc360b2c5e647b142630180dc27dc732",
     "id": null,
     "metadata": {},
     "name": "CheckoutMutation",
     "operationKind": "mutation",
-    "text": "mutation CheckoutMutation {\n  pos {\n    checkout {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation CheckoutMutation {\n  pos {\n    checkout(input: {selectedProducts: [{productKey: \"TODO\", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '2de5122ab060dbd431dcbaf413ddc81b';
+(node: any).hash = '6c707919d3ece4d282b66a69c80ead5d';
 export default node;
