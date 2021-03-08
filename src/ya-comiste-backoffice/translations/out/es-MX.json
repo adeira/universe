@@ -1,11 +1,12 @@
 {
-  "es_MX": {
-    "3JkX8r": "Some unknown error happened",
+  "es-mx": {
+    "3JkX8r": "Ha ocurrido un error desconocido",
     "eiaXU": "Logout",
+    "1ySRSs": "Something went wrong.",
     "3gmClg": "Home",
-    "3gfKIG": "Products",
+    "3gfKIG": "Productos",
     "434sA7": "Users",
-    "G4Uk0": "Open POS",
+    "G4Uk0": "Abrir TPV",
     "3wjiUv": "Are you sure you want to reset the checkout session and start over? All selected items will be removed.",
     "46xWYh": "⬅ Go back",
     "EkfPW": "Did you receive the money?",
@@ -25,7 +26,7 @@
     "1eFCQP": "Product name (Spanish)",
     "3pJ0hK": "Product description (English)",
     "4zWpu5": "Product description (Spanish)",
-    "2bNH0I": "Price (MXN)",
+    "2bNH0I": "Precio (MXN)",
     "2zrj5f": "Product pictures",
     "9jcFB": "Oh no! Something is broken.",
     "1MjTrE": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!",
@@ -38,11 +39,11 @@
     "TeM0w": "Create a new product",
     "3IN3g0": "Create a new product",
     "1Pw3Oe": "Products inventory",
-    "22becj": "Edit product",
+    "22becj": "Editar producto",
     "nB3Q8": "Are you sure you want to publish this product?",
     "443OuQ": "Publish product (TODO)",
     "YuCBQ": "Are you sure you want to delete the product?",
-    "3mS8KW": "Delete product",
+    "3mS8KW": "Eliminar producto",
     "1L1D6r": "List of users"
   }
 }

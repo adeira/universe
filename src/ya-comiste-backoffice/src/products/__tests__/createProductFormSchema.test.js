@@ -4,7 +4,7 @@ import initTranslations from '../../../translations/init';
 import createProductFormSchema from '../createProductFormSchema';
 
 beforeEach(() => {
-  initTranslations();
+  initTranslations('en-us');
 });
 
 it('accepts valid form', () => {

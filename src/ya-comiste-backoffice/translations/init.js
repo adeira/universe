@@ -2,13 +2,18 @@
 
 import { IntlVariations, init as fbtInit } from 'fbt';
 
-export default function initTranslations(): void {
+export default function initTranslations(locale: 'en-us' | 'es-mx'): void {
+  const supportedLocales = {
+    'en-us': require('./out/en-US.json'),
+    'es-mx': require('./out/es-MX.json'),
+  };
+
   fbtInit({
-    translations: require('./out/es_MX.json'), // TODO
+    translations: supportedLocales[locale],
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale: 'es_MX',
+        locale,
       }),
     },
   });

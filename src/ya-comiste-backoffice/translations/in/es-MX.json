@@ -1,0 +1,65 @@
+{
+  "fb-locale": "es-mx",
+  "translations": {
+    "XKQt/WzTgsZemYhMzTVAuw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ha ocurrido un error desconocido",
+          "variations": []
+        }
+      ]
+    },
+    "LoFyLbW8JA2D6AsDR+C2sw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Productos",
+          "variations": []
+        }
+      ]
+    },
+    "uKUaGDYLMNYdVKPaqadikQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Abrir TPV",
+          "variations": []
+        }
+      ]
+    },
+    "r84jIlbvbpbZx8MqJ0A94w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Precio (MXN)",
+          "variations": []
+        }
+      ]
+    },
+    "N4YZT+GlkQir3UlP1/V2Og==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Editar producto",
+          "variations": []
+        }
+      ]
+    },
+    "4EbSLFooTnt+yUPhqoWp/g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Eliminar producto",
+          "variations": []
+        }
+      ]
+    }
+  }
+}
