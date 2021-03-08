@@ -6,7 +6,7 @@
   "dependencies": {
     "@adeira/sx": "^0.24.0",
     "hast-util-to-html": "^7.1.2",
-    "next": "^10.0.7",
+    "next": "^10.0.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "refractor": "^3.3.1"
