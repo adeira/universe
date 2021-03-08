@@ -5,6 +5,7 @@
 
 import sx from '@adeira/sx';
 import React from 'react';
+import { rangeMap } from '@adeira/js';
 
 import ProductCard from './ProductCard';
 
@@ -49,8 +50,9 @@ const styles = sx.create({
 // 👇 We create a "template" of how args map to rendering
 const Template = (args) => (
   <div className={styles('productsGrid')}>
-    <ProductCard {...args} />
-    <ProductCard {...args} />
+    {rangeMap(12, (i) => (
+      <ProductCard key={i} {...args} />
+    ))}
   </div>
 );
 

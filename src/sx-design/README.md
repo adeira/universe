@@ -1,6 +1,12 @@
 **🚧 WORK in PROGRESS 🚧**
 
-Basic design system written using [`@adeira/sx`](https://github.com/adeira/sx).
+[![Crowdin](https://badges.crowdin.net/sx-design/localized.svg)](https://crowdin.com/project/sx-design)
+
+Basic design system written using [`@adeira/sx`](https://github.com/adeira/sx). Core value of this project are (in this order):
+
+- exclusively using atomic CSS via [`@adeira/sx`](https://github.com/adeira/sx)
+- fully supported localization
+- accessible components
 
 ```text
 yarn add @adeira/sx-design
@@ -14,11 +20,11 @@ SX Design uses [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/
 
 ```css
 :root {
-  /* globals: */
+  /* globals */
   --sx-color-dark: #1c1e21;
   --sx-color-light: #ffffff;
 
-  /* component specific: */
+  /* component specific */
   --sx-kbd-border: 1px solid #b4b4b4;
 }
 ```

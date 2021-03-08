@@ -1,5 +1,6 @@
 // @flow
 
+export { default as ErrorBoundary } from './src/ErrorBoundary/ErrorBoundary';
 export { default as Heading } from './src/Heading/Heading';
 export { default as Kbd } from './src/Kbd/Kbd';
 export { default as Money, MoneyFn } from './src/Money/Money';
