@@ -63,7 +63,7 @@ mod tests {
                 .validate(&json!({
                   "images": [],
                   "unit_label": "TKTK",
-                  "active": false,
+                  "is_published": false,
                   "created": "TKTK",
                   "visibility": ["POS", "ESHOP"],
                   "updated": "TKTK",
@@ -87,7 +87,7 @@ mod tests {
         insta::assert_json_snapshot!(schema.validate(&json!({
           "images": [],
           "unit_label": "",
-          "active": false,
+          "is_published": false,
           "created": "",
           "visibility": [],
           "updated": "",

@@ -11,7 +11,7 @@ expression: searched_products
             ),
             images: [],
             unit_label: "piece",
-            active: false,
+            is_published: false,
             visibility: [],
             price: ProductPrice {
                 unit_amount: 0,

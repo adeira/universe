@@ -24,9 +24,9 @@ pub struct Product {
     description: Option<String>,
     images: Vec<Image>,
     unit_label: String,
-    /// Product should not be active until it has all the translations, pictures and other
+    /// Product should not be published until it has all the translations, pictures and other
     /// requirements fulfilled.
-    active: bool,
+    is_published: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
     price: ProductPrice,
     translations: Vec<ProductMultilingualTranslations>,
@@ -40,7 +40,7 @@ impl std::fmt::Debug for Product {
             .field("description", &self.description)
             .field("images", &self.images)
             .field("unit_label", &self.unit_label)
-            .field("active", &self.active)
+            .field("is_published", &self.is_published)
             .field("visibility", &self.visibility)
             .field("price", &self.price)
             .field("translations", &self.translations)
@@ -130,6 +130,10 @@ impl Product {
 
     fn price(&self) -> ProductPrice {
         self.price.to_owned()
+    }
+
+    fn is_published(&self) -> bool {
+        self.is_published.to_owned()
     }
 
     fn visibility(&self) -> Vec<ProductMultilingualInputVisibility> {
@@ -311,7 +315,7 @@ pub(in crate::commerce) async fn search_published_products(
         &client_locale,
         &price_sort_direction,
         &search_term,
-        &false, // do not search all (active only)
+        &false, // do not search all (published only)
         &Some(*visibility),
     )
     .await
@@ -331,7 +335,7 @@ pub(in crate::commerce) async fn search_all_products(
                 &client_locale,
                 &price_sort_direction,
                 &search_term,
-                &true, // search all including inactive
+                &true, // search all including unpublished ones
                 &None, // no visibility restrictions
             )
             .await
@@ -352,7 +356,7 @@ pub(in crate::commerce) async fn get_published_product_by_key(
         &context.pool,
         &client_locale,
         &product_key,
-        &true, // product must be active to be publicly available
+        &true, // product must be published to be publicly available
     )
     .await?;
 
@@ -374,7 +378,7 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
                 &context.pool,
                 &client_locale,
                 &product_key,
-                &false, // any product (active on inactive)
+                &false, // any product (published or unpublished)
             )
             .await
         }
@@ -427,12 +431,87 @@ pub(in crate::commerce) async fn update_product(
                 &product_key,
                 &product_revision,
                 &product_multilingual_input,
-                &[],
+                &[], // TODO
             )
             .await
         }
         _ => Err(ModelError::PermissionsError(String::from(
             "only admins can update products",
+        ))),
+    }
+}
+
+/// Any product can be published only when all the following requirements are met:
+/// - user is an admin
+/// - product has a name in EN and ES
+/// - product has a description in EN and ES
+/// - product price is set and above 0
+/// - product has at least one picture uploaded
+/// - product visibility is set to POS or ESHOP
+pub(in crate::commerce) async fn publish_product(
+    context: &Context,
+    product_key: &str,
+) -> Result<Product, ModelError> {
+    match &context.user {
+        User::AdminUser(_) => {
+            let product = crate::commerce::dal::products::get_product_by_key(
+                &context.pool,
+                &SupportedLocale::EnUS,
+                &product_key,
+                &false, // search in all (not only the published ones)
+            )
+            .await?;
+
+            if product.translations.iter().any(|t| t.description.is_none()) {
+                return Err(ModelError::LogicalError(String::from(
+                    "product must have description for all translation variants before publishing",
+                )));
+            }
+
+            if product.price.unit_amount < 0 {
+                return Err(ModelError::LogicalError(String::from(
+                    "product price cannot be smaller than zero",
+                )));
+            }
+
+            if product.images.len() == 0 {
+                return Err(ModelError::LogicalError(String::from(
+                    "product must have at least one image before publishing",
+                )));
+            }
+
+            if product.visibility.len() == 0 {
+                return Err(ModelError::LogicalError(String::from(
+                    "product visibility must be defined before publishing the product",
+                )));
+            }
+
+            // finally, publish the product:
+            let published_product =
+                crate::commerce::dal::products::publish_product(&context.pool, &product_key)
+                    .await?;
+            Ok(published_product)
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admins can publish products",
+        ))),
+    }
+}
+
+pub(in crate::commerce) async fn unpublish_product(
+    context: &Context,
+    product_key: &str,
+) -> Result<Product, ModelError> {
+    match &context.user {
+        User::AdminUser(_) => {
+            // unpublish the product:
+            let unpublished_product =
+                crate::commerce::dal::products::unpublish_product(&context.pool, &product_key)
+                    .await?;
+            Ok(unpublished_product)
+        }
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admins can unpublish products",
         ))),
     }
 }

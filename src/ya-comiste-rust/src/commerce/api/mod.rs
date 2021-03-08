@@ -151,6 +151,24 @@ impl CommerceMutation {
             }),
         }
     }
+
+    async fn product_publish(context: &Context, product_key: juniper::ID) -> ProductOrError {
+        match crate::commerce::model::products::publish_product(&context, &product_key).await {
+            Ok(product) => ProductOrError::Product(product),
+            Err(e) => ProductOrError::ProductError(ProductError {
+                message: e.to_string(),
+            }),
+        }
+    }
+
+    async fn product_unpublish(context: &Context, product_key: juniper::ID) -> ProductOrError {
+        match crate::commerce::model::products::unpublish_product(&context, &product_key).await {
+            Ok(product) => ProductOrError::Product(product),
+            Err(e) => ProductOrError::ProductError(ProductError {
+                message: e.to_string(),
+            }),
+        }
+    }
 }
 
 // This function is exposed to GraphQL commerce module as well as to POS module (hence not inlined).

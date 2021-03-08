@@ -5,7 +5,22 @@ use crate::commerce::model::products::{
     SupportedLocale,
 };
 use crate::images::Image;
+use arangors::AqlQuery;
 use serde_json::json;
+
+async fn resolve_aql(pool: &ConnectionPool, aql: AqlQuery<'_>) -> Result<Product, ModelError> {
+    let db = pool.db().await;
+    let product_vector = db.aql_query::<Product>(aql).await;
+    match product_vector {
+        Ok(product_vector) => match product_vector.first() {
+            Some(product) => Ok(product.to_owned()),
+            None => Err(ModelError::LogicalError(String::from(
+                "database didn't return any product",
+            ))),
+        },
+        Err(e) => Err(ModelError::DatabaseError(e)),
+    }
+}
 
 /// Takes care of creating the product inside ArangoDB.
 pub(in crate::commerce) async fn create_product(
@@ -13,8 +28,6 @@ pub(in crate::commerce) async fn create_product(
     product_multilingual_input: &ProductMultilingualInput,
     images: &[Image],
 ) -> Result<Product, ModelError> {
-    let db = pool.db().await;
-
     // TODO: dynamic `unit_label`
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let insert_aql = arangors::AqlQuery::builder()
@@ -25,7 +38,7 @@ pub(in crate::commerce) async fn create_product(
             INSERT {
               images: @product_images,
               unit_label: "product_units/piece",
-              active: false,
+              is_published: false,
               visibility: @product_visibility,
               created: DATE_ISO8601(DATE_NOW()),
               updated: DATE_ISO8601(DATE_NOW()),
@@ -63,18 +76,10 @@ pub(in crate::commerce) async fn create_product(
         .bind_var(
             "translations",
             json!(product_multilingual_input.translations),
-        );
+        )
+        .build();
 
-    let product_vector = db.aql_query::<Product>(insert_aql.build()).await;
-    match product_vector {
-        Ok(product_vector) => match product_vector.first() {
-            Some(product) => Ok(product.to_owned()),
-            None => Err(ModelError::LogicalError(String::from(
-                "Cannot fetch the product.",
-            ))),
-        },
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
+    resolve_aql(&pool, insert_aql).await
 }
 
 /// TODO(004) - integration tests
@@ -85,10 +90,8 @@ pub(in crate::commerce) async fn update_product(
     product_multilingual_input: &ProductMultilingualInput,
     images: &[Image],
 ) -> Result<Product, ModelError> {
-    let db = pool.db().await;
-
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let insert_aql = arangors::AqlQuery::builder()
+    let update_aql = arangors::AqlQuery::builder()
         .query(
             r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
@@ -96,7 +99,6 @@ pub(in crate::commerce) async fn update_product(
             UPDATE {
               _key: @product_key,
               _rev: @product_rev,
-              images: @product_images,
               visibility: @product_visibility,
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
@@ -123,7 +125,7 @@ pub(in crate::commerce) async fn update_product(
         .bind_var("product_key", product_key)
         .bind_var("product_rev", product_revision)
         .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .bind_var("product_images", json!(images))
+        // TODO: product images
         .bind_var(
             "product_visibility",
             json!(product_multilingual_input.visibility),
@@ -135,18 +137,84 @@ pub(in crate::commerce) async fn update_product(
         .bind_var(
             "translations",
             json!(product_multilingual_input.translations),
-        );
+        )
+        .build();
 
-    let product_vector = db.aql_query::<Product>(insert_aql.build()).await;
-    match product_vector {
-        Ok(product_vector) => match product_vector.first() {
-            Some(product) => Ok(product.to_owned()),
-            None => Err(ModelError::LogicalError(String::from(
-                "Cannot fetch the product.",
-            ))),
-        },
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
+    resolve_aql(&pool, update_aql).await
+}
+
+/// TODO(004) - integration tests
+pub(in crate::commerce) async fn publish_product(
+    pool: &ConnectionPool,
+    product_key: &str,
+) -> Result<Product, ModelError> {
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
+    let publish_aql = arangors::AqlQuery::builder()
+        .query(
+            r#"
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+
+            UPDATE {
+              _key: @product_key,
+              is_published: true,
+            } IN products
+            LET product = NEW
+
+            LET t = FIRST(
+              FOR t IN product.translations
+                FILTER t.name != null AND t.locale == @eshop_locale
+                RETURN t
+            )
+
+            RETURN MERGE(
+              product,
+              { unit_label: unit_label_translated },
+              { name: t.name, description: t.description }
+            )
+            "#,
+        )
+        .bind_var("product_key", product_key)
+        .bind_var("eshop_locale", String::from("en_US")) // TODO
+        .build();
+
+    resolve_aql(&pool, publish_aql).await
+}
+
+/// TODO(004) - integration tests
+pub(in crate::commerce) async fn unpublish_product(
+    pool: &ConnectionPool,
+    product_key: &str,
+) -> Result<Product, ModelError> {
+    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
+    let unpublish_aql = arangors::AqlQuery::builder()
+        .query(
+            r#"
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+
+            UPDATE {
+              _key: @product_key,
+              is_published: false,
+            } IN products
+            LET product = NEW
+
+            LET t = FIRST(
+              FOR t IN product.translations
+                FILTER t.name != null AND t.locale == @eshop_locale
+                RETURN t
+            )
+
+            RETURN MERGE(
+              product,
+              { unit_label: unit_label_translated },
+              { name: t.name, description: t.description }
+            )
+            "#,
+        )
+        .bind_var("product_key", product_key)
+        .bind_var("eshop_locale", String::from("en_US")) // TODO
+        .build();
+
+    resolve_aql(&pool, unpublish_aql).await
 }
 
 /// Returns a single product (or error).
@@ -154,15 +222,14 @@ pub(in crate::commerce) async fn get_product_by_key(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
     product_key: &str,
-    product_active_only: &bool,
+    product_published_only: &bool,
 ) -> Result<Product, ModelError> {
-    let db = pool.db().await;
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
             LET product = DOCUMENT(products, @product_key)
-            FILTER @product_active_only ? product.active == @product_active_only : true
+            FILTER @product_published_only ? product.is_published == @product_published_only : true
 
             LET t = FIRST(
               FOR t IN product.translations
@@ -179,19 +246,10 @@ pub(in crate::commerce) async fn get_product_by_key(
         )
         .bind_var("eshop_locale", format!("{}", client_locale))
         .bind_var("product_key", product_key)
-        .bind_var("product_active_only", json!(product_active_only));
+        .bind_var("product_published_only", json!(product_published_only))
+        .build();
 
-    let product_vector = db.aql_query::<Product>(aql.build()).await;
-    match product_vector {
-        Ok(product_vector) => match product_vector.first() {
-            Some(product) => Ok(product.to_owned()),
-            None => Err(ModelError::LogicalError(format!(
-                "database didn't return anything for product with key: {}",
-                product_key
-            ))),
-        },
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
+    resolve_aql(&pool, aql).await
 }
 
 /// Performs search of products based on the specified criteria and returns products with merged
@@ -220,7 +278,7 @@ pub(in crate::commerce) async fn search_products(
         r#"
             FOR product IN search_products
               LIMIT 0, 24
-              FILTER @search_all == true ? true : (product.active IN [true])
+              FILTER @search_all == true ? true : (product.is_published IN [true])
               FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT product.price.unit_amount @price_sort_direction
 
@@ -248,7 +306,7 @@ pub(in crate::commerce) async fn search_products(
               SEARCH BOOST(NGRAM_MATCH(product.translations.name, @search_term, 0.7, "bigram"), 1.1)
                   OR BOOST(NGRAM_MATCH(product.translations.description, @search_term, 0.7, "bigram"), 1.0)
               LIMIT 0, 24
-              FILTER @search_all == true ? true : (product.active IN [true])
+              FILTER @search_all == true ? true : (product.is_published IN [true])
               FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT BM25(product) DESC
               SORT product.price.unit_amount @price_sort_direction
@@ -304,8 +362,6 @@ pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
     product_key: &str,
 ) -> Result<Product, ModelError> {
-    let db = pool.db().await;
-
     let remove_aql = arangors::AqlQuery::builder()
         .query(
             r#"
@@ -330,14 +386,5 @@ pub(in crate::commerce) async fn delete_product(
         .bind_var("product_key", product_key)
         .build();
 
-    let old_product_vector = db.aql_query::<Product>(remove_aql).await;
-    match old_product_vector {
-        Ok(old_product_vector) => match old_product_vector.first() {
-            Some(product) => Ok(product.to_owned()),
-            None => Err(ModelError::LogicalError(String::from(
-                "Cannot fetch deleted product.",
-            ))),
-        },
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
+    resolve_aql(&pool, remove_aql).await
 }

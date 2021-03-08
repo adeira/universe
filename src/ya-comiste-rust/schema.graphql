@@ -1,4 +1,4 @@
-# @generated SignedSource<<d846366855b7052f9995db6387d87d9e>>
+# @generated SignedSource<<ff8bd4077c5a16f481b8b2710729939c>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -69,6 +69,8 @@ type CommerceMutation {
   productCreate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
   productUpdate(productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
   productDelete(productKey: ID!): ProductOrError!
+  productPublish(productKey: ID!): ProductOrError!
+  productUnpublish(productKey: ID!): ProductOrError!
 }
 
 """
@@ -235,6 +237,7 @@ type Product {
   """
   unitLabel: String!
   price: ProductPrice!
+  isPublished: Boolean!
   visibility: [ProductMultilingualInputVisibility!]!
   """
     Exposes all available product translations. What is the difference between `translations`
