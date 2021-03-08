@@ -1,5 +1,6 @@
 // @flow
 
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import * as React from 'react';
 import { RecoilRoot } from 'recoil';
@@ -15,7 +16,10 @@ import { useSessionTokenAPI } from '../src/useSessionTokenAPI';
 import initTranslations from '../translations/init';
 
 export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node {
-  initTranslations();
+  const router = useRouter();
+  // $FlowIssue[prop-missing] prop missing in flow-typed types
+  initTranslations(router.locale);
+
   const [hasMounted, setHasMounted] = useState(false);
   const { sessionToken } = useSessionTokenAPI();
 
@@ -48,13 +52,11 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
   });
 
   return (
-    <React.StrictMode>
-      <ErrorBoundary>
-        <RelayEnvironmentProvider environment={relayEnvironment}>
-          <RecoilRoot>{children}</RecoilRoot>
-        </RelayEnvironmentProvider>
-      </ErrorBoundary>
-    </React.StrictMode>
+    <ErrorBoundary>
+      <RelayEnvironmentProvider environment={relayEnvironment}>
+        <RecoilRoot>{children}</RecoilRoot>
+      </RelayEnvironmentProvider>
+    </ErrorBoundary>
   );
 }
 

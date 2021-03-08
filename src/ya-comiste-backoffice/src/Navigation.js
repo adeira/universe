@@ -4,6 +4,7 @@ import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
 
+import LanguageSwitch from './LanguageSwitch';
 import Link from './Link';
 import { LogoutButton } from './AuthButtons';
 
@@ -26,6 +27,7 @@ export default function Navigation(): React.Node {
 
       <div className={styles('spacing')} />
 
+      <LanguageSwitch />
       <LogoutButton />
     </nav>
   );
