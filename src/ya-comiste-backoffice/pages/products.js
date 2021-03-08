@@ -10,6 +10,7 @@ import { Skeleton, ProductCard, Heading } from '@adeira/sx-design';
 // eslint-disable-next-line camelcase
 import LayoutQueryRenderer_DEPRECATED from '../src/LayoutQueryRenderer_DEPRECATED';
 import LayoutHeading from '../src/LayoutHeading';
+import LayoutHeadingLink from '../src/LayoutHeadingLink';
 import Link from '../src/Link';
 
 export default function ProductsPage(): React.Node {
@@ -20,13 +21,11 @@ export default function ProductsPage(): React.Node {
           <fbt desc="product inventory title">Products inventory</fbt>
         </Heading>
       }
-      links={[
-        {
-          href: '/products/create',
-          title: <fbt desc="link for create a new product">Create a new product</fbt>,
-        },
-      ]}
-    />
+    >
+      <LayoutHeadingLink href="/products/create">
+        <fbt desc="link for create a new product">Create a new product</fbt>
+      </LayoutHeadingLink>
+    </LayoutHeading>
   );
 
   return (
