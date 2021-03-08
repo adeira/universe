@@ -5,13 +5,13 @@ import { useEffect, useState } from 'react';
 import * as React from 'react';
 import { RecoilRoot } from 'recoil';
 import sx from '@adeira/sx';
+import { ErrorBoundary } from '@adeira/sx-design';
 import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 
 import './_app.css';
 import '../styles/globals.css';
 import { LoginButton } from '../src/AuthButtons';
 import constants from '../src/constants';
-import ErrorBoundary from '../src/ErrorBoundary';
 import { useSessionTokenAPI } from '../src/useSessionTokenAPI';
 import initTranslations from '../translations/init';
 

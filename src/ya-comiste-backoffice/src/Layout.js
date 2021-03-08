@@ -2,7 +2,7 @@
 
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { Section } from '@adeira/sx-design';
+import { ErrorBoundary, Section } from '@adeira/sx-design';
 
 import Navigation from './Navigation';
 
@@ -18,9 +18,11 @@ export default function Layout(props: Props): Node {
       </div>
 
       <main className={styles('main')}>
-        <Section>
-          <React.Suspense fallback={'Loading…'}>{props.children}</React.Suspense>
-        </Section>
+        <ErrorBoundary>
+          <Section>
+            <React.Suspense fallback={'Loading…'}>{props.children}</React.Suspense>
+          </Section>
+        </ErrorBoundary>
       </main>
     </div>
   );
