@@ -22,6 +22,14 @@
     "2iKIB7": "Product price is a required field",
     "1amPNl": "Product price must be a positive number",
     "3LLRfo": "Save changes",
+    "22becj": "Editar producto",
+    "1Pw3Oe": "Products inventory",
+    "YuCBQ": "Are you sure you want to delete the product?",
+    "3mS8KW": "Eliminar producto",
+    "nB3Q8": "Are you sure you want to publish this product?",
+    "1ga7NU": "Publish product",
+    "1qrzgk": "Are you sure you want to unpublish this product?",
+    "3hq9fo": "Unpublish product",
     "XJKZk": "Product name (English)",
     "1eFCQP": "Product name (Spanish)",
     "3pJ0hK": "Product description (English)",
@@ -38,12 +46,6 @@
     "1EmzJe": "Products inventory",
     "TeM0w": "Create a new product",
     "3IN3g0": "Create a new product",
-    "1Pw3Oe": "Products inventory",
-    "22becj": "Editar producto",
-    "nB3Q8": "Are you sure you want to publish this product?",
-    "443OuQ": "Publish product (TODO)",
-    "YuCBQ": "Are you sure you want to delete the product?",
-    "3mS8KW": "Eliminar producto",
     "1L1D6r": "List of users"
   }
 }
