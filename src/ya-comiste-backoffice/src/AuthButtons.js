@@ -90,7 +90,7 @@ export function LogoutButton(): Node {
             logout();
           },
           onError: () => {
-            // TODO (?)
+            logout();
           },
         });
       }}

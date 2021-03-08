@@ -7,7 +7,7 @@
     "required": [
       "images",
       "unit_label",
-      "active",
+      "is_published",
       "visibility",
       "created",
       "updated",
@@ -37,7 +37,7 @@
         "type": "string",
         "minLength": 1
       },
-      "active": {
+      "is_published": {
         "type": "boolean"
       },
       "visibility": {

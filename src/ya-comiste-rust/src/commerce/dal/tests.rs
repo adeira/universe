@@ -34,7 +34,7 @@ async fn create_product_english_to_english_test() {
         &pool,
         &SupportedLocale::EnUS,
         &created_product.key(),
-        &false, // the product should be inactive at this point (until manually activated)
+        &false, // the product should be unpublished at this point (until manually activated)
     )
     .await
     .unwrap();
@@ -77,7 +77,7 @@ async fn create_product_all_languages_test() {
         &pool,
         &SupportedLocale::EnUS,
         &created_product.key(),
-        &false, // the product should be inactive at this point (until manually activated)
+        &false, // the product should be unpublished at this point (until manually activated)
     )
     .await
     .unwrap();
@@ -90,7 +90,7 @@ async fn create_product_all_languages_test() {
         &pool,
         &SupportedLocale::EsMX,
         &created_product.key(),
-        &false, // the product should be inactive at this point (until manually activated)
+        &false, // the product should be unpublished at this point (until manually activated)
     )
     .await
     .unwrap();
@@ -135,7 +135,7 @@ async fn search_products_test() {
         &SupportedLocale::EnUS,
         &PriceSortDirection::LowToHigh,
         &None, // search term (return all)
-        &true, // search all (even inactive ones)
+        &true, // search all (even the unpublished ones)
         &None, // visibility (everywhere)
     )
     .await
@@ -179,7 +179,7 @@ async fn search_products_fulltext_test() {
         &SupportedLocale::EnUS,
         &PriceSortDirection::LowToHigh,
         &Some(String::from("in english")), // search term
-        &true,                             // search all (even inactive ones)
+        &true,                             // search all (even the unpublished ones)
         &None,                             // visibility (everywhere)
     )
     .await
