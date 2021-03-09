@@ -17,17 +17,24 @@ type Props = {|
 
 type State = {|
   +hasError: boolean,
+  +error: Error | null,
 |};
 
 export default class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { hasError: false };
+    this.state = {
+      hasError: false,
+      error: null,
+    };
   }
 
-  static getDerivedStateFromError(): State {
+  static getDerivedStateFromError(error: Error): State {
     // Update state so the next render will show the fallback UI.
-    return { hasError: true };
+    return {
+      hasError: true,
+      error,
+    };
   }
 
   componentDidCatch(error: Error, errorInfo: { componentStack: string, ... }): void {
@@ -41,6 +48,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
     // eslint-disable-next-line no-undef
     const onRetryFn = this.props.onRetry ?? window.location.reload;
     if (this.state.hasError) {
+      const errorMessage = this.state.error?.message;
       return (
         <div className={styles('error')}>
           <div>
@@ -52,6 +60,11 @@ export default class ErrorBoundary extends React.Component<Props, State> {
               </Heading>
             </Section>
           </div>
+          {__DEV__ && errorMessage != null ? (
+            <div className={styles('errorDev')}>
+              <pre className={styles('errorDevPre')}>{errorMessage}</pre>
+            </div>
+          ) : null}
           <div className={styles('retry')}>
             <button type="button" onClick={() => onRetryFn()}>
               <fbt desc="error boundary retry button title">Retry</fbt>
@@ -102,8 +115,20 @@ const styles = sx.create({
     margin: 0,
     padding: 0,
   },
+  errorDev: {
+    maxWidth: 550,
+    fontSize: 14,
+    textAlign: 'left',
+    padding: '.5rem .5rem 1rem 1rem',
+    marginTop: '2rem',
+    marginBottom: '2rem',
+    color: 'rgb(86, 61, 20)',
+    backgroundColor: 'rgb(254, 250, 223)',
+  },
+  errorDevPre: {
+    whiteSpace: 'pre-wrap',
+  },
   retry: {
     fontSize: 14,
-    marginTop: 20,
   },
 });
