@@ -11,12 +11,12 @@
     "lint": "yarn jest --config=.jest-eslint.config.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.70",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.70",
+    "@docusaurus/core": "^2.0.0-alpha.71",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.71",
     "classnames": "^2.2.6",
     "prettier": "^2.2.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@adeira/eslint-config": "^5.1.0",
