@@ -21,6 +21,7 @@
     "react": "^17.0.1"
   },
   "devDependencies": {
+    "@adeira/babel-preset-adeira": "^3.0.0",
     "@babel/core": "^7.13.10",
     "@storybook/addon-actions": "^6.1.21",
     "@storybook/addon-essentials": "^6.1.21",
