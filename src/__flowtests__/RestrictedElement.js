@@ -1,56 +1,37 @@
 // @flow
 
-/* eslint-disable */
+/* eslint-disable react/no-multi-comp,import/no-extraneous-dependencies */
 
-const React = require('react');
-
-type FunctionComponentRender<+TRender> = (props: any) => TRender;
-
-type ClassComponentRender<+TRender> = Class<
-  React$Component<any, any> & interface { render(): TRender },
->;
-
-export type RestrictedElement<+TElementType: React$ElementType> = {|
-  +type:
-    | TElementType
-    | ClassComponentRender<RestrictedElement<TElementType>>
-    | FunctionComponentRender<RestrictedElement<TElementType>>,
-  +props: any, // The props type is already captured in the type field,
-  // and using ElementProps recursively can get very expensive. Instead
-  // of paying for that computation, I decided to use any
-
-  +key: React$Key | null,
-  +ref: any,
-|};
+import * as React from 'react';
 
 // You can enforce compositional patterns with RestrictedElement:
 class MenuItem extends React.Component<{||}> {}
 class MenuSeparator extends React.Component<{||}> {}
 class Menu extends React.Component<{|
-  children: React.ChildrenArray<
+  +children: React.ChildrenArray<
     RestrictedElement<typeof MenuItem> | RestrictedElement<typeof MenuSeparator>,
   >,
 |}> {}
 class NotAMenuComponent extends React.Component<{||}> {}
 
 // All the children types allowed.
-const test1 = (
+module.exports.test1 = ((
   <Menu>
     <MenuItem />
     <MenuSeparator />
   </Menu>
-);
+): React.Node);
 
 // NotAMenuComponent is not an allowed child.
-const test2 = (
+module.exports.test2 = ((
   <Menu>
     <MenuItem />
     <MenuSeparator />
-    {/* $FlowExpectedError[incompatible-type] : NotAMenuComponent is not allowed in the restricted children elements
-     * in Menu component. Only MenuItem and MenuSeparator are allowed. ✅ */}
+    {/* $FlowExpectedError[incompatible-type] : NotAMenuComponent is not allowed in the restricted
+     * children elements in Menu component. Only MenuItem and MenuSeparator are allowed. ✅ */}
     <NotAMenuComponent />
   </Menu>
-);
+): React.Node);
 
 class RendersAMenuItem extends React.Component<{||}> {
   render(): React.Element<typeof MenuItem> {
@@ -58,13 +39,13 @@ class RendersAMenuItem extends React.Component<{||}> {
   }
 }
 
-const test3 = (
+module.exports.test3 = ((
   <Menu>
     <MenuItem />
     <MenuSeparator />
     <RendersAMenuItem />
   </Menu>
-);
+): React.Node);
 
 class RendersSomethingThatRendersAMenuItem extends React.Component<{||}> {
   // You really should just use RestrictedElement here, but I want
@@ -75,13 +56,12 @@ class RendersSomethingThatRendersAMenuItem extends React.Component<{||}> {
 }
 
 // More than 1 level deep
-const test4 = (
+module.exports.test4 = ((
   <Menu>
     <MenuItem />
     <MenuSeparator />
     <RendersSomethingThatRendersAMenuItem />
+    {/* $FlowExpectedError[incompatible-type] */}
+    <button type="button" />
   </Menu>
-);
-
-// Biggest drawback (imo) is that AbstractComponent isn't compatible with
-// this pattern. I want to change that! (via https://github.com/jbrown215)
+): React.Node);
