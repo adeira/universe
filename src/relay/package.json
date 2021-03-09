@@ -24,20 +24,20 @@
     "@adeira/signed-source": "^2.0.0",
     "@babel/register": "^7.13.8",
     "@babel/runtime": "^7.13.10",
-    "babel-plugin-relay": "^11.0.0-rc.0",
+    "babel-plugin-relay": "^11.0.0",
     "commander": "^7.1.0",
     "is-ci": "^3.0.0",
-    "react-relay": "^11.0.0-rc.0",
-    "relay-compiler": "^11.0.0-rc.0",
-    "relay-config": "^11.0.0-rc.0",
-    "relay-runtime": "^11.0.0-rc.0"
+    "react-relay": "^11.0.0",
+    "relay-compiler": "^11.0.0",
+    "relay-config": "^11.0.0",
+    "relay-runtime": "^11.0.0"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^5.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-test-renderer": "^17.0.1",
-    "relay-test-utils": "^11.0.0-rc.0"
+    "relay-test-utils": "^11.0.0"
   },
   "peerDependencies": {
     "graphql": "^14.5.8",
