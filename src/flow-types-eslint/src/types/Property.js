@@ -6,8 +6,7 @@ import type { Literal } from './Literal';
 import type { Identifier } from './Identifier';
 
 export type Property = $ReadOnly<{|
-  ...INode,
-  +type: 'Property',
+  ...INode<'Property'>,
   +key: Literal | Identifier,
   +value: Literal | ObjectExpression,
 |}>;

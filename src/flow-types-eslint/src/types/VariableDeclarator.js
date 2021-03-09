@@ -6,8 +6,10 @@ import type { INode } from './INode';
 import type { NumericalLiteral } from './NumericLiteral';
 import type { StringLiteral } from './StringLiteral';
 
+// let x = …
+//     ^^^^^
 export type VariableDeclarator = $ReadOnly<{|
-  ...INode,
+  ...INode<'VariableDeclarator'>,
   +id: Identifier,
   +init:
     | null // let x;
