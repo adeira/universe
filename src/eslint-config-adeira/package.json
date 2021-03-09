@@ -24,7 +24,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-react-native": "^3.10.0",
     "eslint-plugin-relay": "^1.8.2",
-    "eslint-plugin-sx": "^0.10.0",
+    "eslint-plugin-sx": "^0.11.0",
     "prettier": "^2.2.1"
   },
   "devDependencies": {

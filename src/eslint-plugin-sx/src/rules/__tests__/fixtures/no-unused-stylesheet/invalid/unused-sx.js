@@ -1,7 +1,7 @@
 /**
  * @flow
- * @eslintExpectedError SX function "styles" was not used anywhere in the code.
- * @eslintExpectedError Unused stylesheet: aaa (defined via "styles" variable)
+ * @eslintExpectedError (15:7;17:3) SX function "styles" was not used anywhere in the code.
+ * @eslintExpectedError (16:3;16:24) Unused stylesheet: aaa (defined via "styles" variable)
  */
 
 import type { Node } from 'react';

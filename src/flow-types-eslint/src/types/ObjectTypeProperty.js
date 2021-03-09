@@ -4,8 +4,7 @@ import type { INode } from './INode';
 import type { Variance } from './Variance';
 
 export type ObjectTypeProperty = $ReadOnly<{|
-  ...INode,
-  +type: 'ObjectTypeProperty',
+  ...INode<'ObjectTypeProperty'>,
   +static: boolean,
   +proto: boolean,
   +kind: 'init', // TODO
