@@ -22,7 +22,11 @@ export default {
 };
 
 const Throws = () => {
-  throw new Error('ups');
+  throw new Error(`This message is visible only during development.
+
+Component suspended while rendering, but no fallback UI was specified.
+
+Add a <Suspense fallback=...> component higher in the tree to provide a loading indicator or placeholder to display.`);
 };
 
 // 👇 We create a "template" of how args map to rendering
