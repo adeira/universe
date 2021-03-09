@@ -5,6 +5,7 @@
 
 import sx from '@adeira/sx';
 import React from 'react';
+import { rangeMap } from '@adeira/js';
 
 import Skeleton from './Skeleton';
 
@@ -25,8 +26,9 @@ const styles = sx.create({
 // 👇 We create a "template" of how args map to rendering
 const Template = (args) => (
   <div className={styles('productsGrid')}>
-    <Skeleton {...args} />
-    <Skeleton {...args} />
+    {rangeMap(12, (i) => (
+      <Skeleton key={i} {...args} />
+    ))}
   </div>
 );
 

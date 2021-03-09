@@ -1103,10 +1103,10 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.12.13"
 
-"@babel/plugin-transform-runtime@^7.12.1", "@babel/plugin-transform-runtime@^7.13.9":
-  version "7.13.9"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.13.9.tgz#744d3103338a0d6c90dee0497558150b490cee07"
-  integrity sha512-XCxkY/wBI6M6Jj2mlWxkmqbKPweRanszWbF3Tyut+hKh+PHcuIH/rSr/7lmmE7C3WW+HSIm2GT+d5jwmheuB0g==
+"@babel/plugin-transform-runtime@^7.12.1", "@babel/plugin-transform-runtime@^7.13.10":
+  version "7.13.10"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.13.10.tgz#a1e40d22e2bf570c591c9c7e5ab42d6bf1e419e1"
+  integrity sha512-Y5k8ipgfvz5d/76tx7JYbKQTcgFSU6VgJ3kKQv4zGTKr+a9T/KBvfRvGtSFgKDQGt/DBykQixV0vNWKIdzWErA==
   dependencies:
     "@babel/helper-module-imports" "^7.12.13"
     "@babel/helper-plugin-utils" "^7.13.0"
@@ -4653,7 +4653,7 @@ babel-plugin-fbt-runtime@^0.9.14:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
 
-babel-plugin-fbt@^0.17.2:
+babel-plugin-fbt@^0.17.1, babel-plugin-fbt@^0.17.2:
   version "0.17.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.17.2.tgz#661d0392a7af828a0a09d402f6d0ef12f793def8"
   integrity sha512-cWTudqDdXVfY0mRXCYGFNjOIBTem24amsJeF3xr4AACElxykEb6+e8fkM0HCNVDNocyo3F3rmTt14G3xkC8cig==

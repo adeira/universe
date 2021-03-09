@@ -1,0 +1,25 @@
+{
+  "fb-locale": "es-MX",
+  "translations": {
+    "6FVmvS0nS9q0ld8LQ5VSyw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ha ocurrido un error inesperado.",
+          "variations": []
+        }
+      ]
+    },
+    "CR7beIPZB69plBEoMZd6Kg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Reintentar",
+          "variations": []
+        }
+      ]
+    }
+  }
+}
