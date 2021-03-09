@@ -338,6 +338,118 @@
   },
   {
    "hashToText": {
+    "N4YZT+GlkQir3UlP1/V2Og==": "Edit product"
+   },
+   "filepath": "src/products/EditProductHeading.js",
+   "line_beg": 86,
+   "col_beg": 10,
+   "line_end": 86,
+   "col_end": 66,
+   "desc": "edit product page heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Edit product"
+  },
+  {
+   "hashToText": {
+    "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
+   },
+   "filepath": "src/products/EditProductHeading.js",
+   "line_beg": 91,
+   "col_beg": 8,
+   "line_end": 91,
+   "col_end": 82,
+   "desc": "go back to products navigation button",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products inventory"
+  },
+  {
+   "hashToText": {
+    "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
+   },
+   "filepath": "src/products/EditProductHeading.js",
+   "line_beg": 102,
+   "col_beg": 10,
+   "line_end": 104,
+   "col_end": 16,
+   "desc": "delete product confirmation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Are you sure you want to delete the product?"
+  },
+  {
+   "hashToText": {
+    "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
+   },
+   "filepath": "src/products/EditProductHeading.js",
+   "line_beg": 108,
+   "col_beg": 8,
+   "line_end": 108,
+   "col_end": 73,
+   "desc": "delete product navigation button",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Delete product"
+  },
+  {
+   "hashToText": {
+    "tiWuhsZnYZAq7WNxH1zdCw==": "Are you sure you want to publish this product?"
+   },
+   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
+   "line_beg": 66,
+   "col_beg": 8,
+   "line_end": 68,
+   "col_end": 14,
+   "desc": "publish product button confirmation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Are you sure you want to publish this product?"
+  },
+  {
+   "hashToText": {
+    "3qz/xqX+Nv7bYwQCSNXWdQ==": "Publish product"
+   },
+   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
+   "line_beg": 97,
+   "col_beg": 6,
+   "line_end": 97,
+   "col_end": 68,
+   "desc": "publish product button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Publish product"
+  },
+  {
+   "hashToText": {
+    "C4qCSxncQzzV9OUj0otgUg==": "Are you sure you want to unpublish this product?"
+   },
+   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
+   "line_beg": 103,
+   "col_beg": 8,
+   "line_end": 105,
+   "col_end": 14,
+   "desc": "unpublish product button confirmation message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Are you sure you want to unpublish this product?"
+  },
+  {
+   "hashToText": {
+    "6dllpbI8j5n7Rlcf+LAS/Q==": "Unpublish product"
+   },
+   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
+   "line_beg": 134,
+   "col_beg": 6,
+   "line_end": 134,
+   "col_end": 70,
+   "desc": "publish product button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Unpublish product"
+  },
+  {
+   "hashToText": {
     "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
    },
    "filepath": "src/products/form/ProductForm.js",
@@ -537,9 +649,9 @@
     "0BsTiPapD1k7SKNIyzq9Og==": "Products inventory"
    },
    "filepath": "pages/products.js",
-   "line_beg": 20,
+   "line_beg": 21,
    "col_beg": 10,
-   "line_end": 20,
+   "line_end": 21,
    "col_end": 70,
    "desc": "product inventory title",
    "project": "",
@@ -552,9 +664,9 @@
    },
    "filepath": "pages/products.js",
    "line_beg": 26,
-   "col_beg": 17,
+   "col_beg": 8,
    "line_end": 26,
-   "col_end": 85,
+   "col_end": 76,
    "desc": "link for create a new product",
    "project": "",
    "type": "text",
@@ -565,9 +677,9 @@
     "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
    },
    "filepath": "pages/products/create.js",
-   "line_beg": 22,
+   "line_beg": 23,
    "col_beg": 18,
-   "line_end": 22,
+   "line_end": 23,
    "col_end": 90,
    "desc": "create a new product page heading",
    "project": "",
@@ -580,97 +692,13 @@
    },
    "filepath": "pages/products/create.js",
    "line_beg": 28,
-   "col_beg": 25,
-   "line_end": 28,
-   "col_end": 99,
-   "desc": "go back to products navigation button",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Products inventory"
-  },
-  {
-   "hashToText": {
-    "N4YZT+GlkQir3UlP1/V2Og==": "Edit product"
-   },
-   "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 98,
    "col_beg": 16,
-   "line_end": 98,
-   "col_end": 72,
-   "desc": "edit product page heading",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Edit product"
-  },
-  {
-   "hashToText": {
-    "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
-   },
-   "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 104,
-   "col_beg": 23,
-   "line_end": 104,
-   "col_end": 97,
+   "line_end": 28,
+   "col_end": 90,
    "desc": "go back to products navigation button",
    "project": "",
    "type": "text",
    "jsfbt": "Products inventory"
-  },
-  {
-   "hashToText": {
-    "tiWuhsZnYZAq7WNxH1zdCw==": "Are you sure you want to publish this product?"
-   },
-   "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 111,
-   "col_beg": 18,
-   "line_end": 113,
-   "col_end": 24,
-   "desc": "publish product button confirmation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Are you sure you want to publish this product?"
-  },
-  {
-   "hashToText": {
-    "tINZj24Mghh5neZ5w0746A==": "Publish product (TODO)"
-   },
-   "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 115,
-   "col_beg": 23,
-   "line_end": 115,
-   "col_end": 92,
-   "desc": "publish product button title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Publish product (TODO)"
-  },
-  {
-   "hashToText": {
-    "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
-   },
-   "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 121,
-   "col_beg": 18,
-   "line_end": 123,
-   "col_end": 24,
-   "desc": "delete product confirmation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Are you sure you want to delete the product?"
-  },
-  {
-   "hashToText": {
-    "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
-   },
-   "filepath": "pages/products/edit/[productKey].js",
-   "line_beg": 125,
-   "col_beg": 23,
-   "line_end": 125,
-   "col_end": 88,
-   "desc": "delete product navigation button",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Delete product"
   },
   {
    "hashToText": {
