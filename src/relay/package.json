@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "3.0.1",
+  "version": "3.1.0",
   "main": "src/index",
   "module": false,
   "sideEffects": false,
@@ -41,6 +41,6 @@
   },
   "peerDependencies": {
     "graphql": "^14.5.8",
-    "react": "^16.14.0 || ^17.0.0"
+    "react": "^17.0.0"
   }
 }

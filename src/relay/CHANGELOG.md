@@ -1,6 +1,8 @@
 # Unreleased
 
-This release introduces Relay Hooks in a backward compatible fashion. Next major version of `@adeira/relay` will focus on removing legacy parts of Relay Modern so it's highly encouraged to upgrade as soon as possible.
+# 3.1.0
+
+This release introduces Relay Hooks in a backward compatible fashion. Next major version of `@adeira/relay` will focus on phasing out legacy parts of Relay Modern (containers API), so it's highly encouraged to upgrade as soon as possible.
 
 - Relay dependencies upgraded to version `11.0.0`, see: https://github.com/facebook/relay/releases/tag/v11.0.0
 - Additional Relay hooks were exposed: `useEntryPointLoader`, `useFragment`, `useLazyLoadQuery`, `usePaginationFragment`, `usePreloadedQuery`, `useQueryLoader`, `useRefetchableFragment`, `useSubscribeToInvalidationState` and `useSubscription` (+ some other hooks specific functions)
@@ -9,6 +11,7 @@ This release introduces Relay Hooks in a backward compatible fashion. Next major
 For more information about Relay Hooks evolution please visit the following links:
 
 - https://github.com/facebook/relay/releases/tag/v11.0.0
+- https://relay.dev/blog/2021/03/09/introducing-relay-hooks/
 - https://relay.dev/docs/ _(new)_
 - https://github.com/facebook/relay/issues/3371
 
