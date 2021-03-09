@@ -9,15 +9,15 @@ import { fbt } from 'fbt';
 
 import Link from '../Link';
 import useSelectedItemsApi from './recoil/selectedItemsState';
-import type { CheckoutMutation } from './__generated__/CheckoutMutation.graphql';
+import type { POSCheckoutPageLayoutMutation } from './__generated__/POSCheckoutPageLayoutMutation.graphql';
 
-export default function Checkout(): Node {
+export default function POSCheckoutPageLayout(): Node {
   const { stats } = useSelectedItemsApi();
   const router = useRouter();
 
   // TODO:
-  const [checkout, isCheckoutPending] = useMutation<CheckoutMutation>(graphql`
-    mutation CheckoutMutation {
+  const [checkout, isCheckoutPending] = useMutation<POSCheckoutPageLayoutMutation>(graphql`
+    mutation POSCheckoutPageLayoutMutation {
       pos {
         checkout(
           input: {
