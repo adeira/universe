@@ -3,17 +3,17 @@
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
-import ProductsGrid from './ProductsGrid';
+import ProductsGridLayout from './ProductsGridLayout';
 import ProductsSelected from './ProductsSelected';
 
-export default function MainScreen(): Node {
+export default function POSPageLayout(): Node {
   return (
     <div className={styles('mainGrid')}>
       <div className={styles('left')}>
         <ProductsSelected />
       </div>
       <main className={styles('right')}>
-        <ProductsGrid />
+        <ProductsGridLayout />
       </main>
     </div>
   );

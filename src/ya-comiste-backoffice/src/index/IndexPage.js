@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
-import type { HomeQuery } from './__generated__/HomeQuery.graphql';
+import type { IndexPageQuery } from './__generated__/IndexPageQuery.graphql';
 
-export default function Home(): React.Node {
-  const data = useLazyLoadQuery<HomeQuery>(
+export default function IndexPage(): React.Node {
+  const data = useLazyLoadQuery<IndexPageQuery>(
     /* eslint-disable relay/unused-fields */
     graphql`
-      query HomeQuery {
+      query IndexPageQuery {
         whoami {
           id
           humanReadableType
