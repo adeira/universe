@@ -1,12 +1,8 @@
 // @flow
 
-/* eslint-disable */
+/* eslint-disable react/no-multi-comp,import/no-extraneous-dependencies */
 
-import type { Element, ChildrenArray } from 'react';
-
-import { Component } from 'react';
-
-import { type RestrictedElement } from './RestrictedElement';
+import { Component, type Element, type ChildrenArray, type Node } from 'react';
 
 class Button extends Component<{| +disabled?: boolean |}> {
   render() {
@@ -21,30 +17,34 @@ class DisabledButton extends Component<{||}> {
   }
 }
 
-class WrapperStupid extends Component<{|
-  children: ChildrenArray<
+class WrapperLimited extends Component<{|
+  +children: ChildrenArray<
     // You have to specify every single supported component here.
     Element<typeof Button> | Element<typeof DisabledButton>,
   >,
 |}> {}
 
 class WrapperSmart extends Component<{|
-  // Type `RestrictedElement` understands what is being rendered so it accepts even `DisabledButton` (because it returns `Button`).
-  children: ChildrenArray<RestrictedElement<typeof Button>>,
+  // Type `RestrictedElement` understands what is being rendered so it accepts even `DisabledButton`(because it returns `Button`).
+  +children: ChildrenArray<RestrictedElement<typeof Button>>,
 |}> {}
 
-const testStupid = (
-  <WrapperStupid>
+module.exports.testStupid = ((
+  <WrapperLimited>
     <Button />
     <Button />
     <DisabledButton />
-  </WrapperStupid>
-);
+    {/* $FlowExpectedError[incompatible-type] */}
+    <button type="button" />
+  </WrapperLimited>
+): Node);
 
-const testSmart = (
+module.exports.testSmart = ((
   <WrapperSmart>
     <Button />
     <Button />
     <DisabledButton />
+    {/* $FlowExpectedError[incompatible-type] */}
+    <button type="button" />
   </WrapperSmart>
-);
+): Node);

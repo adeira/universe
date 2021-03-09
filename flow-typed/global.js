@@ -27,3 +27,19 @@ declare type React$Node =
   | FbtElement
   | FbtString
   | FbtPureStringResult;
+
+declare type FunctionComponentRender<+TRender> = (props: any) => TRender;
+declare type ClassComponentRender<+TRender> = Class<
+  React$Component<any, any> & interface { render(): TRender },
+>;
+declare type RestrictedElement<+TElementType: React$ElementType> = {|
+  +type:
+    | TElementType
+    | ClassComponentRender<RestrictedElement<TElementType>>
+    | FunctionComponentRender<RestrictedElement<TElementType>>,
+  // The props type is already captured in the type field, and using `ElementProps` recursively
+  // can get very expensive. Instead of paying for that computation, we decided to use `any`.
+  +props: any,
+  +key: React$Key | null,
+  +ref: any,
+|};
