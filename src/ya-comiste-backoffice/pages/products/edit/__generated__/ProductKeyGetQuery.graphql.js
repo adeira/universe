@@ -6,6 +6,7 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 type EditProductFormFragment$ref = any;
+type EditProductHeading$ref = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductKeyGetQueryVariables = {|
   clientLocale: SupportedLocale,
@@ -14,8 +15,7 @@ export type ProductKeyGetQueryVariables = {|
 export type ProductKeyGetQueryResponse = {|
   +commerce: {|
     +product: {|
-      +key: string,
-      +$fragmentRefs: EditProductFormFragment$ref,
+      +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref
     |}
   |}
 |};
@@ -31,7 +31,7 @@ query ProductKeyGetQuery(
 ) {
   commerce {
     product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      key
+      ...EditProductHeading
       ...EditProductFormFragment
       id
     }
@@ -50,6 +50,11 @@ fragment EditProductFormFragment on Product {
     name
     description
   }
+}
+
+fragment EditProductHeading on Product {
+  key
+  isPublished
 }
 */
 
@@ -77,14 +82,7 @@ v1 = [
     "name": "productKey",
     "variableName": "productKey"
   }
-],
-v2 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "key",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -108,7 +106,11 @@ return {
             "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
-              (v2/*: any*/),
+              {
+                "args": null,
+                "kind": "FragmentSpread",
+                "name": "EditProductHeading"
+              },
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -146,7 +148,20 @@ return {
             "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
-              (v2/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "key",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "isPublished",
+                "storageKey": null
+              },
               {
                 "alias": null,
                 "args": null,
@@ -227,15 +242,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "70c21e6114d9c2f2aaaba01c82331347",
+    "cacheID": "a50f14b17fb5f9f52c3f0c53975a4a17",
     "id": null,
     "metadata": {},
     "name": "ProductKeyGetQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      key\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n"
+    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '4f26f49838b7a2b8397a000438c97e37';
+(node: any).hash = 'e9cbbbbaf21fa6165297161f83261ded';
 export default node;
