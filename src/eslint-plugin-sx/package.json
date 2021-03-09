@@ -19,7 +19,7 @@
     "@adeira/eslint-fixtures-tester": "0.1.0",
     "@adeira/flow-types-eslint": "0.0.0",
     "@babel/code-frame": "^7.12.11",
-    "@babel/eslint-parser": "^7.13.8",
+    "@babel/eslint-parser": "^7.13.10",
     "eslint": "^7.21.0",
     "react": "^17.0.1"
   },
