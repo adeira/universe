@@ -5,8 +5,8 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type CheckoutMutationVariables = {||};
-export type CheckoutMutationResponse = {|
+export type POSCheckoutPageLayoutMutationVariables = {||};
+export type POSCheckoutPageLayoutMutationResponse = {|
   +pos: {|
     +checkout: {|
       +__typename: "PosCheckoutPayload",
@@ -21,13 +21,13 @@ export type CheckoutMutationResponse = {|
     |}
   |}
 |};
-export type CheckoutMutation = {|
-  variables: CheckoutMutationVariables,
-  response: CheckoutMutationResponse,
+export type POSCheckoutPageLayoutMutation = {|
+  variables: POSCheckoutPageLayoutMutationVariables,
+  response: POSCheckoutPageLayoutMutationResponse,
 |};
 
 /*
-mutation CheckoutMutation {
+mutation POSCheckoutPageLayoutMutation {
   pos {
     checkout(input: {selectedProducts: [{productKey: "TODO", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {
       __typename
@@ -122,7 +122,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "CheckoutMutation",
+    "name": "POSCheckoutPageLayoutMutation",
     "selections": (v0/*: any*/),
     "type": "Mutation",
     "abstractKey": null
@@ -131,19 +131,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "CheckoutMutation",
+    "name": "POSCheckoutPageLayoutMutation",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "bc360b2c5e647b142630180dc27dc732",
+    "cacheID": "a1a683802929ac840dcd3a93600659d9",
     "id": null,
     "metadata": {},
-    "name": "CheckoutMutation",
+    "name": "POSCheckoutPageLayoutMutation",
     "operationKind": "mutation",
-    "text": "mutation CheckoutMutation {\n  pos {\n    checkout(input: {selectedProducts: [{productKey: \"TODO\", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation POSCheckoutPageLayoutMutation {\n  pos {\n    checkout(input: {selectedProducts: [{productKey: \"TODO\", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '6c707919d3ece4d282b66a69c80ead5d';
+(node: any).hash = '1bf24e366599f855d11e285c37d7a2e9';
 export default node;

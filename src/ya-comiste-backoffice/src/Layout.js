@@ -3,6 +3,7 @@
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 import { ErrorBoundary, Section } from '@adeira/sx-design';
+import { fbt } from 'fbt';
 
 import Navigation from './Navigation';
 
@@ -20,7 +21,11 @@ export default function Layout(props: Props): Node {
       <main className={styles('main')}>
         <ErrorBoundary>
           <Section>
-            <React.Suspense fallback={'Loading…'}>{props.children}</React.Suspense>
+            <React.Suspense
+              fallback={<fbt desc="loading message when loading some data">Loading…</fbt>}
+            >
+              {props.children}
+            </React.Suspense>
           </Section>
         </ErrorBoundary>
       </main>

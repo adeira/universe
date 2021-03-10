@@ -2,13 +2,8 @@
 
 import * as React from 'react';
 
-import Home from '../src/homepage/Home';
-import Layout from '../src/Layout';
+import IndexPageLayout from '../src/index/IndexPageLayout';
 
-export default function Homepage(): React.Node {
-  return (
-    <Layout>
-      <Home />
-    </Layout>
-  );
+export default function IndexPage(): React.Node {
+  return <IndexPageLayout />;
 }
