@@ -59,6 +59,7 @@ module.exports = ({
           }
 
           const firstArgument = initArguments[0];
+          // $FlowIssue[unnecessary-optional-chain]: https://github.com/facebook/flow/issues/5972
           if (firstArgument?.type !== 'ObjectExpression') {
             context.report({
               node,
@@ -66,8 +67,10 @@ module.exports = ({
                 'SX function "{{calleeName}}" must be called with object in a first argument.',
               data: { calleeName },
             });
+            return;
           }
 
+          // $FlowIssue[unnecessary-optional-chain]: https://github.com/facebook/flow/issues/5972
           const firstArgumentProperties = firstArgument?.properties ?? [];
           for (const property of firstArgumentProperties) {
             if (
@@ -80,7 +83,8 @@ module.exports = ({
                   'Each SX "{{calleeName}}" property must be an object but "{{propertyName}}" is not.',
                 data: {
                   calleeName,
-                  propertyName: property.key.name,
+                  propertyName:
+                    property.key.type === 'Literal' ? property.key.value : property.key.name,
                 },
               });
             }

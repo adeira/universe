@@ -7,8 +7,7 @@ import type { Literal } from './Literal';
 // object.property
 // object['property']
 export type MemberExpression = $ReadOnly<{|
-  ...INode,
-  +type: 'MemberExpression',
+  ...INode<'MemberExpression'>,
   +object: Identifier, // `object` (in the example above)
   +property: Literal | Identifier, // `property` (in the example above)
 |}>;

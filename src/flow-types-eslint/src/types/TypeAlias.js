@@ -7,8 +7,7 @@ import type { ObjectTypeAnnotation } from './ObjectTypeAnnotation';
 import type { StringLiteralTypeAnnotation } from './StringLiteralTypeAnnotation';
 
 export type TypeAlias = $ReadOnly<{|
-  ...INode,
-  +type: 'TypeAlias',
+  ...INode<'TypeAlias'>,
   +right:
     | ObjectTypeAnnotation
     | GenericTypeAnnotation

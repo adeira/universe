@@ -9,8 +9,7 @@ import type { StringLiteral } from './StringLiteral';
 import type { TemplateElement } from './TemplateElement';
 
 export type TemplateLiteral = $ReadOnly<{|
-  ...INode,
-  +type: 'TemplateLiteral',
+  ...INode<'TemplateLiteral'>,
   +expressions: $ReadOnlyArray<
     StringLiteral | NumericalLiteral | ObjectExpression | ArrowFunctionExpression | CallExpression, // ... possibly others
   >,

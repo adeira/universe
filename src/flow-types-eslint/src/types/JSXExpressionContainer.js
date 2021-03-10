@@ -10,6 +10,6 @@ import type { TemplateLiteral } from './TemplateLiteral';
 // <div style={{ color: 'red' }} />
 //            ^^^^^^^^^^^^^^^^^^
 export type JSXExpressionContainer = $ReadOnly<{|
-  ...INode,
+  ...INode<'JSXExpressionContainer'>,
   +expression: ObjectExpression | CallExpression | Literal | TemplateLiteral | MemberExpression, // possibly others ...
 |}>;
