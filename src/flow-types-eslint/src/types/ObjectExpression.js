@@ -4,7 +4,6 @@ import type { Property } from './Property';
 import type { INode } from './INode';
 
 export type ObjectExpression = $ReadOnly<{|
-  ...INode,
-  +type: 'ObjectExpression',
+  ...INode<'ObjectExpression'>,
   +properties: $ReadOnlyArray<Property>,
 |}>;

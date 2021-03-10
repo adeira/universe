@@ -3,7 +3,6 @@
 import type { INode } from './INode';
 
 export type Literal = $ReadOnly<{|
-  ...INode,
-  +type: 'Literal',
+  ...INode<'Literal'>,
   +value: string,
 |}>;

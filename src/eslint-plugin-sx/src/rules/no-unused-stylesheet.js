@@ -49,16 +49,18 @@ module.exports = ({
         if (isSXVariableDeclarator(node, importDefaultSpecifier, importSpecifierCreate)) {
           const initArguments = node.init?.arguments || [];
           const firstArgument = initArguments[0];
-          const firstArgumentProperties = firstArgument?.properties ?? [];
-          for (const property of firstArgumentProperties) {
-            const alreadyCaptured = definedStylesheetNames.get(node.id.name) ?? [];
-            const propertyName =
-              property.key.name ?? // in case property is type of "Identifier"
-              property.key.value; // in case property is type of "Literal"
-            definedStylesheetNames.set(node.id.name, [...alreadyCaptured, propertyName]);
-            definedStylesheetNameNodes.set(propertyName, property);
+          // $FlowIssue[unnecessary-optional-chain]: https://github.com/facebook/flow/issues/5972
+          if (firstArgument?.type === 'ObjectExpression') {
+            const firstArgumentProperties = firstArgument.properties ?? [];
+            for (const property of firstArgumentProperties) {
+              const alreadyCaptured = definedStylesheetNames.get(node.id.name) ?? [];
+              const propertyName =
+                property.key.type === 'Literal' ? property.key.value : property.key.name;
+              definedStylesheetNames.set(node.id.name, [...alreadyCaptured, propertyName]);
+              definedStylesheetNameNodes.set(propertyName, property);
+            }
+            definedStylesheetNodes.set(node.id.name, node);
           }
-          definedStylesheetNodes.set(node.id.name, node);
         }
       },
 
@@ -67,10 +69,15 @@ module.exports = ({
       'CallExpression'(node) {
         const expressionArguments = node.arguments ?? [];
         for (const argument of expressionArguments) {
-          if (argument.type === 'ObjectExpression') {
-            // could be most likely SX styles definition (backout but continue analyzing)
+          if (['ObjectExpression', 'CallExpression'].includes(argument.type)) {
+            // some unsupported but acknowledged call expression so we just skip it but continue
+            // analyzing what we support (or halt when we reach something unknown)
             return;
-          } else if (!['Literal', 'TemplateLiteral', 'LogicalExpression'].includes(argument.type)) {
+          } else if (
+            !['Literal', 'TemplateLiteral', 'LogicalExpression', 'ConditionalExpression'].includes(
+              argument.type,
+            )
+          ) {
             // backout early if we cannot recognize (or do not support) the 'CallExpression' pattern
             unableToAnalyzeUsedStylesheets = true;
             return;
@@ -82,11 +89,30 @@ module.exports = ({
           // TODO: more cases (deeper analysis)
           let value;
           if (argument.type === 'Literal') {
+            // styles('aaa')
             value = argument.value;
           } else if (argument.type === 'TemplateLiteral') {
+            // styles(`aaa`)
             value = argument.quasis[0].value.raw;
           } else if (argument.type === 'LogicalExpression') {
-            value = argument.right.value;
+            if (argument.right.type === 'Literal') {
+              // styles(isAAA && 'aaa')
+              value = argument.right.value;
+            }
+          } else if (argument.type === 'ConditionalExpression') {
+            if (
+              argument.consequent.type === 'Literal' &&
+              typeof argument.consequent.value === 'string' // can be also `null`, `false`, …
+            ) {
+              // styles(isAAA ? 'aaa' : null)
+              value = argument.consequent.value;
+            } else if (
+              argument.alternate.type === 'Literal' &&
+              typeof argument.alternate.value === 'string' // can be also `null`, `false`, …
+            ) {
+              // styles(isBBB ? null : 'aaa')
+              value = argument.alternate.value;
+            }
           }
           usedNames.add(value);
           usedStylesheetNodes.set(value, argument);

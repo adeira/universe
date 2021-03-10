@@ -7,7 +7,7 @@ import type { JSXExpressionContainer } from './JSXExpressionContainer';
 // <div style={{ color: 'red' }} />
 //      ^^^^^^^^^^^^^^^^^^^^^^^^
 export type JSXAttribute = $ReadOnly<{|
-  ...INode,
+  ...INode<'JSXAttribute'>,
   +name: JSXIdentifier,
   +value: JSXExpressionContainer,
 |}>;

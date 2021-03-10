@@ -1,7 +1,7 @@
 /**
  * @flow
- * @eslintExpectedError SX function "styles" was not used anywhere in the code.
- * @eslintExpectedError Unused stylesheet: notUsing (defined via "styles" variable)
+ * @eslintExpectedError (17:7;21:3) SX function "styles" was not used anywhere in the code.
+ * @eslintExpectedError (18:3;20:4) Unused stylesheet: notUsing (defined via "styles" variable)
  *
  * @see https://github.com/adeira/universe/pull/1323
  */
