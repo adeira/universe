@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import MainScreen from '../src/pos/MainScreen';
+import POSPageLayout from '../src/pos/POSPageLayout';
 
-export default function POSSessionPage(): React.Node {
-  return <MainScreen />;
+export default function POSPage(): React.Node {
+  return <POSPageLayout />;
 }

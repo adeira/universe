@@ -6,7 +6,7 @@
   "module": false,
   "sideEffects": false,
   "homepage": "https://github.com/adeira/universe/tree/master/src/relay",
-  "description": "Highly opinionated Relay wrapper",
+  "description": "Opinionated wrapper around Relay - a JavaScript framework for building data-driven React applications",
   "license": "MIT",
   "bin": {
     "adeira-fetch-schema": "bin/fetch-schema.js",

@@ -3,8 +3,7 @@
 import type { INode } from './INode';
 
 export type StringLiteralTypeAnnotation = $ReadOnly<{|
-  ...INode,
-  +type: 'StringLiteralTypeAnnotation',
+  ...INode<'StringLiteralTypeAnnotation'>,
   +extra: {|
     +rawValue: string,
     +raw: string,

@@ -2,9 +2,9 @@
 
 import type { SourceLocation } from './SourceLocation';
 
-export type INode = {|
-  +type: string,
+export type INode<T: string> = {|
+  +type: T,
   +loc: SourceLocation | null,
   +range: [number, number],
-  +parent: null | INode,
+  +parent: $FlowFixMe, // TODO
 |};

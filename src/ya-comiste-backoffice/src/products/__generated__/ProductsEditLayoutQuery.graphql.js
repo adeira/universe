@@ -8,24 +8,24 @@ import type { ConcreteRequest } from 'relay-runtime';
 type EditProductFormFragment$ref = any;
 type EditProductHeading$ref = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductKeyGetQueryVariables = {|
+export type ProductsEditLayoutQueryVariables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductKeyGetQueryResponse = {|
+export type ProductsEditLayoutQueryResponse = {|
   +commerce: {|
     +product: {|
       +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref
     |}
   |}
 |};
-export type ProductKeyGetQuery = {|
-  variables: ProductKeyGetQueryVariables,
-  response: ProductKeyGetQueryResponse,
+export type ProductsEditLayoutQuery = {|
+  variables: ProductsEditLayoutQueryVariables,
+  response: ProductsEditLayoutQueryResponse,
 |};
 
 /*
-query ProductKeyGetQuery(
+query ProductsEditLayoutQuery(
   $clientLocale: SupportedLocale!
   $productKey: ID!
 ) {
@@ -88,7 +88,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ProductKeyGetQuery",
+    "name": "ProductsEditLayoutQuery",
     "selections": [
       {
         "alias": null,
@@ -130,7 +130,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ProductKeyGetQuery",
+    "name": "ProductsEditLayoutQuery",
     "selections": [
       {
         "alias": null,
@@ -242,15 +242,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a50f14b17fb5f9f52c3f0c53975a4a17",
+    "cacheID": "eace6076c3a436ce4c751a02ab33548e",
     "id": null,
     "metadata": {},
-    "name": "ProductKeyGetQuery",
+    "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductKeyGetQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'e9cbbbbaf21fa6165297161f83261ded';
+(node: any).hash = 'e824cf1305b11f36c2d5e2f1ac63ad91';
 export default node;

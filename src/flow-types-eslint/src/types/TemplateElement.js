@@ -3,7 +3,7 @@
 import type { INode } from './INode';
 
 export type TemplateElement = $ReadOnly<{|
-  ...INode,
+  ...INode<'TemplateElement'>,
   +value: {|
     +raw: string,
     +cooked: string,

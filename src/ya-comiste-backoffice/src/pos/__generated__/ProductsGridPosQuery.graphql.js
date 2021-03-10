@@ -9,7 +9,7 @@ export type SupportedCurrency = "MXN" | "%future added value";
 export type ProductsGridPosQueryVariables = {||};
 export type ProductsGridPosQueryResponse = {|
   +pos: {|
-    +listPublishedProducts: ?$ReadOnlyArray<?{|
+    +products: ?$ReadOnlyArray<?{|
       +id: string,
       +key: string,
       +name: string,
@@ -31,7 +31,7 @@ export type ProductsGridPosQuery = {|
 /*
 query ProductsGridPosQuery {
   pos {
-    listPublishedProducts {
+    products: listPublishedProducts {
       id
       key
       name
@@ -58,7 +58,7 @@ var v0 = [
     "plural": false,
     "selections": [
       {
-        "alias": null,
+        "alias": "products",
         "args": null,
         "concreteType": "Product",
         "kind": "LinkedField",
@@ -154,15 +154,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "29ffc4f5814ef1a73c470c52ab22e0ee",
+    "cacheID": "d8b25d3dae9a306f97e5df7804ea784f",
     "id": null,
     "metadata": {},
     "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query ProductsGridPosQuery {\n  pos {\n    listPublishedProducts {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery {\n  pos {\n    products: listPublishedProducts {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'ff4bc6edc4f2de771510da450c658637';
+(node: any).hash = '9dd37e933f4a5700a633433087397030';
 export default node;

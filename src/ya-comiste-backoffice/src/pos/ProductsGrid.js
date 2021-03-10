@@ -2,14 +2,32 @@
 
 import sx from '@adeira/sx';
 import React, { type Node } from 'react';
-import { graphql, QueryRenderer } from '@adeira/relay';
-import { ProductCard, Skeleton } from '@adeira/sx-design';
-import { rangeMap } from '@adeira/js';
+import { graphql, useLazyLoadQuery } from '@adeira/relay';
+import { ProductCard } from '@adeira/sx-design';
 
 import useSelectedItemsApi from './recoil/selectedItemsState';
+import type { ProductsGridPosQuery } from './__generated__/ProductsGridPosQuery.graphql';
 
 export default function ProductsGrid(): Node {
   const { select } = useSelectedItemsApi();
+  const data = useLazyLoadQuery<ProductsGridPosQuery>(graphql`
+    query ProductsGridPosQuery {
+      pos {
+        products: listPublishedProducts {
+          id
+          key
+          name
+          imageCover {
+            blurhash
+          }
+          price {
+            unitAmount
+            unitAmountCurrency
+          }
+        }
+      }
+    }
+  `);
 
   const handleItemClick = (productID, product) => {
     select({
@@ -21,58 +39,31 @@ export default function ProductsGrid(): Node {
   };
 
   return (
-    <QueryRenderer
-      query={graphql`
-        query ProductsGridPosQuery {
-          pos {
-            listPublishedProducts {
-              id
-              key
-              name
-              imageCover {
-                blurhash
-              }
-              price {
-                unitAmount
-                unitAmountCurrency
-              }
-            }
-          }
-        }
-      `}
-      onLoading={() => {
-        return (
-          <div className={styles('productsGrid')}>
-            {rangeMap(12, (i) => (
-              <Skeleton key={i} />
-            ))}
-          </div>
-        );
-      }}
-      onResponse={({ pos: { listPublishedProducts: products } }) => {
-        return (
-          <div className={styles('productsGrid')}>
-            {products.map((product) => (
-              <button
-                type="button"
-                key={product.id}
-                className={styles('productButton')}
-                onClick={() => handleItemClick(product.key, product)}
-              >
-                <ProductCard
-                  title={product.name}
-                  priceUnitAmount={product.price.unitAmount}
-                  priceUnitAmountCurrency={product.price.unitAmountCurrency}
-                  imgBlurhash={product.imageCover?.blurhash}
-                  locale="en-US" // TODO
-                  // TODO: `imgSrc`
-                />
-              </button>
-            ))}
-          </div>
-        );
-      }}
-    />
+    data.pos.products?.map((product) => {
+      if (product == null) {
+        return null; // TODO: 🤔
+      }
+
+      return (
+        <button
+          type="button"
+          key={product.id}
+          className={styles('productButton')}
+          onClick={() => handleItemClick(product.key, product)}
+        >
+          <ProductCard
+            title={product.name}
+            priceUnitAmount={product.price.unitAmount}
+            /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
+             * Relay Hooks. To see the error delete this comment and run Flow. */
+            priceUnitAmountCurrency={product.price.unitAmountCurrency}
+            imgBlurhash={product.imageCover?.blurhash}
+            locale="en-US" // TODO
+            // TODO: `imgSrc`
+          />
+        </button>
+      );
+    }) ?? null
   );
 }
 
