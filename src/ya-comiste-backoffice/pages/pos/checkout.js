@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import Checkout from '../../src/pos/Checkout';
+import POSCheckoutPageLayout from '../../src/pos/POSCheckoutPageLayout';
 
 export default function POSCheckoutPage(): React.Node {
-  return <Checkout />;
+  return <POSCheckoutPageLayout />;
 }

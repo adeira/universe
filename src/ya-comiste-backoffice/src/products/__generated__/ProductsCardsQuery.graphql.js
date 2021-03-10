@@ -6,10 +6,10 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-export type productsQueryVariables = {||};
-export type productsQueryResponse = {|
+export type ProductsCardsQueryVariables = {||};
+export type ProductsCardsQueryResponse = {|
   +commerce: {|
-    +searchAllProducts: ?$ReadOnlyArray<?{|
+    +products: ?$ReadOnlyArray<?{|
       +id: string,
       +key: string,
       +name: string,
@@ -23,15 +23,15 @@ export type productsQueryResponse = {|
     |}>
   |}
 |};
-export type productsQuery = {|
-  variables: productsQueryVariables,
-  response: productsQueryResponse,
+export type ProductsCardsQuery = {|
+  variables: ProductsCardsQueryVariables,
+  response: ProductsCardsQueryResponse,
 |};
 
 /*
-query productsQuery {
+query ProductsCardsQuery {
   commerce {
-    searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+    products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
       id
       key
       name
@@ -58,7 +58,7 @@ var v0 = [
     "plural": false,
     "selections": [
       {
-        "alias": null,
+        "alias": "products",
         "args": [
           {
             "kind": "Literal",
@@ -152,7 +152,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "productsQuery",
+    "name": "ProductsCardsQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -161,19 +161,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "productsQuery",
+    "name": "ProductsCardsQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "14969536aace3c81e14aa94fccde57ae",
+    "cacheID": "3c714de9fe9bafd3c9fbe90b82cd594b",
     "id": null,
     "metadata": {},
-    "name": "productsQuery",
+    "name": "ProductsCardsQuery",
     "operationKind": "query",
-    "text": "query productsQuery {\n  commerce {\n    searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsCardsQuery {\n  commerce {\n    products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '098105636422028cd51253a593fc374f';
+(node: any).hash = 'b20ec43141756b8ee22172a015207248';
 export default node;
