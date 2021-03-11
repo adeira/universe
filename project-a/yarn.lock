@@ -141,10 +141,10 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-"@adeira/sx-design@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.5.0.tgz#0512d289316f2389b4acc65392ce52abea7d004a"
-  integrity sha512-OKPhlVC8N2P4iEm+s/fgRQswPF3Ycukg4m3H0aqntg2VzRZ8MRy3+rujoNO0Nn4bte0Ke6O1+qSlg8FDApUPUA==
+"@adeira/sx-design@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.6.0.tgz#003228f3f2e0738047bef74a3dcc74367a51fd98"
+  integrity sha512-T7QD/Av4AEljK+0OmtjhuGzURc/2YeoeIsm6WeyuWoGyKENkQjJWF5Ai/dfUw2DYnVllQkOIs6x/IS6ClOLB2w==
   dependencies:
     "@adeira/js" "^2.1.0"
     "@babel/runtime" "^7.13.10"
