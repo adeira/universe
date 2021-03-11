@@ -11,6 +11,26 @@
         }
       ]
     },
+    "ZmoOgkWDunmOx3U/8Us9hg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cerrar sesión",
+          "variations": []
+        }
+      ]
+    },
+    "EX/o2WuR0ou1BNovRq6qGw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Inicio",
+          "variations": []
+        }
+      ]
+    },
     "LoFyLbW8JA2D6AsDR+C2sw==": {
       "tokens": [],
       "types": [],
@@ -21,12 +41,162 @@
         }
       ]
     },
+    "/c/KJABZ8aQaoTbRsJOIPg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Usuarios",
+          "variations": []
+        }
+      ]
+    },
     "uKUaGDYLMNYdVKPaqadikQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Abrir TPV",
+          "translation": "Open POS",
+          "variations": []
+        }
+      ]
+    },
+    "9uWJJI15gvfuaDi3bpoT2w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Aún no hay nada seleccionado",
+          "variations": []
+        }
+      ]
+    },
+    "EAFd1PD0L8GS/sTNRO5dzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "{totalSelectedItems} artículos por {totalPrice}",
+          "variations": []
+        }
+      ]
+    },
+    "nIpABsKUotYCJOCxk8ZWTg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Continuar con la compra",
+          "variations": []
+        }
+      ]
+    },
+    "DG4YwlsppzoioQ32fEtyQQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Ocurrió algo inesperado y el servidor no pudo procesar la solicitud! 🙈",
+          "variations": []
+        }
+      ]
+    },
+    "pK1f3pHBA7GNzXNFxoeWlw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Crear un nuevo producto",
+          "variations": []
+        }
+      ]
+    },
+    "PuBcEtz2gVA/g2IgDKLtDg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Se requiere una versión en inglés del nombre del producto",
+          "variations": []
+        }
+      ]
+    },
+    "KEevPPim20vMq3ey4NmXcQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Se requiere una versión en español del nombre del producto",
+          "variations": []
+        }
+      ]
+    },
+    "hG18c6F/tkr5u5MuaDp4ug==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El precio del producto es obligatorio",
+          "variations": []
+        }
+      ]
+    },
+    "yzI38uykFY/ub9AvbwWW7g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El precio del producto debe ser un número positivo",
+          "variations": []
+        }
+      ]
+    },
+    "JMYEEAMkkTyu/f/wera8pw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Guardar cambios",
+          "variations": []
+        }
+      ]
+    },
+    "aPUJdpL8vp5qfKNsFMmsDw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Nombre del producto (inglés)",
+          "variations": []
+        }
+      ]
+    },
+    "If15Rd9UqwSa2ctF1W+gGw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Nombre del producto (español)",
+          "variations": []
+        }
+      ]
+    },
+    "fIkIODIEZUcYs7jnbKCMbQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Descripción del producto (inglés)",
+          "variations": []
+        }
+      ]
+    },
+    "0JhgWnXU3GS2BSJv0aKTSA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Descripción del producto (español)",
           "variations": []
         }
       ]
@@ -41,6 +211,56 @@
         }
       ]
     },
+    "lZD4GtdtmFDnxD98aPVEUw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Imágenes del producto",
+          "variations": []
+        }
+      ]
+    },
+    "0BsTiPapD1k7SKNIyzq9Og==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Inventario de productos",
+          "variations": []
+        }
+      ]
+    },
+    "H4nmh2EfCNqj/R7wbLia9w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Crear un nuevo producto",
+          "variations": []
+        }
+      ]
+    },
+    "D+WsTLSMdok9SuNN16agEQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Crear un nuevo producto",
+          "variations": []
+        }
+      ]
+    },
+    "kZSl2UcMZDzRSCGJm9hDkw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Inventario de productos",
+          "variations": []
+        }
+      ]
+    },
     "N4YZT+GlkQir3UlP1/V2Og==": {
       "tokens": [],
       "types": [],
@@ -51,12 +271,52 @@
         }
       ]
     },
+    "tiWuhsZnYZAq7WNxH1zdCw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Está seguro de que desea publicar este producto?",
+          "variations": []
+        }
+      ]
+    },
+    "tINZj24Mghh5neZ5w0746A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Publish product (TODO)",
+          "variations": []
+        }
+      ]
+    },
+    "g9GOZIQozBqrdHGmtzrbCQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Está seguro que desea eliminar el producto?",
+          "variations": []
+        }
+      ]
+    },
     "4EbSLFooTnt+yUPhqoWp/g==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Eliminar producto",
+          "variations": []
+        }
+      ]
+    },
+    "KPaU2v3S7qUH0pj1rVBMaw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Lista de usuarios",
           "variations": []
         }
       ]
