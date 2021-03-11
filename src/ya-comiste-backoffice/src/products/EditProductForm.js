@@ -11,9 +11,9 @@ import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import type { EditProductFormFragment$key } from './__generated__/EditProductFormFragment.graphql';
 import type { EditProductFormMutation } from './__generated__/EditProductFormMutation.graphql';
 
-type Props = {|
+type Props = {
   +product: ?EditProductFormFragment$key,
-|};
+};
 
 export default function EditProductForm(props: Props): Node {
   const [, setFiles] = useState(undefined);

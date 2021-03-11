@@ -10,11 +10,11 @@ import transformStyleName from './transformStyleName';
 import transformStyleValue from './transformValue';
 import { injectRuntimeKeyframes } from './injectRuntimeStyles';
 
-type KeyFrames = {|
+type KeyFrames = {
   +from?: AllCSSPropertyTypes,
   +to?: AllCSSPropertyTypes,
   +[string]: AllCSSPropertyTypes,
-|};
+};
 
 const extractStyles = (styles: AllCSSPropertyTypes) => {
   let cssDefinition = '';

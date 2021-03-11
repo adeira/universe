@@ -24,4 +24,4 @@ export default (createPaginationContainer(
       }
     `,
   },
-): PaginationContainerType<{||}>);
+): PaginationContainerType<{}>);

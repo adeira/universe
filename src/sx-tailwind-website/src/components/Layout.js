@@ -7,10 +7,10 @@ import MainContent from './MainContent';
 import Overlay from './sidebar/Overlay';
 import { SidebarContext } from './sidebar/Context';
 
-type Props = {|
+type Props = {
   +title: string,
   +children: Node,
-|};
+};
 
 export default function Layout({ title, children }: Props): Node {
   const { isOpen } = useContext(SidebarContext);

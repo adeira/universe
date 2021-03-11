@@ -3,12 +3,12 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +onClick: () => void,
   +children: React.Node,
   +isActive?: boolean,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 /**
  * Stylistically similar to <Link /> except it renders a button and expects `onClick` instead of

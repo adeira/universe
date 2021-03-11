@@ -6,11 +6,11 @@ import { Heading } from '@adeira/sx-design';
 
 import KochkaIcon from './design/svg/KochkaIcon';
 
-type Props = {|
+type Props = {
   +color?: string,
   +horizontal?: boolean,
   +size?: 'small' | 'large',
-|};
+};
 
 export default function Logo(props: Props): React.Node {
   const isHorizontal = props.horizontal === true;

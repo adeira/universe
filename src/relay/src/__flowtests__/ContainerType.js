@@ -10,10 +10,10 @@ import {
   type RefetchContainerType,
 } from '../index';
 
-type Props = {|
+type Props = {
   +aaa: string,
   +bbb: number,
-|};
+};
 
 function DefaultComponent(props) {
   return <div {...props} />;

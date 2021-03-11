@@ -3,7 +3,7 @@
 import type { INode } from './INode';
 import type { Variance } from './Variance';
 
-export type ObjectTypeProperty = $ReadOnly<{|
+export type ObjectTypeProperty = $ReadOnly<{
   ...INode<'ObjectTypeProperty'>,
   +static: boolean,
   +proto: boolean,
@@ -11,4 +11,4 @@ export type ObjectTypeProperty = $ReadOnly<{|
   +method: boolean,
   +variance: Variance | null,
   +optional: boolean,
-|}>;
+}>;

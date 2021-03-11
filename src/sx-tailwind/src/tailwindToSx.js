@@ -14,12 +14,12 @@ import purgeUnusedStyles from 'tailwindcss/lib/lib/purgeUnusedStyles';
 import processPlugins from 'tailwindcss/lib/util/processPlugins';
 import corePlugins from 'tailwindcss/lib/corePlugins';
 
-type SxTailwindDefinitions = {|
-  +keyframes: {| +[string]: any |},
-  +styles: {| +[string]: any |},
-|};
+type SxTailwindDefinitions = {
+  +keyframes: { +[string]: any },
+  +styles: { +[string]: any },
+};
 
-export function generateTailwind(config: {| +[string]: any |}): Promise<SxTailwindDefinitions> {
+export function generateTailwind(config: { +[string]: any }): Promise<SxTailwindDefinitions> {
   return convert(
     ` @tailwind base;
       @tailwind components;
@@ -31,7 +31,7 @@ export function generateTailwind(config: {| +[string]: any |}): Promise<SxTailwi
 
 export default async function convert(
   css: string,
-  tailwindConfig: {| +[string]: any |},
+  tailwindConfig: { +[string]: any },
 ): Promise<SxTailwindDefinitions> {
   const processor = getTailwindProcessor(tailwindConfig);
   const postCss = await processor.process(css, { from: '' });

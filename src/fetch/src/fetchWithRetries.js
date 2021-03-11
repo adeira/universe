@@ -6,11 +6,11 @@ import fetch from './fetch';
 import TimeoutError from './TimeoutError';
 import ResponseError from './ResponseError';
 
-type InitWithRetries = $ReadOnly<{|
+type InitWithRetries = $ReadOnly<{
   ...$Exact<RequestOptions>,
   +fetchTimeout?: number,
   +retryDelays?: $ReadOnlyArray<number>,
-|}>;
+}>;
 
 const DEFAULT_TIMEOUT = 15000;
 const DEFAULT_RETRIES = [1000, 3000];

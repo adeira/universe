@@ -4,11 +4,11 @@ import type { Node, Element } from 'react';
 import Document, { Head, Main, NextScript, type DocumentContext } from 'next/document';
 import sx from '@adeira/sx';
 
-type RenderPageResult = {|
+type RenderPageResult = {
   +html: string,
   +head: $ReadOnlyArray<Node>,
   +styles: $ReadOnlyArray<any>,
-|};
+};
 
 export default class MyDocument extends Document {
   static getInitialProps(ctx: DocumentContext): RenderPageResult {

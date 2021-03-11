@@ -64,9 +64,9 @@ export default function generatePropertyTypes(cb: (string) => void): void {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units
  */
 
-export type AllCSSPropertyTypes = {|
+export type AllCSSPropertyTypes = {
   ${flowPrint}
-|};
+};
 `);
 
   return prettify(template, cb);

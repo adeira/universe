@@ -21,4 +21,4 @@ export default (createRefetchContainer(
       ...createRefetchContainerMissingProps_data
     }
   `,
-): RefetchContainerType<{||}>);
+): RefetchContainerType<{}>);

@@ -4,30 +4,30 @@
 
 import { Component, type Element, type ChildrenArray, type Node } from 'react';
 
-class Button extends Component<{| +disabled?: boolean |}> {
+class Button extends Component<{ +disabled?: boolean }> {
   render() {
     return null;
   }
 }
 
-class DisabledButton extends Component<{||}> {
+class DisabledButton extends Component<{}> {
   // The return type is not necessary - it's here only to demonstrate what is going on.
   render(): Element<typeof Button> {
     return <Button disabled={true} />;
   }
 }
 
-class WrapperLimited extends Component<{|
+class WrapperLimited extends Component<{
   +children: ChildrenArray<
     // You have to specify every single supported component here.
     Element<typeof Button> | Element<typeof DisabledButton>,
   >,
-|}> {}
+}> {}
 
-class WrapperSmart extends Component<{|
+class WrapperSmart extends Component<{
   // Type `RestrictedElement` understands what is being rendered so it accepts even `DisabledButton`(because it returns `Button`).
   +children: ChildrenArray<RestrictedElement<typeof Button>>,
-|}> {}
+}> {}
 
 module.exports.testStupid = ((
   <WrapperLimited>

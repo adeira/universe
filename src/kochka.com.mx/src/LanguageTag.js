@@ -3,10 +3,10 @@
 type Bcp47LanguageTagType = 'en-US' | 'es-MX';
 type UrlLanguageTagType = 'en-us' | 'es-mx';
 
-export type LanguageTagType = {|
+export type LanguageTagType = {
   +bcp47: Bcp47LanguageTagType,
   +url: UrlLanguageTagType,
-|};
+};
 
 const SUPPORTED_PRIMARY_LANGUAGE_SUBTAGS = ['en', 'es'];
 const SUPPORTED_REGION_SUBTAGS = ['US', 'MX'];

@@ -14,16 +14,16 @@
  * JSON objects in a more complex demo.
  */
 
-type Ship = {|
+type Ship = {
   id: string,
   name: string,
-|};
+};
 
-type Fraction = {|
+type Fraction = {
   id: string,
   name: string,
   ships: $ReadOnlyArray<string>,
-|};
+};
 
 const xwing: Ship = {
   id: '1',

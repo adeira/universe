@@ -2,8 +2,8 @@
 
 import type { Position } from './Position';
 
-export type SourceLocation = {|
+export type SourceLocation = {
   +source: string | null,
   +start: Position,
   +end: Position,
-|};
+};

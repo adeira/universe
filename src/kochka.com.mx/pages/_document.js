@@ -6,15 +6,15 @@ import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import sx from '@adeira/sx';
 
-type InitialProps = {|
+type InitialProps = {
   +renderPage: () => $FlowFixMe,
-|};
+};
 
-type RenderPageResult = {|
+type RenderPageResult = {
   +html: string,
   +head: $ReadOnlyArray<React.Node>,
   +styles: $ReadOnlyArray<any>,
-|};
+};
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }: InitialProps): RenderPageResult {

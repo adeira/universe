@@ -10,9 +10,9 @@ const keyMap = {
   SHIFT: 'Shift',
 };
 
-type Props = {|
+type Props = {
   +code: $Keys<typeof keyMap>,
-|};
+};
 
 /**
  * This component provides KBD element rendering single keyboard key. It tries to render the correct

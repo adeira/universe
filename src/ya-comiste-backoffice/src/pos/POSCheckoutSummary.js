@@ -6,9 +6,9 @@ import React, { type Node } from 'react';
 
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
-type Props = {|
+type Props = {
   +tint: string,
-|};
+};
 
 export default function POSCheckoutSummary(props: Props): Node {
   const { stats, selectedItems } = useSelectedItemsApi();

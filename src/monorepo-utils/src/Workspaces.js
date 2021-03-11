@@ -6,7 +6,7 @@ import { findRootPackageJson } from './findRootPackageJson';
 type MinimalPackageJSON = {
   +workspaces?:
     | $ReadOnlyArray<string>
-    | {| +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> |},
+    | { +packages: $ReadOnlyArray<string>, +nohoist: $ReadOnlyArray<string> },
   ...
 };
 

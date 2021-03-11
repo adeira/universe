@@ -11,14 +11,14 @@ import Heading from '../Heading/Heading';
 import Money from '../Money/Money';
 import type { SupportedCurrencies } from '../constants';
 
-type Props = {|
+type Props = {
   +title: Fbt,
   +priceUnitAmount: number,
   +priceUnitAmountCurrency: SupportedCurrencies,
   +imgBlurhash?: string,
   +imgSrc?: string,
   +imgAlt?: Fbt,
-|};
+};
 
 /**
  * This component display product card with product title and product price. The recommended usage

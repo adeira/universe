@@ -9,7 +9,7 @@ import type { TemplateLiteral } from './TemplateLiteral';
 
 // aaa()
 // ^^^^^
-export type CallExpression = $ReadOnly<{|
+export type CallExpression = $ReadOnly<{
   ...INode<'CallExpression'>,
   +callee: any, // TODO
   +arguments: $ReadOnlyArray<
@@ -20,4 +20,4 @@ export type CallExpression = $ReadOnly<{|
     | ObjectExpression
     | TemplateLiteral,
   >,
-|}>;
+}>;

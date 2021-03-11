@@ -5,13 +5,13 @@ import { find } from 'relay-compiler/lib/language/javascript/FindGraphQLTags'; /
 
 import formatGeneratedModule from './formatGeneratedModule';
 
-type LanguagePlugin = {|
+type LanguagePlugin = {
   +inputExtensions: $ReadOnlyArray<string>,
   +outputExtension: string,
   +typeGenerator: $FlowFixMe,
   +formatModule: $FlowFixMe,
   +findGraphQLTags: $FlowFixMe,
-|};
+};
 
 export default function buildLanguagePlugin(): LanguagePlugin {
   return {

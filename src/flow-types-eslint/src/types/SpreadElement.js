@@ -8,7 +8,7 @@ import type { INode } from './INode';
 //   ...aaa,
 //   ^^^^^^
 // }
-export type SpreadElement = $ReadOnly<{|
+export type SpreadElement = $ReadOnly<{
   ...INode<'SpreadElement'>,
   +argument: CallExpression | Identifier,
-|}>;
+}>;

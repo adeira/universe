@@ -1,9 +1,9 @@
 // @flow strict
 
-/* eslint-disable flowtype/require-inexact-type */
+export type ImplicitExact = { x: number };
+export type ExplicitInexact = { x: number, ... };
 
-// This is currently not allowed but it will eventually be the default:
-// flowlint ambiguous-object-type:off
-export type A = { x: number };
-export type B = { x: number, ... };
-export type C = {| x: number |};
+// We no longer allow this syntax (we use implicit exact by default):
+/* eslint-disable flowtype/require-exact-type */
+export type ExplicitExact = {| x: number |};
+/* eslint-enable flowtype/require-exact-type */

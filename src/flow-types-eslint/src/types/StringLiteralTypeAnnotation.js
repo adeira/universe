@@ -2,11 +2,11 @@
 
 import type { INode } from './INode';
 
-export type StringLiteralTypeAnnotation = $ReadOnly<{|
+export type StringLiteralTypeAnnotation = $ReadOnly<{
   ...INode<'StringLiteralTypeAnnotation'>,
-  +extra: {|
+  +extra: {
     +rawValue: string,
     +raw: string,
-  |},
+  },
   +value: string,
-|}>;
+}>;

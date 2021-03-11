@@ -1,5 +1,19 @@
 # Unreleased
 
+**Breaking changes ahead!**
+
+Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
+
+Because of this migration of [`adeira/universe`](https://github.com/adeira/universe) to implicit exact objects (step 4 in this article: https://medium.com/flow-type/on-the-roadmap-exact-objects-by-default-16b72933c5cf) we are changing the following rules:
+
+```text
+flowtype/require-exact-type               OFF -> ERROR with "never"
+flowtype/require-inexact-type             ERROR -> OFF
+flowtype/require-readonly-react-props     ERROR -> ERROR with "useImplicitExactTypes:true"
+```
+
+In case you want to prolong the support for explicit exact objects you can simply reverse these rules and you should be good to go.
+
 # 5.3.0
 
 - Rule [`react/no-unstable-nested-components`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md) enabled (warnings or errors in strict mode)

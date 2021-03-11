@@ -8,10 +8,10 @@ const query = graphql`
   }
 `;
 
-type QueryTypeMock = {|
-  +variables: {||},
-  +response: {||},
-|};
+type QueryTypeMock = {
+  +variables: {},
+  +response: {},
+};
 
 module.exports = {
   validUsage: (): (() => void) => {

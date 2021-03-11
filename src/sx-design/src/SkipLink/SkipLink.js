@@ -3,9 +3,9 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +text: FbtWithoutString,
-|};
+};
 
 // https://web.dev/headings-and-landmarks/#bypass-repetitive-content-with-skip-links
 export default function SkipLink(props: Props): React.Node {

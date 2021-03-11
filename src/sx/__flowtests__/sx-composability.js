@@ -6,10 +6,10 @@ import sx, { type AllCSSProperties } from '../index';
 
 // fileA.js
 
-type Props = {|
+type Props = {
   +xstyle: AllCSSProperties,
   +ystyle: AllCSSProperties,
-|};
+};
 
 const internalStyles = sx.create({ default: { fontSize: 16 } });
 export function MyBaseComponent(props: Props): Node {

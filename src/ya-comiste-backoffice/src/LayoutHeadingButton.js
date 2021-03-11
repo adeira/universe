@@ -5,12 +5,12 @@ import sx, { type AllCSSProperties } from '@adeira/sx';
 
 import LinkButton from './LinkButton';
 
-type Props = {|
+type Props = {
   +onClick: () => void,
   +confirmMessage: FbtWithoutString,
   +children: FbtWithoutString,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 // creates <button onClick="…" />
 export default function LayoutHeadingButton(props: Props): Node {

@@ -11,22 +11,22 @@ import type { AllCSSPseudoTypes } from './css-properties/__generated__/AllCSSPse
 type CSSVariableValue = string;
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries
-type MediaQueries = {|
+type MediaQueries = {
   ...AllCSSPropertyTypes,
   ...AllCSSPseudoTypes,
   +[string]: MediaQueries | CSSVariableValue, // media queries can be recursively nested or have extra CSS variables
-|};
+};
 
-export type AllCSSProperties = {|
+export type AllCSSProperties = {
   ...AllCSSPropertyTypes,
   ...AllCSSPseudoTypes,
   // we are unable to statically typecheck the key because it can be almost anything (@media, CSS variable, …)
   +[string]: MediaQueries | CSSVariableValue,
-|};
+};
 
-export type SheetDefinitions = {|
+export type SheetDefinitions = {
   +[sheetName: string]: AllCSSProperties,
-|};
+};
 
 function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): string {
   return alternativeNames.sort((firstEl, secondEl) => {
@@ -36,11 +36,11 @@ function suggest(sheetDefinitionName: string, alternativeNames: Array<string>): 
   })[0];
 }
 
-type CreateReturnType<T> = {|
+type CreateReturnType<T> = {
   (...$ReadOnlyArray<?$Keys<T> | false>): string, // conditional strings `styles(isRed && 'red')`
-  ({| +[$Keys<T>]: boolean |}): string, // conditional object `styles({ red: isRed })`
+  ({ +[$Keys<T>]: boolean }): string, // conditional object `styles({ red: isRed })`
   +[$Keys<T>]: AllCSSProperties, // for external styles merging
-|};
+};
 
 export default function create<T: SheetDefinitions>(sheetDefinitions: T): CreateReturnType<T> {
   invariant(

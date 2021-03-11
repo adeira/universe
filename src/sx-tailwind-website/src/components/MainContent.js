@@ -4,10 +4,10 @@ import type { Node } from 'react';
 
 import Hamburger from './sidebar/Hamburger';
 
-type Props = {|
+type Props = {
   +title: string,
   +children: Node,
-|};
+};
 
 export default function MainContent({ title, children }: Props): Node {
   return (

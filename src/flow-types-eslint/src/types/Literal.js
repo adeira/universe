@@ -2,7 +2,7 @@
 
 import type { INode } from './INode';
 
-export type Literal = $ReadOnly<{|
+export type Literal = $ReadOnly<{
   ...INode<'Literal'>,
   +value: string,
-|}>;
+}>;

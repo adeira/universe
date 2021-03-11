@@ -2,9 +2,9 @@
 
 import type { Node } from 'react';
 
-type Props = {|
+type Props = {
   +children: Node,
-|};
+};
 
 export default function H2({ children }: Props): Node {
   return (

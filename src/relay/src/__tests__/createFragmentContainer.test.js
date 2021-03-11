@@ -4,7 +4,7 @@ import { Component } from 'react';
 
 import createFragmentContainer from '../createFragmentContainer';
 
-class MockComponent extends Component<{||}> {}
+class MockComponent extends Component<{}> {}
 
 it('throws when used with empty fragment spec', () => {
   let error = new Error();

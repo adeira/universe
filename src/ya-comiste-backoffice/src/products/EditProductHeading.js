@@ -16,9 +16,9 @@ import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import type { EditProductHeadingDeleteMutation } from './__generated__/EditProductHeadingDeleteMutation.graphql';
 import type { EditProductHeading$key } from './__generated__/EditProductHeading.graphql';
 
-type Props = {|
+type Props = {
   +product: EditProductHeading$key,
-|};
+};
 
 export default function EditProductHeading(props: Props): React.Node {
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);

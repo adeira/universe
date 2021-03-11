@@ -5,10 +5,10 @@ import sx, { type AllCSSProperties } from '@adeira/sx';
 
 import HeadingLevel from '../HeadingLevel';
 
-type Props = {|
+type Props = {
   +children: React.Node,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 /**
  * Heading component automatically renders the right `h[1-6]` HTML element based on the location in

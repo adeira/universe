@@ -4,9 +4,9 @@ import * as React from 'react';
 
 import SVGIcon from '../../SVGIcon';
 
-type Props = {|
+type Props = {
   +size?: number,
-|};
+};
 
 export default function FlagMX(props: Props): React.Node {
   const { size = 50 } = props;

@@ -5,10 +5,10 @@ import sx, { type AllCSSProperties } from '@adeira/sx';
 
 import HeadingLevel from '../HeadingLevel';
 
-type Props = {|
+type Props = {
   +children: React.Node,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 /**
  * Section component is used to automatically advance Heading component level.

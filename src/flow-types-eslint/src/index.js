@@ -18,19 +18,19 @@ import type { VariableDeclarator as _VariableDeclarator } from './types/Variable
 // https://github.com/babel/babel/blob/08c7280167a8dd7696c16ac70e36d5d3120962a9/packages/babel-parser/src/types.js
 export type Node = any; // TODO
 
-type SourceCode = {|
+type SourceCode = {
   +getAllComments: () => $ReadOnlyArray<Node>,
   +text: string,
-|};
+};
 
-type Context = {|
+type Context = {
   +report: ((Node, string) => void) & (({ +node: Node, ... }) => void),
   +getSourceCode: () => SourceCode,
   +getFilename: () => string,
   +settings: { [key: string]: mixed, ... },
-|};
+};
 
-type ASTNodes = {|
+type ASTNodes = {
   +'BlockComment'?: (
     node: any, // TODO
   ) => void,
@@ -54,22 +54,22 @@ type ASTNodes = {|
   +'TaggedTemplateExpression'?: (node: any) => void, // TODO
   +'TypeAlias'?: (node: TypeAlias) => void,
   +'VariableDeclarator'?: (node: _VariableDeclarator) => void,
-|};
+};
 
 export type VariableDeclarator = _VariableDeclarator;
 export type ImportDeclaration = _ImportDeclaration;
 
-export type EslintRule = {|
-  +meta?: {|
+export type EslintRule = {
+  +meta?: {
     +type?: 'problem' | 'suggestion' | 'layout',
-    +docs?: {|
+    +docs?: {
       +description?: string,
       +category?: string,
       +recommended?: boolean,
-    |},
+    },
     +fixable?: boolean,
     +schema?: $ReadOnlyArray<empty>,
-    +messages?: {| +[string]: string |},
-  |},
+    +messages?: { +[string]: string },
+  },
   +create: (Context) => ASTNodes,
-|};
+};

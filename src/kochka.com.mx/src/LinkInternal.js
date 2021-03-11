@@ -6,11 +6,11 @@ import { useRouter } from 'next/router';
 import { type AllCSSProperties } from '@adeira/sx';
 import { Link as SXLink } from '@adeira/sx-design';
 
-type Props = {|
+type Props = {
   +href: string,
   +children: React.Node,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 /**
  * Use this link without worrying about the route language to navigate inside the application:

@@ -5,14 +5,14 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +href: string,
   +children: React.Node,
   +xstyle?: AllCSSProperties,
   +xstyleActive?: AllCSSProperties,
   +target?: '_blank',
   +disabled?: boolean,
-|};
+};
 
 export default function Link(props: Props): React.Node {
   const router = useRouter();

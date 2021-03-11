@@ -12,24 +12,24 @@ import type { CacheConfig, GraphQLTaggedNode } from 'relay-runtime';
 
 import type { Variables } from './types.flow';
 
-type ReadyState<T> = {|
+type ReadyState<T> = {
   +error: ?Error,
   +props: T,
   +retry: ?() => void,
-|};
+};
 
 type FetchPolicy = 'store-and-network' | 'network-only';
 
-type CommonProps = {|
+type CommonProps = {
   +query: GraphQLTaggedNode,
   +environment?: Environment,
   +cacheConfig?: CacheConfig,
   +fetchPolicy?: FetchPolicy,
   +variables?: Variables,
-|};
+};
 
 type Props<T> =
-  | $ReadOnly<{|
+  | $ReadOnly<{
       ...CommonProps,
       +onSystemError?: ({
         error: Error,
@@ -38,11 +38,11 @@ type Props<T> =
       }) => Node,
       +onLoading?: () => Node,
       +onResponse: (T) => Node,
-    |}>
-  | $ReadOnly<{|
+    }>
+  | $ReadOnly<{
       ...CommonProps,
       +render: (ReadyState<?T>) => Node,
-    |}>;
+    }>;
 
 export default function QueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
   function renderQueryRendererResponse({ error, props: rendererProps, retry }: ReadyState<?T>) {

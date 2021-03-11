@@ -6,10 +6,10 @@ import sx from '@adeira/sx';
 import type { SupportedCurrencies, SupportedLocales } from '../constants';
 import useSxDesignContext from '../useSxDesignContext';
 
-type MoneyProps = {|
+type MoneyProps = {
   +priceUnitAmount: number,
   +priceUnitAmountCurrency: SupportedCurrencies,
-|};
+};
 
 export default function Money(props: MoneyProps): React.Node {
   const sxDesign = useSxDesignContext();
@@ -30,11 +30,11 @@ const styles = sx.create({
   },
 });
 
-type MoneyFnProps = {|
+type MoneyFnProps = {
   +priceUnitAmount: number,
   +priceUnitAmountCurrency: SupportedCurrencies,
   +locale: SupportedLocales,
-|};
+};
 
 // This function does essentially the same like the React <Money /> component except it can be
 // called from non-React environment.

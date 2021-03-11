@@ -1,9 +1,9 @@
 // @flow strict
 
-type Diff = {|
+type Diff = {
   +path: string,
   +body: string,
-|};
+};
 
 export default function createMockDiff(filename: string): Diff {
   return {

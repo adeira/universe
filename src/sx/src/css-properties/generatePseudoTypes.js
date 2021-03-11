@@ -34,9 +34,9 @@ export default function generatePseudoTypes(cb: (string) => void): void {
 
 import type { AllCSSPropertyTypes } from './AllCSSPropertyTypes';
 
-export type AllCSSPseudoTypes = {|
+export type AllCSSPseudoTypes = {
   ${flowPseudoPrint}
-|};
+};
 `);
 
   return prettify(template, cb);

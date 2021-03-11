@@ -4,10 +4,10 @@ import * as React from 'react';
 
 import SVGIcon from '../SVGIcon';
 
-type Props = {|
+type Props = {
   +color?: string,
   +size?: number,
-|};
+};
 
 export default function Facebook(props: Props): React.Node {
   const { color = '#fff', size = 40 } = props;

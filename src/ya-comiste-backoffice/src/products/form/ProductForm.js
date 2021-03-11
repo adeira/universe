@@ -9,27 +9,27 @@ import { Kbd } from '@adeira/sx-design';
 import createProductFormSchema from '../createProductFormSchema';
 import CustomErrorMessage from './CustomErrorMessage';
 
-export type FormValues = {|
+export type FormValues = {
   +name_en: string,
   +name_es: string,
   +description_en: string,
   +description_es: string,
   +price: string | number,
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
-|};
+};
 
 // https://formik.org/docs/api/withFormik#the-formikbag
-type FormikBag = {|
-  +resetForm: ({| +values: FormValues |} | void) => void,
+type FormikBag = {
+  +resetForm: ({ +values: FormValues } | void) => void,
   +setSubmitting: (boolean) => void,
-|};
+};
 
-type Props = {|
+type Props = {
   +submitButtonTitle: FbtWithoutString,
   +initialValues: FormValues,
   +onUploadablesChange: (FileList) => void,
   +onSubmit: (FormValues, FormikBag) => void,
-|};
+};
 
 // TODO: https://formik.org/docs/tutorial#reducing-boilerplate
 export default function ProductForm(props: Props): Node {

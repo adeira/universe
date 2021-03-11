@@ -1,12 +1,12 @@
 /**
- * @generated SignedSource<<e1cef639311b427a222ff7769e0b7998>>
+ * @generated SignedSource<<3a9757ef3b43899c54fb79eef9f21de1>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units
  */
 
-export type AllCSSPropertyTypes = {|
+export type AllCSSPropertyTypes = {
   +webkitLineClamp?: 'none' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/-webkit-line-clamp
   +alignContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-content
   +alignItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-items
@@ -751,4 +751,4 @@ export type AllCSSPropertyTypes = {|
     | 'initial'
     | 'unset',
   +zIndex?: 'auto' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/z-index
-|};
+};

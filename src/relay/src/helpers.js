@@ -12,7 +12,7 @@ export const isQuery = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'query';
 };
 
-export const forceFetch = (cacheConfig: {| +force?: ?boolean |}): boolean %checks => {
+export const forceFetch = (cacheConfig: { +force?: ?boolean }): boolean %checks => {
   return !!(cacheConfig && cacheConfig.force);
 };
 
@@ -67,7 +67,7 @@ export function getRequestBody(
   return getRequestBodyWithoutUplodables(request, variables);
 }
 
-export const getHeaders = (uploadables: ?UploadableMap): {| +[string]: string |} => {
+export const getHeaders = (uploadables: ?UploadableMap): { +[string]: string } => {
   if (uploadables) {
     return {
       Accept: '*/*',

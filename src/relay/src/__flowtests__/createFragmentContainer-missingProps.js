@@ -12,4 +12,4 @@ export default (createFragmentContainer(FunctionalFragmentExport, {
       __typename
     }
   `,
-}): FragmentContainerType<{||}>);
+}): FragmentContainerType<{}>);

@@ -8,18 +8,18 @@ import Heading from '../Heading/Heading';
 import Section from '../Section/Section';
 import windowLocationReload from './windowLocationReload';
 
-type Props = {|
+type Props = {
   +children: Node,
   +title?: FbtWithoutString,
   +code?: string,
   +onComponentDidCatch?: (Error, { componentStack: string, ... }) => void,
   +onRetry?: () => void,
-|};
+};
 
-type State = {|
+type State = {
   +hasError: boolean,
   +error: Error | null,
-|};
+};
 
 export default class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {

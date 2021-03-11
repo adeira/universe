@@ -3,11 +3,11 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +onClick: () => void,
   +children: React.Node,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 export default function LinkButton(props: Props): React.Node {
   return (

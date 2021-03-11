@@ -35,10 +35,13 @@
 ; https://flow.org/en/docs/config/lints/
 [lints]
 all=error
-ambiguous-object-type=off
 sketchy-null-bool=off
 unclear-type=off
 untyped-import=off
+
+# Flow standard is now to use `{ }` for strict objects and `{ key: value, ... }` for open objects,
+# so this option should always be `off`.
+ambiguous-object-type=off
 
 
 ; This setting complements [lints] section: all the enabled lints still throw errors + these
@@ -47,7 +50,6 @@ untyped-import=off
 ;
 ; https://flow.org/en/docs/strict/
 [strict]
-ambiguous-object-type
 sketchy-null-bool
 unclear-type
 untyped-import

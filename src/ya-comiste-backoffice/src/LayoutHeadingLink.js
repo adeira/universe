@@ -5,10 +5,10 @@ import sx from '@adeira/sx';
 
 import Link from './Link';
 
-type Props = {|
+type Props = {
   +href: string,
   +children: FbtWithoutString,
-|};
+};
 
 // creates <a href="…" />
 export default function LayoutHeadingLink(props: Props): Node {

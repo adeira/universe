@@ -5,14 +5,14 @@
 import * as React from 'react';
 
 // You can enforce compositional patterns with RestrictedElement:
-class MenuItem extends React.Component<{||}> {}
-class MenuSeparator extends React.Component<{||}> {}
-class Menu extends React.Component<{|
+class MenuItem extends React.Component<{}> {}
+class MenuSeparator extends React.Component<{}> {}
+class Menu extends React.Component<{
   +children: React.ChildrenArray<
     RestrictedElement<typeof MenuItem> | RestrictedElement<typeof MenuSeparator>,
   >,
-|}> {}
-class NotAMenuComponent extends React.Component<{||}> {}
+}> {}
+class NotAMenuComponent extends React.Component<{}> {}
 
 // All the children types allowed.
 module.exports.test1 = ((
@@ -33,7 +33,7 @@ module.exports.test2 = ((
   </Menu>
 ): React.Node);
 
-class RendersAMenuItem extends React.Component<{||}> {
+class RendersAMenuItem extends React.Component<{}> {
   render(): React.Element<typeof MenuItem> {
     return <MenuItem />;
   }
@@ -47,7 +47,7 @@ module.exports.test3 = ((
   </Menu>
 ): React.Node);
 
-class RendersSomethingThatRendersAMenuItem extends React.Component<{||}> {
+class RendersSomethingThatRendersAMenuItem extends React.Component<{}> {
   // You really should just use RestrictedElement here, but I want
   // to demonstrate the flexibility.
   render(): React.Element<typeof RendersAMenuItem> {

@@ -2,10 +2,10 @@
 
 import type { Node } from 'react';
 
-type Props = {|
+type Props = {
   +href: string,
   +children: Node,
-|};
+};
 
 export default function Link({ href, children }: Props): Node {
   return (

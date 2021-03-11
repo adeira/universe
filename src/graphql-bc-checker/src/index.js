@@ -36,11 +36,11 @@ const createSnapshot = (breakingChangesBlock, newSchema) => {
   );
 };
 
-type Options = {|
+type Options = {
   +allowBreakingChanges: boolean,
   +snapshotLocation: string,
   +schema: GraphQLSchema,
-|};
+};
 
 export default function testBackwardCompatibility({
   allowBreakingChanges,

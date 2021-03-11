@@ -7,9 +7,9 @@ import { fbt } from 'fbt';
 
 import Navigation from './Navigation';
 
-type Props = {|
+type Props = {
   +children: Node,
-|};
+};
 
 export default function Layout(props: Props): Node {
   return (

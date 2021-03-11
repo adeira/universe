@@ -8,11 +8,11 @@ import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
 import type { SupportedLocales } from './constants';
 
-type Props = {|
+type Props = {
   +children: Node,
   +locale?: SupportedLocales,
   +theme?: 'light' | 'dark' | 'system',
-|};
+};
 
 export default function SxDesignProvider(props: Props): Node {
   const locale = props.locale ?? 'en-US';

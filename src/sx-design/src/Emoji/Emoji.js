@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 
-type Props = {|
+type Props = {
   +label: FbtWithoutString,
   +symbol: string,
-|};
+};
 
 export default function Emoji(props: Props): React.Node {
   return (

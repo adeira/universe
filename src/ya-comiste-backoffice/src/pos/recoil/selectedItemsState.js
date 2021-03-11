@@ -6,12 +6,12 @@ import { atom, selector, useRecoilState, DefaultValue, useRecoilValue } from 're
 
 /* global window */
 
-export type AtomItemType = {|
+export type AtomItemType = {
   +itemID: string,
   +itemTitle: string,
   +itemUnitAmount: number,
   +units: number,
-|};
+};
 
 type AtomValue = Immutable.List<AtomItemType>;
 
@@ -44,10 +44,10 @@ const selectedItemsAtom = atom<AtomValue>({
   effects_UNSTABLE: [localStorageEffect('ycbo:selectedItems')],
 });
 
-type SelectorItem = {|
+type SelectorItem = {
   +totalSelectedItems: number,
   +totalPrice: number,
-|};
+};
 
 const selectedItemsStatsSelector = selector<SelectorItem>({
   key: 'selectedItemsStats',
@@ -68,14 +68,14 @@ const selectedItemsStatsSelector = selector<SelectorItem>({
   },
 });
 
-export default function useSelectedItemsApi(): {|
+export default function useSelectedItemsApi(): {
   +selectedItems: AtomValue,
   +select: (AtomItemType) => void,
   +increaseUnits: (string) => void,
   +decreaseUnits: (string) => void,
   +reset: () => void,
   +stats: SelectorItem,
-|} {
+} {
   const [selectedItems, setSelectedItems] = useRecoilState(selectedItemsAtom);
   const selectedItemsStats = useRecoilValue(selectedItemsStatsSelector);
 

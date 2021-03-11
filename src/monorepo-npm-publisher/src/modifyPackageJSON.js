@@ -1,11 +1,11 @@
 // @flow strict
 
-type PackageJSON = {|
+type PackageJSON = {
   +main?: string,
   // Field `module` can be string when you want to use your custom
   // implementation or `false` when you want to disable ESM completely.
   +module?: string | false,
-|};
+};
 
 export default function modifyPackageJSON(packageJSONFile: PackageJSON): PackageJSON {
   const { main, module, ...rest } = packageJSONFile;

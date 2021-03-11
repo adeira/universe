@@ -6,15 +6,15 @@ import type { UploadableMap } from 'relay-runtime';
 import { handleData, getRequestBody, getHeaders } from './helpers';
 import type { RequestNode, Variables } from './types.flow';
 
-type Headers = {|
+type Headers = {
   +[key: string]: string,
-|};
+};
 
 type AdditionalHeaders = Headers | Promise<Headers>;
-type RefetchConfig = {|
+type RefetchConfig = {
   +fetchTimeout?: number,
   +retryDelays?: $ReadOnlyArray<number>,
-|};
+};
 
 export default function createNetworkFetcher(
   graphQLServerURL: string,

@@ -37,11 +37,11 @@ export default function testFixtures({
   rule,
   validFixturesPath,
   invalidFixturesPath,
-}: {|
+}: {
   rule: EslintRule,
   validFixturesPath: string,
   invalidFixturesPath: string,
-|}): void {
+}): void {
   const validFixtures = [];
   const invalidFixtures = [];
   for (const fixture of fs.readdirSync(validFixturesPath)) {

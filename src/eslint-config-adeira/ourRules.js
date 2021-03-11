@@ -291,11 +291,16 @@ module.exports = ({
     },
   ],
   'flowtype/require-compound-type-alias': OFF,
-  'flowtype/require-exact-type': OFF,
+  'flowtype/require-exact-type': [NEXT_VERSION_ERROR, 'never'], // we are using `exact_by_default=true`
   'flowtype/require-indexer-name': OFF,
-  'flowtype/require-inexact-type': ERROR,
+  'flowtype/require-inexact-type': OFF,
   'flowtype/require-parameter-type': OFF,
-  'flowtype/require-readonly-react-props': ERROR,
+  'flowtype/require-readonly-react-props': [
+    ERROR,
+    {
+      useImplicitExactTypes: true,
+    },
+  ],
   'flowtype/require-return-type': OFF,
   'flowtype/require-types-at-top': OFF,
   'flowtype/require-valid-file-annotation': [ERROR, 'always'],
