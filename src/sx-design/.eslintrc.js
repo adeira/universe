@@ -7,6 +7,9 @@ const ERROR = 2;
 /* eslint-enable no-unused-vars */
 
 module.exports = {
+  env: {
+    browser: true,
+  },
   rules: {
     // TODO: this should be true for all users of `@adeira/sx-design` so we should make it reusable?
     'react/forbid-elements': [

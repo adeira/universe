@@ -6,6 +6,7 @@ import { fbt } from 'fbt';
 
 import Heading from '../Heading/Heading';
 import Section from '../Section/Section';
+import windowLocationReload from './windowLocationReload';
 
 type Props = {|
   +children: Node,
@@ -45,8 +46,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
   }
 
   render(): Node {
-    // eslint-disable-next-line no-undef
-    const onRetryFn = this.props.onRetry ?? window.location.reload;
+    const onRetryFn = this.props.onRetry ?? windowLocationReload;
     if (this.state.hasError) {
       const errorMessage = this.state.error?.message;
       return (
@@ -61,7 +61,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
             </Section>
           </div>
           {__DEV__ && errorMessage != null ? (
-            <div className={styles('errorDev')}>
+            <div className={styles('errorDev')} data-testid="errorDev">
               <pre className={styles('errorDevPre')}>{errorMessage}</pre>
             </div>
           ) : null}
