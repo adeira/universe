@@ -1,3 +1,5 @@
+[![Crowdin](https://badges.crowdin.net/yc-backoffice/localized.svg)](https://crowdin.com/project/yc-backoffice)
+
 First, run the development server:
 
 ```bash
