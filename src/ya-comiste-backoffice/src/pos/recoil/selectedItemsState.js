@@ -6,14 +6,14 @@ import { atom, selector, useRecoilState, DefaultValue, useRecoilValue } from 're
 
 /* global window */
 
-type AtomItem = {|
+export type AtomItemType = {|
   +itemID: string,
   +itemTitle: string,
   +itemUnitAmount: number,
   +units: number,
 |};
 
-type AtomValue = Immutable.List<AtomItem>;
+type AtomValue = Immutable.List<AtomItemType>;
 
 const localStorageEffect = (key) => ({ setSelf, onSet }) => {
   if (!isBrowser()) {
@@ -70,9 +70,10 @@ const selectedItemsStatsSelector = selector<SelectorItem>({
 
 export default function useSelectedItemsApi(): {|
   +selectedItems: AtomValue,
-  +select: (AtomItem) => void,
+  +select: (AtomItemType) => void,
   +increaseUnits: (string) => void,
   +decreaseUnits: (string) => void,
+  +reset: () => void,
   +stats: SelectorItem,
 |} {
   const [selectedItems, setSelectedItems] = useRecoilState(selectedItemsAtom);
@@ -132,6 +133,9 @@ export default function useSelectedItemsApi(): {|
         // remove the item completely
         return previousItems.delete(itemIndex);
       });
+    },
+    reset: () => {
+      setSelectedItems(() => Immutable.List());
     },
     stats: selectedItemsStats,
   };

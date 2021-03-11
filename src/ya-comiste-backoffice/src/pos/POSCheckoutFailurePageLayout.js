@@ -2,11 +2,22 @@
 
 import sx from '@adeira/sx';
 import { fbt } from 'fbt';
+import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 
-import Link from '../Link';
+import LinkButton from '../LinkButton';
+import POSCheckoutSummary from './POSCheckoutSummary';
+import useSelectedItemsApi from './recoil/selectedItemsState';
 
 export default function POSCheckoutFailurePageLayout(): Node {
+  const { reset } = useSelectedItemsApi();
+  const router = useRouter();
+
+  const handleStartNewPOSSessionClick = () => {
+    reset();
+    router.push('/pos');
+  };
+
   return (
     <div className={styles('root')}>
       <div>
@@ -22,16 +33,11 @@ export default function POSCheckoutFailurePageLayout(): Node {
             <strong>let us know</strong> as soon as possible!
           </fbt>
         </div>
-        <div className={styles('selectedItems')}>
-          <pre>
-            Selected items were:
-            {/* TODO */}
-          </pre>
-        </div>
+        <POSCheckoutSummary tint="#ba3838" />
       </div>
-      <Link href="/pos" xstyle={styles.link}>
+      <LinkButton onClick={handleStartNewPOSSessionClick} xstyle={styles.link}>
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
-      </Link>
+      </LinkButton>
     </div>
   );
 }
@@ -52,11 +58,7 @@ const styles = sx.create({
     fontSize: '1rem',
     maxWidth: 750,
     marginTop: '2rem',
-    marginBottom: '3rem',
-  },
-  selectedItems: {
-    fontSize: '1.5rem',
-    maxWidth: 750,
+    marginBottom: '2rem',
   },
   link: {
     borderRadius: '4px',

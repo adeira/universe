@@ -1,3 +1,4 @@
+pub use crate::commerce::model::errors::ModelError;
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
@@ -194,4 +195,17 @@ pub(crate) async fn search_published_products(
             None
         }
     }
+}
+
+pub(crate) async fn get_products_by_keys(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_keys: &[String],
+) -> Result<Vec<Product>, ModelError> {
+    crate::commerce::model::products::get_published_products_by_keys(
+        &context,
+        &client_locale,
+        &product_keys,
+    )
+    .await
 }
