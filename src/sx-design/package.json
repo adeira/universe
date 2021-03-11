@@ -18,7 +18,7 @@
   },
   "peerDependencies": {
     "@adeira/sx": "^0.24.0",
-    "react": "^17.0.1"
+    "react": "^17.0.0"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
