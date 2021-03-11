@@ -1,23 +1,24 @@
 // @flow
 
-import { warning } from '@adeira/js';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import { Blurhash } from 'react-blurhash';
+import { fbt } from 'fbt';
 import { useState } from 'react';
+import { warning } from '@adeira/js';
 
 import Heading from '../Heading/Heading';
 import Money from '../Money/Money';
 import type { SupportedCurrencies, SupportedLocales } from '../constants';
 
 type Props = {|
-  +title: string,
+  +title: Fbt,
   +priceUnitAmount: number,
   +priceUnitAmountCurrency: SupportedCurrencies,
   +locale: SupportedLocales,
   +imgBlurhash?: string,
   +imgSrc?: string,
-  +imgAlt?: string,
+  +imgAlt?: Fbt,
 |};
 
 /**
@@ -52,9 +53,13 @@ export default function ProductCard(props: Props): React.Node {
   if (props.imgSrc != null) {
     warning(
       props.imgAlt != null,
-      'You should specify alternative image text via `imgAlt` property. This is a critical component ' +
-        "of accessibility for screen reader users in order for them to understand the content's " +
-        'purpose on the page.',
+      // $FlowExpectedError[incompatible-call]: warning expects string, not FBT
+      fbt(
+        'You should specify alternative image text via `imgAlt` property. This is an important ' +
+          'part of accessibility for screen reader users in order for them to understand the ' +
+          "content's purpose on the page.",
+        'accessibility warning when img alt is missing (product card component)',
+      ),
     );
   }
 
