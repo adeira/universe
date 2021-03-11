@@ -12,12 +12,6 @@ export default {
   title: 'Example/Money',
   component: Money,
   argTypes: {
-    locale: {
-      control: {
-        type: 'select',
-        options: ['en-US', 'es-MX'],
-      },
-    },
     priceUnitAmount: {
       control: {
         type: 'number',
@@ -39,30 +33,14 @@ export default {
 const Template = (args) => <Money {...args} />;
 
 // 👇 Each story then reuses that template
-export const MXNinUS: $FlowFixMe = Template.bind({});
-MXNinUS.storyName = 'MXN in en-US';
-MXNinUS.args = {
-  locale: 'en-US',
+export const MXN: $FlowFixMe = Template.bind({});
+MXN.storyName = 'MXN currency';
+MXN.args = {
   priceUnitAmountCurrency: 'MXN',
 };
 
-export const MXNinMX: $FlowFixMe = Template.bind({});
-MXNinMX.storyName = 'MXN in es-MX';
-MXNinMX.args = {
-  locale: 'es-MX',
-  priceUnitAmountCurrency: 'MXN',
-};
-
-export const USDinMX: $FlowFixMe = Template.bind({});
-USDinMX.storyName = 'USD in es-MX';
-USDinMX.args = {
-  locale: 'es-MX',
-  priceUnitAmountCurrency: 'USD',
-};
-
-export const USDinUS: $FlowFixMe = Template.bind({});
-USDinUS.storyName = 'USD in en-US';
-USDinUS.args = {
-  locale: 'en-US',
+export const USD: $FlowFixMe = Template.bind({});
+USD.storyName = 'USD currency';
+USD.args = {
   priceUnitAmountCurrency: 'USD',
 };

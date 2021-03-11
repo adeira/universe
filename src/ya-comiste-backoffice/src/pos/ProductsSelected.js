@@ -23,11 +23,7 @@ export default function ProductsSelected(): React.Node {
               <strong>{selectedItem.itemTitle}</strong>
               <br />
               {selectedItem.units}x for{' '}
-              <Money
-                locale="en-US" // TODO
-                priceUnitAmount={selectedItem.itemUnitAmount}
-                priceUnitAmountCurrency="MXN"
-              />{' '}
+              <Money priceUnitAmount={selectedItem.itemUnitAmount} priceUnitAmountCurrency="MXN" />{' '}
               per unit
             </div>
             <div className={styles('selectedItemControls')}>

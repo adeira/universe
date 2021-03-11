@@ -88,7 +88,6 @@ export default function POSCheckoutPageLayout(): Node {
       </div>
 
       <Money
-        locale="en-US" // TODO
         priceUnitAmount={stats.totalPrice}
         priceUnitAmountCurrency={'MXN'} // TODO
       />

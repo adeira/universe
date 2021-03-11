@@ -42,7 +42,6 @@ export default function ProductsCards(): Node {
              * Relay Hooks. To see the error delete this comment and run Flow. */
             priceUnitAmountCurrency={product.price.unitAmountCurrency}
             imgBlurhash={product.imageCover?.blurhash}
-            locale="en-US" // TODO
             // TODO: `imgSrc`
           />
         </Link>
