@@ -2,7 +2,7 @@
 
 - all under one rooftop (simpler installation and setup)
 - network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/adeira/universe/tree/master/src/fetch))
-- support for [files uploading](#tip-3-file-uploading) via GraphQL mutations
+- support for [files uploading](#tip-3-file-uploading-via-graphql-mutations) via GraphQL mutations
 - [query logging](#tip-2-lazy-eager-or-debug-logger) during development
 - Relay compiler with ES6 output and source signing
 - improved Flow types and sanity checks
@@ -22,7 +22,7 @@ In case you are migrating from `facebook/relay`: uninstall _all_ the Relay relat
 
 ## Installation
 
-```text
+```bash
 yarn add react react-dom @adeira/relay
 ```
 
@@ -49,7 +49,7 @@ Add "relay" to the list of plugins in your `.babelrc` file:
 }
 ```
 
-## Set up `aderia-relay-compiler`
+## Set up adeira-relay-compiler
 
 ```json
 {
@@ -87,7 +87,7 @@ function render() {
 
 Now, you can start fetching data in your React application:
 
-```flow js
+```js
 import React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
@@ -121,7 +121,7 @@ Everything you find in the Relay Guided Tour should work with our drop-in replac
 
 # Tips and tricks
 
-## Tip 1: do not expose global `Environment`
+## Tip 1: do not expose global Relay Environment
 
 You should never import your custom environment directly when working with mutations or subscriptions. Try to prefer [`useMutation`](https://relay.dev/docs/api-reference/use-mutation/) hook if possible or get the environment via [`useRelayEnvironment`](https://relay.dev/docs/api-reference/use-relay-environment/) hook:
 
@@ -162,7 +162,7 @@ const Environment = createEnvironment({
 
 Note: the logs are being printed only during development.
 
-## Tip 3: file uploading
+## Tip 3: file uploading via GraphQL mutations
 
 Apart from the actual mutation and variables, [`useMutation`](https://relay.dev/docs/api-reference/use-mutation/) hook accepts also `uploadables`. Uploadables is a [`UploadableMap`](https://relay.dev/docs/api-reference/commit-mutation/#type-uploadablemap) which is an object of [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File)
 or [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/Blob).
