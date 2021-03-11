@@ -10,8 +10,15 @@ type Props = {|
   +xstyle?: AllCSSProperties,
 |};
 
-// https://web.dev/headings-and-landmarks/
-// https://github.com/jonathantneal/h-element-spec/issues/1
+/**
+ * Heading component automatically renders the right `h[1-6]` HTML element based on the location in
+ * the React tree. To advance the heading level you should nest it inside `<Section />` component.
+ *
+ * For more info please visit:
+ *
+ * - https://web.dev/headings-and-landmarks/
+ * - https://github.com/jonathantneal/h-element-spec/issues/1
+ */
 export default function Heading(props: Props): React.Node {
   return (
     <HeadingLevel.Consumer>
