@@ -14,7 +14,7 @@ import createRelayStore from './createRelayStore';
 import createRequestHandler from './createRequestHandler';
 import RelayLazyLogger from './loggers/RelayLazyLogger';
 
-type Options = {|
+type Options = {
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   +handlerProvider?: (string) => void,
@@ -22,7 +22,7 @@ type Options = {|
   +records?: ?RecordObjectMap,
   +gcReleaseBufferSize?: ?number,
   +log?: LogFunction,
-|};
+};
 
 function createNetwork(
   fetchFn: (...args: $ReadOnlyArray<any>) => any,

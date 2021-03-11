@@ -11,15 +11,15 @@ const NPM = new NPMRegistryClient({
   },
 });
 
-type PackageInfoPayload = {|
+type PackageInfoPayload = {
   +latest: string,
-|};
+};
 
 export default {
-  getPackageInfo: (params: {|
+  getPackageInfo: (params: {
     +package: string,
     +npmAuthToken: string,
-  |}): Promise<PackageInfoPayload> => {
+  }): Promise<PackageInfoPayload> => {
     return new Promise<PackageInfoPayload>((resolve, reject) => {
       NPM.distTags.fetch(
         URI,
@@ -42,11 +42,11 @@ export default {
     });
   },
 
-  publishPackage: (params: {|
+  publishPackage: (params: {
     +metadata: { [key: string]: any, ... }, // package.json file
     +body: { [key: string]: any, ... },
     +npmAuthToken: string,
-  |}): Promise<void> => {
+  }): Promise<void> => {
     return new Promise<void>((resolve, reject) => {
       NPM.publish(
         URI,

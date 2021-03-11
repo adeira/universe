@@ -2,9 +2,9 @@
 
 import type { Node } from 'react';
 
-type Props = {|
+type Props = {
   +children: Node,
-|};
+};
 
 export default function Code({ children }: Props): Node {
   return (

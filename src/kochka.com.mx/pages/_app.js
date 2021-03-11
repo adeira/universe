@@ -25,10 +25,10 @@ if (
   axe(React, ReactDOM, 1000);
 }
 
-type Props = {|
+type Props = {
   +Component: any,
   +pageProps: any,
-|};
+};
 
 function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();

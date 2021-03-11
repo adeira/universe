@@ -1,4 +1,4 @@
-# @generated SignedSource<<ae49cb9ae55943d5887942a3c1b7b525>>
+# @generated SignedSource<<cc03860d3a8d355bd35e54f6ada88c23>>
 #
 # To regenerate run:
 # yarn monorepo-babel-node scripts/generateFlow.js
@@ -24,10 +24,10 @@
 
 [lints]
 all=error
-ambiguous-object-type=off
 sketchy-null-bool=off
 unclear-type=off
 untyped-import=off
+ambiguous-object-type=off
 
 [options]
 emoji=true
@@ -42,7 +42,6 @@ experimental.const_params=true
 [rollouts]
 
 [strict]
-ambiguous-object-type
 sketchy-null-bool
 unclear-type
 untyped-import

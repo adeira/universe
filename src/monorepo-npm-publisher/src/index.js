@@ -16,13 +16,13 @@ import NPM from './NPM';
 import modifyPackageJSON from './modifyPackageJSON';
 import transformFileVariants from './transformFileVariants';
 
-type Options = {|
+type Options = {
   +dryRun: boolean,
   +buildCache: string,
   +npmAuthToken: string,
   +workspaces: Set<string>,
   +reactRuntime?: 'automatic' | 'classic',
-|};
+};
 
 export default async function publish(options: Options) {
   log('NPM publisher %s', require('../package.json').version);

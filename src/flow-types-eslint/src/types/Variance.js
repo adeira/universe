@@ -1,5 +1,5 @@
 // @flow strict
 
-export type Variance = {|
+export type Variance = {
   +kind: 'plus' | 'minus',
-|};
+};

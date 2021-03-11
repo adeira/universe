@@ -3,9 +3,9 @@
 
 import { createRefetchContainer, graphql, type RefetchRelayProp } from '../index';
 
-type Props = {|
+type Props = {
   +relay: RefetchRelayProp,
-|};
+};
 
 module.exports = ({
   validUsage() {

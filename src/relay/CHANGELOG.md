@@ -1,5 +1,7 @@
 # Unreleased
 
+Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
+
 # 3.2.2
 
 - Added experimental bin `adeira-relay-compiler-experimental` which directly calls official `relay-compiler-experimental` bin. This new Relay compiler written in Rust is unstable (as the name suggests) but eventually will be the default. For now, you can start experimenting with it and report any issues to [`facebook/relay`](https://github.com/facebook/relay) repo.

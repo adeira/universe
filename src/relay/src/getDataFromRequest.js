@@ -9,10 +9,10 @@ import {
 } from 'relay-runtime';
 import type { Environment } from 'react-relay';
 
-type Operation = {|
+type Operation = {
   +query: GraphQLTaggedNode,
   +variables: Variables,
-|};
+};
 
 export default function getDataFromRequest(
   { query, variables }: Operation,

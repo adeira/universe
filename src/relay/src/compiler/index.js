@@ -16,13 +16,13 @@ import buildWatchExpression from './buildWatchExpression';
 import createPrintRequireDefaultModuleDependency from './createPrintRequireDefaultModuleDependency';
 import getSchemaSource from './getSchemaSource';
 
-type ExternalOptions = {|
+type ExternalOptions = {
   +src: string,
   +schema: string,
   +validate: boolean,
   +watch: boolean,
   +persistMode?: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
-|};
+};
 
 const {
   commonTransforms,

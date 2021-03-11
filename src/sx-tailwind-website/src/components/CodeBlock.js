@@ -9,11 +9,11 @@ import bash from 'refractor/lang/bash';
 refractor.register(jsx);
 refractor.register(bash);
 
-type Props = {|
+type Props = {
   +children: Node,
   +language?: 'jsx' | 'bash',
   +attached?: boolean,
-|};
+};
 
 export default function SyntaxHighlighter({
   children,

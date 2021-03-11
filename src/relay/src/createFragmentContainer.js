@@ -6,9 +6,9 @@ import { invariant, isObjectEmpty } from '@adeira/js';
 
 import type { FragmentSpec, $RelayProps } from './types.flow';
 
-export type RelayProp = {|
+export type RelayProp = {
   +environment: Environment,
-|};
+};
 
 /**
  * @deprecated use `useFragment` instead

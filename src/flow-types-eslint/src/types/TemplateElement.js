@@ -2,11 +2,11 @@
 
 import type { INode } from './INode';
 
-export type TemplateElement = $ReadOnly<{|
+export type TemplateElement = $ReadOnly<{
   ...INode<'TemplateElement'>,
-  +value: {|
+  +value: {
     +raw: string,
     +cooked: string,
-  |},
+  },
   +tail: boolean,
-|}>;
+}>;

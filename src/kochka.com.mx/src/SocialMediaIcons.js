@@ -8,11 +8,11 @@ import Instagram from './design/svg/__generated__/Instagram';
 import Facebook from './design/svg/__generated__/Facebook';
 import socialLinks from './socialLinks';
 
-type Props = {|
+type Props = {
   +vertical?: boolean,
   +color?: string,
   +size?: number,
-|};
+};
 
 export default function SocialMediaIcons(props: Props): React.Node {
   return (

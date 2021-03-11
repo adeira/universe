@@ -12,7 +12,7 @@ import type {
 
 import type { MutationParameters } from './mutations';
 
-type HookMutationConfig<T: MutationParameters> = {|
+type HookMutationConfig<T: MutationParameters> = {
   // This config is essentially `MutationConfig` type except there are some small differences
   // to make the hook interface more friendly. Feel free to expand it as needed.
   +onCompleted: (
@@ -27,7 +27,7 @@ type HookMutationConfig<T: MutationParameters> = {|
   +updater?: ?(store: RecordSourceSelectorProxy, data: $ElementType<T, 'response'>) => void,
   +configs?: Array<DeclarativeMutationConfig>,
   +uploadables?: UploadableMap,
-|};
+};
 
 /**
  * Usage:

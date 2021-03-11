@@ -4,10 +4,10 @@ import type { Node } from 'react';
 
 import CodeBlock from './CodeBlock';
 
-type Props = {|
+type Props = {
   +children: Node,
   +code: string,
-|};
+};
 
 export default function Showcase({ children, code }: Props): Node {
   return (

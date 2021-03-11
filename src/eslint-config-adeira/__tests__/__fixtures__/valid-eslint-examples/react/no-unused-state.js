@@ -3,14 +3,14 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createContext, Component, type Node, type Context, type Element } from 'react';
 
-type Props = {|
+type Props = {
   +accessToken?: string,
   +children: Node,
-|};
+};
 
-type State = {|
+type State = {
   accessToken: ?string,
-|};
+};
 
 const MyContext: Context<State> = createContext({
   accessToken: undefined,

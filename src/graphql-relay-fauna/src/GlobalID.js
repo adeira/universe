@@ -5,7 +5,7 @@ import GlobalID, { type OpaqueIDString, encode, decode } from '@adeira/graphql-g
 import { values as FaunaValues, type values$Document as FaunaDocument } from 'faunadb';
 import { type GraphQLFieldConfig } from 'graphql';
 
-type AnyFaunaDocument = FaunaDocument<$Shape<{||}>>;
+type AnyFaunaDocument = FaunaDocument<$Shape<{}>>;
 
 export default function GlobalFaunaID(): GraphQLFieldConfig<any, any> {
   const idFetcher = ({ ref }: AnyFaunaDocument) => {

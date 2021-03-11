@@ -2,6 +2,8 @@
 
 Breaking changes ahead!
 
+Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
+
 - Added support for `@babel/eslint-parser` instead of the deprecated `babel-eslint`, see: https://babeljs.io/blog/2020/07/13/the-state-of-babel-eslint
 - Enabled `allowDeclareFields` options for `@babel/plugin-transform-flow-strip-types`. This is the default in Babel 8. You should migrate all type only fields to use `declare` syntax like so:
 

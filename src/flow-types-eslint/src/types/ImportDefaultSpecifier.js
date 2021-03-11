@@ -5,7 +5,7 @@ import type { Identifier } from './Identifier';
 
 // import aaa from 'aaa';
 //        ^^^
-export type ImportDefaultSpecifier = $ReadOnly<{|
+export type ImportDefaultSpecifier = $ReadOnly<{
   ...INode<'ImportDefaultSpecifier'>,
   +local: Identifier,
-|}>;
+}>;

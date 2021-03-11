@@ -11,10 +11,10 @@ import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import type { EditProductHeadingPublishUnpublishPublishMutation } from './__generated__/EditProductHeadingPublishUnpublishPublishMutation.graphql';
 import type { EditProductHeadingPublishUnpublishUnpublishMutation } from './__generated__/EditProductHeadingPublishUnpublishUnpublishMutation.graphql';
 
-type Props = {|
+type Props = {
   +isPublished: boolean,
   +productKey: string,
-|};
+};
 
 export default function EditProductHeadingPublishUnpublish(
   props: Props,

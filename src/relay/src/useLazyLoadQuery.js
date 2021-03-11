@@ -14,12 +14,12 @@ import type {
 export default function useLazyLoadQuery<TQuery: OperationType>(
   gqlQuery: GraphQLTaggedNode,
   variables?: VariablesOf<TQuery>,
-  options?: {|
+  options?: {
     fetchKey?: string | number,
     fetchPolicy?: FetchPolicy,
     networkCacheConfig?: CacheConfig,
     UNSTABLE_renderPolicy?: RenderPolicy,
-  |},
+  },
 ): $ElementType<TQuery, 'response'> {
   return _useLazyLoadQuery(gqlQuery, variables ?? {}, options);
 }

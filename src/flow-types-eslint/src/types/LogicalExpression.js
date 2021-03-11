@@ -6,9 +6,9 @@ import type { Literal } from './Literal';
 
 // aaa(isAAA && 'aaa')
 //     ^^^^^^^^^^^^^^
-export type LogicalExpression = $ReadOnly<{|
+export type LogicalExpression = $ReadOnly<{
   ...INode<'LogicalExpression'>,
   +operator: string,
   +left: Identifier | Literal,
   +right: Identifier | Literal,
-|}>;
+}>;

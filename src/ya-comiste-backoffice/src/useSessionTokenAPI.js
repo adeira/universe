@@ -4,11 +4,11 @@ import { useSessionStorage } from './useSessionStorage';
 
 /* global window */
 
-type UseSessionTokenAPI = {|
+type UseSessionTokenAPI = {
   +login: (string | null) => void,
   +logout: () => void,
   +sessionToken: string | null,
-|};
+};
 
 export function useSessionTokenAPI(): UseSessionTokenAPI {
   // https://stackoverflow.com/a/40376819/3135248

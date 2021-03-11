@@ -2,11 +2,11 @@
 
 type WatchmanConfig = $ReadOnlyArray<string | WatchmanConfig>;
 
-export default function buildWatchExpression(config: {|
+export default function buildWatchExpression(config: {
   extensions: $ReadOnlyArray<string>,
   include: $ReadOnlyArray<string>,
   exclude: $ReadOnlyArray<string>,
-|}): WatchmanConfig {
+}): WatchmanConfig {
   // https://facebook.github.io/watchman/docs/install.html
   return [
     'allof',

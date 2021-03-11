@@ -159,11 +159,19 @@ Object {
     "flowtype/object-type-curly-spacing": "off",
     "flowtype/object-type-delimiter": "off",
     "flowtype/require-compound-type-alias": 0,
-    "flowtype/require-exact-type": 0,
+    "flowtype/require-exact-type": Array [
+      1,
+      "never",
+    ],
     "flowtype/require-indexer-name": 0,
-    "flowtype/require-inexact-type": 2,
+    "flowtype/require-inexact-type": 0,
     "flowtype/require-parameter-type": 0,
-    "flowtype/require-readonly-react-props": 2,
+    "flowtype/require-readonly-react-props": Array [
+      2,
+      Object {
+        "useImplicitExactTypes": true,
+      },
+    ],
     "flowtype/require-return-type": 0,
     "flowtype/require-types-at-top": 0,
     "flowtype/require-valid-file-annotation": Array [
@@ -1032,6 +1040,11 @@ Snapshot Diff:
 - Value for stable rules
 + Value for STRICT rules
 
+@@ --- --- @@
+      "flowtype/require-exact-type": Array [
+-       1,
++       2,
+        "never",
 @@ --- --- @@
       "flowtype/use-flow-type": 1,
 -     "flowtype/use-read-only-spread": 1,

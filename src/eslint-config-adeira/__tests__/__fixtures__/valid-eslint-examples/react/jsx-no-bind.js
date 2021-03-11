@@ -9,10 +9,10 @@ react/no-multi-comp
 
 import { PureComponent, Component, useState, type Element } from 'react';
 
-type LetterProps = {|
+type LetterProps = {
   +letter: string,
   +onClick: () => void,
-|};
+};
 
 const A = 65; // ASCII character code
 
@@ -23,12 +23,12 @@ class Letter extends PureComponent<LetterProps> {
   }
 }
 
-type AplhabetProps = {||};
+type AplhabetProps = {};
 
-type AplhabetState = {|
+type AplhabetState = {
   justClicked: null | string,
   letters: $ReadOnlyArray<string>,
-|};
+};
 
 export class Alphabet1 extends Component<AplhabetProps, AplhabetState> {
   constructor(props: AplhabetProps) {

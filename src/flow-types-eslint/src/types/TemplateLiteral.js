@@ -8,10 +8,10 @@ import type { ObjectExpression } from './ObjectExpression';
 import type { StringLiteral } from './StringLiteral';
 import type { TemplateElement } from './TemplateElement';
 
-export type TemplateLiteral = $ReadOnly<{|
+export type TemplateLiteral = $ReadOnly<{
   ...INode<'TemplateLiteral'>,
   +expressions: $ReadOnlyArray<
     StringLiteral | NumericalLiteral | ObjectExpression | ArrowFunctionExpression | CallExpression, // ... possibly others
   >,
   +quasis: $ReadOnlyArray<TemplateElement>,
-|}>;
+}>;

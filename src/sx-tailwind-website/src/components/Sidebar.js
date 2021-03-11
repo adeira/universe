@@ -4,15 +4,15 @@ import type { Node } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-type Props = {|
+type Props = {
   +screenSize?: 'small' | 'large',
-|};
+};
 
-type MenuItemProps = {|
+type MenuItemProps = {
   +label: string,
   +href: string,
   +screenSize: 'small' | 'large',
-|};
+};
 
 function MenuItem({ label, href, screenSize }: MenuItemProps): Node {
   const router = useRouter();

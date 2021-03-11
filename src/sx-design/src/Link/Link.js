@@ -3,13 +3,13 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +href: string,
   +children: React.Node,
   +target?: string,
   +isActive?: boolean,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 /**
  * This component tries to create a normal `<a />` link with some reasonable default styles for

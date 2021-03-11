@@ -4,9 +4,9 @@ import { useContext, type Node } from 'react';
 
 import { SidebarContext } from './Context';
 
-type Props = {|
+type Props = {
   +children: Node,
-|};
+};
 
 export default function Overlay({ children }: Props): Node {
   return (

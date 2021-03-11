@@ -2,14 +2,14 @@
 
 import { atom, DefaultValue, type RecoilState } from 'recoil';
 
-export type State = {|
-  +categories: {|
+export type State = {
+  +categories: {
     +all: boolean,
-  |},
-  +relevance: {|
+  },
+  +relevance: {
     +price: 'LOW_TO_HIGH' | 'HIGH_TO_LOW',
-  |},
-|};
+  },
+};
 
 export default (atom<State>({
   key: 'filtersAtom',

@@ -2,13 +2,13 @@
 
 import * as React from 'react';
 
-type Props = {|
+type Props = {
   +children: React.Node,
   +size: number,
   +viewBox: string,
   +color?: string,
   +strokeColor?: string,
-|};
+};
 
 export default function SVGIcon(props: Props): React.Node {
   return (

@@ -6,7 +6,7 @@ import type { NumberLiteralTypeAnnotation } from './NumberLiteralTypeAnnotation'
 import type { ObjectTypeAnnotation } from './ObjectTypeAnnotation';
 import type { StringLiteralTypeAnnotation } from './StringLiteralTypeAnnotation';
 
-export type TypeAlias = $ReadOnly<{|
+export type TypeAlias = $ReadOnly<{
   ...INode<'TypeAlias'>,
   +right:
     | ObjectTypeAnnotation
@@ -14,4 +14,4 @@ export type TypeAlias = $ReadOnly<{|
     | NumberLiteralTypeAnnotation
     | StringLiteralTypeAnnotation,
   // possibly many others
-|}>;
+}>;

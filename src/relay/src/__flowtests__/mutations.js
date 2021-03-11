@@ -28,21 +28,21 @@ const variables = {
   someEnum: 'up',
 };
 
-type NamedMutationVariables = {|
+type NamedMutationVariables = {
   +someNumber: number,
   +someEnum: 'down' | 'up',
-|};
+};
 
-type NamedMutationResponse = {|
-  +commitMutation: ?{|
+type NamedMutationResponse = {
+  +commitMutation: ?{
     +__typename: 'CommitMutationResponse',
-  |},
-|};
+  },
+};
 
-type NamedMutation = {|
+type NamedMutation = {
   +variables: NamedMutationVariables,
   +response: NamedMutationResponse,
-|};
+};
 
 module.exports = {
   validMutation(): Disposable {
@@ -86,13 +86,13 @@ module.exports = {
       mutation,
       variables,
       // $FlowExpectedError[prop-missing]: response type differs from onCompleted declaration
-      onCompleted: (response: {||}) => {}, // eslint-disable-line no-unused-vars
+      onCompleted: (response: {}) => {}, // eslint-disable-line no-unused-vars
     });
   },
-  invalidAsyncMutation(): Promise<{|
+  invalidAsyncMutation(): Promise<{
     +errors: ?$ReadOnlyArray<Error>,
     +response: $ElementType<NamedMutation, 'response'>,
-  |}> {
+  }> {
     // $FlowExpectedError[prop-missing]: onCompleted is disabled in config for commitMutationAsync
     return commitMutationAsync<NamedMutation>(environment, {
       mutation,

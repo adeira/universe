@@ -8,7 +8,7 @@ import type { StringLiteral } from './StringLiteral';
 
 // let x = …
 //     ^^^^^
-export type VariableDeclarator = $ReadOnly<{|
+export type VariableDeclarator = $ReadOnly<{
   ...INode<'VariableDeclarator'>,
   +id: Identifier,
   +init:
@@ -16,4 +16,4 @@ export type VariableDeclarator = $ReadOnly<{|
     | CallExpression // let x = y();
     | NumericalLiteral // let x = -1;
     | StringLiteral, // let x = "";
-|}>;
+}>;

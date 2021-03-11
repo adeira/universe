@@ -4,15 +4,15 @@ import * as React from 'react';
 
 import type { LanguageTagType } from './LanguageTag';
 
-type Props = $ReadOnly<{|
+type Props = $ReadOnly<{
   +children: React.Node,
   +languageTag: LanguageTagType,
-|}>;
+}>;
 
 /**
  * @deprecated use `SxDesignProvider` instead (?)
  */
-export type ViewerContextType = {| +languageTag: LanguageTagType |};
+export type ViewerContextType = { +languageTag: LanguageTagType };
 
 /**
  * @deprecated use `SxDesignProvider` instead (?)

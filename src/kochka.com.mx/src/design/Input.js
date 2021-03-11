@@ -3,7 +3,7 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +name: string,
   +onChange: (event: SyntheticInputEvent<>) => void,
   +type: 'email' | 'text',
@@ -12,7 +12,7 @@ type Props = {|
   +placeholder?: FbtWithoutString,
   +tabIndex?: number,
   +xstyle?: AllCSSProperties,
-|};
+};
 
 export default function Input(props: Props): React.Node {
   // eslint-disable-next-line react/forbid-elements

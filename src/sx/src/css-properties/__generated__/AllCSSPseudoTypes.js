@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a69d430535b3997b17c340b1e6a1090a>>
+ * @generated SignedSource<<e61f9f1a121ea8385f0d9327c817f662>>
  * @flow strict
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
@@ -8,7 +8,7 @@
 
 import type { AllCSSPropertyTypes } from './AllCSSPropertyTypes';
 
-export type AllCSSPseudoTypes = {|
+export type AllCSSPseudoTypes = {
   +':active'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:active
   +':any-link'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:any-link
   +':checked'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:checked
@@ -80,4 +80,4 @@ export type AllCSSPseudoTypes = {|
   +'::selection'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::selection
   +'::slotted'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::slotted
   +'::spelling-error'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::spelling-error
-|};
+};

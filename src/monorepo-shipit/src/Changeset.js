@@ -2,12 +2,12 @@
 
 import { sprintf } from '@adeira/js';
 
-type Diff = {|
+type Diff = {
   +path: string,
   +body: string,
-|};
+};
 
-opaque type ChangesetData = {|
+opaque type ChangesetData = {
   +id: string,
   +timestamp: string,
   +author: string,
@@ -15,7 +15,7 @@ opaque type ChangesetData = {|
   +description: string,
   +diffs: Set<Diff>,
   +debugMessages: Array<string>,
-|};
+};
 
 export default class Changeset {
   declare id: string;

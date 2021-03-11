@@ -6,11 +6,11 @@ import { warning } from '@adeira/js';
 import LanguageTag, { type LanguageTagType } from '../src/LanguageTag';
 
 // {locale: {hash: translation}}
-type TranslationDict = {|
-  [locale: string]: {|
+type TranslationDict = {
+  [locale: string]: {
     [hashKey: string]: string,
-  |},
-|};
+  },
+};
 
 export default function initTranslations(lang: ?string): LanguageTagType {
   const languageTag = LanguageTag.detectLanguageTag(lang);

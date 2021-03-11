@@ -7,9 +7,9 @@ import EditProductForm from './EditProductForm';
 import EditProductHeading from './EditProductHeading';
 import type { ProductsEditLayoutQuery } from './__generated__/ProductsEditLayoutQuery.graphql';
 
-type Props = {|
+type Props = {
   +productKey: string,
-|};
+};
 
 export default function ProductsEditLayout(props: Props): Node {
   const data = useLazyLoadQuery<ProductsEditLayoutQuery>(

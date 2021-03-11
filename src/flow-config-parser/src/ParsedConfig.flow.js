@@ -2,7 +2,7 @@
 
 type List = Array<string>;
 
-export type ParsedConfig = {|
+export type ParsedConfig = {
   declarations: List,
   ignore: List,
   include: List,
@@ -13,4 +13,4 @@ export type ParsedConfig = {|
   strict: List,
   untyped: List,
   version: $FlowFixMe,
-|};
+};

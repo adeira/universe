@@ -2,6 +2,6 @@
 
 import type { INode } from './INode';
 
-export type FunctionDeclaration = $ReadOnly<{|
+export type FunctionDeclaration = $ReadOnly<{
   ...INode<'FunctionDeclaration'>,
-|}>;
+}>;

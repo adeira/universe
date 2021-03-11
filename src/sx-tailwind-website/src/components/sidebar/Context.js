@@ -2,15 +2,15 @@
 
 import { createContext, useState, useMemo, type Context, type Node } from 'react';
 
-type Props = {|
+type Props = {
   +children: Node,
-|};
+};
 
-type State = {|
+type State = {
   isOpen: boolean,
   open: () => void,
   close: () => void,
-|};
+};
 
 export const SidebarContext: Context<State> = createContext({
   isOpen: false,

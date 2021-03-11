@@ -9,9 +9,9 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +children: React.Element<'strong'>,
-|};
+};
 
 export default function IconButton({ children, ...props }: Props): React.Node {
   return (

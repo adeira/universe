@@ -191,7 +191,7 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return changeset.withDiffs(diffs);
   };
 
-  parseDiffHunk: (hunk: string) => null | {| +body: string, +path: string |} = (hunk) => {
+  parseDiffHunk: (hunk: string) => null | { +body: string, +path: string } = (hunk) => {
     const [head, tail] = splitHead(hunk, '\n');
     const match = head.match(/^diff --git [ab]\/(?:.*?) [ab]\/(?<path>.*?)$/);
     if (!match) {

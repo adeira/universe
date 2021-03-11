@@ -14,12 +14,12 @@ import type { RequestNode, Variables } from './types.flow';
  * The methods are to be called to trigger each event. It also contains a closed
  * field to see if the resulting subscription has closed.
  */
-type Sink = {|
+type Sink = {
   +next: (GraphQLResponse) => void,
   +error: (Error, isUncaughtThrownError?: boolean) => void,
   +complete: () => void,
   +closed: boolean,
-|};
+};
 
 export default function createRequestHandler(
   customFetcher: (...args: $ReadOnlyArray<any>) => any,

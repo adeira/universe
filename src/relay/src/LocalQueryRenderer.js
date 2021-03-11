@@ -12,22 +12,22 @@ import type { GraphQLTaggedNode } from 'relay-runtime';
 import createLocalEnvironment from './createLocalEnvironment';
 import type { Variables } from './types.flow';
 
-type CommonProps = {|
+type CommonProps = {
   +query: GraphQLTaggedNode,
   +environment?: Environment,
   +variables?: Variables,
-|};
+};
 
 type Props<T> =
-  | $ReadOnly<{|
+  | $ReadOnly<{
       ...CommonProps,
       +onResponse: (T) => Node,
       +onLoading?: () => Node,
-    |}>
-  | $ReadOnly<{|
+    }>
+  | $ReadOnly<{
       ...CommonProps,
       +render: ({ +props: ?T, ... }) => Node,
-    |}>;
+    }>;
 
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.

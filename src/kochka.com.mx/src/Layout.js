@@ -8,13 +8,13 @@ import { Heading } from '@adeira/sx-design';
 import LayoutFooter from './LayoutFooter';
 import LayoutNavigation from './LayoutNavigation';
 
-type Props = {|
+type Props = {
   +children: React.Node,
   +title: React.Node,
   +subtitle?: React.Node,
   +withFullWidth?: boolean,
   +withHiddenTitle?: boolean,
-|};
+};
 
 export default function Layout(props: Props): React.Node {
   return (

@@ -1,6 +1,6 @@
 // @flow strict
 
-type FormatModuleInput = $ReadOnly<{|
+type FormatModuleInput = $ReadOnly<{
   documentType: $FlowFixMe,
   concreteText: string,
   typeText: string,
@@ -8,7 +8,7 @@ type FormatModuleInput = $ReadOnly<{|
   devOnlyAssignments?: string,
   docText?: string,
   hash?: string,
-|}>;
+}>;
 
 export default function formatGeneratedModule({
   documentType,
