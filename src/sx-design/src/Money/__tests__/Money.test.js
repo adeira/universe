@@ -1,9 +1,10 @@
-// @flow strict
+// @flow
 
 import * as React from 'react';
 import { render } from '@testing-library/react';
 
 import Money, { MoneyFn } from '../Money';
+import SxDesignProvider from '../../SxDesignProvider';
 
 test.each`
   locale     | amount | currency | expectedReact       | expectedFn
@@ -15,7 +16,9 @@ test.each`
   'renders amount "$amount" with locale "$locale" and currency "$currency" correctly ("$expected")',
   ({ locale, amount, currency, expectedReact, expectedFn }) => {
     const { container } = render(
-      <Money locale={locale} priceUnitAmount={amount} priceUnitAmountCurrency={currency} />,
+      <SxDesignProvider locale={locale}>
+        <Money priceUnitAmount={amount} priceUnitAmountCurrency={currency} />
+      </SxDesignProvider>,
     );
     expect(container.innerHTML).toBe(expectedReact);
 

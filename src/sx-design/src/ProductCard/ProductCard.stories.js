@@ -14,12 +14,6 @@ export default {
   title: 'Example/ProductCard',
   component: ProductCard,
   argTypes: {
-    locale: {
-      control: {
-        type: 'select',
-        options: ['en-US', 'es-MX'],
-      },
-    },
     priceUnitAmount: {
       control: {
         type: 'number',
@@ -60,6 +54,5 @@ const Template = (args) => (
 export const Default: $FlowFixMe = Template.bind({});
 Default.storyName = 'Default';
 Default.args = {
-  locale: 'en-US',
   priceUnitAmountCurrency: 'MXN',
 };
