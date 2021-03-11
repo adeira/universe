@@ -40,7 +40,6 @@ const Template = (args) => (
 export const Basic: $FlowFixMe = Template.bind({});
 Basic.storyName = 'Basic';
 Basic.args = {
-  // eslint-disable-next-line no-undef
   onRetry: () => window.location.reload(),
 };
 

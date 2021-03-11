@@ -66,7 +66,7 @@ Legend:
 
 | Component           | Localized? | Accessible? | Has stories? | Tested? |
 | ------------------- | :--------: | :---------: | :----------: | :-----: |
-| `<ErrorBoundary />` |     ✅     |     🧐      |      🧐      |   🧐    |
+| `<ErrorBoundary />` |     ✅     |     🧐      |      🧐      |   ✅    |
 | `<Heading />`       |     ✅     |     🧐      |      🧐      |   ✅    |
 | `<Kbd />`           |     ✅     |     🧐      |      ✅      |   ✅    |
 | `<Money />`         |     ✅     |     🧐      |      🧐      |   ✅    |
