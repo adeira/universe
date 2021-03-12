@@ -1,5 +1,9 @@
 # Unreleased
 
+# 3.1.1
+
+- fixes a Flow issue when using `@refetchable` (`useRefetchableFragment` hook), see: https://github.com/adeira/universe/issues/1975
+
 # 3.1.0
 
 This release introduces Relay Hooks in a backward compatible fashion. Next major version of `@adeira/relay` will focus on phasing out legacy parts of Relay Modern (containers API), so it's highly encouraged to upgrade as soon as possible.
