@@ -621,3 +621,15 @@ See:
 ### @no_inline
 
 See: https://github.com/facebook/relay/commit/3526b424d7ec3d3ff07d8587951d2fb176b1868f
+
+### @relay_resolver
+
+```graphql
+directive @relay_resolver(
+  fragment_name: String!
+  import_path: String!
+  js_return_type: String!
+) on FIELD_DEFINITION
+```
+
+See: https://github.com/facebook/relay/commit/b8922feaf2472325306dec6f8023deb186658128
