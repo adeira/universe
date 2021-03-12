@@ -1,17 +1,14 @@
 // @flow strict-local
 
 import fetchWithRetries from '@adeira/fetch';
-import { invariant } from '@adeira/js';
 import type { Variables, UploadableMap } from 'relay-runtime';
 
 import { handleData, getRequestBody, getHeaders } from '../helpers';
 import type { RequestNode } from '../types.flow';
 
-type Headers = {
-  +[string]: string,
-  +'X-Client': string,
-  ...
-};
+type Headers = {|
+  +[key: string]: string,
+|};
 
 type AdditionalHeaders = Headers | Promise<Headers>;
 type RefetchConfig = {|
@@ -21,7 +18,7 @@ type RefetchConfig = {|
 
 export default function createNetworkFetcher(
   graphQLServerURL: string,
-  additionalHeaders: AdditionalHeaders,
+  additionalHeaders?: AdditionalHeaders,
   refetchConfig?: RefetchConfig,
 ): (
   request: RequestNode,
@@ -34,18 +31,11 @@ export default function createNetworkFetcher(
     // sometimes it's necessary to get headers asynchronously (while refreshing authorization
     // token for example) - for this reason we accept object or promise here and we always
     // resolve it as a promise (see tests)
-    const resolvedAdditionalHeaders = await Promise.resolve(additionalHeaders);
-    /* $FlowFixMe[cannot-spread-indexer](>=0.123.0) This comment suppresses an error when upgrading
-     * Flow. To see the error delete this comment and run Flow. */
+    const resolvedAdditionalHeaders: Headers = (await additionalHeaders) ?? {};
     const headers = {
       ...getHeaders(uploadables),
       ...resolvedAdditionalHeaders,
     };
-
-    invariant(
-      headers['X-Client'],
-      'You have to set X-Client header to be able to send GraphQL queries. This header identifies the client application so GraphQL maintainers know who is sending the request.',
-    );
 
     const response = await fetchWithRetries(graphQLServerURL, {
       method: 'POST',

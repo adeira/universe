@@ -12,24 +12,18 @@ module.exports = ({
         'X-Client': 'ok',
         'Additional-Header': 'ok',
       }),
+      case_3: createNetworkFetcher('//localhost', {
+        'Different-Header': 'err',
+      }),
+      case_4: createNetworkFetcher('//localhost'),
     };
   },
 
   // Invalid usages:
-  missingXClient: () => {
-    return {
-      // $FlowExpectedError[incompatible-call]: missing X-Client header
-      case_1: createNetworkFetcher('//localhost', {
-        'Different-Header': 'err',
-      }),
-      // $FlowExpectedError[incompatible-call]: missing X-Client header
-      case_2: createNetworkFetcher('//localhost'),
-    };
-  },
-  invalidXClient: () => {
-    // $FlowExpectedError[incompatible-call]: X-Client header should be string, not number
+  invalidHTTPHeader: () => {
+    // $FlowExpectedError[incompatible-call]: HTTP header values should be string, not number
     return createNetworkFetcher('//localhost', {
-      'X-Client': 1,
+      'my-awesome-header': 1,
     });
   },
 }: $FlowFixMe);

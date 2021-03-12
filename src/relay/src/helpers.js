@@ -67,9 +67,7 @@ export function getRequestBody(
   return getRequestBodyWithoutUplodables(request, variables);
 }
 
-export const getHeaders = (
-  uploadables: ?UploadableMap,
-): {| +'Accept': string, +'Content-type'?: string |} => {
+export const getHeaders = (uploadables: ?UploadableMap): {| +[string]: string |} => {
   if (uploadables) {
     return {
       Accept: '*/*',

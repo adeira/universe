@@ -1,5 +1,7 @@
 # Unreleased
 
+- removed required `X-Client` HTTP header from `createNetworkFetcher` (you can still use it but it's no longer mandatory)
+
 # 3.1.1
 
 - fixes a Flow issue when using `@refetchable` (`useRefetchableFragment` hook), see: https://github.com/adeira/universe/issues/1975
