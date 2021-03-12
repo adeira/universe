@@ -54,13 +54,11 @@ impl Product {
         self._id.to_owned()
     }
 
-    #[cfg(test)]
-    pub(in crate::commerce) fn key(&self) -> String {
-        self._id.to_owned()
+    pub(crate) fn key(&self) -> String {
+        self._key.to_owned()
     }
 
-    #[cfg(test)]
-    pub(in crate::commerce) fn name(&self) -> String {
+    pub(crate) fn name(&self) -> String {
         self.name.to_owned()
     }
 }
@@ -148,7 +146,7 @@ impl Product {
     }
 }
 
-#[derive(juniper::GraphQLEnum, Clone, Serialize, Deserialize, Debug)]
+#[derive(juniper::GraphQLEnum, Clone, Serialize, Deserialize, Debug, Copy)]
 pub enum SupportedCurrency {
     MXN,
 }
@@ -351,7 +349,7 @@ pub(in crate::commerce) async fn get_published_product_by_key(
     client_locale: &SupportedLocale,
     product_key: &str,
 ) -> Result<Product, ModelError> {
-    // Anyone can get the product (it's not limited to admins only).
+    // Anyone can get the published product (it's not limited to admins only).
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
         &client_locale,
@@ -364,6 +362,23 @@ pub(in crate::commerce) async fn get_published_product_by_key(
     crate::tracking::user_visited_product(&context.pool, &context.user, &product).await;
 
     Ok(product)
+}
+
+pub(in crate::commerce) async fn get_published_products_by_keys(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_keys: &[String],
+) -> Result<Vec<Product>, ModelError> {
+    // Anyone can get the published products (it's not limited to admins only).
+    let products = crate::commerce::dal::products::get_products_by_keys(
+        &context.pool,
+        &client_locale,
+        &product_keys,
+        &true, // products must be published to be publicly available
+    )
+    .await?;
+
+    Ok(products)
 }
 
 pub(in crate::commerce) async fn get_unpublished_product_by_key(
@@ -474,13 +489,13 @@ pub(in crate::commerce) async fn publish_product(
                 )));
             }
 
-            if product.images.len() == 0 {
+            if product.images.is_empty() {
                 return Err(ModelError::LogicalError(String::from(
                     "product must have at least one image before publishing",
                 )));
             }
 
-            if product.visibility.len() == 0 {
+            if product.visibility.is_empty() {
                 return Err(ModelError::LogicalError(String::from(
                     "product visibility must be defined before publishing the product",
                 )));
