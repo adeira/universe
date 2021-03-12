@@ -18,7 +18,6 @@ export { commitMutation, commitMutationAsync } from './mutations';
 export { default as createFragmentContainer } from './createFragmentContainer';
 export { default as createPaginationContainer } from './createPaginationContainer';
 export { default as createRefetchContainer } from './createRefetchContainer';
-export { default as fetchQuery } from './fetchQuery';
 export { default as LocalQueryRenderer } from './LocalQueryRenderer';
 export { default as QueryRenderer } from './QueryRenderer';
 export { default as requestSubscription } from './requestSubscription';
@@ -37,7 +36,14 @@ export type { RecordMap } from './runtimeTypes.flow';
 export { default as useMutation } from './useMutation';
 
 // Relay Modern (re-exported):
-export { graphql, readInlineData, commitLocalUpdate, ConnectionHandler } from 'react-relay/legacy';
+export {
+  graphql,
+  readInlineData,
+  commitLocalUpdate,
+  ConnectionHandler,
+  // eslint-disable-next-line camelcase
+  fetchQuery_DEPRECATED as fetchQuery,
+} from 'react-relay/legacy';
 export type { Environment } from 'react-relay';
 export type {
   CacheConfig,
