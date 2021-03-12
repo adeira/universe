@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import prettier from 'prettier';
 
 import Heading from '../Heading';
-import Section from '../../Section';
+import Section from '../../Section/Section';
 
 it('renders top level by default', () => {
   const { container } = render(<Heading>level one</Heading>);

@@ -8,29 +8,18 @@ import React, { type Node } from 'react';
 import { fbt } from 'fbt';
 
 import Link from '../Link';
-import useSelectedItemsApi from './recoil/selectedItemsState';
+import POSCheckoutSummary from './POSCheckoutSummary';
+import useSelectedItemsApi, { type AtomItemType } from './recoil/selectedItemsState';
 import type { POSCheckoutPageLayoutMutation } from './__generated__/POSCheckoutPageLayoutMutation.graphql';
 
 export default function POSCheckoutPageLayout(): Node {
-  const { stats } = useSelectedItemsApi();
+  const { stats, reset, selectedItems } = useSelectedItemsApi();
   const router = useRouter();
 
-  // TODO:
   const [checkout, isCheckoutPending] = useMutation<POSCheckoutPageLayoutMutation>(graphql`
-    mutation POSCheckoutPageLayoutMutation {
+    mutation POSCheckoutPageLayoutMutation($checkoutInput: [PosCheckoutProductInput!]!) {
       pos {
-        checkout(
-          input: {
-            selectedProducts: [
-              {
-                productKey: "TODO"
-                productUnits: -1
-                productPriceUnitAmount: -1
-                productPriceUnitAmountCurrency: MXN
-              }
-            ]
-          }
-        ) {
+        checkout(input: { selectedProducts: $checkoutInput }) {
           __typename
           ... on PosCheckoutPayload {
             id
@@ -44,15 +33,21 @@ export default function POSCheckoutPageLayout(): Node {
   `);
 
   const handleProcessCheckoutClick = () => {
+    const selectedItemsArray = ((selectedItems.toJS(): any): $ReadOnlyArray<AtomItemType>);
     checkout({
+      variables: {
+        checkoutInput: selectedItemsArray.map((item) => ({
+          productKey: item.itemID,
+          productUnits: item.units,
+          productPriceUnitAmount: item.itemUnitAmount,
+          productPriceUnitAmountCurrency: 'MXN',
+        })),
+      },
       onCompleted: ({ pos: { checkout } }) => {
         if (checkout.__typename === 'PosCheckoutPayload') {
-          // eslint-disable-next-line no-console
-          console.warn(checkout); // TODO
+          reset();
           router.push('/pos/checkout/success');
         } else if (checkout.__typename === 'PosCheckoutError') {
-          // eslint-disable-next-line no-console
-          console.error(checkout); // TODO
           router.push('/pos/checkout/failure');
         }
       },
@@ -72,13 +67,11 @@ export default function POSCheckoutPageLayout(): Node {
         ),
       )
     ) {
-      // TODO: reset the selected items
+      reset();
       router.push('/pos');
     }
   };
 
-  // TODO:
-  //  - send selected products and their prices to the server
   return (
     <div className={styles('root')}>
       <div className={styles('goback')}>
@@ -92,6 +85,7 @@ export default function POSCheckoutPageLayout(): Node {
         priceUnitAmount={stats.totalPrice}
         priceUnitAmountCurrency={'MXN'} // TODO
       />
+      <POSCheckoutSummary tint="#69c562" />
       <div className={styles('question')}>
         <fbt desc="checkout question before continuing">Did you receive the money?</fbt>
       </div>

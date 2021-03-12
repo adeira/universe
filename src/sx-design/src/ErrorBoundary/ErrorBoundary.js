@@ -5,7 +5,7 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 
 import Heading from '../Heading/Heading';
-import Section from '../Section';
+import Section from '../Section/Section';
 
 type Props = {|
   +children: Node,

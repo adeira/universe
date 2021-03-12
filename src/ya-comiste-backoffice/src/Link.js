@@ -11,6 +11,7 @@ type Props = {|
   +xstyle?: AllCSSProperties,
   +xstyleActive?: AllCSSProperties,
   +target?: '_blank',
+  +disabled?: boolean,
 |};
 
 export default function Link(props: Props): React.Node {
@@ -21,6 +22,21 @@ export default function Link(props: Props): React.Node {
     isActive = router.pathname === props.href;
   } else {
     isActive = router.pathname.startsWith(props.href);
+  }
+
+  if (props.disabled) {
+    return (
+      <span
+        className={sx(
+          styles.default,
+          styles.disabled,
+          props.xstyle,
+          isActive && props.xstyleActive,
+        )}
+      >
+        {props.children}
+      </span>
+    );
   }
 
   return (
@@ -44,5 +60,8 @@ const styles = sx.create({
     ':hover': {
       textDecoration: 'underline',
     },
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });

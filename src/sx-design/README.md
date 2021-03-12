@@ -31,6 +31,30 @@ SX Design uses [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/
 
 https://caniuse.com/css-variables
 
+## Available components
+
+**🚧 WORK in PROGRESS 🚧**
+
+Legend:
+
+```text
+✅  yes! (or not relevant)
+🧐  not evaluated/ready yet
+```
+
+| Component           | Localized? | Accessible? | Has stories? | Tested? |
+| ------------------- | :--------: | :---------: | :----------: | :-----: |
+| `<ErrorBoundary />` |     ✅     |     🧐      |      🧐      |   🧐    |
+| `<Heading />`       |     ✅     |     🧐      |      🧐      |   ✅    |
+| `<Kbd />`           |     ✅     |     🧐      |      ✅      |   ✅    |
+| `<Money />`         |     ✅     |     🧐      |      🧐      |   ✅    |
+| `<ProductCard />`   |     🧐     |     🧐      |      ✅      |   🧐    |
+| `<Section />`       |     ✅     |     🧐      |      🧐      |   🧐    |
+| `<Skeleton />`      |     ✅     |     🧐      |      ✅      |   🧐    |
+| `<SkipLink />`      |     ✅     |     🧐      |      🧐      |   🧐    |
+
+Note: stories should be somehow useful to mark them as being done.
+
 ## Development
 
 To start storybook run:
