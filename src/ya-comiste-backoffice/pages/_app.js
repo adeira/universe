@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import * as React from 'react';
 import { RecoilRoot } from 'recoil';
 import sx from '@adeira/sx';
-import { ErrorBoundary } from '@adeira/sx-design';
+import { ErrorBoundary, SxDesignProvider } from '@adeira/sx-design';
 import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 
 import './_app.css';
@@ -52,11 +52,17 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
   });
 
   return (
-    <ErrorBoundary>
-      <RelayEnvironmentProvider environment={relayEnvironment}>
-        <RecoilRoot>{children}</RecoilRoot>
-      </RelayEnvironmentProvider>
-    </ErrorBoundary>
+    <SxDesignProvider
+      locale={
+        'en-US' // TODO
+      }
+    >
+      <ErrorBoundary>
+        <RelayEnvironmentProvider environment={relayEnvironment}>
+          <RecoilRoot>{children}</RecoilRoot>
+        </RelayEnvironmentProvider>
+      </ErrorBoundary>
+    </SxDesignProvider>
   );
 }
 
