@@ -20,6 +20,16 @@
           "variations": []
         }
       ]
+    },
+    "EOd766uj+UXLW6PuEboc/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Debe especificar un texto de imagen alternativo a través de la propiedad `imgAlt`. Esta es una parte importante de la accesibilidad para los lectores de pantalla, con el fin de que entiendan el propósito del contenido de la página.",
+          "variations": []
+        }
+      ]
     }
   }
 }

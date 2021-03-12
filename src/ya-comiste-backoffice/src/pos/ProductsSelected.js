@@ -60,7 +60,11 @@ export default function ProductsSelected(): React.Node {
         )}
       </div>
       <div className={styles('checkout')}>
-        <Link href="/pos/checkout" xstyle={styles.checkoutLink}>
+        <Link
+          href="/pos/checkout"
+          disabled={stats.totalSelectedItems === 0}
+          xstyle={styles.checkoutLink}
+        >
           <fbt desc="checkout button title">Proceed to checkout</fbt>
         </Link>
       </div>

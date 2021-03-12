@@ -23,7 +23,7 @@
     "stylis": "^4.0.7"
   },
   "peerDependencies": {
-    "react": "^16.14.0 || ^17.0.0"
+    "react": "^17.0.0"
   },
   "devDependencies": {
     "@adeira/fixtures-tester": "^0.1.0",

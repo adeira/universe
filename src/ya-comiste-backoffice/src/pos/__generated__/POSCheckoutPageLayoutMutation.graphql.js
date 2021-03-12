@@ -5,7 +5,16 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type POSCheckoutPageLayoutMutationVariables = {||};
+export type SupportedCurrency = "MXN" | "%future added value";
+export type PosCheckoutProductInput = {|
+  productKey: string,
+  productUnits: number,
+  productPriceUnitAmount: number,
+  productPriceUnitAmountCurrency: SupportedCurrency,
+|};
+export type POSCheckoutPageLayoutMutationVariables = {|
+  checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>
+|};
 export type POSCheckoutPageLayoutMutationResponse = {|
   +pos: {|
     +checkout: {|
@@ -27,9 +36,11 @@ export type POSCheckoutPageLayoutMutation = {|
 |};
 
 /*
-mutation POSCheckoutPageLayoutMutation {
+mutation POSCheckoutPageLayoutMutation(
+  $checkoutInput: [PosCheckoutProductInput!]!
+) {
   pos {
-    checkout(input: {selectedProducts: [{productKey: "TODO", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {
+    checkout(input: {selectedProducts: $checkoutInput}) {
       __typename
       ... on PosCheckoutPayload {
         id
@@ -45,6 +56,13 @@ mutation POSCheckoutPageLayoutMutation {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "checkoutInput"
+  }
+],
+v1 = [
+  {
     "alias": null,
     "args": null,
     "concreteType": "POSMutation",
@@ -56,18 +74,15 @@ var v0 = [
         "alias": null,
         "args": [
           {
-            "kind": "Literal",
-            "name": "input",
-            "value": {
-              "selectedProducts": [
-                {
-                  "productKey": "TODO",
-                  "productPriceUnitAmount": -1,
-                  "productPriceUnitAmountCurrency": "MXN",
-                  "productUnits": -1
-                }
-              ]
-            }
+            "fields": [
+              {
+                "kind": "Variable",
+                "name": "selectedProducts",
+                "variableName": "checkoutInput"
+              }
+            ],
+            "kind": "ObjectValue",
+            "name": "input"
           }
         ],
         "concreteType": null,
@@ -111,7 +126,7 @@ var v0 = [
             "abstractKey": null
           }
         ],
-        "storageKey": "checkout(input:{\"selectedProducts\":[{\"productKey\":\"TODO\",\"productPriceUnitAmount\":-1,\"productPriceUnitAmountCurrency\":\"MXN\",\"productUnits\":-1}]})"
+        "storageKey": null
       }
     ],
     "storageKey": null
@@ -119,31 +134,31 @@ var v0 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "POSCheckoutPageLayoutMutation",
-    "selections": (v0/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "POSCheckoutPageLayoutMutation",
-    "selections": (v0/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "a1a683802929ac840dcd3a93600659d9",
+    "cacheID": "6bfc6efa2217519c7fb6660b9ade4806",
     "id": null,
     "metadata": {},
     "name": "POSCheckoutPageLayoutMutation",
     "operationKind": "mutation",
-    "text": "mutation POSCheckoutPageLayoutMutation {\n  pos {\n    checkout(input: {selectedProducts: [{productKey: \"TODO\", productUnits: -1, productPriceUnitAmount: -1, productPriceUnitAmountCurrency: MXN}]}) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation POSCheckoutPageLayoutMutation(\n  $checkoutInput: [PosCheckoutProductInput!]!\n) {\n  pos {\n    checkout(input: {selectedProducts: $checkoutInput}) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '1bf24e366599f855d11e285c37d7a2e9';
+(node: any).hash = '62625f93bb702c890c5f3d38d652d255';
 export default node;

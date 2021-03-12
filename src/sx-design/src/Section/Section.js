@@ -3,13 +3,16 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-import HeadingLevel from './HeadingLevel';
+import HeadingLevel from '../HeadingLevel';
 
 type Props = {|
   +children: React.Node,
   +xstyle?: AllCSSProperties,
 |};
 
+/**
+ * Section component is used to automatically advance Heading component level.
+ */
 export default function Section(props: Props): React.Node {
   return (
     <HeadingLevel.Consumer>
