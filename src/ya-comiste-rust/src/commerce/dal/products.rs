@@ -8,6 +8,7 @@ use crate::images::Image;
 use arangors::AqlQuery;
 use serde_json::json;
 
+/// Resolves the provided AQL and returns the first result or error.
 async fn resolve_aql(pool: &ConnectionPool, aql: AqlQuery<'_>) -> Result<Product, ModelError> {
     let db = pool.db().await;
     let product_vector = db.aql_query::<Product>(aql).await;
@@ -18,6 +19,19 @@ async fn resolve_aql(pool: &ConnectionPool, aql: AqlQuery<'_>) -> Result<Product
                 "database didn't return any product",
             ))),
         },
+        Err(e) => Err(ModelError::DatabaseError(e)),
+    }
+}
+
+/// Similar to `resolve_aql` except it returns the whole vector (not only the first result).
+async fn resolve_aql_vector(
+    pool: &ConnectionPool,
+    aql: AqlQuery<'_>,
+) -> Result<Vec<Product>, ModelError> {
+    let db = pool.db().await;
+    let products_vector = db.aql_query::<Product>(aql).await;
+    match products_vector {
+        Ok(products_vector) => Ok(products_vector),
         Err(e) => Err(ModelError::DatabaseError(e)),
     }
 }
@@ -224,32 +238,55 @@ pub(in crate::commerce) async fn get_product_by_key(
     product_key: &str,
     product_published_only: &bool,
 ) -> Result<Product, ModelError> {
+    let product_vector = get_products_by_keys(
+        &pool,
+        &client_locale,
+        &[product_key.to_string()],
+        &product_published_only,
+    )
+    .await?;
+
+    match product_vector.first() {
+        Some(product) => Ok(product.to_owned()),
+        None => Err(ModelError::LogicalError(String::from(
+            "database didn't return any product",
+        ))),
+    }
+}
+
+pub(in crate::commerce) async fn get_products_by_keys(
+    pool: &ConnectionPool,
+    client_locale: &SupportedLocale,
+    product_keys: &[String],
+    product_published_only: &bool,
+) -> Result<Vec<Product>, ModelError> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
-            LET product = DOCUMENT(products, @product_key)
-            FILTER @product_published_only ? product.is_published == @product_published_only : true
+            LET products = DOCUMENT(products, @product_keys)
+            FOR product IN products
+              FILTER @product_published_only ? product.is_published == @product_published_only : true
 
-            LET t = FIRST(
-              FOR t IN product.translations
-                FILTER t.name != null AND t.locale == @eshop_locale
-                RETURN t
-            )
+              LET t = FIRST(
+                FOR t IN product.translations
+                  FILTER t.name != null AND t.locale == @eshop_locale
+                  RETURN t
+              )
 
-            RETURN MERGE(
-              product,
-              { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-              { name: t.name, description: t.description }
-            )
+              RETURN MERGE(
+                product,
+                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                { name: t.name, description: t.description }
+              )
             "#,
         )
         .bind_var("eshop_locale", format!("{}", client_locale))
-        .bind_var("product_key", product_key)
+        .bind_var("product_keys", product_keys)
         .bind_var("product_published_only", json!(product_published_only))
         .build();
 
-    resolve_aql(&pool, aql).await
+    resolve_aql_vector(&pool, aql).await
 }
 
 /// Performs search of products based on the specified criteria and returns products with merged

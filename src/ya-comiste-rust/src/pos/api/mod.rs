@@ -78,26 +78,61 @@ impl POSMutation {
     async fn checkout(context: &Context, input: PosCheckoutInput) -> PosCheckoutPayloadOrError {
         // Contrary to what DAL requires, we accept only product keys in GraphQL and expand them on BE.
 
-        // TODO: fetch products based on their IDs and save them to POS checkouts collection
-        let pos_checkout_input = &PosCheckoutDalInput {
-            selected_products: vec![PosCheckoutProductDalInput {
-                product_id: String::from("products/todo"),
-                product_name: String::from("TODO"),
-                product_units: -1,
-                product_price_unit_amount: -1,
-                product_price_unit_amount_currency: SupportedCurrency::MXN,
-            }],
+        let product_keys = input
+            .selected_products
+            .iter()
+            .map(|product| product.product_key.to_string())
+            .collect::<Vec<String>>();
+
+        let products = crate::commerce::api::get_products_by_keys(
+            &context,
+            &SupportedLocale::EnUS, // TODO
+            &product_keys,
+        )
+        .await;
+
+        let selected_products = match products {
+            Ok(products) => products
+                .iter()
+                .map(|product| {
+                    let checkout_product = input
+                        .selected_products
+                        .iter()
+                        .find(|p| p.product_key.to_string() == product.key())
+                        .unwrap();
+
+                    // Most of the values should be taken from the POS input except some product
+                    // details which are being expanded from the product ID.
+                    PosCheckoutProductDalInput {
+                        product_id: product.id(),
+                        product_name: product.name(),
+                        product_units: checkout_product.product_units,
+                        product_price_unit_amount: checkout_product.product_price_unit_amount,
+                        product_price_unit_amount_currency: checkout_product
+                            .product_price_unit_amount_currency,
+                    }
+                })
+                .collect(),
+            Err(e) => {
+                return PosCheckoutPayloadOrError::Error(PosCheckoutError {
+                    message: format!("{:?}", e),
+                });
+            }
         };
 
         match context.user {
-            User::AdminUser(_) => match create_checkout(&context.pool, &pos_checkout_input).await {
-                Ok(checkout) => PosCheckoutPayloadOrError::Payload(PosCheckoutPayload {
-                    id: juniper::ID::from(checkout.id()),
-                }),
-                Err(e) => PosCheckoutPayloadOrError::Error(PosCheckoutError {
-                    message: format!("{:?}", e),
-                }),
-            },
+            User::AdminUser(_) => {
+                match create_checkout(&context.pool, &PosCheckoutDalInput { selected_products })
+                    .await
+                {
+                    Ok(checkout) => PosCheckoutPayloadOrError::Payload(PosCheckoutPayload {
+                        id: juniper::ID::from(checkout.id()),
+                    }),
+                    Err(e) => PosCheckoutPayloadOrError::Error(PosCheckoutError {
+                        message: format!("{:?}", e),
+                    }),
+                }
+            }
             _ => PosCheckoutPayloadOrError::Error(PosCheckoutError {
                 message: String::from("only admin can perform POS checkout"),
             }),
