@@ -1,6 +1,7 @@
 # Unreleased
 
 - removed required `X-Client` HTTP header from `createNetworkFetcher` (you can still use it but it's no longer mandatory)
+- relax signature verification when using `adeira-relay-compiler` - it no longer requires the signature but still verifies it if it exists
 
 # 3.1.1
 
