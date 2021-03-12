@@ -207,7 +207,7 @@ fragment Foo on User {
 # The @required field [1] may not have an \`action\` less severe than that of its @required parent [2]. [1] should probably be \`action: THROW\`.
 ```
 
-This directive also affects generated Flow types (turns the properties into required ones).
+This directive also affects generated Flow types (turns the properties into required ones). Also, there is a `requiredFieldLogger` environment config, see: https://github.com/facebook/relay/commit/0869fde6b08d7c199b0ceb0cb32091e35acee680
 
 ## @defer, @stream, @stream_connection
 
