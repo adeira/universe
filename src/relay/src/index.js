@@ -7,7 +7,7 @@ export {
 } from '@adeira/fetch';
 export { default as createEnvironment } from './createEnvironment';
 export { default as createLocalEnvironment } from './createLocalEnvironment';
-export { default as createNetworkFetcher } from './fetchers/createNetworkFetcher';
+export { default as createNetworkFetcher } from './createNetworkFetcher';
 export { default as getDataFromRequest } from './getDataFromRequest';
 export { default as RelayDebugLogger } from './loggers/RelayDebugLogger';
 export { default as RelayEagerLogger } from './loggers/RelayEagerLogger';
@@ -30,7 +30,6 @@ export type {
   PaginationContainerType,
   RefetchContainerType,
 } from './types.flow';
-export type { RecordMap } from './runtimeTypes.flow';
 
 // Relay Hooks (wrapped)
 export { default as useMutation } from './useMutation';
@@ -55,6 +54,8 @@ export type {
   UploadableMap,
   Variables,
 } from 'relay-runtime';
+// eslint-disable-next-line import/no-unresolved
+export type { RecordObjectMap as RecordMap } from 'relay-runtime/store/RelayStoreTypes';
 
 // Relay Hooks (re-exported):
 export {

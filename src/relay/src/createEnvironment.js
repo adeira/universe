@@ -7,18 +7,19 @@ import {
   type LogFunction,
   type OperationLoader,
 } from 'relay-runtime';
+// eslint-disable-next-line import/no-unresolved
+import type { RecordObjectMap } from 'relay-runtime/store/RelayStoreTypes';
 
 import createRelayStore from './createRelayStore';
 import createRequestHandler from './createRequestHandler';
 import RelayLazyLogger from './loggers/RelayLazyLogger';
-import type { RecordMap } from './runtimeTypes.flow';
 
 type Options = {|
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
   +subscribeFn?: (...args: $ReadOnlyArray<any>) => any,
   +handlerProvider?: (string) => void,
   +operationLoader?: OperationLoader,
-  +records?: ?RecordMap,
+  +records?: ?RecordObjectMap,
   +gcReleaseBufferSize?: ?number,
   +log?: LogFunction,
 |};
