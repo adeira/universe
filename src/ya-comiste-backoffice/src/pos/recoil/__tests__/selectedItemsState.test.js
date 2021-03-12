@@ -300,3 +300,53 @@ it('preserves order of insertion', () => {
     ]
   `);
 });
+
+it('resets selected items correctly', () => {
+  const { result } = renderHook(() => useSelectedItemsApi(), {
+    wrapper: RecoilRoot,
+  });
+
+  expect(result.current.selectedItems).toMatchInlineSnapshot(`Immutable.List []`);
+
+  // add some items
+  act(() => {
+    result.current.select({
+      itemID: 'i_1',
+      itemTitle: 'I title 1',
+      itemUnitAmount: 100_00,
+      units: 1,
+    });
+  });
+  act(() => {
+    result.current.select({
+      itemID: 'i_2',
+      itemTitle: 'I title 2',
+      itemUnitAmount: 100_00,
+      units: 1,
+    });
+  });
+
+  expect(result.current.selectedItems).toMatchInlineSnapshot(`
+    Immutable.List [
+      Object {
+        "itemID": "i_1",
+        "itemTitle": "I title 1",
+        "itemUnitAmount": 10000,
+        "units": 1,
+      },
+      Object {
+        "itemID": "i_2",
+        "itemTitle": "I title 2",
+        "itemUnitAmount": 10000,
+        "units": 1,
+      },
+    ]
+  `);
+
+  // let's reset the selected items
+  act(() => {
+    result.current.reset();
+  });
+
+  expect(result.current.selectedItems).toMatchInlineSnapshot(`Immutable.List []`);
+});

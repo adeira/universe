@@ -62,7 +62,7 @@ pub(crate) async fn process_images(
             match product_multilingual_input
                 .images
                 .iter()
-                .find(|image| image.to_string() == image_name.to_string())
+                .find(|image| image.to_string() == *image_name)
             {
                 Some(_) => {} // OK, good
                 None => {
