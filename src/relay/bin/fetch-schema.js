@@ -11,7 +11,6 @@ require('@babel/register')({
 
 const fs = require('fs');
 const path = require('path');
-const { invariant } = require('@adeira/js');
 const fetch = require('@adeira/fetch').default;
 const logger = require('@adeira/logger').default;
 const SignedSource = require('@adeira/signed-source').default;
@@ -21,14 +20,10 @@ const { buildClientSchema, getIntrospectionQuery, printSchema } = require('graph
 const { fetchSchemaOptions } = require('./commander/options');
 
 const options = fetchSchemaOptions(process.argv);
-
-const resource = options.resource;
-invariant(resource != null, 'Option --resource is required.');
-
-const filename = path.join(process.cwd(), options.filename);
+const filename = path.join(process.cwd(), options.schema);
 
 (async () => {
-  const response = await fetch(resource, {
+  const response = await fetch(options.resource, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -43,8 +38,7 @@ const filename = path.join(process.cwd(), options.filename);
   const clientSchema = printSchema(lexicographicSortSchema(buildClientSchema(schemaJSON.data)));
   const schema = SignedSource.signFile(`# ${SignedSource.getSigningToken()}
 
-${clientSchema}
-`);
+${clientSchema}`);
   fs.writeFileSync(filename, schema);
   logger.log('GraphQL schema saved to: %s', filename);
 })();
