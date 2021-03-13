@@ -73,7 +73,7 @@ import { createEnvironment, createNetworkFetcher } from '@adeira/relay';
 function render() {
   const Environment = createEnvironment({
     fetchFn: createNetworkFetcher('https://graphql.example.com', {
-      'X-Client': '** TODO **',
+      // … additional HTTP headers if you want …
     }),
   });
 

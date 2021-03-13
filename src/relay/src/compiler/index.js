@@ -13,6 +13,7 @@ import { globSync } from '@adeira/monorepo-utils';
 
 import buildLanguagePlugin from './buildLanguagePlugin';
 import buildWatchExpression from './buildWatchExpression';
+import createPrintRequireDefaultModuleDependency from './createPrintRequireDefaultModuleDependency';
 import getSchemaSource from './getSchemaSource';
 
 type ExternalOptions = {|
@@ -175,7 +176,7 @@ function getRelayFileWriter(
       noFutureProofEnums,
       extension: languagePlugin.outputExtension,
       typeGenerator: languagePlugin.typeGenerator,
-      outputDir,
+      printModuleDependency: createPrintRequireDefaultModuleDependency(),
       // repersist: isCI, // TODO
     };
 

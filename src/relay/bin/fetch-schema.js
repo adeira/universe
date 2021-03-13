@@ -33,7 +33,6 @@ const filename = path.join(process.cwd(), options.filename);
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'X-Client': '@adeira/relay schema fetcher',
     },
     body: JSON.stringify({
       query: getIntrospectionQuery(),
