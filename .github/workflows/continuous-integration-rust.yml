@@ -32,10 +32,10 @@ jobs:
           toolchain: stable
           target: ${{ matrix.target }}
 
-      # https://github.com/actions-rs/clippy-check
-      - uses: actions-rs/clippy-check@v1.0.7
+      # https://github.com/actions-rs/cargo
+      - uses: actions-rs/cargo@v1.0.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          command: clippy
           # `--all-targets` + `--all-features`   (in order to also check tests and non-default crate features)
           args: >-
             --all-targets
