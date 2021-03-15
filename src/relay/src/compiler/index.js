@@ -19,9 +19,9 @@ import getSchemaSource from './getSchemaSource';
 type ExternalOptions = {|
   +src: string,
   +schema: string,
-  +persistMode: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
   +validate: boolean,
   +watch: boolean,
+  +persistMode?: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
 |};
 
 const {
@@ -186,8 +186,6 @@ function getRelayFileWriter(
         const queryMapPath = path.resolve(process.cwd(), 'persisted-queries.json');
         return persistFunction(query, queryMapPath);
       };
-    } else {
-      (persistMode: empty);
     }
 
     return RelayFileWriter.writeAll({

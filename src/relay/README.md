@@ -28,14 +28,13 @@ yarn add react react-dom @adeira/relay
 
 ## Set up Relay with a single config file
 
-Create a new file `relay.config.js` in your project root and configure some basics:
+Create a new file `relay.config.js` in your project root and configure where is your source code and GraphQL schema:
 
 ```js
 module.exports = {
   // Configuration options accepted by the `relay-compiler` command-line tool and `babel-plugin-relay`.
   src: './src',
   schema: './data/schema.graphql',
-  exclude: ['**/node_modules/**', '**/__mocks__/**', '**/__generated__/**'],
 };
 ```
 
@@ -55,7 +54,7 @@ Add "relay" to the list of plugins in your `.babelrc` file:
 {
   "scripts": {
     "relay": "adeira-relay-compiler",
-    "relay:schema": "adeira-fetch-schema --resource=http://… --filename=./data/schema.graphql"
+    "relay:schema": "adeira-fetch-schema --resource=https://graphql.example.com"
   }
 }
 ```

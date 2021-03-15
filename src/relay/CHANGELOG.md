@@ -1,7 +1,10 @@
 # Unreleased
 
+This minor release is focused on cleaning old internal code and removing some legacy parts of the library. The goal is to have a clean and stable version before removing the container API (and keeping only hooks API).
+
 - removed required `X-Client` HTTP header from `createNetworkFetcher` (you can still use it but it's no longer mandatory)
 - relax signature verification when using `adeira-relay-compiler` - it no longer requires the signature but still verifies it if it exists
+- script `adeira-fetch-schema` now reads schema path from `relay.config.js` file (it still supports `--filename` for backward compatibility but that will be eventually removed)
 
 # 3.1.1
 
@@ -61,7 +64,7 @@ For more information about Relay Hooks evolution please visit the following link
 
 # 2.0.1
 
-- Remove handlerProvider from createEnvironment, leaving the default from `react-relay` to be used if the consumer doesn't add one.
+- Remove `handlerProvider` from `createEnvironment`, leaving the default from `react-relay` to be used if the consumer doesn't add one.
 
 # 2.0.0
 
@@ -73,7 +76,7 @@ For more information about Relay Hooks evolution please visit the following link
 
 # 1.3.1
 
-- Replace readInline with react-relay implementation.
+- Replace `readInline` function with `react-relay` implementation.
 
 # 1.3.0
 
@@ -86,11 +89,11 @@ For more information about Relay Hooks evolution please visit the following link
 
 # 1.1.3
 
-- Upgrade babel plugin relay
+- Upgrade `babel-plugin-relay` dependency
 
 # 1.1.0
 
-- export `useMutation` from index.js
+- Export `useMutation` from index.js
 
 # 1.0.0
 

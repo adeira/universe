@@ -1,5 +1,7 @@
 # Unreleased
 
+- Our custom rule `adeira/no-internal-flow-type` has been migrated to official `flowtype/no-internal-flow-type` (https://github.com/gajus/eslint-plugin-flowtype/pull/469). There should be no changes in behavior.
+
 # 5.1.0
 
 - New rule `relay/function-required-argument` enabled (warnings or errors in strict mode). See: https://github.com/relayjs/eslint-plugin-relay/pull/108

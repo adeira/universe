@@ -11,75 +11,94 @@ beforeEach(() => {
 
 describe('fetch schema', () => {
   it('no args', () => {
-    expect(fetchSchemaOptions(['node', 'test'])).toStrictEqual({
-      filename: 'schema.graphql',
-    });
+    expect(() => fetchSchemaOptions(['node', 'test'])).toThrowErrorMatchingInlineSnapshot(
+      `"Option --resource is required."`,
+    );
   });
 
-  it('with filename', () => {
-    expect(fetchSchemaOptions(['node', 'test', '--filename=AAA'])).toStrictEqual({
-      filename: 'AAA',
-    });
+  it('with only filename', () => {
+    expect(() =>
+      fetchSchemaOptions(['node', 'test', '--filename=AAA']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --resource is required."`);
   });
 
-  it('with resource', () => {
-    expect(fetchSchemaOptions(['node', 'test', '--resource=BBB'])).toStrictEqual({
-      filename: 'schema.graphql',
-      resource: 'BBB',
-    });
+  it('with only resource', () => {
+    expect(() =>
+      fetchSchemaOptions(['node', 'test', '--resource=BBB']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --filename is required."`);
   });
 
   it('with filename,resource', () => {
     expect(fetchSchemaOptions(['node', 'test', '--filename=AAA', '--resource=BBB'])).toStrictEqual({
-      filename: 'AAA',
       resource: 'BBB',
+      schema: 'AAA',
     });
   });
 });
 
 describe('relay compiler', () => {
   it('no args', () => {
-    expect(relayCompilerOptions(['node', 'test'])).toStrictEqual({
-      validate: false,
-      watch: false,
-    });
+    expect(() => relayCompilerOptions(['node', 'test'])).toThrowErrorMatchingInlineSnapshot(
+      `"Option --src is required."`,
+    );
   });
 
-  it('with src', () => {
-    expect(relayCompilerOptions(['node', 'test', '--src=AAA'])).toStrictEqual({
+  it('with only src', () => {
+    expect(() =>
+      relayCompilerOptions(['node', 'test', '--src=AAA']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --schema is required."`);
+  });
+
+  it('with only schema', () => {
+    expect(() =>
+      relayCompilerOptions(['node', 'test', '--schema=BBB']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --src is required."`);
+  });
+
+  it('with only persist mode', () => {
+    expect(() =>
+      relayCompilerOptions(['node', 'test', '--persist-mode=CCC']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --src is required."`);
+  });
+
+  it('with only validate', () => {
+    expect(() =>
+      relayCompilerOptions(['node', 'test', '--validate']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --src is required."`);
+  });
+
+  it('with only watch', () => {
+    expect(() =>
+      relayCompilerOptions(['node', 'test', '--watch']),
+    ).toThrowErrorMatchingInlineSnapshot(`"Option --src is required."`);
+  });
+
+  it('with src,schema', () => {
+    expect(relayCompilerOptions(['node', 'test', '--src=AAA', '--schema=BBB'])).toStrictEqual({
       src: 'AAA',
-      validate: false,
-      watch: false,
-    });
-  });
-
-  it('with schema', () => {
-    expect(relayCompilerOptions(['node', 'test', '--schema=BBB'])).toStrictEqual({
       schema: 'BBB',
       validate: false,
       watch: false,
     });
   });
 
-  it('with persist mode', () => {
-    expect(relayCompilerOptions(['node', 'test', '--persist-mode=CCC'])).toStrictEqual({
-      persistMode: 'CCC',
-      validate: false,
-      watch: false,
-    });
-  });
-
-  it('with validate', () => {
-    expect(relayCompilerOptions(['node', 'test', '--validate'])).toStrictEqual({
+  it('with all', () => {
+    expect(
+      relayCompilerOptions([
+        'node',
+        'test',
+        '--src=AAA',
+        '--schema=BBB',
+        '--validate',
+        '--watch',
+        '--persist-mode=fs',
+      ]),
+    ).toStrictEqual({
+      src: 'AAA',
+      schema: 'BBB',
       validate: true,
-      watch: false,
-    });
-  });
-
-  it('with watch', () => {
-    expect(relayCompilerOptions(['node', 'test', '--watch'])).toStrictEqual({
-      validate: false,
       watch: true,
+      persistMode: 'fs',
     });
   });
 });

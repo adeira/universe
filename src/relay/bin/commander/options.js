@@ -1,12 +1,14 @@
 // @flow
 
 const program = require('commander');
+const RelayConfig = require('relay-config');
+const { invariant } = require('@adeira/js');
 
 /*::
 
 type FetchSchemaOptions = {|
-  +resource?: string,
-  +filename: string,
+  +resource: string,
+  +schema: string,
 |}
 
 */
@@ -14,21 +16,33 @@ type FetchSchemaOptions = {|
 module.exports.fetchSchemaOptions = function (
   argToParse: $ReadOnlyArray<string>,
 ) /*: FetchSchemaOptions */ {
-  return program
+  const relayConfig = RelayConfig.loadConfig() ?? {};
+
+  const options = program
     .option('--resource <url>')
-    .option('--filename <path>', undefined, 'schema.graphql')
+    .option('--filename <path>', "DEPRECATED - use 'relay.config.js' instead")
     .parse(argToParse)
     .opts();
+
+  const config = {
+    resource: options.resource,
+    schema: options.filename ?? relayConfig.schema,
+  };
+
+  invariant(config.resource != null, 'Option --resource is required.');
+  invariant(config.schema != null, 'Option --filename is required.'); // TODO: rename to `--schema`
+
+  return config;
 };
 
 /*::
 
 type RelayCompilerOptions = {|
-  +src?: string,
-  +schema?: string,
-  +persistMode?: string,
-  +validate?: boolean,
-  +watch?: boolean,
+  +src: string,
+  +schema: string,
+  +validate: boolean,
+  +watch: boolean,
+  +persistMode?: 'fs',
 |}
 
 */
@@ -36,19 +50,36 @@ type RelayCompilerOptions = {|
 module.exports.relayCompilerOptions = function (
   argToParse: $ReadOnlyArray<string>,
 ) /*: RelayCompilerOptions */ {
-  return (
-    program
-      // Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
-      .option('--src <src>')
-      .option('--schema <schema>')
-      .option('--persist-mode <fs|remote>')
-      .option('--validate', 'Activates validate only mode', false)
-      .option(
-        '--watch',
-        'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
-        false,
-      )
-      .parse(argToParse)
-      .opts()
+  const relayConfig = RelayConfig.loadConfig() ?? {};
+
+  const options = program
+    // Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
+    .option('--src <src>')
+    .option('--schema <schema>')
+    .option('--persist-mode <fs|remote>')
+    .option('--validate', 'Activates validate only mode', false)
+    .option(
+      '--watch',
+      'This option currently REQUIRES Watchman (https://facebook.github.io/watchman/) to be installed.',
+      false,
+    )
+    .parse(argToParse)
+    .opts();
+
+  const config = {
+    src: options.src ?? relayConfig.src,
+    schema: options.schema ?? relayConfig.schema,
+    ...(options.persistMode && { persistMode: options.persistMode }),
+    validate: options.validate ?? relayConfig.validate,
+    watch: options.watch ?? relayConfig.watch,
+  };
+
+  invariant(config.src != null, 'Option --src is required.');
+  invariant(config.schema != null, 'Option --schema is required.');
+  invariant(
+    config.persistMode === undefined || config.persistMode === 'fs',
+    'Only filesystem persist mode is currently supported.',
   );
+
+  return config;
 };
