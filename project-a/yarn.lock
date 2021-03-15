@@ -114,10 +114,10 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-"@adeira/relay@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-3.1.0.tgz#21bd97ebedb188ca083db26b37ce94533cb4d74c"
-  integrity sha512-LATfIAT5FeoInF8m5yXPScRJcNPdQT4zjLWPdHVA8gyiEhNZ2oPRIGsgfEIpo6e5G8d50UDEoKaix0OatorrcQ==
+"@adeira/relay@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@adeira/relay/-/relay-3.1.1.tgz#e4cf7a1f779ef519ca6fea15e639e0b29207df84"
+  integrity sha512-zAZwkyFDUSlg51W2ZL+Gzt+V5JtsHRVTwWR+1eEm+1CqXdNoW6XMwK4v7bNkWQIGotnpUBKSmo8zqqcmkH1P8w==
   dependencies:
     "@adeira/fetch" "^2.0.0"
     "@adeira/js" "^2.1.0"
