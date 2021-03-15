@@ -1,8 +1,11 @@
-// @flow strict
+// @flow
+
+type Bcp47LanguageTagType = 'en-US' | 'es-MX';
+type UrlLanguageTagType = 'en-us' | 'es-mx';
 
 export type LanguageTagType = {|
-  +bcp47: string, // en-US
-  +url: string, // en-us
+  +bcp47: Bcp47LanguageTagType,
+  +url: UrlLanguageTagType,
 |};
 
 const SUPPORTED_PRIMARY_LANGUAGE_SUBTAGS = ['en', 'es'];
@@ -42,8 +45,8 @@ class LanguageTag {
 
   __formatLanguageTag(primaryLanguageSubtag: string, regionSubtag: string): LanguageTagType {
     return {
-      bcp47: `${primaryLanguageSubtag.toLowerCase()}-${regionSubtag.toUpperCase()}`,
-      url: `${primaryLanguageSubtag}-${regionSubtag}`.toLowerCase(),
+      bcp47: ((`${primaryLanguageSubtag.toLowerCase()}-${regionSubtag.toUpperCase()}`: any): Bcp47LanguageTagType),
+      url: ((`${primaryLanguageSubtag}-${regionSubtag}`.toLowerCase(): any): UrlLanguageTagType),
     };
   }
 }

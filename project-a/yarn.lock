@@ -141,17 +141,17 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
-"@adeira/sx-design@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.6.0.tgz#003228f3f2e0738047bef74a3dcc74367a51fd98"
-  integrity sha512-T7QD/Av4AEljK+0OmtjhuGzURc/2YeoeIsm6WeyuWoGyKENkQjJWF5Ai/dfUw2DYnVllQkOIs6x/IS6ClOLB2w==
+"@adeira/sx-design@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@adeira/sx-design/-/sx-design-0.7.0.tgz#eadfb01c2b5918f2565b6e53cadbc29dae385524"
+  integrity sha512-CjI+JhFvgoG209V9SpRcrfGmgHc9StY7YIuVcfNi96691C3VZn/tX/g7lG3T38cSR9LIb8ooLX+vYb+E5rDb5w==
   dependencies:
     "@adeira/js" "^2.1.0"
     "@babel/runtime" "^7.13.10"
     blurhash "^1.1.3"
     fbt "^0.16.1"
     react-blurhash "^0.1.3"
-    react-device-detect "^1.15.0"
+    react-device-detect "^1.17.0"
 
 "@adeira/sx@^0.24.0":
   version "0.24.0"
@@ -6148,12 +6148,12 @@ react-blurhash@^0.1.3:
   resolved "https://registry.yarnpkg.com/react-blurhash/-/react-blurhash-0.1.3.tgz#735f28f8f07fb358d7efe7e7e6dc65a7272bf89e"
   integrity sha512-Q9lqbXg92NU6/2DoIl/cBM8YWL+Z4X66OiG4aT9ozOgjBwx104LHFCH5stf6aF+s0Q9Wf310Ul+dG+VXJltmPg==
 
-react-device-detect@^1.15.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.15.0.tgz#5321f94ae3c4d51ef399b0502a6c739e32d0f315"
-  integrity sha512-ywjtWW04U7vaJK87IAFHhKozZhTPeDVWsfYx5CxQSQCjU5+fnMMxWZt9HnVWaNTqBEn6g8wCNWyqav7sXJrURg==
+react-device-detect@^1.17.0:
+  version "1.17.0"
+  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.17.0.tgz#a00b4fd6880cebfab3fd8a42a79dc0290cdddca9"
+  integrity sha512-bBblIStwpHmoS281JFIVqeimcN3LhpoP5YKDWzxQdBIUP8S2xPvHDgizLDhUq2ScguLfVPmwfF5y268EEQR60w==
   dependencies:
-    ua-parser-js "^0.7.23"
+    ua-parser-js "^0.7.24"
 
 react-dom@^17.0.1:
   version "17.0.1"
@@ -7324,7 +7324,7 @@ ua-parser-js@^0.7.18:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.23.tgz#704d67f951e13195fbcd3d78818577f5bc1d547b"
   integrity sha512-m4hvMLxgGHXG3O3fQVAyyAQpZzDOvwnhOTjYz5Xmr7r/+LpkNy3vJXdVRWgd1TkAb7NGROZuSy96CrlNVjA7KA==
 
-ua-parser-js@^0.7.23:
+ua-parser-js@^0.7.24:
   version "0.7.24"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.24.tgz#8d3ecea46ed4f1f1d63ec25f17d8568105dc027c"
   integrity sha512-yo+miGzQx5gakzVK3QFfN0/L9uVhosXBBO7qmnk7c2iw1IhL212wfA3zbnI54B0obGwC/5NWub/iT9sReMx+Fw==
