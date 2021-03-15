@@ -1,6 +1,8 @@
 # Unreleased
 
-This minor release is focused on cleaning old internal code and removing some legacy parts of the library. The goal is to have a clean and stable version before removing the container API (and keeping only hooks API).
+# 3.2.0
+
+This minor release is focused on cleaning old internal code and removing some legacy parts of the library. The goal is to have a clean and stable version before eventually removing the container API (and keeping only hooks API). But don't worry yet - we follow [upcoming Relay releases](https://github.com/facebook/relay/issues/3371).
 
 - removed required `X-Client` HTTP header from `createNetworkFetcher` (you can still use it but it's no longer mandatory)
 - relax signature verification when using `adeira-relay-compiler` - it no longer requires the signature but still verifies it if it exists
@@ -13,7 +15,7 @@ This minor release is focused on cleaning old internal code and removing some le
 
 # 3.1.0
 
-This release introduces Relay Hooks in a backward compatible fashion. Next major version of `@adeira/relay` will focus on phasing out legacy parts of Relay Modern (containers API), so it's highly encouraged to upgrade as soon as possible.
+This release introduces Relay Hooks in a backward compatible fashion. Next major version of `@adeira/relay` will focus on phasing out legacy parts of Relay Modern (containers API), so it's highly encouraged to upgrade as soon as possible, see: [https://github.com/facebook/relay/issues/3371](https://github.com/facebook/relay/issues/3371)
 
 - Relay dependencies upgraded to version `11.0.0`, see: https://github.com/facebook/relay/releases/tag/v11.0.0
 - Additional Relay hooks were exposed: `useEntryPointLoader`, `useFragment`, `useLazyLoadQuery`, `usePaginationFragment`, `usePreloadedQuery`, `useQueryLoader`, `useRefetchableFragment`, `useSubscribeToInvalidationState` and `useSubscription` (+ some other hooks specific functions)
