@@ -4,7 +4,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
-import { SkipLink } from '@adeira/sx-design';
+import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import App from 'next/app';
@@ -63,21 +63,23 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   }
 
   return (
-    <ViewerContextProvider languageTag={languageTag}>
-      <div className={styles('root')}>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        </Head>
-        <SkipLink
-          text={
-            <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
-              Skip to content
-            </fbt>
-          }
-        />
-        <Component {...pageProps} />
-      </div>
-    </ViewerContextProvider>
+    <SxDesignProvider locale={languageTag.bcp47}>
+      <ViewerContextProvider languageTag={languageTag}>
+        <div className={styles('root')}>
+          <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          </Head>
+          <SkipLink
+            text={
+              <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+                Skip to content
+              </fbt>
+            }
+          />
+          <Component {...pageProps} />
+        </div>
+      </ViewerContextProvider>
+    </SxDesignProvider>
   );
 }
 
