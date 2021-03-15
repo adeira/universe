@@ -31,10 +31,6 @@ Then configure the rules you want to use under the rules section:
 
 # Rules
 
-## `no-internal-flow-type`
-
-Prefers `React.Node` over `React$Node` types.
-
 ## `no-invalid-flow-annotations`
 
 This rule disallows `@noflow` and `@flow weak` annotations. The only valid annotations are `@flow`, `@flow strict` and `@flow strict-local`.

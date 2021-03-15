@@ -275,6 +275,7 @@ module.exports = ({
   'flowtype/no-dupe-keys': ERROR,
   'flowtype/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
   'flowtype/no-flow-fix-me-comments': OFF,
+  'flowtype/no-internal-flow-type': ERROR,
   'flowtype/no-mixed': OFF,
   'flowtype/no-mutable-array': OFF,
   'flowtype/no-primitive-constructor-types': WARN,
@@ -347,6 +348,7 @@ module.exports = ({
   'jest/prefer-todo': ERROR,
   'jest/require-to-throw-message': OFF,
   'jest/require-top-level-describe': OFF,
+  'jest/unbound-method': OFF,
   'jest/valid-describe': ERROR,
   'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
@@ -708,7 +710,6 @@ module.exports = ({
   'adeira/flow-use-readonly-spread': OFF, // opt-in when needed
   'adeira/graphql-require-object-description': WARN,
   'adeira/no-duplicate-import-type-import': ERROR,
-  'adeira/no-internal-flow-type': ERROR,
   'adeira/no-invalid-flow-annotations': ERROR,
   'adeira/only-nullable-fields': ERROR,
   'adeira/relay-import-no-values': ERROR,
