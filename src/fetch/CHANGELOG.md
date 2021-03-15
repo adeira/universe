@@ -1,5 +1,20 @@
 # Unreleased
 
+# 2.0.1
+
+Dependency updates:
+
+```diff
+   "dependencies": {
+-    "@adeira/js": "^1.3.0",
+-    "@babel/runtime": "^7.12.5",
+-    "cross-fetch": "^3.0.6"
++    "@adeira/js": "^2.1.0",
++    "@babel/runtime": "^7.13.10",
++    "cross-fetch": "^3.1.0"
+   },
+```
+
 # 2.0.0
 
 Support for Node.js 12 has been removed. This package might continue working on older Node.js versions, however, it's highly recommended upgrading to Node.js version 14 or newer. For more details, see: https://nodejs.org/en/about/releases/, or discuss here: https://github.com/adeira/universe/discussions/1588
