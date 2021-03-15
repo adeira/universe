@@ -336,6 +336,7 @@ Object {
     "jest/prefer-todo": 2,
     "jest/require-to-throw-message": 0,
     "jest/require-top-level-describe": 0,
+    "jest/unbound-method": 0,
     "jest/valid-describe": 2,
     "jest/valid-expect": 2,
     "jest/valid-expect-in-promise": 2,
