@@ -348,6 +348,7 @@ module.exports = ({
   'jest/prefer-todo': ERROR,
   'jest/require-to-throw-message': OFF,
   'jest/require-top-level-describe': OFF,
+  'jest/unbound-method': OFF,
   'jest/valid-describe': ERROR,
   'jest/valid-expect': ERROR,
   'jest/valid-expect-in-promise': ERROR,
