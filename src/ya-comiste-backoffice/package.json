@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@adeira/js": "^2.1.0",
-    "@adeira/relay": "^3.1.1",
+    "@adeira/relay": "^3.2.0",
     "@adeira/sx": "^0.24.0",
     "@adeira/sx-design": "^0.7.0",
     "babel-plugin-fbt": "^0.17.2",
@@ -23,7 +23,7 @@
     "fbt": "^0.16.1",
     "formik": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
-    "next": "^10.0.8",
+    "next": "^10.0.9",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^6.3.0",
     "react": "^17.0.1",

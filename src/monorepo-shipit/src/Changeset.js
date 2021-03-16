@@ -1,7 +1,6 @@
 // @flow
 
 import { sprintf } from '@adeira/js';
-import logger from '@adeira/logger';
 
 type Diff = {|
   +path: string,
@@ -91,9 +90,9 @@ export default class Changeset {
   }
 
   dumpDebugMessages(): void {
-    logger.log(sprintf('  DEBUG %s (%s)', this.getID(), this.getSubject()));
+    console.log(sprintf('  DEBUG %s (%s)', this.getID(), this.getSubject()));
     for (const debugMessage of this.debugMessages) {
-      logger.log('    %s', debugMessage);
+      console.log('    %s', debugMessage);
     }
   }
 
