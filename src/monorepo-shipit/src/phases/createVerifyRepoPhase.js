@@ -4,7 +4,6 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { ShellCommand } from '@adeira/monorepo-utils';
-import logger from '@adeira/logger';
 
 import RepoGit from '../RepoGit';
 import ShipitConfig from '../ShipitConfig';
@@ -101,7 +100,7 @@ export default function createVerifyRepoPhase(config: ShipitConfig): () => void 
       )
         .runSynchronously()
         .getStdout();
-      logger.error(diff);
+      console.error(diff);
       throw new Error('❌ Repository is out of SYNC!');
     }
   };
