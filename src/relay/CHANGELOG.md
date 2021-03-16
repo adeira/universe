@@ -5,6 +5,7 @@ This minor release is focused on cleaning old internal code and removing some le
 - removed required `X-Client` HTTP header from `createNetworkFetcher` (you can still use it but it's no longer mandatory)
 - relax signature verification when using `adeira-relay-compiler` - it no longer requires the signature but still verifies it if it exists
 - script `adeira-fetch-schema` now reads schema path from `relay.config.js` file (it still supports `--filename` for backward compatibility but that will be eventually removed)
+- removed dependency on `@adeira/logger`
 
 # 3.1.1
 
