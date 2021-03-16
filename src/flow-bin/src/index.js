@@ -4,7 +4,6 @@ import chalk from 'chalk';
 import path from 'path';
 import isCI from 'is-ci';
 import { ShellCommand, findMonorepoRoot } from '@adeira/monorepo-utils';
-import logger from '@adeira/logger';
 
 export const root: string = (() => {
   try {
@@ -24,7 +23,8 @@ type FlowOptions = $ReadOnlyArray<string>;
 
 function command(flowOptions: FlowOptions, ...commandChunks): ShellCommand {
   const [flowBinCommand, ...rest] = commandChunks;
-  logger.log(
+  // eslint-disable-next-line no-console
+  console.log(
     chalk.green('flow'),
     chalk.bold.green(flowBinCommand),
     ...flowOptions.map((c) => chalk.bold.dim(hideRoot(c))),
