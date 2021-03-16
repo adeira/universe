@@ -12,7 +12,6 @@ const repo = new RepoGit(findMonorepoRoot());
 const patch = repo.getNativePatchFromID(revision);
 const header = repo.getNativeHeaderFromIDWithPatch(revision, patch);
 
-/* eslint-disable no-console */
 console.log('~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 console.log(header);
 console.log('~~~ PATCH ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');

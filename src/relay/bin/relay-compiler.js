@@ -9,14 +9,13 @@ require('@babel/register')({
   rootMode: 'upward-optional',
 });
 
-const Logger = require('@adeira/logger').default;
-
 const compiler = require('../src/compiler').default;
 const { relayCompilerOptions } = require('./commander/options');
 
 const options = relayCompilerOptions(process.argv);
 
 compiler(options).catch((error) => {
-  Logger.error(error);
+  // eslint-disable-next-line no-console
+  console.error(error);
   process.exit(1);
 });
