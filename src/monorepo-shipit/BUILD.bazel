@@ -12,7 +12,6 @@ test_yarn_workspace(
         "@npm//fast-levenshtein",
         "@universe//src/fixtures-tester",
         "@universe//src/js",
-        "@universe//src/logger",
         "@universe//src/monorepo-utils",
     ],
 )
