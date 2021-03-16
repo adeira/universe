@@ -2,7 +2,6 @@
 
 import path from 'path';
 import { findMonorepoRoot, globSync } from '@adeira/monorepo-utils';
-import logger from '@adeira/logger';
 
 import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';
@@ -51,8 +50,8 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
 
   if (throwedErrors.size > 0) {
     throwedErrors.forEach((error, repoURL) => {
-      logger.error(repoURL, error.name);
-      logger.error(error.stack);
+      console.error(repoURL, error.name);
+      console.error(error.stack);
     });
     process.exitCode = 1;
   } else {
