@@ -6,6 +6,7 @@ Basic design system written using [`@adeira/sx`](https://github.com/adeira/sx). 
 
 - exclusively using atomic CSS via [`@adeira/sx`](https://github.com/adeira/sx)
 - fully supported localization
+- dark mode out of the box
 - accessible components
 
 # Installation and Usage
@@ -27,6 +28,7 @@ export default function MyRootApp() {
       locale={
         'en-US' // affects translations as well as dates, monetary values and similar
       }
+      darkMode={true}
     >
       <ErrorBoundary>{/* … */}</ErrorBoundary>
     </SxDesignProvider>
@@ -38,20 +40,36 @@ The error boundary is optional but highly recommended.
 
 ## Styles customization
 
-SX Design uses [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) as a main way of style customization ([CSS Variables: Why Should You Care?](https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care)). They are all optional but you can change them as needed. Here are the default values:
+SX Design leverages full power of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) as a main way of style customization ([CSS Variables: Why Should You Care?](https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care)). You can optionally adjust the values if you want from your application. Here are some default values:
 
 ```css
-:root {
-  /* globals */
-  --sx-color-dark: #1c1e21;
-  --sx-color-light: #ffffff;
-
-  /* component specific */
-  --sx-kbd-border: 1px solid #b4b4b4;
+.common {
+  /* component specific vars: */
+  --sx-kbd-border: '1px solid #b4b4b4';
+  --sx-skipLink-background-color: '28, 30, 33';
+  --sx-skipLink-text-color: '255, 255, 255';
 }
 ```
 
-https://caniuse.com/css-variables
+Default values for light mode:
+
+```css
+.light-theme {
+  --sx-background-color: '255, 255, 255';
+  --sx-text-color: '28, 30, 33';
+}
+```
+
+And finally default values for dark mode:
+
+```css
+.dark-theme {
+  --sx-background-color: '51, 51, 51';
+  --sx-text-color: '255, 255, 255';
+}
+```
+
+[https://caniuse.com/css-variables](https://caniuse.com/css-variables)
 
 ## Available components
 
@@ -64,16 +82,16 @@ Legend:
 🧐  not evaluated/ready yet
 ```
 
-| Component           | Localized? | Accessible? | Has stories? | Tested? |
-| ------------------- | :--------: | :---------: | :----------: | :-----: |
-| `<ErrorBoundary />` |     ✅     |     🧐      |      🧐      |   ✅    |
-| `<Heading />`       |     ✅     |     🧐      |      🧐      |   ✅    |
-| `<Kbd />`           |     ✅     |     🧐      |      ✅      |   ✅    |
-| `<Money />`         |     ✅     |     🧐      |      🧐      |   ✅    |
-| `<ProductCard />`   |     🧐     |     🧐      |      ✅      |   🧐    |
-| `<Section />`       |     ✅     |     🧐      |      🧐      |   🧐    |
-| `<Skeleton />`      |     ✅     |     🧐      |      ✅      |   🧐    |
-| `<SkipLink />`      |     ✅     |     🧐      |      🧐      |   🧐    |
+| Component           | Localized? | Dark mode? | Accessible? | Has stories? | Tested? |
+| ------------------- | :--------: | :--------: | :---------: | :----------: | :-----: |
+| `<ErrorBoundary />` |     ✅     |     ✅     |     🧐      |      🧐      |   ✅    |
+| `<Heading />`       |     ✅     |     🧐     |     🧐      |      🧐      |   ✅    |
+| `<Kbd />`           |     ✅     |     ✅     |     🧐      |      ✅      |   ✅    |
+| `<Money />`         |     ✅     |     ✅     |     🧐      |      🧐      |   ✅    |
+| `<ProductCard />`   |     🧐     |     🧐     |     🧐      |      ✅      |   🧐    |
+| `<Section />`       |     ✅     |     🧐     |     🧐      |      🧐      |   🧐    |
+| `<Skeleton />`      |     ✅     |     🧐     |     🧐      |      ✅      |   🧐    |
+| `<SkipLink />`      |     ✅     |     🧐     |     🧐      |      🧐      |   🧐    |
 
 Note: stories should be somehow useful to mark them as being done.
 
@@ -84,3 +102,5 @@ To start storybook run:
 ```bash
 yarn workspace @adeira/sx-design storybook
 ```
+
+Please, make sure that any changes still follow the core values of this project and the matrix of available components was updated accordingly.

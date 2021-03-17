@@ -80,8 +80,8 @@ export default class ErrorBoundary extends React.Component<Props, State> {
 
 const styles = sx.create({
   error: {
-    color: 'var(--sx-color-dark, #1c1e21)',
-    background: 'var(--sx-color-light, white)',
+    color: 'rgb(var(--sx-text-color))',
+    background: 'rgb(var(--sx-background-color))',
     fontFamily:
       '-apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Fira Sans", Avenir, "Helvetica Neue", "Lucida Grande", sans-serif',
     height: '100vh',
@@ -100,7 +100,7 @@ const styles = sx.create({
   },
   h1: {
     display: 'inline-block',
-    borderRight: '1px solid rgba(0, 0, 0,.3)',
+    borderRight: '1px solid rgba(var(--sx-text-color), 0.3)',
     margin: 0,
     marginRight: 20,
     padding: '10px 23px 10px 0',
