@@ -7,6 +7,13 @@ import { SxDesignProvider } from '../index';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  // TODO: how to switch the background automatically based on `darkMode`?
+  // backgrounds: {
+  //   disable: true,
+  //   grid: {
+  //     disable: true,
+  //   },
+  // },
   viewport: {
     viewports: MINIMAL_VIEWPORTS,
     defaultViewport: 'tablet',
@@ -28,6 +35,7 @@ type StorybookGlobalTypes = {|
       |}>,
     |},
   |},
+  +theme: $FlowFixMe,
 |};
 
 export const globalTypes: StorybookGlobalTypes = {
@@ -43,15 +51,33 @@ export const globalTypes: StorybookGlobalTypes = {
       ],
     },
   },
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'eye',
+      items: ['light', 'dark'],
+    },
+  },
 };
 
 export const decorators = [
   (
     Story: $FlowFixMe,
-    { globals }: {| +globals: {| +locale: StorybookSupportedLocales |} |},
-  ): Node => (
-    <SxDesignProvider locale={globals.locale}>
-      <Story />
-    </SxDesignProvider>
-  ),
+    {
+      globals,
+    }: {|
+      +globals: {|
+        +locale: StorybookSupportedLocales,
+        +theme: 'light' | 'dark',
+      |},
+    |},
+  ): Node => {
+    return (
+      <SxDesignProvider locale={globals.locale} darkMode={globals.theme === 'dark'}>
+        <Story />
+      </SxDesignProvider>
+    );
+  },
 ];

@@ -3,7 +3,7 @@
 import { invariant } from '@adeira/js';
 import { useContext } from 'react';
 
-import { SxDesignContext, type SxDesignContextValue } from './SxDesignProvider';
+import SxDesignContext, { type SxDesignContextValue } from './SxDesignContext';
 
 export default function useSxDesignContext(): SxDesignContextValue {
   const context = useContext(SxDesignContext);
