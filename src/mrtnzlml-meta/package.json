@@ -11,8 +11,8 @@
     "lint": "yarn jest --config=.jest-eslint.config.js"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.71",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.71",
+    "@docusaurus/core": "^2.0.0-alpha.72",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.72",
     "classnames": "^2.2.6",
     "prettier": "^2.2.0",
     "react": "^17.0.1",
