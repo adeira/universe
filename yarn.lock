@@ -4804,10 +4804,10 @@ babel-plugin-fbt-runtime@^0.9.14:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
 
-babel-plugin-fbt@^0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.18.0.tgz#af9df7449efb1d3d55910e326ad49897b3c9e2ba"
-  integrity sha512-yduvamel3gJhXaRkfH4rrDI4lZQho9PKlaF08GWFyMRedNQk37el0qSwAT9E8OLDW62/rv4NqlzA+FBarl5rSw==
+babel-plugin-fbt@^0.19.1:
+  version "0.19.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.19.1.tgz#238699fc362136da9529a38f089b4f64933657c4"
+  integrity sha512-PC9vEgULpgYtyiqaFMcY4r4QHxGMsCbVcMxljkENkVVI2wAx1KJrmOFLwOHDeFpGYJytyubeEw6LZ8HYJTMSqg==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
@@ -4815,7 +4815,7 @@ babel-plugin-fbt@^0.18.0:
     "@babel/plugin-transform-flow-strip-types" "^7.2.0"
     "@babel/plugin-transform-modules-commonjs" "^7.8.3"
     "@babel/types" "^7.2.2"
-    fb-babel-plugin-utils "^0.11.0"
+    fb-babel-plugin-utils "^0.12.0"
     glob "^7.1.6"
     invariant "^2.2.4"
     jest-docblock "^26.0.0"
@@ -8350,10 +8350,10 @@ faye-websocket@^0.11.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fb-babel-plugin-utils@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/fb-babel-plugin-utils/-/fb-babel-plugin-utils-0.11.0.tgz#90e679e3bc257c9bdab9805325d2bfd27f626a9e"
-  integrity sha512-xJ9j9hlFjbbH0yrkVCZTHpmd9EN46+rxEwZLrg+TbF1DegwXnNFT5MF/U+iQgeMhQVGWmhkR1ez0AGOBwX/cKA==
+fb-babel-plugin-utils@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/fb-babel-plugin-utils/-/fb-babel-plugin-utils-0.12.0.tgz#db3c25442b1dd271429bacaf6d8b9322716fc730"
+  integrity sha512-IEjry2HTQjg16ePPN3aOE1o08HLqaB/vW1tPhrcbNfjHWhzhEleXn2e5VPWRjBFWu/x+fg3uY3F+xBZ485t87w==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
@@ -8414,10 +8414,10 @@ fbjs@^3.0.0:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
 
-fbt@^0.16.3:
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.3.tgz#1d2fbfc9ddd5b64c5e479942d790378835fea941"
-  integrity sha512-QhmEw1P8ZS+VTymMHlRF0Y8aQDPiWNZEU+bwKXuZwAo+/ywpvZYDySppwElo3IMupDRbs1oVQcxGRykjJ7lV9g==
+fbt@^0.16.4:
+  version "0.16.4"
+  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.4.tgz#001309c7a877e4768acd11539f2f1ce320eaf51d"
+  integrity sha512-HKI/Olg9HAaKGmv7MuYp9uBaA/ioxz12hdWRNy8QhmstePsRAdxmQMTmcmBJL9hJZHv5/6taSbyhLuFPg5ig+Q==
   dependencies:
     invariant "^2.2.4"
 
