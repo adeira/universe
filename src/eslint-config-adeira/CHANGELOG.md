@@ -1,6 +1,7 @@
 # Unreleased
 
 - Our custom rule `adeira/no-internal-flow-type` has been migrated to official `flowtype/no-internal-flow-type` (https://github.com/gajus/eslint-plugin-flowtype/pull/469). There should be no changes in behavior.
+- Rule `react/forbid-dom-props` has been temporarily disabled because it causes problems with [FBT](https://facebook.github.io/fbt/) tags, see: https://github.com/adeira/universe/issues/2005
 
 # 5.1.0
 
