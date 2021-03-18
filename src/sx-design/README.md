@@ -40,36 +40,34 @@ The error boundary is optional but highly recommended.
 
 ## Styles customization
 
-SX Design leverages full power of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) as a main way of style customization ([CSS Variables: Why Should You Care?](https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care)). You can optionally adjust the values if you want from your application. Here are some default values:
+SX Design leverages full power of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) as a main way of style customization. You can optionally adjust the values if you want from your application. Here are some component specific default values (not dependent on dark mode):
 
-```css
-.common {
-  /* component specific vars: */
-  --sx-kbd-border: '1px solid #b4b4b4';
-  --sx-skipLink-background-color: '28, 30, 33';
-  --sx-skipLink-text-color: '255, 255, 255';
-}
+<!-- TODO: generate automatically from the source code? -->
+
+```text
+--sx-kbd-border: '1px solid #b4b4b4'
+--sx-money-text-color: var(--sx-text-color) ¹
+--sx-skipLink-background-color: '28, 30, 33' ²
+--sx-skipLink-text-color: '255, 255, 255'
 ```
 
-Default values for light mode:
+Generic default values for light mode:
 
-```css
-.light-theme {
-  --sx-background-color: '255, 255, 255';
-  --sx-text-color: '28, 30, 33';
-}
+```text
+--sx-background-color: '255, 255, 255' ²
+--sx-text-color: '28, 30, 33'
 ```
 
-And finally default values for dark mode:
+And finally generic default values for dark mode:
 
-```css
-.dark-theme {
-  --sx-background-color: '51, 51, 51';
-  --sx-text-color: '255, 255, 255';
-}
+```text
+--sx-background-color: '51, 51, 51' ²
+--sx-text-color: '255, 255, 255'
 ```
 
-[https://caniuse.com/css-variables](https://caniuse.com/css-variables)
+¹ Some CSS variables fallback to default value of some other CSS variable. This allows you to overwrite very specific value if you want or just leave it to the common default.
+
+² All colors are written as triplets of values from 0 to 255 and passed to RGBA function likes so: `rgba(--var)`. This allows us to optionally specify an alpha channel when needed: `rgba(--var, 0.5)`.
 
 ## Available components
 
@@ -88,7 +86,7 @@ Legend:
 | `<Heading />`       |     ✅     |     🧐     |     🧐      |      🧐      |   ✅    |
 | `<Kbd />`           |     ✅     |     ✅     |     🧐      |      ✅      |   ✅    |
 | `<Money />`         |     ✅     |     ✅     |     🧐      |      🧐      |   ✅    |
-| `<ProductCard />`   |     🧐     |     🧐     |     🧐      |      ✅      |   🧐    |
+| `<ProductCard />`   |     ✅     |     ✅     |     🧐      |      ✅      |   🧐    |
 | `<Section />`       |     ✅     |     🧐     |     🧐      |      🧐      |   🧐    |
 | `<Skeleton />`      |     ✅     |     🧐     |     🧐      |      ✅      |   🧐    |
 | `<SkipLink />`      |     ✅     |     🧐     |     🧐      |      🧐      |   🧐    |
