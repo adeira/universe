@@ -18,8 +18,6 @@
     "@adeira/relay": "^3.2.0",
     "@adeira/sx": "^0.24.0",
     "@adeira/sx-design": "^0.7.0",
-    "babel-plugin-fbt": "^0.19.1",
-    "babel-plugin-fbt-runtime": "^0.9.16",
     "fbt": "^0.16.4",
     "formik": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
@@ -33,6 +31,9 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@testing-library/react-hooks": "^5.1.0"
+    "@fbtjs/default-collection-transform": "^0.0.1",
+    "@testing-library/react-hooks": "^5.1.0",
+    "babel-plugin-fbt": "^0.19.1",
+    "babel-plugin-fbt-runtime": "^0.9.16"
   }
 }
