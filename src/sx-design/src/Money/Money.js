@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react';
+import sx from '@adeira/sx';
 
 import type { SupportedCurrencies, SupportedLocales } from '../constants';
 import useSxDesignContext from '../useSxDesignContext';
@@ -10,10 +11,14 @@ export default function Money(props: {|
   +priceUnitAmountCurrency: SupportedCurrencies,
 |}): React.Node {
   const sxDesign = useSxDesignContext();
-  return MoneyFn({
-    ...props,
-    locale: sxDesign.locale,
-  });
+  return (
+    <span className={styles('text')}>
+      {MoneyFn({
+        ...props,
+        locale: sxDesign.locale,
+      })}
+    </span>
+  );
 }
 
 // This function does essentially the same like the React <Money /> component except it can be
@@ -29,3 +34,9 @@ export function MoneyFn(props: {|
     currency: props.priceUnitAmountCurrency,
   }).format(props.priceUnitAmount);
 }
+
+const styles = sx.create({
+  text: {
+    color: 'rgba(var(--sx-text-color))',
+  },
+});

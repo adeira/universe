@@ -1,6 +1,6 @@
 // @flow
 
-import { Money, MoneyFn } from '@adeira/sx-design';
+import { Money } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
@@ -46,18 +46,12 @@ export default function ProductsSelected(): React.Node {
         ))}
       </div>
       <div className={styles('stats')}>
-        {/* TODO: https://github.com/facebook/fbt/pull/137 */}
-        {fbt(
-          `${fbt.param('totalSelectedItems', stats.totalSelectedItems)} items for ${fbt.param(
-            'totalPrice',
-            MoneyFn({
-              locale: 'en-US', // TODO
-              priceUnitAmount: stats.totalPrice,
-              priceUnitAmountCurrency: 'MXN',
-            }),
-          )}`,
-          'summary of selected items in POS',
-        )}
+        <fbt desc="summary of selected items in POS">
+          <fbt:param name="totalSelectedItems">{stats.totalSelectedItems}</fbt:param> items for{' '}
+          <fbt:param name="totalPrice">
+            <Money priceUnitAmount={stats.totalPrice} priceUnitAmountCurrency="MXN" />
+          </fbt:param>
+        </fbt>
       </div>
       <div className={styles('checkout')}>
         <Link
