@@ -5,15 +5,21 @@ import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { SxDesignProvider } from '../index';
 
+const DARK_MODE_BACKGROUND = '#333';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
-  // TODO: how to switch the background automatically based on `darkMode`?
-  // backgrounds: {
-  //   disable: true,
-  //   grid: {
-  //     disable: true,
-  //   },
-  // },
+  backgrounds: {
+    disable: false,
+    default: 'twitter',
+    values: [
+      { name: 'light mode', value: '#fff' },
+      { name: 'dark mode', value: DARK_MODE_BACKGROUND },
+    ],
+    grid: {
+      disable: false,
+    },
+  },
   viewport: {
     viewports: MINIMAL_VIEWPORTS,
     defaultViewport: 'tablet',
@@ -35,7 +41,6 @@ type StorybookGlobalTypes = {|
       |}>,
     |},
   |},
-  +theme: $FlowFixMe,
 |};
 
 export const globalTypes: StorybookGlobalTypes = {
@@ -51,15 +56,6 @@ export const globalTypes: StorybookGlobalTypes = {
       ],
     },
   },
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'eye',
-      items: ['light', 'dark'],
-    },
-  },
 };
 
 export const decorators = [
@@ -71,11 +67,15 @@ export const decorators = [
       +globals: {|
         +locale: StorybookSupportedLocales,
         +theme: 'light' | 'dark',
+        +backgrounds?: {| +value: string |},
       |},
     |},
   ): Node => {
     return (
-      <SxDesignProvider locale={globals.locale} darkMode={globals.theme === 'dark'}>
+      <SxDesignProvider
+        locale={globals.locale}
+        darkMode={globals.backgrounds?.value === DARK_MODE_BACKGROUND}
+      >
         <Story />
       </SxDesignProvider>
     );
