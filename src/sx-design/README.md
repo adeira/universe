@@ -83,15 +83,15 @@ Legend:
 | Component           | Localized? | Dark mode? | Has stories? | Tested? |
 | ------------------- | :--------: | :--------: | :----------: | :-----: |
 | `<ErrorBoundary />` |     ✅     |     ✅     |      🧐      |   ✅    |
-| `<Heading />`       |     ✅     |     🧐     |      🧐      |   ✅    |
+| `<Heading />`       |     ✅     |     ✅     |      ✅      |   ✅    |
 | `<Kbd />`           |     ✅     |     ✅     |      ✅      |   ✅    |
 | `<Money />`         |     ✅     |     ✅     |      🧐      |   ✅    |
 | `<ProductCard />`   |     ✅     |     ✅     |      ✅      |   🧐    |
-| `<Section />`       |     ✅     |     🧐     |      🧐      |   🧐    |
+| `<Section />`       |     ✅     |     ✅     |      ✅      |   🧐    |
 | `<Skeleton />`      |     ✅     |     🧐     |      ✅      |   🧐    |
 | `<SkipLink />`      |     ✅     |     🧐     |      🧐      |   🧐    |
 
-Note: stories should be somehow useful to mark them as being done.
+_Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
 
 ## Development
 

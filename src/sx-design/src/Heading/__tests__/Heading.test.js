@@ -9,7 +9,7 @@ import Section from '../../Section/Section';
 
 it('renders top level by default', () => {
   const { container } = render(<Heading>level one</Heading>);
-  expect(container.innerHTML).toMatchInlineSnapshot(`"<h1>level one</h1>"`);
+  expect(container.innerHTML).toMatchInlineSnapshot(`"<h1 class=\\"_4anm7e\\">level one</h1>"`);
 });
 
 it('renders H1 tags in parallel', () => {
@@ -19,7 +19,9 @@ it('renders H1 tags in parallel', () => {
       <Heading>level one</Heading>
     </>,
   );
-  expect(container.innerHTML).toMatchInlineSnapshot(`"<h1>level one</h1><h1>level one</h1>"`);
+  expect(container.innerHTML).toMatchInlineSnapshot(
+    `"<h1 class=\\"_4anm7e\\">level one</h1><h1 class=\\"_4anm7e\\">level one</h1>"`,
+  );
 });
 
 // <Heading>

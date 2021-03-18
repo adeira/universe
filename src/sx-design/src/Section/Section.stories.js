@@ -3,6 +3,7 @@
  * @flow
  */
 
+import sx from '@adeira/sx';
 import React from 'react';
 
 import Section from './Section';
@@ -22,9 +23,9 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = () => (
-  <Section>
-    Not much to see here (check the docs{' '}
+const Template = (args) => (
+  <Section {...args}>
+    Not much to see here (check the <strong>Docs</strong>{' '}
     <span role="img" aria-label="index finger pointing up">
       ☝️
     </span>
@@ -32,6 +33,20 @@ const Template = () => (
   </Section>
 );
 
+/* eslint-disable sx/no-unused-stylesheet */
+const styles = sx.create({
+  default: {
+    color: 'blue',
+  },
+});
+/* eslint-enable sx/no-unused-stylesheet */
+
 // 👇 Each story then reuses that template
 export const BasicSection: $FlowFixMe = Template.bind({});
 BasicSection.storyName = 'Basic';
+
+export const CustomSection: $FlowFixMe = Template.bind({});
+CustomSection.storyName = 'Custom style';
+CustomSection.args = {
+  xstyle: styles.default,
+};
