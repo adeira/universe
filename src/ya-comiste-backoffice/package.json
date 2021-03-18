@@ -19,7 +19,7 @@
     "@adeira/sx": "^0.24.0",
     "@adeira/sx-design": "^0.7.0",
     "babel-plugin-fbt": "^0.19.1",
-    "babel-plugin-fbt-runtime": "^0.9.14",
+    "babel-plugin-fbt-runtime": "^0.9.16",
     "fbt": "^0.16.4",
     "formik": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
