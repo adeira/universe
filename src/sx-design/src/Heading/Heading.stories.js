@@ -63,7 +63,7 @@ const Template = (args) => (
 /* eslint-disable sx/no-unused-stylesheet */
 const styles = sx.create({
   default: {
-    color: 'darkred',
+    color: 'blue',
   },
 });
 /* eslint-enable sx/no-unused-stylesheet */
@@ -71,6 +71,9 @@ const styles = sx.create({
 // 👇 Each story then reuses that template
 export const BasicHeading: $FlowFixMe = Template.bind({});
 BasicHeading.storyName = 'Basic';
-BasicHeading.args = {
+
+export const CustomHeading: $FlowFixMe = Template.bind({});
+CustomHeading.storyName = 'Custom style';
+CustomHeading.args = {
   xstyle: styles.default,
 };
