@@ -1,6 +1,8 @@
 // @flow
 
 import * as React from 'react';
+/* $FlowFixMe[missing-export] This comment suppresses an error when migrating
+ * to adeira/universe. To see the error delete this comment and run Flow. */
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import sx from '@adeira/sx';
 

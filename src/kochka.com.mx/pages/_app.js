@@ -31,6 +31,8 @@ type Props = {|
 
 function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
+  /* $FlowFixMe[prop-missing] This comment suppresses an error when migrating
+   * to adeira/universe. To see the error delete this comment and run Flow. */
   const languageTag = initTranslations(router.locale);
 
   const isProduction = __DEV__ === false;

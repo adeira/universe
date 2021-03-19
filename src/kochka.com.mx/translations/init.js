@@ -30,7 +30,6 @@ export default function initTranslations(lang: ?string): LanguageTagType {
 
   fbtInit({
     translations,
-    fbtEnumManifest: require('../translations/enum_manifest.json'),
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
