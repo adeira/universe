@@ -80,16 +80,16 @@ Legend:
 🧐  not evaluated/ready yet
 ```
 
-| Component           | Localized? | Dark mode? | Accessible? | Has stories? | Tested? |
-| ------------------- | :--------: | :--------: | :---------: | :----------: | :-----: |
-| `<ErrorBoundary />` |     ✅     |     ✅     |     🧐      |      🧐      |   ✅    |
-| `<Heading />`       |     ✅     |     🧐     |     🧐      |      🧐      |   ✅    |
-| `<Kbd />`           |     ✅     |     ✅     |     🧐      |      ✅      |   ✅    |
-| `<Money />`         |     ✅     |     ✅     |     🧐      |      🧐      |   ✅    |
-| `<ProductCard />`   |     ✅     |     ✅     |     🧐      |      ✅      |   🧐    |
-| `<Section />`       |     ✅     |     🧐     |     🧐      |      🧐      |   🧐    |
-| `<Skeleton />`      |     ✅     |     🧐     |     🧐      |      ✅      |   🧐    |
-| `<SkipLink />`      |     ✅     |     🧐     |     🧐      |      🧐      |   🧐    |
+| Component           | Localized? | Dark mode? | Has stories? | Tested? |
+| ------------------- | :--------: | :--------: | :----------: | :-----: |
+| `<ErrorBoundary />` |     ✅     |     ✅     |      🧐      |   ✅    |
+| `<Heading />`       |     ✅     |     🧐     |      🧐      |   ✅    |
+| `<Kbd />`           |     ✅     |     ✅     |      ✅      |   ✅    |
+| `<Money />`         |     ✅     |     ✅     |      🧐      |   ✅    |
+| `<ProductCard />`   |     ✅     |     ✅     |      ✅      |   🧐    |
+| `<Section />`       |     ✅     |     🧐     |      🧐      |   🧐    |
+| `<Skeleton />`      |     ✅     |     🧐     |      ✅      |   🧐    |
+| `<SkipLink />`      |     ✅     |     🧐     |      🧐      |   🧐    |
 
 Note: stories should be somehow useful to mark them as being done.
 
