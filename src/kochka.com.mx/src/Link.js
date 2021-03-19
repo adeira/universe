@@ -25,6 +25,9 @@ export default function Link(props: Props): React.Node {
   const isActive = router.pathname === props.href;
 
   return (
+    /* $FlowFixMe[prop-missing] This comment suppresses an error when migrating
+     * to adeira/universe. To see the error delete this comment and run Flow.
+     */
     <NextLink href={props.href} locale={router.locale}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a className={sx(styles.default, isActive ? null : styles.inactive, props.xstyle)}>

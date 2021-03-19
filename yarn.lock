@@ -280,6 +280,14 @@
   resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.3.1.tgz#1df2ea9bb7b6a1a4e7ae9aa837f2af1a402ee3cf"
   integrity sha512-p3tZxhtUWELqok1VLAYjGlMaBl30K6U+PVYXuV/8xD+Y+wgTxMMIrrKU61zKaRh3Py7xj9if9rpsOESVGJD4Wg==
 
+"@axe-core/react@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.1.1.tgz#0737cf723ab8d93b508540d0392c62b6945d1e39"
+  integrity sha512-XwhMezqRw5/pEXMW4P19RCA/jx4ZBD4ZLdOoU6i9GWX1i0UlWF2apUZiiE6IrbIx9U4NppsiWij8O1Wu6TU5wQ==
+  dependencies:
+    axe-core "^4.1.1"
+    requestidlecallback "^0.3.0"
+
 "@babel/cli@^7.13.10":
   version "7.13.10"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.13.10.tgz#3a9254cbe806639c8ca4ebd49ebe54b4267b88c9"
@@ -4665,6 +4673,11 @@ axe-core@^4.0.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.0.2.tgz#c7cf7378378a51fcd272d3c09668002a4990b1cb"
   integrity sha512-arU1h31OGFu+LPrOLGZ7nB45v940NMDMEJeNmbutu57P+UFDVnkZg3e+J1I2HJRZ9hT7gO8J91dn/PMrAiKakA==
 
+axe-core@^4.1.1:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.1.3.tgz#64a4c85509e0991f5168340edc4bedd1ceea6966"
+  integrity sha512-vwPpH4Aj4122EW38mxO/fxhGKtwWTMLDIJfZ1He0Edbtjcfna/R3YB67yVhezUMzqc3Jr3+Ii50KRntlENL4xQ==
+
 axios@^0.21.1:
   version "0.21.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
@@ -4813,13 +4826,32 @@ babel-plugin-extract-import-names@1.6.22:
   dependencies:
     "@babel/helper-plugin-utils" "7.10.4"
 
-babel-plugin-fbt-runtime@^0.9.16:
+babel-plugin-fbt-runtime@^0.9.13, babel-plugin-fbt-runtime@^0.9.16:
   version "0.9.16"
   resolved "https://registry.yarnpkg.com/babel-plugin-fbt-runtime/-/babel-plugin-fbt-runtime-0.9.16.tgz#ed617a35078919ede2a8ab8ae90bbd73fb9895c0"
   integrity sha512-BLf2QWIMTgHrct5ZPsFQb6J27HTOrT+E1JKpdpC75k8W5nwXQV0GpsNsBv17+d37N8o73jHl2f6Fk63m0nEQsw==
   dependencies:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
+
+babel-plugin-fbt@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.16.0.tgz#be7143a59fa0d9fb27d9d15e859ce0c6e1cd31a3"
+  integrity sha512-A38Gy+OuPh6g3wXKeR1rSqLUbLzRnF9CkrQN8482xNjlMAbt1M76zePx7j+6H9QYSuyUqMC4HDHmOSaAHHi5oA==
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@babel/generator" "^7.0.0"
+    "@babel/plugin-syntax-object-rest-spread" "^7.2.0"
+    "@babel/plugin-transform-flow-strip-types" "^7.2.0"
+    "@babel/plugin-transform-modules-commonjs" "^7.8.3"
+    "@babel/types" "^7.2.2"
+    fb-babel-plugin-utils "^0.11.0"
+    glob "^7.1.6"
+    invariant "^2.2.4"
+    jest-docblock "^26.0.0"
+    nullthrows "^1.1.1"
+    shelljs "^0.8.4"
+    yargs "^15.3.1"
 
 babel-plugin-fbt@^0.19.1:
   version "0.19.1"
@@ -8367,6 +8399,24 @@ faye-websocket@^0.11.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
+fb-babel-plugin-utils@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/fb-babel-plugin-utils/-/fb-babel-plugin-utils-0.11.0.tgz#90e679e3bc257c9bdab9805325d2bfd27f626a9e"
+  integrity sha512-xJ9j9hlFjbbH0yrkVCZTHpmd9EN46+rxEwZLrg+TbF1DegwXnNFT5MF/U+iQgeMhQVGWmhkR1ez0AGOBwX/cKA==
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@babel/generator" "^7.0.0"
+    "@babel/parser" "^7.7.4"
+    "@babel/plugin-syntax-class-properties" "^7.0.0"
+    "@babel/plugin-syntax-flow" "^7.7.4"
+    "@babel/plugin-syntax-jsx" "^7.0.0"
+    "@babel/plugin-syntax-nullish-coalescing-operator" "^7.0.0"
+    "@babel/plugin-syntax-numeric-separator" "^7.2.0"
+    "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
+    "@babel/plugin-syntax-optional-catch-binding" "^7.0.0"
+    "@babel/plugin-syntax-optional-chaining" "^7.0.0"
+    json-diff "^0.5.4"
+
 fb-babel-plugin-utils@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/fb-babel-plugin-utils/-/fb-babel-plugin-utils-0.12.0.tgz#db3c25442b1dd271429bacaf6d8b9322716fc730"
@@ -8431,7 +8481,7 @@ fbjs@^3.0.0:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
 
-fbt@^0.16.4:
+fbt@^0.16.1, fbt@^0.16.4:
   version "0.16.4"
   resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.4.tgz#001309c7a877e4768acd11539f2f1ce320eaf51d"
   integrity sha512-HKI/Olg9HAaKGmv7MuYp9uBaA/ioxz12hdWRNy8QhmstePsRAdxmQMTmcmBJL9hJZHv5/6taSbyhLuFPg5ig+Q==
@@ -8791,6 +8841,11 @@ fsevents@~2.3.1:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
   integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+
+full-icu@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/full-icu/-/full-icu-1.3.1.tgz#e67fdf58523f1d1e0d9143b1542fe2024c1c8997"
+  integrity sha512-VMtK//85QJomhk3cXOCksNwOYaw1KWnYTS37GYGgyf7A3ajdBoPGhaJuJWAH2S2kq8GZeXkdKn+3Mfmgy11cVw==
 
 function-bind@^1.1.1:
   version "1.1.1"
@@ -15259,6 +15314,11 @@ request@^2.74.0, request@^2.88.2:
     tough-cookie "~2.5.0"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
+
+requestidlecallback@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/requestidlecallback/-/requestidlecallback-0.3.0.tgz#6fb74e0733f90df3faa4838f9f6a2a5f9b742ac5"
+  integrity sha1-b7dOBzP5DfP6pIOPn2oqX5t0KsU=
 
 require-directory@^2.1.1:
   version "2.1.1"
