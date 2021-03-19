@@ -133,12 +133,16 @@ const styles = sx.create({
     padding: '1rem',
   },
   highlight: {
-    color: 'rgba(var(--sx-text-color))',
-    backgroundColor: 'rgba(var(--sx-background-color))',
+    'color': 'rgba(var(--sx-text-color))',
+    'backgroundColor': 'rgba(var(--sx-background-color))',
+    // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
+    '--sx-money-text-color': 'var(--sx-text-color)',
   },
   highlightHover: {
-    color: 'rgba(var(--sx-background-color))',
-    backgroundColor: 'rgba(var(--sx-text-color))',
+    'color': 'rgba(var(--sx-background-color))',
+    'backgroundColor': 'rgba(var(--sx-text-color))',
+    // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
+    '--sx-money-text-color': 'var(--sx-background-color)',
   },
   heading: {
     margin: 0,

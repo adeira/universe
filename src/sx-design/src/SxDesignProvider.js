@@ -5,6 +5,7 @@ import { init as fbtInit, IntlVariations } from 'fbt';
 import sx from '@adeira/sx';
 
 import SxDesignContext from './SxDesignContext';
+import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
 import type { SupportedLocales } from './constants';
 
 type Props = {|
@@ -54,46 +55,13 @@ export default function SxDesignProvider(props: Props): Node {
   );
 }
 
-/**
- * Check and update README.md as well (TODO: make it automatic or remove from readme)
- *
- * Note: all colors are written using RGB triplet. Why? It's because it allows us to optionally
- * apply alpha channel when needed (https://stackoverflow.com/a/41265350). Usage:
- *
- * ```js
- * { color: 'rgb(var(--sx-text-color))' }
- * ```
- *
- * With optional alpha channel:
- *
- * ```js
- * { color: 'rgb(var(--sx-text-color), 0.5)' }
- * ```
- *
- * TODO: fix $FlowFixMe[incompatible-call] - CSS variables are tricky to typecheck in SX
- */
+/* eslint-disable sx/valid-usage */
 const styles = sx.create({
-  common: {
-    // component specific vars:
-    // $FlowFixMe[incompatible-call]
-    '--sx-kbd-border': '1px solid #b4b4b4',
-    // $FlowFixMe[incompatible-call]
-    '--sx-skipLink-background-color': '28, 30, 33', // #1c1e21
-    // $FlowFixMe[incompatible-call]
-    '--sx-skipLink-text-color': '255, 255, 255', // #ffffff
-  },
-  lightTheme: {
-    // global vars:
-    // $FlowFixMe[incompatible-call]
-    '--sx-background-color': '255, 255, 255', // #ffffff
-    // $FlowFixMe[incompatible-call]
-    '--sx-text-color': '28, 30, 33', // #1c1e21
-  },
-  darkTheme: {
-    // global vars:
-    // $FlowFixMe[incompatible-call]
-    '--sx-background-color': '51, 51, 51', // #333333
-    // $FlowFixMe[incompatible-call]
-    '--sx-text-color': '255, 255, 255', // #ffffff
-  },
+  // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
+  common: SxDesignProviderCSSVariables.common,
+  // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
+  lightTheme: SxDesignProviderCSSVariables.lightTheme,
+  // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
+  darkTheme: SxDesignProviderCSSVariables.darkTheme,
 });
+/* eslint-enable sx/valid-usage */
