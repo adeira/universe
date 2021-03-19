@@ -2,6 +2,7 @@
 
 - Our custom rule `adeira/no-internal-flow-type` has been migrated to official `flowtype/no-internal-flow-type` (https://github.com/gajus/eslint-plugin-flowtype/pull/469). There should be no changes in behavior.
 - Rule `react/forbid-dom-props` has been temporarily disabled because it causes problems with [FBT](https://facebook.github.io/fbt/) tags, see: https://github.com/adeira/universe/issues/2005
+- New accessibility rules enabled: [`jsx-a11y/anchor-has-content`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md), [`jsx-a11y/heading-has-content`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md) and [`jsx-a11y/no-noninteractive-tabindex`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-tabindex.md) (warnings or errors in strict mode)
 
 # 5.1.0
 
