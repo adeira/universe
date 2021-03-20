@@ -24,8 +24,14 @@ export default function Heading(props: Props): React.Node {
     <HeadingLevel.Consumer>
       {(level) => {
         const Heading = `h${Math.min(level, 6)}`;
-        return <Heading className={sx(props.xstyle)}>{props.children}</Heading>;
+        return <Heading className={sx(styles.heading, props.xstyle)}>{props.children}</Heading>;
       }}
     </HeadingLevel.Consumer>
   );
 }
+
+const styles = sx.create({
+  heading: {
+    color: 'rgba(var(--sx-text-color))',
+  },
+});
