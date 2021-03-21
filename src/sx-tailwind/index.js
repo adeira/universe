@@ -1,6 +1,6 @@
 // @flow
 
-import { tailwind, suggestUtility } from './src/sxTailwind';
+import { suggestUtility } from './src/sxTailwind';
 import tailwindToSx, { generateTailwind } from './src/tailwindToSx';
 
-export { tailwind, suggestUtility, tailwindToSx, generateTailwind };
+export { suggestUtility, tailwindToSx, generateTailwind };

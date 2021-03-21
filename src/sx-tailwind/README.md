@@ -29,11 +29,3 @@ Register the plugin in your Babel config (e.g. `.babelrc`):
   "plugins": ["@adeira/babel-plugin-transform-sx-tailwind"]
 }
 ```
-
-## Develop
-
-Generate stylesheets and types:
-
-```
-yarn generate
-```
