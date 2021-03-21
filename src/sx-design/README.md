@@ -69,6 +69,15 @@ And finally generic default values for dark mode:
 
 ² All colors are written as triplets of values from 0 to 255 and passed to RGBA function likes so: `rgba(--var)`. This allows us to optionally specify an alpha channel when needed: `rgba(--var, 0.5)`.
 
+You can access the dark mode even programmatically via `useSxDesignContext` hook:
+
+```js
+export default function MyComponent() {
+  const { darkMode } = useSxDesignContext();
+  // …
+}
+```
+
 ## Available components
 
 **🚧 WORK in PROGRESS 🚧**
