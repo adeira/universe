@@ -34,7 +34,7 @@ sx.create({
     zIndex: 'auto',
   },
   InvalidPropertyValue: {
-    // $FlowExpectedError[incompatible-call]
+    // $FlowExpectedError[incompatible-call]: should be "absolute"
     position: 'absolutely',
   },
   InvalidPropertyType: {
@@ -49,18 +49,20 @@ sx.create({
       },
     },
   },
-  UnknownProperty: {
-    // $FlowExpectedError[incompatible-call]
-    unknownProperty: 'red',
+  InvalidPropertyInsideMedia: {
+    // $FlowExpectedError[incompatible-call]: color should be a string
+    '@media print': {
+      color: -1,
+    },
   },
   UnknownPropertyInsideMedia: {
+    // $FlowExpectedError[incompatible-call]
     '@media print': {
-      // $FlowExpectedError[incompatible-call]
       unknownProperty: 'red',
     },
   },
 
-  // TODO: we currently cannot type check these (falls into `@media` group, at-rules):
+  // TODO: we currently cannot type check these (falls into `@media` group, at-rules, CSS variables):
   InvalidKeyframesKey: {
     '@keyframes identifier': {
       color: 'red', // should be from/to/%
@@ -91,5 +93,9 @@ sx.create({
         color: 'lime',
       },
     },
+  },
+  UnknownProperty: {
+    // unknown CSS property
+    unknownProperty: 'red',
   },
 });
