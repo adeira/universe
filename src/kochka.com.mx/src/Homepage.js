@@ -64,6 +64,6 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
-    backgroundColor: 'var(--main-bg-color-transparent)',
+    backgroundColor: 'rgba(var(--main-bg-color), 0.9)',
   },
 });

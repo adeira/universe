@@ -51,7 +51,7 @@ const styles = sx.create({
     margin: 0,
   },
   main: {
-    color: 'var(--font-color-dark)',
+    color: 'rgba(var(--font-color-dark))',
     maxWidth: '45rem',
     margin: '0 auto',
     minHeight: '40vh',
@@ -64,22 +64,23 @@ const styles = sx.create({
     paddingRight: 0,
   },
   heading: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    paddingTop: '2rem',
-    paddingBottom: '2rem',
-    backgroundColor: 'var(--secondary-color)',
-    color: 'var(--font-color-light)',
-    backgroundImage: 'url(/plus-pattern.svg)',
-    backgroundPosition: '15px 15px',
-    backgroundSize: '20px',
+    'display': 'flex',
+    'flexDirection': 'column',
+    'alignItems': 'center',
+    'paddingTop': '2rem',
+    'paddingBottom': '2rem',
+    'backgroundColor': 'rgba(var(--secondary-color))',
+    'backgroundImage': 'url(/plus-pattern.svg)',
+    'backgroundPosition': '15px 15px',
+    'backgroundSize': '20px',
+    // $FlowFixMe[incompatible-call]: CSS variables are currently difficult to typecheck in SX
+    '--sx-text-color': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   subtitle: {
     color: 'lightgray',
   },
   footer: {
-    color: 'var(--font-color-dark)',
+    color: 'rgba(var(--font-color-dark))',
     paddingLeft: '1rem',
     paddingRight: '1rem',
   },
