@@ -4,13 +4,10 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx-tailwind",
   "license": "MIT",
   "private": false,
-  "version": "0.11.0",
+  "version": "0.12.0",
   "main": "index",
   "sideEffects": false,
   "module": false,
-  "scripts": {
-    "generate": "yarn monorepo-babel-node src/generate.js"
-  },
   "dependencies": {
     "@adeira/js": "^2.1.0",
     "@adeira/signed-source": "^2.0.0",
@@ -19,7 +16,6 @@
     "change-case": "^4.1.2",
     "fast-levenshtein": "^3.0.0",
     "postcss": "^8.2.8",
-    "prettier": "^2.2.1",
     "tailwindcss": "^2.0.4"
   },
   "peerDependencies": {
