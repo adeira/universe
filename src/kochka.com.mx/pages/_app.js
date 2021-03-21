@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   }
 
   return (
-    <SxDesignProvider locale={languageTag.bcp47}>
+    <SxDesignProvider locale={languageTag.bcp47} darkMode={false}>
       <ViewerContextProvider languageTag={languageTag}>
         <div className={styles('root')}>
           <Head>
@@ -87,7 +87,7 @@ function MyApp({ Component, pageProps }: Props): React.Node {
 
 const styles = sx.create({
   root: {
-    color: 'var(--font-color-light)',
+    color: 'rgba(var(--font-color-light))',
   },
   rootSoon: {
     backgroundImage: 'url(/coffee-background.jpg)',
@@ -100,7 +100,7 @@ const styles = sx.create({
     alignItems: 'center',
     minHeight: '100vh',
     padding: 50,
-    backgroundColor: 'var(--main-bg-color-transparent)',
+    backgroundColor: 'rgba(var(--main-bg-color), 0.9)',
   },
   form: {
     display: 'flex',

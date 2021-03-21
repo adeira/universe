@@ -57,7 +57,7 @@ export default function LayoutNavigation(): React.Node {
 
 const styles = sx.create({
   navigation: {
-    backgroundColor: 'var(--main-bg-color-dark)',
+    backgroundColor: 'rgba(var(--main-bg-color-dark))',
     padding: '1.5rem',
     display: 'flex',
     justifyContent: 'space-between',

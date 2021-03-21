@@ -42,7 +42,9 @@ const styles = sx.create({
     flexDirection: 'row',
   },
   heading: {
-    fontFamily: 'GidoleKochka',
+    'fontFamily': 'GidoleKochka',
+    // $FlowFixMe[incompatible-call]: CSS variables are currently difficult to typecheck in SX
+    '--sx-text-color': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   headingHorizontal: {
     marginLeft: 20,

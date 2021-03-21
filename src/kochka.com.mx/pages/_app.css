@@ -2,15 +2,12 @@
   box-sizing: border-box;
 }
 
-:root,
-.__kk-light-mode {
-  --main-bg-color: rgba(108, 22, 16);
-  --main-bg-color-dark: #480500;
-  --main-bg-color-transparent: rgba(108, 22, 16, 0.9);
-  --main-bg-colorHover: rgb(128, 22, 16);
-  --secondary-color: #88413b;
-  --font-color-light: #ffffff;
-  --font-color-dark: #1c1e21;
+:root {
+  --main-bg-color: 108, 22, 16;
+  --main-bg-color-dark: 72, 5, 0;
+  --secondary-color: 136, 65, 59;
+  --font-color-light: 255, 255, 255;
+  --font-color-dark: 28, 30, 33;
 }
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */
