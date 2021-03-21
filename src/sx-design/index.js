@@ -1,7 +1,9 @@
 // @flow
 
 export { default as SxDesignProvider } from './src/SxDesignProvider';
+export { default as useSxDesignContext } from './src/useSxDesignContext';
 
+// public SX Design components:
 export { default as Emoji } from './src/Emoji/Emoji';
 export { default as ErrorBoundary } from './src/ErrorBoundary/ErrorBoundary';
 export { default as Heading } from './src/Heading/Heading';
