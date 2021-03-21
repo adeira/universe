@@ -88,7 +88,7 @@ Legend:
 | `<Money />`         |     ✅     |     ✅     |      🧐      |   ✅    |
 | `<ProductCard />`   |     ✅     |     ✅     |      ✅      |   🧐    |
 | `<Section />`       |     ✅     |     ✅     |      ✅      |   🧐    |
-| `<Skeleton />`      |     ✅     |     🧐     |      ✅      |   🧐    |
+| `<Skeleton />`      |     ✅     |     ✅     |      ✅      |   🧐    |
 | `<SkipLink />`      |     ✅     |     🧐     |      🧐      |   🧐    |
 
 _Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
