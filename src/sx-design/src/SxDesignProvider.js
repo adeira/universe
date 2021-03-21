@@ -57,11 +57,8 @@ export default function SxDesignProvider(props: Props): Node {
 
 /* eslint-disable sx/valid-usage */
 const styles = sx.create({
-  // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
   common: SxDesignProviderCSSVariables.common,
-  // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
   lightTheme: SxDesignProviderCSSVariables.lightTheme,
-  // $FlowFixMe[incompatible-call] CSS variables are tricky to typecheck in SX
   darkTheme: SxDesignProviderCSSVariables.darkTheme,
 });
 /* eslint-enable sx/valid-usage */
