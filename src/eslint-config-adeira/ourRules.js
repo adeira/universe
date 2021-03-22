@@ -386,7 +386,7 @@ module.exports = ({
   'react/jsx-no-constructed-context-values': NEXT_VERSION_ERROR,
   'react/jsx-no-duplicate-props': ERROR,
   'react/jsx-no-literals': OFF,
-  'react/jsx-no-target-blank': OFF,
+  'react/jsx-no-target-blank': NEXT_VERSION_ERROR,
   'react/jsx-no-undef': ERROR,
   'react/jsx-no-useless-fragment': ERROR,
   'react/jsx-pascal-case': ERROR,
