@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
+import { Emoji } from '@adeira/sx-design';
 import fbt from 'fbt';
-
-import Emoji from './Emoji';
 
 export default function Rules(): React.Node {
   return (
@@ -13,7 +12,10 @@ export default function Rules(): React.Node {
         <fbt desc="Rule number 1">
           Be careful when entering the café so that the cats do not run away.{' '}
           <fbt:param name="pleading face emoji">
-            <Emoji symbol="🥺" label="pleading face" />
+            <Emoji
+              symbol="🥺"
+              label={<fbt desc="pleading face emoji description">pleading face</fbt>}
+            />
           </fbt:param>
         </fbt>
       </li>
@@ -32,7 +34,7 @@ export default function Rules(): React.Node {
         <fbt desc="Rule number 4">
           We encourage you to take pictures.{' '}
           <fbt:param name="thumbs up emoji">
-            <Emoji symbol="👍" label="thumbs up" />
+            <Emoji symbol="👍" label={<fbt desc="thumbs up emoji description">thumbs up</fbt>} />
           </fbt:param>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
           <fbt:param name="instagram account">
