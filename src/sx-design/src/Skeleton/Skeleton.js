@@ -25,11 +25,7 @@ const loading = sx.keyframes({
   to: { backgroundPosition: '-200% 0' },
 });
 
-// FIXME:
-// eslint-disable-next-line sx/no-unused-stylesheet
 const styles = sx.create({
-  // FIXME:
-  // eslint-disable-next-line sx/no-unused-stylesheet
   skeleton: {
     height: 250,
     backgroundSize: '400% 100%',
@@ -38,13 +34,9 @@ const styles = sx.create({
     animationTimingFunction: 'ease-in-out',
     animationIterationCount: 'infinite',
   },
-  // FIXME:
-  // eslint-disable-next-line sx/no-unused-stylesheet
   backgroundDark: {
     backgroundImage: 'linear-gradient(to left, #888, #555, #888)',
   },
-  // FIXME:
-  // eslint-disable-next-line sx/no-unused-stylesheet
   backgroundLight: {
     backgroundImage: 'linear-gradient(to left, #f8f8f8, #e2e2e2, #f8f8f8)',
   },

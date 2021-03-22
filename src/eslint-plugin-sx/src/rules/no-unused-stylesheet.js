@@ -53,11 +53,17 @@ module.exports = ({
           if (firstArgument?.type === 'ObjectExpression') {
             const firstArgumentProperties = firstArgument.properties ?? [];
             for (const property of firstArgumentProperties) {
-              const alreadyCaptured = definedStylesheetNames.get(node.id.name) ?? [];
-              const propertyName =
-                property.key.type === 'Literal' ? property.key.value : property.key.name;
-              definedStylesheetNames.set(node.id.name, [...alreadyCaptured, propertyName]);
-              definedStylesheetNameNodes.set(propertyName, property);
+              if (property.type === 'Property') {
+                const alreadyCaptured = definedStylesheetNames.get(node.id.name) ?? [];
+                let propertyName;
+                if (property.key.type === 'Literal') {
+                  propertyName = property.key.value;
+                } else if (property.key.type === 'Identifier') {
+                  propertyName = property.key.name;
+                }
+                definedStylesheetNames.set(node.id.name, [...alreadyCaptured, propertyName]);
+                definedStylesheetNameNodes.set(propertyName, property);
+              }
             }
             definedStylesheetNodes.set(node.id.name, node);
           }
@@ -69,14 +75,25 @@ module.exports = ({
       'CallExpression'(node) {
         const expressionArguments = node.arguments ?? [];
         for (const argument of expressionArguments) {
-          if (['ObjectExpression', 'CallExpression'].includes(argument.type)) {
-            // some unsupported but acknowledged call expression so we just skip it but continue
-            // analyzing what we support (or halt when we reach something unknown)
+          if (['CallExpression'].includes(argument.type)) {
+            // these are argument which we simply want to acknowledge and skip (but continue analyzing)
             return;
+          } else if (argument.type === 'ObjectExpression') {
+            // special case for conditional objects
+            for (const property of argument.properties) {
+              if (property.type === 'Property' && property.value.type === 'ObjectExpression') {
+                // we assume this is a SX.create definition so we skip it
+                return;
+              }
+            }
           } else if (
-            !['Literal', 'TemplateLiteral', 'LogicalExpression', 'ConditionalExpression'].includes(
-              argument.type,
-            )
+            ![
+              // Supported argument types:
+              'ConditionalExpression',
+              'Literal',
+              'LogicalExpression',
+              'TemplateLiteral',
+            ].includes(argument.type)
           ) {
             // backout early if we cannot recognize (or do not support) the 'CallExpression' pattern
             unableToAnalyzeUsedStylesheets = true;
@@ -88,7 +105,24 @@ module.exports = ({
         for (const argument of expressionArguments) {
           // TODO: more cases (deeper analysis)
           let value;
-          if (argument.type === 'Literal') {
+          if (argument.type === 'ObjectExpression') {
+            for (const property of argument.properties) {
+              if (property.type === 'Property') {
+                let propKey;
+                if (property.key.type === 'Identifier') {
+                  propKey = property.key.name;
+                } else if (property.key.type === 'Literal') {
+                  propKey = property.key.value;
+                } else if (property.key.type === 'TemplateLiteral') {
+                  // simple cases only:
+                  propKey = property.key.quasis[0].value.raw;
+                }
+                usedNames.add(propKey);
+                usedStylesheetNodes.set(propKey, argument);
+              }
+            }
+            continue;
+          } else if (argument.type === 'Literal') {
             // styles('aaa')
             value = argument.value;
           } else if (argument.type === 'TemplateLiteral') {
@@ -105,14 +139,20 @@ module.exports = ({
               typeof argument.consequent.value === 'string' // can be also `null`, `false`, …
             ) {
               // styles(isAAA ? 'aaa' : null)
-              value = argument.consequent.value;
-            } else if (
+              const consequentValue = argument.consequent.value;
+              usedNames.add(consequentValue);
+              usedStylesheetNodes.set(consequentValue, argument);
+            }
+            if (
               argument.alternate.type === 'Literal' &&
               typeof argument.alternate.value === 'string' // can be also `null`, `false`, …
             ) {
               // styles(isBBB ? null : 'aaa')
-              value = argument.alternate.value;
+              const alternateValue = argument.alternate.value;
+              usedNames.add(alternateValue);
+              usedStylesheetNodes.set(alternateValue, argument);
             }
+            continue;
           }
           usedNames.add(value);
           usedStylesheetNodes.set(value, argument);
