@@ -781,7 +781,7 @@ Object {
     "react/jsx-no-duplicate-props": 2,
     "react/jsx-no-literals": 0,
     "react/jsx-no-script-url": 2,
-    "react/jsx-no-target-blank": 0,
+    "react/jsx-no-target-blank": 1,
     "react/jsx-no-undef": 2,
     "react/jsx-no-useless-fragment": 2,
     "react/jsx-one-expression-per-line": "off",
@@ -1063,6 +1063,9 @@ Snapshot Diff:
 @@ --- --- @@
 -     "react/jsx-no-constructed-context-values": 1,
 +     "react/jsx-no-constructed-context-values": 2,
+@@ --- --- @@
+-     "react/jsx-no-target-blank": 1,
++     "react/jsx-no-target-blank": 2,
 @@ --- --- @@
 -     "relay/function-required-argument": 1,
 +     "relay/function-required-argument": 2,

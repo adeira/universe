@@ -36,7 +36,7 @@ export default function Rules(): React.Node {
           </fbt:param>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
           <fbt:param name="instagram account">
-            <a href="https://www.instagram.com/kochkacafe/" target="_blank">
+            <a href="https://www.instagram.com/kochkacafe/" target="_blank" rel="noreferrer">
               @kochkacafe
             </a>
           </fbt:param>.

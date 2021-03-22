@@ -24,6 +24,7 @@ export default function SocialMediaIcons(props: Props): React.Node {
             <fbt desc="aria label of our Instagram link">link to KOCHKA Café Instagram page</fbt>
           }
           target="_blank"
+          rel="noreferrer"
         >
           <Instagram color={props.color} size={props.size} />
         </a>
@@ -36,6 +37,7 @@ export default function SocialMediaIcons(props: Props): React.Node {
             <fbt desc="aria label of our Facebook link">link to KOCHKA Café facebook page</fbt>
           }
           target="_blank"
+          rel="noreferrer"
         >
           <Facebook color={props.color} size={props.size} />
         </a>
