@@ -1,6 +1,9 @@
 // @flow
 
 module.exports = {
+  env: {
+    browser: true,
+  },
   rules: {
     'react/forbid-elements': [
       'error',

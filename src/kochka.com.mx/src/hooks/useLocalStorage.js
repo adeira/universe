@@ -1,7 +1,5 @@
 // @flow strict
 
-/* global window */
-
 import { useState } from 'react';
 
 /**

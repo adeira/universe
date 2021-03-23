@@ -4,10 +4,10 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Input from '../design/Input';
-import InputSubmit from '../design/InputSubmit';
+import Input from './design/Input';
+import InputSubmit from './design/InputSubmit';
 
-export default function SignupForm(): React.Node {
+export default function MailchimpSignupForm(): React.Node {
   const [state, setState] = React.useState({
     emailValue: '',
     antispamText: '',

@@ -42,6 +42,7 @@ const styles = sx.create({
     'textDecoration': 'none',
     ':hover': {
       opacity: 1,
+      textDecoration: 'underline',
     },
   },
   inactive: {
