@@ -1,17 +1,18 @@
 // @flow
 
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import App from 'next/app';
 import fbt from 'fbt';
+import Head from 'next/head';
+import ReactDOM from 'react-dom';
 import sx from '@adeira/sx';
+import { RecoilRoot } from 'recoil';
 import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
 import { useRouter } from 'next/router';
-import Head from 'next/head';
-import App from 'next/app';
 
 import './_app.css';
 import Logo from '../src/Logo';
-import SignupForm from '../src/Mailchimp/SignupForm';
+import MailchimpSignupForm from '../src/MailchimpSignupForm';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initTranslations from '../translations/init';
 
@@ -56,7 +57,7 @@ function MyApp({ Component, pageProps }: Props): React.Node {
                   to our newsletter, and we will let you know!
                 </fbt>
               </div>
-              <SignupForm />
+              <MailchimpSignupForm />
             </div>
           ) : null}
         </div>
@@ -67,19 +68,21 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   return (
     <SxDesignProvider locale={languageTag.bcp47} darkMode={false}>
       <ViewerContextProvider languageTag={languageTag}>
-        <div className={styles('root')}>
-          <Head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          </Head>
-          <SkipLink
-            text={
-              <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
-                Skip to content
-              </fbt>
-            }
-          />
-          <Component {...pageProps} />
-        </div>
+        <RecoilRoot>
+          <div className={styles('root')}>
+            <Head>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            </Head>
+            <SkipLink
+              text={
+                <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+                  Skip to content
+                </fbt>
+              }
+            />
+            <Component {...pageProps} />
+          </div>
+        </RecoilRoot>
       </ViewerContextProvider>
     </SxDesignProvider>
   );
