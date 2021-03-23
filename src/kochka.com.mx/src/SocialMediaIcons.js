@@ -56,8 +56,6 @@ const styles = sx.create({
   iconsVertical: {
     flexDirection: 'column',
   },
-  // FIXME:
-  // eslint-disable-next-line sx/no-unused-stylesheet
   icon: {
     'paddingLeft': 20,
     'paddingRight': 20,

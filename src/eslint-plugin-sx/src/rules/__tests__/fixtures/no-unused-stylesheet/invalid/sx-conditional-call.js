@@ -7,7 +7,7 @@ import type { Node } from 'react';
 import { create as sxCreate } from '@adeira/sx';
 
 export default function MyComponent(): Node {
-  const isTrue = Boolean(Math.random());
+  const isTrue = true;
   return (
     <>
       <div className={styles('aaa', isTrue && 'bbb')} />

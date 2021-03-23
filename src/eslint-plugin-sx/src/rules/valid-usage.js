@@ -74,17 +74,23 @@ module.exports = ({
           const firstArgumentProperties = firstArgument?.properties ?? [];
           for (const property of firstArgumentProperties) {
             if (
+              property.type === 'Property' &&
               property.value.type !== 'ObjectExpression' &&
               property.value.type !== 'Identifier'
             ) {
+              let propertyName = '???';
+              if (property.key.type === 'Literal') {
+                propertyName = property.key.value;
+              } else if (property.key.type === 'Identifier') {
+                propertyName = property.key.name;
+              }
               context.report({
                 node: property,
                 message:
                   'Each SX "{{calleeName}}" property must be an object but "{{propertyName}}" is not.',
                 data: {
                   calleeName,
-                  propertyName:
-                    property.key.type === 'Literal' ? property.key.value : property.key.name,
+                  propertyName,
                 },
               });
             }

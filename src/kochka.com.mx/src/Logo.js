@@ -49,6 +49,7 @@ const styles = sx.create({
   headingHorizontal: {
     marginLeft: 20,
   },
+  // FIXME:
   // eslint-disable-next-line sx/no-unused-stylesheet
   kochka: {
     fontSize: 60,
@@ -57,6 +58,7 @@ const styles = sx.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  // FIXME:
   // eslint-disable-next-line sx/no-unused-stylesheet
   kochkaSmall: {
     fontSize: 20,
