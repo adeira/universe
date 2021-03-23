@@ -822,6 +822,7 @@ Object {
     "react/no-unescaped-entities": 2,
     "react/no-unknown-property": 2,
     "react/no-unsafe": 0,
+    "react/no-unstable-nested-components": 0,
     "react/no-unused-prop-types": 0,
     "react/no-unused-state": 0,
     "react/no-will-update-set-state": 0,
