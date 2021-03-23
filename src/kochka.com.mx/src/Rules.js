@@ -5,6 +5,8 @@ import sx from '@adeira/sx';
 import { Emoji } from '@adeira/sx-design';
 import fbt from 'fbt';
 
+import socialLinks from './socialLinks';
+
 export default function Rules(): React.Node {
   return (
     <ol className={styles('orderedList')}>
@@ -38,7 +40,7 @@ export default function Rules(): React.Node {
           </fbt:param>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
           <fbt:param name="instagram account">
-            <a href="https://www.instagram.com/kochkacafe/" target="_blank" rel="noreferrer">
+            <a href={socialLinks.instagramURL} target="_blank" rel="noreferrer">
               @kochkacafe
             </a>
           </fbt:param>.
