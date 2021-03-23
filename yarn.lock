@@ -1963,10 +1963,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fbtjs/default-collection-transform@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@fbtjs/default-collection-transform/-/default-collection-transform-0.0.1.tgz#7c4638144b9c496efa87d8e3bdb87eebcdc7dbb1"
-  integrity sha512-pniEqUCuws8GmG59m1V/mIo1fjzVNUs1/HRmJzLbTZOpGmy+TMWoj/++dXE5JDIhvwKNvvZPjW6pD8MMNMshRg==
+"@fbtjs/default-collection-transform@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@fbtjs/default-collection-transform/-/default-collection-transform-0.0.2.tgz#56231c3b5bad1fc9e0eec098297a808dd99a63fc"
+  integrity sha512-aFpJxFpYoNWqd/Vtqa5JkCszK7LfkeoAFdIbXLYTdfPF5EuavMBGuROpbo6UUkKtwmjH4ogayX0u8a8aD3Y88g==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
@@ -1979,6 +1979,7 @@
     "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.0.0"
     "@babel/plugin-syntax-optional-chaining" "^7.0.0"
+    babel-plugin-fbt "^0.19.x"
 
 "@fullhuman/postcss-purgecss@^3.1.3":
   version "3.1.3"
@@ -4834,7 +4835,7 @@ babel-plugin-fbt-runtime@^0.9.16:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
 
-babel-plugin-fbt@^0.19.1:
+babel-plugin-fbt@^0.19.1, babel-plugin-fbt@^0.19.x:
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.19.1.tgz#238699fc362136da9529a38f089b4f64933657c4"
   integrity sha512-PC9vEgULpgYtyiqaFMcY4r4QHxGMsCbVcMxljkENkVVI2wAx1KJrmOFLwOHDeFpGYJytyubeEw6LZ8HYJTMSqg==
