@@ -8,7 +8,9 @@ import {
 } from 'react-relay';
 import { invariant, sprintf } from '@adeira/js';
 import { TimeoutError, ResponseError } from '@adeira/fetch';
-import type { Variables, CacheConfig, GraphQLTaggedNode } from 'relay-runtime';
+import type { CacheConfig, GraphQLTaggedNode } from 'relay-runtime';
+
+import type { Variables } from './types.flow';
 
 type ReadyState<T> = {|
   +error: ?Error,

@@ -7,9 +7,10 @@ import {
   type Environment,
 } from 'react-relay';
 import { invariant } from '@adeira/js';
-import type { Variables, GraphQLTaggedNode } from 'relay-runtime';
+import type { GraphQLTaggedNode } from 'relay-runtime';
 
 import createLocalEnvironment from './createLocalEnvironment';
+import type { Variables } from './types.flow';
 
 type CommonProps = {|
   +query: GraphQLTaggedNode,

@@ -1,8 +1,8 @@
 // @flow strict-local
 
-import type { Variables, UploadableMap } from 'relay-runtime';
+import type { UploadableMap } from 'relay-runtime';
 
-import type { RequestNode } from './types.flow';
+import type { RequestNode, Variables } from './types.flow';
 
 export const isMutation = (request: RequestNode): boolean %checks => {
   return request.operationKind === 'mutation';

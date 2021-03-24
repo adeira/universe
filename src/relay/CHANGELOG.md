@@ -1,5 +1,7 @@
 # Unreleased
 
+- Relay dependencies upgraded to version 11.0.1, see: https://github.com/facebook/relay/releases/tag/v11.0.1
+
 # 3.2.0
 
 This minor release is focused on cleaning old internal code and removing some legacy parts of the library. The goal is to have a clean and stable version before eventually removing the container API (and keeping only hooks API). But don't worry yet - we follow [upcoming Relay releases](https://github.com/facebook/relay/issues/3371).
