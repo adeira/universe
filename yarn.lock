@@ -4809,10 +4809,10 @@ babel-plugin-extract-import-names@1.6.22:
   dependencies:
     "@babel/helper-plugin-utils" "7.10.4"
 
-babel-plugin-fbt-runtime@^0.9.16:
-  version "0.9.16"
-  resolved "https://registry.yarnpkg.com/babel-plugin-fbt-runtime/-/babel-plugin-fbt-runtime-0.9.16.tgz#ed617a35078919ede2a8ab8ae90bbd73fb9895c0"
-  integrity sha512-BLf2QWIMTgHrct5ZPsFQb6J27HTOrT+E1JKpdpC75k8W5nwXQV0GpsNsBv17+d37N8o73jHl2f6Fk63m0nEQsw==
+babel-plugin-fbt-runtime@^0.9.17:
+  version "0.9.17"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt-runtime/-/babel-plugin-fbt-runtime-0.9.17.tgz#922c603cadacaff992557398993ca55f0a0ee714"
+  integrity sha512-Ach2FIncWTDVej9+s7s6uC5wtYCi8szKVL+kqT7PE/mHg7eK0oTx3EnOK2s1ZqvCgWQpxEqPj458oS0H8ZJ9/g==
   dependencies:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
