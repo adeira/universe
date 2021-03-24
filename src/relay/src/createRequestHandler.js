@@ -3,12 +3,11 @@
 import {
   Observable,
   type CacheConfig,
-  type Variables,
   type GraphQLResponse,
   type UploadableMap,
 } from 'relay-runtime';
 
-import type { RequestNode } from './types.flow';
+import type { RequestNode, Variables } from './types.flow';
 
 /**
  * A Sink is an object of methods provided by Observable during construction.

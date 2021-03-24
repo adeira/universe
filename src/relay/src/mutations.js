@@ -3,12 +3,13 @@
 import { commitMutation as _commitMutation, type Environment } from 'react-relay';
 import type {
   GraphQLTaggedNode,
-  Variables,
   Disposable,
   UploadableMap,
   RecordSourceSelectorProxy,
   DeclarativeMutationConfig,
 } from 'relay-runtime';
+
+import type { Variables } from './types.flow';
 
 opaque type SelectorData = $FlowFixMe;
 
