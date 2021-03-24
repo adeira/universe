@@ -6,7 +6,7 @@ import fbt from 'fbt';
 
 import Cart from './design/svg/__generated__/Cart';
 import KochkaIcon from './design/svg/KochkaIcon';
-import Link from './Link';
+import LinkInternal from './LinkInternal';
 import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function LayoutNavigation(): React.Node {
@@ -16,39 +16,39 @@ export default function LayoutNavigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
       <div>
-        <Link href="/" xstyle={styles.link}>
+        <LinkInternal href="/" xstyle={styles.link}>
           <span className={styles('linkHomepageIcon')}>
             <KochkaIcon size={20} />
           </span>
           <fbt desc="subpage navigation link to homepage">Home</fbt>
-        </Link>
+        </LinkInternal>
 
-        <Link href="/menu" xstyle={styles.link}>
+        <LinkInternal href="/menu" xstyle={styles.link}>
           <fbt common={true}>Café&nbsp;menu</fbt>
-        </Link>
+        </LinkInternal>
 
-        <Link href="/rules" xstyle={styles.link}>
+        <LinkInternal href="/rules" xstyle={styles.link}>
           <fbt common={true}>Café&nbsp;rules</fbt>
-        </Link>
+        </LinkInternal>
 
         {pageAdoptionEnabled === true && (
-          <Link href="/adoption" xstyle={styles.link}>
+          <LinkInternal href="/adoption" xstyle={styles.link}>
             <fbt desc="subpage navigation link to adoption">Adoption</fbt>
-          </Link>
+          </LinkInternal>
         )}
 
         {pageShopEnabled === true && (
-          <Link href="/shop" xstyle={styles.link}>
+          <LinkInternal href="/shop" xstyle={styles.link}>
             <fbt common={true}>Shop</fbt>
-          </Link>
+          </LinkInternal>
         )}
       </div>
 
       <div>
         {pageShopEnabled === true && (
-          <Link href="/cart">
+          <LinkInternal href="/cart">
             <Cart size={20} />
-          </Link>
+          </LinkInternal>
         )}
       </div>
     </nav>
@@ -66,6 +66,7 @@ const styles = sx.create({
     zIndex: 1,
   },
   link: {
+    color: 'rgba(var(--font-color-light))',
     fontSize: 20,
     marginRight: 20,
   },

@@ -6,7 +6,7 @@ import sx from '@adeira/sx';
 
 // import Footer from './Footer';
 import LanguageSwitch from './LanguageSwitch';
-import Link from './Link';
+import LinkInternal from './LinkInternal';
 import Logo from './Logo';
 import SocialMediaIcons from './SocialMediaIcons';
 
@@ -19,41 +19,41 @@ export default function LayoutFooter(): React.Node {
         </div>
         <div className={styles('column', 'columnLeft')}>
           <div>
-            <Link href="/">
+            <LinkInternal href="/" xstyle={styles.link}>
               <fbt desc="footer navigation link to homepage">Home</fbt>
-            </Link>
+            </LinkInternal>
           </div>
           <div>
-            <Link href="/menu">
+            <LinkInternal href="/menu" xstyle={styles.link}>
               <fbt common={true}>Café&nbsp;menu</fbt>
-            </Link>
+            </LinkInternal>
           </div>
           <div>
-            <Link href="/rules">
+            <LinkInternal href="/rules" xstyle={styles.link}>
               <fbt common={true}>Café&nbsp;rules</fbt>
-            </Link>
+            </LinkInternal>
           </div>
           <div>
-            <Link href="/shop">
+            <LinkInternal href="/shop" xstyle={styles.link}>
               <fbt common={true}>Shop</fbt>
-            </Link>
+            </LinkInternal>
           </div>
         </div>
         <div className={styles('column', 'columnLeft')}>
           <div>
-            <Link href="/legal/terms">
+            <LinkInternal href="/legal/terms" xstyle={styles.link}>
               <fbt desc="footer navigation link to terms of use">Terms of use</fbt>
-            </Link>
+            </LinkInternal>
           </div>
           <div>
-            <Link href="/legal/shipping">
+            <LinkInternal href="/legal/shipping" xstyle={styles.link}>
               <fbt desc="footer navigation link to shipping and returns">Shipping & Returns</fbt>
-            </Link>
+            </LinkInternal>
           </div>
           <div>
-            <Link href="/legal/privacy">
+            <LinkInternal href="/legal/privacy" xstyle={styles.link}>
               <fbt desc="footer navigation link to privacy policy">Privacy Policy</fbt>
-            </Link>
+            </LinkInternal>
           </div>
         </div>
         <div className={styles('column', 'columnRight')}>
@@ -95,5 +95,8 @@ const styles = sx.create({
   },
   socialMedia: {
     paddingLeft: '1rem',
+  },
+  link: {
+    color: 'rgba(var(--font-color-dark))',
   },
 });

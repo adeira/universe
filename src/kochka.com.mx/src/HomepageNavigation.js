@@ -4,7 +4,7 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Link from './Link';
+import LinkInternal from './LinkInternal';
 import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function HomepageNavigation(): React.Node {
@@ -15,30 +15,30 @@ export default function HomepageNavigation(): React.Node {
     <nav className={styles('nav')}>
       <ul className={styles('ul')}>
         <li className={styles('li')}>
-          <Link href="/menu" xstyle={styles.link}>
+          <LinkInternal href="/menu" xstyle={styles.link}>
             <fbt common={true}>Café&nbsp;menu</fbt>
-          </Link>
+          </LinkInternal>
         </li>
 
         {pageAdoptionEnabled === true && (
           <li className={styles('li')}>
-            <Link href="/adoption" xstyle={styles.link}>
+            <LinkInternal href="/adoption" xstyle={styles.link}>
               <fbt desc="navigation link to adoption">Adoption</fbt>
-            </Link>
+            </LinkInternal>
           </li>
         )}
 
         <li className={styles('li')}>
-          <Link href="/rules" xstyle={styles.link}>
+          <LinkInternal href="/rules" xstyle={styles.link}>
             <fbt common={true}>Café&nbsp;rules</fbt>
-          </Link>
+          </LinkInternal>
         </li>
 
         {pageShopEnabled === true && (
           <li className={styles('li')}>
-            <Link href="/shop" xstyle={styles.link}>
+            <LinkInternal href="/shop" xstyle={styles.link}>
               <fbt common={true}>Shop</fbt>
-            </Link>
+            </LinkInternal>
           </li>
         )}
       </ul>
@@ -66,7 +66,7 @@ const styles = sx.create({
     fontSize: 30,
   },
   link: {
-    textDecoration: 'none',
+    color: 'rgba(var(--font-color-light))',
     padding: 15,
     paddingLeft: 20,
     paddingRight: 20,
