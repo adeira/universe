@@ -4817,10 +4817,10 @@ babel-plugin-fbt-runtime@^0.9.17:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
 
-babel-plugin-fbt@^0.19.1, babel-plugin-fbt@^0.19.x:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.19.1.tgz#238699fc362136da9529a38f089b4f64933657c4"
-  integrity sha512-PC9vEgULpgYtyiqaFMcY4r4QHxGMsCbVcMxljkENkVVI2wAx1KJrmOFLwOHDeFpGYJytyubeEw6LZ8HYJTMSqg==
+babel-plugin-fbt@^0.19.2, babel-plugin-fbt@^0.19.x:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.19.2.tgz#393338ab92094b2660d963cef98028a9b8b540c5"
+  integrity sha512-vw9TWsPFRY4BL8ddoHdRb/hZIxOEoI/ukeFiYpsHPuAzAdEAdFSr359HHxOZUG0W6HcgcOUdShUlLo28cgLYOg==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
