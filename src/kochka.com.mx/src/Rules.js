@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { Emoji } from '@adeira/sx-design';
+import { Emoji, Link } from '@adeira/sx-design';
 import fbt from 'fbt';
 
 import socialLinks from './socialLinks';
@@ -40,9 +40,9 @@ export default function Rules(): React.Node {
           </fbt:param>{' '}
           But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
           <fbt:param name="instagram account">
-            <a href={socialLinks.instagramURL} target="_blank" rel="noreferrer">
+            <Link href={socialLinks.instagramURL} target="_blank">
               @kochkacafe
-            </a>
+            </Link>
           </fbt:param>.
         </fbt>
       </li>

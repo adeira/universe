@@ -2,14 +2,13 @@
 
 import { rangeMap } from '@adeira/js';
 import sx from '@adeira/sx';
-import { Heading, Section, Skeleton } from '@adeira/sx-design';
+import { Heading, Section, Skeleton, LinkButton } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import Layout from '../Layout';
-import Link from '../Link';
-import LinkButton from '../LinkButton';
+import LinkInternal from '../LinkInternal';
 import filtersAtom, { type State as AtomState } from './recoil/filtersAtom';
 
 export default function ShopLayout(): Node {
@@ -63,9 +62,9 @@ export default function ShopLayout(): Node {
         <div className={styles('productsGrid')}>
           {/* Loading screen (first Skeleton, then Blurhash, then the actual image): */}
           {rangeMap(12, (i) => (
-            <Link key={i} href={`/shop/${'todo'}`}>
+            <LinkInternal key={i} href={`/shop/${'todo'}`}>
               <Skeleton />
-            </Link>
+            </LinkInternal>
           ))}
         </div>
         <div className={styles('shopGridRelevance')}>

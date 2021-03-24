@@ -45,24 +45,26 @@ SX Design leverages full power of [CSS variables](https://developer.mozilla.org/
 <!-- TODO: generate automatically from the source code? -->
 
 ```text
---sx-kbd-border: '1px solid #b4b4b4'
+--sx-kbd-border: 1px solid #b4b4b4
 --sx-money-text-color: var(--sx-text-color) ¹
---sx-skipLink-background-color: '28, 30, 33' ²
---sx-skipLink-text-color: '255, 255, 255'
+--sx-skipLink-background-color: 28, 30, 33 ²
+--sx-skipLink-text-color: 255, 255, 255
 ```
 
 Generic default values for light mode:
 
 ```text
---sx-background-color: '255, 255, 255' ²
---sx-text-color: '28, 30, 33'
+--sx-background-color: 255, 255, 255 ²
+--sx-text-color: 28, 30, 33
+--sx-text-link-color: 3, 102, 214
 ```
 
 And finally generic default values for dark mode:
 
 ```text
---sx-background-color: '51, 51, 51' ²
---sx-text-color: '255, 255, 255'
+--sx-background-color: 51, 51, 51 ²
+--sx-text-color: 255, 255, 255
+--sx-text-link-color: 88, 166, 255
 ```
 
 ¹ Some CSS variables fallback to default value of some other CSS variable. This allows you to overwrite very specific value if you want or just leave it to the common default.
@@ -95,6 +97,8 @@ Legend:
 | `<ErrorBoundary />` |     ✅     |     ✅     |      🧐      |   ✅    |
 | `<Heading />`       |     ✅     |     ✅     |      ✅      |   ✅    |
 | `<Kbd />`           |     ✅     |     ✅     |      ✅      |   ✅    |
+| `<Link />`          |     ✅     |     ✅     |      ✅      |   🧐    |
+| `<LinkButton />`    |     ✅     |     ✅     |      ✅      |   🧐    |
 | `<Money />`         |     ✅     |     ✅     |      🧐      |   ✅    |
 | `<ProductCard />`   |     ✅     |     ✅     |      ✅      |   🧐    |
 | `<Section />`       |     ✅     |     ✅     |      ✅      |   🧐    |
