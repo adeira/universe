@@ -1,5 +1,6 @@
 // @flow
 
+import { Link } from '@adeira/sx-design';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
@@ -14,11 +15,11 @@ export default function HomepageFooter(): React.Node {
       </strong>
 
       <div>
-        <a href="https://goo.gl/maps/2jh2w78yFTPEDSrS6">
+        <Link href="https://goo.gl/maps/2jh2w78yFTPEDSrS6" xstyle={styles.link}>
           <fbt desc="address">
             Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
           </fbt>
-        </a>
+        </Link>
       </div>
 
       <div className={styles('languageSwitch')}>
@@ -38,5 +39,8 @@ const styles = sx.create({
   },
   languageSwitch: {
     marginTop: 20,
+  },
+  link: {
+    color: 'rgba(var(--font-color-light))',
   },
 });

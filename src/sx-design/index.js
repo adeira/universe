@@ -8,6 +8,8 @@ export { default as Emoji } from './src/Emoji/Emoji';
 export { default as ErrorBoundary } from './src/ErrorBoundary/ErrorBoundary';
 export { default as Heading } from './src/Heading/Heading';
 export { default as Kbd } from './src/Kbd/Kbd';
+export { default as Link } from './src/Link/Link';
+export { default as LinkButton } from './src/LinkButton/LinkButton';
 export { default as Money, MoneyFn } from './src/Money/Money';
 export { default as ProductCard } from './src/ProductCard/ProductCard';
 export { default as Section } from './src/Section/Section';

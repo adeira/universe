@@ -5,7 +5,7 @@ import Head from 'next/head';
 import fbt from 'fbt';
 
 import Layout from '../src/Layout';
-import Link from '../src/Link';
+import LinkInternal from '../src/LinkInternal';
 
 export default function Custom404(): React.Node {
   // TODO: log this page and the reason why it happened
@@ -24,9 +24,9 @@ export default function Custom404(): React.Node {
           </fbt>
         </p>
         <p>
-          <Link href="/">
+          <LinkInternal href="/">
             <fbt desc="go back to homepage link title">Go back to Homepage</fbt>
-          </Link>
+          </LinkInternal>
         </p>
       </Layout>
     </>
