@@ -1,10 +1,10 @@
 // @flow strict-local
 
 import fetchWithRetries from '@adeira/fetch';
-import type { Variables, UploadableMap } from 'relay-runtime';
+import type { UploadableMap } from 'relay-runtime';
 
 import { handleData, getRequestBody, getHeaders } from './helpers';
-import type { RequestNode } from './types.flow';
+import type { RequestNode, Variables } from './types.flow';
 
 type Headers = {|
   +[key: string]: string,

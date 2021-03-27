@@ -8,11 +8,12 @@ import type { RecordObjectMap, Scheduler } from 'relay-runtime/store/RelayStoreT
 
 type Options = {|
   gcScheduler?: ?Scheduler,
+  log?: ?LogFunction,
   operationLoader?: ?OperationLoader,
   getDataID?: ?GetDataID,
   gcReleaseBufferSize?: ?number,
   queryCacheExpirationTime?: ?number,
-  log?: ?LogFunction,
+  shouldProcessClientComponents?: ?boolean,
 |};
 
 export default function createRelayStore(records: ?RecordObjectMap, options?: Options): Store {

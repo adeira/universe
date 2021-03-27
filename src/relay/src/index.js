@@ -29,6 +29,7 @@ export type {
   FragmentContainerType,
   PaginationContainerType,
   RefetchContainerType,
+  Variables,
 } from './types.flow';
 
 // Relay Hooks (wrapped)
@@ -52,7 +53,6 @@ export type {
   PayloadError,
   Snapshot,
   UploadableMap,
-  Variables,
 } from 'relay-runtime';
 // eslint-disable-next-line import/no-unresolved
 export type { RecordObjectMap as RecordMap } from 'relay-runtime/store/RelayStoreTypes';
