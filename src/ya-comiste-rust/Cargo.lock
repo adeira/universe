@@ -47,8 +47,8 @@ dependencies = [
 
 [[package]]
 name = "arangors"
-version = "0.4.6"
-source = "git+https://github.com/mrtnzlml/arangors?branch=master-fork#0f5ea8bdad5c38315c24b7c2297f06c9293f5fd1"
+version = "0.4.7"
+source = "git+https://github.com/mrtnzlml/arangors?branch=master-fork#89ac9ac81bca511c354c8010b8f5f49201aa6403"
 dependencies = [
  "async-trait",
  "base64 0.13.0",
@@ -2146,11 +2146,10 @@ dependencies = [
 
 [[package]]
 name = "serde_qs"
-version = "0.7.0"
+version = "0.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9408a61dabe404c76cec504ec510f7d92f41dc0a9362a0db8ab73d141cfbf93f"
+checksum = "b22063cd705114614293767c69aa992531f72b0cc8a6b9145801920730fe25e4"
 dependencies = [
- "data-encoding",
  "percent-encoding",
  "serde",
  "thiserror",
@@ -2375,18 +2374,18 @@ dependencies = [
 
 [[package]]
 name = "thiserror"
-version = "1.0.22"
+version = "1.0.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e9ae34b84616eedaaf1e9dd6026dbe00dcafa92aa0c8077cb69df1fcfe5e53e"
+checksum = "e0f4a65597094d4483ddaed134f409b2cb7c1beccf25201a9f73c719254fa98e"
 dependencies = [
  "thiserror-impl",
 ]
 
 [[package]]
 name = "thiserror-impl"
-version = "1.0.22"
+version = "1.0.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9ba20f23e85b10754cd195504aebf6a27e2e6cbe28c17778a0c930724628dd56"
+checksum = "7765189610d8241a44529806d6fd1f2e0a08734313a35d5b3a556f92b381f3c0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2614,9 +2613,9 @@ dependencies = [
 
 [[package]]
 name = "typed-builder"
-version = "0.7.1"
+version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f85f4270f4f449a3f2c0cf2aecc8415e388a597aeacc7d55fc749c5c968c8533"
+checksum = "345426c7406aa355b60c5007c79a2d1f5b605540072795222f17f6443e6a9c6f"
 dependencies = [
  "proc-macro2",
  "quote",
