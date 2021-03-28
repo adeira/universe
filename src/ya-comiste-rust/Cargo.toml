@@ -1,3 +1,5 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [package]
 name = "server"
 version = "0.0.0"
@@ -5,8 +7,10 @@ authors = ["Martin Zlámal <mrtnzlml@gmail.com>"]
 description = "GraphQL server"
 edition = "2018"
 publish = false
+resolver = "2"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.dev]
+split-debuginfo = "unpacked"
 
 [dependencies]
 arangors = { git = "https://github.com/mrtnzlml/arangors", branch = "master-fork" }
