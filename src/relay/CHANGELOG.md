@@ -1,5 +1,7 @@
 # Unreleased
 
+# 3.2.1
+
 - Relay dependencies upgraded to version 11.0.1, see: https://github.com/facebook/relay/releases/tag/v11.0.1
 
 # 3.2.0
