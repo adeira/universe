@@ -6,22 +6,22 @@ import * as React from 'react';
 
 import Layout from '../Layout';
 import LayoutHeading from '../LayoutHeading';
-import UsersPage from './UsersPage';
+import EmployeesPage from './EmployeesPage';
 
-export default function UsersPageLayout(): React.Node {
+export default function EmployeesPageLayout(): React.Node {
   return (
     <Layout>
       <LayoutHeading
         heading={
           <Heading>
-            <fbt desc="list of users title">List of users</fbt>
+            <fbt desc="list of employees title">List of employees</fbt>
           </Heading>
         }
       />
 
-      <pre>TODO (view users, change permissions)</pre>
+      <pre>TODO (view employees, change permissions)</pre>
 
-      <UsersPage />
+      <EmployeesPage />
     </Layout>
   );
 }

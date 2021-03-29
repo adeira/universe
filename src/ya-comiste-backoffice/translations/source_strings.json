@@ -86,17 +86,17 @@
   },
   {
    "hashToText": {
-    "/c/KJABZ8aQaoTbRsJOIPg==": "Users"
+    "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 21,
    "col_beg": 8,
    "line_end": 21,
-   "col_end": 56,
-   "desc": "navigation link to users",
+   "col_end": 64,
+   "desc": "navigation link to employees",
    "project": "",
    "type": "text",
-   "jsfbt": "Users"
+   "jsfbt": "Employees"
   },
   {
    "hashToText": {
@@ -674,17 +674,17 @@
   },
   {
    "hashToText": {
-    "KPaU2v3S7qUH0pj1rVBMaw==": "List of users"
+    "Qa3mUMhym3NPzuJNq7P/Ng==": "List of employees"
    },
-   "filepath": "src/users/UsersPageLayout.js",
+   "filepath": "src/users/EmployeesPageLayout.js",
    "line_beg": 17,
    "col_beg": 12,
    "line_end": 17,
-   "col_end": 63,
-   "desc": "list of users title",
+   "col_end": 71,
+   "desc": "list of employees title",
    "project": "",
    "type": "text",
-   "jsfbt": "List of users"
+   "jsfbt": "List of employees"
   },
   {
    "hashToText": {
