@@ -73,7 +73,6 @@ const styles = sx.create({
     'backgroundImage': 'url(/plus-pattern.svg)',
     'backgroundPosition': '15px 15px',
     'backgroundSize': '20px',
-    // $FlowFixMe[incompatible-call]: CSS variables are currently difficult to typecheck in SX
     '--sx-text-color': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   subtitle: {

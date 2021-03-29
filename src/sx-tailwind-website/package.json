@@ -4,7 +4,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@adeira/sx": "^0.24.0",
+    "@adeira/sx": "^0.25.0",
     "hast-util-to-html": "^7.1.2",
     "next": "^10.0.9",
     "react": "^17.0.2",

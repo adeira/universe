@@ -15,10 +15,13 @@ type MediaQueries = {|
   +[string]: MediaQueries, // media queries can be recursively nested
 |};
 
+type CSSVariableValue = string;
+
 export type AllCSSProperties = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudoTypes,
-  +[string]: MediaQueries, // we are unable to statically typecheck the key because it can be almost anything
+  // we are unable to statically typecheck the key because it can be almost anything (@media, CSS variable, …)
+  +[string]: MediaQueries | CSSVariableValue,
 |};
 
 export type SheetDefinitions = {|
