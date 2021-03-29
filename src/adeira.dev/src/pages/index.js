@@ -8,30 +8,45 @@ export default function Index() {
   const context = useDocusaurusContext();
   const { siteConfig } = context;
 
-  const HomeSplash = () => {
-    const SplashContainer = (props) => (
-      <div className="homeContainer">
-        <div className="wrapper homeWrapper">{props.children}</div>
+  return (
+    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+      <HomeSplash siteConfig={siteConfig} />
+      <div className="mainContainer">
+        <Description />
       </div>
-    );
+    </Layout>
+  );
+}
 
-    const ProjectTitle = () => (
-      <header className="projectTitle">
-        <h2>{siteConfig.title}</h2>
-        <h4>{siteConfig.tagline}</h4>
-      </header>
-    );
+function HomeSplash({ siteConfig }) {
+  return (
+    <SplashContainer>
+      <div className="inner">
+        <ProjectTitle title={siteConfig.title} tagline={siteConfig.tagline} />
+      </div>
+    </SplashContainer>
+  );
+}
 
-    return (
-      <SplashContainer>
-        <div className="inner">
-          <ProjectTitle siteConfig={siteConfig} />
-        </div>
-      </SplashContainer>
-    );
-  };
+function SplashContainer(props) {
+  return (
+    <div className="homeContainer">
+      <div className="wrapper homeWrapper">{props.children}</div>
+    </div>
+  );
+}
 
-  const Description = () => (
+function ProjectTitle({ title, tagline }) {
+  return (
+    <header className="projectTitle">
+      <h2>{title}</h2>
+      <h4>{tagline}</h4>
+    </header>
+  );
+}
+
+function Description() {
+  return (
     <div className="adeiraHomepageContainer">
       <p>
         <code>adeira/universe</code> is monorepo with the collections of libraries we write to make
@@ -199,14 +214,5 @@ export default function Index() {
         </li>
       </ul>
     </div>
-  );
-
-  return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
-      <HomeSplash />
-      <div className="mainContainer">
-        <Description />
-      </div>
-    </Layout>
   );
 }
