@@ -35,8 +35,5 @@
     "test": "yarn run typecheck && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
     "test-only": "src/monorepo-utils/bin/monorepo-run-tests.js",
     "typecheck": "yarn run adeira-flow-bin"
-  },
-  "resolutions": {
-    "graphql": "^15.0.0"
   }
 }
