@@ -5,20 +5,20 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type UsersPageQueryVariables = {||};
-export type UsersPageQueryResponse = {|
+export type EmployeesPageQueryVariables = {||};
+export type EmployeesPageQueryResponse = {|
   +listUsers: $ReadOnlyArray<{|
     +id: string,
     +type: string,
   |}>
 |};
-export type UsersPageQuery = {|
-  variables: UsersPageQueryVariables,
-  response: UsersPageQueryResponse,
+export type EmployeesPageQuery = {|
+  variables: EmployeesPageQueryVariables,
+  response: EmployeesPageQueryResponse,
 |};
 
 /*
-query UsersPageQuery {
+query EmployeesPageQuery {
   listUsers {
     id
     type
@@ -59,7 +59,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "UsersPageQuery",
+    "name": "EmployeesPageQuery",
     "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -68,19 +68,19 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "UsersPageQuery",
+    "name": "EmployeesPageQuery",
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "ea1d786cd005991a471bbe2944ddb23a",
+    "cacheID": "08489bbc8e5363551e7caca19b7486a7",
     "id": null,
     "metadata": {},
-    "name": "UsersPageQuery",
+    "name": "EmployeesPageQuery",
     "operationKind": "query",
-    "text": "query UsersPageQuery {\n  listUsers {\n    id\n    type\n  }\n}\n"
+    "text": "query EmployeesPageQuery {\n  listUsers {\n    id\n    type\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'c6224038a11c5c22f192352b8e36b983';
+(node: any).hash = '25306471eddd3c6211016abedeb10009';
 export default node;

@@ -4,11 +4,12 @@ import sx from '@adeira/sx';
 import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
-import type { UsersPageQuery } from './__generated__/UsersPageQuery.graphql';
+import type { EmployeesPageQuery } from './__generated__/EmployeesPageQuery.graphql';
 
-export default function UsersPage(): React.Node {
-  const data = useLazyLoadQuery<UsersPageQuery>(graphql`
-    query UsersPageQuery {
+export default function EmployeesPage(): React.Node {
+  // TODO: do not list all users but employees only
+  const data = useLazyLoadQuery<EmployeesPageQuery>(graphql`
+    query EmployeesPageQuery {
       listUsers {
         id
         type
@@ -33,6 +34,6 @@ const styles = sx.create({
     justifyContent: 'space-between',
     paddingTop: '.5rem',
     paddingBottom: '.5rem',
-    borderBottom: '1px solid lightgrey',
+    borderBottom: '1px solid rgb(233, 239, 243)',
   },
 });
