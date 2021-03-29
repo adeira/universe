@@ -21,7 +21,7 @@
     "@babel/code-frame": "^7.12.11",
     "@babel/eslint-parser": "^7.13.10",
     "eslint": "^7.23.0",
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   },
   "peerDependencies": {
     "@adeira/sx": "^0.24.0",

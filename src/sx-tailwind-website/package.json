@@ -7,7 +7,7 @@
     "@adeira/sx": "^0.24.0",
     "hast-util-to-html": "^7.1.2",
     "next": "^10.0.9",
-    "react": "^17.0.1",
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "refractor": "^3.3.1"
   },
