@@ -28,7 +28,7 @@
   "devDependencies": {
     "@adeira/fixtures-tester": "^0.1.0",
     "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/react": "^11.2.6",
     "react": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "snapshot-diff": "^0.8.1"
