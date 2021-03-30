@@ -45,18 +45,17 @@ export function InvalidStylesheetName(): Node {
 export function InvalidCSSProperty(): Node {
   const styles = sx.create({
     red: {
-      // $FlowExpectedError[incompatible-call]
-      wtf: 'wtf',
+      // TODO - we are currently unable to typecheck this:
+      wtf: 'wtf', // unknown CSS property
     },
   });
-  // $FlowExpectedError[incompatible-call]
-  return <div className={styles('invalid')} />;
+  return <div className={styles('red')} />;
 }
 
 export function InvalidCSSPseudoProperty(): Node {
   const styles = sx.create({
     red: {
-      // $FlowExpectedError[incompatible-call]
+      // $FlowExpectedError[incompatible-call]: should not be a number but object
       ':hover': -1,
     },
   });

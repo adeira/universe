@@ -19,12 +19,12 @@
     "@adeira/eslint-fixtures-tester": "0.1.0",
     "@adeira/flow-types-eslint": "0.0.0",
     "@babel/code-frame": "^7.12.11",
-    "@babel/eslint-parser": "^7.13.10",
+    "@babel/eslint-parser": "^7.13.14",
     "eslint": "^7.23.0",
-    "react": "^17.0.1"
+    "react": "^17.0.2"
   },
   "peerDependencies": {
-    "@adeira/sx": "^0.24.0",
+    "@adeira/sx": "^0.25.0",
     "eslint": "^7.23.0"
   }
 }

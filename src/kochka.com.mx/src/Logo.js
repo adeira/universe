@@ -43,7 +43,6 @@ const styles = sx.create({
   },
   heading: {
     'fontFamily': 'GidoleKochka',
-    // $FlowFixMe[incompatible-call]: CSS variables are currently difficult to typecheck in SX
     '--sx-text-color': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   headingHorizontal: {

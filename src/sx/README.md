@@ -350,14 +350,13 @@ export function FlowComponent() {
 
 const styles = sx.create({
   aaa: {
-    unknownProperty: 'red', // Flow error: `unknownProperty` is not a CSS property
     zIndex: '10', // Flow error: should be number (or 'auto') instead
     alignContent: 'unknown', // Flow error: value `unknown` is not alowed for CSS `align-content`
   },
 });
 ```
 
-Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries or CSS variables - they cannot be statically analyzed. These situations are usually complemented with runtime checks and eventually even Eslint rules.
+Sometimes it's hard or even impossible to have sound types for some CSS properties/values though. In such case, we choose the unsound strategy. Typical example of such unsoundness is when it comes to complex media queries or CSS variables - they cannot be statically analyzed. These situations are usually complemented with runtime checks and/or Eslint rules.
 
 ### Automatic vendor prefixes
 
