@@ -16,7 +16,25 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'github-actions'
-    directory: '/'
+    directory: '/.github/workflows/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
+      - 'automerge'
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: 'github-actions'
+    directory: '/src/example-relay/__github__/.github/workflows/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
+      - 'automerge'
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: 'github-actions'
+    directory: '/src/sx-tailwind-website/__github__/.github/workflows/'
     schedule:
       interval: 'daily'
     labels:
