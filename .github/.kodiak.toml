@@ -1,7 +1,7 @@
 version = 1
 
 [merge]
-automerge_label = "automerge"
+automerge_label = ["automerge", "automerge priority"]
 priority_merge_label = "automerge priority"
 require_automerge_label = true
 method = "rebase"
