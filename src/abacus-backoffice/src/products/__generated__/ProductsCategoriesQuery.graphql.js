@@ -1,41 +1,38 @@
 /**
+ * @generated SignedSource<<9b645d7c812c4b5540d0f76945174649>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductsCategoriesQueryVariables = {|
-  clientLocale: SupportedLocale
+export type ProductsCategoriesQuery$variables = {|
+  clientLocale: SupportedLocale,
 |};
-export type ProductsCategoriesQueryResponse = {|
+export type ProductsCategoriesQueryVariables = ProductsCategoriesQuery$variables;
+export type ProductsCategoriesQuery$data = {|
   +commerce: {|
     +productCategories: $ReadOnlyArray<?{|
       +id: string,
       +name: string,
-    |}>
-  |}
+    |}>,
+  |},
 |};
+export type ProductsCategoriesQueryResponse = ProductsCategoriesQuery$data;
 export type ProductsCategoriesQuery = {|
   variables: ProductsCategoriesQueryVariables,
-  response: ProductsCategoriesQueryResponse,
+  response: ProductsCategoriesQuery$data,
 |};
-
-/*
-query ProductsCategoriesQuery(
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
-      id
-      name
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -114,6 +111,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'cf82629107f79add52f01d591e0da585';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "cf82629107f79add52f01d591e0da585";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductsCategoriesQuery$variables,
+  ProductsCategoriesQuery$data,
+>*/);

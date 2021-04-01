@@ -1,38 +1,36 @@
 /**
+ * @generated SignedSource<<0f95bd7c4db86a2b6de41941a7cbda9b>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type AuthButtonsDeauthorizeWebappMutationVariables = {|
-  sessionToken: string
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
+export type AuthButtonsDeauthorizeWebappMutation$variables = {|
+  sessionToken: string,
 |};
-export type AuthButtonsDeauthorizeWebappMutationResponse = {|
+export type AuthButtonsDeauthorizeWebappMutationVariables = AuthButtonsDeauthorizeWebappMutation$variables;
+export type AuthButtonsDeauthorizeWebappMutation$data = {|
   +auth: {|
     +deauthorize: {|
-      +__typename: string
-    |}
-  |}
+      +__typename: string,
+    |},
+  |},
 |};
+export type AuthButtonsDeauthorizeWebappMutationResponse = AuthButtonsDeauthorizeWebappMutation$data;
 export type AuthButtonsDeauthorizeWebappMutation = {|
   variables: AuthButtonsDeauthorizeWebappMutationVariables,
-  response: AuthButtonsDeauthorizeWebappMutationResponse,
+  response: AuthButtonsDeauthorizeWebappMutation$data,
 |};
-
-/*
-mutation AuthButtonsDeauthorizeWebappMutation(
-  $sessionToken: String!
-) {
-  auth {
-    deauthorize(sessionToken: $sessionToken) {
-      __typename
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -104,6 +102,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '901b16d0f2f66b120f8dde76d966dfff';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "901b16d0f2f66b120f8dde76d966dfff";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  AuthButtonsDeauthorizeWebappMutation$variables,
+  AuthButtonsDeauthorizeWebappMutation$data,
+>*/);

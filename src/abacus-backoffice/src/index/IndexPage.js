@@ -8,10 +8,10 @@ import sx from '@adeira/sx';
 
 import BarChart from '../d3/BarChart';
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
-import type { IndexPageQuery } from './__generated__/IndexPageQuery.graphql';
 
 export default function IndexPage(): React.Node {
-  const data = useLazyLoadQuery<IndexPageQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query IndexPageQuery {
         analytics {

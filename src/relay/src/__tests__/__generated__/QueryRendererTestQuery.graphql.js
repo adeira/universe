@@ -1,31 +1,32 @@
 /**
+ * @generated SignedSource<<382bc436026cc1f961adcc4118109772>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type QueryRendererTestQueryVariables = {||};
-export type QueryRendererTestQueryResponse = {|
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+export type QueryRendererTestQuery$variables = {||};
+export type QueryRendererTestQueryVariables = QueryRendererTestQuery$variables;
+export type QueryRendererTestQuery$data = {|
   +node: ?{|
-    +id: string
-  |}
+    +id: string,
+  |},
 |};
+export type QueryRendererTestQueryResponse = QueryRendererTestQuery$data;
 export type QueryRendererTestQuery = {|
   variables: QueryRendererTestQueryVariables,
-  response: QueryRendererTestQueryResponse,
+  response: QueryRendererTestQuery$data,
 |};
-
-/*
-query QueryRendererTestQuery {
-  node(id: "my-id") {
-    __typename
-    id
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "kind": "Literal",
@@ -121,6 +122,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '6da37014e280a934ef08b7983d1c4d94';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "6da37014e280a934ef08b7983d1c4d94";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  QueryRendererTestQuery$variables,
+  QueryRendererTestQuery$data,
+>*/);

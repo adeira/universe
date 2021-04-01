@@ -1,11 +1,18 @@
 /**
+ * @generated SignedSource<<e04bf1efdda64fc261dd6ac6d6a10bcf>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-type ProductEditFormData$ref = any;
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
+type ProductEditFormData$fragmentType = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
@@ -13,120 +20,44 @@ export type ProductMultilingualInputTranslations = {|
   name: string,
   description?: ?string,
 |};
-export type ProductEditFormMutationVariables = {|
+export type ProductEditFormMutation$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
   productRevision: string,
-  productImagesNames: $ReadOnlyArray<any>,
+  productImagesNames: $ReadOnlyArray<string>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   categories: $ReadOnlyArray<string>,
   addons: $ReadOnlyArray<string>,
 |};
-export type ProductEditFormMutationResponse = {|
+export type ProductEditFormMutationVariables = ProductEditFormMutation$variables;
+export type ProductEditFormMutation$data = {|
   +commerce: {|
     +result: {|
       +__typename: "Product",
       +id: string,
       +name: string,
       +revision: string,
-      +$fragmentRefs: ProductEditFormData$ref,
+      +$fragmentSpreads: ProductEditFormData$fragmentType,
     |} | {|
       +__typename: "ProductError",
       +message: string,
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
+export type ProductEditFormMutationResponse = ProductEditFormMutation$data;
 export type ProductEditFormMutation = {|
   variables: ProductEditFormMutationVariables,
-  response: ProductEditFormMutationResponse,
+  response: ProductEditFormMutation$data,
 |};
-
-/*
-mutation ProductEditFormMutation(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-  $productRevision: ID!
-  $productImagesNames: [ProductImageUploadable!]!
-  $productPriceUnitAmount: Int!
-  $translations: [ProductMultilingualInputTranslations!]!
-  $visibility: [ProductMultilingualInputVisibility!]!
-  $categories: [ID!]!
-  $addons: [ID!]!
-) {
-  commerce {
-    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {
-      __typename
-      ... on Product {
-        __typename
-        id
-        name
-        revision
-        ...ProductEditFormData
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
-
-fragment ProductEditFormData on Product {
-  key
-  revision
-  availableCategories(clientLocale: $clientLocale) {
-    ...ProductFormCategoriesData
-    id
-  }
-  availableAddons(clientLocale: $clientLocale) {
-    ...ProductFormAddonsData
-    id
-  }
-  price {
-    unitAmount
-  }
-  selectedCategories(clientLocale: $clientLocale) {
-    id
-  }
-  selectedAddons(clientLocale: $clientLocale) {
-    id
-  }
-  visibility
-  enTranslation: translation(locale: en_US) {
-    name
-    description
-  }
-  esTranslation: translation(locale: es_MX) {
-    name
-    description
-  }
-  images {
-    name
-  }
-}
-
-fragment ProductFormAddonsData on ProductAddon {
-  id
-  name
-  priceExtra {
-    unitAmount
-    unitAmountCurrency
-  }
-}
-
-fragment ProductFormCategoriesData on ProductCategory {
-  id
-  name
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -567,6 +498,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '2400c8982c9b36261593cb7920f33251';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "5ea7f8b50995909c30fb798b4847a574";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  ProductEditFormMutation$variables,
+  ProductEditFormMutation$data,
+>*/);

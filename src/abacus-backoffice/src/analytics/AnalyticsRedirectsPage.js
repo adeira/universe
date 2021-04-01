@@ -5,10 +5,9 @@ import { Badge, Link, Table } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import { useLazyLoadQuery, graphql } from '@adeira/relay';
 
-import type { AnalyticsRedirectsPageQuery } from './__generated__/AnalyticsRedirectsPageQuery.graphql';
-
 export default function AnalyticsRedirectsPage(): Node {
-  const { analytics } = useLazyLoadQuery<AnalyticsRedirectsPageQuery>(graphql`
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const { analytics } = useLazyLoadQuery(graphql`
     query AnalyticsRedirectsPageQuery {
       analytics {
         redirectHits {

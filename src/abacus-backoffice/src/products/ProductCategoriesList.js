@@ -5,11 +5,11 @@ import React, { type Node } from 'react';
 import { Entity, EntityField, LayoutBlock, Text } from '@adeira/sx-design';
 
 import useApplicationLocale from '../useApplicationLocale';
-import type { ProductCategoriesListQuery } from './__generated__/ProductCategoriesListQuery.graphql';
 
 export default function ProductCategoriesList(): Node {
   const applicationLocale = useApplicationLocale();
-  const data = useLazyLoadQuery<ProductCategoriesListQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query ProductCategoriesListQuery($clientLocale: SupportedLocale!) {
         commerce {

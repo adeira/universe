@@ -1,5 +1,7 @@
 # Unreleased
 
+- The old Relay Compiler wrapper has been replaces with the new Rust Compiler. This is the only compiler available in Relay 13+ and you can read more about this change here: https://relay.dev/blog/2021/12/08/introducing-the-new-relay-compiler/
+
 # 4.0.0
 
 - **Breaking**: Relay version upgraded to 12.0.0, for more information please visit: https://github.com/facebook/relay/releases/tag/v12.0.0

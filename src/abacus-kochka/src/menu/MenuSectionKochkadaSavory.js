@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function MenuSectionKochkadaSavory(props: Props): Node {
-  const data = useFragment<MenuSectionKochkadaSavory$key>(
+  const data = useFragment(
     graphql`
       fragment MenuSectionKochkadaSavory on MenuQuery {
         kochkadaSavoryMenu: menu(clientLocale: $clientLocale, section: DUMPLING_SAVORY) {

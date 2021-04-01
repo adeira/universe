@@ -1,30 +1,37 @@
 /**
+ * @generated SignedSource<<bbd44ca3a191dd1d6390f3a4ad7d2457>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-type MenuRow$ref = any;
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type MenuSectionKochkadaSavory$ref: FragmentReference;
-declare export opaque type MenuSectionKochkadaSavory$fragmentType: MenuSectionKochkadaSavory$ref;
-export type MenuSectionKochkadaSavory = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+type MenuRow$fragmentType = any;
+import type { FragmentType } from "relay-runtime";
+declare export opaque type MenuSectionKochkadaSavory$fragmentType: FragmentType;
+export type MenuSectionKochkadaSavory$ref = MenuSectionKochkadaSavory$fragmentType;
+export type MenuSectionKochkadaSavory$data = {|
   +kochkadaSavoryMenu: $ReadOnlyArray<{|
     +id: string,
-    +$fragmentRefs: MenuRow$ref,
+    +$fragmentSpreads: MenuRow$fragmentType,
   |}>,
-  +$refType: MenuSectionKochkadaSavory$ref,
+  +$fragmentType: MenuSectionKochkadaSavory$fragmentType,
 |};
-export type MenuSectionKochkadaSavory$data = MenuSectionKochkadaSavory;
+export type MenuSectionKochkadaSavory = MenuSectionKochkadaSavory$data;
 export type MenuSectionKochkadaSavory$key = {
   +$data?: MenuSectionKochkadaSavory$data,
-  +$fragmentRefs: MenuSectionKochkadaSavory$ref,
+  +$fragmentSpreads: MenuSectionKochkadaSavory$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [
     {
       "kind": "RootArgument",
@@ -73,6 +80,12 @@ const node: ReaderFragment = {
   "type": "MenuQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '6140475a005f70edc685bfd546178cf4';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "6140475a005f70edc685bfd546178cf4";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  MenuSectionKochkadaSavory$fragmentType,
+  MenuSectionKochkadaSavory$data,
+>*/);

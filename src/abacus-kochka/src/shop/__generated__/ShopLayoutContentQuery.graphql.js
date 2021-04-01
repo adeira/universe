@@ -1,18 +1,26 @@
 /**
+ * @generated SignedSource<<ef0177b511c700b51b17bd34a3c971b4>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ShopLayoutContentQueryVariables = {|
+export type ShopLayoutContentQuery$variables = {|
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
 |};
-export type ShopLayoutContentQueryResponse = {|
+export type ShopLayoutContentQueryVariables = ShopLayoutContentQuery$variables;
+export type ShopLayoutContentQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
       +key: string,
@@ -25,38 +33,17 @@ export type ShopLayoutContentQueryResponse = {|
         +blurhash: string,
         +url: string,
       |},
-    |}>
-  |}
+    |}>,
+  |},
 |};
+export type ShopLayoutContentQueryResponse = ShopLayoutContentQuery$data;
 export type ShopLayoutContentQuery = {|
   variables: ShopLayoutContentQueryVariables,
-  response: ShopLayoutContentQueryResponse,
+  response: ShopLayoutContentQuery$data,
 |};
-
-/*
-query ShopLayoutContentQuery(
-  $clientLocale: SupportedLocale!
-  $priceSortDirection: PriceSortDirection!
-) {
-  commerce {
-    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, visibility: ESHOP) {
-      key
-      name
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-      imageCover {
-        blurhash
-        url
-      }
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -238,6 +225,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'f80231d0ee8d704c6ff74da317ee886a';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "58597fd12ee384ee575ed69c889885a3";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ShopLayoutContentQuery$variables,
+  ShopLayoutContentQuery$data,
+>*/);

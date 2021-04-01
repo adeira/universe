@@ -1,32 +1,39 @@
 /**
+ * @generated SignedSource<<a096fe57b2f3d2026114e44397feb706>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type ProductFormAddonsData$ref: FragmentReference;
-declare export opaque type ProductFormAddonsData$fragmentType: ProductFormAddonsData$ref;
-export type ProductFormAddonsData = $ReadOnlyArray<{|
+import type { FragmentType } from "relay-runtime";
+declare export opaque type ProductFormAddonsData$fragmentType: FragmentType;
+export type ProductFormAddonsData$ref = ProductFormAddonsData$fragmentType;
+export type ProductFormAddonsData$data = $ReadOnlyArray<{|
   +id: string,
   +name: string,
   +priceExtra: {|
     +unitAmount: number,
     +unitAmountCurrency: SupportedCurrency,
   |},
-  +$refType: ProductFormAddonsData$ref,
+  +$fragmentType: ProductFormAddonsData$fragmentType,
 |}>;
-export type ProductFormAddonsData$data = ProductFormAddonsData;
+export type ProductFormAddonsData = ProductFormAddonsData$data;
 export type ProductFormAddonsData$key = $ReadOnlyArray<{
   +$data?: ProductFormAddonsData$data,
-  +$fragmentRefs: ProductFormAddonsData$ref,
+  +$fragmentSpreads: ProductFormAddonsData$fragmentType,
   ...
 }>;
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": {
@@ -77,6 +84,12 @@ const node: ReaderFragment = {
   "type": "ProductAddon",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = 'e9018dac3479ec0c4cb9980f78d8a753';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "e9018dac3479ec0c4cb9980f78d8a753";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  ProductFormAddonsData$fragmentType,
+  ProductFormAddonsData$data,
+>*/);

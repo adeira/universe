@@ -5,10 +5,9 @@ import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 
-import type { EmployeesPageQuery } from './__generated__/EmployeesPageQuery.graphql';
-
 export default function EmployeesPage(): React.Node {
-  const data = useLazyLoadQuery<EmployeesPageQuery>(graphql`
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(graphql`
     query EmployeesPageQuery {
       auth {
         listUsers {

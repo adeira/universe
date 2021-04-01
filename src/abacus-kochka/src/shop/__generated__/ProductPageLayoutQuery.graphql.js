@@ -1,17 +1,25 @@
 /**
+ * @generated SignedSource<<97947a74a397b0a87cf8b59e4770bdaa>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductPageLayoutQueryVariables = {|
+export type ProductPageLayoutQuery$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductPageLayoutQueryResponse = {|
+export type ProductPageLayoutQueryVariables = ProductPageLayoutQuery$variables;
+export type ProductPageLayoutQuery$data = {|
   +commerce: {|
     +product: {|
       +name: string,
@@ -24,38 +32,17 @@ export type ProductPageLayoutQueryResponse = {|
         +blurhash: string,
         +url: string,
       |}>,
-    |}
-  |}
+    |},
+  |},
 |};
+export type ProductPageLayoutQueryResponse = ProductPageLayoutQuery$data;
 export type ProductPageLayoutQuery = {|
   variables: ProductPageLayoutQueryVariables,
-  response: ProductPageLayoutQueryResponse,
+  response: ProductPageLayoutQuery$data,
 |};
-
-/*
-query ProductPageLayoutQuery(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-) {
-  commerce {
-    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      name
-      description
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-      images {
-        blurhash
-        url
-      }
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -232,6 +219,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '860c513cb31bbfc2af9dcf31be1b0b33';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "25a2ea0e1e939f54047f9222193604a7";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductPageLayoutQuery$variables,
+  ProductPageLayoutQuery$data,
+>*/);

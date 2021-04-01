@@ -1,33 +1,40 @@
 /**
+ * @generated SignedSource<<178883ba562da8565e943c0ce50cc84f>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-type ProductFormAddonsData$ref = any;
-type ProductFormCategoriesData$ref = any;
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+type ProductFormAddonsData$fragmentType = any;
+type ProductFormCategoriesData$fragmentType = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type ProductEditFormData$ref: FragmentReference;
-declare export opaque type ProductEditFormData$fragmentType: ProductEditFormData$ref;
-export type ProductEditFormData = {|
+import type { FragmentType } from "relay-runtime";
+declare export opaque type ProductEditFormData$fragmentType: FragmentType;
+export type ProductEditFormData$ref = ProductEditFormData$fragmentType;
+export type ProductEditFormData$data = {|
   +key: string,
   +revision: string,
   +availableCategories: $ReadOnlyArray<?{|
-    +$fragmentRefs: ProductFormCategoriesData$ref
+    +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
   |}>,
   +availableAddons: $ReadOnlyArray<?{|
-    +$fragmentRefs: ProductFormAddonsData$ref
+    +$fragmentSpreads: ProductFormAddonsData$fragmentType,
   |}>,
   +price: {|
-    +unitAmount: number
+    +unitAmount: number,
   |},
   +selectedCategories: $ReadOnlyArray<?{|
-    +id: string
+    +id: string,
   |}>,
   +selectedAddons: $ReadOnlyArray<?{|
-    +id: string
+    +id: string,
   |}>,
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +enTranslation: ?{|
@@ -39,19 +46,19 @@ export type ProductEditFormData = {|
     +description: ?string,
   |},
   +images: $ReadOnlyArray<{|
-    +name: string
+    +name: string,
   |}>,
-  +$refType: ProductEditFormData$ref,
+  +$fragmentType: ProductEditFormData$fragmentType,
 |};
-export type ProductEditFormData$data = ProductEditFormData;
+export type ProductEditFormData = ProductEditFormData$data;
 export type ProductEditFormData$key = {
   +$data?: ProductEditFormData$data,
-  +$fragmentRefs: ProductEditFormData$ref,
+  +$fragmentSpreads: ProductEditFormData$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = (function(){
+var node/*: ReaderFragment*/ = (function(){
 var v0 = [
   {
     "kind": "Variable",
@@ -236,6 +243,12 @@ return {
   "abstractKey": null
 };
 })();
-// prettier-ignore
-(node: any).hash = '681633a20f6272cb9d2dbeae0f7b4919';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "681633a20f6272cb9d2dbeae0f7b4919";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  ProductEditFormData$fragmentType,
+  ProductEditFormData$data,
+>*/);

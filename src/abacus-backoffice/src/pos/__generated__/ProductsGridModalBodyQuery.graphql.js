@@ -1,22 +1,30 @@
 /**
+ * @generated SignedSource<<7349f73cd1498d178cf6f5f268e0a538>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductsGridModalBodyQueryVariables = {|
+export type ProductsGridModalBodyQuery$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductsGridModalBodyQueryResponse = {|
+export type ProductsGridModalBodyQueryVariables = ProductsGridModalBodyQuery$variables;
+export type ProductsGridModalBodyQuery$data = {|
   +commerce: {|
     +product: {|
       +name: string,
       +price: {|
-        +unitAmount: number
+        +unitAmount: number,
       |},
       +selectedAddons: $ReadOnlyArray<?{|
         +id: string,
@@ -26,40 +34,17 @@ export type ProductsGridModalBodyQueryResponse = {|
           +unitAmountCurrency: SupportedCurrency,
         |},
       |}>,
-    |}
-  |}
+    |},
+  |},
 |};
+export type ProductsGridModalBodyQueryResponse = ProductsGridModalBodyQuery$data;
 export type ProductsGridModalBodyQuery = {|
   variables: ProductsGridModalBodyQueryVariables,
-  response: ProductsGridModalBodyQueryResponse,
+  response: ProductsGridModalBodyQuery$data,
 |};
-
-/*
-query ProductsGridModalBodyQuery(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-) {
-  commerce {
-    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      name
-      price {
-        unitAmount
-      }
-      selectedAddons(clientLocale: $clientLocale) {
-        id
-        name
-        priceExtra {
-          unitAmount
-          unitAmountCurrency
-        }
-      }
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -232,6 +217,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '6de4765822d4f76264cde76f74a90a16';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "d5ba7882859f9abf1bca86496b5bc43e";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductsGridModalBodyQuery$variables,
+  ProductsGridModalBodyQuery$data,
+>*/);

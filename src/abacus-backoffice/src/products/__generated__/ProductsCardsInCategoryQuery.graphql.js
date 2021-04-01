@@ -1,61 +1,41 @@
 /**
+ * @generated SignedSource<<75d8eb49611d9bb528e655b13da1f274>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-type ProductsCardsData$ref = any;
-export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+type ProductsCardsData$fragmentType = any;
+export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductsCardsInCategoryQueryVariables = {|
+export type ProductsCardsInCategoryQuery$variables = {|
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
   categories?: ?$ReadOnlyArray<string>,
 |};
-export type ProductsCardsInCategoryQueryResponse = {|
+export type ProductsCardsInCategoryQueryVariables = ProductsCardsInCategoryQuery$variables;
+export type ProductsCardsInCategoryQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
-      +$fragmentRefs: ProductsCardsData$ref
-    |}>
-  |}
+      +$fragmentSpreads: ProductsCardsData$fragmentType,
+    |}>,
+  |},
 |};
+export type ProductsCardsInCategoryQueryResponse = ProductsCardsInCategoryQuery$data;
 export type ProductsCardsInCategoryQuery = {|
   variables: ProductsCardsInCategoryQueryVariables,
-  response: ProductsCardsInCategoryQueryResponse,
+  response: ProductsCardsInCategoryQuery$data,
 |};
-
-/*
-query ProductsCardsInCategoryQuery(
-  $clientLocale: SupportedLocale!
-  $priceSortDirection: PriceSortDirection!
-  $categories: [ID!]
-) {
-  commerce {
-    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories) {
-      ...ProductsCardsData
-      id
-    }
-  }
-}
-
-fragment ProductsCardsData on Product {
-  id
-  key
-  name
-  imageCover {
-    blurhash
-    url
-  }
-  price {
-    unitAmount
-    unitAmountCurrency
-  }
-  isPublished
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -252,6 +232,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '1fb8a914e7bbc4c6535f25b4f592cb12';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "978767bfb60ad8c2fbe1d8fad793c608";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductsCardsInCategoryQuery$variables,
+  ProductsCardsInCategoryQuery$data,
+>*/);

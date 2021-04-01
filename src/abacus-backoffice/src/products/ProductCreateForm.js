@@ -11,7 +11,7 @@ import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import useApplicationLocale from '../useApplicationLocale';
 import ProductForm from './ProductForm';
 import type { ProductCreateFormData$key } from './__generated__/ProductCreateFormData.graphql';
-import type { ProductCreateFormMutationVariables } from './__generated__/ProductCreateFormMutation.graphql';
+import type { ProductCreateFormMutation$variables } from './__generated__/ProductCreateFormMutation.graphql';
 
 type Props = {
   +commerceData: ProductCreateFormData$key,
@@ -22,7 +22,7 @@ export default function ProductCreateForm(props: Props): Node {
   const router = useRouter();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
-  const data = useFragment<ProductCreateFormData$key>(
+  const data = useFragment(
     graphql`
       fragment ProductCreateFormData on CommerceQuery {
         productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
@@ -86,7 +86,7 @@ export default function ProductCreateForm(props: Props): Node {
               }
             }
           `}
-          variables={(formValues): ProductCreateFormMutationVariables => ({
+          variables={(formValues): ProductCreateFormMutation$variables => ({
             clientLocale: applicationLocale.graphql,
             productImagesNames: formValues.images,
             productPriceUnitAmount: formValues.price * 100, // adjusted for centavo

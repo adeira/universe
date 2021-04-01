@@ -1,14 +1,21 @@
 /**
+ * @generated SignedSource<<ec32ff1144430f9937e0839b535a75da>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type CatsTableAdoptedFragment$ref: FragmentReference;
-declare export opaque type CatsTableAdoptedFragment$fragmentType: CatsTableAdoptedFragment$ref;
-export type CatsTableAdoptedFragment = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+import type { FragmentType } from "relay-runtime";
+declare export opaque type CatsTableAdoptedFragment$fragmentType: FragmentType;
+export type CatsTableAdoptedFragment$ref = CatsTableAdoptedFragment$fragmentType;
+export type CatsTableAdoptedFragment$data = {|
   +adoptedCats: $ReadOnlyArray<{|
     +order: number,
     +name: string,
@@ -16,17 +23,17 @@ export type CatsTableAdoptedFragment = {|
     +dateOfDeworming: ?string,
     +dateOfAdoption: ?string,
   |}>,
-  +$refType: CatsTableAdoptedFragment$ref,
+  +$fragmentType: CatsTableAdoptedFragment$fragmentType,
 |};
-export type CatsTableAdoptedFragment$data = CatsTableAdoptedFragment;
+export type CatsTableAdoptedFragment = CatsTableAdoptedFragment$data;
 export type CatsTableAdoptedFragment$key = {
   +$data?: CatsTableAdoptedFragment$data,
-  +$fragmentRefs: CatsTableAdoptedFragment$ref,
+  +$fragmentSpreads: CatsTableAdoptedFragment$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -90,6 +97,12 @@ const node: ReaderFragment = {
   "type": "CatsQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '9c25db35b12efbb28dcd0e1aec208a4f';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "9c25db35b12efbb28dcd0e1aec208a4f";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  CatsTableAdoptedFragment$fragmentType,
+  CatsTableAdoptedFragment$data,
+>*/);

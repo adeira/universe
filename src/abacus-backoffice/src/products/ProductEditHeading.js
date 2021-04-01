@@ -13,8 +13,8 @@ import LayoutHeadingLink from '../LayoutHeadingLink';
 import ProductEditHeadingPublishUnpublish from './ProductEditHeadingPublishUnpublish';
 import useApplicationLocale from '../useApplicationLocale';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
-import type { ProductEditHeadingArchiveMutation } from './__generated__/ProductEditHeadingArchiveMutation.graphql';
 import type { ProductEditHeading$key } from './__generated__/ProductEditHeading.graphql';
+import type { ProductEditHeadingArchiveMutation } from './__generated__/ProductEditHeadingArchiveMutation.graphql';
 
 type Props = {
   +product: ProductEditHeading$key,
@@ -47,7 +47,7 @@ export default function ProductEditHeading(props: Props): React.Node {
     `,
   );
 
-  const product = useFragment<ProductEditHeading$key>(
+  const product = useFragment(
     graphql`
       fragment ProductEditHeading on Product {
         key

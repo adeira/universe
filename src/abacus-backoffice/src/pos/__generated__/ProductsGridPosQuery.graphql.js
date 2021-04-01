@@ -1,19 +1,27 @@
 /**
+ * @generated SignedSource<<334efcbbf4ae284ef8e69d8207148bec>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductsGridPosQueryVariables = {|
+export type ProductsGridPosQuery$variables = {|
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
   categories?: ?$ReadOnlyArray<string>,
 |};
-export type ProductsGridPosQueryResponse = {|
+export type ProductsGridPosQueryVariables = ProductsGridPosQuery$variables;
+export type ProductsGridPosQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
       +id: string,
@@ -28,40 +36,17 @@ export type ProductsGridPosQueryResponse = {|
         +unitAmountCurrency: SupportedCurrency,
       |},
       +hasSelectedAddons: boolean,
-    |}>
-  |}
+    |}>,
+  |},
 |};
+export type ProductsGridPosQueryResponse = ProductsGridPosQuery$data;
 export type ProductsGridPosQuery = {|
   variables: ProductsGridPosQueryVariables,
-  response: ProductsGridPosQueryResponse,
+  response: ProductsGridPosQuery$data,
 |};
-
-/*
-query ProductsGridPosQuery(
-  $clientLocale: SupportedLocale!
-  $priceSortDirection: PriceSortDirection!
-  $categories: [ID!]
-) {
-  commerce {
-    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories, visibility: POS) {
-      id
-      key
-      name
-      imageCover {
-        blurhash
-        url
-      }
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-      hasSelectedAddons
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -235,6 +220,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '4af3e1a3f3cc24d1cc4dff00aecf13f6';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "ee7ac4fa90eea0072e03c41fe566ff9f";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductsGridPosQuery$variables,
+  ProductsGridPosQuery$data,
+>*/);

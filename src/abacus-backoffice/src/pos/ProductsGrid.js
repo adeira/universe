@@ -11,7 +11,6 @@ import useApplicationLocale from '../useApplicationLocale';
 import ProductsGridModal from './ProductsGridModal';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 import ProductsGridModalBodyQuery from './__generated__/ProductsGridModalBodyQuery.graphql';
-import type { ProductsGridPosQuery } from './__generated__/ProductsGridPosQuery.graphql';
 
 type Props = {
   +selectedCategory: string | null,
@@ -24,7 +23,8 @@ export default function ProductsGrid(props: Props): Node {
   });
   const applicationLocale = useApplicationLocale();
   const { select } = useSelectedItemsApi();
-  const data = useLazyLoadQuery<ProductsGridPosQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query ProductsGridPosQuery(
         $clientLocale: SupportedLocale!

@@ -1,13 +1,21 @@
 /**
+ * @generated SignedSource<<a18be503343b3102216a916c4be0c8da>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-export type IndexPageQueryVariables = {||};
-export type IndexPageQueryResponse = {|
+export type IndexPageQuery$variables = {||};
+export type IndexPageQueryVariables = IndexPageQuery$variables;
+export type IndexPageQuery$data = {|
   +analytics: {|
     +mostSoldProducts: $ReadOnlyArray<{|
       +productName: string,
@@ -24,36 +32,16 @@ export type IndexPageQueryResponse = {|
         +totalUnits: number,
       |}>,
     |}>,
-  |}
+  |},
 |};
+export type IndexPageQueryResponse = IndexPageQuery$data;
 export type IndexPageQuery = {|
   variables: IndexPageQueryVariables,
-  response: IndexPageQueryResponse,
+  response: IndexPageQuery$data,
 |};
-
-/*
-query IndexPageQuery {
-  analytics {
-    mostSoldProducts {
-      productName
-      productUnits
-    }
-    dailyReports {
-      dateDay
-      total {
-        unitAmount
-        unitAmountCurrency
-      }
-      productsSummary {
-        productName
-        totalUnits
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -182,6 +170,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '6aa30f95e3533d8110a8f321ec5104a7';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "6aa30f95e3533d8110a8f321ec5104a7";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  IndexPageQuery$variables,
+  IndexPageQuery$data,
+>*/);

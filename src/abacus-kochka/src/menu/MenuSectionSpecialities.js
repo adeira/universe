@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function MenuSectionSpecialities(props: Props): Node {
-  const data = useFragment<MenuSectionSpecialities$key>(
+  const data = useFragment(
     graphql`
       fragment MenuSectionSpecialities on MenuQuery {
         specialitiesMenu: menu(clientLocale: $clientLocale, section: SPECIALITIES) {

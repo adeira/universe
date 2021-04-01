@@ -34,7 +34,7 @@ export default function ProductForm(props: {
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
   +button: RestrictedElement<typeof FormSubmit>,
 }): React.Node {
-  const productCategories = useFragment<ProductFormCategoriesData$key>(
+  const productCategories = useFragment(
     graphql`
       fragment ProductFormCategoriesData on ProductCategory @relay(plural: true) {
         id
@@ -44,7 +44,7 @@ export default function ProductForm(props: {
     props.availableCategories,
   );
 
-  const productAddons = useFragment<ProductFormAddonsData$key>(
+  const productAddons = useFragment(
     graphql`
       fragment ProductFormAddonsData on ProductAddon @relay(plural: true) {
         id

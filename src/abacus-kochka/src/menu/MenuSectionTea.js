@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function MenuSectionTea(props: Props): Node {
-  const data = useFragment<MenuSectionTea$key>(
+  const data = useFragment(
     graphql`
       fragment MenuSectionTea on MenuQuery {
         teaMenu: menu(clientLocale: $clientLocale, section: TEA) {

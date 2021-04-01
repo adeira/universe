@@ -1,41 +1,37 @@
 /**
+ * @generated SignedSource<<cd8354888db90d76decdf4c9088c6510>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type AnalyticsRedirectsPageQueryVariables = {||};
-export type AnalyticsRedirectsPageQueryResponse = {|
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+export type AnalyticsRedirectsPageQuery$variables = {||};
+export type AnalyticsRedirectsPageQueryVariables = AnalyticsRedirectsPageQuery$variables;
+export type AnalyticsRedirectsPageQuery$data = {|
   +analytics: {|
     +redirectHits: $ReadOnlyArray<{|
       +uuid: string,
       +redirectsTo: string,
       +description: string,
       +hits: number,
-    |}>
-  |}
+    |}>,
+  |},
 |};
+export type AnalyticsRedirectsPageQueryResponse = AnalyticsRedirectsPageQuery$data;
 export type AnalyticsRedirectsPageQuery = {|
   variables: AnalyticsRedirectsPageQueryVariables,
-  response: AnalyticsRedirectsPageQueryResponse,
+  response: AnalyticsRedirectsPageQuery$data,
 |};
-
-/*
-query AnalyticsRedirectsPageQuery {
-  analytics {
-    redirectHits {
-      uuid
-      redirectsTo
-      description
-      hits
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -152,6 +148,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '02c3442388de1c33274df8bb7f529620';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "02c3442388de1c33274df8bb7f529620";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  AnalyticsRedirectsPageQuery$variables,
+  AnalyticsRedirectsPageQuery$data,
+>*/);

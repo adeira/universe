@@ -1,32 +1,39 @@
 /**
+ * @generated SignedSource<<56b794f7eb6a38dea061e183f50ff958>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type MenuRow$ref: FragmentReference;
-declare export opaque type MenuRow$fragmentType: MenuRow$ref;
-export type MenuRow = {|
+import type { FragmentType } from "relay-runtime";
+declare export opaque type MenuRow$fragmentType: FragmentType;
+export type MenuRow$ref = MenuRow$fragmentType;
+export type MenuRow$data = {|
   +name: string,
   +description: ?string,
   +price: {|
     +unitAmount: number,
     +unitAmountCurrency: SupportedCurrency,
   |},
-  +$refType: MenuRow$ref,
+  +$fragmentType: MenuRow$fragmentType,
 |};
-export type MenuRow$data = MenuRow;
+export type MenuRow = MenuRow$data;
 export type MenuRow$key = {
   +$data?: MenuRow$data,
-  +$fragmentRefs: MenuRow$ref,
+  +$fragmentSpreads: MenuRow$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -75,6 +82,12 @@ const node: ReaderFragment = {
   "type": "Product",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '0dfe65ad52cd8b7bd967d49f64ed44f9';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "0dfe65ad52cd8b7bd967d49f64ed44f9";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  MenuRow$fragmentType,
+  MenuRow$data,
+>*/);
