@@ -1,34 +1,32 @@
 /**
+ * @generated SignedSource<<4afb7cfba9ad30d2d1050db78abcee45>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type AuthButtonsDeauthorizeWebappMutationVariables = {|
-  sessionToken: string
+  sessionToken: string,
 |};
 export type AuthButtonsDeauthorizeWebappMutationResponse = {|
   +deauthorize: {|
-    +__typename: string
-  |}
+    +__typename: string,
+  |},
 |};
 export type AuthButtonsDeauthorizeWebappMutation = {|
   variables: AuthButtonsDeauthorizeWebappMutationVariables,
   response: AuthButtonsDeauthorizeWebappMutationResponse,
 |};
-
-/*
-mutation AuthButtonsDeauthorizeWebappMutation(
-  $sessionToken: String!
-) {
-  deauthorize(sessionToken: $sessionToken) {
-    __typename
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -89,6 +87,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '185c9f22024e996b6ad226523651ca0e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "185c9f22024e996b6ad226523651ca0e";
+}
+
+module.exports = node;

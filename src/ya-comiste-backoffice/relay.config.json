@@ -1,0 +1,18 @@
+{
+  "root": "..",
+  "sources": {
+    "ya-comiste-backoffice/src": "default"
+  },
+  "codegenCommand": "yarn workspace @adeira/ya-comiste-backoffice relay",
+  "projects": {
+    "default": {
+      "schema": "ya-comiste-rust/schema.graphql",
+      "jsModuleFormat": "commonjs",
+      "haste": false,
+      "customScalarTypes": {
+        "ProductImageUploadable": "String"
+      }
+    }
+  },
+  "isDevVariableName": "__DEV__"
+}

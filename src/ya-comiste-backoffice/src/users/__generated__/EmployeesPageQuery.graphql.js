@@ -1,32 +1,31 @@
 /**
+ * @generated SignedSource<<939d644ba88e27a439e0095fec4ad578>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type EmployeesPageQueryVariables = {||};
 export type EmployeesPageQueryResponse = {|
   +listUsers: $ReadOnlyArray<{|
     +id: string,
     +type: string,
-  |}>
+  |}>,
 |};
 export type EmployeesPageQuery = {|
   variables: EmployeesPageQueryVariables,
   response: EmployeesPageQueryResponse,
 |};
-
-/*
-query EmployeesPageQuery {
-  listUsers {
-    id
-    type
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -81,6 +80,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '25306471eddd3c6211016abedeb10009';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "25306471eddd3c6211016abedeb10009";
+}
+
+module.exports = node;

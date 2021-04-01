@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<b38a21cb7b5c7d6440520ab3363c4c43>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
@@ -15,7 +22,7 @@ export type ProductMultilingualInputTranslations = {|
 export type EditProductFormMutationVariables = {|
   productKey: string,
   productRevision: string,
-  productImagesNames: $ReadOnlyArray<any>,
+  productImagesNames: $ReadOnlyArray<String>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
@@ -26,7 +33,7 @@ export type EditProductFormMutationResponse = {|
       +__typename: "Product",
       +name: string,
       +price: {|
-        +unitAmount: number
+        +unitAmount: number,
       |},
       +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
       +translations: $ReadOnlyArray<{|
@@ -40,50 +47,17 @@ export type EditProductFormMutationResponse = {|
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
 export type EditProductFormMutation = {|
   variables: EditProductFormMutationVariables,
   response: EditProductFormMutationResponse,
 |};
-
-/*
-mutation EditProductFormMutation(
-  $productKey: ID!
-  $productRevision: ID!
-  $productImagesNames: [ProductImageUploadable!]!
-  $productPriceUnitAmount: Int!
-  $translations: [ProductMultilingualInputTranslations!]!
-  $visibility: [ProductMultilingualInputVisibility!]!
-) {
-  commerce {
-    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
-      __typename
-      ... on Product {
-        __typename
-        name
-        price {
-          unitAmount
-        }
-        visibility
-        translations {
-          locale
-          name
-          description
-        }
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -332,7 +306,14 @@ return {
                   (v8/*: any*/),
                   (v9/*: any*/),
                   (v10/*: any*/),
-                  (v11/*: any*/)
+                  (v11/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  }
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -354,15 +335,18 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d27998f91d2e3c39f7bacc5fa200e69f",
+    "cacheID": "fb9a15bdc72be00baad8a713bd34ced2",
     "id": null,
     "metadata": {},
     "name": "EditProductFormMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        price {\n          unitAmount\n        }\n        visibility\n        translations {\n          locale\n          name\n          description\n        }\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        price {\n          unitAmount\n        }\n        visibility\n        translations {\n          locale\n          name\n          description\n        }\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '3c2c0f5ebc3b59207ee9bf9da07ee178';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "6a3b20b7897055731eda95a174a2d5ea";
+}
+
+module.exports = node;

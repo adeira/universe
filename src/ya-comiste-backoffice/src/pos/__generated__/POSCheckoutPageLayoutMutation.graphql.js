@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<198f724ff362301acb42e330e51ea4d0>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type PosCheckoutProductInput = {|
@@ -13,7 +20,7 @@ export type PosCheckoutProductInput = {|
   productPriceUnitAmountCurrency: SupportedCurrency,
 |};
 export type POSCheckoutPageLayoutMutationVariables = {|
-  checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>
+  checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>,
 |};
 export type POSCheckoutPageLayoutMutationResponse = {|
   +pos: {|
@@ -26,34 +33,17 @@ export type POSCheckoutPageLayoutMutationResponse = {|
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
 export type POSCheckoutPageLayoutMutation = {|
   variables: POSCheckoutPageLayoutMutationVariables,
   response: POSCheckoutPageLayoutMutationResponse,
 |};
-
-/*
-mutation POSCheckoutPageLayoutMutation(
-  $checkoutInput: [PosCheckoutProductInput!]!
-) {
-  pos {
-    checkout(input: {selectedProducts: $checkoutInput}) {
-      __typename
-      ... on PosCheckoutPayload {
-        id
-      }
-      ... on PosCheckoutError {
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -159,6 +149,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '62625f93bb702c890c5f3d38d652d255';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "62625f93bb702c890c5f3d38d652d255";
+}
+
+module.exports = node;

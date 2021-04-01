@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<da7551136227c19430d7d6be950e4acf>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type EditProductHeading$ref: FragmentReference;
@@ -19,9 +26,9 @@ export type EditProductHeading$key = {
   +$fragmentRefs: EditProductHeading$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -45,6 +52,9 @@ const node: ReaderFragment = {
   "type": "Product",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '5083a6dabf247d6d6a211ccee56e772a';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "5083a6dabf247d6d6a211ccee56e772a";
+}
+
+module.exports = node;

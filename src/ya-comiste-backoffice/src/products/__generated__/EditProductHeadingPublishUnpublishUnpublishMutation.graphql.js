@@ -1,52 +1,41 @@
 /**
+ * @generated SignedSource<<7393a9e02cc298b6c9eaa978119f0e42>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type EditProductHeadingPublishUnpublishUnpublishMutationVariables = {|
-  productKey: string
+  productKey: string,
 |};
 export type EditProductHeadingPublishUnpublishUnpublishMutationResponse = {|
   +commerce: {|
     +productOrError: {|
-      +__typename: "Product"
+      +__typename: "Product",
     |} | {|
       +__typename: "ProductError",
       +message: string,
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
 export type EditProductHeadingPublishUnpublishUnpublishMutation = {|
   variables: EditProductHeadingPublishUnpublishUnpublishMutationVariables,
   response: EditProductHeadingPublishUnpublishUnpublishMutationResponse,
 |};
-
-/*
-mutation EditProductHeadingPublishUnpublishUnpublishMutation(
-  $productKey: ID!
-) {
-  commerce {
-    productOrError: productUnpublish(productKey: $productKey) {
-      __typename
-      ... on Product {
-        __typename
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -151,6 +140,20 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  }
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
                   (v3/*: any*/)
                 ],
                 "type": "ProductError",
@@ -165,15 +168,18 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b4524cd20f19adb661c0d3a8988a1128",
+    "cacheID": "685936b9f516f24e753967b555e43281",
     "id": null,
     "metadata": {},
     "name": "EditProductHeadingPublishUnpublishUnpublishMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation EditProductHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'a35342e4abcd1ab77abbeb777165d401';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "a35342e4abcd1ab77abbeb777165d401";
+}
+
+module.exports = node;

@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<4b39f4d6c0aa21d2325f8a6b7478a9f2>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type ProductsGridPosQueryVariables = {||};
@@ -14,40 +21,22 @@ export type ProductsGridPosQueryResponse = {|
       +key: string,
       +name: string,
       +imageCover: ?{|
-        +blurhash: string
+        +blurhash: string,
       |},
       +price: {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-    |}>
-  |}
+    |}>,
+  |},
 |};
 export type ProductsGridPosQuery = {|
   variables: ProductsGridPosQueryVariables,
   response: ProductsGridPosQueryResponse,
 |};
-
-/*
-query ProductsGridPosQuery {
-  pos {
-    products: listPublishedProducts {
-      id
-      key
-      name
-      imageCover {
-        blurhash
-      }
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -163,6 +152,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '9dd37e933f4a5700a633433087397030';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "9dd37e933f4a5700a633433087397030";
+}
+
+module.exports = node;

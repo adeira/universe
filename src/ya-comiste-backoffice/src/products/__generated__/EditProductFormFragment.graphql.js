@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<daea0280e127d7d11642b273798faf39>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
@@ -14,7 +21,7 @@ export type EditProductFormFragment = {|
   +key: string,
   +revision: string,
   +price: {|
-    +unitAmount: number
+    +unitAmount: number,
   |},
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +translations: $ReadOnlyArray<{|
@@ -30,9 +37,9 @@ export type EditProductFormFragment$key = {
   +$fragmentRefs: EditProductFormFragment$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -113,6 +120,9 @@ const node: ReaderFragment = {
   "type": "Product",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '920d807cf20c6aa26711073307470a9d';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "920d807cf20c6aa26711073307470a9d";
+}
+
+module.exports = node;

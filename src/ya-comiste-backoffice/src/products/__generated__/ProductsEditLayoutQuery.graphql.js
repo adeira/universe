@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<f3bb08c6c44de6f42d2d71831d5ae011>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: yarn workspace @adeira/ya-comiste-backoffice relay
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type EditProductFormFragment$ref = any;
 type EditProductHeading$ref = any;
@@ -15,50 +22,17 @@ export type ProductsEditLayoutQueryVariables = {|
 export type ProductsEditLayoutQueryResponse = {|
   +commerce: {|
     +product: {|
-      +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref
-    |}
-  |}
+      +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref,
+    |},
+  |},
 |};
 export type ProductsEditLayoutQuery = {|
   variables: ProductsEditLayoutQueryVariables,
   response: ProductsEditLayoutQueryResponse,
 |};
-
-/*
-query ProductsEditLayoutQuery(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-) {
-  commerce {
-    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      ...EditProductHeading
-      ...EditProductFormFragment
-      id
-    }
-  }
-}
-
-fragment EditProductFormFragment on Product {
-  key
-  revision
-  price {
-    unitAmount
-  }
-  visibility
-  translations {
-    locale
-    name
-    description
-  }
-}
-
-fragment EditProductHeading on Product {
-  key
-  isPublished
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -251,6 +225,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'e824cf1305b11f36c2d5e2f1ac63ad91';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "c7d4af1df3ede61656b3958043301cdb";
+}
+
+module.exports = node;
