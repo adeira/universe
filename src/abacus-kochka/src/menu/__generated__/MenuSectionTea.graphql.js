@@ -1,30 +1,37 @@
 /**
+ * @generated SignedSource<<a5c532cea94c534438f2b2c6b9b129f8>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-type MenuRow$ref = any;
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type MenuSectionTea$ref: FragmentReference;
-declare export opaque type MenuSectionTea$fragmentType: MenuSectionTea$ref;
-export type MenuSectionTea = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+type MenuRow$fragmentType = any;
+import type { FragmentType } from "relay-runtime";
+declare export opaque type MenuSectionTea$fragmentType: FragmentType;
+export type MenuSectionTea$ref = MenuSectionTea$fragmentType;
+export type MenuSectionTea$data = {|
   +teaMenu: $ReadOnlyArray<{|
     +id: string,
-    +$fragmentRefs: MenuRow$ref,
+    +$fragmentSpreads: MenuRow$fragmentType,
   |}>,
-  +$refType: MenuSectionTea$ref,
+  +$fragmentType: MenuSectionTea$fragmentType,
 |};
-export type MenuSectionTea$data = MenuSectionTea;
+export type MenuSectionTea = MenuSectionTea$data;
 export type MenuSectionTea$key = {
   +$data?: MenuSectionTea$data,
-  +$fragmentRefs: MenuSectionTea$ref,
+  +$fragmentSpreads: MenuSectionTea$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [
     {
       "kind": "RootArgument",
@@ -73,6 +80,12 @@ const node: ReaderFragment = {
   "type": "MenuQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = 'ba30927cc521f851bada3d3e03b5f41a';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "ba30927cc521f851bada3d3e03b5f41a";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  MenuSectionTea$fragmentType,
+  MenuSectionTea$data,
+>*/);

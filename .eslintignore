@@ -4,8 +4,10 @@
 node_modules/
 
 src/babel-preset-adeira/src/__tests__/__fixtures__
-src/example-relay/__github__/flow-typed
 src/sx-tailwind-website/__github__/flow-typed
+
+# https://github.com/prettier/prettier/issues/6102
+**/__generated__/*.graphql.js
 
 # https://github.com/eslint/eslint/issues/8429
 !**/.storybook

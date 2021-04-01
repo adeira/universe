@@ -1,55 +1,45 @@
 /**
+ * @generated SignedSource<<2d70ba3248d7cec9d3314c7778487f2b>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductEditHeadingPublishUnpublishPublishMutationVariables = {|
+export type ProductEditHeadingPublishUnpublishPublishMutation$variables = {|
   productKey: string,
   clientLocale: SupportedLocale,
 |};
-export type ProductEditHeadingPublishUnpublishPublishMutationResponse = {|
+export type ProductEditHeadingPublishUnpublishPublishMutationVariables = ProductEditHeadingPublishUnpublishPublishMutation$variables;
+export type ProductEditHeadingPublishUnpublishPublishMutation$data = {|
   +commerce: {|
     +productOrError: {|
-      +__typename: "Product"
+      +__typename: "Product",
     |} | {|
       +__typename: "ProductError",
       +message: string,
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
+export type ProductEditHeadingPublishUnpublishPublishMutationResponse = ProductEditHeadingPublishUnpublishPublishMutation$data;
 export type ProductEditHeadingPublishUnpublishPublishMutation = {|
   variables: ProductEditHeadingPublishUnpublishPublishMutationVariables,
-  response: ProductEditHeadingPublishUnpublishPublishMutationResponse,
+  response: ProductEditHeadingPublishUnpublishPublishMutation$data,
 |};
-
-/*
-mutation ProductEditHeadingPublishUnpublishPublishMutation(
-  $productKey: ID!
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {
-      __typename
-      ... on Product {
-        __typename
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -168,6 +158,20 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  }
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
                   (v4/*: any*/)
                 ],
                 "type": "ProductError",
@@ -182,15 +186,21 @@ return {
     ]
   },
   "params": {
-    "cacheID": "65270bdea8e8bd09709756b5f4d755ae",
+    "cacheID": "565a613b6c2c0ea3b7db874add5c8a3a",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingPublishUnpublishPublishMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingPublishUnpublishPublishMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingPublishUnpublishPublishMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'ce05aadb31863ec708f5036d49a5cf5f';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "fc652ae1a9c373aa274a64cdd1398435";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  ProductEditHeadingPublishUnpublishPublishMutation$variables,
+  ProductEditHeadingPublishUnpublishPublishMutation$data,
+>*/);

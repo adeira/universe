@@ -1,54 +1,34 @@
 /**
+ * @generated SignedSource<<e83adec334118b6e6eb112b798c28207>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-type CatsTableAdoptedFragment$ref = any;
-type CatsTableCurrentFragment$ref = any;
-export type CatsPageQueryVariables = {||};
-export type CatsPageQueryResponse = {|
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+type CatsTableAdoptedFragment$fragmentType = any;
+type CatsTableCurrentFragment$fragmentType = any;
+export type CatsPageQuery$variables = {||};
+export type CatsPageQueryVariables = CatsPageQuery$variables;
+export type CatsPageQuery$data = {|
   +cats: {|
-    +$fragmentRefs: CatsTableCurrentFragment$ref & CatsTableAdoptedFragment$ref
-  |}
+    +$fragmentSpreads: CatsTableCurrentFragment$fragmentType & CatsTableAdoptedFragment$fragmentType,
+  |},
 |};
+export type CatsPageQueryResponse = CatsPageQuery$data;
 export type CatsPageQuery = {|
   variables: CatsPageQueryVariables,
-  response: CatsPageQueryResponse,
+  response: CatsPageQuery$data,
 |};
-
-/*
-query CatsPageQuery {
-  cats {
-    ...CatsTableCurrentFragment
-    ...CatsTableAdoptedFragment
-  }
-}
-
-fragment CatsTableAdoptedFragment on CatsQuery {
-  adoptedCats: listAllCats(allCatsFilter: {adopted: true}) {
-    order
-    name
-    dateOfCastration
-    dateOfDeworming
-    dateOfAdoption
-    id
-  }
-}
-
-fragment CatsTableCurrentFragment on CatsQuery {
-  currentCats: listAllCats(allCatsFilter: {adopted: false}) {
-    order
-    name
-    dateOfCastration
-    dateOfDeworming
-    id
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -200,6 +180,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'd80b8aeae3eee43d423c79777e38c450';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "d80b8aeae3eee43d423c79777e38c450";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  CatsPageQuery$variables,
+  CatsPageQuery$data,
+>*/);

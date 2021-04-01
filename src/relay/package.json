@@ -18,10 +18,6 @@
     "adeira-fetch-schema": "bin/fetch-schema.js",
     "adeira-relay-compiler": "bin/relay-compiler.js"
   },
-  "scripts": {
-    "test": "yarn eslint src && yarn flow src",
-    "regenerate": "./bin/relay-compiler.js --src=./src --schema=./schema.graphql"
-  },
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.1",
@@ -29,20 +25,20 @@
     "@adeira/signed-source": "^2.0.0",
     "@babel/register": "^7.16.7",
     "@babel/runtime": "^7.16.7",
-    "babel-plugin-relay": "^12.0.0",
+    "babel-plugin-relay": "^13.0.0",
     "commander": "^8.3.0",
     "is-ci": "^3.0.1",
-    "react-relay": "^12.0.0",
-    "relay-compiler": "^12.0.0",
-    "relay-config": "^12.0.1",
-    "relay-runtime": "^12.0.0"
+    "react-relay": "^13.0.0",
+    "relay-compiler": "^13.0.0",
+    "relay-config": "0.0.0-main-d92b9e55",
+    "relay-runtime": "^13.0.0"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "relay-test-utils": "^12.0.0"
+    "relay-test-utils": "^13.0.0"
   },
   "peerDependencies": {
     "graphql": "^15.0.0",

@@ -1,38 +1,36 @@
 /**
+ * @generated SignedSource<<5470b5b9da6321d7e110d55a79d7080c>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type EmployeesPageQueryVariables = {||};
-export type EmployeesPageQueryResponse = {|
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+export type EmployeesPageQuery$variables = {||};
+export type EmployeesPageQueryVariables = EmployeesPageQuery$variables;
+export type EmployeesPageQuery$data = {|
   +auth: {|
     +listUsers: $ReadOnlyArray<{|
       +name: ?string,
       +hasEmailVerified: ?boolean,
       +isActive: boolean,
-    |}>
-  |}
+    |}>,
+  |},
 |};
+export type EmployeesPageQueryResponse = EmployeesPageQuery$data;
 export type EmployeesPageQuery = {|
   variables: EmployeesPageQueryVariables,
-  response: EmployeesPageQueryResponse,
+  response: EmployeesPageQuery$data,
 |};
-
-/*
-query EmployeesPageQuery {
-  auth {
-    listUsers {
-      name
-      hasEmailVerified
-      isActive
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -105,6 +103,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '2e20a6c5048340bea0ce11b0fb28638c';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "2e20a6c5048340bea0ce11b0fb28638c";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  EmployeesPageQuery$variables,
+  EmployeesPageQuery$data,
+>*/);

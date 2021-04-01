@@ -1,10 +1,17 @@
 /**
+ * @generated SignedSource<<243a93a3bac43fbb6bfb4e1245b68a36>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type PosCheckoutProductInput = {|
@@ -19,11 +26,12 @@ export type PosCheckoutProductAddonInput = {|
   productAddonExtraPriceUnitAmount: number,
   productAddonExtraPriceUnitAmountCurrency: SupportedCurrency,
 |};
-export type POSCheckoutPageLayoutMutationVariables = {|
+export type POSCheckoutPageLayoutMutation$variables = {|
   checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>,
   clientLocale: SupportedLocale,
 |};
-export type POSCheckoutPageLayoutMutationResponse = {|
+export type POSCheckoutPageLayoutMutationVariables = POSCheckoutPageLayoutMutation$variables;
+export type POSCheckoutPageLayoutMutation$data = {|
   +pos: {|
     +checkout: {|
       +__typename: "PosCheckoutPayload",
@@ -34,35 +42,18 @@ export type POSCheckoutPageLayoutMutationResponse = {|
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
+export type POSCheckoutPageLayoutMutationResponse = POSCheckoutPageLayoutMutation$data;
 export type POSCheckoutPageLayoutMutation = {|
   variables: POSCheckoutPageLayoutMutationVariables,
-  response: POSCheckoutPageLayoutMutationResponse,
+  response: POSCheckoutPageLayoutMutation$data,
 |};
-
-/*
-mutation POSCheckoutPageLayoutMutation(
-  $checkoutInput: [PosCheckoutProductInput!]!
-  $clientLocale: SupportedLocale!
-) {
-  pos {
-    checkout(input: {selectedProducts: $checkoutInput}, clientLocale: $clientLocale) {
-      __typename
-      ... on PosCheckoutPayload {
-        id
-      }
-      ... on PosCheckoutError {
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -178,6 +169,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '3b8a9c4decbee14c8acb49768c9d3091';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "3b8a9c4decbee14c8acb49768c9d3091";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  POSCheckoutPageLayoutMutation$variables,
+  POSCheckoutPageLayoutMutation$data,
+>*/);

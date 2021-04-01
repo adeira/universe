@@ -4,8 +4,6 @@ import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
-import type { NavigationHeaderBadgeQuery } from './__generated__/NavigationHeaderBadgeQuery.graphql';
-
 function ProdBadge(): Node {
   return <span className={styles('prod')}>PROD</span>;
 }
@@ -15,7 +13,8 @@ function DevBadge(): Node {
 }
 
 export default function NavigationHeaderBadge(): Node {
-  const data = useLazyLoadQuery<NavigationHeaderBadgeQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query NavigationHeaderBadgeQuery {
         auth {
@@ -25,7 +24,7 @@ export default function NavigationHeaderBadge(): Node {
         }
       }
     `,
-    {},
+    Object.freeze({}),
     {
       fetchPolicy: 'store-or-network',
     },

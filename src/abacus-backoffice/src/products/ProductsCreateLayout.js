@@ -8,12 +8,12 @@ import LayoutPage from '../LayoutPage';
 import LayoutHeadingLink from '../LayoutHeadingLink';
 import useApplicationLocale from '../useApplicationLocale';
 import ProductCreateForm from './ProductCreateForm';
-import type { ProductsCreateLayoutQuery } from './__generated__/ProductsCreateLayoutQuery.graphql';
 
 export default function ProductsCreateLayout(): Node {
   const applicationLocale = useApplicationLocale();
 
-  const data = useLazyLoadQuery<ProductsCreateLayoutQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query ProductsCreateLayoutQuery($clientLocale: SupportedLocale!) {
         commerce {

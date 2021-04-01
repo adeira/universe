@@ -1,42 +1,38 @@
 /**
+ * @generated SignedSource<<6ba6c1396b4df09b0cc66418427a76c5>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type AuthButtonsAuthorizeWebappMutationVariables = {|
-  googleIdToken: string
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
+export type AuthButtonsAuthorizeWebappMutation$variables = {|
+  googleIdToken: string,
 |};
-export type AuthButtonsAuthorizeWebappMutationResponse = {|
+export type AuthButtonsAuthorizeWebappMutationVariables = AuthButtonsAuthorizeWebappMutation$variables;
+export type AuthButtonsAuthorizeWebappMutation$data = {|
   +auth: {|
     +authorizeWebapp: {|
       +success: boolean,
       +sessionToken: ?string,
       +failureMessage: ?string,
-    |}
-  |}
+    |},
+  |},
 |};
+export type AuthButtonsAuthorizeWebappMutationResponse = AuthButtonsAuthorizeWebappMutation$data;
 export type AuthButtonsAuthorizeWebappMutation = {|
   variables: AuthButtonsAuthorizeWebappMutationVariables,
-  response: AuthButtonsAuthorizeWebappMutationResponse,
+  response: AuthButtonsAuthorizeWebappMutation$data,
 |};
-
-/*
-mutation AuthButtonsAuthorizeWebappMutation(
-  $googleIdToken: String!
-) {
-  auth {
-    authorizeWebapp(googleIdToken: $googleIdToken) {
-      success
-      sessionToken
-      failureMessage
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -122,6 +118,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'e758cafe9edc929ea309db7a30ac72e6';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "e758cafe9edc929ea309db7a30ac72e6";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  AuthButtonsAuthorizeWebappMutation$variables,
+  AuthButtonsAuthorizeWebappMutation$data,
+>*/);

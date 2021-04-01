@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function MenuSectionMilkshake(props: Props): Node {
-  const data = useFragment<MenuSectionMilkshake$key>(
+  const data = useFragment(
     graphql`
       fragment MenuSectionMilkshake on MenuQuery {
         milkshakesMenu: menu(clientLocale: $clientLocale, section: MILKSHAKES) {

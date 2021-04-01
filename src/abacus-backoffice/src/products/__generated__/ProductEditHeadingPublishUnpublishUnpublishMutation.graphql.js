@@ -1,55 +1,45 @@
 /**
+ * @generated SignedSource<<ca207e02f49d6bfcdf37292257a14213>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductEditHeadingPublishUnpublishUnpublishMutationVariables = {|
+export type ProductEditHeadingPublishUnpublishUnpublishMutation$variables = {|
   productKey: string,
   clientLocale: SupportedLocale,
 |};
-export type ProductEditHeadingPublishUnpublishUnpublishMutationResponse = {|
+export type ProductEditHeadingPublishUnpublishUnpublishMutationVariables = ProductEditHeadingPublishUnpublishUnpublishMutation$variables;
+export type ProductEditHeadingPublishUnpublishUnpublishMutation$data = {|
   +commerce: {|
     +productOrError: {|
-      +__typename: "Product"
+      +__typename: "Product",
     |} | {|
       +__typename: "ProductError",
       +message: string,
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
+export type ProductEditHeadingPublishUnpublishUnpublishMutationResponse = ProductEditHeadingPublishUnpublishUnpublishMutation$data;
 export type ProductEditHeadingPublishUnpublishUnpublishMutation = {|
   variables: ProductEditHeadingPublishUnpublishUnpublishMutationVariables,
-  response: ProductEditHeadingPublishUnpublishUnpublishMutationResponse,
+  response: ProductEditHeadingPublishUnpublishUnpublishMutation$data,
 |};
-
-/*
-mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
-  $productKey: ID!
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
-      __typename
-      ... on Product {
-        __typename
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -168,6 +158,20 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  }
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
                   (v4/*: any*/)
                 ],
                 "type": "ProductError",
@@ -182,15 +186,21 @@ return {
     ]
   },
   "params": {
-    "cacheID": "59206588ead3c453ffd248768ec0dfb1",
+    "cacheID": "a1e962e97f0d267b60d2cb176289029f",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingPublishUnpublishUnpublishMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '336e82aea443fa579b50ee8a5e0808ba';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "ca5121722320fbc3b054d053c3a3562e";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  ProductEditHeadingPublishUnpublishUnpublishMutation$variables,
+  ProductEditHeadingPublishUnpublishUnpublishMutation$data,
+>*/);

@@ -1,33 +1,40 @@
 /**
+ * @generated SignedSource<<52f69c86bbb9a157762a033a02c4dd0d>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-type ProductFormAddonsData$ref = any;
-type ProductFormCategoriesData$ref = any;
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type ProductCreateFormData$ref: FragmentReference;
-declare export opaque type ProductCreateFormData$fragmentType: ProductCreateFormData$ref;
-export type ProductCreateFormData = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+type ProductFormAddonsData$fragmentType = any;
+type ProductFormCategoriesData$fragmentType = any;
+import type { FragmentType } from "relay-runtime";
+declare export opaque type ProductCreateFormData$fragmentType: FragmentType;
+export type ProductCreateFormData$ref = ProductCreateFormData$fragmentType;
+export type ProductCreateFormData$data = {|
   +productCategories: $ReadOnlyArray<?{|
-    +$fragmentRefs: ProductFormCategoriesData$ref
+    +$fragmentSpreads: ProductFormCategoriesData$fragmentType,
   |}>,
   +productAddons: $ReadOnlyArray<?{|
-    +$fragmentRefs: ProductFormAddonsData$ref
+    +$fragmentSpreads: ProductFormAddonsData$fragmentType,
   |}>,
-  +$refType: ProductCreateFormData$ref,
+  +$fragmentType: ProductCreateFormData$fragmentType,
 |};
-export type ProductCreateFormData$data = ProductCreateFormData;
+export type ProductCreateFormData = ProductCreateFormData$data;
 export type ProductCreateFormData$key = {
   +$data?: ProductCreateFormData$data,
-  +$fragmentRefs: ProductCreateFormData$ref,
+  +$fragmentSpreads: ProductCreateFormData$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = (function(){
+var node/*: ReaderFragment*/ = (function(){
 var v0 = [
   {
     "kind": "Variable",
@@ -83,6 +90,12 @@ return {
   "abstractKey": null
 };
 })();
-// prettier-ignore
-(node: any).hash = 'ff8090d2ca7b56d4e1f13870c0837098';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "ff8090d2ca7b56d4e1f13870c0837098";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  ProductCreateFormData$fragmentType,
+  ProductCreateFormData$data,
+>*/);

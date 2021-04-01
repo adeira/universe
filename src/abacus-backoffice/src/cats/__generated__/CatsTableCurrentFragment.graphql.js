@@ -1,31 +1,38 @@
 /**
+ * @generated SignedSource<<36289ca98ac06f8a041c26a93b2ac9c0>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type CatsTableCurrentFragment$ref: FragmentReference;
-declare export opaque type CatsTableCurrentFragment$fragmentType: CatsTableCurrentFragment$ref;
-export type CatsTableCurrentFragment = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+import type { FragmentType } from "relay-runtime";
+declare export opaque type CatsTableCurrentFragment$fragmentType: FragmentType;
+export type CatsTableCurrentFragment$ref = CatsTableCurrentFragment$fragmentType;
+export type CatsTableCurrentFragment$data = {|
   +currentCats: $ReadOnlyArray<{|
     +order: number,
     +name: string,
     +dateOfCastration: ?string,
     +dateOfDeworming: ?string,
   |}>,
-  +$refType: CatsTableCurrentFragment$ref,
+  +$fragmentType: CatsTableCurrentFragment$fragmentType,
 |};
-export type CatsTableCurrentFragment$data = CatsTableCurrentFragment;
+export type CatsTableCurrentFragment = CatsTableCurrentFragment$data;
 export type CatsTableCurrentFragment$key = {
   +$data?: CatsTableCurrentFragment$data,
-  +$fragmentRefs: CatsTableCurrentFragment$ref,
+  +$fragmentSpreads: CatsTableCurrentFragment$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -82,6 +89,12 @@ const node: ReaderFragment = {
   "type": "CatsQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '516ea0e99686f2972199dd02137dd22d';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "516ea0e99686f2972199dd02137dd22d";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  CatsTableCurrentFragment$fragmentType,
+  CatsTableCurrentFragment$data,
+>*/);

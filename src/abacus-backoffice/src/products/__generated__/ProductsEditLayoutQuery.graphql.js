@@ -1,18 +1,26 @@
 /**
+ * @generated SignedSource<<0b6aabce498ba922868f8f92f67f4361>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-type ProductEditFormData$ref = any;
-type ProductEditHeading$ref = any;
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+type ProductEditFormData$fragmentType = any;
+type ProductEditHeading$fragmentType = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductsEditLayoutQueryVariables = {|
+export type ProductsEditLayoutQuery$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductsEditLayoutQueryResponse = {|
+export type ProductsEditLayoutQueryVariables = ProductsEditLayoutQuery$variables;
+export type ProductsEditLayoutQuery$data = {|
   +commerce: {|
     +product: {|
       +images: $ReadOnlyArray<{|
@@ -20,90 +28,18 @@ export type ProductsEditLayoutQueryResponse = {|
         +blurhash: string,
         +url: string,
       |}>,
-      +$fragmentRefs: ProductEditHeading$ref & ProductEditFormData$ref,
-    |}
-  |}
+      +$fragmentSpreads: ProductEditHeading$fragmentType & ProductEditFormData$fragmentType,
+    |},
+  |},
 |};
+export type ProductsEditLayoutQueryResponse = ProductsEditLayoutQuery$data;
 export type ProductsEditLayoutQuery = {|
   variables: ProductsEditLayoutQueryVariables,
-  response: ProductsEditLayoutQueryResponse,
+  response: ProductsEditLayoutQuery$data,
 |};
-
-/*
-query ProductsEditLayoutQuery(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-) {
-  commerce {
-    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      ...ProductEditHeading
-      images {
-        name
-        blurhash
-        url
-      }
-      ...ProductEditFormData
-      id
-    }
-  }
-}
-
-fragment ProductEditFormData on Product {
-  key
-  revision
-  availableCategories(clientLocale: $clientLocale) {
-    ...ProductFormCategoriesData
-    id
-  }
-  availableAddons(clientLocale: $clientLocale) {
-    ...ProductFormAddonsData
-    id
-  }
-  price {
-    unitAmount
-  }
-  selectedCategories(clientLocale: $clientLocale) {
-    id
-  }
-  selectedAddons(clientLocale: $clientLocale) {
-    id
-  }
-  visibility
-  enTranslation: translation(locale: en_US) {
-    name
-    description
-  }
-  esTranslation: translation(locale: es_MX) {
-    name
-    description
-  }
-  images {
-    name
-  }
-}
-
-fragment ProductEditHeading on Product {
-  key
-  name
-  isPublished
-}
-
-fragment ProductFormAddonsData on ProductAddon {
-  id
-  name
-  priceExtra {
-    unitAmount
-    unitAmountCurrency
-  }
-}
-
-fragment ProductFormCategoriesData on ProductCategory {
-  id
-  name
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -215,12 +151,12 @@ return {
             "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
-              (v4/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
                 "name": "ProductEditHeading"
               },
+              (v4/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -416,6 +352,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'a0bfb0ff14c17bd91dd157d472cab49e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "65d361f91d79ebe6a215a4a69979a04f";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductsEditLayoutQuery$variables,
+  ProductsEditLayoutQuery$data,
+>*/);

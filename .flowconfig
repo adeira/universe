@@ -67,3 +67,9 @@ suppress_type=$FlowFixMe
 ; This option is always ON in the strict mode. We are enabling it even for the classic mode.
 ; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
 experimental.const_params=true
+
+relay_integration=true
+relay_integration.module_prefix=./__generated__/
+; TODO: consider removing the following excludes
+relay_integration.excludes=.*/__tests__/.*
+relay_integration.excludes=.*/__flowtests__/.*

@@ -24,7 +24,7 @@ export default function ProductsGridModalBody(props: Props): Node {
 
   const {
     commerce: { product },
-  } = usePreloadedQuery<ProductsGridModalBodyQuery>(
+  } = usePreloadedQuery(
     graphql`
       query ProductsGridModalBodyQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
         commerce {

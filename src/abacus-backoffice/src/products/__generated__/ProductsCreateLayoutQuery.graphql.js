@@ -1,61 +1,36 @@
 /**
+ * @generated SignedSource<<433f631535b0a1ae995a2e4d30acdd57>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-type ProductCreateFormData$ref = any;
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+type ProductCreateFormData$fragmentType = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductsCreateLayoutQueryVariables = {|
-  clientLocale: SupportedLocale
+export type ProductsCreateLayoutQuery$variables = {|
+  clientLocale: SupportedLocale,
 |};
-export type ProductsCreateLayoutQueryResponse = {|
+export type ProductsCreateLayoutQueryVariables = ProductsCreateLayoutQuery$variables;
+export type ProductsCreateLayoutQuery$data = {|
   +commerce: {|
-    +$fragmentRefs: ProductCreateFormData$ref
-  |}
+    +$fragmentSpreads: ProductCreateFormData$fragmentType,
+  |},
 |};
+export type ProductsCreateLayoutQueryResponse = ProductsCreateLayoutQuery$data;
 export type ProductsCreateLayoutQuery = {|
   variables: ProductsCreateLayoutQueryVariables,
-  response: ProductsCreateLayoutQueryResponse,
+  response: ProductsCreateLayoutQuery$data,
 |};
-
-/*
-query ProductsCreateLayoutQuery(
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    ...ProductCreateFormData
-  }
-}
-
-fragment ProductCreateFormData on CommerceQuery {
-  productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
-    ...ProductFormCategoriesData
-    id
-  }
-  productAddons: searchAllProductAddons(clientLocale: $clientLocale) {
-    ...ProductFormAddonsData
-    id
-  }
-}
-
-fragment ProductFormAddonsData on ProductAddon {
-  id
-  name
-  priceExtra {
-    unitAmount
-    unitAmountCurrency
-  }
-}
-
-fragment ProductFormCategoriesData on ProductCategory {
-  id
-  name
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -191,6 +166,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '92d67871b187e5ae9ad965b1fea6eac2';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "92d67871b187e5ae9ad965b1fea6eac2";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductsCreateLayoutQuery$variables,
+  ProductsCreateLayoutQuery$data,
+>*/);

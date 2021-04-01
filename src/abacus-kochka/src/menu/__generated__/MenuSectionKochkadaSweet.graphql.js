@@ -1,30 +1,37 @@
 /**
+ * @generated SignedSource<<ef9cb86285bad188217a2583b60c4d6e>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-type MenuRow$ref = any;
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type MenuSectionKochkadaSweet$ref: FragmentReference;
-declare export opaque type MenuSectionKochkadaSweet$fragmentType: MenuSectionKochkadaSweet$ref;
-export type MenuSectionKochkadaSweet = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+type MenuRow$fragmentType = any;
+import type { FragmentType } from "relay-runtime";
+declare export opaque type MenuSectionKochkadaSweet$fragmentType: FragmentType;
+export type MenuSectionKochkadaSweet$ref = MenuSectionKochkadaSweet$fragmentType;
+export type MenuSectionKochkadaSweet$data = {|
   +kochkadaSweetMenu: $ReadOnlyArray<{|
     +id: string,
-    +$fragmentRefs: MenuRow$ref,
+    +$fragmentSpreads: MenuRow$fragmentType,
   |}>,
-  +$refType: MenuSectionKochkadaSweet$ref,
+  +$fragmentType: MenuSectionKochkadaSweet$fragmentType,
 |};
-export type MenuSectionKochkadaSweet$data = MenuSectionKochkadaSweet;
+export type MenuSectionKochkadaSweet = MenuSectionKochkadaSweet$data;
 export type MenuSectionKochkadaSweet$key = {
   +$data?: MenuSectionKochkadaSweet$data,
-  +$fragmentRefs: MenuSectionKochkadaSweet$ref,
+  +$fragmentSpreads: MenuSectionKochkadaSweet$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [
     {
       "kind": "RootArgument",
@@ -73,6 +80,12 @@ const node: ReaderFragment = {
   "type": "MenuQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = 'f986851f1127acd1499898269a9038c3';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "f986851f1127acd1499898269a9038c3";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  MenuSectionKochkadaSweet$fragmentType,
+  MenuSectionKochkadaSweet$data,
+>*/);

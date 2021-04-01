@@ -1,10 +1,17 @@
 /**
+ * @generated SignedSource<<2f995b9fbfd1b7a9aa1e9767a0daea30>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
@@ -12,16 +19,17 @@ export type ProductMultilingualInputTranslations = {|
   name: string,
   description?: ?string,
 |};
-export type ProductCreateFormMutationVariables = {|
+export type ProductCreateFormMutation$variables = {|
   clientLocale: SupportedLocale,
-  productImagesNames: $ReadOnlyArray<any>,
+  productImagesNames: $ReadOnlyArray<string>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   categories: $ReadOnlyArray<string>,
   addons: $ReadOnlyArray<string>,
 |};
-export type ProductCreateFormMutationResponse = {|
+export type ProductCreateFormMutationVariables = ProductCreateFormMutation$variables;
+export type ProductCreateFormMutation$data = {|
   +commerce: {|
     +result: {|
       +__typename: "Product",
@@ -32,42 +40,18 @@ export type ProductCreateFormMutationResponse = {|
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
+export type ProductCreateFormMutationResponse = ProductCreateFormMutation$data;
 export type ProductCreateFormMutation = {|
   variables: ProductCreateFormMutationVariables,
-  response: ProductCreateFormMutationResponse,
+  response: ProductCreateFormMutation$data,
 |};
-
-/*
-mutation ProductCreateFormMutation(
-  $clientLocale: SupportedLocale!
-  $productImagesNames: [ProductImageUploadable!]!
-  $productPriceUnitAmount: Int!
-  $translations: [ProductMultilingualInputTranslations!]!
-  $visibility: [ProductMultilingualInputVisibility!]!
-  $categories: [ID!]!
-  $addons: [ID!]!
-) {
-  commerce {
-    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {
-      __typename
-      ... on Product {
-        __typename
-        name
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -271,7 +255,14 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v9/*: any*/)
+                  (v9/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  }
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -293,15 +284,21 @@ return {
     ]
   },
   "params": {
-    "cacheID": "09dc539e4e391d2e1f9d8cfb71600895",
+    "cacheID": "00c8232f0b57981df0af028b799429d7",
     "id": null,
     "metadata": {},
     "name": "ProductCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n  $addons: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n  $addons: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '1b98bc8dfc03ea468dd955a9bcf32624';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "5281cea08ca8f73289b8cf2d5ac5af08";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  ProductCreateFormMutation$variables,
+  ProductCreateFormMutation$data,
+>*/);

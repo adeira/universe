@@ -1,97 +1,41 @@
 /**
+ * @generated SignedSource<<fdfbb6f596754e44d5b0d799fead664a>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-type MenuSectionCoffee$ref = any;
-type MenuSectionKochkadaSavory$ref = any;
-type MenuSectionKochkadaSweet$ref = any;
-type MenuSectionMilkshake$ref = any;
-type MenuSectionSpecialities$ref = any;
-type MenuSectionTea$ref = any;
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+type MenuSectionCoffee$fragmentType = any;
+type MenuSectionKochkadaSavory$fragmentType = any;
+type MenuSectionKochkadaSweet$fragmentType = any;
+type MenuSectionMilkshake$fragmentType = any;
+type MenuSectionSpecialities$fragmentType = any;
+type MenuSectionTea$fragmentType = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type MenuQueryVariables = {|
-  clientLocale: SupportedLocale
+export type MenuQuery$variables = {|
+  clientLocale: SupportedLocale,
 |};
-export type MenuQueryResponse = {|
+export type MenuQueryVariables = MenuQuery$variables;
+export type MenuQuery$data = {|
   +menu: {|
-    +$fragmentRefs: MenuSectionCoffee$ref & MenuSectionTea$ref & MenuSectionMilkshake$ref & MenuSectionSpecialities$ref & MenuSectionKochkadaSweet$ref & MenuSectionKochkadaSavory$ref
-  |}
+    +$fragmentSpreads: MenuSectionCoffee$fragmentType & MenuSectionTea$fragmentType & MenuSectionMilkshake$fragmentType & MenuSectionSpecialities$fragmentType & MenuSectionKochkadaSweet$fragmentType & MenuSectionKochkadaSavory$fragmentType,
+  |},
 |};
+export type MenuQueryResponse = MenuQuery$data;
 export type MenuQuery = {|
   variables: MenuQueryVariables,
-  response: MenuQueryResponse,
+  response: MenuQuery$data,
 |};
-
-/*
-query MenuQuery(
-  $clientLocale: SupportedLocale!
-) {
-  menu {
-    ...MenuSectionCoffee
-    ...MenuSectionTea
-    ...MenuSectionMilkshake
-    ...MenuSectionSpecialities
-    ...MenuSectionKochkadaSweet
-    ...MenuSectionKochkadaSavory
-  }
-}
-
-fragment MenuRow on Product {
-  name
-  description
-  price {
-    unitAmount
-    unitAmountCurrency
-  }
-}
-
-fragment MenuSectionCoffee on MenuQuery {
-  coffeeMenu: menu(clientLocale: $clientLocale, section: COFFEE) {
-    id
-    ...MenuRow
-  }
-}
-
-fragment MenuSectionKochkadaSavory on MenuQuery {
-  kochkadaSavoryMenu: menu(clientLocale: $clientLocale, section: DUMPLING_SAVORY) {
-    id
-    ...MenuRow
-  }
-}
-
-fragment MenuSectionKochkadaSweet on MenuQuery {
-  kochkadaSweetMenu: menu(clientLocale: $clientLocale, section: DUMPLING_SWEET) {
-    id
-    ...MenuRow
-  }
-}
-
-fragment MenuSectionMilkshake on MenuQuery {
-  milkshakesMenu: menu(clientLocale: $clientLocale, section: MILKSHAKES) {
-    id
-    ...MenuRow
-  }
-}
-
-fragment MenuSectionSpecialities on MenuQuery {
-  specialitiesMenu: menu(clientLocale: $clientLocale, section: SPECIALITIES) {
-    id
-    ...MenuRow
-  }
-}
-
-fragment MenuSectionTea on MenuQuery {
-  teaMenu: menu(clientLocale: $clientLocale, section: TEA) {
-    id
-    ...MenuRow
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -335,6 +279,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'fe5ebd8591713ee5370319d526a77ebd';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "fe5ebd8591713ee5370319d526a77ebd";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  MenuQuery$variables,
+  MenuQuery$data,
+>*/);

@@ -1,16 +1,24 @@
 /**
+ * @generated SignedSource<<aaa5e2099fa4aa7e97518cdf99445581>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductAddonsQueryVariables = {|
-  clientLocale: SupportedLocale
+export type ProductAddonsQuery$variables = {|
+  clientLocale: SupportedLocale,
 |};
-export type ProductAddonsQueryResponse = {|
+export type ProductAddonsQueryVariables = ProductAddonsQuery$variables;
+export type ProductAddonsQuery$data = {|
   +commerce: {|
     +productAddons: $ReadOnlyArray<?{|
       +id: string,
@@ -19,32 +27,17 @@ export type ProductAddonsQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-    |}>
-  |}
+    |}>,
+  |},
 |};
+export type ProductAddonsQueryResponse = ProductAddonsQuery$data;
 export type ProductAddonsQuery = {|
   variables: ProductAddonsQueryVariables,
-  response: ProductAddonsQueryResponse,
+  response: ProductAddonsQuery$data,
 |};
-
-/*
-query ProductAddonsQuery(
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    productAddons: searchAllProductAddons(clientLocale: $clientLocale) {
-      id
-      name
-      priceExtra {
-        unitAmount
-        unitAmountCurrency
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -148,6 +141,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'b7b1f1b709c3e56f2a3a999bf3f03cdb';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "b7b1f1b709c3e56f2a3a999bf3f03cdb";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  ProductAddonsQuery$variables,
+  ProductAddonsQuery$data,
+>*/);

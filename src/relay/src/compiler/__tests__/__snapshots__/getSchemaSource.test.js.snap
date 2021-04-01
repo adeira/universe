@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`loads the fixture as expected 1`] = `
-"
-Schema 'invalidSignatureSchema.schema.txt' has invalid signature! Did you do some manual changes? You can download a fresh schema using 'adeira-fetch-schema' script.
-"
-`;

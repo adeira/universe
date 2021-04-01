@@ -9,6 +9,7 @@ import type {
   RecordSourceSelectorProxy,
   DeclarativeMutationConfig,
   Variables,
+  VariablesOf,
 } from 'relay-runtime';
 
 export type MutationParameters = {
@@ -26,7 +27,7 @@ type HookMutationConfig<T: MutationParameters> = {
   +onUnsubscribe?: ?() => void,
   +optimisticResponse?: T['rawResponse'],
   +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
-  +updater?: ?(store: RecordSourceSelectorProxy, data: T['response']) => void,
+  +updater?: ?(store: RecordSourceSelectorProxy, data: ?T['response']) => void,
   +configs?: Array<DeclarativeMutationConfig>,
   +uploadables?: UploadableMap,
 };
@@ -48,9 +49,10 @@ export default function useMutation<T: MutationParameters>(
 
   // this makes the commit more friendly in terms of DX
   const modifiedCommit = (config) => {
+    const emptyVariables = (({}: any): VariablesOf<T>); // TODO: how to do this properly?
     return commit({
       ...config,
-      variables: config.variables ?? {},
+      variables: config.variables ?? emptyVariables,
     });
   };
 

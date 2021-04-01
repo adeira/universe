@@ -1,35 +1,34 @@
 /**
+ * @generated SignedSource<<8a4a3493836efddd442e6deb5faae15e>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
-export type NavigationHeaderBadgeQueryVariables = {||};
-export type NavigationHeaderBadgeQueryResponse = {|
+'use strict';
+
+/*::
+import type { ConcreteRequest, Query } from 'relay-runtime';
+export type NavigationHeaderBadgeQuery$variables = {||};
+export type NavigationHeaderBadgeQueryVariables = NavigationHeaderBadgeQuery$variables;
+export type NavigationHeaderBadgeQuery$data = {|
   +auth: {|
     +whoami: {|
-      +isDebugAssertionsEnabled: boolean
-    |}
-  |}
+      +isDebugAssertionsEnabled: boolean,
+    |},
+  |},
 |};
+export type NavigationHeaderBadgeQueryResponse = NavigationHeaderBadgeQuery$data;
 export type NavigationHeaderBadgeQuery = {|
   variables: NavigationHeaderBadgeQueryVariables,
-  response: NavigationHeaderBadgeQueryResponse,
+  response: NavigationHeaderBadgeQuery$data,
 |};
-
-/*
-query NavigationHeaderBadgeQuery {
-  auth {
-    whoami {
-      isDebugAssertionsEnabled
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -119,6 +118,12 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '3ac156cd43017b5b34dcd0300a4e4a67';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "3ac156cd43017b5b34dcd0300a4e4a67";
+}
+
+module.exports = ((node/*: any*/)/*: Query<
+  NavigationHeaderBadgeQuery$variables,
+  NavigationHeaderBadgeQuery$data,
+>*/);

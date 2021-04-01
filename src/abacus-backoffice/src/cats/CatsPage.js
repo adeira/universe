@@ -5,12 +5,12 @@ import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 
-import type { CatsPageQuery } from './__generated__/CatsPageQuery.graphql';
 import CatsTableAdopted from './CatsTableAdopted';
 import CatsTableCurrent from './CatsTableCurrent';
 
 export default function CatsPage(): React.Node {
-  const data = useLazyLoadQuery<CatsPageQuery>(graphql`
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(graphql`
     query CatsPageQuery {
       cats {
         ...CatsTableCurrentFragment

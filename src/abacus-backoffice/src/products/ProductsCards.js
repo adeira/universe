@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default function ProductsCards(props: Props): Node {
-  const products = useFragment<ProductsCardsData$key>(
+  const products = useFragment(
     graphql`
       fragment ProductsCardsData on Product @relay(plural: true) {
         id

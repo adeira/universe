@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function MenuRow(props: Props): Node {
-  const data = useFragment<MenuRow$key>(
+  const data = useFragment(
     graphql`
       fragment MenuRow on Product {
         name

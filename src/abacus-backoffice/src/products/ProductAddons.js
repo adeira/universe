@@ -7,11 +7,11 @@ import React, { type Node } from 'react';
 
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import useApplicationLocale from '../useApplicationLocale';
-import type { ProductAddonsQuery } from './__generated__/ProductAddonsQuery.graphql';
 
 export default function ProductAddons(): Node {
   const applicationLocale = useApplicationLocale();
-  const data = useLazyLoadQuery<ProductAddonsQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query ProductAddonsQuery($clientLocale: SupportedLocale!) {
         commerce {

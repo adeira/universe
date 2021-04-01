@@ -1,30 +1,37 @@
 /**
+ * @generated SignedSource<<8d569e89668800460d221617d35a3ace>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
-type MenuRow$ref = any;
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type MenuSectionSpecialities$ref: FragmentReference;
-declare export opaque type MenuSectionSpecialities$fragmentType: MenuSectionSpecialities$ref;
-export type MenuSectionSpecialities = {|
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
+type MenuRow$fragmentType = any;
+import type { FragmentType } from "relay-runtime";
+declare export opaque type MenuSectionSpecialities$fragmentType: FragmentType;
+export type MenuSectionSpecialities$ref = MenuSectionSpecialities$fragmentType;
+export type MenuSectionSpecialities$data = {|
   +specialitiesMenu: $ReadOnlyArray<{|
     +id: string,
-    +$fragmentRefs: MenuRow$ref,
+    +$fragmentSpreads: MenuRow$fragmentType,
   |}>,
-  +$refType: MenuSectionSpecialities$ref,
+  +$fragmentType: MenuSectionSpecialities$fragmentType,
 |};
-export type MenuSectionSpecialities$data = MenuSectionSpecialities;
+export type MenuSectionSpecialities = MenuSectionSpecialities$data;
 export type MenuSectionSpecialities$key = {
   +$data?: MenuSectionSpecialities$data,
-  +$fragmentRefs: MenuSectionSpecialities$ref,
+  +$fragmentSpreads: MenuSectionSpecialities$fragmentType,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [
     {
       "kind": "RootArgument",
@@ -73,6 +80,12 @@ const node: ReaderFragment = {
   "type": "MenuQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '588f863b6281b508dc66297669402400';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "588f863b6281b508dc66297669402400";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  MenuSectionSpecialities$fragmentType,
+  MenuSectionSpecialities$data,
+>*/);

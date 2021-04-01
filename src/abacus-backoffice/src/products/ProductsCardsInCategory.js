@@ -7,7 +7,6 @@ import React, { type Node } from 'react';
 
 import useApplicationLocale from '../useApplicationLocale';
 import ProductsCards from './ProductsCards';
-import type { ProductsCardsInCategoryQuery } from './__generated__/ProductsCardsInCategoryQuery.graphql';
 
 type Props = {
   +selectedCategory: string | null,
@@ -15,7 +14,8 @@ type Props = {
 
 export default function ProductsCardsInCategory(props: Props): Node {
   const applicationLocale = useApplicationLocale();
-  const data = useLazyLoadQuery<ProductsCardsInCategoryQuery>(
+  // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
+  const data = useLazyLoadQuery(
     graphql`
       query ProductsCardsInCategoryQuery(
         $clientLocale: SupportedLocale!

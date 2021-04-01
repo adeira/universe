@@ -1,55 +1,45 @@
 /**
+ * @generated SignedSource<<9bc38960134f6aa3d27ec4cd32c4ea53>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ConcreteRequest } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductEditHeadingArchiveMutationVariables = {|
+export type ProductEditHeadingArchiveMutation$variables = {|
   productKey: string,
   clientLocale: SupportedLocale,
 |};
-export type ProductEditHeadingArchiveMutationResponse = {|
+export type ProductEditHeadingArchiveMutationVariables = ProductEditHeadingArchiveMutation$variables;
+export type ProductEditHeadingArchiveMutation$data = {|
   +commerce: {|
     +productOrError: {|
-      +__typename: "Product"
+      +__typename: "Product",
     |} | {|
       +__typename: "ProductError",
       +message: string,
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
+export type ProductEditHeadingArchiveMutationResponse = ProductEditHeadingArchiveMutation$data;
 export type ProductEditHeadingArchiveMutation = {|
   variables: ProductEditHeadingArchiveMutationVariables,
-  response: ProductEditHeadingArchiveMutationResponse,
+  response: ProductEditHeadingArchiveMutation$data,
 |};
-
-/*
-mutation ProductEditHeadingArchiveMutation(
-  $productKey: ID!
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {
-      __typename
-      ... on Product {
-        __typename
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -168,6 +158,20 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "id",
+                    "storageKey": null
+                  }
+                ],
+                "type": "Product",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
                   (v4/*: any*/)
                 ],
                 "type": "ProductError",
@@ -182,15 +186,21 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fa92a9bb8cc457782ad37b1b68234958",
+    "cacheID": "73594116adb0c0b9e787d633b42a43ba",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingArchiveMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingArchiveMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingArchiveMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n        id\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'f3fe8c4c93882b50f010bd5bf8fb4f0e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "22797745c2fcdec81744a3a8632619e1";
+}
+
+module.exports = ((node/*: any*/)/*: Mutation<
+  ProductEditHeadingArchiveMutation$variables,
+  ProductEditHeadingArchiveMutation$data,
+>*/);

@@ -9,7 +9,7 @@ import FormSubmit from '../forms/FormSubmit';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditFormData$key } from './__generated__/ProductEditFormData.graphql';
-import type { ProductEditFormMutationVariables } from './__generated__/ProductEditFormMutation.graphql';
+import type { ProductEditFormMutation$variables } from './__generated__/ProductEditFormMutation.graphql';
 import ProductForm from './ProductForm';
 
 type Props = {
@@ -21,7 +21,7 @@ export default function ProductEditForm(props: Props): Node {
   const applicationLocale = useApplicationLocale();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
-  const data = useFragment<ProductEditFormData$key>(
+  const data = useFragment(
     graphql`
       fragment ProductEditFormData on Product {
         key
@@ -132,7 +132,7 @@ export default function ProductEditForm(props: Props): Node {
               }
             }
           `}
-          variables={(formValues): ProductEditFormMutationVariables => ({
+          variables={(formValues): ProductEditFormMutation$variables => ({
             clientLocale: applicationLocale.graphql,
             productKey: data.key,
             productRevision: data.revision,

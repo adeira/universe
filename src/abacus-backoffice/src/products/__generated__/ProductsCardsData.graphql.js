@@ -1,15 +1,22 @@
 /**
+ * @generated SignedSource<<a9902ee3c515a5c111d6dfd5b304ab74>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler
  */
 
 /* eslint-disable */
 
-import type { ReaderFragment } from 'relay-runtime';
+'use strict';
+
+/*::
+import type { Fragment, ReaderFragment } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-import type { FragmentReference } from "relay-runtime";
-declare export opaque type ProductsCardsData$ref: FragmentReference;
-declare export opaque type ProductsCardsData$fragmentType: ProductsCardsData$ref;
-export type ProductsCardsData = $ReadOnlyArray<{|
+import type { FragmentType } from "relay-runtime";
+declare export opaque type ProductsCardsData$fragmentType: FragmentType;
+export type ProductsCardsData$ref = ProductsCardsData$fragmentType;
+export type ProductsCardsData$data = $ReadOnlyArray<{|
   +id: string,
   +key: string,
   +name: string,
@@ -22,17 +29,17 @@ export type ProductsCardsData = $ReadOnlyArray<{|
     +unitAmountCurrency: SupportedCurrency,
   |},
   +isPublished: boolean,
-  +$refType: ProductsCardsData$ref,
+  +$fragmentType: ProductsCardsData$fragmentType,
 |}>;
-export type ProductsCardsData$data = ProductsCardsData;
+export type ProductsCardsData = ProductsCardsData$data;
 export type ProductsCardsData$key = $ReadOnlyArray<{
   +$data?: ProductsCardsData$data,
-  +$fragmentRefs: ProductsCardsData$ref,
+  +$fragmentSpreads: ProductsCardsData$fragmentType,
   ...
 }>;
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": {
@@ -122,6 +129,12 @@ const node: ReaderFragment = {
   "type": "Product",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '7109a74f00365ae495c2967a968c658e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "7109a74f00365ae495c2967a968c658e";
+}
+
+module.exports = ((node/*: any*/)/*: Fragment<
+  ProductsCardsData$fragmentType,
+  ProductsCardsData$data,
+>*/);
