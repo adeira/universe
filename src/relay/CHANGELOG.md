@@ -1,5 +1,7 @@
 # Unreleased
 
+- Added experimental bin `adeira-relay-compiler-experimental` which directly calls official `relay-compiler-experimental` bin. This new Relay compiler written in Rust is unstable (as the name suggests) but eventually will be the default. For now, you can start experimenting with it and report any issues to [`facebook/relay`](https://github.com/facebook/relay) repo.
+
 # 3.2.1
 
 - Relay dependencies upgraded to version 11.0.1, see: https://github.com/facebook/relay/releases/tag/v11.0.1
