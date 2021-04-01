@@ -1,5 +1,14 @@
 # Unreleased
 
+# 2.0.2
+
+Dependency `cross-fetch` update:
+
+```diff
+-    "cross-fetch": "^3.1.0"
++    "cross-fetch": "^3.1.3"
+```
+
 # 2.0.1
 
 Dependency updates:
