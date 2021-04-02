@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import type { PrintConfig, StyleCollectorNodeInterface } from './StyleCollectorNodeInterface';
 
