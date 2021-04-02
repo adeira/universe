@@ -55,12 +55,6 @@ sx.create({
       color: -1,
     },
   },
-  UnknownPropertyInsideMedia: {
-    // $FlowExpectedError[incompatible-call]
-    '@media print': {
-      unknownProperty: 'red',
-    },
-  },
 
   // TODO: we currently cannot type check these (falls into `@media` group, at-rules, CSS variables):
   InvalidKeyframesKey: {
@@ -97,5 +91,11 @@ sx.create({
   UnknownProperty: {
     // unknown CSS property
     unknownProperty: 'red',
+  },
+  UnknownPropertyInsideMedia: {
+    '@media print': {
+      // unknown CSS property
+      unknownProperty: 'red',
+    },
   },
 });
