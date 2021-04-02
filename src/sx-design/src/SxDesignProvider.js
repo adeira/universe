@@ -10,13 +10,13 @@ import type { SupportedLocales } from './constants';
 
 type Props = {|
   +children: Node,
-  +locale: SupportedLocales,
-  +darkMode?: boolean,
+  +locale?: SupportedLocales,
+  +theme?: 'light' | 'dark' | 'system',
 |};
 
 export default function SxDesignProvider(props: Props): Node {
-  const locale = props.locale;
-  const darkMode = props.darkMode ?? false;
+  const locale = props.locale ?? 'en-US';
+  const theme = props.theme ?? 'light';
 
   const supportedLocales = {
     // TODO: support translations lazy loading
@@ -37,17 +37,18 @@ export default function SxDesignProvider(props: Props): Node {
   const contextValue = useMemo(
     () => ({
       locale,
-      darkMode,
+      theme,
     }),
-    [locale, darkMode],
+    [locale, theme],
   );
 
   return (
     <div
       className={styles({
-        common: true,
-        lightTheme: darkMode === false,
-        darkTheme: darkMode === true,
+        common: true, // always include
+        lightTheme: theme === 'light',
+        darkTheme: theme === 'dark',
+        systemTheme: theme === 'system',
       })}
     >
       <SxDesignContext.Provider value={contextValue}>{props.children}</SxDesignContext.Provider>
@@ -60,5 +61,9 @@ const styles = sx.create({
   common: SxDesignProviderCSSVariables.common,
   lightTheme: SxDesignProviderCSSVariables.lightTheme,
   darkTheme: SxDesignProviderCSSVariables.darkTheme,
+  systemTheme: {
+    '@media (prefers-color-scheme: light)': SxDesignProviderCSSVariables.lightTheme,
+    '@media (prefers-color-scheme: dark)': SxDesignProviderCSSVariables.darkTheme,
+  },
 });
 /* eslint-enable sx/valid-usage */
