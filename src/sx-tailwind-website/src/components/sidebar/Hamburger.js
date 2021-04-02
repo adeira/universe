@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { useContext, type Node } from 'react';
 

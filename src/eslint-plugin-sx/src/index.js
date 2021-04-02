@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const getRules = require('./getRules');
 
