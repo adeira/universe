@@ -44,6 +44,20 @@
   },
   {
    "hashToText": {
+    "Qa3mUMhym3NPzuJNq7P/Ng==": "List of employees"
+   },
+   "filepath": "src/employees/EmployeesPageLayout.js",
+   "line_beg": 17,
+   "col_beg": 12,
+   "line_end": 17,
+   "col_end": 71,
+   "desc": "list of employees title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "List of employees"
+  },
+  {
+   "hashToText": {
     "SP/3TZcgzHIb1tmGv1Z/lg==": "Loading…"
    },
    "filepath": "src/Layout.js",
@@ -55,6 +69,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "Loading…"
+  },
+  {
+   "hashToText": {
+    "e/n6AkcscCXFzdEDdJ1neg==": "Ledger"
+   },
+   "filepath": "src/ledger/LedgerPageLayout.js",
+   "line_beg": 16,
+   "col_beg": 12,
+   "line_end": 16,
+   "col_end": 54,
+   "desc": "ledger page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Ledger"
   },
   {
    "hashToText": {
@@ -100,12 +128,26 @@
   },
   {
    "hashToText": {
+    "sHHk/SaT51d5NWanXexMiw==": "Ledger"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 24,
+   "col_beg": 8,
+   "line_end": 24,
+   "col_end": 58,
+   "desc": "navigation link to ledger",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Ledger"
+  },
+  {
+   "hashToText": {
     "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 25,
+   "line_beg": 28,
    "col_beg": 8,
-   "line_end": 25,
+   "line_end": 28,
    "col_end": 68,
    "desc": "navigation link to point of sales",
    "project": "",
@@ -671,20 +713,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Create a new product"
-  },
-  {
-   "hashToText": {
-    "Qa3mUMhym3NPzuJNq7P/Ng==": "List of employees"
-   },
-   "filepath": "src/users/EmployeesPageLayout.js",
-   "line_beg": 17,
-   "col_beg": 12,
-   "line_end": 17,
-   "col_end": 71,
-   "desc": "list of employees title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "List of employees"
   },
   {
    "hashToText": {
