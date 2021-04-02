@@ -26,7 +26,7 @@ module.exports = function (api /*: ApiType */) /*: BabelConfig */ {
   api.cache.forever();
 
   return {
-    presets: ['@adeira/babel-preset-adeira', 'next/babel'],
+    presets: ['next/babel', '@adeira/babel-preset-adeira'],
     plugins: [
       [
         '@adeira/babel-plugin-transform-sx-tailwind',
