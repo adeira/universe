@@ -82,7 +82,7 @@ test('rules snapshot', () => {
 
   expect(
     snapshotDiff(stableRules, strictRules, {
-      contextLines: 0,
+      contextLines: 1,
       stablePatchmarks: true,
       aAnnotation: 'Value for stable rules',
       bAnnotation: 'Value for STRICT rules',

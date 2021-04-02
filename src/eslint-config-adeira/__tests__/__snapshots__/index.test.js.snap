@@ -822,7 +822,12 @@ Object {
     "react/no-unescaped-entities": 2,
     "react/no-unknown-property": 2,
     "react/no-unsafe": 0,
-    "react/no-unstable-nested-components": 0,
+    "react/no-unstable-nested-components": Array [
+      1,
+      Object {
+        "allowAsProps": true,
+      },
+    ],
     "react/no-unused-prop-types": 0,
     "react/no-unused-state": 0,
     "react/no-will-update-set-state": 0,
@@ -1028,53 +1033,84 @@ Snapshot Diff:
 + Value for STRICT rules
 
 @@ --- --- @@
+      "jsx-a11y/alt-text": 2,
 -     "jsx-a11y/anchor-has-content": 1,
 +     "jsx-a11y/anchor-has-content": 2,
+      "jsx-a11y/anchor-is-valid": 2,
 @@ --- --- @@
+      "jsx-a11y/control-has-associated-label": 0,
 -     "jsx-a11y/heading-has-content": 1,
 +     "jsx-a11y/heading-has-content": 2,
+      "jsx-a11y/html-has-lang": 2,
 @@ --- --- @@
+      "jsx-a11y/no-noninteractive-element-to-interactive-role": 0,
 -     "jsx-a11y/no-noninteractive-tabindex": 1,
 +     "jsx-a11y/no-noninteractive-tabindex": 2,
+      "jsx-a11y/no-onchange": 0,
 @@ --- --- @@
+      "no-new-wrappers": 1,
 -     "no-nonoctal-decimal-escape": 1,
 +     "no-nonoctal-decimal-escape": 2,
+      "no-obj-calls": 2,
 @@ --- --- @@
+      "no-unsafe-negation": 2,
 -     "no-unsafe-optional-chaining": 1,
 +     "no-unsafe-optional-chaining": 2,
+      "no-unused-expressions": 0,
 @@ --- --- @@
+      "prefer-numeric-literals": 0,
 -     "prefer-object-spread": 1,
 +     "prefer-object-spread": 2,
+      "prefer-promise-reject-errors": 1,
 @@ --- --- @@
+      "promise/no-nesting": 1,
 -     "promise/no-new-statics": 1,
 +     "promise/no-new-statics": 2,
-@@ --- --- @@
+      "promise/no-promise-in-callback": 0,
+      "promise/no-return-in-finally": 0,
 -     "promise/no-return-wrap": 1,
 -     "promise/param-names": 1,
 +     "promise/no-return-wrap": 2,
 +     "promise/param-names": 2,
-@@ --- --- @@
+      "promise/prefer-await-to-callbacks": 0,
+      "promise/prefer-await-to-then": 0,
 -     "promise/valid-params": 1,
 +     "promise/valid-params": 2,
+      "quote-props": "off",
 @@ --- --- @@
+      "react-native/no-raw-text": 0,
 -     "react-native/no-single-element-style-arrays": 1,
 -     "react-native/no-unused-styles": 1,
 +     "react-native/no-single-element-style-arrays": 2,
 +     "react-native/no-unused-styles": 2,
+      "react-native/sort-styles": 0,
 @@ --- --- @@
+      "react/jsx-no-comment-textnodes": 2,
 -     "react/jsx-no-constructed-context-values": 1,
 +     "react/jsx-no-constructed-context-values": 2,
+      "react/jsx-no-duplicate-props": 2,
 @@ --- --- @@
+      "react/jsx-no-script-url": 2,
 -     "react/jsx-no-target-blank": 1,
 +     "react/jsx-no-target-blank": 2,
+      "react/jsx-no-undef": 2,
 @@ --- --- @@
+      "react/no-unstable-nested-components": Array [
+-       1,
++       2,
+        Object {
+@@ --- --- @@
+      "relay/compat-uses-vars": 0,
 -     "relay/function-required-argument": 1,
 +     "relay/function-required-argument": 2,
+      "relay/generated-flow-types": 2,
 @@ --- --- @@
+      "switch-colon-spacing": "off",
 -     "sx/no-concatenated-classes": 1,
 -     "sx/no-unused-stylesheet": 1,
 -     "sx/valid-usage": 1,
 +     "sx/no-concatenated-classes": 2,
 +     "sx/no-unused-stylesheet": 2,
 +     "sx/valid-usage": 2,
+      "symbol-description": 2,
 `;
