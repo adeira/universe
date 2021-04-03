@@ -25,10 +25,8 @@ import { ErrorBoundary, SxDesignProvider } from '@adeira/sx-design';
 export default function MyRootApp() {
   return (
     <SxDesignProvider
-      locale={
-        'en-US' // affects translations as well as dates, monetary values and similar
-      }
-      darkMode={true}
+      locale="en-US" // affects translations as well as dates, monetary values and similar
+      theme="light" // or "dark" or "system"
     >
       <ErrorBoundary>{/* … */}</ErrorBoundary>
     </SxDesignProvider>
@@ -75,8 +73,8 @@ You can access the dark mode even programmatically via `useSxDesignContext` hook
 
 ```js
 export default function MyComponent() {
-  const { darkMode } = useSxDesignContext();
-  // …
+  // `theme` can be "light", "dark" or "system"
+  const { theme } = useSxDesignContext();
 }
 ```
 
