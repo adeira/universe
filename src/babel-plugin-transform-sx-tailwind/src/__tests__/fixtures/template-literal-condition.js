@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import React, { type Node } from 'react';
 

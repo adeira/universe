@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   }
 
   return (
-    <SxDesignProvider locale={languageTag.bcp47} darkMode={false}>
+    <SxDesignProvider locale={languageTag.bcp47} theme="light">
       <ViewerContextProvider languageTag={languageTag}>
         <RecoilRoot>
           <div className={styles('root')}>
