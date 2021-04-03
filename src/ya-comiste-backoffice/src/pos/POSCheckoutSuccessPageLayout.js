@@ -30,7 +30,7 @@ export default function POSCheckoutSuccessPageLayout(): Node {
 const styles = sx.create({
   root: {
     fontSize: '3rem',
-    color: 'var(--ycbo-color-light)',
+    color: 'white',
     backgroundColor: 'var(--ycbo-success-background)',
     height: '100vh',
     textAlign: 'center',
@@ -44,7 +44,7 @@ const styles = sx.create({
     fontSize: '1rem',
     padding: '1rem',
     margin: '1rem',
-    backgroundColor: 'var(--ycbo-color-light)',
+    backgroundColor: 'white',
   },
   help: {
     fontSize: '1rem',

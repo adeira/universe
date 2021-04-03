@@ -8,14 +8,14 @@ import styleCollector from './StyleCollector';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
 import type { AllCSSPseudoTypes } from './css-properties/__generated__/AllCSSPseudoTypes';
 
+type CSSVariableValue = string;
+
 // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries
 type MediaQueries = {|
   ...AllCSSPropertyTypes,
   ...AllCSSPseudoTypes,
-  +[string]: MediaQueries, // media queries can be recursively nested
+  +[string]: MediaQueries | CSSVariableValue, // media queries can be recursively nested or have extra CSS variables
 |};
-
-type CSSVariableValue = string;
 
 export type AllCSSProperties = {|
   ...AllCSSPropertyTypes,

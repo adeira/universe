@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 const { spawnSync } = require('child_process');
 

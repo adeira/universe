@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { sprintf } from '@adeira/js';
 
