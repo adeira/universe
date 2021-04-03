@@ -2,10 +2,13 @@
   "es-mx": {
     "3JkX8r": "Ha ocurrido un error desconocido",
     "eiaXU": "Cerrar sesión",
+    "2eLf8v": "List of employees",
     "rxq6C": "Loading…",
+    "WVQMe": "Ledger",
     "3gmClg": "Inicio",
     "3gfKIG": "Productos",
     "1RC251": "Employees",
+    "33osEb": "Ledger",
     "G4Uk0": "Open POS",
     "9jcFB": "Oh no! Something is broken.",
     "1MjTrE": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!",
@@ -45,7 +48,6 @@
     "2zrj5f": "Imágenes del producto",
     "1EmzJe": "Inventario de productos",
     "TeM0w": "Crear un nuevo producto",
-    "2eLf8v": "List of employees",
     "3IN3g0": "Crear un nuevo producto"
   }
 }
