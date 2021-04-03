@@ -2,7 +2,7 @@
 
 exports[`transform SX Tailwind animation.js: animation.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Node } from 'react';
 
@@ -17,7 +17,7 @@ export default function Example(): Node {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Node } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Node {
@@ -104,7 +104,7 @@ const __styles_3xIUAp = sx.create({
 
 exports[`transform SX Tailwind conditional-operator.js: conditional-operator.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Element } from 'react';
 
@@ -114,7 +114,7 @@ export default function Example(isVisible: boolean): Element<'div'> {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Element } from 'react';
 import sx from '@adeira/sx';
 export default function Example(isVisible: boolean): Element<'div'> {
@@ -147,7 +147,7 @@ const __styles_1spSrF = sx.create({
 
 exports[`transform SX Tailwind custom-font.js: custom-font.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Node } from 'react';
 
@@ -162,7 +162,7 @@ export default function Example(): Node {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Node } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Node {
@@ -188,7 +188,7 @@ const __styles_3xR9dL = sx.create({
 
 exports[`transform SX Tailwind invalid-utility-class.js: invalid-utility-class.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Node } from 'react';
 
@@ -204,7 +204,7 @@ Error: <PROJECT_ROOT>/src/babel-plugin-transform-sx-tailwind/src/__tests__/fixtu
 
 exports[`transform SX Tailwind nested.js: nested.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Node } from 'react';
 
@@ -219,7 +219,7 @@ export default function Example(): Node {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Node } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Node {
@@ -255,7 +255,7 @@ const __styles_BKbxA = sx.create({
 
 exports[`transform SX Tailwind no-sx-used.js: no-sx-used.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Element } from 'react';
 
@@ -269,7 +269,7 @@ export default function Example(): Element<'button'> {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Element } from 'react';
 export default function Example(): Element<'button'> {
   return (
@@ -284,7 +284,7 @@ export default function Example(): Element<'button'> {
 
 exports[`transform SX Tailwind styles-var-exists.js: styles-var-exists.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Element } from 'react';
 
@@ -301,7 +301,7 @@ const styles = 'Here I am';
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Element } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
@@ -485,7 +485,7 @@ const __styles_1DNe5q = sx.create({
 
 exports[`transform SX Tailwind tailwind.js: tailwind.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Element } from 'react';
 
@@ -499,7 +499,7 @@ export default function Example(): Element<'button'> {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Element } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
@@ -538,7 +538,7 @@ const __styles_2ffLsS = sx.create({
 
 exports[`transform SX Tailwind tailwind-aliased.js: tailwind-aliased.js 1`] = `
 
-// @flow
+// @flow strict
 
 import type { Element } from 'react';
 
@@ -552,7 +552,7 @@ export default function Example(): Element<'button'> {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import type { Element } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Element<'button'> {
@@ -591,7 +591,7 @@ const __styles_3dQzTp = sx.create({
 
 exports[`transform SX Tailwind template-literal.js: template-literal.js 1`] = `
 
-// @flow
+// @flow strict
 
 import React, { type Node } from 'react';
 
@@ -601,7 +601,7 @@ export default function Example(): Node {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Node {
@@ -624,7 +624,7 @@ const __styles_3noU6Y = sx.create({
 
 exports[`transform SX Tailwind template-literal-condition.js: template-literal-condition.js 1`] = `
 
-// @flow
+// @flow strict
 
 import React, { type Node } from 'react';
 
@@ -639,7 +639,7 @@ export default function Example(): Node {
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-// @flow
+// @flow strict
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 export default function Example(): Node {

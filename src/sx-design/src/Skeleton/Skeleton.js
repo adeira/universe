@@ -7,14 +7,14 @@ import useSxDesignContext from '../useSxDesignContext';
 
 // Component to be used as a placeholder when loading list of cards.
 export default function Skeleton(): React.Node {
-  const { darkMode } = useSxDesignContext();
+  const { theme } = useSxDesignContext();
 
   return (
     <div
       className={styles({
         skeleton: true,
-        backgroundDark: darkMode === true,
-        backgroundLight: darkMode === false,
+        backgroundDark: theme === 'dark',
+        backgroundLight: theme === 'light',
       })}
     />
   );
