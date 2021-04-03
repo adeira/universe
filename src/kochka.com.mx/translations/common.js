@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 // This list dedupes common string occurrences in our application so they don't have to be
 // translated repeatedly and they are consistent. Use it carefully and only for key parts of our

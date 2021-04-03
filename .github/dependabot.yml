@@ -18,7 +18,7 @@ updates:
       - dependency-name: 'relay-compiler-experimental'
 
   - package-ecosystem: 'github-actions'
-    directory: '/.github/workflows/'
+    directory: '/'
     schedule:
       interval: 'daily'
     labels:
@@ -27,7 +27,7 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'github-actions'
-    directory: '/src/example-relay/__github__/.github/workflows/'
+    directory: '/src/example-relay/__github__/'
     schedule:
       interval: 'daily'
     labels:
@@ -36,7 +36,7 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'github-actions'
-    directory: '/src/sx-tailwind-website/__github__/.github/workflows/'
+    directory: '/src/sx-tailwind-website/__github__/'
     schedule:
       interval: 'daily'
     labels:

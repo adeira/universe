@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import { createContext, useState, useMemo, type Context, type Node } from 'react';
 

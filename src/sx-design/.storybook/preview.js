@@ -66,7 +66,6 @@ export const decorators = [
     }: {|
       +globals: {|
         +locale: StorybookSupportedLocales,
-        +theme: 'light' | 'dark',
         +backgrounds?: {| +value: string |},
       |},
     |},
@@ -74,7 +73,7 @@ export const decorators = [
     return (
       <SxDesignProvider
         locale={globals.locale}
-        darkMode={globals.backgrounds?.value === DARK_MODE_BACKGROUND}
+        theme={globals.backgrounds?.value === DARK_MODE_BACKGROUND ? 'dark' : 'light'}
       >
         <Story />
       </SxDesignProvider>
