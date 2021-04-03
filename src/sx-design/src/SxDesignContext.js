@@ -6,7 +6,7 @@ import type { SupportedLocales } from './constants';
 
 export type SxDesignContextValue = {|
   +locale: SupportedLocales,
-  +darkMode: boolean,
+  +theme?: 'light' | 'dark' | 'system',
 |};
 
 export default (React.createContext(

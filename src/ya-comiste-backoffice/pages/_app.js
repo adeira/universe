@@ -53,9 +53,8 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
 
   return (
     <SxDesignProvider
-      locale={
-        'en-US' // TODO
-      }
+      locale="en-US" // TODO
+      theme="system"
     >
       <ErrorBoundary>
         <RelayEnvironmentProvider environment={relayEnvironment}>
