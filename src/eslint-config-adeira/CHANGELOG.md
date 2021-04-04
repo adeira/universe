@@ -1,5 +1,7 @@
 # Unreleased
 
+- Rule [`react/no-unstable-nested-components`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md) enabled (warnings or errors in strict mode)
+
 # 5.2.0
 
 - Our custom rule `adeira/no-internal-flow-type` has been migrated to official `flowtype/no-internal-flow-type` (https://github.com/gajus/eslint-plugin-flowtype/pull/469). There should be no changes in behavior.

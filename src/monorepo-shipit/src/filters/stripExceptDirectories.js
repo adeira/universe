@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import path from 'path';
 

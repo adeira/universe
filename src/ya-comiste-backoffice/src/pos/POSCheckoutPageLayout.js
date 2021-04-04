@@ -119,11 +119,11 @@ const styles = sx.create({
   gobackLink: {
     fontSize: '2rem',
     margin: '1rem',
-    color: 'var(--ycbo-color-light)',
+    color: 'white',
   },
   root: {
     fontSize: '3rem',
-    color: 'var(--ycbo-color-light)',
+    color: 'white',
     backgroundColor: 'var(--ycbo-success-background)',
     height: '100vh',
     textAlign: 'center',

@@ -416,7 +416,7 @@ module.exports = ({
   'react/no-unescaped-entities': ERROR,
   'react/no-unknown-property': ERROR,
   'react/no-unsafe': OFF,
-  'react/no-unstable-nested-components': OFF,
+  'react/no-unstable-nested-components': [NEXT_VERSION_ERROR, { allowAsProps: true }],
   'react/no-unused-prop-types': OFF,
   'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
   'react/no-will-update-set-state': OFF,
