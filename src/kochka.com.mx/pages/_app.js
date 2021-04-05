@@ -7,7 +7,8 @@ import Head from 'next/head';
 import ReactDOM from 'react-dom';
 import sx from '@adeira/sx';
 import { RecoilRoot } from 'recoil';
-import { SkipLink, SxDesignProvider } from '@adeira/sx-design';
+import { SkipLink, SxDesignProvider, ErrorBoundary } from '@adeira/sx-design';
+import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
 import './_app.css';
@@ -52,25 +53,33 @@ function MyApp({ Component, pageProps }: Props): React.Node {
     );
   }
 
+  const Environment = createEnvironment({
+    fetchFn: createNetworkFetcher('http://localhost:5000/graphql'),
+  });
+
   return (
     <SxDesignProvider locale={languageTag.bcp47} theme="light">
-      <ViewerContextProvider languageTag={languageTag}>
-        <RecoilRoot>
-          <div className={styles('root')}>
-            <Head>
-              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </Head>
-            <SkipLink
-              text={
-                <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
-                  Skip to content
-                </fbt>
-              }
-            />
-            <Component {...pageProps} />
-          </div>
-        </RecoilRoot>
-      </ViewerContextProvider>
+      <ErrorBoundary>
+        <RelayEnvironmentProvider environment={Environment}>
+          <ViewerContextProvider languageTag={languageTag}>
+            <RecoilRoot>
+              <div className={styles('root')}>
+                <Head>
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                </Head>
+                <SkipLink
+                  text={
+                    <fbt desc="hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether">
+                      Skip to content
+                    </fbt>
+                  }
+                />
+                <Component {...pageProps} />
+              </div>
+            </RecoilRoot>
+          </ViewerContextProvider>
+        </RelayEnvironmentProvider>
+      </ErrorBoundary>
     </SxDesignProvider>
   );
 }
@@ -107,6 +116,8 @@ const styles = sx.create({
   },
 });
 
+// TODO: remove:
+//
 // This disables the ability to perform automatic static optimization, causing every page in
 // the app to be server-side rendered (needed for the translations to be properly loaded).
 //

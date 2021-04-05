@@ -15,7 +15,7 @@ export default function LanguageSwitch(): React.Node {
 
   // eventually we could offer to switch language and region independently
   const languagesMap = {
-    // TODO: how to reuse FBT here?
+    // TODO: how to reuse FBT here? (https://github.com/facebook/fbt/discussions/190)
     'en-us': (
       <div className={styles('linkInner')}>
         Switch to English
@@ -40,7 +40,12 @@ export default function LanguageSwitch(): React.Node {
     if (viewerContext.languageTag.url !== languageTagURL) {
       // do not switch to the current language
       languageSwitch.push(
-        <NextLink href={router.route} key={languageTagURL} locale={languageTagURL}>
+        <NextLink
+          prefetch={false}
+          href={router.asPath} // "/shop/221836"
+          key={languageTagURL}
+          locale={languageTagURL}
+        >
           <button type="button" className={styles('link')}>
             {linkText}
           </button>
