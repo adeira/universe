@@ -19,7 +19,7 @@
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^6.4.0",
     "postcss": "^8.2.9",
-    "tailwindcss": "^2.0.4"
+    "tailwindcss": "^2.1.1"
   },
   "scripts": {
     "dev": "next",
