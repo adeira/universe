@@ -23,7 +23,7 @@ deadpool = { version = "0.7.0", features = ["managed"] }
 futures = "0.3.13"
 image = "0.23.14"
 jsonwebtoken = "7.2.0"
-juniper = "0.15.3"
+juniper = "0.15.4"
 lazy_static = "1.4.0"
 num_cpus = "1.13.0"
 rand = "0.8.3"
