@@ -1,15 +1,14 @@
 // @flow
 
-import { rangeMap } from '@adeira/js';
 import sx from '@adeira/sx';
-import { Heading, Section, Skeleton, LinkButton } from '@adeira/sx-design';
+import { Heading, Section, LinkButton } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
 
-import Layout from '../Layout';
-import LinkInternal from '../LinkInternal';
 import filtersAtom, { type State as AtomState } from './recoil/filtersAtom';
+import Layout from '../Layout';
+import ShopLayoutContent from './ShopLayoutContent';
 
 export default function ShopLayout(): Node {
   const setFilters = useSetRecoilState(filtersAtom);
@@ -59,13 +58,8 @@ export default function ShopLayout(): Node {
             </LinkButton>
           </div>
         </div>
-        <div className={styles('productsGrid')}>
-          {/* Loading screen (first Skeleton, then Blurhash, then the actual image): */}
-          {rangeMap(12, (i) => (
-            <LinkInternal key={i} href={`/shop/${'todo'}`}>
-              <Skeleton />
-            </LinkInternal>
-          ))}
+        <div>
+          <ShopLayoutContent />
         </div>
         <div className={styles('shopGridRelevance')}>
           <Heading>
@@ -115,10 +109,5 @@ const styles = sx.create({
   },
   shopGridRelevance: {
     marginRight: '1rem',
-  },
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-    gap: '1rem',
   },
 });
