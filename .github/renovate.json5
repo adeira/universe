@@ -8,6 +8,7 @@
     'strip-ansi',
   ],
   labels: ['dependencies'],
+  postUpdateOptions: ['yarnDedupeHighest'],
   rangeStrategy: 'bump',
   semanticCommits: 'disabled',
   updateInternalDeps: true,

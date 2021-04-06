@@ -11,6 +11,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@adeira/eslint-config": "^7.3.0",
+    "@adeira/monorepo-utils": "^0.11.0",
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.5",
     "@babel/eslint-parser": "^7.17.0",
@@ -27,10 +28,7 @@
     "testRegex": "/scripts/jest/dontRunJestDirectly\\.js$"
   },
   "scripts": {
-    "//": [
-      "Please do not add new scripts here. Use scripts section in your workspace instead."
-    ],
-    "lint": "yarn run eslint-config-prettier src/js/src/invariant.js && yarn run prettier --check \"src/**/*.{md,css}\" --check \".github/**/*.{yml,yaml}\" && yarn run jest --config=.jest-eslint.config.js --changedSince=origin/master^",
+    "lint": "./node_modules/.bin/eslint-config-prettier src/js/src/invariant.js && ./node_modules/.bin/prettier --check \"src/**/*.{md,css}\" --check \".github/**/*.{yml,yaml}\" && yarn run jest --config=.jest-eslint.config.js --changedSince=origin/master^",
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run flow --max-warnings=0 && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
     "test-only": "src/monorepo-utils/bin/monorepo-run-tests.js"
@@ -41,5 +39,6 @@
       "format": "codeframe",
       "reportUnusedDisableDirectives": "error"
     }
-  }
+  },
+  "packageManager": "yarn@3.2.0"
 }

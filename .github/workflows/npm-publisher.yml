@@ -26,5 +26,5 @@ jobs:
 
       - name: publish NPM packages to the registry
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable
           yarn monorepo-babel-node scripts/publishNPMPackages.js

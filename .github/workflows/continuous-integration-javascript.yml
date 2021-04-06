@@ -30,13 +30,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      # Command `yarn install --frozen-lockfile` doesn't always fail if `yarn.lock` is modified
-      # (see: https://github.com/yarnpkg/yarn/issues/5840). Instead, we are installing the
-      # dependencies as usual and checking that nothing changed.
       - name: Install Yarn dependencies
-        run: |
-          yarn install
-          git diff --exit-code
+        run: yarn install --immutable
 
       # We are purposefully expecting zero warnings in the output to make sure flowtests are
       # working as expected (Flow returns warnings for unused suppression comments).

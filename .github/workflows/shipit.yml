@@ -25,7 +25,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install Yarn dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Prepare Shipit
         run: |

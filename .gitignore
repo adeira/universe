@@ -12,6 +12,12 @@ node_modules/
 
 .DS_Store
 .env
-.flow.saved_state
-.flow.saved_state_file_changes
-yarn-error.log
+
+# Yarn Berry with "zero installs":
+.yarn/*
+#!.yarn/cache - TODO: commit
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
