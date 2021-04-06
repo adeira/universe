@@ -1901,7 +1901,9 @@ exports[`matches expected output: throw-expressions.js: js (old browsers) 1`] = 
 
 /* eslint-disable */
 (function () {
-  return throw new Error('');
+  return function (e) {
+    throw e;
+  }(new Error(''));
 });
 `;
 
@@ -1914,7 +1916,9 @@ exports[`matches expected output: throw-expressions.js: js-esm (with ES6 import/
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 /* eslint-disable */
 (function () {
-  return throw new Error('');
+  return function (e) {
+    throw e;
+  }(new Error(''));
 });
 `;
 

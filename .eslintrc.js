@@ -3,7 +3,7 @@ const WARN = 1;
 const ERROR = 2;
 
 module.exports = {
-  parser: 'babel-eslint', // TODO: consider moving this into `eslint-config-adeira`
+  parser: '@babel/eslint-parser', // TODO: consider moving this into `eslint-config-adeira`
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2021,

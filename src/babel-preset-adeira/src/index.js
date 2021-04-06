@@ -108,6 +108,7 @@ module.exports = (
       '@babel/plugin-proposal-class-properties',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-numeric-separator',
+      '@babel/plugin-proposal-throw-expressions',
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
       // See: https://babeljs.io/docs/en/babel-plugin-transform-runtime
