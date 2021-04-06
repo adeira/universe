@@ -28,7 +28,7 @@
     "@storybook/addon-actions": "^6.2.3",
     "@storybook/addon-essentials": "^6.2.3",
     "@storybook/addon-links": "^6.2.3",
-    "@storybook/react": "^6.2.2",
+    "@storybook/react": "^6.2.3",
     "@testing-library/react": "^11.2.6",
     "babel-loader": "^8.2.2",
     "babel-plugin-fbt": "^0.19.2",
