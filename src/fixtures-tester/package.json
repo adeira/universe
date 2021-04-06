@@ -3,7 +3,6 @@
   "description": "Utility to ease testing with fixtures.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/fixtures-tester",
   "license": "MIT",
-  "private": false,
   "version": "1.0.0",
   "main": "src/index",
   "sideEffects": false,

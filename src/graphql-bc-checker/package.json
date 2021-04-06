@@ -3,7 +3,6 @@
   "description": "Script to detect breaking changes in GraphQL schema with ability to log these changes.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-bc-checker",
   "license": "MIT",
-  "private": false,
   "version": "0.3.0",
   "main": "src/index",
   "sideEffects": false,

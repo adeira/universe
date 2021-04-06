@@ -3,11 +3,9 @@
   "description": "Basic design system written using @adeira/sx",
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx-design",
   "license": "MIT",
-  "private": false,
   "version": "0.9.0",
   "main": "index",
   "sideEffects": false,
-  "module": false,
   "dependencies": {
     "@adeira/js": "^2.1.0",
     "@babel/runtime": "^7.13.10",

@@ -27,5 +27,5 @@ jobs:
           echo "${{ secrets.SSH_SHIPIT_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 'github.com' >> ~/.ssh/known_hosts
-          yarn install --frozen-lockfile
+          yarn install --immutable --immutable-cache
           yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js

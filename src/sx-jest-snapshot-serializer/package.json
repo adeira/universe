@@ -3,11 +3,9 @@
   "description": "Jest snapshot serializer for @adeira/sx",
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx-jest-snapshot-serializer",
   "license": "MIT",
-  "private": false,
   "version": "0.1.0",
   "main": "index",
   "sideEffects": true,
-  "module": false,
   "dependencies": {
     "@adeira/sx": "^0.25.0",
     "@babel/runtime": "^7.13.10",

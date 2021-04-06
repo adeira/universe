@@ -3,7 +3,6 @@
   "description": "Non-cryptographic hash function suitable for general hash-based lookup.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/murmur-hash",
   "license": "MIT",
-  "private": false,
   "version": "2.0.0",
   "main": "src/murmurHash",
   "sideEffects": false,

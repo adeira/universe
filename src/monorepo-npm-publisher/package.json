@@ -3,7 +3,6 @@
   "description": "Tool for automatically publishing of NPM packages from our monorepo",
   "homepage": "https://github.com/adeira/universe/tree/master/src/monorepo-npm-publisher",
   "license": "MIT",
-  "private": false,
   "version": "2.0.0",
   "main": "src/index",
   "sideEffects": false,
