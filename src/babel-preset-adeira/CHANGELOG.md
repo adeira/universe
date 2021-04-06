@@ -2,6 +2,7 @@
 
 Breaking changes ahead!
 
+- Added support for `@babel/eslint-parser` instead of the deprecated `babel-eslint`, see: https://babeljs.io/blog/2020/07/13/the-state-of-babel-eslint
 - Enabled `allowDeclareFields` options for `@babel/plugin-transform-flow-strip-types`. This is the default in Babel 8. You should migrate all type only fields to use `declare` syntax like so:
 
   ```js
