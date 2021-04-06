@@ -1,5 +1,5 @@
-// flow-typed signature: 53ed6733e03743ec40738c247e2ad74b
-// flow-typed version: 3be12a0b70/next_v9.x.x/flow_>=v0.104.x
+// flow-typed signature: 514646ec2cd38bf48c399f8b3ac0ea8c
+// flow-typed version: 071a03ea49/next_v9.x.x/flow_>=v0.104.x
 
 declare module "next" {
   declare type RequestHandler = (
@@ -61,7 +61,7 @@ declare module "next" {
 
   declare export type Page<T, S> = {
     ...React$Component<T, S>,
-    getInitialProps: (ctx: Context) => Promise<*>,
+    getInitialProps: (ctx: Context) => Promise<any>,
     ...
   };
 
@@ -164,16 +164,16 @@ declare module "next/router" {
       as: ?(string | URLObject),
       options?: EventChangeOptions
     ): Promise<boolean>,
-    prefetch(url: string): Promise<*>,
+    prefetch(url: string): Promise<any>,
     beforePopState(cb: BeforePopStateCallback): void,
     ...
   };
 
-  declare export function useRouter(): Router;
-
   declare export function withRouter<T>(
     Component: React$ComponentType<T & { router: Router, ... }>
   ): Class<React$Component<T>>;
+
+  declare export function useRouter(): Router;
 
   declare export default Router;
 }
@@ -198,7 +198,7 @@ declare module "next/document" {
   declare export var Main: Class<React$Component<any, any>>;
   declare export var NextScript: Class<React$Component<any, any>>;
   declare export default Class<React$Component<any, any>> & {
-    getInitialProps: (ctx: DocumentContext) => Promise<*>,
+    getInitialProps: (ctx: DocumentContext) => Promise<any>,
     renderPage(cb: Function): void,
     ...
   };
@@ -217,7 +217,7 @@ declare module "next/app" {
     ...
   };
 
-  declare export default Class<React$Component<any, any>> & { getInitialProps: (appInitialProps: AppInitialProps) => Promise<*>, ... };
+  declare export default Class<React$Component<any, any>> & { getInitialProps: (appInitialProps: AppInitialProps) => Promise<any>, ... };
 }
 
 declare module "next/dynamic" {
