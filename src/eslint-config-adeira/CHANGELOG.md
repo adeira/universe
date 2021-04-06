@@ -1,10 +1,11 @@
 # Unreleased
 
 - Rule [`react/no-unstable-nested-components`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md) enabled (warnings or errors in strict mode)
+- Our custom rule `adeira/flow-use-readonly-spread` has been migrated to official [`flowtype/use-read-only-spread`](https://github.com/gajus/eslint-plugin-flowtype/blob/master/.README/rules/use-read-only-spread.md) while keeping the same behavior (https://github.com/gajus/eslint-plugin-flowtype/pull/472). You might need to adjust your config in case you are overwriting the default config values.
 
 # 5.2.0
 
-- Our custom rule `adeira/no-internal-flow-type` has been migrated to official `flowtype/no-internal-flow-type` (https://github.com/gajus/eslint-plugin-flowtype/pull/469). There should be no changes in behavior.
+- Our custom rule `adeira/no-internal-flow-type` has been migrated to official [`flowtype/no-internal-flow-type`](https://github.com/gajus/eslint-plugin-flowtype/blob/998eb5a315666e342fea929a31dbe67568c8231f/.README/rules/no-internal-flow-type.md) while keeping the same behavior (https://github.com/gajus/eslint-plugin-flowtype/pull/469). You might need to adjust your config in case you are overwriting the default config values.
 - Rule `react/forbid-dom-props` has been temporarily disabled because it causes problems with [FBT](https://facebook.github.io/fbt/) tags, see: https://github.com/adeira/universe/issues/2005
 - New accessibility rules enabled: [`jsx-a11y/anchor-has-content`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-has-content.md), [`jsx-a11y/heading-has-content`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/heading-has-content.md) and [`jsx-a11y/no-noninteractive-tabindex`](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-tabindex.md) (warnings or errors in strict mode)
 - Rule [`react/jsx-no-target-blank`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md) enabled (warnings or errors in strict mode)

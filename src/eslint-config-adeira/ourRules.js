@@ -305,6 +305,7 @@ module.exports = ({
   'flowtype/type-id-match': OFF,
   'flowtype/type-import-style': OFF,
   'flowtype/use-flow-type': WARN,
+  'flowtype/use-read-only-spread': NEXT_VERSION_ERROR,
   'flowtype/valid-syntax': OFF,
 
   // Jest (https://github.com/jest-community/eslint-plugin-jest)
@@ -700,7 +701,6 @@ module.exports = ({
   'promise/valid-params': NEXT_VERSION_ERROR,
 
   // Adeira custom rules
-  'adeira/flow-use-readonly-spread': OFF, // opt-in when needed
   'adeira/graphql-require-object-description': WARN,
   'adeira/no-duplicate-import-type-import': ERROR,
   'adeira/no-invalid-flow-annotations': ERROR,
