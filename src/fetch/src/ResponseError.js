@@ -2,11 +2,11 @@
 
 import setPrototypeOf from './setPrototypeOf';
 
-type ResponseErrorType = {
+type ResponseErrorType = $ReadOnly<{
   ...Error,
   +response: Response,
   ...
-};
+}>;
 
 /**
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error#Custom_Error_Types

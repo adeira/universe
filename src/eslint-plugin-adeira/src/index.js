@@ -2,7 +2,6 @@
 
 module.exports = {
   rules: {
-    'flow-use-readonly-spread': require('./rules/flow-use-readonly-spread'),
     'graphql-require-object-description': require('./rules/graphql-require-object-description'),
     'no-duplicate-import-type-import': require('./rules/no-duplicate-import-type-import'),
     'no-invalid-flow-annotations': require('./rules/no-invalid-flow-annotations'),

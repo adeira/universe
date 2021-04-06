@@ -57,7 +57,6 @@ Object {
         "setWithoutGet": true,
       },
     ],
-    "adeira/flow-use-readonly-spread": 0,
     "adeira/graphql-require-object-description": 1,
     "adeira/no-duplicate-import-type-import": 2,
     "adeira/no-invalid-flow-annotations": 2,
@@ -182,6 +181,7 @@ Object {
     "flowtype/type-import-style": 0,
     "flowtype/union-intersection-spacing": "off",
     "flowtype/use-flow-type": 1,
+    "flowtype/use-read-only-spread": 1,
     "flowtype/valid-syntax": 0,
     "for-direction": 2,
     "func-call-spacing": "off",
@@ -1032,6 +1032,11 @@ Snapshot Diff:
 - Value for stable rules
 + Value for STRICT rules
 
+@@ --- --- @@
+      "flowtype/use-flow-type": 1,
+-     "flowtype/use-read-only-spread": 1,
++     "flowtype/use-read-only-spread": 2,
+      "flowtype/valid-syntax": 0,
 @@ --- --- @@
       "jsx-a11y/alt-text": 2,
 -     "jsx-a11y/anchor-has-content": 1,
