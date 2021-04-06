@@ -1,5 +1,7 @@
 # Unreleased
 
+# 5.3.0
+
 - Rule [`react/no-unstable-nested-components`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md) enabled (warnings or errors in strict mode)
 - Our custom rule `adeira/flow-use-readonly-spread` has been migrated to official [`flowtype/use-read-only-spread`](https://github.com/gajus/eslint-plugin-flowtype/blob/master/.README/rules/use-read-only-spread.md) while keeping the same behavior (https://github.com/gajus/eslint-plugin-flowtype/pull/472). You might need to adjust your config in case you are overwriting the default config values.
 
