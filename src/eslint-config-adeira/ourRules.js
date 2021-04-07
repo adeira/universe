@@ -9,7 +9,7 @@ import type { EslintConfigRules } from './EslintConfig.flow';
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
-const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
@@ -51,7 +51,7 @@ module.exports = ({
   'no-unreachable-loop': ERROR,
   'no-unsafe-finally': ERROR,
   'no-unsafe-negation': ERROR,
-  'no-unsafe-optional-chaining': NEXT_VERSION_ERROR,
+  'no-unsafe-optional-chaining': ERROR,
   'require-atomic-updates': ERROR,
   'use-isnan': [ERROR, { enforceForSwitchCase: true }],
   'valid-jsdoc': OFF,
@@ -102,7 +102,7 @@ module.exports = ({
   'no-new': WARN,
   'no-new-func': ERROR,
   'no-new-wrappers': WARN,
-  'no-nonoctal-decimal-escape': NEXT_VERSION_ERROR,
+  'no-nonoctal-decimal-escape': ERROR,
   'no-octal': ERROR,
   'no-octal-escape': ERROR,
   'no-param-reassign': ERROR,
@@ -225,7 +225,7 @@ module.exports = ({
   'operator-assignment': WARN,
   'padding-line-between-statements': OFF,
   'prefer-exponentiation-operator': ERROR,
-  'prefer-object-spread': NEXT_VERSION_ERROR,
+  'prefer-object-spread': ERROR,
   'require-jsdoc': OFF,
   'sort-keys': OFF,
   'sort-vars': OFF,
@@ -291,7 +291,7 @@ module.exports = ({
     },
   ],
   'flowtype/require-compound-type-alias': OFF,
-  'flowtype/require-exact-type': [NEXT_VERSION_ERROR, 'never'], // we are using `exact_by_default=true`
+  'flowtype/require-exact-type': [ERROR, 'never'], // we are using `exact_by_default=true`
   'flowtype/require-indexer-name': OFF,
   'flowtype/require-inexact-type': OFF,
   'flowtype/require-parameter-type': OFF,
@@ -310,7 +310,7 @@ module.exports = ({
   'flowtype/type-id-match': OFF,
   'flowtype/type-import-style': OFF,
   'flowtype/use-flow-type': WARN,
-  'flowtype/use-read-only-spread': NEXT_VERSION_ERROR,
+  'flowtype/use-read-only-spread': ERROR,
   'flowtype/valid-syntax': OFF,
 
   // Jest (https://github.com/jest-community/eslint-plugin-jest)
@@ -389,10 +389,10 @@ module.exports = ({
     },
   ],
   'react/jsx-no-comment-textnodes': ERROR,
-  'react/jsx-no-constructed-context-values': NEXT_VERSION_ERROR,
+  'react/jsx-no-constructed-context-values': ERROR,
   'react/jsx-no-duplicate-props': ERROR,
   'react/jsx-no-literals': OFF,
-  'react/jsx-no-target-blank': NEXT_VERSION_ERROR,
+  'react/jsx-no-target-blank': ERROR,
   'react/jsx-no-undef': ERROR,
   'react/jsx-no-useless-fragment': ERROR,
   'react/jsx-pascal-case': ERROR,
@@ -422,7 +422,7 @@ module.exports = ({
   'react/no-unescaped-entities': ERROR,
   'react/no-unknown-property': ERROR,
   'react/no-unsafe': OFF,
-  'react/no-unstable-nested-components': [NEXT_VERSION_ERROR, { allowAsProps: true }],
+  'react/no-unstable-nested-components': [ERROR, { allowAsProps: true }],
   'react/no-unused-prop-types': OFF,
   'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
   'react/no-will-update-set-state': OFF,
@@ -504,15 +504,15 @@ module.exports = ({
   'react-native/no-color-literals': OFF,
   'react-native/no-inline-styles': OFF,
   'react-native/no-raw-text': OFF, // TODO: takes normal React into account as well, not only RN
-  'react-native/no-single-element-style-arrays': NEXT_VERSION_ERROR,
-  'react-native/no-unused-styles': NEXT_VERSION_ERROR,
+  'react-native/no-single-element-style-arrays': ERROR,
+  'react-native/no-unused-styles': ERROR,
   'react-native/sort-styles': OFF,
   'react-native/split-platform-components': OFF,
 
   // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
   'jsx-a11y/accessible-emoji': ERROR,
   'jsx-a11y/alt-text': ERROR,
-  'jsx-a11y/anchor-has-content': NEXT_VERSION_ERROR,
+  'jsx-a11y/anchor-has-content': ERROR,
   'jsx-a11y/anchor-is-valid': ERROR,
   'jsx-a11y/aria-activedescendant-has-tabindex': OFF,
   'jsx-a11y/aria-props': ERROR,
@@ -522,7 +522,7 @@ module.exports = ({
   'jsx-a11y/autocomplete-valid': ERROR,
   'jsx-a11y/click-events-have-key-events': OFF,
   'jsx-a11y/control-has-associated-label': OFF,
-  'jsx-a11y/heading-has-content': NEXT_VERSION_ERROR,
+  'jsx-a11y/heading-has-content': ERROR,
   'jsx-a11y/html-has-lang': ERROR,
   'jsx-a11y/iframe-has-title': ERROR,
   'jsx-a11y/img-redundant-alt': OFF,
@@ -538,7 +538,7 @@ module.exports = ({
   'jsx-a11y/no-interactive-element-to-noninteractive-role': OFF,
   'jsx-a11y/no-noninteractive-element-interactions': OFF,
   'jsx-a11y/no-noninteractive-element-to-interactive-role': OFF,
-  'jsx-a11y/no-noninteractive-tabindex': NEXT_VERSION_ERROR,
+  'jsx-a11y/no-noninteractive-tabindex': ERROR,
   'jsx-a11y/no-onchange': OFF,
   'jsx-a11y/no-redundant-roles': ERROR,
   'jsx-a11y/no-static-element-interactions': OFF,
@@ -549,7 +549,7 @@ module.exports = ({
 
   // Relay (https://github.com/relayjs/eslint-plugin-relay)
   'relay/compat-uses-vars': OFF, // we do not use Relay Compat
-  'relay/function-required-argument': NEXT_VERSION_ERROR,
+  'relay/function-required-argument': ERROR,
   'relay/generated-flow-types': ERROR,
   'relay/graphql-naming': OFF, // no longer needed, see: https://github.com/facebook/relay/commit/ff1c10bc6595f3715f29660b46f779e000be9c70
   'relay/graphql-syntax': ERROR,
@@ -696,14 +696,14 @@ module.exports = ({
   'promise/no-callback-in-promise': OFF,
   'promise/no-native': OFF,
   'promise/no-nesting': WARN,
-  'promise/no-new-statics': NEXT_VERSION_ERROR,
+  'promise/no-new-statics': ERROR,
   'promise/no-promise-in-callback': OFF,
   'promise/no-return-in-finally': OFF,
-  'promise/no-return-wrap': NEXT_VERSION_ERROR,
-  'promise/param-names': NEXT_VERSION_ERROR,
+  'promise/no-return-wrap': ERROR,
+  'promise/param-names': ERROR,
   'promise/prefer-await-to-callbacks': OFF,
   'promise/prefer-await-to-then': OFF,
-  'promise/valid-params': NEXT_VERSION_ERROR,
+  'promise/valid-params': ERROR,
 
   // Adeira custom rules
   'adeira/graphql-require-object-description': WARN,
@@ -715,7 +715,7 @@ module.exports = ({
   'adeira/valid-test-folder': ERROR,
 
   // Adeira SX custom rules
-  'sx/no-concatenated-classes': NEXT_VERSION_ERROR,
-  'sx/no-unused-stylesheet': NEXT_VERSION_ERROR,
-  'sx/valid-usage': NEXT_VERSION_ERROR,
+  'sx/no-concatenated-classes': ERROR,
+  'sx/no-unused-stylesheet': ERROR,
+  'sx/valid-usage': ERROR,
 } /*: EslintConfigRules */);
