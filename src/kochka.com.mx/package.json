@@ -4,9 +4,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port=5002",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --port=5002",
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "test": "yarn jest",
     "fbt:manifest": "fbt-manifest --src=src --src=pages --enum-manifest=translations/enum_manifest.json --src-manifest=translations/src_manifest.json",

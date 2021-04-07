@@ -46,7 +46,6 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
 
   const relayEnvironment = createEnvironment({
     fetchFn: createNetworkFetcher(constants.graphqlServerURL, {
-      'X-Client': constants.graphqlClientName,
       ...(sessionToken != null && { Authorization: `Bearer ${sessionToken}` }),
     }),
   });
