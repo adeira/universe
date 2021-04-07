@@ -51,7 +51,7 @@ async fn main() {
         .get_matches();
 
     // TODO: how to display these routes automatically (?)
-    let server_addr = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 8080);
+    let server_addr = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 5000);
     println!(
         r#"
         Starting server on {}
@@ -76,7 +76,8 @@ async fn main() {
     let routes = graphql_api
         .with(
             warp::cors()
-                .allow_origin("http://localhost:3000") // TODO
+                .allow_origin("http://localhost:5001") // TODO (backoffice)
+                .allow_origin("http://localhost:5002") // TODO (kochka FE)
                 .allow_headers(vec!["authorization", "content-type", "x-client"])
                 .allow_methods(vec![warp::http::Method::POST]),
         )
