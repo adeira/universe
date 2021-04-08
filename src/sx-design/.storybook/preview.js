@@ -26,7 +26,7 @@ export const parameters = {
   },
 };
 
-type StorybookSupportedLocales = 'en-US' | 'es-MX';
+type StorybookSupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX';
 type StorybookGlobalTypes = {|
   +locale: {|
     +name: string,
@@ -51,6 +51,7 @@ export const globalTypes: StorybookGlobalTypes = {
     toolbar: {
       icon: 'globe',
       items: [
+        { value: 'cs-CZ', right: '🇨🇿', title: 'Čeština (CZ)' },
         { value: 'en-US', right: '🇺🇸', title: 'English (US)' },
         { value: 'es-MX', right: '🇲🇽', title: 'Español (MX)' },
       ],

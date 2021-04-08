@@ -20,6 +20,7 @@ export default function SxDesignProvider(props: Props): Node {
 
   const supportedLocales = {
     // TODO: support translations lazy loading
+    'cs-CZ': require('../translations/out/cs-CZ.json'),
     'en-US': require('../translations/out/en-US.json'),
     'es-MX': require('../translations/out/es-MX.json'),
   };
