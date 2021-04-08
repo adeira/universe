@@ -20,7 +20,7 @@
     "json-stable-stringify": "^1.0.1",
     "mdn-data": "^2.0.17",
     "prettier": "^2.2.1",
-    "stylis": "^4.0.9"
+    "stylis": "^4.0.10"
   },
   "peerDependencies": {
     "react": "^17.0.0"
