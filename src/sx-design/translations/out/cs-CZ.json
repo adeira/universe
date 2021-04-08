@@ -1,0 +1,11 @@
+{
+  "cs-CZ": {
+    "4dzbyQ": "An unexpected error has occurred.",
+    "3d9B4m": "Retry",
+    "2kqQC3": "Success",
+    "3IzWFC": "Chyba",
+    "1pft9x": "Warning",
+    "3yXPZF": "Note",
+    "3zJxvn": "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page."
+  }
+}

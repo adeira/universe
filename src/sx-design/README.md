@@ -4,10 +4,10 @@
 
 Basic design system written using [`@adeira/sx`](https://github.com/adeira/sx). Core value of this project are (in this order):
 
-- exclusively using atomic CSS via [`@adeira/sx`](https://github.com/adeira/sx)
-- fully supported localization
-- dark mode out of the box
-- accessible components
+- ⚛️ exclusively using atomic CSS via [`@adeira/sx`](https://github.com/adeira/sx)
+- 🏳️‍🌈 fully supported localization ([🇺🇸🇲🇽🇨🇿…](https://crowdin.com/project/sx-design))
+- ☯️ dark mode out of the box
+- 🆘 accessible components
 
 # Installation and Usage
 
