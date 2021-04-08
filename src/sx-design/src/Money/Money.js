@@ -25,7 +25,7 @@ export default function Money(props: MoneyProps): React.Node {
 
 const styles = sx.create({
   text: {
-    color: 'rgba(var(--sx-money-text-color, var(--sx-text-color)))',
+    color: 'rgba(var(--sx-money-text-color, var(--sx-foreground)))',
     transition: 'inherit',
   },
 });

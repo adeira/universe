@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders maximum 6 levels 1`] = `
-"<h1 class=\\"_4anm7e\\">level one</h1>
-<section class=\\"_4anm7e\\">
-  <h2 class=\\"_4anm7e\\">level two</h2>
-  <section class=\\"_4anm7e\\">
-    <h3 class=\\"_4anm7e\\">level three</h3>
-    <section class=\\"_4anm7e\\">
-      <h4 class=\\"_4anm7e\\">level four</h4>
-      <section class=\\"_4anm7e\\">
-        <h5 class=\\"_4anm7e\\">level five</h5>
-        <section class=\\"_4anm7e\\">
-          <h6 class=\\"_4anm7e\\">level six</h6>
-          <section class=\\"_4anm7e\\">
-            <h6 class=\\"_4anm7e\\">level six again</h6>
-            <h6 class=\\"_4anm7e\\">level six again</h6>
+"<h1 class=\\"_1cJrQ0\\">level one</h1>
+<section class=\\"_1cJrQ0\\">
+  <h2 class=\\"_1cJrQ0\\">level two</h2>
+  <section class=\\"_1cJrQ0\\">
+    <h3 class=\\"_1cJrQ0\\">level three</h3>
+    <section class=\\"_1cJrQ0\\">
+      <h4 class=\\"_1cJrQ0\\">level four</h4>
+      <section class=\\"_1cJrQ0\\">
+        <h5 class=\\"_1cJrQ0\\">level five</h5>
+        <section class=\\"_1cJrQ0\\">
+          <h6 class=\\"_1cJrQ0\\">level six</h6>
+          <section class=\\"_1cJrQ0\\">
+            <h6 class=\\"_1cJrQ0\\">level six again</h6>
+            <h6 class=\\"_1cJrQ0\\">level six again</h6>
           </section>
-          <h6 class=\\"_4anm7e\\">level six</h6>
+          <h6 class=\\"_1cJrQ0\\">level six</h6>
         </section>
-        <h5 class=\\"_4anm7e\\">level five</h5>
+        <h5 class=\\"_1cJrQ0\\">level five</h5>
       </section>
-      <h4 class=\\"_4anm7e\\">level four</h4>
+      <h4 class=\\"_1cJrQ0\\">level four</h4>
     </section>
-    <h3 class=\\"_4anm7e\\">level three</h3>
+    <h3 class=\\"_1cJrQ0\\">level three</h3>
   </section>
-  <h2 class=\\"_4anm7e\\">level two</h2>
+  <h2 class=\\"_1cJrQ0\\">level two</h2>
 </section>
 "
 `;

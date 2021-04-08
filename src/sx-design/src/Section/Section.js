@@ -28,6 +28,6 @@ export default function Section(props: Props): React.Node {
 
 const styles = sx.create({
   section: {
-    color: 'rgba(var(--sx-text-color))',
+    color: 'rgba(var(--sx-foreground))',
   },
 });
