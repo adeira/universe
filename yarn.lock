@@ -2034,10 +2034,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fbtjs/default-collection-transform@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@fbtjs/default-collection-transform/-/default-collection-transform-0.0.2.tgz#56231c3b5bad1fc9e0eec098297a808dd99a63fc"
-  integrity sha512-aFpJxFpYoNWqd/Vtqa5JkCszK7LfkeoAFdIbXLYTdfPF5EuavMBGuROpbo6UUkKtwmjH4ogayX0u8a8aD3Y88g==
+"@fbtjs/default-collection-transform@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@fbtjs/default-collection-transform/-/default-collection-transform-0.0.3.tgz#8c7123e17708775a384aacb991702350061745bc"
+  integrity sha512-gujIArQ3qBGVxK0ZG0W/DOaDQhxYV4uRdeKNhgL6kEuRUzbxMyVw2MsMfVgEWjUt6yL8FbwcqPjY6a9X4SnlsA==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
@@ -2050,7 +2050,6 @@
     "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.0.0"
     "@babel/plugin-syntax-optional-chaining" "^7.0.0"
-    babel-plugin-fbt "^0.19.x"
 
 "@fullhuman/postcss-purgecss@^3.1.3":
   version "3.1.3"
@@ -5015,10 +5014,10 @@ babel-plugin-fbt-runtime@^0.9.17:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
 
-babel-plugin-fbt@^0.19.2, babel-plugin-fbt@^0.19.x:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.19.2.tgz#393338ab92094b2660d963cef98028a9b8b540c5"
-  integrity sha512-vw9TWsPFRY4BL8ddoHdRb/hZIxOEoI/ukeFiYpsHPuAzAdEAdFSr359HHxOZUG0W6HcgcOUdShUlLo28cgLYOg==
+babel-plugin-fbt@^0.20.0:
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt/-/babel-plugin-fbt-0.20.0.tgz#5c6a405c7bb2ac2ae6d0dca96a02ee68e818750f"
+  integrity sha512-ASqRIjqtxDpKDLDaiWZWQ1thwHIjftP/LxwJGl0crVkC2m91BEk/X0DATZ59TtA1reDmJbDKlH/JOVIKTnbD2Q==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/generator" "^7.0.0"
@@ -8461,10 +8460,10 @@ fbjs@^3.0.0:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
 
-fbt@^0.16.4:
-  version "0.16.4"
-  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.4.tgz#001309c7a877e4768acd11539f2f1ce320eaf51d"
-  integrity sha512-HKI/Olg9HAaKGmv7MuYp9uBaA/ioxz12hdWRNy8QhmstePsRAdxmQMTmcmBJL9hJZHv5/6taSbyhLuFPg5ig+Q==
+fbt@^0.16.5:
+  version "0.16.5"
+  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.5.tgz#8b6d6577124d353d9dfca3e0348ae7cdc6d3e08d"
+  integrity sha512-Wykg+Oq+ZpB35iE+G1RP+oaL+faN+/rslpz7Zq4lJSFW7syfCiGvWEyLSZurK2DRNh33D3aU7bR0uJJ/e68EKA==
   dependencies:
     invariant "^2.2.4"
 
