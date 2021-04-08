@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@adeira/eslint-config@^5.2.0":
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-5.2.0.tgz#4a1433a0df4facfed47ef22c182b8b6576875221"
-  integrity sha512-fcI8KtIgP7QLq0vTKCL2MBzoxsmENxFEPY7ulosyBcgZ4W8KHmlTmo2FapZBlCQHn7K8Nw+C3NRGJlA6gO3DJQ==
+"@adeira/eslint-config@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-5.3.0.tgz#fcfa7a2e65c8b902a3364909d7d2524aaec619d3"
+  integrity sha512-crAvL7el+BHQcU+ccad02XbafNLDUFKsfmILgECVBOKt0p67a+lh8bZrWtH3OV9rpemztM3mBSh2PSzJY6kCYA==
   dependencies:
     "@babel/runtime" "^7.13.10"
     eslint-config-prettier "^8.1.0"
-    eslint-plugin-adeira "^0.12.0"
+    eslint-plugin-adeira "^0.13.0"
     eslint-plugin-eslint-comments "^3.2.0"
-    eslint-plugin-flowtype "^5.4.0"
+    eslint-plugin-flowtype "^5.6.0"
     eslint-plugin-import "^2.22.1"
-    eslint-plugin-jest "^24.3.2"
+    eslint-plugin-jest "^24.3.4"
     eslint-plugin-jsx-a11y "^6.4.1"
     eslint-plugin-monorepo "^0.3.2"
     eslint-plugin-node "^11.1.0"
     eslint-plugin-prettier "^3.3.1"
     eslint-plugin-promise "^4.3.1"
-    eslint-plugin-react "^7.23.0"
+    eslint-plugin-react "^7.23.1"
     eslint-plugin-react-hooks "^4.2.0"
     eslint-plugin-react-native "^3.10.0"
     eslint-plugin-relay "^1.8.2"
@@ -6001,12 +6001,12 @@ eslint-module-utils@^2.1.1, eslint-module-utils@^2.6.0:
     debug "^2.6.9"
     pkg-dir "^2.0.0"
 
-eslint-plugin-adeira@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.12.0.tgz#c0eda32827fbe3ab205d5256efd9ad02d0f724e4"
-  integrity sha512-SzEXr2Qw9QJ7ebZ9Pdrx44YaS5O53zcQeNy6zaihmjjRhRjlOxDUOr5O0kBcOcSkiqe+4AsYb9aJXrm/4N+aPw==
+eslint-plugin-adeira@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-adeira/-/eslint-plugin-adeira-0.13.0.tgz#7e0c6e5b25d62a9b5fa9710512eed27402f0fd48"
+  integrity sha512-xZzbBI/0RI5fhGs3CUGS3+rL7JE969FnT8fb8k2ShxfB5Er/3448wGXBTZYWxKVOFk+96jLMkdphRW3gbH6Bpg==
   dependencies:
-    "@babel/runtime" "^7.12.5"
+    "@babel/runtime" "^7.13.10"
     fast-levenshtein "^3.0.0"
 
 eslint-plugin-es@^3.0.0:
@@ -6025,10 +6025,10 @@ eslint-plugin-eslint-comments@^3.2.0:
     escape-string-regexp "^1.0.5"
     ignore "^5.0.5"
 
-eslint-plugin-flowtype@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-5.4.0.tgz#a559526e56403cb97b470b524957fc526e2485fe"
-  integrity sha512-O0s0iTT5UxYuoOpHMLSIO2qZMyvrb9shhk1EM5INNGtJ2CffrfUmsnh6TVsnoT41fkXIEndP630WNovhoO87xQ==
+eslint-plugin-flowtype@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-5.6.0.tgz#9ddba1ce31990c53e144b3a545b7c74b1d164fd9"
+  integrity sha512-XbeDejiL+SecDInj9On/9D4EM31kUp6B3uWYsBH6Vsb2CfaFWiUHvosAZx1TafVjp6izLC7D3kpix1DIpDF4Qw==
   dependencies:
     lodash "^4.17.15"
     string-natural-compare "^3.0.1"
@@ -6052,10 +6052,10 @@ eslint-plugin-import@^2.22.1:
     resolve "^1.17.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-jest@^24.3.2:
-  version "24.3.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.3.2.tgz#30a8b2dea6278d0da1d6fb9d6cd530aaf58050a1"
-  integrity sha512-cicWDr+RvTAOKS3Q/k03+Z3odt3VCiWamNUHWd6QWbVQWcYJyYgUTu8x0mx9GfeDEimawU5kQC+nQ3MFxIM6bw==
+eslint-plugin-jest@^24.3.4:
+  version "24.3.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.3.4.tgz#6d90c3554de0302e879603dd6405474c98849f19"
+  integrity sha512-3n5oY1+fictanuFkTWPwSlehugBTAgwLnYLFsCllzE3Pl1BwywHl5fL0HFxmMjoQY8xhUDk8uAWc3S4JOHGh3A==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
@@ -6131,7 +6131,7 @@ eslint-plugin-react-native@^3.10.0:
     "@babel/traverse" "^7.7.4"
     eslint-plugin-react-native-globals "^0.1.1"
 
-eslint-plugin-react@^7.23.0:
+eslint-plugin-react@^7.23.1:
   version "7.23.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.23.1.tgz#f1a2e844c0d1967c822388204a8bc4dee8415b11"
   integrity sha512-MvFGhZjI8Z4HusajmSw0ougGrq3Gs4vT/0WgwksZgf5RrLrRa2oYAw56okU4tZJl8+j7IYNuTM+2RnFEuTSdRQ==
