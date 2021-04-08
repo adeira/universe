@@ -29,7 +29,7 @@ jobs:
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
-          yarn run flow
+          yarn run flow --max-warnings=0
           yarn run lint
           yarn run test-only
           yarn workspace @adeira/example-relay test-bc

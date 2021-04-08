@@ -32,6 +32,6 @@ export default function Heading(props: Props): React.Node {
 
 const styles = sx.create({
   heading: {
-    color: 'rgba(var(--sx-text-color))',
+    color: 'rgba(var(--sx-foreground))',
   },
 });

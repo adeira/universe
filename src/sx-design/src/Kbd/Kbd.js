@@ -29,7 +29,7 @@ const styles = sx.create({
   kbd: {
     borderRadius: '3px',
     border: 'var(--sx-kbd-border, 1px solid #b4b4b4)',
-    color: 'rgba(var(--sx-text-color))',
+    color: 'rgba(var(--sx-foreground))',
     display: 'inline-block',
     fontSize: '0.85em',
     fontWeight: '700',
