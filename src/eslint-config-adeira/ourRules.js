@@ -9,7 +9,8 @@ import type { EslintConfigRules } from './EslintConfig.flow';
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
-// const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
+// eslint-disable-next-line no-unused-vars
+const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
 // in the future versions. This change requires major version bump. It's not
