@@ -751,7 +751,15 @@ Object {
     "react/destructuring-assignment": 0,
     "react/display-name": 0,
     "react/forbid-component-props": 0,
-    "react/forbid-dom-props": 0,
+    "react/forbid-dom-props": Array [
+      2,
+      Object {
+        "forbid": Array [
+          "class",
+          "for",
+        ],
+      },
+    ],
     "react/forbid-elements": 0,
     "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,
