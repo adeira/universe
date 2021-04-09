@@ -5,7 +5,7 @@ import { atom, type RecoilState } from 'recoil';
 
 type State = {
   +message: null | FbtWithoutString | Node,
-  +type?: 'SUCCESS' | 'ERROR',
+  +type?: 'success' | 'error',
 };
 
 export const uiStatusBarAtom = (atom({

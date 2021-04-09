@@ -116,20 +116,35 @@ Legend:
 🧐  not evaluated/ready yet
 ```
 
-| Component           | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ |
-| ------------------- | :---------: | :---------: | :-----------: | :------: |
-| `<Badge />`         |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<Emoji />`         |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<ErrorBoundary />` |     ✅      |     ✅      |      🧐       |    ✅    |
-| `<Heading />`       |     ✅      |     ✅      |      ✅       |    ✅    |
-| `<Kbd />`           |     ✅      |     ✅      |      ✅       |    ✅    |
-| `<Link />`          |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<LinkButton />`    |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<Money />`         |     ✅      |     ✅      |      🧐       |    ✅    |
-| `<ProductCard />`   |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<Section />`       |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<Skeleton />`      |     ✅      |     ✅      |      ✅       |    🧐    |
-| `<SkipLink />`      |     ✅      |     🧐      |      🧐       |    🧐    |
+| Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ |
+| --------------------- | :---------: | :---------: | :-----------: | :------: |
+| [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |
+| [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |
+| [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |
+| [`<Link />`]          |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<Money />`]         |     ✅      |     ✅      |      🧐       |    ✅    |
+| [`<Note />`]          |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |
+
+[`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
+[`<emoji />`]: https://sx-design.vercel.app/?path=/story/example-emoji
+[`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/example-errorboundary
+[`<heading />`]: https://sx-design.vercel.app/?path=/story/example-heading
+[`<kbd />`]: https://sx-design.vercel.app/?path=/story/example-kbd
+[`<link />`]: https://sx-design.vercel.app/?path=/story/example-link
+[`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/example-linkbutton
+[`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
+[`<note />`]: https://sx-design.vercel.app/?path=/story/example-note
+[`<productcard />`]: https://sx-design.vercel.app/?path=/story/example-productcard
+[`<section />`]: https://sx-design.vercel.app/?path=/story/example-section
+[`<skeleton />`]: https://sx-design.vercel.app/?path=/story/example-skeleton
+[`<skiplink />`]: https://sx-design.vercel.app/?path=/story/example-skiplink
 
 _Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
 

@@ -74,20 +74,20 @@ export default function EditProductHeadingPublishUnpublish(
             setStatusBar({
               // TODO: DRY and improve these unexpected messages (see product creation)
               message: 'Something unexpected happened',
-              type: 'ERROR',
+              type: 'error',
             });
           },
           onCompleted: ({ commerce: { productOrError } }) => {
             if (productOrError.__typename === 'Product') {
               setStatusBar({
                 message: 'Product successfully published. ✅',
-                type: 'SUCCESS',
+                type: 'success',
               });
               // router.push('/products');
             } else if (productOrError.__typename === 'ProductError') {
               setStatusBar({
                 message: productOrError.message,
-                type: 'ERROR',
+                type: 'error',
               });
             }
           },
@@ -111,20 +111,20 @@ export default function EditProductHeadingPublishUnpublish(
             setStatusBar({
               // TODO: DRY and improve these unexpected messages (see product creation)
               message: 'Something unexpected happened',
-              type: 'ERROR',
+              type: 'error',
             });
           },
           onCompleted: ({ commerce: { productOrError } }) => {
             if (productOrError.__typename === 'Product') {
               setStatusBar({
                 message: 'Product successfully unpublished. ✅',
-                type: 'SUCCESS',
+                type: 'success',
               });
               // router.push('/products');
             } else if (productOrError.__typename === 'ProductError') {
               setStatusBar({
                 message: productOrError.message,
-                type: 'ERROR',
+                type: 'error',
               });
             }
           },
