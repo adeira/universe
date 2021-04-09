@@ -17,7 +17,7 @@ expect.addSnapshotSerializer({
   print: (val) => {
     const printedStyles = prettier.format(
       __sxInternal.StyleCollector.print(), // TODO: apply `stylis` rules to match what SX actually does
-      { filepath: 'test.css' },
+      { parser: 'css' },
     );
 
     const printedHTML = prettier.format(
