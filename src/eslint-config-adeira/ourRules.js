@@ -368,7 +368,15 @@ module.exports = ({
   'react/destructuring-assignment': OFF,
   'react/display-name': OFF,
   'react/forbid-component-props': OFF,
-  'react/forbid-dom-props': OFF,
+  'react/forbid-dom-props': [
+    ERROR,
+    {
+      forbid: [
+        'class', // https://reactjs.org/docs/dom-elements.html#classname
+        'for', // https://reactjs.org/docs/dom-elements.html#htmlfor
+      ],
+    },
+  ],
   'react/forbid-elements': OFF,
   'react/forbid-foreign-prop-types': OFF,
   'react/forbid-prop-types': OFF,
