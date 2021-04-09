@@ -2,14 +2,20 @@
 
 import * as React from 'react';
 import { render } from '@testing-library/react';
-import prettier from 'prettier';
+import '@adeira/sx-jest-snapshot-serializer';
 
 import Heading from '../Heading';
 import Section from '../../Section/Section';
 
 it('renders top level by default', () => {
   const { container } = render(<Heading>level one</Heading>);
-  expect(container.innerHTML).toMatchInlineSnapshot(`"<h1 class=\\"_1cJrQ0\\">level one</h1>"`);
+  expect(container.firstChild).toMatchInlineSnapshot(`
+    ._1cJrQ0 {
+      color: rgba(var(--sx-foreground));
+    }
+
+    <h1 class="_1cJrQ0">level one</h1>
+  `);
 });
 
 it('renders H1 tags in parallel', () => {
@@ -19,9 +25,16 @@ it('renders H1 tags in parallel', () => {
       <Heading>level one</Heading>
     </>,
   );
-  expect(container.innerHTML).toMatchInlineSnapshot(
-    `"<h1 class=\\"_1cJrQ0\\">level one</h1><h1 class=\\"_1cJrQ0\\">level one</h1>"`,
-  );
+  expect(container).toMatchInlineSnapshot(`
+    ._1cJrQ0 {
+      color: rgba(var(--sx-foreground));
+    }
+
+    <div>
+      <h1 class="_1cJrQ0">level one</h1>
+      <h1 class="_1cJrQ0">level one</h1>
+    </div>
+  `);
 });
 
 // <Heading>
@@ -60,9 +73,37 @@ it('renders maximum 6 levels', () => {
     </>,
   );
 
-  expect(
-    prettier.format(container.innerHTML, {
-      filepath: 'test.html',
-    }),
-  ).toMatchSnapshot();
+  expect(container).toMatchInlineSnapshot(`
+    ._1cJrQ0 {
+      color: rgba(var(--sx-foreground));
+    }
+
+    <div>
+      <h1 class="_1cJrQ0">level one</h1>
+      <section class="_1cJrQ0">
+        <h2 class="_1cJrQ0">level two</h2>
+        <section class="_1cJrQ0">
+          <h3 class="_1cJrQ0">level three</h3>
+          <section class="_1cJrQ0">
+            <h4 class="_1cJrQ0">level four</h4>
+            <section class="_1cJrQ0">
+              <h5 class="_1cJrQ0">level five</h5>
+              <section class="_1cJrQ0">
+                <h6 class="_1cJrQ0">level six</h6>
+                <section class="_1cJrQ0">
+                  <h6 class="_1cJrQ0">level six again</h6>
+                  <h6 class="_1cJrQ0">level six again</h6>
+                </section>
+                <h6 class="_1cJrQ0">level six</h6>
+              </section>
+              <h5 class="_1cJrQ0">level five</h5>
+            </section>
+            <h4 class="_1cJrQ0">level four</h4>
+          </section>
+          <h3 class="_1cJrQ0">level three</h3>
+        </section>
+        <h2 class="_1cJrQ0">level two</h2>
+      </section>
+    </div>
+  `);
 });

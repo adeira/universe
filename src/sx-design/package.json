@@ -23,6 +23,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@adeira/sx": "^0.25.0",
+    "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
     "@babel/core": "^7.13.15",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@storybook/addon-actions": "^6.2.7",
@@ -33,7 +34,6 @@
     "babel-loader": "^8.2.2",
     "babel-plugin-fbt": "^0.20.0",
     "babel-plugin-fbt-runtime": "^0.9.17",
-    "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
