@@ -25,7 +25,7 @@
     "@adeira/sx": "^0.25.0",
     "@babel/core": "^7.13.14",
     "@fbtjs/default-collection-transform": "^0.0.3",
-    "@storybook/addon-actions": "^6.2.4",
+    "@storybook/addon-actions": "^6.2.7",
     "@storybook/addon-essentials": "^6.2.6",
     "@storybook/addon-links": "^6.2.6",
     "@storybook/react": "^6.2.7",
