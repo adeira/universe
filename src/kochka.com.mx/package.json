@@ -20,10 +20,10 @@
     "@adeira/relay": "^3.2.2",
     "@adeira/sx": "^0.25.0",
     "@adeira/sx-design": "^0.7.0",
-    "babel-plugin-fbt": "^0.19.2",
+    "babel-plugin-fbt": "^0.20.0",
     "babel-plugin-fbt-runtime": "^0.9.17",
     "blurhash": "^1.1.3",
-    "fbt": "^0.16.4",
+    "fbt": "^0.16.5",
     "next": "^10.1.3",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^6.4.0",
@@ -35,6 +35,6 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@axe-core/react": "^4.1.1",
-    "@fbtjs/default-collection-transform": "^0.0.2"
+    "@fbtjs/default-collection-transform": "^0.0.3"
   }
 }
