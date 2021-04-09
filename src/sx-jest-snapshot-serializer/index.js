@@ -25,7 +25,7 @@ expect.addSnapshotSerializer({
         plugins: [prettyFormat.plugins.DOMElement, prettyFormat.plugins.ReactTestComponent],
         printFunctionName: false,
       }),
-      { filepath: 'test.html' },
+      { parser: 'html' },
     );
 
     return `${printedStyles}\n${printedHTML.trim()}`;
