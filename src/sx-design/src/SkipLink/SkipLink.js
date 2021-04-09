@@ -21,8 +21,9 @@ const styles = sx.create({
     'position': 'absolute',
     'top': -40,
     'left': 0,
-    'background': 'rgba(var(--sx-skipLink-background-color))',
-    'color': 'rgba(var(--sx-skipLink-text-color))',
+    // the colors are flipped on purpose so it's visible in light/dark mode
+    'background': 'rgba(var(--sx-foreground))',
+    'color': 'rgba(var(--sx-background))',
     'padding': 8,
     'zIndex': 100,
     ':focus': {
