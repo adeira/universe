@@ -132,7 +132,7 @@ export default function EditProductForm(props: Props): Node {
       onCompleted: ({ commerce: { result } }) => {
         setSubmitting(false);
         if (result.__typename === 'ProductError') {
-          setStatusBar({ message: result.message, type: 'ERROR' });
+          setStatusBar({ message: result.message, type: 'error' });
         } else if (result.__typename === 'Product') {
           setStatusBar({
             message: (
@@ -140,7 +140,7 @@ export default function EditProductForm(props: Props): Node {
                 Product <strong>{result.name}</strong> updated! ✅
               </>
             ),
-            type: 'SUCCESS',
+            type: 'success',
           });
           resetForm({
             values: getProductValues(result),
@@ -155,7 +155,7 @@ export default function EditProductForm(props: Props): Node {
             'Something unexpected happened and server could not process the request! 🙈',
             'generic failure message after creating a product',
           ),
-          type: 'ERROR',
+          type: 'error',
         });
       },
     });

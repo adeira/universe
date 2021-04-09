@@ -30,6 +30,62 @@
   },
   {
    "hashToText": {
+    "WSdt9glzZ7dZhYBu4DhX1Q==": "Success"
+   },
+   "filepath": "src/Note/Note.js",
+   "line_beg": 14,
+   "col_beg": 13,
+   "line_end": 14,
+   "col_end": 58,
+   "desc": "success note prefix",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Success"
+  },
+  {
+   "hashToText": {
+    "iYgyat38foBEXXdHlYk/VA==": "Error"
+   },
+   "filepath": "src/Note/Note.js",
+   "line_beg": 15,
+   "col_beg": 11,
+   "line_end": 15,
+   "col_end": 52,
+   "desc": "error note prefix",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Error"
+  },
+  {
+   "hashToText": {
+    "l49sr1EfqnNgCGMNEwE7wQ==": "Warning"
+   },
+   "filepath": "src/Note/Note.js",
+   "line_beg": 16,
+   "col_beg": 13,
+   "line_end": 16,
+   "col_end": 58,
+   "desc": "warning note prefix",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Warning"
+  },
+  {
+   "hashToText": {
+    "zdCM8bSUEVcAGbnyr9AG/Q==": "Note"
+   },
+   "filepath": "src/Note/Note.js",
+   "line_beg": 17,
+   "col_beg": 13,
+   "line_end": 17,
+   "col_end": 55,
+   "desc": "default note prefix",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Note"
+  },
+  {
+   "hashToText": {
     "EOd766uj+UXLW6PuEboc/A==": "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page."
    },
    "filepath": "src/ProductCard/ProductCard.js",
