@@ -185,3 +185,8 @@ For more info run:
 ```bash
 pastel --help
 ```
+
+# Prior art
+
+- https://vercel.com/design
+- https://github.com/vercel/commerce
