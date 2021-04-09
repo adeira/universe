@@ -18,7 +18,6 @@ type Props = {
 export default function Link(props: Props): React.Node {
   const href = props.href;
   const isExternalLink = /^https?:\/\//.test(href);
-  /* eslint-disable react/jsx-no-target-blank */
   return (
     <a
       href={href}
@@ -29,7 +28,6 @@ export default function Link(props: Props): React.Node {
       {props.children}
     </a>
   );
-  /* eslint-enable react/jsx-no-target-blank */
 }
 
 const styles = sx.create({

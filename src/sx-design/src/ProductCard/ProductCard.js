@@ -133,14 +133,14 @@ const styles = sx.create({
     padding: '1rem',
   },
   highlight: {
-    'color': 'rgba(var(--sx-text-color))',
-    'backgroundColor': 'rgba(var(--sx-background-color))',
-    '--sx-money-text-color': 'var(--sx-text-color)',
+    'color': 'rgba(var(--sx-foreground))',
+    'backgroundColor': 'rgba(var(--sx-background))',
+    '--sx-money-text-color': 'var(--sx-foreground)',
   },
   highlightHover: {
-    'color': 'rgba(var(--sx-background-color))',
-    'backgroundColor': 'rgba(var(--sx-text-color))',
-    '--sx-money-text-color': 'var(--sx-background-color)',
+    'color': 'rgba(var(--sx-background))',
+    'backgroundColor': 'rgba(var(--sx-foreground))',
+    '--sx-money-text-color': 'var(--sx-background)',
   },
   heading: {
     margin: 0,
