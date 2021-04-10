@@ -20,6 +20,7 @@
   "@adeira/signed-source",
   "@adeira/sx",
   "@adeira/sx-design",
+  "@adeira/sx-jest-snapshot-serializer",
   "@adeira/sx-tailwind",
   "eslint-plugin-adeira",
   "eslint-plugin-sx"
