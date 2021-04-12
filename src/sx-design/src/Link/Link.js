@@ -14,12 +14,16 @@ type Props = {
 /**
  * This component tries to create a normal `<a />` link with some reasonable default styles for
  * light and dark mode. It also sets `noreferrer` and `noopener` correctly for external links.
+ *
+ * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
+ * be forwarded to the HTML element as expected.
  */
-export default function Link(props: Props): React.Node {
+export default (React.forwardRef(function Link(props, ref) {
   const href = props.href;
   const isExternalLink = /^https?:\/\//.test(href);
   return (
     <a
+      ref={ref}
       href={href}
       {...((isExternalLink || props.target === '_blank') && { rel: 'noreferrer noopener' })}
       target={props.target}
@@ -28,7 +32,7 @@ export default function Link(props: Props): React.Node {
       {props.children}
     </a>
   );
-}
+}): React.AbstractComponent<Props, HTMLAnchorElement>);
 
 const styles = sx.create({
   default: {
