@@ -43,7 +43,7 @@ const styles = sx.create({
   },
   heading: {
     'fontFamily': 'GidoleKochka',
-    '--sx-text-color': 'rgba(var(--font-color-light))', // overwrite SX Design colors
+    '--sx-foreground': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   headingHorizontal: {
     marginLeft: 20,
