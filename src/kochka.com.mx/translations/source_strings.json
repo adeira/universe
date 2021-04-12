@@ -268,34 +268,6 @@
   },
   {
    "hashToText": {
-    "DxYKWKSGL4TlF/UCjPxraw==": "Email Address"
-   },
-   "filepath": "src/MailchimpSignupForm.js",
-   "line_beg": 32,
-   "col_beg": 12,
-   "line_end": 32,
-   "col_end": 89,
-   "desc": "email address placeholder of a subscribe form",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Email Address"
-  },
-  {
-   "hashToText": {
-    "3gn4gj3UPVu7liOVZ+/SCg==": "Let me know!"
-   },
-   "filepath": "src/MailchimpSignupForm.js",
-   "line_beg": 63,
-   "col_beg": 17,
-   "line_end": 63,
-   "col_end": 88,
-   "desc": "'let me know' button of a subscribe form",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Let me know!"
-  },
-  {
-   "hashToText": {
     "xqoguQxnoeLWkiZgd66KQA==": "Be careful when entering the café so that the cats do not run away. {pleading face emoji}"
    },
    "filepath": "src/Rules.js",
@@ -593,9 +565,9 @@
     "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 49,
+   "line_beg": 47,
    "col_beg": 14,
-   "line_end": 49,
+   "line_end": 47,
    "col_end": 55,
    "desc": "coming soon",
    "project": "",
@@ -604,26 +576,12 @@
   },
   {
    "hashToText": {
-    "WTkOySZFstu+ZeKuWKvHGg==": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
-   },
-   "filepath": "pages/_app.js",
-   "line_beg": 55,
-   "col_beg": 16,
-   "line_end": 58,
-   "col_end": 22,
-   "desc": "mailchimp subscribe call to action text",
-   "project": "",
-   "type": "text",
-   "jsfbt": "We are not opening quite yet. Would you like to be notified when we do? Subscribe to our newsletter, and we will let you know!"
-  },
-  {
-   "hashToText": {
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 78,
+   "line_beg": 65,
    "col_beg": 16,
-   "line_end": 80,
+   "line_end": 67,
    "col_end": 22,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
