@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 
 import './_app.css';
 import Logo from '../src/Logo';
-import MailchimpSignupForm from '../src/MailchimpSignupForm';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initTranslations from '../translations/init';
 
@@ -43,23 +42,11 @@ function MyApp({ Component, pageProps }: Props): React.Node {
       <div className={styles('root', 'rootSoon')}>
         <div className={styles('rootSoonOverlay')}>
           <Logo />
-          {/* TODO: make sure the form works correctly */}
           <div className={styles('form')}>
             <em>
               <fbt desc="coming soon">coming soon</fbt>
             </em>
           </div>
-          {__DEV__ ? (
-            <div className={styles('form')}>
-              <div className={styles('formText')}>
-                <fbt desc="mailchimp subscribe call to action text">
-                  We are not opening quite yet. Would you like to be notified when we do? Subscribe
-                  to our newsletter, and we will let you know!
-                </fbt>
-              </div>
-              <MailchimpSignupForm />
-            </div>
-          ) : null}
         </div>
       </div>
     );
