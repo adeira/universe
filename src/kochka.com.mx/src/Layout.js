@@ -73,7 +73,7 @@ const styles = sx.create({
     'backgroundImage': 'url(/plus-pattern.svg)',
     'backgroundPosition': '15px 15px',
     'backgroundSize': '20px',
-    '--sx-text-color': 'rgba(var(--font-color-light))', // overwrite SX Design colors
+    '--sx-foreground': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   subtitle: {
     color: 'lightgray',
