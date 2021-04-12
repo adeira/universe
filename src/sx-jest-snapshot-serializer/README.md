@@ -49,3 +49,4 @@ What it does now:
 What it should do in the future:
 
 - it should somehow mangle or expand the CSS classes so they are immutable for better snapshot diff readability (changing CSS property changes just the CSS and not the whole HTML snapshot)
+- it should get rid of the atomic CSS structure for better readability

@@ -89,7 +89,12 @@ module.exports = ({
   'no-extra-label': ERROR,
   'no-fallthrough': WARN,
   'no-global-assign': [ERROR, { exceptions: ['Map', 'Set'] }],
-  'no-implicit-coercion': OFF,
+  'no-implicit-coercion': [
+    ERROR,
+    {
+      allow: ['!!'], // allows `!!foo` pattern which is fairly common
+    },
+  ],
   'no-implicit-globals': OFF,
   'no-implied-eval': ERROR,
   'no-invalid-this': OFF,
@@ -213,7 +218,7 @@ module.exports = ({
   'no-continue': OFF,
   'no-inline-comments': OFF,
   'no-lonely-if': ERROR,
-  'no-multi-assign': OFF,
+  'no-multi-assign': ERROR,
   'no-negated-condition': OFF,
   'no-nested-ternary': ERROR,
   'no-new-object': WARN,
