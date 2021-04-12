@@ -498,7 +498,14 @@ Object {
         ],
       },
     ],
-    "no-implicit-coercion": 0,
+    "no-implicit-coercion": Array [
+      2,
+      Object {
+        "allow": Array [
+          "!!",
+        ],
+      },
+    ],
     "no-implicit-globals": 0,
     "no-implied-eval": 2,
     "no-import-assign": 2,
@@ -525,7 +532,7 @@ Object {
     "no-mixed-operators": 0,
     "no-mixed-requires": 0,
     "no-mixed-spaces-and-tabs": "off",
-    "no-multi-assign": 0,
+    "no-multi-assign": 2,
     "no-multi-spaces": "off",
     "no-multi-str": 2,
     "no-multiple-empty-lines": "off",
