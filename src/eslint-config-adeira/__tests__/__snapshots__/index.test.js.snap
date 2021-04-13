@@ -158,6 +158,7 @@ Object {
     ],
     "flowtype/object-type-curly-spacing": "off",
     "flowtype/object-type-delimiter": "off",
+    "flowtype/quotes": "off",
     "flowtype/require-compound-type-alias": 0,
     "flowtype/require-exact-type": Array [
       2,
