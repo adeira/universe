@@ -19,7 +19,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@adeira/eslint-config": "^5.3.0",
+    "@adeira/eslint-config": "^6.0.0",
     "@adeira/eslint-runner": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.24.0",
