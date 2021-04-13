@@ -2,11 +2,15 @@
 
 // https://jestjs.io/docs/en/configuration
 module.exports = {
-  displayName: 'lint',
+  displayName: 'eslint',
   rootDir: __dirname,
   verbose: false,
   runner: 'jest-runner-eslint',
-  testMatch: ['<rootDir>/src/**/*.js', '<rootDir>/scripts/**/*.js'],
+  testMatch: [
+    '<rootDir>/src/**/*.js',
+    '<rootDir>/scripts/**/*.js',
+    '<rootDir>/*.js', // root JS files
+  ],
   testPathIgnorePatterns: [
     '/node_modules/',
 
