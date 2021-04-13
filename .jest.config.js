@@ -57,7 +57,6 @@ module.exports = {
       projectConfig.setupFilesAfterEnv = projectConfig.setupFilesAfterEnv.concat(
         commonProjectConfig.setupFilesAfterEnv,
       );
-
     }
 
     return {
