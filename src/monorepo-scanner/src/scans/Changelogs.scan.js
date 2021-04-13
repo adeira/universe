@@ -16,6 +16,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
   if (semver.gte(packageJson.version, '1.1.0')) {
     const changelogPath = path.join(packagePath, 'CHANGELOG.md');
     test(`${changelogPath}`, () => {
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(fs.existsSync(changelogPath) === true).toGiveHelp(
         `Changelog doesn't exist: ${changelogPath}`,
       );
@@ -24,6 +25,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
       const changelogRows = changelog.split(os.EOL);
 
       // first part of the changelog is dedicated to unreleased changes (can be empty)
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(changelogRows[0] === '# Unreleased').toGiveHelp(
         'Changelog must contain section "Unreleased" even though it is empty.',
       );

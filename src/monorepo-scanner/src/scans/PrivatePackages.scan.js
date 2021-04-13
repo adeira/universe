@@ -24,6 +24,7 @@ test('all private packages should have private flag set forever', () => {
   Workspaces.iterateWorkspaces((packageJSONLocation) => {
     const packageJson = require(packageJSONLocation);
 
+    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
     expect(violatesBlacklist(packageJson) === false).toGiveHelp(
       `Package '${packageJson.name}' is blacklisted for publishing on NPM. Please change the project visibility to private:true in package.json.`,
     );
