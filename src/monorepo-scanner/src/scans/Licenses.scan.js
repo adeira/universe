@@ -17,6 +17,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
   test(`License for workspace ${packageJson.name}`, () => {
     const license = packageJson.license;
 
+    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
     expect(license !== undefined && supportedLicenses.includes(license)).toGiveHelp(
       `Every workspace must define its license in package.json file. It should be one of: ${supportedLicenses.join(
         ', ',
@@ -27,13 +28,16 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     const licenseFilePath = path.join(path.dirname(packageJSONLocation), 'LICENSE');
 
     if (license === 'UNLICENSED') {
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(fs.existsSync(licenseFilePath) === false).toGiveHelp(
         'Unlicensed workspaces should not have LICENSE file in their root.',
       );
     } else if (license === 'MIT') {
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(fs.existsSync(licenseFilePath) === true).toGiveHelp(
         'Unlicensed workspaces must have LICENSE file in their root.',
       );
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(isValidLicense(fs.readFileSync(licenseFilePath, 'utf8')) === true).toGiveHelp(
         'MIT license should follow standard format with Adeira copyright',
       );

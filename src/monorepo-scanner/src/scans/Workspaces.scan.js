@@ -11,6 +11,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
 
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.
+    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
     expect(/^eslint-plugin-.+|^@adeira\/.+/.test(packageJson.name) === true).toGiveHelp(
       `All packages in our monorepo must start with '@adeira/' prefix. This name is not valid: ${packageJson.name}`,
     );
@@ -18,6 +19,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     if (packageJson.main !== undefined) {
       // We could in theory limit this case only for cases when MJS files are actually going to be
       // generated. This seems to be easier and it's not wrong.
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(packageJson.main.endsWith('.js') === false).toGiveHelp(
         "Field 'main' cannot have extension because it prevents MJS files from working correctly when used together.",
       );
