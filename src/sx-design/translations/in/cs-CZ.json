@@ -1,12 +1,62 @@
 {
   "fb-locale": "cs-CZ",
   "translations": {
+    "6FVmvS0nS9q0ld8LQ5VSyw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Došlo k neočekávané chybě.",
+          "variations": []
+        }
+      ]
+    },
+    "CR7beIPZB69plBEoMZd6Kg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Zkusit znovu",
+          "variations": []
+        }
+      ]
+    },
+    "WSdt9glzZ7dZhYBu4DhX1Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Úspěch",
+          "variations": []
+        }
+      ]
+    },
     "iYgyat38foBEXXdHlYk/VA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Chyba",
+          "variations": []
+        }
+      ]
+    },
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Upozornění",
+          "variations": []
+        }
+      ]
+    },
+    "zdCM8bSUEVcAGbnyr9AG/Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Poznámka",
           "variations": []
         }
       ]

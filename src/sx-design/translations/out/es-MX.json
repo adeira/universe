@@ -2,10 +2,10 @@
   "es-MX": {
     "4dzbyQ": "Ha ocurrido un error inesperado.",
     "3d9B4m": "Reintentar",
-    "2kqQC3": "Success",
+    "2kqQC3": "Exitoso",
     "3IzWFC": "Error",
-    "1pft9x": "Warning",
-    "3yXPZF": "Note",
+    "1pft9x": "Atención",
+    "3yXPZF": "Nota",
     "3zJxvn": "Debe especificar un texto de imagen alternativo a través de la propiedad `imgAlt`. Esta es una parte importante de la accesibilidad para los lectores de pantalla, con el fin de que entiendan el propósito del contenido de la página."
   }
 }

@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import './_app.css';
 import Logo from '../src/Logo';
 import ViewerContextProvider from '../src/ViewerContextProvider';
-import initTranslations from '../translations/init';
+import initFbtTranslations from '../translations/initFbtTranslations';
 
 if (
   __DEV__ &&
@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   /* $FlowFixMe[prop-missing] This comment suppresses an error when migrating
    * to adeira/universe. To see the error delete this comment and run Flow. */
-  const languageTag = initTranslations(router.locale);
+  const languageTag = initFbtTranslations(router.locale);
 
   const isProduction = __DEV__ === false;
   if (isProduction) {
