@@ -17,12 +17,14 @@ const npmPackages = require(path.join(root, 'scripts', 'publishedPackages.json')
 for (const npmPackage of npmPackages) {
   test(`${npmPackage} has private false flag`, () => {
     const packageJson = workspaceMap.get(npmPackage);
+    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
     expect(packageJson !== undefined).toGiveHelp(
       'You are trying to release a non existing package',
     );
     expect(packageJson?.private).toBe(false);
 
     const packageName = packageJson?.name ?? 'unknown';
+    // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
     expect(packageJson?.dependencies?.['@babel/runtime'] !== undefined).toGiveHelp(
       `Package '${packageName}' is being transpiled via Babel for NPM and it requires '@babel/runtime' to be in dependencies.`,
     );
