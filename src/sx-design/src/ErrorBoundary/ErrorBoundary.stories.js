@@ -37,9 +37,9 @@ const Template = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const Basic: $FlowFixMe = Template.bind({});
-Basic.storyName = 'Basic';
-Basic.args = {
+export const Default: $FlowFixMe = Template.bind({});
+Default.storyName = 'Default';
+Default.args = {
   onRetry: () => window.location.reload(),
 };
 

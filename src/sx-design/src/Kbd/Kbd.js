@@ -22,6 +22,7 @@ type Props = {
  * - Windows keys on a Mac keyboard: https://support.apple.com/guide/mac-help/windows-keys-on-a-mac-keyboard-cpmh0152/mac
  */
 export default function Kbd(props: Props): Node {
+  // eslint-disable-next-line react/forbid-elements
   return <kbd className={styles('kbd')}>{keyMap[props.code]}</kbd>;
 }
 

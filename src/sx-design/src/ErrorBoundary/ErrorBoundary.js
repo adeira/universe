@@ -4,6 +4,7 @@ import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 
+import Button from '../Button/Button';
 import Heading from '../Heading/Heading';
 import Section from '../Section/Section';
 import windowLocationReload from './windowLocationReload';
@@ -66,9 +67,9 @@ export default class ErrorBoundary extends React.Component<Props, State> {
             </div>
           ) : null}
           <div className={styles('retry')}>
-            <button type="button" onClick={() => onRetryFn()}>
+            <Button onClick={() => onRetryFn()}>
               <fbt desc="error boundary retry button title">Retry</fbt>
-            </button>
+            </Button>
           </div>
         </div>
       );

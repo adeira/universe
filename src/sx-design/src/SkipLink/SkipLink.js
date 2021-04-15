@@ -10,6 +10,7 @@ type Props = {
 // https://web.dev/headings-and-landmarks/#bypass-repetitive-content-with-skip-links
 export default function SkipLink(props: Props): React.Node {
   return (
+    // eslint-disable-next-line react/forbid-elements
     <a className={styles('skipLink')} href="#main">
       {props.text}
     </a>
