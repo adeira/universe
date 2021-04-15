@@ -1,6 +1,11 @@
 # Unreleased
 
+# 3.2.3
+
 Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
+
+- Relay dependencies upgraded to version 11.0.2, see: https://github.com/facebook/relay/releases/tag/v11.0.2
+- experimental Relay Rust compiler upgraded to the latest `master` version
 
 # 3.2.2
 
