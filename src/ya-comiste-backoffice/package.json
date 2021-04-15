@@ -17,7 +17,7 @@
     "@adeira/js": "^2.1.0",
     "@adeira/relay": "^3.2.2",
     "@adeira/sx": "^0.25.0",
-    "@adeira/sx-design": "^0.7.0",
+    "@adeira/sx-design": "^0.8.0",
     "fbt": "^0.16.5",
     "formik": "^2.2.6",
     "immutable": "^4.0.0-rc.12",

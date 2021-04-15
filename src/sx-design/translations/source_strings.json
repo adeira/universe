@@ -5,9 +5,9 @@
     "6FVmvS0nS9q0ld8LQ5VSyw==": "An unexpected error has occurred."
    },
    "filepath": "src/ErrorBoundary/ErrorBoundary.js",
-   "line_beg": 59,
+   "line_beg": 60,
    "col_beg": 18,
-   "line_end": 59,
+   "line_end": 60,
    "col_end": 83,
    "desc": "generic error message",
    "project": "",
@@ -19,9 +19,9 @@
     "CR7beIPZB69plBEoMZd6Kg==": "Retry"
    },
    "filepath": "src/ErrorBoundary/ErrorBoundary.js",
-   "line_beg": 70,
+   "line_beg": 71,
    "col_beg": 14,
-   "line_end": 70,
+   "line_end": 71,
    "col_end": 71,
    "desc": "error boundary retry button title",
    "project": "",

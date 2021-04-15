@@ -16,12 +16,15 @@ module.exports = {
       'error',
       {
         forbid: [
+          { element: 'a', message: 'use <Link> instead' },
+          { element: 'button', message: 'use <Button> instead' },
           { element: 'h1', message: 'use <Heading> instead' },
           { element: 'h2', message: 'use <Heading> instead' },
           { element: 'h3', message: 'use <Heading> instead' },
           { element: 'h4', message: 'use <Heading> instead' },
           { element: 'h5', message: 'use <Heading> instead' },
           { element: 'h6', message: 'use <Heading> instead' },
+          { element: 'kbd', message: 'use <Kbd> instead' },
           { element: 'section', message: 'use <Section> instead' },
         ],
       },

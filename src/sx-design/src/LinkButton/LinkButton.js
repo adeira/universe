@@ -16,6 +16,7 @@ type Props = {
  */
 export default function LinkButton(props: Props): React.Node {
   return (
+    // eslint-disable-next-line react/forbid-elements
     <button
       type="button"
       onClick={props.onClick}

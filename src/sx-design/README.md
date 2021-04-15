@@ -119,6 +119,7 @@ Legend:
 | Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ |
 | --------------------- | :---------: | :---------: | :-----------: | :------: |
 | [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    🧐    |
+| [`<Button />`]        |     ✅      |     ✅      |      ✅       |    🧐    |
 | [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |
 | [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |
@@ -133,6 +134,7 @@ Legend:
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
+[`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
 [`<emoji />`]: https://sx-design.vercel.app/?path=/story/example-emoji
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/example-errorboundary
 [`<heading />`]: https://sx-design.vercel.app/?path=/story/example-heading
