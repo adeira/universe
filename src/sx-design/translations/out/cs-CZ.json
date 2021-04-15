@@ -6,6 +6,6 @@
     "3IzWFC": "Chyba",
     "1pft9x": "Upozornění",
     "3yXPZF": "Poznámka",
-    "3zJxvn": "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page."
+    "3zJxvn": "Alternativní text obrázku by měl být vyplněný pomocí property `imgAlt`. Jedná se o důležitou součást přístupnosti pro uživatele čteček obrazovky, aby mohli pochopit účel obsahu na stránce."
   }
 }
