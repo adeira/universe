@@ -26,10 +26,11 @@ const ShowcaseTemplate = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const BadgeBasic: $FlowFixMe = BasicTemplate.bind({});
-BadgeBasic.storyName = 'Basic';
-BadgeBasic.args = {
-  children: 'Badge',
+export const BadgeDefault: $FlowFixMe = BasicTemplate.bind({});
+BadgeDefault.storyName = 'Default';
+BadgeDefault.args = {
+  children: 'Badge - modify me',
+  tint: 'default',
 };
 
 export const BadgeShowcase: $FlowFixMe = ShowcaseTemplate.bind({});

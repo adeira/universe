@@ -6,7 +6,8 @@ import { fbt } from 'fbt';
 
 type Props = {
   +children: React.Node,
-  +tint?: 'success' | 'error' | 'warning',
+  +tint?: 'default' | 'success' | 'error' | 'warning',
+  +action?: RestrictedElement<'button'>,
 };
 
 export default function Note(props: Props): React.Node {
@@ -29,6 +30,7 @@ export default function Note(props: Props): React.Node {
       <div>
         <strong>{notePrefixes[props.tint ?? 'default']}:</strong> {props.children}
       </div>
+      <div>{props.action}</div>
     </span>
   );
 }
@@ -40,6 +42,8 @@ const styles = sx.create({
     padding: '7px 12px',
     borderRadius: 5,
     display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   noteSuccess: {
     border: '1px solid rgba(var(--sx-success))',
