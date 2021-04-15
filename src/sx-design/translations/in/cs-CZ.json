@@ -60,6 +60,16 @@
           "variations": []
         }
       ]
+    },
+    "EOd766uj+UXLW6PuEboc/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Alternativní text obrázku by měl být vyplněný pomocí property `imgAlt`. Jedná se o důležitou součást přístupnosti pro uživatele čteček obrazovky, aby mohli pochopit účel obsahu na stránce.",
+          "variations": []
+        }
+      ]
     }
   }
 }
