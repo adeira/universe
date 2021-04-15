@@ -1,5 +1,5 @@
-// flow-typed signature: e3af2fa52d8b68d50f28a98fe6a6d971
-// flow-typed version: 76f8523085/jest_v26.x.x/flow_>=v0.134.x
+// flow-typed signature: aa6db9eb815b6030ceed242646b93ae5
+// flow-typed version: 4fa988647b/jest_v26.x.x/flow_>=v0.134.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -831,10 +831,14 @@ type JestObjectType = {
    */
   isMockFunction(fn: Function): boolean,
   /**
+   * Alias of `createMockFromModule`.
+   */
+  genMockFromModule(moduleName: string): any,
+  /**
    * Given the name of a module, use the automatic mocking system to generate a
    * mocked version of the module for you.
    */
-  genMockFromModule(moduleName: string): any,
+  createMockFromModule(moduleName: string): any,
   /**
    * Mocks a module with an auto-mocked version when it is being required.
    *
