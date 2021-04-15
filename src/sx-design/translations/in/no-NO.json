@@ -1,0 +1,75 @@
+{
+  "fb-locale": "no-NO",
+  "translations": {
+    "6FVmvS0nS9q0ld8LQ5VSyw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Det oppstod en uventet feil.",
+          "variations": []
+        }
+      ]
+    },
+    "CR7beIPZB69plBEoMZd6Kg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Prøv igjen",
+          "variations": []
+        }
+      ]
+    },
+    "WSdt9glzZ7dZhYBu4DhX1Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Suksess",
+          "variations": []
+        }
+      ]
+    },
+    "iYgyat38foBEXXdHlYk/VA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Feil",
+          "variations": []
+        }
+      ]
+    },
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Advarsel",
+          "variations": []
+        }
+      ]
+    },
+    "zdCM8bSUEVcAGbnyr9AG/Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Merk",
+          "variations": []
+        }
+      ]
+    },
+    "EOd766uj+UXLW6PuEboc/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Du bør angi alternativ bildetekst via `imgAlt` propertien. Dette er viktig for de brukerne som er avhengig av skjermlesere, slik at de kan forstå innholdet på nettsiden.",
+          "variations": []
+        }
+      ]
+    }
+  }
+}
