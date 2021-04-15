@@ -29,7 +29,7 @@ class WrapperSmart extends Component<{
   +children: ChildrenArray<RestrictedElement<typeof Button>>,
 }> {}
 
-module.exports.testStupid = ((
+module.exports.testWrapperLimited = ((
   <WrapperLimited>
     <Button />
     <Button />
@@ -39,7 +39,7 @@ module.exports.testStupid = ((
   </WrapperLimited>
 ): Node);
 
-module.exports.testSmart = ((
+module.exports.testWrapperSmart = ((
   <WrapperSmart>
     <Button />
     <Button />
