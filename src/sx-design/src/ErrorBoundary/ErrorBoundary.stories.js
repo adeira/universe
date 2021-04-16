@@ -6,6 +6,7 @@
 import React from 'react';
 
 import ErrorBoundary from './ErrorBoundary';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -37,19 +38,20 @@ const Template = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const Default: $FlowFixMe = Template.bind({});
+export const Default: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
 Default.storyName = 'Default';
 Default.args = {
   onRetry: () => window.location.reload(),
 };
 
-export const CustomTitle: $FlowFixMe = Template.bind({});
+export const CustomTitle: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
 CustomTitle.storyName = 'Custom title';
+// $FlowExpectedError[incompatible-type]: title should be FBT, not a string
 CustomTitle.args = {
   title: 'My awesome custom title.',
 };
 
-export const CustomCode: $FlowFixMe = Template.bind({});
+export const CustomCode: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
 CustomCode.storyName = 'Custom code';
 CustomCode.args = {
   code: '🙈',

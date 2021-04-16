@@ -8,6 +8,7 @@ import sx from '@adeira/sx';
 
 import Heading from './Heading';
 import Section from '../Section/Section';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -69,10 +70,10 @@ const styles = sx.create({
 /* eslint-enable sx/no-unused-stylesheet */
 
 // 👇 Each story then reuses that template
-export const BasicHeading: $FlowFixMe = Template.bind({});
+export const BasicHeading: StoryTemplate<typeof Heading> = Template.bind({});
 BasicHeading.storyName = 'Basic';
 
-export const CustomHeading: $FlowFixMe = Template.bind({});
+export const CustomHeading: StoryTemplate<typeof Heading> = Template.bind({});
 CustomHeading.storyName = 'Custom style';
 CustomHeading.args = {
   xstyle: styles.default,

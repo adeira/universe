@@ -6,6 +6,7 @@
 import React from 'react';
 
 import Kbd from './Kbd';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -17,19 +18,19 @@ export default {
 const Template = (args) => <Kbd {...args} />;
 
 // 👇 Each story then reuses that template
-export const Alt: $FlowFixMe = Template.bind({});
+export const Alt: StoryTemplate<typeof Kbd> = Template.bind({});
 Alt.storyName = 'Alt / Option';
 Alt.args = {
   code: 'ALT',
 };
 
-export const Ctrl: $FlowFixMe = Template.bind({});
+export const Ctrl: StoryTemplate<typeof Kbd> = Template.bind({});
 Ctrl.storyName = 'Ctrl / Command';
 Ctrl.args = {
   code: 'CTRL',
 };
 
-export const Shift: $FlowFixMe = Template.bind({});
+export const Shift: StoryTemplate<typeof Kbd> = Template.bind({});
 Shift.storyName = 'Shift';
 Shift.args = {
   code: 'SHIFT',
