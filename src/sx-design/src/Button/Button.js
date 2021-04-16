@@ -4,19 +4,21 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 
 type Props = {
-  +children: FbtWithoutString,
-  +onClick: () => void,
-  +tint?: 'default' | 'error' | 'success' | 'warning',
-  +isDisabled?: boolean,
+  +'children': FbtWithoutString,
+  +'onClick': () => void,
+  +'tint'?: 'default' | 'error' | 'success' | 'warning',
+  +'isDisabled'?: boolean,
+  +'data-testid'?: string,
 };
 
-export default function Button(props: Props): React.Node {
+export default function Button(props: Props): React.Element<'button'> {
   return (
     // eslint-disable-next-line react/forbid-elements
     <button
       type="button"
       onClick={props.onClick}
       disabled={props.isDisabled === true}
+      data-testid={props['data-testid']}
       className={styles({
         buttonBase: true,
         buttonTintDefault: props.tint == null || props.tint === 'default',
