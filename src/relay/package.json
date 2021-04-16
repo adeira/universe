@@ -30,7 +30,7 @@
     "react-relay": "^11.0.1",
     "relay-compiler": "^11.0.1",
     "relay-compiler-experimental": "0.0.0-master-6ff94131",
-    "relay-config": "^11.0.1",
+    "relay-config": "^11.0.2",
     "relay-runtime": "^11.0.1"
   },
   "devDependencies": {
