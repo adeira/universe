@@ -4,10 +4,14 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 
+import Button from '../Button/Button';
+
 type Props = {
   +children: React.Node,
   +tint?: 'default' | 'success' | 'error' | 'warning',
-  +action?: RestrictedElement<'button'>,
+  // The `action` can either be a HTML `button` element or our component `Button` from SX Design.
+  // In such case, the `tint` will be automatically propagated to the `Button`.
+  +action?: ?RestrictedElement<'button'>,
 };
 
 export default function Note(props: Props): React.Node {
@@ -30,7 +34,16 @@ export default function Note(props: Props): React.Node {
       <div>
         <strong>{notePrefixes[props.tint ?? 'default']}:</strong> {props.children}
       </div>
-      <div>{props.action}</div>
+      {props.action != null ? (
+        <div>
+          {props.action.type === Button
+            ? React.cloneElement(props.action, {
+                tint: props.tint,
+                ...props.action.props, // preserve props set by the user
+              })
+            : props.action}
+        </div>
+      ) : null}
     </span>
   );
 }

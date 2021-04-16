@@ -63,7 +63,7 @@ export const NoteWithAction: StoryTemplate<typeof Note> = BasicTemplate.bind({})
 NoteWithAction.storyName = 'With action button';
 NoteWithAction.args = {
   tint: 'default',
-  children: 'this is a default note with action button',
+  children: 'this is a note with action button (the button respects the note tint)',
   // $FlowExpectedError[incompatible-type]: Button children should be FBT, not a string
   action: <Button onClick={() => {}}>test</Button>,
 };
