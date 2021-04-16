@@ -22,6 +22,7 @@ export default (React.forwardRef(function Link(props, ref) {
   const href = props.href;
   const isExternalLink = /^https?:\/\//.test(href);
   return (
+    // eslint-disable-next-line react/forbid-elements
     <a
       ref={ref}
       href={href}

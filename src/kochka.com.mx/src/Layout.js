@@ -36,9 +36,6 @@ export default function Layout(props: Props): React.Node {
 
   return (
     <>
-      {/* https://github.com/gajus/eslint-plugin-flowtype/pull/477 */}
-      {/* https://github.com/gajus/eslint-plugin-flowtype/pull/478 */}
-      {/* eslint-disable-next-line flowtype/require-readonly-react-props */}
       <Head>
         <title>KOCHKA café · {props.title}</title>
       </Head>
