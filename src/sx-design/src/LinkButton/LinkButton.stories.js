@@ -7,6 +7,7 @@ import sx from '@adeira/sx';
 import React from 'react';
 
 import LinkButton from './LinkButton';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -26,7 +27,7 @@ const styles = sx.create({
 /* eslint-enable sx/no-unused-stylesheet */
 
 // 👇 Each story then reuses that template
-export const Default: $FlowFixMe = Template.bind({});
+export const Default: StoryTemplate<typeof LinkButton> = Template.bind({});
 Default.storyName = 'Default';
 Default.args = {
   children: 'Click me, I am a button link!',
@@ -34,7 +35,7 @@ Default.args = {
   onClick: () => alert('Yay!'),
 };
 
-export const CustomStyle: $FlowFixMe = Template.bind({});
+export const CustomStyle: StoryTemplate<typeof LinkButton> = Template.bind({});
 CustomStyle.storyName = 'Custom style';
 CustomStyle.args = {
   children: 'Click me, I am a button link! (with custom styles)',

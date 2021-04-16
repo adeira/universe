@@ -10,7 +10,7 @@ type Props = {
   +isDisabled?: boolean,
 };
 
-export default function Button(props: Props): React.Node {
+export default function Button(props: Props): React.Element<'button'> {
   return (
     // eslint-disable-next-line react/forbid-elements
     <button

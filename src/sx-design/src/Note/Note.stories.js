@@ -7,6 +7,7 @@ import React from 'react';
 
 import Button from '../Button/Button';
 import Note from './Note';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -44,13 +45,13 @@ const ShowcaseTemplate = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const NoteDefault: $FlowFixMe = BasicTemplate.bind({});
+export const NoteDefault: StoryTemplate<typeof Note> = BasicTemplate.bind({});
 NoteDefault.storyName = 'Default';
 NoteDefault.args = {
   children: 'this is a default note, modify me',
 };
 
-export const NoteShowcase: $FlowFixMe = ShowcaseTemplate.bind({});
+export const NoteShowcase: StoryTemplate<typeof Note> = ShowcaseTemplate.bind({});
 NoteShowcase.storyName = 'Showcase';
 NoteShowcase.argTypes = {
   children: { table: { disable: true } },
@@ -58,7 +59,7 @@ NoteShowcase.argTypes = {
   action: { table: { disable: true } },
 };
 
-export const NoteWithAction: $FlowFixMe = BasicTemplate.bind({});
+export const NoteWithAction: StoryTemplate<typeof Note> = BasicTemplate.bind({});
 NoteWithAction.storyName = 'With action button';
 NoteWithAction.args = {
   tint: 'default',

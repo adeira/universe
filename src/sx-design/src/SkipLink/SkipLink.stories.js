@@ -6,6 +6,7 @@
 import React from 'react';
 
 import SkipLink from './SkipLink';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -28,8 +29,9 @@ const Template = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const Basic: $FlowFixMe = Template.bind({});
+export const Basic: StoryTemplate<typeof SkipLink> = Template.bind({});
 Basic.storyName = 'Basic';
+// $FlowExpectedError[incompatible-type]: text should be FBT, not a string
 Basic.args = {
   text: 'Skip to main',
 };
