@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "3.2.2",
+  "version": "3.2.3",
   "main": "src/index",
   "module": false,
   "sideEffects": false,
@@ -29,7 +29,7 @@
     "is-ci": "^3.0.0",
     "react-relay": "^11.0.2",
     "relay-compiler": "^11.0.2",
-    "relay-compiler-experimental": "0.0.0-master-6ff94131",
+    "relay-compiler-experimental": "0.0.0-master-a71052f5",
     "relay-config": "^11.0.2",
     "relay-runtime": "^11.0.2"
   },
