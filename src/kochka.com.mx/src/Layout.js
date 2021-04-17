@@ -1,5 +1,6 @@
 // @flow
 
+import { invariant } from '@adeira/js';
 import Head from 'next/head';
 import * as React from 'react';
 import sx from '@adeira/sx';
@@ -8,15 +9,31 @@ import { Heading } from '@adeira/sx-design';
 import LayoutFooter from './LayoutFooter';
 import LayoutNavigation from './LayoutNavigation';
 
-type Props = {
-  +children: React.Node,
-  +title: React.Node,
-  +subtitle?: React.Node,
-  +withFullWidth?: boolean,
-  +withHiddenTitle?: boolean,
-};
+type Props =
+  | {
+      +children: React.Node,
+      +title: React.Node,
+      +subtitle?: React.Node,
+      +withFullWidth?: boolean,
+      +withHiddenTitle?: false,
+    }
+  | {
+      +children: React.Node,
+      +title?: React.Node,
+      +subtitle?: React.Node,
+      +withFullWidth?: boolean,
+      +withHiddenTitle: true,
+    };
 
 export default function Layout(props: Props): React.Node {
+  if (props.withHiddenTitle === true) {
+    invariant(props.title == null, 'Cannot use `title` together with `withHiddenTitle` property.');
+    invariant(
+      props.subtitle == null,
+      'Cannot use `subtitle` together with `withHiddenTitle` property.',
+    );
+  }
+
   return (
     <>
       <Head>
