@@ -8,6 +8,7 @@ import React from 'react';
 import { rangeMap } from '@adeira/js';
 
 import ProductCard from './ProductCard';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -51,7 +52,7 @@ const Template = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const Default: $FlowFixMe = Template.bind({});
+export const Default: StoryTemplate<typeof ProductCard> = Template.bind({});
 Default.storyName = 'Default';
 Default.args = {
   priceUnitAmountCurrency: 'MXN',

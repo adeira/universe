@@ -6,6 +6,7 @@
 import React from 'react';
 
 import Emoji from './Emoji';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -17,8 +18,9 @@ export default {
 const Template = (args) => <Emoji {...args} />;
 
 // 👇 Each story then reuses that template
-export const EmojiBasic: $FlowFixMe = Template.bind({});
+export const EmojiBasic: StoryTemplate<typeof Emoji> = Template.bind({});
 EmojiBasic.storyName = 'Basic';
+// $FlowExpectedError[incompatible-type]: label should be FBT, not a string
 EmojiBasic.args = {
   symbol: '🥺',
   label: 'pleading face',

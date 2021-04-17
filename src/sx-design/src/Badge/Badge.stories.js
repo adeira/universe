@@ -6,6 +6,7 @@
 import React from 'react';
 
 import Badge from './Badge';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -26,19 +27,21 @@ const ShowcaseTemplate = (args) => (
 );
 
 // 👇 Each story then reuses that template
-export const BadgeDefault: $FlowFixMe = BasicTemplate.bind({});
+export const BadgeDefault: StoryTemplate<typeof Badge> = BasicTemplate.bind({});
 BadgeDefault.storyName = 'Default';
+// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 BadgeDefault.args = {
   children: 'Badge - modify me',
   tint: 'default',
 };
 
-export const BadgeShowcase: $FlowFixMe = ShowcaseTemplate.bind({});
+export const BadgeShowcase: StoryTemplate<typeof Badge> = ShowcaseTemplate.bind({});
 BadgeShowcase.storyName = 'Showcase';
 BadgeShowcase.argTypes = {
   children: { table: { disable: true } },
   tint: { table: { disable: true } },
 };
+// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 BadgeShowcase.args = {
   children: 'Badge',
 };

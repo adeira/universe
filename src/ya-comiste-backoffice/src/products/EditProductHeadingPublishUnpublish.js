@@ -59,7 +59,7 @@ export default function EditProductHeadingPublishUnpublish(
     `,
   );
 
-  return props.isPublished ? (
+  return props.isPublished === false ? (
     <LayoutHeadingButton
       xstyle={styles.publish}
       confirmMessage={
