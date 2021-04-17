@@ -5,7 +5,6 @@
   "version": "0.1.0",
   "main": "src/index",
   "license": "MIT",
-  "private": false,
   "dependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.0",

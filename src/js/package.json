@@ -3,7 +3,6 @@
   "description": "Useful JS functions used in Adeira ecosystem",
   "homepage": "https://github.com/adeira/universe/tree/master/src/js",
   "license": "MIT",
-  "private": false,
   "version": "2.1.0",
   "main": "src/index",
   "sideEffects": false,

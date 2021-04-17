@@ -3,7 +3,6 @@
   "description": "Additional Eslint rules for Adeira projects. Prefer to use @adeira/eslint-config instead.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira",
   "license": "MIT",
-  "private": false,
   "version": "0.13.0",
   "main": "src/index",
   "sideEffects": false,

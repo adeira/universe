@@ -28,7 +28,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: yarn install, build, and test
         run: |
-          yarn install --frozen-lockfile
+          yarn install --immutable --immutable-cache
           yarn run flow --max-warnings=0
           yarn run lint
           yarn run test-only

@@ -3,11 +3,9 @@
   "description": "Atomic CSS-in-JS (not only) for Next.js applications",
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx",
   "license": "MIT",
-  "private": false,
   "version": "0.25.0",
   "main": "index",
   "sideEffects": false,
-  "module": false,
   "dependencies": {
     "@adeira/css-colors": "^2.0.0",
     "@adeira/js": "^2.1.0",

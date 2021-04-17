@@ -3,7 +3,6 @@
   "description": "Helpful functions to manage monorepos (using Yarn Workspaces).",
   "homepage": "https://github.com/adeira/universe/tree/master/src/monorepo-utils",
   "license": "MIT",
-  "private": false,
   "version": "0.11.0",
   "main": "src/index",
   "sideEffects": false,
