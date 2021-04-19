@@ -17,7 +17,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "eslint": "^7.24.0",
-    "flow-bin": "^0.148.0",
+    "flow-bin": "^0.149.0",
     "glob": "^7.1.6",
     "jest": "^26.6.3",
     "jest-runner-eslint": "^0.10.0"
