@@ -52,13 +52,12 @@ export default function ProductCard(props: Props): React.Node {
   if (props.imgSrc != null) {
     warning(
       props.imgAlt != null,
-      // $FlowExpectedError[incompatible-call]: warning expects string, not FBT
       fbt(
         'You should specify alternative image text via `imgAlt` property. This is an important ' +
           'part of accessibility for screen reader users in order for them to understand the ' +
           "content's purpose on the page.",
         'accessibility warning when img alt is missing (product card component)',
-      ),
+      ).toString(),
     );
   }
 
