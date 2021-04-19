@@ -1,6 +1,5 @@
 // @flow
 
-import sx from '@adeira/sx';
 import * as React from 'react';
 import { fbt } from 'fbt';
 import { graphql, useMutation } from '@adeira/relay';
@@ -61,7 +60,6 @@ export default function EditProductHeadingPublishUnpublish(
 
   return props.isPublished === false ? (
     <LayoutHeadingButton
-      xstyle={styles.publish}
       confirmMessage={
         <fbt desc="publish product button confirmation message">
           Are you sure you want to publish this product?
@@ -98,7 +96,6 @@ export default function EditProductHeadingPublishUnpublish(
     </LayoutHeadingButton>
   ) : (
     <LayoutHeadingButton
-      xstyle={styles.publish}
       confirmMessage={
         <fbt desc="unpublish product button confirmation message">
           Are you sure you want to unpublish this product?
@@ -135,18 +132,3 @@ export default function EditProductHeadingPublishUnpublish(
     </LayoutHeadingButton>
   );
 }
-
-const styles = sx.create({
-  delete: {
-    'color': 'darkred',
-    ':hover': {
-      color: 'red',
-    },
-  },
-  publish: {
-    'color': 'green',
-    ':hover': {
-      color: 'limegreen',
-    },
-  },
-});

@@ -1,6 +1,7 @@
 // @flow
 
 import sx from '@adeira/sx';
+import { Emoji } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 
@@ -11,9 +12,7 @@ export default function POSCheckoutSuccessPageLayout(): Node {
     <div className={styles('root')}>
       <div>
         <fbt desc="well done checkout success message">Well done!</fbt>{' '}
-        <span role="img" aria-label="thumbs up">
-          👍
-        </span>
+        <Emoji label={<fbt desc="thumbs up emoji label">thumbs up</fbt>} symbol={'👍'} />
         <div className={styles('help')}>
           <fbt desc="success checkout help message">
             You can now go back and serve another customer!
