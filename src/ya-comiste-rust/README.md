@@ -5,11 +5,20 @@ TODOs:
 🚧 002 - DB schema validations (JSON schema)
 🚧 003 - server monitoring and error reporting (?)
 🚧 004 - integration tests for ArangoDB queries - auth package (https://youtu.be/muvU1DYrY0w, https://github.com/dropbox/dbx_build_tools)
-🚧 005 - implement https://github.com/woltapp/blurhash
+✅ 005 - implement https://github.com/woltapp/blurhash
 🚧 006 - use Bazel https://bazelbuild.github.io/rules_rust/
 ✅ 007 - DB migrations
 🚧 008 - queries whitelisting (persistent queries)
 🚧 009 - explore WASM on server instead of Docker (https://github.com/deislabs/krustlet)
+```
+
+Required ENV variables:
+
+```text
+AWS_ACCESS_KEY_ID       - S3 rusoto
+AWS_SECRET_ACCESS_KEY   - S3 rusoto
+
+TODO: ArangoDB ENVs
 ```
 
 # Rust server

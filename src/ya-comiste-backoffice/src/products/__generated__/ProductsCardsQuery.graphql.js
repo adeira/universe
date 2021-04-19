@@ -14,7 +14,8 @@ export type ProductsCardsQueryResponse = {|
       +key: string,
       +name: string,
       +imageCover: ?{|
-        +blurhash: string
+        +blurhash: string,
+        +url: string,
       |},
       +price: {|
         +unitAmount: number,
@@ -37,6 +38,7 @@ query ProductsCardsQuery {
       name
       imageCover {
         blurhash
+        url
       }
       price {
         unitAmount
@@ -111,6 +113,13 @@ var v0 = [
                 "kind": "ScalarField",
                 "name": "blurhash",
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "url",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -165,15 +174,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "3c714de9fe9bafd3c9fbe90b82cd594b",
+    "cacheID": "45ad1ef010993a51d5fbca0cf792fdf7",
     "id": null,
     "metadata": {},
     "name": "ProductsCardsQuery",
     "operationKind": "query",
-    "text": "query ProductsCardsQuery {\n  commerce {\n    products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsCardsQuery {\n  commerce {\n    products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'b20ec43141756b8ee22172a015207248';
+(node: any).hash = '6f2b4e8b3cb57f1f29035a109af27f21';
 export default node;
