@@ -12,6 +12,8 @@ use image::DynamicImage;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+mod s3;
+
 #[derive(Debug)]
 pub(crate) enum ModelError {
     PermissionsError(String),
@@ -25,11 +27,29 @@ impl From<arangors::ClientError> for ModelError {
     }
 }
 
-#[derive(juniper::GraphQLObject, Clone, Serialize, Deserialize, Debug)]
+#[derive(Clone, Serialize, Deserialize, Debug)]
 pub(crate) struct Image {
-    filename: String,
+    /// UUID of the image stored in S3.
+    name_s3: String,
+    /// Original image name to be displayed on FE (not important for backend).
+    name_original: String,
     /// See: https://blurha.sh/
     blurhash: String,
+}
+
+#[juniper::graphql_object]
+impl Image {
+    fn name(&self) -> String {
+        self.name_original.to_owned()
+    }
+
+    fn blurhash(&self) -> String {
+        self.blurhash.to_owned()
+    }
+
+    fn url(&self) -> String {
+        resolve_cloudfront_url(self.name_s3.as_ref())
+    }
 }
 
 /// Accepts uploadables from the user and tries to create a Blurhashes and save them to S3. It
@@ -98,26 +118,34 @@ async fn process_images_authorized(
 ) -> Result<Vec<Image>, ModelError> {
     let mut processed_images = vec![];
     for (filename, uploadable) in uploadables.iter() {
-        let image_result = image::load_from_memory_with_format(
-            &uploadable.data(),
-            match &uploadable.content_type() {
-                ContextUploadableContentType::ImagePng => image::ImageFormat::Png,
-                ContextUploadableContentType::ImageJpeg => image::ImageFormat::Jpeg,
-            },
-        );
+        // First, we try to upload the image to S3:
+        match s3::upload_image(&uploadable.data(), &uploadable.content_type()).await {
+            Ok(s3_image) => {
+                // IF everything OK, we try to calculate Blurhash and return it:
+                let image_result = image::load_from_memory_with_format(
+                    &uploadable.data(),
+                    match &uploadable.content_type() {
+                        ContextUploadableContentType::ImagePng => image::ImageFormat::Png,
+                        ContextUploadableContentType::ImageJpeg => image::ImageFormat::Jpeg,
+                    },
+                );
 
-        match image_result {
-            Ok(image_result) => {
-                processed_images.push(Image {
-                    filename: filename.to_string(),
-                    blurhash: calculate_image_blurhash(image_result).unwrap(), // TODO: do not unwrap
-                });
+                match image_result {
+                    Ok(image_result) => {
+                        processed_images.push(Image {
+                            name_s3: s3_image.s3_filename,
+                            name_original: filename.to_string(),
+                            blurhash: calculate_image_blurhash(image_result).unwrap(), // TODO: do not unwrap
+                        });
+                    }
+                    Err(_) => {
+                        return Err(ModelError::ProcessingError(String::from(
+                            "cannot load image from memory",
+                        )));
+                    }
+                }
             }
-            Err(_) => {
-                return Err(ModelError::ProcessingError(String::from(
-                    "cannot load image from memory",
-                )));
-            }
+            Err(s3_error) => return Err(ModelError::ProcessingError(s3_error.message)),
         }
     }
     Ok(processed_images)

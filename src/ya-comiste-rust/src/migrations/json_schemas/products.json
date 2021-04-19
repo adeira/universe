@@ -20,26 +20,16 @@
         "items": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["filename", "blurhash"],
+          "required": ["name_s3", "name_original", "blurhash"],
           "properties": {
-            "filename": {
-              "type": "string",
-              "minLength": 1
-            },
-            "blurhash": {
-              "type": "string",
-              "minLength": 1
-            }
+            "name_s3": { "type": "string", "minLength": 1 },
+            "name_original": { "type": "string", "minLength": 1 },
+            "blurhash": { "type": "string", "minLength": 1 }
           }
         }
       },
-      "unit_label": {
-        "type": "string",
-        "minLength": 1
-      },
-      "is_published": {
-        "type": "boolean"
-      },
+      "unit_label": { "type": "string", "minLength": 1 },
+      "is_published": { "type": "boolean" },
       "visibility": {
         "type": "array",
         "items": {
@@ -48,14 +38,8 @@
           "enum": ["POS", "ESHOP"]
         }
       },
-      "created": {
-        "type": "string",
-        "minLength": 1
-      },
-      "updated": {
-        "type": "string",
-        "minLength": 1
-      },
+      "created": { "type": "string", "minLength": 1 },
+      "updated": { "type": "string", "minLength": 1 },
       "price": {
         "type": "object",
         "additionalProperties": false,

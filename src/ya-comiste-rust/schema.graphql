@@ -1,4 +1,4 @@
-# @generated SignedSource<<ff8bd4077c5a16f481b8b2710729939c>>
+# @generated SignedSource<<a2fe2a6efebe0439fa4613bee56aadb3>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -288,9 +288,9 @@ type AuthorizeMobilePayload {
 }
 
 type Image {
-  filename: String!
-  "See: https://blurha.sh/"
+  name: String!
   blurhash: String!
+  url: String!
 }
 
 schema {
