@@ -170,12 +170,26 @@
   },
   {
    "hashToText": {
+    "5Of4p7aMGeNd1YsvRknZvQ==": "emoji with raised eyebrow"
+   },
+   "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
+   "line_beg": 26,
+   "col_beg": 17,
+   "line_end": 26,
+   "col_end": 92,
+   "desc": "emoji with raised eyebrow label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "emoji with raised eyebrow"
+  },
+  {
+   "hashToText": {
     "s8rtQvFOZDW+FkdYzzzvlw==": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 29,
+   "line_beg": 30,
    "col_beg": 10,
-   "line_end": 34,
+   "line_end": 35,
    "col_end": 16,
    "desc": "checkout failure help message",
    "project": "",
@@ -187,9 +201,9 @@
     "egBP6SSzVrgpJrhdIdlR2A==": "what, how many, for how much"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 30,
+   "line_beg": 31,
    "col_beg": 61,
-   "line_end": 32,
+   "line_end": 33,
    "col_end": 21,
    "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
    "project": "",
@@ -201,9 +215,9 @@
     "Li6yQ40dR8ad7DoBK/xCGg==": "let us know"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 33,
+   "line_beg": 34,
    "col_beg": 12,
-   "line_end": 33,
+   "line_end": 34,
    "col_end": 40,
    "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
    "project": "",
@@ -215,9 +229,9 @@
     "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 39,
+   "line_beg": 40,
    "col_beg": 8,
-   "line_end": 39,
+   "line_end": 40,
    "col_end": 80,
    "desc": "start a new POS session button",
    "project": "",
@@ -299,9 +313,9 @@
     "+WJ8s6/GCuVjuiX9CDxdzg==": "Well done!"
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 13,
+   "line_beg": 14,
    "col_beg": 8,
-   "line_end": 13,
+   "line_end": 14,
    "col_end": 71,
    "desc": "well done checkout success message",
    "project": "",
@@ -310,12 +324,26 @@
   },
   {
    "hashToText": {
+    "xOnN5FZLRgGOCj72rGTwhg==": "thumbs up"
+   },
+   "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
+   "line_beg": 15,
+   "col_beg": 22,
+   "line_end": 15,
+   "col_end": 71,
+   "desc": "thumbs up emoji label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "thumbs up"
+  },
+  {
+   "hashToText": {
     "ZG+l+9644F97vASBBKmFzg==": "You can now go back and serve another customer!"
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 18,
+   "line_beg": 17,
    "col_beg": 10,
-   "line_end": 20,
+   "line_end": 19,
    "col_end": 16,
    "desc": "success checkout help message",
    "project": "",
@@ -327,9 +355,9 @@
     "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 24,
+   "line_beg": 23,
    "col_beg": 8,
-   "line_end": 24,
+   "line_end": 23,
    "col_end": 80,
    "desc": "start a new POS session button",
    "project": "",
@@ -495,9 +523,9 @@
     "N4YZT+GlkQir3UlP1/V2Og==": "Edit product"
    },
    "filepath": "src/products/EditProductHeading.js",
-   "line_beg": 86,
+   "line_beg": 85,
    "col_beg": 10,
-   "line_end": 86,
+   "line_end": 85,
    "col_end": 66,
    "desc": "edit product page heading",
    "project": "",
@@ -509,9 +537,9 @@
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
    "filepath": "src/products/EditProductHeading.js",
-   "line_beg": 91,
+   "line_beg": 90,
    "col_beg": 8,
-   "line_end": 91,
+   "line_end": 90,
    "col_end": 82,
    "desc": "go back to products navigation button",
    "project": "",
@@ -523,9 +551,9 @@
     "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
    },
    "filepath": "src/products/EditProductHeading.js",
-   "line_beg": 102,
+   "line_beg": 100,
    "col_beg": 10,
-   "line_end": 104,
+   "line_end": 102,
    "col_end": 16,
    "desc": "delete product confirmation message",
    "project": "",
@@ -537,9 +565,9 @@
     "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
    },
    "filepath": "src/products/EditProductHeading.js",
-   "line_beg": 108,
+   "line_beg": 106,
    "col_beg": 8,
-   "line_end": 108,
+   "line_end": 106,
    "col_end": 73,
    "desc": "delete product navigation button",
    "project": "",
@@ -551,9 +579,9 @@
     "tiWuhsZnYZAq7WNxH1zdCw==": "Are you sure you want to publish this product?"
    },
    "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 66,
+   "line_beg": 64,
    "col_beg": 8,
-   "line_end": 68,
+   "line_end": 66,
    "col_end": 14,
    "desc": "publish product button confirmation message",
    "project": "",
@@ -565,9 +593,9 @@
     "3qz/xqX+Nv7bYwQCSNXWdQ==": "Publish product"
    },
    "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 97,
+   "line_beg": 95,
    "col_beg": 6,
-   "line_end": 97,
+   "line_end": 95,
    "col_end": 68,
    "desc": "publish product button title",
    "project": "",
@@ -579,9 +607,9 @@
     "C4qCSxncQzzV9OUj0otgUg==": "Are you sure you want to unpublish this product?"
    },
    "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 103,
+   "line_beg": 100,
    "col_beg": 8,
-   "line_end": 105,
+   "line_end": 102,
    "col_end": 14,
    "desc": "unpublish product button confirmation message",
    "project": "",
@@ -593,9 +621,9 @@
     "6dllpbI8j5n7Rlcf+LAS/Q==": "Unpublish product"
    },
    "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 134,
+   "line_beg": 131,
    "col_beg": 6,
-   "line_end": 134,
+   "line_end": 131,
    "col_end": 70,
    "desc": "publish product button title",
    "project": "",
