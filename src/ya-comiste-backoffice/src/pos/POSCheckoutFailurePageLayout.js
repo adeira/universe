@@ -4,8 +4,8 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
+import { LinkButton, Emoji } from '@adeira/sx-design';
 
-import LinkButton from '../LinkButton';
 import POSCheckoutSummary from './POSCheckoutSummary';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
@@ -22,9 +22,10 @@ export default function POSCheckoutFailurePageLayout(): Node {
     <div className={styles('root')}>
       <div>
         <fbt desc="oh no failure checkout message">Oh no! Something is broken.</fbt>{' '}
-        <span role="img" aria-label="emoji with raised eyebrow">
-          🤨
-        </span>
+        <Emoji
+          label={<fbt desc="emoji with raised eyebrow label">emoji with raised eyebrow</fbt>}
+          symbol={'🤨'}
+        />
         <div className={styles('help')}>
           <fbt desc="checkout failure help message">
             What now? Please, write down the checkout items (<strong>

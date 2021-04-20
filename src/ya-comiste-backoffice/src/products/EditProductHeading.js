@@ -1,6 +1,5 @@
 // @flow
 
-import sx from '@adeira/sx';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { fbt } from 'fbt';
@@ -97,7 +96,6 @@ export default function EditProductHeading(props: Props): React.Node {
       />
 
       <LayoutHeadingButton
-        xstyle={styles.delete}
         confirmMessage={
           <fbt desc="delete product confirmation message">
             Are you sure you want to delete the product?
@@ -110,18 +108,3 @@ export default function EditProductHeading(props: Props): React.Node {
     </LayoutHeading>
   );
 }
-
-const styles = sx.create({
-  delete: {
-    'color': 'darkred',
-    ':hover': {
-      color: 'red',
-    },
-  },
-  publish: {
-    'color': 'green',
-    ':hover': {
-      color: 'limegreen',
-    },
-  },
-});
