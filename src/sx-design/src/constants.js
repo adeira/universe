@@ -6,4 +6,4 @@ export type SupportedCurrencies = 'MXN' | 'USD';
 
 // TODO: expand as needed
 // Supported locale must follow BCP 47 formatting (https://tools.ietf.org/html/bcp47)
-export type SupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX' | 'no-NO' | 'uk-UA';
+export type SupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX' | 'no-NO' | 'ru-RU' | 'uk-UA';

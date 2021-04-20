@@ -55,6 +55,7 @@ export const globalTypes: StorybookGlobalTypes = {
         { value: 'en-US', right: '🇺🇸', title: 'English (US)' },
         { value: 'es-MX', right: '🇲🇽', title: 'Español (MX)' },
         { value: 'no-NO', right: '🇳🇴', title: 'Norsk (NO)' },
+        { value: 'ru-RU', right: '🇷🇺', title: 'Русский (RU)' },
         { value: 'uk-UA', right: '🇺🇦', title: 'Українська (UA)' },
       ],
     },
