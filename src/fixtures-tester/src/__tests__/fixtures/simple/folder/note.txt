@@ -1,0 +1,1 @@
+files in subdirectories should be ignored for now & it shouldn't crash on folder
