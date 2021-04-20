@@ -4,6 +4,7 @@ import type { Node } from 'react';
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { SxDesignProvider } from '../index';
+import type { SupportedLocales } from '../src/constants';
 
 const DARK_MODE_BACKGROUND = '#333';
 
@@ -26,16 +27,15 @@ export const parameters = {
   },
 };
 
-type StorybookSupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX' | 'no-NO';
 type StorybookGlobalTypes = {|
   +locale: {|
     +name: string,
     +description: string,
-    +defaultValue: StorybookSupportedLocales,
+    +defaultValue: SupportedLocales,
     +toolbar: {|
       +icon: 'globe',
       +items: $ReadOnlyArray<{|
-        +value: StorybookSupportedLocales,
+        +value: SupportedLocales,
         +right: string,
         +title: string,
       |}>,
@@ -55,6 +55,7 @@ export const globalTypes: StorybookGlobalTypes = {
         { value: 'en-US', right: '🇺🇸', title: 'English (US)' },
         { value: 'es-MX', right: '🇲🇽', title: 'Español (MX)' },
         { value: 'no-NO', right: '🇳🇴', title: 'Norsk (NO)' },
+        { value: 'uk-UA', right: '🇺🇦', title: 'Українська (UA)' },
       ],
     },
   },
@@ -67,7 +68,7 @@ export const decorators = [
       globals,
     }: {|
       +globals: {|
-        +locale: StorybookSupportedLocales,
+        +locale: SupportedLocales,
         +backgrounds?: {| +value: string |},
       |},
     |},

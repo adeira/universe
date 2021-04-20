@@ -1,0 +1,75 @@
+{
+  "fb-locale": "uk-UA",
+  "translations": {
+    "6FVmvS0nS9q0ld8LQ5VSyw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Сталася неочiкувана помилка.",
+          "variations": []
+        }
+      ]
+    },
+    "CR7beIPZB69plBEoMZd6Kg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Спробувати знову",
+          "variations": []
+        }
+      ]
+    },
+    "WSdt9glzZ7dZhYBu4DhX1Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Успішно",
+          "variations": []
+        }
+      ]
+    },
+    "iYgyat38foBEXXdHlYk/VA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Помилка",
+          "variations": []
+        }
+      ]
+    },
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Увага",
+          "variations": []
+        }
+      ]
+    },
+    "zdCM8bSUEVcAGbnyr9AG/Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Примітка",
+          "variations": []
+        }
+      ]
+    },
+    "EOd766uj+UXLW6PuEboc/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Вам необхiдно вказати альтернативний текст для зображення використовуючи атрибут `imageAlt`. Це необхідна частина доступності сторінки для користувачів з читаючим текст помічником, щоб можна було зрозіміти причину наявності контенту на сторінці.",
+          "variations": []
+        }
+      ]
+    }
+  }
+}
