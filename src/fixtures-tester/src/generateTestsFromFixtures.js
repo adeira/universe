@@ -46,6 +46,7 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
   });
 
   const shouldSkip = (file) => /\.only\.\w+$/.test(file);
+  const isFile = (f) => fs.lstatSync(path.join(fixturesPath, f)).isFile();
   const onlyFixtures = fixtures.filter(shouldSkip);
   if (onlyFixtures.length) {
     /* eslint-disable jest/no-disabled-tests */
@@ -58,7 +59,7 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
     fixtures = onlyFixtures;
   }
 
-  test.each(fixtures)('matches expected output: %s', async (file) => {
+  test.each(fixtures.filter(isFile))('matches expected output: %s', async (file) => {
     const input = fs.readFileSync(path.join(fixturesPath, file), 'utf8');
     const output = await getOutputForFixture(input, operation, file);
     if (snapshotName != null) {
