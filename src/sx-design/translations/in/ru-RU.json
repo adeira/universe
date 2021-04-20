@@ -1,0 +1,75 @@
+{
+  "fb-locale": "ru-RU",
+  "translations": {
+    "6FVmvS0nS9q0ld8LQ5VSyw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Произошла непредвиденная ошибка.",
+          "variations": []
+        }
+      ]
+    },
+    "CR7beIPZB69plBEoMZd6Kg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Попробовать снова",
+          "variations": []
+        }
+      ]
+    },
+    "WSdt9glzZ7dZhYBu4DhX1Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Успех",
+          "variations": []
+        }
+      ]
+    },
+    "iYgyat38foBEXXdHlYk/VA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ошибка",
+          "variations": []
+        }
+      ]
+    },
+    "l49sr1EfqnNgCGMNEwE7wQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Предупреждение",
+          "variations": []
+        }
+      ]
+    },
+    "zdCM8bSUEVcAGbnyr9AG/Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Примечание",
+          "variations": []
+        }
+      ]
+    },
+    "EOd766uj+UXLW6PuEboc/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Вам необходимо указать альтернативный текст для картинки используя атрибут `imgAlt`. Это важная часть доступности страницы для пользователей экранных дикторов, чтобы помочь им понять смысл материалов на странице.",
+          "variations": []
+        }
+      ]
+    }
+  }
+}
