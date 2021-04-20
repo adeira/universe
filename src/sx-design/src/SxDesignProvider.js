@@ -24,6 +24,7 @@ export default function SxDesignProvider(props: Props): Node {
     'en-US': require('../translations/out/en-US.json'),
     'es-MX': require('../translations/out/es-MX.json'),
     'no-NO': require('../translations/out/no-NO.json'),
+    'uk-UA': require('../translations/out/uk-UA.json'),
   };
 
   fbtInit({
