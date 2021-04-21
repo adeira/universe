@@ -6,16 +6,18 @@ import sx from '@adeira/sx';
 
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
-import type { SupportedLocales } from './constants';
+import type { SupportedLocales, SupportedDirections, SupportedThemes } from './constants';
 
 type Props = {
   +children: Node,
   +locale?: SupportedLocales,
-  +theme?: 'light' | 'dark' | 'system',
+  +direction?: SupportedDirections,
+  +theme?: SupportedThemes,
 };
 
 export default function SxDesignProvider(props: Props): Node {
   const locale = props.locale ?? 'en-US';
+  const direction = props.direction ?? 'ltr';
   const theme = props.theme ?? 'light';
 
   const supportedLocales = {
@@ -27,6 +29,8 @@ export default function SxDesignProvider(props: Props): Node {
     'ru-RU': require('../translations/out/ru-RU.json'),
     'uk-UA': require('../translations/out/uk-UA.json'),
   };
+
+  // TODO: invariant when selected `locale` and `direction` are not compatible
 
   fbtInit({
     translations: supportedLocales[locale],
@@ -41,15 +45,18 @@ export default function SxDesignProvider(props: Props): Node {
   const contextValue = useMemo(
     () => ({
       locale,
+      direction,
       theme,
     }),
-    [locale, theme],
+    [locale, direction, theme],
   );
 
   return (
     <div
       className={styles({
         common: true, // always include
+        ltr: direction === 'ltr',
+        rtl: direction === 'rtl',
         lightTheme: theme === 'light',
         darkTheme: theme === 'dark',
         systemTheme: theme === 'system',
@@ -63,6 +70,8 @@ export default function SxDesignProvider(props: Props): Node {
 /* eslint-disable sx/valid-usage */
 const styles = sx.create({
   common: SxDesignProviderCSSVariables.common,
+  ltr: { direction: 'ltr' },
+  rtl: { direction: 'rtl' },
   lightTheme: SxDesignProviderCSSVariables.lightTheme,
   darkTheme: SxDesignProviderCSSVariables.darkTheme,
   systemTheme: {

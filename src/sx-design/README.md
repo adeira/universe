@@ -8,6 +8,7 @@ Basic design system written using [`@adeira/sx`](https://github.com/adeira/sx). 
 - 🏳️‍🌈 fully supported localization ([🇺🇸🇲🇽🇨🇿🇳🇴🇺🇦🇷🇺](https://crowdin.com/project/sx-design))
 - ☯️ dark mode out of the box
 - 🆘 accessible components
+- حلال support for RTL layouts
 
 # Installation and Usage
 
@@ -116,22 +117,22 @@ Legend:
 🧐  not evaluated/ready yet
 ```
 
-| Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ |
-| --------------------- | :---------: | :---------: | :-----------: | :------: |
-| [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    🧐    |
-| [`<Button />`]        |     ✅      |     ✅      |      ✅       |    🧐    |
-| [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |
-| [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |
-| [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |
-| [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |
-| [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |
-| [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    🧐    |
-| [`<Money />`]         |     ✅      |     ✅      |      🧐       |    ✅    |
-| [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |
-| [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |
-| [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |
-| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    🧐    |
-| [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |
+| Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ | RTL?⁵ |
+| --------------------- | :---------: | :---------: | :-----------: | :------: | :---: |
+| [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Button />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |  ✅   |
+| [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Money />`]         |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
 [`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
@@ -157,6 +158,8 @@ _Did you find a mistake in this table? Please, [report is as an issue](https://g
 ³ There are stories in the [Storybook](https://sx-design.vercel.app/) and these stories are somehow useful and explanatory.
 
 ⁴ There are tests available to make sure that the component works as expected and we won't break it by accident.
+
+⁵ Component correctly supports right-to-left (RTL) as well as traditional left-to-right (LTR) layouts
 
 # Development
 
