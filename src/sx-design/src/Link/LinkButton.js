@@ -4,10 +4,11 @@ import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {
-  +onClick: () => void,
-  +children: React.Node,
-  +isActive?: boolean,
-  +xstyle?: AllCSSProperties,
+  +'onClick': () => void,
+  +'children': React.Node,
+  +'isActive'?: boolean,
+  +'xstyle'?: AllCSSProperties,
+  +'data-testid'?: string,
 };
 
 /**
@@ -20,6 +21,7 @@ export default function LinkButton(props: Props): React.Node {
     <button
       type="button"
       onClick={props.onClick}
+      data-testid={props['data-testid']}
       className={sx(styles.default, props.isActive ? null : styles.inactive, props.xstyle)}
     >
       {props.children}
