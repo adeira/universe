@@ -29,6 +29,17 @@ it('can find last source commit', () => {
   expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID);
 });
 
+it('can find last source commit with Co-authored-by', () => {
+  const fakeCommitID = generateCommitID();
+  const description = addTrackingData(
+    new Changeset()
+      .withID(fakeCommitID)
+      .withCoAuthorLines(['Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>']),
+  ).getDescription();
+  const repo = createGITRepoWithCommit(description);
+  expect(repo.findLastSourceCommit(new Set())).toBe(fakeCommitID);
+});
+
 it('can find last source commit with multiple markers', () => {
   const fakeCommitID1 = generateCommitID();
   const fakeCommitID2 = generateCommitID();

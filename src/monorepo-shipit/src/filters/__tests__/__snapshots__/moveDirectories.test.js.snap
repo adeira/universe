@@ -2,6 +2,7 @@
 
 exports[`handles complex filenames requiring regexp escaping correctly 1`] = `
 Changeset {
+  "coAuthorLines": Array [],
   "debugMessages": Array [],
   "description": "MOCKED_HEADER",
   "diffs": Set {
