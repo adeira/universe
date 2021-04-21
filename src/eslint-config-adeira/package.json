@@ -8,7 +8,7 @@
   "main": "index",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.13.10",
+    "@babel/runtime": "^7.13.17",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-adeira": "^0.13.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
