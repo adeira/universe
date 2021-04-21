@@ -4,11 +4,11 @@
 
 import type { ImportDeclaration } from '@adeira/flow-types-eslint';
 
-type ReturnType = {|
+type ReturnType = {
   +importDefaultSpecifier: null | string,
   +importSpecifierCreate: null | string,
   +importSpecifierKeyframes: null | string,
-|};
+};
 
 */
 

@@ -282,9 +282,9 @@ SX supports composability with external styles. Have a look at this base compone
 ```js
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
-type Props = {|
+type Props = {
   +xstyle?: AllCSSProperties,
-|};
+};
 
 const styles = sx.create({ default: { fontSize: 16 } });
 

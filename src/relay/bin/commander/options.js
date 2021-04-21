@@ -6,10 +6,10 @@ const { invariant } = require('@adeira/js');
 
 /*::
 
-type FetchSchemaOptions = {|
+type FetchSchemaOptions = {
   +resource: string,
   +schema: string,
-|}
+}
 
 */
 
@@ -37,13 +37,13 @@ module.exports.fetchSchemaOptions = function (
 
 /*::
 
-type RelayCompilerOptions = {|
+type RelayCompilerOptions = {
   +src: string,
   +schema: string,
   +validate: boolean,
   +watch: boolean,
   +persistMode?: 'fs',
-|}
+}
 
 */
 

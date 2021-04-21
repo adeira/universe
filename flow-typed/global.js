@@ -32,7 +32,7 @@ declare type FunctionComponentRender<+TRender> = (props: any) => TRender;
 declare type ClassComponentRender<+TRender> = Class<
   React$Component<any, any> & interface { render(): TRender },
 >;
-declare type RestrictedElement<+TElementType: React$ElementType> = {|
+declare type RestrictedElement<+TElementType: React$ElementType> = {
   +type:
     | TElementType
     | ClassComponentRender<RestrictedElement<TElementType>>
@@ -42,4 +42,4 @@ declare type RestrictedElement<+TElementType: React$ElementType> = {|
   +props: any,
   +key: React$Key | null,
   +ref: any,
-|};
+};
