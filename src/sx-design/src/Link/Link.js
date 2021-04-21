@@ -4,11 +4,12 @@ import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {
-  +href: string,
-  +children: React.Node,
-  +target?: string,
-  +isActive?: boolean,
-  +xstyle?: AllCSSProperties,
+  +'href': string,
+  +'children': React.Node,
+  +'target'?: string,
+  +'isActive'?: boolean,
+  +'xstyle'?: AllCSSProperties,
+  +'data-testid'?: string,
 };
 
 /**
@@ -26,6 +27,7 @@ export default (React.forwardRef(function Link(props, ref) {
     <a
       ref={ref}
       href={href}
+      data-testid={props['data-testid']}
       {...((isExternalLink || props.target === '_blank') && { rel: 'noreferrer noopener' })}
       target={props.target}
       className={sx(styles.default, props.isActive ? null : styles.inactive, props.xstyle)}

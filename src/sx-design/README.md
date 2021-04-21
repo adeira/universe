@@ -121,6 +121,7 @@ Legend:
 | --------------------- | :---------: | :---------: | :-----------: | :------: | :---: |
 | [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Button />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |  ✅   |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
 | [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -136,6 +137,7 @@ Legend:
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
 [`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
+[`<buttonlink />`]: https://sx-design.vercel.app/?path=/story/example-buttonlink
 [`<emoji />`]: https://sx-design.vercel.app/?path=/story/example-emoji
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/example-errorboundary
 [`<heading />`]: https://sx-design.vercel.app/?path=/story/example-heading
