@@ -5,3 +5,6 @@ node_modules/
 
 src/example-relay/__github__/flow-typed
 src/sx-tailwind-website/__github__/flow-typed
+
+# https://github.com/eslint/eslint/issues/8429
+!**/.storybook
