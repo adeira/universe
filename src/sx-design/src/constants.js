@@ -7,3 +7,12 @@ export type SupportedCurrencies = 'MXN' | 'USD';
 // TODO: expand as needed
 // Supported locale must follow BCP 47 formatting (https://tools.ietf.org/html/bcp47)
 export type SupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX' | 'no-NO' | 'ru-RU' | 'uk-UA';
+
+// LTR languages display content from left to right
+// RTL languages display content from right to left
+//
+// See: https://rtlstyling.com/
+// See: https://material.io/design/usability/bidirectionality.html
+export type SupportedDirections = 'ltr' | 'rtl';
+
+export type SupportedThemes = 'light' | 'dark' | 'system';
