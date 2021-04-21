@@ -13,7 +13,7 @@
   ],
   "main": "src/index",
   "dependencies": {
-    "@babel/runtime": "^7.13.10"
+    "@babel/runtime": "^7.13.17"
   },
   "devDependencies": {
     "@adeira/eslint-fixtures-tester": "0.1.0",
