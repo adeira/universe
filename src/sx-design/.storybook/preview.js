@@ -1,6 +1,7 @@
 // @flow
 
 import type { Node } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { SxDesignProvider } from '../index';
@@ -27,21 +28,21 @@ export const parameters = {
   },
 };
 
-type StorybookGlobalTypes = {|
-  +locale: {|
+type StorybookGlobalTypes = {
+  +locale: {
     +name: string,
     +description: string,
     +defaultValue: SupportedLocales,
-    +toolbar: {|
+    +toolbar: {
       +icon: 'globe',
-      +items: $ReadOnlyArray<{|
+      +items: $ReadOnlyArray<{
         +value: SupportedLocales,
         +right: string,
         +title: string,
-      |}>,
-    |},
-  |},
-|};
+      }>,
+    },
+  },
+};
 
 export const globalTypes: StorybookGlobalTypes = {
   locale: {
@@ -68,12 +69,12 @@ export const decorators = [
     Story: $FlowFixMe,
     {
       globals,
-    }: {|
-      +globals: {|
+    }: {
+      +globals: {
         +locale: SupportedLocales,
-        +backgrounds?: {| +value: string |},
-      |},
-    |},
+        +backgrounds?: { +value: string },
+      },
+    },
   ): Node => {
     return (
       <SxDesignProvider
