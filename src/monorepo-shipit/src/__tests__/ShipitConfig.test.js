@@ -39,3 +39,18 @@ it('creates and runs the default filters', () => {
 
   expect(defaultFilter(createMockChangeset(2, '/known_path/'))).toMatchSnapshot();
 });
+
+it('creates and runs the default filters with Co-authored-by', () => {
+  const defaultFilter = new Config(
+    'fake monorepo path',
+    'fake exported repo URL',
+    new Map([['/known_path', '/destination_path']]),
+    new Set([/mocked/]),
+  ).getDefaultShipitFilter();
+
+  const changeset = createMockChangeset(2, '/known_path/').withCoAuthorLines([
+    'Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>',
+    'Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>',
+  ]);
+  expect(defaultFilter(changeset)).toMatchSnapshot();
+});

@@ -14,7 +14,8 @@ opaque type ChangesetData = {
   +subject: string,
   +description: string,
   +diffs: Set<Diff>,
-  +debugMessages: Array<string>,
+  +coAuthorLines: $ReadOnlyArray<string>,
+  +debugMessages: $ReadOnlyArray<string>,
 };
 
 export default class Changeset {
@@ -24,7 +25,8 @@ export default class Changeset {
   declare subject: string;
   declare description: string;
   declare diffs: Set<Diff>;
-  debugMessages: Array<string> = [];
+  coAuthorLines: $ReadOnlyArray<string> = [];
+  debugMessages: $ReadOnlyArray<string> = [];
 
   isValid(): boolean {
     return this.diffs.size > 0;
@@ -52,6 +54,14 @@ export default class Changeset {
 
   withAuthor(author: string): Changeset {
     return this.__clone({ author });
+  }
+
+  getCoAuthorLines(): $ReadOnlyArray<string> {
+    return this.coAuthorLines;
+  }
+
+  withCoAuthorLines(coAuthorLines: $ReadOnlyArray<string>): Changeset {
+    return this.__clone({ coAuthorLines });
   }
 
   getSubject(): string {

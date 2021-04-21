@@ -4,7 +4,7 @@ import { findMonorepoRoot } from '@adeira/monorepo-utils';
 
 import RepoGit from '../src/RepoGit';
 
-// yarn monorepo-babel-node src/core/monorepo-shipit/bin/create-patch.js <REVISION>
+// yarn monorepo-babel-node src/monorepo-shipit/bin/create-patch.js <REVISION>
 const argv = process.argv.slice(2);
 const revision = argv[0];
 

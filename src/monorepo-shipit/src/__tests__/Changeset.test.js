@@ -21,6 +21,7 @@ test('immutability of the changesets', () => {
   // everything in the original changeset should be empty
   expect(originalChangeset).toMatchInlineSnapshot(`
     Changeset {
+      "coAuthorLines": Array [],
       "debugMessages": Array [],
     }
   `);
@@ -29,6 +30,7 @@ test('immutability of the changesets', () => {
   expect(modifiedChangeset1).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
+      "coAuthorLines": Array [],
       "debugMessages": Array [
         "DEBUG yadada",
       ],
@@ -58,6 +60,7 @@ test('immutability of the changesets', () => {
   expect(modifiedChangeset2).toMatchInlineSnapshot(`
     Changeset {
       "author": "John Doe",
+      "coAuthorLines": Array [],
       "debugMessages": Array [
         "DEBUG yadada",
         "DEBUG should be appended",

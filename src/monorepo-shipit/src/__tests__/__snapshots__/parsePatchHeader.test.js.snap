@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`matches expected output: co-authored-by.header 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+From 160feaf6d2637b22216987d1f95b96d585a838a6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>
+Date: Thu, 15 Apr 2021 13:18:49 -0500
+Subject: [PATCH] SX Design: add Norwegian language
+
+Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
+
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "coAuthorLines": [
+    "Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>"
+  ],
+  "debugMessages": [],
+  "description": "",
+  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>",
+  "timestamp": "Thu, 15 Apr 2021 13:18:49 -0500",
+  "subject": "SX Design: add Norwegian language"
+}
+`;
+
+exports[`matches expected output: co-authored-by-multiple.header 1`] = `
+~~~~~~~~~~ INPUT ~~~~~~~~~~
+From 160feaf6d2637b22216987d1f95b96d585a838a6 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>
+Date: Thu, 15 Apr 2021 13:18:49 -0500
+Subject: [PATCH] SX Design: add Norwegian language
+
+Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>
+Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>
+
+
+~~~~~~~~~~ OUTPUT ~~~~~~~~~~
+{
+  "coAuthorLines": [
+    "Co-authored-by: Trond Bergquist <trond_bergquist@hotmail.com>",
+    "Co-authored-by: Patricia Bergquist <patricia_bergquist@hotmail.com>"
+  ],
+  "debugMessages": [],
+  "description": "",
+  "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <mrtnzlml@gmail.com>",
+  "timestamp": "Thu, 15 Apr 2021 13:18:49 -0500",
+  "subject": "SX Design: add Norwegian language"
+}
+`;
+
 exports[`matches expected output: multiline-subject.header 1`] = `
 ~~~~~~~~~~ INPUT ~~~~~~~~~~
 From 93ee65de02e77c52eb9d677b859554b40253bafa Mon Sep 17 00:00:00 2001
@@ -11,6 +59,7 @@ Subject: [PATCH] Docs: add Relay and GraphQL related videos from our internal
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
+  "coAuthorLines": [],
   "debugMessages": [],
   "description": "",
   "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
@@ -31,6 +80,7 @@ Formerly known as '@mrtnzlml/relay'
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
+  "coAuthorLines": [],
   "debugMessages": [],
   "description": "Formerly known as '@mrtnzlml/relay'",
   "author": "Automator <adeira@example.com>",
@@ -49,6 +99,7 @@ Subject: [PATCH] Let's party 🍺 🍻 🍷 🍸😀 😬 😁 😂 😃 😄 �
 
 ~~~~~~~~~~ OUTPUT ~~~~~~~~~~
 {
+  "coAuthorLines": [],
   "debugMessages": [],
   "description": "",
   "author": "=?UTF-8?q?Martin=20Zl=C3=A1mal?= <adeira@example.com>",
