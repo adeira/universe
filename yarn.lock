@@ -11826,10 +11826,10 @@ mdn-data@2.0.6:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
   integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
 
-mdn-data@^2.0.17:
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.17.tgz#8618b37fd552270a5c917ab79cf962adea4eb3b6"
-  integrity sha512-3hZJh85oEm88+uWhoutFhoHA/Rjq/Tf8fsPxpYYLYOJei5uofjR23EOVJwA4qYCF2L21PXLN/o67KVAS7LGxLg==
+mdn-data@^2.0.18:
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.18.tgz#7c82cb9478545cae34c3d2d7a133c02030fbdcdf"
+  integrity sha512-IeEPegFtPhAMl+Un8cUGHHdw59R1tfogShfv9c/OSRwQmKM05emvQNtH8mO6iRpoj2VpvBsRQW4YZYil5nd7eg==
 
 mdurl@^1.0.0:
   version "1.0.1"

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<e61f9f1a121ea8385f0d9327c817f662>>
+ * @generated SignedSource<<289a4eb41248f9f2c0e2b15651758a1e>>
  * @flow strict
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
@@ -62,6 +62,7 @@ export type AllCSSPseudoTypes = {
   +'::target-text'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/::target-text
   +':target-within'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:target-within
   +':user-invalid'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:user-invalid
+  +':user-valid'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:user-valid
   +':valid'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:valid
   +':visited'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:visited
   +':where'?: AllCSSPropertyTypes, // https://developer.mozilla.org/docs/Web/CSS/:where
