@@ -7,7 +7,7 @@ const DEFAULT_RULES_PATH = path.join(__dirname, 'rules');
 
 module.exports = function getRules(
   rulesPath /*: string */ = DEFAULT_RULES_PATH,
-) /*: {| +[ruleName: string]: string |} */ {
+) /*: { +[ruleName: string]: string } */ {
   const rules = {};
   for (const dirent of fs.readdirSync(rulesPath, {
     encoding: 'utf8',

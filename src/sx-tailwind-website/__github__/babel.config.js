@@ -7,17 +7,17 @@ const colors = require('tailwindcss/colors');
 
 /*::
 
-type ApiType = {|
+type ApiType = {
   +assertVersion: number => void,
-  +cache: {|
+  +cache: {
     forever: () => void,
-  |},
-|};
+  },
+};
 
-type BabelConfig = {|
+type BabelConfig = {
   +presets: $ReadOnlyArray<string | [string, { ... }]>,
   +plugins: $ReadOnlyArray<string | [string, { ... }]>,
-|}
+}
 
 */
 

@@ -4,8 +4,8 @@ const { suggestUtility } = require('@adeira/sx-tailwind');
 
 export default function getCssDeclarations(
   utilityName /*: any */,
-  tailwindKeyframes /*: {| +[string]: any |} */,
-  tailwindStyles /*: {| +[string]: any |} */,
+  tailwindKeyframes /*: { +[string]: any } */,
+  tailwindStyles /*: { +[string]: any } */,
 ) /*: any */ {
   const tailwindUtility = tailwindStyles[utilityName];
   if (tailwindUtility == null) {

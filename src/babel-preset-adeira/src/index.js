@@ -4,26 +4,26 @@ const path = require('path');
 
 /*::
 
-type ApiType = {|
+type ApiType = {
   +assertVersion: number => void,
-|};
+};
 
 type SupportedTargets = 'js' | 'js-esm' | 'flow';
 type Environments = { [string]: string | $ReadOnlyArray<string>, ... };
 
-type ExternalOptions = {|
+type ExternalOptions = {
   +target?: SupportedTargets,
   +environments?: Environments,
   +debug?: boolean,
   +reactRuntime?: 'automatic' | 'classic',
-|};
+};
 
-type InternalOptions = {|
+type InternalOptions = {
   +target: SupportedTargets,
   +environments: Environments,
   +debug: boolean,
   +reactRuntime: 'automatic' | 'classic',
-|};
+};
 
 type BabelRule = string | [string, { [name: string]: mixed, ... }];
 type BabelRules = $ReadOnlyArray<BabelRule>;
