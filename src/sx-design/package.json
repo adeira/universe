@@ -1,6 +1,6 @@
 {
   "name": "@adeira/sx-design",
-  "description": "Basic design system written using @adeira/sx",
+  "description": "Inclusive design system written using @adeira/sx",
   "homepage": "https://github.com/adeira/universe/tree/master/src/sx-design",
   "license": "MIT",
   "private": false,
@@ -26,6 +26,7 @@
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
     "@babel/core": "^7.13.16",
     "@fbtjs/default-collection-transform": "^0.0.3",
+    "@storybook/addon-a11y": "^6.2.9",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",

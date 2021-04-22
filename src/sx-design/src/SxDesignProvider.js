@@ -31,6 +31,7 @@ export default function SxDesignProvider(props: Props): Node {
   };
 
   // TODO: invariant when selected `locale` and `direction` are not compatible
+  // TODO: alternatively setup the `direction` automatically based on the `locale` (?)
 
   fbtInit({
     translations: supportedLocales[locale],
