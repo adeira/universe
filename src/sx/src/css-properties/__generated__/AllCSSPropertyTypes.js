@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3a9757ef3b43899c54fb79eef9f21de1>>
+ * @generated SignedSource<<f982a859ef80aefe40c8e9abc0e7e418>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -246,6 +246,7 @@ export type AllCSSPropertyTypes = {
   +clipPath?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip-path
   +color?: string, // https://developer.mozilla.org/docs/Web/CSS/color
   +colorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/color-adjust
+  +colorScheme?: number | string, // https://developer.mozilla.org/docs/Web/CSS/color-scheme
   +columnCount?: number | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-count
   +columnFill?: 'auto' | 'balance' | 'balance-all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-fill
   +columnGap?: number | string, // https://developer.mozilla.org/docs/Web/CSS/column-gap
@@ -478,6 +479,7 @@ export type AllCSSPropertyTypes = {
     | 'inherit'
     | 'initial'
     | 'unset',
+  +overflowClipMargin?: number | string,
   +overflowInline?:
     | 'visible'
     | 'hidden'
@@ -581,7 +583,7 @@ export type AllCSSPropertyTypes = {
     | 'initial'
     | 'unset',
   +rubyMerge?: 'separate' | 'collapse' | 'auto' | 'inherit' | 'initial' | 'unset',
-  +rubyPosition?: 'over' | 'under' | 'inter-character' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/ruby-position
+  +rubyPosition?: number | string, // https://developer.mozilla.org/docs/Web/CSS/ruby-position
   +scale?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scale
   +scrollbarColor?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scrollbar-color
   +scrollbarGutter?: number | string, // https://developer.mozilla.org/docs/Web/CSS/scrollbar-gutter
