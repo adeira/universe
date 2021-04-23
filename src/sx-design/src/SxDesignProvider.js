@@ -71,8 +71,15 @@ export default function SxDesignProvider(props: Props): Node {
 /* eslint-disable sx/valid-usage */
 const styles = sx.create({
   common: SxDesignProviderCSSVariables.common,
-  ltr: { direction: 'ltr' },
-  rtl: { direction: 'rtl' },
+  ltr: {
+    direction: 'ltr',
+  },
+  rtl: {
+    direction: 'rtl',
+    // Arabic characters cannot be disconnected from each other. Unlike in English, Arabic letters
+    // are supposed to look connected. (https://rtlstyling.com/posts/rtl-styling#1.-letter-spacing)
+    letterSpacing: 0,
+  },
   lightTheme: SxDesignProviderCSSVariables.lightTheme,
   darkTheme: SxDesignProviderCSSVariables.darkTheme,
   systemTheme: {
