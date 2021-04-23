@@ -83,20 +83,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Note"
-  },
-  {
-   "hashToText": {
-    "EOd766uj+UXLW6PuEboc/A==": "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page."
-   },
-   "filepath": "src/ProductCard/ProductCard.js",
-   "line_beg": 55,
-   "col_beg": 6,
-   "line_end": 60,
-   "col_end": 7,
-   "desc": "accessibility warning when img alt is missing (product card component)",
-   "project": "",
-   "type": "text",
-   "jsfbt": "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page."
   }
  ],
  "childParentMappings": {}

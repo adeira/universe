@@ -5,7 +5,6 @@
     "2kqQC3": "Exitoso",
     "3IzWFC": "Error",
     "1pft9x": "Atención",
-    "3yXPZF": "Nota",
-    "3zJxvn": "Debe especificar un texto de imagen alternativo a través de la propiedad `imgAlt`. Esta es una parte importante de la accesibilidad para los lectores de pantalla, con el fin de que entiendan el propósito del contenido de la página."
+    "3yXPZF": "Nota"
   }
 }
