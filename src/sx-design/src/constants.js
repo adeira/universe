@@ -1,10 +1,32 @@
 // @flow strict
 
-// TODO: expand as needed
-// https://www.iso.org/iso-4217-currency-codes.html
-export type SupportedCurrencies = 'MXN' | 'USD';
+// Please note that values here do not have to match supported locales even though it makes a lot of
+// sense to match them. Expand as needed. See: https://www.iso.org/iso-4217-currency-codes.html
+//
+// Note: always verify that `CcyMnrUnts` equals "2" (https://www.currency-iso.org/dam/downloads/lists/list_one.xml), for example:
+//
+// ```
+// <CcyNtry>
+//   <CtryNm>SVALBARD AND JAN MAYEN</CtryNm>
+//   <CcyNm>Norwegian Krone</CcyNm>
+//   <Ccy>NOK</Ccy>
+//   <CcyNbr>578</CcyNbr>
+//   <CcyMnrUnts>2</CcyMnrUnts>       <<<
+// </CcyNtry>
+// ```
+//
+// Other currencies might need a special attention.
+export type SupportedCurrencies =
+  | 'CZK' // Czech Koruna
+  | 'USD' // US Dollar
+  | 'MXN' // Mexican Peso
+  | 'NOK' // Norwegian Krone
+  | 'RUB' // Russian Ruble
+  | 'UAH'; // Hryvnia
 
-// TODO: expand as needed
+// Please note that values here do not have to match supported currencies even though it makes
+// a lot of sense to match them. Expand as needed.
+//
 // Supported locale must follow BCP 47 formatting (https://tools.ietf.org/html/bcp47)
 export type SupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX' | 'no-NO' | 'ru-RU' | 'uk-UA';
 
