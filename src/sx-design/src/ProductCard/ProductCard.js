@@ -3,7 +3,6 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 import { Blurhash } from 'react-blurhash';
-import { fbt } from 'fbt';
 import { useState } from 'react';
 import { warning } from '@adeira/js';
 
@@ -52,12 +51,9 @@ export default function ProductCard(props: Props): React.Node {
   if (props.imgSrc != null) {
     warning(
       props.imgAlt != null,
-      fbt(
-        'You should specify alternative image text via `imgAlt` property. This is an important ' +
-          'part of accessibility for screen reader users in order for them to understand the ' +
-          "content's purpose on the page.",
-        'accessibility warning when img alt is missing (product card component)',
-      ).toString(),
+      'You should specify alternative image text via `imgAlt` property. This is an important ' +
+        'part of accessibility for screen reader users in order for them to understand the ' +
+        "content's purpose on the page.",
     );
   }
 
