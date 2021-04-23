@@ -60,7 +60,9 @@ export default function EditProductForm(props: Props): Node {
         ) {
           ... on Product {
             __typename
+            id
             name
+            revision
             price {
               unitAmount
             }
@@ -136,9 +138,16 @@ export default function EditProductForm(props: Props): Node {
         } else if (result.__typename === 'Product') {
           setStatusBar({
             message: (
-              <>
-                Product <strong>{result.name}</strong> updated! ✅
-              </>
+              <fbt desc="product updated success message">
+                Product{' '}
+                <fbt:param name="product name">
+                  <strong>{result.name}</strong>
+                </fbt:param>{' '}
+                (rev:{' '}
+                <fbt:param name="product revision">
+                  <code>{result.revision}</code>
+                </fbt:param>) updated! ✅
+              </fbt>
             ),
             type: 'success',
           });

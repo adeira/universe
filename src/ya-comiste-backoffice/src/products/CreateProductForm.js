@@ -85,9 +85,13 @@ export default function CreateProductForm(): Node {
         } else if (result.__typename === 'Product') {
           setStatusBar({
             message: (
-              <>
-                Product <strong>{result.name}</strong> created! ✅
-              </>
+              <fbt desc="product created success message">
+                Product{' '}
+                <fbt:param name="product name">
+                  <strong>{result.name}</strong>
+                </fbt:param>{' '}
+                created! ✅
+              </fbt>
             ),
             type: 'success',
           });

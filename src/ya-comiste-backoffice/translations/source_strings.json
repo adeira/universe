@@ -408,12 +408,26 @@
   },
   {
    "hashToText": {
+    "EIVU1wJ5opAD+tU9JLao5Q==": "Product {product name} created! ✅"
+   },
+   "filepath": "src/products/CreateProductForm.js",
+   "line_beg": 88,
+   "col_beg": 14,
+   "line_end": 94,
+   "col_end": 20,
+   "desc": "product created success message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product {product name} created! ✅"
+  },
+  {
+   "hashToText": {
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 101,
+   "line_beg": 105,
    "col_beg": 19,
-   "line_end": 104,
+   "line_end": 108,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -425,9 +439,9 @@
     "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
    },
    "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 114,
+   "line_beg": 118,
    "col_beg": 8,
-   "line_end": 114,
+   "line_end": 118,
    "col_end": 86,
    "desc": "create product form submit button title",
    "project": "",
@@ -492,12 +506,26 @@
   },
   {
    "hashToText": {
+    "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
+   },
+   "filepath": "src/products/EditProductForm.js",
+   "line_beg": 143,
+   "col_beg": 14,
+   "line_end": 152,
+   "col_end": 20,
+   "desc": "product updated success message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product {product name} (rev: {product revision}) updated! ✅"
+  },
+  {
+   "hashToText": {
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 154,
+   "line_beg": 165,
    "col_beg": 19,
-   "line_end": 157,
+   "line_end": 168,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -509,9 +537,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 166,
+   "line_beg": 177,
    "col_beg": 25,
-   "line_end": 166,
+   "line_end": 177,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",

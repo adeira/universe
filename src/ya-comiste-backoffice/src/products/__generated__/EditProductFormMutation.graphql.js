@@ -24,7 +24,9 @@ export type EditProductFormMutationResponse = {|
   +commerce: {|
     +result: {|
       +__typename: "Product",
+      +id: string,
       +name: string,
+      +revision: string,
       +price: {|
         +unitAmount: number
       |},
@@ -63,7 +65,9 @@ mutation EditProductFormMutation(
       __typename
       ... on Product {
         __typename
+        id
         name
+        revision
         price {
           unitAmount
         }
@@ -174,10 +178,24 @@ v8 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "id",
   "storageKey": null
 },
 v9 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v10 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "revision",
+  "storageKey": null
+},
+v11 = {
   "alias": null,
   "args": null,
   "concreteType": "ProductPrice",
@@ -195,14 +213,14 @@ v9 = {
   ],
   "storageKey": null
 },
-v10 = {
+v12 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "visibility",
   "storageKey": null
 },
-v11 = {
+v13 = {
   "alias": null,
   "args": null,
   "concreteType": "ProductMultilingualTranslations",
@@ -217,7 +235,7 @@ v11 = {
       "name": "locale",
       "storageKey": null
     },
-    (v8/*: any*/),
+    (v9/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -228,7 +246,7 @@ v11 = {
   ],
   "storageKey": null
 },
-v12 = {
+v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -272,7 +290,9 @@ return {
                   (v8/*: any*/),
                   (v9/*: any*/),
                   (v10/*: any*/),
-                  (v11/*: any*/)
+                  (v11/*: any*/),
+                  (v12/*: any*/),
+                  (v13/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -281,7 +301,7 @@ return {
                 "kind": "InlineFragment",
                 "selections": [
                   (v7/*: any*/),
-                  (v12/*: any*/)
+                  (v14/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -332,7 +352,9 @@ return {
                   (v8/*: any*/),
                   (v9/*: any*/),
                   (v10/*: any*/),
-                  (v11/*: any*/)
+                  (v11/*: any*/),
+                  (v12/*: any*/),
+                  (v13/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -340,7 +362,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v12/*: any*/)
+                  (v14/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -354,15 +376,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d27998f91d2e3c39f7bacc5fa200e69f",
+    "cacheID": "fa4a58cbd95d4e06d8d34c6f950eec99",
     "id": null,
     "metadata": {},
     "name": "EditProductFormMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n        price {\n          unitAmount\n        }\n        visibility\n        translations {\n          locale\n          name\n          description\n        }\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        price {\n          unitAmount\n        }\n        visibility\n        translations {\n          locale\n          name\n          description\n        }\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '3c2c0f5ebc3b59207ee9bf9da07ee178';
+(node: any).hash = '9fd7bfae66e7bd5dd457abfc33d7451c';
 export default node;
