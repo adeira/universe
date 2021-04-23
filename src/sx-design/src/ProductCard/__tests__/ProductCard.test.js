@@ -7,17 +7,10 @@ import SxDesignProvider from '../../SxDesignProvider';
 import ProductCard from '../ProductCard';
 
 it.each([
-  [
-    'en-US',
-    'MX$12.00',
-    "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page.",
-  ],
-  [
-    'es-MX',
-    '$12.00',
-    'Debe especificar un texto de imagen alternativo a través de la propiedad `imgAlt`. Esta es una parte importante de la accesibilidad para los lectores de pantalla, con el fin de que entiendan el propósito del contenido de la página.',
-  ],
-])('works as expected for locale "%s"', (locale, expectedPrice, expectedWarning) => {
+  ['en-US', 'MXN', 'MX$12.00'],
+  ['en-US', 'USD', '$12.00'],
+  ['es-MX', 'MXN', '$12.00'],
+])('works as expected for locale "%s" and currency "%s"', (locale, currency, expectedPrice) => {
   const warnSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
 
   const { getByText } = render(
@@ -25,7 +18,7 @@ it.each([
       <ProductCard
         title={'title'}
         priceUnitAmount={12}
-        priceUnitAmountCurrency={'MXN'}
+        priceUnitAmountCurrency={currency}
         imgSrc={'src'}
       />
       ,
@@ -35,6 +28,8 @@ it.each([
   expect(getByText('title')).toBeDefined();
   expect(getByText(expectedPrice)).toBeDefined();
 
-  expect(warnSpy).toBeCalledWith(expectedWarning);
+  expect(warnSpy).toBeCalledWith(
+    "You should specify alternative image text via `imgAlt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page.",
+  );
   warnSpy.mockRestore();
 });
