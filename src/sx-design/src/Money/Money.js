@@ -36,12 +36,39 @@ type MoneyFnProps = {
   +locale: SupportedLocales,
 };
 
+// Modified `Intl$NumberFormatOptions` from Flow.
+// See: https://github.com/facebook/flow/blob/8f29455d6a47debe27885e2298041435b30a78ce/lib/intl.js#L148-L160
+type IntlNumberFormatOptions = {
+  localeMatcher?: 'lookup' | 'best fit',
+  style?: 'decimal' | 'currency' | 'percent',
+  currency?: string,
+  currencyDisplay?: 'symbol' | 'code' | 'name',
+  useGrouping?: boolean,
+  minimumIntegerDigits?: number,
+  minimumFractionDigits?: number,
+  maximumFractionDigits?: number,
+  minimumSignificantDigits?: number,
+  maximumSignificantDigits?: number,
+  numberingSystem?: 'arab' | 'cyrl',
+};
+
 // This function does essentially the same like the React <Money /> component except it can be
 // called from non-React environment.
 export function MoneyFn(props: MoneyFnProps): string {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
-  return new Intl.NumberFormat(props.locale, {
+  const intlOptions: IntlNumberFormatOptions = {
     style: 'currency',
     currency: props.priceUnitAmountCurrency,
-  }).format(props.priceUnitAmount);
+  };
+
+  if (props.locale === 'ar-AR') {
+    // We use "Cyrillic numerals" for Arabic as it is very common around the web. However, we allow
+    // to explicitly specify custom numbering system via the locale string. For example, locale
+    // `ar-AR-u-nu-arab` explicitly uses `arab` numbering system.
+    // See: https://www.unicode.org/reports/tr35/#u_Extension
+    // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numberingSystem
+    intlOptions.numberingSystem = 'cyrl';
+  }
+
+  return new Intl.NumberFormat(props.locale, intlOptions).format(props.priceUnitAmount);
 }

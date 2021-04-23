@@ -17,6 +17,7 @@
 //
 // Other currencies might need a special attention.
 export type SupportedCurrencies =
+  | 'AED' // UAE Dirham
   | 'CZK' // Czech Koruna
   | 'USD' // US Dollar
   | 'MXN' // Mexican Peso
@@ -28,7 +29,15 @@ export type SupportedCurrencies =
 // a lot of sense to match them. Expand as needed.
 //
 // Supported locale must follow BCP 47 formatting (https://tools.ietf.org/html/bcp47)
-export type SupportedLocales = 'cs-CZ' | 'en-US' | 'es-MX' | 'no-NO' | 'ru-RU' | 'uk-UA';
+export type SupportedLocales =
+  | 'ar-AR' // Arabic
+  | 'ar-AR-u-nu-arab' // Arabic with "Arabic-Indic digits"
+  | 'cs-CZ' // Czech
+  | 'en-US' // English - USA
+  | 'es-MX' // Spanish - Mexico
+  | 'no-NO' // Norwegian
+  | 'ru-RU' // Russian
+  | 'uk-UA'; // Ukrainian
 
 // LTR languages display content from left to right
 // RTL languages display content from right to left
