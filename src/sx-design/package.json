@@ -28,7 +28,7 @@
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@storybook/addon-actions": "^6.2.8",
     "@storybook/addon-essentials": "^6.2.8",
-    "@storybook/addon-links": "^6.2.8",
+    "@storybook/addon-links": "^6.2.9",
     "@storybook/react": "^6.2.8",
     "@testing-library/react": "^11.2.6",
     "babel-loader": "^8.2.2",
