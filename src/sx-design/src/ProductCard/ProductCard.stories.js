@@ -23,7 +23,7 @@ export default {
     priceUnitAmountCurrency: {
       control: {
         type: 'select',
-        options: ['MXN', 'USD'],
+        options: ['MXN', 'USD', 'AED'],
       },
     },
   },

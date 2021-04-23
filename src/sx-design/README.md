@@ -5,10 +5,10 @@
 Inclusive design system written using [`@adeira/sx`](https://github.com/adeira/sx). Core value of this project are (in this order):
 
 - ⚛️ exclusively using atomic CSS via [`@adeira/sx`](https://github.com/adeira/sx)
-- 🏳️‍🌈 fully supported localization ([🇺🇸🇲🇽🇨🇿🇳🇴🇺🇦🇷🇺](https://crowdin.com/project/sx-design))
+- 🏳️‍🌈 fully supported localization ([🇺🇸🇲🇽🇨🇿🇳🇴🇺🇦🇷🇺🇦🇪](https://crowdin.com/project/sx-design))
 - ☯️ light and dark theme out of the box
 - 🆘 accessible components for people with visual impairment
-- حلال support for RTL layouts
+- حلال support for RTL layouts (🇦🇪)
 
 # Installation and Usage
 
@@ -28,7 +28,6 @@ export default function MyRootApp() {
     <SxDesignProvider
       locale="en-US" // affects translations as well as dates, monetary values and similar
       theme="light" // or "dark" or "system"
-      direction="ltr" // or "rtl"
     >
       <ErrorBoundary>{/* … */}</ErrorBoundary>
     </SxDesignProvider>

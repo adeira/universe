@@ -17,11 +17,12 @@ type Props = {
 
 export default function SxDesignProvider(props: Props): Node {
   const locale = props.locale ?? 'en-US';
-  const direction = props.direction ?? 'ltr';
   const theme = props.theme ?? 'light';
 
+  // TODO: support translations lazy loading
   const supportedLocales = {
-    // TODO: support translations lazy loading
+    'ar-AR': require('../translations/out/ar-AR.json'),
+    'ar-AR-u-nu-arab': require('../translations/out/ar-AR.json'),
     'cs-CZ': require('../translations/out/cs-CZ.json'),
     'en-US': require('../translations/out/en-US.json'),
     'es-MX': require('../translations/out/es-MX.json'),
@@ -30,8 +31,10 @@ export default function SxDesignProvider(props: Props): Node {
     'uk-UA': require('../translations/out/uk-UA.json'),
   };
 
-  // TODO: invariant when selected `locale` and `direction` are not compatible
-  // TODO: alternatively setup the `direction` automatically based on the `locale` (?)
+  let direction = 'ltr';
+  if (locale.startsWith('ar-AR')) {
+    direction = 'rtl';
+  }
 
   fbtInit({
     translations: supportedLocales[locale],
