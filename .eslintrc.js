@@ -63,6 +63,7 @@ module.exports = {
           '**/scripts/**',
           '**/__flowtests__/**',
           '**/__tests__/**',
+          '**/.storybook/**',
         ],
       },
     ],

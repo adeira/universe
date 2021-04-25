@@ -1,7 +1,6 @@
 // @flow
 
 import type { Node } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { SxDesignProvider } from '../index';
