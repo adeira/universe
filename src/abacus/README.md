@@ -1,3 +1,5 @@
+# 🧮 ABACUS - Rust Backend
+
 TODOs:
 
 ```text
@@ -33,24 +35,24 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
   - JSON Schema validator: https://www.jsonschemavalidator.net/
 
 ```bash
-# Executed from `src/ya-comiste-rust` context
+# Executed from `src/abacus` context
 
-docker build --tag ya-comiste-rust --file Dockerfile .
+docker build --tag abacus --file Dockerfile .
 docker run \
   --memory=64m \
   --cpus=0.1 \
   -p 8080:8080 \
   -d \
-  --name=ya-comiste-rust \
-  ya-comiste-rust
+  --name=abacus \
+  abacus
 ```
 
 ## Install and run
 
 ```text
-(cd src/ya-comiste-rust && cargo run --bin server)
-(cd src/ya-comiste-rust && cargo clippy --all-targets)
-(cd src/ya-comiste-rust && cargo doc --open --no-deps)
+(cd src/abacus && cargo run --bin server)
+(cd src/abacus && cargo clippy --all-targets)
+(cd src/abacus && cargo doc --open --no-deps)
 ```
 
 The server will be accessible here: http://127.0.0.1:8080/graphql (use https://insomnia.rest/graphql/)
@@ -61,18 +63,18 @@ Start the database:
 brew services start arangodb
 ```
 
-The database will be available here: http://127.0.0.1:8529/ (user `ya-comiste-rust`, no password)
+The database will be available here: http://127.0.0.1:8529/ (user `abacus`, no password)
 
 ## Testing
 
 ```text
-(cd src/ya-comiste-rust && cargo test --offline)
+(cd src/abacus && cargo test --offline)
 ```
 
 There are some extra tests which are slow or require extra infrastructure (network access, ArangoDB). There tests are ignored by default but can be executed manually:
 
 ```text
-(cd src/ya-comiste-rust && cargo test --offline -- --ignored)
+(cd src/abacus && cargo test --offline -- --ignored)
 ```
 
 Ignored tests are not being run on CI (at least not yet)!
@@ -118,8 +120,8 @@ Database backup **with** data (empty password):
 ```text
 arangodump \
     --server.password="" \
-    --server.database=ya-comiste \
-    --output-directory="src/ya-comiste-rust/__dump" \
+    --server.database=abacus \
+    --output-directory="src/abacus/__dump" \
     --include-system-collections=true \
     --overwrite=true \
     --compress-output=false \
@@ -132,8 +134,8 @@ Database restore:
 
 ```text
 arangorestore \
-    --input-directory="src/ya-comiste-rust/__dump" \
-    --server.database=ya-comiste
+    --input-directory="src/abacus/__dump" \
+    --server.database=abacus
 ```
 
 Arangosh access:
@@ -141,7 +143,7 @@ Arangosh access:
 ```text
 arangosh \
     --server.password="" \
-    --server.database=ya-comiste
+    --server.database=abacus
 ```
 
 For example, to delete analyzers:

@@ -54,7 +54,7 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'cargo'
-    directory: '/src/ya-comiste-rust/'
+    directory: '/src/abacus/'
     schedule:
       interval: 'daily'
     labels:
@@ -63,7 +63,7 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'docker'
-    directory: '/src/ya-comiste-rust/'
+    directory: '/src/abacus/'
     schedule:
       interval: 'daily'
     labels:

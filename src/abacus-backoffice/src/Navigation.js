@@ -1,5 +1,6 @@
 // @flow
 
+import { Emoji } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
@@ -11,6 +12,10 @@ import { LogoutButton } from './AuthButtons';
 export default function Navigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
+      <strong>
+        <Emoji symbol={'🧮'} label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
+      </strong>
+
       <Link href="/" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to the homepage">Home</fbt>
       </Link>

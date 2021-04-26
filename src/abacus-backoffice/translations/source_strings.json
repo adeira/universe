@@ -86,12 +86,26 @@
   },
   {
    "hashToText": {
+    "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 16,
+   "col_beg": 36,
+   "line_end": 16,
+   "col_end": 85,
+   "desc": "abacus emoji label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "abacus emoji"
+  },
+  {
+   "hashToText": {
     "EX/o2WuR0ou1BNovRq6qGw==": "Home"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 15,
+   "line_beg": 20,
    "col_beg": 8,
-   "line_end": 15,
+   "line_end": 20,
    "col_end": 62,
    "desc": "navigation link to the homepage",
    "project": "",
@@ -103,9 +117,9 @@
     "LoFyLbW8JA2D6AsDR+C2sw==": "Products"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 18,
+   "line_beg": 23,
    "col_beg": 8,
-   "line_end": 18,
+   "line_end": 23,
    "col_end": 62,
    "desc": "navigation link to products",
    "project": "",
@@ -117,9 +131,9 @@
     "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 21,
+   "line_beg": 26,
    "col_beg": 8,
-   "line_end": 21,
+   "line_end": 26,
    "col_end": 64,
    "desc": "navigation link to employees",
    "project": "",
@@ -131,9 +145,9 @@
     "sHHk/SaT51d5NWanXexMiw==": "Ledger"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 24,
+   "line_beg": 29,
    "col_beg": 8,
-   "line_end": 24,
+   "line_end": 29,
    "col_end": 58,
    "desc": "navigation link to ledger",
    "project": "",
@@ -145,9 +159,9 @@
     "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 28,
+   "line_beg": 33,
    "col_beg": 8,
-   "line_end": 28,
+   "line_end": 33,
    "col_end": 68,
    "desc": "navigation link to point of sales",
    "project": "",
@@ -509,9 +523,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 143,
+   "line_beg": 141,
    "col_beg": 14,
-   "line_end": 152,
+   "line_end": 150,
    "col_end": 20,
    "desc": "product updated success message",
    "project": "",
@@ -523,9 +537,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 165,
+   "line_beg": 163,
    "col_beg": 19,
-   "line_end": 168,
+   "line_end": 166,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -537,9 +551,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 177,
+   "line_beg": 175,
    "col_beg": 25,
-   "line_end": 177,
+   "line_end": 175,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",

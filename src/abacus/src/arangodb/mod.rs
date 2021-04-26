@@ -7,14 +7,14 @@ pub mod errors;
 mod pool;
 
 const ARANGODB_HOST: &str = "http://127.0.0.1:8529/";
-const NORMAL_USERNAME: &str = "ya-comiste-rust"; // TODO: change!
+const NORMAL_USERNAME: &str = "abacus"; // TODO: change!
 const NORMAL_PASSWORD: &str = ""; // TODO: change!
 
 /// Default ArangoDB (normal) user:
 ///
 /// ```
 /// use arangodb::get_normal_user;
-/// assert_eq!(get_normal_user(), "ya-comiste-rust")
+/// assert_eq!(get_normal_user(), "abacus")
 /// ```
 ///
 /// Custom ArangoDB (normal) user (via ENV):
