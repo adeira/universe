@@ -2,7 +2,7 @@ use crate::graphql_context::ContextUploadableContentType;
 use rusoto_core::Region;
 use rusoto_s3::{PutObjectRequest, S3Client, S3};
 
-const BUCKED_NAME: &str = "ya-comiste-d504f031-2a12-4a07-a928-ef307d03103d";
+const BUCKED_NAME: &str = "ya-comiste-d504f031-2a12-4a07-a928-ef307d03103d"; // TODO: use the new name `abacus`
 
 pub(in crate::images) struct S3Object {
     pub(crate) s3_filename: String,

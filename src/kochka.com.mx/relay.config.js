@@ -2,5 +2,5 @@
 
 module.exports = {
   src: './src',
-  schema: '../ya-comiste-rust/schema.graphql',
+  schema: '../abacus/schema.graphql',
 };

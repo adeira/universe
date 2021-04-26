@@ -46,7 +46,7 @@ async fn main() {
         .arg(
             clap::Arg::new("db-name")
                 .long("db-name")
-                .default_value("ya-comiste"),
+                .default_value("abacus"),
         )
         .get_matches();
 

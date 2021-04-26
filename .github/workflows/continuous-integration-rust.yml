@@ -8,8 +8,8 @@ jobs:
       fail-fast: true
       matrix:
         manifest:
+          - 'src/abacus/Cargo.toml'
           - 'src/signedsource-rs/Cargo.toml'
-          - 'src/ya-comiste-rust/Cargo.toml'
         os:
           - macos-latest
           - ubuntu-latest
