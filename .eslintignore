@@ -3,6 +3,7 @@
 
 node_modules/
 
+src/babel-preset-adeira/src/__tests__/__fixtures__
 src/example-relay/__github__/flow-typed
 src/sx-tailwind-website/__github__/flow-typed
 

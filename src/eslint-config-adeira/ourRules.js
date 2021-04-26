@@ -608,11 +608,14 @@ module.exports = ({
     ERROR,
     {
       devDependencies: [
-        '**/*.test.js',
         '**/*.spec.js',
         '**/*.stories.js',
-        '**/webpack.config.js',
+        '**/*.test.js',
+        '**/.storybook/**',
+        '**/__flowtests__/**',
+        '**/__tests__/**',
         '**/metro.config.js',
+        '**/webpack.config.js',
       ],
     },
   ],
