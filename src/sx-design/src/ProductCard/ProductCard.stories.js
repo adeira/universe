@@ -30,7 +30,8 @@ export default {
   args: {
     title: 'My awesome product',
     priceUnitAmount: 42,
-    imgBlurhash: 'LEHV6nWB2yk8pyo0adR*.7kCMdnj',
+    imgBlurhash: 'UIFrw^~Wx^NH.8D*t7%L.8RjMxRixu%ME1R+',
+    imgSrc: 'https://placekitten.com/300/300?image=12',
   },
 };
 

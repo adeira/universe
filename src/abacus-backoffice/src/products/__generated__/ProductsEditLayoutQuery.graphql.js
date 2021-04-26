@@ -15,7 +15,12 @@ export type ProductsEditLayoutQueryVariables = {|
 export type ProductsEditLayoutQueryResponse = {|
   +commerce: {|
     +product: {|
-      +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref
+      +images: $ReadOnlyArray<{|
+        +name: string,
+        +blurhash: string,
+        +url: string,
+      |}>,
+      +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref,
     |}
   |}
 |};
@@ -32,6 +37,11 @@ query ProductsEditLayoutQuery(
   commerce {
     product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
       ...EditProductHeading
+      images {
+        name
+        blurhash
+        url
+      }
       ...EditProductFormFragment
       id
     }
@@ -82,7 +92,40 @@ v1 = [
     "name": "productKey",
     "variableName": "productKey"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Image",
+  "kind": "LinkedField",
+  "name": "images",
+  "plural": true,
+  "selections": [
+    (v2/*: any*/),
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "blurhash",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "url",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -106,6 +149,7 @@ return {
             "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
+              (v3/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -162,6 +206,7 @@ return {
                 "name": "isPublished",
                 "storageKey": null
               },
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -209,13 +254,7 @@ return {
                     "name": "locale",
                     "storageKey": null
                   },
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "name",
-                    "storageKey": null
-                  },
+                  (v2/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -242,15 +281,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "eace6076c3a436ce4c751a02ab33548e",
+    "cacheID": "25e5d29c767d3647211b86cb84d84975",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'e824cf1305b11f36c2d5e2f1ac63ad91';
+(node: any).hash = 'aefc22ba3e208ce99c9c0202169a9a72';
 export default node;
