@@ -2,11 +2,10 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { Blurhash } from 'react-blurhash';
 import { useState } from 'react';
-import { warning } from '@adeira/js';
 
 import Heading from '../Heading/Heading';
+import Image from '../Image/Image';
 import Money from '../Money/Money';
 import type { SupportedCurrencies } from '../constants';
 
@@ -44,24 +43,15 @@ type Props = {
  * });
  * ```
  */
-export default function ProductCard(props: Props): React.Node {
+export default function ProductCard(props: Props): React.Element<'div'> {
   const [isHovered, setIsHovered] = useState(false);
-  const [isImageLoaded, setImageLoaded] = useState(false);
-
-  if (props.imgSrc != null) {
-    warning(
-      props.imgAlt != null,
-      'You should specify alternative image text via `imgAlt` property. This is an important ' +
-        'part of accessibility for screen reader users in order for them to understand the ' +
-        "content's purpose on the page.",
-    );
-  }
 
   const DEFAULT_HEIGHT = 250;
+  const DEFAULT_WIDTH = 250;
 
   return (
     <div
-      style={{ height: DEFAULT_HEIGHT }}
+      style={{ height: DEFAULT_HEIGHT, width: DEFAULT_WIDTH }}
       className={styles('wrapper')}
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -81,18 +71,13 @@ export default function ProductCard(props: Props): React.Node {
         </span>
       </div>
 
-      {isImageLoaded === false && props.imgBlurhash != null ? (
-        <Blurhash hash={props.imgBlurhash} width="100%" height={DEFAULT_HEIGHT} />
-      ) : null}
-
       {props.imgSrc != null ? (
-        <img
+        <Image
           src={props.imgSrc}
           alt={props.imgAlt}
+          blurhash={props.imgBlurhash}
           height={DEFAULT_HEIGHT}
-          className={styles(isImageLoaded === false && 'imgSrcLoading', 'imgSrc')}
-          onLoad={() => setImageLoaded(true)}
-          // onError does nothing (we keep the blurhash)
+          width={DEFAULT_WIDTH}
         />
       ) : null}
     </div>
@@ -105,13 +90,6 @@ const styles = sx.create({
     flexDirection: 'column',
     backgroundColor: 'lightgrey',
     position: 'relative',
-  },
-  imgSrcLoading: {
-    display: 'none',
-  },
-  imgSrc: {
-    objectFit: 'cover',
-    objectPosition: 'center center',
   },
   highlightWrapper: {
     position: 'absolute',
