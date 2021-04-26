@@ -1,6 +1,6 @@
 // @flow strict
 
-/* eslint-disable */
+/* eslint-disable accessor-pairs */
 
 export const o = {
   // $FlowExpectedError[unsafe-getters-setters]

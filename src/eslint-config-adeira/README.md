@@ -36,16 +36,21 @@ const ERROR = 2;
 module.exports = {
   root: true,
 
-  extends: ['@adeira/eslint-config'],
+  extends: ['@adeira/eslint-config/strict'],
 
-  // adjust the rules as needed
   parser: '@babel/eslint-parser',
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2021,
+    ecmaFeatures: {
+      jsx: false,
+    },
+  },
+
   env: {
+    es6: true,
     jest: true,
     node: true,
-  },
-  rules: {
-    eqeqeq: [ERROR, 'smart'],
   },
 };
 ```
