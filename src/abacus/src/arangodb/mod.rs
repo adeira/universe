@@ -6,66 +6,6 @@ use deadpool::managed::Pool;
 pub mod errors;
 mod pool;
 
-const ARANGODB_HOST: &str = "http://127.0.0.1:8529/";
-const NORMAL_USERNAME: &str = "abacus"; // TODO: change!
-const NORMAL_PASSWORD: &str = ""; // TODO: change!
-
-/// Default ArangoDB (normal) user:
-///
-/// ```
-/// use arangodb::get_normal_user;
-/// assert_eq!(get_normal_user(), "abacus")
-/// ```
-///
-/// Custom ArangoDB (normal) user (via ENV):
-///
-/// ```
-/// use arangodb::get_normal_user;
-/// std::env::set_var("ARANGO_USER", "yadada");
-/// assert_eq!(get_normal_user(), "yadada")
-/// ```
-fn get_normal_user() -> String {
-    std::env::var("ARANGO_USER").unwrap_or_else(|_| NORMAL_USERNAME.to_owned())
-}
-
-/// Default ArangoDB (normal) password:
-///
-/// ```
-/// use arangodb::get_normal_password;
-/// assert_eq!(get_normal_password(), "")
-/// ```
-///
-/// Custom ArangoDB (normal) password (via ENV):
-///
-/// ```
-/// use arangodb::get_normal_password;
-/// std::env::set_var("ARANGO_PASSWORD", "custom_pswd");
-/// assert_eq!(get_normal_password(), "custom_pswd")
-/// ```
-fn get_normal_password() -> String {
-    std::env::var("ARANGO_PASSWORD").unwrap_or_else(|_| NORMAL_PASSWORD.to_owned())
-}
-
-/// Default ArangoDB host:
-///
-/// ```
-/// use arangodb::get_arangodb_host;
-/// assert_eq!(get_arangodb_host(), "http://127.0.0.1:8529/")
-/// ```
-///
-/// Custom ArangoDB host (via ENV):
-///
-/// ```
-/// use arangodb::get_arangodb_host;
-/// std::env::set_var("ARANGODB_HOST", "0.0.0.0:1234");
-/// assert_eq!(get_arangodb_host(), "http://0.0.0.0:1234")
-/// ```
-fn get_arangodb_host() -> String {
-    std::env::var("ARANGODB_HOST")
-        .map(|s| format!("http://{}", s))
-        .unwrap_or_else(|_| ARANGODB_HOST.to_owned())
-}
-
 #[derive(Clone)]
 pub struct ConnectionPool {
     pub pool: Pool<Connection, ClientError>,
@@ -128,7 +68,12 @@ async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
 
 /// Database name `None` indicates that the test doesn't actually need a database and should fail
 /// if the application tries to access it anyway.
-pub fn get_database_connection_pool(db_name: &str) -> ConnectionPool {
+pub fn get_database_connection_pool(
+    arangodb_url: &str,
+    arangodb_database: &str,
+    arangodb_username: &str,
+    arangodb_password: &str,
+) -> ConnectionPool {
     // Maximum number of connections ever created.
     // TODO: what should be the actual maximum size?
     // https://github.com/arangodb/arangodb/blob/35c278cdf3b7985f8ed2042dfef8d22c2dd2ed07/arangod/Network/ConnectionPool.h#L65
@@ -136,27 +81,33 @@ pub fn get_database_connection_pool(db_name: &str) -> ConnectionPool {
 
     let connection_pool = deadpool::managed::Pool::new(
         pool::ConnectionManager {
-            db_host: get_arangodb_host(),
-            db_name: db_name.to_string(),
-            username: get_normal_user(),
-            password: get_normal_password(),
+            db_host: arangodb_url.to_string(),
+            db_name: arangodb_database.to_string(),
+            username: arangodb_username.to_string(),
+            password: arangodb_password.to_string(),
         },
         max_pool_size,
     );
 
     tracing::trace!(
-        "Creating (empty) database connection pool for: '{}' 🔥",
-        db_name
+        "Creating (empty) database connection pool for: '{}' ({}) 🔥",
+        arangodb_database,
+        arangodb_url
     );
     ConnectionPool {
         pool: connection_pool,
-        db_name: db_name.to_string(),
+        db_name: arangodb_database.to_string(),
     }
 }
 
 #[cfg(test)]
 pub fn get_database_connection_pool_mock() -> ConnectionPool {
-    get_database_connection_pool("mock_database_name")
+    get_database_connection_pool(
+        "mock_arangodb_url",
+        "mock_arangodb_database",
+        "mock_arangodb_username",
+        "mock_arangodb_password",
+    )
 }
 
 /// Creates an empty database for test purposes. Each test should define custom `db_name` to
@@ -169,7 +120,13 @@ pub fn get_database_connection_pool_mock() -> ConnectionPool {
 #[cfg(test)]
 pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
     cleanup_test_database(db_name).await;
-    let pool = get_database_connection_pool(db_name);
+    let pool = get_database_connection_pool(
+        // TODO: make it more DX/test friendly (?)
+        "http://127.0.0.1:8529/",
+        db_name,
+        "",
+        "",
+    );
     crate::migrations::migrate(&pool).await;
     pool
 }
@@ -177,7 +134,13 @@ pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
 /// This function cleanup the test database by removing it completely.
 #[cfg(test)]
 pub async fn cleanup_test_database(db_name: &str) -> ConnectionPool {
-    let pool = get_database_connection_pool(db_name);
+    let pool = get_database_connection_pool(
+        // TODO: make it more DX/test friendly (?)
+        "http://127.0.0.1:8529/",
+        db_name,
+        "",
+        "",
+    );
     let connection = pool.connection().await;
     if connection.db(&db_name).await.is_ok() {
         // database already exists, let's delete it
