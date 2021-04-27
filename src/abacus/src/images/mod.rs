@@ -160,7 +160,7 @@ fn calculate_image_blurhash(image: DynamicImage) -> Result<String, EncodingError
 
 // TODO: use in GraphQL output
 fn resolve_cloudfront_url(path: &str) -> String {
-    let cloudfront_domain = "https://d3uc46g155tf3t.cloudfront.net/";
+    let cloudfront_domain = "https://d3nujwlesxo9e6.cloudfront.net/";
     format!(
         "{}/{}",
         cloudfront_domain.trim_end_matches('/'),
