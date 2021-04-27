@@ -10,6 +10,7 @@ export { default as ButtonLink } from './src/Button/ButtonLink';
 export { default as Emoji } from './src/Emoji/Emoji';
 export { default as ErrorBoundary } from './src/ErrorBoundary/ErrorBoundary';
 export { default as Heading } from './src/Heading/Heading';
+export { default as Image } from './src/Image/Image';
 export { default as Kbd } from './src/Kbd/Kbd';
 export { default as Link } from './src/Link/Link';
 export { default as LinkButton } from './src/Link/LinkButton';

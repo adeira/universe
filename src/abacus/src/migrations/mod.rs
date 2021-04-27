@@ -100,4 +100,5 @@ pub async fn migrate(pool: &ConnectionPool) {
             }
         }
     }
+    tracing::info!("Migrations OK");
 }

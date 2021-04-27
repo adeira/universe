@@ -1,4 +1,5 @@
 use crate::arangodb::get_database_connection_pool;
+use crate::clap::generate_clap_app;
 use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
@@ -8,6 +9,7 @@ use warp::Filter;
 
 mod arangodb;
 mod auth;
+mod clap;
 mod commerce;
 mod graphql_context;
 mod graphql_schema;
@@ -37,19 +39,6 @@ fn init_tracing() {
 async fn main() {
     init_tracing();
 
-    let cli_matches = clap::app_from_crate!()
-        .arg(
-            clap::Arg::new("no-migrations")
-                .long("no-migrations")
-                .about("Skips database migrations"),
-        )
-        .arg(
-            clap::Arg::new("db-name")
-                .long("db-name")
-                .default_value("abacus"),
-        )
-        .get_matches();
-
     // TODO: how to display these routes automatically (?)
     let server_addr = SocketAddrV4::new(Ipv4Addr::new(127, 0, 0, 1), 5000);
     println!(
@@ -63,7 +52,13 @@ async fn main() {
 
     // Create database connection pool only once per application lifetime so we can reuse it
     // for the following requests. DO NOT create it in the GraphQL context extractor!
-    let pool = get_database_connection_pool(cli_matches.value_of("db-name").unwrap());
+    let cli_matches = generate_clap_app().get_matches();
+    let pool = get_database_connection_pool(
+        cli_matches.value_of("arangodb-url").unwrap(),
+        cli_matches.value_of("arangodb-database").unwrap(),
+        cli_matches.value_of("arangodb-username").unwrap(),
+        cli_matches.value_of("arangodb-password").unwrap(),
+    );
 
     if !cli_matches.is_present("no-migrations") {
         // Preferably, migrations would NOT be ran during the server start.
@@ -76,8 +71,8 @@ async fn main() {
     let routes = graphql_api
         .with(
             warp::cors()
-                .allow_origin("http://localhost:5001") // TODO (backoffice)
-                .allow_origin("http://localhost:5002") // TODO (kochka FE)
+                .allow_origin("http://localhost:5001") // TODO (abacus-backoffice)
+                .allow_origin("http://localhost:5002") // TODO (KOCHKA.com.mx)
                 .allow_headers(vec!["authorization", "content-type", "x-client"])
                 .allow_methods(vec![warp::http::Method::POST]),
         )

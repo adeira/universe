@@ -4,7 +4,6 @@
 name = "server"
 version = "0.0.0"
 authors = ["Martin Zlámal <mrtnzlml@gmail.com>"]
-description = "GraphQL server"
 edition = "2018"
 publish = false
 resolver = "2"

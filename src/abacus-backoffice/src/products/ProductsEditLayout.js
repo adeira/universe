@@ -2,6 +2,7 @@
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import React, { type Node } from 'react';
+import { Image } from '@adeira/sx-design';
 
 import EditProductForm from './EditProductForm';
 import EditProductHeading from './EditProductHeading';
@@ -21,6 +22,11 @@ export default function ProductsEditLayout(props: Props): Node {
             productKey: $productKey
           ) {
             ...EditProductHeading
+            images {
+              name
+              blurhash
+              url
+            }
             ...EditProductFormFragment
           }
         }
@@ -35,6 +41,17 @@ export default function ProductsEditLayout(props: Props): Node {
   return (
     <>
       <EditProductHeading product={data.commerce.product} />
+      {data.commerce.product.images.map((image) => {
+        return (
+          <Image
+            key={image.name} // TODO: expose ID from BE
+            src={image.url}
+            blurhash={image.blurhash}
+            width={250}
+            height={250}
+          />
+        );
+      })}
       <EditProductForm product={data.commerce.product} />
     </>
   );
