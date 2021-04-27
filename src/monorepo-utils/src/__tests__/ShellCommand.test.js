@@ -1,7 +1,7 @@
 // @flow strict
 
 import path from 'path';
-import nodeChildProcess from 'child_process'; // eslint-disable-line no-restricted-imports
+import nodeChildProcess from 'child_process';
 
 import ShellCommand from '../ShellCommand';
 

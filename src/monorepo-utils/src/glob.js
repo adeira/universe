@@ -1,7 +1,7 @@
 // @flow
 
 import util from 'util';
-import _glob from 'glob'; // eslint-disable-line no-restricted-imports
+import _glob from 'glob';
 import { invariant, isObject } from '@adeira/js';
 
 type GlobPattern = string;

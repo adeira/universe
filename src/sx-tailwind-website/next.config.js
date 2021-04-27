@@ -1,7 +1,9 @@
 // @flow
 
 const path = require('path');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const withTranspileModules = require('next-transpile-modules');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config');
 
 module.exports = (withCustomBabelConfigFile(

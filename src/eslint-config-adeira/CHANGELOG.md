@@ -1,5 +1,7 @@
 # Unreleased
 
+- Rule `import/no-extraneous-dependencies` now ignores `**/__flowtests__/**`, `**/__tests__/**` and `**/.storybook/**` by default.
+
 # 6.0.0
 
 Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues with Flow types as long as you are using `exact_by_default=true` Flow option.
