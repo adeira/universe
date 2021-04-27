@@ -1,5 +1,6 @@
 use crate::arangodb::{
-    get_database_connection_pool, get_database_connection_pool_mock, prepare_empty_test_database,
+    cleanup_test_database, get_database_connection_pool, get_database_connection_pool_mock,
+    prepare_empty_test_database,
 };
 use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
@@ -13,7 +14,13 @@ async fn create_graphql_api_filter(
     let pool;
     if let Some(db_name) = db_name {
         prepare_empty_test_database(db_name).await;
-        pool = get_database_connection_pool(db_name);
+        pool = get_database_connection_pool(
+            // TODO: make it more DX/test friendly (?)
+            "http://127.0.0.1:8529/",
+            db_name,
+            "",
+            "",
+        );
     } else {
         pool = get_database_connection_pool_mock();
     }
@@ -69,7 +76,7 @@ async fn test_graphql_post_forbidden() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(Some("test_graphql_post_forbidden")).await)
+        .reply(&create_graphql_api_filter(Some("abacus_test_graphql_post_forbidden")).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -77,6 +84,8 @@ async fn test_graphql_post_forbidden() {
         resp.body(),
         r#"{"code":403,"message":"Session token doesn't mach any user."}"#
     );
+
+    cleanup_test_database("abacus_test_graphql_post_forbidden").await;
 }
 
 #[ignore]
@@ -90,7 +99,7 @@ async fn test_graphql_post_query_fail() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(Some("test_graphql_post_query_fail")).await)
+        .reply(&create_graphql_api_filter(Some("abacus_test_graphql_post_query_fail")).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -98,6 +107,8 @@ async fn test_graphql_post_query_fail() {
         resp.body(),
         r#"{"errors":[{"message":"Unknown field \"__wtf\" on type \"Query\"","locations":[{"line":1,"column":7}]}]}"#
     );
+
+    cleanup_test_database("abacus_test_graphql_post_query_fail").await;
 }
 
 #[tokio::test]
@@ -202,7 +213,7 @@ async fn test_graphql_multipart_forbidden() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(Some("test_graphql_multipart_forbidden")).await)
+        .reply(&create_graphql_api_filter(Some("abacus_test_graphql_multipart_forbidden")).await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -210,6 +221,8 @@ async fn test_graphql_multipart_forbidden() {
         resp.body(),
         r#"{"code":403,"message":"Session token doesn't mach any user."}"#
     );
+
+    cleanup_test_database("abacus_test_graphql_multipart_forbidden").await;
 }
 
 #[tokio::test]
