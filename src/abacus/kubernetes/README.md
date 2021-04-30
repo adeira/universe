@@ -39,36 +39,6 @@ Dashboard: [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/service
 
 Creating a user: [https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
-# Abacus Docker image
-
-Executed from `src/abacus` context:
-
-```bash
-# docker build --tag mrtnzlml/abacus --file Dockerfile .
-# docker push
-
-(cd src/abacus && docker build --tag mrtnzlml/abacus --file Dockerfile .)
-```
-
-Running the image directly:
-
-```bash
-docker run \
-  --memory=64m \
-  --cpus=0.1 \
-  -p 5000:5000 \
-  -d \
-  --name=abacus \
-  abacus
-```
-
-Publishing the image:
-
-```bash
-docker image ls
-docker image push mrtnzlml/abacus:latest
-```
-
 # Troubleshooting
 
 Problem: `kubectl get pods` returns many `Evicted` pods and `kubectl describe pod <name>` returns message `The node had condition: [DiskPressure]`.
