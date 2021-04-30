@@ -134,5 +134,6 @@ analyzers.remove('bigram');
 ✅ 007 - DB migrations
 🚧 008 - queries whitelisting (persistent queries)
 🚧 009 - explore WASM on server instead of Docker (https://github.com/deislabs/krustlet)
-🚧 010 - ArangoDB database backups (k8s)
+🚧 010 - ArangoDB database backups and restores (k8s)
+🚧 011 - development k8s cluster + Telepresence (https://www.getambassador.io/docs/telepresence/latest/howtos/intercepts/)
 ```

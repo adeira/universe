@@ -1,3 +1,4 @@
+# https://www.arangodb.com/docs/stable/deployment-kubernetes-deployment-resource.html
 apiVersion: 'database.arangodb.com/v1alpha'
 kind: 'ArangoDeployment'
 metadata:
@@ -9,28 +10,19 @@ spec:
     caSecretName: None # TODO
   auth:
     jwtSecretName: None # TODO
+  externalAccess:
+    type: None
   single:
-    storageClassName: my-local-ssd
-    overrideDetectedTotalMemory: True
+    storageClassName: do-block-storage # DigitalOcean Block Storage
     resources:
       requests:
         cpu: 1
         memory: 512M
+        storage: 1Gi
       limits:
         cpu: 2
         memory: 1024M
-
----
-apiVersion: 'storage.arangodb.com/v1alpha'
-kind: 'ArangoLocalStorage'
-metadata:
-  name: 'arangodb-single-server-storage'
-spec:
-  storageClass:
-    name: my-local-ssd
-    isDefault: true
-  localPath:
-    - /Users/martinzlamal/Desktop/arango-storage # TODO
+        storage: 1Gi
 
 ---
 apiVersion: 'batch/v1beta1'
@@ -47,7 +39,7 @@ spec:
   #          │ │ │ │ │
   #          │ │ │ │ │
   schedule: '*/5 * * * *' # every 5 minutes
-  #schedule: '0 * * * *' # equivalent to `@hourly`
+  #schedule: '0 * * * *' # equivalent to `@hourly` # TODO
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -59,10 +51,10 @@ spec:
               image: 'arangodb/arangodb:3.7.9'
               args:
                 - 'arangodump'
-                # https://<deployment-name>.<namespace>.svc:8529
+                # https://<deployment-name>.<namespace>.svc.cluster.local:8529
                 - '--server.endpoint=tcp://arangodb-single-server.default.svc.cluster.local:8529' # TODO: ssl://…
-                #- '--server.username=$(username)'
-                #- '--server.password=$(password)'
+                #- '--server.username=$(username)' # TODO
+                #- '--server.password=$(password)' # TODO
                 - '--server.authentication=false'
                 - '--server.database=abacus'
                 - '--output-directory=/tmp/dump'
@@ -74,8 +66,21 @@ spec:
             - name: db-dump-upload
               image: amazon/aws-cli:2.1.29
               command: ['/bin/sh', '-c']
-              args: ['aws --help']
-              #args: ['aws s3 sync /tmp/dump s3://bucket/$(date -I)']
+              args:
+                [
+                  'aws s3 sync /tmp/dump s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/$(date "+%Y-%m-%dT%H:%M:%S")',
+                ]
+              env:
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-aws-secret
+                      key: AWS_ACCESS_KEY_ID
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: abacus-aws-secret
+                      key: AWS_SECRET_ACCESS_KEY
               volumeMounts:
                 - name: dump
                   mountPath: /tmp/dump
@@ -120,5 +125,16 @@ spec:
           image: mrtnzlml/abacus
           ports:
             - containerPort: 5000
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-aws-secret
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-aws-secret
+                  key: AWS_SECRET_ACCESS_KEY
           args:
             - '--arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529' # TODO: https://…

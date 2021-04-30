@@ -5,7 +5,11 @@
 - https://www.arangodb.com/docs/stable/deployment-kubernetes.html
 - https://www.arangodb.com/docs/stable/tutorials-kubernetes.html
 
+The main Kubernetes cluster runs on DigitalOcean, see: https://cloud.digitalocean.com/kubernetes/clusters
+
 # Deploying
+
+First, make sure you are in the correct DigitalOcean/local context (`kubectl config get-contexts`).
 
 ```bash
 (cd src/abacus/kubernetes && kubectl apply -f third_party/arangodb/)
@@ -20,7 +24,7 @@
 - https://github.com/zegl/kube-score
 
 ```bash
-docker run -v $(pwd):/project zegl/kube-score:v1.10.0 score src/abacus/kubernetes/abacus.yaml
+docker run -v $(pwd):/project zegl/kube-score:v1.11.0 score src/abacus/kubernetes/abacus.yaml
 ```
 
 # Kubernetes dashboard (development only)
@@ -91,4 +95,29 @@ Delete evicted/failed pods:
 ```bash
 kubectl get pods --field-selector=status.phase=Failed
 kubectl delete pods --field-selector=status.phase=Failed
+```
+
+# Creating necessary secrets
+
+- https://kubernetes.io/docs/concepts/configuration/secret/
+- https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/
+
+```bash
+kubectl create secret generic abacus-aws-secret
+```
+
+```bash
+echo -n 'supersecret' | base64
+```
+
+```bash
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Secret
+metadata:
+  name: abacus-aws-secret
+data:
+  AWS_ACCESS_KEY_ID: supersecretbase64
+  AWS_SECRET_ACCESS_KEY: supersecretbase64
+EOF
 ```
