@@ -122,7 +122,7 @@ spec:
     spec:
       containers:
         - name: abacus
-          image: mrtnzlml/abacus
+          image: adeira/abacus
           ports:
             - containerPort: 5000
           env:
