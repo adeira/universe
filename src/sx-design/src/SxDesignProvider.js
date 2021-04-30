@@ -6,12 +6,11 @@ import sx from '@adeira/sx';
 
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
-import type { SupportedLocales, SupportedDirections, SupportedThemes } from './constants';
+import type { SupportedLocales, SupportedThemes } from './constants';
 
 type Props = {
   +children: Node,
   +locale?: SupportedLocales,
-  +direction?: SupportedDirections,
   +theme?: SupportedThemes,
 };
 
