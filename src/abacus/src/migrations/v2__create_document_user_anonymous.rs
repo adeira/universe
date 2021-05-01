@@ -14,7 +14,7 @@ impl ArangoDocument for User {
 }
 
 pub async fn migrate(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
 ) -> Result<(), ClientError> {
     let collection_name = "users";
     create_document(

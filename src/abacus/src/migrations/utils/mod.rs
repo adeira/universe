@@ -14,7 +14,7 @@ pub(in crate::migrations) trait ArangoDocument {
 }
 
 pub(in crate::migrations) async fn create_collection(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     collection_name: &str,
     collection_type: &CollectionType,
     json_schema: &Option<serde_json::Value>,
@@ -50,7 +50,7 @@ pub(in crate::migrations) async fn create_collection(
 }
 
 pub(in crate::migrations) async fn create_document<T>(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     collection_name: &str,
     document: T,
 ) -> Result<(), ClientError>
@@ -78,7 +78,7 @@ where
 }
 
 pub(in crate::migrations) async fn create_index(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     collection_name: &str,
     index: &Index,
 ) -> Result<(), ClientError> {
@@ -89,7 +89,7 @@ pub(in crate::migrations) async fn create_index(
 }
 
 pub(in crate::migrations) async fn create_graph(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     graph: Graph,
 ) -> Result<(), ClientError> {
     match db.graph(&*graph.name).await {
@@ -108,7 +108,7 @@ pub(in crate::migrations) async fn create_graph(
 }
 
 pub(in crate::migrations) async fn create_view(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     view_name: &str,
     view: ViewOptions,
 ) -> Result<(), ClientError> {

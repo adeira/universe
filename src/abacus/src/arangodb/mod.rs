@@ -12,7 +12,7 @@ pub struct ConnectionPool {
     db_name: String,
 }
 
-type Database = arangors::Database<arangors::client::reqwest::ReqwestClient>;
+type Database = arangors::Database<uclient::reqwest::ReqwestClient>;
 
 impl ConnectionPool {
     pub async fn db(&self) -> Database {

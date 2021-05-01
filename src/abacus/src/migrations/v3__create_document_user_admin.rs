@@ -32,7 +32,7 @@ impl ArangoDocument for User {
 }
 
 pub async fn migrate(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
 ) -> Result<(), ClientError> {
     let user_google_claims = UserGoogleClaims {
         iss: String::from("https://accounts.google.com"),
