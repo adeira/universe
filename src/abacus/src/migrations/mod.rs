@@ -30,7 +30,7 @@ pub async fn migrate(pool: &ConnectionPool) {
     // https://users.rust-lang.org/t/how-to-handle-a-vector-of-async-function-pointers/39804
     // https://users.rust-lang.org/t/how-to-store-async-functions-in-a-vector/51630
     type MigrationFunction = fn(
-        &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+        &arangors::Database<uclient::reqwest::ReqwestClient>,
     ) -> BoxFuture<'_, Result<(), ClientError>>;
 
     // TODO: hide behind some macro (?)

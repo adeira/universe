@@ -16,7 +16,7 @@ impl ArangoDocument for ProductUnit {
 }
 
 pub async fn migrate(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
 ) -> Result<(), ClientError> {
     create_collection(
         &db,

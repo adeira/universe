@@ -6,7 +6,7 @@ use arangors::ClientError;
 use std::collections::HashMap;
 
 pub async fn migrate(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
 ) -> Result<(), ClientError> {
     db.create_analyzer(AnalyzerInfo::Ngram {
         name: String::from("bigram"),
