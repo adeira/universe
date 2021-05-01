@@ -47,20 +47,21 @@ dependencies = [
 
 [[package]]
 name = "arangors"
-version = "0.4.7"
-source = "git+https://github.com/mrtnzlml/arangors?branch=master-fork#89ac9ac81bca511c354c8010b8f5f49201aa6403"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d2f8b029bc3c87c9f5b6c98e825f5856740f8874536670e7066144d8a59107fe"
 dependencies = [
  "async-trait",
  "base64 0.13.0",
  "http",
  "log",
  "maybe-async",
- "reqwest",
  "serde",
  "serde_json",
  "serde_qs",
  "thiserror",
  "typed-builder",
+ "uclient",
  "url",
 ]
 
@@ -2400,6 +2401,7 @@ dependencies = [
  "tokio",
  "tracing",
  "tracing-subscriber",
+ "uclient",
  "uuid",
  "valico",
  "warp",
@@ -2956,6 +2958,20 @@ name = "typenum"
 version = "1.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "373c8a200f9e67a0c95e62a4f52fbf80c23b4381c05a17845531982fa99e6b33"
+
+[[package]]
+name = "uclient"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1442e28ce391d5bcdad322d80d4100641c38b918ed95ac3e09f4196f89d03842"
+dependencies = [
+ "async-trait",
+ "http",
+ "maybe-async",
+ "reqwest",
+ "thiserror",
+ "url",
+]
 
 [[package]]
 name = "unicase"

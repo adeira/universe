@@ -5,7 +5,7 @@ use arangors::index::{Index, IndexSettings};
 use arangors::ClientError;
 
 pub async fn migrate(
-    db: &arangors::Database<arangors::client::reqwest::ReqwestClient>,
+    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
 ) -> Result<(), ClientError> {
     // 1. create `users` table
     create_collection(
