@@ -39,36 +39,6 @@ Dashboard: [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/service
 
 Creating a user: [https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
 
-# Abacus Docker image
-
-Executed from `src/abacus` context:
-
-```bash
-# docker build --tag mrtnzlml/abacus --file Dockerfile .
-# docker push
-
-(cd src/abacus && docker build --tag mrtnzlml/abacus --file Dockerfile .)
-```
-
-Running the image directly:
-
-```bash
-docker run \
-  --memory=64m \
-  --cpus=0.1 \
-  -p 5000:5000 \
-  -d \
-  --name=abacus \
-  abacus
-```
-
-Publishing the image:
-
-```bash
-docker image ls
-docker image push mrtnzlml/abacus:latest
-```
-
 # Troubleshooting
 
 Problem: `kubectl get pods` returns many `Evicted` pods and `kubectl describe pod <name>` returns message `The node had condition: [DiskPressure]`.
@@ -120,4 +90,24 @@ data:
   AWS_ACCESS_KEY_ID: supersecretbase64
   AWS_SECRET_ACCESS_KEY: supersecretbase64
 EOF
+```
+
+# Database backups
+
+Automatic database backups are performed periodically **every hour** and stored into _versioned_ S3 bucket. Format of the backups in S3 is `YYYY-MM-DD` and the following S3 lifecycle rules are applied:
+
+TODO (fix the times in S3)
+
+- Expire _current_ versions of objects after 30 days
+- Permanently delete _previous_ versions of objects after 7 days
+- Delete incomplete multipart uploads after 1 day
+
+## Restoring backups
+
+TODO (currently doesn't work)
+
+```bash
+kubectl delete job arangodb-single-server-restore
+
+(cd src/abacus/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)
 ```

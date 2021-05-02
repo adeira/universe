@@ -1,8 +1,3 @@
-##
-## docker build --tag abacus --file Dockerfile .
-##
-
-
 FROM rust:1.51.0 AS builder
 # Let's switch our working directory to `app` (equivalent to `cd app`)
 # The `app` folder will be created for us by Docker in case it does not
