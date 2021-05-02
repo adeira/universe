@@ -28,18 +28,6 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 docker run -v $(pwd):/project zegl/kube-score:v1.11.0 score src/abacus/kubernetes/abacus.yaml
 ```
 
-# Kubernetes dashboard (development only)
-
-- https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-
-```bash
-kubectl proxy
-```
-
-Dashboard: [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/)
-
-Creating a user: [https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md)
-
 # Troubleshooting
 
 Problem: `kubectl get pods` returns many `Evicted` pods and `kubectl describe pod <name>` returns message `The node had condition: [DiskPressure]`.
