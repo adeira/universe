@@ -91,3 +91,23 @@ data:
   AWS_SECRET_ACCESS_KEY: supersecretbase64
 EOF
 ```
+
+# Database backups
+
+Automatic database backups are performed periodically **every hour** and stored into _versioned_ S3 bucket. Format of the backups in S3 is `YYYY-MM-DD` and the following S3 lifecycle rules are applied:
+
+TODO (fix the times in S3)
+
+- Expire _current_ versions of objects after 30 days
+- Permanently delete _previous_ versions of objects after 7 days
+- Delete incomplete multipart uploads after 1 day
+
+## Restoring backups
+
+TODO (currently doesn't work)
+
+```bash
+kubectl delete job arangodb-single-server-restore
+
+(cd src/abacus/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)
+```

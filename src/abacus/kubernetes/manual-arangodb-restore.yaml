@@ -1,0 +1,47 @@
+# TODO
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: 'arangodb-single-server-restore'
+spec:
+  template:
+    spec:
+      initContainers:
+        - name: dump-download
+          image: amazon/aws-cli:2.1.29
+          imagePullPolicy: Always
+          # TODO: how to parametrize the following command to restore what we actually want (?)
+          args:
+            - 'aws s3 sync s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/2021-05-01 /tmp/dump'
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-aws-secret
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-aws-secret
+                  key: AWS_SECRET_ACCESS_KEY
+          volumeMounts:
+            - name: dump
+              mountPath: /tmp/dump
+      containers:
+        - name: arangorestore
+          image: 'arangodb/arangodb:3.7.9'
+          imagePullPolicy: Always
+          args:
+            - 'arangorestore'
+            # https://<deployment-name>.<namespace>.svc.cluster.local:8529
+            - '--server.endpoint=tcp://arangodb-single-server.default.svc.cluster.local:8529' # TODO: ssl://…
+            #- '--server.username=$(username)' # TODO
+            #- '--server.password=$(password)' # TODO
+            - '--server.authentication=false'
+            - '--server.database=abacus'
+            - '--input-directory=/tmp/dump'
+      restartPolicy: Never
+      volumes:
+        - name: dump
+          emptyDir: {}

@@ -1,5 +1,7 @@
 # 🧮 ABACUS - Rust Backend
 
+**🚧 WORK in PROGRESS 🚧**
+
 This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp)), exposes GraphQL API (via [Juniper](https://github.com/graphql-rust/juniper)) and works with [ArangoDB](https://github.com/arangodb/arangodb) database behind the scenes.
 
 - Rust: https://www.rust-lang.org/learn
@@ -9,7 +11,23 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
   - https://www.arangodb.com/docs/stable/data-modeling-documents-schema-validation.html
   - JSON Schema validator: https://www.jsonschemavalidator.net/
 
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg)](https://www.digitalocean.com/?refcode=2c8353da1463&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
 ## Install and run
+
+**🚧 WORK in PROGRESS 🚧**
+
+We use [Telepresence](https://www.getambassador.io/docs/telepresence/latest/howtos/intercepts/) for the local development:
+
+**Note: there is currently no K8S cluster for development. Production only. 💸**
+
+```bash
+telepresence connect
+telepresence list
+telepresence intercept abacus-deployment --port=5000:80 --env-file=./src/abacus/abacus-service-intercept.env
+```
+
+You can now start the service locally, rest of the application will run in the remote Kubernetes cluster:
 
 ```text
 (cd src/abacus && cargo run --bin server)
@@ -17,22 +35,16 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
 (cd src/abacus && cargo doc --open --no-deps)
 ```
 
-The server will be accessible on: http://0.0.0.0:5000/graphql (use https://insomnia.rest/graphql/)
+The server will be accessible on: http://64.225.89.7:32123/graphql (or http://0.0.0.0:5000/graphql). It's recommended to use Insomnia to send request to the GraphQL API: https://insomnia.rest/graphql/
 
-Required ENV variables:
+TKTK - env variables
 
-```text
-AWS_ACCESS_KEY_ID       - S3 rusoto
-AWS_SECRET_ACCESS_KEY   - S3 rusoto
+The database will be available on: http://arangodb-single-server.default.svc.cluster.local:8529 (when connected via `telepresence connect`). User `abacus`, no password.
+
+```bash
+telepresence leave abacus-deployment
+telepresence quit
 ```
-
-Start the database (TODO - prefer k8s version):
-
-```text
-brew services start arangodb
-```
-
-The database will be available on: http://127.0.0.1:8529/ (user `abacus`, no password)
 
 ## Testing
 
@@ -56,21 +68,6 @@ Database migrations are currently being run automatically during the server star
 
 - https://www.arangodb.com/
 - https://hub.docker.com/r/arangodb/arangodb/
-
-```bash
-# DEVELOPMENT ONLY!
-
-docker run \
-  --memory=512m \
-  --cpus=1 \
-  -e ARANGODB_OVERRIDE_DETECTED_TOTAL_MEMORY=512m \
-  -e ARANGODB_OVERRIDE_DETECTED_NUMBER_OF_CORES=1 \
-  -e ARANGO_NO_AUTH=1 \
-  -p 8529:8529 \
-  -d \
-  --name=arangodb-instance \
-  arangodb
-```
 
 Why ArangoDB? At the time of writing, it was essentially the most promising multi-model open-source DB (with graph support) out there. Source: https://db-engines.com/en/ranking/graph+dbms
 
@@ -135,5 +132,5 @@ analyzers.remove('bigram');
 🚧 008 - queries whitelisting (persistent queries)
 🚧 009 - explore WASM on server instead of Docker (https://github.com/deislabs/krustlet)
 🚧 010 - ArangoDB database backups and restores (k8s)
-🚧 011 - development k8s cluster + Telepresence (https://www.getambassador.io/docs/telepresence/latest/howtos/intercepts/)
+🚧 011 - development k8s cluster + Telepresence
 ```
