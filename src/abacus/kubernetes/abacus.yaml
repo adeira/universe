@@ -17,17 +17,18 @@ spec:
     resources:
       requests:
         cpu: 1
-        memory: 512M
+        memory: 512Mi
         storage: 1Gi
       limits:
         cpu: 2
-        memory: 1024M
+        memory: 1024Mi
         storage: 1Gi
 
 ---
 apiVersion: 'batch/v1beta1'
 kind: 'CronJob'
 metadata:
+  # See also `arangodb-single-server-restore`
   name: 'arangodb-single-server-backup'
 spec:
   #          ┌───────────── minute (0 - 59)
@@ -38,9 +39,10 @@ spec:
   #          │ │ │ │ │                                   7 is also Sunday on some systems)
   #          │ │ │ │ │
   #          │ │ │ │ │
-  schedule: '*/5 * * * *' # every 5 minutes
-  #schedule: '0 * * * *' # equivalent to `@hourly` # TODO
+  schedule: '0 * * * *' # equivalent to `@hourly`
   concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 3
   jobTemplate:
     spec:
       template:
@@ -49,6 +51,7 @@ spec:
           initContainers:
             - name: dump-create
               image: 'arangodb/arangodb:3.7.9'
+              imagePullPolicy: Always
               args:
                 - 'arangodump'
                 # https://<deployment-name>.<namespace>.svc.cluster.local:8529
@@ -63,13 +66,12 @@ spec:
                 - name: dump
                   mountPath: /tmp/dump
           containers:
-            - name: db-dump-upload
+            - name: dump-upload
               image: amazon/aws-cli:2.1.29
+              imagePullPolicy: Always
               command: ['/bin/sh', '-c']
               args:
-                [
-                  'aws s3 sync /tmp/dump s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/$(date "+%Y-%m-%dT%H:%M:%S")',
-                ]
+                - 'aws s3 sync /tmp/dump s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/$(date "+%Y-%m-%d")'
               env:
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
@@ -94,13 +96,21 @@ kind: Service
 metadata:
   name: abacus-service
 spec:
-  type: LoadBalancer
+  # This exposes the service via <NodeIp>:<NodePort>
+  #  NodeId:   `kubectl get nodes --output=wide` (EXTERNAL-IP), example: "143.198.99.129"
+  #  NodePort: `kubectl get services` (PORT), example: "32123"
+  # Node IP: http://143.198.99.129:32123/graphql
+  # DigitalOcean Floating IP: http://64.225.89.7:32123/graphql
+  type: NodePort # TODO: LOadBalancer once we are bigger
   selector:
     app: abacus
   ports:
-    - protocol: TCP
+    # TODO: https (443)
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 5000
+      nodePort: 32123
 
 ---
 apiVersion: apps/v1
@@ -123,6 +133,14 @@ spec:
       containers:
         - name: abacus
           image: adeira/abacus
+          # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
+          resources:
+            requests:
+              cpu: 0.1
+              memory: 128Mi
+            limits:
+              cpu: 1
+              memory: 256Mi
           ports:
             - containerPort: 5000
           env:
