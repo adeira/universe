@@ -1,6 +1,6 @@
 // @flow
 
-import { Heading } from '@adeira/sx-design';
+import { Heading, Note } from '@adeira/sx-design';
 import fbt from 'fbt';
 import * as React from 'react';
 
@@ -19,7 +19,7 @@ export default function EmployeesPageLayout(): React.Node {
         }
       />
 
-      <pre>TODO (view employees, change permissions)</pre>
+      <Note tint="warning">work in progress (view employees, change permissions)</Note>
 
       <EmployeesPage />
     </Layout>

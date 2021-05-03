@@ -1,6 +1,6 @@
 // @flow
 
-import { Heading } from '@adeira/sx-design';
+import { Heading, Note } from '@adeira/sx-design';
 import fbt from 'fbt';
 import * as React from 'react';
 
@@ -18,7 +18,7 @@ export default function LedgerPageLayout(): React.Node {
         }
       />
 
-      <pre>TODO</pre>
+      <Note tint="warning">work in progress</Note>
     </Layout>
   );
 }
