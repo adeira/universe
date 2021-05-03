@@ -7,9 +7,9 @@ import { Heading } from '@adeira/sx-design';
 import KochkaIcon from './design/svg/KochkaIcon';
 
 type Props = {
-  +color?: string,
   +horizontal?: boolean,
   +size?: 'small' | 'large',
+  +onWhiteBackground?: boolean,
 };
 
 export default function Logo(props: Props): React.Node {
@@ -17,7 +17,7 @@ export default function Logo(props: Props): React.Node {
   const isSmall = props.size === 'small';
   return (
     <div className={styles('logoWrapper', isHorizontal && 'logoWrapperHorizontal')}>
-      <KochkaIcon size={isSmall ? 50 : 150} color={props.color} />
+      <KochkaIcon size={isSmall ? 100 : 200} onWhiteBackground={props.onWhiteBackground} />
 
       <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
         <Heading xstyle={isSmall ? styles.kochkaSmall : styles.kochka}>
@@ -42,6 +42,7 @@ const styles = sx.create({
     flexDirection: 'row',
   },
   heading: {
+    'marginTop': '2rem',
     'fontFamily': 'GidoleKochka',
     '--sx-foreground': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
@@ -51,8 +52,11 @@ const styles = sx.create({
   // FIXME:
   // eslint-disable-next-line sx/no-unused-stylesheet
   kochka: {
-    fontSize: 60,
-    letterSpacing: '.8rem',
+    letterSpacing: '0.05em',
+    fontSize: '100px',
+    lineHeight: '113px',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -60,17 +64,25 @@ const styles = sx.create({
   // FIXME:
   // eslint-disable-next-line sx/no-unused-stylesheet
   kochkaSmall: {
-    fontSize: 20,
-    letterSpacing: '.8rem',
+    fontSize: '25px',
+    letterSpacing: '0.05em',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   cafe: {
-    fontSize: 25,
-    letterSpacing: '.4rem',
+    letterSpacing: '1.3em',
+    fontSize: '25px',
+    lineHeight: '28px',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
   },
   cafeSmall: {
-    fontSize: 10,
+    letterSpacing: '1.3em',
+    fontSize: '7px',
+    fontStyle: 'normal',
+    fontWeight: 'normal',
   },
 });

@@ -65,6 +65,14 @@ export default function ShopLayoutContent(): React.Node {
         );
       }}
       onResponse={({ commerce: { products } }) => {
+        if (products.length === 0) {
+          return (
+            <Note tint="warning">
+              <fbt desc="empty shop message">There are no products yet.</fbt>
+            </Note>
+          );
+        }
+
         return (
           <div className={styles('productsGrid')}>
             {products.map((product) => {

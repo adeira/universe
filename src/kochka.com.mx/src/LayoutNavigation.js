@@ -15,11 +15,12 @@ export default function LayoutNavigation(): React.Node {
 
   return (
     <nav className={styles('navigation')}>
-      <div>
+      <div className={styles('navigationSection')}>
+        <span className={styles('navigationIcon')}>
+          <KochkaIcon size={80} />
+        </span>
+
         <LinkInternal href="/" xstyle={styles.link}>
-          <span className={styles('linkHomepageIcon')}>
-            <KochkaIcon size={20} />
-          </span>
           <fbt desc="subpage navigation link to homepage">Home</fbt>
         </LinkInternal>
 
@@ -44,10 +45,10 @@ export default function LayoutNavigation(): React.Node {
         )}
       </div>
 
-      <div>
+      <div className={styles('navigationSection')}>
         {pageShopEnabled === true && (
           <LinkInternal href="/cart">
-            <Cart size={20} />
+            <Cart size={25} />
           </LinkInternal>
         )}
       </div>
@@ -58,23 +59,24 @@ export default function LayoutNavigation(): React.Node {
 const styles = sx.create({
   navigation: {
     backgroundColor: 'rgba(var(--main-bg-color-dark))',
-    padding: '1.5rem',
     display: 'flex',
     justifyContent: 'space-between',
     position: 'sticky',
     top: 0,
     zIndex: 1,
+    height: '75px',
+  },
+  navigationSection: {
+    display: 'flex',
+    alignItems: 'center',
   },
   link: {
     color: 'rgba(var(--font-color-light))',
     fontSize: 20,
     marginRight: 20,
   },
-  linkHomepageIcon: {
-    display: 'inline-block',
-    height: '1em',
-    width: '1em',
-    margin: '0 .5em 0 0',
-    verticalAlign: '-0.1em',
+  navigationIcon: {
+    marginLeft: '1rem',
+    marginRight: '1rem',
   },
 });
