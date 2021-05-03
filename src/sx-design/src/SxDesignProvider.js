@@ -1,22 +1,40 @@
 // @flow
 
-import React, { useMemo, type Node } from 'react';
+import React, { useMemo, type Node, useEffect, useState } from 'react';
 import { init as fbtInit, IntlVariations } from 'fbt';
 import sx from '@adeira/sx';
 
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
-import type { SupportedLocales, SupportedThemes } from './constants';
+import type { SupportedLocales } from './constants';
 
 type Props = {
   +children: Node,
   +locale?: SupportedLocales,
-  +theme?: SupportedThemes,
+  +theme?: 'light' | 'dark' | 'system',
 };
 
 export default function SxDesignProvider(props: Props): Node {
+  const [actualSystemColor, setActualSystemColor] = useState(() => {
+    return typeof window === 'object' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  });
+
   const locale = props.locale ?? 'en-US';
   const theme = props.theme ?? 'light';
+
+  useEffect(() => {
+    if (typeof window === 'object' && window.matchMedia) {
+      const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+      const eventListener = (event) => setActualSystemColor(event.matches ? 'dark' : 'light');
+      mediaQueryList.addEventListener('change', eventListener);
+      return () => mediaQueryList.removeEventListener('change', eventListener);
+    }
+    return () => {};
+  }, []);
 
   // TODO: support translations lazy loading
   const supportedLocales = {
@@ -49,9 +67,11 @@ export default function SxDesignProvider(props: Props): Node {
     () => ({
       locale,
       direction,
-      theme,
+      // Here we exchange "system" value for the actual theme because underlying components need to
+      // know only whether we are rendering "light" or "dark".
+      theme: theme === 'system' ? actualSystemColor : theme,
     }),
-    [locale, direction, theme],
+    [locale, direction, theme, actualSystemColor],
   );
 
   return (
