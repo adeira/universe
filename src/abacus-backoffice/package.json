@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@adeira/js": "^2.1.0",
-    "@adeira/relay": "^3.2.3",
+    "@adeira/relay": "^3.2.4",
     "@adeira/sx": "^0.25.0",
     "@adeira/sx-design": "^0.10.0",
     "fbt": "^0.16.5",

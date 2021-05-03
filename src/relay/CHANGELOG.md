@@ -1,5 +1,9 @@
 # Unreleased
 
+# 3.2.4
+
+- Removed experimental bin `adeira-relay-compiler-experimental` because it was causing issues when installing `@adeira/relay` via NPM (see https://github.com/adeira/universe/issues/2328). If you want to use the new Relay Rust Compiler please install it directly via `relay-compiler-experimental` (https://www.npmjs.com/package/relay-compiler-experimental).
+
 # 3.2.3
 
 Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
