@@ -45,5 +45,3 @@ export type SupportedLocales =
 // See: https://rtlstyling.com/
 // See: https://material.io/design/usability/bidirectionality.html
 export type SupportedDirections = 'ltr' | 'rtl';
-
-export type SupportedThemes = 'light' | 'dark' | 'system';

@@ -2,12 +2,12 @@
 
 import React, { type Context } from 'react';
 
-import type { SupportedLocales, SupportedDirections, SupportedThemes } from './constants';
+import type { SupportedLocales, SupportedDirections } from './constants';
 
 export type SxDesignContextValue = {
   +locale: SupportedLocales,
   +direction: SupportedDirections,
-  +theme: SupportedThemes,
+  +theme: 'light' | 'dark', // no "system" (!)
 };
 
 export default (React.createContext(
