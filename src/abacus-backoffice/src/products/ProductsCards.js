@@ -1,7 +1,9 @@
 // @flow
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import { ProductCard } from '@adeira/sx-design';
+import sx from '@adeira/sx';
+import { Note, ProductCard } from '@adeira/sx-design';
+import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 
 import Link from '../Link';
@@ -28,25 +30,43 @@ export default function ProductsCards(): Node {
     }
   `);
 
-  return (
-    data.commerce.products?.map((product) => {
-      if (product == null) {
-        return null; // TODO: 🤔
-      }
+  if (data.commerce.products?.length === 0) {
+    return (
+      <Note tint="warning">
+        <fbt desc="empty shop message">There are no products yet.</fbt>
+      </Note>
+    );
+  }
 
-      return (
-        <Link key={product.id} href={`/products/edit/${product.key}`}>
-          <ProductCard
-            title={product.name}
-            priceUnitAmount={product.price.unitAmount / 100}
-            /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
-             * Relay Hooks. To see the error delete this comment and run Flow. */
-            priceUnitAmountCurrency={product.price.unitAmountCurrency}
-            imgBlurhash={product.imageCover?.blurhash}
-            imgSrc={product.imageCover?.url}
-          />
-        </Link>
-      );
-    }) ?? null
+  return (
+    <div className={styles('productsGrid')}>
+      {data.commerce.products?.map((product) => {
+        if (product == null) {
+          return null; // TODO: 🤔
+        }
+
+        return (
+          <Link key={product.id} href={`/products/edit/${product.key}`}>
+            <ProductCard
+              title={product.name}
+              priceUnitAmount={product.price.unitAmount / 100}
+              /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
+               * Relay Hooks. To see the error delete this comment and run Flow. */
+              priceUnitAmountCurrency={product.price.unitAmountCurrency}
+              imgBlurhash={product.imageCover?.blurhash}
+              imgSrc={product.imageCover?.url}
+            />
+          </Link>
+        );
+      }) ?? null}
+    </div>
   );
 }
+
+const styles = sx.create({
+  productsGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gap: '1rem',
+  },
+});

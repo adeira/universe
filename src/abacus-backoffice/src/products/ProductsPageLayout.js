@@ -26,15 +26,17 @@ export default function ProductsPageLayout(): Node {
         </LayoutHeadingLink>
       </LayoutHeading>
 
-      <div className={styles('productsGrid')}>
-        <React.Suspense
-          fallback={rangeMap(12, (i) => (
-            <Skeleton key={i} />
-          ))}
-        >
-          <ProductsCards />
-        </React.Suspense>
-      </div>
+      <React.Suspense
+        fallback={
+          <div className={styles('productsGrid')}>
+            {rangeMap(12, (i) => (
+              <Skeleton key={i} />
+            ))}
+          </div>
+        }
+      >
+        <ProductsCards />
+      </React.Suspense>
     </Layout>
   );
 }
