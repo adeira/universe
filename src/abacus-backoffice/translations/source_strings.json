@@ -758,6 +758,20 @@
   },
   {
    "hashToText": {
+    "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
+   },
+   "filepath": "src/products/ProductsCards.js",
+   "line_beg": 36,
+   "col_beg": 8,
+   "line_end": 36,
+   "col_end": 71,
+   "desc": "empty shop message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "There are no products yet."
+  },
+  {
+   "hashToText": {
     "0BsTiPapD1k7SKNIyzq9Og==": "Products inventory"
    },
    "filepath": "src/products/ProductsPageLayout.js",
