@@ -18,7 +18,7 @@ import initTranslations from '../translations/init';
 export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node {
   const router = useRouter();
   // $FlowIssue[prop-missing] prop missing in flow-typed types
-  initTranslations(router.locale);
+  const locale = initTranslations(router.locale);
 
   const [hasMounted, setHasMounted] = useState(false);
   const { sessionToken } = useSessionTokenAPI();
@@ -51,10 +51,7 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
   });
 
   return (
-    <SxDesignProvider
-      locale="en-US" // TODO
-      theme="system"
-    >
+    <SxDesignProvider locale={locale} theme="system">
       <ErrorBoundary>
         <RelayEnvironmentProvider environment={relayEnvironment}>
           <RecoilRoot>{children}</RecoilRoot>

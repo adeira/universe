@@ -1,7 +1,6 @@
 // @flow
 
 import * as React from 'react';
-import App from 'next/app';
 import fbt from 'fbt';
 import Head from 'next/head';
 import ReactDOM from 'react-dom';
@@ -30,10 +29,9 @@ type Props = {
   +pageProps: any,
 };
 
-function MyApp({ Component, pageProps }: Props): React.Node {
+export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
-  /* $FlowFixMe[prop-missing] This comment suppresses an error when migrating
-   * to adeira/universe. To see the error delete this comment and run Flow. */
+  // $FlowFixMe[prop-missing]: `locale` is missing in `flow-typed` definitions
   const languageTag = initFbtTranslations(router.locale);
 
   const isProduction = __DEV__ === false;
@@ -117,16 +115,3 @@ const styles = sx.create({
     fontStyle: 'italic',
   },
 });
-
-// TODO: remove:
-//
-// This disables the ability to perform automatic static optimization, causing every page in
-// the app to be server-side rendered (needed for the translations to be properly loaded).
-//
-MyApp.getInitialProps = async (appContext: $FlowFixMe): $FlowFixMe => {
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(appContext);
-  return { ...appProps };
-};
-
-export default MyApp;

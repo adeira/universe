@@ -2,10 +2,13 @@
 
 import { IntlVariations, init as fbtInit } from 'fbt';
 
-export default function initTranslations(locale: 'en-us' | 'es-mx'): void {
+export default function initTranslations(nextjsLocale: 'en-us' | 'es-mx'): 'en-US' | 'es-MX' {
+  // TODO: do this Next.js -> FBT conversion better once needed
+  const locale = nextjsLocale === 'es-mx' ? 'es-MX' : 'en-US';
+
   const supportedLocales = {
-    'en-us': require('./out/en-US.json'),
-    'es-mx': require('./out/es-MX.json'),
+    'en-US': require('./out/en-US.json'),
+    'es-MX': require('./out/es-MX.json'),
   };
 
   fbtInit({
@@ -17,4 +20,6 @@ export default function initTranslations(locale: 'en-us' | 'es-mx'): void {
       }),
     },
   });
+
+  return locale;
 }

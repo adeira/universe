@@ -8,8 +8,8 @@ export default function initFbtTranslations(lang: ?string): LanguageTagType {
   const languageTag = LanguageTag.detectLanguageTag(lang);
   const locale = languageTag.bcp47;
 
+  // TODO: support translations lazy loading
   const supportedLocales = {
-    // TODO: support translations lazy loading
     'en-US': require('./out/en-US.json'), // empty stub
     'es-MX': require('./out/es-MX.json'),
   };
