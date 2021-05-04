@@ -1,9 +1,10 @@
 // @flow
 
-import React, { useMemo, type Node, useEffect, useState } from 'react';
-import { init as fbtInit, IntlVariations } from 'fbt';
+import React, { useMemo, useEffect, useState, type Node } from 'react';
+import { init as FbtInit, IntlVariations as FbtIntlVariations, FbtTranslations } from 'fbt';
 import sx from '@adeira/sx';
 
+import getFbtTranslationsForLocale from './getFbtTranslationsForLocale';
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
 import type { SupportedLocales } from './constants';
@@ -23,7 +24,7 @@ export default function SxDesignProvider(props: Props): Node {
       : 'light';
   });
 
-  const locale = props.locale ?? 'en-US';
+  const sxLocale = props.locale ?? 'en-US';
   const theme = props.theme ?? 'light';
 
   useEffect(() => {
@@ -36,42 +37,42 @@ export default function SxDesignProvider(props: Props): Node {
     return () => {};
   }, []);
 
-  // TODO: support translations lazy loading
-  const supportedLocales = {
-    'ar-AR': require('../translations/out/ar-AR.json'),
-    'ar-AR-u-nu-arab': require('../translations/out/ar-AR.json'),
-    'cs-CZ': require('../translations/out/cs-CZ.json'),
-    'en-US': require('../translations/out/en-US.json'),
-    'es-MX': require('../translations/out/es-MX.json'),
-    'no-NO': require('../translations/out/no-NO.json'),
-    'ru-RU': require('../translations/out/ru-RU.json'),
-    'uk-UA': require('../translations/out/uk-UA.json'),
-  };
-
   let direction = 'ltr';
-  if (locale.startsWith('ar-AR')) {
+  if (sxLocale.startsWith('ar-AR')) {
     direction = 'rtl';
   }
 
-  fbtInit({
-    translations: supportedLocales[locale],
-    hooks: {
-      getViewerContext: () => ({
-        GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale,
-      }),
-    },
-  });
+  const allFbtTranslations = FbtTranslations.getRegisteredTranslations();
+  if (allFbtTranslations[sxLocale] != null) {
+    // There is already a translation dictionary registered for this locale (probably from the
+    // parent application) so we simply extend this disctionary with SX Design specific strings.
+    FbtTranslations.mergeTranslations(
+      getFbtTranslationsForLocale(
+        ((sxLocale: any): SupportedLocales), // see the `invariant` above
+      ),
+    );
+  } else {
+    // There is no dictionary for this locale yet so we initialize it with SX Design strings.
+    FbtInit({
+      translations: getFbtTranslationsForLocale(sxLocale),
+      hooks: {
+        getViewerContext: () => ({
+          GENDER: FbtIntlVariations.GENDER_UNKNOWN,
+          locale: sxLocale,
+        }),
+      },
+    });
+  }
 
   const contextValue = useMemo(
     () => ({
-      locale,
+      locale: sxLocale,
       direction,
       // Here we exchange "system" value for the actual theme because underlying components need to
       // know only whether we are rendering "light" or "dark".
       theme: theme === 'system' ? actualSystemColor : theme,
     }),
-    [locale, direction, theme, actualSystemColor],
+    [actualSystemColor, direction, sxLocale, theme],
   );
 
   return (

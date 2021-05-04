@@ -9,25 +9,27 @@ import SxDesignProvider from '../../SxDesignProvider';
 // When adding new currencies, always add one line for `en-US` and one line for the new locale.
 // This way we can test that it works well for both natives and foreigners.
 test.each`
-  locale               | amount | currency | expectedReact    | expectedFn
-  ${'en-US'}           | ${10}  | ${'AED'} | ${'AED 10.00'}   | ${'AED 10.00'}
-  ${'ar-AR'}           | ${10}  | ${'AED'} | ${'د.إ.‏ 10.00'} | ${'د.إ.‏ 10.00'}
-  ${'ar-AR-u-nu-arab'} | ${10}  | ${'AED'} | ${'١٠٫٠٠ د.إ.‏'} | ${'١٠٫٠٠ د.إ.‏'}
-  ${'en-US'}           | ${10}  | ${'CZK'} | ${'CZK 10.00'}   | ${'CZK 10.00'}
-  ${'cs-CZ'}           | ${10}  | ${'CZK'} | ${'10,00 Kč'}    | ${'10,00 Kč'}
-  ${'en-US'}           | ${20}  | ${'USD'} | ${'$20.00'}      | ${'$20.00'}
-  ${'es-MX'}           | ${20}  | ${'USD'} | ${'USD 20.00'}   | ${'USD 20.00'}
-  ${'en-US'}           | ${10}  | ${'MXN'} | ${'MX$10.00'}    | ${'MX$10.00'}
-  ${'es-MX'}           | ${10}  | ${'MXN'} | ${'$10.00'}      | ${'$10.00'}
-  ${'en-US'}           | ${10}  | ${'NOK'} | ${'NOK 10.00'}   | ${'NOK 10.00'}
-  ${'no-NO'}           | ${10}  | ${'NOK'} | ${'kr 10,00'}    | ${'kr 10,00'}
-  ${'en-US'}           | ${10}  | ${'RUB'} | ${'RUB 10.00'}   | ${'RUB 10.00'}
-  ${'ru-RU'}           | ${10}  | ${'RUB'} | ${'10,00 ₽'}     | ${'10,00 ₽'}
-  ${'en-US'}           | ${10}  | ${'UAH'} | ${'UAH 10.00'}   | ${'UAH 10.00'}
-  ${'uk-UA'}           | ${10}  | ${'UAH'} | ${'10,00 ₴'}     | ${'10,00 ₴'}
+  locale               | currency | expectedReact    | expectedFn
+  ${'en-US'}           | ${'AED'} | ${'AED 10.00'}   | ${'AED 10.00'}
+  ${'ar-AR'}           | ${'AED'} | ${'د.إ.‏ 10.00'} | ${'د.إ.‏ 10.00'}
+  ${'ar-AR-u-nu-arab'} | ${'AED'} | ${'١٠٫٠٠ د.إ.‏'} | ${'١٠٫٠٠ د.إ.‏'}
+  ${'en-US'}           | ${'CZK'} | ${'CZK 10.00'}   | ${'CZK 10.00'}
+  ${'cs-CZ'}           | ${'CZK'} | ${'10,00 Kč'}    | ${'10,00 Kč'}
+  ${'en-US'}           | ${'USD'} | ${'$10.00'}      | ${'$10.00'}
+  ${'es-MX'}           | ${'USD'} | ${'USD 10.00'}   | ${'USD 10.00'}
+  ${'en-US'}           | ${'MXN'} | ${'MX$10.00'}    | ${'MX$10.00'}
+  ${'es-MX'}           | ${'MXN'} | ${'$10.00'}      | ${'$10.00'}
+  ${'en-US'}           | ${'NOK'} | ${'NOK 10.00'}   | ${'NOK 10.00'}
+  ${'no-NO'}           | ${'NOK'} | ${'kr 10,00'}    | ${'kr 10,00'}
+  ${'en-US'}           | ${'RUB'} | ${'RUB 10.00'}   | ${'RUB 10.00'}
+  ${'ru-RU'}           | ${'RUB'} | ${'10,00 ₽'}     | ${'10,00 ₽'}
+  ${'en-US'}           | ${'UAH'} | ${'UAH 10.00'}   | ${'UAH 10.00'}
+  ${'uk-UA'}           | ${'UAH'} | ${'10,00 ₴'}     | ${'10,00 ₴'}
 `(
   'renders amount "$amount" with locale "$locale" and currency "$currency" correctly ("$expectedFn")',
-  ({ locale, amount, currency, expectedReact, expectedFn }) => {
+  ({ locale, currency, expectedReact, expectedFn }) => {
+    const amount = 10;
+
     const { getByText } = render(
       <SxDesignProvider locale={locale}>
         <Money priceUnitAmount={amount} priceUnitAmountCurrency={currency} />
