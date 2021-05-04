@@ -12,6 +12,8 @@ import createSyncPhase from '../src/phases/createSyncPhase';
 import createVerifyRepoPhase from '../src/phases/createVerifyRepoPhase';
 import createPushPhase from '../src/phases/createPushPhase';
 
+// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
+
 type Phase = {
   (): void,
   +readableName: string,
