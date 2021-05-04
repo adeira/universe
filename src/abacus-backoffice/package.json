@@ -18,7 +18,7 @@
     "@adeira/relay": "^3.2.4",
     "@adeira/sx": "^0.25.0",
     "@adeira/sx-design": "^0.10.0",
-    "fbt": "^0.16.5",
+    "fbt": "^0.16.6",
     "formik": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
     "next": "^10.2.0",
