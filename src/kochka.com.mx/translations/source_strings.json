@@ -201,9 +201,9 @@
     "r5n7Y7WnZDVhAfNuaM1Veg==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 23,
+   "line_beg": 24,
    "col_beg": 10,
-   "line_end": 23,
+   "line_end": 24,
    "col_end": 68,
    "desc": "subpage navigation link to homepage",
    "project": "",
@@ -215,9 +215,9 @@
     "vQi56haIWp87etffNT5imA==": "Café menu"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 27,
+   "line_beg": 28,
    "col_beg": 10,
-   "line_end": 27,
+   "line_end": 28,
    "col_end": 49,
    "desc": "navigation link to our café menu",
    "project": "",
@@ -229,9 +229,9 @@
     "+1sica4aRVHV4GJmVF+1TA==": "Café rules"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 31,
+   "line_beg": 32,
    "col_beg": 10,
-   "line_end": 31,
+   "line_end": 32,
    "col_end": 50,
    "desc": "navigation link to our café rules",
    "project": "",
@@ -243,9 +243,9 @@
     "AczYHaAuus/G8A3Lx2F4Nw==": "Adoption"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 36,
+   "line_beg": 37,
    "col_beg": 12,
-   "line_end": 36,
+   "line_end": 37,
    "col_end": 74,
    "desc": "subpage navigation link to adoption",
    "project": "",
@@ -257,9 +257,9 @@
     "1InIsDIQMe0LzfDwpJ5b2w==": "Shop"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 42,
+   "line_beg": 43,
    "col_beg": 12,
-   "line_end": 42,
+   "line_end": 43,
    "col_end": 41,
    "desc": "navigation link to our eshop",
    "project": "",
@@ -576,6 +576,20 @@
   },
   {
    "hashToText": {
+    "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
+   },
+   "filepath": "src/shop/ShopLayoutContent.js",
+   "line_beg": 71,
+   "col_beg": 14,
+   "line_end": 71,
+   "col_end": 77,
+   "desc": "empty shop message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "There are no products yet."
+  },
+  {
+   "hashToText": {
     "4hzwDqzKYoJYiTxo5Erg4A==": "link to KOCHKA Café Instagram page"
    },
    "filepath": "src/SocialMediaIcons.js",
@@ -621,9 +635,9 @@
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 72,
+   "line_beg": 74,
    "col_beg": 20,
-   "line_end": 74,
+   "line_end": 76,
    "col_end": 26,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",

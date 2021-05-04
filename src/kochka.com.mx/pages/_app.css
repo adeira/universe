@@ -3,7 +3,7 @@
 }
 
 :root {
-  --main-bg-color: 108, 22, 16;
+  --main-bg-color: 108, 22, 16; /* #6c1610 */
   --main-bg-color-dark: 72, 5, 0;
   --secondary-color: 136, 65, 59;
   --font-color-light: 255, 255, 255;
