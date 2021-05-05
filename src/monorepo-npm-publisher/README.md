@@ -1,8 +1,8 @@
-This package prepares our public NPM packages to be published. It can automatically find these packages, transpile them based on our Babel configuration, copy Flow versions of the files and automatically publish it to NPM (in CI). It publishes only packages with new version and it ignores old or current versions.
+This package prepares our public NPM packages to be published. It can automatically find these packages, transpile them based on our Babel configuration, copy Flow versions of the files and automatically publish it to NPM (only when running on CI server). It publishes only packages with new version and it ignores old or current versions.
 
-This publisher uses [@adeira/babel-preset-adeira](https://www.npmjs.com/package/@adeira/babel-preset-adeira) behind the scenes to transpile JS (and JS-ESM) and Flow files.
+This publisher uses [@adeira/babel-preset-adeira](https://www.npmjs.com/package/@adeira/babel-preset-adeira) behind the scenes to transpile JS and Flow files.
 
-Please note: changelogs are not responsibility of this package. You should write them manually for your users.
+_Please note: changelogs are not responsibility of this package. You should write them manually for your users._
 
 # Installation
 
@@ -27,7 +27,7 @@ import publish from '@adeira/monorepo-npm-publisher';
     // Where to store transpiled code before it's being published.
     buildCache: path.join(
       os.tmpdir(),
-      'com.adeira.TODO_YOUR_PROJECT.npm', // change please
+      'com.adeira.TODO_YOUR_PROJECT.npm', // please change
       '.build',
     ),
 
@@ -35,15 +35,19 @@ import publish from '@adeira/monorepo-npm-publisher';
     // packages with public visibility set in `package.json`.
     workspaces: new Set(['@adeira/js', '@adeira/fetch', '@adeira/relay', '@adeira/eslint-config']),
 
-    npmAuthToken: '*** TODO ***', // see: https://www.npmjs.com/settings/<USERNAME>/tokens
-    reactRuntime: 'classic', // or `automatic` if you want to use the new JSX transform. 'automatic' is the default option. see https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    // See: https://www.npmjs.com/settings/<USERNAME>/tokens
+    npmAuthToken: '*** TODO ***',
+
+    // React runtime `classic` or `automatic` if you want to use the new JSX transform.
+    // Runtime `automatic` is the default option. See: https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html
+    reactRuntime: 'classic',
   });
 })();
 ```
 
 This NPM publisher automatically takes `.npmignore` (or `.gitignore`) files into account. Read this info for more details: https://docs.npmjs.com/misc/developers#keeping-files-out-of-your-package
 
-# BEGIN-ADEIRA-UNIVERSE-INTERNAL, END-ADEIRA-UNIVERSE-INTERNAL
+# Comments `(BEGIN|END)-ADEIRA-UNIVERSE-INTERNAL`,
 
 In rare scenarios, you might need to skip some part of the source code when publishing to NPM. It can be done like so:
 
@@ -92,24 +96,19 @@ com.adeira.universe.npm/.build/js
 └── src
     ├── index.js
     ├── index.js.flow
-    ├── index.mjs
     ├── invariant.js
     ├── invariant.js.flow
-    ├── invariant.mjs
     ├── isObject.js
     ├── isObject.js.flow
-    ├── isObject.mjs
     ├── sprintf.js
     ├── sprintf.js.flow
-    ├── sprintf.mjs
     ├── warning.js
     ├── warning.js.flow
-    └── warning.mjs
 
-1 directory, 18 files
+1 directory, 13 files
 ```
 
-As you can see all the important files are still in the final bundle but tests are missing. It's because they are excluded in `.npmignore` file. Every JS file is distributed in multiple variants. JS files are transpiled so they can be used basically everywhere:
+As you can see all the important files are still in the final bundle but tests are missing. It's because they are excluded in `.npmignore` file. JS files are transpiled so they can be used basically everywhere:
 
 ```js
 'use strict';
@@ -138,64 +137,4 @@ export default function isObject(value: mixed): boolean %checks {
 }
 ```
 
-You can read more about [Flow Declaration Files here](https://flow.org/en/docs/declarations/). And MJS files contain JS version for modern environments (essentially JS version but with ES6 modules support):
-
-```js
-import _typeof from '@babel/runtime/helpers/esm/typeof';
-export default function isObject(value) {
-  return _typeof(value) === 'object' && value !== null && !Array.isArray(value);
-}
-```
-
-One last change is happening: NPM publisher modifies `package.json` file so it contains correct `module` field pointing to MJS file variants. Please note: ES6 modules can be disabled completely when you specify `"module": false` in your package.json:
-
-```json
-{
-  "name": "withDisabledES6",
-  "version": "0.0.0",
-  "main": "src/index.js",
-  "module": false,
-  "dependencies": {
-    "//": "none"
-  }
-}
-```
-
-This is handy when your code is not ready for ES6 modules yet.
-
-# Note on ES6 modules
-
-_The following text describes the current situation up to this date. Seems like some parts of the JS ecosystem are not well documented and they may change in future._
-
-Usually tools use CJS requires but some of them also support ES6 imports. This is how it works in Next.js for example:
-
-```js
-const webpackResolveConfig = {
-  // Disable .mjs for node_modules bundling
-  extensions: isServer
-    ? ['.js', '.mjs', '.jsx', '.json', '.wasm']
-    : ['.mjs', '.js', '.jsx', '.json', '.wasm'],
-  mainFields: isServer ? ['main', 'module'] : ['browser', 'module', 'main'],
-  // ...
-};
-```
-
-Notice the ordering of supported extensions. Therefore Next.js actually uses different systems for FE and BE. We distribute both versions: JS and MJS files. Different situation is when package uses MJS and this package has dependency on different package which also uses MJS. This subpackage must be configured properly in `package.json`. The only possible solution is currently this:
-
-```json
-{
-  "name": "@adeira/js",
-  "module": "src/index.mjs",
-  "main": "src/index"
-}
-```
-
-Notice that field `main` **cannot** have file extension! There is currently not many resources explaining why but it's further explained in [this Babel issue](https://github.com/babel/babel/issues/7294). This extension cannot be present even when you don't have `module` field but you are distributing MJS files anyway.
-
-More resources:
-
-- https://github.com/graphql/graphql-js/issues/1217
-- https://nodejs.org/api/esm.html#esm_package_entry_points
-- https://nodejs.org/api/modules.html#modules_addenda_the_mjs_extension
-- https://webpack.js.org/concepts/module-resolution/
-- https://github.com/webpack/webpack/issues/7482
+You can read more about [Flow Declaration Files here](https://flow.org/en/docs/declarations/).

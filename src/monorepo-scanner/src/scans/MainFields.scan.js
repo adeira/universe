@@ -10,23 +10,10 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     const dirname = path.dirname(packageJSONLocation);
     const main = packageJson.main;
     if (main != null) {
+      const mainEntrypoint = path.join(dirname, main);
       // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
-      expect(fs.existsSync(path.join(dirname, `${main}.js`))).toGiveHelp(
-        'The file specified in main field does not exist. If this is intentional, you can remove this field from package json',
-      );
-    }
-
-    if (packageJson.module != null && packageJson.module !== false) {
-      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
-      expect(fs.existsSync(path.join(dirname, packageJson.module))).toGiveHelp(
-        'The file specified in module field does not exist. If this is intentional, you can remove this field from package json',
-      );
-    }
-
-    if (packageJson.browser != null) {
-      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
-      expect(fs.existsSync(path.join(dirname, packageJson.browser))).toGiveHelp(
-        'The file specified in browser field does not exist. If this is intentional, you can remove this field from package json',
+      expect(fs.existsSync(mainEntrypoint)).toGiveHelp(
+        `The file specified in main field does not exist (${mainEntrypoint}). If this is intentional, you can remove this field from package.json`,
       );
     }
   });

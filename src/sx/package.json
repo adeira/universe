@@ -5,9 +5,8 @@
   "license": "MIT",
   "private": false,
   "version": "0.25.0",
-  "main": "index",
+  "main": "./index.js",
   "sideEffects": false,
-  "module": false,
   "dependencies": {
     "@adeira/css-colors": "^2.0.0",
     "@adeira/js": "^2.1.0",

@@ -2,7 +2,7 @@
   "name": "@adeira/graphql-relay-fauna",
   "private": false,
   "version": "0.3.0",
-  "main": "src/index",
+  "main": "./src/index.js",
   "sideEffects": false,
   "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-relay-fauna",
   "description": "Helpers for Relay compliant GraphQL server with FaunaDB backend",
