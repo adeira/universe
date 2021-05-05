@@ -42,6 +42,13 @@ telepresence leave abacus-deployment
 telepresence quit
 ```
 
+Deploying a new Abacus version:
+
+```bash
+kubectl rollout restart deployment abacus-deployment
+kubectl rollout status deployment abacus-deployment
+```
+
 ## Testing
 
 ```bash

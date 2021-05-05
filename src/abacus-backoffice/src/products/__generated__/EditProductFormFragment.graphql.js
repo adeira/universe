@@ -6,7 +6,6 @@
 
 import type { ReaderFragment } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
-export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type EditProductFormFragment$ref: FragmentReference;
 declare export opaque type EditProductFormFragment$fragmentType: EditProductFormFragment$ref;
@@ -17,11 +16,14 @@ export type EditProductFormFragment = {|
     +unitAmount: number
   |},
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
-  +translations: $ReadOnlyArray<{|
-    +locale: SupportedLocale,
+  +enTranslation: ?{|
     +name: string,
     +description: ?string,
-  |}>,
+  |},
+  +esTranslation: ?{|
+    +name: string,
+    +description: ?string,
+  |},
   +$refType: EditProductFormFragment$ref,
 |};
 export type EditProductFormFragment$data = EditProductFormFragment;
@@ -32,7 +34,24 @@ export type EditProductFormFragment$key = {
 };
 
 
-const node: ReaderFragment = {
+const node: ReaderFragment = (function(){
+var v0 = [
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "name",
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "description",
+    "storageKey": null
+  }
+];
+return {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -78,41 +97,42 @@ const node: ReaderFragment = {
       "storageKey": null
     },
     {
-      "alias": null,
-      "args": null,
-      "concreteType": "ProductMultilingualTranslations",
-      "kind": "LinkedField",
-      "name": "translations",
-      "plural": true,
-      "selections": [
+      "alias": "enTranslation",
+      "args": [
         {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
+          "kind": "Literal",
           "name": "locale",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "name",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "description",
-          "storageKey": null
+          "value": "en_US"
         }
       ],
-      "storageKey": null
+      "concreteType": "ProductMultilingualTranslations",
+      "kind": "LinkedField",
+      "name": "translation",
+      "plural": false,
+      "selections": (v0/*: any*/),
+      "storageKey": "translation(locale:\"en_US\")"
+    },
+    {
+      "alias": "esTranslation",
+      "args": [
+        {
+          "kind": "Literal",
+          "name": "locale",
+          "value": "es_MX"
+        }
+      ],
+      "concreteType": "ProductMultilingualTranslations",
+      "kind": "LinkedField",
+      "name": "translation",
+      "plural": false,
+      "selections": (v0/*: any*/),
+      "storageKey": "translation(locale:\"es_MX\")"
     }
   ],
   "type": "Product",
   "abstractKey": null
 };
+})();
 // prettier-ignore
-(node: any).hash = '920d807cf20c6aa26711073307470a9d';
+(node: any).hash = '0e28eb86985cd5f99e05df9800e5642b';
 export default node;

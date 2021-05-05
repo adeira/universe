@@ -29,6 +29,7 @@ pub struct Product {
     is_published: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
     price: ProductPrice,
+    translation: Option<ProductMultilingualTranslations>,
     translations: Vec<ProductMultilingualTranslations>,
 }
 
@@ -43,7 +44,7 @@ impl std::fmt::Debug for Product {
             .field("is_published", &self.is_published)
             .field("visibility", &self.visibility)
             .field("price", &self.price)
-            .field("translation", &self.translations)
+            .field("translation", &self.translation)
             .field("translations", &self.translations)
             .finish()
     }
@@ -141,6 +142,15 @@ impl Product {
 
     fn visibility(&self) -> Vec<ProductMultilingualInputVisibility> {
         self.visibility.to_owned()
+    }
+
+    /// Same as `translations` except for one locale: it exposes the translated variant of the
+    /// product with localized name, description etc.
+    fn translation(&self, locale: SupportedLocale) -> Option<ProductMultilingualTranslations> {
+        self.translations
+            .to_owned()
+            .into_iter()
+            .find(|translation| translation.locale == locale)
     }
 
     /// Exposes all available product translations. What is the difference between `translations`
@@ -286,7 +296,7 @@ pub enum PriceSortDirection {
     HighToLow,
 }
 
-#[derive(juniper::GraphQLEnum, Serialize, Deserialize, Debug, Clone)]
+#[derive(juniper::GraphQLEnum, Serialize, Deserialize, Debug, Clone, PartialEq)]
 pub enum SupportedLocale {
     #[graphql(name = "en_US")]
     #[serde(rename = "en_US")]
