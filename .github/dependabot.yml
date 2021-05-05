@@ -15,7 +15,12 @@ updates:
       - 'automerge' # see Kodiak `merge.automerge_label`
     open-pull-requests-limit: 10
     ignore:
-      - dependency-name: 'relay-compiler-experimental'
+      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
+      - dependency-name: 'strip-ansi'
+        versions: ['7.x']
+      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
+      - dependency-name: 'hast-util-to-html'
+        versions: ['8.x']
 
   - package-ecosystem: 'github-actions'
     directory: '/'
