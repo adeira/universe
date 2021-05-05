@@ -14,6 +14,7 @@ export default function IndexPage(): React.Node {
         whoami {
           id
           humanReadableType
+          isDebugAssertionsEnabled
         }
       }
     `,

@@ -16,7 +16,8 @@ async fn create_graphql_api_filter(
         prepare_empty_test_database(db_name).await;
         pool = get_database_connection_pool(
             // TODO: make it more DX/test friendly (?)
-            "http://127.0.0.1:8529/",
+            // TODO: dev k8s cluster
+            "http://arangodb-single-server.default.svc.cluster.local:8529",
             db_name,
             "",
             "",

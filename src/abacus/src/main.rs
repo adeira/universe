@@ -37,6 +37,7 @@ fn init_tracing() {
 
 #[tokio::main]
 async fn main() {
+    dotenv::dotenv().ok();
     init_tracing();
 
     // TODO: how to display these routes automatically (?)
