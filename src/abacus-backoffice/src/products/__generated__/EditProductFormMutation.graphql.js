@@ -31,11 +31,14 @@ export type EditProductFormMutationResponse = {|
         +unitAmount: number
       |},
       +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
-      +translations: $ReadOnlyArray<{|
-        +locale: SupportedLocale,
+      +enTranslation: ?{|
         +name: string,
         +description: ?string,
-      |}>,
+      |},
+      +esTranslation: ?{|
+        +name: string,
+        +description: ?string,
+      |},
     |} | {|
       +__typename: "ProductError",
       +message: string,
@@ -72,8 +75,11 @@ mutation EditProductFormMutation(
           unitAmount
         }
         visibility
-        translations {
-          locale
+        enTranslation: translation(locale: en_US) {
+          name
+          description
+        }
+        esTranslation: translation(locale: es_MX) {
           name
           description
         }
@@ -220,33 +226,49 @@ v12 = {
   "name": "visibility",
   "storageKey": null
 },
-v13 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "ProductMultilingualTranslations",
-  "kind": "LinkedField",
-  "name": "translations",
-  "plural": true,
-  "selections": [
+v13 = [
+  (v9/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "description",
+    "storageKey": null
+  }
+],
+v14 = {
+  "alias": "enTranslation",
+  "args": [
     {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
+      "kind": "Literal",
       "name": "locale",
-      "storageKey": null
-    },
-    (v9/*: any*/),
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "description",
-      "storageKey": null
+      "value": "en_US"
     }
   ],
-  "storageKey": null
+  "concreteType": "ProductMultilingualTranslations",
+  "kind": "LinkedField",
+  "name": "translation",
+  "plural": false,
+  "selections": (v13/*: any*/),
+  "storageKey": "translation(locale:\"en_US\")"
 },
-v14 = {
+v15 = {
+  "alias": "esTranslation",
+  "args": [
+    {
+      "kind": "Literal",
+      "name": "locale",
+      "value": "es_MX"
+    }
+  ],
+  "concreteType": "ProductMultilingualTranslations",
+  "kind": "LinkedField",
+  "name": "translation",
+  "plural": false,
+  "selections": (v13/*: any*/),
+  "storageKey": "translation(locale:\"es_MX\")"
+},
+v16 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -292,7 +314,8 @@ return {
                   (v10/*: any*/),
                   (v11/*: any*/),
                   (v12/*: any*/),
-                  (v13/*: any*/)
+                  (v14/*: any*/),
+                  (v15/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -301,7 +324,7 @@ return {
                 "kind": "InlineFragment",
                 "selections": [
                   (v7/*: any*/),
-                  (v14/*: any*/)
+                  (v16/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -354,7 +377,8 @@ return {
                   (v10/*: any*/),
                   (v11/*: any*/),
                   (v12/*: any*/),
-                  (v13/*: any*/)
+                  (v14/*: any*/),
+                  (v15/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -362,7 +386,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v14/*: any*/)
+                  (v16/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -376,15 +400,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fa4a58cbd95d4e06d8d34c6f950eec99",
+    "cacheID": "67ebf54d2066be84c779893821eba28d",
     "id": null,
     "metadata": {},
     "name": "EditProductFormMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        price {\n          unitAmount\n        }\n        visibility\n        translations {\n          locale\n          name\n          description\n        }\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        price {\n          unitAmount\n        }\n        visibility\n        enTranslation: translation(locale: en_US) {\n          name\n          description\n        }\n        esTranslation: translation(locale: es_MX) {\n          name\n          description\n        }\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '9fd7bfae66e7bd5dd457abfc33d7451c';
+(node: any).hash = 'b4497a1b04931c563e6ab723cd7dc743';
 export default node;

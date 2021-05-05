@@ -28,8 +28,11 @@ export default function EditProductForm(props: Props): Node {
           unitAmount
         }
         visibility
-        translations {
-          locale
+        enTranslation: translation(locale: en_US) {
+          name
+          description
+        }
+        esTranslation: translation(locale: es_MX) {
           name
           description
         }
@@ -38,6 +41,7 @@ export default function EditProductForm(props: Props): Node {
     props.product,
   );
 
+  // TODO: dedupe with the fragment above
   const [productUpdate] = useMutation<EditProductFormMutation>(graphql`
     mutation EditProductFormMutation(
       $productKey: ID!
@@ -67,8 +71,11 @@ export default function EditProductForm(props: Props): Node {
               unitAmount
             }
             visibility
-            translations {
-              locale
+            enTranslation: translation(locale: en_US) {
+              name
+              description
+            }
+            esTranslation: translation(locale: es_MX) {
               name
               description
             }
@@ -83,18 +90,17 @@ export default function EditProductForm(props: Props): Node {
   `);
 
   const getProductValues = (product): FormValues => {
-    // TODO: move to the server (?)
-    const en = product?.translations.find((t) => t.locale === 'en_US') ?? {};
-    const es = product?.translations.find((t) => t.locale === 'es_MX') ?? {};
+    const enTranslation = product?.enTranslation ?? {};
+    const esTranslation = product?.esTranslation ?? {};
 
     const productPrice = product?.price.unitAmount;
     const productVisibility = product?.visibility ?? [];
 
     return {
-      name_en: en.name,
-      name_es: es.name,
-      description_en: en.description ?? '',
-      description_es: es.description ?? '',
+      name_en: enTranslation.name,
+      name_es: esTranslation.name,
+      description_en: enTranslation.description ?? '',
+      description_es: esTranslation.description ?? '',
       price: productPrice != null ? productPrice / 100 : '',
       // $FlowIssue[incompatible-return]: https://github.com/facebook/flow/issues/1414
       visibility: productVisibility,

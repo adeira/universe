@@ -55,8 +55,11 @@ fragment EditProductFormFragment on Product {
     unitAmount
   }
   visibility
-  translations {
-    locale
+  enTranslation: translation(locale: en_US) {
+    name
+    description
+  }
+  esTranslation: translation(locale: es_MX) {
     name
     description
   }
@@ -125,7 +128,17 @@ v3 = {
     }
   ],
   "storageKey": null
-};
+},
+v4 = [
+  (v2/*: any*/),
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "description",
+    "storageKey": null
+  }
+];
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -240,30 +253,36 @@ return {
                 "storageKey": null
               },
               {
-                "alias": null,
-                "args": null,
-                "concreteType": "ProductMultilingualTranslations",
-                "kind": "LinkedField",
-                "name": "translations",
-                "plural": true,
-                "selections": [
+                "alias": "enTranslation",
+                "args": [
                   {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
+                    "kind": "Literal",
                     "name": "locale",
-                    "storageKey": null
-                  },
-                  (v2/*: any*/),
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "description",
-                    "storageKey": null
+                    "value": "en_US"
                   }
                 ],
-                "storageKey": null
+                "concreteType": "ProductMultilingualTranslations",
+                "kind": "LinkedField",
+                "name": "translation",
+                "plural": false,
+                "selections": (v4/*: any*/),
+                "storageKey": "translation(locale:\"en_US\")"
+              },
+              {
+                "alias": "esTranslation",
+                "args": [
+                  {
+                    "kind": "Literal",
+                    "name": "locale",
+                    "value": "es_MX"
+                  }
+                ],
+                "concreteType": "ProductMultilingualTranslations",
+                "kind": "LinkedField",
+                "name": "translation",
+                "plural": false,
+                "selections": (v4/*: any*/),
+                "storageKey": "translation(locale:\"es_MX\")"
               },
               {
                 "alias": null,
@@ -281,12 +300,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "25e5d29c767d3647211b86cb84d84975",
+    "cacheID": "763ed8cc0115d076b38e085c5f79e8ab",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  translations {\n    locale\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();

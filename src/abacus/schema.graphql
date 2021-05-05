@@ -1,4 +1,4 @@
-# @generated SignedSource<<a2b03c5da6d15831cda7a906e9707050>>
+# @generated SignedSource<<a0dca4790b935df9158bf7e2dab16a2b>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -244,6 +244,11 @@ type Product {
   price: ProductPrice!
   isPublished: Boolean!
   visibility: [ProductMultilingualInputVisibility!]!
+  """
+    Same as `translations` except for one locale: it exposes the translated variant of the
+    product with localized name, description etc.
+  """
+  translation(locale: SupportedLocale!): ProductMultilingualTranslations
   """
     Exposes all available product translations. What is the difference between `translations`
     and `name`/`description`? Name and description are localized based on the eshop locale,
