@@ -5,11 +5,10 @@
   "license": "MIT",
   "private": false,
   "version": "2.0.0",
-  "main": "src/index",
+  "main": "./src/index.js",
   "sideEffects": false,
   "dependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
-    "@adeira/fixtures-tester": "^1.0.1",
     "@adeira/monorepo-utils": "^0.11.0",
     "@babel/runtime": "^7.14.0",
     "chalk": "^4.1.1",

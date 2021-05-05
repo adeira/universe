@@ -13,7 +13,6 @@ import chalk from 'chalk';
 
 import log from './log';
 import NPM from './NPM';
-import modifyPackageJSON from './modifyPackageJSON';
 import transformFileVariants from './transformFileVariants';
 
 type Options = {
@@ -78,14 +77,10 @@ export default async function publish(options: Options) {
               transformFileVariants(
                 path.join(packageFolderPath, filename),
                 destinationFileName,
-                packageJSONFile.module,
                 options.reactRuntime,
               );
-            } else if (filename === 'package.json') {
-              log('%s 👉 %s', packageJSONLocation, destinationFileName);
-              const newPackageJSONFile = modifyPackageJSON(require(packageJSONLocation));
-              fs.writeFileSync(destinationFileName, JSON.stringify(newPackageJSONFile, null, 2));
             } else {
+              // this just copies rest of the files
               const originalFilename = path.join(packageFolderPath, filename);
               log('%s 👉 %s', originalFilename, destinationFileName);
               fs.copyFileSync(originalFilename, destinationFileName);

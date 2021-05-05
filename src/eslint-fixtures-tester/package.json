@@ -3,7 +3,7 @@
   "description": "Eslint fixtures tester utility.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-fixtures-tester",
   "version": "0.1.0",
-  "main": "src/index",
+  "main": "./src/index.js",
   "license": "MIT",
   "private": false,
   "dependencies": {
