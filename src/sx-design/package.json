@@ -5,9 +5,8 @@
   "license": "MIT",
   "private": false,
   "version": "0.10.0",
-  "main": "index",
+  "main": "./index.js",
   "sideEffects": false,
-  "module": false,
   "dependencies": {
     "@adeira/js": "^2.1.0",
     "@babel/runtime": "^7.14.0",

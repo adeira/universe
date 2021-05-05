@@ -3,7 +3,7 @@
   "description": "Flow types for building Eslint plugins and rules",
   "version": "0.0.0",
   "private": true,
-  "main": "src/index",
+  "main": "./src/index.js",
   "license": "MIT",
   "dependencies": {}
 }
