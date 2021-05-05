@@ -19,6 +19,7 @@ bytes = "1.0.1"
 clap = "3.0.0-beta.2"
 data-encoding = "2.3.2"
 deadpool = { version = "0.7.0", features = ["managed"] }
+dotenv = "0.15.0"
 futures = "0.3.14"
 image = "0.23.14"
 jsonwebtoken = "7.2.0"

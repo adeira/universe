@@ -10,6 +10,7 @@ export type IndexPageQueryResponse = {|
   +whoami: {|
     +id: ?string,
     +humanReadableType: ?string,
+    +isDebugAssertionsEnabled: boolean,
   |}
 |};
 export type IndexPageQuery = {|
@@ -22,6 +23,7 @@ query IndexPageQuery {
   whoami {
     id
     humanReadableType
+    isDebugAssertionsEnabled
   }
 }
 */
@@ -49,6 +51,13 @@ var v0 = [
         "kind": "ScalarField",
         "name": "humanReadableType",
         "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "isDebugAssertionsEnabled",
+        "storageKey": null
       }
     ],
     "storageKey": null
@@ -72,15 +81,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "da3fd8961335901d5195e17e7716df48",
+    "cacheID": "f4b10245615d7455e39cc1930a916989",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  whoami {\n    id\n    humanReadableType\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  whoami {\n    id\n    humanReadableType\n    isDebugAssertionsEnabled\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'd60b2473ed02228caec449ba8598cebd';
+(node: any).hash = '0b4d8a3b4aeb134f818292631374aa79';
 export default node;

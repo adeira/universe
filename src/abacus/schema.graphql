@@ -1,4 +1,4 @@
-# @generated SignedSource<<a2fe2a6efebe0439fa4613bee56aadb3>>
+# @generated SignedSource<<a2b03c5da6d15831cda7a906e9707050>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -105,6 +105,11 @@ type WhoamiPayload {
     and can change in the future completely.
   """
   humanReadableType: String
+  """
+    Debug assertions indicates that the Rust server runs in a development mode (compiled without
+    optimizations). FOR DEVELOPMENT ONLY!
+  """
+  isDebugAssertionsEnabled: Boolean!
 }
 
 type POSMutation {

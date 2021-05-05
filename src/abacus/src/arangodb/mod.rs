@@ -122,7 +122,8 @@ pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
     cleanup_test_database(db_name).await;
     let pool = get_database_connection_pool(
         // TODO: make it more DX/test friendly (?)
-        "http://127.0.0.1:8529/",
+        // TODO: dev k8s cluster
+        "http://arangodb-single-server.default.svc.cluster.local:8529",
         db_name,
         "",
         "",
@@ -136,7 +137,8 @@ pub async fn prepare_empty_test_database(db_name: &str) -> ConnectionPool {
 pub async fn cleanup_test_database(db_name: &str) -> ConnectionPool {
     let pool = get_database_connection_pool(
         // TODO: make it more DX/test friendly (?)
-        "http://127.0.0.1:8529/",
+        // TODO: dev k8s cluster
+        "http://arangodb-single-server.default.svc.cluster.local:8529",
         db_name,
         "",
         "",

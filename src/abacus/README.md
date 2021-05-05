@@ -24,20 +24,16 @@ We use [Telepresence](https://www.getambassador.io/docs/telepresence/latest/howt
 ```bash
 telepresence connect
 telepresence list
-telepresence intercept abacus-deployment --port=5000:80 --env-file=./src/abacus/abacus-service-intercept.env
+telepresence intercept abacus-deployment --port=5000:80 --env-file=./src/abacus/.env
 ```
 
 You can now start the service locally, rest of the application will run in the remote Kubernetes cluster:
 
-```text
-(cd src/abacus && cargo run --bin server)
-(cd src/abacus && cargo clippy --all-targets)
-(cd src/abacus && cargo doc --open --no-deps)
+```bash
+(cd src/abacus && cargo run -- --arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529)
 ```
 
-The server will be accessible on: http://64.225.89.7:32123/graphql (or http://0.0.0.0:5000/graphql). It's recommended to use Insomnia to send request to the GraphQL API: https://insomnia.rest/graphql/
-
-TKTK - env variables
+The server will be accessible on: http://abacus.mrtnzlml.com:32123/graphql (or http://0.0.0.0:5000/graphql). It's recommended to use Insomnia to send request to the GraphQL API: https://insomnia.rest/graphql/
 
 The database will be available on: http://arangodb-single-server.default.svc.cluster.local:8529 (when connected via `telepresence connect`). User `abacus`, no password.
 
@@ -48,14 +44,15 @@ telepresence quit
 
 ## Testing
 
-```text
-(cd src/abacus && cargo test --offline)
+```bash
+(cd src/abacus && cargo clippy)
+(cd src/abacus && cargo test)
 ```
 
 There are some extra tests which are slow or require extra infrastructure (network access, ArangoDB). There tests are ignored by default but can be executed manually:
 
 ```text
-(cd src/abacus && cargo test --offline -- --ignored)
+(cd src/abacus && cargo test -- --ignored)
 ```
 
 Note: ignored tests are not being run on CI (at least not yet)!

@@ -11,6 +11,10 @@ pub(crate) struct WhoamiPayload {
     /// Human readable type should be used only for testing purposes. The format is not guaranteed
     /// and can change in the future completely.
     human_readable_type: Option<String>,
+
+    /// Debug assertions indicates that the Rust server runs in a development mode (compiled without
+    /// optimizations). FOR DEVELOPMENT ONLY!
+    is_debug_assertions_enabled: bool,
 }
 
 pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
@@ -18,14 +22,17 @@ pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
         User::AdminUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("admin user")),
+            is_debug_assertions_enabled: cfg!(debug_assertions),
         },
         User::AuthorizedUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("authorized regular user")),
+            is_debug_assertions_enabled: cfg!(debug_assertions),
         },
         User::AnonymousUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
             human_readable_type: Some(String::from("anonymous user")),
+            is_debug_assertions_enabled: cfg!(debug_assertions),
         },
     }
 }
