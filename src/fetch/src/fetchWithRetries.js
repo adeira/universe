@@ -25,6 +25,18 @@ function isNodejs(): boolean %checks {
   return typeof process !== 'undefined' && process.versions?.node !== undefined;
 }
 
+function getEnvironmentHeaders(): { +'User-Agent': string } | null {
+  return isNodejs()
+    ? {
+        // Cross-fetch uses node-fetch behind the scenes (in Node.js envs) which
+        // sets default UA header (https://github.com/bitinn/node-fetch/blob/95286f52bb866283bc69521a04efe1de37b26a33/src/request.js#L225).
+        // We overwrite it here to make clear where is this request actually
+        // coming from. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
+        'User-Agent': '@adeira/fetch (+https://github.com/adeira/universe)',
+      }
+    : null;
+}
+
 /**
  * Makes a request to the server with the given data as the payload.
  * Automatic retries are done based on the values in `retryDelays`.
@@ -50,25 +62,13 @@ export default function fetchWithRetries(
       requestsAttempted++;
       requestStartTime = Date.now();
       let isRequestAlive = true;
-      const environmentHeaders = isNodejs()
-        ? {
-            // Cross-fetch uses node-fetch behind the scenes (in Node.js envs) which
-            // sets default UA header (https://github.com/bitinn/node-fetch/blob/95286f52bb866283bc69521a04efe1de37b26a33/src/request.js#L225).
-            // We overwrite it here to make clear where is this request actually
-            // coming from. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent
-            'User-Agent': sprintf(
-              '@adeira/fetch (+https://github.com/adeira/universe; %s)',
-              requestsAttempted,
-            ),
-          }
-        : {};
       const request = fetch(resource, {
         ...init,
         headers: {
+          ...getEnvironmentHeaders(),
           /* $FlowFixMe[exponential-spread](>=0.111.0) This comment suppresses an error when
            * upgrading Flow. To see the error delete this comment and run Flow.
            */
-          ...environmentHeaders,
           ...initHeaders,
         },
       });
@@ -90,9 +90,9 @@ export default function fetchWithRetries(
 
       request
         .then((response) => {
+          // We got a response, we can clear the timeout.
           clearTimeout(requestTimeout);
           if (isRequestAlive) {
-            // We got a response, we can clear the timeout.
             if (response.status >= 200 && response.status < 300) {
               // Got a response code that indicates success, resolve the promise.
               resolve(response);
@@ -121,6 +121,37 @@ export default function fetchWithRetries(
           } else {
             reject(error);
           }
+        });
+    }
+
+    /**
+     * Similar to `sendTimedRequest` except it completely ignores timeouts and retries.
+     */
+    function sendRequest(): void {
+      const request = fetch(resource, {
+        ...init,
+        headers: {
+          ...getEnvironmentHeaders(),
+          /* $FlowFixMe[exponential-spread](>=0.111.0) This comment suppresses an error when
+           * upgrading Flow. To see the error delete this comment and run Flow.
+           */
+          ...initHeaders,
+        },
+      });
+
+      request
+        .then((response) => {
+          // We got a response, we can clear the timeout.
+          if (response.status >= 200 && response.status < 300) {
+            // Got a response code that indicates success, resolve the promise.
+            resolve(response);
+          } else {
+            // Request was not successful, giving up.
+            reject(new ResponseError(response, 'fetch: No successful response, giving up.'));
+          }
+        })
+        .catch((error) => {
+          reject(error);
         });
     }
 
@@ -160,6 +191,13 @@ export default function fetchWithRetries(
       return attempt <= _retryDelays.length;
     }
 
-    sendTimedRequest();
+    if (init.body == null || typeof init.body === 'string') {
+      sendTimedRequest();
+    } else {
+      // We don't want to send "timed" request when the body is defined but it's not a string. For
+      // example, it makes sense to retry GraphQL requests with JSON-stringified body, but it's not
+      // a good idea to retry when the body is type of `FormData` for example (file upload).
+      sendRequest();
+    }
   });
 }

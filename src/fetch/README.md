@@ -1,14 +1,14 @@
-This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/master/packages/fbjs/src/fetch/fetchWithRetries.js) library and it exposes single `fetchWithRetries`. This function is only a wrapper for any other well known [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). However, this fetch also solves these common problems:
+This package has been extracted from the original [fbjs](https://github.com/facebook/fbjs/blob/5300adaec134f532391dfac65d574cc066fe593e/packages/fbjs/src/fetch/fetchWithRetries.js) library, and it exposes single `fetchWithRetries` function. This function is only a wrapper for any other well known [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). However, this fetch also solves these common problems:
 
-- fetch timeouts
-- retries, and
-- request cancellations
+- automatic request timeouts
+- automatic request retries
+- manual request cancellations
 
 This makes the fetch function more suitable for real-life production usage because it doesn't hang or fail easily. In other words you are not going to have many open connections just because the API is slow (this could kill your server completely) and your fetch won't give up if the API didn't respond for the first time (just some glitch and one retry would fix it).
 
 # Installation
 
-```
+```bash
 yarn add @adeira/fetch
 ```
 
@@ -26,7 +26,7 @@ import fetch from '@adeira/fetch';
 })();
 ```
 
-There are however some interesting features on top of this API. You can for example change the internal timings (the defaults are good enough):
+There are however some interesting features on top of this API. You can for example change the internal timings:
 
 ```js
 import fetchWithRetries from '@adeira/fetch';
@@ -67,7 +67,7 @@ Retries are performed in these situations:
 - fetch returned HTTP status <200 or >=300 (but some not transitive HTTP status codes like 401 or 403 are ignored)
 - when the timeout (`fetchTimeout`) occurs
 
-This package uses fetch [ponyfill](https://ponyfill.com/) internally (cross-fetch) so it supports server JS as well as browsers and React Native environment. It will always try to use global `fetch` if available before using this ponyfill.
+This package uses fetch [ponyfill](https://ponyfill.com/) internally ([`cross-fetch`](https://github.com/lquixada/cross-fetch)) so it supports server JS as well as browsers and React Native environment. It will always try to use global `fetch` if available before using this ponyfill.
 
 # Error handling
 
@@ -139,11 +139,11 @@ Example with timeouts:
 
 1. first request takes too long and it's terminated after 2000ms
 2. next retry was scheduled to be after 100ms but we already burned 2000ms so it's going to be executed immediately
-3. second request takes to long as well and is terminated after 2000ms
+3. second request takes too long as well and is terminated after 2000ms
 4. last request will wait 3000ms minus the burned timeout => 1000ms
 5. last attempt (it will timeout or resolve correctly)
 
-In reality you can see some more optimistic scenarios: for example request failed with HTTP status code 500 and it's resolved immediately after you retry it (just some API glitch). Similar scenarios are quite often for timeouts: first try timeouted for some reason but it's OK when you try for the second time. This makes this fetch much better than the commonly used alternatives - this fetch does not expect success all the time and it tries to handle these real-world scenarios.
+In reality, you can see some more optimistic scenarios: for example request failed with HTTP status code 500 and it's resolved immediately after you retry it (just some API glitch). Similar scenarios are quite often for timeouts: first try timeouted for some reason but it's OK when you try for the second time.
 
 ## How do I mock this fetch?
 
