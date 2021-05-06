@@ -1,6 +1,5 @@
-See: https://doc.rust-lang.org/cargo/reference/publishing.html
+Releasing of this package is currently a manual process. See: https://doc.rust-lang.org/cargo/reference/publishing.html
 
-```text
-cargo package --list
-cargo publish --dry-run
-```
+1. Bump `Cargo.toml` version
+2. `cargo package --list`
+3. `cargo publish --dry-run`
