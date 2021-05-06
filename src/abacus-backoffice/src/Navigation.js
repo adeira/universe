@@ -1,6 +1,5 @@
 // @flow
 
-import { Emoji } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
@@ -8,13 +7,14 @@ import sx from '@adeira/sx';
 import LanguageSwitch from './LanguageSwitch';
 import Link from './Link';
 import { LogoutButton } from './AuthButtons';
+import NavigationHeader from './NavigationHeader';
 
 export default function Navigation(): React.Node {
   return (
     <nav className={styles('navigation')}>
-      <strong>
-        <Emoji symbol={'🧮'} label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
-      </strong>
+      <div className={styles('navigationHeader')}>
+        <NavigationHeader />
+      </div>
 
       <Link href="/" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to the homepage">Home</fbt>
@@ -28,13 +28,10 @@ export default function Navigation(): React.Node {
       <Link href="/ledger" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to ledger">Ledger</fbt>
       </Link>
-
       <Link href="/pos" target="_blank" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to point of sales">Open POS</fbt>
       </Link>
-
       <div className={styles('spacing')} />
-
       <LanguageSwitch />
       <LogoutButton />
     </nav>
@@ -59,6 +56,9 @@ const styles = sx.create({
     color: '#5c6a77',
     padding: '1rem 0 1rem 1rem',
     borderRight: '1px solid #e9eff3',
+  },
+  navigationHeader: {
+    marginBottom: '1rem',
   },
   link: {
     'paddingTop': 5,
