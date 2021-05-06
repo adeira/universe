@@ -43,6 +43,7 @@ impl std::fmt::Debug for Product {
             .field("is_published", &self.is_published)
             .field("visibility", &self.visibility)
             .field("price", &self.price)
+            .field("translation", &self.translations)
             .field("translations", &self.translations)
             .finish()
     }
@@ -60,6 +61,10 @@ impl Product {
 
     pub(crate) fn name(&self) -> String {
         self.name.to_owned()
+    }
+
+    pub(crate) fn images(&self) -> Vec<Image> {
+        self.images.to_owned()
     }
 }
 
@@ -537,7 +542,16 @@ pub(in crate::commerce) async fn delete_product(
 ) -> Result<Product, ModelError> {
     match &context.user {
         User::AdminUser(_) => {
-            crate::commerce::dal::products::delete_product(&context.pool, &product_key).await
+            let product_result =
+                crate::commerce::dal::products::delete_product(&context.pool, &product_key).await;
+
+            if let Ok(product) = &product_result {
+                for image in product.images() {
+                    crate::images::delete_image(&context, &image).await?;
+                }
+            }
+
+            product_result
         }
         _ => Err(ModelError::PermissionsError(String::from(
             "Only admins can delete products.",
