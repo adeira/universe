@@ -138,13 +138,12 @@ async fn process_images_authorized(
                 );
 
                 match image_result {
-                    Ok(image_result) => {
+                    Ok(image) => {
                         processed_images.push(Image {
                             name_s3: s3_image.s3_filename,
                             name_original: filename.to_string(),
-                            // TODO: the Blurhash calculation appears to be very slow for large images!
                             // TODO: do not unwrap the blurhash:
-                            blurhash: blurhash::calculate_image_blurhash(image_result).unwrap(),
+                            blurhash: blurhash::calculate_image_blurhash(image).unwrap(),
                         });
                     }
                     Err(_) => {
