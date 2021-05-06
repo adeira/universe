@@ -1,6 +1,6 @@
 use crate::graphql_context::ContextUploadableContentType;
 use rusoto_core::Region;
-use rusoto_s3::{PutObjectRequest, S3Client, S3};
+use rusoto_s3::{DeleteObjectRequest, PutObjectRequest, S3Client, S3};
 
 const BUCKED_NAME: &str = "abacus-images-58276402-e657-493a-b0b9-d8c278f3e01d";
 
@@ -43,11 +43,43 @@ pub(in crate::images) async fn upload_image(
         })
         .await
     {
-        Ok(_) => Ok(S3Object {
-            s3_filename: s3_filename.to_string(),
-        }),
-        Err(error) => Err(S3Error {
-            message: format!("{}", error),
-        }),
+        Ok(_) => {
+            tracing::debug!("Successfully uploaded image '{}' to S3", s3_filename);
+            Ok(S3Object {
+                s3_filename: s3_filename.to_string(),
+            })
+        }
+        Err(error) => {
+            tracing::error!("Unable to upload image '{}' from S3", s3_filename);
+            Err(S3Error {
+                message: format!("{}", error),
+            })
+        }
+    }
+}
+
+/// See: https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html
+pub(in crate::images) async fn delete_image(s3_filename: &String) -> Result<S3Object, S3Error> {
+    let s3_client = S3Client::new(Region::UsWest1);
+    match s3_client
+        .delete_object(DeleteObjectRequest {
+            bucket: String::from(BUCKED_NAME),
+            key: s3_filename.to_string(),
+            ..DeleteObjectRequest::default()
+        })
+        .await
+    {
+        Ok(_) => {
+            tracing::debug!("Successfully deleted image '{}' from S3", s3_filename);
+            Ok(S3Object {
+                s3_filename: s3_filename.to_owned(),
+            })
+        }
+        Err(error) => {
+            tracing::error!("Unable to delete image '{}' from S3", s3_filename);
+            Err(S3Error {
+                message: format!("{}", error),
+            })
+        }
     }
 }

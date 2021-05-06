@@ -1,17 +1,18 @@
 /// This module is responsible for processing images:
 ///
-/// 1) generate blurhashes and save all the info into database
-/// 2) strip EXIF images metadata (TODO)
-/// 3) upload images to S3 (TODO, via `rusoto_s3`)
+/// Uploading:
+///  1) generate blurhashes and save all the info into database
+///  2) strip EXIF images metadata (TODO)
+///  3) upload images to S3
 ///
 use crate::auth::users::User;
 use crate::commerce::api::ProductMultilingualInput;
 use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
-use blurhash_wasm::{encode, EncodingError};
-use image::DynamicImage;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
+mod blurhash;
+mod cloudfront;
 mod s3;
 
 #[derive(Debug)]
@@ -48,7 +49,13 @@ impl Image {
     }
 
     fn url(&self) -> String {
-        resolve_cloudfront_url(self.name_s3.as_ref())
+        cloudfront::resolve_cloudfront_url(self.name_s3.as_ref())
+    }
+}
+
+impl Image {
+    fn s3name(&self) -> String {
+        self.name_s3.to_owned()
     }
 }
 
@@ -135,7 +142,9 @@ async fn process_images_authorized(
                         processed_images.push(Image {
                             name_s3: s3_image.s3_filename,
                             name_original: filename.to_string(),
-                            blurhash: calculate_image_blurhash(image_result).unwrap(), // TODO: do not unwrap
+                            // TODO: the Blurhash calculation appears to be very slow for large images!
+                            // TODO: do not unwrap the blurhash:
+                            blurhash: blurhash::calculate_image_blurhash(image_result).unwrap(),
                         });
                     }
                     Err(_) => {
@@ -151,43 +160,16 @@ async fn process_images_authorized(
     Ok(processed_images)
 }
 
-/// This function calculates blurhash of the image (https://blurha.sh/).
-fn calculate_image_blurhash(image: DynamicImage) -> Result<String, EncodingError> {
-    let input = image.to_rgba8();
-    let (width, height) = input.dimensions();
-    encode(input.into_vec(), 4, 4, width as usize, height as usize)
-}
-
-// TODO: use in GraphQL output
-fn resolve_cloudfront_url(path: &str) -> String {
-    let cloudfront_domain = "https://d3nujwlesxo9e6.cloudfront.net/";
-    format!(
-        "{}/{}",
-        cloudfront_domain.trim_end_matches('/'),
-        path.trim_start_matches('/')
-    )
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn blurhash_test() {
-        let image = image::open("src/images/tests/data/img.png").unwrap();
-        assert_eq!(
-            calculate_image_blurhash(image).unwrap(),
-            "UIFFXSUH]:+p@-5c+*JO@[s~[Q6.}.F_jDOZ"
-        );
-    }
-
-    #[test]
-    fn resolve_cloudfrom_url_happy_path() {
-        insta::assert_snapshot!(resolve_cloudfront_url("test.png"))
-    }
-
-    #[test]
-    fn resolve_cloudfrom_url_leading_slash() {
-        insta::assert_snapshot!(resolve_cloudfront_url("/test.png"))
+/// Only admin can delete images.
+pub(crate) async fn delete_image(context: &Context, image: &Image) -> Result<Image, ModelError> {
+    match &context.user {
+        // only admin can delete images (must be authorized)
+        User::AdminUser(_) => match s3::delete_image(&image.s3name()).await {
+            Ok(_) => Ok(image.clone()),
+            Err(s3_error) => return Err(ModelError::ProcessingError(s3_error.message)),
+        },
+        _ => Err(ModelError::PermissionsError(String::from(
+            "only admin can delete images",
+        ))),
     }
 }
