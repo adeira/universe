@@ -13,7 +13,7 @@
     "@babel/runtime": "^7.14.0",
     "chalk": "^4.1.1",
     "is-ci": "^3.0.0",
-    "npm-packlist": "^2.1.5",
+    "npm-packlist": "^2.2.0",
     "npm-registry-client": "^8.6.0",
     "rimraf": "^3.0.2",
     "semver": "^7.3.5",
