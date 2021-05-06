@@ -86,20 +86,6 @@
   },
   {
    "hashToText": {
-    "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
-   },
-   "filepath": "src/Navigation.js",
-   "line_beg": 16,
-   "col_beg": 36,
-   "line_end": 16,
-   "col_end": 85,
-   "desc": "abacus emoji label",
-   "project": "",
-   "type": "text",
-   "jsfbt": "abacus emoji"
-  },
-  {
-   "hashToText": {
     "EX/o2WuR0ou1BNovRq6qGw==": "Home"
    },
    "filepath": "src/Navigation.js",
@@ -159,14 +145,28 @@
     "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 33,
+   "line_beg": 32,
    "col_beg": 8,
-   "line_end": 33,
+   "line_end": 32,
    "col_end": 68,
    "desc": "navigation link to point of sales",
    "project": "",
    "type": "text",
    "jsfbt": "Open POS"
+  },
+  {
+   "hashToText": {
+    "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
+   },
+   "filepath": "src/NavigationHeader.js",
+   "line_beg": 40,
+   "col_beg": 34,
+   "line_end": 40,
+   "col_end": 83,
+   "desc": "abacus emoji label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "abacus emoji"
   },
   {
    "hashToText": {
@@ -523,9 +523,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 141,
+   "line_beg": 147,
    "col_beg": 14,
-   "line_end": 150,
+   "line_end": 156,
    "col_end": 20,
    "desc": "product updated success message",
    "project": "",
@@ -537,9 +537,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 163,
+   "line_beg": 169,
    "col_beg": 19,
-   "line_end": 166,
+   "line_end": 172,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -551,9 +551,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 175,
+   "line_beg": 181,
    "col_beg": 25,
-   "line_end": 175,
+   "line_end": 181,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",
