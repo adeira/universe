@@ -36,8 +36,8 @@ function NavigationHeaderDev(): React.Node {
 
 export default function NavigationHeader(): React.Node {
   return (
-    <strong>
-      <Emoji symbol={'🧮'} label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus{' '}
+    <strong className={styles('title')}>
+      <Emoji symbol={'🧮'} label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
       <React.Suspense fallback={<ProdBadge />}>
         <NavigationHeaderDev />
       </React.Suspense>
@@ -46,6 +46,9 @@ export default function NavigationHeader(): React.Node {
 }
 
 const styles = sx.create({
+  title: {
+    color: '#1c1e21',
+  },
   dev: {
     color: 'green',
   },

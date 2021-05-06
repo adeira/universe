@@ -6,6 +6,7 @@ import { Image } from '@adeira/sx-design';
 
 import EditProductForm from './EditProductForm';
 import EditProductHeading from './EditProductHeading';
+import useApplicationLocale from '../useApplicationLocale';
 import type { ProductsEditLayoutQuery } from './__generated__/ProductsEditLayoutQuery.graphql';
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 };
 
 export default function ProductsEditLayout(props: Props): Node {
+  const applicationLocale = useApplicationLocale();
   const data = useLazyLoadQuery<ProductsEditLayoutQuery>(
     graphql`
       query ProductsEditLayoutQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
@@ -34,7 +36,7 @@ export default function ProductsEditLayout(props: Props): Node {
     `,
     {
       productKey: props.productKey,
-      clientLocale: 'en_US', // TODO: customizable locale
+      clientLocale: applicationLocale.graphql,
     },
   );
 
