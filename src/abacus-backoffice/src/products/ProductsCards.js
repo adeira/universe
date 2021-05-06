@@ -7,28 +7,38 @@ import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 
 import Link from '../Link';
+import useApplicationLocale from '../useApplicationLocale';
 import type { ProductsCardsQuery } from './__generated__/ProductsCardsQuery.graphql';
 
 export default function ProductsCards(): Node {
-  const data = useLazyLoadQuery<ProductsCardsQuery>(graphql`
-    query ProductsCardsQuery {
-      commerce {
-        products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
-          id
-          key
-          name
-          imageCover {
-            blurhash
-            url
-          }
-          price {
-            unitAmount
-            unitAmountCurrency
+  const applicationLocale = useApplicationLocale();
+  const data = useLazyLoadQuery<ProductsCardsQuery>(
+    graphql`
+      query ProductsCardsQuery($clientLocale: SupportedLocale!) {
+        commerce {
+          products: searchAllProducts(
+            clientLocale: $clientLocale
+            priceSortDirection: LOW_TO_HIGH
+          ) {
+            id
+            key
+            name
+            imageCover {
+              blurhash
+              url
+            }
+            price {
+              unitAmount
+              unitAmountCurrency
+            }
           }
         }
       }
-    }
-  `);
+    `,
+    {
+      clientLocale: applicationLocale.graphql,
+    },
+  );
 
   if (data.commerce.products?.length === 0) {
     return (
@@ -55,6 +65,7 @@ export default function ProductsCards(): Node {
               priceUnitAmountCurrency={product.price.unitAmountCurrency}
               imgBlurhash={product.imageCover?.blurhash}
               imgSrc={product.imageCover?.url}
+              imgAlt={product.name}
             />
           </Link>
         );

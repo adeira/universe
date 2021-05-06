@@ -6,7 +6,10 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
-export type ProductsCardsQueryVariables = {||};
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
+export type ProductsCardsQueryVariables = {|
+  clientLocale: SupportedLocale
+|};
 export type ProductsCardsQueryResponse = {|
   +commerce: {|
     +products: ?$ReadOnlyArray<?{|
@@ -30,9 +33,11 @@ export type ProductsCardsQuery = {|
 |};
 
 /*
-query ProductsCardsQuery {
+query ProductsCardsQuery(
+  $clientLocale: SupportedLocale!
+) {
   commerce {
-    products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {
+    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: LOW_TO_HIGH) {
       id
       key
       name
@@ -52,6 +57,13 @@ query ProductsCardsQuery {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "clientLocale"
+  }
+],
+v1 = [
+  {
     "alias": null,
     "args": null,
     "concreteType": "CommerceQuery",
@@ -63,9 +75,9 @@ var v0 = [
         "alias": "products",
         "args": [
           {
-            "kind": "Literal",
+            "kind": "Variable",
             "name": "clientLocale",
-            "value": "en_US"
+            "variableName": "clientLocale"
           },
           {
             "kind": "Literal",
@@ -150,7 +162,7 @@ var v0 = [
             "storageKey": null
           }
         ],
-        "storageKey": "searchAllProducts(clientLocale:\"en_US\",priceSortDirection:\"LOW_TO_HIGH\")"
+        "storageKey": null
       }
     ],
     "storageKey": null
@@ -158,31 +170,31 @@ var v0 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "ProductsCardsQuery",
-    "selections": (v0/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "ProductsCardsQuery",
-    "selections": (v0/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "45ad1ef010993a51d5fbca0cf792fdf7",
+    "cacheID": "89b6c0c41ba0f79a3679015b6025798a",
     "id": null,
     "metadata": {},
     "name": "ProductsCardsQuery",
     "operationKind": "query",
-    "text": "query ProductsCardsQuery {\n  commerce {\n    products: searchAllProducts(clientLocale: en_US, priceSortDirection: LOW_TO_HIGH) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsCardsQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: LOW_TO_HIGH) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '6f2b4e8b3cb57f1f29035a109af27f21';
+(node: any).hash = 'eaa37480a4d84f7d686fb309916e9c46';
 export default node;
