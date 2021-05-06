@@ -12724,10 +12724,10 @@ npm-normalize-package-bin@^1.0.1:
     semver "^5.6.0"
     validate-npm-package-name "^3.0.0"
 
-npm-packlist@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-2.1.5.tgz#43ef5bbb9f59b7c0ef91e0905f1dd707b4cfb33c"
-  integrity sha512-KCfK3Vi2F+PH1klYauoQzg81GQ8/GGjQRKYY6tRnpQUPKTs/1gBZSRWtTEd7jGdSn1LZL7gpAmJT+BcS55k2XQ==
+npm-packlist@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-2.2.0.tgz#e28bd46be4e107388be3bb95993d0c0802c0c776"
+  integrity sha512-d3da2MEaYliq7h+PNOHqUhlQjRm0M6gNPi6yHsZYzsCj6bLqUTWCC+JMzW/u9Aaxu8i4F1AA0eJUPUSoFU5izA==
   dependencies:
     glob "^7.1.6"
     ignore-walk "^3.0.3"
