@@ -64,7 +64,7 @@ impl Image {
 ///
 /// Only admin is allowed to process the images and only images specified in the multilingual input
 /// can be processed.
-pub(crate) async fn process_images(
+pub(crate) async fn process_new_images(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Vec<Image>, ModelError> {
@@ -106,7 +106,7 @@ pub(crate) async fn process_images(
         // only admin can process images (must be authorized)
         User::AdminUser(_) => {
             if let Some(uploadables) = &context.uploadables {
-                let images = process_images_authorized(&uploadables).await?;
+                let images = process_new_images_authorized(&uploadables).await?;
                 return Ok(images);
             } else {
                 return Err(ModelError::ProcessingError(String::from(
@@ -120,7 +120,25 @@ pub(crate) async fn process_images(
     }
 }
 
-async fn process_images_authorized(
+/// This is technically similar to `process_new_images` except it takes images updates into account.
+/// There are technically 2 scenarios:
+///
+/// 1. User tries to upload a new image (they will be in `context.uploadables`). In this case we
+///    proceed the same way like `process_new_images`.
+/// 2. User deleted some images. In this case they won't appear in `product_multilingual_input.images`
+///    even though they were there previously (and so should be deleted).
+///
+/// Only admin is allowed to process the images and only images specified in the multilingual input
+/// can be processed.
+pub(crate) async fn process_updated_images(
+    context: &Context,
+    product_multilingual_input: &ProductMultilingualInput,
+) -> Result<Vec<Image>, ModelError> {
+    // TODO
+    process_new_images(&context, &product_multilingual_input).await
+}
+
+async fn process_new_images_authorized(
     uploadables: &HashMap<String, ContextUploadable>,
 ) -> Result<Vec<Image>, ModelError> {
     let mut processed_images = vec![];
