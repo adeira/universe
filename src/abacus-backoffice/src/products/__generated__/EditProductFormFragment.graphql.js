@@ -5,25 +5,14 @@
 /* eslint-disable */
 
 import type { ReaderFragment } from 'relay-runtime';
-export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
+type EditProductFormData$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type EditProductFormFragment$ref: FragmentReference;
 declare export opaque type EditProductFormFragment$fragmentType: EditProductFormFragment$ref;
 export type EditProductFormFragment = {|
   +key: string,
   +revision: string,
-  +price: {|
-    +unitAmount: number
-  |},
-  +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
-  +enTranslation: ?{|
-    +name: string,
-    +description: ?string,
-  |},
-  +esTranslation: ?{|
-    +name: string,
-    +description: ?string,
-  |},
+  +$fragmentRefs: EditProductFormData$ref,
   +$refType: EditProductFormFragment$ref,
 |};
 export type EditProductFormFragment$data = EditProductFormFragment;
@@ -35,7 +24,21 @@ export type EditProductFormFragment$key = {
 
 
 const node: ReaderFragment = (function(){
-var v0 = [
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "key",
+  "storageKey": null
+},
+v1 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "revision",
+  "storageKey": null
+},
+v2 = [
   {
     "alias": null,
     "args": null,
@@ -57,76 +60,72 @@ return {
   "metadata": null,
   "name": "EditProductFormFragment",
   "selections": [
+    (v0/*: any*/),
+    (v1/*: any*/),
     {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "key",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "revision",
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "concreteType": "ProductPrice",
-      "kind": "LinkedField",
-      "name": "price",
-      "plural": false,
+      "kind": "InlineDataFragmentSpread",
+      "name": "EditProductFormData",
       "selections": [
+        (v0/*: any*/),
+        (v1/*: any*/),
+        {
+          "alias": null,
+          "args": null,
+          "concreteType": "ProductPrice",
+          "kind": "LinkedField",
+          "name": "price",
+          "plural": false,
+          "selections": [
+            {
+              "alias": null,
+              "args": null,
+              "kind": "ScalarField",
+              "name": "unitAmount",
+              "storageKey": null
+            }
+          ],
+          "storageKey": null
+        },
         {
           "alias": null,
           "args": null,
           "kind": "ScalarField",
-          "name": "unitAmount",
+          "name": "visibility",
           "storageKey": null
-        }
-      ],
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "visibility",
-      "storageKey": null
-    },
-    {
-      "alias": "enTranslation",
-      "args": [
+        },
         {
-          "kind": "Literal",
-          "name": "locale",
-          "value": "en_US"
-        }
-      ],
-      "concreteType": "ProductMultilingualTranslations",
-      "kind": "LinkedField",
-      "name": "translation",
-      "plural": false,
-      "selections": (v0/*: any*/),
-      "storageKey": "translation(locale:\"en_US\")"
-    },
-    {
-      "alias": "esTranslation",
-      "args": [
+          "alias": "enTranslation",
+          "args": [
+            {
+              "kind": "Literal",
+              "name": "locale",
+              "value": "en_US"
+            }
+          ],
+          "concreteType": "ProductMultilingualTranslations",
+          "kind": "LinkedField",
+          "name": "translation",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": "translation(locale:\"en_US\")"
+        },
         {
-          "kind": "Literal",
-          "name": "locale",
-          "value": "es_MX"
+          "alias": "esTranslation",
+          "args": [
+            {
+              "kind": "Literal",
+              "name": "locale",
+              "value": "es_MX"
+            }
+          ],
+          "concreteType": "ProductMultilingualTranslations",
+          "kind": "LinkedField",
+          "name": "translation",
+          "plural": false,
+          "selections": (v2/*: any*/),
+          "storageKey": "translation(locale:\"es_MX\")"
         }
-      ],
-      "concreteType": "ProductMultilingualTranslations",
-      "kind": "LinkedField",
-      "name": "translation",
-      "plural": false,
-      "selections": (v0/*: any*/),
-      "storageKey": "translation(locale:\"es_MX\")"
+      ]
     }
   ],
   "type": "Product",
@@ -134,5 +133,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = '0e28eb86985cd5f99e05df9800e5642b';
+(node: any).hash = '86217cb9c705583436053cc609dfd349';
 export default node;

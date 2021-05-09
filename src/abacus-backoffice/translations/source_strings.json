@@ -523,9 +523,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 147,
+   "line_beg": 143,
    "col_beg": 14,
-   "line_end": 156,
+   "line_end": 152,
    "col_end": 20,
    "desc": "product updated success message",
    "project": "",
@@ -537,9 +537,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 169,
+   "line_beg": 165,
    "col_beg": 19,
-   "line_end": 172,
+   "line_end": 168,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -551,9 +551,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/EditProductForm.js",
-   "line_beg": 181,
+   "line_beg": 177,
    "col_beg": 25,
-   "line_end": 181,
+   "line_end": 177,
    "col_end": 93,
    "desc": "edit product form submit button title",
    "project": "",
@@ -674,12 +674,26 @@
   },
   {
    "hashToText": {
-    "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
+    "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "src/products/form/ProductForm.js",
    "line_beg": 46,
    "col_beg": 14,
    "line_end": 46,
+   "col_end": 85,
+   "desc": "form field name for product pictures",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product pictures"
+  },
+  {
+   "hashToText": {
+    "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
+   },
+   "filepath": "src/products/form/ProductForm.js",
+   "line_beg": 59,
+   "col_beg": 14,
+   "line_end": 59,
    "col_end": 98,
    "desc": "form field name for product name in english",
    "project": "",
@@ -691,9 +705,9 @@
     "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 54,
+   "line_beg": 67,
    "col_beg": 14,
-   "line_end": 54,
+   "line_end": 67,
    "col_end": 98,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -705,9 +719,9 @@
     "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 62,
+   "line_beg": 75,
    "col_beg": 14,
-   "line_end": 64,
+   "line_end": 77,
    "col_end": 20,
    "desc": "form field name for product description in english",
    "project": "",
@@ -719,9 +733,9 @@
     "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 72,
+   "line_beg": 85,
    "col_beg": 14,
-   "line_end": 74,
+   "line_end": 87,
    "col_end": 20,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -733,9 +747,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 82,
+   "line_beg": 95,
    "col_beg": 14,
-   "line_end": 82,
+   "line_end": 95,
    "col_end": 77,
    "desc": "form field name for product price",
    "project": "",
@@ -744,26 +758,12 @@
   },
   {
    "hashToText": {
-    "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
-   },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 90,
-   "col_beg": 14,
-   "line_end": 90,
-   "col_end": 85,
-   "desc": "form field name for product pictures",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Product pictures"
-  },
-  {
-   "hashToText": {
     "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
    },
    "filepath": "src/products/ProductsCards.js",
-   "line_beg": 36,
+   "line_beg": 46,
    "col_beg": 8,
-   "line_end": 36,
+   "line_end": 46,
    "col_end": 71,
    "desc": "empty shop message",
    "project": "",

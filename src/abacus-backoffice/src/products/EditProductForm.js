@@ -3,7 +3,7 @@
 import { invariant } from '@adeira/js';
 import { fbt } from 'fbt';
 import React, { useState, type Node } from 'react';
-import { graphql, useFragment, useMutation } from '@adeira/relay';
+import { graphql, readInlineData, useFragment, useMutation } from '@adeira/relay';
 import { useSetRecoilState } from 'recoil';
 
 import ProductForm, { type FormValues } from './form/ProductForm';
@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function EditProductForm(props: Props): Node {
-  const [, setFiles] = useState(undefined);
+  const [files, setFiles] = useState(undefined);
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
   const product = useFragment(
@@ -24,24 +24,12 @@ export default function EditProductForm(props: Props): Node {
       fragment EditProductFormFragment on Product {
         key
         revision
-        price {
-          unitAmount
-        }
-        visibility
-        enTranslation: translation(locale: en_US) {
-          name
-          description
-        }
-        esTranslation: translation(locale: es_MX) {
-          name
-          description
-        }
+        ...EditProductFormData
       }
     `,
     props.product,
   );
 
-  // TODO: dedupe with the fragment above
   const [productUpdate] = useMutation<EditProductFormMutation>(graphql`
     mutation EditProductFormMutation(
       $productKey: ID!
@@ -67,18 +55,7 @@ export default function EditProductForm(props: Props): Node {
             id
             name
             revision
-            price {
-              unitAmount
-            }
-            visibility
-            enTranslation: translation(locale: en_US) {
-              name
-              description
-            }
-            esTranslation: translation(locale: es_MX) {
-              name
-              description
-            }
+            ...EditProductFormData
           }
           ... on ProductError {
             __typename
@@ -89,7 +66,29 @@ export default function EditProductForm(props: Props): Node {
     }
   `);
 
-  const getProductValues = (product): FormValues => {
+  const getProductValues = (productRef): FormValues => {
+    const product = readInlineData(
+      graphql`
+        fragment EditProductFormData on Product @inline {
+          key
+          revision
+          price {
+            unitAmount
+          }
+          visibility
+          enTranslation: translation(locale: en_US) {
+            name
+            description
+          }
+          esTranslation: translation(locale: es_MX) {
+            name
+            description
+          }
+        }
+      `,
+      productRef,
+    );
+
     const enTranslation = product?.enTranslation ?? {};
     const esTranslation = product?.esTranslation ?? {};
 
@@ -102,7 +101,6 @@ export default function EditProductForm(props: Props): Node {
       description_en: enTranslation.description ?? '',
       description_es: esTranslation.description ?? '',
       price: productPrice != null ? productPrice / 100 : '',
-      // $FlowIssue[incompatible-return]: https://github.com/facebook/flow/issues/1414
       visibility: productVisibility,
     };
   };
@@ -113,8 +111,6 @@ export default function EditProductForm(props: Props): Node {
       typeof price === 'number' && price > 0,
       'Product price should be at this point validated and higher than zero.',
     );
-
-    const files = undefined; // TODO!
 
     productUpdate({
       uploadables: files,

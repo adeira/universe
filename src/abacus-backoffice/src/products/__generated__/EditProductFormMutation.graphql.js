@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+type EditProductFormData$ref = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
@@ -27,18 +28,7 @@ export type EditProductFormMutationResponse = {|
       +id: string,
       +name: string,
       +revision: string,
-      +price: {|
-        +unitAmount: number
-      |},
-      +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
-      +enTranslation: ?{|
-        +name: string,
-        +description: ?string,
-      |},
-      +esTranslation: ?{|
-        +name: string,
-        +description: ?string,
-      |},
+      +$fragmentRefs: EditProductFormData$ref,
     |} | {|
       +__typename: "ProductError",
       +message: string,
@@ -71,24 +61,30 @@ mutation EditProductFormMutation(
         id
         name
         revision
-        price {
-          unitAmount
-        }
-        visibility
-        enTranslation: translation(locale: en_US) {
-          name
-          description
-        }
-        esTranslation: translation(locale: es_MX) {
-          name
-          description
-        }
+        ...EditProductFormData
       }
       ... on ProductError {
         __typename
         message
       }
     }
+  }
+}
+
+fragment EditProductFormData on Product {
+  key
+  revision
+  price {
+    unitAmount
+  }
+  visibility
+  enTranslation: translation(locale: en_US) {
+    name
+    description
+  }
+  esTranslation: translation(locale: es_MX) {
+    name
+    description
   }
 }
 */
@@ -204,6 +200,13 @@ v10 = {
 v11 = {
   "alias": null,
   "args": null,
+  "kind": "ScalarField",
+  "name": "key",
+  "storageKey": null
+},
+v12 = {
+  "alias": null,
+  "args": null,
   "concreteType": "ProductPrice",
   "kind": "LinkedField",
   "name": "price",
@@ -219,14 +222,14 @@ v11 = {
   ],
   "storageKey": null
 },
-v12 = {
+v13 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "visibility",
   "storageKey": null
 },
-v13 = [
+v14 = [
   (v9/*: any*/),
   {
     "alias": null,
@@ -236,7 +239,7 @@ v13 = [
     "storageKey": null
   }
 ],
-v14 = {
+v15 = {
   "alias": "enTranslation",
   "args": [
     {
@@ -249,10 +252,10 @@ v14 = {
   "kind": "LinkedField",
   "name": "translation",
   "plural": false,
-  "selections": (v13/*: any*/),
+  "selections": (v14/*: any*/),
   "storageKey": "translation(locale:\"en_US\")"
 },
-v15 = {
+v16 = {
   "alias": "esTranslation",
   "args": [
     {
@@ -265,10 +268,10 @@ v15 = {
   "kind": "LinkedField",
   "name": "translation",
   "plural": false,
-  "selections": (v13/*: any*/),
+  "selections": (v14/*: any*/),
   "storageKey": "translation(locale:\"es_MX\")"
 },
-v16 = {
+v17 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -312,10 +315,18 @@ return {
                   (v8/*: any*/),
                   (v9/*: any*/),
                   (v10/*: any*/),
-                  (v11/*: any*/),
-                  (v12/*: any*/),
-                  (v14/*: any*/),
-                  (v15/*: any*/)
+                  {
+                    "kind": "InlineDataFragmentSpread",
+                    "name": "EditProductFormData",
+                    "selections": [
+                      (v11/*: any*/),
+                      (v10/*: any*/),
+                      (v12/*: any*/),
+                      (v13/*: any*/),
+                      (v15/*: any*/),
+                      (v16/*: any*/)
+                    ]
+                  }
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -324,7 +335,7 @@ return {
                 "kind": "InlineFragment",
                 "selections": [
                   (v7/*: any*/),
-                  (v16/*: any*/)
+                  (v17/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -377,8 +388,9 @@ return {
                   (v10/*: any*/),
                   (v11/*: any*/),
                   (v12/*: any*/),
-                  (v14/*: any*/),
-                  (v15/*: any*/)
+                  (v13/*: any*/),
+                  (v15/*: any*/),
+                  (v16/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -386,7 +398,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v16/*: any*/)
+                  (v17/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -400,15 +412,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "67ebf54d2066be84c779893821eba28d",
+    "cacheID": "682f89cc30a666ded3242d967f3a2835",
     "id": null,
     "metadata": {},
     "name": "EditProductFormMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        price {\n          unitAmount\n        }\n        visibility\n        enTranslation: translation(locale: en_US) {\n          name\n          description\n        }\n        esTranslation: translation(locale: es_MX) {\n          name\n          description\n        }\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...EditProductFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment EditProductFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'b4497a1b04931c563e6ab723cd7dc743';
+(node: any).hash = '6e0c68810c8de013d27dc703065d335e';
 export default node;

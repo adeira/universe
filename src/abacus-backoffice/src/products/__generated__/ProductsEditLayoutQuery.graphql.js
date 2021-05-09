@@ -48,7 +48,7 @@ query ProductsEditLayoutQuery(
   }
 }
 
-fragment EditProductFormFragment on Product {
+fragment EditProductFormData on Product {
   key
   revision
   price {
@@ -63,6 +63,12 @@ fragment EditProductFormFragment on Product {
     name
     description
   }
+}
+
+fragment EditProductFormFragment on Product {
+  key
+  revision
+  ...EditProductFormData
 }
 
 fragment EditProductHeading on Product {
@@ -300,12 +306,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "763ed8cc0115d076b38e085c5f79e8ab",
+    "cacheID": "19b746d9b5eacd58a4ea2724dbad2227",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  ...EditProductFormData\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();
