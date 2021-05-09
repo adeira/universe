@@ -430,8 +430,8 @@ pub(in crate::commerce) async fn create_product(
         User::AdminUser(_) => {
             let mut images = vec![];
             if context.uploadables.is_some() {
-                images =
-                    crate::images::process_images(&context, &product_multilingual_input).await?;
+                images = crate::images::process_new_images(&context, &product_multilingual_input)
+                    .await?;
             }
             crate::commerce::dal::products::create_product(
                 &context.pool,
@@ -455,13 +455,18 @@ pub(in crate::commerce) async fn update_product(
     validate_product_multilingual_input(&product_multilingual_input)?;
     match &context.user {
         User::AdminUser(_) => {
-            // TODO: handle images (see `create_product`)
+            let mut images = vec![];
+            if context.uploadables.is_some() {
+                images =
+                    crate::images::process_updated_images(&context, &product_multilingual_input)
+                        .await?;
+            }
             crate::commerce::dal::products::update_product(
                 &context.pool,
                 &product_key,
                 &product_revision,
                 &product_multilingual_input,
-                &[], // TODO
+                &images,
             )
             .await
         }

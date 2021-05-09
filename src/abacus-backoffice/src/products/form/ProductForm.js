@@ -43,6 +43,19 @@ export default function ProductForm(props: Props): Node {
         <Form>
           <div className={styles('row')}>
             <label>
+              <fbt desc="form field name for product pictures">Product pictures</fbt>
+              <Field
+                type="file"
+                name="images"
+                multiple={true}
+                accept="image/jpeg,image/png"
+                onChange={({ target }) => props.onUploadablesChange(target.files)}
+              />
+            </label>
+          </div>
+
+          <div className={styles('row')}>
+            <label>
               <fbt desc="form field name for product name in english">Product name (English)</fbt>
               <Field type="text" name="name_en" />
               <ErrorMessage name="name_en" component={CustomErrorMessage} />
@@ -82,19 +95,6 @@ export default function ProductForm(props: Props): Node {
               <fbt desc="form field name for product price">Price (MXN)</fbt>
               <Field type="number" name="price" />
               <ErrorMessage name="price" component={CustomErrorMessage} />
-            </label>
-          </div>
-
-          <div className={styles('row')}>
-            <label>
-              <fbt desc="form field name for product pictures">Product pictures</fbt>
-              <Field
-                type="file"
-                name="images"
-                multiple={true}
-                accept="image/jpeg,image/png"
-                onChange={({ target }) => props.onUploadablesChange(target.files)}
-              />
             </label>
           </div>
 
