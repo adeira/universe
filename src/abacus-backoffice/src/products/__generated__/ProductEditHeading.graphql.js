@@ -6,17 +6,17 @@
 
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type EditProductHeading$ref: FragmentReference;
-declare export opaque type EditProductHeading$fragmentType: EditProductHeading$ref;
-export type EditProductHeading = {|
+declare export opaque type ProductEditHeading$ref: FragmentReference;
+declare export opaque type ProductEditHeading$fragmentType: ProductEditHeading$ref;
+export type ProductEditHeading = {|
   +key: string,
   +isPublished: boolean,
-  +$refType: EditProductHeading$ref,
+  +$refType: ProductEditHeading$ref,
 |};
-export type EditProductHeading$data = EditProductHeading;
-export type EditProductHeading$key = {
-  +$data?: EditProductHeading$data,
-  +$fragmentRefs: EditProductHeading$ref,
+export type ProductEditHeading$data = ProductEditHeading;
+export type ProductEditHeading$key = {
+  +$data?: ProductEditHeading$data,
+  +$fragmentRefs: ProductEditHeading$ref,
   ...
 };
 
@@ -25,7 +25,7 @@ const node: ReaderFragment = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
-  "name": "EditProductHeading",
+  "name": "ProductEditHeading",
   "selections": [
     {
       "alias": null,
@@ -46,5 +46,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '5083a6dabf247d6d6a211ccee56e772a';
+(node: any).hash = 'f16ba12544552aac568f7f96b1802528';
 export default node;

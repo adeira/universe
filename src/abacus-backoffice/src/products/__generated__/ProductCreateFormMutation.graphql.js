@@ -12,13 +12,13 @@ export type ProductMultilingualInputTranslations = {|
   name: string,
   description?: ?string,
 |};
-export type CreateProductFormMutationVariables = {|
+export type ProductCreateFormMutationVariables = {|
   productImagesNames: $ReadOnlyArray<any>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
 |};
-export type CreateProductFormMutationResponse = {|
+export type ProductCreateFormMutationResponse = {|
   +commerce: {|
     +result: {|
       +__typename: "Product",
@@ -33,13 +33,13 @@ export type CreateProductFormMutationResponse = {|
     |}
   |}
 |};
-export type CreateProductFormMutation = {|
-  variables: CreateProductFormMutationVariables,
-  response: CreateProductFormMutationResponse,
+export type ProductCreateFormMutation = {|
+  variables: ProductCreateFormMutationVariables,
+  response: ProductCreateFormMutationResponse,
 |};
 
 /*
-mutation CreateProductFormMutation(
+mutation ProductCreateFormMutation(
   $productImagesNames: [ProductImageUploadable!]!
   $productPriceUnitAmount: Int!
   $translations: [ProductMultilingualInputTranslations!]!
@@ -149,7 +149,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "CreateProductFormMutation",
+    "name": "ProductCreateFormMutation",
     "selections": [
       {
         "alias": null,
@@ -199,7 +199,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "CreateProductFormMutation",
+    "name": "ProductCreateFormMutation",
     "selections": [
       {
         "alias": null,
@@ -243,15 +243,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "f581c0e5f2fce2b629307d8b6d002a2d",
+    "cacheID": "5863fdee372e283b030ce0772fb2d909",
     "id": null,
     "metadata": {},
-    "name": "CreateProductFormMutation",
+    "name": "ProductCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateProductFormMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductCreateFormMutation(\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productCreate(productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '85e4af9267ef9411e1e38f541ef7e68b';
+(node: any).hash = '1948c5ba582a81ed4dd0a908221732db';
 export default node;

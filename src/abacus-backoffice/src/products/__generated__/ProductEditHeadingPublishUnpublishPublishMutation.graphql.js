@@ -5,10 +5,10 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type EditProductHeadingPublishUnpublishUnpublishMutationVariables = {|
+export type ProductEditHeadingPublishUnpublishPublishMutationVariables = {|
   productKey: string
 |};
-export type EditProductHeadingPublishUnpublishUnpublishMutationResponse = {|
+export type ProductEditHeadingPublishUnpublishPublishMutationResponse = {|
   +commerce: {|
     +productOrError: {|
       +__typename: "Product"
@@ -22,17 +22,17 @@ export type EditProductHeadingPublishUnpublishUnpublishMutationResponse = {|
     |}
   |}
 |};
-export type EditProductHeadingPublishUnpublishUnpublishMutation = {|
-  variables: EditProductHeadingPublishUnpublishUnpublishMutationVariables,
-  response: EditProductHeadingPublishUnpublishUnpublishMutationResponse,
+export type ProductEditHeadingPublishUnpublishPublishMutation = {|
+  variables: ProductEditHeadingPublishUnpublishPublishMutationVariables,
+  response: ProductEditHeadingPublishUnpublishPublishMutationResponse,
 |};
 
 /*
-mutation EditProductHeadingPublishUnpublishUnpublishMutation(
+mutation ProductEditHeadingPublishUnpublishPublishMutation(
   $productKey: ID!
 ) {
   commerce {
-    productOrError: productUnpublish(productKey: $productKey) {
+    productOrError: productPublish(productKey: $productKey) {
       __typename
       ... on Product {
         __typename
@@ -80,7 +80,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "EditProductHeadingPublishUnpublishUnpublishMutation",
+    "name": "ProductEditHeadingPublishUnpublishPublishMutation",
     "selections": [
       {
         "alias": null,
@@ -95,7 +95,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
-            "name": "productUnpublish",
+            "name": "productPublish",
             "plural": false,
             "selections": [
               {
@@ -129,7 +129,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "EditProductHeadingPublishUnpublishUnpublishMutation",
+    "name": "ProductEditHeadingPublishUnpublishPublishMutation",
     "selections": [
       {
         "alias": null,
@@ -144,7 +144,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
-            "name": "productUnpublish",
+            "name": "productPublish",
             "plural": false,
             "selections": [
               (v2/*: any*/),
@@ -165,15 +165,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b4524cd20f19adb661c0d3a8988a1128",
+    "cacheID": "91a9e274463dd430529129ce27db6317",
     "id": null,
     "metadata": {},
-    "name": "EditProductHeadingPublishUnpublishUnpublishMutation",
+    "name": "ProductEditHeadingPublishUnpublishPublishMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingPublishUnpublishPublishMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productPublish(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'a35342e4abcd1ab77abbeb777165d401';
+(node: any).hash = 'add5766330337f5cfcc4db1072b81ec7';
 export default node;

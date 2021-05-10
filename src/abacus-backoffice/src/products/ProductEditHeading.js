@@ -7,25 +7,25 @@ import { graphql, useMutation, useFragment } from '@adeira/relay';
 import { Heading } from '@adeira/sx-design';
 import { useSetRecoilState } from 'recoil';
 
-import EditProductHeadingPublishUnpublish from './EditProductHeadingPublishUnpublish';
+import ProductEditHeadingPublishUnpublish from './ProductEditHeadingPublishUnpublish';
 import LayoutHeading from '../LayoutHeading';
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import LayoutHeadingLink from '../LayoutHeadingLink';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
-import type { EditProductHeadingDeleteMutation } from './__generated__/EditProductHeadingDeleteMutation.graphql';
-import type { EditProductHeading$key } from './__generated__/EditProductHeading.graphql';
+import type { ProductEditHeadingDeleteMutation } from './__generated__/ProductEditHeadingDeleteMutation.graphql';
+import type { ProductEditHeading$key } from './__generated__/ProductEditHeading.graphql';
 
 type Props = {
-  +product: EditProductHeading$key,
+  +product: ProductEditHeading$key,
 };
 
-export default function EditProductHeading(props: Props): React.Node {
+export default function ProductEditHeading(props: Props): React.Node {
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
   const router = useRouter();
 
-  const [deleteProductMutation] = useMutation<EditProductHeadingDeleteMutation>(
+  const [deleteProductMutation] = useMutation<ProductEditHeadingDeleteMutation>(
     graphql`
-      mutation EditProductHeadingDeleteMutation($productKey: ID!) {
+      mutation ProductEditHeadingDeleteMutation($productKey: ID!) {
         commerce {
           productOrError: productDelete(productKey: $productKey) {
             ... on Product {
@@ -41,9 +41,9 @@ export default function EditProductHeading(props: Props): React.Node {
     `,
   );
 
-  const product = useFragment<EditProductHeading$key>(
+  const product = useFragment<ProductEditHeading$key>(
     graphql`
-      fragment EditProductHeading on Product {
+      fragment ProductEditHeading on Product {
         key
         isPublished
       }
@@ -90,7 +90,7 @@ export default function EditProductHeading(props: Props): React.Node {
         <fbt desc="go back to products navigation button">Products inventory</fbt>
       </LayoutHeadingLink>
 
-      <EditProductHeadingPublishUnpublish
+      <ProductEditHeadingPublishUnpublish
         isPublished={product.isPublished}
         productKey={product.key}
       />

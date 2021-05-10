@@ -3,9 +3,10 @@
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import React, { type Node } from 'react';
 import { Image } from '@adeira/sx-design';
+import sx from '@adeira/sx';
 
-import EditProductForm from './EditProductForm';
-import EditProductHeading from './EditProductHeading';
+import ProductEditForm from './ProductEditForm';
+import ProductEditHeading from './ProductEditHeading';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductsEditLayoutQuery } from './__generated__/ProductsEditLayoutQuery.graphql';
 
@@ -23,13 +24,13 @@ export default function ProductsEditLayout(props: Props): Node {
             clientLocale: $clientLocale
             productKey: $productKey
           ) {
-            ...EditProductHeading
+            ...ProductEditHeading
             images {
               name
               blurhash
               url
             }
-            ...EditProductFormFragment
+            ...ProductEditFormData
           }
         }
       }
@@ -42,19 +43,28 @@ export default function ProductsEditLayout(props: Props): Node {
 
   return (
     <>
-      <EditProductHeading product={data.commerce.product} />
-      {data.commerce.product.images.map((image) => {
-        return (
-          <Image
-            key={image.name} // TODO: expose ID from BE
-            src={image.url}
-            blurhash={image.blurhash}
-            width={250}
-            height={250}
-          />
-        );
-      })}
-      <EditProductForm product={data.commerce.product} />
+      <ProductEditHeading product={data.commerce.product} />
+      <div className={styles('imagesWrapper')}>
+        {data.commerce.product.images.map((image) => {
+          return (
+            <Image
+              key={image.name} // TODO: expose ID from BE
+              src={image.url}
+              blurhash={image.blurhash}
+              width={250}
+              height={250}
+            />
+          );
+        })}
+      </div>
+      <ProductEditForm product={data.commerce.product} />
     </>
   );
 }
+
+const styles = sx.create({
+  imagesWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+});

@@ -5,7 +5,7 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-type EditProductFormData$ref = any;
+type ProductEditFormData$ref = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
@@ -13,7 +13,7 @@ export type ProductMultilingualInputTranslations = {|
   name: string,
   description?: ?string,
 |};
-export type EditProductFormMutationVariables = {|
+export type ProductEditFormMutationVariables = {|
   productKey: string,
   productRevision: string,
   productImagesNames: $ReadOnlyArray<any>,
@@ -21,14 +21,14 @@ export type EditProductFormMutationVariables = {|
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
 |};
-export type EditProductFormMutationResponse = {|
+export type ProductEditFormMutationResponse = {|
   +commerce: {|
     +result: {|
       +__typename: "Product",
       +id: string,
       +name: string,
       +revision: string,
-      +$fragmentRefs: EditProductFormData$ref,
+      +$fragmentRefs: ProductEditFormData$ref,
     |} | {|
       +__typename: "ProductError",
       +message: string,
@@ -39,13 +39,13 @@ export type EditProductFormMutationResponse = {|
     |}
   |}
 |};
-export type EditProductFormMutation = {|
-  variables: EditProductFormMutationVariables,
-  response: EditProductFormMutationResponse,
+export type ProductEditFormMutation = {|
+  variables: ProductEditFormMutationVariables,
+  response: ProductEditFormMutationResponse,
 |};
 
 /*
-mutation EditProductFormMutation(
+mutation ProductEditFormMutation(
   $productKey: ID!
   $productRevision: ID!
   $productImagesNames: [ProductImageUploadable!]!
@@ -61,7 +61,7 @@ mutation EditProductFormMutation(
         id
         name
         revision
-        ...EditProductFormData
+        ...ProductEditFormData
       }
       ... on ProductError {
         __typename
@@ -71,7 +71,7 @@ mutation EditProductFormMutation(
   }
 }
 
-fragment EditProductFormData on Product {
+fragment ProductEditFormData on Product {
   key
   revision
   price {
@@ -201,35 +201,10 @@ v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "key",
+  "name": "message",
   "storageKey": null
 },
-v12 = {
-  "alias": null,
-  "args": null,
-  "concreteType": "ProductPrice",
-  "kind": "LinkedField",
-  "name": "price",
-  "plural": false,
-  "selections": [
-    {
-      "alias": null,
-      "args": null,
-      "kind": "ScalarField",
-      "name": "unitAmount",
-      "storageKey": null
-    }
-  ],
-  "storageKey": null
-},
-v13 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "visibility",
-  "storageKey": null
-},
-v14 = [
+v12 = [
   (v9/*: any*/),
   {
     "alias": null,
@@ -238,46 +213,7 @@ v14 = [
     "name": "description",
     "storageKey": null
   }
-],
-v15 = {
-  "alias": "enTranslation",
-  "args": [
-    {
-      "kind": "Literal",
-      "name": "locale",
-      "value": "en_US"
-    }
-  ],
-  "concreteType": "ProductMultilingualTranslations",
-  "kind": "LinkedField",
-  "name": "translation",
-  "plural": false,
-  "selections": (v14/*: any*/),
-  "storageKey": "translation(locale:\"en_US\")"
-},
-v16 = {
-  "alias": "esTranslation",
-  "args": [
-    {
-      "kind": "Literal",
-      "name": "locale",
-      "value": "es_MX"
-    }
-  ],
-  "concreteType": "ProductMultilingualTranslations",
-  "kind": "LinkedField",
-  "name": "translation",
-  "plural": false,
-  "selections": (v14/*: any*/),
-  "storageKey": "translation(locale:\"es_MX\")"
-},
-v17 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "message",
-  "storageKey": null
-};
+];
 return {
   "fragment": {
     "argumentDefinitions": [
@@ -290,7 +226,7 @@ return {
     ],
     "kind": "Fragment",
     "metadata": null,
-    "name": "EditProductFormMutation",
+    "name": "ProductEditFormMutation",
     "selections": [
       {
         "alias": null,
@@ -316,16 +252,9 @@ return {
                   (v9/*: any*/),
                   (v10/*: any*/),
                   {
-                    "kind": "InlineDataFragmentSpread",
-                    "name": "EditProductFormData",
-                    "selections": [
-                      (v11/*: any*/),
-                      (v10/*: any*/),
-                      (v12/*: any*/),
-                      (v13/*: any*/),
-                      (v15/*: any*/),
-                      (v16/*: any*/)
-                    ]
+                    "args": null,
+                    "kind": "FragmentSpread",
+                    "name": "ProductEditFormData"
                   }
                 ],
                 "type": "Product",
@@ -335,7 +264,7 @@ return {
                 "kind": "InlineFragment",
                 "selections": [
                   (v7/*: any*/),
-                  (v17/*: any*/)
+                  (v11/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -361,7 +290,7 @@ return {
       (v5/*: any*/)
     ],
     "kind": "Operation",
-    "name": "EditProductFormMutation",
+    "name": "ProductEditFormMutation",
     "selections": [
       {
         "alias": null,
@@ -386,11 +315,70 @@ return {
                   (v8/*: any*/),
                   (v9/*: any*/),
                   (v10/*: any*/),
-                  (v11/*: any*/),
-                  (v12/*: any*/),
-                  (v13/*: any*/),
-                  (v15/*: any*/),
-                  (v16/*: any*/)
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "key",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "ProductPrice",
+                    "kind": "LinkedField",
+                    "name": "price",
+                    "plural": false,
+                    "selections": [
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "unitAmount",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "visibility",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": "enTranslation",
+                    "args": [
+                      {
+                        "kind": "Literal",
+                        "name": "locale",
+                        "value": "en_US"
+                      }
+                    ],
+                    "concreteType": "ProductMultilingualTranslations",
+                    "kind": "LinkedField",
+                    "name": "translation",
+                    "plural": false,
+                    "selections": (v12/*: any*/),
+                    "storageKey": "translation(locale:\"en_US\")"
+                  },
+                  {
+                    "alias": "esTranslation",
+                    "args": [
+                      {
+                        "kind": "Literal",
+                        "name": "locale",
+                        "value": "es_MX"
+                      }
+                    ],
+                    "concreteType": "ProductMultilingualTranslations",
+                    "kind": "LinkedField",
+                    "name": "translation",
+                    "plural": false,
+                    "selections": (v12/*: any*/),
+                    "storageKey": "translation(locale:\"es_MX\")"
+                  }
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -398,7 +386,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v17/*: any*/)
+                  (v11/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -412,15 +400,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "682f89cc30a666ded3242d967f3a2835",
+    "cacheID": "c05f2b193f6f04cabb9ebb2dfb5ec9b6",
     "id": null,
     "metadata": {},
-    "name": "EditProductFormMutation",
+    "name": "ProductEditFormMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...EditProductFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment EditProductFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n"
+    "text": "mutation ProductEditFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '6e0c68810c8de013d27dc703065d335e';
+(node: any).hash = '858e259da7228e96e62bd54654cd836f';
 export default node;
