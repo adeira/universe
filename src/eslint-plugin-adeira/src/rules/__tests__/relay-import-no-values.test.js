@@ -54,8 +54,7 @@ ruleTester.run('no-values', rule, {
       errors: [{ message: '"Module_data" is not imported as a type' }],
     },
     {
-      code:
-        "import { Module_data, type Module_data$ref } from './__generated__/Module_data.graphql';",
+      code: "import { Module_data, type Module_data$ref } from './__generated__/Module_data.graphql';",
       filename: '/path/Module.js',
       errors: [{ message: '"Module_data" is not imported as a type' }],
     },

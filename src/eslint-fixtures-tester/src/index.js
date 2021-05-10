@@ -7,9 +7,7 @@ import { extract, parse } from 'jest-docblock';
 import { sprintf } from '@adeira/js';
 import type { EslintRule } from '@adeira/flow-types-eslint';
 
-function createErrorObject(
-  pragma: string,
-): {
+function createErrorObject(pragma: string): {
   +message?: string,
   +line?: number,
   +column?: number,

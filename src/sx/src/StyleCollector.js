@@ -41,9 +41,10 @@ class StyleCollector {
   #styleBuffer: StyleBufferType = new Map();
   #keyframes: Map<string, string> = new Map();
 
-  collect(baseStyleSheet: {
-    +[sheetName: string]: $FlowFixMe,
-  }): { +hashRegistry: HashRegistryType, +styleBuffer: StyleBufferType } {
+  collect(baseStyleSheet: { +[sheetName: string]: $FlowFixMe }): {
+    +hashRegistry: HashRegistryType,
+    +styleBuffer: StyleBufferType,
+  } {
     const hashRegistry: HashRegistryType = new Map();
 
     const traverse = (styleSheetName, styleSheetObject, styleBuffer, hashSeed = '') => {
