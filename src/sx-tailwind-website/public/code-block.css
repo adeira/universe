@@ -3,7 +3,7 @@
  */
 
 pre[data-language] {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   overflow: hidden;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
@@ -65,7 +65,7 @@ pre.language-diff .token.inserted,
 .token.deleted,
 .token.tag,
 .token.number,
-pre[data-language="jsx"] .token.boolean {
+pre[data-language='jsx'] .token.boolean {
   color: #ff8383;
 }
 
@@ -74,23 +74,19 @@ pre[data-language="jsx"] .token.boolean {
 .token.punctuation,
 .token.hexcode,
 .token.operator,
-pre[data-language="jsx"] .token.keyword,
-pre[data-language="jsx"] .token.operator {
+pre[data-language='jsx'] .token.keyword,
+pre[data-language='jsx'] .token.operator {
   color: #93ddfd;
 }
 
 .token.atrule,
 .token.atrule > .token.property,
 .token.atrule > .token.property + .token.punctuation,
-.token.atrule
-  > .token.property
-  + .token.punctuation
-  + .token.number
-  + .token.unit,
+.token.atrule > .token.property + .token.punctuation + .token.number + .token.unit,
 .token.atrule > .token.number,
 .token.atrule > .token.unit,
-pre[data-language="jsx"] .token.punctuation,
-pre[data-language="bash"] .token.function {
+pre[data-language='jsx'] .token.punctuation,
+pre[data-language='bash'] .token.function {
   color: #fff;
 }
 
