@@ -15,28 +15,30 @@ export type AtomItemType = {
 
 type AtomValue = Immutable.List<AtomItemType>;
 
-const localStorageEffect = (key) => ({ setSelf, onSet }) => {
-  if (!isBrowser()) {
-    return;
-  }
-
-  const savedValue = window.localStorage.getItem(key);
-  if (savedValue != null && savedValue !== 'undefined') {
-    const reviver = function (key, value) {
-      return Immutable.isKeyed(value) ? value.toObject() : value.toList();
-    };
-    const revivedValue = ((Immutable.fromJS(JSON.parse(savedValue), reviver): any): AtomValue);
-    setSelf(revivedValue);
-  }
-
-  onSet((newValue) => {
-    if (newValue instanceof DefaultValue) {
-      window.localStorage.removeItem(key);
-    } else {
-      window.localStorage.setItem(key, JSON.stringify(newValue));
+const localStorageEffect =
+  (key) =>
+  ({ setSelf, onSet }) => {
+    if (!isBrowser()) {
+      return;
     }
-  });
-};
+
+    const savedValue = window.localStorage.getItem(key);
+    if (savedValue != null && savedValue !== 'undefined') {
+      const reviver = function (key, value) {
+        return Immutable.isKeyed(value) ? value.toObject() : value.toList();
+      };
+      const revivedValue = ((Immutable.fromJS(JSON.parse(savedValue), reviver): any): AtomValue);
+      setSelf(revivedValue);
+    }
+
+    onSet((newValue) => {
+      if (newValue instanceof DefaultValue) {
+        window.localStorage.removeItem(key);
+      } else {
+        window.localStorage.setItem(key, JSON.stringify(newValue));
+      }
+    });
+  };
 
 const selectedItemsAtom = atom<AtomValue>({
   key: 'selectedItems',

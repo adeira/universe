@@ -59,14 +59,8 @@ type MutationConfig = {
  * provided MutationConfig.
  */
 export function mutationWithClientMutationId(config: MutationConfig): GraphQLFieldConfig<*, *> {
-  const {
-    name,
-    description,
-    deprecationReason,
-    inputFields,
-    outputFields,
-    mutateAndGetPayload,
-  } = config;
+  const { name, description, deprecationReason, inputFields, outputFields, mutateAndGetPayload } =
+    config;
   const augmentedInputFields = () => ({
     ...resolveMaybeThunk(inputFields),
     clientMutationId: {

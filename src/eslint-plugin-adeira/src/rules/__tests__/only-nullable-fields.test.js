@@ -91,88 +91,71 @@ ruleTester.run('only-nullable-fields', rule, {
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: new GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(new GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: new GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
+      code: '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLInterfaceType({ fields: { id: { type: GraphQLNonNull(GraphQLID) } } }))) } } })',
       errors,
     },
     {
-      code:
-        '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { list: { type: new GraphQLList(GraphQLNonNull(GraphQLID)) } } }))) }, list2: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLString))) } })',
+      code: '({ fields: { list: { type: GraphQLList(GraphQLNonNull(new GraphQLObjectType({ fields: { list: { type: new GraphQLList(GraphQLNonNull(GraphQLID)) } } }))) }, list2: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLString))) } })',
       errors,
     },
     {

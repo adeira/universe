@@ -45,7 +45,8 @@ class LanguageTag {
 
   __formatLanguageTag(primaryLanguageSubtag: string, regionSubtag: string): LanguageTagType {
     return {
-      bcp47: ((`${primaryLanguageSubtag.toLowerCase()}-${regionSubtag.toUpperCase()}`: any): Bcp47LanguageTagType),
+      bcp47:
+        ((`${primaryLanguageSubtag.toLowerCase()}-${regionSubtag.toUpperCase()}`: any): Bcp47LanguageTagType),
       url: ((`${primaryLanguageSubtag}-${regionSubtag}`.toLowerCase(): any): UrlLanguageTagType),
     };
   }

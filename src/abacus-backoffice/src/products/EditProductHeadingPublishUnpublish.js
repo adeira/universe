@@ -38,25 +38,24 @@ export default function EditProductHeadingPublishUnpublish(
     `,
   );
 
-  const [
-    unpublishProductMutation,
-  ] = useMutation<EditProductHeadingPublishUnpublishUnpublishMutation>(
-    graphql`
-      mutation EditProductHeadingPublishUnpublishUnpublishMutation($productKey: ID!) {
-        commerce {
-          productOrError: productUnpublish(productKey: $productKey) {
-            ... on Product {
-              __typename
-            }
-            ... on ProductError {
-              __typename
-              message
+  const [unpublishProductMutation] =
+    useMutation<EditProductHeadingPublishUnpublishUnpublishMutation>(
+      graphql`
+        mutation EditProductHeadingPublishUnpublishUnpublishMutation($productKey: ID!) {
+          commerce {
+            productOrError: productUnpublish(productKey: $productKey) {
+              ... on Product {
+                __typename
+              }
+              ... on ProductError {
+                __typename
+                message
+              }
             }
           }
         }
-      }
-    `,
-  );
+      `,
+    );
 
   return props.isPublished === false ? (
     <LayoutHeadingButton

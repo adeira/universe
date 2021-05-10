@@ -21,9 +21,8 @@ export default function merge(flowconfigA: string, flowconfigB: string): string 
       for (const sectionValueKey of Object.keys(sectionValues)) {
         const sectionValue = sectionValues[sectionValueKey];
         if (KNOWN_LIST_OPTIONS.includes(sectionValueKey)) {
-          configA[section][sectionValueKey] = configA[section][sectionValueKey].concat(
-            sectionValue,
-          );
+          configA[section][sectionValueKey] =
+            configA[section][sectionValueKey].concat(sectionValue);
         } else {
           configA[section][sectionValueKey] = sectionValue;
         }
