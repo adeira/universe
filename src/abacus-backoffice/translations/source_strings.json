@@ -58,6 +58,118 @@
   },
   {
    "hashToText": {
+    "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
+   },
+   "filepath": "src/forms/FormSubmit.js",
+   "line_beg": 84,
+   "col_beg": 19,
+   "line_end": 87,
+   "col_end": 11,
+   "desc": "generic failure message after creating a product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Something unexpected happened and server could not process the request! 🙈"
+  },
+  {
+   "hashToText": {
+    "QCpsPZg5lrAvyMxApYmptQ==": "Field \" {form field label} \" is required. Please fill in this field."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 18,
+   "col_beg": 6,
+   "line_end": 22,
+   "col_end": 12,
+   "desc": "value missing validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \" {form field label} \" is required. Please fill in this field."
+  },
+  {
+   "hashToText": {
+    "Wtx7FHIevcq36g3jquWXKg==": "Field \"{form field label}\" must be negative."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 30,
+   "col_beg": 8,
+   "line_end": 33,
+   "col_end": 14,
+   "desc": "range overflow validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \"{form field label}\" must be negative."
+  },
+  {
+   "hashToText": {
+    "S6jnfCvIypCDROzYeKb25A==": "Field \"{form field label}\" has to have value smaller than {form field min value}."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 37,
+   "col_beg": 6,
+   "line_end": 40,
+   "col_end": 12,
+   "desc": "range overflow validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \"{form field label}\" has to have value smaller than {form field min value}."
+  },
+  {
+   "hashToText": {
+    "x8iZhY9utb/UaEMs13hB8Q==": "Field \"{form field label}\" must be positive."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 48,
+   "col_beg": 8,
+   "line_end": 51,
+   "col_end": 14,
+   "desc": "range underflow validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \"{form field label}\" must be positive."
+  },
+  {
+   "hashToText": {
+    "qstwPQ9btvcdowx9na89+A==": "Field \"{form field label}\" has to have value larger than {form field min value}."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 55,
+   "col_beg": 6,
+   "line_end": 58,
+   "col_end": 12,
+   "desc": "range underflow validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \"{form field label}\" has to have value larger than {form field min value}."
+  },
+  {
+   "hashToText": {
+    "cXb0sWHtGL0NAVNk2AXyYw==": "Field \"{form field label}\" is invalid."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 66,
+   "col_beg": 4,
+   "line_end": 68,
+   "col_end": 10,
+   "desc": "generic validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \"{form field label}\" is invalid."
+  },
+  {
+   "hashToText": {
+    "99TUdsKRfseIC6G04zBOKg==": "This field is mandatory"
+   },
+   "filepath": "src/forms/private/Input.js",
+   "line_beg": 83,
+   "col_beg": 21,
+   "line_end": 83,
+   "col_end": 90,
+   "desc": "mandatory field description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "This field is mandatory"
+  },
+  {
+   "hashToText": {
     "SP/3TZcgzHIb1tmGv1Z/lg==": "Loading…"
    },
    "filepath": "src/Layout.js",
@@ -89,9 +201,9 @@
     "EX/o2WuR0ou1BNovRq6qGw==": "Home"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 20,
+   "line_beg": 29,
    "col_beg": 8,
-   "line_end": 20,
+   "line_end": 29,
    "col_end": 62,
    "desc": "navigation link to the homepage",
    "project": "",
@@ -103,9 +215,9 @@
     "LoFyLbW8JA2D6AsDR+C2sw==": "Products"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 23,
+   "line_beg": 32,
    "col_beg": 8,
-   "line_end": 23,
+   "line_end": 32,
    "col_end": 62,
    "desc": "navigation link to products",
    "project": "",
@@ -117,9 +229,9 @@
     "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 26,
+   "line_beg": 35,
    "col_beg": 8,
-   "line_end": 26,
+   "line_end": 35,
    "col_end": 64,
    "desc": "navigation link to employees",
    "project": "",
@@ -131,9 +243,9 @@
     "sHHk/SaT51d5NWanXexMiw==": "Ledger"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 29,
+   "line_beg": 38,
    "col_beg": 8,
-   "line_end": 29,
+   "line_end": 38,
    "col_end": 58,
    "desc": "navigation link to ledger",
    "project": "",
@@ -145,9 +257,9 @@
     "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 32,
+   "line_beg": 41,
    "col_beg": 8,
-   "line_end": 32,
+   "line_end": 41,
    "col_end": 68,
    "desc": "navigation link to point of sales",
    "project": "",
@@ -159,9 +271,9 @@
     "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
    },
    "filepath": "src/NavigationHeader.js",
-   "line_beg": 40,
+   "line_beg": 47,
    "col_beg": 34,
-   "line_end": 40,
+   "line_end": 47,
    "col_end": 83,
    "desc": "abacus emoji label",
    "project": "",
@@ -424,11 +536,11 @@
    "hashToText": {
     "EIVU1wJ5opAD+tU9JLao5Q==": "Product {product name} created! ✅"
    },
-   "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 88,
-   "col_beg": 14,
-   "line_end": 94,
-   "col_end": 20,
+   "filepath": "src/products/ProductCreateForm.js",
+   "line_beg": 80,
+   "col_beg": 18,
+   "line_end": 86,
+   "col_end": 24,
    "desc": "product created success message",
    "project": "",
    "type": "text",
@@ -436,27 +548,13 @@
   },
   {
    "hashToText": {
-    "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
-   },
-   "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 105,
-   "col_beg": 19,
-   "line_end": 108,
-   "col_end": 11,
-   "desc": "generic failure message after creating a product",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Something unexpected happened and server could not process the request! 🙈"
-  },
-  {
-   "hashToText": {
     "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
    },
-   "filepath": "src/products/CreateProductForm.js",
-   "line_beg": 118,
-   "col_beg": 8,
-   "line_end": 118,
-   "col_end": 86,
+   "filepath": "src/products/ProductCreateForm.js",
+   "line_beg": 93,
+   "col_beg": 10,
+   "line_end": 93,
+   "col_end": 88,
    "desc": "create product form submit button title",
    "project": "",
    "type": "text",
@@ -464,69 +562,13 @@
   },
   {
    "hashToText": {
-    "PuBcEtz2gVA/g2IgDKLtDg==": "English product name version is required"
-   },
-   "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 15,
-   "col_beg": 6,
-   "line_end": 15,
-   "col_end": 99,
-   "desc": "english name form field validation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "English product name version is required"
-  },
-  {
-   "hashToText": {
-    "KEevPPim20vMq3ey4NmXcQ==": "Spanish product name version is required"
-   },
-   "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 19,
-   "col_beg": 6,
-   "line_end": 19,
-   "col_end": 99,
-   "desc": "spanish name form field validation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Spanish product name version is required"
-  },
-  {
-   "hashToText": {
-    "hG18c6F/tkr5u5MuaDp4ug==": "Product price is a required field"
-   },
-   "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 26,
-   "col_beg": 16,
-   "line_end": 26,
-   "col_end": 95,
-   "desc": "price form field validation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Product price is a required field"
-  },
-  {
-   "hashToText": {
-    "yzI38uykFY/ub9AvbwWW7g==": "Product price must be a positive number"
-   },
-   "filepath": "src/products/createProductFormSchema.js",
-   "line_beg": 29,
-   "col_beg": 8,
-   "line_end": 29,
-   "col_end": 93,
-   "desc": "price form field validation message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Product price must be a positive number"
-  },
-  {
-   "hashToText": {
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
-   "filepath": "src/products/EditProductForm.js",
-   "line_beg": 143,
-   "col_beg": 14,
-   "line_end": 152,
-   "col_end": 20,
+   "filepath": "src/products/ProductEditForm.js",
+   "line_beg": 120,
+   "col_beg": 18,
+   "line_end": 129,
+   "col_end": 24,
    "desc": "product updated success message",
    "project": "",
    "type": "text",
@@ -534,27 +576,13 @@
   },
   {
    "hashToText": {
-    "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
-   },
-   "filepath": "src/products/EditProductForm.js",
-   "line_beg": 165,
-   "col_beg": 19,
-   "line_end": 168,
-   "col_end": 11,
-   "desc": "generic failure message after creating a product",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Something unexpected happened and server could not process the request! 🙈"
-  },
-  {
-   "hashToText": {
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
-   "filepath": "src/products/EditProductForm.js",
-   "line_beg": 177,
-   "col_beg": 25,
-   "line_end": 177,
-   "col_end": 93,
+   "filepath": "src/products/ProductEditForm.js",
+   "line_beg": 136,
+   "col_beg": 10,
+   "line_end": 136,
+   "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
    "type": "text",
@@ -564,7 +592,7 @@
    "hashToText": {
     "N4YZT+GlkQir3UlP1/V2Og==": "Edit product"
    },
-   "filepath": "src/products/EditProductHeading.js",
+   "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 85,
    "col_beg": 10,
    "line_end": 85,
@@ -578,7 +606,7 @@
    "hashToText": {
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
-   "filepath": "src/products/EditProductHeading.js",
+   "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 90,
    "col_beg": 8,
    "line_end": 90,
@@ -592,7 +620,7 @@
    "hashToText": {
     "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
    },
-   "filepath": "src/products/EditProductHeading.js",
+   "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 100,
    "col_beg": 10,
    "line_end": 102,
@@ -606,7 +634,7 @@
    "hashToText": {
     "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
    },
-   "filepath": "src/products/EditProductHeading.js",
+   "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 106,
    "col_beg": 8,
    "line_end": 106,
@@ -620,10 +648,10 @@
    "hashToText": {
     "tiWuhsZnYZAq7WNxH1zdCw==": "Are you sure you want to publish this product?"
    },
-   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 64,
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 63,
    "col_beg": 8,
-   "line_end": 66,
+   "line_end": 65,
    "col_end": 14,
    "desc": "publish product button confirmation message",
    "project": "",
@@ -634,10 +662,10 @@
    "hashToText": {
     "3qz/xqX+Nv7bYwQCSNXWdQ==": "Publish product"
    },
-   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 95,
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 94,
    "col_beg": 6,
-   "line_end": 95,
+   "line_end": 94,
    "col_end": 68,
    "desc": "publish product button title",
    "project": "",
@@ -648,10 +676,10 @@
    "hashToText": {
     "C4qCSxncQzzV9OUj0otgUg==": "Are you sure you want to unpublish this product?"
    },
-   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 100,
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 99,
    "col_beg": 8,
-   "line_end": 102,
+   "line_end": 101,
    "col_end": 14,
    "desc": "unpublish product button confirmation message",
    "project": "",
@@ -662,10 +690,10 @@
    "hashToText": {
     "6dllpbI8j5n7Rlcf+LAS/Q==": "Unpublish product"
    },
-   "filepath": "src/products/EditProductHeadingPublishUnpublish.js",
-   "line_beg": 131,
+   "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
+   "line_beg": 130,
    "col_beg": 6,
-   "line_end": 131,
+   "line_end": 130,
    "col_end": 70,
    "desc": "publish product button title",
    "project": "",
@@ -676,11 +704,11 @@
    "hashToText": {
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 46,
-   "col_beg": 14,
-   "line_end": 46,
-   "col_end": 85,
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 30,
+   "col_beg": 15,
+   "line_end": 30,
+   "col_end": 86,
    "desc": "form field name for product pictures",
    "project": "",
    "type": "text",
@@ -688,73 +716,101 @@
   },
   {
    "hashToText": {
-    "aPUJdpL8vp5qfKNsFMmsDw==": "Product name (English)"
+    "jDz1xtreligZF6hDwlOGmA==": "Product name (in English)"
    },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 59,
-   "col_beg": 14,
-   "line_end": 59,
-   "col_end": 98,
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 38,
+   "col_beg": 10,
+   "line_end": 38,
+   "col_end": 97,
    "desc": "form field name for product name in english",
    "project": "",
    "type": "text",
-   "jsfbt": "Product name (English)"
+   "jsfbt": "Product name (in English)"
   },
   {
    "hashToText": {
-    "If15Rd9UqwSa2ctF1W+gGw==": "Product name (Spanish)"
+    "KjnAslk0bbo2mlPqTr9Scg==": "Product name (in Spanish)"
    },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 67,
-   "col_beg": 14,
-   "line_end": 67,
-   "col_end": 98,
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 47,
+   "col_beg": 10,
+   "line_end": 47,
+   "col_end": 97,
    "desc": "form field name for product name in spanish",
    "project": "",
    "type": "text",
-   "jsfbt": "Product name (Spanish)"
+   "jsfbt": "Product name (in Spanish)"
   },
   {
    "hashToText": {
-    "fIkIODIEZUcYs7jnbKCMbQ==": "Product description (English)"
+    "I6tPscKijr8l6b5INvVZMg==": "Product description (in English)"
    },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 75,
-   "col_beg": 14,
-   "line_end": 77,
-   "col_end": 20,
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 55,
+   "col_beg": 10,
+   "line_end": 57,
+   "col_end": 16,
    "desc": "form field name for product description in english",
    "project": "",
    "type": "text",
-   "jsfbt": "Product description (English)"
+   "jsfbt": "Product description (in English)"
   },
   {
    "hashToText": {
-    "0JhgWnXU3GS2BSJv0aKTSA==": "Product description (Spanish)"
+    "x0HcNWLdxFYYiLwAx7et4g==": "Product description (in Spanish)"
    },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 85,
-   "col_beg": 14,
-   "line_end": 87,
-   "col_end": 20,
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 65,
+   "col_beg": 10,
+   "line_end": 67,
+   "col_end": 16,
    "desc": "form field name for product description in spanish",
    "project": "",
    "type": "text",
-   "jsfbt": "Product description (Spanish)"
+   "jsfbt": "Product description (in Spanish)"
   },
   {
    "hashToText": {
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
-   "filepath": "src/products/form/ProductForm.js",
-   "line_beg": 95,
-   "col_beg": 14,
-   "line_end": 95,
-   "col_end": 77,
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 76,
+   "col_beg": 15,
+   "line_end": 76,
+   "col_end": 78,
    "desc": "form field name for product price",
    "project": "",
    "type": "text",
    "jsfbt": "Price (MXN)"
+  },
+  {
+   "hashToText": {
+    "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
+   },
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 91,
+   "col_beg": 10,
+   "line_end": 91,
+   "col_end": 73,
+   "desc": "visible in POS - select option",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Visible in POS"
+  },
+  {
+   "hashToText": {
+    "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
+   },
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 94,
+   "col_beg": 10,
+   "line_end": 96,
+   "col_end": 16,
+   "desc": "visible in eshop - select option",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
   },
   {
    "hashToText": {
@@ -769,6 +825,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "There are no products yet."
+  },
+  {
+   "hashToText": {
+    "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
+   },
+   "filepath": "src/products/ProductsCreateLayout.js",
+   "line_beg": 17,
+   "col_beg": 12,
+   "line_end": 17,
+   "col_end": 84,
+   "desc": "create a new product page heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Create a new product"
+  },
+  {
+   "hashToText": {
+    "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
+   },
+   "filepath": "src/products/ProductsCreateLayout.js",
+   "line_beg": 22,
+   "col_beg": 10,
+   "line_end": 22,
+   "col_end": 84,
+   "desc": "go back to products navigation button",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products inventory"
   },
   {
    "hashToText": {
@@ -797,34 +881,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Create a new product"
-  },
-  {
-   "hashToText": {
-    "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
-   },
-   "filepath": "pages/products/create.js",
-   "line_beg": 20,
-   "col_beg": 12,
-   "line_end": 20,
-   "col_end": 84,
-   "desc": "create a new product page heading",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Create a new product"
-  },
-  {
-   "hashToText": {
-    "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
-   },
-   "filepath": "pages/products/create.js",
-   "line_beg": 25,
-   "col_beg": 10,
-   "line_end": 25,
-   "col_end": 84,
-   "desc": "go back to products navigation button",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Products inventory"
   }
  ],
  "childParentMappings": {}

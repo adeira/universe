@@ -19,7 +19,6 @@
     "@adeira/sx": "^0.25.0",
     "@adeira/sx-design": "^0.10.0",
     "fbt": "^0.16.6",
-    "formik": "^2.2.7",
     "immutable": "^4.0.0-rc.12",
     "next": "^10.2.2",
     "next-plugin-custom-babel-config": "^1.0.4",
@@ -27,8 +26,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
-    "recoil": "^0.3.1",
-    "yup": "^0.32.9"
+    "recoil": "^0.3.1"
   },
   "devDependencies": {
     "@fbtjs/default-collection-transform": "^0.0.3",

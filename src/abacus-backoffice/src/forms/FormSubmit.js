@@ -1,0 +1,103 @@
+// @flow
+
+import { useMutation, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
+import { fbt } from 'fbt';
+import { type Element } from 'react';
+import { useRecoilCallback, useRecoilValue, useSetRecoilState } from 'recoil';
+
+import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
+import {
+  formStateAtomFamily,
+  formStateAtomFamilyErrors,
+  formStateAtomFamilyIds,
+  formStateUploadables,
+} from './private/formState';
+
+type Props = {
+  +children: FbtWithoutString,
+  +mutation: GraphQLTaggedNode,
+  +variables: ($FlowFixMe) => Variables,
+  +onCompleted: (response: $FlowFixMe) => void,
+};
+
+/**
+ * This is where all the form submit logic happens. The following steps are being performed:
+ *
+ * 1. we display all error messages if any (might be still hidden) and block the submission
+ * 2. we collect all the values and convert them to mutation variables if everything is OK
+ * 3. call the mutation
+ */
+export default function FormSubmit(props: Props): Element<'button'> {
+  const setStatusBar = useSetRecoilState(uiStatusBarAtom);
+  const ids = useRecoilValue(formStateAtomFamilyIds);
+  const uploadables = useRecoilValue(formStateUploadables);
+
+  const unmaskFormFieldErrors = useRecoilCallback(({ snapshot, set }) => (id) => {
+    const errorsAtom = formStateAtomFamilyErrors(id);
+    const errorsAtomContents = snapshot.getLoadable(errorsAtom).contents;
+    // $FlowFixMe[incompatible-use]
+    // $FlowFixMe[prop-missing]
+    const hasErrors = errorsAtomContents.validationError != null;
+    if (hasErrors === true) {
+      // We re-render only fields with an error.
+      set(errorsAtom, (prevState) => ({
+        ...prevState,
+        validationErrorHidden: false,
+      }));
+    }
+    return hasErrors;
+  });
+
+  const getFormFieldValue = useRecoilCallback(({ snapshot }) => (id) => {
+    return snapshot.getLoadable(formStateAtomFamily(id)).contents;
+  });
+
+  const [runMutation, isMutationInProgress] = useMutation(props.mutation);
+
+  const handleButtonClick = (event) => {
+    event.preventDefault();
+
+    let hasErrors = false;
+    const formValues = {};
+    ids.forEach((id) => {
+      const hasFieldErrors = unmaskFormFieldErrors(id);
+      if (hasFieldErrors === true) {
+        hasErrors = hasFieldErrors;
+      }
+      formValues[id] = getFormFieldValue(id);
+    });
+
+    if (hasErrors === true) {
+      return;
+    }
+
+    // Convert form values to GraphQL mutation variables:
+    const variables = props.variables(formValues);
+
+    // Run the mutation:
+    const mutationConfig = {
+      uploadables: undefined,
+      variables,
+      onCompleted: props.onCompleted,
+      onError: () => {
+        setStatusBar({
+          message: fbt(
+            'Something unexpected happened and server could not process the request! 🙈',
+            'generic failure message after creating a product',
+          ),
+          type: 'error',
+        });
+      },
+    };
+    if (uploadables != null) {
+      mutationConfig.uploadables = uploadables;
+    }
+    runMutation(mutationConfig);
+  };
+
+  return (
+    <button type="submit" onClick={handleButtonClick} disabled={isMutationInProgress}>
+      {props.children}
+    </button>
+  );
+}

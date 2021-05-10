@@ -7,22 +7,22 @@ import { useSetRecoilState } from 'recoil';
 
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
-import type { EditProductHeadingPublishUnpublishPublishMutation } from './__generated__/EditProductHeadingPublishUnpublishPublishMutation.graphql';
-import type { EditProductHeadingPublishUnpublishUnpublishMutation } from './__generated__/EditProductHeadingPublishUnpublishUnpublishMutation.graphql';
+import type { ProductEditHeadingPublishUnpublishPublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishPublishMutation.graphql';
+import type { ProductEditHeadingPublishUnpublishUnpublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishUnpublishMutation.graphql';
 
 type Props = {
   +isPublished: boolean,
   +productKey: string,
 };
 
-export default function EditProductHeadingPublishUnpublish(
+export default function ProductEditHeadingPublishUnpublish(
   props: Props,
 ): React.Element<typeof LayoutHeadingButton> {
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
-  const [publishProductMutation] = useMutation<EditProductHeadingPublishUnpublishPublishMutation>(
+  const [publishProductMutation] = useMutation<ProductEditHeadingPublishUnpublishPublishMutation>(
     graphql`
-      mutation EditProductHeadingPublishUnpublishPublishMutation($productKey: ID!) {
+      mutation ProductEditHeadingPublishUnpublishPublishMutation($productKey: ID!) {
         commerce {
           productOrError: productPublish(productKey: $productKey) {
             ... on Product {
@@ -39,9 +39,9 @@ export default function EditProductHeadingPublishUnpublish(
   );
 
   const [unpublishProductMutation] =
-    useMutation<EditProductHeadingPublishUnpublishUnpublishMutation>(
+    useMutation<ProductEditHeadingPublishUnpublishUnpublishMutation>(
       graphql`
-        mutation EditProductHeadingPublishUnpublishUnpublishMutation($productKey: ID!) {
+        mutation ProductEditHeadingPublishUnpublishUnpublishMutation($productKey: ID!) {
           commerce {
             productOrError: productUnpublish(productKey: $productKey) {
               ... on Product {

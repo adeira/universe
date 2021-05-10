@@ -5,10 +5,10 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type EditProductHeadingDeleteMutationVariables = {|
+export type ProductEditHeadingDeleteMutationVariables = {|
   productKey: string
 |};
-export type EditProductHeadingDeleteMutationResponse = {|
+export type ProductEditHeadingDeleteMutationResponse = {|
   +commerce: {|
     +productOrError: {|
       +__typename: "Product"
@@ -22,13 +22,13 @@ export type EditProductHeadingDeleteMutationResponse = {|
     |}
   |}
 |};
-export type EditProductHeadingDeleteMutation = {|
-  variables: EditProductHeadingDeleteMutationVariables,
-  response: EditProductHeadingDeleteMutationResponse,
+export type ProductEditHeadingDeleteMutation = {|
+  variables: ProductEditHeadingDeleteMutationVariables,
+  response: ProductEditHeadingDeleteMutationResponse,
 |};
 
 /*
-mutation EditProductHeadingDeleteMutation(
+mutation ProductEditHeadingDeleteMutation(
   $productKey: ID!
 ) {
   commerce {
@@ -80,7 +80,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "EditProductHeadingDeleteMutation",
+    "name": "ProductEditHeadingDeleteMutation",
     "selections": [
       {
         "alias": null,
@@ -129,7 +129,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "EditProductHeadingDeleteMutation",
+    "name": "ProductEditHeadingDeleteMutation",
     "selections": [
       {
         "alias": null,
@@ -165,15 +165,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "a352e1f94199b95d8e3983ffb7db2743",
+    "cacheID": "3539a5efebe99a2b1b95300f86f55ffe",
     "id": null,
     "metadata": {},
-    "name": "EditProductHeadingDeleteMutation",
+    "name": "ProductEditHeadingDeleteMutation",
     "operationKind": "mutation",
-    "text": "mutation EditProductHeadingDeleteMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productDelete(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingDeleteMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productDelete(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'c1136d3597d18021eecfd51142dbb6b5';
+(node: any).hash = '16345a8e5ec3aff0cf6fa709630a5cf0';
 export default node;

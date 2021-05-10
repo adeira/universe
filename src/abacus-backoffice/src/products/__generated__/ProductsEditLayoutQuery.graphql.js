@@ -5,8 +5,8 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-type EditProductFormFragment$ref = any;
-type EditProductHeading$ref = any;
+type ProductEditFormData$ref = any;
+type ProductEditHeading$ref = any;
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsEditLayoutQueryVariables = {|
   clientLocale: SupportedLocale,
@@ -20,7 +20,7 @@ export type ProductsEditLayoutQueryResponse = {|
         +blurhash: string,
         +url: string,
       |}>,
-      +$fragmentRefs: EditProductHeading$ref & EditProductFormFragment$ref,
+      +$fragmentRefs: ProductEditHeading$ref & ProductEditFormData$ref,
     |}
   |}
 |};
@@ -36,19 +36,19 @@ query ProductsEditLayoutQuery(
 ) {
   commerce {
     product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      ...EditProductHeading
+      ...ProductEditHeading
       images {
         name
         blurhash
         url
       }
-      ...EditProductFormFragment
+      ...ProductEditFormData
       id
     }
   }
 }
 
-fragment EditProductFormData on Product {
+fragment ProductEditFormData on Product {
   key
   revision
   price {
@@ -65,13 +65,7 @@ fragment EditProductFormData on Product {
   }
 }
 
-fragment EditProductFormFragment on Product {
-  key
-  revision
-  ...EditProductFormData
-}
-
-fragment EditProductHeading on Product {
+fragment ProductEditHeading on Product {
   key
   isPublished
 }
@@ -172,12 +166,12 @@ return {
               {
                 "args": null,
                 "kind": "FragmentSpread",
-                "name": "EditProductHeading"
+                "name": "ProductEditHeading"
               },
               {
                 "args": null,
                 "kind": "FragmentSpread",
-                "name": "EditProductFormFragment"
+                "name": "ProductEditFormData"
               }
             ],
             "storageKey": null
@@ -306,15 +300,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "19b746d9b5eacd58a4ea2724dbad2227",
+    "cacheID": "e2d568ade39ae54c24b324706b321e9f",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...EditProductHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...EditProductFormFragment\n      id\n    }\n  }\n}\n\nfragment EditProductFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n\nfragment EditProductFormFragment on Product {\n  key\n  revision\n  ...EditProductFormData\n}\n\nfragment EditProductHeading on Product {\n  key\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'aefc22ba3e208ce99c9c0202169a9a72';
+(node: any).hash = 'a0bfb0ff14c17bd91dd157d472cab49e';
 export default node;
