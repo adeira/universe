@@ -1151,9 +1151,9 @@ dependencies = [
 
 [[package]]
 name = "juniper"
-version = "0.15.4"
+version = "0.15.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4e1330b4b3b2fe7de256fd08738f7fba28ffa574109c834988c28972f0760dbd"
+checksum = "7a0b1228e9cd2c1cf43186b593c2d09408e65a196f86f98e8520d85ac26b9c7a"
 dependencies = [
  "async-trait",
  "bson",
@@ -1173,9 +1173,9 @@ dependencies = [
 
 [[package]]
 name = "juniper_codegen"
-version = "0.15.4"
+version = "0.15.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3faf2a1e2e86cadc6bcc6082d63c73e8eafe6b703a0c5723e585b3d4afcec9cd"
+checksum = "5d86d3ba9151f4ba09a8ea8d15601d38b2289cecda77be081ee5c8951f013d54"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
