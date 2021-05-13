@@ -9,7 +9,7 @@
   "dependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.0",
-    "@babel/eslint-parser": "^7.13.14",
+    "@babel/eslint-parser": "^7.14.2",
     "@babel/runtime": "^7.14.0",
     "eslint": "^7.26.0",
     "jest-docblock": "^26.0.0"
