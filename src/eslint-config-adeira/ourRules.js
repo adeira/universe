@@ -643,6 +643,7 @@ module.exports = ({
   'import/order': [
     ERROR,
     {
+      // TODO: enable `alphabetize` option
       'groups': [['builtin', 'external'], ['parent', 'sibling'], 'index'],
       'newlines-between': 'always',
     },
