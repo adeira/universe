@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@fbtjs/default-collection-transform": "^0.0.3",
-    "@testing-library/react-hooks": "^5.1.2",
+    "@testing-library/react-hooks": "^6.0.0",
     "babel-plugin-fbt": "^0.20.0",
     "babel-plugin-fbt-runtime": "^0.9.17"
   }
