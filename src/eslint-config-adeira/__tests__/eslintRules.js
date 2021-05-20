@@ -13,4 +13,8 @@ Object.keys(require('../package.json').dependencies)
     });
   });
 
+Object.keys(require(`@next/eslint-plugin-next`).rules).forEach((rule) => {
+  eslintRules.add(`@next/next/${rule}`);
+});
+
 export default eslintRules;

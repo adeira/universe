@@ -5,6 +5,7 @@ import type { Node } from 'react';
 export default function Stacked(): Node {
   return (
     <div sxt="max-w-sm rounded overflow-hidden shadow-lg">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         sxt="w-full"
         src="https://tailwindcss.com/img/card-top.jpg"
