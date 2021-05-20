@@ -29,7 +29,6 @@ pub struct Product {
     is_published: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
     price: ProductPrice,
-    translation: Option<ProductMultilingualTranslations>,
     translations: Vec<ProductMultilingualTranslations>,
 }
 
@@ -44,7 +43,6 @@ impl std::fmt::Debug for Product {
             .field("is_published", &self.is_published)
             .field("visibility", &self.visibility)
             .field("price", &self.price)
-            .field("translation", &self.translation)
             .field("translations", &self.translations)
             .finish()
     }
