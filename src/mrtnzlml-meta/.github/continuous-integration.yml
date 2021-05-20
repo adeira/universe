@@ -13,14 +13,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [14.x, 15.x]
+        node-version: [14.x] # see: https://vercel.com/mrtnzlml/meta/settings
 
     steps:
       - uses: actions/checkout@v1
+
+      # https://github.com/actions/setup-node
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: yarn install, build, and test
         run: |
           yarn install --frozen-lockfile
