@@ -50,9 +50,7 @@ export default function parse(input: string): ParsedConfig {
       parsedConfig[currentSection] = line;
     } else {
       // process it as a key/value (while ignoring rollout annotations since we do not merge them properly, yet)
-      const keyValueMatch = line.match(
-        /^(?:(?<rollout>\(.+\))\s?)?(?<rawKey>.+)\s*?=\s*?(?<rawValue>.+)$/,
-      );
+      const keyValueMatch = line.match(/^(?:(?<rollout>\(.+\)))?(?<rawKey>.+)=(?<rawValue>.+)$/);
       if (keyValueMatch) {
         const rawKey = keyValueMatch.groups?.rawKey;
         const rawValue = keyValueMatch.groups?.rawValue;
