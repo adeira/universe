@@ -21,7 +21,7 @@
     "fbt": "^0.16.6",
     "formik": "^2.2.7",
     "immutable": "^4.0.0-rc.12",
-    "next": "^10.2.0",
+    "next": "^10.2.2",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^7.1.1",
     "react": "^17.0.2",
