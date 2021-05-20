@@ -8,7 +8,7 @@ import eslintRules from './eslintRules';
 
 let ourRules, missing;
 beforeEach(() => {
-  ourRules = new Map(Object.entries(require('../index.js').rules));
+  ourRules = new Map(Object.entries(require('../index').rules));
   missing = new Set();
 });
 
@@ -34,7 +34,7 @@ test('our rules contain "overrides" only to not report "no-unlimited-disable" fo
     return config.overrides;
   }
 
-  expect(getOverrides(require('../index.js'))).toEqual([
+  expect(getOverrides(require('../index'))).toEqual([
     {
       files: ['**/__generated__/*.graphql.js'],
       rules: { 'eslint-comments/no-unlimited-disable': 0 },
@@ -66,8 +66,8 @@ test.each(Object.entries(prettierRules))(
 // TODO: test for extra rules
 
 test('rules snapshot', () => {
-  const stableRules = require('../index.js');
-  const strictRules = require('../strict.js');
+  const stableRules = require('../index');
+  const strictRules = require('../strict');
 
   expect(stableRules).toMatchSnapshot(
     {
