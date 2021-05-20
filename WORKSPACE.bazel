@@ -18,11 +18,11 @@ load("@build_bazel_rules_nodejs//:index.bzl", "node_repositories", "yarn_install
 node_repositories(
     node_repositories = {
         # https://nodejs.org/dist/
-        "16.1.0-darwin_amd64": ("node-v16.1.0-darwin-x64.tar.gz", "node-v16.1.0-darwin-x64", "22525ecc3b91f4d9a5d44dffe061cdb23f1a3e4a5555552e7940987883a93547"),
-        "16.1.0-linux_amd64": ("node-v16.1.0-linux-x64.tar.gz", "node-v16.1.0-linux-x64", "50dadc0c130ff7d079d0fb4a86e40756c76edb3cd3b42b8cf2a57497116695fa"),
+        "16.2.0-darwin_amd64": ("node-v16.2.0-darwin-x64.tar.gz", "node-v16.2.0-darwin-x64", "3fc49b69de9491b45491f880217f8220d489b28ba3c1fff53e849dcf3ad77343"),
+        "16.2.0-linux_amd64": ("node-v16.2.0-linux-x64.tar.gz", "node-v16.2.0-linux-x64", "c3fd89a768e40a2fd8008919100bd283e6e9aec742eddeb1d494eb2a626466dc"),
     },
     node_urls = ["https://nodejs.org/dist/v{version}/{filename}"],
-    node_version = "16.1.0",
+    node_version = "16.2.0",
     package_json = ["//:package.json"],
     yarn_repositories = {
         "1.22.10": ("yarn-v1.22.10.tar.gz", "yarn-v1.22.10", "7e433d4a77e2c79e6a7ae4866782608a8e8bcad3ec6783580577c59538381a6e"),
