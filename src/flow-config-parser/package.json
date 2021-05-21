@@ -6,6 +6,7 @@
   "private": false,
   "license": "MIT",
   "main": "./src/index.js",
+  "type": "commonjs",
   "dependencies": {
     "@adeira/fixtures-tester": "^1.0.1",
     "@adeira/js": "^2.1.0",

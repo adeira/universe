@@ -6,6 +6,7 @@
   "private": false,
   "version": "0.1.0",
   "main": "./index.js",
+  "type": "commonjs",
   "sideEffects": true,
   "dependencies": {
     "@adeira/sx": "^0.25.0",

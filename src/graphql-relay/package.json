@@ -14,6 +14,7 @@
     "url": "http://github.com/adeira/universe.git"
   },
   "main": "./src/index.js",
+  "type": "commonjs",
   "peerDependencies": {
     "graphql": "^15.0.0"
   },

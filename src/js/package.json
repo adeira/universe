@@ -6,6 +6,7 @@
   "private": false,
   "version": "2.1.0",
   "main": "./src/index.js",
+  "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "^7.14.0"
