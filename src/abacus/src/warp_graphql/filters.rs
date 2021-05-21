@@ -15,22 +15,22 @@ use warp::{Filter, Rejection, Reply};
 /// logic, it's probably not correct to `reject` with the error. In that case, you'd want to
 /// construct a `Reply` that describes your error. (source: https://github.com/seanmonstar/warp/issues/388#issuecomment-576453485)
 pub(crate) fn graphql(
-    pool: ConnectionPool,
+    pool: &ConnectionPool,
     schema: Schema,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     let schema = Arc::new(schema); // TODO: is this the right way?
-    graphql_post(pool.clone(), schema.clone()).or(graphql_multipart(pool, schema))
+    graphql_post(&pool, schema.clone()).or(graphql_multipart(&pool, schema))
 }
 
 /// POST /graphql with `application/json` body
 fn graphql_post(
-    pool: ConnectionPool,
+    pool: &ConnectionPool,
     schema: Arc<Schema>,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("graphql")
         .and(warp::post())
         .and(with_json_body())
-        .and(with_database_connection_pool(pool))
+        .and(with_database_connection_pool(pool.clone()))
         .and(with_graphql_schema(schema))
         .and(with_authorization_header())
         .and_then(warp_graphql::handlers::graphql_post)
@@ -38,7 +38,7 @@ fn graphql_post(
 
 /// POST /graphql with `multipart/form-data` body (max 5MB allowed)
 fn graphql_multipart(
-    pool: ConnectionPool,
+    pool: &ConnectionPool,
     schema: Arc<Schema>,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("graphql")
@@ -46,7 +46,7 @@ fn graphql_multipart(
         .and(warp::multipart::form().max_length(
             1024 * 1024 * 5, // 5MB
         ))
-        .and(with_database_connection_pool(pool))
+        .and(with_database_connection_pool(pool.clone()))
         .and(with_graphql_schema(schema))
         .and(with_authorization_header())
         .and_then(warp_graphql::handlers::graphql_multipart)
