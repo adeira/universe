@@ -1,3 +1,4 @@
+use crate::arangodb::pool::ConnectionManager;
 use arangors::{ArangoError, ClientError, Connection};
 #[cfg(test)]
 use deadpool::managed::Object;
@@ -8,7 +9,7 @@ mod pool;
 
 #[derive(Clone)]
 pub struct ConnectionPool {
-    pub pool: Pool<Connection, ClientError>,
+    pub pool: Pool<ConnectionManager>,
     db_name: String,
 }
 
@@ -40,7 +41,7 @@ impl ConnectionPool {
     }
 
     #[cfg(test)]
-    pub async fn connection(&self) -> Object<Connection, ClientError> {
+    pub async fn connection(&self) -> Object<ConnectionManager> {
         self.pool
             .get()
             .await

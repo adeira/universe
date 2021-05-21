@@ -24,7 +24,7 @@ pub(in crate::warp_graphql) async fn get_current_user(
                         }
                         User::AnonymousUser(_) => {
                             tracing::error!("Unmatched session token 🛑");
-                            Err(String::from("Session token doesn't mach any user."))
+                            Err(String::from("Session token doesn't match any user."))
                         }
                         User::AuthorizedUser(user) => {
                             tracing::debug!("Using authorized user: {} 👍", user.id());
