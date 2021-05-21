@@ -1,5 +1,5 @@
 use arangors::{ClientError, Connection};
-use deadpool::managed::{Manager, RecycleError};
+use deadpool::managed::RecycleError as DeadpoolRecycleError;
 
 pub struct ConnectionManager {
     pub db_host: String,
@@ -21,7 +21,10 @@ pub struct ConnectionManager {
 ///   connection are queued and waiting for it to be available. This means that the application
 ///   might be responding slowly when it's choking. We might change this to panic instead (?).
 #[async_trait::async_trait]
-impl Manager<Connection, ClientError> for ConnectionManager {
+impl deadpool::managed::Manager for ConnectionManager {
+    type Type = Connection;
+    type Error = ClientError;
+
     /// Creates a new instance of the ArangoDB connection.
     async fn create(&self) -> Result<Connection, ClientError> {
         tracing::trace!("Creating a new ArangoDB connection 💎");
@@ -52,14 +55,14 @@ impl Manager<Connection, ClientError> for ConnectionManager {
                         tracing::error!(
                             "Unable to recycle the connection (DB response invalid) 🙅"
                         );
-                        Err(RecycleError::Message(
+                        Err(DeadpoolRecycleError::Message(
                             "unable to recycle the connection".to_string(),
                         ))
                     }
                 },
                 Err(err) => {
                     tracing::error!("Unable to recycle the connection (DB query unsuccessful) 🙅");
-                    Err(RecycleError::Message(err.to_string()))
+                    Err(DeadpoolRecycleError::Message(err.to_string()))
                 }
             },
             Err(err) => {
@@ -67,7 +70,7 @@ impl Manager<Connection, ClientError> for ConnectionManager {
                     "Unable to recycle the connection (DB '{}' unreachable) 🙅",
                     &self.db_name
                 );
-                Err(RecycleError::Message(err.to_string()))
+                Err(DeadpoolRecycleError::Message(err.to_string()))
             }
         }
     }
