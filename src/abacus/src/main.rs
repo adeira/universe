@@ -3,7 +3,6 @@ use crate::clap::generate_clap_app;
 use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
-use tracing_subscriber::fmt::format::FmtSpan;
 use tracing_subscriber::EnvFilter;
 use warp::Filter;
 
@@ -24,13 +23,12 @@ mod warp_graphql;
 fn init_tracing() {
     let filter = EnvFilter::from_default_env()
         .add_directive(LevelFilter::WARN.into()) // default when not specified
-        .add_directive("server=trace".parse().unwrap())
+        .add_directive("server=debug".parse().unwrap())
         .add_directive("warp=warn".parse().unwrap());
 
     // TODO: parallel JSON logging for system processing (YOLO, store into ArangoDB?)
     tracing_subscriber::fmt()
         .with_env_filter(filter)
-        .with_span_events(FmtSpan::CLOSE)
         .with_target(true)
         .init();
 }
@@ -61,14 +59,8 @@ async fn main() {
         cli_matches.value_of("arangodb-password").unwrap(),
     );
 
-    if !cli_matches.is_present("no-migrations") {
-        // Preferably, migrations would NOT be ran during the server start.
-        // But we do it now for the simplicity.
-        migrations::migrate(&pool).await;
-    }
-
     let schema = create_graphql_schema();
-    let graphql_api = warp_graphql::filters::graphql(pool, schema);
+    let graphql_api = warp_graphql::filters::graphql(&pool, schema);
     let routes = graphql_api
         .with(
             warp::cors()
@@ -87,6 +79,12 @@ async fn main() {
             // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
             warp::compression::gzip(),
         );
+
+    if !cli_matches.is_present("no-migrations") {
+        // Preferably, migrations would NOT be ran during the server start.
+        // But we do it now for the simplicity.
+        migrations::migrate(&pool).await;
+    }
 
     // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
     warp::serve(routes).run(server_addr).await

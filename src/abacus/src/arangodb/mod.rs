@@ -90,7 +90,7 @@ pub fn get_database_connection_pool(
         max_pool_size,
     );
 
-    tracing::trace!(
+    tracing::debug!(
         "Creating (empty) database connection pool for: '{}' ({}) 🔥",
         arangodb_database,
         arangodb_url

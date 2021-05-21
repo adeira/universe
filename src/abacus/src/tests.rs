@@ -26,7 +26,7 @@ async fn create_graphql_api_filter(
         pool = get_database_connection_pool_mock();
     }
 
-    crate::warp_graphql::filters::graphql(pool, create_graphql_schema())
+    crate::warp_graphql::filters::graphql(&pool, create_graphql_schema())
 
     // TODO: DB cleanup (?)
 }
@@ -83,7 +83,7 @@ async fn test_graphql_post_forbidden() {
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
     assert_eq!(
         resp.body(),
-        r#"{"code":403,"message":"Session token doesn't mach any user."}"#
+        r#"{"code":403,"message":"Session token doesn't match any user."}"#
     );
 
     cleanup_test_database("abacus_test_graphql_post_forbidden").await;
@@ -220,7 +220,7 @@ async fn test_graphql_multipart_forbidden() {
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
     assert_eq!(
         resp.body(),
-        r#"{"code":403,"message":"Session token doesn't mach any user."}"#
+        r#"{"code":403,"message":"Session token doesn't match any user."}"#
     );
 
     cleanup_test_database("abacus_test_graphql_multipart_forbidden").await;
