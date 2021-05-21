@@ -11,6 +11,7 @@
     "eslint-plugin"
   ],
   "main": "./src/index.js",
+  "type": "commonjs",
   "dependencies": {
     "@babel/runtime": "^7.14.0"
   },

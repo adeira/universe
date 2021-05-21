@@ -4,6 +4,7 @@
   "license": "MIT",
   "version": "2.1.0",
   "main": "./src/fetchWithRetries.js",
+  "type": "commonjs",
   "sideEffects": false,
   "homepage": "https://github.com/adeira/universe/tree/master/src/fetch",
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",

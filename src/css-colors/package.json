@@ -6,6 +6,7 @@
   "sideEffects": false,
   "private": false,
   "main": "./src/index.js",
+  "type": "commonjs",
   "license": "MIT",
   "dependencies": {
     "@adeira/js": "^2.1.0",

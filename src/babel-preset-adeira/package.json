@@ -6,6 +6,7 @@
   "license": "MIT",
   "version": "3.0.0",
   "main": "./src/index.js",
+  "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.13",
