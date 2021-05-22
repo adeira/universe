@@ -105,6 +105,9 @@ pub(in crate) async fn resolve_user_from_session_token(
             "admin" => User::AdminUser(AdminUser::from(user)),
             _ => User::AnonymousUser(AnonymousUser::new()),
         },
-        Err(_) => User::AnonymousUser(AnonymousUser::new()),
+        Err(error) => {
+            tracing::error!("{}", error);
+            User::AnonymousUser(AnonymousUser::new())
+        }
     }
 }
