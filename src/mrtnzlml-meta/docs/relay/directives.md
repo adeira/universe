@@ -396,7 +396,7 @@ export default createRefetchContainer(LocationsPaginatedRefetch, {
     @argumentDefinitions(count: { type: "Int", defaultValue: 20 }, after: { type: "String" })
     @refetchable(queryName: "LocationsPaginatedRefetchRefetchQuery") {
       incrementalPagination: allLocations(first: $count, after: $after)
-      @connection(key: "allLocations_incrementalPagination") {
+        @connection(key: "allLocations_incrementalPagination") {
         edges {
           node {
             id
@@ -620,6 +620,8 @@ See:
 
 ### @no_inline
 
+TKTK
+
 See: https://github.com/facebook/relay/commit/3526b424d7ec3d3ff07d8587951d2fb176b1868f
 
 ### @relay_resolver
@@ -632,4 +634,16 @@ directive @relay_resolver(
 ) on FIELD_DEFINITION
 ```
 
+TKTK
+
 See: https://github.com/facebook/relay/commit/b8922feaf2472325306dec6f8023deb186658128
+
+### @as_actor, @EXPERIMENTAL\_\_as_actor
+
+```graphql
+directive @EXPERIMENTAL__as_actor on FIELD
+```
+
+TKTK
+
+See: https://github.com/facebook/relay/commit/bcec2697899bc7f7bb0ed4e4ba60131d57abc51c

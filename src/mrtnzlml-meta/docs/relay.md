@@ -5,7 +5,7 @@ sidebar_label: Relay all-in
 ---
 
 :::note
-This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_
+This file describes experimental and more advanced Relay features. It can be very unstable due to its nature so be careful. _Here be dragons!_ 🐉
 :::
 
 TODO:
