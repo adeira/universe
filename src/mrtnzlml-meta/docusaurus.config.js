@@ -40,9 +40,9 @@ module.exports = {
         { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/mrtnzlml',
+          href: 'https://github.com/mrtnzlml/meta',
           label: 'GitHub',
-          position: 'right',
+          position: 'left',
         },
       ],
     },

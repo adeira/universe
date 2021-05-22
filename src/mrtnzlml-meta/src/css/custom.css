@@ -22,6 +22,10 @@
   --ifm-color-primary-lightest: rgb(146, 224, 208);
 }
 
+a[target='_blank']:after {
+  content: ' ↝';
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(73, 81, 111);
 }
