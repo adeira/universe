@@ -3,6 +3,7 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
+import { useSxDesignContext } from '@adeira/sx-design';
 
 import LanguageSwitch from './LanguageSwitch';
 import Link from './Link';
@@ -10,8 +11,16 @@ import { LogoutButton } from './AuthButtons';
 import NavigationHeader from './NavigationHeader';
 
 export default function Navigation(): React.Node {
+  const { theme } = useSxDesignContext();
+
   return (
-    <nav className={styles('navigation')}>
+    <nav
+      className={styles({
+        navigationBase: true,
+        navigationLight: theme === 'light',
+        navigationDark: theme === 'dark',
+      })}
+    >
       <div className={styles('navigationHeader')}>
         <NavigationHeader />
       </div>
@@ -48,14 +57,22 @@ const linkActiveStylesheet = {
 };
 
 const styles = sx.create({
-  navigation: {
+  navigationBase: {
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: '#f4f7f9',
-    color: '#5c6a77',
     padding: '1rem 0 1rem 1rem',
     borderRight: '1px solid #e9eff3',
+  },
+  navigationLight: {
+    backgroundColor: '#f4f7f9',
+    color: '#5c6a77',
+    borderRight: '1px solid #e9eff3',
+  },
+  navigationDark: {
+    backgroundColor: '#333',
+    color: '#fff',
+    borderRight: '1px solid #222',
   },
   navigationHeader: {
     marginBottom: '1rem',
