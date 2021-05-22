@@ -1,7 +1,7 @@
 // @flow
 
 import { useLazyLoadQuery, graphql } from '@adeira/relay';
-import { Emoji } from '@adeira/sx-design';
+import { Emoji, useSxDesignContext } from '@adeira/sx-design';
 import * as sx from '@adeira/sx';
 import * as React from 'react';
 import fbt from 'fbt';
@@ -35,8 +35,15 @@ function NavigationHeaderDev(): React.Node {
 }
 
 export default function NavigationHeader(): React.Node {
+  const { theme } = useSxDesignContext();
+
   return (
-    <strong className={styles('title')}>
+    <strong
+      className={styles({
+        title: true,
+        titleDarkTheme: theme === 'dark',
+      })}
+    >
       <Emoji symbol={'🧮'} label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
       <React.Suspense fallback={<ProdBadge />}>
         <NavigationHeaderDev />
@@ -48,6 +55,9 @@ export default function NavigationHeader(): React.Node {
 const styles = sx.create({
   title: {
     color: '#1c1e21',
+  },
+  titleDarkTheme: {
+    color: '#fff',
   },
   dev: {
     color: 'green',
