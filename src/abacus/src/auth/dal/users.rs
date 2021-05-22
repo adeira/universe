@@ -70,6 +70,23 @@ pub async fn get_user_by_session_token_hash(
             LET session = FIRST(
               UPDATE session_key
               WITH { last_access: DATE_ISO8601(DATE_NOW()) } IN sessions
+              OPTIONS {
+                // The RocksDB engine does not require collection-level locks. Different write
+                // operations on the same collection do not block each other, as long as there are
+                // no "write-write" conflicts on the same documents. From an application development
+                // perspective it can be desired to have exclusive write access on collections, to
+                // simplify the development. Note that writes do not block reads in RocksDB.
+                // Exclusive access can also speed up modification queries, because we avoid
+                // conflict checks.
+                //
+                // This will use an exclusive lock on the collection and block other operations while
+                // the update is going, thus preventing any "write-write" conflicts from happening.
+                //
+                // More info:
+                //  - https://www.arangodb.com/docs/stable/aql/operations-update.html#query-options
+                //  - https://github.com/arangodb/arangodb/issues/9702
+                exclusive: true
+              }
               RETURN OLD
             )
 
