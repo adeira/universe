@@ -1,6 +1,7 @@
 # Unreleased
 
 - Rule `import/no-extraneous-dependencies` now ignores `**/__flowtests__/**`, `**/__tests__/**` and `**/.storybook/**` by default.
+- New rule [`import/no-relative-packages`](https://github.com/benmosher/eslint-plugin-import/blob/v2.23.0/docs/rules/no-relative-packages.md) enabled (warnings or errors in strict mode).
 
 # 6.0.0
 
