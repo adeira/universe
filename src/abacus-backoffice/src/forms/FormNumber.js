@@ -5,13 +5,13 @@ import { type Node } from 'react';
 import Input from './private/Input';
 
 type Props = {
-  +value: number,
-  +label: FbtWithoutString,
-  +name: string,
-
-  // Validations (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#client-side_validation):
-  +required?: boolean, // default `false`
-  +min?: number,
+  +'value': number,
+  +'label': FbtWithoutString,
+  +'name': string,
+  +'data-testid'?: string,
+  +'required'?: boolean,
+  +'min'?: number,
+  +'max'?: number,
 };
 
 /**
@@ -19,15 +19,17 @@ type Props = {
  * Displays a numeric keypad in some devices with dynamic keypads.
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
  */
-export default function InputNumber(props: Props): Node {
+export default function FormNumber(props: Props): Node {
   return (
     <Input
+      data-testid={props['data-testid']}
       type="number"
       value={props.value}
       label={props.label}
       name={props.name}
       required={props.required}
       min={props.min}
+      max={props.max}
     />
   );
 }
