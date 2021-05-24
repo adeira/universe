@@ -9,6 +9,7 @@
     "2AOyOV": "Field \"{form field label}\" has to have value smaller than {form field min value}.",
     "3SBUgM": "Field \"{form field label}\" must be positive.",
     "DyJ2E": "Field \"{form field label}\" has to have value larger than {form field min value}.",
+    "1OZewv": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}.",
     "ZcMj7": "Field \"{form field label}\" is invalid.",
     "2D6gKP": "This field is mandatory",
     "rxq6C": "Loading…",

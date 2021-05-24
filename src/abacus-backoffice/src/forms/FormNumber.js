@@ -12,6 +12,7 @@ type Props = {
   +'required'?: boolean,
   +'min'?: number,
   +'max'?: number,
+  +'step'?: number | 'any',
 };
 
 /**
@@ -30,6 +31,7 @@ export default function FormNumber(props: Props): Node {
       required={props.required}
       min={props.min}
       max={props.max}
+      step={props.step ?? 'any'}
     />
   );
 }

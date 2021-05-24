@@ -29,6 +29,7 @@ type Props =
       +value: number,
       +min?: number,
       +max?: number,
+      +step?: number | 'any', // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#htmlattrdefstep
     }
   | {
       // <input type="file" />
@@ -71,7 +72,7 @@ export default function Input(props: $ReadOnly<Props>): Node {
   // eslint-disable-next-line prefer-object-spread
   const extraConditionalProps = Object.assign(
     {},
-    props.type === 'number' ? { min: props.min, max: props.max } : {},
+    props.type === 'number' ? { min: props.min, max: props.max, step: props.step } : {},
     props.type === 'file'
       ? { accept: props.accept, multiple: props.multiple }
       : { value: inputValue },
