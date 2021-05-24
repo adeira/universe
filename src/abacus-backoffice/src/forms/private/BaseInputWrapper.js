@@ -12,7 +12,7 @@ type Props = {
   +required?: boolean,
 };
 
-export default function InputWrapper(props: Props): Node {
+export default function BaseInputWrapper(props: Props): Node {
   return (
     <div className={styles('inputWrapper')}>
       <label

@@ -2,8 +2,9 @@
 
 import { useMutation, type GraphQLTaggedNode, type Variables } from '@adeira/relay';
 import { fbt } from 'fbt';
-import { type Element } from 'react';
+import { type Node } from 'react';
 import { useRecoilCallback, useRecoilValue, useSetRecoilState } from 'recoil';
+import { Button } from '@adeira/sx-design';
 
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import {
@@ -27,7 +28,7 @@ type Props = {
  * 2. we collect all the values and convert them to mutation variables if everything is OK
  * 3. call the mutation
  */
-export default function FormSubmit(props: Props): Element<'button'> {
+export default function FormSubmit(props: Props): Node {
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
   const ids = useRecoilValue(formStateAtomFamilyIds);
   const uploadables = useRecoilValue(formStateUploadables);
@@ -96,8 +97,8 @@ export default function FormSubmit(props: Props): Element<'button'> {
   };
 
   return (
-    <button type="submit" onClick={handleButtonClick} disabled={isMutationInProgress}>
+    <Button type="submit" onClick={handleButtonClick} isDisabled={isMutationInProgress}>
       {props.children}
-    </button>
+    </Button>
   );
 }
