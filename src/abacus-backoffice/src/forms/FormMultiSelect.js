@@ -3,8 +3,9 @@
 import { useRef, type Node, type ChildrenArray } from 'react';
 import sx from '@adeira/sx';
 
-import useFormFieldState from './private/useFormFieldState';
 import FormMultiSelectOption from './FormMultiSelectOption';
+import InputWrapper from './private/InputWrapper';
+import useFormFieldState from './private/useFormFieldState';
 
 type Props = {
   +'label': FbtWithoutString,
@@ -13,6 +14,7 @@ type Props = {
   +'value': $ReadOnlyArray<string>,
   +'children': ChildrenArray<RestrictedElement<typeof FormMultiSelectOption>>,
   +'data-testid'?: string,
+  +'required'?: boolean,
 };
 
 export default function FormMultiSelect(props: Props): Node {
@@ -35,36 +37,29 @@ export default function FormMultiSelect(props: Props): Node {
   };
 
   return (
-    <div className={styles('inputWrapper')}>
-      <label className={styles('label')}>
-        {props.label}
-        <select
-          data-testid={props['data-testid']}
-          className={styles('select')}
-          ref={selectRef}
-          value={inputValue}
-          onChange={handleOnChange}
-          multiple={true}
-          size={props.size}
-        >
-          {props.children}
-        </select>
-      </label>
-    </div>
+    <InputWrapper
+      label={props.label}
+      required={props.required}
+      hasValidationError={false}
+      validationError={null}
+    >
+      <select
+        data-testid={props['data-testid']}
+        className={styles('select')}
+        ref={selectRef}
+        required={props.required}
+        value={inputValue}
+        onChange={handleOnChange}
+        multiple={true}
+        size={props.size}
+      >
+        {props.children}
+      </select>
+    </InputWrapper>
   );
 }
 
 const styles = sx.create({
-  // TODO: DRY with <Input />
-  inputWrapper: {
-    marginBottom: '1rem',
-  },
-  label: {
-    display: 'block',
-    textTransform: 'uppercase',
-    fontSize: '.75rem',
-    color: 'rgba(var(--sx-accent-6))',
-  },
   select: {
     width: '100%',
     border: '2px solid rgba(var(--sx-accent-2))',
