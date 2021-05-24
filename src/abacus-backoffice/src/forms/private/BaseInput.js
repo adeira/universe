@@ -5,7 +5,7 @@ import { useRef, type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import { formStateUploadables } from './formState';
-import InputWrapper from './InputWrapper';
+import BaseInputWrapper from './BaseInputWrapper';
 import useFormFieldState from './useFormFieldState';
 
 type PropsBase = {
@@ -41,9 +41,9 @@ type Props =
 
 /**
  * This is a generic input component with very wide API (similar to https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
- * It's not recommended to use this component directly. Instead, use `InputText`, `InputNumber`, …
+ * It's not recommended to use this component directly. Instead, use `FormText`, `FormNumber`, …
  */
-export default function Input(props: $ReadOnly<Props>): Node {
+export default function BaseInput(props: $ReadOnly<Props>): Node {
   const inputRef = useRef(null);
   const setUploadables = useSetRecoilState(formStateUploadables);
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
@@ -79,7 +79,7 @@ export default function Input(props: $ReadOnly<Props>): Node {
   );
 
   return (
-    <InputWrapper
+    <BaseInputWrapper
       label={props.label}
       required={props.required}
       hasValidationError={hasError}
@@ -98,7 +98,7 @@ export default function Input(props: $ReadOnly<Props>): Node {
         required={props.required}
         {...extraConditionalProps}
       />
-    </InputWrapper>
+    </BaseInputWrapper>
   );
 }
 

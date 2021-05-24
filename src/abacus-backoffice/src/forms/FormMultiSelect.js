@@ -4,7 +4,7 @@ import { useRef, type Node, type ChildrenArray } from 'react';
 import sx from '@adeira/sx';
 
 import FormMultiSelectOption from './FormMultiSelectOption';
-import InputWrapper from './private/InputWrapper';
+import BaseInputWrapper from './private/BaseInputWrapper';
 import useFormFieldState from './private/useFormFieldState';
 
 type Props = {
@@ -37,7 +37,7 @@ export default function FormMultiSelect(props: Props): Node {
   };
 
   return (
-    <InputWrapper
+    <BaseInputWrapper
       label={props.label}
       required={props.required}
       hasValidationError={false}
@@ -55,7 +55,7 @@ export default function FormMultiSelect(props: Props): Node {
       >
         {props.children}
       </select>
-    </InputWrapper>
+    </BaseInputWrapper>
   );
 }
 
