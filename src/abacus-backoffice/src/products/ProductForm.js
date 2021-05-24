@@ -4,13 +4,13 @@ import { Kbd } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 
-import Form from '../forms/Form';
+import FormMultiSelect from '../forms/FormMultiSelect';
+import FormMultiSelectOption from '../forms/FormMultiSelectOption';
+import FormMultiUpload from '../forms/FormMultiUpload';
+import FormNumber from '../forms/FormNumber';
+import FormRoot from '../forms/FormRoot';
 import FormSubmit from '../forms/FormSubmit';
-import InputFiles from '../forms/InputFiles';
-import InputNumber from '../forms/InputNumber';
-import InputText from '../forms/InputText';
-import SelectMultiple from '../forms/SelectMultiple';
-import SelectMultipleOption from '../forms/SelectMultipleOption';
+import FormText from '../forms/FormText';
 
 // For re-usability purposes (see ProductCreateForm vs. ProductEditForm).
 export default function ProductForm(props: {
@@ -23,14 +23,14 @@ export default function ProductForm(props: {
   +button: RestrictedElement<typeof FormSubmit>,
 }): React.Node {
   return (
-    <Form>
-      <InputFiles
+    <FormRoot>
+      <FormMultiUpload
         name="images"
         accept="image/jpeg,image/png"
         label={<fbt desc="form field name for product pictures">Product pictures</fbt>}
       />
 
-      <InputText
+      <FormText
         name="name_en"
         required={true}
         value={props.name_en}
@@ -39,7 +39,7 @@ export default function ProductForm(props: {
         }
       />
 
-      <InputText
+      <FormText
         name="name_es"
         required={true}
         value={props.name_es}
@@ -48,7 +48,7 @@ export default function ProductForm(props: {
         }
       />
 
-      <InputText
+      <FormText
         name="description_en"
         value={props.description_en}
         label={
@@ -58,7 +58,7 @@ export default function ProductForm(props: {
         }
       />
 
-      <InputText
+      <FormText
         name="description_es"
         value={props.description_es}
         label={
@@ -68,7 +68,7 @@ export default function ProductForm(props: {
         }
       />
 
-      <InputNumber
+      <FormNumber
         name="price"
         required={true}
         min={0}
@@ -76,7 +76,7 @@ export default function ProductForm(props: {
         label={<fbt desc="form field name for product price">Price (MXN)</fbt>}
       />
 
-      <SelectMultiple
+      <FormMultiSelect
         name="visibility"
         size={2}
         value={props.visibility}
@@ -87,17 +87,17 @@ export default function ProductForm(props: {
           </>
         }
       >
-        <SelectMultipleOption value="POS">
+        <FormMultiSelectOption value="POS">
           <fbt desc="visible in POS - select option">Visible in POS</fbt>
-        </SelectMultipleOption>
-        <SelectMultipleOption value="ESHOP">
+        </FormMultiSelectOption>
+        <FormMultiSelectOption value="ESHOP">
           <fbt desc="visible in eshop - select option">
             Visible in KOCHKA.com.mx eshop (PUBLIC!)
           </fbt>
-        </SelectMultipleOption>
-      </SelectMultiple>
+        </FormMultiSelectOption>
+      </FormMultiSelect>
 
       {props.button}
-    </Form>
+    </FormRoot>
   );
 }

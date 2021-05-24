@@ -4,17 +4,18 @@ import { useRef, type Node, type ChildrenArray } from 'react';
 import sx from '@adeira/sx';
 
 import useFormFieldState from './private/useFormFieldState';
-import SelectMultipleOption from './SelectMultipleOption';
+import FormMultiSelectOption from './FormMultiSelectOption';
 
 type Props = {
-  +label: FbtWithoutString,
-  +name: string,
-  +size: number,
-  +value: $ReadOnlyArray<string>,
-  +children: ChildrenArray<RestrictedElement<typeof SelectMultipleOption>>,
+  +'label': FbtWithoutString,
+  +'name': string,
+  +'size': number,
+  +'value': $ReadOnlyArray<string>,
+  +'children': ChildrenArray<RestrictedElement<typeof FormMultiSelectOption>>,
+  +'data-testid'?: string,
 };
 
-export default function SelectMultiple(props: Props): Node {
+export default function FormMultiSelect(props: Props): Node {
   const selectRef = useRef(null);
   const [inputValue, updateInputValue] = useFormFieldState(
     selectRef,
@@ -38,6 +39,7 @@ export default function SelectMultiple(props: Props): Node {
       <label className={styles('label')}>
         {props.label}
         <select
+          data-testid={props['data-testid']}
           className={styles('select')}
           ref={selectRef}
           value={inputValue}
