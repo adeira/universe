@@ -9,12 +9,10 @@ import { formStateUploadables } from './formState';
 import useFormFieldState from './useFormFieldState';
 
 type PropsBase = {
-  +label: FbtWithoutString,
-  +name: string,
-
-  // Validations (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#client-side_validation):
-  +required?: boolean, // default `false`
-  +min?: number,
+  +'label': FbtWithoutString,
+  +'name': string,
+  +'data-testid'?: string,
+  +'required'?: boolean, // default `false`
 };
 
 type Props =
@@ -29,12 +27,15 @@ type Props =
       ...PropsBase,
       +type: 'number',
       +value: number,
+      +min?: number,
+      +max?: number,
     }
   | {
       // <input type="file" />
       ...PropsBase,
       +type: 'file',
       +multiple: boolean,
+      +accept: string,
     };
 
 /**
@@ -67,6 +68,15 @@ export default function Input(props: $ReadOnly<Props>): Node {
   const hasError =
     inputErrors.validationError != null && inputErrors.validationErrorHidden === false;
 
+  // eslint-disable-next-line prefer-object-spread
+  const extraConditionalProps = Object.assign(
+    {},
+    props.type === 'number' ? { min: props.min, max: props.max } : {},
+    props.type === 'file'
+      ? { accept: props.accept, multiple: props.multiple }
+      : { value: inputValue },
+  );
+
   return (
     <div className={styles('inputWrapper')}>
       <label
@@ -87,8 +97,9 @@ export default function Input(props: $ReadOnly<Props>): Node {
             </abbr>
           </>
         ) : null}
-        {/* $FlowFixMe[exponential-spread] */}
+
         <input
+          data-testid={props['data-testid']}
           className={styles({
             input: true,
             inputError: hasError,
@@ -98,9 +109,7 @@ export default function Input(props: $ReadOnly<Props>): Node {
           name={props.name}
           onChange={handleOnChange}
           required={props.required}
-          min={props.min}
-          {...(props.type !== 'file' && { value: inputValue })}
-          {...(props.multiple != null && { multiple: props.multiple })}
+          {...extraConditionalProps}
         />
 
         {hasError ? <div className={styles('error')}>{inputErrors.validationError}</div> : null}
