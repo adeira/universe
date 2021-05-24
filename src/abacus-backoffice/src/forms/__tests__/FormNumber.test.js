@@ -32,10 +32,11 @@ it('renders basic "FormNumber" input as expected', () => {
       "class": Any<String>,
       "data-testid": "number-input",
       "name": "number-input-name",
+      "step": "any",
       "type": "number",
       "value": "-1",
     }
-    `,
+  `,
   );
 });
 
@@ -48,6 +49,7 @@ it('renders complex "FormNumber" input as expected', () => {
       min={-10}
       max={10}
       required={true}
+      step={5}
       label={
         <fbt doNotExtract={true} desc={'number label'}>
           number label
@@ -67,9 +69,10 @@ it('renders complex "FormNumber" input as expected', () => {
       "min": "-10",
       "name": "number-input-name",
       "required": "",
+      "step": "5",
       "type": "number",
       "value": "-1",
     }
-    `,
+  `,
   );
 });

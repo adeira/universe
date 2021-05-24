@@ -1,5 +1,6 @@
 // @flow
 
+import { isNumeric } from '@adeira/js';
 import { fbt } from 'fbt';
 
 // See: https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
@@ -56,9 +57,24 @@ export default function getValidityStateMessage(
         value larger than <fbt:param name="form field min value">{target.min}</fbt:param>.
       </fbt>
     );
-  }
+  } else if (target?.validity.stepMismatch === true && target instanceof HTMLInputElement) {
+    // https://developer.mozilla.org/en-US/docs/Web/API/ValidityState/stepMismatch
+    const inputStep = isNumeric(target.step) ? Number(target.step) : 1;
+    const inputValue = Number(target.value);
+    const inputMin = Number(target.min);
 
-  // TODO: more validity states
+    const remainder = (inputValue - inputMin) % inputStep;
+    const lowBoundary = inputValue - remainder;
+    const highBoundary = lowBoundary + inputStep;
+
+    return (
+      <fbt desc="step mismatch validation error message">
+        Please enter a valid value. The two nearest valid values are{' '}
+        <fbt:param name="low boundary">{lowBoundary}</fbt:param> and{' '}
+        <fbt:param name="high boundary">{highBoundary}</fbt:param>.
+      </fbt>
+    );
+  }
 
   // We should avoid getting into this generic error state as much as possible.
   return (
