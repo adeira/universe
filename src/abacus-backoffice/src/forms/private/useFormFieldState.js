@@ -10,7 +10,7 @@ import {
 } from './formState';
 import getValidityStateMessage from './getValidityStateMessage';
 
-type InputRef = { current: ElementRef<'input' | 'select'> | null };
+type InputRef = { current: ElementRef<'input' | 'select' | 'textarea'> | null };
 type InputValue = string | number | $ReadOnlyArray<string>;
 
 export default function useFormFieldState(

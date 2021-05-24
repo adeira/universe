@@ -1,18 +1,18 @@
 // @flow
 
 import sx from '@adeira/sx';
-import { fbt } from 'fbt';
 import { useRef, type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
 
 import { formStateUploadables } from './formState';
+import InputWrapper from './InputWrapper';
 import useFormFieldState from './useFormFieldState';
 
 type PropsBase = {
   +'label': FbtWithoutString,
   +'name': string,
   +'data-testid'?: string,
-  +'required'?: boolean, // default `false`
+  +'required'?: boolean,
 };
 
 type Props =
@@ -78,71 +78,37 @@ export default function Input(props: $ReadOnly<Props>): Node {
   );
 
   return (
-    <div className={styles('inputWrapper')}>
-      <label
+    <InputWrapper
+      label={props.label}
+      required={props.required}
+      hasValidationError={hasError}
+      validationError={inputErrors.validationError}
+    >
+      <input
+        data-testid={props['data-testid']}
         className={styles({
-          label: true,
-          labelError: hasError,
+          input: true,
+          inputError: hasError,
         })}
-      >
-        {props.label}
-        {props.required === true ? (
-          <>
-            {' '}
-            <abbr
-              title={<fbt desc="mandatory field description">This field is mandatory</fbt>}
-              aria-label="required"
-            >
-              <strong>*</strong>
-            </abbr>
-          </>
-        ) : null}
-
-        <input
-          data-testid={props['data-testid']}
-          className={styles({
-            input: true,
-            inputError: hasError,
-          })}
-          ref={inputRef}
-          type={props.type}
-          name={props.name}
-          onChange={handleOnChange}
-          required={props.required}
-          {...extraConditionalProps}
-        />
-
-        {hasError ? <div className={styles('error')}>{inputErrors.validationError}</div> : null}
-      </label>
-    </div>
+        ref={inputRef}
+        type={props.type}
+        name={props.name}
+        onChange={handleOnChange}
+        required={props.required}
+        {...extraConditionalProps}
+      />
+    </InputWrapper>
   );
 }
 
 const styles = sx.create({
-  inputWrapper: {
-    marginBottom: '1rem',
-  },
-  label: {
-    display: 'block',
-    textTransform: 'uppercase',
-    fontSize: '.75rem',
-    color: 'rgba(var(--sx-accent-6))',
-  },
-  labelError: {
-    color: 'rgba(var(--sx-error))',
-  },
   input: {
     width: '100%',
     border: '2px solid rgba(var(--sx-accent-2))',
     borderRadius: 5,
-    height: 40,
-    padding: '0px 12px',
+    padding: '8px 12px',
   },
   inputError: {
     border: '2px solid rgba(var(--sx-error))',
-  },
-  error: {
-    color: 'rgba(var(--sx-error))',
-    textTransform: 'initial',
   },
 });

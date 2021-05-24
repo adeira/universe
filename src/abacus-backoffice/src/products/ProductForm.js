@@ -3,6 +3,7 @@
 import { Kbd } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
+import sx from '@adeira/sx';
 
 import FormMultiSelect from '../forms/FormMultiSelect';
 import FormMultiSelectOption from '../forms/FormMultiSelectOption';
@@ -11,6 +12,7 @@ import FormNumber from '../forms/FormNumber';
 import FormRoot from '../forms/FormRoot';
 import FormSubmit from '../forms/FormSubmit';
 import FormText from '../forms/FormText';
+import FormTextArea from '../forms/FormTextArea';
 
 // For re-usability purposes (see ProductCreateForm vs. ProductEditForm).
 export default function ProductForm(props: {
@@ -30,25 +32,27 @@ export default function ProductForm(props: {
         label={<fbt desc="form field name for product pictures">Product pictures</fbt>}
       />
 
-      <FormText
-        name="name_en"
-        required={true}
-        value={props.name_en}
-        label={
-          <fbt desc="form field name for product name in english">Product name (in English)</fbt>
-        }
-      />
+      <div className={styles('row')}>
+        <FormText
+          name="name_en"
+          required={true}
+          value={props.name_en}
+          label={
+            <fbt desc="form field name for product name in english">Product name (in English)</fbt>
+          }
+        />
 
-      <FormText
-        name="name_es"
-        required={true}
-        value={props.name_es}
-        label={
-          <fbt desc="form field name for product name in spanish">Product name (in Spanish)</fbt>
-        }
-      />
+        <FormText
+          name="name_es"
+          required={true}
+          value={props.name_es}
+          label={
+            <fbt desc="form field name for product name in spanish">Product name (in Spanish)</fbt>
+          }
+        />
+      </div>
 
-      <FormText
+      <FormTextArea
         name="description_en"
         value={props.description_en}
         label={
@@ -58,7 +62,7 @@ export default function ProductForm(props: {
         }
       />
 
-      <FormText
+      <FormTextArea
         name="description_es"
         value={props.description_es}
         label={
@@ -101,3 +105,12 @@ export default function ProductForm(props: {
     </FormRoot>
   );
 }
+
+const styles = sx.create({
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: '1rem',
+  },
+});

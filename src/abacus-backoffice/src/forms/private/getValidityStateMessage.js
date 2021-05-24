@@ -4,7 +4,7 @@ import { fbt } from 'fbt';
 
 // See: https://developer.mozilla.org/en-US/docs/Web/API/ValidityState
 export default function getValidityStateMessage(
-  target: HTMLInputElement | HTMLSelectElement | null,
+  target: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null,
   targetLabel: FbtWithoutString,
 ): FbtWithoutString | null {
   if (target?.validity.valid === true) {
@@ -16,9 +16,8 @@ export default function getValidityStateMessage(
     // otherwise. If true, the element matches the :invalid CSS pseudo-class.
     return (
       <fbt desc="value missing validation error message">
-        Field &quot;
-        <fbt:param name="form field label">{targetLabel}</fbt:param>
-        &quot; is required. Please fill in this field.
+        Field &quot;<fbt:param name="form field label">{targetLabel}</fbt:param>&quot; is required.
+        Please fill in this field.
       </fbt>
     );
   } else if (target?.validity.rangeOverflow === true) {
