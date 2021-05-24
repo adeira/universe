@@ -9,7 +9,6 @@ import type { EslintConfigRules } from './EslintConfig.flow';
 const OFF = 0;
 const WARN = 1;
 const ERROR = 2;
-// eslint-disable-next-line no-unused-vars
 const NEXT_VERSION_ERROR = 3; // special value changed later depending on the required strictness
 
 // Please note: there are some TODOs which means we will make it more strict
@@ -619,14 +618,16 @@ module.exports = ({
       ],
     },
   ],
+  'import/no-import-module-exports': OFF,
   'import/no-internal-modules': OFF,
   'import/no-mutable-exports': ERROR,
-  'import/no-namespace': OFF,
   'import/no-named-as-default': OFF,
   'import/no-named-as-default-member': OFF,
   'import/no-named-default': ERROR,
   'import/no-named-export': OFF,
+  'import/no-namespace': OFF,
   'import/no-nodejs-modules': OFF,
+  'import/no-relative-packages': NEXT_VERSION_ERROR,
   'import/no-relative-parent-imports': OFF,
   'import/no-restricted-paths': OFF,
   'import/no-unassigned-import': OFF,
@@ -653,6 +654,7 @@ module.exports = ({
   'import/unambiguous': OFF, // TODO: warn?
 
   // monorepo (https://github.com/azz/eslint-plugin-monorepo)
+  // TODO: remove (see `import/no-relative-packages` and new ESM modules resolution with `exports` field)
   'monorepo/no-internal-import': ERROR,
   'monorepo/no-relative-import': ERROR,
 
