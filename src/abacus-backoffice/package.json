@@ -20,7 +20,7 @@
     "@adeira/sx-design": "^0.10.0",
     "fbt": "^0.16.6",
     "immutable": "^4.0.0-rc.12",
-    "next": "^10.2.2",
+    "next": "^10.2.3",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^7.2.0",
     "react": "^17.0.2",
