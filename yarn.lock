@@ -280,12 +280,12 @@
   resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.5.0.tgz#bfbdfed989515ac154dada47038a71f4ce966f19"
   integrity sha512-iINa/h9E28DlKsgCOkTAs3kNGDM3HBOASm9+qjl/x+YZsAu0fjKsQI4ryHzadyqOI2A0f3mKt0Q2BYsp/wiw4Q==
 
-"@axe-core/react@^4.2.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.2.0.tgz#6ea7fce0ca983ac5c357e197ea77a521cad47bd7"
-  integrity sha512-7CpIoyPSfSuLMtsj9QXhOvM3x2lU5u/joITIeLL9MHKRAOwTsvfFqIqQ1tpfwHn8A29HUhx1dMBHE0JTbH2yow==
+"@axe-core/react@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.2.1.tgz#bc96a3d454f3561483cc6e13c71ffe5e6fb3ed0c"
+  integrity sha512-g12GaW60emfQzedVCNlmr1OM2VXWwuGzoiv2zblxwjwN5DTL8LzDwqRoazo5FlxvOQ8re5k2/wXE7GFVxrYDwg==
   dependencies:
-    axe-core "^4.2.0"
+    axe-core "^4.2.1"
     requestidlecallback "^0.3.0"
 
 "@babel/cli@^7.14.3":
@@ -5108,10 +5108,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.10.1.tgz#e1e82e4f3e999e2cfd61b161280d16a111f86428"
   integrity sha512-zg7Hz2k5lI8kb7U32998pRRFin7zJlkfezGJjUc2heaD4Pw2wObakCDVzkKztTm/Ln7eiVvYsjqak0Ed4LkMDA==
 
-axe-core@^4.0.2, axe-core@^4.1.1, axe-core@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.2.0.tgz#6594db4ee62f78be79e32a7295d21b099b60668d"
-  integrity sha512-1uIESzroqpaTzt9uX48HO+6gfnKu3RwvWdCcWSrX4csMInJfCo1yvKPNXCwXFRpJqRW25tiASb6No0YH57PXqg==
+axe-core@^4.0.2, axe-core@^4.1.1, axe-core@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.2.1.tgz#2e50bcf10ee5b819014f6e342e41e45096239e34"
+  integrity sha512-evY7DN8qSIbsW2H/TWQ1bX3sXN1d4MNb5Vb4n7BzPuCwRHdkZ1H2eNLuSh73EoQqkGKUtju2G2HCcjCfhvZIAA==
 
 axios@^0.21.1:
   version "0.21.1"
