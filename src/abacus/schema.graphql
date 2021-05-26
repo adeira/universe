@@ -1,4 +1,4 @@
-# @generated SignedSource<<a0dca4790b935df9158bf7e2dab16a2b>>
+# @generated SignedSource<<f69e35045cef8ff74bd2ea25a8776c5f>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -131,7 +131,6 @@ union ProductOrError = Product | ProductError
 ""
 type AnyUser {
   id: String!
-  type: String!
 }
 
 type ProductError {

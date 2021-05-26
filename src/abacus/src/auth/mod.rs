@@ -8,9 +8,10 @@ use crate::auth::dal::users::{
 use crate::auth::error::AuthError;
 use crate::auth::google::verify_id_token_integrity;
 use crate::auth::session::derive_session_token_hash;
-use crate::auth::users::{AdminUser, AnonymousUser, AuthorizedUser, User};
+use crate::auth::users::{AnonymousUser, SignedUser, User};
 
 pub(crate) mod api;
+pub(crate) mod rbac;
 pub(crate) mod users;
 
 mod cache_control;
@@ -100,11 +101,7 @@ pub(in crate) async fn resolve_user_from_session_token(
     let session_token_hash = derive_session_token_hash(&session_token);
     // TODO: make sure that webapp session tokens are expiring sooner (not after one year)
     match get_user_by_session_token_hash(&pool, &session_token_hash).await {
-        Ok(user) => match user.r#type().as_ref() {
-            "regular" => User::AuthorizedUser(AuthorizedUser::from(user)),
-            "admin" => User::AdminUser(AdminUser::from(user)),
-            _ => User::AnonymousUser(AnonymousUser::new()),
-        },
+        Ok(user) => User::SignedUser(SignedUser::from(user)),
         Err(error) => {
             tracing::error!("{}", error);
             User::AnonymousUser(AnonymousUser::new())

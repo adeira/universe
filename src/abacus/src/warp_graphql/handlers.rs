@@ -1,5 +1,7 @@
 use crate::arangodb::ConnectionPool;
-use crate::auth::users::User;
+use crate::auth::rbac;
+use crate::auth::rbac::Actions::Files;
+use crate::auth::rbac::FilesActions::UploadFile;
 use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
 use crate::graphql_schema::Schema;
 use crate::warp_graphql::models::get_current_user;
@@ -129,14 +131,15 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
             };
 
             if uploadable_chunks.keys().len() > 0 {
-                return match user {
-                    User::AdminUser(_) => {
-                        // only ADMIN is allowed to upload files
+                match rbac::verify_permissions(&user, &Files(UploadFile)).await {
+                    Ok(_) => {
                         let response = graphql_request.execute(&schema, &context).await;
                         Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
                     }
-                    _ => reject_with_permissions_error(Some("admin required when uploading")),
-                };
+                    Err(_) => reject_with_permissions_error(Some(
+                        "admin permissions required when uploading",
+                    )),
+                }
             } else {
                 let response = graphql_request.execute(&schema, &context).await;
                 Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account

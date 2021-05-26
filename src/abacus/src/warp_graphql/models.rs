@@ -18,17 +18,13 @@ pub(in crate::warp_graphql) async fn get_current_user(
                     // auth header successfully parsed (unverified)
                     match crate::auth::resolve_user_from_session_token(&pool, &session_token).await
                     {
-                        User::AdminUser(user) => {
-                            tracing::debug!("Using ADMIN user: {}", user.id());
-                            Ok(User::AdminUser(user))
-                        }
                         User::AnonymousUser(_) => {
                             tracing::error!("Unmatched session token 🛑");
                             Err(String::from("Session token doesn't match any user."))
                         }
-                        User::AuthorizedUser(user) => {
-                            tracing::debug!("Using AUTHORIZED user: {}", user.id());
-                            Ok(User::AuthorizedUser(user))
+                        User::SignedUser(user) => {
+                            tracing::debug!("Using SIGNED user: {}", user.id());
+                            Ok(User::SignedUser(user))
                         }
                     }
                 }

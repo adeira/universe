@@ -1,5 +1,8 @@
 use crate::arangodb::errors::ModelError;
 use crate::auth::dal::users::list_all_users;
+use crate::auth::rbac;
+use crate::auth::rbac::Actions::Users;
+use crate::auth::rbac::UsersActions::GetAllUsers;
 use crate::auth::users::{AnyUser, User};
 use crate::graphql_context::Context;
 use juniper::FieldResult;
@@ -19,14 +22,9 @@ pub(crate) struct WhoamiPayload {
 
 pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
     match &context.user {
-        User::AdminUser(user) => WhoamiPayload {
+        User::SignedUser(user) => WhoamiPayload {
             id: Some(juniper::ID::from(user.id())),
-            human_readable_type: Some(String::from("admin user")),
-            is_debug_assertions_enabled: cfg!(debug_assertions),
-        },
-        User::AuthorizedUser(user) => WhoamiPayload {
-            id: Some(juniper::ID::from(user.id())),
-            human_readable_type: Some(String::from("authorized regular user")),
+            human_readable_type: Some(String::from("signed user")),
             is_debug_assertions_enabled: cfg!(debug_assertions),
         },
         User::AnonymousUser(user) => WhoamiPayload {
@@ -38,14 +36,14 @@ pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
 }
 
 pub(crate) async fn list_users(context: &Context) -> Result<Vec<AnyUser>, ModelError> {
-    match &context.user {
+    match rbac::verify_permissions(&context.user, &Users(GetAllUsers)).await {
         // only admin can list all the users
-        User::AdminUser(_) => match list_all_users(&context.pool).await {
+        Ok(_) => match list_all_users(&context.pool).await {
             Ok(list) => Ok(list),
             Err(e) => Err(e),
         },
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admin can list all the users",
+        Err(_) => Err(ModelError::PermissionsError(String::from(
+            "not enough permissions to list all the users",
         ))),
     }
 }

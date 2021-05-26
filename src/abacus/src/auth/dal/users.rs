@@ -117,7 +117,6 @@ pub(crate) async fn create_user_by_google_claims(
         .query(
             r#"
             INSERT {
-              type: "regular",
               google: @claims_json,
             } INTO users
             RETURN NEW
@@ -186,7 +185,6 @@ mod tests {
         // 2) try to find it and verify its values
         let user = find_user_by_google_claims(&pool, "sub:12345").await;
         assert_eq!(user.is_some(), true);
-        assert_eq!(user.unwrap().r#type(), "regular");
 
         cleanup_test_database(&db_name).await;
     }
@@ -205,7 +203,6 @@ mod tests {
         // 2) try to find it and verify its values
         let user = find_user_by_google_claims(&pool, "108269453578187886435").await;
         assert_eq!(user.is_some(), true);
-        assert_eq!(user.unwrap().r#type(), "admin");
 
         cleanup_test_database(&db_name).await;
     }

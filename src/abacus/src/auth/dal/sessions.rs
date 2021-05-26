@@ -123,7 +123,7 @@ mod tests {
         let db_name = "create_new_user_session_test";
         let pool = prepare_empty_test_database(&db_name).await;
 
-        let test_user = AnyUser::mock();
+        let test_user = AnyUser::mock(&None);
 
         // 1) create a new session for the test user
         let session =

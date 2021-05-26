@@ -1,4 +1,6 @@
-use crate::auth::users::User;
+use crate::auth::rbac;
+use crate::auth::rbac::Actions::Pos;
+use crate::auth::rbac::PosActions::{Checkout, GetAllPublishedProducts};
 use crate::commerce::api::{
     PriceSortDirection, Product, ProductMultilingualInputVisibility, SupportedCurrency,
     SupportedLocale,
@@ -19,8 +21,8 @@ impl POSQuery {
     /// Lists published products for POS. Requires admin permissions so it should be used only in
     /// POS after logging in.
     async fn list_published_products(context: &Context) -> Option<Vec<Option<Product>>> {
-        match context.user {
-            User::AdminUser(_) => {
+        match rbac::verify_permissions(&context.user, &Pos(GetAllPublishedProducts)).await {
+            Ok(_) => {
                 // only admin can list the products (POS is private)
                 crate::commerce::api::search_published_products(
                     &context,
@@ -31,7 +33,7 @@ impl POSQuery {
                 )
                 .await
             }
-            _ => None,
+            Err(_) => None,
         }
     }
 }
@@ -120,8 +122,8 @@ impl POSMutation {
             }
         };
 
-        match context.user {
-            User::AdminUser(_) => {
+        match rbac::verify_permissions(&context.user, &Pos(Checkout)).await {
+            Ok(_) => {
                 match create_checkout(&context.pool, &PosCheckoutDalInput { selected_products })
                     .await
                 {
@@ -133,8 +135,8 @@ impl POSMutation {
                     }),
                 }
             }
-            _ => PosCheckoutPayloadOrError::Error(PosCheckoutError {
-                message: String::from("only admin can perform POS checkout"),
+            Err(_) => PosCheckoutPayloadOrError::Error(PosCheckoutError {
+                message: String::from("not enough permissions to perform POS checkout"),
             }),
         }
     }

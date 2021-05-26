@@ -1,18 +1,15 @@
-pub use crate::auth::users::admin_user::AdminUser;
 pub use crate::auth::users::anonymous_user::AnonymousUser;
-pub use crate::auth::users::authorized_user::AuthorizedUser;
+pub use crate::auth::users::signed_user::SignedUser;
 use juniper::GraphQLObject;
 use serde::Deserialize;
 
-mod admin_user;
 mod anonymous_user;
-mod authorized_user;
+mod signed_user;
 
 #[derive(Clone, Deserialize)]
 pub enum User {
-    AdminUser(AdminUser),
     AnonymousUser(AnonymousUser),
-    AuthorizedUser(AuthorizedUser),
+    SignedUser(SignedUser),
 }
 
 /// AnyUser represents any generic user in the database which can later be converted to the right
@@ -26,7 +23,6 @@ pub struct AnyUser {
     _rev: String,
     #[graphql(skip)]
     _key: String,
-    r#type: String,
 }
 
 impl AnyUser {
@@ -34,17 +30,15 @@ impl AnyUser {
         self._id.to_owned()
     }
 
-    pub(crate) fn r#type(&self) -> String {
-        self.r#type.to_owned()
-    }
-
     #[cfg(test)]
-    pub(crate) fn mock() -> Self {
+    pub(crate) fn mock(mock_id: &Option<String>) -> Self {
         Self {
-            _id: String::from("users/42"),
+            _id: match mock_id {
+                Some(mock_id) => mock_id.to_string(),
+                None => String::from("users/42yadada42"),
+            },
             _rev: String::from(""),
-            _key: String::from("42"),
-            r#type: String::from("regular"),
+            _key: String::from("42yadada42"),
         }
     }
 }

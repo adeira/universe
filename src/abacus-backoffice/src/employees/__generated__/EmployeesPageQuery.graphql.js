@@ -8,8 +8,7 @@ import type { ConcreteRequest } from 'relay-runtime';
 export type EmployeesPageQueryVariables = {||};
 export type EmployeesPageQueryResponse = {|
   +listUsers: $ReadOnlyArray<{|
-    +id: string,
-    +type: string,
+    +id: string
   |}>
 |};
 export type EmployeesPageQuery = {|
@@ -21,7 +20,6 @@ export type EmployeesPageQuery = {|
 query EmployeesPageQuery {
   listUsers {
     id
-    type
   }
 }
 */
@@ -41,13 +39,6 @@ var v0 = [
         "args": null,
         "kind": "ScalarField",
         "name": "id",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "type",
         "storageKey": null
       }
     ],
@@ -72,15 +63,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "08489bbc8e5363551e7caca19b7486a7",
+    "cacheID": "45c30571647be788f4de11cb17c546ce",
     "id": null,
     "metadata": {},
     "name": "EmployeesPageQuery",
     "operationKind": "query",
-    "text": "query EmployeesPageQuery {\n  listUsers {\n    id\n    type\n  }\n}\n"
+    "text": "query EmployeesPageQuery {\n  listUsers {\n    id\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '25306471eddd3c6211016abedeb10009';
+(node: any).hash = 'e1bbd19cd0e9b21c3bea628a1dbf1851';
 export default node;

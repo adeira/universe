@@ -12,7 +12,6 @@ export default function EmployeesPage(): React.Node {
     query EmployeesPageQuery {
       listUsers {
         id
-        type
       }
     }
   `);
@@ -21,7 +20,6 @@ export default function EmployeesPage(): React.Node {
     return (
       <div key={user.id} className={styles('row')}>
         <div>{user.id}</div>
-        <div>{user.type}</div>
       </div>
     );
   });

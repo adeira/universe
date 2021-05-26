@@ -23,7 +23,7 @@ mod warp_graphql;
 fn init_tracing() {
     let filter = EnvFilter::from_default_env()
         .add_directive(LevelFilter::WARN.into()) // default when not specified
-        .add_directive("server=debug".parse().unwrap())
+        .add_directive("server=info".parse().unwrap())
         .add_directive("warp=warn".parse().unwrap());
 
     // TODO: parallel JSON logging for system processing (YOLO, store into ArangoDB?)

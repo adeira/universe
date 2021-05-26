@@ -259,7 +259,7 @@ async fn test_graphql_multipart_upload_forbidden() {
     // Requests with only query/variable/operation_name are allowed without admin auth.
     assert_eq!(
         resp.body(),
-        r#"{"code":403,"message":"admin required when uploading"}"#
+        r#"{"code":403,"message":"admin permissions required when uploading"}"#
     );
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
 }

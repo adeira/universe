@@ -17,9 +17,8 @@ struct Tracking {
 pub(crate) async fn user_visited_product(pool: &ConnectionPool, user: &User, product: &Product) {
     let db = pool.db().await;
     let user_id = match &user {
-        User::AdminUser(u) => u.id(),
         User::AnonymousUser(u) => u.id(),
-        User::AuthorizedUser(u) => u.id(),
+        User::SignedUser(u) => u.id(),
     };
     let product_id = product.id();
 
