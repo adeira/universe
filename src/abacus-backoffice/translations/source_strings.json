@@ -61,14 +61,28 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/forms/FormSubmit.js",
-   "line_beg": 84,
+   "line_beg": 85,
    "col_beg": 19,
-   "line_end": 87,
+   "line_end": 88,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
    "type": "text",
    "jsfbt": "Something unexpected happened and server could not process the request! 🙈"
+  },
+  {
+   "hashToText": {
+    "99TUdsKRfseIC6G04zBOKg==": "This field is mandatory"
+   },
+   "filepath": "src/forms/private/BaseInputWrapper.js",
+   "line_beg": 29,
+   "col_beg": 21,
+   "line_end": 29,
+   "col_end": 90,
+   "desc": "mandatory field description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "This field is mandatory"
   },
   {
    "hashToText": {
@@ -167,20 +181,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Field \"{form field label}\" is invalid."
-  },
-  {
-   "hashToText": {
-    "99TUdsKRfseIC6G04zBOKg==": "This field is mandatory"
-   },
-   "filepath": "src/forms/private/InputWrapper.js",
-   "line_beg": 29,
-   "col_beg": 21,
-   "line_end": 29,
-   "col_end": 90,
-   "desc": "mandatory field description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "This field is mandatory"
   },
   {
    "hashToText": {

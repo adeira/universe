@@ -2,7 +2,7 @@
 
 import { type Node } from 'react';
 
-import TextArea from './private/TextArea';
+import BaseTextArea from './private/BaseTextArea';
 
 type Props = {
   +'value': ?string,
@@ -19,7 +19,7 @@ type Props = {
  */
 export default function FormTextArea(props: Props): Node {
   return (
-    <TextArea
+    <BaseTextArea
       data-testid={props['data-testid']}
       value={props.value ?? ''}
       label={props.label}

@@ -2,7 +2,7 @@
 
 import { type Node } from 'react';
 
-import Input from './private/Input';
+import BaseInput from './private/BaseInput';
 
 type Props = {
   +'value': ?string,
@@ -18,7 +18,7 @@ type Props = {
  */
 export default function FormText(props: Props): Node {
   return (
-    <Input
+    <BaseInput
       data-testid={props['data-testid']}
       type="text"
       value={props.value ?? ''}

@@ -3,7 +3,7 @@
 import { type Node, useRef } from 'react';
 import sx from '@adeira/sx';
 
-import InputWrapper from './InputWrapper';
+import BaseInputWrapper from './BaseInputWrapper';
 import useFormFieldState from './useFormFieldState';
 
 type Props = {
@@ -15,9 +15,11 @@ type Props = {
 };
 
 /**
+ * This is a generic input component with very wide API (similar to https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
+ * It's not recommended to use this component directly. Instead, use `FormTextArea`.
  * See: https://reactjs.org/docs/forms.html#the-textarea-tag
  */
-export default function TextArea(props: Props): Node {
+export default function BaseTextArea(props: Props): Node {
   const textAreaRef = useRef(null);
   const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
     textAreaRef,
@@ -34,7 +36,7 @@ export default function TextArea(props: Props): Node {
     inputErrors.validationError != null && inputErrors.validationErrorHidden === false;
 
   return (
-    <InputWrapper
+    <BaseInputWrapper
       label={props.label}
       required={props.required}
       hasValidationError={hasError}
@@ -52,7 +54,7 @@ export default function TextArea(props: Props): Node {
           textareaError: hasError,
         })}
       />
-    </InputWrapper>
+    </BaseInputWrapper>
   );
 }
 
