@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
 /* global document */
 

@@ -47,6 +47,7 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
 };
 
 // TODO: .toWarnDev() ?
+// Inspired by React itself: https://github.com/facebook/react/blob/7841d0695ae4bde9848cf8953baf34d312d0cced/scripts/jest/setupTests.js
 ['error', 'warn', 'log', 'info', 'groupCollapsed'].forEach((methodName) => {
   const unexpectedConsoleCallStacks = [];
   const newMethod = function (format, ...args) {
@@ -60,11 +61,13 @@ const isSpy = (spy: MaybeSpy): boolean %checks => {
   // $FlowExpectedError[cannot-write]: these properties are not normally writable but it's expected in this case
   console[methodName] = newMethod;
 
-  global.beforeEach(() => {
+  // TODO: which back to beforeEach, see https://github.com/facebook/jest/issues/11456
+  global.beforeAll(() => {
     unexpectedConsoleCallStacks.length = 0;
   });
 
-  global.afterEach(() => {
+  // TODO: which back to afterEach, see https://github.com/facebook/jest/issues/11456
+  global.afterAll(() => {
     if (console[methodName] !== newMethod && !isSpy(console[methodName])) {
       throw new Error(
         `Test did not tear down console.${methodName} mock properly. Did you call spy.mockRestore() or jest.restoreAllMocks()?`,

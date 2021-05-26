@@ -2,7 +2,7 @@
 
 import { __internal as __sxInternal } from '@adeira/sx';
 import prettier from 'prettier';
-import prettyFormat from 'pretty-format';
+import { format as prettyFormat, plugins } from 'pretty-format';
 
 /* global window */
 
@@ -20,9 +20,10 @@ expect.addSnapshotSerializer({
       { parser: 'css' },
     );
 
+    const { DOMElement, ReactTestComponent } = plugins;
     const printedHTML = prettier.format(
       prettyFormat(val, {
-        plugins: [prettyFormat.plugins.DOMElement, prettyFormat.plugins.ReactTestComponent],
+        plugins: [DOMElement, ReactTestComponent],
         printFunctionName: false,
       }),
       { parser: 'html' },

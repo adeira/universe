@@ -1,5 +1,7 @@
 // @flow
 
+import FormData from 'form-data';
+
 import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
 import flushPromises from './_flushPromises';
