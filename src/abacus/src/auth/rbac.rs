@@ -1,5 +1,5 @@
 use crate::auth::users::User;
-use casbin::CoreApi;
+use casbin::{CoreApi, Error as CasbinError};
 
 pub(crate) enum CommerceActions {
     CreateProduct,
@@ -31,7 +31,7 @@ pub(crate) enum Actions {
     Users(UsersActions),
 }
 
-#[derive(thiserror::Error, Debug, PartialEq)]
+#[derive(thiserror::Error, Debug)]
 pub enum RbacError {
     #[error("user is not logged in (anonymous)")]
     NotLoggedIn,
@@ -41,10 +41,11 @@ pub enum RbacError {
         obj: String,
         act: String,
     },
-    #[error("unknown")]
-    Unknown,
+    #[error("{0}")]
+    Casbin(#[from] CasbinError),
 }
 
+#[derive(Debug)]
 pub(crate) struct RbacSuccess;
 
 /// Verifies whether the user is signed in AND whether it has the correct permissions according to
@@ -130,15 +131,15 @@ pub(crate) async fn verify_permissions(
                                 }
                             }
                         }
-                        Err(_) => {
-                            tracing::error!("unknown RBAC error");
-                            Err(RbacError::Unknown)
+                        Err(casbin_error) => {
+                            tracing::error!("{}", casbin_error);
+                            Err(RbacError::Casbin(casbin_error))
                         }
                     }
                 }
-                Err(_) => {
-                    tracing::error!("unknown RBAC error");
-                    Err(RbacError::Unknown)
+                Err(casbin_error) => {
+                    tracing::error!("{}", casbin_error);
+                    Err(RbacError::Casbin(casbin_error))
                 }
             }
         }
@@ -154,22 +155,22 @@ mod tests {
     #[tokio::test]
     async fn test_anonymous_user() {
         // It should reject any user which is not logged into the system.
-        assert_eq!(
+        assert!(matches!(
             verify_permissions(
                 &User::AnonymousUser(AnonymousUser::new()),
                 &Actions::Commerce(CommerceActions::PublishProduct),
             )
             .await
-            .err(),
-            Some(RbacError::NotLoggedIn)
-        )
+            .unwrap_err(),
+            RbacError::NotLoggedIn
+        ))
     }
 
     #[tokio::test]
     async fn test_signed_user_without_permissions() {
         // This user is signed in but it should not have the right permissions based on the RBAC policy.
         // In fact, there is not policy for it at all which should result in automatic "deny" state.
-        assert_eq!(
+        assert!(matches!(
             verify_permissions(
                 &User::SignedUser(SignedUser::from(AnyUser::mock(&Some(
                     "rbac-mock-id-123".to_string()
@@ -177,13 +178,9 @@ mod tests {
                 &Actions::Commerce(CommerceActions::PublishProduct),
             )
             .await
-            .err(),
-            Some(RbacError::InsufficientPermissions {
-                sub: "rbac-mock-id-123".to_string(),
-                act: "publish_product".to_string(),
-                obj: "commerce".to_string(),
-            })
-        )
+            .unwrap_err(),
+            RbacError::InsufficientPermissions { .. }
+        ))
     }
 
     #[tokio::test]
@@ -221,7 +218,5 @@ mod tests {
                 "'rbac-mock-id-123' doesn't have enough permission to perform action 'publish_product' in 'commerce' module"
             )
         );
-
-        assert_eq!(format!("{}", RbacError::Unknown), String::from("unknown"));
     }
 }

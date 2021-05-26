@@ -52,10 +52,5 @@ mod tests {
                 "RBAC error: 'rbac-mock-id-123' doesn't have enough permission to perform action 'publish_product' in 'commerce' module"
             )
         );
-
-        assert_eq!(
-            format!("{}", ModelError::RbacError(RbacError::Unknown)),
-            String::from("RBAC error: unknown")
-        );
     }
 }
