@@ -1,4 +1,8 @@
-use crate::auth::users::User;
+use crate::auth::rbac;
+use crate::auth::rbac::Actions::Commerce;
+use crate::auth::rbac::CommerceActions::{
+    CreateProduct, DeleteProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
+};
 use crate::commerce::model::errors::ModelError;
 use crate::graphql_context::Context;
 use crate::images::Image;
@@ -338,8 +342,8 @@ pub(in crate::commerce) async fn search_all_products(
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
 ) -> Result<Vec<Option<Product>>, ModelError> {
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await {
+        Ok(_) => {
             // Only admin can search all products
             crate::commerce::dal::products::search_products(
                 &context.pool,
@@ -351,9 +355,7 @@ pub(in crate::commerce) async fn search_all_products(
             )
             .await
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admin can search all products",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -399,9 +401,8 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
     client_locale: &SupportedLocale,
     product_key: &str,
 ) -> Result<Product, ModelError> {
-    // Only ADMIN can do this!
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await {
+        Ok(_) => {
             crate::commerce::dal::products::get_product_by_key(
                 &context.pool,
                 &client_locale,
@@ -410,9 +411,7 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
             )
             .await
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admins can access unpublished products",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -424,8 +423,8 @@ pub(in crate::commerce) async fn create_product(
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Product, ModelError> {
     validate_product_multilingual_input(&product_multilingual_input)?;
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(CreateProduct)).await {
+        Ok(_) => {
             let mut images = vec![];
             if context.uploadables.is_some() {
                 images = crate::images::process_new_images(&context, &product_multilingual_input)
@@ -438,9 +437,7 @@ pub(in crate::commerce) async fn create_product(
             )
             .await
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admins can create products",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -451,8 +448,8 @@ pub(in crate::commerce) async fn update_product(
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Product, ModelError> {
     validate_product_multilingual_input(&product_multilingual_input)?;
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await {
+        Ok(_) => {
             let mut images = vec![];
             if context.uploadables.is_some() {
                 images =
@@ -468,9 +465,7 @@ pub(in crate::commerce) async fn update_product(
             )
             .await
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admins can update products",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -485,8 +480,8 @@ pub(in crate::commerce) async fn publish_product(
     context: &Context,
     product_key: &str,
 ) -> Result<Product, ModelError> {
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(PublishProduct)).await {
+        Ok(_) => {
             let product = crate::commerce::dal::products::get_product_by_key(
                 &context.pool,
                 &SupportedLocale::EnUS,
@@ -525,9 +520,7 @@ pub(in crate::commerce) async fn publish_product(
                     .await?;
             Ok(published_product)
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admins can publish products",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -535,17 +528,15 @@ pub(in crate::commerce) async fn unpublish_product(
     context: &Context,
     product_key: &str,
 ) -> Result<Product, ModelError> {
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(UnpublishProduct)).await {
+        Ok(_) => {
             // unpublish the product:
             let unpublished_product =
                 crate::commerce::dal::products::unpublish_product(&context.pool, &product_key)
                     .await?;
             Ok(unpublished_product)
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admins can unpublish products",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -553,8 +544,8 @@ pub(in crate::commerce) async fn delete_product(
     context: &Context,
     product_key: &str,
 ) -> Result<Product, ModelError> {
-    match &context.user {
-        User::AdminUser(_) => {
+    match rbac::verify_permissions(&context.user, &Commerce(DeleteProduct)).await {
+        Ok(_) => {
             let product_result =
                 crate::commerce::dal::products::delete_product(&context.pool, &product_key).await;
 
@@ -566,9 +557,7 @@ pub(in crate::commerce) async fn delete_product(
 
             product_result
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "Only admins can delete products.",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 

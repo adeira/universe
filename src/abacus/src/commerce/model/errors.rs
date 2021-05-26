@@ -1,27 +1,21 @@
+use crate::auth::rbac::RbacError;
 use crate::images::ModelError as ImagesModelError;
 
-#[derive(Debug)]
+#[derive(thiserror::Error, Debug)]
 pub enum ModelError {
+    #[error("Database error: {0}")]
     DatabaseError(arangors::ClientError),
+    #[error("Logical error: {0}")]
     LogicalError(String),
-    PermissionsError(String),
+    #[error("RBAC error: {0}")]
+    RbacError(#[from] RbacError),
 }
 
 impl From<ImagesModelError> for ModelError {
     fn from(error: ImagesModelError) -> Self {
         match error {
-            ImagesModelError::PermissionsError(e) => ModelError::PermissionsError(e),
             ImagesModelError::ProcessingError(e) => ModelError::LogicalError(e),
-        }
-    }
-}
-
-impl std::fmt::Display for ModelError {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        match *self {
-            ModelError::DatabaseError(ref err) => write!(f, "Database error: {}", err.to_string()),
-            ModelError::LogicalError(ref err) => write!(f, "Logical error: {}", err),
-            ModelError::PermissionsError(ref err) => write!(f, "Permissions error: {}", err),
+            ImagesModelError::RbacError(e) => ModelError::RbacError(e),
         }
     }
 }
@@ -39,13 +33,29 @@ mod tests {
     }
 
     #[test]
-    fn permissions_error_to_string_test() {
+    fn rbac_error_to_string_test() {
+        assert_eq!(
+            format!("{}", ModelError::RbacError(RbacError::NotLoggedIn)),
+            String::from("RBAC error: user is not logged in (anonymous)")
+        );
+
         assert_eq!(
             format!(
                 "{}",
-                ModelError::PermissionsError(String::from("test message"))
+                ModelError::RbacError(RbacError::InsufficientPermissions {
+                    sub: "rbac-mock-id-123".to_string(),
+                    act: "publish_product".to_string(),
+                    obj: "commerce".to_string(),
+                })
             ),
-            String::from("Permissions error: test message")
-        )
+            String::from(
+                "RBAC error: 'rbac-mock-id-123' doesn't have enough permission to perform action 'publish_product' in 'commerce' module"
+            )
+        );
+
+        assert_eq!(
+            format!("{}", ModelError::RbacError(RbacError::Unknown)),
+            String::from("RBAC error: unknown")
+        );
     }
 }

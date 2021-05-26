@@ -5,7 +5,10 @@
 ///  2) strip EXIF images metadata (TODO)
 ///  3) upload images to S3
 ///
-use crate::auth::users::User;
+use crate::auth::rbac;
+use crate::auth::rbac::Actions::Files;
+use crate::auth::rbac::FilesActions::{DeleteFile, UploadFile};
+use crate::auth::rbac::RbacError;
 use crate::commerce::api::ProductMultilingualInput;
 use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
 use serde::{Deserialize, Serialize};
@@ -15,10 +18,12 @@ mod blurhash;
 mod cloudfront;
 mod s3;
 
-#[derive(Debug)]
+#[derive(thiserror::Error, Debug)]
 pub(crate) enum ModelError {
-    PermissionsError(String),
+    #[error("Processing error: {0}")]
     ProcessingError(String),
+    #[error("RBAC error: {0}")]
+    RbacError(#[from] RbacError),
 }
 
 // so we can use the `?` operator with ArangoDB client error
@@ -102,21 +107,18 @@ pub(crate) async fn process_new_images(
         }
     }
 
-    match &context.user {
-        // only admin can process images (must be authorized)
-        User::AdminUser(_) => {
-            if let Some(uploadables) = &context.uploadables {
+    match rbac::verify_permissions(&context.user, &Files(UploadFile)).await {
+        Ok(_) => {
+            return if let Some(uploadables) = &context.uploadables {
                 let images = process_new_images_authorized(&uploadables).await?;
-                return Ok(images);
+                Ok(images)
             } else {
-                return Err(ModelError::ProcessingError(String::from(
+                Err(ModelError::ProcessingError(String::from(
                     "there are no images to process",
-                )));
+                )))
             }
         }
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admin can process images",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }
 
@@ -179,14 +181,11 @@ async fn process_new_images_authorized(
 
 /// Only admin can delete images.
 pub(crate) async fn delete_image(context: &Context, image: &Image) -> Result<Image, ModelError> {
-    match &context.user {
-        // only admin can delete images (must be authorized)
-        User::AdminUser(_) => match s3::delete_image(&image.s3name()).await {
+    match rbac::verify_permissions(&context.user, &Files(DeleteFile)).await {
+        Ok(_) => match s3::delete_image(&image.s3name()).await {
             Ok(_) => Ok(image.clone()),
             Err(s3_error) => return Err(ModelError::ProcessingError(s3_error.message)),
         },
-        _ => Err(ModelError::PermissionsError(String::from(
-            "only admin can delete images",
-        ))),
+        Err(e) => Err(ModelError::from(e)),
     }
 }

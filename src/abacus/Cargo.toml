@@ -16,6 +16,7 @@ arangors = "0.5.0"
 async-trait = "0.1.50"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.0.1"
+casbin = "2.0.7"
 clap = "3.0.0-beta.2"
 data-encoding = "2.3.2"
 deadpool = { version = "0.8.0", features = ["managed"] }
@@ -33,6 +34,7 @@ rusoto_core = "0.46.0"
 rusoto_s3 = "0.46.0"
 serde = "1.0.126"
 serde_json = "1.0.64"
+thiserror = "1.0.25"
 tokio = { version = "1.6.0", features = ["full"] }
 tracing = "0.1.26"
 tracing-subscriber = "0.2.18"
