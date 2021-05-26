@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
 import sx from '@adeira/sx';
 import TestRenderer from 'react-test-renderer';

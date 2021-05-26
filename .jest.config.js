@@ -27,7 +27,7 @@ const commonProjectConfig = {
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
-  timers: 'fake',
+  timers: 'legacy', // TODO: migrate to the Jest default values!
 };
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
@@ -45,6 +45,7 @@ module.exports = {
   reporters: ['default'],
   rootDir: __dirname,
   verbose: false,
+  testEnvironment: 'node',
   setupFilesAfterEnv: commonProjectConfig.setupFilesAfterEnv, // specified here so it triggers all tests to run if changed.
   projects: Workspaces.getWorkspacesSync().map((packageJSONLocation) => {
     const packageJSON = require(packageJSONLocation);

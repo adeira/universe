@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
 import { renderHook, act } from '@testing-library/react-hooks';
 import { RecoilRoot } from 'recoil';

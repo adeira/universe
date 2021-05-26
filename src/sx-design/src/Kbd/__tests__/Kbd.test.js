@@ -1,6 +1,8 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
-import * as deviceDetect from 'react-device-detect';
 import * as React from 'react';
 import { invariant } from '@adeira/js';
 import { render } from '@testing-library/react';
@@ -19,8 +21,9 @@ test.each`
     let Kbd;
     jest.isolateModules(() => {
       // https://github.com/duskload/react-device-detect/blob/161b62d7f46a5b810b7a5677985e340f93468e32/README.md#testing
-      // eslint-disable-next-line no-import-assign
+      const deviceDetect = require('react-device-detect');
       deviceDetect.isMacOs = isMacOs;
+
       Kbd = require('../Kbd').default;
     });
 
