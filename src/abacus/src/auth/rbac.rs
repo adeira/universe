@@ -1,5 +1,5 @@
 use crate::auth::users::User;
-use casbin::{CoreApi, Error as CasbinError};
+use casbin::{CoreApi, DefaultModel, Error as CasbinError, FileAdapter};
 
 pub(crate) enum CommerceActions {
     CreateProduct,
@@ -59,10 +59,10 @@ pub(crate) async fn verify_permissions(
 ) -> Result<RbacSuccess, RbacError> {
     match user {
         User::SignedUser(signed_user) => {
-            let model = "src/auth/rbac_model.conf";
-            let policy = "src/auth/rbac_policy.csv"; // TODO: migrate the policies to DB
+            let model = DefaultModel::from_str(include_str!("rbac_model.conf")).await?;
+            let adapter = FileAdapter::new("rbac_policy.csv"); // TODO: migrate the policies to `ArandodbAdapter`
 
-            match casbin::Enforcer::new(model, policy).await {
+            match casbin::Enforcer::new(model, adapter).await {
                 Ok(enforcer) => {
                     let sub: &str = signed_user.id_ref();
                     let obj: &str;
