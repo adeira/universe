@@ -49,6 +49,13 @@ kubectl rollout restart deployment abacus-deployment
 kubectl rollout status deployment abacus-deployment
 ```
 
+Alternatively, you can run the application locally in Docker (instead of `cargo run`):
+
+```bash
+(cd src/abacus && docker build . --tag abacus-test)
+docker run -p 5000:5000 abacus-test --arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529
+```
+
 ## Testing
 
 ```bash
