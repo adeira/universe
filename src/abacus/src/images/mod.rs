@@ -166,7 +166,8 @@ async fn process_new_images_authorized(
                             blurhash: blurhash::calculate_image_blurhash(image).unwrap(),
                         });
                     }
-                    Err(_) => {
+                    Err(error) => {
+                        tracing::error!("cannot load image from memory: {}", error);
                         return Err(ModelError::ProcessingError(String::from(
                             "cannot load image from memory",
                         )));

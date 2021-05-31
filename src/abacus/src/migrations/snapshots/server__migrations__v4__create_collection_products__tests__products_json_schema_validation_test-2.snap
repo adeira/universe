@@ -1,48 +1,48 @@
 ---
-source: server/src/migrations/v4__create_collection_products.rs
+source: src/migrations/v4__create_collection_products.rs
 expression: "schema.validate(&json!({ }))"
 ---
 {
   "errors": [
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/images"
+      "path": "/images",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/unit_label"
+      "path": "/unit_label",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/is_published"
+      "path": "/is_published",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/visibility"
+      "path": "/visibility",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/created"
+      "path": "/created",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/updated"
+      "path": "/updated",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/price"
+      "path": "/price",
+      "title": "This property is required"
     },
     {
       "code": "required",
-      "title": "This property is required",
-      "path": "/translations"
+      "path": "/translations",
+      "title": "This property is required"
     }
   ],
   "missing": []
