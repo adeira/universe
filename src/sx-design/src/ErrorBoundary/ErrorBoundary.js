@@ -39,10 +39,19 @@ export default class ErrorBoundary extends React.Component<Props, State> {
     };
   }
 
+  componentDidMount() {
+    // prevents "The above error..." addendum from React (https://github.com/facebook/react/commit/3938ccc88aa3dcc5a4460474bda40af97dd6e234)
+    window.addEventListener('error', (event) => event.preventDefault());
+  }
+
   componentDidCatch(error: Error, errorInfo: { componentStack: string, ... }): void {
     if (this.props.onComponentDidCatch != null) {
-      // log the error to an error reporting service
+      // allows to log the error to an error reporting service
       this.props.onComponentDidCatch(error, errorInfo);
+    } else {
+      // or simply print the error to console
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   }
 

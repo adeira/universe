@@ -74,8 +74,14 @@ it('does not render the error message in production', () => {
   expect(queryByTestId('errorDev')).toBeNull(); // <<<
   expect(getByText('Retry')).toBeDefined();
 
-  expect(spy.mock.calls[0][0]).toMatch(/^Error: Uncaught \[Error: yadada]/);
-  expect(spy.mock.calls[1][0]).toMatch(/^The above error occurred in the <Throws> component:/);
+  expect(spy.mock.calls[0][0]).toMatchInlineSnapshot(
+    /^Error: Uncaught \[Error: yadada]/,
+    `
+    Object {
+      "_suppressLogging": true,
+    }
+  `,
+  );
   __DEV__ = __PREV_DEV__; // eslint-disable-line no-global-assign
 });
 
