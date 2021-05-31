@@ -34,13 +34,19 @@ export default function createRequestHandler(
       customFetcher(requestNode, variables, uploadables)
         .then((response) => {
           if (response.errors) {
-            // Relay is currently quite opinionated and recommends to either try to render the data
-            // or halt the application. It's a smart decisions since these errors are not for the
-            // application users. We conveniently follow this recommendation and always try to
-            // render the data. (TODO: allow to log these errors externally)
-            //
-            // eslint-disable-next-line no-console
-            response.errors.map((error) => console.warn(error.message, error));
+            // There are several ways how to deal with the errors. We choose to always forward the
+            // response if possible (via `sink.next`). However, servers can also mark the error as
+            // being CRITICAL via `error.extensions.severity` in which case we try to halt the
+            // application by propagating the error via `sink.error`.
+            response.errors.forEach((error) => {
+              // See: https://github.com/facebook/relay/blob/db73f60fd42826c154353874e4bb1c54f0df1867/packages/relay-runtime/network/RelayNetworkTypes.js#L39
+              if (error.extensions?.severity === 'CRITICAL') {
+                sink.error(new Error(error.message));
+              } else {
+                // eslint-disable-next-line no-console
+                console.warn(error.message, error);
+              }
+            });
           }
           sink.next(response);
         })

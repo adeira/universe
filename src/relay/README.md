@@ -118,6 +118,32 @@ For more information on how to use Relay please follow the official Relay Guided
 
 Everything you find in the Relay Guided Tour should work with our drop-in replacement `@adeira/relay` (except you import everything from `@adeira/relay` package).
 
+# Error handling
+
+`@adeira/relay` forwards all successful responses (even when they are partial with errors) to the application code. This allows you to render the layout partially by getting the data via `useLazyLoadQuery` or in a callback `onCompleted` when calling a mutation.
+
+Optionally, server can also specify whether the error is critical or not by sending a severity in the [error's `extensions` entry](https://spec.graphql.org/June2018/#sec-Response-Format):
+
+```json5
+{
+  data: '…',
+  errors: [
+    {
+      message: 'some critical server error message',
+      locations: [{ line: 5, column: 5 }],
+      path: ['commerce', 'products'],
+      extensions: {
+        severity: 'CRITICAL', // <<<
+      },
+    },
+  ],
+}
+```
+
+In this case, `@adeira/relay` will try to halt the application by throwing the error via `useLazyLoadQuery` (you should use an [ErrorBoundary](https://reactjs.org/docs/error-boundaries.html) to catch it) or by calling a callback `onError` when calling a mutation.
+
+This is particularly useful in situations when server would return a partial response, however, the error is so severe that we should not even attempt to partially render it.
+
 # Tips and tricks
 
 ## Tip 1: do not expose global Relay Environment
