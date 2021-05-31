@@ -14086,17 +14086,7 @@ pretty-error@^2.1.1:
     lodash "^4.17.20"
     renderkid "^2.0.4"
 
-pretty-format@^26.0.0, pretty-format@^26.1.0, pretty-format@^26.6.1:
-  version "26.6.1"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-26.6.1.tgz#af9a2f63493a856acddeeb11ba6bcf61989660a8"
-  integrity sha512-MeqqsP5PYcRBbGMvwzsyBdmAJ4EFX7pWFyl7x4+dMVg5pE0ZDdBIvEH2ergvIO+Gvwv1wh64YuOY9y5LuyY/GA==
-  dependencies:
-    "@jest/types" "^26.6.1"
-    ansi-regex "^5.0.0"
-    ansi-styles "^4.0.0"
-    react-is "^17.0.1"
-
-pretty-format@^26.6.2:
+pretty-format@^26.0.0, pretty-format@^26.1.0, pretty-format@^26.6.1, pretty-format@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-26.6.2.tgz#e35c2705f14cb7fe2fe94fa078345b444120fc93"
   integrity sha512-7AeGuCYNGmycyQbCqd/3PWH4eOoX/OiCa0uphp57NVTeAGdJGaAliecxwBDHYQCIvrW7aDBZCYeNTP/WX69mkg==
@@ -14104,16 +14094,6 @@ pretty-format@^26.6.2:
     "@jest/types" "^26.6.2"
     ansi-regex "^5.0.0"
     ansi-styles "^4.0.0"
-    react-is "^17.0.1"
-
-pretty-format@^27.0.1:
-  version "27.0.1"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-27.0.1.tgz#c4094621dfbd3e8ab751964d1cf01edc6f88474d"
-  integrity sha512-qE+0J6c/gd+R6XTcQgPJMc5hMJNsxzSF5p8iZSbMZ7GQzYGlSLNkh2P80Wa2dbF4gEVUsJEgcrBY+1L2/j265w==
-  dependencies:
-    "@jest/types" "^27.0.1"
-    ansi-regex "^5.0.0"
-    ansi-styles "^5.0.0"
     react-is "^17.0.1"
 
 pretty-format@^27.0.2:
