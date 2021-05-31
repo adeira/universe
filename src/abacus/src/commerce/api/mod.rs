@@ -7,7 +7,6 @@ pub use crate::commerce::model::products::SupportedCurrency;
 pub use crate::commerce::model::products::SupportedLocale;
 
 use crate::graphql_context::Context;
-use juniper::{FieldError, FieldResult};
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -33,6 +32,7 @@ impl CommerceQuery {
         price_sort_direction: PriceSortDirection,
         search_term: Option<String>,
     ) -> Option<Vec<Option<Product>>> {
+        // TODO: return Result<…, ModelError>
         search_published_products(
             &context,
             &client_locale,
@@ -50,21 +50,14 @@ impl CommerceQuery {
         client_locale: SupportedLocale,
         price_sort_direction: PriceSortDirection,
         search_term: Option<String>,
-    ) -> Option<Vec<Option<Product>>> {
-        match crate::commerce::model::products::search_all_products(
+    ) -> Result<Vec<Option<Product>>, ModelError> {
+        crate::commerce::model::products::search_all_products(
             &context,
             &client_locale,
             &price_sort_direction,
             &search_term,
         )
         .await
-        {
-            Ok(products) => Some(products),
-            Err(e) => {
-                tracing::error!("{}", e);
-                None
-            }
-        }
     }
 
     /// Returns one publicly available product by its key. Anyone can call this resolver.
@@ -72,17 +65,13 @@ impl CommerceQuery {
         context: &Context,
         client_locale: SupportedLocale,
         product_key: juniper::ID,
-    ) -> FieldResult<Product> {
-        match crate::commerce::model::products::get_published_product_by_key(
+    ) -> Result<Product, ModelError> {
+        crate::commerce::model::products::get_published_product_by_key(
             &context,
             &client_locale,
             &product_key,
         )
         .await
-        {
-            Ok(product) => Ok(product),
-            Err(e) => Err(FieldError::from(e)),
-        }
     }
 
     /// Only admins can call this function! It returns published OR unpublished product by its key.
@@ -90,17 +79,13 @@ impl CommerceQuery {
         context: &Context,
         client_locale: SupportedLocale,
         product_key: juniper::ID,
-    ) -> FieldResult<Product> {
-        match crate::commerce::model::products::get_unpublished_product_by_key(
+    ) -> Result<Product, ModelError> {
+        crate::commerce::model::products::get_unpublished_product_by_key(
             &context,
             &client_locale,
             &product_key,
         )
         .await
-        {
-            Ok(product) => Ok(product),
-            Err(e) => Err(FieldError::from(e)),
-        }
     }
 }
 
@@ -118,6 +103,7 @@ impl CommerceMutation {
         {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
+                // TODO: do not expose DB and RBAC errors directly
                 message: e.to_string(),
             }),
         }
@@ -139,6 +125,7 @@ impl CommerceMutation {
         {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
+                // TODO: do not expose DB and RBAC errors directly
                 message: e.to_string(),
             }),
         }
@@ -148,6 +135,7 @@ impl CommerceMutation {
         match crate::commerce::model::products::delete_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
+                // TODO: do not expose DB and RBAC errors directly
                 message: e.to_string(),
             }),
         }
@@ -157,6 +145,7 @@ impl CommerceMutation {
         match crate::commerce::model::products::publish_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
+                // TODO: do not expose DB and RBAC errors directly
                 message: e.to_string(),
             }),
         }
@@ -166,6 +155,7 @@ impl CommerceMutation {
         match crate::commerce::model::products::unpublish_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
+                // TODO: do not expose DB and RBAC errors directly
                 message: e.to_string(),
             }),
         }
