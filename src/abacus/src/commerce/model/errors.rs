@@ -1,5 +1,6 @@
 use crate::auth::rbac::RbacError;
 use crate::images::ModelError as ImagesModelError;
+use juniper::{graphql_value, FieldError, ScalarValue};
 
 #[derive(thiserror::Error, Debug)]
 pub enum ModelError {
@@ -9,6 +10,27 @@ pub enum ModelError {
     LogicalError(String),
     #[error("RBAC error: {0}")]
     RbacError(#[from] RbacError),
+}
+
+/// This allows us to return `Result<…, ModelError>` from GraphQL resolvers. Here we can decide
+/// whether the errors are going to be displayed publicly, whether they are critical for the
+/// consuming client and so on.
+impl<S: ScalarValue> juniper::IntoFieldError<S> for ModelError {
+    fn into_field_error(self) -> FieldError<S> {
+        match self {
+            ModelError::LogicalError(error) => FieldError::from(error),
+            ModelError::DatabaseError(error) => {
+                // Note: we are currently not hiding database errors in GraphQL but eventually we
+                // should probably start returning something like "Internal database error".
+                FieldError::new(error, graphql_value!({ "severity": "CRITICAL" }))
+            }
+            ModelError::RbacError(error) => {
+                // Note: we are currently not hiding RBAC errors in GraphQL but eventually we
+                // should probably start returning something like "Internal server error".
+                FieldError::new(error, graphql_value!({ "severity": "CRITICAL" }))
+            }
+        }
+    }
 }
 
 impl From<ImagesModelError> for ModelError {
