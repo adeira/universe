@@ -1,43 +1,43 @@
 ---
-source: server/src/migrations/v4__create_collection_products.rs
-expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"is_published\" : false,\n                           \"created\" : \"\", \"visibility\" : [], \"updated\" : \"\",\n                           \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            }]\n                       }))"
+source: src/migrations/v4__create_collection_products.rs
+expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"is_published\" :\n                           false, \"created\" : \"\", \"visibility\" : [], \"updated\"\n                           : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            }]\n                       }))"
 ---
 {
   "errors": [
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/unit_label"
+      "path": "/created",
+      "title": "MinLength condition is not met"
     },
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/created"
+      "path": "/translations/0/description",
+      "title": "MinLength condition is not met"
     },
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/updated"
+      "path": "/translations/0/name",
+      "title": "MinLength condition is not met"
     },
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/translations/0/name"
+      "path": "/translations/1/description",
+      "title": "MinLength condition is not met"
     },
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/translations/0/description"
+      "path": "/translations/1/name",
+      "title": "MinLength condition is not met"
     },
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/translations/1/name"
+      "path": "/unit_label",
+      "title": "MinLength condition is not met"
     },
     {
       "code": "min_length",
-      "title": "MinLength condition is not met",
-      "path": "/translations/1/description"
+      "path": "/updated",
+      "title": "MinLength condition is not met"
     }
   ],
   "missing": []
