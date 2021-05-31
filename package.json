@@ -14,13 +14,13 @@
     "@adeira/eslint-config": "^6.0.0",
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
-    "@babel/eslint-parser": "^7.14.3",
-    "babel-jest": "^27.0.1",
+    "@babel/eslint-parser": "^7.14.4",
+    "babel-jest": "^27.0.2",
     "babel-loader": "^8.2.2",
     "eslint": "^7.27.0",
     "flow-bin": "^0.152.0",
     "glob": "^7.1.7",
-    "jest": "^27.0.1",
+    "jest": "^27.0.3",
     "jest-runner-eslint": "^0.10.0"
   },
   "jest": {
