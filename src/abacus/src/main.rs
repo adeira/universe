@@ -64,8 +64,9 @@ async fn main() {
     let routes = graphql_api
         .with(
             warp::cors()
-                .allow_origin("http://localhost:5001") // TODO (abacus-backoffice)
-                .allow_origin("http://localhost:5002") // TODO (KOCHKA.com.mx)
+                .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
+                .allow_origin("http://localhost:5002") // KOCHKA.com.mx (DEV without Telepresence)
+                .allow_origin("https://abacus-bo.kochka.com.mx") // abacus-backoffice (PRODUCTION)
                 .allow_headers(vec!["authorization", "content-type", "x-client"])
                 .allow_methods(vec![warp::http::Method::POST]),
         )
