@@ -19,6 +19,7 @@
     "@adeira/sx": "^0.25.0",
     "@adeira/sx-design": "^0.11.0",
     "fbt": "^0.16.6",
+    "graphql": "^15.5.0",
     "immutable": "^4.0.0-rc.12",
     "next": "^10.2.3",
     "next-plugin-custom-babel-config": "^1.0.4",
@@ -29,6 +30,7 @@
     "recoil": "^0.3.1"
   },
   "devDependencies": {
+    "@adeira/babel-preset-adeira": "^3.0.0",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@testing-library/react": "^11.2.7",
     "@testing-library/react-hooks": "^7.0.0",
