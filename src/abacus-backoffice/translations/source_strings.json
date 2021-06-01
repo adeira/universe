@@ -268,17 +268,17 @@
   },
   {
    "hashToText": {
-    "uKUaGDYLMNYdVKPaqadikQ==": "Open POS"
+    "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 41,
    "col_beg": 8,
    "line_end": 41,
-   "col_end": 68,
-   "desc": "navigation link to point of sales",
+   "col_end": 81,
+   "desc": "navigation link to point of sales sessions",
    "project": "",
    "type": "text",
-   "jsfbt": "Open POS"
+   "jsfbt": "POS sessions"
   },
   {
    "hashToText": {
@@ -293,6 +293,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "abacus emoji"
+  },
+  {
+   "hashToText": {
+    "rLRFrvo+/qGRtijpdlaKwA==": "All POS Sessions"
+   },
+   "filepath": "src/pos/POSAllSessionsPageLayout.js",
+   "line_beg": 17,
+   "col_beg": 12,
+   "line_end": 17,
+   "col_end": 64,
+   "desc": "ledger page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "All POS Sessions"
+  },
+  {
+   "hashToText": {
+    "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
+   },
+   "filepath": "src/pos/POSAllSessionsPageLayout.js",
+   "line_beg": 26,
+   "col_beg": 10,
+   "line_end": 26,
+   "col_end": 78,
+   "desc": "navigation link to point of sales",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Open POS session"
   },
   {
    "hashToText": {
