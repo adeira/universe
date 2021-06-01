@@ -6,7 +6,7 @@ import sx from '@adeira/sx';
 import ProductsGridLayout from './ProductsGridLayout';
 import ProductsSelected from './ProductsSelected';
 
-export default function POSPageLayout(): Node {
+export default function POSActiveSessionPageLayout(): Node {
   return (
     <div className={styles('mainGrid')}>
       <div className={styles('left')}>
