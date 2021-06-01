@@ -71,6 +71,7 @@ Check our [Contribution guide](/.github/CONTRIBUTING.md) on how to report issues
 - [Figma designs](https://www.figma.com/file/bAVVTRg9w2vDJ1Hph82hky/Adeira)
 - [https://vercel.com/adeira](https://vercel.com/adeira) - our Vercel platform for deployments
 - [Kodiak dashboard](https://app.kodiakhq.com/) - automated PR merging
+- [Docker Hub](https://hub.docker.com/orgs/adeira)
 
 ## Troubleshooting
 
