@@ -52,8 +52,8 @@ kubectl rollout status deployment abacus-deployment
 Alternatively, you can run the application locally in Docker (instead of `cargo run`):
 
 ```bash
-(cd src/abacus && docker build . --tag abacus-test)
-docker run -p 5000:5000 abacus-test --arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529
+(cd src/abacus && docker build --progress=plain . --tag abacus)
+docker run -p 5000:5000 abacus --arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529
 ```
 
 ## Testing
@@ -129,6 +129,14 @@ For example, to delete analyzers:
 var analyzers = require('@arangodb/analyzers');
 analyzers.remove('bigram');
 ```
+
+## GraphQL API design guide
+
+**🚧 WORK in PROGRESS 🚧**
+
+One of the main parts of this server is GraphQL API. Generally speaking, we are not trying to have any restrictions when it comes to designing this API, and we encourage trying new things. However, there are some rules which should be always followed to create kind of contract/agreement between server and GraphQL client.
+
+1. Every top-level GraphQL resolver should return `Result<T, CustomModelError>` where `T` can be a union of success/error payload or just a simple value. This allows us to return an application value (be it queryable error or the actual value) OR a critical server error when it happens (missing permissions, DB failure, …). See: [Juniper error handling](https://graphql-rust.github.io/juniper/master/types/objects/error_handling.html#example-input-validation-complex-with-critical-error)
 
 ## TODOs
 

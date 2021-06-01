@@ -13,11 +13,18 @@ jobs:
       matrix:
         project:
           - 'abacus'
+          - 'abacus-backoffice'
         include:
           - project: abacus
             projectPath: './src/abacus'
             projectGlob: './src/abacus/**'
             projectDockerfile: './src/abacus/Dockerfile'
+            projectImageName: 'adeira/abacus'
+          - project: abacus-backoffice
+            projectPath: './src/abacus-backoffice'
+            projectGlob: './src/abacus-backoffice/**'
+            projectDockerfile: './src/abacus-backoffice/Dockerfile'
+            projectImageName: 'adeira/abacus-backoffice'
 
     runs-on: ubuntu-latest
 
@@ -48,6 +55,18 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1.3.0
 
+      # https://github.com/docker/metadata-action
+      - name: Prepare Docker metadata
+        id: meta
+        uses: docker/metadata-action@v3.3.0
+        with:
+          images: ${{ matrix.projectImageName }}
+          flavor: |
+            latest=true
+          tags: |
+            type=ref,event=branch
+            type=sha
+
       # https://github.com/docker/build-push-action
       - name: Build and push
         if: steps.changes.outputs.src == 'true'
@@ -57,7 +76,8 @@ jobs:
           context: ${{ matrix.projectPath }}
           file: ${{ matrix.projectDockerfile }}
           push: true
-          tags: adeira/abacus:latest # TODO: include in the build matrix
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Image digest
         if: steps.changes.outputs.src == 'true'

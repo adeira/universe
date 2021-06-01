@@ -40,7 +40,7 @@ export default function ProductsCards(): Node {
     },
   );
 
-  if (data.commerce.products?.length === 0) {
+  if (data.commerce.products.length === 0) {
     return (
       <Note tint="warning">
         <fbt desc="empty shop message">There are no products yet.</fbt>
@@ -50,7 +50,7 @@ export default function ProductsCards(): Node {
 
   return (
     <div className={styles('productsGrid')}>
-      {data.commerce.products?.map((product) => {
+      {data.commerce.products.map((product) => {
         if (product == null) {
           return null; // TODO: 🤔
         }

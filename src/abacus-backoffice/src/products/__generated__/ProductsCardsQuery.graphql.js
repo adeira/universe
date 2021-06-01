@@ -12,7 +12,7 @@ export type ProductsCardsQueryVariables = {|
 |};
 export type ProductsCardsQueryResponse = {|
   +commerce: {|
-    +products: ?$ReadOnlyArray<?{|
+    +products: $ReadOnlyArray<?{|
       +id: string,
       +key: string,
       +name: string,

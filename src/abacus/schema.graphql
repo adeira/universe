@@ -1,4 +1,4 @@
-# @generated SignedSource<<f69e35045cef8ff74bd2ea25a8776c5f>>
+# @generated SignedSource<<aad952ec561b05d563f22a0283081c52>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -154,7 +154,7 @@ type CommerceQuery {
     Searches all products (published and unpublished). Requires admin permissions so it should
     be used only in backoffice to administer the products.
   """
-  searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]
+  searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]!
   "Returns one publicly available product by its key. Anyone can call this resolver."
   getPublishedProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
   "Only admins can call this function! It returns published OR unpublished product by its key."
