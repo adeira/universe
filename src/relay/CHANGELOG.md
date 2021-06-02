@@ -1,5 +1,7 @@
 # Unreleased
 
+- Added support for GraphQL errors with `CRICITAL` severity: you can mark any error to be critical by adding this value to `errors[*].extensions.severity`. Such errors will be propagated to any available `ErrorBoundary` when using `useLazyLoadQuery` or to `onError` callback when calling a mutation.
+
 # 3.2.4
 
 - Removed experimental bin `adeira-relay-compiler-experimental` because it was causing issues when installing `@adeira/relay` via NPM (see https://github.com/adeira/universe/issues/2328). If you want to use the new Relay Rust Compiler please install it directly via `relay-compiler-experimental` (https://www.npmjs.com/package/relay-compiler-experimental).
