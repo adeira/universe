@@ -37,8 +37,8 @@ export default function Navigation(): React.Node {
       <Link href="/ledger" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to ledger">Ledger</fbt>
       </Link>
-      <Link href="/pos" target="_blank" xstyle={styles.link} xstyleActive={styles.linkActive}>
-        <fbt desc="navigation link to point of sales">Open POS</fbt>
+      <Link href="/pos" xstyle={styles.link} xstyleActive={styles.linkActive}>
+        <fbt desc="navigation link to point of sales sessions">POS sessions</fbt>
       </Link>
       <div className={styles('spacing')} />
       <LanguageSwitch />

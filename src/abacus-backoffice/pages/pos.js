@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 
-import POSPageLayout from '../src/pos/POSPageLayout';
+import POSAllSessionsPageLayout from '../src/pos/POSAllSessionsPageLayout';
 
 export default function POSPage(): React.Node {
-  return <POSPageLayout />;
+  return <POSAllSessionsPageLayout />;
 }
