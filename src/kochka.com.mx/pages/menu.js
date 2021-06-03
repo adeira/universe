@@ -1,11 +1,10 @@
 // @flow
 
 import * as React from 'react';
-import sx from '@adeira/sx';
-import { Heading, Section, Money } from '@adeira/sx-design';
 import fbt from 'fbt';
 
 import Layout from '../src/Layout';
+import Menu from '../src/Menu';
 
 export default function MenuPage(): React.Node {
   return (
@@ -13,156 +12,7 @@ export default function MenuPage(): React.Node {
       title={<fbt desc="menu page title">Café menu</fbt>}
       subtitle={<fbt desc="menu page subtitle">What do we offer</fbt>}
     >
-      <div className={styles('menuGrid')}>
-        <Section>
-          <Heading>
-            <div className={styles('menuHeading')}>
-              <fbt desc="sweet dumplings subtitle in our menu">Sweet Dumplings</fbt>
-            </div>
-          </Heading>
-          <div className={styles('priceRow')}>
-            <div>
-              <fbt desc="sweet dumpling with lemon pie flavor">Lemon pie</fbt>
-            </div>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with oreo flavor">Oreo</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with rice with milk flavor">Rice with milk</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with strawberry/coconut flavor">Strawberry + coconut</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with apple/cinnamon milk flavor">Apple + cinnamon</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-        </Section>
-
-        <Section>
-          <Heading>
-            <div className={styles('menuHeading')}>
-              <fbt desc="savory dumplings subtitle in our menu">Savory Dumplings</fbt>
-            </div>
-          </Heading>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with pizza flavor">Pizza</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with chorizo/cheese flavor">Chorizo + cheese</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with hawaiano flavor">Hawaiano</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="sweet dumpling with cochinita pibil flavor">Cochinita pibil</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-        </Section>
-
-        <Section>
-          <Heading>
-            <div className={styles('menuHeading')}>
-              <fbt desc="coffee subtitle in our menu">Coffee</fbt>
-            </div>
-          </Heading>
-          <div className={styles('priceRow')}>
-            <fbt desc="coffee espresso">Espresso</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="coffee americano">Americano</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="coffee cappuccino">Cappuccino</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="coffee latte">Latte</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-          <div className={styles('priceRow')}>
-            <fbt desc="coffee flat white">Flat White</fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-        </Section>
-
-        <Section>
-          <Heading>
-            <div className={styles('menuHeading')}>
-              <fbt desc="other subtitle in our menu">Other</fbt>
-            </div>
-          </Heading>
-          <div className={styles('priceRow')}>
-            <fbt desc="other soda">
-              <em>TODO</em>
-            </fbt>
-            <div>
-              <Money priceUnitAmount={30} priceUnitAmountCurrency={'MXN'} />
-            </div>
-          </div>
-        </Section>
-      </div>
+      <Menu />
     </Layout>
   );
 }
-
-const styles = sx.create({
-  priceRow: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-  },
-  menuGrid: {
-    'margin': '0 auto',
-    'display': 'grid',
-    'gridTemplateRows': 'auto',
-    'gap': '2rem',
-    'gridTemplateColumns': 'repeat(2, [start] minmax(300px, 450px) [end])',
-    '@media (max-width: 840px)': {
-      gridTemplateColumns: 'repeat(1, [start] minmax(300px, 450px) [end])',
-    },
-  },
-  menuHeading: {
-    textTransform: 'uppercase',
-    marginBottom: 15,
-  },
-});
