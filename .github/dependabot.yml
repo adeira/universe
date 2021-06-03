@@ -78,3 +78,12 @@ updates:
       - 'dependencies'
       - 'automerge'
     open-pull-requests-limit: 10
+
+  - package-ecosystem: 'docker'
+    directory: '/src/abacus-backoffice/'
+    schedule:
+      interval: 'daily'
+    labels:
+      - 'dependencies'
+      - 'automerge'
+    open-pull-requests-limit: 10
