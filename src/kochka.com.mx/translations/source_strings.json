@@ -268,6 +268,426 @@
   },
   {
    "hashToText": {
+    "2YO+c7f7liBd/0oWsDx7MQ==": "Coffee drinks"
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 14,
+   "col_beg": 8,
+   "line_end": 14,
+   "col_end": 67,
+   "desc": "coffee subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Coffee drinks"
+  },
+  {
+   "hashToText": {
+    "Huj3kYbbtIwNfsqe+HSqMg==": "{ground coffee grams} grams of ground arabica coffee from Chiapas yielding {liquid coffee grams} grams of liquid espresso. Small and very intense drink - stir before drinking."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 23,
+   "col_beg": 10,
+   "line_end": 27,
+   "col_end": 16,
+   "desc": "description of a single espresso coffee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "{ground coffee grams} grams of ground arabica coffee from Chiapas yielding {liquid coffee grams} grams of liquid espresso. Small and very intense drink - stir before drinking."
+  },
+  {
+   "hashToText": {
+    "3XaGH/9sew5nG4Id6BR1vw==": "Espresso topped with hot water resulting an approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 35,
+   "col_beg": 10,
+   "line_end": 38,
+   "col_end": 16,
+   "desc": "description of americano coffee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Espresso topped with hot water resulting an approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
+  },
+  {
+   "hashToText": {
+    "AzHmJGImdqVuWRIfH/GWVQ==": "Espresso poured over hot water resulting an approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 47,
+   "col_beg": 10,
+   "line_end": 50,
+   "col_end": 16,
+   "desc": "description of long black coffee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Espresso poured over hot water resulting an approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
+  },
+  {
+   "hashToText": {
+    "FIzVs5eVO2HuXR8WXk+zHA==": "Espresso with a foamed milk. The same amount of coffee as in Latte but with a little bit less milk resulting in a stronger coffee taste."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 59,
+   "col_beg": 10,
+   "line_end": 62,
+   "col_end": 16,
+   "desc": "description of cappuccino coffee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Espresso with a foamed milk. The same amount of coffee as in Latte but with a little bit less milk resulting in a stronger coffee taste."
+  },
+  {
+   "hashToText": {
+    "MdrHYBjF0V6kO7UZTsn2YA==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but topped with more milk resulting in a milder taste."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 73,
+   "col_beg": 10,
+   "line_end": 76,
+   "col_end": 16,
+   "desc": "description of latte coffee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but topped with more milk resulting in a milder taste."
+  },
+  {
+   "hashToText": {
+    "t5V1cpabCbQkUc19Sc2NSw==": "Savory Dumplings"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 14,
+   "col_beg": 8,
+   "line_end": 14,
+   "col_end": 80,
+   "desc": "savory dumplings subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Savory Dumplings"
+  },
+  {
+   "hashToText": {
+    "SeBE+pGmn00wK3DIW1AeQQ==": "Pizza"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 18,
+   "col_beg": 15,
+   "line_end": 18,
+   "col_end": 71,
+   "desc": "sweet dumpling with pizza flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Pizza"
+  },
+  {
+   "hashToText": {
+    "TM+8y3uHpE9TSHQyg8hQMA==": "Chorizo + cheese"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 25,
+   "col_beg": 15,
+   "line_end": 25,
+   "col_end": 91,
+   "desc": "sweet dumpling with chorizo/cheese flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Chorizo + cheese"
+  },
+  {
+   "hashToText": {
+    "HtilRqaeRn24yj8r/UY78Q==": "Hawaiano"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 32,
+   "col_beg": 15,
+   "line_end": 32,
+   "col_end": 77,
+   "desc": "sweet dumpling with hawaiano flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Hawaiano"
+  },
+  {
+   "hashToText": {
+    "p/wI+Wdasj+udEWR2E3e7g==": "Cochinita pibil"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 39,
+   "col_beg": 15,
+   "line_end": 39,
+   "col_end": 91,
+   "desc": "sweet dumpling with cochinita pibil flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Cochinita pibil"
+  },
+  {
+   "hashToText": {
+    "qTi+uC+IskJlO3OJUAktFQ==": "Sweet Dumplings"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 14,
+   "col_beg": 8,
+   "line_end": 14,
+   "col_end": 78,
+   "desc": "sweet dumplings subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Sweet Dumplings"
+  },
+  {
+   "hashToText": {
+    "r6+8MA3WZVJhursyq93xUw==": "Lemon pie"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 18,
+   "col_beg": 15,
+   "line_end": 18,
+   "col_end": 79,
+   "desc": "sweet dumpling with lemon pie flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Lemon pie"
+  },
+  {
+   "hashToText": {
+    "tt7X47ntzWcKr/vIGPMX0w==": "Oreo"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 25,
+   "col_beg": 15,
+   "line_end": 25,
+   "col_end": 69,
+   "desc": "sweet dumpling with oreo flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Oreo"
+  },
+  {
+   "hashToText": {
+    "utJujK5SPtxGsK/xzRC5yA==": "Rice with milk"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 32,
+   "col_beg": 15,
+   "line_end": 32,
+   "col_end": 89,
+   "desc": "sweet dumpling with rice with milk flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rice with milk"
+  },
+  {
+   "hashToText": {
+    "VmlLyj2v1Cqt8mliV0wOCA==": "Strawberry + coconut"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 39,
+   "col_beg": 15,
+   "line_end": 39,
+   "col_end": 99,
+   "desc": "sweet dumpling with strawberry/coconut flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Strawberry + coconut"
+  },
+  {
+   "hashToText": {
+    "yHj+pjsSA3Gl6Pdw7L7KUA==": "Apple + cinnamon"
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 46,
+   "col_beg": 15,
+   "line_end": 46,
+   "col_end": 96,
+   "desc": "sweet dumpling with apple/cinnamon milk flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Apple + cinnamon"
+  },
+  {
+   "hashToText": {
+    "gpf7yMg/5H4w0cysxh+N2w==": "Milkshakes"
+   },
+   "filepath": "src/menu/MenuSectionMilkshake.js",
+   "line_beg": 15,
+   "col_beg": 8,
+   "line_end": 15,
+   "col_end": 68,
+   "desc": "milkshakes subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Milkshakes"
+  },
+  {
+   "hashToText": {
+    "ufEj5Xv2oET4caWNU0vonw==": "Strawberry milkshake"
+   },
+   "filepath": "src/menu/MenuSectionMilkshake.js",
+   "line_beg": 20,
+   "col_beg": 17,
+   "line_end": 20,
+   "col_end": 81,
+   "desc": "strawberry milkshake name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Strawberry milkshake"
+  },
+  {
+   "hashToText": {
+    "A4vKSQ8+kU9h3nuRFvQ2jw==": "Perfect mix of fresh strawberries, vanilla ice-cream and whole milk topped with whipped cream."
+   },
+   "filepath": "src/menu/MenuSectionMilkshake.js",
+   "line_beg": 22,
+   "col_beg": 12,
+   "line_end": 25,
+   "col_end": 18,
+   "desc": "description of strawbery milkshake",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Perfect mix of fresh strawberries, vanilla ice-cream and whole milk topped with whipped cream."
+  },
+  {
+   "hashToText": {
+    "M2X9eebSavFNpKaMqrxK1A==": "Chocolate milkshake"
+   },
+   "filepath": "src/menu/MenuSectionMilkshake.js",
+   "line_beg": 32,
+   "col_beg": 17,
+   "line_end": 32,
+   "col_end": 79,
+   "desc": "chocolate milkshake name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Chocolate milkshake"
+  },
+  {
+   "hashToText": {
+    "Ydx7Nx6fA2ijymBpFshKXA==": "Vanilla milkshake"
+   },
+   "filepath": "src/menu/MenuSectionMilkshake.js",
+   "line_beg": 40,
+   "col_beg": 17,
+   "line_end": 40,
+   "col_end": 75,
+   "desc": "vanilla milkshake name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Vanilla milkshake"
+  },
+  {
+   "hashToText": {
+    "hyE5CLveTakqWN5TJmBHgA==": "Banana milkshake"
+   },
+   "filepath": "src/menu/MenuSectionMilkshake.js",
+   "line_beg": 48,
+   "col_beg": 17,
+   "line_end": 48,
+   "col_end": 73,
+   "desc": "banana milkshake name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Banana milkshake"
+  },
+  {
+   "hashToText": {
+    "8tuzzzf1dwqFSTF0rx1UHA==": "Organic tea blends"
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 14,
+   "col_beg": 8,
+   "line_end": 14,
+   "col_end": 77,
+   "desc": "organic tea subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Organic tea blends"
+  },
+  {
+   "hashToText": {
+    "MaKtj1/Ypz/TmQJHkPZdfQ==": "Gunpowder green tea with intense mint flavor brewed at 80 °C for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 21,
+   "col_beg": 10,
+   "line_end": 24,
+   "col_end": 16,
+   "desc": "description of a green tea with mint flavor",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Gunpowder green tea with intense mint flavor brewed at 80 °C for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
+  },
+  {
+   "hashToText": {
+    "IjR4/MLeT1hEqXMykh436g==": "Green tea from a chinese province Fujian brewed at 80 °C for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 34,
+   "col_beg": 10,
+   "line_end": 37,
+   "col_end": 16,
+   "desc": "description of a green tea with jasmine",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Green tea from a chinese province Fujian brewed at 80 °C for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
+  },
+  {
+   "hashToText": {
+    "kHKfnFI1SaH5AJERtHiDzA==": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at 90 °C for 5 minutes. High in caffeine."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 47,
+   "col_beg": 10,
+   "line_end": 50,
+   "col_end": 16,
+   "desc": "description of a bespoke pu-erh chai tea",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at 90 °C for 5 minutes. High in caffeine."
+  },
+  {
+   "hashToText": {
+    "kPqGb8pJFX3Z2FDkW69VcQ==": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at 100 °C for 5 minutes. Without caffeine, good for memory and physical performance."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 60,
+   "col_beg": 10,
+   "line_end": 63,
+   "col_end": 16,
+   "desc": "description of a jarabe tapatío tea",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at 100 °C for 5 minutes. Without caffeine, good for memory and physical performance."
+  },
+  {
+   "hashToText": {
+    "lp1oMkJRqVXnaWTJowgP3w==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at 100 °C for 5 minutes. No caffeine, anti-inflammatory, good for memory."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 73,
+   "col_beg": 10,
+   "line_end": 76,
+   "col_end": 16,
+   "desc": "description of a bésame mucho tea",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at 100 °C for 5 minutes. No caffeine, anti-inflammatory, good for memory."
+  },
+  {
+   "hashToText": {
+    "/XbfP47PA3qH6Ru/7a/9Vg==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at 100 °C for 7 minutes. No caffeine, good for your intellect and heart."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 86,
+   "col_beg": 10,
+   "line_end": 89,
+   "col_end": 16,
+   "desc": "description of a maison de cannelle tea",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at 100 °C for 7 minutes. No caffeine, good for your intellect and heart."
+  },
+  {
+   "hashToText": {
     "xqoguQxnoeLWkiZgd66KQA==": "Be careful when entering the café so that the cats do not run away. {pleading face emoji}"
    },
    "filepath": "src/Rules.js",
@@ -845,9 +1265,9 @@
     "LBAx+p8s256gLYAkVfbjkg==": "Café menu"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 13,
+   "line_beg": 12,
    "col_beg": 13,
-   "line_end": 13,
+   "line_end": 12,
    "col_end": 56,
    "desc": "menu page title",
    "project": "",
@@ -859,294 +1279,14 @@
     "JnDGjOnTmmVcE/3sXdcBuA==": "What do we offer"
    },
    "filepath": "pages/menu.js",
-   "line_beg": 14,
+   "line_beg": 13,
    "col_beg": 16,
-   "line_end": 14,
+   "line_end": 13,
    "col_end": 69,
    "desc": "menu page subtitle",
    "project": "",
    "type": "text",
    "jsfbt": "What do we offer"
-  },
-  {
-   "hashToText": {
-    "qTi+uC+IskJlO3OJUAktFQ==": "Sweet Dumplings"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 20,
-   "col_beg": 14,
-   "line_end": 20,
-   "col_end": 84,
-   "desc": "sweet dumplings subtitle in our menu",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Sweet Dumplings"
-  },
-  {
-   "hashToText": {
-    "r6+8MA3WZVJhursyq93xUw==": "Lemon pie"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 25,
-   "col_beg": 14,
-   "line_end": 25,
-   "col_end": 78,
-   "desc": "sweet dumpling with lemon pie flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Lemon pie"
-  },
-  {
-   "hashToText": {
-    "tt7X47ntzWcKr/vIGPMX0w==": "Oreo"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 32,
-   "col_beg": 12,
-   "line_end": 32,
-   "col_end": 66,
-   "desc": "sweet dumpling with oreo flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Oreo"
-  },
-  {
-   "hashToText": {
-    "utJujK5SPtxGsK/xzRC5yA==": "Rice with milk"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 38,
-   "col_beg": 12,
-   "line_end": 38,
-   "col_end": 86,
-   "desc": "sweet dumpling with rice with milk flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Rice with milk"
-  },
-  {
-   "hashToText": {
-    "VmlLyj2v1Cqt8mliV0wOCA==": "Strawberry + coconut"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 44,
-   "col_beg": 12,
-   "line_end": 44,
-   "col_end": 96,
-   "desc": "sweet dumpling with strawberry/coconut flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Strawberry + coconut"
-  },
-  {
-   "hashToText": {
-    "yHj+pjsSA3Gl6Pdw7L7KUA==": "Apple + cinnamon"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 50,
-   "col_beg": 12,
-   "line_end": 50,
-   "col_end": 93,
-   "desc": "sweet dumpling with apple/cinnamon milk flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Apple + cinnamon"
-  },
-  {
-   "hashToText": {
-    "t5V1cpabCbQkUc19Sc2NSw==": "Savory Dumplings"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 60,
-   "col_beg": 14,
-   "line_end": 60,
-   "col_end": 86,
-   "desc": "savory dumplings subtitle in our menu",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Savory Dumplings"
-  },
-  {
-   "hashToText": {
-    "SeBE+pGmn00wK3DIW1AeQQ==": "Pizza"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 64,
-   "col_beg": 12,
-   "line_end": 64,
-   "col_end": 68,
-   "desc": "sweet dumpling with pizza flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Pizza"
-  },
-  {
-   "hashToText": {
-    "TM+8y3uHpE9TSHQyg8hQMA==": "Chorizo + cheese"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 70,
-   "col_beg": 12,
-   "line_end": 70,
-   "col_end": 88,
-   "desc": "sweet dumpling with chorizo/cheese flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Chorizo + cheese"
-  },
-  {
-   "hashToText": {
-    "HtilRqaeRn24yj8r/UY78Q==": "Hawaiano"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 76,
-   "col_beg": 12,
-   "line_end": 76,
-   "col_end": 74,
-   "desc": "sweet dumpling with hawaiano flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Hawaiano"
-  },
-  {
-   "hashToText": {
-    "p/wI+Wdasj+udEWR2E3e7g==": "Cochinita pibil"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 82,
-   "col_beg": 12,
-   "line_end": 82,
-   "col_end": 88,
-   "desc": "sweet dumpling with cochinita pibil flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Cochinita pibil"
-  },
-  {
-   "hashToText": {
-    "LKMO5BWwRSp4pHxWfv3uLg==": "Coffee"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 92,
-   "col_beg": 14,
-   "line_end": 92,
-   "col_end": 66,
-   "desc": "coffee subtitle in our menu",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Coffee"
-  },
-  {
-   "hashToText": {
-    "/epfePfrGcHgr350PJlO8A==": "Espresso"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 96,
-   "col_beg": 12,
-   "line_end": 96,
-   "col_end": 54,
-   "desc": "coffee espresso",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Espresso"
-  },
-  {
-   "hashToText": {
-    "FhbbT23dVqvnF0w57D4A/A==": "Americano"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 102,
-   "col_beg": 12,
-   "line_end": 102,
-   "col_end": 56,
-   "desc": "coffee americano",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Americano"
-  },
-  {
-   "hashToText": {
-    "/aQ2Dy2JH+W2rNEXeAcKbQ==": "Cappuccino"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 108,
-   "col_beg": 12,
-   "line_end": 108,
-   "col_end": 58,
-   "desc": "coffee cappuccino",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Cappuccino"
-  },
-  {
-   "hashToText": {
-    "Jo96bwQOld3PFaYr54NkKw==": "Latte"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 114,
-   "col_beg": 12,
-   "line_end": 114,
-   "col_end": 48,
-   "desc": "coffee latte",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Latte"
-  },
-  {
-   "hashToText": {
-    "Uu0pASljQPLpg76lmS8oTA==": "Flat White"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 120,
-   "col_beg": 12,
-   "line_end": 120,
-   "col_end": 58,
-   "desc": "coffee flat white",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Flat White"
-  },
-  {
-   "hashToText": {
-    "CzxSuTKSwKmHdQjWueIPRw==": "Other"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 130,
-   "col_beg": 14,
-   "line_end": 130,
-   "col_end": 64,
-   "desc": "other subtitle in our menu",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Other"
-  },
-  {
-   "hashToText": {
-    "gMWC9MSp8vmuRAiWRKXGjg==": "{=TODO}"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 134,
-   "col_beg": 12,
-   "line_end": 136,
-   "col_end": 18,
-   "desc": "other soda",
-   "project": "",
-   "type": "text",
-   "jsfbt": "{=TODO}"
-  },
-  {
-   "hashToText": {
-    "qARqDH+ElMFVt1DzFml4kQ==": "TODO"
-   },
-   "filepath": "pages/menu.js",
-   "line_beg": 135,
-   "col_beg": 14,
-   "line_end": 135,
-   "col_end": 27,
-   "desc": "In the phrase: \"{=TODO}\"",
-   "project": "",
-   "type": "text",
-   "jsfbt": "TODO"
   },
   {
    "hashToText": {
