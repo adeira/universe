@@ -15,37 +15,64 @@ export default function MenuSectionSweetDumpling(): Node {
       </MenuHeading>
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with lemon pie flavor">Lemon pie</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Choco Salem"
+        description={
+          <fbt desc="description of choco salem dumpling">
+            Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with oreo flavor">Oreo</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Manzana Azrael"
+        description={
+          <fbt desc="description of manzana azrael dumpling">
+            Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with rice with milk flavor">Rice with milk</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Fresa Hello Kitty"
+        description={
+          <fbt desc="description of fresa hello kitty dumpling">
+            Dumpling filled with strawberries and condensed milk and topped with strawberry cookies
+            crumbs.{' '}
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with strawberry/coconut flavor">Strawberry + coconut</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Arroz Snowball"
+        description={
+          <fbt desc="description of arroz snowball dumpling">
+            Dumpling filled with rice pudding and topped with coconut.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with apple/cinnamon milk flavor">Apple + cinnamon</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Banana Garfield"
+        description={
+          <fbt desc="description of banana garfield dumpling">
+            Dumpling filled with fried bananas and condensed milk and topped with vanilla cookies
+            crumbs.
+          </fbt>
+        }
+        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+      />
+
+      <MenuRow
+        title="Lemon Doraemon"
+        description={
+          <fbt desc="description of lemon doraemon dumpling">
+            Dumpling filled with lemon pudding and topped with lemon cookies crumbs.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
     </>

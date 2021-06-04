@@ -15,37 +15,63 @@ export default function MenuSectionDumplingSavory(): Node {
       </MenuHeading>
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with pizza flavor">Pizza</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Camarón Silvestre"
+        description={
+          <fbt desc="description of camarón silvestre dumpling">
+            Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with chorizo/cheese flavor">Chorizo + cheese</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Pizza Félix"
+        description={
+          <fbt desc="description of pizza félix dumpling">
+            Dumpling filled with parmesano cheese, ham and tomato sauce. It’s topped with sesame
+            seeds.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with hawaiano flavor">Hawaiano</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Hawaiiana Marie"
+        description={
+          <fbt desc="description of hawaiiana marie dumpling">
+            Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={<fbt desc="sweet dumpling with cochinita pibil flavor">Cochinita pibil</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Choriqueso Demóstenes"
+        description={
+          <fbt desc="description of choriqueso demóstenes dumpling">
+            Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title={'TKTK'}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        title="Tom y Jerry al pastor"
+        description={
+          <fbt desc="description of tom y jerry al pastro dumpling">
+            Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth.
+          </fbt>
+        }
+        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+      />
+
+      <MenuRow
+        title="El gato con botas"
+        description={
+          <fbt desc="description of el gato con botas dumpling">
+            Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
       />
     </>

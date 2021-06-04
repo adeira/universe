@@ -91,6 +91,20 @@ export default function MenuSectionTea(): Node {
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
         volume={450}
       />
+
+      <MenuRow
+        // Tea code: 205 - https://tomas.mx/pages/tipo-de-te
+        title="Matcha Latte"
+        description={
+          <fbt desc="description of matcha latte">
+            Finely grounded matcha green tea powder infused in a hot water topped with a lot of
+            foamed milk similar to traditional Latte. It has less caffeine than coffee but more than
+            green tea.
+          </fbt>
+        }
+        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        volume={450}
+      />
     </>
   );
 }
