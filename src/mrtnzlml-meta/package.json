@@ -20,7 +20,7 @@
     "@adeira/eslint-config": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.27.0",
-    "jest": "^27.0.3"
+    "jest": "^27.0.4"
   },
   "browserslist": {
     "production": [
