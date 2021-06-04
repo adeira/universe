@@ -282,17 +282,17 @@
   },
   {
    "hashToText": {
-    "Huj3kYbbtIwNfsqe+HSqMg==": "{ground coffee grams} grams of ground arabica coffee from Chiapas yielding {liquid coffee grams} grams of liquid espresso. Small and very intense drink - stir before drinking."
+    "BBxRHshdam+/bspHasDzng==": "{ground coffee grams} grams of ground, single origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 23,
+   "line_beg": 22,
    "col_beg": 10,
    "line_end": 27,
    "col_end": 16,
    "desc": "description of a single espresso coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "{ground coffee grams} grams of ground arabica coffee from Chiapas yielding {liquid coffee grams} grams of liquid espresso. Small and very intense drink - stir before drinking."
+   "jsfbt": "{ground coffee grams} grams of ground, single origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
   },
   {
    "hashToText": {
@@ -341,9 +341,9 @@
     "MdrHYBjF0V6kO7UZTsn2YA==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but topped with more milk resulting in a milder taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 73,
+   "line_beg": 71,
    "col_beg": 10,
-   "line_end": 76,
+   "line_end": 74,
    "col_end": 16,
    "desc": "description of latte coffee",
    "project": "",
@@ -366,59 +366,87 @@
   },
   {
    "hashToText": {
-    "SeBE+pGmn00wK3DIW1AeQQ==": "Pizza"
+    "F3S6b7wjGX8nTluMq64JwQ==": "Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 18,
-   "col_beg": 15,
-   "line_end": 18,
-   "col_end": 71,
-   "desc": "sweet dumpling with pizza flavor",
+   "line_beg": 20,
+   "col_beg": 10,
+   "line_end": 22,
+   "col_end": 16,
+   "desc": "description of camarón silvestre dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Pizza"
+   "jsfbt": "Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs."
   },
   {
    "hashToText": {
-    "TM+8y3uHpE9TSHQyg8hQMA==": "Chorizo + cheese"
+    "4epW41KCu+eUhF0kw+FhoA==": "Dumpling filled with parmesano cheese, ham and tomato sauce. It’s topped with sesame seeds."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 25,
-   "col_beg": 15,
-   "line_end": 25,
-   "col_end": 91,
-   "desc": "sweet dumpling with chorizo/cheese flavor",
+   "line_beg": 30,
+   "col_beg": 10,
+   "line_end": 33,
+   "col_end": 16,
+   "desc": "description of pizza félix dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Chorizo + cheese"
+   "jsfbt": "Dumpling filled with parmesano cheese, ham and tomato sauce. It’s topped with sesame seeds."
   },
   {
    "hashToText": {
-    "HtilRqaeRn24yj8r/UY78Q==": "Hawaiano"
+    "VuWxXKRmqsYPKO86PfvPXA==": "Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 32,
-   "col_beg": 15,
-   "line_end": 32,
-   "col_end": 77,
-   "desc": "sweet dumpling with hawaiano flavor",
+   "line_beg": 41,
+   "col_beg": 10,
+   "line_end": 43,
+   "col_end": 16,
+   "desc": "description of hawaiiana marie dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Hawaiano"
+   "jsfbt": "Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds."
   },
   {
    "hashToText": {
-    "p/wI+Wdasj+udEWR2E3e7g==": "Cochinita pibil"
+    "qb5cSyyWeVuf9Xnf5zwH8w==": "Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 39,
-   "col_beg": 15,
-   "line_end": 39,
-   "col_end": 91,
-   "desc": "sweet dumpling with cochinita pibil flavor",
+   "line_beg": 51,
+   "col_beg": 10,
+   "line_end": 53,
+   "col_end": 16,
+   "desc": "description of choriqueso demóstenes dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Cochinita pibil"
+   "jsfbt": "Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs."
+  },
+  {
+   "hashToText": {
+    "L4ZN/BdQmDn/OF+kUXHQPg==": "Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth."
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 61,
+   "col_beg": 10,
+   "line_end": 63,
+   "col_end": 16,
+   "desc": "description of tom y jerry al pastro dumpling",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth."
+  },
+  {
+   "hashToText": {
+    "+uwyI4xYBQ/3u5iIg6Ktzg==": "Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds."
+   },
+   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "line_beg": 71,
+   "col_beg": 10,
+   "line_end": 73,
+   "col_end": 16,
+   "desc": "description of el gato con botas dumpling",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds."
   },
   {
    "hashToText": {
@@ -436,73 +464,87 @@
   },
   {
    "hashToText": {
-    "r6+8MA3WZVJhursyq93xUw==": "Lemon pie"
+    "+MRih0f/bEbbwOUFmL669Q==": "Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 18,
-   "col_beg": 15,
-   "line_end": 18,
-   "col_end": 79,
-   "desc": "sweet dumpling with lemon pie flavor",
+   "line_beg": 20,
+   "col_beg": 10,
+   "line_end": 22,
+   "col_end": 16,
+   "desc": "description of choco salem dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Lemon pie"
+   "jsfbt": "Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs."
   },
   {
    "hashToText": {
-    "tt7X47ntzWcKr/vIGPMX0w==": "Oreo"
+    "7hLDf70MsjZ1u5mwkwTexA==": "Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 25,
-   "col_beg": 15,
-   "line_end": 25,
-   "col_end": 69,
-   "desc": "sweet dumpling with oreo flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Oreo"
-  },
-  {
-   "hashToText": {
-    "utJujK5SPtxGsK/xzRC5yA==": "Rice with milk"
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 32,
-   "col_beg": 15,
+   "line_beg": 30,
+   "col_beg": 10,
    "line_end": 32,
-   "col_end": 89,
-   "desc": "sweet dumpling with rice with milk flavor",
+   "col_end": 16,
+   "desc": "description of manzana azrael dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Rice with milk"
+   "jsfbt": "Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon."
   },
   {
    "hashToText": {
-    "VmlLyj2v1Cqt8mliV0wOCA==": "Strawberry + coconut"
+    "KeHzPPvXBk10bmF9Nb/83A==": "Dumpling filled with strawberries and condensed milk and topped with strawberry cookies crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 39,
-   "col_beg": 15,
-   "line_end": 39,
-   "col_end": 99,
-   "desc": "sweet dumpling with strawberry/coconut flavor",
+   "line_beg": 40,
+   "col_beg": 10,
+   "line_end": 43,
+   "col_end": 16,
+   "desc": "description of fresa hello kitty dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Strawberry + coconut"
+   "jsfbt": "Dumpling filled with strawberries and condensed milk and topped with strawberry cookies crumbs."
   },
   {
    "hashToText": {
-    "yHj+pjsSA3Gl6Pdw7L7KUA==": "Apple + cinnamon"
+    "AcIMDbFfi1JaTFxzveoDvA==": "Dumpling filled with rice pudding and topped with coconut."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 46,
-   "col_beg": 15,
-   "line_end": 46,
-   "col_end": 96,
-   "desc": "sweet dumpling with apple/cinnamon milk flavor",
+   "line_beg": 51,
+   "col_beg": 10,
+   "line_end": 53,
+   "col_end": 16,
+   "desc": "description of arroz snowball dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Apple + cinnamon"
+   "jsfbt": "Dumpling filled with rice pudding and topped with coconut."
+  },
+  {
+   "hashToText": {
+    "GZqXrkg1D49SHEp48ew98g==": "Dumpling filled with fried bananas and condensed milk and topped with vanilla cookies crumbs."
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 61,
+   "col_beg": 10,
+   "line_end": 64,
+   "col_end": 16,
+   "desc": "description of banana garfield dumpling",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Dumpling filled with fried bananas and condensed milk and topped with vanilla cookies crumbs."
+  },
+  {
+   "hashToText": {
+    "yYNpbDk9H6wxgyAMrhOnaA==": "Dumpling filled with lemon pudding and topped with lemon cookies crumbs."
+   },
+   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "line_beg": 72,
+   "col_beg": 10,
+   "line_end": 74,
+   "col_end": 16,
+   "desc": "description of lemon doraemon dumpling",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Dumpling filled with lemon pudding and topped with lemon cookies crumbs."
   },
   {
    "hashToText": {
@@ -685,6 +727,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at 100 °C for 7 minutes. No caffeine, good for your intellect and heart."
+  },
+  {
+   "hashToText": {
+    "TJ/L2G6MlzykMUNolE6oGA==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 99,
+   "col_beg": 10,
+   "line_end": 103,
+   "col_end": 16,
+   "desc": "description of matcha latte",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
   },
   {
    "hashToText": {
