@@ -26,7 +26,7 @@
     "eslint-plugin-react-native": "^3.11.0",
     "eslint-plugin-relay": "^1.8.2",
     "eslint-plugin-sx": "^0.11.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.1"
   },
   "devDependencies": {
     "deep-diff": "^1.0.2",
