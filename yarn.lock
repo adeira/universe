@@ -15016,11 +15016,6 @@ relateurl@^0.2.7:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-relay-compiler-experimental@0.0.0-master-a71052f5:
-  version "0.0.0-master-a71052f5"
-  resolved "https://registry.yarnpkg.com/relay-compiler-experimental/-/relay-compiler-experimental-0.0.0-master-a71052f5.tgz#9986a202eb03438be117cd1bc92871f77c5b87ce"
-  integrity sha512-H5EaCtZWKcdDCYvTv6VM7kEI3mKNMEZw1NND2ZYr7khMzJ0OcMGJSF3ObVibxTIKwF7C1BMZ7SbIChtX4YdScA==
-
 relay-compiler@^11.0.2:
   version "11.0.2"
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-11.0.2.tgz#e1e09a1c881d169a7a524ead728ad6a89c7bd4af"
