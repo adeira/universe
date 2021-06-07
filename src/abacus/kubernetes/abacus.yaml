@@ -32,14 +32,13 @@ metadata:
   name: 'arangodb-single-server-backup'
 spec:
   #          ┌───────────── minute (0 - 59)
-  #          │ ┌───────────── hour (0 - 23)
-  #          │ │ ┌───────────── day of the month (1 - 31)
-  #          │ │ │ ┌───────────── month (1 - 12)
-  #          │ │ │ │ ┌───────────── day of the week (0 - 6) (Sunday to Saturday;
-  #          │ │ │ │ │                                   7 is also Sunday on some systems)
-  #          │ │ │ │ │
-  #          │ │ │ │ │
-  schedule: '0 * * * *' # equivalent to `@hourly`
+  #          │  ┌───────────── hour (0 - 23)
+  #          │  │  ┌───────────── day of the month (1 - 31)
+  #          │  │  │ ┌───────────── month (1 - 12)
+  #          │  │  │ │ ┌───────────── day of the week (0 - 6)
+  #          │  │  │ │ │
+  #          │  │  │ │ │
+  schedule: '0 */2 * * *' # https://crontab.guru/every-two-hours
   concurrencyPolicy: Forbid
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 3
@@ -71,7 +70,7 @@ spec:
               imagePullPolicy: Always
               command: ['/bin/sh', '-c']
               args:
-                - 'aws s3 sync /tmp/dump s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/$(date "+%Y-%m-%d")'
+                - 'aws s3 sync /tmp/dump s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/$(date "+%Y-%m-%dT%H:%M:%S")'
               env:
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
