@@ -99,10 +99,9 @@ it('supports conditional calls', () => {
   expect(styles('button', isEnabled && 'disabled')).toMatchInlineSnapshot(`"_2dHaKY"`);
 
   // alternative syntax:
+  expect(() => styles({ button: false })).not.toThrowError();
+  expect(styles({ button: false })).toBeUndefined();
   expect(styles({ button: true })).toMatchInlineSnapshot(`"_324Crd"`);
-  expect(() => styles({ button: false })).toThrowErrorMatchingInlineSnapshot(
-    `"SX must be called with at least one stylesheet name."`,
-  );
   expect(styles({ button: true, disabled: isDisabled })).toMatchInlineSnapshot(`"_324Crd"`);
   expect(styles({ button: true, disabled: isEnabled })).toMatchInlineSnapshot(`"_2dHaKY"`);
 });
@@ -122,14 +121,22 @@ it('validates incorrect usage', () => {
     aaa: { color: 'red' },
     bbb: { color: 'blue' },
   });
+
+  // $FlowExpectedError[incompatible-call] unexpected yadada
+  expect(() => styles({}, 'yadada')).toThrowErrorMatchingInlineSnapshot(
+    `"SX accepts only one argument when using conditional objects. Either remove the second argument or switch to traditional syntax without conditional objects."`,
+  );
+  expect(() => styles({})).toThrowErrorMatchingInlineSnapshot(
+    `"SX must be called with at least one stylesheet selector (empty object given)."`,
+  );
   expect(() => styles()).toThrowErrorMatchingInlineSnapshot(
     `"SX must be called with at least one stylesheet name."`,
   );
-  // $FlowExpectedError[incompatible-call] ccc
+  // $FlowExpectedError[incompatible-call] unexpected bbc
   expect(() => styles('bbc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'bbc' stylesheet name but it doesn't exist. Did you mean 'bbb' instead?"`,
   );
-  // $FlowExpectedError[incompatible-call] ccc
+  // $FlowExpectedError[incompatible-call] unexpected ccc
   expect(() => styles('ccc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'ccc' stylesheet name but it doesn't exist. Did you mean 'aaa' instead?"`,
   );
