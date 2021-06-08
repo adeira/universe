@@ -1,12 +1,11 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Money } from '@adeira/sx-design';
+import { Money, Temperature } from '@adeira/sx-design';
 import fbt from 'fbt';
 
 import MenuHeading from './components/MenuHeading';
 import MenuRow from './components/MenuRow';
-import Temperature from './Temperature';
 
 export default function MenuSectionTea(): Node {
   return (

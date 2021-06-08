@@ -17,7 +17,7 @@
     "@adeira/js": "^2.1.0",
     "@adeira/relay": "^3.2.4",
     "@adeira/sx": "^0.25.0",
-    "@adeira/sx-design": "^0.11.0",
+    "@adeira/sx-design": "^0.12.0",
     "fbt": "^0.16.6",
     "graphql": "^15.5.0",
     "immutable": "^4.0.0-rc.12",
