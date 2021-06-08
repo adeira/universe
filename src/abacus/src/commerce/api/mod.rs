@@ -91,6 +91,11 @@ impl CommerceQuery {
 
 #[juniper::graphql_object(context = Context)]
 impl CommerceMutation {
+    /// Creates a new product.
+    ///
+    /// Note on uploading product images: image names specified in the GraphQL input must correspond
+    /// to the uploadables (multipart/form-data) and vice versa. Requests with invalid uploadables
+    /// will be rejected.
     async fn product_create(
         context: &Context,
         product_multilingual_input: ProductMultilingualInput,
@@ -109,6 +114,13 @@ impl CommerceMutation {
         }
     }
 
+    /// Updates already existing product with new values. It requires not only product KEY but also
+    /// product REVISION to avoid lost update situations (when someone else tried to update the
+    /// product and this update would overwrite the latest changes).
+    ///
+    /// Note on updating product images: already existing image names must be send to the server
+    /// otherwise they will be deleted. You can optionally specify some extra (new) images to upload
+    /// them via uploadables. This feature will eventually be used even for images re-ordering.
     async fn product_update(
         context: &Context,
         product_key: juniper::ID,
@@ -131,6 +143,7 @@ impl CommerceMutation {
         }
     }
 
+    /// Deletes product based on the product KEY.
     async fn product_delete(context: &Context, product_key: juniper::ID) -> ProductOrError {
         match crate::commerce::model::products::delete_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
@@ -141,6 +154,8 @@ impl CommerceMutation {
         }
     }
 
+    /// Publishes product based on the product KEY. Various validation requirements must be met
+    /// before the product can be published. Published product is available outside of backoffice.
     async fn product_publish(context: &Context, product_key: juniper::ID) -> ProductOrError {
         match crate::commerce::model::products::publish_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
@@ -151,6 +166,8 @@ impl CommerceMutation {
         }
     }
 
+    /// Unpublishes product based on the product KEY. Unpublished products are available only inside
+    /// the backoffice.
     async fn product_unpublish(context: &Context, product_key: juniper::ID) -> ProductOrError {
         match crate::commerce::model::products::unpublish_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
