@@ -450,18 +450,50 @@ pub(in crate::commerce) async fn update_product(
     validate_product_multilingual_input(&product_multilingual_input)?;
     match rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await {
         Ok(_) => {
-            let mut images = vec![];
+            let product = crate::commerce::dal::products::get_product_by_key(
+                &context.pool,
+                &SupportedLocale::EnUS, // TODO
+                &product_key,
+                &false, // both published and unpublished
+            )
+            .await?;
+
+            // collect newly uploaded images
+            let mut new_images = vec![];
             if context.uploadables.is_some() {
-                images =
+                new_images =
                     crate::images::process_updated_images(&context, &product_multilingual_input)
                         .await?;
             }
+
+            // delete old images
+            let mut existing_images = vec![];
+            for product_image in product.images() {
+                match product_multilingual_input
+                    .images
+                    .iter()
+                    .find(|image| image.to_string() == product_image.name())
+                {
+                    Some(_) => {
+                        // the image should be preserved (it's not requested to be deleted)
+                        existing_images.push(product_image);
+                    }
+                    None => {
+                        // `product_image` no longer exists in the input so we should delete it
+                        crate::images::delete_image(&context, &product_image).await?;
+                    }
+                }
+            }
+
+            // merge new (uploaded) images with the preserved images
+            existing_images.extend(new_images);
+
             crate::commerce::dal::products::update_product(
                 &context.pool,
                 &product_key,
                 &product_revision,
                 &product_multilingual_input,
-                &images,
+                &existing_images,
             )
             .await
         }

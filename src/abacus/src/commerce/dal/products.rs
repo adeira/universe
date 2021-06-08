@@ -113,6 +113,7 @@ pub(in crate::commerce) async fn update_product(
             UPDATE {
               _key: @product_key,
               _rev: @product_rev,
+              images: @product_images,
               visibility: @product_visibility,
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
@@ -139,7 +140,7 @@ pub(in crate::commerce) async fn update_product(
         .bind_var("product_key", product_key)
         .bind_var("product_rev", product_revision)
         .bind_var("eshop_locale", String::from("en_US")) // TODO
-        // TODO: product images
+        .bind_var("product_images", json!(images))
         .bind_var(
             "product_visibility",
             json!(product_multilingual_input.visibility),

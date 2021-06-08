@@ -59,37 +59,47 @@ impl Image {
 }
 
 impl Image {
+    pub(crate) fn name(&self) -> String {
+        self.name_original.to_owned()
+    }
+
     fn s3name(&self) -> String {
         self.name_s3.to_owned()
     }
 }
 
-/// Accepts uploadables from the user and tries to create a Blurhashes and save them to S3. It
-/// returns the processed images back to be saved in a database.
-///
-/// Only admin is allowed to process the images and only images specified in the multilingual input
-/// can be processed.
-pub(crate) async fn process_new_images(
+/// Checks whether GraphQL images input corresponds with the uploadables (GraphQL input must match
+/// `multipart/form-data` payload). This validation should be called when creating a product for
+/// example. Editation of the product can (should) skip this validation.
+fn validate_images_input(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<Vec<Image>, ModelError> {
+) -> Result<(), ModelError> {
     if let Some(uploadables) = &context.uploadables {
-        // First, we make sure that images specified in the GraphQL input are actually being uploaded:
         for image_name in &product_multilingual_input.images {
-            match uploadables.get(&image_name.to_string()) {
-                Some(_) => {} // OK, good
-                None => {
-                    return Err(ModelError::ProcessingError(
-                        format!(
-                            "trying to upload '{}' but this image name doesn't exist in the multipart request body",
-                            image_name
-                        ),
-                    ))
-                }
+            match &uploadables.get(&image_name.to_string()) {
+            Some(_) => {} // OK, good
+            None => {
+                return Err(ModelError::ProcessingError(
+                    format!(
+                        "trying to upload '{}' but this image name doesn't exist in the multipart request body",
+                        image_name
+                    ),
+                ))
             }
         }
+        }
+    }
+    Ok(())
+}
 
-        // Second, we check it the other way around - whether all uploadables are specified in the input:
+/// Checks whether `multipart/form-data` payload (uploadables) matches the GraphQL input. This
+/// validation should be called ALWAYS: every uploadable should have corresponding input.
+fn validate_uploadables(
+    context: &Context,
+    product_multilingual_input: &ProductMultilingualInput,
+) -> Result<(), ModelError> {
+    if let Some(uploadables) = &context.uploadables {
         for image_name in uploadables.keys() {
             match product_multilingual_input
                 .images
@@ -106,6 +116,23 @@ pub(crate) async fn process_new_images(
             }
         }
     }
+    Ok(())
+}
+
+/// Accepts uploadables from the user and tries to create a Blurhashes and save them to S3. It
+/// returns the processed images back to be saved in a database.
+///
+/// Only admin is allowed to process the images and only images specified in the multilingual input
+/// can be processed.
+pub(crate) async fn process_new_images(
+    context: &Context,
+    product_multilingual_input: &ProductMultilingualInput,
+) -> Result<Vec<Image>, ModelError> {
+    // First, we make sure that images specified in the GraphQL input are actually being uploaded:
+    validate_images_input(&context, &product_multilingual_input)?;
+
+    // Second, we check it the other way around - whether all uploadables are specified in the input:
+    validate_uploadables(&context, &product_multilingual_input)?;
 
     match rbac::verify_permissions(&context.user, &Files(UploadFile)).await {
         Ok(_) => {
@@ -122,13 +149,10 @@ pub(crate) async fn process_new_images(
     }
 }
 
-/// This is technically similar to `process_new_images` except it takes images updates into account.
-/// There are technically 2 scenarios:
-///
-/// 1. User tries to upload a new image (they will be in `context.uploadables`). In this case we
-///    proceed the same way like `process_new_images`.
-/// 2. User deleted some images. In this case they won't appear in `product_multilingual_input.images`
-///    even though they were there previously (and so should be deleted).
+/// This is technically similar to `process_new_images` except it takes image updates into account.
+/// The main difference is that it doesn't validate whether all inputs are actually send in the POST
+/// body. It's because when we are updating the product, we require to send the image names otherwise
+/// they get deleted.
 ///
 /// Only admin is allowed to process the images and only images specified in the multilingual input
 /// can be processed.
@@ -136,8 +160,21 @@ pub(crate) async fn process_updated_images(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> Result<Vec<Image>, ModelError> {
-    // TODO
-    process_new_images(&context, &product_multilingual_input).await
+    validate_uploadables(&context, &product_multilingual_input)?;
+
+    match rbac::verify_permissions(&context.user, &Files(UploadFile)).await {
+        Ok(_) => {
+            return if let Some(uploadables) = &context.uploadables {
+                let images = process_new_images_authorized(&uploadables).await?;
+                Ok(images)
+            } else {
+                Err(ModelError::ProcessingError(String::from(
+                    "there are no images to process",
+                )))
+            };
+        }
+        Err(e) => Err(ModelError::from(e)),
+    }
 }
 
 async fn process_new_images_authorized(
