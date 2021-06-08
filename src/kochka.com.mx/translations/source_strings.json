@@ -635,9 +635,9 @@
     "8tuzzzf1dwqFSTF0rx1UHA==": "Organic tea blends"
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 14,
+   "line_beg": 15,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 15,
    "col_end": 77,
    "desc": "organic tea subtitle in our menu",
    "project": "",
@@ -646,96 +646,96 @@
   },
   {
    "hashToText": {
-    "MaKtj1/Ypz/TmQJHkPZdfQ==": "Gunpowder green tea with intense mint flavor brewed at 80 °C for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
+    "RKpVHk4F/tx5DLq8xFMHdA==": "Gunpowder green tea with intense mint flavor brewed at {temperature} for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 21,
+   "line_beg": 22,
    "col_beg": 10,
-   "line_end": 24,
+   "line_end": 28,
    "col_end": 16,
    "desc": "description of a green tea with mint flavor",
    "project": "",
    "type": "text",
-   "jsfbt": "Gunpowder green tea with intense mint flavor brewed at 80 °C for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
+   "jsfbt": "Gunpowder green tea with intense mint flavor brewed at {temperature} for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
   },
   {
    "hashToText": {
-    "IjR4/MLeT1hEqXMykh436g==": "Green tea from a chinese province Fujian brewed at 80 °C for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
+    "Ee9URCXBFG0PRY4i8T0fAQ==": "Green tea from a chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 34,
+   "line_beg": 38,
    "col_beg": 10,
-   "line_end": 37,
+   "line_end": 44,
    "col_end": 16,
    "desc": "description of a green tea with jasmine",
    "project": "",
    "type": "text",
-   "jsfbt": "Green tea from a chinese province Fujian brewed at 80 °C for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
+   "jsfbt": "Green tea from a chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
   },
   {
    "hashToText": {
-    "kHKfnFI1SaH5AJERtHiDzA==": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at 90 °C for 5 minutes. High in caffeine."
+    "fj2xrs8zgJyy/Z7hUbCvPw==": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 47,
+   "line_beg": 54,
    "col_beg": 10,
-   "line_end": 50,
+   "line_end": 60,
    "col_end": 16,
    "desc": "description of a bespoke pu-erh chai tea",
    "project": "",
    "type": "text",
-   "jsfbt": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at 90 °C for 5 minutes. High in caffeine."
+   "jsfbt": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine."
   },
   {
    "hashToText": {
-    "kPqGb8pJFX3Z2FDkW69VcQ==": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at 100 °C for 5 minutes. Without caffeine, good for memory and physical performance."
+    "6CV5cXYG2yWqFYhSwRRhng==": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 60,
+   "line_beg": 70,
    "col_beg": 10,
-   "line_end": 63,
+   "line_end": 76,
    "col_end": 16,
    "desc": "description of a jarabe tapatío tea",
    "project": "",
    "type": "text",
-   "jsfbt": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at 100 °C for 5 minutes. Without caffeine, good for memory and physical performance."
+   "jsfbt": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
   },
   {
    "hashToText": {
-    "lp1oMkJRqVXnaWTJowgP3w==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at 100 °C for 5 minutes. No caffeine, anti-inflammatory, good for memory."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 73,
-   "col_beg": 10,
-   "line_end": 76,
-   "col_end": 16,
-   "desc": "description of a bésame mucho tea",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at 100 °C for 5 minutes. No caffeine, anti-inflammatory, good for memory."
-  },
-  {
-   "hashToText": {
-    "/XbfP47PA3qH6Ru/7a/9Vg==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at 100 °C for 7 minutes. No caffeine, good for your intellect and heart."
+    "p9IdPjZckxHQ0o9zzITAAg==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
    },
    "filepath": "src/menu/MenuSectionTea.js",
    "line_beg": 86,
    "col_beg": 10,
-   "line_end": 89,
+   "line_end": 92,
+   "col_end": 16,
+   "desc": "description of a bésame mucho tea",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
+  },
+  {
+   "hashToText": {
+    "bZH+Lt+WzlApb6ZhyUKOgQ==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
+   },
+   "filepath": "src/menu/MenuSectionTea.js",
+   "line_beg": 102,
+   "col_beg": 10,
+   "line_end": 108,
    "col_end": 16,
    "desc": "description of a maison de cannelle tea",
    "project": "",
    "type": "text",
-   "jsfbt": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at 100 °C for 7 minutes. No caffeine, good for your intellect and heart."
+   "jsfbt": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
   },
   {
    "hashToText": {
     "TJ/L2G6MlzykMUNolE6oGA==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 99,
+   "line_beg": 118,
    "col_beg": 10,
-   "line_end": 103,
+   "line_end": 122,
    "col_end": 16,
    "desc": "description of matcha latte",
    "project": "",
