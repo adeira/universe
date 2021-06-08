@@ -1,8 +1,13 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { useSxDesignContext } from '@adeira/sx-design';
 import { formatNumber } from 'fbt/lib/intlNumUtils';
+
+import useSxDesignContext from '../useSxDesignContext';
+
+type Props = {
+  +degreesCelsius: number,
+};
 
 /**
  * This component accepts temperature in Celsius degrees and renders it correctly with `°C` or `°F`
@@ -15,10 +20,8 @@ import { formatNumber } from 'fbt/lib/intlNumUtils';
  * > (degree fahrenheit).
  *
  * See (22.2 Letterlike Symbols): https://www.unicode.org/versions/Unicode13.0.0/UnicodeStandard-13.0.pdf
- *
- * TODO: move to SX Design
  */
-export default function Temperature(props: { +degreesCelsius: number }): Node {
+export default function Temperature(props: Props): Node {
   const { locale } = useSxDesignContext();
   if (locale === 'en-US') {
     const degreesFarenheit = props.degreesCelsius * (9 / 5) + 32;
