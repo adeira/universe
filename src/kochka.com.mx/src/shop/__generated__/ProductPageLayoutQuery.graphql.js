@@ -20,6 +20,10 @@ export type ProductPageLayoutQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
+      +imageCover: ?{|
+        +blurhash: string,
+        +url: string,
+      |},
     |}
   |}
 |};
@@ -40,6 +44,10 @@ query ProductPageLayoutQuery(
       price {
         unitAmount
         unitAmountCurrency
+      }
+      imageCover {
+        blurhash
+        url
       }
       id
     }
@@ -110,6 +118,31 @@ v4 = {
     }
   ],
   "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Image",
+  "kind": "LinkedField",
+  "name": "imageCover",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "blurhash",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "url",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -136,7 +169,8 @@ return {
             "selections": [
               (v2/*: any*/),
               (v3/*: any*/),
-              (v4/*: any*/)
+              (v4/*: any*/),
+              (v5/*: any*/)
             ],
             "storageKey": null
           }
@@ -172,6 +206,7 @@ return {
               (v2/*: any*/),
               (v3/*: any*/),
               (v4/*: any*/),
+              (v5/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -188,15 +223,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b7ad671bc2877e34fa36b47b86c8c6da",
+    "cacheID": "39de20d3160b91f0bddf00d9bbbd7406",
     "id": null,
     "metadata": {},
     "name": "ProductPageLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'aa12dc4e2d8681bb3b07108232e04a57';
+(node: any).hash = 'e7a5e6db935364d6cf82ff869c1e88f1';
 export default node;

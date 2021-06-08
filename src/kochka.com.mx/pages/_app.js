@@ -53,7 +53,7 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
   const Environment = createEnvironment({
     fetchFn: createNetworkFetcher(
-      'http://abacus.mrtnzlml.com:32123/graphql', // TODO: HTTPS, better "abacus" domain
+      'http://localhost:5000/graphql', // TODO: HTTPS, better "abacus" domain
     ),
   });
 

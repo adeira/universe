@@ -30,6 +30,10 @@ export default function ShopLayoutContent(): React.Node {
                 unitAmount
                 unitAmountCurrency
               }
+              imageCover {
+                blurhash
+                url
+              }
             }
           }
         }
@@ -79,9 +83,14 @@ export default function ShopLayoutContent(): React.Node {
               return (
                 <LinkInternal key={product.key} href={`/shop/${product.key}`}>
                   <ProductCard
-                    priceUnitAmount={product.price.unitAmount}
+                    priceUnitAmount={
+                      product.price.unitAmount / 100 // adjusted for centavo
+                    }
                     priceUnitAmountCurrency={product.price.unitAmountCurrency}
                     title={product.name}
+                    imgBlurhash={product.imageCover.blurhash}
+                    imgSrc={product.imageCover.url}
+                    imgAlt={product.name}
                   />
                 </LinkInternal>
               );
