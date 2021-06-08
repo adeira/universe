@@ -20,7 +20,7 @@ export default function MenuRow(props: Props): Node {
           {props.volume != null ? (
             <>
               {' '}
-              <span className={styles('titleVolume')}>{props.volume} ml</span>
+              <span className={styles('titleVolume')}>{props.volume}&nbsp;ml</span>
             </>
           ) : null}
         </Heading>
