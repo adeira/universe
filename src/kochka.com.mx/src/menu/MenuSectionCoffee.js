@@ -20,9 +20,9 @@ export default function MenuSectionCoffee(): Node {
         title="Espresso"
         description={
           <fbt desc="description of a single espresso coffee">
-            <fbt:param name="ground coffee grams">{'16'}</fbt:param> grams of ground, single origin,
-            arabica coffee from Coatepec (Veracruz) yielding approximately{' '}
-            <fbt:param name="liquid coffee grams">{'35'}</fbt:param> grams of liquid espresso.
+            <fbt:param name="ground coffee grams">{'16'}</fbt:param>&nbsp;grams of ground, single
+            origin, arabica coffee from Coatepec (Veracruz) yielding approximately{' '}
+            <fbt:param name="liquid coffee grams">{'35'}</fbt:param>&nbsp;grams of liquid espresso.
             Small, very intense, slightly acid drink - stir before drinking.
           </fbt>
         }
@@ -33,8 +33,8 @@ export default function MenuSectionCoffee(): Node {
         title="Americano"
         description={
           <fbt desc="description of americano coffee">
-            Espresso topped with hot water resulting an approximately 250 ml of hot beverage. Milder
-            flavor than Espresso thanks to the water but with the same coffee content.
+            Espresso topped with hot water resulting an approximately 250&nbsp;ml of hot beverage.
+            Milder flavor than Espresso thanks to the water but with the same coffee content.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
@@ -45,8 +45,8 @@ export default function MenuSectionCoffee(): Node {
         title="Long Black"
         description={
           <fbt desc="description of long black coffee">
-            Espresso poured over hot water resulting an approximately 250 ml of hot beverage. Very
-            similar to Americano except it preserves more Espresso crema on top of the cup.
+            Espresso poured over hot water resulting an approximately 250&nbsp;ml of hot beverage.
+            Very similar to Americano except it preserves more Espresso crema on top of the cup.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
