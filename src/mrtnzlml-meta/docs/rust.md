@@ -26,6 +26,7 @@ https://www.rust-lang.org/
 - [What exactly does '#\[derive(Debug)\]' mean in Rust?](https://stackoverflow.com/q/46388386/3135248)
 - [How to mock external dependencies in tests?](https://stackoverflow.com/q/51919079/3135248)
 - [Why is there a large performance impact when looping over an array with 240 or more elements?](https://stackoverflow.com/q/57458460/3135248)
+- [What is the difference between iter and into_iter?](https://stackoverflow.com/q/34733811)
 
 ## Difference between `Copy` and `Clone`
 
