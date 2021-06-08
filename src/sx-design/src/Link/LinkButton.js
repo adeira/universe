@@ -5,7 +5,7 @@ import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {
   +'onClick': () => void,
-  +'children': React.Node,
+  +'children': FbtWithoutString,
   +'isActive'?: boolean,
   +'xstyle'?: AllCSSProperties,
   +'data-testid'?: string,

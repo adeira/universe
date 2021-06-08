@@ -4,8 +4,10 @@
  */
 
 import React from 'react';
+import fbt from 'fbt';
 
 import Badge from './Badge';
+import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -26,12 +28,17 @@ const ShowcaseTemplate = (args) => (
   </>
 );
 
+initFbt();
+
 // 👇 Each story then reuses that template
 export const BadgeDefault: StoryTemplate<typeof Badge> = BasicTemplate.bind({});
 BadgeDefault.storyName = 'Default';
-// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 BadgeDefault.args = {
-  children: 'Badge - modify me',
+  children: (
+    <fbt desc="badge title" doNotExtract={true}>
+      Badge - modify me
+    </fbt>
+  ),
   tint: 'default',
 };
 
@@ -41,7 +48,10 @@ BadgeShowcase.argTypes = {
   children: { table: { disable: true } },
   tint: { table: { disable: true } },
 };
-// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 BadgeShowcase.args = {
-  children: 'Badge',
+  children: (
+    <fbt desc="badge title" doNotExtract={true}>
+      Badge
+    </fbt>
+  ),
 };
