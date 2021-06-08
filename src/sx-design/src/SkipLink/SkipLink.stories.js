@@ -4,8 +4,10 @@
  */
 
 import React from 'react';
+import fbt from 'fbt';
 
 import SkipLink from './SkipLink';
+import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -28,10 +30,15 @@ const Template = (args) => (
   </div>
 );
 
+initFbt();
+
 // 👇 Each story then reuses that template
 export const Basic: StoryTemplate<typeof SkipLink> = Template.bind({});
 Basic.storyName = 'Basic';
-// $FlowExpectedError[incompatible-type]: text should be FBT, not a string
 Basic.args = {
-  text: 'Skip to main',
+  text: (
+    <fbt desc="skip link title" doNotExtract={true}>
+      Skip to main
+    </fbt>
+  ),
 };

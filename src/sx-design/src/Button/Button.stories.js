@@ -3,7 +3,10 @@
  * @flow
  */
 
+import fbt from 'fbt';
+
 import Button from './Button';
+import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -24,12 +27,17 @@ const ShowcaseTemplate = (args) => (
   </>
 );
 
+initFbt();
+
 // 👇 Each story then reuses that template
 export const ButtonDefault: StoryTemplate<typeof Button> = BasicTemplate.bind({});
 ButtonDefault.storyName = 'Default';
-// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 ButtonDefault.args = {
-  children: 'Button',
+  children: (
+    <fbt desc="button title" doNotExtract={true}>
+      Button
+    </fbt>
+  ),
 };
 
 export const ButtonShowcase: StoryTemplate<typeof Button> = ShowcaseTemplate.bind({});
@@ -39,7 +47,10 @@ ButtonShowcase.argTypes = {
   onClick: { table: { disable: true } },
   tint: { table: { disable: true } },
 };
-// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 ButtonShowcase.args = {
-  children: 'Button',
+  children: (
+    <fbt desc="button title" doNotExtract={true}>
+      Button
+    </fbt>
+  ),
 };

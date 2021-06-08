@@ -16,7 +16,7 @@ type Props = {
  * Use this link without worrying about the route language to navigate inside the application:
  *
  * ```
- * <LinkInternal href="/menu">
+ * <LinkInternal href="/menu">Menu</LinkInternal>
  * ```
  *
  * (no `/en/menu` and similar)
