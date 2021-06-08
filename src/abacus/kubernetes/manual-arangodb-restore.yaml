@@ -1,4 +1,8 @@
-# TODO
+# Hopefully, you are never going to need this. But in case you need to restore a DB backup:
+#
+# 1) change the S3 backup name below (see `__CHANGE_ME__`)
+# 2) cleanup previous DB restore job: `kubectl delete job arangodb-single-server-restore`
+# 3) run the DB backup restore: `(cd src/abacus/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)`
 
 apiVersion: batch/v1
 kind: Job
@@ -7,13 +11,16 @@ metadata:
 spec:
   template:
     spec:
+      restartPolicy: Never
       initContainers:
         - name: dump-download
           image: amazon/aws-cli:2.1.29
           imagePullPolicy: Always
-          # TODO: how to parametrize the following command to restore what we actually want (?)
+          command: ['/bin/sh', '-c']
           args:
-            - 'aws s3 sync s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/2021-05-01 /tmp/dump'
+            # TODO: how to parametrize the following command to restore what we actually want (?)
+            # Example: 'aws s3 sync s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/2021-06-08T20:00:09 /tmp/dump'
+            - 'aws s3 sync s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/__CHANGE_ME__ /tmp/dump'
           env:
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
@@ -41,7 +48,9 @@ spec:
             - '--server.authentication=false'
             - '--server.database=abacus'
             - '--input-directory=/tmp/dump'
-      restartPolicy: Never
+          volumeMounts:
+            - name: dump
+              mountPath: /tmp/dump
       volumes:
         - name: dump
           emptyDir: {}
