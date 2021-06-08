@@ -77,6 +77,7 @@ export default function MenuSectionCoffee(): Node {
         volume={450}
       />
 
+      {/*
       <MenuRow
         title="Iced Cappuccino"
         // $FlowFixMe[incompatible-type]: should be FBT (TODO)
@@ -84,6 +85,7 @@ export default function MenuSectionCoffee(): Node {
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
         volume={350}
       />
+      */}
 
       <MenuRow
         title="Iced Latte"

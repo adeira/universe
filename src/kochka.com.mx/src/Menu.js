@@ -8,6 +8,7 @@ import MenuSectionCoffee from './menu/MenuSectionCoffee';
 import MenuSectionDumplingSavory from './menu/MenuSectionDumplingSavory';
 import MenuSectionDumplingSweet from './menu/MenuSectionDumplingSweet';
 import MenuSectionMilkshake from './menu/MenuSectionMilkshake';
+import MenuSectionSpecialities from './menu/MenuSectionSpecialities';
 import MenuSectionTea from './menu/MenuSectionTea';
 
 export default function Menu(): Node {
@@ -23,6 +24,10 @@ export default function Menu(): Node {
 
       <Section xstyle={styles.menuGridAreaMilkshakes}>
         <MenuSectionMilkshake />
+      </Section>
+
+      <Section xstyle={styles.menuGridAreaSpecialities}>
+        <MenuSectionSpecialities />
       </Section>
 
       <Section xstyle={styles.menuGridAreaDumplingSweet}>
@@ -43,7 +48,7 @@ const styles = sx.create({
     gap: '2rem',
     gridTemplate: `
       "coffee tea"
-      "milkshakes milkshakes"
+      "milkshakes specialities"
       "dumplingSweet dumplingSavory"
     `,
   },
@@ -55,6 +60,9 @@ const styles = sx.create({
   },
   menuGridAreaMilkshakes: {
     gridArea: 'milkshakes',
+  },
+  menuGridAreaSpecialities: {
+    gridArea: 'specialities',
   },
   menuGridAreaDumplingSweet: {
     gridArea: 'dumplingSweet',
