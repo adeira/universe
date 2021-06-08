@@ -90,10 +90,24 @@ Automatic database backups are performed periodically **every two hours** and st
 
 ## Restoring backups
 
-TODO (currently doesn't work)
+**PLEASE NOTE**: this is a database backup restore. It should be used only when something horrible happens. It also doesn't restore the whole system back to its original state (for example, items deleted from S3 won't be recovered).
+
+1. visit `manual-arangodb-restore.yaml` and change the backup name to be restored:
+
+```bash
+aws s3 sync s3://abacus-arangodb-backup-38c739d1-9e39-4052-8746-b2f21523f6c0/__CHANGE_ME__ /tmp/dump
+```
+
+2. delete previous DB backup job:
 
 ```bash
 kubectl delete job arangodb-single-server-restore
+```
 
+3. run the DB backup restore job:
+
+```bash
 (cd src/abacus/kubernetes && kubectl apply -f manual-arangodb-restore.yaml)
 ```
+
+🤞
