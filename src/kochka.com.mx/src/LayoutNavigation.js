@@ -12,6 +12,7 @@ import useFeatureFlag from './hooks/useFeatureFlag';
 export default function LayoutNavigation(): React.Node {
   const pageAdoptionEnabled = useFeatureFlag('page-adoption-enabled');
   const pageShopEnabled = useFeatureFlag('page-shop-enabled');
+  const pageShopOrdersEnabled = useFeatureFlag('page-shop-orders-enabled');
 
   return (
     <nav className={styles('navigation')}>
@@ -38,19 +39,19 @@ export default function LayoutNavigation(): React.Node {
           </LinkInternal>
         )}
 
-        {pageShopEnabled === true && (
+        {pageShopEnabled === true ? (
           <LinkInternal href="/shop" xstyle={styles.link}>
             <fbt common={true}>Shop</fbt>
           </LinkInternal>
-        )}
+        ) : null}
       </div>
 
       <div className={styles('navigationSection')}>
-        {pageShopEnabled === true && (
+        {pageShopOrdersEnabled === true ? (
           <LinkInternal href="/cart">
             <Cart size={25} />
           </LinkInternal>
-        )}
+        ) : null}
       </div>
     </nav>
   );

@@ -9,8 +9,12 @@ import LanguageSwitch from './LanguageSwitch';
 import LinkInternal from './LinkInternal';
 import Logo from './Logo';
 import SocialMediaIcons from './SocialMediaIcons';
+import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function LayoutFooter(): React.Node {
+  const pageShopEnabled = useFeatureFlag('page-shop-enabled');
+  const pageShopOrdersEnabled = useFeatureFlag('page-shop-orders-enabled');
+
   return (
     <div className={styles('wrapper')}>
       <div className={styles('row')}>
@@ -33,11 +37,13 @@ export default function LayoutFooter(): React.Node {
               <fbt common={true}>Café&nbsp;rules</fbt>
             </LinkInternal>
           </div>
-          <div>
-            <LinkInternal href="/shop" xstyle={styles.link}>
-              <fbt common={true}>Shop</fbt>
-            </LinkInternal>
-          </div>
+          {pageShopEnabled === true ? (
+            <div>
+              <LinkInternal href="/shop" xstyle={styles.link}>
+                <fbt common={true}>Shop</fbt>
+              </LinkInternal>
+            </div>
+          ) : null}
         </div>
         <div className={styles('column', 'columnLeft')}>
           <div>
@@ -45,11 +51,13 @@ export default function LayoutFooter(): React.Node {
               <fbt desc="footer navigation link to terms of use">Terms of use</fbt>
             </LinkInternal>
           </div>
-          <div>
-            <LinkInternal href="/legal/shipping" xstyle={styles.link}>
-              <fbt desc="footer navigation link to shipping and returns">Shipping & Returns</fbt>
-            </LinkInternal>
-          </div>
+          {pageShopOrdersEnabled === true ? (
+            <div>
+              <LinkInternal href="/legal/shipping" xstyle={styles.link}>
+                <fbt desc="footer navigation link to shipping and returns">Shipping & Returns</fbt>
+              </LinkInternal>
+            </div>
+          ) : null}
           <div>
             <LinkInternal href="/legal/privacy" xstyle={styles.link}>
               <fbt desc="footer navigation link to privacy policy">Privacy Policy</fbt>

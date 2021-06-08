@@ -22,6 +22,10 @@ export type ShopLayoutContentQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
+      +imageCover: ?{|
+        +blurhash: string,
+        +url: string,
+      |},
     |}>
   |}
 |};
@@ -43,6 +47,10 @@ query ShopLayoutContentQuery(
       price {
         unitAmount
         unitAmountCurrency
+      }
+      imageCover {
+        blurhash
+        url
       }
       id
     }
@@ -123,6 +131,31 @@ v4 = {
     }
   ],
   "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "Image",
+  "kind": "LinkedField",
+  "name": "imageCover",
+  "plural": false,
+  "selections": [
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "blurhash",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "url",
+      "storageKey": null
+    }
+  ],
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -149,7 +182,8 @@ return {
             "selections": [
               (v2/*: any*/),
               (v3/*: any*/),
-              (v4/*: any*/)
+              (v4/*: any*/),
+              (v5/*: any*/)
             ],
             "storageKey": null
           }
@@ -185,6 +219,7 @@ return {
               (v2/*: any*/),
               (v3/*: any*/),
               (v4/*: any*/),
+              (v5/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -201,15 +236,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "436459918e4769a2a38858408ce9e5ab",
+    "cacheID": "1ebc50635df2f4ba13b93044455d0fe2",
     "id": null,
     "metadata": {},
     "name": "ShopLayoutContentQuery",
     "operationKind": "query",
-    "text": "query ShopLayoutContentQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $searchTerm: String\n) {\n  commerce {\n    products: searchPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, searchTerm: $searchTerm) {\n      key\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ShopLayoutContentQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $searchTerm: String\n) {\n  commerce {\n    products: searchPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, searchTerm: $searchTerm) {\n      key\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'ca5dd8074762cd481eb86fbf69c195c1';
+(node: any).hash = '881043bb3a7cce53d5eae69b3b2801c2';
 export default node;
