@@ -551,9 +551,9 @@
     "gpf7yMg/5H4w0cysxh+N2w==": "Milkshakes"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 15,
+   "line_beg": 14,
    "col_beg": 8,
-   "line_end": 15,
+   "line_end": 14,
    "col_end": 68,
    "desc": "milkshakes subtitle in our menu",
    "project": "",
@@ -565,10 +565,10 @@
     "ufEj5Xv2oET4caWNU0vonw==": "Strawberry milkshake"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 20,
-   "col_beg": 17,
-   "line_end": 20,
-   "col_end": 81,
+   "line_beg": 18,
+   "col_beg": 15,
+   "line_end": 18,
+   "col_end": 79,
    "desc": "strawberry milkshake name",
    "project": "",
    "type": "text",
@@ -579,10 +579,10 @@
     "A4vKSQ8+kU9h3nuRFvQ2jw==": "Perfect mix of fresh strawberries, vanilla ice-cream and whole milk topped with whipped cream."
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 22,
-   "col_beg": 12,
-   "line_end": 25,
-   "col_end": 18,
+   "line_beg": 20,
+   "col_beg": 10,
+   "line_end": 23,
+   "col_end": 16,
    "desc": "description of strawbery milkshake",
    "project": "",
    "type": "text",
@@ -593,10 +593,10 @@
     "M2X9eebSavFNpKaMqrxK1A==": "Chocolate milkshake"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 32,
-   "col_beg": 17,
-   "line_end": 32,
-   "col_end": 79,
+   "line_beg": 30,
+   "col_beg": 15,
+   "line_end": 30,
+   "col_end": 77,
    "desc": "chocolate milkshake name",
    "project": "",
    "type": "text",
@@ -607,10 +607,10 @@
     "Ydx7Nx6fA2ijymBpFshKXA==": "Vanilla milkshake"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 40,
-   "col_beg": 17,
-   "line_end": 40,
-   "col_end": 75,
+   "line_beg": 38,
+   "col_beg": 15,
+   "line_end": 38,
+   "col_end": 73,
    "desc": "vanilla milkshake name",
    "project": "",
    "type": "text",
@@ -621,10 +621,10 @@
     "hyE5CLveTakqWN5TJmBHgA==": "Banana milkshake"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 48,
-   "col_beg": 17,
-   "line_end": 48,
-   "col_end": 73,
+   "line_beg": 46,
+   "col_beg": 15,
+   "line_end": 46,
+   "col_end": 71,
    "desc": "banana milkshake name",
    "project": "",
    "type": "text",
@@ -632,12 +632,54 @@
   },
   {
    "hashToText": {
+    "x6UgjVUbrHri7VzawP9UtA==": "Specialities"
+   },
+   "filepath": "src/menu/MenuSectionSpecialities.js",
+   "line_beg": 14,
+   "col_beg": 8,
+   "line_end": 14,
+   "col_end": 72,
+   "desc": "specialities subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Specialities"
+  },
+  {
+   "hashToText": {
+    "TJ/L2G6MlzykMUNolE6oGA==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
+   },
+   "filepath": "src/menu/MenuSectionSpecialities.js",
+   "line_beg": 21,
+   "col_beg": 10,
+   "line_end": 25,
+   "col_end": 16,
+   "desc": "description of matcha latte",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
+  },
+  {
+   "hashToText": {
+    "imXFWPl0aPApuGI6Z9nBkA==": "Artisanal Chocolate"
+   },
+   "filepath": "src/menu/MenuSectionSpecialities.js",
+   "line_beg": 32,
+   "col_beg": 15,
+   "line_end": 32,
+   "col_end": 77,
+   "desc": "artisanal chocolate name",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Artisanal Chocolate"
+  },
+  {
+   "hashToText": {
     "8tuzzzf1dwqFSTF0rx1UHA==": "Organic tea blends"
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 15,
+   "line_beg": 14,
    "col_beg": 8,
-   "line_end": 15,
+   "line_end": 14,
    "col_end": 77,
    "desc": "organic tea subtitle in our menu",
    "project": "",
@@ -649,9 +691,9 @@
     "RKpVHk4F/tx5DLq8xFMHdA==": "Gunpowder green tea with intense mint flavor brewed at {temperature} for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 22,
+   "line_beg": 21,
    "col_beg": 10,
-   "line_end": 28,
+   "line_end": 27,
    "col_end": 16,
    "desc": "description of a green tea with mint flavor",
    "project": "",
@@ -663,9 +705,9 @@
     "Ee9URCXBFG0PRY4i8T0fAQ==": "Green tea from a chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 38,
+   "line_beg": 37,
    "col_beg": 10,
-   "line_end": 44,
+   "line_end": 43,
    "col_end": 16,
    "desc": "description of a green tea with jasmine",
    "project": "",
@@ -677,9 +719,9 @@
     "fj2xrs8zgJyy/Z7hUbCvPw==": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 54,
+   "line_beg": 53,
    "col_beg": 10,
-   "line_end": 60,
+   "line_end": 59,
    "col_end": 16,
    "desc": "description of a bespoke pu-erh chai tea",
    "project": "",
@@ -691,9 +733,9 @@
     "6CV5cXYG2yWqFYhSwRRhng==": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 70,
+   "line_beg": 69,
    "col_beg": 10,
-   "line_end": 76,
+   "line_end": 75,
    "col_end": 16,
    "desc": "description of a jarabe tapatío tea",
    "project": "",
@@ -705,9 +747,9 @@
     "p9IdPjZckxHQ0o9zzITAAg==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 86,
+   "line_beg": 85,
    "col_beg": 10,
-   "line_end": 92,
+   "line_end": 91,
    "col_end": 16,
    "desc": "description of a bésame mucho tea",
    "project": "",
@@ -719,28 +761,14 @@
     "bZH+Lt+WzlApb6ZhyUKOgQ==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 102,
+   "line_beg": 101,
    "col_beg": 10,
-   "line_end": 108,
+   "line_end": 107,
    "col_end": 16,
    "desc": "description of a maison de cannelle tea",
    "project": "",
    "type": "text",
    "jsfbt": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
-  },
-  {
-   "hashToText": {
-    "TJ/L2G6MlzykMUNolE6oGA==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 118,
-   "col_beg": 10,
-   "line_end": 122,
-   "col_end": 16,
-   "desc": "description of matcha latte",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
   },
   {
    "hashToText": {
