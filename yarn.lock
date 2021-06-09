@@ -275,10 +275,10 @@
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
-"@artsy/fresnel@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.6.0.tgz#79a56fd1fa608f56873dca0605c8ea2bc97e6926"
-  integrity sha512-twSGSM8BOe6Fh/aFl78icxzrpLhW23u9V6nmvYgu0+1535MOL/jza+xPBjYXYgHiooO46sLoqoqHUc8qz9KMUw==
+"@artsy/fresnel@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.7.0.tgz#665f803cb9561c7c5d8f4a884803c2813ba9197a"
+  integrity sha512-TXIFVwMXE8GHe2c6NEJ6FFhB8+6gCIfU6lwd/MeSIwYw7QzpyYrcaOjvLh33ZmuD7HWSnQ0kdK9TErj7l9BrUQ==
 
 "@axe-core/react@^4.2.1":
   version "4.2.1"
