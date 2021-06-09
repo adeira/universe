@@ -1,8 +1,9 @@
 // @flow
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import React, { type Node } from 'react';
-import { Image } from '@adeira/sx-design';
+import React, { type Node, useState } from 'react';
+import { Image, LinkButton } from '@adeira/sx-design';
+import fbt from 'fbt';
 import sx from '@adeira/sx';
 
 import ProductEditForm from './ProductEditForm';
@@ -16,6 +17,8 @@ type Props = {
 
 export default function ProductsEditLayout(props: Props): Node {
   const applicationLocale = useApplicationLocale();
+  const [imagesToDelete, setImagesToDelete] = useState([]);
+
   const data = useLazyLoadQuery<ProductsEditLayoutQuery>(
     graphql`
       query ProductsEditLayoutQuery($clientLocale: SupportedLocale!, $productKey: ID!) {
@@ -41,30 +44,79 @@ export default function ProductsEditLayout(props: Props): Node {
     },
   );
 
+  const handleImageDelete = (imageName) => {
+    setImagesToDelete((prev) => [...prev, imageName]);
+  };
+
+  const handleUndoImageDelete = (imageName) => {
+    setImagesToDelete((prev) => prev.filter((prevImageName) => prevImageName !== imageName));
+  };
+
   return (
     <>
       <ProductEditHeading product={data.commerce.product} />
+
       <div className={styles('imagesWrapper')}>
         {data.commerce.product.images.map((image) => {
           return (
-            <Image
+            <div
               key={image.name} // TODO: expose ID from BE
-              src={image.url}
-              blurhash={image.blurhash}
-              width={250}
-              height={250}
-            />
+            >
+              <div
+                className={styles({
+                  imageWrapperDelete: imagesToDelete.includes(image.name) === true,
+                })}
+              >
+                <Image
+                  src={image.url}
+                  alt={image.name}
+                  blurhash={image.blurhash}
+                  width={250}
+                  height={250}
+                />
+              </div>
+              {imagesToDelete.includes(image.name) === false ? (
+                <div>
+                  {image.name}{' '}
+                  <LinkButton
+                    onClick={() => handleImageDelete(image.name)}
+                    xstyle={styles.linkDelete}
+                  >
+                    <fbt desc="delete image button title">delete</fbt>
+                  </LinkButton>
+                </div>
+              ) : (
+                <div>
+                  <s>{image.name}</s>{' '}
+                  <LinkButton
+                    onClick={() => handleUndoImageDelete(image.name)}
+                    xstyle={styles.linkDelete}
+                  >
+                    <fbt desc="undo delete image button title">undo delete</fbt>
+                  </LinkButton>
+                </div>
+              )}
+            </div>
           );
         })}
       </div>
-      <ProductEditForm product={data.commerce.product} />
+
+      <ProductEditForm product={data.commerce.product} imagesToDelete={imagesToDelete} />
     </>
   );
 }
 
 const styles = sx.create({
   imagesWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: 'grid',
+    gap: '1rem',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    marginBottom: '2rem',
+  },
+  imageWrapperDelete: {
+    filter: 'grayscale(1)',
+  },
+  linkDelete: {
+    color: 'red',
   },
 });

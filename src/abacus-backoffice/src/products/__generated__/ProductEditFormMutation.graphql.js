@@ -86,6 +86,9 @@ fragment ProductEditFormData on Product {
     name
     description
   }
+  images {
+    name
+  }
 }
 */
 
@@ -378,6 +381,18 @@ return {
                     "plural": false,
                     "selections": (v12/*: any*/),
                     "storageKey": "translation(locale:\"es_MX\")"
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Image",
+                    "kind": "LinkedField",
+                    "name": "images",
+                    "plural": true,
+                    "selections": [
+                      (v9/*: any*/)
+                    ],
+                    "storageKey": null
                   }
                 ],
                 "type": "Product",
@@ -400,12 +415,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c05f2b193f6f04cabb9ebb2dfb5ec9b6",
+    "cacheID": "00f5c52824c107bcde42cb1cfcb9e514",
     "id": null,
     "metadata": {},
     "name": "ProductEditFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n"
+    "text": "mutation ProductEditFormMutation(\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n) {\n  commerce {\n    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n"
   }
 };
 })();

@@ -24,6 +24,9 @@ export type ProductEditFormData = {|
     +name: string,
     +description: ?string,
   |},
+  +images: $ReadOnlyArray<{|
+    +name: string
+  |}>,
   +$refType: ProductEditFormData$ref,
 |};
 export type ProductEditFormData$data = ProductEditFormData;
@@ -35,14 +38,15 @@ export type ProductEditFormData$key = {
 
 
 const node: ReaderFragment = (function(){
-var v0 = [
-  {
-    "alias": null,
-    "args": null,
-    "kind": "ScalarField",
-    "name": "name",
-    "storageKey": null
-  },
+var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+},
+v1 = [
+  (v0/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -109,7 +113,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v0/*: any*/),
+      "selections": (v1/*: any*/),
       "storageKey": "translation(locale:\"en_US\")"
     },
     {
@@ -125,8 +129,20 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v0/*: any*/),
+      "selections": (v1/*: any*/),
       "storageKey": "translation(locale:\"es_MX\")"
+    },
+    {
+      "alias": null,
+      "args": null,
+      "concreteType": "Image",
+      "kind": "LinkedField",
+      "name": "images",
+      "plural": true,
+      "selections": [
+        (v0/*: any*/)
+      ],
+      "storageKey": null
     }
   ],
   "type": "Product",
@@ -134,5 +150,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = 'f3e27662036b07570832da2da855e5eb';
+(node: any).hash = 'b455ee031c8188ab197ac393d0633064';
 export default node;
