@@ -43,17 +43,17 @@ it('works with timeouts and retry delays correctly', () => {
   clock.uninstall();
 
   expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-Array [
-  Array [
-    "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
-  ],
-  Array [
-    "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
-  ],
-  Array [
-    "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
-  ],
-]
-`);
+    Array [
+      Array [
+        "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
+      ],
+      Array [
+        "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
+      ],
+      Array [
+        "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
+      ],
+    ]
+  `);
   consoleSpy.mockRestore();
 });

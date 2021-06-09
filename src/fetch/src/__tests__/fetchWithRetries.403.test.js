@@ -6,6 +6,15 @@ import flushPromises from './_flushPromises';
 
 jest.mock('../fetch');
 
+beforeEach(() => {
+  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
+  jest.useFakeTimers('legacy');
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 it('tries only once for non-transient HTTP code', async () => {
   const handleNext = jest.fn();
   const handleCatch = jest.fn();
