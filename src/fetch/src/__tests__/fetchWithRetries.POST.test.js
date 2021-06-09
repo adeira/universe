@@ -5,6 +5,15 @@ import fetchWithRetries from '../fetchWithRetries';
 
 jest.mock('../fetch');
 
+beforeEach(() => {
+  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
+  jest.useFakeTimers('legacy');
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 it('sends a POST request to the server', () => {
   expect(fetch).not.toHaveBeenCalled();
 

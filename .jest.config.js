@@ -27,7 +27,7 @@ const commonProjectConfig = {
   transform: {
     '^.+\\.js$': 'babel-jest',
   },
-  timers: 'legacy', // TODO: migrate to the Jest default values!
+  timers: 'real',
 };
 
 function tryToLoadWorkspaceConfig(configPath /*: string */) /*: Object */ {
