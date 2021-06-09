@@ -3,14 +3,26 @@
  * @jest-environment jsdom
  */
 
-import { render } from '@testing-library/react';
 import React from 'react';
 import '@adeira/sx-jest-snapshot-serializer';
+import fbt from 'fbt';
 
 import Link from '../Link';
+import { initFbt, render } from '../../test-utils';
+
+beforeEach(() => {
+  initFbt();
+});
 
 it('renders the link as expected - internal link', () => {
-  const { container } = render(<Link href="assets/yadada">internal link</Link>);
+  const { container } = render(
+    <Link href="assets/yadada">
+      <fbt desc="internal link title" doNotExtract={true}>
+        internal link
+      </fbt>
+    </Link>,
+  );
+
   expect(container).toMatchInlineSnapshot(`
     ._10tbCe {
       color: rgba(var(--sx-text-link-color));
@@ -42,9 +54,12 @@ it('renders the link as expected - internal link', () => {
 it('renders the link as expected - internal link with target _blank', () => {
   const { container } = render(
     <Link href="assets/yadada" target="_blank">
-      internal link with target _blank
+      <fbt desc="internal link with target title" doNotExtract={true}>
+        internal link with target _blank
+      </fbt>
     </Link>,
   );
+
   // $FlowFixMe[prop-missing]: `attributes` is missing in the types but it works
   expect(container.firstChild?.attributes).toMatchInlineSnapshot(`
     NamedNodeMap {
@@ -57,7 +72,14 @@ it('renders the link as expected - internal link with target _blank', () => {
 });
 
 it('renders the link as expected - external link', () => {
-  const { container } = render(<Link href="https://localhost">external link</Link>);
+  const { container } = render(
+    <Link href="https://localhost">
+      <fbt desc="external link title" doNotExtract={true}>
+        external link
+      </fbt>
+    </Link>,
+  );
+
   expect(container).toMatchInlineSnapshot(`
     ._10tbCe {
       color: rgba(var(--sx-text-link-color));
@@ -94,9 +116,12 @@ it('forwards React refs as expected', () => {
   const ref = React.createRef();
   const { container } = render(
     <Link ref={ref} href="https://localhost">
-      link
+      <fbt desc="link title" doNotExtract={true}>
+        link
+      </fbt>
     </Link>,
   );
+
   expect(ref.current).toBe(container.firstChild);
   expect(ref.current?.nodeName).toBe('A');
 });

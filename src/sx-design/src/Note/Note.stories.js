@@ -4,9 +4,11 @@
  */
 
 import React from 'react';
+import fbt from 'fbt';
 
 import Button from '../Button/Button';
 import Note from './Note';
+import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -44,6 +46,8 @@ const ShowcaseTemplate = (args) => (
   </>
 );
 
+initFbt();
+
 // 👇 Each story then reuses that template
 export const NoteDefault: StoryTemplate<typeof Note> = BasicTemplate.bind({});
 NoteDefault.storyName = 'Default';
@@ -64,6 +68,11 @@ NoteWithAction.storyName = 'With action button';
 NoteWithAction.args = {
   tint: 'default',
   children: 'this is a note with action button (the button respects the note tint)',
-  // $FlowExpectedError[incompatible-type]: Button children should be FBT, not a string
-  action: <Button onClick={() => {}}>test</Button>,
+  action: (
+    <Button onClick={() => {}}>
+      <fbt desc="button title" doNotExtract={true}>
+        test
+      </fbt>
+    </Button>
+  ),
 };

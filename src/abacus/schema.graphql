@@ -1,4 +1,4 @@
-# @generated SignedSource<<aad952ec561b05d563f22a0283081c52>>
+# @generated SignedSource<<f8ce14359ad4616ecbd3bf9e481a2a6d>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -66,10 +66,35 @@ type ProductMultilingualTranslations {
 }
 
 type CommerceMutation {
+  """
+    Creates a new product.
+
+    Note on uploading product images: image names specified in the GraphQL input must correspond
+    to the uploadables (multipart/form-data) and vice versa. Requests with invalid uploadables
+    will be rejected.
+  """
   productCreate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  """
+    Updates already existing product with new values. It requires not only product KEY but also
+    product REVISION to avoid lost update situations (when someone else tried to update the
+    product and this update would overwrite the latest changes).
+
+    Note on updating product images: already existing image names must be send to the server
+    otherwise they will be deleted. You can optionally specify some extra (new) images to upload
+    them via uploadables. This feature will eventually be used even for images re-ordering.
+  """
   productUpdate(productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  "Deletes product based on the product KEY."
   productDelete(productKey: ID!): ProductOrError!
+  """
+    Publishes product based on the product KEY. Various validation requirements must be met
+    before the product can be published. Published product is available outside of backoffice.
+  """
   productPublish(productKey: ID!): ProductOrError!
+  """
+    Unpublishes product based on the product KEY. Unpublished products are available only inside
+    the backoffice.
+  """
   productUnpublish(productKey: ID!): ProductOrError!
 }
 

@@ -15,7 +15,7 @@ export default function MenuSectionTea(): Node {
       </MenuHeading>
 
       <MenuRow
-        // Tea code: 211 - https://tomas.mx/pages/tipo-de-te
+        // Tomas.mx Tea code: 211 - https://tomas.mx/pages/tipo-de-te
         title="Menta Amajagh"
         description={
           <fbt desc="description of a green tea with mint flavor">
@@ -31,7 +31,7 @@ export default function MenuSectionTea(): Node {
       />
 
       <MenuRow
-        // Tea code: 220 - https://tomas.mx/pages/tipo-de-te
+        // Tomas.mx Tea code: 220 - https://tomas.mx/pages/tipo-de-te
         title="Jasmine Mo Li Hua"
         description={
           <fbt desc="description of a green tea with jasmine">
@@ -47,7 +47,7 @@ export default function MenuSectionTea(): Node {
       />
 
       <MenuRow
-        // Tea code: 680 - https://tomas.mx/pages/tipo-de-te
+        // Tomas.mx Tea code: 680 - https://tomas.mx/pages/tipo-de-te
         title="Bespoke Pu-erh Chai"
         description={
           <fbt desc="description of a bespoke pu-erh chai tea">
@@ -63,7 +63,7 @@ export default function MenuSectionTea(): Node {
       />
 
       <MenuRow
-        // Tea code: 810 - https://tomas.mx/pages/tipo-de-te
+        // Tomas.mx Tea code: 810 - https://tomas.mx/pages/tipo-de-te
         title="Jarabe Tapatío"
         description={
           <fbt desc="description of a jarabe tapatío tea">
@@ -79,7 +79,7 @@ export default function MenuSectionTea(): Node {
       />
 
       <MenuRow
-        // Tea code: 930 - https://tomas.mx/pages/tipo-de-te
+        // Tomas.mx Tea code: 930 - https://tomas.mx/pages/tipo-de-te
         title="Bésame Mucho"
         description={
           <fbt desc="description of a bésame mucho tea">
@@ -95,7 +95,7 @@ export default function MenuSectionTea(): Node {
       />
 
       <MenuRow
-        // Tea code: 992 - https://tomas.mx/pages/tipo-de-te
+        // Tomas.mx Tea code: 992 - https://tomas.mx/pages/tipo-de-te
         title="Maison de Cannelle"
         description={
           <fbt desc="description of a maison de cannelle tea">
@@ -104,20 +104,6 @@ export default function MenuSectionTea(): Node {
               <Temperature degreesCelsius={100} />
             </fbt:param>{' '}
             for 7&nbsp;minutes. No caffeine, good for your intellect and heart.
-          </fbt>
-        }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
-      />
-
-      <MenuRow
-        // Tea code: 205 - https://tomas.mx/pages/tipo-de-te
-        title="Matcha Latte"
-        description={
-          <fbt desc="description of matcha latte">
-            Finely grounded matcha green tea powder infused in a hot water topped with a lot of
-            foamed milk similar to traditional Latte. It has less caffeine than coffee but more than
-            green tea.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}

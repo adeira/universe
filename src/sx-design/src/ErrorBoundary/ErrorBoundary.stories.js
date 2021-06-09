@@ -4,8 +4,10 @@
  */
 
 import React from 'react';
+import fbt from 'fbt';
 
 import ErrorBoundary from './ErrorBoundary';
+import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -37,6 +39,8 @@ const Template = (args) => (
   </ErrorBoundary>
 );
 
+initFbt();
+
 // 👇 Each story then reuses that template
 export const Default: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
 Default.storyName = 'Default';
@@ -46,9 +50,12 @@ Default.args = {
 
 export const CustomTitle: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
 CustomTitle.storyName = 'Custom title';
-// $FlowExpectedError[incompatible-type]: title should be FBT, not a string
 CustomTitle.args = {
-  title: 'My awesome custom title.',
+  title: (
+    <fbt desc="error boundary title" doNotExtract={true}>
+      My awesome custom title.
+    </fbt>
+  ),
 };
 
 export const CustomCode: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
