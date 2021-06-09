@@ -63,6 +63,9 @@ fragment ProductEditFormData on Product {
     name
     description
   }
+  images {
+    name
+  }
 }
 
 fragment ProductEditHeading on Product {
@@ -300,12 +303,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "e2d568ade39ae54c24b324706b321e9f",
+    "cacheID": "ff4b103eb9904612ca4477a9d428fe50",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  isPublished\n}\n"
   }
 };
 })();

@@ -13,6 +13,7 @@ import ProductForm from './ProductForm';
 
 type Props = {
   +product: ProductEditFormData$key,
+  +imagesToDelete: $ReadOnlyArray<string>,
 };
 
 export default function ProductEditForm(props: Props): Node {
@@ -34,6 +35,9 @@ export default function ProductEditForm(props: Props): Node {
         esTranslation: translation(locale: es_MX) {
           name
           description
+        }
+        images {
+          name
         }
       }
     `,
@@ -95,7 +99,13 @@ export default function ProductEditForm(props: Props): Node {
           variables={(formValues): ProductEditFormMutationVariables => ({
             productKey: data.key,
             productRevision: data.revision,
-            productImagesNames: formValues.images,
+            productImagesNames: data.images
+              .filter((image) => {
+                // we skip images that should be deleted so server can handle it appropriately
+                return props.imagesToDelete.includes(image.name) === false;
+              })
+              .map((image) => image.name)
+              .concat(formValues.images),
             productPriceUnitAmount: formValues.price * 100, // adjusted for centavo
             translations: [
               {

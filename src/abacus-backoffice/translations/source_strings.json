@@ -607,9 +607,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 120,
+   "line_beg": 130,
    "col_beg": 18,
-   "line_end": 129,
+   "line_end": 139,
    "col_end": 24,
    "desc": "product updated success message",
    "project": "",
@@ -621,9 +621,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 136,
+   "line_beg": 146,
    "col_beg": 10,
-   "line_end": 136,
+   "line_end": 146,
    "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
@@ -895,6 +895,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "Products inventory"
+  },
+  {
+   "hashToText": {
+    "2rZ9bHi+WSFKLZKmW0QS5A==": "delete"
+   },
+   "filepath": "src/products/ProductsEditLayout.js",
+   "line_beg": 85,
+   "col_beg": 20,
+   "line_end": 85,
+   "col_end": 70,
+   "desc": "delete image button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "delete"
+  },
+  {
+   "hashToText": {
+    "t0ENofKS/oZFwU79Pahg/A==": "undo delete"
+   },
+   "filepath": "src/products/ProductsEditLayout.js",
+   "line_beg": 95,
+   "col_beg": 20,
+   "line_end": 95,
+   "col_end": 80,
+   "desc": "undo delete image button title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "undo delete"
   },
   {
    "hashToText": {
