@@ -252,6 +252,9 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
     return this._gitCommand('rev-parse', '--verify', 'HEAD').runSynchronously().getStdout().trim();
   };
 
+  /**
+   * Renders changeset to be later used with `git am` command.
+   */
   renderPatch: (changeset: Changeset) => string = (changeset) => {
     let renderedDiffs = '';
     const diffs = changeset.getDiffs();
@@ -262,12 +265,25 @@ export default class RepoGit implements AnyRepo, SourceRepo, DestinationRepo {
       renderedDiffs += `diff --git a/${path} b/${path}\n${diff.body}`;
     }
 
+    // Insert a space before patterns that will make `git am` think that a line in the commit
+    // message is the start of a patch, which is an artifact of the way `git am` tries to tell
+    // where the message ends and the diffs begin. This fix is a hack; a better fix might be to
+    // use `git apply` and `git commit` directly instead of `git am`. It's inspired by the same
+    // fix in `facebook/fbshipit` code.
+    //
+    // See: https://git-scm.com/docs/git-am/2.32.0#_discussion
+    // See: https://github.com/git/git/blob/ebf3c04b262aa27fbb97f8a0156c2347fecafafb/mailinfo.c#L649-L683
+    // See: https://github.com/facebook/fbshipit/blob/bd0df15c3c18a6645da7a765789ab60c5ffc3a45/src/shipit/repo/ShipItRepoGIT.php#L236-L240
+    const commitMessage = changeset
+      .getCommitMessage()
+      .replace(/^(?<patch>diff -|Index: |---(?:\s\S|\s*$))/m, ' $1');
+
     // Mon Sep 17 is a magic date used by format-patch to distinguish from real mailboxes
     // see: https://git-scm.com/docs/git-format-patch
     return `From ${changeset.getID()} Mon Sep 17 00:00:00 2001
 From: ${changeset.getAuthor()}
 Date: ${changeset.getTimestamp()}
-Subject: [PATCH] ${changeset.getCommitMessage()}
+Subject: [PATCH] ${commitMessage}
 
 ${renderedDiffs}
 --
