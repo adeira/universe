@@ -28,6 +28,10 @@ export default function ProductPageLayout(): React.Node {
                 unitAmount
                 unitAmountCurrency
               }
+              imageCover {
+                blurhash
+                url
+              }
             }
           }
         }
@@ -43,8 +47,13 @@ export default function ProductPageLayout(): React.Node {
               <div className={styles('image')}>
                 <ProductCard
                   title={product.name}
-                  priceUnitAmount={product.price.unitAmount}
+                  priceUnitAmount={
+                    product.price.unitAmount / 100 // adjusted for centavo
+                  }
                   priceUnitAmountCurrency={product.price.unitAmountCurrency}
+                  imgBlurhash={product.imageCover.blurhash}
+                  imgSrc={product.imageCover.url}
+                  imgAlt={product.name}
                 />
               </div>
               <div>
