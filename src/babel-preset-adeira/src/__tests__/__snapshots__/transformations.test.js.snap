@@ -761,7 +761,7 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
-var _privateField = new WeakMap();
+var _privateField = /*#__PURE__*/new WeakMap();
 
 var ClassFields = function ClassFields() {
   (0, _classCallCheck2.default)(this, ClassFields);
@@ -789,7 +789,7 @@ export default class ClassFields {
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
 
-var _privateField = new WeakMap();
+var _privateField = /*#__PURE__*/new WeakMap();
 
 var ClassFields = function ClassFields() {
   _classCallCheck(this, ClassFields);
