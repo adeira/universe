@@ -9,6 +9,6 @@ module.exports = ({
     };
   },
   getPathMappings() {
-    return new Map([['src/kochka.com.mx/', '']]);
+    return new Map([['src/abacus-kochka/', '']]);
   },
 }: ConfigType);
