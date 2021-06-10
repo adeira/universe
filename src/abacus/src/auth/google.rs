@@ -55,14 +55,9 @@ fn create_id_token_validation(iss: &str) -> Validation {
         validate_exp: !cfg!(test), // disabled in tests
         validate_nbf: false,       // NBF (not before) not present in the token
         aud: Some(
-            vec![
-                String::from(
-                    "245356693889-63qeuc6183hab6be342blikbknsvqrhk.apps.googleusercontent.com", // Web client ID
-                ),
-                String::from(
-                    "245356693889-h3aj8e88fsnqch8gdcfh8isf8hruic7n.apps.googleusercontent.com", // iOS client ID
-                ),
-            ]
+            vec![String::from(
+                "586578400209-5k61strd7i03b7pr2arn38o9qqghgfeq.apps.googleusercontent.com", // ABACUS Backoffice (Web application)
+            )]
             .into_iter()
             .collect(),
         ),
@@ -133,15 +128,6 @@ pub async fn verify_id_token_integrity<T: CachedCerts>(
 mod tests {
     use super::*;
     use crate::auth::certs::CachedCertsMock;
-
-    #[tokio::test]
-    async fn validate_jwt_token_valid() {
-        // the following token is valid (signed by Google) but expired
-        let valid_id_token = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxOTdiZjJlODdiZDE5MDU1NzVmOWI2ZTVlYjQyNmVkYTVkNTc0ZTMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIyNDUzNTY2OTM4ODktaDNhajhlODhmc25xY2g4Z2RjZmg4aXNmOGhydWljN24uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiIyNDUzNTY2OTM4ODktaDNhajhlODhmc25xY2g4Z2RjZmg4aXNmOGhydWljN24uYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMDgyNjk0NTM1NzgxODc4ODY0MzUiLCJlbWFpbCI6Im1ydG56bG1sQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiSGtZUldGOWJsZ0lVbjR2S09JcUFjQSIsIm5vbmNlIjoiVVFzZkVwM2FnaXp4TDBRWGFScS10cHpwOU1yNlBaUzlOYV9FY0dkM2t0cyIsIm5hbWUiOiJNYXJ0aW4gWmzDoW1hbCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHZ19abVdZSEhNZWlfQVFkY2tWYVBxTGlrQmtOWUpPTnl5UjBRcVdmV3M9czk2LWMiLCJnaXZlbl9uYW1lIjoiTWFydGluIiwiZmFtaWx5X25hbWUiOiJabMOhbWFsIiwibG9jYWxlIjoiZW4iLCJpYXQiOjE2MDgwNzI5NDMsImV4cCI6MTYwODA3NjU0M30.m4edhGdRMVRs8MJ-y2I1Ax_sUU2svAvaOk10j27a2tdwVYHiG9C1zvsyM8LOeWxVNRTT5XwhFPODK8h15kpb9-k1lQqApD5g-oyYMhi2xWgZ_G7-e5xC_Pm6tLAbmN7VwMJXiipdebEXfnaf2n_yipmhI0xs3BRhtj7kYBqQlcpW2YDPjS-3zV4SeEmwFsjhySS1uOZAnD_zM1vMkSluibF9gemp0o6CVc-DYj1jPXx4iRlPBlTCkQ-BCZNpDRqFOlLRGcRtNPd1P9yDWFOutqg0hcbEZN8hUTXd62CrvQ4iRHNetnOzJ5v2bxBlmWbHzvlKav8OKK9SlJCDM83qMw";
-        insta::assert_debug_snapshot!(
-            verify_id_token_integrity(valid_id_token, &mut CachedCertsMock::new()).await
-        );
-    }
 
     #[tokio::test]
     async fn validate_jwt_token_invalid() {
