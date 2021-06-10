@@ -20,8 +20,8 @@ export default function MenuSectionCoffee(): Node {
         title="Espresso"
         description={
           <fbt desc="description of a single espresso coffee">
-            <fbt:param name="ground coffee grams">{'16'}</fbt:param>&nbsp;grams of ground, single
-            origin, arabica coffee from Coatepec (Veracruz) yielding approximately{' '}
+            <fbt:param name="ground coffee grams">{'16'}</fbt:param>&nbsp;grams of ground,
+            single-origin, arabica coffee from Coatepec (Veracruz) yielding approximately{' '}
             <fbt:param name="liquid coffee grams">{'35'}</fbt:param>&nbsp;grams of liquid espresso.
             Small, very intense, slightly acid drink - stir before drinking.
           </fbt>
@@ -33,7 +33,7 @@ export default function MenuSectionCoffee(): Node {
         title="Americano"
         description={
           <fbt desc="description of americano coffee">
-            Espresso topped with hot water resulting an approximately 250&nbsp;ml of hot beverage.
+            Espresso topped with hot water resulting in approximately 250&nbsp;ml of hot beverage.
             Milder flavor than Espresso thanks to the water but with the same coffee content.
           </fbt>
         }
@@ -45,7 +45,7 @@ export default function MenuSectionCoffee(): Node {
         title="Long Black"
         description={
           <fbt desc="description of long black coffee">
-            Espresso poured over hot water resulting an approximately 250&nbsp;ml of hot beverage.
+            Espresso poured over hot water resulting in approximately 250&nbsp;ml of hot beverage.
             Very similar to Americano except it preserves more Espresso crema on top of the cup.
           </fbt>
         }
@@ -70,7 +70,7 @@ export default function MenuSectionCoffee(): Node {
         description={
           <fbt desc="description of latte coffee">
             Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino
-            but topped with more milk resulting in a milder taste.
+            but is topped with more milk resulting in a milder taste.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
@@ -89,10 +89,14 @@ export default function MenuSectionCoffee(): Node {
 
       <MenuRow
         title="Iced Latte"
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        description={
+          <fbt desc="description of iced latte">
+            A cold beverage prepared with ice cubes, slightly foamed milk, and finished with an
+            espresso on top.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
+        // TODO: volume
       />
     </>
   );

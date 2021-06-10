@@ -35,11 +35,12 @@ export default function MenuSectionTea(): Node {
         title="Jasmine Mo Li Hua"
         description={
           <fbt desc="description of a green tea with jasmine">
-            Green tea from a chinese province Fujian brewed at{' '}
+            Green tea from a Chinese province Fujian brewed at{' '}
             <fbt:param name="temperature">
               <Temperature degreesCelsius={80} />
             </fbt:param>{' '}
-            for 2&nbsp;minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion.
+            for 2&nbsp;minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for
+            digestion and for reducing stress.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
@@ -51,11 +52,12 @@ export default function MenuSectionTea(): Node {
         title="Bespoke Pu-erh Chai"
         description={
           <fbt desc="description of a bespoke pu-erh chai tea">
-            Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at{' '}
+            Pu-erh from province Yunnan with cinnamon, clove, cardamom, and orange peel notes brewed
+            at{' '}
             <fbt:param name="temperature">
               <Temperature degreesCelsius={90} />
             </fbt:param>{' '}
-            for 5&nbsp;minutes. High in caffeine.
+            for 5&nbsp;minutes. High in caffeine, burns body fat and helps blood circulation.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
@@ -67,7 +69,8 @@ export default function MenuSectionTea(): Node {
         title="Jarabe Tapatío"
         description={
           <fbt desc="description of a jarabe tapatío tea">
-            Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at{' '}
+            Rooibos with St. John&apos;s-wort, ginseng, ginger, notes of lemongrass, apple,
+            cinnamon, and black pepper. Brewed at{' '}
             <fbt:param name="temperature">
               <Temperature degreesCelsius={100} />
             </fbt:param>{' '}

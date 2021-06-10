@@ -103,9 +103,9 @@
     "aXxSvQiGicujVYYnDVIkiA==": "Home"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 23,
+   "line_beg": 27,
    "col_beg": 14,
-   "line_end": 23,
+   "line_end": 27,
    "col_end": 71,
    "desc": "footer navigation link to homepage",
    "project": "",
@@ -117,9 +117,9 @@
     "vQi56haIWp87etffNT5imA==": "Café menu"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 28,
+   "line_beg": 32,
    "col_beg": 14,
-   "line_end": 28,
+   "line_end": 32,
    "col_end": 53,
    "desc": "navigation link to our café menu",
    "project": "",
@@ -131,9 +131,9 @@
     "+1sica4aRVHV4GJmVF+1TA==": "Café rules"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 33,
+   "line_beg": 37,
    "col_beg": 14,
-   "line_end": 33,
+   "line_end": 37,
    "col_end": 54,
    "desc": "navigation link to our café rules",
    "project": "",
@@ -145,10 +145,10 @@
     "1InIsDIQMe0LzfDwpJ5b2w==": "Shop"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 38,
-   "col_beg": 14,
-   "line_end": 38,
-   "col_end": 43,
+   "line_beg": 43,
+   "col_beg": 16,
+   "line_end": 43,
+   "col_end": 45,
    "desc": "navigation link to our eshop",
    "project": "",
    "type": "text",
@@ -159,9 +159,9 @@
     "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 45,
+   "line_beg": 51,
    "col_beg": 14,
-   "line_end": 45,
+   "line_end": 51,
    "col_end": 83,
    "desc": "footer navigation link to terms of use",
    "project": "",
@@ -173,10 +173,10 @@
     "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 50,
-   "col_beg": 14,
-   "line_end": 50,
-   "col_end": 97,
+   "line_beg": 57,
+   "col_beg": 16,
+   "line_end": 57,
+   "col_end": 99,
    "desc": "footer navigation link to shipping and returns",
    "project": "",
    "type": "text",
@@ -187,9 +187,9 @@
     "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 55,
+   "line_beg": 63,
    "col_beg": 14,
-   "line_end": 55,
+   "line_end": 63,
    "col_end": 87,
    "desc": "footer navigation link to privacy policy",
    "project": "",
@@ -201,9 +201,9 @@
     "r5n7Y7WnZDVhAfNuaM1Veg==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 24,
+   "line_beg": 25,
    "col_beg": 10,
-   "line_end": 24,
+   "line_end": 25,
    "col_end": 68,
    "desc": "subpage navigation link to homepage",
    "project": "",
@@ -215,9 +215,9 @@
     "vQi56haIWp87etffNT5imA==": "Café menu"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 28,
+   "line_beg": 29,
    "col_beg": 10,
-   "line_end": 28,
+   "line_end": 29,
    "col_end": 49,
    "desc": "navigation link to our café menu",
    "project": "",
@@ -229,9 +229,9 @@
     "+1sica4aRVHV4GJmVF+1TA==": "Café rules"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 32,
+   "line_beg": 33,
    "col_beg": 10,
-   "line_end": 32,
+   "line_end": 33,
    "col_end": 50,
    "desc": "navigation link to our café rules",
    "project": "",
@@ -243,9 +243,9 @@
     "AczYHaAuus/G8A3Lx2F4Nw==": "Adoption"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 37,
+   "line_beg": 38,
    "col_beg": 12,
-   "line_end": 37,
+   "line_end": 38,
    "col_end": 74,
    "desc": "subpage navigation link to adoption",
    "project": "",
@@ -257,9 +257,9 @@
     "1InIsDIQMe0LzfDwpJ5b2w==": "Shop"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 43,
+   "line_beg": 44,
    "col_beg": 12,
-   "line_end": 43,
+   "line_end": 44,
    "col_end": 41,
    "desc": "navigation link to our eshop",
    "project": "",
@@ -282,7 +282,7 @@
   },
   {
    "hashToText": {
-    "BBxRHshdam+/bspHasDzng==": "{ground coffee grams} grams of ground, single origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
+    "TdBMhqJXdPFwa81ekN73mA==": "{ground coffee grams} grams of ground, single-origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 22,
@@ -292,11 +292,11 @@
    "desc": "description of a single espresso coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "{ground coffee grams} grams of ground, single origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
+   "jsfbt": "{ground coffee grams} grams of ground, single-origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
   },
   {
    "hashToText": {
-    "3XaGH/9sew5nG4Id6BR1vw==": "Espresso topped with hot water resulting an approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
+    "jAelnsuWOOPu2DbBpR6amw==": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 35,
@@ -306,11 +306,11 @@
    "desc": "description of americano coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso topped with hot water resulting an approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
+   "jsfbt": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
   },
   {
    "hashToText": {
-    "AzHmJGImdqVuWRIfH/GWVQ==": "Espresso poured over hot water resulting an approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
+    "tE+3N3KO1cvSm9Iah37rtg==": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 47,
@@ -320,7 +320,7 @@
    "desc": "description of long black coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso poured over hot water resulting an approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
+   "jsfbt": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
   },
   {
    "hashToText": {
@@ -338,7 +338,7 @@
   },
   {
    "hashToText": {
-    "MdrHYBjF0V6kO7UZTsn2YA==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but topped with more milk resulting in a milder taste."
+    "WKiOa2gWHi2GPoNvjvJteQ==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but is topped with more milk resulting in a milder taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 71,
@@ -348,7 +348,21 @@
    "desc": "description of latte coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but topped with more milk resulting in a milder taste."
+   "jsfbt": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but is topped with more milk resulting in a milder taste."
+  },
+  {
+   "hashToText": {
+    "A+0Lilk1ppRt4d4npiUiHg==": "A cold beverage prepared with ice cubes, slightly foamed milk, and finished with an espresso on top."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 93,
+   "col_beg": 10,
+   "line_end": 96,
+   "col_end": 16,
+   "desc": "description of iced latte",
+   "project": "",
+   "type": "text",
+   "jsfbt": "A cold beverage prepared with ice cubes, slightly foamed milk, and finished with an espresso on top."
   },
   {
    "hashToText": {
@@ -674,6 +688,20 @@
   },
   {
    "hashToText": {
+    "nJjhEtM6mOx0rUxqSR2yIg==": "Sweat drink prepared from crushed cocoa beans from Tabasco topped with slightly foamed hot milk or hot water."
+   },
+   "filepath": "src/menu/MenuSectionSpecialities.js",
+   "line_beg": 34,
+   "col_beg": 10,
+   "line_end": 37,
+   "col_end": 16,
+   "desc": "description of artisanal chocolate",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Sweat drink prepared from crushed cocoa beans from Tabasco topped with slightly foamed hot milk or hot water."
+  },
+  {
+   "hashToText": {
     "8tuzzzf1dwqFSTF0rx1UHA==": "Organic tea blends"
    },
    "filepath": "src/menu/MenuSectionTea.js",
@@ -702,54 +730,54 @@
   },
   {
    "hashToText": {
-    "Ee9URCXBFG0PRY4i8T0fAQ==": "Green tea from a chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
+    "Yp8L8bo6ltFHMXvvaCi0wQ==": "Green tea from a Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
    },
    "filepath": "src/menu/MenuSectionTea.js",
    "line_beg": 37,
    "col_beg": 10,
-   "line_end": 43,
+   "line_end": 44,
    "col_end": 16,
    "desc": "description of a green tea with jasmine",
    "project": "",
    "type": "text",
-   "jsfbt": "Green tea from a chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with soothing aroma of jasmine. Good for digestion."
+   "jsfbt": "Green tea from a Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
   },
   {
    "hashToText": {
-    "fj2xrs8zgJyy/Z7hUbCvPw==": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine."
+    "gpcoWvvUoHO5bLQ6VAcohQ==": "Pu-erh from province Yunnan with cinnamon, clove, cardamom, and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine, burns body fat and helps blood circulation."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 53,
+   "line_beg": 54,
    "col_beg": 10,
-   "line_end": 59,
+   "line_end": 61,
    "col_end": 16,
    "desc": "description of a bespoke pu-erh chai tea",
    "project": "",
    "type": "text",
-   "jsfbt": "Pu-erh from province Yunnan with cinnamon and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine."
+   "jsfbt": "Pu-erh from province Yunnan with cinnamon, clove, cardamom, and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine, burns body fat and helps blood circulation."
   },
   {
    "hashToText": {
-    "6CV5cXYG2yWqFYhSwRRhng==": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
+    "nacFdHwFtpGvixqDqALORg==": "Rooibos with St. John's-wort, ginseng, ginger, notes of lemongrass, apple, cinnamon, and black pepper. Brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 69,
+   "line_beg": 71,
    "col_beg": 10,
-   "line_end": 75,
+   "line_end": 78,
    "col_end": 16,
    "desc": "description of a jarabe tapatío tea",
    "project": "",
    "type": "text",
-   "jsfbt": "Rooibos with notes of lemongrass, apple, cinnamon and black pepper brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
+   "jsfbt": "Rooibos with St. John's-wort, ginseng, ginger, notes of lemongrass, apple, cinnamon, and black pepper. Brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
   },
   {
    "hashToText": {
     "p9IdPjZckxHQ0o9zzITAAg==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 85,
+   "line_beg": 88,
    "col_beg": 10,
-   "line_end": 91,
+   "line_end": 94,
    "col_end": 16,
    "desc": "description of a bésame mucho tea",
    "project": "",
@@ -761,9 +789,9 @@
     "bZH+Lt+WzlApb6ZhyUKOgQ==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 101,
+   "line_beg": 104,
    "col_beg": 10,
-   "line_end": 107,
+   "line_end": 110,
    "col_end": 16,
    "desc": "description of a maison de cannelle tea",
    "project": "",
@@ -943,9 +971,9 @@
     "bU6rVH2V6ifH2RNffzFZ8g==": "All our products are currently available only in person in our café. We are working on making them available online as well."
    },
    "filepath": "src/shop/ProductPageLayout.js",
-   "line_beg": 53,
+   "line_beg": 62,
    "col_beg": 18,
-   "line_end": 56,
+   "line_end": 65,
    "col_end": 24,
    "desc": "not about all our products being available only in person",
    "project": "",
@@ -1055,9 +1083,9 @@
     "9nlQMh24gzrCe2wsI7rTrw==": "retry"
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 58,
+   "line_beg": 62,
    "col_beg": 18,
-   "line_end": 58,
+   "line_end": 62,
    "col_end": 60,
    "desc": "retry button title",
    "project": "",
@@ -1069,9 +1097,9 @@
     "CA7qWNKuLlABfoiTt5lvUA==": "unable to load eshop products"
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 63,
+   "line_beg": 67,
    "col_beg": 12,
-   "line_end": 63,
+   "line_end": 67,
    "col_end": 94,
    "desc": "unable to load eshop products note",
    "project": "",
@@ -1083,9 +1111,9 @@
     "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 71,
+   "line_beg": 75,
    "col_beg": 14,
-   "line_end": 71,
+   "line_end": 75,
    "col_end": 77,
    "desc": "empty shop message",
    "project": "",
