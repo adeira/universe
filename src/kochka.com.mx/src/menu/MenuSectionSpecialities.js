@@ -30,8 +30,12 @@ export default function MenuSectionSpecialities(): Node {
 
       <MenuRow
         title={<fbt desc="artisanal chocolate name">Artisanal Chocolate</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
+        description={
+          <fbt desc="description of artisanal chocolate">
+            Sweat drink prepared from crushed cocoa beans from Tabasco topped with slightly foamed
+            hot milk or hot water.
+          </fbt>
+        }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
         // TODO: volume
       />
