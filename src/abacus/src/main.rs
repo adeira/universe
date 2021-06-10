@@ -66,7 +66,7 @@ async fn main() {
             warp::cors()
                 .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
                 .allow_origin("http://localhost:5002") // KOCHKA.com.mx (DEV without Telepresence)
-                .allow_origin("https://abacus-bo.kochka.com.mx") // abacus-backoffice (PRODUCTION)
+                .allow_origin("https://abacus-backoffice.vercel.app/") // TODO abacus-backoffice (PRODUCTION)
                 .allow_headers(vec!["authorization", "content-type", "x-client"])
                 .allow_methods(vec![warp::http::Method::POST]),
         )

@@ -36,8 +36,8 @@ pub async fn migrate(
     let user_google_claims = UserGoogleClaims {
         iss: String::from("https://accounts.google.com"),
         sub: String::from("108269453578187886435"),
-        azp: String::from("245356693889-63qeuc6183hab6be342blikbknsvqrhk.apps.googleusercontent.com"),
-        aud: String::from("245356693889-63qeuc6183hab6be342blikbknsvqrhk.apps.googleusercontent.com"),
+        azp: String::from("586578400209-5k61strd7i03b7pr2arn38o9qqghgfeq.apps.googleusercontent.com"),
+        aud: String::from("586578400209-5k61strd7i03b7pr2arn38o9qqghgfeq.apps.googleusercontent.com"),
         iat: 1610381356,
         exp: 1610384956,
         email: String::from("mrtnzlml@gmail.com"),
