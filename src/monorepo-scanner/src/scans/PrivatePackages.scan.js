@@ -8,9 +8,9 @@ const PRIVATE_PACKAGES = [
   // project specific code or it doesn't make any sense. Some of them also cannot be published
   // because their implementation is closely bounded to Universe infra (see Shipit).
   /^@adeira\/abacus-backoffice$/,
+  /^@adeira\/abacus-kochka$/,
   /^@adeira\/docs$/,
   /^@adeira\/example-relay$/,
-  /^@adeira\/kochka.com.mx$/,
   /^@adeira\/monorepo-scanner$/,
   /^@adeira\/monorepo-shipit$/,
   /^@adeira\/sx-tailwind-website$/,
