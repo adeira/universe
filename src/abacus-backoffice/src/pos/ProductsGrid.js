@@ -19,6 +19,7 @@ export default function ProductsGrid(): Node {
           name
           imageCover {
             blurhash
+            url
           }
           price {
             unitAmount
@@ -58,7 +59,8 @@ export default function ProductsGrid(): Node {
              * Relay Hooks. To see the error delete this comment and run Flow. */
             priceUnitAmountCurrency={product.price.unitAmountCurrency}
             imgBlurhash={product.imageCover?.blurhash}
-            // TODO: `imgSrc`
+            imgSrc={product.imageCover?.url}
+            imgAlt={product.name}
           />
         </button>
       );
