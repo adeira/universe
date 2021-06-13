@@ -16,8 +16,9 @@ pub(crate) enum FilesActions {
 }
 
 pub(crate) enum PosActions {
-    GetAllPublishedProducts,
     Checkout,
+    GetAllPublishedProducts,
+    GetCheckoutStats,
 }
 
 pub(crate) enum UsersActions {
@@ -90,10 +91,11 @@ pub(crate) async fn verify_permissions(
                         Actions::Pos(pos_actions) => {
                             obj = "pos";
                             match pos_actions {
+                                PosActions::Checkout => act = "checkout",
                                 PosActions::GetAllPublishedProducts => {
                                     act = "get_all_published_products"
                                 }
-                                PosActions::Checkout => act = "checkout",
+                                PosActions::GetCheckoutStats => act = "get_checkout_stats",
                             }
                         }
                         Actions::Users(users_actions) => {

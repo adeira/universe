@@ -1,14 +1,14 @@
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Pos;
-use crate::auth::rbac::PosActions::{Checkout, GetAllPublishedProducts};
+use crate::auth::rbac::PosActions::{Checkout, GetAllPublishedProducts, GetCheckoutStats};
 use crate::commerce::api::{
     PriceSortDirection, Product, ProductMultilingualInputVisibility, SupportedCurrency,
     SupportedLocale,
 };
 use crate::graphql_context::Context;
 use crate::pos::api::dal::{
-    create_checkout, PosCheckoutInput as PosCheckoutDalInput,
-    PosCheckoutProductInput as PosCheckoutProductDalInput,
+    create_checkout, get_total_checkout_stats, PosCheckoutInput as PosCheckoutDalInput,
+    PosCheckoutProductInput as PosCheckoutProductDalInput, PosCheckoutTotalStats,
 };
 
 pub(crate) struct POSQuery;
@@ -34,6 +34,20 @@ impl POSQuery {
                 .await
             }
             Err(_) => None,
+        }
+    }
+
+    async fn get_total_checkout_stats(context: &Context) -> Option<PosCheckoutTotalStats> {
+        match rbac::verify_permissions(&context.user, &Pos(GetCheckoutStats)).await {
+            Ok(_) => {
+                // only admin can read the checkout stats
+                // TODO: do not expose this directly but hide it into a model layer
+                match get_total_checkout_stats(&context.pool).await {
+                    Ok(total_checkout_stats) => Some(total_checkout_stats),
+                    Err(_) => None, // TODO
+                }
+            }
+            Err(_) => None, // TODO
         }
     }
 }

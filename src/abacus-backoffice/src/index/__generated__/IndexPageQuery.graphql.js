@@ -11,7 +11,14 @@ export type IndexPageQueryResponse = {|
     +id: ?string,
     +humanReadableType: ?string,
     +isDebugAssertionsEnabled: boolean,
-  |}
+  |},
+  +pos: {|
+    +getTotalCheckoutStats: ?{|
+      +totalCheckouts: number,
+      +totalSoldUnits: number,
+      +totalSoldUnitAmount: number,
+    |}
+  |},
 |};
 export type IndexPageQuery = {|
   variables: IndexPageQueryVariables,
@@ -24,6 +31,13 @@ query IndexPageQuery {
     id
     humanReadableType
     isDebugAssertionsEnabled
+  }
+  pos {
+    getTotalCheckoutStats {
+      totalCheckouts
+      totalSoldUnits
+      totalSoldUnitAmount
+    }
   }
 }
 */
@@ -61,6 +75,49 @@ var v0 = [
       }
     ],
     "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "POSQuery",
+    "kind": "LinkedField",
+    "name": "pos",
+    "plural": false,
+    "selections": [
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "PosCheckoutTotalStats",
+        "kind": "LinkedField",
+        "name": "getTotalCheckoutStats",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "totalCheckouts",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "totalSoldUnits",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "totalSoldUnitAmount",
+            "storageKey": null
+          }
+        ],
+        "storageKey": null
+      }
+    ],
+    "storageKey": null
   }
 ];
 return {
@@ -81,15 +138,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "f4b10245615d7455e39cc1930a916989",
+    "cacheID": "d6c2b969b215fc211b2487fa1b831d67",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  whoami {\n    id\n    humanReadableType\n    isDebugAssertionsEnabled\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  whoami {\n    id\n    humanReadableType\n    isDebugAssertionsEnabled\n  }\n  pos {\n    getTotalCheckoutStats {\n      totalCheckouts\n      totalSoldUnits\n      totalSoldUnitAmount\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '0b4d8a3b4aeb134f818292631374aa79';
+(node: any).hash = 'aeba1fc58c0f30fa53eeafb0041861bf';
 export default node;

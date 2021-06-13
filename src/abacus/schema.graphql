@@ -1,4 +1,4 @@
-# @generated SignedSource<<f8ce14359ad4616ecbd3bf9e481a2a6d>>
+# @generated SignedSource<<63489b90acbb9034376f4f2a3e944ae6>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -11,6 +11,7 @@ type POSQuery {
     POS after logging in.
   """
   listPublishedProducts: [Product]
+  getTotalCheckoutStats: PosCheckoutTotalStats
 }
 
 input PosCheckoutProductInput {
@@ -308,6 +309,12 @@ type AuthorizeWebappPayload {
 
 type PosCheckoutPayload {
   id: ID!
+}
+
+type PosCheckoutTotalStats {
+  totalCheckouts: Int!
+  totalSoldUnits: Int!
+  totalSoldUnitAmount: Int!
 }
 
 type AuthorizeMobilePayload {

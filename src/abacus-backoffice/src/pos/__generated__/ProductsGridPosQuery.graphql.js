@@ -14,7 +14,8 @@ export type ProductsGridPosQueryResponse = {|
       +key: string,
       +name: string,
       +imageCover: ?{|
-        +blurhash: string
+        +blurhash: string,
+        +url: string,
       |},
       +price: {|
         +unitAmount: number,
@@ -37,6 +38,7 @@ query ProductsGridPosQuery {
       name
       imageCover {
         blurhash
+        url
       }
       price {
         unitAmount
@@ -100,6 +102,13 @@ var v0 = [
                 "kind": "ScalarField",
                 "name": "blurhash",
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "url",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -154,15 +163,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "d8b25d3dae9a306f97e5df7804ea784f",
+    "cacheID": "b579277cabeb8512c40397369323a124",
     "id": null,
     "metadata": {},
     "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query ProductsGridPosQuery {\n  pos {\n    products: listPublishedProducts {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery {\n  pos {\n    products: listPublishedProducts {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '9dd37e933f4a5700a633433087397030';
+(node: any).hash = '9a0d3d97d0fa3296d8d42e06aacc9ed8';
 export default node;
