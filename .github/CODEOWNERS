@@ -14,8 +14,8 @@
 # main developer. Other Adeira devs can approve these PRs if
 # they want but @adeira-github-bot helps if they don't.
 
-/src/abacus-backoffice/ @adeira/devs @adeira-github-bot
 /src/abacus/ @adeira/devs @adeira-github-bot
-/src/kochka.com.mx/ @adeira/devs @adeira-github-bot
+/src/abacus-backoffice/ @adeira/devs @adeira-github-bot
+/src/abacus-kochka/ @adeira/devs @adeira-github-bot
 
 yarn.lock @adeira/devs @adeira-github-bot

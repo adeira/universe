@@ -16,6 +16,13 @@ export default function IndexPage(): React.Node {
           humanReadableType
           isDebugAssertionsEnabled
         }
+        pos {
+          getTotalCheckoutStats {
+            totalCheckouts
+            totalSoldUnits
+            totalSoldUnitAmount
+          }
+        }
       }
     `,
     /* eslint-enable relay/unused-fields */
