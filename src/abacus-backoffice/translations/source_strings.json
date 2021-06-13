@@ -16,20 +16,6 @@
   },
   {
    "hashToText": {
-    "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
-   },
-   "filepath": "src/AuthButtons.js",
-   "line_beg": 49,
-   "col_beg": 20,
-   "line_end": 49,
-   "col_end": 77,
-   "desc": "login unknown error",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Some unknown error happened"
-  },
-  {
-   "hashToText": {
     "ZmoOgkWDunmOx3U/8Us9hg==": "Logout"
    },
    "filepath": "src/AuthButtons.js",
