@@ -83,15 +83,13 @@ pub(in crate::pos) async fn create_checkout(
     resolve_aql::<PosCheckout>(&pool, insert_aql).await
 }
 
-#[cfg(test)]
-#[derive(Deserialize, Clone)]
+#[derive(Deserialize, Clone, juniper::GraphQLObject)]
 pub(in crate::pos) struct PosCheckoutTotalStats {
-    total_checkouts: u32,
-    total_sold_units: u32,
-    total_sold_unit_amount: u32, // TODO: be careful when calling SUM(…) on different currencies!
+    total_checkouts: i32,
+    total_sold_units: i32,
+    total_sold_unit_amount: i32, // TODO: be careful when calling SUM(…) on different currencies!
 }
 
-#[cfg(test)]
 pub(in crate::pos) async fn get_total_checkout_stats(
     pool: &ConnectionPool,
 ) -> Result<PosCheckoutTotalStats, Error> {
