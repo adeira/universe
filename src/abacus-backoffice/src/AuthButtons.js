@@ -45,8 +45,8 @@ export function LoginButton(): Node {
     });
   };
 
-  const failureResponseGoogle = () => {
-    setErrorMessage(fbt('Some unknown error happened', 'login unknown error'));
+  const failureResponseGoogle = (error) => {
+    setErrorMessage(error.details);
   };
 
   return (
