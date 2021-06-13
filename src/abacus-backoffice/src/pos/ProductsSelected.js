@@ -22,9 +22,22 @@ export default function ProductsSelected(): React.Node {
             <div className={styles('selectedItemTitle')}>
               <strong>{selectedItem.itemTitle}</strong>
               <br />
-              {selectedItem.units}x for{' '}
-              <Money priceUnitAmount={selectedItem.itemUnitAmount} priceUnitAmountCurrency="MXN" />{' '}
-              per unit
+              <div>
+                {selectedItem.units} &times;{' '}
+                <Money
+                  priceUnitAmount={
+                    selectedItem.itemUnitAmount / 100 // adjusted for centavo
+                  }
+                  priceUnitAmountCurrency="MXN"
+                />{' '}
+                ={' '}
+                <Money
+                  priceUnitAmount={
+                    selectedItem.units * (selectedItem.itemUnitAmount / 100) // adjusted for centavo
+                  }
+                  priceUnitAmountCurrency="MXN"
+                />
+              </div>
             </div>
             <div className={styles('selectedItemControls')}>
               <button
@@ -49,7 +62,12 @@ export default function ProductsSelected(): React.Node {
         <fbt desc="summary of selected items in POS">
           <fbt:param name="totalSelectedItems">{stats.totalSelectedItems}</fbt:param> items for{' '}
           <fbt:param name="totalPrice">
-            <Money priceUnitAmount={stats.totalPrice} priceUnitAmountCurrency="MXN" />
+            <Money
+              priceUnitAmount={
+                stats.totalPrice / 100 // adjusted for centavo
+              }
+              priceUnitAmountCurrency="MXN"
+            />
           </fbt:param>
         </fbt>
       </div>

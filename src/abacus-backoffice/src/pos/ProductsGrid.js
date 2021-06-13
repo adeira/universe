@@ -54,7 +54,9 @@ export default function ProductsGrid(): Node {
         >
           <ProductCard
             title={product.name}
-            priceUnitAmount={product.price.unitAmount}
+            priceUnitAmount={
+              product.price.unitAmount / 100 // adjusted for centavo
+            }
             /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
              * Relay Hooks. To see the error delete this comment and run Flow. */
             priceUnitAmountCurrency={product.price.unitAmountCurrency}

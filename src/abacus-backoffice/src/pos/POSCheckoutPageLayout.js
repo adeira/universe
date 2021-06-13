@@ -2,18 +2,17 @@
 
 import { graphql, useMutation } from '@adeira/relay';
 import sx from '@adeira/sx';
-import { Money } from '@adeira/sx-design';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { fbt } from 'fbt';
 
 import Link from '../Link';
-import POSCheckoutSummary from './POSCheckoutSummary';
+import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi, { type AtomItemType } from './recoil/selectedItemsState';
 import type { POSCheckoutPageLayoutMutation } from './__generated__/POSCheckoutPageLayoutMutation.graphql';
 
 export default function POSCheckoutPageLayout(): Node {
-  const { stats, reset, selectedItems } = useSelectedItemsApi();
+  const { reset, selectedItems } = useSelectedItemsApi();
   const router = useRouter();
 
   const [checkout, isCheckoutPending] = useMutation<POSCheckoutPageLayoutMutation>(graphql`
@@ -80,11 +79,8 @@ export default function POSCheckoutPageLayout(): Node {
         </Link>
       </div>
 
-      <Money
-        priceUnitAmount={stats.totalPrice}
-        priceUnitAmountCurrency={'MXN'} // TODO
-      />
-      <POSCheckoutSummary tint="#69c562" />
+      <CheckoutReceipt />
+
       <div className={styles('question')}>
         <fbt desc="checkout question before continuing">Did you receive the money?</fbt>
       </div>

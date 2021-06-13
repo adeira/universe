@@ -282,6 +282,20 @@
   },
   {
    "hashToText": {
+    "iCBctDdcz6yDLlNQGi9HBw==": "Total:"
+   },
+   "filepath": "src/pos/CheckoutReceipt.js",
+   "line_beg": 43,
+   "col_beg": 10,
+   "line_end": 43,
+   "col_end": 52,
+   "desc": "total price title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Total:"
+  },
+  {
+   "hashToText": {
     "rLRFrvo+/qGRtijpdlaKwA==": "All POS Sessions"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
@@ -397,9 +411,9 @@
     "Uwsynldmzkm43wwA8z+rWQ==": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 64,
+   "line_beg": 63,
    "col_beg": 8,
-   "line_end": 67,
+   "line_end": 66,
    "col_end": 9,
    "desc": "reset checkout session confirmation message",
    "project": "",
@@ -411,9 +425,9 @@
     "T61CEaVqIFGOoto/TXxy5A==": "⬅ Go back"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 79,
+   "line_beg": 78,
    "col_beg": 10,
-   "line_end": 79,
+   "line_end": 78,
    "col_end": 57,
    "desc": "go back to POS text",
    "project": "",
@@ -425,9 +439,9 @@
     "X15wJnkWMiCincs1C+MeFw==": "Did you receive the money?"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 89,
+   "line_beg": 85,
    "col_beg": 8,
-   "line_end": 89,
+   "line_end": 85,
    "col_end": 88,
    "desc": "checkout question before continuing",
    "project": "",
@@ -439,9 +453,9 @@
     "MfLT6Yq4YBMxi+dW96zMNg==": "Yes, finish checkout"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 98,
+   "line_beg": 94,
    "col_beg": 10,
-   "line_end": 98,
+   "line_end": 94,
    "col_end": 77,
    "desc": "process checkout button text",
    "project": "",
@@ -453,9 +467,9 @@
     "P3UvwgozOxL8sg8ODM5D/A==": "No, start over"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 106,
+   "line_beg": 102,
    "col_beg": 10,
-   "line_end": 106,
+   "line_end": 102,
    "col_end": 69,
    "desc": "reset checkout button text",
    "project": "",
@@ -537,9 +551,9 @@
     "EAFd1PD0L8GS/sTNRO5dzA==": "{totalSelectedItems} items for {totalPrice}"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 49,
+   "line_beg": 62,
    "col_beg": 8,
-   "line_end": 54,
+   "line_end": 72,
    "col_end": 14,
    "desc": "summary of selected items in POS",
    "project": "",
@@ -551,9 +565,9 @@
     "nIpABsKUotYCJOCxk8ZWTg==": "Proceed to checkout"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 62,
+   "line_beg": 80,
    "col_beg": 10,
-   "line_end": 62,
+   "line_end": 80,
    "col_end": 69,
    "desc": "checkout button title",
    "project": "",
