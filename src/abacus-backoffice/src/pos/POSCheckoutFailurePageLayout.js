@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { LinkButton, Emoji } from '@adeira/sx-design';
 
-import POSCheckoutSummary from './POSCheckoutSummary';
+import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
 export default function POSCheckoutFailurePageLayout(): Node {
@@ -34,7 +34,7 @@ export default function POSCheckoutFailurePageLayout(): Node {
             <strong>let us know</strong> as soon as possible!
           </fbt>
         </div>
-        <POSCheckoutSummary tint="#ba3838" />
+        <CheckoutReceipt />
       </div>
       <LinkButton onClick={handleStartNewPOSSessionClick} xstyle={styles.link}>
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
