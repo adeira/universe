@@ -15,7 +15,7 @@ export default function POSCheckoutFailurePageLayout(): Node {
 
   const handleStartNewPOSSessionClick = () => {
     reset();
-    router.push('/pos');
+    router.push('/pos/session');
   };
 
   return (

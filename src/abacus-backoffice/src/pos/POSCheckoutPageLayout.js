@@ -68,14 +68,14 @@ export default function POSCheckoutPageLayout(): Node {
       )
     ) {
       reset();
-      router.push('/pos');
+      router.push('/pos/session');
     }
   };
 
   return (
     <div className={styles('root')}>
       <div className={styles('goback')}>
-        <Link href="/pos" xstyle={styles.gobackLink}>
+        <Link href="/pos/session" xstyle={styles.gobackLink}>
           <fbt desc="go back to POS text">⬅ Go back</fbt>
         </Link>
       </div>

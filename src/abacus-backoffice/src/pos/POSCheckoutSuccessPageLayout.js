@@ -19,7 +19,7 @@ export default function POSCheckoutSuccessPageLayout(): Node {
           </fbt>
         </div>
       </div>
-      <Link href="/pos" xstyle={styles.link}>
+      <Link href="/pos/session" xstyle={styles.link}>
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
       </Link>
     </div>
