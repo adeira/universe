@@ -10,6 +10,7 @@ type Props = {
   +'isActive'?: boolean,
   +'xstyle'?: AllCSSProperties,
   +'data-testid'?: string,
+  +'onClick'?: () => void,
 };
 
 /**
@@ -17,7 +18,7 @@ type Props = {
  * light and dark mode. It also sets `noreferrer` and `noopener` correctly for external links.
  *
  * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
- * be forwarded to the HTML element as expected.
+ * be forwarded to the HTML `<a />` element as expected.
  */
 export default (React.forwardRef(function Link(props, ref) {
   const href = props.href;
@@ -31,6 +32,7 @@ export default (React.forwardRef(function Link(props, ref) {
       {...((isExternalLink || props.target === '_blank') && { rel: 'noreferrer noopener' })}
       target={props.target}
       className={sx(styles.default, props.isActive ? null : styles.inactive, props.xstyle)}
+      onClick={props.onClick}
     >
       {props.children}
     </a>

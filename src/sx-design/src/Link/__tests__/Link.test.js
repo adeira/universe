@@ -8,7 +8,7 @@ import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
 
 import Link from '../Link';
-import { initFbt, render } from '../../test-utils';
+import { initFbt, render, fireEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -124,4 +124,22 @@ it('forwards React refs as expected', () => {
 
   expect(ref.current).toBe(container.firstChild);
   expect(ref.current?.nodeName).toBe('A');
+});
+
+it('calls onClick event', () => {
+  const onClickFn = jest.fn();
+
+  const { getByText } = render(
+    <Link href="https://localhost" onClick={onClickFn}>
+      <fbt desc="link title" doNotExtract={true}>
+        link with onClick callback
+      </fbt>
+    </Link>,
+  );
+
+  expect(getByText('link with onClick callback')).toBeDefined();
+  expect(onClickFn).not.toHaveBeenCalled();
+
+  fireEvent.click(getByText('link with onClick callback'));
+  expect(onClickFn).toHaveBeenCalledTimes(1);
 });
