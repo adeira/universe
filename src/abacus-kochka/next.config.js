@@ -30,6 +30,9 @@ module.exports = ({
   ...nextConfig,
   poweredByHeader: false,
   reactStrictMode: true,
+  devIndicators: {
+    buildActivity: true,
+  },
   i18n: {
     locales: [
       'en-us', // English in USA

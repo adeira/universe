@@ -3,7 +3,10 @@
  * @flow
  */
 
+import fbt from 'fbt';
+
 import ButtonLink from './ButtonLink';
+import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -24,12 +27,17 @@ const ShowcaseTemplate = (args) => (
   </>
 );
 
+initFbt();
+
 // 👇 Each story then reuses that template
 export const ButtonDefault: StoryTemplate<typeof ButtonLink> = BasicTemplate.bind({});
 ButtonDefault.storyName = 'Default';
-// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 ButtonDefault.args = {
-  children: 'Button link',
+  children: (
+    <fbt desc="button link title" doNotExtract={true}>
+      Button link
+    </fbt>
+  ),
   href: 'https://github.com/adeira/universe',
 };
 
@@ -40,8 +48,11 @@ ButtonShowcase.argTypes = {
   href: { table: { disable: true } },
   tint: { table: { disable: true } },
 };
-// $FlowExpectedError[incompatible-type]: children should be FBT, not a string
 ButtonShowcase.args = {
-  children: 'Button link',
+  children: (
+    <fbt desc="button link title" doNotExtract={true}>
+      Button link
+    </fbt>
+  ),
   href: 'https://github.com/adeira/universe',
 };
