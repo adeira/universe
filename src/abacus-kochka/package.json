@@ -10,7 +10,7 @@
     "lint": "yarn jest --config=.jest-eslint.config.js",
     "test": "yarn jest",
     "fbt:manifest": "fbt-manifest --src=src --src=pages --enum-manifest=translations/enum_manifest.json --src-manifest=translations/src_manifest.json",
-    "fbt:collect": "fbt-collect --fbt-common-path=./translations/common.js --options=__self --pretty --manifest < translations/src_manifest.json > translations/source_strings.json",
+    "fbt:collect": "fbt-collect --options=__self --pretty --manifest < translations/src_manifest.json > translations/source_strings.json",
     "fbt:translate": "fbt-translate --source-strings=translations/source_strings.json --pretty --translations translations/in/*.json --output-dir=translations/out --jenkins",
     "fbt": "yarn run fbt:manifest && yarn run fbt:collect && yarn run fbt:translate",
     "relay": "adeira-relay-compiler"
