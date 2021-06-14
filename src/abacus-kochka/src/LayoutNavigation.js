@@ -22,26 +22,26 @@ export default function LayoutNavigation(): React.Node {
         </span>
 
         <LinkInternal href="/" xstyle={styles.link}>
-          <fbt desc="subpage navigation link to homepage">Home</fbt>
+          <fbt desc="link to the homepage from subpage navigation">Home</fbt>
         </LinkInternal>
 
         <LinkInternal href="/menu" xstyle={styles.link}>
-          <fbt common={true}>Café&nbsp;menu</fbt>
+          <fbt desc="link to the café menu from subpage navigation">Café&nbsp;menu</fbt>
         </LinkInternal>
 
         <LinkInternal href="/rules" xstyle={styles.link}>
-          <fbt common={true}>Café&nbsp;rules</fbt>
+          <fbt desc="link to the café rules from subpage navigation">Café&nbsp;rules</fbt>
         </LinkInternal>
 
         {pageAdoptionEnabled === true && (
           <LinkInternal href="/adoption" xstyle={styles.link}>
-            <fbt desc="subpage navigation link to adoption">Adoption</fbt>
+            <fbt desc="link to the adoption page from subpage navigation">Adoption</fbt>
           </LinkInternal>
         )}
 
         {pageShopEnabled === true ? (
           <LinkInternal href="/shop" xstyle={styles.link}>
-            <fbt common={true}>Shop</fbt>
+            <fbt desc="link to the eshop from subpage navigation">Shop</fbt>
           </LinkInternal>
         ) : null}
       </div>

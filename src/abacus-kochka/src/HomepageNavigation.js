@@ -16,28 +16,28 @@ export default function HomepageNavigation(): React.Node {
       <ul className={styles('ul')}>
         <li className={styles('li')}>
           <LinkInternal href="/menu" xstyle={styles.link}>
-            <fbt common={true}>Café&nbsp;menu</fbt>
+            <fbt desc="link to our menu from the homepage">Café&nbsp;menu</fbt>
           </LinkInternal>
         </li>
 
         {pageAdoptionEnabled === true && (
           <li className={styles('li')}>
             <LinkInternal href="/adoption" xstyle={styles.link}>
-              <fbt desc="navigation link to adoption">Adoption</fbt>
+              <fbt desc="link to the adoption page from the homepage">Adoption</fbt>
             </LinkInternal>
           </li>
         )}
 
         <li className={styles('li')}>
           <LinkInternal href="/rules" xstyle={styles.link}>
-            <fbt common={true}>Café&nbsp;rules</fbt>
+            <fbt desc="link to our rules from the homepage">Café&nbsp;rules</fbt>
           </LinkInternal>
         </li>
 
         {pageShopEnabled === true && (
           <li className={styles('li')}>
             <LinkInternal href="/shop" xstyle={styles.link}>
-              <fbt common={true}>Shop</fbt>
+              <fbt desc="link to the shop from the homepage">Shop</fbt>
             </LinkInternal>
           </li>
         )}

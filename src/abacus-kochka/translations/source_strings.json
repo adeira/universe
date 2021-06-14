@@ -44,112 +44,112 @@
   },
   {
    "hashToText": {
-    "vQi56haIWp87etffNT5imA==": "Café menu"
+    "56PKpOqt3+LEFaRQ36PltQ==": "Café menu"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 19,
    "col_beg": 12,
    "line_end": 19,
-   "col_end": 51,
-   "desc": "navigation link to our café menu",
+   "col_end": 79,
+   "desc": "link to our menu from the homepage",
    "project": "",
    "type": "text",
    "jsfbt": "Café menu"
   },
   {
    "hashToText": {
-    "hHL1jf58Ql60JFDCN3aK1g==": "Adoption"
+    "HGNGfbeBNFMEHdxiALDoDw==": "Adoption"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 26,
    "col_beg": 14,
    "line_end": 26,
-   "col_end": 68,
-   "desc": "navigation link to adoption",
+   "col_end": 84,
+   "desc": "link to the adoption page from the homepage",
    "project": "",
    "type": "text",
    "jsfbt": "Adoption"
   },
   {
    "hashToText": {
-    "+1sica4aRVHV4GJmVF+1TA==": "Café rules"
+    "E4RZPBAPff7GYBpbxPKY/A==": "Café rules"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 33,
    "col_beg": 12,
    "line_end": 33,
-   "col_end": 52,
-   "desc": "navigation link to our café rules",
+   "col_end": 81,
+   "desc": "link to our rules from the homepage",
    "project": "",
    "type": "text",
    "jsfbt": "Café rules"
   },
   {
    "hashToText": {
-    "1InIsDIQMe0LzfDwpJ5b2w==": "Shop"
+    "Jl7ke09TxJz/ttxyYXALfQ==": "Shop"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 40,
    "col_beg": 14,
    "line_end": 40,
-   "col_end": 43,
-   "desc": "navigation link to our eshop",
+   "col_end": 71,
+   "desc": "link to the shop from the homepage",
    "project": "",
    "type": "text",
    "jsfbt": "Shop"
   },
   {
    "hashToText": {
-    "aXxSvQiGicujVYYnDVIkiA==": "Home"
+    "n6tw27wXSGSf70t6gzskXQ==": "Home"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 27,
    "col_beg": 14,
    "line_end": 27,
-   "col_end": 71,
-   "desc": "footer navigation link to homepage",
+   "col_end": 78,
+   "desc": "link to the homepage from the page footer",
    "project": "",
    "type": "text",
    "jsfbt": "Home"
   },
   {
    "hashToText": {
-    "vQi56haIWp87etffNT5imA==": "Café menu"
+    "5DdiCVjwegcUT8ZCy2GyrQ==": "Café menu"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 32,
    "col_beg": 14,
    "line_end": 32,
-   "col_end": 53,
-   "desc": "navigation link to our café menu",
+   "col_end": 89,
+   "desc": "link to the café menu from the page footer",
    "project": "",
    "type": "text",
    "jsfbt": "Café menu"
   },
   {
    "hashToText": {
-    "+1sica4aRVHV4GJmVF+1TA==": "Café rules"
+    "IjVXijtuMLAQYt3SNU4PLQ==": "Café rules"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 37,
    "col_beg": 14,
    "line_end": 37,
-   "col_end": 54,
-   "desc": "navigation link to our café rules",
+   "col_end": 91,
+   "desc": "link to the café rules from the page footer",
    "project": "",
    "type": "text",
    "jsfbt": "Café rules"
   },
   {
    "hashToText": {
-    "1InIsDIQMe0LzfDwpJ5b2w==": "Shop"
+    "ktONRQOJxnJhj9ebj+y1Dw==": "Shop"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 43,
    "col_beg": 16,
    "line_end": 43,
-   "col_end": 45,
-   "desc": "navigation link to our eshop",
+   "col_end": 77,
+   "desc": "link to the eshop from the page footer",
    "project": "",
    "type": "text",
    "jsfbt": "Shop"
@@ -198,70 +198,70 @@
   },
   {
    "hashToText": {
-    "r5n7Y7WnZDVhAfNuaM1Veg==": "Home"
+    "AnWW7GmesxqieaEMwwAsbQ==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 25,
    "col_beg": 10,
    "line_end": 25,
-   "col_end": 68,
-   "desc": "subpage navigation link to homepage",
+   "col_end": 77,
+   "desc": "link to the homepage from subpage navigation",
    "project": "",
    "type": "text",
    "jsfbt": "Home"
   },
   {
    "hashToText": {
-    "vQi56haIWp87etffNT5imA==": "Café menu"
+    "T7TGlJhstlWdCNB26MkqzA==": "Café menu"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 29,
    "col_beg": 10,
    "line_end": 29,
-   "col_end": 49,
-   "desc": "navigation link to our café menu",
+   "col_end": 88,
+   "desc": "link to the café menu from subpage navigation",
    "project": "",
    "type": "text",
    "jsfbt": "Café menu"
   },
   {
    "hashToText": {
-    "+1sica4aRVHV4GJmVF+1TA==": "Café rules"
+    "paPCRFfyKUaXeFKvDVrhoQ==": "Café rules"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 33,
    "col_beg": 10,
    "line_end": 33,
-   "col_end": 50,
-   "desc": "navigation link to our café rules",
+   "col_end": 90,
+   "desc": "link to the café rules from subpage navigation",
    "project": "",
    "type": "text",
    "jsfbt": "Café rules"
   },
   {
    "hashToText": {
-    "AczYHaAuus/G8A3Lx2F4Nw==": "Adoption"
+    "nbgtSJVvuVaIdnBTGhKH9g==": "Adoption"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 38,
    "col_beg": 12,
    "line_end": 38,
-   "col_end": 74,
-   "desc": "subpage navigation link to adoption",
+   "col_end": 88,
+   "desc": "link to the adoption page from subpage navigation",
    "project": "",
    "type": "text",
    "jsfbt": "Adoption"
   },
   {
    "hashToText": {
-    "1InIsDIQMe0LzfDwpJ5b2w==": "Shop"
+    "oubYOKD/2Kkks5EsdTg1Vg==": "Shop"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 44,
    "col_beg": 12,
    "line_end": 44,
-   "col_end": 41,
-   "desc": "navigation link to our eshop",
+   "col_end": 76,
+   "desc": "link to the eshop from subpage navigation",
    "project": "",
    "type": "text",
    "jsfbt": "Shop"
