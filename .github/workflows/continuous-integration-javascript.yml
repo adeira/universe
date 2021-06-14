@@ -18,18 +18,29 @@ jobs:
         node-version: [14.x, 16.x]
 
     steps:
+      # https://github.com/actions/checkout
       - uses: actions/checkout@v2.3.4
         with:
           # Number of commits to fetch. 0 indicates all history for all branches and tags.
           fetch-depth: 0
+
+      # https://github.com/actions/setup-node
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install, build, and test
-        run: |
-          yarn install --frozen-lockfile
-          yarn run flow --max-warnings=0
-          yarn run lint
-          yarn run test-only
-          yarn run scanner
+
+      - name: Install Yarn dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run Flow checks
+        run: yarn run flow --max-warnings=0
+
+      - name: Run Eslint
+        run: yarn run lint
+
+      - name: Run Jest tests
+        run: yarn run test-only
+
+      - name: Run monorepo scanner
+        run: yarn run scanner
