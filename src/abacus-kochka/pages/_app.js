@@ -31,7 +31,6 @@ type Props = {
 
 export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
-  // $FlowFixMe[prop-missing]: `locale` is missing in `flow-typed` definitions
   const languageTag = initFbtTranslations(router.locale);
 
   const isProduction = __DEV__ === false;
