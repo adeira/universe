@@ -4,13 +4,14 @@ import { graphql, QueryRenderer } from '@adeira/relay';
 import sx from '@adeira/sx';
 import { Note, ProductCard } from '@adeira/sx-design';
 import fbt from 'fbt';
-import * as React from 'react';
+import React, { type Node } from 'react';
 import { useRouter } from 'next/router';
 
 import Layout from '../Layout';
+import RenderSlateNodes from './RenderSlateNodes';
 import useViewerContext from '../hooks/useViewerContext';
 
-export default function ProductPageLayout(): React.Node {
+export default function ProductPageLayout(): Node {
   const router = useRouter();
   const viewerContext = useViewerContext();
   const productKey = router.query.product_key;
@@ -25,7 +26,7 @@ export default function ProductPageLayout(): React.Node {
               productKey: $productKey
             ) {
               name
-              description
+              descriptionSlate
               price {
                 unitAmount
                 unitAmountCurrency
@@ -59,8 +60,8 @@ export default function ProductPageLayout(): React.Node {
                 />
               </div>
               <div>
-                <p>{product.description}</p>
-                <Note>
+                <RenderSlateNodes nodes={JSON.parse(product.descriptionSlate)} />
+                <Note tint="warning">
                   <fbt desc="not about all our products being available only in person">
                     All our products are currently available only in person in our café. We are
                     working on making them available online as well.

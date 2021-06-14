@@ -25,7 +25,7 @@ pub struct Product {
     /// Resolved product name (from translations based on the eshop locale).
     name: String,
     /// Resolved product description (from translations based on the eshop locale).
-    description: Option<String>,
+    description_slate: Option<String>,
     images: Vec<Image>,
     unit_label: String,
     /// Product should not be published until it has all the translations, pictures and other
@@ -41,7 +41,7 @@ impl std::fmt::Debug for Product {
         // skipping `_id`, `_key` and `_rev` which are not stable
         f.debug_struct("Product")
             .field("name", &self.name)
-            .field("description", &self.description)
+            .field("description_slate", &self.description_slate)
             .field("images", &self.images)
             .field("unit_label", &self.unit_label)
             .field("is_published", &self.is_published)
@@ -112,8 +112,10 @@ impl Product {
     /// The product's description, meant to be displayable to the customer. Use this field to
     /// optionally store a long form explanation of the product being sold for your own rendering
     /// purposes.
-    fn description(&self) -> Option<String> {
-        self.description.to_owned()
+    ///
+    /// Note: the field contains JSON stringified payload for [Slate Editor](https://github.com/ianstormtaylor/slate).
+    fn description_slate(&self) -> Option<String> {
+        self.description_slate.to_owned()
     }
 
     /// A list of images for this product, meant to be displayable to the customer. You can get
@@ -181,7 +183,7 @@ struct ProductPrice {
 /// This type should be used together with GraphQL uploads and it should hold the file names being
 /// uploaded. It's used together with the actual uploaded files for validation purposes. Only files
 /// which are defined using this scalar will be processed.
-#[derive(juniper::GraphQLScalarValue, Clone, Serialize, Deserialize)]
+#[derive(juniper::GraphQLScalarValue, Clone, Serialize, Deserialize, Debug)]
 #[graphql(
     transparent,
     description = "
@@ -208,14 +210,16 @@ impl From<ProductImageUploadable> for serde_json::Value {
 pub struct ProductMultilingualInputTranslations {
     pub(in crate::commerce) locale: SupportedLocale,
     pub(in crate::commerce) name: String,
-    pub(in crate::commerce) description: Option<String>,
+    /// Note: the field accepts JSON stringified payload from [Slate Editor](https://github.com/ianstormtaylor/slate).
+    pub(in crate::commerce) description_slate: Option<String>,
 }
 
 #[derive(juniper::GraphQLObject, Debug, Deserialize, Clone)]
 pub struct ProductMultilingualTranslations {
     pub(in crate::commerce) locale: SupportedLocale,
     pub(in crate::commerce) name: String,
-    pub(in crate::commerce) description: Option<String>,
+    /// Note: the field contains JSON stringified payload for [Slate Editor](https://github.com/ianstormtaylor/slate).
+    pub(in crate::commerce) description_slate: Option<String>,
 }
 
 /// Specifies additional visibility of the product. Each product is always visible in the backoffice
@@ -228,7 +232,7 @@ pub enum ProductMultilingualInputVisibility {
     POS,
 }
 
-#[derive(juniper::GraphQLInputObject)]
+#[derive(juniper::GraphQLInputObject, Debug)]
 pub struct ProductMultilingualInput {
     pub(crate) images: Vec<ProductImageUploadable>,
     // unit_label: String, // TODO: always "piece" at this moment
@@ -248,14 +252,14 @@ impl Default for ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
                 name: String::from("EN default name"),
-                description: None,
+                description_slate: None,
             }],
             visibility: vec![],
         }
     }
 }
 
-#[derive(juniper::GraphQLInputObject)]
+#[derive(juniper::GraphQLInputObject, Debug)]
 pub struct ProductPriceInput {
     /// The unit amount in centavo to be charged, represented as a whole integer.
     /// Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
@@ -522,7 +526,11 @@ pub(in crate::commerce) async fn publish_product(
             )
             .await?;
 
-            if product.translations.iter().any(|t| t.description.is_none()) {
+            if product
+                .translations
+                .iter()
+                .any(|t| t.description_slate.is_none())
+            {
                 return Err(ModelError::LogicalError(String::from(
                     "product must have description for all translation variants before publishing",
                 )));

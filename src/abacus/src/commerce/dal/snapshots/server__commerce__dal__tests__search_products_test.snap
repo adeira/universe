@@ -6,9 +6,7 @@ expression: searched_products
     Some(
         Product {
             name: "Product name in english",
-            description: Some(
-                "Product description in english",
-            ),
+            description_slate: None,
             images: [],
             unit_label: "piece",
             is_published: false,
@@ -21,9 +19,7 @@ expression: searched_products
                 ProductMultilingualTranslations {
                     locale: EnUS,
                     name: "Product name in english",
-                    description: Some(
-                        "Product description in english",
-                    ),
+                    description_slate: None,
                 },
             ],
         },

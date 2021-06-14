@@ -30,11 +30,11 @@ export default function ProductEditForm(props: Props): Node {
         visibility
         enTranslation: translation(locale: en_US) {
           name
-          description
+          descriptionSlate
         }
         esTranslation: translation(locale: es_MX) {
           name
-          description
+          descriptionSlate
         }
         images {
           name
@@ -48,8 +48,16 @@ export default function ProductEditForm(props: Props): Node {
     <ProductForm
       name_en={data.enTranslation?.name}
       name_es={data.esTranslation?.name}
-      description_en={data.enTranslation?.description}
-      description_es={data.esTranslation?.description}
+      description_en={
+        data.enTranslation?.descriptionSlate != null
+          ? JSON.parse(data.enTranslation.descriptionSlate)
+          : null
+      }
+      description_es={
+        data.esTranslation?.descriptionSlate != null
+          ? JSON.parse(data.esTranslation.descriptionSlate)
+          : null
+      }
       price={
         data.price.unitAmount != null
           ? data.price.unitAmount / 100 // adjusted for centavo
@@ -111,12 +119,12 @@ export default function ProductEditForm(props: Props): Node {
               {
                 locale: 'en_US',
                 name: formValues.name_en,
-                description: formValues.description_en || null,
+                descriptionSlate: JSON.stringify(formValues.description_en),
               },
               {
                 locale: 'es_MX',
                 name: formValues.name_es,
-                description: formValues.description_es || null,
+                descriptionSlate: JSON.stringify(formValues.description_es),
               },
             ],
             visibility: formValues.visibility,
