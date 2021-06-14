@@ -60,7 +60,7 @@
         "items": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["locale", "name", "description"],
+          "required": ["locale", "name", "description_slate"],
           "properties": {
             "locale": {
               "type": "string",
@@ -71,7 +71,7 @@
               "type": ["string"],
               "minLength": 1
             },
-            "description": {
+            "description_slate": {
               "type": ["string", "null"],
               "minLength": 1
             }

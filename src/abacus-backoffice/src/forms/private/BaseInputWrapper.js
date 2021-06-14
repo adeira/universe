@@ -15,24 +15,26 @@ type Props = {
 export default function BaseInputWrapper(props: Props): Node {
   return (
     <div className={styles('inputWrapper')}>
-      <label
-        className={styles({
-          label: true,
-          labelError: props.hasValidationError,
-        })}
-      >
-        {props.label}
-        {props.required === true ? (
-          <>
-            {' '}
-            <abbr
-              title={<fbt desc="mandatory field description">This field is mandatory</fbt>}
-              aria-label="required"
-            >
-              <strong>*</strong>
-            </abbr>
-          </>
-        ) : null}
+      <label>
+        <div
+          className={styles({
+            label: true,
+            labelError: props.hasValidationError,
+          })}
+        >
+          {props.label}
+          {props.required === true ? (
+            <>
+              {' '}
+              <abbr
+                title={<fbt desc="mandatory field description">This field is mandatory</fbt>}
+                aria-label="required"
+              >
+                <strong>*</strong>
+              </abbr>
+            </>
+          ) : null}
+        </div>
 
         {props.children}
 

@@ -1,6 +1,6 @@
 ---
 source: src/migrations/v4__create_collection_products.rs
-expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"is_published\" :\n                           false, \"created\" : \"\", \"visibility\" : [], \"updated\"\n                           : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            }]\n                       }))"
+expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"is_published\" :\n                           false, \"created\" : \"\", \"visibility\" : [], \"updated\"\n                           : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\",\n                                \"description_slate\" : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\",\n                                \"description_slate\" : \"\"\n                            }]\n                       }))"
 ---
 {
   "errors": [
@@ -11,7 +11,7 @@ expression: "schema.validate(&json!({\n                           \"images\" : [
     },
     {
       "code": "min_length",
-      "path": "/translations/0/description",
+      "path": "/translations/0/description_slate",
       "title": "MinLength condition is not met"
     },
     {
@@ -21,7 +21,7 @@ expression: "schema.validate(&json!({\n                           \"images\" : [
     },
     {
       "code": "min_length",
-      "path": "/translations/1/description",
+      "path": "/translations/1/description_slate",
       "title": "MinLength condition is not met"
     },
     {
