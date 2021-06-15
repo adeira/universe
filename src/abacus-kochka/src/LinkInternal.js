@@ -26,9 +26,6 @@ export default function LinkInternal(props: Props): React.Node {
   const isActive = router.pathname === props.href;
 
   return (
-    /* $FlowFixMe[prop-missing] This comment suppresses an error when migrating
-     * to adeira/universe. To see the error delete this comment and run Flow.
-     */
     <NextLink href={props.href} locale={router.locale} passHref={true}>
       <SXLink href={props.href} isActive={isActive} xstyle={props.xstyle}>
         {props.children}
