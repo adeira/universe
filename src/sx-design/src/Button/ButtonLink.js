@@ -14,20 +14,26 @@ type Props = {
   +'tint'?: 'default' | 'error' | 'success' | 'warning',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
+  +'onClick'?: () => void,
 };
 
 /**
  * Stylistically similar to <Button /> except it renders a link and expects `href` instead of
  * `onClick` property.
+ *
+ * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
+ * be forwarded to the HTML `<a />` element as expected.
  */
-export default function ButtonLink(props: Props): React.Node {
+export default (React.forwardRef(function ButtonLink(props, ref): React.Node {
   return (
     <Link
+      ref={ref}
       href={props.href}
       target={props.target}
       isActive={props.isActive ?? true}
       data-testid={props['data-testid']}
       xstyle={styles.linkStylesReset}
+      onClick={props.onClick}
     >
       <span
         className={sharedButtonStyles({
@@ -43,7 +49,7 @@ export default function ButtonLink(props: Props): React.Node {
       </span>
     </Link>
   );
-}
+}): React.AbstractComponent<Props, HTMLAnchorElement>);
 
 const styles = sx.create({
   linkStylesReset: {
