@@ -352,7 +352,7 @@
   },
   {
    "hashToText": {
-    "A+0Lilk1ppRt4d4npiUiHg==": "A cold beverage prepared with ice cubes, slightly foamed milk, and finished with an espresso on top."
+    "j5buIorgcqwKWuOiUgC18Q==": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweat syrup, and finished with an espresso on top."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 93,
@@ -362,7 +362,7 @@
    "desc": "description of iced latte",
    "project": "",
    "type": "text",
-   "jsfbt": "A cold beverage prepared with ice cubes, slightly foamed milk, and finished with an espresso on top."
+   "jsfbt": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweat syrup, and finished with an espresso on top."
   },
   {
    "hashToText": {
@@ -971,9 +971,9 @@
     "bU6rVH2V6ifH2RNffzFZ8g==": "All our products are currently available only in person in our café. We are working on making them available online as well."
    },
    "filepath": "src/shop/ProductPageLayout.js",
-   "line_beg": 62,
+   "line_beg": 64,
    "col_beg": 18,
-   "line_end": 65,
+   "line_end": 67,
    "col_end": 24,
    "desc": "not about all our products being available only in person",
    "project": "",
@@ -1083,9 +1083,9 @@
     "9nlQMh24gzrCe2wsI7rTrw==": "retry"
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 62,
+   "line_beg": 65,
    "col_beg": 18,
-   "line_end": 62,
+   "line_end": 65,
    "col_end": 60,
    "desc": "retry button title",
    "project": "",
@@ -1097,9 +1097,9 @@
     "CA7qWNKuLlABfoiTt5lvUA==": "unable to load eshop products"
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 67,
+   "line_beg": 70,
    "col_beg": 12,
-   "line_end": 67,
+   "line_end": 70,
    "col_end": 94,
    "desc": "unable to load eshop products note",
    "project": "",
@@ -1111,9 +1111,9 @@
     "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
    },
    "filepath": "src/shop/ShopLayoutContent.js",
-   "line_beg": 75,
+   "line_beg": 78,
    "col_beg": 14,
-   "line_end": 75,
+   "line_end": 78,
    "col_end": 77,
    "desc": "empty shop message",
    "project": "",
@@ -1125,9 +1125,9 @@
     "4hzwDqzKYoJYiTxo5Erg4A==": "link to KOCHKA Café Instagram page"
    },
    "filepath": "src/SocialMediaIcons.js",
-   "line_beg": 24,
+   "line_beg": 25,
    "col_beg": 12,
-   "line_end": 24,
+   "line_end": 25,
    "col_end": 97,
    "desc": "aria label of our Instagram link",
    "project": "",
@@ -1139,9 +1139,9 @@
     "5QbuAWwkViB3in/V8u59bg==": "link to KOCHKA Café facebook page"
    },
    "filepath": "src/SocialMediaIcons.js",
-   "line_beg": 37,
+   "line_beg": 38,
    "col_beg": 12,
-   "line_end": 37,
+   "line_end": 38,
    "col_end": 95,
    "desc": "aria label of our Facebook link",
    "project": "",
@@ -1150,12 +1150,26 @@
   },
   {
    "hashToText": {
+    "th27ZLyY0P1wj2QYva4ueg==": "link to GitHub repository"
+   },
+   "filepath": "src/SocialMediaIcons.js",
+   "line_beg": 50,
+   "col_beg": 22,
+   "line_end": 50,
+   "col_end": 95,
+   "desc": "aria label of our GitHub link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "link to GitHub repository"
+  },
+  {
+   "hashToText": {
     "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 46,
+   "line_beg": 45,
    "col_beg": 14,
-   "line_end": 46,
+   "line_end": 45,
    "col_end": 55,
    "desc": "coming soon",
    "project": "",
@@ -1167,9 +1181,9 @@
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 72,
+   "line_beg": 71,
    "col_beg": 20,
-   "line_end": 74,
+   "line_end": 73,
    "col_end": 26,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
