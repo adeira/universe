@@ -8,8 +8,11 @@ import { fbt } from 'fbt';
 import sx from '@adeira/sx';
 
 import LinkInternal from '../LinkInternal';
+import useViewerContext from '../hooks/useViewerContext';
 
 export default function ShopLayoutContent(): React.Node {
+  const viewerContext = useViewerContext();
+
   return (
     <QueryRenderer
       query={graphql`
@@ -39,7 +42,7 @@ export default function ShopLayoutContent(): React.Node {
         }
       `}
       variables={{
-        clientLocale: 'en_US', // TODO
+        clientLocale: viewerContext.languageTag.graphql,
         priceSortDirection: 'LOW_TO_HIGH',
       }}
       onLoading={() => {

@@ -2,10 +2,12 @@
 
 type Bcp47LanguageTagType = 'en-US' | 'es-MX';
 type UrlLanguageTagType = 'en-us' | 'es-mx';
+type GraphQLLanguageTagType = 'en_US' | 'es_MX';
 
 export type LanguageTagType = {
   +bcp47: Bcp47LanguageTagType,
   +url: UrlLanguageTagType,
+  +graphql: GraphQLLanguageTagType,
 };
 
 const SUPPORTED_PRIMARY_LANGUAGE_SUBTAGS = ['en', 'es'];
@@ -48,6 +50,8 @@ class LanguageTag {
       bcp47:
         ((`${primaryLanguageSubtag.toLowerCase()}-${regionSubtag.toUpperCase()}`: any): Bcp47LanguageTagType),
       url: ((`${primaryLanguageSubtag}-${regionSubtag}`.toLowerCase(): any): UrlLanguageTagType),
+      graphql:
+        ((`${primaryLanguageSubtag.toLowerCase()}_${regionSubtag.toUpperCase()}`: any): GraphQLLanguageTagType),
     };
   }
 }
