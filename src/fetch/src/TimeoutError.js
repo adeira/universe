@@ -7,6 +7,9 @@ import setPrototypeOf from './setPrototypeOf';
  */
 function TimeoutError(message?: string): Error {
   const instance = new Error(message);
+  /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
+   * upgrading Flow to version 0.153.0. To see the error delete this comment
+   * and run Flow. */
   setPrototypeOf(instance, Object.getPrototypeOf(this));
   if (Error.captureStackTrace) {
     Error.captureStackTrace(instance, TimeoutError);

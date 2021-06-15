@@ -100,6 +100,9 @@ export default async function publish(options: Options) {
           if (options.dryRun === false) {
             await NPM.publishPackage({
               metadata: packageJSONFile,
+              /* $FlowFixMe[class-object-subtyping] This comment suppresses an
+               * error when upgrading Flow to version 0.153.0. To see the error
+               * delete this comment and run Flow. */
               body: fs.createReadStream(path.join(options.buildCache, `${packageFolderName}.tgz`)),
               npmAuthToken: options.npmAuthToken,
             });
