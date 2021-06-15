@@ -1,5 +1,5 @@
-// flow-typed signature: 0a3b6fe6229193d8c7ddf583c0c74aa8
-// flow-typed version: a9cb5131e4/next_v10.x.x/flow_>=v0.104.x
+// flow-typed signature: a45e28abd4c3f3f783b03245280c308f
+// flow-typed version: 0cb8ee4963/next_v10.x.x/flow_>=v0.104.x
 
 declare module "next" {
   declare type RequestHandler = (
@@ -149,6 +149,7 @@ declare module "next/router" {
   }) => boolean;
 
   declare export type Router = {
+    +route: string,
     +pathname: string,
     +query: Object,
     +asPath: string,
