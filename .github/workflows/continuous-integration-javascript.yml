@@ -34,7 +34,9 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Run Flow checks
-        run: yarn run flow --max-warnings=0
+        run: |
+          yarn flow version --binary
+          yarn run flow --max-warnings=0
 
       - name: Run Eslint
         run: yarn run lint
