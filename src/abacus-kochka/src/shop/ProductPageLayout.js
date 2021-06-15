@@ -8,9 +8,11 @@ import * as React from 'react';
 import { useRouter } from 'next/router';
 
 import Layout from '../Layout';
+import useViewerContext from '../hooks/useViewerContext';
 
 export default function ProductPageLayout(): React.Node {
   const router = useRouter();
+  const viewerContext = useViewerContext();
   const productKey = router.query.product_key;
 
   return (
@@ -37,7 +39,7 @@ export default function ProductPageLayout(): React.Node {
         }
       `}
       variables={{
-        clientLocale: 'en_US', // TODO
+        clientLocale: viewerContext.languageTag.graphql,
         productKey,
       }}
       onResponse={({ commerce: { product } }) => {
