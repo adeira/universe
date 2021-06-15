@@ -16,12 +16,18 @@ function ResponseError(response: Response, message?: string): ResponseErrorType 
 
   // $FlowExpectedError[prop-missing]: property 'error.response' is unknown in Error (but that's fine, we are extending here)
   instance.response = response;
+  /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
+   * upgrading Flow to version 0.153.0. To see the error delete this comment
+   * and run Flow. */
   setPrototypeOf(instance, Object.getPrototypeOf(this));
   if (Error.captureStackTrace) {
     Error.captureStackTrace(instance, ResponseError);
   }
 
   // $FlowExpectedError[prop-missing]: property 'error.response' is unknown in Error (but that's fine, we are extending here)
+  /* $FlowFixMe[class-object-subtyping] This comment suppresses an error when
+   * upgrading Flow to version 0.153.0. To see the error delete this comment
+   * and run Flow. */
   return instance;
 }
 

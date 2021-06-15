@@ -36,6 +36,9 @@ function getRequestBodyWithUploadables(request, variables, uploadables): FormDat
   formData.append('variables', JSON.stringify(variables));
 
   Object.keys(uploadables).forEach((key) => {
+    /* $FlowFixMe[method-unbinding] This comment suppresses an error when
+     * upgrading Flow to version 0.153.0. To see the error delete this comment
+     * and run Flow. */
     if (Object.prototype.hasOwnProperty.call(uploadables, key)) {
       formData.append(key, uploadables[key]);
     }
