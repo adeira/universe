@@ -7,7 +7,7 @@ export default function useApplicationLocale(): {
   +graphql: 'en_US' | 'es_MX',
 } {
   const router = useRouter();
-  // $FlowIssue[prop-missing] prop missing in flow-typed types
+  // $FlowIssue[incompatible-cast] generic string is incompatible with these specific string literals
   const routerLocale = (router.locale: 'en-us' | 'es-mx');
 
   // Next.js router => Abacus application (+GraphQL)

@@ -1,5 +1,5 @@
-// flow-typed signature: 514646ec2cd38bf48c399f8b3ac0ea8c
-// flow-typed version: 071a03ea49/next_v9.x.x/flow_>=v0.104.x
+// flow-typed signature: 0a3b6fe6229193d8c7ddf583c0c74aa8
+// flow-typed version: a9cb5131e4/next_v10.x.x/flow_>=v0.104.x
 
 declare module "next" {
   declare type RequestHandler = (
@@ -149,10 +149,16 @@ declare module "next/router" {
   }) => boolean;
 
   declare export type Router = {
-    +route: string,
     +pathname: string,
-    +asPath: string,
     +query: Object,
+    +asPath: string,
+    +isFallback: boolean,
+    +basePath: string,
+    +locale: string,
+    +locales: string[],
+    +defaultLocale: string,
+    +isReady: boolean,
+    +isPreview: boolean,
     events: RouterEvents,
     push(
       url: string | URLObject,

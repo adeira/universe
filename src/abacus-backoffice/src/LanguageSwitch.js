@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 
 export default function LanguageSwitch(): React.Node {
   const router = useRouter();
-  // $FlowIssue[prop-missing] prop missing in flow-typed types
   const urlLocale = router.locale;
 
   // eventually we could offer to switch language and region independently
@@ -21,6 +20,7 @@ export default function LanguageSwitch(): React.Node {
     if (urlLocale !== languageTagURL) {
       // do not switch to the current language
       languageSwitch.push(
+        // $FlowIssue[prop-missing] prop `route` missing in flow-typed types (https://github.com/flow-typed/flow-typed/pull/4093)
         <NextLink href={router.route} key={languageTagURL} locale={languageTagURL}>
           <button type="button">{linkText}</button>
         </NextLink>,
