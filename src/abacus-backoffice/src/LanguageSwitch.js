@@ -20,7 +20,6 @@ export default function LanguageSwitch(): React.Node {
     if (urlLocale !== languageTagURL) {
       // do not switch to the current language
       languageSwitch.push(
-        // $FlowIssue[prop-missing] prop `route` missing in flow-typed types (https://github.com/flow-typed/flow-typed/pull/4093)
         <NextLink href={router.route} key={languageTagURL} locale={languageTagURL}>
           <button type="button">{linkText}</button>
         </NextLink>,
