@@ -73,14 +73,28 @@ Check our [Contribution guide](/.github/CONTRIBUTING.md) on how to report issues
 - [Kodiak dashboard](https://app.kodiakhq.com/) - automated PR merging
 - [Docker Hub](https://hub.docker.com/orgs/adeira)
 
-## Troubleshooting
+### Upgrading Flow
+
+Flow is currently being released approx. every 14 days with each release introducing improvements into the type system soundness. It is common that there will be new errors discovered with each release. The recommended strategy is to acknowledge these new errors and suppress them to ease the version upgrade (they were most likely there the whole time anyway). To do so, please clone locally [`facebook/flow`](https://github.com/facebook/flow/) repository, install dependencies via `yarn install` and run the following command (modify as needed):
+
+```bash
+./tool add-comments --all --comment "This comment suppresses an error when upgrading Flow to version 0.153.0. To see the error delete this comment and run Flow." --bin /Work/adeira/universe/node_modules/.bin/flow /Work/adeira/universe/src
+```
+
+Optionally, you can try to run the `flow fix` command:
+
+```bash
+yarn flow fix --write
+```
+
+### Troubleshooting
 
 <details>
 <summary>Click to expand</summary>
 
 Things go broken and sometimes it's difficult to understand what's going on. This section should help with these tricky problems. Please help us expand it as you go.
 
-### When running tests
+#### When running tests
 
 Problem (some unexpected Babel behavior which doesn't seem to be a code problem):
 
