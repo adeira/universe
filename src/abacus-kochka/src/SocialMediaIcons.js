@@ -6,6 +6,7 @@ import fbt from 'fbt';
 
 import Instagram from './design/svg/__generated__/Instagram';
 import Facebook from './design/svg/__generated__/Facebook';
+import GitHub from './design/svg/GitHub';
 import socialLinks from './socialLinks';
 
 type Props = {
@@ -40,6 +41,17 @@ export default function SocialMediaIcons(props: Props): React.Node {
           rel="noreferrer"
         >
           <Facebook color={props.color} size={props.size} />
+        </a>
+      </div>
+
+      <div className={styles(props.vertical ? 'iconVertical' : 'icon')}>
+        <a
+          href={socialLinks.gitHubURL}
+          aria-label={<fbt desc="aria label of our GitHub link">link to GitHub repository</fbt>}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <GitHub color={props.color} size={props.size} />
         </a>
       </div>
     </div>

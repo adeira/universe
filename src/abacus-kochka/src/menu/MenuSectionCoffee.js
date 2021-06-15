@@ -91,8 +91,8 @@ export default function MenuSectionCoffee(): Node {
         title="Iced Latte"
         description={
           <fbt desc="description of iced latte">
-            A cold beverage prepared with ice cubes, slightly foamed milk, and finished with an
-            espresso on top.
+            A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweat syrup, and
+            finished with an espresso on top.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
