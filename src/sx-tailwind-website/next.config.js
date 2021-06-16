@@ -8,6 +8,9 @@ const withCustomBabelConfigFile = require('next-plugin-custom-babel-config');
 
 module.exports = (withCustomBabelConfigFile(
   withTranspileModules(['@adeira/css-colors', '@adeira/js', '@adeira/murmur-hash', '@adeira/sx'])({
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
     babelConfigFile: path.join(__dirname, '.babelrc.js'),
     webpack: (config) => {
       config.module.rules.push({
