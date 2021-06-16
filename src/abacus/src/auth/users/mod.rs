@@ -2,7 +2,7 @@ pub use crate::auth::users::anonymous_user::AnonymousUser;
 pub use crate::auth::users::signed_user::SignedUser;
 
 use crate::auth::google::Claims;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 mod anonymous_user;
 mod signed_user;
@@ -15,7 +15,7 @@ pub enum User {
 
 /// AnyUser represents any generic user in the database which can later be converted to the right
 /// type (admin/anonymous/authorized) as needed.
-#[derive(Clone, serde::Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 pub struct AnyUser {
     _id: String,
     _rev: String,
@@ -73,6 +73,15 @@ impl AnyUser {
 
     pub(crate) fn is_active(&self) -> bool {
         self.is_active.to_owned()
+    }
+
+    /// Name is a full name of the user ("John Doe").
+    #[cfg(test)]
+    pub(crate) fn name(&self) -> Option<String> {
+        match &self.google {
+            Some(google) => google.name().to_owned(),
+            None => None,
+        }
     }
 
     #[cfg(test)]

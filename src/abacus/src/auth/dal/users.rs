@@ -2,9 +2,8 @@ use crate::arangodb::errors::ModelError;
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
-/// Returns all users except anonymous one - so almost all users (anonymous is not really a user).
-///
-/// TODO(004) add integration tests
+/// Returns all users except anonymous one - so almost all users (anonymous is not really a user
+/// but rather a special case used in anonymous analytics/tracking for example).
 pub(crate) async fn list_all_users(
     pool: &crate::arangodb::ConnectionPool,
 ) -> Result<Vec<AnyUser>, ModelError> {
@@ -170,6 +169,25 @@ mod tests {
     use super::*;
     use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
     use crate::auth::google::Claims;
+
+    #[ignore]
+    #[tokio::test]
+    async fn list_all_users_test() {
+        let db_name = "list_all_users_test";
+        let pool = prepare_empty_test_database(&db_name).await;
+
+        let all_users = list_all_users(&pool).await.unwrap();
+
+        // Currently we automatically create 2 users in DB migrations (1 anonymous and 1 superadmin).
+        // The anonymous user is being excluded from the `list_all_users` query.
+        assert_eq!(all_users.len(), 1);
+        assert_eq!(
+            all_users.first().unwrap().name(),
+            Some(String::from("Martin Zlámal"))
+        );
+
+        cleanup_test_database(&db_name).await;
+    }
 
     #[ignore]
     #[tokio::test]

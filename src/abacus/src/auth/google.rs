@@ -41,10 +41,6 @@ impl Claims {
         &self.family_name
     }
 
-    pub(crate) fn email(&self) -> &Option<String> {
-        &self.email
-    }
-
     pub(crate) fn is_email_verified(&self) -> &Option<bool> {
         &self.email_verified
     }
