@@ -32,32 +32,21 @@ mod session;
 ///     We have to always generate a new one because it could happen that user lost the session
 ///     token and would not be able to logout/login anymore (so re-authentication simply
 ///     means a new authentication).
-/// 2b. Create a new user if it doesn't exist yet and generate and store new session token.
+/// 2b. Reject any requests attempting to access non-existent users.
 pub(in crate::auth) async fn authorize(
     pool: &crate::arangodb::ConnectionPool,
     google_id_token: &str,
-    whitelisted_google_subs: &Option<Vec<&str>>,
 ) -> Result<String, error::AuthError> {
     let mut cached_certs = certs::CachedCertsProduction::new();
     let token_data = verify_id_token_integrity(&google_id_token, &mut cached_certs).await?; // (1.)
-    let token_sub = token_data.claims.subject();
-
-    if let Some(whitelisted_google_subs) = whitelisted_google_subs {
-        if whitelisted_google_subs
-            .iter()
-            .find(|&sub| sub == token_sub)
-            .is_none()
-        {
-            return Err(error::AuthError::InvalidToken(format!(
-                "Cannot authorize this token because its subject is not whitelisted ({}).",
-                token_sub
-            )));
-        }
-    }
 
     match find_user_by_google_claims(&pool, &token_data.claims.subject()).await {
         // the user already exists (2a.)
         Some(user) => {
+            if !user.is_active() {
+                return Err(AuthError::AccessDenied(String::from("user is not active")));
+            }
+
             if let Some(session) = find_session_by_user(&pool, &user).await {
                 // first, delete the old session (so we don't have many old but valid sessions)
                 delete_user_session(&pool, &session.session_token_hash()).await?;
@@ -69,16 +58,10 @@ pub(in crate::auth) async fn authorize(
             create_new_user_session(&pool, &session_token_hash, &user).await?;
             Ok(session_token)
         }
-        // new user with valid Google ID token - let's register it (2b.)
-        None => match create_user_by_google_claims(&pool, &token_data.claims).await {
-            Ok(new_user) => {
-                let session_token = session::generate_session_token();
-                let session_token_hash = derive_session_token_hash(&session_token);
-                create_new_user_session(&pool, &session_token_hash, &new_user).await?;
-                Ok(session_token)
-            }
-            Err(e) => Err(AuthError::DatabaseError(e)),
-        },
+        // new user with valid Google ID token - reject it (2b.)
+        None => Err(AuthError::AccessDenied(String::from(
+            "user is not whitelisted",
+        ))),
     }
 }
 

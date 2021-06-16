@@ -1,0 +1,18 @@
+{
+  "message": "",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["last_access", "type"],
+    "properties": {
+      "last_access": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["mobile", "webapp"]
+      }
+    }
+  }
+}

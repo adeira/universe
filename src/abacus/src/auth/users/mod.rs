@@ -1,6 +1,7 @@
 pub use crate::auth::users::anonymous_user::AnonymousUser;
 pub use crate::auth::users::signed_user::SignedUser;
-use juniper::GraphQLObject;
+
+use crate::auth::google::Claims;
 use serde::Deserialize;
 
 mod anonymous_user;
@@ -14,20 +15,64 @@ pub enum User {
 
 /// AnyUser represents any generic user in the database which can later be converted to the right
 /// type (admin/anonymous/authorized) as needed.
-#[derive(Clone, serde::Deserialize, GraphQLObject)]
-#[graphql(description = "")]
+#[derive(Clone, serde::Deserialize)]
 pub struct AnyUser {
-    #[graphql(name = "id")]
     _id: String,
-    #[graphql(skip)]
     _rev: String,
-    #[graphql(skip)]
     _key: String,
+    is_active: bool,
+    google: Option<Claims>,
+}
+
+#[juniper::graphql_object]
+impl AnyUser {
+    pub(crate) fn id(&self) -> String {
+        self._id.to_owned()
+    }
+
+    pub(crate) fn is_active(&self) -> bool {
+        self.is_active.to_owned()
+    }
+
+    /// Name is a full name of the user ("John Doe").
+    pub(crate) fn name(&self) -> Option<String> {
+        match &self.google {
+            Some(google) => google.name().to_owned(),
+            None => None,
+        }
+    }
+
+    /// Given name is "John" in "John Doe".
+    pub(crate) fn given_name(&self) -> Option<String> {
+        match &self.google {
+            Some(google) => google.given_name().to_owned(),
+            None => None,
+        }
+    }
+
+    /// Family name is "Doe" in "John Doe".
+    pub(crate) fn family_name(&self) -> Option<String> {
+        match &self.google {
+            Some(google) => google.family_name().to_owned(),
+            None => None,
+        }
+    }
+
+    pub(crate) fn has_email_verified(&self) -> Option<bool> {
+        match &self.google {
+            Some(google) => google.is_email_verified().to_owned(),
+            None => None,
+        }
+    }
 }
 
 impl AnyUser {
     pub(crate) fn id(&self) -> String {
         self._id.to_owned()
+    }
+
+    pub(crate) fn is_active(&self) -> bool {
+        self.is_active.to_owned()
     }
 
     #[cfg(test)]
@@ -39,6 +84,8 @@ impl AnyUser {
             },
             _rev: String::from(""),
             _key: String::from("42yadada42"),
+            is_active: true,
+            google: None,
         }
     }
 }

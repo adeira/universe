@@ -1,4 +1,4 @@
-# @generated SignedSource<<63489b90acbb9034376f4f2a3e944ae6>>
+# @generated SignedSource<<2647240e7e70a911e963c887cbac9b69>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -32,20 +32,14 @@ enum SupportedCurrency {
 "Root mutation of the graph."
 type Mutation {
   """
-    This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
-    device) and returns authorization payload. There is no concept of sign-in and sign-up
-    because every user with a valid JWT ID token will be either authorized OR registered and
-    authorized. Invalid tokens and disabled tokens will be rejected.
+    This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
+    and returns authorization payload. There is no concept of sign-in and sign-up: every
+    whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
+    that are not whitelisted will be rejected.
 
     Repeated calls will result in a new session token and deauthorization of the previous
     token (if it exist). Original session token is returned back only once and cannot be
     retrieved later (it's irreversibly hashed in the database).
-  """
-  authorizeMobile(googleIdToken: String!): AuthorizeMobilePayload!
-  """
-    Technically, this is very similar to `authorize_mobile` except the token handling is a bit
-    different. Firstly, the session expires after just a few hours (of inactivity). Secondly,
-    the session token should be securely stored somewhere in the browser.
   """
   authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
   """
@@ -154,9 +148,16 @@ type POSMutation {
 
 union ProductOrError = Product | ProductError
 
-""
 type AnyUser {
   id: String!
+  isActive: Boolean!
+  "Name is a full name of the user (\"John Doe\")."
+  name: String
+  "Given name is \"John\" in \"John Doe\"."
+  givenName: String
+  "Family name is \"Doe\" in \"John Doe\"."
+  familyName: String
+  hasEmailVerified: Boolean
 }
 
 type ProductError {
@@ -315,17 +316,6 @@ type PosCheckoutTotalStats {
   totalCheckouts: Int!
   totalSoldUnits: Int!
   totalSoldUnitAmount: Int!
-}
-
-type AuthorizeMobilePayload {
-  success: Boolean!
-  "Failure message is available only when success=false."
-  failureMessage: String
-  """
-    Session token should be send with every GraphQL request which requires auth.
-    Returns `None` if the request was not successful.
-  """
-  sessionToken: String
 }
 
 type Image {

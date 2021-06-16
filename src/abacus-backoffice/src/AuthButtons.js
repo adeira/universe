@@ -15,15 +15,16 @@ export function LoginButton(): Node {
   const { login } = useSessionTokenAPI();
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const [authorizeMutation] = useMutation<AuthButtonsAuthorizeWebappMutation>(graphql`
-    mutation AuthButtonsAuthorizeWebappMutation($googleIdToken: String!) {
-      authorizeWebapp(googleIdToken: $googleIdToken) {
-        success
-        sessionToken
-        failureMessage
+  const [authorizeMutation, isAuthorizeMutationPending] =
+    useMutation<AuthButtonsAuthorizeWebappMutation>(graphql`
+      mutation AuthButtonsAuthorizeWebappMutation($googleIdToken: String!) {
+        authorizeWebapp(googleIdToken: $googleIdToken) {
+          success
+          sessionToken
+          failureMessage
+        }
       }
-    }
-  `);
+    `);
 
   const successResponseGoogle = (response) => {
     authorizeMutation({
@@ -57,6 +58,11 @@ export function LoginButton(): Node {
         onSuccess={successResponseGoogle}
         onFailure={failureResponseGoogle}
       />
+      {isAuthorizeMutationPending === true ? (
+        <div>
+          <fbt desc="authorization please wait message">Please wait…</fbt>
+        </div>
+      ) : null}
       {errorMessage != null ? <div className={styles('errorMessage')}>{errorMessage}</div> : null}
     </>
   );

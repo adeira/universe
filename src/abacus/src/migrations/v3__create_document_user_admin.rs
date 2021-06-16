@@ -4,6 +4,7 @@ use arangors::ClientError;
 #[derive(serde::Serialize, serde::Deserialize)]
 struct User {
     _key: String,
+    is_active: bool,
     google: UserGoogleClaims,
 }
 
@@ -51,6 +52,7 @@ pub async fn migrate(
 
     let user = User {
         _key: String::from("2"),
+        is_active: true,
         google: user_google_claims,
     };
 

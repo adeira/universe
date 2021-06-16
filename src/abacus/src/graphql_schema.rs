@@ -45,24 +45,14 @@ pub struct Mutation;
     description = "Root mutation of the graph.",
 )]
 impl Mutation {
-    /// This function accepts Google ID token (after receiving it from Google Sign-In in a mobile
-    /// device) and returns authorization payload. There is no concept of sign-in and sign-up
-    /// because every user with a valid JWT ID token will be either authorized OR registered and
-    /// authorized. Invalid tokens and disabled tokens will be rejected.
+    /// This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
+    /// and returns authorization payload. There is no concept of sign-in and sign-up: every
+    /// whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
+    /// that are not whitelisted will be rejected.
     ///
     /// Repeated calls will result in a new session token and deauthorization of the previous
     /// token (if it exist). Original session token is returned back only once and cannot be
     /// retrieved later (it's irreversibly hashed in the database).
-    async fn authorize_mobile(
-        google_id_token: String,
-        context: &Context,
-    ) -> FieldResult<crate::auth::api::AuthorizeMobilePayload> {
-        crate::auth::api::authorize_mobile(&google_id_token, &context).await
-    }
-
-    /// Technically, this is very similar to `authorize_mobile` except the token handling is a bit
-    /// different. Firstly, the session expires after just a few hours (of inactivity). Secondly,
-    /// the session token should be securely stored somewhere in the browser.
     async fn authorize_webapp(
         google_id_token: String,
         context: &Context,
