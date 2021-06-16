@@ -39,4 +39,7 @@ module.exports = ({
     ],
     defaultLocale: 'en-us',
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 } /*: any */);
