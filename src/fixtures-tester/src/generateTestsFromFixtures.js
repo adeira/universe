@@ -50,7 +50,6 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
   const onlyFixtures = fixtures.filter(shouldSkip);
   if (onlyFixtures.length) {
     /* eslint-disable jest/no-disabled-tests */
-    // $FlowFixMe[prop-missing]: we need to update our Jest type definitions (TODO)
     test.skip.each(fixtures.filter((name) => !shouldSkip(name)))(
       'matches expected output: %s',
       () => {},
