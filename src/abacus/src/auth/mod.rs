@@ -2,9 +2,7 @@ use crate::auth::certs::CachedCerts;
 use crate::auth::dal::sessions::{
     create_new_user_session, delete_user_session, find_session_by_user,
 };
-use crate::auth::dal::users::{
-    create_user_by_google_claims, find_user_by_google_claims, get_user_by_session_token_hash,
-};
+use crate::auth::dal::users::{find_user_by_google_claims, get_user_by_session_token_hash};
 use crate::auth::error::AuthError;
 use crate::auth::google::verify_id_token_integrity;
 use crate::auth::session::derive_session_token_hash;
