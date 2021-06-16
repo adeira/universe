@@ -19,10 +19,7 @@ pub(crate) async fn find_session_by_user(
         .build();
 
     match db.aql_query::<Session>(aql).await {
-        Ok(result_vector) => match result_vector.first() {
-            Some(result) => Some(result.to_owned()),
-            None => None,
-        },
+        Ok(result_vector) => result_vector.first().map(|result| result.to_owned()),
         Err(err) => {
             tracing::error!("{}", err);
             None

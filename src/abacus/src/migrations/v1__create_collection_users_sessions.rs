@@ -21,29 +21,7 @@ pub async fn migrate(
         &db,
         "sessions",
         &CollectionType::Document,
-        &serde_json::from_str(
-            r##"
-            {
-              "message": "",
-              "level": "strict",
-              "rule": {
-                "type": "object",
-                "additionalProperties": false,
-                "required": ["last_access", "type"],
-                "properties": {
-                  "last_access": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "string",
-                    "enum": ["mobile", "webapp"]
-                  }
-                }
-              }
-            }
-            "##,
-        )
-        .unwrap(),
+        &serde_json::from_str(std::include_str!("json_schemas/sessions.json")).unwrap(),
     )
     .await?;
 

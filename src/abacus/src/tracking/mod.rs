@@ -14,6 +14,8 @@ struct Tracking {
 ///
 /// Notice that it purposefully doesn't fail but only logs the potential error. It's because we
 /// don't want to interrupt the program flow just because of tracking failure.
+///
+/// TODO(004) add integration tests
 pub(crate) async fn user_visited_product(pool: &ConnectionPool, user: &User, product: &Product) {
     let db = pool.db().await;
     let user_id = match &user {
@@ -29,6 +31,7 @@ pub(crate) async fn user_visited_product(pool: &ConnectionPool, user: &User, pro
               _from: @user_id,
               _to: @product_id,
               created: DATE_ISO8601(DATE_NOW()),
+              action: "VISITED"
             } INTO tracking
             RETURN NEW
             "#,

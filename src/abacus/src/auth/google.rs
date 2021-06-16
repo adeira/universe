@@ -29,6 +29,26 @@ impl Claims {
         &self.sub
     }
 
+    pub(crate) fn name(&self) -> &Option<String> {
+        &self.name
+    }
+
+    pub(crate) fn given_name(&self) -> &Option<String> {
+        &self.given_name
+    }
+
+    pub(crate) fn family_name(&self) -> &Option<String> {
+        &self.family_name
+    }
+
+    pub(crate) fn email(&self) -> &Option<String> {
+        &self.email
+    }
+
+    pub(crate) fn is_email_verified(&self) -> &Option<bool> {
+        &self.email_verified
+    }
+
     #[cfg(test)]
     pub(crate) fn mock(sub: &str) -> Claims {
         Claims {

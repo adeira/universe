@@ -2,6 +2,8 @@ use crate::arangodb::errors::ModelError;
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
+/// Returns all users except anonymous one - so almost all users (anonymous is not really a user).
+///
 /// TODO(004) add integration tests
 pub(crate) async fn list_all_users(
     pool: &crate::arangodb::ConnectionPool,
@@ -12,6 +14,7 @@ pub(crate) async fn list_all_users(
         .query(
             r#"
             FOR user IN users
+              FILTER user._id != "users/1" // hardcoded anonymous user
               RETURN user
             "#,
         )
@@ -32,6 +35,7 @@ pub(crate) async fn find_user_by_google_claims(
         .query(
             r#"
             FOR user IN users
+              FILTER user._id != "users/1" // hardcoded anonymous user
               FILTER user.google.sub == @sub
               LIMIT 1
               RETURN user
@@ -41,10 +45,7 @@ pub(crate) async fn find_user_by_google_claims(
         .build();
 
     match db.aql_query::<AnyUser>(aql).await {
-        Ok(result_vector) => match result_vector.first() {
-            Some(result) => Some(result.to_owned()),
-            None => None,
-        },
+        Ok(result_vector) => result_vector.first().map(|result| result.to_owned()),
         Err(_) => None, // TODO: log such DB error (?)
     }
 }
@@ -117,6 +118,7 @@ pub(crate) async fn create_user_by_google_claims(
         .query(
             r#"
             INSERT {
+              is_active: true,
               google: @claims_json,
             } INTO users
             RETURN NEW
@@ -158,10 +160,7 @@ pub(crate) async fn delete_user_by_google_claims(
         .build();
 
     match db.aql_query::<AnyUser>(aql).await {
-        Ok(result_vector) => match result_vector.first() {
-            Some(result) => Some(result.to_owned()),
-            None => None,
-        },
+        Ok(result_vector) => result_vector.first().map(|result| result.to_owned()),
         Err(_) => None, // TODO: log such DB error (?)
     }
 }

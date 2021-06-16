@@ -8,7 +8,10 @@ import type { ConcreteRequest } from 'relay-runtime';
 export type EmployeesPageQueryVariables = {||};
 export type EmployeesPageQueryResponse = {|
   +listUsers: $ReadOnlyArray<{|
-    +id: string
+    +id: string,
+    +name: ?string,
+    +hasEmailVerified: ?boolean,
+    +isActive: boolean,
   |}>
 |};
 export type EmployeesPageQuery = {|
@@ -20,6 +23,9 @@ export type EmployeesPageQuery = {|
 query EmployeesPageQuery {
   listUsers {
     id
+    name
+    hasEmailVerified
+    isActive
   }
 }
 */
@@ -39,6 +45,27 @@ var v0 = [
         "args": null,
         "kind": "ScalarField",
         "name": "id",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "name",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "hasEmailVerified",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "isActive",
         "storageKey": null
       }
     ],
@@ -63,15 +90,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "45c30571647be788f4de11cb17c546ce",
+    "cacheID": "13af6fb9cc5d9e5a39acdfcfdfba0960",
     "id": null,
     "metadata": {},
     "name": "EmployeesPageQuery",
     "operationKind": "query",
-    "text": "query EmployeesPageQuery {\n  listUsers {\n    id\n  }\n}\n"
+    "text": "query EmployeesPageQuery {\n  listUsers {\n    id\n    name\n    hasEmailVerified\n    isActive\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'e1bbd19cd0e9b21c3bea628a1dbf1851';
+(node: any).hash = 'e79e236d19dd026b5ef10959ba76088e';
 export default node;

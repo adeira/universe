@@ -70,6 +70,7 @@ pub async fn migrate(pool: &ConnectionPool) {
                 .is_ok()
             {
                 // the migration was already applied before - skip
+                tracing::info!("✅ {} [SKIP - already applied]", migration_name);
                 continue;
             }
         }
@@ -86,16 +87,18 @@ pub async fn migrate(pool: &ConnectionPool) {
                         InsertOptions::builder().return_new(true).build(),
                     );
                     match result_future.await {
-                        Ok(_) => tracing::info!("{} ✅", migration_name),
+                        Ok(_) => {
+                            tracing::info!("✅ {} [OK - applied successfully]", migration_name)
+                        }
                         Err(e) => {
-                            tracing::error!("{} ❌", migration_name);
+                            tracing::error!("❌ {}", migration_name);
                             panic!("{:?}", e)
                         }
                     }
                 }
             }
             Err(e) => {
-                tracing::error!("{} ❌", migration_name);
+                tracing::error!("❌ {}", migration_name);
                 panic!("{:?}", e)
             }
         }

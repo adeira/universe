@@ -4,6 +4,7 @@ use arangors::ClientError;
 #[derive(serde::Serialize, serde::Deserialize)]
 struct User {
     _key: String,
+    is_active: bool,
 }
 
 impl ArangoDocument for User {
@@ -21,6 +22,7 @@ pub async fn migrate(
         &collection_name,
         User {
             _key: String::from("1"),
+            is_active: true,
         },
     )
     .await

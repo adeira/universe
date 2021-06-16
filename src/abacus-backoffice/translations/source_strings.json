@@ -5,9 +5,9 @@
     "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 43,
+   "line_beg": 44,
    "col_beg": 24,
-   "line_end": 43,
+   "line_end": 44,
    "col_end": 81,
    "desc": "login unknown error",
    "project": "",
@@ -16,17 +16,87 @@
   },
   {
    "hashToText": {
+    "WgPsVQPDZkU+G14byaetrQ==": "Please wait…"
+   },
+   "filepath": "src/AuthButtons.js",
+   "line_beg": 63,
+   "col_beg": 10,
+   "line_end": 63,
+   "col_end": 74,
+   "desc": "authorization please wait message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Please wait…"
+  },
+  {
+   "hashToText": {
     "ZmoOgkWDunmOx3U/8Us9hg==": "Logout"
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 98,
+   "line_beg": 104,
    "col_beg": 6,
-   "line_end": 98,
+   "line_end": 104,
    "col_end": 50,
    "desc": "logout button title",
    "project": "",
    "type": "text",
    "jsfbt": "Logout"
+  },
+  {
+   "hashToText": {
+    "cDuUp7H3Z3pcA1USmdXIyw==": "active"
+   },
+   "filepath": "src/employees/EmployeesPage.js",
+   "line_beg": 32,
+   "col_beg": 18,
+   "line_end": 32,
+   "col_end": 68,
+   "desc": "active user - label title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "active"
+  },
+  {
+   "hashToText": {
+    "J0MsIYnMPKiz7ubGl3IyyA==": "inactive"
+   },
+   "filepath": "src/employees/EmployeesPage.js",
+   "line_beg": 36,
+   "col_beg": 18,
+   "line_end": 36,
+   "col_end": 72,
+   "desc": "inactive user - label title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "inactive"
+  },
+  {
+   "hashToText": {
+    "ljdn3Wlj6+RtF2CehM///w==": "email verified"
+   },
+   "filepath": "src/employees/EmployeesPage.js",
+   "line_beg": 44,
+   "col_beg": 18,
+   "line_end": 44,
+   "col_end": 88,
+   "desc": "user has email verifies - label title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "email verified"
+  },
+  {
+   "hashToText": {
+    "eOYUb4Hm7JmwXrcob9M5iw==": "email NOT verified"
+   },
+   "filepath": "src/employees/EmployeesPage.js",
+   "line_beg": 48,
+   "col_beg": 18,
+   "line_end": 50,
+   "col_end": 24,
+   "desc": "user doesn't have email verifies - label title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "email NOT verified"
   },
   {
    "hashToText": {
@@ -195,6 +265,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "Ledger"
+  },
+  {
+   "hashToText": {
+    "Y3o6+D/7PWcFogiHsVcKiA==": "Unable to load data or missing data."
+   },
+   "filepath": "src/MissingData.js",
+   "line_beg": 11,
+   "col_beg": 8,
+   "line_end": 13,
+   "col_end": 14,
+   "desc": "explanation of a symbol for unavailable data",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Unable to load data or missing data."
   },
   {
    "hashToText": {

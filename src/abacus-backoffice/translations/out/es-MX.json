@@ -1,7 +1,12 @@
 {
   "es-MX": {
     "3JkX8r": "Ha ocurrido un error desconocido",
+    "11glVh": "Please wait…",
     "eiaXU": "Cerrar sesión",
+    "U9uFf": "active",
+    "kL3T5": "inactive",
+    "1f57iF": "email verified",
+    "3NUJ08": "email NOT verified",
     "2eLf8v": "List of employees",
     "2Hiw4D": "¡Ocurrió algo inesperado y el servidor no pudo procesar la solicitud! 🙈",
     "2D6gKP": "This field is mandatory",
@@ -14,6 +19,7 @@
     "ZcMj7": "Field \"{form field label}\" is invalid.",
     "rxq6C": "Loading…",
     "WVQMe": "Ledger",
+    "t3fdO": "Unable to load data or missing data.",
     "3gmClg": "Inicio",
     "3gfKIG": "Productos",
     "1RC251": "Employees",

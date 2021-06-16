@@ -79,29 +79,6 @@ pub(crate) struct DeauthorizePayload {
     success: bool,
 }
 
-pub(crate) async fn authorize_mobile(
-    google_id_token: &str,
-    context: &Context,
-) -> FieldResult<AuthorizeMobilePayload> {
-    let connection_pool = context.pool.to_owned();
-    let session_token = crate::auth::authorize(&connection_pool, &google_id_token, &None).await;
-    match session_token {
-        Ok(session_token) => Ok(AuthorizeMobilePayload {
-            success: true,
-            failure_message: None,
-            session_token: Some(session_token),
-        }),
-        Err(e) => {
-            tracing::error!("{}", e);
-            Ok(AuthorizeMobilePayload {
-                success: false,
-                failure_message: Some(format!("{}", e)),
-                session_token: None,
-            })
-        }
-    }
-}
-
 /// Webapp is currently using very simplified and minimalistic flow: it basically allows only
 /// specific hardcoded Google subjects to be authorized (admins). The thinking is that webapp
 /// login is needed only for the backoffice and the access should be limited to admins. This should
@@ -111,15 +88,7 @@ pub(crate) async fn authorize_webapp(
     context: &Context,
 ) -> FieldResult<AuthorizeWebappPayload> {
     let connection_pool = context.pool.to_owned();
-    let session_token = crate::auth::authorize(
-        &connection_pool,
-        &google_id_token,
-        &Some(vec![
-            // TODO: expand as needed
-            "108269453578187886435", // Martin Zlámal
-        ]),
-    )
-    .await;
+    let session_token = crate::auth::authorize(&connection_pool, &google_id_token).await;
     match session_token {
         Ok(session_token) => Ok(AuthorizeWebappPayload {
             success: true,
