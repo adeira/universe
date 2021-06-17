@@ -1,6 +1,6 @@
 // @flow
 
-import ourRules from '../ourRules';
+import { ourRules } from '../ourRules';
 import deprecatedRules from './deprecatedRules';
 import extraPrettierRules from '../extraPrettierRules';
 import type { EslintConfigRules } from '../EslintConfig.flow';

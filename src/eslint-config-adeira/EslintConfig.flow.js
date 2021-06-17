@@ -13,4 +13,10 @@ type EslintConfigValues =
 type EslintOverrides = $ReadOnlyArray<{ ... }>;
 
 export type EslintConfigRules = { +[string]: EslintConfigValues, ... };
-export type EslintConfig = { +rules: EslintConfigValues, +overrides: EslintOverrides, ... };
+export type EslintConfig = {
+  +rules: EslintConfigValues,
+  +overrides: EslintOverrides,
+  +plugins: $ReadOnlyArray<string>,
+  +settings?: { +[string]: $FlowFixMe },
+  +globals?: { +[string]: string },
+};
