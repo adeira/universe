@@ -1,7 +1,5 @@
 // @flow
 
-const prettierRules = require('./extraPrettierRules');
-
 /*::
 
 import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
@@ -37,7 +35,6 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
      * Flow. To see the error delete this comment and run Flow. */
     rules: {
       ...rules,
-      ...prettierRules,
       // overwriting Prettier rules, see: https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
       'curly': [ERROR, 'all'],
       'prettier/prettier': [
