@@ -13,7 +13,6 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 
 ```bash
 (cd src/abacus/kubernetes && kubectl apply -f third_party/arangodb/)
-(cd src/abacus/kubernetes && kubectl apply -f third_party/kube-state-metrics/)
 
 (cd src/abacus/kubernetes && kubectl diff -f abacus.yaml)
 (cd src/abacus/kubernetes && kubectl apply -f abacus.yaml)
