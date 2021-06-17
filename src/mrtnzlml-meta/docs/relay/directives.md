@@ -175,27 +175,24 @@ Directive `@appendEdge` translates to `@__clientField(handle: "appendEdge", hand
 
 ## @required
 
-```graphql
-enum RequiredFieldAction {
-  NONE # severity: 0
-  LOG # severity: 1
-  THROW # severity: 2
-}
+`@required` is a directive you can add to fields in your Relay queries to declare how null values should be handled at runtime. You can think of it as saying "if this field is ever null, its parent field is invalid and should be null".
 
-directive @required(action: RequiredFieldAction!) on FIELD
-```
+When you have a GraphQL schema where many fields are nullable, a considerable amount of product code is needed to handle each field's potential "nullness" before the underlying data can be used. With `@required`, Relay can handle some types of null checks before it returns data to your component, which means that **any field you annotate with** **`@required`** **will become non-nullable in the generated types for your response**.
 
-TKTK (https://github.com/facebook/relay/commit/9926676c72667e83abe661ef0df52234eda51542)
+If a `@required` field is null at runtime, Relay will "bubble" that nullness up to the field's parent. For example, given this query:
 
 ```graphql
 query MyQuery {
-  me @required(action: LOG) {
-    name
+  viewer {
+    name @required(action: LOG)
+    age
   }
 }
 ```
 
-Nested `@required` directives must have compatible severities. For example, the following fragment is invalid:
+If `name` is null, relay would return `{ viewer: null }`. You can think of `@required` in this instance as saying "`viewer` is useless without a `name`".
+
+Note: nested `@required` directives must have compatible severities. For example, the following fragment is invalid:
 
 ```graphql
 fragment Foo on User {
@@ -207,7 +204,21 @@ fragment Foo on User {
 # The @required field [1] may not have an \`action\` less severe than that of its @required parent [2]. [1] should probably be \`action: THROW\`.
 ```
 
-This directive also affects generated Flow types (turns the properties into required ones). Also, there is a `requiredFieldLogger` environment config, see: https://github.com/facebook/relay/commit/0869fde6b08d7c199b0ceb0cb32091e35acee680
+Note: there is a `requiredFieldLogger` environment config, see: https://github.com/facebook/relay/commit/0869fde6b08d7c199b0ceb0cb32091e35acee680
+
+Directive definition:
+
+```graphql
+enum RequiredFieldAction {
+  NONE # severity: 0
+  LOG # severity: 1
+  THROW # severity: 2
+}
+
+directive @required(action: RequiredFieldAction!) on FIELD
+```
+
+See: https://github.com/facebook/relay/commit/9926676c72667e83abe661ef0df52234eda51542
 
 ## @defer, @stream, @stream_connection
 
@@ -638,12 +649,44 @@ TKTK
 
 See: https://github.com/facebook/relay/commit/b8922feaf2472325306dec6f8023deb186658128
 
-### @as_actor, @EXPERIMENTAL\_\_as_actor
+### @as_actor, @fb_actor_change
 
 ```graphql
-directive @EXPERIMENTAL__as_actor on FIELD
+directive @fb_actor_change on FIELD
 ```
 
 TKTK
 
-See: https://github.com/facebook/relay/commit/bcec2697899bc7f7bb0ed4e4ba60131d57abc51c
+See:
+
+- https://github.com/facebook/relay/commit/bcec2697899bc7f7bb0ed4e4ba60131d57abc51c
+- https://github.com/facebook/relay/commit/7c1f3eb607b28a3b62b75f515faa6862e131e7d6
+
+### @live_query
+
+Definition:
+
+```graphql
+directive @live_query(
+  enabled: Boolean = true
+  polling_interval: Int
+  config_id: String
+  partial: Boolean
+  event_stream: String
+) on QUERY
+```
+
+Example:
+
+```graphql
+query QueryResourceTest10Query($id: ID!) @live_query(polling_interval: 10000) {
+  node(id: $id) {
+    ... on User {
+      id
+      name
+    }
+  }
+}
+```
+
+See: https://github.com/facebook/relay/commit/5fb8d6f0797e616a099762fecc209839df42494f
