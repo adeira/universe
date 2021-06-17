@@ -1,2 +1,0 @@
-- https://docs.digitalocean.com/products/kubernetes/how-to/monitor-advanced/
-- https://github.com/kubernetes/kube-state-metrics
