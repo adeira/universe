@@ -1,5 +1,5 @@
-// flow-typed signature: aa6db9eb815b6030ceed242646b93ae5
-// flow-typed version: 4fa988647b/jest_v26.x.x/flow_>=v0.134.x
+// flow-typed signature: 5ddcf688200e3506308fdcfa78ca48d9
+// flow-typed version: 644a595e77/jest_v27.x.x/flow_>=v0.134.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -259,6 +259,9 @@ type DomTestingLibraryType = {
   // 5.x
   toHaveDisplayValue(value: string | string[]): void,
   toBeChecked(): void,
+  toBeEmptyDOMElement(): void,
+  toBePartiallyChecked(): void,
+  toHaveDescription(text: string | RegExp): void,
   ...
 };
 
@@ -894,13 +897,6 @@ type JestObjectType = {
    */
   advanceTimersByTime(msToRun: number): void,
   /**
-   * Executes only the macro task queue (i.e. all tasks queued by setTimeout()
-   * or setInterval() and setImmediate()).
-   *
-   * Renamed to `advanceTimersByTime`.
-   */
-  runTimersToTime(msToRun: number): void,
-  /**
    * Executes only the macro-tasks that are currently pending (i.e., only the
    * tasks that have been queued by setTimeout() or setInterval() up to this
    * point)
@@ -1044,11 +1040,20 @@ declare var it: {
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
-  skip(
-    name: JestTestName,
-    fn?: (done: JestDoneFn) => ?Promise<mixed>,
-    timeout?: number
-  ): void,
+  skip: {|
+    (
+      name: JestTestName,
+      fn?: (done: JestDoneFn) => ?Promise<mixed>,
+      timeout?: number
+    ): void,
+    each(
+      ...table: Array<Array<mixed> | mixed> | [Array<string>, string]
+    ): (
+      name: JestTestName,
+      fn?: (...args: Array<any>) => ?Promise<mixed>,
+      timeout?: number
+    ) => void,
+  |},
   /**
    * Highlight planned tests in the summary output
    *
