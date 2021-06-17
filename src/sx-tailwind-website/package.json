@@ -12,14 +12,14 @@
     "refractor": "^3.3.1"
   },
   "devDependencies": {
-    "@adeira/babel-plugin-transform-sx-tailwind": "^0.18.0",
+    "@adeira/babel-plugin-transform-sx-tailwind": "^0.18.1",
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@babel/core": "^7.14.6",
     "flow-bin": "^0.153.0",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^8.0.0",
     "postcss": "^8.3.5",
-    "tailwindcss": "^2.1.4"
+    "tailwindcss": "^2.2.0"
   },
   "scripts": {
     "dev": "next",
