@@ -214,7 +214,7 @@ mod tests {
         assert_eq!(verify_result.is_err(), true);
         assert_eq!(
             format!("{:?}", verify_result.err().unwrap()),
-            r#"InvalidToken("cannot get \'kid\' from the token header")"#
+            r#"InvalidToken("cannot get 'kid' from the token header")"#
         );
     }
 
@@ -231,7 +231,7 @@ mod tests {
         assert_eq!(verify_result.is_err(), true);
         assert_eq!(
             format!("{:?}", verify_result.err().unwrap()),
-            r#"InvalidToken("cannot obtain Google certificate for key ID: \'123\'")"# // 123 is from the JWT header
+            r#"InvalidToken("cannot obtain Google certificate for key ID: '123'")"# // 123 is from the JWT header
         );
     }
 }
