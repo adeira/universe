@@ -1,5 +1,7 @@
 // @flow
 
+import { disallowWarnings, expectWarningWillFire } from '@adeira/jest-disallow-console';
+
 import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
 import flushPromises from './_flushPromises';
@@ -15,12 +17,15 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
+disallowWarnings();
+
 function mockResponse(status) {
   return { status };
 }
 
 it('retries the request if the previous attempt failed', async () => {
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  // hm, not sure about this message (why timeout?):
+  expectWarningWillFire('fetchWithRetries: HTTP timeout (https://localhost), retrying.');
 
   const handleNext = jest.fn();
   const failedResponse = mockResponse(500);
@@ -45,10 +50,4 @@ it('retries the request if the previous attempt failed', async () => {
   await flushPromises();
   jest.runAllTimers();
   expect(handleNext).toBeCalledWith(successfulResponse);
-
-  expect(consoleSpy).toHaveBeenCalledWith(
-    // hm, not sure about this message (why timeout?):
-    'fetchWithRetries: HTTP timeout (https://localhost), retrying.',
-  );
-  consoleSpy.mockRestore();
 });

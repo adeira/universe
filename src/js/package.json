@@ -10,5 +10,8 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "^7.14.6"
+  },
+  "devDependencies": {
+    "@adeira/jest-disallow-console": "^0.1.0"
   }
 }

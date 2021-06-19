@@ -13,6 +13,7 @@
   "@adeira/graphql-relay-fauna",
   "@adeira/graphql-resolve-wrapper",
   "@adeira/icons",
+  "@adeira/jest-disallow-console",
   "@adeira/js",
   "@adeira/monorepo-npm-publisher",
   "@adeira/monorepo-utils",

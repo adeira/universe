@@ -1,26 +1,23 @@
 // @flow strict
 
+import { disallowWarnings, expectWarningWillFire } from '@adeira/jest-disallow-console';
+
 import { warning } from '../index';
 
+disallowWarnings();
+
 it('does not print warning for successful condition', () => {
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
   expect(() => warning(true, 'error message')).not.toThrow();
-  expect(consoleSpy).not.toHaveBeenCalled();
-  consoleSpy.mockRestore();
 });
 
 it('prints a warning for unsuccessful condition', () => {
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  expectWarningWillFire('error message');
   warning(false, 'error message');
-  expect(consoleSpy.mock.calls).toEqual([['error message']]);
-  consoleSpy.mockRestore();
 });
 
 it('uses sprintf behind the scenes', () => {
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  expectWarningWillFire('Oh, yeah!');
   warning(false, 'Oh, %s', 'yeah!');
-  expect(consoleSpy.mock.calls).toEqual([['Oh, yeah!']]);
-  consoleSpy.mockRestore();
 });
 
 it('complains when used without a warning message', () => {

@@ -1,15 +1,21 @@
 // @flow
 
 import fakeTimers from '@sinonjs/fake-timers';
+import { disallowWarnings, expectWarningWillFire } from '@adeira/jest-disallow-console';
 
 import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
 
 jest.mock('../fetch');
 
+disallowWarnings();
+
 it('works with timeouts and retry delays correctly', () => {
+  expectWarningWillFire('fetchWithRetries: HTTP timeout (https://localhost), retrying.');
+  expectWarningWillFire('fetchWithRetries: HTTP timeout (https://localhost), retrying.');
+  expectWarningWillFire('fetchWithRetries: HTTP timeout (https://localhost), retrying.');
+
   const clock = fakeTimers.install();
-  const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
   const DELTA = 1;
 
@@ -41,19 +47,4 @@ it('works with timeouts and retry delays correctly', () => {
   expect(fetch.mock.calls).toHaveLength(4);
 
   clock.uninstall();
-
-  expect(consoleSpy.mock.calls).toMatchInlineSnapshot(`
-    Array [
-      Array [
-        "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
-      ],
-      Array [
-        "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
-      ],
-      Array [
-        "fetchWithRetries: HTTP timeout (https://localhost), retrying.",
-      ],
-    ]
-  `);
-  consoleSpy.mockRestore();
 });
