@@ -181,11 +181,11 @@ function getTailwindProcessor(config) {
 
   const configuredTailwind = postcss([
     substituteTailwindAtRules(config, processedPlugins),
-    evaluateTailwindFunctions(config),
+    evaluateTailwindFunctions({ tailwindConfig: config }),
     substituteVariantsAtRules(config, processedPlugins),
     substituteResponsiveAtRules(config),
     convertLayerAtRulesToControlComments(config),
-    substituteScreenAtRules(config),
+    substituteScreenAtRules({ tailwindConfig: config }),
     substituteClassApplyAtRules(config, () => processedPlugins),
     applyImportantConfiguration(config),
     purgeUnusedStyles(config),
