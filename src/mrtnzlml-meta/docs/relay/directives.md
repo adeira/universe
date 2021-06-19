@@ -270,17 +270,19 @@ query myQuery {
 
 ## @inline
 
-Relay docs: https://relay.dev/docs/en/graphql-in-relay.html#inline
+Directive definition:
 
 ```graphql
 directive @inline on FRAGMENT_DEFINITION
 ```
 
-TKTK
+The hooks APIs that Relay exposes allow you to read data from the store only during the render phase. In order to read data from outside of the render phase (or from outside of React), Relay exposes the `@inline` directive. The data from a fragment annotated with `@inline` can be read using `readInlineData`.
 
-Non-React functions can also take advantage of data masking. A fragment can be defined with the `@inline` directive and stored in a local variable. The non-React function can then "unmask" the data using the `readInlineData` function.
+Relay docs: https://relay.dev/docs/api-reference/graphql-and-directives/#inline
 
 ## @match, @module
+
+Directive definition:
 
 ```graphql
 directive @match on FIELD
@@ -288,9 +290,11 @@ directive @match on FIELD
 directive @module(name: String!) on FRAGMENT_SPREAD
 ```
 
-TKTK
+A directive that, when used in combination with `@module`, allows users to download specific JS components alongside the rest of the GraphQL payload if the field decorated with [`@match`](https://relay.dev/docs/glossary/#match) has a certain type. See [3D](https://relay.dev/docs/glossary/#3d).
 
 See also: [relay/match-module.md](/relay/match-module.md)
+
+Relay docs: https://relay.dev/docs/glossary/#match
 
 ## @raw_response_type
 
@@ -393,12 +397,18 @@ See: https://github.com/facebook/relay/commit/d23455a2ae9d24416d0ab0b0c2366b28fd
 
 ## @refetchable(queryName: " … "), @fetchable(field_name: " … ")
 
+Directive definition:
+
 ```graphql
 directive @fetchable(field_name: String!) on OBJECT
 directive @refetchable(queryName: String!) on FRAGMENT_DEFINITION
 ```
 
-TKTK
+For use with [`useRefetchableFragment`](https://relay.dev/docs/api-reference/use-refetchable-fragment/). The `@refetchable` directive can only be added to fragments that are "refetchable", that is, on fragments that are declared on Viewer or Query types, or on a type that implements `Node` (i.e. a type that has an id).
+
+Relay docs: https://relay.dev/docs/api-reference/use-refetchable-fragment/#arguments
+
+Example:
 
 ```js
 export default createRefetchContainer(LocationsPaginatedRefetch, {
@@ -429,6 +439,8 @@ https://github.com/facebook/relay/commit/6ed719438829d02912c862407bbf84a6374f14f
 
 ## @relay
 
+Directive definition:
+
 ```graphql
 directive @relay(
   # Marks a fragment as being backed by a GraphQLList.
@@ -439,7 +451,7 @@ directive @relay(
 ) on FRAGMENT_DEFINITION | FRAGMENT_SPREAD
 ```
 
-TKTK
+A directive that allows you to turn off Relay's data masking.
 
 > The use-case is things like utility functions that are not executing in a React context and therefore don't have access to the context's environment. `@relay(mask:false)` was our earlier solution to this (which as you noted has some issues), `@inline` is its replacement.
 
@@ -607,6 +619,12 @@ directive @react_flight_component(name: String!) on FIELD_DEFINITION
 TKTK
 
 ### @preloadable
+
+A directive that modifies queries and which causes Relay to generate `$Parameters.js` files and preloadable concrete requests. Required if the query is going to be used as part of an entry point.
+
+Relay docs: https://relay.dev/docs/glossary/#preloadable
+
+Example:
 
 ```graphql
 query Query @preloadable {
