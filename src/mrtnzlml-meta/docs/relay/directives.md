@@ -631,9 +631,16 @@ See:
 
 ### @no_inline
 
-TKTK
+Directive definition:
 
-See: https://github.com/facebook/relay/commit/3526b424d7ec3d3ff07d8587951d2fb176b1868f
+```graphql
+directive @no_inline(raw_response_type: Boolean) on FRAGMENT_DEFINITION
+```
+
+See:
+
+- https://github.com/facebook/relay/commit/3526b424d7ec3d3ff07d8587951d2fb176b1868f
+- https://github.com/facebook/relay/commit/57c7873b2b7f81c5f29e9b31a471ba47a8c20f4c
 
 ### @relay_resolver
 
