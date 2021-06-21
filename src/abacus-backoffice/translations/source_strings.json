@@ -132,9 +132,9 @@
    },
    "filepath": "src/forms/private/BaseInputWrapper.js",
    "line_beg": 30,
-   "col_beg": 23,
+   "col_beg": 21,
    "line_end": 30,
-   "col_end": 92,
+   "col_end": 90,
    "desc": "mandatory field description",
    "project": "",
    "type": "text",
@@ -237,6 +237,48 @@
    "project": "",
    "type": "text",
    "jsfbt": "Field \"{form field label}\" is invalid."
+  },
+  {
+   "hashToText": {
+    "m7T0NTqsKyh2vxq/AIqRrA==": "Bold"
+   },
+   "filepath": "src/forms/private/SlateEditor.js",
+   "line_beg": 94,
+   "col_beg": 14,
+   "line_end": 94,
+   "col_end": 71,
+   "desc": "button title to make the text bold",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Bold"
+  },
+  {
+   "hashToText": {
+    "qUYpuG/rtRVMLfrWEx9G6Q==": "Italic"
+   },
+   "filepath": "src/forms/private/SlateEditor.js",
+   "line_beg": 99,
+   "col_beg": 14,
+   "line_end": 99,
+   "col_end": 75,
+   "desc": "button title to make the text italic",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Italic"
+  },
+  {
+   "hashToText": {
+    "qfcT6fgdcBLJ28EoUBumJQ==": "Underline"
+   },
+   "filepath": "src/forms/private/SlateEditor.js",
+   "line_beg": 104,
+   "col_beg": 14,
+   "line_end": 104,
+   "col_end": 81,
+   "desc": "button title to make the text underline",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Underline"
   },
   {
    "hashToText": {

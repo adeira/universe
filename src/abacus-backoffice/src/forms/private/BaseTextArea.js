@@ -41,6 +41,7 @@ export default function BaseTextArea(props: Props): Node {
   return (
     <BaseInputWrapper
       label={props.label}
+      disableSemanticLabel={true} // needed for the complex Slate editor (implicit label would not work)
       required={false}
       hasValidationError={false} // TODO
       validationError={null} // TODO

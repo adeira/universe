@@ -10,38 +10,43 @@ type Props = {
   +validationError: FbtWithoutString | null,
   +children: Node,
   +required?: boolean,
+  +disableSemanticLabel?: boolean,
 };
 
 export default function BaseInputWrapper(props: Props): Node {
+  const input = (
+    <>
+      <div
+        className={styles({
+          label: true,
+          labelError: props.hasValidationError,
+        })}
+      >
+        {props.label}
+        {props.required === true ? (
+          <>
+            {' '}
+            <abbr
+              title={<fbt desc="mandatory field description">This field is mandatory</fbt>}
+              aria-label="required"
+            >
+              <strong>*</strong>
+            </abbr>
+          </>
+        ) : null}
+      </div>
+
+      {props.children}
+
+      {props.hasValidationError ? (
+        <div className={styles('error')}>{props.validationError}</div>
+      ) : null}
+    </>
+  );
+
   return (
     <div className={styles('inputWrapper')}>
-      <label>
-        <div
-          className={styles({
-            label: true,
-            labelError: props.hasValidationError,
-          })}
-        >
-          {props.label}
-          {props.required === true ? (
-            <>
-              {' '}
-              <abbr
-                title={<fbt desc="mandatory field description">This field is mandatory</fbt>}
-                aria-label="required"
-              >
-                <strong>*</strong>
-              </abbr>
-            </>
-          ) : null}
-        </div>
-
-        {props.children}
-
-        {props.hasValidationError ? (
-          <div className={styles('error')}>{props.validationError}</div>
-        ) : null}
-      </label>
+      {props.disableSemanticLabel === true ? input : <label>{input}</label>}
     </div>
   );
 }
