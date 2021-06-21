@@ -12,10 +12,10 @@
     "@adeira/js": "^2.1.0",
     "@babel/eslint-parser": "^7.14.5",
     "@babel/runtime": "^7.14.6",
-    "eslint": "^7.28.0",
+    "eslint": "^7.29.0",
     "jest-docblock": "^27.0.1"
   },
   "peerDependencies": {
-    "eslint": "^7.28.0"
+    "eslint": "^7.29.0"
   }
 }
