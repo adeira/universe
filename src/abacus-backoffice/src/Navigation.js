@@ -29,7 +29,10 @@ export default function Navigation(): React.Node {
         <fbt desc="navigation link to the homepage">Home</fbt>
       </Link>
       <Link href="/products" xstyle={styles.link} xstyleActive={styles.linkActive}>
-        <fbt desc="navigation link to products">Products</fbt>
+        <fbt desc="navigation link to products inventory">Products inventory</fbt>
+      </Link>
+      <Link href="/products/add-ons" xstyle={styles.link} xstyleActive={styles.linkActive}>
+        <fbt desc="navigation link to products add-ons">Products add-ons</fbt>
       </Link>
       <Link href="/employees" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to employees">Employees</fbt>
