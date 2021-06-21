@@ -19,7 +19,7 @@
     "@adeira/sx": "^0.26.0",
     "@adeira/sx-design": "^0.13.0",
     "fbt": "^0.16.6",
-    "graphql": "^15.5.0",
+    "graphql": "^15.5.1",
     "immutable": "^4.0.0-rc.12",
     "next": "^11.0.0",
     "next-plugin-custom-babel-config": "^1.0.4",
