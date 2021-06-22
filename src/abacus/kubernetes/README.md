@@ -18,6 +18,12 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 (cd src/abacus/kubernetes && kubectl apply -f abacus.yaml)
 ```
 
+# Upgrading
+
+- https://www.arangodb.com/docs/3.7/deployment-kubernetes-upgrading.html
+- https://www.arangodb.com/docs/3.7/deployment-kubernetes-drain.html
+- https://www.arangodb.com/docs/3.7/upgrading-general-info.html
+
 # Kubernetes validations (TODO)
 
 - https://learnk8s.io/validating-kubernetes-yaml
