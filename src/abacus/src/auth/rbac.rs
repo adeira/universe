@@ -195,4 +195,26 @@ mod tests {
             true
         )
     }
+
+    #[test]
+    fn rbac_error_to_string_test() {
+        assert_eq!(
+            format!("{}", RbacError::NotLoggedIn),
+            String::from("user is not logged in (anonymous)")
+        );
+
+        assert_eq!(
+            format!(
+                "{}",
+                RbacError::InsufficientPermissions {
+                    sub: "rbac-mock-id-123".to_string(),
+                    act: "publish_product".to_string(),
+                    obj: "commerce".to_string(),
+                }
+            ),
+            String::from(
+                "'rbac-mock-id-123' doesn't have enough permission to perform action 'publish_product' in 'commerce' module"
+            )
+        );
+    }
 }
