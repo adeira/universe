@@ -1,4 +1,5 @@
 use crate::arangodb::{resolve_aql, resolve_aql_vector};
+#[cfg(test)]
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
@@ -95,6 +96,7 @@ pub async fn get_user_by_session_token_hash(
     resolve_aql(&pool, aql).await
 }
 
+#[cfg(test)]
 pub(crate) async fn create_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,
     claims: &Claims,
