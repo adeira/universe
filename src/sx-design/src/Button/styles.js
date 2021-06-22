@@ -4,6 +4,7 @@ import sx from '@adeira/sx';
 
 export default (sx.create({
   buttonBase: {
+    display: 'inline-block',
     padding: '10px 15px',
     borderRadius: 5,
     cursor: 'pointer',
