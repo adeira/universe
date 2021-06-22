@@ -1,4 +1,3 @@
-use crate::arangodb::errors::ModelError;
 use crate::auth::dal::users::list_all_users;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Users;
@@ -35,16 +34,14 @@ pub(crate) async fn whoami(context: &Context) -> WhoamiPayload {
     }
 }
 
-pub(crate) async fn list_users(context: &Context) -> Result<Vec<AnyUser>, ModelError> {
+pub(crate) async fn list_users(context: &Context) -> anyhow::Result<Vec<AnyUser>> {
     match rbac::verify_permissions(&context.user, &Users(GetAllUsers)).await {
         // only admin can list all the users
         Ok(_) => match list_all_users(&context.pool).await {
             Ok(list) => Ok(list),
             Err(e) => Err(e),
         },
-        Err(_) => Err(ModelError::PermissionsError(String::from(
-            "not enough permissions to list all the users",
-        ))),
+        Err(_) => anyhow::bail!("not enough permissions to list all the users"),
     }
 }
 

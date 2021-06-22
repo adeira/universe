@@ -3,7 +3,6 @@ use crate::auth::dal::sessions::{
     create_new_user_session, delete_user_session, find_session_by_user,
 };
 use crate::auth::dal::users::{find_user_by_google_claims, get_user_by_session_token_hash};
-use crate::auth::error::AuthError;
 use crate::auth::google::verify_id_token_integrity;
 use crate::auth::session::derive_session_token_hash;
 use crate::auth::users::{AnonymousUser, SignedUser, User};
@@ -15,7 +14,6 @@ pub(crate) mod users;
 mod cache_control;
 mod certs;
 mod dal;
-mod error;
 mod google;
 mod session;
 
@@ -34,7 +32,7 @@ mod session;
 pub(in crate::auth) async fn authorize(
     pool: &crate::arangodb::ConnectionPool,
     google_id_token: &str,
-) -> Result<String, error::AuthError> {
+) -> anyhow::Result<String> {
     let mut cached_certs = certs::CachedCertsProduction::new();
     let token_data = verify_id_token_integrity(&google_id_token, &mut cached_certs).await?; // (1.)
 
@@ -42,7 +40,7 @@ pub(in crate::auth) async fn authorize(
         // the user already exists (2a.)
         Some(user) => {
             if !user.is_active() {
-                return Err(AuthError::AccessDenied(String::from("user is not active")));
+                anyhow::bail!("user is not active");
             }
 
             if let Some(session) = find_session_by_user(&pool, &user).await {
@@ -57,9 +55,7 @@ pub(in crate::auth) async fn authorize(
             Ok(session_token)
         }
         // new user with valid Google ID token - reject it (2b.)
-        None => Err(AuthError::AccessDenied(String::from(
-            "user is not whitelisted",
-        ))),
+        None => anyhow::bail!("user is not whitelisted"),
     }
 }
 
@@ -68,7 +64,7 @@ pub(in crate::auth) async fn authorize(
 pub(in crate::auth) async fn deauthorize(
     pool: &crate::arangodb::ConnectionPool,
     session_token: &str,
-) -> Result<bool, error::AuthError> {
+) -> anyhow::Result<bool> {
     let session_token_hash = derive_session_token_hash(&session_token);
     delete_user_session(&pool, &session_token_hash).await?;
     Ok(true) // success

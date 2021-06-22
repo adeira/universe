@@ -134,6 +134,8 @@ analyzers.remove('bigram');
 
 **🚧 WORK in PROGRESS 🚧**
 
+TKTK (`anyhow`)
+
 One of the main parts of this server is GraphQL API. Generally speaking, we are not trying to have any restrictions when it comes to designing this API, and we encourage trying new things. However, there are some rules which should be always followed to create kind of contract/agreement between server and GraphQL client.
 
 1. Every top-level GraphQL resolver should return `Result<T, CustomModelError>` where `T` can be a union of success/error payload or just a simple value. This allows us to return an application value (be it queryable error or the actual value) OR a critical server error when it happens (missing permissions, DB failure, …). See: [Juniper error handling](https://graphql-rust.github.io/juniper/master/types/objects/error_handling.html#example-input-validation-complex-with-critical-error)

@@ -3,7 +3,6 @@ use crate::auth::rbac::Actions::Commerce;
 use crate::auth::rbac::CommerceActions::{
     CreateProduct, DeleteProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
-use crate::commerce::model::errors::ModelError;
 use crate::graphql_context::Context;
 use crate::images::Image;
 use serde::{Deserialize, Serialize};
@@ -276,21 +275,17 @@ pub struct ProductPriceInput {
 /// 3. Price cannot be bellow zero (must be positive).
 fn validate_product_multilingual_input(
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<(), ModelError> {
+) -> anyhow::Result<()> {
     let translations = &product_multilingual_input.translations;
 
     // At least one translation variant must exist:
     if translations.is_empty() {
-        return Err(ModelError::LogicalError(String::from(
-            "Product must have at least one translation variant.",
-        )));
+        anyhow::bail!("Product must have at least one translation variant.");
     }
 
     // Price must be higher than zero:
     if product_multilingual_input.price.unit_amount < 0 {
-        return Err(ModelError::LogicalError(String::from(
-            "Product price cannot be smaller than zero.",
-        )));
+        anyhow::bail!("Product price cannot be smaller than zero.");
     }
 
     Ok(())
@@ -327,7 +322,7 @@ pub(in crate::commerce) async fn search_published_products(
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
     visibility: &ProductMultilingualInputVisibility,
-) -> Result<Vec<Option<Product>>, ModelError> {
+) -> anyhow::Result<Vec<Option<Product>>> {
     // Anyone can search the products (it's not limited to admins only).
     crate::commerce::dal::products::search_products(
         &context.pool,
@@ -345,29 +340,26 @@ pub(in crate::commerce) async fn search_all_products(
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     search_term: &Option<String>,
-) -> Result<Vec<Option<Product>>, ModelError> {
-    match rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await {
-        Ok(_) => {
-            // Only admin can search all products
-            crate::commerce::dal::products::search_products(
-                &context.pool,
-                &client_locale,
-                &price_sort_direction,
-                &search_term,
-                &true, // search all including unpublished ones
-                &None, // no visibility restrictions
-            )
-            .await
-        }
-        Err(e) => Err(ModelError::from(e)),
-    }
+) -> anyhow::Result<Vec<Option<Product>>> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
+
+    // Only admin can search all products
+    crate::commerce::dal::products::search_products(
+        &context.pool,
+        &client_locale,
+        &price_sort_direction,
+        &search_term,
+        &true, // search all including unpublished ones
+        &None, // no visibility restrictions
+    )
+    .await
 }
 
 pub(in crate::commerce) async fn get_published_product_by_key(
     context: &Context,
     client_locale: &SupportedLocale,
     product_key: &str,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     // Anyone can get the published product (it's not limited to admins only).
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
@@ -387,36 +379,31 @@ pub(in crate::commerce) async fn get_published_products_by_keys(
     context: &Context,
     client_locale: &SupportedLocale,
     product_keys: &[String],
-) -> Result<Vec<Product>, ModelError> {
+) -> anyhow::Result<Vec<Product>> {
     // Anyone can get the published products (it's not limited to admins only).
-    let products = crate::commerce::dal::products::get_products_by_keys(
+    crate::commerce::dal::products::get_products_by_keys(
         &context.pool,
         &client_locale,
         &product_keys,
         &true, // products must be published to be publicly available
     )
-    .await?;
-
-    Ok(products)
+    .await
 }
 
 pub(in crate::commerce) async fn get_unpublished_product_by_key(
     context: &Context,
     client_locale: &SupportedLocale,
     product_key: &str,
-) -> Result<Product, ModelError> {
-    match rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await {
-        Ok(_) => {
-            crate::commerce::dal::products::get_product_by_key(
-                &context.pool,
-                &client_locale,
-                &product_key,
-                &false, // any product (published or unpublished)
-            )
-            .await
-        }
-        Err(e) => Err(ModelError::from(e)),
-    }
+) -> anyhow::Result<Product> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
+
+    crate::commerce::dal::products::get_product_by_key(
+        &context.pool,
+        &client_locale,
+        &product_key,
+        &false, // any product (published or unpublished)
+    )
+    .await
 }
 
 /// Takes care of the business logic and forwards the call lower to the DAL layer when everything
@@ -425,24 +412,20 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
 pub(in crate::commerce) async fn create_product(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     validate_product_multilingual_input(&product_multilingual_input)?;
-    match rbac::verify_permissions(&context.user, &Commerce(CreateProduct)).await {
-        Ok(_) => {
-            let mut images = vec![];
-            if context.uploadables.is_some() {
-                images = crate::images::process_new_images(&context, &product_multilingual_input)
-                    .await?;
-            }
-            crate::commerce::dal::products::create_product(
-                &context.pool,
-                &product_multilingual_input,
-                &images,
-            )
-            .await
-        }
-        Err(e) => Err(ModelError::from(e)),
+    rbac::verify_permissions(&context.user, &Commerce(CreateProduct)).await?;
+
+    let mut images = vec![];
+    if context.uploadables.is_some() {
+        images = crate::images::process_new_images(&context, &product_multilingual_input).await?;
     }
+    crate::commerce::dal::products::create_product(
+        &context.pool,
+        &product_multilingual_input,
+        &images,
+    )
+    .await
 }
 
 pub(in crate::commerce) async fn update_product(
@@ -450,59 +433,55 @@ pub(in crate::commerce) async fn update_product(
     product_key: &str,
     product_revision: &str,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     validate_product_multilingual_input(&product_multilingual_input)?;
-    match rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await {
-        Ok(_) => {
-            let product = crate::commerce::dal::products::get_product_by_key(
-                &context.pool,
-                &SupportedLocale::EnUS, // TODO
-                &product_key,
-                &false, // both published and unpublished
-            )
-            .await?;
+    rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await?;
 
-            // collect newly uploaded images
-            let mut new_images = vec![];
-            if context.uploadables.is_some() {
-                new_images =
-                    crate::images::process_updated_images(&context, &product_multilingual_input)
-                        .await?;
-            }
+    let product = crate::commerce::dal::products::get_product_by_key(
+        &context.pool,
+        &SupportedLocale::EnUS, // TODO
+        &product_key,
+        &false, // both published and unpublished
+    )
+    .await?;
 
-            // delete old images
-            let mut existing_images = vec![];
-            for product_image in product.images() {
-                match product_multilingual_input
-                    .images
-                    .iter()
-                    .find(|image| image.to_string() == product_image.name())
-                {
-                    Some(_) => {
-                        // the image should be preserved (it's not requested to be deleted)
-                        existing_images.push(product_image);
-                    }
-                    None => {
-                        // `product_image` no longer exists in the input so we should delete it
-                        crate::images::delete_image(&context, &product_image).await?;
-                    }
-                }
-            }
-
-            // merge new (uploaded) images with the preserved images
-            existing_images.extend(new_images);
-
-            crate::commerce::dal::products::update_product(
-                &context.pool,
-                &product_key,
-                &product_revision,
-                &product_multilingual_input,
-                &existing_images,
-            )
-            .await
-        }
-        Err(e) => Err(ModelError::from(e)),
+    // collect newly uploaded images
+    let mut new_images = vec![];
+    if context.uploadables.is_some() {
+        new_images =
+            crate::images::process_updated_images(&context, &product_multilingual_input).await?;
     }
+
+    // delete old images
+    let mut existing_images = vec![];
+    for product_image in product.images() {
+        match product_multilingual_input
+            .images
+            .iter()
+            .find(|image| image.to_string() == product_image.name())
+        {
+            Some(_) => {
+                // the image should be preserved (it's not requested to be deleted)
+                existing_images.push(product_image);
+            }
+            None => {
+                // `product_image` no longer exists in the input so we should delete it
+                crate::images::delete_image(&context, &product_image).await?;
+            }
+        }
+    }
+
+    // merge new (uploaded) images with the preserved images
+    existing_images.extend(new_images);
+
+    crate::commerce::dal::products::update_product(
+        &context.pool,
+        &product_key,
+        &product_revision,
+        &product_multilingual_input,
+        &existing_images,
+    )
+    .await
 }
 
 /// Any product can be published only when all the following requirements are met:
@@ -515,90 +494,69 @@ pub(in crate::commerce) async fn update_product(
 pub(in crate::commerce) async fn publish_product(
     context: &Context,
     product_key: &str,
-) -> Result<Product, ModelError> {
-    match rbac::verify_permissions(&context.user, &Commerce(PublishProduct)).await {
-        Ok(_) => {
-            let product = crate::commerce::dal::products::get_product_by_key(
-                &context.pool,
-                &SupportedLocale::EnUS,
-                &product_key,
-                &false, // search in all (not only the published ones)
-            )
-            .await?;
+) -> anyhow::Result<Product> {
+    rbac::verify_permissions(&context.user, &Commerce(PublishProduct)).await?;
 
-            if product
-                .translations
-                .iter()
-                .any(|t| t.description_slate.is_none())
-            {
-                return Err(ModelError::LogicalError(String::from(
-                    "product must have description for all translation variants before publishing",
-                )));
-            }
+    let product = crate::commerce::dal::products::get_product_by_key(
+        &context.pool,
+        &SupportedLocale::EnUS,
+        &product_key,
+        &false, // search in all (not only the published ones)
+    )
+    .await?;
 
-            if product.price.unit_amount < 0 {
-                return Err(ModelError::LogicalError(String::from(
-                    "product price cannot be smaller than zero",
-                )));
-            }
-
-            if product.images.is_empty() {
-                return Err(ModelError::LogicalError(String::from(
-                    "product must have at least one image before publishing",
-                )));
-            }
-
-            if product.visibility.is_empty() {
-                return Err(ModelError::LogicalError(String::from(
-                    "product visibility must be defined before publishing the product",
-                )));
-            }
-
-            // finally, publish the product:
-            let published_product =
-                crate::commerce::dal::products::publish_product(&context.pool, &product_key)
-                    .await?;
-            Ok(published_product)
-        }
-        Err(e) => Err(ModelError::from(e)),
+    if product
+        .translations
+        .iter()
+        .any(|t| t.description_slate.is_none())
+    {
+        anyhow::bail!(
+            "product must have description for all translation variants before publishing"
+        )
     }
+
+    if product.price.unit_amount < 0 {
+        anyhow::bail!("product price cannot be smaller than zero")
+    }
+
+    if product.images.is_empty() {
+        anyhow::bail!("product must have at least one image before publishing")
+    }
+
+    if product.visibility.is_empty() {
+        anyhow::bail!("product visibility must be defined before publishing the product")
+    }
+
+    // finally, publish the product:
+    crate::commerce::dal::products::publish_product(&context.pool, &product_key).await
 }
 
 pub(in crate::commerce) async fn unpublish_product(
     context: &Context,
     product_key: &str,
-) -> Result<Product, ModelError> {
-    match rbac::verify_permissions(&context.user, &Commerce(UnpublishProduct)).await {
-        Ok(_) => {
-            // unpublish the product:
-            let unpublished_product =
-                crate::commerce::dal::products::unpublish_product(&context.pool, &product_key)
-                    .await?;
-            Ok(unpublished_product)
-        }
-        Err(e) => Err(ModelError::from(e)),
-    }
+) -> anyhow::Result<Product> {
+    rbac::verify_permissions(&context.user, &Commerce(UnpublishProduct)).await?;
+
+    // unpublish the product:
+    crate::commerce::dal::products::unpublish_product(&context.pool, &product_key).await
 }
 
 pub(in crate::commerce) async fn delete_product(
     context: &Context,
     product_key: &str,
-) -> Result<Product, ModelError> {
-    match rbac::verify_permissions(&context.user, &Commerce(DeleteProduct)).await {
-        Ok(_) => {
-            let product_result =
-                crate::commerce::dal::products::delete_product(&context.pool, &product_key).await;
+) -> anyhow::Result<Product> {
+    rbac::verify_permissions(&context.user, &Commerce(DeleteProduct)).await?;
 
-            if let Ok(product) = &product_result {
-                for image in product.images() {
-                    crate::images::delete_image(&context, &image).await?;
-                }
-            }
+    let product_result =
+        crate::commerce::dal::products::delete_product(&context.pool, &product_key).await;
 
-            product_result
+    if let Ok(product) = &product_result {
+        for image in product.images() {
+            crate::images::delete_image(&context, &image).await?;
         }
-        Err(e) => Err(ModelError::from(e)),
     }
+
+    product_result
 }
 
 #[cfg(test)]
@@ -622,7 +580,7 @@ mod tests {
                 .err()
                 .unwrap()
             ),
-            "LogicalError(\"Product must have at least one translation variant.\")"
+            "Product must have at least one translation variant."
         );
     }
 
@@ -646,7 +604,7 @@ mod tests {
                 .err()
                 .unwrap()
             ),
-            "LogicalError(\"Product price cannot be smaller than zero.\")"
+            "Product price cannot be smaller than zero."
         );
     }
 }

@@ -10,6 +10,7 @@ mod arangodb;
 mod auth;
 mod clap;
 mod commerce;
+mod graphql;
 mod graphql_context;
 mod graphql_schema;
 mod headers;

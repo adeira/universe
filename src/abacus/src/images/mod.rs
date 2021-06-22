@@ -8,7 +8,6 @@
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Files;
 use crate::auth::rbac::FilesActions::{DeleteFile, UploadFile};
-use crate::auth::rbac::RbacError;
 use crate::commerce::api::ProductMultilingualInput;
 use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
 use serde::{Deserialize, Serialize};
@@ -17,21 +16,6 @@ use std::collections::HashMap;
 mod blurhash;
 mod cloudfront;
 mod s3;
-
-#[derive(thiserror::Error, Debug)]
-pub(crate) enum ModelError {
-    #[error("Processing error: {0}")]
-    ProcessingError(String),
-    #[error("RBAC error: {0}")]
-    RbacError(#[from] RbacError),
-}
-
-// so we can use the `?` operator with ArangoDB client error
-impl From<arangors::ClientError> for ModelError {
-    fn from(err: arangors::ClientError) -> ModelError {
-        ModelError::ProcessingError(format!("{}", err))
-    }
-}
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
 pub(crate) struct Image {
@@ -74,20 +58,18 @@ impl Image {
 fn validate_images_input(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<(), ModelError> {
+) -> anyhow::Result<()> {
     if let Some(uploadables) = &context.uploadables {
         for image_name in &product_multilingual_input.images {
             match &uploadables.get(&image_name.to_string()) {
-            Some(_) => {} // OK, good
-            None => {
-                return Err(ModelError::ProcessingError(
-                    format!(
+                Some(_) => {} // OK, good
+                None => {
+                    anyhow::bail!(
                         "trying to upload '{}' but this image name doesn't exist in the multipart request body",
-                        image_name
-                    ),
-                ))
+                        image_name,
+                    )
+                }
             }
-        }
         }
     }
     Ok(())
@@ -98,7 +80,7 @@ fn validate_images_input(
 fn validate_uploadables(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<(), ModelError> {
+) -> anyhow::Result<()> {
     if let Some(uploadables) = &context.uploadables {
         for image_name in uploadables.keys() {
             match product_multilingual_input
@@ -108,10 +90,10 @@ fn validate_uploadables(
             {
                 Some(_) => {} // OK, good
                 None => {
-                    return Err(ModelError::ProcessingError(format!(
-                    "trying to upload '{}' but this image name doesn't exist in the GraphQL input",
-                    image_name
-                )))
+                    anyhow::bail!(
+                        "trying to upload '{}' but this image name doesn't exist in the GraphQL input",
+                        image_name,
+                    )
                 }
             }
         }
@@ -127,26 +109,21 @@ fn validate_uploadables(
 pub(crate) async fn process_new_images(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<Vec<Image>, ModelError> {
+) -> anyhow::Result<Vec<Image>> {
     // First, we make sure that images specified in the GraphQL input are actually being uploaded:
     validate_images_input(&context, &product_multilingual_input)?;
 
     // Second, we check it the other way around - whether all uploadables are specified in the input:
     validate_uploadables(&context, &product_multilingual_input)?;
 
-    match rbac::verify_permissions(&context.user, &Files(UploadFile)).await {
-        Ok(_) => {
-            return if let Some(uploadables) = &context.uploadables {
-                let images = process_new_images_authorized(&uploadables).await?;
-                Ok(images)
-            } else {
-                Err(ModelError::ProcessingError(String::from(
-                    "there are no images to process",
-                )))
-            }
-        }
-        Err(e) => Err(ModelError::from(e)),
-    }
+    rbac::verify_permissions(&context.user, &Files(UploadFile)).await?;
+
+    return if let Some(uploadables) = &context.uploadables {
+        let images = process_new_images_authorized(&uploadables).await?;
+        Ok(images)
+    } else {
+        anyhow::bail!("there are no images to process")
+    };
 }
 
 /// This is technically similar to `process_new_images` except it takes image updates into account.
@@ -159,27 +136,21 @@ pub(crate) async fn process_new_images(
 pub(crate) async fn process_updated_images(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
-) -> Result<Vec<Image>, ModelError> {
+) -> anyhow::Result<Vec<Image>> {
     validate_uploadables(&context, &product_multilingual_input)?;
+    rbac::verify_permissions(&context.user, &Files(UploadFile)).await?;
 
-    match rbac::verify_permissions(&context.user, &Files(UploadFile)).await {
-        Ok(_) => {
-            return if let Some(uploadables) = &context.uploadables {
-                let images = process_new_images_authorized(&uploadables).await?;
-                Ok(images)
-            } else {
-                Err(ModelError::ProcessingError(String::from(
-                    "there are no images to process",
-                )))
-            };
-        }
-        Err(e) => Err(ModelError::from(e)),
-    }
+    return if let Some(uploadables) = &context.uploadables {
+        let images = process_new_images_authorized(&uploadables).await?;
+        Ok(images)
+    } else {
+        anyhow::bail!("there are no images to process")
+    };
 }
 
 async fn process_new_images_authorized(
     uploadables: &HashMap<String, ContextUploadable>,
-) -> Result<Vec<Image>, ModelError> {
+) -> anyhow::Result<Vec<Image>> {
     let mut processed_images = vec![];
     for (filename, uploadable) in uploadables.iter() {
         // First, we try to upload the image to S3:
@@ -205,25 +176,22 @@ async fn process_new_images_authorized(
                     }
                     Err(error) => {
                         tracing::error!("cannot load image from memory: {}", error);
-                        return Err(ModelError::ProcessingError(String::from(
-                            "cannot load image from memory",
-                        )));
+                        anyhow::bail!("cannot load image from memory");
                     }
                 }
             }
-            Err(s3_error) => return Err(ModelError::ProcessingError(s3_error.message)),
+            Err(s3_error) => anyhow::bail!(s3_error.message),
         }
     }
     Ok(processed_images)
 }
 
 /// Only admin can delete images.
-pub(crate) async fn delete_image(context: &Context, image: &Image) -> Result<Image, ModelError> {
-    match rbac::verify_permissions(&context.user, &Files(DeleteFile)).await {
-        Ok(_) => match s3::delete_image(&image.s3name()).await {
-            Ok(_) => Ok(image.clone()),
-            Err(s3_error) => return Err(ModelError::ProcessingError(s3_error.message)),
-        },
-        Err(e) => Err(ModelError::from(e)),
+pub(crate) async fn delete_image(context: &Context, image: &Image) -> anyhow::Result<Image> {
+    rbac::verify_permissions(&context.user, &Files(DeleteFile)).await?;
+
+    match s3::delete_image(&image.s3name()).await {
+        Ok(_) => Ok(image.clone()),
+        Err(s3_error) => anyhow::bail!(s3_error.message),
     }
 }
