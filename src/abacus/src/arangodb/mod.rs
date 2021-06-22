@@ -1,16 +1,42 @@
 use crate::arangodb::pool::ConnectionManager;
+use arangors::AqlQuery;
 use arangors::{ArangoError, ClientError, Connection};
 #[cfg(test)]
 use deadpool::managed::Object;
 use deadpool::managed::Pool;
+use serde::Deserialize;
 
-pub mod errors;
 mod pool;
 
 #[derive(Clone)]
 pub struct ConnectionPool {
     pub pool: Pool<ConnectionManager>,
     db_name: String,
+}
+
+/// Resolves the provided AQL and returns the first result or error.
+pub(crate) async fn resolve_aql<T: for<'de> Deserialize<'de>>(
+    pool: &ConnectionPool,
+    aql: AqlQuery<'_>,
+) -> anyhow::Result<T> {
+    let db = pool.db().await;
+    let result_vector = db.aql_query::<T>(aql).await?;
+    match result_vector.into_iter().next() {
+        Some(result) => Ok(result),
+        None => anyhow::bail!("database didn't return any item"),
+    }
+}
+
+/// Similar to `resolve_aql` except it returns the whole vector (not only the first result).
+pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
+    pool: &ConnectionPool,
+    aql: AqlQuery<'_>,
+) -> anyhow::Result<Vec<T>> {
+    let db = pool.db().await;
+    match db.aql_query::<T>(aql).await {
+        Ok(result) => Ok(result),
+        Err(error) => anyhow::bail!(error),
+    }
 }
 
 type Database = arangors::Database<uclient::reqwest::ReqwestClient>;

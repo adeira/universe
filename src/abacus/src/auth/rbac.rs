@@ -46,18 +46,12 @@ pub enum RbacError {
     Casbin(#[from] CasbinError),
 }
 
-#[derive(Debug)]
-pub(crate) struct RbacSuccess;
-
 /// Verifies whether the user is signed in AND whether it has the correct permissions according to
 /// our RBAC policies.
 ///
 /// Please note (TODO): this is quick'n'dirty solution. We should migrate these policies to the
 /// database instead of storing them in a file.
-pub(crate) async fn verify_permissions(
-    user: &User,
-    actions: &Actions,
-) -> Result<RbacSuccess, RbacError> {
+pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow::Result<()> {
     match user {
         User::SignedUser(signed_user) => {
             let model = DefaultModel::from_str(include_str!("rbac_model.conf")).await?;
@@ -116,7 +110,7 @@ pub(crate) async fn verify_permissions(
                                         act,
                                         obj
                                     );
-                                    Ok(RbacSuccess {}) // verified (sufficient permissions)
+                                    Ok(()) // verified (sufficient permissions)
                                 }
                                 false => {
                                     tracing::error!(
@@ -125,7 +119,7 @@ pub(crate) async fn verify_permissions(
                                         act,
                                         obj
                                     );
-                                    Err(RbacError::InsufficientPermissions {
+                                    anyhow::bail!(RbacError::InsufficientPermissions {
                                         sub: sub.to_string(),
                                         obj: obj.to_string(),
                                         act: act.to_string(),
@@ -135,17 +129,17 @@ pub(crate) async fn verify_permissions(
                         }
                         Err(casbin_error) => {
                             tracing::error!("{}", casbin_error);
-                            Err(RbacError::Casbin(casbin_error))
+                            anyhow::bail!(RbacError::Casbin(casbin_error))
                         }
                     }
                 }
                 Err(casbin_error) => {
                     tracing::error!("{}", casbin_error);
-                    Err(RbacError::Casbin(casbin_error))
+                    anyhow::bail!(RbacError::Casbin(casbin_error))
                 }
             }
         }
-        User::AnonymousUser(_) => Err(RbacError::NotLoggedIn),
+        User::AnonymousUser(_) => anyhow::bail!(RbacError::NotLoggedIn),
     }
 }
 
@@ -157,22 +151,23 @@ mod tests {
     #[tokio::test]
     async fn test_anonymous_user() {
         // It should reject any user which is not logged into the system.
-        assert!(matches!(
+        assert_eq!(
             verify_permissions(
                 &User::AnonymousUser(AnonymousUser::new()),
                 &Actions::Commerce(CommerceActions::PublishProduct),
             )
             .await
-            .unwrap_err(),
-            RbacError::NotLoggedIn
-        ))
+            .unwrap_err()
+            .to_string(),
+            "user is not logged in (anonymous)"
+        )
     }
 
     #[tokio::test]
     async fn test_signed_user_without_permissions() {
         // This user is signed in but it should not have the right permissions based on the RBAC policy.
         // In fact, there is not policy for it at all which should result in automatic "deny" state.
-        assert!(matches!(
+        assert_eq!(
             verify_permissions(
                 &User::SignedUser(SignedUser::from(AnyUser::mock(&Some(
                     "rbac-mock-id-123".to_string()
@@ -180,9 +175,10 @@ mod tests {
                 &Actions::Commerce(CommerceActions::PublishProduct),
             )
             .await
-            .unwrap_err(),
-            RbacError::InsufficientPermissions { .. }
-        ))
+            .unwrap_err()
+            .to_string(),
+            "'rbac-mock-id-123' doesn't have enough permission to perform action 'publish_product' in 'commerce' module"
+        )
     }
 
     #[tokio::test]
@@ -198,27 +194,5 @@ mod tests {
             .is_ok(),
             true
         )
-    }
-
-    #[test]
-    fn rbac_error_to_string_test() {
-        assert_eq!(
-            format!("{}", RbacError::NotLoggedIn),
-            String::from("user is not logged in (anonymous)")
-        );
-
-        assert_eq!(
-            format!(
-                "{}",
-                RbacError::InsufficientPermissions {
-                    sub: "rbac-mock-id-123".to_string(),
-                    act: "publish_product".to_string(),
-                    obj: "commerce".to_string(),
-                }
-            ),
-            String::from(
-                "'rbac-mock-id-123' doesn't have enough permission to perform action 'publish_product' in 'commerce' module"
-            )
-        );
     }
 }

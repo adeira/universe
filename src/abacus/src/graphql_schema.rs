@@ -1,6 +1,7 @@
 use crate::auth::users::AnyUser;
+use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
-use juniper::{EmptySubscription, FieldError, FieldResult, RootNode};
+use juniper::{EmptySubscription, FieldResult, RootNode};
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
@@ -20,11 +21,8 @@ impl Query {
         crate::auth::api::whoami(context).await
     }
 
-    async fn list_users(context: &Context) -> FieldResult<Vec<AnyUser>> {
-        match crate::auth::api::list_users(&context).await {
-            Ok(result) => Ok(result),
-            Err(e) => Err(FieldError::from(e)),
-        }
+    async fn list_users(context: &Context) -> AbacusGraphQLResult<Vec<AnyUser>> {
+        Ok(crate::auth::api::list_users(&context).await?)
     }
 
     fn commerce() -> crate::commerce::api::CommerceQuery {

@@ -1,4 +1,3 @@
-pub use crate::commerce::model::errors::ModelError;
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
@@ -6,6 +5,7 @@ pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
 pub use crate::commerce::model::products::SupportedCurrency;
 pub use crate::commerce::model::products::SupportedLocale;
 
+use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 
 #[derive(juniper::GraphQLObject)]
@@ -50,14 +50,14 @@ impl CommerceQuery {
         client_locale: SupportedLocale,
         price_sort_direction: PriceSortDirection,
         search_term: Option<String>,
-    ) -> Result<Vec<Option<Product>>, ModelError> {
-        crate::commerce::model::products::search_all_products(
+    ) -> AbacusGraphQLResult<Vec<Option<Product>>> {
+        Ok(crate::commerce::model::products::search_all_products(
             &context,
             &client_locale,
             &price_sort_direction,
             &search_term,
         )
-        .await
+        .await?)
     }
 
     /// Returns one publicly available product by its key. Anyone can call this resolver.
@@ -65,13 +65,15 @@ impl CommerceQuery {
         context: &Context,
         client_locale: SupportedLocale,
         product_key: juniper::ID,
-    ) -> Result<Product, ModelError> {
-        crate::commerce::model::products::get_published_product_by_key(
-            &context,
-            &client_locale,
-            &product_key,
+    ) -> AbacusGraphQLResult<Product> {
+        Ok(
+            crate::commerce::model::products::get_published_product_by_key(
+                &context,
+                &client_locale,
+                &product_key,
+            )
+            .await?,
         )
-        .await
     }
 
     /// Only admins can call this function! It returns published OR unpublished product by its key.
@@ -79,13 +81,15 @@ impl CommerceQuery {
         context: &Context,
         client_locale: SupportedLocale,
         product_key: juniper::ID,
-    ) -> Result<Product, ModelError> {
-        crate::commerce::model::products::get_unpublished_product_by_key(
-            &context,
-            &client_locale,
-            &product_key,
+    ) -> AbacusGraphQLResult<Product> {
+        Ok(
+            crate::commerce::model::products::get_unpublished_product_by_key(
+                &context,
+                &client_locale,
+                &product_key,
+            )
+            .await?,
         )
-        .await
     }
 }
 
@@ -208,7 +212,7 @@ pub(crate) async fn get_products_by_keys(
     context: &Context,
     client_locale: &SupportedLocale,
     product_keys: &[String],
-) -> Result<Vec<Product>, ModelError> {
+) -> anyhow::Result<Vec<Product>> {
     crate::commerce::model::products::get_published_products_by_keys(
         &context,
         &client_locale,

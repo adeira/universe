@@ -1,5 +1,4 @@
 use crate::auth::certs::{CachedCerts, CertKey};
-use crate::auth::error::AuthError;
 use jsonwebtoken::{decode, decode_header, Algorithm, DecodingKey, TokenData, Validation};
 use serde::{Deserialize, Serialize};
 
@@ -85,7 +84,7 @@ fn create_id_token_validation(iss: &str) -> Validation {
     }
 }
 
-fn validate_id_token(id_token: &str, cert: &CertKey) -> Result<TokenData<Claims>, AuthError> {
+fn validate_id_token(id_token: &str, cert: &CertKey) -> anyhow::Result<TokenData<Claims>> {
     let decoding_key = &DecodingKey::from_rsa_components(&cert.modulus(), &cert.exponent());
     match decode(
         &id_token,
@@ -121,22 +120,17 @@ fn validate_id_token(id_token: &str, cert: &CertKey) -> Result<TokenData<Claims>
 pub async fn verify_id_token_integrity<T: CachedCerts>(
     id_token: &str,
     cached_certs: &mut T,
-) -> Result<TokenData<Claims>, AuthError> {
+) -> anyhow::Result<TokenData<Claims>> {
     // unsafe_* to remind that this header was not verified
     let unsafe_header = decode_header(&id_token)?;
     if let Some(kid) = unsafe_header.kid {
         if let Some(key) = cached_certs.get_key_by_kid(&*kid).await {
             validate_id_token(&id_token, &key)
         } else {
-            Err(AuthError::InvalidToken(format!(
-                "cannot obtain Google certificate for key ID: '{}'",
-                kid
-            )))
+            anyhow::bail!("cannot obtain Google certificate for key ID: '{}'", kid,);
         }
     } else {
-        Err(AuthError::InvalidToken(String::from(
-            "cannot get 'kid' from the token header",
-        )))
+        anyhow::bail!("cannot get 'kid' from the token header")
     }
 }
 
@@ -155,7 +149,7 @@ mod tests {
                     .err()
                     .unwrap()
             ),
-            "JSONWebTokenError(Error(InvalidToken))"
+            "InvalidToken"
         );
     }
 
@@ -168,7 +162,7 @@ mod tests {
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
                 &mut CachedCertsMock::new()
             ).await.err().unwrap()),
-            r#"InvalidToken("cannot get 'kid' from the token header")"#
+            r#"cannot get 'kid' from the token header"#
         );
     }
 
@@ -181,7 +175,7 @@ mod tests {
                 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyMyJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.szMUBsawz52NUN3aIlpCIBDtbzB9U-G_tfG58c7PTKQ",
                 &mut CachedCertsMock::new()
             ).await.err().unwrap()),
-            r#"JSONWebTokenError(Error(InvalidAlgorithm))"#
+            r#"InvalidAlgorithm"#
         );
     }
 }

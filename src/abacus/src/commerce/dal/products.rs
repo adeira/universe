@@ -1,47 +1,17 @@
-use crate::arangodb::ConnectionPool;
-use crate::commerce::model::errors::ModelError;
+use crate::arangodb::{resolve_aql, resolve_aql_vector, ConnectionPool};
 use crate::commerce::model::products::{
     PriceSortDirection, Product, ProductMultilingualInput, ProductMultilingualInputVisibility,
     SupportedLocale,
 };
 use crate::images::Image;
-use arangors::AqlQuery;
 use serde_json::json;
-
-/// Resolves the provided AQL and returns the first result or error.
-async fn resolve_aql(pool: &ConnectionPool, aql: AqlQuery<'_>) -> Result<Product, ModelError> {
-    let db = pool.db().await;
-    let product_vector = db.aql_query::<Product>(aql).await;
-    match product_vector {
-        Ok(product_vector) => match product_vector.first() {
-            Some(product) => Ok(product.to_owned()),
-            None => Err(ModelError::LogicalError(String::from(
-                "database didn't return any product",
-            ))),
-        },
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
-}
-
-/// Similar to `resolve_aql` except it returns the whole vector (not only the first result).
-async fn resolve_aql_vector(
-    pool: &ConnectionPool,
-    aql: AqlQuery<'_>,
-) -> Result<Vec<Product>, ModelError> {
-    let db = pool.db().await;
-    let products_vector = db.aql_query::<Product>(aql).await;
-    match products_vector {
-        Ok(products_vector) => Ok(products_vector),
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
-}
 
 /// Takes care of creating the product inside ArangoDB.
 pub(in crate::commerce) async fn create_product(
     pool: &ConnectionPool,
     product_multilingual_input: &ProductMultilingualInput,
     images: &[Image],
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     // TODO: dynamic `unit_label`
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let insert_aql = arangors::AqlQuery::builder()
@@ -103,7 +73,7 @@ pub(in crate::commerce) async fn update_product(
     product_revision: &str,
     product_multilingual_input: &ProductMultilingualInput,
     images: &[Image],
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let update_aql = arangors::AqlQuery::builder()
         .query(
@@ -162,7 +132,7 @@ pub(in crate::commerce) async fn update_product(
 pub(in crate::commerce) async fn publish_product(
     pool: &ConnectionPool,
     product_key: &str,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let publish_aql = arangors::AqlQuery::builder()
         .query(
@@ -199,7 +169,7 @@ pub(in crate::commerce) async fn publish_product(
 pub(in crate::commerce) async fn unpublish_product(
     pool: &ConnectionPool,
     product_key: &str,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let unpublish_aql = arangors::AqlQuery::builder()
         .query(
@@ -238,7 +208,7 @@ pub(in crate::commerce) async fn get_product_by_key(
     client_locale: &SupportedLocale,
     product_key: &str,
     product_published_only: &bool,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     let product_vector = get_products_by_keys(
         &pool,
         &client_locale,
@@ -249,9 +219,7 @@ pub(in crate::commerce) async fn get_product_by_key(
 
     match product_vector.first() {
         Some(product) => Ok(product.to_owned()),
-        None => Err(ModelError::LogicalError(String::from(
-            "database didn't return any product",
-        ))),
+        None => anyhow::bail!("database didn't return any product"),
     }
 }
 
@@ -260,7 +228,7 @@ pub(in crate::commerce) async fn get_products_by_keys(
     client_locale: &SupportedLocale,
     product_keys: &[String],
     product_published_only: &bool,
-) -> Result<Vec<Product>, ModelError> {
+) -> anyhow::Result<Vec<Product>> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     let aql = arangors::AqlQuery::builder()
         .query(
@@ -304,8 +272,7 @@ pub(in crate::commerce) async fn search_products(
     search_term: &Option<String>,
     search_all: &bool,
     visibility: &Option<ProductMultilingualInputVisibility>,
-) -> Result<Vec<Option<Product>>, ModelError> {
-    let db = pool.db().await;
+) -> anyhow::Result<Vec<Option<Product>>> {
     let sort_direction = match price_sort_direction {
         PriceSortDirection::LowToHigh => "ASC",
         PriceSortDirection::HighToLow => "DESC",
@@ -389,17 +356,13 @@ pub(in crate::commerce) async fn search_products(
             .bind_var("price_sort_direction", sort_direction),
     };
 
-    let product_vector = db.aql_query::<Option<Product>>(aql.build()).await;
-    match product_vector {
-        Ok(product_vector) => Ok(product_vector),
-        Err(e) => Err(ModelError::DatabaseError(e)),
-    }
+    resolve_aql_vector(&pool, aql.build()).await
 }
 
 pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
     product_key: &str,
-) -> Result<Product, ModelError> {
+) -> anyhow::Result<Product> {
     let remove_aql = arangors::AqlQuery::builder()
         .query(
             r#"
