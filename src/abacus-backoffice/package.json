@@ -21,7 +21,7 @@
     "fbt": "^0.16.6",
     "graphql": "^15.5.1",
     "immutable": "^4.0.0-rc.12",
-    "next": "^11.0.0",
+    "next": "^11.0.1",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^8.0.0",
     "react": "^17.0.2",
