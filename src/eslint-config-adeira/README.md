@@ -59,6 +59,29 @@ It is important to report any issues with the eslint configuration back so we ca
 
 Also please note that **you should not ignore Eslint warnings**! These warnings are helping you to migrate to the future major version. Some of them will turn into errors in the next major version bump.
 
+# Config subsets
+
+The standard config contains a large number of rules, which may not always work for specific projects. There is no need to use the full package only, smaller configs are also available:
+
+- `@adeira/eslint-config/base`
+- `@adeira/eslint-config/jest`
+- `@adeira/eslint-config/react`
+- `@adeira/eslint-config/flowtype`
+- `@adeira/eslint-config/relay`
+
+Use them in your `.eslintrc.js`:
+
+```js
+module.exports = {
+  root: true,
+  extends: [
+    '@adeira/eslint-config/base',
+    '@adeira/eslint-config/react',
+    '@adeira/eslint-config/jest',
+  ],
+};
+```
+
 # Prior art
 
 - https://github.com/facebook/fbjs

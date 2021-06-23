@@ -1,3 +1,5 @@
+#![deny(unused_must_use)]
+
 use crate::arangodb::get_database_connection_pool;
 use crate::clap::generate_clap_app;
 use graphql_schema::create_graphql_schema;
@@ -10,6 +12,7 @@ mod arangodb;
 mod auth;
 mod clap;
 mod commerce;
+mod graphql;
 mod graphql_context;
 mod graphql_schema;
 mod headers;

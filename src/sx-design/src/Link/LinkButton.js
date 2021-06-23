@@ -4,7 +4,7 @@ import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
 type Props = {
-  +'onClick': () => void,
+  +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
   +'children': FbtWithoutString,
   +'isActive'?: boolean,
   +'xstyle'?: AllCSSProperties,

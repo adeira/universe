@@ -1,4 +1,5 @@
-use crate::arangodb::errors::ModelError;
+use crate::arangodb::{resolve_aql, resolve_aql_vector};
+#[cfg(test)]
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
@@ -6,9 +7,7 @@ use crate::auth::users::AnyUser;
 /// but rather a special case used in anonymous analytics/tracking for example).
 pub(crate) async fn list_all_users(
     pool: &crate::arangodb::ConnectionPool,
-) -> Result<Vec<AnyUser>, ModelError> {
-    let db = pool.db().await;
-
+) -> anyhow::Result<Vec<AnyUser>> {
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
@@ -19,7 +18,7 @@ pub(crate) async fn list_all_users(
         )
         .build();
 
-    Ok(db.aql_query::<AnyUser>(aql).await?)
+    resolve_aql_vector(&pool, aql).await
 }
 
 /// Returns user based on Google Claims (`sub`) or `None` if such user couldn't be found.
@@ -56,9 +55,7 @@ pub(crate) async fn find_user_by_google_claims(
 pub async fn get_user_by_session_token_hash(
     pool: &crate::arangodb::ConnectionPool,
     session_token_hash: &str,
-) -> Result<AnyUser, ModelError> {
-    let db = pool.db().await;
-
+) -> anyhow::Result<AnyUser> {
     let aql = arangors::AqlQuery::builder()
         .query(
             r#"
@@ -96,20 +93,14 @@ pub async fn get_user_by_session_token_hash(
         .bind_var("session_token_hash", session_token_hash)
         .build();
 
-    let users_vector = db.aql_query::<AnyUser>(aql).await?;
-    match users_vector.first() {
-        Some(user) => Ok(user.to_owned()),
-        None => Err(ModelError::LogicError(String::from(
-            "unable to fetch the user", // so the user is not signed in since we are fetching by session
-        ))),
-    }
+    resolve_aql(&pool, aql).await
 }
 
+#[cfg(test)]
 pub(crate) async fn create_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,
     claims: &Claims,
-) -> Result<AnyUser, ModelError> {
-    let db = pool.db().await;
+) -> anyhow::Result<AnyUser> {
     let claims_json = serde_json::to_value(&claims)?;
 
     // only `sub` identifies the user reliably, everything else might potentially change
@@ -126,14 +117,7 @@ pub(crate) async fn create_user_by_google_claims(
         .bind_var("claims_json", claims_json)
         .build();
 
-    let users_vector = db.aql_query::<AnyUser>(aql).await?;
-    match users_vector.first() {
-        Some(user) => Ok(user.to_owned()),
-        None => Err(ModelError::LogicError(format!(
-            "unable to create user {}",
-            &claims.subject()
-        ))),
-    }
+    resolve_aql(&pool, aql).await
 }
 
 /// TODO(004) add integration tests

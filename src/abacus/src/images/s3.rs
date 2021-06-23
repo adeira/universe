@@ -59,7 +59,7 @@ pub(in crate::images) async fn upload_image(
 }
 
 /// See: https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html
-pub(in crate::images) async fn delete_image(s3_filename: &String) -> Result<S3Object, S3Error> {
+pub(in crate::images) async fn delete_image(s3_filename: &str) -> Result<S3Object, S3Error> {
     let s3_client = S3Client::new(Region::UsWest1);
     match s3_client
         .delete_object(DeleteObjectRequest {

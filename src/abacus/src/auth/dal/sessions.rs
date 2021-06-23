@@ -1,4 +1,4 @@
-use crate::arangodb::errors::ModelError;
+use crate::arangodb::resolve_aql;
 use crate::auth::session::{Session, SessionType};
 use crate::auth::users::AnyUser;
 
@@ -32,9 +32,7 @@ pub(crate) async fn create_new_user_session(
     pool: &crate::arangodb::ConnectionPool,
     session_token_hash: &str,
     user: &AnyUser,
-) -> Result<Session, ModelError> {
-    let db = pool.db().await;
-
+) -> anyhow::Result<Session> {
     // we first create a sessions and then create a session edge (how to do it better (?))
     let aql = arangors::AqlQuery::builder()
         .query(
@@ -62,14 +60,7 @@ pub(crate) async fn create_new_user_session(
         .bind_var("user_id", user.id())
         .build();
 
-    let session_vector = db.aql_query::<Session>(aql).await?;
-    match session_vector.first() {
-        Some(session) => Ok(session.to_owned()),
-        None => Err(ModelError::LogicError(format!(
-            "unable to create session for use ID {}",
-            &user.id()
-        ))),
-    }
+    resolve_aql(&pool, aql).await
 }
 
 /// This function tries to remove the sessions token (if it exists) as well as related session edge
@@ -79,9 +70,7 @@ pub(crate) async fn create_new_user_session(
 pub(crate) async fn delete_user_session(
     pool: &crate::arangodb::ConnectionPool,
     session_token_hash: &str,
-) -> Result<Session, ModelError> {
-    let db = pool.db().await;
-
+) -> anyhow::Result<Session> {
     // TODO: do not remove mobile/webapp sessions if it's from a different source
     //       (webapp should not deauthorize mobile)
 
@@ -100,13 +89,7 @@ pub(crate) async fn delete_user_session(
         .bind_var("session_token_hash", session_token_hash)
         .build();
 
-    let session_vector = db.aql_query::<Session>(remove_sessions_aql).await?;
-    match session_vector.first() {
-        Some(session) => Ok(session.to_owned()),
-        None => Err(ModelError::LogicError(String::from(
-            "unable to fetch old sessions",
-        ))),
-    }
+    resolve_aql(&pool, remove_sessions_aql).await
 }
 
 #[cfg(test)]

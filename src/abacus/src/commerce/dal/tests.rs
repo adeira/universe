@@ -20,7 +20,7 @@ async fn create_product_english_to_english_test() {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
                 name: "Product name in english".to_string(),
-                description: Some("Product description in english".to_string()),
+                description_slate: None,
             }],
             ..Default::default()
         },
@@ -57,12 +57,12 @@ async fn create_product_all_languages_test() {
                 ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EnUS,
                     name: "Product name in english".to_string(),
-                    description: Some("Product description in english".to_string()),
+                    description_slate: None,
                 },
                 ProductMultilingualInputTranslations {
                     locale: SupportedLocale::EsMX,
                     name: "Product name in SPANISH".to_string(),
-                    description: Some("Product description in SPANISH".to_string()),
+                    description_slate: None,
                 },
             ],
             ..Default::default()
@@ -115,7 +115,7 @@ async fn search_products_test() {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
                 name: "Product name in english".to_string(),
-                description: Some("Product description in english".to_string()),
+                description_slate: None,
             }],
             ..Default::default()
         },
@@ -159,7 +159,7 @@ async fn search_products_fulltext_test() {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
                 name: "Product name in english".to_string(),
-                description: Some("Product description in english".to_string()),
+                description_slate: None,
             }],
             ..Default::default()
         },
@@ -203,7 +203,7 @@ async fn delete_product_test() {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
                 name: "Product name in english".to_string(),
-                description: Some("Product description in english".to_string()),
+                description_slate: None,
             }],
             ..Default::default()
         },

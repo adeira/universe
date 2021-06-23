@@ -131,9 +131,9 @@
     "99TUdsKRfseIC6G04zBOKg==": "This field is mandatory"
    },
    "filepath": "src/forms/private/BaseInputWrapper.js",
-   "line_beg": 29,
+   "line_beg": 30,
    "col_beg": 21,
-   "line_end": 29,
+   "line_end": 30,
    "col_end": 90,
    "desc": "mandatory field description",
    "project": "",
@@ -240,6 +240,48 @@
   },
   {
    "hashToText": {
+    "m7T0NTqsKyh2vxq/AIqRrA==": "Bold"
+   },
+   "filepath": "src/forms/private/SlateEditor.js",
+   "line_beg": 94,
+   "col_beg": 14,
+   "line_end": 94,
+   "col_end": 71,
+   "desc": "button title to make the text bold",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Bold"
+  },
+  {
+   "hashToText": {
+    "qUYpuG/rtRVMLfrWEx9G6Q==": "Italic"
+   },
+   "filepath": "src/forms/private/SlateEditor.js",
+   "line_beg": 99,
+   "col_beg": 14,
+   "line_end": 99,
+   "col_end": 75,
+   "desc": "button title to make the text italic",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Italic"
+  },
+  {
+   "hashToText": {
+    "qfcT6fgdcBLJ28EoUBumJQ==": "Underline"
+   },
+   "filepath": "src/forms/private/SlateEditor.js",
+   "line_beg": 104,
+   "col_beg": 14,
+   "line_end": 104,
+   "col_end": 81,
+   "desc": "button title to make the text underline",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Underline"
+  },
+  {
+   "hashToText": {
     "SP/3TZcgzHIb1tmGv1Z/lg==": "Loading…"
    },
    "filepath": "src/Layout.js",
@@ -296,26 +338,40 @@
   },
   {
    "hashToText": {
-    "LoFyLbW8JA2D6AsDR+C2sw==": "Products"
+    "/8dxxPpm1jE4TgUkZhPJgg==": "Products inventory"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 32,
    "col_beg": 8,
    "line_end": 32,
-   "col_end": 62,
-   "desc": "navigation link to products",
+   "col_end": 82,
+   "desc": "navigation link to products inventory",
    "project": "",
    "type": "text",
-   "jsfbt": "Products"
+   "jsfbt": "Products inventory"
+  },
+  {
+   "hashToText": {
+    "nmqpluLoICEmae/YGk+sxw==": "Products add-ons"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 35,
+   "col_beg": 8,
+   "line_end": 35,
+   "col_end": 78,
+   "desc": "navigation link to products add-ons",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products add-ons"
   },
   {
    "hashToText": {
     "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 35,
+   "line_beg": 38,
    "col_beg": 8,
-   "line_end": 35,
+   "line_end": 38,
    "col_end": 64,
    "desc": "navigation link to employees",
    "project": "",
@@ -327,9 +383,9 @@
     "sHHk/SaT51d5NWanXexMiw==": "Ledger"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 38,
+   "line_beg": 41,
    "col_beg": 8,
-   "line_end": 38,
+   "line_end": 41,
    "col_end": 58,
    "desc": "navigation link to ledger",
    "project": "",
@@ -341,9 +397,9 @@
     "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 41,
+   "line_beg": 44,
    "col_beg": 8,
-   "line_end": 41,
+   "line_end": 44,
    "col_end": 81,
    "desc": "navigation link to point of sales sessions",
    "project": "",
@@ -691,9 +747,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 130,
+   "line_beg": 138,
    "col_beg": 18,
-   "line_end": 139,
+   "line_end": 147,
    "col_end": 24,
    "desc": "product updated success message",
    "project": "",
@@ -705,9 +761,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 146,
+   "line_beg": 154,
    "col_beg": 10,
-   "line_end": 146,
+   "line_end": 154,
    "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
@@ -831,9 +887,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 32,
+   "line_beg": 34,
    "col_beg": 15,
-   "line_end": 32,
+   "line_end": 34,
    "col_end": 86,
    "desc": "form field name for product pictures",
    "project": "",
@@ -845,9 +901,9 @@
     "jDz1xtreligZF6hDwlOGmA==": "Product name (in English)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 41,
+   "line_beg": 43,
    "col_beg": 12,
-   "line_end": 41,
+   "line_end": 43,
    "col_end": 99,
    "desc": "form field name for product name in english",
    "project": "",
@@ -859,9 +915,9 @@
     "KjnAslk0bbo2mlPqTr9Scg==": "Product name (in Spanish)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 50,
+   "line_beg": 52,
    "col_beg": 12,
-   "line_end": 50,
+   "line_end": 52,
    "col_end": 99,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -873,9 +929,9 @@
     "I6tPscKijr8l6b5INvVZMg==": "Product description (in English)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 59,
+   "line_beg": 61,
    "col_beg": 10,
-   "line_end": 61,
+   "line_end": 63,
    "col_end": 16,
    "desc": "form field name for product description in english",
    "project": "",
@@ -887,9 +943,9 @@
     "x0HcNWLdxFYYiLwAx7et4g==": "Product description (in Spanish)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 69,
+   "line_beg": 71,
    "col_beg": 10,
-   "line_end": 71,
+   "line_end": 73,
    "col_end": 16,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -901,9 +957,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 80,
+   "line_beg": 82,
    "col_beg": 15,
-   "line_end": 80,
+   "line_end": 82,
    "col_end": 78,
    "desc": "form field name for product price",
    "project": "",
@@ -915,9 +971,9 @@
     "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 95,
+   "line_beg": 97,
    "col_beg": 10,
-   "line_end": 95,
+   "line_end": 97,
    "col_end": 73,
    "desc": "visible in POS - select option",
    "project": "",
@@ -929,14 +985,56 @@
     "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 98,
+   "line_beg": 100,
    "col_beg": 10,
-   "line_end": 100,
+   "line_end": 102,
    "col_end": 16,
    "desc": "visible in eshop - select option",
    "project": "",
    "type": "text",
    "jsfbt": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
+  },
+  {
+   "hashToText": {
+    "nXu6/Bjjv9VO0V/W9ENkFg==": "Products add-ons"
+   },
+   "filepath": "src/products/ProductsAddonsLayout.js",
+   "line_beg": 18,
+   "col_beg": 12,
+   "line_end": 18,
+   "col_end": 69,
+   "desc": "products add-ons title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products add-ons"
+  },
+  {
+   "hashToText": {
+    "DC28OfwmYBBBAESKq4QoMQ==": "Products add-ons are additional items that can be attached to any product, but, they cannot be bought individually. For example: milk and sweetener for coffee are product add-ons whereas coffee is a product."
+   },
+   "filepath": "src/products/ProductsAddonsLayout.js",
+   "line_beg": 22,
+   "col_beg": 10,
+   "line_end": 26,
+   "col_end": 16,
+   "desc": "description of products add-ons",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products add-ons are additional items that can be attached to any product, but, they cannot be bought individually. For example: milk and sweetener for coffee are product add-ons whereas coffee is a product."
+  },
+  {
+   "hashToText": {
+    "ZNDzMCqq9ASfUoL0gkQieA==": "Create a new product add-on"
+   },
+   "filepath": "src/products/ProductsAddonsLayout.js",
+   "line_beg": 30,
+   "col_beg": 10,
+   "line_end": 30,
+   "col_end": 85,
+   "desc": "link for create a new product",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Create a new product add-on"
   },
   {
    "hashToText": {

@@ -14,12 +14,14 @@ import FormSubmit from '../forms/FormSubmit';
 import FormText from '../forms/FormText';
 import FormTextArea from '../forms/FormTextArea';
 
+type SlatePayload = $ReadOnlyArray<$FlowFixMe>;
+
 // For re-usability purposes (see ProductCreateForm vs. ProductEditForm).
 export default function ProductForm(props: {
   +name_en: ?string,
   +name_es: ?string,
-  +description_en: ?string,
-  +description_es: ?string,
+  +description_en: ?SlatePayload,
+  +description_es: ?SlatePayload,
   +price: number,
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
   +button: RestrictedElement<typeof FormSubmit>,

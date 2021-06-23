@@ -1,31 +1,7 @@
-use crate::arangodb::ConnectionPool;
+use crate::arangodb::{resolve_aql, ConnectionPool};
 use crate::commerce::api::SupportedCurrency;
-use arangors::AqlQuery;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
-
-#[derive(Debug)]
-pub enum Error {
-    LogicalError(String),
-    DatabaseError(String),
-}
-
-async fn resolve_aql<T: for<'de> Deserialize<'de> + Clone>(
-    pool: &ConnectionPool,
-    aql: AqlQuery<'_>,
-) -> Result<T, Error> {
-    let db = pool.db().await;
-    let result_vector = db.aql_query::<T>(aql).await;
-    match result_vector {
-        Ok(result_vector) => match result_vector.first() {
-            Some(result) => Ok(result.to_owned()),
-            None => Err(Error::LogicalError(String::from(
-                "database didn't return any record",
-            ))),
-        },
-        Err(e) => Err(Error::DatabaseError(format!("{:?}", e))),
-    }
-}
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct PosCheckout {
@@ -66,7 +42,7 @@ pub(in crate::pos) struct PosCheckoutInput {
 pub(in crate::pos) async fn create_checkout(
     pool: &ConnectionPool,
     input: &PosCheckoutInput,
-) -> Result<PosCheckout, Error> {
+) -> anyhow::Result<PosCheckout> {
     let insert_aql = arangors::AqlQuery::builder()
         .query(
             r#"
@@ -92,7 +68,7 @@ pub(in crate::pos) struct PosCheckoutTotalStats {
 
 pub(in crate::pos) async fn get_total_checkout_stats(
     pool: &ConnectionPool,
-) -> Result<PosCheckoutTotalStats, Error> {
+) -> anyhow::Result<PosCheckoutTotalStats> {
     let stats_aql = arangors::AqlQuery::builder()
         .query(
             r#"

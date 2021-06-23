@@ -10,12 +10,13 @@ type Props = {
   +validationError: FbtWithoutString | null,
   +children: Node,
   +required?: boolean,
+  +disableSemanticLabel?: boolean,
 };
 
 export default function BaseInputWrapper(props: Props): Node {
-  return (
-    <div className={styles('inputWrapper')}>
-      <label
+  const input = (
+    <>
+      <div
         className={styles({
           label: true,
           labelError: props.hasValidationError,
@@ -33,13 +34,19 @@ export default function BaseInputWrapper(props: Props): Node {
             </abbr>
           </>
         ) : null}
+      </div>
 
-        {props.children}
+      {props.children}
 
-        {props.hasValidationError ? (
-          <div className={styles('error')}>{props.validationError}</div>
-        ) : null}
-      </label>
+      {props.hasValidationError ? (
+        <div className={styles('error')}>{props.validationError}</div>
+      ) : null}
+    </>
+  );
+
+  return (
+    <div className={styles('inputWrapper')}>
+      {props.disableSemanticLabel === true ? input : <label>{input}</label>}
     </div>
   );
 }
