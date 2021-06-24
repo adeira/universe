@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
-    "@axe-core/react": "^4.2.1",
+    "@axe-core/react": "^4.2.2",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@testing-library/react": "^11.2.7"
   }
