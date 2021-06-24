@@ -53,7 +53,7 @@ const styles = sx.create({
     border: '1px solid rgba(var(--sx-accent-2))',
     color: 'rgba(var(--sx-foreground))',
     padding: '7px 12px',
-    borderRadius: 5,
+    borderRadius: 'var(--sx-radius)',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
