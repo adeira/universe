@@ -115,7 +115,7 @@ Legend:
 
 ```text
 ✅  yes! (or not relevant)
-🧐  not evaluated/ready yet
+🧐  needs some more work (or not evaluated yet)
 ```
 
 | Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ | RTL?⁵ |
@@ -124,13 +124,15 @@ Legend:
 | [`<Button />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |  ✅   |
-| [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Money />`]         |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
@@ -142,6 +144,8 @@ Legend:
 [`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
 [`<buttonlink />`]: https://sx-design.vercel.app/?path=/story/example-buttonlink
 [`<emoji />`]: https://sx-design.vercel.app/?path=/story/example-emoji
+[`<entity />`]: https://sx-design.vercel.app/?path=/story/example-entity
+[`<entityfield />`]: https://sx-design.vercel.app/?path=/story/example-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/example-errorboundary
 [`<heading />`]: https://sx-design.vercel.app/?path=/story/example-heading
 [`<image />`]: https://sx-design.vercel.app/?path=/story/example-image
