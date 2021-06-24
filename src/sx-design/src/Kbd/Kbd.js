@@ -28,7 +28,7 @@ export default function Kbd(props: Props): Node {
 
 const styles = sx.create({
   kbd: {
-    borderRadius: '3px',
+    borderRadius: 'var(--sx-radius)',
     border: 'var(--sx-kbd-border, 1px solid #b4b4b4)',
     color: 'rgba(var(--sx-foreground))',
     display: 'inline-block',
