@@ -46,6 +46,7 @@ SX Design leverages full power of [CSS variables](https://developer.mozilla.org/
 ```text
 --sx-kbd-border: 1px solid #b4b4b4
 --sx-money-text-color: var(--sx-foreground) ¹
+--sx-radius: 5px
 
 --sx-error-lighter: 247, 212, 214 ²
 --sx-error-light: 255, 26, 26
@@ -133,7 +134,7 @@ Legend:
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
-| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Temperature />`]   |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
 

@@ -6,7 +6,7 @@ export default (sx.create({
   buttonBase: {
     display: 'inline-block',
     padding: '10px 15px',
-    borderRadius: 5,
+    borderRadius: 'var(--sx-radius)',
     cursor: 'pointer',
     userSelect: 'none',
     transitionProperty: 'all',

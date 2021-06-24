@@ -19,6 +19,8 @@ export default {
   // Check and update README.md as well!
   // https://coolors.co/generate
   common: {
+    '--sx-radius': '5px',
+
     '--sx-error-lighter': '247, 212, 214',
     '--sx-error-light': '255, 26, 26',
     '--sx-error': '238, 0, 0',
