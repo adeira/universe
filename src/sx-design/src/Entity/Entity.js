@@ -23,6 +23,7 @@ const styles = sx.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     border: '1px solid rgba(var(--sx-accent-1))',
+    borderRadius: 'var(--sx-radius)',
     padding: 16,
     marginBlockEnd: 5,
   },
