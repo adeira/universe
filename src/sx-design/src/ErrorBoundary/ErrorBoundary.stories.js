@@ -24,7 +24,11 @@ export default {
   },
 };
 
-const Throws = () => {
+const Throws = ({ short }) => {
+  if (short === true) {
+    throw new Error('short error message');
+  }
+
   throw new Error(`This message is visible only during development.
 
 Component suspended while rendering, but no fallback UI was specified.
@@ -35,7 +39,13 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
 // 👇 We create a "template" of how args map to rendering
 const Template = (args) => (
   <ErrorBoundary {...args}>
-    <Throws />
+    <Throws short={false} />
+  </ErrorBoundary>
+);
+
+const ShortTemplate = (args) => (
+  <ErrorBoundary {...args}>
+    <Throws short={true} />
   </ErrorBoundary>
 );
 
@@ -63,3 +73,6 @@ CustomCode.storyName = 'Custom code';
 CustomCode.args = {
   code: '🙈',
 };
+
+export const ShortError: StoryTemplate<typeof ErrorBoundary> = ShortTemplate.bind({});
+ShortError.storyName = 'Short error message';
