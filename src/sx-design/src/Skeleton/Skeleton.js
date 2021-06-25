@@ -3,18 +3,19 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 
-import useSxDesignContext from '../useSxDesignContext';
+type Props = {
+  +'squared'?: boolean,
+  +'data-testid'?: string,
+};
 
 // Component to be used as a placeholder when loading list of cards.
-export default function Skeleton(): React.Node {
-  const { theme } = useSxDesignContext();
-
+export default function Skeleton(props: Props): React.Node {
   return (
     <div
+      data-testid={props['data-testid']}
       className={styles({
         skeleton: true,
-        backgroundDark: theme === 'dark',
-        backgroundLight: theme === 'light',
+        skeletonSquared: props.squared === true,
       })}
     />
   );
@@ -27,17 +28,24 @@ const loading = sx.keyframes({
 
 const styles = sx.create({
   skeleton: {
-    height: 250,
+    height: 250, // TODO: remove this hardcoded value
     backgroundSize: '400% 100%',
+    backgroundImage: `
+      linear-gradient(
+        270deg,
+        rgba(var(--sx-accent-1)),
+        rgba(var(--sx-accent-2)),
+        rgba(var(--sx-accent-2)),
+        rgba(var(--sx-accent-1))
+      )
+    `,
+    borderRadius: 'var(--sx-radius)',
     animationName: loading,
-    animationDuration: '4s',
+    animationDuration: '8s',
     animationTimingFunction: 'ease-in-out',
     animationIterationCount: 'infinite',
   },
-  backgroundDark: {
-    backgroundImage: 'linear-gradient(to left, #888, #555, #888)',
-  },
-  backgroundLight: {
-    backgroundImage: 'linear-gradient(to left, #f8f8f8, #e2e2e2, #f8f8f8)',
+  skeletonSquared: {
+    borderRadius: 0,
   },
 });

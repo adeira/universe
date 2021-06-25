@@ -46,6 +46,7 @@ SX Design leverages full power of [CSS variables](https://developer.mozilla.org/
 ```text
 --sx-kbd-border: 1px solid #b4b4b4
 --sx-money-text-color: var(--sx-foreground) ¹
+--sx-radius: 5px
 
 --sx-error-lighter: 247, 212, 214 ²
 --sx-error-light: 255, 26, 26
@@ -114,7 +115,7 @@ Legend:
 
 ```text
 ✅  yes! (or not relevant)
-🧐  not evaluated/ready yet
+🧐  needs some more work (or not evaluated yet)
 ```
 
 | Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ | RTL?⁵ |
@@ -123,17 +124,19 @@ Legend:
 | [`<Button />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    🧐    |  ✅   |
-| [`<ErrorBoundary />`] |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Money />`]         |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
-| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Temperature />`]   |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
 
@@ -141,6 +144,8 @@ Legend:
 [`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
 [`<buttonlink />`]: https://sx-design.vercel.app/?path=/story/example-buttonlink
 [`<emoji />`]: https://sx-design.vercel.app/?path=/story/example-emoji
+[`<entity />`]: https://sx-design.vercel.app/?path=/story/example-entity
+[`<entityfield />`]: https://sx-design.vercel.app/?path=/story/example-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/example-errorboundary
 [`<heading />`]: https://sx-design.vercel.app/?path=/story/example-heading
 [`<image />`]: https://sx-design.vercel.app/?path=/story/example-image
