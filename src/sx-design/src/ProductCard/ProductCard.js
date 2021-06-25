@@ -1,8 +1,7 @@
 // @flow
 
-import * as React from 'react';
+import React, { useState, type Element } from 'react';
 import sx from '@adeira/sx';
-import { useState } from 'react';
 
 import Heading from '../Heading/Heading';
 import Image from '../Image/Image';
@@ -43,7 +42,7 @@ type Props = {
  * });
  * ```
  */
-export default function ProductCard(props: Props): React.Element<'div'> {
+export default function ProductCard(props: Props): Element<'div'> {
   const [isHovered, setIsHovered] = useState(false);
 
   const DEFAULT_HEIGHT = 250;
