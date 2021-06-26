@@ -1,6 +1,7 @@
 In conventional applications, CSS rules are duplicated throughout the stylesheet and that just means wasted bytes. Instead, SX generates atomic stylesheet every time so that each rule is defined only once. Each rule has its own CSS class and components can pick up multiple classes to get the same effect as with traditional stylesheets. New JS code doesn't need to mean new CSS (size of CSS grows logarithmically).
 
 - [Installation and Usage](#installation-and-usage)
+- [SX Ecosystem](#sx-ecosystem)
 - [Features](#features)
   - [Multiple stylesheets precedence](#multiple-stylesheets-precedence)
   - [Pseudo CSS classes and elements](#pseudo-css-classes-and-elements)
@@ -65,6 +66,17 @@ That's it. The example above will generate atomic CSS like this:
 ```
 
 It's highly recommended enabling [server-side rendered styles](#server-side-rendering) for production use (see below).
+
+## SX Ecosystem
+
+SX itself is just a core of the atomic CSS for JS. There are other projects helping with writing the SX code or building on top of it (sorted alphabetically):
+
+- [SX Design](https://github.com/adeira/sx-design) - inclusive design system based on SX
+- [SX Eslint](https://github.com/adeira/eslint-plugin-sx) - Eslint rules for SX
+- [SX Jest Snapshot Serializer](https://github.com/adeira/sx-jest-snapshot-serializer) - Jest serializer for SX (WIP 🚧)
+- [SX Tailwind](https://github.com/adeira/sx-tailwind) - SX port of Tailwind CSS, see: [https://sx-tailwind.adeira.dev/](https://sx-tailwind.adeira.dev/)
+
+_Missing something? Let us know!_
 
 ## Features
 
