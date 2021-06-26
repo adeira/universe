@@ -285,9 +285,9 @@
     "TdBMhqJXdPFwa81ekN73mA==": "{ground coffee grams} grams of ground, single-origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 22,
+   "line_beg": 20,
    "col_beg": 10,
-   "line_end": 27,
+   "line_end": 25,
    "col_end": 16,
    "desc": "description of a single espresso coffee",
    "project": "",
@@ -296,73 +296,87 @@
   },
   {
    "hashToText": {
-    "jAelnsuWOOPu2DbBpR6amw==": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
+    "7ZnBLutI0o3y4sFTZgmfdg==": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 35,
+   "line_beg": 33,
    "col_beg": 10,
-   "line_end": 38,
+   "line_end": 36,
    "col_end": 16,
    "desc": "description of americano coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than Espresso thanks to the water but with the same coffee content."
+   "jsfbt": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
   },
   {
    "hashToText": {
-    "tE+3N3KO1cvSm9Iah37rtg==": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
+    "pO1YI6TgpOIPudywlnu9Mg==": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 47,
+   "line_beg": 45,
    "col_beg": 10,
-   "line_end": 50,
+   "line_end": 48,
    "col_end": 16,
    "desc": "description of long black coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to Americano except it preserves more Espresso crema on top of the cup."
+   "jsfbt": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
   },
   {
    "hashToText": {
-    "FIzVs5eVO2HuXR8WXk+zHA==": "Espresso with a foamed milk. The same amount of coffee as in Latte but with a little bit less milk resulting in a stronger coffee taste."
+    "uTkK8kGTG29y2jHOkV/1Qg==": "Espresso with a foamed milk. The same amount of coffee as in latte but with a little bit less milk resulting in a stronger coffee taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 59,
+   "line_beg": 57,
    "col_beg": 10,
-   "line_end": 62,
+   "line_end": 60,
    "col_end": 16,
    "desc": "description of cappuccino coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso with a foamed milk. The same amount of coffee as in Latte but with a little bit less milk resulting in a stronger coffee taste."
+   "jsfbt": "Espresso with a foamed milk. The same amount of coffee as in latte but with a little bit less milk resulting in a stronger coffee taste."
   },
   {
    "hashToText": {
-    "WKiOa2gWHi2GPoNvjvJteQ==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but is topped with more milk resulting in a milder taste."
+    "DSLOlV/wv9NrPmLGoObncA==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as cappuccino but is topped with more milk resulting in a milder taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 71,
+   "line_beg": 69,
    "col_beg": 10,
-   "line_end": 74,
+   "line_end": 72,
    "col_end": 16,
    "desc": "description of latte coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino but is topped with more milk resulting in a milder taste."
+   "jsfbt": "Espresso with a lot of foamed milk. It contains the same amount of coffee as cappuccino but is topped with more milk resulting in a milder taste."
   },
   {
    "hashToText": {
-    "j5buIorgcqwKWuOiUgC18Q==": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweat syrup, and finished with an espresso on top."
+    "+aq26jtcRsvqJI234kUhQw==": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweater chocolatey taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 93,
+   "line_beg": 81,
    "col_beg": 10,
-   "line_end": 96,
+   "line_end": 84,
+   "col_end": 16,
+   "desc": "description of mocha coffee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweater chocolatey taste."
+  },
+  {
+   "hashToText": {
+    "iyOC+kj2PPPSNLAWlf1W6Q==": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweet syrup, and finished with an espresso on top."
+   },
+   "filepath": "src/menu/MenuSectionCoffee.js",
+   "line_beg": 103,
+   "col_beg": 10,
+   "line_end": 106,
    "col_end": 16,
    "desc": "description of iced latte",
    "project": "",
    "type": "text",
-   "jsfbt": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweat syrup, and finished with an espresso on top."
+   "jsfbt": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweet syrup, and finished with an espresso on top."
   },
   {
    "hashToText": {
@@ -660,7 +674,7 @@
   },
   {
    "hashToText": {
-    "TJ/L2G6MlzykMUNolE6oGA==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
+    "90//byClCbo/id4smXnGZw==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional latte. It has less caffeine than coffee but more than green tea."
    },
    "filepath": "src/menu/MenuSectionSpecialities.js",
    "line_beg": 21,
@@ -670,7 +684,7 @@
    "desc": "description of matcha latte",
    "project": "",
    "type": "text",
-   "jsfbt": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional Latte. It has less caffeine than coffee but more than green tea."
+   "jsfbt": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional latte. It has less caffeine than coffee but more than green tea."
   },
   {
    "hashToText": {

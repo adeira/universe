@@ -21,7 +21,7 @@ export default function MenuSectionDumplingSavory(): Node {
             Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -32,7 +32,7 @@ export default function MenuSectionDumplingSavory(): Node {
             seeds.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -42,7 +42,7 @@ export default function MenuSectionDumplingSavory(): Node {
             Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -52,7 +52,7 @@ export default function MenuSectionDumplingSavory(): Node {
             Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -62,7 +62,7 @@ export default function MenuSectionDumplingSavory(): Node {
             Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -72,7 +72,7 @@ export default function MenuSectionDumplingSavory(): Node {
             Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
     </>
   );

@@ -21,7 +21,7 @@ export default function MenuSectionSweetDumpling(): Node {
             Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -31,7 +31,7 @@ export default function MenuSectionSweetDumpling(): Node {
             Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -42,7 +42,7 @@ export default function MenuSectionSweetDumpling(): Node {
             crumbs.{' '}
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -52,7 +52,7 @@ export default function MenuSectionSweetDumpling(): Node {
             Dumpling filled with rice pudding and topped with coconut.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -63,7 +63,7 @@ export default function MenuSectionSweetDumpling(): Node {
             crumbs.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -73,7 +73,7 @@ export default function MenuSectionSweetDumpling(): Node {
             Dumpling filled with lemon pudding and topped with lemon cookies crumbs.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
     </>
   );

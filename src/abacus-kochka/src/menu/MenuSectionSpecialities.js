@@ -20,7 +20,7 @@ export default function MenuSectionSpecialities(): Node {
         description={
           <fbt desc="description of matcha latte">
             Finely grounded matcha green tea powder infused in a hot water topped with a lot of
-            foamed milk similar to traditional Latte. It has less caffeine than coffee but more than
+            foamed milk similar to traditional latte. It has less caffeine than coffee but more than
             green tea.
           </fbt>
         }
