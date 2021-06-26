@@ -11,12 +11,212 @@
         }
       ]
     },
+    "WgPsVQPDZkU+G14byaetrQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Espere un momento por favor…",
+          "variations": []
+        }
+      ]
+    },
     "ZmoOgkWDunmOx3U/8Us9hg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Cerrar sesión",
+          "variations": []
+        }
+      ]
+    },
+    "cDuUp7H3Z3pcA1USmdXIyw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "activo",
+          "variations": []
+        }
+      ]
+    },
+    "J0MsIYnMPKiz7ubGl3IyyA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "inactivo",
+          "variations": []
+        }
+      ]
+    },
+    "ljdn3Wlj6+RtF2CehM///w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "correo verificado",
+          "variations": []
+        }
+      ]
+    },
+    "eOYUb4Hm7JmwXrcob9M5iw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "correo NO verificado",
+          "variations": []
+        }
+      ]
+    },
+    "Qa3mUMhym3NPzuJNq7P/Ng==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Lista de empleados",
+          "variations": []
+        }
+      ]
+    },
+    "DG4YwlsppzoioQ32fEtyQQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Ocurrió algo inesperado y el servidor no pudo procesar la solicitud! 🙈",
+          "variations": []
+        }
+      ]
+    },
+    "99TUdsKRfseIC6G04zBOKg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Este campo es obligatorio",
+          "variations": []
+        }
+      ]
+    },
+    "4SRlvooaQB6It8KVa1bG9g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El campo \"{form field label}\" es obligatorio. Por favor, rellene este campo.",
+          "variations": []
+        }
+      ]
+    },
+    "Wtx7FHIevcq36g3jquWXKg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El campo \"{form field label}\" debe ser negativo.",
+          "variations": []
+        }
+      ]
+    },
+    "S6jnfCvIypCDROzYeKb25A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El campo \"{form field label}\" debe tener un valor menor que {form field min value}.",
+          "variations": []
+        }
+      ]
+    },
+    "x8iZhY9utb/UaEMs13hB8Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El campo \"{form field label}\" debe ser positivo.",
+          "variations": []
+        }
+      ]
+    },
+    "qstwPQ9btvcdowx9na89+A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El campo \"{form field label}\" debe tener un valor mayor que {form field min value}.",
+          "variations": []
+        }
+      ]
+    },
+    "xBtaPdxqvTa9ZLg6/y0y9Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Por favor ingrese un valor válido. Los dos valores válidos más cercanos son {low boundary} y {high boundary}.",
+          "variations": []
+        }
+      ]
+    },
+    "cXb0sWHtGL0NAVNk2AXyYw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El campo \"{form field label}\" es inválido.",
+          "variations": []
+        }
+      ]
+    },
+    "m7T0NTqsKyh2vxq/AIqRrA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Negrita",
+          "variations": []
+        }
+      ]
+    },
+    "qUYpuG/rtRVMLfrWEx9G6Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cursiva",
+          "variations": []
+        }
+      ]
+    },
+    "qfcT6fgdcBLJ28EoUBumJQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Subrayado",
+          "variations": []
+        }
+      ]
+    },
+    "SP/3TZcgzHIb1tmGv1Z/lg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cargando…",
+          "variations": []
+        }
+      ]
+    },
+    "Y3o6+D/7PWcFogiHsVcKiA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "No se pueden cargar datos o datos faltantes.",
           "variations": []
         }
       ]
@@ -31,32 +231,192 @@
         }
       ]
     },
-    "LoFyLbW8JA2D6AsDR+C2sw==": {
+    "/8dxxPpm1jE4TgUkZhPJgg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Productos",
+          "translation": "Inventario de productos",
           "variations": []
         }
       ]
     },
-    "/c/KJABZ8aQaoTbRsJOIPg==": {
+    "nmqpluLoICEmae/YGk+sxw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Usuarios",
+          "translation": "Complementos de productos",
           "variations": []
         }
       ]
     },
-    "uKUaGDYLMNYdVKPaqadikQ==": {
+    "c3mR1ZSr1gvq0r3554Bsmg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Open POS",
+          "translation": "Empleados",
+          "variations": []
+        }
+      ]
+    },
+    "ApP0zU/Dspzx3JgCH6R9Iw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Sesiones de TPV",
+          "variations": []
+        }
+      ]
+    },
+    "1rXwpKPkPHMs9WWQt7wCRQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "abacus emoji",
+          "variations": []
+        }
+      ]
+    },
+    "iCBctDdcz6yDLlNQGi9HBw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Total:",
+          "variations": []
+        }
+      ]
+    },
+    "rLRFrvo+/qGRtijpdlaKwA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Todas las sesiones de TPV",
+          "variations": []
+        }
+      ]
+    },
+    "nZqhEjn5qcrJgjOP1hhOWA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Abrir sesión de TPV",
+          "variations": []
+        }
+      ]
+    },
+    "bK+ktgyahP617ibw4AAiBg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Oh no! Algo está roto.",
+          "variations": []
+        }
+      ]
+    },
+    "5Of4p7aMGeNd1YsvRknZvQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "emoji con ceja levantada",
+          "variations": []
+        }
+      ]
+    },
+    "ixWIW0sWjo/M0DaH+nE0Ug==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Iniciar una nueva sesión de TPV",
+          "variations": []
+        }
+      ]
+    },
+    "Uwsynldmzkm43wwA8z+rWQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Está seguro de que desea restablecer la sesión de compra y comenzar de nuevo? Todos los elementos seleccionados serán eliminados.",
+          "variations": []
+        }
+      ]
+    },
+    "T61CEaVqIFGOoto/TXxy5A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "⬅ Regresar",
+          "variations": []
+        }
+      ]
+    },
+    "X15wJnkWMiCincs1C+MeFw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Recibiste el dinero?",
+          "variations": []
+        }
+      ]
+    },
+    "MfLT6Yq4YBMxi+dW96zMNg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Sí, finalizar la compra",
+          "variations": []
+        }
+      ]
+    },
+    "P3UvwgozOxL8sg8ODM5D/A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "No, empezar de nuevo",
+          "variations": []
+        }
+      ]
+    },
+    "+WJ8s6/GCuVjuiX9CDxdzg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Enhorabuena!",
+          "variations": []
+        }
+      ]
+    },
+    "xOnN5FZLRgGOCj72rGTwhg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "pulgar hacia arriba",
+          "variations": []
+        }
+      ]
+    },
+    "ZG+l+9644F97vASBBKmFzg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Ahora puedes volver atrás y servir a otro cliente!",
           "variations": []
         }
       ]
@@ -91,12 +451,12 @@
         }
       ]
     },
-    "DG4YwlsppzoioQ32fEtyQQ==": {
+    "EIVU1wJ5opAD+tU9JLao5Q==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "¡Ocurrió algo inesperado y el servidor no pudo procesar la solicitud! 🙈",
+          "translation": "Producto {product name} creado! ✅",
           "variations": []
         }
       ]
@@ -111,42 +471,12 @@
         }
       ]
     },
-    "PuBcEtz2gVA/g2IgDKLtDg==": {
+    "SNkT0X9e8R3/FZ7ymMs5Zg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Se requiere una versión en inglés del nombre del producto",
-          "variations": []
-        }
-      ]
-    },
-    "KEevPPim20vMq3ey4NmXcQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Se requiere una versión en español del nombre del producto",
-          "variations": []
-        }
-      ]
-    },
-    "hG18c6F/tkr5u5MuaDp4ug==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "El precio del producto es obligatorio",
-          "variations": []
-        }
-      ]
-    },
-    "yzI38uykFY/ub9AvbwWW7g==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "El precio del producto debe ser un número positivo",
+          "translation": "Producto {product name} (rev: {product revision}) actualizado! ✅",
           "variations": []
         }
       ]
@@ -161,106 +491,6 @@
         }
       ]
     },
-    "aPUJdpL8vp5qfKNsFMmsDw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Nombre del producto (inglés)",
-          "variations": []
-        }
-      ]
-    },
-    "If15Rd9UqwSa2ctF1W+gGw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Nombre del producto (español)",
-          "variations": []
-        }
-      ]
-    },
-    "fIkIODIEZUcYs7jnbKCMbQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Descripción del producto (inglés)",
-          "variations": []
-        }
-      ]
-    },
-    "0JhgWnXU3GS2BSJv0aKTSA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Descripción del producto (español)",
-          "variations": []
-        }
-      ]
-    },
-    "r84jIlbvbpbZx8MqJ0A94w==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Precio (MXN)",
-          "variations": []
-        }
-      ]
-    },
-    "lZD4GtdtmFDnxD98aPVEUw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Imágenes del producto",
-          "variations": []
-        }
-      ]
-    },
-    "0BsTiPapD1k7SKNIyzq9Og==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Inventario de productos",
-          "variations": []
-        }
-      ]
-    },
-    "H4nmh2EfCNqj/R7wbLia9w==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Crear un nuevo producto",
-          "variations": []
-        }
-      ]
-    },
-    "D+WsTLSMdok9SuNN16agEQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Crear un nuevo producto",
-          "variations": []
-        }
-      ]
-    },
-    "kZSl2UcMZDzRSCGJm9hDkw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Inventario de productos",
-          "variations": []
-        }
-      ]
-    },
     "N4YZT+GlkQir3UlP1/V2Og==": {
       "tokens": [],
       "types": [],
@@ -271,22 +501,12 @@
         }
       ]
     },
-    "tiWuhsZnYZAq7WNxH1zdCw==": {
+    "kZSl2UcMZDzRSCGJm9hDkw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "¿Está seguro de que desea publicar este producto?",
-          "variations": []
-        }
-      ]
-    },
-    "tINZj24Mghh5neZ5w0746A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Publish product (TODO)",
+          "translation": "Inventario de productos",
           "variations": []
         }
       ]
@@ -311,12 +531,82 @@
         }
       ]
     },
-    "KPaU2v3S7qUH0pj1rVBMaw==": {
+    "tiWuhsZnYZAq7WNxH1zdCw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Lista de usuarios",
+          "translation": "¿Está seguro de que desea publicar este producto?",
+          "variations": []
+        }
+      ]
+    },
+    "3qz/xqX+Nv7bYwQCSNXWdQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Publicar producto",
+          "variations": []
+        }
+      ]
+    },
+    "lZD4GtdtmFDnxD98aPVEUw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Imágenes del producto",
+          "variations": []
+        }
+      ]
+    },
+    "jDz1xtreligZF6hDwlOGmA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Nombre del producto (en inglés)",
+          "variations": []
+        }
+      ]
+    },
+    "r84jIlbvbpbZx8MqJ0A94w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Precio (MXN)",
+          "variations": []
+        }
+      ]
+    },
+    "D+WsTLSMdok9SuNN16agEQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Crear un nuevo producto",
+          "variations": []
+        }
+      ]
+    },
+    "0BsTiPapD1k7SKNIyzq9Og==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Inventario de productos",
+          "variations": []
+        }
+      ]
+    },
+    "H4nmh2EfCNqj/R7wbLia9w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Crear un nuevo producto",
           "variations": []
         }
       ]
