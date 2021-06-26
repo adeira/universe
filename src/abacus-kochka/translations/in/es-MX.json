@@ -1,16 +1,6 @@
 {
   "fb-locale": "es-MX",
   "translations": {
-    "9NSktf8Wasdbln+avfGiWQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Ir al contenido",
-          "variations": []
-        }
-      ]
-    },
     "YLzBdvonuLATQ5FpiPMgEw==": {
       "tokens": [],
       "types": [],
@@ -31,22 +21,162 @@
         }
       ]
     },
-    "DxYKWKSGL4TlF/UCjPxraw==": {
+    "56PKpOqt3+LEFaRQ36PltQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Correo electrónico",
+          "translation": "Menú",
           "variations": []
         }
       ]
     },
-    "3gn4gj3UPVu7liOVZ+/SCg==": {
+    "E4RZPBAPff7GYBpbxPKY/A==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "¡Quiero saber!",
+          "translation": "Reglas de la cafetería",
+          "variations": []
+        }
+      ]
+    },
+    "Jl7ke09TxJz/ttxyYXALfQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Tienda",
+          "variations": []
+        }
+      ]
+    },
+    "n6tw27wXSGSf70t6gzskXQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Inicio",
+          "variations": []
+        }
+      ]
+    },
+    "5DdiCVjwegcUT8ZCy2GyrQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Menú",
+          "variations": []
+        }
+      ]
+    },
+    "IjVXijtuMLAQYt3SNU4PLQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Reglas de la cafetería",
+          "variations": []
+        }
+      ]
+    },
+    "ktONRQOJxnJhj9ebj+y1Dw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Tienda",
+          "variations": []
+        }
+      ]
+    },
+    "9xbWs0pIv9Xy0lfCwF7DmQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Términos de uso",
+          "variations": []
+        }
+      ]
+    },
+    "AnWW7GmesxqieaEMwwAsbQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Inicio",
+          "variations": []
+        }
+      ]
+    },
+    "T7TGlJhstlWdCNB26MkqzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Menú",
+          "variations": []
+        }
+      ]
+    },
+    "paPCRFfyKUaXeFKvDVrhoQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Reglas de la cafetería",
+          "variations": []
+        }
+      ]
+    },
+    "oubYOKD/2Kkks5EsdTg1Vg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Tienda",
+          "variations": []
+        }
+      ]
+    },
+    "2YO+c7f7liBd/0oWsDx7MQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Bebidas de café",
+          "variations": []
+        }
+      ]
+    },
+    "t5V1cpabCbQkUc19Sc2NSw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Dumplings salados",
+          "variations": []
+        }
+      ]
+    },
+    "qTi+uC+IskJlO3OJUAktFQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Dumplings dulces",
+          "variations": []
+        }
+      ]
+    },
+    "x6UgjVUbrHri7VzawP9UtA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Especialidades",
           "variations": []
         }
       ]
@@ -181,12 +311,12 @@
         }
       ]
     },
-    "WTkOySZFstu+ZeKuWKvHGg==": {
+    "9NSktf8Wasdbln+avfGiWQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Todavía no abrimos ¿Te gustaría recibir una notificación cuando lo hagamos? Suscríbete a nuestro newsletter y te avisaremos.",
+          "translation": "Ir al contenido",
           "variations": []
         }
       ]
@@ -217,166 +347,6 @@
       "translations": [
         {
           "translation": "imagen de gato por definir",
-          "variations": []
-        }
-      ]
-    },
-    "qTi+uC+IskJlO3OJUAktFQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumplings dulces",
-          "variations": []
-        }
-      ]
-    },
-    "5iHUQDce3mVPNzpzIQaYBw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Ferrero",
-          "variations": []
-        }
-      ]
-    },
-    "0kiTp40ON1fVVqDdL9QTag==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Zarzamora + Philadelphia",
-          "variations": []
-        }
-      ]
-    },
-    "vxQvNlNZE5+K2O4oRDzNdA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Oreo + Chocolate blanco",
-          "variations": []
-        }
-      ]
-    },
-    "J7C2FVfCsfmd9a0pwEzTnA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Plátano + Lechera",
-          "variations": []
-        }
-      ]
-    },
-    "VmlLyj2v1Cqt8mliV0wOCA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Fresa + coco",
-          "variations": []
-        }
-      ]
-    },
-    "t5V1cpabCbQkUc19Sc2NSw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumplings salados",
-          "variations": []
-        }
-      ]
-    },
-    "SeBE+pGmn00wK3DIW1AeQQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Pizza",
-          "variations": []
-        }
-      ]
-    },
-    "TM+8y3uHpE9TSHQyg8hQMA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Choriqueso",
-          "variations": []
-        }
-      ]
-    },
-    "HtilRqaeRn24yj8r/UY78Q==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Hawaiano",
-          "variations": []
-        }
-      ]
-    },
-    "LKMO5BWwRSp4pHxWfv3uLg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Café",
-          "variations": []
-        }
-      ]
-    },
-    "/epfePfrGcHgr350PJlO8A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Espresso",
-          "variations": []
-        }
-      ]
-    },
-    "FhbbT23dVqvnF0w57D4A/A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Americano",
-          "variations": []
-        }
-      ]
-    },
-    "Jo96bwQOld3PFaYr54NkKw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Latte",
-          "variations": []
-        }
-      ]
-    },
-    "Uu0pASljQPLpg76lmS8oTA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Flat White",
-          "variations": []
-        }
-      ]
-    },
-    "CzxSuTKSwKmHdQjWueIPRw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Otros",
           "variations": []
         }
       ]

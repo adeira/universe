@@ -15,8 +15,6 @@ export default function MenuSectionCoffee(): Node {
       </MenuHeading>
 
       <MenuRow
-        // We call this "espresso" but technically, it's basically a double espresso pulled from
-        // double portafilter. It's adjusted to the modern expectations and american market.
         title="Espresso"
         description={
           <fbt desc="description of a single espresso coffee">
@@ -26,7 +24,7 @@ export default function MenuSectionCoffee(): Node {
             Small, very intense, slightly acid drink - stir before drinking.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
@@ -34,10 +32,10 @@ export default function MenuSectionCoffee(): Node {
         description={
           <fbt desc="description of americano coffee">
             Espresso topped with hot water resulting in approximately 250&nbsp;ml of hot beverage.
-            Milder flavor than Espresso thanks to the water but with the same coffee content.
+            Milder flavor than espresso thanks to the water but with the same coffee content.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
         volume={250}
       />
 
@@ -46,10 +44,10 @@ export default function MenuSectionCoffee(): Node {
         description={
           <fbt desc="description of long black coffee">
             Espresso poured over hot water resulting in approximately 250&nbsp;ml of hot beverage.
-            Very similar to Americano except it preserves more Espresso crema on top of the cup.
+            Very similar to americano except it preserves more espresso crema on top of the cup.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
         volume={250}
       />
 
@@ -57,7 +55,7 @@ export default function MenuSectionCoffee(): Node {
         title="Cappuccino"
         description={
           <fbt desc="description of cappuccino coffee">
-            Espresso with a foamed milk. The same amount of coffee as in Latte but with a little bit
+            Espresso with a foamed milk. The same amount of coffee as in latte but with a little bit
             less milk resulting in a stronger coffee taste.
           </fbt>
         }
@@ -69,11 +67,23 @@ export default function MenuSectionCoffee(): Node {
         title="Latte"
         description={
           <fbt desc="description of latte coffee">
-            Espresso with a lot of foamed milk. It contains the same amount of coffee as Cappucino
+            Espresso with a lot of foamed milk. It contains the same amount of coffee as cappuccino
             but is topped with more milk resulting in a milder taste.
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        volume={450}
+      />
+
+      <MenuRow
+        title="Mocha"
+        description={
+          <fbt desc="description of mocha coffee">
+            Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a
+            sweater chocolatey taste.
+          </fbt>
+        }
+        price={<Money priceUnitAmount={55} priceUnitAmountCurrency={'MXN'} />}
         volume={450}
       />
 
@@ -91,11 +101,11 @@ export default function MenuSectionCoffee(): Node {
         title="Iced Latte"
         description={
           <fbt desc="description of iced latte">
-            A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweat syrup, and
+            A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweet syrup, and
             finished with an espresso on top.
           </fbt>
         }
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
+        price={<Money priceUnitAmount={55} priceUnitAmountCurrency={'MXN'} />}
         // TODO: volume
       />
     </>
