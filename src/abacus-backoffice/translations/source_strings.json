@@ -971,9 +971,9 @@
     "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 97,
+   "line_beg": 104,
    "col_beg": 10,
-   "line_end": 97,
+   "line_end": 104,
    "col_end": 73,
    "desc": "visible in POS - select option",
    "project": "",
@@ -985,9 +985,9 @@
     "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 100,
+   "line_beg": 107,
    "col_beg": 10,
-   "line_end": 102,
+   "line_end": 109,
    "col_end": 16,
    "desc": "visible in eshop - select option",
    "project": "",
