@@ -1,4 +1,5 @@
 #![deny(unused_must_use)]
+#![forbid(unsafe_code)]
 
 use crate::arangodb::get_database_connection_pool;
 use crate::clap::generate_clap_app;
