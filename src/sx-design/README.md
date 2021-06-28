@@ -139,6 +139,7 @@ Legend:
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Temperature />`]   |     ✅      |     ✅      |      🧐       |    ✅    |  🧐   |
+| [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
 [`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
@@ -159,6 +160,7 @@ Legend:
 [`<skeleton />`]: https://sx-design.vercel.app/?path=/story/example-skeleton
 [`<skiplink />`]: https://sx-design.vercel.app/?path=/story/example-skiplink
 [`<temperature />`]: https://sx-design.vercel.app/?path=/story/example-temperature
+[`<tooltip />`]: https://sx-design.vercel.app/?path=/story/example-tooltip
 
 _Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
 
