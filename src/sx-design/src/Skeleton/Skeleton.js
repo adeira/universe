@@ -4,21 +4,12 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 
 type Props = {
-  +'squared'?: boolean,
   +'data-testid'?: string,
 };
 
 // Component to be used as a placeholder when loading list of cards.
 export default function Skeleton(props: Props): React.Node {
-  return (
-    <div
-      data-testid={props['data-testid']}
-      className={styles({
-        skeleton: true,
-        skeletonSquared: props.squared === true,
-      })}
-    />
-  );
+  return <div data-testid={props['data-testid']} className={styles('skeleton')} />;
 }
 
 const loading = sx.keyframes({
@@ -44,8 +35,5 @@ const styles = sx.create({
     animationDuration: '8s',
     animationTimingFunction: 'ease-in-out',
     animationIterationCount: 'infinite',
-  },
-  skeletonSquared: {
-    borderRadius: 0,
   },
 });

@@ -57,7 +57,13 @@ export default function ProductCard(props: Props): Element<'div'> {
     >
       <div className={styles('highlightWrapper')}>
         <Heading xstyle={styles.heading}>
-          <span className={styles(isHovered ? 'highlightHover' : 'highlight', 'highlightBase')}>
+          <span
+            className={styles(
+              isHovered ? 'highlightHover' : 'highlight',
+              'highlightBase',
+              'highlightBaseRounded', // applies only to this highlight
+            )}
+          >
             {props.title}
           </span>
         </Heading>
@@ -87,8 +93,9 @@ const styles = sx.create({
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'rgba(var(--sx-accent-2))',
     position: 'relative',
+    borderRadius: 'var(--sx-radius)',
   },
   highlightWrapper: {
     position: 'absolute',
@@ -103,6 +110,9 @@ const styles = sx.create({
     display: 'inline-block',
     marginBottom: 1,
     padding: '1rem',
+  },
+  highlightBaseRounded: {
+    borderStartStartRadius: 'var(--sx-radius)',
   },
   highlight: {
     'color': 'rgba(var(--sx-foreground))',

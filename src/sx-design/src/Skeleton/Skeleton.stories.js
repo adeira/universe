@@ -36,9 +36,3 @@ const Template = (args) => (
 // 👇 Each story then reuses that template
 export const DefaultSkeleton: StoryTemplate<typeof Skeleton> = Template.bind({});
 DefaultSkeleton.storyName = 'Default';
-
-export const SquaredSkeleton: StoryTemplate<typeof Skeleton> = Template.bind({});
-SquaredSkeleton.storyName = 'Squared';
-SquaredSkeleton.args = {
-  squared: true,
-};
