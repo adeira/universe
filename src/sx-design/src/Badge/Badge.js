@@ -29,9 +29,9 @@ export default function Badge(props: Props): React.Node {
 const styles = sx.create({
   badgeBase: {
     padding: '2px 7px',
-    borderRadius: 16,
+    borderRadius: 'var(--sx-radius)',
     lineHeight: 1,
-    fontSize: 14,
+    fontSize: 'smaller',
   },
   badgeTintDefault: {
     backgroundColor: 'rgba(var(--sx-foreground), 0.1)',
