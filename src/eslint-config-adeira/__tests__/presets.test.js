@@ -37,3 +37,9 @@ test('relay preset', () => {
 
   expect(preset).toMatchSnapshot(propertyMatchers, 'Relay preset');
 });
+
+test('nextjs preset', () => {
+  const preset = require('../nextjs');
+
+  expect(preset).toMatchSnapshot(propertyMatchers, 'Next.js preset');
+});

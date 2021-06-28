@@ -37,4 +37,8 @@ module.exports = {
     plugins: ['eslint-plugin-relay'],
     rules: groupedRules.relay,
   },
+  nextjs: {
+    plugins: ['@next/eslint-plugin-next'],
+    rules: groupedRules.nextjs,
+  },
 };

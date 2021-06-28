@@ -743,6 +743,24 @@ const groupedRules = ({
     'relay/no-future-added-value': ERROR,
     'relay/unused-fields': ERROR,
   },
+  nextjs: {
+    // Next.js (https://github.com/vercel/next.js/tree/canary/packages/eslint-plugin-next)
+    // TODO: enable this conditionally when requested (?)
+    // TODO: change to NEXT_VERSION_ERROR or WARN or OFF where appropriate
+    // TODO: verify by running `yarn lint --all`
+    '@next/next/google-font-display': ERROR,
+    '@next/next/google-font-preconnect': ERROR,
+    '@next/next/link-passhref': ERROR,
+    '@next/next/no-css-tags': ERROR,
+    '@next/next/no-document-import-in-page': ERROR,
+    '@next/next/no-head-import-in-document': ERROR,
+    '@next/next/no-html-link-for-pages': ERROR,
+    '@next/next/no-img-element': ERROR,
+    '@next/next/no-page-custom-font': ERROR,
+    '@next/next/no-sync-scripts': ERROR,
+    '@next/next/no-title-in-document-head': ERROR,
+    '@next/next/no-unwanted-polyfillio': ERROR,
+  },
 } /*: {[string]:EslintConfigRules} */);
 
 exports.groupedRules = groupedRules;

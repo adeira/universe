@@ -1,5 +1,7 @@
 # Unreleased
 
+TKTK (new Nextjs rules)
+
 Config subsets added for use cases where the main default config does not fit well.
 
 - `@adeira/eslint-config/base`
@@ -7,6 +9,7 @@ Config subsets added for use cases where the main default config does not fit we
 - `@adeira/eslint-config/react`
 - `@adeira/eslint-config/flowtype`
 - `@adeira/eslint-config/relay`
+- `@adeira/eslint-config/nextjs`
 
 # 6.1.0
 

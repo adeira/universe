@@ -31,6 +31,7 @@ export default function Horizontal(): Node {
           </p>
         </div>
         <div sxt="flex items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             sxt="w-10 h-10 rounded-full mr-4"
             src="https://tailwindcss.com/img/jonathan.jpg"

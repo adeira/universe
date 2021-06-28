@@ -70,6 +70,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
     },
 
     plugins: [
+      '@next/eslint-plugin-next',
       'eslint-plugin-flowtype',
       'eslint-plugin-jest',
       'eslint-plugin-react',

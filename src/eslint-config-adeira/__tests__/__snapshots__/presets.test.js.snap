@@ -768,6 +768,76 @@ Object {
 }
 `;
 
+exports[`nextjs preset: Next.js preset 1`] = `
+Object {
+  "globals": Object {
+    "FormData": "readonly",
+    "__DEV__": "readonly",
+    "global": "readonly",
+    "globalThis": "readonly",
+  },
+  "overrides": Array [
+    Object {
+      "files": Array [
+        "**/__generated__/*.graphql.js",
+      ],
+      "rules": Object {
+        "eslint-comments/no-unlimited-disable": 0,
+      },
+    },
+  ],
+  "plugins": Array [
+    "@next/eslint-plugin-next",
+  ],
+  "rules": Object {
+    "@next/next/google-font-display": 2,
+    "@next/next/google-font-preconnect": 2,
+    "@next/next/link-passhref": 2,
+    "@next/next/no-css-tags": 2,
+    "@next/next/no-document-import-in-page": 2,
+    "@next/next/no-head-import-in-document": 2,
+    "@next/next/no-html-link-for-pages": 2,
+    "@next/next/no-img-element": 2,
+    "@next/next/no-page-custom-font": 2,
+    "@next/next/no-sync-scripts": 2,
+    "@next/next/no-title-in-document-head": 2,
+    "@next/next/no-unwanted-polyfillio": 2,
+    "curly": Array [
+      2,
+      "all",
+    ],
+    "prettier/prettier": Array [
+      2,
+      Object {
+        "bracketSpacing": true,
+        "printWidth": 100,
+        "quoteProps": "consistent",
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "all",
+      },
+    ],
+  },
+  "settings": Object {
+    "import/resolver": Object {
+      "node": Object {
+        "extensions": Array [
+          ".js",
+          ".jsx",
+          ".android.js",
+          ".ios.js",
+          ".native.js",
+          ".web.js",
+        ],
+      },
+    },
+    "react": Object {
+      "version": Any<String>,
+    },
+  },
+}
+`;
+
 exports[`react preset: React preset 1`] = `
 Object {
   "globals": Object {
