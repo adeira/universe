@@ -7,6 +7,7 @@ import sx from '@adeira/sx';
 import getFbtTranslationsForLocale from './getFbtTranslationsForLocale';
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
+import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
 import type { SupportedLocales } from './constants';
 
 type Props = {
@@ -89,7 +90,7 @@ export default function SxDesignProvider(props: Props): Node {
       // way of setting up the node somewhere in HTML body manually? It's because here we are setting
       // CSS variables for the SX Design and we could not use them in the `Tooltip` component (they
       // would be out of the "context" of CSS variables).
-      id="react-portal-root"
+      id={SX_DESIGN_REACT_PORTAL_ID}
     >
       <SxDesignContext.Provider value={contextValue}>{props.children}</SxDesignContext.Provider>
     </div>

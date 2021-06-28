@@ -41,7 +41,7 @@ it('throws an error when HTML node with ID #react-portal-root is missing', () =>
   const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   // It should fail when we try to render the `Tooltip` and there is no HTML node with ID
-  // #react-portal-root so we cannot create a React Portal for this tooltip:
+  // #sx-design-react-portal-root so we cannot create a React Portal for this tooltip:
   expect(() =>
     render(
       <Tooltip data-testid="hover_over_me">
@@ -51,7 +51,7 @@ it('throws an error when HTML node with ID #react-portal-root is missing', () =>
       </Tooltip>,
     ),
   ).toThrowErrorMatchingInlineSnapshot(
-    `"Tooltip component requires HTML node with ID \\"#react-portal-root\\" (none was found). Did you forget to call \\"<SxDesignProvider />\\" somewhere in the application root?"`,
+    `"Some components require HTML node with ID \\"#sx-design-react-portal-root\\" (none was found). Did you forget to call \\"<SxDesignProvider />\\" somewhere in the application root?"`,
   );
 
   consoleSpy.mockRestore();

@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, type Node } from 'react';
 import sx from '@adeira/sx';
 
-import TooltipPortal from './TooltipPortal';
+import SxDesignPortal from '../SxDesignPortal';
 import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPosition';
 
 type Props = {
@@ -56,7 +56,7 @@ export default function Tooltip(props: Props): Node {
         </svg>
       </span>
 
-      <TooltipPortal>
+      <SxDesignPortal>
         <div
           className={styles('tooltipRoot')}
           style={{
@@ -70,7 +70,7 @@ export default function Tooltip(props: Props): Node {
         >
           {props.children}
         </div>
-      </TooltipPortal>
+      </SxDesignPortal>
     </>
   );
 }
