@@ -12,7 +12,7 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
     disable: false,
-    default: 'twitter',
+    default: 'dark mode',
     values: [
       { name: 'light mode', value: '#fff' },
       { name: 'dark mode', value: DARK_MODE_BACKGROUND },
