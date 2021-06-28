@@ -1,9 +1,6 @@
 // @flow strict
 
 const FEATURES = {
-  // Enables or disables "Adoption" page.
-  'page-adoption-enabled': false,
-
   // Enables or disables "Shop" without ability to order the products online.
   'page-shop-enabled': __DEV__,
 

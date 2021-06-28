@@ -18,10 +18,14 @@ mod graphql_context;
 mod graphql_schema;
 mod headers;
 mod images;
+mod menu;
 mod migrations;
 mod pos;
 mod tracking;
 mod warp_graphql;
+
+#[cfg(test)]
+mod tests;
 
 // https://www.lpalmieri.com/posts/2020-09-27-zero-to-production-4-are-we-observable-yet/
 fn init_tracing() {
@@ -94,6 +98,3 @@ async fn main() {
     // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
     warp::serve(routes).run(server_addr).await
 }
-
-#[cfg(test)]
-mod tests;
