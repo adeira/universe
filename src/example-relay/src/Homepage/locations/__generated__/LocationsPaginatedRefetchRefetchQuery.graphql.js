@@ -1,58 +1,34 @@
 /**
+ * @generated SignedSource<<dc23470b4908d6bbb4f5611026cccc1d>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
-type LocationsPaginatedRefetch$ref = any;
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type LocationsPaginatedRefetch$ref: FragmentReference;
+declare export opaque type LocationsPaginatedRefetch$fragmentType: LocationsPaginatedRefetch$ref;
 export type LocationsPaginatedRefetchRefetchQueryVariables = {|
   after?: ?string,
   count?: ?number,
 |};
 export type LocationsPaginatedRefetchRefetchQueryResponse = {|
-  +$fragmentRefs: LocationsPaginatedRefetch$ref
+  +$fragmentRefs: LocationsPaginatedRefetch$ref,
 |};
 export type LocationsPaginatedRefetchRefetchQuery = {|
   variables: LocationsPaginatedRefetchRefetchQueryVariables,
   response: LocationsPaginatedRefetchRefetchQueryResponse,
 |};
-
-/*
-query LocationsPaginatedRefetchRefetchQuery(
-  $after: String
-  $count: Int = 20
-) {
-  ...LocationsPaginatedRefetch_2QE1um
-}
-
-fragment Location on Location {
-  name
-  countryFlagURL
-  country {
-    name
-  }
-}
-
-fragment LocationsPaginatedRefetch_2QE1um on RootQuery {
-  incrementalPagination: locations(first: $count, after: $after) {
-    edges {
-      node {
-        id
-        ...Location
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -234,6 +210,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '9b7f0b241071b44b2e2f386b1e71ce2e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "9b7f0b241071b44b2e2f386b1e71ce2e";
+}
+
+module.exports = node;

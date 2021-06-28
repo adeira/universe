@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<d4cb6a17bf1f4ec854b1707d84f6a4e2>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type IndexPageQueryVariables = {||};
 export type IndexPageQueryResponse = {|
@@ -17,32 +24,16 @@ export type IndexPageQueryResponse = {|
       +totalCheckouts: number,
       +totalSoldUnits: number,
       +totalSoldUnitAmount: number,
-    |}
+    |},
   |},
 |};
 export type IndexPageQuery = {|
   variables: IndexPageQueryVariables,
   response: IndexPageQueryResponse,
 |};
-
-/*
-query IndexPageQuery {
-  whoami {
-    id
-    humanReadableType
-    isDebugAssertionsEnabled
-  }
-  pos {
-    getTotalCheckoutStats {
-      totalCheckouts
-      totalSoldUnits
-      totalSoldUnitAmount
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -147,6 +138,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'aeba1fc58c0f30fa53eeafb0041861bf';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "aeba1fc58c0f30fa53eeafb0041861bf";
+}
+
+module.exports = node;

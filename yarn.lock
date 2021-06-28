@@ -9579,10 +9579,10 @@ graphql-tools@^4.0.8:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-"graphql@^14.0.0 || ^15.0.0", graphql@^15.5.1:
-  version "15.5.1"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
-  integrity sha512-FeTRX67T3LoE3LWAxxOlW2K3Bz+rMYAC18rRguK4wgXaTZMiJwSUwDmPFo3UadAKbzirKIg5Qy+sNJXbpPRnQw==
+graphql@15.3.0, "graphql@^14.0.0 || ^15.0.0", graphql@^15.5.1:
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
+  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
 gray-matter@^4.0.3:
   version "4.0.3"
@@ -15134,6 +15134,11 @@ relateurl@^0.2.7:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+relay-compiler-experimental@0.0.0-master-211d6fec:
+  version "0.0.0-master-211d6fec"
+  resolved "https://registry.yarnpkg.com/relay-compiler-experimental/-/relay-compiler-experimental-0.0.0-master-211d6fec.tgz#d2624b302e108bd8aa4b40566e772db36ee8f765"
+  integrity sha512-YqOGR3l0icoDqUrmPSWUTFohV1oYKx2O2TGoco1gda4+AFHZ5slnSDzWmqS7O01Oua377AWh4Vf/H9Z3joRf7w==
 
 relay-compiler@^11.0.2:
   version "11.0.2"

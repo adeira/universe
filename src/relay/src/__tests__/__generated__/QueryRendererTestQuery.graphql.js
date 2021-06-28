@@ -1,31 +1,30 @@
 /**
+ * @generated SignedSource<<90e076e5378b07d661996157ecaf179e>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type QueryRendererTestQueryVariables = {||};
 export type QueryRendererTestQueryResponse = {|
   +node: ?{|
-    +id: string
-  |}
+    +id: string,
+  |},
 |};
 export type QueryRendererTestQuery = {|
   variables: QueryRendererTestQueryVariables,
   response: QueryRendererTestQueryResponse,
 |};
-
-/*
-query QueryRendererTestQuery {
-  node(id: "my-id") {
-    __typename
-    id
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "kind": "Literal",
@@ -121,6 +120,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '6da37014e280a934ef08b7983d1c4d94';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "6da37014e280a934ef08b7983d1c4d94";
+}
+
+module.exports = node;

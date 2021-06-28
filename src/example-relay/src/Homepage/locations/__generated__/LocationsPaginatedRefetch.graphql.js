@@ -1,21 +1,29 @@
 /**
+ * @generated SignedSource<<4e9c504ddea411f27b3d7292ee907eed>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 type Location$ref = any;
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type LocationsPaginatedRefetch$ref: FragmentReference;
-declare export opaque type LocationsPaginatedRefetch$fragmentType: LocationsPaginatedRefetch$ref;
+type LocationsPaginatedRefetch$ref = any;
+type LocationsPaginatedRefetch$fragmentType = any;
+export type { LocationsPaginatedRefetch$ref, LocationsPaginatedRefetch$fragmentType };
 export type LocationsPaginatedRefetch = {|
   +incrementalPagination: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: string,
         +$fragmentRefs: Location$ref,
-      |}
+      |},
     |}>,
     +pageInfo: {|
       +endCursor: ?string,
@@ -30,9 +38,9 @@ export type LocationsPaginatedRefetch$key = {
   +$fragmentRefs: LocationsPaginatedRefetch$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = (function(){
+var node/*: ReaderFragment*/ = (function(){
 var v0 = [
   "incrementalPagination"
 ];
@@ -69,7 +77,7 @@ return {
         "path": (v0/*: any*/)
       },
       "fragmentPathInResult": [],
-      "operation": require('./LocationsPaginatedRefetchRefetchQuery.graphql.js').default
+      "operation": require('./LocationsPaginatedRefetchRefetchQuery.graphql')
     }
   },
   "name": "LocationsPaginatedRefetch",
@@ -106,16 +114,16 @@ return {
                   "storageKey": null
                 },
                 {
+                  "args": null,
+                  "kind": "FragmentSpread",
+                  "name": "Location"
+                },
+                {
                   "alias": null,
                   "args": null,
                   "kind": "ScalarField",
                   "name": "__typename",
                   "storageKey": null
-                },
-                {
-                  "args": null,
-                  "kind": "FragmentSpread",
-                  "name": "Location"
                 }
               ],
               "storageKey": null
@@ -163,6 +171,9 @@ return {
   "abstractKey": null
 };
 })();
-// prettier-ignore
-(node: any).hash = '9b7f0b241071b44b2e2f386b1e71ce2e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "9b7f0b241071b44b2e2f386b1e71ce2e";
+}
+
+module.exports = node;

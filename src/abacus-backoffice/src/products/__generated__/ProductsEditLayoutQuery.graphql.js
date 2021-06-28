@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<9df9f136c90c85563fb5ee277ec3f76c>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type ProductEditFormData$ref = any;
 type ProductEditHeading$ref = any;
@@ -21,60 +28,16 @@ export type ProductsEditLayoutQueryResponse = {|
         +url: string,
       |}>,
       +$fragmentRefs: ProductEditHeading$ref & ProductEditFormData$ref,
-    |}
-  |}
+    |},
+  |},
 |};
 export type ProductsEditLayoutQuery = {|
   variables: ProductsEditLayoutQueryVariables,
   response: ProductsEditLayoutQueryResponse,
 |};
-
-/*
-query ProductsEditLayoutQuery(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-) {
-  commerce {
-    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      ...ProductEditHeading
-      images {
-        name
-        blurhash
-        url
-      }
-      ...ProductEditFormData
-      id
-    }
-  }
-}
-
-fragment ProductEditFormData on Product {
-  key
-  revision
-  price {
-    unitAmount
-  }
-  visibility
-  enTranslation: translation(locale: en_US) {
-    name
-    descriptionSlate
-  }
-  esTranslation: translation(locale: es_MX) {
-    name
-    descriptionSlate
-  }
-  images {
-    name
-  }
-}
-
-fragment ProductEditHeading on Product {
-  key
-  isPublished
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -165,12 +128,12 @@ return {
             "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
-              (v3/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
                 "name": "ProductEditHeading"
               },
+              (v3/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -312,6 +275,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'a0bfb0ff14c17bd91dd157d472cab49e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "65d361f91d79ebe6a215a4a69979a04f";
+}
+
+module.exports = node;

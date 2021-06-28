@@ -1,16 +1,24 @@
 /**
+ * @generated SignedSource<<7cc7ff5a40a00f0812409411b5afe249>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type useRefetchableFragment$ref: FragmentReference;
-declare export opaque type useRefetchableFragment$fragmentType: useRefetchableFragment$ref;
+type useRefetchableFragment$ref = any;
+type useRefetchableFragment$fragmentType = any;
+export type { useRefetchableFragment$ref, useRefetchableFragment$fragmentType };
 export type useRefetchableFragment = {|
   +node: ?{|
-    +__typename: string
+    +__typename: string,
   |},
   +$refType: useRefetchableFragment$ref,
 |};
@@ -20,16 +28,16 @@ export type useRefetchableFragment$key = {
   +$fragmentRefs: useRefetchableFragment$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": {
     "refetch": {
       "connection": null,
       "fragmentPathInResult": [],
-      "operation": require('./useRefetchableFragmentRefetchQuery.graphql.js').default
+      "operation": require('./useRefetchableFragmentRefetchQuery.graphql')
     }
   },
   "name": "useRefetchableFragment",
@@ -62,6 +70,9 @@ const node: ReaderFragment = {
   "type": "RootQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '67fd2ef08aaa2cc38386f875382ee411';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "67fd2ef08aaa2cc38386f875382ee411";
+}
+
+module.exports = node;

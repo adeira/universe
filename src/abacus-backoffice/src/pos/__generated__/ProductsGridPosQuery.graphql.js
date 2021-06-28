@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<af07193a5adf15fa1abd5c02500f8bfb>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type ProductsGridPosQueryVariables = {||};
@@ -21,35 +28,16 @@ export type ProductsGridPosQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-    |}>
-  |}
+    |}>,
+  |},
 |};
 export type ProductsGridPosQuery = {|
   variables: ProductsGridPosQueryVariables,
   response: ProductsGridPosQueryResponse,
 |};
-
-/*
-query ProductsGridPosQuery {
-  pos {
-    products: listPublishedProducts {
-      id
-      key
-      name
-      imageCover {
-        blurhash
-        url
-      }
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -172,6 +160,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '9a0d3d97d0fa3296d8d42e06aacc9ed8';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "9a0d3d97d0fa3296d8d42e06aacc9ed8";
+}
+
+module.exports = node;

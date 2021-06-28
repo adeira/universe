@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<d25dc8fd30b7b4a2b6147a167ca38af0>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type LocationType = "AIRPORT" | "CITY" | "COUNTRY" | "%future added value";
 export type AddLocationInput = {|
@@ -25,40 +32,17 @@ export type LocationsFormMutationResponse = {|
         +name: ?string,
         +id: string,
         +type: ?string,
-      |}
+      |},
     |},
-  |}
+  |},
 |};
 export type LocationsFormMutation = {|
   variables: LocationsFormMutationVariables,
   response: LocationsFormMutationResponse,
 |};
-
-/*
-mutation LocationsFormMutation(
-  $location: AddLocationInput!
-) {
-  addLocation(location: $location) {
-    __typename
-    ... on AddLocationResponse {
-      locationEdge {
-        node {
-          locationId
-          name
-          id
-          type
-        }
-      }
-    }
-    ... on Error {
-      __isError: __typename
-      message
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -240,6 +224,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '96c58517ee3913a83519a6cc97925513';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "96c58517ee3913a83519a6cc97925513";
+}
+
+module.exports = node;

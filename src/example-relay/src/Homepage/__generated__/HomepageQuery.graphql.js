@@ -1,94 +1,33 @@
 /**
+ * @generated SignedSource<<5e06a461360cb9a47ad608381dcde810>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type LocationsPaginated$ref = any;
 type LocationsPaginatedBidirectional$ref = any;
 type LocationsPaginatedRefetch$ref = any;
 export type HomepageQueryVariables = {|
-  count: number
+  count: number,
 |};
 export type HomepageQueryResponse = {|
-  +$fragmentRefs: LocationsPaginatedBidirectional$ref & LocationsPaginatedRefetch$ref & LocationsPaginated$ref
+  +$fragmentRefs: LocationsPaginatedBidirectional$ref & LocationsPaginatedRefetch$ref & LocationsPaginated$ref,
 |};
 export type HomepageQuery = {|
   variables: HomepageQueryVariables,
   response: HomepageQueryResponse,
 |};
-
-/*
-query HomepageQuery(
-  $count: Int!
-) {
-  ...LocationsPaginatedBidirectional_1TJkD9
-  ...LocationsPaginatedRefetch
-  ...LocationsPaginated
-}
-
-fragment Location on Location {
-  name
-  countryFlagURL
-  country {
-    name
-  }
-}
-
-fragment LocationsPaginated on RootQuery {
-  incrementalPagination2: locations(first: 20) {
-    edges {
-      node {
-        id
-        ...Location
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
-
-fragment LocationsPaginatedBidirectional_1TJkD9 on RootQuery {
-  locations(first: $count) {
-    edges {
-      node {
-        id
-        ...Location
-      }
-    }
-    pageInfo {
-      hasNextPage
-      hasPreviousPage
-      startCursor
-      endCursor
-    }
-  }
-}
-
-fragment LocationsPaginatedRefetch on RootQuery {
-  incrementalPagination: locations(first: 20) {
-    edges {
-      node {
-        id
-        ...Location
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -358,6 +297,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '085ef3ea8676fdcaf828d0cb62550f00';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "085ef3ea8676fdcaf828d0cb62550f00";
+}
+
+module.exports = node;

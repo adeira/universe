@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<780872ba2bf2d61922f9c069cef9edfb>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type Location$ref: FragmentReference;
@@ -12,7 +19,7 @@ export type Location = {|
   +name: ?string,
   +countryFlagURL: ?string,
   +country: ?{|
-    +name: ?string
+    +name: ?string,
   |},
   +$refType: Location$ref,
 |};
@@ -22,9 +29,9 @@ export type Location$key = {
   +$fragmentRefs: Location$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = (function(){
+var node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -63,6 +70,9 @@ return {
   "abstractKey": null
 };
 })();
-// prettier-ignore
-(node: any).hash = '58584a7e6bd090556fbbb1e258ca704e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "58584a7e6bd090556fbbb1e258ca704e";
+}
+
+module.exports = node;

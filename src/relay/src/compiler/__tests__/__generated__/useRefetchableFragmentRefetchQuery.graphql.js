@@ -1,34 +1,31 @@
 /**
+ * @generated SignedSource<<92b8545d480d43fa71596c6091c8cc85>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
-type useRefetchableFragment$ref = any;
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type useRefetchableFragment$ref: FragmentReference;
+declare export opaque type useRefetchableFragment$fragmentType: useRefetchableFragment$ref;
 export type useRefetchableFragmentRefetchQueryVariables = {||};
 export type useRefetchableFragmentRefetchQueryResponse = {|
-  +$fragmentRefs: useRefetchableFragment$ref
+  +$fragmentRefs: useRefetchableFragment$ref,
 |};
 export type useRefetchableFragmentRefetchQuery = {|
   variables: useRefetchableFragmentRefetchQueryVariables,
   response: useRefetchableFragmentRefetchQueryResponse,
 |};
-
-/*
-query useRefetchableFragmentRefetchQuery {
-  ...useRefetchableFragment
-}
-
-fragment useRefetchableFragment on RootQuery {
-  node(id: "my-id") {
-    __typename
-    id
-  }
-}
 */
 
-const node: ConcreteRequest = {
+var node/*: ConcreteRequest*/ = {
   "fragment": {
     "argumentDefinitions": [],
     "kind": "Fragment",
@@ -92,6 +89,9 @@ const node: ConcreteRequest = {
     "text": "query useRefetchableFragmentRefetchQuery {\n  ...useRefetchableFragment\n}\n\nfragment useRefetchableFragment on RootQuery {\n  node(id: \"my-id\") {\n    __typename\n    id\n  }\n}\n"
   }
 };
-// prettier-ignore
-(node: any).hash = '67fd2ef08aaa2cc38386f875382ee411';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "67fd2ef08aaa2cc38386f875382ee411";
+}
+
+module.exports = node;

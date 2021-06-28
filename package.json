@@ -21,7 +21,8 @@
     "flow-bin": "^0.154.0",
     "glob": "^7.1.7",
     "jest": "^27.0.5",
-    "jest-runner-eslint": "^0.10.1"
+    "jest-runner-eslint": "^0.10.1",
+    "relay-compiler-experimental": "0.0.0-master-211d6fec"
   },
   "jest": {
     "testRegex": "/scripts/jest/dontRunJestDirectly\\.js$"
@@ -34,6 +35,9 @@
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run flow --max-warnings=0 && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
     "test-only": "src/monorepo-utils/bin/monorepo-run-tests.js"
+  },
+  "resolutions": {
+    "graphql": "15.3.0"
   },
   "jest-runner-eslint": {
     "cliOptions": {

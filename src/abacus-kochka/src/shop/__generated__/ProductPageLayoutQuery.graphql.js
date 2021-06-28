@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<401be99f734e1b19ead272a438f72491>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
@@ -24,38 +31,16 @@ export type ProductPageLayoutQueryResponse = {|
         +blurhash: string,
         +url: string,
       |},
-    |}
-  |}
+    |},
+  |},
 |};
 export type ProductPageLayoutQuery = {|
   variables: ProductPageLayoutQueryVariables,
   response: ProductPageLayoutQueryResponse,
 |};
-
-/*
-query ProductPageLayoutQuery(
-  $clientLocale: SupportedLocale!
-  $productKey: ID!
-) {
-  commerce {
-    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
-      name
-      descriptionSlate
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-      imageCover {
-        blurhash
-        url
-      }
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -232,6 +217,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '3cbd0aec987dfad59edcf16413cdea2b';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "cdc0a5f401812a381028ece77cd80934";
+}
+
+module.exports = node;

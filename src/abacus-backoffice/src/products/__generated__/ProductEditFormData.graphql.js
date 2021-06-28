@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<ed3e0a6e7798229470be8be7087ab13c>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
@@ -13,7 +20,7 @@ export type ProductEditFormData = {|
   +key: string,
   +revision: string,
   +price: {|
-    +unitAmount: number
+    +unitAmount: number,
   |},
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +enTranslation: ?{|
@@ -25,7 +32,7 @@ export type ProductEditFormData = {|
     +descriptionSlate: ?string,
   |},
   +images: $ReadOnlyArray<{|
-    +name: string
+    +name: string,
   |}>,
   +$refType: ProductEditFormData$ref,
 |};
@@ -35,9 +42,9 @@ export type ProductEditFormData$key = {
   +$fragmentRefs: ProductEditFormData$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = (function(){
+var node/*: ReaderFragment*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -149,6 +156,9 @@ return {
   "abstractKey": null
 };
 })();
-// prettier-ignore
-(node: any).hash = 'dbc81fc7656d33b92344e64a20a22e39';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "dbc81fc7656d33b92344e64a20a22e39";
+}
+
+module.exports = node;

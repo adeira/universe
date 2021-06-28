@@ -1,45 +1,29 @@
 /**
+ * @generated SignedSource<<f80b8844e8914e0b01e40b171d1e46ea>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type LocationsListSimple$ref = any;
 export type SimpleLocationsQueryVariables = {||};
 export type SimpleLocationsQueryResponse = {|
-  +$fragmentRefs: LocationsListSimple$ref
+  +$fragmentRefs: LocationsListSimple$ref,
 |};
 export type SimpleLocationsQuery = {|
   variables: SimpleLocationsQueryVariables,
   response: SimpleLocationsQueryResponse,
 |};
-
-/*
-query SimpleLocationsQuery {
-  ...LocationsListSimple
-}
-
-fragment LocationsListSimple on RootQuery {
-  locations(first: 3) {
-    edges {
-      node {
-        id
-        name
-        type
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "kind": "Literal",
@@ -195,6 +179,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'aa52b74b1eaa5676ce91cd116a763562';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "aa52b74b1eaa5676ce91cd116a763562";
+}
+
+module.exports = node;

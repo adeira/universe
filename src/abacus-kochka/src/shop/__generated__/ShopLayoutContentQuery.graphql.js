@@ -1,11 +1,18 @@
 /**
+ * @generated SignedSource<<8963d94230459e4450de0567097a8454>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
-export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
+export type PriceSortDirection = "LOW_TO_HIGH" | "HIGH_TO_LOW" | "%future added value";
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ShopLayoutContentQueryVariables = {|
@@ -26,39 +33,16 @@ export type ShopLayoutContentQueryResponse = {|
         +blurhash: string,
         +url: string,
       |},
-    |}>
-  |}
+    |}>,
+  |},
 |};
 export type ShopLayoutContentQuery = {|
   variables: ShopLayoutContentQueryVariables,
   response: ShopLayoutContentQueryResponse,
 |};
-
-/*
-query ShopLayoutContentQuery(
-  $clientLocale: SupportedLocale!
-  $priceSortDirection: PriceSortDirection!
-  $searchTerm: String
-) {
-  commerce {
-    products: searchPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, searchTerm: $searchTerm) {
-      key
-      name
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-      imageCover {
-        blurhash
-        url
-      }
-      id
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -245,6 +229,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '881043bb3a7cce53d5eae69b3b2801c2';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "5087f474778ac5608c7d242634e0207d";
+}
+
+module.exports = node;

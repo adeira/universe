@@ -1,48 +1,33 @@
 /**
+ * @generated SignedSource<<30240d150c87655a89cc19f0f30be30a>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type LocationsList$ref = any;
 export type LocationsQueryVariables = {|
-  first: number
+  first: number,
 |};
 export type LocationsQueryResponse = {|
   +locations: ?{|
-    +$fragmentRefs: LocationsList$ref
-  |}
+    +$fragmentRefs: LocationsList$ref,
+  |},
 |};
 export type LocationsQuery = {|
   variables: LocationsQueryVariables,
   response: LocationsQueryResponse,
 |};
-
-/*
-query LocationsQuery(
-  $first: Int!
-) {
-  locations(first: $first) {
-    ...LocationsList
-  }
-}
-
-fragment LocationListItem on Location {
-  name
-}
-
-fragment LocationsList on LocationConnection {
-  edges {
-    node {
-      id
-      ...LocationListItem
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -149,6 +134,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '3b0df24d2dfd6f8221b06f3dff4e6bbb';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "3b0df24d2dfd6f8221b06f3dff4e6bbb";
+}
+
+module.exports = node;

@@ -1,14 +1,21 @@
 /**
+ * @generated SignedSource<<9e91183738500b57a0c00ab07a78569a>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsCardsQueryVariables = {|
-  clientLocale: SupportedLocale
+  clientLocale: SupportedLocale,
 |};
 export type ProductsCardsQueryResponse = {|
   +commerce: {|
@@ -24,37 +31,16 @@ export type ProductsCardsQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-    |}>
-  |}
+    |}>,
+  |},
 |};
 export type ProductsCardsQuery = {|
   variables: ProductsCardsQueryVariables,
   response: ProductsCardsQueryResponse,
 |};
-
-/*
-query ProductsCardsQuery(
-  $clientLocale: SupportedLocale!
-) {
-  commerce {
-    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: LOW_TO_HIGH) {
-      id
-      key
-      name
-      imageCover {
-        blurhash
-        url
-      }
-      price {
-        unitAmount
-        unitAmountCurrency
-      }
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -195,6 +181,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'eaa37480a4d84f7d686fb309916e9c46';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "7c317c11c0e65c9f88df0f28c757a051";
+}
+
+module.exports = node;

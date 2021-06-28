@@ -1,11 +1,20 @@
 /**
+ * @generated SignedSource<<be6d35bb2f53a80297969937c8f4cbad>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
-type LocationsPaginatedBidirectional$ref = any;
+import type { FragmentReference } from "relay-runtime";
+declare export opaque type LocationsPaginatedBidirectional$ref: FragmentReference;
+declare export opaque type LocationsPaginatedBidirectional$fragmentType: LocationsPaginatedBidirectional$ref;
 export type LocationsPaginatedBidirectionalRefetchQueryVariables = {|
   after?: ?string,
   before?: ?string,
@@ -13,50 +22,15 @@ export type LocationsPaginatedBidirectionalRefetchQueryVariables = {|
   last?: ?number,
 |};
 export type LocationsPaginatedBidirectionalRefetchQueryResponse = {|
-  +$fragmentRefs: LocationsPaginatedBidirectional$ref
+  +$fragmentRefs: LocationsPaginatedBidirectional$ref,
 |};
 export type LocationsPaginatedBidirectionalRefetchQuery = {|
   variables: LocationsPaginatedBidirectionalRefetchQueryVariables,
   response: LocationsPaginatedBidirectionalRefetchQueryResponse,
 |};
-
-/*
-query LocationsPaginatedBidirectionalRefetchQuery(
-  $after: String
-  $before: String
-  $first: Int
-  $last: Int
-) {
-  ...LocationsPaginatedBidirectional_pbnwq
-}
-
-fragment Location on Location {
-  name
-  countryFlagURL
-  country {
-    name
-  }
-}
-
-fragment LocationsPaginatedBidirectional_pbnwq on RootQuery {
-  locations(first: $first, last: $last, after: $after, before: $before) {
-    edges {
-      node {
-        id
-        ...Location
-      }
-    }
-    pageInfo {
-      hasNextPage
-      hasPreviousPage
-      startCursor
-      endCursor
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -241,6 +215,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '46f79f411cdd91adf7c66321a579be4b';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "46f79f411cdd91adf7c66321a579be4b";
+}
+
+module.exports = node;

@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<76c0e180ae7f0b32fb4108198402a7b9>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type EmployeesPageQueryVariables = {||};
 export type EmployeesPageQueryResponse = {|
@@ -12,25 +19,15 @@ export type EmployeesPageQueryResponse = {|
     +name: ?string,
     +hasEmailVerified: ?boolean,
     +isActive: boolean,
-  |}>
+  |}>,
 |};
 export type EmployeesPageQuery = {|
   variables: EmployeesPageQueryVariables,
   response: EmployeesPageQueryResponse,
 |};
-
-/*
-query EmployeesPageQuery {
-  listUsers {
-    id
-    name
-    hasEmailVerified
-    isActive
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -99,6 +96,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'e79e236d19dd026b5ef10959ba76088e';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "e79e236d19dd026b5ef10959ba76088e";
+}
+
+module.exports = node;

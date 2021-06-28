@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<02daedf99a96500c03f47d70cdf246cd>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProductEditHeading$ref: FragmentReference;
@@ -19,9 +26,9 @@ export type ProductEditHeading$key = {
   +$fragmentRefs: ProductEditHeading$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [],
   "kind": "Fragment",
   "metadata": null,
@@ -45,6 +52,9 @@ const node: ReaderFragment = {
   "type": "Product",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = 'f16ba12544552aac568f7f96b1802528';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "f16ba12544552aac568f7f96b1802528";
+}
+
+module.exports = node;

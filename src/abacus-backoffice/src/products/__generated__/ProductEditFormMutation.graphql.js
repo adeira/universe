@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<ca18194bdf3752e94fce889bb492704c>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type ProductEditFormData$ref = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
@@ -16,7 +23,7 @@ export type ProductMultilingualInputTranslations = {|
 export type ProductEditFormMutationVariables = {|
   productKey: string,
   productRevision: string,
-  productImagesNames: $ReadOnlyArray<any>,
+  productImagesNames: $ReadOnlyArray<String>,
   productPriceUnitAmount: number,
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
@@ -35,64 +42,17 @@ export type ProductEditFormMutationResponse = {|
     |} | {|
       // This will never be '%other', but we need some
       // value in case none of the concrete values match.
-      +__typename: "%other"
-    |}
-  |}
+      +__typename: "%other",
+    |},
+  |},
 |};
 export type ProductEditFormMutation = {|
   variables: ProductEditFormMutationVariables,
   response: ProductEditFormMutationResponse,
 |};
-
-/*
-mutation ProductEditFormMutation(
-  $productKey: ID!
-  $productRevision: ID!
-  $productImagesNames: [ProductImageUploadable!]!
-  $productPriceUnitAmount: Int!
-  $translations: [ProductMultilingualInputTranslations!]!
-  $visibility: [ProductMultilingualInputVisibility!]!
-) {
-  commerce {
-    result: productUpdate(productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility}) {
-      __typename
-      ... on Product {
-        __typename
-        id
-        name
-        revision
-        ...ProductEditFormData
-      }
-      ... on ProductError {
-        __typename
-        message
-      }
-    }
-  }
-}
-
-fragment ProductEditFormData on Product {
-  key
-  revision
-  price {
-    unitAmount
-  }
-  visibility
-  enTranslation: translation(locale: en_US) {
-    name
-    descriptionSlate
-  }
-  esTranslation: translation(locale: es_MX) {
-    name
-    descriptionSlate
-  }
-  images {
-    name
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
@@ -424,6 +384,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '858e259da7228e96e62bd54654cd836f';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "239c910db4b07aed89795914385cc39f";
+}
+
+module.exports = node;

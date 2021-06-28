@@ -1,52 +1,29 @@
 /**
+ * @generated SignedSource<<32ac1027bfc09ec65f3ddbf108f81ada>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 type LocationsPaginatedRefetch$ref = any;
 export type LocationsPaginatedRefetchTestQueryVariables = {||};
 export type LocationsPaginatedRefetchTestQueryResponse = {|
-  +$fragmentRefs: LocationsPaginatedRefetch$ref
+  +$fragmentRefs: LocationsPaginatedRefetch$ref,
 |};
 export type LocationsPaginatedRefetchTestQuery = {|
   variables: LocationsPaginatedRefetchTestQueryVariables,
   response: LocationsPaginatedRefetchTestQueryResponse,
 |};
-
-/*
-query LocationsPaginatedRefetchTestQuery {
-  ...LocationsPaginatedRefetch
-}
-
-fragment Location on Location {
-  name
-  countryFlagURL
-  country {
-    name
-  }
-}
-
-fragment LocationsPaginatedRefetch on RootQuery {
-  incrementalPagination: locations(first: 20) {
-    edges {
-      node {
-        id
-        ...Location
-        __typename
-      }
-      cursor
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "kind": "Literal",
@@ -266,6 +243,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'aa5c30ce170d6be45067cdc6677b4e5c';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "aa5c30ce170d6be45067cdc6677b4e5c";
+}
+
+module.exports = node;

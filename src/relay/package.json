@@ -12,10 +12,6 @@
     "adeira-fetch-schema": "bin/fetch-schema.js",
     "adeira-relay-compiler": "bin/relay-compiler.js"
   },
-  "scripts": {
-    "test": "yarn eslint src && yarn flow src",
-    "regenerate": "./bin/relay-compiler.js --src=./src --schema=./schema.graphql"
-  },
   "dependencies": {
     "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.0",

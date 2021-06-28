@@ -1,9 +1,16 @@
 /**
+ * @generated SignedSource<<4e26c8c26bb91029d686063628622fe8>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type LocalFormQueryVariables = {||};
 export type LocalFormQueryResponse = {|
@@ -17,14 +24,9 @@ export type LocalFormQuery = {|
   variables: LocalFormQueryVariables,
   response: LocalFormQueryResponse,
 |};
-
-/*
-query LocalFormQuery {
-  __typename
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "alias": null,
@@ -91,6 +93,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'e61f3eac0352f6268cbca8f35ceb79ed';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "e61f3eac0352f6268cbca8f35ceb79ed";
+}
+
+module.exports = node;

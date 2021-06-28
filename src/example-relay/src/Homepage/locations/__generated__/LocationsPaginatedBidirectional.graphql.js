@@ -1,21 +1,29 @@
 /**
+ * @generated SignedSource<<249007a2d28d9a669367180f7e567016>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ReaderFragment } from 'relay-runtime';
 type Location$ref = any;
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type LocationsPaginatedBidirectional$ref: FragmentReference;
-declare export opaque type LocationsPaginatedBidirectional$fragmentType: LocationsPaginatedBidirectional$ref;
+type LocationsPaginatedBidirectional$ref = any;
+type LocationsPaginatedBidirectional$fragmentType = any;
+export type { LocationsPaginatedBidirectional$ref, LocationsPaginatedBidirectional$fragmentType };
 export type LocationsPaginatedBidirectional = {|
   +locations: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: string,
         +$fragmentRefs: Location$ref,
-      |}
+      |},
     |}>,
     +pageInfo: {|
       +hasNextPage: boolean,
@@ -32,9 +40,9 @@ export type LocationsPaginatedBidirectional$key = {
   +$fragmentRefs: LocationsPaginatedBidirectional$ref,
   ...
 };
+*/
 
-
-const node: ReaderFragment = {
+var node/*: ReaderFragment*/ = {
   "argumentDefinitions": [
     {
       "defaultValue": null,
@@ -62,7 +70,7 @@ const node: ReaderFragment = {
     "refetch": {
       "connection": null,
       "fragmentPathInResult": [],
-      "operation": require('./LocationsPaginatedBidirectionalRefetchQuery.graphql.js').default
+      "operation": require('./LocationsPaginatedBidirectionalRefetchQuery.graphql')
     }
   },
   "name": "LocationsPaginatedBidirectional",
@@ -176,6 +184,9 @@ const node: ReaderFragment = {
   "type": "RootQuery",
   "abstractKey": null
 };
-// prettier-ignore
-(node: any).hash = '46f79f411cdd91adf7c66321a579be4b';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "46f79f411cdd91adf7c66321a579be4b";
+}
+
+module.exports = node;

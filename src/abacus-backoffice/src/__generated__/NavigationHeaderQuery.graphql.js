@@ -1,31 +1,30 @@
 /**
+ * @generated SignedSource<<b143a71b0f9228ed20157f571e6080bb>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type NavigationHeaderQueryVariables = {||};
 export type NavigationHeaderQueryResponse = {|
   +whoami: {|
-    +isDebugAssertionsEnabled: boolean
-  |}
+    +isDebugAssertionsEnabled: boolean,
+  |},
 |};
 export type NavigationHeaderQuery = {|
   variables: NavigationHeaderQueryVariables,
   response: NavigationHeaderQueryResponse,
 |};
-
-/*
-query NavigationHeaderQuery {
-  whoami {
-    isDebugAssertionsEnabled
-    id
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "alias": null,
   "args": null,
@@ -93,6 +92,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = '22a3d238878cf82d90908db5cb68f947';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "22a3d238878cf82d90908db5cb68f947";
+}
+
+module.exports = node;

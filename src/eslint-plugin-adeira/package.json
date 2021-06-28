@@ -19,6 +19,6 @@
     "eslint": "^7.29.0"
   },
   "peerDependencies": {
-    "graphql": "^14.0.0 || ^15.0.0"
+    "graphql": "^15.0.0"
   }
 }

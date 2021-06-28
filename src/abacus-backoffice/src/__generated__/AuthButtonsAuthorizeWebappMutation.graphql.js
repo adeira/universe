@@ -1,38 +1,34 @@
 /**
+ * @generated SignedSource<<c9ca6b1310f47a6f719596fc2cdf1d11>>
  * @flow
+ * @lightSyntaxTransform
+ * @nogrep
+ * @codegen-command: ./node_modules/.bin/relay-compiler-experimental
  */
 
 /* eslint-disable */
 
+'use strict';
+
+/*::
 import type { ConcreteRequest } from 'relay-runtime';
 export type AuthButtonsAuthorizeWebappMutationVariables = {|
-  googleIdToken: string
+  googleIdToken: string,
 |};
 export type AuthButtonsAuthorizeWebappMutationResponse = {|
   +authorizeWebapp: {|
     +success: boolean,
     +sessionToken: ?string,
     +failureMessage: ?string,
-  |}
+  |},
 |};
 export type AuthButtonsAuthorizeWebappMutation = {|
   variables: AuthButtonsAuthorizeWebappMutationVariables,
   response: AuthButtonsAuthorizeWebappMutationResponse,
 |};
-
-/*
-mutation AuthButtonsAuthorizeWebappMutation(
-  $googleIdToken: String!
-) {
-  authorizeWebapp(googleIdToken: $googleIdToken) {
-    success
-    sessionToken
-    failureMessage
-  }
-}
 */
 
-const node: ConcreteRequest = (function(){
+var node/*: ConcreteRequest*/ = (function(){
 var v0 = [
   {
     "defaultValue": null,
@@ -107,6 +103,9 @@ return {
   }
 };
 })();
-// prettier-ignore
-(node: any).hash = 'f8538cae99f40d0a100e9774d707e3a0';
-export default node;
+
+if (__DEV__) {
+  (node/*: any*/).hash = "f8538cae99f40d0a100e9774d707e3a0";
+}
+
+module.exports = node;
