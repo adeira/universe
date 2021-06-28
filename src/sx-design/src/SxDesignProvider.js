@@ -98,7 +98,13 @@ export default function SxDesignProvider(props: Props): Node {
 
 /* eslint-disable sx/valid-usage */
 const styles = sx.create({
-  common: SxDesignProviderCSSVariables.common,
+  common: {
+    ...SxDesignProviderCSSVariables.common,
+    fontFamily:
+      // https://css-tricks.com/snippets/css/system-font-stack/
+      // This value was copy-pasted from GitHub.com (2021-June-28):
+      '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji',
+  },
   ltr: {
     direction: 'ltr',
   },
