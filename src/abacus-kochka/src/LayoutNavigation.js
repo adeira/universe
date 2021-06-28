@@ -10,7 +10,6 @@ import LinkInternal from './LinkInternal';
 import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function LayoutNavigation(): React.Node {
-  const pageAdoptionEnabled = useFeatureFlag('page-adoption-enabled');
   const pageShopEnabled = useFeatureFlag('page-shop-enabled');
   const pageShopOrdersEnabled = useFeatureFlag('page-shop-orders-enabled');
 
@@ -32,12 +31,6 @@ export default function LayoutNavigation(): React.Node {
         <LinkInternal href="/rules" xstyle={styles.link}>
           <fbt desc="link to the café rules from subpage navigation">Café&nbsp;rules</fbt>
         </LinkInternal>
-
-        {pageAdoptionEnabled === true && (
-          <LinkInternal href="/adoption" xstyle={styles.link}>
-            <fbt desc="link to the adoption page from subpage navigation">Adoption</fbt>
-          </LinkInternal>
-        )}
 
         {pageShopEnabled === true ? (
           <LinkInternal href="/shop" xstyle={styles.link}>
