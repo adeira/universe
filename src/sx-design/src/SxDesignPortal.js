@@ -8,20 +8,23 @@ type Props = {
   +children: Node,
 };
 
-export default function TooltipPortal(props: Props): Portal | null {
+export const SX_DESIGN_REACT_PORTAL_ID = 'sx-design-react-portal-root';
+
+export default function SxDesignPortal(props: Props): Portal | null {
   const ref = useRef();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    ref.current = document.querySelector('#react-portal-root');
+    ref.current = document.querySelector(`#${SX_DESIGN_REACT_PORTAL_ID}`);
     setMounted(true);
   }, []);
 
   if (mounted === true) {
     invariant(
       ref.current != null,
-      'Tooltip component requires HTML node with ID "#react-portal-root" (none was found). ' +
+      'Some components require HTML node with ID "#%s" (none was found). ' +
         'Did you forget to call "<SxDesignProvider />" somewhere in the application root?',
+      SX_DESIGN_REACT_PORTAL_ID,
     );
     return ReactDOM.createPortal(props.children, ref.current);
   }
