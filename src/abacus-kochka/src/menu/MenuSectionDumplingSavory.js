@@ -18,7 +18,7 @@ export default function MenuSectionDumplingSavory(): Node {
         title="Camarón Silvestre"
         description={
           <fbt desc="description of camarón silvestre dumpling">
-            Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs.
+            Dumpling filled with shrimps and chipotle sauce, wrapped in oatmeal crumbs.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -28,8 +28,7 @@ export default function MenuSectionDumplingSavory(): Node {
         title="Pizza Félix"
         description={
           <fbt desc="description of pizza félix dumpling">
-            Dumpling filled with parmesano cheese, ham and tomato sauce. It’s topped with sesame
-            seeds.
+            Dumpling filled with parmesano cheese, ham and tomato sauce, wrapped in sesame seeds.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -39,7 +38,7 @@ export default function MenuSectionDumplingSavory(): Node {
         title="Hawaiiana Marie"
         description={
           <fbt desc="description of hawaiiana marie dumpling">
-            Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds.
+            Dumpling filled with machego cheese, pineapple and ham, wrapped in sesame seeds.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -49,7 +48,8 @@ export default function MenuSectionDumplingSavory(): Node {
         title="Choriqueso Demóstenes"
         description={
           <fbt desc="description of choriqueso demóstenes dumpling">
-            Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs.
+            Dumpling filled with Mexican sausage (chorizo) and Oaxaca cheese, wrapped in oatmeal
+            crumbs.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -59,17 +59,17 @@ export default function MenuSectionDumplingSavory(): Node {
         title="Tom y Jerry al pastor"
         description={
           <fbt desc="description of tom y jerry al pastro dumpling">
-            Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth.
+            Dumpling filled with al pastor meat and machego cheese, wrapped in amaranth.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title="El gato con botas"
+        title="Bodoque pibil"
         description={
-          <fbt desc="description of el gato con botas dumpling">
-            Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds.
+          <fbt desc="description of bodoque pibil dumpling">
+            Dumpling filled with cochinita pibil (pulled pork meat), wrapped in pumpkin seeds.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
