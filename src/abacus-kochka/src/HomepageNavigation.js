@@ -8,7 +8,6 @@ import LinkInternal from './LinkInternal';
 import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function HomepageNavigation(): React.Node {
-  const pageAdoptionEnabled = useFeatureFlag('page-adoption-enabled');
   const pageShopEnabled = useFeatureFlag('page-shop-enabled');
 
   return (
@@ -19,14 +18,6 @@ export default function HomepageNavigation(): React.Node {
             <fbt desc="link to our menu from the homepage">Café&nbsp;menu</fbt>
           </LinkInternal>
         </li>
-
-        {pageAdoptionEnabled === true && (
-          <li className={styles('li')}>
-            <LinkInternal href="/adoption" xstyle={styles.link}>
-              <fbt desc="link to the adoption page from the homepage">Adoption</fbt>
-            </LinkInternal>
-          </li>
-        )}
 
         <li className={styles('li')}>
           <LinkInternal href="/rules" xstyle={styles.link}>

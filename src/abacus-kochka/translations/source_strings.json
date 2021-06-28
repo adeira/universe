@@ -47,9 +47,9 @@
     "56PKpOqt3+LEFaRQ36PltQ==": "Café menu"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 19,
+   "line_beg": 18,
    "col_beg": 12,
-   "line_end": 19,
+   "line_end": 18,
    "col_end": 79,
    "desc": "link to our menu from the homepage",
    "project": "",
@@ -58,26 +58,12 @@
   },
   {
    "hashToText": {
-    "HGNGfbeBNFMEHdxiALDoDw==": "Adoption"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 26,
-   "col_beg": 14,
-   "line_end": 26,
-   "col_end": 84,
-   "desc": "link to the adoption page from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Adoption"
-  },
-  {
-   "hashToText": {
     "E4RZPBAPff7GYBpbxPKY/A==": "Café rules"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 33,
+   "line_beg": 24,
    "col_beg": 12,
-   "line_end": 33,
+   "line_end": 24,
    "col_end": 81,
    "desc": "link to our rules from the homepage",
    "project": "",
@@ -89,9 +75,9 @@
     "Jl7ke09TxJz/ttxyYXALfQ==": "Shop"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 40,
+   "line_beg": 31,
    "col_beg": 14,
-   "line_end": 40,
+   "line_end": 31,
    "col_end": 71,
    "desc": "link to the shop from the homepage",
    "project": "",
@@ -201,9 +187,9 @@
     "AnWW7GmesxqieaEMwwAsbQ==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 25,
+   "line_beg": 24,
    "col_beg": 10,
-   "line_end": 25,
+   "line_end": 24,
    "col_end": 77,
    "desc": "link to the homepage from subpage navigation",
    "project": "",
@@ -215,9 +201,9 @@
     "T7TGlJhstlWdCNB26MkqzA==": "Café menu"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 29,
+   "line_beg": 28,
    "col_beg": 10,
-   "line_end": 29,
+   "line_end": 28,
    "col_end": 88,
    "desc": "link to the café menu from subpage navigation",
    "project": "",
@@ -229,9 +215,9 @@
     "paPCRFfyKUaXeFKvDVrhoQ==": "Café rules"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 33,
+   "line_beg": 32,
    "col_beg": 10,
-   "line_end": 33,
+   "line_end": 32,
    "col_end": 90,
    "desc": "link to the café rules from subpage navigation",
    "project": "",
@@ -240,26 +226,12 @@
   },
   {
    "hashToText": {
-    "nbgtSJVvuVaIdnBTGhKH9g==": "Adoption"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 38,
-   "col_beg": 12,
-   "line_end": 38,
-   "col_end": 88,
-   "desc": "link to the adoption page from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Adoption"
-  },
-  {
-   "hashToText": {
     "oubYOKD/2Kkks5EsdTg1Vg==": "Shop"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 44,
+   "line_beg": 37,
    "col_beg": 12,
-   "line_end": 44,
+   "line_end": 37,
    "col_end": 76,
    "desc": "link to the eshop from subpage navigation",
    "project": "",
@@ -1245,48 +1217,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Go back to Homepage"
-  },
-  {
-   "hashToText": {
-    "Id2zIowP1OXDBLoGtCtamw==": "kitten image placeholder"
-   },
-   "filepath": "pages/adoption.js",
-   "line_beg": 13,
-   "col_beg": 11,
-   "line_end": 13,
-   "col_end": 78,
-   "desc": "kitten image placeholder",
-   "project": "",
-   "type": "text",
-   "jsfbt": "kitten image placeholder"
-  },
-  {
-   "hashToText": {
-    "q63vFDLz6FRACyQQcehUwA==": "Adoption"
-   },
-   "filepath": "pages/adoption.js",
-   "line_beg": 23,
-   "col_beg": 13,
-   "line_end": 23,
-   "col_end": 59,
-   "desc": "adoption page title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Adoption"
-  },
-  {
-   "hashToText": {
-    "JjLlKDf9JuGEoKBDwgAHQQ==": "We are not just a cat café. We want to help."
-   },
-   "filepath": "pages/adoption.js",
-   "line_beg": 25,
-   "col_beg": 8,
-   "line_end": 25,
-   "col_end": 93,
-   "desc": "adoption page subtitle",
-   "project": "",
-   "type": "text",
-   "jsfbt": "We are not just a cat café. We want to help."
   },
   {
    "hashToText": {
