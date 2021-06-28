@@ -1,33 +1,45 @@
 // @flow
 
-import { useState, useRef, type Node } from 'react';
+import { useState, useRef, useCallback, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import TooltipPortal from './TooltipPortal';
+import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPosition';
 
 type Props = {
   +'children': FbtWithoutString,
   +'data-testid'?: string,
 };
 
+/**
+ * By default displays the tooltip above the hover area OR tries to find the best position when it
+ * doesn't fit above.
+ */
 export default function Tooltip(props: Props): Node {
-  const ref = useRef<HTMLSpanElement | null>(null);
+  const hoverAreaRef = useRef<HTMLSpanElement | null>(null);
+  const tooltipChildrenAreaRef = useRef(null);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
-  const [boundingClientRect, setBoundingClientRect] = useState(null);
+  const [tooltipPosition, setTooltipPosition] = useState(nullClientRect);
 
-  const showTooltip = () => {
-    setBoundingClientRect(ref.current?.getBoundingClientRect());
+  const showTooltip = useCallback(() => {
+    const tooltipChildrenArea =
+      tooltipChildrenAreaRef.current?.getBoundingClientRect() ?? nullClientRect;
+    const hoverArea = hoverAreaRef.current?.getBoundingClientRect() ?? nullClientRect;
+
+    setTooltipPosition(findBestTooltipPosition(hoverArea, tooltipChildrenArea));
     setIsTooltipVisible(true);
-  };
+  }, []);
 
-  const hideTooltip = () => setIsTooltipVisible(false);
+  const hideTooltip = useCallback(() => {
+    setIsTooltipVisible(false);
+  }, []);
 
   return (
     <>
       <span
-        onMouseOver={showTooltip}
-        onMouseOut={hideTooltip}
-        ref={ref}
+        onMouseEnter={showTooltip}
+        onMouseLeave={hideTooltip}
+        ref={hoverAreaRef}
         data-testid={props['data-testid']}
         className={styles('hoverIcon')}
       >
@@ -44,21 +56,21 @@ export default function Tooltip(props: Props): Node {
         </svg>
       </span>
 
-      {isTooltipVisible === true && boundingClientRect != null ? (
-        <TooltipPortal>
-          <div
-            className={styles('tooltipRoot')}
-            style={{
-              // Note: we currently do not deal with the viewport - we just display the tooltip
-              // above no matter whether it fits or not.
-              top: boundingClientRect.top,
-              left: boundingClientRect.left,
-            }}
-          >
-            {props.children}
-          </div>
-        </TooltipPortal>
-      ) : null}
+      <TooltipPortal>
+        <div
+          className={styles('tooltipRoot')}
+          style={{
+            top: tooltipPosition.top,
+            left: tooltipPosition.left,
+            // We use `visibility:hidden` instead of `display:none` so we can measure the width and
+            // height of this message and position it correctly when displaying it.
+            visibility: isTooltipVisible ? 'visible' : 'hidden',
+          }}
+          ref={tooltipChildrenAreaRef}
+        >
+          {props.children}
+        </div>
+      </TooltipPortal>
     </>
   );
 }
@@ -70,7 +82,6 @@ const styles = sx.create({
   tooltipRoot: {
     position: 'absolute',
     maxWidth: '250px',
-    transform: 'translate(calc(-50% + 15px), calc(-100% - 10px))',
     color: 'rgba(var(--sx-background))',
     backgroundColor: 'rgba(var(--sx-foreground))',
     borderRadius: 'var(--sx-radius)',

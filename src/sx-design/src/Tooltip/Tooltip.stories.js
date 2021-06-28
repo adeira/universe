@@ -33,20 +33,34 @@ initFbt();
 
 // 👇 We create a "template" of how args map to rendering
 const Template = (args) => (
-  <div
-    style={{
-      // TODO: this should be removed and `Tooltip` component should always display correctly automatically
-      position: 'absolute',
-      top: '100px',
-      left: '150px',
-    }}
-  >
-    <Tooltip {...args}>
-      <fbt desc="test tooltip content title" doNotExtract={true}>
-        This is a test tooltip content.
-      </fbt>
-    </Tooltip>
-  </div>
+  <>
+    {/* Top-left position: */}
+    <div style={{ position: 'absolute', top: '0', left: '0' }}>
+      <Tooltip {...args}>
+        <fbt desc="test tooltip content title" doNotExtract={true}>
+          This is a test tooltip content.
+        </fbt>
+      </Tooltip>
+    </div>
+
+    {/* Middle with enough space above: */}
+    <div style={{ position: 'absolute', top: '50px', left: '50%' }}>
+      <Tooltip {...args}>
+        <fbt desc="test tooltip content title" doNotExtract={true}>
+          This is a test tooltip content.
+        </fbt>
+      </Tooltip>
+    </div>
+
+    {/* Right position: */}
+    <div style={{ position: 'absolute', top: '100px', right: '0' }}>
+      <Tooltip {...args}>
+        <fbt desc="test tooltip content title" doNotExtract={true}>
+          This is a test tooltip content.
+        </fbt>
+      </Tooltip>
+    </div>
+  </>
 );
 
 // 👇 Each story then reuses that template
