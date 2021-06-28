@@ -85,6 +85,11 @@ export default function SxDesignProvider(props: Props): Node {
         darkTheme: theme === 'dark',
         systemTheme: theme === 'system',
       })}
+      // The following node ID is required by `Tooltip` component. Why don't we do it the traditional
+      // way of setting up the node somewhere in HTML body manually? It's because here we are setting
+      // CSS variables for the SX Design and we could not use them in the `Tooltip` component (they
+      // would be out of the "context" of CSS variables).
+      id="react-portal-root"
     >
       <SxDesignContext.Provider value={contextValue}>{props.children}</SxDesignContext.Provider>
     </div>

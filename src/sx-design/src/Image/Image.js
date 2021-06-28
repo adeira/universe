@@ -6,8 +6,6 @@ import sx from '@adeira/sx';
 import { Blurhash } from 'react-blurhash';
 import { isBlurhashValid } from 'blurhash';
 
-import useSxDesignContext from '../useSxDesignContext';
-
 type Props = {
   +'width': number,
   +'height': number,
@@ -21,7 +19,6 @@ type Props = {
 
 export default function Image(props: Props): Element<'div'> {
   const [isImageLoaded, setImageLoaded] = useState(false);
-  const { theme } = useSxDesignContext();
 
   if (props.src != null) {
     warning(
@@ -34,12 +31,11 @@ export default function Image(props: Props): Element<'div'> {
 
   return (
     <div
-      className={styles({
-        background: true,
-        backgroundLight: theme === 'light',
-        backgroundDark: theme !== 'light',
-      })}
-      style={{ width: props.width, height: props.height }}
+      className={styles('background')}
+      style={{
+        width: props.width,
+        height: props.height,
+      }}
     >
       {isImageLoaded === false && isBlurhashValid(props.blurhash).result === true ? (
         <Blurhash hash={props.blurhash} width={props.width} height={props.height} />
@@ -76,12 +72,8 @@ const styles = sx.create({
   background: {
     display: 'flex',
     flexDirection: 'column',
-  },
-  backgroundLight: {
-    backgroundColor: 'lightgrey',
-  },
-  backgroundDark: {
-    backgroundColor: 'grey',
+    backgroundColor: 'rgba(var(--sx-accent-2))',
+    borderRadius: 'var(--sx-radius)',
   },
   imgSrcLoading: {
     display: 'none',
@@ -89,5 +81,6 @@ const styles = sx.create({
   imgSrc: {
     objectFit: 'cover',
     objectPosition: 'center center',
+    borderRadius: 'var(--sx-radius)',
   },
 });
