@@ -437,6 +437,7 @@ const groupedRules = ({
     // Adeira SX custom rules
     'sx/no-concatenated-classes': ERROR,
     'sx/no-unused-stylesheet': ERROR,
+    'sx/use-logical-properties': NEXT_VERSION_ERROR, // Should we leave this always WARN?
     'sx/valid-usage': ERROR,
   },
   jest: {

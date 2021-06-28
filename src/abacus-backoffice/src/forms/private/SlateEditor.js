@@ -123,7 +123,7 @@ const styles = sx.create({
     borderRadius: 5,
   },
   slateEditorToolbar: {
-    borderBottom: '2px solid rgba(var(--sx-accent-2))',
+    borderBlockEnd: '2px solid rgba(var(--sx-accent-2))',
   },
   blockquote: {
     paddingInlineStart: '1rem',

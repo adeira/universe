@@ -516,6 +516,7 @@ Object {
     "strict": 1,
     "sx/no-concatenated-classes": 2,
     "sx/no-unused-stylesheet": 2,
+    "sx/use-logical-properties": 1,
     "sx/valid-usage": 2,
     "symbol-description": 2,
     "use-isnan": Array [
