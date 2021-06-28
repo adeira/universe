@@ -1,4 +1,4 @@
-# @generated SignedSource<<737b31be35542bf03cbda6b38014ebfa>>
+# @generated SignedSource<<cd05d2ecf825064d2c036d5875f62ab5>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -116,6 +116,7 @@ type Query {
   whoami: WhoamiPayload!
   listUsers: [AnyUser!]!
   commerce: CommerceQuery!
+  menu: MenuQuery!
   pos: POSQuery!
 }
 
@@ -131,6 +132,14 @@ type WhoamiPayload {
     optimizations). FOR DEVELOPMENT ONLY!
   """
   isDebugAssertionsEnabled: Boolean!
+}
+
+type MenuQuery {
+  """
+    Returns a specified section of our menu. This is to maintain one source of truth (in our
+    database) about the prices, descriptions, translations and similar.
+  """
+  menu(clientLocale: SupportedLocale!, section: MenuSections!): [Product!]!
 }
 
 type POSMutation {
@@ -309,6 +318,15 @@ type AuthorizeWebappPayload {
     Returns `None` if the request was not successful.
   """
   sessionToken: String
+}
+
+enum MenuSections {
+  COFFEE
+  TEA
+  MILKSHAKES
+  SPECIALITIES
+  DUMPLING_SWEET
+  DUMPLING_SAVORY
 }
 
 type PosCheckoutPayload {

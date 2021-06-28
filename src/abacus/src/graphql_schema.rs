@@ -29,6 +29,10 @@ impl Query {
         crate::commerce::api::CommerceQuery {}
     }
 
+    fn menu() -> crate::menu::api::MenuQuery {
+        crate::menu::api::MenuQuery {}
+    }
+
     fn pos() -> crate::pos::api::POSQuery {
         crate::pos::api::POSQuery {}
     }
