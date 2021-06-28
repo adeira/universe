@@ -8,7 +8,7 @@ Inclusive design system written using [`@adeira/sx`](https://github.com/adeira/s
 - 🏳️‍🌈 fully supported localization ([🇺🇸🇲🇽🇨🇿🇳🇴🇺🇦🇷🇺🇦🇪](https://crowdin.com/project/sx-design))
 - ☯️ light and dark theme out of the box
 - 🆘 accessible components for people with visual impairment
-- حلال support for RTL layouts (🇦🇪)
+- حلال support for RTL layouts ([🇦🇪](https://crowdin.com/project/sx-design))
 
 # Installation and Usage
 
@@ -18,7 +18,7 @@ Using SX Design is as simple as installing the package via NPM or Yarn and impor
 yarn add @adeira/sx-design
 ```
 
-SX Design is fully localized and requires information about the current application locale. This typically changes with every user, so it's necessary pro provide it via `SxDesignProvider` React component (before the first SX Design component in the React tree):
+SX Design is fully localized and requires information about the current application locale. This typically changes with every user, so it's necessary to provide it via `SxDesignProvider` React component (before the first SX Design component in the React tree):
 
 ```js
 import { ErrorBoundary, SxDesignProvider } from '@adeira/sx-design';
