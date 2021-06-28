@@ -46,7 +46,8 @@ const styles = sx.create({
     margin: '0 auto',
     display: 'grid',
     gap: '2rem',
-    gridTemplate: `
+    gridTemplateColumns: '1fr 1fr',
+    gridTemplateAreas: `
       "coffee tea"
       "milkshakes specialities"
       "dumplingSweet dumplingSavory"

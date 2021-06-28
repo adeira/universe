@@ -25,7 +25,6 @@ export default function MenuSectionSpecialities(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -37,7 +36,6 @@ export default function MenuSectionSpecialities(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        // TODO: volume
       />
     </>
   );

@@ -31,24 +31,22 @@ export default function MenuSectionCoffee(): Node {
         title="Americano"
         description={
           <fbt desc="description of americano coffee">
-            Espresso topped with hot water resulting in approximately 250&nbsp;ml of hot beverage.
+            Espresso topped with hot water resulting in approximately 250&nbsp;ml of beverage.
             Milder flavor than espresso thanks to the water but with the same coffee content.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
-        volume={250}
       />
 
       <MenuRow
         title="Long Black"
         description={
           <fbt desc="description of long black coffee">
-            Espresso poured over hot water resulting in approximately 250&nbsp;ml of hot beverage.
-            Very similar to americano except it preserves more espresso crema on top of the cup.
+            Espresso poured over hot water resulting in approximately 250&nbsp;ml of beverage. Very
+            similar to americano except it preserves more espresso crema on top of the cup.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
-        volume={250}
       />
 
       <MenuRow
@@ -60,7 +58,6 @@ export default function MenuSectionCoffee(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={350}
       />
 
       <MenuRow
@@ -72,7 +69,6 @@ export default function MenuSectionCoffee(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -80,22 +76,11 @@ export default function MenuSectionCoffee(): Node {
         description={
           <fbt desc="description of mocha coffee">
             Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a
-            sweater chocolatey taste.
+            sweeter chocolatey taste.
           </fbt>
         }
         price={<Money priceUnitAmount={55} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
-
-      {/*
-      <MenuRow
-        title="Iced Cappuccino"
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={350}
-      />
-      */}
 
       <MenuRow
         title="Iced Latte"
@@ -106,7 +91,6 @@ export default function MenuSectionCoffee(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={55} priceUnitAmountCurrency={'MXN'} />}
-        // TODO: volume
       />
     </>
   );

@@ -268,7 +268,7 @@
   },
   {
    "hashToText": {
-    "7ZnBLutI0o3y4sFTZgmfdg==": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
+    "EZyq54R0fHXKpuodF90voA==": "Espresso topped with hot water resulting in approximately 250 ml of beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
    "line_beg": 33,
@@ -278,30 +278,30 @@
    "desc": "description of americano coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso topped with hot water resulting in approximately 250 ml of hot beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
+   "jsfbt": "Espresso topped with hot water resulting in approximately 250 ml of beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
   },
   {
    "hashToText": {
-    "pO1YI6TgpOIPudywlnu9Mg==": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
+    "symiyQJkS4A9mkJnhWYBxA==": "Espresso poured over hot water resulting in approximately 250 ml of beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 45,
+   "line_beg": 44,
    "col_beg": 10,
-   "line_end": 48,
+   "line_end": 47,
    "col_end": 16,
    "desc": "description of long black coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Espresso poured over hot water resulting in approximately 250 ml of hot beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
+   "jsfbt": "Espresso poured over hot water resulting in approximately 250 ml of beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
   },
   {
    "hashToText": {
     "uTkK8kGTG29y2jHOkV/1Qg==": "Espresso with a foamed milk. The same amount of coffee as in latte but with a little bit less milk resulting in a stronger coffee taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 57,
+   "line_beg": 55,
    "col_beg": 10,
-   "line_end": 60,
+   "line_end": 58,
    "col_end": 16,
    "desc": "description of cappuccino coffee",
    "project": "",
@@ -313,9 +313,9 @@
     "DSLOlV/wv9NrPmLGoObncA==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as cappuccino but is topped with more milk resulting in a milder taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 69,
+   "line_beg": 66,
    "col_beg": 10,
-   "line_end": 72,
+   "line_end": 69,
    "col_end": 16,
    "desc": "description of latte coffee",
    "project": "",
@@ -324,26 +324,26 @@
   },
   {
    "hashToText": {
-    "+aq26jtcRsvqJI234kUhQw==": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweater chocolatey taste."
+    "oVE/rKb76OAviSoATkFrTg==": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweeter chocolatey taste."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 81,
+   "line_beg": 77,
    "col_beg": 10,
-   "line_end": 84,
+   "line_end": 80,
    "col_end": 16,
    "desc": "description of mocha coffee",
    "project": "",
    "type": "text",
-   "jsfbt": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweater chocolatey taste."
+   "jsfbt": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweeter chocolatey taste."
   },
   {
    "hashToText": {
     "iyOC+kj2PPPSNLAWlf1W6Q==": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweet syrup, and finished with an espresso on top."
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 103,
+   "line_beg": 88,
    "col_beg": 10,
-   "line_end": 106,
+   "line_end": 91,
    "col_end": 16,
    "desc": "description of iced latte",
    "project": "",
@@ -366,7 +366,7 @@
   },
   {
    "hashToText": {
-    "F3S6b7wjGX8nTluMq64JwQ==": "Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs."
+    "zZge6Ty1nO04HHlc3Whn3A==": "Dumpling filled with shrimps and chipotle sauce, wrapped in oatmeal crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
    "line_beg": 20,
@@ -376,53 +376,53 @@
    "desc": "description of camarón silvestre dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with shrimps, chipotle sauce and topped with oatmeal crumbs."
+   "jsfbt": "Dumpling filled with shrimps and chipotle sauce, wrapped in oatmeal crumbs."
   },
   {
    "hashToText": {
-    "4epW41KCu+eUhF0kw+FhoA==": "Dumpling filled with parmesano cheese, ham and tomato sauce. It’s topped with sesame seeds."
+    "vLD56vl2VHyrPemwHF4DOg==": "Dumpling filled with parmesano cheese, ham and tomato sauce, wrapped in sesame seeds."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
    "line_beg": 30,
    "col_beg": 10,
-   "line_end": 33,
+   "line_end": 32,
    "col_end": 16,
    "desc": "description of pizza félix dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with parmesano cheese, ham and tomato sauce. It’s topped with sesame seeds."
+   "jsfbt": "Dumpling filled with parmesano cheese, ham and tomato sauce, wrapped in sesame seeds."
   },
   {
    "hashToText": {
-    "VuWxXKRmqsYPKO86PfvPXA==": "Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds."
+    "K1oZl0UCeRRCFsC6FuzRjw==": "Dumpling filled with machego cheese, pineapple and ham, wrapped in sesame seeds."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 41,
+   "line_beg": 40,
    "col_beg": 10,
-   "line_end": 43,
+   "line_end": 42,
    "col_end": 16,
    "desc": "description of hawaiiana marie dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with machego cheese, pineapple and ham. It’s topped with sesame seeds."
+   "jsfbt": "Dumpling filled with machego cheese, pineapple and ham, wrapped in sesame seeds."
   },
   {
    "hashToText": {
-    "qb5cSyyWeVuf9Xnf5zwH8w==": "Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs."
+    "rELJ3Nge1wkZn/0JV0npUg==": "Dumpling filled with Mexican sausage (chorizo) and Oaxaca cheese, wrapped in oatmeal crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 51,
+   "line_beg": 50,
    "col_beg": 10,
    "line_end": 53,
    "col_end": 16,
    "desc": "description of choriqueso demóstenes dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with Mexican sausage and Oaxaca cheese. It’s topped with oatmeal crumbs."
+   "jsfbt": "Dumpling filled with Mexican sausage (chorizo) and Oaxaca cheese, wrapped in oatmeal crumbs."
   },
   {
    "hashToText": {
-    "L4ZN/BdQmDn/OF+kUXHQPg==": "Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth."
+    "Mzetz/JqzANJHgRYCwQmrw==": "Dumpling filled with al pastor meat and machego cheese, wrapped in amaranth."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
    "line_beg": 61,
@@ -432,21 +432,21 @@
    "desc": "description of tom y jerry al pastro dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with al pastor meat and machego cheese. It’s topped with amaranth."
+   "jsfbt": "Dumpling filled with al pastor meat and machego cheese, wrapped in amaranth."
   },
   {
    "hashToText": {
-    "+uwyI4xYBQ/3u5iIg6Ktzg==": "Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds."
+    "gu3PMv6xvTbyXmtBtbHovg==": "Dumpling filled with cochinita pibil (pulled pork meat), wrapped in pumpkin seeds."
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
    "line_beg": 71,
    "col_beg": 10,
    "line_end": 73,
    "col_end": 16,
-   "desc": "description of el gato con botas dumpling",
+   "desc": "description of bodoque pibil dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with cochinita pibil (pork pulled meat) and topped with pumpkin seeds."
+   "jsfbt": "Dumpling filled with cochinita pibil (pulled pork meat), wrapped in pumpkin seeds."
   },
   {
    "hashToText": {
@@ -464,7 +464,7 @@
   },
   {
    "hashToText": {
-    "+MRih0f/bEbbwOUFmL669Q==": "Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs."
+    "dtapcHAFaaZT7Fmt3r+sCw==": "Dumpling filled with Oreo and Hershey's, wrapped in Oreo crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
    "line_beg": 20,
@@ -474,11 +474,11 @@
    "desc": "description of choco salem dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs."
+   "jsfbt": "Dumpling filled with Oreo and Hershey's, wrapped in Oreo crumbs."
   },
   {
    "hashToText": {
-    "7hLDf70MsjZ1u5mwkwTexA==": "Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon."
+    "iGSUyVqr/h7JjaM5s7aXJg==": "Dumpling filled with apples and cinnamon, wrapped in bread crumbs and cinnamon."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
    "line_beg": 30,
@@ -488,25 +488,25 @@
    "desc": "description of manzana azrael dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon."
+   "jsfbt": "Dumpling filled with apples and cinnamon, wrapped in bread crumbs and cinnamon."
   },
   {
    "hashToText": {
-    "KeHzPPvXBk10bmF9Nb/83A==": "Dumpling filled with strawberries and condensed milk and topped with strawberry cookies crumbs."
+    "OcLmiKO+i69vFabhTaD8mw==": "Dumpling filled with strawberries and condensed milk, wrapped in strawberry cookie crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
    "line_beg": 40,
    "col_beg": 10,
    "line_end": 43,
    "col_end": 16,
-   "desc": "description of fresa hello kitty dumpling",
+   "desc": "description of fresa kitty dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with strawberries and condensed milk and topped with strawberry cookies crumbs."
+   "jsfbt": "Dumpling filled with strawberries and condensed milk, wrapped in strawberry cookie crumbs."
   },
   {
    "hashToText": {
-    "AcIMDbFfi1JaTFxzveoDvA==": "Dumpling filled with rice pudding and topped with coconut."
+    "0oTabZjR+vtRnTKmE6PAUg==": "Dumpling filled with rice pudding, wrapped in coconut flakes."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
    "line_beg": 51,
@@ -516,35 +516,35 @@
    "desc": "description of arroz snowball dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with rice pudding and topped with coconut."
+   "jsfbt": "Dumpling filled with rice pudding, wrapped in coconut flakes."
   },
   {
    "hashToText": {
-    "GZqXrkg1D49SHEp48ew98g==": "Dumpling filled with fried bananas and condensed milk and topped with vanilla cookies crumbs."
+    "go3H2rINLrmCMS+zi1mL2w==": "Dumpling filled with fried bananas and condensed milk, wrapped in vanilla cookie crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
    "line_beg": 61,
    "col_beg": 10,
-   "line_end": 64,
+   "line_end": 63,
    "col_end": 16,
    "desc": "description of banana garfield dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with fried bananas and condensed milk and topped with vanilla cookies crumbs."
+   "jsfbt": "Dumpling filled with fried bananas and condensed milk, wrapped in vanilla cookie crumbs."
   },
   {
    "hashToText": {
-    "yYNpbDk9H6wxgyAMrhOnaA==": "Dumpling filled with lemon pudding and topped with lemon cookies crumbs."
+    "rPmLuLqcuyFAcVonPL4r5g==": "Dumpling filled with lemon pudding, wrapped in lemon cookie crumbs."
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 72,
+   "line_beg": 71,
    "col_beg": 10,
-   "line_end": 74,
+   "line_end": 73,
    "col_end": 16,
-   "desc": "description of lemon doraemon dumpling",
+   "desc": "description of lemon figaro dumpling",
    "project": "",
    "type": "text",
-   "jsfbt": "Dumpling filled with lemon pudding and topped with lemon cookies crumbs."
+   "jsfbt": "Dumpling filled with lemon pudding, wrapped in lemon cookie crumbs."
   },
   {
    "hashToText": {
@@ -562,68 +562,12 @@
   },
   {
    "hashToText": {
-    "ufEj5Xv2oET4caWNU0vonw==": "Strawberry milkshake"
+    "hyE5CLveTakqWN5TJmBHgA==": "Banana milkshake"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
    "line_beg": 18,
    "col_beg": 15,
    "line_end": 18,
-   "col_end": 79,
-   "desc": "strawberry milkshake name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Strawberry milkshake"
-  },
-  {
-   "hashToText": {
-    "A4vKSQ8+kU9h3nuRFvQ2jw==": "Perfect mix of fresh strawberries, vanilla ice-cream and whole milk topped with whipped cream."
-   },
-   "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 20,
-   "col_beg": 10,
-   "line_end": 23,
-   "col_end": 16,
-   "desc": "description of strawbery milkshake",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Perfect mix of fresh strawberries, vanilla ice-cream and whole milk topped with whipped cream."
-  },
-  {
-   "hashToText": {
-    "M2X9eebSavFNpKaMqrxK1A==": "Chocolate milkshake"
-   },
-   "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 30,
-   "col_beg": 15,
-   "line_end": 30,
-   "col_end": 77,
-   "desc": "chocolate milkshake name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Chocolate milkshake"
-  },
-  {
-   "hashToText": {
-    "Ydx7Nx6fA2ijymBpFshKXA==": "Vanilla milkshake"
-   },
-   "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 38,
-   "col_beg": 15,
-   "line_end": 38,
-   "col_end": 73,
-   "desc": "vanilla milkshake name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Vanilla milkshake"
-  },
-  {
-   "hashToText": {
-    "hyE5CLveTakqWN5TJmBHgA==": "Banana milkshake"
-   },
-   "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 46,
-   "col_beg": 15,
-   "line_end": 46,
    "col_end": 71,
    "desc": "banana milkshake name",
    "project": "",
@@ -663,9 +607,9 @@
     "imXFWPl0aPApuGI6Z9nBkA==": "Artisanal Chocolate"
    },
    "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 32,
+   "line_beg": 31,
    "col_beg": 15,
-   "line_end": 32,
+   "line_end": 31,
    "col_end": 77,
    "desc": "artisanal chocolate name",
    "project": "",
@@ -677,9 +621,9 @@
     "nJjhEtM6mOx0rUxqSR2yIg==": "Sweat drink prepared from crushed cocoa beans from Tabasco topped with slightly foamed hot milk or hot water."
    },
    "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 34,
+   "line_beg": 33,
    "col_beg": 10,
-   "line_end": 37,
+   "line_end": 36,
    "col_end": 16,
    "desc": "description of artisanal chocolate",
    "project": "",
@@ -716,26 +660,26 @@
   },
   {
    "hashToText": {
-    "Yp8L8bo6ltFHMXvvaCi0wQ==": "Green tea from a Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
+    "BlhBa8tRXA0NiplqKh0PjA==": "Green tea from the Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 37,
+   "line_beg": 36,
    "col_beg": 10,
-   "line_end": 44,
+   "line_end": 43,
    "col_end": 16,
    "desc": "description of a green tea with jasmine",
    "project": "",
    "type": "text",
-   "jsfbt": "Green tea from a Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
+   "jsfbt": "Green tea from the Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
   },
   {
    "hashToText": {
     "gpcoWvvUoHO5bLQ6VAcohQ==": "Pu-erh from province Yunnan with cinnamon, clove, cardamom, and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine, burns body fat and helps blood circulation."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 54,
+   "line_beg": 52,
    "col_beg": 10,
-   "line_end": 61,
+   "line_end": 59,
    "col_end": 16,
    "desc": "description of a bespoke pu-erh chai tea",
    "project": "",
@@ -747,9 +691,9 @@
     "nacFdHwFtpGvixqDqALORg==": "Rooibos with St. John's-wort, ginseng, ginger, notes of lemongrass, apple, cinnamon, and black pepper. Brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 71,
+   "line_beg": 68,
    "col_beg": 10,
-   "line_end": 78,
+   "line_end": 75,
    "col_end": 16,
    "desc": "description of a jarabe tapatío tea",
    "project": "",
@@ -761,9 +705,9 @@
     "p9IdPjZckxHQ0o9zzITAAg==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 88,
+   "line_beg": 84,
    "col_beg": 10,
-   "line_end": 94,
+   "line_end": 90,
    "col_end": 16,
    "desc": "description of a bésame mucho tea",
    "project": "",
@@ -775,9 +719,9 @@
     "bZH+Lt+WzlApb6ZhyUKOgQ==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 104,
+   "line_beg": 99,
    "col_beg": 10,
-   "line_end": 110,
+   "line_end": 105,
    "col_end": 16,
    "desc": "description of a maison de cannelle tea",
    "project": "",
