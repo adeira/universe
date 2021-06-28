@@ -10,7 +10,7 @@ import type { JSXExpressionContainer } from './types/JSXExpressionContainer';
 import type { MemberExpression } from './types/MemberExpression';
 import type { NewExpression } from './types/NewExpression';
 import type { Program } from './types/Program';
-import type { Property } from './types/Property';
+import type { Property as _Property } from './types/Property';
 import type { TypeAlias } from './types/TypeAlias';
 import type { VariableDeclarator as _VariableDeclarator } from './types/VariableDeclarator';
 
@@ -49,15 +49,16 @@ type ASTNodes = {
   +'NewExpression:exit'?: (node: NewExpression) => void,
   +'Program'?: (node: Program) => void,
   +'Program:exit'?: (node: Program) => void,
-  +'Property'?: (node: Property) => void,
-  +'Property:exit'?: (node: Property) => void,
+  +'Property'?: (node: _Property) => void,
+  +'Property:exit'?: (node: _Property) => void,
   +'TaggedTemplateExpression'?: (node: any) => void, // TODO
   +'TypeAlias'?: (node: TypeAlias) => void,
   +'VariableDeclarator'?: (node: _VariableDeclarator) => void,
 };
 
-export type VariableDeclarator = _VariableDeclarator;
 export type ImportDeclaration = _ImportDeclaration;
+export type Property = _Property;
+export type VariableDeclarator = _VariableDeclarator;
 
 export type EslintRule = {
   +meta?: {

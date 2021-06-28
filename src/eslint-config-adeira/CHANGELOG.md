@@ -1,12 +1,12 @@
 # Unreleased
 
-Config subsets added for use cases where the main default config does not fit well.
-
-- `@adeira/eslint-config/base`
-- `@adeira/eslint-config/jest`
-- `@adeira/eslint-config/react`
-- `@adeira/eslint-config/flowtype`
-- `@adeira/eslint-config/relay`
+- New rule `sx/use-logical-properties` enabled (warnings or errors in strict mode).
+- You can now use config subsets for use cases where the main default config does not fit well.
+  - `@adeira/eslint-config/base`
+  - `@adeira/eslint-config/jest`
+  - `@adeira/eslint-config/react`
+  - `@adeira/eslint-config/flowtype`
+  - `@adeira/eslint-config/relay`
 
 # 6.1.0
 

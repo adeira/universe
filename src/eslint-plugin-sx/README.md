@@ -33,6 +33,7 @@ Then configure the rules you want to use under the rules section.
   "rules": {
     "sx/no-concatenated-classes": 2,
     "sx/no-unused-stylesheet": 2,
+    "sx/use-logical-properties": 2,
     "sx/valid-usage": 2
   }
 }
@@ -42,5 +43,6 @@ Then configure the rules you want to use under the rules section.
 
 - [no-concatenated-classes](docs/rules/no-concatenated-classes.md)
 - [no-unused-stylesheet](docs/rules/no-unused-stylesheet.md)
+- [use-logical-properties](docs/rules/use-logical-properties.md)
 - [valid-usage](docs/rules/valid-usage.md)
 - ...

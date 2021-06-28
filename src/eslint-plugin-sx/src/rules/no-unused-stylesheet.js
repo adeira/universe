@@ -4,6 +4,7 @@
 import type { EslintRule } from '@adeira/flow-types-eslint';
 */
 
+const getObjectPropertyName = require('./utils/getObjectPropertyName');
 const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
 const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 
@@ -108,17 +109,9 @@ module.exports = ({
           if (argument.type === 'ObjectExpression') {
             for (const property of argument.properties) {
               if (property.type === 'Property') {
-                let propKey;
-                if (property.key.type === 'Identifier') {
-                  propKey = property.key.name;
-                } else if (property.key.type === 'Literal') {
-                  propKey = property.key.value;
-                } else if (property.key.type === 'TemplateLiteral') {
-                  // simple cases only:
-                  propKey = property.key.quasis[0].value.raw;
-                }
-                usedNames.add(propKey);
-                usedStylesheetNodes.set(propKey, argument);
+                const propertyName = getObjectPropertyName(property);
+                usedNames.add(propertyName);
+                usedStylesheetNodes.set(propertyName, argument);
               }
             }
             continue;

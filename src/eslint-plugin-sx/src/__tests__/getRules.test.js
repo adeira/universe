@@ -9,6 +9,7 @@ it('returns all the rules', () => {
     Array [
       "no-concatenated-classes",
       "no-unused-stylesheet",
+      "use-logical-properties",
       "valid-usage",
     ]
   `);
