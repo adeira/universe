@@ -31,7 +31,7 @@ const styles = sx.create({
     height: '100vh',
   },
   right: {
-    flex: 2,
+    flex: 3,
     padding: '1rem',
   },
 });

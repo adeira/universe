@@ -240,12 +240,26 @@
   },
   {
    "hashToText": {
+    "Pl7F+dP7nG7j/0rFiWi4wA==": "Downloading fresh menu, please wait…"
+   },
+   "filepath": "src/menu/MenuLoader.js",
+   "line_beg": 14,
+   "col_beg": 10,
+   "line_end": 14,
+   "col_end": 99,
+   "desc": "loading menu indicator description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Downloading fresh menu, please wait…"
+  },
+  {
+   "hashToText": {
     "2YO+c7f7liBd/0oWsDx7MQ==": "Coffee drinks"
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 14,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 31,
    "col_end": 67,
    "desc": "coffee subtitle in our menu",
    "project": "",
@@ -254,110 +268,12 @@
   },
   {
    "hashToText": {
-    "TdBMhqJXdPFwa81ekN73mA==": "{ground coffee grams} grams of ground, single-origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 20,
-   "col_beg": 10,
-   "line_end": 25,
-   "col_end": 16,
-   "desc": "description of a single espresso coffee",
-   "project": "",
-   "type": "text",
-   "jsfbt": "{ground coffee grams} grams of ground, single-origin, arabica coffee from Coatepec (Veracruz) yielding approximately {liquid coffee grams} grams of liquid espresso. Small, very intense, slightly acid drink - stir before drinking."
-  },
-  {
-   "hashToText": {
-    "EZyq54R0fHXKpuodF90voA==": "Espresso topped with hot water resulting in approximately 250 ml of beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 33,
-   "col_beg": 10,
-   "line_end": 36,
-   "col_end": 16,
-   "desc": "description of americano coffee",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Espresso topped with hot water resulting in approximately 250 ml of beverage. Milder flavor than espresso thanks to the water but with the same coffee content."
-  },
-  {
-   "hashToText": {
-    "symiyQJkS4A9mkJnhWYBxA==": "Espresso poured over hot water resulting in approximately 250 ml of beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 44,
-   "col_beg": 10,
-   "line_end": 47,
-   "col_end": 16,
-   "desc": "description of long black coffee",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Espresso poured over hot water resulting in approximately 250 ml of beverage. Very similar to americano except it preserves more espresso crema on top of the cup."
-  },
-  {
-   "hashToText": {
-    "uTkK8kGTG29y2jHOkV/1Qg==": "Espresso with a foamed milk. The same amount of coffee as in latte but with a little bit less milk resulting in a stronger coffee taste."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 55,
-   "col_beg": 10,
-   "line_end": 58,
-   "col_end": 16,
-   "desc": "description of cappuccino coffee",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Espresso with a foamed milk. The same amount of coffee as in latte but with a little bit less milk resulting in a stronger coffee taste."
-  },
-  {
-   "hashToText": {
-    "DSLOlV/wv9NrPmLGoObncA==": "Espresso with a lot of foamed milk. It contains the same amount of coffee as cappuccino but is topped with more milk resulting in a milder taste."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 66,
-   "col_beg": 10,
-   "line_end": 69,
-   "col_end": 16,
-   "desc": "description of latte coffee",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Espresso with a lot of foamed milk. It contains the same amount of coffee as cappuccino but is topped with more milk resulting in a milder taste."
-  },
-  {
-   "hashToText": {
-    "oVE/rKb76OAviSoATkFrTg==": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweeter chocolatey taste."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 77,
-   "col_beg": 10,
-   "line_end": 80,
-   "col_end": 16,
-   "desc": "description of mocha coffee",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Mocha is a variant of latte but with addition of our artisanal chocolate. This creates a sweeter chocolatey taste."
-  },
-  {
-   "hashToText": {
-    "iyOC+kj2PPPSNLAWlf1W6Q==": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweet syrup, and finished with an espresso on top."
-   },
-   "filepath": "src/menu/MenuSectionCoffee.js",
-   "line_beg": 88,
-   "col_beg": 10,
-   "line_end": 91,
-   "col_end": 16,
-   "desc": "description of iced latte",
-   "project": "",
-   "type": "text",
-   "jsfbt": "A cold beverage prepared with ice cubes, slightly foamed milk, homemade sweet syrup, and finished with an espresso on top."
-  },
-  {
-   "hashToText": {
     "t5V1cpabCbQkUc19Sc2NSw==": "Savory Dumplings"
    },
    "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 14,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 31,
    "col_end": 80,
    "desc": "savory dumplings subtitle in our menu",
    "project": "",
@@ -366,96 +282,12 @@
   },
   {
    "hashToText": {
-    "zZge6Ty1nO04HHlc3Whn3A==": "Dumpling filled with shrimps and chipotle sauce, wrapped in oatmeal crumbs."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 20,
-   "col_beg": 10,
-   "line_end": 22,
-   "col_end": 16,
-   "desc": "description of camarón silvestre dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with shrimps and chipotle sauce, wrapped in oatmeal crumbs."
-  },
-  {
-   "hashToText": {
-    "vLD56vl2VHyrPemwHF4DOg==": "Dumpling filled with parmesano cheese, ham and tomato sauce, wrapped in sesame seeds."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 30,
-   "col_beg": 10,
-   "line_end": 32,
-   "col_end": 16,
-   "desc": "description of pizza félix dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with parmesano cheese, ham and tomato sauce, wrapped in sesame seeds."
-  },
-  {
-   "hashToText": {
-    "K1oZl0UCeRRCFsC6FuzRjw==": "Dumpling filled with machego cheese, pineapple and ham, wrapped in sesame seeds."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 40,
-   "col_beg": 10,
-   "line_end": 42,
-   "col_end": 16,
-   "desc": "description of hawaiiana marie dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with machego cheese, pineapple and ham, wrapped in sesame seeds."
-  },
-  {
-   "hashToText": {
-    "rELJ3Nge1wkZn/0JV0npUg==": "Dumpling filled with Mexican sausage (chorizo) and Oaxaca cheese, wrapped in oatmeal crumbs."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 50,
-   "col_beg": 10,
-   "line_end": 53,
-   "col_end": 16,
-   "desc": "description of choriqueso demóstenes dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with Mexican sausage (chorizo) and Oaxaca cheese, wrapped in oatmeal crumbs."
-  },
-  {
-   "hashToText": {
-    "Mzetz/JqzANJHgRYCwQmrw==": "Dumpling filled with al pastor meat and machego cheese, wrapped in amaranth."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 61,
-   "col_beg": 10,
-   "line_end": 63,
-   "col_end": 16,
-   "desc": "description of tom y jerry al pastro dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with al pastor meat and machego cheese, wrapped in amaranth."
-  },
-  {
-   "hashToText": {
-    "gu3PMv6xvTbyXmtBtbHovg==": "Dumpling filled with cochinita pibil (pulled pork meat), wrapped in pumpkin seeds."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
-   "line_beg": 71,
-   "col_beg": 10,
-   "line_end": 73,
-   "col_end": 16,
-   "desc": "description of bodoque pibil dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with cochinita pibil (pulled pork meat), wrapped in pumpkin seeds."
-  },
-  {
-   "hashToText": {
     "qTi+uC+IskJlO3OJUAktFQ==": "Sweet Dumplings"
    },
    "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 14,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 31,
    "col_end": 78,
    "desc": "sweet dumplings subtitle in our menu",
    "project": "",
@@ -464,96 +296,12 @@
   },
   {
    "hashToText": {
-    "dtapcHAFaaZT7Fmt3r+sCw==": "Dumpling filled with Oreo and Hershey's, wrapped in Oreo crumbs."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 20,
-   "col_beg": 10,
-   "line_end": 22,
-   "col_end": 16,
-   "desc": "description of choco salem dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with Oreo and Hershey's, wrapped in Oreo crumbs."
-  },
-  {
-   "hashToText": {
-    "iGSUyVqr/h7JjaM5s7aXJg==": "Dumpling filled with apples and cinnamon, wrapped in bread crumbs and cinnamon."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 30,
-   "col_beg": 10,
-   "line_end": 32,
-   "col_end": 16,
-   "desc": "description of manzana azrael dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with apples and cinnamon, wrapped in bread crumbs and cinnamon."
-  },
-  {
-   "hashToText": {
-    "OcLmiKO+i69vFabhTaD8mw==": "Dumpling filled with strawberries and condensed milk, wrapped in strawberry cookie crumbs."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 40,
-   "col_beg": 10,
-   "line_end": 43,
-   "col_end": 16,
-   "desc": "description of fresa kitty dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with strawberries and condensed milk, wrapped in strawberry cookie crumbs."
-  },
-  {
-   "hashToText": {
-    "0oTabZjR+vtRnTKmE6PAUg==": "Dumpling filled with rice pudding, wrapped in coconut flakes."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 51,
-   "col_beg": 10,
-   "line_end": 53,
-   "col_end": 16,
-   "desc": "description of arroz snowball dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with rice pudding, wrapped in coconut flakes."
-  },
-  {
-   "hashToText": {
-    "go3H2rINLrmCMS+zi1mL2w==": "Dumpling filled with fried bananas and condensed milk, wrapped in vanilla cookie crumbs."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 61,
-   "col_beg": 10,
-   "line_end": 63,
-   "col_end": 16,
-   "desc": "description of banana garfield dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with fried bananas and condensed milk, wrapped in vanilla cookie crumbs."
-  },
-  {
-   "hashToText": {
-    "rPmLuLqcuyFAcVonPL4r5g==": "Dumpling filled with lemon pudding, wrapped in lemon cookie crumbs."
-   },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
-   "line_beg": 71,
-   "col_beg": 10,
-   "line_end": 73,
-   "col_end": 16,
-   "desc": "description of lemon figaro dumpling",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Dumpling filled with lemon pudding, wrapped in lemon cookie crumbs."
-  },
-  {
-   "hashToText": {
     "gpf7yMg/5H4w0cysxh+N2w==": "Milkshakes"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 14,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 31,
    "col_end": 68,
    "desc": "milkshakes subtitle in our menu",
    "project": "",
@@ -562,26 +310,12 @@
   },
   {
    "hashToText": {
-    "hyE5CLveTakqWN5TJmBHgA==": "Banana milkshake"
-   },
-   "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 18,
-   "col_beg": 15,
-   "line_end": 18,
-   "col_end": 71,
-   "desc": "banana milkshake name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Banana milkshake"
-  },
-  {
-   "hashToText": {
     "x6UgjVUbrHri7VzawP9UtA==": "Specialities"
    },
    "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 14,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 31,
    "col_end": 72,
    "desc": "specialities subtitle in our menu",
    "project": "",
@@ -590,143 +324,17 @@
   },
   {
    "hashToText": {
-    "90//byClCbo/id4smXnGZw==": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional latte. It has less caffeine than coffee but more than green tea."
-   },
-   "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 21,
-   "col_beg": 10,
-   "line_end": 25,
-   "col_end": 16,
-   "desc": "description of matcha latte",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Finely grounded matcha green tea powder infused in a hot water topped with a lot of foamed milk similar to traditional latte. It has less caffeine than coffee but more than green tea."
-  },
-  {
-   "hashToText": {
-    "imXFWPl0aPApuGI6Z9nBkA==": "Artisanal Chocolate"
-   },
-   "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 31,
-   "col_beg": 15,
-   "line_end": 31,
-   "col_end": 77,
-   "desc": "artisanal chocolate name",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Artisanal Chocolate"
-  },
-  {
-   "hashToText": {
-    "nJjhEtM6mOx0rUxqSR2yIg==": "Sweat drink prepared from crushed cocoa beans from Tabasco topped with slightly foamed hot milk or hot water."
-   },
-   "filepath": "src/menu/MenuSectionSpecialities.js",
-   "line_beg": 33,
-   "col_beg": 10,
-   "line_end": 36,
-   "col_end": 16,
-   "desc": "description of artisanal chocolate",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Sweat drink prepared from crushed cocoa beans from Tabasco topped with slightly foamed hot milk or hot water."
-  },
-  {
-   "hashToText": {
     "8tuzzzf1dwqFSTF0rx1UHA==": "Organic tea blends"
    },
    "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 14,
+   "line_beg": 31,
    "col_beg": 8,
-   "line_end": 14,
+   "line_end": 31,
    "col_end": 77,
    "desc": "organic tea subtitle in our menu",
    "project": "",
    "type": "text",
    "jsfbt": "Organic tea blends"
-  },
-  {
-   "hashToText": {
-    "RKpVHk4F/tx5DLq8xFMHdA==": "Gunpowder green tea with intense mint flavor brewed at {temperature} for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 21,
-   "col_beg": 10,
-   "line_end": 27,
-   "col_end": 16,
-   "desc": "description of a green tea with mint flavor",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Gunpowder green tea with intense mint flavor brewed at {temperature} for 2 minutes. Low on caffeine, hydrating and good for reducing stress."
-  },
-  {
-   "hashToText": {
-    "BlhBa8tRXA0NiplqKh0PjA==": "Green tea from the Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 36,
-   "col_beg": 10,
-   "line_end": 43,
-   "col_end": 16,
-   "desc": "description of a green tea with jasmine",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Green tea from the Chinese province Fujian brewed at {temperature} for 2 minutes. Low on caffeine with a soothing and light aroma of jasmine. Good for digestion and for reducing stress."
-  },
-  {
-   "hashToText": {
-    "gpcoWvvUoHO5bLQ6VAcohQ==": "Pu-erh from province Yunnan with cinnamon, clove, cardamom, and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine, burns body fat and helps blood circulation."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 52,
-   "col_beg": 10,
-   "line_end": 59,
-   "col_end": 16,
-   "desc": "description of a bespoke pu-erh chai tea",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Pu-erh from province Yunnan with cinnamon, clove, cardamom, and orange peel notes brewed at {temperature} for 5 minutes. High in caffeine, burns body fat and helps blood circulation."
-  },
-  {
-   "hashToText": {
-    "nacFdHwFtpGvixqDqALORg==": "Rooibos with St. John's-wort, ginseng, ginger, notes of lemongrass, apple, cinnamon, and black pepper. Brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 68,
-   "col_beg": 10,
-   "line_end": 75,
-   "col_end": 16,
-   "desc": "description of a jarabe tapatío tea",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Rooibos with St. John's-wort, ginseng, ginger, notes of lemongrass, apple, cinnamon, and black pepper. Brewed at {temperature} for 5 minutes. Without caffeine, good for memory and physical performance."
-  },
-  {
-   "hashToText": {
-    "p9IdPjZckxHQ0o9zzITAAg==": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 84,
-   "col_beg": 10,
-   "line_end": 90,
-   "col_end": 16,
-   "desc": "description of a bésame mucho tea",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Tisana with a flavor of red fruits and hints of hibiscus flower brewed at {temperature} for 5 minutes. No caffeine, anti-inflammatory, good for memory."
-  },
-  {
-   "hashToText": {
-    "bZH+Lt+WzlApb6ZhyUKOgQ==": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
-   },
-   "filepath": "src/menu/MenuSectionTea.js",
-   "line_beg": 99,
-   "col_beg": 10,
-   "line_end": 105,
-   "col_end": 16,
-   "desc": "description of a maison de cannelle tea",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Tisana with a baked dessert flavor with almonds and cinnamon notes brewed at {temperature} for 7 minutes. No caffeine, good for your intellect and heart."
   },
   {
    "hashToText": {
