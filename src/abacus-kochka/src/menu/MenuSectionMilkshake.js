@@ -1,27 +1,39 @@
 // @flow
 
+import { graphql, useFragment } from '@adeira/relay';
 import React, { type Node } from 'react';
-import { Money } from '@adeira/sx-design';
 import fbt from 'fbt';
 
 import MenuHeading from './components/MenuHeading';
 import MenuRow from './components/MenuRow';
+import type { MenuSectionMilkshake$key } from './__generated__/MenuSectionMilkshake.graphql';
 
-export default function MenuSectionMilkshake(): Node {
+type Props = {
+  +menuData: MenuSectionMilkshake$key,
+};
+
+export default function MenuSectionMilkshake(props: Props): Node {
+  const data = useFragment<MenuSectionMilkshake$key>(
+    graphql`
+      fragment MenuSectionMilkshake on MenuQuery {
+        milkshakesMenu: menu(clientLocale: $clientLocale, section: MILKSHAKES) {
+          id
+          ...MenuRow
+        }
+      }
+    `,
+    props.menuData,
+  );
+
   return (
     <>
       <MenuHeading>
         <fbt desc="milkshakes subtitle in our menu">Milkshakes</fbt>
       </MenuHeading>
 
-      <MenuRow
-        title={<fbt desc="banana milkshake name">Banana milkshake</fbt>}
-        // $FlowFixMe[incompatible-type]: should be FBT (TODO)
-        description={'TKTK'}
-        price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-      />
-
-      {/* TODO: other milkshakes */}
+      {data.milkshakesMenu.map((milkshake) => (
+        <MenuRow key={milkshake.id} menuRowData={milkshake} />
+      ))}
     </>
   );
 }
