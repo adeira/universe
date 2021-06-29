@@ -27,7 +27,6 @@ export default function MenuSectionTea(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -35,7 +34,7 @@ export default function MenuSectionTea(): Node {
         title="Jasmine Mo Li Hua"
         description={
           <fbt desc="description of a green tea with jasmine">
-            Green tea from a Chinese province Fujian brewed at{' '}
+            Green tea from the Chinese province Fujian brewed at{' '}
             <fbt:param name="temperature">
               <Temperature degreesCelsius={80} />
             </fbt:param>{' '}
@@ -44,7 +43,6 @@ export default function MenuSectionTea(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -61,7 +59,6 @@ export default function MenuSectionTea(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -78,7 +75,6 @@ export default function MenuSectionTea(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -94,7 +90,6 @@ export default function MenuSectionTea(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
 
       <MenuRow
@@ -110,7 +105,6 @@ export default function MenuSectionTea(): Node {
           </fbt>
         }
         price={<Money priceUnitAmount={50} priceUnitAmountCurrency={'MXN'} />}
-        volume={450}
       />
     </>
   );

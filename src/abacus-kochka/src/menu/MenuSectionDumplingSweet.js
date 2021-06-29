@@ -18,7 +18,7 @@ export default function MenuSectionSweetDumpling(): Node {
         title="Choco Salem"
         description={
           <fbt desc="description of choco salem dumpling">
-            Dumpling filled with Oreo, Hershey’s and topped with Oreo crumbs.
+            Dumpling filled with Oreo and Hershey&apos;s, wrapped in Oreo crumbs.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -28,18 +28,18 @@ export default function MenuSectionSweetDumpling(): Node {
         title="Manzana Azrael"
         description={
           <fbt desc="description of manzana azrael dumpling">
-            Dumpling filled with apples, cinnamon and topped with bread crumbs and cinnamon.
+            Dumpling filled with apples and cinnamon, wrapped in bread crumbs and cinnamon.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title="Fresa Hello Kitty"
+        title="Fresa Kitty"
         description={
-          <fbt desc="description of fresa hello kitty dumpling">
-            Dumpling filled with strawberries and condensed milk and topped with strawberry cookies
-            crumbs.{' '}
+          <fbt desc="description of fresa kitty dumpling">
+            Dumpling filled with strawberries and condensed milk, wrapped in strawberry cookie
+            crumbs.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -49,7 +49,7 @@ export default function MenuSectionSweetDumpling(): Node {
         title="Arroz Snowball"
         description={
           <fbt desc="description of arroz snowball dumpling">
-            Dumpling filled with rice pudding and topped with coconut.
+            Dumpling filled with rice pudding, wrapped in coconut flakes.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
@@ -59,18 +59,17 @@ export default function MenuSectionSweetDumpling(): Node {
         title="Banana Garfield"
         description={
           <fbt desc="description of banana garfield dumpling">
-            Dumpling filled with fried bananas and condensed milk and topped with vanilla cookies
-            crumbs.
+            Dumpling filled with fried bananas and condensed milk, wrapped in vanilla cookie crumbs.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
       />
 
       <MenuRow
-        title="Lemon Doraemon"
+        title="Lemon Figaro"
         description={
-          <fbt desc="description of lemon doraemon dumpling">
-            Dumpling filled with lemon pudding and topped with lemon cookies crumbs.
+          <fbt desc="description of lemon figaro dumpling">
+            Dumpling filled with lemon pudding, wrapped in lemon cookie crumbs.
           </fbt>
         }
         price={<Money priceUnitAmount={40} priceUnitAmountCurrency={'MXN'} />}
