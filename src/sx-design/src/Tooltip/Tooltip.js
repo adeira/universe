@@ -6,8 +6,12 @@ import sx from '@adeira/sx';
 import SxDesignPortal from '../SxDesignPortal';
 import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPosition';
 
+// Tooltip follows similar API as `abbr` element (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr):
+//  - `children` is text or symbol being displayed by default
+//  - `title` is the popup on hover
 type Props = {
-  +'children': FbtWithoutString,
+  +'title': FbtWithoutString,
+  +'children'?: Node,
   +'data-testid'?: string,
 };
 
@@ -44,16 +48,20 @@ export default function Tooltip(props: Props): Node {
         className={styles('hoverIcon')}
       >
         {/* TODO: extract this icon somewhere else (https://systemuicons.com/) */}
-        <svg height="1em" width="1em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd" transform="translate(2 2)">
-            <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="8.5" cy="8.5" r="8" />
-              <path d="m8.5 12.5v-4h-1" />
-              <path d="m7.5 12.5h2" />
+        {props.children != null ? (
+          props.children
+        ) : (
+          <svg height="1em" width="1em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" fillRule="evenodd" transform="translate(2 2)">
+              <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="8.5" cy="8.5" r="8" />
+                <path d="m8.5 12.5v-4h-1" />
+                <path d="m7.5 12.5h2" />
+              </g>
+              <circle cx="8.5" cy="5.5" fill="currentColor" r="1" />
             </g>
-            <circle cx="8.5" cy="5.5" fill="currentColor" r="1" />
-          </g>
-        </svg>
+          </svg>
+        )}
       </span>
 
       <SxDesignPortal>
@@ -68,7 +76,7 @@ export default function Tooltip(props: Props): Node {
           }}
           ref={tooltipChildrenAreaRef}
         >
-          {props.children}
+          {props.title}
         </div>
       </SxDesignPortal>
     </>

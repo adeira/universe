@@ -1,11 +1,10 @@
 // @flow
 
-import { Badge, Entity, EntityField } from '@adeira/sx-design';
+import { Badge, Entity, EntityField, MissingData } from '@adeira/sx-design';
 import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 
-import MissingData from '../MissingData';
 import type { EmployeesPageQuery } from './__generated__/EmployeesPageQuery.graphql';
 
 export default function EmployeesPage(): React.Node {
@@ -24,7 +23,7 @@ export default function EmployeesPage(): React.Node {
     return (
       <Entity key={user.id}>
         <EntityField
-          title={
+          description={
             user.isActive ? (
               <Badge tint="success">
                 <fbt desc="active user - label title">active</fbt>
@@ -36,9 +35,9 @@ export default function EmployeesPage(): React.Node {
             )
           }
         />
-        <EntityField title={user.name ?? <MissingData />} />
+        <EntityField description={user.name ?? <MissingData />} />
         <EntityField
-          title={
+          description={
             user.hasEmailVerified ? (
               <Badge tint="success">
                 <fbt desc="user has email verifies - label title">email verified</fbt>

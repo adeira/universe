@@ -88,13 +88,15 @@ export default function ProductForm(props: {
           // $FlowFixMe[incompatible-type]: should be FBT
           <>
             Visibility (use <Kbd code="SHIFT" /> or <Kbd code="CTRL" /> to unselect or select more){' '}
-            <Tooltip>
-              <fbt desc="not on product visibility">
-                The product can be visible in other places regardless of this setting. For example,
-                it can be displayed in KOCHKA Café menu when it makes sense. This setting only
-                affect where is the product going to be displayed automatically.
-              </fbt>
-            </Tooltip>
+            <Tooltip
+              title={
+                <fbt desc="not on product visibility">
+                  The product can be visible in other places regardless of this setting. For
+                  example, it can be displayed in KOCHKA Café menu when it makes sense. This setting
+                  only affect where is the product going to be displayed automatically.
+                </fbt>
+              }
+            />
           </>
         }
       >
