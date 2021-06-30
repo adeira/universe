@@ -15,12 +15,7 @@ export default {
   title: 'Example/Tooltip',
   component: Tooltip,
   argTypes: {
-    // hide `children` and `data-testid` properties from the Storybook
-    'children': {
-      table: {
-        disable: true,
-      },
-    },
+    // hide `data-testid` properties from the Storybook
     'data-testid': {
       table: {
         disable: true,
@@ -36,29 +31,38 @@ const Template = (args) => (
   <>
     {/* Top-left position: */}
     <div style={{ position: 'absolute', top: '0', left: '0' }}>
-      <Tooltip {...args}>
-        <fbt desc="test tooltip content title" doNotExtract={true}>
-          This is a test tooltip content.
-        </fbt>
-      </Tooltip>
+      <Tooltip
+        title={
+          <fbt desc="test tooltip content title" doNotExtract={true}>
+            This is a test tooltip content.
+          </fbt>
+        }
+        {...args}
+      />
     </div>
 
     {/* Middle with enough space above: */}
     <div style={{ position: 'absolute', top: '50px', left: '50%' }}>
-      <Tooltip {...args}>
-        <fbt desc="test tooltip content title" doNotExtract={true}>
-          This is a test tooltip content.
-        </fbt>
-      </Tooltip>
+      <Tooltip
+        title={
+          <fbt desc="test tooltip content title" doNotExtract={true}>
+            This is a test tooltip content.
+          </fbt>
+        }
+        {...args}
+      />
     </div>
 
     {/* Right position: */}
     <div style={{ position: 'absolute', top: '100px', right: '0' }}>
-      <Tooltip {...args}>
-        <fbt desc="test tooltip content title" doNotExtract={true}>
-          This is a test tooltip content.
-        </fbt>
-      </Tooltip>
+      <Tooltip
+        title={
+          <fbt desc="test tooltip content title" doNotExtract={true}>
+            This is a test tooltip content.
+          </fbt>
+        }
+        {...args}
+      />
     </div>
   </>
 );
@@ -66,3 +70,9 @@ const Template = (args) => (
 // 👇 Each story then reuses that template
 export const DefaultTooltip: StoryTemplate<typeof Tooltip> = Template.bind({});
 DefaultTooltip.storyName = 'Default';
+
+export const CustomChildrenTooltip: StoryTemplate<typeof Tooltip> = Template.bind({});
+CustomChildrenTooltip.storyName = 'Custom children';
+CustomChildrenTooltip.args = {
+  children: 'N/A',
+};

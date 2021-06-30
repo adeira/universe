@@ -132,6 +132,7 @@ Legend:
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<MissingData />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -153,6 +154,7 @@ Legend:
 [`<kbd />`]: https://sx-design.vercel.app/?path=/story/example-kbd
 [`<link />`]: https://sx-design.vercel.app/?path=/story/example-link
 [`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/example-linkbutton
+[`<missingdata />`]: https://sx-design.vercel.app/?path=/story/example-missingdata
 [`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
 [`<note />`]: https://sx-design.vercel.app/?path=/story/example-note
 [`<productcard />`]: https://sx-design.vercel.app/?path=/story/example-productcard

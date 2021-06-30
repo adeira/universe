@@ -30,6 +30,34 @@
   },
   {
    "hashToText": {
+    "Y3o6+D/7PWcFogiHsVcKiA==": "Unable to load data or missing data."
+   },
+   "filepath": "src/MissingData/MissingData.js",
+   "line_beg": 17,
+   "col_beg": 8,
+   "line_end": 19,
+   "col_end": 14,
+   "desc": "explanation of a symbol for unavailable data",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Unable to load data or missing data."
+  },
+  {
+   "hashToText": {
+    "W2Zfz+g6XrIlDYmJfieIpA==": "N/A"
+   },
+   "filepath": "src/MissingData/MissingData.js",
+   "line_beg": 24,
+   "col_beg": 8,
+   "line_end": 24,
+   "col_end": 57,
+   "desc": "symbol for unavailable data",
+   "project": "",
+   "type": "text",
+   "jsfbt": "N/A"
+  },
+  {
+   "hashToText": {
     "WSdt9glzZ7dZhYBu4DhX1Q==": "Success"
    },
    "filepath": "src/Note/Note.js",

@@ -47,9 +47,9 @@
     "cDuUp7H3Z3pcA1USmdXIyw==": "active"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 30,
+   "line_beg": 29,
    "col_beg": 16,
-   "line_end": 30,
+   "line_end": 29,
    "col_end": 66,
    "desc": "active user - label title",
    "project": "",
@@ -61,9 +61,9 @@
     "J0MsIYnMPKiz7ubGl3IyyA==": "inactive"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 34,
+   "line_beg": 33,
    "col_beg": 16,
-   "line_end": 34,
+   "line_end": 33,
    "col_end": 70,
    "desc": "inactive user - label title",
    "project": "",
@@ -75,9 +75,9 @@
     "ljdn3Wlj6+RtF2CehM///w==": "email verified"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 44,
+   "line_beg": 43,
    "col_beg": 16,
-   "line_end": 44,
+   "line_end": 43,
    "col_end": 86,
    "desc": "user has email verifies - label title",
    "project": "",
@@ -89,9 +89,9 @@
     "eOYUb4Hm7JmwXrcob9M5iw==": "email NOT verified"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 48,
+   "line_beg": 47,
    "col_beg": 16,
-   "line_end": 48,
+   "line_end": 47,
    "col_end": 99,
    "desc": "user doesn't have email verifies - label title",
    "project": "",
@@ -265,20 +265,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Ledger"
-  },
-  {
-   "hashToText": {
-    "Y3o6+D/7PWcFogiHsVcKiA==": "Unable to load data or missing data."
-   },
-   "filepath": "src/MissingData.js",
-   "line_beg": 11,
-   "col_beg": 8,
-   "line_end": 13,
-   "col_end": 14,
-   "desc": "explanation of a symbol for unavailable data",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Unable to load data or missing data."
   },
   {
    "hashToText": {
@@ -929,10 +915,10 @@
     "xYkBXLgCt5XcttuICJB9Og==": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 92,
-   "col_beg": 14,
-   "line_end": 96,
-   "col_end": 20,
+   "line_beg": 93,
+   "col_beg": 16,
+   "line_end": 97,
+   "col_end": 22,
    "desc": "not on product visibility",
    "project": "",
    "type": "text",
@@ -943,9 +929,9 @@
     "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 102,
+   "line_beg": 104,
    "col_beg": 10,
-   "line_end": 102,
+   "line_end": 104,
    "col_end": 73,
    "desc": "visible in POS - select option",
    "project": "",
@@ -957,9 +943,9 @@
     "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 105,
+   "line_beg": 107,
    "col_beg": 10,
-   "line_end": 107,
+   "line_end": 109,
    "col_end": 16,
    "desc": "visible in eshop - select option",
    "project": "",
