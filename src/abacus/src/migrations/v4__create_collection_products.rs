@@ -75,7 +75,7 @@ mod tests {
                     {
                       "locale": "en_US",
                       "name": "TKTK",
-                      "description_slate": "TKTK"
+                      "description": "TKTK"
                     }
                   ]
                 }))
@@ -99,12 +99,12 @@ mod tests {
             {
               "locale": "en_US",
               "name": "",
-              "description_slate": ""
+              "description": ""
             },
             {
               "locale": "es_MX",
               "name": "",
-              "description_slate": ""
+              "description": ""
             }
           ]
         })));

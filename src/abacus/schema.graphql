@@ -1,4 +1,4 @@
-# @generated SignedSource<<cd05d2ecf825064d2c036d5875f62ab5>>
+# @generated SignedSource<<eda17d39e690abda8d9cdd05a2b3c37a>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -57,8 +57,7 @@ type Mutation {
 type ProductMultilingualTranslations {
   locale: SupportedLocale!
   name: String!
-  "Note: the field contains JSON stringified payload for [Slate Editor](https://github.com/ianstormtaylor/slate)."
-  descriptionSlate: String
+  description: String
 }
 
 type CommerceMutation {
@@ -218,7 +217,7 @@ scalar ProductImageUploadable
 input ProductMultilingualInputTranslations {
   locale: SupportedLocale!
   name: String!
-  "Note: the field accepts JSON stringified payload from [Slate Editor](https://github.com/ianstormtaylor/slate)." descriptionSlate: String
+  description: String
 }
 
 input PosCheckoutInput {
@@ -260,10 +259,8 @@ type Product {
     The product's description, meant to be displayable to the customer. Use this field to
     optionally store a long form explanation of the product being sold for your own rendering
     purposes.
-
-    Note: the field contains JSON stringified payload for [Slate Editor](https://github.com/ianstormtaylor/slate).
   """
-  descriptionSlate: String
+  description: String
   """
     A list of images for this product, meant to be displayable to the customer. You can get
     image cover via `imageCover` field.

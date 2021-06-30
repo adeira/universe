@@ -18,11 +18,11 @@ export type ProductEditFormData = {|
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +enTranslation: ?{|
     +name: string,
-    +descriptionSlate: ?string,
+    +description: ?string,
   |},
   +esTranslation: ?{|
     +name: string,
-    +descriptionSlate: ?string,
+    +description: ?string,
   |},
   +images: $ReadOnlyArray<{|
     +name: string
@@ -51,7 +51,7 @@ v1 = [
     "alias": null,
     "args": null,
     "kind": "ScalarField",
-    "name": "descriptionSlate",
+    "name": "description",
     "storageKey": null
   }
 ];
@@ -150,5 +150,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = 'dbc81fc7656d33b92344e64a20a22e39';
+(node: any).hash = 'b455ee031c8188ab197ac393d0633064';
 export default node;

@@ -10,7 +10,6 @@ type Props = {
   +validationError: FbtWithoutString | null,
   +children: Node,
   +required?: boolean,
-  +disableSemanticLabel?: boolean,
 };
 
 export default function BaseInputWrapper(props: Props): Node {
@@ -46,7 +45,7 @@ export default function BaseInputWrapper(props: Props): Node {
 
   return (
     <div className={styles('inputWrapper')}>
-      {props.disableSemanticLabel === true ? input : <label>{input}</label>}
+      <label>{input}</label>
     </div>
   );
 }

@@ -10,7 +10,7 @@ export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductMultilingualInputTranslations = {|
   locale: SupportedLocale,
   name: string,
-  descriptionSlate?: ?string,
+  description?: ?string,
 |};
 export type ProductCreateFormMutationVariables = {|
   productImagesNames: $ReadOnlyArray<any>,

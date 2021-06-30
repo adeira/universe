@@ -901,9 +901,9 @@
     "bU6rVH2V6ifH2RNffzFZ8g==": "All our products are currently available only in person in our café. We are working on making them available online as well."
    },
    "filepath": "src/shop/ProductPageLayout.js",
-   "line_beg": 65,
+   "line_beg": 64,
    "col_beg": 18,
-   "line_end": 68,
+   "line_end": 67,
    "col_end": 24,
    "desc": "not about all our products being available only in person",
    "project": "",

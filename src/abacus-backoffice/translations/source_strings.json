@@ -131,9 +131,9 @@
     "99TUdsKRfseIC6G04zBOKg==": "This field is mandatory"
    },
    "filepath": "src/forms/private/BaseInputWrapper.js",
-   "line_beg": 30,
+   "line_beg": 29,
    "col_beg": 21,
-   "line_end": 30,
+   "line_end": 29,
    "col_end": 90,
    "desc": "mandatory field description",
    "project": "",
@@ -237,48 +237,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Field \"{form field label}\" is invalid."
-  },
-  {
-   "hashToText": {
-    "m7T0NTqsKyh2vxq/AIqRrA==": "Bold"
-   },
-   "filepath": "src/forms/private/SlateEditor.js",
-   "line_beg": 94,
-   "col_beg": 14,
-   "line_end": 94,
-   "col_end": 71,
-   "desc": "button title to make the text bold",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Bold"
-  },
-  {
-   "hashToText": {
-    "qUYpuG/rtRVMLfrWEx9G6Q==": "Italic"
-   },
-   "filepath": "src/forms/private/SlateEditor.js",
-   "line_beg": 99,
-   "col_beg": 14,
-   "line_end": 99,
-   "col_end": 75,
-   "desc": "button title to make the text italic",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Italic"
-  },
-  {
-   "hashToText": {
-    "qfcT6fgdcBLJ28EoUBumJQ==": "Underline"
-   },
-   "filepath": "src/forms/private/SlateEditor.js",
-   "line_beg": 104,
-   "col_beg": 14,
-   "line_end": 104,
-   "col_end": 81,
-   "desc": "button title to make the text underline",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Underline"
   },
   {
    "hashToText": {
@@ -747,9 +705,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 138,
+   "line_beg": 130,
    "col_beg": 18,
-   "line_end": 147,
+   "line_end": 139,
    "col_end": 24,
    "desc": "product updated success message",
    "project": "",
@@ -761,9 +719,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 154,
+   "line_beg": 146,
    "col_beg": 10,
-   "line_end": 154,
+   "line_end": 146,
    "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
@@ -887,9 +845,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 34,
+   "line_beg": 32,
    "col_beg": 15,
-   "line_end": 34,
+   "line_end": 32,
    "col_end": 86,
    "desc": "form field name for product pictures",
    "project": "",
@@ -901,9 +859,9 @@
     "jDz1xtreligZF6hDwlOGmA==": "Product name (in English)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 43,
+   "line_beg": 41,
    "col_beg": 12,
-   "line_end": 43,
+   "line_end": 41,
    "col_end": 99,
    "desc": "form field name for product name in english",
    "project": "",
@@ -915,9 +873,9 @@
     "KjnAslk0bbo2mlPqTr9Scg==": "Product name (in Spanish)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 52,
+   "line_beg": 50,
    "col_beg": 12,
-   "line_end": 52,
+   "line_end": 50,
    "col_end": 99,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -929,9 +887,9 @@
     "I6tPscKijr8l6b5INvVZMg==": "Product description (in English)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 61,
+   "line_beg": 59,
    "col_beg": 10,
-   "line_end": 63,
+   "line_end": 61,
    "col_end": 16,
    "desc": "form field name for product description in english",
    "project": "",
@@ -943,9 +901,9 @@
     "x0HcNWLdxFYYiLwAx7et4g==": "Product description (in Spanish)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 71,
+   "line_beg": 69,
    "col_beg": 10,
-   "line_end": 73,
+   "line_end": 71,
    "col_end": 16,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -957,9 +915,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 82,
+   "line_beg": 80,
    "col_beg": 15,
-   "line_end": 82,
+   "line_end": 80,
    "col_end": 78,
    "desc": "form field name for product price",
    "project": "",
@@ -971,9 +929,9 @@
     "xYkBXLgCt5XcttuICJB9Og==": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 94,
+   "line_beg": 92,
    "col_beg": 14,
-   "line_end": 98,
+   "line_end": 96,
    "col_end": 20,
    "desc": "not on product visibility",
    "project": "",
@@ -985,9 +943,9 @@
     "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 104,
+   "line_beg": 102,
    "col_beg": 10,
-   "line_end": 104,
+   "line_end": 102,
    "col_end": 73,
    "desc": "visible in POS - select option",
    "project": "",
@@ -999,9 +957,9 @@
     "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 107,
+   "line_beg": 105,
    "col_beg": 10,
-   "line_end": 109,
+   "line_end": 107,
    "col_end": 16,
    "desc": "visible in eshop - select option",
    "project": "",

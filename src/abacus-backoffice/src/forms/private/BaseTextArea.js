@@ -1,46 +1,71 @@
 // @flow
 
-import { type Node } from 'react';
+import { type Node, useRef } from 'react';
+import sx from '@adeira/sx';
 
 import BaseInputWrapper from './BaseInputWrapper';
-import SlateEditor from './SlateEditor';
-import useFormFieldStateWithoutValidation from './useFormFieldStateWithoutValidation';
-
-type SlatePayload = $ReadOnlyArray<$FlowFixMe>;
+import useFormFieldState from './useFormFieldState';
 
 type Props = {
-  +label: FbtWithoutString,
-  +name: string,
-  +value: SlatePayload,
+  +'label': FbtWithoutString,
+  +'name': string,
+  +'value': string,
+  +'data-testid'?: string,
+  +'required'?: boolean,
 };
 
 /**
  * This is a generic input component with very wide API (similar to https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
  * It's not recommended to use this component directly. Instead, use `FormTextArea`.
- *
- * Note: we are using [Slate Editor](https://github.com/ianstormtaylor/slate) instead of traditional
- * `textarea` even though it currently doesn't have any advanced or fancy features. However, it's
- * ready for any future improvements and the resulting format is not just a plain string.
+ * See: https://reactjs.org/docs/forms.html#the-textarea-tag
  */
 export default function BaseTextArea(props: Props): Node {
-  const [inputValue, updateInputValue] = useFormFieldStateWithoutValidation(
+  const textAreaRef = useRef(null);
+  const [inputValue, updateInputValue, inputErrors] = useFormFieldState(
+    textAreaRef,
     props.name,
     props.value,
+    props.label,
   );
 
-  const handleOnChange = (slatePayload) => {
-    updateInputValue(slatePayload);
+  const handleOnChange = (event) => {
+    updateInputValue(textAreaRef, event.target.value);
   };
+
+  const hasError =
+    inputErrors.validationError != null && inputErrors.validationErrorHidden === false;
 
   return (
     <BaseInputWrapper
       label={props.label}
-      disableSemanticLabel={true} // needed for the complex Slate editor (implicit label would not work)
-      required={false}
-      hasValidationError={false} // TODO
-      validationError={null} // TODO
+      required={props.required}
+      hasValidationError={hasError}
+      validationError={inputErrors.validationError}
     >
-      <SlateEditor value={inputValue} onChange={handleOnChange} />
+      <textarea
+        ref={textAreaRef}
+        data-testid={props['data-testid']}
+        required={props.required}
+        name={props.name}
+        value={inputValue}
+        onChange={handleOnChange}
+        className={styles({
+          textarea: true,
+          textareaError: hasError,
+        })}
+      />
     </BaseInputWrapper>
   );
 }
+
+const styles = sx.create({
+  textarea: {
+    width: '100%',
+    border: '2px solid rgba(var(--sx-accent-2))',
+    borderRadius: 5,
+    padding: '12px 12px',
+  },
+  textareaError: {
+    border: '2px solid rgba(var(--sx-error))',
+  },
+});
