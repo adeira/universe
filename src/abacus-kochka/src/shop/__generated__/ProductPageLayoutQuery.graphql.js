@@ -15,7 +15,7 @@ export type ProductPageLayoutQueryResponse = {|
   +commerce: {|
     +product: {|
       +name: string,
-      +descriptionSlate: ?string,
+      +description: ?string,
       +price: {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
@@ -40,7 +40,7 @@ query ProductPageLayoutQuery(
   commerce {
     product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {
       name
-      descriptionSlate
+      description
       price {
         unitAmount
         unitAmountCurrency
@@ -91,7 +91,7 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "descriptionSlate",
+  "name": "description",
   "storageKey": null
 },
 v4 = {
@@ -223,15 +223,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "ead7ddd06059dd1f00123190a2f048f2",
+    "cacheID": "39de20d3160b91f0bddf00d9bbbd7406",
     "id": null,
     "metadata": {},
     "name": "ProductPageLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      descriptionSlate\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '3cbd0aec987dfad59edcf16413cdea2b';
+(node: any).hash = 'e7a5e6db935364d6cf82ff869c1e88f1';
 export default node;

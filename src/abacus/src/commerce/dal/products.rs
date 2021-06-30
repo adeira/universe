@@ -43,7 +43,7 @@ pub(in crate::commerce) async fn create_product(
             RETURN MERGE(
               product,
               { unit_label: unit_label_translated },
-              { name: t.name, description_slate: t.description_slate }
+              { name: t.name, description: t.description }
             )
             "#,
         )
@@ -103,7 +103,7 @@ pub(in crate::commerce) async fn update_product(
             RETURN MERGE(
               product,
               { unit_label: unit_label_translated },
-              { name: t.name, description_slate: t.description_slate }
+              { name: t.name, description: t.description }
             )
             "#,
         )
@@ -154,7 +154,7 @@ pub(in crate::commerce) async fn publish_product(
             RETURN MERGE(
               product,
               { unit_label: unit_label_translated },
-              { name: t.name, description_slate: t.description_slate }
+              { name: t.name, description: t.description }
             )
             "#,
         )
@@ -191,7 +191,7 @@ pub(in crate::commerce) async fn unpublish_product(
             RETURN MERGE(
               product,
               { unit_label: unit_label_translated },
-              { name: t.name, description_slate: t.description_slate }
+              { name: t.name, description: t.description }
             )
             "#,
         )
@@ -246,7 +246,7 @@ pub(in crate::commerce) async fn get_products_by_keys(
               RETURN MERGE(
                 product,
                 { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                { name: t.name, description_slate: t.description_slate }
+                { name: t.name, description: t.description }
               )
             "#,
         )
@@ -296,7 +296,7 @@ pub(in crate::commerce) async fn search_products(
               RETURN MERGE(
                 product,
                 { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                { name: t.name, description_slate: t.description_slate }
+                { name: t.name, description: t.description }
               )
             "#,
     );
@@ -325,7 +325,7 @@ pub(in crate::commerce) async fn search_products(
               RETURN MERGE(
                 product,
                 { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                { name: t.name, description_slate: t.description_slate }
+                { name: t.name, description: t.description }
               )
             "#,
         );
@@ -379,7 +379,7 @@ pub(in crate::commerce) async fn delete_product(
             RETURN MERGE(
               product,
               { unit_label: unit_label_translated },
-              { name: t.name, description_slate: t.description_slate }
+              { name: t.name, description: t.description }
             )
             "#,
         )

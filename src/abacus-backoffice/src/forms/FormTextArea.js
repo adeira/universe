@@ -4,12 +4,12 @@ import { type Node } from 'react';
 
 import BaseTextArea from './private/BaseTextArea';
 
-type SlatePayload = $ReadOnlyArray<$FlowFixMe>;
-
 type Props = {
-  +value: ?SlatePayload,
-  +label: FbtWithoutString,
-  +name: string,
+  +'value': ?string,
+  +'label': FbtWithoutString,
+  +'name': string,
+  +'data-testid'?: string,
+  +'required'?: boolean,
 };
 
 /**
@@ -18,8 +18,13 @@ type Props = {
  * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
  */
 export default function FormTextArea(props: Props): Node {
-  const emptySlateValue = [{ type: 'paragraph', children: [{ text: '' }] }];
   return (
-    <BaseTextArea value={props.value ?? emptySlateValue} label={props.label} name={props.name} />
+    <BaseTextArea
+      data-testid={props['data-testid']}
+      value={props.value ?? ''}
+      label={props.label}
+      name={props.name}
+      required={props.required}
+    />
   );
 }

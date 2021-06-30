@@ -8,7 +8,6 @@ import React, { type Node } from 'react';
 import { useRouter } from 'next/router';
 
 import Layout from '../Layout';
-import RenderSlateNodes from './RenderSlateNodes';
 import useViewerContext from '../hooks/useViewerContext';
 
 export default function ProductPageLayout(): Node {
@@ -26,7 +25,7 @@ export default function ProductPageLayout(): Node {
               productKey: $productKey
             ) {
               name
-              descriptionSlate
+              description
               price {
                 unitAmount
                 unitAmountCurrency
@@ -60,7 +59,7 @@ export default function ProductPageLayout(): Node {
                 />
               </div>
               <div>
-                <RenderSlateNodes nodes={JSON.parse(product.descriptionSlate)} />
+                <p>{product.description}</p>
                 <Note tint="warning">
                   <fbt desc="not about all our products being available only in person">
                     All our products are currently available only in person in our café. We are

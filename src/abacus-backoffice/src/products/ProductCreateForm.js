@@ -19,8 +19,8 @@ export default function ProductCreateForm(): Node {
     <ProductForm
       name_en={''}
       name_es={''}
-      description_en={null}
-      description_es={null}
+      description_en={''}
+      description_es={''}
       price={0}
       visibility={['POS']}
       button={
@@ -60,12 +60,12 @@ export default function ProductCreateForm(): Node {
               {
                 locale: 'en_US',
                 name: formValues.name_en,
-                descriptionSlate: JSON.stringify(formValues.description_en),
+                description: formValues.description_en || null,
               },
               {
                 locale: 'es_MX',
                 name: formValues.name_es,
-                descriptionSlate: JSON.stringify(formValues.description_es),
+                description: formValues.description_es || null,
               },
             ],
             visibility: formValues.visibility,
