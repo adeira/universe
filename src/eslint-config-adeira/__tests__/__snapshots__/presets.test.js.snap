@@ -580,6 +580,7 @@ Object {
     "flowtype/array-style-simple-type": 0,
     "flowtype/arrow-parens": 0,
     "flowtype/define-flow-type": 1,
+    "flowtype/enforce-line-break": 0,
     "flowtype/newline-after-flow-annotation": Array [
       2,
       "always",

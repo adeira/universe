@@ -131,6 +131,7 @@ Object {
     "flowtype/boolean-style": "off",
     "flowtype/define-flow-type": 1,
     "flowtype/delimiter-dangle": "off",
+    "flowtype/enforce-line-break": 0,
     "flowtype/generic-spacing": "off",
     "flowtype/newline-after-flow-annotation": Array [
       2,

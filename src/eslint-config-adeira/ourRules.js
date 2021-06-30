@@ -494,6 +494,7 @@ const groupedRules = ({
     'flowtype/array-style-simple-type': OFF,
     'flowtype/arrow-parens': OFF,
     'flowtype/define-flow-type': WARN,
+    'flowtype/enforce-line-break': OFF,
     'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
     'flowtype/no-dupe-keys': ERROR,
     'flowtype/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
