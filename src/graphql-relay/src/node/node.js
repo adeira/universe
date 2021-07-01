@@ -8,8 +8,6 @@
  */
 
 /* eslint-disable adeira/only-nullable-fields */
-/* eslint-disable flowtype/no-existential-type */
-// flowlint deprecated-type:off
 
 import {
   GraphQLInterfaceType,
@@ -25,8 +23,8 @@ import { base64, unbase64 } from '../utils/base64';
 
 type GraphQLNodeDefinitions<TContext> = {
   nodeInterface: GraphQLInterfaceType,
-  nodeField: GraphQLFieldConfig<*, TContext>,
-  nodesField: GraphQLFieldConfig<*, TContext>,
+  nodeField: GraphQLFieldConfig<mixed, TContext>,
+  nodesField: GraphQLFieldConfig<mixed, TContext>,
   ...
 };
 
@@ -42,7 +40,7 @@ type GraphQLNodeDefinitions<TContext> = {
  */
 export function nodeDefinitions<TContext>(
   idFetcher: (id: string, context: TContext, info: GraphQLResolveInfo) => any,
-  typeResolver?: ?GraphQLTypeResolver<*, TContext>,
+  typeResolver?: ?GraphQLTypeResolver<any, TContext>,
 ): GraphQLNodeDefinitions<TContext> {
   const nodeInterface = new GraphQLInterfaceType({
     name: 'Node',
@@ -120,7 +118,7 @@ export function fromGlobalId(globalId: string): ResolvedGlobalId {
 export function globalIdField(
   typeName?: ?string,
   idFetcher?: (object: any, context: any, info: GraphQLResolveInfo) => string,
-): GraphQLFieldConfig<*, *> {
+): GraphQLFieldConfig<any, any> {
   return {
     description: 'The ID of an object',
     type: new GraphQLNonNull(GraphQLID),

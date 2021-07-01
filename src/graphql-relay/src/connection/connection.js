@@ -7,9 +7,6 @@
  * @flow
  */
 
-/* eslint-disable flowtype/no-existential-type */
-// flowlint deprecated-type:off
-
 import {
   GraphQLBoolean,
   GraphQLInt,
@@ -61,10 +58,10 @@ export const connectionArgs: GraphQLFieldConfigArgumentMap = {
 type ConnectionConfig = {
   name?: ?string,
   nodeType: GraphQLObjectType,
-  resolveNode?: ?GraphQLFieldResolver<*, *>,
-  resolveCursor?: ?GraphQLFieldResolver<*, *>,
-  edgeFields?: ?Thunk<GraphQLFieldConfigMap<*, *>>,
-  connectionFields?: ?Thunk<GraphQLFieldConfigMap<*, *>>,
+  resolveNode?: ?GraphQLFieldResolver<any, any>,
+  resolveCursor?: ?GraphQLFieldResolver<any, any>,
+  edgeFields?: ?Thunk<GraphQLFieldConfigMap<mixed, mixed>>,
+  connectionFields?: ?Thunk<GraphQLFieldConfigMap<mixed, mixed>>,
   ...
 };
 

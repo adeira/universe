@@ -7,8 +7,6 @@
  * @flow
  */
 
-/* eslint-disable flowtype/no-existential-type */
-// flowlint deprecated-type:off
 import {
   GraphQLInputObjectType,
   GraphQLNonNull,
@@ -49,7 +47,7 @@ type MutationConfig = {
   description?: string,
   deprecationReason?: string,
   inputFields: Thunk<GraphQLInputFieldConfigMap>,
-  outputFields: Thunk<GraphQLFieldConfigMap<*, *>>,
+  outputFields: Thunk<GraphQLFieldConfigMap<any, any>>,
   mutateAndGetPayload: mutationFn,
   ...
 };
@@ -58,7 +56,9 @@ type MutationConfig = {
  * Returns a GraphQLFieldConfig for the mutation described by the
  * provided MutationConfig.
  */
-export function mutationWithClientMutationId(config: MutationConfig): GraphQLFieldConfig<*, *> {
+export function mutationWithClientMutationId(
+  config: MutationConfig,
+): GraphQLFieldConfig<mixed, any> {
   const { name, description, deprecationReason, inputFields, outputFields, mutateAndGetPayload } =
     config;
   const augmentedInputFields = () => ({
