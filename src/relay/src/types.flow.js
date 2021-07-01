@@ -16,7 +16,7 @@ export type RequestNode = $FlowFixMe;
 
 export type FragmentSpec = { [key: string]: GraphQLTaggedNode, ... };
 
-type $FragmentRef<T> = { +$fragmentRefs: $PropertyType<T, '$refType'>, ... };
+type $FragmentRef<T> = { +$fragmentRefs: T['$refType'], ... };
 
 // prettier-ignore
 export type $RelayProps<Props, RelayPropT> = $ObjMap<

@@ -11,8 +11,6 @@ import type {
 
 import type { Variables } from './types.flow';
 
-opaque type SelectorData = $FlowFixMe;
-
 export type MutationParameters = {
   +response: { +[key: string]: any, ... },
   +variables: Variables,
@@ -22,14 +20,14 @@ export type MutationParameters = {
 // See https://github.com/facebook/relay/blob/9ee5a52ad8e385bae6e48bb97922006cc6f83bc0/packages/relay-runtime/mutations/commitMutation.js
 type MutationConfig<T: MutationParameters> = {
   +mutation: GraphQLTaggedNode,
-  +variables: $ElementType<T, 'variables'>,
+  +variables: T['variables'],
   // TODO: 2 kinds of errors? What about changing the interface a little bit to make it more obvious?
-  +onCompleted?: ?(response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) => void,
+  +onCompleted?: ?(response: T['response'], errors: ?$ReadOnlyArray<Error>) => void,
   +onError?: ?(error: Error) => void,
   +onUnsubscribe?: ?() => void,
-  +optimisticResponse?: $ElementType<{ +rawResponse?: { ... }, ...T }, 'rawResponse'>,
+  +optimisticResponse?: T['rawResponse'],
   +optimisticUpdater?: ?(store: RecordSourceSelectorProxy) => void,
-  +updater?: ?(store: RecordSourceSelectorProxy, data: SelectorData) => void,
+  +updater?: ?(store: RecordSourceSelectorProxy, data: T['response']) => void,
   +uploadables?: UploadableMap,
   +configs?: $ReadOnlyArray<DeclarativeMutationConfig>,
 };
@@ -59,7 +57,7 @@ export function commitMutation<T: MutationParameters>(
 }
 
 type DisabledConfigProps<T> = {
-  +onCompleted: ?(response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) => void,
+  +onCompleted: ?(response: T['response'], errors: ?$ReadOnlyArray<Error>) => void,
   +onError: ?(error: Error) => void,
 };
 
@@ -78,11 +76,11 @@ type PromisifiedMutationConfig<T> = $Rest<MutationConfig<T>, DisabledConfigProps
 export function commitMutationAsync<T: MutationParameters>(
   environment: Environment,
   config: PromisifiedMutationConfig<T>,
-): Promise<{ +response: $ElementType<T, 'response'>, +errors: ?$ReadOnlyArray<Error> }> {
+): Promise<{ +response: T['response'], +errors: ?$ReadOnlyArray<Error> }> {
   return new Promise((resolve, reject) => {
     const enhancedConfig = {
       ...config,
-      onCompleted: (response: $ElementType<T, 'response'>, errors: ?$ReadOnlyArray<Error>) =>
+      onCompleted: (response: T['response'], errors: ?$ReadOnlyArray<Error>) =>
         resolve({ response, errors }),
       onError: (error: Error) => reject(error),
     };
