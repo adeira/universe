@@ -8,8 +8,6 @@
  */
 
 /* eslint-disable adeira/only-nullable-fields */
-/* eslint-disable flowtype/no-existential-type */
-// flowlint deprecated-type:off
 
 import {
   GraphQLList,
@@ -31,7 +29,7 @@ type PluralIdentifyingRootFieldConfig = {
 
 export function pluralIdentifyingRootField(
   config: PluralIdentifyingRootFieldConfig,
-): GraphQLFieldConfig<*, *> {
+): GraphQLFieldConfig<mixed, any> {
   const inputArgs = {};
   let inputType = config.inputType;
   if (inputType instanceof GraphQLNonNull) {
