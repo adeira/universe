@@ -17,7 +17,7 @@ type Operation = {
 export default function getDataFromRequest(
   { query, variables }: Operation,
   environment: Environment,
-): Snapshot['data'] {
+): $PropertyType<Snapshot, 'data'> {
   const request = getRequest(query);
   const operation = createOperationDescriptor(request, variables);
 

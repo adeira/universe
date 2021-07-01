@@ -60,7 +60,6 @@ untyped-import
 emoji=true
 exact_by_default=true
 include_warnings=true
-indexed_access=true
 facebook.fbt=FbtWithoutString
 
 ; This enables new react JSX transforms in flow
