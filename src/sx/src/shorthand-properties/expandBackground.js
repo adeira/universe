@@ -8,7 +8,7 @@ import { isColor } from '@adeira/css-colors';
 import StyleCollectorNode from '../StyleCollectorNode';
 
 export default function expandBackground(
-  propertyName: string,
+  propertyName: 'background',
   propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {

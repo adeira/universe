@@ -54,7 +54,11 @@ export default function expandShorthandProperties(
 
   if (propertyName === 'background') {
     return expandBackground(propertyName, propertyValue, hashSeed);
-  } else if (propertyName === 'border') {
+  } else if (
+    propertyName === 'border' ||
+    propertyName === 'borderBlock' ||
+    propertyName === 'borderInline'
+  ) {
     return expandBorder(propertyName, propertyValue, hashSeed);
   } else if (propertyName === 'margin' || propertyName === 'padding') {
     return expandMarginPadding(propertyName, propertyValue, hashSeed);

@@ -1,10 +1,12 @@
 // @flow
 
 import expandMarginPadding from '../expandMarginPadding';
+import expandShorthandProperties from '../../expandShorthandProperties';
 import printNodes from './printNodes';
 
 it('expands margins and paddings as expected', () => {
   // 1) single number
+  expect(expandMarginPadding('margin', 0)).toEqual(expandShorthandProperties('margin', 0, ''));
   expect(expandMarginPadding('margin', 0).map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._4pgUgJ{margin-top:0px}",
@@ -13,6 +15,7 @@ it('expands margins and paddings as expected', () => {
       "._3DMcik{margin-left:0px}",
     ]
   `);
+  expect(expandMarginPadding('padding', 0)).toEqual(expandShorthandProperties('padding', 0, ''));
   expect(expandMarginPadding('padding', 0).map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2YU8Lt{padding-top:0px}",
@@ -23,6 +26,9 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 1) single string value
+  expect(expandMarginPadding('margin', '10px')).toEqual(
+    expandShorthandProperties('margin', '10px', ''),
+  );
   expect(expandMarginPadding('margin', '10px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
@@ -31,6 +37,9 @@ it('expands margins and paddings as expected', () => {
       "._21Xfw8{margin-left:10px}",
     ]
   `);
+  expect(expandMarginPadding('padding', '10px')).toEqual(
+    expandShorthandProperties('padding', '10px', ''),
+  );
   expect(expandMarginPadding('padding', '10px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
@@ -41,6 +50,9 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 2) two values
+  expect(expandMarginPadding('margin', '10px 20px')).toEqual(
+    expandShorthandProperties('margin', '10px 20px', ''),
+  );
   expect(expandMarginPadding('margin', '10px 20px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
@@ -49,6 +61,9 @@ it('expands margins and paddings as expected', () => {
       "._1yVWfq{margin-left:20px}",
     ]
   `);
+  expect(expandMarginPadding('padding', '10px 20px')).toEqual(
+    expandShorthandProperties('padding', '10px 20px', ''),
+  );
   expect(expandMarginPadding('padding', '10px 20px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
@@ -59,6 +74,9 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 3) three values
+  expect(expandMarginPadding('margin', '10px 20px 30px')).toEqual(
+    expandShorthandProperties('margin', '10px 20px 30px', ''),
+  );
   expect(expandMarginPadding('margin', '10px 20px 30px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._3sgLnu{margin-top:10px}",
@@ -67,6 +85,9 @@ it('expands margins and paddings as expected', () => {
       "._1yVWfq{margin-left:20px}",
     ]
   `);
+  expect(expandMarginPadding('padding', '10px 20px 30px')).toEqual(
+    expandShorthandProperties('padding', '10px 20px 30px', ''),
+  );
   expect(expandMarginPadding('padding', '10px 20px 30px').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2h8fCA{padding-top:10px}",
@@ -77,6 +98,9 @@ it('expands margins and paddings as expected', () => {
   `);
 
   // 4) four values
+  expect(expandMarginPadding('margin', '10px 20px 30px 40px')).toEqual(
+    expandShorthandProperties('margin', '10px 20px 30px 40px', ''),
+  );
   expect(expandMarginPadding('margin', '10px 20px 30px 40px').map(printNodes))
     .toMatchInlineSnapshot(`
     Array [
@@ -86,6 +110,9 @@ it('expands margins and paddings as expected', () => {
       "._2frFkL{margin-left:40px}",
     ]
   `);
+  expect(expandMarginPadding('padding', '10px 20px 30px 40px')).toEqual(
+    expandShorthandProperties('padding', '10px 20px 30px 40px', ''),
+  );
   expect(expandMarginPadding('padding', '10px 20px 30px 40px').map(printNodes))
     .toMatchInlineSnapshot(`
     Array [
