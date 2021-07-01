@@ -78,8 +78,7 @@ export default function LayoutFooter(): React.Node {
 
 const styles = sx.create({
   wrapper: {
-    paddingTop: '5vw',
-    paddingBottom: '5vw',
+    paddingBlock: '5vw',
   },
   row: {
     display: 'flex',
@@ -87,8 +86,7 @@ const styles = sx.create({
     alignItems: 'flex-start',
   },
   column: {
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
+    paddingInline: '1rem',
   },
   columnLeft: {
     display: 'flex',
@@ -102,7 +100,7 @@ const styles = sx.create({
     alignItems: 'flex-end',
   },
   socialMedia: {
-    paddingLeft: '1rem',
+    paddingInlineStart: '1rem',
   },
   link: {
     color: 'rgba(var(--font-color-dark))',

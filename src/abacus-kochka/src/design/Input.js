@@ -21,10 +21,8 @@ export default function Input(props: Props): React.Node {
 
 const styles = sx.create({
   inputDefault: {
-    paddingLeft: '.75rem',
-    paddingRight: '.75rem',
-    paddingTop: '.5rem',
-    paddingBottom: '.5rem',
+    paddingInline: '.75rem',
+    paddingBlock: '.5rem',
     borderRadius: '.25rem',
   },
 });

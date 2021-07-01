@@ -34,11 +34,10 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     textAlign: 'center',
-    marginTop: 10,
-    marginBottom: 10,
+    marginBlock: 10,
   },
   languageSwitch: {
-    marginTop: 20,
+    marginBlockStart: 20,
   },
   link: {
     color: 'rgba(var(--font-color-light))',

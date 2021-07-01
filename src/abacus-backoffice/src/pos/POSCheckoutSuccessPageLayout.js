@@ -48,7 +48,7 @@ const styles = sx.create({
   help: {
     fontSize: '1rem',
     maxWidth: 750,
-    marginTop: '2rem',
-    marginBottom: '3rem',
+    marginBlockStart: '2rem',
+    marginBlockEnd: '3rem',
   },
 });

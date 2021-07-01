@@ -111,7 +111,7 @@ const styles = sx.create({
     display: 'grid',
     gap: '1rem',
     gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-    marginBottom: '2rem',
+    marginBlockEnd: '2rem',
   },
   imageWrapperDelete: {
     filter: 'grayscale(1)',

@@ -86,6 +86,6 @@ const styles = sx.create({
     listStyleType: 'upper-roman',
   },
   listItem: {
-    marginBottom: 10,
+    marginBlockEnd: 10,
   },
 });

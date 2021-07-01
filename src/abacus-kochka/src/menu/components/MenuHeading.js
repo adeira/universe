@@ -19,6 +19,6 @@ export default function MenuHeading(props: Props): Node {
 const styles = sx.create({
   menuHeading: {
     textTransform: 'uppercase',
-    marginBottom: 15,
+    marginBlockEnd: 15,
   },
 });

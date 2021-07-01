@@ -72,20 +72,17 @@ const styles = sx.create({
     maxWidth: '45rem',
     margin: '0 auto',
     minHeight: '40vh',
-    paddingTop: '5vw',
-    paddingBottom: '5vw',
+    paddingBlock: '5vw',
   },
   mainFullWidth: {
     maxWidth: '100%',
-    paddingLeft: 0,
-    paddingRight: 0,
+    paddingInline: 0,
   },
   heading: {
     'display': 'flex',
     'flexDirection': 'column',
     'alignItems': 'center',
-    'paddingTop': '2rem',
-    'paddingBottom': '2rem',
+    'paddingBlock': '2rem',
     'backgroundColor': 'rgba(var(--secondary-color))',
     'backgroundImage': 'url(/plus-pattern.svg)',
     'backgroundPosition': '15px 15px',
@@ -97,7 +94,6 @@ const styles = sx.create({
   },
   footer: {
     color: 'rgba(var(--font-color-dark))',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
+    paddingInline: '1rem',
   },
 });

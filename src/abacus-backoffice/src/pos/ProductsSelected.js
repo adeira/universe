@@ -96,9 +96,8 @@ const styles = sx.create({
     backgroundColor: '#f2f2f2',
   },
   selectedItemRow: {
-    'paddingLeft': '1rem',
-    'paddingRight': '1rem',
-    'paddingBottom': '.5rem',
+    'paddingInline': '1rem',
+    'paddingBlockEnd': '.5rem',
     'display': 'flex',
     'flexDirection': 'row',
     ':first-child': {

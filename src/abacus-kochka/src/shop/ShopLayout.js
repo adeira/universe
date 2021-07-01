@@ -105,9 +105,9 @@ const styles = sx.create({
     gap: '1rem',
   },
   shopGridCategories: {
-    marginLeft: '1rem',
+    marginInlineStart: '1rem',
   },
   shopGridRelevance: {
-    marginRight: '1rem',
+    marginInlineEnd: '1rem',
   },
 });

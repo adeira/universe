@@ -16,10 +16,8 @@ export default function InputSubmit(props: Props): React.Node {
 
 const styles = sx.create({
   inputSubmit: {
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-    paddingTop: '.5rem',
-    paddingBottom: '.5rem',
+    paddingInline: '1rem',
+    paddingBlock: '.5rem',
     borderRadius: '.25rem',
   },
 });

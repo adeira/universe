@@ -38,6 +38,6 @@ export default function ProductsAddonsLayout(): Node {
 
 const styles = sx.create({
   heading: {
-    marginBottom: 0,
+    marginBlockEnd: 0,
   },
 });

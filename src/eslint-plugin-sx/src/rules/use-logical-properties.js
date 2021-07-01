@@ -9,8 +9,9 @@ const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
 const isSXKeyframesVariableDeclarator = require('./utils/isSXKeyframesVariableDeclarator');
 const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 
-// https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Margins_borders_padding
 // Map(physical prop => logical prop)
+//
+// See: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Margins_borders_padding
 const suggestions = new Map([
   // Border bottom:
   ['borderBottom', 'borderBlockEnd'],
@@ -35,6 +36,18 @@ const suggestions = new Map([
   ['borderLeftColor', 'borderInlineStartColor'],
   ['borderLeftStyle', 'borderInlineStartStyle'],
   ['borderLeftWidth', 'borderInlineStartWidth'],
+
+  // Margin:
+  ['marginBottom', 'marginBlockEnd'],
+  ['marginTop', 'marginBlockStart'],
+  ['marginRight', 'marginInlineEnd'],
+  ['marginLeft', 'marginInlineStart'],
+
+  // Padding:
+  ['paddingBottom', 'paddingBlockEnd'],
+  ['paddingTop', 'paddingBlockStart'],
+  ['paddingRight', 'paddingInlineEnd'],
+  ['paddingLeft', 'paddingInlineStart'],
 ]);
 
 /**

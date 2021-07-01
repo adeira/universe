@@ -134,7 +134,7 @@ const styles = sx.create({
   buttons: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: '2rem',
+    marginBlockStart: '2rem',
   },
   button: {
     margin: '.5rem',

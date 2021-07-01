@@ -39,8 +39,7 @@ export default function HomepageNavigation(): React.Node {
 
 const styles = sx.create({
   nav: {
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingBlock: 20,
     fontWeight: 100,
   },
   ul: {
@@ -59,7 +58,6 @@ const styles = sx.create({
   link: {
     color: 'rgba(var(--font-color-light))',
     padding: 15,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingInline: 20,
   },
 });

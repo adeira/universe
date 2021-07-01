@@ -68,18 +68,17 @@ const styles = sx.create({
   summaryRow: {
     display: 'flex',
     flexDirection: 'column',
-    marginTop: '.5rem',
-    marginBottom: '.5rem',
+    marginBlock: '.5rem',
   },
   summaryRowQuantity: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginLeft: '2rem',
+    marginInlineStart: '2rem',
   },
   summaryRowTotal: {
     display: 'flex',
     justifyContent: 'space-between',
-    marginTop: '2rem',
+    marginBlockStart: '2rem',
     fontSize: 'larger',
   },
 });

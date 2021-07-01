@@ -108,7 +108,7 @@ const styles = sx.create({
     transitionDuration: '250ms',
     transitionTimingFunction: 'ease-in-out',
     display: 'inline-block',
-    marginBottom: 1,
+    marginBlockEnd: 1,
     padding: '1rem',
   },
   highlightBaseRounded: {

@@ -32,7 +32,7 @@ export default function LayoutHeading(props: Props): Node {
 
 const styles = sx.create({
   headingWrapper: {
-    marginBottom: '1rem',
+    marginBlockEnd: '1rem',
     borderBlockEnd: '1px solid rgba(var(--sx-accent-3))',
   },
   description: {

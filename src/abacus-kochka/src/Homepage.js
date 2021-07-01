@@ -50,8 +50,7 @@ const styles = sx.create({
   },
   bottomInfo: {
     flex: 0,
-    marginTop: 10,
-    marginBottom: 10,
+    marginBlock: 10,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',

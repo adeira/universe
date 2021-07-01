@@ -58,7 +58,7 @@ const styles = sx.create({
   menuRow: {
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: 15,
+    marginBlockEnd: 15,
   },
   titlePriceRow: {
     display: 'flex',

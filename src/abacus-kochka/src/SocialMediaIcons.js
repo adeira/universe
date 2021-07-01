@@ -62,30 +62,27 @@ const styles = sx.create({
   icons: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: 20,
-    marginBottom: 20,
+    marginBlock: 20,
   },
   iconsVertical: {
     flexDirection: 'column',
   },
   icon: {
-    'paddingLeft': 20,
-    'paddingRight': 20,
+    'paddingInline': 20,
     ':first-child': {
-      paddingLeft: 0,
+      paddingInlineStart: 0,
     },
     ':last-child': {
-      paddingRight: 0,
+      paddingInlineEnd: 0,
     },
   },
   iconVertical: {
-    'paddingBottom': 15,
-    'paddingTop': 15,
+    'paddingBlock': 15,
     ':first-child': {
-      paddingTop: 0,
+      paddingBlockStart: 0,
     },
     ':last-child': {
-      paddingBottom: 0,
+      paddingBlockEnd: 0,
     },
   },
 });

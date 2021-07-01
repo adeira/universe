@@ -67,10 +67,9 @@ const styles = sx.create({
   link: {
     color: 'rgba(var(--font-color-light))',
     fontSize: 20,
-    marginRight: 20,
+    marginInlineEnd: 20,
   },
   navigationIcon: {
-    marginLeft: '1rem',
-    marginRight: '1rem',
+    marginInline: '1rem',
   },
 });

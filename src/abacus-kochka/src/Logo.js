@@ -42,12 +42,12 @@ const styles = sx.create({
     flexDirection: 'row',
   },
   heading: {
-    'marginTop': '2rem',
+    'marginBlockStart': '2rem',
     'fontFamily': 'GidoleKochka',
     '--sx-foreground': 'rgba(var(--font-color-light))', // overwrite SX Design colors
   },
   headingHorizontal: {
-    marginLeft: 20,
+    marginInlineStart: 20,
   },
   // FIXME:
   // eslint-disable-next-line sx/no-unused-stylesheet
