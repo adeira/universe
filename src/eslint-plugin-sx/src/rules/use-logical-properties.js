@@ -9,13 +9,32 @@ const getSXImportSpecifiers = require('./utils/getSXImportSpecifiers');
 const isSXKeyframesVariableDeclarator = require('./utils/isSXKeyframesVariableDeclarator');
 const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 
+// https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Margins_borders_padding
+// Map(physical prop => logical prop)
 const suggestions = new Map([
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Margins_borders_padding
-  // physical prop => logical prop
+  // Border bottom:
   ['borderBottom', 'borderBlockEnd'],
   ['borderBottomColor', 'borderBlockEndColor'],
   ['borderBottomStyle', 'borderBlockEndStyle'],
   ['borderBottomWidth', 'borderBlockEndWidth'],
+
+  // Border top:
+  ['borderTop', 'borderBlockStart'],
+  ['borderTopColor', 'borderBlockStartColor'],
+  ['borderTopStyle', 'borderBlockStartStyle'],
+  ['borderTopWidth', 'borderBlockStartWidth'],
+
+  // Border right:
+  ['borderRight', 'borderInlineEnd'],
+  ['borderRightColor', 'borderInlineEndColor'],
+  ['borderRightStyle', 'borderInlineEndStyle'],
+  ['borderRightWidth', 'borderInlineEndWidth'],
+
+  // Border left:
+  ['borderLeft', 'borderInlineStart'],
+  ['borderLeftColor', 'borderInlineStartColor'],
+  ['borderLeftStyle', 'borderInlineStartStyle'],
+  ['borderLeftWidth', 'borderInlineStartWidth'],
 ]);
 
 /**

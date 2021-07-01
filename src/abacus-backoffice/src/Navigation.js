@@ -65,17 +65,17 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem 0 1rem 1rem',
-    borderRight: '1px solid #e9eff3',
+    borderInlineEnd: '1px solid #e9eff3',
   },
   navigationLight: {
     backgroundColor: '#f4f7f9',
     color: '#5c6a77',
-    borderRight: '1px solid #e9eff3',
+    borderInlineEnd: '1px solid #e9eff3',
   },
   navigationDark: {
     backgroundColor: '#333',
     color: '#fff',
-    borderRight: '1px solid #222',
+    borderInlineEnd: '1px solid #222',
   },
   navigationHeader: {
     marginBottom: '1rem',
