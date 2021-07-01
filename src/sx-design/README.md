@@ -131,6 +131,7 @@ Legend:
 | [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Loader />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<MissingData />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -153,6 +154,7 @@ Legend:
 [`<image />`]: https://sx-design.vercel.app/?path=/story/example-image
 [`<kbd />`]: https://sx-design.vercel.app/?path=/story/example-kbd
 [`<link />`]: https://sx-design.vercel.app/?path=/story/example-link
+[`<loader />`]: https://sx-design.vercel.app/?path=/story/example-loader
 [`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/example-linkbutton
 [`<missingdata />`]: https://sx-design.vercel.app/?path=/story/example-missingdata
 [`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
@@ -224,5 +226,8 @@ pastel --help
 
 # Prior art
 
-- https://vercel.com/design
+_sorted alphabetically_
+
 - https://github.com/vercel/commerce
+- https://seek-oss.github.io/braid-design-system/
+- https://vercel.com/design
