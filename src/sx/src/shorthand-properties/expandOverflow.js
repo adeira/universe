@@ -6,7 +6,7 @@
 import StyleCollectorNode from '../StyleCollectorNode';
 
 export default function expandOverflow(
-  propertyName: string,
+  propertyName: 'overflow',
   propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {

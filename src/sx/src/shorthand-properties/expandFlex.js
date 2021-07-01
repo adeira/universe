@@ -8,7 +8,7 @@ import { isNumeric } from '@adeira/js';
 import StyleCollectorNode from '../StyleCollectorNode';
 
 export default function expandFlex(
-  propertyName: string,
+  propertyName: 'flex',
   propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {

@@ -6,7 +6,7 @@
 import StyleCollectorNode from '../StyleCollectorNode';
 
 export default function expandMarginPadding(
-  propertyName: string,
+  propertyName: 'margin' | 'padding',
   propertyValue: string | number,
   hashSeed: string = '',
 ): $ReadOnlyArray<StyleCollectorNode> {
