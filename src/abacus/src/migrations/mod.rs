@@ -16,6 +16,7 @@ mod v5__create_view_search_products;
 mod v6__create_collection_tracking;
 mod v7__create_collection_pos_checkouts;
 mod v8__create_collection_product_addons;
+mod v9__create_collection_products_categories;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct MigrationRecord {
@@ -62,6 +63,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v8__create_collection_product_addons", |db| {
             Box::pin(v8__create_collection_product_addons::migrate(&db))
+        }),
+        ("v9__create_collection_products_categories", |db| {
+            Box::pin(v9__create_collection_products_categories::migrate(&db))
         }),
     ];
 
