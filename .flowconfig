@@ -1,4 +1,4 @@
-# @generated SignedSource<<3f6965a562f6b7e075de8054f0d3d8fe>>
+# @generated SignedSource<<cc03860d3a8d355bd35e54f6ada88c23>>
 #
 # To regenerate run:
 # yarn monorepo-babel-node scripts/generateFlow.js
@@ -33,7 +33,6 @@ ambiguous-object-type=off
 emoji=true
 exact_by_default=true
 include_warnings=true
-indexed_access=true
 facebook.fbt=FbtWithoutString
 react.runtime=automatic
 module.ignore_non_literal_requires=true
