@@ -52,7 +52,7 @@ export default function BaseInputWrapper(props: Props): Node {
 
 const styles = sx.create({
   inputWrapper: {
-    marginBottom: '1rem',
+    marginBlockEnd: '1rem',
     width: '100%',
   },
   label: {

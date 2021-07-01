@@ -9,6 +9,6 @@ export default function MyCustomComponent(): Node {
 
 const styles = sx.create({
   spacing: {
-    marginTop: 4,
+    marginBlockStart: 4,
   },
 });

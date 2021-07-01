@@ -78,12 +78,11 @@ const styles = sx.create({
     borderInlineEnd: '1px solid #222',
   },
   navigationHeader: {
-    marginBottom: '1rem',
+    marginBlockEnd: '1rem',
   },
   link: {
-    'paddingTop': 5,
-    'paddingBottom': 5,
-    'paddingLeft': 10,
+    'paddingBlock': 5,
+    'paddingInlineStart': 10,
     'borderWidth': '1px 0 1px 1px',
     'borderStyle': 'solid',
     'borderColor': 'transparent',

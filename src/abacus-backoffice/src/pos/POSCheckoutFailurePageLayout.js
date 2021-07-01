@@ -58,8 +58,7 @@ const styles = sx.create({
   help: {
     fontSize: '1rem',
     maxWidth: 750,
-    marginTop: '2rem',
-    marginBottom: '2rem',
+    marginBlock: '2rem',
   },
   link: {
     borderRadius: '4px',

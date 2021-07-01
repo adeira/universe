@@ -106,11 +106,11 @@ const styles = sx.create({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    marginTop: 50,
+    marginBlockStart: 50,
   },
   formText: {
     maxWidth: 470,
-    marginBottom: 20,
+    marginBlockEnd: 20,
     fontStyle: 'italic',
   },
 });
