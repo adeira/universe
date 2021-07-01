@@ -282,7 +282,6 @@ pub(in crate::commerce) async fn search_products(
     let search_aql = arangors::AqlQuery::builder().query(
         r#"
             FOR product IN search_products
-              LIMIT 0, 24
               FILTER @search_all == true ? true : (product.is_published IN [true])
               FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT product.price.unit_amount @price_sort_direction
@@ -310,7 +309,6 @@ pub(in crate::commerce) async fn search_products(
             FOR product IN search_products
               SEARCH BOOST(NGRAM_MATCH(product.translations.name, @search_term, 0.7, "bigram"), 1.1)
                   OR BOOST(NGRAM_MATCH(product.translations.description, @search_term, 0.7, "bigram"), 1.0)
-              LIMIT 0, 24
               FILTER @search_all == true ? true : (product.is_published IN [true])
               FILTER @visibility == null ? true : (@visibility IN product.visibility)
               SORT BM25(product) DESC
