@@ -147,10 +147,10 @@ declare class FbtPureStringResult implements IFbtResultBase {
   constructor(contents: $ReadOnlyArray<any>, errorListener: ?IFbtErrorListener): void;
   /* $FlowFixMe[method-unbinding] This comment suppresses an error when upgrading Flow
    * to version 0.153.0. To see the error delete this comment and run Flow. */
-  getContents: $PropertyType<IFbtResultBase, 'getContents'>;
+  getContents: IFbtResultBase['getContents'];
   /* $FlowFixMe[method-unbinding] This comment suppresses an error when upgrading Flow
    * to version 0.153.0. To see the error delete this comment and run Flow. */
-  toJSON: $PropertyType<IFbtResultBase, 'toJSON'>;
+  toJSON: IFbtResultBase['toJSON'];
   // TODO(T27672828) Move code of toString() inside unwrap()
   // Returns the translated string value (similar to a `toString()` method)
   // This is deliberately named differently to avoid making this class behave

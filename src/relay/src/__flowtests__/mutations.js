@@ -91,7 +91,7 @@ module.exports = {
   },
   invalidAsyncMutation(): Promise<{
     +errors: ?$ReadOnlyArray<Error>,
-    +response: $ElementType<NamedMutation, 'response'>,
+    +response: NamedMutation['response'],
   }> {
     // $FlowExpectedError[prop-missing]: onCompleted is disabled in config for commitMutationAsync
     return commitMutationAsync<NamedMutation>(environment, {
