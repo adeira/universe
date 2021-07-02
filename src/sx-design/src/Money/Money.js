@@ -11,6 +11,13 @@ type MoneyProps = {
   +priceUnitAmountCurrency: SupportedCurrencies,
 };
 
+/**
+ * Renders prices in a locale-specific format.
+ *
+ * ## CSS variables
+ *
+ * `--sx-money-text-color` (overwrites color of the text)
+ */
 export default function Money(props: MoneyProps): React.Node {
   const sxDesign = useSxDesignContext();
   return (

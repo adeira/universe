@@ -24,31 +24,31 @@ it('renders the link as expected - internal link', () => {
   );
 
   expect(container).toMatchInlineSnapshot(`
-    ._10tbCe {
-      color: rgba(var(--sx-text-link-color));
-    }
-    .T4SJ0 {
-      cursor: pointer;
-    }
-    .v2kHO {
-      text-decoration: none;
-    }
-    .gy8aG:hover {
-      opacity: 1;
-    }
-    .crve5:hover {
-      text-decoration: underline;
-    }
-    ._3zbYuf {
-      opacity: 0.85;
-    }
+.f6wvk {
+  color: rgba(var(--sx-link-text-color));
+}
+.T4SJ0 {
+  cursor: pointer;
+}
+.v2kHO {
+  text-decoration: none;
+}
+.gy8aG:hover {
+  opacity: 1;
+}
+.crve5:hover {
+  text-decoration: underline;
+}
+._3zbYuf {
+  opacity: 0.85;
+}
 
-    <div>
-      <a class="_10tbCe T4SJ0 v2kHO gy8aG crve5 _3zbYuf" href="assets/yadada">
-        internal link
-      </a>
-    </div>
-  `);
+<div>
+  <a class="f6wvk T4SJ0 v2kHO gy8aG crve5 _3zbYuf" href="assets/yadada">
+    internal link
+  </a>
+</div>
+`);
 });
 
 it('renders the link as expected - internal link with target _blank', () => {
@@ -62,13 +62,13 @@ it('renders the link as expected - internal link with target _blank', () => {
 
   // $FlowFixMe[prop-missing]: `attributes` is missing in the types but it works
   expect(container.firstChild?.attributes).toMatchInlineSnapshot(`
-    NamedNodeMap {
-      "class": "_10tbCe T4SJ0 v2kHO gy8aG crve5 _3zbYuf",
-      "href": "assets/yadada",
-      "rel": "noreferrer noopener",
-      "target": "_blank",
-    }
-  `);
+NamedNodeMap {
+  "class": "f6wvk T4SJ0 v2kHO gy8aG crve5 _3zbYuf",
+  "href": "assets/yadada",
+  "rel": "noreferrer noopener",
+  "target": "_blank",
+}
+`);
 });
 
 it('renders the link as expected - external link', () => {
@@ -81,35 +81,35 @@ it('renders the link as expected - external link', () => {
   );
 
   expect(container).toMatchInlineSnapshot(`
-    ._10tbCe {
-      color: rgba(var(--sx-text-link-color));
-    }
-    .T4SJ0 {
-      cursor: pointer;
-    }
-    .v2kHO {
-      text-decoration: none;
-    }
-    .gy8aG:hover {
-      opacity: 1;
-    }
-    .crve5:hover {
-      text-decoration: underline;
-    }
-    ._3zbYuf {
-      opacity: 0.85;
-    }
+.f6wvk {
+  color: rgba(var(--sx-link-text-color));
+}
+.T4SJ0 {
+  cursor: pointer;
+}
+.v2kHO {
+  text-decoration: none;
+}
+.gy8aG:hover {
+  opacity: 1;
+}
+.crve5:hover {
+  text-decoration: underline;
+}
+._3zbYuf {
+  opacity: 0.85;
+}
 
-    <div>
-      <a
-        class="_10tbCe T4SJ0 v2kHO gy8aG crve5 _3zbYuf"
-        href="https://localhost"
-        rel="noreferrer noopener"
-      >
-        external link
-      </a>
-    </div>
-  `);
+<div>
+  <a
+    class="f6wvk T4SJ0 v2kHO gy8aG crve5 _3zbYuf"
+    href="https://localhost"
+    rel="noreferrer noopener"
+  >
+    external link
+  </a>
+</div>
+`);
 });
 
 it('forwards React refs as expected', () => {

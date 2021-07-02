@@ -19,6 +19,10 @@ type Props = {
  *
  * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
  * be forwarded to the HTML `<a />` element as expected.
+ *
+ * ## CSS variables
+ *
+ * `--sx-link-text-color` (overwrites default link color)
  */
 export default (React.forwardRef(function Link(props, ref) {
   const href = props.href;
@@ -41,7 +45,7 @@ export default (React.forwardRef(function Link(props, ref) {
 
 const styles = sx.create({
   default: {
-    'color': 'rgba(var(--sx-text-link-color))',
+    'color': 'rgba(var(--sx-link-text-color))',
     'cursor': 'pointer',
     'textDecoration': 'none',
     ':hover': {
