@@ -64,6 +64,7 @@ Legend:
 | [`<Loader />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<MissingData />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Modal />`]         |     ✅      |     ✅      |      🧐       |    🧐    |  🧐   |
 | [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -87,6 +88,7 @@ Legend:
 [`<loader />`]: https://sx-design.vercel.app/?path=/story/example-loader
 [`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/example-linkbutton
 [`<missingdata />`]: https://sx-design.vercel.app/?path=/story/example-missingdata
+[`<modal />`]: https://sx-design.vercel.app/?path=/story/example-modal
 [`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
 [`<note />`]: https://sx-design.vercel.app/?path=/story/example-note
 [`<productcard />`]: https://sx-design.vercel.app/?path=/story/example-productcard
