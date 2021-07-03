@@ -1,0 +1,25 @@
+{
+  "name": "@adeira/icons",
+  "description": "Port of System UIcons to React",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/icons",
+  "license": "MIT",
+  "private": false,
+  "version": "0.1.0",
+  "main": "./index.js",
+  "type": "commonjs",
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/runtime": "^7.14.6"
+  },
+  "devDependencies": {
+    "@adeira/js": "^2.1.0",
+    "@svgr/core": "^5.5.0",
+    "@svgr/plugin-prettier": "^5.5.0",
+    "@svgr/plugin-svgo": "^5.5.0",
+    "change-case": "^4.1.2",
+    "prettier": "^2.3.2"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  }
+}

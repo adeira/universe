@@ -8,6 +8,7 @@ const nextConfig = withCustomBabelConfigFile(
   withTranspileModules([
     '@adeira/css-colors',
     '@adeira/fetch',
+    '@adeira/icons',
     '@adeira/js',
     '@adeira/murmur-hash',
     '@adeira/relay',
