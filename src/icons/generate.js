@@ -10,7 +10,7 @@ import * as changeCase from 'change-case';
 
 import transform from './svg2jsx';
 
-// yarn monorepo-babel-node src/sx-icons/generate.js
+// yarn monorepo-babel-node src/icons/generate.js
 
 const SOURCE_PATH = path.join(__dirname, 'original');
 const DESTINATION_PATH = path.join(__dirname, '__generated__');
@@ -30,7 +30,9 @@ async function prettify(uglyCode: string): Promise<string> {
 
   for (const originalFilename of fs.readdirSync(SOURCE_PATH)) {
     const componentName = originalFilename.replace(/\.svg$/, '');
-    const componentNamePascalCase = changeCase.pascalCase(componentName);
+    const componentNamePascalCase = changeCase.pascalCase(componentName, {
+      transform: changeCase.pascalCaseTransformMerge,
+    });
 
     collectedComponents.push({
       svgName: componentName,
