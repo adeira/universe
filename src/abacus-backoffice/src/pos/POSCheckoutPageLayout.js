@@ -120,7 +120,7 @@ const styles = sx.create({
   root: {
     fontSize: '3rem',
     color: 'white',
-    backgroundColor: 'var(--ycbo-success-background)',
+    backgroundColor: 'rgba(var(--sx-success-light))',
     height: '100vh',
     textAlign: 'center',
     display: 'flex',

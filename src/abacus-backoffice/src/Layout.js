@@ -47,7 +47,6 @@ const styles = sx.create({
   main: {
     flex: 1,
     marginInlineStart: '200px',
-    backgroundColor: 'rgba(var(--ycbo-background-color))',
     padding: '1rem',
   },
 });
