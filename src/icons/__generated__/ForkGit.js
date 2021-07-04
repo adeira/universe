@@ -13,7 +13,7 @@ export default function ForkGit(props: {}): Node {
         strokeLinejoin="round"
       >
         <path d="M14.5 3.5l3 3-3 3" />
-        <path d="M17.5 6.5h-5l-4 5.086M14.5 12.5l3 3-3 3" />
+        <path d="M17.5 6.5h-5l-4 5.086m6 .914l3 3-3 3" />
         <path d="M17.5 15.5h-5l-4-4h-6" />
       </g>
     </svg>

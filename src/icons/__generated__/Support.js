@@ -14,7 +14,7 @@ export default function Support(props: {}): Node {
       >
         <circle cx={10.5} cy={10.5} r={8} />
         <circle cx={10.5} cy={10.5} r={4} />
-        <path d="M13.5 7.5L16 5M13.5 13.5L16 16M7.5 13.5L5 16M7.5 7.5L5 5" />
+        <path d="M13.5 7.5L16 5m-2.5 8.5L16 16m-8.5-2.5L5 16m2.5-8.5L5 5" />
       </g>
     </svg>
   );

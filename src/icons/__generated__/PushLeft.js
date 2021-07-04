@@ -5,15 +5,13 @@ import React, { type Node } from 'react';
 export default function PushLeft(props: {}): Node {
   return (
     <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
-      <g
+      <path
+        d="M10.5 6.5l-4 4 4 4m7-4h-11m-3-7v14"
         fill="none"
-        fillRule="evenodd"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-      >
-        <path d="M10.5 6.5l-4 4 4 4M17.5 10.5h-11M3.5 3.5v14" />
-      </g>
+      />
     </svg>
   );
 }

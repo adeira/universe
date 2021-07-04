@@ -13,7 +13,7 @@ export default function FilterCircle(props: {}): Node {
         strokeLinejoin="round"
       >
         <circle cx={10.5} cy={10.5} r={8} />
-        <path d="M6.5 8.5h8M8.5 10.5h4M9.5 12.5h2" />
+        <path d="M6.5 8.5h8m-6 2h4m-3 2h2" />
       </g>
     </svg>
   );

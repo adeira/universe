@@ -8,7 +8,7 @@ export default function Picture(props: {}): Node {
       <g fill="none" fillRule="evenodd" transform="translate(3 3)">
         <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
           <path d="M2.5.5h10a2 2 0 012 2v10a2 2 0 01-2 2h-10a2 2 0 01-2-2v-10a2 2 0 012-2z" />
-          <path d="M14.5 10.5l-3-3-3 2.985M12.5 14.5l-9-9-3 3" />
+          <path d="M14.5 10.5l-3-3-3 2.985m4 4.015l-9-9-3 3" />
         </g>
         <circle cx={11} cy={4} fill="currentColor" r={1} />
       </g>

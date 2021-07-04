@@ -12,10 +12,8 @@ export default function DocumentJustified(props: {}): Node {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M16.5 15.5v-10a2 2 0 00-2-2h-8a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2zM7.5 7.5h6M7.5 10.5h6M7.5 13.5h6" />
-        <g>
-          <path d="M16.5 15.5v-10a2 2 0 00-2-2h-8a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2zM7.5 7.5h6M7.5 10.5h6M7.5 13.5h6" />
-        </g>
+        <path d="M16.5 15.5v-10a2 2 0 00-2-2h-8a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2zm-9-8h6m-6 3h6m-6 3h6" />
+        <path d="M16.5 15.5v-10a2 2 0 00-2-2h-8a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2zm-9-8h6m-6 3h6m-6 3h6" />
       </g>
     </svg>
   );

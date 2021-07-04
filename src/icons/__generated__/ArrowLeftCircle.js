@@ -14,7 +14,7 @@ export default function ArrowLeftCircle(props: {}): Node {
         transform="translate(3 2)"
       >
         <circle cx={8.5} cy={8.5} r={8} />
-        <path d="M7.5 11.5l-3-3 3-3M12.5 8.5h-8" />
+        <path d="M7.5 11.5l-3-3 3-3m5 3h-8" />
       </g>
     </svg>
   );

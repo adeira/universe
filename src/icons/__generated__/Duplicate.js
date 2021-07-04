@@ -13,7 +13,7 @@ export default function Duplicate(props: {}): Node {
         strokeLinejoin="round"
       >
         <path d="M18.5 12.5v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2z" />
-        <path d="M6.5 6.503h-2a2 2 0 00-2 2V16.5a2 2 0 002 2h.003l8-.014a2 2 0 001.997-2v-1.983M12.5 5.5v6M15.5 8.5h-6" />
+        <path d="M6.5 6.503h-2a2 2 0 00-2 2V16.5a2 2 0 002 2h.003l8-.014a2 2 0 001.997-2v-1.983m-2-9.003v6m3-3h-6" />
       </g>
     </svg>
   );

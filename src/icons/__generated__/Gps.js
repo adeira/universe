@@ -13,9 +13,12 @@ export default function Gps(props: {}): Node {
           strokeLinejoin="round"
         />
         <circle cx={8.5} cy={8.5} fill="currentColor" r={3.5} />
-        <g stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M.5 8.5h2M14.5 8.5h2M8.5.5v2M8.5 14.5v2" />
-        </g>
+        <path
+          d="M.5 8.5h2m12 0h2m-8-8v2m0 12v2"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </g>
     </svg>
   );

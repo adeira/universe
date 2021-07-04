@@ -7,7 +7,7 @@ export default function CalendarLastDay(props: {}): Node {
     <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd" transform="translate(2 2)">
         <path
-          d="M2.5.5h12.027a2 2 0 012 2v11.99a2 2 0 01-1.85 1.995l-.16.006-12.027-.058a2 2 0 01-1.99-2V2.5a2 2 0 012-2zM.5 4.5h16.027"
+          d="M2.5.5h12.027a2 2 0 012 2v11.99a2 2 0 01-1.85 1.995l-.16.006-12.027-.058a2 2 0 01-1.99-2V2.5a2 2 0 012-2zm-2 4h16.027"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"

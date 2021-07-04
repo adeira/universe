@@ -12,7 +12,7 @@ export default function DownloadAlt(props: {}): Node {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M14.5 11.5l-3.978 4-4.022-4M10.522 3.521V15.5" />
+        <path d="M14.5 11.5l-3.978 4-4.022-4m4.022-7.979V15.5" />
         <path d="M3.5 12v4.5a2 2 0 002 2h10a2 2 0 002-2V12" />
       </g>
     </svg>

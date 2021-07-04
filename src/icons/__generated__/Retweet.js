@@ -13,7 +13,7 @@ export default function Retweet(props: {}): Node {
         strokeLinejoin="round"
       >
         <path d="M13.5 13.5l3 3 3-3" />
-        <path d="M9.5 4.5h3a4 4 0 014 4v8M7.5 7.5l-3-3-3 3" />
+        <path d="M9.5 4.5h3a4 4 0 014 4v8m-9-9l-3-3-3 3" />
         <path d="M11.5 16.5h-3a4 4 0 01-4-4v-8" />
       </g>
     </svg>

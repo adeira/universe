@@ -14,7 +14,7 @@ export default function CrossCircle(props: {}): Node {
         transform="translate(2 2)"
       >
         <circle cx={8.5} cy={8.5} r={8} />
-        <path d="M5.5 5.5l6 6M11.5 5.5l-6 6" />
+        <path d="M5.5 5.5l6 6m0-6l-6 6" />
       </g>
     </svg>
   );

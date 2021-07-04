@@ -13,7 +13,7 @@ export default function Branch(props: {}): Node {
         strokeLinejoin="round"
       >
         <path d="M4.5 8.5v-5h5" />
-        <path d="M4.5 3.5l6 6v8M12.5 7.5l4-4" />
+        <path d="M4.5 3.5l6 6v8m2-10l4-4" />
       </g>
     </svg>
   );
