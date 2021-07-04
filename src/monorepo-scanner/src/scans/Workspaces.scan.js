@@ -26,9 +26,9 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     if (packageJson.private === false) {
       expect(packageJson.description).not.toBeUndefined();
 
-      // We currently have only MIT packages.
+      // We currently have only MIT and "Unlicense" packages.
       // https://docs.npmjs.com/files/package.json#license
-      expect(packageJson.license).toBe('MIT');
+      expect(['MIT', 'Unlicense']).toContain(packageJson.license);
 
       expect(packageJson.homepage).toMatch(
         new RegExp(
