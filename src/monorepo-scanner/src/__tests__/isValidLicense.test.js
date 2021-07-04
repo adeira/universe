@@ -1,20 +1,16 @@
-// @flow strict
+// @flow
 
-import fs from 'fs';
 import path from 'path';
+import { verifyTestsFromFixtures } from '@adeira/fixtures-tester';
 
 import isValidLicense from '../isValidLicense';
 
-const fixturesPath = path.join(__dirname, 'fixtures', 'licenses');
+const LICENSES_PATH = path.join(__dirname, 'fixtures', 'licenses');
 
-const validFixturesPath = path.join(fixturesPath, 'valid');
-test.each(fs.readdirSync(validFixturesPath))('%s is valid', (file) => {
-  const license = fs.readFileSync(path.join(validFixturesPath, file), 'utf8');
-  expect(isValidLicense(license)).toBe(true);
+verifyTestsFromFixtures(path.join(LICENSES_PATH, 'valid'), (validLicense) => {
+  return isValidLicense(validLicense) === true;
 });
 
-const invalidFixturesPath = path.join(fixturesPath, 'invalid');
-test.each(fs.readdirSync(invalidFixturesPath))('%s is not valid', (file) => {
-  const license = fs.readFileSync(path.join(invalidFixturesPath, file), 'utf8');
-  expect(isValidLicense(license)).toBe(false);
+verifyTestsFromFixtures(path.join(LICENSES_PATH, 'invalid'), (invalidLicense) => {
+  return isValidLicense(invalidLicense) === false;
 });

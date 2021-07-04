@@ -1,5 +1,7 @@
 This is a port of awesome [**System UIcons**](https://systemuicons.com/) to be used directly in React. How does it work? We take _all_ available System UIcons, optimize them and automatically convert them from SVG to React components so they can be used directly in React.
 
+_**Use how you want, without attribution.** (just like the original System UIcons)_
+
 ## Installation and Usage
 
 ```text

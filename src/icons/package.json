@@ -2,7 +2,7 @@
   "name": "@adeira/icons",
   "description": "Port of System UIcons to React",
   "homepage": "https://github.com/adeira/universe/tree/master/src/icons",
-  "license": "MIT",
+  "license": "Unlicense",
   "private": false,
   "version": "0.2.0",
   "main": "./index.js",
