@@ -2,6 +2,7 @@
 
 import { graphql, useMutation } from '@adeira/relay';
 import sx from '@adeira/sx';
+import Icon from '@adeira/icons';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { fbt } from 'fbt';
@@ -75,7 +76,7 @@ export default function POSCheckoutPageLayout(): Node {
     <div className={styles('root')}>
       <div className={styles('goback')}>
         <Link href="/pos/session" xstyle={styles.gobackLink}>
-          <fbt desc="go back to POS text">⬅ Go back</fbt>
+          <Icon name="backward" /> <fbt desc="go back to POS text">Go back</fbt>
         </Link>
       </div>
 
