@@ -1,5 +1,7 @@
 # Unreleased
 
+# 1.1.0
+
 - New function `verifyTestsFromFixtures` added - it has similar interface as `generateTestsFromFixtures` except it verifies that the operation result is `true` instead of creating Jest snapshots. This is useful when you want to run some tests on your fixtures files but there is not much to snapshot.
 
 # 1.0.1
