@@ -1,0 +1,24 @@
+// @flow
+
+import type { AbstractComponent } from 'react';
+import loadable from '@loadable/component'
+
+export type IconNames = %%ICON_NAMES%%;
+
+const loadableOptions = {
+  ssr: false,
+  fallback: (
+    <span
+      style={{
+        // this creates the same empty space as any loaded icon so the UI is not glitching
+        width: '1em',
+        height: '1em',
+        display: 'inline-block',
+      }}
+    />
+  ),
+};
+
+export const ComponentsMap: { +[IconNames]: AbstractComponent<{}> } = {
+  %%COMPONENTS_MAP%%
+};
