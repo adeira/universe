@@ -26,7 +26,7 @@
     "react": "^17.0.0"
   },
   "devDependencies": {
-    "@adeira/fixtures-tester": "^1.0.1",
+    "@adeira/fixtures-tester": "^1.1.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",
     "react": "^17.0.2",
