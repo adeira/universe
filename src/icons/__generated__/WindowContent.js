@@ -17,7 +17,7 @@ export default function WindowContent(props: {}): Node {
           d="M5.5 5.5h10a2 2 0 012 2v-2c0-1-.895-2-2-2h-10c-1.105 0-2 1-2 2v2a2 2 0 012-2z"
           fill="currentColor"
         />
-        <path d="M7.498 10.5h1M7.498 8.5h3.997M7.498 12.5h5.997M7.498 14.5h3.997" />
+        <path d="M7.498 10.5h1m-1-2h3.997m-3.997 4h5.997m-5.997 2h3.997" />
       </g>
     </svg>
   );

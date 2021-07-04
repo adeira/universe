@@ -14,7 +14,7 @@ export default function ArrowDownCircle(props: {}): Node {
         transform="translate(3 2)"
       >
         <circle cx={8.5} cy={8.5} r={8} />
-        <path d="M5.5 9.5l3 3 3-3M8.5 12.5v-8" />
+        <path d="M5.5 9.5l3 3 3-3m-3 3v-8" />
       </g>
     </svg>
   );

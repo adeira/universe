@@ -14,7 +14,7 @@ export default function ZoomCancel(props: {}): Node {
         transform="translate(3 3)"
       >
         <circle cx={5.5} cy={5.5} r={5} />
-        <path d="M7.5 7.5l-4-4 4 4zm-4 0l4-4-4 4zM14.5 14.5L9.076 9.076" />
+        <path d="M7.5 7.5l-4-4 4 4zm-4 0l4-4-4 4zm11 7L9.076 9.076" />
       </g>
     </svg>
   );

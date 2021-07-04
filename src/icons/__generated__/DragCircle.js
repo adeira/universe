@@ -13,7 +13,7 @@ export default function DragCircle(props: {}): Node {
         strokeLinejoin="round"
       >
         <circle cx={10.5} cy={10.5} r={8} />
-        <path d="M6.5 8.5h8M6.5 10.5h8M6.5 12.5h8" />
+        <path d="M6.5 8.5h8m-8 2h8m-8 2h8" />
       </g>
     </svg>
   );

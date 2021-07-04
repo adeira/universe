@@ -10,7 +10,11 @@ export default function svg2jsx(svgCode: string, iconName: string): Promise<stri
   return svgr(
     svgCode,
     {
-      icon: true, // Replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size.
+      icon: true, // replace SVG "width" and "height" value by "1em" in order to make SVG size inherits from text size
+      svgo: true,
+      svgoConfig: {
+        multipass: true, // pass over SVGs multiple times to ensure all optimizations are applied
+      },
       plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
       template: ({ template }, opts, { componentName, jsx }) => {
         const flowTpl = template.smart(

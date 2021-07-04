@@ -7,7 +7,7 @@ export default function CameraNoflash(props: {}): Node {
     <svg height="1em" viewBox="0 0 21 21" width="1em" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g fill="none" fillRule="evenodd">
         <path
-          d="M8.5 6.5h8a2 2 0 012 2v6c0 .559-.229 1.064-.598 1.427M15.5 16.5h-11a2 2 0 01-2-2v-6a2 2 0 012-2h1M3.5 4.5l14 14"
+          d="M8.5 6.5h8a2 2 0 012 2v6c0 .559-.229 1.064-.598 1.427M15.5 16.5h-11a2 2 0 01-2-2v-6a2 2 0 012-2h1m-2-2l14 14"
           stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"

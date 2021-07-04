@@ -12,7 +12,7 @@ export default function Crop(props: {}): Node {
         strokeLinecap="round"
         strokeLinejoin="round"
       >
-        <path d="M9.5 7.5h4v4M13.5 13.5v3M7.5 7.5H4" />
+        <path d="M9.5 7.5h4v4m0 2v3m-6-9H4" />
         <path d="M7.5 4.5v9h9" />
       </g>
     </svg>
