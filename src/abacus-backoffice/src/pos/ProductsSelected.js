@@ -117,11 +117,11 @@ const styles = sx.create({
   },
   stats: {
     padding: '1rem',
-    backgroundColor: 'darkorange',
+    backgroundColor: 'rgba(var(--sx-success-light))',
   },
   checkout: {
     padding: '1rem',
-    backgroundColor: 'var(--ycbo-success-background)',
+    backgroundColor: 'rgba(var(--sx-success))',
   },
   checkoutLink: {
     fontSize: 25,

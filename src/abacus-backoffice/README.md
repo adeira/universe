@@ -8,7 +8,11 @@ First, run the development server:
 yarn workspace @adeira/abacus-backoffice dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. To analyze the production bundle run:
+
+```bash
+ANALYZE=true yarn workspace @adeira/abacus-backoffice build
+```
 
 # Deploying
 
