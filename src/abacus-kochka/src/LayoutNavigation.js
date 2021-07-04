@@ -3,8 +3,8 @@
 import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
+import Icon from '@adeira/icons';
 
-import Cart from './design/svg/__generated__/Cart';
 import KochkaIcon from './design/svg/KochkaIcon';
 import LinkInternal from './LinkInternal';
 import useFeatureFlag from './hooks/useFeatureFlag';
@@ -42,7 +42,7 @@ export default function LayoutNavigation(): React.Node {
       <div className={styles('navigationSection')}>
         {pageShopOrdersEnabled === true ? (
           <LinkInternal href="/cart">
-            <Cart size={25} />
+            <Icon name="cart" />
           </LinkInternal>
         ) : null}
       </div>
