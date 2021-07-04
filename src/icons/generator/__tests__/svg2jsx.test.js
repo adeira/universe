@@ -3,11 +3,11 @@
 import fs from 'fs';
 import path from 'path';
 
-import transform from '../index';
+import svg2jsx from '../svg2jsx';
 
 it('works as expected', async () => {
   await expect(
-    transform(
+    svg2jsx(
       fs.readFileSync(path.join(__dirname, '..', '..', 'original', 'backward.svg'), 'utf8'),
       'BackwardIcon',
     ),
