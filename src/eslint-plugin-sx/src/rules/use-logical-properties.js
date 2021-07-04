@@ -58,6 +58,9 @@ const suggestions = new Map([
  * See: https://caniuse.com/css-logical-props
  */
 module.exports = ({
+  meta: {
+    fixable: 'code',
+  },
   create: function (context) {
     // import sx from '@adeira/sx'
     //        ^^
@@ -110,6 +113,12 @@ module.exports = ({
                         data: {
                           oldProperty: propertyName,
                           newProperty: suggestions.get(propertyName),
+                        },
+                        fix: function (fixer) {
+                          return fixer.replaceText(
+                            styleNameProperty.key,
+                            suggestions.get(propertyName),
+                          );
                         },
                       });
                     }

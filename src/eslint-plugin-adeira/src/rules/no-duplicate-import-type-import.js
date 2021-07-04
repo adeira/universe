@@ -39,7 +39,7 @@ function autoFix(typeNode, valueNode, fixer) {
 
 module.exports = ({
   meta: {
-    fixable: true,
+    fixable: 'code',
     docs: {},
     schema: [],
   },
