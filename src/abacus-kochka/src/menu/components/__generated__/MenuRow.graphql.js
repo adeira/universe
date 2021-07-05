@@ -49,7 +49,7 @@ const node: ReaderFragment = {
     {
       "alias": null,
       "args": null,
-      "concreteType": "ProductPrice",
+      "concreteType": "Price",
       "kind": "LinkedField",
       "name": "price",
       "plural": false,

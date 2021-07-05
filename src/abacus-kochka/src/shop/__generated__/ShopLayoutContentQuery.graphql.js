@@ -110,7 +110,7 @@ v3 = {
 v4 = {
   "alias": null,
   "args": null,
-  "concreteType": "ProductPrice",
+  "concreteType": "Price",
   "kind": "LinkedField",
   "name": "price",
   "plural": false,
