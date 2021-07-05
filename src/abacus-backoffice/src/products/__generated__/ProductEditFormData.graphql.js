@@ -5,6 +5,7 @@
 /* eslint-disable */
 
 import type { ReaderFragment } from 'relay-runtime';
+type ProductFormData$ref = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProductEditFormData$ref: FragmentReference;
@@ -12,6 +13,9 @@ declare export opaque type ProductEditFormData$fragmentType: ProductEditFormData
 export type ProductEditFormData = {|
   +key: string,
   +revision: string,
+  +availableCategories: $ReadOnlyArray<?{|
+    +$fragmentRefs: ProductFormData$ref
+  |}>,
   +price: {|
     +unitAmount: number
   |},
@@ -56,7 +60,12 @@ v1 = [
   }
 ];
 return {
-  "argumentDefinitions": [],
+  "argumentDefinitions": [
+    {
+      "kind": "RootArgument",
+      "name": "clientLocale"
+    }
+  ],
   "kind": "Fragment",
   "metadata": null,
   "name": "ProductEditFormData",
@@ -73,6 +82,28 @@ return {
       "args": null,
       "kind": "ScalarField",
       "name": "revision",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": [
+        {
+          "kind": "Variable",
+          "name": "clientLocale",
+          "variableName": "clientLocale"
+        }
+      ],
+      "concreteType": "ProductCategory",
+      "kind": "LinkedField",
+      "name": "availableCategories",
+      "plural": true,
+      "selections": [
+        {
+          "args": null,
+          "kind": "FragmentSpread",
+          "name": "ProductFormData"
+        }
+      ],
       "storageKey": null
     },
     {
@@ -150,5 +181,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = 'b455ee031c8188ab197ac393d0633064';
+(node: any).hash = '69685a2f45c2d702540302582043f5b6';
 export default node;

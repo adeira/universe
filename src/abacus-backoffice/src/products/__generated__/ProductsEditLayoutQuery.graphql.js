@@ -51,6 +51,10 @@ query ProductsEditLayoutQuery(
 fragment ProductEditFormData on Product {
   key
   revision
+  availableCategories(clientLocale: $clientLocale) {
+    ...ProductFormData
+    id
+  }
   price {
     unitAmount
   }
@@ -73,6 +77,11 @@ fragment ProductEditHeading on Product {
   name
   isPublished
 }
+
+fragment ProductFormData on ProductCategory {
+  id
+  name
+}
 */
 
 const node: ConcreteRequest = (function(){
@@ -88,26 +97,27 @@ var v0 = [
     "name": "productKey"
   }
 ],
-v1 = [
-  {
-    "kind": "Variable",
-    "name": "clientLocale",
-    "variableName": "clientLocale"
-  },
+v1 = {
+  "kind": "Variable",
+  "name": "clientLocale",
+  "variableName": "clientLocale"
+},
+v2 = [
+  (v1/*: any*/),
   {
     "kind": "Variable",
     "name": "productKey",
     "variableName": "productKey"
   }
 ],
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v3 = {
+v4 = {
   "alias": null,
   "args": null,
   "concreteType": "Image",
@@ -115,7 +125,7 @@ v3 = {
   "name": "images",
   "plural": true,
   "selections": [
-    (v2/*: any*/),
+    (v3/*: any*/),
     {
       "alias": null,
       "args": null,
@@ -133,8 +143,15 @@ v3 = {
   ],
   "storageKey": null
 },
-v4 = [
-  (v2/*: any*/),
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v6 = [
+  (v3/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -160,13 +177,13 @@ return {
         "selections": [
           {
             "alias": "product",
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": "Product",
             "kind": "LinkedField",
             "name": "getUnpublishedProductByKey",
             "plural": false,
             "selections": [
-              (v3/*: any*/),
+              (v4/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -203,7 +220,7 @@ return {
         "selections": [
           {
             "alias": "product",
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": "Product",
             "kind": "LinkedField",
             "name": "getUnpublishedProductByKey",
@@ -216,7 +233,7 @@ return {
                 "name": "key",
                 "storageKey": null
               },
-              (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -224,12 +241,27 @@ return {
                 "name": "isPublished",
                 "storageKey": null
               },
-              (v3/*: any*/),
+              (v4/*: any*/),
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
                 "name": "revision",
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": [
+                  (v1/*: any*/)
+                ],
+                "concreteType": "ProductCategory",
+                "kind": "LinkedField",
+                "name": "availableCategories",
+                "plural": true,
+                "selections": [
+                  (v5/*: any*/),
+                  (v3/*: any*/)
+                ],
                 "storageKey": null
               },
               {
@@ -270,7 +302,7 @@ return {
                 "kind": "LinkedField",
                 "name": "translation",
                 "plural": false,
-                "selections": (v4/*: any*/),
+                "selections": (v6/*: any*/),
                 "storageKey": "translation(locale:\"en_US\")"
               },
               {
@@ -286,16 +318,10 @@ return {
                 "kind": "LinkedField",
                 "name": "translation",
                 "plural": false,
-                "selections": (v4/*: any*/),
+                "selections": (v6/*: any*/),
                 "storageKey": "translation(locale:\"es_MX\")"
               },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              }
+              (v5/*: any*/)
             ],
             "storageKey": null
           }
@@ -305,12 +331,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "bfdaba884496eecd280958f7d12157d5",
+    "cacheID": "40cba9a35d722cd1b3610938f6b10b15",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  name\n  isPublished\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  name\n  isPublished\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();

@@ -14,6 +14,7 @@ pub struct ProductError {
 }
 
 #[derive(juniper::GraphQLUnion)]
+#[graphql(context = Context)]
 pub enum ProductOrError {
     Product(Product),
     ProductError(ProductError),

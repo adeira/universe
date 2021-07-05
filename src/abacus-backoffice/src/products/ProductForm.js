@@ -1,5 +1,6 @@
 // @flow
 
+import { graphql, useFragment } from '@adeira/relay';
 import { Kbd, Tooltip } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
@@ -14,9 +15,11 @@ import FormSelect from '../forms/FormSelect';
 import FormSubmit from '../forms/FormSubmit';
 import FormText from '../forms/FormText';
 import FormTextArea from '../forms/FormTextArea';
+import type { ProductFormData$key } from './__generated__/ProductFormData.graphql';
 
 // For re-usability purposes (see ProductCreateForm vs. ProductEditForm).
 export default function ProductForm(props: {
+  +availableCategories: ProductFormData$key,
   +name_en: ?string,
   +name_es: ?string,
   +description_en: ?string,
@@ -25,6 +28,16 @@ export default function ProductForm(props: {
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
   +button: RestrictedElement<typeof FormSubmit>,
 }): React.Node {
+  const productCategories = useFragment<ProductFormData$key>(
+    graphql`
+      fragment ProductFormData on ProductCategory @relay(plural: true) {
+        id
+        name
+      }
+    `,
+    props.availableCategories,
+  );
+
   return (
     <FormRoot>
       <FormMultiUpload
@@ -84,15 +97,17 @@ export default function ProductForm(props: {
       <FormSelect
         name="category"
         required={true}
-        value=""
+        value="" // TODO
         label={<fbt desc="product category selectbox label">Product category</fbt>}
       >
-        <FormSelectOption value="coffee">
-          <fbt desc="coffe select option title">coffee</fbt>
-        </FormSelectOption>
-        <FormSelectOption value="tea">
-          <fbt desc="tea select option title">tea</fbt>
-        </FormSelectOption>
+        {productCategories.map((category) => {
+          return (
+            <FormSelectOption key={category.id} value={category.id}>
+              {/* $FlowExpectedError[incompatible-type]: name should be FBT */}
+              {category.name}
+            </FormSelectOption>
+          );
+        })}
       </FormSelect>
 
       <FormMultiSelect

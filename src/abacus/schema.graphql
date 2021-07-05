@@ -1,4 +1,4 @@
-# @generated SignedSource<<207e596e31bbd2566ab869397eb1cb07>>
+# @generated SignedSource<<35cc8e50d0611171c528ad8f4d6e1e26>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -304,6 +304,12 @@ type Product {
     however, translations are all the available translations ignoring the locale.
   """
   translations: [ProductMultilingualTranslations!]!
+  """
+    Returns ALL available product categories that can be applied to this product. You might be
+    also interested in `selected_categories` which are categories previously selected for this
+    product.
+  """
+  availableCategories(clientLocale: SupportedLocale!): [ProductCategory]!
 }
 
 input PosCheckoutInput {

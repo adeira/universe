@@ -7,6 +7,7 @@ import { fbt } from 'fbt';
 
 import FormSubmit from '../forms/FormSubmit';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
+import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditFormData$key } from './__generated__/ProductEditFormData.graphql';
 import type { ProductEditFormMutationVariables } from './__generated__/ProductEditFormMutation.graphql';
 import ProductForm from './ProductForm';
@@ -17,6 +18,7 @@ type Props = {
 };
 
 export default function ProductEditForm(props: Props): Node {
+  const applicationLocale = useApplicationLocale();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
   const data = useFragment<ProductEditFormData$key>(
@@ -24,6 +26,9 @@ export default function ProductEditForm(props: Props): Node {
       fragment ProductEditFormData on Product {
         key
         revision
+        availableCategories(clientLocale: $clientLocale) {
+          ...ProductFormData
+        }
         price {
           unitAmount
         }
@@ -46,6 +51,8 @@ export default function ProductEditForm(props: Props): Node {
 
   return (
     <ProductForm
+      // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
+      availableCategories={data.availableCategories}
       name_en={data.enTranslation?.name}
       name_es={data.esTranslation?.name}
       description_en={data.enTranslation?.description}
@@ -63,6 +70,7 @@ export default function ProductEditForm(props: Props): Node {
         <FormSubmit
           mutation={graphql`
             mutation ProductEditFormMutation(
+              $clientLocale: SupportedLocale!
               $productKey: ID!
               $productRevision: ID!
               $productImagesNames: [ProductImageUploadable!]!
@@ -97,6 +105,7 @@ export default function ProductEditForm(props: Props): Node {
             }
           `}
           variables={(formValues): ProductEditFormMutationVariables => ({
+            clientLocale: applicationLocale.graphql,
             productKey: data.key,
             productRevision: data.revision,
             productImagesNames: data.images
