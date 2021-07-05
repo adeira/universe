@@ -1,4 +1,4 @@
-# @generated SignedSource<<eda17d39e690abda8d9cdd05a2b3c37a>>
+# @generated SignedSource<<c161c82057fec4ec2b54c823b93bff1d>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -105,6 +105,16 @@ enum ProductMultilingualInputVisibility {
 enum SupportedLocale {
   en_US
   es_MX
+}
+
+type Price {
+  """
+    The unit amount in centavo to be charged, represented as a whole integer.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """
+  unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)."
+  unitAmountCurrency: SupportedCurrency!
 }
 
 union PosCheckoutPayloadOrError = PosCheckoutPayload | PosCheckoutError
@@ -276,7 +286,7 @@ type Product {
     invoices. When set, this will be included in associated invoice line item descriptions.
   """
   unitLabel: String!
-  price: ProductPrice!
+  price: Price!
   isPublished: Boolean!
   visibility: [ProductMultilingualInputVisibility!]!
   """
@@ -290,16 +300,6 @@ type Product {
     however, translations are all the available translations ignoring the locale.
   """
   translations: [ProductMultilingualTranslations!]!
-}
-
-type ProductPrice {
-  """
-    The unit amount in centavo to be charged, represented as a whole integer.
-    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
-  """
-  unitAmount: Int!
-  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)."
-  unitAmountCurrency: SupportedCurrency!
 }
 
 type PosCheckoutError {
