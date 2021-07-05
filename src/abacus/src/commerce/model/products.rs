@@ -3,6 +3,8 @@ use crate::auth::rbac::Actions::Commerce;
 use crate::auth::rbac::CommerceActions::{
     CreateProduct, DeleteProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
+use crate::commerce::model::product_categories::ProductCategory;
+use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use crate::images::Image;
 use crate::locale::SupportedLocale;
@@ -72,7 +74,7 @@ impl Product {
     }
 }
 
-#[juniper::graphql_object]
+#[juniper::graphql_object(context = Context)]
 impl Product {
     /// Product ID is unique in our whole GraphQL universe. Please note however, that it's not URL
     /// friendly.
@@ -162,6 +164,25 @@ impl Product {
     fn translations(&self) -> Vec<ProductMultilingualTranslations> {
         self.translations.to_owned()
     }
+
+    /// Returns ALL available product categories that can be applied to this product. You might be
+    /// also interested in `selected_categories` which are categories previously selected for this
+    /// product.
+    async fn available_categories(
+        &self,
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
+        Ok(
+            crate::commerce::model::product_categories::search_all_product_categories(
+                &context,
+                &client_locale,
+            )
+            .await?,
+        )
+    }
+
+    // TODO: selected_categories
 }
 
 /// This type should be used together with GraphQL uploads and it should hold the file names being
