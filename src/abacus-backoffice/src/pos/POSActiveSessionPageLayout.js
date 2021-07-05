@@ -27,12 +27,12 @@ const styles = sx.create({
     flex: 1,
     position: 'sticky',
     top: 0,
-    backgroundColor: 'rgba(var(--sx-accent-2))',
+    backgroundColor: 'rgba(var(--sx-accent-1))',
     height: '100vh',
   },
   right: {
     flex: 3,
     padding: '1rem',
-    backgroundColor: 'rgba(var(--sx-accent-1))',
+    backgroundColor: 'rgba(var(--sx-background))',
   },
 });
