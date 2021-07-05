@@ -93,7 +93,6 @@ const styles = sx.create({
   },
   selectedItems: {
     flex: 1,
-    backgroundColor: '#f2f2f2',
   },
   selectedItemRow: {
     'paddingInline': '1rem',
@@ -106,6 +105,7 @@ const styles = sx.create({
   },
   selectedItemTitle: {
     width: '100%',
+    color: 'rgba(var(--sx-foreground))',
   },
   selectedItemControls: {
     display: 'flex',
@@ -117,6 +117,7 @@ const styles = sx.create({
   },
   stats: {
     padding: '1rem',
+    color: 'rgba(var(--sx-foreground))',
     backgroundColor: 'rgba(var(--sx-success-light))',
   },
   checkout: {
