@@ -6,10 +6,11 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 
 import FormMultiSelect from '../forms/FormMultiSelect';
-import FormMultiSelectOption from '../forms/FormMultiSelectOption';
+import FormSelectOption from '../forms/FormSelectOption';
 import FormMultiUpload from '../forms/FormMultiUpload';
 import FormNumber from '../forms/FormNumber';
 import FormRoot from '../forms/FormRoot';
+import FormSelect from '../forms/FormSelect';
 import FormSubmit from '../forms/FormSubmit';
 import FormText from '../forms/FormText';
 import FormTextArea from '../forms/FormTextArea';
@@ -80,6 +81,20 @@ export default function ProductForm(props: {
         label={<fbt desc="form field name for product price">Price (MXN)</fbt>}
       />
 
+      <FormSelect
+        name="category"
+        required={true}
+        value=""
+        label={<fbt desc="product category selectbox label">Product category</fbt>}
+      >
+        <FormSelectOption value="coffee">
+          <fbt desc="coffe select option title">coffee</fbt>
+        </FormSelectOption>
+        <FormSelectOption value="tea">
+          <fbt desc="tea select option title">tea</fbt>
+        </FormSelectOption>
+      </FormSelect>
+
       <FormMultiSelect
         name="visibility"
         size={2}
@@ -87,7 +102,17 @@ export default function ProductForm(props: {
         label={
           // $FlowFixMe[incompatible-type]: should be FBT
           <>
-            Visibility (use <Kbd code="SHIFT" /> or <Kbd code="CTRL" /> to unselect or select more){' '}
+            <fbt desc="product visibility multiselect label">
+              Visibility (use{' '}
+              <fbt:param name="keyboard1">
+                <Kbd code="SHIFT" />
+              </fbt:param>{' '}
+              or{' '}
+              <fbt:param name="keyboard2">
+                <Kbd code="CTRL" />
+              </fbt:param>{' '}
+              to unselect or select more)
+            </fbt>{' '}
             <Tooltip
               title={
                 <fbt desc="not on product visibility">
@@ -100,14 +125,14 @@ export default function ProductForm(props: {
           </>
         }
       >
-        <FormMultiSelectOption value="POS">
+        <FormSelectOption value="POS">
           <fbt desc="visible in POS - select option">Visible in POS</fbt>
-        </FormMultiSelectOption>
-        <FormMultiSelectOption value="ESHOP">
+        </FormSelectOption>
+        <FormSelectOption value="ESHOP">
           <fbt desc="visible in eshop - select option">
             Visible in KOCHKA.com.mx eshop (PUBLIC!)
           </fbt>
-        </FormMultiSelectOption>
+        </FormSelectOption>
       </FormMultiSelect>
 
       {props.button}
