@@ -15,6 +15,14 @@ export default function getValidityStateMessage(
   if (target?.validity.valueMissing === true) {
     // A Boolean that is true if the element has a required attribute, but no value, or false
     // otherwise. If true, the element matches the :invalid CSS pseudo-class.
+    if (target.nodeName.toLowerCase() === 'select') {
+      return (
+        <fbt desc="value not selected validation error message">
+          Field &quot;<fbt:param name="form field label">{targetLabel}</fbt:param>&quot; is
+          required. Please select one of the provided values.
+        </fbt>
+      );
+    }
     return (
       <fbt desc="value missing validation error message">
         Field &quot;<fbt:param name="form field label">{targetLabel}</fbt:param>&quot; is required.

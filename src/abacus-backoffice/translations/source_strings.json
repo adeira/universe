@@ -142,12 +142,26 @@
   },
   {
    "hashToText": {
+    "wE1bsb1gMGsz4iECjopB3w==": "Field \"{form field label}\" is required. Please select one of the provided values."
+   },
+   "filepath": "src/forms/private/getValidityStateMessage.js",
+   "line_beg": 20,
+   "col_beg": 8,
+   "line_end": 23,
+   "col_end": 14,
+   "desc": "value not selected validation error message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Field \"{form field label}\" is required. Please select one of the provided values."
+  },
+  {
+   "hashToText": {
     "4SRlvooaQB6It8KVa1bG9g==": "Field \"{form field label}\" is required. Please fill in this field."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 19,
+   "line_beg": 27,
    "col_beg": 6,
-   "line_end": 22,
+   "line_end": 30,
    "col_end": 12,
    "desc": "value missing validation error message",
    "project": "",
@@ -159,9 +173,9 @@
     "Wtx7FHIevcq36g3jquWXKg==": "Field \"{form field label}\" must be negative."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 30,
+   "line_beg": 38,
    "col_beg": 8,
-   "line_end": 33,
+   "line_end": 41,
    "col_end": 14,
    "desc": "range overflow validation error message",
    "project": "",
@@ -173,9 +187,9 @@
     "S6jnfCvIypCDROzYeKb25A==": "Field \"{form field label}\" has to have value smaller than {form field min value}."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 37,
+   "line_beg": 45,
    "col_beg": 6,
-   "line_end": 40,
+   "line_end": 48,
    "col_end": 12,
    "desc": "range overflow validation error message",
    "project": "",
@@ -187,9 +201,9 @@
     "x8iZhY9utb/UaEMs13hB8Q==": "Field \"{form field label}\" must be positive."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 48,
+   "line_beg": 56,
    "col_beg": 8,
-   "line_end": 51,
+   "line_end": 59,
    "col_end": 14,
    "desc": "range underflow validation error message",
    "project": "",
@@ -201,9 +215,9 @@
     "qstwPQ9btvcdowx9na89+A==": "Field \"{form field label}\" has to have value larger than {form field min value}."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 55,
+   "line_beg": 63,
    "col_beg": 6,
-   "line_end": 58,
+   "line_end": 66,
    "col_end": 12,
    "desc": "range underflow validation error message",
    "project": "",
@@ -215,9 +229,9 @@
     "xBtaPdxqvTa9ZLg6/y0y9Q==": "Please enter a valid value. The two nearest valid values are {low boundary} and {high boundary}."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 71,
+   "line_beg": 79,
    "col_beg": 6,
-   "line_end": 75,
+   "line_end": 83,
    "col_end": 12,
    "desc": "step mismatch validation error message",
    "project": "",
@@ -229,9 +243,9 @@
     "cXb0sWHtGL0NAVNk2AXyYw==": "Field \"{form field label}\" is invalid."
    },
    "filepath": "src/forms/private/getValidityStateMessage.js",
-   "line_beg": 81,
+   "line_beg": 89,
    "col_beg": 4,
-   "line_end": 83,
+   "line_end": 91,
    "col_end": 10,
    "desc": "generic validation error message",
    "project": "",
@@ -831,9 +845,9 @@
     "lZD4GtdtmFDnxD98aPVEUw==": "Product pictures"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 32,
+   "line_beg": 33,
    "col_beg": 15,
-   "line_end": 32,
+   "line_end": 33,
    "col_end": 86,
    "desc": "form field name for product pictures",
    "project": "",
@@ -845,9 +859,9 @@
     "jDz1xtreligZF6hDwlOGmA==": "Product name (in English)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 41,
+   "line_beg": 42,
    "col_beg": 12,
-   "line_end": 41,
+   "line_end": 42,
    "col_end": 99,
    "desc": "form field name for product name in english",
    "project": "",
@@ -859,9 +873,9 @@
     "KjnAslk0bbo2mlPqTr9Scg==": "Product name (in Spanish)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 50,
+   "line_beg": 51,
    "col_beg": 12,
-   "line_end": 50,
+   "line_end": 51,
    "col_end": 99,
    "desc": "form field name for product name in spanish",
    "project": "",
@@ -873,9 +887,9 @@
     "I6tPscKijr8l6b5INvVZMg==": "Product description (in English)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 59,
+   "line_beg": 60,
    "col_beg": 10,
-   "line_end": 61,
+   "line_end": 62,
    "col_end": 16,
    "desc": "form field name for product description in english",
    "project": "",
@@ -887,9 +901,9 @@
     "x0HcNWLdxFYYiLwAx7et4g==": "Product description (in Spanish)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 69,
+   "line_beg": 70,
    "col_beg": 10,
-   "line_end": 71,
+   "line_end": 72,
    "col_end": 16,
    "desc": "form field name for product description in spanish",
    "project": "",
@@ -901,9 +915,9 @@
     "r84jIlbvbpbZx8MqJ0A94w==": "Price (MXN)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 80,
+   "line_beg": 81,
    "col_beg": 15,
-   "line_end": 80,
+   "line_end": 81,
    "col_end": 78,
    "desc": "form field name for product price",
    "project": "",
@@ -912,12 +926,68 @@
   },
   {
    "hashToText": {
+    "Zw/DJGKH2E8Y7hZ7abThWQ==": "Product category"
+   },
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 88,
+   "col_beg": 15,
+   "line_end": 88,
+   "col_end": 82,
+   "desc": "product category selectbox label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Product category"
+  },
+  {
+   "hashToText": {
+    "N0OLjLa/B/HGd0LyI9I1Ow==": "coffee"
+   },
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 91,
+   "col_beg": 10,
+   "line_end": 91,
+   "col_end": 60,
+   "desc": "coffe select option title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "coffee"
+  },
+  {
+   "hashToText": {
+    "1QjUGaxQfyunz8KfcA+EaQ==": "tea"
+   },
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 94,
+   "col_beg": 10,
+   "line_end": 94,
+   "col_end": 55,
+   "desc": "tea select option title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "tea"
+  },
+  {
+   "hashToText": {
+    "975ts5zSj//Q9GanI8i72A==": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)"
+   },
+   "filepath": "src/products/ProductForm.js",
+   "line_beg": 105,
+   "col_beg": 12,
+   "line_end": 115,
+   "col_end": 18,
+   "desc": "product visibility multiselect label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)"
+  },
+  {
+   "hashToText": {
     "xYkBXLgCt5XcttuICJB9Og==": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 93,
+   "line_beg": 118,
    "col_beg": 16,
-   "line_end": 97,
+   "line_end": 122,
    "col_end": 22,
    "desc": "not on product visibility",
    "project": "",
@@ -929,9 +999,9 @@
     "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 104,
+   "line_beg": 129,
    "col_beg": 10,
-   "line_end": 104,
+   "line_end": 129,
    "col_end": 73,
    "desc": "visible in POS - select option",
    "project": "",
@@ -943,9 +1013,9 @@
     "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 107,
+   "line_beg": 132,
    "col_beg": 10,
-   "line_end": 109,
+   "line_end": 134,
    "col_end": 16,
    "desc": "visible in eshop - select option",
    "project": "",
@@ -1013,9 +1083,9 @@
     "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
    },
    "filepath": "src/products/ProductsCreateLayout.js",
-   "line_beg": 37,
+   "line_beg": 17,
    "col_beg": 12,
-   "line_end": 37,
+   "line_end": 17,
    "col_end": 84,
    "desc": "create a new product page heading",
    "project": "",
@@ -1027,9 +1097,9 @@
     "kZSl2UcMZDzRSCGJm9hDkw==": "Products inventory"
    },
    "filepath": "src/products/ProductsCreateLayout.js",
-   "line_beg": 42,
+   "line_beg": 22,
    "col_beg": 10,
-   "line_end": 42,
+   "line_end": 22,
    "col_end": 84,
    "desc": "go back to products navigation button",
    "project": "",

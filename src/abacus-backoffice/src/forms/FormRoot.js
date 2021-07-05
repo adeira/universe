@@ -5,6 +5,7 @@ import * as React from 'react';
 import FormMultiSelect from './FormMultiSelect';
 import FormMultiUpload from './FormMultiUpload';
 import FormNumber from './FormNumber';
+import FormSelect from './FormSelect';
 import FormSubmit from './FormSubmit';
 import FormText from './FormText';
 import FormTextArea from './FormTextArea';
@@ -15,6 +16,7 @@ type Props = {
     | RestrictedElement<typeof FormMultiSelect>
     | RestrictedElement<typeof FormMultiUpload>
     | RestrictedElement<typeof FormNumber>
+    | RestrictedElement<typeof FormSelect>
     | RestrictedElement<typeof FormSubmit>
     | RestrictedElement<typeof FormText>
     | RestrictedElement<typeof FormTextArea>,
