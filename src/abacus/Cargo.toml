@@ -35,7 +35,7 @@ rusoto_core = "0.47.0"
 rusoto_s3 = "0.47.0"
 serde = "1.0.126"
 serde_json = "1.0.64"
-thiserror = { version = "1.0.25", default-features = false }
+thiserror = { version = "1.0.26", default-features = false }
 tokio = { version = "1.7.1", default-features = false, features = ["full"] }
 tracing = "0.1.26"
 tracing-subscriber = "0.2.19"
