@@ -4,7 +4,7 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
-import { LinkButton_DEPRECATED as LinkButton, Emoji } from '@adeira/sx-design';
+import { ButtonLink, Emoji } from '@adeira/sx-design';
 
 import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi from './recoil/selectedItemsState';
@@ -36,9 +36,9 @@ export default function POSCheckoutFailurePageLayout(): Node {
         </div>
         <CheckoutReceipt />
       </div>
-      <LinkButton onClick={handleStartNewPOSSessionClick} xstyle={styles.link}>
+      <ButtonLink onClick={handleStartNewPOSSessionClick} xstyle={styles.link}>
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
-      </LinkButton>
+      </ButtonLink>
     </div>
   );
 }

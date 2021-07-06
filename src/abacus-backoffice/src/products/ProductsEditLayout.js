@@ -2,7 +2,7 @@
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import React, { type Node, useState } from 'react';
-import { Image, LinkButton_DEPRECATED as LinkButton } from '@adeira/sx-design';
+import { Image, ButtonLink } from '@adeira/sx-design';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
 
@@ -78,22 +78,22 @@ export default function ProductsEditLayout(props: Props): Node {
               {imagesToDelete.includes(image.name) === false ? (
                 <div>
                   {image.name}{' '}
-                  <LinkButton
+                  <ButtonLink
                     onClick={() => handleImageDelete(image.name)}
                     xstyle={styles.linkDelete}
                   >
                     <fbt desc="delete image button title">delete</fbt>
-                  </LinkButton>
+                  </ButtonLink>
                 </div>
               ) : (
                 <div>
                   <s>{image.name}</s>{' '}
-                  <LinkButton
+                  <ButtonLink
                     onClick={() => handleUndoImageDelete(image.name)}
                     xstyle={styles.linkDelete}
                   >
                     <fbt desc="undo delete image button title">undo delete</fbt>
-                  </LinkButton>
+                  </ButtonLink>
                 </div>
               )}
             </div>
