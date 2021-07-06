@@ -4,7 +4,6 @@ use arangors::document::options::InsertOptions;
 use arangors::graph::Graph;
 use arangors::index::Index;
 use arangors::view::ViewOptions;
-use arangors::ClientError;
 use serde::{Deserialize, Serialize};
 
 pub(in crate::migrations) trait ArangoDocument {
@@ -18,7 +17,7 @@ pub(in crate::migrations) async fn create_collection(
     collection_name: &str,
     collection_type: &CollectionType,
     json_schema: &Option<serde_json::Value>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     match db.collection(collection_name).await {
         Ok(_) => {
             // collection already exists, nothing to do
@@ -43,7 +42,7 @@ pub(in crate::migrations) async fn create_collection(
 
             match result {
                 Ok(_) => Ok(()),
-                Err(e) => Err(e),
+                Err(e) => anyhow::bail!(e),
             }
         }
     }
@@ -53,7 +52,7 @@ pub(in crate::migrations) async fn create_document<T>(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     collection_name: &str,
     document: T,
-) -> Result<(), ClientError>
+) -> anyhow::Result<()>
 where
     T: Serialize + for<'de> Deserialize<'de> + ArangoDocument,
 {
@@ -71,7 +70,7 @@ where
 
             match result {
                 Ok(_) => Ok(()),
-                Err(e) => Err(e),
+                Err(e) => anyhow::bail!(e),
             }
         }
     }
@@ -81,17 +80,17 @@ pub(in crate::migrations) async fn create_index(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     collection_name: &str,
     index: &Index,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     match db.create_index(collection_name, &index).await {
         Ok(_) => Ok(()),
-        Err(e) => Err(e),
+        Err(e) => anyhow::bail!(e),
     }
 }
 
 pub(in crate::migrations) async fn create_graph(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     graph: Graph,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     match db.graph(&*graph.name).await {
         Ok(_) => {
             // graph already exists
@@ -101,7 +100,7 @@ pub(in crate::migrations) async fn create_graph(
             // graph doesn't exist yet, let's create it
             match db.create_graph(graph, false).await {
                 Ok(_) => Ok(()),
-                Err(e) => Err(e),
+                Err(e) => anyhow::bail!(e),
             }
         }
     }
@@ -111,7 +110,7 @@ pub(in crate::migrations) async fn create_view(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
     view_name: &str,
     view: ViewOptions,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     match db.view(&view_name).await {
         Ok(_) => {
             // view already exists
@@ -121,7 +120,7 @@ pub(in crate::migrations) async fn create_view(
             // view doesn't exist yet, let's create it
             match db.create_view(view).await {
                 Ok(_) => Ok(()),
-                Err(e) => Err(e),
+                Err(e) => anyhow::bail!(e),
             }
         }
     }

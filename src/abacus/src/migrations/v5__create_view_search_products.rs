@@ -2,12 +2,11 @@ use crate::migrations::utils::create_view;
 use arangors::analyzer::AnalyzerFeature::{Frequency, Norm, Position};
 use arangors::analyzer::{AnalyzerInfo, NgramAnalyzerProperties, NgramStreamType};
 use arangors::view::{ArangoSearchViewLink, ArangoSearchViewPropertiesOptions, ViewOptions};
-use arangors::ClientError;
 use std::collections::HashMap;
 
 pub async fn migrate(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     db.create_analyzer(AnalyzerInfo::Ngram {
         name: String::from("bigram"),
         features: Some(vec![Frequency, Norm, Position]),

@@ -1,11 +1,9 @@
 use crate::migrations::utils::create_collection;
 use arangors::collection::CollectionType;
-use arangors::ClientError;
 
-// TODO: use anyhow::Error
 pub async fn migrate(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     create_collection(
         &db,
         "archive",

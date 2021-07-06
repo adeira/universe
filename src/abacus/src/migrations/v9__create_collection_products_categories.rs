@@ -1,7 +1,6 @@
 use crate::commerce::api::ProductCategory;
 use crate::migrations::utils::{create_collection, create_document, ArangoDocument};
 use arangors::collection::CollectionType;
-use arangors::ClientError;
 
 impl ArangoDocument for ProductCategory {
     fn idempotency_key(&self) -> &str {
@@ -11,7 +10,7 @@ impl ArangoDocument for ProductCategory {
 
 pub async fn migrate(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     create_collection(&db, "product_categories", &CollectionType::Document, &None).await?;
 
     create_document(

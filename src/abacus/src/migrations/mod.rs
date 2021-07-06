@@ -2,7 +2,6 @@
 
 use crate::arangodb::ConnectionPool;
 use arangors::document::options::InsertOptions;
-use arangors::ClientError;
 use futures::future::BoxFuture;
 
 mod utils;
@@ -34,7 +33,7 @@ pub async fn migrate(pool: &ConnectionPool) {
     // https://users.rust-lang.org/t/how-to-store-async-functions-in-a-vector/51630
     type MigrationFunction = fn(
         &arangors::Database<uclient::reqwest::ReqwestClient>,
-    ) -> BoxFuture<'_, Result<(), ClientError>>;
+    ) -> BoxFuture<'_, anyhow::Result<()>>;
 
     // TODO: hide behind some macro (?)
     let migrations: Vec<(&str, MigrationFunction)> = vec![
