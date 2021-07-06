@@ -1,5 +1,5 @@
 use crate::arangodb::{resolve_aql, ConnectionPool};
-use crate::commerce::api::SupportedCurrency;
+use crate::price::SupportedCurrency;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 

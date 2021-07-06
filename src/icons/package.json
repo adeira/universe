@@ -9,12 +9,12 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.14.6"
+    "@babel/runtime": "^7.14.6",
+    "@loadable/component": "^5.15.0"
   },
   "devDependencies": {
     "@adeira/js": "^2.1.0",
     "@svgr/core": "^5.5.0",
-    "@svgr/plugin-prettier": "^5.5.0",
     "@svgr/plugin-svgo": "^5.5.0",
     "change-case": "^4.1.2",
     "prettier": "^2.3.2"

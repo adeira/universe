@@ -1,0 +1,40 @@
+---
+source: src/commerce/dal/product_categories_tests.rs
+expression: found_categories_en
+---
+[
+    Some(
+        ProductCategory {
+            name: Some(
+                "café",
+            ),
+            translations: [
+                ProductCategoryMultilingualTranslations {
+                    locale: EnUS,
+                    name: "coffee",
+                },
+                ProductCategoryMultilingualTranslations {
+                    locale: EsMX,
+                    name: "café",
+                },
+            ],
+        },
+    ),
+    Some(
+        ProductCategory {
+            name: Some(
+                "té",
+            ),
+            translations: [
+                ProductCategoryMultilingualTranslations {
+                    locale: EnUS,
+                    name: "tea",
+                },
+                ProductCategoryMultilingualTranslations {
+                    locale: EsMX,
+                    name: "té",
+                },
+            ],
+        },
+    ),
+]

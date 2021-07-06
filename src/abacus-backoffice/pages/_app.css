@@ -16,22 +16,3 @@ body {
 a[target='_blank']:after {
   content: ' ↝';
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --ycbo-background-color: 255, 255, 255;
-    --ycbo-text-color: 28, 30, 33;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ycbo-background-color: 51, 51, 51;
-    --ycbo-text-color: 255, 255, 255;
-  }
-}
-
-:root {
-  --ycbo-success-background: #4bb543;
-  --ycbo-failure-background: #a82e2e;
-}

@@ -43,11 +43,12 @@ const styles = sx.create({
     flex: 1,
     width: '200px',
     position: 'fixed',
+    backgroundColor: 'rgba(var(--sx-accent-1))',
   },
   main: {
     flex: 1,
     marginInlineStart: '200px',
-    backgroundColor: 'rgba(var(--ycbo-background-color))',
     padding: '1rem',
+    backgroundColor: 'rgba(var(--sx-background))',
   },
 });

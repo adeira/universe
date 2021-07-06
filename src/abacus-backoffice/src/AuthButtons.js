@@ -5,6 +5,7 @@ import GoogleLogin from 'react-google-login';
 import { graphql, useMutation } from '@adeira/relay';
 import { fbt } from 'fbt';
 import sx from '@adeira/sx';
+import Icon from '@adeira/icons';
 
 import constants from './constants';
 import { useSessionTokenAPI } from './useSessionTokenAPI';
@@ -101,13 +102,13 @@ export function LogoutButton(): Node {
         });
       }}
     >
-      <fbt desc="logout button title">Logout</fbt>
+      <Icon name="enter" /> <fbt desc="logout button title">Logout</fbt>
     </button>
   );
 }
 
 const styles = sx.create({
   errorMessage: {
-    color: 'red',
+    color: 'rgba(var(--sx-error))',
   },
 });

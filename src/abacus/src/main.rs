@@ -18,9 +18,11 @@ mod graphql_context;
 mod graphql_schema;
 mod headers;
 mod images;
+mod locale;
 mod menu;
 mod migrations;
 mod pos;
+mod price;
 mod tracking;
 mod warp_graphql;
 

@@ -1,4 +1,4 @@
-# @generated SignedSource<<eda17d39e690abda8d9cdd05a2b3c37a>>
+# @generated SignedSource<<35cc8e50d0611171c528ad8f4d6e1e26>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -107,6 +107,16 @@ enum SupportedLocale {
   es_MX
 }
 
+type Price {
+  """
+    The unit amount in centavo to be charged, represented as a whole integer.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """
+  unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)."
+  unitAmountCurrency: SupportedCurrency!
+}
+
 union PosCheckoutPayloadOrError = PosCheckoutPayload | PosCheckoutError
 
 "Root query of the graph."
@@ -169,15 +179,14 @@ type AnyUser {
   hasEmailVerified: Boolean
 }
 
-type ProductError {
-  message: String!
+type ProductCategory {
+  id: ID!
+  "The product category name, meant to be displayable to the customer."
+  name: String!
 }
 
-input ProductMultilingualInput {
-  images: [ProductImageUploadable!]!
-  price: ProductPriceInput!
-  translations: [ProductMultilingualInputTranslations!]!
-  visibility: [ProductMultilingualInputVisibility!]!
+type ProductError {
+  message: String!
 }
 
 type CommerceQuery {
@@ -191,18 +200,19 @@ type CommerceQuery {
     be used only in backoffice to administer the products.
   """
   searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, searchTerm: String): [Product]!
+  "Returns ALL available product categories that can be applied to any product."
+  searchAllProductCategories(clientLocale: SupportedLocale!): [ProductCategory]!
   "Returns one publicly available product by its key. Anyone can call this resolver."
   getPublishedProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
   "Only admins can call this function! It returns published OR unpublished product by its key."
   getUnpublishedProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
 }
 
-input ProductPriceInput {
-  """
-    The unit amount in centavo to be charged, represented as a whole integer.
-    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
-  """ unitAmount: Int!
-  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
+input ProductMultilingualInput {
+  images: [ProductImageUploadable!]!
+  price: ProductPriceInput!
+  translations: [ProductMultilingualInputTranslations!]!
+  visibility: [ProductMultilingualInputVisibility!]!
 }
 
 """
@@ -214,14 +224,18 @@ input ProductPriceInput {
 """
 scalar ProductImageUploadable
 
+input ProductPriceInput {
+  """
+    The unit amount in centavo to be charged, represented as a whole integer.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """ unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
+}
+
 input ProductMultilingualInputTranslations {
   locale: SupportedLocale!
   name: String!
   description: String
-}
-
-input PosCheckoutInput {
-  selectedProducts: [PosCheckoutProductInput!]!
 }
 
 type Product {
@@ -276,7 +290,7 @@ type Product {
     invoices. When set, this will be included in associated invoice line item descriptions.
   """
   unitLabel: String!
-  price: ProductPrice!
+  price: Price!
   isPublished: Boolean!
   visibility: [ProductMultilingualInputVisibility!]!
   """
@@ -290,16 +304,16 @@ type Product {
     however, translations are all the available translations ignoring the locale.
   """
   translations: [ProductMultilingualTranslations!]!
+  """
+    Returns ALL available product categories that can be applied to this product. You might be
+    also interested in `selected_categories` which are categories previously selected for this
+    product.
+  """
+  availableCategories(clientLocale: SupportedLocale!): [ProductCategory]!
 }
 
-type ProductPrice {
-  """
-    The unit amount in centavo to be charged, represented as a whole integer.
-    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
-  """
-  unitAmount: Int!
-  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)."
-  unitAmountCurrency: SupportedCurrency!
+input PosCheckoutInput {
+  selectedProducts: [PosCheckoutProductInput!]!
 }
 
 type PosCheckoutError {

@@ -1,6 +1,7 @@
-use crate::commerce::api::{Product, SupportedLocale};
+use crate::commerce::api::Product;
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
+use crate::locale::SupportedLocale;
 use crate::menu::MenuSections;
 
 pub(crate) struct MenuQuery;

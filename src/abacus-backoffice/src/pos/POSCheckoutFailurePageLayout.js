@@ -47,7 +47,7 @@ const styles = sx.create({
   root: {
     fontSize: '3rem',
     color: 'white',
-    backgroundColor: 'var(--ycbo-failure-background)',
+    backgroundColor: 'rgba(var(--sx-error-dark))',
     height: '100vh',
     textAlign: 'center',
     display: 'flex',
