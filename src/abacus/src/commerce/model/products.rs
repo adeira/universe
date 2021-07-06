@@ -1,7 +1,8 @@
+use crate::archive::archive_struct;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Commerce;
 use crate::auth::rbac::CommerceActions::{
-    CreateProduct, DeleteProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
+    ArchiveProduct, CreateProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
 use crate::commerce::model::product_categories::ProductCategory;
 use crate::graphql::AbacusGraphQLResult;
@@ -20,7 +21,7 @@ use serde::{Deserialize, Serialize};
 ///
 /// - https://help.shopify.com/en/manual/products/add-update-products
 /// - https://www.arangodb.com/docs/stable/data-modeling-monetary-data-without-precision-loss.html
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 pub struct Product {
     _id: String,
     _rev: String,
@@ -218,7 +219,7 @@ pub struct ProductMultilingualInputTranslations {
     pub(in crate::commerce) description: Option<String>,
 }
 
-#[derive(juniper::GraphQLObject, Debug, Deserialize, Clone)]
+#[derive(juniper::GraphQLObject, Debug, Deserialize, Clone, Serialize)]
 pub struct ProductMultilingualTranslations {
     pub(in crate::commerce) locale: SupportedLocale,
     pub(in crate::commerce) name: String,
@@ -522,22 +523,38 @@ pub(in crate::commerce) async fn unpublish_product(
     crate::commerce::dal::products::unpublish_product(&context.pool, &product_key).await
 }
 
-pub(in crate::commerce) async fn delete_product(
+/// We need to perform the following steps when archiving the product:
+///
+/// 1. retrieve it in a complete form from DB
+/// 2. save copy of this data to the archive
+/// 3. remove all related pictures from S3
+/// 4. delete the actual product (only after it's been copied to the archive!)
+pub(in crate::commerce) async fn archive_product(
     context: &Context,
     product_key: &str,
 ) -> anyhow::Result<Product> {
-    rbac::verify_permissions(&context.user, &Commerce(DeleteProduct)).await?;
+    rbac::verify_permissions(&context.user, &Commerce(ArchiveProduct)).await?;
 
-    let product_result =
-        crate::commerce::dal::products::delete_product(&context.pool, &product_key).await;
+    // 1. get the old product
+    let client_locale = SupportedLocale::EnUS; // TODO
+    let product_old = crate::commerce::dal::products::get_product_by_key(
+        &context.pool,
+        &client_locale,
+        &product_key,
+        &false, // both published and unpublished
+    )
+    .await?;
 
-    if let Ok(product) = &product_result {
-        for image in product.images() {
-            crate::images::delete_image(&context, &image).await?;
-        }
+    // 2. archive it
+    archive_struct(&context.pool, &product_old._id, "products", &product_old).await?;
+
+    // 3. delete all related pictures
+    for image in product_old.images() {
+        crate::images::delete_image(&context, &image).await?;
     }
 
-    product_result
+    // 4. hard delete the product
+    crate::commerce::dal::products::delete_product(&context.pool, &product_key).await
 }
 
 #[cfg(test)]

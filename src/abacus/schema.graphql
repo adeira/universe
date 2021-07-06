@@ -1,4 +1,4 @@
-# @generated SignedSource<<35cc8e50d0611171c528ad8f4d6e1e26>>
+# @generated SignedSource<<2c62cdb590b710ca71f7d22503c7e673>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -79,8 +79,15 @@ type CommerceMutation {
     them via uploadables. This feature will eventually be used even for images re-ordering.
   """
   productUpdate(productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
-  "Deletes product based on the product KEY."
-  productDelete(productKey: ID!): ProductOrError!
+  """
+    Archives product based on the product KEY making it effectively inaccessible. From the user
+    perspective it's like deleting the product, however, internally the product still exists in
+    the archive and could potentially be restored.
+
+    Note: the product cannot be searched for and cannot be retrieved in any way (other than via
+    the archive). It can also be hard deleted without prior notice.
+  """
+  productArchive(productKey: ID!): ProductOrError!
   """
     Publishes product based on the product KEY. Various validation requirements must be met
     before the product can be published. Published product is available outside of backoffice.

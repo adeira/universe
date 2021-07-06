@@ -8,6 +8,7 @@ use futures::future::BoxFuture;
 mod utils;
 
 mod v0__migrations_init;
+mod v10__create_collection_archive;
 mod v1__create_collection_users_sessions;
 mod v2__create_document_user_anonymous;
 mod v3__create_document_user_admin;
@@ -66,6 +67,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v9__create_collection_products_categories", |db| {
             Box::pin(v9__create_collection_products_categories::migrate(&db))
+        }),
+        ("v10__create_collection_archive", |db| {
+            Box::pin(v10__create_collection_archive::migrate(&db))
         }),
     ];
 

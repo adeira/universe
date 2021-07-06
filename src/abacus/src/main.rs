@@ -10,6 +10,7 @@ use tracing_subscriber::EnvFilter;
 use warp::Filter;
 
 mod arangodb;
+mod archive;
 mod auth;
 mod clap;
 mod commerce;

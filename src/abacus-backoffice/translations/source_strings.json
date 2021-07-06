@@ -677,9 +677,9 @@
     "EIVU1wJ5opAD+tU9JLao5Q==": "Product {product name} created! ✅"
    },
    "filepath": "src/products/ProductCreateForm.js",
-   "line_beg": 97,
+   "line_beg": 98,
    "col_beg": 18,
-   "line_end": 103,
+   "line_end": 104,
    "col_end": 24,
    "desc": "product created success message",
    "project": "",
@@ -691,9 +691,9 @@
     "pK1f3pHBA7GNzXNFxoeWlw==": "Create a new product"
    },
    "filepath": "src/products/ProductCreateForm.js",
-   "line_beg": 110,
+   "line_beg": 111,
    "col_beg": 10,
-   "line_end": 110,
+   "line_end": 111,
    "col_end": 88,
    "desc": "create product form submit button title",
    "project": "",
@@ -705,9 +705,9 @@
     "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 138,
+   "line_beg": 139,
    "col_beg": 18,
-   "line_end": 147,
+   "line_end": 148,
    "col_end": 24,
    "desc": "product updated success message",
    "project": "",
@@ -719,9 +719,9 @@
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 154,
+   "line_beg": 155,
    "col_beg": 10,
-   "line_end": 154,
+   "line_end": 155,
    "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
@@ -758,31 +758,31 @@
   },
   {
    "hashToText": {
-    "g9GOZIQozBqrdHGmtzrbCQ==": "Are you sure you want to delete the product?"
+    "BPWRoyucKXJx+vY6x6BFkw==": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product."
    },
    "filepath": "src/products/ProductEditHeading.js",
    "line_beg": 103,
    "col_beg": 10,
-   "line_end": 105,
+   "line_end": 106,
    "col_end": 16,
-   "desc": "delete product confirmation message",
+   "desc": "archive product confirmation message",
    "project": "",
    "type": "text",
-   "jsfbt": "Are you sure you want to delete the product?"
+   "jsfbt": "Are you sure you want to archive the product? Archiving makes it unavailable and behaves similar to deleting the product."
   },
   {
    "hashToText": {
-    "4EbSLFooTnt+yUPhqoWp/g==": "Delete product"
+    "XT9xWGmAT0GjldI2PdUXRA==": "Archive product"
    },
    "filepath": "src/products/ProductEditHeading.js",
-   "line_beg": 109,
+   "line_beg": 110,
    "col_beg": 8,
-   "line_end": 109,
-   "col_end": 73,
-   "desc": "delete product navigation button",
+   "line_end": 110,
+   "col_end": 75,
+   "desc": "archive product navigation button",
    "project": "",
    "type": "text",
-   "jsfbt": "Delete product"
+   "jsfbt": "Archive product"
   },
   {
    "hashToText": {
@@ -943,9 +943,9 @@
     "975ts5zSj//Q9GanI8i72A==": "Visibility (use {keyboard1} or {keyboard2} to unselect or select more)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 119,
+   "line_beg": 120,
    "col_beg": 12,
-   "line_end": 129,
+   "line_end": 130,
    "col_end": 18,
    "desc": "product visibility multiselect label",
    "project": "",
@@ -957,9 +957,9 @@
     "xYkBXLgCt5XcttuICJB9Og==": "The product can be visible in other places regardless of this setting. For example, it can be displayed in KOCHKA Café menu when it makes sense. This setting only affect where is the product going to be displayed automatically."
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 132,
+   "line_beg": 133,
    "col_beg": 16,
-   "line_end": 136,
+   "line_end": 137,
    "col_end": 22,
    "desc": "not on product visibility",
    "project": "",
@@ -971,9 +971,9 @@
     "vm4GdiANCa3DCeSjSz+zfA==": "Visible in POS"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 143,
+   "line_beg": 144,
    "col_beg": 10,
-   "line_end": 143,
+   "line_end": 144,
    "col_end": 73,
    "desc": "visible in POS - select option",
    "project": "",
@@ -985,9 +985,9 @@
     "Ik7lZpsc1Rsl2ZBYpP5hUg==": "Visible in KOCHKA.com.mx eshop (PUBLIC!)"
    },
    "filepath": "src/products/ProductForm.js",
-   "line_beg": 146,
+   "line_beg": 147,
    "col_beg": 10,
-   "line_end": 148,
+   "line_end": 149,
    "col_end": 16,
    "desc": "visible in eshop - select option",
    "project": "",

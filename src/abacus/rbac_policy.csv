@@ -1,6 +1,6 @@
 p, commerce_admin, commerce, create_product, allow
 p, commerce_admin, commerce, update_product, allow
-p, commerce_admin, commerce, delete_product, allow
+p, commerce_admin, commerce, archive_product, allow
 p, commerce_admin, commerce, publish_product, allow
 p, commerce_admin, commerce, unpublish_product, allow
 p, commerce_admin, commerce, get_all_products, allow

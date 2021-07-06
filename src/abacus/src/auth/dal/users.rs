@@ -120,34 +120,6 @@ pub(crate) async fn create_user_by_google_claims(
     resolve_aql(&pool, aql).await
 }
 
-/// TODO(004) add integration tests
-#[cfg(test)]
-pub(crate) async fn delete_user_by_google_claims(
-    pool: &crate::arangodb::ConnectionPool,
-    subject: &str,
-) -> Option<AnyUser> {
-    let db = pool.db().await;
-
-    // only `sub` identifies the user reliably, everything else might potentially change
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
-            FOR user IN users
-              FILTER user.google.sub == @sub
-              LIMIT 1
-              REMOVE { _key: user._key } IN users
-              RETURN OLD
-            "#,
-        )
-        .bind_var("sub", subject)
-        .build();
-
-    match db.aql_query::<AnyUser>(aql).await {
-        Ok(result_vector) => result_vector.first().map(|result| result.to_owned()),
-        Err(_) => None, // TODO: log such DB error (?)
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;

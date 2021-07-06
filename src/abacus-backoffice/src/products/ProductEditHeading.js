@@ -12,7 +12,7 @@ import LayoutHeading from '../LayoutHeading';
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import LayoutHeadingLink from '../LayoutHeadingLink';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
-import type { ProductEditHeadingDeleteMutation } from './__generated__/ProductEditHeadingDeleteMutation.graphql';
+import type { ProductEditHeadingArchiveMutation } from './__generated__/ProductEditHeadingArchiveMutation.graphql';
 import type { ProductEditHeading$key } from './__generated__/ProductEditHeading.graphql';
 
 type Props = {
@@ -23,11 +23,11 @@ export default function ProductEditHeading(props: Props): React.Node {
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
   const router = useRouter();
 
-  const [deleteProductMutation] = useMutation<ProductEditHeadingDeleteMutation>(
+  const [archiveProductMutation] = useMutation<ProductEditHeadingArchiveMutation>(
     graphql`
-      mutation ProductEditHeadingDeleteMutation($productKey: ID!) {
+      mutation ProductEditHeadingArchiveMutation($productKey: ID!) {
         commerce {
-          productOrError: productDelete(productKey: $productKey) {
+          productOrError: productArchive(productKey: $productKey) {
             ... on Product {
               __typename
             }
@@ -52,8 +52,8 @@ export default function ProductEditHeading(props: Props): React.Node {
     props.product,
   );
 
-  const handleDeleteProduct = (productKey) => {
-    deleteProductMutation({
+  const handleArchiveProduct = (productKey) => {
+    archiveProductMutation({
       variables: { productKey },
       onError: () => {
         setStatusBar({
@@ -65,7 +65,7 @@ export default function ProductEditHeading(props: Props): React.Node {
       onCompleted: ({ commerce: { productOrError } }) => {
         if (productOrError.__typename === 'Product') {
           setStatusBar({
-            message: 'Product successfully deleted. ✅',
+            message: 'Product successfully archived. ✅',
             type: 'success',
           });
           router.push('/products');
@@ -100,13 +100,14 @@ export default function ProductEditHeading(props: Props): React.Node {
 
       <LayoutHeadingButton
         confirmMessage={
-          <fbt desc="delete product confirmation message">
-            Are you sure you want to delete the product?
+          <fbt desc="archive product confirmation message">
+            Are you sure you want to archive the product? Archiving makes it unavailable and behaves
+            similar to deleting the product.
           </fbt>
         }
-        onClick={() => handleDeleteProduct(product.key)}
+        onClick={() => handleArchiveProduct(product.key)}
       >
-        <fbt desc="delete product navigation button">Delete product</fbt>
+        <fbt desc="archive product navigation button">Archive product</fbt>
       </LayoutHeadingButton>
     </LayoutHeading>
   );

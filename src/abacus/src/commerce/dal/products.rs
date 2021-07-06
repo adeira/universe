@@ -357,6 +357,7 @@ pub(in crate::commerce) async fn search_products(
     resolve_aql_vector(&pool, aql.build()).await
 }
 
+/// Important note: product should be moved into the archive before deleting it!
 pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
     product_key: &str,

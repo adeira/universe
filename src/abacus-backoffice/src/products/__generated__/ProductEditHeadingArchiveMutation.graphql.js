@@ -5,10 +5,10 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type ProductEditHeadingDeleteMutationVariables = {|
+export type ProductEditHeadingArchiveMutationVariables = {|
   productKey: string
 |};
-export type ProductEditHeadingDeleteMutationResponse = {|
+export type ProductEditHeadingArchiveMutationResponse = {|
   +commerce: {|
     +productOrError: {|
       +__typename: "Product"
@@ -22,17 +22,17 @@ export type ProductEditHeadingDeleteMutationResponse = {|
     |}
   |}
 |};
-export type ProductEditHeadingDeleteMutation = {|
-  variables: ProductEditHeadingDeleteMutationVariables,
-  response: ProductEditHeadingDeleteMutationResponse,
+export type ProductEditHeadingArchiveMutation = {|
+  variables: ProductEditHeadingArchiveMutationVariables,
+  response: ProductEditHeadingArchiveMutationResponse,
 |};
 
 /*
-mutation ProductEditHeadingDeleteMutation(
+mutation ProductEditHeadingArchiveMutation(
   $productKey: ID!
 ) {
   commerce {
-    productOrError: productDelete(productKey: $productKey) {
+    productOrError: productArchive(productKey: $productKey) {
       __typename
       ... on Product {
         __typename
@@ -80,7 +80,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ProductEditHeadingDeleteMutation",
+    "name": "ProductEditHeadingArchiveMutation",
     "selections": [
       {
         "alias": null,
@@ -95,7 +95,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
-            "name": "productDelete",
+            "name": "productArchive",
             "plural": false,
             "selections": [
               {
@@ -129,7 +129,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ProductEditHeadingDeleteMutation",
+    "name": "ProductEditHeadingArchiveMutation",
     "selections": [
       {
         "alias": null,
@@ -144,7 +144,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
-            "name": "productDelete",
+            "name": "productArchive",
             "plural": false,
             "selections": [
               (v2/*: any*/),
@@ -165,15 +165,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3539a5efebe99a2b1b95300f86f55ffe",
+    "cacheID": "dc65b1c088c15122003ef94a765a10a0",
     "id": null,
     "metadata": {},
-    "name": "ProductEditHeadingDeleteMutation",
+    "name": "ProductEditHeadingArchiveMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingDeleteMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productDelete(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingArchiveMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productArchive(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '16345a8e5ec3aff0cf6fa709630a5cf0';
+(node: any).hash = '923d1fae0fa4d1d60c31ddf6066c22b4';
 export default node;
