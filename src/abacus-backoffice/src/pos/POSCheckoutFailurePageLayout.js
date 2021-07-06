@@ -4,7 +4,7 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
-import { LinkButton, Emoji } from '@adeira/sx-design';
+import { LinkButton_DEPRECATED as LinkButton, Emoji } from '@adeira/sx-design';
 
 import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi from './recoil/selectedItemsState';

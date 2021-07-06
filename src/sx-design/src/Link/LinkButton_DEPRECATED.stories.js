@@ -7,18 +7,18 @@ import sx from '@adeira/sx';
 import React from 'react';
 import fbt from 'fbt';
 
-import LinkButton from './LinkButton';
+import LinkButton_DEPRECATED from './LinkButton_DEPRECATED';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
   title: 'Example/LinkButton',
-  component: LinkButton,
+  component: LinkButton_DEPRECATED,
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <LinkButton {...args} />;
+const Template = (args) => <LinkButton_DEPRECATED {...args} />;
 
 /* eslint-disable sx/no-unused-stylesheet */
 const styles = sx.create({
@@ -31,7 +31,7 @@ const styles = sx.create({
 initFbt();
 
 // 👇 Each story then reuses that template
-export const Default: StoryTemplate<typeof LinkButton> = Template.bind({});
+export const Default: StoryTemplate<typeof LinkButton_DEPRECATED> = Template.bind({});
 Default.storyName = 'Default';
 Default.args = {
   children: (
@@ -43,7 +43,7 @@ Default.args = {
   onClick: () => alert('Yay!'),
 };
 
-export const CustomStyle: StoryTemplate<typeof LinkButton> = Template.bind({});
+export const CustomStyle: StoryTemplate<typeof LinkButton_DEPRECATED> = Template.bind({});
 CustomStyle.storyName = 'Custom style';
 CustomStyle.args = {
   children: (

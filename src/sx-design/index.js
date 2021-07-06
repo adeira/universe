@@ -6,7 +6,7 @@ export { default as useSxDesignContext } from './src/useSxDesignContext';
 // public SX Design components:
 export { default as Badge } from './src/Badge/Badge';
 export { default as Button } from './src/Button/Button';
-export { default as ButtonLink } from './src/Button/ButtonLink';
+export { default as ButtonLink_DEPRECATED } from './src/Button/ButtonLink_DEPRECATED';
 export { default as Emoji } from './src/Emoji/Emoji';
 export { default as Entity } from './src/Entity/Entity';
 export { default as EntityField } from './src/Entity/EntityField';
@@ -16,7 +16,7 @@ export { default as Image } from './src/Image/Image';
 export { default as Kbd } from './src/Kbd/Kbd';
 export { default as Link } from './src/Link/Link';
 export { default as Loader } from './src/Loader/Loader';
-export { default as LinkButton } from './src/Link/LinkButton';
+export { default as LinkButton_DEPRECATED } from './src/Link/LinkButton_DEPRECATED';
 export { default as MissingData } from './src/MissingData/MissingData';
 export { default as Modal } from './src/Modal/Modal';
 export { default as Money, MoneyFn } from './src/Money/Money';

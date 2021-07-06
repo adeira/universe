@@ -5,7 +5,7 @@
 
 import fbt from 'fbt';
 
-import ButtonLink from './ButtonLink';
+import ButtonLink from './ButtonLink_DEPRECATED';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 

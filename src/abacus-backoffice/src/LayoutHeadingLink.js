@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
-import { ButtonLink } from '@adeira/sx-design';
+import { ButtonLink_DEPRECATED as ButtonLink } from '@adeira/sx-design';
 import NextLink from 'next/link';
 
 type Props = {

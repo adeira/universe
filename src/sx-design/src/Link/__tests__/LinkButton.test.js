@@ -6,7 +6,7 @@
 import React from 'react';
 import fbt from 'fbt';
 
-import LinkButton from '../LinkButton';
+import LinkButton_DEPRECATED from '../LinkButton_DEPRECATED';
 import { initFbt, render, fireEvent } from '../../test-utils';
 
 beforeEach(() => {
@@ -17,11 +17,11 @@ it('calls onClick event', () => {
   const onClickFn = jest.fn();
 
   const { getByText } = render(
-    <LinkButton onClick={onClickFn}>
+    <LinkButton_DEPRECATED onClick={onClickFn}>
       <fbt desc="link title" doNotExtract={true}>
         link button with onClick callback
       </fbt>
-    </LinkButton>,
+    </LinkButton_DEPRECATED>,
   );
 
   expect(getByText('link button with onClick callback')).toBeDefined();

@@ -2,7 +2,7 @@
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import React, { type Node, useState } from 'react';
-import { Image, LinkButton } from '@adeira/sx-design';
+import { Image, LinkButton_DEPRECATED as LinkButton } from '@adeira/sx-design';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
 

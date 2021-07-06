@@ -24,7 +24,7 @@ type Props = {
  * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
  * be forwarded to the HTML `<a />` element as expected.
  */
-export default (React.forwardRef(function ButtonLink(props, ref): React.Node {
+export default (React.forwardRef(function ButtonLink_DEPRECATED(props, ref): React.Node {
   return (
     <Link
       ref={ref}
