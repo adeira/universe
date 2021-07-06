@@ -1,15 +1,14 @@
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Pos;
 use crate::auth::rbac::PosActions::{Checkout, GetAllPublishedProducts, GetCheckoutStats};
-use crate::commerce::api::{
-    PriceSortDirection, Product, ProductMultilingualInputVisibility, SupportedCurrency,
-    SupportedLocale,
-};
+use crate::commerce::api::{PriceSortDirection, Product, ProductMultilingualInputVisibility};
 use crate::graphql_context::Context;
+use crate::locale::SupportedLocale;
 use crate::pos::api::dal::{
     create_checkout, get_total_checkout_stats, PosCheckoutInput as PosCheckoutDalInput,
     PosCheckoutProductInput as PosCheckoutProductDalInput, PosCheckoutTotalStats,
 };
+use crate::price::SupportedCurrency;
 
 pub(crate) struct POSQuery;
 pub(crate) struct POSMutation;

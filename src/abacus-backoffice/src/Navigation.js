@@ -3,7 +3,6 @@
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
-import { useSxDesignContext } from '@adeira/sx-design';
 
 import LanguageSwitch from './LanguageSwitch';
 import Link from './Link';
@@ -11,16 +10,8 @@ import { LogoutButton } from './AuthButtons';
 import NavigationHeader from './NavigationHeader';
 
 export default function Navigation(): React.Node {
-  const { theme } = useSxDesignContext();
-
   return (
-    <nav
-      className={styles({
-        navigationBase: true,
-        navigationLight: theme === 'light',
-        navigationDark: theme === 'dark',
-      })}
-    >
+    <nav className={styles('navigation')}>
       <div className={styles('navigationHeader')}>
         <NavigationHeader />
       </div>
@@ -43,7 +34,9 @@ export default function Navigation(): React.Node {
       <Link href="/pos" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to point of sales sessions">POS sessions</fbt>
       </Link>
+
       <div className={styles('spacing')} />
+
       <LanguageSwitch />
       <LogoutButton />
     </nav>
@@ -51,31 +44,21 @@ export default function Navigation(): React.Node {
 }
 
 const linkActiveStylesheet = {
-  color: '#3b85ff',
-  backgroundColor: 'white',
-  borderColor: '#e9eff3',
+  color: 'rgba(var(--sx-success))',
+  backgroundColor: 'rgba(var(--sx-background))',
+  borderColor: 'rgba(var(--sx-accent-2))',
   borderTopLeftRadius: 4,
   borderBottomLeftRadius: 4,
   textDecoration: 'none',
 };
 
 const styles = sx.create({
-  navigationBase: {
+  navigation: {
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem 0 1rem 1rem',
-    borderInlineEnd: '1px solid #e9eff3',
-  },
-  navigationLight: {
-    backgroundColor: '#f4f7f9',
-    color: '#5c6a77',
-    borderInlineEnd: '1px solid #e9eff3',
-  },
-  navigationDark: {
-    backgroundColor: '#333',
-    color: '#fff',
-    borderInlineEnd: '1px solid #222',
+    borderInlineEnd: '1px solid rgba(var(--sx-accent-2))',
   },
   navigationHeader: {
     marginBlockEnd: '1rem',

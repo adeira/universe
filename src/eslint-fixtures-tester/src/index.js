@@ -48,7 +48,15 @@ export default function testFixtures({
     });
   }
   for (const fixture of fs.readdirSync(invalidFixturesPath)) {
+    if (fixture === 'autofixed') {
+      // special hardcoded directory name with "autofixed" versions
+      continue;
+    }
     const code = fs.readFileSync(path.join(invalidFixturesPath, fixture), 'utf8');
+    let codeAutofixed = null;
+    if (fs.existsSync(path.join(invalidFixturesPath, 'autofixed', fixture))) {
+      codeAutofixed = fs.readFileSync(path.join(invalidFixturesPath, 'autofixed', fixture), 'utf8');
+    }
     const docblock = extract(code);
     const pragmas = parse(docblock);
     if (pragmas.eslintExpectedError == null) {
@@ -60,11 +68,13 @@ export default function testFixtures({
       invalidFixtures.push({
         code,
         errors: pragmas.eslintExpectedError.map((message) => createErrorObject(message)),
+        output: codeAutofixed,
       });
     } else {
       invalidFixtures.push({
         code,
         errors: [createErrorObject(pragmas.eslintExpectedError)],
+        output: codeAutofixed,
       });
     }
   }

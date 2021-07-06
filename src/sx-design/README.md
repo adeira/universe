@@ -37,76 +37,6 @@ export default function MyRootApp() {
 
 The error boundary is optional but highly recommended.
 
-# Styles customization
-
-SX Design leverages full power of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) as a main way of style customization. You can optionally adjust the values if you want from your application. Here are some component specific default values and colors (not dependent on dark mode):
-
-<!-- TODO: generate automatically from the source code? -->
-
-```text
---sx-kbd-border: 1px solid #b4b4b4
---sx-money-text-color: var(--sx-foreground) ¹
---sx-radius: 5px
-
---sx-error-lighter: 247, 212, 214 ²
---sx-error-light: 255, 26, 26
---sx-error: 238, 0, 0
---sx-error-dark: 197, 0, 0
-
---sx-success-lighter: 211, 229, 255
---sx-success-light: 50, 145, 255
---sx-success: 0, 112, 243
---sx-success-dark: 7, 97, 209
-
---sx-warning-lighter: 255, 239, 207
---sx-warning-light: 247, 185, 85
---sx-warning: 245, 166, 35
---sx-warning-dark: 171, 87, 10
-```
-
-Generic default values for light mode:
-
-```text
---sx-background: 255, 255, 255 ²
---sx-accent-1: 227, 227, 227
---sx-accent-2: 198, 199, 200
---sx-accent-3: 170, 171, 172
---sx-accent-4: 142, 143, 144
---sx-accent-5: 113, 114, 116
---sx-accent-6: 85, 86, 89
---sx-accent-7: 56, 58, 61
---sx-foreground: 28, 30, 33
---sx-text-link-color: 3, 102, 214
-```
-
-And finally generic default values for dark mode:
-
-```text
---sx-background: 51, 51, 51 ²
---sx-accent-1: 77, 77, 77
---sx-accent-2: 102, 102, 102
---sx-accent-3: 128, 128, 128
---sx-accent-4: 153, 153, 153
---sx-accent-5: 179, 179, 179
---sx-accent-6: 204, 204, 204
---sx-accent-7: 230, 230, 230
---sx-foreground: 255, 255, 255
---sx-text-link-color: 88, 166, 255
-```
-
-¹ Some CSS variables fallback to default value of some other CSS variable. This allows you to overwrite very specific value if you want or just leave it to the common default.
-
-² All colors are written as triplets of values from 0 to 255 and passed to RGBA function likes so: `rgba(--var)`. This allows us to optionally specify an alpha channel when needed: `rgba(--var, 0.5)`.
-
-You can access the dark mode even programmatically via `useSxDesignContext` hook:
-
-```js
-export default function MyComponent() {
-  // `theme` can be "light", "dark" or "system"
-  const { theme } = useSxDesignContext();
-}
-```
-
 # Available components
 
 **🚧 WORK in PROGRESS 🚧**
@@ -134,6 +64,7 @@ Legend:
 | [`<Loader />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<MissingData />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Modal />`]         |     ✅      |     ✅      |      🧐       |    🧐    |  🧐   |
 | [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -157,6 +88,7 @@ Legend:
 [`<loader />`]: https://sx-design.vercel.app/?path=/story/example-loader
 [`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/example-linkbutton
 [`<missingdata />`]: https://sx-design.vercel.app/?path=/story/example-missingdata
+[`<modal />`]: https://sx-design.vercel.app/?path=/story/example-modal
 [`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
 [`<note />`]: https://sx-design.vercel.app/?path=/story/example-note
 [`<productcard />`]: https://sx-design.vercel.app/?path=/story/example-productcard
@@ -177,6 +109,19 @@ _Did you find a mistake in this table? Please, [report is as an issue](https://g
 ⁴ There are tests available to make sure that the component works as expected and we won't break it by accident.
 
 ⁵ Component correctly supports right-to-left (RTL) as well as traditional left-to-right (LTR) layouts
+
+# Styles customization
+
+SX Design leverages full power of [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) as a main way of style customization. You can optionally overwrite the values from your application. Most of the CSS variable values are available in [`src/SxDesignProviderCSSVariables.js`](./src/SxDesignProviderCSSVariables.js) or in a documentation of each component (when they relate only to that component).
+
+There is also an `useSxDesignContext` hook which allows you to access system theme and other global SX Design properties:
+
+```js
+export default function MyComponent() {
+  // `theme` can be "light", "dark" or "system"
+  const { theme } = useSxDesignContext();
+}
+```
 
 # Development
 

@@ -4,7 +4,6 @@ on: [push]
 
 env:
   CI: true
-  FORCE_COLOR: '1' # https://github.com/chalk/chalk/issues/203
   NODE_OPTIONS: --max-old-space-size=6144
   BABEL_DISABLE_CACHE: '1'
 

@@ -14,6 +14,10 @@ type Props = {
 /**
  * Stylistically similar to <Link /> except it renders a button and expects `onClick` instead of
  * `href` property.
+ *
+ * ## CSS variables
+ *
+ * `--sx-link-text-color` (overwrites default link color)
  */
 export default function LinkButton(props: Props): React.Node {
   return (
@@ -33,7 +37,7 @@ const styles = sx.create({
   default: {
     'backgroundColor': 'inherit',
     'border': 'none',
-    'color': 'rgba(var(--sx-text-link-color))',
+    'color': 'rgba(var(--sx-link-text-color))',
     'cursor': 'pointer',
     'font': 'inherit',
     'margin': 0,

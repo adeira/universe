@@ -1,8 +1,9 @@
-// @flow strict
+// @flow
 
 import * as React from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+import Icon from '@adeira/icons';
 
 export default function LanguageSwitch(): React.Node {
   const router = useRouter();
@@ -10,8 +11,16 @@ export default function LanguageSwitch(): React.Node {
 
   // eventually we could offer to switch language and region independently
   const languagesMap = {
-    'en-us': <div>Switch to English</div>,
-    'es-mx': <div>Cambiar a Español</div>,
+    'en-us': (
+      <div>
+        <Icon name="translate" /> Switch to English
+      </div>
+    ),
+    'es-mx': (
+      <div>
+        <Icon name="translate" /> Cambiar a Español
+      </div>
+    ),
   };
 
   const languageSwitch = [];

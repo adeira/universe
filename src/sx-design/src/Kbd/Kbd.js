@@ -20,6 +20,10 @@ type Props = {
  *
  * - Keyboard mappings using a PC keyboard on a Macintosh: https://support.microsoft.com/en-us/topic/keyboard-mappings-using-a-pc-keyboard-on-a-macintosh-d4fd87ca-8762-30ee-fcde-08ffe95faea3
  * - Windows keys on a Mac keyboard: https://support.apple.com/guide/mac-help/windows-keys-on-a-mac-keyboard-cpmh0152/mac
+ *
+ * ## CSS variables
+ *
+ * `--sx-kbd-border` (overwrites the default border)
  */
 export default function Kbd(props: Props): Node {
   // eslint-disable-next-line react/forbid-elements
