@@ -3,8 +3,6 @@
  * @flow
  */
 
-import sx from '@adeira/sx';
-import React from 'react';
 import fbt from 'fbt';
 
 import LinkButton from './LinkButton';
@@ -18,40 +16,43 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <LinkButton {...args} />;
+const BasicTemplate = (args) => <LinkButton {...args} />;
 
-/* eslint-disable sx/no-unused-stylesheet */
-const styles = sx.create({
-  custom: {
-    color: 'red',
-  },
-});
-/* eslint-enable sx/no-unused-stylesheet */
+const ShowcaseTemplate = (args) => (
+  <>
+    <LinkButton {...args} tint="default" />
+    <LinkButton {...args} tint="error" />
+    <LinkButton {...args} tint="success" />
+    <LinkButton {...args} tint="warning" />
+  </>
+);
 
 initFbt();
 
 // 👇 Each story then reuses that template
-export const Default: StoryTemplate<typeof LinkButton> = Template.bind({});
-Default.storyName = 'Default';
-Default.args = {
+export const ButtonDefault: StoryTemplate<typeof LinkButton> = BasicTemplate.bind({});
+ButtonDefault.storyName = 'Default';
+ButtonDefault.args = {
   children: (
     <fbt desc="link button title" doNotExtract={true}>
-      Click me, I am a button link!
+      Click me, I am a link but I look like a button!
     </fbt>
   ),
-  // eslint-disable-next-line no-alert
-  onClick: () => alert('Yay!'),
+  href: 'https://github.com/adeira/universe/stargazers',
 };
 
-export const CustomStyle: StoryTemplate<typeof LinkButton> = Template.bind({});
-CustomStyle.storyName = 'Custom style';
-CustomStyle.args = {
+export const ButtonShowcase: StoryTemplate<typeof LinkButton> = ShowcaseTemplate.bind({});
+ButtonShowcase.storyName = 'Showcase';
+ButtonShowcase.argTypes = {
+  children: { table: { disable: true } },
+  href: { table: { disable: true } },
+  tint: { table: { disable: true } },
+};
+ButtonShowcase.args = {
   children: (
     <fbt desc="link button title" doNotExtract={true}>
-      Click me, I am a button link! (with custom styles)
+      Click me, I am a link but I look like a button!
     </fbt>
   ),
-  // eslint-disable-next-line no-alert
-  onClick: () => alert('Yay!'),
-  xstyle: styles.custom,
+  href: 'https://github.com/adeira/universe/stargazers',
 };

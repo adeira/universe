@@ -1,52 +1,60 @@
 // @flow
 
 import * as React from 'react';
-import sx, { type AllCSSProperties } from '@adeira/sx';
+import sx from '@adeira/sx';
+
+import Link from './Link';
+import sharedButtonStyles from '../Button/styles';
 
 type Props = {
-  +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
+  +'href': string,
   +'children': FbtWithoutString,
+  +'target'?: string,
   +'isActive'?: boolean,
-  +'xstyle'?: AllCSSProperties,
+  +'tint'?: 'default' | 'error' | 'success' | 'warning',
+  +'isDisabled'?: boolean,
   +'data-testid'?: string,
+  +'onClick'?: () => void,
 };
 
 /**
- * Stylistically similar to <Link /> except it renders a button and expects `onClick` instead of
- * `href` property.
+ * Stylistically similar to <Button /> except it renders a link and expects `href` instead of
+ * `onClick` property.
  *
- * ## CSS variables
- *
- * `--sx-link-text-color` (overwrites default link color)
+ * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
+ * be forwarded to the HTML `<a />` element as expected.
  */
-export default function LinkButton(props: Props): React.Node {
+export default (React.forwardRef(function LinkButton(props, ref): React.Node {
   return (
-    // eslint-disable-next-line react/forbid-elements
-    <button
-      type="button"
-      onClick={props.onClick}
+    <Link
+      ref={ref}
+      href={props.href}
+      target={props.target}
+      isActive={props.isActive ?? true}
       data-testid={props['data-testid']}
-      className={sx(styles.default, props.isActive ? null : styles.inactive, props.xstyle)}
+      xstyle={styles.linkStylesReset}
+      onClick={props.onClick}
     >
-      {props.children}
-    </button>
+      <span
+        className={sharedButtonStyles({
+          buttonBase: true,
+          buttonTintDefault: props.tint == null || props.tint === 'default',
+          buttonTintError: props.tint === 'error',
+          buttonTintSuccess: props.tint === 'success',
+          buttonTintWarning: props.tint === 'warning',
+          buttonDisabled: props.isDisabled === true,
+        })}
+      >
+        {props.children}
+      </span>
+    </Link>
   );
-}
+}): React.AbstractComponent<Props, HTMLAnchorElement>);
 
 const styles = sx.create({
-  default: {
-    'backgroundColor': 'inherit',
-    'border': 'none',
-    'color': 'rgba(var(--sx-link-text-color))',
-    'cursor': 'pointer',
-    'font': 'inherit',
-    'margin': 0,
-    'padding': 0,
+  linkStylesReset: {
     ':hover': {
-      textDecoration: 'underline',
+      textDecoration: 'none',
     },
-  },
-  inactive: {
-    opacity: 0.85,
   },
 });

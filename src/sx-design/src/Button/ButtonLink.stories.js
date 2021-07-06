@@ -3,6 +3,8 @@
  * @flow
  */
 
+import sx from '@adeira/sx';
+import React from 'react';
 import fbt from 'fbt';
 
 import ButtonLink from './ButtonLink';
@@ -16,43 +18,40 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => <ButtonLink {...args} />;
+const Template = (args) => <ButtonLink {...args} />;
 
-const ShowcaseTemplate = (args) => (
-  <>
-    <ButtonLink {...args} tint="default" />
-    <ButtonLink {...args} tint="error" />
-    <ButtonLink {...args} tint="success" />
-    <ButtonLink {...args} tint="warning" />
-  </>
-);
+/* eslint-disable sx/no-unused-stylesheet */
+const styles = sx.create({
+  custom: {
+    color: 'red',
+  },
+});
+/* eslint-enable sx/no-unused-stylesheet */
 
 initFbt();
 
 // 👇 Each story then reuses that template
-export const ButtonDefault: StoryTemplate<typeof ButtonLink> = BasicTemplate.bind({});
-ButtonDefault.storyName = 'Default';
-ButtonDefault.args = {
+export const Default: StoryTemplate<typeof ButtonLink> = Template.bind({});
+Default.storyName = 'Default';
+Default.args = {
   children: (
     <fbt desc="button link title" doNotExtract={true}>
-      Button link
+      Click me, I am a button but I look like a link!
     </fbt>
   ),
-  href: 'https://github.com/adeira/universe',
+  // eslint-disable-next-line no-alert
+  onClick: () => alert('Yay!'),
 };
 
-export const ButtonShowcase: StoryTemplate<typeof ButtonLink> = ShowcaseTemplate.bind({});
-ButtonShowcase.storyName = 'Showcase';
-ButtonShowcase.argTypes = {
-  children: { table: { disable: true } },
-  href: { table: { disable: true } },
-  tint: { table: { disable: true } },
-};
-ButtonShowcase.args = {
+export const CustomStyle: StoryTemplate<typeof ButtonLink> = Template.bind({});
+CustomStyle.storyName = 'Custom style';
+CustomStyle.args = {
   children: (
     <fbt desc="button link title" doNotExtract={true}>
-      Button link
+      Click me, I am a button but I look like a link! (with custom styles)
     </fbt>
   ),
-  href: 'https://github.com/adeira/universe',
+  // eslint-disable-next-line no-alert
+  onClick: () => alert('Yay!'),
+  xstyle: styles.custom,
 };

@@ -1,7 +1,7 @@
 // @flow
 
 import sx from '@adeira/sx';
-import { Heading, Section, LinkButton } from '@adeira/sx-design';
+import { Heading, Section, ButtonLink } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -45,7 +45,7 @@ export default function ShopLayout(): Node {
             <fbt desc="shop categories selection title">All Categories</fbt>
           </Heading>
           <div>
-            <LinkButton
+            <ButtonLink
               onClick={() => {
                 handleChangeFilters({
                   categories: {
@@ -55,7 +55,7 @@ export default function ShopLayout(): Node {
               }}
             >
               <fbt desc="shop all categories link">Shop All</fbt>
-            </LinkButton>
+            </ButtonLink>
           </div>
         </div>
         <div>
@@ -66,7 +66,7 @@ export default function ShopLayout(): Node {
             <fbt desc="shop relevance selection title">Relevance</fbt>
           </Heading>
           <div>
-            <LinkButton
+            <ButtonLink
               onClick={() => {
                 handleChangeFilters({
                   relevance: {
@@ -76,10 +76,10 @@ export default function ShopLayout(): Node {
               }}
             >
               <fbt desc="price relevance low to high">Price: Low to high</fbt>
-            </LinkButton>
+            </ButtonLink>
           </div>
           <div>
-            <LinkButton
+            <ButtonLink
               onClick={() => {
                 handleChangeFilters({
                   relevance: {
@@ -89,7 +89,7 @@ export default function ShopLayout(): Node {
               }}
             >
               <fbt desc="price relevance hight to low">Price: High to low</fbt>
-            </LinkButton>
+            </ButtonLink>
           </div>
         </div>
       </Section>
