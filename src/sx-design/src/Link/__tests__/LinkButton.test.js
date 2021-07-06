@@ -19,8 +19,8 @@ it('forwards React refs as expected', () => {
   const ref = React.createRef();
   const { container } = render(
     <LinkButton ref={ref} href="https://localhost">
-      <fbt desc="button link title" doNotExtract={true}>
-        button link
+      <fbt desc="link button title" doNotExtract={true}>
+        link button
       </fbt>
     </LinkButton>,
   );
@@ -34,15 +34,15 @@ it('calls onClick event', () => {
 
   const { getByText } = render(
     <LinkButton href="https://localhost" onClick={onClickFn}>
-      <fbt desc="button link title" doNotExtract={true}>
-        button link with onClick callback
+      <fbt desc="link button title" doNotExtract={true}>
+        link button with onClick callback
       </fbt>
     </LinkButton>,
   );
 
-  expect(getByText('button link with onClick callback')).toBeDefined();
+  expect(getByText('link button with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('button link with onClick callback'));
+  fireEvent.click(getByText('link button with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
