@@ -6,11 +6,12 @@ import { Workspaces } from '@adeira/monorepo-utils';
 
 import isValidLicense from '../isValidLicense';
 
-// Every package must have either:
-// - licence defined as UNLICENSED and no license file, or
-// - license defined as MIT and contain license file
-
-const supportedLicenses = ['UNLICENSED', 'MIT'];
+// See: https://docs.npmjs.com/cli/v7/configuring-npm/package-json#license
+const supportedLicenses = [
+  'UNLICENSED', // special case if you do not wish to grant others the right to use a private or unpublished package under any terms
+  'MIT', // https://spdx.org/licenses/MIT.html
+  'Unlicense', // https://spdx.org/licenses/Unlicense.html
+];
 
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
   const packageJson = require(packageJSONLocation);
@@ -30,16 +31,23 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     if (license === 'UNLICENSED') {
       // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(fs.existsSync(licenseFilePath) === false).toGiveHelp(
-        'Unlicensed workspaces should not have LICENSE file in their root.',
+        'Unlicensed workspaces should NOT have LICENSE file in their root.',
       );
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
+      expect(packageJson.private === true).toGiveHelp('All unlicensed packages must be private.');
     } else if (license === 'MIT') {
       // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(fs.existsSync(licenseFilePath) === true).toGiveHelp(
-        'Unlicensed workspaces must have LICENSE file in their root.',
+        'MIT licenced workspaces must have LICENSE file in their root.',
       );
       // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
       expect(isValidLicense(fs.readFileSync(licenseFilePath, 'utf8')) === true).toGiveHelp(
         'MIT license should follow standard format with Adeira copyright',
+      );
+    } else if (license === 'Unlicense') {
+      // $FlowIssue[incompatible-call]: https://github.com/facebook/flow/issues/3018
+      expect(fs.existsSync(licenseFilePath) === true).toGiveHelp(
+        '"Unlicense" licenced workspaces must have LICENSE file in their root.',
       );
     } else {
       throw new Error(

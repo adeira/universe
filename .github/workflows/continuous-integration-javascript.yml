@@ -31,7 +31,11 @@ jobs:
           cache: 'yarn'
 
       - name: Install Yarn dependencies
-        run: yarn install --frozen-lockfile
+        # Command `yarn install --frozen-lockfile` doesn't always fail if `yarn.lock` is modified (https://github.com/yarnpkg/yarn/issues/5840).
+        # Instead, we are installing the dependencies as usual and checking that nothing changed.
+        run: |
+          yarn install
+          git diff --exit-code
 
       - name: Run Flow checks
         run: |
