@@ -16,6 +16,9 @@ type Props = {
   +'data-testid'?: string,
 };
 
+/**
+ * Creates a traditional HTML button with the correct attributes.
+ */
 export default function Button(props: Props): React.Element<'button'> {
   return (
     // eslint-disable-next-line react/forbid-elements
