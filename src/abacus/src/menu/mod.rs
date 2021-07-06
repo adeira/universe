@@ -1,5 +1,6 @@
-use crate::commerce::api::{Product, SupportedLocale};
+use crate::commerce::api::Product;
 use crate::graphql_context::Context;
+use crate::locale::SupportedLocale;
 
 pub(in crate) mod api;
 

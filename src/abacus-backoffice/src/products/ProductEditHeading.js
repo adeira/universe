@@ -45,6 +45,7 @@ export default function ProductEditHeading(props: Props): React.Node {
     graphql`
       fragment ProductEditHeading on Product {
         key
+        name
         isPublished
       }
     `,
@@ -82,7 +83,9 @@ export default function ProductEditHeading(props: Props): React.Node {
     <LayoutHeading
       heading={
         <Heading>
-          <fbt desc="edit product page heading">Edit product</fbt>
+          <fbt desc="edit product page heading">
+            Edit product: <fbt:param name="productName">{product.name}</fbt:param>
+          </fbt>
         </Heading>
       }
     >

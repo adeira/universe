@@ -3,8 +3,12 @@ use crate::auth::rbac::Actions::Commerce;
 use crate::auth::rbac::CommerceActions::{
     CreateProduct, DeleteProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
+use crate::commerce::model::product_categories::ProductCategory;
+use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use crate::images::Image;
+use crate::locale::SupportedLocale;
+use crate::price::{Price, SupportedCurrency};
 use serde::{Deserialize, Serialize};
 
 /// This design was originally taken from Stripe API but was significantly changed (simplified).
@@ -31,7 +35,7 @@ pub struct Product {
     /// requirements fulfilled.
     is_published: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
-    price: ProductPrice,
+    price: Price,
     translations: Vec<ProductMultilingualTranslations>,
 }
 
@@ -70,7 +74,7 @@ impl Product {
     }
 }
 
-#[juniper::graphql_object]
+#[juniper::graphql_object(context = Context)]
 impl Product {
     /// Product ID is unique in our whole GraphQL universe. Please note however, that it's not URL
     /// friendly.
@@ -133,7 +137,7 @@ impl Product {
         self.unit_label.to_owned()
     }
 
-    fn price(&self) -> ProductPrice {
+    fn price(&self) -> Price {
         self.price.to_owned()
     }
 
@@ -160,21 +164,25 @@ impl Product {
     fn translations(&self) -> Vec<ProductMultilingualTranslations> {
         self.translations.to_owned()
     }
-}
 
-#[derive(juniper::GraphQLEnum, Clone, Serialize, Deserialize, Debug, Copy)]
-pub enum SupportedCurrency {
-    MXN,
-}
+    /// Returns ALL available product categories that can be applied to this product. You might be
+    /// also interested in `selected_categories` which are categories previously selected for this
+    /// product.
+    async fn available_categories(
+        &self,
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
+        Ok(
+            crate::commerce::model::product_categories::search_all_product_categories(
+                &context,
+                &client_locale,
+            )
+            .await?,
+        )
+    }
 
-#[derive(juniper::GraphQLObject, Clone, Deserialize, Debug)]
-struct ProductPrice {
-    /// The unit amount in centavo to be charged, represented as a whole integer.
-    /// Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
-    unit_amount: i32,
-
-    /// Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html).
-    unit_amount_currency: SupportedCurrency,
+    // TODO: selected_categories
 }
 
 /// This type should be used together with GraphQL uploads and it should hold the file names being
@@ -291,25 +299,6 @@ fn validate_product_multilingual_input(
 pub enum PriceSortDirection {
     LowToHigh,
     HighToLow,
-}
-
-#[derive(juniper::GraphQLEnum, Serialize, Deserialize, Debug, Clone, PartialEq)]
-pub enum SupportedLocale {
-    #[graphql(name = "en_US")]
-    #[serde(rename = "en_US")]
-    EnUS,
-    #[graphql(name = "es_MX")]
-    #[serde(rename = "es_MX")]
-    EsMX,
-}
-
-impl std::fmt::Display for SupportedLocale {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            SupportedLocale::EnUS => write!(f, "en_US"),
-            SupportedLocale::EsMX => write!(f, "es_MX"),
-        }
-    }
 }
 
 pub(in crate::commerce) async fn search_published_products(

@@ -3,20 +3,38 @@
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { fbt } from 'fbt';
-import { graphql } from '@adeira/relay';
+import { graphql, useFragment } from '@adeira/relay';
 import { useSetRecoilState } from 'recoil';
 
 import FormSubmit from '../forms/FormSubmit';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import ProductForm from './ProductForm';
+import type { ProductCreateFormData$key } from './__generated__/ProductCreateFormData.graphql';
 import type { ProductCreateFormMutationVariables } from './__generated__/ProductCreateFormMutation.graphql';
 
-export default function ProductCreateForm(): Node {
+type Props = {
+  +commerceData: ProductCreateFormData$key,
+};
+
+export default function ProductCreateForm(props: Props): Node {
   const router = useRouter();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
+  const data = useFragment<ProductCreateFormData$key>(
+    graphql`
+      fragment ProductCreateFormData on CommerceQuery {
+        productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
+          ...ProductFormData
+        }
+      }
+    `,
+    props.commerceData,
+  );
+
   return (
     <ProductForm
+      // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
+      availableCategories={data.productCategories}
       name_en={''}
       name_es={''}
       description_en={''}

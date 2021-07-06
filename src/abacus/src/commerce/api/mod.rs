@@ -1,12 +1,12 @@
+pub use crate::commerce::model::product_categories::ProductCategory;
 pub use crate::commerce::model::products::PriceSortDirection;
 pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
 pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
-pub use crate::commerce::model::products::SupportedCurrency;
-pub use crate::commerce::model::products::SupportedLocale;
 
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
+use crate::locale::SupportedLocale;
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -14,6 +14,7 @@ pub struct ProductError {
 }
 
 #[derive(juniper::GraphQLUnion)]
+#[graphql(context = Context)]
 pub enum ProductOrError {
     Product(Product),
     ProductError(ProductError),
@@ -58,6 +59,20 @@ impl CommerceQuery {
             &search_term,
         )
         .await?)
+    }
+
+    /// Returns ALL available product categories that can be applied to any product.
+    async fn search_all_product_categories(
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
+        Ok(
+            crate::commerce::model::product_categories::search_all_product_categories(
+                &context,
+                &client_locale,
+            )
+            .await?,
+        )
     }
 
     /// Returns one publicly available product by its key. Anyone can call this resolver.

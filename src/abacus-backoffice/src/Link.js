@@ -54,7 +54,7 @@ export default function Link(props: Props): React.Node {
 
 const styles = sx.create({
   default: {
-    'color': '#5c6a77',
+    'color': 'rgba(var(--sx-foreground))',
     'cursor': 'pointer',
     'textDecoration': 'none',
     ':hover': {

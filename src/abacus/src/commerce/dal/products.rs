@@ -1,9 +1,9 @@
 use crate::arangodb::{resolve_aql, resolve_aql_vector, ConnectionPool};
 use crate::commerce::model::products::{
     PriceSortDirection, Product, ProductMultilingualInput, ProductMultilingualInputVisibility,
-    SupportedLocale,
 };
 use crate::images::Image;
+use crate::locale::SupportedLocale;
 use serde_json::json;
 
 /// Takes care of creating the product inside ArangoDB.
