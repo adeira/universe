@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`returns THROWN EXCEPTION when the operation is expected to fail and it fails 1`] = `
+"THROWN EXCEPTION:
+
+Error: ups"
+`;
+
+exports[`returns THROWN EXCEPTION when the operation is expected to fail and it fails 2`] = `
+"THROWN EXCEPTION:
+
+Error: ups"
+`;
+
+exports[`throws when error is expected but none was thrown 1`] = `
+[Error: Expected test file 'fixture.error.txt' to throw, but it passed:
+ok]
+`;
+
+exports[`throws when error is expected but none was thrown 2`] = `
+[Error: Expected test file 'fixture.error.txt' to throw, but it passed:
+ok]
+`;

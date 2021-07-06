@@ -1,9 +1,13 @@
 // @flow
 
 import expandBackground from '../expandBackground';
+import expandShorthandProperties from '../../expandShorthandProperties';
 import printNodes from './printNodes';
 
 it('expands background as expected', () => {
+  expect(expandBackground('background', 'red')).toEqual(
+    expandShorthandProperties('background', 'red', ''),
+  );
   expect(expandBackground('background', 'red').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2rGYXd{background-image:none}",
@@ -17,6 +21,9 @@ it('expands background as expected', () => {
     ]
   `);
 
+  expect(expandBackground('background', 'none')).toEqual(
+    expandShorthandProperties('background', 'none', ''),
+  );
   expect(expandBackground('background', 'none').map(printNodes)).toMatchInlineSnapshot(`
     Array [
       "._2rGYXd{background-image:none}",
@@ -32,6 +39,11 @@ it('expands background as expected', () => {
 });
 
 it('ignores more complex background syntaxes', () => {
+  expect(
+    expandBackground('background', 'no-repeat url("../../media/examples/lizard.png")'),
+  ).toEqual(
+    expandShorthandProperties('background', 'no-repeat url("../../media/examples/lizard.png")', ''),
+  );
   expect(
     expandBackground('background', 'no-repeat url("../../media/examples/lizard.png")').map(
       printNodes,
