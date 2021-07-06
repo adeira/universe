@@ -4,7 +4,7 @@ use casbin::{CoreApi, DefaultModel, Error as CasbinError, FileAdapter};
 pub(crate) enum CommerceActions {
     CreateProduct,
     UpdateProduct,
-    DeleteProduct,
+    ArchiveProduct,
     PublishProduct,
     UnpublishProduct,
     GetAllProducts, // means ALL - published/unpublished
@@ -48,7 +48,10 @@ pub enum RbacError {
 }
 
 /// Verifies whether the user is signed in AND whether it has the correct permissions according to
-/// our RBAC policies.
+/// our RBAC policies. It should be used as a part of business logic because the actions represent
+/// business actions. For example: archiving a product means to copy the product into archive and
+/// deleting it. We have only one action for it (`CommerceActions.ArchiveProduct`) instead of having
+/// multiple based on what DB requests need to be made.
 ///
 /// Please note (TODO): this is quick'n'dirty solution. We should migrate these policies to the
 /// database instead of storing them in a file.
@@ -70,7 +73,7 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                             match commerce_actions {
                                 CommerceActions::CreateProduct => act = "create_product",
                                 CommerceActions::UpdateProduct => act = "update_product",
-                                CommerceActions::DeleteProduct => act = "delete_product",
+                                CommerceActions::ArchiveProduct => act = "archive_product",
                                 CommerceActions::PublishProduct => act = "publish_product",
                                 CommerceActions::UnpublishProduct => act = "unpublish_product",
                                 CommerceActions::GetAllProducts => act = "get_all_products",

@@ -6,7 +6,7 @@ pub(in crate) enum SupportedCurrency {
     MXN,
 }
 
-#[derive(juniper::GraphQLObject, Clone, Deserialize, Debug)]
+#[derive(juniper::GraphQLObject, Clone, Deserialize, Debug, Serialize)]
 pub(in crate) struct Price {
     /// The unit amount in centavo to be charged, represented as a whole integer.
     /// Centavo equals ¹⁄₁₀₀ of the basic monetary unit.

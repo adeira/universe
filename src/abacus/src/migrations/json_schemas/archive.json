@@ -1,0 +1,15 @@
+{
+  "message": "",
+  "level": "strict",
+  "rule": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["original_id", "original_collection_name", "original_payload", "created"],
+    "properties": {
+      "original_id": { "type": "string", "minLength": 1 },
+      "original_collection_name": { "type": "string", "minLength": 1 },
+      "original_payload": { "type": "string", "minLength": 1 },
+      "created": { "type": "string", "minLength": 1 }
+    }
+  }
+}

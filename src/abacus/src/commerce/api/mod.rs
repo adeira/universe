@@ -162,9 +162,14 @@ impl CommerceMutation {
         }
     }
 
-    /// Deletes product based on the product KEY.
-    async fn product_delete(context: &Context, product_key: juniper::ID) -> ProductOrError {
-        match crate::commerce::model::products::delete_product(&context, &product_key).await {
+    /// Archives product based on the product KEY making it effectively inaccessible. From the user
+    /// perspective it's like deleting the product, however, internally the product still exists in
+    /// the archive and could potentially be restored.
+    ///
+    /// Note: the product cannot be searched for and cannot be retrieved in any way (other than via
+    /// the archive). It can also be hard deleted without prior notice.
+    async fn product_archive(context: &Context, product_key: juniper::ID) -> ProductOrError {
+        match crate::commerce::model::products::archive_product(&context, &product_key).await {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
                 // TODO: do not expose DB and RBAC errors directly
