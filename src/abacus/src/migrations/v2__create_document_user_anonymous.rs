@@ -1,5 +1,4 @@
 use crate::migrations::utils::{create_document, ArangoDocument};
-use arangors::ClientError;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct User {
@@ -15,7 +14,7 @@ impl ArangoDocument for User {
 
 pub async fn migrate(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     let collection_name = "users";
     create_document(
         &db,

@@ -1,6 +1,5 @@
 use crate::migrations::utils::{create_collection, create_document, ArangoDocument};
 use arangors::collection::CollectionType;
-use arangors::ClientError;
 
 #[derive(serde::Serialize, serde::Deserialize)]
 struct ProductUnit {
@@ -17,7 +16,7 @@ impl ArangoDocument for ProductUnit {
 
 pub async fn migrate(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     create_collection(
         &db,
         "products",

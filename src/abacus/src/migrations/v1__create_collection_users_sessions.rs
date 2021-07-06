@@ -2,11 +2,10 @@ use crate::migrations::utils::{create_collection, create_graph, create_index};
 use arangors::collection::CollectionType;
 use arangors::graph::{EdgeDefinition, Graph};
 use arangors::index::{Index, IndexSettings};
-use arangors::ClientError;
 
 pub async fn migrate(
     db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> Result<(), ClientError> {
+) -> anyhow::Result<()> {
     // 1. create `users` table
     create_collection(
         &db,
