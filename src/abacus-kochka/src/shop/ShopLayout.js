@@ -1,7 +1,7 @@
 // @flow
 
 import sx from '@adeira/sx';
-import { Heading, Section, LinkButton } from '@adeira/sx-design';
+import { Heading, Section, LinkButton_DEPRECATED as LinkButton } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useSetRecoilState } from 'recoil';

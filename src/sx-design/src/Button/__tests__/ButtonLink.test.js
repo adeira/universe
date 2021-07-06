@@ -8,7 +8,7 @@ import React from 'react';
 import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
 
-import ButtonLink from '../ButtonLink';
+import ButtonLink from '../ButtonLink_DEPRECATED';
 import { initFbt, render } from '../../test-utils';
 
 beforeEach(() => {

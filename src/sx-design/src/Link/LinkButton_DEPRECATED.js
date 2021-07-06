@@ -19,7 +19,7 @@ type Props = {
  *
  * `--sx-link-text-color` (overwrites default link color)
  */
-export default function LinkButton(props: Props): React.Node {
+export default function LinkButton_DEPRECATED(props: Props): React.Node {
   return (
     // eslint-disable-next-line react/forbid-elements
     <button
