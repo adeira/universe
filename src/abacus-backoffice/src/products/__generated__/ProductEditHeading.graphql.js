@@ -10,6 +10,7 @@ declare export opaque type ProductEditHeading$ref: FragmentReference;
 declare export opaque type ProductEditHeading$fragmentType: ProductEditHeading$ref;
 export type ProductEditHeading = {|
   +key: string,
+  +name: string,
   +isPublished: boolean,
   +$refType: ProductEditHeading$ref,
 |};
@@ -38,6 +39,13 @@ const node: ReaderFragment = {
       "alias": null,
       "args": null,
       "kind": "ScalarField",
+      "name": "name",
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
       "name": "isPublished",
       "storageKey": null
     }
@@ -46,5 +54,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = 'f16ba12544552aac568f7f96b1802528';
+(node: any).hash = '23ea1991f3bc6f0a3e444564c89e8683';
 export default node;

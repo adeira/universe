@@ -3,12 +3,30 @@
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 import { Heading } from '@adeira/sx-design';
+import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
 import LayoutHeading from '../LayoutHeading';
 import LayoutHeadingLink from '../LayoutHeadingLink';
+import useApplicationLocale from '../useApplicationLocale';
 import ProductCreateForm from './ProductCreateForm';
+import type { ProductsCreateLayoutQuery } from './__generated__/ProductsCreateLayoutQuery.graphql';
 
 export default function ProductsCreateLayout(): Node {
+  const applicationLocale = useApplicationLocale();
+
+  const data = useLazyLoadQuery<ProductsCreateLayoutQuery>(
+    graphql`
+      query ProductsCreateLayoutQuery($clientLocale: SupportedLocale!) {
+        commerce {
+          ...ProductCreateFormData
+        }
+      }
+    `,
+    {
+      clientLocale: applicationLocale.graphql,
+    },
+  );
+
   return (
     <>
       <LayoutHeading
@@ -23,7 +41,7 @@ export default function ProductsCreateLayout(): Node {
         </LayoutHeadingLink>
       </LayoutHeading>
 
-      <ProductCreateForm />
+      <ProductCreateForm commerceData={data.commerce} />
     </>
   );
 }

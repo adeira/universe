@@ -4,8 +4,9 @@ use crate::commerce::dal::products::{
     create_product, delete_product, get_product_by_key, search_products,
 };
 use crate::commerce::model::products::{
-    ProductMultilingualInput, ProductMultilingualInputTranslations, SupportedLocale,
+    ProductMultilingualInput, ProductMultilingualInputTranslations,
 };
+use crate::locale::SupportedLocale;
 
 #[ignore]
 #[tokio::test]

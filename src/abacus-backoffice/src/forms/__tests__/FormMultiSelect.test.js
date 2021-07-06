@@ -7,14 +7,14 @@ import * as React from 'react';
 import fbt from 'fbt';
 
 import FormMultiSelect from '../FormMultiSelect';
-import FormMultiSelectOption from '../FormMultiSelectOption';
+import FormSelectOption from '../FormSelectOption';
 import { customRender, getAllAttributes, initFbt } from '../private/testUtils';
 
 beforeEach(() => {
   initFbt();
 });
 
-it('renders basic "FormMultiUpload" input as expected', () => {
+it('renders basic "FormMultiSelect" input as expected', () => {
   const { getByTestId } = customRender(
     <FormMultiSelect
       data-testid="multi-select"
@@ -27,16 +27,16 @@ it('renders basic "FormMultiUpload" input as expected', () => {
         </fbt>
       }
     >
-      <FormMultiSelectOption value="POS" data-testid="multi-select-option-pov">
+      <FormSelectOption value="POS" data-testid="multi-select-option-pov">
         <fbt doNotExtract={true} desc="POS option text">
           Point of sales
         </fbt>
-      </FormMultiSelectOption>
-      <FormMultiSelectOption value="TPV" data-testid="multi-select-option-tpv">
+      </FormSelectOption>
+      <FormSelectOption value="TPV" data-testid="multi-select-option-tpv">
         <fbt doNotExtract={true} desc="TPV option text">
           Terminal punto de venta
         </fbt>
-      </FormMultiSelectOption>
+      </FormSelectOption>
     </FormMultiSelect>,
   );
 
