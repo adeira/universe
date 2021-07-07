@@ -14,9 +14,9 @@ pub(in crate::commerce) async fn create_product(
 ) -> anyhow::Result<Product> {
     // TODO: dynamic `unit_label`
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let insert_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
 
             INSERT {
@@ -45,25 +45,16 @@ pub(in crate::commerce) async fn create_product(
               { unit_label: unit_label_translated },
               { name: t.name, description: t.description }
             )
-            "#,
-        )
-        .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .bind_var("product_images", json!(images))
-        .bind_var(
-            "product_visibility",
-            json!(product_multilingual_input.visibility),
-        )
-        .bind_var(
-            "product_price_unit_amount",
-            product_multilingual_input.price.unit_amount,
-        )
-        .bind_var(
-            "translations",
-            json!(product_multilingual_input.translations),
-        )
-        .build();
-
-    resolve_aql(&pool, insert_aql).await
+        "#,
+        hashmap_json![
+            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "product_images" => images,
+            "product_visibility" => product_multilingual_input.visibility,
+            "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
+            "translations" => product_multilingual_input.translations,
+        ],
+    )
+    .await
 }
 
 /// TODO(004) - integration tests
@@ -75,9 +66,9 @@ pub(in crate::commerce) async fn update_product(
     images: &[Image],
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let update_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
 
             UPDATE {
@@ -105,27 +96,18 @@ pub(in crate::commerce) async fn update_product(
               { unit_label: unit_label_translated },
               { name: t.name, description: t.description }
             )
-            "#,
-        )
-        .bind_var("product_key", product_key)
-        .bind_var("product_rev", product_revision)
-        .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .bind_var("product_images", json!(images))
-        .bind_var(
-            "product_visibility",
-            json!(product_multilingual_input.visibility),
-        )
-        .bind_var(
-            "product_price_unit_amount",
-            product_multilingual_input.price.unit_amount,
-        )
-        .bind_var(
-            "translations",
-            json!(product_multilingual_input.translations),
-        )
-        .build();
-
-    resolve_aql(&pool, update_aql).await
+        "#,
+        hashmap_json![
+            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "product_key" => product_key,
+            "product_rev" => product_revision,
+            "product_images" => images,
+            "product_visibility" => product_multilingual_input.visibility,
+            "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
+            "translations" => product_multilingual_input.translations,
+        ],
+    )
+    .await
 }
 
 /// TODO(004) - integration tests
@@ -134,9 +116,9 @@ pub(in crate::commerce) async fn publish_product(
     product_key: &str,
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let publish_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
 
             UPDATE {
@@ -156,13 +138,13 @@ pub(in crate::commerce) async fn publish_product(
               { unit_label: unit_label_translated },
               { name: t.name, description: t.description }
             )
-            "#,
-        )
-        .bind_var("product_key", product_key)
-        .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .build();
-
-    resolve_aql(&pool, publish_aql).await
+        "#,
+        hashmap_json![
+            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "product_key" => product_key,
+        ],
+    )
+    .await
 }
 
 /// TODO(004) - integration tests
@@ -171,9 +153,9 @@ pub(in crate::commerce) async fn unpublish_product(
     product_key: &str,
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let unpublish_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
 
             UPDATE {
@@ -193,13 +175,13 @@ pub(in crate::commerce) async fn unpublish_product(
               { unit_label: unit_label_translated },
               { name: t.name, description: t.description }
             )
-            "#,
-        )
-        .bind_var("product_key", product_key)
-        .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .build();
-
-    resolve_aql(&pool, unpublish_aql).await
+        "#,
+        hashmap_json![
+            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "product_key" => product_key,
+        ],
+    )
+    .await
 }
 
 /// Returns a single product (or error).
@@ -230,9 +212,9 @@ pub(in crate::commerce) async fn get_products_by_keys(
     product_published_only: &bool,
 ) -> anyhow::Result<Vec<Product>> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql_vector(
+        &pool,
+        r#"
             LET products = DOCUMENT(products, @product_keys)
             FOR product IN products
               FILTER @product_published_only ? product.is_published == @product_published_only : true
@@ -248,14 +230,13 @@ pub(in crate::commerce) async fn get_products_by_keys(
                 { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
                 { name: t.name, description: t.description }
               )
-            "#,
-        )
-        .bind_var("eshop_locale", format!("{}", client_locale))
-        .bind_var("product_keys", product_keys)
-        .bind_var("product_published_only", json!(product_published_only))
-        .build();
-
-    resolve_aql_vector(&pool, aql).await
+        "#,
+        hashmap_json![
+            "eshop_locale" => client_locale,
+            "product_keys" => product_keys,
+            "product_published_only" => product_published_only,
+        ]
+    ).await
 }
 
 /// Performs search of products based on the specified criteria and returns products with merged
@@ -278,83 +259,81 @@ pub(in crate::commerce) async fn search_products(
         PriceSortDirection::HighToLow => "DESC",
     };
 
-    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    let search_aql = arangors::AqlQuery::builder().query(
-        r#"
-            FOR product IN search_products
-              FILTER @search_all == true ? true : (product.is_published IN [true])
-              FILTER @visibility == null ? true : (@visibility IN product.visibility)
-              SORT product.price.unit_amount @price_sort_direction
-
-              LET t = FIRST(
-                FOR t IN product.translations
-                  FILTER t.name != null AND t.locale == @eshop_locale
-                  RETURN t
-              )
-
-              RETURN MERGE(
-                product,
-                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                { name: t.name, description: t.description }
-              )
-            "#,
-    );
-
-    // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-    // This should be almost identical with the previous one except it uses fulltext search across
-    // all supported languages and it additionally sorts the results by relevance.
-    let search_fulltext_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
-            FOR product IN search_products
-              SEARCH BOOST(NGRAM_MATCH(product.translations.name, @search_term, 0.7, "bigram"), 1.1)
-                  OR BOOST(NGRAM_MATCH(product.translations.description, @search_term, 0.7, "bigram"), 1.0)
-              FILTER @search_all == true ? true : (product.is_published IN [true])
-              FILTER @visibility == null ? true : (@visibility IN product.visibility)
-              SORT BM25(product) DESC
-              SORT product.price.unit_amount @price_sort_direction
-
-              LET t = FIRST(
-                FOR t IN product.translations
-                  FILTER t.name != null AND t.locale == @eshop_locale
-                  RETURN t
-              )
-
-              RETURN MERGE(
-                product,
-                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                { name: t.name, description: t.description }
-              )
-            "#,
-        );
-
-    let aql = match search_term {
-        Some(search_term) => search_fulltext_aql
-            .bind_var("search_term", search_term.clone())
-            .bind_var("search_all", *search_all)
-            .bind_var(
-                "visibility",
-                match visibility {
-                    Some(visibility) => json!(visibility),
-                    None => json!(null),
-                },
-            )
-            .bind_var("eshop_locale", format!("{}", client_locale))
-            .bind_var("price_sort_direction", sort_direction),
-        None => search_aql
-            .bind_var("search_all", *search_all)
-            .bind_var(
-                "visibility",
-                match visibility {
-                    Some(visibility) => json!(visibility),
-                    None => json!(null),
-                },
-            )
-            .bind_var("eshop_locale", format!("{}", client_locale))
-            .bind_var("price_sort_direction", sort_direction),
+    let visibility = match visibility {
+        Some(visibility) => json!(visibility),
+        None => json!(null),
     };
 
-    resolve_aql_vector(&pool, aql.build()).await
+    match search_term {
+        Some(search_term) => {
+            // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
+            resolve_aql_vector(
+                &pool,
+                // This should be almost identical with the query below except it uses fulltext
+                // search across all supported languages and it additionally sorts the results by
+                // relevance:
+                r#"
+                    FOR product IN search_products
+                      SEARCH BOOST(NGRAM_MATCH(product.translations.name, @search_term, 0.7, "bigram"), 1.1)
+                          OR BOOST(NGRAM_MATCH(product.translations.description, @search_term, 0.7, "bigram"), 1.0)
+                      FILTER @search_all == true ? true : (product.is_published IN [true])
+                      FILTER @visibility == null ? true : (@visibility IN product.visibility)
+                      SORT BM25(product) DESC
+                      SORT product.price.unit_amount @price_sort_direction
+
+                      LET t = FIRST(
+                        FOR t IN product.translations
+                          FILTER t.name != null AND t.locale == @eshop_locale
+                          RETURN t
+                      )
+
+                      RETURN MERGE(
+                        product,
+                        { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                        { name: t.name, description: t.description }
+                      )
+                "#,
+                hashmap_json![
+                    "eshop_locale" => client_locale,
+                    "search_term" => search_term,
+                    "search_all" => search_all,
+                    "price_sort_direction" => sort_direction,
+                    "visibility" => visibility,
+                ]
+            ).await
+        }
+        None => {
+            // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
+            resolve_aql_vector(
+                &pool,
+                r#"
+                    FOR product IN search_products
+                      FILTER @search_all == true ? true : (product.is_published IN [true])
+                      FILTER @visibility == null ? true : (@visibility IN product.visibility)
+                      SORT product.price.unit_amount @price_sort_direction
+
+                      LET t = FIRST(
+                        FOR t IN product.translations
+                          FILTER t.name != null AND t.locale == @eshop_locale
+                          RETURN t
+                      )
+
+                      RETURN MERGE(
+                        product,
+                        { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                        { name: t.name, description: t.description }
+                      )
+                "#,
+                hashmap_json![
+                    "eshop_locale" => client_locale,
+                    "search_all" => search_all,
+                    "price_sort_direction" => sort_direction,
+                    "visibility" => visibility,
+                ],
+            )
+            .await
+        }
+    }
 }
 
 /// Important note: product should be moved into the archive before deleting it!
@@ -362,9 +341,9 @@ pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
     product_key: &str,
 ) -> anyhow::Result<Product> {
-    let remove_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
             LET product = DOCUMENT(products, @product_key)
             REMOVE product IN products
@@ -380,11 +359,11 @@ pub(in crate::commerce) async fn delete_product(
               { unit_label: unit_label_translated },
               { name: t.name, description: t.description }
             )
-            "#,
-        )
-        .bind_var("eshop_locale", String::from("en_US")) // TODO
-        .bind_var("product_key", product_key)
-        .build();
-
-    resolve_aql(&pool, remove_aql).await
+        "#,
+        hashmap_json![
+            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "product_key" => product_key,
+        ],
+    )
+    .await
 }

@@ -1,6 +1,5 @@
 use crate::arangodb::{resolve_aql, ConnectionPool};
 use serde::{Deserialize, Serialize};
-use serde_json::json;
 
 #[derive(Deserialize, Serialize)]
 pub(crate) struct ArchiveItem {
@@ -28,9 +27,9 @@ pub(crate) async fn archive_struct<T>(
 where
     T: Serialize,
 {
-    let insert_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             INSERT {
               original_id: @original_id,
               original_collection_name: @original_collection_name,
@@ -38,15 +37,12 @@ where
               created: DATE_ISO8601(DATE_NOW()),
             } INTO archive
             RETURN NEW
-            "#,
-        )
-        .bind_var("original_id", json!(&original_id))
-        .bind_var("original_collection_name", json!(&original_collection_name))
-        .bind_var(
-            "original_payload",
-            serde_json::to_string(&original_payload)?,
-        )
-        .build();
-
-    resolve_aql(&pool, insert_aql).await
+        "#,
+        hashmap_json![
+            "original_id" => original_id,
+            "original_collection_name" => original_collection_name,
+            "original_payload" => serde_json::to_string(&original_payload)?,
+        ],
+    )
+    .await
 }

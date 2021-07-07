@@ -1,5 +1,5 @@
 ---
-source: server/src/commerce/dal/tests.rs
+source: src/commerce/dal/products_tests.rs
 expression: searched_products
 ---
 [
@@ -11,7 +11,7 @@ expression: searched_products
             unit_label: "piece",
             is_published: false,
             visibility: [],
-            price: ProductPrice {
+            price: Price {
                 unit_amount: 0,
                 unit_amount_currency: MXN,
             },

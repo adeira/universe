@@ -1,4 +1,4 @@
-use crate::arangodb::resolve_aql;
+use crate::arangodb::{resolve_aql, resolve_aql_vector};
 use crate::auth::session::{Session, SessionType};
 use crate::auth::users::AnyUser;
 
@@ -6,20 +6,20 @@ pub(crate) async fn find_session_by_user(
     pool: &crate::arangodb::ConnectionPool,
     user: &AnyUser,
 ) -> Option<Session> {
-    let db = pool.db().await;
-
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    let result_vector = resolve_aql_vector(
+        &pool,
+        r#"
             FOR vertex IN 1..1 OUTBOUND @user_id GRAPH sessions
             RETURN vertex
-            "#,
-        )
-        .bind_var("user_id", user.id())
-        .build();
+        "#,
+        hashmap_json![
+            "user_id" => user.id(),
+        ],
+    )
+    .await;
 
-    match db.aql_query::<Session>(aql).await {
-        Ok(result_vector) => result_vector.first().map(|result| result.to_owned()),
+    match result_vector {
+        Ok(result_vector) => result_vector.into_iter().next(),
         Err(err) => {
             tracing::error!("{}", err);
             None
@@ -34,9 +34,9 @@ pub(crate) async fn create_new_user_session(
     user: &AnyUser,
 ) -> anyhow::Result<Session> {
     // we first create a sessions and then create a session edge (how to do it better (?))
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET new_session = FIRST(
               INSERT {
                 _key: @session_token_hash,
@@ -53,14 +53,14 @@ pub(crate) async fn create_new_user_session(
             } INTO user_sessions
 
             RETURN new_session
-            "#,
-        )
-        .bind_var("session_token_hash", session_token_hash)
-        .bind_var("session_type", format!("{}", SessionType::WEBAPP)) // TODO
-        .bind_var("user_id", user.id())
-        .build();
-
-    resolve_aql(&pool, aql).await
+        "#,
+        hashmap_json![
+            "session_token_hash" => session_token_hash,
+            "session_type" => SessionType::WEBAPP, // TODO
+            "user_id" => user.id()
+        ],
+    )
+    .await
 }
 
 /// This function tries to remove the sessions token (if it exists) as well as related session edge
@@ -74,9 +74,9 @@ pub(crate) async fn delete_user_session(
     // TODO: do not remove mobile/webapp sessions if it's from a different source
     //       (webapp should not deauthorize mobile)
 
-    let remove_sessions_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET session_id = CONCAT_SEPARATOR('/', 'sessions', @session_token_hash)
             LET r = (
               FOR v,e,p IN 1..1 INBOUND session_id GRAPH 'sessions'
@@ -84,12 +84,12 @@ pub(crate) async fn delete_user_session(
             )
             REMOVE @session_token_hash IN sessions
             RETURN OLD
-            "#,
-        )
-        .bind_var("session_token_hash", session_token_hash)
-        .build();
-
-    resolve_aql(&pool, remove_sessions_aql).await
+        "#,
+        hashmap_json![
+            "session_token_hash" => session_token_hash,
+        ],
+    )
+    .await
 }
 
 #[cfg(test)]

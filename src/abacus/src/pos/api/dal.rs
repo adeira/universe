@@ -1,7 +1,6 @@
 use crate::arangodb::{resolve_aql, ConnectionPool};
 use crate::price::SupportedCurrency;
 use serde::{Deserialize, Serialize};
-use serde_json::json;
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct PosCheckout {
@@ -43,20 +42,20 @@ pub(in crate::pos) async fn create_checkout(
     pool: &ConnectionPool,
     input: &PosCheckoutInput,
 ) -> anyhow::Result<PosCheckout> {
-    let insert_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             INSERT {
               created_date: DATE_ISO8601(DATE_NOW()),
               selected_products: @selected_products
             } INTO pos_checkouts
             RETURN NEW
-            "#,
-        )
-        .bind_var("selected_products", json!(&input.selected_products))
-        .build();
-
-    resolve_aql::<PosCheckout>(&pool, insert_aql).await
+        "#,
+        hashmap_json![
+            "selected_products" => input.selected_products,
+        ],
+    )
+    .await
 }
 
 #[derive(Deserialize, Clone, juniper::GraphQLObject)]
@@ -69,9 +68,9 @@ pub(in crate::pos) struct PosCheckoutTotalStats {
 pub(in crate::pos) async fn get_total_checkout_stats(
     pool: &ConnectionPool,
 ) -> anyhow::Result<PosCheckoutTotalStats> {
-    let stats_aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET stats_per_checkout = (
               FOR checkout IN pos_checkouts
                 LET products = checkout.selected_products
@@ -87,11 +86,10 @@ pub(in crate::pos) async fn get_total_checkout_stats(
               total_sold_units: SUM(stats_per_checkout[*].total_sold_units),
               total_sold_unit_amount: SUM(stats_per_checkout[*].total_sold_unit_amount),
             }
-            "#,
-        )
-        .build();
-
-    resolve_aql::<PosCheckoutTotalStats>(&pool, stats_aql).await
+        "#,
+        hashmap_json![],
+    )
+    .await
 }
 
 #[cfg(test)]

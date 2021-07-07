@@ -1,6 +1,9 @@
 #![deny(unused_must_use)]
 #![forbid(unsafe_code)]
 
+#[macro_use]
+mod global_macros;
+
 use crate::arangodb::get_database_connection_pool;
 use crate::clap::generate_clap_app;
 use graphql_schema::create_graphql_schema;
