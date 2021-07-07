@@ -17,6 +17,7 @@ https://www.rust-lang.org/
 - https://gitlab.com/qonfucius/aragog
 - https://doc.rust-lang.org/std/collections/index.html
 - https://rust-lang-nursery.github.io/rust-cookbook/intro.html
+  https://danielkeep.github.io/tlborm/book/
 - https://cheats.rs/
 
 ## Interesting Stack Overflow questions
@@ -219,6 +220,43 @@ fn main() {
     fs::write("/tmp/foo", data).expect("Unable to write file");
 }
 ```
+
+## Macro repetitions
+
+Below is a macro which formats each element as a string. It matches zero or more comma-separated expressions and expands to an expression that constructs a vector.
+
+```rust
+macro_rules! vec_strs {
+    (
+        // Start a repetition:
+        $(
+            // Each repeat must contain an expression...
+            $element:expr
+        )
+        // ...separated by commas...
+        ,
+        // ...zero or more times.
+        *
+    ) => {
+        // Enclose the expansion in a block so that we can use
+        // multiple statements.
+        {
+            let mut v = Vec::new();
+
+            // Start a repetition:
+            $(
+                // Each repeat will contain the following statement, with
+                // $element replaced with the corresponding expression.
+                v.push(format!("{}", $element));
+            )*
+
+            v
+        }
+    };
+}
+```
+
+Source: https://danielkeep.github.io/tlborm/book/mbe-macro-rules.html#repetitions
 
 ## Rust pain points
 
