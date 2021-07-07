@@ -1,5 +1,5 @@
 use rand::Rng;
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 /// Generates sessions token which is compatible with RFC6750 - "Authorization Framework: Bearer
 /// Token Usage" syntax (https://tools.ietf.org/html/rfc6750).
@@ -80,7 +80,7 @@ impl Session {
     }
 }
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Deserialize, Serialize)]
 pub enum SessionType {
     #[serde(rename = "mobile")]
     MOBILE,

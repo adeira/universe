@@ -8,17 +8,16 @@ use crate::auth::users::AnyUser;
 pub(crate) async fn list_all_users(
     pool: &crate::arangodb::ConnectionPool,
 ) -> anyhow::Result<Vec<AnyUser>> {
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql_vector(
+        &pool,
+        r#"
             FOR user IN users
               FILTER user._id != "users/1" // hardcoded anonymous user
               RETURN user
-            "#,
-        )
-        .build();
-
-    resolve_aql_vector(&pool, aql).await
+        "#,
+        hashmap_json![],
+    )
+    .await
 }
 
 /// Returns user based on Google Claims (`sub`) or `None` if such user couldn't be found.
@@ -26,24 +25,24 @@ pub(crate) async fn find_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,
     subject: &str,
 ) -> Option<AnyUser> {
-    let db = pool.db().await;
-
-    // only `sub` identifies the user reliably, everything else might potentially change
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    let result_vector = resolve_aql_vector(
+        &pool,
+        r#"
             FOR user IN users
               FILTER user._id != "users/1" // hardcoded anonymous user
               FILTER user.google.sub == @sub
               LIMIT 1
               RETURN user
-            "#,
-        )
-        .bind_var("sub", subject)
-        .build();
+        "#,
+        hashmap_json![
+            // only `sub` identifies the user reliably, everything else might potentially change
+            "sub" => subject,
+        ],
+    )
+    .await;
 
-    match db.aql_query::<AnyUser>(aql).await {
-        Ok(result_vector) => result_vector.first().map(|result| result.to_owned()),
+    match result_vector {
+        Ok(result_vector) => result_vector.into_iter().next(),
         Err(_) => None, // TODO: log such DB error (?)
     }
 }
@@ -56,9 +55,9 @@ pub async fn get_user_by_session_token_hash(
     pool: &crate::arangodb::ConnectionPool,
     session_token_hash: &str,
 ) -> anyhow::Result<AnyUser> {
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             LET session_key = @session_token_hash
             LET session_id = CONCAT_SEPARATOR('/', 'sessions', session_key)
 
@@ -88,12 +87,11 @@ pub async fn get_user_by_session_token_hash(
             )
 
             RETURN user
-            "#,
-        )
-        .bind_var("session_token_hash", session_token_hash)
-        .build();
-
-    resolve_aql(&pool, aql).await
+        "#,
+        hashmap_json![
+            "session_token_hash" => session_token_hash,
+        ],
+    ).await
 }
 
 #[cfg(test)]
@@ -101,23 +99,20 @@ pub(crate) async fn create_user_by_google_claims(
     pool: &crate::arangodb::ConnectionPool,
     claims: &Claims,
 ) -> anyhow::Result<AnyUser> {
-    let claims_json = serde_json::to_value(&claims)?;
-
-    // only `sub` identifies the user reliably, everything else might potentially change
-    let aql = arangors::AqlQuery::builder()
-        .query(
-            r#"
+    resolve_aql(
+        &pool,
+        r#"
             INSERT {
               is_active: true,
               google: @claims_json,
             } INTO users
             RETURN NEW
-            "#,
-        )
-        .bind_var("claims_json", claims_json)
-        .build();
-
-    resolve_aql(&pool, aql).await
+        "#,
+        hashmap_json![
+            "claims_json" => claims,
+        ],
+    )
+    .await
 }
 
 #[cfg(test)]

@@ -529,6 +529,8 @@ pub(in crate::commerce) async fn unpublish_product(
 /// 2. save copy of this data to the archive
 /// 3. remove all related pictures from S3
 /// 4. delete the actual product (only after it's been copied to the archive!)
+///
+/// TODO: it would be a good idea to call this in a DB transaction
 pub(in crate::commerce) async fn archive_product(
     context: &Context,
     product_key: &str,

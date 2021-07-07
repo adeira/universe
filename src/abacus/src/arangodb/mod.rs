@@ -1,10 +1,11 @@
 use crate::arangodb::pool::ConnectionManager;
-use arangors::AqlQuery;
 use arangors::{ArangoError, ClientError, Connection};
 #[cfg(test)]
 use deadpool::managed::Object;
 use deadpool::managed::Pool;
 use serde::Deserialize;
+use serde_json::Value;
+use std::collections::HashMap;
 
 mod pool;
 
@@ -14,13 +15,14 @@ pub struct ConnectionPool {
     db_name: String,
 }
 
-/// Resolves the provided AQL and returns the first result or error.
+/// Resolves the provided AQL query and returns the first result or error.
 pub(crate) async fn resolve_aql<T: for<'de> Deserialize<'de>>(
     pool: &ConnectionPool,
-    aql: AqlQuery<'_>,
+    query: &str,
+    bind_vars: HashMap<&str, Value>,
 ) -> anyhow::Result<T> {
     let db = pool.db().await;
-    let result_vector = db.aql_query::<T>(aql).await?;
+    let result_vector = db.aql_bind_vars::<T>(&query, bind_vars).await?;
     match result_vector.into_iter().next() {
         Some(result) => Ok(result),
         None => anyhow::bail!("database didn't return any item"),
@@ -30,10 +32,11 @@ pub(crate) async fn resolve_aql<T: for<'de> Deserialize<'de>>(
 /// Similar to `resolve_aql` except it returns the whole vector (not only the first result).
 pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     pool: &ConnectionPool,
-    aql: AqlQuery<'_>,
+    query: &str,
+    bind_vars: HashMap<&str, Value>,
 ) -> anyhow::Result<Vec<T>> {
     let db = pool.db().await;
-    match db.aql_query::<T>(aql).await {
+    match db.aql_bind_vars::<T>(&query, bind_vars).await {
         Ok(result) => Ok(result),
         Err(error) => anyhow::bail!(error),
     }
