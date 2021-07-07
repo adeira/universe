@@ -1,5 +1,6 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { fbt } from 'fbt';
@@ -106,6 +107,7 @@ export default function ProductEditHeading(props: Props): React.Node {
           </fbt>
         }
         onClick={() => handleArchiveProduct(product.key)}
+        prefix={<Icon name="archive" />}
       >
         <fbt desc="archive product navigation button">Archive product</fbt>
       </LayoutHeadingButton>

@@ -1,5 +1,6 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import * as React from 'react';
 
 import sharedButtonStyles from './styles';
@@ -14,6 +15,8 @@ type Props = {
   +'tint'?: 'default' | 'error' | 'success' | 'warning',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
+  +'prefix'?: RestrictedElement<typeof Icon>,
+  +'suffix'?: RestrictedElement<typeof Icon>,
 };
 
 /**
@@ -37,7 +40,9 @@ export default function Button(props: Props): React.Element<'button'> {
         buttonDisabled: props.isDisabled === true,
       })}
     >
+      {props.prefix != null ? <>{props.prefix} </> : null}
       {props.children}
+      {props.suffix != null ? <> {props.suffix}</> : null}
     </button>
   );
 }

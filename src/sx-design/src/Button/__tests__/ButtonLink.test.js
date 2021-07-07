@@ -18,15 +18,15 @@ it('calls onClick event', () => {
 
   const { getByText } = render(
     <ButtonLink onClick={onClickFn}>
-      <fbt desc="link title" doNotExtract={true}>
-        link button with onClick callback
+      <fbt desc="button link title" doNotExtract={true}>
+        button link with onClick callback
       </fbt>
     </ButtonLink>,
   );
 
-  expect(getByText('link button with onClick callback')).toBeDefined();
+  expect(getByText('button link with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('link button with onClick callback'));
+  fireEvent.click(getByText('button link with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });

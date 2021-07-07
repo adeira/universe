@@ -3,6 +3,7 @@
  * @flow
  */
 
+import Icon from '@adeira/icons';
 import fbt from 'fbt';
 
 import Button from './Button';
@@ -13,11 +14,15 @@ import type { StoryTemplate } from '../types';
 export default {
   title: 'Example/Button',
   component: Button,
+  argTypes: {
+    prefix: { table: { disable: true } },
+    suffix: { table: { disable: true } },
+    children: { table: { disable: true } },
+  },
 };
 
 // 👇 We create a "template" of how args map to rendering
 const BasicTemplate = (args) => <Button {...args} />;
-
 const ShowcaseTemplate = (args) => (
   <>
     <Button {...args} tint="default" />
@@ -40,11 +45,21 @@ ButtonDefault.args = {
   ),
 };
 
+export const ButtonPrefixSuffix: StoryTemplate<typeof Button> = BasicTemplate.bind({});
+ButtonPrefixSuffix.storyName = 'With prefix/suffix';
+ButtonPrefixSuffix.args = {
+  prefix: <Icon name="exit_right" />,
+  suffix: <Icon name="exit_left" />,
+  children: (
+    <fbt desc="button title" doNotExtract={true}>
+      Button
+    </fbt>
+  ),
+};
+
 export const ButtonShowcase: StoryTemplate<typeof Button> = ShowcaseTemplate.bind({});
 ButtonShowcase.storyName = 'Showcase';
 ButtonShowcase.argTypes = {
-  children: { table: { disable: true } },
-  onClick: { table: { disable: true } },
   tint: { table: { disable: true } },
 };
 ButtonShowcase.args = {
