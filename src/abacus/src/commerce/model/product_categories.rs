@@ -69,3 +69,18 @@ pub(in crate::commerce) async fn search_all_product_categories(
     )
     .await
 }
+
+pub(in crate::commerce) async fn get_product_categories_by_ids(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_category_ids: &[String],
+) -> anyhow::Result<Vec<Option<ProductCategory>>> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProductCategories)).await?;
+
+    crate::commerce::dal::product_categories::get_product_categories_by_ids(
+        &context.pool,
+        &client_locale,
+        &product_category_ids,
+    )
+    .await
+}

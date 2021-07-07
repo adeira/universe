@@ -34,13 +34,21 @@ export default function BaseSelect(props: Props): Node {
   );
 
   const handleOnChange = (event) => {
-    const selectedOptions = [];
-    Array.from(event.target.options).forEach((option) => {
-      if (option.selected) {
-        selectedOptions.push(option.value);
-      }
-    });
-    updateInputValue(selectRef, selectedOptions);
+    if (props.multiple === true) {
+      const selectedOptions = [];
+      Array.from(event.target.options).forEach((option) => {
+        if (option.selected) {
+          selectedOptions.push(option.value);
+        }
+      });
+      updateInputValue(selectRef, selectedOptions);
+    } else {
+      Array.from(event.target.options).forEach((option) => {
+        if (option.selected) {
+          updateInputValue(selectRef, option.value);
+        }
+      });
+    }
   };
 
   const hasError =

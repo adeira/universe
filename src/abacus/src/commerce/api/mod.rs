@@ -117,10 +117,12 @@ impl CommerceMutation {
     /// will be rejected.
     async fn product_create(
         context: &Context,
+        client_locale: SupportedLocale,
         product_multilingual_input: ProductMultilingualInput,
     ) -> ProductOrError {
         match crate::commerce::model::products::create_product(
             &context,
+            &client_locale,
             &product_multilingual_input,
         )
         .await
@@ -142,12 +144,14 @@ impl CommerceMutation {
     /// them via uploadables. This feature will eventually be used even for images re-ordering.
     async fn product_update(
         context: &Context,
+        client_locale: SupportedLocale,
         product_key: juniper::ID,
         product_revision: juniper::ID,
         product_multilingual_input: ProductMultilingualInput,
     ) -> ProductOrError {
         match crate::commerce::model::products::update_product(
             &context,
+            &client_locale,
             &product_key,
             &product_revision,
             &product_multilingual_input,
