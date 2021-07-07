@@ -254,9 +254,14 @@ macro_rules! vec_strs {
         }
     };
 }
+
+fn main() {
+  let s = vec_strs![1, "a", true, 3.14159f32];
+  assert_eq!(s, &["1", "a", "true", "3.14159"]);
+}
 ```
 
-Source: https://danielkeep.github.io/tlborm/book/mbe-macro-rules.html#repetitions
+Source: https://veykril.github.io/tlborm/macros/macro_rules.html#repetitions
 
 ## Rust pain points
 
