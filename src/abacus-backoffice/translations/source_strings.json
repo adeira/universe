@@ -509,9 +509,9 @@
     "Uwsynldmzkm43wwA8z+rWQ==": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 63,
+   "line_beg": 64,
    "col_beg": 8,
-   "line_end": 66,
+   "line_end": 67,
    "col_end": 9,
    "desc": "reset checkout session confirmation message",
    "project": "",
@@ -520,26 +520,26 @@
   },
   {
    "hashToText": {
-    "T61CEaVqIFGOoto/TXxy5A==": "⬅ Go back"
+    "jmBOT2K+ZO2hIL+wYQyinw==": "Go back"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 78,
-   "col_beg": 10,
-   "line_end": 78,
-   "col_end": 57,
+   "line_beg": 79,
+   "col_beg": 35,
+   "line_end": 79,
+   "col_end": 80,
    "desc": "go back to POS text",
    "project": "",
    "type": "text",
-   "jsfbt": "⬅ Go back"
+   "jsfbt": "Go back"
   },
   {
    "hashToText": {
     "X15wJnkWMiCincs1C+MeFw==": "Did you receive the money?"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 85,
+   "line_beg": 86,
    "col_beg": 8,
-   "line_end": 85,
+   "line_end": 86,
    "col_end": 88,
    "desc": "checkout question before continuing",
    "project": "",
@@ -551,9 +551,9 @@
     "MfLT6Yq4YBMxi+dW96zMNg==": "Yes, finish checkout"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 94,
+   "line_beg": 95,
    "col_beg": 10,
-   "line_end": 94,
+   "line_end": 95,
    "col_end": 77,
    "desc": "process checkout button text",
    "project": "",
@@ -565,9 +565,9 @@
     "P3UvwgozOxL8sg8ODM5D/A==": "No, start over"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 102,
+   "line_beg": 103,
    "col_beg": 10,
-   "line_end": 102,
+   "line_end": 103,
    "col_end": 69,
    "desc": "reset checkout button text",
    "project": "",
