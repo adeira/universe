@@ -17,6 +17,7 @@ async fn create_product_english_to_english_test() {
     // 1) create a product with english name and description
     let created_product = create_product(
         &pool,
+        &SupportedLocale::EnUS,
         &ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
@@ -53,6 +54,7 @@ async fn create_product_all_languages_test() {
     // 1) create a product with english AND spanish name and description
     let created_product = create_product(
         &pool,
+        &SupportedLocale::EnUS,
         &ProductMultilingualInput {
             translations: vec![
                 ProductMultilingualInputTranslations {
@@ -112,6 +114,7 @@ async fn search_products_test() {
     // 1) create a product to be later searched
     create_product(
         &pool,
+        &SupportedLocale::EnUS,
         &ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
@@ -156,6 +159,7 @@ async fn search_products_fulltext_test() {
     // 1) create a product to be later searched
     create_product(
         &pool,
+        &SupportedLocale::EnUS,
         &ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,
@@ -200,6 +204,7 @@ async fn delete_product_test() {
     // 1) create a product to be later deleted
     let created_product = create_product(
         &pool,
+        &SupportedLocale::EnUS,
         &ProductMultilingualInput {
             translations: vec![ProductMultilingualInputTranslations {
                 locale: SupportedLocale::EnUS,

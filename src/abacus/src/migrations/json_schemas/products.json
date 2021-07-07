@@ -9,6 +9,7 @@
       "unit_label",
       "is_published",
       "visibility",
+      "categories",
       "created",
       "updated",
       "price",
@@ -36,6 +37,13 @@
           "type": "string",
           "minLength": 1,
           "enum": ["POS", "ESHOP"]
+        }
+      },
+      "categories": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
         }
       },
       "created": { "type": "string", "minLength": 1 },

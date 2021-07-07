@@ -77,9 +77,11 @@ export default function ProductEditForm(props: Props): Node {
               $productPriceUnitAmount: Int!
               $translations: [ProductMultilingualInputTranslations!]!
               $visibility: [ProductMultilingualInputVisibility!]!
+              $categories: [ID!]!
             ) {
               commerce {
                 result: productUpdate(
+                  clientLocale: $clientLocale
                   productKey: $productKey
                   productRevision: $productRevision
                   productMultilingualInput: {
@@ -87,6 +89,7 @@ export default function ProductEditForm(props: Props): Node {
                     price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
                     translations: $translations
                     visibility: $visibility
+                    categories: $categories
                   }
                 ) {
                   ... on Product {
@@ -129,6 +132,7 @@ export default function ProductEditForm(props: Props): Node {
               },
             ],
             visibility: formValues.visibility,
+            categories: [formValues.category],
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {

@@ -5,6 +5,9 @@ use crate::auth::rbac::CommerceActions::{
     ArchiveProduct, CreateProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
 use crate::commerce::model::product_categories::ProductCategory;
+use crate::commerce::model::validations::{
+    validate_product_categories, validate_product_multilingual_input,
+};
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use crate::images::Image;
@@ -36,6 +39,7 @@ pub struct Product {
     /// requirements fulfilled.
     is_published: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
+    categories: Option<Vec<String>>, // TODO: make it `Vec<String>` when all the products are migrated and they have a category field
     price: Price,
     translations: Vec<ProductMultilingualTranslations>,
 }
@@ -183,7 +187,25 @@ impl Product {
         )
     }
 
-    // TODO: selected_categories
+    /// Returns categories that were assigned to the particular product. You might be also
+    /// interested in `available_categories` which are ALL categories available for the assignment.
+    async fn selected_categories(
+        &self,
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
+        Ok(
+            crate::commerce::model::product_categories::get_product_categories_by_ids(
+                &context,
+                &client_locale,
+                match &self.categories {
+                    Some(categories) => categories,
+                    None => &[],
+                },
+            )
+            .await?,
+        )
+    }
 }
 
 /// This type should be used together with GraphQL uploads and it should hold the file names being
@@ -243,6 +265,17 @@ pub struct ProductMultilingualInput {
     pub(in crate::commerce) price: ProductPriceInput,
     pub(in crate::commerce) translations: Vec<ProductMultilingualInputTranslations>,
     pub(in crate::commerce) visibility: Vec<ProductMultilingualInputVisibility>,
+    pub(in crate::commerce) categories: Vec<juniper::ID>,
+}
+
+impl ProductMultilingualInput {
+    pub(in crate::commerce) fn visibility(&self) -> &Vec<ProductMultilingualInputVisibility> {
+        &self.visibility
+    }
+
+    pub(in crate::commerce) fn categories(&self) -> Vec<String> {
+        self.categories.iter().map(|id| id.to_string()).collect()
+    }
 }
 
 impl Default for ProductMultilingualInput {
@@ -259,6 +292,7 @@ impl Default for ProductMultilingualInput {
                 description: None,
             }],
             visibility: vec![],
+            categories: vec![],
         }
     }
 }
@@ -271,29 +305,6 @@ pub struct ProductPriceInput {
 
     /// Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html).
     pub(in crate::commerce) unit_amount_currency: SupportedCurrency,
-}
-
-/// # Validation rules
-///
-/// 1. There must be at least one translation variant available.
-/// 2. Each translation variant must have a name, description is optional (enforced by the input type).
-/// 3. Price cannot be bellow zero (must be positive).
-fn validate_product_multilingual_input(
-    product_multilingual_input: &ProductMultilingualInput,
-) -> anyhow::Result<()> {
-    let translations = &product_multilingual_input.translations;
-
-    // At least one translation variant must exist:
-    if translations.is_empty() {
-        anyhow::bail!("Product must have at least one translation variant.");
-    }
-
-    // Price must be higher than zero:
-    if product_multilingual_input.price.unit_amount < 0 {
-        anyhow::bail!("Product price cannot be smaller than zero.");
-    }
-
-    Ok(())
 }
 
 #[derive(juniper::GraphQLEnum)]
@@ -397,17 +408,22 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
 /// because only admin can create a product.
 pub(in crate::commerce) async fn create_product(
     context: &Context,
+    client_locale: &SupportedLocale,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> anyhow::Result<Product> {
-    validate_product_multilingual_input(&product_multilingual_input)?;
     rbac::verify_permissions(&context.user, &Commerce(CreateProduct)).await?;
+
+    validate_product_multilingual_input(&product_multilingual_input)?;
+    validate_product_categories(&context, &client_locale, &product_multilingual_input).await?;
 
     let mut images = vec![];
     if context.uploadables.is_some() {
         images = crate::images::process_new_images(&context, &product_multilingual_input).await?;
     }
+
     crate::commerce::dal::products::create_product(
         &context.pool,
+        &client_locale,
         &product_multilingual_input,
         &images,
     )
@@ -416,16 +432,19 @@ pub(in crate::commerce) async fn create_product(
 
 pub(in crate::commerce) async fn update_product(
     context: &Context,
+    client_locale: &SupportedLocale,
     product_key: &str,
     product_revision: &str,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> anyhow::Result<Product> {
-    validate_product_multilingual_input(&product_multilingual_input)?;
     rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await?;
+
+    validate_product_multilingual_input(&product_multilingual_input)?;
+    validate_product_categories(&context, &client_locale, &product_multilingual_input).await?;
 
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
-        &SupportedLocale::EnUS, // TODO
+        &client_locale,
         &product_key,
         &false, // both published and unpublished
     )
@@ -462,6 +481,7 @@ pub(in crate::commerce) async fn update_product(
 
     crate::commerce::dal::products::update_product(
         &context.pool,
+        &client_locale,
         &product_key,
         &product_revision,
         &product_multilingual_input,
@@ -564,15 +584,15 @@ mod tests {
     use super::*;
 
     #[tokio::test]
-    async fn create_product_validation_missing_translations_test() {
+    async fn create_product_unauthorized_test() {
         let context = Context::create_mock();
         assert_eq!(
             format!(
                 "{:?}",
                 create_product(
                     &context,
+                    &SupportedLocale::EnUS,
                     &ProductMultilingualInput {
-                        translations: vec![],
                         ..Default::default()
                     }
                 )
@@ -580,23 +600,22 @@ mod tests {
                 .err()
                 .unwrap()
             ),
-            "Product must have at least one translation variant."
+            "user is not logged in (anonymous)"
         );
     }
 
     #[tokio::test]
-    async fn create_product_validation_price_below_zero_test() {
+    async fn update_product_unauthorized_test() {
         let context = Context::create_mock();
         assert_eq!(
             format!(
                 "{:?}",
-                create_product(
+                update_product(
                     &context,
+                    &SupportedLocale::EnUS,
+                    "product_key_mock",
+                    "product_revision_mock",
                     &ProductMultilingualInput {
-                        price: ProductPriceInput {
-                            unit_amount: -1,
-                            unit_amount_currency: SupportedCurrency::MXN
-                        },
                         ..Default::default()
                     }
                 )
@@ -604,7 +623,7 @@ mod tests {
                 .err()
                 .unwrap()
             ),
-            "Product price cannot be smaller than zero."
+            "user is not logged in (anonymous)"
         );
     }
 }

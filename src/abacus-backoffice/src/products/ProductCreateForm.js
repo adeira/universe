@@ -8,6 +8,7 @@ import { useSetRecoilState } from 'recoil';
 
 import FormSubmit from '../forms/FormSubmit';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
+import useApplicationLocale from '../useApplicationLocale';
 import ProductForm from './ProductForm';
 import type { ProductCreateFormData$key } from './__generated__/ProductCreateFormData.graphql';
 import type { ProductCreateFormMutationVariables } from './__generated__/ProductCreateFormMutation.graphql';
@@ -17,6 +18,7 @@ type Props = {
 };
 
 export default function ProductCreateForm(props: Props): Node {
+  const applicationLocale = useApplicationLocale();
   const router = useRouter();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
@@ -45,18 +47,22 @@ export default function ProductCreateForm(props: Props): Node {
         <FormSubmit
           mutation={graphql`
             mutation ProductCreateFormMutation(
+              $clientLocale: SupportedLocale!
               $productImagesNames: [ProductImageUploadable!]!
               $productPriceUnitAmount: Int!
               $translations: [ProductMultilingualInputTranslations!]!
               $visibility: [ProductMultilingualInputVisibility!]!
+              $categories: [ID!]!
             ) {
               commerce {
                 result: productCreate(
+                  clientLocale: $clientLocale
                   productMultilingualInput: {
                     images: $productImagesNames
                     price: { unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN }
                     translations: $translations
                     visibility: $visibility
+                    categories: $categories
                   }
                 ) {
                   ... on Product {
@@ -72,6 +78,7 @@ export default function ProductCreateForm(props: Props): Node {
             }
           `}
           variables={(formValues): ProductCreateFormMutationVariables => ({
+            clientLocale: applicationLocale.graphql,
             productImagesNames: formValues.images,
             productPriceUnitAmount: formValues.price * 100, // adjusted for centavo
             translations: [
@@ -87,6 +94,7 @@ export default function ProductCreateForm(props: Props): Node {
               },
             ],
             visibility: formValues.visibility,
+            categories: [formValues.category],
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {

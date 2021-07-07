@@ -56,39 +56,38 @@ mod tests {
             .compile_and_return(arangodb_schema.get("rule").unwrap().clone(), false)
             .unwrap();
 
-        // valid input:
-        assert_eq!(
-            schema
-                .validate(&json!({
-                  "images": [],
-                  "unit_label": "TKTK",
-                  "is_published": false,
-                  "created": "TKTK",
-                  "visibility": ["POS", "ESHOP"],
-                  "updated": "TKTK",
-                  "price": {
-                    "unit_amount": 42,
-                    "unit_amount_currency": "MXN"
-                  },
-                  "translations": [
-                    {
-                      "locale": "en_US",
-                      "name": "TKTK",
-                      "description": "TKTK"
-                    }
-                  ]
-                }))
-                .is_valid(),
-            true
-        );
+        // Valid input:
+        assert!(schema
+            .validate(&json!({
+              "images": [],
+              "unit_label": "TKTK",
+              "is_published": false,
+              "created": "TKTK",
+              "visibility": ["POS", "ESHOP"],
+              "categories": [],
+              "updated": "TKTK",
+              "price": {
+                "unit_amount": 42,
+                "unit_amount_currency": "MXN"
+              },
+              "translations": [
+                {
+                  "locale": "en_US",
+                  "name": "TKTK",
+                  "description": "TKTK"
+                }
+              ]
+            }))
+            .is_valid());
 
-        // empty strings should not be allowed:
+        // Invalid input (empty strings should not be allowed):
         insta::assert_json_snapshot!(schema.validate(&json!({
           "images": [],
           "unit_label": "",
           "is_published": false,
           "created": "",
           "visibility": [],
+          "categories": [""],
           "updated": "",
           "price": {
             "unit_amount": 42,

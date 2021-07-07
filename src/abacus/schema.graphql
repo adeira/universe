@@ -1,4 +1,4 @@
-# @generated SignedSource<<2c62cdb590b710ca71f7d22503c7e673>>
+# @generated SignedSource<<a370140b207472efc35632c07ab034b3>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -68,7 +68,7 @@ type CommerceMutation {
     to the uploadables (multipart/form-data) and vice versa. Requests with invalid uploadables
     will be rejected.
   """
-  productCreate(productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  productCreate(clientLocale: SupportedLocale!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
   """
     Updates already existing product with new values. It requires not only product KEY but also
     product REVISION to avoid lost update situations (when someone else tried to update the
@@ -78,7 +78,7 @@ type CommerceMutation {
     otherwise they will be deleted. You can optionally specify some extra (new) images to upload
     them via uploadables. This feature will eventually be used even for images re-ordering.
   """
-  productUpdate(productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  productUpdate(clientLocale: SupportedLocale!, productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
   """
     Archives product based on the product KEY making it effectively inaccessible. From the user
     perspective it's like deleting the product, however, internally the product still exists in
@@ -220,6 +220,7 @@ input ProductMultilingualInput {
   price: ProductPriceInput!
   translations: [ProductMultilingualInputTranslations!]!
   visibility: [ProductMultilingualInputVisibility!]!
+  categories: [ID!]!
 }
 
 """
@@ -317,6 +318,11 @@ type Product {
     product.
   """
   availableCategories(clientLocale: SupportedLocale!): [ProductCategory]!
+  """
+    Returns categories that were assigned to the particular product. You might be also
+    interested in `available_categories` which are ALL categories available for the assignment.
+  """
+  selectedCategories(clientLocale: SupportedLocale!): [ProductCategory]!
 }
 
 input PosCheckoutInput {

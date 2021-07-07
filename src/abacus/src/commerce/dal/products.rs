@@ -9,10 +9,10 @@ use serde_json::json;
 /// Takes care of creating the product inside ArangoDB.
 pub(in crate::commerce) async fn create_product(
     pool: &ConnectionPool,
+    client_locale: &SupportedLocale,
     product_multilingual_input: &ProductMultilingualInput,
     images: &[Image],
 ) -> anyhow::Result<Product> {
-    // TODO: dynamic `unit_label`
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
         &pool,
@@ -21,9 +21,10 @@ pub(in crate::commerce) async fn create_product(
 
             INSERT {
               images: @product_images,
-              unit_label: "product_units/piece",
+              unit_label: "product_units/piece", // TODO: dynamic `unit_label`
               is_published: false,
               visibility: @product_visibility,
+              categories: @product_categories,
               created: DATE_ISO8601(DATE_NOW()),
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
@@ -47,9 +48,10 @@ pub(in crate::commerce) async fn create_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "eshop_locale" => client_locale,
             "product_images" => images,
-            "product_visibility" => product_multilingual_input.visibility,
+            "product_visibility" => product_multilingual_input.visibility(),
+            "product_categories" => product_multilingual_input.categories(),
             "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
             "translations" => product_multilingual_input.translations,
         ],
@@ -60,6 +62,7 @@ pub(in crate::commerce) async fn create_product(
 /// TODO(004) - integration tests
 pub(in crate::commerce) async fn update_product(
     pool: &ConnectionPool,
+    client_locale: &SupportedLocale,
     product_key: &str,
     product_revision: &str,
     product_multilingual_input: &ProductMultilingualInput,
@@ -76,6 +79,7 @@ pub(in crate::commerce) async fn update_product(
               _rev: @product_rev,
               images: @product_images,
               visibility: @product_visibility,
+              categories: @product_categories,
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
                 unit_amount: @product_price_unit_amount,
@@ -98,11 +102,12 @@ pub(in crate::commerce) async fn update_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "eshop_locale" => client_locale,
             "product_key" => product_key,
             "product_rev" => product_revision,
             "product_images" => images,
-            "product_visibility" => product_multilingual_input.visibility,
+            "product_visibility" => product_multilingual_input.visibility(),
+            "product_categories" => product_multilingual_input.categories(),
             "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
             "translations" => product_multilingual_input.translations,
         ],
