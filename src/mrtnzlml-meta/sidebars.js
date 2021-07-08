@@ -8,7 +8,7 @@
  */
 
 module.exports = {
-  meta: [
+  programming: [
     {
       type: 'category',
       label: 'Flow & TypeScript',
@@ -54,6 +54,7 @@ module.exports = {
     { type: 'doc', id: 'javascript' },
     { type: 'doc', id: 'css' },
   ],
+  investing: [{ type: 'doc', id: 'investing/101' }],
   archive: [
     { type: 'doc', id: 'archive/flow' },
     { type: 'doc', id: 'archive/relay' },
