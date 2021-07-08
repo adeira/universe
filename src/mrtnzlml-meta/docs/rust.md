@@ -4,21 +4,31 @@ title: Rust all-in
 sidebar_label: Rust all-in
 ---
 
-https://www.rust-lang.org/
-
 > A language empowering everyone to build reliable and efficient software.
 
-- https://www.arewewebyet.org/
-- https://github.com/flosse/rust-web-framework-comparison
-- https://github.com/awslabs/aws-lambda-rust-runtime
-- https://rust-analyzer.github.io/
-- https://github.com/passcod/cargo-watch
-- https://blog.burntsushi.net/rust-error-handling/
-- https://gitlab.com/qonfucius/aragog
-- https://doc.rust-lang.org/std/collections/index.html
-- https://rust-lang-nursery.github.io/rust-cookbook/intro.html
-  https://danielkeep.github.io/tlborm/book/
+https://www.rust-lang.org/
+
+The most important links when working with Rust (alphabetically):
+
 - https://cheats.rs/
+- https://godbolt.org/z/fP3Kj6PMx
+- https://lib.rs/
+- https://veykril.github.io/tlborm/
+
+Other awesome links (alphabetically):
+
+- https://blog.burntsushi.net/rust-error-handling/
+- https://caniuse.rs/
+- https://crates.io/
+- https://doc.rust-lang.org/std/collections/index.html
+- https://github.com/awslabs/aws-lambda-rust-runtime
+- https://github.com/flosse/rust-web-framework-comparison
+- https://github.com/passcod/cargo-watch
+- https://gitlab.com/qonfucius/aragog
+- https://rust-analyzer.github.io/
+- https://rust-lang-nursery.github.io/rust-cookbook/intro.html
+- https://rust.extension.sh/
+- https://www.arewewebyet.org/
 
 ## Interesting Stack Overflow questions
 
@@ -27,7 +37,19 @@ https://www.rust-lang.org/
 - [What exactly does '#\[derive(Debug)\]' mean in Rust?](https://stackoverflow.com/q/46388386/3135248)
 - [How to mock external dependencies in tests?](https://stackoverflow.com/q/51919079/3135248)
 - [Why is there a large performance impact when looping over an array with 240 or more elements?](https://stackoverflow.com/q/57458460/3135248)
-- [What is the difference between iter and into_iter?](https://stackoverflow.com/q/34733811)
+
+## Difference between `iter`, `iter_mut`, and `into_iter`
+
+- the iterator returned by `into_iter` may yield any of `T`, `&T` or `&mut T`, depending on the context
+- the iterator returned by `iter` will yield `&T`, by convention
+- the iterator returned by `iter_mut` will yield `&mut T`, by convention
+
+If you just need to "look at" the data, use `iter`, if you need to edit/mutate it, use `iter_mut`, and if you need to give it a new owner, use `into_iter`.
+
+Sources:
+
+- https://stackoverflow.com/a/34745885/3135248
+- https://hermanradtke.com/2015/06/22/effectively-using-iterators-in-rust.html
 
 ## Difference between `Copy` and `Clone`
 
