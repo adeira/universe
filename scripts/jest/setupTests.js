@@ -21,7 +21,13 @@ expect.extend({
       return {
         pass: false,
         message: () =>
+          /* $FlowFixMe[object-this-reference] This comment suppresses an error
+           * when upgrading Flow to version 0.155.0. To see the error delete
+           * this comment and run Flow. */
           `Expected Error message to be:${os.EOL}  ${this.utils.printExpected(message)}\n` +
+          /* $FlowFixMe[object-this-reference] This comment suppresses an error
+           * when upgrading Flow to version 0.155.0. To see the error delete
+           * this comment and run Flow. */
           `Received:${os.EOL}  ${this.utils.printReceived(received.message)}`,
       };
     }
