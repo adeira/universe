@@ -44,7 +44,7 @@ export default function ProductsPageLayout(): Node {
 const styles = sx.create({
   productsGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
     gap: '1rem',
   },
 });

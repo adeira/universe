@@ -15,11 +15,11 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const Template = (args) => <Image {...args} width={250} height={250} />;
+const Template = (args) => <Image {...args} />;
 
 // 👇 Each story then reuses that template
 export const DefaultImage: StoryTemplate<typeof Image> = Template.bind({});
-DefaultImage.storyName = 'Without Blurhash (default)';
+DefaultImage.storyName = 'Without props (default)';
 
 export const BlurhashImage: StoryTemplate<typeof Image> = Template.bind({});
 BlurhashImage.storyName = 'With Blurhash';
@@ -28,8 +28,8 @@ BlurhashImage.args = {
 };
 
 export const ExampleImage: StoryTemplate<typeof Image> = Template.bind({});
-ExampleImage.storyName = 'With Image';
+ExampleImage.storyName = 'With Blurhash and Image';
 ExampleImage.args = {
   blurhash: 'UIFrw^~Wx^NH.8D*t7%L.8RjMxRixu%ME1R+',
-  src: 'https://placekitten.com/300/300?image=12',
+  src: 'https://placekitten.com/500/500?image=12',
 };
