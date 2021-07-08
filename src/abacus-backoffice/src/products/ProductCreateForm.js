@@ -42,6 +42,7 @@ export default function ProductCreateForm(props: Props): Node {
       description_en={''}
       description_es={''}
       price={0}
+      categories={[]}
       visibility={['POS']}
       button={
         <FormSubmit

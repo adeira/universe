@@ -9,7 +9,9 @@ import BaseSelect from './private/BaseSelect';
 type Props = {
   +'label': FbtWithoutString,
   +'name': string,
-  +'value': string,
+  +'value':
+    | null // for empty select (" -- ")
+    | string,
   +'children': ChildrenArray<RestrictedElement<typeof FormSelectOption>>,
   +'required'?: boolean,
   +'data-testid'?: string,
@@ -24,7 +26,7 @@ export default function FormSelect(props: Props): Node {
       required={props.required}
       data-testid={props['data-testid']}
     >
-      <FormSelectOption value="">
+      <FormSelectOption value={null}>
         <fbt desc="empty select placeholder" doNotExtract={true}>
           --
         </fbt>

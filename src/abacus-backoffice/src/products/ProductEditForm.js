@@ -32,6 +32,9 @@ export default function ProductEditForm(props: Props): Node {
         price {
           unitAmount
         }
+        selectedCategories(clientLocale: $clientLocale) {
+          id
+        }
         visibility
         enTranslation: translation(locale: en_US) {
           name
@@ -62,6 +65,12 @@ export default function ProductEditForm(props: Props): Node {
           ? data.price.unitAmount / 100 // adjusted for centavo
           : 0
       }
+      categories={data.selectedCategories.reduce((acc, category) => {
+        if (category != null) {
+          acc.push(category.id);
+        }
+        return acc;
+      }, [])}
       visibility={
         // $FlowFixMe[incompatible-type]:
         data.visibility

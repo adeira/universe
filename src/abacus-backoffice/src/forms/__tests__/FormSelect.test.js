@@ -15,7 +15,7 @@ beforeEach(() => {
 });
 
 it('renders basic "FormSelect" input as expected', () => {
-  const { getByTestId } = customRender(
+  const { getByTestId, getByText } = customRender(
     <FormSelect
       data-testid="normal-select"
       name="normal-select-name"
@@ -49,6 +49,12 @@ it('renders basic "FormSelect" input as expected', () => {
     }
   `,
   );
-  expect(getByTestId('normal-select-option-pov')).toBeDefined();
-  expect(getByTestId('normal-select-option-tpv')).toBeDefined();
+
+  expect(getByText('Point of sales')).toBeDefined();
+  expect(getByText('Terminal punto de venta')).toBeDefined();
+
+  expect(getByText('--')).toBeDefined(); // empty option
+  expect(getAllAttributes(getByText('--'))).toStrictEqual({
+    value: '',
+  });
 });

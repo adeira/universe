@@ -19,6 +19,9 @@ export type ProductEditFormData = {|
   +price: {|
     +unitAmount: number
   |},
+  +selectedCategories: $ReadOnlyArray<?{|
+    +id: string
+  |}>,
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   +enTranslation: ?{|
     +name: string,
@@ -42,15 +45,22 @@ export type ProductEditFormData$key = {
 
 
 const node: ReaderFragment = (function(){
-var v0 = {
+var v0 = [
+  {
+    "kind": "Variable",
+    "name": "clientLocale",
+    "variableName": "clientLocale"
+  }
+],
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v1 = [
-  (v0/*: any*/),
+v2 = [
+  (v1/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -86,13 +96,7 @@ return {
     },
     {
       "alias": null,
-      "args": [
-        {
-          "kind": "Variable",
-          "name": "clientLocale",
-          "variableName": "clientLocale"
-        }
-      ],
+      "args": (v0/*: any*/),
       "concreteType": "ProductCategory",
       "kind": "LinkedField",
       "name": "availableCategories",
@@ -126,6 +130,24 @@ return {
     },
     {
       "alias": null,
+      "args": (v0/*: any*/),
+      "concreteType": "ProductCategory",
+      "kind": "LinkedField",
+      "name": "selectedCategories",
+      "plural": true,
+      "selections": [
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "id",
+          "storageKey": null
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
       "args": null,
       "kind": "ScalarField",
       "name": "visibility",
@@ -144,7 +166,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v1/*: any*/),
+      "selections": (v2/*: any*/),
       "storageKey": "translation(locale:\"en_US\")"
     },
     {
@@ -160,7 +182,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v1/*: any*/),
+      "selections": (v2/*: any*/),
       "storageKey": "translation(locale:\"es_MX\")"
     },
     {
@@ -171,7 +193,7 @@ return {
       "name": "images",
       "plural": true,
       "selections": [
-        (v0/*: any*/)
+        (v1/*: any*/)
       ],
       "storageKey": null
     }
@@ -181,5 +203,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = '69685a2f45c2d702540302582043f5b6';
+(node: any).hash = '77f9c076b03038af8dac06518335c76a';
 export default node;

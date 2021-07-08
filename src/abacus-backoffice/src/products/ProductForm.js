@@ -25,6 +25,7 @@ export default function ProductForm(props: {
   +description_en: ?string,
   +description_es: ?string,
   +price: number,
+  +categories: $ReadOnlyArray<string>,
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
   +button: RestrictedElement<typeof FormSubmit>,
 }): React.Node {
@@ -97,7 +98,10 @@ export default function ProductForm(props: {
       <FormSelect
         name="category"
         required={true}
-        value="" // TODO
+        value={
+          // we currently support only one category but it's ready for many categories
+          props.categories[0] ?? null
+        }
         label={<fbt desc="product category selectbox label">Product category</fbt>}
       >
         {productCategories.map((category) => {

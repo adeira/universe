@@ -85,6 +85,9 @@ fragment ProductEditFormData on Product {
   price {
     unitAmount
   }
+  selectedCategories(clientLocale: $clientLocale) {
+    id
+  }
   visibility
   enTranslation: translation(locale: en_US) {
     name
@@ -242,6 +245,9 @@ v14 = {
   "storageKey": null
 },
 v15 = [
+  (v8/*: any*/)
+],
+v16 = [
   (v12/*: any*/),
   {
     "alias": null,
@@ -365,9 +371,7 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": [
-                      (v8/*: any*/)
-                    ],
+                    "args": (v15/*: any*/),
                     "concreteType": "ProductCategory",
                     "kind": "LinkedField",
                     "name": "availableCategories",
@@ -398,6 +402,18 @@ return {
                   },
                   {
                     "alias": null,
+                    "args": (v15/*: any*/),
+                    "concreteType": "ProductCategory",
+                    "kind": "LinkedField",
+                    "name": "selectedCategories",
+                    "plural": true,
+                    "selections": [
+                      (v11/*: any*/)
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
                     "args": null,
                     "kind": "ScalarField",
                     "name": "visibility",
@@ -416,7 +432,7 @@ return {
                     "kind": "LinkedField",
                     "name": "translation",
                     "plural": false,
-                    "selections": (v15/*: any*/),
+                    "selections": (v16/*: any*/),
                     "storageKey": "translation(locale:\"en_US\")"
                   },
                   {
@@ -432,7 +448,7 @@ return {
                     "kind": "LinkedField",
                     "name": "translation",
                     "plural": false,
-                    "selections": (v15/*: any*/),
+                    "selections": (v16/*: any*/),
                     "storageKey": "translation(locale:\"es_MX\")"
                   },
                   {
@@ -468,12 +484,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "acd741e347f80cd1d1d8f5433ced6166",
+    "cacheID": "fa8b4a1ca541bd7aec3013522250c8d0",
     "id": null,
     "metadata": {},
     "name": "ProductEditFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();
