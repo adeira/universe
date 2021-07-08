@@ -11,6 +11,7 @@ type Props = {
   +'label': FbtWithoutString,
   +'name': string,
   +'value':
+    | null // empty (not selected)
     | string // for normal select
     | $ReadOnlyArray<string>, // for multi select
   +'children': ChildrenArray<RestrictedElement<typeof FormSelectOption>>,
