@@ -54,7 +54,10 @@ module.exports = {
     { type: 'doc', id: 'javascript' },
     { type: 'doc', id: 'css' },
   ],
-  investing: [{ type: 'doc', id: 'investing/101' }],
+  investing: [
+    { type: 'doc', id: 'investing/101' },
+    { type: 'doc', id: 'investing/glossary' },
+  ],
   archive: [
     { type: 'doc', id: 'archive/flow' },
     { type: 'doc', id: 'archive/relay' },
