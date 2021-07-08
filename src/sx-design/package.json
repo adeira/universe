@@ -30,7 +30,7 @@
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@storybook/addon-a11y": "^6.3.2",
     "@storybook/addon-actions": "^6.3.2",
-    "@storybook/addon-essentials": "^6.3.2",
+    "@storybook/addon-essentials": "^6.3.3",
     "@storybook/addon-links": "^6.3.2",
     "@storybook/addon-viewport": "^6.3.2",
     "@storybook/addons": "^6.3.0",
