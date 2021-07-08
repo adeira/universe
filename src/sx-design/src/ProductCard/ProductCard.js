@@ -45,51 +45,53 @@ type Props = {
 export default function ProductCard(props: Props): Element<'div'> {
   const [isHovered, setIsHovered] = useState(false);
 
-  const DEFAULT_HEIGHT = 250;
-  const DEFAULT_WIDTH = 250;
-
   return (
     <div
-      style={{ height: DEFAULT_HEIGHT, width: DEFAULT_WIDTH }}
-      className={styles('wrapper')}
+      className={styles('wrapper', 'aspectRatioBox')}
       onMouseOver={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
+      onTouchEnd={() => setIsHovered(false)}
     >
-      <div className={styles('highlightWrapper')}>
-        <Heading xstyle={styles.heading}>
-          <span
-            className={styles(
-              isHovered ? 'highlightHover' : 'highlight',
-              'highlightBase',
-              'highlightBaseRounded', // applies only to this highlight
-            )}
-          >
-            {props.title}
+      <div className={styles('aspectRatioBoxInner')}>
+        <div className={styles('highlightWrapper')}>
+          <Heading xstyle={styles.heading}>
+            <span
+              className={styles(
+                isHovered ? 'highlightHover' : 'highlight',
+                'highlightBase',
+                'highlightBaseRounded', // applies only to this highlight
+              )}
+            >
+              {props.title}
+            </span>
+          </Heading>
+
+          <span className={styles(isHovered ? 'highlightHover' : 'highlight', 'highlightBase')}>
+            <Money
+              priceUnitAmount={props.priceUnitAmount}
+              priceUnitAmountCurrency={props.priceUnitAmountCurrency}
+            />
           </span>
-        </Heading>
+        </div>
 
-        <span className={styles(isHovered ? 'highlightHover' : 'highlight', 'highlightBase')}>
-          <Money
-            priceUnitAmount={props.priceUnitAmount}
-            priceUnitAmountCurrency={props.priceUnitAmountCurrency}
-          />
-        </span>
+        <Image src={props.imgSrc} alt={props.imgAlt} blurhash={props.imgBlurhash} />
       </div>
-
-      {props.imgSrc != null ? (
-        <Image
-          src={props.imgSrc}
-          alt={props.imgAlt}
-          blurhash={props.imgBlurhash}
-          height={DEFAULT_HEIGHT}
-          width={DEFAULT_WIDTH}
-        />
-      ) : null}
     </div>
   );
 }
 
 const styles = sx.create({
+  aspectRatioBox: {
+    position: 'relative',
+    width: '100%',
+    paddingBlockEnd: '100%', // = width for a 1:1 aspect ratio (https://css-tricks.com/aspect-ratio-boxes/)
+  },
+  aspectRatioBoxInner: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+  },
   wrapper: {
     display: 'flex',
     flexDirection: 'column',

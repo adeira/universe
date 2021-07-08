@@ -12,7 +12,7 @@ import Image from '../Image';
 it('renders without any issues', () => {
   const { getByAltText, getByTestId } = render(
     <SxDesignProvider>
-      <Image width={250} height={250} alt={'yadada'} data-testid={'image-test-id'} />
+      <Image alt={'yadada'} data-testid={'image-test-id'} />
     </SxDesignProvider>,
   );
 
@@ -25,7 +25,7 @@ it('warns with missing img alt', () => {
 
   const { getByTestId } = render(
     <SxDesignProvider>
-      <Image width={250} height={250} src={'mock'} data-testid={'image-test-id'} />
+      <Image src={'mock'} data-testid={'image-test-id'} />
     </SxDesignProvider>,
   );
 
@@ -38,11 +38,11 @@ it('warns with missing img alt', () => {
 });
 
 it('handles invalid blurhash without any issues', () => {
+  const consoleSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
+
   const { getByAltText, getByTestId } = render(
     <SxDesignProvider>
       <Image
-        width={250}
-        height={250}
         alt={'yadada'}
         blurhash={'invalid-blurhash-format'} // <<<
         data-testid={'image-test-id'}
@@ -52,4 +52,9 @@ it('handles invalid blurhash without any issues', () => {
 
   expect(getByAltText('yadada')).toBeDefined();
   expect(getByTestId('image-test-id')).toBeDefined();
+
+  expect(consoleSpy).toHaveBeenCalledWith(
+    'The specified blurhash value is not valid: "invalid-blurhash-format"',
+  );
+  consoleSpy.mockRestore();
 });

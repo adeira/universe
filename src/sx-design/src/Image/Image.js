@@ -1,14 +1,12 @@
 // @flow
 
 import { warning } from '@adeira/js';
-import React, { useState, type Element } from 'react';
+import React, { useState, type Node } from 'react';
 import sx from '@adeira/sx';
-import { Blurhash } from 'react-blurhash';
-import { isBlurhashValid } from 'blurhash';
+import { Blurhash as ReactBlurhash } from 'react-blurhash';
+import { isBlurhashValid as _isBlurhashValid } from 'blurhash';
 
 type Props = {
-  +'width': number,
-  +'height': number,
   +'src'?: string, // optional because BE might fail to return the URL
   +'alt'?: Fbt,
   +'blurhash'?: string,
@@ -17,7 +15,12 @@ type Props = {
   +'data-testid'?: string,
 };
 
-export default function Image(props: Props): Element<'div'> {
+/**
+ * `Image` components renders an image with aspect ratio 1:1. Optionally, you can specify Blurhash
+ * (https://blurha.sh/) to be rendered while the image is loading. Grey square is rendered as a
+ * placeholder if the image cannot be loaded and there is no valid Blurhash.
+ */
+export default function Image(props: Props): Node {
   const [isImageLoaded, setImageLoaded] = useState(false);
 
   if (props.src != null) {
@@ -29,23 +32,36 @@ export default function Image(props: Props): Element<'div'> {
     );
   }
 
-  return (
-    <div
-      className={styles('background')}
+  const isBlurhashValid = _isBlurhashValid(props.blurhash).result === true;
+  if (props.blurhash != null) {
+    warning(isBlurhashValid, 'The specified blurhash value is not valid: "%s"', props.blurhash);
+  }
+
+  const Blurhash = isBlurhashValid ? (
+    <ReactBlurhash
+      hash={props.blurhash}
       style={{
-        width: props.width,
-        height: props.height,
+        // `ReactBlurhash` renders `<div><canvas/></div>` and this style object is being applied to
+        // the wrapping div. Here we make sure that the canvas is rendered into responsive rectangle
+        // with ratio 1:1 and it has rounded corners.
+        height: 'auto',
+        width: '100%',
+        paddingBlockEnd: '100%', // = width for a 1:1 aspect ratio (https://css-tricks.com/aspect-ratio-boxes/)
+        borderRadius: 'var(--sx-radius)',
+        overflow: 'hidden',
       }}
-    >
-      {isImageLoaded === false && isBlurhashValid(props.blurhash).result === true ? (
-        <Blurhash hash={props.blurhash} width={props.width} height={props.height} />
-      ) : null}
+    />
+  ) : (
+    <div className={styles('backgroundPlaceholder')} />
+  );
+
+  return (
+    <>
+      {isImageLoaded === true ? null : Blurhash}
 
       <img
         src={props.src}
         alt={props.alt}
-        height={props.height}
-        width={props.width}
         className={styles({
           imgSrc: true,
           imgSrcLoading: isImageLoaded === false,
@@ -64,21 +80,23 @@ export default function Image(props: Props): Element<'div'> {
         }}
         data-testid={props['data-testid']}
       />
-    </div>
+    </>
   );
 }
 
 const styles = sx.create({
-  background: {
-    display: 'flex',
-    flexDirection: 'column',
+  backgroundPlaceholder: {
     backgroundColor: 'rgba(var(--sx-accent-2))',
     borderRadius: 'var(--sx-radius)',
+    width: '100%',
+    paddingBlockEnd: '100%', // = width for a 1:1 aspect ratio (https://css-tricks.com/aspect-ratio-boxes/)
   },
   imgSrcLoading: {
     display: 'none',
   },
   imgSrc: {
+    width: '100%',
+    height: '100%',
     objectFit: 'cover',
     objectPosition: 'center center',
     borderRadius: 'var(--sx-radius)',

@@ -67,13 +67,7 @@ export default function ProductsEditLayout(props: Props): Node {
                   imageWrapperDelete: imagesToDelete.includes(image.name) === true,
                 })}
               >
-                <Image
-                  src={image.url}
-                  alt={image.name}
-                  blurhash={image.blurhash}
-                  width={250}
-                  height={250}
-                />
+                <Image src={image.url} alt={image.name} blurhash={image.blurhash} />
               </div>
               {imagesToDelete.includes(image.name) === false ? (
                 <div>
