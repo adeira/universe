@@ -12,7 +12,14 @@ jobs:
           # Number of commits to fetch. 0 indicates all history for all branches and tags.
           fetch-depth: 0
 
-      # TODO: use CI cache
+      # TODO: https://github.com/actions/cache/issues/239
+      - name: Mount Bazel cache
+        uses: actions/cache@v2
+        with:
+          path: '/home/runner/.cache/bazel'
+          key: ${{ runner.os }}-bazel-${{ hashFiles('**/*.bazel', '**/*.bzl') }}
+          restore-keys: |
+            ${{ runner.os }}-bazel-
 
       - name: Install bazelisk
         run: |
@@ -36,8 +43,10 @@ jobs:
       #   run: |
       #     "${GITHUB_WORKSPACE}/bin/bazel" run --build_tag_filters=manual //:buildifier.lint
 
+      - name: Test
+        run: |
+          "${GITHUB_WORKSPACE}/bin/bazel" test //...
+
       - name: Build
         run: |
           "${GITHUB_WORKSPACE}/bin/bazel" build //...
-
-      # TODO: run Bazel test

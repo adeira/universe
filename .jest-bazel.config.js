@@ -1,5 +1,9 @@
 // @flow strict
 
+global.__DEV__ = true;
+
+// TODO: should we rather have one per each project to isolate them properly?
+
 module.exports = {
   bail: 100,
   errorOnDeprecated: true,
