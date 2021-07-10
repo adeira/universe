@@ -48,7 +48,7 @@ export default function ProductCard(props: Props): Element<'div'> {
   return (
     <div
       className={styles('wrapper', 'aspectRatioBox')}
-      onMouseOver={() => setIsHovered(true)}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onTouchStart={() => setIsHovered(true)}
       onTouchEnd={() => setIsHovered(false)}
