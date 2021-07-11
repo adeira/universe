@@ -27,12 +27,6 @@ expect.addSnapshotSerializer({
   },
 });
 
-const renderPageMock = () => ({
-  html: '',
-  head: [''],
-  styles: [''],
-});
-
 afterEach(() => {
   StyleCollector.reset();
 });
@@ -46,7 +40,7 @@ test.each(fixturesPaths)('matches expected output: %s', (fixturePath) => {
   try {
     const styles = sx.create(stylesheetsDefinition);
     // 2) atomic CSS
-    const renderer = TestRenderer.create(sx.renderPageWithSX(renderPageMock).styles[0]);
+    const renderer = TestRenderer.create(sx.getStyleTag());
 
     const css = renderer.root.props.dangerouslySetInnerHTML.__html;
     const output = prettier.format(css, { filepath: 'test.css' });
