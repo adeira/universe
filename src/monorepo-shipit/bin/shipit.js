@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-// @flow strict-local
+// @flow
 
 import chalk from 'chalk';
+import commandLineArgs from 'command-line-args';
 
 import iterateConfigs from '../src/iterateConfigs';
 import createClonePhase from '../src/phases/createClonePhase';
@@ -13,13 +14,24 @@ import createVerifyRepoPhase from '../src/phases/createVerifyRepoPhase';
 import createPushPhase from '../src/phases/createPushPhase';
 
 // yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js
+// yarn monorepo-babel-node src/monorepo-shipit/bin/shipit.js --glob-pattern="/abacus.js"
 
 type Phase = {
   (): void,
   +readableName: string,
 };
 
-iterateConfigs((config) => {
+const options = commandLineArgs([
+  {
+    // This option allows us to grep subset of config files. Especially useful when running the
+    // Shipit binary locally for testing purposes.
+    name: 'glob-pattern',
+    type: String,
+    defaultValue: '/*.js',
+  },
+]);
+
+iterateConfigs(options['glob-pattern'], (config) => {
   new Set<Phase>([
     createClonePhase(config.exportedRepoURL, config.destinationPath),
     createCheckCorruptedRepoPhase(config.destinationPath),
