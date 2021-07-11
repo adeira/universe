@@ -11,7 +11,7 @@ type Props = {
   +'children': FbtWithoutString,
   +'target'?: string,
   +'isActive'?: boolean,
-  +'tint'?: 'default' | 'error' | 'success' | 'warning',
+  +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
   +'onClick'?: () => void,
@@ -39,6 +39,7 @@ export default (React.forwardRef(function LinkButton(props, ref): React.Node {
         className={sharedButtonStyles({
           buttonBase: true,
           buttonTintDefault: props.tint == null || props.tint === 'default',
+          buttonTintSecondary: props.tint === 'secondary',
           buttonTintError: props.tint === 'error',
           buttonTintSuccess: props.tint === 'success',
           buttonTintWarning: props.tint === 'warning',

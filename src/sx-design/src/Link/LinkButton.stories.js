@@ -21,6 +21,7 @@ const BasicTemplate = (args) => <LinkButton {...args} />;
 const ShowcaseTemplate = (args) => (
   <>
     <LinkButton {...args} tint="default" />
+    <LinkButton {...args} tint="secondary" />
     <LinkButton {...args} tint="error" />
     <LinkButton {...args} tint="success" />
     <LinkButton {...args} tint="warning" />

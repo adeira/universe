@@ -15,9 +15,10 @@ export default {
   title: 'Example/Button',
   component: Button,
   argTypes: {
-    prefix: { table: { disable: true } },
-    suffix: { table: { disable: true } },
-    children: { table: { disable: true } },
+    'prefix': { table: { disable: true } },
+    'suffix': { table: { disable: true } },
+    'children': { table: { disable: true } },
+    'data-testid': { table: { disable: true } },
   },
 };
 
@@ -25,10 +26,31 @@ export default {
 const BasicTemplate = (args) => <Button {...args} />;
 const ShowcaseTemplate = (args) => (
   <>
-    <Button {...args} tint="default" />
-    <Button {...args} tint="error" />
-    <Button {...args} tint="success" />
-    <Button {...args} tint="warning" />
+    <Button {...args} tint="default">
+      <fbt desc="default button title" doNotExtract={true}>
+        Default
+      </fbt>
+    </Button>
+    <Button {...args} tint="secondary">
+      <fbt desc="secondary button title" doNotExtract={true}>
+        Secondary
+      </fbt>
+    </Button>
+    <Button {...args} tint="error">
+      <fbt desc="error button title" doNotExtract={true}>
+        Error
+      </fbt>
+    </Button>
+    <Button {...args} tint="success">
+      <fbt desc="success button title" doNotExtract={true}>
+        Success
+      </fbt>
+    </Button>
+    <Button {...args} tint="warning">
+      <fbt desc="warning button title" doNotExtract={true}>
+        Warning
+      </fbt>
+    </Button>
   </>
 );
 
@@ -40,7 +62,7 @@ ButtonDefault.storyName = 'Default';
 ButtonDefault.args = {
   children: (
     <fbt desc="button title" doNotExtract={true}>
-      Button
+      Default button
     </fbt>
   ),
 };
@@ -61,11 +83,4 @@ export const ButtonShowcase: StoryTemplate<typeof Button> = ShowcaseTemplate.bin
 ButtonShowcase.storyName = 'Showcase';
 ButtonShowcase.argTypes = {
   tint: { table: { disable: true } },
-};
-ButtonShowcase.args = {
-  children: (
-    <fbt desc="button title" doNotExtract={true}>
-      Button
-    </fbt>
-  ),
 };
