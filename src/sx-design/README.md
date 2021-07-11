@@ -67,6 +67,7 @@ Legend:
 | [`<Modal />`]         |     ✅      |     ✅      |      🧐       |    🧐    |  🧐   |
 | [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
+| [`<Placeholder />`]   |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
@@ -90,6 +91,7 @@ Legend:
 [`<modal />`]: https://sx-design.vercel.app/?path=/story/example-modal
 [`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
 [`<note />`]: https://sx-design.vercel.app/?path=/story/example-note
+[`<placeholder />`]: https://sx-design.vercel.app/?path=/story/example-placeholder
 [`<productcard />`]: https://sx-design.vercel.app/?path=/story/example-productcard
 [`<section />`]: https://sx-design.vercel.app/?path=/story/example-section
 [`<skeleton />`]: https://sx-design.vercel.app/?path=/story/example-skeleton

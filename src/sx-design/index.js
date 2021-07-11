@@ -21,6 +21,7 @@ export { default as MissingData } from './src/MissingData/MissingData';
 export { default as Modal } from './src/Modal/Modal';
 export { default as Money, MoneyFn } from './src/Money/Money';
 export { default as Note } from './src/Note/Note';
+export { default as Placeholder } from './src/Placeholder/Placeholder';
 export { default as ProductCard } from './src/ProductCard/ProductCard';
 export { default as Section } from './src/Section/Section';
 export { default as Skeleton } from './src/Skeleton/Skeleton';
