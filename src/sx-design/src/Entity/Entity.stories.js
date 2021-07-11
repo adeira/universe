@@ -11,7 +11,7 @@ import EntityField from './EntityField';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/Entity',
+  title: 'Components/Entity',
   component: Entity,
   argTypes: {
     // hide children property from the Storybook

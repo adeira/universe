@@ -13,7 +13,7 @@ import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   argTypes: {
     'children': { table: { disable: true } },

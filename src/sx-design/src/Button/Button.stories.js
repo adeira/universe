@@ -13,7 +13,7 @@ import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     'prefix': { table: { disable: true } },

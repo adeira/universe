@@ -15,7 +15,7 @@ import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/Skeleton',
+  title: 'Components/Skeleton',
   component: Skeleton,
   argTypes: {
     'children': { table: { disable: true } },

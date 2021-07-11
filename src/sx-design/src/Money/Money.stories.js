@@ -10,7 +10,7 @@ import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/Money',
+  title: 'Components/Money',
   component: Money,
   argTypes: {
     priceUnitAmount: {
