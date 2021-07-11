@@ -3,7 +3,7 @@
 export { default as SxDesignProvider } from './src/SxDesignProvider';
 export { default as useSxDesignContext } from './src/useSxDesignContext';
 
-// public SX Design components:
+// Public SX Design components:
 export { default as Badge } from './src/Badge/Badge';
 export { default as Button } from './src/Button/Button';
 export { default as ButtonLink } from './src/Button/ButtonLink';
@@ -27,3 +27,6 @@ export { default as Section } from './src/Section/Section';
 export { default as Skeleton } from './src/Skeleton/Skeleton';
 export { default as SkipLink } from './src/SkipLink/SkipLink';
 export { default as Tooltip } from './src/Tooltip/Tooltip';
+
+// Public SX Design LAYOUT components:
+export { default as LayoutInline } from './src/Layout/LayoutInline';

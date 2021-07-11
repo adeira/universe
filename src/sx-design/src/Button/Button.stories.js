@@ -7,6 +7,7 @@ import Icon from '@adeira/icons';
 import fbt from 'fbt';
 
 import Button from './Button';
+import LayoutInline from '../Layout/LayoutInline';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
@@ -25,7 +26,7 @@ export default {
 // 👇 We create a "template" of how args map to rendering
 const BasicTemplate = (args) => <Button {...args} />;
 const ShowcaseTemplate = (args) => (
-  <>
+  <LayoutInline>
     <Button {...args} tint="default">
       <fbt desc="default button title" doNotExtract={true}>
         Default
@@ -51,7 +52,7 @@ const ShowcaseTemplate = (args) => (
         Warning
       </fbt>
     </Button>
-  </>
+  </LayoutInline>
 );
 
 initFbt();
