@@ -6,8 +6,12 @@ import { findMonorepoRoot, globSync } from '@adeira/monorepo-utils';
 import requireAndValidateConfig from './requireAndValidateConfig';
 import ShipitConfig from './ShipitConfig';
 
-function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void): void {
-  const configFiles = globSync('/*.js', {
+function iterateConfigsInPath(
+  globPattern: string,
+  rootPath: string,
+  callback: (ShipitConfig) => void,
+): void {
+  const configFiles = globSync(globPattern, {
     root: rootPath,
     ignore: [
       '**/node_modules/**',
@@ -59,6 +63,9 @@ function iterateConfigsInPath(rootPath: string, callback: (ShipitConfig) => void
   }
 }
 
-export default function iterateConfigs(callback: (ShipitConfig) => void): void {
-  iterateConfigsInPath(path.join(__dirname, '..', 'config'), callback);
+export default function iterateConfigs(
+  globPattern: string,
+  callback: (ShipitConfig) => void,
+): void {
+  iterateConfigsInPath(globPattern, path.join(__dirname, '..', 'config'), callback);
 }
