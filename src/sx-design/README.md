@@ -100,6 +100,7 @@ Legend:
 
 There is an additional set of so-called "Layout" components that are responsible for rendering the components above in a correct order, with correct spacing and so on:
 
+- [`<LayoutBlock />`](https://sx-design.vercel.app/?path=/story/layout-layoutblock)
 - [`<LayoutInline />`](https://sx-design.vercel.app/?path=/story/layout-layoutinline)
 - … 🚧
 

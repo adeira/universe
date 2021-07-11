@@ -8,10 +8,10 @@ type Props = {
 };
 
 /**
- * Responsibility of a `LayoutInline` component is to render given children with appropriate spacing
- * in horizontal line.
+ * Responsibility of a `LayoutBlock` component is to render given children with appropriate spacing
+ * in a vertical line.
  */
-export default function LayoutInline(props: Props): Node {
+export default function LayoutBlock(props: Props): Node {
   return React.Children.map(props.children, function (child) {
     return <div className={styles('child')}>{child}</div>;
   });
@@ -19,11 +19,11 @@ export default function LayoutInline(props: Props): Node {
 
 const styles = sx.create({
   child: {
-    'display': 'inline-block',
-    'paddingInlineEnd': 'var(--sx-spacing-default)',
+    'display': 'flex',
+    'flexDirection': 'column',
     'paddingBlockEnd': 'var(--sx-spacing-default)',
     ':last-child': {
-      paddingInlineStart: 0,
+      paddingBlockEnd: 0,
     },
   },
 });

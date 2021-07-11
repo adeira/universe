@@ -29,4 +29,5 @@ export { default as SkipLink } from './src/SkipLink/SkipLink';
 export { default as Tooltip } from './src/Tooltip/Tooltip';
 
 // Public SX Design LAYOUT components:
+export { default as LayoutBlock } from './src/Layout/LayoutBlock';
 export { default as LayoutInline } from './src/Layout/LayoutInline';
