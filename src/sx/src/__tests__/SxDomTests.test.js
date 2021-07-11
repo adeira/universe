@@ -37,7 +37,7 @@ it('applies correct styles', () => {
 
   render(
     <>
-      {sx.renderPageWithSX(jest.fn()).styles}
+      {sx.getStyleTag()}
       <div className={styles('red')}>red</div>
       <div className={styles('blue')}>blue</div>
       <div className={styles('red', 'blue')}>mix red blue</div>
@@ -75,7 +75,7 @@ it('correctly handles shorthand properties specificity', () => {
 
   render(
     <>
-      {sx.renderPageWithSX(jest.fn()).styles}
+      {sx.getStyleTag()}
       <div className={styles('button', 'primary')}>test 1</div>
       <div className={styles('primary', 'button')}>test 2</div>
     </>,
@@ -125,7 +125,7 @@ it('handles background:none specificity correctly', () => {
 
   render(
     <>
-      {sx.renderPageWithSX(jest.fn()).styles}
+      {sx.getStyleTag()}
       <div className={styles('bgBlue', 'bgNone')}>test_1</div>
       <div className={styles('bgNone', 'bgBlue')}>test_2</div>
     </>,
@@ -190,7 +190,7 @@ it('works with keyframes', () => {
 
   const { container } = render(
     <>
-      {sx.renderPageWithSX(jest.fn()).styles}
+      {sx.getStyleTag()}
       <div className={styles('myClass')}>test_1</div>
     </>,
   );

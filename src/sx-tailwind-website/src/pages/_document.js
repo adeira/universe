@@ -1,19 +1,21 @@
 // @flow
 
-import type { Node } from 'react';
+import type { Node, Element } from 'react';
 // $FlowExpectedError[missing-export]: Flow-typed types needs updating
-import Document, { Head, Main, NextScript, type DocumentContext, Html } from 'next/document';
+import Document, { Head, Main, NextScript, Html, type DocumentContext } from 'next/document';
 import sx from '@adeira/sx';
 
 type RenderPageResult = {
   +html: string,
-  +head: $ReadOnlyArray<Node>,
-  +styles: $ReadOnlyArray<any>,
+  +head?: $ReadOnlyArray<Node | null>,
+  +styles?: $ReadOnlyArray<Element<'style'>>,
+  ...
 };
 
 export default class MyDocument extends Document {
-  static getInitialProps(ctx: DocumentContext): RenderPageResult {
-    return sx.renderPageWithSX(ctx.renderPage);
+  static async getInitialProps({ renderPage }: DocumentContext): Promise<RenderPageResult> {
+    const page = await renderPage();
+    return { ...page, styles: [sx.getStyleTag()] };
   }
 
   render(): Node {

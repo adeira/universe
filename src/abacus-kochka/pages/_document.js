@@ -1,27 +1,36 @@
 // @flow
 
-import * as React from 'react';
+import React, { type Node, type Element } from 'react';
 /* $FlowFixMe[missing-export] This comment suppresses an error when migrating
  * to adeira/universe. To see the error delete this comment and run Flow. */
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript, type DocumentContext } from 'next/document';
 import sx from '@adeira/sx';
-
-type InitialProps = {
-  +renderPage: () => $FlowFixMe,
-};
 
 type RenderPageResult = {
   +html: string,
-  +head: $ReadOnlyArray<React.Node>,
-  +styles: $ReadOnlyArray<any>,
+  +head?: $ReadOnlyArray<Node | null>,
+  +styles?: $ReadOnlyArray<Element<'style'>>,
+  ...
 };
 
 export default class MyDocument extends Document {
-  static getInitialProps({ renderPage }: InitialProps): RenderPageResult {
-    return sx.renderPageWithSX(renderPage);
+  // See: https://nextjs.org/docs/advanced-features/custom-document#customizing-renderpage
+  static async getInitialProps({ renderPage }: DocumentContext): Promise<RenderPageResult> {
+    const page = await renderPage();
+    return { ...page, styles: [sx.getStyleTag()] };
   }
 
-  render(): React.Node {
+  createGoogleAnalyticsMarkup(): { __html: string } {
+    return {
+      __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-148481588-2');`,
+    };
+  }
+
+  render(): Node {
     return (
       <Html>
         <Head>
@@ -31,17 +40,7 @@ export default class MyDocument extends Document {
           <link rel="manifest" href="/favicon/site.webmanifest" />
           <meta name="theme-color" content="#6C1610" />
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148481588-2" />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'UA-148481588-2');
-              `,
-            }}
-          />
+          <script dangerouslySetInnerHTML={this.createGoogleAnalyticsMarkup()} />
         </Head>
         <body>
           <Main />
