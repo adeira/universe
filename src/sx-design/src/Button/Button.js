@@ -12,7 +12,7 @@ type Props = {
     | 'submit' // The button submits the form data to the server.
     | 'reset' // The button resets all the controls to their initial values (this behavior tends to annoy users).
     | 'button', // The button has no default behavior, and does nothing when pressed by default (use `onClick` callback).
-  +'tint'?: 'default' | 'error' | 'success' | 'warning',
+  +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
   +'prefix'?: RestrictedElement<typeof Icon>,
@@ -34,6 +34,7 @@ export default function Button(props: Props): React.Element<'button'> {
       className={sharedButtonStyles({
         buttonBase: true,
         buttonTintDefault: props.tint == null || props.tint === 'default',
+        buttonTintSecondary: props.tint === 'secondary',
         buttonTintError: props.tint === 'error',
         buttonTintSuccess: props.tint === 'success',
         buttonTintWarning: props.tint === 'warning',
