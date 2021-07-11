@@ -49,10 +49,11 @@ module.exports = {
         { type: 'doc', id: 'rust/modules' },
       ],
     },
+    { type: 'doc', id: 'accessibility' },
+    { type: 'doc', id: 'css' },
     { type: 'doc', id: 'git' },
     { type: 'doc', id: 'graphql' },
     { type: 'doc', id: 'javascript' },
-    { type: 'doc', id: 'css' },
   ],
   investing: [
     { type: 'doc', id: 'investing/101' },
