@@ -12,7 +12,7 @@ import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/ErrorBoundary',
+  title: 'Components/ErrorBoundary',
   component: ErrorBoundary,
   argTypes: {
     // hide children property from the Storybook

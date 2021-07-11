@@ -10,7 +10,7 @@ import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
-  title: 'Example/MissingData',
+  title: 'Components/MissingData',
   component: MissingData,
 };
 
