@@ -7,6 +7,7 @@ import React from 'react';
 import fbt from 'fbt';
 
 import Badge from './Badge';
+import LayoutInline from '../Layout/LayoutInline';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
@@ -20,12 +21,12 @@ export default {
 const BasicTemplate = (args) => <Badge {...args} />;
 
 const ShowcaseTemplate = (args) => (
-  <>
+  <LayoutInline>
     <Badge {...args} tint="default" />
     <Badge {...args} tint="error" />
     <Badge {...args} tint="success" />
     <Badge {...args} tint="warning" />
-  </>
+  </LayoutInline>
 );
 
 initFbt();

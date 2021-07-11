@@ -1,5 +1,6 @@
 // @flow
 
+import { LayoutInline } from '@adeira/sx-design';
 import React, { type ChildrenArray, type Element, type Node } from 'react';
 import sx from '@adeira/sx';
 
@@ -25,7 +26,7 @@ export default function LayoutHeading(props: Props): Node {
           <small>{props.description}</small>
         </p>
       ) : null}
-      <div className={styles('toolbar')}>{props.children ?? null}</div>
+      <LayoutInline>{props.children ?? null}</LayoutInline>
     </div>
   );
 }
@@ -38,8 +39,5 @@ const styles = sx.create({
   description: {
     margin: 0,
     fontStyle: 'italic',
-  },
-  toolbar: {
-    marginBlock: '1rem',
   },
 });

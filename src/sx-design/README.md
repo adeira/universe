@@ -98,6 +98,11 @@ Legend:
 [`<skiplink />`]: https://sx-design.vercel.app/?path=/story/example-skiplink
 [`<tooltip />`]: https://sx-design.vercel.app/?path=/story/example-tooltip
 
+There is an additional set of so-called "Layout" components that are responsible for rendering the components above in a correct order, with correct spacing and so on:
+
+- [`<LayoutInline />`](https://sx-design.vercel.app/?path=/story/layout-layoutinline)
+- … 🚧
+
 _Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
 
 ¹ Localized means that it's either translated by us or the component inputs are (Flow) typed in a way that encourages passing translated strings instead of plain strings.
