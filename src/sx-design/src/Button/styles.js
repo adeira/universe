@@ -26,6 +26,16 @@ export default (sx.create({
     },
   },
   buttonTintDefault: {
+    'backgroundColor': 'rgba(var(--sx-foreground))',
+    'color': 'rgba(var(--sx-background))',
+    'border': '1px solid rgba(var(--sx-foreground))',
+    ':hover': {
+      backgroundColor: 'rgba(var(--sx-background))',
+      color: 'rgba(var(--sx-foreground))',
+      border: '1px solid rgba(var(--sx-foreground))',
+    },
+  },
+  buttonTintSecondary: {
     'backgroundColor': 'rgba(var(--sx-background))',
     'color': 'rgba(var(--sx-foreground))',
     'border': '1px solid rgba(var(--sx-accent-2))',

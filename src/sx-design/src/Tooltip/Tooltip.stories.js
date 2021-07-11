@@ -6,6 +6,7 @@
 import React from 'react';
 import fbt from 'fbt';
 
+import Button from '../Button/Button';
 import Tooltip from './Tooltip';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
@@ -15,12 +16,8 @@ export default {
   title: 'Example/Tooltip',
   component: Tooltip,
   argTypes: {
-    // hide `data-testid` properties from the Storybook
-    'data-testid': {
-      table: {
-        disable: true,
-      },
-    },
+    'children': { table: { disable: true } },
+    'data-testid': { table: { disable: true } },
   },
 };
 
@@ -75,4 +72,16 @@ export const CustomChildrenTooltip: StoryTemplate<typeof Tooltip> = Template.bin
 CustomChildrenTooltip.storyName = 'Custom children';
 CustomChildrenTooltip.args = {
   children: 'N/A',
+};
+
+export const WithButtonTooltip: StoryTemplate<typeof Tooltip> = Template.bind({});
+WithButtonTooltip.storyName = 'With button';
+WithButtonTooltip.args = {
+  children: (
+    <Button onClick={() => {}}>
+      <fbt desc="button title" doNotExtract={true}>
+        Button
+      </fbt>
+    </Button>
+  ),
 };
