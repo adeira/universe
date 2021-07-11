@@ -27,7 +27,7 @@ it('correctly resolves multiple styles', () => {
   const styles = sx.create({ default: { fontSize: 16 } });
   const externalStyles = sx.create({ custom: { color: 'red', fontSize: 20 } });
 
-  render(<div>{sx.renderPageWithSX(jest.fn()).styles}</div>);
+  render(<div>{sx.getStyleTag()}</div>);
   expect(
     prettier.format(document.querySelector('[data-adeira-sx="true"]')?.innerHTML, {
       filepath: 'test.css',
@@ -55,7 +55,7 @@ it('correctly resolves many styles', () => {
   const ccc = sx.create({ _: { fontSize: 3 } });
   const ddd = sx.create({ _: { fontSize: 4 } });
 
-  render(<div>{sx.renderPageWithSX(jest.fn()).styles}</div>);
+  render(<div>{sx.getStyleTag()}</div>);
   expect(
     prettier.format(document.querySelector('[data-adeira-sx="true"]')?.innerHTML, {
       filepath: 'test.css',
@@ -100,7 +100,7 @@ it('merges more complex styles correctly', () => {
     },
   });
 
-  render(<div>{sx.renderPageWithSX(jest.fn()).styles}</div>);
+  render(<div>{sx.getStyleTag()}</div>);
   expect(
     prettier.format(document.querySelector('[data-adeira-sx="true"]')?.innerHTML, {
       filepath: 'test.css',

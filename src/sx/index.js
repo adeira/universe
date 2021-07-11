@@ -16,7 +16,7 @@ import { isObject } from '@adeira/js';
 
 import create, { type AllCSSProperties } from './src/create';
 import keyframes from './src/keyframes';
-import renderPageWithSX from './src/renderPageWithSX';
+import getStyleTag from './src/getStyleTag';
 import StyleCollector from './src/StyleCollector';
 
 /**
@@ -48,7 +48,7 @@ function composeStylesheets(...stylesheets: $ReadOnlyArray<?AllCSSProperties | f
 
 composeStylesheets.create = create;
 composeStylesheets.keyframes = keyframes;
-composeStylesheets.renderPageWithSX = renderPageWithSX;
+composeStylesheets.getStyleTag = getStyleTag;
 
 const __internal = {
   StyleCollector: StyleCollector,
@@ -57,7 +57,7 @@ const __internal = {
 export {
   create,
   keyframes,
-  renderPageWithSX,
+  getStyleTag,
   __internal, // only for internal purposes (SX Eslint, SX Babel, SX Snapshot Serializer, …)
 };
 export default composeStylesheets;
