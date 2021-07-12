@@ -12,7 +12,7 @@ resolver = "2"
 split-debuginfo = "unpacked"
 
 [dependencies]
-anyhow = { version = "1.0.41", default-features = false, features = ["std"] }
+anyhow = { version = "1.0.42", default-features = false, features = ["std"] }
 arangors = { version = "0.5.0", default-features = false, features = ["rocksdb", "reqwest_async"] }
 async-trait = "0.1.50"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
