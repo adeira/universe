@@ -1,6 +1,27 @@
 # Unreleased
 
+# 2.1.0
+
 Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
+
+Other changes:
+
+- New functions `calculateContrastRatio` and `isAccessible` were added.
+- Functions `isDark` and `isBright` has been deprecated. You can use `isAccessible` function to make a better decision about colors contrast (for text and background colors for example). The following code snippets show possible migration strategy:
+
+  ```js
+  isDark(rgb);
+
+  // replace with:
+  isAccessible(rgb, [255, 255, 255]); // or better to use you actual bg/fg color
+  ```
+
+  ```js
+  isBright(rgb);
+
+  // replace with:
+  isAccessible(rgb, [0, 0, 0]); // or better to use you actual bg/fg color
+  ```
 
 # 2.0.0
 
