@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @flow
+ * @jest-environment jsdom
+ */
 
 import { graphql, QueryRenderer } from '@adeira/relay';
 import { create, act } from 'react-test-renderer';

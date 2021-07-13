@@ -1,0 +1,14 @@
+{
+  "name": "@adeira/jest-disallow-console",
+  "description": "Utility helping with testing unexpected and expected console warnings in your tests.",
+  "homepage": "https://github.com/adeira/universe/tree/master/src/jest-disallow-console",
+  "license": "MIT",
+  "private": false,
+  "version": "0.1.0",
+  "main": "./index.js",
+  "type": "commonjs",
+  "sideEffects": false,
+  "dependencies": {
+    "@babel/runtime": "^7.14.6"
+  }
+}
