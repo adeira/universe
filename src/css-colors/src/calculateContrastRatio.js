@@ -17,7 +17,11 @@
  *
  * See: https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio
  * See: https://www.w3.org/TR/WCAG21/#dfn-relative-luminance
+ * See: https://webaim.org/articles/contrast/
  * See: https://webaim.org/resources/contrastchecker/
+ *
+ * TODO: We are not taking colors transparency (alpha channel into account) because WCAG does not
+ *  provide any guidance on how to measure their contrast. How to deal with this?
  */
 export default function calculateContrastRatio(
   rgbForeground: [number, number, number],

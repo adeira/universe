@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`converts #F09F => null 1`] = `"Conversion of color \\"#F09F\\" is currently not supported."`;
+
+exports[`converts #FF0099FF => null 1`] = `"Conversion of color \\"#FF0099FF\\" is currently not supported."`;
+
+exports[`converts #f09f => null 1`] = `"Conversion of color \\"#f09f\\" is currently not supported."`;
+
+exports[`converts #ff0099ff => null 1`] = `"Conversion of color \\"#ff0099ff\\" is currently not supported."`;
+
+exports[`converts currentcolor => null 1`] = `"Conversion of color \\"currentcolor\\" is currently not supported."`;
+
+exports[`converts hsl(.75turn, 60%, 70%) => null 1`] = `"Conversion of color \\"hsl(.75turn, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsl(4.71239rad, 60%, 70%) => null 1`] = `"Conversion of color \\"hsl(4.71239rad, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsl(270 60% 50% / .15) => null 1`] = `"Conversion of color \\"hsl(270 60% 50% / .15)\\" is currently not supported."`;
+
+exports[`converts hsl(270 60% 50% / 15%) => null 1`] = `"Conversion of color \\"hsl(270 60% 50% / 15%)\\" is currently not supported."`;
+
+exports[`converts hsl(270 60% 50%/.15) => null 1`] = `"Conversion of color \\"hsl(270 60% 50%/.15)\\" is currently not supported."`;
+
+exports[`converts hsl(270 60% 70%) => null 1`] = `"Conversion of color \\"hsl(270 60% 70%)\\" is currently not supported."`;
+
+exports[`converts hsl(270, 60%, 50%, .15) => null 1`] = `"Conversion of color \\"hsl(270, 60%, 50%, .15)\\" is currently not supported."`;
+
+exports[`converts hsl(270, 60%, 50%, 15%) => null 1`] = `"Conversion of color \\"hsl(270, 60%, 50%, 15%)\\" is currently not supported."`;
+
+exports[`converts hsl(270, 60%, 70%) => null 1`] = `"Conversion of color \\"hsl(270, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsl(270deg, 60%, 70%) => null 1`] = `"Conversion of color \\"hsl(270deg, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsla(.75turn, 60%, 70%) => null 1`] = `"Conversion of color \\"hsla(.75turn, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsla(4.71239rad, 60%, 70%) => null 1`] = `"Conversion of color \\"hsla(4.71239rad, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsla(270 60% 50% / .15) => null 1`] = `"Conversion of color \\"hsla(270 60% 50% / .15)\\" is currently not supported."`;
+
+exports[`converts hsla(270 60% 50% / 15%) => null 1`] = `"Conversion of color \\"hsla(270 60% 50% / 15%)\\" is currently not supported."`;
+
+exports[`converts hsla(270 60% 70%) => null 1`] = `"Conversion of color \\"hsla(270 60% 70%)\\" is currently not supported."`;
+
+exports[`converts hsla(270, 60%, 50%, .15) => null 1`] = `"Conversion of color \\"hsla(270, 60%, 50%, .15)\\" is currently not supported."`;
+
+exports[`converts hsla(270, 60%, 50%, 15%) => null 1`] = `"Conversion of color \\"hsla(270, 60%, 50%, 15%)\\" is currently not supported."`;
+
+exports[`converts hsla(270, 60%, 70%) => null 1`] = `"Conversion of color \\"hsla(270, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts hsla(270deg, 60%, 70%) => null 1`] = `"Conversion of color \\"hsla(270deg, 60%, 70%)\\" is currently not supported."`;
+
+exports[`converts transparent => null 1`] = `"Conversion of color \\"transparent\\" is currently not supported."`;
