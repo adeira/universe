@@ -29,6 +29,7 @@ Other awesome links (alphabetically):
 - https://rust-lang-nursery.github.io/rust-cookbook/intro.html
 - https://rust.extension.sh/
 - https://www.arewewebyet.org/
+- https://ferrous-systems.github.io/teaching-material/index.html (https://github.com/ferrous-systems/teaching-material)
 
 ## Interesting Stack Overflow questions
 
