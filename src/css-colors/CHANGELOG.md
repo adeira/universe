@@ -1,5 +1,7 @@
 # Unreleased
 
+- Added experimental function `convertToRGBTriplet`. Purpose of this function is to get any supported [color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) and convert it to the internal RGB triplet value.
+
 # 2.1.0
 
 Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.

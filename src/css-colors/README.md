@@ -98,3 +98,7 @@ isBright([255, 255, 255]); // true
 ```
 
 _Please note that while this function is simple, it takes into account only one color. Consider using [`calculateContrastRatio`](#what-is-the-color-contrast-ratio) and/or [`isAccessible`](#is-the-pair-of-colors-accessible) described above where you can specify 2 colors (for example, text and its background)._
+
+## `convertToRGBTriplet`
+
+TKTK
