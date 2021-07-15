@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f982a859ef80aefe40c8e9abc0e7e418>>
+ * @generated SignedSource<<2b35f2a2c68cce5dea9ae89925f8ec71>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -8,6 +8,7 @@
 
 export type AllCSSPropertyTypes = {
   +webkitLineClamp?: 'none' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/-webkit-line-clamp
+  +accentColor?: string, // https://developer.mozilla.org/docs/Web/CSS/accent-color
   +alignContent?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-content
   +alignItems?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-items
   +alignSelf?: number | string, // https://developer.mozilla.org/docs/Web/CSS/align-self
