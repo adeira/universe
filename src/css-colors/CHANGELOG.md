@@ -1,6 +1,7 @@
 # Unreleased
 
 - Added experimental function `convertToRGBTriplet`. Purpose of this function is to get any supported [color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) and convert it to the internal RGB triplet value.
+- Added a new function `chooseHigherContrast` that can help you to choose the best color compared to the given background (in terms of contrast).
 
 # 2.1.0
 
