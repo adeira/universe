@@ -1,42 +1,32 @@
 // @flow
 
-import { isAccessible } from '@adeira/css-colors';
-import { useEffect, useState } from 'react';
-import * as React from 'react';
+import React, { useRef, type Node } from 'react';
+import sx from '@adeira/sx';
 
-import { SX_DESIGN_REACT_PORTAL_ID } from '../SxDesignPortal';
+import Text from '../Text/Text';
 
 type Props = {
-  +colorVar: string,
+  +color: string,
 };
 
-export default function ColorShowcase(props: Props): React.Node {
-  const [shouldUseForeground, setShouldUseForeground] = useState(true);
-
-  useEffect(() => {
-    const root = document.querySelector(`#${SX_DESIGN_REACT_PORTAL_ID}`);
-    if (root) {
-      const style = window.getComputedStyle(root);
-      const foregroundColor = style.getPropertyValue('--sx-foreground');
-      const backgroundColor = style.getPropertyValue(props.colorVar);
-      setShouldUseForeground(
-        isAccessible(foregroundColor.split(','), backgroundColor.split(','), 'NORMAL_TEXT'),
-      );
-    }
-  }, [props.colorVar]);
+export default function ColorShowcase(props: Props): Node {
+  const backgroundRef = useRef(null);
 
   return (
     <div
-      style={{
-        color: shouldUseForeground ? 'rgba(var(--sx-foreground))' : 'rgba(var(--sx-background))',
-        backgroundColor: `rgba(var(${props.colorVar}))`,
-        paddingTop: 5,
-        paddingBottom: 5,
-        paddingLeft: 10,
-        paddingRight: 10,
-      }}
+      className={styles('colorSample')}
+      style={{ backgroundColor: props.color }}
+      ref={backgroundRef}
     >
-      rgba(var({props.colorVar}))
+      <Text backgroundRef={backgroundRef}>{props.color}</Text>
     </div>
   );
 }
+
+const styles = sx.create({
+  colorSample: {
+    paddingBlock: 5,
+    paddingInline: 10,
+    borderInline: '1px solid grey',
+  },
+});
