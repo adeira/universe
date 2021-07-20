@@ -4,8 +4,6 @@
 use std::{collections::HashMap, fmt::Debug, sync::Arc};
 use uclient::ClientExt;
 
-use log::trace;
-use maybe_async::maybe_async;
 use serde::{de::DeserializeOwned, Deserialize};
 use serde_json::value::Value;
 use url::Url;
@@ -60,21 +58,21 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn accessible_collections(&self) -> Result<Vec<Info>, ClientError> {
         // an invalid arango_url should never running through initialization
         // so we assume arango_url is a valid url
         // When we pass an invalid path, it should panic to eliminate the bug
         // in development.
         let url = self.base_url.join("_api/collection").unwrap();
-        trace!(
+        tracing::trace!(
             "Retrieving collections from {:?}: {}",
             self.name,
             url.as_str()
         );
         let resp = self.session.get(url, "").await?;
         let result: ArangoResult<Vec<Info>> = deserialize_response(resp.body())?;
-        trace!("Collections retrieved");
+        tracing::trace!("Collections retrieved");
         Ok(result.unwrap())
     }
 
@@ -82,6 +80,7 @@ impl<'a, C: ClientExt> Database<C> {
         &self.base_url
     }
 
+    #[allow(dead_code)]
     pub fn name(&self) -> &str {
         &self.name
     }
@@ -94,7 +93,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn collection(&self, name: &str) -> Result<Collection<C>, ClientError> {
         let url = self
             .base_url
@@ -110,7 +108,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn create_collection_with_options<'f>(
         &self,
         options: CreateOptions<'f>,
@@ -134,7 +131,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn create_collection(&self, name: &str) -> Result<Collection<C>, ClientError> {
         self.create_collection_with_options(
             CreateOptions::builder().name(name).build(),
@@ -143,7 +140,7 @@ impl<'a, C: ClientExt> Database<C> {
         .await
     }
 
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn create_edge_collection(&self, name: &str) -> Result<Collection<C>, ClientError> {
         self.create_collection_with_options(
             CreateOptions::builder()
@@ -159,7 +156,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn drop_collection(&self, name: &str) -> Result<String, ClientError> {
         let url_path = format!("_api/collection/{}", name);
         let url = self.base_url.join(&url_path).unwrap();
@@ -178,7 +175,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn arango_version(&self) -> Result<Version, ClientError> {
         let url = self.base_url.join("_api/version").unwrap();
         let resp = self.session.get(url, "").await?;
@@ -190,7 +187,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn info(&self) -> Result<DatabaseDetails, ClientError> {
         let url = self.base_url.join("_api/database/current").unwrap();
         let resp = self.session.get(url, "").await?;
@@ -205,7 +202,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn aql_query_batch<R>(&self, aql: AqlQuery<'_>) -> Result<Cursor<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -222,7 +218,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn aql_next_batch<R>(&self, cursor_id: &str) -> Result<Cursor<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -235,7 +230,6 @@ impl<'a, C: ClientExt> Database<C> {
         deserialize_response(resp.body())
     }
 
-    #[maybe_async]
     async fn aql_fetch_all<R>(&self, response: Cursor<R>) -> Result<Vec<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -264,7 +258,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn aql_query<R>(&self, aql: AqlQuery<'_>) -> Result<Vec<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -282,7 +275,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn aql_str<R>(&self, query: &str) -> Result<Vec<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -296,7 +288,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn aql_bind_vars<R>(
         &self,
         query: &str,
@@ -316,7 +307,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn create_index(
         &self,
         collection: &str,
@@ -339,7 +329,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn index(&self, id: &str) -> Result<Index, ClientError> {
         let url = self
             .base_url
@@ -357,7 +347,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn indexes(&self, collection: &str) -> Result<IndexCollection, ClientError> {
         let mut url = self.base_url.join(INDEX_API_PATH).unwrap();
         url.set_query(Some(&format!("collection={}", collection)));
@@ -373,7 +363,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn delete_index(&self, id: &str) -> Result<DeleteIndexResponse, ClientError> {
         let url = self
             .base_url
@@ -394,7 +384,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn create_graph(
         &self,
         graph: Graph,
@@ -417,7 +406,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn graph(&self, name: &str) -> Result<Graph, ClientError> {
         let url = self
             .base_url
@@ -435,7 +423,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn graphs(&self) -> Result<GraphCollection, ClientError> {
         let url = self.base_url.join(GHARIAL_API_PATH).unwrap();
 
@@ -455,7 +443,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn drop_graph(&self, name: &str, drop_collections: bool) -> Result<(), ClientError> {
         let mut url = self
             .base_url
@@ -472,7 +460,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn list_transactions(&self) -> Result<Vec<TransactionState>, ClientError> {
         let url = self.base_url.join("_api/transaction").unwrap();
 
@@ -487,7 +475,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn begin_transaction(
         &self,
         transaction_settings: TransactionSettings,
@@ -519,7 +507,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn list_views(&self) -> Result<Vec<ViewDescription>, ClientError> {
         let url = self.base_url.join("_api/view").unwrap();
 
@@ -533,7 +521,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn create_view(&self, view_options: ViewOptions) -> Result<View, ClientError> {
         let url = self.base_url.join("_api/view").unwrap();
 
@@ -550,7 +537,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn view(&self, view_name: &str) -> Result<ViewDescription, ClientError> {
         let url = self
             .base_url
@@ -567,7 +553,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn view_properties(
         &self,
         view_name: &str,
@@ -587,7 +573,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn replace_view_properties(
         &self,
         view_name: &str,
@@ -611,7 +597,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn update_view_properties(
         &self,
         view_name: &str,
@@ -635,7 +621,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn drop_view(&self, view_name: &str) -> Result<bool, ClientError> {
         let url = self
             .base_url
@@ -648,7 +634,7 @@ impl<'a, C: ClientExt> Database<C> {
         Ok(result.unwrap())
     }
 
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn list_analyzers(&self) -> Result<Vec<AnalyzerInfo>, ClientError> {
         let url = self.base_url.join("_api/analyzer").unwrap();
 
@@ -662,7 +648,6 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn create_analyzer(
         &self,
         analyzer: AnalyzerInfo,
@@ -682,7 +667,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn analyzer(&self, analyzer_name: &str) -> Result<AnalyzerInfo, ClientError> {
         let url = self
             .base_url
@@ -699,7 +684,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn drop_analyzer(
         &self,
         analyzer_name: &str,

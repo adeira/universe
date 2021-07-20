@@ -1,4 +1,3 @@
-use maybe_async::maybe_async;
 use serde::de::DeserializeOwned;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -84,9 +83,6 @@ pub struct TransactionList {
 /// # use arangors::transaction::{TransactionCollections, TransactionSettings};
 /// # use serde_json::{json, Value};
 ///
-/// # #[cfg_attr(any(feature="reqwest_async"), maybe_async::maybe_async, tokio::main)]
-/// # #[cfg_attr(any(feature="surf_async"), maybe_async::maybe_async, async_std::main)]
-/// # #[cfg_attr(feature = "blocking", maybe_async::must_be_sync)]
 /// # async fn main() -> Result<(),anyhow::Error>{
 /// # let conn = Connection::establish_jwt("http://localhost:8529", "username", "password")
 /// #     .await
@@ -143,20 +139,24 @@ where
     }
 
     /// Returns the current transaction status (running, aborted or comitted)
+    #[allow(dead_code)]
     pub fn status(&self) -> &Status {
         &self.status
     }
 
     /// Returns the transaction id
+    #[allow(dead_code)]
     pub fn id(&self) -> &String {
         &self.id
     }
 
+    #[allow(dead_code)]
     pub fn url(&self) -> &Url {
         &self.base_url
     }
 
     /// The transaction session, contains the streaming transaction header value
+    #[allow(dead_code)]
     pub fn session(&self) -> Arc<C> {
         Arc::clone(&self.session)
     }
@@ -167,7 +167,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn commit_transaction(self) -> Result<Status, ClientError> {
         let url = self
             .base_url
@@ -188,7 +188,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn commit(&self) -> Result<Status, ClientError> {
         let url = self
             .base_url
@@ -214,7 +214,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn abort(&self) -> Result<Status, ClientError> {
         let url = self
             .base_url
@@ -236,7 +236,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn collection(&self, name: &str) -> Result<Collection<C>, ClientError> {
         let url = self
             .base_url
@@ -246,7 +246,7 @@ where
         Ok(Collection::from_transaction_response(self, &resp))
     }
 
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn aql_query_batch<R>(&self, aql: AqlQuery<'_>) -> Result<Cursor<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -259,7 +259,7 @@ where
         deserialize_response(resp.body())
     }
 
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn aql_next_batch<R>(&self, cursor_id: &str) -> Result<Cursor<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -273,7 +273,7 @@ where
         deserialize_response(resp.body())
     }
 
-    #[maybe_async]
+    #[allow(dead_code)]
     async fn aql_fetch_all<R>(&self, response: Cursor<R>) -> Result<Vec<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -302,7 +302,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn aql_query<R>(&self, aql: AqlQuery<'_>) -> Result<Vec<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -320,7 +320,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn aql_str<R>(&self, query: &str) -> Result<Vec<R>, ClientError>
     where
         R: DeserializeOwned,
@@ -334,7 +334,7 @@ where
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
+    #[allow(dead_code)]
     pub async fn aql_bind_vars<R>(
         &self,
         query: &str,

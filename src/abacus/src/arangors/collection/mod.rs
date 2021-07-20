@@ -5,7 +5,6 @@
 use std::{convert::TryFrom, sync::Arc};
 
 use http::Request;
-use maybe_async::maybe_async;
 use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
 use serde_json::json;
 use uclient::ClientExt;
@@ -170,7 +169,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn drop(self) -> Result<String, ClientError> {
         let url = self.base_url.join("").unwrap();
 
@@ -188,7 +186,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn truncate(&self) -> Result<Info, ClientError> {
         let url = self.base_url.join("truncate").unwrap();
         let resp: Info = deserialize_response(self.session.put(url, "").await?.body())?;
@@ -199,7 +196,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn properties(&self) -> Result<Properties, ClientError> {
         let url = self.base_url.join("properties").unwrap();
         let resp: Properties = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -210,7 +206,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn document_count(&self) -> Result<Properties, ClientError> {
         let url = self.base_url.join("count").unwrap();
         let resp: Properties = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -244,7 +239,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn statistics(&self) -> Result<Statistics, ClientError> {
         let url = self.base_url.join("figures").unwrap();
         let resp: Statistics = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -259,7 +253,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn revision_id(&self) -> Result<Revision, ClientError> {
         let url = self.base_url.join("revision").unwrap();
         let resp: Revision = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -281,7 +274,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn checksum(&self) -> Result<Checksum, ClientError> {
         self.checksum_with_options(Default::default()).await
     }
@@ -314,7 +306,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn checksum_with_options(
         &self,
         options: ChecksumOptions,
@@ -342,7 +333,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn load(&self, count: bool) -> Result<Info, ClientError> {
         let url = self.base_url.join("load").unwrap();
         let body = json!({ "count": count });
@@ -358,7 +348,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn unload(&self) -> Result<Info, ClientError> {
         let url = self.base_url.join("unload").unwrap();
         let resp: Info = deserialize_response(self.session.put(url, "").await?.body())?;
@@ -389,7 +378,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn load_indexes(&self) -> Result<bool, ClientError> {
         let url = self.base_url.join("loadIndexesIntoMemory").unwrap();
         let resp: ArangoResult<bool> =
@@ -401,7 +389,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn change_properties(
         &self,
         properties: PropertiesOptions,
@@ -417,7 +404,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn rename(&mut self, name: &str) -> Result<Info, ClientError> {
         let url = self.base_url.join("rename").unwrap();
         let body = json!({ "name": name });
@@ -434,7 +420,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn recalculate_count(&self) -> Result<bool, ClientError> {
         let url = self.base_url.join("recalculateCount").unwrap();
         let resp: ArangoResult<bool> =
@@ -482,7 +467,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn create_document<T>(
         &self,
         doc: T,
@@ -509,7 +493,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn document<T>(&self, _key: &str) -> Result<Document<T>, ClientError>
     where
         T: Serialize + DeserializeOwned,
@@ -526,7 +509,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn document_with_options<T>(
         &self,
         _key: &str,
@@ -555,7 +537,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn document_header(&self, _key: &str) -> Result<Header, ClientError> {
         self.document_header_with_options(_key, Default::default())
             .await
@@ -569,7 +550,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn document_header_with_options(
         &self,
         _key: &str,
@@ -590,7 +570,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn update_document<T>(
         &self,
         _key: &str,
@@ -663,7 +642,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn replace_document<T>(
         &self,
         _key: &str,
@@ -715,7 +693,6 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
-    #[maybe_async]
     pub async fn remove_document<T>(
         &self,
         _key: &str,
