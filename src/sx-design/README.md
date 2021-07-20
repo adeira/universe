@@ -72,6 +72,7 @@ Legend:
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
+| [`<Text />`]          |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
@@ -96,6 +97,7 @@ Legend:
 [`<section />`]: https://sx-design.vercel.app/?path=/story/example-section
 [`<skeleton />`]: https://sx-design.vercel.app/?path=/story/example-skeleton
 [`<skiplink />`]: https://sx-design.vercel.app/?path=/story/example-skiplink
+[`<text />`]: https://sx-design.vercel.app/?path=/story/example-text
 [`<tooltip />`]: https://sx-design.vercel.app/?path=/story/example-tooltip
 
 There is an additional set of so-called "Layout" components that are responsible for rendering the components above in a correct order, with correct spacing and so on:

@@ -15,7 +15,7 @@
     "@adeira/babel-plugin-transform-sx-tailwind": "^0.18.1",
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@babel/core": "^7.14.6",
-    "flow-bin": "^0.155.0",
+    "flow-bin": "^0.155.1",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^8.0.0",
     "postcss": "^8.3.5",
