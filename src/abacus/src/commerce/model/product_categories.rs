@@ -1,6 +1,7 @@
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Commerce;
 use crate::auth::rbac::CommerceActions::GetAllProductCategories;
+use crate::commerce::model::products::Product;
 use crate::graphql_context::Context;
 use crate::locale::SupportedLocale;
 use serde::{Deserialize, Serialize};
@@ -11,6 +12,7 @@ pub struct ProductCategory {
     _rev: Option<String>, // available only when deserialized from DB
     _key: String,
     /// Resolved product category name (from translations based on the eshop locale).
+    #[serde(skip_serializing)]
     name: Option<String>, // available only when deserialized from DB
     translations: Vec<ProductCategoryMultilingualTranslations>,
 }
@@ -81,6 +83,21 @@ pub(in crate::commerce) async fn get_product_categories_by_ids(
         &context.pool,
         &client_locale,
         &product_category_ids,
+    )
+    .await
+}
+
+pub(in crate::commerce) async fn get_assigned_product_categories(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_id: &String,
+) -> anyhow::Result<Vec<Option<ProductCategory>>> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProductCategories)).await?;
+
+    crate::commerce::dal::product_categories::get_assigned_product_categories(
+        &context.pool,
+        &client_locale,
+        &product_id,
     )
     .await
 }

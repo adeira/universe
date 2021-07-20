@@ -63,7 +63,6 @@ mod tests {
               "is_published": false,
               "created": "TKTK",
               "visibility": ["POS", "ESHOP"],
-              "categories": [],
               "updated": "TKTK",
               "price": {
                 "unit_amount": 42,
@@ -86,7 +85,6 @@ mod tests {
           "is_published": false,
           "created": "",
           "visibility": [],
-          "categories": [""],
           "updated": "",
           "price": {
             "unit_amount": 42,

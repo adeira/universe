@@ -1,14 +1,9 @@
 ---
 source: src/migrations/v4__create_collection_products.rs
-expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"is_published\" :\n                           false, \"created\" : \"\", \"visibility\" : [],\n                           \"categories\" : [\"\"], \"updated\" : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            }]\n                       }))"
+expression: "schema.validate(&json!({\n                           \"images\" : [], \"unit_label\" : \"\", \"is_published\" :\n                           false, \"created\" : \"\", \"visibility\" : [], \"updated\"\n                           : \"\", \"price\" :\n                           {\n                               \"unit_amount\" : 42, \"unit_amount_currency\" :\n                               \"MXN\"\n                           }, \"translations\" :\n                           [{\n                                \"locale\" : \"en_US\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            },\n                            {\n                                \"locale\" : \"es_MX\", \"name\" : \"\", \"description\"\n                                : \"\"\n                            }]\n                       }))"
 ---
 {
   "errors": [
-    {
-      "code": "min_length",
-      "path": "/categories/0",
-      "title": "MinLength condition is not met"
-    },
     {
       "code": "min_length",
       "path": "/created",

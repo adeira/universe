@@ -137,6 +137,7 @@ pub struct PrimarySort {
 }
 
 impl PrimarySort {
+    #[allow(dead_code)]
     pub fn direction(&self) -> Option<SortDirection> {
         if self.direction.is_none() {
             if let Some(asc) = self.asc {

@@ -34,15 +34,19 @@ pub enum DocumentResponse<T> {
 /// returns
 impl<T> DocumentResponse<T> {
     /// Should be true when the server send back an empty object {}
+    #[allow(dead_code)]
     pub fn is_silent(&self) -> bool {
         matches!(self, DocumentResponse::Silent)
     }
+
     /// Should be true if there is a response from the server
+    #[allow(dead_code)]
     pub fn has_response(&self) -> bool {
         matches!(self, DocumentResponse::Response { .. })
     }
 
     /// Return the document header contained inside the response
+    #[allow(dead_code)]
     pub fn header(&self) -> Option<&Header> {
         if let DocumentResponse::Response { header, .. } = self {
             Some(header)
@@ -50,7 +54,9 @@ impl<T> DocumentResponse<T> {
             None
         }
     }
+
     /// Return the old document before changes
+    #[allow(dead_code)]
     pub fn old_doc(&self) -> Option<&T> {
         if let DocumentResponse::Response { old, .. } = self {
             old.as_ref()
@@ -58,7 +64,9 @@ impl<T> DocumentResponse<T> {
             None
         }
     }
+
     /// Return the new document
+    #[allow(dead_code)]
     pub fn new_doc(&self) -> Option<&T> {
         if let DocumentResponse::Response { new, .. } = self {
             new.as_ref()
@@ -66,7 +74,9 @@ impl<T> DocumentResponse<T> {
             None
         }
     }
+
     /// return the old revision of the document
+    #[allow(dead_code)]
     pub fn old_rev(&self) -> Option<&String> {
         if let DocumentResponse::Response { _old_rev, .. } = self {
             _old_rev.as_ref()

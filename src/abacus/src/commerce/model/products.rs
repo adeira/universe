@@ -39,7 +39,6 @@ pub struct Product {
     /// requirements fulfilled.
     is_published: bool,
     visibility: Vec<ProductMultilingualInputVisibility>,
-    categories: Option<Vec<String>>, // TODO: make it `Vec<String>` when all the products are migrated and they have a category field
     price: Price,
     translations: Vec<ProductMultilingualTranslations>,
 }
@@ -195,13 +194,10 @@ impl Product {
         client_locale: SupportedLocale,
     ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
         Ok(
-            crate::commerce::model::product_categories::get_product_categories_by_ids(
+            crate::commerce::model::product_categories::get_assigned_product_categories(
                 &context,
                 &client_locale,
-                match &self.categories {
-                    Some(categories) => categories,
-                    None => &[],
-                },
+                &self._id,
             )
             .await?,
         )
@@ -416,18 +412,31 @@ pub(in crate::commerce) async fn create_product(
     validate_product_multilingual_input(&product_multilingual_input)?;
     validate_product_categories(&context, &client_locale, &product_multilingual_input).await?;
 
+    // First, we process the product images.
     let mut images = vec![];
     if context.uploadables.is_some() {
         images = crate::images::process_new_images(&context, &product_multilingual_input).await?;
     }
 
-    crate::commerce::dal::products::create_product(
+    // Then, we create the product with the previously created images.
+    let created_product = crate::commerce::dal::products::create_product(
         &context.pool,
         &client_locale,
         &product_multilingual_input,
         &images,
     )
-    .await
+    .await?;
+
+    // And finally, we assign product categories.
+    crate::commerce::dal::product_categories::assign_product_categories(
+        &context.pool,
+        &created_product.id(),
+        &product_multilingual_input.categories(),
+        &client_locale,
+    )
+    .await?;
+
+    Ok(created_product)
 }
 
 pub(in crate::commerce) async fn update_product(
@@ -479,7 +488,8 @@ pub(in crate::commerce) async fn update_product(
     // merge new (uploaded) images with the preserved images
     existing_images.extend(new_images);
 
-    crate::commerce::dal::products::update_product(
+    // update the product
+    let updated_product = crate::commerce::dal::products::update_product(
         &context.pool,
         &client_locale,
         &product_key,
@@ -487,7 +497,18 @@ pub(in crate::commerce) async fn update_product(
         &product_multilingual_input,
         &existing_images,
     )
-    .await
+    .await?;
+
+    // and finally, assign the new product categories
+    crate::commerce::dal::product_categories::assign_product_categories(
+        &context.pool,
+        &updated_product.id(),
+        &product_multilingual_input.categories(),
+        &client_locale,
+    )
+    .await?;
+
+    Ok(updated_product)
 }
 
 /// Any product can be published only when all the following requirements are met:
