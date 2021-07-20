@@ -1,4 +1,4 @@
-Utility functions for working with CSS/HTML colors.
+The purpose of this package is to provide all necessary functions for working with [CSS colors](https://www.w3.org/TR/css-color-4/) as well as additional useful utilities for real-world use-cases.
 
 # Installation
 

@@ -5,7 +5,7 @@ import { sprintf } from '@adeira/js';
 import cssColorNames from './cssColorNames';
 import hex3ToHex6 from './hex3ToHex6';
 import isColor from './isColor';
-import { RGBA_PATTERN } from './utils/isRGBA';
+import { RGBA_PATTERN_MATCH } from './utils/isRGBA';
 
 const HEX_REGEXP_SHORT = /^#(?<R>[a-f0-9])(?<G>[a-f0-9])(?<B>[a-f0-9])$/i;
 const HEX_REGEXP_LONG = /^#(?<R>[a-f0-9]{2})(?<G>[a-f0-9]{2})(?<B>[a-f0-9]{2})$/i;
@@ -24,7 +24,7 @@ const HEX_REGEXP_LONG = /^#(?<R>[a-f0-9]{2})(?<G>[a-f0-9]{2})(?<B>[a-f0-9]{2})$/
  */
 export default function convertToRGBTriplet(value: string): [number, number, number] {
   if (isColor(value)) {
-    const rgbaColorMatch = value.match(RGBA_PATTERN);
+    const rgbaColorMatch = value.match(RGBA_PATTERN_MATCH);
     if (cssColorNames.has(value)) {
       const hexColor = cssColorNames.get(value);
       // $FlowIssue[incompatible-call]: `hexColor` should not be undefined after calling `has` above
