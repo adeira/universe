@@ -1,9 +1,8 @@
+use crate::arangodb::Database;
+use crate::arangors::collection::CollectionType;
 use crate::migrations::utils::create_collection;
-use arangors::collection::CollectionType;
 
-pub async fn migrate(
-    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-) -> anyhow::Result<()> {
+pub async fn migrate(db: &Database) -> anyhow::Result<()> {
     create_collection(
         &db,
         "archive",

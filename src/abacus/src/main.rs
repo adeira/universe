@@ -12,7 +12,8 @@ use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;
 use warp::Filter;
 
-mod arangodb;
+mod arangodb; // TODO: merge with `arangors`
+mod arangors; // TODO: merge with `arangodb`
 mod archive;
 mod auth;
 mod clap;

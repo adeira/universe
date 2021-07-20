@@ -24,7 +24,7 @@ pub(crate) async fn user_visited_product(pool: &ConnectionPool, user: &User, pro
     };
     let product_id = product.id();
 
-    let aql = arangors::AqlQuery::builder()
+    let aql = crate::arangors::AqlQuery::builder()
         .query(
             r#"
             INSERT {

@@ -1,5 +1,5 @@
 use crate::arangodb::pool::ConnectionManager;
-use arangors::{ArangoError, ClientError, Connection};
+use crate::arangors::{ArangoError, ClientError, Connection};
 #[cfg(test)]
 use deadpool::managed::Object;
 use deadpool::managed::Pool;
@@ -42,7 +42,7 @@ pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     }
 }
 
-type Database = arangors::Database<uclient::reqwest::ReqwestClient>;
+pub type Database = crate::arangors::Database<uclient::reqwest::ReqwestClient>;
 
 impl ConnectionPool {
     pub async fn db(&self) -> Database {

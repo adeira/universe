@@ -1,9 +1,10 @@
-use arangors::collection::options::{CreateOptions, CreateParameters};
-use arangors::collection::CollectionType;
-use arangors::document::options::InsertOptions;
-use arangors::graph::Graph;
-use arangors::index::Index;
-use arangors::view::ViewOptions;
+use crate::arangodb::Database;
+use crate::arangors::collection::options::{CreateOptions, CreateParameters};
+use crate::arangors::collection::CollectionType;
+use crate::arangors::document::options::InsertOptions;
+use crate::arangors::graph::Graph;
+use crate::arangors::index::Index;
+use crate::arangors::view::ViewOptions;
 use serde::{Deserialize, Serialize};
 
 pub(in crate::migrations) trait ArangoDocument {
@@ -13,7 +14,7 @@ pub(in crate::migrations) trait ArangoDocument {
 }
 
 pub(in crate::migrations) async fn create_collection(
-    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
+    db: &Database,
     collection_name: &str,
     collection_type: &CollectionType,
     json_schema: &Option<serde_json::Value>,
@@ -49,7 +50,7 @@ pub(in crate::migrations) async fn create_collection(
 }
 
 pub(in crate::migrations) async fn create_document<T>(
-    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
+    db: &Database,
     collection_name: &str,
     document: T,
 ) -> anyhow::Result<()>
@@ -77,7 +78,7 @@ where
 }
 
 pub(in crate::migrations) async fn create_index(
-    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
+    db: &Database,
     collection_name: &str,
     index: &Index,
 ) -> anyhow::Result<()> {
@@ -87,10 +88,7 @@ pub(in crate::migrations) async fn create_index(
     }
 }
 
-pub(in crate::migrations) async fn create_graph(
-    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
-    graph: Graph,
-) -> anyhow::Result<()> {
+pub(in crate::migrations) async fn create_graph(db: &Database, graph: Graph) -> anyhow::Result<()> {
     match db.graph(&*graph.name).await {
         Ok(_) => {
             // graph already exists
@@ -107,7 +105,7 @@ pub(in crate::migrations) async fn create_graph(
 }
 
 pub(in crate::migrations) async fn create_view(
-    db: &arangors::Database<uclient::reqwest::ReqwestClient>,
+    db: &Database,
     view_name: &str,
     view: ViewOptions,
 ) -> anyhow::Result<()> {
