@@ -98,3 +98,31 @@ pub struct GraphCollection {
 pub struct GraphResponse {
     pub graph: Graph,
 }
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Vertex {
+    _id: String,
+    _key: String,
+    _rev: String,
+}
+
+/// Represents a `Vertex` as returned by ArangoDB after a HTTP retrieval
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GraphVertexResponse {
+    pub vertex: Vertex,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Edge {
+    _id: String,
+    _key: String,
+    _rev: String,
+}
+
+/// Represents a `Edge` as returned by ArangoDB after a HTTP retrieval
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GraphEdgeResponse {
+    pub edge: Edge,
+}

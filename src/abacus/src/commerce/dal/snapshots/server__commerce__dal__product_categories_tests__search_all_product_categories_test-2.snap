@@ -37,4 +37,38 @@ expression: found_categories_en
             ],
         },
     ),
+    Some(
+        ProductCategory {
+            name: Some(
+                "dumplings",
+            ),
+            translations: [
+                ProductCategoryMultilingualTranslations {
+                    locale: EnUS,
+                    name: "dumplings",
+                },
+                ProductCategoryMultilingualTranslations {
+                    locale: EsMX,
+                    name: "dumplings",
+                },
+            ],
+        },
+    ),
+    Some(
+        ProductCategory {
+            name: Some(
+                "otro",
+            ),
+            translations: [
+                ProductCategoryMultilingualTranslations {
+                    locale: EnUS,
+                    name: "other",
+                },
+                ProductCategoryMultilingualTranslations {
+                    locale: EsMX,
+                    name: "otro",
+                },
+            ],
+        },
+    ),
 ]

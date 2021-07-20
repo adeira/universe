@@ -31,6 +31,7 @@ impl<T> Document<T>
 where
     T: Serialize + DeserializeOwned,
 {
+    #[allow(dead_code)]
     pub fn new(data: T) -> Self {
         Document {
             document: data,

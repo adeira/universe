@@ -1,6 +1,6 @@
 ---
 source: src/commerce/dal/product_categories_tests.rs
-expression: found_categories
+expression: found_categories_en
 ---
 [
     Some(
@@ -33,6 +33,40 @@ expression: found_categories
                 ProductCategoryMultilingualTranslations {
                     locale: EsMX,
                     name: "té",
+                },
+            ],
+        },
+    ),
+    Some(
+        ProductCategory {
+            name: Some(
+                "dumplings",
+            ),
+            translations: [
+                ProductCategoryMultilingualTranslations {
+                    locale: EnUS,
+                    name: "dumplings",
+                },
+                ProductCategoryMultilingualTranslations {
+                    locale: EsMX,
+                    name: "dumplings",
+                },
+            ],
+        },
+    ),
+    Some(
+        ProductCategory {
+            name: Some(
+                "other",
+            ),
+            translations: [
+                ProductCategoryMultilingualTranslations {
+                    locale: EnUS,
+                    name: "other",
+                },
+                ProductCategoryMultilingualTranslations {
+                    locale: EsMX,
+                    name: "otro",
                 },
             ],
         },

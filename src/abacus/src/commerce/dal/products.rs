@@ -24,7 +24,6 @@ pub(in crate::commerce) async fn create_product(
               unit_label: "product_units/piece", // TODO: dynamic `unit_label`
               is_published: false,
               visibility: @product_visibility,
-              categories: @product_categories,
               created: DATE_ISO8601(DATE_NOW()),
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
@@ -51,7 +50,6 @@ pub(in crate::commerce) async fn create_product(
             "eshop_locale" => client_locale,
             "product_images" => images,
             "product_visibility" => product_multilingual_input.visibility(),
-            "product_categories" => product_multilingual_input.categories(),
             "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
             "translations" => product_multilingual_input.translations,
         ],
@@ -79,7 +77,6 @@ pub(in crate::commerce) async fn update_product(
               _rev: @product_rev,
               images: @product_images,
               visibility: @product_visibility,
-              categories: @product_categories,
               updated: DATE_ISO8601(DATE_NOW()),
               price: {
                 unit_amount: @product_price_unit_amount,
@@ -107,7 +104,6 @@ pub(in crate::commerce) async fn update_product(
             "product_rev" => product_revision,
             "product_images" => images,
             "product_visibility" => product_multilingual_input.visibility(),
-            "product_categories" => product_multilingual_input.categories(),
             "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
             "translations" => product_multilingual_input.translations,
         ],

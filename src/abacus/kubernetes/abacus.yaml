@@ -60,7 +60,9 @@ spec:
                 - '--server.authentication=false'
                 - '--server.database=abacus'
                 - '--output-directory=/tmp/dump'
-                - '--overwrite=true' # TODO
+                - '--include-system-collections=true'
+                - '--overwrite=true'
+                - '--dump-data=true'
               volumeMounts:
                 - name: dump
                   mountPath: /tmp/dump

@@ -17,7 +17,7 @@ async fn search_all_product_categories_test() {
         .await
         .unwrap();
 
-    assert_eq!(found_categories_en.len(), 2);
+    assert_eq!(found_categories_en.len(), 4);
     insta::assert_debug_snapshot!(found_categories_en);
 
     // 2) try to find all product categories in SPANISH
@@ -25,7 +25,7 @@ async fn search_all_product_categories_test() {
         .await
         .unwrap();
 
-    assert_eq!(found_categories_en.len(), 2);
+    assert_eq!(found_categories_en.len(), 4);
     insta::assert_debug_snapshot!(found_categories_en);
 
     cleanup_test_database(&db_name).await;

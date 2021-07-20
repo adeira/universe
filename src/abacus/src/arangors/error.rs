@@ -39,14 +39,17 @@ impl fmt::Display for ArangoError {
 
 impl ArangoError {
     /// Get the HTTP status code of an error response.
+    #[allow(dead_code)]
     pub fn code(&self) -> u16 {
         self.code
     }
 
+    #[allow(dead_code)]
     pub fn error_num(&self) -> u16 {
         self.error_num
     }
 
+    #[allow(dead_code)]
     pub fn message(&self) -> &str {
         &self.message
     }

@@ -5,7 +5,9 @@ use crate::arangors::document::options::InsertOptions;
 use crate::arangors::graph::Graph;
 use crate::arangors::index::Index;
 use crate::arangors::view::ViewOptions;
-use serde::{Deserialize, Serialize};
+use serde::de::DeserializeOwned;
+use serde::Serialize;
+use std::fmt::Debug;
 
 pub(in crate::migrations) trait ArangoDocument {
     /// This key makes sure we don't create the same document twice by accident
@@ -55,7 +57,7 @@ pub(in crate::migrations) async fn create_document<T>(
     document: T,
 ) -> anyhow::Result<()>
 where
-    T: Serialize + for<'de> Deserialize<'de> + ArangoDocument,
+    T: Serialize + DeserializeOwned + ArangoDocument,
 {
     let collection = db.collection(&collection_name).await.unwrap(); // TODO
     match collection.document::<T>(document.idempotency_key()).await {
@@ -96,11 +98,29 @@ pub(in crate::migrations) async fn create_graph(db: &Database, graph: Graph) -> 
         }
         Err(_) => {
             // graph doesn't exist yet, let's create it
-            match db.create_graph(graph, false).await {
+            match db.create_graph(graph, true).await {
                 Ok(_) => Ok(()),
                 Err(e) => anyhow::bail!(e),
             }
         }
+    }
+}
+
+pub(in crate::migrations) async fn create_graph_vertex<T>(
+    db: &Database,
+    graph: &str,
+    collection: &str,
+    vertex: &T,
+) -> anyhow::Result<()>
+where
+    T: Serialize,
+{
+    match db
+        .create_graph_vertex(&graph, &collection, &vertex, true)
+        .await
+    {
+        Ok(_) => Ok(()),
+        Err(e) => anyhow::bail!(e),
     }
 }
 

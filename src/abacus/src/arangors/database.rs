@@ -4,11 +4,14 @@
 use std::{collections::HashMap, fmt::Debug, sync::Arc};
 use uclient::ClientExt;
 
-use serde::{de::DeserializeOwned, Deserialize};
+use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use serde_json::value::Value;
 use url::Url;
 
-use crate::arangors::graph::{GraphCollection, GraphResponse, GHARIAL_API_PATH};
+use crate::arangors::graph::{
+    Edge, GraphCollection, GraphEdgeResponse, GraphResponse, GraphVertexResponse, Vertex,
+    GHARIAL_API_PATH,
+};
 use crate::arangors::index::INDEX_API_PATH;
 use crate::arangors::transaction::TRANSACTION_HEADER;
 use crate::arangors::{
@@ -400,6 +403,66 @@ impl<'a, C: ClientExt> Database<C> {
         let result: GraphResponse = deserialize_response::<GraphResponse>(resp.body())?;
 
         Ok(result.graph)
+    }
+
+    pub async fn create_graph_vertex<T>(
+        &self,
+        graph: &str,
+        collection: &str,
+        vertex: &T,
+        wait_for_sync: bool,
+    ) -> Result<Vertex, ClientError>
+    where
+        T: Serialize,
+    {
+        let mut url = self
+            .base_url
+            .join(&format!(
+                "{}/{}/vertex/{}",
+                GHARIAL_API_PATH, graph, collection
+            ))
+            .unwrap();
+
+        url.set_query(Some(&format!("waitForSync={}", wait_for_sync)));
+
+        let resp = self
+            .session
+            .post(url, &serde_json::to_string(&vertex)?)
+            .await?;
+
+        let result: GraphVertexResponse = deserialize_response(resp.body())?;
+
+        Ok(result.vertex)
+    }
+
+    pub async fn create_graph_edge<T>(
+        &self,
+        graph: &str,
+        collection: &str,
+        edge: &T,
+        wait_for_sync: bool,
+    ) -> Result<Edge, ClientError>
+    where
+        T: Serialize,
+    {
+        let mut url = self
+            .base_url
+            .join(&format!(
+                "{}/{}/edge/{}",
+                GHARIAL_API_PATH, graph, collection
+            ))
+            .unwrap();
+
+        url.set_query(Some(&format!("waitForSync={}", wait_for_sync)));
+
+        let resp = self
+            .session
+            .post(url, &serde_json::to_string(&edge)?)
+            .await?;
+
+        let result: GraphEdgeResponse = deserialize_response(resp.body())?;
+
+        Ok(result.edge)
     }
 
     /// Retrieve an graph by name

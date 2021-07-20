@@ -404,6 +404,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn drop_database(&self, name: &str) -> Result<(), ClientError> {
         let url_path = format!("/_api/database/{}", name);
         let url = self.arango_url.join(&url_path).unwrap();
@@ -413,6 +414,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
         Ok(())
     }
 
+    #[allow(dead_code)]
     pub async fn into_admin(self) -> Result<GenericConnection<C, Admin>, ClientError> {
         let dbs = self.accessible_databases().await?;
         let db = dbs
