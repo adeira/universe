@@ -2471,8 +2471,6 @@ dependencies = [
  "jsonwebtoken",
  "juniper",
  "lazy_static",
- "log",
- "maybe-async",
  "num_cpus",
  "proptest",
  "rand 0.8.4",
