@@ -61,6 +61,20 @@ isAccessible([64, 32, 17], [201, 120, 136], 'GRAPHICAL_OBJECTS'); // true
 
 Note on colors accessibility: it can happen that some backgrounds are never accessible under **AAA** criteria. For example [`#FF1A1A`](https://webaim.org/resources/contrastchecker/?fcolor=000000&bcolor=FF1A1A) always fails "normal text" test for **AAA** criteria (no matter whether you choose completely white or completely black font).
 
+## What color is the best for this background?
+
+```js
+import { chooseHigherContrast } from '@adeira/css-colors';
+
+chooseHigherContrast(
+  [255, 255, 255], // foreground color 1 ✅
+  [128, 128, 128], // foreground color 2 ❌
+  [0, 0, 0], // background
+);
+```
+
+The function above returns `[255, 255, 255]` because white is better on a black background than grey.
+
 ## Normalize colors
 
 ```js

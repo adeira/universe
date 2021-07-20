@@ -1,6 +1,7 @@
 // @flow strict
 
 export { default as calculateContrastRatio } from './calculateContrastRatio';
+export { default as chooseHigherContrast } from './chooseHigherContrast';
 export { default as convertToRGBTriplet } from './convertToRGBTriplet';
 export { default as cssColorNames } from './cssColorNames';
 export { default as hex3ToHex6 } from './hex3ToHex6';
