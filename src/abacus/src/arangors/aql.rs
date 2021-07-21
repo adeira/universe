@@ -155,6 +155,7 @@ impl<'a, __query, __count, __batch_size, __cache, __memory_limit, __ttl, __optio
     }
 
     #[allow(clippy::type_complexity)]
+    #[allow(dead_code)]
     pub fn try_bind<K, V>(
         self,
         key: K,
@@ -227,6 +228,7 @@ impl<'a, __query, __count, __batch_size, __cache, __memory_limit, __ttl, __optio
     }
 
     #[allow(clippy::type_complexity)]
+    #[allow(dead_code)]
     pub fn try_bind<K, V>(
         self,
         key: K,
@@ -369,6 +371,7 @@ impl Default for AqlOptions {
 }
 
 impl AqlOptions {
+    #[allow(dead_code)]
     pub fn set_optimizer(&mut self, optimizer: String) {
         self.optimizer.push(optimizer)
     }
