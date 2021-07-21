@@ -27,7 +27,7 @@
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@adeira/sx": "^0.27.0",
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
-    "@babel/core": "^7.14.6",
+    "@babel/core": "^7.14.8",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@storybook/addon-a11y": "^6.3.4",
     "@storybook/addon-actions": "^6.3.4",
