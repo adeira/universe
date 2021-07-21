@@ -172,6 +172,7 @@ impl<S, C: ClientExt> GenericConnection<C, S> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn server_role(&self) -> Result<String, ClientError> {
         let url = self.arango_url.join("/_admin/server/role").unwrap();
         let resp = self.session.get(url, "").await?;
@@ -264,6 +265,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
     ///
     /// let conn = Connection::establish_without_auth("http://localhost:8529").await.unwrap();
     /// ```
+    #[allow(dead_code)]
     pub async fn establish_without_auth<T: Into<String>>(
         arango_url: T,
     ) -> Result<GenericConnection<C, Normal>, ClientError> {
@@ -309,6 +311,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
     ///     .unwrap();
     /// # }
     /// ```
+    #[allow(dead_code)]
     pub async fn establish_jwt(
         arango_url: &str,
         username: &str,
@@ -434,6 +437,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
 }
 
 impl<C: ClientExt> GenericConnection<C, Admin> {
+    #[allow(dead_code)]
     pub fn into_normal(self) -> GenericConnection<C, Normal> {
         self.into()
     }

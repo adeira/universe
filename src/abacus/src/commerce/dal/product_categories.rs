@@ -4,8 +4,8 @@ use crate::locale::SupportedLocale;
 
 pub(in crate::commerce) async fn assign_product_categories(
     pool: &ConnectionPool,
-    product_id: &String,
-    product_category_ids: &Vec<String>,
+    product_id: &str,
+    product_category_ids: &[String],
     client_locale: &SupportedLocale,
 ) -> anyhow::Result<Vec<Option<ProductCategory>>> {
     let db = pool.db().await;
@@ -126,7 +126,7 @@ pub(in crate::commerce) async fn get_product_categories_by_ids(
 pub(in crate::commerce) async fn get_assigned_product_categories(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
-    product_id: &String,
+    product_id: &str,
 ) -> anyhow::Result<Vec<Option<ProductCategory>>> {
     resolve_aql_vector(
         &pool,

@@ -7,7 +7,6 @@ use crate::arangors::index::Index;
 use crate::arangors::view::ViewOptions;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use std::fmt::Debug;
 
 pub(in crate::migrations) trait ArangoDocument {
     /// This key makes sure we don't create the same document twice by accident

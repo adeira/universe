@@ -2,9 +2,8 @@ use crate::arangodb::Database;
 use crate::arangors::collection::CollectionType;
 use crate::arangors::graph::{EdgeDefinition, Graph};
 use crate::commerce::api::ProductCategory;
-use crate::graphql_schema::create_graphql_schema;
 use crate::migrations::utils::{
-    create_collection, create_document, create_graph, create_graph_vertex, ArangoDocument,
+    create_collection, create_graph, create_graph_vertex, ArangoDocument,
 };
 
 impl ArangoDocument for ProductCategory {

@@ -100,6 +100,7 @@ impl<'a, C: ClientExt> Collection<C> {
         )
     }
 
+    #[allow(dead_code)]
     pub fn collection_type(&self) -> CollectionType {
         self.collection_type
     }
@@ -120,6 +121,7 @@ impl<'a, C: ClientExt> Collection<C> {
     //
     // Note: collection ids have been returned as integers up to including ArangoDB
     // 1.1
+    #[allow(dead_code)]
     pub fn id(&self) -> &str {
         self.id.as_str()
     }
@@ -132,6 +134,7 @@ impl<'a, C: ClientExt> Collection<C> {
     /// consist of letters, digits, and the _ (underscore) and - (dash)
     /// characters only. Please refer to Naming Conventions in ArangoDB for more
     /// information on valid collection names.
+    #[allow(dead_code)]
     pub fn name(&self) -> &str {
         &self.name.as_str()
     }
@@ -139,22 +142,26 @@ impl<'a, C: ClientExt> Collection<C> {
     /// Collection url: http://server:port/_db/mydb/_api/collection/{collection-name}
     ///
     /// This url is used to work on the collection itself
+    #[allow(dead_code)]
     pub fn url(&self) -> &Url {
         &self.base_url
     }
     /// Document base url: http://server:port/_db/mydb/_api/document/{collection-name}
     ///
     /// This url is used to work with documents
+    #[allow(dead_code)]
     pub fn doc_url(&self) -> &Url {
         &self.document_base_url
     }
 
     /// HTTP Client used to query the server
+    #[allow(dead_code)]
     pub fn session(&self) -> Arc<C> {
         Arc::clone(&self.session)
     }
 
     /// Get the db of current collection
+    #[allow(dead_code)]
     pub fn db(&self) -> Database<C> {
         // Base url should be like `http://server:port/_db/mydb/_api/collection/{collection-name}`
         let mut paths = self.base_url.path_segments().unwrap();
@@ -169,6 +176,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn drop(self) -> Result<String, ClientError> {
         let url = self.base_url.join("").unwrap();
 
@@ -186,6 +194,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn truncate(&self) -> Result<Info, ClientError> {
         let url = self.base_url.join("truncate").unwrap();
         let resp: Info = deserialize_response(self.session.put(url, "").await?.body())?;
@@ -196,6 +205,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn properties(&self) -> Result<Properties, ClientError> {
         let url = self.base_url.join("properties").unwrap();
         let resp: Properties = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -206,11 +216,13 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn document_count(&self) -> Result<Properties, ClientError> {
         let url = self.base_url.join("count").unwrap();
         let resp: Properties = deserialize_response(self.session.get(url, "").await?.body())?;
         Ok(resp)
     }
+
     /// Fetch the statistics of a collection
     ///
     /// The result also contains the number of documents and additional
@@ -239,6 +251,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn statistics(&self) -> Result<Statistics, ClientError> {
         let url = self.base_url.join("figures").unwrap();
         let resp: Statistics = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -253,6 +266,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn revision_id(&self) -> Result<Revision, ClientError> {
         let url = self.base_url.join("revision").unwrap();
         let resp: Revision = deserialize_response(self.session.get(url, "").await?.body())?;
@@ -274,6 +288,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn checksum(&self) -> Result<Checksum, ClientError> {
         self.checksum_with_options(Default::default()).await
     }
@@ -306,6 +321,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn checksum_with_options(
         &self,
         options: ChecksumOptions,
@@ -333,6 +349,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn load(&self, count: bool) -> Result<Info, ClientError> {
         let url = self.base_url.join("load").unwrap();
         let body = json!({ "count": count });
@@ -348,6 +365,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn unload(&self) -> Result<Info, ClientError> {
         let url = self.base_url.join("unload").unwrap();
         let resp: Info = deserialize_response(self.session.put(url, "").await?.body())?;
@@ -378,6 +396,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn load_indexes(&self) -> Result<bool, ClientError> {
         let url = self.base_url.join("loadIndexesIntoMemory").unwrap();
         let resp: ArangoResult<bool> =
@@ -389,6 +408,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn change_properties(
         &self,
         properties: PropertiesOptions,
@@ -404,6 +424,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn rename(&mut self, name: &str) -> Result<Info, ClientError> {
         let url = self.base_url.join("rename").unwrap();
         let body = json!({ "name": name });
@@ -420,6 +441,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn recalculate_count(&self) -> Result<bool, ClientError> {
         let url = self.base_url.join("recalculateCount").unwrap();
         let resp: ArangoResult<bool> =
@@ -537,6 +559,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn document_header(&self, _key: &str) -> Result<Header, ClientError> {
         self.document_header_with_options(_key, Default::default())
             .await
@@ -550,6 +573,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn document_header_with_options(
         &self,
         _key: &str,
@@ -570,6 +594,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn update_document<T>(
         &self,
         _key: &str,
@@ -642,6 +667,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn replace_document<T>(
         &self,
         _key: &str,
@@ -693,6 +719,7 @@ impl<'a, C: ClientExt> Collection<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn remove_document<T>(
         &self,
         _key: &str,
@@ -720,6 +747,7 @@ impl<'a, C: ClientExt> Collection<C> {
     }
 
     /// Returns a new Collection with its `session` updated with the transaction id
+    #[allow(dead_code)]
     pub fn clone_with_transaction(&self, transaction_id: String) -> Result<Self, ClientError> {
         let mut session = (*self.session).clone();
         session
