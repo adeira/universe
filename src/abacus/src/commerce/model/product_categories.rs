@@ -1,7 +1,6 @@
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Commerce;
 use crate::auth::rbac::CommerceActions::GetAllProductCategories;
-use crate::commerce::model::products::Product;
 use crate::graphql_context::Context;
 use crate::locale::SupportedLocale;
 use serde::{Deserialize, Serialize};
@@ -90,7 +89,7 @@ pub(in crate::commerce) async fn get_product_categories_by_ids(
 pub(in crate::commerce) async fn get_assigned_product_categories(
     context: &Context,
     client_locale: &SupportedLocale,
-    product_id: &String,
+    product_id: &str,
 ) -> anyhow::Result<Vec<Option<ProductCategory>>> {
     rbac::verify_permissions(&context.user, &Commerce(GetAllProductCategories)).await?;
 
