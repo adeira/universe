@@ -251,7 +251,6 @@ pub(in crate::commerce) async fn search_products(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    search_term: &Option<String>,
     search_all: &bool,
     visibility: &Option<ProductMultilingualInputVisibility>,
 ) -> anyhow::Result<Vec<Option<Product>>> {
@@ -265,76 +264,34 @@ pub(in crate::commerce) async fn search_products(
         None => json!(null),
     };
 
-    match search_term {
-        Some(search_term) => {
-            // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-            resolve_aql_vector(
-                &pool,
-                // This should be almost identical with the query below except it uses fulltext
-                // search across all supported languages and it additionally sorts the results by
-                // relevance:
-                r#"
-                    FOR product IN search_products
-                      SEARCH BOOST(NGRAM_MATCH(product.translations.name, @search_term, 0.7, "bigram"), 1.1)
-                          OR BOOST(NGRAM_MATCH(product.translations.description, @search_term, 0.7, "bigram"), 1.0)
-                      FILTER @search_all == true ? true : (product.is_published IN [true])
-                      FILTER @visibility == null ? true : (@visibility IN product.visibility)
-                      SORT BM25(product) DESC
-                      SORT product.price.unit_amount @price_sort_direction
+    resolve_aql_vector(
+        &pool,
+        r#"
+            FOR product IN products
+              FILTER @search_all == true ? true : (product.is_published IN [true])
+              FILTER @visibility == null ? true : (@visibility IN product.visibility)
+              SORT product.price.unit_amount @price_sort_direction
 
-                      LET t = FIRST(
-                        FOR t IN product.translations
-                          FILTER t.name != null AND t.locale == @eshop_locale
-                          RETURN t
-                      )
+              LET t = FIRST(
+                FOR t IN product.translations
+                  FILTER t.name != null AND t.locale == @eshop_locale
+                  RETURN t
+              )
 
-                      RETURN MERGE(
-                        product,
-                        { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                        { name: t.name, description: t.description }
-                      )
-                "#,
-                hashmap_json![
-                    "eshop_locale" => client_locale,
-                    "search_term" => search_term,
-                    "search_all" => search_all,
-                    "price_sort_direction" => sort_direction,
-                    "visibility" => visibility,
-                ]
-            ).await
-        }
-        None => {
-            // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
-            resolve_aql_vector(
-                &pool,
-                r#"
-                    FOR product IN search_products
-                      FILTER @search_all == true ? true : (product.is_published IN [true])
-                      FILTER @visibility == null ? true : (@visibility IN product.visibility)
-                      SORT product.price.unit_amount @price_sort_direction
-
-                      LET t = FIRST(
-                        FOR t IN product.translations
-                          FILTER t.name != null AND t.locale == @eshop_locale
-                          RETURN t
-                      )
-
-                      RETURN MERGE(
-                        product,
-                        { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
-                        { name: t.name, description: t.description }
-                      )
-                "#,
-                hashmap_json![
-                    "eshop_locale" => client_locale,
-                    "search_all" => search_all,
-                    "price_sort_direction" => sort_direction,
-                    "visibility" => visibility,
-                ],
-            )
-            .await
-        }
-    }
+              RETURN MERGE(
+                product,
+                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                { name: t.name, description: t.description }
+              )
+        "#,
+        hashmap_json![
+            "eshop_locale" => client_locale,
+            "search_all" => search_all,
+            "price_sort_direction" => sort_direction,
+            "visibility" => visibility,
+        ],
+    )
+    .await
 }
 
 /// Important note: product should be moved into the archive before deleting it!

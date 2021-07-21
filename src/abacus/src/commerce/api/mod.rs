@@ -31,14 +31,12 @@ impl CommerceQuery {
         context: &Context,
         client_locale: SupportedLocale,
         price_sort_direction: PriceSortDirection,
-        search_term: Option<String>,
     ) -> Option<Vec<Option<Product>>> {
         // TODO: return Result<…, ModelError>
         search_published_products(
             &context,
             &client_locale,
             &price_sort_direction,
-            &search_term,
             &ProductMultilingualInputVisibility::ESHOP,
         )
         .await
@@ -50,13 +48,11 @@ impl CommerceQuery {
         context: &Context,
         client_locale: SupportedLocale,
         price_sort_direction: PriceSortDirection,
-        search_term: Option<String>,
     ) -> AbacusGraphQLResult<Vec<Option<Product>>> {
         Ok(crate::commerce::model::products::search_all_products(
             &context,
             &client_locale,
             &price_sort_direction,
-            &search_term,
         )
         .await?)
     }
@@ -212,14 +208,12 @@ pub(crate) async fn search_published_products(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    search_term: &Option<String>,
     visibility: &ProductMultilingualInputVisibility,
 ) -> Option<Vec<Option<Product>>> {
     match crate::commerce::model::products::search_published_products(
         &context,
         &client_locale,
         &price_sort_direction,
-        &search_term,
         &visibility,
     )
     .await
