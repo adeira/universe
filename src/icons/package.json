@@ -9,7 +9,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.14.6",
+    "@babel/runtime": "^7.14.8",
     "@loadable/component": "^5.15.0"
   },
   "devDependencies": {
