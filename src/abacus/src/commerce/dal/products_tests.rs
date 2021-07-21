@@ -138,54 +138,8 @@ async fn search_products_test() {
         &pool,
         &SupportedLocale::EnUS,
         &PriceSortDirection::LowToHigh,
-        &None, // search term (return all)
         &true, // search all (even the unpublished ones)
         &None, // visibility (everywhere)
-    )
-    .await
-    .unwrap();
-
-    insta::assert_debug_snapshot!(searched_products);
-
-    cleanup_test_database(&db_name).await;
-}
-
-#[ignore]
-#[tokio::test]
-async fn search_products_fulltext_test() {
-    let db_name = "search_products_fulltext_test";
-    let pool = prepare_empty_test_database(&db_name).await;
-
-    // 1) create a product to be later searched
-    create_product(
-        &pool,
-        &SupportedLocale::EnUS,
-        &ProductMultilingualInput {
-            translations: vec![ProductMultilingualInputTranslations {
-                locale: SupportedLocale::EnUS,
-                name: "Product name in english".to_string(),
-                description: None,
-            }],
-            ..Default::default()
-        },
-        &[],
-    )
-    .await
-    .unwrap();
-
-    // TODO: This is super ugly (potentially flaky) but we need to wait for the search view
-    //       to be ready. How to do it better?
-    let five_seconds = std::time::Duration::from_secs(5);
-    std::thread::sleep(five_seconds);
-
-    // 2) try to search the product
-    let searched_products = search_products(
-        &pool,
-        &SupportedLocale::EnUS,
-        &PriceSortDirection::LowToHigh,
-        &Some(String::from("in english")), // search term
-        &true,                             // search all (even the unpublished ones)
-        &None,                             // visibility (everywhere)
     )
     .await
     .unwrap();

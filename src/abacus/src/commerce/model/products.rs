@@ -313,7 +313,6 @@ pub(in crate::commerce) async fn search_published_products(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    search_term: &Option<String>,
     visibility: &ProductMultilingualInputVisibility,
 ) -> anyhow::Result<Vec<Option<Product>>> {
     // Anyone can search the products (it's not limited to admins only).
@@ -321,7 +320,6 @@ pub(in crate::commerce) async fn search_published_products(
         &context.pool,
         &client_locale,
         &price_sort_direction,
-        &search_term,
         &false, // do not search all (published only)
         &Some(*visibility),
     )
@@ -332,7 +330,6 @@ pub(in crate::commerce) async fn search_all_products(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    search_term: &Option<String>,
 ) -> anyhow::Result<Vec<Option<Product>>> {
     rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
 
@@ -341,7 +338,6 @@ pub(in crate::commerce) async fn search_all_products(
         &context.pool,
         &client_locale,
         &price_sort_direction,
-        &search_term,
         &true, // search all including unpublished ones
         &None, // no visibility restrictions
     )

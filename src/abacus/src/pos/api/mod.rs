@@ -27,7 +27,6 @@ impl POSQuery {
                     &context,
                     &SupportedLocale::EnUS,         // TODO
                     &PriceSortDirection::HighToLow, // TODO
-                    &None,
                     &ProductMultilingualInputVisibility::POS,
                 )
                 .await

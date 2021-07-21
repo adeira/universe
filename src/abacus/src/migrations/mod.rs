@@ -12,7 +12,7 @@ mod v1__create_collection_users_sessions;
 mod v2__create_document_user_anonymous;
 mod v3__create_document_user_admin;
 mod v4__create_collection_products;
-mod v5__create_view_search_products;
+// mod v5__
 mod v6__create_collection_tracking;
 mod v7__create_collection_pos_checkouts;
 mod v8__create_collection_product_addons;
@@ -50,9 +50,7 @@ pub async fn migrate(pool: &ConnectionPool) {
         ("v4__create_collection_products", |db| {
             Box::pin(v4__create_collection_products::migrate(&db))
         }),
-        ("v5__create_view_search_products", |db| {
-            Box::pin(v5__create_view_search_products::migrate(&db))
-        }),
+        // TODO: v5__
         ("v6__create_collection_tracking", |db| {
             Box::pin(v6__create_collection_tracking::migrate(&db))
         }),
