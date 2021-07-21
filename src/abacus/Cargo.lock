@@ -2945,11 +2945,13 @@ checksum = "373c8a200f9e67a0c95e62a4f52fbf80c23b4381c05a17845531982fa99e6b33"
 
 [[package]]
 name = "uclient"
-version = "0.1.3"
+version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "51d45925a61653ac70f0588562067041ea522938898c912b0887c6dba8072ea7"
+checksum = "95bb167f18f4233e8bb1d870ff5bec0aa3d57958333e6edde20049312785e383"
 dependencies = [
  "async-trait",
+ "bytes 1.0.1",
+ "futures",
  "http",
  "maybe-async",
  "reqwest",
