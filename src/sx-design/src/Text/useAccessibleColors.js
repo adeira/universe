@@ -20,6 +20,8 @@ export default function useAccessibleColors(backgroundRef: {
 
       if (backgroundRef.current != null) {
         const style = window.getComputedStyle(backgroundRef.current);
+        // TODO: backgrounds without color return `rgba(0, 0, 0, 0)` (transparent) which results in
+        //  incorrect decisions below because of our triplet without alpha channel
         const color = style.getPropertyValue('background-color');
         setShouldUseForeground(
           // TODO: it would be nice to have something like "choose the best" instead of "is accessible"
