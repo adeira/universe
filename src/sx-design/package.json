@@ -12,7 +12,7 @@
     "@adeira/css-colors": "^2.1.0",
     "@adeira/icons": "^0.3.0",
     "@adeira/js": "^2.1.0",
-    "@babel/runtime": "^7.14.6",
+    "@babel/runtime": "^7.14.8",
     "blurhash": "^1.1.3",
     "fbt": "^0.16.6",
     "react-blurhash": "^0.1.3",
