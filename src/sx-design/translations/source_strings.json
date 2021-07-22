@@ -30,6 +30,20 @@
   },
   {
    "hashToText": {
+    "WgEfGWUAntBTCX5DfSkZ1w==": "Loading"
+   },
+   "filepath": "src/Loader/Loader.js",
+   "line_beg": 23,
+   "col_beg": 21,
+   "line_end": 23,
+   "col_end": 65,
+   "desc": "loading aria label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Loading"
+  },
+  {
+   "hashToText": {
     "Y3o6+D/7PWcFogiHsVcKiA==": "Unable to load data or missing data."
    },
    "filepath": "src/MissingData/MissingData.js",
