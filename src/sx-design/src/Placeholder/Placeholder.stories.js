@@ -4,8 +4,10 @@
  */
 
 import React from 'react';
+import fbt from 'fbt';
 
 import Placeholder from './Placeholder';
+import LayoutBlock from '../Layout/LayoutBlock';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
 
@@ -17,11 +19,11 @@ export default {
 
 // 👇 We create a "template" of how args map to rendering
 const BasicTemplate = (args) => (
-  <>
-    <Placeholder width={50} height={50} {...args} />
-    <Placeholder width={150} height={50} {...args} />
-    <Placeholder width={50} height={150} {...args} />
-  </>
+  <LayoutBlock>
+    <Placeholder width={'100%'} height={50} {...args} />
+    <Placeholder width={'50%'} height={100} {...args} />
+    <Placeholder width={'30%'} height={250} {...args} />
+  </LayoutBlock>
 );
 
 initFbt();
@@ -29,3 +31,13 @@ initFbt();
 // 👇 Each story then reuses that template
 export const Default: StoryTemplate<typeof Placeholder> = BasicTemplate.bind({});
 Default.storyName = 'Default';
+
+export const WithLabel: StoryTemplate<typeof Placeholder> = BasicTemplate.bind({});
+WithLabel.storyName = 'With label';
+WithLabel.args = {
+  label: (
+    <fbt desc="placeholder" doNotExtract={true}>
+      placeholder
+    </fbt>
+  ),
+};
