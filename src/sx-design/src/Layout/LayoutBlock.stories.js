@@ -3,6 +3,7 @@
  * @flow
  */
 
+import fbt from 'fbt';
 import React from 'react';
 
 import LayoutBlock from './LayoutBlock';
@@ -20,13 +21,21 @@ export default {
 const BasicTemplate = (args) => (
   <LayoutBlock {...args}>
     {/* 1..5 */}
-    <Placeholder width={200} height={50} />
+    <Placeholder
+      width={200}
+      height={50}
+      label={
+        <fbt desc="1" doNotExtract={true}>
+          1
+        </fbt>
+      }
+    />
     <Placeholder width={200} height={50} />
     <Placeholder width={200} height={50} />
     <Placeholder width={200} height={50} />
     <Placeholder width={200} height={50} />
 
-    {/* 5..10 */}
+    {/* 6..10 */}
     <Placeholder width={200} height={50} />
     <Placeholder width={200} height={50} />
     <Placeholder width={200} height={50} />
