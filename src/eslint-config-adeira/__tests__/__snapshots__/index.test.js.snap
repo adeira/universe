@@ -316,6 +316,12 @@ Object {
     "jest/consistent-test-it": 0,
     "jest/expect-expect": 0,
     "jest/lowercase-name": 0,
+    "jest/max-nested-describe": Array [
+      1,
+      Object {
+        "max": 5,
+      },
+    ],
     "jest/no-alias-methods": 0,
     "jest/no-commented-out-tests": 0,
     "jest/no-conditional-expect": 0,
@@ -1070,6 +1076,11 @@ Snapshot Diff:
 -     "import/no-relative-packages": 1,
 +     "import/no-relative-packages": 2,
       "import/no-relative-parent-imports": 0,
+@@ --- --- @@
+      "jest/max-nested-describe": Array [
+-       1,
++       2,
+        Object {
 @@ --- --- @@
       "sx/no-unused-stylesheet": 2,
 -     "sx/use-logical-properties": 1,
