@@ -445,6 +445,7 @@ const groupedRules = ({
     'jest/consistent-test-it': OFF,
     'jest/expect-expect': OFF,
     'jest/lowercase-name': OFF,
+    'jest/max-nested-describe': [NEXT_VERSION_ERROR, { max: 5 }],
     'jest/no-alias-methods': OFF,
     'jest/no-commented-out-tests': OFF,
     'jest/no-conditional-expect': OFF,
