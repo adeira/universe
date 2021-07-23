@@ -30,7 +30,7 @@ mod session;
 ///     means a new authentication).
 /// 2b. Reject any requests attempting to access non-existent users.
 pub(in crate::auth) async fn authorize(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arangors::ConnectionPool,
     google_id_token: &str,
 ) -> anyhow::Result<String> {
     let mut cached_certs = certs::CachedCertsProduction::new();
@@ -62,7 +62,7 @@ pub(in crate::auth) async fn authorize(
 /// This function "deauthorizes" the user by invalidating the session in our DB (removing it).
 /// It returns `true` if the operation was successful.
 pub(in crate::auth) async fn deauthorize(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arangors::ConnectionPool,
     session_token: &str,
 ) -> anyhow::Result<bool> {
     let session_token_hash = derive_session_token_hash(&session_token);
@@ -72,7 +72,7 @@ pub(in crate::auth) async fn deauthorize(
 
 /// This function verifies the session token and returns either authorized OR anonymous user.
 pub(in crate) async fn resolve_user_from_session_token(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arangors::ConnectionPool,
     session_token: &str,
 ) -> User {
     let session_token_hash = derive_session_token_hash(&session_token);

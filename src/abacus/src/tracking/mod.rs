@@ -1,4 +1,4 @@
-use crate::arangodb::ConnectionPool;
+use crate::arangors::ConnectionPool;
 use crate::auth::users::User;
 use crate::commerce::api::Product;
 use serde::Deserialize;

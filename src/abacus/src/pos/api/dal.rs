@@ -1,4 +1,4 @@
-use crate::arangodb::{resolve_aql, ConnectionPool};
+use crate::arangors::{resolve_aql, ConnectionPool};
 use crate::price::SupportedCurrency;
 use serde::{Deserialize, Serialize};
 
@@ -95,7 +95,7 @@ pub(in crate::pos) async fn get_total_checkout_stats(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+    use crate::arangors::{cleanup_test_database, prepare_empty_test_database};
 
     #[ignore]
     #[tokio::test]

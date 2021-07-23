@@ -1,4 +1,4 @@
-use crate::arangodb::Database;
+use crate::arangors::DatabaseType;
 use crate::migrations::utils::{create_document, ArangoDocument};
 
 #[derive(serde::Serialize, serde::Deserialize)]
@@ -13,7 +13,7 @@ impl ArangoDocument for User {
     }
 }
 
-pub async fn migrate(db: &Database) -> anyhow::Result<()> {
+pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     let collection_name = "users";
     create_document(
         &db,
