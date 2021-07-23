@@ -36,6 +36,7 @@ pub use crate::arangors::{
 
 pub(crate) mod analyzer;
 pub(crate) mod aql;
+pub(crate) mod client;
 pub(crate) mod collection;
 pub(crate) mod connection;
 pub(crate) mod database;

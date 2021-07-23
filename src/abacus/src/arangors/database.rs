@@ -2,7 +2,6 @@
 //!
 //! AQL query are all executed in database level, so Database offers AQL query.
 use std::{collections::HashMap, fmt::Debug, sync::Arc};
-use uclient::ClientExt;
 
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use serde_json::value::Value;
@@ -17,6 +16,7 @@ use crate::arangors::transaction::TRANSACTION_HEADER;
 use crate::arangors::{
     analyzer::{AnalyzerDescription, AnalyzerInfo},
     aql::{AqlQuery, Cursor},
+    client::ClientExt,
     collection::{
         options::{CreateOptions, CreateParameters},
         response::{Info, Properties},

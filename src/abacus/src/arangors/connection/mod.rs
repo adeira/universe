@@ -36,10 +36,9 @@ use std::{collections::HashMap, fmt::Debug, sync::Arc};
 use http::header::{HeaderMap, AUTHORIZATION, SERVER};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use uclient::ClientExt;
 use url::Url;
 
-use crate::arangors::{response::ArangoResult, ClientError};
+use crate::arangors::{client::ClientExt, response::ArangoResult, ClientError};
 
 use super::{database::Database, response::deserialize_response};
 
@@ -79,7 +78,7 @@ pub struct Version {
     pub license: String,
 }
 
-pub type Connection = GenericConnection<uclient::reqwest::ReqwestClient>;
+pub type Connection = GenericConnection<crate::arangors::client::reqwest::ReqwestClient>;
 
 /// Connection is the top level API for this crate.
 /// It contains a http client, information about authentication, arangodb url.

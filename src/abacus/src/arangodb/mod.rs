@@ -42,7 +42,7 @@ pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     }
 }
 
-pub type Database = crate::arangors::Database<uclient::reqwest::ReqwestClient>;
+pub type Database = crate::arangors::Database<crate::arangors::client::reqwest::ReqwestClient>;
 
 impl ConnectionPool {
     pub async fn db(&self) -> Database {
