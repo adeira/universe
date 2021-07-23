@@ -1,4 +1,4 @@
-use crate::arangodb::ConnectionPool;
+use crate::arangors::ConnectionPool;
 use crate::graphql_schema::Schema;
 use crate::warp_graphql;
 use juniper::http::GraphQLRequest;

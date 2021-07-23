@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
-use crate::arangodb::{ConnectionPool, Database};
 use crate::arangors::document::options::InsertOptions;
+use crate::arangors::{ConnectionPool, DatabaseType};
 use futures::future::BoxFuture;
 
 mod utils;
@@ -31,7 +31,7 @@ pub async fn migrate(pool: &ConnectionPool) {
     // https://users.rust-lang.org/t/error-distinct-uses-of-impl-trait-result-in-different-opaque-types/46862/2
     // https://users.rust-lang.org/t/how-to-handle-a-vector-of-async-function-pointers/39804
     // https://users.rust-lang.org/t/how-to-store-async-functions-in-a-vector/51630
-    type MigrationFunction = fn(&Database) -> BoxFuture<'_, anyhow::Result<()>>;
+    type MigrationFunction = fn(&DatabaseType) -> BoxFuture<'_, anyhow::Result<()>>;
 
     // TODO: hide behind some macro (?)
     let migrations: Vec<(&str, MigrationFunction)> = vec![

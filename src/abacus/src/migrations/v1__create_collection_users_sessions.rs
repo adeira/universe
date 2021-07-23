@@ -1,10 +1,10 @@
-use crate::arangodb::Database;
 use crate::arangors::collection::CollectionType;
 use crate::arangors::graph::{EdgeDefinition, Graph};
 use crate::arangors::index::{Index, IndexSettings};
+use crate::arangors::DatabaseType;
 use crate::migrations::utils::{create_collection, create_graph, create_index};
 
-pub async fn migrate(db: &Database) -> anyhow::Result<()> {
+pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     // 1. create `users` table
     create_collection(
         &db,
