@@ -1,9 +1,9 @@
-use crate::arangors::{resolve_aql, resolve_aql_vector};
+use crate::arango::{resolve_aql, resolve_aql_vector};
 use crate::auth::session::{Session, SessionType};
 use crate::auth::users::AnyUser;
 
 pub(crate) async fn find_session_by_user(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     user: &AnyUser,
 ) -> Option<Session> {
     let result_vector = resolve_aql_vector(
@@ -29,7 +29,7 @@ pub(crate) async fn find_session_by_user(
 
 /// Creates a new user session and links it with the user.
 pub(crate) async fn create_new_user_session(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
     user: &AnyUser,
 ) -> anyhow::Result<Session> {
@@ -68,7 +68,7 @@ pub(crate) async fn create_new_user_session(
 ///
 /// TODO(004) add integration tests
 pub(crate) async fn delete_user_session(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
 ) -> anyhow::Result<Session> {
     // TODO: do not remove mobile/webapp sessions if it's from a different source
@@ -95,7 +95,7 @@ pub(crate) async fn delete_user_session(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangors::{cleanup_test_database, prepare_empty_test_database};
+    use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 
     #[ignore]
     #[tokio::test]

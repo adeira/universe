@@ -1,7 +1,7 @@
 use http::{HeaderMap, Request, Response};
 use url::Url;
 
-use crate::arangors::ClientError;
+use crate::arango::ClientError;
 
 pub mod reqwest;
 

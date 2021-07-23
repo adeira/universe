@@ -1,6 +1,6 @@
-use crate::arangors::collection::CollectionType;
-use crate::arangors::graph::{EdgeDefinition, Graph};
-use crate::arangors::DatabaseType;
+use crate::arango::collection::CollectionType;
+use crate::arango::graph::{EdgeDefinition, Graph};
+use crate::arango::DatabaseType;
 use crate::commerce::api::ProductCategory;
 use crate::migrations::utils::{
     create_collection, create_graph, create_graph_vertex, ArangoDocument,

@@ -1,5 +1,5 @@
-use crate::arangors::collection::CollectionType;
-use crate::arangors::DatabaseType;
+use crate::arango::collection::CollectionType;
+use crate::arango::DatabaseType;
 use crate::migrations::utils::{create_collection, create_document, ArangoDocument};
 
 #[derive(serde::Serialize, serde::Deserialize)]

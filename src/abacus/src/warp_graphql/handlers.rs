@@ -1,4 +1,4 @@
-use crate::arangors::ConnectionPool;
+use crate::arango::ConnectionPool;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Files;
 use crate::auth::rbac::FilesActions::UploadFile;

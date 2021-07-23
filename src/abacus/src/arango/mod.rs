@@ -24,7 +24,7 @@
 //! > connection -> databases -> collections -> documents/edges
 //!
 
-use crate::arangors::pool::ConnectionManager;
+use crate::arango::pool::ConnectionManager;
 #[cfg(test)]
 use deadpool::managed::Object;
 use deadpool::managed::Pool;
@@ -32,8 +32,8 @@ use serde::Deserialize;
 use serde_json::Value;
 use std::collections::HashMap;
 
-pub use crate::arangors::connection::Connection;
-pub use crate::arangors::{
+pub use crate::arango::connection::Connection;
+pub use crate::arango::{
     aql::{AqlOptions, AqlQuery, Cursor},
     collection::Collection,
     connection::GenericConnection,
@@ -91,7 +91,7 @@ pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     }
 }
 
-pub type DatabaseType = crate::arangors::Database<crate::arangors::client::reqwest::ReqwestClient>;
+pub type DatabaseType = crate::arango::Database<crate::arango::client::reqwest::ReqwestClient>;
 
 impl ConnectionPool {
     pub async fn db(&self) -> DatabaseType {

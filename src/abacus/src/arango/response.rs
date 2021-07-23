@@ -15,7 +15,7 @@ use serde::{
 };
 use serde_json::value::Value;
 
-use crate::arangors::{ArangoError, ClientError};
+use crate::arango::{ArangoError, ClientError};
 
 /// Deserialize response from arango server
 ///

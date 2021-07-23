@@ -1,5 +1,5 @@
 #[cfg(test)]
-use crate::arangors::get_database_connection_pool_mock;
+use crate::arango::get_database_connection_pool_mock;
 #[cfg(test)]
 use crate::auth::users::AnonymousUser;
 use crate::auth::users::User;
@@ -33,7 +33,7 @@ impl ContextUploadable {
 
 #[derive(Clone)]
 pub struct Context {
-    pub pool: crate::arangors::ConnectionPool,
+    pub pool: crate::arango::ConnectionPool,
     pub uploadables: Option<HashMap<String, ContextUploadable>>,
     pub user: User,
 }

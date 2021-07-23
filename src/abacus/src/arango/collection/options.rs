@@ -2,7 +2,7 @@
 use serde::{Deserialize, Serialize, Serializer};
 use typed_builder::TypedBuilder;
 
-use crate::arangors::collection::CollectionType;
+use crate::arango::collection::CollectionType;
 
 /// Options for create a collection
 #[derive(Serialize, PartialEq, TypedBuilder)]

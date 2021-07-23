@@ -1,4 +1,4 @@
-use crate::arangors::ConnectionPool;
+use crate::arango::ConnectionPool;
 use crate::auth::users::{AnonymousUser, User};
 use crate::headers::parse_authorization_header;
 
@@ -44,7 +44,7 @@ pub(in crate::warp_graphql) async fn get_current_user(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangors::get_database_connection_pool_mock;
+    use crate::arango::get_database_connection_pool_mock;
 
     #[tokio::test]
     async fn get_current_user_without_authorization_header() {

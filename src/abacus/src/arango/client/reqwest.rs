@@ -4,8 +4,8 @@ use ::reqwest::Client;
 use http::header::HeaderMap;
 
 use super::*;
-use crate::arangors::client::ClientExt;
-use crate::arangors::transaction::TRANSACTION_HEADER;
+use crate::arango::client::ClientExt;
+use crate::arango::transaction::TRANSACTION_HEADER;
 use http::HeaderValue;
 
 #[derive(Debug, Clone)]
