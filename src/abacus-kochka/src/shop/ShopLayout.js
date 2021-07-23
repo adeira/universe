@@ -54,6 +54,7 @@ export default function ShopLayout(): Node {
                 });
               }}
             >
+              {/* TODO: fetch categories from GraphQL */}
               <fbt desc="shop all categories link">Shop All</fbt>
             </ButtonLink>
           </div>

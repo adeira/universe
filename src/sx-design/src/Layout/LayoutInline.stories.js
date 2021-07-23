@@ -3,6 +3,7 @@
  * @flow
  */
 
+import fbt from 'fbt';
 import React from 'react';
 
 import LayoutInline from './LayoutInline';
@@ -20,13 +21,21 @@ export default {
 const BasicTemplate = (args) => (
   <LayoutInline {...args}>
     {/* 1..5 */}
-    <Placeholder width={100} height={100} />
+    <Placeholder
+      width={100}
+      height={100}
+      label={
+        <fbt desc="1" doNotExtract={true}>
+          1
+        </fbt>
+      }
+    />
     <Placeholder width={100} height={100} />
     <Placeholder width={100} height={100} />
     <Placeholder width={100} height={100} />
     <Placeholder width={100} height={100} />
 
-    {/* 5..10 */}
+    {/* 6..10 */}
     <Placeholder width={100} height={100} />
     <Placeholder width={100} height={100} />
     <Placeholder width={100} height={100} />

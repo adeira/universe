@@ -1,5 +1,6 @@
 # Unreleased
 
+- New rule [`max-nested-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/f784d1ad7447391750eb692e65fd76ba9d011551/docs/rules/max-nested-describe.md) enabled (warnings or errors in strict mode).
 - New rule `sx/use-logical-properties` enabled (warnings or errors in strict mode).
 - You can now use config subsets for use cases where the main default config does not fit well.
   - `@adeira/eslint-config/base`
