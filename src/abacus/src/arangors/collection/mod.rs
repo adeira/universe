@@ -7,13 +7,13 @@ use std::{convert::TryFrom, sync::Arc};
 use http::Request;
 use serde::{de::DeserializeOwned, Deserialize, Deserializer, Serialize};
 use serde_json::json;
-use uclient::ClientExt;
 use url::Url;
 
 use options::*;
 use response::*;
 
 use crate::arangors::{
+    client::ClientExt,
     document::{
         options::{InsertOptions, ReadOptions, RemoveOptions, ReplaceOptions, UpdateOptions},
         response::DocumentResponse,
