@@ -6,12 +6,15 @@ import { graphql, QueryRenderer } from '@adeira/relay';
 import { ProductCard, Skeleton, Note, Button } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import sx from '@adeira/sx';
+import { useRecoilValue } from 'recoil';
 
 import LinkInternal from '../LinkInternal';
 import useViewerContext from '../hooks/useViewerContext';
+import filtersAtom from './recoil/filtersAtom';
 
 export default function ShopLayoutContent(): React.Node {
   const viewerContext = useViewerContext();
+  const filters = useRecoilValue(filtersAtom);
 
   return (
     <QueryRenderer
@@ -19,13 +22,11 @@ export default function ShopLayoutContent(): React.Node {
         query ShopLayoutContentQuery(
           $clientLocale: SupportedLocale!
           $priceSortDirection: PriceSortDirection!
-          $searchTerm: String
         ) {
           commerce {
             products: searchPublishedProducts(
               clientLocale: $clientLocale
               priceSortDirection: $priceSortDirection
-              searchTerm: $searchTerm
             ) {
               key
               name
@@ -43,7 +44,7 @@ export default function ShopLayoutContent(): React.Node {
       `}
       variables={{
         clientLocale: viewerContext.languageTag.graphql,
-        priceSortDirection: 'LOW_TO_HIGH',
+        priceSortDirection: filters.relevance.price,
       }}
       onLoading={() => {
         // Loading screen (first Skeleton, then Blurhash, then the actual image):
