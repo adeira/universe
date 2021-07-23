@@ -7,13 +7,13 @@ use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use serde_json::value::Value;
 use url::Url;
 
-use crate::arangors::graph::{
+use crate::arango::graph::{
     Edge, GraphCollection, GraphEdgeResponse, GraphResponse, GraphVertexResponse, Vertex,
     GHARIAL_API_PATH,
 };
-use crate::arangors::index::INDEX_API_PATH;
-use crate::arangors::transaction::TRANSACTION_HEADER;
-use crate::arangors::{
+use crate::arango::index::INDEX_API_PATH;
+use crate::arango::transaction::TRANSACTION_HEADER;
+use crate::arango::{
     analyzer::{AnalyzerDescription, AnalyzerInfo},
     aql::{AqlQuery, Cursor},
     client::ClientExt,

@@ -1,4 +1,4 @@
-use crate::arangors::{cleanup_test_database, prepare_empty_test_database};
+use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 use crate::commerce::api::PriceSortDirection;
 use crate::commerce::dal::products::{
     create_product, delete_product, get_product_by_key, search_products,

@@ -1,10 +1,10 @@
-use crate::arangors::collection::options::{CreateOptions, CreateParameters};
-use crate::arangors::collection::CollectionType;
-use crate::arangors::document::options::InsertOptions;
-use crate::arangors::graph::Graph;
-use crate::arangors::index::Index;
-use crate::arangors::view::ViewOptions;
-use crate::arangors::DatabaseType;
+use crate::arango::collection::options::{CreateOptions, CreateParameters};
+use crate::arango::collection::CollectionType;
+use crate::arango::document::options::InsertOptions;
+use crate::arango::graph::Graph;
+use crate::arango::index::Index;
+use crate::arango::view::ViewOptions;
+use crate::arango::DatabaseType;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 

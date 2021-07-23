@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
-use crate::arangors::document::options::InsertOptions;
-use crate::arangors::{ConnectionPool, DatabaseType};
+use crate::arango::document::options::InsertOptions;
+use crate::arango::{ConnectionPool, DatabaseType};
 use futures::future::BoxFuture;
 
 mod utils;

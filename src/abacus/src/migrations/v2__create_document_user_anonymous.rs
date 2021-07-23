@@ -1,4 +1,4 @@
-use crate::arangors::DatabaseType;
+use crate::arango::DatabaseType;
 use crate::migrations::utils::{create_document, ArangoDocument};
 
 #[derive(serde::Serialize, serde::Deserialize)]

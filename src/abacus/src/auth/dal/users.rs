@@ -1,4 +1,4 @@
-use crate::arangors::{resolve_aql, resolve_aql_vector};
+use crate::arango::{resolve_aql, resolve_aql_vector};
 #[cfg(test)]
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
@@ -6,7 +6,7 @@ use crate::auth::users::AnyUser;
 /// Returns all users except anonymous one - so almost all users (anonymous is not really a user
 /// but rather a special case used in anonymous analytics/tracking for example).
 pub(crate) async fn list_all_users(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
 ) -> anyhow::Result<Vec<AnyUser>> {
     resolve_aql_vector(
         &pool,
@@ -22,7 +22,7 @@ pub(crate) async fn list_all_users(
 
 /// Returns user based on Google Claims (`sub`) or `None` if such user couldn't be found.
 pub(crate) async fn find_user_by_google_claims(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     subject: &str,
 ) -> Option<AnyUser> {
     let result_vector = resolve_aql_vector(
@@ -52,7 +52,7 @@ pub(crate) async fn find_user_by_google_claims(
 ///
 /// TODO(004) add integration tests
 pub async fn get_user_by_session_token_hash(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
 ) -> anyhow::Result<AnyUser> {
     resolve_aql(
@@ -96,7 +96,7 @@ pub async fn get_user_by_session_token_hash(
 
 #[cfg(test)]
 pub(crate) async fn create_user_by_google_claims(
-    pool: &crate::arangors::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     claims: &Claims,
 ) -> anyhow::Result<AnyUser> {
     resolve_aql(
@@ -118,7 +118,7 @@ pub(crate) async fn create_user_by_google_claims(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangors::{cleanup_test_database, prepare_empty_test_database};
+    use crate::arango::{cleanup_test_database, prepare_empty_test_database};
     use crate::auth::google::Claims;
 
     #[ignore]

@@ -4,7 +4,7 @@
 #[macro_use]
 mod global_macros;
 
-use crate::arangors::get_database_connection_pool;
+use crate::arango::get_database_connection_pool;
 use crate::clap::generate_clap_app;
 use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
@@ -12,7 +12,7 @@ use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;
 use warp::Filter;
 
-mod arangors;
+mod arango;
 mod archive;
 mod auth;
 mod clap;

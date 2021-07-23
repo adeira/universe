@@ -3,7 +3,7 @@ use std::fmt;
 use serde::Deserialize;
 use thiserror::Error;
 
-use crate::arangors::connection::Permission;
+use crate::arango::connection::Permission;
 
 #[derive(Error, Debug)]
 pub enum ClientError {

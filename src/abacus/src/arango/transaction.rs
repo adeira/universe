@@ -6,7 +6,7 @@ use std::sync::Arc;
 use typed_builder::TypedBuilder;
 use url::Url;
 
-use crate::arangors::{
+use crate::arango::{
     aql::Cursor,
     client::ClientExt,
     collection::response::Info,

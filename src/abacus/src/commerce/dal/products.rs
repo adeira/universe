@@ -1,4 +1,4 @@
-use crate::arangors::{resolve_aql, resolve_aql_vector, ConnectionPool};
+use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool};
 use crate::commerce::model::products::{
     PriceSortDirection, Product, ProductMultilingualInput, ProductMultilingualInputVisibility,
 };

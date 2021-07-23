@@ -1,4 +1,4 @@
-use crate::arangors::{resolve_aql, ConnectionPool};
+use crate::arango::{resolve_aql, ConnectionPool};
 use serde::{Deserialize, Serialize};
 
 #[derive(Deserialize, Serialize)]

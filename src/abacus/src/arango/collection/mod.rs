@@ -12,7 +12,7 @@ use url::Url;
 use options::*;
 use response::*;
 
-use crate::arangors::{
+use crate::arango::{
     client::ClientExt,
     document::{
         options::{InsertOptions, ReadOptions, RemoveOptions, ReplaceOptions, UpdateOptions},
@@ -25,7 +25,7 @@ use crate::arangors::{
 };
 
 use super::{Database, Document};
-use crate::arangors::transaction::TRANSACTION_HEADER;
+use crate::arango::transaction::TRANSACTION_HEADER;
 
 pub mod options;
 pub mod response;

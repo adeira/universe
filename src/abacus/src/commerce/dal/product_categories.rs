@@ -1,4 +1,4 @@
-use crate::arangors::{resolve_aql_vector, ConnectionPool};
+use crate::arango::{resolve_aql_vector, ConnectionPool};
 use crate::commerce::model::product_categories::ProductCategory;
 use crate::locale::SupportedLocale;
 
