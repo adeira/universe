@@ -62,12 +62,12 @@ Legend:
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<LinkButton />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Loader />`]        |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Loader />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<MissingData />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Modal />`]         |     ✅      |     ✅      |      🧐       |    🧐    |  🧐   |
 | [`<Money />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Placeholder />`]   |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Placeholder />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
@@ -102,21 +102,21 @@ Legend:
 
 There is an additional set of so-called "Layout" components that are responsible for rendering the components above in a correct order, with correct spacing and so on:
 
-- [`<LayoutBlock />`](https://sx-design.vercel.app/?path=/story/layout-layoutblock)
-- [`<LayoutInline />`](https://sx-design.vercel.app/?path=/story/layout-layoutinline)
+- [`<LayoutBlock />`](https://sx-design.vercel.app/?path=/story/layout-layoutblock) - typically⁶ vertical stacking
+- [`<LayoutGrid />`](https://sx-design.vercel.app/?path=/story/layout-layoutgrid) - children in a [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid)
+- [`<LayoutInline />`](https://sx-design.vercel.app/?path=/story/layout-layoutinline) - typically⁶ horizontal stacking
 - … 🚧
 
 _Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
 
-¹ Localized means that it's either translated by us or the component inputs are (Flow) typed in a way that encourages passing translated strings instead of plain strings.
-
-² Component should look fine in both light and dark mode.
-
-³ There are stories in the [Storybook](https://sx-design.vercel.app/) and these stories are somehow useful and explanatory.
-
-⁴ There are tests available to make sure that the component works as expected and we won't break it by accident.
-
-⁵ Component correctly supports right-to-left (RTL) as well as traditional left-to-right (LTR) layouts
+<sub>
+¹ Localized means that it's either translated by us or the component inputs are (Flow) typed in a way that encourages passing translated strings instead of plain strings.<br />
+² Component should look fine in both light and dark mode.<br />
+³ There are stories in the Storybook (https://sx-design.vercel.app/) and these stories are somehow useful and explanatory.<br />
+⁴ There are tests available to make sure that the component works as expected and we won't break it by accident.<br />
+⁵ Component correctly supports right-to-left (RTL) as well as traditional left-to-right (LTR) layouts<br />
+⁶ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties#block_vs._inline
+</sub>
 
 # Styles customization
 

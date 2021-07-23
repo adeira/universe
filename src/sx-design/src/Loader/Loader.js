@@ -1,42 +1,61 @@
 // @flow
 
-import React, { type Node } from 'react';
+import React, { type Node, type Element } from 'react';
 import sx from '@adeira/sx';
+import fbt from 'fbt';
+
+function SvgRect(props): Element<'rect'> {
+  return (
+    <rect
+      x={props.x}
+      y={props.y}
+      width="20"
+      height="20"
+      rx="4"
+      className={styles('svgRect')}
+      data-testid={props['data-testid']}
+    />
+  );
+}
 
 export default function Loader(): Node {
   return (
-    <div aria-label="Loading">
+    <div aria-label={<fbt desc="loading aria label">Loading</fbt>}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 300 134"
+        viewBox="0 0 120 60"
         aria-hidden={true}
         className={styles('svg')}
       >
-        <circle className={styles('svgCircle')} cy="67" cx="40" r="40" />
-        <circle className={styles('svgCircle')} cy="67" cx="150" r="40" />
-        <circle className={styles('svgCircle')} cy="67" cx="260" r="40" />
+        <SvgRect x="0" y="20" data-testid="loader-dot1" />
+        <SvgRect x="50" y="20" data-testid="loader-dot2" />
+        <SvgRect x="100" y="20" data-testid="loader-dot3" />
       </svg>
     </div>
   );
 }
 
+// $FlowExpectedError[prop-missing]: fill is not a supported "CSS" property
 const bounce = sx.keyframes({
-  '33%': { transform: `translateY(-1.4em)` },
-  '66%': { transform: `translateY(1.4em)` },
+  '33%': { transform: `translateY(-10px)` },
+  '66%': {
+    transform: `translateY(10px)`,
+    fill: 'rgba(var(--sx-accent-5))',
+  },
 });
 
 const styles = sx.create({
   svg: {
-    fill: 'rgba(var(--sx-accent-5))',
     height: 30,
   },
-  svgCircle: {
+  svgRect: {
+    'fill': 'rgba(var(--sx-foreground))',
     'animationName': bounce,
     'animationFillMode': 'both',
     'animationIterationCount': 'infinite',
     'animationTimingFunction': 'ease-in-out',
     'animationDuration': '0.6s',
-    'transform': 'translateY(1.4em)',
+    'transform': 'translateY(10px)',
     ':nth-child(1)': {
       animationDelay: '140ms',
     },
