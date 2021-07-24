@@ -5,8 +5,13 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type PriceSortDirection = "HIGH_TO_LOW" | "LOW_TO_HIGH" | "%future added value";
 export type SupportedCurrency = "MXN" | "%future added value";
-export type ProductsGridPosQueryVariables = {||};
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
+export type ProductsGridPosQueryVariables = {|
+  clientLocale: SupportedLocale,
+  priceSortDirection: PriceSortDirection,
+|};
 export type ProductsGridPosQueryResponse = {|
   +pos: {|
     +products: ?$ReadOnlyArray<?{|
@@ -30,9 +35,12 @@ export type ProductsGridPosQuery = {|
 |};
 
 /*
-query ProductsGridPosQuery {
+query ProductsGridPosQuery(
+  $clientLocale: SupportedLocale!
+  $priceSortDirection: PriceSortDirection!
+) {
   pos {
-    products: listPublishedProducts {
+    products: listPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection) {
       id
       key
       name
@@ -52,6 +60,18 @@ query ProductsGridPosQuery {
 const node: ConcreteRequest = (function(){
 var v0 = [
   {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "clientLocale"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "priceSortDirection"
+  }
+],
+v1 = [
+  {
     "alias": null,
     "args": null,
     "concreteType": "POSQuery",
@@ -61,7 +81,18 @@ var v0 = [
     "selections": [
       {
         "alias": "products",
-        "args": null,
+        "args": [
+          {
+            "kind": "Variable",
+            "name": "clientLocale",
+            "variableName": "clientLocale"
+          },
+          {
+            "kind": "Variable",
+            "name": "priceSortDirection",
+            "variableName": "priceSortDirection"
+          }
+        ],
         "concreteType": "Product",
         "kind": "LinkedField",
         "name": "listPublishedProducts",
@@ -147,31 +178,31 @@ var v0 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
     "name": "ProductsGridPosQuery",
-    "selections": (v0/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
     "name": "ProductsGridPosQuery",
-    "selections": (v0/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "b579277cabeb8512c40397369323a124",
+    "cacheID": "92f9f4699b442d8554f6222393b309fa",
     "id": null,
     "metadata": {},
     "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query ProductsGridPosQuery {\n  pos {\n    products: listPublishedProducts {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n) {\n  pos {\n    products: listPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '9a0d3d97d0fa3296d8d42e06aacc9ed8';
+(node: any).hash = 'af0b73fd73b3a0a9c0927abce09ba945';
 export default node;

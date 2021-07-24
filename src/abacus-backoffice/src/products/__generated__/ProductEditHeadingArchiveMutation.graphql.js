@@ -5,8 +5,10 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductEditHeadingArchiveMutationVariables = {|
-  productKey: string
+  productKey: string,
+  clientLocale: SupportedLocale,
 |};
 export type ProductEditHeadingArchiveMutationResponse = {|
   +commerce: {|
@@ -30,9 +32,10 @@ export type ProductEditHeadingArchiveMutation = {|
 /*
 mutation ProductEditHeadingArchiveMutation(
   $productKey: ID!
+  $clientLocale: SupportedLocale!
 ) {
   commerce {
-    productOrError: productArchive(productKey: $productKey) {
+    productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {
       __typename
       ... on Product {
         __typename
@@ -47,28 +50,36 @@ mutation ProductEditHeadingArchiveMutation(
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "clientLocale"
+},
+v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "productKey"
+},
+v2 = [
   {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "productKey"
-  }
-],
-v1 = [
+    "kind": "Variable",
+    "name": "clientLocale",
+    "variableName": "clientLocale"
+  },
   {
     "kind": "Variable",
     "name": "productKey",
     "variableName": "productKey"
   }
 ],
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v3 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -77,7 +88,10 @@ v3 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "ProductEditHeadingArchiveMutation",
@@ -92,7 +106,7 @@ return {
         "selections": [
           {
             "alias": "productOrError",
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productArchive",
@@ -101,7 +115,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v2/*: any*/)
+                  (v3/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -109,8 +123,8 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v2/*: any*/),
-                  (v3/*: any*/)
+                  (v3/*: any*/),
+                  (v4/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -127,7 +141,10 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "ProductEditHeadingArchiveMutation",
     "selections": [
@@ -141,17 +158,17 @@ return {
         "selections": [
           {
             "alias": "productOrError",
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productArchive",
             "plural": false,
             "selections": [
-              (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v3/*: any*/)
+                  (v4/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -165,15 +182,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "dc65b1c088c15122003ef94a765a10a0",
+    "cacheID": "fa92a9bb8cc457782ad37b1b68234958",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingArchiveMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingArchiveMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productArchive(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingArchiveMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '923d1fae0fa4d1d60c31ddf6066c22b4';
+(node: any).hash = 'f3fe8c4c93882b50f010bd5bf8fb4f0e';
 export default node;

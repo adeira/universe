@@ -517,6 +517,7 @@ pub(in crate::commerce) async fn update_product(
 pub(in crate::commerce) async fn publish_product(
     context: &Context,
     product_key: &str,
+    client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(PublishProduct)).await?;
 
@@ -547,17 +548,20 @@ pub(in crate::commerce) async fn publish_product(
     }
 
     // finally, publish the product:
-    crate::commerce::dal::products::publish_product(&context.pool, &product_key).await
+    crate::commerce::dal::products::publish_product(&context.pool, &product_key, &client_locale)
+        .await
 }
 
 pub(in crate::commerce) async fn unpublish_product(
     context: &Context,
     product_key: &str,
+    client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(UnpublishProduct)).await?;
 
     // unpublish the product:
-    crate::commerce::dal::products::unpublish_product(&context.pool, &product_key).await
+    crate::commerce::dal::products::unpublish_product(&context.pool, &product_key, &client_locale)
+        .await
 }
 
 /// We need to perform the following steps when archiving the product:
@@ -571,11 +575,11 @@ pub(in crate::commerce) async fn unpublish_product(
 pub(in crate::commerce) async fn archive_product(
     context: &Context,
     product_key: &str,
+    client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(ArchiveProduct)).await?;
 
     // 1. get the old product
-    let client_locale = SupportedLocale::EnUS; // TODO
     let product_old = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
         &client_locale,
@@ -593,7 +597,8 @@ pub(in crate::commerce) async fn archive_product(
     }
 
     // 4. hard delete the product
-    crate::commerce::dal::products::delete_product(&context.pool, &product_key).await
+    crate::commerce::dal::products::delete_product(&context.pool, &product_key, &client_locale)
+        .await
 }
 
 #[cfg(test)]

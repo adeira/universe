@@ -6,6 +6,7 @@
 
 import type { ConcreteRequest } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type PosCheckoutProductInput = {|
   productKey: string,
   productUnits: number,
@@ -13,7 +14,8 @@ export type PosCheckoutProductInput = {|
   productPriceUnitAmountCurrency: SupportedCurrency,
 |};
 export type POSCheckoutPageLayoutMutationVariables = {|
-  checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>
+  checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>,
+  clientLocale: SupportedLocale,
 |};
 export type POSCheckoutPageLayoutMutationResponse = {|
   +pos: {|
@@ -38,9 +40,10 @@ export type POSCheckoutPageLayoutMutation = {|
 /*
 mutation POSCheckoutPageLayoutMutation(
   $checkoutInput: [PosCheckoutProductInput!]!
+  $clientLocale: SupportedLocale!
 ) {
   pos {
-    checkout(input: {selectedProducts: $checkoutInput}) {
+    checkout(input: {selectedProducts: $checkoutInput}, clientLocale: $clientLocale) {
       __typename
       ... on PosCheckoutPayload {
         id
@@ -59,6 +62,11 @@ var v0 = [
     "defaultValue": null,
     "kind": "LocalArgument",
     "name": "checkoutInput"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "clientLocale"
   }
 ],
 v1 = [
@@ -73,6 +81,11 @@ v1 = [
       {
         "alias": null,
         "args": [
+          {
+            "kind": "Variable",
+            "name": "clientLocale",
+            "variableName": "clientLocale"
+          },
           {
             "fields": [
               {
@@ -150,15 +163,15 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "6bfc6efa2217519c7fb6660b9ade4806",
+    "cacheID": "41a13f602a0a4a2000c5219e421cc69a",
     "id": null,
     "metadata": {},
     "name": "POSCheckoutPageLayoutMutation",
     "operationKind": "mutation",
-    "text": "mutation POSCheckoutPageLayoutMutation(\n  $checkoutInput: [PosCheckoutProductInput!]!\n) {\n  pos {\n    checkout(input: {selectedProducts: $checkoutInput}) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation POSCheckoutPageLayoutMutation(\n  $checkoutInput: [PosCheckoutProductInput!]!\n  $clientLocale: SupportedLocale!\n) {\n  pos {\n    checkout(input: {selectedProducts: $checkoutInput}, clientLocale: $clientLocale) {\n      __typename\n      ... on PosCheckoutPayload {\n        id\n      }\n      ... on PosCheckoutError {\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '62625f93bb702c890c5f3d38d652d255';
+(node: any).hash = '3b8a9c4decbee14c8acb49768c9d3091';
 export default node;

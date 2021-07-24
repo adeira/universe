@@ -1,4 +1,4 @@
-# @generated SignedSource<<aecd2adaf387ea1d85c6de24ff8657cc>>
+# @generated SignedSource<<e858aff2166e62ecee1db4c97c8ea254>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -10,7 +10,7 @@ type POSQuery {
     Lists published products for POS. Requires admin permissions so it should be used only in
     POS after logging in.
   """
-  listPublishedProducts: [Product]
+  listPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!): [Product]
   getTotalCheckoutStats: PosCheckoutTotalStats
 }
 
@@ -87,17 +87,17 @@ type CommerceMutation {
     Note: the product cannot be searched for and cannot be retrieved in any way (other than via
     the archive). It can also be hard deleted without prior notice.
   """
-  productArchive(productKey: ID!): ProductOrError!
+  productArchive(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
   """
     Publishes product based on the product KEY. Various validation requirements must be met
     before the product can be published. Published product is available outside of backoffice.
   """
-  productPublish(productKey: ID!): ProductOrError!
+  productPublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
   """
     Unpublishes product based on the product KEY. Unpublished products are available only inside
     the backoffice.
   """
-  productUnpublish(productKey: ID!): ProductOrError!
+  productUnpublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
 }
 
 """
@@ -169,7 +169,7 @@ type POSMutation {
     price adjustments (customers would be angry if we would say "oh, actually it just got more
     expensive").
   """
-  checkout(input: PosCheckoutInput!): PosCheckoutPayloadOrError!
+  checkout(input: PosCheckoutInput!, clientLocale: SupportedLocale!): PosCheckoutPayloadOrError!
 }
 
 union ProductOrError = Product | ProductError

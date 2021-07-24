@@ -7,6 +7,7 @@ import { useSetRecoilState } from 'recoil';
 
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
+import useApplicationLocale from '../useApplicationLocale';
 import type { ProductEditHeadingPublishUnpublishPublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishPublishMutation.graphql';
 import type { ProductEditHeadingPublishUnpublishUnpublishMutation } from './__generated__/ProductEditHeadingPublishUnpublishUnpublishMutation.graphql';
 
@@ -18,13 +19,17 @@ type Props = {
 export default function ProductEditHeadingPublishUnpublish(
   props: Props,
 ): React.Element<typeof LayoutHeadingButton> {
+  const applicationLocale = useApplicationLocale();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
 
   const [publishProductMutation] = useMutation<ProductEditHeadingPublishUnpublishPublishMutation>(
     graphql`
-      mutation ProductEditHeadingPublishUnpublishPublishMutation($productKey: ID!) {
+      mutation ProductEditHeadingPublishUnpublishPublishMutation(
+        $productKey: ID!
+        $clientLocale: SupportedLocale!
+      ) {
         commerce {
-          productOrError: productPublish(productKey: $productKey) {
+          productOrError: productPublish(productKey: $productKey, clientLocale: $clientLocale) {
             ... on Product {
               __typename
             }
@@ -41,9 +46,12 @@ export default function ProductEditHeadingPublishUnpublish(
   const [unpublishProductMutation] =
     useMutation<ProductEditHeadingPublishUnpublishUnpublishMutation>(
       graphql`
-        mutation ProductEditHeadingPublishUnpublishUnpublishMutation($productKey: ID!) {
+        mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
+          $productKey: ID!
+          $clientLocale: SupportedLocale!
+        ) {
           commerce {
-            productOrError: productUnpublish(productKey: $productKey) {
+            productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
               ... on Product {
                 __typename
               }
@@ -66,7 +74,10 @@ export default function ProductEditHeadingPublishUnpublish(
       }
       onClick={() => {
         publishProductMutation({
-          variables: { productKey: props.productKey },
+          variables: {
+            productKey: props.productKey,
+            clientLocale: applicationLocale.graphql,
+          },
           onError: () => {
             setStatusBar({
               // TODO: DRY and improve these unexpected messages (see product creation)
@@ -102,7 +113,10 @@ export default function ProductEditHeadingPublishUnpublish(
       }
       onClick={() => {
         unpublishProductMutation({
-          variables: { productKey: props.productKey },
+          variables: {
+            productKey: props.productKey,
+            clientLocale: applicationLocale.graphql,
+          },
           onError: () => {
             setStatusBar({
               // TODO: DRY and improve these unexpected messages (see product creation)
