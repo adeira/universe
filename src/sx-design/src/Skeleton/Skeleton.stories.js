@@ -3,12 +3,12 @@
  * @flow
  */
 
-import sx from '@adeira/sx';
 import React from 'react';
 import { rangeMap } from '@adeira/js';
 import fbt from 'fbt';
 
 import Button from '../Button/Button';
+import LayoutGrid from '../Layout/LayoutGrid';
 import { initFbt } from '../test-utils';
 import Skeleton from './Skeleton';
 import type { StoryTemplate } from '../types';
@@ -23,24 +23,16 @@ export default {
   },
 };
 
-const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-    gap: '1rem',
-  },
-});
-
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
 const StandaloneTemplate = (args) => <Skeleton {...args} />;
 const GridTemplate = (args) => (
-  <div className={styles('productsGrid')}>
+  <LayoutGrid minColumnWidth="150px">
     {rangeMap(16, (i) => (
       <Skeleton key={i} {...args} />
     ))}
-  </div>
+  </LayoutGrid>
 );
 
 // 👇 Each story then reuses that template

@@ -30,17 +30,7 @@ type Props = {
  * 2. grid of blurhashes instead of boring grey squares, after that:
  * 3. the actual images
  *
- * Simple CSS grid example:
- *
- * ```js
- * const styles = sx.create({
- *   productsGrid: {
- *     display: 'grid',
- *     gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
- *     gap: '1rem',
- *   },
- * });
- * ```
+ * You can use `LayoutGrid` component to achieve simple CSS grid.
  */
 export default function ProductCard(props: Props): Element<'div'> {
   const [isHovered, setIsHovered] = useState(false);

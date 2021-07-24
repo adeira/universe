@@ -3,10 +3,10 @@
  * @flow
  */
 
-import sx from '@adeira/sx';
 import React from 'react';
 import { rangeMap } from '@adeira/js';
 
+import LayoutGrid from '../Layout/LayoutGrid';
 import ProductCard from './ProductCard';
 import type { StoryTemplate } from '../types';
 
@@ -31,22 +31,14 @@ export default {
 
 const BLURHASH = 'UIFrw^~Wx^NH.8D*t7%L.8RjMxRixu%ME1R+';
 
-const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
-    gap: '1rem',
-  },
-});
-
 // 👇 We create a "template" of how args map to rendering
 const TemplateStandalone = (args) => <ProductCard {...args} />;
 const Template = (args) => (
-  <div className={styles('productsGrid')}>
+  <LayoutGrid minColumnWidth="200px">
     {rangeMap(16, (i) => (
       <ProductCard key={i} {...args} />
     ))}
-  </div>
+  </LayoutGrid>
 );
 
 // 👇 Each story then reuses that template
