@@ -1,5 +1,5 @@
 use crate::arango::{resolve_aql, resolve_aql_vector};
-use crate::auth::session::{Session, SessionType};
+use crate::auth::session::Session;
 use crate::auth::users::AnyUser;
 
 pub(crate) async fn find_session_by_user(
@@ -41,7 +41,6 @@ pub(crate) async fn create_new_user_session(
               INSERT {
                 _key: @session_token_hash,
                 last_access: DATE_ISO8601(DATE_NOW()),
-                type: @session_type,
               } INTO sessions
               RETURN NEW
             )
@@ -56,7 +55,6 @@ pub(crate) async fn create_new_user_session(
         "#,
         hashmap_json![
             "session_token_hash" => session_token_hash,
-            "session_type" => SessionType::WEBAPP, // TODO
             "user_id" => user.id()
         ],
     )
@@ -71,9 +69,6 @@ pub(crate) async fn delete_user_session(
     pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
 ) -> anyhow::Result<Session> {
-    // TODO: do not remove mobile/webapp sessions if it's from a different source
-    //       (webapp should not deauthorize mobile)
-
     resolve_aql(
         &pool,
         r#"
@@ -118,10 +113,6 @@ mod tests {
         assert_eq!(
             session.session_token_hash(),
             "d99278e7-8f98-482a-ab9e-df93c380546e"
-        );
-        assert_eq!(
-            session.session_type().to_string(),
-            "webapp" // TODO: the types are not properly implemented yet
         );
 
         cleanup_test_database(&db_name).await;

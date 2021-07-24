@@ -5,6 +5,7 @@ import GoogleLogin from 'react-google-login';
 import { graphql, useMutation } from '@adeira/relay';
 import { fbt } from 'fbt';
 import sx from '@adeira/sx';
+import { Loader } from '@adeira/sx-design';
 import Icon from '@adeira/icons';
 
 import constants from './constants';
@@ -61,11 +62,7 @@ export function LoginButton(): Node {
         onSuccess={successResponseGoogle}
         onFailure={failureResponseGoogle}
       />
-      {isAuthorizeMutationPending === true ? (
-        <div>
-          <fbt desc="authorization please wait message">Please wait…</fbt>
-        </div>
-      ) : null}
+      {isAuthorizeMutationPending === true ? <Loader /> : null}
       {errorMessage != null ? <div className={styles('errorMessage')}>{errorMessage}</div> : null}
     </>
   );

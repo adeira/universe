@@ -5,9 +5,9 @@
     "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 47,
+   "line_beg": 48,
    "col_beg": 24,
-   "line_end": 47,
+   "line_end": 48,
    "col_end": 81,
    "desc": "login unknown error",
    "project": "",
@@ -16,26 +16,12 @@
   },
   {
    "hashToText": {
-    "WgPsVQPDZkU+G14byaetrQ==": "Please wait…"
-   },
-   "filepath": "src/AuthButtons.js",
-   "line_beg": 66,
-   "col_beg": 10,
-   "line_end": 66,
-   "col_end": 74,
-   "desc": "authorization please wait message",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Please wait…"
-  },
-  {
-   "hashToText": {
     "ZmoOgkWDunmOx3U/8Us9hg==": "Logout"
    },
    "filepath": "src/AuthButtons.js",
-   "line_beg": 109,
+   "line_beg": 106,
    "col_beg": 28,
-   "line_end": 109,
+   "line_end": 106,
    "col_end": 72,
    "desc": "logout button title",
    "project": "",
@@ -293,20 +279,6 @@
    "project": "",
    "type": "text",
    "jsfbt": "Least sold products"
-  },
-  {
-   "hashToText": {
-    "SP/3TZcgzHIb1tmGv1Z/lg==": "Loading…"
-   },
-   "filepath": "src/Layout.js",
-   "line_beg": 25,
-   "col_beg": 24,
-   "line_end": 25,
-   "col_end": 89,
-   "desc": "loading message when loading some data",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Loading…"
   },
   {
    "hashToText": {

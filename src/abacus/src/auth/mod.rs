@@ -76,7 +76,6 @@ pub(in crate) async fn resolve_user_from_session_token(
     session_token: &str,
 ) -> User {
     let session_token_hash = derive_session_token_hash(&session_token);
-    // TODO: make sure that webapp session tokens are expiring sooner (not after one year)
     match get_user_by_session_token_hash(&pool, &session_token_hash).await {
         Ok(user) => User::SignedUser(SignedUser::from(user)),
         Err(error) => {

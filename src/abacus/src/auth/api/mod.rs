@@ -94,18 +94,6 @@ pub(crate) async fn list_users(context: &Context) -> anyhow::Result<Vec<AnyUser>
 ///// Mutations:
 
 #[derive(juniper::GraphQLObject)]
-pub(crate) struct AuthorizeMobilePayload {
-    success: bool,
-
-    /// Failure message is available only when success=false.
-    failure_message: Option<String>,
-
-    /// Session token should be send with every GraphQL request which requires auth.
-    /// Returns `None` if the request was not successful.
-    session_token: Option<String>,
-}
-
-#[derive(juniper::GraphQLObject)]
 pub(crate) struct AuthorizeWebappPayload {
     success: bool,
 
