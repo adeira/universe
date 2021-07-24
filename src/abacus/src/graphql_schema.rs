@@ -16,12 +16,18 @@ pub struct Query;
     description = "Root query of the graph.",
 )]
 impl Query {
+    fn analytics() -> crate::analytics::AnalyticsQuery {
+        crate::analytics::AnalyticsQuery {}
+    }
+
     /// Returns information about the current user (can be authenticated or anonymous).
     async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
+        // TODO: move under `AuthQuery` scope
         crate::auth::api::whoami(context).await
     }
 
     async fn list_users(context: &Context) -> AbacusGraphQLResult<Vec<AnyUser>> {
+        // TODO: move under `AuthQuery` scope
         Ok(crate::auth::api::list_users(&context).await?)
     }
 

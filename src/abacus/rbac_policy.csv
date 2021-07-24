@@ -1,3 +1,4 @@
+p, analytics_admin, analytics, get_checkout_stats, allow
 p, commerce_admin, commerce, create_product, allow
 p, commerce_admin, commerce, update_product, allow
 p, commerce_admin, commerce, archive_product, allow
@@ -9,17 +10,13 @@ p, files_admin, files, upload_file, allow
 p, files_admin, files, delete_file, allow
 p, pos_admin, pos, checkout, allow
 p, pos_admin, pos, get_all_published_products, allow
-p, pos_admin, pos, get_checkout_stats, allow
-p, pos_operator, pos, checkout, allow
-p, pos_operator, pos, get_all_published_products, allow
-p, pos_operator, pos, get_checkout_stats, deny
 p, users_admin, users, get_all_users, allow
 
+g, admin, analytics_admin
 g, admin, commerce_admin
 g, admin, files_admin
 g, admin, pos_admin
 g, admin, users_admin
-g, employee, pos_operator
 
 g, users/1, anonymous
 g, users/2, admin
