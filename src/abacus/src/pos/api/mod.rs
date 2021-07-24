@@ -19,14 +19,19 @@ mod dal;
 impl POSQuery {
     /// Lists published products for POS. Requires admin permissions so it should be used only in
     /// POS after logging in.
-    async fn list_published_products(context: &Context) -> Option<Vec<Option<Product>>> {
+    async fn list_published_products(
+        context: &Context,
+        client_locale: SupportedLocale,
+        price_sort_direction: PriceSortDirection,
+    ) -> Option<Vec<Option<Product>>> {
+        // TODO: merge with `commerce` module
         match rbac::verify_permissions(&context.user, &Pos(GetAllPublishedProducts)).await {
             Ok(_) => {
                 // only admin can list the products (POS is private)
                 crate::commerce::api::search_published_products(
                     &context,
-                    &SupportedLocale::EnUS,         // TODO
-                    &PriceSortDirection::HighToLow, // TODO
+                    &client_locale,
+                    &price_sort_direction,
                     &ProductMultilingualInputVisibility::POS,
                 )
                 .await
@@ -36,6 +41,7 @@ impl POSQuery {
     }
 
     async fn get_total_checkout_stats(context: &Context) -> Option<PosCheckoutTotalStats> {
+        // TODO: move to `analytics` module
         match rbac::verify_permissions(&context.user, &Pos(GetCheckoutStats)).await {
             Ok(_) => {
                 // only admin can read the checkout stats
@@ -89,7 +95,11 @@ impl POSMutation {
     /// cashier accepts the money, the product is sold for the given price and there is not time for
     /// price adjustments (customers would be angry if we would say "oh, actually it just got more
     /// expensive").
-    async fn checkout(context: &Context, input: PosCheckoutInput) -> PosCheckoutPayloadOrError {
+    async fn checkout(
+        context: &Context,
+        input: PosCheckoutInput,
+        client_locale: SupportedLocale,
+    ) -> PosCheckoutPayloadOrError {
         // Contrary to what DAL requires, we accept only product keys in GraphQL and expand them on BE.
 
         let product_keys = input
@@ -98,12 +108,9 @@ impl POSMutation {
             .map(|product| product.product_key.to_string())
             .collect::<Vec<String>>();
 
-        let products = crate::commerce::api::get_products_by_keys(
-            &context,
-            &SupportedLocale::EnUS, // TODO
-            &product_keys,
-        )
-        .await;
+        let products =
+            crate::commerce::api::get_products_by_keys(&context, &client_locale, &product_keys)
+                .await;
 
         let selected_products = match products {
             Ok(products) => products

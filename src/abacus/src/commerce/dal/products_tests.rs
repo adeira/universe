@@ -173,7 +173,9 @@ async fn delete_product_test() {
     .unwrap();
 
     // 2) try to delete the newly created product
-    let deleted_product = delete_product(&pool, &created_product.key()).await.unwrap();
+    let deleted_product = delete_product(&pool, &created_product.key(), &SupportedLocale::EnUS)
+        .await
+        .unwrap();
     assert_eq!(
         deleted_product.name(),
         "Product name in english".to_string()

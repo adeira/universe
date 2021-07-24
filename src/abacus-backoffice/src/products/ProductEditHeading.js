@@ -8,10 +8,11 @@ import { graphql, useMutation, useFragment } from '@adeira/relay';
 import { Heading } from '@adeira/sx-design';
 import { useSetRecoilState } from 'recoil';
 
-import ProductEditHeadingPublishUnpublish from './ProductEditHeadingPublishUnpublish';
 import LayoutHeading from '../LayoutHeading';
 import LayoutHeadingButton from '../LayoutHeadingButton';
 import LayoutHeadingLink from '../LayoutHeadingLink';
+import ProductEditHeadingPublishUnpublish from './ProductEditHeadingPublishUnpublish';
+import useApplicationLocale from '../useApplicationLocale';
 import { uiStatusBarAtom } from '../recoil/uiStatusBarAtom';
 import type { ProductEditHeadingArchiveMutation } from './__generated__/ProductEditHeadingArchiveMutation.graphql';
 import type { ProductEditHeading$key } from './__generated__/ProductEditHeading.graphql';
@@ -21,14 +22,18 @@ type Props = {
 };
 
 export default function ProductEditHeading(props: Props): React.Node {
+  const applicationLocale = useApplicationLocale();
   const setStatusBar = useSetRecoilState(uiStatusBarAtom);
   const router = useRouter();
 
   const [archiveProductMutation] = useMutation<ProductEditHeadingArchiveMutation>(
     graphql`
-      mutation ProductEditHeadingArchiveMutation($productKey: ID!) {
+      mutation ProductEditHeadingArchiveMutation(
+        $productKey: ID!
+        $clientLocale: SupportedLocale!
+      ) {
         commerce {
-          productOrError: productArchive(productKey: $productKey) {
+          productOrError: productArchive(productKey: $productKey, clientLocale: $clientLocale) {
             ... on Product {
               __typename
             }
@@ -55,7 +60,10 @@ export default function ProductEditHeading(props: Props): React.Node {
 
   const handleArchiveProduct = (productKey) => {
     archiveProductMutation({
-      variables: { productKey },
+      variables: {
+        productKey,
+        clientLocale: applicationLocale.graphql,
+      },
       onError: () => {
         setStatusBar({
           // TODO: DRY and improve these unexpected messages (see product creation)

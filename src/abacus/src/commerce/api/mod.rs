@@ -168,8 +168,18 @@ impl CommerceMutation {
     ///
     /// Note: the product cannot be searched for and cannot be retrieved in any way (other than via
     /// the archive). It can also be hard deleted without prior notice.
-    async fn product_archive(context: &Context, product_key: juniper::ID) -> ProductOrError {
-        match crate::commerce::model::products::archive_product(&context, &product_key).await {
+    async fn product_archive(
+        context: &Context,
+        product_key: juniper::ID,
+        client_locale: SupportedLocale,
+    ) -> ProductOrError {
+        match crate::commerce::model::products::archive_product(
+            &context,
+            &product_key,
+            &client_locale,
+        )
+        .await
+        {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
                 // TODO: do not expose DB and RBAC errors directly
@@ -180,8 +190,18 @@ impl CommerceMutation {
 
     /// Publishes product based on the product KEY. Various validation requirements must be met
     /// before the product can be published. Published product is available outside of backoffice.
-    async fn product_publish(context: &Context, product_key: juniper::ID) -> ProductOrError {
-        match crate::commerce::model::products::publish_product(&context, &product_key).await {
+    async fn product_publish(
+        context: &Context,
+        product_key: juniper::ID,
+        client_locale: SupportedLocale,
+    ) -> ProductOrError {
+        match crate::commerce::model::products::publish_product(
+            &context,
+            &product_key,
+            &client_locale,
+        )
+        .await
+        {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
                 // TODO: do not expose DB and RBAC errors directly
@@ -192,8 +212,18 @@ impl CommerceMutation {
 
     /// Unpublishes product based on the product KEY. Unpublished products are available only inside
     /// the backoffice.
-    async fn product_unpublish(context: &Context, product_key: juniper::ID) -> ProductOrError {
-        match crate::commerce::model::products::unpublish_product(&context, &product_key).await {
+    async fn product_unpublish(
+        context: &Context,
+        product_key: juniper::ID,
+        client_locale: SupportedLocale,
+    ) -> ProductOrError {
+        match crate::commerce::model::products::unpublish_product(
+            &context,
+            &product_key,
+            &client_locale,
+        )
+        .await
+        {
             Ok(product) => ProductOrError::Product(product),
             Err(e) => ProductOrError::ProductError(ProductError {
                 // TODO: do not expose DB and RBAC errors directly
