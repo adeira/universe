@@ -109,9 +109,8 @@ mod tests {
                 .expect("unable to write new schema file");
         }
 
-        assert_eq!(
-            Path::new(new_schema_path).exists(),
-            false,
+        assert!(
+            !Path::new(new_schema_path).exists(),
             "schema snapshot with *.new extension should not exist - please resolve it"
         );
     }

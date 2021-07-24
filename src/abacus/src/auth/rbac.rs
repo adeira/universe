@@ -190,17 +190,14 @@ mod tests {
 
     #[tokio::test]
     async fn test_signed_user_permissions() {
-        assert_eq!(
-            verify_permissions(
-                &User::SignedUser(SignedUser::from(AnyUser::mock(&Some(
-                    "users/2".to_string()
-                )))),
-                &Actions::Commerce(CommerceActions::PublishProduct),
-            )
-            .await
-            .is_ok(),
-            true
+        assert!(verify_permissions(
+            &User::SignedUser(SignedUser::from(AnyUser::mock(&Some(
+                "users/2".to_string()
+            )))),
+            &Actions::Commerce(CommerceActions::PublishProduct),
         )
+        .await
+        .is_ok())
     }
 
     #[test]

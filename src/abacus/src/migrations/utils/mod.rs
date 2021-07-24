@@ -3,7 +3,6 @@ use crate::arango::collection::CollectionType;
 use crate::arango::document::options::InsertOptions;
 use crate::arango::graph::Graph;
 use crate::arango::index::Index;
-use crate::arango::view::ViewOptions;
 use crate::arango::DatabaseType;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
@@ -123,25 +122,5 @@ where
     {
         Ok(_) => Ok(()),
         Err(e) => anyhow::bail!(e),
-    }
-}
-
-pub(in crate::migrations) async fn create_view(
-    db: &DatabaseType,
-    view_name: &str,
-    view: ViewOptions,
-) -> anyhow::Result<()> {
-    match db.view(&view_name).await {
-        Ok(_) => {
-            // view already exists
-            Ok(())
-        }
-        Err(_) => {
-            // view doesn't exist yet, let's create it
-            match db.create_view(view).await {
-                Ok(_) => Ok(()),
-                Err(e) => anyhow::bail!(e),
-            }
-        }
     }
 }
