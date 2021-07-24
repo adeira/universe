@@ -9,8 +9,10 @@ export type AuthButtonsDeauthorizeWebappMutationVariables = {|
   sessionToken: string
 |};
 export type AuthButtonsDeauthorizeWebappMutationResponse = {|
-  +deauthorize: {|
-    +__typename: string
+  +auth: {|
+    +deauthorize: {|
+      +__typename: string
+    |}
   |}
 |};
 export type AuthButtonsDeauthorizeWebappMutation = {|
@@ -22,8 +24,10 @@ export type AuthButtonsDeauthorizeWebappMutation = {|
 mutation AuthButtonsDeauthorizeWebappMutation(
   $sessionToken: String!
 ) {
-  deauthorize(sessionToken: $sessionToken) {
-    __typename
+  auth {
+    deauthorize(sessionToken: $sessionToken) {
+      __typename
+    }
   }
 }
 */
@@ -39,23 +43,34 @@ var v0 = [
 v1 = [
   {
     "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "sessionToken",
-        "variableName": "sessionToken"
-      }
-    ],
-    "concreteType": "DeauthorizePayload",
+    "args": null,
+    "concreteType": "AuthMutation",
     "kind": "LinkedField",
-    "name": "deauthorize",
+    "name": "auth",
     "plural": false,
     "selections": [
       {
         "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "__typename",
+        "args": [
+          {
+            "kind": "Variable",
+            "name": "sessionToken",
+            "variableName": "sessionToken"
+          }
+        ],
+        "concreteType": "DeauthorizePayload",
+        "kind": "LinkedField",
+        "name": "deauthorize",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "__typename",
+            "storageKey": null
+          }
+        ],
         "storageKey": null
       }
     ],
@@ -80,15 +95,15 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "5afb3a5c96834bbea122afd5892a0e4c",
+    "cacheID": "a1d61ef9afb3b5bb22a7c3956175547b",
     "id": null,
     "metadata": {},
     "name": "AuthButtonsDeauthorizeWebappMutation",
     "operationKind": "mutation",
-    "text": "mutation AuthButtonsDeauthorizeWebappMutation(\n  $sessionToken: String!\n) {\n  deauthorize(sessionToken: $sessionToken) {\n    __typename\n  }\n}\n"
+    "text": "mutation AuthButtonsDeauthorizeWebappMutation(\n  $sessionToken: String!\n) {\n  auth {\n    deauthorize(sessionToken: $sessionToken) {\n      __typename\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '185c9f22024e996b6ad226523651ca0e';
+(node: any).hash = '901b16d0f2f66b120f8dde76d966dfff';
 export default node;

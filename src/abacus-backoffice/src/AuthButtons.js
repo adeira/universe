@@ -19,10 +19,12 @@ export function LoginButton(): Node {
   const [authorizeMutation, isAuthorizeMutationPending] =
     useMutation<AuthButtonsAuthorizeWebappMutation>(graphql`
       mutation AuthButtonsAuthorizeWebappMutation($googleIdToken: String!) {
-        authorizeWebapp(googleIdToken: $googleIdToken) {
-          success
-          sessionToken
-          failureMessage
+        auth {
+          authorizeWebapp(googleIdToken: $googleIdToken) {
+            success
+            sessionToken
+            failureMessage
+          }
         }
       }
     `);
@@ -32,7 +34,7 @@ export function LoginButton(): Node {
       variables: {
         googleIdToken: response.tokenId,
       },
-      onCompleted: ({ authorizeWebapp }) => {
+      onCompleted: ({ auth: { authorizeWebapp } }) => {
         const sessionToken = authorizeWebapp.sessionToken;
         if (authorizeWebapp.success === true && sessionToken != null) {
           setErrorMessage(null);
@@ -74,8 +76,10 @@ export function LogoutButton(): Node {
 
   const [deauthorizeMutation] = useMutation<AuthButtonsDeauthorizeWebappMutation>(graphql`
     mutation AuthButtonsDeauthorizeWebappMutation($sessionToken: String!) {
-      deauthorize(sessionToken: $sessionToken) {
-        __typename
+      auth {
+        deauthorize(sessionToken: $sessionToken) {
+          __typename
+        }
       }
     }
   `);

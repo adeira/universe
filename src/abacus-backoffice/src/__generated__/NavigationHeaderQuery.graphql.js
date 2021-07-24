@@ -7,8 +7,10 @@
 import type { ConcreteRequest } from 'relay-runtime';
 export type NavigationHeaderQueryVariables = {||};
 export type NavigationHeaderQueryResponse = {|
-  +whoami: {|
-    +isDebugAssertionsEnabled: boolean
+  +auth: {|
+    +whoami: {|
+      +isDebugAssertionsEnabled: boolean
+    |}
   |}
 |};
 export type NavigationHeaderQuery = {|
@@ -18,9 +20,11 @@ export type NavigationHeaderQuery = {|
 
 /*
 query NavigationHeaderQuery {
-  whoami {
-    isDebugAssertionsEnabled
-    id
+  auth {
+    whoami {
+      isDebugAssertionsEnabled
+      id
+    }
   }
 }
 */
@@ -43,12 +47,23 @@ return {
       {
         "alias": null,
         "args": null,
-        "concreteType": "WhoamiPayload",
+        "concreteType": "AuthQuery",
         "kind": "LinkedField",
-        "name": "whoami",
+        "name": "auth",
         "plural": false,
         "selections": [
-          (v0/*: any*/)
+          {
+            "alias": null,
+            "args": null,
+            "concreteType": "WhoamiPayload",
+            "kind": "LinkedField",
+            "name": "whoami",
+            "plural": false,
+            "selections": [
+              (v0/*: any*/)
+            ],
+            "storageKey": null
+          }
         ],
         "storageKey": null
       }
@@ -65,17 +80,28 @@ return {
       {
         "alias": null,
         "args": null,
-        "concreteType": "WhoamiPayload",
+        "concreteType": "AuthQuery",
         "kind": "LinkedField",
-        "name": "whoami",
+        "name": "auth",
         "plural": false,
         "selections": [
-          (v0/*: any*/),
           {
             "alias": null,
             "args": null,
-            "kind": "ScalarField",
-            "name": "id",
+            "concreteType": "WhoamiPayload",
+            "kind": "LinkedField",
+            "name": "whoami",
+            "plural": false,
+            "selections": [
+              (v0/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "id",
+                "storageKey": null
+              }
+            ],
             "storageKey": null
           }
         ],
@@ -84,15 +110,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "503f9167e695c2ecc8f1551fac08265d",
+    "cacheID": "344b1cb20325560e12a119c5913de8b0",
     "id": null,
     "metadata": {},
     "name": "NavigationHeaderQuery",
     "operationKind": "query",
-    "text": "query NavigationHeaderQuery {\n  whoami {\n    isDebugAssertionsEnabled\n    id\n  }\n}\n"
+    "text": "query NavigationHeaderQuery {\n  auth {\n    whoami {\n      isDebugAssertionsEnabled\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '22a3d238878cf82d90908db5cb68f947';
+(node: any).hash = '095528fcceaa1f54d7dc1ed1a51fccaa';
 export default node;

@@ -1,4 +1,4 @@
-# @generated SignedSource<<d598d56ffaf6175c1908755cc4978d8c>>
+# @generated SignedSource<<5322328a6600c70c9fde513e5213e66f>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -30,25 +30,7 @@ enum SupportedCurrency {
 
 "Root mutation of the graph."
 type Mutation {
-  """
-    This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
-    and returns authorization payload. There is no concept of sign-in and sign-up: every
-    whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
-    that are not whitelisted will be rejected.
-
-    Repeated calls will result in a new session token and deauthorization of the previous
-    token (if it exist). Original session token is returned back only once and cannot be
-    retrieved later (it's irreversibly hashed in the database).
-  """
-  authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
-  """
-    The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
-    make the mobile application/webapp unsigned. Applications should remove the session token
-    once de-authorized.
-
-    Repeated calls will result in failure since it's not possible to deauthorize twice.
-  """
-  deauthorize(sessionToken: String!): DeauthorizePayload!
+  auth: AuthMutation!
   commerce: CommerceMutation!
   pos: POSMutation!
 }
@@ -128,9 +110,7 @@ union PosCheckoutPayloadOrError = PosCheckoutPayload | PosCheckoutError
 "Root query of the graph."
 type Query {
   analytics: AnalyticsQuery!
-  "Returns information about the current user (can be authenticated or anonymous)."
-  whoami: WhoamiPayload!
-  listUsers: [AnyUser!]!
+  auth: AuthQuery!
   commerce: CommerceQuery!
   menu: MenuQuery!
   pos: POSQuery!
@@ -172,7 +152,11 @@ type POSMutation {
   checkout(input: PosCheckoutInput!, clientLocale: SupportedLocale!): PosCheckoutPayloadOrError!
 }
 
-union ProductOrError = Product | ProductError
+type AuthQuery {
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  listUsers: [AnyUser!]!
+}
 
 type AnyUser {
   id: String!
@@ -192,9 +176,7 @@ type ProductCategory {
   name: String!
 }
 
-type ProductError {
-  message: String!
-}
+union ProductOrError = Product | ProductError
 
 type CommerceQuery {
   """
@@ -215,18 +197,22 @@ type CommerceQuery {
   getUnpublishedProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
 }
 
-input ProductMultilingualInput {
-  images: [ProductImageUploadable!]!
-  price: ProductPriceInput!
-  translations: [ProductMultilingualInputTranslations!]!
-  visibility: [ProductMultilingualInputVisibility!]!
-  categories: [ID!]!
+type ProductError {
+  message: String!
 }
 
 type AnalyticsSoldProductInfo {
   productId: String!
   productName: String!
   productUnits: Int!
+}
+
+input ProductMultilingualInput {
+  images: [ProductImageUploadable!]!
+  price: ProductPriceInput!
+  translations: [ProductMultilingualInputTranslations!]!
+  visibility: [ProductMultilingualInputVisibility!]!
+  categories: [ID!]!
 }
 
 """
@@ -237,14 +223,6 @@ type AnalyticsSoldProductInfo {
 
 """
 scalar ProductImageUploadable
-
-input ProductPriceInput {
-  """
-    The unit amount in centavo to be charged, represented as a whole integer.
-    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
-  """ unitAmount: Int!
-  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
-}
 
 type Product {
   """
@@ -323,6 +301,36 @@ type Product {
     interested in `available_categories` which are ALL categories available for the assignment.
   """
   selectedCategories(clientLocale: SupportedLocale!): [ProductCategory]!
+}
+
+type AuthMutation {
+  """
+    This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
+    and returns authorization payload. There is no concept of sign-in and sign-up: every
+    whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
+    that are not whitelisted will be rejected.
+
+    Repeated calls will result in a new session token and deauthorization of the previous
+    token (if it exist). Original session token is returned back only once and cannot be
+    retrieved later (it's irreversibly hashed in the database).
+  """
+  authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
+  """
+    The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
+    make the mobile application/webapp unsigned. Applications should remove the session token
+    once de-authorized.
+
+    Repeated calls will result in failure since it's not possible to deauthorize twice.
+  """
+  deauthorize(sessionToken: String!): DeauthorizePayload!
+}
+
+input ProductPriceInput {
+  """
+    The unit amount in centavo to be charged, represented as a whole integer.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """ unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
 }
 
 input ProductMultilingualInputTranslations {

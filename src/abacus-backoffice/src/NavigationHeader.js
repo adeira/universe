@@ -20,8 +20,10 @@ function NavigationHeaderDev(): React.Node {
   const data = useLazyLoadQuery<NavigationHeaderQuery>(
     graphql`
       query NavigationHeaderQuery {
-        whoami {
-          isDebugAssertionsEnabled
+        auth {
+          whoami {
+            isDebugAssertionsEnabled
+          }
         }
       }
     `,
@@ -31,13 +33,13 @@ function NavigationHeaderDev(): React.Node {
     },
   );
 
-  return data.whoami.isDebugAssertionsEnabled === true ? <DevBadge /> : <ProdBadge />;
+  return data.auth.whoami.isDebugAssertionsEnabled === true ? <DevBadge /> : <ProdBadge />;
 }
 
 export default function NavigationHeader(): React.Node {
   return (
     <strong className={styles('title')}>
-      <Emoji symbol={'🧮'} label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
+      <Emoji symbol="🧮" label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
       <React.Suspense fallback={<ProdBadge />}>
         <NavigationHeaderDev />
       </React.Suspense>

@@ -3,8 +3,54 @@ use crate::auth::rbac;
 use crate::auth::rbac::Actions::Users;
 use crate::auth::rbac::UsersActions::GetAllUsers;
 use crate::auth::users::{AnyUser, User};
+use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use juniper::FieldResult;
+
+pub(crate) struct AuthQuery;
+pub(crate) struct AuthMutation;
+
+#[juniper::graphql_object(context = Context)]
+impl AuthQuery {
+    /// Returns information about the current user (can be authenticated or anonymous).
+    async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
+        crate::auth::api::whoami(context).await
+    }
+
+    async fn list_users(context: &Context) -> AbacusGraphQLResult<Vec<AnyUser>> {
+        Ok(crate::auth::api::list_users(&context).await?)
+    }
+}
+
+#[juniper::graphql_object(context = Context)]
+impl AuthMutation {
+    /// This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
+    /// and returns authorization payload. There is no concept of sign-in and sign-up: every
+    /// whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
+    /// that are not whitelisted will be rejected.
+    ///
+    /// Repeated calls will result in a new session token and deauthorization of the previous
+    /// token (if it exist). Original session token is returned back only once and cannot be
+    /// retrieved later (it's irreversibly hashed in the database).
+    async fn authorize_webapp(
+        google_id_token: String,
+        context: &Context,
+    ) -> FieldResult<crate::auth::api::AuthorizeWebappPayload> {
+        crate::auth::api::authorize_webapp(&google_id_token, &context).await
+    }
+
+    /// The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
+    /// make the mobile application/webapp unsigned. Applications should remove the session token
+    /// once de-authorized.
+    ///
+    /// Repeated calls will result in failure since it's not possible to deauthorize twice.
+    async fn deauthorize(
+        session_token: String, // TODO: this could be removed (?) - we can use the user from context
+        context: &Context,
+    ) -> crate::auth::api::DeauthorizePayload {
+        crate::auth::api::deauthorize(&session_token, &context).await
+    }
+}
 
 #[derive(juniper::GraphQLObject)]
 pub(crate) struct WhoamiPayload {
