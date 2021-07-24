@@ -1,6 +1,10 @@
 use crate::auth::users::User;
 use casbin::{CoreApi, DefaultModel, Error as CasbinError, FileAdapter};
 
+pub(crate) enum AnalyticsActions {
+    GetCheckoutStats,
+}
+
 pub(crate) enum CommerceActions {
     CreateProduct,
     UpdateProduct,
@@ -19,7 +23,6 @@ pub(crate) enum FilesActions {
 pub(crate) enum PosActions {
     Checkout,
     GetAllPublishedProducts,
-    GetCheckoutStats,
 }
 
 pub(crate) enum UsersActions {
@@ -27,6 +30,7 @@ pub(crate) enum UsersActions {
 }
 
 pub(crate) enum Actions {
+    Analytics(AnalyticsActions),
     Commerce(CommerceActions),
     Files(FilesActions),
     Pos(PosActions),
@@ -68,6 +72,12 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                     let act: &str;
 
                     match actions {
+                        Actions::Analytics(analytics_actions) => {
+                            obj = "analytics";
+                            match analytics_actions {
+                                AnalyticsActions::GetCheckoutStats => act = "get_checkout_stats",
+                            }
+                        }
                         Actions::Commerce(commerce_actions) => {
                             obj = "commerce";
                             match commerce_actions {
@@ -96,7 +106,6 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                                 PosActions::GetAllPublishedProducts => {
                                     act = "get_all_published_products"
                                 }
-                                PosActions::GetCheckoutStats => act = "get_checkout_stats",
                             }
                         }
                         Actions::Users(users_actions) => {

@@ -1,4 +1,4 @@
-# @generated SignedSource<<e858aff2166e62ecee1db4c97c8ea254>>
+# @generated SignedSource<<d598d56ffaf6175c1908755cc4978d8c>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -11,7 +11,6 @@ type POSQuery {
     POS after logging in.
   """
   listPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!): [Product]
-  getTotalCheckoutStats: PosCheckoutTotalStats
 }
 
 input PosCheckoutProductInput {
@@ -128,6 +127,7 @@ union PosCheckoutPayloadOrError = PosCheckoutPayload | PosCheckoutError
 
 "Root query of the graph."
 type Query {
+  analytics: AnalyticsQuery!
   "Returns information about the current user (can be authenticated or anonymous)."
   whoami: WhoamiPayload!
   listUsers: [AnyUser!]!
@@ -223,6 +223,12 @@ input ProductMultilingualInput {
   categories: [ID!]!
 }
 
+type AnalyticsSoldProductInfo {
+  productId: String!
+  productName: String!
+  productUnits: Int!
+}
+
 """
 
         This type should be used together with GraphQL uploads and it should hold the file names
@@ -238,12 +244,6 @@ input ProductPriceInput {
     Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
   """ unitAmount: Int!
   "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
-}
-
-input ProductMultilingualInputTranslations {
-  locale: SupportedLocale!
-  name: String!
-  description: String
 }
 
 type Product {
@@ -325,8 +325,19 @@ type Product {
   selectedCategories(clientLocale: SupportedLocale!): [ProductCategory]!
 }
 
+input ProductMultilingualInputTranslations {
+  locale: SupportedLocale!
+  name: String!
+  description: String
+}
+
 input PosCheckoutInput {
   selectedProducts: [PosCheckoutProductInput!]!
+}
+
+type AnalyticsQuery {
+  mostSoldProducts: [AnalyticsSoldProductInfo!]!
+  leastSoldProducts: [AnalyticsSoldProductInfo!]!
 }
 
 type PosCheckoutError {
@@ -355,12 +366,6 @@ enum MenuSections {
 
 type PosCheckoutPayload {
   id: ID!
-}
-
-type PosCheckoutTotalStats {
-  totalCheckouts: Int!
-  totalSoldUnits: Int!
-  totalSoldUnitAmount: Int!
 }
 
 type Image {

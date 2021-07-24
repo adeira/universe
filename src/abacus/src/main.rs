@@ -12,6 +12,7 @@ use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;
 use warp::Filter;
 
+mod analytics;
 mod arango;
 mod archive;
 mod auth;
