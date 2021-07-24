@@ -325,6 +325,7 @@ impl<C: ClientExt> GenericConnection<C, Normal> {
         username: T,
         password: T,
     ) -> Result<String, ClientError> {
+        #[allow(clippy::upper_case_acronyms)]
         #[derive(Deserialize)]
         struct JWT {
             pub jwt: String,

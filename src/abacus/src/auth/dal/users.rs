@@ -148,11 +148,11 @@ mod tests {
 
         // 1) create a regular user
         let user = create_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
-        assert_eq!(user.is_ok(), true);
+        assert!(user.is_ok());
 
         // 2) try to find it and verify its values
         let user = find_user_by_google_claims(&pool, "sub:12345").await;
-        assert_eq!(user.is_some(), true);
+        assert!(user.is_some());
 
         cleanup_test_database(&db_name).await;
     }
@@ -166,11 +166,11 @@ mod tests {
         // 1) create an admin user (this SUB must always exist)
         let user =
             create_user_by_google_claims(&pool, &Claims::mock("108269453578187886435")).await;
-        assert_eq!(user.is_ok(), true);
+        assert!(user.is_ok());
 
         // 2) try to find it and verify its values
         let user = find_user_by_google_claims(&pool, "108269453578187886435").await;
-        assert_eq!(user.is_some(), true);
+        assert!(user.is_some());
 
         cleanup_test_database(&db_name).await;
     }

@@ -181,9 +181,9 @@ mod tests {
         assert_eq!(_read_keys().keys().len(), 0);
 
         let new_cert = cached_certs.fetch_new_certs("mock_kid").await;
-        assert_eq!(new_cert.is_none(), true); // the `mock_kid` doesn't exist
-        assert_eq!(_read_valid_until() > Some(Instant::now()), true);
-        assert_eq!(_read_keys().keys().len() > 0, true); // usually 2
+        assert!(new_cert.is_none()); // the `mock_kid` doesn't exist
+        assert!(_read_valid_until() > Some(Instant::now()));
+        assert!(_read_keys().keys().len() > 0); // usually 2
     }
 
     // TODO: how to test a success scenario (where to get a valid ID token?)
@@ -196,7 +196,7 @@ mod tests {
         let mut cached_certs = CachedCertsProduction::new();
         let verify_result = verify_id_token_integrity(id_token, &mut cached_certs).await;
 
-        assert_eq!(verify_result.is_err(), true);
+        assert!(verify_result.is_err());
         assert_eq!(
             format!("{:?}", verify_result.err().unwrap()),
             "InvalidToken"
@@ -211,7 +211,7 @@ mod tests {
         let mut cached_certs = CachedCertsProduction::new();
         let verify_result = verify_id_token_integrity(id_token, &mut cached_certs).await;
 
-        assert_eq!(verify_result.is_err(), true);
+        assert!(verify_result.is_err());
         assert_eq!(
             format!("{:?}", verify_result.err().unwrap()),
             r#"cannot get 'kid' from the token header"#
@@ -228,7 +228,7 @@ mod tests {
         let mut cached_certs = CachedCertsProduction::new();
         let verify_result = verify_id_token_integrity(id_token, &mut cached_certs).await;
 
-        assert_eq!(verify_result.is_err(), true);
+        assert!(verify_result.is_err());
         assert_eq!(
             format!("{:?}", verify_result.err().unwrap()),
             r#"cannot obtain Google certificate for key ID: '123'"# // 123 is from the JWT header

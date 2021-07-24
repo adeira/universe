@@ -34,8 +34,8 @@ mod tests {
 
     #[test]
     fn get_cache_control_max_age_test_none() {
-        assert_eq!(get_cache_control_max_age("no-cache").is_none(), true);
-        assert_eq!(get_cache_control_max_age("max-age=chleba").is_none(), true);
+        assert!(get_cache_control_max_age("no-cache").is_none());
+        assert!(get_cache_control_max_age("max-age=chleba").is_none());
     }
 
     #[test]

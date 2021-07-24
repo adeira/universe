@@ -109,7 +109,7 @@ mod tests {
         let session =
             create_new_user_session(&pool, "d99278e7-8f98-482a-ab9e-df93c380546e", &test_user)
                 .await;
-        assert_eq!(session.is_ok(), true);
+        assert!(session.is_ok());
 
         // 2) try to fetch it an asset it
         let session = find_session_by_user(&pool, &test_user)

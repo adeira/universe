@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 mod anonymous_user;
 mod signed_user;
 
+#[allow(clippy::large_enum_variant)]
 #[derive(Clone, Deserialize)]
 pub enum User {
     AnonymousUser(AnonymousUser),

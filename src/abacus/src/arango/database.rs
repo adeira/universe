@@ -584,6 +584,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn create_view(&self, view_options: ViewOptions) -> Result<View, ClientError> {
         let url = self.base_url.join("_api/view").unwrap();
 
@@ -600,6 +601,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn view(&self, view_name: &str) -> Result<ViewDescription, ClientError> {
         let url = self
             .base_url
@@ -711,6 +713,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn create_analyzer(
         &self,
         analyzer: AnalyzerInfo,
