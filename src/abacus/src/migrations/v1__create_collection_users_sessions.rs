@@ -31,11 +31,11 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
         &db,
         "sessions",
         &Index::builder()
-            .name("last_access_mobile_ttl_index") // required in migrations for idempotency
+            .name("last_access_ttl_index") // required in migrations for idempotency
             .fields(vec!["last_access".to_string()])
             .settings(IndexSettings::Ttl {
-                // Mobile session token is long-lived (one year = 365 * 24 * 60 * 60)
-                expire_after: 31_536_000,
+                // Session token is valid for 30 days (30 * 24 * 60 * 60)
+                expire_after: 2_592_000,
             })
             .build(),
     )
