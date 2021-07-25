@@ -72,6 +72,7 @@ Legend:
 | [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
+| [`<Tabs />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Text />`]          |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
@@ -97,6 +98,7 @@ Legend:
 [`<section />`]: https://sx-design.vercel.app/?path=/story/example-section
 [`<skeleton />`]: https://sx-design.vercel.app/?path=/story/example-skeleton
 [`<skiplink />`]: https://sx-design.vercel.app/?path=/story/example-skiplink
+[`<tabs />`]: https://sx-design.vercel.app/?path=/story/example-tabs
 [`<text />`]: https://sx-design.vercel.app/?path=/story/example-text
 [`<tooltip />`]: https://sx-design.vercel.app/?path=/story/example-tooltip
 

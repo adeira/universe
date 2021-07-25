@@ -26,9 +26,11 @@ export { default as ProductCard } from './src/ProductCard/ProductCard';
 export { default as Section } from './src/Section/Section';
 export { default as Skeleton } from './src/Skeleton/Skeleton';
 export { default as SkipLink } from './src/SkipLink/SkipLink';
+export { default as Tabs } from './src/Tabs/Tabs';
 export { default as Text } from './src/Text/Text';
 export { default as Tooltip } from './src/Tooltip/Tooltip';
 
 // Public SX Design LAYOUT components:
 export { default as LayoutBlock } from './src/Layout/LayoutBlock';
+export { default as LayoutGrid } from './src/Layout/LayoutGrid';
 export { default as LayoutInline } from './src/Layout/LayoutInline';
