@@ -1,5 +1,4 @@
 use crate::arango::{resolve_aql, resolve_aql_vector};
-#[cfg(test)]
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
@@ -94,8 +93,7 @@ pub async fn get_user_by_session_token_hash(
     ).await
 }
 
-#[cfg(test)]
-pub(crate) async fn create_user_by_google_claims(
+pub(crate) async fn create_inactive_user_by_google_claims(
     pool: &crate::arango::ConnectionPool,
     claims: &Claims,
 ) -> anyhow::Result<AnyUser> {
@@ -103,7 +101,7 @@ pub(crate) async fn create_user_by_google_claims(
         &pool,
         r#"
             INSERT {
-              is_active: true,
+              is_active: false, // must be always FALSE first!
               google: @claims_json,
             } INTO users
             RETURN NEW
@@ -147,12 +145,14 @@ mod tests {
         let pool = prepare_empty_test_database(&db_name).await;
 
         // 1) create a regular user
-        let user = create_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
+        let user = create_inactive_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
         assert!(user.is_ok());
+        assert!(!user.unwrap().is_active());
 
         // 2) try to find it and verify its values
         let user = find_user_by_google_claims(&pool, "sub:12345").await;
         assert!(user.is_some());
+        assert!(!user.unwrap().is_active()); // should be inactive by default
 
         cleanup_test_database(&db_name).await;
     }
@@ -163,14 +163,10 @@ mod tests {
         let db_name = "create_admin_user_by_google_claims_test";
         let pool = prepare_empty_test_database(&db_name).await;
 
-        // 1) create an admin user (this SUB must always exist)
-        let user =
-            create_user_by_google_claims(&pool, &Claims::mock("108269453578187886435")).await;
-        assert!(user.is_ok());
-
-        // 2) try to find it and verify its values
+        // 1) try to find the admin user (should already exist thanks to DB migrations)
         let user = find_user_by_google_claims(&pool, "108269453578187886435").await;
         assert!(user.is_some());
+        assert!(user.unwrap().is_active());
 
         cleanup_test_database(&db_name).await;
     }
