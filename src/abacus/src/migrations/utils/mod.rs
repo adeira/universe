@@ -1,10 +1,9 @@
-use crate::arangodb::Database;
-use crate::arangors::collection::options::{CreateOptions, CreateParameters};
-use crate::arangors::collection::CollectionType;
-use crate::arangors::document::options::InsertOptions;
-use crate::arangors::graph::Graph;
-use crate::arangors::index::Index;
-use crate::arangors::view::ViewOptions;
+use crate::arango::collection::options::{CreateOptions, CreateParameters};
+use crate::arango::collection::CollectionType;
+use crate::arango::document::options::InsertOptions;
+use crate::arango::graph::Graph;
+use crate::arango::index::Index;
+use crate::arango::DatabaseType;
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 
@@ -15,7 +14,7 @@ pub(in crate::migrations) trait ArangoDocument {
 }
 
 pub(in crate::migrations) async fn create_collection(
-    db: &Database,
+    db: &DatabaseType,
     collection_name: &str,
     collection_type: &CollectionType,
     json_schema: &Option<serde_json::Value>,
@@ -51,7 +50,7 @@ pub(in crate::migrations) async fn create_collection(
 }
 
 pub(in crate::migrations) async fn create_document<T>(
-    db: &Database,
+    db: &DatabaseType,
     collection_name: &str,
     document: T,
 ) -> anyhow::Result<()>
@@ -79,7 +78,7 @@ where
 }
 
 pub(in crate::migrations) async fn create_index(
-    db: &Database,
+    db: &DatabaseType,
     collection_name: &str,
     index: &Index,
 ) -> anyhow::Result<()> {
@@ -89,7 +88,10 @@ pub(in crate::migrations) async fn create_index(
     }
 }
 
-pub(in crate::migrations) async fn create_graph(db: &Database, graph: Graph) -> anyhow::Result<()> {
+pub(in crate::migrations) async fn create_graph(
+    db: &DatabaseType,
+    graph: Graph,
+) -> anyhow::Result<()> {
     match db.graph(&*graph.name).await {
         Ok(_) => {
             // graph already exists
@@ -106,7 +108,7 @@ pub(in crate::migrations) async fn create_graph(db: &Database, graph: Graph) -> 
 }
 
 pub(in crate::migrations) async fn create_graph_vertex<T>(
-    db: &Database,
+    db: &DatabaseType,
     graph: &str,
     collection: &str,
     vertex: &T,
@@ -120,25 +122,5 @@ where
     {
         Ok(_) => Ok(()),
         Err(e) => anyhow::bail!(e),
-    }
-}
-
-pub(in crate::migrations) async fn create_view(
-    db: &Database,
-    view_name: &str,
-    view: ViewOptions,
-) -> anyhow::Result<()> {
-    match db.view(&view_name).await {
-        Ok(_) => {
-            // view already exists
-            Ok(())
-        }
-        Err(_) => {
-            // view doesn't exist yet, let's create it
-            match db.create_view(view).await {
-                Ok(_) => Ok(()),
-                Err(e) => anyhow::bail!(e),
-            }
-        }
     }
 }

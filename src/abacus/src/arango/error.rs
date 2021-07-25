@@ -3,7 +3,7 @@ use std::fmt;
 use serde::Deserialize;
 use thiserror::Error;
 
-use crate::arangors::connection::Permission;
+use crate::arango::connection::Permission;
 
 #[derive(Error, Debug)]
 pub enum ClientError {
@@ -19,7 +19,7 @@ pub enum ClientError {
     #[error("Error from serde: {0}")]
     Serde(#[from] serde_json::error::Error),
     #[error("HTTP client error: {0}")]
-    HttpClient(#[from] uclient::Error),
+    HttpClient(String),
 }
 
 #[derive(Deserialize, Debug, Error)]

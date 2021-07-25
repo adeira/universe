@@ -5,30 +5,44 @@ import React, { type Node } from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import { ProductCard } from '@adeira/sx-design';
 
+import useApplicationLocale from '../useApplicationLocale';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 import type { ProductsGridPosQuery } from './__generated__/ProductsGridPosQuery.graphql';
 
 export default function ProductsGrid(): Node {
+  const applicationLocale = useApplicationLocale();
   const { select } = useSelectedItemsApi();
-  const data = useLazyLoadQuery<ProductsGridPosQuery>(graphql`
-    query ProductsGridPosQuery {
-      pos {
-        products: listPublishedProducts {
-          id
-          key
-          name
-          imageCover {
-            blurhash
-            url
-          }
-          price {
-            unitAmount
-            unitAmountCurrency
+  const data = useLazyLoadQuery<ProductsGridPosQuery>(
+    graphql`
+      query ProductsGridPosQuery(
+        $clientLocale: SupportedLocale!
+        $priceSortDirection: PriceSortDirection!
+      ) {
+        pos {
+          products: listPublishedProducts(
+            clientLocale: $clientLocale
+            priceSortDirection: $priceSortDirection
+          ) {
+            id
+            key
+            name
+            imageCover {
+              blurhash
+              url
+            }
+            price {
+              unitAmount
+              unitAmountCurrency
+            }
           }
         }
       }
-    }
-  `);
+    `,
+    {
+      clientLocale: applicationLocale.graphql,
+      priceSortDirection: 'LOW_TO_HIGH', // TODO (?)
+    },
+  );
 
   const handleItemClick = (productID, product) => {
     select({

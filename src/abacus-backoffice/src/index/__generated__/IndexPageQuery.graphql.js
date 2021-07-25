@@ -7,18 +7,18 @@
 import type { ConcreteRequest } from 'relay-runtime';
 export type IndexPageQueryVariables = {||};
 export type IndexPageQueryResponse = {|
-  +whoami: {|
-    +id: ?string,
-    +humanReadableType: ?string,
-    +isDebugAssertionsEnabled: boolean,
-  |},
-  +pos: {|
-    +getTotalCheckoutStats: ?{|
-      +totalCheckouts: number,
-      +totalSoldUnits: number,
-      +totalSoldUnitAmount: number,
-    |}
-  |},
+  +analytics: {|
+    +mostSoldProducts: $ReadOnlyArray<{|
+      +productId: string,
+      +productName: string,
+      +productUnits: number,
+    |}>,
+    +leastSoldProducts: $ReadOnlyArray<{|
+      +productId: string,
+      +productName: string,
+      +productUnits: number,
+    |}>,
+  |}
 |};
 export type IndexPageQuery = {|
   variables: IndexPageQueryVariables,
@@ -27,16 +27,16 @@ export type IndexPageQuery = {|
 
 /*
 query IndexPageQuery {
-  whoami {
-    id
-    humanReadableType
-    isDebugAssertionsEnabled
-  }
-  pos {
-    getTotalCheckoutStats {
-      totalCheckouts
-      totalSoldUnits
-      totalSoldUnitAmount
+  analytics {
+    mostSoldProducts {
+      productId
+      productName
+      productUnits
+    }
+    leastSoldProducts {
+      productId
+      productName
+      productUnits
     }
   }
 }
@@ -47,73 +47,52 @@ var v0 = [
   {
     "alias": null,
     "args": null,
-    "concreteType": "WhoamiPayload",
-    "kind": "LinkedField",
-    "name": "whoami",
-    "plural": false,
-    "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "id",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "humanReadableType",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "isDebugAssertionsEnabled",
-        "storageKey": null
-      }
-    ],
+    "kind": "ScalarField",
+    "name": "productId",
     "storageKey": null
   },
   {
     "alias": null,
     "args": null,
-    "concreteType": "POSQuery",
+    "kind": "ScalarField",
+    "name": "productName",
+    "storageKey": null
+  },
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "productUnits",
+    "storageKey": null
+  }
+],
+v1 = [
+  {
+    "alias": null,
+    "args": null,
+    "concreteType": "AnalyticsQuery",
     "kind": "LinkedField",
-    "name": "pos",
+    "name": "analytics",
     "plural": false,
     "selections": [
       {
         "alias": null,
         "args": null,
-        "concreteType": "PosCheckoutTotalStats",
+        "concreteType": "AnalyticsSoldProductInfo",
         "kind": "LinkedField",
-        "name": "getTotalCheckoutStats",
-        "plural": false,
-        "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "totalCheckouts",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "totalSoldUnits",
-            "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "totalSoldUnitAmount",
-            "storageKey": null
-          }
-        ],
+        "name": "mostSoldProducts",
+        "plural": true,
+        "selections": (v0/*: any*/),
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "concreteType": "AnalyticsSoldProductInfo",
+        "kind": "LinkedField",
+        "name": "leastSoldProducts",
+        "plural": true,
+        "selections": (v0/*: any*/),
         "storageKey": null
       }
     ],
@@ -126,7 +105,7 @@ return {
     "kind": "Fragment",
     "metadata": null,
     "name": "IndexPageQuery",
-    "selections": (v0/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -135,18 +114,18 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "IndexPageQuery",
-    "selections": (v0/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "d6c2b969b215fc211b2487fa1b831d67",
+    "cacheID": "1c40ec38e9f48f376c072e209f98a536",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  whoami {\n    id\n    humanReadableType\n    isDebugAssertionsEnabled\n  }\n  pos {\n    getTotalCheckoutStats {\n      totalCheckouts\n      totalSoldUnits\n      totalSoldUnitAmount\n    }\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n    leastSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'aeba1fc58c0f30fa53eeafb0041861bf';
+(node: any).hash = 'c57ee2b632cf43379954e22329a408ff';
 export default node;

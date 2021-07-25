@@ -1,4 +1,4 @@
-use crate::arangodb::{
+use crate::arango::{
     cleanup_test_database, get_database_connection_pool, get_database_connection_pool_mock,
     prepare_empty_test_database,
 };

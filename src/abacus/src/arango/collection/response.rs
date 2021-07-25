@@ -1,5 +1,5 @@
 //! Types of response related to collection
-use crate::arangors::collection::{options::KeyOptions, CollectionType};
+use crate::arango::collection::{options::KeyOptions, CollectionType};
 use serde::{
     de::{Deserializer, Error as DeError},
     Deserialize,

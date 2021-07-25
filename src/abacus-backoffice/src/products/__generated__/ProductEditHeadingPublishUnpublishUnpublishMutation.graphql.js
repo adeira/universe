@@ -5,8 +5,10 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductEditHeadingPublishUnpublishUnpublishMutationVariables = {|
-  productKey: string
+  productKey: string,
+  clientLocale: SupportedLocale,
 |};
 export type ProductEditHeadingPublishUnpublishUnpublishMutationResponse = {|
   +commerce: {|
@@ -30,9 +32,10 @@ export type ProductEditHeadingPublishUnpublishUnpublishMutation = {|
 /*
 mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
   $productKey: ID!
+  $clientLocale: SupportedLocale!
 ) {
   commerce {
-    productOrError: productUnpublish(productKey: $productKey) {
+    productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {
       __typename
       ... on Product {
         __typename
@@ -47,28 +50,36 @@ mutation ProductEditHeadingPublishUnpublishUnpublishMutation(
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "clientLocale"
+},
+v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "productKey"
+},
+v2 = [
   {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "productKey"
-  }
-],
-v1 = [
+    "kind": "Variable",
+    "name": "clientLocale",
+    "variableName": "clientLocale"
+  },
   {
     "kind": "Variable",
     "name": "productKey",
     "variableName": "productKey"
   }
 ],
-v2 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v3 = {
+v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -77,7 +88,10 @@ v3 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "ProductEditHeadingPublishUnpublishUnpublishMutation",
@@ -92,7 +106,7 @@ return {
         "selections": [
           {
             "alias": "productOrError",
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productUnpublish",
@@ -101,7 +115,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v2/*: any*/)
+                  (v3/*: any*/)
                 ],
                 "type": "Product",
                 "abstractKey": null
@@ -109,8 +123,8 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v2/*: any*/),
-                  (v3/*: any*/)
+                  (v3/*: any*/),
+                  (v4/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -127,7 +141,10 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "ProductEditHeadingPublishUnpublishUnpublishMutation",
     "selections": [
@@ -141,17 +158,17 @@ return {
         "selections": [
           {
             "alias": "productOrError",
-            "args": (v1/*: any*/),
+            "args": (v2/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productUnpublish",
             "plural": false,
             "selections": [
-              (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v3/*: any*/)
+                  (v4/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -165,15 +182,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9fe083f0c5c69b3dcb9ba31d7750edf9",
+    "cacheID": "59206588ead3c453ffd248768ec0dfb1",
     "id": null,
     "metadata": {},
     "name": "ProductEditHeadingPublishUnpublishUnpublishMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductEditHeadingPublishUnpublishUnpublishMutation(\n  $productKey: ID!\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    productOrError: productUnpublish(productKey: $productKey, clientLocale: $clientLocale) {\n      __typename\n      ... on Product {\n        __typename\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'ad308cf9dd5907e9ff958463999673f8';
+(node: any).hash = '336e82aea443fa579b50ee8a5e0808ba';
 export default node;

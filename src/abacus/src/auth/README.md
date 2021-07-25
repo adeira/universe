@@ -26,6 +26,6 @@ Here is how Google Sign-In works on high level (with backend auth):
 
 Google Sign-In ID token is being exchanged for _session token_ on our backend (Google tokens expire quickly + we are going to have many providers). This token should be **securely** stored in mobile devices and used with the API calls. [React Native Keychain](https://github.com/oblador/react-native-keychain) could be a good option where to store such token.
 
-Sessions are being stored in a database so we can easily delete these sessions if needed. This also allows us to get all active sessions per user (similar to https://myaccount.google.com/device-activity). User sessions are being removed after one year of inactivity.
+Sessions are being stored in a database so we can easily delete these sessions if needed. This also allows us to get all active sessions per user (similar to https://myaccount.google.com/device-activity). User sessions are being removed after 30 days of inactivity.
 
 https://developers.google.com/oauthplayground/#step2&apisSelect=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%2Copenid&url=https%3A%2F%2F&content_type=application%2Fjson&http_method=POST&useDefaultOauthCred=unchecked&oauthEndpointSelect=Google&oauthAuthEndpointValue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&oauthTokenEndpointValue=https%3A%2F%2Foauth2.googleapis.com%2Ftoken&includeCredentials=unchecked&accessTokenType=bearer&autoRefreshToken=unchecked&accessType=offline&prompt=consent&response_type=code&wrapLines=on

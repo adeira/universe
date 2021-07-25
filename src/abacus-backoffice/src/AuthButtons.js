@@ -5,6 +5,7 @@ import GoogleLogin from 'react-google-login';
 import { graphql, useMutation } from '@adeira/relay';
 import { fbt } from 'fbt';
 import sx from '@adeira/sx';
+import { Loader } from '@adeira/sx-design';
 import Icon from '@adeira/icons';
 
 import constants from './constants';
@@ -19,10 +20,12 @@ export function LoginButton(): Node {
   const [authorizeMutation, isAuthorizeMutationPending] =
     useMutation<AuthButtonsAuthorizeWebappMutation>(graphql`
       mutation AuthButtonsAuthorizeWebappMutation($googleIdToken: String!) {
-        authorizeWebapp(googleIdToken: $googleIdToken) {
-          success
-          sessionToken
-          failureMessage
+        auth {
+          authorizeWebapp(googleIdToken: $googleIdToken) {
+            success
+            sessionToken
+            failureMessage
+          }
         }
       }
     `);
@@ -32,7 +35,7 @@ export function LoginButton(): Node {
       variables: {
         googleIdToken: response.tokenId,
       },
-      onCompleted: ({ authorizeWebapp }) => {
+      onCompleted: ({ auth: { authorizeWebapp } }) => {
         const sessionToken = authorizeWebapp.sessionToken;
         if (authorizeWebapp.success === true && sessionToken != null) {
           setErrorMessage(null);
@@ -59,11 +62,7 @@ export function LoginButton(): Node {
         onSuccess={successResponseGoogle}
         onFailure={failureResponseGoogle}
       />
-      {isAuthorizeMutationPending === true ? (
-        <div>
-          <fbt desc="authorization please wait message">Please wait…</fbt>
-        </div>
-      ) : null}
+      {isAuthorizeMutationPending === true ? <Loader /> : null}
       {errorMessage != null ? <div className={styles('errorMessage')}>{errorMessage}</div> : null}
     </>
   );
@@ -74,8 +73,10 @@ export function LogoutButton(): Node {
 
   const [deauthorizeMutation] = useMutation<AuthButtonsDeauthorizeWebappMutation>(graphql`
     mutation AuthButtonsDeauthorizeWebappMutation($sessionToken: String!) {
-      deauthorize(sessionToken: $sessionToken) {
-        __typename
+      auth {
+        deauthorize(sessionToken: $sessionToken) {
+          __typename
+        }
       }
     }
   `);

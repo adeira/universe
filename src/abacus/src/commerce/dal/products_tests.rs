@@ -1,4 +1,4 @@
-use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 use crate::commerce::api::PriceSortDirection;
 use crate::commerce::dal::products::{
     create_product, delete_product, get_product_by_key, search_products,
@@ -173,7 +173,9 @@ async fn delete_product_test() {
     .unwrap();
 
     // 2) try to delete the newly created product
-    let deleted_product = delete_product(&pool, &created_product.key()).await.unwrap();
+    let deleted_product = delete_product(&pool, &created_product.key(), &SupportedLocale::EnUS)
+        .await
+        .unwrap();
     assert_eq!(
         deleted_product.name(),
         "Product name in english".to_string()
