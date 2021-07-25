@@ -1,5 +1,5 @@
 use rand::Rng;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
 /// Generates sessions token which is compatible with RFC6750 - "Authorization Framework: Bearer
 /// Token Usage" syntax (https://tools.ietf.org/html/rfc6750).
@@ -64,7 +64,6 @@ pub struct Session {
     _rev: String,
     _key: String,
     last_access: String,
-    r#type: SessionType,
 }
 
 impl Session {
@@ -72,28 +71,6 @@ impl Session {
     /// passwords would work).
     pub fn session_token_hash(&self) -> &String {
         &self._key
-    }
-
-    #[cfg(test)]
-    pub fn session_type(&self) -> &SessionType {
-        &self.r#type
-    }
-}
-
-#[derive(Clone, Deserialize, Serialize)]
-pub enum SessionType {
-    #[serde(rename = "mobile")]
-    MOBILE,
-    #[serde(rename = "webapp")]
-    WEBAPP,
-}
-
-impl std::fmt::Display for SessionType {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            SessionType::MOBILE => write!(f, "mobile"),
-            SessionType::WEBAPP => write!(f, "webapp"),
-        }
     }
 }
 

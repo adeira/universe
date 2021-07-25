@@ -9,10 +9,12 @@ export type AuthButtonsAuthorizeWebappMutationVariables = {|
   googleIdToken: string
 |};
 export type AuthButtonsAuthorizeWebappMutationResponse = {|
-  +authorizeWebapp: {|
-    +success: boolean,
-    +sessionToken: ?string,
-    +failureMessage: ?string,
+  +auth: {|
+    +authorizeWebapp: {|
+      +success: boolean,
+      +sessionToken: ?string,
+      +failureMessage: ?string,
+    |}
   |}
 |};
 export type AuthButtonsAuthorizeWebappMutation = {|
@@ -24,10 +26,12 @@ export type AuthButtonsAuthorizeWebappMutation = {|
 mutation AuthButtonsAuthorizeWebappMutation(
   $googleIdToken: String!
 ) {
-  authorizeWebapp(googleIdToken: $googleIdToken) {
-    success
-    sessionToken
-    failureMessage
+  auth {
+    authorizeWebapp(googleIdToken: $googleIdToken) {
+      success
+      sessionToken
+      failureMessage
+    }
   }
 }
 */
@@ -43,37 +47,48 @@ var v0 = [
 v1 = [
   {
     "alias": null,
-    "args": [
-      {
-        "kind": "Variable",
-        "name": "googleIdToken",
-        "variableName": "googleIdToken"
-      }
-    ],
-    "concreteType": "AuthorizeWebappPayload",
+    "args": null,
+    "concreteType": "AuthMutation",
     "kind": "LinkedField",
-    "name": "authorizeWebapp",
+    "name": "auth",
     "plural": false,
     "selections": [
       {
         "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "success",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "sessionToken",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "failureMessage",
+        "args": [
+          {
+            "kind": "Variable",
+            "name": "googleIdToken",
+            "variableName": "googleIdToken"
+          }
+        ],
+        "concreteType": "AuthorizeWebappPayload",
+        "kind": "LinkedField",
+        "name": "authorizeWebapp",
+        "plural": false,
+        "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "success",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "sessionToken",
+            "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "failureMessage",
+            "storageKey": null
+          }
+        ],
         "storageKey": null
       }
     ],
@@ -98,15 +113,15 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "b07026e86faefdabab63a0444dc5f041",
+    "cacheID": "5cd671d409cd028d672c71f2f79478f9",
     "id": null,
     "metadata": {},
     "name": "AuthButtonsAuthorizeWebappMutation",
     "operationKind": "mutation",
-    "text": "mutation AuthButtonsAuthorizeWebappMutation(\n  $googleIdToken: String!\n) {\n  authorizeWebapp(googleIdToken: $googleIdToken) {\n    success\n    sessionToken\n    failureMessage\n  }\n}\n"
+    "text": "mutation AuthButtonsAuthorizeWebappMutation(\n  $googleIdToken: String!\n) {\n  auth {\n    authorizeWebapp(googleIdToken: $googleIdToken) {\n      success\n      sessionToken\n      failureMessage\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'f8538cae99f40d0a100e9774d707e3a0';
+(node: any).hash = 'e758cafe9edc929ea309db7a30ac72e6';
 export default node;

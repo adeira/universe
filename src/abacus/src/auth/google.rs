@@ -127,7 +127,7 @@ pub async fn verify_id_token_integrity<T: CachedCerts>(
         if let Some(key) = cached_certs.get_key_by_kid(&*kid).await {
             validate_id_token(&id_token, &key)
         } else {
-            anyhow::bail!("cannot obtain Google certificate for key ID: '{}'", kid,);
+            anyhow::bail!("cannot obtain Google certificate for key ID: '{}'", kid);
         }
     } else {
         anyhow::bail!("cannot get 'kid' from the token header")

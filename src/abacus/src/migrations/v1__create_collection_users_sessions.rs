@@ -1,10 +1,10 @@
-use crate::arangodb::Database;
-use crate::arangors::collection::CollectionType;
-use crate::arangors::graph::{EdgeDefinition, Graph};
-use crate::arangors::index::{Index, IndexSettings};
+use crate::arango::collection::CollectionType;
+use crate::arango::graph::{EdgeDefinition, Graph};
+use crate::arango::index::{Index, IndexSettings};
+use crate::arango::DatabaseType;
 use crate::migrations::utils::{create_collection, create_graph, create_index};
 
-pub async fn migrate(db: &Database) -> anyhow::Result<()> {
+pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     // 1. create `users` table
     create_collection(
         &db,
@@ -31,11 +31,11 @@ pub async fn migrate(db: &Database) -> anyhow::Result<()> {
         &db,
         "sessions",
         &Index::builder()
-            .name("last_access_mobile_ttl_index") // required in migrations for idempotency
+            .name("last_access_ttl_index") // required in migrations for idempotency
             .fields(vec!["last_access".to_string()])
             .settings(IndexSettings::Ttl {
-                // Mobile session token is long-lived (one year = 365 * 24 * 60 * 60)
-                expire_after: 31_536_000,
+                // Session token is valid for 30 days (30 * 24 * 60 * 60)
+                expire_after: 2_592_000,
             })
             .build(),
     )

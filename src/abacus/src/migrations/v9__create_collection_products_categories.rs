@@ -1,6 +1,6 @@
-use crate::arangodb::Database;
-use crate::arangors::collection::CollectionType;
-use crate::arangors::graph::{EdgeDefinition, Graph};
+use crate::arango::collection::CollectionType;
+use crate::arango::graph::{EdgeDefinition, Graph};
+use crate::arango::DatabaseType;
 use crate::commerce::api::ProductCategory;
 use crate::migrations::utils::{
     create_collection, create_graph, create_graph_vertex, ArangoDocument,
@@ -12,7 +12,7 @@ impl ArangoDocument for ProductCategory {
     }
 }
 
-pub async fn migrate(db: &Database) -> anyhow::Result<()> {
+pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     create_collection(&db, "product_categories", &CollectionType::Document, &None).await?;
 
     // For example:

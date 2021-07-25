@@ -1,4 +1,4 @@
-use crate::arangors::{ClientError, Connection};
+use crate::arango::{ClientError, Connection};
 use deadpool::managed::RecycleError as DeadpoolRecycleError;
 
 pub struct ConnectionManager {
@@ -28,7 +28,7 @@ impl deadpool::managed::Manager for ConnectionManager {
     /// Creates a new instance of the ArangoDB connection.
     async fn create(&self) -> Result<Connection, ClientError> {
         tracing::debug!("Creating a new ArangoDB connection 💎");
-        let connection = crate::arangors::Connection::establish_basic_auth(
+        let connection = crate::arango::Connection::establish_basic_auth(
             &self.db_host,
             &self.username,
             &self.password,

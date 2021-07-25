@@ -1,10 +1,21 @@
-use crate::arangodb::{resolve_aql, ConnectionPool};
+use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool};
 use crate::price::SupportedCurrency;
 use serde::{Deserialize, Serialize};
+use std::fmt::{Debug, Formatter};
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct PosCheckout {
     _id: String,
+    created_date: String,
+    selected_products: Vec<PosCheckoutProductInput>,
+}
+
+impl Debug for PosCheckout {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("PosCheckout")
+            .field("selected_products", &self.selected_products)
+            .finish_non_exhaustive()
+    }
 }
 
 impl PosCheckout {
@@ -13,7 +24,7 @@ impl PosCheckout {
     }
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub(in crate::pos) struct PosCheckoutProductInput {
     // Original product ID just in case it's needed one day (even though it might be already
     // deleted). Already deleted product should not be a big deal since we copy here all the
@@ -58,34 +69,15 @@ pub(in crate::pos) async fn create_checkout(
     .await
 }
 
-#[derive(Deserialize, Clone, juniper::GraphQLObject)]
-pub(in crate::pos) struct PosCheckoutTotalStats {
-    total_checkouts: i32,
-    total_sold_units: i32,
-    total_sold_unit_amount: i32, // TODO: be careful when calling SUM(…) on different currencies!
-}
-
-pub(in crate::pos) async fn get_total_checkout_stats(
+#[cfg(test)]
+pub(in crate::pos) async fn get_all_checkouts(
     pool: &ConnectionPool,
-) -> anyhow::Result<PosCheckoutTotalStats> {
-    resolve_aql(
+) -> anyhow::Result<Vec<PosCheckout>> {
+    resolve_aql_vector(
         &pool,
         r#"
-            LET stats_per_checkout = (
-              FOR checkout IN pos_checkouts
-                LET products = checkout.selected_products
-                RETURN {
-                  total_checkouts: COUNT(1),
-                  total_sold_units: SUM(products[*].product_units),
-                  total_sold_unit_amount: SUM(FOR p IN products RETURN (p.product_units * p.product_price_unit_amount)),
-                }
-            )
-
-            RETURN {
-              total_checkouts: SUM(stats_per_checkout[*].total_checkouts),
-              total_sold_units: SUM(stats_per_checkout[*].total_sold_units),
-              total_sold_unit_amount: SUM(stats_per_checkout[*].total_sold_unit_amount),
-            }
+            FOR checkout IN pos_checkouts
+            RETURN checkout
         "#,
         hashmap_json![],
     )
@@ -95,7 +87,7 @@ pub(in crate::pos) async fn get_total_checkout_stats(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+    use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 
     #[ignore]
     #[tokio::test]
@@ -145,10 +137,8 @@ mod tests {
         .unwrap();
 
         // 3) return the checkout stats
-        let checkout_stats = get_total_checkout_stats(&pool).await.unwrap();
-        assert_eq!(checkout_stats.total_checkouts, 2); // first and second
-        assert_eq!(checkout_stats.total_sold_units, 8); // 1 + 2 + 5
-        assert_eq!(checkout_stats.total_sold_unit_amount, 1420); // (120 + 2*150 + 5*200)
+        let all_checkouts = get_all_checkouts(&pool).await.unwrap();
+        insta::assert_debug_snapshot!(all_checkouts);
 
         cleanup_test_database(&db_name).await;
     }

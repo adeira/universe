@@ -1,0 +1,37 @@
+---
+source: src/pos/api/dal.rs
+expression: all_checkouts
+---
+[
+    PosCheckout {
+        selected_products: [
+            PosCheckoutProductInput {
+                product_id: "products/1",
+                product_name: "Product name 1",
+                product_units: 1,
+                product_price_unit_amount: 120,
+                product_price_unit_amount_currency: MXN,
+            },
+            PosCheckoutProductInput {
+                product_id: "products/2",
+                product_name: "Product name 2",
+                product_units: 2,
+                product_price_unit_amount: 150,
+                product_price_unit_amount_currency: MXN,
+            },
+        ],
+        ..
+    },
+    PosCheckout {
+        selected_products: [
+            PosCheckoutProductInput {
+                product_id: "products/3",
+                product_name: "Product name 3",
+                product_units: 5,
+                product_price_unit_amount: 200,
+                product_price_unit_amount_currency: MXN,
+            },
+        ],
+        ..
+    },
+]

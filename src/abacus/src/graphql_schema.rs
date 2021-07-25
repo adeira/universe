@@ -1,7 +1,5 @@
-use crate::auth::users::AnyUser;
-use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
-use juniper::{EmptySubscription, FieldResult, RootNode};
+use juniper::{EmptySubscription, RootNode};
 
 #[derive(Clone, Copy, Debug)]
 pub struct Query;
@@ -16,13 +14,12 @@ pub struct Query;
     description = "Root query of the graph.",
 )]
 impl Query {
-    /// Returns information about the current user (can be authenticated or anonymous).
-    async fn whoami(context: &Context) -> crate::auth::api::WhoamiPayload {
-        crate::auth::api::whoami(context).await
+    fn analytics() -> crate::analytics::AnalyticsQuery {
+        crate::analytics::AnalyticsQuery {}
     }
 
-    async fn list_users(context: &Context) -> AbacusGraphQLResult<Vec<AnyUser>> {
-        Ok(crate::auth::api::list_users(&context).await?)
+    fn auth() -> crate::auth::api::AuthQuery {
+        crate::auth::api::AuthQuery {}
     }
 
     fn commerce() -> crate::commerce::api::CommerceQuery {
@@ -47,31 +44,8 @@ pub struct Mutation;
     description = "Root mutation of the graph.",
 )]
 impl Mutation {
-    /// This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
-    /// and returns authorization payload. There is no concept of sign-in and sign-up: every
-    /// whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
-    /// that are not whitelisted will be rejected.
-    ///
-    /// Repeated calls will result in a new session token and deauthorization of the previous
-    /// token (if it exist). Original session token is returned back only once and cannot be
-    /// retrieved later (it's irreversibly hashed in the database).
-    async fn authorize_webapp(
-        google_id_token: String,
-        context: &Context,
-    ) -> FieldResult<crate::auth::api::AuthorizeWebappPayload> {
-        crate::auth::api::authorize_webapp(&google_id_token, &context).await
-    }
-
-    /// The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
-    /// make the mobile application/webapp unsigned. Applications should remove the session token
-    /// once de-authorized.
-    ///
-    /// Repeated calls will result in failure since it's not possible to deauthorize twice.
-    async fn deauthorize(
-        session_token: String, // TODO: this could be removed (?) - we can use the user from context
-        context: &Context,
-    ) -> crate::auth::api::DeauthorizePayload {
-        crate::auth::api::deauthorize(&session_token, &context).await
+    fn auth() -> crate::auth::api::AuthMutation {
+        crate::auth::api::AuthMutation {}
     }
 
     fn commerce() -> crate::commerce::api::CommerceMutation {
@@ -109,9 +83,8 @@ mod tests {
                 .expect("unable to write new schema file");
         }
 
-        assert_eq!(
-            Path::new(new_schema_path).exists(),
-            false,
+        assert!(
+            !Path::new(new_schema_path).exists(),
             "schema snapshot with *.new extension should not exist - please resolve it"
         );
     }

@@ -1,4 +1,4 @@
-use crate::arangodb::ConnectionPool;
+use crate::arango::ConnectionPool;
 use crate::auth::users::User;
 use crate::commerce::api::Product;
 use serde::Deserialize;
@@ -24,7 +24,7 @@ pub(crate) async fn user_visited_product(pool: &ConnectionPool, user: &User, pro
     };
     let product_id = product.id();
 
-    let aql = crate::arangors::AqlQuery::builder()
+    let aql = crate::arango::AqlQuery::builder()
         .query(
             r#"
             INSERT {

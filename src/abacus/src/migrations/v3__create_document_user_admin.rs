@@ -1,4 +1,4 @@
-use crate::arangodb::Database;
+use crate::arango::DatabaseType;
 use crate::migrations::utils::{create_document, ArangoDocument};
 
 #[derive(serde::Serialize, serde::Deserialize)]
@@ -31,7 +31,7 @@ impl ArangoDocument for User {
     }
 }
 
-pub async fn migrate(db: &Database) -> anyhow::Result<()> {
+pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     let user_google_claims = UserGoogleClaims {
         iss: String::from("https://accounts.google.com"),
         sub: String::from("108269453578187886435"),

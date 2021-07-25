@@ -1,4 +1,4 @@
-use crate::arangodb::{resolve_aql, resolve_aql_vector, ConnectionPool};
+use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool};
 use crate::commerce::model::products::{
     PriceSortDirection, Product, ProductMultilingualInput, ProductMultilingualInputVisibility,
 };
@@ -17,7 +17,7 @@ pub(in crate::commerce) async fn create_product(
     resolve_aql(
         &pool,
         r#"
-            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
             INSERT {
               images: @product_images,
@@ -36,7 +36,7 @@ pub(in crate::commerce) async fn create_product(
 
             LET t = FIRST(
               FOR t IN product.translations
-                FILTER t.name != null AND t.locale == @eshop_locale
+                FILTER t.name != null AND t.locale == @client_locale
                 RETURN t
             )
 
@@ -47,7 +47,7 @@ pub(in crate::commerce) async fn create_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => client_locale,
+            "client_locale" => client_locale,
             "product_images" => images,
             "product_visibility" => product_multilingual_input.visibility(),
             "product_price_unit_amount" => product_multilingual_input.price.unit_amount,
@@ -70,7 +70,7 @@ pub(in crate::commerce) async fn update_product(
     resolve_aql(
         &pool,
         r#"
-            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
             UPDATE {
               _key: @product_key,
@@ -88,7 +88,7 @@ pub(in crate::commerce) async fn update_product(
 
             LET t = FIRST(
               FOR t IN product.translations
-                FILTER t.name != null AND t.locale == @eshop_locale
+                FILTER t.name != null AND t.locale == @client_locale
                 RETURN t
             )
 
@@ -99,7 +99,7 @@ pub(in crate::commerce) async fn update_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => client_locale,
+            "client_locale" => client_locale,
             "product_key" => product_key,
             "product_rev" => product_revision,
             "product_images" => images,
@@ -115,12 +115,13 @@ pub(in crate::commerce) async fn update_product(
 pub(in crate::commerce) async fn publish_product(
     pool: &ConnectionPool,
     product_key: &str,
+    client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
         &pool,
         r#"
-            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
             UPDATE {
               _key: @product_key,
@@ -130,7 +131,7 @@ pub(in crate::commerce) async fn publish_product(
 
             LET t = FIRST(
               FOR t IN product.translations
-                FILTER t.name != null AND t.locale == @eshop_locale
+                FILTER t.name != null AND t.locale == @client_locale
                 RETURN t
             )
 
@@ -141,7 +142,7 @@ pub(in crate::commerce) async fn publish_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "client_locale" => client_locale,
             "product_key" => product_key,
         ],
     )
@@ -152,12 +153,13 @@ pub(in crate::commerce) async fn publish_product(
 pub(in crate::commerce) async fn unpublish_product(
     pool: &ConnectionPool,
     product_key: &str,
+    client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
         &pool,
         r#"
-            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
             UPDATE {
               _key: @product_key,
@@ -167,7 +169,7 @@ pub(in crate::commerce) async fn unpublish_product(
 
             LET t = FIRST(
               FOR t IN product.translations
-                FILTER t.name != null AND t.locale == @eshop_locale
+                FILTER t.name != null AND t.locale == @client_locale
                 RETURN t
             )
 
@@ -178,7 +180,7 @@ pub(in crate::commerce) async fn unpublish_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "client_locale" => client_locale,
             "product_key" => product_key,
         ],
     )
@@ -222,18 +224,18 @@ pub(in crate::commerce) async fn get_products_by_keys(
 
               LET t = FIRST(
                 FOR t IN product.translations
-                  FILTER t.name != null AND t.locale == @eshop_locale
+                  FILTER t.name != null AND t.locale == @client_locale
                   RETURN t
               )
 
               RETURN MERGE(
                 product,
-                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                { unit_label: DOCUMENT(product.unit_label)[@client_locale] },
                 { name: t.name, description: t.description }
               )
         "#,
         hashmap_json![
-            "eshop_locale" => client_locale,
+            "client_locale" => client_locale,
             "product_keys" => product_keys,
             "product_published_only" => product_published_only,
         ]
@@ -274,18 +276,18 @@ pub(in crate::commerce) async fn search_products(
 
               LET t = FIRST(
                 FOR t IN product.translations
-                  FILTER t.name != null AND t.locale == @eshop_locale
+                  FILTER t.name != null AND t.locale == @client_locale
                   RETURN t
               )
 
               RETURN MERGE(
                 product,
-                { unit_label: DOCUMENT(product.unit_label)[@eshop_locale] },
+                { unit_label: DOCUMENT(product.unit_label)[@client_locale] },
                 { name: t.name, description: t.description }
               )
         "#,
         hashmap_json![
-            "eshop_locale" => client_locale,
+            "client_locale" => client_locale,
             "search_all" => search_all,
             "price_sort_direction" => sort_direction,
             "visibility" => visibility,
@@ -298,17 +300,18 @@ pub(in crate::commerce) async fn search_products(
 pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
     product_key: &str,
+    client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
     resolve_aql(
         &pool,
         r#"
-            LET unit_label_translated = DOCUMENT("product_units/piece")[@eshop_locale]
+            LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
             LET product = DOCUMENT(products, @product_key)
             REMOVE product IN products
 
             LET t = FIRST(
               FOR t IN product.translations
-                FILTER t.name != null AND t.locale == @eshop_locale
+                FILTER t.name != null AND t.locale == @client_locale
                 RETURN t
             )
 
@@ -319,7 +322,7 @@ pub(in crate::commerce) async fn delete_product(
             )
         "#,
         hashmap_json![
-            "eshop_locale" => SupportedLocale::EnUS, // TODO
+            "client_locale" => client_locale,
             "product_key" => product_key,
         ],
     )

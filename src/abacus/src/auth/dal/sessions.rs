@@ -1,9 +1,9 @@
-use crate::arangodb::{resolve_aql, resolve_aql_vector};
-use crate::auth::session::{Session, SessionType};
+use crate::arango::{resolve_aql, resolve_aql_vector};
+use crate::auth::session::Session;
 use crate::auth::users::AnyUser;
 
 pub(crate) async fn find_session_by_user(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     user: &AnyUser,
 ) -> Option<Session> {
     let result_vector = resolve_aql_vector(
@@ -29,7 +29,7 @@ pub(crate) async fn find_session_by_user(
 
 /// Creates a new user session and links it with the user.
 pub(crate) async fn create_new_user_session(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
     user: &AnyUser,
 ) -> anyhow::Result<Session> {
@@ -41,7 +41,6 @@ pub(crate) async fn create_new_user_session(
               INSERT {
                 _key: @session_token_hash,
                 last_access: DATE_ISO8601(DATE_NOW()),
-                type: @session_type,
               } INTO sessions
               RETURN NEW
             )
@@ -56,7 +55,6 @@ pub(crate) async fn create_new_user_session(
         "#,
         hashmap_json![
             "session_token_hash" => session_token_hash,
-            "session_type" => SessionType::WEBAPP, // TODO
             "user_id" => user.id()
         ],
     )
@@ -68,12 +66,9 @@ pub(crate) async fn create_new_user_session(
 ///
 /// TODO(004) add integration tests
 pub(crate) async fn delete_user_session(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
 ) -> anyhow::Result<Session> {
-    // TODO: do not remove mobile/webapp sessions if it's from a different source
-    //       (webapp should not deauthorize mobile)
-
     resolve_aql(
         &pool,
         r#"
@@ -95,7 +90,7 @@ pub(crate) async fn delete_user_session(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+    use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 
     #[ignore]
     #[tokio::test]
@@ -109,7 +104,7 @@ mod tests {
         let session =
             create_new_user_session(&pool, "d99278e7-8f98-482a-ab9e-df93c380546e", &test_user)
                 .await;
-        assert_eq!(session.is_ok(), true);
+        assert!(session.is_ok());
 
         // 2) try to fetch it an asset it
         let session = find_session_by_user(&pool, &test_user)
@@ -118,10 +113,6 @@ mod tests {
         assert_eq!(
             session.session_token_hash(),
             "d99278e7-8f98-482a-ab9e-df93c380546e"
-        );
-        assert_eq!(
-            session.session_type().to_string(),
-            "webapp" // TODO: the types are not properly implemented yet
         );
 
         cleanup_test_database(&db_name).await;

@@ -2,21 +2,21 @@
 //!
 //! AQL query are all executed in database level, so Database offers AQL query.
 use std::{collections::HashMap, fmt::Debug, sync::Arc};
-use uclient::ClientExt;
 
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use serde_json::value::Value;
 use url::Url;
 
-use crate::arangors::graph::{
+use crate::arango::graph::{
     Edge, GraphCollection, GraphEdgeResponse, GraphResponse, GraphVertexResponse, Vertex,
     GHARIAL_API_PATH,
 };
-use crate::arangors::index::INDEX_API_PATH;
-use crate::arangors::transaction::TRANSACTION_HEADER;
-use crate::arangors::{
+use crate::arango::index::INDEX_API_PATH;
+use crate::arango::transaction::TRANSACTION_HEADER;
+use crate::arango::{
     analyzer::{AnalyzerDescription, AnalyzerInfo},
     aql::{AqlQuery, Cursor},
+    client::ClientExt,
     collection::{
         options::{CreateOptions, CreateParameters},
         response::{Info, Properties},
@@ -584,6 +584,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn create_view(&self, view_options: ViewOptions) -> Result<View, ClientError> {
         let url = self.base_url.join("_api/view").unwrap();
 
@@ -600,6 +601,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn view(&self, view_name: &str) -> Result<ViewDescription, ClientError> {
         let url = self
             .base_url
@@ -711,6 +713,7 @@ impl<'a, C: ClientExt> Database<C> {
     ///
     /// # Note
     /// this function would make a request to arango server.
+    #[allow(dead_code)]
     pub async fn create_analyzer(
         &self,
         analyzer: AnalyzerInfo,

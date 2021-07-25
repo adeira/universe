@@ -1,4 +1,4 @@
-use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 use crate::commerce::dal::product_categories::{
     get_product_categories_by_ids, search_all_product_categories,
 };

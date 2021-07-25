@@ -1,12 +1,11 @@
-use crate::arangodb::{resolve_aql, resolve_aql_vector};
-#[cfg(test)]
+use crate::arango::{resolve_aql, resolve_aql_vector};
 use crate::auth::google::Claims;
 use crate::auth::users::AnyUser;
 
 /// Returns all users except anonymous one - so almost all users (anonymous is not really a user
 /// but rather a special case used in anonymous analytics/tracking for example).
 pub(crate) async fn list_all_users(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
 ) -> anyhow::Result<Vec<AnyUser>> {
     resolve_aql_vector(
         &pool,
@@ -22,7 +21,7 @@ pub(crate) async fn list_all_users(
 
 /// Returns user based on Google Claims (`sub`) or `None` if such user couldn't be found.
 pub(crate) async fn find_user_by_google_claims(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     subject: &str,
 ) -> Option<AnyUser> {
     let result_vector = resolve_aql_vector(
@@ -52,7 +51,7 @@ pub(crate) async fn find_user_by_google_claims(
 ///
 /// TODO(004) add integration tests
 pub async fn get_user_by_session_token_hash(
-    pool: &crate::arangodb::ConnectionPool,
+    pool: &crate::arango::ConnectionPool,
     session_token_hash: &str,
 ) -> anyhow::Result<AnyUser> {
     resolve_aql(
@@ -94,16 +93,15 @@ pub async fn get_user_by_session_token_hash(
     ).await
 }
 
-#[cfg(test)]
-pub(crate) async fn create_user_by_google_claims(
-    pool: &crate::arangodb::ConnectionPool,
+pub(crate) async fn create_inactive_user_by_google_claims(
+    pool: &crate::arango::ConnectionPool,
     claims: &Claims,
 ) -> anyhow::Result<AnyUser> {
     resolve_aql(
         &pool,
         r#"
             INSERT {
-              is_active: true,
+              is_active: false, // must be always FALSE first!
               google: @claims_json,
             } INTO users
             RETURN NEW
@@ -118,7 +116,7 @@ pub(crate) async fn create_user_by_google_claims(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::arangodb::{cleanup_test_database, prepare_empty_test_database};
+    use crate::arango::{cleanup_test_database, prepare_empty_test_database};
     use crate::auth::google::Claims;
 
     #[ignore]
@@ -147,12 +145,14 @@ mod tests {
         let pool = prepare_empty_test_database(&db_name).await;
 
         // 1) create a regular user
-        let user = create_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
-        assert_eq!(user.is_ok(), true);
+        let user = create_inactive_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
+        assert!(user.is_ok());
+        assert!(!user.unwrap().is_active());
 
         // 2) try to find it and verify its values
         let user = find_user_by_google_claims(&pool, "sub:12345").await;
-        assert_eq!(user.is_some(), true);
+        assert!(user.is_some());
+        assert!(!user.unwrap().is_active()); // should be inactive by default
 
         cleanup_test_database(&db_name).await;
     }
@@ -163,14 +163,10 @@ mod tests {
         let db_name = "create_admin_user_by_google_claims_test";
         let pool = prepare_empty_test_database(&db_name).await;
 
-        // 1) create an admin user (this SUB must always exist)
-        let user =
-            create_user_by_google_claims(&pool, &Claims::mock("108269453578187886435")).await;
-        assert_eq!(user.is_ok(), true);
-
-        // 2) try to find it and verify its values
+        // 1) try to find the admin user (should already exist thanks to DB migrations)
         let user = find_user_by_google_claims(&pool, "108269453578187886435").await;
-        assert_eq!(user.is_some(), true);
+        assert!(user.is_some());
+        assert!(user.unwrap().is_active());
 
         cleanup_test_database(&db_name).await;
     }

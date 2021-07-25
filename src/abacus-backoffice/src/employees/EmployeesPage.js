@@ -10,16 +10,18 @@ import type { EmployeesPageQuery } from './__generated__/EmployeesPageQuery.grap
 export default function EmployeesPage(): React.Node {
   const data = useLazyLoadQuery<EmployeesPageQuery>(graphql`
     query EmployeesPageQuery {
-      listUsers {
-        id
-        name
-        hasEmailVerified
-        isActive
+      auth {
+        listUsers {
+          id
+          name
+          hasEmailVerified
+          isActive
+        }
       }
     }
   `);
 
-  return data.listUsers.map((user) => {
+  return data.auth.listUsers.map((user) => {
     return (
       <Entity key={user.id}>
         <EntityField

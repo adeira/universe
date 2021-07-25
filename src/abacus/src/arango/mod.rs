@@ -1,5 +1,30 @@
-use crate::arangodb::pool::ConnectionManager;
-use crate::arangors::{ArangoError, ClientError, Connection};
+//! # arangors
+//!
+//! `arangors` is an intuitive rust client for [ArangoDB](https://www.arangodb.com/),
+//! inspired by [pyArango](https://github.com/tariqdaouda/pyArango).
+//!
+//! `arangors` enables you to connect with ArangoDB server, access to database,
+//! execute AQL query, manage ArangoDB in an easy and intuitive way.
+//!
+//! ## Philosophy of arangors
+//!
+//! `arangors` is targeted at ergonomic, intuitive and OOP-like API for
+//! ArangoDB, both top level and low level API for users' choice.
+//!
+//! Overall architecture of ArangoDB:
+//!
+//! > databases -> collections -> documents/edges
+//!
+//! In fact, the design of `arangors` just mimic this architecture, with a
+//! slight difference that in the top level, there is a connection object on top
+//! of databases, containing a HTTP client with authentication information in
+//! HTTP headers.
+//!
+//! Hierarchy of arangors:
+//! > connection -> databases -> collections -> documents/edges
+//!
+
+use crate::arango::pool::ConnectionManager;
 #[cfg(test)]
 use deadpool::managed::Object;
 use deadpool::managed::Pool;
@@ -7,7 +32,31 @@ use serde::Deserialize;
 use serde_json::Value;
 use std::collections::HashMap;
 
+pub use crate::arango::connection::Connection;
+pub use crate::arango::{
+    aql::{AqlOptions, AqlQuery, Cursor},
+    collection::Collection,
+    connection::GenericConnection,
+    database::Database,
+    document::Document,
+    error::{ArangoError, ClientError},
+};
+
+pub(crate) mod analyzer;
+pub(crate) mod aql;
+pub(crate) mod client;
+pub(crate) mod collection;
+pub(crate) mod connection;
+pub(crate) mod database;
+pub(crate) mod document;
+pub(crate) mod error;
+pub(crate) mod graph;
+pub(crate) mod index;
+pub(crate) mod transaction;
+pub(crate) mod view;
+
 mod pool;
+mod response;
 
 #[derive(Clone)]
 pub struct ConnectionPool {
@@ -42,10 +91,10 @@ pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     }
 }
 
-pub type Database = crate::arangors::Database<uclient::reqwest::ReqwestClient>;
+pub type DatabaseType = crate::arango::Database<crate::arango::client::reqwest::ReqwestClient>;
 
 impl ConnectionPool {
-    pub async fn db(&self) -> Database {
+    pub async fn db(&self) -> DatabaseType {
         let status = &self.pool.status();
         tracing::trace!(
             "Connection pool status: max_size={}, size={}, available={}",
@@ -78,7 +127,7 @@ impl ConnectionPool {
     }
 }
 
-async fn get_or_create_db(connection: &Connection, db_name: &str) -> Database {
+async fn get_or_create_db(connection: &Connection, db_name: &str) -> DatabaseType {
     match connection.db(db_name).await {
         Ok(database) => database,
         Err(ClientError::Arango(ArangoError { .. })) => {

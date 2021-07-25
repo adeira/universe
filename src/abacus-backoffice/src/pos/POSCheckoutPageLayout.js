@@ -8,18 +8,23 @@ import React, { type Node } from 'react';
 import { fbt } from 'fbt';
 
 import Link from '../Link';
+import useApplicationLocale from '../useApplicationLocale';
 import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi, { type AtomItemType } from './recoil/selectedItemsState';
 import type { POSCheckoutPageLayoutMutation } from './__generated__/POSCheckoutPageLayoutMutation.graphql';
 
 export default function POSCheckoutPageLayout(): Node {
+  const applicationLocale = useApplicationLocale();
   const { reset, selectedItems } = useSelectedItemsApi();
   const router = useRouter();
 
   const [checkout, isCheckoutPending] = useMutation<POSCheckoutPageLayoutMutation>(graphql`
-    mutation POSCheckoutPageLayoutMutation($checkoutInput: [PosCheckoutProductInput!]!) {
+    mutation POSCheckoutPageLayoutMutation(
+      $checkoutInput: [PosCheckoutProductInput!]!
+      $clientLocale: SupportedLocale!
+    ) {
       pos {
-        checkout(input: { selectedProducts: $checkoutInput }) {
+        checkout(input: { selectedProducts: $checkoutInput }, clientLocale: $clientLocale) {
           __typename
           ... on PosCheckoutPayload {
             id
@@ -36,6 +41,7 @@ export default function POSCheckoutPageLayout(): Node {
     const selectedItemsArray = ((selectedItems.toJS(): any): $ReadOnlyArray<AtomItemType>);
     checkout({
       variables: {
+        clientLocale: applicationLocale.graphql,
         checkoutInput: selectedItemsArray.map((item) => ({
           productKey: item.itemID,
           productUnits: item.units,
