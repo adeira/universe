@@ -1,5 +1,5 @@
 use rand::Rng;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 
 /// Generates sessions token which is compatible with RFC6750 - "Authorization Framework: Bearer
 /// Token Usage" syntax (https://tools.ietf.org/html/rfc6750).

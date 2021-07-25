@@ -2,7 +2,10 @@ use crate::auth::certs::CachedCerts;
 use crate::auth::dal::sessions::{
     create_new_user_session, delete_user_session, find_session_by_user,
 };
-use crate::auth::dal::users::{find_user_by_google_claims, get_user_by_session_token_hash};
+use crate::auth::dal::users::{
+    create_inactive_user_by_google_claims, find_user_by_google_claims,
+    get_user_by_session_token_hash,
+};
 use crate::auth::google::verify_id_token_integrity;
 use crate::auth::session::derive_session_token_hash;
 use crate::auth::users::{AnonymousUser, SignedUser, User};
@@ -28,7 +31,8 @@ mod session;
 ///     We have to always generate a new one because it could happen that user lost the session
 ///     token and would not be able to logout/login anymore (so re-authentication simply
 ///     means a new authentication).
-/// 2b. Reject any requests attempting to access non-existent users.
+/// 2b. Reject any requests attempting to access non-existent users. At the same time, create this
+///     user (inactive) so it can be later activated (whitelisted).
 pub(in crate::auth) async fn authorize(
     pool: &crate::arango::ConnectionPool,
     google_id_token: &str,
@@ -40,7 +44,7 @@ pub(in crate::auth) async fn authorize(
         // the user already exists (2a.)
         Some(user) => {
             if !user.is_active() {
-                anyhow::bail!("user is not active");
+                anyhow::bail!("user is not activated yet");
             }
 
             if let Some(session) = find_session_by_user(&pool, &user).await {
@@ -54,8 +58,11 @@ pub(in crate::auth) async fn authorize(
             create_new_user_session(&pool, &session_token_hash, &user).await?;
             Ok(session_token)
         }
-        // new user with valid Google ID token - reject it (2b.)
-        None => anyhow::bail!("user is not whitelisted"),
+        None => {
+            // new user with valid Google ID token - create and reject it (2b.)
+            create_inactive_user_by_google_claims(&pool, &token_data.claims).await?;
+            anyhow::bail!("user does not exist yet")
+        }
     }
 }
 

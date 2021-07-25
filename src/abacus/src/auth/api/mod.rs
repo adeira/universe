@@ -111,9 +111,9 @@ pub(crate) struct DeauthorizePayload {
 }
 
 /// Webapp is currently using very simplified and minimalistic flow: it basically allows only
-/// specific hardcoded Google subjects to be authorized (admins). The thinking is that webapp
-/// login is needed only for the backoffice and the access should be limited to admins. This should
-/// be easily changeable in the future.
+/// specific Google subjects to be authorized (admins). The thinking is that webapp login is needed
+/// only for the backoffice and the access should be limited to admins. This should be easily
+/// changeable in the future.
 pub(crate) async fn authorize_webapp(
     google_id_token: &str,
     context: &Context,
