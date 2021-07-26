@@ -1,5 +1,5 @@
-// flow-typed signature: b074a60bb87f6f6d496e019aec4703b2
-// flow-typed version: 7223a8293e/jest_v25.x.x/flow_>=v0.104.x
+// flow-typed signature: 5ddcf688200e3506308fdcfa78ca48d9
+// flow-typed version: 644a595e77/jest_v27.x.x/flow_>=v0.134.x
 
 type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   (...args: TArguments): TReturn,
@@ -103,10 +103,13 @@ type JestMockFn<TArguments: $ReadOnlyArray<*>, TReturn> = {
   ...
 };
 
-type JestAsymmetricEqualityType = { /**
+type JestAsymmetricEqualityType = {
+  /**
    * A custom Jasmine equality tester
    */
-  asymmetricMatch(value: mixed): boolean, ... };
+  asymmetricMatch(value: mixed): boolean,
+  ...
+};
 
 type JestCallsType = {
   allArgs(): mixed,
@@ -175,11 +178,14 @@ type JestStyledComponentsMatcherOptions = {
   ...
 };
 
-type JestStyledComponentsMatchersType = { toHaveStyleRule(
+type JestStyledComponentsMatchersType = {
+  toHaveStyleRule(
     property: string,
     value: JestStyledComponentsMatcherValue,
     options?: JestStyledComponentsMatcherOptions
-  ): void, ... };
+  ): void,
+  ...
+};
 
 /**
  *  Plugin: jest-enzyme
@@ -200,12 +206,12 @@ type EnzymeMatchersType = {
   toHaveClassName(className: string): void,
   toHaveHTML(html: string): void,
   toHaveProp: ((propKey: string, propValue?: any) => void) &
-    ((props: {...}) => void),
+    ((props: { ... }) => void),
   toHaveRef(refName: string): void,
   toHaveState: ((stateKey: string, stateValue?: any) => void) &
-    ((state: {...}) => void),
+    ((state: { ... }) => void),
   toHaveStyle: ((styleKey: string, styleValue?: any) => void) &
-    ((style: {...}) => void),
+    ((style: { ... }) => void),
   toHaveTagName(tagName: string): void,
   toHaveText(text: string): void,
   toHaveValue(value: any): void,
@@ -227,6 +233,8 @@ type DomTestingLibraryType = {
    * @deprecated
    */
   toBeInTheDOM(container?: HTMLElement): void,
+
+  // 4.x
   toBeInTheDocument(): void,
   toBeVisible(): void,
   toBeEmpty(): void,
@@ -241,12 +249,19 @@ type DomTestingLibraryType = {
   toHaveClass(...classNames: string[]): void,
   toHaveFocus(): void,
   toHaveFormValues(expectedValues: { [name: string]: any, ... }): void,
-  toHaveStyle(css: string): void,
+  toHaveStyle(css: string | { [name: string]: any, ... }): void,
   toHaveTextContent(
     text: string | RegExp,
-    options?: { normalizeWhitespace: boolean, ... }
+    options?: {| normalizeWhitespace: boolean |}
   ): void,
   toHaveValue(value?: string | string[] | number): void,
+
+  // 5.x
+  toHaveDisplayValue(value: string | string[]): void,
+  toBeChecked(): void,
+  toBeEmptyDOMElement(): void,
+  toBePartiallyChecked(): void,
+  toHaveDescription(text: string | RegExp): void,
   ...
 };
 
@@ -533,19 +548,36 @@ type JestExtendedMatchersType = {
   ...
 };
 
+// Diffing snapshot utility for Jest (snapshot-diff)
+// https://github.com/jest-community/snapshot-diff
+type SnapshotDiffType = {
+  /**
+   * Compare the difference between the actual in the `expect()`
+   * vs the object inside `valueB` with some extra options.
+   */
+  toMatchDiffSnapshot(
+    valueB: any,
+    options?: {|
+      expand?: boolean,
+      colors?: boolean,
+      contextLines?: number,
+      stablePatchmarks?: boolean,
+      aAnnotation?: string,
+      bAnnotation?: string,
+    |},
+    testName?: string
+  ): void,
+  ...
+};
+
 interface JestExpectType {
   not: JestExpectType &
     EnzymeMatchersType &
     DomTestingLibraryType &
     JestJQueryMatchersType &
     JestStyledComponentsMatchersType &
-    JestExtendedMatchersType;
-
-  // Custom Adeira addition to expect:
-  // TODO: make it per project
-  toBeError(value: any): void;
-  toGiveHelp(value: string): void;
-
+    JestExtendedMatchersType &
+    SnapshotDiffType;
   /**
    * If you have a mock function, you can use .lastCalledWith to test what
    * arguments it was last called with.
@@ -773,6 +805,14 @@ type JestObjectType = {
    */
   getTimerCount(): number,
   /**
+   * Set the current system time used by fake timers.
+   * Simulates a user changing the system clock while your program is running.
+   * It affects the current time but it does not in itself cause
+   * e.g. timers to fire; they will fire exactly as they would have done
+   * without the call to jest.setSystemTime().
+   */
+  setSystemTime(now?: number | Date): void,
+  /**
    * The same as `mock` but not moved to the top of the expectation by
    * babel-jest.
    */
@@ -794,10 +834,13 @@ type JestObjectType = {
    */
   isMockFunction(fn: Function): boolean,
   /**
+   * Alias of `createMockFromModule`.
+   */
+  genMockFromModule(moduleName: string): any,
+  /**
    * Given the name of a module, use the automatic mocking system to generate a
    * mocked version of the module for you.
    */
-  genMockFromModule(moduleName: string): any,
   createMockFromModule(moduleName: string): any,
   /**
    * Mocks a module with an auto-mocked version when it is being required.
@@ -817,7 +860,7 @@ type JestObjectType = {
    * Returns the actual module instead of a mock, bypassing all checks on
    * whether the module should receive a mock implementation or not.
    */
-  requireActual(moduleName: string): any,
+  requireActual<T>(m: $Flow$ModuleRef<T> | string): T,
   /**
    * Returns a mock module instead of the actual module, bypassing all checks
    * on whether the module should be required normally or not.
@@ -854,13 +897,6 @@ type JestObjectType = {
    */
   advanceTimersByTime(msToRun: number): void,
   /**
-   * Executes only the macro task queue (i.e. all tasks queued by setTimeout()
-   * or setInterval() and setImmediate()).
-   *
-   * Renamed to `advanceTimersByTime`.
-   */
-  runTimersToTime(msToRun: number): void,
-  /**
    * Executes only the macro-tasks that are currently pending (i.e., only the
    * tasks that have been queued by setTimeout() or setInterval() up to this
    * point)
@@ -883,7 +919,7 @@ type JestObjectType = {
    * (setTimeout, setInterval, clearTimeout, clearInterval, nextTick,
    * setImmediate and clearImmediate).
    */
-  useFakeTimers(): JestObjectType,
+  useFakeTimers(mode?: 'modern' | 'legacy'): JestObjectType,
   /**
    * Instructs Jest to use the real versions of the standard timer functions.
    */
@@ -908,7 +944,7 @@ type JestObjectType = {
 type JestSpyType = { calls: JestCallsType, ... };
 
 type JestDoneFn = {|
-  (): void,
+  (error?: Error): void,
   fail: (error: Error) => void,
 |};
 
@@ -995,7 +1031,7 @@ declare var it: {
       name: JestTestName,
       fn?: (...args: Array<any>) => ?Promise<mixed>,
       timeout?: number
-    ) => void
+    ) => void,
   |},
   /**
    * Skip running this test
@@ -1004,11 +1040,20 @@ declare var it: {
    * @param {Function} Test
    * @param {number} Timeout for the test, in milliseconds.
    */
-  skip(
-    name: JestTestName,
-    fn?: (done: JestDoneFn) => ?Promise<mixed>,
-    timeout?: number
-  ): void,
+  skip: {|
+    (
+      name: JestTestName,
+      fn?: (done: JestDoneFn) => ?Promise<mixed>,
+      timeout?: number
+    ): void,
+    each(
+      ...table: Array<Array<mixed> | mixed> | [Array<string>, string]
+    ): (
+      name: JestTestName,
+      fn?: (...args: Array<any>) => ?Promise<mixed>,
+      timeout?: number
+    ) => void,
+  |},
   /**
    * Highlight planned tests in the summary output
    *
@@ -1087,9 +1132,9 @@ type JestPrettyFormatColors = {
   ...
 };
 
-type JestPrettyFormatIndent = string => string;
+type JestPrettyFormatIndent = (string) => string;
 type JestPrettyFormatRefs = Array<any>;
-type JestPrettyFormatPrint = any => string;
+type JestPrettyFormatPrint = (any) => string;
 type JestPrettyFormatStringOrNull = string | null;
 
 type JestPrettyFormatOptions = {|
@@ -1120,7 +1165,7 @@ type JestPrettyFormatPlugin = {
     opts: JestPrettyFormatOptions,
     colors: JestPrettyFormatColors
   ) => string,
-  test: any => boolean,
+  test: (any) => boolean,
   ...
 };
 
@@ -1137,7 +1182,8 @@ declare var expect: {
     DomTestingLibraryType &
     JestJQueryMatchersType &
     JestStyledComponentsMatchersType &
-    JestExtendedMatchersType,
+    JestExtendedMatchersType &
+    SnapshotDiffType,
   /** Add additional Jasmine matchers to Jest's roster */
   extend(matchers: { [name: string]: JestMatcher, ... }): void,
   /** Add a module that formats application-specific data structures. */
@@ -1153,7 +1199,7 @@ declare var expect: {
   stringMatching(value: string | RegExp): string,
   not: {
     arrayContaining: (value: $ReadOnlyArray<mixed>) => Array<mixed>,
-    objectContaining: (value: {...}) => Object,
+    objectContaining: (value: { ... }) => Object,
     stringContaining: (value: string) => string,
     stringMatching: (value: string | RegExp) => string,
     ...
