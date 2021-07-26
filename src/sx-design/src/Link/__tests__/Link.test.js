@@ -8,14 +8,14 @@ import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
 
 import Link from '../Link';
-import { initFbt, render, fireEvent } from '../../test-utils';
+import { initFbt, renderWithoutProviders, fireEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
 });
 
 it('renders the link as expected - internal link', () => {
-  const { container } = render(
+  const { container } = renderWithoutProviders(
     <Link href="assets/yadada">
       <fbt desc="internal link title" doNotExtract={true}>
         internal link
@@ -52,7 +52,7 @@ it('renders the link as expected - internal link', () => {
 });
 
 it('renders the link as expected - internal link with target _blank', () => {
-  const { container } = render(
+  const { container } = renderWithoutProviders(
     <Link href="assets/yadada" target="_blank">
       <fbt desc="internal link with target title" doNotExtract={true}>
         internal link with target _blank
@@ -72,7 +72,7 @@ NamedNodeMap {
 });
 
 it('renders the link as expected - external link', () => {
-  const { container } = render(
+  const { container } = renderWithoutProviders(
     <Link href="https://localhost">
       <fbt desc="external link title" doNotExtract={true}>
         external link
@@ -114,7 +114,7 @@ it('renders the link as expected - external link', () => {
 
 it('forwards React refs as expected', () => {
   const ref = React.createRef();
-  const { container } = render(
+  const { container } = renderWithoutProviders(
     <Link ref={ref} href="https://localhost">
       <fbt desc="link title" doNotExtract={true}>
         link
@@ -129,7 +129,7 @@ it('forwards React refs as expected', () => {
 it('calls onClick event', () => {
   const onClickFn = jest.fn();
 
-  const { getByText } = render(
+  const { getByText } = renderWithoutProviders(
     <Link href="https://localhost" onClick={onClickFn}>
       <fbt desc="link title" doNotExtract={true}>
         link with onClick callback
