@@ -73,7 +73,7 @@ Legend:
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Tabs />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Text />`]          |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Text />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/story/components-badge
