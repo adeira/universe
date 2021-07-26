@@ -53,5 +53,10 @@ module.exports = (withPlugins(
       });
       return nextConfig;
     },
+    experimental: {
+      // https://github.com/vercel/next.js/issues/23725
+      // https://github.com/vercel/next.js/pull/27069
+      esmExternals: true,
+    },
   },
 ) /*: $FlowFixMe */);

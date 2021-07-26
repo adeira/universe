@@ -1,10 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import { Heading, Note, Section } from '@adeira/sx-design';
+import { Heading, Section } from '@adeira/sx-design';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 
+import BarChart from '../d3/BarChart';
 import type { IndexPageQuery } from './__generated__/IndexPageQuery.graphql';
 
 export default function IndexPage(): React.Node {
@@ -13,12 +14,10 @@ export default function IndexPage(): React.Node {
       query IndexPageQuery {
         analytics {
           mostSoldProducts {
-            productId
             productName
             productUnits
           }
           leastSoldProducts {
-            productId
             productName
             productUnits
           }
@@ -28,38 +27,32 @@ export default function IndexPage(): React.Node {
   );
 
   return (
-    <>
+    <Section>
       <Heading>
-        <fbt desc="quick analytics (stats) on the Abacus homepage">Quick analytics</fbt>
+        <fbt desc="most sold products heading">Most sold products</fbt>
       </Heading>
-      <Note tint="warning">work in progress</Note>
       <Section>
-        <Heading>
-          <fbt desc="most sold products heading">Most sold products</fbt>
-        </Heading>
-        <Section>
-          <ol>
-            {data.analytics.mostSoldProducts.map((info) => (
-              <li key={info.productId}>
-                {info.productName} ({info.productUnits} units)
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        <Heading>
-          <fbt desc="least sold products heading">Least sold products</fbt>
-        </Heading>
-        <Section>
-          <ol>
-            {data.analytics.leastSoldProducts.map((info) => (
-              <li key={info.productId}>
-                {info.productName} ({info.productUnits} units)
-              </li>
-            ))}
-          </ol>
-        </Section>
+        <BarChart
+          sort="DESC"
+          data={data.analytics.mostSoldProducts.map((info) => ({
+            label: info.productName,
+            value: info.productUnits,
+          }))}
+        />
       </Section>
-    </>
+
+      <Heading>
+        <fbt desc="least sold products heading">Least sold products</fbt>
+      </Heading>
+      <Section>
+        <BarChart
+          sort="ASC"
+          data={data.analytics.leastSoldProducts.map((info) => ({
+            label: info.productName,
+            value: info.productUnits,
+          }))}
+        />
+      </Section>
+    </Section>
   );
 }

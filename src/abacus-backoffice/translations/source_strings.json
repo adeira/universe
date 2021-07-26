@@ -240,27 +240,13 @@
   },
   {
    "hashToText": {
-    "ByTs5nN6VO3ekmrpvFPejA==": "Quick analytics"
-   },
-   "filepath": "src/index/IndexPage.js",
-   "line_beg": 33,
-   "col_beg": 8,
-   "line_end": 33,
-   "col_end": 88,
-   "desc": "quick analytics (stats) on the Abacus homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Quick analytics"
-  },
-  {
-   "hashToText": {
     "kPOwV1MB9dDJi19OhD0BzA==": "Most sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 38,
-   "col_beg": 10,
-   "line_end": 38,
-   "col_end": 73,
+   "line_beg": 32,
+   "col_beg": 8,
+   "line_end": 32,
+   "col_end": 71,
    "desc": "most sold products heading",
    "project": "",
    "type": "text",
@@ -271,14 +257,42 @@
     "WD7O+f3homrC/othG1EAMw==": "Least sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 51,
-   "col_beg": 10,
-   "line_end": 51,
-   "col_end": 75,
+   "line_beg": 45,
+   "col_beg": 8,
+   "line_end": 45,
+   "col_end": 73,
    "desc": "least sold products heading",
    "project": "",
    "type": "text",
    "jsfbt": "Least sold products"
+  },
+  {
+   "hashToText": {
+    "ByTs5nN6VO3ekmrpvFPejA==": "Quick analytics"
+   },
+   "filepath": "src/index/IndexPageLayout.js",
+   "line_beg": 17,
+   "col_beg": 12,
+   "line_end": 17,
+   "col_end": 92,
+   "desc": "quick analytics (stats) on the Abacus homepage",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Quick analytics"
+  },
+  {
+   "hashToText": {
+    "xduP4raZqXZ+jr/o+gvC7Q==": "Have a great day!"
+   },
+   "filepath": "src/index/IndexPageLayout.js",
+   "line_beg": 20,
+   "col_beg": 21,
+   "line_end": 20,
+   "col_end": 81,
+   "desc": "have a great day message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Have a great day!"
   },
   {
    "hashToText": {
