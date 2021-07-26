@@ -4,16 +4,13 @@
  */
 
 import React from 'react';
-import { render } from '@testing-library/react';
 
-import SxDesignProvider from '../../SxDesignProvider';
 import Image from '../Image';
+import { render } from '../../test-utils';
 
 it('renders without any issues', () => {
   const { getByAltText, getByTestId } = render(
-    <SxDesignProvider>
-      <Image alt={'yadada'} data-testid={'image-test-id'} />
-    </SxDesignProvider>,
+    <Image alt={'yadada'} data-testid={'image-test-id'} />,
   );
 
   expect(getByAltText('yadada')).toBeDefined();
@@ -23,11 +20,7 @@ it('renders without any issues', () => {
 it('warns with missing img alt', () => {
   const warnSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
 
-  const { getByTestId } = render(
-    <SxDesignProvider>
-      <Image src={'mock'} data-testid={'image-test-id'} />
-    </SxDesignProvider>,
-  );
+  const { getByTestId } = render(<Image src={'mock'} data-testid={'image-test-id'} />);
 
   expect(getByTestId('image-test-id')).toBeDefined();
 
@@ -41,13 +34,11 @@ it('handles invalid blurhash without any issues', () => {
   const consoleSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
 
   const { getByAltText, getByTestId } = render(
-    <SxDesignProvider>
-      <Image
-        alt={'yadada'}
-        blurhash={'invalid-blurhash-format'} // <<<
-        data-testid={'image-test-id'}
-      />
-    </SxDesignProvider>,
+    <Image
+      alt={'yadada'}
+      blurhash={'invalid-blurhash-format'} // <<<
+      data-testid={'image-test-id'}
+    />,
   );
 
   expect(getByAltText('yadada')).toBeDefined();

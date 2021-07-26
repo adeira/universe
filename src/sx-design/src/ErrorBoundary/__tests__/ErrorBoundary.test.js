@@ -4,17 +4,12 @@
  */
 
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
 
 import ErrorBoundary from '../ErrorBoundary';
-import SxDesignProvider from '../../SxDesignProvider';
+import { render, fireEvent } from '../../test-utils';
 
 const Throws = () => {
   throw new Error(`yadada`);
-};
-
-const sxContextRender = (ui, locale = 'en-US') => {
-  return render(<SxDesignProvider locale={locale}>{ui}</SxDesignProvider>);
 };
 
 let windowLocationReload;
@@ -30,7 +25,7 @@ afterEach(() => {
 it('renders all the important parts as expected', () => {
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  const { getByText, queryByTestId } = sxContextRender(
+  const { getByText, queryByTestId } = render(
     <ErrorBoundary>
       <Throws />
     </ErrorBoundary>,
@@ -48,11 +43,11 @@ it('renders all the important parts as expected', () => {
 it('supports localization', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  const { getByText } = sxContextRender(
+  const { getByText } = render(
     <ErrorBoundary>
       <Throws />
     </ErrorBoundary>,
-    'es-MX',
+    { locale: 'es-MX' },
   );
 
   expect(getByText('Ha ocurrido un error inesperado.')).toBeDefined();
@@ -64,7 +59,7 @@ it('does not render the error message in production', () => {
   __DEV__ = false; // eslint-disable-line no-global-assign
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  const { getByText, queryByTestId } = sxContextRender(
+  const { getByText, queryByTestId } = render(
     <ErrorBoundary>
       <Throws />
     </ErrorBoundary>,
@@ -88,7 +83,7 @@ it('does not render the error message in production', () => {
 it('calls default onRetry callback as expected (window.location.reload)', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  const { getByText } = sxContextRender(
+  const { getByText } = render(
     <ErrorBoundary>
       <Throws />
     </ErrorBoundary>,
@@ -103,7 +98,7 @@ it('calls custom onRetry callback as expected', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
   const onRetryFn = jest.fn();
 
-  const { getByText } = sxContextRender(
+  const { getByText } = render(
     <ErrorBoundary onRetry={onRetryFn}>
       <Throws />
     </ErrorBoundary>,

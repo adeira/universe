@@ -9,7 +9,7 @@ import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
 
 import LinkButton from '../LinkButton';
-import { initFbt, render } from '../../test-utils';
+import { initFbt, renderWithoutProviders } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -17,7 +17,7 @@ beforeEach(() => {
 
 it('forwards React refs as expected', () => {
   const ref = React.createRef();
-  const { container } = render(
+  const { container } = renderWithoutProviders(
     <LinkButton ref={ref} href="https://localhost">
       <fbt desc="link button title" doNotExtract={true}>
         link button
@@ -32,7 +32,7 @@ it('forwards React refs as expected', () => {
 it('calls onClick event', () => {
   const onClickFn = jest.fn();
 
-  const { getByText } = render(
+  const { getByText } = renderWithoutProviders(
     <LinkButton href="https://localhost" onClick={onClickFn}>
       <fbt desc="link button title" doNotExtract={true}>
         link button with onClick callback
