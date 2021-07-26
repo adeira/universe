@@ -3,7 +3,7 @@
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { Heading } from '@adeira/sx-design';
+import { Heading, Note } from '@adeira/sx-design';
 
 import Layout from '../Layout';
 import LayoutHeading from '../LayoutHeading';
@@ -31,7 +31,7 @@ export default function ProductsAddonsLayout(): Node {
         </LayoutHeadingLink>
       </LayoutHeading>
 
-      <div>TODO (print all add-ons, create, edit)</div>
+      <Note tint="warning">work in progress (print all add-ons, create, edit)</Note>
     </Layout>
   );
 }

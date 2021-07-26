@@ -9,12 +9,10 @@ export type IndexPageQueryVariables = {||};
 export type IndexPageQueryResponse = {|
   +analytics: {|
     +mostSoldProducts: $ReadOnlyArray<{|
-      +productId: string,
       +productName: string,
       +productUnits: number,
     |}>,
     +leastSoldProducts: $ReadOnlyArray<{|
-      +productId: string,
       +productName: string,
       +productUnits: number,
     |}>,
@@ -29,12 +27,10 @@ export type IndexPageQuery = {|
 query IndexPageQuery {
   analytics {
     mostSoldProducts {
-      productId
       productName
       productUnits
     }
     leastSoldProducts {
-      productId
       productName
       productUnits
     }
@@ -44,13 +40,6 @@ query IndexPageQuery {
 
 const node: ConcreteRequest = (function(){
 var v0 = [
-  {
-    "alias": null,
-    "args": null,
-    "kind": "ScalarField",
-    "name": "productId",
-    "storageKey": null
-  },
   {
     "alias": null,
     "args": null,
@@ -117,15 +106,15 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "1c40ec38e9f48f376c072e209f98a536",
+    "cacheID": "9cb44f08adc1e2e143ec2a3be3d73e68",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n    leastSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productName\n      productUnits\n    }\n    leastSoldProducts {\n      productName\n      productUnits\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'c57ee2b632cf43379954e22329a408ff';
+(node: any).hash = 'f344107d4c3381869ebb11562fcd3ed0';
 export default node;

@@ -20,12 +20,14 @@ export default function LayoutHeading(props: Props): Node {
   return (
     <div className={styles('headingWrapper')}>
       <StatusBar />
+
       {props.heading ?? null}
       {props.description ? (
         <p className={styles('description')}>
           <small>{props.description}</small>
         </p>
       ) : null}
+
       <LayoutInline>{props.children ?? null}</LayoutInline>
     </div>
   );
