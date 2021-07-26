@@ -245,9 +245,6 @@ pub(in crate::commerce) async fn get_products_by_keys(
 /// Performs search of products based on the specified criteria and returns products with merged
 /// translations based on the eshop language.
 ///
-/// Optionally, you can specify a search term. In this case, it performs the same search except it
-/// performs additional fulltext search and additionally sorts the results by relevance.
-///
 /// TODO(004) - integration tests
 pub(in crate::commerce) async fn search_products(
     pool: &ConnectionPool,
@@ -296,18 +293,69 @@ pub(in crate::commerce) async fn search_products(
     .await
 }
 
+/// TODO(004) - integration tests
+pub(in crate::commerce) async fn search_products_in_categories(
+    pool: &ConnectionPool,
+    client_locale: &SupportedLocale,
+    price_sort_direction: &PriceSortDirection,
+    categories: &Vec<juniper::ID>,
+    search_all: &bool,
+    visibility: &Option<ProductMultilingualInputVisibility>,
+) -> anyhow::Result<Vec<Option<Product>>> {
+    let sort_direction = match price_sort_direction {
+        PriceSortDirection::LowToHigh => "ASC",
+        PriceSortDirection::HighToLow => "DESC",
+    };
+
+    let visibility = match visibility {
+        Some(visibility) => json!(visibility),
+        None => json!(null),
+    };
+
+    resolve_aql_vector(
+        &pool,
+        r#"
+            FOR category IN @categories
+              FOR product,e,p IN INBOUND category GRAPH product_categories
+                FILTER @search_all == true ? true : (product.is_published IN [true])
+                FILTER @visibility == null ? true : (@visibility IN product.visibility)
+                SORT product.price.unit_amount @price_sort_direction
+
+                LET t = FIRST(
+                  FOR t IN product.translations
+                    FILTER t.name != null AND t.locale == @client_locale
+                    RETURN t
+                )
+
+                RETURN MERGE(
+                  product,
+                  { unit_label: DOCUMENT(product.unit_label)[@client_locale] },
+                  { name: t.name, description: t.description }
+                )
+        "#,
+        hashmap_json![
+            "client_locale" => client_locale,
+            "categories" => categories,
+            "search_all" => search_all,
+            "visibility" => visibility,
+            "price_sort_direction" => sort_direction,
+        ],
+    )
+    .await
+}
+
 /// Important note: product should be moved into the archive before deleting it!
 pub(in crate::commerce) async fn delete_product(
     pool: &ConnectionPool,
     product_key: &str,
     client_locale: &SupportedLocale,
 ) -> anyhow::Result<Product> {
-    resolve_aql(
+    // First, fetch product that is being deleted so we can return it later:
+    let deleted_product = resolve_aql(
         &pool,
         r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
             LET product = DOCUMENT(products, @product_key)
-            REMOVE product IN products
 
             LET t = FIRST(
               FOR t IN product.translations
@@ -326,5 +374,17 @@ pub(in crate::commerce) async fn delete_product(
             "product_key" => product_key,
         ],
     )
-    .await
+    .await;
+
+    // Remove the product via Gherial API so the graph edges are not dangling:
+    let db = pool.db().await;
+    db.remove_graph_vertex(
+        "product_categories", // graph
+        "products",           // name of the vertex collection the vertex belongs to
+        product_key,
+        true, // wait for sync
+    )
+    .await?;
+
+    return deleted_product;
 }

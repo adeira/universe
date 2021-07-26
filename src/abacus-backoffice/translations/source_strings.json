@@ -338,12 +338,26 @@
   },
   {
    "hashToText": {
-    "nmqpluLoICEmae/YGk+sxw==": "Products add-ons"
+    "vkD1IJNOUFj39Y/UUOiFqA==": "Products categories"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 26,
    "col_beg": 8,
    "line_end": 26,
+   "col_end": 84,
+   "desc": "navigation link to products categories",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products categories"
+  },
+  {
+   "hashToText": {
+    "nmqpluLoICEmae/YGk+sxw==": "Products add-ons"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 29,
+   "col_beg": 8,
+   "line_end": 29,
    "col_end": 78,
    "desc": "navigation link to products add-ons",
    "project": "",
@@ -355,9 +369,9 @@
     "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 29,
+   "line_beg": 32,
    "col_beg": 8,
-   "line_end": 29,
+   "line_end": 32,
    "col_end": 64,
    "desc": "navigation link to employees",
    "project": "",
@@ -369,9 +383,9 @@
     "sHHk/SaT51d5NWanXexMiw==": "Ledger"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 32,
+   "line_beg": 35,
    "col_beg": 8,
-   "line_end": 32,
+   "line_end": 35,
    "col_end": 58,
    "desc": "navigation link to ledger",
    "project": "",
@@ -383,9 +397,9 @@
     "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 35,
+   "line_beg": 38,
    "col_beg": 8,
-   "line_end": 35,
+   "line_end": 38,
    "col_end": 81,
    "desc": "navigation link to point of sales sessions",
    "project": "",
@@ -660,6 +674,20 @@
   },
   {
    "hashToText": {
+    "hm+55cMH8tgHDr9LTIW5jA==": "There are no products yet."
+   },
+   "filepath": "src/pos/ProductsGrid.js",
+   "line_beg": 75,
+   "col_beg": 8,
+   "line_end": 75,
+   "col_end": 77,
+   "desc": "empty shop (POS) message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "There are no products yet."
+  },
+  {
+   "hashToText": {
     "9uWJJI15gvfuaDi3bpoT2w==": "Nothing selected yet"
    },
    "filepath": "src/pos/ProductsSelected.js",
@@ -699,6 +727,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "Proceed to checkout"
+  },
+  {
+   "hashToText": {
+    "v/B4jMQkg7cEA5reKMUl+g==": "Products categories"
+   },
+   "filepath": "src/products/ProductCategoriesLayout.js",
+   "line_beg": 17,
+   "col_beg": 12,
+   "line_end": 17,
+   "col_end": 75,
+   "desc": "products categories title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Products categories"
   },
   {
    "hashToText": {
@@ -1068,15 +1110,29 @@
    "hashToText": {
     "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
    },
-   "filepath": "src/products/ProductsCards.js",
-   "line_beg": 46,
+   "filepath": "src/products/ProductsCardsInCategory.js",
+   "line_beg": 52,
    "col_beg": 8,
-   "line_end": 46,
+   "line_end": 52,
    "col_end": 71,
    "desc": "empty shop message",
    "project": "",
    "type": "text",
    "jsfbt": "There are no products yet."
+  },
+  {
+   "hashToText": {
+    "qmRU3rEkjRmwDyu8G+gC5g==": "All"
+   },
+   "filepath": "src/products/ProductsCategories.js",
+   "line_beg": 40,
+   "col_beg": 17,
+   "line_end": 40,
+   "col_end": 93,
+   "desc": "title of a button to filter products by all categories",
+   "project": "",
+   "type": "text",
+   "jsfbt": "All"
   },
   {
    "hashToText": {
@@ -1139,9 +1195,9 @@
     "0BsTiPapD1k7SKNIyzq9Og==": "Products inventory"
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 20,
+   "line_beg": 22,
    "col_beg": 12,
-   "line_end": 20,
+   "line_end": 22,
    "col_end": 72,
    "desc": "product inventory title",
    "project": "",
@@ -1153,9 +1209,9 @@
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 25,
+   "line_beg": 27,
    "col_beg": 10,
-   "line_end": 25,
+   "line_end": 27,
    "col_end": 78,
    "desc": "link for create a new product",
    "project": "",

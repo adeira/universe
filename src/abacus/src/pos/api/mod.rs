@@ -1,7 +1,6 @@
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Pos;
-use crate::auth::rbac::PosActions::{Checkout, GetAllPublishedProducts};
-use crate::commerce::api::{PriceSortDirection, Product, ProductMultilingualInputVisibility};
+use crate::auth::rbac::PosActions::Checkout;
 use crate::graphql_context::Context;
 use crate::locale::SupportedLocale;
 use crate::pos::api::dal::{
@@ -10,36 +9,9 @@ use crate::pos::api::dal::{
 };
 use crate::price::SupportedCurrency;
 
-pub(crate) struct POSQuery;
 pub(crate) struct POSMutation;
 
 mod dal;
-
-#[juniper::graphql_object(context = Context)]
-impl POSQuery {
-    /// Lists published products for POS. Requires admin permissions so it should be used only in
-    /// POS after logging in.
-    async fn list_published_products(
-        context: &Context,
-        client_locale: SupportedLocale,
-        price_sort_direction: PriceSortDirection,
-    ) -> Option<Vec<Option<Product>>> {
-        // TODO: merge with `commerce` module (?)
-        match rbac::verify_permissions(&context.user, &Pos(GetAllPublishedProducts)).await {
-            Ok(_) => {
-                // only admin can list the products (POS is private)
-                crate::commerce::api::search_published_products(
-                    &context,
-                    &client_locale,
-                    &price_sort_direction,
-                    &ProductMultilingualInputVisibility::POS,
-                )
-                .await
-            }
-            Err(_) => None, // TODO: return `AbacusGraphQLResult` instead
-        }
-    }
-}
 
 #[derive(juniper::GraphQLObject)]
 pub struct PosCheckoutPayload {
@@ -86,6 +58,7 @@ impl POSMutation {
         client_locale: SupportedLocale,
     ) -> PosCheckoutPayloadOrError {
         // Contrary to what DAL requires, we accept only product keys in GraphQL and expand them on BE.
+        // TODO: move to `commerce` module
 
         let product_keys = input
             .selected_products

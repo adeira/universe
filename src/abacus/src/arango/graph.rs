@@ -114,6 +114,12 @@ pub struct GraphVertexResponse {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GraphVertexRemoveResponse {
+    pub removed: bool,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Edge {
     _id: String,
     _key: String,
