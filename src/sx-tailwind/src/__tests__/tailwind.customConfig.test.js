@@ -24,7 +24,7 @@ it('supports custom config', async () => {
 
   const { styles, keyframes } = await generateTailwind(config);
 
-  expect(Object.keys(styles)).toHaveLength(41639);
+  expect(Object.keys(styles)).toHaveLength(41736);
   expect(Object.keys(keyframes)).toHaveLength(4);
 
   expect(styles['text-adeira-green']).toMatchInlineSnapshot(`

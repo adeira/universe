@@ -9,7 +9,7 @@ const tailwindConfig = resolveConfig({});
 it('converts whole Tailwind', async () => {
   const { styles, keyframes } = await generateTailwind(tailwindConfig);
 
-  expect(Object.keys(styles)).toHaveLength(35524);
+  expect(Object.keys(styles)).toHaveLength(35605);
   expect(Object.keys(keyframes)).toHaveLength(4);
 
   expect(styles['bg-red-300']).toMatchInlineSnapshot(`
