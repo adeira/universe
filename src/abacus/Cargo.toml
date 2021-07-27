@@ -9,7 +9,14 @@ publish = false
 resolver = "2"
 
 [profile.dev]
+# Currently on stable-x86_64-apple-darwin: 81,1 MB
+opt-level = 0
 split-debuginfo = "unpacked"
+
+[profile.release]
+# Currently on stable-x86_64-apple-darwin: 17,8 MB
+opt-level = 3
+lto = "thin"
 
 [dependencies]
 anyhow = { version = "1.0.42", default-features = false, features = ["std"] }

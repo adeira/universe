@@ -25,36 +25,70 @@ pub(crate) struct CommerceMutation;
 
 #[juniper::graphql_object(context = Context)]
 impl CommerceQuery {
-    /// Searches all published (publicly accessible) products. Everyone can do it without any
-    /// special permission so it should be used on FE.
-    async fn search_published_products(
-        context: &Context,
-        client_locale: SupportedLocale,
-        price_sort_direction: PriceSortDirection,
-    ) -> Option<Vec<Option<Product>>> {
-        // TODO: return Result<…, ModelError>
-        search_published_products(
-            &context,
-            &client_locale,
-            &price_sort_direction,
-            &ProductMultilingualInputVisibility::ESHOP,
-        )
-        .await
-    }
-
-    /// Searches all products (published and unpublished). Requires admin permissions so it should
-    /// be used only in backoffice to administer the products.
+    /// Searches ALL products (published and unpublished) anywhere in the system (no visibility
+    /// restrictions). Optionally, you can specify categories you'd like to filter instead of
+    /// returning all products. The specified categories must be valid (they must exist).
+    ///
+    /// This query requires admin permissions so it should be used only in backoffice to
+    /// administer the products.
     async fn search_all_products(
         context: &Context,
         client_locale: SupportedLocale,
         price_sort_direction: PriceSortDirection,
+        categories: Option<Vec<juniper::ID>>,
     ) -> AbacusGraphQLResult<Vec<Option<Product>>> {
-        Ok(crate::commerce::model::products::search_all_products(
-            &context,
-            &client_locale,
-            &price_sort_direction,
-        )
-        .await?)
+        match categories {
+            Some(categories) => Ok(
+                crate::commerce::model::products::search_all_products_in_categories(
+                    &context,
+                    &client_locale,
+                    &price_sort_direction,
+                    &categories,
+                )
+                .await?,
+            ),
+            None => Ok(crate::commerce::model::products::search_all_products(
+                &context,
+                &client_locale,
+                &price_sort_direction,
+            )
+            .await?),
+        }
+    }
+
+    /// Searches all published products for the specified visibility. The permission requirements
+    /// depend on the visibility (for example, ESHOP is public but POS is private).
+    ///
+    /// Optionally, you can specify categories you'd like to filter instead of
+    /// returning all products. The specified categories must be valid (they must exist).
+    async fn search_all_published_products(
+        context: &Context,
+        client_locale: SupportedLocale,
+        price_sort_direction: PriceSortDirection,
+        visibility: ProductMultilingualInputVisibility, // TODO: default value (public ESHOP)
+        categories: Option<Vec<juniper::ID>>,
+    ) -> AbacusGraphQLResult<Vec<Option<Product>>> {
+        match categories {
+            Some(categories) => Ok(
+                crate::commerce::model::products::search_all_published_products_in_categories(
+                    &context,
+                    &client_locale,
+                    &price_sort_direction,
+                    &categories,
+                    &visibility,
+                )
+                .await?,
+            ),
+            None => Ok(
+                crate::commerce::model::products::search_all_published_products(
+                    &context,
+                    &client_locale,
+                    &price_sort_direction,
+                    &visibility,
+                )
+                .await?,
+            ),
+        }
     }
 
     /// Returns ALL available product categories that can be applied to any product.
@@ -233,29 +267,7 @@ impl CommerceMutation {
     }
 }
 
-// This function is exposed to GraphQL commerce module as well as to POS module (hence not inlined).
-pub(crate) async fn search_published_products(
-    context: &Context,
-    client_locale: &SupportedLocale,
-    price_sort_direction: &PriceSortDirection,
-    visibility: &ProductMultilingualInputVisibility,
-) -> Option<Vec<Option<Product>>> {
-    match crate::commerce::model::products::search_published_products(
-        &context,
-        &client_locale,
-        &price_sort_direction,
-        &visibility,
-    )
-    .await
-    {
-        Ok(products) => Some(products),
-        Err(e) => {
-            tracing::error!("{}", e);
-            None
-        }
-    }
-}
-
+// This function is exposed to GraphQL commerce module as well as to Menu module (hence not inlined).
 pub(crate) async fn get_products_by_keys(
     context: &Context,
     client_locale: &SupportedLocale,
