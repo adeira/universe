@@ -18,6 +18,9 @@ type Props = {
  *
  * - https://web.dev/headings-and-landmarks/
  * - https://github.com/jonathantneal/h-element-spec/issues/1
+ *
+ * @deprecated Use <Text as="h1"/> instead. It makes the code more predictable instead of relying
+ * on the position in the React tree (in relation to <Section/>).
  */
 export default function Heading(props: Props): React.Node {
   return (
