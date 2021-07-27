@@ -23,42 +23,51 @@ it('renders default Text component without any issues', () => {
   );
 
   expect(getByText('test text')).toBeDefined();
+  expect(getByText('test text')?.nodeName.toUpperCase()).toBe('P');
 });
 
-describe('text transforms', () => {
-  it('renders Text component with transform "capitalize" without any issues', () => {
+test.each(['capitalize', 'lowercase', 'uppercase'])(
+  'renders correctly with text transform: %s',
+  (textTransform) => {
     const { getByText } = render(
-      <Text transform="capitalize">
+      <Text transform={textTransform}>
         <fbt desc="test text description" doNotExtract={true}>
           test text
         </fbt>
       </Text>,
     );
 
-    expect(getByText('test text')).toHaveStyle({ textTransform: 'capitalize' });
-  });
+    expect(getByText('test text')).toHaveStyle({ textTransform });
+  },
+);
 
-  it('renders Text component with transform "lowercase" without any issues', () => {
+test.each([900, 800, 700, 600, 500, 400, 300, 200, 100])(
+  'renders correctly with font weight: %s',
+  (fontWeight) => {
     const { getByText } = render(
-      <Text transform="lowercase">
+      <Text weight={fontWeight}>
         <fbt desc="test text description" doNotExtract={true}>
           test text
         </fbt>
       </Text>,
     );
 
-    expect(getByText('test text')).toHaveStyle({ textTransform: 'lowercase' });
-  });
+    expect(getByText('test text')).not.toHaveStyle({ fontWeight: 950 });
+    expect(getByText('test text')).toHaveStyle({ fontWeight });
+  },
+);
 
-  it('renders Text component with transform "uppercase" without any issues', () => {
-    const { getByText } = render(
-      <Text transform="uppercase">
+test.each(['p', 'small', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])(
+  'renders correctly as: %s',
+  (as) => {
+    const { getByTestId } = render(
+      <Text as={as} data-testid="text_test_id">
         <fbt desc="test text description" doNotExtract={true}>
           test text
         </fbt>
       </Text>,
     );
 
-    expect(getByText('test text')).toHaveStyle({ textTransform: 'uppercase' });
-  });
-});
+    expect(getByTestId('text_test_id')?.nodeName.toLowerCase()).toBe(as);
+  },
+);
