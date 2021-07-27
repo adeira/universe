@@ -5,6 +5,7 @@ import sx from '@adeira/sx';
 import Icon from '@adeira/icons';
 
 import SxDesignPortal from '../SxDesignPortal';
+import Text from '../Text/Text';
 import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPosition';
 
 // Tooltip follows similar API as `abbr` element (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr):
@@ -63,7 +64,7 @@ export default function Tooltip(props: Props): Node {
           }}
           ref={tooltipChildrenAreaRef}
         >
-          {props.title}
+          <Text as="small">{props.title}</Text>
         </div>
       </SxDesignPortal>
     </>
