@@ -10,8 +10,6 @@
 .vscode/
 node_modules/
 
-/bazel-*
-
 .DS_Store
 .env
 .flow.saved_state

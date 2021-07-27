@@ -1,5 +1,0 @@
-build --build_tag_filters=-manual
-
-test --test_output=errors
-test --test_tag_filters=-manual
-test --test_verbose_timeout_warnings
