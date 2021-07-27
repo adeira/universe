@@ -40,7 +40,7 @@ pub(in crate::auth) async fn authorize(
     let mut cached_certs = certs::CachedCertsProduction::new();
     let token_data = verify_id_token_integrity(&google_id_token, &mut cached_certs).await?; // (1.)
 
-    match find_user_by_google_claims(&pool, &token_data.claims.subject()).await {
+    match find_user_by_google_claims(&pool, &token_data.claims.subject()).await? {
         // the user already exists (2a.)
         Some(user) => {
             if !user.is_active() {

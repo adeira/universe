@@ -3,40 +3,7 @@
 /* eslint-disable no-console */
 
 import util from 'util';
-import os from 'os';
 import chalk from 'chalk';
-
-/**
- * @see: https://facebook.github.io/jest/docs/expect.html#expectextendmatchers
- */
-expect.extend({
-  toBeError(received, message?: string = '') {
-    if (received instanceof Error) {
-      if (message === '' || message === received.message) {
-        return {
-          pass: true,
-          message: () => 'expected value NOT to be instance of Error',
-        };
-      }
-      return {
-        pass: false,
-        message: () =>
-          /* $FlowFixMe[object-this-reference] This comment suppresses an error
-           * when upgrading Flow to version 0.155.0. To see the error delete
-           * this comment and run Flow. */
-          `Expected Error message to be:${os.EOL}  ${this.utils.printExpected(message)}\n` +
-          /* $FlowFixMe[object-this-reference] This comment suppresses an error
-           * when upgrading Flow to version 0.155.0. To see the error delete
-           * this comment and run Flow. */
-          `Received:${os.EOL}  ${this.utils.printReceived(received.message)}`,
-      };
-    }
-    return {
-      pass: false,
-      message: () => `expected ${received} to be instance of Error, ${typeof received} given`,
-    };
-  },
-});
 
 type MaybeSpy =
   | {

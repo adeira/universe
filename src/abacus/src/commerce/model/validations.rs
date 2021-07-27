@@ -33,10 +33,8 @@ pub(in crate::commerce::model) fn validate_product_multilingual_input(
 pub(in crate::commerce::model) async fn validate_product_categories(
     context: &Context,
     client_locale: &SupportedLocale,
-    product_multilingual_input: &ProductMultilingualInput,
+    graphql_categories: &Vec<String>,
 ) -> anyhow::Result<()> {
-    let graphql_categories = product_multilingual_input.categories();
-
     if !graphql_categories.is_empty() {
         let resolved_product_categories =
             crate::commerce::model::product_categories::get_product_categories_by_ids(

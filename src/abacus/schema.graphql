@@ -1,16 +1,8 @@
-# @generated SignedSource<<5322328a6600c70c9fde513e5213e66f>>
+# @generated SignedSource<<0b857a4c661352e9086ca42c63399aed>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
   HIGH_TO_LOW
-}
-
-type POSQuery {
-  """
-    Lists published products for POS. Requires admin permissions so it should be used only in
-    POS after logging in.
-  """
-  listPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!): [Product]
 }
 
 input PosCheckoutProductInput {
@@ -113,7 +105,6 @@ type Query {
   auth: AuthQuery!
   commerce: CommerceQuery!
   menu: MenuQuery!
-  pos: POSQuery!
 }
 
 type WhoamiPayload {
@@ -152,11 +143,7 @@ type POSMutation {
   checkout(input: PosCheckoutInput!, clientLocale: SupportedLocale!): PosCheckoutPayloadOrError!
 }
 
-type AuthQuery {
-  "Returns information about the current user (can be authenticated or anonymous)."
-  whoami: WhoamiPayload!
-  listUsers: [AnyUser!]!
-}
+union ProductOrError = Product | ProductError
 
 type AnyUser {
   id: String!
@@ -176,19 +163,30 @@ type ProductCategory {
   name: String!
 }
 
-union ProductOrError = Product | ProductError
+type AuthQuery {
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  listUsers: [AnyUser!]!
+}
 
 type CommerceQuery {
   """
-    Searches all published (publicly accessible) products. Everyone can do it without any
-    special permission so it should be used on FE.
+    Searches ALL products (published and unpublished) anywhere in the system (no visibility
+    restrictions). Optionally, you can specify categories you'd like to filter instead of
+    returning all products. The specified categories must be valid (they must exist).
+
+    This query requires admin permissions so it should be used only in backoffice to
+    administer the products.
   """
-  searchPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!): [Product]
+  searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, categories: [ID!]): [Product]!
   """
-    Searches all products (published and unpublished). Requires admin permissions so it should
-    be used only in backoffice to administer the products.
+    Searches all published products for the specified visibility. The permission requirements
+    depend on the visibility (for example, ESHOP is public but POS is private).
+
+    Optionally, you can specify categories you'd like to filter instead of
+    returning all products. The specified categories must be valid (they must exist).
   """
-  searchAllProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!): [Product]!
+  searchAllPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, visibility: ProductMultilingualInputVisibility!, categories: [ID!]): [Product]!
   "Returns ALL available product categories that can be applied to any product."
   searchAllProductCategories(clientLocale: SupportedLocale!): [ProductCategory]!
   "Returns one publicly available product by its key. Anyone can call this resolver."
