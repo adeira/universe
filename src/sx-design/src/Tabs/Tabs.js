@@ -3,10 +3,11 @@
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
+type TabValue = string | number | null;
 type Props = {
-  +tabs: $ReadOnlyArray<{ +title: Fbt, +value: string }>,
-  +selected: string,
-  +setSelected: (string) => void,
+  +tabs: $ReadOnlyArray<{ +title: Fbt, +value: TabValue }>,
+  +selected: TabValue,
+  +setSelected: (TabValue) => void,
 };
 
 export default function Tabs(props: Props): Node {

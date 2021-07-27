@@ -8,8 +8,9 @@ import fbt from 'fbt';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductsCategoriesQuery } from './__generated__/ProductsCategoriesQuery.graphql';
 
+type TabValue = string | null;
 type Props = {
-  +selectedCategory: string | null,
+  +selectedCategory: TabValue,
   +setSelectedCategory: (string | null) => void,
 };
 
@@ -33,13 +34,13 @@ export default function ProductsCategories(props: Props): Node {
 
   return (
     <Tabs
-      // $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/2804
       selected={props.selectedCategory}
+      /* $FlowFixMe[incompatible-type]: `Tabs` component can call `setSelected` callback with number
+       * when there is a number in values (but in this case there is not). */
       setSelected={props.setSelectedCategory}
       tabs={[
         {
           title: <fbt desc="title of a button to filter products by all categories">All</fbt>,
-          // $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/2804
           value: null,
         },
         ...data.commerce.productCategories.reduce((acc, category) => {
