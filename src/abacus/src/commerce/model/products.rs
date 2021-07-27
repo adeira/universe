@@ -1,9 +1,10 @@
 use crate::archive::archive_struct;
 use crate::auth::rbac;
-use crate::auth::rbac::Actions::Commerce;
+use crate::auth::rbac::Actions::{Commerce, Pos};
 use crate::auth::rbac::CommerceActions::{
     ArchiveProduct, CreateProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
+use crate::auth::rbac::PosActions::GetAllPublishedProducts;
 use crate::commerce::model::product_categories::ProductCategory;
 use crate::commerce::model::validations::{
     validate_product_categories, validate_product_multilingual_input,
@@ -249,7 +250,7 @@ pub struct ProductMultilingualTranslations {
 #[derive(juniper::GraphQLEnum, Copy, Clone, Serialize, Deserialize, Debug)]
 pub enum ProductMultilingualInputVisibility {
     /// Visible in eshop only (therefore it's public).
-    ESHOP,
+    ESHOP, // TODO: rename to generic `COMMERCE` (?)
     /// Visible in POS only (accessible to authorized users).
     POS,
 }
@@ -309,13 +310,65 @@ pub enum PriceSortDirection {
     HighToLow,
 }
 
-pub(in crate::commerce) async fn search_published_products(
+/// Returns ALL products (published and unpublished) without any visibility restrictions.
+pub(in crate::commerce) async fn search_all_products(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    price_sort_direction: &PriceSortDirection,
+) -> anyhow::Result<Vec<Option<Product>>> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
+    crate::commerce::dal::products::search_products(
+        &context.pool,
+        &client_locale,
+        &price_sort_direction,
+        &true, // search all including unpublished ones
+        &None, // no visibility restrictions
+    )
+    .await
+}
+
+/// Returns ALL products (published and unpublished) without any visibility restrictions in selected
+/// categories.
+pub(in crate::commerce) async fn search_all_products_in_categories(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    price_sort_direction: &PriceSortDirection,
+    categories: &Vec<juniper::ID>,
+) -> anyhow::Result<Vec<Option<Product>>> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
+    validate_product_categories(
+        &context,
+        &client_locale,
+        &categories.iter().map(|id| id.to_string()).collect(),
+    )
+    .await?;
+    crate::commerce::dal::products::search_products_in_categories(
+        &context.pool,
+        &client_locale,
+        &price_sort_direction,
+        &categories,
+        &true, // search all including unpublished ones
+        &None, // no visibility restrictions
+    )
+    .await
+}
+
+/// Returns all published products based on the specified visibility.
+pub(in crate::commerce) async fn search_all_published_products(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
     visibility: &ProductMultilingualInputVisibility,
 ) -> anyhow::Result<Vec<Option<Product>>> {
-    // Anyone can search the products (it's not limited to admins only).
+    match visibility {
+        ProductMultilingualInputVisibility::POS => {
+            rbac::verify_permissions(&context.user, &Pos(GetAllPublishedProducts)).await?;
+        }
+        ProductMultilingualInputVisibility::ESHOP => {
+            // public
+        }
+    }
+
     crate::commerce::dal::products::search_products(
         &context.pool,
         &client_locale,
@@ -326,20 +379,38 @@ pub(in crate::commerce) async fn search_published_products(
     .await
 }
 
-pub(in crate::commerce) async fn search_all_products(
+/// Returns all published products based on the specified visibility in the specified categories.
+pub(in crate::commerce) async fn search_all_published_products_in_categories(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
+    categories: &Vec<juniper::ID>,
+    visibility: &ProductMultilingualInputVisibility,
 ) -> anyhow::Result<Vec<Option<Product>>> {
-    rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
+    // TODO: DRY with `search_all_published_products`
+    match visibility {
+        ProductMultilingualInputVisibility::POS => {
+            rbac::verify_permissions(&context.user, &Pos(GetAllPublishedProducts)).await?;
+        }
+        ProductMultilingualInputVisibility::ESHOP => {
+            // public
+        }
+    }
 
-    // Only admin can search all products
-    crate::commerce::dal::products::search_products(
+    validate_product_categories(
+        &context,
+        &client_locale,
+        &categories.iter().map(|id| id.to_string()).collect(),
+    )
+    .await?;
+
+    crate::commerce::dal::products::search_products_in_categories(
         &context.pool,
         &client_locale,
         &price_sort_direction,
-        &true, // search all including unpublished ones
-        &None, // no visibility restrictions
+        &categories,
+        &false, // do not search all (published only)
+        &Some(*visibility),
     )
     .await
 }
@@ -406,7 +477,12 @@ pub(in crate::commerce) async fn create_product(
     rbac::verify_permissions(&context.user, &Commerce(CreateProduct)).await?;
 
     validate_product_multilingual_input(&product_multilingual_input)?;
-    validate_product_categories(&context, &client_locale, &product_multilingual_input).await?;
+    validate_product_categories(
+        &context,
+        &client_locale,
+        &product_multilingual_input.categories(),
+    )
+    .await?;
 
     // First, we process the product images.
     let mut images = vec![];
@@ -445,7 +521,12 @@ pub(in crate::commerce) async fn update_product(
     rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await?;
 
     validate_product_multilingual_input(&product_multilingual_input)?;
-    validate_product_categories(&context, &client_locale, &product_multilingual_input).await?;
+    validate_product_categories(
+        &context,
+        &client_locale,
+        &product_multilingual_input.categories(),
+    )
+    .await?;
 
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,

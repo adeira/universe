@@ -23,8 +23,8 @@ pub(crate) async fn list_all_users(
 pub(crate) async fn find_user_by_google_claims(
     pool: &crate::arango::ConnectionPool,
     subject: &str,
-) -> Option<AnyUser> {
-    let result_vector = resolve_aql_vector(
+) -> anyhow::Result<Option<AnyUser>> {
+    resolve_aql(
         &pool,
         r#"
             FOR user IN users
@@ -38,12 +38,7 @@ pub(crate) async fn find_user_by_google_claims(
             "sub" => subject,
         ],
     )
-    .await;
-
-    match result_vector {
-        Ok(result_vector) => result_vector.into_iter().next(),
-        Err(_) => None, // TODO: log such DB error (?)
-    }
+    .await
 }
 
 /// Returns user by session token HASH. It also tries to updates the existing session (last access
@@ -150,7 +145,8 @@ mod tests {
         assert!(!user.unwrap().is_active());
 
         // 2) try to find it and verify its values
-        let user = find_user_by_google_claims(&pool, "sub:12345").await;
+        let user_result = find_user_by_google_claims(&pool, "sub:12345").await;
+        let user = user_result.unwrap();
         assert!(user.is_some());
         assert!(!user.unwrap().is_active()); // should be inactive by default
 
@@ -164,7 +160,8 @@ mod tests {
         let pool = prepare_empty_test_database(&db_name).await;
 
         // 1) try to find the admin user (should already exist thanks to DB migrations)
-        let user = find_user_by_google_claims(&pool, "108269453578187886435").await;
+        let user_result = find_user_by_google_claims(&pool, "108269453578187886435").await;
+        let user = user_result.unwrap();
         assert!(user.is_some());
         assert!(user.unwrap().is_active());
 
