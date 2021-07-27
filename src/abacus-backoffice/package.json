@@ -23,7 +23,7 @@
     "fbt": "^0.16.6",
     "graphql": "^15.5.1",
     "immutable": "^4.0.0-rc.14",
-    "next": "^11.0.2-canary.21",
+    "next": "^11.0.2-canary.22",
     "next-plugin-custom-babel-config": "^1.0.4",
     "next-transpile-modules": "^8.0.0",
     "react": "^17.0.2",
