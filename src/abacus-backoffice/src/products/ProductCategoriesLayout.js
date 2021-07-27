@@ -3,10 +3,11 @@
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { Heading, Note } from '@adeira/sx-design';
+import { Heading, Loader, Note } from '@adeira/sx-design';
 
 import Layout from '../Layout';
 import LayoutHeading from '../LayoutHeading';
+import ProductCategoriesList from './ProductCategoriesList';
 
 export default function ProductCategoriesLayout(): Node {
   return (
@@ -20,6 +21,10 @@ export default function ProductCategoriesLayout(): Node {
       />
 
       <Note tint="warning">work in progress (print all categories, create, edit)</Note>
+
+      <React.Suspense fallback={<Loader />}>
+        <ProductCategoriesList />
+      </React.Suspense>
     </Layout>
   );
 }
