@@ -12,18 +12,14 @@ type Props = {
  * in horizontal line.
  */
 export default function LayoutInline(props: Props): Node {
-  return React.Children.map(props.children, function (child) {
-    return <div className={styles('child')}>{child}</div>;
-  });
+  return <div className={styles('inline')}>{props.children}</div>;
 }
 
 const styles = sx.create({
-  child: {
-    'display': 'inline-block',
-    'paddingInlineEnd': 'var(--sx-spacing-default)',
-    'paddingBlockEnd': 'var(--sx-spacing-default)',
-    ':last-child': {
-      paddingInlineStart: 0,
-    },
+  inline: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 'var(--sx-spacing-small)',
+    flexWrap: 'wrap',
   },
 });

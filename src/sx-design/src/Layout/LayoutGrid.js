@@ -28,6 +28,6 @@ export default function LayoutGrid(props: Props): Node {
 const styles = sx.create({
   grid: {
     display: 'grid',
-    gap: 'var(--sx-spacing-default)',
+    gap: 'var(--sx-spacing-small)',
   },
 });
