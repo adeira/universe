@@ -12,6 +12,9 @@ type Props = {
 
 /**
  * Section component is used to automatically advance Heading component level.
+ *
+ * @deprecated Use <Text as="…" /> instead. It makes the code more predictable and doesn't affect
+ * other seemingly unrelated components (like <Header/>).
  */
 export default function Section(props: Props): React.Node {
   return (
