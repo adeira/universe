@@ -12,9 +12,5 @@ testExportedPaths(path.join(__dirname, '..', 'relay.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/relay/BUILD.bazel', undefined], // correctly deleted
-  ['src/relay/BUILD', undefined], // correctly deleted
-  ['src/relay/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/relay/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

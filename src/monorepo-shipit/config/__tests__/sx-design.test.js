@@ -10,9 +10,5 @@ testExportedPaths(path.join(__dirname, '..', 'sx-design.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/sx-design/BUILD.bazel', undefined], // correctly deleted
-  ['src/sx-design/BUILD', undefined], // correctly deleted
-  ['src/sx-design/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/sx-design/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

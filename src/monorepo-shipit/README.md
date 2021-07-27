@@ -93,15 +93,14 @@ Read more about available filters and how to use them below.
 
 ## Filters
 
-There are various filters applied on exported changesets to make it work properly. Currently we apply these filters in _exactly_ this order:
+There are various filters applied on exported changesets to make it work properly. Currently, we apply these filters in _exactly_ this order:
 
 1. `addTrackingData` - adds `adeira-source-id` into the commit description which helps us identify the latest synchronized changes
 2. `stripExceptDirectories` - makes sure we publish only files relevant to the workspace that is being exported
 3. `moveDirectories` - makes sure that we export correct paths (our projects are located in for example `src/packages/fetch` but we want to have these files in the root on GitHub rather than the original monorepo path), uses `getPathMappings` configuration (see below)
 4. `stripPaths` - removes unwanted files based on `getStrippedFiles` configuration
-5. `stripPaths` - removes additional unwanted defaults (currently only `BUILD` and `WORKSPACE` Bazel specifics)
-6. `commentLines` - comments out lines marked with `@x-shipit-disable` (see below)
-7. `commentLines` - uncomment lines marked with `@x-shipit-enable` (see below)
+5. `commentLines` - comments out lines marked with `@x-shipit-disable` (see below)
+6. `commentLines` - uncomment lines marked with `@x-shipit-enable` (see below)
 
 Order of these filters is significant and has one important implication: it's not possible to "replace" file with different version for OSS. For example, you **cannot** do this:
 
