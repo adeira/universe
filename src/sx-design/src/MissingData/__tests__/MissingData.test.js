@@ -5,16 +5,11 @@
 
 import * as React from 'react';
 
-import SxDesignProvider from '../../SxDesignProvider';
 import MissingData from '../MissingData';
 import { render, fireEvent } from '../../test-utils';
 
 it('works as expected without any crashes', () => {
-  const { queryByText, getByText } = render(
-    <SxDesignProvider>
-      <MissingData />
-    </SxDesignProvider>,
-  );
+  const { queryByText, getByText } = render(<MissingData />);
 
   // By default the text is hidden (via CSS visibility, see `Tooltip`):
   expect(getByText('Unable to load data or missing data.')).toBeDefined();

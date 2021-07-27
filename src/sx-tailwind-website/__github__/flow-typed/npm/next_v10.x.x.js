@@ -1,5 +1,5 @@
-// flow-typed signature: 53ed6733e03743ec40738c247e2ad74b
-// flow-typed version: 3be12a0b70/next_v9.x.x/flow_>=v0.104.x
+// flow-typed signature: a45e28abd4c3f3f783b03245280c308f
+// flow-typed version: 0cb8ee4963/next_v10.x.x/flow_>=v0.104.x
 
 declare module "next" {
   declare type RequestHandler = (
@@ -61,7 +61,7 @@ declare module "next" {
 
   declare export type Page<T, S> = {
     ...React$Component<T, S>,
-    getInitialProps: (ctx: Context) => Promise<*>,
+    getInitialProps: (ctx: Context) => Promise<any>,
     ...
   };
 
@@ -151,8 +151,15 @@ declare module "next/router" {
   declare export type Router = {
     +route: string,
     +pathname: string,
-    +asPath: string,
     +query: Object,
+    +asPath: string,
+    +isFallback: boolean,
+    +basePath: string,
+    +locale: string,
+    +locales: string[],
+    +defaultLocale: string,
+    +isReady: boolean,
+    +isPreview: boolean,
     events: RouterEvents,
     push(
       url: string | URLObject,
@@ -164,16 +171,16 @@ declare module "next/router" {
       as: ?(string | URLObject),
       options?: EventChangeOptions
     ): Promise<boolean>,
-    prefetch(url: string): Promise<*>,
+    prefetch(url: string): Promise<any>,
     beforePopState(cb: BeforePopStateCallback): void,
     ...
   };
 
-  declare export function useRouter(): Router;
-
   declare export function withRouter<T>(
     Component: React$ComponentType<T & { router: Router, ... }>
   ): Class<React$Component<T>>;
+
+  declare export function useRouter(): Router;
 
   declare export default Router;
 }
@@ -198,7 +205,7 @@ declare module "next/document" {
   declare export var Main: Class<React$Component<any, any>>;
   declare export var NextScript: Class<React$Component<any, any>>;
   declare export default Class<React$Component<any, any>> & {
-    getInitialProps: (ctx: DocumentContext) => Promise<*>,
+    getInitialProps: (ctx: DocumentContext) => Promise<any>,
     renderPage(cb: Function): void,
     ...
   };
@@ -217,7 +224,7 @@ declare module "next/app" {
     ...
   };
 
-  declare export default Class<React$Component<any, any>> & { getInitialProps: (appInitialProps: AppInitialProps) => Promise<*>, ... };
+  declare export default Class<React$Component<any, any>> & { getInitialProps: (appInitialProps: AppInitialProps) => Promise<any>, ... };
 }
 
 declare module "next/dynamic" {

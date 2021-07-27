@@ -37,7 +37,7 @@ const Template = (args) => (
 /* eslint-disable sx/no-unused-stylesheet */
 const styles = sx.create({
   default: {
-    color: 'blue',
+    color: 'rgba(var(--sx-success))',
   },
 });
 /* eslint-enable sx/no-unused-stylesheet */
