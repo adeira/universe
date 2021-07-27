@@ -2,35 +2,20 @@
 
 import fbt from 'fbt';
 import React, { type Node } from 'react';
-import sx from '@adeira/sx';
-import { Heading, Loader, Note } from '@adeira/sx-design';
+import { Loader } from '@adeira/sx-design';
 
-import Layout from '../Layout';
-import LayoutHeading from '../LayoutHeading';
+import LayoutPage from '../LayoutPage';
 import ProductCategoriesList from './ProductCategoriesList';
 
 export default function ProductCategoriesLayout(): Node {
   return (
-    <Layout>
-      <LayoutHeading
-        heading={
-          <Heading xstyle={styles.heading}>
-            <fbt desc="products categories title">Products categories</fbt>
-          </Heading>
-        }
-      />
-
-      <Note tint="warning">work in progress (print all categories, create, edit)</Note>
-
+    <LayoutPage
+      isBeta={true}
+      heading={<fbt desc="products categories title">Products categories</fbt>}
+    >
       <React.Suspense fallback={<Loader />}>
         <ProductCategoriesList />
       </React.Suspense>
-    </Layout>
+    </LayoutPage>
   );
 }
-
-const styles = sx.create({
-  heading: {
-    marginBlockEnd: 0,
-  },
-});

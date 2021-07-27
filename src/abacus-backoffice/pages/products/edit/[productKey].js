@@ -1,12 +1,12 @@
 // @flow
 
-import * as React from 'react';
+import React, { type Element, type Node } from 'react';
 import { useRouter } from 'next/router';
 
-import Layout from '../../../src/Layout';
+import LayoutApp from '../../../src/LayoutApp';
 import ProductsEditLayout from '../../../src/products/ProductsEditLayout';
 
-export default function ProductsEditPage(): React.Node {
+export default function ProductsEditPage(): Node {
   const router = useRouter();
   const { productKey } = router.query;
 
@@ -16,9 +16,9 @@ export default function ProductsEditPage(): React.Node {
     return null;
   }
 
-  return (
-    <Layout>
-      <ProductsEditLayout productKey={productKey} />
-    </Layout>
-  );
+  return <ProductsEditLayout productKey={productKey} />;
 }
+
+ProductsEditPage.getLayout = (
+  page: Element<typeof ProductsEditPage>,
+): Element<typeof LayoutApp> => <LayoutApp>{page}</LayoutApp>;
