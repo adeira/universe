@@ -286,6 +286,12 @@ fn main() {
 
 Source: https://veykril.github.io/tlborm/macros/macro_rules.html#repetitions
 
+## Ultimate Clippy pedantic check
+
+```bash
+cargo clippy -- -W clippy::pedantic
+```
+
 ## Rust pain points
 
 - long compile time (but that's kinda a Rust feature/goal)
