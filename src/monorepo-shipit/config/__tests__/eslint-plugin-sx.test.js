@@ -11,9 +11,5 @@ testExportedPaths(path.join(__dirname, '..', 'eslint-plugin-sx.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/eslint-plugin-sx/BUILD.bazel', undefined], // correctly deleted
-  ['src/eslint-plugin-sx/BUILD', undefined], // correctly deleted
-  ['src/eslint-plugin-sx/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/eslint-plugin-sx/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

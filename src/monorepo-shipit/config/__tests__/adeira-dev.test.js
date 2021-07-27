@@ -12,10 +12,6 @@ testExportedPaths(path.join(__dirname, '..', 'adeira-dev.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/adeira.dev/BUILD.bazel', undefined], // correctly deleted
-  ['src/adeira.dev/BUILD', undefined], // correctly deleted
-  ['src/adeira.dev/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/adeira.dev/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
   ['src/adeira.dev/.babelrc.js', undefined], // correctly deleted
 ]);

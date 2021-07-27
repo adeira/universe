@@ -11,9 +11,5 @@ testExportedPaths(path.join(__dirname, '..', 'babel-preset-adeira.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/babel-preset-adeira/BUILD.bazel', undefined], // correctly deleted
-  ['src/babel-preset-adeira/BUILD', undefined], // correctly deleted
-  ['src/babel-preset-adeira/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/babel-preset-adeira/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

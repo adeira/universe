@@ -11,9 +11,5 @@ testExportedPaths(path.join(__dirname, '..', 'css-colors.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/css-colors/BUILD.bazel', undefined], // correctly deleted
-  ['src/css-colors/BUILD', undefined], // correctly deleted
-  ['src/css-colors/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/css-colors/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

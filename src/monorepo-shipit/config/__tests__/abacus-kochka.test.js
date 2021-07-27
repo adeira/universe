@@ -11,9 +11,5 @@ testExportedPaths(path.join(__dirname, '..', 'abacus-kochka.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/abacus-kochka/BUILD.bazel', undefined], // correctly deleted
-  ['src/abacus-kochka/BUILD', undefined], // correctly deleted
-  ['src/abacus-kochka/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/abacus-kochka/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);
