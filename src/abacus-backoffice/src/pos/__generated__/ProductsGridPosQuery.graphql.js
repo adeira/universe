@@ -11,10 +11,11 @@ export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsGridPosQueryVariables = {|
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
+  categories?: ?$ReadOnlyArray<string>,
 |};
 export type ProductsGridPosQueryResponse = {|
-  +pos: {|
-    +products: ?$ReadOnlyArray<?{|
+  +commerce: {|
+    +products: $ReadOnlyArray<?{|
       +id: string,
       +key: string,
       +name: string,
@@ -38,9 +39,10 @@ export type ProductsGridPosQuery = {|
 query ProductsGridPosQuery(
   $clientLocale: SupportedLocale!
   $priceSortDirection: PriceSortDirection!
+  $categories: [ID!]
 ) {
-  pos {
-    products: listPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection) {
+  commerce {
+    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories, visibility: POS) {
       id
       key
       name
@@ -58,30 +60,38 @@ query ProductsGridPosQuery(
 */
 
 const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "clientLocale"
-  },
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "priceSortDirection"
-  }
-],
-v1 = [
+var v0 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "categories"
+},
+v1 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "clientLocale"
+},
+v2 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "priceSortDirection"
+},
+v3 = [
   {
     "alias": null,
     "args": null,
-    "concreteType": "POSQuery",
+    "concreteType": "CommerceQuery",
     "kind": "LinkedField",
-    "name": "pos",
+    "name": "commerce",
     "plural": false,
     "selections": [
       {
         "alias": "products",
         "args": [
+          {
+            "kind": "Variable",
+            "name": "categories",
+            "variableName": "categories"
+          },
           {
             "kind": "Variable",
             "name": "clientLocale",
@@ -91,11 +101,16 @@ v1 = [
             "kind": "Variable",
             "name": "priceSortDirection",
             "variableName": "priceSortDirection"
+          },
+          {
+            "kind": "Literal",
+            "name": "visibility",
+            "value": "POS"
           }
         ],
         "concreteType": "Product",
         "kind": "LinkedField",
-        "name": "listPublishedProducts",
+        "name": "searchAllPublishedProducts",
         "plural": true,
         "selections": [
           {
@@ -178,31 +193,39 @@ v1 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v0/*: any*/),
+      (v1/*: any*/),
+      (v2/*: any*/)
+    ],
     "kind": "Fragment",
     "metadata": null,
     "name": "ProductsGridPosQuery",
-    "selections": (v1/*: any*/),
+    "selections": (v3/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [
+      (v1/*: any*/),
+      (v2/*: any*/),
+      (v0/*: any*/)
+    ],
     "kind": "Operation",
     "name": "ProductsGridPosQuery",
-    "selections": (v1/*: any*/)
+    "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "92f9f4699b442d8554f6222393b309fa",
+    "cacheID": "6d84e55beb81b0ccf7de051f81631049",
     "id": null,
     "metadata": {},
     "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query ProductsGridPosQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n) {\n  pos {\n    products: listPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories, visibility: POS) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'af0b73fd73b3a0a9c0927abce09ba945';
+(node: any).hash = '8706603b11361b030f560636b898ace0';
 export default node;

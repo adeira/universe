@@ -8,8 +8,8 @@ use serde_json::value::Value;
 use url::Url;
 
 use crate::arango::graph::{
-    Edge, GraphCollection, GraphEdgeResponse, GraphResponse, GraphVertexResponse, Vertex,
-    GHARIAL_API_PATH,
+    Edge, GraphCollection, GraphEdgeResponse, GraphResponse, GraphVertexRemoveResponse,
+    GraphVertexResponse, Vertex, GHARIAL_API_PATH,
 };
 use crate::arango::index::INDEX_API_PATH;
 use crate::arango::transaction::TRANSACTION_HEADER;
@@ -433,6 +433,35 @@ impl<'a, C: ClientExt> Database<C> {
         let result: GraphVertexResponse = deserialize_response(resp.body())?;
 
         Ok(result.vertex)
+    }
+
+    /// Removes vertex from the specified graph. Additionally removes all ingoing and outgoing edges
+    /// of the vertex recursively (see edge remove).
+    ///
+    /// https://www.arangodb.com/docs/3.7/http/gharial-vertices.html#remove-a-vertex
+    pub async fn remove_graph_vertex(
+        &self,
+        graph: &str,
+        collection: &str,
+        vertex: &str,
+        wait_for_sync: bool,
+    ) -> Result<bool, ClientError> {
+        let mut url = self
+            .base_url
+            .join(&format!(
+                "{}/{}/vertex/{}/{}",
+                GHARIAL_API_PATH, graph, collection, vertex
+            ))
+            .unwrap();
+
+        url.set_query(Some(&format!("waitForSync={}", wait_for_sync)));
+        url.set_query(Some(&format!("returnOld={}", false))); // doesn't allow return the vertex with MERGE(…) of translations
+
+        let resp = self.session.delete(url, "").await?;
+
+        let result: GraphVertexRemoveResponse = deserialize_response(resp.body())?;
+
+        Ok(result.removed)
     }
 
     pub async fn create_graph_edge<T>(

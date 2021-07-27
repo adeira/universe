@@ -1,15 +1,20 @@
 // @flow
 
 import sx from '@adeira/sx';
+import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import { ProductCard } from '@adeira/sx-design';
+import { Note, ProductCard } from '@adeira/sx-design';
 
 import useApplicationLocale from '../useApplicationLocale';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 import type { ProductsGridPosQuery } from './__generated__/ProductsGridPosQuery.graphql';
 
-export default function ProductsGrid(): Node {
+type Props = {
+  +selectedCategory: string | null,
+};
+
+export default function ProductsGrid(props: Props): Node {
   const applicationLocale = useApplicationLocale();
   const { select } = useSelectedItemsApi();
   const data = useLazyLoadQuery<ProductsGridPosQuery>(
@@ -17,11 +22,14 @@ export default function ProductsGrid(): Node {
       query ProductsGridPosQuery(
         $clientLocale: SupportedLocale!
         $priceSortDirection: PriceSortDirection!
+        $categories: [ID!]
       ) {
-        pos {
-          products: listPublishedProducts(
+        commerce {
+          products: searchAllPublishedProducts(
             clientLocale: $clientLocale
             priceSortDirection: $priceSortDirection
+            categories: $categories
+            visibility: POS
           ) {
             id
             key
@@ -41,6 +49,13 @@ export default function ProductsGrid(): Node {
     {
       clientLocale: applicationLocale.graphql,
       priceSortDirection: 'LOW_TO_HIGH', // TODO (?)
+      categories:
+        props.selectedCategory != null
+          ? [props.selectedCategory] // we currently support only one category on FE but server supports any number of categories
+          : undefined,
+    },
+    {
+      fetchPolicy: 'store-and-network', // always lazily fetch newest products
     },
   );
 
@@ -53,43 +68,44 @@ export default function ProductsGrid(): Node {
     });
   };
 
-  return (
-    data.pos.products?.map((product) => {
-      if (product == null) {
-        return null; // TODO: 🤔
-      }
+  if (data.commerce.products.length === 0) {
+    return (
+      <Note tint="warning">
+        <fbt desc="empty shop (POS) message">There are no products yet.</fbt>
+      </Note>
+    );
+  }
 
-      return (
-        <button
-          type="button"
-          key={product.id}
-          className={styles('productButton')}
-          onClick={() => handleItemClick(product.key, product)}
-        >
-          <ProductCard
-            title={product.name}
-            priceUnitAmount={
-              product.price.unitAmount / 100 // adjusted for centavo
-            }
-            /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
-             * Relay Hooks. To see the error delete this comment and run Flow. */
-            priceUnitAmountCurrency={product.price.unitAmountCurrency}
-            imgBlurhash={product.imageCover?.blurhash}
-            imgSrc={product.imageCover?.url}
-            imgAlt={product.name}
-          />
-        </button>
-      );
-    }) ?? null
-  );
+  return data.commerce.products.map((product) => {
+    if (product == null) {
+      return null; // TODO: 🤔
+    }
+
+    return (
+      <button
+        type="button"
+        key={product.id}
+        className={styles('productButton')}
+        onClick={() => handleItemClick(product.key, product)}
+      >
+        <ProductCard
+          title={product.name}
+          priceUnitAmount={
+            product.price.unitAmount / 100 // adjusted for centavo
+          }
+          /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
+           * Relay Hooks. To see the error delete this comment and run Flow. */
+          priceUnitAmountCurrency={product.price.unitAmountCurrency}
+          imgBlurhash={product.imageCover?.blurhash}
+          imgSrc={product.imageCover?.url}
+          imgAlt={product.name}
+        />
+      </button>
+    );
+  });
 }
 
 const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '1rem',
-  },
   productButton: {
     margin: 0,
     padding: 0,
