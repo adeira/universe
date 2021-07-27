@@ -1,26 +1,23 @@
 // @flow
 
-import { Heading } from '@adeira/sx-design';
 import fbt from 'fbt';
 import * as React from 'react';
 
-import Layout from '../Layout';
-import LayoutHeading from '../LayoutHeading';
+import LayoutPage from '../LayoutPage';
 import IndexPage from './IndexPage';
 
 export default function IndexPageLayout(): React.Node {
   return (
-    <Layout>
-      <LayoutHeading
-        heading={
-          <Heading>
-            <fbt desc="quick analytics (stats) on the Abacus homepage">Quick analytics</fbt>
-          </Heading>
-        }
-        description={<fbt desc="have a great day message">Have a great day!</fbt>}
-      />
-
+    <LayoutPage
+      isBeta={true}
+      heading={<fbt desc="quick analytics (stats) on the Abacus homepage">Quick analytics</fbt>}
+      description={
+        <fbt desc="quick analytics description message">
+          Hi! Here you can see a quick overview of the most important metrics for our business.
+        </fbt>
+      }
+    >
       <IndexPage />
-    </Layout>
+    </LayoutPage>
   );
 }

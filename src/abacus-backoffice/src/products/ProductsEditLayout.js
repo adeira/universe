@@ -53,9 +53,7 @@ export default function ProductsEditLayout(props: Props): Node {
   };
 
   return (
-    <>
-      <ProductEditHeading product={data.commerce.product} />
-
+    <ProductEditHeading product={data.commerce.product}>
       <div className={styles('imagesWrapper')}>
         {data.commerce.product.images.map((image) => {
           return (
@@ -96,7 +94,7 @@ export default function ProductsEditLayout(props: Props): Node {
       </div>
 
       <ProductEditForm product={data.commerce.product} imagesToDelete={imagesToDelete} />
-    </>
+    </ProductEditHeading>
   );
 }
 

@@ -2,10 +2,9 @@
 
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
-import { Heading } from '@adeira/sx-design';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
-import LayoutHeading from '../LayoutHeading';
+import LayoutPage from '../LayoutPage';
 import LayoutHeadingLink from '../LayoutHeadingLink';
 import useApplicationLocale from '../useApplicationLocale';
 import ProductCreateForm from './ProductCreateForm';
@@ -28,20 +27,15 @@ export default function ProductsCreateLayout(): Node {
   );
 
   return (
-    <>
-      <LayoutHeading
-        heading={
-          <Heading>
-            <fbt desc="create a new product page heading">Create a new product</fbt>
-          </Heading>
-        }
-      >
+    <LayoutPage
+      heading={<fbt desc="create a new product page heading">Create a new product</fbt>}
+      actionButtons={
         <LayoutHeadingLink href="/products">
           <fbt desc="go back to products navigation button">Products inventory</fbt>
         </LayoutHeadingLink>
-      </LayoutHeading>
-
+      }
+    >
       <ProductCreateForm commerceData={data.commerce} />
-    </>
+    </LayoutPage>
   );
 }
