@@ -1,56 +1,39 @@
 // @flow
 
-import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import sx from '@adeira/sx';
-import { Note, ProductCard } from '@adeira/sx-design';
-import { fbt } from 'fbt';
+import { graphql, useFragment } from '@adeira/relay';
+import { ProductCard, LayoutGrid } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 
 import Link from '../Link';
-import useApplicationLocale from '../useApplicationLocale';
-import type { ProductsCardsQuery } from './__generated__/ProductsCardsQuery.graphql';
+import type { ProductsCardsData$key } from './__generated__/ProductsCardsData.graphql';
 
-export default function ProductsCards(): Node {
-  const applicationLocale = useApplicationLocale();
-  const data = useLazyLoadQuery<ProductsCardsQuery>(
+type Props = {
+  +dataProducts: ProductsCardsData$key,
+};
+
+export default function ProductsCards(props: Props): Node {
+  const products = useFragment<ProductsCardsData$key>(
     graphql`
-      query ProductsCardsQuery($clientLocale: SupportedLocale!) {
-        commerce {
-          products: searchAllProducts(
-            clientLocale: $clientLocale
-            priceSortDirection: LOW_TO_HIGH
-          ) {
-            id
-            key
-            name
-            imageCover {
-              blurhash
-              url
-            }
-            price {
-              unitAmount
-              unitAmountCurrency
-            }
-          }
+      fragment ProductsCardsData on Product @relay(plural: true) {
+        id
+        key
+        name
+        imageCover {
+          blurhash
+          url
+        }
+        price {
+          unitAmount
+          unitAmountCurrency
         }
       }
     `,
-    {
-      clientLocale: applicationLocale.graphql,
-    },
+    props.dataProducts,
   );
 
-  if (data.commerce.products.length === 0) {
-    return (
-      <Note tint="warning">
-        <fbt desc="empty shop message">There are no products yet.</fbt>
-      </Note>
-    );
-  }
-
   return (
-    <div className={styles('productsGrid')}>
-      {data.commerce.products.map((product) => {
+    <LayoutGrid>
+      {products.map((product) => {
         if (product == null) {
           return null; // TODO: 🤔
         }
@@ -70,14 +53,6 @@ export default function ProductsCards(): Node {
           </Link>
         );
       }) ?? null}
-    </div>
+    </LayoutGrid>
   );
 }
-
-const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '1rem',
-  },
-});

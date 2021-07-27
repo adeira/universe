@@ -74,6 +74,20 @@ mod tests {
     }
 
     #[test]
+    fn hashmap_json_juniper_id_test() {
+        let hashmap_macro: HashMap<&str, Value> = hashmap_json![
+            "A" => juniper::ID::new("a"),
+            "B" => vec![juniper::ID::new("b"), juniper::ID::new("bb")],
+        ];
+
+        let mut hashmap_manual: HashMap<&str, Value> = HashMap::new();
+        hashmap_manual.insert("A", json!("a"));
+        hashmap_manual.insert("B", json!(["b", "bb"]));
+
+        assert_eq!(hashmap_macro, hashmap_manual)
+    }
+
+    #[test]
     fn hashmap_json_alternative_syntax_1_test() {
         let hashmap_macro: HashMap<&str, Value> = hashmap_json! {
             "A" => 1, "B" => 2,

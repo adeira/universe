@@ -2,7 +2,7 @@
   "name": "@adeira/css-colors",
   "description": "Utility functions for working with CSS/HTML colors.",
   "homepage": "https://github.com/adeira/universe/tree/master/src/css-colors",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "sideEffects": false,
   "private": false,
   "main": "./src/index.js",
