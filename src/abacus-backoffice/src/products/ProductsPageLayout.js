@@ -1,17 +1,19 @@
 // @flow
 
 import { rangeMap } from '@adeira/js';
-import sx from '@adeira/sx';
-import { Heading, Skeleton } from '@adeira/sx-design';
+import { Heading, Loader, Skeleton, LayoutGrid } from '@adeira/sx-design';
 import fbt from 'fbt';
-import React, { type Node } from 'react';
+import React, { useState, type Node } from 'react';
 
 import Layout from '../Layout';
 import LayoutHeading from '../LayoutHeading';
 import LayoutHeadingLink from '../LayoutHeadingLink';
-import ProductsCards from './ProductsCards';
+import ProductsCardsInCategory from './ProductsCardsInCategory';
+import ProductsCategories from './ProductsCategories';
 
 export default function ProductsPageLayout(): Node {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   return (
     <Layout>
       <LayoutHeading
@@ -26,25 +28,24 @@ export default function ProductsPageLayout(): Node {
         </LayoutHeadingLink>
       </LayoutHeading>
 
+      <React.Suspense fallback={<Loader />}>
+        <ProductsCategories
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+      </React.Suspense>
+
       <React.Suspense
         fallback={
-          <div className={styles('productsGrid')}>
+          <LayoutGrid>
             {rangeMap(12, (i) => (
               <Skeleton key={i} />
             ))}
-          </div>
+          </LayoutGrid>
         }
       >
-        <ProductsCards />
+        <ProductsCardsInCategory selectedCategory={selectedCategory} />
       </React.Suspense>
     </Layout>
   );
 }
-
-const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '1rem',
-  },
-});

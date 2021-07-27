@@ -38,7 +38,7 @@ export default {
     '--sx-shadow-small': '0 5px 10px rgba(0,0,0,0.12)',
     '--sx-shadow-medium': '0 8px 30px rgba(0,0,0,0.12)',
     '--sx-shadow-large': '0 30px 60px rgba(0,0,0,0.12)',
-    '--sx-spacing-default': '10px',
+    '--sx-spacing-small': '10px',
   },
   lightTheme: {
     // Colors:

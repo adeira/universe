@@ -35,13 +35,9 @@ export default function Loader(): Node {
   );
 }
 
-// $FlowExpectedError[prop-missing]: fill is not a supported "CSS" property
 const bounce = sx.keyframes({
   '33%': { transform: `translateY(-10px)` },
-  '66%': {
-    transform: `translateY(10px)`,
-    fill: 'rgba(var(--sx-accent-5))',
-  },
+  '66%': { transform: `translateY(10px)` },
 });
 
 const styles = sx.create({
@@ -54,13 +50,18 @@ const styles = sx.create({
     'animationFillMode': 'both',
     'animationIterationCount': 'infinite',
     'animationTimingFunction': 'ease-in-out',
-    'animationDuration': '0.6s',
     'transform': 'translateY(10px)',
     ':nth-child(1)': {
       animationDelay: '140ms',
     },
     ':nth-child(2)': {
       animationDelay: '70ms',
+    },
+    '@media (prefers-reduced-motion: no-preference)': {
+      animationDuration: '0.6s',
+    },
+    '@media (prefers-reduced-motion: reduce)': {
+      animationDuration: '1s',
     },
   },
 });

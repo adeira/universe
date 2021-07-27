@@ -24,7 +24,7 @@ pub(in crate::menu) async fn get_section(
     // Instead we are hardcoding the product IDs here. It's not perfect but it does the job. Later,
     // we should probably rethink this and do it properly.
     //
-    // TODO: improve
+    // TODO: improve (fetch directly from the product categories since we have them now?)
     //
     // Note: order of the products IS SIGNIFICANT.
 
