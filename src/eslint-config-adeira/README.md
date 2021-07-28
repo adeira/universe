@@ -63,11 +63,11 @@ Also please note that **you should not ignore Eslint warnings**! These warnings 
 
 The standard config contains a large number of rules, which may not always work for specific projects. There is no need to use the full package only, smaller configs are also available:
 
-- `@adeira/eslint-config/base`
-- `@adeira/eslint-config/jest`
-- `@adeira/eslint-config/react`
-- `@adeira/eslint-config/flowtype`
-- `@adeira/eslint-config/relay`
+- `@adeira/eslint-config/base` - only the basic and most important JavaScript rules
+- `@adeira/eslint-config/jest` - [Jest](https://jestjs.io/) related rules
+- `@adeira/eslint-config/react` - [React](https://reactjs.org/) related rules (React, RN, Hooks, accessibility)
+- `@adeira/eslint-config/flowtype` - [Flow](https://flow.org/) related rules
+- `@adeira/eslint-config/relay` - [Relay](https://relay.dev/) related rules
 
 Use them in your `.eslintrc.js`:
 

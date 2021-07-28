@@ -537,6 +537,9 @@ const groupedRules = ({
     'flowtype/use-flow-type': WARN,
     'flowtype/use-read-only-spread': ERROR,
     'flowtype/valid-syntax': OFF,
+
+    // Flow FB: https://github.com/facebook/flow/tree/master/packages/eslint-plugin-fb-flow
+    'fb-flow/use-indexed-access-type': OFF, // TODO (revert https://github.com/adeira/universe/pull/2662)
   },
   react: {
     // React (https://github.com/yannickcr/eslint-plugin-react)
