@@ -20,6 +20,7 @@ Object {
   ],
   "plugins": Array [
     "eslint-plugin-flowtype",
+    "eslint-plugin-fb-flow",
     "eslint-plugin-jest",
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
@@ -125,6 +126,7 @@ Object {
     "eslint-comments/no-unused-enable": 2,
     "eslint-comments/no-use": 0,
     "eslint-comments/require-description": 0,
+    "fb-flow/use-indexed-access-type": 0,
     "flowtype/array-style-complex-type": 0,
     "flowtype/array-style-simple-type": 0,
     "flowtype/arrow-parens": 0,
