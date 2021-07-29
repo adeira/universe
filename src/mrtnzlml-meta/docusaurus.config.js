@@ -16,7 +16,6 @@ module.exports = {
   organizationName: 'mrtnzlml', // Usually your GitHub org/user name.
   projectName: 'meta', // Usually your repo name.
   themeConfig: {
-    sidebarCollapsible: true,
     prism: {
       // https://prismjs.com/#supported-languages
       additionalLanguages: ['rust'],
