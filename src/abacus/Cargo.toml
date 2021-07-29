@@ -20,7 +20,7 @@ lto = "thin"
 
 [dependencies]
 anyhow = { version = "1.0.42", default-features = false, features = ["std"] }
-async-trait = "0.1.50"
+async-trait = "0.1.51"
 base64 = "0.13.0"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.0.1"
