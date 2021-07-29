@@ -3,9 +3,9 @@
 import React, { useState, type Element } from 'react';
 import sx from '@adeira/sx';
 
-import Heading from '../Heading/Heading';
 import Image from '../Image/Image';
 import Money from '../Money/Money';
+import Text from '../Text/Text';
 import type { SupportedCurrencies } from '../constants';
 
 type Props = {
@@ -45,17 +45,17 @@ export default function ProductCard(props: Props): Element<'div'> {
     >
       <div className={styles('aspectRatioBoxInner')}>
         <div className={styles('highlightWrapper')}>
-          <Heading xstyle={styles.heading}>
-            <span
-              className={styles(
-                isHovered ? 'highlightHover' : 'highlight',
-                'highlightBase',
-                'highlightBaseRounded', // applies only to this highlight
-              )}
-            >
+          <span
+            className={styles(
+              isHovered ? 'highlightHover' : 'highlight',
+              'highlightBase',
+              'highlightBaseRounded', // applies only to this highlight
+            )}
+          >
+            <Text size={32} weight={700}>
               {props.title}
-            </span>
-          </Heading>
+            </Text>
+          </span>
 
           <span className={styles(isHovered ? 'highlightHover' : 'highlight', 'highlightBase')}>
             <Money
@@ -101,7 +101,8 @@ const styles = sx.create({
     transitionTimingFunction: 'ease-in-out',
     display: 'inline-block',
     marginBlockEnd: 1,
-    padding: '1rem',
+    paddingBlock: '.8rem',
+    paddingInline: '1rem',
   },
   highlightBaseRounded: {
     borderStartStartRadius: 'var(--sx-radius)',
@@ -115,8 +116,5 @@ const styles = sx.create({
     'color': 'rgba(var(--sx-background))',
     'backgroundColor': 'rgba(var(--sx-foreground))',
     '--sx-money-text-color': 'var(--sx-background)',
-  },
-  heading: {
-    margin: 0,
   },
 });
