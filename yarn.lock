@@ -2471,6 +2471,11 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@napi-rs/triples@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
+  integrity sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==
+
 "@next/bundle-analyzer@^11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@next/bundle-analyzer/-/bundle-analyzer-11.0.1.tgz#6f5d617ae861346ac9bf6a1e7bd05444a7fedcc1"
@@ -2483,20 +2488,20 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.1.tgz#6dc96ac76f1663ab747340e907e8933f190cc8fd"
   integrity sha512-yZfKh2U6R9tEYyNUrs2V3SBvCMufkJ07xMH5uWy8wqcl5gAXoEw6A/1LDqwX3j7pUutF9d1ZxpdGDA3Uag+aQQ==
 
-"@next/env@11.0.2-canary.22":
-  version "11.0.2-canary.22"
-  resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.2-canary.22.tgz#eddc171f25be11ade7b8db7832c2c349719855f5"
-  integrity sha512-b16ZYiLSbW3qd7gzxxVTGmtrkISlbf5+S/6u/LMEhjwhDrsnB42y5E3PcShqVxNo21M3i6HbtbU0I9qhTr6CPA==
+"@next/env@11.0.2-canary.23":
+  version "11.0.2-canary.23"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-11.0.2-canary.23.tgz#407abc296f80824a33ef59f05d0aca5fcfdd8635"
+  integrity sha512-sUCIW5Z2yKD9dK6u76oakcj3yNDN5Gas0YJzW5JYRtF5YArtjmVfhrNM7znCVP2gXYvLMfiXIgGoN+ADfSp/8w==
 
 "@next/polyfill-module@11.0.1":
   version "11.0.1"
   resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-11.0.1.tgz#ca2a110c1c44672cbcff6c2b983f0c0549d87291"
   integrity sha512-Cjs7rrKCg4CF4Jhri8PCKlBXhszTfOQNl9AjzdNy4K5jXFyxyoSzuX2rK4IuoyE+yGp5A3XJCBEmOQ4xbUp9Mg==
 
-"@next/polyfill-module@11.0.2-canary.22":
-  version "11.0.2-canary.22"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-11.0.2-canary.22.tgz#f24c1e88fd815d9f5f0647ae3d04b66874262884"
-  integrity sha512-0+v7eygXI9mqsmAAipDk1MBKRg0yniiZyDRJ7qfz7PqUr3Nb0pJY1XI4b//wV9WIp/APDqHeRelVh/bE/o8PcQ==
+"@next/polyfill-module@11.0.2-canary.23":
+  version "11.0.2-canary.23"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-11.0.2-canary.23.tgz#98fd993b17555a1277c65511496a7423411c93ac"
+  integrity sha512-R6JeEeU7oVPrfM9p/NwlyHzJv90gxEhubl+1dejGLE+o8hQ8eGzRlpHRUsvDpxCB8HU4A171V1gS7wR4x46SIA==
 
 "@next/react-dev-overlay@11.0.1":
   version "11.0.1"
@@ -2515,10 +2520,10 @@
     stacktrace-parser "0.1.10"
     strip-ansi "6.0.0"
 
-"@next/react-dev-overlay@11.0.2-canary.22":
-  version "11.0.2-canary.22"
-  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-11.0.2-canary.22.tgz#2e378b674be99e854081788c60dbeae5ae4ad956"
-  integrity sha512-Vj3b+tsN22DtNhwP7zDB95wtDRbqY887dmzYC53+VdD+nJeoWYZNpiSlZKKk8rDocjipMkHrH9uL5NDyqjOSuA==
+"@next/react-dev-overlay@11.0.2-canary.23":
+  version "11.0.2-canary.23"
+  resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-11.0.2-canary.23.tgz#d362be9902a888b518271840f35bc82d3fa33a4a"
+  integrity sha512-YPxF8AXnWq9ca2G9tZSBM599L0X+v2txpcuzTc2FSXwm1fiQkjtk7R5CaVB4eEH5Zbr9319FggUmT9iqK3E+Hw==
   dependencies:
     "@babel/code-frame" "7.12.11"
     anser "1.4.9"
@@ -2537,10 +2542,10 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-11.0.1.tgz#a7509f22b6f70c13101a26573afd295295f1c020"
   integrity sha512-K347DM6Z7gBSE+TfUaTTceWvbj0B6iNAsFZXbFZOlfg3uyz2sbKpzPYYFocCc27yjLaS8OfR8DEdS2mZXi8Saw==
 
-"@next/react-refresh-utils@11.0.2-canary.22":
-  version "11.0.2-canary.22"
-  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-11.0.2-canary.22.tgz#3281f5f03986a8ef2b7f1205155e15f798535422"
-  integrity sha512-15xOThZBe5pKDjAP9GGVpZL5qJoxsqC2MSyOM0fZUIsntU96l8r1/NiL+JUy1LjUimVc/0zbUxftb/IJDXfRVw==
+"@next/react-refresh-utils@11.0.2-canary.23":
+  version "11.0.2-canary.23"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-11.0.2-canary.23.tgz#6f1066d20816fa1130c459ac57e98e4565b77eb6"
+  integrity sha512-wmYYLpIHxdkEKgmfWW/F4VXkOr2y4uecTwGjm73jJRsnE3bC950d0iBJxEBmUbrV/r96KSttAFe/KgTLP91QOw==
 
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.2":
   version "2.1.8-no-fsevents.2"
@@ -2558,6 +2563,13 @@
     path-is-absolute "^1.0.0"
     readdirp "^2.2.1"
     upath "^1.1.1"
+
+"@node-rs/helper@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@node-rs/helper/-/helper-1.2.1.tgz#e079b05f21ff4329d82c4e1f71c0290e4ecdc70c"
+  integrity sha512-R5wEmm8nbuQU0YGGmYVjEc0OHtYsuXdpRG+Ut/3wZ9XAvQWyThN08bTh2cBJgoZxHQUPtvRfeQuxcAgLuiBISg==
+  dependencies:
+    "@napi-rs/triples" "^1.0.3"
 
 "@nodelib/fs.scandir@2.1.4":
   version "2.1.4"
@@ -12925,17 +12937,18 @@ next@^11.0.1:
     vm-browserify "1.1.2"
     watchpack "2.1.1"
 
-next@^11.0.2-canary.22:
-  version "11.0.2-canary.22"
-  resolved "https://registry.yarnpkg.com/next/-/next-11.0.2-canary.22.tgz#5ce1bb15f97295b1b31fa7074766583367aa3c4a"
-  integrity sha512-S39EcWy4erEsVeIjkJdsgIy1Sd3hJy/KomgxgdtrTZJOrdoJr1L1KxvyBwRD++Iw72SwC0bgqT8kojYdC+ANnw==
+next@^11.0.2-canary.23:
+  version "11.0.2-canary.23"
+  resolved "https://registry.yarnpkg.com/next/-/next-11.0.2-canary.23.tgz#57465a42260e4e1f01eebbba321824339885d6e5"
+  integrity sha512-hmO0lQo5E/TGVhawCrMJqtShJvxyFcRbK7rxE6jd51J39sQjPbAT6cJewRFf0ggHqrY0keTij7vcJpcaDn1RkA==
   dependencies:
     "@babel/runtime" "7.12.5"
     "@hapi/accept" "5.0.2"
-    "@next/env" "11.0.2-canary.22"
-    "@next/polyfill-module" "11.0.2-canary.22"
-    "@next/react-dev-overlay" "11.0.2-canary.22"
-    "@next/react-refresh-utils" "11.0.2-canary.22"
+    "@next/env" "11.0.2-canary.23"
+    "@next/polyfill-module" "11.0.2-canary.23"
+    "@next/react-dev-overlay" "11.0.2-canary.23"
+    "@next/react-refresh-utils" "11.0.2-canary.23"
+    "@node-rs/helper" "1.2.1"
     assert "2.0.0"
     ast-types "0.13.2"
     browserify-zlib "0.2.0"
@@ -12965,7 +12978,6 @@ next@^11.0.2-canary.22:
     pnp-webpack-plugin "1.6.4"
     postcss "8.2.15"
     process "0.11.10"
-    prop-types "15.7.2"
     querystring-es3 "0.2.1"
     raw-body "2.4.1"
     react-is "17.0.2"
