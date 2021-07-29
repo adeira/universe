@@ -47,8 +47,14 @@ const BasicTemplate = (args) => (
 initFbt();
 
 // 👇 Each story then reuses that template
-export const Default: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
-Default.storyName = 'Default';
+export const SpacingSmall: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
+SpacingSmall.storyName = 'Small spacing (default)';
+
+export const SpacingNone: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
+SpacingNone.storyName = 'None spacing';
+SpacingNone.args = {
+  spacing: 'none',
+};
 
 export const WithCustomWidth: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
 WithCustomWidth.storyName = 'With custom column width';

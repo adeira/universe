@@ -6,6 +6,7 @@ import sx from '@adeira/sx';
 type Props = {
   +children: Node,
   +minColumnWidth?: string,
+  +spacing?: 'small' | 'none', // TODO: "medium" and "large" (after https://github.com/adeira/universe/pull/2832)
 };
 
 /**
@@ -18,7 +19,11 @@ export default function LayoutGrid(props: Props): Node {
       style={{
         gridTemplateColumns: `repeat(auto-fill, minmax(${props.minColumnWidth ?? '200px'}, 1fr))`,
       }}
-      className={styles('grid')}
+      className={styles({
+        grid: true,
+        gapSmall: props.spacing == null || props.spacing === 'small', // "small" is the default
+        gapNone: props.spacing === 'none',
+      })}
     >
       {props.children}
     </div>
@@ -28,6 +33,7 @@ export default function LayoutGrid(props: Props): Node {
 const styles = sx.create({
   grid: {
     display: 'grid',
-    gap: 'var(--sx-spacing-small)',
   },
+  gapNone: { gap: 0 },
+  gapSmall: { gap: 'var(--sx-spacing-small)' },
 });
