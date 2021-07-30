@@ -26,6 +26,7 @@ pub trait ClientExt: Sync + Clone {
         self.request(Request::get(url.to_string()).body(text.into()).unwrap())
             .await
     }
+
     #[inline]
     async fn post<T>(&self, url: Url, text: T) -> Result<Response<String>, ClientError>
     where
@@ -35,6 +36,7 @@ pub trait ClientExt: Sync + Clone {
         self.request(Request::post(url.to_string()).body(text.into()).unwrap())
             .await
     }
+
     #[inline]
     async fn put<T>(&self, url: Url, text: T) -> Result<Response<String>, ClientError>
     where
@@ -44,6 +46,7 @@ pub trait ClientExt: Sync + Clone {
         self.request(Request::put(url.to_string()).body(text.into()).unwrap())
             .await
     }
+
     #[inline]
     async fn delete<T>(&self, url: Url, text: T) -> Result<Response<String>, ClientError>
     where
@@ -53,6 +56,7 @@ pub trait ClientExt: Sync + Clone {
         self.request(Request::delete(url.to_string()).body(text.into()).unwrap())
             .await
     }
+
     #[inline]
     async fn patch<T>(&self, url: Url, text: T) -> Result<Response<String>, ClientError>
     where

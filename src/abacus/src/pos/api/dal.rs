@@ -1,4 +1,6 @@
-use crate::arango::{resolve_aql, resolve_aql_vector, ConnectionPool};
+#[cfg(test)]
+use crate::arango::resolve_aql_vector;
+use crate::arango::{resolve_aql, ConnectionPool};
 use crate::price::SupportedCurrency;
 use serde::{Deserialize, Serialize};
 use std::fmt::{Debug, Formatter};

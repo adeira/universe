@@ -3,11 +3,10 @@
  * @jest-environment jsdom
  */
 
-import { render } from '@testing-library/react';
 import React from 'react';
 
-import SxDesignProvider from '../../SxDesignProvider';
 import ProductCard from '../ProductCard';
+import { render } from '../../test-utils';
 
 it.each([
   ['en-US', 'MXN', 'MX$12.00'],
@@ -17,15 +16,13 @@ it.each([
   const warnSpy = jest.spyOn(console, 'warn').mockImplementationOnce(() => {});
 
   const { getByText } = render(
-    <SxDesignProvider locale={locale}>
-      <ProductCard
-        title={'title'}
-        priceUnitAmount={12}
-        priceUnitAmountCurrency={currency}
-        imgSrc={'src'}
-      />
-      ,
-    </SxDesignProvider>,
+    <ProductCard
+      title={'title'}
+      priceUnitAmount={12}
+      priceUnitAmountCurrency={currency}
+      imgSrc={'src'}
+    />,
+    { locale },
   );
 
   expect(getByText('title')).toBeDefined();

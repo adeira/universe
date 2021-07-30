@@ -3,10 +3,11 @@
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
+type TabValue = string | number | null;
 type Props = {
-  +tabs: $ReadOnlyArray<{ +title: Fbt, +value: string }>,
-  +selected: string,
-  +setSelected: (string) => void,
+  +tabs: $ReadOnlyArray<{ +title: Fbt, +value: TabValue }>,
+  +selected: TabValue,
+  +setSelected: (TabValue) => void,
 };
 
 export default function Tabs(props: Props): Node {
@@ -38,13 +39,22 @@ const styles = sx.create({
     flexWrap: 'wrap',
   },
   tab: {
-    paddingInline: 20,
-    paddingBlock: 15,
-    cursor: 'pointer',
-    color: 'rgba(var(--sx-foreground))',
-    borderBlockEnd: '1px solid rgba(var(--sx-accent-2))',
+    'fontWeight': 'bold',
+    'paddingInline': 20,
+    'paddingBlock': 15,
+    'cursor': 'pointer',
+    'color': 'rgba(var(--sx-accent-6))',
+    'borderBlockEnd': '1px solid rgba(var(--sx-accent-2))',
+    ':hover': {
+      color: 'rgba(var(--sx-foreground))',
+      borderBlockEnd: '2px solid rgba(var(--sx-accent-2))',
+    },
   },
   tabSelected: {
-    borderBlockEnd: '2px solid rgba(var(--sx-foreground))',
+    'color': 'rgba(var(--sx-foreground))',
+    'borderBlockEnd': '2px solid rgba(var(--sx-foreground))',
+    ':hover': {
+      borderBlockEnd: '2px solid rgba(var(--sx-foreground))',
+    },
   },
 });

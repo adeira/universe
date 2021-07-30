@@ -12,18 +12,13 @@ type Props = {
  * in a vertical line.
  */
 export default function LayoutBlock(props: Props): Node {
-  return React.Children.map(props.children, function (child) {
-    return <div className={styles('child')}>{child}</div>;
-  });
+  return <div className={styles('block')}>{props.children}</div>;
 }
 
 const styles = sx.create({
-  child: {
-    'display': 'flex',
-    'flexDirection': 'column',
-    'paddingBlockEnd': 'var(--sx-spacing-default)',
-    ':last-child': {
-      paddingBlockEnd: 0,
-    },
+  block: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 'var(--sx-spacing-small)',
   },
 });

@@ -73,34 +73,34 @@ Legend:
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Tabs />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
-| [`<Text />`]          |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
+| [`<Text />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
-[`<badge />`]: https://sx-design.vercel.app/?path=/story/example-badge
-[`<button />`]: https://sx-design.vercel.app/?path=/story/example-button
-[`<buttonlink />`]: https://sx-design.vercel.app/?path=/story/example-buttonlink
-[`<emoji />`]: https://sx-design.vercel.app/?path=/story/example-emoji
-[`<entity />`]: https://sx-design.vercel.app/?path=/story/example-entity
-[`<entityfield />`]: https://sx-design.vercel.app/?path=/story/example-entityfield
-[`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/example-errorboundary
-[`<heading />`]: https://sx-design.vercel.app/?path=/story/example-heading
-[`<image />`]: https://sx-design.vercel.app/?path=/story/example-image
-[`<kbd />`]: https://sx-design.vercel.app/?path=/story/example-kbd
-[`<link />`]: https://sx-design.vercel.app/?path=/story/example-link
-[`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/example-linkbutton
-[`<loader />`]: https://sx-design.vercel.app/?path=/story/example-loader
-[`<missingdata />`]: https://sx-design.vercel.app/?path=/story/example-missingdata
-[`<modal />`]: https://sx-design.vercel.app/?path=/story/example-modal
-[`<money />`]: https://sx-design.vercel.app/?path=/story/example-money
-[`<note />`]: https://sx-design.vercel.app/?path=/story/example-note
-[`<placeholder />`]: https://sx-design.vercel.app/?path=/story/example-placeholder
-[`<productcard />`]: https://sx-design.vercel.app/?path=/story/example-productcard
-[`<section />`]: https://sx-design.vercel.app/?path=/story/example-section
-[`<skeleton />`]: https://sx-design.vercel.app/?path=/story/example-skeleton
-[`<skiplink />`]: https://sx-design.vercel.app/?path=/story/example-skiplink
-[`<tabs />`]: https://sx-design.vercel.app/?path=/story/example-tabs
-[`<text />`]: https://sx-design.vercel.app/?path=/story/example-text
-[`<tooltip />`]: https://sx-design.vercel.app/?path=/story/example-tooltip
+[`<badge />`]: https://sx-design.vercel.app/?path=/story/components-badge
+[`<button />`]: https://sx-design.vercel.app/?path=/story/components-button
+[`<buttonlink />`]: https://sx-design.vercel.app/?path=/story/components-buttonlink
+[`<emoji />`]: https://sx-design.vercel.app/?path=/story/components-emoji
+[`<entity />`]: https://sx-design.vercel.app/?path=/story/components-entity
+[`<entityfield />`]: https://sx-design.vercel.app/?path=/story/components-entityfield
+[`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/components-errorboundary
+[`<heading />`]: https://sx-design.vercel.app/?path=/story/components-heading
+[`<image />`]: https://sx-design.vercel.app/?path=/story/components-image
+[`<kbd />`]: https://sx-design.vercel.app/?path=/story/components-kbd
+[`<link />`]: https://sx-design.vercel.app/?path=/story/components-link
+[`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/components-linkbutton
+[`<loader />`]: https://sx-design.vercel.app/?path=/story/components-loader
+[`<missingdata />`]: https://sx-design.vercel.app/?path=/story/components-missingdata
+[`<modal />`]: https://sx-design.vercel.app/?path=/story/components-modal
+[`<money />`]: https://sx-design.vercel.app/?path=/story/components-money
+[`<note />`]: https://sx-design.vercel.app/?path=/story/components-note
+[`<placeholder />`]: https://sx-design.vercel.app/?path=/story/components-placeholder
+[`<productcard />`]: https://sx-design.vercel.app/?path=/story/components-productcard
+[`<section />`]: https://sx-design.vercel.app/?path=/story/components-section
+[`<skeleton />`]: https://sx-design.vercel.app/?path=/story/components-skeleton
+[`<skiplink />`]: https://sx-design.vercel.app/?path=/story/components-skiplink
+[`<tabs />`]: https://sx-design.vercel.app/?path=/story/components-tabs
+[`<text />`]: https://sx-design.vercel.app/?path=/story/components-text
+[`<tooltip />`]: https://sx-design.vercel.app/?path=/story/components-tooltip
 
 There is an additional set of so-called "Layout" components that are responsible for rendering the components above in a correct order, with correct spacing and so on:
 

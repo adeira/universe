@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { Heading, Section } from '@adeira/sx-design';
+import { Section, Text } from '@adeira/sx-design';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 
@@ -28,9 +28,9 @@ export default function IndexPage(): React.Node {
 
   return (
     <Section>
-      <Heading>
+      <Text as="h2">
         <fbt desc="most sold products heading">Most sold products</fbt>
-      </Heading>
+      </Text>
       <Section>
         <BarChart
           sort="DESC"
@@ -41,9 +41,9 @@ export default function IndexPage(): React.Node {
         />
       </Section>
 
-      <Heading>
+      <Text as="h2">
         <fbt desc="least sold products heading">Least sold products</fbt>
-      </Heading>
+      </Text>
       <Section>
         <BarChart
           sort="ASC"

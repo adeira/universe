@@ -2,7 +2,7 @@
 
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { ErrorBoundary, Loader, Section } from '@adeira/sx-design';
+import { ErrorBoundary, Loader } from '@adeira/sx-design';
 
 import Navigation from './Navigation';
 
@@ -10,7 +10,7 @@ type Props = {
   +children: Node,
 };
 
-export default function Layout(props: Props): Node {
+export default function LayoutApp(props: Props): Node {
   return (
     <div className={styles('mainGrid')}>
       <div className={styles('navigation')}>
@@ -19,9 +19,7 @@ export default function Layout(props: Props): Node {
 
       <main className={styles('main')}>
         <ErrorBoundary>
-          <Section>
-            <React.Suspense fallback={<Loader />}>{props.children}</React.Suspense>
-          </Section>
+          <React.Suspense fallback={<Loader />}>{props.children}</React.Suspense>
         </ErrorBoundary>
       </main>
     </div>

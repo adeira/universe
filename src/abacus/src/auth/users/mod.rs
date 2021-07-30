@@ -16,7 +16,7 @@ pub enum User {
 
 /// AnyUser represents any generic user in the database which can later be converted to the right
 /// type (admin/anonymous/authorized) as needed.
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Deserialize, Serialize, Debug)]
 pub struct AnyUser {
     _id: String,
     _rev: String,

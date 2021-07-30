@@ -4,10 +4,9 @@
  */
 
 import * as React from 'react';
-import { render } from '@testing-library/react';
 
 import Money, { MoneyFn } from '../Money';
-import SxDesignProvider from '../../SxDesignProvider';
+import { render } from '../../test-utils';
 
 // When adding new currencies, always add one line for `en-US` and one line for the new locale.
 // This way we can test that it works well for both natives and foreigners.
@@ -34,9 +33,8 @@ test.each`
     const amount = 10;
 
     const { getByText } = render(
-      <SxDesignProvider locale={locale}>
-        <Money priceUnitAmount={amount} priceUnitAmountCurrency={currency} />
-      </SxDesignProvider>,
+      <Money priceUnitAmount={amount} priceUnitAmountCurrency={currency} />,
+      { locale },
     );
     expect(getByText(expectedReact)).toBeDefined();
 

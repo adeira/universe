@@ -4,12 +4,6 @@
 .+/.+\.gzip\.js
 .+/\.next/.+
 
-; Do not use <PROJECT_ROOT> for Bazel, see: https://github.com/facebook/flow/issues/2250
-.+/bazel-bin/.+
-.+/bazel-out/.+
-.+/bazel-testlogs/.+
-.+/bazel-universe/.+
-
 
 ; https://flow.org/en/docs/config/untyped/
 [untyped]

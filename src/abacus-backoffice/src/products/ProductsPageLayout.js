@@ -1,50 +1,53 @@
 // @flow
 
 import { rangeMap } from '@adeira/js';
-import sx from '@adeira/sx';
-import { Heading, Skeleton } from '@adeira/sx-design';
+import { Loader, Skeleton, LayoutGrid, LayoutBlock } from '@adeira/sx-design';
 import fbt from 'fbt';
-import React, { type Node } from 'react';
+import React, { useState, type Node } from 'react';
 
-import Layout from '../Layout';
-import LayoutHeading from '../LayoutHeading';
+import LayoutPage from '../LayoutPage';
 import LayoutHeadingLink from '../LayoutHeadingLink';
-import ProductsCards from './ProductsCards';
+import ProductsCardsInCategory from './ProductsCardsInCategory';
+import ProductsCategories from './ProductsCategories';
 
 export default function ProductsPageLayout(): Node {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
   return (
-    <Layout>
-      <LayoutHeading
-        heading={
-          <Heading>
-            <fbt desc="product inventory title">Products inventory</fbt>
-          </Heading>
-        }
-      >
+    <LayoutPage
+      isBeta={true}
+      heading={<fbt desc="products inventory title">Products inventory</fbt>}
+      description={
+        <fbt desc="products inventory description">
+          All products available across all our products are here.
+        </fbt>
+      }
+      actionButtons={
         <LayoutHeadingLink href="/products/create">
           <fbt desc="link for create a new product">Create a new product</fbt>
         </LayoutHeadingLink>
-      </LayoutHeading>
+      }
+    >
+      <LayoutBlock>
+        <React.Suspense fallback={<Loader />}>
+          <ProductsCategories
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+          />
+        </React.Suspense>
 
-      <React.Suspense
-        fallback={
-          <div className={styles('productsGrid')}>
-            {rangeMap(12, (i) => (
-              <Skeleton key={i} />
-            ))}
-          </div>
-        }
-      >
-        <ProductsCards />
-      </React.Suspense>
-    </Layout>
+        <React.Suspense
+          fallback={
+            <LayoutGrid>
+              {rangeMap(12, (i) => (
+                <Skeleton key={i} />
+              ))}
+            </LayoutGrid>
+          }
+        >
+          <ProductsCardsInCategory selectedCategory={selectedCategory} />
+        </React.Suspense>
+      </LayoutBlock>
+    </LayoutPage>
   );
 }
-
-const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-    gap: '1rem',
-  },
-});

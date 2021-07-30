@@ -16,6 +16,8 @@ import { useSessionTokenAPI } from '../src/useSessionTokenAPI';
 import initTranslations from '../translations/init';
 
 export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node {
+  const getLayout = Component.getLayout || ((page) => page);
+
   const applicationLocale = useApplicationLocale();
   initTranslations(applicationLocale.bcp47);
 
@@ -53,7 +55,7 @@ export default function MyApp({ Component, pageProps }: $FlowFixMe): React.Node 
     <SxDesignProvider locale={applicationLocale.bcp47} theme="system">
       <ErrorBoundary>
         <RelayEnvironmentProvider environment={relayEnvironment}>
-          <RecoilRoot>{children}</RecoilRoot>
+          <RecoilRoot>{getLayout(children)}</RecoilRoot>
         </RelayEnvironmentProvider>
       </ErrorBoundary>
     </SxDesignProvider>

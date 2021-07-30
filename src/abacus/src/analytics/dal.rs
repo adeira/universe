@@ -13,6 +13,7 @@ pub enum SortDirection {
     LeastToMost,
 }
 
+/// Returns most or least sold products (all time). By default, limited to 100 first results.
 pub(in crate::analytics) async fn get_sold_product_stats(
     pool: &ConnectionPool,
     sort_direction: &SortDirection,
@@ -31,6 +32,7 @@ pub(in crate::analytics) async fn get_sold_product_stats(
                         product_name = selected_product.product_name
                 AGGREGATE product_units = SUM(selected_product.product_units)
                 SORT product_units @sort_direction
+                LIMIT 100
                 RETURN {
                   "product_id": product_id,
                   "product_name": product_name,
