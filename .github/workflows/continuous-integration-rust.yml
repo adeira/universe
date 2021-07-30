@@ -51,6 +51,7 @@ jobs:
           command: clippy
           # `--all-targets` + `--all-features`   (in order to also check tests and non-default crate features)
           args: >-
+            --locked
             --all-targets
             --all-features
             --manifest-path ${{ matrix.manifest }}
