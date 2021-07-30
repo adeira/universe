@@ -26,40 +26,37 @@ initFbt();
 // 👇 We create a "template" of how args map to rendering
 const Template = (args) => (
   <>
-    {/* Top-left position: */}
+    {/* Top-left positions: */}
     <div style={{ position: 'absolute', top: '0', left: '0' }}>
-      <Tooltip
-        title={
-          <fbt desc="test tooltip content title" doNotExtract={true}>
-            This is a test tooltip content.
-          </fbt>
-        }
-        {...args}
-      />
+      <Tooltip {...args} />
+    </div>
+    <div style={{ position: 'absolute', top: '0', left: '50%' }}>
+      <Tooltip {...args} />
+    </div>
+    <div style={{ position: 'absolute', top: '0', right: '0' }}>
+      <Tooltip {...args} />
     </div>
 
-    {/* Middle with enough space above: */}
-    <div style={{ position: 'absolute', top: '50px', left: '50%' }}>
-      <Tooltip
-        title={
-          <fbt desc="test tooltip content title" doNotExtract={true}>
-            This is a test tooltip content.
-          </fbt>
-        }
-        {...args}
-      />
+    {/* Middle positions with enough space above: */}
+    <div style={{ position: 'absolute', top: '50%', left: '0' }}>
+      <Tooltip {...args} />
+    </div>
+    <div style={{ position: 'absolute', top: '50%', left: '50%' }}>
+      <Tooltip {...args} />
+    </div>
+    <div style={{ position: 'absolute', top: '50%', right: '0' }}>
+      <Tooltip {...args} />
     </div>
 
-    {/* Right position: */}
-    <div style={{ position: 'absolute', top: '100px', right: '0' }}>
-      <Tooltip
-        title={
-          <fbt desc="test tooltip content title" doNotExtract={true}>
-            This is a test tooltip content.
-          </fbt>
-        }
-        {...args}
-      />
+    {/* Right positions: */}
+    <div style={{ position: 'absolute', top: '100%', left: '0' }}>
+      <Tooltip {...args} />
+    </div>
+    <div style={{ position: 'absolute', top: '100%', left: '50%' }}>
+      <Tooltip {...args} />
+    </div>
+    <div style={{ position: 'absolute', top: '100%', right: '0' }}>
+      <Tooltip {...args} />
     </div>
   </>
 );
@@ -67,20 +64,27 @@ const Template = (args) => (
 // 👇 Each story then reuses that template
 export const DefaultTooltip: StoryTemplate<typeof Tooltip> = Template.bind({});
 DefaultTooltip.storyName = 'Default';
-
-export const CustomChildrenTooltip: StoryTemplate<typeof Tooltip> = Template.bind({});
-CustomChildrenTooltip.storyName = 'Custom children';
-CustomChildrenTooltip.args = {
-  children: 'N/A',
+DefaultTooltip.args = {
+  title: (
+    <fbt desc="test tooltip content title" doNotExtract={true}>
+      This is a test tooltip content.
+    </fbt>
+  ),
 };
 
-export const WithButtonTooltip: StoryTemplate<typeof Tooltip> = Template.bind({});
-WithButtonTooltip.storyName = 'With button';
-WithButtonTooltip.args = {
+export const TooltipWithCustomChildren: StoryTemplate<typeof Tooltip> = Template.bind({});
+TooltipWithCustomChildren.storyName = 'With custom children';
+TooltipWithCustomChildren.args = {
+  title: (
+    <fbt desc="test tooltip content title" doNotExtract={true}>
+      This is a test tooltip content with a very long text. This long text should be properly
+      wrapped in the tooltip and it should be appropriately positioned in the document.
+    </fbt>
+  ),
   children: (
     <Button onClick={() => {}}>
       <fbt desc="button title" doNotExtract={true}>
-        Button
+        Button with long text
       </fbt>
     </Button>
   ),
