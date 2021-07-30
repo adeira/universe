@@ -75,16 +75,17 @@ Check our [Contribution guide](/.github/CONTRIBUTING.md) on how to report issues
 
 ### Upgrading Flow
 
-Flow is currently being released approx. every 14 days with each release introducing improvements into the type system soundness. It is common that there will be new errors discovered with each release. The recommended strategy is to acknowledge these new errors and suppress them to ease the version upgrade (they were most likely there the whole time anyway). To do so, please clone locally [`facebook/flow`](https://github.com/facebook/flow/) repository, install dependencies via `yarn install` and run the following command (modify as needed):
+Flow is currently being released approx. every 14 days with each release introducing improvements into the type system. It is common that there will be new errors discovered with each release as well as some error will disappear. The recommended strategy is to acknowledge these new errors and suppress them to ease the version upgrade. To do so, please clone locally [`facebook/flow`](https://github.com/facebook/flow/) repository, install dependencies via `yarn install` and run the following command (modify as needed):
 
 ```bash
-./tool add-comments --all --comment "This comment suppresses an error when upgrading Flow to version 0.155.0. To see the error delete this comment and run Flow." --bin /Work/adeira/universe/node_modules/.bin/flow /Work/adeira/universe/src
+./tool update-suppressions --comment "This comment suppresses an error when upgrading Flow to version 0.155.0. To see the error delete this comment and run Flow." --bin /Work/adeira/universe/node_modules/.bin/flow /Work/adeira/universe
 ```
 
-Optionally, you can try to run the `flow fix` command:
+You can also try to run `fix` and `codemod` commands (from `adeira/universe` root):
 
 ```bash
 yarn flow fix --write
+yarn flow codemod --help
 ```
 
 ### Troubleshooting

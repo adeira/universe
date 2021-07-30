@@ -17,7 +17,6 @@ module.exports = {
     //   repoUrl: 'https://github.com/facebook/test-site',
     // algolia: { ... },
     image: 'img/logo-transparent.png',
-    sidebarCollapsible: true,
     navbar: {
       title: 'Adeira',
       logo: {
