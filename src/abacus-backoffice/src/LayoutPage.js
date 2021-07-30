@@ -51,7 +51,6 @@ export default function LayoutPage(props: Props): Node {
 
       {description != null ? (
         <span className={styles('description')}>
-          {/* $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/2826 */}
           <Text as="small" size={14}>
             {description}
           </Text>

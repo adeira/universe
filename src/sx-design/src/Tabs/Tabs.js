@@ -10,6 +10,9 @@ type Props = {
   +setSelected: (TabValue) => void,
 };
 
+/**
+ * TODO: improve accessibility (https://www.w3.org/TR/wai-aria-practices/#tabpanel)
+ */
 export default function Tabs(props: Props): Node {
   return (
     <div className={styles('tabs')}>
