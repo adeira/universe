@@ -5,6 +5,7 @@ import { ProductCard, LayoutGrid } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 
 import Link from '../Link';
+import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import type { ProductsCardsData$key } from './__generated__/ProductsCardsData.graphql';
 
 type Props = {
@@ -43,9 +44,7 @@ export default function ProductsCards(props: Props): Node {
             <ProductCard
               title={product.name}
               priceUnitAmount={product.price.unitAmount / 100}
-              /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
-               * Relay Hooks. To see the error delete this comment and run Flow. */
-              priceUnitAmountCurrency={product.price.unitAmountCurrency}
+              priceUnitAmountCurrency={refineSupportedCurrencies(product.price.unitAmountCurrency)}
               imgBlurhash={product.imageCover?.blurhash}
               imgSrc={product.imageCover?.url}
               imgAlt={product.name}

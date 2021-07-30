@@ -5,6 +5,7 @@ import { Note, Entity, EntityField, Money, Badge } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 
+import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductAddonsQuery } from './__generated__/ProductAddonsQuery.graphql';
 
@@ -56,8 +57,9 @@ export default function ProductAddons(): Node {
                 priceUnitAmount={
                   productAddon.priceExtra.unitAmount / 100 // adjusted for centavo
                 }
-                // $FlowFixMe[incompatible-type]: string literal %future added value is incompatible with literal union
-                priceUnitAmountCurrency={productAddon.priceExtra.unitAmountCurrency}
+                priceUnitAmountCurrency={refineSupportedCurrencies(
+                  productAddon.priceExtra.unitAmountCurrency,
+                )}
               />
             )
           }
