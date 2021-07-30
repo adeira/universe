@@ -6,6 +6,7 @@ import React, { type Node } from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import { Note, ProductCard } from '@adeira/sx-design';
 
+import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import useApplicationLocale from '../useApplicationLocale';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 import type { ProductsGridPosQuery } from './__generated__/ProductsGridPosQuery.graphql';
@@ -93,9 +94,7 @@ export default function ProductsGrid(props: Props): Node {
           priceUnitAmount={
             product.price.unitAmount / 100 // adjusted for centavo
           }
-          /* $FlowFixMe[incompatible-type]: This comment suppresses an error when upgrading to
-           * Relay Hooks. To see the error delete this comment and run Flow. */
-          priceUnitAmountCurrency={product.price.unitAmountCurrency}
+          priceUnitAmountCurrency={refineSupportedCurrencies(product.price.unitAmountCurrency)}
           imgBlurhash={product.imageCover?.blurhash}
           imgSrc={product.imageCover?.url}
           imgAlt={product.name}
