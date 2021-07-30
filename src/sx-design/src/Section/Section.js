@@ -21,7 +21,6 @@ export default function Section(props: Props): React.Node {
     <HeadingLevel.Consumer>
       {(level) => (
         <HeadingLevel.Provider value={level + 1}>
-          {/* eslint-disable-next-line react/forbid-elements */}
           <section className={sx(styles.section, props.xstyle)}>{props.children}</section>
         </HeadingLevel.Provider>
       )}

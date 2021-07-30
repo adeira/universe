@@ -59,6 +59,7 @@ export default function Image(props: Props): Node {
     <>
       {isImageLoaded === true ? null : Blurhash}
 
+      {/* eslint-disable-next-line react/forbid-elements */}
       <img
         src={props.src}
         alt={props.alt}

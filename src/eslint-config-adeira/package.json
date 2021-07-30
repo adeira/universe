@@ -4,7 +4,7 @@
   "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-config-adeira",
   "license": "MIT",
   "private": false,
-  "version": "6.1.0",
+  "version": "6.2.0",
   "main": "./index.js",
   "type": "commonjs",
   "sideEffects": false,
