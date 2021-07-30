@@ -4,8 +4,9 @@ import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
 type Props = {
-  +children: Node,
-  +spacing?: 'small' | 'none', // TODO: "medium" and "large" (after https://github.com/adeira/universe/pull/2832)
+  +'children': Node,
+  +'spacing'?: 'small' | 'medium' | 'large' | 'none',
+  +'data-testid'?: string,
 };
 
 /**
@@ -15,9 +16,12 @@ type Props = {
 export default function LayoutBlock(props: Props): Node {
   return (
     <div
+      data-testid={props['data-testid']}
       className={styles({
         block: true,
         gapSmall: props.spacing == null || props.spacing === 'small', // "small" is the default
+        gapMedium: props.spacing === 'medium',
+        gapLarge: props.spacing === 'large',
         gapNone: props.spacing === 'none',
       })}
     >
@@ -33,4 +37,6 @@ const styles = sx.create({
   },
   gapNone: { gap: 0 },
   gapSmall: { gap: 'var(--sx-spacing-small)' },
+  gapMedium: { gap: 'var(--sx-spacing-medium)' },
+  gapLarge: { gap: 'var(--sx-spacing-large)' },
 });

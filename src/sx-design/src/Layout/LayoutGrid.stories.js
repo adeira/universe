@@ -50,6 +50,18 @@ initFbt();
 export const SpacingSmall: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
 SpacingSmall.storyName = 'Small spacing (default)';
 
+export const SpacingMedium: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
+SpacingMedium.storyName = 'Medium spacing';
+SpacingMedium.args = {
+  spacing: 'medium',
+};
+
+export const SpacingLarge: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
+SpacingLarge.storyName = 'Large spacing';
+SpacingLarge.args = {
+  spacing: 'large',
+};
+
 export const SpacingNone: StoryTemplate<typeof LayoutGrid> = BasicTemplate.bind({});
 SpacingNone.storyName = 'None spacing';
 SpacingNone.args = {
