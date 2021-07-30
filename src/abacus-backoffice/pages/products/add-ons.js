@@ -2,11 +2,11 @@
 
 import React, { type Element, type Node } from 'react';
 
-import ProductsAddonsLayout from '../../src/products/ProductsAddonsLayout';
+import ProductAddonsLayout from '../../src/products/ProductAddonsLayout';
 import LayoutApp from '../../src/LayoutApp';
 
 export default function ProductAddonsPage(): Node {
-  return <ProductsAddonsLayout />;
+  return <ProductAddonsLayout />;
 }
 
 ProductAddonsPage.getLayout = (
