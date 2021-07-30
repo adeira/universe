@@ -21,6 +21,36 @@
         }
       ]
     },
+    "WgEfGWUAntBTCX5DfSkZ1w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Načítá se",
+          "variations": []
+        }
+      ]
+    },
+    "Y3o6+D/7PWcFogiHsVcKiA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Nelze načíst data nebo chybějící data.",
+          "variations": []
+        }
+      ]
+    },
+    "W2Zfz+g6XrIlDYmJfieIpA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "N/A",
+          "variations": []
+        }
+      ]
+    },
     "WSdt9glzZ7dZhYBu4DhX1Q==": {
       "tokens": [],
       "types": [],
@@ -57,16 +87,6 @@
       "translations": [
         {
           "translation": "Poznámka",
-          "variations": []
-        }
-      ]
-    },
-    "EOd766uj+UXLW6PuEboc/A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Alternativní text obrázku by měl být vyplněný pomocí property `imgAlt`. Jedná se o důležitou součást přístupnosti pro uživatele čteček obrazovky, aby mohli pochopit účel obsahu na stránce.",
           "variations": []
         }
       ]
