@@ -21,7 +21,7 @@ module.exports = {
     rules: groupedRules.jest,
   },
   flowtype: {
-    plugins: ['eslint-plugin-flowtype'],
+    plugins: ['eslint-plugin-flowtype', 'eslint-plugin-fb-flow'],
     rules: groupedRules.flowtype,
   },
   react: {

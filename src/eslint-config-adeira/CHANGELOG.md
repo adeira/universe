@@ -3,11 +3,11 @@
 - New rule [`max-nested-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/f784d1ad7447391750eb692e65fd76ba9d011551/docs/rules/max-nested-describe.md) enabled (warnings or errors in strict mode).
 - New rule `sx/use-logical-properties` enabled (warnings or errors in strict mode).
 - You can now use config subsets for use cases where the main default config does not fit well.
-  - `@adeira/eslint-config/base`
-  - `@adeira/eslint-config/jest`
-  - `@adeira/eslint-config/react`
-  - `@adeira/eslint-config/flowtype`
-  - `@adeira/eslint-config/relay`
+  - `@adeira/eslint-config/base` - only the basic and most important JavaScript rules
+  - `@adeira/eslint-config/jest` - [Jest](https://jestjs.io/) related rules
+  - `@adeira/eslint-config/react` - [React](https://reactjs.org/) related rules (React, RN, Hooks, accessibility)
+  - `@adeira/eslint-config/flowtype` - [Flow](https://flow.org/) related rules
+  - `@adeira/eslint-config/relay` - [Relay](https://relay.dev/) related rules
 
 # 6.1.0
 
