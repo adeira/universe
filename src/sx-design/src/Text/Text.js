@@ -6,13 +6,13 @@ import sx from '@adeira/sx';
 import useAccessibleColors from './useAccessibleColors';
 
 type Props = {
-  +children: Fbt,
-  +backgroundRef?: { current: null | HTMLElement },
-  +as?: 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
-  +size?: 10 | 12 | 14 | 16 | 20 | 24 | 32 | 40 | 48, // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
-  +transform?: 'capitalize' | 'lowercase' | 'uppercase',
-  +truncate?: boolean,
-  +weight?:
+  +'children': Fbt,
+  +'backgroundRef'?: { current: null | HTMLElement },
+  +'as'?: 'p' | 'small' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
+  +'size'?: 10 | 12 | 14 | 16 | 20 | 24 | 32 | 40 | 48, // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
+  +'transform'?: 'capitalize' | 'lowercase' | 'uppercase',
+  +'truncate'?: boolean,
+  +'weight'?:
     | 100 // Thin (Hairline), see: https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#common_weight_name_mapping
     | 200 // Extra Light (Ultra Light)
     | 300 // Light
@@ -23,6 +23,7 @@ type Props = {
     | 800 // Extra Bold (Ultra Bold)
     | 900 // Black (Heavy)
     | 950, // Extra Black (Ultra Black)
+  +'data-testid'?: string,
 };
 
 /**
@@ -48,6 +49,7 @@ export default function Text(props: Props): Node {
 
   return (
     <AsComponent
+      data-testid={props['data-testid']}
       className={styles({
         base: true,
         truncate: props.truncate === true,
@@ -76,7 +78,7 @@ export default function Text(props: Props): Node {
         w950: props.weight === 950,
       })}
       style={{
-        color: props.backgroundRef != null ? accessibleTextColor : 'rgba(var(--sx-foreground))',
+        color: props.backgroundRef != null ? accessibleTextColor : 'inherit',
         textTransform: props.transform ?? 'inherit',
       }}
     >

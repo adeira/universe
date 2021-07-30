@@ -8,11 +8,22 @@ import SxDesignPortal from '../SxDesignPortal';
 type Props = {
   +isOpen: boolean,
   +onClose: () => void,
-  +children: Node, // TODO: limit it to only owned components (Modal.Body, Modal.Actions, …)
+  +children: Node, // TODO: limit it to only owned components (Modal.Body, Modal.Actions, …)?
 };
 
+/**
+ * Creates a dialog (modal) window overlaid on either the primary window or another dialog window.
+ *
+ * TODO: implement important accessibility features:
+ *  - focus trap (Tab, Shift+Tab, Esc) with correct focus return
+ *  - correct aria attributes
+ *  - inspiration and resources:
+ *    - https://www.w3.org/TR/wai-aria-practices/#dialog_modal
+ *    - https://reactjs.org/docs/accessibility.html#programmatically-managing-focus
+ *    - https://github.com/davidtheclark/react-aria-modal
+ */
 export default function Modal(props: Props): Node {
-  // TODO: open in a drawer on smaller screens (mobile)
+  // TODO: open in a drawer on smaller screens (https://vercel.com/design/drawer)
 
   return (
     <SxDesignPortal>
@@ -56,11 +67,15 @@ const styles = sx.create({
   modalWindowRoot: {
     backgroundColor: 'rgba(var(--sx-background))',
     color: 'rgba(var(--sx-foreground))',
-    width: 600,
+    width: '80%',
     maxWidth: '100%',
-    height: 400,
+    height: '80%',
     maxHeight: '100%',
     borderRadius: 'var(--sx-radius)',
     boxShadow: 'var(--sx-shadow-large)',
+    padding: 'var(--sx-spacing-small)',
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    marginBlock: 'var(--sx-spacing-large)',
   },
 });
