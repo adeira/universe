@@ -38,6 +38,7 @@ Other awesome links (alphabetically):
 - [What exactly does '#\[derive(Debug)\]' mean in Rust?](https://stackoverflow.com/q/46388386/3135248)
 - [How to mock external dependencies in tests?](https://stackoverflow.com/q/51919079/3135248)
 - [Why is there a large performance impact when looping over an array with 240 or more elements?](https://stackoverflow.com/q/57458460/3135248)
+- [How does Rust guarantee memory safety and prevent segfaults?](https://stackoverflow.com/q/36136201/3135248)
 
 ## Difference between `iter`, `iter_mut`, and `into_iter`
 
