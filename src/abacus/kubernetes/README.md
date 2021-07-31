@@ -20,9 +20,12 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 
 # Upgrading
 
-- https://www.arangodb.com/docs/3.7/deployment-kubernetes-upgrading.html
-- https://www.arangodb.com/docs/3.7/deployment-kubernetes-drain.html
-- https://www.arangodb.com/docs/3.7/upgrading-general-info.html
+First and foremost: upgrade to the latest patch version (for example 3.7.13 before 3.8.0)!
+
+- https://hub.docker.com/_/arangodb
+- https://www.arangodb.com/docs/3.8/upgrading-general-info.html
+- https://www.arangodb.com/docs/3.8/deployment-kubernetes-upgrading.html
+- https://www.arangodb.com/docs/3.8/deployment-kubernetes-drain.html
 
 # Kubernetes validations (TODO)
 
