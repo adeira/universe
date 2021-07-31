@@ -5,7 +5,7 @@ metadata:
   name: 'arangodb-single-server'
 spec:
   mode: Single
-  image: 'arangodb/arangodb:3.7.13'
+  image: 'arangodb/arangodb:3.8.0'
   tls:
     caSecretName: None # TODO
   auth:
@@ -13,6 +13,8 @@ spec:
   externalAccess:
     type: None
   single:
+    args:
+      - '--query.require-with=true' # require WITH clauses even when not in cluster
     storageClassName: do-block-storage # DigitalOcean Block Storage
     resources:
       requests:
@@ -49,7 +51,7 @@ spec:
           restartPolicy: OnFailure
           initContainers:
             - name: dump-create
-              image: 'arangodb/arangodb:3.7.13'
+              image: 'arangodb/arangodb:3.8.0'
               imagePullPolicy: Always
               args:
                 - 'arangodump'
@@ -63,6 +65,7 @@ spec:
                 - '--include-system-collections=true'
                 - '--overwrite=true'
                 - '--dump-data=true'
+                - '--envelope=false'
               volumeMounts:
                 - name: dump
                   mountPath: /tmp/dump
