@@ -3,7 +3,6 @@
 import { QueryRenderer, graphql } from '@adeira/relay';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { Section } from '@adeira/sx-design';
 
 import MenuLoader from './menu/MenuLoader';
 import MenuSectionCoffee from './menu/MenuSectionCoffee';
@@ -38,29 +37,29 @@ export default function Menu(): Node {
       onResponse={(relayProps) => {
         return (
           <div className={styles('menuGrid')}>
-            <Section xstyle={styles.menuGridAreaCoffee}>
+            <div className={styles('menuGridAreaCoffee')}>
               <MenuSectionCoffee menuData={relayProps.menu} />
-            </Section>
+            </div>
 
-            <Section xstyle={styles.menuGridAreaTea}>
+            <div className={styles('menuGridAreaTea')}>
               <MenuSectionTea menuData={relayProps.menu} />
-            </Section>
+            </div>
 
-            <Section xstyle={styles.menuGridAreaMilkshakes}>
+            <div className={styles('menuGridAreaMilkshakes')}>
               <MenuSectionMilkshake menuData={relayProps.menu} />
-            </Section>
+            </div>
 
-            <Section xstyle={styles.menuGridAreaSpecialities}>
+            <div className={styles('menuGridAreaSpecialities')}>
               <MenuSectionSpecialities menuData={relayProps.menu} />
-            </Section>
+            </div>
 
-            <Section xstyle={styles.menuGridAreaDumplingSweet}>
+            <div className={styles('menuGridAreaDumplingSweet')}>
               <MenuSectionDumplingSweet menuData={relayProps.menu} />
-            </Section>
+            </div>
 
-            <Section xstyle={styles.menuGridAreaDumplingSavory}>
+            <div className={styles('menuGridAreaDumplingSavory')}>
               <MenuSectionDumplingSavory menuData={relayProps.menu} />
-            </Section>
+            </div>
           </div>
         );
       }}
