@@ -6,6 +6,7 @@ p, commerce_admin, commerce, publish_product, allow
 p, commerce_admin, commerce, unpublish_product, allow
 p, commerce_admin, commerce, get_all_products, allow
 p, commerce_admin, commerce, get_all_product_categories, allow
+p, commerce_admin, commerce, get_all_product_addons, allow
 p, files_admin, files, upload_file, allow
 p, files_admin, files, delete_file, allow
 p, pos_admin, pos, checkout, allow
