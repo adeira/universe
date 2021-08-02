@@ -18,11 +18,16 @@ First, make sure you are in the correct DigitalOcean/local context (`kubectl con
 (cd src/abacus/kubernetes && kubectl apply -f abacus.yaml)
 ```
 
-# Upgrading
+# Upgrading ArangoDB
 
-- https://www.arangodb.com/docs/3.7/deployment-kubernetes-upgrading.html
-- https://www.arangodb.com/docs/3.7/deployment-kubernetes-drain.html
-- https://www.arangodb.com/docs/3.7/upgrading-general-info.html
+Current server URL: http://arangodb-single-server.default.svc.cluster.local:8529/
+
+First and foremost: upgrade to the latest patch version (for example 3.7.13 before 3.8.0)!
+
+- https://hub.docker.com/_/arangodb
+- https://www.arangodb.com/docs/3.8/upgrading-general-info.html
+- https://www.arangodb.com/docs/3.8/deployment-kubernetes-upgrading.html
+- https://www.arangodb.com/docs/3.8/deployment-kubernetes-drain.html
 
 # Kubernetes validations (TODO)
 
