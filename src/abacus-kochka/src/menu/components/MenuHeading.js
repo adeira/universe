@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Heading } from '@adeira/sx-design';
+import { Text } from '@adeira/sx-design';
 import sx from '@adeira/sx';
 
 type Props = {
@@ -10,15 +10,16 @@ type Props = {
 
 export default function MenuHeading(props: Props): Node {
   return (
-    <Heading>
-      <div className={styles('menuHeading')}>{props.children}</div>
-    </Heading>
+    <div className={styles('menuHeading')}>
+      <Text as="h2" transform="uppercase">
+        {props.children}
+      </Text>
+    </div>
   );
 }
 
 const styles = sx.create({
   menuHeading: {
-    textTransform: 'uppercase',
     marginBlockEnd: 15,
   },
 });
