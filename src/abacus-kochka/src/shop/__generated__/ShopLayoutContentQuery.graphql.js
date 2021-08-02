@@ -14,7 +14,7 @@ export type ShopLayoutContentQueryVariables = {|
 |};
 export type ShopLayoutContentQueryResponse = {|
   +commerce: {|
-    +products: ?$ReadOnlyArray<?{|
+    +products: $ReadOnlyArray<?{|
       +key: string,
       +name: string,
       +price: {|
@@ -39,7 +39,7 @@ query ShopLayoutContentQuery(
   $priceSortDirection: PriceSortDirection!
 ) {
   commerce {
-    products: searchPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection) {
+    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, visibility: ESHOP) {
       key
       name
       price {
@@ -79,6 +79,11 @@ v1 = [
     "kind": "Variable",
     "name": "priceSortDirection",
     "variableName": "priceSortDirection"
+  },
+  {
+    "kind": "Literal",
+    "name": "visibility",
+    "value": "ESHOP"
   }
 ],
 v2 = {
@@ -165,7 +170,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": "Product",
             "kind": "LinkedField",
-            "name": "searchPublishedProducts",
+            "name": "searchAllPublishedProducts",
             "plural": true,
             "selections": [
               (v2/*: any*/),
@@ -201,7 +206,7 @@ return {
             "args": (v1/*: any*/),
             "concreteType": "Product",
             "kind": "LinkedField",
-            "name": "searchPublishedProducts",
+            "name": "searchAllPublishedProducts",
             "plural": true,
             "selections": [
               (v2/*: any*/),
@@ -224,15 +229,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "062963ee4792964a967d6aa877cff55b",
+    "cacheID": "73696cef0cdcccaddb38685a438d102a",
     "id": null,
     "metadata": {},
     "name": "ShopLayoutContentQuery",
     "operationKind": "query",
-    "text": "query ShopLayoutContentQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n) {\n  commerce {\n    products: searchPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection) {\n      key\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ShopLayoutContentQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n) {\n  commerce {\n    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, visibility: ESHOP) {\n      key\n      name\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'b7bb3109427b6717418f05b9d4108884';
+(node: any).hash = 'f80231d0ee8d704c6ff74da317ee886a';
 export default node;

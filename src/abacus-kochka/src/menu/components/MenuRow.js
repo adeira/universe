@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { Heading, MissingData, Money, Section } from '@adeira/sx-design';
+import { MissingData, Money, Text } from '@adeira/sx-design';
 import sx from '@adeira/sx';
 import { useFragment, graphql } from '@adeira/relay';
 
@@ -33,9 +33,9 @@ export default function MenuRow(props: Props): Node {
   };
 
   return (
-    <Section xstyle={styles.menuRow}>
+    <div className={styles('menuRow')}>
       <div className={styles('titlePriceRow')}>
-        <Heading>{data.name}</Heading>
+        <Text as="h3">{data.name}</Text>
         <div>
           {isCurrencySupported(unitAmountCurrency) ? (
             <Money
@@ -50,7 +50,7 @@ export default function MenuRow(props: Props): Node {
         </div>
       </div>
       <div className={styles('descriptionRow')}>{data.description}</div>
-    </Section>
+    </div>
   );
 }
 

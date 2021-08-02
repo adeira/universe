@@ -10,9 +10,5 @@ testExportedPaths(path.join(__dirname, '..', 'sx-jest-snapshot-serializer.js'), 
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/sx-jest-snapshot-serializer/BUILD.bazel', undefined], // correctly deleted
-  ['src/sx-jest-snapshot-serializer/BUILD', undefined], // correctly deleted
-  ['src/sx-jest-snapshot-serializer/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/sx-jest-snapshot-serializer/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

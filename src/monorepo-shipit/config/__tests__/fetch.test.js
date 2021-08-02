@@ -14,9 +14,5 @@ testExportedPaths(path.join(__dirname, '..', 'fetch.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/fetch/BUILD.bazel', undefined], // correctly deleted
-  ['src/fetch/BUILD', undefined], // correctly deleted
-  ['src/fetch/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/fetch/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);
