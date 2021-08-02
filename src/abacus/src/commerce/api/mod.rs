@@ -4,6 +4,7 @@ pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
 pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
 
+use crate::commerce::model::product_addons::ProductAddon;
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use crate::locale::SupportedLocale;
@@ -98,6 +99,20 @@ impl CommerceQuery {
     ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
         Ok(
             crate::commerce::model::product_categories::search_all_product_categories(
+                &context,
+                &client_locale,
+            )
+            .await?,
+        )
+    }
+
+    /// Returns ALL available product addons that can be assigned to products.
+    async fn search_all_product_addons(
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductAddon>>> {
+        Ok(
+            crate::commerce::model::product_addons::search_all_product_addons(
                 &context,
                 &client_locale,
             )

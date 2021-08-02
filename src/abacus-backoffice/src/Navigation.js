@@ -26,7 +26,7 @@ export default function Navigation(): React.Node {
         <fbt desc="navigation link to products categories">Products categories</fbt>
       </Link>
       <Link href="/products/add-ons" xstyle={styles.link} xstyleActive={styles.linkActive}>
-        <fbt desc="navigation link to products add-ons">Products add-ons</fbt>
+        <fbt desc="navigation link to product add-ons">Product add-ons</fbt>
       </Link>
       <Link href="/employees" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to employees">Employees</fbt>

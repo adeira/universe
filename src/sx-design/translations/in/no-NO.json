@@ -60,16 +60,6 @@
           "variations": []
         }
       ]
-    },
-    "EOd766uj+UXLW6PuEboc/A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Du bør angi alternativ bildetekst via `imgAlt` propertien. Dette er viktig for de brukerne som er avhengig av skjermlesere, slik at de kan forstå innholdet på nettsiden.",
-          "variations": []
-        }
-      ]
     }
   }
 }

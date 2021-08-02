@@ -115,6 +115,7 @@ pub(in crate::commerce) async fn get_assigned_product_categories(
     resolve_aql_vector(
         &pool,
         r#"
+            WITH product_categories
             FOR category IN OUTBOUND @product_id product_categories_edges
               LET t = FIRST(
                 FOR t IN category.translations
