@@ -57,7 +57,6 @@ Legend:
 | [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Heading />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -69,7 +68,6 @@ Legend:
 | [`<Note />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Placeholder />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Section />`]       |     ✅      |     ✅      |      ✅       |    🧐    |  🧐   |
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Tabs />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
@@ -83,7 +81,6 @@ Legend:
 [`<entity />`]: https://sx-design.vercel.app/?path=/story/components-entity
 [`<entityfield />`]: https://sx-design.vercel.app/?path=/story/components-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/components-errorboundary
-[`<heading />`]: https://sx-design.vercel.app/?path=/story/components-heading
 [`<image />`]: https://sx-design.vercel.app/?path=/story/components-image
 [`<kbd />`]: https://sx-design.vercel.app/?path=/story/components-kbd
 [`<link />`]: https://sx-design.vercel.app/?path=/story/components-link
@@ -95,7 +92,6 @@ Legend:
 [`<note />`]: https://sx-design.vercel.app/?path=/story/components-note
 [`<placeholder />`]: https://sx-design.vercel.app/?path=/story/components-placeholder
 [`<productcard />`]: https://sx-design.vercel.app/?path=/story/components-productcard
-[`<section />`]: https://sx-design.vercel.app/?path=/story/components-section
 [`<skeleton />`]: https://sx-design.vercel.app/?path=/story/components-skeleton
 [`<skiplink />`]: https://sx-design.vercel.app/?path=/story/components-skiplink
 [`<tabs />`]: https://sx-design.vercel.app/?path=/story/components-tabs
