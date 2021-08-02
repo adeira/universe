@@ -1,7 +1,7 @@
 // @flow
 
 import sx from '@adeira/sx';
-import { Heading, Section, ButtonLink } from '@adeira/sx-design';
+import { ButtonLink, Text } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -39,11 +39,11 @@ export default function ShopLayout(): Node {
         <fbt desc="shop page subtitle">Support our cats by buying some of our products</fbt>
       }
     >
-      <Section xstyle={styles.shopGrid}>
+      <div className={styles('shopGrid')}>
         <div className={styles('shopGridCategories')}>
-          <Heading>
+          <Text as="h2">
             <fbt desc="shop categories selection title">All Categories</fbt>
-          </Heading>
+          </Text>
           <div>
             <ButtonLink
               onClick={() => {
@@ -59,13 +59,15 @@ export default function ShopLayout(): Node {
             </ButtonLink>
           </div>
         </div>
+
         <div>
           <ShopLayoutContent />
         </div>
+
         <div className={styles('shopGridRelevance')}>
-          <Heading>
+          <Text as="h2">
             <fbt desc="shop relevance selection title">Relevance</fbt>
-          </Heading>
+          </Text>
           <div>
             <ButtonLink
               onClick={() => {
@@ -93,7 +95,7 @@ export default function ShopLayout(): Node {
             </ButtonLink>
           </div>
         </div>
-      </Section>
+      </div>
     </Layout>
   );
 }

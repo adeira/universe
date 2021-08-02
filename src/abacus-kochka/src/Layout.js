@@ -4,7 +4,7 @@ import { invariant } from '@adeira/js';
 import Head from 'next/head';
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { Heading } from '@adeira/sx-design';
+import { Text } from '@adeira/sx-design';
 
 import LayoutFooter from './LayoutFooter';
 import LayoutNavigation from './LayoutNavigation';
@@ -12,15 +12,15 @@ import LayoutNavigation from './LayoutNavigation';
 type Props =
   | {
       +children: React.Node,
-      +title: React.Node,
-      +subtitle?: React.Node,
+      +title: Fbt,
+      +subtitle?: Fbt,
       +withFullWidth?: boolean,
       +withHiddenTitle?: false,
     }
   | {
       +children: React.Node,
-      +title?: React.Node,
-      +subtitle?: React.Node,
+      +title?: Fbt,
+      +subtitle?: Fbt,
       +withFullWidth?: boolean,
       +withHiddenTitle: true,
     };
@@ -45,7 +45,7 @@ export default function Layout(props: Props): React.Node {
 
         {props.withHiddenTitle === true ? null : (
           <div className={styles('heading')}>
-            <Heading>{props.title}</Heading>
+            <Text as="h1">{props.title}</Text>
             <div className={styles('subtitle')}>{props.subtitle}</div>
           </div>
         )}
