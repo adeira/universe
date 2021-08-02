@@ -13,6 +13,7 @@ pub(crate) enum CommerceActions {
     UnpublishProduct,
     GetAllProducts, // means ALL - published/unpublished
     GetAllProductCategories,
+    GetAllProductAddons,
 }
 
 pub(crate) enum FilesActions {
@@ -89,6 +90,9 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                                 CommerceActions::GetAllProducts => act = "get_all_products",
                                 CommerceActions::GetAllProductCategories => {
                                     act = "get_all_product_categories"
+                                }
+                                CommerceActions::GetAllProductAddons => {
+                                    act = "get_all_product_addons"
                                 }
                             };
                         }

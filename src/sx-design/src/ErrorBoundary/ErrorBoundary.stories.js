@@ -52,10 +52,18 @@ const ShortTemplate = (args) => (
 initFbt();
 
 // 👇 Each story then reuses that template
-export const Default: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
-Default.storyName = 'Default';
-Default.args = {
+export const DefaultDEV: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
+DefaultDEV.storyName = 'Default (DEV)';
+DefaultDEV.args = {
   onRetry: () => window.location.reload(),
+  showErrorMessage: true, // in reality, we use `__DEV__` by default
+};
+
+export const DefaultPROD: StoryTemplate<typeof ErrorBoundary> = Template.bind({});
+DefaultPROD.storyName = 'Default (PROD)';
+DefaultPROD.args = {
+  onRetry: () => window.location.reload(),
+  showErrorMessage: false, // in reality, we use `__DEV__` by default
 };
 
 export const CustomTitle: StoryTemplate<typeof ErrorBoundary> = Template.bind({});

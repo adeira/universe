@@ -47,5 +47,23 @@ const BasicTemplate = (args) => (
 initFbt();
 
 // 👇 Each story then reuses that template
-export const Default: StoryTemplate<typeof LayoutBlock> = BasicTemplate.bind({});
-Default.storyName = 'Default';
+export const SpacingSmall: StoryTemplate<typeof LayoutBlock> = BasicTemplate.bind({});
+SpacingSmall.storyName = 'Small spacing (default)';
+
+export const SpacingMedium: StoryTemplate<typeof LayoutBlock> = BasicTemplate.bind({});
+SpacingMedium.storyName = 'Medium spacing';
+SpacingMedium.args = {
+  spacing: 'medium',
+};
+
+export const SpacingLarge: StoryTemplate<typeof LayoutBlock> = BasicTemplate.bind({});
+SpacingLarge.storyName = 'Large spacing';
+SpacingLarge.args = {
+  spacing: 'large',
+};
+
+export const SpacingNone: StoryTemplate<typeof LayoutBlock> = BasicTemplate.bind({});
+SpacingNone.storyName = 'None spacing';
+SpacingNone.args = {
+  spacing: 'none',
+};
