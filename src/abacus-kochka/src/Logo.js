@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { Heading } from '@adeira/sx-design';
 
 import KochkaIcon from './design/svg/KochkaIcon';
 
@@ -20,13 +19,13 @@ export default function Logo(props: Props): React.Node {
       <KochkaIcon size={isSmall ? 100 : 200} onWhiteBackground={props.onWhiteBackground} />
 
       <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
-        <Heading xstyle={isSmall ? styles.kochkaSmall : styles.kochka}>
+        <h1 className={styles(isSmall ? 'kochkaSmall' : 'kochka')}>
           KOCHKA
           <span className={styles('cafe', isSmall && 'cafeSmall')}>
             {/* TODO: this should be even lighter (fontWeight:100) */}
             CAFÉ
           </span>
-        </Heading>
+        </h1>
       </div>
     </div>
   );
@@ -49,8 +48,6 @@ const styles = sx.create({
   headingHorizontal: {
     marginInlineStart: 20,
   },
-  // FIXME:
-  // eslint-disable-next-line sx/no-unused-stylesheet
   kochka: {
     letterSpacing: '0.05em',
     fontSize: '100px',
@@ -61,8 +58,6 @@ const styles = sx.create({
     flexDirection: 'column',
     alignItems: 'center',
   },
-  // FIXME:
-  // eslint-disable-next-line sx/no-unused-stylesheet
   kochkaSmall: {
     fontSize: '25px',
     letterSpacing: '0.05em',
