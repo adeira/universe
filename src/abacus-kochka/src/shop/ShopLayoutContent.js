@@ -3,9 +3,8 @@
 import { rangeMap } from '@adeira/js';
 import * as React from 'react';
 import { graphql, QueryRenderer } from '@adeira/relay';
-import { ProductCard, Skeleton, Note, Button } from '@adeira/sx-design';
+import { ProductCard, Skeleton, Note, Button, LayoutGrid } from '@adeira/sx-design';
 import { fbt } from 'fbt';
-import sx from '@adeira/sx';
 import { useRecoilValue } from 'recoil';
 
 import LinkInternal from '../LinkInternal';
@@ -24,9 +23,10 @@ export default function ShopLayoutContent(): React.Node {
           $priceSortDirection: PriceSortDirection!
         ) {
           commerce {
-            products: searchPublishedProducts(
+            products: searchAllPublishedProducts(
               clientLocale: $clientLocale
               priceSortDirection: $priceSortDirection
+              visibility: ESHOP
             ) {
               key
               name
@@ -49,11 +49,11 @@ export default function ShopLayoutContent(): React.Node {
       onLoading={() => {
         // Loading screen (first Skeleton, then Blurhash, then the actual image):
         return (
-          <div className={styles('productsGrid')}>
+          <LayoutGrid>
             {rangeMap(12, (i) => (
               <Skeleton key={i} />
             ))}
-          </div>
+          </LayoutGrid>
         );
       }}
       onSystemError={({ retry }) => {
@@ -82,7 +82,7 @@ export default function ShopLayoutContent(): React.Node {
         }
 
         return (
-          <div className={styles('productsGrid')}>
+          <LayoutGrid>
             {products.map((product) => {
               return (
                 <LinkInternal key={product.key} href={`/shop/${product.key}`}>
@@ -99,17 +99,9 @@ export default function ShopLayoutContent(): React.Node {
                 </LinkInternal>
               );
             })}
-          </div>
+          </LayoutGrid>
         );
       }}
     />
   );
 }
-
-const styles = sx.create({
-  productsGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-    gap: '1rem',
-  },
-});
