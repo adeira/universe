@@ -1,13 +1,11 @@
 // @flow strict
 
 module.exports = {
-  presets: ['@adeira/babel-preset-adeira', 'next/babel'],
-  /**
-   * test-bc script broke after upgrading some babel packages.
-   * Adding @babel/plugin-proposal-class-properties made it work, but it should not be necessary
-   * to add it here, since we already have it in @adeira/babel-preset-adeira.
-   * We need to leave it here for now for the test-bc script to work, but we should try
-   * to remove it in the future
-   */
-  plugins: ['relay', '@babel/plugin-proposal-class-properties'],
+  presets: ['@adeira/babel-preset-adeira'],
+  // For some unknown reason, we have to specify here the `class-properties` Babel plugin explicitly
+  // even though it's already part of `@adeira/babel-preset-adeira`. Seems like `next/babel` preset
+  // is somehow interfering with our preset because removing it fixes the issue as well.
+  //
+  // See: https://github.com/adeira/universe/issues/1854
+  plugins: ['relay'],
 };

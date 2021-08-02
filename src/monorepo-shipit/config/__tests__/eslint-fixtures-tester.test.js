@@ -10,9 +10,5 @@ testExportedPaths(path.join(__dirname, '..', 'eslint-fixtures-tester.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/eslint-fixtures-tester/BUILD.bazel', undefined], // correctly deleted
-  ['src/eslint-fixtures-tester/BUILD', undefined], // correctly deleted
-  ['src/eslint-fixtures-tester/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/eslint-fixtures-tester/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

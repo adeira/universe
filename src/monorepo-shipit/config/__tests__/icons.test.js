@@ -13,9 +13,5 @@ testExportedPaths(path.join(__dirname, '..', 'icons.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/icons/BUILD.bazel', undefined], // correctly deleted
-  ['src/icons/BUILD', undefined], // correctly deleted
-  ['src/icons/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/icons/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

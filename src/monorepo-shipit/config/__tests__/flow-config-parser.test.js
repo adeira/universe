@@ -12,9 +12,5 @@ testExportedPaths(path.join(__dirname, '..', 'flow-config-parser.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/flow-config-parser/BUILD.bazel', undefined], // correctly deleted
-  ['src/flow-config-parser/BUILD', undefined], // correctly deleted
-  ['src/flow-config-parser/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/flow-config-parser/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

@@ -10,9 +10,5 @@ testExportedPaths(path.join(__dirname, '..', 'graphql-bc-checker.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/graphql-bc-checker/BUILD.bazel', undefined], // correctly deleted
-  ['src/graphql-bc-checker/BUILD', undefined], // correctly deleted
-  ['src/graphql-bc-checker/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/graphql-bc-checker/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);

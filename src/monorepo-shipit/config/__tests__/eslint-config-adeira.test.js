@@ -11,9 +11,5 @@ testExportedPaths(path.join(__dirname, '..', 'eslint-config-adeira.js'), [
 
   // invalid cases:
   ['src/packages/monorepo/outsideScope.js', undefined], // correctly deleted
-  ['src/eslint-config-adeira/BUILD.bazel', undefined], // correctly deleted
-  ['src/eslint-config-adeira/BUILD', undefined], // correctly deleted
-  ['src/eslint-config-adeira/WORKSPACE.bazel', undefined], // correctly deleted
-  ['src/eslint-config-adeira/WORKSPACE', undefined], // correctly deleted
   ['package.json', undefined], // correctly deleted
 ]);
