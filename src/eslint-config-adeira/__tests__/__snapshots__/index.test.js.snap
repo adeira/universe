@@ -135,6 +135,7 @@ Object {
     "flowtype/delimiter-dangle": "off",
     "flowtype/enforce-line-break": 0,
     "flowtype/generic-spacing": "off",
+    "flowtype/interface-id-match": 0,
     "flowtype/newline-after-flow-annotation": Array [
       2,
       "always",
