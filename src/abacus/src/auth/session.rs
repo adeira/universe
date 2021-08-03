@@ -55,7 +55,7 @@ pub(crate) fn derive_session_token_hash(session_token: &str) -> String {
     );
 
     // https://rust-lang-nursery.github.io/rust-cookbook/cryptography/encryption.html
-    data_encoding::HEXLOWER.encode(&hash.as_ref())
+    data_encoding::HEXLOWER.encode(hash.as_ref())
 }
 
 #[derive(Clone, Deserialize)]

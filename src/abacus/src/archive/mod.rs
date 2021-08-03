@@ -28,7 +28,7 @@ where
     T: Serialize,
 {
     resolve_aql(
-        &pool,
+        pool,
         r#"
             INSERT {
               original_id: @original_id,

@@ -15,7 +15,7 @@ pub(in crate::commerce) async fn create_product(
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
@@ -68,7 +68,7 @@ pub(in crate::commerce) async fn update_product(
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
@@ -119,7 +119,7 @@ pub(in crate::commerce) async fn publish_product(
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
@@ -157,7 +157,7 @@ pub(in crate::commerce) async fn unpublish_product(
 ) -> anyhow::Result<Product> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
 
@@ -195,10 +195,10 @@ pub(in crate::commerce) async fn get_product_by_key(
     product_published_only: &bool,
 ) -> anyhow::Result<Product> {
     let product_vector = get_products_by_keys(
-        &pool,
-        &client_locale,
+        pool,
+        client_locale,
         &[product_key.to_string()],
-        &product_published_only,
+        product_published_only,
     )
     .await?;
 
@@ -216,7 +216,7 @@ pub(in crate::commerce) async fn get_products_by_keys(
 ) -> anyhow::Result<Vec<Product>> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             LET products = DOCUMENT(products, @product_keys)
             FOR product IN products
@@ -264,7 +264,7 @@ pub(in crate::commerce) async fn search_products(
     };
 
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR product IN products
               FILTER @search_all == true ? true : (product.is_published IN [true])
@@ -298,7 +298,7 @@ pub(in crate::commerce) async fn search_products_in_categories(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    categories: &Vec<juniper::ID>,
+    categories: &[juniper::ID],
     search_all: &bool,
     visibility: &Option<ProductMultilingualInputVisibility>,
 ) -> anyhow::Result<Vec<Option<Product>>> {
@@ -313,7 +313,7 @@ pub(in crate::commerce) async fn search_products_in_categories(
     };
 
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR category IN @categories
               FOR product,e,p IN INBOUND category GRAPH product_categories
@@ -352,7 +352,7 @@ pub(in crate::commerce) async fn delete_product(
 ) -> anyhow::Result<Product> {
     // First, fetch product that is being deleted so we can return it later:
     let deleted_product = resolve_aql(
-        &pool,
+        pool,
         r#"
             LET unit_label_translated = DOCUMENT("product_units/piece")[@client_locale]
             LET product = DOCUMENT(products, @product_key)
@@ -386,5 +386,5 @@ pub(in crate::commerce) async fn delete_product(
     )
     .await?;
 
-    return deleted_product;
+    deleted_product
 }

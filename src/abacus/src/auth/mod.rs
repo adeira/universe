@@ -38,29 +38,29 @@ pub(in crate::auth) async fn authorize(
     google_id_token: &str,
 ) -> anyhow::Result<String> {
     let mut cached_certs = certs::CachedCertsProduction::new();
-    let token_data = verify_id_token_integrity(&google_id_token, &mut cached_certs).await?; // (1.)
+    let token_data = verify_id_token_integrity(google_id_token, &mut cached_certs).await?; // (1.)
 
-    match find_user_by_google_claims(&pool, &token_data.claims.subject()).await? {
+    match find_user_by_google_claims(pool, token_data.claims.subject()).await? {
         // the user already exists (2a.)
         Some(user) => {
             if !user.is_active() {
                 anyhow::bail!("user is not activated yet");
             }
 
-            if let Some(session) = find_session_by_user(&pool, &user).await {
+            if let Some(session) = find_session_by_user(pool, &user).await {
                 // first, delete the old session (so we don't have many old but valid sessions)
-                delete_user_session(&pool, &session.session_token_hash()).await?;
+                delete_user_session(pool, session.session_token_hash()).await?;
             }
 
             // create a new session
             let session_token = session::generate_session_token();
             let session_token_hash = derive_session_token_hash(&session_token);
-            create_new_user_session(&pool, &session_token_hash, &user).await?;
+            create_new_user_session(pool, &session_token_hash, &user).await?;
             Ok(session_token)
         }
         None => {
             // new user with valid Google ID token - create and reject it (2b.)
-            create_inactive_user_by_google_claims(&pool, &token_data.claims).await?;
+            create_inactive_user_by_google_claims(pool, &token_data.claims).await?;
             anyhow::bail!("user does not exist yet")
         }
     }
@@ -72,8 +72,8 @@ pub(in crate::auth) async fn deauthorize(
     pool: &crate::arango::ConnectionPool,
     session_token: &str,
 ) -> anyhow::Result<bool> {
-    let session_token_hash = derive_session_token_hash(&session_token);
-    delete_user_session(&pool, &session_token_hash).await?;
+    let session_token_hash = derive_session_token_hash(session_token);
+    delete_user_session(pool, &session_token_hash).await?;
     Ok(true) // success
 }
 
@@ -82,8 +82,8 @@ pub(in crate) async fn resolve_user_from_session_token(
     pool: &crate::arango::ConnectionPool,
     session_token: &str,
 ) -> User {
-    let session_token_hash = derive_session_token_hash(&session_token);
-    match get_user_by_session_token_hash(&pool, &session_token_hash).await {
+    let session_token_hash = derive_session_token_hash(session_token);
+    match get_user_by_session_token_hash(pool, &session_token_hash).await {
         Ok(user) => User::SignedUser(SignedUser::from(user)),
         Err(error) => {
             tracing::error!("{}", error);

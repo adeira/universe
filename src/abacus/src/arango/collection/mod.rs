@@ -136,7 +136,7 @@ impl<'a, C: ClientExt> Collection<C> {
     /// information on valid collection names.
     #[allow(dead_code)]
     pub fn name(&self) -> &str {
-        &self.name.as_str()
+        self.name.as_str()
     }
 
     /// Collection url: http://server:port/_db/mydb/_api/collection/{collection-name}

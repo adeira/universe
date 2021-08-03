@@ -85,18 +85,18 @@ fn create_id_token_validation(iss: &str) -> Validation {
 }
 
 fn validate_id_token(id_token: &str, cert: &CertKey) -> anyhow::Result<TokenData<Claims>> {
-    let decoding_key = &DecodingKey::from_rsa_components(&cert.modulus(), &cert.exponent());
+    let decoding_key = &DecodingKey::from_rsa_components(cert.modulus(), cert.exponent());
     match decode(
-        &id_token,
-        &decoding_key,
+        id_token,
+        decoding_key,
         &create_id_token_validation("https://accounts.google.com"),
     ) {
         Ok(token_data) => Ok(token_data),
         Err(_) => {
             // OK, so the first call failed. Let's try the alternative `iss` before failing:
             Ok(decode(
-                &id_token,
-                &decoding_key,
+                id_token,
+                decoding_key,
                 &create_id_token_validation("accounts.google.com"),
             )?)
         }
@@ -122,10 +122,10 @@ pub async fn verify_id_token_integrity<T: CachedCerts>(
     cached_certs: &mut T,
 ) -> anyhow::Result<TokenData<Claims>> {
     // unsafe_* to remind that this header was not verified
-    let unsafe_header = decode_header(&id_token)?;
+    let unsafe_header = decode_header(id_token)?;
     if let Some(kid) = unsafe_header.kid {
         if let Some(key) = cached_certs.get_key_by_kid(&*kid).await {
-            validate_id_token(&id_token, &key)
+            validate_id_token(id_token, &key)
         } else {
             anyhow::bail!("cannot obtain Google certificate for key ID: '{}'", kid);
         }

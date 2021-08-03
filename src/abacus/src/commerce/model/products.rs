@@ -180,7 +180,7 @@ impl Product {
     ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
         Ok(
             crate::commerce::model::product_categories::search_all_product_categories(
-                &context,
+                context,
                 &client_locale,
             )
             .await?,
@@ -196,7 +196,7 @@ impl Product {
     ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
         Ok(
             crate::commerce::model::product_categories::get_assigned_product_categories(
-                &context,
+                context,
                 &client_locale,
                 &self._id,
             )
@@ -247,6 +247,7 @@ pub struct ProductMultilingualTranslations {
 
 /// Specifies additional visibility of the product. Each product is always visible in the backoffice
 /// but can additionally be displayed in POS, eshop (public) or both.
+#[allow(clippy::upper_case_acronyms)]
 #[derive(juniper::GraphQLEnum, Copy, Clone, Serialize, Deserialize, Debug)]
 pub enum ProductMultilingualInputVisibility {
     /// Visible in eshop only (therefore it's public).
@@ -319,8 +320,8 @@ pub(in crate::commerce) async fn search_all_products(
     rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
     crate::commerce::dal::products::search_products(
         &context.pool,
-        &client_locale,
-        &price_sort_direction,
+        client_locale,
+        price_sort_direction,
         &true, // search all including unpublished ones
         &None, // no visibility restrictions
     )
@@ -333,20 +334,20 @@ pub(in crate::commerce) async fn search_all_products_in_categories(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    categories: &Vec<juniper::ID>,
+    categories: &[juniper::ID],
 ) -> anyhow::Result<Vec<Option<Product>>> {
     rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
     validate_product_categories(
-        &context,
-        &client_locale,
+        context,
+        client_locale,
         &categories.iter().map(|id| id.to_string()).collect(),
     )
     .await?;
     crate::commerce::dal::products::search_products_in_categories(
         &context.pool,
-        &client_locale,
-        &price_sort_direction,
-        &categories,
+        client_locale,
+        price_sort_direction,
+        categories,
         &true, // search all including unpublished ones
         &None, // no visibility restrictions
     )
@@ -371,8 +372,8 @@ pub(in crate::commerce) async fn search_all_published_products(
 
     crate::commerce::dal::products::search_products(
         &context.pool,
-        &client_locale,
-        &price_sort_direction,
+        client_locale,
+        price_sort_direction,
         &false, // do not search all (published only)
         &Some(*visibility),
     )
@@ -384,7 +385,7 @@ pub(in crate::commerce) async fn search_all_published_products_in_categories(
     context: &Context,
     client_locale: &SupportedLocale,
     price_sort_direction: &PriceSortDirection,
-    categories: &Vec<juniper::ID>,
+    categories: &[juniper::ID],
     visibility: &ProductMultilingualInputVisibility,
 ) -> anyhow::Result<Vec<Option<Product>>> {
     // TODO: DRY with `search_all_published_products`
@@ -398,17 +399,17 @@ pub(in crate::commerce) async fn search_all_published_products_in_categories(
     }
 
     validate_product_categories(
-        &context,
-        &client_locale,
+        context,
+        client_locale,
         &categories.iter().map(|id| id.to_string()).collect(),
     )
     .await?;
 
     crate::commerce::dal::products::search_products_in_categories(
         &context.pool,
-        &client_locale,
-        &price_sort_direction,
-        &categories,
+        client_locale,
+        price_sort_direction,
+        categories,
         &false, // do not search all (published only)
         &Some(*visibility),
     )
@@ -423,8 +424,8 @@ pub(in crate::commerce) async fn get_published_product_by_key(
     // Anyone can get the published product (it's not limited to admins only).
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
-        &client_locale,
-        &product_key,
+        client_locale,
+        product_key,
         &true, // product must be published to be publicly available
     )
     .await?;
@@ -443,8 +444,8 @@ pub(in crate::commerce) async fn get_published_products_by_keys(
     // Anyone can get the published products (it's not limited to admins only).
     crate::commerce::dal::products::get_products_by_keys(
         &context.pool,
-        &client_locale,
-        &product_keys,
+        client_locale,
+        product_keys,
         &true, // products must be published to be publicly available
     )
     .await
@@ -459,8 +460,8 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
 
     crate::commerce::dal::products::get_product_by_key(
         &context.pool,
-        &client_locale,
-        &product_key,
+        client_locale,
+        product_key,
         &false, // any product (published or unpublished)
     )
     .await
@@ -476,10 +477,10 @@ pub(in crate::commerce) async fn create_product(
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(CreateProduct)).await?;
 
-    validate_product_multilingual_input(&product_multilingual_input)?;
+    validate_product_multilingual_input(product_multilingual_input)?;
     validate_product_categories(
-        &context,
-        &client_locale,
+        context,
+        client_locale,
         &product_multilingual_input.categories(),
     )
     .await?;
@@ -487,14 +488,14 @@ pub(in crate::commerce) async fn create_product(
     // First, we process the product images.
     let mut images = vec![];
     if context.uploadables.is_some() {
-        images = crate::images::process_new_images(&context, &product_multilingual_input).await?;
+        images = crate::images::process_new_images(context, product_multilingual_input).await?;
     }
 
     // Then, we create the product with the previously created images.
     let created_product = crate::commerce::dal::products::create_product(
         &context.pool,
-        &client_locale,
-        &product_multilingual_input,
+        client_locale,
+        product_multilingual_input,
         &images,
     )
     .await?;
@@ -504,7 +505,7 @@ pub(in crate::commerce) async fn create_product(
         &context.pool,
         &created_product.id(),
         &product_multilingual_input.categories(),
-        &client_locale,
+        client_locale,
     )
     .await?;
 
@@ -520,18 +521,18 @@ pub(in crate::commerce) async fn update_product(
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(UpdateProduct)).await?;
 
-    validate_product_multilingual_input(&product_multilingual_input)?;
+    validate_product_multilingual_input(product_multilingual_input)?;
     validate_product_categories(
-        &context,
-        &client_locale,
+        context,
+        client_locale,
         &product_multilingual_input.categories(),
     )
     .await?;
 
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
-        &client_locale,
-        &product_key,
+        client_locale,
+        product_key,
         &false, // both published and unpublished
     )
     .await?;
@@ -540,7 +541,7 @@ pub(in crate::commerce) async fn update_product(
     let mut new_images = vec![];
     if context.uploadables.is_some() {
         new_images =
-            crate::images::process_updated_images(&context, &product_multilingual_input).await?;
+            crate::images::process_updated_images(context, product_multilingual_input).await?;
     }
 
     // delete old images
@@ -557,7 +558,7 @@ pub(in crate::commerce) async fn update_product(
             }
             None => {
                 // `product_image` no longer exists in the input so we should delete it
-                crate::images::delete_image(&context, &product_image).await?;
+                crate::images::delete_image(context, &product_image).await?;
             }
         }
     }
@@ -568,10 +569,10 @@ pub(in crate::commerce) async fn update_product(
     // update the product
     let updated_product = crate::commerce::dal::products::update_product(
         &context.pool,
-        &client_locale,
-        &product_key,
-        &product_revision,
-        &product_multilingual_input,
+        client_locale,
+        product_key,
+        product_revision,
+        product_multilingual_input,
         &existing_images,
     )
     .await?;
@@ -581,7 +582,7 @@ pub(in crate::commerce) async fn update_product(
         &context.pool,
         &updated_product.id(),
         &product_multilingual_input.categories(),
-        &client_locale,
+        client_locale,
     )
     .await?;
 
@@ -605,7 +606,7 @@ pub(in crate::commerce) async fn publish_product(
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
         &SupportedLocale::EnUS,
-        &product_key,
+        product_key,
         &false, // search in all (not only the published ones)
     )
     .await?;
@@ -629,8 +630,7 @@ pub(in crate::commerce) async fn publish_product(
     }
 
     // finally, publish the product:
-    crate::commerce::dal::products::publish_product(&context.pool, &product_key, &client_locale)
-        .await
+    crate::commerce::dal::products::publish_product(&context.pool, product_key, client_locale).await
 }
 
 pub(in crate::commerce) async fn unpublish_product(
@@ -641,7 +641,7 @@ pub(in crate::commerce) async fn unpublish_product(
     rbac::verify_permissions(&context.user, &Commerce(UnpublishProduct)).await?;
 
     // unpublish the product:
-    crate::commerce::dal::products::unpublish_product(&context.pool, &product_key, &client_locale)
+    crate::commerce::dal::products::unpublish_product(&context.pool, product_key, client_locale)
         .await
 }
 
@@ -663,8 +663,8 @@ pub(in crate::commerce) async fn archive_product(
     // 1. get the old product
     let product_old = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
-        &client_locale,
-        &product_key,
+        client_locale,
+        product_key,
         &false, // both published and unpublished
     )
     .await?;
@@ -674,12 +674,11 @@ pub(in crate::commerce) async fn archive_product(
 
     // 3. delete all related pictures
     for image in product_old.images() {
-        crate::images::delete_image(&context, &image).await?;
+        crate::images::delete_image(context, &image).await?;
     }
 
     // 4. hard delete the product
-    crate::commerce::dal::products::delete_product(&context.pool, &product_key, &client_locale)
-        .await
+    crate::commerce::dal::products::delete_product(&context.pool, product_key, client_locale).await
 }
 
 #[cfg(test)]

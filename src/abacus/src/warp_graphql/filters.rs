@@ -19,7 +19,7 @@ pub(crate) fn graphql(
     schema: Schema,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     let schema = Arc::new(schema); // TODO: is this the right way?
-    graphql_post(&pool, schema.clone()).or(graphql_multipart(&pool, schema))
+    graphql_post(pool, schema.clone()).or(graphql_multipart(pool, schema))
 }
 
 /// POST /graphql with `application/json` body

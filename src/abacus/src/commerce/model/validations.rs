@@ -38,9 +38,9 @@ pub(in crate::commerce::model) async fn validate_product_categories(
     if !graphql_categories.is_empty() {
         let resolved_product_categories =
             crate::commerce::model::product_categories::get_product_categories_by_ids(
-                &context,
-                &client_locale,
-                &graphql_categories,
+                context,
+                client_locale,
+                graphql_categories,
             )
             .await?;
 

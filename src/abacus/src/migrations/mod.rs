@@ -36,35 +36,35 @@ pub async fn migrate(pool: &ConnectionPool) {
     // TODO: hide behind some macro (?)
     let migrations: Vec<(&str, MigrationFunction)> = vec![
         ("v0__migrations_init", |db| {
-            Box::pin(v0__migrations_init::migrate(&db))
+            Box::pin(v0__migrations_init::migrate(db))
         }),
         ("v1__create_collection_users_sessions", |db| {
-            Box::pin(v1__create_collection_users_sessions::migrate(&db))
+            Box::pin(v1__create_collection_users_sessions::migrate(db))
         }),
         ("v2__create_document_user_anonymous", |db| {
-            Box::pin(v2__create_document_user_anonymous::migrate(&db))
+            Box::pin(v2__create_document_user_anonymous::migrate(db))
         }),
         ("v3__create_document_user_admin", |db| {
-            Box::pin(v3__create_document_user_admin::migrate(&db))
+            Box::pin(v3__create_document_user_admin::migrate(db))
         }),
         ("v4__create_collection_products", |db| {
-            Box::pin(v4__create_collection_products::migrate(&db))
+            Box::pin(v4__create_collection_products::migrate(db))
         }),
         // TODO: v5__
         ("v6__create_collection_tracking", |db| {
-            Box::pin(v6__create_collection_tracking::migrate(&db))
+            Box::pin(v6__create_collection_tracking::migrate(db))
         }),
         ("v7__create_collection_pos_checkouts", |db| {
-            Box::pin(v7__create_collection_pos_checkouts::migrate(&db))
+            Box::pin(v7__create_collection_pos_checkouts::migrate(db))
         }),
         ("v8__create_collection_product_addons", |db| {
-            Box::pin(v8__create_collection_product_addons::migrate(&db))
+            Box::pin(v8__create_collection_product_addons::migrate(db))
         }),
         ("v9__create_collection_products_categories", |db| {
-            Box::pin(v9__create_collection_products_categories::migrate(&db))
+            Box::pin(v9__create_collection_products_categories::migrate(db))
         }),
         ("v10__create_collection_archive", |db| {
-            Box::pin(v10__create_collection_archive::migrate(&db))
+            Box::pin(v10__create_collection_archive::migrate(db))
         }),
     ];
 

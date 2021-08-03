@@ -17,17 +17,17 @@ impl ArangoDocument for ProductUnit {
 
 pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     create_collection(
-        &db,
+        db,
         "products",
         &CollectionType::Document,
         &serde_json::from_str(std::include_str!("json_schemas/products.json")).unwrap(),
     )
     .await?;
 
-    create_collection(&db, "product_units", &CollectionType::Document, &None).await?;
+    create_collection(db, "product_units", &CollectionType::Document, &None).await?;
 
     create_document(
-        &db,
+        db,
         "product_units",
         ProductUnit {
             _key: String::from("piece"),

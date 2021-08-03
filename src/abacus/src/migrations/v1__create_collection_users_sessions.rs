@@ -7,7 +7,7 @@ use crate::migrations::utils::{create_collection, create_graph, create_index};
 pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     // 1. create `users` table
     create_collection(
-        &db,
+        db,
         "users",
         &CollectionType::Document,
         &serde_json::from_str(std::include_str!("json_schemas/users.json")).unwrap(),
@@ -16,7 +16,7 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
 
     // 2. create `sessions` table
     create_collection(
-        &db,
+        db,
         "sessions",
         &CollectionType::Document,
         &serde_json::from_str(std::include_str!("json_schemas/sessions.json")).unwrap(),
@@ -24,11 +24,11 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     .await?;
 
     // 3. create edge between `users` and `sessions`
-    create_collection(&db, "user_sessions", &CollectionType::Edge, &None).await?;
+    create_collection(db, "user_sessions", &CollectionType::Edge, &None).await?;
 
     // 4. create TTL index for the sessions
     create_index(
-        &db,
+        db,
         "sessions",
         &Index::builder()
             .name("last_access_ttl_index") // required in migrations for idempotency
@@ -43,7 +43,7 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
 
     // 5. create sessions graph
     create_graph(
-        &db,
+        db,
         Graph::builder()
             .name(String::from("sessions"))
             .edge_definitions(vec![EdgeDefinition {

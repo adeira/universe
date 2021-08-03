@@ -56,7 +56,7 @@ pub(in crate::pos) async fn create_checkout(
     input: &PosCheckoutInput,
 ) -> anyhow::Result<PosCheckout> {
     resolve_aql(
-        &pool,
+        pool,
         r#"
             INSERT {
               created_date: DATE_ISO8601(DATE_NOW()),

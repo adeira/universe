@@ -16,8 +16,8 @@ impl ArangoDocument for User {
 pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     let collection_name = "users";
     create_document(
-        &db,
-        &collection_name,
+        db,
+        collection_name,
         User {
             _key: String::from("1"),
             is_active: true,

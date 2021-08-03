@@ -13,7 +13,7 @@ pub(in crate::commerce) async fn assign_product_categories(
     // First, we delete ALL old categories so we can save new set of categories. Also, this way, we
     // won't assign one category twice by accident.
     resolve_aql_vector::<ProductCategory>(
-        &pool,
+        pool,
         r#"
             FOR category,edge IN OUTBOUND @product_id product_categories_edges
               REMOVE edge IN product_categories_edges
@@ -58,7 +58,7 @@ pub(in crate::commerce) async fn search_all_product_categories(
     client_locale: &SupportedLocale,
 ) -> anyhow::Result<Vec<Option<ProductCategory>>> {
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR product_category IN product_categories
               LET t = FIRST(
@@ -85,7 +85,7 @@ pub(in crate::commerce) async fn get_product_categories_by_ids(
     product_category_ids: &[String],
 ) -> anyhow::Result<Vec<Option<ProductCategory>>> {
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR product_category IN DOCUMENT(product_categories, @product_category_ids)
               LET t = FIRST(
@@ -113,7 +113,7 @@ pub(in crate::commerce) async fn get_assigned_product_categories(
     product_id: &str,
 ) -> anyhow::Result<Vec<Option<ProductCategory>>> {
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             WITH product_categories
             FOR category IN OUTBOUND @product_id product_categories_edges

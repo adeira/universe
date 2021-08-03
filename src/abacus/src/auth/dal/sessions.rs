@@ -7,7 +7,7 @@ pub(crate) async fn find_session_by_user(
     user: &AnyUser,
 ) -> Option<Session> {
     let result_vector = resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR vertex IN 1..1 OUTBOUND @user_id GRAPH sessions
             RETURN vertex
@@ -35,7 +35,7 @@ pub(crate) async fn create_new_user_session(
 ) -> anyhow::Result<Session> {
     // we first create a sessions and then create a session edge (how to do it better (?))
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET new_session = FIRST(
               INSERT {
@@ -70,7 +70,7 @@ pub(crate) async fn delete_user_session(
     session_token_hash: &str,
 ) -> anyhow::Result<Session> {
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET session_id = CONCAT_SEPARATOR('/', 'sessions', @session_token_hash)
             LET r = (

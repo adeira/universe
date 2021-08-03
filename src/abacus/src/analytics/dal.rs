@@ -24,7 +24,7 @@ pub(in crate::analytics) async fn get_sold_product_stats(
     };
 
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR checkout IN pos_checkouts
               FOR selected_product IN checkout.selected_products

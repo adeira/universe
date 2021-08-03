@@ -8,7 +8,7 @@ pub(crate) async fn list_all_users(
     pool: &crate::arango::ConnectionPool,
 ) -> anyhow::Result<Vec<AnyUser>> {
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR user IN users
               FILTER user._id != "users/1" // hardcoded anonymous user
@@ -25,7 +25,7 @@ pub(crate) async fn find_user_by_google_claims(
     subject: &str,
 ) -> anyhow::Result<Option<AnyUser>> {
     resolve_aql(
-        &pool,
+        pool,
         r#"
             FOR user IN users
               FILTER user._id != "users/1" // hardcoded anonymous user
@@ -50,7 +50,7 @@ pub async fn get_user_by_session_token_hash(
     session_token_hash: &str,
 ) -> anyhow::Result<AnyUser> {
     resolve_aql(
-        &pool,
+        pool,
         r#"
             LET session_key = @session_token_hash
             LET session_id = CONCAT_SEPARATOR('/', 'sessions', session_key)
@@ -93,7 +93,7 @@ pub(crate) async fn create_inactive_user_by_google_claims(
     claims: &Claims,
 ) -> anyhow::Result<AnyUser> {
     resolve_aql(
-        &pool,
+        pool,
         r#"
             INSERT {
               is_active: false, // must be always FALSE first!

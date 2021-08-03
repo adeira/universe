@@ -41,7 +41,7 @@ impl CommerceQuery {
         match categories {
             Some(categories) => Ok(
                 crate::commerce::model::products::search_all_products_in_categories(
-                    &context,
+                    context,
                     &client_locale,
                     &price_sort_direction,
                     &categories,
@@ -49,7 +49,7 @@ impl CommerceQuery {
                 .await?,
             ),
             None => Ok(crate::commerce::model::products::search_all_products(
-                &context,
+                context,
                 &client_locale,
                 &price_sort_direction,
             )
@@ -72,7 +72,7 @@ impl CommerceQuery {
         match categories {
             Some(categories) => Ok(
                 crate::commerce::model::products::search_all_published_products_in_categories(
-                    &context,
+                    context,
                     &client_locale,
                     &price_sort_direction,
                     &categories,
@@ -82,7 +82,7 @@ impl CommerceQuery {
             ),
             None => Ok(
                 crate::commerce::model::products::search_all_published_products(
-                    &context,
+                    context,
                     &client_locale,
                     &price_sort_direction,
                     &visibility,
@@ -99,7 +99,7 @@ impl CommerceQuery {
     ) -> AbacusGraphQLResult<Vec<Option<ProductCategory>>> {
         Ok(
             crate::commerce::model::product_categories::search_all_product_categories(
-                &context,
+                context,
                 &client_locale,
             )
             .await?,
@@ -113,7 +113,7 @@ impl CommerceQuery {
     ) -> AbacusGraphQLResult<Vec<Option<ProductAddon>>> {
         Ok(
             crate::commerce::model::product_addons::search_all_product_addons(
-                &context,
+                context,
                 &client_locale,
             )
             .await?,
@@ -128,7 +128,7 @@ impl CommerceQuery {
     ) -> AbacusGraphQLResult<Product> {
         Ok(
             crate::commerce::model::products::get_published_product_by_key(
-                &context,
+                context,
                 &client_locale,
                 &product_key,
             )
@@ -144,7 +144,7 @@ impl CommerceQuery {
     ) -> AbacusGraphQLResult<Product> {
         Ok(
             crate::commerce::model::products::get_unpublished_product_by_key(
-                &context,
+                context,
                 &client_locale,
                 &product_key,
             )
@@ -166,7 +166,7 @@ impl CommerceMutation {
         product_multilingual_input: ProductMultilingualInput,
     ) -> ProductOrError {
         match crate::commerce::model::products::create_product(
-            &context,
+            context,
             &client_locale,
             &product_multilingual_input,
         )
@@ -195,7 +195,7 @@ impl CommerceMutation {
         product_multilingual_input: ProductMultilingualInput,
     ) -> ProductOrError {
         match crate::commerce::model::products::update_product(
-            &context,
+            context,
             &client_locale,
             &product_key,
             &product_revision,
@@ -223,7 +223,7 @@ impl CommerceMutation {
         client_locale: SupportedLocale,
     ) -> ProductOrError {
         match crate::commerce::model::products::archive_product(
-            &context,
+            context,
             &product_key,
             &client_locale,
         )
@@ -245,7 +245,7 @@ impl CommerceMutation {
         client_locale: SupportedLocale,
     ) -> ProductOrError {
         match crate::commerce::model::products::publish_product(
-            &context,
+            context,
             &product_key,
             &client_locale,
         )
@@ -267,7 +267,7 @@ impl CommerceMutation {
         client_locale: SupportedLocale,
     ) -> ProductOrError {
         match crate::commerce::model::products::unpublish_product(
-            &context,
+            context,
             &product_key,
             &client_locale,
         )
@@ -289,9 +289,9 @@ pub(crate) async fn get_products_by_keys(
     product_keys: &[String],
 ) -> anyhow::Result<Vec<Product>> {
     crate::commerce::model::products::get_published_products_by_keys(
-        &context,
-        &client_locale,
-        &product_keys,
+        context,
+        client_locale,
+        product_keys,
     )
     .await
 }

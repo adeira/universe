@@ -119,7 +119,7 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
         graphql_chunks.get("operation_name").map(String::from),
         graphql_chunks
             .get("variables")
-            .map(|v| serde_json::from_str(&v).unwrap()),
+            .map(|v| serde_json::from_str(v).unwrap()),
     );
 
     match get_current_user(&pool, &authorization_header).await {

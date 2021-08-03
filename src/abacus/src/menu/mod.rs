@@ -31,8 +31,8 @@ pub(in crate::menu) async fn get_section(
     match section {
         MenuSections::Coffee => {
             crate::commerce::api::get_products_by_keys(
-                &context,
-                &client_locale,
+                context,
+                client_locale,
                 &[
                     "2901328".to_string(), // Espresso
                     "3626010".to_string(), // Americano
@@ -47,8 +47,8 @@ pub(in crate::menu) async fn get_section(
         }
         MenuSections::Tea => {
             crate::commerce::api::get_products_by_keys(
-                &context,
-                &client_locale,
+                context,
+                client_locale,
                 &[
                     "3707024".to_string(), // Menta Amajagh
                     "3707079".to_string(), // Jasmine Mo Li Hua
@@ -62,8 +62,8 @@ pub(in crate::menu) async fn get_section(
         }
         MenuSections::Milkshakes => {
             crate::commerce::api::get_products_by_keys(
-                &context,
-                &client_locale,
+                context,
+                client_locale,
                 &[
                     "3763439".to_string(), // Banana milkshake
                 ],
@@ -72,8 +72,8 @@ pub(in crate::menu) async fn get_section(
         }
         MenuSections::Specialities => {
             crate::commerce::api::get_products_by_keys(
-                &context,
-                &client_locale,
+                context,
+                client_locale,
                 &[
                     "3763568".to_string(), // Matcha Latte
                     "3763681".to_string(), // Artisanal Chocolate
@@ -83,8 +83,8 @@ pub(in crate::menu) async fn get_section(
         }
         MenuSections::DumplingSweet => {
             crate::commerce::api::get_products_by_keys(
-                &context,
-                &client_locale,
+                context,
+                client_locale,
                 &[
                     "3761831".to_string(), // Choco Salem
                     "3761904".to_string(), // Manzana Azrael
@@ -98,8 +98,8 @@ pub(in crate::menu) async fn get_section(
         }
         MenuSections::DumplingSavory => {
             crate::commerce::api::get_products_by_keys(
-                &context,
-                &client_locale,
+                context,
+                client_locale,
                 &[
                     "3762230".to_string(), // Camarón Silvestre
                     "3762295".to_string(), // Pizza Félix

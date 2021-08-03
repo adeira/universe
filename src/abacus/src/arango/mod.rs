@@ -71,7 +71,7 @@ pub(crate) async fn resolve_aql<T: for<'de> Deserialize<'de>>(
     bind_vars: HashMap<&str, Value>,
 ) -> anyhow::Result<T> {
     let db = pool.db().await;
-    let result_vector = db.aql_bind_vars::<T>(&query, bind_vars).await?;
+    let result_vector = db.aql_bind_vars::<T>(query, bind_vars).await?;
     match result_vector.into_iter().next() {
         Some(result) => Ok(result),
         None => anyhow::bail!("database didn't return any item"),
@@ -85,7 +85,7 @@ pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     bind_vars: HashMap<&str, Value>,
 ) -> anyhow::Result<Vec<T>> {
     let db = pool.db().await;
-    match db.aql_bind_vars::<T>(&query, bind_vars).await {
+    match db.aql_bind_vars::<T>(query, bind_vars).await {
         Ok(result) => Ok(result),
         Err(error) => anyhow::bail!(error),
     }
@@ -115,7 +115,7 @@ impl ConnectionPool {
             .await
             .expect("could not get database connection from the pool");
 
-        get_or_create_db(&connection, &self.db_name).await
+        get_or_create_db(connection, &self.db_name).await
     }
 
     #[cfg(test)]

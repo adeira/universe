@@ -4,7 +4,7 @@ use crate::migrations::utils::create_collection;
 
 pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     create_collection(
-        &db,
+        db,
         "archive",
         &CollectionType::Document,
         &serde_json::from_str(std::include_str!("json_schemas/archive.json")).unwrap(),

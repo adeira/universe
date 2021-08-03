@@ -8,7 +8,7 @@ pub(in crate::commerce) async fn search_product_addons(
     client_locale: &SupportedLocale,
 ) -> anyhow::Result<Vec<Option<ProductAddon>>> {
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR product_addon IN product_addons
               LET t = FIRST(
