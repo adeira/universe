@@ -13,21 +13,15 @@ impl ArangoDocument for ProductCategory {
 }
 
 pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
-    create_collection(&db, "product_categories", &CollectionType::Document, &None).await?;
+    create_collection(db, "product_categories", &CollectionType::Document, &None).await?;
 
     // For example:
     //  _from:products/4575963 (for example Americano)
     //  _to:product_categories/coffee
-    create_collection(
-        &db,
-        "product_categories_edges",
-        &CollectionType::Edge,
-        &None,
-    )
-    .await?;
+    create_collection(db, "product_categories_edges", &CollectionType::Edge, &None).await?;
 
     create_graph(
-        &db,
+        db,
         Graph::builder()
             .name(String::from("product_categories"))
             .edge_definitions(vec![EdgeDefinition {
@@ -40,7 +34,7 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     .await?;
 
     create_graph_vertex(
-        &db,
+        db,
         "product_categories", // graph
         "product_categories", // collection
         &serde_json::from_str::<ProductCategory>(
@@ -62,7 +56,7 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     .await?;
 
     create_graph_vertex(
-        &db,
+        db,
         "product_categories", // graph
         "product_categories", // collection
         &serde_json::from_str::<ProductCategory>(
@@ -84,7 +78,7 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     .await?;
 
     create_graph_vertex(
-        &db,
+        db,
         "product_categories", // graph
         "product_categories", // collection
         &serde_json::from_str::<ProductCategory>(
@@ -106,7 +100,7 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
     .await?;
 
     create_graph_vertex(
-        &db,
+        db,
         "product_categories", // graph
         "product_categories", // collection
         &serde_json::from_str::<ProductCategory>(

@@ -13,11 +13,10 @@ pub(in crate::warp_graphql) async fn get_current_user(
     match authorization_header {
         Some(authorization_header) => {
             // auth header exists, let's try to parse it
-            match parse_authorization_header(&authorization_header) {
+            match parse_authorization_header(authorization_header) {
                 Ok(session_token) => {
                     // auth header successfully parsed (unverified)
-                    match crate::auth::resolve_user_from_session_token(&pool, &session_token).await
-                    {
+                    match crate::auth::resolve_user_from_session_token(pool, &session_token).await {
                         User::AnonymousUser(_) => {
                             tracing::error!("Unmatched session token 🛑");
                             Err(String::from("Session token doesn't match any user."))

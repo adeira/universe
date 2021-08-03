@@ -66,7 +66,7 @@ pub(in crate::commerce) async fn search_all_product_categories(
 
     crate::commerce::dal::product_categories::search_all_product_categories(
         &context.pool,
-        &client_locale,
+        client_locale,
     )
     .await
 }
@@ -80,8 +80,8 @@ pub(in crate::commerce) async fn get_product_categories_by_ids(
 
     crate::commerce::dal::product_categories::get_product_categories_by_ids(
         &context.pool,
-        &client_locale,
-        &product_category_ids,
+        client_locale,
+        product_category_ids,
     )
     .await
 }
@@ -95,8 +95,8 @@ pub(in crate::commerce) async fn get_assigned_product_categories(
 
     crate::commerce::dal::product_categories::get_assigned_product_categories(
         &context.pool,
-        &client_locale,
-        &product_id,
+        client_locale,
+        product_id,
     )
     .await
 }

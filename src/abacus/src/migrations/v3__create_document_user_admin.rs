@@ -54,5 +54,5 @@ pub async fn migrate(db: &DatabaseType) -> anyhow::Result<()> {
         google: user_google_claims,
     };
 
-    create_document(&db, "users", user).await
+    create_document(db, "users", user).await
 }

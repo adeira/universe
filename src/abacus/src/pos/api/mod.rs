@@ -67,7 +67,7 @@ impl POSMutation {
             .collect::<Vec<String>>();
 
         let products =
-            crate::commerce::api::get_products_by_keys(&context, &client_locale, &product_keys)
+            crate::commerce::api::get_products_by_keys(context, &client_locale, &product_keys)
                 .await;
 
         let selected_products = match products {

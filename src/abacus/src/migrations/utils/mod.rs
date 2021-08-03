@@ -57,7 +57,7 @@ pub(in crate::migrations) async fn create_document<T>(
 where
     T: Serialize + DeserializeOwned + ArangoDocument,
 {
-    let collection = db.collection(&collection_name).await.unwrap(); // TODO
+    let collection = db.collection(collection_name).await.unwrap(); // TODO
     match collection.document::<T>(document.idempotency_key()).await {
         Ok(_) => {
             // user already exists
@@ -82,7 +82,7 @@ pub(in crate::migrations) async fn create_index(
     collection_name: &str,
     index: &Index,
 ) -> anyhow::Result<()> {
-    match db.create_index(collection_name, &index).await {
+    match db.create_index(collection_name, index).await {
         Ok(_) => Ok(()),
         Err(e) => anyhow::bail!(e),
     }
@@ -117,7 +117,7 @@ where
     T: Serialize,
 {
     match db
-        .create_graph_vertex(&graph, &collection, &vertex, true)
+        .create_graph_vertex(graph, collection, &vertex, true)
         .await
     {
         Ok(_) => Ok(()),

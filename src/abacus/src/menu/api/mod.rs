@@ -15,6 +15,6 @@ impl MenuQuery {
         client_locale: SupportedLocale,
         section: MenuSections,
     ) -> AbacusGraphQLResult<Vec<Product>> {
-        Ok(crate::menu::get_section(&context, &client_locale, &section).await?)
+        Ok(crate::menu::get_section(context, &client_locale, &section).await?)
     }
 }

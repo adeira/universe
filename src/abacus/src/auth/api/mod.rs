@@ -18,7 +18,7 @@ impl AuthQuery {
     }
 
     async fn list_users(context: &Context) -> AbacusGraphQLResult<Vec<AnyUser>> {
-        Ok(crate::auth::api::list_users(&context).await?)
+        Ok(crate::auth::api::list_users(context).await?)
     }
 }
 
@@ -36,7 +36,7 @@ impl AuthMutation {
         google_id_token: String,
         context: &Context,
     ) -> FieldResult<crate::auth::api::AuthorizeWebappPayload> {
-        crate::auth::api::authorize_webapp(&google_id_token, &context).await
+        crate::auth::api::authorize_webapp(&google_id_token, context).await
     }
 
     /// The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
@@ -48,7 +48,7 @@ impl AuthMutation {
         session_token: String, // TODO: this could be removed (?) - we can use the user from context
         context: &Context,
     ) -> crate::auth::api::DeauthorizePayload {
-        crate::auth::api::deauthorize(&session_token, &context).await
+        crate::auth::api::deauthorize(&session_token, context).await
     }
 }
 
@@ -119,7 +119,7 @@ pub(crate) async fn authorize_webapp(
     context: &Context,
 ) -> FieldResult<AuthorizeWebappPayload> {
     let connection_pool = context.pool.to_owned();
-    let session_token = crate::auth::authorize(&connection_pool, &google_id_token).await;
+    let session_token = crate::auth::authorize(&connection_pool, google_id_token).await;
     match session_token {
         Ok(session_token) => Ok(AuthorizeWebappPayload {
             success: true,
@@ -142,7 +142,7 @@ pub(crate) async fn deauthorize(
     context: &Context,
 ) -> DeauthorizePayload {
     let connection_pool = context.pool.to_owned();
-    match crate::auth::deauthorize(&connection_pool, &session_token).await {
+    match crate::auth::deauthorize(&connection_pool, session_token).await {
         Ok(_) => DeauthorizePayload { success: true },
         Err(_) => DeauthorizePayload { success: false },
     }

@@ -111,15 +111,15 @@ pub(crate) async fn process_new_images(
     product_multilingual_input: &ProductMultilingualInput,
 ) -> anyhow::Result<Vec<Image>> {
     // First, we make sure that images specified in the GraphQL input are actually being uploaded:
-    validate_images_input(&context, &product_multilingual_input)?;
+    validate_images_input(context, product_multilingual_input)?;
 
     // Second, we check it the other way around - whether all uploadables are specified in the input:
-    validate_uploadables(&context, &product_multilingual_input)?;
+    validate_uploadables(context, product_multilingual_input)?;
 
     rbac::verify_permissions(&context.user, &Files(UploadFile)).await?;
 
     return if let Some(uploadables) = &context.uploadables {
-        let images = process_new_images_authorized(&uploadables).await?;
+        let images = process_new_images_authorized(uploadables).await?;
         Ok(images)
     } else {
         anyhow::bail!("there are no images to process")
@@ -137,11 +137,11 @@ pub(crate) async fn process_updated_images(
     context: &Context,
     product_multilingual_input: &ProductMultilingualInput,
 ) -> anyhow::Result<Vec<Image>> {
-    validate_uploadables(&context, &product_multilingual_input)?;
+    validate_uploadables(context, product_multilingual_input)?;
     rbac::verify_permissions(&context.user, &Files(UploadFile)).await?;
 
     return if let Some(uploadables) = &context.uploadables {
-        let images = process_new_images_authorized(&uploadables).await?;
+        let images = process_new_images_authorized(uploadables).await?;
         Ok(images)
     } else {
         anyhow::bail!("there are no images to process")
