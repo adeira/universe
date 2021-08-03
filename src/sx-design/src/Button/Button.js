@@ -6,7 +6,7 @@ import * as React from 'react';
 import sharedButtonStyles from './styles';
 
 type Props = {
-  +'children': FbtWithoutString,
+  +'children': Fbt,
   +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
   +'type'?:
     | 'submit' // The button submits the form data to the server.
