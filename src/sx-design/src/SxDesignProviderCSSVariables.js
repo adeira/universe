@@ -40,9 +40,9 @@ export default {
     '--sx-shadow-medium': '0 8px 30px rgba(0,0,0,0.12)',
     '--sx-shadow-large': '0 30px 60px rgba(0,0,0,0.12)',
 
-    '--sx-spacing-small': '10px',
-    '--sx-spacing-medium': '20px',
-    '--sx-spacing-large': '30px',
+    '--sx-spacing-small': '0.8rem', // TODO: adjust differently for mobile/tablet (?)
+    '--sx-spacing-medium': '1.2rem',
+    '--sx-spacing-large': '1.6rem',
   },
   lightTheme: {
     // Colors:
