@@ -1,20 +1,17 @@
 // @flow
 
-const { react } = require('./presetsConfig');
-const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
-const getCommonConfig = require('./getCommonConfig');
+const changeNextVersionErrorLevel = require('./src/changeNextVersionErrorLevel');
+const getCommonConfig = require('./src/getCommonConfig');
+const reactPreset = require('./src/presets/react');
+const { WARN } = require('./src/constants');
 
 /*::
 
-import type { EslintConfig } from './EslintConfig.flow';
+import type { EslintConfig } from './src/EslintConfig.flow';
 
 */
 
-const WARN = 1;
-
-const preset = ({
-  ...getCommonConfig(changeNextVersionErrorLevel(react.rules, WARN)),
-  plugins: react.plugins,
-} /*: EslintConfig */);
-
-module.exports = preset;
+module.exports = (getCommonConfig(
+  changeNextVersionErrorLevel(reactPreset.rules, WARN),
+  reactPreset.plugins,
+) /*: EslintConfig */);
