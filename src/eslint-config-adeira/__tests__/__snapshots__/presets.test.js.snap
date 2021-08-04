@@ -571,6 +571,7 @@ Object {
   "plugins": Array [
     "eslint-plugin-flowtype",
     "eslint-plugin-fb-flow",
+    "eslint-plugin-prettier",
   ],
   "rules": Object {
     "curly": Array [
@@ -690,6 +691,7 @@ Object {
   ],
   "plugins": Array [
     "eslint-plugin-jest",
+    "eslint-plugin-prettier",
   ],
   "rules": Object {
     "curly": Array [
@@ -802,6 +804,7 @@ Object {
     "eslint-plugin-react-hooks",
     "eslint-plugin-react-native",
     "eslint-plugin-jsx-a11y",
+    "eslint-plugin-prettier",
   ],
   "rules": Object {
     "curly": Array [
@@ -1081,6 +1084,7 @@ Object {
   ],
   "plugins": Array [
     "eslint-plugin-relay",
+    "eslint-plugin-prettier",
   ],
   "rules": Object {
     "curly": Array [

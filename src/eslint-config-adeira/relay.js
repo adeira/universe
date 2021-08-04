@@ -1,20 +1,17 @@
 // @flow
 
-const { relay } = require('./presetsConfig');
-const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
-const getCommonConfig = require('./getCommonConfig');
+const changeNextVersionErrorLevel = require('./src/changeNextVersionErrorLevel');
+const getCommonConfig = require('./src/getCommonConfig');
+const relayPreset = require('./src/presets/relay');
+const { WARN } = require('./src/constants');
 
 /*::
 
-import type { EslintConfig } from './EslintConfig.flow';
+import type { EslintConfig } from './src/EslintConfig.flow';
 
 */
 
-const WARN = 1;
-
-const preset = ({
-  ...getCommonConfig(changeNextVersionErrorLevel(relay.rules, WARN)),
-  plugins: relay.plugins,
-} /*: EslintConfig */);
-
-module.exports = preset;
+module.exports = (getCommonConfig(
+  changeNextVersionErrorLevel(relayPreset.rules, WARN),
+  relayPreset.plugins,
+) /*: EslintConfig */);
