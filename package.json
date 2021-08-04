@@ -30,7 +30,7 @@
     "//": [
       "Please do not add new scripts here. Use scripts section in your workspace instead."
     ],
-    "lint": "yarn run eslint-config-prettier src/js/src/invariant.js && yarn run prettier --check \"src/**/*.{md,css}\" && yarn run jest --config=.jest-eslint.config.js --changedSince=origin/master^",
+    "lint": "yarn run eslint-config-prettier src/js/src/invariant.js && yarn run prettier --check \"src/**/*.{md,css}\" --check \".github/**/*.{yml,yaml}\" && yarn run jest --config=.jest-eslint.config.js --changedSince=origin/master^",
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run flow --max-warnings=0 && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
     "test-only": "src/monorepo-utils/bin/monorepo-run-tests.js"
