@@ -64,10 +64,15 @@ Also please note that **you should not ignore Eslint warnings**! These warnings 
 The standard config contains a large number of rules, which may not always work for specific projects. There is no need to use the full package only, smaller configs are also available:
 
 - `@adeira/eslint-config/base` - only the basic and most important JavaScript rules
-- `@adeira/eslint-config/jest` - [Jest](https://jestjs.io/) related rules
-- `@adeira/eslint-config/react` - [React](https://reactjs.org/) related rules (React, RN, Hooks, accessibility)
 - `@adeira/eslint-config/flowtype` - [Flow](https://flow.org/) related rules
+- `@adeira/eslint-config/jest` - [Jest](https://jestjs.io/) related rules
+- `@adeira/eslint-config/next`¹ - [Next.js](https://nextjs.org/) related rules
+- `@adeira/eslint-config/react` - [React](https://reactjs.org/) related rules (React, RN, Hooks, accessibility)
 - `@adeira/eslint-config/relay` - [Relay](https://relay.dev/) related rules
+
+<sub>
+¹ subset not included in the default `@adeira/eslint-config` or `@adeira/eslint-config/strict`
+</sub>
 
 Use them in your `.eslintrc.js`:
 
@@ -78,6 +83,17 @@ module.exports = {
     '@adeira/eslint-config/base',
     '@adeira/eslint-config/react',
     '@adeira/eslint-config/jest',
+  ],
+};
+```
+
+Alternatively, you can extend the default preset with additional optional rules:
+
+```js
+module.exports = {
+  extends: [
+    '@adeira/eslint-config',
+    '@adeira/eslint-config/next', // optional Next.js rules not included by default
   ],
 };
 ```

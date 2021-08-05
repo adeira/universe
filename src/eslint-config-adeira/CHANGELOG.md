@@ -1,5 +1,16 @@
 # Unreleased
 
+- Added new optional config preset `@adeira/eslint-config/next` (for [Next.js](https://nextjs.org/) applications). This preset is not included in the default config and should be enabled explicitly for Next.js applications. For example:
+
+```js
+module.exports = {
+  extends: [
+    '@adeira/eslint-config', // this preset includes almost everything but not Next.js rules
+    '@adeira/eslint-config/next', // adds extra Next.js rules for your application
+  ],
+};
+```
+
 # 6.2.0
 
 - New rule [`max-nested-describe`](https://github.com/jest-community/eslint-plugin-jest/blob/f784d1ad7447391750eb692e65fd76ba9d011551/docs/rules/max-nested-describe.md) enabled (warnings or errors in strict mode).
