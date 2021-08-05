@@ -558,16 +558,7 @@ Object {
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
-        "**/__generated__/*.graphql.js",
-      ],
-      "rules": Object {
-        "eslint-comments/no-unlimited-disable": 0,
-      },
-    },
-  ],
+  "overrides": Array [],
   "plugins": Array [
     "eslint-plugin-flowtype",
     "eslint-plugin-fb-flow",
@@ -679,16 +670,7 @@ Object {
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
-        "**/__generated__/*.graphql.js",
-      ],
-      "rules": Object {
-        "eslint-comments/no-unlimited-disable": 0,
-      },
-    },
-  ],
+  "overrides": Array [],
   "plugins": Array [
     "eslint-plugin-jest",
     "eslint-plugin-prettier",
@@ -789,16 +771,7 @@ Object {
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
-        "**/__generated__/*.graphql.js",
-      ],
-      "rules": Object {
-        "eslint-comments/no-unlimited-disable": 0,
-      },
-    },
-  ],
+  "overrides": Array [],
   "plugins": Array [
     "@next/eslint-plugin-next",
     "eslint-plugin-prettier",
@@ -860,16 +833,7 @@ Object {
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
-        "**/__generated__/*.graphql.js",
-      ],
-      "rules": Object {
-        "eslint-comments/no-unlimited-disable": 0,
-      },
-    },
-  ],
+  "overrides": Array [],
   "plugins": Array [
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
@@ -1143,16 +1107,7 @@ Object {
     "global": "readonly",
     "globalThis": "readonly",
   },
-  "overrides": Array [
-    Object {
-      "files": Array [
-        "**/__generated__/*.graphql.js",
-      ],
-      "rules": Object {
-        "eslint-comments/no-unlimited-disable": 0,
-      },
-    },
-  ],
+  "overrides": Array [],
   "plugins": Array [
     "eslint-plugin-relay",
     "eslint-plugin-prettier",
