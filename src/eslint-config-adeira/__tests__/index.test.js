@@ -1,10 +1,22 @@
 // @flow
 
+import { rules as builtInRules } from 'eslint/conf/eslint-all';
 import snapshotDiff from 'snapshot-diff';
 import prettierConfig from 'eslint-config-prettier';
 
-import deprecatedRules from './deprecatedRules';
-import eslintRules from './eslintRules';
+import deprecatedRules from '../src/deprecatedRules';
+
+const eslintRules: Set<string> = new Set(Object.keys(builtInRules));
+beforeAll(() => {
+  Object.keys(require('../package.json').dependencies)
+    .filter((dep) => dep.startsWith('eslint-plugin'))
+    .map((dep) => dep.replace('eslint-plugin-', ''))
+    .forEach((plugin) => {
+      Object.keys(require(`eslint-plugin-${plugin}`).rules).forEach((rule) => {
+        eslintRules.add(`${plugin}/${rule}`);
+      });
+    });
+});
 
 let ourRules, missing;
 beforeEach(() => {

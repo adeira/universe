@@ -1,16 +1,12 @@
 // @flow
 
+const { ERROR, OFF } = require('./constants');
+
 /*::
 
 import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
 
 */
-
-/* eslint-disable no-unused-vars */
-const OFF = 0;
-const WARN = 1;
-const ERROR = 2;
-/* eslint-enable no-unused-vars */
 
 /**
  * This is basically copy-pasted detection from the React plugin except it doesn't
@@ -29,14 +25,16 @@ function detectReactVersion() {
   }
 }
 
-module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: EslintConfig */ {
+module.exports = function getCommonConfig(
+  extraRules /*: EslintConfigRules */,
+  extraPlugins /*: $ReadOnlyArray<string> */,
+) /*: EslintConfig */ {
   return {
-    /* $FlowFixMe[incompatible-return](>=0.115.0) This comment suppresses an error when upgrading
-     * Flow. To see the error delete this comment and run Flow. */
     rules: {
-      ...rules,
+      ...extraRules,
       // overwriting Prettier rules, see: https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
-      'curly': [ERROR, 'all'],
+      'curly': [ERROR, 'all'], // TODO: move to the "base" preset only
+      // TODO: move to the "base" preset only:
       'prettier/prettier': [
         ERROR,
         {
@@ -58,6 +56,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
         },
       },
       'react': {
+        // TODO: apply with "react" preset only
         version: detectReactVersion(),
       },
     },
@@ -70,22 +69,8 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
     },
 
     plugins: [
-      'eslint-plugin-flowtype',
-      'eslint-plugin-fb-flow',
-      'eslint-plugin-jest',
-      'eslint-plugin-react',
-      'eslint-plugin-react-hooks',
-      'eslint-plugin-react-native',
-      'eslint-plugin-jsx-a11y',
-      'eslint-plugin-relay',
-      'eslint-plugin-import',
-      'eslint-plugin-monorepo',
-      'eslint-plugin-node',
-      'eslint-plugin-eslint-comments',
-      'eslint-plugin-promise',
-      'eslint-plugin-adeira',
-      'eslint-plugin-sx',
-      'eslint-plugin-prettier',
+      ...extraPlugins,
+      'eslint-plugin-prettier', // TODO: move to the "base" preset only
     ],
 
     overrides: [
@@ -93,7 +78,7 @@ module.exports = function getCommonConfig(rules /*: EslintConfigRules */) /*: Es
         files: ['**/__generated__/*.graphql.js'],
         rules: {
           // Relay disables generated files with unlimited scope
-          'eslint-comments/no-unlimited-disable': OFF,
+          'eslint-comments/no-unlimited-disable': OFF, // TODO: apply only with "base" preset
         },
       },
     ],

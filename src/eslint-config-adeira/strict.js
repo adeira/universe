@@ -1,21 +1,39 @@
 // @flow
 
-const { ourRules } = require('./ourRules');
-const prettierRules = require('./extraPrettierRules');
-const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
-const getCommonConfig = require('./getCommonConfig');
-
-const ERROR = 2;
+const changeNextVersionErrorLevel = require('./src/changeNextVersionErrorLevel');
+const getCommonConfig = require('./src/getCommonConfig');
+const prettierRules = require('./src/extraPrettierRules');
+const basePreset = require('./src/presets/base');
+const flowtypePreset = require('./src/presets/flowtype');
+const jestPreset = require('./src/presets/jest');
+const reactPreset = require('./src/presets/react');
+const relayPreset = require('./src/presets/relay');
+const { ERROR } = require('./src/constants');
 
 /*::
 
-import type { EslintConfig } from './EslintConfig.flow';
+import type { EslintConfig } from './src/EslintConfig.flow';
 
 */
 
-const rules = {
-  ...ourRules,
-  ...prettierRules,
-};
-
-module.exports = (getCommonConfig(changeNextVersionErrorLevel(rules, ERROR)) /*: EslintConfig */);
+module.exports = (getCommonConfig(
+  changeNextVersionErrorLevel(
+    {
+      ...basePreset.rules,
+      ...flowtypePreset.rules,
+      ...jestPreset.rules,
+      ...reactPreset.rules,
+      ...relayPreset.rules,
+      ...prettierRules,
+    },
+    ERROR,
+  ),
+  [
+    //
+    ...basePreset.plugins,
+    ...flowtypePreset.plugins,
+    ...jestPreset.plugins,
+    ...reactPreset.plugins,
+    ...relayPreset.plugins,
+  ],
+) /*: EslintConfig */);
