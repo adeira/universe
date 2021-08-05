@@ -1,4 +1,4 @@
-Purpose of this package is to share common eslint configuration among other JS projects in our company. It should not be annoying but rather helpful when you understand _"why"_ of each rule (please give us feedback if you disagree with some rules).
+Purpose of this package is to share common eslint configuration among other JS projects. It should not be annoying but rather helpful when you understand _"why"_ of each rule (please give us feedback if you disagree with some rules).
 
 # Usage
 

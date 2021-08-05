@@ -13,8 +13,8 @@
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@adeira/eslint-config": "^6.2.0",
     "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
-    "@babel/eslint-parser": "^7.14.9",
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "eslint": "^7.32.0",
@@ -30,7 +30,7 @@
     "//": [
       "Please do not add new scripts here. Use scripts section in your workspace instead."
     ],
-    "lint": "yarn run eslint-config-prettier src/js/src/invariant.js && yarn run prettier --check \"src/**/*.{md,css}\" && yarn run jest --config=.jest-eslint.config.js --changedSince=origin/master^",
+    "lint": "yarn run eslint-config-prettier src/js/src/invariant.js && yarn run prettier --check \"src/**/*.{md,css}\" --check \".github/**/*.{yml,yaml}\" && yarn run jest --config=.jest-eslint.config.js --changedSince=origin/master^",
     "scanner": "yarn run jest --config src/monorepo-scanner/.jest.config.js",
     "test": "yarn run flow --max-warnings=0 && yarn run lint && yarn run test-only --ci --colors && yarn run scanner",
     "test-only": "src/monorepo-utils/bin/monorepo-run-tests.js"
