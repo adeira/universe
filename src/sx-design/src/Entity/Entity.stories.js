@@ -6,8 +6,9 @@
 import React from 'react';
 
 import Entity from './Entity';
-import type { StoryTemplate } from '../types';
 import EntityField from './EntityField';
+import LayoutBlock from '../Layout/LayoutBlock';
+import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
 export default {
@@ -25,11 +26,13 @@ export default {
 
 // 👇 We create a "template" of how args map to rendering
 const Template = (args) => (
-  <>
+  <LayoutBlock>
     <Entity {...args} />
     <Entity {...args} />
     <Entity {...args} />
-  </>
+    <Entity {...args} />
+    <Entity {...args} />
+  </LayoutBlock>
 );
 
 // 👇 Each story then reuses that template
