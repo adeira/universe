@@ -1,5 +1,7 @@
 # Unreleased
 
+# 6.3.0
+
 - Added new optional config preset `@adeira/eslint-config/next` (for [Next.js](https://nextjs.org/) applications). This preset is not included in the default config and should be enabled explicitly for Next.js applications. For example:
 
 ```js
