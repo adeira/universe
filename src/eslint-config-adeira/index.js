@@ -38,4 +38,12 @@ module.exports = (getCommonConfig(WARN, {
     ...(reactPreset.overrides ?? []),
     ...(relayPreset.overrides ?? []),
   ],
+  settings: {
+    ...basePreset.settings,
+    // $FlowFixMe[exponential-spread]
+    ...flowtypePreset.settings,
+    ...jestPreset.settings,
+    ...reactPreset.settings,
+    ...relayPreset.settings,
+  },
 }) /*: EslintConfig */);

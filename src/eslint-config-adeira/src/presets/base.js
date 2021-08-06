@@ -442,6 +442,13 @@ module.exports = ({
     'sx/use-logical-properties': NEXT_VERSION_ERROR,
     'sx/valid-usage': ERROR,
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.android.js', '.ios.js', '.native.js', '.web.js'],
+      },
+    },
+  },
   overrides: [
     {
       files: ['**/__generated__/*.graphql.js'],

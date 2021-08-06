@@ -543,9 +543,6 @@ Object {
         ],
       },
     },
-    "react": Object {
-      "version": Any<String>,
-    },
   },
 }
 `;
@@ -642,23 +639,7 @@ Object {
       },
     ],
   },
-  "settings": Object {
-    "import/resolver": Object {
-      "node": Object {
-        "extensions": Array [
-          ".js",
-          ".jsx",
-          ".android.js",
-          ".ios.js",
-          ".native.js",
-          ".web.js",
-        ],
-      },
-    },
-    "react": Object {
-      "version": Any<String>,
-    },
-  },
+  "settings": Object {},
 }
 `;
 
@@ -743,23 +724,7 @@ Object {
       },
     ],
   },
-  "settings": Object {
-    "import/resolver": Object {
-      "node": Object {
-        "extensions": Array [
-          ".js",
-          ".jsx",
-          ".android.js",
-          ".ios.js",
-          ".native.js",
-          ".web.js",
-        ],
-      },
-    },
-    "react": Object {
-      "version": Any<String>,
-    },
-  },
+  "settings": Object {},
 }
 `;
 
@@ -805,23 +770,7 @@ Object {
       },
     ],
   },
-  "settings": Object {
-    "import/resolver": Object {
-      "node": Object {
-        "extensions": Array [
-          ".js",
-          ".jsx",
-          ".android.js",
-          ".ios.js",
-          ".native.js",
-          ".web.js",
-        ],
-      },
-    },
-    "react": Object {
-      "version": Any<String>,
-    },
-  },
+  "settings": Object {},
 }
 `;
 
@@ -1080,18 +1029,6 @@ Object {
     "react/void-dom-elements-no-children": 2,
   },
   "settings": Object {
-    "import/resolver": Object {
-      "node": Object {
-        "extensions": Array [
-          ".js",
-          ".jsx",
-          ".android.js",
-          ".ios.js",
-          ".native.js",
-          ".web.js",
-        ],
-      },
-    },
     "react": Object {
       "version": Any<String>,
     },
@@ -1138,22 +1075,6 @@ Object {
     "relay/no-future-added-value": 2,
     "relay/unused-fields": 2,
   },
-  "settings": Object {
-    "import/resolver": Object {
-      "node": Object {
-        "extensions": Array [
-          ".js",
-          ".jsx",
-          ".android.js",
-          ".ios.js",
-          ".native.js",
-          ".web.js",
-        ],
-      },
-    },
-    "react": Object {
-      "version": Any<String>,
-    },
-  },
+  "settings": Object {},
 }
 `;

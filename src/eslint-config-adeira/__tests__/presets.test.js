@@ -5,16 +5,17 @@ test.each([
   ['Flowtype preset', require('../flowtype')],
   ['Jest preset', require('../jest')],
   ['Next preset', require('../next')],
-  ['React preset', require('../react')],
   ['Relay preset', require('../relay')],
 ])('%s', (presetName, preset) => {
+  expect(preset).toMatchSnapshot(presetName);
+});
+
+test('React preset', () => {
   const propertyMatchers = {
     settings: {
-      react: {
-        version: expect.any(String),
-      },
+      react: { version: expect.any(String) },
     },
   };
 
-  expect(preset).toMatchSnapshot(propertyMatchers, presetName);
+  expect(require('../react')).toMatchSnapshot(propertyMatchers, 'React preset');
 });

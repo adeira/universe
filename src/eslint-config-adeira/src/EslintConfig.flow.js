@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 // Level "3" is our NEXT_VERSION_ERROR speciality:
 type EslintConfigErrorLevel = 0 | 1 | 2 | 'off' | 'warn' | 'error' | 3;
@@ -16,10 +16,18 @@ type EslintConfigPlugins = $ReadOnlyArray<string>;
 
 type EslintConfigOverrides = $ReadOnlyArray<{ ... }>;
 
+type EslintConfigSettings = {
+  +[pluginIdentifier: string]: {
+    +[settingName: string]: any,
+  },
+};
+
+type EslintConfigGlobals = { +[string]: 'readonly' | 'writable' | 'off' };
+
 export type EslintConfig = {
   +rules: EslintConfigRules,
   +plugins: EslintConfigPlugins,
   +overrides?: EslintConfigOverrides,
-  +settings?: { +[string]: $FlowFixMe },
-  +globals?: { +[string]: 'readonly' | 'writable' | 'off' },
+  +settings?: EslintConfigSettings,
+  +globals?: EslintConfigGlobals,
 };
