@@ -49,3 +49,18 @@ pub(in crate::commerce) async fn search_all_product_addons(
 
     crate::commerce::dal::product_addons::search_product_addons(&context.pool, client_locale).await
 }
+
+pub(in crate::commerce) async fn get_product_addons_by_ids(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    product_addon_ids: &[String],
+) -> anyhow::Result<Vec<Option<ProductAddon>>> {
+    rbac::verify_permissions(&context.user, &Commerce(GetAllProductAddons)).await?;
+
+    crate::commerce::dal::product_addons::get_product_addons_by_ids(
+        &context.pool,
+        client_locale,
+        product_addon_ids,
+    )
+    .await
+}

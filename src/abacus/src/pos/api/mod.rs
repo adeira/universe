@@ -83,6 +83,7 @@ impl POSMutation {
                     // Most of the values should be taken from the POS input except some product
                     // details which are being expanded from the product ID.
                     PosCheckoutProductDalInput {
+                        // TODO: product add-ons
                         product_id: product.id(),
                         product_name: product.name(),
                         product_units: checkout_product.product_units,
