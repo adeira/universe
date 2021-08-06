@@ -442,4 +442,13 @@ module.exports = ({
     'sx/use-logical-properties': NEXT_VERSION_ERROR,
     'sx/valid-usage': ERROR,
   },
+  overrides: [
+    {
+      files: ['**/__generated__/*.graphql.js'],
+      rules: {
+        // Relay disables generated files with unlimited scope
+        'eslint-comments/no-unlimited-disable': OFF,
+      },
+    },
+  ],
 } /*: EslintConfig */);
