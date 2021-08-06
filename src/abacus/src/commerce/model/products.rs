@@ -5,9 +5,10 @@ use crate::auth::rbac::CommerceActions::{
     ArchiveProduct, CreateProduct, GetAllProducts, PublishProduct, UnpublishProduct, UpdateProduct,
 };
 use crate::auth::rbac::PosActions::GetAllPublishedProducts;
+use crate::commerce::model::product_addons::ProductAddon;
 use crate::commerce::model::product_categories::ProductCategory;
 use crate::commerce::model::validations::{
-    validate_product_categories, validate_product_multilingual_input,
+    validate_product_addons, validate_product_categories, validate_product_multilingual_input,
 };
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
@@ -30,9 +31,9 @@ pub struct Product {
     _id: String,
     _rev: String,
     _key: String,
-    /// Resolved product name (from translations based on the eshop locale).
+    /// Resolved product name (from translations based on the client locale).
     name: String,
-    /// Resolved product description (from translations based on the eshop locale).
+    /// Resolved product description (from translations based on the client locale).
     description: Option<String>,
     images: Vec<Image>,
     unit_label: String,
@@ -42,6 +43,7 @@ pub struct Product {
     visibility: Vec<ProductMultilingualInputVisibility>,
     price: Price,
     translations: Vec<ProductMultilingualTranslations>,
+    addons: Option<Vec<String>>, // optional for BC (addons didn't exist at the beginning)
 }
 
 impl std::fmt::Debug for Product {
@@ -203,6 +205,52 @@ impl Product {
             .await?,
         )
     }
+
+    /// Returns ALL available addons that can be applied to this product. You might be also
+    /// interested in `selected_addons` which are addons previously selected for this product.
+    async fn available_addons(
+        &self,
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductAddon>>> {
+        Ok(
+            crate::commerce::model::product_addons::search_all_product_addons(
+                context,
+                &client_locale,
+            )
+            .await?,
+        )
+    }
+
+    /// Returns product addons that were assigned to the particular product. You might be also
+    /// interested in `available_addons` which are ALL addons available for the assignment.
+    async fn selected_addons(
+        &self,
+        context: &Context,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<Vec<Option<ProductAddon>>> {
+        if let Some(addons) = &self.addons {
+            Ok(
+                crate::commerce::model::product_addons::get_product_addons_by_ids(
+                    context,
+                    &client_locale,
+                    addons,
+                )
+                .await?,
+            )
+        } else {
+            Ok(vec![])
+        }
+    }
+
+    /// Returns true when the product has some assigned addons, otherwise false.
+    async fn has_selected_addons(&self) -> AbacusGraphQLResult<bool> {
+        if let Some(addons) = &self.addons {
+            Ok(!addons.is_empty())
+        } else {
+            Ok(false)
+        }
+    }
 }
 
 /// This type should be used together with GraphQL uploads and it should hold the file names being
@@ -264,6 +312,7 @@ pub struct ProductMultilingualInput {
     pub(in crate::commerce) translations: Vec<ProductMultilingualInputTranslations>,
     pub(in crate::commerce) visibility: Vec<ProductMultilingualInputVisibility>,
     pub(in crate::commerce) categories: Vec<juniper::ID>,
+    pub(in crate::commerce) addons: Vec<juniper::ID>,
 }
 
 impl ProductMultilingualInput {
@@ -273,6 +322,10 @@ impl ProductMultilingualInput {
 
     pub(in crate::commerce) fn categories(&self) -> Vec<String> {
         self.categories.iter().map(|id| id.to_string()).collect()
+    }
+
+    pub(in crate::commerce) fn addons(&self) -> Vec<String> {
+        self.addons.iter().map(|id| id.to_string()).collect()
     }
 }
 
@@ -291,6 +344,7 @@ impl Default for ProductMultilingualInput {
             }],
             visibility: vec![],
             categories: vec![],
+            addons: vec![],
         }
     }
 }
@@ -484,6 +538,7 @@ pub(in crate::commerce) async fn create_product(
         &product_multilingual_input.categories(),
     )
     .await?;
+    validate_product_addons(context, client_locale, &product_multilingual_input.addons()).await?;
 
     // First, we process the product images.
     let mut images = vec![];
@@ -500,7 +555,7 @@ pub(in crate::commerce) async fn create_product(
     )
     .await?;
 
-    // And finally, we assign product categories.
+    // And finally, we assign product categories and addons.
     crate::commerce::dal::product_categories::assign_product_categories(
         &context.pool,
         &created_product.id(),
@@ -508,6 +563,8 @@ pub(in crate::commerce) async fn create_product(
         client_locale,
     )
     .await?;
+
+    // TODO: assign product addons
 
     Ok(created_product)
 }
@@ -528,6 +585,7 @@ pub(in crate::commerce) async fn update_product(
         &product_multilingual_input.categories(),
     )
     .await?;
+    validate_product_addons(context, client_locale, &product_multilingual_input.addons()).await?;
 
     let product = crate::commerce::dal::products::get_product_by_key(
         &context.pool,
@@ -577,7 +635,7 @@ pub(in crate::commerce) async fn update_product(
     )
     .await?;
 
-    // and finally, assign the new product categories
+    // and finally, assign the new product categories and addons
     crate::commerce::dal::product_categories::assign_product_categories(
         &context.pool,
         &updated_product.id(),
@@ -585,6 +643,8 @@ pub(in crate::commerce) async fn update_product(
         client_locale,
     )
     .await?;
+
+    // TODO: assign product addons
 
     Ok(updated_product)
 }

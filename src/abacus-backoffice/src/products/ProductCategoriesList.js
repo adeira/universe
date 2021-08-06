@@ -2,7 +2,7 @@
 
 import { useLazyLoadQuery, graphql } from '@adeira/relay';
 import React, { type Node } from 'react';
-import { Entity, EntityField, Text } from '@adeira/sx-design';
+import { Entity, EntityField, LayoutBlock, Text } from '@adeira/sx-design';
 
 import useApplicationLocale from '../useApplicationLocale';
 import type { ProductCategoriesListQuery } from './__generated__/ProductCategoriesListQuery.graphql';
@@ -25,14 +25,18 @@ export default function ProductCategoriesList(): Node {
     },
   );
 
-  return data.commerce.categories.reduce((acc, category) => {
-    if (category) {
-      acc.push(
-        <Entity key={category.id}>
-          <EntityField title={<Text transform="capitalize">{category.name}</Text>} />
-        </Entity>,
-      );
-    }
-    return acc;
-  }, []);
+  return (
+    <LayoutBlock>
+      {data.commerce.categories.reduce((acc, category) => {
+        if (category) {
+          acc.push(
+            <Entity key={category.id}>
+              <EntityField title={<Text transform="capitalize">{category.name}</Text>} />
+            </Entity>,
+          );
+        }
+        return acc;
+      }, [])}
+    </LayoutBlock>
+  );
 }

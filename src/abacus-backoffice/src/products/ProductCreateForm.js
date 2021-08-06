@@ -64,6 +64,7 @@ export default function ProductCreateForm(props: Props): Node {
                     translations: $translations
                     visibility: $visibility
                     categories: $categories
+                    addons: [] # TODO
                   }
                 ) {
                   ... on Product {

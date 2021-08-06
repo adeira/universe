@@ -56,6 +56,7 @@ mod tests {
             .unwrap();
 
         // Valid input:
+        // TODO: make "addons" required field (it's currently optional)
         assert!(schema
             .validate(&json!({
               "images": [],

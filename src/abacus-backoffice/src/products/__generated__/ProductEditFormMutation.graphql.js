@@ -58,7 +58,7 @@ mutation ProductEditFormMutation(
   $categories: [ID!]!
 ) {
   commerce {
-    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories}) {
+    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {
       __typename
       ... on Product {
         __typename
@@ -163,6 +163,11 @@ v9 = [
   },
   {
     "fields": [
+      {
+        "kind": "Literal",
+        "name": "addons",
+        "value": ([]/*: any*/)
+      },
       {
         "kind": "Variable",
         "name": "categories",
@@ -484,15 +489,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fa8b4a1ca541bd7aec3013522250c8d0",
+    "cacheID": "9e7cce598195ded3e75791a82947087b",
     "id": null,
     "metadata": {},
     "name": "ProductEditFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '000c9aa4b4b7322e2b53dbb8d8453f14';
+(node: any).hash = '92bde657cbeba068176dc3bcdb22c72d';
 export default node;
