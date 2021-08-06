@@ -1,7 +1,6 @@
 // @flow
 
-import { rangeMap } from '@adeira/js';
-import { LayoutGrid, Skeleton } from '@adeira/sx-design';
+import { Loader } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 
@@ -21,15 +20,7 @@ export default function ProductAddonsLayout(): Node {
         </fbt>
       }
     >
-      <React.Suspense
-        fallback={
-          <LayoutGrid>
-            {rangeMap(12, (i) => (
-              <Skeleton key={i} />
-            ))}
-          </LayoutGrid>
-        }
-      >
+      <React.Suspense fallback={<Loader />}>
         <ProductAddons />
       </React.Suspense>
     </LayoutPage>

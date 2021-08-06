@@ -50,7 +50,7 @@ mutation ProductCreateFormMutation(
   $categories: [ID!]!
 ) {
   commerce {
-    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories}) {
+    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {
       __typename
       ... on Product {
         __typename
@@ -104,6 +104,11 @@ v6 = [
   },
   {
     "fields": [
+      {
+        "kind": "Literal",
+        "name": "addons",
+        "value": ([]/*: any*/)
+      },
       {
         "kind": "Variable",
         "name": "categories",
@@ -279,15 +284,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "085e7d94d5cb6a44aacbdd69855d5ed8",
+    "cacheID": "cda88f7556263ba2449c31e3134f19ab",
     "id": null,
     "metadata": {},
     "name": "ProductCreateFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
+    "text": "mutation ProductCreateFormMutation(\n  $clientLocale: SupportedLocale!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productCreate(clientLocale: $clientLocale, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {\n      __typename\n      ... on Product {\n        __typename\n        name\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8d4cad84a92874e98943ae835d1313e6';
+(node: any).hash = 'abe408f32d35f1a43e2bc5874f424b07';
 export default node;

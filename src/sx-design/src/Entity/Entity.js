@@ -24,7 +24,6 @@ const styles = sx.create({
     alignItems: 'center',
     border: '1px solid rgba(var(--sx-accent-1))',
     borderRadius: 'var(--sx-radius)',
-    padding: 16,
-    marginBlockEnd: 5,
+    padding: '1rem',
   },
 });

@@ -56,6 +56,33 @@ pub(in crate::commerce::model) async fn validate_product_categories(
     Ok(())
 }
 
+/// Makes sure that the product addons specified in GraphQL input actually exist.
+pub(in crate::commerce::model) async fn validate_product_addons(
+    context: &Context,
+    client_locale: &SupportedLocale,
+    graphql_addons: &Vec<String>,
+) -> anyhow::Result<()> {
+    if !graphql_addons.is_empty() {
+        let resolved_product_addons =
+            crate::commerce::model::product_addons::get_product_addons_by_ids(
+                context,
+                client_locale,
+                graphql_addons,
+            )
+            .await?;
+
+        if resolved_product_addons.len() != graphql_addons.len() {
+            // This is just a simplified quick check where we compare number of addons from the
+            // GraphQL input vs. number of addons returned from DB for these IDs. If the number
+            // matches then all addons are valid. We might do more elaborate check later to suggest
+            // which GraphQL input ID is wrong.
+            anyhow::bail!("product category IDs specified in the GraphQL input are not valid")
+        }
+    }
+
+    Ok(())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
