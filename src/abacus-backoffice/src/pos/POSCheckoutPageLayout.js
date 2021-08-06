@@ -65,7 +65,7 @@ export default function POSCheckoutPageLayout(): Node {
 
   const handleResetCheckoutClick = () => {
     if (
-      // eslint-disable-next-line no-undef,no-alert
+      // eslint-disable-next-line no-alert
       window.confirm(
         fbt(
           'Are you sure you want to reset the checkout session and start over? All selected items will be removed.',

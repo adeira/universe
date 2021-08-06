@@ -15,7 +15,7 @@ type Props = {
 export default function LayoutHeadingButton(props: Props): Node {
   const handleLinkButtonClick = (confirmMessage, callback) => {
     if (
-      window.confirm(confirmMessage) // eslint-disable-line no-alert,no-undef
+      window.confirm(confirmMessage) // eslint-disable-line no-alert
     ) {
       callback();
     }

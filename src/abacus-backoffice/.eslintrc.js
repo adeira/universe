@@ -14,12 +14,4 @@ module.exports = {
     '@adeira/eslint-config/strict', // preset with almost everything
     '@adeira/eslint-config/next', // additional Next.js rules
   ],
-  rules: {
-    'react/forbid-elements': [
-      ERROR,
-      {
-        forbid: [{ element: 'input', message: 'use <Input> or <InputSubmit> instead' }],
-      },
-    ],
-  },
 };
