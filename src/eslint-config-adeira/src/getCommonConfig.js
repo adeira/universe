@@ -1,10 +1,11 @@
 // @flow
 
-const { ERROR, OFF } = require('./constants');
+const { ERROR } = require('./constants');
+const changeNextVersionErrorLevel = require('./changeNextVersionErrorLevel');
 
 /*::
 
-import type { EslintConfig, EslintConfigRules } from './EslintConfig.flow';
+import type { EslintConfig } from './EslintConfig.flow';
 
 */
 
@@ -26,12 +27,12 @@ function detectReactVersion() {
 }
 
 module.exports = function getCommonConfig(
-  extraRules /*: EslintConfigRules */,
-  extraPlugins /*: $ReadOnlyArray<string> */,
+  nextVersionErrorLevel /*: 0|1|2 */,
+  baseConfig /*: EslintConfig */,
 ) /*: EslintConfig */ {
   return {
     rules: {
-      ...extraRules,
+      ...changeNextVersionErrorLevel(baseConfig.rules, nextVersionErrorLevel),
       // overwriting Prettier rules, see: https://github.com/prettier/eslint-config-prettier/blob/9444ee0b20f9af3ff364f62d6a9ab967ad673a9d/README.md#special-rules
       'curly': [ERROR, 'all'], // TODO: move to the "base" preset only
       // TODO: move to the "base" preset only:
@@ -69,18 +70,10 @@ module.exports = function getCommonConfig(
     },
 
     plugins: [
-      ...extraPlugins,
+      ...baseConfig.plugins,
       'eslint-plugin-prettier', // TODO: move to the "base" preset only
     ],
 
-    overrides: [
-      {
-        files: ['**/__generated__/*.graphql.js'],
-        rules: {
-          // Relay disables generated files with unlimited scope
-          'eslint-comments/no-unlimited-disable': OFF, // TODO: apply only with "base" preset
-        },
-      },
-    ],
+    overrides: [...(baseConfig.overrides ?? [])],
   };
 };

@@ -12,10 +12,14 @@ type EslintConfigValues =
 
 export type EslintConfigRules = { +[string]: EslintConfigValues };
 
+type EslintConfigPlugins = $ReadOnlyArray<string>;
+
+type EslintConfigOverrides = $ReadOnlyArray<{ ... }>;
+
 export type EslintConfig = {
   +rules: EslintConfigRules,
-  +plugins: $ReadOnlyArray<string>,
-  +overrides?: $ReadOnlyArray<{ ... }>,
+  +plugins: EslintConfigPlugins,
+  +overrides?: EslintConfigOverrides,
   +settings?: { +[string]: $FlowFixMe },
   +globals?: { +[string]: 'readonly' | 'writable' | 'off' },
 };
