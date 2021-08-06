@@ -1,6 +1,7 @@
 // @flow
 
 const { ERROR, OFF, WARN } = require('../constants');
+const detectReactVersion = require('../detectReactVersion');
 
 /*::
 
@@ -210,5 +211,10 @@ module.exports = ({
     'jsx-a11y/role-supports-aria-props': ERROR,
     'jsx-a11y/scope': ERROR,
     'jsx-a11y/tabindex-no-positive': ERROR,
+  },
+  settings: {
+    react: {
+      version: detectReactVersion(),
+    },
   },
 } /*: EslintConfig */);

@@ -9,23 +9,6 @@ import type { EslintConfig } from './EslintConfig.flow';
 
 */
 
-/**
- * This is basically copy-pasted detection from the React plugin except it doesn't
- * complain when React dependency is missing. It's because we expect non-React environments.
- * See: https://github.com/yannickcr/eslint-plugin-react/blob/6bb160459383a2eeec5d65e3de07e37e997b5f1a/lib/util/version.js#L12
- */
-function detectReactVersion() {
-  try {
-    const react = require('react'); // eslint-disable-line import/no-extraneous-dependencies
-    return react.version;
-  } catch (error) {
-    if (error.code === 'MODULE_NOT_FOUND') {
-      return '999.999.999';
-    }
-    throw error;
-  }
-}
-
 module.exports = function getCommonConfig(
   nextVersionErrorLevel /*: 0|1|2 */,
   baseConfig /*: EslintConfig */,
@@ -50,17 +33,7 @@ module.exports = function getCommonConfig(
       ],
     },
 
-    settings: {
-      'import/resolver': {
-        node: {
-          extensions: ['.js', '.jsx', '.android.js', '.ios.js', '.native.js', '.web.js'],
-        },
-      },
-      'react': {
-        // TODO: apply with "react" preset only
-        version: detectReactVersion(),
-      },
-    },
+    settings: { ...baseConfig.settings },
 
     globals: {
       global: 'readonly', // TODO: make it 'off'
