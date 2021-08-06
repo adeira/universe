@@ -1,7 +1,7 @@
 // @flow
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import { Note, Entity, EntityField, Money, Badge } from '@adeira/sx-design';
+import { Note, Entity, EntityField, Money, Badge, LayoutBlock } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
 
@@ -39,32 +39,36 @@ export default function ProductAddons(): Node {
     );
   }
 
-  return data.commerce.productAddons.map((productAddon) => {
-    if (productAddon == null) {
-      return null;
-    }
-    return (
-      <Entity key={productAddon.id}>
-        <EntityField title={productAddon.name} />
-        <EntityField
-          description={
-            productAddon.priceExtra.unitAmount === 0 ? (
-              <Badge>
-                <fbt desc="free product add-on badge">free</fbt>
-              </Badge>
-            ) : (
-              <Money
-                priceUnitAmount={
-                  productAddon.priceExtra.unitAmount / 100 // adjusted for centavo
-                }
-                priceUnitAmountCurrency={refineSupportedCurrencies(
-                  productAddon.priceExtra.unitAmountCurrency,
-                )}
-              />
-            )
-          }
-        />
-      </Entity>
-    );
-  });
+  return (
+    <LayoutBlock>
+      {data.commerce.productAddons.map((productAddon) => {
+        if (productAddon == null) {
+          return null;
+        }
+        return (
+          <Entity key={productAddon.id}>
+            <EntityField title={productAddon.name} />
+            <EntityField
+              description={
+                productAddon.priceExtra.unitAmount === 0 ? (
+                  <Badge>
+                    <fbt desc="free product add-on badge">free</fbt>
+                  </Badge>
+                ) : (
+                  <Money
+                    priceUnitAmount={
+                      productAddon.priceExtra.unitAmount / 100 // adjusted for centavo
+                    }
+                    priceUnitAmountCurrency={refineSupportedCurrencies(
+                      productAddon.priceExtra.unitAmountCurrency,
+                    )}
+                  />
+                )
+              }
+            />
+          </Entity>
+        );
+      })}
+    </LayoutBlock>
+  );
 }

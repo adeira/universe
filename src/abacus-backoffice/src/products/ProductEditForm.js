@@ -99,6 +99,7 @@ export default function ProductEditForm(props: Props): Node {
                     translations: $translations
                     visibility: $visibility
                     categories: $categories
+                    addons: [] # TODO
                   }
                 ) {
                   ... on Product {
