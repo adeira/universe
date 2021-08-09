@@ -19,7 +19,7 @@ export default function Logo(props: Props): React.Node {
       <KochkaIcon size={isSmall ? 100 : 200} onWhiteBackground={props.onWhiteBackground} />
 
       <div className={styles('heading', isHorizontal && 'headingHorizontal')}>
-        <h1 className={styles(isSmall ? 'kochkaSmall' : 'kochka')}>
+        <h1 className={styles('h1', isSmall ? 'kochkaSmall' : 'kochka')}>
           KOCHKA
           <span className={styles('cafe', isSmall && 'cafeSmall')}>
             {/* TODO: this should be even lighter (fontWeight:100) */}
@@ -41,9 +41,7 @@ const styles = sx.create({
     flexDirection: 'row',
   },
   heading: {
-    'marginBlockStart': '2rem',
-    'fontFamily': 'GidoleKochka',
-    '--sx-foreground': 'rgba(var(--font-color-light))', // overwrite SX Design colors
+    fontFamily: 'GidoleKochka',
   },
   headingHorizontal: {
     marginInlineStart: 20,
@@ -79,5 +77,8 @@ const styles = sx.create({
     fontSize: '7px',
     fontStyle: 'normal',
     fontWeight: 'normal',
+  },
+  h1: {
+    margin: 0,
   },
 });

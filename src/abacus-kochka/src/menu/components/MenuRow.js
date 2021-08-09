@@ -49,7 +49,7 @@ export default function MenuRow(props: Props): Node {
           )}
         </div>
       </div>
-      <div className={styles('descriptionRow')}>{data.description}</div>
+      {data.description != null ? <Text as="small">{data.description}</Text> : <MissingData />}
     </div>
   );
 }
@@ -64,9 +64,5 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  descriptionRow: {
-    fontSize: 12,
-    color: 'rgba(var(--sx-accent-6))',
   },
 });

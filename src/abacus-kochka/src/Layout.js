@@ -45,7 +45,9 @@ export default function Layout(props: Props): React.Node {
 
         {props.withHiddenTitle === true ? null : (
           <div className={styles('heading')}>
-            <Text as="h1">{props.title}</Text>
+            <Text as="h1" size={40}>
+              {props.title}
+            </Text>
             <div className={styles('subtitle')}>{props.subtitle}</div>
           </div>
         )}
@@ -68,7 +70,7 @@ const styles = sx.create({
     margin: 0,
   },
   main: {
-    color: 'rgba(var(--font-color-dark))',
+    color: 'rgba(var(--sx-foreground))',
     maxWidth: '45rem',
     margin: '0 auto',
     minHeight: '40vh',
@@ -93,7 +95,7 @@ const styles = sx.create({
     color: 'lightgray',
   },
   footer: {
-    color: 'rgba(var(--font-color-dark))',
+    color: 'rgba(var(--sx-foreground))',
     paddingInline: '1rem',
   },
 });
