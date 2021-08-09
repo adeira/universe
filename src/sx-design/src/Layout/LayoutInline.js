@@ -35,6 +35,7 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    alignItems: 'start',
   },
   gapNone: { gap: 0 },
   gapSmall: { gap: 'var(--sx-spacing-small)' },

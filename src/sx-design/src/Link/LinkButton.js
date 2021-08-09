@@ -12,6 +12,7 @@ type Props = {
   +'target'?: string,
   +'isActive'?: boolean,
   +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
+  +'size'?: 'small' | 'medium' | 'large',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
   +'onClick'?: () => void,
@@ -38,6 +39,9 @@ export default (React.forwardRef(function LinkButton(props, ref): React.Node {
       <span
         className={sharedButtonStyles({
           buttonBase: true,
+          buttonSmall: props.size === 'small',
+          buttonMedium: props.size == null || props.size === 'medium',
+          buttonLarge: props.size === 'large',
           buttonTintDefault: props.tint == null || props.tint === 'default',
           buttonTintSecondary: props.tint === 'secondary',
           buttonTintError: props.tint === 'error',
