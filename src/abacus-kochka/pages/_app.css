@@ -6,8 +6,6 @@
   --main-bg-color: 108, 22, 16; /* #6c1610 */
   --main-bg-color-dark: 72, 5, 0;
   --secondary-color: 136, 65, 59;
-  --font-color-light: 255, 255, 255;
-  --font-color-dark: 28, 30, 33;
 }
 
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face */
@@ -29,38 +27,4 @@ body {
 
 body {
   font-size: 1rem;
-}
-
-a {
-  color: inherit;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  /* unset default CSS props so we are forced to use proper <Heading /> */
-  display: block;
-  font-size: unset;
-  font-weight: unset;
-  margin-block-end: 0;
-  margin-block-start: 0;
-  margin-inline-end: 0;
-  margin-inline-start: 0;
-}
-
-h1 {
-  font-size: 2rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
-h3 {
-  font-size: 1.2rem;
 }

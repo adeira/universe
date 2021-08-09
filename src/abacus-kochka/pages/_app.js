@@ -85,7 +85,7 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 
 const styles = sx.create({
   root: {
-    color: 'rgba(var(--font-color-light))',
+    color: 'rgba(var(--sx-background))',
   },
   rootSoon: {
     backgroundImage: 'url(/coffee-background.jpg)',

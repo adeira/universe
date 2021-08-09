@@ -1,5 +1,6 @@
 // @flow
 
+import { Text } from '@adeira/sx-design';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
@@ -18,10 +19,10 @@ export default function Homepage(): React.Node {
           <div className={styles('center')}>
             <Logo />
 
-            <div>
+            <Text size={20} weight={200}>
               {/* TODO: popups explaining what is each of the elements (photo) */}
               <fbt desc="catch phrase">REAL CATS + DUMPLINGS + COFFEE</fbt>
-            </div>
+            </Text>
           </div>
 
           <div className={styles('bottomInfo')}>

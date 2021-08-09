@@ -1,5 +1,6 @@
 // @flow
 
+import { LayoutInline } from '@adeira/sx-design';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
@@ -12,27 +13,21 @@ export default function HomepageNavigation(): React.Node {
 
   return (
     <nav className={styles('nav')}>
-      <ul className={styles('ul')}>
-        <li className={styles('li')}>
-          <LinkInternal href="/menu" xstyle={styles.link}>
-            <fbt desc="link to our menu from the homepage">Café&nbsp;menu</fbt>
-          </LinkInternal>
-        </li>
+      <LayoutInline spacing="large">
+        <LinkInternal href="/menu" size={32} weight={100} xstyle={styles.link}>
+          <fbt desc="link to our menu from the homepage">Café&nbsp;menu</fbt>
+        </LinkInternal>
 
-        <li className={styles('li')}>
-          <LinkInternal href="/rules" xstyle={styles.link}>
-            <fbt desc="link to our rules from the homepage">Café&nbsp;rules</fbt>
-          </LinkInternal>
-        </li>
+        <LinkInternal href="/rules" size={32} weight={100} xstyle={styles.link}>
+          <fbt desc="link to our rules from the homepage">Café&nbsp;rules</fbt>
+        </LinkInternal>
 
         {pageShopEnabled === true && (
-          <li className={styles('li')}>
-            <LinkInternal href="/shop" xstyle={styles.link}>
-              <fbt desc="link to the shop from the homepage">Shop</fbt>
-            </LinkInternal>
-          </li>
+          <LinkInternal href="/shop" size={32} weight={100} xstyle={styles.link}>
+            <fbt desc="link to the shop from the homepage">Shop</fbt>
+          </LinkInternal>
         )}
-      </ul>
+      </LayoutInline>
     </nav>
   );
 }
@@ -41,23 +36,11 @@ const styles = sx.create({
   nav: {
     paddingBlock: 20,
     fontWeight: 100,
-  },
-  ul: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    listStyle: 'none',
-    padding: 0,
-    margin: 0,
-  },
-  li: {
-    padding: 0,
-    margin: 0,
-    fontSize: 30,
   },
   link: {
-    color: 'rgba(var(--font-color-light))',
-    padding: 15,
-    paddingInline: 20,
+    color: 'rgba(var(--sx-background))',
   },
 });

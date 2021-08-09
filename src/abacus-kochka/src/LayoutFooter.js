@@ -103,6 +103,6 @@ const styles = sx.create({
     paddingInlineStart: '1rem',
   },
   link: {
-    color: 'rgba(var(--font-color-dark))',
+    color: 'rgba(var(--sx-foreground))',
   },
 });
