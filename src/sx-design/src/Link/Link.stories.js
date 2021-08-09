@@ -23,7 +23,11 @@ const Template = (args) => <Link {...args} />;
 /* eslint-disable sx/no-unused-stylesheet */
 const styles = sx.create({
   custom: {
-    color: 'red',
+    'color': 'rgba(var(--sx-error))',
+    'textDecoration': 'underline',
+    ':hover': {
+      textDecoration: 'none',
+    },
   },
 });
 /* eslint-enable sx/no-unused-stylesheet */
@@ -39,17 +43,7 @@ Default.args = {
       Click me, I am a link!
     </fbt>
   ),
-};
-
-export const External: StoryTemplate<typeof Link> = Template.bind({});
-External.storyName = 'External';
-External.args = {
-  children: (
-    <fbt desc="link title" doNotExtract={true}>
-      Click me, I am a link! (with rel attribute)
-    </fbt>
-  ),
-  href: 'https://github.com/adeira/universe',
+  href: 'https://github.com/adeira/universe/stargazers',
 };
 
 export const CustomStyle: StoryTemplate<typeof Link> = Template.bind({});
@@ -60,5 +54,6 @@ CustomStyle.args = {
       Click me, I am a link! (with custom styles)
     </fbt>
   ),
+  href: 'https://github.com/adeira/universe/stargazers',
   xstyle: styles.custom,
 };

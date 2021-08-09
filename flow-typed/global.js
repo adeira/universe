@@ -43,3 +43,15 @@ declare type RestrictedElement<+TElementType: React$ElementType> = {
   +key: React$Key | null,
   +ref: any,
 };
+
+// Use this type when working with `useRef` hook.
+// See: https://github.com/facebook/flow/blob/8c866379d12dc32c6a0e129739148c8cd9169db8/lib/react.js#L365
+declare type ReactRefObject<T> = { current: T };
+
+// Use this type when working with `React.createRef`.
+// See: https://github.com/facebook/flow/blob/8c866379d12dc32c6a0e129739148c8cd9169db8/lib/react.js#L265
+declare type ReactRefNullableObject<T> = { current: null | T };
+
+// Use this type when forwarding refs via `forwardRef`.
+// See: https://github.com/facebook/flow/blob/8c866379d12dc32c6a0e129739148c8cd9169db8/lib/react.js#L325
+declare type ReactRefAny<T> = { current: null | T, ... } | ((null | T) => mixed);

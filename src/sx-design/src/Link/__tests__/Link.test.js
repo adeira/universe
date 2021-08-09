@@ -30,21 +30,41 @@ it('renders the link as expected - internal link', () => {
 .T4SJ0 {
   cursor: pointer;
 }
-.v2kHO {
-  text-decoration: none;
+.eJqht {
+  text-decoration-color: transparent;
+}
+._4GrjhO {
+  text-decoration-line: underline;
+}
+._2aVmeo {
+  text-decoration-style: solid;
+}
+.WV8t {
+  text-decoration-thickness: 0.05em;
+}
+@media (prefers-reduced-motion: no-preference) {
+  ._2FqB21._2FqB21 {
+    transition: text-decoration-color 300ms;
+  }
 }
 .gy8aG:hover {
   opacity: 1;
 }
-.crve5:hover {
-  text-decoration: underline;
+._39mXIW:hover {
+  text-decoration-color: inherit;
 }
-._3zbYuf {
-  opacity: 0.85;
+._4eR9Ri {
+  opacity: 1;
+}
+._1traoH {
+  opacity: 0.9;
 }
 
 <div>
-  <a class="f6wvk T4SJ0 v2kHO gy8aG crve5 _3zbYuf" href="assets/yadada">
+  <a
+    class="f6wvk T4SJ0 eJqht _4GrjhO _2aVmeo WV8t _2FqB21 gy8aG _39mXIW _1traoH"
+    href="assets/yadada"
+  >
     internal link
   </a>
 </div>
@@ -63,7 +83,7 @@ it('renders the link as expected - internal link with target _blank', () => {
   // $FlowFixMe[prop-missing]: `attributes` is missing in the types but it works
   expect(container.firstChild?.attributes).toMatchInlineSnapshot(`
 NamedNodeMap {
-  "class": "f6wvk T4SJ0 v2kHO gy8aG crve5 _3zbYuf",
+  "class": "f6wvk T4SJ0 eJqht _4GrjhO _2aVmeo WV8t _2FqB21 gy8aG _39mXIW _1traoH",
   "href": "assets/yadada",
   "rel": "noreferrer noopener",
   "target": "_blank",
@@ -87,22 +107,36 @@ it('renders the link as expected - external link', () => {
 .T4SJ0 {
   cursor: pointer;
 }
-.v2kHO {
-  text-decoration: none;
+.eJqht {
+  text-decoration-color: transparent;
+}
+._4GrjhO {
+  text-decoration-line: underline;
+}
+._2aVmeo {
+  text-decoration-style: solid;
+}
+.WV8t {
+  text-decoration-thickness: 0.05em;
+}
+@media (prefers-reduced-motion: no-preference) {
+  ._2FqB21._2FqB21 {
+    transition: text-decoration-color 300ms;
+  }
 }
 .gy8aG:hover {
   opacity: 1;
 }
-.crve5:hover {
-  text-decoration: underline;
+._39mXIW:hover {
+  text-decoration-color: inherit;
 }
-._3zbYuf {
-  opacity: 0.85;
+._1traoH {
+  opacity: 0.9;
 }
 
 <div>
   <a
-    class="f6wvk T4SJ0 v2kHO gy8aG crve5 _3zbYuf"
+    class="f6wvk T4SJ0 eJqht _4GrjhO _2aVmeo WV8t _2FqB21 gy8aG _39mXIW _1traoH"
     href="https://localhost"
     rel="noreferrer noopener"
   >
