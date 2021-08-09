@@ -60,7 +60,14 @@ export default function expandShorthandProperties(
     propertyName === 'borderInline'
   ) {
     return expandBorder(propertyName, propertyValue, hashSeed);
-  } else if (propertyName === 'margin' || propertyName === 'padding') {
+  } else if (
+    propertyName === 'margin' ||
+    propertyName === 'marginBlock' ||
+    propertyName === 'marginInline' ||
+    propertyName === 'padding' ||
+    propertyName === 'paddingBlock' ||
+    propertyName === 'paddingInline'
+  ) {
     return expandMarginPadding(propertyName, propertyValue, hashSeed);
   } else if (propertyName === 'overflow') {
     return expandOverflow(propertyName, propertyValue, hashSeed);
