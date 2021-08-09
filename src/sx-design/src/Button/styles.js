@@ -5,7 +5,6 @@ import sx from '@adeira/sx';
 export default (sx.create({
   buttonBase: {
     display: 'inline-block',
-    padding: '10px 15px',
     borderRadius: 'var(--sx-radius)',
     cursor: 'pointer',
     userSelect: 'none',
@@ -13,6 +12,18 @@ export default (sx.create({
     transitionDuration: '150ms',
     transitionTimingFunction: 'ease-in-out',
     font: 'inherit',
+  },
+  buttonSmall: {
+    paddingBlock: '0.4rem',
+    paddingInline: 'var(--sx-spacing-small)',
+  },
+  buttonMedium: {
+    paddingBlock: 'var(--sx-spacing-small)',
+    paddingInline: 'var(--sx-spacing-medium)',
+  },
+  buttonLarge: {
+    paddingBlock: 'var(--sx-spacing-medium)',
+    paddingInline: 'var(--sx-spacing-medium)',
   },
   buttonDisabled: {
     'backgroundColor': 'rgba(var(--sx-foreground), 0.1)',
