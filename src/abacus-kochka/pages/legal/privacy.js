@@ -1,5 +1,6 @@
 // @flow
 
+import { Note } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
@@ -11,8 +12,9 @@ export default function LegalPrivacy(): React.Node {
       title={<fbt desc="privacy policy page title">Privacy Policy</fbt>}
       subtitle={<fbt desc="privacy policy page subtitle">How we handle your data</fbt>}
     >
-      {/* TODO */}
-      TODO
+      <Note tint="warning">
+        <fbt desc="stay tuned note">this page is not finished yet, stay tuned</fbt>
+      </Note>
     </Layout>
   );
 }

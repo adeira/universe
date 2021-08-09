@@ -831,9 +831,9 @@
     "9ggp9xUsB/b5GuzF9ovCJg==": "Privacy Policy"
    },
    "filepath": "pages/legal/privacy.js",
-   "line_beg": 11,
+   "line_beg": 12,
    "col_beg": 13,
-   "line_end": 11,
+   "line_end": 12,
    "col_end": 71,
    "desc": "privacy policy page title",
    "project": "",
@@ -845,9 +845,9 @@
     "ft/VX/kflZT+cJ7tDxay3w==": "How we handle your data"
    },
    "filepath": "pages/legal/privacy.js",
-   "line_beg": 12,
+   "line_beg": 13,
    "col_beg": 16,
-   "line_end": 12,
+   "line_end": 13,
    "col_end": 86,
    "desc": "privacy policy page subtitle",
    "project": "",
@@ -856,12 +856,26 @@
   },
   {
    "hashToText": {
+    "DBkiBGwUIGGpVvTQloF43Q==": "this page is not finished yet, stay tuned"
+   },
+   "filepath": "pages/legal/privacy.js",
+   "line_beg": 16,
+   "col_beg": 8,
+   "line_end": 16,
+   "col_end": 83,
+   "desc": "stay tuned note",
+   "project": "",
+   "type": "text",
+   "jsfbt": "this page is not finished yet, stay tuned"
+  },
+  {
+   "hashToText": {
     "hJ8qGTJjAWkopKNNpixseQ==": "Shipping & Returns"
    },
    "filepath": "pages/legal/shipping.js",
-   "line_beg": 10,
+   "line_beg": 11,
    "col_beg": 19,
-   "line_end": 10,
+   "line_end": 11,
    "col_end": 87,
    "desc": "shipping and returns page title",
    "project": "",
@@ -870,17 +884,45 @@
   },
   {
    "hashToText": {
+    "DBkiBGwUIGGpVvTQloF43Q==": "this page is not finished yet, stay tuned"
+   },
+   "filepath": "pages/legal/shipping.js",
+   "line_beg": 13,
+   "col_beg": 8,
+   "line_end": 13,
+   "col_end": 83,
+   "desc": "stay tuned note",
+   "project": "",
+   "type": "text",
+   "jsfbt": "this page is not finished yet, stay tuned"
+  },
+  {
+   "hashToText": {
     "zUHUK5wk9AK2m6HCgafXDQ==": "Terms of use"
    },
    "filepath": "pages/legal/terms.js",
-   "line_beg": 10,
+   "line_beg": 11,
    "col_beg": 19,
-   "line_end": 10,
+   "line_end": 11,
    "col_end": 73,
    "desc": "terms of use page title",
    "project": "",
    "type": "text",
    "jsfbt": "Terms of use"
+  },
+  {
+   "hashToText": {
+    "DBkiBGwUIGGpVvTQloF43Q==": "this page is not finished yet, stay tuned"
+   },
+   "filepath": "pages/legal/terms.js",
+   "line_beg": 13,
+   "col_beg": 8,
+   "line_end": 13,
+   "col_end": 83,
+   "desc": "stay tuned note",
+   "project": "",
+   "type": "text",
+   "jsfbt": "this page is not finished yet, stay tuned"
   },
   {
    "hashToText": {
