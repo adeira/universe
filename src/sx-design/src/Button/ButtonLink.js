@@ -26,7 +26,7 @@ export default function ButtonLink(props: Props): React.Node {
       type="button"
       onClick={props.onClick}
       data-testid={props['data-testid']}
-      className={sx(styles.default, props.isActive ? null : styles.inactive, props.xstyle)}
+      className={sx(styles.default, props.isActive ? styles.active : styles.inactive, props.xstyle)}
     >
       {props.children}
     </button>
@@ -42,11 +42,22 @@ const styles = sx.create({
     'font': 'inherit',
     'margin': 0,
     'padding': 0,
+    'textDecorationColor': 'transparent',
+    'textDecorationLine': 'underline',
+    'textDecorationStyle': 'solid',
+    'textDecorationThickness': '.05em',
+    '@media (prefers-reduced-motion: no-preference)': {
+      transition: 'text-decoration-color 300ms',
+    },
     ':hover': {
-      textDecoration: 'underline',
+      opacity: 1,
+      textDecorationColor: 'inherit',
     },
   },
+  active: {
+    opacity: 1,
+  },
   inactive: {
-    opacity: 0.85,
+    opacity: 0.9,
   },
 });

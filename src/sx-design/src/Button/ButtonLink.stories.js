@@ -23,7 +23,11 @@ const Template = (args) => <ButtonLink {...args} />;
 /* eslint-disable sx/no-unused-stylesheet */
 const styles = sx.create({
   custom: {
-    color: 'red',
+    'color': 'rgba(var(--sx-error))',
+    'textDecoration': 'underline',
+    ':hover': {
+      textDecoration: 'none',
+    },
   },
 });
 /* eslint-enable sx/no-unused-stylesheet */

@@ -35,7 +35,7 @@ export default (React.forwardRef(function Link(props, ref) {
       data-testid={props['data-testid']}
       {...((isExternalLink || props.target === '_blank') && { rel: 'noreferrer noopener' })}
       target={props.target}
-      className={sx(styles.default, props.isActive ? null : styles.inactive, props.xstyle)}
+      className={sx(styles.default, props.isActive ? styles.active : styles.inactive, props.xstyle)}
       onClick={props.onClick}
     >
       {props.children}
@@ -47,13 +47,22 @@ const styles = sx.create({
   default: {
     'color': 'rgba(var(--sx-link-text-color))',
     'cursor': 'pointer',
-    'textDecoration': 'none',
+    'textDecorationColor': 'transparent',
+    'textDecorationLine': 'underline',
+    'textDecorationStyle': 'solid',
+    'textDecorationThickness': '.05em',
+    '@media (prefers-reduced-motion: no-preference)': {
+      transition: 'text-decoration-color 300ms',
+    },
     ':hover': {
       opacity: 1,
-      textDecoration: 'underline',
+      textDecorationColor: 'inherit',
     },
   },
+  active: {
+    opacity: 1,
+  },
   inactive: {
-    opacity: 0.85,
+    opacity: 0.9,
   },
 });

@@ -6,9 +6,11 @@ import { useEffect, useState } from 'react';
 import { SX_DESIGN_REACT_PORTAL_ID } from '../SxDesignPortal';
 import useSxDesignContext from '../useSxDesignContext';
 
-export default function useAccessibleColors(backgroundRef: {
-  current: null | HTMLElement,
-}): string {
+export default function useAccessibleColors(
+  // We actually do not support callback refs (https://reactjs.org/docs/refs-and-the-dom.html#callback-refs)
+  // but it's important to use the complete type because the ref might be forwarded via `forwardRef`.
+  backgroundRef: ReactRefAny<HTMLElement>,
+): string {
   const sxDesignContext = useSxDesignContext();
   const [shouldUseForeground, setShouldUseForeground] = useState(true);
 

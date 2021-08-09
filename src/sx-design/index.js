@@ -32,3 +32,6 @@ export { default as Tooltip } from './src/Tooltip/Tooltip';
 export { default as LayoutBlock } from './src/Layout/LayoutBlock';
 export { default as LayoutGrid } from './src/Layout/LayoutGrid';
 export { default as LayoutInline } from './src/Layout/LayoutInline';
+
+// Public SX Design Flow types:
+export type { TextSupportedSize, TextSupportedWeight } from './src/Text/Text';
