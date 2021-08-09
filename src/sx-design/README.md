@@ -74,35 +74,35 @@ Legend:
 | [`<Text />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
-[`<badge />`]: https://sx-design.vercel.app/?path=/story/components-badge
-[`<button />`]: https://sx-design.vercel.app/?path=/story/components-button
-[`<buttonlink />`]: https://sx-design.vercel.app/?path=/story/components-buttonlink
-[`<emoji />`]: https://sx-design.vercel.app/?path=/story/components-emoji
-[`<entity />`]: https://sx-design.vercel.app/?path=/story/components-entity
-[`<entityfield />`]: https://sx-design.vercel.app/?path=/story/components-entityfield
-[`<errorboundary />`]: https://sx-design.vercel.app/?path=/story/components-errorboundary
-[`<image />`]: https://sx-design.vercel.app/?path=/story/components-image
-[`<kbd />`]: https://sx-design.vercel.app/?path=/story/components-kbd
-[`<link />`]: https://sx-design.vercel.app/?path=/story/components-link
-[`<linkbutton />`]: https://sx-design.vercel.app/?path=/story/components-linkbutton
-[`<loader />`]: https://sx-design.vercel.app/?path=/story/components-loader
-[`<missingdata />`]: https://sx-design.vercel.app/?path=/story/components-missingdata
-[`<modal />`]: https://sx-design.vercel.app/?path=/story/components-modal
-[`<money />`]: https://sx-design.vercel.app/?path=/story/components-money
-[`<note />`]: https://sx-design.vercel.app/?path=/story/components-note
-[`<placeholder />`]: https://sx-design.vercel.app/?path=/story/components-placeholder
-[`<productcard />`]: https://sx-design.vercel.app/?path=/story/components-productcard
-[`<skeleton />`]: https://sx-design.vercel.app/?path=/story/components-skeleton
-[`<skiplink />`]: https://sx-design.vercel.app/?path=/story/components-skiplink
-[`<tabs />`]: https://sx-design.vercel.app/?path=/story/components-tabs
-[`<text />`]: https://sx-design.vercel.app/?path=/story/components-text
-[`<tooltip />`]: https://sx-design.vercel.app/?path=/story/components-tooltip
+[`<badge />`]: https://sx-design.vercel.app/?path=/docs/components-badge
+[`<button />`]: https://sx-design.vercel.app/?path=/docs/components-button
+[`<buttonlink />`]: https://sx-design.vercel.app/?path=/docs/components-buttonlink
+[`<emoji />`]: https://sx-design.vercel.app/?path=/docs/components-emoji
+[`<entity />`]: https://sx-design.vercel.app/?path=/docs/components-entity
+[`<entityfield />`]: https://sx-design.vercel.app/?path=/docs/components-entityfield
+[`<errorboundary />`]: https://sx-design.vercel.app/?path=/docs/components-errorboundary
+[`<image />`]: https://sx-design.vercel.app/?path=/docs/components-image
+[`<kbd />`]: https://sx-design.vercel.app/?path=/docs/components-kbd
+[`<link />`]: https://sx-design.vercel.app/?path=/docs/components-link
+[`<linkbutton />`]: https://sx-design.vercel.app/?path=/docs/components-linkbutton
+[`<loader />`]: https://sx-design.vercel.app/?path=/docs/components-loader
+[`<missingdata />`]: https://sx-design.vercel.app/?path=/docs/components-missingdata
+[`<modal />`]: https://sx-design.vercel.app/?path=/docs/components-modal
+[`<money />`]: https://sx-design.vercel.app/?path=/docs/components-money
+[`<note />`]: https://sx-design.vercel.app/?path=/docs/components-note
+[`<placeholder />`]: https://sx-design.vercel.app/?path=/docs/components-placeholder
+[`<productcard />`]: https://sx-design.vercel.app/?path=/docs/components-productcard
+[`<skeleton />`]: https://sx-design.vercel.app/?path=/docs/components-skeleton
+[`<skiplink />`]: https://sx-design.vercel.app/?path=/docs/components-skiplink
+[`<tabs />`]: https://sx-design.vercel.app/?path=/docs/components-tabs
+[`<text />`]: https://sx-design.vercel.app/?path=/docs/components-text
+[`<tooltip />`]: https://sx-design.vercel.app/?path=/docs/components-tooltip
 
 There is an additional set of so-called "Layout" components that are responsible for rendering the components above in a correct order, with correct spacing and so on:
 
-- [`<LayoutBlock />`](https://sx-design.vercel.app/?path=/story/layout-layoutblock) - typically⁶ vertical stacking
-- [`<LayoutGrid />`](https://sx-design.vercel.app/?path=/story/layout-layoutgrid) - children in a [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid)
-- [`<LayoutInline />`](https://sx-design.vercel.app/?path=/story/layout-layoutinline) - typically⁶ horizontal stacking
+- [`<LayoutBlock />`](https://sx-design.vercel.app/?path=/docs/layout-layoutblock) - typically⁶ vertical stacking
+- [`<LayoutGrid />`](https://sx-design.vercel.app/?path=/docs/layout-layoutgrid) - children in a [CSS grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid)
+- [`<LayoutInline />`](https://sx-design.vercel.app/?path=/docs/layout-layoutinline) - typically⁶ horizontal stacking
 - … 🚧
 
 _Did you find a mistake in this table? Please, [report is as an issue](https://github.com/adeira/universe/issues/new)._
