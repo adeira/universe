@@ -5,6 +5,7 @@
 
 import fbt from 'fbt';
 
+import LayoutInline from '../Layout/LayoutInline';
 import LinkButton from './LinkButton';
 import { initFbt } from '../test-utils';
 import type { StoryTemplate } from '../types';
@@ -19,13 +20,33 @@ export default {
 const BasicTemplate = (args) => <LinkButton {...args} />;
 
 const ShowcaseTemplate = (args) => (
-  <>
+  <LayoutInline>
     <LinkButton {...args} tint="default" />
     <LinkButton {...args} tint="secondary" />
     <LinkButton {...args} tint="error" />
     <LinkButton {...args} tint="success" />
     <LinkButton {...args} tint="warning" />
-  </>
+  </LayoutInline>
+);
+
+const SizesTemplate = (args) => (
+  <LayoutInline>
+    <LinkButton {...args} size="small">
+      <fbt desc="link button title" doNotExtract={true}>
+        small link button
+      </fbt>
+    </LinkButton>
+    <LinkButton {...args} size="medium">
+      <fbt desc="link button title" doNotExtract={true}>
+        medium link button
+      </fbt>
+    </LinkButton>
+    <LinkButton {...args} size="large">
+      <fbt desc="link button title" doNotExtract={true}>
+        large link button
+      </fbt>
+    </LinkButton>
+  </LayoutInline>
 );
 
 initFbt();
@@ -39,6 +60,12 @@ ButtonDefault.args = {
       Click me, I am a link but I look like a button!
     </fbt>
   ),
+  href: 'https://github.com/adeira/universe/stargazers',
+};
+
+export const ButtonSizes: StoryTemplate<typeof LinkButton> = SizesTemplate.bind({});
+ButtonSizes.storyName = 'With various sizes';
+ButtonSizes.args = {
   href: 'https://github.com/adeira/universe/stargazers',
 };
 

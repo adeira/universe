@@ -15,6 +15,7 @@ type Props = {
   +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
+  +'size'?: 'small' | 'medium' | 'large',
   +'prefix'?: RestrictedElement<typeof Icon>,
   +'suffix'?: RestrictedElement<typeof Icon>,
 };
@@ -33,6 +34,9 @@ export default function Button(props: Props): React.Element<'button'> {
       data-testid={props['data-testid']}
       className={sharedButtonStyles({
         buttonBase: true,
+        buttonSmall: props.size === 'small',
+        buttonMedium: props.size == null || props.size === 'medium',
+        buttonLarge: props.size === 'large',
         buttonTintDefault: props.tint == null || props.tint === 'default',
         buttonTintSecondary: props.tint === 'secondary',
         buttonTintError: props.tint === 'error',
