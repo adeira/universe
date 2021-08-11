@@ -307,7 +307,6 @@ pub enum ProductMultilingualInputVisibility {
 #[derive(juniper::GraphQLInputObject, Debug)]
 pub struct ProductMultilingualInput {
     pub(crate) images: Vec<ProductImageUploadable>,
-    // unit_label: String, // TODO: always "piece" at this moment
     pub(in crate::commerce) price: ProductPriceInput,
     pub(in crate::commerce) translations: Vec<ProductMultilingualInputTranslations>,
     pub(in crate::commerce) visibility: Vec<ProductMultilingualInputVisibility>,
@@ -546,7 +545,7 @@ pub(in crate::commerce) async fn create_product(
         images = crate::images::process_new_images(context, product_multilingual_input).await?;
     }
 
-    // Then, we create the product with the previously created images.
+    // Then, we create the product with the previously created images (and assigned addons).
     let created_product = crate::commerce::dal::products::create_product(
         &context.pool,
         client_locale,
@@ -555,7 +554,7 @@ pub(in crate::commerce) async fn create_product(
     )
     .await?;
 
-    // And finally, we assign product categories and addons.
+    // And finally, we assign product categories.
     crate::commerce::dal::product_categories::assign_product_categories(
         &context.pool,
         &created_product.id(),
@@ -563,8 +562,6 @@ pub(in crate::commerce) async fn create_product(
         client_locale,
     )
     .await?;
-
-    // TODO: assign product addons
 
     Ok(created_product)
 }
@@ -624,7 +621,7 @@ pub(in crate::commerce) async fn update_product(
     // merge new (uploaded) images with the preserved images
     existing_images.extend(new_images);
 
-    // update the product
+    // update the product (and assigned addons)
     let updated_product = crate::commerce::dal::products::update_product(
         &context.pool,
         client_locale,
@@ -635,7 +632,7 @@ pub(in crate::commerce) async fn update_product(
     )
     .await?;
 
-    // and finally, assign the new product categories and addons
+    // and finally, assign the new product categories
     crate::commerce::dal::product_categories::assign_product_categories(
         &context.pool,
         &updated_product.id(),
@@ -643,8 +640,6 @@ pub(in crate::commerce) async fn update_product(
         client_locale,
     )
     .await?;
-
-    // TODO: assign product addons
 
     Ok(updated_product)
 }
