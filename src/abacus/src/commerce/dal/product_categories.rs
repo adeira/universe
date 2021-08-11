@@ -15,6 +15,7 @@ pub(in crate::commerce) async fn assign_product_categories(
     resolve_aql_vector::<ProductCategory>(
         pool,
         r#"
+            WITH product_categories
             FOR category,edge IN OUTBOUND @product_id product_categories_edges
               REMOVE edge IN product_categories_edges
 
