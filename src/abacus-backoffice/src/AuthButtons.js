@@ -57,6 +57,7 @@ export function LoginButton(): Node {
   return (
     <>
       <GoogleLogin
+        buttonText={<fbt desc="Sign in with Google button title">Sign in with Google</fbt>}
         clientId={constants.googleClientID}
         responseType="id_token"
         onSuccess={successResponseGoogle}
