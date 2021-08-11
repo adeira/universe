@@ -39,9 +39,9 @@ const renderWithProviders = (
   });
 };
 
-// re-export everything
+// re-export needed things without modifications
 // eslint-disable-next-line import/no-extraneous-dependencies
-export * from '@testing-library/react';
+export { fireEvent } from '@testing-library/react';
 
-// override render method
+// export custom render method(s)
 export { initFbt, renderWithProviders as render, renderWithoutProviders };

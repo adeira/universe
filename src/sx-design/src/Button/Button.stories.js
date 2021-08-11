@@ -24,7 +24,21 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => <Button {...args} />;
+const BasicTemplate = (args) => (
+  <LayoutInline>
+    <Button {...args}>
+      <fbt desc="button title" doNotExtract={true}>
+        Default button
+      </fbt>
+    </Button>
+    <Button {...args} isDisabled={true}>
+      <fbt desc="button title" doNotExtract={true}>
+        Disabled button
+      </fbt>
+    </Button>
+  </LayoutInline>
+);
+
 const ShowcaseTemplate = (args) => (
   <LayoutInline>
     <Button {...args} tint="default">
@@ -55,18 +69,31 @@ const ShowcaseTemplate = (args) => (
   </LayoutInline>
 );
 
+const SizesTemplate = (args) => (
+  <LayoutInline>
+    <Button {...args} size="small">
+      <fbt desc="small button title" doNotExtract={true}>
+        small button
+      </fbt>
+    </Button>
+    <Button {...args} size="medium">
+      <fbt desc="medium button title" doNotExtract={true}>
+        medium button
+      </fbt>
+    </Button>
+    <Button {...args} size="large">
+      <fbt desc="large button title" doNotExtract={true}>
+        large button
+      </fbt>
+    </Button>
+  </LayoutInline>
+);
+
 initFbt();
 
 // 👇 Each story then reuses that template
 export const ButtonDefault: StoryTemplate<typeof Button> = BasicTemplate.bind({});
 ButtonDefault.storyName = 'Default';
-ButtonDefault.args = {
-  children: (
-    <fbt desc="button title" doNotExtract={true}>
-      Default button
-    </fbt>
-  ),
-};
 
 export const ButtonPrefixSuffix: StoryTemplate<typeof Button> = BasicTemplate.bind({});
 ButtonPrefixSuffix.storyName = 'With prefix/suffix';
@@ -78,6 +105,12 @@ ButtonPrefixSuffix.args = {
       Button
     </fbt>
   ),
+};
+
+export const ButtonSizes: StoryTemplate<typeof Button> = SizesTemplate.bind({});
+ButtonSizes.storyName = 'With various sizes';
+ButtonSizes.argTypes = {
+  tint: { table: { disable: true } },
 };
 
 export const ButtonShowcase: StoryTemplate<typeof Button> = ShowcaseTemplate.bind({});
