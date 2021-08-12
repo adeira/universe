@@ -25,8 +25,7 @@ declare type React$Node =
   | React$Portal
   | Iterable<?React$Node>
   | FbtElement
-  | FbtString
-  | FbtPureStringResult;
+  | FbtString;
 
 declare type FunctionComponentRender<+TRender> = (props: any) => TRender;
 declare type ClassComponentRender<+TRender> = Class<

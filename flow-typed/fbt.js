@@ -57,25 +57,10 @@ declare type FbtWithoutString = FbtString | FbtElement;
  */
 declare type Fbt = string | FbtWithoutString;
 
-/**
- * All translated strings wrapped in `fbs()` or `<fbs>` type.
- * If this is composed of "string parameters" (fbs.param),
- * then it'll only accept plain string values, or other `Fbs` objects.
- */
-declare type Fbs = FbtPureStringResult;
-
-// Read-only array of Fbt items. Use this only when your code is meant to
-// handle a list of Fbts from different source code locations.
-// Avoid returning an array of Fbt like [<fbt/>, <fbt/>] for a single site
-// because it's an anti-pattern similar to string concatenation.
-// Favor using a single <fbt/> element as often as possible.
-declare type FbtCollection = Fbt | $ReadOnlyArray<Fbt>;
-
 // Similar to React$Node without `Iterable<React$Node>`
 declare type $FbtContentItem =
   | boolean
   | FbtElement
-  | FbtPureStringResult
   | FbtString
   | null
   | number
@@ -84,81 +69,7 @@ declare type $FbtContentItem =
   | string
   | void;
 
-declare type $NestedFbtContentItems = $ReadOnlyArray<$FbtContentItem | $NestedFbtContentItems>;
-
-declare type FbtErrorContext = {
-  hash: ?string,
-  translation: string,
-  ...
-};
-
-/**
- * A delegate used in FbtResult for handling errors when toString
- * can't serialize due to non-string and non-Fbt elements in the
- * interpolated payload (e.g. React nodes, DOM nodes, etc).
- */
-declare interface IFbtErrorListener {
-  constructor(context: FbtErrorContext): void;
-
-  /**
-   * Handle the error scenario where the FbtResultBase contains non-string elements
-   * (usually React components) and tries to run .toString()
-   *
-   * Example of bad usage of <fbt> with rich contents that will trigger this error
-   *
-   * render() {
-   *   const text = (
-   *     <fbt desc="...">
-   *       I have <Link href="#">no name</Link>.
-   *     </fbt>
-   *   );
-   *   return (
-   *     <div className={cx('FiddleCSS/root')}>
-   *       <p>Text = "{text}"</p>
-   *       <p>Truncated Text = "{text.substr(0, 9)}"</p> // will output: "I have ."
-   *       <em>You might have expected "I have no name" but we don't support
-   *           this in the FBT API.</em>
-   *     </div>
-   *   );
-   * }
-   */
-  +onStringSerializationError?: (content: $FbtContentItem) => void;
-
-  +onStringMethodUsed?: (method: string) => void;
-}
-
-declare interface IFbtResultBase {
-  constructor(contents: $ReadOnlyArray<any>, errorListener: ?IFbtErrorListener): void;
-  getContents(): any;
-  // This relies on toString() which contains i18n logging logic to track impressions.
-  // I.e. If you use this, i18n will register the string as displayed!
-  toJSON(): string;
-
-  // Hack for allowing FBTResult to play nice in React components
-  _store?: { validated: boolean, ... };
-}
-
-// String result wrapper intended for ComponentScript.
-// Similar to FbtResultBase except that:
-// - it can only be assembled from strings, not React elements
-// - it doesn't behave like a stringish object
-declare class FbtPureStringResult implements IFbtResultBase {
-  // implements IFbtResultBase
-  constructor(contents: $ReadOnlyArray<any>, errorListener: ?IFbtErrorListener): void;
-  /* $FlowFixMe[method-unbinding] This comment suppresses an error when upgrading Flow
-   * to version 0.153.0. To see the error delete this comment and run Flow. */
-  getContents: $PropertyType<IFbtResultBase, 'getContents'>;
-  /* $FlowFixMe[method-unbinding] This comment suppresses an error when upgrading Flow
-   * to version 0.153.0. To see the error delete this comment and run Flow. */
-  toJSON: $PropertyType<IFbtResultBase, 'toJSON'>;
-  // TODO(T27672828) Move code of toString() inside unwrap()
-  // Returns the translated string value (similar to a `toString()` method)
-  // This is deliberately named differently to avoid making this class behave
-  // in a "stringish" manner.
-  // unwrap(): string;
-}
-
-declare class $FbtResultBase extends FbtPureStringResult {
+declare class $FbtResultBase {
   /* $FlowFixMe[method-unbinding] This comment suppresses an error when upgrading Flow
    * to version 0.153.0. To see the error delete this comment and run Flow. */
   toString: typeof String.prototype.toString;
@@ -166,7 +77,6 @@ declare class $FbtResultBase extends FbtPureStringResult {
 
 // Represents the input of an fbt.param
 type $FbtParamInput = React$Node;
-type $FbsParamInput = FbtPureStringResult | string;
 
 // Represents the output of an fbt.param, fbt.enum, etc...
 // It's voluntarily not an accurate representation of the real output.
@@ -225,10 +135,6 @@ type $GenericFbtFunctionAPI<Input, Output, ParamInput, ParamOutput> = {
   c(text: string): Output,
   jsonEncode: boolean,
   replaceParams: boolean,
-  // Only used in React Native in fbsource
-  enableJsonExportMode(): void,
-  // Only used in React Native in fbsource
-  disableJsonExportMode(): void,
   isFbtInstance(value: mixed): boolean,
   ...
 };
@@ -249,10 +155,3 @@ type $ArrayBasedFbtFunctionAPI<Output, ParamInput> = $GenericFbtFunctionAPI<
 
 type $FbtFunctionAPI = $StringBasedFbtFunctionAPI<FbtWithoutString, $FbtParamInput, string> &
   $ArrayBasedFbtFunctionAPI<FbtWithoutString, $FbtParamInput>;
-
-type $FbsFunctionAPI = $StringBasedFbtFunctionAPI<
-  FbtPureStringResult,
-  $FbsParamInput,
-  $FbtParamOutput,
-> &
-  $ArrayBasedFbtFunctionAPI<FbtPureStringResult, $FbsParamInput>;
