@@ -35,6 +35,10 @@ type Props = {
 export default function ProductCard(props: Props): Element<'div'> {
   const [isHovered, setIsHovered] = useState(false);
 
+  // We try to be bold and make the title big. However, when we reach some (empirically tested)
+  // limit, we decrease the font size so the product card still looks nice.
+  const titleSize = props.title.toString().length >= 15 ? 24 : 32;
+
   return (
     <div
       className={styles('wrapper', 'aspectRatioBox')}
@@ -45,19 +49,19 @@ export default function ProductCard(props: Props): Element<'div'> {
     >
       <div className={styles('aspectRatioBoxInner')}>
         <div className={styles('highlightWrapper')}>
-          <span
-            className={styles(
-              isHovered ? 'highlightHover' : 'highlight',
-              'highlightBase',
-              'highlightBaseRounded', // applies only to this highlight
-            )}
-          >
-            <Text size={32} weight={700}>
+          <Text size={titleSize}>
+            <span
+              className={styles(
+                'highlightBase',
+                'highlightBaseRounded', // applies only to this highlight
+                isHovered ? 'highlightHover' : 'highlight',
+              )}
+            >
               {props.title}
-            </Text>
-          </span>
+            </span>
+          </Text>
 
-          <span className={styles(isHovered ? 'highlightHover' : 'highlight', 'highlightBase')}>
+          <span className={styles('highlightBase', isHovered ? 'highlightHover' : 'highlight')}>
             <Money
               priceUnitAmount={props.priceUnitAmount}
               priceUnitAmountCurrency={props.priceUnitAmountCurrency}
@@ -72,6 +76,13 @@ export default function ProductCard(props: Props): Element<'div'> {
 }
 
 const styles = sx.create({
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: 'rgba(var(--sx-accent-2))',
+    position: 'relative',
+    borderRadius: 'var(--sx-radius)',
+  },
   aspectRatioBox: {
     position: 'relative',
     width: '100%',
@@ -82,14 +93,8 @@ const styles = sx.create({
     height: '100%',
     width: '100%',
   },
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: 'rgba(var(--sx-accent-2))',
-    position: 'relative',
-    borderRadius: 'var(--sx-radius)',
-  },
   highlightWrapper: {
+    width: 'calc(100% - (2 * var(--sx-radius)))', // leave a little bit of space on the right side
     position: 'absolute',
     left: 0,
     top: 0,

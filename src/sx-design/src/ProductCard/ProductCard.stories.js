@@ -45,7 +45,7 @@ const Template = (args) => (
 export const Standalone: StoryTemplate<typeof ProductCard> = TemplateStandalone.bind({});
 Standalone.storyName = 'Standalone (no image)';
 Standalone.args = {
-  title: 'My awesome product',
+  title: 'My product',
   priceUnitAmount: 42,
   priceUnitAmountCurrency: 'MXN',
 };
@@ -53,7 +53,7 @@ Standalone.args = {
 export const StandaloneWithImage: StoryTemplate<typeof ProductCard> = TemplateStandalone.bind({});
 StandaloneWithImage.storyName = 'Standalone with image';
 StandaloneWithImage.args = {
-  title: 'My awesome product',
+  title: 'My product',
   priceUnitAmount: 42,
   priceUnitAmountCurrency: 'USD',
   imgBlurhash: BLURHASH,
@@ -63,7 +63,7 @@ StandaloneWithImage.args = {
 export const InGrid: StoryTemplate<typeof ProductCard> = Template.bind({});
 InGrid.storyName = 'In a CSS grid';
 InGrid.args = {
-  title: 'Product',
+  title: 'My awesome product with a very long name',
   priceUnitAmount: 42,
   priceUnitAmountCurrency: 'CZK',
   imgBlurhash: BLURHASH,
