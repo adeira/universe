@@ -10,7 +10,7 @@
   "sideEffects": false,
   "dependencies": {
     "@babel/runtime": "^7.14.8",
-    "@next/eslint-plugin-next": "^11.0.1",
+    "@next/eslint-plugin-next": "^11.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-adeira": "^0.13.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
