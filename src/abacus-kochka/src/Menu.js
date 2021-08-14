@@ -33,6 +33,7 @@ export default function Menu(): Node {
       variables={{
         clientLocale: viewerContext.languageTag.graphql,
       }}
+      fetchPolicy="store-and-network"
       onLoading={() => <MenuLoader />}
       onResponse={(relayProps) => {
         return (
