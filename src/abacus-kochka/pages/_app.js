@@ -7,11 +7,12 @@ import ReactDOM from 'react-dom';
 import sx from '@adeira/sx';
 import { RecoilRoot } from 'recoil';
 import { SkipLink, SxDesignProvider, ErrorBoundary } from '@adeira/sx-design';
-import { createEnvironment, createNetworkFetcher, RelayEnvironmentProvider } from '@adeira/relay';
+import { RelayEnvironmentProvider } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
 import './_app.css';
 import Logo from '../src/Logo';
+import RelayEnvironment from '../src/RelayEnvironment';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
 
@@ -50,16 +51,10 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
     );
   }
 
-  const Environment = createEnvironment({
-    fetchFn: createNetworkFetcher(
-      'http://localhost:5000/graphql', // TODO: HTTPS, better "abacus" domain
-    ),
-  });
-
   return (
     <SxDesignProvider locale={languageTag.bcp47} theme="light">
       <ErrorBoundary>
-        <RelayEnvironmentProvider environment={Environment}>
+        <RelayEnvironmentProvider environment={RelayEnvironment}>
           <ViewerContextProvider languageTag={languageTag}>
             <RecoilRoot>
               <div className={styles('root')}>
