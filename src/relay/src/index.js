@@ -73,3 +73,4 @@ export {
   useSubscribeToInvalidationState,
   useSubscription,
 } from 'react-relay';
+export type { PreloadedQuery } from 'react-relay';
