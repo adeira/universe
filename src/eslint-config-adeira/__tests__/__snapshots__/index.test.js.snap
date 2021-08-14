@@ -64,8 +64,6 @@ Object {
     "adeira/no-duplicate-import-type-import": 2,
     "adeira/no-invalid-flow-annotations": 2,
     "adeira/only-nullable-fields": 2,
-    "adeira/relay-import-no-values": 2,
-    "adeira/relay-import-type-must-exist": 2,
     "adeira/valid-test-folder": 2,
     "array-bracket-newline": "off",
     "array-bracket-spacing": "off",
