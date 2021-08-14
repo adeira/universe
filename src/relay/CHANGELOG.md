@@ -1,5 +1,7 @@
 # Unreleased
 
+# 3.3.0
+
 - Added support for GraphQL errors with `CRICITAL` severity: you can mark any error to be critical by adding this value to `errors[*].extensions.severity`. Such errors will be propagated to any available `ErrorBoundary` when using `useLazyLoadQuery` or to `onError` callback when calling a mutation.
 - Removed forgotten dependency `relay-compiler-experimental` (followup after 3.2.4)
 - Bump commander from from 7.2.0 to 8.0.0
