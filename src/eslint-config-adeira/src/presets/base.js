@@ -432,8 +432,6 @@ module.exports = ({
     'adeira/no-duplicate-import-type-import': ERROR,
     'adeira/no-invalid-flow-annotations': ERROR,
     'adeira/only-nullable-fields': ERROR,
-    'adeira/relay-import-no-values': ERROR,
-    'adeira/relay-import-type-must-exist': ERROR,
     'adeira/valid-test-folder': ERROR,
 
     // Adeira SX custom rules
