@@ -38,16 +38,18 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
   if (isProduction) {
     // not public yet
     return (
-      <div className={styles('root', 'rootSoon')}>
-        <div className={styles('rootSoonOverlay')}>
-          <Logo />
-          <div className={styles('form')}>
-            <em>
-              <fbt desc="coming soon">coming soon</fbt>
-            </em>
+      <SxDesignProvider locale={languageTag.bcp47} theme="light">
+        <div className={styles('root', 'rootSoon')}>
+          <div className={styles('rootSoonOverlay')}>
+            <Logo />
+            <div className={styles('form')}>
+              <em>
+                <fbt desc="coming soon">coming soon</fbt>
+              </em>
+            </div>
           </div>
         </div>
-      </div>
+      </SxDesignProvider>
     );
   }
 
