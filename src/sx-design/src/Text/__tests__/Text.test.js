@@ -57,7 +57,7 @@ test.each([900, 800, 700, 600, 500, 400, 300, 200, 100])(
   },
 );
 
-test.each(['p', 'small', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])(
+test.each(['p', 'small', 'code', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])(
   'renders correctly as: %s',
   (as) => {
     const { getByTestId } = render(
