@@ -1,5 +1,6 @@
 // @flow
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 import SignedSource from '@adeira/signed-source';
 import * as changeCase from 'change-case';
 import mdnData from 'mdn-data';
