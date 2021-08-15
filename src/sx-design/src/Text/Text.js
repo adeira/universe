@@ -21,6 +21,19 @@ export type TextSupportedWeight =
   | 900 // Black (Heavy)
   | 950; // Extra Black (Ultra Black)
 
+type TextSupportedTypes =
+  | 'p' // default
+  | 'small'
+  | 'code'
+  | 'span'
+  | 'div'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6';
+
 // In most of the cases, the `Text` children should be a translated string. However, we allow
 // somehow restricted React `Node` so that user can for example embed HTML links.
 type RestrictedReactNode = Fbt | Element<any> | Iterable<RestrictedReactNode>;
@@ -29,7 +42,7 @@ type Props = {
   +'children': RestrictedReactNode,
   // It's important to use the complete ref type because the ref might be forwarded via `forwardRef`.
   +'backgroundRef'?: ReactRefAny<HTMLElement>,
-  +'as'?: 'p' | 'small' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
+  +'as'?: TextSupportedTypes,
   +'size'?: TextSupportedSize,
   +'transform'?: 'capitalize' | 'lowercase' | 'uppercase',
   +'truncate'?: boolean,

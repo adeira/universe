@@ -60,7 +60,7 @@ const TemplateSized = () => (
 
 const TemplateSemantic = () => (
   <LayoutBlock>
-    {['p', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].map((as) => (
+    {['p', 'small', 'code', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].map((as) => (
       <Text key={as} as={as}>
         <fbt desc="semantic text" doNotExtract={true}>
           The quick brown fox. (<fbt:param name="as">{as}</fbt:param>)
