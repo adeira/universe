@@ -3,8 +3,6 @@
 import React, { type Node, type Element } from 'react';
 import sx from '@adeira/sx';
 
-import useAccessibleColors from './useAccessibleColors';
-
 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
 export type TextSupportedSize = 10 | 12 | 14 | 16 | 20 | 24 | 32 | 40 | 48;
 
@@ -40,8 +38,6 @@ type RestrictedReactNode = Fbt | Element<any> | Iterable<RestrictedReactNode>;
 
 type Props = {
   +'children': RestrictedReactNode,
-  // It's important to use the complete ref type because the ref might be forwarded via `forwardRef`.
-  +'backgroundRef'?: ReactRefAny<HTMLElement>,
   +'as'?: TextSupportedTypes,
   +'size'?: TextSupportedSize,
   +'transform'?: 'capitalize' | 'lowercase' | 'uppercase',
@@ -51,24 +47,8 @@ type Props = {
 };
 
 /**
- * Purpose of this component is to render accessible text in a given context. Specifically, it takes
- * into account background color of the parent component and renders the text with a proper color
- * contrast. To specify the background color, you have to specify `backgroundRef` which is a reference
- * to the parent element. Example:
- *
- * ```js
- * function ExampleComponent(props: Props): Node {
- *   const backgroundRef = useRef(null);
- *
- *   return (
- *     <div className={styles('example')} ref={backgroundRef}>
- *       <Text backgroundRef={backgroundRef}>example text</Text>
- *     </div>
- *   );
- * }
- * ```
- *
- * Additionally, you can specify these properties to modify the text appearance and behavior:
+ * Purpose of this component is to render a text correctly in a given context. Additionally, you can
+ * specify these properties to modify the text appearance and behavior:
  *
  *  - `as` to modify the root component for semantic purposes
  *  - `size` to modify the font size (automatically sets appropriate weight)
@@ -77,10 +57,9 @@ type Props = {
  *  - `weight` to modify the font weight
  *
  * Combination of these properties allows you to set some advanced combinations like `<p/>` that
- * looks like `<h1/>` (as=p, size=32).
+ * looks like `<h1/>` (as=p, size=48) or `<h1/>` that looks like `<p/>` (as=h1, size=16).
  */
 export default function Text(props: Props): Node {
-  const accessibleTextColor = useAccessibleColors(props.backgroundRef ?? { current: null });
   const AsComponent = props.as ?? 'p';
 
   return (
@@ -114,7 +93,6 @@ export default function Text(props: Props): Node {
         w950: props.weight === 950,
       })}
       style={{
-        color: props.backgroundRef != null ? accessibleTextColor : 'inherit',
         textTransform: props.transform ?? 'inherit',
       }}
     >

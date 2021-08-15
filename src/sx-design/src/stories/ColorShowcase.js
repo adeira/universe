@@ -3,7 +3,7 @@
 import React, { useRef, type Node } from 'react';
 import sx from '@adeira/sx';
 
-import Text from '../Text/Text';
+import useAccessibleColor from './useAccessibleColor';
 
 type Props = {
   +color: string,
@@ -11,14 +11,18 @@ type Props = {
 
 export default function ColorShowcase(props: Props): Node {
   const backgroundRef = useRef(null);
+  const accessibleColor = useAccessibleColor(backgroundRef);
 
   return (
     <div
       className={styles('colorSample')}
-      style={{ backgroundColor: props.color }}
+      style={{
+        color: accessibleColor,
+        backgroundColor: props.color,
+      }}
       ref={backgroundRef}
     >
-      <Text backgroundRef={backgroundRef}>{props.color}</Text>
+      {props.color}
     </div>
   );
 }
