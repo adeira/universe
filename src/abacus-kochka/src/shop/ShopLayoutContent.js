@@ -46,6 +46,7 @@ export default function ShopLayoutContent(): React.Node {
         clientLocale: viewerContext.languageTag.graphql,
         priceSortDirection: filters.relevance.price,
       }}
+      fetchPolicy="store-and-network"
       onLoading={() => {
         // Loading screen (first Skeleton, then Blurhash, then the actual image):
         return (
