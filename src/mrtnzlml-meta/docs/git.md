@@ -145,6 +145,7 @@ See: https://stackoverflow.com/a/36437843
 diff -u <(seq 16) <(seq 16 | grep -Ev '^(2|3|14|15)$')
 --- /dev/fd/11	2019-09-26 15:48:31.000000000 -0500
 +++ /dev/fd/12	2019-09-26 15:48:31.000000000 -0500
+// highlight-next-line
 @@ -1,6 +1,4 @@
  1
 -2
@@ -152,6 +153,7 @@ diff -u <(seq 16) <(seq 16 | grep -Ev '^(2|3|14|15)$')
  4
  5
  6
+// highlight-next-line
 @@ -11,6 +9,4 @@
  11
  12
@@ -183,16 +185,18 @@ This hash exists in every Git repository: https://stackoverflow.com/q/9765453/31
 ## Keeping origin synced with upstream
 
 ```bash
-🤓 geojson-editor [master] git remote -v
+$ git remote -v
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (fetch)
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
-🤓 geojson-editor [master] git remote add upstream git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git
-🤓 geojson-editor [master] git remote -v
+
+$ git remote add upstream git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git
+$ git remote -v
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (fetch)
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
 upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (fetch)e
 upstream	git@gitlab.skypicker.com:alex.alexeev/geojson-editor.git (push)
-🤓 geojson-editor [master] git fetch upstream
+
+$ git fetch upstream
 remote: Enumerating objects: 37, done.
 remote: Counting objects: 100% (31/31), done.
 remote: Compressing objects: 100% (15/15), done.
@@ -201,10 +205,12 @@ Unpacking objects: 100% (15/15), done.
 From gitlab.skypicker.com:alex.alexeev/geojson-editor
  * [new branch]      17-poi-save -> upstream/17-poi-save
  * [new branch]      master      -> upstream/master
-🤓 geojson-editor [master] git checkout master
+
+$ git checkout master
 Already on 'master'
 Your branch is up to date with 'origin/master'.
-🤓 geojson-editor [master] git merge upstream/master
+
+$ git merge upstream/master
 Updating c935cea..e6e1284
 Fast-forward
  package.json                     |  4 ++--
