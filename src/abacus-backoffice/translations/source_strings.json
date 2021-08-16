@@ -16,17 +16,17 @@
   },
   {
    "hashToText": {
-    "NjflhT2wV59jTuiQS7dMCA==": "Sign in with Google"
+    "YbKEH2FBVNXdK9cD2MD1tA==": "Login with Google"
    },
    "filepath": "src/AuthButtons.js",
    "line_beg": 60,
    "col_beg": 20,
    "line_end": 60,
-   "col_end": 90,
-   "desc": "Sign in with Google button title",
+   "col_end": 86,
+   "desc": "login with Google button title",
    "project": "",
    "type": "text",
-   "jsfbt": "Sign in with Google"
+   "jsfbt": "Login with Google"
   },
   {
    "hashToText": {
@@ -349,6 +349,34 @@
    "project": "",
    "type": "text",
    "jsfbt": "Ledger"
+  },
+  {
+   "hashToText": {
+    "sTClRPXJDaS8SaoP0SaO5Q==": "Login to Abacus"
+   },
+   "filepath": "src/LoginPage.js",
+   "line_beg": 16,
+   "col_beg": 12,
+   "line_end": 16,
+   "col_end": 67,
+   "desc": "login to Abacus title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Login to Abacus"
+  },
+  {
+   "hashToText": {
+    "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
+   },
+   "filepath": "src/LoginPage.js",
+   "line_beg": 17,
+   "col_beg": 38,
+   "line_end": 17,
+   "col_end": 87,
+   "desc": "abacus emoji label",
+   "project": "",
+   "type": "text",
+   "jsfbt": "abacus emoji"
   },
   {
    "hashToText": {
