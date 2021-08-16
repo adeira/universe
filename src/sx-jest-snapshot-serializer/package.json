@@ -9,7 +9,7 @@
   "type": "commonjs",
   "sideEffects": true,
   "dependencies": {
-    "@adeira/sx": "^0.27.0",
+    "@adeira/sx": "^0.28.0",
     "@babel/runtime": "^7.15.3",
     "prettier": "^2.3.2",
     "pretty-format": "^27.0.6"
