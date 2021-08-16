@@ -14,7 +14,7 @@ sidebar_label: Git
 
 What happened in last week?
 
-```
+```bash
 git log --since=1.week --oneline --no-merges
 ```
 
@@ -25,13 +25,13 @@ git log --since=1.week --oneline --no-merges
 
 ## New repo with copied history of only currently tracked files
 
-```text
+```bash
 git rev-list --all --count
 ```
 
 Filtering:
 
-```text
+```bash
 git checkout master
 git ls-files > keep-these.txt
 git filter-branch --force --index-filter \
@@ -42,7 +42,7 @@ git filter-branch --force --index-filter \
 
 Cleanup:
 
-```text
+```bash
 rm -rf .git/refs/original/
 git reflog expire --expire=now --all
 git gc --prune=now
@@ -182,7 +182,7 @@ This hash exists in every Git repository: https://stackoverflow.com/q/9765453/31
 
 ## Keeping origin synced with upstream
 
-```
+```bash
 🤓 geojson-editor [master] git remote -v
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (fetch)
 origin	git@gitlab.skypicker.com:martin.zlamal/geojson-editor.git (push)
@@ -217,7 +217,7 @@ Fast-forward
 
 Get hash of the latest version:
 
-```
+```bash
 git blame -- src/packages/signed-source/package.json
 ```
 
@@ -232,7 +232,7 @@ git blame -- src/packages/signed-source/package.json
 
 OK, latest version hash is `8755e0bb`. What are the latest changes?
 
-```
+```bash
 git log --oneline 8755e0bb..HEAD -- src/packages/signed-source
 ```
 
@@ -242,7 +242,7 @@ git log --oneline 8755e0bb..HEAD -- src/packages/signed-source
 
 I see, what was the hash of the version before? (means before `8755e0bb`)
 
-```
+```bash
 git blame 8755e0bb^ -- src/packages/signed-source/package.json
 ```
 
@@ -257,7 +257,7 @@ git blame 8755e0bb^ -- src/packages/signed-source/package.json
 
 OK, it was `171347dd`. What are the changes between these 2 versions?
 
-```
+```bash
 git log --oneline 171347dd..8755e0bb -- src/packages/signed-source
 ```
 
@@ -315,7 +315,7 @@ only major version specified will allow `minor` changes.
 
 ## Global .gitignore
 
-```text
+```bash
 git config --global core.excludesfile ~/.gitignore_global
 ```
 
