@@ -140,7 +140,10 @@ mod tests {
 
         // 3) return the checkout stats
         let all_checkouts = get_all_checkouts(&pool).await.unwrap();
-        insta::assert_debug_snapshot!(all_checkouts);
+        insta::assert_ron_snapshot!(all_checkouts, {
+            "[]._id" => "[REDACTED]",
+            "[].created_date" => "[REDACTED]",
+        });
 
         cleanup_test_database(&db_name).await;
     }
