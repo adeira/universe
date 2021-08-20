@@ -8,8 +8,6 @@ import { RecoilRoot } from 'recoil';
 
 import useSelectedItemsApi from '../selectedItemsState';
 
-/* global window */
-
 afterEach(() => {
   window.localStorage.clear();
 });

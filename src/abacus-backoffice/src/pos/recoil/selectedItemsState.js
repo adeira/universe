@@ -4,8 +4,6 @@ import * as Immutable from 'immutable';
 import { isBrowser } from '@adeira/js';
 import { atom, selector, useRecoilState, DefaultValue, useRecoilValue } from 'recoil';
 
-/* global window */
-
 export type AtomItemType = {
   +itemID: string,
   +itemTitle: string,

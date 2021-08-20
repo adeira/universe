@@ -115,7 +115,7 @@ module.exports = ({
     'no-octal-escape': ERROR,
     'no-param-reassign': ERROR,
     'no-proto': ERROR,
-    'no-redeclare': [WARN, { builtinGlobals: true }],
+    'no-redeclare': [NEXT_VERSION_ERROR, { builtinGlobals: true }],
     'no-restricted-exports': OFF,
     'no-restricted-properties': OFF,
     'no-return-assign': WARN,
