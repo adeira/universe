@@ -1,6 +1,7 @@
 # Unreleased
 
 - New rules `@next/next/no-duplicate-head` and `@next/next/no-typos` enabled in the Next.js preset (as warnings).
+- Rule [`no-redeclare`](https://eslint.org/docs/rules/no-redeclare) now throws errors in strict mode. It still throws the same warnings in case you are using standard lint mode.
 
 # 6.3.0
 

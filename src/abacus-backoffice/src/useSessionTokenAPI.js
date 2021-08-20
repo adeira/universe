@@ -1,7 +1,5 @@
 // @flow strict
 
-/* global document,window */
-
 type UseSessionTokenAPI = {
   +login: (string | null) => void,
   +logout: () => void,
