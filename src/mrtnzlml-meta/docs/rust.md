@@ -11,7 +11,7 @@ https://www.rust-lang.org/
 The most important links when working with Rust (alphabetically):
 
 - https://cheats.rs/
-- https://godbolt.org/z/fP3Kj6PMx
+- https://rust.godbolt.org/z/qxnx4E1sq
 - https://lib.rs/
 - https://veykril.github.io/tlborm/
 
