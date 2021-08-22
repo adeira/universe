@@ -30,13 +30,13 @@ pub(in crate::menu) async fn get_section(
 
     match section {
         MenuSections::Coffee => {
-            crate::commerce::api::get_products_by_keys(
+            crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
                     "2901328".to_string(), // Espresso
                     "3626010".to_string(), // Americano
-                    "3626278".to_string(), // Long Black
+                    // "3626278".to_string(), // Long Black
                     "3633163".to_string(), // Cappuccino
                     "3633210".to_string(), // Latte
                     "3633273".to_string(), // Mocha
@@ -46,7 +46,7 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::Tea => {
-            crate::commerce::api::get_products_by_keys(
+            crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
@@ -61,7 +61,7 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::Milkshakes => {
-            crate::commerce::api::get_products_by_keys(
+            crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
@@ -71,7 +71,7 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::Specialities => {
-            crate::commerce::api::get_products_by_keys(
+            crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
@@ -82,7 +82,7 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::DumplingSweet => {
-            crate::commerce::api::get_products_by_keys(
+            crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
@@ -97,7 +97,7 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::DumplingSavory => {
-            crate::commerce::api::get_products_by_keys(
+            crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
