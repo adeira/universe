@@ -18,7 +18,6 @@ export default function POSAllSessionsPageLayout(): Node {
         </fbt>
       }
     >
-      {/* $FlowFixMe[prop-missing]: `suffix` property is not yet supported (WIP) */}
       <LinkButton href="/pos/session" target="_blank" suffix={<Icon name="external" />}>
         <fbt desc="navigation link to point of sales">Open POS session</fbt>
       </LinkButton>

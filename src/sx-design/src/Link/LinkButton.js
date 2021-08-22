@@ -1,5 +1,6 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import * as React from 'react';
 import sx from '@adeira/sx';
 
@@ -16,6 +17,8 @@ type Props = {
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
   +'onClick'?: () => void,
+  +'prefix'?: RestrictedElement<typeof Icon>,
+  +'suffix'?: RestrictedElement<typeof Icon>,
 };
 
 /**
@@ -50,7 +53,9 @@ export default (React.forwardRef(function LinkButton(props, ref): React.Node {
           buttonDisabled: props.isDisabled === true,
         })}
       >
+        {props.prefix != null ? <>{props.prefix} </> : null}
         {props.children}
+        {props.suffix != null ? <> {props.suffix}</> : null}
       </span>
     </Link>
   );
