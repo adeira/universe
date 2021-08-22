@@ -523,9 +523,9 @@
     "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 23,
+   "line_beg": 22,
    "col_beg": 8,
-   "line_end": 23,
+   "line_end": 22,
    "col_end": 76,
    "desc": "navigation link to point of sales",
    "project": "",

@@ -3,6 +3,7 @@
  * @flow
  */
 
+import Icon from '@adeira/icons';
 import fbt from 'fbt';
 
 import LayoutInline from '../Layout/LayoutInline';
@@ -55,6 +56,19 @@ initFbt();
 export const ButtonDefault: StoryTemplate<typeof LinkButton> = BasicTemplate.bind({});
 ButtonDefault.storyName = 'Default';
 ButtonDefault.args = {
+  children: (
+    <fbt desc="link button title" doNotExtract={true}>
+      Click me, I am a link but I look like a button!
+    </fbt>
+  ),
+  href: 'https://github.com/adeira/universe/stargazers',
+};
+
+export const ButtonPrefixSuffix: StoryTemplate<typeof LinkButton> = BasicTemplate.bind({});
+ButtonPrefixSuffix.storyName = 'With prefix/suffix';
+ButtonPrefixSuffix.args = {
+  prefix: <Icon name="exit_right" />,
+  suffix: <Icon name="exit_left" />,
   children: (
     <fbt desc="link button title" doNotExtract={true}>
       Click me, I am a link but I look like a button!

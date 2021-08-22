@@ -3,6 +3,7 @@
  * @jest-environment jsdom
  */
 
+import Icon from '@adeira/icons';
 import { fireEvent } from '@testing-library/react';
 import React from 'react';
 import '@adeira/sx-jest-snapshot-serializer';
@@ -45,4 +46,22 @@ it('calls onClick event', () => {
 
   fireEvent.click(getByText('link button with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
+});
+
+it('renders prefix and suffix icons', () => {
+  const { getByText, getByTestId } = renderWithoutProviders(
+    <LinkButton
+      href="https://localhost"
+      prefix={<Icon name="door" data-testid="door_icon" />}
+      suffix={<Icon name="receipt" data-testid="receipt_icon" />}
+    >
+      <fbt desc="link button title" doNotExtract={true}>
+        link button title
+      </fbt>
+    </LinkButton>,
+  );
+
+  expect(getByText('link button title')).toBeDefined();
+  expect(getByTestId('door_icon')).toBeDefined();
+  expect(getByTestId('receipt_icon')).toBeDefined();
 });
