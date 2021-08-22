@@ -9,9 +9,9 @@ export default function MenuLoader(): Node {
   return (
     <div className={styles('loader')}>
       <Loader />
-      <fbt desc="loading menu indicator description">
-        <Text>Downloading fresh menu, please wait…</Text>
-      </fbt>
+      <Text>
+        <fbt desc="loading menu indicator description">Downloading fresh menu, please wait…</fbt>
+      </Text>
     </div>
   );
 }

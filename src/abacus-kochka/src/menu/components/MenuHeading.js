@@ -11,7 +11,7 @@ type Props = {
 export default function MenuHeading(props: Props): Node {
   return (
     <div className={styles('menuHeading')}>
-      <Text as="h2" transform="uppercase">
+      <Text as="h2" size={24} transform="uppercase">
         {props.children}
       </Text>
     </div>

@@ -313,9 +313,9 @@
     "peb2EDuSrtkkz/e0EG4rWQ==": "This section is currently under active development. Are you missing some features? Let us know!"
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 38,
+   "line_beg": 36,
    "col_beg": 16,
-   "line_end": 41,
+   "line_end": 39,
    "col_end": 22,
    "desc": "work in progress badge description",
    "project": "",
@@ -327,9 +327,9 @@
     "/HA1UhKZo4ZFRrj2osXRmQ==": "BETA"
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 45,
+   "line_beg": 43,
    "col_beg": 16,
-   "line_end": 45,
+   "line_end": 43,
    "col_end": 49,
    "desc": "beta label",
    "project": "",
@@ -352,31 +352,17 @@
   },
   {
    "hashToText": {
-    "sTClRPXJDaS8SaoP0SaO5Q==": "Login to Abacus"
-   },
-   "filepath": "src/LoginPage.js",
-   "line_beg": 16,
-   "col_beg": 12,
-   "line_end": 16,
-   "col_end": 67,
-   "desc": "login to Abacus title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Login to Abacus"
-  },
-  {
-   "hashToText": {
-    "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
+    "5LdpXTlqHQrYN1CdEbB47g==": "Login to"
    },
    "filepath": "src/LoginPage.js",
    "line_beg": 17,
-   "col_beg": 38,
+   "col_beg": 14,
    "line_end": 17,
-   "col_end": 87,
-   "desc": "abacus emoji label",
+   "col_end": 62,
+   "desc": "login to Abacus title",
    "project": "",
    "type": "text",
-   "jsfbt": "abacus emoji"
+   "jsfbt": "Login to"
   },
   {
    "hashToText": {
@@ -506,26 +492,40 @@
   },
   {
    "hashToText": {
-    "rLRFrvo+/qGRtijpdlaKwA==": "All POS Sessions"
+    "lRjlKW0rrAaO8qfcIV8w4w==": "All POS Sessions"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 11,
-   "col_beg": 39,
-   "line_end": 11,
-   "col_end": 91,
-   "desc": "ledger page title",
+   "line_beg": 14,
+   "col_beg": 15,
+   "line_end": 14,
+   "col_end": 77,
+   "desc": "all POS sessions page title",
    "project": "",
    "type": "text",
    "jsfbt": "All POS Sessions"
   },
   {
    "hashToText": {
+    "A2EavU9yDTNiahhHw22IoQ==": "Here you can find all active POS sessions."
+   },
+   "filepath": "src/pos/POSAllSessionsPageLayout.js",
+   "line_beg": 16,
+   "col_beg": 8,
+   "line_end": 18,
+   "col_end": 14,
+   "desc": "all POS sessions page description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Here you can find all active POS sessions."
+  },
+  {
+   "hashToText": {
     "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 13,
+   "line_beg": 23,
    "col_beg": 8,
-   "line_end": 13,
+   "line_end": 23,
    "col_end": 76,
    "desc": "navigation link to point of sales",
    "project": "",
