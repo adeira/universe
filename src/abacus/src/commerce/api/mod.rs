@@ -283,7 +283,7 @@ impl CommerceMutation {
 }
 
 // This function is exposed to GraphQL commerce module as well as to Menu module (hence not inlined).
-pub(crate) async fn get_products_by_keys(
+pub(crate) async fn get_published_products_by_keys(
     context: &Context,
     client_locale: &SupportedLocale,
     product_keys: &[String],

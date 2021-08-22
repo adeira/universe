@@ -66,9 +66,12 @@ impl POSMutation {
             .map(|product| product.product_key.to_string())
             .collect::<Vec<String>>();
 
-        let products =
-            crate::commerce::api::get_products_by_keys(context, &client_locale, &product_keys)
-                .await;
+        let products = crate::commerce::api::get_published_products_by_keys(
+            context,
+            &client_locale,
+            &product_keys,
+        )
+        .await;
 
         let selected_products = match products {
             Ok(products) => products
