@@ -27,9 +27,7 @@ export default function LayoutPage(props: Props): Node {
       <StatusBar />
 
       <LayoutInline>
-        <Text as="h1" size={48}>
-          {props.heading}
-        </Text>
+        <Text as="h1">{props.heading}</Text>
 
         {props.isBeta ? (
           <div className={styles('badge')}>
@@ -51,9 +49,7 @@ export default function LayoutPage(props: Props): Node {
 
       {description != null ? (
         <span className={styles('description')}>
-          <Text as="small" size={14}>
-            {description}
-          </Text>
+          <Text as="small">{description}</Text>
         </span>
       ) : null}
 

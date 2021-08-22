@@ -45,9 +45,7 @@ export default function Layout(props: Props): React.Node {
 
         {props.withHiddenTitle === true ? null : (
           <div className={styles('heading')}>
-            <Text as="h1" size={40}>
-              {props.title}
-            </Text>
+            <Text as="h1">{props.title}</Text>
             <div className={styles('subtitle')}>{props.subtitle}</div>
           </div>
         )}

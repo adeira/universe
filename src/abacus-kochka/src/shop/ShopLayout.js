@@ -41,7 +41,7 @@ export default function ShopLayout(): Node {
     >
       <div className={styles('shopGrid')}>
         <div className={styles('shopGridCategories')}>
-          <Text as="h2">
+          <Text as="h2" size={24}>
             <fbt desc="shop categories selection title">All Categories</fbt>
           </Text>
           <div>
@@ -65,7 +65,7 @@ export default function ShopLayout(): Node {
         </div>
 
         <div className={styles('shopGridRelevance')}>
-          <Text as="h2">
+          <Text as="h2" size={24}>
             <fbt desc="shop relevance selection title">Relevance</fbt>
           </Text>
           <div>

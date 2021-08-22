@@ -35,7 +35,9 @@ export default function MenuRow(props: Props): Node {
   return (
     <div className={styles('menuRow')}>
       <div className={styles('titlePriceRow')}>
-        <Text as="h3">{data.name}</Text>
+        <Text as="h3" size={20}>
+          {data.name}
+        </Text>
         <div>
           {isCurrencySupported(unitAmountCurrency) ? (
             <Money

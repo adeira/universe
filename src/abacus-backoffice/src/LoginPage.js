@@ -3,7 +3,7 @@
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
-import { Emoji, LayoutBlock, Text } from '@adeira/sx-design';
+import { LayoutBlock, Text } from '@adeira/sx-design';
 
 import { LoginButton } from './AuthButtons';
 
@@ -13,8 +13,13 @@ export default function LoginPage(): Node {
       <div className={styles('loginWindow')}>
         <LayoutBlock spacing="large">
           <Text as="h1">
-            <fbt desc="login to Abacus title">Login to Abacus</fbt>{' '}
-            <Emoji symbol="🧮" label={<fbt desc="abacus emoji label">abacus emoji</fbt>} />
+            <Text weight={100} as="span">
+              <fbt desc="login to Abacus title">Login to</fbt>
+            </Text>
+            <br />
+            <Text weight={950} as="span">
+              Abacus
+            </Text>
           </Text>
           <LoginButton />
         </LayoutBlock>
