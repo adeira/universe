@@ -10,6 +10,10 @@ type Props = {
   +validationError: FbtWithoutString | null,
   +children: Node,
   +required?: boolean,
+
+  // Removes semantic `<label />` in places where it doesn't make any sense (checkbox list for example).
+  // Clicking on the form element label will not trigger any action (like focus or checkbox check).
+  +disableSemanticLabel?: boolean,
 };
 
 export default function BaseInputWrapper(props: Props): Node {
@@ -45,7 +49,7 @@ export default function BaseInputWrapper(props: Props): Node {
 
   return (
     <div className={styles('inputWrapper')}>
-      <label>{input}</label>
+      {props.disableSemanticLabel === true ? input : <label>{input}</label>}
     </div>
   );
 }
@@ -60,6 +64,7 @@ const styles = sx.create({
     textTransform: 'uppercase',
     fontSize: '.75rem',
     color: 'rgba(var(--sx-accent-6))',
+    cursor: 'default',
   },
   labelError: {
     color: 'rgba(var(--sx-error))',
