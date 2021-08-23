@@ -5,13 +5,17 @@
 /* eslint-disable */
 
 import type { ReaderFragment } from 'relay-runtime';
-type ProductFormData$ref = any;
+type ProductFormAddonsData$ref = any;
+type ProductFormCategoriesData$ref = any;
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProductCreateFormData$ref: FragmentReference;
 declare export opaque type ProductCreateFormData$fragmentType: ProductCreateFormData$ref;
 export type ProductCreateFormData = {|
   +productCategories: $ReadOnlyArray<?{|
-    +$fragmentRefs: ProductFormData$ref
+    +$fragmentRefs: ProductFormCategoriesData$ref
+  |}>,
+  +productAddons: $ReadOnlyArray<?{|
+    +$fragmentRefs: ProductFormAddonsData$ref
   |}>,
   +$refType: ProductCreateFormData$ref,
 |};
@@ -23,7 +27,15 @@ export type ProductCreateFormData$key = {
 };
 
 
-const node: ReaderFragment = {
+const node: ReaderFragment = (function(){
+var v0 = [
+  {
+    "kind": "Variable",
+    "name": "clientLocale",
+    "variableName": "clientLocale"
+  }
+];
+return {
   "argumentDefinitions": [
     {
       "kind": "RootArgument",
@@ -36,13 +48,7 @@ const node: ReaderFragment = {
   "selections": [
     {
       "alias": "productCategories",
-      "args": [
-        {
-          "kind": "Variable",
-          "name": "clientLocale",
-          "variableName": "clientLocale"
-        }
-      ],
+      "args": (v0/*: any*/),
       "concreteType": "ProductCategory",
       "kind": "LinkedField",
       "name": "searchAllProductCategories",
@@ -51,7 +57,23 @@ const node: ReaderFragment = {
         {
           "args": null,
           "kind": "FragmentSpread",
-          "name": "ProductFormData"
+          "name": "ProductFormCategoriesData"
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": "productAddons",
+      "args": (v0/*: any*/),
+      "concreteType": "ProductAddon",
+      "kind": "LinkedField",
+      "name": "searchAllProductAddons",
+      "plural": true,
+      "selections": [
+        {
+          "args": null,
+          "kind": "FragmentSpread",
+          "name": "ProductFormAddonsData"
         }
       ],
       "storageKey": null
@@ -60,6 +82,7 @@ const node: ReaderFragment = {
   "type": "CommerceQuery",
   "abstractKey": null
 };
+})();
 // prettier-ignore
-(node: any).hash = '4494521b6094a173fda7c029ceb3d519';
+(node: any).hash = 'ff8090d2ca7b56d4e1f13870c0837098';
 export default node;

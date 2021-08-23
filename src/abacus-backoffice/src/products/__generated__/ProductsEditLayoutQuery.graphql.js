@@ -52,13 +52,20 @@ fragment ProductEditFormData on Product {
   key
   revision
   availableCategories(clientLocale: $clientLocale) {
-    ...ProductFormData
+    ...ProductFormCategoriesData
+    id
+  }
+  availableAddons(clientLocale: $clientLocale) {
+    ...ProductFormAddonsData
     id
   }
   price {
     unitAmount
   }
   selectedCategories(clientLocale: $clientLocale) {
+    id
+  }
+  selectedAddons(clientLocale: $clientLocale) {
     id
   }
   visibility
@@ -81,7 +88,16 @@ fragment ProductEditHeading on Product {
   isPublished
 }
 
-fragment ProductFormData on ProductCategory {
+fragment ProductFormAddonsData on ProductAddon {
+  id
+  name
+  priceExtra {
+    unitAmount
+    unitAmountCurrency
+  }
+}
+
+fragment ProductFormCategoriesData on ProductCategory {
   id
   name
 }
@@ -156,7 +172,17 @@ v6 = {
   "name": "id",
   "storageKey": null
 },
-v7 = [
+v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "unitAmount",
+  "storageKey": null
+},
+v8 = [
+  (v6/*: any*/)
+],
+v9 = [
   (v3/*: any*/),
   {
     "alias": null,
@@ -270,19 +296,45 @@ return {
               },
               {
                 "alias": null,
+                "args": (v5/*: any*/),
+                "concreteType": "ProductAddon",
+                "kind": "LinkedField",
+                "name": "availableAddons",
+                "plural": true,
+                "selections": [
+                  (v6/*: any*/),
+                  (v3/*: any*/),
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Price",
+                    "kind": "LinkedField",
+                    "name": "priceExtra",
+                    "plural": false,
+                    "selections": [
+                      (v7/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "kind": "ScalarField",
+                        "name": "unitAmountCurrency",
+                        "storageKey": null
+                      }
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
                 "args": null,
                 "concreteType": "Price",
                 "kind": "LinkedField",
                 "name": "price",
                 "plural": false,
                 "selections": [
-                  {
-                    "alias": null,
-                    "args": null,
-                    "kind": "ScalarField",
-                    "name": "unitAmount",
-                    "storageKey": null
-                  }
+                  (v7/*: any*/)
                 ],
                 "storageKey": null
               },
@@ -293,9 +345,17 @@ return {
                 "kind": "LinkedField",
                 "name": "selectedCategories",
                 "plural": true,
-                "selections": [
-                  (v6/*: any*/)
-                ],
+                "selections": (v8/*: any*/),
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": (v5/*: any*/),
+                "concreteType": "ProductAddon",
+                "kind": "LinkedField",
+                "name": "selectedAddons",
+                "plural": true,
+                "selections": (v8/*: any*/),
                 "storageKey": null
               },
               {
@@ -318,7 +378,7 @@ return {
                 "kind": "LinkedField",
                 "name": "translation",
                 "plural": false,
-                "selections": (v7/*: any*/),
+                "selections": (v9/*: any*/),
                 "storageKey": "translation(locale:\"en_US\")"
               },
               {
@@ -334,7 +394,7 @@ return {
                 "kind": "LinkedField",
                 "name": "translation",
                 "plural": false,
-                "selections": (v7/*: any*/),
+                "selections": (v9/*: any*/),
                 "storageKey": "translation(locale:\"es_MX\")"
               },
               (v6/*: any*/)
@@ -347,12 +407,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "dcaead0cf6fade07aaf79cea88c48696",
+    "cacheID": "97c398140394cb992e90771dc1b6222e",
     "id": null,
     "metadata": {},
     "name": "ProductsEditLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  name\n  isPublished\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "query ProductsEditLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getUnpublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      ...ProductEditHeading\n      images {\n        name\n        blurhash\n        url\n      }\n      ...ProductEditFormData\n      id\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n  availableAddons(clientLocale: $clientLocale) {\n    ...ProductFormAddonsData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  selectedAddons(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductEditHeading on Product {\n  key\n  name\n  isPublished\n}\n\nfragment ProductFormAddonsData on ProductAddon {\n  id\n  name\n  priceExtra {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();

@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+import FormCheckboxList from './FormCheckboxList';
 import FormMultiSelect from './FormMultiSelect';
 import FormMultiUpload from './FormMultiUpload';
 import FormNumber from './FormNumber';
@@ -13,6 +14,7 @@ import FormTextArea from './FormTextArea';
 type Props = {
   +children: React.ChildrenArray<
     | RestrictedElement<'div'> // allow additional styles inside `FormRoot`
+    | RestrictedElement<typeof FormCheckboxList>
     | RestrictedElement<typeof FormMultiSelect>
     | RestrictedElement<typeof FormMultiUpload>
     | RestrictedElement<typeof FormNumber>

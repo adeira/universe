@@ -22,6 +22,7 @@ export type ProductEditFormMutationVariables = {|
   translations: $ReadOnlyArray<ProductMultilingualInputTranslations>,
   visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
   categories: $ReadOnlyArray<string>,
+  addons: $ReadOnlyArray<string>,
 |};
 export type ProductEditFormMutationResponse = {|
   +commerce: {|
@@ -56,9 +57,10 @@ mutation ProductEditFormMutation(
   $translations: [ProductMultilingualInputTranslations!]!
   $visibility: [ProductMultilingualInputVisibility!]!
   $categories: [ID!]!
+  $addons: [ID!]!
 ) {
   commerce {
-    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {
+    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {
       __typename
       ... on Product {
         __typename
@@ -79,13 +81,20 @@ fragment ProductEditFormData on Product {
   key
   revision
   availableCategories(clientLocale: $clientLocale) {
-    ...ProductFormData
+    ...ProductFormCategoriesData
+    id
+  }
+  availableAddons(clientLocale: $clientLocale) {
+    ...ProductFormAddonsData
     id
   }
   price {
     unitAmount
   }
   selectedCategories(clientLocale: $clientLocale) {
+    id
+  }
+  selectedAddons(clientLocale: $clientLocale) {
     id
   }
   visibility
@@ -102,7 +111,16 @@ fragment ProductEditFormData on Product {
   }
 }
 
-fragment ProductFormData on ProductCategory {
+fragment ProductFormAddonsData on ProductAddon {
+  id
+  name
+  priceExtra {
+    unitAmount
+    unitAmountCurrency
+  }
+}
+
+fragment ProductFormCategoriesData on ProductCategory {
   id
   name
 }
@@ -112,50 +130,55 @@ const node: ConcreteRequest = (function(){
 var v0 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "categories"
+  "name": "addons"
 },
 v1 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "clientLocale"
+  "name": "categories"
 },
 v2 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "productImagesNames"
+  "name": "clientLocale"
 },
 v3 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "productKey"
+  "name": "productImagesNames"
 },
 v4 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "productPriceUnitAmount"
+  "name": "productKey"
 },
 v5 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "productRevision"
+  "name": "productPriceUnitAmount"
 },
 v6 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "translations"
+  "name": "productRevision"
 },
 v7 = {
   "defaultValue": null,
   "kind": "LocalArgument",
-  "name": "visibility"
+  "name": "translations"
 },
 v8 = {
+  "defaultValue": null,
+  "kind": "LocalArgument",
+  "name": "visibility"
+},
+v9 = {
   "kind": "Variable",
   "name": "clientLocale",
   "variableName": "clientLocale"
 },
-v9 = [
-  (v8/*: any*/),
+v10 = [
+  (v9/*: any*/),
   {
     "kind": "Variable",
     "name": "productKey",
@@ -164,9 +187,9 @@ v9 = [
   {
     "fields": [
       {
-        "kind": "Literal",
+        "kind": "Variable",
         "name": "addons",
-        "value": ([]/*: any*/)
+        "variableName": "addons"
       },
       {
         "kind": "Variable",
@@ -214,46 +237,56 @@ v9 = [
     "variableName": "productRevision"
   }
 ],
-v10 = {
+v11 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "__typename",
   "storageKey": null
 },
-v11 = {
+v12 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v12 = {
+v13 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v13 = {
+v14 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "revision",
   "storageKey": null
 },
-v14 = {
+v15 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "message",
   "storageKey": null
 },
-v15 = [
-  (v8/*: any*/)
-],
 v16 = [
-  (v12/*: any*/),
+  (v9/*: any*/)
+],
+v17 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "unitAmount",
+  "storageKey": null
+},
+v18 = [
+  (v12/*: any*/)
+],
+v19 = [
+  (v13/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -272,7 +305,8 @@ return {
       (v4/*: any*/),
       (v5/*: any*/),
       (v6/*: any*/),
-      (v7/*: any*/)
+      (v7/*: any*/),
+      (v8/*: any*/)
     ],
     "kind": "Fragment",
     "metadata": null,
@@ -288,7 +322,7 @@ return {
         "selections": [
           {
             "alias": "result",
-            "args": (v9/*: any*/),
+            "args": (v10/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productUpdate",
@@ -297,10 +331,10 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v10/*: any*/),
                   (v11/*: any*/),
                   (v12/*: any*/),
                   (v13/*: any*/),
+                  (v14/*: any*/),
                   {
                     "args": null,
                     "kind": "FragmentSpread",
@@ -313,8 +347,8 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v10/*: any*/),
-                  (v14/*: any*/)
+                  (v11/*: any*/),
+                  (v15/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -332,13 +366,14 @@ return {
   "kind": "Request",
   "operation": {
     "argumentDefinitions": [
-      (v1/*: any*/),
-      (v3/*: any*/),
-      (v5/*: any*/),
       (v2/*: any*/),
       (v4/*: any*/),
       (v6/*: any*/),
+      (v3/*: any*/),
+      (v5/*: any*/),
       (v7/*: any*/),
+      (v8/*: any*/),
+      (v1/*: any*/),
       (v0/*: any*/)
     ],
     "kind": "Operation",
@@ -354,19 +389,19 @@ return {
         "selections": [
           {
             "alias": "result",
-            "args": (v9/*: any*/),
+            "args": (v10/*: any*/),
             "concreteType": null,
             "kind": "LinkedField",
             "name": "productUpdate",
             "plural": false,
             "selections": [
-              (v10/*: any*/),
+              (v11/*: any*/),
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v11/*: any*/),
                   (v12/*: any*/),
                   (v13/*: any*/),
+                  (v14/*: any*/),
                   {
                     "alias": null,
                     "args": null,
@@ -376,14 +411,46 @@ return {
                   },
                   {
                     "alias": null,
-                    "args": (v15/*: any*/),
+                    "args": (v16/*: any*/),
                     "concreteType": "ProductCategory",
                     "kind": "LinkedField",
                     "name": "availableCategories",
                     "plural": true,
                     "selections": [
-                      (v11/*: any*/),
-                      (v12/*: any*/)
+                      (v12/*: any*/),
+                      (v13/*: any*/)
+                    ],
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": (v16/*: any*/),
+                    "concreteType": "ProductAddon",
+                    "kind": "LinkedField",
+                    "name": "availableAddons",
+                    "plural": true,
+                    "selections": [
+                      (v12/*: any*/),
+                      (v13/*: any*/),
+                      {
+                        "alias": null,
+                        "args": null,
+                        "concreteType": "Price",
+                        "kind": "LinkedField",
+                        "name": "priceExtra",
+                        "plural": false,
+                        "selections": [
+                          (v17/*: any*/),
+                          {
+                            "alias": null,
+                            "args": null,
+                            "kind": "ScalarField",
+                            "name": "unitAmountCurrency",
+                            "storageKey": null
+                          }
+                        ],
+                        "storageKey": null
+                      }
                     ],
                     "storageKey": null
                   },
@@ -395,26 +462,28 @@ return {
                     "name": "price",
                     "plural": false,
                     "selections": [
-                      {
-                        "alias": null,
-                        "args": null,
-                        "kind": "ScalarField",
-                        "name": "unitAmount",
-                        "storageKey": null
-                      }
+                      (v17/*: any*/)
                     ],
                     "storageKey": null
                   },
                   {
                     "alias": null,
-                    "args": (v15/*: any*/),
+                    "args": (v16/*: any*/),
                     "concreteType": "ProductCategory",
                     "kind": "LinkedField",
                     "name": "selectedCategories",
                     "plural": true,
-                    "selections": [
-                      (v11/*: any*/)
-                    ],
+                    "selections": (v18/*: any*/),
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": (v16/*: any*/),
+                    "concreteType": "ProductAddon",
+                    "kind": "LinkedField",
+                    "name": "selectedAddons",
+                    "plural": true,
+                    "selections": (v18/*: any*/),
                     "storageKey": null
                   },
                   {
@@ -437,7 +506,7 @@ return {
                     "kind": "LinkedField",
                     "name": "translation",
                     "plural": false,
-                    "selections": (v16/*: any*/),
+                    "selections": (v19/*: any*/),
                     "storageKey": "translation(locale:\"en_US\")"
                   },
                   {
@@ -453,7 +522,7 @@ return {
                     "kind": "LinkedField",
                     "name": "translation",
                     "plural": false,
-                    "selections": (v16/*: any*/),
+                    "selections": (v19/*: any*/),
                     "storageKey": "translation(locale:\"es_MX\")"
                   },
                   {
@@ -464,7 +533,7 @@ return {
                     "name": "images",
                     "plural": true,
                     "selections": [
-                      (v12/*: any*/)
+                      (v13/*: any*/)
                     ],
                     "storageKey": null
                   }
@@ -475,7 +544,7 @@ return {
               {
                 "kind": "InlineFragment",
                 "selections": [
-                  (v14/*: any*/)
+                  (v15/*: any*/)
                 ],
                 "type": "ProductError",
                 "abstractKey": null
@@ -489,15 +558,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9e7cce598195ded3e75791a82947087b",
+    "cacheID": "c281d9fc599790dbce7b4224e4071039",
     "id": null,
     "metadata": {},
     "name": "ProductEditFormMutation",
     "operationKind": "mutation",
-    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: []}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "mutation ProductEditFormMutation(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n  $productRevision: ID!\n  $productImagesNames: [ProductImageUploadable!]!\n  $productPriceUnitAmount: Int!\n  $translations: [ProductMultilingualInputTranslations!]!\n  $visibility: [ProductMultilingualInputVisibility!]!\n  $categories: [ID!]!\n  $addons: [ID!]!\n) {\n  commerce {\n    result: productUpdate(clientLocale: $clientLocale, productKey: $productKey, productRevision: $productRevision, productMultilingualInput: {images: $productImagesNames, price: {unitAmount: $productPriceUnitAmount, unitAmountCurrency: MXN}, translations: $translations, visibility: $visibility, categories: $categories, addons: $addons}) {\n      __typename\n      ... on Product {\n        __typename\n        id\n        name\n        revision\n        ...ProductEditFormData\n      }\n      ... on ProductError {\n        __typename\n        message\n      }\n    }\n  }\n}\n\nfragment ProductEditFormData on Product {\n  key\n  revision\n  availableCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n  availableAddons(clientLocale: $clientLocale) {\n    ...ProductFormAddonsData\n    id\n  }\n  price {\n    unitAmount\n  }\n  selectedCategories(clientLocale: $clientLocale) {\n    id\n  }\n  selectedAddons(clientLocale: $clientLocale) {\n    id\n  }\n  visibility\n  enTranslation: translation(locale: en_US) {\n    name\n    description\n  }\n  esTranslation: translation(locale: es_MX) {\n    name\n    description\n  }\n  images {\n    name\n  }\n}\n\nfragment ProductFormAddonsData on ProductAddon {\n  id\n  name\n  priceExtra {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '92bde657cbeba068176dc3bcdb22c72d';
+(node: any).hash = '2400c8982c9b36261593cb7920f33251';
 export default node;
