@@ -6,7 +6,7 @@ const path = require('path');
 const withPlugins = require('next-compose-plugins');
 
 const withCustomBabelConfigFile = require('next-plugin-custom-babel-config')({
-  babelConfigFile: path.join(__dirname, '.babelrc'),
+  babelConfigFile: path.join(__dirname, '.babelrc.js'),
 });
 
 const withTranspileModules = require('next-transpile-modules')([
