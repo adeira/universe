@@ -5,7 +5,8 @@
 /* eslint-disable */
 
 import type { ReaderFragment } from 'relay-runtime';
-type ProductFormData$ref = any;
+type ProductFormAddonsData$ref = any;
+type ProductFormCategoriesData$ref = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type ProductEditFormData$ref: FragmentReference;
@@ -14,12 +15,18 @@ export type ProductEditFormData = {|
   +key: string,
   +revision: string,
   +availableCategories: $ReadOnlyArray<?{|
-    +$fragmentRefs: ProductFormData$ref
+    +$fragmentRefs: ProductFormCategoriesData$ref
+  |}>,
+  +availableAddons: $ReadOnlyArray<?{|
+    +$fragmentRefs: ProductFormAddonsData$ref
   |}>,
   +price: {|
     +unitAmount: number
   |},
   +selectedCategories: $ReadOnlyArray<?{|
+    +id: string
+  |}>,
+  +selectedAddons: $ReadOnlyArray<?{|
     +id: string
   |}>,
   +visibility: $ReadOnlyArray<ProductMultilingualInputVisibility>,
@@ -52,15 +59,24 @@ var v0 = [
     "variableName": "clientLocale"
   }
 ],
-v1 = {
+v1 = [
+  {
+    "alias": null,
+    "args": null,
+    "kind": "ScalarField",
+    "name": "id",
+    "storageKey": null
+  }
+],
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v2 = [
-  (v1/*: any*/),
+v3 = [
+  (v2/*: any*/),
   {
     "alias": null,
     "args": null,
@@ -105,7 +121,23 @@ return {
         {
           "args": null,
           "kind": "FragmentSpread",
-          "name": "ProductFormData"
+          "name": "ProductFormCategoriesData"
+        }
+      ],
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": (v0/*: any*/),
+      "concreteType": "ProductAddon",
+      "kind": "LinkedField",
+      "name": "availableAddons",
+      "plural": true,
+      "selections": [
+        {
+          "args": null,
+          "kind": "FragmentSpread",
+          "name": "ProductFormAddonsData"
         }
       ],
       "storageKey": null
@@ -135,15 +167,17 @@ return {
       "kind": "LinkedField",
       "name": "selectedCategories",
       "plural": true,
-      "selections": [
-        {
-          "alias": null,
-          "args": null,
-          "kind": "ScalarField",
-          "name": "id",
-          "storageKey": null
-        }
-      ],
+      "selections": (v1/*: any*/),
+      "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": (v0/*: any*/),
+      "concreteType": "ProductAddon",
+      "kind": "LinkedField",
+      "name": "selectedAddons",
+      "plural": true,
+      "selections": (v1/*: any*/),
       "storageKey": null
     },
     {
@@ -166,7 +200,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v2/*: any*/),
+      "selections": (v3/*: any*/),
       "storageKey": "translation(locale:\"en_US\")"
     },
     {
@@ -182,7 +216,7 @@ return {
       "kind": "LinkedField",
       "name": "translation",
       "plural": false,
-      "selections": (v2/*: any*/),
+      "selections": (v3/*: any*/),
       "storageKey": "translation(locale:\"es_MX\")"
     },
     {
@@ -193,7 +227,7 @@ return {
       "name": "images",
       "plural": true,
       "selections": [
-        (v1/*: any*/)
+        (v2/*: any*/)
       ],
       "storageKey": null
     }
@@ -203,5 +237,5 @@ return {
 };
 })();
 // prettier-ignore
-(node: any).hash = '77f9c076b03038af8dac06518335c76a';
+(node: any).hash = '681633a20f6272cb9d2dbeae0f7b4919';
 export default node;

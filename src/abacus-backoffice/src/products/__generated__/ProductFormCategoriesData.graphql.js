@@ -6,17 +6,17 @@
 
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type ProductFormData$ref: FragmentReference;
-declare export opaque type ProductFormData$fragmentType: ProductFormData$ref;
-export type ProductFormData = $ReadOnlyArray<{|
+declare export opaque type ProductFormCategoriesData$ref: FragmentReference;
+declare export opaque type ProductFormCategoriesData$fragmentType: ProductFormCategoriesData$ref;
+export type ProductFormCategoriesData = $ReadOnlyArray<{|
   +id: string,
   +name: string,
-  +$refType: ProductFormData$ref,
+  +$refType: ProductFormCategoriesData$ref,
 |}>;
-export type ProductFormData$data = ProductFormData;
-export type ProductFormData$key = $ReadOnlyArray<{
-  +$data?: ProductFormData$data,
-  +$fragmentRefs: ProductFormData$ref,
+export type ProductFormCategoriesData$data = ProductFormCategoriesData;
+export type ProductFormCategoriesData$key = $ReadOnlyArray<{
+  +$data?: ProductFormCategoriesData$data,
+  +$fragmentRefs: ProductFormCategoriesData$ref,
   ...
 }>;
 
@@ -27,7 +27,7 @@ const node: ReaderFragment = {
   "metadata": {
     "plural": true
   },
-  "name": "ProductFormData",
+  "name": "ProductFormCategoriesData",
   "selections": [
     {
       "alias": null,
@@ -48,5 +48,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = 'ab1f207eecd3d9a7196b6448110a997e';
+(node: any).hash = 'c60bf51d24be138f3f671ef64bb967d1';
 export default node;
