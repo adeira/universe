@@ -124,6 +124,10 @@ Object {
     "eslint-comments/no-unused-enable": 2,
     "eslint-comments/no-use": 0,
     "eslint-comments/require-description": 0,
+    "fb-flow/flow-enums-default-if-possible": 1,
+    "fb-flow/no-flow-enums-object-mapping": 1,
+    "fb-flow/use-exact-by-default-object-type": 1,
+    "fb-flow/use-flow-enums": 0,
     "fb-flow/use-indexed-access-type": 0,
     "flowtype/array-style-complex-type": 0,
     "flowtype/array-style-simple-type": 0,
@@ -164,10 +168,7 @@ Object {
     "flowtype/object-type-delimiter": "off",
     "flowtype/quotes": "off",
     "flowtype/require-compound-type-alias": 0,
-    "flowtype/require-exact-type": Array [
-      2,
-      "never",
-    ],
+    "flowtype/require-exact-type": 0,
     "flowtype/require-indexer-name": 0,
     "flowtype/require-inexact-type": 0,
     "flowtype/require-parameter-type": 0,
@@ -1072,6 +1073,15 @@ Snapshot Diff:
 - Value for stable rules
 + Value for STRICT rules
 
+@@ --- --- @@
+      "eslint-comments/require-description": 0,
+-     "fb-flow/flow-enums-default-if-possible": 1,
+-     "fb-flow/no-flow-enums-object-mapping": 1,
+-     "fb-flow/use-exact-by-default-object-type": 1,
++     "fb-flow/flow-enums-default-if-possible": 2,
++     "fb-flow/no-flow-enums-object-mapping": 2,
++     "fb-flow/use-exact-by-default-object-type": 2,
+      "fb-flow/use-flow-enums": 0,
 @@ --- --- @@
       "import/no-nodejs-modules": 0,
 -     "import/no-relative-packages": 1,

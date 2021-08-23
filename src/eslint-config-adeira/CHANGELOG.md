@@ -2,6 +2,7 @@
 
 - New rules `@next/next/no-duplicate-head` and `@next/next/no-typos` enabled in the Next.js preset (as warnings).
 - Rule [`no-redeclare`](https://eslint.org/docs/rules/no-redeclare) now throws errors in strict mode. It still throws the same warnings in case you are using standard lint mode.
+- New rules `fb-flow/flow-enums-default-if-possible` and `fb-flow/no-flow-enums-object-mapping` enabled in the Flowtype preset (as warnings). Additionally, new rule `fb-flow/use-exact-by-default-object-type` replaces `flowtype/require-exact-type` rule (this is potentially breaking in case you are suppressing this rule somewhere in your codebase).
 
 # 6.3.0
 

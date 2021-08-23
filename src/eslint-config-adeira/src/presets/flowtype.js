@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
 
@@ -38,7 +38,7 @@ module.exports = ({
       },
     ],
     'flowtype/require-compound-type-alias': OFF,
-    'flowtype/require-exact-type': [ERROR, 'never'], // we are using `exact_by_default=true`
+    'flowtype/require-exact-type': OFF, // see: fb-flow/use-exact-by-default-object-type
     'flowtype/require-indexer-name': OFF,
     'flowtype/require-inexact-type': OFF,
     'flowtype/require-parameter-type': OFF,
@@ -61,6 +61,10 @@ module.exports = ({
     'flowtype/valid-syntax': OFF,
 
     // Flow FB: https://github.com/facebook/flow/tree/master/packages/eslint-plugin-fb-flow
+    'fb-flow/flow-enums-default-if-possible': NEXT_VERSION_ERROR,
+    'fb-flow/no-flow-enums-object-mapping': NEXT_VERSION_ERROR,
+    'fb-flow/use-exact-by-default-object-type': NEXT_VERSION_ERROR, // we are using `exact_by_default=true`
+    'fb-flow/use-flow-enums': OFF, // TODO: enable when Flow enums are fully supported
     'fb-flow/use-indexed-access-type': OFF, // TODO (revert https://github.com/adeira/universe/pull/2662)
   },
 } /*: EslintConfig */);
