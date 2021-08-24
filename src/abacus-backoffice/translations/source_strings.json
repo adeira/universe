@@ -338,20 +338,6 @@
   },
   {
    "hashToText": {
-    "e/n6AkcscCXFzdEDdJ1neg==": "Ledger"
-   },
-   "filepath": "src/ledger/LedgerPageLayout.js",
-   "line_beg": 10,
-   "col_beg": 39,
-   "line_end": 10,
-   "col_end": 81,
-   "desc": "ledger page title",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Ledger"
-  },
-  {
-   "hashToText": {
     "5LdpXTlqHQrYN1CdEbB47g==": "Login to"
    },
    "filepath": "src/LoginPage.js",
