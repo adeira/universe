@@ -1,11 +1,12 @@
 // @flow
 
 import { graphql, useFragment } from '@adeira/relay';
-import { Kbd, Tooltip } from '@adeira/sx-design';
+import { Kbd, Tooltip, MoneyFn } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
 
+import FormCheckboxList from '../forms/FormCheckboxList';
 import FormMultiSelect from '../forms/FormMultiSelect';
 import FormSelectOption from '../forms/FormSelectOption';
 import FormMultiUpload from '../forms/FormMultiUpload';
@@ -15,28 +16,46 @@ import FormSelect from '../forms/FormSelect';
 import FormSubmit from '../forms/FormSubmit';
 import FormText from '../forms/FormText';
 import FormTextArea from '../forms/FormTextArea';
-import type { ProductFormData$key } from './__generated__/ProductFormData.graphql';
+import refineSupportedCurrencies from '../refineSupportedCurrencies';
+import type { ProductFormCategoriesData$key } from './__generated__/ProductFormCategoriesData.graphql';
+import type { ProductFormAddonsData$key } from './__generated__/ProductFormAddonsData.graphql';
 
 // For re-usability purposes (see ProductCreateForm vs. ProductEditForm).
 export default function ProductForm(props: {
-  +availableCategories: ProductFormData$key,
+  +availableCategories: ProductFormCategoriesData$key,
+  +availableAddons: ProductFormAddonsData$key,
+  +selectedCategories: $ReadOnlyArray<string>,
+  +selectedAddons: $ReadOnlyArray<string>,
   +name_en: ?string,
   +name_es: ?string,
   +description_en: ?string,
   +description_es: ?string,
   +price: number,
-  +categories: $ReadOnlyArray<string>,
   +visibility: $ReadOnlyArray<'POS' | 'ESHOP'>,
   +button: RestrictedElement<typeof FormSubmit>,
 }): React.Node {
-  const productCategories = useFragment<ProductFormData$key>(
+  const productCategories = useFragment<ProductFormCategoriesData$key>(
     graphql`
-      fragment ProductFormData on ProductCategory @relay(plural: true) {
+      fragment ProductFormCategoriesData on ProductCategory @relay(plural: true) {
         id
         name
       }
     `,
     props.availableCategories,
+  );
+
+  const productAddons = useFragment<ProductFormAddonsData$key>(
+    graphql`
+      fragment ProductFormAddonsData on ProductAddon @relay(plural: true) {
+        id
+        name
+        priceExtra {
+          unitAmount
+          unitAmountCurrency
+        }
+      }
+    `,
+    props.availableAddons,
   );
 
   return (
@@ -92,7 +111,25 @@ export default function ProductForm(props: {
         required={true}
         min={0}
         value={props.price}
-        label={<fbt desc="form field name for product price">Price (MXN)</fbt>}
+        label={
+          <fbt desc="form field name for product base price without add-ons">Base price (MXN)</fbt>
+        }
+      />
+
+      <FormCheckboxList
+        name="addons"
+        label={<fbt desc="form field name for product add-ons">Product add-ons</fbt>}
+        selectedValues={props.selectedAddons}
+        availableValues={productAddons.reduce((acc, currentAddon) => {
+          acc[currentAddon.id] = `${currentAddon.name} +${MoneyFn({
+            priceUnitAmount: currentAddon.priceExtra.unitAmount / 100, // adjusted for centavo
+            priceUnitAmountCurrency: refineSupportedCurrencies(
+              currentAddon.priceExtra.unitAmountCurrency,
+            ),
+            locale: 'en-US', // TODO
+          })}`;
+          return acc;
+        }, {})}
       />
 
       <FormSelect
@@ -100,7 +137,7 @@ export default function ProductForm(props: {
         required={true}
         value={
           // we currently support only one category but it's ready for many categories
-          props.categories[0] ?? null
+          props.selectedCategories[0] ?? null
         }
         label={<fbt desc="product category selectbox label">Product category</fbt>}
       >

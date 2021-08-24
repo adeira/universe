@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2b35f2a2c68cce5dea9ae89925f8ec71>>
+ * @generated SignedSource<<7c1ef286339944428ae559a5874ea1f5>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -300,7 +300,7 @@ export type AllCSSPropertyTypes = {
   +fontOpticalSizing?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-optical-sizing
   +fontVariationSettings?: string | number, // https://developer.mozilla.org/docs/Web/CSS/font-variation-settings
   +fontSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size
-  +fontSizeAdjust?: 'none' | number | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
+  +fontSizeAdjust?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-size-adjust
   +fontStretch?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-stretch
   +fontStyle?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-style
   +fontSynthesis?: number | string, // https://developer.mozilla.org/docs/Web/CSS/font-synthesis

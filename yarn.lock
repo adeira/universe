@@ -12580,10 +12580,10 @@ mdn-data@2.0.6:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
   integrity sha512-rQvjv71olwNHgiTbfPZFkJtjNMciWgswYeciZhtvWLO8bmX3TnhyA62I6sTWOyZssWHJJjY6/KiWwqQsWWsqOA==
 
-mdn-data@^2.0.20:
-  version "2.0.20"
-  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.20.tgz#3bb10361eb9beaf4efad0959179734b8205314a9"
-  integrity sha512-bGgNVI2DIdIEZ/ZIAo1+YwOSRtKvUNvpKEZJ0qT+UClkQLQfqpv5NMv0PeFxhOOw380bBTRSPdfaH1nFhMsoVQ==
+mdn-data@^2.0.21:
+  version "2.0.21"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.21.tgz#47cf3863e068c7d205ec4ff7ff306c83a9feb07d"
+  integrity sha512-kGkDjVRptGvjcZA2NTEHNu6szZ719ixyCbs4q2IFBhTBbfW+p89RV6SBnkGWBIdOXhF+B/Uv0bLFxjAg/EJRHw==
 
 mdurl@^1.0.0:
   version "1.0.1"
@@ -12996,10 +12996,10 @@ next-compose-plugins@^2.2.1:
   resolved "https://registry.yarnpkg.com/next-compose-plugins/-/next-compose-plugins-2.2.1.tgz#020fc53f275a7e719d62521bef4300fbb6fde5ab"
   integrity sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==
 
-next-plugin-custom-babel-config@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/next-plugin-custom-babel-config/-/next-plugin-custom-babel-config-1.0.4.tgz#b99d8b7cfafb141176b51d717491957ee19bc338"
-  integrity sha512-553Xu6qtPIv10TaP/KRtnOP97Xi4yGF1aAZTACQgLz/qJTOCVG4F25fm84uf1xZRdHlhOUEt9t86frolh4N0EA==
+next-plugin-custom-babel-config@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/next-plugin-custom-babel-config/-/next-plugin-custom-babel-config-1.0.5.tgz#9e9f8ba0907fa3e151636a6908f844981c681a0f"
+  integrity sha512-EQrOUzg2Fzm2UGKctRaxLFoxactHHCFQmI7YhAgeRIQP66DJP/tW+TZymLULhYS7rCGLCFEjR0cuOOLbS4mf/w==
 
 next-transpile-modules@^8.0.0:
   version "8.0.0"

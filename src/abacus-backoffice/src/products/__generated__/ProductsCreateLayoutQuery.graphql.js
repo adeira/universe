@@ -31,12 +31,25 @@ query ProductsCreateLayoutQuery(
 
 fragment ProductCreateFormData on CommerceQuery {
   productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
-    ...ProductFormData
+    ...ProductFormCategoriesData
+    id
+  }
+  productAddons: searchAllProductAddons(clientLocale: $clientLocale) {
+    ...ProductFormAddonsData
     id
   }
 }
 
-fragment ProductFormData on ProductCategory {
+fragment ProductFormAddonsData on ProductAddon {
+  id
+  name
+  priceExtra {
+    unitAmount
+    unitAmountCurrency
+  }
+}
+
+fragment ProductFormCategoriesData on ProductCategory {
   id
   name
 }
@@ -49,7 +62,28 @@ var v0 = [
     "kind": "LocalArgument",
     "name": "clientLocale"
   }
-];
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "clientLocale",
+    "variableName": "clientLocale"
+  }
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -93,30 +127,50 @@ return {
         "selections": [
           {
             "alias": "productCategories",
-            "args": [
-              {
-                "kind": "Variable",
-                "name": "clientLocale",
-                "variableName": "clientLocale"
-              }
-            ],
+            "args": (v1/*: any*/),
             "concreteType": "ProductCategory",
             "kind": "LinkedField",
             "name": "searchAllProductCategories",
             "plural": true,
             "selections": [
+              (v2/*: any*/),
+              (v3/*: any*/)
+            ],
+            "storageKey": null
+          },
+          {
+            "alias": "productAddons",
+            "args": (v1/*: any*/),
+            "concreteType": "ProductAddon",
+            "kind": "LinkedField",
+            "name": "searchAllProductAddons",
+            "plural": true,
+            "selections": [
+              (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
-                "kind": "ScalarField",
-                "name": "id",
-                "storageKey": null
-              },
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "name",
+                "concreteType": "Price",
+                "kind": "LinkedField",
+                "name": "priceExtra",
+                "plural": false,
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "unitAmount",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "unitAmountCurrency",
+                    "storageKey": null
+                  }
+                ],
                 "storageKey": null
               }
             ],
@@ -128,12 +182,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5eb0cf080ea5edf08e41024cef2a0b4a",
+    "cacheID": "f739a813949dc81d25ed314a8d6853c3",
     "id": null,
     "metadata": {},
     "name": "ProductsCreateLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductsCreateLayoutQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    ...ProductCreateFormData\n  }\n}\n\nfragment ProductCreateFormData on CommerceQuery {\n  productCategories: searchAllProductCategories(clientLocale: $clientLocale) {\n    ...ProductFormData\n    id\n  }\n}\n\nfragment ProductFormData on ProductCategory {\n  id\n  name\n}\n"
+    "text": "query ProductsCreateLayoutQuery(\n  $clientLocale: SupportedLocale!\n) {\n  commerce {\n    ...ProductCreateFormData\n  }\n}\n\nfragment ProductCreateFormData on CommerceQuery {\n  productCategories: searchAllProductCategories(clientLocale: $clientLocale) {\n    ...ProductFormCategoriesData\n    id\n  }\n  productAddons: searchAllProductAddons(clientLocale: $clientLocale) {\n    ...ProductFormAddonsData\n    id\n  }\n}\n\nfragment ProductFormAddonsData on ProductAddon {\n  id\n  name\n  priceExtra {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n\nfragment ProductFormCategoriesData on ProductCategory {\n  id\n  name\n}\n"
   }
 };
 })();

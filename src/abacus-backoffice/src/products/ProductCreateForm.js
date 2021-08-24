@@ -26,7 +26,10 @@ export default function ProductCreateForm(props: Props): Node {
     graphql`
       fragment ProductCreateFormData on CommerceQuery {
         productCategories: searchAllProductCategories(clientLocale: $clientLocale) {
-          ...ProductFormData
+          ...ProductFormCategoriesData
+        }
+        productAddons: searchAllProductAddons(clientLocale: $clientLocale) {
+          ...ProductFormAddonsData
         }
       }
     `,
@@ -37,12 +40,15 @@ export default function ProductCreateForm(props: Props): Node {
     <ProductForm
       // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
       availableCategories={data.productCategories}
+      // $FlowFixMe[incompatible-type]: https://github.com/facebook/relay/issues/2545
+      availableAddons={data.productAddons}
+      selectedCategories={[]}
+      selectedAddons={[]}
       name_en={''}
       name_es={''}
       description_en={''}
       description_es={''}
       price={0}
-      categories={[]}
       visibility={['POS']}
       button={
         <FormSubmit
@@ -54,6 +60,7 @@ export default function ProductCreateForm(props: Props): Node {
               $translations: [ProductMultilingualInputTranslations!]!
               $visibility: [ProductMultilingualInputVisibility!]!
               $categories: [ID!]!
+              $addons: [ID!]!
             ) {
               commerce {
                 result: productCreate(
@@ -64,7 +71,7 @@ export default function ProductCreateForm(props: Props): Node {
                     translations: $translations
                     visibility: $visibility
                     categories: $categories
-                    addons: [] # TODO
+                    addons: $addons
                   }
                 ) {
                   ... on Product {
@@ -97,6 +104,7 @@ export default function ProductCreateForm(props: Props): Node {
             ],
             visibility: formValues.visibility,
             categories: [formValues.category],
+            addons: formValues.addons,
           })}
           onCompleted={({ commerce: { result } }) => {
             if (result.__typename === 'ProductError') {

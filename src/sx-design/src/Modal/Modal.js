@@ -1,14 +1,20 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
+import Button from '../Button/Button';
+import LayoutBlock from '../Layout/LayoutBlock';
+import LayoutInline from '../Layout/LayoutInline';
 import SxDesignPortal from '../SxDesignPortal';
+import Text from '../Text/Text';
 
 type Props = {
   +isOpen: boolean,
   +onClose: () => void,
-  +children: Node, // TODO: limit it to only owned components (Modal.Body, Modal.Actions, …)?
+  +title: FbtWithoutString,
+  +children: Node,
 };
 
 /**
@@ -30,7 +36,21 @@ export default function Modal(props: Props): Node {
       {props.isOpen === true ? (
         <div className={styles('modalOverlay')}>
           <div className={styles('modalOverlayBackdrop')} onClick={props.onClose} />
-          <div className={styles('modalWindowRoot')}>{props.children}</div>
+          <div className={styles('modalWindowRoot')}>
+            <LayoutBlock spacing="large">
+              <LayoutInline justifyContent="space-between">
+                <Text size={40}>{props.title}</Text>
+
+                <Text size={24}>
+                  <Button tint="secondary" size="small" onClick={props.onClose}>
+                    <Icon name="cross" data-testid="ModalCloseButton" />
+                  </Button>
+                </Text>
+              </LayoutInline>
+
+              <div>{props.children}</div>
+            </LayoutBlock>
+          </div>
         </div>
       ) : null}
     </SxDesignPortal>
@@ -73,7 +93,7 @@ const styles = sx.create({
     maxHeight: '100%',
     borderRadius: 'var(--sx-radius)',
     boxShadow: 'var(--sx-shadow-large)',
-    padding: 'var(--sx-spacing-small)',
+    padding: 'var(--sx-spacing-large)',
     overflowX: 'hidden',
     overflowY: 'auto',
     marginBlock: 'var(--sx-spacing-large)',
