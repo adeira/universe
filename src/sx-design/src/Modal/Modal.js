@@ -1,5 +1,6 @@
 // @flow
 
+import FocusTrap from 'focus-trap-react';
 import Icon from '@adeira/icons';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
@@ -20,8 +21,18 @@ type Props = {
 /**
  * Creates a dialog (modal) window overlaid on either the primary window or another dialog window.
  *
+ * ## Closing
+ *
+ * The modal can be closed either by clicking on "X" button, clicking on the modal's underlay
+ * (outside the modal) or by pressing "ESC".
+ *
+ * ## Accessibility
+ *
+ * Focus is trapped within the modal: `Tab` and `Shift+Tab` will cycle through the modal's focusable
+ * nodes without returning to the main document beneath. When the modal closes, focus returns to the
+ * element that was focused just before the modal activated.
+ *
  * TODO: implement important accessibility features:
- *  - focus trap (Tab, Shift+Tab, Esc) with correct focus return
  *  - correct aria attributes
  *  - inspiration and resources:
  *    - https://www.w3.org/TR/wai-aria-practices/#dialog_modal
@@ -31,27 +42,37 @@ type Props = {
 export default function Modal(props: Props): Node {
   // TODO: open in a drawer on smaller screens (https://vercel.com/design/drawer)
 
+  const focusTrapOptions = {
+    returnFocusOnDeactivate: true,
+    escapeDeactivates: () => {
+      props.onClose();
+      return true;
+    },
+  };
+
   return (
     <SxDesignPortal>
       {props.isOpen === true ? (
-        <div className={styles('modalOverlay')}>
-          <div className={styles('modalOverlayBackdrop')} onClick={props.onClose} />
-          <div className={styles('modalWindowRoot')}>
-            <LayoutBlock spacing="large">
-              <LayoutInline justifyContent="space-between">
-                <Text size={40}>{props.title}</Text>
+        <FocusTrap focusTrapOptions={focusTrapOptions}>
+          <div className={styles('modalOverlay')}>
+            <div className={styles('modalOverlayBackdrop')} onClick={props.onClose} />
+            <div className={styles('modalWindowRoot')}>
+              <LayoutBlock spacing="large">
+                <LayoutInline justifyContent="space-between">
+                  <Text size={40}>{props.title}</Text>
 
-                <Text size={24}>
-                  <Button tint="secondary" size="small" onClick={props.onClose}>
-                    <Icon name="cross" data-testid="ModalCloseButton" />
-                  </Button>
-                </Text>
-              </LayoutInline>
+                  <Text size={24}>
+                    <Button tint="secondary" size="small" onClick={props.onClose}>
+                      <Icon name="cross" data-testid="ModalCloseButton" />
+                    </Button>
+                  </Text>
+                </LayoutInline>
 
-              <div>{props.children}</div>
-            </LayoutBlock>
+                <div>{props.children}</div>
+              </LayoutBlock>
+            </div>
           </div>
-        </div>
+        </FocusTrap>
       ) : null}
     </SxDesignPortal>
   );
