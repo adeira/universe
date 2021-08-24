@@ -7,6 +7,7 @@ type Props = {
   +'children': Node,
   +'spacing'?: 'small' | 'medium' | 'large' | 'none',
   +'data-testid'?: string,
+  +'justifyContent'?: 'space-between' | 'space-evenly',
 };
 
 /**
@@ -23,6 +24,8 @@ export default function LayoutInline(props: Props): Node {
         gapMedium: props.spacing === 'medium',
         gapLarge: props.spacing === 'large',
         gapNone: props.spacing === 'none',
+        justifyContentSpaceBetween: props.justifyContent === 'space-between',
+        justifyContentSpaceEvenly: props.justifyContent === 'space-evenly',
       })}
     >
       {props.children}
@@ -41,4 +44,6 @@ const styles = sx.create({
   gapSmall: { gap: 'var(--sx-spacing-small)' },
   gapMedium: { gap: 'var(--sx-spacing-medium)' },
   gapLarge: { gap: 'var(--sx-spacing-large)' },
+  justifyContentSpaceBetween: { justifyContent: 'space-between' },
+  justifyContentSpaceEvenly: { justifyContent: 'space-evenly' },
 });
