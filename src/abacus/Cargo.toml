@@ -24,7 +24,7 @@ async-trait = "0.1.51"
 base64 = "0.13.0"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
 bytes = "1.0.1"
-casbin = "2.0.8"
+casbin = "2.0.9"
 clap = "3.0.0-beta.2"
 data-encoding = "2.3.2"
 deadpool = { version = "0.8.2", default-features = false, features = ["managed"] }
