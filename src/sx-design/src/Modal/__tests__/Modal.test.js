@@ -65,3 +65,20 @@ it('closes Modal component by clicking on "X"', () => {
   fireEvent.click(getByTestId('ModalCloseButton'));
   expect(onClose).toBeCalledTimes(1);
 });
+
+it('closes Modal component by pressing "ESC"', () => {
+  const onClose = jest.fn();
+  const { getByText, queryByText } = render(<TestingComponent onClose={onClose} />);
+
+  // Open the modal:
+  expect(queryByText('Modal title')).toBeNull();
+  fireEvent.click(getByText('Open modal'));
+  expect(getByText('Modal title')).toBeDefined();
+
+  // Close the modal:
+  expect(onClose).not.toBeCalled();
+  fireEvent.keyDown(getByText('Modal title'), {
+    key: 'Escape', // https://keycode.info/
+  });
+  expect(onClose).toBeCalledTimes(1);
+});
