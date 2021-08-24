@@ -520,13 +520,27 @@
   },
   {
    "hashToText": {
-    "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
+    "adM4ExNt4Fqq38leaDDUcQ==": "Mexico City"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
    "line_beg": 22,
-   "col_beg": 8,
+   "col_beg": 34,
    "line_end": 22,
-   "col_end": 76,
+   "col_end": 82,
+   "desc": "POS in Mexico City",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Mexico City"
+  },
+  {
+   "hashToText": {
+    "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
+   },
+   "filepath": "src/pos/POSAllSessionsPageLayout.js",
+   "line_beg": 26,
+   "col_beg": 14,
+   "line_end": 26,
+   "col_end": 82,
    "desc": "navigation link to point of sales",
    "project": "",
    "type": "text",
