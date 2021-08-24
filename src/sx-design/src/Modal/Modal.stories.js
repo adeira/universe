@@ -23,7 +23,7 @@ export default {
 initFbt();
 
 // 👇 We create a "template" of how args map to rendering
-const TemplateEmpty = () => {
+const TemplateEmpty = (args) => {
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -32,14 +32,14 @@ const TemplateEmpty = () => {
           Open empty modal
         </fbt>
       </Button>
-      <Modal isOpen={open} onClose={() => setOpen(false)}>
+      <Modal {...args} isOpen={open} onClose={() => setOpen(false)}>
         Anything can be here but it&apos;s empty now.
       </Modal>
     </div>
   );
 };
 
-const TemplateWithProductCards = () => {
+const TemplateWithProductCards = (args) => {
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -48,7 +48,7 @@ const TemplateWithProductCards = () => {
           Open modal (containing product cards)
         </fbt>
       </Button>
-      <Modal isOpen={open} onClose={() => setOpen(false)}>
+      <Modal {...args} isOpen={open} onClose={() => setOpen(false)}>
         <LayoutGrid minColumnWidth="200px">
           {rangeMap(10, (i) => (
             <ProductCard
@@ -65,7 +65,7 @@ const TemplateWithProductCards = () => {
   );
 };
 
-const TemplateWithModalInsideModal = () => {
+const TemplateWithModalInsideModal = (args) => {
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -74,8 +74,8 @@ const TemplateWithModalInsideModal = () => {
           Open modal (with another modal inside)
         </fbt>
       </Button>
-      <Modal isOpen={open} onClose={() => setOpen(false)}>
-        <TemplateWithModalInsideModal />
+      <Modal {...args} isOpen={open} onClose={() => setOpen(false)}>
+        <TemplateWithModalInsideModal {...args} />
       </Modal>
     </div>
   );
@@ -84,9 +84,30 @@ const TemplateWithModalInsideModal = () => {
 // 👇 Each story then reuses that template
 export const EmptyModal: StoryTemplate<typeof Modal> = TemplateEmpty.bind({});
 EmptyModal.storyName = 'Empty modal';
+EmptyModal.args = {
+  title: (
+    <fbt desc="empty modal" doNotExtract={true}>
+      Empty modal
+    </fbt>
+  ),
+};
 
 export const ModalWithProductCards: StoryTemplate<typeof Modal> = TemplateWithProductCards.bind({});
 ModalWithProductCards.storyName = 'With product cards';
+ModalWithProductCards.args = {
+  title: (
+    <fbt desc="with product cards" doNotExtract={true}>
+      With product cards
+    </fbt>
+  ),
+};
 
 export const ModalInsideModal: StoryTemplate<typeof Modal> = TemplateWithModalInsideModal.bind({});
 ModalInsideModal.storyName = 'Modal inside modal';
+ModalInsideModal.args = {
+  title: (
+    <fbt desc="modal inside modal" doNotExtract={true}>
+      Modal inside modal
+    </fbt>
+  ),
+};
