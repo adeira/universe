@@ -672,7 +672,10 @@ directive @relay_resolver(
 
 TKTK
 
-See: https://github.com/facebook/relay/commit/b8922feaf2472325306dec6f8023deb186658128
+See:
+
+- https://github.com/facebook/relay/commit/b8922feaf2472325306dec6f8023deb186658128
+- https://github.com/facebook/relay/commit/4336701ba3d929a99da68e6848b63a4e3064b086
 
 ### @as_actor, @fb_actor_change
 
