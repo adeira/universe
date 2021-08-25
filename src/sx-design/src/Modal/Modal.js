@@ -1,15 +1,13 @@
 // @flow
 
 import FocusTrap from 'focus-trap-react';
-import Icon from '@adeira/icons';
 import React, { type Node } from 'react';
-import sx from '@adeira/sx';
 
-import Button from '../Button/Button';
-import LayoutBlock from '../Layout/LayoutBlock';
-import LayoutInline from '../Layout/LayoutInline';
+import ModalDialog from './ModalDialog';
+import ModalDrawer from './ModalDrawer';
 import SxDesignPortal from '../SxDesignPortal';
-import Text from '../Text/Text';
+import useWindowSize from '../useWindowSize';
+import { MOBILE_WIDTH_BOUNDARY } from '../constants';
 
 type Props = {
   +isOpen: boolean,
@@ -19,7 +17,9 @@ type Props = {
 };
 
 /**
- * Creates a dialog (modal) window overlaid on either the primary window or another dialog window.
+ * Creates a modal window overlaid on either the primary window or another modal window. By default
+ * the modal window is renders as a dialog window on large screens and as a drawer on smaller
+ * screens (mobile).
  *
  * ## Closing
  *
@@ -40,7 +40,7 @@ type Props = {
  *    - https://github.com/davidtheclark/react-aria-modal
  */
 export default function Modal(props: Props): Node {
-  // TODO: open in a drawer on smaller screens (https://vercel.com/design/drawer)
+  const size = useWindowSize();
 
   const focusTrapOptions = {
     returnFocusOnDeactivate: true,
@@ -54,69 +54,21 @@ export default function Modal(props: Props): Node {
     <SxDesignPortal>
       {props.isOpen === true ? (
         <FocusTrap focusTrapOptions={focusTrapOptions}>
-          <div className={styles('modalOverlay')}>
-            <div className={styles('modalOverlayBackdrop')} onClick={props.onClose} />
-            <div className={styles('modalWindowRoot')}>
-              <LayoutBlock spacing="large">
-                <LayoutInline justifyContent="space-between">
-                  <Text size={40}>{props.title}</Text>
-
-                  <Text size={24}>
-                    <Button tint="secondary" size="small" onClick={props.onClose}>
-                      <Icon name="cross" data-testid="ModalCloseButton" />
-                    </Button>
-                  </Text>
-                </LayoutInline>
-
-                <div>{props.children}</div>
-              </LayoutBlock>
-            </div>
+          <div
+          // leave this wrapping div here (needed by FocusTrap component)
+          >
+            {size.width != null && size.width <= MOBILE_WIDTH_BOUNDARY ? (
+              <ModalDrawer isOpen={props.isOpen} onClose={props.onClose} title={props.title}>
+                {props.children}
+              </ModalDrawer>
+            ) : (
+              <ModalDialog isOpen={props.isOpen} onClose={props.onClose} title={props.title}>
+                {props.children}
+              </ModalDialog>
+            )}
           </div>
         </FocusTrap>
       ) : null}
     </SxDesignPortal>
   );
 }
-
-const styles = sx.create({
-  modalOverlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    display: 'flex',
-    alignContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    height: '100vh',
-    width: '100vw',
-    overflow: 'auto',
-    zIndex: 2000,
-  },
-  modalOverlayBackdrop: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    width: '100%',
-    height: '100%',
-    opacity: 0.25,
-    pointerEvents: 'all',
-    backgroundColor: 'rgba(var(--sx-foreground))',
-    zIndex: -1,
-  },
-  modalWindowRoot: {
-    backgroundColor: 'rgba(var(--sx-background))',
-    color: 'rgba(var(--sx-foreground))',
-    width: '80%',
-    maxWidth: '100%',
-    height: '80%',
-    maxHeight: '100%',
-    borderRadius: 'var(--sx-radius)',
-    boxShadow: 'var(--sx-shadow-large)',
-    padding: 'var(--sx-spacing-large)',
-    overflowX: 'hidden',
-    overflowY: 'auto',
-    marginBlock: 'var(--sx-spacing-large)',
-  },
-});
