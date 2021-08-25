@@ -14,6 +14,36 @@ beforeEach(() => {
   initFbt();
 });
 
+it('renders without any issues', () => {
+  const { getByText } = render(
+    <Button onClick={jest.fn()}>
+      <fbt desc="button title" doNotExtract={true}>
+        button title
+      </fbt>
+    </Button>,
+  );
+
+  expect(getByText('button title')).toBeDefined();
+});
+
+it('renders prefix and suffix icons', () => {
+  const { getByText, getByTestId } = render(
+    <Button
+      onClick={jest.fn()}
+      prefix={<Icon name="door" data-testid="door_icon" />}
+      suffix={<Icon name="receipt" data-testid="receipt_icon" />}
+    >
+      <fbt desc="button title" doNotExtract={true}>
+        button title
+      </fbt>
+    </Button>,
+  );
+
+  expect(getByText('button title')).toBeDefined();
+  expect(getByTestId('door_icon')).toBeDefined();
+  expect(getByTestId('receipt_icon')).toBeDefined();
+});
+
 it('calls onClick event', () => {
   const onClickFn = jest.fn();
 
@@ -32,22 +62,20 @@ it('calls onClick event', () => {
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
 
-it('renders prefix and suffix icons', () => {
+it('does not call onClick event when the button is disabled', () => {
   const onClickFn = jest.fn();
 
-  const { getByText, getByTestId } = render(
-    <Button
-      onClick={onClickFn}
-      prefix={<Icon name="door" data-testid="door_icon" />}
-      suffix={<Icon name="receipt" data-testid="receipt_icon" />}
-    >
+  const { getByText } = render(
+    <Button onClick={onClickFn} isDisabled={true}>
       <fbt desc="button title" doNotExtract={true}>
-        button title
+        disabled button with onClick callback
       </fbt>
     </Button>,
   );
 
-  expect(getByText('button title')).toBeDefined();
-  expect(getByTestId('door_icon')).toBeDefined();
-  expect(getByTestId('receipt_icon')).toBeDefined();
+  expect(getByText('disabled button with onClick callback')).toBeDefined();
+  expect(onClickFn).not.toHaveBeenCalled();
+
+  fireEvent.click(getByText('disabled button with onClick callback'));
+  expect(onClickFn).not.toHaveBeenCalled();
 });
