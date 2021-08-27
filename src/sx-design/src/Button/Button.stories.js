@@ -5,6 +5,7 @@
 
 import Icon from '@adeira/icons';
 import fbt from 'fbt';
+import React from 'react';
 
 import Button from './Button';
 import LayoutInline from '../Layout/LayoutInline';
@@ -35,6 +36,16 @@ const BasicTemplate = (args) => (
       <fbt desc="button title" doNotExtract={true}>
         Disabled button
       </fbt>
+    </Button>
+    <Button
+      {...args}
+      aria-label={
+        <fbt desc="cart button ARIA label" doNotExtract={true}>
+          Cart button
+        </fbt>
+      }
+    >
+      <Icon name="cart" />
     </Button>
   </LayoutInline>
 );
