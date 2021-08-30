@@ -56,13 +56,28 @@ it('closes Modal component by clicking on "X"', () => {
   const { getByText, getByTestId, queryByTestId } = render(<TestingComponent onClose={onClose} />);
 
   // Open the modal:
-  expect(queryByTestId('ModalCloseButton')).toBeNull();
+  expect(queryByTestId('ModalDialogCloseButton')).toBeNull();
   fireEvent.click(getByText('Open modal'));
-  expect(getByTestId('ModalCloseButton')).toBeDefined();
+  expect(getByTestId('ModalDialogCloseButton')).toBeDefined();
 
   // Close the modal:
   expect(onClose).not.toBeCalled();
-  fireEvent.click(getByTestId('ModalCloseButton'));
+  fireEvent.click(getByTestId('ModalDialogCloseButton'));
+  expect(onClose).toBeCalledTimes(1);
+});
+
+it('closes Modal component by clicking on the backdrop', () => {
+  const onClose = jest.fn();
+  const { getByText, getByTestId, queryByTestId } = render(<TestingComponent onClose={onClose} />);
+
+  // Open the modal:
+  expect(queryByTestId('ModalBackdrop')).toBeNull();
+  fireEvent.click(getByText('Open modal'));
+  expect(getByTestId('ModalBackdrop')).toBeDefined();
+
+  // Close the modal:
+  expect(onClose).not.toBeCalled();
+  fireEvent.click(getByTestId('ModalBackdrop'));
   expect(onClose).toBeCalledTimes(1);
 });
 

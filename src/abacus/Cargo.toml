@@ -23,7 +23,7 @@ anyhow = { version = "1.0.43", default-features = false, features = ["std"] }
 async-trait = "0.1.51"
 base64 = "0.13.0"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
-bytes = "1.0.1"
+bytes = "1.1.0"
 casbin = "2.0.9"
 clap = "3.0.0-beta.2"
 data-encoding = "2.3.2"
@@ -41,10 +41,10 @@ reqwest = { version = "0.11.4", default-features = false, features = ["json", "g
 ring = "0.16.20"
 rusoto_core = "0.47.0"
 rusoto_s3 = "0.47.0"
-serde = "1.0.129"
-serde_json = "1.0.66"
+serde = "1.0.130"
+serde_json = "1.0.67"
 serde_qs = "0.8.4"
-thiserror = { version = "1.0.26", default-features = false }
+thiserror = { version = "1.0.28", default-features = false }
 tokio = { version = "1.10.1", default-features = false, features = ["full"] }
 tracing = "0.1.26"
 tracing-subscriber = "0.2.20"

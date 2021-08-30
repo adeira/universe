@@ -12,7 +12,7 @@
     "@adeira/sx": "^0.28.0",
     "@babel/runtime": "^7.15.3",
     "prettier": "^2.3.2",
-    "pretty-format": "^27.0.6"
+    "pretty-format": "^27.1.0"
   },
   "devDependencies": {
     "@testing-library/react": "^12.0.0",
