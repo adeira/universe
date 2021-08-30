@@ -55,7 +55,10 @@ export default function Modal(props: Props): Node {
       {props.isOpen === true ? (
         <FocusTrap focusTrapOptions={focusTrapOptions}>
           <div
-          // leave this wrapping div here (needed by FocusTrap component)
+            // leave this wrapping div here (needed by FocusTrap component)
+            role="dialog"
+            aria-modal="true"
+            aria-label={props.title}
           >
             {size.width != null && size.width <= MOBILE_WIDTH_BOUNDARY ? (
               <ModalDrawer isOpen={props.isOpen} onClose={props.onClose} title={props.title}>
