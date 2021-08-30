@@ -967,6 +967,7 @@ Object {
       2,
       "always",
     ],
+    "react/prefer-exact-props": 0,
     "react/prefer-read-only-props": 0,
     "react/prefer-stateless-function": 0,
     "react/prop-types": 0,

@@ -92,6 +92,7 @@ module.exports = ({
     'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
     'react/no-will-update-set-state': OFF,
     'react/prefer-es6-class': [ERROR, 'always'],
+    'react/prefer-exact-props': OFF, // see: fb-flow/use-exact-by-default-object-type
     'react/prefer-read-only-props': OFF,
     'react/prefer-stateless-function': OFF,
     'react/prop-types': OFF, // we use Flow instead,

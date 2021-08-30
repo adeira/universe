@@ -121,7 +121,7 @@ it('renders custom error component', () => {
       query={query}
       variables={variables}
       onResponse={onResponse}
-      onSystemError={onSystemError}
+      onSystemError={onSystemError} // eslint-disable-line react/jsx-no-bind
     />,
   );
   environment.mock.rejectMostRecentOperation(new Error('fail'));
