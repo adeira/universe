@@ -26,7 +26,7 @@ initFbt();
 const TemplateEmpty = (args) => {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <>
       <Button onClick={() => setOpen(true)}>
         <fbt desc="open modal button title" doNotExtract={true}>
           Open empty modal
@@ -35,14 +35,14 @@ const TemplateEmpty = (args) => {
       <Modal {...args} isOpen={open} onClose={() => setOpen(false)}>
         Anything can be here but it&apos;s empty now.
       </Modal>
-    </div>
+    </>
   );
 };
 
 const TemplateWithProductCards = (args) => {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <>
       <Button onClick={() => setOpen(true)}>
         <fbt desc="open modal button title" doNotExtract={true}>
           Open modal (containing product cards)
@@ -61,14 +61,14 @@ const TemplateWithProductCards = (args) => {
           ))}
         </LayoutGrid>
       </Modal>
-    </div>
+    </>
   );
 };
 
 const TemplateWithModalInsideModal = (args) => {
   const [open, setOpen] = useState(false);
   return (
-    <div>
+    <>
       <Button onClick={() => setOpen(true)}>
         <fbt desc="open modal button title" doNotExtract={true}>
           Open modal (with another modal inside)
@@ -77,7 +77,7 @@ const TemplateWithModalInsideModal = (args) => {
       <Modal {...args} isOpen={open} onClose={() => setOpen(false)}>
         <TemplateWithModalInsideModal {...args} />
       </Modal>
-    </div>
+    </>
   );
 };
 
