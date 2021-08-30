@@ -67,8 +67,14 @@ export default class ShipitConfig {
   getDefaultShipitFilter(): ChangesetFilter {
     return (changeset: Changeset) => {
       const ch1 = addTrackingData(changeset);
+      // React Eslint plugin bug: https://github.com/yannickcr/eslint-plugin-react/issues/3063
+      // eslint-disable-next-line react/no-this-in-sfc
       const ch2 = stripExceptDirectories(ch1, this.getSourceRoots());
+      // React Eslint plugin bug: https://github.com/yannickcr/eslint-plugin-react/issues/3063
+      // eslint-disable-next-line react/no-this-in-sfc
       const ch3 = moveDirectories(ch2, this.directoryMapping);
+      // React Eslint plugin bug: https://github.com/yannickcr/eslint-plugin-react/issues/3063
+      // eslint-disable-next-line react/no-this-in-sfc
       const ch4 = stripPaths(ch3, this.strippedFiles);
 
       // First we comment out lines marked with `@x-shipit-disable`.

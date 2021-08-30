@@ -1,6 +1,6 @@
 // @flow
 
-import { useContext, type Node } from 'react';
+import { useContext, useCallback, type Node } from 'react';
 import {
   LocalQueryRenderer as RelayLocalQueryRenderer,
   ReactRelayContext,
@@ -32,22 +32,24 @@ type Props<T> =
 // Please note: we are currently only wrapping this component to add it correct Flow types.
 // Eventually, it can be extended with other functions like original QueryRenderer.
 export default function LocalQueryRenderer<T>(props: $ReadOnly<Props<T>>): Node {
-  function renderQueryRendererResponse({ props: rendererProps }) {
-    if (!rendererProps) {
-      return props.onLoading ? (
-        props.onLoading()
-      ) : (
-        <div data-testid="loading">Loading local...</div>
+  const onLoading = props.onLoading ? props.onLoading : undefined;
+  const onResponse = props.onResponse ? props.onResponse : undefined;
+
+  const renderQueryRendererResponse = useCallback(
+    ({ props: rendererProps }) => {
+      if (!rendererProps) {
+        return onLoading ? onLoading() : <div data-testid="loading">Loading local…</div>;
+      }
+
+      invariant(
+        onResponse !== undefined,
+        'LocalQueryRenderer used default render function but "onResponse" property has not been provided.',
       );
-    }
 
-    invariant(
-      props.onResponse !== undefined,
-      'LocalQueryRenderer used default render function but "onResponse" property has not been provided.',
-    );
-
-    return props.onResponse(rendererProps);
-  }
+      return onResponse(rendererProps);
+    },
+    [onLoading, onResponse],
+  );
 
   // 1) <LQR environment={Env} /> always win
   // 2) <LQR /> checks whether we provide Environment via `RelayEnvironmentProvider`
