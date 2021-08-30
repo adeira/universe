@@ -42,7 +42,7 @@ ring = "0.16.20"
 rusoto_core = "0.47.0"
 rusoto_s3 = "0.47.0"
 serde = "1.0.130"
-serde_json = "1.0.66"
+serde_json = "1.0.67"
 serde_qs = "0.8.4"
 thiserror = { version = "1.0.28", default-features = false }
 tokio = { version = "1.10.1", default-features = false, features = ["full"] }
