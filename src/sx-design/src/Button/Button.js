@@ -31,6 +31,7 @@ export default function Button(props: Props): React.Element<'button'> {
       type={props.type ?? 'button'}
       onClick={props.onClick}
       disabled={props.isDisabled === true}
+      aria-disabled={props.isDisabled === true}
       data-testid={props['data-testid']}
       className={sharedButtonStyles({
         buttonBase: true,
