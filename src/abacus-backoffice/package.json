@@ -34,7 +34,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@fbtjs/default-collection-transform": "^0.0.3",
-    "@next/bundle-analyzer": "^11.1.1",
+    "@next/bundle-analyzer": "^11.1.2",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^7.0.2",
     "babel-plugin-fbt": "^0.20.0",
