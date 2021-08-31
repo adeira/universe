@@ -1,5 +1,6 @@
 // @flow
 
+import { LayoutInline } from '@adeira/sx-design';
 import fbt from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
@@ -17,11 +18,12 @@ export default function LayoutFooter(): React.Node {
 
   return (
     <div className={styles('wrapper')}>
-      <div className={styles('row')}>
-        <div className={styles('column', 'columnLeft')}>
+      <LayoutInline>
+        <div className={styles('columnLeft')}>
           <Logo horizontal={true} size="small" onWhiteBackground={true} />
         </div>
-        <div className={styles('column', 'columnLeft')}>
+
+        <div className={styles('columnLeft')}>
           <div>
             <LinkInternal href="/" xstyle={styles.link}>
               <fbt desc="link to the homepage from the page footer">Home</fbt>
@@ -45,7 +47,8 @@ export default function LayoutFooter(): React.Node {
             </div>
           ) : null}
         </div>
-        <div className={styles('column', 'columnLeft')}>
+
+        <div className={styles('columnLeft')}>
           <div>
             <LinkInternal href="/legal/terms" xstyle={styles.link}>
               <fbt desc="footer navigation link to terms of use">Terms of use</fbt>
@@ -64,12 +67,13 @@ export default function LayoutFooter(): React.Node {
             </LinkInternal>
           </div>
         </div>
-        <div className={styles('column', 'columnRight')}>
+
+        <div className={styles('columnRight')}>
           <LanguageSwitch />
         </div>
-      </div>
+      </LayoutInline>
 
-      <div className={styles('socialMedia')}>
+      <div>
         <SocialMediaIcons color="#1c1e21" size={30} />
       </div>
     </div>
@@ -79,13 +83,6 @@ export default function LayoutFooter(): React.Node {
 const styles = sx.create({
   wrapper: {
     paddingBlock: '5vw',
-  },
-  row: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
-  column: {
     paddingInline: '1rem',
   },
   columnLeft: {
@@ -98,9 +95,6 @@ const styles = sx.create({
     flexDirection: 'column',
     flex: 3,
     alignItems: 'flex-end',
-  },
-  socialMedia: {
-    paddingInlineStart: '1rem',
   },
   link: {
     color: 'rgba(var(--sx-foreground))',
