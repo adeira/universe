@@ -2510,10 +2510,10 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-11.1.1.tgz#d403282accbe8795aa2341f0e02c2e8bfc92bfb0"
   integrity sha512-UEAzlfKofotLmj9LIgNixAfXpRck9rt/1CU9Q4ZtNDueGBJQP3HUzPHlrLChltWY2TA5MOzDQGL82H0a3+i5Ag==
 
-"@next/eslint-plugin-next@^11.1.1":
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-11.1.1.tgz#8bdab5113c93dab8acfc6c353e3a708019161003"
-  integrity sha512-ydu0iwkWqpcxq3gqW3vikMl95q3iN9g1fvkHSs1Mwy6GTJKg25wHTqU5laY0aVrdYB8HD/X5S8iSxQ8hPZwEyQ==
+"@next/eslint-plugin-next@^11.1.2":
+  version "11.1.2"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-11.1.2.tgz#f26cf90bcb6cd2e4645e2ba253bbc9aaaa43a170"
+  integrity sha512-cN+ojHRsufr9Yz0rtvjv8WI5En0RPZRJnt0y16Ha7DD+0n473evz8i1ETEJHmOLeR7iPJR0zxRrxeTN/bJMOjg==
   dependencies:
     glob "7.1.7"
 
@@ -3766,10 +3766,10 @@
     lodash "^4.17.15"
     redent "^3.0.0"
 
-"@testing-library/react-hooks@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-7.0.1.tgz#8429d8bf55bfe82e486bd582dd06457c2464900a"
-  integrity sha512-bpEQ2SHSBSzBmfJ437NmnP+oArQ7aVmmULiAp6Ag2rtyLBLPNFSMmgltUbFGmQOJdPWo4Ub31kpUC5T46zXNwQ==
+"@testing-library/react-hooks@^7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@testing-library/react-hooks/-/react-hooks-7.0.2.tgz#3388d07f562d91e7f2431a4a21b5186062ecfee0"
+  integrity sha512-dYxpz8u9m4q1TuzfcUApqi8iFfR6R0FaMbr2hjZJy1uC8z+bO/K4v8Gs9eogGKYQop7QsrBTFkv/BCF7MzD2Cg==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@types/react" ">=16.9.0"
