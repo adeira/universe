@@ -29,7 +29,7 @@ clap = "3.0.0-beta.2"
 data-encoding = "2.3.2"
 deadpool = { version = "0.8.2", default-features = false, features = ["managed"] }
 dotenv = { version = "0.15.0", default-features = false }
-futures = "0.3.16"
+futures = "0.3.17"
 http = "0.2.4"
 image = { version = "0.23.14", default-features = false, features = ["jpeg", "png"] }
 jsonwebtoken = "7.2.0"
