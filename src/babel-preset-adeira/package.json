@@ -1,7 +1,13 @@
 {
   "name": "@adeira/babel-preset-adeira",
   "description": "Babel preset for JS used at Adeira",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/babel-preset-adeira",
+  "homepage": "https://github.com/adeira/babel-preset-adeira",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/babel-preset-adeira"
+  },
   "private": false,
   "license": "MIT",
   "version": "3.0.0",

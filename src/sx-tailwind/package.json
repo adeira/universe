@@ -1,7 +1,13 @@
 {
   "name": "@adeira/sx-tailwind",
   "description": "Tailwind CSS ported into SX",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/sx-tailwind",
+  "homepage": "https://github.com/adeira/sx-tailwind",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/sx-tailwind"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.12.1",

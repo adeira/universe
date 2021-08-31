@@ -1,7 +1,13 @@
 {
   "name": "@adeira/js",
   "description": "Useful JS functions used in Adeira ecosystem",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/js",
+  "homepage": "https://github.com/adeira/js",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/js"
+  },
   "license": "MIT",
   "private": false,
   "version": "2.1.0",

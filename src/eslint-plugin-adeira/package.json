@@ -1,7 +1,13 @@
 {
   "name": "eslint-plugin-adeira",
   "description": "Additional Eslint rules for Adeira projects. Prefer to use @adeira/eslint-config instead.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-plugin-adeira",
+  "homepage": "https://github.com/adeira/universe",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/eslint-plugin-adeira"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.14.0",

@@ -1,7 +1,13 @@
 {
   "name": "@adeira/sx-design",
   "description": "Inclusive design system written using @adeira/sx",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/sx-design",
+  "homepage": "https://github.com/adeira/sx-design",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/sx-design"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.17.0",

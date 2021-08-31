@@ -1,7 +1,13 @@
 {
   "name": "@adeira/monorepo-npm-publisher",
   "description": "Tool for automatically publishing of NPM packages from our monorepo",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/monorepo-npm-publisher",
+  "homepage": "https://github.com/adeira/monorepo-npm-publisher",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/monorepo-npm-publisher"
+  },
   "license": "MIT",
   "private": false,
   "version": "2.0.0",

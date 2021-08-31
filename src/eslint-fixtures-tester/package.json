@@ -1,7 +1,13 @@
 {
   "name": "@adeira/eslint-fixtures-tester",
   "description": "Eslint fixtures tester utility.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-fixtures-tester",
+  "homepage": "https://github.com/adeira/eslint-fixtures-tester",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/eslint-fixtures-tester"
+  },
   "version": "0.1.0",
   "main": "./src/index.js",
   "type": "commonjs",
