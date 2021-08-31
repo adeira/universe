@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rules `@next/next/inline-script-id`, `@next/next/no-script-in-document` and `@next/next/no-script-in-head` enabled (as warnings). For more information visit: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
+
 # 6.4.0
 
 - New rules `@next/next/no-duplicate-head` and `@next/next/no-typos` enabled in the Next.js preset (as warnings).

@@ -743,7 +743,9 @@ Object {
   "rules": Object {
     "@next/next/google-font-display": 1,
     "@next/next/google-font-preconnect": 1,
+    "@next/next/inline-script-id": 1,
     "@next/next/link-passhref": 1,
+    "@next/next/next-script-for-ga": 0,
     "@next/next/no-css-tags": 1,
     "@next/next/no-document-import-in-page": 1,
     "@next/next/no-duplicate-head": 1,
@@ -751,6 +753,8 @@ Object {
     "@next/next/no-html-link-for-pages": 1,
     "@next/next/no-img-element": 1,
     "@next/next/no-page-custom-font": 1,
+    "@next/next/no-script-in-document": 1,
+    "@next/next/no-script-in-head": 1,
     "@next/next/no-sync-scripts": 1,
     "@next/next/no-title-in-document-head": 1,
     "@next/next/no-typos": 1,
