@@ -1,7 +1,13 @@
 {
   "name": "@adeira/sx-jest-snapshot-serializer",
   "description": "Jest snapshot serializer for @adeira/sx",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/sx-jest-snapshot-serializer",
+  "homepage": "https://github.com/adeira/sx-jest-snapshot-serializer",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/sx-jest-snapshot-serializer"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.1.0",

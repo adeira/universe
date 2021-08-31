@@ -1,7 +1,13 @@
 {
   "name": "@adeira/flow-config-parser",
   "description": "Permissive Flow config parser.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/flow-config-parser",
+  "homepage": "https://github.com/adeira/flow-config-parser",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/flow-config-parser"
+  },
   "version": "0.3.0",
   "private": false,
   "license": "MIT",
