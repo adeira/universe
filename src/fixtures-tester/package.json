@@ -1,7 +1,13 @@
 {
   "name": "@adeira/fixtures-tester",
   "description": "Utility to ease testing with fixtures.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/fixtures-tester",
+  "homepage": "https://github.com/adeira/fixtures-tester",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/fixtures-tester"
+  },
   "license": "MIT",
   "private": false,
   "version": "1.1.0",

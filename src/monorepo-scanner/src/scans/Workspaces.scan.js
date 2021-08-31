@@ -32,11 +32,15 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
 
       expect(packageJson.homepage).toMatch(
         new RegExp(
-          `^https://github\\.com/adeira/universe/tree/master/src/${path.basename(
+          `^https://github\\.com/adeira/universe|https://github\\.com/adeira/${path.basename(
             path.dirname(packageJSONLocation),
           )}$`,
         ),
       );
+
+      expect(packageJson.bugs).toMatch('https://github.com/adeira/universe/issues');
+
+      expect(packageJson.repository).not.toBeUndefined();
 
       // each public package must specify `main` or `bin` field to be useful
       expect(packageJson.main !== undefined || packageJson.bin !== undefined).toBe(true);

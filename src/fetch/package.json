@@ -6,7 +6,13 @@
   "main": "./src/fetchWithRetries.js",
   "type": "commonjs",
   "sideEffects": false,
-  "homepage": "https://github.com/adeira/universe/tree/master/src/fetch",
+  "homepage": "https://github.com/adeira/fetch",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/fetch"
+  },
   "description": "Production ready fetch function with advanced capabilities like retries with delay and request cancellation after timeout.",
   "dependencies": {
     "@adeira/js": "^2.1.0",

@@ -1,7 +1,13 @@
 {
   "name": "@adeira/murmur-hash",
   "description": "Non-cryptographic hash function suitable for general hash-based lookup.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/murmur-hash",
+  "homepage": "https://github.com/adeira/universe",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/murmur-hash"
+  },
   "license": "MIT",
   "private": false,
   "version": "2.0.0",

@@ -1,7 +1,13 @@
 {
   "name": "@adeira/graphql-global-id",
   "description": "Utility to manage ID fields in GraphQL correctly.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-global-id",
+  "homepage": "https://github.com/adeira/universe",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/graphql-global-id"
+  },
   "license": "MIT",
   "private": false,
   "version": "2.0.1",

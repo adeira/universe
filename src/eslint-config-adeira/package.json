@@ -1,7 +1,13 @@
 {
   "name": "@adeira/eslint-config",
   "description": "Eslint configuration describing rules for JS used at Adeira.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/eslint-config-adeira",
+  "homepage": "https://github.com/adeira/eslint-config-adeira",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/eslint-config-adeira"
+  },
   "license": "MIT",
   "private": false,
   "version": "6.4.0",
