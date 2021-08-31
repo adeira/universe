@@ -5,10 +5,15 @@ import { isBrowser } from '@adeira/js';
 import { atom, selector, useRecoilState, DefaultValue, useRecoilValue } from 'recoil';
 
 export type AtomItemType = {
+  +units: number,
   +itemID: string,
   +itemTitle: string,
   +itemUnitAmount: number,
-  +units: number,
+  +itemAddons?: $ReadOnlyArray<{
+    +itemAddonID: string,
+    +itemAddonTitle: string,
+    +itemAddonExtraPrice: number,
+  }>,
 };
 
 type AtomValue = Immutable.List<AtomItemType>;
@@ -41,7 +46,7 @@ const localStorageEffect =
 const selectedItemsAtom = atom<AtomValue>({
   key: 'selectedItems',
   default: Immutable.List(),
-  effects_UNSTABLE: [localStorageEffect('ycbo:selectedItems')],
+  effects_UNSTABLE: [localStorageEffect('abacus-backoffice:pos:selectedItems')],
 });
 
 type SelectorItem = {
@@ -56,9 +61,17 @@ const selectedItemsStatsSelector = selector<SelectorItem>({
 
     let totalSelectedItems = 0;
     let totalPrice = 0;
+
     selectedItems.forEach((itemMap) => {
+      const itemAddonExtraPrice =
+        itemMap.itemAddons?.reduce((acc, itemAddon) => {
+          return acc + itemAddon.itemAddonExtraPrice;
+        }, 0) ?? 0;
+
       totalSelectedItems += itemMap.units;
-      totalPrice += itemMap.units * itemMap.itemUnitAmount;
+      totalPrice +=
+        itemMap.units * itemMap.itemUnitAmount + // price per product unit * number of product units
+        itemMap.units * itemAddonExtraPrice; // extra addon price * number of product units
     });
 
     return {
@@ -83,11 +96,37 @@ export default function useSelectedItemsApi(): {
     selectedItems,
     // Select adds a new item to the array while preserving order of the inserts. It de-duplicates
     // the items by their `itemID` so already existing items increase number of units instead.
-    select: (newItem) => {
+    select: (newItem: AtomItemType) => {
       setSelectedItems((previousItems) => {
-        const itemIndex = previousItems.findIndex((item) => item.itemID === newItem.itemID);
+        // Sort the addons so we can achieve stable ID and order:
+        const newItemAddons = [...(newItem.itemAddons ?? [])].sort((a, b) => {
+          // $FlowIgnore[unnecessary-optional-chain]: https://github.com/facebook/flow/issues/8187#issuecomment-703424208
+          const idA = a.itemAddonID?.toUpperCase(); // ignore upper and lowercase
+          // $FlowIgnore[unnecessary-optional-chain]: https://github.com/facebook/flow/issues/8187#issuecomment-703424208
+          const idB = b.itemAddonID?.toUpperCase();
+          if (idA < idB) {
+            return -1;
+          } else if (idA > idB) {
+            return 1;
+          }
+          return 0;
+        });
+
+        // Item ID composes of the original item ID with additional item addons IDs.
+        const newItemID =
+          newItemAddons.reduce((acc, curVal) => {
+            return `${acc}%${curVal.itemAddonID}`;
+          }, newItem.itemID) ?? newItem.itemID;
+
+        const itemIndex = previousItems.findIndex((item) => item.itemID === newItemID);
         if (itemIndex === -1) {
-          return previousItems.push(newItem);
+          return previousItems.push({
+            units: newItem.units,
+            itemID: newItemID,
+            itemTitle: newItem.itemTitle,
+            itemUnitAmount: newItem.itemUnitAmount,
+            itemAddons: newItemAddons,
+          });
         }
         const previousItem = previousItems.get(itemIndex);
         if (previousItem == null) {
