@@ -1,7 +1,7 @@
 // @flow
 
 import FocusTrap from 'focus-trap-react';
-import React, { type Node } from 'react';
+import React, { useEffect, type Node } from 'react';
 
 import ModalDialog from './ModalDialog';
 import ModalDrawer from './ModalDrawer';
@@ -32,15 +32,34 @@ type Props = {
  * nodes without returning to the main document beneath. When the modal closes, focus returns to the
  * element that was focused just before the modal activated.
  *
- * TODO: implement important accessibility features:
- *  - correct aria attributes
- *  - inspiration and resources:
- *    - https://www.w3.org/TR/wai-aria-practices/#dialog_modal
- *    - https://reactjs.org/docs/accessibility.html#programmatically-managing-focus
- *    - https://github.com/davidtheclark/react-aria-modal
+ * Additionally, it's not possible to scroll the modal background when the modal is open. This is to
+ * make sure that the user returns to the exact same state as before opening the modal.
  */
 export default function Modal(props: Props): Node {
   const size = useWindowSize();
+
+  // The following effect prevents the modal background from scrolling when the modal is open.
+  // It does so by setting the body overflow to "hidden" when the modal is open and resetting it
+  // back to the initial value when it's closed.
+  useEffect(() => {
+    const body = document.body;
+    let initialBodyOverflow = null;
+    if (body != null) {
+      const computedBodyStyle = window.getComputedStyle(body);
+      const bodyOverflow = computedBodyStyle.getPropertyValue('overflow');
+      initialBodyOverflow = bodyOverflow === '' ? null : bodyOverflow;
+      if (props.isOpen === true) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.setProperty('overflow', initialBodyOverflow);
+      }
+    }
+    return () => {
+      if (body != null) {
+        body.style.setProperty('overflow', initialBodyOverflow);
+      }
+    };
+  }, [props.isOpen]);
 
   const focusTrapOptions = {
     returnFocusOnDeactivate: true,
