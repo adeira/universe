@@ -107,12 +107,6 @@ it('supports conditional calls', () => {
 });
 
 it('validates incorrect usage', () => {
-  create({
-    aaa: {
-      // useful to allow (with a warning though) when user wants to temporarily comment out the stylesheet
-    },
-  });
-
   expect(() => create({})).toThrowErrorMatchingInlineSnapshot(
     `"Function 'sx.create' cannot be called with empty stylesheet definition."`,
   );
@@ -120,24 +114,34 @@ it('validates incorrect usage', () => {
   const styles = create({
     aaa: { color: 'red' },
     bbb: { color: 'blue' },
+    empty: {
+      // intentionally empty (useful when user wants to temporarily comment out the stylesheet)
+    },
   });
 
   // $FlowExpectedError[incompatible-call] unexpected yadada
   expect(() => styles({}, 'yadada')).toThrowErrorMatchingInlineSnapshot(
     `"SX accepts only one argument when using conditional objects. Either remove the second argument or switch to traditional syntax without conditional objects."`,
   );
+
   expect(() => styles({})).toThrowErrorMatchingInlineSnapshot(
     `"SX must be called with at least one stylesheet selector (empty object given)."`,
   );
+
   expect(() => styles()).toThrowErrorMatchingInlineSnapshot(
     `"SX must be called with at least one stylesheet name."`,
   );
+
   // $FlowExpectedError[incompatible-call] unexpected bbc
   expect(() => styles('bbc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'bbc' stylesheet name but it doesn't exist. Did you mean 'bbb' instead?"`,
   );
+
   // $FlowExpectedError[incompatible-call] unexpected ccc
   expect(() => styles('ccc')).toThrowErrorMatchingInlineSnapshot(
     `"SX was called with 'ccc' stylesheet name but it doesn't exist. Did you mean 'aaa' instead?"`,
   );
+
+  expect(() => styles('empty')).not.toThrow();
+  expect(styles('empty')).toEqual('');
 });

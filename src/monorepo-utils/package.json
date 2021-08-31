@@ -1,7 +1,13 @@
 {
   "name": "@adeira/monorepo-utils",
   "description": "Helpful functions to manage monorepos (using Yarn Workspaces).",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/monorepo-utils",
+  "homepage": "https://github.com/adeira/monorepo-utils",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/monorepo-utils"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.11.0",

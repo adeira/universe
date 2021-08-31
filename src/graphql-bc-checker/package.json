@@ -1,7 +1,13 @@
 {
   "name": "@adeira/graphql-bc-checker",
   "description": "Script to detect breaking changes in GraphQL schema with ability to log these changes.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/graphql-bc-checker",
+  "homepage": "https://github.com/adeira/graphql-bc-checker",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/graphql-bc-checker"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.4.0",
@@ -15,7 +21,7 @@
   },
   "devDependencies": {
     "@adeira/fixtures-tester": "^1.1.0",
-    "graphql": "^15.5.1",
+    "graphql": "^15.5.2",
     "strip-ansi": "^6.0.0"
   },
   "peerDependencies": {

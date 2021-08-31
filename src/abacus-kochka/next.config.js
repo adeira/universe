@@ -15,7 +15,7 @@ const nextConfig = withCustomBabelConfigFile(
     '@adeira/sx',
     '@adeira/sx-design',
   ])({
-    babelConfigFile: path.join(__dirname, '.babelrc'),
+    babelConfigFile: path.join(__dirname, '.babelrc.js'),
     webpack: (nextConfig) => {
       nextConfig.module.rules.push({
         type: 'javascript/auto',

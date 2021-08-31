@@ -1,7 +1,13 @@
 {
   "name": "@adeira/sx",
   "description": "Atomic CSS-in-JS (not only) for Next.js applications",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/sx",
+  "homepage": "https://github.com/adeira/sx",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/sx"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.28.0",

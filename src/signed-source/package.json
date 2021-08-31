@@ -1,7 +1,13 @@
 {
   "name": "@adeira/signed-source",
   "description": "Utility for signing and verifying generated files.",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/signed-source",
+  "homepage": "https://github.com/adeira/universe",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/signed-source"
+  },
   "license": "MIT",
   "private": false,
   "version": "2.0.0",

@@ -79,3 +79,25 @@ it('does not call onClick event when the button is disabled', () => {
   fireEvent.click(getByText('disabled button with onClick callback'));
   expect(onClickFn).not.toHaveBeenCalled();
 });
+
+it('throws when Icon is the only Button child and ARIA label is not specified', () => {
+  const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  expect(() => {
+    render(
+      <Button onClick={jest.fn()}>
+        <Icon name="timeline" data-testid="timeline_icon" />
+      </Button>,
+    );
+  }).toThrowErrorMatchingInlineSnapshot(
+    `"Icon is the only Button child so ARIA label property must be specified."`,
+  );
+  consoleSpy.mockRestore();
+
+  const { getByTestId } = render(
+    <Button onClick={jest.fn()} aria-label="Timeline button">
+      <Icon name="timeline" data-testid="timeline_icon" />
+    </Button>,
+  );
+
+  expect(getByTestId('timeline_icon')).toBeDefined();
+});

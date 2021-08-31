@@ -1,7 +1,13 @@
 {
   "name": "@adeira/babel-plugin-transform-sx-tailwind",
   "description": "Babel transformation plugin for SX Tailwind",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/babel-plugin-transform-sx-tailwind",
+  "homepage": "https://github.com/adeira/universe",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/babel-plugin-transform-sx-tailwind"
+  },
   "license": "MIT",
   "private": false,
   "version": "0.18.1",
@@ -18,7 +24,7 @@
     "find-cache-dir": "^3.3.2",
     "object-hash": "^2.2.0",
     "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.8"
+    "tailwindcss": "^2.2.9"
   },
   "devDependencies": {
     "@babel/plugin-transform-regenerator": "^7.14.5",

@@ -15,7 +15,10 @@
   font-style: normal;
   font-weight: 400;
   src: local('Gidole'), url('/fonts/Gidole-Regular-subset.ttf') format('truetype');
-  unicode-range: U+20, U+41, U+43, U+46, U+48, U+4B, U+4F, U+C9; /* KOCHKA CAFÉ */
+
+  /* All characters from: "KOCHKA CAFÉ®" */
+  unicode-range: /*K*/ U+4B, /*O*/ U+4F, /*C*/ U+43, /*H*/ U+48, /*A*/ U+41, /* */ U+20, /*F*/ U+46,
+    /*É*/ U+C9, /*®*/ U+AE;
 }
 
 html,

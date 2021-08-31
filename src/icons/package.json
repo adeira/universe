@@ -1,7 +1,13 @@
 {
   "name": "@adeira/icons",
   "description": "Port of System UIcons to React",
-  "homepage": "https://github.com/adeira/universe/tree/master/src/icons",
+  "homepage": "https://github.com/adeira/icons",
+  "bugs": "https://github.com/adeira/universe/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:adeira/universe.git",
+    "directory": "src/icons"
+  },
   "license": "Unlicense",
   "private": false,
   "version": "1.0.0",

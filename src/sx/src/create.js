@@ -77,14 +77,15 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
     const selectedStyles = {};
     for (const sheetDefinitionName of sheetDefinitionNames) {
       if (sheetDefinitionName != null && sheetDefinitionName !== false) {
-        // stylesheet definition name can be nullable when selecting conditionally
-        const hashedValues = hashRegistry.get(sheetDefinitionName);
         invariant(
-          hashedValues != null,
+          Object.keys(sheetDefinitions).includes(sheetDefinitionName),
           `SX was called with '%s' stylesheet name but it doesn't exist. Did you mean '%s' instead?`,
           sheetDefinitionName,
           suggest(sheetDefinitionName, [...hashRegistry.keys()]),
         );
+
+        // stylesheet definition name can be nullable when selecting conditionally
+        const hashedValues = hashRegistry.get(sheetDefinitionName) ?? new Map();
         [...hashedValues.keys()].forEach((styleKey) => {
           selectedStyles[styleKey] = hashedValues.get(styleKey);
         });

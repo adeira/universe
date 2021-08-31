@@ -3,6 +3,7 @@
 import Icon from '@adeira/icons';
 import sx from '@adeira/sx';
 import React, { type Node } from 'react';
+import fbt from 'fbt';
 
 import Button from '../Button/Button';
 import LayoutBlock from '../Layout/LayoutBlock';
@@ -32,7 +33,14 @@ export default function ModalDrawer(props: Props): Node {
             <Text size={32}>{props.title}</Text>
 
             <Text>
-              <Button tint="secondary" size="small" onClick={props.onClose}>
+              <Button
+                tint="secondary"
+                size="small"
+                onClick={props.onClose}
+                aria-label={
+                  <fbt desc="close modal button ARIA description">close modal button</fbt>
+                }
+              >
                 <Icon name="cross" data-testid="ModalDrawerCloseButton" />
               </Button>
             </Text>
