@@ -750,7 +750,7 @@ Object {
     "@next/next/no-document-import-in-page": 1,
     "@next/next/no-duplicate-head": 1,
     "@next/next/no-head-import-in-document": 1,
-    "@next/next/no-html-link-for-pages": 1,
+    "@next/next/no-html-link-for-pages": 0,
     "@next/next/no-img-element": 1,
     "@next/next/no-page-custom-font": 1,
     "@next/next/no-script-in-document": 1,

@@ -1,6 +1,7 @@
 # Unreleased
 
 - New rules `@next/next/inline-script-id`, `@next/next/no-script-in-document` and `@next/next/no-script-in-head` enabled (as warnings). For more information visit: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
+- Rule `@next/next/no-html-link-for-pages` has been temporarily disabled because of [internal issues](https://github.com/adeira/universe/issues/3024).
 
 # 6.4.0
 
