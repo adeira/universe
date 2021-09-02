@@ -23,13 +23,13 @@ afterEach(() => {
 
 it('logs network.complete as expected', () => {
   RelayLogger({
-    name: 'network.start',
-    networkRequestId: 100_000,
+    name: 'execute.start',
+    executeId: 100_000,
     params: {
       id: null,
-      name: 'Lol',
+      name: 'MyAwesomeQuery',
       operationKind: 'query',
-      text: 'query Lol{id}',
+      text: 'query MyAwesomeQuery{id}',
       metadata: {},
       cacheID: '',
     },
@@ -38,22 +38,28 @@ it('logs network.complete as expected', () => {
   });
 
   RelayLogger({
-    name: 'network.complete',
-    networkRequestId: 100_000,
+    name: 'execute.complete',
+    executeId: 100_000,
   });
 
   expect(consoleErrorSpy).not.toHaveBeenCalled();
   expect(consoleGroupCollapsedSpy.mock.calls).toMatchInlineSnapshot(`
     Array [
       Array [
-        "%c%s",
+        "%c%s%c%s%c%s",
         "font-weight:bold",
-        "[Relay] network.start",
+        "[Relay] ",
+        "font-weight:normal",
+        "execute.start ",
+        "font-weight:bold",
+        "MyAwesomeQuery",
       ],
       Array [
-        "%c%s",
+        "%c%s%c%s",
         "font-weight:bold",
-        "[Relay] network.complete",
+        "[Relay] ",
+        "font-weight:normal",
+        "execute.complete",
       ],
     ]
   `);
@@ -62,21 +68,21 @@ it('logs network.complete as expected', () => {
       Array [
         Object {
           "cacheConfig": Object {},
-          "networkRequestId": 100000,
+          "executeId": 100000,
           "params": Object {
             "cacheID": "",
             "id": null,
             "metadata": Object {},
-            "name": "Lol",
+            "name": "MyAwesomeQuery",
             "operationKind": "query",
-            "text": "query Lol{id}",
+            "text": "query MyAwesomeQuery{id}",
           },
           "variables": Object {},
         },
       ],
       Array [
         Object {
-          "networkRequestId": 100000,
+          "executeId": 100000,
         },
       ],
     ]
