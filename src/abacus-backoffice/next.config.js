@@ -56,7 +56,7 @@ module.exports = (withPlugins(
     experimental: {
       // https://github.com/vercel/next.js/issues/23725
       // https://github.com/vercel/next.js/pull/27069
-      esmExternals: true,
+      esmExternals: 'loose',
     },
   },
 ) /*: $FlowFixMe */);

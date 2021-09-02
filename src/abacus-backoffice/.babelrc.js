@@ -2,7 +2,6 @@
 
 module.exports = {
   presets: [
-    'next/babel',
     [
       '@adeira/babel-preset-adeira',
       {
@@ -12,6 +11,7 @@ module.exports = {
             : 'js-esm', // To support dynamic `import(…)` for `@adeira/icons`.
       },
     ],
+    'next/babel',
   ],
   plugins: ['babel-plugin-fbt', 'babel-plugin-fbt-runtime', 'relay'],
 };
