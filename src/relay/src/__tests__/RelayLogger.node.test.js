@@ -23,13 +23,13 @@ afterEach(() => {
 
 it('does not log in Node.js environment', () => {
   RelayLogger({
-    name: 'network.start',
-    networkRequestId: 100_000,
+    name: 'execute.start',
+    executeId: 100_000,
     params: {
       id: null,
-      name: 'Lol',
+      name: 'MyAwesomeQuery',
       operationKind: 'query',
-      text: 'query Lol{id}',
+      text: 'query MyAwesomeQuery{id}',
       metadata: {},
       cacheID: '',
     },
@@ -38,8 +38,8 @@ it('does not log in Node.js environment', () => {
   });
 
   RelayLogger({
-    name: 'network.complete',
-    networkRequestId: 100_000,
+    name: 'execute.complete',
+    executeId: 100_000,
   });
 
   expect(consoleErrorSpy).not.toHaveBeenCalled();
