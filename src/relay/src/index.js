@@ -39,8 +39,6 @@ export {
   requestSubscription,
   commitLocalUpdate,
   ConnectionHandler,
-  // eslint-disable-next-line camelcase
-  fetchQuery_DEPRECATED as fetchQuery,
 } from 'react-relay/legacy';
 export type { Environment } from 'react-relay';
 export type {
@@ -58,6 +56,7 @@ export type { RecordObjectMap as RecordMap } from 'relay-runtime/store/RelayStor
 // Relay Hooks (re-exported):
 export {
   EntryPointContainer,
+  fetchQuery,
   loadEntryPoint,
   loadQuery,
   RelayEnvironmentProvider,
