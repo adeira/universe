@@ -5,9 +5,13 @@
 import { isBrowser } from '@adeira/js';
 import type { LogEvent } from 'relay-runtime';
 
-import logGroup from './logGroup';
+function logGroup(groupMessage: string, groupBody: () => void): void {
+  console.groupCollapsed(`%c%s`, `font-weight:bold`, groupMessage);
+  groupBody();
+  console.groupEnd();
+}
 
-export default function RelayDebugLogger(logEvent: LogEvent) {
+export default function RelayLogger(logEvent: LogEvent) {
   if (!__DEV__ || !isBrowser()) {
     return;
   }

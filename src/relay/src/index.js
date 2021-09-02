@@ -9,9 +9,7 @@ export { default as createEnvironment } from './createEnvironment';
 export { default as createLocalEnvironment } from './createLocalEnvironment';
 export { default as createNetworkFetcher } from './createNetworkFetcher';
 export { default as getDataFromRequest } from './getDataFromRequest';
-export { default as RelayDebugLogger } from './loggers/RelayDebugLogger';
-export { default as RelayEagerLogger } from './loggers/RelayEagerLogger';
-export { default as RelayLazyLogger } from './loggers/RelayLazyLogger';
+export { default as RelayLogger } from './RelayLogger';
 
 // Relay Modern (wrapped):
 export { commitMutation, commitMutationAsync } from './mutations';
