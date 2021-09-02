@@ -1,8 +1,10 @@
 // @flow
 
-import { createFragmentContainer, graphql, type FragmentContainerType } from '../index';
+import { type Node } from 'react';
 
-function FunctionalFragmentExport(props) {
+import { createFragmentContainer, graphql, type RelayFragmentContainer } from '../index';
+
+function FunctionalFragmentExport(props: {}): Node {
   return <div {...props} />;
 }
 
@@ -12,4 +14,4 @@ export default (createFragmentContainer(FunctionalFragmentExport, {
       __typename
     }
   `,
-}): FragmentContainerType<{}>);
+}): RelayFragmentContainer<typeof FunctionalFragmentExport>);

@@ -12,30 +12,30 @@ export { default as getDataFromRequest } from './getDataFromRequest';
 export { default as RelayLogger } from './RelayLogger';
 
 // Relay Modern (wrapped):
-export { default as createFragmentContainer } from './createFragmentContainer';
-export { default as createPaginationContainer } from './createPaginationContainer';
-export { default as createRefetchContainer } from './createRefetchContainer';
 export { default as LocalQueryRenderer } from './LocalQueryRenderer';
 export { default as QueryRenderer } from './QueryRenderer';
 export { default as useLazyLoadQuery } from './useLazyLoadQuery';
-export type { RelayProp } from './createFragmentContainer';
-export type { PaginationRelayProp } from './createPaginationContainer';
-export type { RefetchRelayProp } from './createRefetchContainer';
-export type {
-  FragmentContainerType,
-  PaginationContainerType,
-  RefetchContainerType,
-  Variables,
-} from './types.flow';
+export type { Variables } from './types.flow';
 
 // Relay Modern (re-exported):
 export {
   commitLocalUpdate,
   commitMutation,
   ConnectionHandler,
+  createFragmentContainer,
+  createPaginationContainer,
+  createRefetchContainer,
   graphql,
   readInlineData,
   requestSubscription,
+} from 'react-relay/legacy';
+export type {
+  RelayFragmentContainer,
+  RelayPaginationContainer,
+  RelayPaginationProp,
+  RelayProp,
+  RelayRefetchContainer,
+  RelayRefetchProp,
 } from 'react-relay/legacy';
 export type { Environment } from 'react-relay';
 export type {
