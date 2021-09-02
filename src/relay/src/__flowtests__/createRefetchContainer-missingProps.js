@@ -1,9 +1,11 @@
 /* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
-import { createRefetchContainer, graphql, type RefetchContainerType } from '../index';
+import { type Node } from 'react';
 
-function FunctionalFragmentExport(props) {
+import { createRefetchContainer, graphql, type RelayRefetchContainer } from '../index';
+
+function FunctionalFragmentExport(props: {}): Node {
   return <div {...props} />;
 }
 
@@ -21,4 +23,4 @@ export default (createRefetchContainer(
       ...createRefetchContainerMissingProps_data
     }
   `,
-): RefetchContainerType<{}>);
+): RelayRefetchContainer<typeof FunctionalFragmentExport>);

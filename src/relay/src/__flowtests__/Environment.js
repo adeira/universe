@@ -7,14 +7,14 @@ import {
   commitLocalUpdate,
   createEnvironment,
   type Disposable,
-  type PaginationRelayProp,
-  type RefetchRelayProp,
+  type RelayPaginationProp,
+  type RelayRefetchProp,
   type RelayProp,
 } from '../index';
 
 type PropsA = { +relay: RelayProp };
-type PropsB = { +relay: RefetchRelayProp };
-type PropsC = { +relay: PaginationRelayProp };
+type PropsB = { +relay: RelayRefetchProp };
+type PropsC = { +relay: RelayPaginationProp };
 
 type PropsInvalid = {
   +relay: { environment: number },
