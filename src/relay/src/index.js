@@ -12,7 +12,6 @@ export { default as getDataFromRequest } from './getDataFromRequest';
 export { default as RelayLogger } from './RelayLogger';
 
 // Relay Modern (wrapped):
-export { commitMutation } from './mutations';
 export { default as createFragmentContainer } from './createFragmentContainer';
 export { default as createPaginationContainer } from './createPaginationContainer';
 export { default as createRefetchContainer } from './createRefetchContainer';
@@ -29,16 +28,14 @@ export type {
   Variables,
 } from './types.flow';
 
-// Relay Hooks (wrapped)
-export { default as useMutation } from './useMutation';
-
 // Relay Modern (re-exported):
 export {
+  commitLocalUpdate,
+  commitMutation,
+  ConnectionHandler,
   graphql,
   readInlineData,
   requestSubscription,
-  commitLocalUpdate,
-  ConnectionHandler,
 } from 'react-relay/legacy';
 export type { Environment } from 'react-relay';
 export type {
@@ -52,6 +49,9 @@ export type {
 } from 'relay-runtime';
 // eslint-disable-next-line import/no-unresolved
 export type { RecordObjectMap as RecordMap } from 'relay-runtime/store/RelayStoreTypes';
+
+// Relay Hooks (wrapped)
+export { default as useMutation } from './useMutation';
 
 // Relay Hooks (re-exported):
 export {
