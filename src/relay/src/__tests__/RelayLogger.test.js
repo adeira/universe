@@ -24,7 +24,7 @@ afterEach(() => {
 it('logs network.complete as expected', () => {
   RelayLogger({
     name: 'network.start',
-    transactionID: 100_000,
+    networkRequestId: 100_000,
     params: {
       id: null,
       name: 'Lol',
@@ -39,7 +39,7 @@ it('logs network.complete as expected', () => {
 
   RelayLogger({
     name: 'network.complete',
-    transactionID: 100_000,
+    networkRequestId: 100_000,
   });
 
   expect(consoleErrorSpy).not.toHaveBeenCalled();
@@ -62,6 +62,7 @@ it('logs network.complete as expected', () => {
       Array [
         Object {
           "cacheConfig": Object {},
+          "networkRequestId": 100000,
           "params": Object {
             "cacheID": "",
             "id": null,
@@ -70,13 +71,12 @@ it('logs network.complete as expected', () => {
             "operationKind": "query",
             "text": "query Lol{id}",
           },
-          "transactionID": 100000,
           "variables": Object {},
         },
       ],
       Array [
         Object {
-          "transactionID": 100000,
+          "networkRequestId": 100000,
         },
       ],
     ]

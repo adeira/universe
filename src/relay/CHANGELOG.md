@@ -1,6 +1,7 @@
 # Unreleased
 
-- **Breaking**: All previous loggers (`RelayEagerLogger`, `RelayLazyLogger` and `RelayDebugLogger`) were replaced with one simple `RelayLogger`. This allows us to focus better on one solution that is more friendly with the new Relay Hooks.
+- **Breaking**: Relay version upgraded to 12.0.0, for more information please visit: https://github.com/facebook/relay/releases/tag/v12.0.0
+- **Breaking**: All previous loggers (`RelayEagerLogger`, `RelayLazyLogger` and `RelayDebugLogger`) were replaced with one simple `RelayLogger`. This allows us to focus better on one solution that is more friendly with the new Relay Hooks development workflow.
 
 # 3.3.0
 
