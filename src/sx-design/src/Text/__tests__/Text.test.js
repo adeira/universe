@@ -71,3 +71,94 @@ test.each(['p', 'small', 'code', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h
     expect(getByTestId('text_test_id')?.nodeName.toLowerCase()).toBe(as);
   },
 );
+
+describe('throw for situations resulting in invalid HTML', () => {
+  let consoleSpy;
+  beforeEach(() => {
+    // we ignore React "uncaught" errors for these tests
+    consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    consoleSpy.mockRestore();
+  });
+
+  test('p inside p', () => {
+    expect(() =>
+      render(
+        <Text as="p">
+          <Text as="p">invalid nesting</Text>
+        </Text>,
+      ),
+    ).toThrowErrorMatchingSnapshot();
+  });
+
+  test('p inside small', () => {
+    expect(() =>
+      render(
+        <Text as="small">
+          <Text as="p">invalid nesting</Text>
+        </Text>,
+      ),
+    ).toThrowErrorMatchingSnapshot();
+  });
+
+  test('p inside h1', () => {
+    expect(() =>
+      render(
+        <Text as="h1">
+          <Text as="p">invalid nesting</Text>
+        </Text>,
+      ),
+    ).toThrowErrorMatchingSnapshot();
+  });
+
+  test('h2 inside h1', () => {
+    expect(() =>
+      render(
+        <Text as="h1">
+          <Text as="h2">invalid nesting</Text>
+        </Text>,
+      ),
+    ).toThrowErrorMatchingSnapshot();
+  });
+});
+
+describe('allow nesting resulting in valid HTML', () => {
+  it('div inside div', () => {
+    const { getByText } = render(
+      <Text as="div">
+        <Text as="div">valid nesting</Text>
+      </Text>,
+    );
+    expect(getByText('valid nesting')).toBeDefined();
+  });
+
+  it('small inside small', () => {
+    const { getByText } = render(
+      <Text as="small">
+        <Text as="small">valid nesting</Text>
+      </Text>,
+    );
+    expect(getByText('valid nesting')).toBeDefined();
+  });
+
+  test('small inside p', () => {
+    const { getByText } = render(
+      <Text as="p">
+        <Text as="small">valid nesting</Text>
+      </Text>,
+    );
+    expect(getByText('valid nesting')).toBeDefined();
+  });
+
+  // test('unknown inside unknown', () => {
+  //   // this is here just to make sure that we allow nesting by default (for some future HTML tags)
+  //   const { getByText } = render(
+  //     <Text as="unknown">
+  //       <Text as="unknown">valid nesting</Text>
+  //     </Text>,
+  //   );
+  //   expect(getByText('valid nesting')).toBeDefined();
+  // });
+});

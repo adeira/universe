@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`throw for situations resulting in invalid HTML h2 inside h1 1`] = `"Nesting <h2/> inside <h1/> is not allowed in HTML. You can fix this error by changing the text type to some HTML element that allows nesting, for example: <Text as=\\"span\\" />"`;
+
+exports[`throw for situations resulting in invalid HTML p inside h1 1`] = `"Nesting <p/> inside <h1/> is not allowed in HTML. You can fix this error by changing the text type to some HTML element that allows nesting, for example: <Text as=\\"span\\" />"`;
+
+exports[`throw for situations resulting in invalid HTML p inside p 1`] = `"Nesting <p/> inside <p/> is not allowed in HTML. You can fix this error by changing the text type to some HTML element that allows nesting, for example: <Text as=\\"span\\" />"`;
+
+exports[`throw for situations resulting in invalid HTML p inside small 1`] = `"Nesting <p/> inside <small/> is not allowed in HTML. You can fix this error by changing the text type to some HTML element that allows nesting, for example: <Text as=\\"span\\" />"`;

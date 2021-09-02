@@ -1,7 +1,10 @@
 // @flow
 
-import React, { type Node, type Element } from 'react';
+import { invariant } from '@adeira/js';
+import React, { useContext, type Node, type Element } from 'react';
 import sx from '@adeira/sx';
+
+import TextContext from './TextContext';
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/font-size
 export type TextSupportedSize = 10 | 12 | 14 | 16 | 20 | 24 | 32 | 40 | 48;
@@ -58,46 +61,96 @@ type Props = {
  *
  * Combination of these properties allows you to set some advanced combinations like `<p/>` that
  * looks like `<h1/>` (as=p, size=48) or `<h1/>` that looks like `<p/>` (as=h1, size=16).
+ *
+ * Inspiration:
+ *  - https://reactnative.dev/docs/text
  */
 export default function Text(props: Props): Node {
+  const textContext = useContext(TextContext);
+
   const AsComponent = props.as ?? 'p';
 
+  const flowContent = ['p', 'small', 'code', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const phrasingContent = ['small', 'code', 'span'];
+
+  // This is a map of allowed nesting rules according to: https://html.spec.whatwg.org/
+  //
+  // How to check in the specs what can/cannot be nested? Find description of some HTML elements,
+  // for example https://html.spec.whatwg.org/#the-p-element, and check "content model". The
+  // elements can be nested if it's specified there. In case of the paragraph: only "phrasing
+  // content" is allowed so it cannot contain other paragraphs (https://html.spec.whatwg.org/#phrasing-content-2).
+  //
+  // Most elements that are categorized as phrasing content can only contain elements that are
+  // themselves categorized as phrasing content, not any flow content.
+  //
+  // You can also verify these rules here: https://validator.w3.org/nu/#textarea
+  const allowedNestingMap = new Map([
+    ['p', phrasingContent],
+    ['h1', phrasingContent],
+    ['h2', phrasingContent],
+    ['h3', phrasingContent],
+    ['h4', phrasingContent],
+    ['h5', phrasingContent],
+    ['h6', phrasingContent],
+    ['div', flowContent],
+    ['small', phrasingContent],
+    ['code', phrasingContent],
+    ['span', phrasingContent],
+  ]);
+
+  if (textContext != null) {
+    const allowedDescendants = allowedNestingMap.get(textContext) ?? [];
+    // React itself would print the following warning (we elevate it to invariant error):
+    //    Warning: validateDOMNesting(...): <p> cannot appear as a descendant of <p>.
+    invariant(
+      allowedDescendants.includes(AsComponent),
+      'Nesting <%s/> inside <%s/> is not allowed in HTML. You can fix this error by changing the ' +
+        'text type to some HTML element that allows nesting, for example: <Text as="span" />',
+      AsComponent,
+      textContext,
+    );
+  }
+
   return (
-    <AsComponent
-      data-testid={props['data-testid']}
-      className={styles({
-        base: true,
-        truncate: props.truncate === true,
+    <TextContext.Provider value={AsComponent}>
+      <AsComponent
+        data-testid={props['data-testid']}
+        className={styles({
+          base: true, // TODO: only when h1-6
+          truncate: props.truncate === true,
 
-        // Sizes are not defined directly via `fontSize` so we can improve the `fontWeight` automatically:
-        s48: props.size === 48 || props.as === 'h1',
-        s40: props.size === 40 || props.as === 'h2',
-        s32: props.size === 32 || props.as === 'h3',
-        s24: props.size === 24 || props.as === 'h4',
-        s20: props.size === 20 || props.as === 'h5',
-        s16: props.size === 16 || props.as === 'h6',
-        s14: props.size === 14,
-        s12: props.size === 12,
-        s10: props.size === 10,
+          // Sizes are not defined directly via `fontSize` so we can improve the `fontWeight`
+          // automatically:
+          s48: props.size === 48 || props.as === 'h1',
+          s40: props.size === 40 || props.as === 'h2',
+          s32: props.size === 32 || props.as === 'h3',
+          s24: props.size === 24 || props.as === 'h4',
+          s20: props.size === 20 || props.as === 'h5',
+          s16: props.size === 16 || props.as === 'h6',
+          s14: props.size === 14,
+          s12: props.size === 12,
+          s10: props.size === 10,
 
-        // Weights could be set directly in `style` property but we use SX so the styles get collected and deduped:
-        w100: props.weight === 100,
-        w200: props.weight === 200,
-        w300: props.weight === 300,
-        w400: props.weight === 400,
-        w500: props.weight === 500,
-        w600: props.weight === 600 || props.as === 'h6',
-        w700: props.weight === 700,
-        w800: props.weight === 800,
-        w900: props.weight === 900,
-        w950: props.weight === 950,
-      })}
-      style={{
-        textTransform: props.transform ?? 'inherit',
-      }}
-    >
-      {props.children}
-    </AsComponent>
+          // Weights could be set directly in `style` property but we use SX so the styles get
+          // collected and deduplicated:
+          w100: props.weight === 100,
+          w200: props.weight === 200,
+          w300: props.weight === 300,
+          w400: props.weight === 400,
+          w500: props.weight === 500,
+          w600: props.weight === 600 || props.as === 'h6',
+          w700: props.weight === 700,
+          w800: props.weight === 800,
+          w900: props.weight === 900,
+          w950: props.weight === 950,
+        })}
+        style={{
+          textTransform: props.transform ?? 'inherit',
+        }}
+      >
+        {props.children}
+      </AsComponent>
+    </TextContext.Provider>
   );
 }
 
