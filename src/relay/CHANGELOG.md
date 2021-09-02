@@ -1,5 +1,7 @@
 # Unreleased
 
+- **Breaking**: All previous loggers (`RelayEagerLogger`, `RelayLazyLogger` and `RelayDebugLogger`) were replaced with one simple `RelayLogger`. This allows us to focus better on one solution that is more friendly with the new Relay Hooks.
+
 # 3.3.0
 
 - Added support for GraphQL errors with `CRICITAL` severity: you can mark any error to be critical by adding this value to `errors[*].extensions.severity`. Such errors will be propagated to any available `ErrorBoundary` when using `useLazyLoadQuery` or to `onError` callback when calling a mutation.
