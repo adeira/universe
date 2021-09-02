@@ -12,7 +12,6 @@ it('exports only what we want to export', () => {
     Array [
       "commitLocalUpdate",
       "commitMutation",
-      "commitMutationAsync",
       "ConnectionHandler",
       "createEnvironment",
       "createFragmentContainer",
