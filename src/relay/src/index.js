@@ -12,7 +12,7 @@ export { default as getDataFromRequest } from './getDataFromRequest';
 export { default as RelayLogger } from './RelayLogger';
 
 // Relay Modern (wrapped):
-export { commitMutation, commitMutationAsync } from './mutations';
+export { commitMutation } from './mutations';
 export { default as createFragmentContainer } from './createFragmentContainer';
 export { default as createPaginationContainer } from './createPaginationContainer';
 export { default as createRefetchContainer } from './createRefetchContainer';

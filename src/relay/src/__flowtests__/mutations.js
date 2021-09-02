@@ -1,12 +1,6 @@
 // @flow
 
-import {
-  commitMutation,
-  commitMutationAsync,
-  graphql,
-  createLocalEnvironment,
-  type Disposable,
-} from '../index';
+import { commitMutation, graphql, createLocalEnvironment, type Disposable } from '../index';
 
 const environment = createLocalEnvironment();
 
@@ -51,13 +45,6 @@ module.exports = {
       variables,
     });
   },
-  validAsyncMutation(): Promise<void> {
-    return commitMutationAsync<NamedMutation>(environment, {
-      mutation,
-      variables,
-      // eslint-disable-next-line no-unused-vars
-    }).then(({ response }: { +response: NamedMutationResponse, ... }) => {});
-  },
   updater(): Disposable {
     return commitMutation<NamedMutation>(environment, {
       mutation,
@@ -87,17 +74,6 @@ module.exports = {
       variables,
       // $FlowExpectedError[prop-missing]: response type differs from onCompleted declaration
       onCompleted: (response: {}) => {}, // eslint-disable-line no-unused-vars
-    });
-  },
-  invalidAsyncMutation(): Promise<{
-    +errors: ?$ReadOnlyArray<Error>,
-    +response: $ElementType<NamedMutation, 'response'>,
-  }> {
-    // $FlowExpectedError[prop-missing]: onCompleted is disabled in config for commitMutationAsync
-    return commitMutationAsync<NamedMutation>(environment, {
-      mutation,
-      onCompleted: () => {},
-      variables,
     });
   },
   invalidUpdater(): Disposable {
