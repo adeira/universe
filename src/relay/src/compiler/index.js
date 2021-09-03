@@ -21,7 +21,6 @@ type ExternalOptions = {
   +schema: string,
   +validate: boolean,
   +watch: boolean,
-  +persistMode?: 'fs', // TODO consider more generic: +persistFunction?: ?(query: string) => Promise<string>,
 };
 
 const {
@@ -89,13 +88,7 @@ export default async function compiler(externalOptions: ExternalOptions) {
 
   const writerConfigs = {
     [sourceParserName]: {
-      writeFiles: getRelayFileWriter(
-        srcDir,
-        languagePlugin,
-        options.noFutureProofEnums,
-        options.artifactDirectory,
-        options.persistMode,
-      ),
+      writeFiles: getRelayFileWriter(srcDir, languagePlugin, options.noFutureProofEnums),
       isGeneratedFile: (filePath: string) =>
         filePath.endsWith('.graphql.js') && filePath.includes('__generated__'),
       parser: sourceParserName,
@@ -151,13 +144,7 @@ function getFilepathsFromGlob(
   return filenames;
 }
 
-function getRelayFileWriter(
-  baseDir: string,
-  languagePlugin,
-  noFutureProofEnums: boolean,
-  outputDir?: ?string,
-  persistMode,
-) {
+function getRelayFileWriter(baseDir: string, languagePlugin, noFutureProofEnums: boolean) {
   return ({ onlyValidate, schema, documents, baseDocuments, sourceControl, reporter }) => {
     const writerConfig: { [string]: mixed, ... } = {
       baseDir,
@@ -177,16 +164,7 @@ function getRelayFileWriter(
       extension: languagePlugin.outputExtension,
       typeGenerator: languagePlugin.typeGenerator,
       printModuleDependency: createPrintRequireDefaultModuleDependency(),
-      // repersist: isCI, // TODO
     };
-
-    if (persistMode && persistMode === 'fs') {
-      const persistFunction = require('./persistFunctions/filesystemPersistFunction').default;
-      writerConfig.persistQuery = (query) => {
-        const queryMapPath = path.resolve(process.cwd(), 'persisted-queries.json');
-        return persistFunction(query, queryMapPath);
-      };
-    }
 
     return RelayFileWriter.writeAll({
       // $FlowFixMe[incompatible-call]: errors after upgrading to relay 9.1.0
