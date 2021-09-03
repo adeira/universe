@@ -1,8 +1,7 @@
-# @generated SignedSource<<31665cb03c96e2f1ff1483e6185d906d>>
+# @generated SignedSource<<54735f005db8543875b165f26c4002ed>>
 
 schema {
   query: RootQuery
-  mutation: RootMutation
 }
 
 type RootQuery {
@@ -11,22 +10,4 @@ type RootQuery {
 
 interface Node {
   id: ID!
-}
-
-type RootMutation {
-  createStoredOperations(persistedOperations: [StoredOperationInput!]!): CreateStoredOperation
-}
-
-input StoredOperationInput {
-  operationId: String!
-  text: String!
-}
-
-type CreateStoredOperation {
-  createdOperations: [StoredOperation]
-}
-
-type StoredOperation {
-  operationId: String
-  text: String
 }
