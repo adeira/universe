@@ -16,15 +16,21 @@ jobs:
         node-version: [14.x] # see: https://vercel.com/mrtnzlml/meta/settings
 
     steps:
-      - uses: actions/checkout@v1
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v2.3.4
 
       # https://github.com/actions/setup-node
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v2.4.0
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: yarn install, build, and test
+      - name: Install Yarn dependencies
+        # Command `yarn install --frozen-lockfile` doesn't always fail if `yarn.lock` is modified (https://github.com/yarnpkg/yarn/issues/5840).
+        # Instead, we are installing the dependencies as usual and checking that nothing changed.
         run: |
-          yarn install --frozen-lockfile
-          yarn run lint
+          yarn install
+          git diff --exit-code
+
+      - name: Run Eslint
+        run: yarn run lint
