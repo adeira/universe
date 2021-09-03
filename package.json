@@ -14,7 +14,7 @@
     "@adeira/eslint-config": "^6.4.0",
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
-    "@babel/eslint-parser": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.4",
     "babel-jest": "^27.1.0",
     "babel-loader": "^8.2.2",
     "eslint": "^7.32.0",
