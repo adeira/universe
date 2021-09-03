@@ -12,7 +12,7 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@adeira/eslint-config": "^6.4.0",
-    "@babel/cli": "^7.14.8",
+    "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.0",
     "@babel/eslint-parser": "^7.15.4",
     "babel-jest": "^27.1.0",
