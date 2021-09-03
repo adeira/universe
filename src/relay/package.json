@@ -28,7 +28,7 @@
     "@adeira/monorepo-utils": "^0.11.0",
     "@adeira/signed-source": "^2.0.0",
     "@babel/register": "^7.15.3",
-    "@babel/runtime": "^7.15.3",
+    "@babel/runtime": "^7.15.4",
     "babel-plugin-relay": "^11.0.2",
     "commander": "^8.1.0",
     "is-ci": "^3.0.0",
