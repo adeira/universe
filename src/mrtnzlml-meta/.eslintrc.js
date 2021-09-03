@@ -4,5 +4,9 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['@adeira/eslint-config'],
+  extends: [
+    '@adeira/eslint-config/base',
+    '@adeira/eslint-config/flowtype',
+    '@adeira/eslint-config/react',
+  ],
 };
