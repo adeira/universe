@@ -9073,10 +9073,10 @@ fault@^1.0.0:
   dependencies:
     format "^0.2.0"
 
-faunadb@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.4.0.tgz#d6bf03a7d97ecdd9ade21964dc7c910198779c5e"
-  integrity sha512-M0Ppnf0MBsn1ioxUXCxtTLvn2IF+IVBCm3xIJi70u33v/NbiNTpb+Gghnm3jmtDI+MNAHDGMpTM1cXVhnwqbkA==
+faunadb@^4.4.1:
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.4.1.tgz#bb6befeb0e079335fbfb96b349ef5f8be17d8120"
+  integrity sha512-1V2ve22T4Q45C3PBB+LD7Fpk4lVajbtxDXDpENsujC+LMe88LqBQ9brl5v5uB3sCTSVAX0fsGtuZ+N5x15vdoQ==
   dependencies:
     abort-controller "^3.0.0"
     base64-js "^1.2.0"
