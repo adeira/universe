@@ -6,6 +6,7 @@ import Icon from '@adeira/icons';
 
 import SxDesignPortal from '../SxDesignPortal';
 import Text from '../Text/Text';
+import useKeyPress from '../useKeyPress';
 import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPosition';
 
 // Tooltip follows similar API as `abbr` element (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr):
@@ -18,8 +19,18 @@ type Props = {
 };
 
 /**
+ * A tooltip is a popup that displays information related to an element when the element receives
+ * keyboard focus or the mouse hovers over it. In our case, it appears immediately and
+ * disappears when `Escape` is pressed or on mouse out.
+ *
  * By default displays the tooltip above the hover area OR tries to find the best position when it
  * doesn't fit above.
+ *
+ * For more info about `Tooltip` accessibility please visit:
+ *  - https://www.w3.org/TR/wai-aria-practices/#tooltip
+ *
+ * TODO - improve accessibility:
+ *  The element that triggers the tooltip references the tooltip element with aria-describedby.
  */
 export default function Tooltip(props: Props): Node {
   const hoverAreaRef = useRef<HTMLDivElement | null>(null);
@@ -61,11 +72,18 @@ export default function Tooltip(props: Props): Node {
     setIsTooltipVisible(false);
   }, []);
 
+  useKeyPress({
+    key: 'Escape',
+    onKeyDown: hideTooltip,
+  });
+
   return (
     <>
       <div
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
+        onFocus={showTooltip}
+        onBlur={hideTooltip}
         ref={hoverAreaRef}
         data-testid={props['data-testid']}
         className={styles('hoverArea')}
@@ -75,6 +93,7 @@ export default function Tooltip(props: Props): Node {
 
       <SxDesignPortal>
         <div
+          role="tooltip"
           className={styles('tooltipRoot')}
           style={{
             top: tooltipPosition.top,
