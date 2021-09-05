@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { fbt } from 'fbt';
+import util from 'util';
 
 import Text from '../Text';
 import { initFbt, render } from '../../test-utils';
@@ -71,3 +72,32 @@ test.each(['p', 'small', 'code', 'span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h
     expect(getByTestId('text_test_id')?.nodeName.toLowerCase()).toBe(as);
   },
 );
+
+it('prints warning when incorrectly nesting HTML nodes', () => {
+  // Technically, the following warning comes from React but we want to make sure it really works
+  // since we purposefully opted-in to ignore these cases in `Text` component and rely solely on
+  // this React warning (in order to make the SX Design code smaller and more performant).
+
+  const capturedConsoleCalls = [];
+  const consoleErrorSpy = jest
+    .spyOn(console, 'error')
+    .mockImplementation(function (format, ...args) {
+      const warningMessage = util.format(format, ...args);
+      capturedConsoleCalls.push(warningMessage.substring(0, warningMessage.indexOf('\n')));
+    });
+
+  const { getByText } = render(
+    <Text as="p">
+      <Text as="p">invalid nesting</Text>
+    </Text>,
+  );
+
+  expect(getByText('invalid nesting')).toBeDefined();
+  expect(capturedConsoleCalls).toMatchInlineSnapshot(`
+    Array [
+      "Warning: validateDOMNesting(...): <p> cannot appear as a descendant of <p>.",
+    ]
+  `);
+
+  consoleErrorSpy.mockRestore();
+});

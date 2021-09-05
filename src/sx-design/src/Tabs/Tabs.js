@@ -5,11 +5,16 @@ import sx from '@adeira/sx';
 
 import Text from '../Text/Text';
 
-type TabValue = string | number | null;
+export type TabValueType = string | number | null;
+export type TabsType = Array<{
+  +title: Fbt | RestrictedElement<typeof Text>,
+  +value: TabValueType,
+}>;
+
 type Props = {
-  +tabs: $ReadOnlyArray<{ +title: Fbt, +value: TabValue }>,
-  +selected: TabValue,
-  +setSelected: (TabValue) => void,
+  +tabs: TabsType,
+  +selected: TabValueType,
+  +setSelected: (TabValueType) => void,
 };
 
 /**
@@ -42,7 +47,7 @@ export default function Tabs(props: Props): Node {
               props.setSelected(tab.value);
             }}
           >
-            <Text size={16} weight={700}>
+            <Text size={16} weight={700} as="span">
               {tab.title}
             </Text>
           </button>
