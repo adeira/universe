@@ -20,8 +20,8 @@ export default function Placeholder(props: Props): Node {
           xmlns="http://www.w3.org/2000/svg"
           data-testid="placeholder-svg"
         >
-          <line className={styles('line')} x1="0" y1="0" x2="100%" y2="100%" strokeWidth={2} />
-          <line className={styles('line')} x1="100%" y1="0" x2="0" y2="100%" strokeWidth={2} />
+          <line className={styles('line')} x1="0" y1="0" x2="100%" y2="100%" strokeWidth={1} />
+          <line className={styles('line')} x1="100%" y1="0" x2="0" y2="100%" strokeWidth={1} />
         </svg>
       )}
     </div>
@@ -31,7 +31,7 @@ export default function Placeholder(props: Props): Node {
 const styles = sx.create({
   placeholder: {
     backgroundColor: 'rgba(var(--sx-accent-1))',
-    border: '2px solid rgba(var(--sx-accent-3))',
+    border: '2px solid rgba(var(--sx-accent-4))',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -41,10 +41,10 @@ const styles = sx.create({
     height: '100%',
   },
   line: {
-    stroke: 'rgba(var(--sx-accent-2))',
+    stroke: 'rgba(var(--sx-accent-3))',
   },
   label: {
-    color: 'rgba(var(--sx-accent-3))',
+    color: 'rgba(var(--sx-accent-6))',
     fontWeight: 'bold',
   },
 });
