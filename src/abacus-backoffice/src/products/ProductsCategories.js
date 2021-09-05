@@ -1,7 +1,7 @@
 // @flow
 
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import { Tabs, Text } from '@adeira/sx-design';
+import { Tabs, Text, type TabsType } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import fbt from 'fbt';
 
@@ -43,7 +43,7 @@ export default function ProductsCategories(props: Props): Node {
           title: <fbt desc="title of a button to filter products by all categories">All</fbt>,
           value: null,
         },
-        ...data.commerce.productCategories.reduce((acc, category) => {
+        ...data.commerce.productCategories.reduce<TabsType>((acc, category) => {
           if (category != null) {
             acc.push({
               title: <Text transform="capitalize">{category.name}</Text>,
