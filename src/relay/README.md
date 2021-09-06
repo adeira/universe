@@ -3,7 +3,7 @@
 - all under one rooftop (simpler installation and setup)
 - network fetching with retries and timeouts (see [`@adeira/fetch`](https://github.com/adeira/universe/tree/master/src/fetch))
 - support for [files uploading](#tip-3-file-uploading-via-graphql-mutations) via GraphQL mutations
-- [query logging](#tip-2-lazy-eager-or-debug-logger) during development
+- console query logging during development
 - Relay compiler with ES6 output and source signing
 - improved Flow types and sanity checks
 
@@ -116,7 +116,9 @@ export default function App(props) {
 
 For more information on how to use Relay please follow the official Relay Guided Tour: [https://relay.dev/docs/guided-tour/](https://relay.dev/docs/guided-tour/)
 
-Everything you find in the Relay Guided Tour should work with our drop-in replacement `@adeira/relay` (except you import everything from `@adeira/relay` package).
+Everything you find in the Relay Guided Tour should work with our drop-in replacement `@adeira/relay` (except you import everything from `@adeira/relay` package). Additionally, you can observe Relay logs in your dev console:
+
+![Relay Logger](./relay-logger.png)
 
 # Error handling
 
@@ -168,26 +170,7 @@ function Component() {
 
 Only this way you can be sure that your mutation/subscription is using the correct environment.
 
-## Tip 2: lazy, eager or debug logger?
-
-You can change rich log output into browser console like this (the default is `RelayLazyLogger`):
-
-```js
-import {
-  RelayLazyLogger, // less verbose, waits for operations to complete
-  RelayEagerLogger, // more verbose, logs events as they arrive
-  RelayDebugLogger, // very verbose, logs everything
-} from '@adeira/relay';
-
-const Environment = createEnvironment({
-  log: RelayLazyLogger, // or RelayEagerLogger or RelayDebugLogger
-  // …
-});
-```
-
-Note: the logs are being printed only during development.
-
-## Tip 3: file uploading via GraphQL mutations
+## Tip 2: file uploading via GraphQL mutations
 
 Apart from the actual mutation and variables, [`useMutation`](https://relay.dev/docs/api-reference/use-mutation/) hook accepts also `uploadables`. Uploadables is a [`UploadableMap`](https://relay.dev/docs/api-reference/commit-mutation/#type-uploadablemap) which is an object of [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File)
 or [`Blob`](https://developer.mozilla.org/en-US/docs/Web/API/Blob).
