@@ -10,7 +10,13 @@ import type {
   DeclarativeMutationConfig,
 } from 'relay-runtime';
 
-import type { MutationParameters } from './mutations';
+import type { Variables } from './types.flow';
+
+export type MutationParameters = {
+  +response: { +[key: string]: any, ... },
+  +variables: Variables,
+  +rawResponse?: { ... },
+};
 
 type HookMutationConfig<T: MutationParameters> = {
   // This config is essentially `MutationConfig` type except there are some small differences
@@ -32,7 +38,7 @@ type HookMutationConfig<T: MutationParameters> = {
 /**
  * Usage:
  *
- * ```ts
+ * ```js
  * const AddCommentMutation = graphql`mutation { ... }`;
  * const [addComment, isCommentPending] = useMutation<MutationType>(AddCommentMutation);
  *
