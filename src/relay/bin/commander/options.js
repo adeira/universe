@@ -42,7 +42,6 @@ type RelayCompilerOptions = {
   +schema: string,
   +validate: boolean,
   +watch: boolean,
-  +persistMode?: 'fs',
 }
 
 */
@@ -56,7 +55,6 @@ module.exports.relayCompilerOptions = function (
     // Please note: try not to extend this CLI if possible. Always prefer "relay.config.js" file.
     .option('--src <src>')
     .option('--schema <schema>')
-    .option('--persist-mode <fs|remote>')
     .option('--validate', 'Activates validate only mode', false)
     .option(
       '--watch',
@@ -69,17 +67,12 @@ module.exports.relayCompilerOptions = function (
   const config = {
     src: options.src ?? relayConfig.src,
     schema: options.schema ?? relayConfig.schema,
-    ...(options.persistMode && { persistMode: options.persistMode }),
     validate: options.validate ?? relayConfig.validate,
     watch: options.watch ?? relayConfig.watch,
   };
 
   invariant(config.src != null, 'Option --src is required.');
   invariant(config.schema != null, 'Option --schema is required.');
-  invariant(
-    config.persistMode === undefined || config.persistMode === 'fs',
-    'Only filesystem persist mode is currently supported.',
-  );
 
   return config;
 };

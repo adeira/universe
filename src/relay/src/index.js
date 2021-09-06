@@ -9,18 +9,14 @@ export { default as createEnvironment } from './createEnvironment';
 export { default as createLocalEnvironment } from './createLocalEnvironment';
 export { default as createNetworkFetcher } from './createNetworkFetcher';
 export { default as getDataFromRequest } from './getDataFromRequest';
-export { default as RelayDebugLogger } from './loggers/RelayDebugLogger';
-export { default as RelayEagerLogger } from './loggers/RelayEagerLogger';
-export { default as RelayLazyLogger } from './loggers/RelayLazyLogger';
+export { default as RelayLogger } from './RelayLogger';
 
 // Relay Modern (wrapped):
-export { commitMutation, commitMutationAsync } from './mutations';
 export { default as createFragmentContainer } from './createFragmentContainer';
 export { default as createPaginationContainer } from './createPaginationContainer';
 export { default as createRefetchContainer } from './createRefetchContainer';
 export { default as LocalQueryRenderer } from './LocalQueryRenderer';
 export { default as QueryRenderer } from './QueryRenderer';
-export { default as requestSubscription } from './requestSubscription';
 export { default as useLazyLoadQuery } from './useLazyLoadQuery';
 export type { RelayProp } from './createFragmentContainer';
 export type { PaginationRelayProp } from './createPaginationContainer';
@@ -32,17 +28,14 @@ export type {
   Variables,
 } from './types.flow';
 
-// Relay Hooks (wrapped)
-export { default as useMutation } from './useMutation';
-
 // Relay Modern (re-exported):
 export {
+  commitLocalUpdate,
+  commitMutation,
+  ConnectionHandler,
   graphql,
   readInlineData,
-  commitLocalUpdate,
-  ConnectionHandler,
-  // eslint-disable-next-line camelcase
-  fetchQuery_DEPRECATED as fetchQuery,
+  requestSubscription,
 } from 'react-relay/legacy';
 export type { Environment } from 'react-relay';
 export type {
@@ -57,9 +50,13 @@ export type {
 // eslint-disable-next-line import/no-unresolved
 export type { RecordObjectMap as RecordMap } from 'relay-runtime/store/RelayStoreTypes';
 
+// Relay Hooks (wrapped)
+export { default as useMutation } from './useMutation';
+
 // Relay Hooks (re-exported):
 export {
   EntryPointContainer,
+  fetchQuery,
   loadEntryPoint,
   loadQuery,
   RelayEnvironmentProvider,

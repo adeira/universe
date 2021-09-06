@@ -31,7 +31,7 @@ const styles = sx.create({
   symbols: {
     cursor: 'help',
     borderBlockEnd: '2px dotted',
-    color: 'rgba(var(--sx-accent-4))',
+    color: 'rgba(var(--sx-accent-5))',
     fontSize: 'smaller',
   },
 });

@@ -12,12 +12,26 @@ const variables = {};
 
 module.exports = ({
   validUsage: () => {
-    return fetchQuery(environment, query, variables);
+    return fetchQuery(environment, query);
+  },
+  validUsagePromise: () => {
+    return fetchQuery(environment, query, variables).toPromise();
+  },
+  validUsageObservable: () => {
+    return fetchQuery(environment, query, variables).subscribe({
+      next: () => {},
+    });
   },
 
   // Invalid usages:
-  missingVariables: () => {
-    // $FlowExpectedError[incompatible-call]: Cannot call fetchQuery because function [1] requires another argument.
-    return fetchQuery(environment, query);
+  missingQuery: () => {
+    // $FlowExpectedError[incompatible-call]: missing query
+    return fetchQuery(environment);
+  },
+  invalidObservable: () => {
+    // $FlowExpectedError[incompatible-call]: wtf
+    return fetchQuery(environment, query).subscribe({
+      wtf: () => {},
+    });
   },
 }: $FlowFixMe);

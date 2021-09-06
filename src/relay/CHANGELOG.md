@@ -1,5 +1,15 @@
 # Unreleased
 
+- **Breaking**: Relay version upgraded to 12.0.0, for more information please visit: https://github.com/facebook/relay/releases/tag/v12.0.0
+- **Breaking**: All previous loggers (`RelayEagerLogger`, `RelayLazyLogger` and `RelayDebugLogger`) were replaced with one simple `RelayLogger`. This allows us to focus better on one solution that is more friendly with the new Relay Hooks development workflow.
+- **Breaking**: function `commitMutationAsync` has been removed. You can still use legacy `commitMutation` or preferably `useMutation` hook which is much better replacement for these functions.
+- **Breaking**: new version of `fetchQuery` from Relay 11 (returns observable instead of promise). For more information please visit: https://github.com/facebook/relay/releases/tag/v11.0.0. Easiest migration path (BUT be aware of [the limitations](https://relay.dev/docs/api-reference/fetch-query/#behavior-with-topromise):
+
+  ```diff
+  - await fetchQuery(environment, query, variables);
+  + await fetchQuery(environment, query, variables).toPromise();
+  ```
+
 # 3.3.0
 
 - Added support for GraphQL errors with `CRICITAL` severity: you can mark any error to be critical by adding this value to `errors[*].extensions.severity`. Such errors will be propagated to any available `ErrorBoundary` when using `useLazyLoadQuery` or to `onError` callback when calling a mutation.

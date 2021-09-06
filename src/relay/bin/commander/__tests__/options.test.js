@@ -55,12 +55,6 @@ describe('relay compiler', () => {
     ).toThrowErrorMatchingInlineSnapshot(`"Option --src is required."`);
   });
 
-  it('with only persist mode', () => {
-    expect(() =>
-      relayCompilerOptions(['node', 'test', '--persist-mode=CCC']),
-    ).toThrowErrorMatchingInlineSnapshot(`"Option --src is required."`);
-  });
-
   it('with only validate', () => {
     expect(() =>
       relayCompilerOptions(['node', 'test', '--validate']),
@@ -84,21 +78,12 @@ describe('relay compiler', () => {
 
   it('with all', () => {
     expect(
-      relayCompilerOptions([
-        'node',
-        'test',
-        '--src=AAA',
-        '--schema=BBB',
-        '--validate',
-        '--watch',
-        '--persist-mode=fs',
-      ]),
+      relayCompilerOptions(['node', 'test', '--src=AAA', '--schema=BBB', '--validate', '--watch']),
     ).toStrictEqual({
       src: 'AAA',
       schema: 'BBB',
       validate: true,
       watch: true,
-      persistMode: 'fs',
     });
   });
 });

@@ -21,7 +21,7 @@ module.exports = ({
     '@next/next/no-document-import-in-page': NEXT_VERSION_ERROR,
     '@next/next/no-duplicate-head': NEXT_VERSION_ERROR,
     '@next/next/no-head-import-in-document': NEXT_VERSION_ERROR,
-    '@next/next/no-html-link-for-pages': OFF, // TODO: https://github.com/adeira/universe/issues/3024
+    '@next/next/no-html-link-for-pages': NEXT_VERSION_ERROR,
     '@next/next/no-img-element': NEXT_VERSION_ERROR,
     '@next/next/no-page-custom-font': NEXT_VERSION_ERROR,
     '@next/next/no-script-in-document': NEXT_VERSION_ERROR,
