@@ -95,6 +95,12 @@ module.exports = {
     '@adeira/eslint-config',
     '@adeira/eslint-config/next', // optional Next.js rules not included by default
   ],
+
+  // The following settings might be needed in case you are trying to apply Next.js preset inside
+  // monorepo subdirectory, see: https://nextjs.org/docs/basic-features/eslint#rootdir
+  settings: {
+    next: { rootDir: __dirname },
+  },
 };
 ```
 
