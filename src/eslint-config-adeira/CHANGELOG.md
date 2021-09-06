@@ -1,7 +1,24 @@
 # Unreleased
 
 - New rules `@next/next/inline-script-id`, `@next/next/no-script-in-document` and `@next/next/no-script-in-head` enabled (as warnings). For more information visit: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
-- Rule `@next/next/no-html-link-for-pages` has been temporarily disabled because of [internal issues](https://github.com/adeira/universe/issues/3024).
+- We clarified what to do when you are using `@adeira/eslint-config/next` preset inside monorepo (check our readme). Basically, you might encounter the following warning:
+
+  ```text
+  Pages directory cannot be found at /X/Y/Z/pages or /X/Y/Z/src/pages. If using a custom path, please configure with the no-html-link-for-pages rule in your eslint config file
+  ```
+
+  In this case it's necessary to configure the Next.js eslint preset explicitly, for example:
+
+  ```js
+  module.exports = {
+    extends: ['@adeira/eslint-config', '@adeira/eslint-config/next'],
+    settings: {
+      next: { rootDir: __dirname },
+    },
+  };
+  ```
+
+  For more info visit: https://nextjs.org/docs/messages/no-html-link-for-pages
 
 # 6.4.0
 
@@ -13,14 +30,14 @@
 
 - Added new optional config preset `@adeira/eslint-config/next` (for [Next.js](https://nextjs.org/) applications). This preset is not included in the default config and should be enabled explicitly for Next.js applications. For example:
 
-```js
-module.exports = {
-  extends: [
-    '@adeira/eslint-config', // this preset includes almost everything but not Next.js rules
-    '@adeira/eslint-config/next', // adds extra Next.js rules for your application
-  ],
-};
-```
+  ```js
+  module.exports = {
+    extends: [
+      '@adeira/eslint-config', // this preset includes almost everything but not Next.js rules
+      '@adeira/eslint-config/next', // adds extra Next.js rules for your application
+    ],
+  };
+  ```
 
 # 6.2.0
 

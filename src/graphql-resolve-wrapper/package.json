@@ -15,7 +15,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.15.3"
+    "@babel/runtime": "^7.15.4"
   },
   "peerDependencies": {
     "graphql": "^15.1.0"
