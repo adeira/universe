@@ -18,7 +18,7 @@
     "@adeira/js": "^2.1.0",
     "@adeira/signed-source": "^2.0.0",
     "@adeira/sx": "^0.28.0",
-    "@babel/runtime": "^7.15.3",
+    "@babel/runtime": "^7.15.4",
     "change-case": "^4.1.2",
     "fast-levenshtein": "^3.0.0",
     "postcss": "^8.3.6",
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^3.0.0",
-    "@babel/core": "^7.15.0"
+    "@babel/core": "^7.15.5"
   }
 }
