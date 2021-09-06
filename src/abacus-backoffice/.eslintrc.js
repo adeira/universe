@@ -14,4 +14,9 @@ module.exports = {
     '@adeira/eslint-config/strict', // preset with almost everything
     '@adeira/eslint-config/next', // additional Next.js rules
   ],
+  settings: {
+    next: {
+      rootDir: __dirname, // https://nextjs.org/docs/basic-features/eslint#rootdir
+    },
+  },
 };
