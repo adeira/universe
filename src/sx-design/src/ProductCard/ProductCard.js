@@ -108,6 +108,8 @@ const styles = sx.create({
     marginBlockEnd: 1,
     paddingBlock: '.8rem',
     paddingInline: '1rem',
+    wordBreak: 'break-word',
+    hyphens: 'auto',
   },
   highlightBaseRounded: {
     borderStartStartRadius: 'var(--sx-radius)',
