@@ -758,26 +758,26 @@
   },
   {
    "hashToText": {
-    "9uWJJI15gvfuaDi3bpoT2w==": "Nothing selected yet"
+    "5KMdVDNvgqOewSfbxvUGIA==": "nothing selected yet"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 18,
-   "col_beg": 10,
-   "line_end": 18,
-   "col_end": 85,
+   "line_beg": 20,
+   "col_beg": 14,
+   "line_end": 20,
+   "col_end": 89,
    "desc": "text when nothing is selected in POS",
    "project": "",
    "type": "text",
-   "jsfbt": "Nothing selected yet"
+   "jsfbt": "nothing selected yet"
   },
   {
    "hashToText": {
     "EAFd1PD0L8GS/sTNRO5dzA==": "{totalSelectedItems} items for {totalPrice}"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 62,
+   "line_beg": 69,
    "col_beg": 8,
-   "line_end": 72,
+   "line_end": 79,
    "col_end": 14,
    "desc": "summary of selected items in POS",
    "project": "",
@@ -789,9 +789,9 @@
     "nIpABsKUotYCJOCxk8ZWTg==": "Proceed to checkout"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 80,
+   "line_beg": 88,
    "col_beg": 10,
-   "line_end": 80,
+   "line_end": 88,
    "col_end": 69,
    "desc": "checkout button title",
    "project": "",
@@ -1293,9 +1293,9 @@
     "MCv6Mi3QzsVh3PZbzS9LxA==": "Products inventory"
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 19,
+   "line_beg": 20,
    "col_beg": 15,
-   "line_end": 19,
+   "line_end": 20,
    "col_end": 76,
    "desc": "products inventory title",
    "project": "",
@@ -1307,9 +1307,9 @@
     "bZ6yRhcXADxKzw7ycTHJ/g==": "All products available across all our products are here."
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 21,
+   "line_beg": 22,
    "col_beg": 8,
-   "line_end": 23,
+   "line_end": 24,
    "col_end": 14,
    "desc": "products inventory description",
    "project": "",
@@ -1321,9 +1321,9 @@
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 27,
+   "line_beg": 28,
    "col_beg": 10,
-   "line_end": 27,
+   "line_end": 28,
    "col_end": 78,
    "desc": "link for create a new product",
    "project": "",
