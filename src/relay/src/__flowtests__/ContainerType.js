@@ -5,9 +5,9 @@ import {
   createFragmentContainer,
   createPaginationContainer,
   createRefetchContainer,
-  type FragmentContainerType,
-  type PaginationContainerType,
-  type RefetchContainerType,
+  type RelayFragmentContainer,
+  type RelayPaginationContainer,
+  type RelayRefetchContainer,
 } from '../index';
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
   +bbb: number,
 };
 
-function DefaultComponent(props) {
+function DefaultComponent(props: Props) {
   return <div {...props} />;
 }
 
@@ -25,7 +25,7 @@ const TestFragmentComponent = (createFragmentContainer(DefaultComponent, {
       __typename
     }
   `,
-}): FragmentContainerType<Props>);
+}): RelayFragmentContainer<typeof DefaultComponent>);
 
 const TestPaginationComponent = (createPaginationContainer(
   DefaultComponent,
@@ -44,7 +44,7 @@ const TestPaginationComponent = (createPaginationContainer(
       }
     `,
   },
-): PaginationContainerType<Props>);
+): RelayPaginationContainer<typeof DefaultComponent>);
 
 const TestRefetchComponent = (createRefetchContainer(
   DefaultComponent,
@@ -60,7 +60,7 @@ const TestRefetchComponent = (createRefetchContainer(
       __typename
     }
   `,
-): RefetchContainerType<Props>);
+): RelayRefetchContainer<typeof DefaultComponent>);
 
 module.exports = ({
   correctProps1: <TestFragmentComponent aaa="OK" bbb={1} />,

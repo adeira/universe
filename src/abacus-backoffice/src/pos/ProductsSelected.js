@@ -1,6 +1,6 @@
 // @flow
 
-import { Money } from '@adeira/sx-design';
+import { Money, Note, Text } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
@@ -15,14 +15,20 @@ export default function ProductsSelected(): React.Node {
     <div className={styles('wrapper')}>
       <div className={styles('selectedItems')}>
         {selectedItems.size === 0 ? (
-          <fbt desc="text when nothing is selected in POS">Nothing selected yet</fbt>
+          <div className={styles('nothingSelected')}>
+            <Note>
+              <fbt desc="text when nothing is selected in POS">nothing selected yet</fbt>
+            </Note>
+          </div>
         ) : null}
+
         {selectedItems.map((selectedItem) => (
           <div key={selectedItem.itemID} className={styles('selectedItemRow')}>
             <div className={styles('selectedItemTitle')}>
               <strong>{selectedItem.itemTitle}</strong>
               <br />
-              <div>
+              {/* $FlowFixMe[incompatible-type-arg]: https://github.com/adeira/universe/pull/3085 */}
+              <Text as="small">
                 {selectedItem.units} &times;{' '}
                 <Money
                   priceUnitAmount={
@@ -37,7 +43,7 @@ export default function ProductsSelected(): React.Node {
                   }
                   priceUnitAmountCurrency="MXN"
                 />
-              </div>
+              </Text>
             </div>
             <div className={styles('selectedItemControls')}>
               <button
@@ -58,6 +64,7 @@ export default function ProductsSelected(): React.Node {
           </div>
         ))}
       </div>
+
       <div className={styles('stats')}>
         <fbt desc="summary of selected items in POS">
           <fbt:param name="totalSelectedItems">{stats.totalSelectedItems}</fbt:param> items for{' '}
@@ -71,6 +78,7 @@ export default function ProductsSelected(): React.Node {
           </fbt:param>
         </fbt>
       </div>
+
       <div className={styles('checkout')}>
         <Link
           href="/pos/checkout"
@@ -85,6 +93,9 @@ export default function ProductsSelected(): React.Node {
 }
 
 const styles = sx.create({
+  nothingSelected: {
+    margin: '1rem',
+  },
   wrapper: {
     display: 'flex',
     flexDirection: 'column',

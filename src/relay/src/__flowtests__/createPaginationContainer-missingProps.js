@@ -1,9 +1,11 @@
 /* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
-import { createPaginationContainer, graphql, type PaginationContainerType } from '../index';
+import { type Node } from 'react';
 
-function FunctionalFragmentExport(props) {
+import { createPaginationContainer, graphql, type RelayPaginationContainer } from '../index';
+
+function FunctionalFragmentExport(props: {}): Node {
   return <div {...props} />;
 }
 
@@ -24,4 +26,4 @@ export default (createPaginationContainer(
       }
     `,
   },
-): PaginationContainerType<{}>);
+): RelayPaginationContainer<typeof FunctionalFragmentExport>);

@@ -338,40 +338,26 @@
   },
   {
    "hashToText": {
-    "xqoguQxnoeLWkiZgd66KQA==": "Be careful when entering the café so that the cats do not run away. {pleading face emoji}"
+    "ma2mGfydLQ0QoMlyrlx9vw==": "Be careful when entering the café so that the cats do not run away. 🥺"
    },
    "filepath": "src/Rules.js",
    "line_beg": 14,
    "col_beg": 8,
-   "line_end": 22,
+   "line_end": 16,
    "col_end": 14,
    "desc": "Rule number 1",
    "project": "",
    "type": "text",
-   "jsfbt": "Be careful when entering the café so that the cats do not run away. {pleading face emoji}"
-  },
-  {
-   "hashToText": {
-    "9EZBLtMJ+LsOzBwQeGG4Cg==": "pleading face"
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 19,
-   "col_beg": 21,
-   "line_end": 19,
-   "col_end": 84,
-   "desc": "pleading face emoji description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "pleading face"
+   "jsfbt": "Be careful when entering the café so that the cats do not run away. 🥺"
   },
   {
    "hashToText": {
     "AZBk0HF6F8GgThvh5h0vdg==": "Feel free to play with the cats and have fun. But please, respect their space and do not force them to do things they do not want, such as pulling their tails, whiskers, etc."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 25,
+   "line_beg": 19,
    "col_beg": 8,
-   "line_end": 28,
+   "line_end": 22,
    "col_end": 14,
    "desc": "Rule number 2",
    "project": "",
@@ -383,9 +369,9 @@
     "2fSycF0Q8vnGGrk4RLeKLg==": "Try not to wake up our cats or interrupt them while they are having a snack."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 31,
+   "line_beg": 25,
    "col_beg": 8,
-   "line_end": 33,
+   "line_end": 27,
    "col_end": 14,
    "desc": "Rule number 3",
    "project": "",
@@ -394,40 +380,26 @@
   },
   {
    "hashToText": {
-    "J1dL7HxnyAvHJhntHYe5gA==": "We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
+    "wu4QLM8Jq2jZKhUWrIPg2g==": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 36,
+   "line_beg": 30,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 38,
    "col_end": 14,
    "desc": "Rule number 4",
    "project": "",
    "type": "text",
-   "jsfbt": "We encourage you to take pictures. {thumbs up emoji} But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
-  },
-  {
-   "hashToText": {
-    "7tmFQF2JXgkmR904Ip7auw==": "thumbs up"
-   },
-   "filepath": "src/Rules.js",
-   "line_beg": 39,
-   "col_beg": 38,
-   "line_end": 39,
-   "col_end": 93,
-   "desc": "thumbs up emoji description",
-   "project": "",
-   "type": "text",
-   "jsfbt": "thumbs up"
+   "jsfbt": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
   },
   {
    "hashToText": {
     "5iTUS9k7jab+evPuLeeh7A==": "Our cats have a special healthy food which you can buy from us. Human food might be dangerous for them. Please don’t feed them with your food."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 50,
+   "line_beg": 41,
    "col_beg": 8,
-   "line_end": 53,
+   "line_end": 44,
    "col_end": 14,
    "desc": "Rule number 5",
    "project": "",
@@ -439,9 +411,9 @@
     "/T78HImOiKKs6J26mVLuaQ==": "Cats are very sensitive. Be careful with loud and sudden noises, which could scare them."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 56,
+   "line_beg": 47,
    "col_beg": 8,
-   "line_end": 58,
+   "line_end": 49,
    "col_end": 14,
    "desc": "Rule number 6",
    "project": "",
@@ -453,9 +425,9 @@
     "U98Bttt6bmp1PmUACerVug==": "Leave your pets at home. Other pets are not allowed here."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 61,
+   "line_beg": 52,
    "col_beg": 8,
-   "line_end": 61,
+   "line_end": 52,
    "col_end": 97,
    "desc": "Rule number 7",
    "project": "",
@@ -467,9 +439,9 @@
     "itv8A/4Pvi/UCI1hEPlLpQ==": "We are not responsible for any injuries caused by our cats - they are very playful, and they do not mean it. Pay special attention to your kids. Feel free to ask for medical aid when needed."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 64,
+   "line_beg": 55,
    "col_beg": 8,
-   "line_end": 68,
+   "line_end": 59,
    "col_end": 14,
    "desc": "Rule number 8",
    "project": "",
@@ -481,9 +453,9 @@
     "eEHP2QM079xkRqVGx7HUlQ==": "Hygiene is important. Wash your hand when playing with our cats."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 71,
+   "line_beg": 62,
    "col_beg": 8,
-   "line_end": 73,
+   "line_end": 64,
    "col_end": 14,
    "desc": "Rule number 9",
    "project": "",
@@ -495,9 +467,9 @@
     "4EOS7M5k/RGGg6oLo32EHw==": "Please, follow our rules. Misbehaving guests will be asked to leave."
    },
    "filepath": "src/Rules.js",
-   "line_beg": 76,
+   "line_beg": 67,
    "col_beg": 8,
-   "line_end": 78,
+   "line_end": 69,
    "col_end": 14,
    "desc": "Rule number 10",
    "project": "",

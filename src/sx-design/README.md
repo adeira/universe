@@ -53,7 +53,6 @@ Legend:
 | [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Button />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
-| [`<Emoji />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -77,7 +76,6 @@ Legend:
 [`<badge />`]: https://sx-design.vercel.app/?path=/docs/components-badge
 [`<button />`]: https://sx-design.vercel.app/?path=/docs/components-button
 [`<buttonlink />`]: https://sx-design.vercel.app/?path=/docs/components-buttonlink
-[`<emoji />`]: https://sx-design.vercel.app/?path=/docs/components-emoji
 [`<entity />`]: https://sx-design.vercel.app/?path=/docs/components-entity
 [`<entityfield />`]: https://sx-design.vercel.app/?path=/docs/components-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/docs/components-errorboundary

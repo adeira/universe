@@ -8,9 +8,8 @@ import type {
   UploadableMap,
   RecordSourceSelectorProxy,
   DeclarativeMutationConfig,
+  Variables,
 } from 'relay-runtime';
-
-import type { Variables } from './types.flow';
 
 export type MutationParameters = {
   +response: { +[key: string]: any, ... },

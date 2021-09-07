@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import sx from '@adeira/sx';
-import { Emoji, Link } from '@adeira/sx-design';
+import { Link } from '@adeira/sx-design';
 import fbt from 'fbt';
 
 import socialLinks from './socialLinks';
@@ -12,13 +12,7 @@ export default function Rules(): React.Node {
     <ol className={styles('orderedList')}>
       <li className={styles('listItem')}>
         <fbt desc="Rule number 1">
-          Be careful when entering the café so that the cats do not run away.{' '}
-          <fbt:param name="pleading face emoji">
-            <Emoji
-              symbol="🥺"
-              label={<fbt desc="pleading face emoji description">pleading face</fbt>}
-            />
-          </fbt:param>
+          Be careful when entering the café so that the cats do not run away. 🥺
         </fbt>
       </li>
       <li className={styles('listItem')}>
@@ -34,11 +28,8 @@ export default function Rules(): React.Node {
       </li>
       <li className={styles('listItem')}>
         <fbt desc="Rule number 4">
-          We encourage you to take pictures.{' '}
-          <fbt:param name="thumbs up emoji">
-            <Emoji symbol="👍" label={<fbt desc="thumbs up emoji description">thumbs up</fbt>} />
-          </fbt:param>{' '}
-          But prefer to take them without a flash. Don’t forget to tag us on your Instagram{' '}
+          We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t
+          forget to tag us on your Instagram{' '}
           <fbt:param name="instagram account">
             <Link href={socialLinks.instagramURL} target="_blank">
               @kochkacafe

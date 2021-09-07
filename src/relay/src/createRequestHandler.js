@@ -5,9 +5,8 @@ import {
   type CacheConfig,
   type GraphQLResponse,
   type UploadableMap,
+  type Variables,
 } from 'relay-runtime';
-
-import type { RequestNode, Variables } from './types.flow';
 
 /**
  * A Sink is an object of methods provided by Observable during construction.
@@ -24,7 +23,7 @@ type Sink = {
 export default function createRequestHandler(
   customFetcher: (...args: $ReadOnlyArray<any>) => any,
 ): (
-  requestNode: RequestNode,
+  requestNode: $FlowFixMe,
   variables: Variables,
   cacheConfig: CacheConfig,
   uploadables: ?UploadableMap,
