@@ -3,6 +3,7 @@
 import { graphql, useMutation } from '@adeira/relay';
 import sx from '@adeira/sx';
 import Icon from '@adeira/icons';
+import { Button, LayoutInline } from '@adeira/sx-design';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
 import { fbt } from 'fbt';
@@ -86,34 +87,37 @@ export default function POSCheckoutPageLayout(): Node {
         </Link>
       </div>
 
-      <CheckoutReceipt />
+      <div className={styles('checkoutReceipt')}>
+        <CheckoutReceipt disableButtons={true} />
+      </div>
 
       <div className={styles('question')}>
         <fbt desc="checkout question before continuing">Did you receive the money?</fbt>
       </div>
-      <div className={styles('buttons')}>
-        <button
-          type="button"
-          className={styles('button')}
-          onClick={handleProcessCheckoutClick}
-          disabled={isCheckoutPending}
-        >
+
+      <LayoutInline>
+        <Button onClick={handleProcessCheckoutClick} isDisabled={isCheckoutPending} tint="default">
           <fbt desc="process checkout button text">Yes, finish checkout</fbt>
-        </button>
-        <button
-          type="button"
-          className={styles('button')}
-          onClick={handleResetCheckoutClick}
-          disabled={isCheckoutPending}
-        >
+        </Button>
+        <Button onClick={handleResetCheckoutClick} isDisabled={isCheckoutPending} tint="secondary">
           <fbt desc="reset checkout button text">No, start over</fbt>
-        </button>
-      </div>
+        </Button>
+      </LayoutInline>
     </div>
   );
 }
 
 const styles = sx.create({
+  root: {
+    color: 'white',
+    backgroundColor: 'rgba(var(--sx-success-light))',
+    height: '100vh',
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   goback: {
     position: 'absolute',
     top: 0,
@@ -124,28 +128,13 @@ const styles = sx.create({
     margin: '1rem',
     color: 'white',
   },
-  root: {
-    fontSize: '3rem',
-    color: 'white',
-    backgroundColor: 'rgba(var(--sx-success-light))',
-    height: '100vh',
-    textAlign: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+  checkoutReceipt: {
+    width: 400,
+    backgroundColor: 'rgba(var(--sx-background))',
+    color: 'rgba(var(--sx-foreground))',
   },
   question: {
-    fontSize: '1.5rem',
-  },
-  buttons: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginBlockStart: '2rem',
-  },
-  button: {
-    margin: '.5rem',
-    padding: '1rem',
-    fontSize: '1.5rem',
+    fontSize: '2rem',
+    marginBlock: '2rem',
   },
 });

@@ -24,10 +24,11 @@ const styles = sx.create({
     display: 'flex',
   },
   left: {
-    flex: 1,
+    // flex: 1,
     position: 'sticky',
     top: 0,
     backgroundColor: 'rgba(var(--sx-accent-1))',
+    width: 350,
     height: '100vh',
   },
   right: {

@@ -1,67 +1,21 @@
 // @flow
 
-import { Money, Note, Text } from '@adeira/sx-design';
+import { Money } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
 
 import Link from '../Link';
+import ProductsSelectedRows from './ProductsSelectedRows';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
 export default function ProductsSelected(): React.Node {
-  const { selectedItems, stats, increaseUnits, decreaseUnits } = useSelectedItemsApi();
+  const { stats } = useSelectedItemsApi();
 
   return (
     <div className={styles('wrapper')}>
       <div className={styles('selectedItems')}>
-        {selectedItems.size === 0 ? (
-          <div className={styles('nothingSelected')}>
-            <Note>
-              <fbt desc="text when nothing is selected in POS">nothing selected yet</fbt>
-            </Note>
-          </div>
-        ) : null}
-
-        {selectedItems.map((selectedItem) => (
-          <div key={selectedItem.itemID} className={styles('selectedItemRow')}>
-            <div className={styles('selectedItemTitle')}>
-              <strong>{selectedItem.itemTitle}</strong>
-              <br />
-              <Text as="small">
-                {selectedItem.units} &times;{' '}
-                <Money
-                  priceUnitAmount={
-                    selectedItem.itemUnitAmount / 100 // adjusted for centavo
-                  }
-                  priceUnitAmountCurrency="MXN"
-                />{' '}
-                ={' '}
-                <Money
-                  priceUnitAmount={
-                    selectedItem.units * (selectedItem.itemUnitAmount / 100) // adjusted for centavo
-                  }
-                  priceUnitAmountCurrency="MXN"
-                />
-              </Text>
-            </div>
-            <div className={styles('selectedItemControls')}>
-              <button
-                type="button"
-                className={styles('selectedItemControlButton')}
-                onClick={() => increaseUnits(selectedItem.itemID)}
-              >
-                +
-              </button>
-              <button
-                type="button"
-                className={styles('selectedItemControlButton')}
-                onClick={() => decreaseUnits(selectedItem.itemID)}
-              >
-                -
-              </button>
-            </div>
-          </div>
-        ))}
+        <ProductsSelectedRows />
       </div>
 
       <div className={styles('stats')}>
@@ -92,9 +46,6 @@ export default function ProductsSelected(): React.Node {
 }
 
 const styles = sx.create({
-  nothingSelected: {
-    margin: '1rem',
-  },
   wrapper: {
     display: 'flex',
     flexDirection: 'column',
@@ -103,27 +54,7 @@ const styles = sx.create({
   },
   selectedItems: {
     flex: 1,
-  },
-  selectedItemRow: {
-    'paddingInline': '1rem',
-    'paddingBlockEnd': '.5rem',
-    'display': 'flex',
-    'flexDirection': 'row',
-    ':first-child': {
-      paddingTop: '1rem',
-    },
-  },
-  selectedItemTitle: {
-    width: '100%',
-    color: 'rgba(var(--sx-foreground))',
-  },
-  selectedItemControls: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  selectedItemControlButton: {
-    width: 45,
-    height: 45,
+    overflowY: 'auto',
   },
   stats: {
     padding: '1rem',
