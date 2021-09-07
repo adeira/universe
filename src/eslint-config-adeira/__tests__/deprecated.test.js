@@ -7,9 +7,12 @@ import extraPrettierRules from '../src/extraPrettierRules';
 import type { EslintConfigRules } from '../src/EslintConfig.flow';
 
 test('our rules should not contain deprecated Eslint rules', () => {
+  const allRules = ourRules.rules;
   const deprecated = new Set();
 
-  Object.keys(ourRules).forEach((rule) => {
+  expect(allRules['no-debugger']).toBe(2); // just to make sure this test works
+
+  Object.keys(allRules).forEach((rule) => {
     if (deprecatedRules.has(rule)) {
       deprecated.add(rule);
     }
