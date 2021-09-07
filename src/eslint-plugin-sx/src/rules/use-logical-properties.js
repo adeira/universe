@@ -11,8 +11,8 @@ const isSXVariableDeclarator = require('./utils/isSXVariableDeclarator');
 
 // Map(physical prop => logical prop)
 //
-// See: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Margins_borders_padding
-const suggestions = new Map([
+// See: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties
+const propertyNameSuggestions /*: Map<string, string> */ = new Map([
   // Border bottom:
   ['borderBottom', 'borderBlockEnd'],
   ['borderBottomColor', 'borderBlockEndColor'],
@@ -48,6 +48,17 @@ const suggestions = new Map([
   ['paddingTop', 'paddingBlockStart'],
   ['paddingRight', 'paddingInlineEnd'],
   ['paddingLeft', 'paddingInlineStart'],
+]);
+
+const propertyValueSuggestions /*: Map<string, Map<string, string>> */ = new Map([
+  // Map(property name => Map(old value => new value))
+  [
+    'textAlign',
+    new Map([
+      ['left', 'start'],
+      ['right', 'end'],
+    ]),
+  ],
 ]);
 
 /**
@@ -105,22 +116,46 @@ module.exports = ({
                 for (const styleNameProperty of property.value.properties) {
                   if (styleNameProperty.type === 'Property') {
                     const propertyName = getObjectPropertyName(styleNameProperty);
-                    if (suggestions.has(propertyName)) {
+                    if (propertyName != null && propertyNameSuggestions.has(propertyName)) {
                       context.report({
                         node: styleNameProperty.key,
                         message:
                           'Use logical CSS property "{{newProperty}}" instead of physical CSS property "{{oldProperty}}".',
                         data: {
                           oldProperty: propertyName,
-                          newProperty: suggestions.get(propertyName),
+                          newProperty: propertyNameSuggestions.get(propertyName),
                         },
                         fix: function (fixer) {
                           return fixer.replaceText(
                             styleNameProperty.key,
-                            suggestions.get(propertyName),
+                            propertyNameSuggestions.get(propertyName),
                           );
                         },
                       });
+                    } else if (propertyName != null && propertyValueSuggestions.has(propertyName)) {
+                      const valueNode = styleNameProperty.value;
+                      if (valueNode.type === 'Literal') {
+                        const oldValue = valueNode.value;
+                        const valueSuggestionMap =
+                          propertyValueSuggestions.get(propertyName) ?? new Map();
+                        if (valueSuggestionMap.has(oldValue)) {
+                          context.report({
+                            node: valueNode,
+                            message:
+                              'Use logical CSS value "{{newValue}}" instead of physical CSS value "{{oldValue}}".',
+                            data: {
+                              oldValue,
+                              newValue: valueSuggestionMap.get(oldValue),
+                            },
+                            fix: function (fixer) {
+                              return fixer.replaceText(
+                                valueNode,
+                                `'${valueSuggestionMap.get(oldValue) ?? '…'}'`,
+                              );
+                            },
+                          });
+                        }
+                      }
                     }
                   }
                 }
