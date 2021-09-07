@@ -4,7 +4,7 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 import { useRouter } from 'next/router';
 import React, { type Node } from 'react';
-import { ButtonLink } from '@adeira/sx-design';
+import { Button } from '@adeira/sx-design';
 
 import CheckoutReceipt from './CheckoutReceipt';
 import useSelectedItemsApi from './recoil/selectedItemsState';
@@ -20,28 +20,30 @@ export default function POSCheckoutFailurePageLayout(): Node {
 
   return (
     <div className={styles('root')}>
-      <div>
+      <div className={styles('ohNo')}>
         <fbt desc="oh no failure checkout message">Oh no! Something is broken. 🤨</fbt>
-        <div className={styles('help')}>
-          <fbt desc="checkout failure help message">
-            What now? Please, write down the checkout items (<strong>
-              what, how many, for how much
-            </strong>) and continue with the sales to make sure customers are happy. Also, please,{' '}
-            <strong>let us know</strong> as soon as possible!
-          </fbt>
-        </div>
-        <CheckoutReceipt />
       </div>
-      <ButtonLink onClick={handleStartNewPOSSessionClick} xstyle={styles.link}>
+
+      <div className={styles('help')}>
+        <fbt desc="checkout failure help message">
+          What now? Please, write down the checkout items (<strong>
+            what, how many, for how much
+          </strong>) and continue with the sales to make sure customers are happy. Also, please,{' '}
+          <strong>let us know</strong> as soon as possible!
+        </fbt>
+      </div>
+
+      <CheckoutReceipt />
+
+      <Button onClick={handleStartNewPOSSessionClick}>
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
-      </ButtonLink>
+      </Button>
     </div>
   );
 }
 
 const styles = sx.create({
   root: {
-    fontSize: '3rem',
     color: 'white',
     backgroundColor: 'rgba(var(--sx-error-dark))',
     height: '100vh',
@@ -51,16 +53,12 @@ const styles = sx.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  ohNo: {
+    fontSize: '3rem',
+  },
   help: {
     fontSize: '1rem',
     maxWidth: 750,
     marginBlock: '2rem',
-  },
-  link: {
-    borderRadius: '4px',
-    fontSize: '1rem',
-    padding: '1rem',
-    margin: '1rem',
-    backgroundColor: 'white',
   },
 });

@@ -1,40 +1,83 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import sx from '@adeira/sx';
-import { MoneyFn } from '@adeira/sx-design';
+import { Button, LayoutInline, MoneyFn, Text } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import fbt from 'fbt';
 
+import useApplicationLocale from '../useApplicationLocale';
 import useSelectedItemsApi from './recoil/selectedItemsState';
 
-export default function CheckoutReceipt(): Node {
-  const { stats, selectedItems } = useSelectedItemsApi();
+type Props = {
+  +disableButtons?: boolean,
+};
+
+export default function CheckoutReceipt(props: Props): Node {
+  const { stats, selectedItems, increaseUnits, decreaseUnits } = useSelectedItemsApi();
+  const { bcp47 } = useApplicationLocale();
 
   return (
     <div className={styles('summary')}>
       {selectedItems.map((item) => {
         return (
           <div key={item.itemID} className={styles('summaryRow')}>
-            <div>{item.itemTitle}</div>
-            <div className={styles('summaryRowQuantity')}>
-              <div>{item.units}</div>
-              <div>&times;</div>
+            <LayoutInline justifyContent="space-between">
               <div>
+                <Text as="small">{item.units}&times;</Text> {item.itemTitle}
+              </div>
+              <div>
+                <Text as="small">{item.units}&times;</Text>{' '}
                 {MoneyFn({
                   priceUnitAmount: item.itemUnitAmount / 100, // adjusted for centavo
-                  priceUnitAmountCurrency: 'MXN',
-                  locale: 'en-US', // TODO
+                  priceUnitAmountCurrency: 'MXN', // TODO
+                  locale: bcp47,
                 })}
               </div>
-              <div>=</div>
-              <div>
-                {MoneyFn({
-                  priceUnitAmount: item.units * (item.itemUnitAmount / 100), // adjusted for centavo
-                  priceUnitAmountCurrency: 'MXN',
-                  locale: 'en-US', // TODO
-                })}
-              </div>
+            </LayoutInline>
+
+            <div>
+              {item.itemAddons != null
+                ? item.itemAddons.map((itemAddon) => (
+                    <LayoutInline key={itemAddon.itemAddonID} justifyContent="space-between">
+                      <div>
+                        <Text as="small">{itemAddon.itemAddonTitle}</Text>
+                      </div>
+
+                      <div>
+                        <Text as="small">
+                          {MoneyFn({
+                            priceUnitAmount: itemAddon.itemAddonExtraPrice / 100, // adjusted for centavo
+                            priceUnitAmountCurrency: 'MXN', // TODO
+                            locale: bcp47,
+                          })}
+                        </Text>
+                      </div>
+                    </LayoutInline>
+                  ))
+                : null}
             </div>
+
+            {!props.disableButtons && (
+              <LayoutInline>
+                <Button
+                  aria-label="minus"
+                  size="small"
+                  tint="secondary"
+                  onClick={() => decreaseUnits(item.itemID)}
+                >
+                  <Icon name="minus" />
+                </Button>
+                <Button
+                  aria-label="plus"
+                  size="small"
+                  tint="secondary"
+                  onClick={() => increaseUnits(item.itemID)}
+                >
+                  <Icon name="plus" />
+                </Button>
+              </LayoutInline>
+            )}
           </div>
         );
       })}
@@ -45,8 +88,8 @@ export default function CheckoutReceipt(): Node {
         <div>
           {MoneyFn({
             priceUnitAmount: stats.totalPrice / 100, // adjusted for centavo
-            priceUnitAmountCurrency: 'MXN',
-            locale: 'en-US', // TODO
+            priceUnitAmountCurrency: 'MXN', // TODO
+            locale: bcp47,
           })}
         </div>
       </div>
@@ -57,18 +100,14 @@ export default function CheckoutReceipt(): Node {
 const styles = sx.create({
   summary: {
     fontFamily: 'monospace',
-    backgroundColor: 'rgba(var(--sx-background))',
-    color: 'rgba(var(--sx-foreground))',
     padding: '1rem',
-    margin: '1rem',
     fontSize: '1rem',
-    width: 400,
     textAlign: 'left',
   },
   summaryRow: {
     display: 'flex',
     flexDirection: 'column',
-    marginBlock: '.5rem',
+    marginBlockEnd: '1.2rem',
   },
   summaryRowQuantity: {
     display: 'flex',

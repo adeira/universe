@@ -1,32 +1,32 @@
 // @flow
 
 import sx from '@adeira/sx';
+import { LinkButton } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import React, { type Node } from 'react';
-
-import Link from '../Link';
 
 export default function POSCheckoutSuccessPageLayout(): Node {
   return (
     <div className={styles('root')}>
-      <div>
+      <div className={styles('wellDone')}>
         <fbt desc="well done checkout success message">Well done! 👍</fbt>
-        <div className={styles('help')}>
-          <fbt desc="success checkout help message">
-            You can now go back and serve another customer!
-          </fbt>
-        </div>
       </div>
-      <Link href="/pos/session" xstyle={styles.link}>
+
+      <div className={styles('help')}>
+        <fbt desc="success checkout help message">
+          You can now go back and serve another customer!
+        </fbt>
+      </div>
+
+      <LinkButton href="/pos/session">
         <fbt desc="start a new POS session button">Start a new POS session</fbt>
-      </Link>
+      </LinkButton>
     </div>
   );
 }
 
 const styles = sx.create({
   root: {
-    fontSize: '3rem',
     color: 'white',
     backgroundColor: 'rgba(var(--sx-success-light))',
     height: '100vh',
@@ -36,12 +36,8 @@ const styles = sx.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  link: {
-    borderRadius: '4px',
-    fontSize: '1rem',
-    padding: '1rem',
-    margin: '1rem',
-    backgroundColor: 'white',
+  wellDone: {
+    fontSize: '3rem',
   },
   help: {
     fontSize: '1rem',

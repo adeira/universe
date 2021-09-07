@@ -27,6 +27,7 @@ export type ProductsGridPosQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
+      +hasSelectedAddons: boolean,
     |}>
   |}
 |};
@@ -54,6 +55,7 @@ query ProductsGridPosQuery(
         unitAmount
         unitAmountCurrency
       }
+      hasSelectedAddons
     }
   }
 }
@@ -183,6 +185,13 @@ v3 = [
               }
             ],
             "storageKey": null
+          },
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "hasSelectedAddons",
+            "storageKey": null
           }
         ],
         "storageKey": null
@@ -217,15 +226,15 @@ return {
     "selections": (v3/*: any*/)
   },
   "params": {
-    "cacheID": "6d84e55beb81b0ccf7de051f81631049",
+    "cacheID": "f1a5e8a3c49a9f3523a068af2ed489c3",
     "id": null,
     "metadata": {},
     "name": "ProductsGridPosQuery",
     "operationKind": "query",
-    "text": "query ProductsGridPosQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories, visibility: POS) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n    }\n  }\n}\n"
+    "text": "query ProductsGridPosQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllPublishedProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories, visibility: POS) {\n      id\n      key\n      name\n      imageCover {\n        blurhash\n        url\n      }\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      hasSelectedAddons\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8706603b11361b030f560636b898ace0';
+(node: any).hash = '4af3e1a3f3cc24d1cc4dff00aecf13f6';
 export default node;
