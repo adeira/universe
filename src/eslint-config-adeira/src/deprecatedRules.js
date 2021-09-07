@@ -26,5 +26,10 @@ module.exports = (new Set([
   'node/no-hide-core-modules',
   'node/no-unsupported-features',
 
+  // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/search?q=%22deprecated%22
+  'jsx-a11y/accessible-emoji',
+  'jsx-a11y/label-has-for', // label-has-associated-control
+  'jsx-a11y/no-onchange',
+
   'jest/no-try-expect', // https://github.com/jest-community/eslint-plugin-jest/commit/6d07cadd5f78ed7a64a86792931d49d3cd943d69
 ]) /*: Set<string> */);
