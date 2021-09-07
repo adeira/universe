@@ -176,7 +176,7 @@ module.exports = ({
     'react-native/split-platform-components': OFF,
 
     // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
-    'jsx-a11y/accessible-emoji': ERROR,
+    'jsx-a11y/accessible-emoji': OFF,
     'jsx-a11y/alt-text': ERROR,
     'jsx-a11y/anchor-has-content': ERROR,
     'jsx-a11y/anchor-is-valid': ERROR,
