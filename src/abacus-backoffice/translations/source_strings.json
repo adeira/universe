@@ -733,9 +733,9 @@
     "EAFd1PD0L8GS/sTNRO5dzA==": "{totalSelectedItems} items for {totalPrice}"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 69,
+   "line_beg": 68,
    "col_beg": 8,
-   "line_end": 79,
+   "line_end": 78,
    "col_end": 14,
    "desc": "summary of selected items in POS",
    "project": "",
@@ -747,9 +747,9 @@
     "nIpABsKUotYCJOCxk8ZWTg==": "Proceed to checkout"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 88,
+   "line_beg": 87,
    "col_beg": 10,
-   "line_end": 88,
+   "line_end": 87,
    "col_end": 69,
    "desc": "checkout button title",
    "project": "",

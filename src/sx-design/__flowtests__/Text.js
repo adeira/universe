@@ -27,12 +27,19 @@ export const testAnchor = (): Node => {
   );
 };
 
-export const testTextInsideText = (): Node => {
+export const testStringWithNumber = (): Node => {
+  return <Text>test string with number: {-1}</Text>;
+};
+
+export const testTextInsideTextInsideText = (): Node => {
   return (
     <Text>
       text{' '}
       <Text>
-        inside <Text>text</Text>
+        inside{' '}
+        <Text>
+          inside <Text>text</Text>
+        </Text>
       </Text>
     </Text>
   );
@@ -45,8 +52,6 @@ export const testInvalidTypes = (): Node => {
       <Text>{null}</Text>
       {/* $FlowExpectedError[incompatible-type]: boolean is not valid */}
       <Text>{true}</Text>
-      {/* $FlowExpectedError[incompatible-type]: number is not valid */}
-      <Text>{-1}</Text>
     </>
   );
 };

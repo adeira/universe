@@ -34,7 +34,7 @@ type TextSupportedTypes =
 
 // In most of the cases, the `Text` children should be a translated string. However, we allow
 // somehow restricted React `Node` so that user can for example embed HTML links.
-type RestrictedReactNode = Fbt | Element<any> | Iterable<RestrictedReactNode>;
+type RestrictedReactNode = Fbt | Element<any> | Iterable<RestrictedReactNode> | number;
 
 type Props = {
   +'children': RestrictedReactNode,

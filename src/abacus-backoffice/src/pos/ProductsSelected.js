@@ -27,7 +27,6 @@ export default function ProductsSelected(): React.Node {
             <div className={styles('selectedItemTitle')}>
               <strong>{selectedItem.itemTitle}</strong>
               <br />
-              {/* $FlowFixMe[incompatible-type-arg]: https://github.com/adeira/universe/pull/3085 */}
               <Text as="small">
                 {selectedItem.units} &times;{' '}
                 <Money
