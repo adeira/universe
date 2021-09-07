@@ -1,7 +1,7 @@
 // @flow
 
 import { rangeMap } from '@adeira/js';
-import { Loader, Skeleton, LayoutGrid, LayoutBlock } from '@adeira/sx-design';
+import { Skeleton, LayoutGrid, LayoutBlock } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { useState, type Node } from 'react';
 
@@ -9,6 +9,7 @@ import LayoutPage from '../LayoutPage';
 import LayoutHeadingLink from '../LayoutHeadingLink';
 import ProductsCardsInCategory from './ProductsCardsInCategory';
 import ProductsCategories from './ProductsCategories';
+import ProductsCategoriesLoader from './ProductsCategoriesLoader';
 
 export default function ProductsPageLayout(): Node {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -29,7 +30,7 @@ export default function ProductsPageLayout(): Node {
       }
     >
       <LayoutBlock>
-        <React.Suspense fallback={<Loader />}>
+        <React.Suspense fallback={<ProductsCategoriesLoader />}>
           <ProductsCategories
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}

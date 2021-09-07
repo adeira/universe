@@ -1,30 +1,37 @@
 /* eslint-disable relay/must-colocate-fragment-spreads */
 // @flow
 
-import { createRefetchContainer, graphql, type RefetchRelayProp } from '../index';
+import { type Node } from 'react';
+
+import {
+  createRefetchContainer,
+  graphql,
+  type RelayRefetchProp,
+  type RelayRefetchContainer,
+  type Environment,
+} from '../index';
 
 type Props = {
-  +relay: RefetchRelayProp,
+  +relay: RelayRefetchProp,
 };
 
-module.exports = ({
-  validUsage() {
-    return createRefetchContainer(
-      (props: Props) => {
-        return JSON.stringify(props.relay.refetch({}));
-      },
-      {
-        data: graphql`
-          query createRefetchContainer_data {
-            __typename
-          }
-        `,
-      },
-      graphql`
-        query createRefetchContainer {
-          ...createRefetchContainer_data
-        }
-      `,
-    );
+function MyComponent(props: Props): Node {
+  (props.relay.environment: Environment);
+  return JSON.stringify(props.relay.refetch({}));
+}
+
+export default (createRefetchContainer(
+  MyComponent,
+  {
+    data: graphql`
+      query createRefetchContainer_data {
+        __typename
+      }
+    `,
   },
-}: $FlowFixMe);
+  graphql`
+    query createRefetchContainer {
+      ...createRefetchContainer_data
+    }
+  `,
+): RelayRefetchContainer<typeof MyComponent>);

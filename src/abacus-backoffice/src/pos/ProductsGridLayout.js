@@ -1,12 +1,13 @@
 // @flow
 
 import React, { useState, type Node } from 'react';
-import { LayoutBlock, LayoutGrid, Loader, Skeleton } from '@adeira/sx-design';
+import { LayoutBlock, LayoutGrid, Skeleton } from '@adeira/sx-design';
 import { rangeMap } from '@adeira/js';
 import sx from '@adeira/sx';
 
-import ProductsGrid from './ProductsGrid';
 import ProductsCategories from '../products/ProductsCategories';
+import ProductsCategoriesLoader from '../products/ProductsCategoriesLoader';
+import ProductsGrid from './ProductsGrid';
 
 export default function ProductsGridLayout(): Node {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -14,7 +15,7 @@ export default function ProductsGridLayout(): Node {
   return (
     <LayoutBlock>
       <div className={styles('stickyHeader')}>
-        <React.Suspense fallback={<Loader />}>
+        <React.Suspense fallback={<ProductsCategoriesLoader />}>
           <ProductsCategories
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}

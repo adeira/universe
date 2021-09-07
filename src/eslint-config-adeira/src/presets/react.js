@@ -176,7 +176,6 @@ module.exports = ({
     'react-native/split-platform-components': OFF,
 
     // React Accessibility (https://github.com/evcohen/eslint-plugin-jsx-a11y)
-    'jsx-a11y/accessible-emoji': OFF,
     'jsx-a11y/alt-text': ERROR,
     'jsx-a11y/anchor-has-content': ERROR,
     'jsx-a11y/anchor-is-valid': ERROR,
@@ -194,7 +193,6 @@ module.exports = ({
     'jsx-a11y/img-redundant-alt': OFF,
     'jsx-a11y/interactive-supports-focus': ERROR,
     'jsx-a11y/label-has-associated-control': OFF,
-    'jsx-a11y/label-has-for': OFF,
     'jsx-a11y/lang': ERROR,
     'jsx-a11y/media-has-caption': OFF,
     'jsx-a11y/mouse-events-have-key-events': OFF,
@@ -205,7 +203,6 @@ module.exports = ({
     'jsx-a11y/no-noninteractive-element-interactions': OFF,
     'jsx-a11y/no-noninteractive-element-to-interactive-role': OFF,
     'jsx-a11y/no-noninteractive-tabindex': ERROR,
-    'jsx-a11y/no-onchange': OFF,
     'jsx-a11y/no-redundant-roles': ERROR,
     'jsx-a11y/no-static-element-interactions': OFF,
     'jsx-a11y/role-has-required-aria-props': ERROR,

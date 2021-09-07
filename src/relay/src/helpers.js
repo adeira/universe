@@ -1,14 +1,12 @@
 // @flow strict-local
 
-import type { UploadableMap } from 'relay-runtime';
+import type { UploadableMap, Variables } from 'relay-runtime';
 
-import type { RequestNode, Variables } from './types.flow';
-
-export const isMutation = (request: RequestNode): boolean %checks => {
+export const isMutation = (request: $FlowFixMe): boolean %checks => {
   return request.operationKind === 'mutation';
 };
 
-export const isQuery = (request: RequestNode): boolean %checks => {
+export const isQuery = (request: $FlowFixMe): boolean %checks => {
   return request.operationKind === 'query';
 };
 
@@ -60,7 +58,7 @@ function getRequestBodyWithoutUplodables(request, variables): string {
 }
 
 export function getRequestBody(
-  request: RequestNode,
+  request: $FlowFixMe,
   variables: Variables,
   uploadables: ?UploadableMap,
 ): string | FormData {
