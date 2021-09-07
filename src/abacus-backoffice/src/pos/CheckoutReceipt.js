@@ -102,7 +102,7 @@ const styles = sx.create({
     fontFamily: 'monospace',
     padding: '1rem',
     fontSize: '1rem',
-    textAlign: 'left',
+    textAlign: 'start',
   },
   summaryRow: {
     display: 'flex',
