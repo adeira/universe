@@ -1,5 +1,6 @@
 # Unreleased
 
+- set `jsx-a11y/accessible-emoji` rule to off, since it is deprecated and creates a degraded experience: [see](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/627)
 - New rules `@next/next/inline-script-id`, `@next/next/no-script-in-document` and `@next/next/no-script-in-head` enabled (as warnings). For more information visit: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
 - We clarified what to do when you are using `@adeira/eslint-config/next` preset inside monorepo (check our readme). Basically, you might encounter the following warning:
 

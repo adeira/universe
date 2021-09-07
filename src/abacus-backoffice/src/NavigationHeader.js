@@ -1,10 +1,8 @@
 // @flow
 
 import { useLazyLoadQuery, graphql } from '@adeira/relay';
-import { Emoji } from '@adeira/sx-design';
 import * as sx from '@adeira/sx';
 import * as React from 'react';
-import fbt from 'fbt';
 
 import type { NavigationHeaderQuery } from './__generated__/NavigationHeaderQuery.graphql';
 
@@ -39,7 +37,7 @@ function NavigationHeaderDev(): React.Node {
 export default function NavigationHeader(): React.Node {
   return (
     <strong className={styles('title')}>
-      <Emoji symbol="🧮" label={<fbt desc="abacus emoji label">abacus emoji</fbt>} /> Abacus
+      🧮 Abacus
       <React.Suspense fallback={<ProdBadge />}>
         <NavigationHeaderDev />
       </React.Suspense>

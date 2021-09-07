@@ -127,3 +127,73 @@ it('supports null and number values', () => {
   expect(getByText('1 (selected)')).toBeDefined();
   expect(getByText('2')).toBeDefined();
 });
+
+it('correctly handles focus when navigating with right arrow ->', () => {
+  const { getByTestId } = render(<TestComponentFruits />);
+
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+
+  // we press right arrow (->) but it should not have any effect because no tab is currently focused
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+
+  // we have to focus the button directly - `getByText('Apple…')` would not work
+  getByTestId('TabsButton-apple').focus();
+  expect(getByTestId('TabsButton-apple')).toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+
+  // ->
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+
+  // ->
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).toHaveFocus();
+
+  // -> (should jump back to the first tab)
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  expect(getByTestId('TabsButton-apple')).toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+});
+
+it('correctly handles focus when navigating with left arrow <-', () => {
+  const { getByTestId } = render(<TestComponentFruits />);
+
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+
+  // we press left arrow (<-) but it should not have any effect because no tab is currently focused
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+
+  // we have to focus the button directly - `getByText('Apple…')` would not work
+  getByTestId('TabsButton-mango').focus();
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).toHaveFocus();
+
+  // <-
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+
+  // <-
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  expect(getByTestId('TabsButton-apple')).toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
+
+  // <- (should jump back to the last tab)
+  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
+  expect(getByTestId('TabsButton-mango')).toHaveFocus();
+});

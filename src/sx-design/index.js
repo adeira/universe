@@ -7,7 +7,6 @@ export { default as useSxDesignContext } from './src/useSxDesignContext';
 export { default as Badge } from './src/Badge/Badge';
 export { default as Button } from './src/Button/Button';
 export { default as ButtonLink } from './src/Button/ButtonLink';
-export { default as Emoji } from './src/Emoji/Emoji';
 export { default as Entity } from './src/Entity/Entity';
 export { default as EntityField } from './src/Entity/EntityField';
 export { default as ErrorBoundary } from './src/ErrorBoundary/ErrorBoundary';
