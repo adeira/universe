@@ -450,20 +450,6 @@
   },
   {
    "hashToText": {
-    "1rXwpKPkPHMs9WWQt7wCRQ==": "abacus emoji"
-   },
-   "filepath": "src/NavigationHeader.js",
-   "line_beg": 42,
-   "col_beg": 32,
-   "line_end": 42,
-   "col_end": 81,
-   "desc": "abacus emoji label",
-   "project": "",
-   "type": "text",
-   "jsfbt": "abacus emoji"
-  },
-  {
-   "hashToText": {
     "iCBctDdcz6yDLlNQGi9HBw==": "Total:"
    },
    "filepath": "src/pos/CheckoutReceipt.js",
@@ -534,40 +520,26 @@
   },
   {
    "hashToText": {
-    "bK+ktgyahP617ibw4AAiBg==": "Oh no! Something is broken."
+    "mh/mjO9VWPPtENDKQp6MsA==": "Oh no! Something is broken. 🤨"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
    "line_beg": 24,
    "col_beg": 8,
    "line_end": 24,
-   "col_end": 84,
+   "col_end": 87,
    "desc": "oh no failure checkout message",
    "project": "",
    "type": "text",
-   "jsfbt": "Oh no! Something is broken."
-  },
-  {
-   "hashToText": {
-    "5Of4p7aMGeNd1YsvRknZvQ==": "emoji with raised eyebrow"
-   },
-   "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 26,
-   "col_beg": 17,
-   "line_end": 26,
-   "col_end": 92,
-   "desc": "emoji with raised eyebrow label",
-   "project": "",
-   "type": "text",
-   "jsfbt": "emoji with raised eyebrow"
+   "jsfbt": "Oh no! Something is broken. 🤨"
   },
   {
    "hashToText": {
     "s8rtQvFOZDW+FkdYzzzvlw==": "What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please, {=let us know} as soon as possible!"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 30,
+   "line_beg": 26,
    "col_beg": 10,
-   "line_end": 35,
+   "line_end": 31,
    "col_end": 16,
    "desc": "checkout failure help message",
    "project": "",
@@ -579,9 +551,9 @@
     "egBP6SSzVrgpJrhdIdlR2A==": "what, how many, for how much"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 31,
+   "line_beg": 27,
    "col_beg": 61,
-   "line_end": 33,
+   "line_end": 29,
    "col_end": 21,
    "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
    "project": "",
@@ -593,9 +565,9 @@
     "Li6yQ40dR8ad7DoBK/xCGg==": "let us know"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 34,
+   "line_beg": 30,
    "col_beg": 12,
-   "line_end": 34,
+   "line_end": 30,
    "col_end": 40,
    "desc": "In the phrase: \"What now? Please, write down the checkout items ({=what, how many, for how much}) and continue with the sales to make sure customers are happy. Also, please,{=let us know} as soon as possible!\"",
    "project": "",
@@ -607,9 +579,9 @@
     "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
    },
    "filepath": "src/pos/POSCheckoutFailurePageLayout.js",
-   "line_beg": 40,
+   "line_beg": 36,
    "col_beg": 8,
-   "line_end": 40,
+   "line_end": 36,
    "col_end": 80,
    "desc": "start a new POS session button",
    "project": "",
@@ -688,40 +660,26 @@
   },
   {
    "hashToText": {
-    "+WJ8s6/GCuVjuiX9CDxdzg==": "Well done!"
+    "qsF9svf0ybW4JauipkfE5w==": "Well done! 👍"
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 14,
+   "line_beg": 13,
    "col_beg": 8,
-   "line_end": 14,
-   "col_end": 71,
+   "line_end": 13,
+   "col_end": 74,
    "desc": "well done checkout success message",
    "project": "",
    "type": "text",
-   "jsfbt": "Well done!"
-  },
-  {
-   "hashToText": {
-    "xOnN5FZLRgGOCj72rGTwhg==": "thumbs up"
-   },
-   "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 15,
-   "col_beg": 22,
-   "line_end": 15,
-   "col_end": 71,
-   "desc": "thumbs up emoji label",
-   "project": "",
-   "type": "text",
-   "jsfbt": "thumbs up"
+   "jsfbt": "Well done! 👍"
   },
   {
    "hashToText": {
     "ZG+l+9644F97vASBBKmFzg==": "You can now go back and serve another customer!"
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 17,
+   "line_beg": 15,
    "col_beg": 10,
-   "line_end": 19,
+   "line_end": 17,
    "col_end": 16,
    "desc": "success checkout help message",
    "project": "",
@@ -733,9 +691,9 @@
     "ixWIW0sWjo/M0DaH+nE0Ug==": "Start a new POS session"
    },
    "filepath": "src/pos/POSCheckoutSuccessPageLayout.js",
-   "line_beg": 23,
+   "line_beg": 21,
    "col_beg": 8,
-   "line_end": 23,
+   "line_end": 21,
    "col_end": 80,
    "desc": "start a new POS session button",
    "project": "",
