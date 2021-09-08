@@ -6,8 +6,10 @@ import * as React from 'react';
 
 import sharedButtonStyles from './styles';
 
+type RestrictedReactNode = number | Fbt | Iterable<RestrictedReactNode>;
+
 type Props = {
-  +'children': Fbt | RestrictedElement<typeof Icon>,
+  +'children': RestrictedReactNode | RestrictedElement<typeof Icon>,
   +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
   +'type'?:
     | 'submit' // The button submits the form data to the server.
