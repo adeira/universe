@@ -1,5 +1,7 @@
 .storybook
 __flowtests__
 __tests__
+src/stories
 
 **/*.stories.js
+**/*.stories.mdx
