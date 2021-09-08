@@ -78,7 +78,6 @@ export default function ProductsGridModalBody(props: Props): Node {
               size="large"
               tint={selectedProductAddons.has(addon.id) ? 'secondary' : 'default'}
               onClick={() => toggleSelectedAddon(addon.id, addon.name, addon.priceExtra.unitAmount)}
-              // $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/3091
             >
               {addon.name} (
               {MoneyFn({
