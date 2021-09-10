@@ -422,26 +422,12 @@
   },
   {
    "hashToText": {
-    "sHHk/SaT51d5NWanXexMiw==": "Ledger"
+    "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 35,
    "col_beg": 8,
    "line_end": 35,
-   "col_end": 58,
-   "desc": "navigation link to ledger",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Ledger"
-  },
-  {
-   "hashToText": {
-    "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
-   },
-   "filepath": "src/Navigation.js",
-   "line_beg": 38,
-   "col_beg": 8,
-   "line_end": 38,
    "col_end": 81,
    "desc": "navigation link to point of sales sessions",
    "project": "",
@@ -733,9 +719,9 @@
     "tqJr7GmSh3z3wJYjUYZlWQ==": "Confirm selection ({numberOfSelectedProducts} addons)"
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
-   "line_beg": 114,
+   "line_beg": 113,
    "col_beg": 10,
-   "line_end": 119,
+   "line_end": 118,
    "col_end": 16,
    "desc": "confirm selected product addons button title",
    "project": "",
@@ -747,9 +733,9 @@
     "wqB8FQTQbyLhRSk8t2qAYQ==": "Confirm selection (no addons)"
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
-   "line_beg": 121,
+   "line_beg": 120,
    "col_beg": 10,
-   "line_end": 123,
+   "line_end": 122,
    "col_end": 16,
    "desc": "confirm selected product without addons button title",
    "project": "",
