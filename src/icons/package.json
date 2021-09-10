@@ -23,7 +23,7 @@
     "@svgr/core": "^5.5.0",
     "@svgr/plugin-svgo": "^5.5.0",
     "change-case": "^4.1.2",
-    "prettier": "^2.3.2"
+    "prettier": "^2.4.0"
   },
   "peerDependencies": {
     "react": "^17.0.2"
