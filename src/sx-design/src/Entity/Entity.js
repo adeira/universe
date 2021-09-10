@@ -11,7 +11,10 @@ type Props = {
 };
 
 export default function Entity(props: Props): Node {
-  invariant(props.children != null, 'Component Entity has to be called with some children.');
+  invariant(
+    props.children != null,
+    'Component `Entity` has to be called with at least one `EntityField` children.',
+  );
 
   return <div className={styles('entity')}>{props.children}</div>;
 }
