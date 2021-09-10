@@ -1,15 +1,15 @@
 // @flow
 
-import { type Node } from 'react';
+import { type Node, type Element } from 'react';
 import fbt from 'fbt';
 
 import { Link, Text } from '../index';
 
-export const testString = (): Node => {
+export const testString = (): Element<typeof Text> => {
   return <Text>test string</Text>;
 };
 
-export const testFbt = (): Node => {
+export const testFbt = (): Element<typeof Text> => {
   return (
     <Text>
       <fbt desc="test" doNotExtract={true}>
@@ -19,7 +19,7 @@ export const testFbt = (): Node => {
   );
 };
 
-export const testAnchor = (): Node => {
+export const testAnchor = (): Element<typeof Text> => {
   return (
     <Text>
       test <Link href="https://en.wikipedia.org/wiki/Imao_Keinen">yadada</Link> anchor
@@ -27,11 +27,11 @@ export const testAnchor = (): Node => {
   );
 };
 
-export const testStringWithNumber = (): Node => {
+export const testStringWithNumber = (): Element<typeof Text> => {
   return <Text>test string with number: {-1}</Text>;
 };
 
-export const testTextInsideTextInsideText = (): Node => {
+export const testTextInsideTextInsideText = (): Element<typeof Text> => {
   return (
     <Text>
       text{' '}

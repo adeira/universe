@@ -1,17 +1,17 @@
 // @flow
 
 import Icon from '@adeira/icons';
-import { type Node } from 'react';
+import { type Node, type Element } from 'react';
 import fbt from 'fbt';
 
 import { Button } from '../index';
 
-export const testString = (): Node => {
+export const testString = (): Element<typeof Button> => {
   // We allow strings as children to be compatible with applications not using FBT.
   return <Button onClick={() => {}}>test string</Button>;
 };
 
-export const testFbt = (): Node => {
+export const testFbt = (): Element<typeof Button> => {
   return (
     <Button onClick={() => {}}>
       <fbt desc="test" doNotExtract={true}>
@@ -21,7 +21,7 @@ export const testFbt = (): Node => {
   );
 };
 
-export const testIcon = (): Node => {
+export const testIcon = (): Element<typeof Button> => {
   return (
     <Button onClick={() => {}}>
       <Icon name="timeline" data-testid="timeline_icon" />
@@ -109,7 +109,7 @@ export const testInvalidProperties = (): Node => {
   );
 };
 
-export const testMissingOnClickCallback = (): Node => {
+export const testMissingOnClickCallback = (): Element<typeof Button> => {
   // $FlowExpectedError[prop-missing]: property onClick is missing
   return <Button>missing onClick</Button>;
 };
