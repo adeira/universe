@@ -21,7 +21,7 @@ export default function CheckoutReceipt(props: Props): Node {
     <div className={styles('summary')}>
       {selectedItems.map((item) => {
         return (
-          <div key={item.itemID} className={styles('summaryRow')}>
+          <div key={item.__compositeID} className={styles('summaryRow')}>
             <LayoutInline justifyContent="space-between">
               <div>
                 <Text as="small">{item.units}&times;</Text> {item.itemTitle}
@@ -64,7 +64,7 @@ export default function CheckoutReceipt(props: Props): Node {
                   aria-label="minus"
                   size="small"
                   tint="secondary"
-                  onClick={() => decreaseUnits(item.itemID)}
+                  onClick={() => decreaseUnits(item.__compositeID)}
                 >
                   <Icon name="minus" />
                 </Button>
@@ -72,7 +72,7 @@ export default function CheckoutReceipt(props: Props): Node {
                   aria-label="plus"
                   size="small"
                   tint="secondary"
-                  onClick={() => increaseUnits(item.itemID)}
+                  onClick={() => increaseUnits(item.__compositeID)}
                 >
                   <Icon name="plus" />
                 </Button>
