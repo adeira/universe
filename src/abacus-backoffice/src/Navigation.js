@@ -31,9 +31,6 @@ export default function Navigation(): React.Node {
       <Link href="/employees" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to employees">Employees</fbt>
       </Link>
-      <Link href="/ledger" xstyle={styles.link} xstyleActive={styles.linkActive}>
-        <fbt desc="navigation link to ledger">Ledger</fbt>
-      </Link>
       <Link href="/pos" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to point of sales sessions">POS sessions</fbt>
       </Link>
