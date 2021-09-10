@@ -1,14 +1,16 @@
 // @flow
 
 import { invariant } from '@adeira/js';
-import React, { type Node } from 'react';
+import React, { type Node, type Element } from 'react';
 import sx from '@adeira/sx';
+
+type RestrictedReactNode = number | Fbt | Element<any> | null;
 
 // Both `title` and `description` are optional. You can choose which one (or both) you want to use
 // resulting in a different style. However, you cannot avoid them both.
 type Props = {
-  +title?: Node,
-  +description?: Node,
+  +title?: RestrictedReactNode,
+  +description?: RestrictedReactNode,
 };
 
 export default function EntityField(props: Props): Node {
