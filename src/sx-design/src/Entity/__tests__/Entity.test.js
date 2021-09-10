@@ -27,7 +27,7 @@ it('throws an error when used without any children', () => {
 
   // $FlowExpectedError[prop-missing]: missing required children (on purpose)
   expect(() => render(<Entity />)).toThrowErrorMatchingInlineSnapshot(
-    `"Component Entity has to be called with some children."`,
+    `"Component \`Entity\` has to be called with at least one \`EntityField\` children."`,
   );
 
   consoleSpy.mockRestore();
