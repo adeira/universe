@@ -27,6 +27,13 @@ impl PosCheckout {
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
+pub(in crate::pos) struct PosCheckoutProductAddonInput {
+    pub(crate) product_addon_id: String,
+    pub(crate) product_addon_extra_price_unit_amount: i32,
+    pub(crate) product_addon_extra_price_unit_amount_currency: SupportedCurrency,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub(in crate::pos) struct PosCheckoutProductInput {
     // Original product ID just in case it's needed one day (even though it might be already
     // deleted). Already deleted product should not be a big deal since we copy here all the
@@ -37,6 +44,7 @@ pub(in crate::pos) struct PosCheckoutProductInput {
     pub(crate) product_units: i32,
     pub(crate) product_price_unit_amount: i32,
     pub(crate) product_price_unit_amount_currency: SupportedCurrency,
+    pub(crate) product_addons: Option<Vec<PosCheckoutProductAddonInput>>,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -95,7 +103,7 @@ mod tests {
     #[tokio::test]
     async fn create_checkout_test() {
         let db_name = "create_checkout_test";
-        let pool = prepare_empty_test_database(&db_name).await;
+        let pool = prepare_empty_test_database(db_name).await;
 
         // 1) create first checkout
         create_checkout(
@@ -108,6 +116,7 @@ mod tests {
                         product_units: 1,
                         product_price_unit_amount: 120,
                         product_price_unit_amount_currency: SupportedCurrency::MXN,
+                        product_addons: None,
                     },
                     PosCheckoutProductInput {
                         product_id: String::from("products/2"),
@@ -115,6 +124,7 @@ mod tests {
                         product_units: 2,
                         product_price_unit_amount: 150,
                         product_price_unit_amount_currency: SupportedCurrency::MXN,
+                        product_addons: None,
                     },
                 ],
             },
@@ -132,6 +142,7 @@ mod tests {
                     product_units: 5,
                     product_price_unit_amount: 200,
                     product_price_unit_amount_currency: SupportedCurrency::MXN,
+                    product_addons: None,
                 }],
             },
         )
@@ -145,6 +156,62 @@ mod tests {
             "[].created_date" => "[REDACTED]",
         });
 
-        cleanup_test_database(&db_name).await;
+        cleanup_test_database(db_name).await;
+    }
+
+    #[ignore]
+    #[tokio::test]
+    async fn create_checkout_with_addons_test() {
+        let db_name = "create_checkout_with_addons_test";
+        let pool = prepare_empty_test_database(db_name).await;
+
+        // 1) create first checkout
+        create_checkout(
+            &pool,
+            &PosCheckoutInput {
+                selected_products: vec![
+                    PosCheckoutProductInput {
+                        product_id: String::from("products/1"),
+                        product_name: String::from("Product name 1"),
+                        product_units: 1,
+                        product_price_unit_amount: 100,
+                        product_price_unit_amount_currency: SupportedCurrency::MXN,
+                        product_addons: None,
+                    },
+                    PosCheckoutProductInput {
+                        product_id: String::from("products/1"),
+                        product_name: String::from("Product name 1 - with addons"),
+                        product_units: 1,
+                        product_price_unit_amount: 100,
+                        product_price_unit_amount_currency: SupportedCurrency::MXN,
+                        product_addons: Some(vec![
+                            PosCheckoutProductAddonInput {
+                                product_addon_id: String::from("product_addons/1"),
+                                product_addon_extra_price_unit_amount: 10,
+                                product_addon_extra_price_unit_amount_currency:
+                                    SupportedCurrency::MXN,
+                            },
+                            PosCheckoutProductAddonInput {
+                                product_addon_id: String::from("product_addons/2"),
+                                product_addon_extra_price_unit_amount: 20,
+                                product_addon_extra_price_unit_amount_currency:
+                                    SupportedCurrency::MXN,
+                            },
+                        ]),
+                    },
+                ],
+            },
+        )
+        .await
+        .unwrap();
+
+        // 2) return the checkout stats
+        let all_checkouts = get_all_checkouts(&pool).await.unwrap();
+        insta::assert_ron_snapshot!(all_checkouts, {
+            "[]._id" => "[REDACTED]",
+            "[].created_date" => "[REDACTED]",
+        });
+
+        cleanup_test_database(db_name).await;
     }
 }

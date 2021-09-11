@@ -1,4 +1,4 @@
-# @generated SignedSource<<37869463ddc99ae87e1bb87fad9ced7b>>
+# @generated SignedSource<<2669b7640be2d2f10b45d00f533aab09>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -10,6 +10,7 @@ input PosCheckoutProductInput {
   productUnits: Int!
   productPriceUnitAmount: Int!
   productPriceUnitAmountCurrency: SupportedCurrency!
+  productAddons: [PosCheckoutProductAddonInput!]
 }
 
 type DeauthorizePayload {
@@ -105,6 +106,12 @@ type Query {
   auth: AuthQuery!
   commerce: CommerceQuery!
   menu: MenuQuery!
+}
+
+input PosCheckoutProductAddonInput {
+  productAddonId: ID!
+  productAddonExtraPriceUnitAmount: Int!
+  productAddonExtraPriceUnitAmountCurrency: SupportedCurrency!
 }
 
 type WhoamiPayload {

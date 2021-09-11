@@ -7,7 +7,7 @@ import { atom, selector, useRecoilState, DefaultValue, useRecoilValue } from 're
 export type AtomItemType = {
   +__compositeID: string, // composite of product ID and addons IDs for deduplication
   +units: number,
-  +itemID: string, // original product ID
+  +itemID: string, // original product ID (careful, it's actually a _key from ArangoDB)
   +itemTitle: string,
   +itemUnitAmount: number,
   +itemAddons?: $ReadOnlyArray<{
