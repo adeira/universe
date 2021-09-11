@@ -2,13 +2,15 @@
 
 import sx from '@adeira/sx';
 import { fbt } from 'fbt';
-import React, { type Node } from 'react';
-import { graphql, useLazyLoadQuery } from '@adeira/relay';
+import React, { useState, type Node } from 'react';
+import { graphql, useLazyLoadQuery, useQueryLoader } from '@adeira/relay';
 import { Note, ProductCard } from '@adeira/sx-design';
 
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import useApplicationLocale from '../useApplicationLocale';
+import ProductsGridModal from './ProductsGridModal';
 import useSelectedItemsApi from './recoil/selectedItemsState';
+import ProductsGridModalBodyQuery from './__generated__/ProductsGridModalBodyQuery.graphql';
 import type { ProductsGridPosQuery } from './__generated__/ProductsGridPosQuery.graphql';
 
 type Props = {
@@ -16,6 +18,10 @@ type Props = {
 };
 
 export default function ProductsGrid(props: Props): Node {
+  const [addonsModal, setAddonsModal] = useState({
+    isOpen: false,
+    productKey: null,
+  });
   const applicationLocale = useApplicationLocale();
   const { select } = useSelectedItemsApi();
   const data = useLazyLoadQuery<ProductsGridPosQuery>(
@@ -43,6 +49,7 @@ export default function ProductsGrid(props: Props): Node {
               unitAmount
               unitAmountCurrency
             }
+            hasSelectedAddons
           }
         }
       }
@@ -60,13 +67,32 @@ export default function ProductsGrid(props: Props): Node {
     },
   );
 
+  const [modalPreloadedQueryRef, preloadModalQuery] = useQueryLoader(
+    ProductsGridModalBodyQuery,
+    undefined,
+  );
+
   const handleItemClick = (productID, product) => {
-    select({
-      itemID: productID,
-      itemTitle: product.name,
-      itemUnitAmount: product.price.unitAmount,
-      units: 1,
-    });
+    if (product.hasSelectedAddons === true) {
+      preloadModalQuery(
+        {
+          clientLocale: applicationLocale.graphql,
+          productKey: productID,
+        },
+        { fetchPolicy: 'store-and-network' },
+      );
+      setAddonsModal({
+        isOpen: true,
+        productKey: productID,
+      });
+    } else {
+      select({
+        itemID: productID,
+        itemTitle: product.name,
+        itemUnitAmount: product.price.unitAmount,
+        units: 1,
+      });
+    }
   };
 
   if (data.commerce.products.length === 0) {
@@ -77,31 +103,44 @@ export default function ProductsGrid(props: Props): Node {
     );
   }
 
-  return data.commerce.products.map((product) => {
-    if (product == null) {
-      return null; // TODO: 🤔
-    }
-
-    return (
-      <button
-        type="button"
-        key={product.id}
-        className={styles('productButton')}
-        onClick={() => handleItemClick(product.key, product)}
-      >
-        <ProductCard
-          title={product.name}
-          priceUnitAmount={
-            product.price.unitAmount / 100 // adjusted for centavo
-          }
-          priceUnitAmountCurrency={refineSupportedCurrencies(product.price.unitAmountCurrency)}
-          imgBlurhash={product.imageCover?.blurhash}
-          imgSrc={product.imageCover?.url}
-          imgAlt={product.name}
+  return (
+    <>
+      {modalPreloadedQueryRef != null && addonsModal.productKey != null ? (
+        <ProductsGridModal
+          isOpen={addonsModal.isOpen}
+          onClose={() => setAddonsModal({ isOpen: false })}
+          preloadedQueryRef={modalPreloadedQueryRef}
+          productKey={addonsModal.productKey}
         />
-      </button>
-    );
-  });
+      ) : null}
+
+      {data.commerce.products.map((product) => {
+        if (product == null) {
+          return null; // TODO: 🤔
+        }
+
+        return (
+          <button
+            type="button"
+            key={product.id}
+            className={styles('productButton')}
+            onClick={() => handleItemClick(product.key, product)}
+          >
+            <ProductCard
+              title={product.name}
+              priceUnitAmount={
+                product.price.unitAmount / 100 // adjusted for centavo
+              }
+              priceUnitAmountCurrency={refineSupportedCurrencies(product.price.unitAmountCurrency)}
+              imgBlurhash={product.imageCover?.blurhash}
+              imgSrc={product.imageCover?.url}
+              imgAlt={product.name}
+            />
+          </button>
+        );
+      })}
+    </>
+  );
 }
 
 const styles = sx.create({

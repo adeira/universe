@@ -53,6 +53,7 @@ it('appends items as expected', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -80,6 +81,7 @@ it('appends items as expected', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -87,6 +89,7 @@ it('appends items as expected', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -114,6 +117,7 @@ it('appends items as expected', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -121,6 +125,7 @@ it('appends items as expected', () => {
           "units": 2,
         },
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -176,6 +181,7 @@ it('manipulates item counts correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -183,6 +189,7 @@ it('manipulates item counts correctly', () => {
           "units": 2,
         },
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -205,6 +212,7 @@ it('manipulates item counts correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -212,6 +220,7 @@ it('manipulates item counts correctly', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -234,6 +243,7 @@ it('manipulates item counts correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -312,6 +322,7 @@ it('preserves order of insertion', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -319,6 +330,7 @@ it('preserves order of insertion', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -362,6 +374,7 @@ it('preserves order of insertion', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -369,6 +382,7 @@ it('preserves order of insertion', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -419,6 +433,7 @@ it('resets selected items correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -426,6 +441,7 @@ it('resets selected items correctly', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_2",
           "itemAddons": Array [],
           "itemID": "i_2",
           "itemTitle": "I title 2",
@@ -483,6 +499,7 @@ it('appends items with addons as expected', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -523,6 +540,7 @@ it('appends items with addons as expected', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -530,6 +548,7 @@ it('appends items with addons as expected', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_1%i_a_1%i_a_2",
           "itemAddons": Array [
             Object {
               "itemAddonExtraPrice": 1000,
@@ -542,7 +561,7 @@ it('appends items with addons as expected', () => {
               "itemAddonTitle": "I addon title 2",
             },
           ],
-          "itemID": "i_1%i_a_1%i_a_2",
+          "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 2,
@@ -596,6 +615,7 @@ it('appends items with addons with a stable order', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1%i_a_1%i_a_2",
           "itemAddons": Array [
             Object {
               "itemAddonExtraPrice": 1000,
@@ -608,7 +628,7 @@ it('appends items with addons with a stable order', () => {
               "itemAddonTitle": "I addon title 2",
             },
           ],
-          "itemID": "i_1%i_a_1%i_a_2",
+          "itemID": "i_1",
           "itemTitle": "I title 1",
           "itemUnitAmount": 10000,
           "units": 2,
@@ -695,6 +715,7 @@ it('increases item units with addons correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -702,6 +723,7 @@ it('increases item units with addons correctly', () => {
           "units": 1,
         },
         Object {
+          "__compositeID": "i_2%i_a_1%i_a_2",
           "itemAddons": Array [
             Object {
               "itemAddonExtraPrice": 1000,
@@ -714,7 +736,7 @@ it('increases item units with addons correctly', () => {
               "itemAddonTitle": "I addon title 2",
             },
           ],
-          "itemID": "i_2%i_a_1%i_a_2",
+          "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 15000,
           "units": 2,
@@ -735,6 +757,7 @@ it('increases item units with addons correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -742,6 +765,7 @@ it('increases item units with addons correctly', () => {
           "units": 2,
         },
         Object {
+          "__compositeID": "i_2%i_a_1%i_a_2",
           "itemAddons": Array [
             Object {
               "itemAddonExtraPrice": 1000,
@@ -754,7 +778,7 @@ it('increases item units with addons correctly', () => {
               "itemAddonTitle": "I addon title 2",
             },
           ],
-          "itemID": "i_2%i_a_1%i_a_2",
+          "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 15000,
           "units": 2,
@@ -775,6 +799,7 @@ it('increases item units with addons correctly', () => {
     Object {
       "selectedItems": Immutable.List [
         Object {
+          "__compositeID": "i_1",
           "itemAddons": Array [],
           "itemID": "i_1",
           "itemTitle": "I title 1",
@@ -782,6 +807,7 @@ it('increases item units with addons correctly', () => {
           "units": 2,
         },
         Object {
+          "__compositeID": "i_2%i_a_1%i_a_2",
           "itemAddons": Array [
             Object {
               "itemAddonExtraPrice": 1000,
@@ -794,7 +820,7 @@ it('increases item units with addons correctly', () => {
               "itemAddonTitle": "I addon title 2",
             },
           ],
-          "itemID": "i_2%i_a_1%i_a_2",
+          "itemID": "i_2",
           "itemTitle": "I title 2",
           "itemUnitAmount": 15000,
           "units": 3,

@@ -116,7 +116,7 @@ const styles = sx.create({
   errorDev: {
     width: 500,
     fontSize: 14,
-    textAlign: 'left',
+    textAlign: 'start',
     paddingBlock: '.5rem',
     paddingInline: '2rem',
     color: 'rgba(var(--sx-warning-dark))',

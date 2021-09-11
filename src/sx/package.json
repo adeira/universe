@@ -24,7 +24,7 @@
     "fast-levenshtein": "^3.0.0",
     "json-stable-stringify": "^1.0.1",
     "mdn-data": "^2.0.21",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "stylis": "^4.0.10"
   },
   "peerDependencies": {

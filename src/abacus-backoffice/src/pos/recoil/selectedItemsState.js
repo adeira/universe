@@ -5,8 +5,9 @@ import { isBrowser } from '@adeira/js';
 import { atom, selector, useRecoilState, DefaultValue, useRecoilValue } from 'recoil';
 
 export type AtomItemType = {
+  +__compositeID: string, // composite of product ID and addons IDs for deduplication
   +units: number,
-  +itemID: string,
+  +itemID: string, // original product ID
   +itemTitle: string,
   +itemUnitAmount: number,
   +itemAddons?: $ReadOnlyArray<{
@@ -83,7 +84,13 @@ const selectedItemsStatsSelector = selector<SelectorItem>({
 
 export default function useSelectedItemsApi(): {
   +selectedItems: AtomValue,
-  +select: (AtomItemType) => void,
+  +select: (
+    $Diff<
+      AtomItemType,
+      // composite ID is being computed when the idem is selected (hence the omission)
+      { +__compositeID: string },
+    >,
+  ) => void,
   +increaseUnits: (string) => void,
   +decreaseUnits: (string) => void,
   +reset: () => void,
@@ -96,7 +103,7 @@ export default function useSelectedItemsApi(): {
     selectedItems,
     // Select adds a new item to the array while preserving order of the inserts. It de-duplicates
     // the items by their `itemID` so already existing items increase number of units instead.
-    select: (newItem: AtomItemType) => {
+    select: (newItem) => {
       setSelectedItems((previousItems) => {
         // Sort the addons so we can achieve stable ID and order:
         const newItemAddons = [...(newItem.itemAddons ?? [])].sort((a, b) => {
@@ -112,17 +119,18 @@ export default function useSelectedItemsApi(): {
           return 0;
         });
 
-        // Item ID composes of the original item ID with additional item addons IDs.
-        const newItemID =
+        // Item ID composes of the original item ID with additional item addons IDs (we use it later for deduplication).
+        const __compositeID =
           newItemAddons.reduce((acc, curVal) => {
             return `${acc}%${curVal.itemAddonID}`;
           }, newItem.itemID) ?? newItem.itemID;
 
-        const itemIndex = previousItems.findIndex((item) => item.itemID === newItemID);
+        const itemIndex = previousItems.findIndex((item) => item.__compositeID === __compositeID);
         if (itemIndex === -1) {
           return previousItems.push({
+            __compositeID,
             units: newItem.units,
-            itemID: newItemID,
+            itemID: newItem.itemID,
             itemTitle: newItem.itemTitle,
             itemUnitAmount: newItem.itemUnitAmount,
             itemAddons: newItemAddons,
@@ -145,7 +153,10 @@ export default function useSelectedItemsApi(): {
     // This function expects already some items in memory and simply increases number of units.
     increaseUnits: (itemID) => {
       setSelectedItems((previousItems) => {
-        const itemIndex = previousItems.findIndex((item) => item.itemID === itemID);
+        const itemIndex = previousItems.findIndex((item) => item.__compositeID === itemID);
+        if (itemIndex === -1) {
+          return previousItems;
+        }
         const previousItem = previousItems.get(itemIndex);
         if (previousItem == null) {
           return previousItems;
@@ -157,7 +168,7 @@ export default function useSelectedItemsApi(): {
     // This function expects already some items in memory and simply decreases number of units.
     decreaseUnits: (itemID) => {
       setSelectedItems((previousItems) => {
-        const itemIndex = previousItems.findIndex((item) => item.itemID === itemID);
+        const itemIndex = previousItems.findIndex((item) => item.__compositeID === itemID);
         if (itemIndex === -1) {
           return previousItems;
         }
