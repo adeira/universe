@@ -72,22 +72,22 @@ export default function ProductsGrid(props: Props): Node {
     undefined,
   );
 
-  const handleItemClick = (productID, product) => {
+  const handleItemClick = (productKey, product) => {
     if (product.hasSelectedAddons === true) {
       preloadModalQuery(
         {
           clientLocale: applicationLocale.graphql,
-          productKey: productID,
+          productKey: productKey,
         },
         { fetchPolicy: 'store-and-network' },
       );
       setAddonsModal({
         isOpen: true,
-        productKey: productID,
+        productKey: productKey,
       });
     } else {
       select({
-        itemID: productID,
+        itemID: productKey,
         itemTitle: product.name,
         itemUnitAmount: product.price.unitAmount,
         units: 1,
