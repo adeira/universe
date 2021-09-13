@@ -12,6 +12,12 @@ export type PosCheckoutProductInput = {|
   productUnits: number,
   productPriceUnitAmount: number,
   productPriceUnitAmountCurrency: SupportedCurrency,
+  productAddons?: ?$ReadOnlyArray<PosCheckoutProductAddonInput>,
+|};
+export type PosCheckoutProductAddonInput = {|
+  productAddonId: string,
+  productAddonExtraPriceUnitAmount: number,
+  productAddonExtraPriceUnitAmountCurrency: SupportedCurrency,
 |};
 export type POSCheckoutPageLayoutMutationVariables = {|
   checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>,

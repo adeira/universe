@@ -29,15 +29,82 @@ export const testIcon = (): Element<typeof Button> => {
   );
 };
 
-export const testInvalidTypes = (): Node => {
+export const testMultipleRestrictedNodes = (): Node => {
+  return (
+    <Button onClick={() => {}}>
+      {'test string A'} {-1} {'test string B'}
+    </Button>
+  );
+};
+
+export const testValidTints = (): Node => {
+  return (
+    <>
+      <Button onClick={() => {}} tint="default">
+        default
+      </Button>
+      <Button onClick={() => {}} tint="secondary">
+        secondary
+      </Button>
+      <Button onClick={() => {}} tint="success">
+        success
+      </Button>
+      <Button onClick={() => {}} tint="warning">
+        warning
+      </Button>
+      <Button onClick={() => {}} tint="error">
+        error
+      </Button>
+    </>
+  );
+};
+
+export const testValidProperties = (): Node => {
+  return (
+    <Button
+      onClick={() => {}}
+      isDisabled={true}
+      aria-label="ellipsis"
+      type="reset"
+      data-testid="test-button-id"
+      prefix={<Icon name="duplicate" />}
+      suffix={<Icon name="postcard" />}
+    >
+      …
+    </Button>
+  );
+};
+
+export const testInvalidChildrenTypes = (): Node => {
   return (
     <>
       {/* $FlowExpectedError[incompatible-type]: null is not valid */}
       <Button onClick={() => {}}>{null}</Button>
       {/* $FlowExpectedError[incompatible-type]: boolean is not valid */}
       <Button onClick={() => {}}>{true}</Button>
-      {/* $FlowExpectedError[incompatible-type]: number is not valid */}
-      <Button onClick={() => {}}>{-1}</Button>
+    </>
+  );
+};
+
+export const testInvalidProperties = (): Node => {
+  return (
+    <>
+      {/* $FlowExpectedError[incompatible-type]: invalid tint */}
+      <Button onClick={() => {}} tint="invalid">
+        invalid tint
+      </Button>
+      {/* $FlowExpectedError[incompatible-type]: invalid size */}
+      <Button onClick={() => {}} size="massive">
+        invalid size
+      </Button>
+      {/* $FlowExpectedError[incompatible-type]: invalid prefix */}
+      <Button onClick={() => {}} prefix="clipboard">
+        invalid prefix
+      </Button>
+      {/* $FlowExpectedError[incompatible-type]: invalid data-testid */}
+      <Button onClick={() => {}} data-testid={-1}>
+        invalid test id
+      </Button>
     </>
   );
 };

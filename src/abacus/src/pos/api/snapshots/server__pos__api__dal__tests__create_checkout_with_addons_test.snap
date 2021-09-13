@@ -1,0 +1,39 @@
+---
+source: src/pos/api/dal.rs
+expression: all_checkouts
+---
+[
+  PosCheckout(
+    _id: "[REDACTED]",
+    created_date: "[REDACTED]",
+    selected_products: [
+      PosCheckoutProductInput(
+        product_id: "products/1",
+        product_name: "Product name 1",
+        product_units: 1,
+        product_price_unit_amount: 100,
+        product_price_unit_amount_currency: MXN,
+        product_addons: None,
+      ),
+      PosCheckoutProductInput(
+        product_id: "products/1",
+        product_name: "Product name 1 - with addons",
+        product_units: 1,
+        product_price_unit_amount: 100,
+        product_price_unit_amount_currency: MXN,
+        product_addons: Some([
+          PosCheckoutProductAddonInput(
+            product_addon_id: "product_addons/1",
+            product_addon_extra_price_unit_amount: 10,
+            product_addon_extra_price_unit_amount_currency: MXN,
+          ),
+          PosCheckoutProductAddonInput(
+            product_addon_id: "product_addons/2",
+            product_addon_extra_price_unit_amount: 20,
+            product_addon_extra_price_unit_amount_currency: MXN,
+          ),
+        ]),
+      ),
+    ],
+  ),
+]

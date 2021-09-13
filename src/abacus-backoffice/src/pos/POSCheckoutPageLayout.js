@@ -47,7 +47,13 @@ export default function POSCheckoutPageLayout(): Node {
           productKey: item.itemID,
           productUnits: item.units,
           productPriceUnitAmount: item.itemUnitAmount,
-          productPriceUnitAmountCurrency: 'MXN',
+          productPriceUnitAmountCurrency: 'MXN', // TODO
+          productAddons:
+            item.itemAddons?.map((addon) => ({
+              productAddonId: addon.itemAddonID,
+              productAddonExtraPriceUnitAmount: addon.itemAddonExtraPrice,
+              productAddonExtraPriceUnitAmountCurrency: 'MXN', // TODO
+            })) ?? [],
         })),
       },
       onCompleted: ({ pos: { checkout } }) => {

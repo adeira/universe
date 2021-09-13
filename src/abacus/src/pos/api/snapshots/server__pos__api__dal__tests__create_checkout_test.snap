@@ -13,6 +13,7 @@ expression: all_checkouts
         product_units: 1,
         product_price_unit_amount: 120,
         product_price_unit_amount_currency: MXN,
+        product_addons: None,
       ),
       PosCheckoutProductInput(
         product_id: "products/2",
@@ -20,6 +21,7 @@ expression: all_checkouts
         product_units: 2,
         product_price_unit_amount: 150,
         product_price_unit_amount_currency: MXN,
+        product_addons: None,
       ),
     ],
   ),
@@ -33,6 +35,7 @@ expression: all_checkouts
         product_units: 5,
         product_price_unit_amount: 200,
         product_price_unit_amount_currency: MXN,
+        product_addons: None,
       ),
     ],
   ),

@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "3.3.0",
+  "version": "4.0.0",
   "main": "./src/index.js",
   "type": "commonjs",
   "sideEffects": false,
@@ -30,7 +30,7 @@
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.15.4",
     "babel-plugin-relay": "^12.0.0",
-    "commander": "^8.1.0",
+    "commander": "^8.2.0",
     "is-ci": "^3.0.0",
     "react-relay": "^12.0.0",
     "relay-compiler": "^12.0.0",

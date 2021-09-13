@@ -16,7 +16,7 @@
   "dependencies": {
     "@adeira/icons": "^1.0.0",
     "@adeira/js": "^2.1.0",
-    "@adeira/relay": "^3.3.0",
+    "@adeira/relay": "^4.0.0",
     "@adeira/sx": "^0.28.0",
     "@adeira/sx-design": "^0.19.0",
     "d3": "^7.0.1",
@@ -35,9 +35,9 @@
     "@adeira/babel-preset-adeira": "^3.0.0",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@next/bundle-analyzer": "^11.1.2",
-    "@testing-library/react": "^12.0.0",
+    "@testing-library/react": "^12.1.0",
     "@testing-library/react-hooks": "^7.0.2",
-    "babel-plugin-fbt": "^0.20.0",
+    "babel-plugin-fbt": "^0.20.1",
     "babel-plugin-fbt-runtime": "^0.9.17",
     "next-compose-plugins": "^2.2.1"
   }
