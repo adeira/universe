@@ -37,7 +37,7 @@
     "@next/bundle-analyzer": "^11.1.2",
     "@testing-library/react": "^12.0.0",
     "@testing-library/react-hooks": "^7.0.2",
-    "babel-plugin-fbt": "^0.20.0",
+    "babel-plugin-fbt": "^0.20.1",
     "babel-plugin-fbt-runtime": "^0.9.17",
     "next-compose-plugins": "^2.2.1"
   }
