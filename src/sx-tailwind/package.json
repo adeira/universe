@@ -22,7 +22,7 @@
     "change-case": "^4.1.2",
     "fast-levenshtein": "^3.0.0",
     "postcss": "^8.3.6",
-    "tailwindcss": "^2.2.14"
+    "tailwindcss": "^2.2.15"
   },
   "peerDependencies": {
     "react": "^16.13.1"
