@@ -36,21 +36,21 @@ const styles = sx.create({
   badgeTintDefault: {
     backgroundColor: 'rgba(var(--sx-foreground), 0.1)',
     color: 'rgba(var(--sx-foreground))',
-    border: '1px solid rgba(var(--sx-foreground))',
+    border: '1px solid rgba(var(--sx-foreground), 0.3)',
   },
   badgeTintError: {
     backgroundColor: 'rgba(var(--sx-error-dark), 0.1)',
     color: 'rgba(var(--sx-error-dark))',
-    border: '1px solid rgba(var(--sx-error-dark))',
+    border: '1px solid rgba(var(--sx-error-dark), 0.3)',
   },
   badgeTintSuccess: {
     backgroundColor: 'rgba(var(--sx-success-dark), 0.1)',
     color: 'rgba(var(--sx-success-dark))',
-    border: '1px solid rgba(var(--sx-success-dark))',
+    border: '1px solid rgba(var(--sx-success-dark), 0.3)',
   },
   badgeTintWarning: {
     backgroundColor: 'rgba(var(--sx-warning-dark), 0.1)',
     color: 'rgba(var(--sx-warning-dark))',
-    border: '1px solid rgba(var(--sx-warning-dark))',
+    border: '1px solid rgba(var(--sx-warning-dark), 0.3)',
   },
 });
