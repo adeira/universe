@@ -9,7 +9,7 @@ type ApiType = {
 };
 
 type SupportedTargets = 'js' | 'js-esm' | 'flow';
-type Environments = { [string]: string | $ReadOnlyArray<string>, ... };
+type Environments = { +[string]: string | $ReadOnlyArray<string>, ... };
 
 type ExternalOptions = {
   +target?: SupportedTargets,
@@ -25,7 +25,7 @@ type InternalOptions = {
   +reactRuntime: 'automatic' | 'classic',
 };
 
-type BabelRule = string | [string, { [name: string]: mixed, ... }];
+type BabelRule = string | [string, { +[name: string]: mixed, ... }];
 type BabelRules = $ReadOnlyArray<BabelRule>;
 
 */
@@ -41,6 +41,7 @@ module.exports = (
     environments: externalOptions.environments ?? {
       node: 'current',
       browsers: [
+        // TODO: remove this comment and update the browsers field:
         // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
         'last 2 versions',
         'ie >= 11',
@@ -52,9 +53,9 @@ module.exports = (
 
   let presets /*: BabelRules */ = [];
   let plugins /*: BabelRules */ = [path.join(__dirname, 'dev-expression-check.js')];
-  let parserPlugins /*: Array<string> */ = [
+  let parserPlugins /*: $ReadOnlyArray<string | [string, { +[string]: boolean }]> */ = [
     'jsx',
-    'flow',
+    ['flow', { enums: true }],
     'flowComments',
     'bigInt', // https://github.com/tc39/proposal-bigint
     'throwExpressions', // https://github.com/tc39/proposal-throw-expressions
@@ -96,6 +97,7 @@ module.exports = (
       path.join(__dirname, 'dev-expression.js'),
       path.join(__dirname, 'adeira-js-invariant.js'),
       path.join(__dirname, 'adeira-js-warning.js'),
+      'babel-plugin-transform-flow-enums',
       [
         '@babel/plugin-transform-flow-strip-types',
         {
