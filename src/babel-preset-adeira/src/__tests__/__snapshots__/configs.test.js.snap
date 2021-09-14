@@ -10,7 +10,12 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions",
@@ -34,7 +39,12 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions",
@@ -58,7 +68,12 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions",
@@ -82,7 +97,12 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions",
@@ -106,7 +126,12 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions",
@@ -130,7 +155,12 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions",
@@ -173,6 +203,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -193,7 +224,12 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -232,6 +268,7 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -252,7 +289,12 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -288,6 +330,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -308,7 +351,12 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -344,6 +392,7 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -364,7 +413,12 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -404,6 +458,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -424,7 +479,12 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -464,6 +524,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -484,7 +545,12 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -523,6 +589,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -543,7 +610,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -582,6 +654,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -602,7 +675,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -638,6 +716,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -658,7 +737,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -694,6 +778,7 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -714,7 +799,12 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -754,6 +844,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -774,7 +865,12 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
@@ -814,6 +910,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
     "<BABEL_PRESET_ROOT>/src/dev-expression.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-invariant.js",
     "<BABEL_PRESET_ROOT>/src/adeira-js-warning.js",
+    "babel-plugin-transform-flow-enums",
     [
       "@babel/plugin-transform-flow-strip-types",
       {
@@ -834,7 +931,12 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
   "parserOpts": {
     "plugins": [
       "jsx",
-      "flow",
+      [
+        "flow",
+        {
+          "enums": true
+        }
+      ],
       "flowComments",
       "bigInt",
       "throwExpressions"
