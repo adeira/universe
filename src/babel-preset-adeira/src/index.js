@@ -41,10 +41,9 @@ module.exports = (
     environments: externalOptions.environments ?? {
       node: 'current',
       browsers: [
-        // TODO: remove this comment and update the browsers field:
-        // https://gitlab.skypicker.com/frontend/frontend/blob/master/webpack.common.js
-        'last 2 versions',
-        'ie >= 11',
+        // See: npx browserslist 'defaults'
+        // https://github.com/browserslist/browserslist/blob/49af84894d7eb8a043f2b063f62efed71bb9ca09/index.js#L517-L522
+        'defaults',
       ],
     },
     debug: externalOptions.debug ?? false,
@@ -53,11 +52,11 @@ module.exports = (
 
   let presets /*: BabelRules */ = [];
   let plugins /*: BabelRules */ = [path.join(__dirname, 'dev-expression-check.js')];
-  let parserPlugins /*: $ReadOnlyArray<string | [string, { +[string]: boolean }]> */ = [
+  const parserPlugins /*: $ReadOnlyArray<string | [string, { +[string]: boolean }]> */ = [
+    // See: https://babeljs.io/docs/en/babel-parser#plugins
     'jsx',
     ['flow', { enums: true }],
     'flowComments',
-    'bigInt', // https://github.com/tc39/proposal-bigint
     'throwExpressions', // https://github.com/tc39/proposal-throw-expressions
   ];
   let retainLines = false;
@@ -65,14 +64,6 @@ module.exports = (
   const target = options.target;
   if (target === 'flow') {
     plugins = plugins.concat([path.join(__dirname, 'dev-declaration.js')]);
-    parserPlugins = parserPlugins.concat([
-      // These parser options are relevant only to Flow because JS targets
-      // enable them via necessary transpilation plugins.
-      'classPrivateProperties', // https://github.com/tc39/proposal-private-fields
-      'classProperties', // https://github.com/tc39/proposal-class-public-fields
-      'numericSeparator', // https://github.com/tc39/proposal-numeric-separator
-      'objectRestSpread', // https://github.com/tc39/proposal-object-rest-spread
-    ]);
     retainLines = true;
   } else if (target === 'js' || target === 'js-esm') {
     const supportsESM = target === 'js-esm';
@@ -107,9 +98,6 @@ module.exports = (
           allowDeclareFields: true,
         },
       ],
-      '@babel/plugin-proposal-class-properties',
-      '@babel/plugin-proposal-object-rest-spread',
-      '@babel/plugin-proposal-numeric-separator',
       '@babel/plugin-proposal-throw-expressions',
       // Transform runtime plugin turns common chunks of code into imports. However, this
       // requires `@babel/runtime` dependency thus we are requiring it as well.
@@ -130,8 +118,6 @@ module.exports = (
     presets,
     plugins,
     parserOpts: {
-      // see: https://babeljs.io/docs/en/babel-parser#plugins
-      // Candidates: classPrivateMethods, v8intrinsic (__DEV__)
       plugins: parserPlugins,
     },
     retainLines,
