@@ -4,11 +4,9 @@
   "version": "0.0.0",
   "license": "UNLICENSED",
   "dependencies": {
-    "@adeira/flow-config-parser": "^0.3.0",
     "@adeira/js": "^2.1.0",
     "@adeira/monorepo-npm-publisher": "^2.0.0",
     "@adeira/monorepo-utils": "^0.11.0",
-    "@adeira/signed-source": "^2.0.0",
     "chalk": "^4.1.2"
   }
 }
