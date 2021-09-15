@@ -13,8 +13,6 @@ module.exports = {
   verbose: false,
   globals: {
     __DEV__: true,
-    __SRC_ROOT__: monorepoSrcRoot,
-    __SRC_PACKAGES_ROOT__: (path.join(monorepoSrcRoot, 'packages') /*: string */),
   },
   transform: {
     '^.+\\.js$': 'babel-jest',
