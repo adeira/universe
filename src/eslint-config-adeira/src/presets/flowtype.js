@@ -53,6 +53,7 @@ module.exports = ({
     'flowtype/require-valid-file-annotation': [ERROR, 'always'],
     'flowtype/require-variable-type': OFF,
     'flowtype/sort-keys': OFF,
+    'flowtype/sort-type-union-intersection-members': OFF,
     'flowtype/spread-exact-type': OFF, // TODO: WARN?
     'flowtype/type-id-match': OFF,
     'flowtype/type-import-style': OFF,

@@ -187,6 +187,7 @@ Object {
     "flowtype/require-variable-type": 0,
     "flowtype/semi": "off",
     "flowtype/sort-keys": 0,
+    "flowtype/sort-type-union-intersection-members": 0,
     "flowtype/space-after-type-colon": "off",
     "flowtype/space-before-generic-bracket": "off",
     "flowtype/space-before-type-colon": "off",
