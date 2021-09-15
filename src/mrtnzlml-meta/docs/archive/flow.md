@@ -8,6 +8,41 @@ sidebar_label: Flow Archive
 This is a collection of outdated sections that are no longer valid or somehow inaccurate. Current docs can be found here: [flow meta](../flow)
 :::
 
+## Enums
+
+:::note
+This is an old way how to write enums in Flow before actual [native enums](https://flow.org/en/docs/enums/) were supported. It's still probably going to work, but it's a legacy pattern and there are better ways now.
+:::
+
+```js
+const Enum = Object.freeze({
+  X: 'x',
+  Y: 'y',
+});
+
+type EnumT = $Values<typeof Enum>;
+('a': EnumT);
+```
+
+Results in:
+
+```text
+7: ('a': EnumT);
+    ^ Cannot cast `'a'` to `EnumT` because string [1] is incompatible with enum [2].
+   References:
+   7: ('a': EnumT);
+       ^ [1]
+   7: ('a': EnumT);
+            ^ [2]
+```
+
+See:
+
+- https://github.com/facebook/flow/commit/7c3390f7dcf886b0b39acfa505446614641ecb92
+- https://github.com/facebook/flow/blob/369e1f93dde1ddafec7c5539a20e7b061672da6c/tests/values/object_types.js
+
+Please note: this only works when you define the object with values inside `Object.freeze`. Similar but alternative approach: https://github.com/facebook/flow/issues/627#issuecomment-389668600
+
 ## Types-first architecture
 
 :::note

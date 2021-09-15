@@ -197,38 +197,7 @@ _TODO_
 - https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
 - https://github.com/facebook/flow/commit/fa0a8ef899925ed2b0939cb03678eceec821f5d0
 
-## Enums
-
-```js
-const Enum = Object.freeze({
-  X: 'x',
-  Y: 'y',
-});
-
-type EnumT = $Values<typeof Enum>;
-('a': EnumT);
-```
-
-Results in:
-
-```text
-7: ('a': EnumT);
-    ^ Cannot cast `'a'` to `EnumT` because string [1] is incompatible with enum [2].
-   References:
-   7: ('a': EnumT);
-       ^ [1]
-   7: ('a': EnumT);
-            ^ [2]
-```
-
-See:
-
-- https://github.com/facebook/flow/commit/7c3390f7dcf886b0b39acfa505446614641ecb92
-- https://github.com/facebook/flow/blob/369e1f93dde1ddafec7c5539a20e7b061672da6c/tests/values/object_types.js
-
-Please note: this only works when you define the object with values inside `Object.freeze`. Similar but alternative approach: https://github.com/facebook/flow/issues/627#issuecomment-389668600
-
-### Large unions (simple enums) performance
+## Performance of Large unions (simple enums)
 
 > I've been working on this recently so I can give you an overview. Essentially the reasons large unions are slow is that the amount of work Flow needs to do can grow exponentially with the size of the union. To determine if a union is a valid subtype of another type, we need to consider whether every single element of the union is a valid subtype, while to determine if it's a supertype we need to check if at least one of its cases is a supertype. If the union isn't actually a supertype we end up needing to check every case. Where this gets really bad is when we compare two union types, and this can easily result in an exponential case where we need to perform a lot of work for every single combination of union cases.
 
@@ -236,18 +205,23 @@ Please note: this only works when you define the object with values inside `Obje
 
 Thanks @sainati on Discord.
 
-### Built-in enums
+## Enums
 
-Please note: this feature is definitely **not** recommended to use. It's not finished, highly experimental and very controversial (+not supported in many tools). You can enable it like this:
+- https://medium.com/flow-type/introducing-flow-enums-16d4239b3180
+- https://medium.com/flow-type/typescript-enums-vs-flow-enums-83da2ca4a9b4
+
+You have to explicitly enable support for enums in `.flowconfig` to be able to use them:
 
 ```ini
 [options]
-experimental.enums=true
+enums=true
 ```
 
-And now, you can use this new feature:
+Additionally, there are some requirements for minimal versions of Babel, Eslint, Prettier + related configuration. You can check how were the enums enabled in [`adeira/univers`](https://github.com/adeira/universe/pull/3124/files) or consult the official docs: https://flow.org/en/docs/enums/
 
-```flow js
+Now, you can use this new feature:
+
+```js
 enum E1 {
   A,
   B,
@@ -259,34 +233,20 @@ enum E2 of number {
 }
 ```
 
-This feature is NOT finished yet so typechecking doesn't work well (only parsing basically):
-
-```js
-const a: string = E2.A; // mmm...
-const b: E2 = 1;
-const c: E2 = '1'; // mmm...
-const d: E2 = E2.A;
-```
-
 Basic methods support:
 
-```flow js
+```js
 enum E {
   A,
   B,
 }
 
-E.cast('A'); // string
-E.members(); // Iterable<E>
-E.isValid('A'); // boolean
+const a: ?E = E.cast('A');
+const b: Iterable<E> = E.members();
+const c: boolean = E.isValid('A');
 ```
 
-- https://github.com/gkz/enums
-- https://github.com/facebook/flow/issues/7837
-- https://github.com/babel/babel/pull/10344
-- https://github.com/prettier/prettier/pull/6833
-- https://github.com/babel/babel-eslint/commit/2c754a8189d290f145e23ac962331fd1abd877bd
-- https://github.com/facebook/flow/commit/bc4dcba789b3e1dc1def85787e67cf8e1e85755b
+Rather negative discussion about enums in Flow: https://github.com/facebook/flow/issues/7837
 
 ## Declaration with `mixins`
 
