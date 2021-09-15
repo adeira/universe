@@ -1,5 +1,7 @@
 # Unreleased
 
+# 6.5.0
+
 - New rule [`fb-flow/use-flow-enums`](https://github.com/facebook/flow/blob/eb02b62805a196a05efff35ea6b73bd2f91f40fa/packages/eslint-plugin-fb-flow/README.md#use-flow-enums) enabled. Additionally, rules [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough) and [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations) were upgraded to errors in strict mode to improve Flow Enums support. For more information please visit: https://flow.org/en/docs/enums/
 - New rules `@next/next/inline-script-id`, `@next/next/no-script-in-document` and `@next/next/no-script-in-head` enabled (as warnings). For more information visit: https://nextjs.org/docs/basic-features/eslint#eslint-plugin
 - Disable `jsx-a11y/accessible-emoji` rule, since it is deprecated and creates [a degraded experience](https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/issues/627).
