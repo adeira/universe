@@ -620,6 +620,7 @@ Object {
     ],
     "flowtype/require-variable-type": 0,
     "flowtype/sort-keys": 0,
+    "flowtype/sort-type-union-intersection-members": 0,
     "flowtype/spread-exact-type": 0,
     "flowtype/type-id-match": 0,
     "flowtype/type-import-style": 0,
