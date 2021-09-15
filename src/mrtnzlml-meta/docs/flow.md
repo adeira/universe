@@ -51,18 +51,6 @@ Please note: not everything can be expressed/modeled in your type system so you 
 
 > Programmers dislike having the computer reject a program that would have run fine, simply because the computer couldn’t make sure it would run fine without actually running it. In short, restrictive type systems drive programmers to more flexible environments.
 
-## New generics
-
-TKTK
-
-```ini
-[options]
-generate_tests=false
-```
-
-- https://github.com/facebook/flow/search?p=1&q=%22%5Bnew-generics%5D%22&type=commits
-- https://github.com/facebook/flow/search?p=1&q=%22generate_tests%22&type=code
-
 ## Type-safe filter function
 
 ```js
@@ -190,13 +178,6 @@ make clean
 make build-flow-debug
 ```
 
-## Trust mode
-
-_TODO_
-
-- https://github.com/facebook/flow/commit/959b4bad08ebf9fb2c2d4446653b8192bd0eb7d8
-- https://github.com/facebook/flow/commit/fa0a8ef899925ed2b0939cb03678eceec821f5d0
-
 ## Performance of Large unions (simple enums)
 
 > I've been working on this recently so I can give you an overview. Essentially the reasons large unions are slow is that the amount of work Flow needs to do can grow exponentially with the size of the union. To determine if a union is a valid subtype of another type, we need to consider whether every single element of the union is a valid subtype, while to determine if it's a supertype we need to check if at least one of its cases is a supertype. If the union isn't actually a supertype we end up needing to check every case. Where this gets really bad is when we compare two union types, and this can easily result in an exponential case where we need to perform a lot of work for every single combination of union cases.
@@ -298,13 +279,13 @@ declare class MyClass extends Child mixins MixinA, MixinB implements Test {
 
 This type allows you to use the function as a function and as an object at the same time.
 
-```flow js
-type MemoizedFactorial = {|
+```js
+type MemoizedFactorial = {
   +cache: {
     [number]: number,
   },
   (number): number,
-|};
+};
 
 const factorial: MemoizedFactorial = (n) => {
   if (!factorial.cache) {
@@ -322,13 +303,13 @@ See: https://flow.org/en/docs/types/functions/#toc-callable-objects
 
 Alternatively, you can use so called _internal slot property_:
 
-```flow js
-type MemoizedFactorial = {|
+```js
+type MemoizedFactorial = {
   +cache: {
     [number]: number,
   },
   [[call]](number): number,
-|};
+};
 ```
 
 - https://github.com/facebook/flow/pull/7790/files
@@ -365,13 +346,6 @@ yarn flow autofix
 ```
 
 [source](https://stackoverflow.com/a/40569640/3135248)
-
-## Exact Objects by Default
-
-TODO
-
-- https://medium.com/flow-type/on-the-roadmap-exact-objects-by-default-16b72933c5cf
-- https://github.com/facebook/flow/commit/1ac913040f38309480934ccb6717a3ffc65094a8
 
 ## Private object properties
 
@@ -579,7 +553,7 @@ https://github.com/facebook/flow/issues/7928#issuecomment-511428223
 > (jbrown215)
 > \$Call is a shitty syntax for conditional types, but it exists. You can use overloading to simulate the cases, so:
 
-```flow js
+```js
 type Fun = ((number) => string) & ((string) => number);
 type SwapNumberAndString<T: number | string> = $Call<Fun, T>;
 ```
