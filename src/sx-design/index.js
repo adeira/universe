@@ -23,6 +23,7 @@ export { default as Placeholder } from './src/Placeholder/Placeholder';
 export { default as ProductCard } from './src/ProductCard/ProductCard';
 export { default as Skeleton } from './src/Skeleton/Skeleton';
 export { default as SkipLink } from './src/SkipLink/SkipLink';
+export { default as Table } from './src/Table/Table';
 export { default as Tabs } from './src/Tabs/Tabs';
 export { default as Text } from './src/Text/Text';
 export { default as Tooltip } from './src/Tooltip/Tooltip';
