@@ -60,5 +60,6 @@ module.exports = {
   archive: [
     { type: 'doc', id: 'archive/flow' },
     { type: 'doc', id: 'archive/relay' },
+    { type: 'doc', id: 'archive/typescript' },
   ],
 };
