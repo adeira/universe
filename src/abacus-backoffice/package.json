@@ -22,7 +22,7 @@
     "d3": "^7.0.1",
     "fbt": "^0.16.6",
     "graphql": "^15.5.3",
-    "immutable": "^4.0.0-rc.14",
+    "immutable": "^4.0.0-rc.15",
     "next": "^11.1.2",
     "next-plugin-custom-babel-config": "^1.0.5",
     "next-transpile-modules": "^8.0.0",
