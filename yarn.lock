@@ -267,10 +267,10 @@
   dependencies:
     tslib "~2.0.1"
 
-"@artsy/fresnel@^1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-1.9.0.tgz#41b25cc71a63c596243b6fc1b6d21101a87b147f"
-  integrity sha512-JC9ZPqFuDUPGVwN9Gp0WvewfnX4SU6SxY5xfB6Lwt0vN9TS8YuBYXSIuA57651Qvmqqsj3k/brmk0OMCEGSDjg==
+"@artsy/fresnel@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-3.0.1.tgz#cadf27cd088b61b17dbdba1ec80aed22c27db194"
+  integrity sha512-ePfPDIF2nAMLdkjoqnd4WCGVsgJg7gtDVqh3BJlypmF9aG99259qCKd4Jd620CJL61u88OJr6L7dqKdZzytlLw==
 
 "@axe-core/react@^4.2.2":
   version "4.2.2"
