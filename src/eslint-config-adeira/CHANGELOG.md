@@ -1,5 +1,7 @@
 # Unreleased
 
+- Dependency `eslint-plugin-react` was pined to version 7.25.1 because of a new issue with FBT tags: https://github.com/yannickcr/eslint-plugin-react/issues/3080
+
 # 6.5.0
 
 - New rule [`fb-flow/use-flow-enums`](https://github.com/facebook/flow/blob/eb02b62805a196a05efff35ea6b73bd2f91f40fa/packages/eslint-plugin-fb-flow/README.md#use-flow-enums) enabled. Additionally, rules [`no-fallthrough`](https://eslint.org/docs/rules/no-fallthrough) and [`no-case-declarations`](https://eslint.org/docs/rules/no-case-declarations) were upgraded to errors in strict mode to improve Flow Enums support. For more information please visit: https://flow.org/en/docs/enums/
