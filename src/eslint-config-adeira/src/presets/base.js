@@ -78,7 +78,7 @@ module.exports = ({
     'no-alert': WARN,
     'no-await-in-loop': WARN,
     'no-caller': ERROR,
-    'no-case-declarations': WARN,
+    'no-case-declarations': NEXT_VERSION_ERROR,
     'no-constructor-return': ERROR,
     'no-div-regex': WARN,
     'no-else-return': ERROR,
@@ -89,7 +89,7 @@ module.exports = ({
     'no-extend-native': WARN,
     'no-extra-bind': WARN,
     'no-extra-label': ERROR,
-    'no-fallthrough': WARN,
+    'no-fallthrough': NEXT_VERSION_ERROR,
     'no-global-assign': [ERROR, { exceptions: ['Map', 'Set'] }],
     'no-implicit-coercion': [
       ERROR,

@@ -18,10 +18,6 @@
 [libs]
 ./flow-typed/
 
-; Please note: one disadvantage of these libs is that it's gonna be available for every JS file even though
-; it should be defined only for one workspace.
-./src/monorepo-scanner/src/flow/
-
 
 ; These lints are enabled in normal mode. Consult [strict] mode to see what additional lints
 ; are enabled in strict mode. Only disabled rules in normal mode should be added to strict mode.
@@ -55,6 +51,9 @@ emoji=true
 exact_by_default=true
 include_warnings=true
 facebook.fbt=FbtWithoutString
+
+; https://flow.org/en/docs/enums/
+enums=true
 
 ; This enables new react JSX transforms in flow
 react.runtime=automatic

@@ -73,7 +73,8 @@ This should be OK for majority of the use-cases. However, you can tweak these op
 
 There are three transpilation targets available: `js` (default), `js-esm` and `flow`. JavaScript transpilation target adds these features:
 
-- Flow support `(a: string)`
+- Flow basic support `(a: string)`
+- Flow enums [`enum Status { … }`](https://flow.org/en/docs/enums/)
 - JSX support `<Component />`
 - [`__DEV__` expression](#__dev__-expression)
 - [transforms `invariant` and `warning` from `@adeira/js`](#invariant-and-warning-functions)

@@ -1,4 +1,4 @@
-# @generated SignedSource<<2939b4229c2154e42c786ee5e0eb9e53>>
+# @generated SignedSource<<27cc6deedc3e7a09462b31c969aefbbd>>
 #
 # To regenerate run:
 # yarn monorepo-babel-node scripts/generateFlow.js
@@ -16,7 +16,6 @@
 
 [libs]
 ./flow-typed/
-./src/monorepo-scanner/src/flow/
 
 [lints]
 all=error
@@ -30,6 +29,7 @@ emoji=true
 exact_by_default=true
 include_warnings=true
 facebook.fbt=FbtWithoutString
+enums=true
 react.runtime=automatic
 module.ignore_non_literal_requires=true
 suppress_type=$FlowFixMe
