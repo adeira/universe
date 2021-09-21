@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`flowtype/no-duplicate-type-union-intersection-members`](https://github.com/gajus/eslint-plugin-flowtype/blob/1c1c009ba2a58b9660d43c43750396bef8d73904/.README/rules/no-duplicate-type-union-intersection-members.md) has been enabled (as warnings or errors in strict mode).
+
 # 6.5.1
 
 - Dependency `eslint-plugin-react` was temporarily pined to version 7.25.1 because of a new issue with FBT tags: https://github.com/yannickcr/eslint-plugin-react/issues/3080

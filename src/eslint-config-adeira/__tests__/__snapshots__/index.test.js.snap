@@ -143,6 +143,7 @@ Object {
       "always",
     ],
     "flowtype/no-dupe-keys": 2,
+    "flowtype/no-duplicate-type-union-intersection-members": 1,
     "flowtype/no-existential-type": 2,
     "flowtype/no-flow-fix-me-comments": 0,
     "flowtype/no-internal-flow-type": 2,
@@ -1083,6 +1084,11 @@ Snapshot Diff:
 +     "fb-flow/use-exact-by-default-object-type": 2,
 +     "fb-flow/use-flow-enums": 2,
       "fb-flow/use-indexed-access-type": 0,
+@@ --- --- @@
+      "flowtype/no-dupe-keys": 2,
+-     "flowtype/no-duplicate-type-union-intersection-members": 1,
++     "flowtype/no-duplicate-type-union-intersection-members": 2,
+      "flowtype/no-existential-type": 2,
 @@ --- --- @@
       "import/no-nodejs-modules": 0,
 -     "import/no-relative-packages": 1,
