@@ -1,6 +1,8 @@
 # Unreleased
 
-- Dependency `eslint-plugin-react` was pined to version 7.25.1 because of a new issue with FBT tags: https://github.com/yannickcr/eslint-plugin-react/issues/3080
+# 6.5.1
+
+- Dependency `eslint-plugin-react` was temporarily pined to version 7.25.1 because of a new issue with FBT tags: https://github.com/yannickcr/eslint-plugin-react/issues/3080
 
 # 6.5.0
 
