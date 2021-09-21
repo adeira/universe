@@ -32,7 +32,7 @@
     "recoil": "^0.4.1"
   },
   "devDependencies": {
-    "@adeira/babel-preset-adeira": "^3.0.0",
+    "@adeira/babel-preset-adeira": "^4.0.0",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@next/bundle-analyzer": "^11.1.2",
     "@testing-library/react": "^12.1.0",
