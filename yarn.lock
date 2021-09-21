@@ -7498,10 +7498,10 @@ d3-zoom@3:
     d3-selection "2 - 3"
     d3-transition "2 - 3"
 
-d3@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/d3/-/d3-7.0.2.tgz#c1294a8d467024d78c2b230f795397836339faf8"
-  integrity sha512-p3Leyce0kNyHOhkJ0kHLM5SdWTMQRDd3TKDkh6uv0VX+MhRMZH3E/bduq5uxW+HnECccmRJjOahte0OieeK/VQ==
+d3@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-7.0.3.tgz#5c100c0522fedadc2aec43243b16e881e8c07143"
+  integrity sha512-BEQCpEXI+Z9OnnlXLaS6txoYZZvvXuRyjZoudPuAnWGVOzHxGWC0TL8XRUs7V7IeZQPLfvGztcl54+jgOe122g==
   dependencies:
     d3-array "3"
     d3-axis "3"
@@ -9921,10 +9921,10 @@ graphql-tag@^2.11.0:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
   integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
 
-"graphql@^14.0.0 || ^15.0.0", graphql@^15.5.3:
-  version "15.5.3"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.5.3.tgz#c72349017d5c9f5446a897fe6908b3186db1da00"
-  integrity sha512-sM+jXaO5KinTui6lbK/7b7H/Knj9BpjGxZ+Ki35v7YbUJxxdBCUqNM0h3CRVU1ZF9t5lNiBzvBCSYPvIwxPOQA==
+"graphql@^14.0.0 || ^15.0.0", graphql@^15.6.0:
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.6.0.tgz#e69323c6a9780a1a4b9ddf7e35ca8904bb04df02"
+  integrity sha512-WJR872Zlc9hckiEPhXgyUftXH48jp2EjO5tgBBOyNMRJZ9fviL2mJBD6CAysk6N5S0r9BTs09Qk39nnJBkvOXQ==
 
 gray-matter@^4.0.3:
   version "4.0.3"
