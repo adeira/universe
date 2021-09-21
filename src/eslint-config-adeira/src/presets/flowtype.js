@@ -20,6 +20,7 @@ module.exports = ({
     'flowtype/interface-id-match': OFF,
     'flowtype/newline-after-flow-annotation': [ERROR, 'always'],
     'flowtype/no-dupe-keys': ERROR,
+    'flowtype/no-duplicate-type-union-intersection-members': NEXT_VERSION_ERROR,
     'flowtype/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
     'flowtype/no-flow-fix-me-comments': OFF,
     'flowtype/no-internal-flow-type': ERROR,

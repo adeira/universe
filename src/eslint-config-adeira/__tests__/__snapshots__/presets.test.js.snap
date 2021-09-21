@@ -580,6 +580,7 @@ Object {
       "always",
     ],
     "flowtype/no-dupe-keys": 2,
+    "flowtype/no-duplicate-type-union-intersection-members": 1,
     "flowtype/no-existential-type": 2,
     "flowtype/no-flow-fix-me-comments": 0,
     "flowtype/no-internal-flow-type": 2,
