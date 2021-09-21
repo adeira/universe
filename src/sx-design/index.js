@@ -10,6 +10,8 @@ export { default as ButtonLink } from './src/Button/ButtonLink';
 export { default as Entity } from './src/Entity/Entity';
 export { default as EntityField } from './src/Entity/EntityField';
 export { default as ErrorBoundary } from './src/ErrorBoundary/ErrorBoundary';
+export { default as FilterChip } from './src/Chips/FilterChip';
+export { default as FilterChips } from './src/Chips/FilterChips';
 export { default as Image } from './src/Image/Image';
 export { default as Kbd } from './src/Kbd/Kbd';
 export { default as Link } from './src/Link/Link';

@@ -17,12 +17,7 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
         }
       ],
       "flowComments",
-      "bigInt",
-      "throwExpressions",
-      "classPrivateProperties",
-      "classProperties",
-      "numericSeparator",
-      "objectRestSpread"
+      "throwExpressions"
     ]
   },
   "retainLines": true
@@ -46,12 +41,7 @@ exports[`emits correct config for target 'flow' and environment '{"browsers":["l
         }
       ],
       "flowComments",
-      "bigInt",
-      "throwExpressions",
-      "classPrivateProperties",
-      "classProperties",
-      "numericSeparator",
-      "objectRestSpread"
+      "throwExpressions"
     ]
   },
   "retainLines": true
@@ -75,12 +65,7 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
         }
       ],
       "flowComments",
-      "bigInt",
-      "throwExpressions",
-      "classPrivateProperties",
-      "classProperties",
-      "numericSeparator",
-      "objectRestSpread"
+      "throwExpressions"
     ]
   },
   "retainLines": true
@@ -104,12 +89,7 @@ exports[`emits correct config for target 'flow' and environment '{"node":"curren
         }
       ],
       "flowComments",
-      "bigInt",
-      "throwExpressions",
-      "classPrivateProperties",
-      "classProperties",
-      "numericSeparator",
-      "objectRestSpread"
+      "throwExpressions"
     ]
   },
   "retainLines": true
@@ -133,12 +113,7 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
         }
       ],
       "flowComments",
-      "bigInt",
-      "throwExpressions",
-      "classPrivateProperties",
-      "classProperties",
-      "numericSeparator",
-      "objectRestSpread"
+      "throwExpressions"
     ]
   },
   "retainLines": true
@@ -162,12 +137,7 @@ exports[`emits correct config for target 'flow' and environment 'undefined' and 
         }
       ],
       "flowComments",
-      "bigInt",
-      "throwExpressions",
-      "classPrivateProperties",
-      "classProperties",
-      "numericSeparator",
-      "objectRestSpread"
+      "throwExpressions"
     ]
   },
   "retainLines": true
@@ -210,9 +180,6 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -231,7 +198,6 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -275,9 +241,6 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -296,7 +259,6 @@ exports[`emits correct config for target 'js' and environment '{"browsers":["las
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -337,9 +299,6 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -358,7 +317,6 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -399,9 +357,6 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -420,7 +375,6 @@ exports[`emits correct config for target 'js' and environment '{"node":"current"
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -439,8 +393,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "targets": {
           "node": "current",
           "browsers": [
-            "last 2 versions",
-            "ie >= 11"
+            "defaults"
           ]
         },
         "bugfixes": true
@@ -465,9 +418,6 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -486,7 +436,6 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -505,8 +454,7 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "targets": {
           "node": "current",
           "browsers": [
-            "last 2 versions",
-            "ie >= 11"
+            "defaults"
           ]
         },
         "bugfixes": true
@@ -531,9 +479,6 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -552,7 +497,6 @@ exports[`emits correct config for target 'js' and environment 'undefined' and re
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -596,9 +540,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -617,7 +558,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -661,9 +601,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -682,7 +619,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"browsers":[
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -723,9 +659,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -744,7 +677,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -785,9 +717,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -806,7 +735,6 @@ exports[`emits correct config for target 'js-esm' and environment '{"node":"curr
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -825,8 +753,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "targets": {
           "node": "current",
           "browsers": [
-            "last 2 versions",
-            "ie >= 11"
+            "defaults"
           ]
         },
         "bugfixes": true
@@ -851,9 +778,6 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -872,7 +796,6 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },
@@ -891,8 +814,7 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "targets": {
           "node": "current",
           "browsers": [
-            "last 2 versions",
-            "ie >= 11"
+            "defaults"
           ]
         },
         "bugfixes": true
@@ -917,9 +839,6 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         "allowDeclareFields": true
       }
     ],
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-numeric-separator",
     "@babel/plugin-proposal-throw-expressions",
     [
       "@babel/plugin-transform-runtime",
@@ -938,7 +857,6 @@ exports[`emits correct config for target 'js-esm' and environment 'undefined' an
         }
       ],
       "flowComments",
-      "bigInt",
       "throwExpressions"
     ]
   },

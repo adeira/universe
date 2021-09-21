@@ -1,50 +1,69 @@
-# @generated SignedSource<<18fb1a118b3194558e8ebf1479f1a55a>>
-#
-# To regenerate run:
-# yarn monorepo-babel-node scripts/generateFlow.js
-#
-[declarations]
-.+/node_modules/.+
-
+; https://flow.org/en/docs/config/ignore/
 [ignore]
 <PROJECT_ROOT>/\.git/.*
 .+/.+\.gzip\.js
 .+/\.next/.+
 
-[include]
+
+; https://flow.org/en/docs/config/untyped/
+[untyped]
 
 
+; https://flow.org/en/docs/config/declarations/
+[declarations]
+.+/node_modules/.+
+
+
+; https://flow.org/en/docs/config/libs/
 [libs]
 ./flow-typed/
-./src/monorepo-scanner/src/flow/
 
+
+; These lints are enabled in normal mode. Consult [strict] mode to see what additional lints
+; are enabled in strict mode. Only disabled rules in normal mode should be added to strict mode.
+;
+; https://flow.org/en/docs/config/lints/
 [lints]
 all=error
 sketchy-null-bool=off
 unclear-type=off
 untyped-import=off
+
+; Flow standard is now to use `{ }` for strict objects and `{ key: value, ... }` for open objects,
+; so this option should always be `off`.
 ambiguous-object-type=off
 
-[options]
-emoji=true
-exact_by_default=true
-include_warnings=true
-facebook.fbt=FbtWithoutString
-enums=true
-react.runtime=automatic
-module.ignore_non_literal_requires=true
-suppress_type=$FlowFixMe
-experimental.const_params=true
 
-[rollouts]
-
+; This setting complements [lints] section: all the enabled lints still throw errors + these
+; additional lints are enabled only in strict mode (no need to list here every lint). Local
+; strict mode behaves the same like strict mode except it turns off 'nonstrict-import' rule.
+;
+; https://flow.org/en/docs/strict/
 [strict]
 sketchy-null-bool
 unclear-type
 untyped-import
 
-[untyped]
 
+; https://flow.org/en/docs/config/options/
+[options]
+emoji=true
+exact_by_default=true
+include_warnings=true
+facebook.fbt=FbtWithoutString
 
-[version]
+; https://flow.org/en/docs/enums/
+enums=true
 
+; This enables new react JSX transforms in flow
+react.runtime=automatic
+
+; Allow dynamic `require(path.join(__dirname, 'myFile.json'))`
+module.ignore_non_literal_requires=true
+
+; This option lets you alias 'any' with a given string - useful for explaining why you’re using 'any'.
+suppress_type=$FlowFixMe
+
+; This option is always ON in the strict mode. We are enabling it even for the classic mode.
+; Function parameters are considered const (i.e., treated as if they were declared with const rather than let).
+experimental.const_params=true

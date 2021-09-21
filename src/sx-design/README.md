@@ -56,6 +56,7 @@ Legend:
 | [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<EntityField />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<ErrorBoundary />`] |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<FilterChips />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Image />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Kbd />`]           |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Link />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -80,6 +81,7 @@ Legend:
 [`<entity />`]: https://sx-design.vercel.app/?path=/docs/components-entity
 [`<entityfield />`]: https://sx-design.vercel.app/?path=/docs/components-entityfield
 [`<errorboundary />`]: https://sx-design.vercel.app/?path=/docs/components-errorboundary
+[`<filterchips />`]: https://sx-design.vercel.app/?path=/docs/components-filterchips
 [`<image />`]: https://sx-design.vercel.app/?path=/docs/components-image
 [`<kbd />`]: https://sx-design.vercel.app/?path=/docs/components-kbd
 [`<link />`]: https://sx-design.vercel.app/?path=/docs/components-link
@@ -180,5 +182,6 @@ pastel --help
 _sorted alphabetically_
 
 - https://github.com/vercel/commerce
+- https://material.io/components?platform=web
 - https://seek-oss.github.io/braid-design-system/
 - https://vercel.com/design

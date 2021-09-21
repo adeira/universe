@@ -35,10 +35,11 @@ const styles = sx.create({
     flexDirection: 'column',
   },
   entityFieldTitle: {
-    fontWeight: 'bold',
+    fontWeight: '500',
     color: 'rgba(var(--sx-foreground))',
   },
   entityFieldDescription: {
-    color: 'rgba(var(--sx-foreground))',
+    fontSize: 'small',
+    color: 'rgba(var(--sx-accent-5))',
   },
 });
