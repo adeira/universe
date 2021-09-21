@@ -70,6 +70,7 @@ Legend:
 | [`<ProductCard />`]   |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Skeleton />`]      |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<SkipLink />`]      |     ✅      |     🧐      |      🧐       |    🧐    |  🧐   |
+| [`<Table />`]         |     🧐      |     🧐      |      🧐       |    🧐    |  🧐   |
 | [`<Tabs />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Text />`]          |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
@@ -94,6 +95,7 @@ Legend:
 [`<productcard />`]: https://sx-design.vercel.app/?path=/docs/components-productcard
 [`<skeleton />`]: https://sx-design.vercel.app/?path=/docs/components-skeleton
 [`<skiplink />`]: https://sx-design.vercel.app/?path=/docs/components-skiplink
+[`<table />`]: https://sx-design.vercel.app/?path=/docs/components-table
 [`<tabs />`]: https://sx-design.vercel.app/?path=/docs/components-tabs
 [`<text />`]: https://sx-design.vercel.app/?path=/docs/components-text
 [`<tooltip />`]: https://sx-design.vercel.app/?path=/docs/components-tooltip
