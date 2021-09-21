@@ -1,4 +1,4 @@
-# @generated SignedSource<<18fb1a118b3194558e8ebf1479f1a55a>>
+# @generated SignedSource<<27cc6deedc3e7a09462b31c969aefbbd>>
 #
 # To regenerate run:
 # yarn monorepo-babel-node scripts/generateFlow.js
@@ -16,7 +16,6 @@
 
 [libs]
 ./flow-typed/
-./src/monorepo-scanner/src/flow/
 
 [lints]
 all=error
