@@ -28,7 +28,7 @@
     "react": "^16.13.1"
   },
   "devDependencies": {
-    "@adeira/babel-preset-adeira": "^3.0.0",
+    "@adeira/babel-preset-adeira": "^4.0.0",
     "@babel/core": "^7.15.5"
   }
 }
