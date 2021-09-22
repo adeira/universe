@@ -165,6 +165,7 @@ module.exports = ({
         args: 'after-used',
         ignoreRestSiblings: true,
         argsIgnorePattern: '^_$', // (_) => { … }
+        varsIgnorePattern: '^fbt$', // https://github.com/yannickcr/eslint-plugin-react/issues/3080
       },
     ],
     'no-use-before-define': OFF, // https://github.com/babel/babel-eslint/issues/485
