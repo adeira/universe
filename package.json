@@ -38,7 +38,7 @@
   "jest-runner-eslint": {
     "cliOptions": {
       "format": "codeframe",
-      "reportUnusedDisableDirectives": true
+      "reportUnusedDisableDirectives": "error"
     }
   }
 }

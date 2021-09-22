@@ -78,6 +78,7 @@ module.exports = ({
     'react/no-find-dom-node': ERROR,
     'react/no-is-mounted': ERROR,
     'react/no-multi-comp': [ERROR, { ignoreStateless: true }],
+    'react/no-namespace': OFF, // complains about `<fbt:param/>` and similar
     'react/no-redundant-should-component-update': ERROR,
     'react/no-render-return-value': ERROR,
     'react/no-set-state': OFF,
