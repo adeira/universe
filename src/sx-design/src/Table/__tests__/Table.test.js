@@ -4,9 +4,15 @@
  */
 
 import React from 'react';
+import fbt from 'fbt';
 
-import { render } from '../../test-utils';
 import Table from '../Table';
+import Text from '../../Text/Text';
+import { render, initFbt } from '../../test-utils';
+
+beforeEach(() => {
+  initFbt();
+});
 
 it('renders simple table without any issues', () => {
   const { getByText } = render(
@@ -24,6 +30,50 @@ it('renders simple table without any issues', () => {
 
   expect(getByText('Column 1')).toBeDefined();
   expect(getByText('Column 2')).toBeDefined();
+
+  expect(getByText('Row 1, column 1')).toBeDefined();
+  expect(getByText('Row 1, column 2')).toBeDefined();
+  expect(getByText('Row 2, column 1')).toBeDefined();
+  expect(getByText('Row 2, column 2')).toBeDefined();
+});
+
+it('renders complex headers and cells without any issues', () => {
+  const { getByText } = render(
+    <Table
+      columns={[
+        {
+          Header: (
+            <fbt desc="c1" doNotExtract={true}>
+              Column 1
+            </fbt>
+          ),
+          accessor: 'col1',
+        },
+        { Header: () => null, accessor: 'col2' },
+      ]}
+      data={[
+        {
+          col1: (
+            <fbt desc="r1c1" doNotExtract={true}>
+              Row 1, column 1
+            </fbt>
+          ),
+          col2: <Text>Row 1, column 2</Text>,
+        },
+        {
+          col1: <Text>Row 2, column 1</Text>,
+          col2: (
+            <fbt desc="r2c2" doNotExtract={true}>
+              Row 2, column 2
+            </fbt>
+          ),
+        },
+      ]}
+    />,
+  );
+
+  expect(getByText('Column 1')).toBeDefined();
+  // Column 2 is `null`
 
   expect(getByText('Row 1, column 1')).toBeDefined();
   expect(getByText('Row 1, column 2')).toBeDefined();

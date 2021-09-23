@@ -34,7 +34,6 @@ export default function AnalyticsRedirectsPage(): Node {
           Header: <fbt desc="description or purpose of the link">Description</fbt>,
           accessor: 'col4',
         },
-        // $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/3169
         { Header: () => null, accessor: 'col5' },
       ]}
       data={analytics.redirectHits.map((redirect) => {
@@ -48,14 +47,12 @@ export default function AnalyticsRedirectsPage(): Node {
           ),
           col2: redirect.uuid,
           col3: (
-            // $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/3169
             <Link href={redirect.redirectsTo} target="_blank">
               {redirect.redirectsTo}
             </Link>
           ),
           col4: redirect.description,
           col5: (
-            // $FlowFixMe[incompatible-type]: https://github.com/adeira/universe/pull/3169
             <Badge tint="success">
               <fbt desc="active status">active</fbt>
             </Badge>

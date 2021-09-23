@@ -7,13 +7,13 @@ import sx from '@adeira/sx';
 // https://react-table.tanstack.com/docs/api/useTable#column-options
 type Column = {
   +accessor: string,
-  +Header: Fbt,
+  +Header: Fbt | (() => Node),
 };
 
 // https://react-table.tanstack.com/docs/api/useTable#table-options
 type Props = {
   +columns: $ReadOnlyArray<Column>,
-  +data: $ReadOnlyArray<{ +[string]: Fbt }>,
+  +data: $ReadOnlyArray<{ +[string]: Fbt | Node }>,
 };
 
 /**
