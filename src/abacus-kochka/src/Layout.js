@@ -72,11 +72,10 @@ const styles = sx.create({
     maxWidth: '45rem',
     margin: '0 auto',
     minHeight: '40vh',
-    paddingBlock: '5vw',
+    padding: '2rem',
   },
   mainFullWidth: {
     maxWidth: '100%',
-    paddingInline: 0,
   },
   heading: {
     'display': 'flex',

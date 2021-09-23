@@ -25,7 +25,7 @@ export default function EmployeesPage(): React.Node {
     return (
       <Entity key={user.id}>
         <EntityField
-          description={
+          title={
             user.isActive ? (
               <Badge tint="success">
                 <fbt desc="active user - label title">active</fbt>
@@ -37,9 +37,9 @@ export default function EmployeesPage(): React.Node {
             )
           }
         />
-        <EntityField description={user.name ?? <MissingData />} />
+        <EntityField title={user.name ?? <MissingData />} />
         <EntityField
-          description={
+          title={
             user.hasEmailVerified ? (
               <Badge tint="success">
                 <fbt desc="user has email verifies - label title">email verified</fbt>

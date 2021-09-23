@@ -2,7 +2,7 @@
 
 import { graphql, QueryRenderer } from '@adeira/relay';
 import sx from '@adeira/sx';
-import { Note, ProductCard } from '@adeira/sx-design';
+import { Note, Text, Image, Money, LayoutBlock } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useRouter } from 'next/router';
@@ -30,7 +30,7 @@ export default function ProductPageLayout(): Node {
                 unitAmount
                 unitAmountCurrency
               }
-              imageCover {
+              images {
                 blurhash
                 url
               }
@@ -44,29 +44,46 @@ export default function ProductPageLayout(): Node {
       }}
       onResponse={({ commerce: { product } }) => {
         return (
-          <Layout withFullWidth={true} withHiddenTitle={true}>
+          <Layout
+            withFullWidth={true}
+            title={<fbt desc="shop page title">Online shop</fbt>}
+            subtitle={
+              <fbt desc="shop page subtitle">Support our cats by buying some of our products</fbt>
+            }
+          >
             <div className={styles('layout')}>
-              <div className={styles('image')}>
-                <ProductCard
-                  title={product.name}
-                  priceUnitAmount={
-                    product.price.unitAmount / 100 // adjusted for centavo
-                  }
-                  priceUnitAmountCurrency={product.price.unitAmountCurrency}
-                  imgBlurhash={product.imageCover.blurhash}
-                  imgSrc={product.imageCover.url}
-                  imgAlt={product.name}
-                />
-              </div>
-              <div>
-                <p>{product.description}</p>
+              <LayoutBlock>
+                {product.images.map((image) => (
+                  <Image
+                    key={image.url}
+                    src={image.url}
+                    alt={product.name}
+                    blurhash={image.blurhash}
+                  />
+                ))}
+              </LayoutBlock>
+
+              <LayoutBlock spacing="large">
+                <Text as="h1">{product.name}</Text>
+
+                <Text size={24} weight={400}>
+                  <Money
+                    priceUnitAmount={
+                      product.price.unitAmount / 100 // adjusted for centavo
+                    }
+                    priceUnitAmountCurrency={product.price.unitAmountCurrency}
+                  />
+                </Text>
+
+                <p className={styles('description')}>{product.description}</p>
+
                 <Note tint="warning">
                   <fbt desc="not about all our products being available only in person">
                     All our products are currently available only in person in our café. We are
                     working on making them available online as well.
                   </fbt>
                 </Note>
-              </div>
+              </LayoutBlock>
             </div>
           </Layout>
         );
@@ -79,11 +96,11 @@ const styles = sx.create({
   layout: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr',
-    gap: '1rem',
+    gap: '2rem',
   },
-  image: {
-    // width: '50vw',
-    // height: '50vw',
-    backgroundColor: '#ddd',
+  description: {
+    paddingBlock: 0,
+    marginBlock: 0,
+    whiteSpace: 'pre-line',
   },
 });

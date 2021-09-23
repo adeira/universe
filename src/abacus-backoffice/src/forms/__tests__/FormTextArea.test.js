@@ -35,8 +35,9 @@ it('renders basic "FormTextArea" input as expected', () => {
       "class": Any<String>,
       "data-testid": "text-area-input",
       "name": "text-area-input-name",
+      "rows": "5",
     }
-    `,
+  `,
   );
 });
 
@@ -64,6 +65,7 @@ it('renders complex "FormTextArea" input as expected', () => {
       "data-testid": "text-area-input",
       "name": "text-area-input-name",
       "required": "",
+      "rows": "5",
     }
   `,
   );

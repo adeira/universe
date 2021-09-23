@@ -69,7 +69,9 @@ export default function ProductEditHeadingPublishUnpublish(
     <LayoutHeadingButton
       confirmMessage={
         <fbt desc="publish product button confirmation message">
-          Are you sure you want to publish this product?
+          Are you sure you want to publish this product? Published products are immediately
+          available to be used across our product based on the selected visibility (potentially
+          public).
         </fbt>
       }
       onClick={() => {

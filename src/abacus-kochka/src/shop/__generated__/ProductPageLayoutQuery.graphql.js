@@ -20,10 +20,10 @@ export type ProductPageLayoutQueryResponse = {|
         +unitAmount: number,
         +unitAmountCurrency: SupportedCurrency,
       |},
-      +imageCover: ?{|
+      +images: $ReadOnlyArray<{|
         +blurhash: string,
         +url: string,
-      |},
+      |}>,
     |}
   |}
 |};
@@ -45,7 +45,7 @@ query ProductPageLayoutQuery(
         unitAmount
         unitAmountCurrency
       }
-      imageCover {
+      images {
         blurhash
         url
       }
@@ -124,8 +124,8 @@ v5 = {
   "args": null,
   "concreteType": "Image",
   "kind": "LinkedField",
-  "name": "imageCover",
-  "plural": false,
+  "name": "images",
+  "plural": true,
   "selections": [
     {
       "alias": null,
@@ -223,15 +223,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "39de20d3160b91f0bddf00d9bbbd7406",
+    "cacheID": "5e6154306f87920c0c5b6e6d73affbfb",
     "id": null,
     "metadata": {},
     "name": "ProductPageLayoutQuery",
     "operationKind": "query",
-    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      imageCover {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      images {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = 'e7a5e6db935364d6cf82ff869c1e88f1';
+(node: any).hash = '860c513cb31bbfc2af9dcf31be1b0b33';
 export default node;
