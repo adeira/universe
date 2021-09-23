@@ -49,7 +49,7 @@ export default function ProductAddons(): Node {
           <Entity key={productAddon.id}>
             <EntityField title={productAddon.name} />
             <EntityField
-              description={
+              title={
                 productAddon.priceExtra.unitAmount === 0 ? (
                   <Badge>
                     <fbt desc="free product add-on badge">free</fbt>

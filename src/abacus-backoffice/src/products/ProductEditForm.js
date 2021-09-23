@@ -171,10 +171,7 @@ export default function ProductEditForm(props: Props): Node {
                     <fbt:param name="product name">
                       <strong>{result.name}</strong>
                     </fbt:param>{' '}
-                    (rev:{' '}
-                    <fbt:param name="product revision">
-                      <code>{result.revision}</code>
-                    </fbt:param>) updated! ✅
+                    updated! ✅
                   </fbt>
                 ),
                 type: 'success',

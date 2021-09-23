@@ -57,7 +57,7 @@ const styles = sx.create({
     justifyContent: 'space-between',
     position: 'sticky',
     top: 0,
-    zIndex: 1,
+    zIndex: 10,
     height: '75px',
   },
   navigationSection: {

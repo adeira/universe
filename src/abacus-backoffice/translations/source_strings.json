@@ -482,9 +482,9 @@
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
    "line_beg": 22,
-   "col_beg": 34,
+   "col_beg": 28,
    "line_end": 22,
-   "col_end": 82,
+   "col_end": 76,
    "desc": "POS in Mexico City",
    "project": "",
    "type": "text",
@@ -579,9 +579,9 @@
     "Uwsynldmzkm43wwA8z+rWQ==": "Are you sure you want to reset the checkout session and start over? All selected items will be removed."
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 76,
+   "line_beg": 77,
    "col_beg": 8,
-   "line_end": 79,
+   "line_end": 80,
    "col_end": 9,
    "desc": "reset checkout session confirmation message",
    "project": "",
@@ -593,9 +593,9 @@
     "jmBOT2K+ZO2hIL+wYQyinw==": "Go back"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 91,
+   "line_beg": 92,
    "col_beg": 35,
-   "line_end": 91,
+   "line_end": 92,
    "col_end": 80,
    "desc": "go back to POS text",
    "project": "",
@@ -607,9 +607,9 @@
     "X15wJnkWMiCincs1C+MeFw==": "Did you receive the money?"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 100,
+   "line_beg": 101,
    "col_beg": 8,
-   "line_end": 100,
+   "line_end": 101,
    "col_end": 88,
    "desc": "checkout question before continuing",
    "project": "",
@@ -621,9 +621,9 @@
     "MfLT6Yq4YBMxi+dW96zMNg==": "Yes, finish checkout"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 105,
+   "line_beg": 106,
    "col_beg": 10,
-   "line_end": 105,
+   "line_end": 106,
    "col_end": 77,
    "desc": "process checkout button text",
    "project": "",
@@ -635,9 +635,9 @@
     "P3UvwgozOxL8sg8ODM5D/A==": "No, start over"
    },
    "filepath": "src/pos/POSCheckoutPageLayout.js",
-   "line_beg": 108,
+   "line_beg": 109,
    "col_beg": 10,
-   "line_end": 108,
+   "line_end": 109,
    "col_end": 69,
    "desc": "reset checkout button text",
    "project": "",
@@ -719,9 +719,9 @@
     "tqJr7GmSh3z3wJYjUYZlWQ==": "Confirm selection ({numberOfSelectedProducts} addons)"
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
-   "line_beg": 113,
+   "line_beg": 112,
    "col_beg": 10,
-   "line_end": 118,
+   "line_end": 117,
    "col_end": 16,
    "desc": "confirm selected product addons button title",
    "project": "",
@@ -733,9 +733,9 @@
     "wqB8FQTQbyLhRSk8t2qAYQ==": "Confirm selection (no addons)"
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
-   "line_beg": 120,
+   "line_beg": 119,
    "col_beg": 10,
-   "line_end": 122,
+   "line_end": 121,
    "col_end": 16,
    "desc": "confirm selected product without addons button title",
    "project": "",
@@ -884,26 +884,26 @@
   },
   {
    "hashToText": {
-    "SNkT0X9e8R3/FZ7ymMs5Zg==": "Product {product name} (rev: {product revision}) updated! ✅"
+    "nmFLhVeeVRpoKNv7lUvVcg==": "Product {product name} updated! ✅"
    },
    "filepath": "src/products/ProductEditForm.js",
    "line_beg": 169,
    "col_beg": 18,
-   "line_end": 178,
+   "line_end": 175,
    "col_end": 24,
    "desc": "product updated success message",
    "project": "",
    "type": "text",
-   "jsfbt": "Product {product name} (rev: {product revision}) updated! ✅"
+   "jsfbt": "Product {product name} updated! ✅"
   },
   {
    "hashToText": {
     "JMYEEAMkkTyu/f/wera8pw==": "Save changes"
    },
    "filepath": "src/products/ProductEditForm.js",
-   "line_beg": 185,
+   "line_beg": 182,
    "col_beg": 10,
-   "line_end": 185,
+   "line_end": 182,
    "col_end": 78,
    "desc": "edit product form submit button title",
    "project": "",
@@ -968,26 +968,26 @@
   },
   {
    "hashToText": {
-    "tiWuhsZnYZAq7WNxH1zdCw==": "Are you sure you want to publish this product?"
+    "5xWLjNlRRK4DGj9B8Z6mTg==": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public)."
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
    "line_beg": 71,
    "col_beg": 8,
-   "line_end": 73,
+   "line_end": 75,
    "col_end": 14,
    "desc": "publish product button confirmation message",
    "project": "",
    "type": "text",
-   "jsfbt": "Are you sure you want to publish this product?"
+   "jsfbt": "Are you sure you want to publish this product? Published products are immediately available to be used across our product based on the selected visibility (potentially public)."
   },
   {
    "hashToText": {
     "3qz/xqX+Nv7bYwQCSNXWdQ==": "Publish product"
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 105,
+   "line_beg": 107,
    "col_beg": 6,
-   "line_end": 105,
+   "line_end": 107,
    "col_end": 68,
    "desc": "publish product button title",
    "project": "",
@@ -999,9 +999,9 @@
     "C4qCSxncQzzV9OUj0otgUg==": "Are you sure you want to unpublish this product?"
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 110,
+   "line_beg": 112,
    "col_beg": 8,
-   "line_end": 112,
+   "line_end": 114,
    "col_end": 14,
    "desc": "unpublish product button confirmation message",
    "project": "",
@@ -1013,9 +1013,9 @@
     "6dllpbI8j5n7Rlcf+LAS/Q==": "Unpublish product"
    },
    "filepath": "src/products/ProductEditHeadingPublishUnpublish.js",
-   "line_beg": 144,
+   "line_beg": 146,
    "col_beg": 6,
-   "line_end": 144,
+   "line_end": 146,
    "col_end": 70,
    "desc": "publish product button title",
    "project": "",

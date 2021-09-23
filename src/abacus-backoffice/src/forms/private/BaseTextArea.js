@@ -49,6 +49,7 @@ export default function BaseTextArea(props: Props): Node {
         name={props.name}
         value={inputValue}
         onChange={handleOnChange}
+        rows={5}
         className={styles({
           textarea: true,
           textareaError: hasError,

@@ -478,12 +478,40 @@
   },
   {
    "hashToText": {
+    "M7rR/kOLux0twb9muLT+Nw==": "Online shop"
+   },
+   "filepath": "src/shop/ProductPageLayout.js",
+   "line_beg": 49,
+   "col_beg": 19,
+   "line_end": 49,
+   "col_end": 64,
+   "desc": "shop page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Online shop"
+  },
+  {
+   "hashToText": {
+    "bQxirHhLBpNG49T54JXMeg==": "Support our cats by buying some of our products"
+   },
+   "filepath": "src/shop/ProductPageLayout.js",
+   "line_beg": 51,
+   "col_beg": 14,
+   "line_end": 51,
+   "col_end": 98,
+   "desc": "shop page subtitle",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Support our cats by buying some of our products"
+  },
+  {
+   "hashToText": {
     "bU6rVH2V6ifH2RNffzFZ8g==": "All our products are currently available only in person in our café. We are working on making them available online as well."
    },
    "filepath": "src/shop/ProductPageLayout.js",
-   "line_beg": 64,
+   "line_beg": 81,
    "col_beg": 18,
-   "line_end": 67,
+   "line_end": 84,
    "col_end": 24,
    "desc": "not about all our products being available only in person",
    "project": "",
