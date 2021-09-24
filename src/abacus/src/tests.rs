@@ -388,3 +388,29 @@ async fn test_server_unknown_path() {
 
     assert_eq!(resp.status(), StatusCode::NOT_FOUND);
 }
+
+#[tokio::test]
+async fn test_server_ping() {
+    let resp = request()
+        .method("GET")
+        .path("/status/ping")
+        .reply(&crate::warp_graphql::filters::ping_pong())
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::OK);
+    assert_eq!(resp.body(), r#"pong"#);
+}
+
+#[tokio::test]
+async fn test_server_invalid_redirect() {
+    let resp = request()
+        .method("GET")
+        // The following redirect is not a valid format (should be a valid UUID v4):
+        .path("/redirect/XYZ-ABC")
+        .reply(&crate::warp_graphql::filters::redirects(
+            &get_database_connection_pool_mock(),
+        ))
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::NOT_FOUND);
+}
