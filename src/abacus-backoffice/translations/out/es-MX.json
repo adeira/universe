@@ -1,5 +1,14 @@
 {
   "es-MX": {
+    "3uX4By": "Hits",
+    "48xFFF": "Destination",
+    "2WQmm3": "Description",
+    "1AgUMY": {
+      "*": "{number} hits",
+      "_1": "1 hit"
+    },
+    "cdoOV": "active",
+    "3418WI": "Analytics: redirects",
     "3JkX8r": "Ha ocurrido un error desconocido",
     "3m81kH": "Login with Google",
     "eiaXU": "Cerrar sesión",
@@ -31,6 +40,7 @@
     "2bLMT1": "Product add-ons",
     "1RC251": "Empleados",
     "kNzNr": "Sesiones de TPV",
+    "36grCr": "Analytics: redirects",
     "3E6cUK": "Total:",
     "38ByvQ": "All POS Sessions",
     "DyKOs": "Here you can find all active POS sessions.",

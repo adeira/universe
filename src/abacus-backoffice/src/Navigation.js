@@ -34,6 +34,9 @@ export default function Navigation(): React.Node {
       <Link href="/pos" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to point of sales sessions">POS sessions</fbt>
       </Link>
+      <Link href="/analytics/redirects" xstyle={styles.link} xstyleActive={styles.linkActive}>
+        <fbt desc="navigation link to analytics redirects">Analytics: redirects</fbt>
+      </Link>
 
       <div className={styles('spacing')} />
 

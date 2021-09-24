@@ -14,10 +14,12 @@ export default function IndexPage(): React.Node {
       query IndexPageQuery {
         analytics {
           mostSoldProducts {
+            productId
             productName
             productUnits
           }
           leastSoldProducts {
+            productId
             productName
             productUnits
           }
@@ -35,7 +37,7 @@ export default function IndexPage(): React.Node {
         <BarChart
           sort="DESC"
           data={data.analytics.mostSoldProducts.map((info) => ({
-            label: info.productName,
+            label: `${info.productName} (${info.productId})`,
             value: info.productUnits,
           }))}
         />
@@ -48,7 +50,7 @@ export default function IndexPage(): React.Node {
         <BarChart
           sort="ASC"
           data={data.analytics.leastSoldProducts.map((info) => ({
-            label: info.productName,
+            label: `${info.productName} (${info.productId})`,
             value: info.productUnits,
           }))}
         />
