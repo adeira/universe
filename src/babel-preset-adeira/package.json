@@ -26,7 +26,7 @@
   "devDependencies": {
     "@adeira/fixtures-tester": "^1.1.0",
     "@adeira/monorepo-utils": "^0.11.0",
-    "strip-ansi": "^6.0.0"
+    "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
     "@babel/core": "^7.15.5"
