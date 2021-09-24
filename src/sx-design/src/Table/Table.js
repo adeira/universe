@@ -106,5 +106,6 @@ const styles = sx.create({
   td: {
     padding: '10px 12px',
     borderBlockEnd: '1px solid rgba(var(--sx-accent-1))',
+    color: 'rgba(var(--sx-foreground))',
   },
 });
