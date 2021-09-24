@@ -11,8 +11,8 @@ https://www.rust-lang.org/
 The most important links when working with Rust (alphabetically):
 
 - https://cheats.rs/
-- https://rust.godbolt.org/z/qxnx4E1sq
 - https://lib.rs/
+- https://rust.godbolt.org/z/qxnx4E1sq
 - https://veykril.github.io/tlborm/
 
 Other awesome links (alphabetically):
@@ -21,15 +21,16 @@ Other awesome links (alphabetically):
 - https://caniuse.rs/
 - https://crates.io/
 - https://doc.rust-lang.org/std/collections/index.html
+- https://ferrous-systems.github.io/teaching-material/index.html (https://github.com/ferrous-systems/teaching-material)
 - https://github.com/awslabs/aws-lambda-rust-runtime
 - https://github.com/flosse/rust-web-framework-comparison
 - https://github.com/passcod/cargo-watch
 - https://gitlab.com/qonfucius/aragog
 - https://rust-analyzer.github.io/
 - https://rust-lang-nursery.github.io/rust-cookbook/intro.html
+- https://rust-unofficial.github.io/patterns/
 - https://rust.extension.sh/
 - https://www.arewewebyet.org/
-- https://ferrous-systems.github.io/teaching-material/index.html (https://github.com/ferrous-systems/teaching-material)
 
 ## Interesting Stack Overflow questions
 
