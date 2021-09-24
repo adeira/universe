@@ -9,6 +9,7 @@ use bytes::BufMut;
 use futures::TryStreamExt;
 use juniper::http::GraphQLRequest;
 use std::collections::HashMap;
+use std::str::FromStr;
 use std::sync::Arc;
 use warp::filters::multipart::Part;
 use warp::http::StatusCode;
@@ -19,6 +20,34 @@ use warp::{multipart, Rejection, Reply};
 struct ErrorMessage {
     code: u16,
     message: Option<String>,
+}
+
+/// Exposes a Warp filter to handle redirect URLs. It validates the input UUID and reject it if it's
+/// not a valid UUID format (with 404).
+///
+/// URL example:
+/// - http://localhost:5000/redirect/ef5f060a-ff77-4a76-9581-fa0031cb305d
+pub(in crate::warp_graphql) async fn redirects(
+    unsafe_uuid: String,
+    pool: ConnectionPool,
+) -> Result<impl Reply, Rejection> {
+    // First, we validate the UUID to make sure it's really a valid UUID:
+    match uuid::Uuid::parse_str(&unsafe_uuid) {
+        Ok(uuid) => {
+            match crate::analytics::get_link_and_record_hit(&pool, &uuid).await {
+                Some(redirect_url) => match warp::http::Uri::from_str(&redirect_url).ok() {
+                    Some(url) => Ok(
+                        // The redirect must always stay temporary so that browsers won't cache the redirect
+                        // and we always hit Abacus (and record analytics hit).
+                        warp::redirect::temporary(url),
+                    ),
+                    None => Err(warp::reject::not_found()),
+                },
+                None => Err(warp::reject::not_found()),
+            }
+        }
+        Err(_) => Err(warp::reject::not_found()),
+    }
 }
 
 pub(in crate::warp_graphql) async fn graphql_post(

@@ -3,6 +3,7 @@ use casbin::{CoreApi, DefaultModel, Error as CasbinError, FileAdapter};
 
 pub(crate) enum AnalyticsActions {
     GetCheckoutStats,
+    GetRedirectHits,
 }
 
 pub(crate) enum CommerceActions {
@@ -77,6 +78,7 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                             obj = "analytics";
                             match analytics_actions {
                                 AnalyticsActions::GetCheckoutStats => act = "get_checkout_stats",
+                                AnalyticsActions::GetRedirectHits => act = "get_redirect_hits",
                             }
                         }
                         Actions::Commerce(commerce_actions) => {
