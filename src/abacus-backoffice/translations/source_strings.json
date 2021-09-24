@@ -2,6 +2,103 @@
  "phrases": [
   {
    "hashToText": {
+    "dZ+Vz30jY5ATqTW64xzopA==": "Hits"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPage.js",
+   "line_beg": 27,
+   "col_beg": 18,
+   "line_end": 27,
+   "col_end": 71,
+   "desc": "how many hits did the link get",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Hits"
+  },
+  {
+   "hashToText": {
+    "duLKZvjku3aFE0HIZnmQ0A==": "Destination"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPage.js",
+   "line_beg": 30,
+   "col_beg": 18,
+   "line_end": 30,
+   "col_end": 85,
+   "desc": "where does our redirect link point to",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Destination"
+  },
+  {
+   "hashToText": {
+    "VPvoLDopbOVWpDWlJUooWg==": "Description"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPage.js",
+   "line_beg": 34,
+   "col_beg": 18,
+   "line_end": 34,
+   "col_end": 82,
+   "desc": "description or purpose of the link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Description"
+  },
+  {
+   "hashToText": {
+    "QTX4SlUpjKlRffCHc6fo3g==": "{number} hits",
+    "9RUeL66Cftv4//bLrdiiqg==": "1 hit"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPage.js",
+   "line_beg": 42,
+   "col_beg": 12,
+   "line_end": 46,
+   "col_end": 18,
+   "desc": "number of hits",
+   "project": "",
+   "type": "table",
+   "jsfbt": {
+    "t": {
+     "*": "{number} hits",
+     "_1": "1 hit"
+    },
+    "m": [
+     {
+      "token": "number",
+      "type": 2,
+      "singular": true
+     }
+    ]
+   }
+  },
+  {
+   "hashToText": {
+    "IJ2JdxovFDHoSZY/UWeWRw==": "active"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPage.js",
+   "line_beg": 57,
+   "col_beg": 14,
+   "line_end": 57,
+   "col_end": 52,
+   "desc": "active status",
+   "project": "",
+   "type": "text",
+   "jsfbt": "active"
+  },
+  {
+   "hashToText": {
+    "a4gcfCXdvHZgQdSRXNbW+w==": "Analytics: redirects"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPageLayout.js",
+   "line_beg": 13,
+   "col_beg": 15,
+   "line_end": 13,
+   "col_end": 86,
+   "desc": "analytics redirects page heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Analytics: redirects"
+  },
+  {
+   "hashToText": {
     "XKQt/WzTgsZemYhMzTVAuw==": "Some unknown error happened"
    },
    "filepath": "src/AuthButtons.js",
@@ -257,9 +354,9 @@
     "kPOwV1MB9dDJi19OhD0BzA==": "Most sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 33,
+   "line_beg": 35,
    "col_beg": 10,
-   "line_end": 33,
+   "line_end": 35,
    "col_end": 73,
    "desc": "most sold products heading",
    "project": "",
@@ -271,9 +368,9 @@
     "WD7O+f3homrC/othG1EAMw==": "Least sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 46,
+   "line_beg": 48,
    "col_beg": 10,
-   "line_end": 46,
+   "line_end": 48,
    "col_end": 75,
    "desc": "least sold products heading",
    "project": "",
@@ -433,6 +530,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "POS sessions"
+  },
+  {
+   "hashToText": {
+    "dXbjUn5J6dQ6yVdAlIYEXQ==": "Analytics: redirects"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 38,
+   "col_beg": 8,
+   "line_end": 38,
+   "col_end": 85,
+   "desc": "navigation link to analytics redirects",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Analytics: redirects"
   },
   {
    "hashToText": {
