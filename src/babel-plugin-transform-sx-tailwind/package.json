@@ -24,7 +24,7 @@
     "find-cache-dir": "^3.3.2",
     "object-hash": "^2.2.0",
     "postcss": "^8.3.8",
-    "tailwindcss": "^2.2.15"
+    "tailwindcss": "^2.2.16"
   },
   "devDependencies": {
     "@babel/plugin-transform-regenerator": "^7.14.5",
