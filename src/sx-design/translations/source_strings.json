@@ -58,6 +58,20 @@
   },
   {
    "hashToText": {
+    "o6kif8vkYC3vavYsgwGDsw==": "open menu"
+   },
+   "filepath": "src/Menu/Menu.js",
+   "line_beg": 38,
+   "col_beg": 20,
+   "line_end": 38,
+   "col_end": 64,
+   "desc": "open menu button",
+   "project": "",
+   "type": "text",
+   "jsfbt": "open menu"
+  },
+  {
+   "hashToText": {
     "Y3o6+D/7PWcFogiHsVcKiA==": "Unable to load data or missing data."
    },
    "filepath": "src/MissingData/MissingData.js",
