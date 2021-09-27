@@ -16,7 +16,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/css-colors": "^2.2.0",
-    "@adeira/js": "^2.1.0",
+    "@adeira/js": "^2.1.1",
     "@adeira/murmur-hash": "^2.0.0",
     "@babel/runtime": "^7.15.4",
     "change-case": "^4.1.2",

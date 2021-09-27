@@ -15,7 +15,7 @@
   "private": false,
   "dependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
-    "@adeira/js": "^2.1.0",
+    "@adeira/js": "^2.1.1",
     "@babel/eslint-parser": "^7.15.7",
     "@babel/runtime": "^7.15.4",
     "eslint": "^7.32.0",

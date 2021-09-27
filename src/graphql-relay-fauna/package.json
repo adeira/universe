@@ -16,7 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "@adeira/graphql-global-id": "^2.0.0",
-    "@adeira/js": "^2.1.0",
+    "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.15.4",
     "faunadb": "^4.4.1"
   },
