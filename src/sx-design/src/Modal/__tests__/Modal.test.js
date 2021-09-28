@@ -8,7 +8,7 @@ import fbt from 'fbt';
 
 import Button from '../../Button/Button';
 import Modal from '../Modal';
-import { initFbt, render, fireEvent } from '../../test-utils';
+import { initFbt, render, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -44,7 +44,7 @@ it('renders Modal component without any problems', () => {
   expect(queryByText('modal body')).toBeNull();
 
   // Open the modal:
-  fireEvent.click(getByText('Open modal'));
+  userEvent.click(getByText('Open modal'));
 
   // Now all the elements should be available:
   expect(getByText('Modal title')).toBeDefined();
@@ -60,12 +60,12 @@ describe('closing mechanism', () => {
 
     // Open the modal:
     expect(queryByTestId('ModalDialogCloseButton')).toBeNull();
-    fireEvent.click(getByText('Open modal'));
+    userEvent.click(getByText('Open modal'));
     expect(getByTestId('ModalDialogCloseButton')).toBeDefined();
 
     // Close the modal:
     expect(onClose).not.toBeCalled();
-    fireEvent.click(getByTestId('ModalDialogCloseButton'));
+    userEvent.click(getByTestId('ModalDialogCloseButton'));
     expect(onClose).toBeCalledTimes(1);
   });
 
@@ -77,12 +77,12 @@ describe('closing mechanism', () => {
 
     // Open the modal:
     expect(queryByTestId('ModalBackdrop')).toBeNull();
-    fireEvent.click(getByText('Open modal'));
+    userEvent.click(getByText('Open modal'));
     expect(getByTestId('ModalBackdrop')).toBeDefined();
 
     // Close the modal:
     expect(onClose).not.toBeCalled();
-    fireEvent.click(getByTestId('ModalBackdrop'));
+    userEvent.click(getByTestId('ModalBackdrop'));
     expect(onClose).toBeCalledTimes(1);
   });
 
@@ -92,14 +92,12 @@ describe('closing mechanism', () => {
 
     // Open the modal:
     expect(queryByText('Modal title')).toBeNull();
-    fireEvent.click(getByText('Open modal'));
+    userEvent.click(getByText('Open modal'));
     expect(getByText('Modal title')).toBeDefined();
 
     // Close the modal:
     expect(onClose).not.toBeCalled();
-    fireEvent.keyDown(getByText('Modal title'), {
-      key: 'Escape', // https://keycode.info/
-    });
+    userEvent.keyboard('{esc}');
     expect(onClose).toBeCalledTimes(1);
   });
 });
@@ -113,7 +111,7 @@ describe('background scrolling prevention', () => {
     const { getByText, getByTestId } = render(<TestingComponent />);
 
     // Open the modal:
-    fireEvent.click(getByText('Open modal'));
+    userEvent.click(getByText('Open modal'));
 
     // Body overflow should be hidden when the modal is open (this prevent the background from scrolling):
     expect(
@@ -121,7 +119,7 @@ describe('background scrolling prevention', () => {
     ).toMatchInlineSnapshot(`"hidden"`);
 
     // Close the modal:
-    fireEvent.click(getByTestId('ModalDialogCloseButton'));
+    userEvent.click(getByTestId('ModalDialogCloseButton'));
 
     // Body overflow allows the body to be scrollable again:
     expect(
@@ -143,7 +141,7 @@ describe('background scrolling prevention', () => {
     const { getByText, getByTestId } = render(<TestingComponent />);
 
     // Open the modal:
-    fireEvent.click(getByText('Open modal'));
+    userEvent.click(getByText('Open modal'));
 
     // Body overflow should be hidden when the modal is open (this prevent the background from scrolling):
     expect(
@@ -151,7 +149,7 @@ describe('background scrolling prevention', () => {
     ).toMatchInlineSnapshot(`"hidden"`);
 
     // Close the modal:
-    fireEvent.click(getByTestId('ModalDialogCloseButton'));
+    userEvent.click(getByTestId('ModalDialogCloseButton'));
 
     // The body overflow value should respect the initial value:
     expect(

@@ -6,7 +6,7 @@
 import * as React from 'react';
 
 import ErrorBoundary from '../ErrorBoundary';
-import { render, fireEvent } from '../../test-utils';
+import { render, userEvent } from '../../test-utils';
 
 const Throws = () => {
   throw new Error(`yadada`);
@@ -90,7 +90,7 @@ it('calls default onRetry callback as expected (window.location.reload)', () => 
   );
 
   expect(windowLocationReload).not.toHaveBeenCalled();
-  fireEvent.click(getByText('Retry'));
+  userEvent.click(getByText('Retry'));
   expect(windowLocationReload).toHaveBeenCalledWith();
 });
 
@@ -105,6 +105,6 @@ it('calls custom onRetry callback as expected', () => {
   );
 
   expect(onRetryFn).not.toHaveBeenCalled();
-  fireEvent.click(getByText('Retry'));
+  userEvent.click(getByText('Retry'));
   expect(onRetryFn).toHaveBeenCalledWith();
 });

@@ -4,13 +4,12 @@
  */
 
 import Icon from '@adeira/icons';
-import { fireEvent } from '@testing-library/react';
 import React from 'react';
 import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
 
 import LinkButton from '../LinkButton';
-import { initFbt, renderWithoutProviders } from '../../test-utils';
+import { initFbt, renderWithoutProviders, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -44,7 +43,7 @@ it('calls onClick event', () => {
   expect(getByText('link button with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('link button with onClick callback'));
+  userEvent.click(getByText('link button with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
 
@@ -62,7 +61,7 @@ it('does not call onClick event when disabled', () => {
   expect(getByText('link button with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('link button with onClick callback'));
+  userEvent.click(getByText('link button with onClick callback'));
   expect(onClickFn).not.toHaveBeenCalled();
 });
 

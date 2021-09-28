@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-import { render, fireEvent } from '../../test-utils';
+import { render, userEvent } from '../../test-utils';
 import FilterChip from '../FilterChip';
 import FilterChips from '../FilterChips';
 
@@ -37,15 +37,15 @@ it('calls `onFiltersChange` as expected', () => {
   expect(onFiltersChangeFn).not.toHaveBeenCalledWith();
 
   // select AAA
-  fireEvent.click(getByText('AAA'));
+  userEvent.click(getByText('AAA'));
   expect(onFiltersChangeFn).toHaveBeenLastCalledWith(['aaa']);
 
   // additionally select BBB and CCC
-  fireEvent.click(getByText('BBB'));
-  fireEvent.click(getByText('CCC'));
+  userEvent.click(getByText('BBB'));
+  userEvent.click(getByText('CCC'));
   expect(onFiltersChangeFn).toHaveBeenLastCalledWith(['aaa', 'bbb', 'ccc']);
 
   // unselect BBB
-  fireEvent.click(getByText('BBB'));
+  userEvent.click(getByText('BBB'));
   expect(onFiltersChangeFn).toHaveBeenLastCalledWith(['aaa', 'ccc']);
 });
