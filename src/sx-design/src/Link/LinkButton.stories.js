@@ -18,7 +18,12 @@ export default {
 };
 
 // 👇 We create a "template" of how args map to rendering
-const BasicTemplate = (args) => <LinkButton {...args} />;
+const BasicTemplate = (args) => (
+  <LayoutInline>
+    <LinkButton {...args} />
+    <LinkButton {...args} isDisabled={true} />
+  </LayoutInline>
+);
 
 const ShowcaseTemplate = (args) => (
   <LayoutInline>

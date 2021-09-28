@@ -2,7 +2,7 @@
 
 import Icon from '@adeira/icons';
 import { invariant } from '@adeira/js';
-import * as React from 'react';
+import React, { type Element } from 'react';
 
 import sharedButtonStyles from './styles';
 
@@ -26,8 +26,14 @@ type Props = {
 
 /**
  * Creates a traditional HTML button with the correct attributes.
+ *
+ * ## Accessibility
+ *
+ * We intentionally do not use HTML `disabled` attribute because browsers are skipping disabled
+ * elements while tabbing. Instead, we are preventing the `onClick` programmatically so users
+ * can navigate the disabled buttons (see: https://css-tricks.com/making-disabled-buttons-more-inclusive/).
  */
-export default function Button(props: Props): React.Element<'button'> {
+export default function Button(props: Props): Element<'button'> {
   const childrenCount = React.Children.count(props.children);
   if (childrenCount === 1) {
     React.Children.forEach(props.children, (child) => {
@@ -43,13 +49,18 @@ export default function Button(props: Props): React.Element<'button'> {
     });
   }
 
+  const handleOnClick = (event) => {
+    if (props.isDisabled !== true) {
+      props.onClick(event);
+    }
+  };
+
   return (
     // eslint-disable-next-line react/forbid-elements
     <button
       // eslint-disable-next-line react/button-has-type
       type={props.type ?? 'button'}
-      onClick={props.onClick}
-      disabled={props.isDisabled === true}
+      onClick={handleOnClick}
       aria-disabled={props.isDisabled === true}
       data-testid={props['data-testid']}
       className={sharedButtonStyles({

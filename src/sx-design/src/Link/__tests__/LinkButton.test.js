@@ -48,6 +48,24 @@ it('calls onClick event', () => {
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
 
+it('does not call onClick event when disabled', () => {
+  const onClickFn = jest.fn();
+
+  const { getByText } = renderWithoutProviders(
+    <LinkButton href="https://localhost" onClick={onClickFn} isDisabled={true}>
+      <fbt desc="link button title" doNotExtract={true}>
+        link button with onClick callback
+      </fbt>
+    </LinkButton>,
+  );
+
+  expect(getByText('link button with onClick callback')).toBeDefined();
+  expect(onClickFn).not.toHaveBeenCalled();
+
+  fireEvent.click(getByText('link button with onClick callback'));
+  expect(onClickFn).not.toHaveBeenCalled();
+});
+
 it('renders prefix and suffix icons', () => {
   const { getByText, getByTestId } = renderWithoutProviders(
     <LinkButton
