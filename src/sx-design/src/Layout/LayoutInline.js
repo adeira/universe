@@ -8,6 +8,9 @@ type Props = {
   +'spacing'?: 'small' | 'medium' | 'large' | 'none',
   +'data-testid'?: string,
   +'justifyContent'?: 'space-between' | 'space-evenly',
+  +'alignItems'?: 'start' | 'center' | 'end',
+  +'as'?: 'div' | 'nav',
+  +'aria-label'?: Fbt,
 };
 
 /**
@@ -15,8 +18,10 @@ type Props = {
  * in horizontal line.
  */
 export default function LayoutInline(props: Props): Node {
+  const AsComponent = props.as ?? 'div';
   return (
-    <div
+    <AsComponent
+      aria-label={props['aria-label']}
       data-testid={props['data-testid']}
       className={styles({
         inline: true,
@@ -26,10 +31,13 @@ export default function LayoutInline(props: Props): Node {
         gapNone: props.spacing === 'none',
         justifyContentSpaceBetween: props.justifyContent === 'space-between',
         justifyContentSpaceEvenly: props.justifyContent === 'space-evenly',
+        alignItemsStart: props.alignItems === 'start',
+        alignItemsCenter: props.alignItems === 'center',
+        alignItemsEnd: props.alignItems === 'end',
       })}
     >
       {props.children}
-    </div>
+    </AsComponent>
   );
 }
 
@@ -38,7 +46,6 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    alignItems: 'start',
   },
   gapNone: { gap: 0 },
   gapSmall: { gap: 'var(--sx-spacing-small)' },
@@ -46,4 +53,7 @@ const styles = sx.create({
   gapLarge: { gap: 'var(--sx-spacing-large)' },
   justifyContentSpaceBetween: { justifyContent: 'space-between' },
   justifyContentSpaceEvenly: { justifyContent: 'space-evenly' },
+  alignItemsStart: { alignItems: 'start' },
+  alignItemsCenter: { alignItems: 'center' },
+  alignItemsEnd: { alignItems: 'end' },
 });
