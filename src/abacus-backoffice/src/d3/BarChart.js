@@ -70,7 +70,14 @@ function drawSvgChart(svgRef, width, unsortedData, config) {
   svg.append('g').call((g) =>
     g
       .attr('transform', `translate(0,${margin.top})`)
-      .call(d3.axisTop(x).ticks(width / 100))
+      .call(
+        d3
+          .axisTop(x)
+          .tickFormat(
+            d3.format('.1~f'), // one decimal place with trimmed insignificant trailing zeros
+          )
+          .ticks(width / 100),
+      )
       .call((g) => g.select('.domain').remove()),
   );
 

@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "private": false,
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "./src/index.js",
   "type": "commonjs",
   "sideEffects": false,

@@ -6,6 +6,25 @@ use std::convert::Infallible;
 use std::sync::Arc;
 use warp::{Filter, Rejection, Reply};
 
+pub(crate) fn ping_pong() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+    warp::path!("status" / "ping")
+        .and(warp::get())
+        .and(warp::path::end())
+        .map(|| format!("pong")) // TODO: perform some check to make sure the server is healthy (DB check)
+}
+
+pub(crate) fn redirects(
+    pool: &ConnectionPool,
+) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+    warp::path!("redirect" / String)
+        .and(warp::get())
+        .and(with_database_connection_pool(pool.clone()))
+        .and_then(
+            // TODO: rename (it's not only "warp_graphql" anymore)
+            warp_graphql::handlers::redirects,
+        )
+}
+
 /// Combines our `application/json` and `multipart/form-data` GraphQL filters together.
 ///
 /// Note on Warp filters implementation:
@@ -19,7 +38,16 @@ pub(crate) fn graphql(
     schema: Schema,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     let schema = Arc::new(schema); // TODO: is this the right way?
-    graphql_post(pool, schema.clone()).or(graphql_multipart(pool, schema))
+    graphql_post(pool, schema.clone())
+        .or(graphql_multipart(pool, schema))
+        .with(
+            warp::cors()
+                .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
+                .allow_origin("http://localhost:5002") // KOCHKA.com.mx (DEV without Telepresence)
+                .allow_origin("https://abacus-backoffice.vercel.app/") // TODO abacus-backoffice (PRODUCTION)
+                .allow_headers(vec!["authorization", "content-type", "x-client"])
+                .allow_methods(vec![warp::http::Method::POST]),
+        )
 }
 
 /// POST /graphql with `application/json` body

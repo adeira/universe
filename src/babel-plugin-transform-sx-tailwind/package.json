@@ -23,8 +23,8 @@
     "@babel/types": "^7.15.6",
     "find-cache-dir": "^3.3.2",
     "object-hash": "^2.2.0",
-    "postcss": "^8.3.7",
-    "tailwindcss": "^2.2.15"
+    "postcss": "^8.3.8",
+    "tailwindcss": "^2.2.16"
   },
   "devDependencies": {
     "@babel/plugin-transform-regenerator": "^7.14.5",

@@ -9,7 +9,6 @@ export type EmployeesPageQueryVariables = {||};
 export type EmployeesPageQueryResponse = {|
   +auth: {|
     +listUsers: $ReadOnlyArray<{|
-      +id: string,
       +name: ?string,
       +hasEmailVerified: ?boolean,
       +isActive: boolean,
@@ -25,7 +24,6 @@ export type EmployeesPageQuery = {|
 query EmployeesPageQuery {
   auth {
     listUsers {
-      id
       name
       hasEmailVerified
       isActive
@@ -52,13 +50,6 @@ var v0 = [
         "name": "listUsers",
         "plural": true,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
           {
             "alias": null,
             "args": null,
@@ -105,15 +96,15 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "3828b96ac3e77acf86d69a612cf62658",
+    "cacheID": "bfc4c270e45a9249a364df23d447c82c",
     "id": null,
     "metadata": {},
     "name": "EmployeesPageQuery",
     "operationKind": "query",
-    "text": "query EmployeesPageQuery {\n  auth {\n    listUsers {\n      id\n      name\n      hasEmailVerified\n      isActive\n    }\n  }\n}\n"
+    "text": "query EmployeesPageQuery {\n  auth {\n    listUsers {\n      name\n      hasEmailVerified\n      isActive\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '3aed45eb84d77bd8e9c44f8892f2816f';
+(node: any).hash = '2e20a6c5048340bea0ce11b0fb28638c';
 export default node;

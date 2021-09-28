@@ -58,8 +58,10 @@ async fn main() {
     println!(
         r#"
         Starting server on {}
-         - POST /graphql   (application/json)
-         - POST /graphql   (multipart/form-data)
+         - POST /graphql            (application/json)
+         - POST /graphql            (multipart/form-data)
+         - GET  /redirect/:uuid
+         - GET  /status/ping
         "#,
         server_addr
     );
@@ -74,17 +76,14 @@ async fn main() {
         cli_matches.value_of("arangodb-password").unwrap(),
     );
 
-    let schema = create_graphql_schema();
-    let graphql_api = warp_graphql::filters::graphql(&pool, schema);
-    let routes = graphql_api
-        .with(
-            warp::cors()
-                .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
-                .allow_origin("http://localhost:5002") // KOCHKA.com.mx (DEV without Telepresence)
-                .allow_origin("https://abacus-backoffice.vercel.app/") // TODO abacus-backoffice (PRODUCTION)
-                .allow_headers(vec!["authorization", "content-type", "x-client"])
-                .allow_methods(vec![warp::http::Method::POST]),
-        )
+    let graphql_schema = create_graphql_schema();
+    let graphql_warp_filter = warp_graphql::filters::graphql(&pool, graphql_schema);
+    let redirects_warp_filter = warp_graphql::filters::redirects(&pool);
+    let status_ping_pong_filter = warp_graphql::filters::ping_pong();
+
+    let routes = graphql_warp_filter
+        .or(redirects_warp_filter)
+        .or(status_ping_pong_filter)
         .with(warp::trace(|_info| {
             tracing::info_span!(
                 "request",
@@ -100,6 +99,8 @@ async fn main() {
         // Preferably, migrations would NOT be ran during the server start.
         // But we do it now for the simplicity.
         migrations::migrate(&pool).await;
+    } else {
+        tracing::info!("Skipping database migrations because of --no-migrations")
     }
 
     // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
