@@ -5,7 +5,7 @@
 
 import React from 'react';
 
-import { render, fireEvent } from '../../test-utils';
+import { render, userEvent } from '../../test-utils';
 import Menu from '../Menu';
 
 it('renders the menu without any issues', () => {
@@ -31,7 +31,7 @@ it('renders the menu without any issues', () => {
   expect(queryByText('Delete')).not.toBeInTheDocument();
 
   // We have to first open the menu:
-  fireEvent.click(getByRole('button'));
+  userEvent.click(getByRole('button'));
 
   // And now everything is visible:
   expect(getByText('One')).toBeDefined();
@@ -52,10 +52,10 @@ it('calls callback correctly when the item is clicked', () => {
 
   // First we need to open the menu because it's closed by default:
   expect(queryByText('Click me!')).not.toBeInTheDocument();
-  fireEvent.click(getByRole('button'));
+  userEvent.click(getByRole('button'));
   expect(getByText('Click me!')).toBeDefined();
 
   // Now we can call the menu item which should call the callback:
-  fireEvent.click(getByText('Click me!'));
+  userEvent.click(getByText('Click me!'));
   expect(onClickFn).toBeCalledTimes(1);
 });

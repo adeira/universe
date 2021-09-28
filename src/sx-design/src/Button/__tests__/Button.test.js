@@ -8,7 +8,7 @@ import React from 'react';
 import fbt from 'fbt';
 
 import Button from '../Button';
-import { initFbt, render, fireEvent } from '../../test-utils';
+import { initFbt, render, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -58,7 +58,7 @@ it('calls onClick event', () => {
   expect(getByText('button with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('button with onClick callback'));
+  userEvent.click(getByText('button with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });
 
@@ -76,7 +76,7 @@ it('does not call onClick event when the button is disabled', () => {
   expect(getByText('disabled button with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('disabled button with onClick callback'));
+  userEvent.click(getByText('disabled button with onClick callback'));
   expect(onClickFn).not.toHaveBeenCalled();
 });
 

@@ -3,12 +3,11 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent } from '@testing-library/react';
 import React, { useState } from 'react';
 import { fbt } from 'fbt';
 
 import Tabs from '../Tabs';
-import { initFbt, render } from '../../test-utils';
+import { initFbt, render, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -107,7 +106,7 @@ it('handles clicks as expected', () => {
   expect(getByText('Orange tab title')).toBeDefined();
   expect(getByText('Mango tab title')).toBeDefined();
 
-  fireEvent.click(getByText('Mango tab title'));
+  userEvent.click(getByText('Mango tab title'));
 
   expect(getByText('Apple tab title')).toBeDefined();
   expect(getByText('Orange tab title')).toBeDefined();
@@ -121,7 +120,7 @@ it('supports null and number values', () => {
   expect(getByText('1')).toBeDefined();
   expect(getByText('2')).toBeDefined();
 
-  fireEvent.click(getByText('1'));
+  userEvent.click(getByText('1'));
 
   expect(getByText('0')).toBeDefined();
   expect(getByText('1 (selected)')).toBeDefined();
@@ -136,7 +135,7 @@ it('correctly handles focus when navigating with right arrow ->', () => {
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
 
   // we press right arrow (->) but it should not have any effect because no tab is currently focused
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  userEvent.keyboard('{arrowright}');
 
   // we have to focus the button directly - `getByText('Apple…')` would not work
   getByTestId('TabsButton-apple').focus();
@@ -145,19 +144,19 @@ it('correctly handles focus when navigating with right arrow ->', () => {
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
 
   // ->
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  userEvent.keyboard('{arrowright}');
   expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
   expect(getByTestId('TabsButton-orange')).toHaveFocus();
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
 
   // ->
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  userEvent.keyboard('{arrowright}');
   expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
   expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
   expect(getByTestId('TabsButton-mango')).toHaveFocus();
 
   // -> (should jump back to the first tab)
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowRight' });
+  userEvent.keyboard('{arrowright}');
   expect(getByTestId('TabsButton-apple')).toHaveFocus();
   expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
@@ -171,7 +170,7 @@ it('correctly handles focus when navigating with left arrow <-', () => {
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
 
   // we press left arrow (<-) but it should not have any effect because no tab is currently focused
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  userEvent.keyboard('{arrowleft}');
 
   // we have to focus the button directly - `getByText('Apple…')` would not work
   getByTestId('TabsButton-mango').focus();
@@ -180,19 +179,19 @@ it('correctly handles focus when navigating with left arrow <-', () => {
   expect(getByTestId('TabsButton-mango')).toHaveFocus();
 
   // <-
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  userEvent.keyboard('{arrowleft}');
   expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
   expect(getByTestId('TabsButton-orange')).toHaveFocus();
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
 
   // <-
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  userEvent.keyboard('{arrowleft}');
   expect(getByTestId('TabsButton-apple')).toHaveFocus();
   expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
   expect(getByTestId('TabsButton-mango')).not.toHaveFocus();
 
   // <- (should jump back to the last tab)
-  fireEvent.keyDown(getByTestId('TabsButton-orange'), { key: 'ArrowLeft' });
+  userEvent.keyboard('{arrowleft}');
   expect(getByTestId('TabsButton-apple')).not.toHaveFocus();
   expect(getByTestId('TabsButton-orange')).not.toHaveFocus();
   expect(getByTestId('TabsButton-mango')).toHaveFocus();

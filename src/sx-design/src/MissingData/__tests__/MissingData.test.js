@@ -6,7 +6,7 @@
 import * as React from 'react';
 
 import MissingData from '../MissingData';
-import { render, fireEvent } from '../../test-utils';
+import { render, userEvent } from '../../test-utils';
 
 it('works as expected without any crashes', () => {
   const { queryByText, getByText } = render(<MissingData />);
@@ -18,7 +18,7 @@ it('works as expected without any crashes', () => {
   ).toBe('hidden');
 
   // We have to uncover it:
-  fireEvent.mouseOver(getByText('N/A'));
+  userEvent.hover(getByText('N/A'));
 
   // And now we should be able to find it:
   expect(getByText('Unable to load data or missing data.')).toBeDefined();

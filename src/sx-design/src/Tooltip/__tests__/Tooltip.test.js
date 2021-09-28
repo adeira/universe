@@ -8,7 +8,7 @@ import fbt from 'fbt';
 
 import Button from '../../Button/Button';
 import Tooltip from '../Tooltip';
-import { initFbt, render, renderWithoutProviders, fireEvent } from '../../test-utils';
+import { initFbt, render, renderWithoutProviders, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -31,7 +31,7 @@ it('renders and behaves as expected - default children', () => {
   expect(window.getComputedStyle(queryByText('test tooltip content')).visibility).toBe('hidden');
 
   // We have to uncover it:
-  fireEvent.mouseOver(getByTestId('hover_over_me'));
+  userEvent.hover(getByTestId('hover_over_me'));
 
   // And now we should be able to find it:
   expect(getByText('test tooltip content')).toBeDefined();
@@ -56,7 +56,7 @@ it('renders and behaves as expected - custom children with mouse hover', () => {
   expect(window.getComputedStyle(queryByText('test tooltip content')).visibility).toBe('hidden');
 
   // We have to uncover it (by hovering mouse over):
-  fireEvent.mouseOver(getByText('custom children hover me'));
+  userEvent.hover(getByText('custom children hover me'));
 
   // And now we should be able to find it:
   expect(getByText('test tooltip content')).toBeDefined();
@@ -83,7 +83,9 @@ it('renders and behaves as expected - custom children with focus', () => {
   );
 
   // We have to uncover it (by focusing the button):
-  fireEvent.focus(getByText('focus me'));
+  expect(document.body).toHaveFocus();
+  userEvent.tab();
+  expect(getByText('focus me')).toHaveFocus();
 
   // And now we should be able to find it:
   expect(getByText('test tooltip focus content')).toBeDefined();
@@ -109,14 +111,14 @@ it('closes on ESC press', () => {
   expect(window.getComputedStyle(queryByText('close me with ESC')).visibility).toBe('hidden');
 
   // We have to uncover it:
-  fireEvent.mouseOver(getByTestId('hover_over_me_esc'));
+  userEvent.hover(getByTestId('hover_over_me_esc'));
 
   // And now we should be able to find it:
   expect(getByText('close me with ESC')).toBeDefined();
   expect(window.getComputedStyle(queryByText('close me with ESC')).visibility).toBe('visible');
 
   // Let's try to close it by pressing ESC:
-  fireEvent.keyDown(getByText('close me with ESC'), { key: 'Escape' });
+  userEvent.keyboard('{esc}');
   expect(getByText('close me with ESC')).toBeDefined();
   expect(window.getComputedStyle(queryByText('close me with ESC')).visibility).toBe('hidden');
 });

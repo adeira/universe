@@ -2,7 +2,9 @@
 
 import { type Element } from 'react';
 import { init as FbtInit, IntlVariations as FbtIntlVariations } from 'fbt';
-// eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies,no-restricted-imports
+import userEvent from '@testing-library/user-event';
+// eslint-disable-next-line import/no-extraneous-dependencies,no-restricted-imports
 import {
   render as renderWithoutProviders,
   type RenderOptionsWithoutCustomQueries,
@@ -39,9 +41,5 @@ const renderWithProviders = (
   });
 };
 
-// re-export needed things without modifications
-// eslint-disable-next-line import/no-extraneous-dependencies
-export { fireEvent } from '@testing-library/react';
-
-// export custom render method(s)
-export { initFbt, renderWithProviders as render, renderWithoutProviders };
+// export custom render method(s) and other helpers:
+export { initFbt, renderWithProviders as render, renderWithoutProviders, userEvent };

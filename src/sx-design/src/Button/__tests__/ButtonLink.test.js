@@ -7,7 +7,7 @@ import React from 'react';
 import fbt from 'fbt';
 
 import ButtonLink from '../ButtonLink';
-import { initFbt, render, fireEvent } from '../../test-utils';
+import { initFbt, render, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -27,6 +27,6 @@ it('calls onClick event', () => {
   expect(getByText('button link with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('button link with onClick callback'));
+  userEvent.click(getByText('button link with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });

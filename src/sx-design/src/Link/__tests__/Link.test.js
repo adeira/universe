@@ -8,7 +8,7 @@ import '@adeira/sx-jest-snapshot-serializer';
 import fbt from 'fbt';
 
 import Link from '../Link';
-import { initFbt, renderWithoutProviders, fireEvent } from '../../test-utils';
+import { initFbt, renderWithoutProviders, userEvent } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();
@@ -174,6 +174,6 @@ it('calls onClick event', () => {
   expect(getByText('link with onClick callback')).toBeDefined();
   expect(onClickFn).not.toHaveBeenCalled();
 
-  fireEvent.click(getByText('link with onClick callback'));
+  userEvent.click(getByText('link with onClick callback'));
   expect(onClickFn).toHaveBeenCalledTimes(1);
 });

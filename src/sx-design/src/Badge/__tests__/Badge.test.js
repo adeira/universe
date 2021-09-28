@@ -3,12 +3,11 @@
  * @jest-environment jsdom
  */
 
-import { render } from '@testing-library/react';
 import React from 'react';
 import fbt from 'fbt';
 
 import Badge from '../Badge';
-import { initFbt } from '../../test-utils';
+import { initFbt, render } from '../../test-utils';
 
 beforeEach(() => {
   initFbt();

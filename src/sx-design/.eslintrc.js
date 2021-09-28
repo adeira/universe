@@ -29,5 +29,20 @@ module.exports = {
         ],
       },
     ],
+    'no-restricted-imports': [
+      ERROR,
+      {
+        paths: [
+          {
+            name: '@testing-library/user-event',
+            message: "Please use 'test-utils' instead.",
+          },
+          {
+            name: '@testing-library/react',
+            message: "Please use 'test-utils' instead.",
+          },
+        ],
+      },
+    ],
   },
 };
