@@ -10,7 +10,7 @@ type Props = {
   +'isActive'?: boolean,
   +'xstyle'?: AllCSSProperties,
   +'data-testid'?: string,
-  +'onClick'?: () => void,
+  +'onClick'?: (event: SyntheticEvent<HTMLAnchorElement>) => void,
 };
 
 /**
