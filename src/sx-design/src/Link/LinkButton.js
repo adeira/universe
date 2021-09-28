@@ -1,7 +1,7 @@
 // @flow
 
 import Icon from '@adeira/icons';
-import * as React from 'react';
+import React, { type AbstractComponent, type Node } from 'react';
 import sx from '@adeira/sx';
 
 import Link from './Link';
@@ -16,7 +16,7 @@ type Props = {
   +'size'?: 'small' | 'medium' | 'large',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
-  +'onClick'?: () => void,
+  +'onClick'?: (event: SyntheticEvent<HTMLAnchorElement>) => void,
   +'prefix'?: RestrictedElement<typeof Icon>,
   +'suffix'?: RestrictedElement<typeof Icon>,
 };
@@ -27,8 +27,21 @@ type Props = {
  *
  * Optionally, you can use [React refs](https://reactjs.org/docs/refs-and-the-dom.html) and it will
  * be forwarded to the HTML `<a />` element as expected.
+ *
+ * ## Accessibility
+ *
+ * Disabled `LinkButton` is focusable so people with visual impairment can get oriented on the page,
+ * however, the `onClick` callback and link navigation are disabled.
  */
-export default (React.forwardRef(function LinkButton(props, ref): React.Node {
+export default (React.forwardRef(function LinkButton(props, ref): Node {
+  const handleOnClick = (event) => {
+    if (props.isDisabled !== true) {
+      props.onClick?.(event);
+    } else {
+      event.preventDefault();
+    }
+  };
+
   return (
     <Link
       ref={ref}
@@ -37,7 +50,7 @@ export default (React.forwardRef(function LinkButton(props, ref): React.Node {
       isActive={props.isActive ?? true}
       data-testid={props['data-testid']}
       xstyle={styles.linkStylesReset}
-      onClick={props.onClick}
+      onClick={handleOnClick}
     >
       <span
         className={sharedButtonStyles({
@@ -59,7 +72,7 @@ export default (React.forwardRef(function LinkButton(props, ref): React.Node {
       </span>
     </Link>
   );
-}): React.AbstractComponent<Props, HTMLAnchorElement>);
+}): AbstractComponent<Props, HTMLAnchorElement>);
 
 const styles = sx.create({
   linkStylesReset: {
