@@ -2,6 +2,20 @@
  "phrases": [
   {
    "hashToText": {
+    "UdnIS3EzRtyd5YBWoCR25Q==": "Breadcrumb"
+   },
+   "filepath": "src/Breadcrumb/Breadcrumb.js",
+   "line_beg": 37,
+   "col_beg": 18,
+   "line_end": 37,
+   "col_end": 57,
+   "desc": "breadcrumb",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Breadcrumb"
+  },
+  {
+   "hashToText": {
     "6FVmvS0nS9q0ld8LQ5VSyw==": "An unexpected error has occurred."
    },
    "filepath": "src/ErrorBoundary/ErrorBoundary.js",

@@ -51,6 +51,7 @@ Legend:
 | Component             | Localized?¹ | Dark mode?² | Has stories?³ | Tested?⁴ | RTL?⁵ |
 | --------------------- | :---------: | :---------: | :-----------: | :------: | :---: |
 | [`<Badge />`]         |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
+| [`<Breadcrumb />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
 | [`<Button />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<ButtonLink />`]    |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 | [`<Entity />`]        |     ✅      |     ✅      |      ✅       |    ✅    |  ✅   |
@@ -76,6 +77,7 @@ Legend:
 | [`<Tooltip />`]       |     ✅      |     ✅      |      ✅       |    ✅    |  🧐   |
 
 [`<badge />`]: https://sx-design.vercel.app/?path=/docs/components-badge
+[`<breadcrumb />`]: https://sx-design.vercel.app/?path=/docs/components-breadcrumb
 [`<button />`]: https://sx-design.vercel.app/?path=/docs/components-button
 [`<buttonlink />`]: https://sx-design.vercel.app/?path=/docs/components-buttonlink
 [`<entity />`]: https://sx-design.vercel.app/?path=/docs/components-entity
