@@ -26,7 +26,7 @@ beforeEach(() => {
   };
 });
 
-it('renders default components for loading and success', () => {
+it('renders default components for loading and success', async () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
       environment={environment}
@@ -40,7 +40,7 @@ it('renders default components for loading and success', () => {
 
   const generatedQuery = environmentMock.getMostRecentOperation();
   expect(environmentMock.isLoading(generatedQuery, variables)).toBe(true);
-  const loading = testInstance.findByProps({ 'data-testid': 'loading' });
+  const loading = await testInstance.findByProps({ 'data-testid': 'loading' });
   expect(loading).toBeDefined();
 
   environmentMock.resolveMostRecentOperation((operation) => {
@@ -48,12 +48,12 @@ it('renders default components for loading and success', () => {
   });
   expect(environmentMock.isLoading(generatedQuery, variables)).toBe(false);
   expect(testInstance.findAllByProps({ 'data-testid': 'loading' })).toHaveLength(0);
-  const success = testInstance.findByProps({ 'data-testid': 'success' });
+  const success = await testInstance.findByProps({ 'data-testid': 'success' });
   expect(success).toBeDefined();
   expect(success.children).toEqual(expect.arrayContaining(['Nice one! ', '<Node-mock-id-1>']));
 });
 
-it('renders default components for loading and generic fail', () => {
+it('renders default components for loading and generic fail', async () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
       environment={environment}
@@ -67,18 +67,18 @@ it('renders default components for loading and generic fail', () => {
 
   const generatedQuery = environmentMock.getMostRecentOperation();
   expect(environmentMock.isLoading(generatedQuery, variables)).toBe(true);
-  const loading = testInstance.findByProps({ 'data-testid': 'loading' });
+  const loading = await testInstance.findByProps({ 'data-testid': 'loading' });
   expect(loading).toBeDefined();
 
   environmentMock.rejectMostRecentOperation(new Error('fail'));
   expect(environmentMock.isLoading(generatedQuery, variables)).toBe(false);
   expect(testInstance.findAllByProps({ 'data-testid': 'loading' })).toHaveLength(0);
-  const error = testInstance.findByProps({ 'data-testid': 'error' });
+  const error = await testInstance.findByProps({ 'data-testid': 'error' });
   expect(error).toBeDefined();
   expect(error.children[0]).toBe('Error!');
 });
 
-it('renders default component for response error', () => {
+it('renders default component for response error', async () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
       environment={environment}
@@ -91,12 +91,12 @@ it('renders default component for response error', () => {
     // $FlowExpectedError[incompatible-call]: incomplete Response object for testing purposes only
     new FetchResponseError({ status: 500, statusText: 'fail' }),
   );
-  const error = testRenderer.root.findByProps({ 'data-testid': 'error' });
+  const error = await testRenderer.root.findByProps({ 'data-testid': 'error' });
   expect(error).toBeDefined();
   expect(error.children[0]).toBe('Unsuccessful response! (500 - fail)');
 });
 
-it('renders default component for fail with timeout', () => {
+it('renders default component for fail with timeout', async () => {
   const testRenderer = ReactTestRenderer.create(
     <QueryRenderer
       environment={environment}
@@ -106,12 +106,12 @@ it('renders default component for fail with timeout', () => {
     />,
   );
   environment.mock.rejectMostRecentOperation(new FetchTimeoutError('fail'));
-  const error = testRenderer.root.findByProps({ 'data-testid': 'error' });
+  const error = await testRenderer.root.findByProps({ 'data-testid': 'error' });
   expect(error).toBeDefined();
   expect(error.children[0]).toBe('Timeout error!');
 });
 
-it('renders custom error component', () => {
+it('renders custom error component', async () => {
   function onSystemError() {
     return <div data-testid="custom-error">Custom system error render.</div>;
   }
@@ -125,7 +125,7 @@ it('renders custom error component', () => {
     />,
   );
   environment.mock.rejectMostRecentOperation(new Error('fail'));
-  const error = testRenderer.root.findByProps({
+  const error = await testRenderer.root.findByProps({
     'data-testid': 'custom-error',
   });
   expect(error).toBeDefined();

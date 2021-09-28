@@ -3,10 +3,10 @@
  * @jest-environment jsdom
  */
 
-import { render } from '@testing-library/react';
 import React from 'react';
 
 import EntityField from '../EntityField';
+import { render } from '../../test-utils';
 
 it('renders EntityField component without any problems - title', () => {
   const { getByText } = render(<EntityField title="test title" />);

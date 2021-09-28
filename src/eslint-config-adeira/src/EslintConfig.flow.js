@@ -14,7 +14,11 @@ export type EslintConfigRules = { +[string]: EslintConfigValues };
 
 type EslintConfigPlugins = $ReadOnlyArray<string>;
 
-type EslintConfigOverrides = $ReadOnlyArray<{ ... }>;
+type EslintConfigOverrides = $ReadOnlyArray<{
+  +files: $ReadOnlyArray<string>,
+  +excludedFiles?: string,
+  +rules?: EslintConfigRules,
+}>;
 
 type EslintConfigSettings = {
   +[pluginIdentifier: string]: {

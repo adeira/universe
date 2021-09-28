@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
 /*::
@@ -15,6 +15,7 @@ module.exports = ({
     'eslint-plugin-react-hooks',
     'eslint-plugin-react-native',
     'eslint-plugin-jsx-a11y',
+    'eslint-plugin-testing-library',
   ],
   rules: {
     // React (https://github.com/yannickcr/eslint-plugin-react)
@@ -211,6 +212,40 @@ module.exports = ({
     'jsx-a11y/scope': ERROR,
     'jsx-a11y/tabindex-no-positive': ERROR,
   },
+  overrides: [
+    {
+      // React Testing Library (https://github.com/testing-library/eslint-plugin-testing-library)
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      rules: {
+        'testing-library/await-async-query': OFF, // TODO: seems to be broken for some `findAllByProps` in our codebase
+        'testing-library/await-async-utils': NEXT_VERSION_ERROR,
+        'testing-library/await-fire-event': OFF, // Vue only (https://github.com/testing-library/eslint-plugin-testing-library#supported-rules)
+        'testing-library/consistent-data-testid': OFF,
+        'testing-library/no-await-sync-events': OFF,
+        'testing-library/no-await-sync-query': NEXT_VERSION_ERROR,
+        'testing-library/no-container': OFF,
+        'testing-library/no-debug': NEXT_VERSION_ERROR,
+        'testing-library/no-dom-import': [NEXT_VERSION_ERROR, 'react'],
+        'testing-library/no-manual-cleanup': OFF,
+        'testing-library/no-node-access': OFF,
+        'testing-library/no-promise-in-fire-event': NEXT_VERSION_ERROR,
+        'testing-library/no-render-in-setup': OFF,
+        'testing-library/no-unnecessary-act': NEXT_VERSION_ERROR,
+        'testing-library/no-wait-for-empty-callback': NEXT_VERSION_ERROR,
+        'testing-library/no-wait-for-multiple-assertions': OFF,
+        'testing-library/no-wait-for-side-effects': OFF,
+        'testing-library/no-wait-for-snapshot': OFF,
+        'testing-library/prefer-explicit-assert': OFF, // TODO: NEXT_VERSION_ERROR
+        'testing-library/prefer-find-by': NEXT_VERSION_ERROR,
+        'testing-library/prefer-presence-queries': OFF, // TODO: NEXT_VERSION_ERROR
+        'testing-library/prefer-query-by-disappearance': OFF, // TODO: NEXT_VERSION_ERROR
+        'testing-library/prefer-screen-queries': OFF, // TODO: NEXT_VERSION_ERROR (?)
+        'testing-library/prefer-user-event': NEXT_VERSION_ERROR,
+        'testing-library/prefer-wait-for': OFF,
+        'testing-library/render-result-naming-convention': OFF,
+      },
+    },
+  ],
   settings: {
     react: {
       version: detectReactVersion(),
