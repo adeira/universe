@@ -5,6 +5,7 @@ export { default as useSxDesignContext } from './src/useSxDesignContext';
 
 // Public SX Design components:
 export { default as Badge } from './src/Badge/Badge';
+export { default as Breadcrumb } from './src/Breadcrumb/Breadcrumb';
 export { default as Button } from './src/Button/Button';
 export { default as ButtonLink } from './src/Button/ButtonLink';
 export { default as Entity } from './src/Entity/Entity';

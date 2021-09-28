@@ -1,6 +1,6 @@
 // @flow
 
-import { useState, useRef, useCallback, type Node } from 'react';
+import { useState, useRef, type Node } from 'react';
 import sx from '@adeira/sx';
 import Icon from '@adeira/icons';
 
@@ -38,7 +38,7 @@ export default function Tooltip(props: Props): Node {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState(nullClientRect);
 
-  const showTooltip = useCallback(() => {
+  const showTooltip = () => {
     const tooltipArea = tooltipAreaRef.current?.getBoundingClientRect() ?? nullClientRect;
     const hoverArea = hoverAreaRef.current?.getBoundingClientRect() ?? nullClientRect;
 
@@ -66,11 +66,11 @@ export default function Tooltip(props: Props): Node {
       ),
     );
     setIsTooltipVisible(true);
-  }, []);
+  };
 
-  const hideTooltip = useCallback(() => {
+  const hideTooltip = () => {
     setIsTooltipVisible(false);
-  }, []);
+  };
 
   useKeyPress({
     key: 'Escape',
