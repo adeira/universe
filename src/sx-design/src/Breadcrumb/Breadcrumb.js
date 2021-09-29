@@ -47,8 +47,13 @@ export default function Breadcrumb(props: Props): Node {
           </>
         );
         separator = (
-          <div className={styles('breadcrumbSeparator')}>
-            {direction === 'ltr' ? <Icon name="chevron_right" /> : <Icon name="chevron_left" />}
+          <div
+            className={styles({
+              breadcrumbSeparator: true,
+              rtl: direction === 'rtl',
+            })}
+          >
+            <Icon name="chevron_right" />
           </div>
         );
         return newChild;
@@ -62,5 +67,8 @@ Breadcrumb.Item = BreadcrumbItem;
 const styles = sx.create({
   breadcrumbSeparator: {
     color: 'rgba(var(--sx-accent-7))',
+  },
+  rtl: {
+    transform: 'rotate(180deg)',
   },
 });
