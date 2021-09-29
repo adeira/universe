@@ -5,7 +5,8 @@
 
 import * as React from 'react';
 import { invariant } from '@adeira/js';
-import { render } from '@testing-library/react';
+
+import { render } from '../../test-utils';
 
 test.each`
   code       | isMacOs  | expected
