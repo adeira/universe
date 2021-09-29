@@ -1,6 +1,16 @@
 {
   "fb-locale": "es-MX",
   "translations": {
+    "UdnIS3EzRtyd5YBWoCR25Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Navegación breadcrumb",
+          "variations": []
+        }
+      ]
+    },
     "6FVmvS0nS9q0ld8LQ5VSyw==": {
       "tokens": [],
       "types": [],
@@ -31,6 +41,16 @@
         }
       ]
     },
+    "o6kif8vkYC3vavYsgwGDsw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "abrir menú",
+          "variations": []
+        }
+      ]
+    },
     "Y3o6+D/7PWcFogiHsVcKiA==": {
       "tokens": [],
       "types": [],
@@ -47,6 +67,26 @@
       "translations": [
         {
           "translation": "n/a",
+          "variations": []
+        }
+      ]
+    },
+    "TNIovJZL5ppK7zxKo1VQ7Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "cerrar ventana modal",
+          "variations": []
+        }
+      ]
+    },
+    "3+zDauyfau5rWkm63Etp+g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "cerrar ventana modal",
           "variations": []
         }
       ]

@@ -13,6 +13,16 @@ module.exports = function getCommonConfig(
   nextVersionErrorLevel /*: 0|1|2 */,
   baseConfig /*: EslintConfig */,
 ) /*: EslintConfig */ {
+  let overrides = [];
+  if (baseConfig.overrides != null) {
+    overrides = baseConfig.overrides.map((override) => {
+      return {
+        ...override,
+        rules: changeNextVersionErrorLevel(override.rules ?? {}, nextVersionErrorLevel),
+      };
+    });
+  }
+
   return {
     rules: {
       ...changeNextVersionErrorLevel(baseConfig.rules, nextVersionErrorLevel),
@@ -47,6 +57,6 @@ module.exports = function getCommonConfig(
       'eslint-plugin-prettier', // TODO: move to the "base" preset only
     ],
 
-    overrides: [...(baseConfig.overrides ?? [])],
+    overrides,
   };
 };
