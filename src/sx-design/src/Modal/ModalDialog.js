@@ -37,9 +37,7 @@ export default function ModalDialog(props: Props): Node {
                 tint="secondary"
                 size="small"
                 onClick={props.onClose}
-                aria-label={
-                  <fbt desc="close modal button ARIA description">close modal button</fbt>
-                }
+                aria-label={<fbt desc="close modal button ARIA description">close modal</fbt>}
               >
                 <Icon name="cross" data-testid="ModalDialogCloseButton" />
               </Button>

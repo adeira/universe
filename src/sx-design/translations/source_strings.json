@@ -100,31 +100,31 @@
   },
   {
    "hashToText": {
-    "STJRzUb9dqzlXD8Ox1HhPA==": "close modal button"
+    "Czh1UqoArscJtPTS7oIQgg==": "close modal"
    },
    "filepath": "src/Modal/ModalDialog.js",
-   "line_beg": 41,
-   "col_beg": 18,
-   "line_end": 41,
-   "col_end": 90,
+   "line_beg": 40,
+   "col_beg": 28,
+   "line_end": 40,
+   "col_end": 93,
    "desc": "close modal button ARIA description",
    "project": "",
    "type": "text",
-   "jsfbt": "close modal button"
+   "jsfbt": "close modal"
   },
   {
    "hashToText": {
-    "STJRzUb9dqzlXD8Ox1HhPA==": "close modal button"
+    "Czh1UqoArscJtPTS7oIQgg==": "close modal"
    },
    "filepath": "src/Modal/ModalDrawer.js",
-   "line_beg": 41,
-   "col_beg": 18,
-   "line_end": 41,
-   "col_end": 90,
+   "line_beg": 40,
+   "col_beg": 28,
+   "line_end": 40,
+   "col_end": 93,
    "desc": "close modal button ARIA description",
    "project": "",
    "type": "text",
-   "jsfbt": "close modal button"
+   "jsfbt": "close modal"
   },
   {
    "hashToText": {
