@@ -1,6 +1,16 @@
 {
   "fb-locale": "cs-CZ",
   "translations": {
+    "UdnIS3EzRtyd5YBWoCR25Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Drobečková navigace",
+          "variations": []
+        }
+      ]
+    },
     "6FVmvS0nS9q0ld8LQ5VSyw==": {
       "tokens": [],
       "types": [],
@@ -31,6 +41,16 @@
         }
       ]
     },
+    "o6kif8vkYC3vavYsgwGDsw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "otevřít nabídku",
+          "variations": []
+        }
+      ]
+    },
     "Y3o6+D/7PWcFogiHsVcKiA==": {
       "tokens": [],
       "types": [],
@@ -47,6 +67,26 @@
       "translations": [
         {
           "translation": "N/A",
+          "variations": []
+        }
+      ]
+    },
+    "TNIovJZL5ppK7zxKo1VQ7Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "zavřít modální okno",
+          "variations": []
+        }
+      ]
+    },
+    "3+zDauyfau5rWkm63Etp+g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "zavřít modální okno",
           "variations": []
         }
       ]
