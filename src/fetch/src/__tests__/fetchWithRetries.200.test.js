@@ -1,33 +1,21 @@
 // @flow
 
-import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
-import flushPromises from './_flushPromises';
-
-jest.mock('../fetch');
-
-beforeEach(() => {
-  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
-  jest.useFakeTimers('legacy');
-});
-
-afterEach(() => {
-  jest.useRealTimers();
-});
+import { server, rest } from '../test-utils';
 
 it('resolves the promise when the `fetch` was successful', async () => {
-  const handleNext = jest.fn();
   const response = {
-    status: 200,
+    message: 'resolved',
   };
+  server.use(
+    rest.get('https://localhost', (_, res, ctx) => {
+      return res(ctx.status(200), ctx.json(response));
+    }),
+  );
 
-  fetchWithRetries('https://localhost', {}).then(handleNext);
-  fetch.mock.deferreds[0].resolve(response);
+  const res = await fetchWithRetries('https://localhost', {});
+  expect(res.status).toBe(200);
+  const json = await res.json();
 
-  expect(handleNext).not.toBeCalled();
-
-  await flushPromises();
-  jest.runAllTimers();
-
-  expect(handleNext).toBeCalledWith(response);
+  expect(json).toEqual(response);
 });

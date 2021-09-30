@@ -1,33 +1,19 @@
 // @flow
 
-import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
-import flushPromises from './_flushPromises';
-
-jest.mock('../fetch');
-
-beforeEach(() => {
-  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
-  jest.useFakeTimers('legacy');
-});
-
-afterEach(() => {
-  jest.useRealTimers();
-});
+import { rest, server } from '../test-utils';
 
 it('rejects the promise if an error occurred during fetch and no more retries should be attempted', async () => {
-  const handleCatch = jest.fn();
-  const error = new Error('ups');
+  const url = 'https://localhost';
+  server.use(
+    rest.get(url, (_, res, ctx) => {
+      return res(ctx.status(500), ctx.json({ error: 'Ups' }));
+    }),
+  );
 
-  fetchWithRetries('https://localhost', {
-    retryDelays: [], // disable retries for this test
-  }).catch(handleCatch);
-  fetch.mock.deferreds[0].reject(error);
-
-  expect(handleCatch).not.toBeCalled();
-
-  await flushPromises();
-  jest.runAllTimers();
-
-  expect(handleCatch).toBeCalledWith(error);
+  await expect(
+    fetchWithRetries(url, {
+      retryDelays: [], // disable retries for this test
+    }),
+  ).rejects.toThrow('fetchWithRetries: Still no successful response after 1 retries, giving up.');
 });
