@@ -552,7 +552,7 @@ describe('connectionFromArray()', () => {
   describe('cursorForObjectInConnection()', () => {
     it("s an edge's cursor, given an array and a member object", () => {
       const letterBCursor = cursorForObjectInConnection(letters, 'B');
-      expect(letterBCursor).toEqual('YXJyYXljb25uZWN0aW9uOjE=');
+      expect(letterBCursor).toBe('YXJyYXljb25uZWN0aW9uOjE=');
     });
 
     it('s null, given an array and a non-member object', () => {

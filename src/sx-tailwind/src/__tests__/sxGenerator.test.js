@@ -12,7 +12,7 @@ it('works with class selector', async () => {
     border-width: 2;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -30,7 +30,7 @@ it('works with pseudo class selector', async () => {
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -51,7 +51,7 @@ it('supports classes in media query', async () => {
     }
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -79,7 +79,7 @@ it.skip('supports nested media queries', async () => {
     }
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "container": Object {
         "@media (min-width:768px)": Object {
@@ -103,7 +103,7 @@ it('generates multiple declarations', async () => {
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -128,7 +128,7 @@ it('ignores vendor prefixed declarations', async () => {
             appearance: none;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -146,7 +146,7 @@ it('ignores vendor prefixed values', async () => {
     position: -webkit-sticky;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -163,7 +163,7 @@ it('does not remove rem units from line-height', async () => {
     line-height: 1.25rem;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -180,7 +180,7 @@ it('does not remove rem units from font-size', async () => {
     font-size: 0.75rem;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -199,7 +199,7 @@ it('does overwrite declarations', async () => {
     background-color: rgba(0, 0, 0, var(--bg-opacity));
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -215,7 +215,7 @@ it('does overwrite declarations', async () => {
 it('skips empty styles', async () => {
   const css = `.hover\\:empty-style:hover {}`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {},
@@ -230,7 +230,7 @@ it('supports keyframes at-rules', async () => {
     }
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {
         "spin": Object {
@@ -251,7 +251,7 @@ it('skips unsupported at-rules', async () => {
          url("/fonts/OpenSans-Regular-webfont.woff") format("woff");
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {},
@@ -266,7 +266,7 @@ it('skips :not pseudo class selectors', async () => {
     margin-bottom: calc(0px * var(--space-y-reverse));
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {},

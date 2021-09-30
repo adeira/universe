@@ -118,7 +118,7 @@ describe('mutationWithClientMutationId()', () => {
         }
       }
     `;
-    expect(await graphql(schema, query)).toMatchInlineSnapshot(`
+    await expect(graphql(schema, query)).resolves.toMatchInlineSnapshot(`
       Object {
         "errors": Array [
           [GraphQLError: Field "simpleMutation" argument "input" of type "SimpleMutationInput!" is required, but it was not provided.],
@@ -137,7 +137,7 @@ describe('mutationWithClientMutationId()', () => {
       }
     `;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         simpleMutation: {
           result: 1,
@@ -160,7 +160,7 @@ describe('mutationWithClientMutationId()', () => {
       }
     `;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         simpleMutationWithThunkFields: {
           result: 1234,
@@ -180,7 +180,7 @@ describe('mutationWithClientMutationId()', () => {
       }
     `;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         simplePromiseMutation: {
           result: 1,
@@ -200,7 +200,7 @@ describe('mutationWithClientMutationId()', () => {
       }
     `;
 
-    expect(await graphql(schema, query, { result: 1 })).toEqual({
+    await expect(graphql(schema, query, { result: 1 })).resolves.toEqual({
       data: {
         simpleRootValueMutation: {
           result: 1,
@@ -226,7 +226,7 @@ describe('mutationWithClientMutationId()', () => {
         }
       }`;
 
-      expect(await graphql(schema, query)).toEqual({
+      await expect(graphql(schema, query)).resolves.toEqual({
         data: {
           __type: {
             name: 'SimpleMutationInput',
@@ -260,7 +260,7 @@ describe('mutationWithClientMutationId()', () => {
         }
       }`;
 
-      expect(await graphql(schema, query)).toEqual({
+      await expect(graphql(schema, query)).resolves.toEqual({
         data: {
           __type: {
             name: 'SimpleMutationPayload',
@@ -312,7 +312,7 @@ describe('mutationWithClientMutationId()', () => {
         }
       }`;
 
-      expect(await graphql(schema, query)).toEqual({
+      await expect(graphql(schema, query)).resolves.toEqual({
         data: {
           __schema: {
             mutationType: {
@@ -436,7 +436,7 @@ describe('mutationWithClientMutationId()', () => {
         }
       }`;
 
-      expect(await graphql(schema, query)).toEqual({
+      await expect(graphql(schema, query)).resolves.toEqual({
         data: {
           __schema: {
             mutationType: {
@@ -481,7 +481,7 @@ describe('mutationWithClientMutationId()', () => {
         }
       }`;
 
-      expect(await graphql(schema, query)).toEqual({
+      await expect(graphql(schema, query)).resolves.toEqual({
         data: {
           __schema: {
             mutationType: {

@@ -76,7 +76,7 @@ describe('Node interface and fields with async object fetcher', () => {
       }
     }`;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         node: {
           id: '1',
@@ -95,7 +95,7 @@ describe('Node interface and fields with async object fetcher', () => {
       }
     }`;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         node: {
           id: '1',
