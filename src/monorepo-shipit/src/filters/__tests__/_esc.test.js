@@ -10,5 +10,5 @@ it('should escape values', function () {
 });
 
 it('should handle strings with nothing to escape', function () {
-  expect(_esc('abc')).toStrictEqual('abc');
+  expect(_esc('abc')).toBe('abc');
 });

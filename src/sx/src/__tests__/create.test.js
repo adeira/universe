@@ -143,5 +143,5 @@ it('validates incorrect usage', () => {
   );
 
   expect(() => styles('empty')).not.toThrow();
-  expect(styles('empty')).toEqual('');
+  expect(styles('empty')).toBe('');
 });

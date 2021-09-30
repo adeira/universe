@@ -56,7 +56,7 @@ describe('pluralIdentifyingRootField()', () => {
       }
     }`;
 
-    expect(await graphql(schema, query, null, context)).toEqual({
+    await expect(graphql(schema, query, null, context)).resolves.toEqual({
       data: {
         usernames: [
           {
@@ -110,7 +110,7 @@ describe('pluralIdentifyingRootField()', () => {
       }
     }`;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         __schema: {
           queryType: {

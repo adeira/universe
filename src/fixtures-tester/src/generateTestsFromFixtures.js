@@ -60,7 +60,6 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
     fixtures = onlyFixtures;
   }
 
-  // eslint-disable-next-line jest/no-identical-title
   test.each(fixtures.filter(isFile))('matches expected output: %s', async (file) => {
     const input = fs.readFileSync(path.join(fixturesPath, file), 'utf8');
     const output = await getOutputForFixture(input, operation, file);

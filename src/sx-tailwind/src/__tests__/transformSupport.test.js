@@ -11,7 +11,7 @@ it('supports translateY', async () => {
     --transform-translate-y: -0.25rem;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -28,7 +28,7 @@ it('supports translateX', async () => {
     --transform-translate-x: 2.5rem;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -45,7 +45,7 @@ it('supports skewY', async () => {
     --transform-skew-y: -12deg;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -64,7 +64,7 @@ it('supports skewX', async () => {
     --transform-skew-x: 0;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -81,7 +81,7 @@ it('supports rotate', async () => {
     --transform-rotate: -90deg;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -101,7 +101,7 @@ it('supports scale', async () => {
     --transform-scale-y: .75;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {
@@ -119,7 +119,7 @@ it('supports selectors starting with number', async () => {
     background-color: transparent;
   }`;
 
-  expect(await convertToSx(css, config)).toMatchInlineSnapshot(`
+  await expect(convertToSx(css, config)).resolves.toMatchInlineSnapshot(`
     Object {
       "keyframes": Object {},
       "styles": Object {

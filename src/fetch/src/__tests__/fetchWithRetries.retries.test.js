@@ -69,7 +69,7 @@ it('retries the request if the previous attempt timed-out', async () => {
       ],
     ]
   `);
-  expect(handleNext.mock.calls[0][0].message).toEqual(
+  expect(handleNext.mock.calls[0][0].message).toBe(
     'fetchWithRetries: Failed to get response from server (https://localhost), tried 4 times.',
   );
 

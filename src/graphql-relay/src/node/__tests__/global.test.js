@@ -150,7 +150,7 @@ describe('global ID fields', () => {
       }
     }`;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         allObjects: [
           {
@@ -198,7 +198,7 @@ describe('global ID fields', () => {
       }
     }`;
 
-    expect(await graphql(schema, query)).toEqual({
+    await expect(graphql(schema, query)).resolves.toEqual({
       data: {
         user: {
           id: 'VXNlcjox',

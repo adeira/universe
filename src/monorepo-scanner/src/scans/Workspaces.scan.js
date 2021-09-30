@@ -7,7 +7,7 @@ import { Workspaces } from '@adeira/monorepo-utils';
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
   test(`${packageJSONLocation}`, () => {
     const packageJson = require(packageJSONLocation);
-    expect(packageJson.private).not.toBeUndefined();
+    expect(packageJson.private).toBeDefined();
 
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.
@@ -24,7 +24,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     }
 
     if (packageJson.private === false) {
-      expect(packageJson.description).not.toBeUndefined();
+      expect(packageJson.description).toBeDefined();
 
       // We currently have only MIT and "Unlicense" packages.
       // https://docs.npmjs.com/files/package.json#license
@@ -40,7 +40,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
 
       expect(packageJson.bugs).toMatch('https://github.com/adeira/universe/issues');
 
-      expect(packageJson.repository).not.toBeUndefined();
+      expect(packageJson.repository).toBeDefined();
 
       // each public package must specify `main` or `bin` field to be useful
       expect(packageJson.main !== undefined || packageJson.bin !== undefined).toBe(true);
@@ -53,7 +53,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
       });
     }
 
-    expect(packageJson.version).not.toBeUndefined();
+    expect(packageJson.version).toBeDefined();
 
     // there must be empty dependencies or devDependencies key ({} is enough)
     expect(

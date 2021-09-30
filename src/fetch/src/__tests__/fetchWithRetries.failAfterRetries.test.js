@@ -53,7 +53,7 @@ it('gives up if response failed after retries', async () => {
   expect(handleNext).not.toBeCalled();
   const errorArg = handleCatch.mock.calls[0][0];
   expect(errorArg instanceof Error).toBe(true);
-  expect(errorArg.message).toEqual(
+  expect(errorArg.message).toBe(
     'fetchWithRetries: Still no successful response after 2 retries, giving up.',
   );
   expect(errorArg.response).toEqual(failedResponse);
