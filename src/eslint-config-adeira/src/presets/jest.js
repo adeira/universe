@@ -58,5 +58,7 @@ module.exports = ({
     'jest/valid-expect': ERROR,
     'jest/valid-expect-in-promise': ERROR,
     'jest/valid-title': ERROR,
+    'jest/prefer-expect-resolves': NEXT_VERSION_ERROR,
+    'jest/prefer-to-be': NEXT_VERSION_ERROR,
   },
 } /*: EslintConfig */);
