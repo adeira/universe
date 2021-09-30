@@ -1,24 +1,22 @@
 // @flow
 
-import fetch from '../fetch';
+import * as fetchFn from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
+import { server, rest } from '../test-utils';
 
-jest.mock('../fetch');
+it('sends a POST request to the server', async () => {
+  const url = 'https://localhost';
+  const fetch = jest.spyOn(fetchFn, 'default');
+  server.use(
+    rest.post(url, (_, res, ctx) => {
+      return res(ctx.json(200));
+    }),
+  );
 
-beforeEach(() => {
-  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
-  jest.useFakeTimers('legacy');
-});
-
-afterEach(() => {
-  jest.useRealTimers();
-});
-
-it('sends a POST request to the server', () => {
   expect(fetch).not.toHaveBeenCalled();
 
-  fetchWithRetries('https://localhost', { method: 'POST', body: '' });
-  expect(fetch).toHaveBeenNthCalledWith(1, 'https://localhost', {
+  await fetchWithRetries(url, { method: 'POST', body: '' });
+  expect(fetch).toHaveBeenNthCalledWith(1, url, {
     headers: {
       'User-Agent': '@adeira/fetch (+https://github.com/adeira/universe)',
     },
@@ -26,18 +24,19 @@ it('sends a POST request to the server', () => {
     body: '',
   });
 
-  fetchWithRetries('https://localhost', {
+  await fetchWithRetries(url, {
     method: 'POST',
     body: '',
     headers: {
       'User-Agent': 'my-custom-UA-string',
     },
   });
-  expect(fetch).toHaveBeenNthCalledWith(2, 'https://localhost', {
+  expect(fetch).toHaveBeenNthCalledWith(2, url, {
     headers: {
       'User-Agent': 'my-custom-UA-string',
     },
     method: 'POST',
     body: '',
   });
+  fetch.mockRestore();
 });

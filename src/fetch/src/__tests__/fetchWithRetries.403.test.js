@@ -1,40 +1,17 @@
 // @flow
 
-import fetch from '../fetch';
 import fetchWithRetries from '../fetchWithRetries';
-import flushPromises from './_flushPromises';
-
-jest.mock('../fetch');
-
-beforeEach(() => {
-  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
-  jest.useFakeTimers('legacy');
-});
-
-afterEach(() => {
-  jest.useRealTimers();
-});
+import { server, rest } from '../test-utils';
 
 it('tries only once for non-transient HTTP code', async () => {
-  const handleNext = jest.fn();
-  const handleCatch = jest.fn();
-
-  fetchWithRetries('https://localhost', {}).then(handleNext).catch(handleCatch);
-
-  fetch.mock.deferreds[0].resolve({
-    status: 403, // non-transient HTTP status code (shouldn't retry)
-  });
-
-  expect(handleNext).not.toBeCalled();
-  expect(handleCatch).not.toBeCalled();
-
-  await flushPromises();
-  jest.runAllTimers();
-
-  expect(handleNext).not.toBeCalled();
-  expect(handleCatch).toBeCalledWith(
-    new Error('fetchWithRetries: Still no successful response after 1 retries, giving up.'),
+  const url = 'https://localhost';
+  server.use(
+    rest.get(url, (_, res, ctx) => {
+      return res(ctx.status(403));
+    }),
   );
 
-  expect(handleCatch.mock.calls[0][0].response.status).toBe(403);
+  await expect(fetchWithRetries(url, {})).rejects.toThrow(
+    'fetchWithRetries: Still no successful response after 1 retries, giving up.',
+  );
 });

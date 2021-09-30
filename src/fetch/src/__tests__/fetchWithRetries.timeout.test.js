@@ -1,42 +1,26 @@
 // @flow
 
 import fetchWithRetries from '../fetchWithRetries';
-import flushPromises from './_flushPromises';
+import { server, rest } from '../test-utils';
 
-jest.mock('../fetch');
+it('defaults fetch timeout to 15s', async () => {
+  const url = 'https://localhost';
+  server.use(
+    rest.get(`${url}/14990`, (req, res, ctx) => {
+      return res(ctx.delay(14990), ctx.status(200));
+    }),
+  );
+  server.use(
+    rest.get(`${url}/15001`, (req, res, ctx) => {
+      return res(ctx.delay(15001), ctx.status(200));
+    }),
+  );
 
-beforeEach(() => {
-  // TODO: migrate legacy fake timers, see: https://github.com/adeira/universe/issues/2436
-  jest.useFakeTimers('legacy');
-});
+  const [resolves, rejects] = await Promise.allSettled([
+    fetchWithRetries(`${url}/14990`, { retryDelays: [] }),
+    fetchWithRetries(`${url}/15001`, { retryDelays: [] }),
+  ]);
 
-afterEach(() => {
-  jest.useRealTimers();
-});
-
-it('defaults fetch timeout to 15s', (done) => {
-  expect.assertions(2);
-
-  const handleCatch = jest.fn();
-
-  setTimeout(() => {
-    expect(handleCatch).not.toBeCalled();
-  }, 14999);
-
-  setTimeout(async () => {
-    try {
-      await flushPromises();
-      expect(handleCatch).toBeCalledWith(
-        new Error(
-          'fetchWithRetries: Failed to get response from server (https://localhost), tried 1 times.',
-        ),
-      );
-    } catch (error) {
-      done.fail(error);
-    }
-  }, 15001);
-
-  fetchWithRetries('https://localhost', { retryDelays: [] }).catch(handleCatch);
-  jest.runAllTimers();
-  done();
-});
+  expect(resolves.status).toBe('fulfilled');
+  expect(rejects.status).toBe('rejected');
+}, 20000);
