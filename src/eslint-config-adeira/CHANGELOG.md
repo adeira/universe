@@ -1,5 +1,7 @@
 # Unreleased
 
+- Rule `jest/prefer-expect-resolves` set to next version error
+- Rule `jest/prefer-to-be` set to next version error
 - Rule `no-unused-vars` has been adjusted to take [`fbt`](https://facebook.github.io/fbt/) oddities into account. This reverts the version pin of `eslint-plugin-react` introduced in 6.5.1. For more details please visit: https://github.com/yannickcr/eslint-plugin-react/issues/3080
 - New rule [`flowtype/no-duplicate-type-union-intersection-members`](https://github.com/gajus/eslint-plugin-flowtype/blob/1c1c009ba2a58b9660d43c43750396bef8d73904/.README/rules/no-duplicate-type-union-intersection-members.md) has been enabled (as warnings or errors in strict mode).
 - New rules from [`eslint-plugin-testing-library`](https://github.com/testing-library/eslint-plugin-testing-library) were enabled in the React preset (warnings or errors in strict mode). They should catch the most serious problems with React Testing Library. Additional rules will be enabled in the future versions to ease the migration.
