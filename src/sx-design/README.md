@@ -137,8 +137,6 @@ export default function MyComponent() {
 
 # Development
 
-## Storybook
-
 The easiest way how to develop these components is to run a Storybook:
 
 ```bash
@@ -146,6 +144,14 @@ yarn workspace @adeira/sx-design storybook
 ```
 
 Please, make sure that any changes still follow the core values of this project and the matrix of available components was updated accordingly.
+
+## Changing language and dark mode in Storybook
+
+Storybook is configured to ease switching between different languages and light/dark modes. You can change these settings in the top panel:
+
+![Storybook top panel](./docs/storybook-top-panel.png)
+
+There is no way how to manually switch between LTR and RTL layouts. RTL layout is applied automatically once you select some language that should be rendered in RTL context (for example Arabic).
 
 ## Working with SX Design colors
 
