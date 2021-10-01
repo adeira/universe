@@ -1,5 +1,7 @@
 // @flow
 
+// TODO: Move to flow-typed when we got good enough types. The package comes with
+// typescript types, so we should be able to check them and convert them to flow.
 declare module 'msw' {
   declare type Context = {
     status: (number) => void,
