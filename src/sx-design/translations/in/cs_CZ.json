@@ -130,6 +130,68 @@
           "variations": []
         }
       ]
+    },
+    "__EXAMPLE: variations based on the name gender": {
+      "tokens": ["name"],
+      "types": [3],
+      "translations": [
+        {
+          "translation": "{name} odeslal jeho návrh pro tuto KONFERENCI.",
+          "variations": [1]
+        },
+        {
+          "translation": "{name} odeslala její návrh pro tuto KONFERENCI.",
+          "variations": [2]
+        }
+      ]
+    },
+    "l9NEKUFNBlbfipeLlFZp1w==": {
+      "tokens": ["number"],
+      "types": [28],
+      "translations": [
+        {
+          "translation": "{name} odeslala její {number} návrhy pro tuto KONFERENCI.",
+          "variations": [20]
+        },
+        {
+          "translation": "{name} odeslala jejích {number} návrhů pro tuto KONFERENCI.",
+          "variations": [24]
+        }
+      ]
+    },
+    "6BWlOQ175nqhODZ95aCp4Q==": {
+      "tokens": ["number"],
+      "types": [28],
+      "translations": [
+        {
+          "translation": "{name} odeslala její {number} návrhy pro tento EVENT.",
+          "variations": [20]
+        },
+        {
+          "translation": "{name} odeslala jejích {number} návrhů pro tento EVENT.",
+          "variations": [24]
+        }
+      ]
+    },
+    "/PigXzf6vYUoIeNa0EPpWw==": {
+      "tokens": [""],
+      "types": [],
+      "translations": [
+        {
+          "translation": "{name} odeslala její návrh pro tuto KONFERENCI.",
+          "variations": []
+        }
+      ]
+    },
+    "77M7vOj7DYXcJ7zScHyEAA==": {
+      "tokens": [""],
+      "types": [],
+      "translations": [
+        {
+          "translation": "{name} odeslala její návrh pro tento EVENT.",
+          "variations": []
+        }
+      ]
     }
   }
 }
