@@ -14,6 +14,8 @@ export const parameters = {
     disable: false,
     default: 'light mode',
     values: [
+      // This makes the themes (light/dark) changeable in the Storybook top bar.
+      // See README.md for more details.
       { name: 'light mode', value: '#fff' },
       { name: 'dark mode', value: DARK_MODE_BACKGROUND },
     ],
@@ -51,6 +53,8 @@ export const globalTypes: StorybookGlobalTypes = {
     toolbar: {
       icon: 'globe',
       items: [
+        // This makes the locales changeable in the Storybook top bar.
+        // See README.md for more details.
         { value: 'ar-AR', right: '🇦🇪', title: 'العربية/عربي (AR)' },
         { value: 'cs-CZ', right: '🇨🇿', title: 'Čeština (CZ)' },
         { value: 'en-US', right: '🇺🇸', title: 'English (US)' },
