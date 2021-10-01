@@ -19,7 +19,7 @@ it('retries the request if the previous attempt timed-out', async () => {
     'fetchWithRetries: Failed to get response from server (https://localhost), tried 4 times.',
   );
   await (() => {
-    // We have to wait for the last promise to resolve, if now we have an open handle
+    // We have to wait for the last promise to resolve, if not we have an open handle
     // eslint-disable-next-line no-promise-executor-return
     return new Promise((resolve) => setTimeout(() => resolve(), 200));
   })();
