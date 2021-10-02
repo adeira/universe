@@ -583,31 +583,6 @@ TKTK
 
 TKTK
 
-### @relay_early_flush
-
-Only for internal FB purposes and only in the new experimental Rust compiler (https://github.com/facebook/relay/blob/7b5bd9d98e08a96e4cf8dedf9f36906041ff1d5d/compiler/crates/graphql-transforms/tests/relay_early_flush/fixtures/query-with-relay-early-flush.expected).
-
-In:
-
-```graphql
-query MyQuery @relay_early_flush {
-  node(id: "foo") {
-    id
-  }
-}
-```
-
-Out:
-
-```graphql
-query MyQuery {
-  relay_early_flush(query_name: "MyQuery")
-  node(id: "foo") {
-    id
-  }
-}
-```
-
 ### @react_flight_component
 
 Currently behind `ENABLE_REACT_FLIGHT_COMPONENT_FIELD` feature flag.
