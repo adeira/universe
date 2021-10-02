@@ -480,6 +480,47 @@ This use-case is probably quite rare in small applications.
 TODO
 :::
 
+## Translating ordinal numbers
+
+Currently, there is no straightforward way how to translate ordinal numbers in FBT, see: https://github.com/facebook/fbt/discussions/307
+
+One possible workaround is to use `fbt:enum`:
+
+```jsx
+<fbt desc="example string">
+  <fbt:enum
+    enum-range={{
+      FIRST: '1st car',
+      SECOND: '2nd car',
+      THIRD: '3rd car',
+      FOURTH: '4th car',
+    }}
+    value={'FIRST'}
+  />{' '}
+  wins!
+</fbt>
+```
+
+This might work well when you have limited and relatively small set of values. Alternatively, you can always use JS code to translate things depending on some complex logic (not only ordinal numbers but anything really). Here is an example of [ordinal numbers for English](https://unicode-org.github.io/cldr-staging/charts/40/supplemental/language_plural_rules.html#en):
+
+```jsx
+const getOrdinalString = (n) => {
+  if (n % 10 === 1 && n % 100 !== 11) {
+    return fbt(fbt.param('number', n) + 'st car wins!', 'example');
+  } else if (n % 10 === 2 && n % 100 !== 12) {
+    return fbt(fbt.param('number', n) + 'nd car wins!', 'example');
+  } else if (n % 10 === 3 && n % 100 !== 13) {
+    return fbt(fbt.param('number', n) + 'rd car wins!', 'example');
+  } else {
+    return fbt(fbt.param('number', n) + 'th car wins!', 'example');
+  }
+};
+```
+
+I am intentionally using functional calls here (to show them) but it's of course not necessary.
+
+The issue with ordinal numbers in general is that FBT generates 4 versions (since it always expects English strings, see [Additional info / caveats](#additional-info--caveats)) but some languages have only one ordinal form (Czech for example). This might result in a weird situation for translators. This is a generic problem - not related to only FBT.
+
 ## Behind the scenes
 
 This is a short preview of what's happening when the FBT tags are being transpiled. We are going to use this component as an example:
