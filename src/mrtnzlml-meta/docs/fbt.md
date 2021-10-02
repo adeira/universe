@@ -1,7 +1,7 @@
 ---
 id: fbt
 title: FBT deep dive
-sidebar_label: FBT deep dive
+sidebar_label: FBT
 ---
 
 This page is about an [internationalization framework FBT](https://facebook.github.io/fbt/). Most of the information here can be found in the official documentation. This page doesn't deal with configuration and other project specifics. Instead, I am trying to show here a complex example sentence and how to deal with various situations that might occur in the wild.
@@ -480,9 +480,80 @@ This use-case is probably quite rare in small applications.
 TODO
 :::
 
+## Behind the scenes
+
+This is a short preview of what's happening when the FBT tags are being transpiled. We are going to use this component as an example:
+
+```jsx
+import fbt from 'fbt';
+
+export function MyComponent() {
+  return (
+    <p>
+      <fbt desc="example sentence">Peter submitted his proposal for this CONFERENCE.</fbt>
+    </p>
+  );
+}
+```
+
+FBT has [2 Babel transforms](https://facebook.github.io/fbt/docs/transform) (`.babelrc.js`):
+
+```js
+module.exports = {
+  plugins: [
+    'babel-plugin-fbt', // 1.
+    'babel-plugin-fbt-runtime', // 2.
+    '@babel/plugin-transform-react-jsx', // 3. pure JSX
+  ],
+};
+```
+
+The JSX transform is always required if you want to work with JSX. Let's see what would happen if we would not use any FBT plugin:
+
+```jsx
+// prettier-ignore
+export function MyComponent() {
+  return /*#__PURE__*/React.createElement("p", null, /*#__PURE__*/React.createElement("fbt", {
+    desc: "example sentence"
+  }, "Peter submitted his proposal for this CONFERENCE."));
+}
+```
+
+You can see that `fbt` tag got transpiled as it would be a valid HTML tag. That's not correct. And that's what the first `babel-plugin-fbt` solves - it must run before JSX transpilation and does this:
+
+```jsx
+export function MyComponent() {
+  return /*#__PURE__*/ React.createElement(
+    'p',
+    null,
+    fbt._(
+      '__FBT__{"type":"text","jsfbt":"Peter submitted his proposal for this CONFERENCE.","desc":"example sentence","project":""}__FBT__',
+    ),
+  );
+}
+```
+
+The paragraph for transpiled as expected, however, `fbt` turned into functional call with `__FBT__` sentinels. Next plugin `babel-plugin-fbt-runtime` takes this code and transforms it once more:
+
+```jsx
+export function MyComponent() {
+  return /*#__PURE__*/ React.createElement(
+    'p',
+    null,
+    fbt._('Peter submitted his proposal for this CONFERENCE.', null, {
+      hk: '3TZd5E',
+    }),
+  );
+}
+```
+
+Hash key `3TZd5E` should be available in your translated JSON file (result of `fbt-translate` binary).
+
+To my best knowledge, the reason why there are 2 transforms is because of a difference between OSS and how Facebook actually works with FBT. It seems that Facebook is serving JavaScript bundle with already translated strings (server-side) whereas OSS is typically doing this on the client. See also: https://facebook.github.io/fbt/docs/transform#why-are-there-2-transforms
+
 ## Additional info / caveats
 
 1. FBT is built for extracting English source strings. It doesn't work well for other languages.
 2. FBT locales **must** be in a format `en_US` (with underscore) otherwise variations will not work correctly.
-3. FBT requires custom JSX transform that is basically non-standard (see lowercase `jsx` tag and namespaces `jsx:plural` and similar). This can create issues with some external tools. Issue: https://github.com/facebook/fbt/issues/202
+3. FBT requires custom JSX transform that is basically non-standard (see lowercase `jsx` tag and namespaces `jsx:plural` and similar). This can create issues with some external tools. Issues: [#202](https://github.com/facebook/fbt/issues/202) and [#40](https://github.com/facebook/fbt/issues/40)
 4. FBT supports limited set of pronouns. It doesn't support pronouns like _ze/zir/zirself_ for example and many others.
