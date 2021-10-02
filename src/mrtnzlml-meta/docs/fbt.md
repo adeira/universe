@@ -476,9 +476,39 @@ This use-case is probably quite rare in small applications.
 
 ### Variations based on multiple tokens
 
-:::info todo
-TODO
-:::
+Similar to the previous examples of variations, you can create multiple variants based on multiple tokens. Say we have this example just like before:
+
+```jsx
+<p>
+  <fbt desc="example sentence" subject={IntlVariations.GENDER_UNKNOWN}>
+    They are tall.
+  </fbt>
+</p>
+```
+
+And because I am having hard time to create a more realistic example, let's pretend that the translator can create different variants based on the _subject_ as well as based on the _viewing user_ gender. Here is how the variants would look like:
+
+```json
+{
+  "jPVht2gdBhQCq3YYDmqTng==": {
+    "tokens": ["__subject__", "__viewing_user__"],
+    "types": [3, 3],
+    "translations": [
+      { "translation": "He is tall (and the reader is male).", "variations": [1, 1] },
+      { "translation": "He is tall (and the reader is female).", "variations": [1, 2] },
+      { "translation": "He is tall (and the reader is unknown).", "variations": [1, 3] },
+      { "translation": "She is tall (and the reader is male).", "variations": [2, 1] },
+      { "translation": "She is tall (and the reader is female).", "variations": [2, 2] },
+      { "translation": "She is tall (and the reader is unknown).", "variations": [2, 3] },
+      { "translation": "They are tall (and the reader is male).", "variations": [3, 1] },
+      { "translation": "They are tall (and the reader is female).", "variations": [3, 2] },
+      { "translation": "They are tall (and the reader is unknown).", "variations": [3, 3] }
+    ]
+  }
+}
+```
+
+Remember that we extracted only one sentence but the translator created these 9 variants. FBT will now select the appropriate translation based on the subject and viewing user. All this without changing anything in our React code.
 
 ## Translating ordinal numbers
 
