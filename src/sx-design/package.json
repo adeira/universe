@@ -15,7 +15,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@adeira/icons": "^1.0.0",
+    "@adeira/icons": "^1.0.1",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.15.4",
     "blurhash": "^1.1.4",
