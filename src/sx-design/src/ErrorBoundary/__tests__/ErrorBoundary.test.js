@@ -25,14 +25,14 @@ afterEach(() => {
 it('renders all the important parts as expected', () => {
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  const { getByText, queryByTestId } = render(
+  const { getByText, getByTestId } = render(
     <ErrorBoundary>
       <Throws />
     </ErrorBoundary>,
   );
 
   expect(getByText('An unexpected error has occurred.')).toBeDefined();
-  expect(queryByTestId('errorDev')).toBeDefined();
+  expect(getByTestId('errorDev')).toBeDefined();
   expect(getByText('yadada')).toBeDefined();
   expect(getByText('Retry')).toBeDefined();
 
