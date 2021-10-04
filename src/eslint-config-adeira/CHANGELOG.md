@@ -1,5 +1,7 @@
 # Unreleased
 
+- Additional rules from [`eslint-plugin-testing-library`](https://github.com/testing-library/eslint-plugin-testing-library) were enabled (warnings or errors in strict mode).
+
 # 6.6.0
 
 - New rules [`jest/prefer-to-be`](https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/prefer-to-be.md), [`jest/prefer-expect-resolves`](https://github.com/jest-community/eslint-plugin-jest/blob/main/docs/rules/prefer-expect-resolves.md) and [`flowtype/no-duplicate-type-union-intersection-members`](https://github.com/gajus/eslint-plugin-flowtype/blob/1c1c009ba2a58b9660d43c43750396bef8d73904/.README/rules/no-duplicate-type-union-intersection-members.md) enabled as warnings (errors in strict mode).
