@@ -15,7 +15,7 @@ beforeEach(() => {
 
 it('renders the default placeholder without any issues', () => {
   const { getByTestId } = render(<Placeholder width={100} height={100} />);
-  expect(getByTestId('placeholder-svg')).toBeDefined();
+  expect(getByTestId('placeholder-svg')).toBeInTheDocument();
 });
 
 it('renders placeholder with label without any issues', () => {
@@ -30,6 +30,6 @@ it('renders placeholder with label without any issues', () => {
       }
     />,
   );
-  expect(getByText('placeholder label')).toBeDefined();
-  expect(queryByTestId('placeholder-svg')).toBeNull();
+  expect(getByText('placeholder label')).toBeInTheDocument();
+  expect(queryByTestId('placeholder-svg')).not.toBeInTheDocument();
 });

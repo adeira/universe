@@ -27,6 +27,6 @@ it.each`
       <Placeholder width={100} height={100} />
     </LayoutInline>,
   );
-  expect(getByTestId('layout_inline_test_id')).toBeDefined();
+  expect(getByTestId('layout_inline_test_id')).toBeInTheDocument();
   expect(getByTestId('layout_inline_test_id')).toHaveStyle({ gap: expectedGap });
 });

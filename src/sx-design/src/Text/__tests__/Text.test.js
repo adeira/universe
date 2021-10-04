@@ -23,7 +23,7 @@ it('renders default Text component without any issues', () => {
     </Text>,
   );
 
-  expect(getByText('test text')).toBeDefined();
+  expect(getByText('test text')).toBeInTheDocument();
   expect(getByText('test text')?.nodeName.toUpperCase()).toBe('P');
 });
 
@@ -92,7 +92,7 @@ it('prints warning when incorrectly nesting HTML nodes', () => {
     </Text>,
   );
 
-  expect(getByText('invalid nesting')).toBeDefined();
+  expect(getByText('invalid nesting')).toBeInTheDocument();
   expect(capturedConsoleCalls).toMatchInlineSnapshot(`
     Array [
       "Warning: validateDOMNesting(...): <p> cannot appear as a descendant of <p>.",

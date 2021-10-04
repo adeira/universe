@@ -10,7 +10,7 @@ import { render } from '../../test-utils';
 
 it('renders default Skeleton component without any problems', () => {
   const { getByTestId } = render(<Skeleton data-testid="default_skeleton" />);
-  expect(getByTestId('default_skeleton')).toBeDefined();
+  expect(getByTestId('default_skeleton')).toBeInTheDocument();
 });
 
 it('renders Skeleton component with children without any problems', () => {
@@ -19,8 +19,8 @@ it('renders Skeleton component with children without any problems', () => {
       <div data-testid="children">children</div>
     </Skeleton>,
   );
-  expect(getByTestId('skeleton_with_children')).toBeDefined();
-  expect(getByTestId('children')).toBeDefined();
+  expect(getByTestId('skeleton_with_children')).toBeInTheDocument();
+  expect(getByTestId('children')).toBeInTheDocument();
 });
 
 it('throws when `show` property is used incorrectly', () => {

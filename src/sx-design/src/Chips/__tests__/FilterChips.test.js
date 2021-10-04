@@ -18,9 +18,9 @@ it('renders without any issues', () => {
     </FilterChips>,
   );
 
-  expect(getByText('AAA')).toBeDefined();
-  expect(getByText('BBB')).toBeDefined();
-  expect(getByText('CCC')).toBeDefined();
+  expect(getByText('AAA')).toBeInTheDocument();
+  expect(getByText('BBB')).toBeInTheDocument();
+  expect(getByText('CCC')).toBeInTheDocument();
 });
 
 it('calls `onFiltersChange` as expected', () => {

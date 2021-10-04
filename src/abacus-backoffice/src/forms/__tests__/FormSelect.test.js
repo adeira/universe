@@ -50,10 +50,10 @@ it('renders basic "FormSelect" input as expected', () => {
   `,
   );
 
-  expect(getByText('Point of sales')).toBeDefined();
-  expect(getByText('Terminal punto de venta')).toBeDefined();
+  expect(getByText('Point of sales')).toBeInTheDocument();
+  expect(getByText('Terminal punto de venta')).toBeInTheDocument();
 
-  expect(getByText('--')).toBeDefined(); // empty option
+  expect(getByText('--')).toBeInTheDocument(); // empty option
   expect(getAllAttributes(getByText('--'))).toStrictEqual({
     value: '',
   });

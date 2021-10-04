@@ -14,7 +14,7 @@ beforeEach(() => {
 
 it('renders the loader without any issues', () => {
   const { getByTestId } = render(<Loader />);
-  expect(getByTestId('loader-dot1')).toBeDefined();
-  expect(getByTestId('loader-dot2')).toBeDefined();
-  expect(getByTestId('loader-dot3')).toBeDefined();
+  expect(getByTestId('loader-dot1')).toBeInTheDocument();
+  expect(getByTestId('loader-dot2')).toBeInTheDocument();
+  expect(getByTestId('loader-dot3')).toBeInTheDocument();
 });

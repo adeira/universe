@@ -28,13 +28,13 @@ it('renders simple table without any issues', () => {
     />,
   );
 
-  expect(getByText('Column 1')).toBeDefined();
-  expect(getByText('Column 2')).toBeDefined();
+  expect(getByText('Column 1')).toBeInTheDocument();
+  expect(getByText('Column 2')).toBeInTheDocument();
 
-  expect(getByText('Row 1, column 1')).toBeDefined();
-  expect(getByText('Row 1, column 2')).toBeDefined();
-  expect(getByText('Row 2, column 1')).toBeDefined();
-  expect(getByText('Row 2, column 2')).toBeDefined();
+  expect(getByText('Row 1, column 1')).toBeInTheDocument();
+  expect(getByText('Row 1, column 2')).toBeInTheDocument();
+  expect(getByText('Row 2, column 1')).toBeInTheDocument();
+  expect(getByText('Row 2, column 2')).toBeInTheDocument();
 });
 
 it('renders complex headers and cells without any issues', () => {
@@ -72,11 +72,11 @@ it('renders complex headers and cells without any issues', () => {
     />,
   );
 
-  expect(getByText('Column 1')).toBeDefined();
+  expect(getByText('Column 1')).toBeInTheDocument();
   // Column 2 is `null`
 
-  expect(getByText('Row 1, column 1')).toBeDefined();
-  expect(getByText('Row 1, column 2')).toBeDefined();
-  expect(getByText('Row 2, column 1')).toBeDefined();
-  expect(getByText('Row 2, column 2')).toBeDefined();
+  expect(getByText('Row 1, column 1')).toBeInTheDocument();
+  expect(getByText('Row 1, column 2')).toBeInTheDocument();
+  expect(getByText('Row 2, column 1')).toBeInTheDocument();
+  expect(getByText('Row 2, column 2')).toBeInTheDocument();
 });

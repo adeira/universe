@@ -24,7 +24,7 @@ it('calls onClick event', () => {
     </ButtonLink>,
   );
 
-  expect(getByText('button link with onClick callback')).toBeDefined();
+  expect(getByText('button link with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
   userEvent.click(getByText('button link with onClick callback'));

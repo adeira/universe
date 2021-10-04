@@ -27,6 +27,6 @@ it.each`
       <Placeholder width={100} height={100} />
     </LayoutBlock>,
   );
-  expect(getByTestId('layout_block_test_id')).toBeDefined();
+  expect(getByTestId('layout_block_test_id')).toBeInTheDocument();
   expect(getByTestId('layout_block_test_id')).toHaveStyle({ gap: expectedGap });
 });

@@ -34,11 +34,11 @@ it('renders the menu without any issues', () => {
   userEvent.click(getByRole('button'));
 
   // And now everything is visible:
-  expect(getByText('One')).toBeDefined();
-  expect(getByText('Two')).toBeDefined();
-  expect(getByText('Three')).toBeDefined();
-  expect(getByTestId('MenuItemDivider')).toBeDefined();
-  expect(getByText('Delete')).toBeDefined();
+  expect(getByText('One')).toBeInTheDocument();
+  expect(getByText('Two')).toBeInTheDocument();
+  expect(getByText('Three')).toBeInTheDocument();
+  expect(getByTestId('MenuItemDivider')).toBeInTheDocument();
+  expect(getByText('Delete')).toBeInTheDocument();
 });
 
 it('calls callback correctly when the item is clicked', () => {
@@ -53,7 +53,7 @@ it('calls callback correctly when the item is clicked', () => {
   // First we need to open the menu because it's closed by default:
   expect(queryByText('Click me!')).not.toBeInTheDocument();
   userEvent.click(getByRole('button'));
-  expect(getByText('Click me!')).toBeDefined();
+  expect(getByText('Click me!')).toBeInTheDocument();
 
   // Now we can call the menu item which should call the callback:
   userEvent.click(getByText('Click me!'));

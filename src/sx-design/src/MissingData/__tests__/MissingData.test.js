@@ -12,7 +12,7 @@ it('works as expected without any crashes', () => {
   const { queryByText, getByText } = render(<MissingData />);
 
   // By default the text is hidden (via CSS visibility, see `Tooltip`):
-  expect(getByText('Unable to load data or missing data.')).toBeDefined();
+  expect(getByText('Unable to load data or missing data.')).toBeInTheDocument();
   expect(
     window.getComputedStyle(queryByText('Unable to load data or missing data.')).visibility,
   ).toBe('hidden');
@@ -21,7 +21,7 @@ it('works as expected without any crashes', () => {
   userEvent.hover(getByText('N/A'));
 
   // And now we should be able to find it:
-  expect(getByText('Unable to load data or missing data.')).toBeDefined();
+  expect(getByText('Unable to load data or missing data.')).toBeInTheDocument();
   expect(
     window.getComputedStyle(queryByText('Unable to load data or missing data.')).visibility,
   ).toBe('visible');

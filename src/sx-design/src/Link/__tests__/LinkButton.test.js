@@ -40,7 +40,7 @@ it('calls onClick event', () => {
     </LinkButton>,
   );
 
-  expect(getByText('link button with onClick callback')).toBeDefined();
+  expect(getByText('link button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
   userEvent.click(getByText('link button with onClick callback'));
@@ -58,7 +58,7 @@ it('does not call onClick event when disabled', () => {
     </LinkButton>,
   );
 
-  expect(getByText('link button with onClick callback')).toBeDefined();
+  expect(getByText('link button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
   userEvent.click(getByText('link button with onClick callback'));
@@ -78,7 +78,7 @@ it('renders prefix and suffix icons', () => {
     </LinkButton>,
   );
 
-  expect(getByText('link button title')).toBeDefined();
-  expect(getByTestId('door_icon')).toBeDefined();
-  expect(getByTestId('receipt_icon')).toBeDefined();
+  expect(getByText('link button title')).toBeInTheDocument();
+  expect(getByTestId('door_icon')).toBeInTheDocument();
+  expect(getByTestId('receipt_icon')).toBeInTheDocument();
 });

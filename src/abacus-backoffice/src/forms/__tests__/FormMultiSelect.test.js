@@ -52,6 +52,6 @@ it('renders basic "FormMultiSelect" input as expected', () => {
     }
   `,
   );
-  expect(getByTestId('multi-select-option-pov')).toBeDefined();
-  expect(getByTestId('multi-select-option-tpv')).toBeDefined();
+  expect(getByTestId('multi-select-option-pov')).toBeInTheDocument();
+  expect(getByTestId('multi-select-option-tpv')).toBeInTheDocument();
 });

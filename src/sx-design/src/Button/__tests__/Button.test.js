@@ -23,7 +23,7 @@ it('renders without any issues', () => {
     </Button>,
   );
 
-  expect(getByText('button title')).toBeDefined();
+  expect(getByText('button title')).toBeInTheDocument();
 });
 
 it('renders prefix and suffix icons', () => {
@@ -39,9 +39,9 @@ it('renders prefix and suffix icons', () => {
     </Button>,
   );
 
-  expect(getByText('button title')).toBeDefined();
-  expect(getByTestId('door_icon')).toBeDefined();
-  expect(getByTestId('receipt_icon')).toBeDefined();
+  expect(getByText('button title')).toBeInTheDocument();
+  expect(getByTestId('door_icon')).toBeInTheDocument();
+  expect(getByTestId('receipt_icon')).toBeInTheDocument();
 });
 
 it('calls onClick event', () => {
@@ -55,7 +55,7 @@ it('calls onClick event', () => {
     </Button>,
   );
 
-  expect(getByText('button with onClick callback')).toBeDefined();
+  expect(getByText('button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
   userEvent.click(getByText('button with onClick callback'));
@@ -73,7 +73,7 @@ it('does not call onClick event when the button is disabled', () => {
     </Button>,
   );
 
-  expect(getByText('disabled button with onClick callback')).toBeDefined();
+  expect(getByText('disabled button with onClick callback')).toBeInTheDocument();
   expect(onClickFn).not.toHaveBeenCalled();
 
   userEvent.click(getByText('disabled button with onClick callback'));
@@ -99,5 +99,5 @@ it('throws when Icon is the only Button child and ARIA label is not specified', 
     </Button>,
   );
 
-  expect(getByTestId('timeline_icon')).toBeDefined();
+  expect(getByTestId('timeline_icon')).toBeInTheDocument();
 });

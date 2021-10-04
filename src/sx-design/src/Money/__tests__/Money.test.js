@@ -36,7 +36,7 @@ test.each`
       <Money priceUnitAmount={amount} priceUnitAmountCurrency={currency} />,
       { locale },
     );
-    expect(getByText(expectedReact)).toBeDefined();
+    expect(getByText(expectedReact)).toBeInTheDocument();
 
     // alternative non-React function
     expect(

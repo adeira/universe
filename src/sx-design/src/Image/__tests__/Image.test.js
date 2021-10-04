@@ -13,8 +13,8 @@ it('renders without any issues', () => {
     <Image alt={'yadada'} data-testid={'image-test-id'} />,
   );
 
-  expect(getByAltText('yadada')).toBeDefined();
-  expect(getByTestId('image-test-id')).toBeDefined();
+  expect(getByAltText('yadada')).toBeInTheDocument();
+  expect(getByTestId('image-test-id')).toBeInTheDocument();
 });
 
 it('warns with missing img alt', () => {
@@ -22,7 +22,7 @@ it('warns with missing img alt', () => {
 
   const { getByTestId } = render(<Image src={'mock'} data-testid={'image-test-id'} />);
 
-  expect(getByTestId('image-test-id')).toBeDefined();
+  expect(getByTestId('image-test-id')).toBeInTheDocument();
 
   expect(warnSpy).toBeCalledWith(
     "You should specify alternative image text via `alt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page.",
@@ -41,8 +41,8 @@ it('handles invalid blurhash without any issues', () => {
     />,
   );
 
-  expect(getByAltText('yadada')).toBeDefined();
-  expect(getByTestId('image-test-id')).toBeDefined();
+  expect(getByAltText('yadada')).toBeInTheDocument();
+  expect(getByTestId('image-test-id')).toBeInTheDocument();
 
   expect(consoleSpy).toHaveBeenCalledWith(
     'The specified blurhash value is not valid: "invalid-blurhash-format"',

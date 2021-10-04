@@ -40,15 +40,15 @@ it('renders Modal component without any problems', () => {
   const { getByText, queryByText } = render(<TestingComponent />);
 
   // By default the modal is closed and the modal content is not being rendered:
-  expect(queryByText('Modal title')).toBeNull();
-  expect(queryByText('modal body')).toBeNull();
+  expect(queryByText('Modal title')).not.toBeInTheDocument();
+  expect(queryByText('modal body')).not.toBeInTheDocument();
 
   // Open the modal:
   userEvent.click(getByText('Open modal'));
 
   // Now all the elements should be available:
-  expect(getByText('Modal title')).toBeDefined();
-  expect(getByText('modal body')).toBeDefined();
+  expect(getByText('Modal title')).toBeInTheDocument();
+  expect(getByText('modal body')).toBeInTheDocument();
 });
 
 describe('closing mechanism', () => {
@@ -59,9 +59,9 @@ describe('closing mechanism', () => {
     );
 
     // Open the modal:
-    expect(queryByTestId('ModalDialogCloseButton')).toBeNull();
+    expect(queryByTestId('ModalDialogCloseButton')).not.toBeInTheDocument();
     userEvent.click(getByText('Open modal'));
-    expect(getByTestId('ModalDialogCloseButton')).toBeDefined();
+    expect(getByTestId('ModalDialogCloseButton')).toBeInTheDocument();
 
     // Close the modal:
     expect(onClose).not.toBeCalled();
@@ -76,9 +76,9 @@ describe('closing mechanism', () => {
     );
 
     // Open the modal:
-    expect(queryByTestId('ModalBackdrop')).toBeNull();
+    expect(queryByTestId('ModalBackdrop')).not.toBeInTheDocument();
     userEvent.click(getByText('Open modal'));
-    expect(getByTestId('ModalBackdrop')).toBeDefined();
+    expect(getByTestId('ModalBackdrop')).toBeInTheDocument();
 
     // Close the modal:
     expect(onClose).not.toBeCalled();
@@ -91,9 +91,9 @@ describe('closing mechanism', () => {
     const { getByText, queryByText } = render(<TestingComponent onClose={onClose} />);
 
     // Open the modal:
-    expect(queryByText('Modal title')).toBeNull();
+    expect(queryByText('Modal title')).not.toBeInTheDocument();
     userEvent.click(getByText('Open modal'));
-    expect(getByText('Modal title')).toBeDefined();
+    expect(getByText('Modal title')).toBeInTheDocument();
 
     // Close the modal:
     expect(onClose).not.toBeCalled();

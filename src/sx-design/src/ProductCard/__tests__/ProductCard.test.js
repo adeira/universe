@@ -25,8 +25,8 @@ it.each([
     { locale },
   );
 
-  expect(getByText('title')).toBeDefined();
-  expect(getByText(expectedPrice)).toBeDefined();
+  expect(getByText('title')).toBeInTheDocument();
+  expect(getByText(expectedPrice)).toBeInTheDocument();
 
   expect(warnSpy).toBeCalledWith(
     "You should specify alternative image text via `alt` property. This is an important part of accessibility for screen reader users in order for them to understand the content's purpose on the page.",

@@ -21,7 +21,7 @@ it('renders numeric Badge component without any problems', () => {
       </fbt>
     </Badge>,
   );
-  expect(getByText('42')).toBeDefined();
+  expect(getByText('42')).toBeInTheDocument();
 });
 
 it('renders implicit default Badge component without any problems', () => {
@@ -32,7 +32,7 @@ it('renders implicit default Badge component without any problems', () => {
       </fbt>
     </Badge>,
   );
-  expect(getByText('implicit default badge title')).toBeDefined();
+  expect(getByText('implicit default badge title')).toBeInTheDocument();
 });
 
 it('renders explicit default Badge component without any problems', () => {
@@ -43,7 +43,7 @@ it('renders explicit default Badge component without any problems', () => {
       </fbt>
     </Badge>,
   );
-  expect(getByText('explicit default badge title')).toBeDefined();
+  expect(getByText('explicit default badge title')).toBeInTheDocument();
 });
 
 it('renders error Badge component without any problems', () => {
@@ -54,7 +54,7 @@ it('renders error Badge component without any problems', () => {
       </fbt>
     </Badge>,
   );
-  expect(getByText('error badge title')).toBeDefined();
+  expect(getByText('error badge title')).toBeInTheDocument();
 });
 
 it('renders success Badge component without any problems', () => {
@@ -65,7 +65,7 @@ it('renders success Badge component without any problems', () => {
       </fbt>
     </Badge>,
   );
-  expect(getByText('success badge title')).toBeDefined();
+  expect(getByText('success badge title')).toBeInTheDocument();
 });
 
 it('renders warning Badge component without any problems', () => {
@@ -76,5 +76,5 @@ it('renders warning Badge component without any problems', () => {
       </fbt>
     </Badge>,
   );
-  expect(getByText('warning badge title')).toBeDefined();
+  expect(getByText('warning badge title')).toBeInTheDocument();
 });
