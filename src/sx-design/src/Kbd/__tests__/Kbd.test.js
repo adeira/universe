@@ -31,6 +31,6 @@ test.each`
     invariant(Kbd != null, 'Kbd is not initialized.');
 
     const { getByText } = render(<Kbd code={code} />);
-    expect(getByText(expected)).toBeDefined();
+    expect(getByText(expected)).toBeInTheDocument();
   },
 );

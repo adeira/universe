@@ -94,37 +94,37 @@ function TestComponentNumbers() {
 it('renders default tabs without any issues', () => {
   const { getByText } = render(<TestComponentFruits />);
 
-  expect(getByText('Apple tab title (selected)')).toBeDefined();
-  expect(getByText('Orange tab title')).toBeDefined();
-  expect(getByText('Mango tab title')).toBeDefined();
+  expect(getByText('Apple tab title (selected)')).toBeInTheDocument();
+  expect(getByText('Orange tab title')).toBeInTheDocument();
+  expect(getByText('Mango tab title')).toBeInTheDocument();
 });
 
 it('handles clicks as expected', () => {
   const { getByText } = render(<TestComponentFruits />);
 
-  expect(getByText('Apple tab title (selected)')).toBeDefined();
-  expect(getByText('Orange tab title')).toBeDefined();
-  expect(getByText('Mango tab title')).toBeDefined();
+  expect(getByText('Apple tab title (selected)')).toBeInTheDocument();
+  expect(getByText('Orange tab title')).toBeInTheDocument();
+  expect(getByText('Mango tab title')).toBeInTheDocument();
 
   userEvent.click(getByText('Mango tab title'));
 
-  expect(getByText('Apple tab title')).toBeDefined();
-  expect(getByText('Orange tab title')).toBeDefined();
-  expect(getByText('Mango tab title (selected)')).toBeDefined();
+  expect(getByText('Apple tab title')).toBeInTheDocument();
+  expect(getByText('Orange tab title')).toBeInTheDocument();
+  expect(getByText('Mango tab title (selected)')).toBeInTheDocument();
 });
 
 it('supports null and number values', () => {
   const { getByText } = render(<TestComponentNumbers />);
 
-  expect(getByText('0 (selected)')).toBeDefined();
-  expect(getByText('1')).toBeDefined();
-  expect(getByText('2')).toBeDefined();
+  expect(getByText('0 (selected)')).toBeInTheDocument();
+  expect(getByText('1')).toBeInTheDocument();
+  expect(getByText('2')).toBeInTheDocument();
 
   userEvent.click(getByText('1'));
 
-  expect(getByText('0')).toBeDefined();
-  expect(getByText('1 (selected)')).toBeDefined();
-  expect(getByText('2')).toBeDefined();
+  expect(getByText('0')).toBeInTheDocument();
+  expect(getByText('1 (selected)')).toBeInTheDocument();
+  expect(getByText('2')).toBeInTheDocument();
 });
 
 it('correctly handles focus when navigating with right arrow ->', () => {

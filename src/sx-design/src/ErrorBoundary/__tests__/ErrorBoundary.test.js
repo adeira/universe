@@ -31,10 +31,10 @@ it('renders all the important parts as expected', () => {
     </ErrorBoundary>,
   );
 
-  expect(getByText('An unexpected error has occurred.')).toBeDefined();
-  expect(getByTestId('errorDev')).toBeDefined();
-  expect(getByText('yadada')).toBeDefined();
-  expect(getByText('Retry')).toBeDefined();
+  expect(getByText('An unexpected error has occurred.')).toBeInTheDocument();
+  expect(getByTestId('errorDev')).toBeInTheDocument();
+  expect(getByText('yadada')).toBeInTheDocument();
+  expect(getByText('Retry')).toBeInTheDocument();
 
   expect(spy.mock.calls[0][0]).toMatch(/^Error: Uncaught \[Error: yadada]/);
   expect(spy.mock.calls[1][0]).toMatch(/^The above error occurred in the <Throws> component:/);
@@ -50,8 +50,8 @@ it('supports localization', () => {
     { locale: 'es-MX' },
   );
 
-  expect(getByText('Ha ocurrido un error inesperado.')).toBeDefined();
-  expect(getByText('Reintentar')).toBeDefined();
+  expect(getByText('Ha ocurrido un error inesperado.')).toBeInTheDocument();
+  expect(getByText('Reintentar')).toBeInTheDocument();
 });
 
 it('does not render the error message in production', () => {
@@ -65,9 +65,9 @@ it('does not render the error message in production', () => {
     </ErrorBoundary>,
   );
 
-  expect(getByText('An unexpected error has occurred.')).toBeDefined();
-  expect(queryByTestId('errorDev')).toBeNull(); // <<<
-  expect(getByText('Retry')).toBeDefined();
+  expect(getByText('An unexpected error has occurred.')).toBeInTheDocument();
+  expect(queryByTestId('errorDev')).not.toBeInTheDocument(); // <<<
+  expect(getByText('Retry')).toBeInTheDocument();
 
   expect(spy.mock.calls[0][0]).toMatchInlineSnapshot(
     /^Error: Uncaught \[Error: yadada]/,

@@ -38,6 +38,7 @@
   },
   "jest-runner-eslint": {
     "cliOptions": {
+      "fix": false,
       "format": "codeframe",
       "reportUnusedDisableDirectives": "error"
     }

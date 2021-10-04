@@ -13,39 +13,39 @@ import { render } from '../../test-utils';
 describe('note tints', () => {
   it('renders unspecified tint as expected', () => {
     const { getByText } = render(<Note>default note</Note>, { locale: 'es-MX' });
-    expect(getByText('Nota:')).toBeDefined();
-    expect(getByText('default note')).toBeDefined();
+    expect(getByText('Nota:')).toBeInTheDocument();
+    expect(getByText('default note')).toBeInTheDocument();
   });
 
   it('render default tint as expected', () => {
     const { getByText } = render(<Note tint="default">default note</Note>, { locale: 'es-MX' });
-    expect(getByText('Nota:')).toBeDefined();
-    expect(getByText('default note')).toBeDefined();
+    expect(getByText('Nota:')).toBeInTheDocument();
+    expect(getByText('default note')).toBeInTheDocument();
   });
 
   it('render success tint as expected', () => {
     const { getByText } = render(<Note tint="success">success note</Note>, { locale: 'es-MX' });
-    expect(getByText('Exitoso:')).toBeDefined();
-    expect(getByText('success note')).toBeDefined();
+    expect(getByText('Exitoso:')).toBeInTheDocument();
+    expect(getByText('success note')).toBeInTheDocument();
   });
 
   it('render error tint as expected', () => {
     const { getByText } = render(<Note tint="error">error note</Note>, { locale: 'es-MX' });
-    expect(getByText('Error:')).toBeDefined();
-    expect(getByText('error note')).toBeDefined();
+    expect(getByText('Error:')).toBeInTheDocument();
+    expect(getByText('error note')).toBeInTheDocument();
   });
 
   it('render warning tint as expected', () => {
     const { getByText } = render(<Note tint="warning">warning note</Note>, { locale: 'es-MX' });
-    expect(getByText('Atención:')).toBeDefined();
-    expect(getByText('warning note')).toBeDefined();
+    expect(getByText('Atención:')).toBeInTheDocument();
+    expect(getByText('warning note')).toBeInTheDocument();
   });
 });
 
 it('renders null action as expected', () => {
   const { getByText } = render(<Note action={null}>default note</Note>, { locale: 'es-MX' });
-  expect(getByText('Nota:')).toBeDefined();
-  expect(getByText('default note')).toBeDefined();
+  expect(getByText('Nota:')).toBeInTheDocument();
+  expect(getByText('default note')).toBeInTheDocument();
 });
 
 it('renders action with HTML button as expected', () => {
@@ -62,9 +62,9 @@ it('renders action with HTML button as expected', () => {
     </Note>,
     { locale: 'es-MX' },
   );
-  expect(getByText('Nota:')).toBeDefined();
-  expect(getByText('default note')).toBeDefined();
-  expect(getByTestId('note-button')).toBeDefined();
+  expect(getByText('Nota:')).toBeInTheDocument();
+  expect(getByText('default note')).toBeInTheDocument();
+  expect(getByTestId('note-button')).toBeInTheDocument();
 });
 
 it('renders action with SX Design Button as expected', () => {
@@ -82,7 +82,7 @@ it('renders action with SX Design Button as expected', () => {
     </Note>,
     { locale: 'es-MX' },
   );
-  expect(getByText('Nota:')).toBeDefined();
-  expect(getByText('default note')).toBeDefined();
-  expect(getByTestId('note-button')).toBeDefined();
+  expect(getByText('Nota:')).toBeInTheDocument();
+  expect(getByText('default note')).toBeInTheDocument();
+  expect(getByTestId('note-button')).toBeInTheDocument();
 });

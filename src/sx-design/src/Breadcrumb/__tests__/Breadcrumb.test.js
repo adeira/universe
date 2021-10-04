@@ -32,9 +32,9 @@ it('renders the breadcrumb without any issues', () => {
     </Breadcrumb>,
   );
 
-  expect(getByText('Home')).toBeDefined();
-  expect(getByText('Environment')).toBeDefined();
-  expect(getByText('Rural and countryside')).toBeDefined();
-  expect(getByText('Rural development and land management')).toBeDefined();
-  expect(getByText('Economic growth in rural areas')).toBeDefined();
+  expect(getByText('Home')).toBeInTheDocument();
+  expect(getByText('Environment')).toBeInTheDocument();
+  expect(getByText('Rural and countryside')).toBeInTheDocument();
+  expect(getByText('Rural development and land management')).toBeInTheDocument();
+  expect(getByText('Economic growth in rural areas')).toBeInTheDocument();
 });

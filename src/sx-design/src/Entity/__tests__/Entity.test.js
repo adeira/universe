@@ -17,9 +17,9 @@ it('renders Entity component without any problems', () => {
       <EntityField title="Test title 3" />
     </Entity>,
   );
-  expect(getByText('Test title 1')).toBeDefined();
-  expect(getByText('Test title 2')).toBeDefined();
-  expect(getByText('Test title 3')).toBeDefined();
+  expect(getByText('Test title 1')).toBeInTheDocument();
+  expect(getByText('Test title 2')).toBeInTheDocument();
+  expect(getByText('Test title 3')).toBeInTheDocument();
 });
 
 it('throws an error when used without any children', () => {

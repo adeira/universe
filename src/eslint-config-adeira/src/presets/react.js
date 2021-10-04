@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
 /*::
@@ -15,6 +15,7 @@ module.exports = ({
     'eslint-plugin-react-hooks',
     'eslint-plugin-react-native',
     'eslint-plugin-jsx-a11y',
+    'eslint-plugin-jest-dom',
     'eslint-plugin-testing-library',
   ],
   rules: {
@@ -217,9 +218,22 @@ module.exports = ({
   },
   overrides: [
     {
-      // React Testing Library (https://github.com/testing-library/eslint-plugin-testing-library)
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       rules: {
+        // Testing Library - Jest DOM (https://github.com/testing-library/eslint-plugin-jest-dom)
+        'jest-dom/prefer-checked': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-empty': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-enabled-disabled': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-focus': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-in-document': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-required': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-to-have-attribute': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-to-have-class': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-to-have-style': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-to-have-text-content': NEXT_VERSION_ERROR,
+        'jest-dom/prefer-to-have-value': NEXT_VERSION_ERROR,
+
+        // Testing Library - React (https://github.com/testing-library/eslint-plugin-testing-library)
         'testing-library/await-async-query': OFF, // TODO: seems to be broken for some `findAllByProps` in our codebase
         'testing-library/await-async-utils': ERROR,
         'testing-library/await-fire-event': OFF, // Vue only (https://github.com/testing-library/eslint-plugin-testing-library#supported-rules)
