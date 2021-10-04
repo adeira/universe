@@ -18,4 +18,5 @@ module.exports = {
     // See: https://github.com/facebook/jest/issues/8922
     '<rootDir>/src/abacus/',
   ],
+  watchPlugins: ['jest-runner-eslint/watch-fix'],
 };
