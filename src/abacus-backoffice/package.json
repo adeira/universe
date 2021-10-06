@@ -21,7 +21,7 @@
     "@adeira/sx-design": "^0.20.0",
     "d3": "^7.1.1",
     "fbt": "^0.16.6",
-    "graphql": "^15.6.0",
+    "graphql": "^15.6.1",
     "immutable": "^4.0.0-rc.15",
     "next": "^11.1.2",
     "next-plugin-custom-babel-config": "^1.0.5",
