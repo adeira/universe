@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@adeira/fixtures-tester": "^1.1.0",
-    "graphql": "^15.6.0",
+    "graphql": "^15.6.1",
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
