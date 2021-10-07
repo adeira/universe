@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 #[allow(clippy::upper_case_acronyms)]
-#[derive(juniper::GraphQLEnum, Clone, Serialize, Deserialize, Debug, Copy)]
+#[derive(juniper::GraphQLEnum, Clone, Serialize, Deserialize, Debug, Copy, PartialEq)]
 pub(in crate) enum SupportedCurrency {
     MXN,
 }

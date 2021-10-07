@@ -2,6 +2,7 @@ use crate::arango::{
     cleanup_test_database, get_database_connection_pool, get_database_connection_pool_mock,
     prepare_empty_test_database,
 };
+use crate::graphql_context::GlobalConfiguration;
 use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
@@ -26,7 +27,13 @@ async fn create_graphql_api_filter(
         pool = get_database_connection_pool_mock();
     }
 
-    crate::warp_graphql::filters::graphql(&pool, create_graphql_schema())
+    crate::warp_graphql::filters::graphql(
+        &pool,
+        create_graphql_schema(),
+        &GlobalConfiguration {
+            ..Default::default()
+        },
+    )
 
     // TODO: DB cleanup (?)
 }

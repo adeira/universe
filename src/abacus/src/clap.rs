@@ -35,6 +35,17 @@ pub fn generate_clap_app() -> App<'static> {
                 ])
                 .default_value(""),
         )
+        .arg(
+            clap::Arg::new("stripe-restricted-api-key")
+                .long("stripe-restricted-api-key")
+                .about("Restricted Stripe.com API key (prefixed by 'rk_*')")
+                .long_about(
+                    "Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling \
+                    Stripe.com APIs. Secret API key should never be used directly in this application. \
+                    More information: https://stripe.com/docs/keys#limit-access",
+                )
+                .takes_value(true),
+        )
 }
 
 #[cfg(test)]

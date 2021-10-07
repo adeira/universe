@@ -79,6 +79,13 @@ impl Product {
     pub(crate) fn images(&self) -> Vec<Image> {
         self.images.to_owned()
     }
+
+    /// Returns `true` if the prices are identical otherwise `false`. It compares unit amount
+    /// as well as price currency.
+    pub(crate) fn compare_prices(&self, price: Price) -> bool {
+        self.price.unit_amount == price.unit_amount
+            && self.price.unit_amount_currency == price.unit_amount_currency
+    }
 }
 
 #[juniper::graphql_object(context = Context)]
@@ -475,7 +482,7 @@ pub(in crate::commerce) async fn get_published_product_by_key(
     product_key: &str,
 ) -> anyhow::Result<Product> {
     // Anyone can get the published product (it's not limited to admins only).
-    let product = crate::commerce::dal::products::get_product_by_key(
+    let product = crate::commerce::dal::products::get_product_by_key_or_id(
         &context.pool,
         client_locale,
         product_key,
@@ -495,7 +502,7 @@ pub(in crate::commerce) async fn get_published_products_by_keys(
     product_keys: &[String],
 ) -> anyhow::Result<Vec<Product>> {
     // Anyone can get the published products (it's not limited to admins only).
-    crate::commerce::dal::products::get_products_by_keys(
+    crate::commerce::dal::products::get_products_by_keys_or_ids(
         &context.pool,
         client_locale,
         product_keys,
@@ -511,7 +518,7 @@ pub(in crate::commerce) async fn get_unpublished_product_by_key(
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(GetAllProducts)).await?;
 
-    crate::commerce::dal::products::get_product_by_key(
+    crate::commerce::dal::products::get_product_by_key_or_id(
         &context.pool,
         client_locale,
         product_key,
@@ -584,7 +591,7 @@ pub(in crate::commerce) async fn update_product(
     .await?;
     validate_product_addons(context, client_locale, &product_multilingual_input.addons()).await?;
 
-    let product = crate::commerce::dal::products::get_product_by_key(
+    let product = crate::commerce::dal::products::get_product_by_key_or_id(
         &context.pool,
         client_locale,
         product_key,
@@ -658,7 +665,7 @@ pub(in crate::commerce) async fn publish_product(
 ) -> anyhow::Result<Product> {
     rbac::verify_permissions(&context.user, &Commerce(PublishProduct)).await?;
 
-    let product = crate::commerce::dal::products::get_product_by_key(
+    let product = crate::commerce::dal::products::get_product_by_key_or_id(
         &context.pool,
         &SupportedLocale::EnUS,
         product_key,
@@ -716,7 +723,7 @@ pub(in crate::commerce) async fn archive_product(
     rbac::verify_permissions(&context.user, &Commerce(ArchiveProduct)).await?;
 
     // 1. get the old product
-    let product_old = crate::commerce::dal::products::get_product_by_key(
+    let product_old = crate::commerce::dal::products::get_product_by_key_or_id(
         &context.pool,
         client_locale,
         product_key,

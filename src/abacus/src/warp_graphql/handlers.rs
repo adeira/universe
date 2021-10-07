@@ -2,7 +2,9 @@ use crate::arango::ConnectionPool;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Files;
 use crate::auth::rbac::FilesActions::UploadFile;
-use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
+use crate::graphql_context::{
+    Context, ContextUploadable, ContextUploadableContentType, GlobalConfiguration,
+};
 use crate::graphql_schema::Schema;
 use crate::warp_graphql::models::get_current_user;
 use bytes::BufMut;
@@ -55,13 +57,15 @@ pub(in crate::warp_graphql) async fn graphql_post(
     pool: ConnectionPool,
     schema: Arc<Schema>,
     authorization_header: Option<String>,
+    global_configuration: GlobalConfiguration,
 ) -> Result<Box<dyn Reply>, Rejection> {
     match get_current_user(&pool, &authorization_header).await {
         Ok(user) => {
             let context = Context {
-                pool: pool.clone(),
+                pool,
                 uploadables: None,
                 user,
+                global_configuration,
             };
             let response = request.execute(&schema, &context).await;
             Ok(Box::new(warp::reply::json(&response))) // TODO: take `response.is_ok()` into account
@@ -75,6 +79,7 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
     pool: ConnectionPool,
     schema: Arc<Schema>,
     authorization_header: Option<String>,
+    global_configuration: GlobalConfiguration,
 ) -> Result<Box<dyn Reply>, Rejection> {
     let parts: Vec<Part> = form_data.try_collect().await.map_err(|e| {
         tracing::error!("multipart error: {}", e);
@@ -154,9 +159,10 @@ pub(in crate::warp_graphql) async fn graphql_multipart(
     match get_current_user(&pool, &authorization_header).await {
         Ok(user) => {
             let context = Context {
-                pool: pool.clone(),
+                pool,
                 uploadables: Some(uploadable_chunks.clone()),
                 user: user.clone(),
+                global_configuration,
             };
 
             if uploadable_chunks.keys().len() > 0 {

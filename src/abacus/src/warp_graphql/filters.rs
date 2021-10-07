@@ -1,4 +1,5 @@
 use crate::arango::ConnectionPool;
+use crate::graphql_context::GlobalConfiguration;
 use crate::graphql_schema::Schema;
 use crate::warp_graphql;
 use juniper::http::GraphQLRequest;
@@ -10,7 +11,7 @@ pub(crate) fn ping_pong() -> impl Filter<Extract = impl Reply, Error = Rejection
     warp::path!("status" / "ping")
         .and(warp::get())
         .and(warp::path::end())
-        .map(|| format!("pong")) // TODO: perform some check to make sure the server is healthy (DB check)
+        .map(|| "pong".to_string()) // TODO: perform some check to make sure the server is healthy (DB check)
 }
 
 pub(crate) fn redirects(
@@ -18,7 +19,7 @@ pub(crate) fn redirects(
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("redirect" / String)
         .and(warp::get())
-        .and(with_database_connection_pool(pool.clone()))
+        .and(with_database_connection_pool(pool))
         .and_then(
             // TODO: rename (it's not only "warp_graphql" anymore)
             warp_graphql::handlers::redirects,
@@ -36,10 +37,11 @@ pub(crate) fn redirects(
 pub(crate) fn graphql(
     pool: &ConnectionPool,
     schema: Schema,
+    global_configuration: &GlobalConfiguration,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     let schema = Arc::new(schema); // TODO: is this the right way?
-    graphql_post(pool, schema.clone())
-        .or(graphql_multipart(pool, schema))
+    graphql_post(pool, schema.clone(), global_configuration)
+        .or(graphql_multipart(pool, schema, global_configuration))
         .with(
             warp::cors()
                 .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
@@ -54,13 +56,15 @@ pub(crate) fn graphql(
 fn graphql_post(
     pool: &ConnectionPool,
     schema: Arc<Schema>,
+    global_configuration: &GlobalConfiguration,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("graphql")
         .and(warp::post())
         .and(with_json_body())
-        .and(with_database_connection_pool(pool.clone()))
+        .and(with_database_connection_pool(pool))
         .and(with_graphql_schema(schema))
         .and(with_authorization_header())
+        .and(with_global_configuration(global_configuration))
         .and_then(warp_graphql::handlers::graphql_post)
 }
 
@@ -68,15 +72,17 @@ fn graphql_post(
 fn graphql_multipart(
     pool: &ConnectionPool,
     schema: Arc<Schema>,
+    global_configuration: &GlobalConfiguration,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("graphql")
         .and(warp::post())
         .and(warp::multipart::form().max_length(
             1024 * 1024 * 5, // 5MB
         ))
-        .and(with_database_connection_pool(pool.clone()))
+        .and(with_database_connection_pool(pool))
         .and(with_graphql_schema(schema))
         .and(with_authorization_header())
+        .and(with_global_configuration(global_configuration))
         .and_then(warp_graphql::handlers::graphql_multipart)
 }
 
@@ -88,8 +94,9 @@ fn with_json_body() -> impl Filter<Extract = (GraphQLRequest,), Error = Rejectio
 }
 
 fn with_database_connection_pool(
-    pool: ConnectionPool,
+    pool: &ConnectionPool,
 ) -> impl Filter<Extract = (ConnectionPool,), Error = Infallible> + Clone {
+    let pool = pool.to_owned();
     warp::any().map(move || pool.clone())
 }
 
@@ -102,4 +109,11 @@ fn with_graphql_schema(
 fn with_authorization_header(
 ) -> impl Filter<Extract = (Option<String>,), Error = warp::Rejection> + Clone {
     warp::header::optional::<String>("authorization")
+}
+
+fn with_global_configuration(
+    global_configuration: &GlobalConfiguration,
+) -> impl Filter<Extract = (GlobalConfiguration,), Error = Infallible> + Clone {
+    let global_configuration = global_configuration.to_owned();
+    warp::any().map(move || global_configuration.clone())
 }

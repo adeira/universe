@@ -8,6 +8,7 @@ mod utils;
 
 mod v0__migrations_init;
 mod v10__create_collection_archive;
+mod v11__create_collection_orders;
 mod v1__create_collection_users_sessions;
 mod v2__create_document_user_anonymous;
 mod v3__create_document_user_admin;
@@ -67,6 +68,9 @@ pub async fn migrate(pool: &ConnectionPool) {
         }),
         ("v10__create_collection_archive", |db| {
             Box::pin(v10__create_collection_archive::migrate(db))
+        }),
+        ("v11__create_collection_orders", |db| {
+            Box::pin(v11__create_collection_orders::migrate(db))
         }),
     ];
 

@@ -31,11 +31,18 @@ impl ContextUploadable {
     }
 }
 
+#[derive(Clone, Default)]
+pub struct GlobalConfiguration {
+    // TODO: remove from `graphql_context` module (it's global for the application, not just GraphQL)
+    pub stripe_restricted_api_key: Option<String>,
+}
+
 #[derive(Clone)]
 pub struct Context {
     pub pool: crate::arango::ConnectionPool,
     pub uploadables: Option<HashMap<String, ContextUploadable>>,
     pub user: User,
+    pub global_configuration: GlobalConfiguration,
 }
 
 impl juniper::Context for Context {}
@@ -47,6 +54,9 @@ impl Context {
             pool: get_database_connection_pool_mock(),
             uploadables: None,
             user: User::AnonymousUser(AnonymousUser::new()),
+            global_configuration: GlobalConfiguration {
+                stripe_restricted_api_key: None,
+            },
         }
     }
 }

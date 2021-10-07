@@ -1,8 +1,12 @@
-# @generated SignedSource<<0f0064b579080269fa93ed2cd9c40dd5>>
+# @generated SignedSource<<4c05fb6816400d585cb5f2ba1084045a>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
   HIGH_TO_LOW
+}
+
+input CheckoutSessionInput {
+  selectedProducts: [CheckoutSessionProductInput!]!
 }
 
 input PosCheckoutProductInput {
@@ -72,6 +76,14 @@ type CommerceMutation {
     the backoffice.
   """
   productUnpublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
+  """
+    Creates checkout session based on the inputs so that users can be redirected to the returned
+    session URL and finish paying their order.
+
+    Internally, we perform bunch of validation, most notably, we check whether the specified
+    prices are still valid and whether there is enough units to be sold.
+  """
+  checkoutSessionCreate(input: CheckoutSessionInput!, clientLocale: SupportedLocale!): CheckoutSession!
 }
 
 """
@@ -96,6 +108,13 @@ type Price {
   unitAmount: Int!
   "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)."
   unitAmountCurrency: SupportedCurrency!
+}
+
+input CheckoutSessionProductInput {
+  productId: ID!
+  productUnits: Int!
+  productPriceUnitAmount: Int!
+  productPriceUnitAmountCurrency: SupportedCurrency!
 }
 
 union PosCheckoutPayloadOrError = PosCheckoutPayload | PosCheckoutError
@@ -384,6 +403,12 @@ input ProductMultilingualInputTranslations {
   locale: SupportedLocale!
   name: String!
   description: String
+}
+
+type CheckoutSession {
+  id: ID!
+  "The URL to the Checkout Session. Users should be redirected here so they can pay the order."
+  paymentUrl: String
 }
 
 input PosCheckoutInput {

@@ -28,6 +28,7 @@ mod menu;
 mod migrations;
 mod pos;
 mod price;
+mod stripe;
 mod tracking;
 mod warp_graphql;
 
@@ -76,8 +77,23 @@ async fn main() {
         cli_matches.value_of("arangodb-password").unwrap(),
     );
 
+    if !cli_matches.is_present("no-migrations") {
+        // Preferably, migrations would NOT be ran during the server start.
+        // But we do it now for the simplicity.
+        migrations::migrate(&pool).await;
+    } else {
+        tracing::info!("Skipping database migrations because of --no-migrations")
+    }
+
     let graphql_schema = create_graphql_schema();
-    let graphql_warp_filter = warp_graphql::filters::graphql(&pool, graphql_schema);
+    let global_configuration = graphql_context::GlobalConfiguration {
+        stripe_restricted_api_key: cli_matches
+            .value_of("stripe-restricted-api-key")
+            .map(String::from),
+    };
+
+    let graphql_warp_filter =
+        warp_graphql::filters::graphql(&pool, graphql_schema, &global_configuration);
     let redirects_warp_filter = warp_graphql::filters::redirects(&pool);
     let status_ping_pong_filter = warp_graphql::filters::ping_pong();
 
@@ -94,14 +110,6 @@ async fn main() {
             // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
             warp::compression::gzip(),
         );
-
-    if !cli_matches.is_present("no-migrations") {
-        // Preferably, migrations would NOT be ran during the server start.
-        // But we do it now for the simplicity.
-        migrations::migrate(&pool).await;
-    } else {
-        tracing::info!("Skipping database migrations because of --no-migrations")
-    }
 
     // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
     warp::serve(routes).run(server_addr).await
