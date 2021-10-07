@@ -87,14 +87,9 @@ pub(crate) async fn create_checkout_session(
         // TODO: validate products availability (stock)
     }
 
-    let stripe_restricted_api_key = context
-        .global_configuration
-        .stripe_restricted_api_key
-        .as_ref()
-        .expect("Stripe API key was not set.");
-
     // Everything should be validated at this point so let's call Stripe.com API and get the
     // checkout session URL (basically a payment URL):
+    let stripe_restricted_api_key = context.global_configuration.stripe_restricted_api_key();
     let checkout_session = crate::stripe::checkout_session_create(
         &stripe_restricted_api_key,
         &StripeCheckoutSessionCreateInput {

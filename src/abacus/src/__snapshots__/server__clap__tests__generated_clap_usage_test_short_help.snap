@@ -1,0 +1,32 @@
+---
+source: src/clap.rs
+expression: "String::from_utf8(output).unwrap()"
+---
+server 0.0.0
+Martin Zlámal <mrtnzlml@gmail.com>
+
+
+USAGE:
+    server [FLAGS] [OPTIONS] [SUBCOMMAND]
+
+FLAGS:
+    -h, --help             Prints help information
+        --no-migrations    Skips database migrations
+    -V, --version          Prints version information
+
+OPTIONS:
+        --arangodb-database <arangodb-database>                    [default: abacus]
+        --arangodb-password <arangodb-password>                    [default: ]
+        --arangodb-url <arangodb-url>                              [default: http://127.0.0.1:8529/]
+        --arangodb-username <arangodb-username>                    [default: abacus]
+        --stripe-restricted-api-key <stripe-restricted-api-key>
+            Restricted Stripe.com API key (prefixed by 'rk_*')
+
+        --stripe-webhook-secret <stripe-webhook-secret>
+            Secret key for webhooks verification.
+
+
+SUBCOMMANDS:
+    generate-cli-completions    Generate CLI completions for specified shells.
+    help                        Prints this message or the help of the given subcommand(s)
+

@@ -3,6 +3,7 @@ use crate::arango::get_database_connection_pool_mock;
 #[cfg(test)]
 use crate::auth::users::AnonymousUser;
 use crate::auth::users::User;
+use crate::global_configuration::GlobalConfiguration;
 use std::collections::HashMap;
 
 #[derive(Clone)]
@@ -31,12 +32,6 @@ impl ContextUploadable {
     }
 }
 
-#[derive(Clone, Default)]
-pub struct GlobalConfiguration {
-    // TODO: remove from `graphql_context` module (it's global for the application, not just GraphQL)
-    pub stripe_restricted_api_key: Option<String>,
-}
-
 #[derive(Clone)]
 pub struct Context {
     pub pool: crate::arango::ConnectionPool,
@@ -56,6 +51,7 @@ impl Context {
             user: User::AnonymousUser(AnonymousUser::new()),
             global_configuration: GlobalConfiguration {
                 stripe_restricted_api_key: None,
+                stripe_webhook_secret: None,
             },
         }
     }

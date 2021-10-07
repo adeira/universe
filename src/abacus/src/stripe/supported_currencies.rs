@@ -6,4 +6,6 @@ use serde::{Deserialize, Serialize};
 pub enum StripeSupportedCurrency {
     #[serde(rename = "mxn")]
     Mxn,
+    #[serde(rename = "usd")]
+    Usd,
 }
