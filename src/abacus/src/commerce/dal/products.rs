@@ -191,17 +191,18 @@ pub(in crate::commerce) async fn unpublish_product(
     .await
 }
 
-/// Returns a single product (or error).
-pub(in crate::commerce) async fn get_product_by_key(
+/// Returns a single product (or error). It is possible to search for the products by their
+/// ArangoDB `_key` as well as by their `_id`.
+pub(in crate::commerce) async fn get_product_by_key_or_id(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
-    product_key: &str,
+    product_key_or_id: &str,
     product_published_only: &bool,
 ) -> anyhow::Result<Product> {
-    let product_vector = get_products_by_keys(
+    let product_vector = get_products_by_keys_or_ids(
         pool,
         client_locale,
-        &[product_key.to_string()],
+        &[product_key_or_id.to_string()],
         product_published_only,
     )
     .await?;
@@ -212,17 +213,17 @@ pub(in crate::commerce) async fn get_product_by_key(
     }
 }
 
-pub(in crate::commerce) async fn get_products_by_keys(
+pub(in crate::commerce) async fn get_products_by_keys_or_ids(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
-    product_keys: &[String],
+    product_keys_or_ids: &[String],
     product_published_only: &bool,
 ) -> anyhow::Result<Vec<Product>> {
     // TODO: https://www.arangodb.com/docs/stable/aql/extending.html (for merging translations)
     resolve_aql_vector(
         pool,
         r#"
-            LET products = DOCUMENT(products, @product_keys)
+            LET products = DOCUMENT(products, @product_keys_or_ids)
             FOR product IN products
               FILTER @product_published_only ? product.is_published == @product_published_only : true
 
@@ -240,7 +241,7 @@ pub(in crate::commerce) async fn get_products_by_keys(
         "#,
         hashmap_json![
             "client_locale" => client_locale,
-            "product_keys" => product_keys,
+            "product_keys_or_ids" => product_keys_or_ids,
             "product_published_only" => product_published_only,
         ]
     ).await

@@ -30,7 +30,7 @@ telepresence intercept abacus-deployment --port=5000:80 --env-file=./src/abacus/
 You can now start the service locally, rest of the application will run in the remote Kubernetes cluster:
 
 ```bash
-(cd src/abacus && cargo run -- --arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529)
+(cd src/abacus && cargo run -- --arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529 --no-migrations)
 ```
 
 The server will be accessible on: http://abacus.mrtnzlml.com:32123/graphql (or http://0.0.0.0:5000/graphql). It's recommended to use Insomnia to send request to the GraphQL API: https://insomnia.rest/graphql/

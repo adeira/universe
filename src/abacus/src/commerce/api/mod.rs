@@ -4,10 +4,12 @@ pub use crate::commerce::model::products::Product;
 pub use crate::commerce::model::products::ProductMultilingualInput;
 pub use crate::commerce::model::products::ProductMultilingualInputVisibility;
 
+use crate::commerce::model::checkout_session::CheckoutSessionInput;
 use crate::commerce::model::product_addons::ProductAddon;
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use crate::locale::SupportedLocale;
+use crate::stripe::CheckoutSession;
 
 #[derive(juniper::GraphQLObject)]
 pub struct ProductError {
@@ -279,6 +281,26 @@ impl CommerceMutation {
                 message: e.to_string(),
             }),
         }
+    }
+
+    /// Creates checkout session based on the inputs so that users can be redirected to the returned
+    /// session URL and finish paying their order.
+    ///
+    /// Internally, we perform bunch of validation, most notably, we check whether the specified
+    /// prices are still valid and whether there is enough units to be sold.
+    async fn checkout_session_create(
+        context: &Context,
+        input: CheckoutSessionInput,
+        client_locale: SupportedLocale,
+    ) -> AbacusGraphQLResult<CheckoutSession> {
+        Ok(
+            crate::commerce::model::checkout_session::create_checkout_session(
+                context,
+                &input,
+                &client_locale,
+            )
+            .await?,
+        )
     }
 }
 

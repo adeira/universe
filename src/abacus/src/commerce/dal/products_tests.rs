@@ -1,7 +1,7 @@
 use crate::arango::{cleanup_test_database, prepare_empty_test_database};
 use crate::commerce::api::PriceSortDirection;
 use crate::commerce::dal::products::{
-    create_product, delete_product, get_product_by_key, search_products,
+    create_product, delete_product, get_product_by_key_or_id, search_products,
 };
 use crate::commerce::model::products::{
     ProductMultilingualInput, ProductMultilingualInputTranslations,
@@ -31,11 +31,21 @@ async fn create_product_english_to_english_test() {
     .await
     .unwrap();
 
-    // 2) try to find the newly created product
-    let found_product = get_product_by_key(
+    // 2) try to find the newly created product (by _key and by _id)
+    let found_product = get_product_by_key_or_id(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.key(),
+        &created_product.key(), // KEY
+        &false, // the product should be unpublished at this point (until manually activated)
+    )
+    .await
+    .unwrap();
+    assert_eq!(found_product.name(), "Product name in english".to_string());
+
+    let found_product = get_product_by_key_or_id(
+        &pool,
+        &SupportedLocale::EnUS,
+        &created_product.id(), // ID
         &false, // the product should be unpublished at this point (until manually activated)
     )
     .await
@@ -76,10 +86,10 @@ async fn create_product_all_languages_test() {
     .unwrap();
 
     // 2) try to find the newly created product in both client locales
-    let found_en_product = get_product_by_key(
+    let found_en_product = get_product_by_key_or_id(
         &pool,
         &SupportedLocale::EnUS,
-        &created_product.key(),
+        &created_product.key(), // by KEY
         &false, // the product should be unpublished at this point (until manually activated)
     )
     .await
@@ -89,10 +99,10 @@ async fn create_product_all_languages_test() {
         "Product name in english".to_string()
     );
 
-    let found_es_product = get_product_by_key(
+    let found_es_product = get_product_by_key_or_id(
         &pool,
         &SupportedLocale::EsMX,
-        &created_product.key(),
+        &created_product.id(), // by ID
         &false, // the product should be unpublished at this point (until manually activated)
     )
     .await

@@ -33,4 +33,9 @@ OPTIONS:
         --arangodb-username <arangodb-username>
             [default: abacus]
 
+        --stripe-restricted-api-key <stripe-restricted-api-key>
+            Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com
+            APIs. Secret API key should never be used directly in this application. More
+            information: https://stripe.com/docs/keys#limit-access
+
 
