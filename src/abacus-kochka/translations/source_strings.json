@@ -979,6 +979,76 @@
    "project": "",
    "type": "text",
    "jsfbt": "How to be friends with our cats"
+  },
+  {
+   "hashToText": {
+    "IV9llmffd/gAm+lpn/XOYQ==": "Order canceled"
+   },
+   "filepath": "pages/shop/checkout/cancel.js",
+   "line_beg": 13,
+   "col_beg": 19,
+   "line_end": 13,
+   "col_end": 80,
+   "desc": "canceled checkout page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Order canceled"
+  },
+  {
+   "hashToText": {
+    "yTWTRuVereo5ENKC6xCNSQ==": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!"
+   },
+   "filepath": "pages/shop/checkout/cancel.js",
+   "line_beg": 15,
+   "col_beg": 8,
+   "line_end": 18,
+   "col_end": 14,
+   "desc": "canceled checkout message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Your order has been canceled and no money was charged. We are sorry to see you go. Feel free to get in touch with us and tell us what can we improve!"
+  },
+  {
+   "hashToText": {
+    "7iQpgv+m9xo39l3hwwsBzA==": "Order success 👍"
+   },
+   "filepath": "pages/shop/checkout/success.js",
+   "line_beg": 14,
+   "col_beg": 13,
+   "line_end": 14,
+   "col_end": 78,
+   "desc": "successful checkout page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Order success 👍"
+  },
+  {
+   "hashToText": {
+    "+aQ061fIG2w2cz2DUY7MzA==": "Thank you so much!"
+   },
+   "filepath": "pages/shop/checkout/success.js",
+   "line_beg": 15,
+   "col_beg": 16,
+   "line_end": 15,
+   "col_end": 89,
+   "desc": "successful checkout page description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Thank you so much!"
+  },
+  {
+   "hashToText": {
+    "u9ymZF+4osYnMeWU+Nmy6A==": "Please, check your email for the confirmation. Will keep you updated on the progress via email. Feel free to get in touch with us in case of any troubles!"
+   },
+   "filepath": "pages/shop/checkout/success.js",
+   "line_beg": 18,
+   "col_beg": 8,
+   "line_end": 21,
+   "col_end": 14,
+   "desc": "successful checkout message",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Please, check your email for the confirmation. Will keep you updated on the progress via email. Feel free to get in touch with us in case of any troubles!"
   }
  ],
  "childParentMappings": {}
