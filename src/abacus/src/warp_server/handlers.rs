@@ -2,11 +2,12 @@ use crate::arango::ConnectionPool;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Files;
 use crate::auth::rbac::FilesActions::UploadFile;
-use crate::graphql_context::{
-    Context, ContextUploadable, ContextUploadableContentType, GlobalConfiguration,
-};
+use crate::global_configuration::GlobalConfiguration;
+use crate::graphql_context::{Context, ContextUploadable, ContextUploadableContentType};
 use crate::graphql_schema::Schema;
-use crate::warp_graphql::models::get_current_user;
+use crate::stripe::webhook::{verify_stripe_signature, StripeWebhookPayload, StripeWebhookType};
+use crate::stripe::CheckoutSession;
+use crate::warp_server::models::get_current_user;
 use bytes::BufMut;
 use futures::TryStreamExt;
 use juniper::http::GraphQLRequest;
@@ -29,7 +30,7 @@ struct ErrorMessage {
 ///
 /// URL example:
 /// - http://localhost:5000/redirect/ef5f060a-ff77-4a76-9581-fa0031cb305d
-pub(in crate::warp_graphql) async fn redirects(
+pub(in crate::warp_server) async fn redirects(
     unsafe_uuid: String,
     pool: ConnectionPool,
 ) -> Result<impl Reply, Rejection> {
@@ -52,7 +53,80 @@ pub(in crate::warp_graphql) async fn redirects(
     }
 }
 
-pub(in crate::warp_graphql) async fn graphql_post(
+pub(in crate::warp_server) async fn webhooks_stripe(
+    pool: ConnectionPool,
+    stripe_signature: Option<String>,
+    stripe_webhook_payload_bytes: bytes::Bytes,
+    global_configuration: GlobalConfiguration,
+) -> Result<impl Reply, Rejection> {
+    match stripe_signature {
+        Some(stripe_signature) => {
+            match verify_stripe_signature(
+                &stripe_signature,
+                &stripe_webhook_payload_bytes,
+                &global_configuration.stripe_webhook_secret(),
+            ) {
+                Ok(_) => {
+                    let stripe_webhook_payload = match serde_json::from_slice::<StripeWebhookPayload>(
+                        &stripe_webhook_payload_bytes,
+                    ) {
+                        Ok(stripe_webhook_payload) => stripe_webhook_payload,
+                        Err(_) => {
+                            let message = "Unable to get Stripe payload from the request body.";
+                            tracing::error!(message);
+                            return Ok(warp::reply::with_status(
+                                String::from(message),
+                                warp::http::StatusCode::BAD_REQUEST,
+                            ));
+                        }
+                    };
+
+                    let webhook_type = &stripe_webhook_payload.r#type;
+                    match webhook_type {
+                        StripeWebhookType::CheckoutSessionCompleted => {
+                            // TODO: implement the logic here
+                            dbg!(
+                                serde_json::from_value::<CheckoutSession>(
+                                    stripe_webhook_payload.data.object
+                                )
+                                .unwrap() // TODO: fix unwrap
+                            );
+                        }
+                        _ => {
+                            tracing::warn!(
+                                "Stripe webhook with type '{:?}' was called but there is no handler for it (ignoring).",
+                                webhook_type
+                            )
+                        }
+                    };
+                }
+                Err(_) => {
+                    return Ok(warp::reply::with_status(
+                        String::from("Invalid signature."),
+                        warp::http::StatusCode::UNAUTHORIZED,
+                    ));
+                }
+            }
+        }
+        None => {
+            let message = "Unable to verify Stripe signature because the header is missing.";
+            tracing::error!(message);
+            return Ok(warp::reply::with_status(
+                String::from(message),
+                warp::http::StatusCode::BAD_REQUEST,
+            ));
+        }
+    }
+
+    // Returning 200 means that we accepted the webhook successfully (even though we might be
+    // ignoring it). We should return non-200 response only when we cannot process it.
+    Ok(warp::reply::with_status(
+        String::from("OK"),
+        warp::http::StatusCode::OK,
+    ))
+}
+
+pub(in crate::warp_server) async fn graphql_post(
     request: GraphQLRequest,
     pool: ConnectionPool,
     schema: Arc<Schema>,
@@ -74,7 +148,7 @@ pub(in crate::warp_graphql) async fn graphql_post(
     }
 }
 
-pub(in crate::warp_graphql) async fn graphql_multipart(
+pub(in crate::warp_server) async fn graphql_multipart(
     form_data: multipart::FormData,
     pool: ConnectionPool,
     schema: Arc<Schema>,

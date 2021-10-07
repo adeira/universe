@@ -1,29 +1,60 @@
 use crate::arango::ConnectionPool;
-use crate::graphql_context::GlobalConfiguration;
+use crate::global_configuration::GlobalConfiguration;
 use crate::graphql_schema::Schema;
-use crate::warp_graphql;
+use crate::warp_server;
 use juniper::http::GraphQLRequest;
 use std::convert::Infallible;
 use std::sync::Arc;
 use warp::{Filter, Rejection, Reply};
 
-pub(crate) fn ping_pong() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+/// This is the only public filter available to the server. It combines all other filters together.
+pub(crate) fn combined_filter(
+    pool: &ConnectionPool,
+    graphql_schema: Schema,
+    global_configuration: &GlobalConfiguration,
+) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+    let graphql_warp_filter =
+        warp_server::filters::graphql(pool, graphql_schema, global_configuration);
+    let redirects_warp_filter = warp_server::filters::redirects(pool);
+    let status_ping_pong_filter = warp_server::filters::ping_pong();
+    let webhooks_warp_filter = warp_server::filters::webhooks(pool, global_configuration);
+
+    graphql_warp_filter
+        .or(redirects_warp_filter)
+        .or(status_ping_pong_filter)
+        .or(webhooks_warp_filter)
+}
+
+fn ping_pong() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("status" / "ping")
         .and(warp::get())
         .and(warp::path::end())
         .map(|| "pong".to_string()) // TODO: perform some check to make sure the server is healthy (DB check)
 }
 
-pub(crate) fn redirects(
+fn redirects(
     pool: &ConnectionPool,
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     warp::path!("redirect" / String)
         .and(warp::get())
+        .and(warp::path::end())
         .and(with_database_connection_pool(pool))
-        .and_then(
-            // TODO: rename (it's not only "warp_graphql" anymore)
-            warp_graphql::handlers::redirects,
-        )
+        .and_then(warp_server::handlers::redirects)
+}
+
+fn webhooks(
+    pool: &ConnectionPool,
+    global_configuration: &GlobalConfiguration,
+) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+    // We have only one webhooks caller now: Stripe.com
+    warp::path!("webhooks" / "stripe")
+        .and(warp::post())
+        .and(with_database_connection_pool(pool))
+        .and(with_stripe_signature_header())
+        .and(warp::body::bytes())
+        .and(with_global_configuration(global_configuration))
+        .and(warp::path::end())
+        .and_then(warp_server::handlers::webhooks_stripe)
 }
 
 /// Combines our `application/json` and `multipart/form-data` GraphQL filters together.
@@ -34,7 +65,7 @@ pub(crate) fn redirects(
 /// `Filter` can. If a filter is otherwise fully matched, and an error occurs in your business
 /// logic, it's probably not correct to `reject` with the error. In that case, you'd want to
 /// construct a `Reply` that describes your error. (source: https://github.com/seanmonstar/warp/issues/388#issuecomment-576453485)
-pub(crate) fn graphql(
+fn graphql(
     pool: &ConnectionPool,
     schema: Schema,
     global_configuration: &GlobalConfiguration,
@@ -65,7 +96,7 @@ fn graphql_post(
         .and(with_graphql_schema(schema))
         .and(with_authorization_header())
         .and(with_global_configuration(global_configuration))
-        .and_then(warp_graphql::handlers::graphql_post)
+        .and_then(warp_server::handlers::graphql_post)
 }
 
 /// POST /graphql with `multipart/form-data` body (max 5MB allowed)
@@ -83,7 +114,7 @@ fn graphql_multipart(
         .and(with_graphql_schema(schema))
         .and(with_authorization_header())
         .and(with_global_configuration(global_configuration))
-        .and_then(warp_graphql::handlers::graphql_multipart)
+        .and_then(warp_server::handlers::graphql_multipart)
 }
 
 fn with_json_body() -> impl Filter<Extract = (GraphQLRequest,), Error = Rejection> + Clone {
@@ -116,4 +147,9 @@ fn with_global_configuration(
 ) -> impl Filter<Extract = (GlobalConfiguration,), Error = Infallible> + Clone {
     let global_configuration = global_configuration.to_owned();
     warp::any().map(move || global_configuration.clone())
+}
+
+fn with_stripe_signature_header(
+) -> impl Filter<Extract = (Option<String>,), Error = warp::Rejection> + Clone {
+    warp::header::optional::<String>("Stripe-Signature")
 }

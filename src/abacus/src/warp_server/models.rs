@@ -6,7 +6,7 @@ use crate::headers::parse_authorization_header;
 /// in case there is no authorization header. Otherwise, it tries to resolve the actual
 /// user (or returns an error if auth header exists but user does not or if the header has
 /// invalid format).
-pub(in crate::warp_graphql) async fn get_current_user(
+pub(in crate::warp_server) async fn get_current_user(
     pool: &ConnectionPool,
     authorization_header: &Option<String>,
 ) -> Result<User, String> {

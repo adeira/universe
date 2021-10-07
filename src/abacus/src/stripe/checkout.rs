@@ -110,13 +110,13 @@ pub struct CheckoutSession {
 
     /// The IETF language tag of the locale Checkout is displayed in. If blank or `auto`, the
     /// browser's locale is used.
-    pub locale: StripeSupportedLocales,
+    pub locale: Option<StripeSupportedLocales>,
 
     /// The shipping rate to apply to this Session. Currently, only up to one may be specified.
     pub shipping_rates: Option<Vec<String>>,
 
     /// When set, provides configuration for Checkout to collect a shipping address from a customer.
-    pub shipping_address_collection: CheckoutSessionShippingAddressCollection,
+    pub shipping_address_collection: Option<CheckoutSessionShippingAddressCollection>,
 
     /// The URL to the Checkout Session.
     /// Example: "https://checkout.stripe.com/pay/cs_test_..."
@@ -137,11 +137,9 @@ impl Default for CheckoutSession {
             payment_method_types: vec![],
             payment_status: None,
             line_items: None,
-            locale: StripeSupportedLocales::Auto,
+            locale: None,
             shipping_rates: None,
-            shipping_address_collection: CheckoutSessionShippingAddressCollection {
-                allowed_countries: vec![],
-            },
+            shipping_address_collection: None,
             url: None,
         }
     }

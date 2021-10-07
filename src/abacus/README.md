@@ -75,6 +75,22 @@ Note: ignored tests are not being run on CI (at least not yet)!
 
 Database migrations are currently being run automatically during the server start. It's not and ideal or final solution, but it's "good enough" for now.
 
+## Stripe
+
+This is how you can test Stripe webhooks:
+
+```bash
+stripe listen --forward-to localhost:5000/webhooks/stripe
+```
+
+And now (`stripe trigger --help`):
+
+```bash
+stripe trigger checkout.session.completed
+```
+
+The events must be sent via Stripe CLI because we are verifying the signatures.
+
 ## ArangoDB
 
 - https://www.arangodb.com/
