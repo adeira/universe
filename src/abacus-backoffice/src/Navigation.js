@@ -34,7 +34,6 @@ export default function Navigation(): React.Node {
           <fbt desc="navigation link to eshop orders">Eshop orders</fbt>
           {/* TODO: show number of active orders */}
           {/* <Badge tint="error">1</Badge> */}
-          {/* $FlowExpectedError[incompatible-type]: numbers are currently not allowed */}
           <Badge tint="default">0</Badge>
         </LayoutInline>
       </Link>
