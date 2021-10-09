@@ -48,9 +48,9 @@
     "9RUeL66Cftv4//bLrdiiqg==": "1 hit"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 43,
+   "line_beg": 42,
    "col_beg": 12,
-   "line_end": 47,
+   "line_end": 46,
    "col_end": 18,
    "desc": "number of hits",
    "project": "",
@@ -74,9 +74,9 @@
     "IJ2JdxovFDHoSZY/UWeWRw==": "active"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 60,
+   "line_beg": 57,
    "col_beg": 14,
-   "line_end": 60,
+   "line_end": 57,
    "col_end": 52,
    "desc": "active status",
    "project": "",
@@ -172,9 +172,9 @@
     "cDuUp7H3Z3pcA1USmdXIyw==": "active"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 36,
+   "line_beg": 34,
    "col_beg": 14,
-   "line_end": 36,
+   "line_end": 34,
    "col_end": 64,
    "desc": "active user - label title",
    "project": "",
@@ -186,9 +186,9 @@
     "J0MsIYnMPKiz7ubGl3IyyA==": "inactive"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 41,
+   "line_beg": 38,
    "col_beg": 14,
-   "line_end": 41,
+   "line_end": 38,
    "col_end": 68,
    "desc": "inactive user - label title",
    "project": "",
@@ -200,9 +200,9 @@
     "ljdn3Wlj6+RtF2CehM///w==": "email verified"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 49,
+   "line_beg": 44,
    "col_beg": 14,
-   "line_end": 49,
+   "line_end": 44,
    "col_end": 84,
    "desc": "user has email verifies - label title",
    "project": "",
@@ -214,9 +214,9 @@
     "eOYUb4Hm7JmwXrcob9M5iw==": "email NOT verified"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 54,
+   "line_beg": 48,
    "col_beg": 14,
-   "line_end": 54,
+   "line_end": 48,
    "col_end": 97,
    "desc": "user doesn't have email verifies - label title",
    "project": "",
@@ -480,9 +480,9 @@
     "EX/o2WuR0ou1BNovRq6qGw==": "Home"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 20,
+   "line_beg": 21,
    "col_beg": 8,
-   "line_end": 20,
+   "line_end": 21,
    "col_end": 62,
    "desc": "navigation link to the homepage",
    "project": "",
@@ -494,9 +494,9 @@
     "/8dxxPpm1jE4TgUkZhPJgg==": "Products inventory"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 23,
+   "line_beg": 24,
    "col_beg": 8,
-   "line_end": 23,
+   "line_end": 24,
    "col_end": 82,
    "desc": "navigation link to products inventory",
    "project": "",
@@ -508,9 +508,9 @@
     "vkD1IJNOUFj39Y/UUOiFqA==": "Products categories"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 26,
+   "line_beg": 27,
    "col_beg": 8,
-   "line_end": 26,
+   "line_end": 27,
    "col_end": 84,
    "desc": "navigation link to products categories",
    "project": "",
@@ -522,9 +522,9 @@
     "TBRrWr/fT2P42StmgtFd5w==": "Product add-ons"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 29,
+   "line_beg": 30,
    "col_beg": 8,
-   "line_end": 29,
+   "line_end": 30,
    "col_end": 76,
    "desc": "navigation link to product add-ons",
    "project": "",
@@ -533,12 +533,26 @@
   },
   {
    "hashToText": {
+    "sy92wBGm88Uoy1wYZLdslw==": "Eshop orders"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 34,
+   "col_beg": 10,
+   "line_end": 34,
+   "col_end": 72,
+   "desc": "navigation link to eshop orders",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Eshop orders"
+  },
+  {
+   "hashToText": {
     "c3mR1ZSr1gvq0r3554Bsmg==": "Employees"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 32,
+   "line_beg": 42,
    "col_beg": 8,
-   "line_end": 32,
+   "line_end": 42,
    "col_end": 64,
    "desc": "navigation link to employees",
    "project": "",
@@ -550,9 +564,9 @@
     "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 35,
+   "line_beg": 45,
    "col_beg": 8,
-   "line_end": 35,
+   "line_end": 45,
    "col_end": 81,
    "desc": "navigation link to point of sales sessions",
    "project": "",
@@ -564,14 +578,168 @@
     "dXbjUn5J6dQ6yVdAlIYEXQ==": "Analytics: redirects"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 38,
+   "line_beg": 48,
    "col_beg": 8,
-   "line_end": 38,
+   "line_end": 48,
    "col_end": 85,
    "desc": "navigation link to analytics redirects",
    "project": "",
    "type": "text",
    "jsfbt": "Analytics: redirects"
+  },
+  {
+   "hashToText": {
+    "GlM+ov5MKtMWC+BLUcMwqw==": "Status"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 13,
+   "col_beg": 16,
+   "line_end": 13,
+   "col_end": 80,
+   "desc": "status column title in the orders table",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Status"
+  },
+  {
+   "hashToText": {
+    "ijzrQFlOE3lTjNWYB4PE5g==": "Order date"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 17,
+   "col_beg": 16,
+   "line_end": 17,
+   "col_end": 88,
+   "desc": "order date column title in the orders table",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Order date"
+  },
+  {
+   "hashToText": {
+    "WRRfmvHmSNaZ3uaSSnVDsQ==": "Customer"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 21,
+   "col_beg": 16,
+   "line_end": 21,
+   "col_end": 89,
+   "desc": "customer name column title in the orders table",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Customer"
+  },
+  {
+   "hashToText": {
+    "R4WJtUlmv6nxXVe8+kM+tw==": "Total"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 25,
+   "col_beg": 16,
+   "line_end": 25,
+   "col_end": 85,
+   "desc": "total amount column title in the orders table",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Total"
+  },
+  {
+   "hashToText": {
+    "hKijXBp2j7DdMNowCsuUEA==": "paid"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 38,
+   "col_beg": 14,
+   "line_end": 38,
+   "col_end": 60,
+   "desc": "paid status of an order",
+   "project": "",
+   "type": "text",
+   "jsfbt": "paid"
+  },
+  {
+   "hashToText": {
+    "czMsrSKcUbtCYwBt0pKTzA==": "awaiting payment"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 49,
+   "col_beg": 12,
+   "line_end": 49,
+   "col_end": 82,
+   "desc": "awaiting payment status of an order",
+   "project": "",
+   "type": "text",
+   "jsfbt": "awaiting payment"
+  },
+  {
+   "hashToText": {
+    "M8k2/LP0TMrxKyqLz0Exbw==": "completed"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 59,
+   "col_beg": 12,
+   "line_end": 59,
+   "col_end": 68,
+   "desc": "completed status of an order",
+   "project": "",
+   "type": "text",
+   "jsfbt": "completed"
+  },
+  {
+   "hashToText": {
+    "834ys8UqNzH7u6Y8X2p78w==": "Eshop orders"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 74,
+   "col_beg": 39,
+   "line_end": 74,
+   "col_end": 93,
+   "desc": "eshop orders page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Eshop orders"
+  },
+  {
+   "hashToText": {
+    "mRUmtylefgnPdmI3LO+DMQ==": "Every order was fulfilled, good job!"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 77,
+   "col_beg": 10,
+   "line_end": 79,
+   "col_end": 16,
+   "desc": "success message displayed when there are no new orders waiting",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Every order was fulfilled, good job!"
+  },
+  {
+   "hashToText": {
+    "2xcpbEidCcaalw/JM9MQjA==": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!",
+    "CVzOFjkgpoPnbf8QaEGfZA==": "There is {count} order which has to be fulfilled. Don't let the customer waiting!"
+   },
+   "filepath": "src/orders/OrdersPageLayout.js",
+   "line_beg": 82,
+   "col_beg": 10,
+   "line_end": 94,
+   "col_end": 16,
+   "desc": "warning message displayed when there are new orders waiting",
+   "project": "",
+   "type": "table",
+   "jsfbt": {
+    "t": {
+     "*": {
+      "*": "There are {count} orders which has to be fulfilled. Don't let the customer waiting!"
+     },
+     "_1": {
+      "_1": "There is {count} order which has to be fulfilled. Don't let the customer waiting!"
+     }
+    },
+    "m": [
+     null,
+     null
+    ]
+   }
   },
   {
    "hashToText": {

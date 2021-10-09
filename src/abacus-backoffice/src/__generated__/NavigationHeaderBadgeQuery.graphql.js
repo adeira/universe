@@ -5,21 +5,21 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
-export type NavigationHeaderQueryVariables = {||};
-export type NavigationHeaderQueryResponse = {|
+export type NavigationHeaderBadgeQueryVariables = {||};
+export type NavigationHeaderBadgeQueryResponse = {|
   +auth: {|
     +whoami: {|
       +isDebugAssertionsEnabled: boolean
     |}
   |}
 |};
-export type NavigationHeaderQuery = {|
-  variables: NavigationHeaderQueryVariables,
-  response: NavigationHeaderQueryResponse,
+export type NavigationHeaderBadgeQuery = {|
+  variables: NavigationHeaderBadgeQueryVariables,
+  response: NavigationHeaderBadgeQueryResponse,
 |};
 
 /*
-query NavigationHeaderQuery {
+query NavigationHeaderBadgeQuery {
   auth {
     whoami {
       isDebugAssertionsEnabled
@@ -42,7 +42,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "NavigationHeaderQuery",
+    "name": "NavigationHeaderBadgeQuery",
     "selections": [
       {
         "alias": null,
@@ -75,7 +75,7 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "NavigationHeaderQuery",
+    "name": "NavigationHeaderBadgeQuery",
     "selections": [
       {
         "alias": null,
@@ -110,15 +110,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "344b1cb20325560e12a119c5913de8b0",
+    "cacheID": "e01b03a5ac8cb9be812e005ae59dc3db",
     "id": null,
     "metadata": {},
-    "name": "NavigationHeaderQuery",
+    "name": "NavigationHeaderBadgeQuery",
     "operationKind": "query",
-    "text": "query NavigationHeaderQuery {\n  auth {\n    whoami {\n      isDebugAssertionsEnabled\n      id\n    }\n  }\n}\n"
+    "text": "query NavigationHeaderBadgeQuery {\n  auth {\n    whoami {\n      isDebugAssertionsEnabled\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '095528fcceaa1f54d7dc1ed1a51fccaa';
+(node: any).hash = '3ac156cd43017b5b34dcd0300a4e4a67';
 export default node;
