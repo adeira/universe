@@ -4,7 +4,7 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 
 type Props = {
-  +children: FbtWithoutString,
+  +children: Fbt,
   +tint?: 'default' | 'error' | 'success' | 'warning',
 };
 
