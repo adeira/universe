@@ -27,6 +27,11 @@ type Props = {
  *    { Header: 'Column 1', accessor: 'col1' },
  *    { Header: 'Column 2', accessor: 'col2' },
  * ], []);
+ *
+ * const data = React.useMemo(() => [
+ *    { col1: 'Row 1, column 1', col2: 'Row 1, column 2' },
+ *    { col1: 'Row 2, column 1', col2: 'Row 2, column 2' },
+ * ], []);
  * ```
  */
 export default function Table(props: Props): Node {
