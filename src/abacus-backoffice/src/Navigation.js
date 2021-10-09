@@ -1,5 +1,6 @@
 // @flow
 
+import { Badge, LayoutInline } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
@@ -27,6 +28,15 @@ export default function Navigation(): React.Node {
       </Link>
       <Link href="/products/add-ons" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to product add-ons">Product add-ons</fbt>
+      </Link>
+      <Link href="/orders" xstyle={styles.link} xstyleActive={styles.linkActive}>
+        <LayoutInline justifyContent="space-between">
+          <fbt desc="navigation link to eshop orders">Eshop orders</fbt>
+          {/* TODO: show number of active orders */}
+          {/* <Badge tint="error">1</Badge> */}
+          {/* $FlowExpectedError[incompatible-type]: numbers are currently not allowed */}
+          <Badge tint="default">0</Badge>
+        </LayoutInline>
       </Link>
       <Link href="/employees" xstyle={styles.link} xstyleActive={styles.linkActive}>
         <fbt desc="navigation link to employees">Employees</fbt>
@@ -69,6 +79,7 @@ const styles = sx.create({
   link: {
     'paddingBlock': 5,
     'paddingInlineStart': 10,
+    'paddingInlineEnd': 5,
     'borderWidth': '1px 0 1px 1px',
     'borderStyle': 'solid',
     'borderColor': 'transparent',
