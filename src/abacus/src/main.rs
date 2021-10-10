@@ -6,6 +6,8 @@ mod global_macros;
 
 use crate::arango::get_database_connection_pool;
 use crate::clap::generate_clap_app;
+use crate::global_configuration::GlobalConfiguration;
+use clap_generate::generators::{Bash, Zsh};
 use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
@@ -18,6 +20,7 @@ mod archive;
 mod auth;
 mod clap;
 mod commerce;
+mod global_configuration;
 mod graphql;
 mod graphql_context;
 mod graphql_schema;
@@ -30,7 +33,7 @@ mod pos;
 mod price;
 mod stripe;
 mod tracking;
-mod warp_graphql;
+mod warp_server;
 
 #[cfg(test)]
 mod tests;
@@ -54,22 +57,31 @@ async fn main() {
     dotenv::dotenv().ok();
     init_tracing();
 
-    // TODO: how to display these routes automatically (?)
-    let server_addr = SocketAddrV4::new(Ipv4Addr::new(0, 0, 0, 0), 5000);
-    println!(
-        r#"
-        Starting server on {}
-         - POST /graphql            (application/json)
-         - POST /graphql            (multipart/form-data)
-         - GET  /redirect/:uuid
-         - GET  /status/ping
-        "#,
-        server_addr
-    );
-
     // Create database connection pool only once per application lifetime so we can reuse it
     // for the following requests. DO NOT create it in the GraphQL context extractor!
     let cli_matches = generate_clap_app().get_matches();
+    if let Some(subcommand_match) = cli_matches.subcommand_matches("generate-cli-completions") {
+        if let Some(shell) = subcommand_match.value_of("shell") {
+            let mut clap_app = generate_clap_app();
+            let clap_app_name = clap_app.get_name().to_string();
+            tracing::info!("Generating completion file for {}...", shell);
+            match shell {
+                "bash" => clap_generate::generate::<Bash, _>(
+                    &mut clap_app,
+                    clap_app_name,
+                    &mut std::io::stdout(),
+                ),
+                "zsh" => clap_generate::generate::<Zsh, _>(
+                    &mut clap_app,
+                    clap_app_name,
+                    &mut std::io::stdout(),
+                ),
+                _ => panic!("Unknown shell."),
+            }
+            std::process::exit(0);
+        }
+    }
+
     let pool = get_database_connection_pool(
         cli_matches.value_of("arangodb-url").unwrap(),
         cli_matches.value_of("arangodb-database").unwrap(),
@@ -86,30 +98,41 @@ async fn main() {
     }
 
     let graphql_schema = create_graphql_schema();
-    let global_configuration = graphql_context::GlobalConfiguration {
+    let global_configuration = GlobalConfiguration {
         stripe_restricted_api_key: cli_matches
             .value_of("stripe-restricted-api-key")
             .map(String::from),
+        stripe_webhook_secret: cli_matches
+            .value_of("stripe-webhook-secret")
+            .map(String::from),
     };
 
-    let graphql_warp_filter =
-        warp_graphql::filters::graphql(&pool, graphql_schema, &global_configuration);
-    let redirects_warp_filter = warp_graphql::filters::redirects(&pool);
-    let status_ping_pong_filter = warp_graphql::filters::ping_pong();
+    let routes =
+        warp_server::filters::combined_filter(&pool, graphql_schema, &global_configuration)
+            .with(warp::trace(|_info| {
+                tracing::info_span!(
+                    "request",
+                    id = %uuid::Uuid::new_v4(),
+                )
+            }))
+            .with(
+                // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
+                warp::compression::gzip(),
+            );
 
-    let routes = graphql_warp_filter
-        .or(redirects_warp_filter)
-        .or(status_ping_pong_filter)
-        .with(warp::trace(|_info| {
-            tracing::info_span!(
-                "request",
-                id = %uuid::Uuid::new_v4(),
-            )
-        }))
-        .with(
-            // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
-            warp::compression::gzip(),
-        );
+    // TODO: how to display these routes automatically (?)
+    let server_addr = SocketAddrV4::new(Ipv4Addr::new(0, 0, 0, 0), 5000);
+    println!(
+        r#"
+        Starting server on {}
+         - POST /graphql            (application/json)
+         - POST /graphql            (multipart/form-data)
+         - GET  /redirect/:uuid
+         - GET  /status/ping
+         - POST /webhooks/stripe
+        "#,
+        server_addr
+    );
 
     // TODO: `Server-Timing` header (https://w3c.github.io/server-timing/)
     warp::serve(routes).run(server_addr).await

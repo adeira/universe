@@ -2,32 +2,28 @@ use crate::arango::{
     cleanup_test_database, get_database_connection_pool, get_database_connection_pool_mock,
     prepare_empty_test_database,
 };
-use crate::graphql_context::GlobalConfiguration;
+use crate::global_configuration::GlobalConfiguration;
 use crate::graphql_schema::create_graphql_schema;
 use juniper::http::GraphQLRequest;
 use juniper::DefaultScalarValue;
 use warp::http::StatusCode;
 use warp::test::request;
 
-async fn create_graphql_api_filter(
-    db_name: Option<&str>,
+async fn create_combined_filter_with_database(
+    db_name: &str,
 ) -> impl warp::Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
-    let pool;
-    if let Some(db_name) = db_name {
-        prepare_empty_test_database(db_name).await;
-        pool = get_database_connection_pool(
-            // TODO: make it more DX/test friendly (?)
-            // TODO: dev k8s cluster
-            "http://arangodb-single-server.default.svc.cluster.local:8529",
-            db_name,
-            "",
-            "",
-        );
-    } else {
-        pool = get_database_connection_pool_mock();
-    }
+    prepare_empty_test_database(db_name).await;
 
-    crate::warp_graphql::filters::graphql(
+    let pool = get_database_connection_pool(
+        // TODO: make it more DX/test friendly (?)
+        // TODO: dev k8s cluster
+        "http://arangodb-single-server.default.svc.cluster.local:8529",
+        db_name,
+        "",
+        "",
+    );
+
+    crate::warp_server::filters::combined_filter(
         &pool,
         create_graphql_schema(),
         &GlobalConfiguration {
@@ -36,6 +32,28 @@ async fn create_graphql_api_filter(
     )
 
     // TODO: DB cleanup (?)
+}
+
+fn create_combined_filter_without_database(
+) -> impl warp::Filter<Extract = impl warp::Reply, Error = warp::Rejection> + Clone {
+    crate::warp_server::filters::combined_filter(
+        &get_database_connection_pool_mock(),
+        create_graphql_schema(),
+        &GlobalConfiguration {
+            ..Default::default()
+        },
+    )
+}
+
+#[tokio::test]
+async fn test_server_unknown_route() {
+    let resp = request()
+        .method("GET")
+        .path("/unknown/route/yadada")
+        .reply(&create_combined_filter_without_database())
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::NOT_FOUND);
 }
 
 #[tokio::test]
@@ -48,7 +66,7 @@ async fn test_graphql_post_query() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -65,7 +83,7 @@ async fn test_graphql_post_mutation() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -84,7 +102,7 @@ async fn test_graphql_post_forbidden() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(Some("abacus_test_graphql_post_forbidden")).await)
+        .reply(&create_combined_filter_with_database("abacus_test_graphql_post_forbidden").await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -107,7 +125,7 @@ async fn test_graphql_post_query_fail() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(Some("abacus_test_graphql_post_query_fail")).await)
+        .reply(&create_combined_filter_with_database("abacus_test_graphql_post_query_fail").await)
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -129,7 +147,7 @@ async fn test_graphql_post_syntax_error() {
             None,
             None,
         ))
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -161,7 +179,7 @@ async fn test_graphql_multipart_query() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -190,7 +208,7 @@ async fn test_graphql_multipart_mutation() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -221,7 +239,9 @@ async fn test_graphql_multipart_forbidden() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(Some("abacus_test_graphql_multipart_forbidden")).await)
+        .reply(
+            &create_combined_filter_with_database("abacus_test_graphql_multipart_forbidden").await,
+        )
         .await;
 
     assert_eq!(resp.status(), StatusCode::FORBIDDEN);
@@ -259,7 +279,7 @@ async fn test_graphql_multipart_upload_forbidden() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     // Requests which contain additional fields (uploads) require admin auth.
@@ -297,7 +317,7 @@ async fn test_graphql_multipart_upload_forbidden_unkown_content_type() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     // Requests which contain additional fields (uploads) require admin auth.
@@ -331,7 +351,7 @@ async fn test_graphql_multipart_query_fail() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -364,7 +384,7 @@ async fn test_graphql_multipart_query_missing() {
             format!("multipart/form-data; boundary={}", boundary),
         )
         .body(body)
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::BAD_REQUEST);
@@ -379,7 +399,7 @@ async fn test_server_unknown_method_get() {
     let resp = request()
         .method("GET")
         .path("/graphql?query={__typename}")
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::METHOD_NOT_ALLOWED);
@@ -390,7 +410,7 @@ async fn test_server_unknown_path() {
     let resp = request()
         .method("POST")
         .path("/graphqlx")
-        .reply(&create_graphql_api_filter(None).await)
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::NOT_FOUND);
@@ -401,7 +421,7 @@ async fn test_server_ping() {
     let resp = request()
         .method("GET")
         .path("/status/ping")
-        .reply(&crate::warp_graphql::filters::ping_pong())
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::OK);
@@ -414,10 +434,36 @@ async fn test_server_invalid_redirect() {
         .method("GET")
         // The following redirect is not a valid format (should be a valid UUID v4):
         .path("/redirect/XYZ-ABC")
-        .reply(&crate::warp_graphql::filters::redirects(
-            &get_database_connection_pool_mock(),
-        ))
+        .reply(&create_combined_filter_without_database())
         .await;
 
     assert_eq!(resp.status(), StatusCode::NOT_FOUND);
+}
+
+#[tokio::test]
+async fn test_server_webhooks_stripe_no_signature() {
+    let resp = request()
+        .method("POST")
+        .path("/webhooks/stripe")
+        .reply(&create_combined_filter_without_database())
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::BAD_REQUEST);
+    assert_eq!(
+        resp.body(),
+        r#"Unable to verify Stripe signature because the header is missing."#
+    );
+}
+
+#[tokio::test]
+async fn test_server_webhooks_stripe_bad_signature() {
+    let resp = request()
+        .method("POST")
+        .path("/webhooks/stripe")
+        .header("Stripe-Signature", "__INVALID__")
+        .reply(&create_combined_filter_without_database())
+        .await;
+
+    assert_eq!(resp.status(), StatusCode::UNAUTHORIZED);
+    assert_eq!(resp.body(), r#"Invalid signature."#);
 }

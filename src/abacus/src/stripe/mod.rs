@@ -15,6 +15,8 @@ mod supported_countries;
 mod supported_currencies;
 mod supported_locales;
 
+pub mod webhook;
+
 #[derive(Debug, Clone)]
 pub struct StripeCheckoutSessionCreateProductInput {
     pub(crate) product_name: String,
@@ -60,20 +62,20 @@ pub(crate) async fn checkout_session_create(
                 })
                 .collect(),
         ),
-        locale: match client_locale {
+        locale: Some(match client_locale {
             // TODO: eventually extract to "convert abacus locale to stripe locale"
             SupportedLocale::EnUS => StripeSupportedLocales::En,
             SupportedLocale::EsMX => StripeSupportedLocales::Es,
-        },
+        }),
         shipping_rates: Some(vec![
             // Seems like shipping rates are currently not publicly available via API so we have
             // to hardcode here the shipping rate ID. Additionally, only one shipping rate can be
             // specified here. See: https://stripe.com/docs/payments/checkout/shipping
             String::from("shr_1Jhlo8IHqwQFdWEmCnHvCz1m"),
         ]),
-        shipping_address_collection: CheckoutSessionShippingAddressCollection {
+        shipping_address_collection: Some(CheckoutSessionShippingAddressCollection {
             allowed_countries: vec![StripeSupportedCountries::Mx],
-        },
+        }),
         ..Default::default()
     };
 
