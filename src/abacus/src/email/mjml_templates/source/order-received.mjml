@@ -1,0 +1,25 @@
+<!--
+## ORDER RECEIVED email template
+
+Here we are confirming that we received the order, it's payed and we are working on the fulfillment.
+-->
+
+<mjml>
+  <mj-include path="include/__head.mjml" />
+  <mj-body background-color="rgb(252,250,248)">
+    <mj-section background-color="#fff">
+      <mj-column>
+        <mj-text color="#6c1610" font-size="25px"><strong>KOCHKA</strong> Café</mj-text>
+
+        <mj-divider border-width="2px" border-color="rgb(252,250,248)"/>
+
+        <mj-text>Thank you so much for shopping with us!</mj-text>
+        <mj-text>We'll send a confirmation when your item ships.</mj-text>
+
+        <mj-divider border-width="2px" border-color="rgb(252,250,248)"/>
+
+        <mj-text color="#aaa" font-size="12px">KOCHKA Café®</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
