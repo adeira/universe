@@ -55,6 +55,7 @@ module.exports = ({
     'no-unsafe-finally': ERROR,
     'no-unsafe-negation': ERROR,
     'no-unsafe-optional-chaining': ERROR,
+    'no-unused-private-class-members': ERROR,
     'require-atomic-updates': ERROR,
     'use-isnan': [ERROR, { enforceForSwitchCase: true }],
     'valid-jsdoc': OFF,
@@ -268,6 +269,7 @@ module.exports = ({
     'prefer-const': [ERROR, { destructuring: 'all' }],
     'prefer-destructuring': OFF,
     'prefer-numeric-literals': OFF,
+    'prefer-object-has-own': OFF, // TODO: NEXT_VERSION_ERROR (?) (https://eslint.org/docs/rules/prefer-object-has-own)
     'prefer-rest-params': WARN,
     'prefer-spread': WARN,
     'prefer-template': ERROR,

@@ -11,7 +11,9 @@ import type { EslintConfig } from '../EslintConfig.flow';
 module.exports = ({
   plugins: ['eslint-plugin-ft-flow', 'eslint-plugin-fb-flow'],
   rules: {
-    // flowtype (https://github.com/gajus/eslint-plugin-flowtype)
+    // Flow:
+    //  - https://github.com/flow-typed/eslint-plugin-ft-flow
+    //  - https://github.com/gajus/eslint-plugin-flowtype
     'ft-flow/array-style-complex-type': OFF,
     'ft-flow/array-style-simple-type': OFF,
     'ft-flow/arrow-parens': OFF,
