@@ -20,6 +20,7 @@ mod archive;
 mod auth;
 mod clap;
 mod commerce;
+mod email;
 mod global_configuration;
 mod graphql;
 mod graphql_context;
