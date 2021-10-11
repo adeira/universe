@@ -8,6 +8,7 @@ p, commerce_admin, commerce, unpublish_product, allow
 p, commerce_admin, commerce, get_all_products, allow
 p, commerce_admin, commerce, get_all_product_categories, allow
 p, commerce_admin, commerce, get_all_product_addons, allow
+p, email_admin, email, send_email, allow
 p, files_admin, files, upload_file, allow
 p, files_admin, files, delete_file, allow
 p, pos_admin, pos, checkout, allow
@@ -16,6 +17,7 @@ p, users_admin, users, get_all_users, allow
 
 g, admin, analytics_admin
 g, admin, commerce_admin
+g, admin, email_admin
 g, admin, files_admin
 g, admin, pos_admin
 g, admin, users_admin

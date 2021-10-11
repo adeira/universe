@@ -75,6 +75,16 @@ Note: ignored tests are not being run on CI (at least not yet)!
 
 Database migrations are currently being run automatically during the server start. It's not and ideal or final solution, but it's "good enough" for now.
 
+## Production
+
+The application currently runs on DigitalOcean in Docker (k8s). There are additional requirements on external services:
+
+- AWS: we use S3 (to store images and other files) and SES (to send emails to our customers)
+  - requires standard `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` env variables
+- Stripe.com: to generate payment links and receive webhook notifications
+  - requires restricted API key
+  - requires webhook endpoint secret
+
 ## Stripe
 
 This is how you can test Stripe webhooks:

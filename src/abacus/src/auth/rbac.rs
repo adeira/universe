@@ -17,6 +17,10 @@ pub(crate) enum CommerceActions {
     GetAllProductAddons,
 }
 
+pub(crate) enum EmailActions {
+    SendEmail,
+}
+
 pub(crate) enum FilesActions {
     UploadFile,
     DeleteFile,
@@ -34,6 +38,7 @@ pub(crate) enum UsersActions {
 pub(crate) enum Actions {
     Analytics(AnalyticsActions),
     Commerce(CommerceActions),
+    Email(EmailActions),
     Files(FilesActions),
     Pos(PosActions),
     Users(UsersActions),
@@ -97,6 +102,12 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                                     act = "get_all_product_addons"
                                 }
                             };
+                        }
+                        Actions::Email(email_actions) => {
+                            obj = "email";
+                            match email_actions {
+                                EmailActions::SendEmail => act = "send_email",
+                            }
                         }
                         Actions::Files(files_actions) => {
                             obj = "files";
