@@ -5551,13 +5551,14 @@ babel-plugin-extract-import-names@1.6.22:
   dependencies:
     "@babel/helper-plugin-utils" "7.10.4"
 
-babel-plugin-fbt-runtime@^0.9.17:
-  version "0.9.17"
-  resolved "https://registry.yarnpkg.com/babel-plugin-fbt-runtime/-/babel-plugin-fbt-runtime-0.9.17.tgz#922c603cadacaff992557398993ca55f0a0ee714"
-  integrity sha512-Ach2FIncWTDVej9+s7s6uC5wtYCi8szKVL+kqT7PE/mHg7eK0oTx3EnOK2s1ZqvCgWQpxEqPj458oS0H8ZJ9/g==
+babel-plugin-fbt-runtime@^0.9.18:
+  version "0.9.18"
+  resolved "https://registry.yarnpkg.com/babel-plugin-fbt-runtime/-/babel-plugin-fbt-runtime-0.9.18.tgz#55cdef60b5ef97f459dc51fabe5456dfdec95758"
+  integrity sha512-TttD+n5oKiME6Xul7ZrY/NxoXrUIEmGShm0QAu0ZboF1mrXjp3WJtSyHe/5BpyG2q8qV6k2FmnB32w7n6vXIDw==
   dependencies:
     "@babel/core" "^7.0.0"
     fbjs "^1.0.0"
+    invariant "^2.2.4"
 
 babel-plugin-fbt@^0.20.3:
   version "0.20.3"
