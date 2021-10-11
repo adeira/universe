@@ -711,6 +711,7 @@ Object {
     "no-unsafe-optional-chaining": 2,
     "no-unused-expressions": 0,
     "no-unused-labels": 1,
+    "no-unused-private-class-members": 2,
     "no-unused-vars": Array [
       2,
       Object {
@@ -763,6 +764,7 @@ Object {
     "prefer-exponentiation-operator": 2,
     "prefer-named-capture-group": 2,
     "prefer-numeric-literals": 0,
+    "prefer-object-has-own": 0,
     "prefer-object-spread": 2,
     "prefer-promise-reject-errors": 1,
     "prefer-regex-literals": 2,
