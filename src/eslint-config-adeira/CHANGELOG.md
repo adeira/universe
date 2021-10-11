@@ -1,5 +1,15 @@
 # Unreleased
 
+- Delete dropped rules from [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
+  - prefer-to-be-undefined
+  - prefer-to-be-null
+  - no-expect-resolves
+  - no-truthy-falsy
+  - no-try-expect
+  - prefer-inline-snapshots
+- Rename renamed rules from [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest)
+  - valid-describe to valid-describe-callback
+  - lowercase-name to prefer-lowercase-title
 - Additional rules from [`eslint-plugin-testing-library`](https://github.com/testing-library/eslint-plugin-testing-library) were enabled (warnings or errors in strict mode).
 
 # 6.6.0
