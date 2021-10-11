@@ -46,10 +46,10 @@
     "@storybook/react": "^6.3.10",
     "@storybook/theming": "^6.3.10",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.2.1",
+    "@testing-library/user-event": "^13.3.0",
     "babel-loader": "^8.2.2",
-    "babel-plugin-fbt": "^0.20.2",
-    "babel-plugin-fbt-runtime": "^0.9.17",
+    "babel-plugin-fbt": "^0.20.3",
+    "babel-plugin-fbt-runtime": "^0.9.18",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
