@@ -21,7 +21,7 @@
     "flow-bin": "^0.161.0",
     "glob": "^7.2.0",
     "jest": "^27.2.5",
-    "jest-runner-eslint": "^0.11.1"
+    "jest-runner-eslint": "^1.0.0"
   },
   "jest": {
     "testRegex": "/scripts/jest/dontRunJestDirectly\\.js$"
