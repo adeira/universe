@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "private": false,
-  "version": "6.7.0",
+  "version": "6.7.1",
   "main": "./index.js",
   "type": "commonjs",
   "sideEffects": false,
@@ -42,6 +42,6 @@
     "snapshot-diff": "^0.9.0"
   },
   "peerDependencies": {
-    "eslint": ">=7.24.0"
+    "eslint": ">=7.24.0 <8.0.0"
   }
 }
