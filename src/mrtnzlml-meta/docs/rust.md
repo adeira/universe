@@ -25,6 +25,7 @@ Other awesome links (alphabetically):
 - https://github.com/awslabs/aws-lambda-rust-runtime
 - https://github.com/flosse/rust-web-framework-comparison
 - https://github.com/passcod/cargo-watch
+- https://github.com/sumeetdas/succinct-rust
 - https://gitlab.com/qonfucius/aragog
 - https://rust-analyzer.github.io/
 - https://rust-lang-nursery.github.io/rust-cookbook/intro.html
