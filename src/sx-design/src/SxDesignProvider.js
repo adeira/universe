@@ -4,7 +4,7 @@ import React, { useMemo, useEffect, useState, type Node } from 'react';
 import { init as FbtInit, IntlVariations as FbtIntlVariations, FbtTranslations } from 'fbt';
 import sx from '@adeira/sx';
 
-import getFbtTranslationsForLocale from './getFbtTranslationsForLocale';
+import getFbtTranslations from './getFbtTranslations';
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
 import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
@@ -43,23 +43,21 @@ export default function SxDesignProvider(props: Props): Node {
     direction = 'rtl';
   }
 
+  const translations = getFbtTranslations(sxLocale);
+  const translationsLocale = Object.keys(translations)[0];
   const allFbtTranslations = FbtTranslations.getRegisteredTranslations();
-  if (allFbtTranslations[sxLocale] != null) {
+  if (allFbtTranslations[translationsLocale] != null) {
     // There is already a translation dictionary registered for this locale (probably from the
-    // parent application) so we simply extend this disctionary with SX Design specific strings.
-    FbtTranslations.mergeTranslations(
-      getFbtTranslationsForLocale(
-        ((sxLocale: any): SupportedLocales), // see the `invariant` above
-      ),
-    );
+    // parent application) so we simply extend this dictionary with SX Design specific strings.
+    FbtTranslations.mergeTranslations(translations);
   } else {
     // There is no dictionary for this locale yet so we initialize it with SX Design strings.
     FbtInit({
-      translations: getFbtTranslationsForLocale(sxLocale),
+      translations,
       hooks: {
         getViewerContext: () => ({
           GENDER: FbtIntlVariations.GENDER_UNKNOWN,
-          locale: sxLocale,
+          locale: translationsLocale,
         }),
       },
     });

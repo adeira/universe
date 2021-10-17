@@ -1,12 +1,12 @@
 {
-  "fb-locale": "no-NO",
+  "fb-locale": "cs_CZ",
   "translations": {
     "UdnIS3EzRtyd5YBWoCR25Q==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Breadcrumb",
+          "translation": "Drobečková navigace",
           "variations": []
         }
       ]
@@ -16,7 +16,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Det oppstod en uventet feil.",
+          "translation": "Došlo k neočekávané chybě.",
           "variations": []
         }
       ]
@@ -26,7 +26,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Prøv igjen",
+          "translation": "Zkusit znovu",
           "variations": []
         }
       ]
@@ -36,7 +36,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Laster inn",
+          "translation": "Načítá se",
           "variations": []
         }
       ]
@@ -46,7 +46,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "åpne meny",
+          "translation": "otevřít nabídku",
           "variations": []
         }
       ]
@@ -56,7 +56,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Kunne ikke laste data, eller data mangler.",
+          "translation": "Nelze načíst data nebo chybějící data.",
           "variations": []
         }
       ]
@@ -76,7 +76,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "lukk modal",
+          "translation": "zavřít modální okno",
           "variations": []
         }
       ]
@@ -86,7 +86,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "lukk modal",
+          "translation": "zavřít modální okno",
           "variations": []
         }
       ]
@@ -96,7 +96,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Suksess",
+          "translation": "Úspěch",
           "variations": []
         }
       ]
@@ -106,7 +106,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Feil",
+          "translation": "Chyba",
           "variations": []
         }
       ]
@@ -116,7 +116,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Advarsel",
+          "translation": "Upozornění",
           "variations": []
         }
       ]
@@ -126,7 +126,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Merk",
+          "translation": "Poznámka",
           "variations": []
         }
       ]

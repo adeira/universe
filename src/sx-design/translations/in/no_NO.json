@@ -1,12 +1,12 @@
 {
-  "fb-locale": "es-MX",
+  "fb-locale": "no_NO",
   "translations": {
     "UdnIS3EzRtyd5YBWoCR25Q==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Navegación breadcrumb",
+          "translation": "Breadcrumb",
           "variations": []
         }
       ]
@@ -16,7 +16,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Ha ocurrido un error inesperado.",
+          "translation": "Det oppstod en uventet feil.",
           "variations": []
         }
       ]
@@ -26,7 +26,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Reintentar",
+          "translation": "Prøv igjen",
           "variations": []
         }
       ]
@@ -36,7 +36,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Cargando",
+          "translation": "Laster inn",
           "variations": []
         }
       ]
@@ -46,7 +46,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "abrir menú",
+          "translation": "åpne meny",
           "variations": []
         }
       ]
@@ -56,7 +56,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "No se pueden cargar los datos o datos faltantes.",
+          "translation": "Kunne ikke laste data, eller data mangler.",
           "variations": []
         }
       ]
@@ -66,7 +66,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "n/a",
+          "translation": "N/A",
           "variations": []
         }
       ]
@@ -76,7 +76,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "cerrar ventana modal",
+          "translation": "lukk modal",
           "variations": []
         }
       ]
@@ -86,7 +86,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "cerrar ventana modal",
+          "translation": "lukk modal",
           "variations": []
         }
       ]
@@ -96,7 +96,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Exitoso",
+          "translation": "Suksess",
           "variations": []
         }
       ]
@@ -106,7 +106,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Error",
+          "translation": "Feil",
           "variations": []
         }
       ]
@@ -116,7 +116,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Atención",
+          "translation": "Advarsel",
           "variations": []
         }
       ]
@@ -126,7 +126,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Nota",
+          "translation": "Merk",
           "variations": []
         }
       ]

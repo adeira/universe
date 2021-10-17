@@ -10,16 +10,16 @@ import {
   type RenderOptionsWithoutCustomQueries,
 } from '@testing-library/react';
 
-import getFbtTranslationsForLocale from './getFbtTranslationsForLocale';
+import getFbtTranslations from './getFbtTranslations';
 import type { SupportedLocales } from './constants';
 
 const initFbt = () => {
   FbtInit({
-    translations: getFbtTranslationsForLocale('en-US'),
+    translations: getFbtTranslations('en-US'),
     hooks: {
       getViewerContext: () => ({
         GENDER: FbtIntlVariations.GENDER_UNKNOWN,
-        locale: 'en-US',
+        locale: 'en_US',
       }),
     },
   });
