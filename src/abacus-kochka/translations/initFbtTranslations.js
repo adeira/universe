@@ -10,16 +10,19 @@ export default function initFbtTranslations(lang: ?string): LanguageTagType {
 
   // TODO: support translations lazy loading
   const supportedLocales = {
-    'en-US': require('./out/en-US.json'), // empty stub
-    'es-MX': require('./out/es-MX.json'),
+    'en-US': require('./out/en_US.json'), // empty stub
+    'es-MX': require('./out/es_MX.json'),
   };
 
+  const translations = supportedLocales[locale];
+  const translationsLocale = Object.keys(translations)[0];
+
   fbtInit({
-    translations: supportedLocales[locale],
+    translations,
     hooks: {
       getViewerContext: () => ({
         GENDER: IntlVariations.GENDER_UNKNOWN,
-        locale: locale,
+        locale: translationsLocale,
       }),
     },
   });

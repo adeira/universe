@@ -1,12 +1,12 @@
 {
-  "fb-locale": "ru-RU",
+  "fb-locale": "ar_AR",
   "translations": {
     "6FVmvS0nS9q0ld8LQ5VSyw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Произошла непредвиденная ошибка.",
+          "translation": "خطأ غير متوقع.",
           "variations": []
         }
       ]
@@ -16,7 +16,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Попробовать снова",
+          "translation": "حاول مجددا",
           "variations": []
         }
       ]
@@ -26,7 +26,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Успех",
+          "translation": "تم بنجاح",
           "variations": []
         }
       ]
@@ -36,7 +36,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Ошибка",
+          "translation": "خطأ",
           "variations": []
         }
       ]
@@ -46,7 +46,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Предупреждение",
+          "translation": "تحذير",
           "variations": []
         }
       ]
@@ -56,7 +56,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Примечание",
+          "translation": "ملاحظة",
           "variations": []
         }
       ]

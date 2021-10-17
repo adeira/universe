@@ -1,12 +1,12 @@
 {
-  "fb-locale": "cs-CZ",
+  "fb-locale": "es_MX",
   "translations": {
     "UdnIS3EzRtyd5YBWoCR25Q==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Drobečková navigace",
+          "translation": "Navegación breadcrumb",
           "variations": []
         }
       ]
@@ -16,7 +16,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Došlo k neočekávané chybě.",
+          "translation": "Ha ocurrido un error inesperado.",
           "variations": []
         }
       ]
@@ -26,7 +26,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Zkusit znovu",
+          "translation": "Reintentar",
           "variations": []
         }
       ]
@@ -36,7 +36,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Načítá se",
+          "translation": "Cargando",
           "variations": []
         }
       ]
@@ -46,7 +46,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "otevřít nabídku",
+          "translation": "abrir menú",
           "variations": []
         }
       ]
@@ -56,7 +56,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Nelze načíst data nebo chybějící data.",
+          "translation": "No se pueden cargar los datos o datos faltantes.",
           "variations": []
         }
       ]
@@ -66,7 +66,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "N/A",
+          "translation": "n/a",
           "variations": []
         }
       ]
@@ -76,7 +76,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "zavřít modální okno",
+          "translation": "cerrar ventana modal",
           "variations": []
         }
       ]
@@ -86,7 +86,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "zavřít modální okno",
+          "translation": "cerrar ventana modal",
           "variations": []
         }
       ]
@@ -96,7 +96,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Úspěch",
+          "translation": "Exitoso",
           "variations": []
         }
       ]
@@ -106,7 +106,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Chyba",
+          "translation": "Error",
           "variations": []
         }
       ]
@@ -116,7 +116,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Upozornění",
+          "translation": "Atención",
           "variations": []
         }
       ]
@@ -126,7 +126,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "Poznámka",
+          "translation": "Nota",
           "variations": []
         }
       ]
