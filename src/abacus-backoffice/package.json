@@ -19,11 +19,13 @@
     "@adeira/relay": "^4.0.0",
     "@adeira/sx": "^0.28.0",
     "@adeira/sx-design": "^0.20.0",
+    "@next/bundle-analyzer": "^11.1.2",
     "d3": "^7.1.1",
     "fbt": "^0.16.6",
     "graphql": "^15.6.1",
     "immutable": "^4.0.0",
     "next": "^11.1.2",
+    "next-compose-plugins": "^2.2.1",
     "next-plugin-custom-babel-config": "^1.0.5",
     "next-transpile-modules": "^8.0.0",
     "react": "^17.0.2",
@@ -34,11 +36,9 @@
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@fbtjs/default-collection-transform": "^0.0.3",
-    "@next/bundle-analyzer": "^11.1.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^7.0.2",
     "babel-plugin-fbt": "^0.20.3",
-    "babel-plugin-fbt-runtime": "^0.9.18",
-    "next-compose-plugins": "^2.2.1"
+    "babel-plugin-fbt-runtime": "^0.9.18"
   }
 }

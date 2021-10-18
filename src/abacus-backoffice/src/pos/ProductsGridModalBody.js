@@ -2,7 +2,7 @@
 
 import React, { useState, type Node } from 'react';
 import { fbt } from 'fbt';
-import { Button, LayoutBlock, LayoutInline, MoneyFn } from '@adeira/sx-design';
+import { Button, FilterChip, FilterChips, LayoutBlock, MoneyFn } from '@adeira/sx-design';
 import { usePreloadedQuery, graphql, type PreloadedQuery } from '@adeira/relay';
 
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
@@ -48,56 +48,49 @@ export default function ProductsGridModalBody(props: Props): Node {
     props.preloadedQueryRef,
   );
 
-  const toggleSelectedAddon = (addonId, addonName, addonExtraPrice) => {
-    setSelectedProductAddons((previousIds) => {
-      const copyPreviousIds = new Map(previousIds);
-      if (previousIds.has(addonId)) {
-        // the ID was already selected before => remove it (toggle)
-        copyPreviousIds.delete(addonId);
-      } else {
-        copyPreviousIds.set(addonId, {
-          itemAddonID: addonId,
-          itemAddonTitle: addonName,
-          itemAddonExtraPrice: addonExtraPrice, // TODO: we currently don't take currency into account
+  const handleFiltersChange = (selectedAddonIds) => {
+    const newSelectedProductAddons = new Map();
+    for (const selectedAddonId of selectedAddonIds) {
+      const addon = product.selectedAddons.find(
+        (addon) => addon != null && addon.id === selectedAddonId,
+      );
+      if (addon != null) {
+        newSelectedProductAddons.set(selectedAddonId, {
+          itemAddonID: selectedAddonId,
+          itemAddonTitle: addon.name,
+          itemAddonExtraPrice: addon.priceExtra.unitAmount, // TODO: we currently don't take currency into account
         });
       }
-      return copyPreviousIds;
-    });
+    }
+    setSelectedProductAddons(newSelectedProductAddons);
   };
 
   return (
-    <LayoutBlock>
-      <LayoutInline>
-        {product.selectedAddons.map((addon) => {
-          if (!addon) {
-            return null; // TODO: (?)
+    <LayoutBlock spacing="large">
+      <FilterChips onFiltersChange={handleFiltersChange}>
+        {product.selectedAddons.reduce((acc, addon) => {
+          if (addon != null) {
+            acc.push(
+              <FilterChip
+                key={addon.id}
+                value={addon.id}
+                title={addon.name}
+                description={MoneyFn({
+                  priceUnitAmount: addon.priceExtra.unitAmount / 100, // adjusted for centavo
+                  priceUnitAmountCurrency: refineSupportedCurrencies(
+                    addon.priceExtra.unitAmountCurrency,
+                  ),
+                  locale: bcp47,
+                })}
+              />,
+            );
           }
-          return (
-            <Button
-              key={addon.id}
-              size="large"
-              tint={selectedProductAddons.has(addon.id) ? 'secondary' : 'default'}
-              onClick={() => toggleSelectedAddon(addon.id, addon.name, addon.priceExtra.unitAmount)}
-            >
-              {addon.name} (
-              {MoneyFn({
-                priceUnitAmount: addon.priceExtra.unitAmount / 100, // adjusted for centavo
-                priceUnitAmountCurrency: refineSupportedCurrencies(
-                  addon.priceExtra.unitAmountCurrency,
-                ),
-                locale: bcp47,
-              })}
-              )
-            </Button>
-          );
-        })}
-      </LayoutInline>
-
-      <hr />
+          return acc;
+        }, [])}
+      </FilterChips>
 
       <Button
         tint="success"
-        size="large"
         onClick={() => {
           select({
             itemID: props.productKey,
