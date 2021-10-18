@@ -135,6 +135,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: 'nginx'
     cert-manager.io/cluster-issuer: 'letsencrypt-production'
+    nginx.ingress.kubernetes.io/proxy-body-size: '16m'
 spec:
   tls:
     - hosts:
