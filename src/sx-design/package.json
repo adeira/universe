@@ -46,7 +46,7 @@
     "@storybook/react": "^6.3.12",
     "@storybook/theming": "^6.3.12",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.3.0",
+    "@testing-library/user-event": "^13.4.1",
     "babel-loader": "^8.2.2",
     "babel-plugin-fbt": "^0.20.3",
     "babel-plugin-fbt-runtime": "^0.9.18",

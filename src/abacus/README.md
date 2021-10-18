@@ -24,7 +24,7 @@ We use [Telepresence](https://www.getambassador.io/docs/telepresence/latest/howt
 ```bash
 telepresence connect
 telepresence list
-telepresence intercept abacus-deployment --port=5000:80 --env-file=./src/abacus/.env
+telepresence intercept abacus-deployment --port=5000:http --env-file=./src/abacus/.env
 ```
 
 You can now start the service locally, rest of the application will run in the remote Kubernetes cluster:
@@ -46,6 +46,8 @@ Deploying a new Abacus version:
 
 ```bash
 kubectl rollout restart deployment abacus-deployment
+kubectl rollout restart deployment abacus-backoffice-deployment
+
 kubectl rollout status deployment abacus-deployment
 ```
 
