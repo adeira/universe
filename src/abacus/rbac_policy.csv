@@ -24,3 +24,4 @@ g, admin, users_admin
 
 g, users/1, anonymous
 g, users/2, admin
+g, users/11095622, admin
