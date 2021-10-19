@@ -17,14 +17,14 @@ This server is written in Rust (using [Warp](https://github.com/seanmonstar/warp
 
 **🚧 WORK in PROGRESS 🚧**
 
-We use [Telepresence](https://www.getambassador.io/docs/telepresence/latest/howtos/intercepts/) for the local development:
+We use [Telepresence](https://www.getambassador.io/docs/telepresence/latest/howtos/intercepts/) for the local development. You can use [personal intercept](https://www.getambassador.io/docs/telepresence/latest/concepts/intercepts/) that allow you to be selective and intercept only some of the traffic to a service while not interfering with the rest of the traffic:
 
 **Note: there is currently no K8S cluster for development. Production only. 💸**
 
 ```bash
 telepresence connect
 telepresence list
-telepresence intercept abacus-deployment --port=5000:http --env-file=./src/abacus/.env
+telepresence intercept abacus-deployment --port=5000:http --env-file=./src/abacus/.env --http-match=Personal-Intercept=21d56f21-c6c1-414c-aa69-6a7bf24b51fc
 ```
 
 You can now start the service locally, rest of the application will run in the remote Kubernetes cluster:

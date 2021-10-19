@@ -64,7 +64,7 @@ pub struct ConnectionPool {
     db_name: String,
 }
 
-/// Resolves the provided AQL query and returns the first result or error.
+/// Resolves the provided AQL query and returns the first result or `Err`.
 pub(crate) async fn resolve_aql<T: for<'de> Deserialize<'de>>(
     pool: &ConnectionPool,
     query: &str,
@@ -78,7 +78,7 @@ pub(crate) async fn resolve_aql<T: for<'de> Deserialize<'de>>(
     }
 }
 
-/// Similar to `resolve_aql` except it returns the whole vector (not only the first result).
+/// Similar to `resolve_aql` except it returns the whole vector (not only the first result) or `Err`.
 pub(crate) async fn resolve_aql_vector<T: for<'de> Deserialize<'de>>(
     pool: &ConnectionPool,
     query: &str,
