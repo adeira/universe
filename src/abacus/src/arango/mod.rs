@@ -158,15 +158,15 @@ pub fn get_database_connection_pool(
     // https://github.com/arangodb/arangodb/blob/35c278cdf3b7985f8ed2042dfef8d22c2dd2ed07/arangod/Network/ConnectionPool.h#L65
     let max_pool_size = num_cpus::get_physical() * 4;
 
-    let connection_pool = deadpool::managed::Pool::new(
-        pool::ConnectionManager {
-            db_host: arangodb_url.to_string(),
-            db_name: arangodb_database.to_string(),
-            username: arangodb_username.to_string(),
-            password: arangodb_password.to_string(),
-        },
-        max_pool_size,
-    );
+    let connection_pool = deadpool::managed::Pool::builder(pool::ConnectionManager {
+        db_host: arangodb_url.to_string(),
+        db_name: arangodb_database.to_string(),
+        username: arangodb_username.to_string(),
+        password: arangodb_password.to_string(),
+    })
+    .max_size(max_pool_size)
+    .build()
+    .unwrap();
 
     tracing::info!(
         "Creating (empty) database connection pool for: '{}' ({}) 🔥",
