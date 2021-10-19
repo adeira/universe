@@ -23,8 +23,8 @@ pub(crate) async fn list_all_users(
 pub(crate) async fn find_user_by_google_claims(
     pool: &crate::arango::ConnectionPool,
     subject: &str,
-) -> anyhow::Result<Option<AnyUser>> {
-    resolve_aql(
+) -> Option<AnyUser> {
+    let resolved = resolve_aql(
         pool,
         r#"
             FOR user IN users
@@ -38,7 +38,15 @@ pub(crate) async fn find_user_by_google_claims(
             "sub" => subject,
         ],
     )
-    .await
+    .await;
+
+    match resolved {
+        Ok(user) => Some(user),
+        Err(e) => {
+            tracing::error!("{}", e);
+            None
+        }
+    }
 }
 
 /// Returns user by session token HASH. It also tries to updates the existing session (last access
@@ -118,7 +126,7 @@ mod tests {
     #[tokio::test]
     async fn list_all_users_test() {
         let db_name = "list_all_users_test";
-        let pool = prepare_empty_test_database(&db_name).await;
+        let pool = prepare_empty_test_database(db_name).await;
 
         let all_users = list_all_users(&pool).await.unwrap();
 
@@ -137,7 +145,7 @@ mod tests {
     #[tokio::test]
     async fn create_regular_user_by_google_claims_test() {
         let db_name = "create_regular_user_by_google_claims_test";
-        let pool = prepare_empty_test_database(&db_name).await;
+        let pool = prepare_empty_test_database(db_name).await;
 
         // 1) create a regular user
         let user = create_inactive_user_by_google_claims(&pool, &Claims::mock("sub:12345")).await;
@@ -146,9 +154,8 @@ mod tests {
 
         // 2) try to find it and verify its values
         let user_result = find_user_by_google_claims(&pool, "sub:12345").await;
-        let user = user_result.unwrap();
-        assert!(user.is_some());
-        assert!(!user.unwrap().is_active()); // should be inactive by default
+        assert!(user_result.is_some());
+        assert!(!user_result.unwrap().is_active()); // should be inactive by default
 
         cleanup_test_database(&db_name).await;
     }
@@ -157,13 +164,25 @@ mod tests {
     #[tokio::test]
     async fn create_admin_user_by_google_claims_test() {
         let db_name = "create_admin_user_by_google_claims_test";
-        let pool = prepare_empty_test_database(&db_name).await;
+        let pool = prepare_empty_test_database(db_name).await;
 
         // 1) try to find the admin user (should already exist thanks to DB migrations)
         let user_result = find_user_by_google_claims(&pool, "108269453578187886435").await;
-        let user = user_result.unwrap();
-        assert!(user.is_some());
-        assert!(user.unwrap().is_active());
+        assert!(user_result.is_some());
+        assert!(user_result.unwrap().is_active());
+
+        cleanup_test_database(&db_name).await;
+    }
+
+    #[ignore]
+    #[tokio::test]
+    async fn find_user_by_google_claims_unknown_user_test() {
+        let db_name = "find_user_by_google_claims_unknown_user_test";
+        let pool = prepare_empty_test_database(db_name).await;
+
+        // The following user should not exist in the database:
+        let user_result = find_user_by_google_claims(&pool, "__sub_does_not_Exist__").await;
+        assert!(user_result.is_none());
 
         cleanup_test_database(&db_name).await;
     }
