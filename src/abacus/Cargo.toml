@@ -4,7 +4,7 @@
 name = "server"
 version = "0.0.0"
 authors = ["Martin Zlámal <mrtnzlml@gmail.com>"]
-edition = "2018"
+edition = "2021"
 publish = false
 resolver = "2"
 
