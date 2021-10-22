@@ -1,6 +1,6 @@
 [package]
 name = "signedsource"
-edition = "2018"
+edition = "2021"
 version = "0.2.0"
 authors = ["Facebook", "Martin Zlámal <mrtnzlml@gmail.com>"]
 license = "MIT"
