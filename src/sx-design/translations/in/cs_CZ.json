@@ -130,6 +130,20 @@
           "variations": []
         }
       ]
+    },
+    "4NipSqrjeEtasFOZFeUNdg==": {
+      "tokens": ["number"],
+      "types": [28],
+      "translations": [
+        {
+          "translation": "{author} odeslala její {number} návrhy pro tento MEETUP.",
+          "variations": [20]
+        },
+        {
+          "translation": "{author} odeslala jejích {number} návrhů pro tento MEETUP.",
+          "variations": [24]
+        }
+      ]
     }
   }
 }
