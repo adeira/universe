@@ -11,7 +11,7 @@ module.exports = {
   programming: [
     {
       type: 'category',
-      label: 'Flow & TypeScript',
+      label: 'Flow',
       items: [
         { type: 'doc', id: 'flow' },
         { type: 'doc', id: 'flow/new-spread-model' },
