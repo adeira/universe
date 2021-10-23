@@ -6,8 +6,8 @@ import sx from '@adeira/sx';
 
 import MenuLoader from './menu/MenuLoader';
 import MenuSectionCoffee from './menu/MenuSectionCoffee';
-import MenuSectionDumplingSavory from './menu/MenuSectionDumplingSavory';
-import MenuSectionDumplingSweet from './menu/MenuSectionDumplingSweet';
+import MenuSectionKochkadaSavory from './menu/MenuSectionKochkadaSavory';
+import MenuSectionKochkadaSweet from './menu/MenuSectionKochkadaSweet';
 import MenuSectionMilkshake from './menu/MenuSectionMilkshake';
 import MenuSectionSpecialities from './menu/MenuSectionSpecialities';
 import MenuSectionTea from './menu/MenuSectionTea';
@@ -25,8 +25,8 @@ export default function Menu(): Node {
             ...MenuSectionTea
             ...MenuSectionMilkshake
             ...MenuSectionSpecialities
-            ...MenuSectionDumplingSweet
-            ...MenuSectionDumplingSavory
+            ...MenuSectionKochkadaSweet
+            ...MenuSectionKochkadaSavory
           }
         }
       `}
@@ -54,12 +54,12 @@ export default function Menu(): Node {
               <MenuSectionSpecialities menuData={relayProps.menu} />
             </div>
 
-            <div className={styles('menuGridAreaDumplingSweet')}>
-              <MenuSectionDumplingSweet menuData={relayProps.menu} />
+            <div className={styles('menuGridAreaKochkadaSweet')}>
+              <MenuSectionKochkadaSweet menuData={relayProps.menu} />
             </div>
 
-            <div className={styles('menuGridAreaDumplingSavory')}>
-              <MenuSectionDumplingSavory menuData={relayProps.menu} />
+            <div className={styles('menuGridAreaKochkadaSavory')}>
+              <MenuSectionKochkadaSavory menuData={relayProps.menu} />
             </div>
           </div>
         );
@@ -77,7 +77,7 @@ const styles = sx.create({
     gridTemplateAreas: `
       "coffee tea"
       "milkshakes specialities"
-      "dumplingSweet dumplingSavory"
+      "kochkadaSweet kochkadaSavory"
     `,
   },
   menuGridAreaCoffee: {
@@ -92,10 +92,10 @@ const styles = sx.create({
   menuGridAreaSpecialities: {
     gridArea: 'specialities',
   },
-  menuGridAreaDumplingSweet: {
-    gridArea: 'dumplingSweet',
+  menuGridAreaKochkadaSweet: {
+    gridArea: 'kochkadaSweet',
   },
-  menuGridAreaDumplingSavory: {
-    gridArea: 'dumplingSavory',
+  menuGridAreaKochkadaSavory: {
+    gridArea: 'kochkadaSavory',
   },
 });
