@@ -2,7 +2,7 @@
  "phrases": [
   {
    "hashToText": {
-    "YLzBdvonuLATQ5FpiPMgEw==": "REAL CATS + DUMPLINGS + COFFEE"
+    "k2Q8RUdCLyiDbzVP375Pzg==": "REAL CATS + KOCHKADAS + COFFEE"
    },
    "filepath": "src/Homepage.js",
    "line_beg": 24,
@@ -12,35 +12,35 @@
    "desc": "catch phrase",
    "project": "",
    "type": "text",
-   "jsfbt": "REAL CATS + DUMPLINGS + COFFEE"
+   "jsfbt": "REAL CATS + KOCHKADAS + COFFEE"
   },
   {
    "hashToText": {
-    "Jtw/XkgxoVH1y9vrSmRIbQ==": "Monday - Friday 8am - 6pm"
+    "JnW4oURoLddqBVgEmB0jKw==": "Monday - Saturday 8am - 6pm"
    },
    "filepath": "src/HomepageFooter.js",
    "line_beg": 14,
    "col_beg": 8,
    "line_end": 14,
-   "col_end": 65,
+   "col_end": 67,
    "desc": "opening hours",
    "project": "",
    "type": "text",
-   "jsfbt": "Monday - Friday 8am - 6pm"
+   "jsfbt": "Monday - Saturday 8am - 6pm"
   },
   {
    "hashToText": {
-    "NUhL34P63zZM36A/XnsyPw==": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
+    "01L7L5zx9XKSlIfQTGdfVg==": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico"
    },
    "filepath": "src/HomepageFooter.js",
    "line_beg": 19,
    "col_beg": 10,
-   "line_end": 21,
-   "col_end": 16,
+   "line_end": 19,
+   "col_end": 95,
    "desc": "address",
    "project": "",
    "type": "text",
-   "jsfbt": "Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico"
+   "jsfbt": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico"
   },
   {
    "hashToText": {
@@ -268,31 +268,31 @@
   },
   {
    "hashToText": {
-    "t5V1cpabCbQkUc19Sc2NSw==": "Savory Dumplings"
+    "2QmqEZbFupR6PiAMpYnoOA==": "Savory Kochkadas"
    },
-   "filepath": "src/menu/MenuSectionDumplingSavory.js",
+   "filepath": "src/menu/MenuSectionKochkadaSavory.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 80,
-   "desc": "savory dumplings subtitle in our menu",
+   "desc": "savory kochkadas subtitle in our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Savory Dumplings"
+   "jsfbt": "Savory Kochkadas"
   },
   {
    "hashToText": {
-    "qTi+uC+IskJlO3OJUAktFQ==": "Sweet Dumplings"
+    "FYN2g4NuXpwO4NtuNyNTGA==": "Sweet Kochkadas"
    },
-   "filepath": "src/menu/MenuSectionDumplingSweet.js",
+   "filepath": "src/menu/MenuSectionKochkadaSweet.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
    "col_end": 78,
-   "desc": "sweet dumplings subtitle in our menu",
+   "desc": "sweet kochkadas subtitle in our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Sweet Dumplings"
+   "jsfbt": "Sweet Kochkadas"
   },
   {
    "hashToText": {
@@ -702,26 +702,12 @@
   },
   {
    "hashToText": {
-    "+9If2Wz1/auQYgoiMqI3JQ==": "coming soon"
-   },
-   "filepath": "pages/_app.js",
-   "line_beg": 47,
-   "col_beg": 16,
-   "line_end": 47,
-   "col_end": 57,
-   "desc": "coming soon",
-   "project": "",
-   "type": "text",
-   "jsfbt": "coming soon"
-  },
-  {
-   "hashToText": {
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 68,
+   "line_beg": 48,
    "col_beg": 20,
-   "line_end": 70,
+   "line_end": 50,
    "col_end": 26,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
