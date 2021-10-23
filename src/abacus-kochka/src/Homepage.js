@@ -21,7 +21,7 @@ export default function Homepage(): React.Node {
 
             <Text size={20} weight={200}>
               {/* TODO: popups explaining what is each of the elements (photo) */}
-              <fbt desc="catch phrase">REAL CATS + DUMPLINGS + COFFEE</fbt>
+              <fbt desc="catch phrase">REAL CATS + KOCHKADAS + COFFEE</fbt>
             </Text>
           </div>
 
