@@ -11,7 +11,6 @@ import { RelayEnvironmentProvider } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
 import './_app.css';
-import Logo from '../src/Logo';
 import RelayEnvironment from '../src/RelayEnvironment';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
@@ -33,25 +32,6 @@ type Props = {
 export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   const languageTag = initFbtTranslations(router.locale);
-
-  const isProduction = __DEV__ === false;
-  if (isProduction) {
-    // not public yet
-    return (
-      <SxDesignProvider locale={languageTag.bcp47} theme="light">
-        <div className={styles('root', 'rootSoon')}>
-          <div className={styles('rootSoonOverlay')}>
-            <Logo />
-            <div className={styles('form')}>
-              <em>
-                <fbt desc="coming soon">coming soon</fbt>
-              </em>
-            </div>
-          </div>
-        </div>
-      </SxDesignProvider>
-    );
-  }
 
   return (
     <SxDesignProvider locale={languageTag.bcp47} theme="light">
@@ -83,31 +63,5 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
 const styles = sx.create({
   root: {
     color: 'rgba(var(--sx-background))',
-  },
-  rootSoon: {
-    backgroundImage: 'url(/coffee-background.jpg)',
-    backgroundSize: 'cover',
-  },
-  rootSoonOverlay: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: '100vh',
-    padding: 50,
-    backgroundColor: 'rgba(var(--main-bg-color), 0.9)',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    marginBlockStart: 50,
-  },
-  formText: {
-    maxWidth: 470,
-    marginBlockEnd: 20,
-    fontStyle: 'italic',
   },
 });

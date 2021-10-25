@@ -7,19 +7,19 @@
 import type { ReaderFragment } from 'relay-runtime';
 type MenuRow$ref = any;
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type MenuSectionDumplingSweet$ref: FragmentReference;
-declare export opaque type MenuSectionDumplingSweet$fragmentType: MenuSectionDumplingSweet$ref;
-export type MenuSectionDumplingSweet = {|
-  +sumplingSweetMenu: $ReadOnlyArray<{|
+declare export opaque type MenuSectionKochkadaSweet$ref: FragmentReference;
+declare export opaque type MenuSectionKochkadaSweet$fragmentType: MenuSectionKochkadaSweet$ref;
+export type MenuSectionKochkadaSweet = {|
+  +kochkadaSweetMenu: $ReadOnlyArray<{|
     +id: string,
     +$fragmentRefs: MenuRow$ref,
   |}>,
-  +$refType: MenuSectionDumplingSweet$ref,
+  +$refType: MenuSectionKochkadaSweet$ref,
 |};
-export type MenuSectionDumplingSweet$data = MenuSectionDumplingSweet;
-export type MenuSectionDumplingSweet$key = {
-  +$data?: MenuSectionDumplingSweet$data,
-  +$fragmentRefs: MenuSectionDumplingSweet$ref,
+export type MenuSectionKochkadaSweet$data = MenuSectionKochkadaSweet;
+export type MenuSectionKochkadaSweet$key = {
+  +$data?: MenuSectionKochkadaSweet$data,
+  +$fragmentRefs: MenuSectionKochkadaSweet$ref,
   ...
 };
 
@@ -33,10 +33,10 @@ const node: ReaderFragment = {
   ],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MenuSectionDumplingSweet",
+  "name": "MenuSectionKochkadaSweet",
   "selections": [
     {
-      "alias": "sumplingSweetMenu",
+      "alias": "kochkadaSweetMenu",
       "args": [
         {
           "kind": "Variable",
@@ -74,5 +74,5 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '9ef5d1d3cdf5521bfca54fc66e2d1611';
+(node: any).hash = 'f986851f1127acd1499898269a9038c3';
 export default node;

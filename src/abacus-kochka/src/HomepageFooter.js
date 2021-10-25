@@ -11,14 +11,12 @@ export default function HomepageFooter(): React.Node {
   return (
     <div className={styles('wrapper')}>
       <strong>
-        <fbt desc="opening hours">Monday - Friday 8am - 6pm</fbt>
+        <fbt desc="opening hours">Monday - Saturday 8am - 6pm</fbt>
       </strong>
 
       <div>
-        <Link href="https://goo.gl/maps/2jh2w78yFTPEDSrS6" xstyle={styles.link}>
-          <fbt desc="address">
-            Av. Coyoacán 2000, Xoco, Benito Juárez, 03330 Ciudad de México, CDMX, Mexico
-          </fbt>
+        <Link href="https://goo.gl/maps/PN5JyDDvzUFmZH5r5" xstyle={styles.link}>
+          <fbt desc="address">Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico</fbt>
         </Link>
       </div>
 
