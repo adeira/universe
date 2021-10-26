@@ -30,7 +30,7 @@ Object {
         "testing-library/no-await-sync-events": 1,
         "testing-library/no-await-sync-query": 1,
         "testing-library/no-container": 0,
-        "testing-library/no-debug": 1,
+        "testing-library/no-debugging-utils": 1,
         "testing-library/no-dom-import": Array [
           1,
           "react",
@@ -1122,8 +1122,8 @@ Snapshot Diff:
 +         "testing-library/no-await-sync-events": 2,
 +         "testing-library/no-await-sync-query": 2,
           "testing-library/no-container": 0,
--         "testing-library/no-debug": 1,
-+         "testing-library/no-debug": 2,
+-         "testing-library/no-debugging-utils": 1,
++         "testing-library/no-debugging-utils": 2,
           "testing-library/no-dom-import": Array [
 -           1,
 +           2,
