@@ -1,22 +1,22 @@
 {
   "fb-locale": "es_MX",
   "translations": {
-    "YLzBdvonuLATQ5FpiPMgEw==": {
+    "k2Q8RUdCLyiDbzVP375Pzg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "GATOS + DUMPLINGS + CAFÉ",
+          "translation": "GATOS + KOCHKADAS + CAFÉ",
           "variations": []
         }
       ]
     },
-    "Jtw/XkgxoVH1y9vrSmRIbQ==": {
+    "01L7L5zx9XKSlIfQTGdfVg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Lunes - Viernes 8:00 - 18:00",
+          "translation": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico",
           "variations": []
         }
       ]
@@ -101,6 +101,26 @@
         }
       ]
     },
+    "1UA4LJthdLxQou20Xu/Bzg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Envíos y devoluciones",
+          "variations": []
+        }
+      ]
+    },
+    "eFpXXNeK5D+47kXDWsbnAg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Política de privacidad",
+          "variations": []
+        }
+      ]
+    },
     "AnWW7GmesxqieaEMwwAsbQ==": {
       "tokens": [],
       "types": [],
@@ -141,6 +161,16 @@
         }
       ]
     },
+    "Pl7F+dP7nG7j/0rFiWi4wA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Descargando el menú nuevo, espera un momento…",
+          "variations": []
+        }
+      ]
+    },
     "2YO+c7f7liBd/0oWsDx7MQ==": {
       "tokens": [],
       "types": [],
@@ -151,212 +181,22 @@
         }
       ]
     },
-    "TdBMhqJXdPFwa81ekN73mA==": {
+    "2QmqEZbFupR6PiAMpYnoOA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "{ground coffee grams} gramos de café molido, de un sólo origen, arábica de Coatepec (Veracruz) que resulta en aproximadamente {liquid coffee grams} gramos de espresso líquido. Bebida muy intensa, ligeramente ácida - remover con una cuchara antes de beber.",
+          "translation": "Kochkadas Saladas",
           "variations": []
         }
       ]
     },
-    "EZyq54R0fHXKpuodF90voA==": {
+    "FYN2g4NuXpwO4NtuNyNTGA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Espresso con agua caliente que resulta en aproximadamente 250 ml de bebida. Sabor más suave que el espresso debido al agua, pero con el mismo contenido de café.",
-          "variations": []
-        }
-      ]
-    },
-    "symiyQJkS4A9mkJnhWYBxA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Espresso vertido sobre agua caliente que resulta en aproximadamente 250 ml de bebida. Muy similar al americano, pero conserva más crema del espresso por encima.",
-          "variations": []
-        }
-      ]
-    },
-    "uTkK8kGTG29y2jHOkV/1Qg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Espresso con leche espumosa. La misma cantidad de café que en el latte pero con un poco menos de leche que resulta en un sabor de café más fuerte.",
-          "variations": []
-        }
-      ]
-    },
-    "DSLOlV/wv9NrPmLGoObncA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Espresso con gran cantidad de leche espumosa. Contiene la misma cantidad de café que el cappuccino pero con más leche, por lo que el sabor es más suave.",
-          "variations": []
-        }
-      ]
-    },
-    "oVE/rKb76OAviSoATkFrTg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Mocha es una variante del latte pero se le agrega nuestro chocolate artesanal, lo que crea un sabor más dulce.",
-          "variations": []
-        }
-      ]
-    },
-    "iyOC+kj2PPPSNLAWlf1W6Q==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Una bebida fría preparada con cubos de hielo, leche ligeramente espumosa, jarabe casero y finalizado con un espresso encima.",
-          "variations": []
-        }
-      ]
-    },
-    "t5V1cpabCbQkUc19Sc2NSw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumplings salados",
-          "variations": []
-        }
-      ]
-    },
-    "zZge6Ty1nO04HHlc3Whn3A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de camarones y salsa de chipotle, espolvoreado con avena molida.",
-          "variations": []
-        }
-      ]
-    },
-    "vLD56vl2VHyrPemwHF4DOg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de queso parmesano, jamón y salsa de tomate, espolvoreado con semillas de ajonjolí.",
-          "variations": []
-        }
-      ]
-    },
-    "K1oZl0UCeRRCFsC6FuzRjw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de queso manchego, piña y jamón, espolvoreado con semillas de ajonjolí.",
-          "variations": []
-        }
-      ]
-    },
-    "rELJ3Nge1wkZn/0JV0npUg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de chorizo y queso oaxaqueño, espolvoreado con avena molida.",
-          "variations": []
-        }
-      ]
-    },
-    "Mzetz/JqzANJHgRYCwQmrw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de carne al pastor y queso manchego, espolvoreado con amaranto.",
-          "variations": []
-        }
-      ]
-    },
-    "gu3PMv6xvTbyXmtBtbHovg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de cochinita pibil, espolvoreado con semillas de calabaza.",
-          "variations": []
-        }
-      ]
-    },
-    "qTi+uC+IskJlO3OJUAktFQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumplings dulces",
-          "variations": []
-        }
-      ]
-    },
-    "dtapcHAFaaZT7Fmt3r+sCw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de Oreo y Hershey's, espolvoreado con galleta Oreo molida.",
-          "variations": []
-        }
-      ]
-    },
-    "iGSUyVqr/h7JjaM5s7aXJg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de manzanas y canela, espolvoreado con canela y pan.",
-          "variations": []
-        }
-      ]
-    },
-    "OcLmiKO+i69vFabhTaD8mw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de fresas y leche condensada, espolvoreado con galleta de fresa.",
-          "variations": []
-        }
-      ]
-    },
-    "0oTabZjR+vtRnTKmE6PAUg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de arroz con leche, espolvoreado con coco rallado.",
-          "variations": []
-        }
-      ]
-    },
-    "go3H2rINLrmCMS+zi1mL2w==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de plátano frito y leche condensada, espolvoreado con galleta de vainilla.",
-          "variations": []
-        }
-      ]
-    },
-    "rPmLuLqcuyFAcVonPL4r5g==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Dumpling relleno de pudding de limón, espolvoreado con galleta de limón.",
+          "translation": "Kochkadas Dulces",
           "variations": []
         }
       ]
@@ -371,52 +211,12 @@
         }
       ]
     },
-    "hyE5CLveTakqWN5TJmBHgA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Malteada de plátano",
-          "variations": []
-        }
-      ]
-    },
     "x6UgjVUbrHri7VzawP9UtA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Especialidades",
-          "variations": []
-        }
-      ]
-    },
-    "90//byClCbo/id4smXnGZw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Té verde matcha finamente molido infusionado con agua caliente y con mucha leche espumosa, similar al latte tradicional. Tiene menos cafeína que el café, pero más que el té verde.",
-          "variations": []
-        }
-      ]
-    },
-    "imXFWPl0aPApuGI6Z9nBkA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Chocolate Artesanal",
-          "variations": []
-        }
-      ]
-    },
-    "nJjhEtM6mOx0rUxqSR2yIg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Bebida dulce preparada a partir de granos de cacao de Tabasco triturados con leche caliente ligeramente espumosa o agua caliente.",
           "variations": []
         }
       ]
@@ -431,82 +231,12 @@
         }
       ]
     },
-    "RKpVHk4F/tx5DLq8xFMHdA==": {
+    "ma2mGfydLQ0QoMlyrlx9vw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Té verde gunpowder con sabor a menta intenso elaborado a {temperature} durante 2 minutos. Bajo en cafeína, hidratante y bueno para reducir el estrés.",
-          "variations": []
-        }
-      ]
-    },
-    "BlhBa8tRXA0NiplqKh0PjA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Té verde de la provincia china Fujian elaborado a {temperature} durante 2 minutos. Bajo en cafeína con un aroma relajante y ligero de jazmín, bueno para la digestión y para reducir el estrés.",
-          "variations": []
-        }
-      ]
-    },
-    "gpcoWvvUoHO5bLQ6VAcohQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Pu-erh de la provincia de Yunnan con notas de canela, clavo, cardamomo y cáscara de naranja elaborado a {temperature} durante 5 minutos. Alto en cafeína, quema grasa corporal y ayuda a la circulación sanguínea.",
-          "variations": []
-        }
-      ]
-    },
-    "nacFdHwFtpGvixqDqALORg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Rooibos con hierba de San Juan, ginseng, jengibre, notas de té limón, manzana, canela y pimienta negra. Elaborado a {temperature} durante 5 minutos. Sin cafeína, bueno para la memoria y el rendimiento físico.",
-          "variations": []
-        }
-      ]
-    },
-    "p9IdPjZckxHQ0o9zzITAAg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Tisana con sabor a frutos rojos y toques de flor de jamaica elaborada a {temperature} durante 5 minutos. Sin cafeína, antiinflamatoria, buena para la memoria.",
-          "variations": []
-        }
-      ]
-    },
-    "bZH+Lt+WzlApb6ZhyUKOgQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Tisana con un sabor a postre horneado con almendras y notas de canela elaborada a {temperature} durante 7 minutos. Sin cafeína, buena para el intelecto y el corazón.",
-          "variations": []
-        }
-      ]
-    },
-    "xqoguQxnoeLWkiZgd66KQA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Ten mucho cuidado cuando entres a la cafetería para que los gatos no se salgan. {pleading face emoji}",
-          "variations": []
-        }
-      ]
-    },
-    "9EZBLtMJ+LsOzBwQeGG4Cg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "cara suplicando",
+          "translation": "Ten cuidado cuando entres porque los gatitos pueden escapar. 🥺",
           "variations": []
         }
       ]
@@ -531,22 +261,12 @@
         }
       ]
     },
-    "J1dL7HxnyAvHJhntHYe5gA==": {
+    "wu4QLM8Jq2jZKhUWrIPg2g==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Toma todas las fotos que quieras, de preferencia sin flash. {thumbs up emoji} No olvides etiquetarnos en Instagram {instagram account}.",
-          "variations": []
-        }
-      ]
-    },
-    "7tmFQF2JXgkmR904Ip7auw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "pulgar hacia arriba",
+          "translation": "Toma todas las fotos que quieras, de preferencia sin flash. 👍 No olvides etiquetarnos en Instagram {instagram account}.",
           "variations": []
         }
       ]
@@ -611,16 +331,6 @@
         }
       ]
     },
-    "bU6rVH2V6ifH2RNffzFZ8g==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Por el momento todos nuestros productos están disponibles sólo físicamente en nuestra cafetería.",
-          "variations": []
-        }
-      ]
-    },
     "M7rR/kOLux0twb9muLT+Nw==": {
       "tokens": [],
       "types": [],
@@ -636,7 +346,17 @@
       "types": [],
       "translations": [
         {
-          "translation": "Apoya a nuestros gatos comprando algunos de nuestros productos",
+          "translation": "Apoya a nuestros gatos comprando nuestros productos",
+          "variations": []
+        }
+      ]
+    },
+    "bU6rVH2V6ifH2RNffzFZ8g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Por el momento todos nuestros productos están disponibles sólo físicamente en nuestra cafetería.",
           "variations": []
         }
       ]
@@ -647,6 +367,16 @@
       "translations": [
         {
           "translation": "Todas las categorías",
+          "variations": []
+        }
+      ]
+    },
+    "euiFFLyeZE5Cqt3Et0scHQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ver todo",
           "variations": []
         }
       ]
@@ -677,6 +407,26 @@
       "translations": [
         {
           "translation": "Precio: De alto a bajo",
+          "variations": []
+        }
+      ]
+    },
+    "9nlQMh24gzrCe2wsI7rTrw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "volver a intentar",
+          "variations": []
+        }
+      ]
+    },
+    "CA7qWNKuLlABfoiTt5lvUA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "no se pueden cargar los productos de eshop",
           "variations": []
         }
       ]
@@ -721,22 +471,22 @@
         }
       ]
     },
-    "+9If2Wz1/auQYgoiMqI3JQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "próximamente",
-          "variations": []
-        }
-      ]
-    },
     "9NSktf8Wasdbln+avfGiWQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Ir al contenido",
+          "variations": []
+        }
+      ]
+    },
+    "vpT2aV2Xh7va1U4hf7onMg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Página no encontrada",
           "variations": []
         }
       ]
@@ -761,22 +511,12 @@
         }
       ]
     },
-    "Id2zIowP1OXDBLoGtCtamw==": {
+    "UtAnpVTTpcIdy6vllJvyrw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "imagen de gato por definir",
-          "variations": []
-        }
-      ]
-    },
-    "JjLlKDf9JuGEoKBDwgAHQQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "No somos sólo un cat café, queremos ayudar.",
+          "translation": "Carrito",
           "variations": []
         }
       ]
@@ -787,6 +527,56 @@
       "translations": [
         {
           "translation": "¡Muchas gracias por comprar con nosotros! Finalicemos el pedido…",
+          "variations": []
+        }
+      ]
+    },
+    "cOuE0Y6hFHx90ijUrv/eMA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Aún no hay nada en el carrito. Añade algo en {=our shop}.",
+          "variations": []
+        }
+      ]
+    },
+    "ZQYVXUeI/NELtBk7BWG2Eg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "nuestra tienda",
+          "variations": []
+        }
+      ]
+    },
+    "9ggp9xUsB/b5GuzF9ovCJg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Política de privacidad",
+          "variations": []
+        }
+      ]
+    },
+    "ft/VX/kflZT+cJ7tDxay3w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cómo manejamos tus datos",
+          "variations": []
+        }
+      ]
+    },
+    "DBkiBGwUIGGpVvTQloF43Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "esta página aún no está terminada, mantente atento",
           "variations": []
         }
       ]
@@ -847,6 +637,56 @@
       "translations": [
         {
           "translation": "Cómo ser amigo de nuestros gatos",
+          "variations": []
+        }
+      ]
+    },
+    "IV9llmffd/gAm+lpn/XOYQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Orden cancelada",
+          "variations": []
+        }
+      ]
+    },
+    "yTWTRuVereo5ENKC6xCNSQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Su pedido ha sido cancelado y no se ha hecho ningún cargo. Lamentamos que te vayas ¡No dudes en ponerte en contacto con nosotros y decirnos lo que podemos mejorar!",
+          "variations": []
+        }
+      ]
+    },
+    "7iQpgv+m9xo39l3hwwsBzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Pedido exitoso 👍",
+          "variations": []
+        }
+      ]
+    },
+    "+aQ061fIG2w2cz2DUY7MzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¡Muchas gracias!",
+          "variations": []
+        }
+      ]
+    },
+    "u9ymZF+4osYnMeWU+Nmy6A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Por favor, revisa tu correo electrónico para la confirmación. Te mantendremos actualizado sobre el progreso por correo electrónico ¡No dudes en ponerte en contacto con nosotros en caso de cualquier problema!",
           "variations": []
         }
       ]
