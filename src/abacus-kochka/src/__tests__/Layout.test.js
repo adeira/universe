@@ -7,9 +7,7 @@ import { render } from '@testing-library/react';
 
 import Layout from '../Layout';
 
-// https://github.com/babel/babel/issues/13462
-// eslint-disable-next-line jest/no-disabled-tests
-it.skip('disallows hidden title when the title is specified', () => {
+it('disallows hidden title when the title is specified', () => {
   const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   expect(() =>
@@ -25,9 +23,7 @@ it.skip('disallows hidden title when the title is specified', () => {
   consoleSpy.mockRestore();
 });
 
-// https://github.com/babel/babel/issues/13462
-// eslint-disable-next-line jest/no-disabled-tests
-it.skip('disallows hidden title when the subtitle is specified', () => {
+it('disallows hidden title when the subtitle is specified', () => {
   const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   expect(() =>
