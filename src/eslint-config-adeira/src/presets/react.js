@@ -224,7 +224,7 @@ module.exports = ({
         'testing-library/no-await-sync-events': NEXT_VERSION_ERROR,
         'testing-library/no-await-sync-query': NEXT_VERSION_ERROR,
         'testing-library/no-container': OFF,
-        'testing-library/no-debug': NEXT_VERSION_ERROR,
+        'testing-library/no-debugging-utils': NEXT_VERSION_ERROR,
         'testing-library/no-dom-import': [NEXT_VERSION_ERROR, 'react'],
         'testing-library/no-manual-cleanup': OFF,
         'testing-library/no-node-access': OFF,

@@ -7,7 +7,6 @@ import {
   type LogFunction,
   type OperationLoader,
 } from 'relay-runtime';
-// eslint-disable-next-line import/no-unresolved
 import type { RecordObjectMap } from 'relay-runtime/store/RelayStoreTypes';
 
 import createRelayStore from './createRelayStore';

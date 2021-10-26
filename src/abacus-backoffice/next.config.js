@@ -1,6 +1,6 @@
 // @flow
 
-/* eslint-disable import/order,import/no-extraneous-dependencies */
+/* eslint-disable import/order */
 
 const path = require('path');
 const withPlugins = require('next-compose-plugins');

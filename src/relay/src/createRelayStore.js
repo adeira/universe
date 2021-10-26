@@ -1,9 +1,7 @@
 // @flow
 
 import { RecordSource, Store, type LogFunction, type OperationLoader } from 'relay-runtime';
-// eslint-disable-next-line import/no-unresolved
 import type { GetDataID } from 'relay-runtime/store/RelayResponseNormalizer';
-// eslint-disable-next-line import/no-unresolved
 import type { RecordObjectMap, Scheduler } from 'relay-runtime/store/RelayStoreTypes';
 
 type Options = {
