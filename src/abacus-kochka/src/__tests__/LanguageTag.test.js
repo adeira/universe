@@ -2,9 +2,7 @@
 
 import LanguageTag from '../LanguageTag';
 
-// https://github.com/babel/babel/issues/13462
-// eslint-disable-next-line jest/no-disabled-tests
-it.skip('returns default language as expected', () => {
+it('returns default language as expected', () => {
   expect(LanguageTag.getDefaultLanguageTag()).toMatchInlineSnapshot(`
     Object {
       "bcp47": "es-MX",
@@ -14,9 +12,7 @@ it.skip('returns default language as expected', () => {
   `);
 });
 
-// https://github.com/babel/babel/issues/13462
-// eslint-disable-next-line jest/no-disabled-tests
-test.skip.each`
+test.each`
   languageTag | expectedBCP47 | expectedURL | expectedGraphQL
   ${'en-US'}  | ${'en-US'}    | ${'en-us'}  | ${'en_US'}
   ${'en-us'}  | ${'en-US'}    | ${'en-us'}  | ${'en_US'}
@@ -34,9 +30,7 @@ test.skip.each`
   },
 );
 
-// https://github.com/babel/babel/issues/13462
-// eslint-disable-next-line jest/no-disabled-tests
-test.skip.each`
+test.each`
   languageTag | expected
   ${'en-US'}  | ${false}
   ${'abc'}    | ${true}
