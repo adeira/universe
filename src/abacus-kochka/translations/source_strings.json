@@ -2,6 +2,20 @@
  "phrases": [
   {
    "hashToText": {
+    "eYizGgDm0FrAH7xp9q2g9A==": "Opening soon! Follow our social media for the announcement."
+   },
+   "filepath": "src/GlobalAnnouncement.js",
+   "line_beg": 10,
+   "col_beg": 6,
+   "line_end": 12,
+   "col_end": 12,
+   "desc": "opening soon announcement",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Opening soon! Follow our social media for the announcement."
+  },
+  {
+   "hashToText": {
     "k2Q8RUdCLyiDbzVP375Pzg==": "REAL CATS + KOCHKADAS + COFFEE"
    },
    "filepath": "src/Homepage.js",
@@ -705,9 +719,9 @@
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 48,
+   "line_beg": 49,
    "col_beg": 20,
-   "line_end": 50,
+   "line_end": 51,
    "col_end": 26,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
