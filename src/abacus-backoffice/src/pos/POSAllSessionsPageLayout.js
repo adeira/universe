@@ -19,7 +19,10 @@ export default function POSAllSessionsPageLayout(): Node {
       }
     >
       <Entity>
-        <EntityField title={<fbt desc="POS in Mexico City">Mexico City</fbt>} />
+        <EntityField
+          title={<fbt desc="POS in Mexico City">Mexico City</fbt>}
+          description="TNLA 346, Roma Sur"
+        />
         <EntityField
           title={
             <LinkButton href="/pos/session" target="_blank" suffix={<Icon name="external" />}>
