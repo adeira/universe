@@ -28,7 +28,7 @@ casbin = "2.0.9"
 clap = "3.0.0-beta.2"
 clap_generate = "3.0.0-beta.2"
 data-encoding = "2.3.2"
-deadpool = { version = "0.9.0", default-features = false, features = ["managed"] }
+deadpool = { version = "0.9.1", default-features = false, features = ["managed"] }
 dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.17"
 http = "0.2.5"
