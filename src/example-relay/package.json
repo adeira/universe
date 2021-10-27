@@ -15,7 +15,7 @@
     "@adeira/sx": "^0.28.0",
     "@adeira/sx-design": "^0.21.1",
     "@artsy/fresnel": "^3.0.2",
-    "@next/bundle-analyzer": "^11.1.2",
+    "@next/bundle-analyzer": "^12.0.0",
     "apollo-server-micro": "^3.4.0",
     "cors": "^2.8.5",
     "date-fns": "^2.25.0",
