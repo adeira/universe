@@ -16,6 +16,20 @@
   },
   {
    "hashToText": {
+    "WFpN8i+HIen1iISPJbUg4w==": "Origin"
+   },
+   "filepath": "src/analytics/AnalyticsRedirectsPage.js",
+   "line_beg": 28,
+   "col_beg": 18,
+   "line_end": 28,
+   "col_end": 75,
+   "desc": "what is out origin redirect link",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Origin"
+  },
+  {
+   "hashToText": {
     "duLKZvjku3aFE0HIZnmQ0A==": "Destination"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
@@ -74,9 +88,9 @@
     "IJ2JdxovFDHoSZY/UWeWRw==": "active"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 57,
+   "line_beg": 61,
    "col_beg": 14,
-   "line_end": 57,
+   "line_end": 61,
    "col_end": 52,
    "desc": "active status",
    "project": "",
@@ -788,10 +802,10 @@
     "adM4ExNt4Fqq38leaDDUcQ==": "Mexico City"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 22,
-   "col_beg": 28,
-   "line_end": 22,
-   "col_end": 76,
+   "line_beg": 23,
+   "col_beg": 17,
+   "line_end": 23,
+   "col_end": 65,
    "desc": "POS in Mexico City",
    "project": "",
    "type": "text",
@@ -802,9 +816,9 @@
     "nZqhEjn5qcrJgjOP1hhOWA==": "Open POS session"
    },
    "filepath": "src/pos/POSAllSessionsPageLayout.js",
-   "line_beg": 26,
+   "line_beg": 29,
    "col_beg": 14,
-   "line_end": 26,
+   "line_end": 29,
    "col_end": 82,
    "desc": "navigation link to point of sales",
    "project": "",
@@ -1026,9 +1040,9 @@
     "tqJr7GmSh3z3wJYjUYZlWQ==": "Confirm selection ({numberOfSelectedProducts} addons)"
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
-   "line_beg": 112,
+   "line_beg": 105,
    "col_beg": 10,
-   "line_end": 117,
+   "line_end": 110,
    "col_end": 16,
    "desc": "confirm selected product addons button title",
    "project": "",
@@ -1040,9 +1054,9 @@
     "wqB8FQTQbyLhRSk8t2qAYQ==": "Confirm selection (no addons)"
    },
    "filepath": "src/pos/ProductsGridModalBody.js",
-   "line_beg": 119,
+   "line_beg": 112,
    "col_beg": 10,
-   "line_end": 121,
+   "line_end": 114,
    "col_end": 16,
    "desc": "confirm selected product without addons button title",
    "project": "",

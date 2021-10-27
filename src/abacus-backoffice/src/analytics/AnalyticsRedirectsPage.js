@@ -25,7 +25,7 @@ export default function AnalyticsRedirectsPage(): Node {
     <Table
       columns={[
         { Header: <fbt desc="how many hits did the link get">Hits</fbt>, accessor: 'col1' },
-        { Header: 'UUID', accessor: 'col2' },
+        { Header: <fbt desc="what is out origin redirect link">Origin</fbt>, accessor: 'col2' },
         {
           Header: <fbt desc="where does our redirect link point to">Destination</fbt>,
           accessor: 'col3',
@@ -45,7 +45,11 @@ export default function AnalyticsRedirectsPage(): Node {
               </fbt:plural>
             </fbt>
           ),
-          col2: redirect.uuid,
+          col2: (
+            <Link href={`https://abacus.kochka.com.mx/redirect/${redirect.uuid}`} target="_blank">
+              https://abacus.kochka.com.mx/redirect/{redirect.uuid}
+            </Link>
+          ),
           col3: (
             <Link href={redirect.redirectsTo} target="_blank">
               {redirect.redirectsTo}
