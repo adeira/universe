@@ -1400,10 +1400,10 @@
     "@babel/helper-annotate-as-pure" "^7.16.0"
     "@babel/helper-plugin-utils" "^7.14.5"
 
-"@babel/plugin-transform-regenerator@^7.14.5":
-  version "7.14.5"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.14.5.tgz#9676fd5707ed28f522727c5b3c0aa8544440b04f"
-  integrity sha512-NVIY1W3ITDP5xQl50NgTKlZ0GrotKtLna08/uGY6ErQt6VEQZXla86x/CTddm5gZdcr+5GSsvMeTmWA5Ii6pkg==
+"@babel/plugin-transform-regenerator@^7.14.5", "@babel/plugin-transform-regenerator@^7.16.0":
+  version "7.16.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.16.0.tgz#eaee422c84b0232d03aea7db99c97deeaf6125a4"
+  integrity sha512-JAvGxgKuwS2PihiSFaDrp94XOzzTUeDeOQlcKzVAyaPap7BnZXK/lvMDiubkPTdotPKOIZq9xWXWnggUMYiExg==
   dependencies:
     regenerator-transform "^0.14.2"
 
