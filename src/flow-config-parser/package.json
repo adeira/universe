@@ -16,6 +16,6 @@
   "dependencies": {
     "@adeira/fixtures-tester": "^1.1.0",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.15.4"
+    "@babel/runtime": "^7.16.0"
   }
 }
