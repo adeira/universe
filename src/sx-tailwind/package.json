@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
-    "@babel/core": "^7.15.8"
+    "@babel/core": "^7.16.0"
   }
 }
