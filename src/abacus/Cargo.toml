@@ -36,7 +36,7 @@ image = { version = "0.23.14", default-features = false, features = ["jpeg", "pn
 jsonwebtoken = "7.2.0"
 juniper = { version = "0.15.7", default-features = false, features = ["schema-language"] }
 lazy_static = "1.4.0"
-lettre = "0.10.0-rc.3"
+lettre = "0.10.0-rc.4"
 num_cpus = "1.13.0"
 rand = "0.8.4"
 reqwest = { version = "0.11.6", default-features = false, features = ["json", "gzip", "default-tls"] }
