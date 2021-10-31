@@ -761,13 +761,17 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
 var _privateField = /*#__PURE__*/new WeakMap();
 
 var ClassFields = function ClassFields() {
   (0, _classCallCheck2.default)(this, ClassFields);
   (0, _defineProperty2.default)(this, "publicField", 1);
 
-  _privateField.set(this, {
+  _classPrivateFieldInitSpec(this, _privateField, {
     writable: true,
     value: 2
   });
@@ -789,6 +793,10 @@ export default class ClassFields {
 import _classCallCheck from "@babel/runtime/helpers/esm/classCallCheck";
 import _defineProperty from "@babel/runtime/helpers/esm/defineProperty";
 
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+
 var _privateField = /*#__PURE__*/new WeakMap();
 
 var ClassFields = function ClassFields() {
@@ -796,7 +804,7 @@ var ClassFields = function ClassFields() {
 
   _defineProperty(this, "publicField", 1);
 
-  _privateField.set(this, {
+  _classPrivateFieldInitSpec(this, _privateField, {
     writable: true,
     value: 2
   });
