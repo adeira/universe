@@ -20,7 +20,7 @@
     "@babel/register": "^7.15.3",
     "@babel/runtime": "^7.16.0",
     "@babel/template": "^7.15.4",
-    "@babel/types": "^7.15.6",
+    "@babel/types": "^7.16.0",
     "find-cache-dir": "^3.3.2",
     "object-hash": "^2.2.0",
     "postcss": "^8.3.11",
