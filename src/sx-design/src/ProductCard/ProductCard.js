@@ -1,5 +1,6 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import React, { useState, type Element } from 'react';
 import sx from '@adeira/sx';
 
@@ -7,6 +8,7 @@ import Image from '../Image/Image';
 import Money from '../Money/Money';
 import Text from '../Text/Text';
 import type { SupportedCurrencies } from '../constants';
+import Tooltip from '../Tooltip/Tooltip';
 
 type Props = {
   +title: Fbt,
@@ -15,6 +17,12 @@ type Props = {
   +imgBlurhash?: string,
   +imgSrc?: string,
   +imgAlt?: Fbt,
+
+  // Informative message that draws attention but doesn't require fixing.
+  +warningMessage?: Fbt,
+
+  // Error message that draws attention and requires action.
+  +errorMessage?: Fbt,
 };
 
 /**
@@ -48,7 +56,7 @@ export default function ProductCard(props: Props): Element<'div'> {
       onTouchEnd={() => setIsHovered(false)}
     >
       <div className={styles('aspectRatioBoxInner')}>
-        <div className={styles('highlightWrapper')}>
+        <div className={styles('highlightWrapperTop')}>
           <Text size={titleSize}>
             <span
               className={styles(
@@ -70,6 +78,24 @@ export default function ProductCard(props: Props): Element<'div'> {
         </div>
 
         <Image src={props.imgSrc} alt={props.imgAlt} blurhash={props.imgBlurhash} />
+
+        <div className={styles('highlightWrapperBottomWarning')}>
+          {props.warningMessage != null ? (
+            <Tooltip title={props.warningMessage}>
+              <span className={styles('highlightBaseWarning')}>
+                <Icon name="warning_triangle" />
+              </span>
+            </Tooltip>
+          ) : null}
+
+          {props.errorMessage != null ? (
+            <Tooltip title={props.errorMessage}>
+              <span className={styles('highlightBaseError')}>
+                <Icon name="warning_triangle" />
+              </span>
+            </Tooltip>
+          ) : null}
+        </div>
       </div>
     </div>
   );
@@ -93,11 +119,17 @@ const styles = sx.create({
     height: '100%',
     width: '100%',
   },
-  highlightWrapper: {
+  highlightWrapperTop: {
     width: 'calc(100% - (2 * var(--sx-radius)))', // leave a little bit of space on the right side
     position: 'absolute',
     left: 0,
     top: 0,
+    zIndex: 2,
+  },
+  highlightWrapperBottomWarning: {
+    position: 'absolute',
+    left: 0,
+    bottom: 0,
     zIndex: 2,
   },
   highlightBase: {
@@ -110,6 +142,18 @@ const styles = sx.create({
     paddingInline: '1rem',
     wordBreak: 'break-word',
     hyphens: 'auto',
+  },
+  highlightBaseWarning: {
+    color: 'rgba(var(--sx-foreground))',
+    backgroundColor: 'rgba(var(--sx-warning))',
+    paddingBlock: '.1rem',
+    paddingInline: '.2rem',
+  },
+  highlightBaseError: {
+    color: 'rgba(var(--sx-foreground))',
+    backgroundColor: 'rgba(var(--sx-error))',
+    paddingBlock: '.1rem',
+    paddingInline: '.2rem',
   },
   highlightBaseRounded: {
     borderStartStartRadius: 'var(--sx-radius)',
