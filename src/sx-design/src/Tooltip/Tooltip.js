@@ -13,7 +13,7 @@ import findBestTooltipPosition, { nullClientRect } from './findBestTooltipPositi
 //  - `children` is text or symbol being displayed by default
 //  - `title` is the popup on hover
 type Props = {
-  +'title': FbtWithoutString,
+  +'title': Fbt,
   +'children'?: Node,
   +'data-testid'?: string,
 };
