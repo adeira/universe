@@ -91,7 +91,6 @@ pub(in crate::menu) async fn get_section(
                     "3761963".to_string(), // Fresa Kitty
                     "3762026".to_string(), // Arroz Snowball
                     "3762091".to_string(), // Banana Garfield
-                    "3762165".to_string(), // Lemon Figaro
                 ],
             )
             .await
@@ -105,8 +104,8 @@ pub(in crate::menu) async fn get_section(
                     "3762295".to_string(), // Pizza Félix
                     "3762354".to_string(), // Hawaiiana Marie
                     "3762419".to_string(), // Choriqueso Demóstenes
-                    "3762478".to_string(), // Tom y Jerry al pastor
-                    "3763127".to_string(), // Bodoque pibil
+                    "3762478".to_string(), // Tom y Jerry BBQ
+                    "3763127".to_string(), // Bodoque bolognese
                 ],
             )
             .await
