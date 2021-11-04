@@ -51,6 +51,7 @@ fragment ProductsCardsData on Product {
     unitAmount
     unitAmountCurrency
   }
+  isPublished
 }
 */
 
@@ -225,6 +226,13 @@ return {
                   }
                 ],
                 "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "isPublished",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -235,12 +243,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "56da51778d5402922b9600569d0b6dbd",
+    "cacheID": "8e52fb89730c10f7751c8a4d5b05bb0a",
     "id": null,
     "metadata": {},
     "name": "ProductsCardsInCategoryQuery",
     "operationKind": "query",
-    "text": "query ProductsCardsInCategoryQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories) {\n      ...ProductsCardsData\n      id\n    }\n  }\n}\n\nfragment ProductsCardsData on Product {\n  id\n  key\n  name\n  imageCover {\n    blurhash\n    url\n  }\n  price {\n    unitAmount\n    unitAmountCurrency\n  }\n}\n"
+    "text": "query ProductsCardsInCategoryQuery(\n  $clientLocale: SupportedLocale!\n  $priceSortDirection: PriceSortDirection!\n  $categories: [ID!]\n) {\n  commerce {\n    products: searchAllProducts(clientLocale: $clientLocale, priceSortDirection: $priceSortDirection, categories: $categories) {\n      ...ProductsCardsData\n      id\n    }\n  }\n}\n\nfragment ProductsCardsData on Product {\n  id\n  key\n  name\n  imageCover {\n    blurhash\n    url\n  }\n  price {\n    unitAmount\n    unitAmountCurrency\n  }\n  isPublished\n}\n"
   }
 };
 })();

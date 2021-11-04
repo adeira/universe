@@ -3,6 +3,7 @@
 import { graphql, useFragment } from '@adeira/relay';
 import { ProductCard, LayoutGrid } from '@adeira/sx-design';
 import React, { type Node } from 'react';
+import fbt from 'fbt';
 
 import Link from '../Link';
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
@@ -27,6 +28,7 @@ export default function ProductsCards(props: Props): Node {
           unitAmount
           unitAmountCurrency
         }
+        isPublished
       }
     `,
     props.dataProducts,
@@ -48,6 +50,14 @@ export default function ProductsCards(props: Props): Node {
               imgBlurhash={product.imageCover?.blurhash}
               imgSrc={product.imageCover?.url}
               imgAlt={product.name}
+              warningMessage={
+                product.isPublished === false ? (
+                  <fbt desc="warning when product is not published">
+                    This product has not been published yet and might be invisible publicly.
+                  </fbt>
+                ) : undefined
+              }
+              // TODO: error message when some things are missing and need to be fixed
             />
           </Link>
         );
