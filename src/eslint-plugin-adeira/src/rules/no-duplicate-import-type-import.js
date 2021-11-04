@@ -1,17 +1,17 @@
 // @flow
 
 /*::
-import type { EslintRule, Node } from '@adeira/flow-types-eslint';
+import type { EslintRule, Node, ImportDeclaration } from '@adeira/flow-types-eslint';
 */
 
-function typeNodeSpecifiersToImport(typeNode) {
+function typeNodeSpecifiersToImport(typeNode /*: ImportDeclaration */) /*: string */ {
   // Build the import string, it will result in a string like: type Node, type ElementRef
   // Then caller wraps this accordingly to match it's specific case.
   // $FlowFixMe[prop-missing] - discovered when creating `@adeira/flow-types-eslint`
   return typeNode.specifiers.map((i) => `type ${i.imported.name}`).join(',');
 }
 
-function autoFix(typeNode, valueNode, fixer) {
+function autoFix(typeNode /*: ImportDeclaration */, valueNode /*: ImportDeclaration */, fixer) {
   // Each import has an array of specifiers, we want to append our typeimport after the last import
   const { type, range } = valueNode.specifiers[valueNode.specifiers.length - 1];
 
@@ -48,6 +48,12 @@ module.exports = ({
     const imports /* : Array<Node> */ = [];
     return {
       ImportDeclaration: (node) => {
+        if (node.specifiers.length === 0) {
+          // Early return because we don't want to take imports with side-effects into account, for example:
+          //    import '@material/mwc-dialog';
+          return;
+        }
+
         // An import like `import React, { type Node } from 'react'` has importKind value
         // An import like `import type { Node } from 'react'` has importKind type;
         const existingNode = imports.find(
