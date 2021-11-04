@@ -36,7 +36,6 @@ pub(in crate::menu) async fn get_section(
                 &[
                     "2901328".to_string(), // Espresso
                     "3626010".to_string(), // Americano
-                    // "3626278".to_string(), // Long Black
                     "3633163".to_string(), // Cappuccino
                     "3633210".to_string(), // Latte
                     "3633273".to_string(), // Mocha
@@ -65,7 +64,8 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
-                    "3763439".to_string(), // Banana milkshake
+                    "3763439".to_string(),  // Banana milkshake
+                    "11812843".to_string(), // Strawberry milkshake
                 ],
             )
             .await

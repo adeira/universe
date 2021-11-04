@@ -1513,6 +1513,20 @@
   },
   {
    "hashToText": {
+    "pTM3aZwcftatbl/f2476dg==": "This product has not been published yet and might be invisible publicly."
+   },
+   "filepath": "src/products/ProductsCards.js",
+   "line_beg": 55,
+   "col_beg": 18,
+   "line_end": 57,
+   "col_end": 24,
+   "desc": "warning when product is not published",
+   "project": "",
+   "type": "text",
+   "jsfbt": "This product has not been published yet and might be invisible publicly."
+  },
+  {
+   "hashToText": {
     "Vzx+hI2Z0PqPWhGFV/NbRA==": "There are no products yet."
    },
    "filepath": "src/products/ProductsCardsInCategory.js",
