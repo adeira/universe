@@ -5084,10 +5084,10 @@ apollo-server-caching@^3.2.0:
   dependencies:
     lru-cache "^6.0.0"
 
-apollo-server-core@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.4.0.tgz#a7a492522132472361cd5ff7c6fc32aef37385b5"
-  integrity sha512-CbQTgoeijCdfaTFq3DHBrnWtat1M/SlPxS365iy2fb2/p4zbYatOA/S0RON7PMGp2gcMnopvOtokJIOxbNN/YA==
+apollo-server-core@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-3.4.1.tgz#284287a17502318796ea8308522abb27bc37a955"
+  integrity sha512-v1mX3ijrIPbg6iAySw+uXgTW03cxVAZkyKhvPVWAD5yzXTqmPlVnonHJyoCq/P8B0v6sIjufnIqclHuq5/D/Xw==
   dependencies:
     "@apollographql/apollo-tools" "^0.5.1"
     "@apollographql/graphql-playground-html" "1.6.29"
@@ -5123,13 +5123,13 @@ apollo-server-errors@^3.2.0:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-3.2.0.tgz#6c5051107b073c09bb55c2554878af0e97d59d08"
   integrity sha512-Y7YH3JVAaR1199ao4dae3j1UrF9D/6AJwHpsORTjI3BvrwjU1X7Nk1VvEHn9bZfZF6ONaqUM+uCLm5c8GPhffQ==
 
-apollo-server-micro@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-3.4.0.tgz#ebe7200ecdc78d1647db781c7dfa749511bdd17f"
-  integrity sha512-Q3AiT3sT8LdisTV7GHPSvSZj/m0YmqRL4DwAe8Wf2p1VXe8tlUR+mqSNCsfQjXsBXSTQ8GuGIEpUuAzEaaus/w==
+apollo-server-micro@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-micro/-/apollo-server-micro-3.4.1.tgz#b344e3f15933e547e5bc3bb24c9cb215b5eb30c3"
+  integrity sha512-JWKDE5TlAjwTABjD6jrjDVOEwGgOJvpjn1nH8jYquKE4w1tNwclHLPdgKysCWNOEd8CiI8bP6/8OIOK+4MqldQ==
   dependencies:
     "@hapi/accept" "^5.0.2"
-    apollo-server-core "^3.4.0"
+    apollo-server-core "^3.4.1"
     apollo-server-types "^3.3.0"
     type-is "^1.6.18"
 
@@ -8840,10 +8840,10 @@ eslint-plugin-import@^2.25.2:
     resolve "^1.20.0"
     tsconfig-paths "^3.11.0"
 
-eslint-plugin-jest@^25.2.2:
-  version "25.2.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-25.2.2.tgz#aada85113268e79d4e7423f8ad4e1b740f112e71"
-  integrity sha512-frn5yhOF60U4kcqozO3zKTNZQUk+mfx037XOy2iiYL8FhorEkuCuL3/flzKcY1ECDP2WYT9ydmvlO3fRW9o4mg==
+eslint-plugin-jest@^25.2.3:
+  version "25.2.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-25.2.3.tgz#7a841eca91b4e21f31fe0a5403f55bc7779dd7b3"
+  integrity sha512-Yoa0at3euTjERDvPGPWiItY1uuqKYQ5Ov2SmkSLmKRq9OFiVdEehw0rWuK4PA538k7CNqnvmkztjAB9l+HJ7kQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "^5.0.0"
 
