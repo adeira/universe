@@ -15863,10 +15863,10 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-recoil@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.5.0.tgz#d8e3bdefc70aa0f0e74554c90ecda1b3f3718b23"
-  integrity sha512-xXGV0bpmi7NV2r6twNaZ35lP5lLeE0r+zR6tnZ3b4hD/sQS39S982Gq5xfrlIS0dvIiNlp2jkubmuUm1hvTaPQ==
+recoil@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/recoil/-/recoil-0.5.2.tgz#61fecce3b4dc91127a595586cf7369e2811ba024"
+  integrity sha512-Edibzpu3dbUMLy6QRg73WL8dvMl9Xqhp+kU+f2sJtXxsaXvAlxU/GcnDE8HXPkprXrhHF2e6SZozptNvjNF5fw==
   dependencies:
     hamt_plus "1.0.2"
 

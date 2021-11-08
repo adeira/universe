@@ -31,7 +31,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-google-login": "^5.2.2",
-    "recoil": "^0.5.0"
+    "recoil": "^0.5.2"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
