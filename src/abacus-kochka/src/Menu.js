@@ -70,15 +70,25 @@ export default function Menu(): Node {
 
 const styles = sx.create({
   menuGrid: {
-    margin: '0 auto',
-    display: 'grid',
-    gap: '2rem',
-    gridTemplateColumns: '1fr 1fr',
-    gridTemplateAreas: `
-      "coffee tea"
-      "milkshakes specialities"
-      "kochkadaSweet kochkadaSavory"
+    'margin': '0 auto',
+    'display': 'grid',
+    'gap': '2rem',
+    'gridTemplateAreas': `
+      "coffee"
+      "tea"
+      "milkshakes"
+      "specialities"
+      "kochkadaSweet"
+      "kochkadaSavory"
     `,
+    '@media (min-width: 600px)': {
+      gridTemplateColumns: '1fr 1fr',
+      gridTemplateAreas: `
+        "coffee tea"
+        "milkshakes specialities"
+        "kochkadaSweet kochkadaSavory"
+      `,
+    },
   },
   menuGridAreaCoffee: {
     gridArea: 'coffee',

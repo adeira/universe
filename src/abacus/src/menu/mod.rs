@@ -34,13 +34,13 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
-                    "2901328".to_string(), // Espresso
-                    "3626010".to_string(), // Americano
-                    // "3626278".to_string(), // Long Black
-                    "3633163".to_string(), // Cappuccino
-                    "3633210".to_string(), // Latte
-                    "3633273".to_string(), // Mocha
-                    "3633334".to_string(), // Iced Latte
+                    "2901328".to_string(),  // Espresso
+                    "3626010".to_string(),  // Americano
+                    "3633163".to_string(),  // Cappuccino
+                    "3633210".to_string(),  // Latte
+                    "3633273".to_string(),  // Mocha
+                    "3633334".to_string(),  // Iced Latte
+                    "11270660".to_string(), // Pending coffee
                 ],
             )
             .await
@@ -65,7 +65,8 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
-                    "3763439".to_string(), // Banana milkshake
+                    "3763439".to_string(),  // Banana milkshake
+                    "11812843".to_string(), // Strawberry milkshake
                 ],
             )
             .await
@@ -91,7 +92,6 @@ pub(in crate::menu) async fn get_section(
                     "3761963".to_string(), // Fresa Kitty
                     "3762026".to_string(), // Arroz Snowball
                     "3762091".to_string(), // Banana Garfield
-                    "3762165".to_string(), // Lemon Figaro
                 ],
             )
             .await
@@ -105,8 +105,8 @@ pub(in crate::menu) async fn get_section(
                     "3762295".to_string(), // Pizza Félix
                     "3762354".to_string(), // Hawaiiana Marie
                     "3762419".to_string(), // Choriqueso Demóstenes
-                    "3762478".to_string(), // Tom y Jerry al pastor
-                    "3763127".to_string(), // Bodoque pibil
+                    "3762478".to_string(), // Tom y Jerry BBQ
+                    "3763127".to_string(), // Bodoque bolognese
                 ],
             )
             .await

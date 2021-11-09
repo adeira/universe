@@ -60,7 +60,7 @@ export default function ShopLayout(): Node {
           </div>
         </div>
 
-        <div>
+        <div className={styles('shopGridContent')}>
           <ShopLayoutContent />
         </div>
 
@@ -102,15 +102,34 @@ export default function ShopLayout(): Node {
 
 const styles = sx.create({
   shopGrid: {
-    width: '100%',
-    display: 'grid',
-    gridTemplateColumns: '250px minmax(250px, 1fr) 250px',
-    gap: '1rem',
+    'width': '100%',
+    'display': 'grid',
+    'gap': '1rem',
+    'gridTemplateAreas': `
+      "shopGridCategories"
+      "shopGridRelevance"
+      "shopGridContent"
+    `,
+    '@media (min-width: 600px)': {
+      gridTemplateColumns: '200px minmax(200px, 1fr) 200px',
+      gridTemplateAreas: `
+        "shopGridCategories shopGridContent shopGridRelevance"
+      `,
+    },
   },
   shopGridCategories: {
-    marginInlineStart: '1rem',
+    'gridArea': 'shopGridCategories',
+    '@media (min-width: 600px)': {
+      marginInlineStart: '1rem',
+    },
+  },
+  shopGridContent: {
+    gridArea: 'shopGridContent',
   },
   shopGridRelevance: {
-    marginInlineEnd: '1rem',
+    'gridArea': 'shopGridRelevance',
+    '@media (min-width: 600px)': {
+      marginInlineEnd: '1rem',
+    },
   },
 });

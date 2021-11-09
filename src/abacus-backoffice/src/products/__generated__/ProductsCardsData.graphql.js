@@ -21,6 +21,7 @@ export type ProductsCardsData = $ReadOnlyArray<{|
     +unitAmount: number,
     +unitAmountCurrency: SupportedCurrency,
   |},
+  +isPublished: boolean,
   +$refType: ProductsCardsData$ref,
 |}>;
 export type ProductsCardsData$data = ProductsCardsData;
@@ -109,11 +110,18 @@ const node: ReaderFragment = {
         }
       ],
       "storageKey": null
+    },
+    {
+      "alias": null,
+      "args": null,
+      "kind": "ScalarField",
+      "name": "isPublished",
+      "storageKey": null
     }
   ],
   "type": "Product",
   "abstractKey": null
 };
 // prettier-ignore
-(node: any).hash = '9bc1cea9219bccd287fa9f0095e64d89';
+(node: any).hash = '7109a74f00365ae495c2967a968c658e';
 export default node;

@@ -16,12 +16,12 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/signed-source": "^2.0.0",
-    "@babel/runtime": "^7.15.4",
+    "@babel/runtime": "^7.16.0",
     "chalk": "^4.1.2"
   },
   "devDependencies": {
     "@adeira/fixtures-tester": "^1.1.0",
-    "graphql": "^15.6.1",
+    "graphql": "^15.7.2",
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {

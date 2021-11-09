@@ -8,7 +8,10 @@ import type { ImportDefaultSpecifier } from './ImportDefaultSpecifier';
 
 export type ImportDeclaration = $ReadOnly<{
   ...INode<'ImportDeclaration'>,
-  +importKind: string,
+  +importKind: 'value' | 'type',
   +source: Literal,
+
+  // Please note that `specifiers` can be empty in case we are importing with side effects like so:
+  //    import '@material/mwc-dialog';
   +specifiers: $ReadOnlyArray<ImportDefaultSpecifier | ImportNamespaceSpecifier | ImportSpecifier>,
 }>;
