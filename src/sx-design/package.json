@@ -17,7 +17,7 @@
   "dependencies": {
     "@adeira/icons": "^1.0.1",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.16.0",
+    "@babel/runtime": "^7.16.3",
     "blurhash": "^1.1.4",
     "fbt": "^0.16.6",
     "focus-trap-react": "^8.8.2",
