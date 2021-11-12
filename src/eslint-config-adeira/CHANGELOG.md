@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rules enabled: `react/no-arrow-function-lifecycle` and `react/no-unused-class-component-methods` (warnings or errors in strict mode).
+
 # 6.7.0
 
 - Delete dropped rules from [`eslint-plugin-jest`](https://github.com/jest-community/eslint-plugin-jest):
