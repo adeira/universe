@@ -874,6 +874,7 @@ Object {
     "react/no-access-state-in-setstate": 2,
     "react/no-adjacent-inline-elements": 0,
     "react/no-array-index-key": 0,
+    "react/no-arrow-function-lifecycle": 1,
     "react/no-children-prop": 0,
     "react/no-danger": 0,
     "react/no-danger-with-children": 2,
@@ -882,6 +883,7 @@ Object {
     "react/no-did-update-set-state": 2,
     "react/no-direct-mutation-state": 2,
     "react/no-find-dom-node": 2,
+    "react/no-invalid-html-attribute": 0,
     "react/no-is-mounted": 2,
     "react/no-multi-comp": Array [
       2,
@@ -905,6 +907,7 @@ Object {
         "allowAsProps": true,
       },
     ],
+    "react/no-unused-class-component-methods": 1,
     "react/no-unused-prop-types": 0,
     "react/no-unused-state": 0,
     "react/no-will-update-set-state": 0,
@@ -1208,6 +1211,16 @@ Snapshot Diff:
 -       1,
 +       2,
         Object {
+@@ --- --- @@
+      "react/no-array-index-key": 0,
+-     "react/no-arrow-function-lifecycle": 1,
++     "react/no-arrow-function-lifecycle": 2,
+      "react/no-children-prop": 0,
+@@ --- --- @@
+      ],
+-     "react/no-unused-class-component-methods": 1,
++     "react/no-unused-class-component-methods": 2,
+      "react/no-unused-prop-types": 0,
 @@ --- --- @@
       "sx/no-unused-stylesheet": 2,
 -     "sx/use-logical-properties": 1,

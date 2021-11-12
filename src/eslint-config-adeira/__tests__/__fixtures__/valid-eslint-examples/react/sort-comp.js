@@ -1,6 +1,6 @@
 // @flow strict
 
-/* eslint-disable no-useless-constructor, no-unused-vars */
+/* eslint-disable no-useless-constructor, no-unused-vars, react/no-unused-class-component-methods */
 
 const React = {
   Component: class Component<S, P> {},
