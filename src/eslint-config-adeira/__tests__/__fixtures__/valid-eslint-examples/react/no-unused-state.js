@@ -24,6 +24,7 @@ export default class MyProvider extends Component<Props, State> {
     };
   }
 
+  // eslint-disable-next-line react/no-unused-class-component-methods
   setAccessToken: (?string) => void = (accessToken) => {
     this.setState({ accessToken });
   };

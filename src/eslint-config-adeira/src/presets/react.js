@@ -69,6 +69,7 @@ module.exports = ({
     'react/jsx-uses-vars': ERROR,
     'react/no-access-state-in-setstate': ERROR,
     'react/no-array-index-key': OFF,
+    'react/no-arrow-function-lifecycle': NEXT_VERSION_ERROR,
     'react/no-children-prop': OFF,
     'react/no-danger': OFF,
     'react/no-danger-with-children': ERROR,
@@ -77,6 +78,7 @@ module.exports = ({
     'react/no-did-update-set-state': ERROR,
     'react/no-direct-mutation-state': ERROR,
     'react/no-find-dom-node': ERROR,
+    'react/no-invalid-html-attribute': OFF, // TODO: https://github.com/yannickcr/eslint-plugin-react/issues/3132
     'react/no-is-mounted': ERROR,
     'react/no-multi-comp': [ERROR, { ignoreStateless: true }],
     'react/no-namespace': OFF, // complains about `<fbt:param/>` and similar
@@ -90,6 +92,7 @@ module.exports = ({
     'react/no-unknown-property': ERROR,
     'react/no-unsafe': OFF,
     'react/no-unstable-nested-components': [ERROR, { allowAsProps: true }],
+    'react/no-unused-class-component-methods': NEXT_VERSION_ERROR,
     'react/no-unused-prop-types': OFF,
     'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
     'react/no-will-update-set-state': OFF,
