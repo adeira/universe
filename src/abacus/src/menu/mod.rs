@@ -87,11 +87,12 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
-                    "3761831".to_string(), // Choco Salem
-                    "3761904".to_string(), // Manzana Azrael
-                    "3761963".to_string(), // Fresa Kitty
-                    "3762026".to_string(), // Arroz Snowball
-                    "3762091".to_string(), // Banana Garfield
+                    "3761831".to_string(),  // Choco Salem
+                    "3761904".to_string(),  // Manzana Azrael
+                    "3761963".to_string(),  // Fresa Kitty
+                    "3762026".to_string(),  // Arroz Snowball
+                    "3762091".to_string(),  // Banana Garfield
+                    "12355615".to_string(), // Blackberry Figaro
                 ],
             )
             .await
@@ -104,7 +105,6 @@ pub(in crate::menu) async fn get_section(
                     "3762230".to_string(), // Camarón Silvestre
                     "3762295".to_string(), // Pizza Félix
                     "3762354".to_string(), // Hawaiiana Marie
-                    "3762419".to_string(), // Choriqueso Demóstenes
                     "3762478".to_string(), // Tom y Jerry BBQ
                     "3763127".to_string(), // Bodoque bolognese
                 ],
