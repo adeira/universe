@@ -11,7 +11,6 @@ import { RelayEnvironmentProvider } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
 import './_app.css';
-import GlobalAnnouncement from '../src/GlobalAnnouncement';
 import RelayEnvironment from '../src/RelayEnvironment';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
@@ -51,7 +50,6 @@ export default function MyApp({ Component, pageProps }: Props): React.Node {
                     </fbt>
                   }
                 />
-                <GlobalAnnouncement />
                 <Component {...pageProps} />
               </div>
             </RecoilRoot>
