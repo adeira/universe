@@ -17,7 +17,7 @@
   "dependencies": {
     "@babel/plugin-proposal-throw-expressions": "^7.16.0",
     "@babel/plugin-transform-flow-strip-types": "^7.16.0",
-    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.4",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/runtime": "^7.16.3",
