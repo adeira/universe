@@ -256,9 +256,9 @@
     "DG4YwlsppzoioQ32fEtyQQ==": "Something unexpected happened and server could not process the request! 🙈"
    },
    "filepath": "src/forms/FormSubmit.js",
-   "line_beg": 85,
+   "line_beg": 86,
    "col_beg": 19,
-   "line_end": 88,
+   "line_end": 89,
    "col_end": 11,
    "desc": "generic failure message after creating a product",
    "project": "",
@@ -396,28 +396,14 @@
     "kPOwV1MB9dDJi19OhD0BzA==": "Most sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 35,
-   "col_beg": 10,
-   "line_end": 35,
-   "col_end": 73,
+   "line_beg": 29,
+   "col_beg": 8,
+   "line_end": 29,
+   "col_end": 71,
    "desc": "most sold products heading",
    "project": "",
    "type": "text",
    "jsfbt": "Most sold products"
-  },
-  {
-   "hashToText": {
-    "WD7O+f3homrC/othG1EAMw==": "Least sold products"
-   },
-   "filepath": "src/index/IndexPage.js",
-   "line_beg": 48,
-   "col_beg": 10,
-   "line_end": 48,
-   "col_end": 75,
-   "desc": "least sold products heading",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Least sold products"
   },
   {
    "hashToText": {
