@@ -25,12 +25,11 @@ mod session;
 /// absolute control.
 ///
 /// 1.  Validate the Google ID token (and immediately reject if not valid).
-/// 2a. Fetch existing user and create a new session even if it already exists (and deauthorized
-///     the old session token if any). Please note: it's not possible to simply return the session
-///     token after first authorization because it's hashed in the DB and we cannot reverse it.
-///     We have to always generate a new one because it could happen that user lost the session
-///     token and would not be able to logout/login anymore (so re-authentication simply
-///     means a new authentication).
+/// 2a. Fetch existing user and create a new session even if it already exists. Please note: it's
+///     not possible to simply return the session token after first authorization because it's
+///     hashed in the DB and we cannot reverse it. We have to always generate a new one because it
+///     could happen that user lost the session token and would not be able to logout/login anymore
+///     (so re-authentication simply means a new authentication).
 /// 2b. Reject any requests attempting to access non-existent users. At the same time, create this
 ///     user (inactive) so it can be later activated (whitelisted).
 pub(in crate::auth) async fn authorize(
@@ -47,12 +46,7 @@ pub(in crate::auth) async fn authorize(
                 anyhow::bail!("user is not activated yet");
             }
 
-            if let Some(session) = find_session_by_user(pool, &user).await {
-                // first, delete the old session (so we don't have many old but valid sessions)
-                delete_user_session(pool, session.session_token_hash()).await?;
-            }
-
-            // create a new session
+            // create a new session (don't delete old ones so we can login from multiple devices)
             let session_token = session::generate_session_token();
             let session_token_hash = derive_session_token_hash(&session_token);
             create_new_user_session(pool, &session_token_hash, &user).await?;
