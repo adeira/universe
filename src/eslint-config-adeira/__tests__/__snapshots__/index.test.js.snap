@@ -883,7 +883,7 @@ Object {
     "react/no-did-update-set-state": 2,
     "react/no-direct-mutation-state": 2,
     "react/no-find-dom-node": 2,
-    "react/no-invalid-html-attribute": 0,
+    "react/no-invalid-html-attribute": 1,
     "react/no-is-mounted": 2,
     "react/no-multi-comp": Array [
       2,
@@ -1216,6 +1216,11 @@ Snapshot Diff:
 -     "react/no-arrow-function-lifecycle": 1,
 +     "react/no-arrow-function-lifecycle": 2,
       "react/no-children-prop": 0,
+@@ --- --- @@
+      "react/no-find-dom-node": 2,
+-     "react/no-invalid-html-attribute": 1,
++     "react/no-invalid-html-attribute": 2,
+      "react/no-is-mounted": 2,
 @@ --- --- @@
       ],
 -     "react/no-unused-class-component-methods": 1,
