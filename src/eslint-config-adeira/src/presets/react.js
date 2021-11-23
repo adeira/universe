@@ -78,7 +78,7 @@ module.exports = ({
     'react/no-did-update-set-state': ERROR,
     'react/no-direct-mutation-state': ERROR,
     'react/no-find-dom-node': ERROR,
-    'react/no-invalid-html-attribute': OFF, // TODO: https://github.com/yannickcr/eslint-plugin-react/issues/3132
+    'react/no-invalid-html-attribute': NEXT_VERSION_ERROR,
     'react/no-is-mounted': ERROR,
     'react/no-multi-comp': [ERROR, { ignoreStateless: true }],
     'react/no-namespace': OFF, // complains about `<fbt:param/>` and similar
