@@ -27,7 +27,9 @@ export default function LayoutPage(props: Props): Node {
       <StatusBar />
 
       <LayoutInline>
-        <Text as="h1">{props.heading}</Text>
+        <span className={styles('heading')}>
+          <Text as="h1">{props.heading}</Text>
+        </span>
 
         {props.isBeta ? (
           <div className={styles('badge')}>
@@ -63,6 +65,9 @@ export default function LayoutPage(props: Props): Node {
 }
 
 const styles = sx.create({
+  heading: {
+    color: 'rgba(var(--sx-foreground))',
+  },
   badge: {
     alignSelf: 'center',
   },
