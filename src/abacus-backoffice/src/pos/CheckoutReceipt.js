@@ -103,6 +103,7 @@ const styles = sx.create({
     padding: '1rem',
     fontSize: '1rem',
     textAlign: 'start',
+    color: 'rgba(var(--sx-foreground))',
   },
   summaryRow: {
     display: 'flex',
