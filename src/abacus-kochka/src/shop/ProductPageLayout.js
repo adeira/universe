@@ -94,9 +94,11 @@ export default function ProductPageLayout(): Node {
 
 const styles = sx.create({
   layout: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '2rem',
+    'display': 'grid',
+    'gap': '2rem',
+    '@media (min-width: 600px)': {
+      gridTemplateColumns: '1fr 1fr',
+    },
   },
   description: {
     paddingBlock: 0,
