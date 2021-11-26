@@ -50,7 +50,7 @@ export default function ShopLayoutContent(): React.Node {
       onLoading={() => {
         // Loading screen (first Skeleton, then Blurhash, then the actual image):
         return (
-          <LayoutGrid minColumnWidth="300px">
+          <LayoutGrid minColumnWidth="200px">
             {rangeMap(12, (i) => (
               <Skeleton key={i} />
             ))}
@@ -83,7 +83,7 @@ export default function ShopLayoutContent(): React.Node {
         }
 
         return (
-          <LayoutGrid minColumnWidth="300px">
+          <LayoutGrid minColumnWidth="200px">
             {products.map((product) => {
               return (
                 <LinkInternal key={product.key} href={`/shop/${product.key}`}>

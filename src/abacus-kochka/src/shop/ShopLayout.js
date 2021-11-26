@@ -111,7 +111,7 @@ const styles = sx.create({
       "shopGridContent"
     `,
     '@media (min-width: 600px)': {
-      gridTemplateColumns: '200px minmax(200px, 1fr) 200px',
+      gridTemplateColumns: '150px minmax(200px, 1fr) 150px',
       gridTemplateAreas: `
         "shopGridCategories shopGridContent shopGridRelevance"
       `,
