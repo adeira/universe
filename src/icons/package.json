@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@adeira/js": "^2.1.1",
-    "@svgr/core": "^5.5.0",
+    "@svgr/core": "^6.0.0",
     "@svgr/plugin-svgo": "^5.5.0",
     "change-case": "^4.1.2",
     "prettier": "^2.5.0"
