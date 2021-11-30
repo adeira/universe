@@ -21,7 +21,7 @@
     "@babel/runtime": "^7.16.3",
     "change-case": "^4.1.2",
     "fast-levenshtein": "^3.0.0",
-    "postcss": "^8.3.11",
+    "postcss": "^8.4.4",
     "tailwindcss": "^2.2.19"
   },
   "peerDependencies": {
