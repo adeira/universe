@@ -19,7 +19,7 @@
     "@babel/eslint-parser": "^7.16.3",
     "@babel/runtime": "^7.16.3",
     "eslint": "^7.32.0",
-    "jest-docblock": "^27.0.6"
+    "jest-docblock": "^27.4.0"
   },
   "peerDependencies": {
     "eslint": "^7.32.0"
