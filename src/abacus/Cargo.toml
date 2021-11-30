@@ -19,7 +19,7 @@ opt-level = 3
 lto = "thin"
 
 [dependencies]
-anyhow = { version = "1.0.50", default-features = false, features = ["std"] }
+anyhow = { version = "1.0.51", default-features = false, features = ["std"] }
 async-trait = "0.1.51"
 base64 = "0.13.0"
 blurhash-wasm = { git = "https://github.com/fpapado/blurhash-rust-wasm", branch = "master" }
@@ -50,7 +50,7 @@ serde_qs = "0.8.5"
 thiserror = { version = "1.0.30", default-features = false }
 tokio = { version = "1.14.0", default-features = false, features = ["full"] }
 tracing = "0.1.29"
-tracing-subscriber = { version = "0.3.2", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
+tracing-subscriber = { version = "0.3.3", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.9.1"
 url = "2.2.2"
 uuid = { version = "0.8.2", default-features = false, features = ["std", "v4"] }
