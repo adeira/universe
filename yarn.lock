@@ -272,10 +272,10 @@
   resolved "https://registry.yarnpkg.com/@artsy/fresnel/-/fresnel-3.1.0.tgz#e6bb59fb5d9a5e829189351bf7040e4975684da0"
   integrity sha512-rQObBJQjYA/qCIcHDwQBg47du7CX8AyDLTWfrswa3s34q+HUmpyIiKTy2jYkMUMrZ2bWe9EHH/DdZg6wpxb+Ow==
 
-"@axe-core/react@^4.3.1":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.3.1.tgz#2d234dcad396df6394ed222b1ef779b1a5b1384d"
-  integrity sha512-7sgMZbwtSv+DvrnzZLMTfmLGQcTWgIrB6O3NQBP7rKXA61fxt3LNX5Tk6BEs1R+ZKFqoedA5+sNHA5OpgiOz3g==
+"@axe-core/react@^4.3.2":
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@axe-core/react/-/react-4.3.2.tgz#20d175b7bc05e12301ca76fcddeb259a4ae88dbc"
+  integrity sha512-LSMydcQFFZrqiIqalgywVzHs3paLV6aQHKCba2F7kYWFTpqc/OvQ71NIPkjYY+oF06DgA4ucS2MrcYGbgx8kJg==
   dependencies:
     axe-core "^4.3.3"
     requestidlecallback "^0.3.0"
