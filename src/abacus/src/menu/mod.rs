@@ -25,6 +25,7 @@ pub(in crate::menu) async fn get_section(
     // we should probably rethink this and do it properly.
     //
     // TODO: improve (fetch directly from the product categories since we have them now?)
+    // TODO: alternatively, fetch from the DB
     //
     // Note: order of the products IS SIGNIFICANT.
 
@@ -105,7 +106,6 @@ pub(in crate::menu) async fn get_section(
                 &[
                     "3762230".to_string(), // Camarón Silvestre
                     "3762295".to_string(), // Pizza Félix
-                    "3762354".to_string(), // Hawaiiana Marie
                     "3762478".to_string(), // Tom y Jerry BBQ
                     "3763127".to_string(), // Bodoque bolognese
                 ],
