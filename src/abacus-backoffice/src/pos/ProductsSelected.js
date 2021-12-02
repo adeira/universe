@@ -20,7 +20,6 @@ export default function ProductsSelected(): React.Node {
 
       <div className={styles('stats')}>
         <fbt desc="summary of selected items in POS">
-          <fbt:param name="totalSelectedItems">{stats.totalSelectedItems}</fbt:param> items for{' '}
           <fbt:param name="totalPrice">
             <Money
               priceUnitAmount={
@@ -57,16 +56,17 @@ const styles = sx.create({
     overflowY: 'auto',
   },
   stats: {
-    padding: '1rem',
-    color: 'rgba(var(--sx-foreground))',
     backgroundColor: 'rgba(var(--sx-success-light))',
+    color: 'white',
+    fontSize: '1.5rem',
+    padding: '1rem',
   },
   checkout: {
     padding: '1rem',
     backgroundColor: 'rgba(var(--sx-success))',
   },
   checkoutLink: {
-    fontSize: 25,
+    fontSize: '2rem',
     color: 'white',
   },
 });

@@ -11,6 +11,7 @@ import useSelectedItemsApi from './recoil/selectedItemsState';
 
 type Props = {
   +disableButtons?: boolean,
+  +disableTotal?: boolean,
 };
 
 export default function CheckoutReceipt(props: Props): Node {
@@ -81,18 +82,21 @@ export default function CheckoutReceipt(props: Props): Node {
           </div>
         );
       })}
-      <div className={styles('summaryRowTotal')}>
-        <div>
-          <fbt desc="total price title">Total:</fbt>
+
+      {!props.disableTotal && (
+        <div className={styles('summaryRowTotal')}>
+          <div>
+            <fbt desc="total price title">Total:</fbt>
+          </div>
+          <div>
+            {MoneyFn({
+              priceUnitAmount: stats.totalPrice / 100, // adjusted for centavo
+              priceUnitAmountCurrency: 'MXN', // TODO
+              locale: bcp47,
+            })}
+          </div>
         </div>
-        <div>
-          {MoneyFn({
-            priceUnitAmount: stats.totalPrice / 100, // adjusted for centavo
-            priceUnitAmountCurrency: 'MXN', // TODO
-            locale: bcp47,
-          })}
-        </div>
-      </div>
+      )}
     </div>
   );
 }
@@ -119,6 +123,6 @@ const styles = sx.create({
     display: 'flex',
     justifyContent: 'space-between',
     marginBlockStart: '2rem',
-    fontSize: 'larger',
+    fontSize: '1.5rem',
   },
 });
