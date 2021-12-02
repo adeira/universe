@@ -380,7 +380,7 @@
   },
   {
    "hashToText": {
-    "wu4QLM8Jq2jZKhUWrIPg2g==": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
+    "Y+IlF4wmefnxuZ8S3QrbuA==": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don't forget to tag us in your Instagram or Facebook story: {instagram account}"
    },
    "filepath": "src/Rules.js",
    "line_beg": 30,
@@ -390,11 +390,11 @@
    "desc": "Rule number 4",
    "project": "",
    "type": "text",
-   "jsfbt": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t forget to tag us on your Instagram {instagram account}."
+   "jsfbt": "We encourage you to take pictures. 👍 But prefer to take them without a flash. Don't forget to tag us in your Instagram or Facebook story: {instagram account}"
   },
   {
    "hashToText": {
-    "5iTUS9k7jab+evPuLeeh7A==": "Our cats have a special healthy food which you can buy from us. Human food might be dangerous for them. Please don’t feed them with your food."
+    "/TGZ0/sm4xOZEsBdd0DHRQ==": "Our cats have a healthy diet. Human food might be dangerous for them. Please don't feed them with your food."
    },
    "filepath": "src/Rules.js",
    "line_beg": 41,
@@ -404,7 +404,7 @@
    "desc": "Rule number 5",
    "project": "",
    "type": "text",
-   "jsfbt": "Our cats have a special healthy food which you can buy from us. Human food might be dangerous for them. Please don’t feed them with your food."
+   "jsfbt": "Our cats have a healthy diet. Human food might be dangerous for them. Please don't feed them with your food."
   },
   {
    "hashToText": {

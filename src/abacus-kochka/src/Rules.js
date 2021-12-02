@@ -28,19 +28,19 @@ export default function Rules(): React.Node {
       </li>
       <li className={styles('listItem')}>
         <fbt desc="Rule number 4">
-          We encourage you to take pictures. 👍 But prefer to take them without a flash. Don’t
-          forget to tag us on your Instagram{' '}
+          We encourage you to take pictures. 👍 But prefer to take them without a flash. Don&apos;t
+          forget to tag us in your Instagram or Facebook story:{' '}
           <fbt:param name="instagram account">
             <Link href={socialLinks.instagramURL} target="_blank">
               @kochkacafe
             </Link>
-          </fbt:param>.
+          </fbt:param>
         </fbt>
       </li>
       <li className={styles('listItem')}>
         <fbt desc="Rule number 5">
-          Our cats have a special healthy food which you can buy from us. Human food might be
-          dangerous for them. Please don’t feed them with your food.
+          Our cats have a healthy diet. Human food might be dangerous for them. Please don&apos;t
+          feed them with your food.
         </fbt>
       </li>
       <li className={styles('listItem')}>
