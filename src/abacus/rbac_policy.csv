@@ -22,7 +22,10 @@ g, admin, files_admin
 g, admin, pos_admin
 g, admin, users_admin
 
+g, employee, pos_admin
+
 g, users/1, anonymous
 g, users/2, admin
 g, users/11095622, admin
+g, users/13221569, employee
 g, users/13203328, admin
