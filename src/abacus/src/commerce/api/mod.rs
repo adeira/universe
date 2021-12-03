@@ -64,6 +64,8 @@ impl CommerceQuery {
     ///
     /// Optionally, you can specify categories you'd like to filter instead of
     /// returning all products. The specified categories must be valid (they must exist).
+    ///
+    /// TODO: deprecate this query and use "paginated" version instead
     async fn search_all_published_products(
         context: &Context,
         client_locale: SupportedLocale,
