@@ -396,14 +396,70 @@
     "kPOwV1MB9dDJi19OhD0BzA==": "Most sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 29,
-   "col_beg": 8,
-   "line_end": 29,
-   "col_end": 71,
+   "line_beg": 44,
+   "col_beg": 10,
+   "line_end": 44,
+   "col_end": 73,
    "desc": "most sold products heading",
    "project": "",
    "type": "text",
    "jsfbt": "Most sold products"
+  },
+  {
+   "hashToText": {
+    "1Wn4zgyl6icIpNtS9VnEdw==": "Daily reports (last 30 days)"
+   },
+   "filepath": "src/index/IndexPage.js",
+   "line_beg": 58,
+   "col_beg": 10,
+   "line_end": 58,
+   "col_end": 78,
+   "desc": "daily reports heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Daily reports (last 30 days)"
+  },
+  {
+   "hashToText": {
+    "1TMUbU1qDkIV9x8K1A4k2w==": "Date"
+   },
+   "filepath": "src/index/IndexPage.js",
+   "line_beg": 64,
+   "col_beg": 20,
+   "line_end": 64,
+   "col_end": 73,
+   "desc": "date of the day (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date"
+  },
+  {
+   "hashToText": {
+    "+1D7paVJZl2JPO0FT5DJCw==": "Total income per day"
+   },
+   "filepath": "src/index/IndexPage.js",
+   "line_beg": 66,
+   "col_beg": 20,
+   "line_end": 66,
+   "col_end": 93,
+   "desc": "total icome per day (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Total income per day"
+  },
+  {
+   "hashToText": {
+    "PisqJ55xLTHotmYtdWHpxg==": "Sold products"
+   },
+   "filepath": "src/index/IndexPage.js",
+   "line_beg": 71,
+   "col_beg": 14,
+   "line_end": 71,
+   "col_end": 96,
+   "desc": "details about sold products per day (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Sold products"
   },
   {
    "hashToText": {
@@ -438,9 +494,9 @@
     "peb2EDuSrtkkz/e0EG4rWQ==": "This section is currently under active development. Are you missing some features? Let us know!"
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 36,
+   "line_beg": 38,
    "col_beg": 16,
-   "line_end": 39,
+   "line_end": 41,
    "col_end": 22,
    "desc": "work in progress badge description",
    "project": "",
@@ -452,9 +508,9 @@
     "/HA1UhKZo4ZFRrj2osXRmQ==": "BETA"
    },
    "filepath": "src/LayoutPage.js",
-   "line_beg": 43,
+   "line_beg": 45,
    "col_beg": 16,
-   "line_end": 43,
+   "line_end": 45,
    "col_end": 49,
    "desc": "beta label",
    "project": "",
@@ -746,10 +802,10 @@
     "iCBctDdcz6yDLlNQGi9HBw==": "Total:"
    },
    "filepath": "src/pos/CheckoutReceipt.js",
-   "line_beg": 86,
-   "col_beg": 10,
-   "line_end": 86,
-   "col_end": 52,
+   "line_beg": 89,
+   "col_beg": 12,
+   "line_end": 89,
+   "col_end": 54,
    "desc": "total price title",
    "project": "",
    "type": "text",
@@ -1051,26 +1107,26 @@
   },
   {
    "hashToText": {
-    "EAFd1PD0L8GS/sTNRO5dzA==": "{totalSelectedItems} items for {totalPrice}"
+    "jW5cXQjjiv0ciueGsbPH4Q==": "{totalPrice}"
    },
    "filepath": "src/pos/ProductsSelected.js",
    "line_beg": 22,
    "col_beg": 8,
-   "line_end": 32,
+   "line_end": 31,
    "col_end": 14,
    "desc": "summary of selected items in POS",
    "project": "",
    "type": "text",
-   "jsfbt": "{totalSelectedItems} items for {totalPrice}"
+   "jsfbt": "{totalPrice}"
   },
   {
    "hashToText": {
     "nIpABsKUotYCJOCxk8ZWTg==": "Proceed to checkout"
    },
    "filepath": "src/pos/ProductsSelected.js",
-   "line_beg": 41,
+   "line_beg": 40,
    "col_beg": 10,
-   "line_end": 41,
+   "line_end": 40,
    "col_end": 69,
    "desc": "checkout button title",
    "project": "",
