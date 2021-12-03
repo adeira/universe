@@ -1,4 +1,4 @@
-# @generated SignedSource<<4c05fb6816400d585cb5f2ba1084045a>>
+# @generated SignedSource<<07ca65c50dcbdc5fe59d716320e3257c>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -173,6 +173,12 @@ type MenuQuery {
   menu(clientLocale: SupportedLocale!, section: MenuSections!): [Product!]!
 }
 
+type AnalyticsDailyReportProductSummaryInfo {
+  productId: String!
+  productName: String!
+  totalUnits: Int!
+}
+
 type POSMutation {
   """
     This is a simplified POS checkout. We simply record what the user bought for how much and
@@ -211,7 +217,11 @@ type ProductCategory {
   name: String!
 }
 
-union ProductOrError = Product | ProductError
+type AnalyticsDailyReportInfo {
+  dateDay: String!
+  total: Price!
+  productsSummary: [AnalyticsDailyReportProductSummaryInfo!]!
+}
 
 type CommerceQuery {
   """
@@ -229,6 +239,8 @@ type CommerceQuery {
 
     Optionally, you can specify categories you'd like to filter instead of
     returning all products. The specified categories must be valid (they must exist).
+
+    TODO: deprecate this query and use "paginated" version instead
   """
   searchAllPublishedProducts(clientLocale: SupportedLocale!, priceSortDirection: PriceSortDirection!, visibility: ProductMultilingualInputVisibility!, categories: [ID!]): [Product]!
   "Returns ALL available product categories that can be applied to any product."
@@ -241,14 +253,16 @@ type CommerceQuery {
   getUnpublishedProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
 }
 
-type ProductError {
-  message: String!
-}
+union ProductOrError = Product | ProductError
 
 type AnalyticsSoldProductInfo {
   productId: String!
   productName: String!
   productUnits: Int!
+}
+
+type ProductError {
+  message: String!
 }
 
 input ProductMultilingualInput {
@@ -259,15 +273,6 @@ input ProductMultilingualInput {
   categories: [ID!]!
   addons: [ID!]!
 }
-
-"""
-
-        This type should be used together with GraphQL uploads and it should hold the file names
-        being uploaded. It's used together with the actual uploaded files for validation purposes.
-        Only files which are defined using this scalar will be processed.
-
-"""
-scalar ProductImageUploadable
 
 type Product {
   """
@@ -391,6 +396,15 @@ type AuthMutation {
   deauthorize(sessionToken: String!): DeauthorizePayload!
 }
 
+"""
+
+        This type should be used together with GraphQL uploads and it should hold the file names
+        being uploaded. It's used together with the actual uploaded files for validation purposes.
+        Only files which are defined using this scalar will be processed.
+
+"""
+scalar ProductImageUploadable
+
 input ProductPriceInput {
   """
     The unit amount in centavo to be charged, represented as a whole integer.
@@ -419,6 +433,7 @@ type AnalyticsQuery {
   mostSoldProducts: [AnalyticsSoldProductInfo!]!
   leastSoldProducts: [AnalyticsSoldProductInfo!]!
   redirectHits: [Redirect!]!
+  dailyReports: [AnalyticsDailyReportInfo!]!
 }
 
 type PosCheckoutError {

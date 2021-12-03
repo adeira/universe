@@ -1,10 +1,11 @@
 use crate::analytics::dal::{
-    get_redirect_hits, get_sold_product_stats, AnalyticsSoldProductInfo, Redirect, SortDirection,
+    get_daily_reports, get_redirect_hits, get_sold_product_stats, AnalyticsDailyReportInfo,
+    AnalyticsSoldProductInfo, Redirect, SortDirection,
 };
 use crate::arango::ConnectionPool;
 use crate::auth::rbac;
 use crate::auth::rbac::Actions::Analytics;
-use crate::auth::rbac::AnalyticsActions::{GetCheckoutStats, GetRedirectHits};
+use crate::auth::rbac::AnalyticsActions::{GetCheckoutStats, GetDailyReports, GetRedirectHits};
 use crate::graphql::AbacusGraphQLResult;
 use crate::graphql_context::Context;
 use uuid::Uuid;
@@ -32,6 +33,13 @@ impl AnalyticsQuery {
     async fn redirect_hits(context: &Context) -> AbacusGraphQLResult<Vec<Redirect>> {
         rbac::verify_permissions(&context.user, &Analytics(GetRedirectHits)).await?;
         Ok(get_redirect_hits(&context.pool).await?)
+    }
+
+    async fn daily_reports(
+        context: &Context,
+    ) -> AbacusGraphQLResult<Vec<AnalyticsDailyReportInfo>> {
+        rbac::verify_permissions(&context.user, &Analytics(GetDailyReports)).await?;
+        Ok(get_daily_reports(&context.pool).await?)
     }
 }
 

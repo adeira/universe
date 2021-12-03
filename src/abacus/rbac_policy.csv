@@ -1,4 +1,5 @@
 p, analytics_admin, analytics, get_checkout_stats, allow
+p, analytics_admin, analytics, get_daily_reports, allow
 p, analytics_admin, analytics, get_redirect_hits, allow
 p, commerce_admin, commerce, create_product, allow
 p, commerce_admin, commerce, update_product, allow
@@ -27,5 +28,5 @@ g, employee, pos_admin
 g, users/1, anonymous
 g, users/2, admin
 g, users/11095622, admin
-g, users/13221569, employee
 g, users/13203328, admin
+g, users/13221569, employee
