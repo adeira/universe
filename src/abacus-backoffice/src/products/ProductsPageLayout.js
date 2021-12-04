@@ -20,7 +20,7 @@ export default function ProductsPageLayout(): Node {
       heading={<fbt desc="products inventory title">Products inventory</fbt>}
       description={
         <fbt desc="products inventory description">
-          All products available across all our products are here.
+          All products available across all our services are here.
         </fbt>
       }
       actionButtons={
