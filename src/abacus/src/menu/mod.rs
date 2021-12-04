@@ -51,12 +51,13 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
-                    "3707024".to_string(), // Menta Amajagh
-                    "3707079".to_string(), // Jasmine Mo Li Hua
-                    "3707142".to_string(), // Bespoke Pu-erh Chai
-                    "3707225".to_string(), // Jarabe Tapatío
-                    "3707278".to_string(), // Bésame Mucho
-                    "3707327".to_string(), // Maison de Cannelle
+                    "3707024".to_string(),  // Menta Amajagh
+                    "3707079".to_string(),  // Jasmine Mo Li Hua
+                    "3707142".to_string(),  // Bespoke Pu-erh Chai
+                    "13296916".to_string(), // Hamara Black Chai
+                    "3707225".to_string(),  // Jarabe Tapatío
+                    "3707278".to_string(),  // Bésame Mucho
+                    "3707327".to_string(),  // Maison de Cannelle
                 ],
             )
             .await
