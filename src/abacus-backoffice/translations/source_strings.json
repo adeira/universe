@@ -1667,7 +1667,7 @@
   },
   {
    "hashToText": {
-    "bZ6yRhcXADxKzw7ycTHJ/g==": "All products available across all our products are here."
+    "bHnVJ5eOwBmS4m6gCiw0fQ==": "All products available across all our services are here."
    },
    "filepath": "src/products/ProductsPageLayout.js",
    "line_beg": 22,
@@ -1677,7 +1677,7 @@
    "desc": "products inventory description",
    "project": "",
    "type": "text",
-   "jsfbt": "All products available across all our products are here."
+   "jsfbt": "All products available across all our services are here."
   },
   {
    "hashToText": {
