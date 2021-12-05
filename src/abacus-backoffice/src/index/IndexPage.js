@@ -16,7 +16,6 @@ export default function IndexPage(): React.Node {
       query IndexPageQuery {
         analytics {
           mostSoldProducts {
-            productId
             productName
             productUnits
           }
@@ -27,7 +26,6 @@ export default function IndexPage(): React.Node {
               unitAmountCurrency
             }
             productsSummary {
-              productId
               productName
               totalUnits
             }
@@ -87,15 +85,13 @@ export default function IndexPage(): React.Node {
               />
             ),
             col3: (
-              <ul>
-                {dailyReport.productsSummary.map((productSummary) => {
-                  return (
-                    <li key={productSummary.productId}>
-                      {productSummary.productName} ({productSummary.totalUnits}x)
-                    </li>
-                  );
-                })}
-              </ul>
+              <BarChart
+                sort="DESC"
+                data={dailyReport.productsSummary.map((productSummary) => ({
+                  label: `${productSummary.productName} (${productSummary.totalUnits}x)`,
+                  value: productSummary.totalUnits,
+                }))}
+              />
             ),
           };
         })}

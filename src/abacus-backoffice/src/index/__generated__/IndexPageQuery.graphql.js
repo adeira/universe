@@ -21,7 +21,6 @@ export type IndexPageQueryResponse = {|
         +unitAmountCurrency: SupportedCurrency,
       |},
       +productsSummary: $ReadOnlyArray<{|
-        +productId: string,
         +productName: string,
         +totalUnits: number,
       |}>,
@@ -48,7 +47,6 @@ query IndexPageQuery {
         unitAmountCurrency
       }
       productsSummary {
-        productId
         productName
         totalUnits
       }
@@ -62,17 +60,10 @@ var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "productId",
-  "storageKey": null
-},
-v1 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
   "name": "productName",
   "storageKey": null
 },
-v2 = [
+v1 = [
   {
     "alias": null,
     "args": null,
@@ -89,8 +80,14 @@ v2 = [
         "name": "mostSoldProducts",
         "plural": true,
         "selections": [
+          {
+            "alias": null,
+            "args": null,
+            "kind": "ScalarField",
+            "name": "productId",
+            "storageKey": null
+          },
           (v0/*: any*/),
-          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -150,7 +147,6 @@ v2 = [
             "plural": true,
             "selections": [
               (v0/*: any*/),
-              (v1/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -174,7 +170,7 @@ return {
     "kind": "Fragment",
     "metadata": null,
     "name": "IndexPageQuery",
-    "selections": (v2/*: any*/),
+    "selections": (v1/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -183,18 +179,18 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "IndexPageQuery",
-    "selections": (v2/*: any*/)
+    "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "6f6b4f8c5708612444eb13d90f745aaa",
+    "cacheID": "cba0d6da1c0de65056ee74eaf8e16121",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productId\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '33ecaf3fca35473879c047b3e66c386d';
+(node: any).hash = '26006a0434014fd58ad629cda4fdc5ce';
 export default node;
