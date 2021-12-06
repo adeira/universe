@@ -26,6 +26,7 @@ module.exports = ({
     '@next/next/no-page-custom-font': NEXT_VERSION_ERROR,
     '@next/next/no-script-in-document': NEXT_VERSION_ERROR,
     '@next/next/no-script-in-head': NEXT_VERSION_ERROR,
+    '@next/next/no-server-import-in-page': NEXT_VERSION_ERROR,
     '@next/next/no-sync-scripts': NEXT_VERSION_ERROR,
     '@next/next/no-title-in-document-head': NEXT_VERSION_ERROR,
     '@next/next/no-typos': NEXT_VERSION_ERROR,
