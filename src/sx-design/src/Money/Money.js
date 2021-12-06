@@ -56,7 +56,7 @@ type IntlNumberFormatOptions = {
   maximumFractionDigits?: number,
   minimumSignificantDigits?: number,
   maximumSignificantDigits?: number,
-  numberingSystem?: 'arab' | 'cyrl',
+  numberingSystem?: 'arab' | 'latn',
 };
 
 // This function does essentially the same like the React <Money /> component except it can be
@@ -69,12 +69,12 @@ export function MoneyFn(props: MoneyFnProps): string {
   };
 
   if (props.locale === 'ar-AR') {
-    // We use "Cyrillic numerals" for Arabic as it is very common around the web. However, we allow
+    // We use "Latin digits" for Arabic as it is very common around the web. However, we allow
     // to explicitly specify custom numbering system via the locale string. For example, locale
     // `ar-AR-u-nu-arab` explicitly uses `arab` numbering system.
     // See: https://www.unicode.org/reports/tr35/#u_Extension
     // See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numberingSystem
-    intlOptions.numberingSystem = 'cyrl';
+    intlOptions.numberingSystem = 'latn';
   }
 
   return new Intl.NumberFormat(props.locale, intlOptions).format(props.priceUnitAmount);
