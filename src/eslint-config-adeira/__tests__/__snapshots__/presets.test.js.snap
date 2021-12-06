@@ -756,6 +756,7 @@ Object {
     "@next/next/no-page-custom-font": 1,
     "@next/next/no-script-in-document": 1,
     "@next/next/no-script-in-head": 1,
+    "@next/next/no-server-import-in-page": 1,
     "@next/next/no-sync-scripts": 1,
     "@next/next/no-title-in-document-head": 1,
     "@next/next/no-typos": 1,
