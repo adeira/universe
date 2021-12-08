@@ -10097,10 +10097,10 @@ graphql-tag@^2.11.0:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
   integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
 
-"graphql@^14.0.0 || ^15.0.0", graphql@^15.5.1, graphql@^15.7.2:
-  version "15.7.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.7.2.tgz#85ab0eeb83722977151b3feb4d631b5f2ab287ef"
-  integrity sha512-AnnKk7hFQFmU/2I9YSQf3xw44ctnSFCfp3zE0N6W174gqe9fWG/2rKaKxROK7CcI3XtERpjEKFqts8o319Kf7A==
+"graphql@^14.0.0 || ^15.0.0", graphql@^15.5.1, graphql@^15.8.0:
+  version "15.8.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.8.0.tgz#33410e96b012fa3bdb1091cc99a94769db212b38"
+  integrity sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw==
 
 gray-matter@^4.0.3:
   version "4.0.3"
@@ -13363,10 +13363,10 @@ ms@2.1.2, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-msw@^0.36.0:
-  version "0.36.0"
-  resolved "https://registry.yarnpkg.com/msw/-/msw-0.36.0.tgz#10c146d6a893d131895aa389c202c3832507237e"
-  integrity sha512-cDoyiyntDeOu1vlbuxh29nHf8jEyfxUh/4yBmrfcDRMurA/ts40vPtlwRYIhQU6kvJrdXERsKChsparvosxF4g==
+msw@^0.36.1:
+  version "0.36.1"
+  resolved "https://registry.yarnpkg.com/msw/-/msw-0.36.1.tgz#33054bdb46a87cd720b14d1039a8aedcc1a8e537"
+  integrity sha512-QJ2Dqt8f2I5Ow2JvwSFgGdizqpw5+9Ro88lFLw3pbj8Itl/Wob97ekreuAuBaq2DEpWr8Xaww+ZoR5WuBgTQHw==
   dependencies:
     "@mswjs/cookies" "^0.1.6"
     "@mswjs/interceptors" "^0.12.7"
