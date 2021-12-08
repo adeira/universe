@@ -155,6 +155,90 @@
   },
   {
    "hashToText": {
+    "s4htMawiaPZXaxWElrK25A==": "Order"
+   },
+   "filepath": "src/cats/CatsPage.js",
+   "line_beg": 25,
+   "col_beg": 18,
+   "line_end": 25,
+   "col_end": 73,
+   "desc": "order of the cat (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Order"
+  },
+  {
+   "hashToText": {
+    "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
+   },
+   "filepath": "src/cats/CatsPage.js",
+   "line_beg": 29,
+   "col_beg": 18,
+   "line_end": 29,
+   "col_end": 82,
+   "desc": "name of the cat (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Name of the cat"
+  },
+  {
+   "hashToText": {
+    "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
+   },
+   "filepath": "src/cats/CatsPage.js",
+   "line_beg": 34,
+   "col_beg": 12,
+   "line_end": 36,
+   "col_end": 18,
+   "desc": "date when the cat castration was performed (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of castration"
+  },
+  {
+   "hashToText": {
+    "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
+   },
+   "filepath": "src/cats/CatsPage.js",
+   "line_beg": 42,
+   "col_beg": 12,
+   "line_end": 42,
+   "col_end": 94,
+   "desc": "date of the last deworming (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of last deworming"
+  },
+  {
+   "hashToText": {
+    "BL5tZ7CN41VT6AJQuPPNQw==": "Date of adoption"
+   },
+   "filepath": "src/cats/CatsPage.js",
+   "line_beg": 47,
+   "col_beg": 18,
+   "line_end": 47,
+   "col_end": 92,
+   "desc": "date of the cat adoption (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of adoption"
+  },
+  {
+   "hashToText": {
+    "TOmKk3DR+VXp59Mr7ax/3A==": "List of all our cats"
+   },
+   "filepath": "src/cats/CatsPageLayout.js",
+   "line_beg": 13,
+   "col_beg": 15,
+   "line_end": 13,
+   "col_end": 80,
+   "desc": "list of all our cats title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "List of all our cats"
+  },
+  {
+   "hashToText": {
     "wXxqr4P+NzW6b6NUHmNH/A==": "Status"
    },
    "filepath": "src/employees/EmployeesPage.js",
@@ -396,9 +480,9 @@
     "kPOwV1MB9dDJi19OhD0BzA==": "Most sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 43,
+   "line_beg": 42,
    "col_beg": 10,
-   "line_end": 43,
+   "line_end": 42,
    "col_end": 73,
    "desc": "most sold products heading",
    "project": "",
@@ -410,9 +494,9 @@
     "1Wn4zgyl6icIpNtS9VnEdw==": "Daily reports (last 30 days)"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 57,
+   "line_beg": 56,
    "col_beg": 10,
-   "line_end": 57,
+   "line_end": 56,
    "col_end": 78,
    "desc": "daily reports heading",
    "project": "",
@@ -424,9 +508,9 @@
     "1TMUbU1qDkIV9x8K1A4k2w==": "Date"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 63,
+   "line_beg": 62,
    "col_beg": 20,
-   "line_end": 63,
+   "line_end": 62,
    "col_end": 73,
    "desc": "date of the day (table header)",
    "project": "",
@@ -438,9 +522,9 @@
     "+1D7paVJZl2JPO0FT5DJCw==": "Total income per day"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 65,
+   "line_beg": 64,
    "col_beg": 20,
-   "line_end": 65,
+   "line_end": 64,
    "col_end": 93,
    "desc": "total icome per day (table header)",
    "project": "",
@@ -452,9 +536,9 @@
     "PisqJ55xLTHotmYtdWHpxg==": "Sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 70,
+   "line_beg": 69,
    "col_beg": 14,
-   "line_end": 70,
+   "line_end": 69,
    "col_end": 96,
    "desc": "details about sold products per day (table header)",
    "project": "",
@@ -617,12 +701,26 @@
   },
   {
    "hashToText": {
-    "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
+    "kTEIDnRDTeVEDtUWiDW4tQ==": "Our cats"
    },
    "filepath": "src/Navigation.js",
    "line_beg": 44,
    "col_beg": 8,
    "line_end": 44,
+   "col_end": 74,
+   "desc": "navigation link to the list of our cats",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Our cats"
+  },
+  {
+   "hashToText": {
+    "ApP0zU/Dspzx3JgCH6R9Iw==": "POS sessions"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 47,
+   "col_beg": 8,
+   "line_end": 47,
    "col_end": 81,
    "desc": "navigation link to point of sales sessions",
    "project": "",
@@ -634,9 +732,9 @@
     "dXbjUn5J6dQ6yVdAlIYEXQ==": "Analytics: redirects"
    },
    "filepath": "src/Navigation.js",
-   "line_beg": 47,
+   "line_beg": 50,
    "col_beg": 8,
-   "line_end": 47,
+   "line_end": 50,
    "col_end": 85,
    "desc": "navigation link to analytics redirects",
    "project": "",
