@@ -9,7 +9,8 @@ export type CatsPageQueryVariables = {||};
 export type CatsPageQueryResponse = {|
   +cats: {|
     +listAllCats: $ReadOnlyArray<{|
-      +name: string
+      +order: number,
+      +name: string,
     |}>
   |}
 |};
@@ -22,6 +23,7 @@ export type CatsPageQuery = {|
 query CatsPageQuery {
   cats {
     listAllCats {
+      order
       name
       id
     }
@@ -31,6 +33,13 @@ query CatsPageQuery {
 
 const node: ConcreteRequest = (function(){
 var v0 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "order",
+  "storageKey": null
+},
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -60,7 +69,8 @@ return {
             "name": "listAllCats",
             "plural": true,
             "selections": [
-              (v0/*: any*/)
+              (v0/*: any*/),
+              (v1/*: any*/)
             ],
             "storageKey": null
           }
@@ -94,6 +104,7 @@ return {
             "plural": true,
             "selections": [
               (v0/*: any*/),
+              (v1/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -110,15 +121,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9c0005dd399342688b3850fc3a1e94f9",
+    "cacheID": "047446a8d3c9bb84dbaece8536d5b0f0",
     "id": null,
     "metadata": {},
     "name": "CatsPageQuery",
     "operationKind": "query",
-    "text": "query CatsPageQuery {\n  cats {\n    listAllCats {\n      name\n      id\n    }\n  }\n}\n"
+    "text": "query CatsPageQuery {\n  cats {\n    listAllCats {\n      order\n      name\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '8522ee9b8aa954cc59e3622673c0c1ee';
+(node: any).hash = '0e907cef6b85b590d45950a2ee9f8c2c';
 export default node;
