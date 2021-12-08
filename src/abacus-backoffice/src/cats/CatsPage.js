@@ -12,6 +12,7 @@ export default function CatsPage(): React.Node {
     query CatsPageQuery {
       cats {
         listAllCats {
+          order
           name
         }
       }
@@ -50,7 +51,7 @@ export default function CatsPage(): React.Node {
       ]}
       data={data.cats.listAllCats.map((cat) => {
         return {
-          col1: <em>todo</em>,
+          col1: `#${cat.order}`,
           col2: cat.name,
           col3: <em>todo</em>,
           col4: <em>todo</em>,
