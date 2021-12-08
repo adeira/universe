@@ -7,6 +7,7 @@ pub struct CatInfo {
     _key: String,
     name: String,
     description: String,
+    order: i32,
 }
 
 #[juniper::graphql_object]
@@ -21,6 +22,11 @@ impl CatInfo {
 
     fn description(&self) -> String {
         self.description.to_owned()
+    }
+
+    /// Order in which the cat was admitted to KOCHKA Café.
+    fn order(&self) -> i32 {
+        self.order.to_owned()
     }
 }
 
