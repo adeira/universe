@@ -10,7 +10,6 @@ export type IndexPageQueryVariables = {||};
 export type IndexPageQueryResponse = {|
   +analytics: {|
     +mostSoldProducts: $ReadOnlyArray<{|
-      +productId: string,
       +productName: string,
       +productUnits: number,
     |}>,
@@ -36,7 +35,6 @@ export type IndexPageQuery = {|
 query IndexPageQuery {
   analytics {
     mostSoldProducts {
-      productId
       productName
       productUnits
     }
@@ -80,13 +78,6 @@ v1 = [
         "name": "mostSoldProducts",
         "plural": true,
         "selections": [
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "productId",
-            "storageKey": null
-          },
           (v0/*: any*/),
           {
             "alias": null,
@@ -182,15 +173,15 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "cba0d6da1c0de65056ee74eaf8e16121",
+    "cacheID": "d0c1422b3a90132cbcbe5781905be80e",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productId\n      productName\n      productUnits\n    }\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productName\n      productUnits\n    }\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '26006a0434014fd58ad629cda4fdc5ce';
+(node: any).hash = '6aa30f95e3533d8110a8f321ec5104a7';
 export default node;
