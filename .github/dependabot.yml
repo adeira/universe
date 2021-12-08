@@ -24,6 +24,9 @@ updates:
       # Pure ESM, see: https://github.com/adeira/universe/issues/2341
       - dependency-name: 'refractor'
         versions: ['4.x']
+      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
+      - dependency-name: 'chalk'
+        versions: ['5.x']
 
   - package-ecosystem: 'github-actions'
     directory: '/'
