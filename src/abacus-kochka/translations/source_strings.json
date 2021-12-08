@@ -47,9 +47,9 @@
     "56PKpOqt3+LEFaRQ36PltQ==": "Café menu"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 18,
+   "line_beg": 19,
    "col_beg": 10,
-   "line_end": 18,
+   "line_end": 19,
    "col_end": 77,
    "desc": "link to our menu from the homepage",
    "project": "",
@@ -61,9 +61,9 @@
     "E4RZPBAPff7GYBpbxPKY/A==": "Café rules"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 22,
+   "line_beg": 23,
    "col_beg": 10,
-   "line_end": 22,
+   "line_end": 23,
    "col_end": 79,
    "desc": "link to our rules from the homepage",
    "project": "",
@@ -72,12 +72,26 @@
   },
   {
    "hashToText": {
+    "rinbc6qu22nzP+CbAtPP6Q==": "Adopt"
+   },
+   "filepath": "src/HomepageNavigation.js",
+   "line_beg": 28,
+   "col_beg": 12,
+   "line_end": 28,
+   "col_end": 79,
+   "desc": "link to the adoption page from the homepage",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
     "Jl7ke09TxJz/ttxyYXALfQ==": "Shop"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 27,
+   "line_beg": 34,
    "col_beg": 12,
-   "line_end": 27,
+   "line_end": 34,
    "col_end": 69,
    "desc": "link to the shop from the homepage",
    "project": "",
@@ -89,9 +103,9 @@
     "n6tw27wXSGSf70t6gzskXQ==": "Home"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 29,
+   "line_beg": 30,
    "col_beg": 14,
-   "line_end": 29,
+   "line_end": 30,
    "col_end": 78,
    "desc": "link to the homepage from the page footer",
    "project": "",
@@ -103,9 +117,9 @@
     "5DdiCVjwegcUT8ZCy2GyrQ==": "Café menu"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 34,
+   "line_beg": 35,
    "col_beg": 14,
-   "line_end": 34,
+   "line_end": 35,
    "col_end": 89,
    "desc": "link to the café menu from the page footer",
    "project": "",
@@ -117,9 +131,9 @@
     "IjVXijtuMLAQYt3SNU4PLQ==": "Café rules"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 39,
+   "line_beg": 40,
    "col_beg": 14,
-   "line_end": 39,
+   "line_end": 40,
    "col_end": 91,
    "desc": "link to the café rules from the page footer",
    "project": "",
@@ -128,12 +142,26 @@
   },
   {
    "hashToText": {
+    "xSNus6NyIj/A4JDsSzIRGQ==": "Adopt"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 46,
+   "col_beg": 16,
+   "line_end": 46,
+   "col_end": 83,
+   "desc": "link to the adopt page from the page footer",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
     "ktONRQOJxnJhj9ebj+y1Dw==": "Shop"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 45,
+   "line_beg": 53,
    "col_beg": 16,
-   "line_end": 45,
+   "line_end": 53,
    "col_end": 77,
    "desc": "link to the eshop from the page footer",
    "project": "",
@@ -145,9 +173,9 @@
     "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 54,
+   "line_beg": 62,
    "col_beg": 14,
-   "line_end": 54,
+   "line_end": 62,
    "col_end": 83,
    "desc": "footer navigation link to terms of use",
    "project": "",
@@ -159,9 +187,9 @@
     "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 60,
+   "line_beg": 68,
    "col_beg": 16,
-   "line_end": 60,
+   "line_end": 68,
    "col_end": 99,
    "desc": "footer navigation link to shipping and returns",
    "project": "",
@@ -173,9 +201,9 @@
     "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 66,
+   "line_beg": 74,
    "col_beg": 14,
-   "line_end": 66,
+   "line_end": 74,
    "col_end": 87,
    "desc": "footer navigation link to privacy policy",
    "project": "",
@@ -187,9 +215,9 @@
     "AnWW7GmesxqieaEMwwAsbQ==": "Home"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 24,
+   "line_beg": 25,
    "col_beg": 10,
-   "line_end": 24,
+   "line_end": 25,
    "col_end": 77,
    "desc": "link to the homepage from subpage navigation",
    "project": "",
@@ -201,9 +229,9 @@
     "T7TGlJhstlWdCNB26MkqzA==": "Café menu"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 28,
+   "line_beg": 29,
    "col_beg": 10,
-   "line_end": 28,
+   "line_end": 29,
    "col_end": 88,
    "desc": "link to the café menu from subpage navigation",
    "project": "",
@@ -215,9 +243,9 @@
     "paPCRFfyKUaXeFKvDVrhoQ==": "Café rules"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 32,
+   "line_beg": 33,
    "col_beg": 10,
-   "line_end": 32,
+   "line_end": 33,
    "col_end": 90,
    "desc": "link to the café rules from subpage navigation",
    "project": "",
@@ -226,12 +254,26 @@
   },
   {
    "hashToText": {
+    "Vq+8I+twJCKxZBPFffZ11A==": "Adopt"
+   },
+   "filepath": "src/LayoutNavigation.js",
+   "line_beg": 38,
+   "col_beg": 12,
+   "line_end": 38,
+   "col_end": 85,
+   "desc": "link to the adoption page from subpage navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
     "oubYOKD/2Kkks5EsdTg1Vg==": "Shop"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 37,
+   "line_beg": 44,
    "col_beg": 12,
-   "line_end": 37,
+   "line_end": 44,
    "col_end": 76,
    "desc": "link to the eshop from subpage navigation",
    "project": "",
@@ -755,6 +797,370 @@
    "project": "",
    "type": "text",
    "jsfbt": "Go back to Homepage"
+  },
+  {
+   "hashToText": {
+    "DkFkA77iGSUvEzlEbEp0MQ==": "Adopt a cat"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 12,
+   "col_beg": 13,
+   "line_end": 12,
+   "col_end": 67,
+   "desc": "adopt a cat - page title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adopt a cat"
+  },
+  {
+   "hashToText": {
+    "OlrWH3z1s/N0sJPhAa4V8Q==": "Help us to find them a loving home"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 13,
+   "col_beg": 16,
+   "line_end": 13,
+   "col_end": 99,
+   "desc": "adopt a cat - page description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Help us to find them a loving home"
+  },
+  {
+   "hashToText": {
+    "Jcw1FFhronZyBasJwGpXKA==": "How do we admit new cats to KOCHKA Café?"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 17,
+   "col_beg": 10,
+   "line_end": 19,
+   "col_end": 16,
+   "desc": "Article title H3: How do we admit new cats to KOCHKA Café?",
+   "project": "",
+   "type": "text",
+   "jsfbt": "How do we admit new cats to KOCHKA Café?"
+  },
+  {
+   "hashToText": {
+    "HNj6uP7iL4RwLwCN8j5QxQ==": "Each cat goes through a quarantine that lasts a minimum of 14 days. During this period we give them necessary medical care, deworming, recommended vaccination, and sterilization (in case their age allows that). Only after that, the cats can enter our café and can be adopted."
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 22,
+   "col_beg": 10,
+   "line_end": 27,
+   "col_end": 16,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Each cat goes through a quarantine that lasts a minimum of 14 days. During this period we give them necessary medical care, deworming, recommended vaccination, and sterilization (in case their age allows that). Only after that, the cats can enter our café and can be adopted."
+  },
+  {
+   "hashToText": {
+    "vWCRUi4GIhnx8ENyPDWUzA==": "Older cats go through the same process except they already have to be sterilized before we can accept them. We cannot accept adult cats that are not sterilized."
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 30,
+   "col_beg": 10,
+   "line_end": 33,
+   "col_end": 16,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Older cats go through the same process except they already have to be sterilized before we can accept them. We cannot accept adult cats that are not sterilized."
+  },
+  {
+   "hashToText": {
+    "vB4qLhQKL6HOIJ6yFSIOSA==": "How can you adopt a new cat?"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 37,
+   "col_beg": 10,
+   "line_end": 39,
+   "col_end": 16,
+   "desc": "Article title H3: How can you adopt a new cat?",
+   "project": "",
+   "type": "text",
+   "jsfbt": "How can you adopt a new cat?"
+  },
+  {
+   "hashToText": {
+    "6u2zOP6qUybHiM6neM/GuA==": "We try to create an environment supporting reasonable adoptions only. Every person who wants to adopt a cat has to fill a questionnaire to make sure our cats will find a safe and loving home. We also conduct an interview and ask for a financial contribution to cover part of the costs connected with the cats' medical treatment."
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 42,
+   "col_beg": 10,
+   "line_end": 47,
+   "col_end": 16,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "We try to create an environment supporting reasonable adoptions only. Every person who wants to adopt a cat has to fill a questionnaire to make sure our cats will find a safe and loving home. We also conduct an interview and ask for a financial contribution to cover part of the costs connected with the cats' medical treatment."
+  },
+  {
+   "hashToText": {
+    "XiCuItUtGxqiz2oUqvDfew==": "It is also necessary to visit us in person first to get familiar with our cats. It's not possible to adopt a cat from KOCHKA Café without visiting us first."
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 50,
+   "col_beg": 10,
+   "line_end": 53,
+   "col_end": 16,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "It is also necessary to visit us in person first to get familiar with our cats. It's not possible to adopt a cat from KOCHKA Café without visiting us first."
+  },
+  {
+   "hashToText": {
+    "Ew1959dWI6QNA/Q3Wrje0g==": "Adoption fees"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 57,
+   "col_beg": 10,
+   "line_end": 57,
+   "col_end": 73,
+   "desc": "Article title H3: Adoption fees",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adoption fees"
+  },
+  {
+   "hashToText": {
+    "RxLkHF2IRijugI0zaJHLXg==": "Cat age"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 61,
+   "col_beg": 22,
+   "line_end": 61,
+   "col_end": 69,
+   "desc": "table header: cat age",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Cat age"
+  },
+  {
+   "hashToText": {
+    "jeeV8mkcrYTKRwa5GpmP3A==": "Adoption fee*"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 63,
+   "col_beg": 22,
+   "line_end": 63,
+   "col_end": 80,
+   "desc": "table header: adoption fee",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adoption fee*"
+  },
+  {
+   "hashToText": {
+    "IWzmbAKxlH0k3fBoI9N7rA==": "Adult cat"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 69,
+   "col_beg": 20,
+   "line_end": 69,
+   "col_end": 69,
+   "desc": "table cell: adult cat",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adult cat"
+  },
+  {
+   "hashToText": {
+    "OmploHAZNYiCjgWk83eTCA==": "Kitten under 6 months"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 73,
+   "col_beg": 20,
+   "line_end": 73,
+   "col_end": 93,
+   "desc": "table cell: kitten under 6 months",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Kitten under 6 months"
+  },
+  {
+   "hashToText": {
+    "LskCJ5nUFQUoKHBfugVs6A==": "sterilization surgery (in case the age allows it)"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 81,
+   "col_beg": 12,
+   "line_end": 81,
+   "col_end": 94,
+   "desc": "adoption fee 1",
+   "project": "",
+   "type": "text",
+   "jsfbt": "sterilization surgery (in case the age allows it)"
+  },
+  {
+   "hashToText": {
+    "cKRb1v6d42Efa++QpfpesQ==": "recommended vaccinations"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 84,
+   "col_beg": 12,
+   "line_end": 84,
+   "col_end": 69,
+   "desc": "adoption fee 2",
+   "project": "",
+   "type": "text",
+   "jsfbt": "recommended vaccinations"
+  },
+  {
+   "hashToText": {
+    "VK9SlBTtiYUyoSSCcHYjzA==": "initial worming"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 87,
+   "col_beg": 12,
+   "line_end": 87,
+   "col_end": 60,
+   "desc": "adoption fee 3",
+   "project": "",
+   "type": "text",
+   "jsfbt": "initial worming"
+  },
+  {
+   "hashToText": {
+    "gXs8IYY7Khdi8/pzxwpzzA==": "fleas treatment"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 90,
+   "col_beg": 12,
+   "line_end": 90,
+   "col_end": 60,
+   "desc": "adoption fee 4",
+   "project": "",
+   "type": "text",
+   "jsfbt": "fleas treatment"
+  },
+  {
+   "hashToText": {
+    "D+bTXmwr5eDOKxnDViXmRg==": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 94,
+   "col_beg": 10,
+   "line_end": 98,
+   "col_end": 16,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
+  },
+  {
+   "hashToText": {
+    "1CVSOCEbrPXj8HNGOW7Z1A==": "*High-interest animals may have a higher adoption fee. Please, get in touch with us for details."
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 101,
+   "col_beg": 10,
+   "line_end": 104,
+   "col_end": 16,
+   "desc": "article footnote",
+   "project": "",
+   "type": "text",
+   "jsfbt": "*High-interest animals may have a higher adoption fee. Please, get in touch with us for details."
+  },
+  {
+   "hashToText": {
+    "4F6ZuT0XrHxABO4AoMouYg==": "Adoption requirements"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 108,
+   "col_beg": 10,
+   "line_end": 108,
+   "col_end": 89,
+   "desc": "Article title H3: Adoption requirements",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adoption requirements"
+  },
+  {
+   "hashToText": {
+    "oulyKljARVL7xFzb/E1K6g==": "Before considering adoption, please make sure that:"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 111,
+   "col_beg": 10,
+   "line_end": 111,
+   "col_end": 97,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Before considering adoption, please make sure that:"
+  },
+  {
+   "hashToText": {
+    "IWeQXViCmZ9IAXq7eHRhyg==": "you are older than 18 years"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 115,
+   "col_beg": 12,
+   "line_end": 115,
+   "col_end": 81,
+   "desc": "adoption requirements 1",
+   "project": "",
+   "type": "text",
+   "jsfbt": "you are older than 18 years"
+  },
+  {
+   "hashToText": {
+    "DUIB2CQM+FzNC7fRpC2P3Q==": "you filled the adoption form and it was approved"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 118,
+   "col_beg": 12,
+   "line_end": 120,
+   "col_end": 18,
+   "desc": "adoption requirements 2",
+   "project": "",
+   "type": "text",
+   "jsfbt": "you filled the adoption form and it was approved"
+  },
+  {
+   "hashToText": {
+    "JBfzytaKySnST3G0Y5UtKw==": "you have valid INE and \"comprobante de domicilio\""
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 123,
+   "col_beg": 12,
+   "line_end": 125,
+   "col_end": 18,
+   "desc": "adoption requirements 3",
+   "project": "",
+   "type": "text",
+   "jsfbt": "you have valid INE and \"comprobante de domicilio\""
+  },
+  {
+   "hashToText": {
+    "2Qn9XN/eqcJm9rcXjA10Gw==": "you understand the associated adoption fees"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 128,
+   "col_beg": 12,
+   "line_end": 128,
+   "col_end": 97,
+   "desc": "adoption requirements 4",
+   "project": "",
+   "type": "text",
+   "jsfbt": "you understand the associated adoption fees"
+  },
+  {
+   "hashToText": {
+    "gsqVS83mN+Lxi8BLO2qTGQ==": "you mean the adoption seriously and are able to give the adopted cat a great life"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 131,
+   "col_beg": 12,
+   "line_end": 133,
+   "col_end": 18,
+   "desc": "adoption requirements 5",
+   "project": "",
+   "type": "text",
+   "jsfbt": "you mean the adoption seriously and are able to give the adopted cat a great life"
   },
   {
    "hashToText": {

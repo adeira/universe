@@ -1,6 +1,9 @@
 // @flow strict
 
 const FEATURES = {
+  // Enables or disables visibility of the "Adopt a cat" page.
+  'page-adopt': __DEV__,
+
   // Enables or disables "Shop" without ability to order the products online.
   'page-shop-enabled': true, // TODO: delete this feature flag
 
