@@ -1,6 +1,7 @@
 p, analytics_admin, analytics, get_checkout_stats, allow
 p, analytics_admin, analytics, get_daily_reports, allow
 p, analytics_admin, analytics, get_redirect_hits, allow
+p, cats_admin, cats, list_all_cats, allow
 p, commerce_admin, commerce, create_product, allow
 p, commerce_admin, commerce, update_product, allow
 p, commerce_admin, commerce, archive_product, allow
@@ -17,6 +18,7 @@ p, pos_admin, pos, get_all_published_products, allow
 p, users_admin, users, get_all_users, allow
 
 g, admin, analytics_admin
+g, admin, cats_admin
 g, admin, commerce_admin
 g, admin, email_admin
 g, admin, files_admin

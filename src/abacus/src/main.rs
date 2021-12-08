@@ -18,6 +18,7 @@ mod analytics;
 mod arango;
 mod archive;
 mod auth;
+mod cats;
 mod clap;
 mod commerce;
 mod email;

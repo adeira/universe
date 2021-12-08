@@ -1,4 +1,4 @@
-# @generated SignedSource<<07ca65c50dcbdc5fe59d716320e3257c>>
+# @generated SignedSource<<7943bbf5fb13add57c24cbf7d5b22307>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -25,79 +25,10 @@ enum SupportedCurrency {
   MXN
 }
 
-"Root mutation of the graph."
-type Mutation {
-  auth: AuthMutation!
-  commerce: CommerceMutation!
-  pos: POSMutation!
-}
-
 type ProductMultilingualTranslations {
   locale: SupportedLocale!
   name: String!
   description: String
-}
-
-type CommerceMutation {
-  """
-    Creates a new product.
-
-    Note on uploading product images: image names specified in the GraphQL input must correspond
-    to the uploadables (multipart/form-data) and vice versa. Requests with invalid uploadables
-    will be rejected.
-  """
-  productCreate(clientLocale: SupportedLocale!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
-  """
-    Updates already existing product with new values. It requires not only product KEY but also
-    product REVISION to avoid lost update situations (when someone else tried to update the
-    product and this update would overwrite the latest changes).
-
-    Note on updating product images: already existing image names must be send to the server
-    otherwise they will be deleted. You can optionally specify some extra (new) images to upload
-    them via uploadables. This feature will eventually be used even for images re-ordering.
-  """
-  productUpdate(clientLocale: SupportedLocale!, productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
-  """
-    Archives product based on the product KEY making it effectively inaccessible. From the user
-    perspective it's like deleting the product, however, internally the product still exists in
-    the archive and could potentially be restored.
-
-    Note: the product cannot be searched for and cannot be retrieved in any way (other than via
-    the archive). It can also be hard deleted without prior notice.
-  """
-  productArchive(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
-  """
-    Publishes product based on the product KEY. Various validation requirements must be met
-    before the product can be published. Published product is available outside of backoffice.
-  """
-  productPublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
-  """
-    Unpublishes product based on the product KEY. Unpublished products are available only inside
-    the backoffice.
-  """
-  productUnpublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
-  """
-    Creates checkout session based on the inputs so that users can be redirected to the returned
-    session URL and finish paying their order.
-
-    Internally, we perform bunch of validation, most notably, we check whether the specified
-    prices are still valid and whether there is enough units to be sold.
-  """
-  checkoutSessionCreate(input: CheckoutSessionInput!, clientLocale: SupportedLocale!): CheckoutSession!
-}
-
-"""
-  Specifies additional visibility of the product. Each product is always visible in the backoffice
-  but can additionally be displayed in POS, eshop (public) or both.
-"""
-enum ProductMultilingualInputVisibility {
-  "Visible in eshop only (therefore it's public)." ESHOP
-  "Visible in POS only (accessible to authorized users)." POS
-}
-
-enum SupportedLocale {
-  en_US
-  es_MX
 }
 
 type Price {
@@ -110,73 +41,12 @@ type Price {
   unitAmountCurrency: SupportedCurrency!
 }
 
-input CheckoutSessionProductInput {
-  productId: ID!
-  productUnits: Int!
-  productPriceUnitAmount: Int!
-  productPriceUnitAmountCurrency: SupportedCurrency!
-}
-
 union PosCheckoutPayloadOrError = PosCheckoutPayload | PosCheckoutError
 
-"Root query of the graph."
-type Query {
-  analytics: AnalyticsQuery!
-  auth: AuthQuery!
-  commerce: CommerceQuery!
-  menu: MenuQuery!
-}
-
-input PosCheckoutProductAddonInput {
-  productAddonId: ID!
-  productAddonExtraPriceUnitAmount: Int!
-  productAddonExtraPriceUnitAmountCurrency: SupportedCurrency!
-}
-
-type WhoamiPayload {
-  id: ID
-  """
-    Human readable type should be used only for testing purposes. The format is not guaranteed
-    and can change in the future completely.
-  """
-  humanReadableType: String
-  """
-    Debug assertions indicates that the Rust server runs in a development mode (compiled without
-    optimizations). FOR DEVELOPMENT ONLY!
-  """
-  isDebugAssertionsEnabled: Boolean!
-}
-
-"""
-  Product add-on can be attached to any product as an addition. For example, coffee Latte as a
-  product can have add-ons: dairy free milk, vanilla syrup, …
-
-  Each product add-on can affect the final product price. At this moment we support only one
-  pricing model: flat fee (for example, extra 10 MXN per coffee for milk without lactose).
-"""
-type ProductAddon {
+type CatInfo {
   id: ID!
-  "The product variant's name, meant to be displayable to the customer."
   name: String!
-  """
-    Extra price (flat fee) that should be added to the product price. For example, if coffee
-    consts 50 MXN and oat milk has price extra 10 MXN then the final price should be 60 MXN.
-  """
-  priceExtra: Price!
-}
-
-type MenuQuery {
-  """
-    Returns a specified section of our menu. This is to maintain one source of truth (in our
-    database) about the prices, descriptions, translations and similar.
-  """
-  menu(clientLocale: SupportedLocale!, section: MenuSections!): [Product!]!
-}
-
-type AnalyticsDailyReportProductSummaryInfo {
-  productId: String!
-  productName: String!
-  totalUnits: Int!
+  description: String!
 }
 
 type POSMutation {
@@ -193,34 +63,20 @@ type POSMutation {
   checkout(input: PosCheckoutInput!, clientLocale: SupportedLocale!): PosCheckoutPayloadOrError!
 }
 
-type AuthQuery {
-  "Returns information about the current user (can be authenticated or anonymous)."
-  whoami: WhoamiPayload!
-  listUsers: [AnyUser!]!
+type AnalyticsDailyReportInfo {
+  dateDay: String!
+  total: Price!
+  productsSummary: [AnalyticsDailyReportProductSummaryInfo!]!
 }
 
-type AnyUser {
-  id: String!
-  isActive: Boolean!
-  "Name is a full name of the user (\"John Doe\")."
-  name: String
-  "Given name is \"John\" in \"John Doe\"."
-  givenName: String
-  "Family name is \"Doe\" in \"John Doe\"."
-  familyName: String
-  hasEmailVerified: Boolean
+type ProductError {
+  message: String!
 }
 
 type ProductCategory {
   id: ID!
   "The product category name, meant to be displayable to the customer."
   name: String!
-}
-
-type AnalyticsDailyReportInfo {
-  dateDay: String!
-  total: Price!
-  productsSummary: [AnalyticsDailyReportProductSummaryInfo!]!
 }
 
 type CommerceQuery {
@@ -253,26 +109,18 @@ type CommerceQuery {
   getUnpublishedProductByKey(clientLocale: SupportedLocale!, productKey: ID!): Product!
 }
 
-union ProductOrError = Product | ProductError
-
-type AnalyticsSoldProductInfo {
-  productId: String!
-  productName: String!
-  productUnits: Int!
+input PosCheckoutInput {
+  selectedProducts: [PosCheckoutProductInput!]!
 }
 
-type ProductError {
-  message: String!
-}
+"""
 
-input ProductMultilingualInput {
-  images: [ProductImageUploadable!]!
-  price: ProductPriceInput!
-  translations: [ProductMultilingualInputTranslations!]!
-  visibility: [ProductMultilingualInputVisibility!]!
-  categories: [ID!]!
-  addons: [ID!]!
-}
+        This type should be used together with GraphQL uploads and it should hold the file names
+        being uploaded. It's used together with the actual uploaded files for validation purposes.
+        Only files which are defined using this scalar will be processed.
+
+"""
+scalar ProductImageUploadable
 
 type Product {
   """
@@ -374,66 +222,10 @@ type Redirect {
   hits: Int!
 }
 
-type AuthMutation {
-  """
-    This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
-    and returns authorization payload. There is no concept of sign-in and sign-up: every
-    whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
-    that are not whitelisted will be rejected.
-
-    Repeated calls will result in a new session token and deauthorization of the previous
-    token (if it exist). Original session token is returned back only once and cannot be
-    retrieved later (it's irreversibly hashed in the database).
-  """
-  authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
-  """
-    The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
-    make the mobile application/webapp unsigned. Applications should remove the session token
-    once de-authorized.
-
-    Repeated calls will result in failure since it's not possible to deauthorize twice.
-  """
-  deauthorize(sessionToken: String!): DeauthorizePayload!
-}
-
-"""
-
-        This type should be used together with GraphQL uploads and it should hold the file names
-        being uploaded. It's used together with the actual uploaded files for validation purposes.
-        Only files which are defined using this scalar will be processed.
-
-"""
-scalar ProductImageUploadable
-
-input ProductPriceInput {
-  """
-    The unit amount in centavo to be charged, represented as a whole integer.
-    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
-  """ unitAmount: Int!
-  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
-}
-
-input ProductMultilingualInputTranslations {
-  locale: SupportedLocale!
-  name: String!
-  description: String
-}
-
 type CheckoutSession {
   id: ID!
   "The URL to the Checkout Session. Users should be redirected here so they can pay the order."
   paymentUrl: String
-}
-
-input PosCheckoutInput {
-  selectedProducts: [PosCheckoutProductInput!]!
-}
-
-type AnalyticsQuery {
-  mostSoldProducts: [AnalyticsSoldProductInfo!]!
-  leastSoldProducts: [AnalyticsSoldProductInfo!]!
-  redirectHits: [Redirect!]!
-  dailyReports: [AnalyticsDailyReportInfo!]!
 }
 
 type PosCheckoutError {
@@ -462,6 +254,225 @@ enum MenuSections {
 
 type PosCheckoutPayload {
   id: ID!
+}
+
+type CatsQuery {
+  listAllCats: [CatInfo!]!
+}
+
+"Root mutation of the graph."
+type Mutation {
+  auth: AuthMutation!
+  commerce: CommerceMutation!
+  pos: POSMutation!
+}
+
+type CommerceMutation {
+  """
+    Creates a new product.
+
+    Note on uploading product images: image names specified in the GraphQL input must correspond
+    to the uploadables (multipart/form-data) and vice versa. Requests with invalid uploadables
+    will be rejected.
+  """
+  productCreate(clientLocale: SupportedLocale!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  """
+    Updates already existing product with new values. It requires not only product KEY but also
+    product REVISION to avoid lost update situations (when someone else tried to update the
+    product and this update would overwrite the latest changes).
+
+    Note on updating product images: already existing image names must be send to the server
+    otherwise they will be deleted. You can optionally specify some extra (new) images to upload
+    them via uploadables. This feature will eventually be used even for images re-ordering.
+  """
+  productUpdate(clientLocale: SupportedLocale!, productKey: ID!, productRevision: ID!, productMultilingualInput: ProductMultilingualInput!): ProductOrError!
+  """
+    Archives product based on the product KEY making it effectively inaccessible. From the user
+    perspective it's like deleting the product, however, internally the product still exists in
+    the archive and could potentially be restored.
+
+    Note: the product cannot be searched for and cannot be retrieved in any way (other than via
+    the archive). It can also be hard deleted without prior notice.
+  """
+  productArchive(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
+  """
+    Publishes product based on the product KEY. Various validation requirements must be met
+    before the product can be published. Published product is available outside of backoffice.
+  """
+  productPublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
+  """
+    Unpublishes product based on the product KEY. Unpublished products are available only inside
+    the backoffice.
+  """
+  productUnpublish(productKey: ID!, clientLocale: SupportedLocale!): ProductOrError!
+  """
+    Creates checkout session based on the inputs so that users can be redirected to the returned
+    session URL and finish paying their order.
+
+    Internally, we perform bunch of validation, most notably, we check whether the specified
+    prices are still valid and whether there is enough units to be sold.
+  """
+  checkoutSessionCreate(input: CheckoutSessionInput!, clientLocale: SupportedLocale!): CheckoutSession!
+}
+
+input CheckoutSessionProductInput {
+  productId: ID!
+  productUnits: Int!
+  productPriceUnitAmount: Int!
+  productPriceUnitAmountCurrency: SupportedCurrency!
+}
+
+"""
+  Specifies additional visibility of the product. Each product is always visible in the backoffice
+  but can additionally be displayed in POS, eshop (public) or both.
+"""
+enum ProductMultilingualInputVisibility {
+  "Visible in eshop only (therefore it's public)." ESHOP
+  "Visible in POS only (accessible to authorized users)." POS
+}
+
+enum SupportedLocale {
+  en_US
+  es_MX
+}
+
+"Root query of the graph."
+type Query {
+  analytics: AnalyticsQuery!
+  auth: AuthQuery!
+  cats: CatsQuery!
+  commerce: CommerceQuery!
+  menu: MenuQuery!
+}
+
+input PosCheckoutProductAddonInput {
+  productAddonId: ID!
+  productAddonExtraPriceUnitAmount: Int!
+  productAddonExtraPriceUnitAmountCurrency: SupportedCurrency!
+}
+
+type WhoamiPayload {
+  id: ID
+  """
+    Human readable type should be used only for testing purposes. The format is not guaranteed
+    and can change in the future completely.
+  """
+  humanReadableType: String
+  """
+    Debug assertions indicates that the Rust server runs in a development mode (compiled without
+    optimizations). FOR DEVELOPMENT ONLY!
+  """
+  isDebugAssertionsEnabled: Boolean!
+}
+
+"""
+  Product add-on can be attached to any product as an addition. For example, coffee Latte as a
+  product can have add-ons: dairy free milk, vanilla syrup, …
+
+  Each product add-on can affect the final product price. At this moment we support only one
+  pricing model: flat fee (for example, extra 10 MXN per coffee for milk without lactose).
+"""
+type ProductAddon {
+  id: ID!
+  "The product variant's name, meant to be displayable to the customer."
+  name: String!
+  """
+    Extra price (flat fee) that should be added to the product price. For example, if coffee
+    consts 50 MXN and oat milk has price extra 10 MXN then the final price should be 60 MXN.
+  """
+  priceExtra: Price!
+}
+
+type MenuQuery {
+  """
+    Returns a specified section of our menu. This is to maintain one source of truth (in our
+    database) about the prices, descriptions, translations and similar.
+  """
+  menu(clientLocale: SupportedLocale!, section: MenuSections!): [Product!]!
+}
+
+type AnalyticsDailyReportProductSummaryInfo {
+  productId: String!
+  productName: String!
+  totalUnits: Int!
+}
+
+type AuthQuery {
+  "Returns information about the current user (can be authenticated or anonymous)."
+  whoami: WhoamiPayload!
+  listUsers: [AnyUser!]!
+}
+
+type AnyUser {
+  id: String!
+  isActive: Boolean!
+  "Name is a full name of the user (\"John Doe\")."
+  name: String
+  "Given name is \"John\" in \"John Doe\"."
+  givenName: String
+  "Family name is \"Doe\" in \"John Doe\"."
+  familyName: String
+  hasEmailVerified: Boolean
+}
+
+union ProductOrError = Product | ProductError
+
+input ProductMultilingualInput {
+  images: [ProductImageUploadable!]!
+  price: ProductPriceInput!
+  translations: [ProductMultilingualInputTranslations!]!
+  visibility: [ProductMultilingualInputVisibility!]!
+  categories: [ID!]!
+  addons: [ID!]!
+}
+
+input ProductPriceInput {
+  """
+    The unit amount in centavo to be charged, represented as a whole integer.
+    Centavo equals ¹⁄₁₀₀ of the basic monetary unit.
+  """ unitAmount: Int!
+  "Three-letter [ISO currency code](https://www.iso.org/iso-4217-currency-codes.html)." unitAmountCurrency: SupportedCurrency!
+}
+
+input ProductMultilingualInputTranslations {
+  locale: SupportedLocale!
+  name: String!
+  description: String
+}
+
+type AnalyticsSoldProductInfo {
+  productId: String!
+  productName: String!
+  productUnits: Int!
+}
+
+type AuthMutation {
+  """
+    This function accepts Google ID token (after receiving it from Google Sign-In in a webapp)
+    and returns authorization payload. There is no concept of sign-in and sign-up: every
+    whitelisted user with a valid JWT ID token will be authorized. Invalid tokens and users
+    that are not whitelisted will be rejected.
+
+    Repeated calls will result in a new session token and deauthorization of the previous
+    token (if it exist). Original session token is returned back only once and cannot be
+    retrieved later (it's irreversibly hashed in the database).
+  """
+  authorizeWebapp(googleIdToken: String!): AuthorizeWebappPayload!
+  """
+    The purpose of this `deauthorize` mutation is to remove the active sessions and effectively
+    make the mobile application/webapp unsigned. Applications should remove the session token
+    once de-authorized.
+
+    Repeated calls will result in failure since it's not possible to deauthorize twice.
+  """
+  deauthorize(sessionToken: String!): DeauthorizePayload!
+}
+
+type AnalyticsQuery {
+  mostSoldProducts: [AnalyticsSoldProductInfo!]!
+  leastSoldProducts: [AnalyticsSoldProductInfo!]!
+  redirectHits: [Redirect!]!
+  dailyReports: [AnalyticsDailyReportInfo!]!
 }
 
 type Image {
