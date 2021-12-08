@@ -22,6 +22,10 @@ impl Query {
         crate::auth::api::AuthQuery {}
     }
 
+    fn cats() -> crate::cats::CatsQuery {
+        crate::cats::CatsQuery {}
+    }
+
     fn commerce() -> crate::commerce::api::CommerceQuery {
         crate::commerce::api::CommerceQuery {}
     }

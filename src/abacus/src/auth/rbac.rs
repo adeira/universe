@@ -7,6 +7,10 @@ pub(crate) enum AnalyticsActions {
     GetRedirectHits,
 }
 
+pub(crate) enum CatsActions {
+    ListAllCats,
+}
+
 pub(crate) enum CommerceActions {
     CreateProduct,
     UpdateProduct,
@@ -38,6 +42,7 @@ pub(crate) enum UsersActions {
 
 pub(crate) enum Actions {
     Analytics(AnalyticsActions),
+    Cats(CatsActions),
     Commerce(CommerceActions),
     Email(EmailActions),
     Files(FilesActions),
@@ -86,6 +91,12 @@ pub(crate) async fn verify_permissions(user: &User, actions: &Actions) -> anyhow
                                 AnalyticsActions::GetCheckoutStats => act = "get_checkout_stats",
                                 AnalyticsActions::GetDailyReports => act = "get_daily_reports",
                                 AnalyticsActions::GetRedirectHits => act = "get_redirect_hits",
+                            }
+                        }
+                        Actions::Cats(cats_actions) => {
+                            obj = "cats";
+                            match cats_actions {
+                                CatsActions::ListAllCats => act = "list_all_cats",
                             }
                         }
                         Actions::Commerce(commerce_actions) => {
