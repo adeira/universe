@@ -1,5 +1,7 @@
 # Unreleased
 
+# 6.8.0
+
 - New rules enabled: `@next/next/no-server-import-in-page`, `react/no-arrow-function-lifecycle`, `react/no-invalid-html-attribute` and `react/no-unused-class-component-methods` (warnings or errors in strict mode).
 
 # 6.7.0
