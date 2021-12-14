@@ -27,7 +27,7 @@
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "@babel/plugin-transform-regenerator": "^7.16.0",
+    "@babel/plugin-transform-regenerator": "^7.16.5",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-tester": "^10.1.0",
     "jest-serializer-path": "^0.1.15"
