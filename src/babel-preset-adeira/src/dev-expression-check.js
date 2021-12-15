@@ -1,4 +1,4 @@
-/* eslint-disable flowtype/require-valid-file-annotation */
+/* eslint-disable ft-flow/require-valid-file-annotation */
 
 // This check cannot be part of the 'dev-expression' plugin because we don't run it for Flow target.
 // This check however runs everywhere

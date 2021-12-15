@@ -1,4 +1,4 @@
-/* eslint-disable flowtype/require-valid-file-annotation, import/no-unresolved */
+/* eslint-disable ft-flow/require-valid-file-annotation, import/no-unresolved */
 
 import * as React from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
