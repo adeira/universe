@@ -6,7 +6,7 @@ pub fn generate_clap_app() -> App<'static> {
             Arg::new("no-migrations")
                 .long("no-migrations")
                 .takes_value(false)
-                .about("Skips database migrations"),
+                .help("Skips database migrations"),
         )
         .arg(
             Arg::new("arangodb-url")
@@ -31,16 +31,13 @@ pub fn generate_clap_app() -> App<'static> {
             Arg::new("arangodb-password")
                 .long("arangodb-password")
                 .takes_value(true)
-                .settings(&[
-                    ArgSettings::AllowEmptyValues, // Allows an arg accept empty values such as `""`
-                ])
                 .default_value(""),
         )
         .arg(
             Arg::new("stripe-restricted-api-key")
                 .long("stripe-restricted-api-key")
-                .about("Restricted Stripe.com API key (prefixed by 'rk_*')")
-                .long_about(
+                .help("Restricted Stripe.com API key (prefixed by 'rk_*')")
+                .long_help(
                     "Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling \
                     Stripe.com APIs. Secret API key should never be used directly in this application. \
                     More information: https://stripe.com/docs/keys#limit-access",
@@ -50,8 +47,8 @@ pub fn generate_clap_app() -> App<'static> {
         .arg(
             Arg::new("stripe-webhook-secret")
                 .long("stripe-webhook-secret")
-                .about("Secret key for webhooks verification.")
-                .long_about(
+                .help("Secret key for webhooks verification.")
+                .long_help(
                     "Stripe generates a unique secret key for each webhooks endpoint. It is being \
                     used for verifying the webhook payload signature to make sure that only \
                     Stripe.com can send these payloads.",
@@ -59,15 +56,15 @@ pub fn generate_clap_app() -> App<'static> {
                 .takes_value(true),
         ).subcommand(
             App::new("generate-cli-completions")
-                .about("Generate CLI completions for specified shells.")
+                .override_help("Generate CLI completions for specified shells.")
                 .arg(
                     Arg::new("shell")
                         .long("shell")
                         .takes_value(true)
                         .possible_values(&["bash", "zsh"])
-                        .settings(&[
+                        .setting(
                             ArgSettings::Required
-                        ])
+                        )
                 )
         )
 }

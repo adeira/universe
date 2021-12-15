@@ -3,22 +3,11 @@ source: src/clap.rs
 expression: "String::from_utf8(output).unwrap()"
 ---
 server 0.0.0
+
 Martin Zlámal <mrtnzlml@gmail.com>
 
-
 USAGE:
-    server [FLAGS] [OPTIONS] [SUBCOMMAND]
-
-FLAGS:
-    -h, --help
-            Prints help information
-
-        --no-migrations
-            Skips database migrations
-
-    -V, --version
-            Prints version information
-
+    server [OPTIONS] [SUBCOMMAND]
 
 OPTIONS:
         --arangodb-database <arangodb-database>
@@ -33,6 +22,12 @@ OPTIONS:
         --arangodb-username <arangodb-username>
             [default: abacus]
 
+    -h, --help
+            Print help information
+
+        --no-migrations
+            Skips database migrations
+
         --stripe-restricted-api-key <stripe-restricted-api-key>
             Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com
             APIs. Secret API key should never be used directly in this application. More
@@ -43,12 +38,12 @@ OPTIONS:
             verifying the webhook payload signature to make sure that only Stripe.com can send these
             payloads.
 
+    -V, --version
+            Print version information
 
 SUBCOMMANDS:
-    generate-cli-completions    
-            Generate CLI completions for specified shells.
-
-    help                        
-            Prints this message or the help of the given subcommand(s)
-
+    generate-cli-completions
+            
+    help
+            Print this message or the help of the given subcommand(s)
 

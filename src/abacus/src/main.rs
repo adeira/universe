@@ -68,12 +68,14 @@ async fn main() {
             let clap_app_name = clap_app.get_name().to_string();
             tracing::info!("Generating completion file for {}...", shell);
             match shell {
-                "bash" => clap_generate::generate::<Bash, _>(
+                "bash" => clap_generate::generate(
+                    Bash,
                     &mut clap_app,
                     clap_app_name,
                     &mut std::io::stdout(),
                 ),
-                "zsh" => clap_generate::generate::<Zsh, _>(
+                "zsh" => clap_generate::generate(
+                    Zsh,
                     &mut clap_app,
                     clap_app_name,
                     &mut std::io::stdout(),
