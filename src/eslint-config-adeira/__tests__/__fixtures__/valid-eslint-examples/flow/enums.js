@@ -1,7 +1,5 @@
 // @flow strict
 
-/* eslint-disable no-undef -- https://github.com/gajus/eslint-plugin-flowtype/issues/502 */
-
 enum StatusDefault1 {
   Active,
   Paused,
