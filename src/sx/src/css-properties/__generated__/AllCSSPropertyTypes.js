@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7c1ef286339944428ae559a5874ea1f5>>
+ * @generated SignedSource<<c610edb318cad282fd0382a2f02b5883>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -355,6 +355,7 @@ export type AllCSSPropertyTypes = {
     | 'initial'
     | 'unset',
   +inlineSize?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inline-size
+  +inputSecurity?: 'auto' | 'none' | 'inherit' | 'initial' | 'unset',
   +inset?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset
   +insetBlock?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block
   +insetBlockEnd?: number | string, // https://developer.mozilla.org/docs/Web/CSS/inset-block-end
