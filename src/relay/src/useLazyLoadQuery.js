@@ -20,6 +20,6 @@ export default function useLazyLoadQuery<TQuery: OperationType>(
     networkCacheConfig?: CacheConfig,
     UNSTABLE_renderPolicy?: RenderPolicy,
   },
-): $ElementType<TQuery, 'response'> {
+): TQuery['response'] {
   return _useLazyLoadQuery(gqlQuery, variables ?? {}, options);
 }

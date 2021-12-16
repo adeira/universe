@@ -80,6 +80,6 @@ module.exports = ({
     'fb-flow/no-flow-enums-object-mapping': NEXT_VERSION_ERROR,
     'fb-flow/use-exact-by-default-object-type': NEXT_VERSION_ERROR, // we are using `exact_by_default=true`
     'fb-flow/use-flow-enums': NEXT_VERSION_ERROR,
-    'fb-flow/use-indexed-access-type': OFF, // TODO (revert https://github.com/adeira/universe/pull/2662)
+    'fb-flow/use-indexed-access-type': NEXT_VERSION_ERROR,
   },
 } /*: EslintConfig */);

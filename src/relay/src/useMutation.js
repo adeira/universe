@@ -20,16 +20,13 @@ export type MutationParameters = {
 type HookMutationConfig<T: MutationParameters> = {
   // This config is essentially `MutationConfig` type except there are some small differences
   // to make the hook interface more friendly. Feel free to expand it as needed.
-  +onCompleted: (
-    response: $ElementType<T, 'response'>,
-    errors: ?$ReadOnlyArray<PayloadError>,
-  ) => void,
-  +variables?: $ElementType<T, 'variables'>,
+  +onCompleted: (response: T['response'], errors: ?$ReadOnlyArray<PayloadError>) => void,
+  +variables?: T['variables'],
   +onError?: (error: Error) => void,
   +onUnsubscribe?: ?() => void,
-  +optimisticResponse?: $ElementType<T, 'rawResponse'>,
+  +optimisticResponse?: T['rawResponse'],
   +optimisticUpdater?: (store: RecordSourceSelectorProxy) => void,
-  +updater?: ?(store: RecordSourceSelectorProxy, data: $ElementType<T, 'response'>) => void,
+  +updater?: ?(store: RecordSourceSelectorProxy, data: T['response']) => void,
   +configs?: Array<DeclarativeMutationConfig>,
   +uploadables?: UploadableMap,
 };

@@ -1,6 +1,7 @@
 # Unreleased
 
-- We internally switched from [`eslint-plugin-flowtype`](https://github.com/gajus/eslint-plugin-flowtype/tree/449cb99f1b6d3bbbb66f5be55f497667f5b2cb31) to [`eslint-plugin-ft-flow`](https://github.com/flow-typed/eslint-plugin-ft-flow/tree/820e631ce491cdf45821744d4e29f348cf776392) which contains the same set of rules but it's more up to date. We are going to enable additional rules later. There is a possible minor breaking change (with very simple fix) when suppressing the rules manually, for example:
+- New rule enabled: `fb-flow/use-indexed-access-type` (warnings or errors in strict mode), for more information visit: https://flow.org/en/docs/types/indexed-access/.
+- We internally switched from [`eslint-plugin-flowtype`](https://github.com/gajus/eslint-plugin-flowtype/tree/449cb99f1b6d3bbbb66f5be55f497667f5b2cb31) to [`eslint-plugin-ft-flow`](https://github.com/flow-typed/eslint-plugin-ft-flow/tree/820e631ce491cdf45821744d4e29f348cf776392) which contains the same set of rules but should be more up to date and maintained. We are going to enable additional rules later. There is a possible minor breaking change (with very simple fix) when suppressing the rules manually, for example:
 
   ```diff
   - /* eslint-disable flowtype/require-valid-file-annotation */
