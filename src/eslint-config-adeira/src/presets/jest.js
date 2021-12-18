@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, NEXT_VERSION_ERROR, OFF } = require('../constants');
+const { ERROR, OFF } = require('../constants');
 
 /*::
 
@@ -15,7 +15,7 @@ module.exports = ({
     'jest/consistent-test-it': OFF,
     'jest/expect-expect': OFF,
     'jest/prefer-lowercase-title': OFF,
-    'jest/max-nested-describe': [NEXT_VERSION_ERROR, { max: 5 }],
+    'jest/max-nested-describe': [ERROR, { max: 5 }],
     'jest/no-alias-methods': OFF,
     'jest/no-commented-out-tests': OFF,
     'jest/no-conditional-expect': OFF,
@@ -53,8 +53,8 @@ module.exports = ({
     'jest/valid-expect': ERROR,
     'jest/valid-expect-in-promise': ERROR,
     'jest/valid-title': ERROR,
-    'jest/prefer-expect-resolves': NEXT_VERSION_ERROR,
-    'jest/prefer-to-be': NEXT_VERSION_ERROR,
+    'jest/prefer-expect-resolves': ERROR,
+    'jest/prefer-to-be': ERROR,
     'jest/require-hook': OFF,
   },
 } /*: EslintConfig */);

@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
+const { ERROR, OFF, WARN } = require('../constants');
 
 /*::
 
@@ -19,12 +19,12 @@ module.exports = ({
     'ft-flow/define-flow-type': WARN,
     'ft-flow/delimiter-dangle': OFF,
     'ft-flow/enforce-line-break': OFF,
-    'ft-flow/enforce-suppression-code': NEXT_VERSION_ERROR,
+    'ft-flow/enforce-suppression-code': ERROR,
     'ft-flow/generic-spacing': OFF,
     'ft-flow/interface-id-match': OFF,
     'ft-flow/newline-after-flow-annotation': [ERROR, 'always'],
     'ft-flow/no-dupe-keys': ERROR,
-    'ft-flow/no-duplicate-type-union-intersection-members': NEXT_VERSION_ERROR,
+    'ft-flow/no-duplicate-type-union-intersection-members': ERROR,
     'ft-flow/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
     'ft-flow/no-flow-fix-me-comments': OFF,
     'ft-flow/no-flow-fix-me-in-strict-files': OFF, // TODO: enable (after fixing our codebase)
@@ -76,10 +76,10 @@ module.exports = ({
     'ft-flow/valid-syntax': OFF,
 
     // Flow FB: https://github.com/facebook/flow/tree/master/packages/eslint-plugin-fb-flow
-    'fb-flow/flow-enums-default-if-possible': NEXT_VERSION_ERROR,
-    'fb-flow/no-flow-enums-object-mapping': NEXT_VERSION_ERROR,
-    'fb-flow/use-exact-by-default-object-type': NEXT_VERSION_ERROR, // we are using `exact_by_default=true`
-    'fb-flow/use-flow-enums': NEXT_VERSION_ERROR,
-    'fb-flow/use-indexed-access-type': NEXT_VERSION_ERROR,
+    'fb-flow/flow-enums-default-if-possible': ERROR,
+    'fb-flow/no-flow-enums-object-mapping': ERROR,
+    'fb-flow/use-exact-by-default-object-type': ERROR, // we are using `exact_by_default=true`
+    'fb-flow/use-flow-enums': ERROR,
+    'fb-flow/use-indexed-access-type': ERROR,
   },
 } /*: EslintConfig */);

@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF, WARN, NEXT_VERSION_ERROR } = require('../constants');
+const { ERROR, OFF, WARN } = require('../constants');
 const detectReactVersion = require('../detectReactVersion');
 
 /*::
@@ -69,7 +69,7 @@ module.exports = ({
     'react/jsx-uses-vars': ERROR,
     'react/no-access-state-in-setstate': ERROR,
     'react/no-array-index-key': OFF,
-    'react/no-arrow-function-lifecycle': NEXT_VERSION_ERROR,
+    'react/no-arrow-function-lifecycle': ERROR,
     'react/no-children-prop': OFF,
     'react/no-danger': OFF,
     'react/no-danger-with-children': ERROR,
@@ -78,7 +78,7 @@ module.exports = ({
     'react/no-did-update-set-state': ERROR,
     'react/no-direct-mutation-state': ERROR,
     'react/no-find-dom-node': ERROR,
-    'react/no-invalid-html-attribute': NEXT_VERSION_ERROR,
+    'react/no-invalid-html-attribute': ERROR,
     'react/no-is-mounted': ERROR,
     'react/no-multi-comp': [ERROR, { ignoreStateless: true }],
     'react/no-namespace': OFF, // complains about `<fbt:param/>` and similar
@@ -92,7 +92,7 @@ module.exports = ({
     'react/no-unknown-property': ERROR,
     'react/no-unsafe': OFF,
     'react/no-unstable-nested-components': [ERROR, { allowAsProps: true }],
-    'react/no-unused-class-component-methods': NEXT_VERSION_ERROR,
+    'react/no-unused-class-component-methods': ERROR,
     'react/no-unused-prop-types': OFF,
     'react/no-unused-state': OFF, // Enable when they fix this issue: https://github.com/yannickcr/eslint-plugin-react/issues/1910
     'react/no-will-update-set-state': OFF,
@@ -221,30 +221,30 @@ module.exports = ({
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       rules: {
         'testing-library/await-async-query': OFF, // TODO: seems to be broken for some `findAllByProps` in our codebase
-        'testing-library/await-async-utils': NEXT_VERSION_ERROR,
+        'testing-library/await-async-utils': ERROR,
         'testing-library/await-fire-event': OFF, // Vue only (https://github.com/testing-library/eslint-plugin-testing-library#supported-rules)
         'testing-library/consistent-data-testid': OFF,
-        'testing-library/no-await-sync-events': NEXT_VERSION_ERROR,
-        'testing-library/no-await-sync-query': NEXT_VERSION_ERROR,
+        'testing-library/no-await-sync-events': ERROR,
+        'testing-library/no-await-sync-query': ERROR,
         'testing-library/no-container': OFF,
-        'testing-library/no-debugging-utils': NEXT_VERSION_ERROR,
-        'testing-library/no-dom-import': [NEXT_VERSION_ERROR, 'react'],
+        'testing-library/no-debugging-utils': ERROR,
+        'testing-library/no-dom-import': [ERROR, 'react'],
         'testing-library/no-manual-cleanup': OFF,
         'testing-library/no-node-access': OFF,
-        'testing-library/no-promise-in-fire-event': NEXT_VERSION_ERROR,
+        'testing-library/no-promise-in-fire-event': ERROR,
         'testing-library/no-render-in-setup': OFF,
-        'testing-library/no-unnecessary-act': NEXT_VERSION_ERROR,
-        'testing-library/no-wait-for-empty-callback': NEXT_VERSION_ERROR,
-        'testing-library/no-wait-for-multiple-assertions': NEXT_VERSION_ERROR,
-        'testing-library/no-wait-for-side-effects': NEXT_VERSION_ERROR,
-        'testing-library/no-wait-for-snapshot': NEXT_VERSION_ERROR,
-        'testing-library/prefer-explicit-assert': NEXT_VERSION_ERROR,
-        'testing-library/prefer-find-by': NEXT_VERSION_ERROR,
-        'testing-library/prefer-presence-queries': NEXT_VERSION_ERROR,
-        'testing-library/prefer-query-by-disappearance': NEXT_VERSION_ERROR,
+        'testing-library/no-unnecessary-act': ERROR,
+        'testing-library/no-wait-for-empty-callback': ERROR,
+        'testing-library/no-wait-for-multiple-assertions': ERROR,
+        'testing-library/no-wait-for-side-effects': ERROR,
+        'testing-library/no-wait-for-snapshot': ERROR,
+        'testing-library/prefer-explicit-assert': ERROR,
+        'testing-library/prefer-find-by': ERROR,
+        'testing-library/prefer-presence-queries': ERROR,
+        'testing-library/prefer-query-by-disappearance': ERROR,
         'testing-library/prefer-screen-queries': OFF, // TODO: NEXT_VERSION_ERROR (?)
-        'testing-library/prefer-user-event': NEXT_VERSION_ERROR,
-        'testing-library/prefer-wait-for': NEXT_VERSION_ERROR,
+        'testing-library/prefer-user-event': ERROR,
+        'testing-library/prefer-wait-for': ERROR,
         'testing-library/render-result-naming-convention': OFF,
       },
     },
