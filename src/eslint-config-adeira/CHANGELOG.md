@@ -3,6 +3,7 @@
 **Breaking changes ahead!**
 
 - New rules enabled: `fb-flow/use-indexed-access-type` ([more info](https://flow.org/en/docs/types/indexed-access/)) and `ft-flow/enforce-suppression-code` (warnings or errors in strict mode).
+- Many rules that were showing warnings in normal mode but errors in strict mode were converted to normal errors (so there is no difference between normal and strict mode). The best way how to migrate is to temporarily switch to the strict mode and address all the errors before upgrading to this major version.
 - Switched from [`eslint-plugin-flowtype`](https://github.com/gajus/eslint-plugin-flowtype/tree/449cb99f1b6d3bbbb66f5be55f497667f5b2cb31) to [`eslint-plugin-ft-flow`](https://github.com/flow-typed/eslint-plugin-ft-flow/tree/820e631ce491cdf45821744d4e29f348cf776392) which contains the same set of rules but should be more up to date and maintained. We are going to enable additional rules later. There is a possible minor breaking change (with very simple fix) when suppressing the rules manually, for example:
 
   ```diff

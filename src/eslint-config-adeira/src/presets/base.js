@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, NEXT_VERSION_ERROR, OFF, WARN } = require('../constants');
+const { ERROR, OFF, WARN } = require('../constants');
 
 /*::
 
@@ -78,7 +78,7 @@ module.exports = ({
     'no-alert': WARN,
     'no-await-in-loop': WARN,
     'no-caller': ERROR,
-    'no-case-declarations': NEXT_VERSION_ERROR,
+    'no-case-declarations': ERROR,
     'no-constructor-return': ERROR,
     'no-div-regex': WARN,
     'no-else-return': ERROR,
@@ -89,7 +89,7 @@ module.exports = ({
     'no-extend-native': WARN,
     'no-extra-bind': WARN,
     'no-extra-label': ERROR,
-    'no-fallthrough': NEXT_VERSION_ERROR,
+    'no-fallthrough': ERROR,
     'no-global-assign': [ERROR, { exceptions: ['Map', 'Set'] }],
     'no-implicit-coercion': [
       ERROR,
@@ -115,7 +115,7 @@ module.exports = ({
     'no-octal-escape': ERROR,
     'no-param-reassign': ERROR,
     'no-proto': ERROR,
-    'no-redeclare': [NEXT_VERSION_ERROR, { builtinGlobals: true }],
+    'no-redeclare': [ERROR, { builtinGlobals: true }],
     'no-restricted-exports': OFF,
     'no-restricted-properties': OFF,
     'no-return-assign': WARN,
@@ -331,7 +331,7 @@ module.exports = ({
     'import/no-named-export': OFF,
     'import/no-namespace': OFF,
     'import/no-nodejs-modules': OFF,
-    'import/no-relative-packages': NEXT_VERSION_ERROR,
+    'import/no-relative-packages': ERROR,
     'import/no-relative-parent-imports': OFF,
     'import/no-restricted-paths': OFF,
     'import/no-unassigned-import': OFF,
@@ -440,7 +440,7 @@ module.exports = ({
     // Adeira SX custom rules
     'sx/no-concatenated-classes': ERROR,
     'sx/no-unused-stylesheet': ERROR,
-    'sx/use-logical-properties': NEXT_VERSION_ERROR,
+    'sx/use-logical-properties': ERROR,
     'sx/valid-usage': ERROR,
   },
   settings: {
