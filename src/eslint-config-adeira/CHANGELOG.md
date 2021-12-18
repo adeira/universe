@@ -1,11 +1,20 @@
 # Unreleased
 
+**Breaking changes ahead!**
+
 - New rules enabled: `fb-flow/use-indexed-access-type` ([more info](https://flow.org/en/docs/types/indexed-access/)) and `ft-flow/enforce-suppression-code` (warnings or errors in strict mode).
-- We internally switched from [`eslint-plugin-flowtype`](https://github.com/gajus/eslint-plugin-flowtype/tree/449cb99f1b6d3bbbb66f5be55f497667f5b2cb31) to [`eslint-plugin-ft-flow`](https://github.com/flow-typed/eslint-plugin-ft-flow/tree/820e631ce491cdf45821744d4e29f348cf776392) which contains the same set of rules but should be more up to date and maintained. We are going to enable additional rules later. There is a possible minor breaking change (with very simple fix) when suppressing the rules manually, for example:
+- Switched from [`eslint-plugin-flowtype`](https://github.com/gajus/eslint-plugin-flowtype/tree/449cb99f1b6d3bbbb66f5be55f497667f5b2cb31) to [`eslint-plugin-ft-flow`](https://github.com/flow-typed/eslint-plugin-ft-flow/tree/820e631ce491cdf45821744d4e29f348cf776392) which contains the same set of rules but should be more up to date and maintained. We are going to enable additional rules later. There is a possible minor breaking change (with very simple fix) when suppressing the rules manually, for example:
 
   ```diff
   - /* eslint-disable flowtype/require-valid-file-annotation */
   + /* eslint-disable ft-flow/require-valid-file-annotation */
+  ```
+
+- Switched from `eslint-plugin-node` to `eslint-plugin-n` which contains the same set of rules but should be more up to date (and support Eslint 8). There is a possible minor breaking change (with very simple fix) when suppressing the rules manually, for example:
+
+  ```diff
+  - /* eslint-disable node/no-deprecated-api */
+  + /* eslint-disable n/no-deprecated-api */
   ```
 
 # 6.8.0

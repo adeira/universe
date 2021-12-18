@@ -22,7 +22,10 @@ module.exports = (new Set([
   'babel/no-await-in-loop', // no-await-in-loop
   'babel/object-shorthand', // object-shorthand
 
+  // https://github.com/weiran-zsd/eslint-plugin-node#deprecated-rules
   // https://github.com/mysticatea/eslint-plugin-node#deprecated-rules
+  'n/no-hide-core-modules',
+  'n/no-unsupported-features',
   'node/no-hide-core-modules',
   'node/no-unsupported-features',
 
