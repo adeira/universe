@@ -8890,10 +8890,10 @@ eslint-plugin-fb-flow@^0.0.4:
   resolved "https://registry.yarnpkg.com/eslint-plugin-fb-flow/-/eslint-plugin-fb-flow-0.0.4.tgz#47fa51630a5620b3b03919194e783ddfc094fd5d"
   integrity sha512-VWRoULiRkYqgeX4uCw2uIuu4v5DOhtWC+4fLM+qXX2mUtLf07znqhyTtxwIugnX8MgPczkaKmtDPrkuhvFmAoA==
 
-eslint-plugin-ft-flow@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ft-flow/-/eslint-plugin-ft-flow-1.0.2.tgz#3d67298cc7c36f1df9f1b7e19371d795b1a7af76"
-  integrity sha512-zEhoVn/Q9uNfLuWD1IZvasX1gr0HXMbtn9wN6veiO8Qf/HrXG9kLEr0cvtQUGKjQNFciDTEDP6Sh20qWkr2dXw==
+eslint-plugin-ft-flow@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ft-flow/-/eslint-plugin-ft-flow-1.1.0.tgz#bc41e242b26e542c9eb23280eacae933a43f7447"
+  integrity sha512-Z1MVInDFYHV66Ok0dA+jR7fiHLCYY8eDl0z8yiQ/wAXkmfOJ8fEuHeFvx+z5Ykt3IojhWrmLKkDbC/KDj7FCQw==
   dependencies:
     lodash "^4.17.21"
     string-natural-compare "^3.0.1"
@@ -8974,10 +8974,10 @@ eslint-plugin-prettier@^4.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-promise@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-5.2.0.tgz#a596acc32981627eb36d9d75f9666ac1a4564971"
-  integrity sha512-SftLb1pUG01QYq2A/hGAWfDRXqYD82zE7j7TopDOyNdU+7SvvoXREls/+PRTY17vUXzXnZA/zfnyKgRH6x4JJw==
+eslint-plugin-promise@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-6.0.0.tgz#017652c07c9816413a41e11c30adc42c3d55ff18"
+  integrity sha512-7GPezalm5Bfi/E22PnQxDWH2iW9GTvAlUNTztemeHb6c1BniSyoeTrM87JkC0wYdi6aQrZX9p2qEiAno8aTcbw==
 
 eslint-plugin-react-hooks@^4.3.0:
   version "4.3.0"
