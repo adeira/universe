@@ -5,8 +5,8 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
-import Instagram from './design/svg/__generated__/Instagram';
-import Facebook from './design/svg/__generated__/Facebook';
+import Instagram from './design/svg/generated/Instagram';
+import Facebook from './design/svg/generated/Facebook';
 import GitHub from './design/svg/GitHub';
 import socialLinks from './socialLinks';
 
