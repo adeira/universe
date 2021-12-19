@@ -19,7 +19,7 @@ module.exports = ({
     'ft-flow/define-flow-type': WARN,
     'ft-flow/delimiter-dangle': OFF,
     'ft-flow/enforce-line-break': OFF,
-    'ft-flow/enforce-suppression-code': OFF, // TODO: https://github.com/flow-typed/eslint-plugin-ft-flow/issues/12
+    'ft-flow/enforce-suppression-code': NEXT_VERSION_ERROR,
     'ft-flow/generic-spacing': OFF,
     'ft-flow/interface-id-match': OFF,
     'ft-flow/newline-after-flow-annotation': [ERROR, 'always'],
