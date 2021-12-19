@@ -5,8 +5,8 @@ import sx from '@adeira/sx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
-import FlagMX from './design/svg/__generated__/flags/mx';
-import FlagUS from './design/svg/__generated__/flags/us';
+import FlagMX from './design/svg/generated/flags/mx';
+import FlagUS from './design/svg/generated/flags/us';
 import useViewerContext from './hooks/useViewerContext';
 
 export default function LanguageSwitch(): React.Node {
