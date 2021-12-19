@@ -577,7 +577,7 @@ Object {
     "ft-flow/define-flow-type": 1,
     "ft-flow/delimiter-dangle": 0,
     "ft-flow/enforce-line-break": 0,
-    "ft-flow/enforce-suppression-code": 0,
+    "ft-flow/enforce-suppression-code": 1,
     "ft-flow/generic-spacing": 0,
     "ft-flow/interface-id-match": 0,
     "ft-flow/newline-after-flow-annotation": Array [

@@ -186,7 +186,7 @@ Object {
     "ft-flow/define-flow-type": 1,
     "ft-flow/delimiter-dangle": 0,
     "ft-flow/enforce-line-break": 0,
-    "ft-flow/enforce-suppression-code": 0,
+    "ft-flow/enforce-suppression-code": 1,
     "ft-flow/generic-spacing": 0,
     "ft-flow/interface-id-match": 0,
     "ft-flow/newline-after-flow-annotation": Array [
@@ -1186,6 +1186,11 @@ Snapshot Diff:
 +     "fb-flow/use-flow-enums": 2,
 +     "fb-flow/use-indexed-access-type": 2,
       "flowtype/boolean-style": "off",
+@@ --- --- @@
+      "ft-flow/enforce-line-break": 0,
+-     "ft-flow/enforce-suppression-code": 1,
++     "ft-flow/enforce-suppression-code": 2,
+      "ft-flow/generic-spacing": 0,
 @@ --- --- @@
       "ft-flow/no-dupe-keys": 2,
 -     "ft-flow/no-duplicate-type-union-intersection-members": 1,
