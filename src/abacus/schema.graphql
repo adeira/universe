@@ -1,4 +1,4 @@
-# @generated SignedSource<<42e0dce29c56ba2596a34977bba81d8d>>
+# @generated SignedSource<<cb53033398b922d633f12636b7cbec91>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -49,6 +49,12 @@ type CatInfo {
   description: String!
   "Order in which the cat was admitted to KOCHKA Café."
   order: Int!
+  "When was the cat adopted (when it leaved KOCHKA Café)."
+  dateOfAdoption: String
+  "When was the cat dewormed for the last time."
+  dateOfDeworming: String
+  "When was the cat castrated."
+  dateOfCastration: String
 }
 
 type POSMutation {
