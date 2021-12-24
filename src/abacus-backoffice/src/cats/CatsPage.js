@@ -1,6 +1,6 @@
 // @flow
 
-import { Table } from '@adeira/sx-design';
+import { MissingData, Table } from '@adeira/sx-design';
 import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
@@ -14,6 +14,9 @@ export default function CatsPage(): React.Node {
         listAllCats {
           order
           name
+          dateOfCastration
+          dateOfDeworming
+          dateOfAdoption
         }
       }
     }
@@ -53,9 +56,9 @@ export default function CatsPage(): React.Node {
         return {
           col1: `#${cat.order}`,
           col2: cat.name,
-          col3: <em>todo</em>,
-          col4: <em>todo</em>,
-          col5: <em>todo</em>,
+          col3: cat.dateOfCastration ?? <MissingData />, // TODO: display with warning/error when around 4 months old
+          col4: cat.dateOfDeworming ?? <MissingData />, // TODO: display with warning/error
+          col5: cat.dateOfAdoption ?? <MissingData />,
         };
       })}
     />

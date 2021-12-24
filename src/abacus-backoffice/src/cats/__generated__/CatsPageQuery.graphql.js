@@ -11,6 +11,9 @@ export type CatsPageQueryResponse = {|
     +listAllCats: $ReadOnlyArray<{|
       +order: number,
       +name: string,
+      +dateOfCastration: ?string,
+      +dateOfDeworming: ?string,
+      +dateOfAdoption: ?string,
     |}>
   |}
 |};
@@ -25,6 +28,9 @@ query CatsPageQuery {
     listAllCats {
       order
       name
+      dateOfCastration
+      dateOfDeworming
+      dateOfAdoption
       id
     }
   }
@@ -44,6 +50,27 @@ v1 = {
   "args": null,
   "kind": "ScalarField",
   "name": "name",
+  "storageKey": null
+},
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "dateOfCastration",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "dateOfDeworming",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "dateOfAdoption",
   "storageKey": null
 };
 return {
@@ -70,7 +97,10 @@ return {
             "plural": true,
             "selections": [
               (v0/*: any*/),
-              (v1/*: any*/)
+              (v1/*: any*/),
+              (v2/*: any*/),
+              (v3/*: any*/),
+              (v4/*: any*/)
             ],
             "storageKey": null
           }
@@ -105,6 +135,9 @@ return {
             "selections": [
               (v0/*: any*/),
               (v1/*: any*/),
+              (v2/*: any*/),
+              (v3/*: any*/),
+              (v4/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -121,15 +154,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "047446a8d3c9bb84dbaece8536d5b0f0",
+    "cacheID": "fbffe788557ca6ae0b84bc899d2622de",
     "id": null,
     "metadata": {},
     "name": "CatsPageQuery",
     "operationKind": "query",
-    "text": "query CatsPageQuery {\n  cats {\n    listAllCats {\n      order\n      name\n      id\n    }\n  }\n}\n"
+    "text": "query CatsPageQuery {\n  cats {\n    listAllCats {\n      order\n      name\n      dateOfCastration\n      dateOfDeworming\n      dateOfAdoption\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '0e907cef6b85b590d45950a2ee9f8c2c';
+(node: any).hash = '383f97dea5a84a25c83cfef0c74c51ac';
 export default node;
