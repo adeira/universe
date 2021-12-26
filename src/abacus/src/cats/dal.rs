@@ -48,15 +48,43 @@ impl CatInfo {
     }
 }
 
-pub(in crate::cats) async fn list_all_cats(pool: &ConnectionPool) -> anyhow::Result<Vec<CatInfo>> {
-    resolve_aql_vector(
-        pool,
-        r#"
-          FOR cat IN cats
-            SORT cat.order ASC
-            RETURN cat
-        "#,
-        hashmap_json![],
-    )
-    .await
+#[derive(juniper::GraphQLInputObject)]
+pub struct AllCatsFilter {
+    /// When `true` returns only adopted cats. When `false` returns only cats available for adoption.
+    adopted: bool,
+}
+
+pub(in crate::cats) async fn list_all_cats(
+    pool: &ConnectionPool,
+    filter: &Option<AllCatsFilter>,
+) -> anyhow::Result<Vec<CatInfo>> {
+    match filter {
+        Some(filter) => {
+            resolve_aql_vector(
+                pool,
+                r#"
+                  FOR cat IN cats
+                    FILTER IS_NULL(cat.date_adoption) != @adopted
+                    SORT cat.order ASC
+                    RETURN cat
+                "#,
+                hashmap_json![
+                    "adopted" => filter.adopted,
+                ],
+            )
+            .await
+        }
+        None => {
+            resolve_aql_vector(
+                pool,
+                r#"
+                  FOR cat IN cats
+                    SORT cat.order ASC
+                    RETURN cat
+                "#,
+                hashmap_json![],
+            )
+            .await
+        }
+    }
 }
