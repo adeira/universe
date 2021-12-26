@@ -5,16 +5,12 @@
 /* eslint-disable */
 
 import type { ConcreteRequest } from 'relay-runtime';
+type CatsTableAdoptedFragment$ref = any;
+type CatsTableCurrentFragment$ref = any;
 export type CatsPageQueryVariables = {||};
 export type CatsPageQueryResponse = {|
   +cats: {|
-    +listAllCats: $ReadOnlyArray<{|
-      +order: number,
-      +name: string,
-      +dateOfCastration: ?string,
-      +dateOfDeworming: ?string,
-      +dateOfAdoption: ?string,
-    |}>
+    +$fragmentRefs: CatsTableCurrentFragment$ref & CatsTableAdoptedFragment$ref
   |}
 |};
 export type CatsPageQuery = {|
@@ -25,14 +21,29 @@ export type CatsPageQuery = {|
 /*
 query CatsPageQuery {
   cats {
-    listAllCats {
-      order
-      name
-      dateOfCastration
-      dateOfDeworming
-      dateOfAdoption
-      id
-    }
+    ...CatsTableCurrentFragment
+    ...CatsTableAdoptedFragment
+  }
+}
+
+fragment CatsTableAdoptedFragment on CatsQuery {
+  adoptedCats: listAllCats(allCatsFilter: {adopted: true}) {
+    order
+    name
+    dateOfCastration
+    dateOfDeworming
+    dateOfAdoption
+    id
+  }
+}
+
+fragment CatsTableCurrentFragment on CatsQuery {
+  currentCats: listAllCats(allCatsFilter: {adopted: false}) {
+    order
+    name
+    dateOfCastration
+    dateOfDeworming
+    id
   }
 }
 */
@@ -70,7 +81,7 @@ v4 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "dateOfAdoption",
+  "name": "id",
   "storageKey": null
 };
 return {
@@ -89,20 +100,14 @@ return {
         "plural": false,
         "selections": [
           {
-            "alias": null,
             "args": null,
-            "concreteType": "CatInfo",
-            "kind": "LinkedField",
-            "name": "listAllCats",
-            "plural": true,
-            "selections": [
-              (v0/*: any*/),
-              (v1/*: any*/),
-              (v2/*: any*/),
-              (v3/*: any*/),
-              (v4/*: any*/)
-            ],
-            "storageKey": null
+            "kind": "FragmentSpread",
+            "name": "CatsTableCurrentFragment"
+          },
+          {
+            "args": null,
+            "kind": "FragmentSpread",
+            "name": "CatsTableAdoptedFragment"
           }
         ],
         "storageKey": null
@@ -126,8 +131,16 @@ return {
         "plural": false,
         "selections": [
           {
-            "alias": null,
-            "args": null,
+            "alias": "currentCats",
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "allCatsFilter",
+                "value": {
+                  "adopted": false
+                }
+              }
+            ],
             "concreteType": "CatInfo",
             "kind": "LinkedField",
             "name": "listAllCats",
@@ -137,16 +150,40 @@ return {
               (v1/*: any*/),
               (v2/*: any*/),
               (v3/*: any*/),
-              (v4/*: any*/),
+              (v4/*: any*/)
+            ],
+            "storageKey": "listAllCats(allCatsFilter:{\"adopted\":false})"
+          },
+          {
+            "alias": "adoptedCats",
+            "args": [
+              {
+                "kind": "Literal",
+                "name": "allCatsFilter",
+                "value": {
+                  "adopted": true
+                }
+              }
+            ],
+            "concreteType": "CatInfo",
+            "kind": "LinkedField",
+            "name": "listAllCats",
+            "plural": true,
+            "selections": [
+              (v0/*: any*/),
+              (v1/*: any*/),
+              (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
-                "name": "id",
+                "name": "dateOfAdoption",
                 "storageKey": null
-              }
+              },
+              (v4/*: any*/)
             ],
-            "storageKey": null
+            "storageKey": "listAllCats(allCatsFilter:{\"adopted\":true})"
           }
         ],
         "storageKey": null
@@ -154,15 +191,15 @@ return {
     ]
   },
   "params": {
-    "cacheID": "fbffe788557ca6ae0b84bc899d2622de",
+    "cacheID": "0eac703b0d7d2b339dbd95f7cd1882ef",
     "id": null,
     "metadata": {},
     "name": "CatsPageQuery",
     "operationKind": "query",
-    "text": "query CatsPageQuery {\n  cats {\n    listAllCats {\n      order\n      name\n      dateOfCastration\n      dateOfDeworming\n      dateOfAdoption\n      id\n    }\n  }\n}\n"
+    "text": "query CatsPageQuery {\n  cats {\n    ...CatsTableCurrentFragment\n    ...CatsTableAdoptedFragment\n  }\n}\n\nfragment CatsTableAdoptedFragment on CatsQuery {\n  adoptedCats: listAllCats(allCatsFilter: {adopted: true}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    dateOfAdoption\n    id\n  }\n}\n\nfragment CatsTableCurrentFragment on CatsQuery {\n  currentCats: listAllCats(allCatsFilter: {adopted: false}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    id\n  }\n}\n"
   }
 };
 })();
 // prettier-ignore
-(node: any).hash = '383f97dea5a84a25c83cfef0c74c51ac';
+(node: any).hash = 'd80b8aeae3eee43d423c79777e38c450';
 export default node;

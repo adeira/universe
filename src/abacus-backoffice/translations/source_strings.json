@@ -155,73 +155,59 @@
   },
   {
    "hashToText": {
-    "s4htMawiaPZXaxWElrK25A==": "Order"
+    "dT/eh3zXjHNy5HXZH1EhsA==": "Currently available cats"
    },
    "filepath": "src/cats/CatsPage.js",
-   "line_beg": 25,
-   "col_beg": 18,
-   "line_end": 25,
-   "col_end": 73,
-   "desc": "order of the cat (table header)",
+   "line_beg": 26,
+   "col_beg": 10,
+   "line_end": 26,
+   "col_end": 99,
+   "desc": "title of a section of currently available cats",
    "project": "",
    "type": "text",
-   "jsfbt": "Order"
+   "jsfbt": "Currently available cats"
   },
   {
    "hashToText": {
-    "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
+    "4/M8aLkISpiX62czEj3IUA==": "List of cats currently living in KOCHKA Café."
    },
    "filepath": "src/cats/CatsPage.js",
    "line_beg": 29,
-   "col_beg": 18,
-   "line_end": 29,
-   "col_end": 82,
-   "desc": "name of the cat (table header)",
+   "col_beg": 10,
+   "line_end": 31,
+   "col_end": 16,
+   "desc": "description of a section of currently available cats",
    "project": "",
    "type": "text",
-   "jsfbt": "Name of the cat"
+   "jsfbt": "List of cats currently living in KOCHKA Café."
   },
   {
    "hashToText": {
-    "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
+    "EXFpk5Vw2p1k38y43AcBZQ==": "Adopted cats"
    },
    "filepath": "src/cats/CatsPage.js",
-   "line_beg": 34,
-   "col_beg": 12,
-   "line_end": 36,
-   "col_end": 18,
-   "desc": "date when the cat castration was performed (table header)",
+   "line_beg": 38,
+   "col_beg": 10,
+   "line_end": 38,
+   "col_end": 83,
+   "desc": "title of a section of already adopted cats",
    "project": "",
    "type": "text",
-   "jsfbt": "Date of castration"
+   "jsfbt": "Adopted cats"
   },
   {
    "hashToText": {
-    "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
+    "6AoFu1ksuKbjM3tda2EHXA==": "List of cats that are no longer in KOCHKA Café because they were adopted."
    },
    "filepath": "src/cats/CatsPage.js",
-   "line_beg": 42,
-   "col_beg": 12,
-   "line_end": 42,
-   "col_end": 94,
-   "desc": "date of the last deworming (table header)",
+   "line_beg": 41,
+   "col_beg": 10,
+   "line_end": 43,
+   "col_end": 16,
+   "desc": "description of a section of already adopted cats",
    "project": "",
    "type": "text",
-   "jsfbt": "Date of last deworming"
-  },
-  {
-   "hashToText": {
-    "BL5tZ7CN41VT6AJQuPPNQw==": "Date of adoption"
-   },
-   "filepath": "src/cats/CatsPage.js",
-   "line_beg": 47,
-   "col_beg": 18,
-   "line_end": 47,
-   "col_end": 92,
-   "desc": "date of the cat adoption (table header)",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Date of adoption"
+   "jsfbt": "List of cats that are no longer in KOCHKA Café because they were adopted."
   },
   {
    "hashToText": {
@@ -236,6 +222,146 @@
    "project": "",
    "type": "text",
    "jsfbt": "List of all our cats"
+  },
+  {
+   "hashToText": {
+    "dme/ASWCqdGTr4dtyfFtag==": "Here you can find details about all the cats who every went through KOCHKA Café."
+   },
+   "filepath": "src/cats/CatsPageLayout.js",
+   "line_beg": 15,
+   "col_beg": 8,
+   "line_end": 17,
+   "col_end": 14,
+   "desc": "list of all our cats description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Here you can find details about all the cats who every went through KOCHKA Café."
+  },
+  {
+   "hashToText": {
+    "s4htMawiaPZXaxWElrK25A==": "Order"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 34,
+   "col_beg": 18,
+   "line_end": 34,
+   "col_end": 73,
+   "desc": "order of the cat (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Order"
+  },
+  {
+   "hashToText": {
+    "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 38,
+   "col_beg": 18,
+   "line_end": 38,
+   "col_end": 82,
+   "desc": "name of the cat (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Name of the cat"
+  },
+  {
+   "hashToText": {
+    "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 43,
+   "col_beg": 12,
+   "line_end": 45,
+   "col_end": 18,
+   "desc": "date when the cat castration was performed (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of castration"
+  },
+  {
+   "hashToText": {
+    "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 51,
+   "col_beg": 12,
+   "line_end": 51,
+   "col_end": 94,
+   "desc": "date of the last deworming (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of last deworming"
+  },
+  {
+   "hashToText": {
+    "BL5tZ7CN41VT6AJQuPPNQw==": "Date of adoption"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 56,
+   "col_beg": 18,
+   "line_end": 56,
+   "col_end": 92,
+   "desc": "date of the cat adoption (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of adoption"
+  },
+  {
+   "hashToText": {
+    "s4htMawiaPZXaxWElrK25A==": "Order"
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 33,
+   "col_beg": 18,
+   "line_end": 33,
+   "col_end": 73,
+   "desc": "order of the cat (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Order"
+  },
+  {
+   "hashToText": {
+    "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 37,
+   "col_beg": 18,
+   "line_end": 37,
+   "col_end": 82,
+   "desc": "name of the cat (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Name of the cat"
+  },
+  {
+   "hashToText": {
+    "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 42,
+   "col_beg": 12,
+   "line_end": 44,
+   "col_end": 18,
+   "desc": "date when the cat castration was performed (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of castration"
+  },
+  {
+   "hashToText": {
+    "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 50,
+   "col_beg": 12,
+   "line_end": 50,
+   "col_end": 94,
+   "desc": "date of the last deworming (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Date of last deworming"
   },
   {
    "hashToText": {
