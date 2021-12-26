@@ -1,66 +1,49 @@
 // @flow
 
-import { MissingData, Table } from '@adeira/sx-design';
+import { LayoutBlock, Text } from '@adeira/sx-design';
 import * as React from 'react';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 import fbt from 'fbt';
 
 import type { CatsPageQuery } from './__generated__/CatsPageQuery.graphql';
+import CatsTableAdopted from './CatsTableAdopted';
+import CatsTableCurrent from './CatsTableCurrent';
 
 export default function CatsPage(): React.Node {
   const data = useLazyLoadQuery<CatsPageQuery>(graphql`
     query CatsPageQuery {
       cats {
-        listAllCats {
-          order
-          name
-          dateOfCastration
-          dateOfDeworming
-          dateOfAdoption
-        }
+        ...CatsTableCurrentFragment
+        ...CatsTableAdoptedFragment
       }
     }
   `);
 
   return (
-    <Table
-      columns={[
-        {
-          Header: <fbt desc="order of the cat (table header)">Order</fbt>,
-          accessor: 'col1',
-        },
-        {
-          Header: <fbt desc="name of the cat (table header)">Name of the cat</fbt>,
-          accessor: 'col2',
-        },
-        {
-          Header: (
-            <fbt desc="date when the cat castration was performed (table header)">
-              Date of castration
-            </fbt>
-          ),
-          accessor: 'col3',
-        },
-        {
-          Header: (
-            <fbt desc="date of the last deworming (table header)">Date of last deworming</fbt>
-          ),
-          accessor: 'col4',
-        },
-        {
-          Header: <fbt desc="date of the cat adoption (table header)">Date of adoption</fbt>,
-          accessor: 'col5',
-        },
-      ]}
-      data={data.cats.listAllCats.map((cat) => {
-        return {
-          col1: `#${cat.order}`,
-          col2: cat.name,
-          col3: cat.dateOfCastration ?? <MissingData />, // TODO: display with warning/error when around 4 months old
-          col4: cat.dateOfDeworming ?? <MissingData />, // TODO: display with warning/error
-          col5: cat.dateOfAdoption ?? <MissingData />,
-        };
-      })}
-    />
+    <LayoutBlock spacing="large">
+      <LayoutBlock spacing="none">
+        <Text as="h2">
+          <fbt desc="title of a section of currently available cats">Currently available cats</fbt>
+        </Text>
+        <p>
+          <fbt desc="description of a section of currently available cats">
+            List of cats currently living in KOCHKA Café.
+          </fbt>
+        </p>
+        <CatsTableCurrent data={data.cats} />
+      </LayoutBlock>
+
+      <LayoutBlock spacing="none">
+        <Text as="h2">
+          <fbt desc="title of a section of already adopted cats">Adopted cats</fbt>
+        </Text>
+        <p>
+          <fbt desc="description of a section of already adopted cats">
+            List of cats that are no longer in KOCHKA Café because they were adopted.
+          </fbt>
+        </p>
+        <CatsTableAdopted data={data.cats} />
+      </LayoutBlock>
+    </LayoutBlock>
   );
 }
