@@ -14,7 +14,7 @@ export default function Button() {
 
 ## Demo
 
-[sx-tailwind.adeira.dev](https://sx-tailwind.adeira.dev/)
+[https://sx-tailwind-website.vercel.app/](https://sx-tailwind-website.vercel.app/)
 
 ## Install
 
