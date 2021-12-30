@@ -27,7 +27,7 @@ module.exports = ({
     'ft-flow/no-duplicate-type-union-intersection-members': ERROR,
     'ft-flow/no-existential-type': ERROR, // https://github.com/facebook/flow/issues/6308
     'ft-flow/no-flow-fix-me-comments': OFF,
-    'ft-flow/no-flow-fix-me-in-strict-files': OFF, // TODO: enable (after fixing our codebase)
+    'ft-flow/no-flow-suppressions-in-strict-files': OFF, // TODO: enable (after fixing our codebase)
     'ft-flow/no-internal-flow-type': ERROR,
     'ft-flow/no-mixed': OFF,
     'ft-flow/no-mutable-array': OFF,
