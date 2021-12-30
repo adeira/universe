@@ -1,5 +1,7 @@
 # Unreleased
 
+# 7.0.0
+
 **Breaking changes ahead!**
 
 - Eslint version 8 is now required (visit https://eslint.org/blog/2021/10/eslint-v8.0.0-released and other related blog posts for more info).
