@@ -588,7 +588,7 @@ Object {
     "ft-flow/no-duplicate-type-union-intersection-members": 2,
     "ft-flow/no-existential-type": 2,
     "ft-flow/no-flow-fix-me-comments": 0,
-    "ft-flow/no-flow-fix-me-in-strict-files": 0,
+    "ft-flow/no-flow-suppressions-in-strict-files": 0,
     "ft-flow/no-internal-flow-type": 2,
     "ft-flow/no-mixed": 0,
     "ft-flow/no-mutable-array": 0,

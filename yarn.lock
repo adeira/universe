@@ -8875,10 +8875,10 @@ eslint-plugin-fb-flow@^0.0.4:
   resolved "https://registry.yarnpkg.com/eslint-plugin-fb-flow/-/eslint-plugin-fb-flow-0.0.4.tgz#47fa51630a5620b3b03919194e783ddfc094fd5d"
   integrity sha512-VWRoULiRkYqgeX4uCw2uIuu4v5DOhtWC+4fLM+qXX2mUtLf07znqhyTtxwIugnX8MgPczkaKmtDPrkuhvFmAoA==
 
-eslint-plugin-ft-flow@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ft-flow/-/eslint-plugin-ft-flow-1.1.0.tgz#bc41e242b26e542c9eb23280eacae933a43f7447"
-  integrity sha512-Z1MVInDFYHV66Ok0dA+jR7fiHLCYY8eDl0z8yiQ/wAXkmfOJ8fEuHeFvx+z5Ykt3IojhWrmLKkDbC/KDj7FCQw==
+eslint-plugin-ft-flow@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ft-flow/-/eslint-plugin-ft-flow-2.0.0.tgz#c74016ef0840c7ff9d57ffdba3b353f9daa9711f"
+  integrity sha512-W9/PDbph5xImmrarHPiUYO3GqDeCPegdrONjJqr9Qrdy7UeTOEetcfy6yaFputvvUrchFsSMNV2BM2hiKaEJ8w==
   dependencies:
     lodash "^4.17.21"
     string-natural-compare "^3.0.1"
