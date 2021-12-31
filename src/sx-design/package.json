@@ -36,7 +36,7 @@
     "@adeira/css-colors": "^2.2.0",
     "@adeira/sx": "^0.28.0",
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
-    "@babel/core": "^7.16.5",
+    "@babel/core": "^7.16.7",
     "@fbtjs/default-collection-transform": "^0.0.3",
     "@storybook/addon-a11y": "^6.4.9",
     "@storybook/addon-actions": "^6.4.9",
