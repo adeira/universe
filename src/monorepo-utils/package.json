@@ -20,8 +20,8 @@
   },
   "dependencies": {
     "@adeira/js": "^2.1.1",
-    "@babel/register": "^7.16.5",
-    "@babel/runtime": "^7.16.5",
+    "@babel/register": "^7.16.7",
+    "@babel/runtime": "^7.16.7",
     "glob": "^7.2.0",
     "is-ci": "^3.0.1"
   }
