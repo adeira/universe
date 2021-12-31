@@ -15,7 +15,7 @@
   "type": "commonjs",
   "sideEffects": false,
   "dependencies": {
-    "@babel/runtime": "^7.16.5",
+    "@babel/runtime": "^7.16.7",
     "@loadable/component": "^5.15.2"
   },
   "devDependencies": {
