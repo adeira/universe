@@ -19,7 +19,7 @@
   "main": "./src/index.js",
   "type": "commonjs",
   "dependencies": {
-    "@babel/runtime": "^7.16.5"
+    "@babel/runtime": "^7.16.7"
   },
   "devDependencies": {
     "@adeira/eslint-fixtures-tester": "0.1.0",
