@@ -15,7 +15,7 @@
     "@babel/cli": "^7.16.7",
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
-    "babel-jest": "^27.4.5",
+    "babel-jest": "^27.4.6",
     "babel-loader": "^8.2.3",
     "eslint": "^8.6.0",
     "eslint-formatter-codeframe": "^7.32.1",
