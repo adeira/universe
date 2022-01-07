@@ -5785,11 +5785,6 @@ commander@^6.0.0, commander@^6.2.0, commander@^6.2.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
 
-commander@^8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
-  integrity sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==
-
 common-path-prefix@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/common-path-prefix/-/common-path-prefix-3.0.0.tgz#7d007a7e07c58c4b4d5f433131a19141b29f11e0"
@@ -13399,13 +13394,6 @@ relay-compiler@^13.0.1:
   version "13.0.1"
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-13.0.1.tgz#09c713647aa7e1d8cf3de9f7fb4ee6a76b32cf26"
   integrity sha512-C/qJ7IdfZ140b9JaNpuAP6WhV/Odt/tIq4sUZoTwsaOlhs+1Zu3fvIOoWKTnZT5PC6krRuw1hD7GSX6/paVpTQ==
-
-relay-config@0.0.0-main-d92b9e55:
-  version "0.0.0-main-d92b9e55"
-  resolved "https://registry.yarnpkg.com/relay-config/-/relay-config-0.0.0-main-d92b9e55.tgz#23b704b0e306aae37509a01067a35c15b35032a2"
-  integrity sha512-mea/6cPKAlufH3RB+QXB4sV0aepngW9E+A27lHO4ZAaXzzFZN4rgVa+6sbOE68FRSaQiNgY5/wHSbF/hE8SdAQ==
-  dependencies:
-    cosmiconfig "^5.0.5"
 
 relay-runtime@13.0.1, relay-runtime@^13.0.1:
   version "13.0.1"
