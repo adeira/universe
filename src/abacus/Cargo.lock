@@ -321,21 +321,11 @@ dependencies = [
 
 [[package]]
 name = "clap_complete"
-version = "3.0.1"
+version = "3.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0e3cb395a9ef3c4ddabee9d6a0d0419b107cccf3e431fc0015df90f24849386c"
+checksum = "a394f7ec0715b42a4e52b294984c27c9a61f77c8d82f7774c5198350be143f19"
 dependencies = [
  "clap",
-]
-
-[[package]]
-name = "clap_generate"
-version = "3.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "09f3a413cef2f15147515885eeafeab3039d5f922cd9a64c3f56eee0c505a2ba"
-dependencies = [
- "clap",
- "clap_complete",
 ]
 
 [[package]]
@@ -2239,7 +2229,7 @@ dependencies = [
  "bytes 1.1.0",
  "casbin",
  "clap",
- "clap_generate",
+ "clap_complete",
  "data-encoding",
  "deadpool",
  "dotenv",
