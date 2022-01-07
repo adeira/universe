@@ -7,7 +7,7 @@ mod global_macros;
 use crate::arango::get_database_connection_pool;
 use crate::clap::generate_clap_app;
 use crate::global_configuration::GlobalConfiguration;
-use clap_generate::generators::{Bash, Zsh};
+use clap_complete::shells::{Bash, Zsh};
 use graphql_schema::create_graphql_schema;
 use std::net::{Ipv4Addr, SocketAddrV4};
 use tracing::level_filters::LevelFilter;
@@ -68,13 +68,13 @@ async fn main() {
             let clap_app_name = clap_app.get_name().to_string();
             tracing::info!("Generating completion file for {}...", shell);
             match shell {
-                "bash" => clap_generate::generate(
+                "bash" => clap_complete::generate(
                     Bash,
                     &mut clap_app,
                     clap_app_name,
                     &mut std::io::stdout(),
                 ),
-                "zsh" => clap_generate::generate(
+                "zsh" => clap_complete::generate(
                     Zsh,
                     &mut clap_app,
                     clap_app_name,
