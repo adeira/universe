@@ -34,6 +34,25 @@ fragment TodoList_list on TodoList
 }
 ```
 
+It is also possible to specify an argument provider:
+
+```graphql
+fragment getAllRootVariablesTest1Fragment on User
+@argumentDefinitions(numberOfFriends: { type: "Int!", provider: "../provideNumberOfFriends" }) {
+  friends(first: $numberOfFriends) {
+    count
+  }
+}
+```
+
+Where `provideNumberOfFriends.js` is:
+
+```js
+export function get(): number {
+  return 15.0;
+}
+```
+
 Note: directive `argumentDefinitions` might be deprecated soon in favor of the following syntax:
 
 ```graphql
@@ -174,6 +193,8 @@ mutation CommentCreateMutation($connections: [String!]!, $input: CommentCreateIn
 Directive `@appendEdge` translates to `@__clientField(handle: "appendEdge", handleArgs: (connections: $connections))` (similarly for `prependEdge`). See the related mutation handlers: https://github.com/facebook/relay/commit/687d89b4b8c8224bd724b28207dce357102ad307
 
 ## @required
+
+Docs: https://relay.dev/docs/guides/required-directive/
 
 `@required` is a directive you can add to fields in your Relay queries to declare how null values should be handled at runtime. You can think of it as saying "if this field is ever null, its parent field is invalid and should be null".
 
@@ -558,6 +579,18 @@ The `@skip` directive may be provided for fields, fragment spreads, and inline f
 The `@include` directive may be provided for fields, fragment spreads, and inline fragments, and allows for conditional inclusion during execution as described by the if argument.
 
 Note: neither `@skip` nor `@include` has precedence over the other. In the case that both the `@skip` and `@include` directives are provided on the same field or fragment, it _must_ be queried only if the `@skip` condition is false and the `@include` condition is true. Stated conversely, the field or fragment _must not_ be queried if either the `@skip` condition is true or the `@include` condition is false.
+
+## @updatable, @assignable
+
+TKTK
+
+```graphql
+directive @updatable on QUERY | FRAGMENT_DEFINITION
+
+directive @assignable on FRAGMENT_DEFINITION
+```
+
+- https://github.com/facebook/relay/commit/75709facceb3f931ceff6f27a437040d7515afcf
 
 ## Other internal directives
 
