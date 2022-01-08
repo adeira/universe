@@ -30,7 +30,7 @@
     "is-ci": "^3.0.1",
     "react-relay": "^13.0.0",
     "relay-compiler": "^13.0.0",
-    "relay-config": "0.0.0-main-d92b9e55",
+    "relay-config": "12.0.1",
     "relay-runtime": "^13.0.0"
   },
   "devDependencies": {
