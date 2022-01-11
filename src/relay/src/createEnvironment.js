@@ -11,7 +11,7 @@ import type { RecordObjectMap } from 'relay-runtime/store/RelayStoreTypes';
 
 import createRelayStore from './createRelayStore';
 import createRequestHandler from './createRequestHandler';
-import RelayLogger from './RelayLogger';
+import { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
 
 type Options = {
   +fetchFn: (...args: $ReadOnlyArray<any>) => any,
@@ -36,6 +36,7 @@ export default function createEnvironment(options: Options): Environment {
   return new RelayEnvironment({
     network: createNetwork(fetchFn, subscribeFn),
     log: RelayLogger,
+    requiredFieldLogger: RelayRequiredFieldLogger,
     store: createRelayStore(records, {
       gcReleaseBufferSize: gcReleaseBufferSize,
     }),

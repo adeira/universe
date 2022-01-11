@@ -1,5 +1,6 @@
 # Unreleased
 
+- Added logging of required fields (`@required(action:LOG)` directive).
 - The old Relay Compiler wrapper has been replaces with the new Rust Compiler. This is the only compiler available in Relay 13+ and you can read more about this change here: https://relay.dev/blog/2021/12/08/introducing-the-new-relay-compiler/
 
 # 4.0.0
