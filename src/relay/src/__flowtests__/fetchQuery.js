@@ -12,7 +12,8 @@ const variables = {};
 
 module.exports = ({
   validUsage: () => {
-    return fetchQuery(environment, query);
+    // TODO: generate Relay metafiles and use them instead of the manual Flow types below
+    return fetchQuery<$FlowFixMe, $FlowFixMe, $FlowFixMe>(environment, query);
   },
   validUsagePromise: () => {
     return fetchQuery(environment, query, variables).toPromise();

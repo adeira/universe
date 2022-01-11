@@ -41,7 +41,7 @@ export type {
   CacheConfig,
   DeclarativeMutationConfig,
   Disposable,
-  GraphQLTaggedNode,
+  GraphQLTaggedNode, // TODO: deprecated in favor of `Query<_, _>` type (precisely typed GraphQL strings)
   PayloadError,
   Snapshot,
   UploadableMap,
