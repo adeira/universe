@@ -24,6 +24,8 @@ module.exports = {
       customScalarTypes: {
         ProductImageUploadable: 'string',
       },
+      // Optional regex to restrict `@relay_test_operation` directive to directories matching this
+      // regex (so it cannot be used in production code by accident).
       testPathRegex: '__tests__',
       featureFlags: {
         no_inline: { kind: 'enabled' },
@@ -36,6 +38,9 @@ module.exports = {
       },
       schema: 'src/example-relay/schema.graphql',
       schemaExtensions: ['src/example-relay/src/LocalForm'],
+      // Optional regex to restrict `@relay_test_operation` directive to directories matching this
+      // regex (so it cannot be used in production code by accident).
+      testPathRegex: '__tests__',
     },
   },
   isDevVariableName: '__DEV__',
