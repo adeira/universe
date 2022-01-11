@@ -28,17 +28,17 @@
     "babel-plugin-relay": "^13.0.1",
     "commander": "^8.3.0",
     "is-ci": "^3.0.1",
-    "react-relay": "^13.0.0",
+    "react-relay": "^13.0.1",
     "relay-compiler": "^13.0.1",
     "relay-config": "0.0.0-main-d92b9e55",
-    "relay-runtime": "^13.0.0"
+    "relay-runtime": "^13.0.1"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "relay-test-utils": "^13.0.0"
+    "relay-test-utils": "^13.0.1"
   },
   "peerDependencies": {
     "graphql": "^15.0.0",
