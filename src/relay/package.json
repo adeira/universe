@@ -31,7 +31,7 @@
     "react-relay": "^13.0.0",
     "relay-compiler": "^13.0.1",
     "relay-config": "0.0.0-main-d92b9e55",
-    "relay-runtime": "^13.0.0"
+    "relay-runtime": "^13.0.1"
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.2",
