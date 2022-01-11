@@ -4,7 +4,7 @@ import { Environment as RelayEnvironment } from 'relay-runtime';
 import type { Environment } from 'react-relay';
 
 import createRelayStore from './createRelayStore';
-import RelayLogger from './RelayLogger';
+import { RelayLogger, RelayRequiredFieldLogger } from './RelayLogger';
 
 /**
  * This is just an alternative environment factory for LocalQueryRenderer. There is currently not
@@ -15,6 +15,7 @@ export default function createLocalEnvironment(): Environment {
   return new RelayEnvironment({
     // notice this environment doesn't have network layer since it's not necessary
     log: RelayLogger,
+    requiredFieldLogger: RelayRequiredFieldLogger,
     store: createRelayStore(),
   });
 }

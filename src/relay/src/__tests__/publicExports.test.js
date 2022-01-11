@@ -32,6 +32,7 @@ it('exports only what we want to export', () => {
       "readInlineData",
       "RelayEnvironmentProvider",
       "RelayLogger",
+      "RelayRequiredFieldLogger",
       "requestSubscription",
       "useEntryPointLoader",
       "useFragment",

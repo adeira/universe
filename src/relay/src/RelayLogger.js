@@ -3,7 +3,7 @@
 /* eslint-disable no-console */
 
 import { isBrowser } from '@adeira/js';
-import type { LogEvent, OperationAvailability } from 'relay-runtime';
+import type { LogEvent, OperationAvailability, RequiredFieldLogger } from 'relay-runtime';
 
 function renderQueryAvailability(
   queryAvailability: OperationAvailability,
@@ -25,8 +25,12 @@ function renderQueryAvailability(
   return '';
 }
 
-export default function RelayLogger(logEvent: LogEvent) {
-  if (!__DEV__ || !isBrowser()) {
+function shouldLog(): boolean {
+  return __DEV__ && isBrowser();
+}
+
+export function RelayLogger(logEvent: LogEvent): void {
+  if (!shouldLog()) {
     return;
   }
 
@@ -76,3 +80,18 @@ export default function RelayLogger(logEvent: LogEvent) {
     console.groupEnd();
   }
 }
+
+/**
+ * Called by Relay when it encounters a missing field that has been annotated with
+ * `@required(action: LOG)`.
+ */
+export const RelayRequiredFieldLogger: RequiredFieldLogger = function (logEvent) {
+  if (!shouldLog()) {
+    return;
+  }
+
+  const { kind, ...logEventParams } = logEvent;
+  console.groupCollapsed('%c%s%c%s', 'font-weight:bold', '[Relay] ', 'font-weight:normal', kind);
+  console.log(logEventParams);
+  console.groupEnd();
+};
