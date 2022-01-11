@@ -4784,10 +4784,10 @@ babel-plugin-react-docgen@^4.2.1:
     lodash "^4.17.15"
     react-docgen "^5.0.0"
 
-babel-plugin-relay@^13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-13.0.0.tgz#352944bd67c6dc03ae99f1ebe1fc4d7f660f8d3d"
-  integrity sha512-i8qh7aFQrR6B6d75VeXe7H02Aq9LqXDGnamy1Pwiuj7cwq6Sbc8fhNh364CQPBQhA9oGMWppbIDLKmZi28hkPg==
+babel-plugin-relay@^13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-13.0.1.tgz#d62f27a12cc8f6b1fc77a4e5d22fb52e1415d3a1"
+  integrity sha512-iiNjcfDDeoTfqNbb3e0uZvfcFxf0BK1q7VY78PrMCDZCONLE2Jsa5gLt0Gm2r84rv4mt+iEWi+oU+UF5CfcsXg==
   dependencies:
     babel-plugin-macros "^2.0.0"
     cosmiconfig "^5.0.5"
@@ -8635,17 +8635,12 @@ graphql-tag@^2.11.0:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.11.0.tgz#1deb53a01c46a7eb401d6cb59dec86fa1cccbffd"
   integrity sha512-VmsD5pJqWJnQZMUeRwrDhfgoyqcfwEkvtpANqcoUG8/tOLkwNgU9mzub/Mc78OJMhHjx7gfAMTxzdG43VGg3bA==
 
-graphql@15.3.0, "graphql@^14.0.0 || ^15.0.0":
+graphql@15.3.0:
   version "15.3.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
   integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
-graphql@^15.5.1:
-  version "15.7.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.7.2.tgz#85ab0eeb83722977151b3feb4d631b5f2ab287ef"
-  integrity sha512-AnnKk7hFQFmU/2I9YSQf3xw44ctnSFCfp3zE0N6W174gqe9fWG/2rKaKxROK7CcI3XtERpjEKFqts8o319Kf7A==
-
-graphql@^15.8.0:
+"graphql@^14.0.0 || ^15.0.0", graphql@^15.5.1, graphql@^15.8.0:
   version "15.8.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.8.0.tgz#33410e96b012fa3bdb1091cc99a94769db212b38"
   integrity sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw==
