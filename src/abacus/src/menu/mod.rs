@@ -36,7 +36,8 @@ pub(in crate::menu) async fn get_section(
                 client_locale,
                 &[
                     "2901328".to_string(),  // Espresso
-                    "3626010".to_string(),  // Americano
+                    "3626010".to_string(),  // Espresso Americano
+                    "14944417".to_string(), // Espresso Tonic
                     "3633163".to_string(),  // Cappuccino
                     "3633210".to_string(),  // Latte
                     "3633273".to_string(),  // Mocha
