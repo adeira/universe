@@ -10,7 +10,6 @@ import useFeatureFlag from './hooks/useFeatureFlag';
 
 export default function HomepageNavigation(): React.Node {
   const pageShopEnabled = useFeatureFlag('page-shop-enabled');
-  const pageAdoptEnabled = useFeatureFlag('page-adopt');
 
   return (
     <nav className={styles('nav')}>
@@ -23,11 +22,9 @@ export default function HomepageNavigation(): React.Node {
           <fbt desc="link to our rules from the homepage">Café&nbsp;rules</fbt>
         </LinkInternal>
 
-        {pageAdoptEnabled === true ? (
-          <LinkInternal href="/adopt" size={32} weight={100} xstyle={styles.link}>
-            <fbt desc="link to the adoption page from the homepage">Adopt</fbt>
-          </LinkInternal>
-        ) : null}
+        <LinkInternal href="/adopt" size={32} weight={100} xstyle={styles.link}>
+          <fbt desc="link to the adoption page from the homepage">Adopt</fbt>
+        </LinkInternal>
 
         {pageShopEnabled === true ? (
           <LinkInternal href="/shop" size={32} weight={100} xstyle={styles.link}>

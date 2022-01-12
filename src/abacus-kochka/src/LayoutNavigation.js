@@ -12,7 +12,6 @@ import useFeatureFlag from './hooks/useFeatureFlag';
 export default function LayoutNavigation(): React.Node {
   const pageShopEnabled = useFeatureFlag('page-shop-enabled');
   const pageShopOrdersEnabled = useFeatureFlag('page-shop-orders-enabled');
-  const pageAdoptEnabled = useFeatureFlag('page-adopt');
 
   return (
     <nav className={styles('navigation')}>
@@ -33,11 +32,9 @@ export default function LayoutNavigation(): React.Node {
           <fbt desc="link to the café rules from subpage navigation">Café&nbsp;rules</fbt>
         </LinkInternal>
 
-        {pageAdoptEnabled === true ? (
-          <LinkInternal href="/adopt" xstyle={styles.link}>
-            <fbt desc="link to the adoption page from subpage navigation">Adopt</fbt>
-          </LinkInternal>
-        ) : null}
+        <LinkInternal href="/adopt" xstyle={styles.link}>
+          <fbt desc="link to the adoption page from subpage navigation">Adopt</fbt>
+        </LinkInternal>
 
         {pageShopEnabled === true ? (
           <LinkInternal href="/shop" xstyle={styles.link}>

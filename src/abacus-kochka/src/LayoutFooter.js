@@ -15,7 +15,6 @@ import useFeatureFlag from './hooks/useFeatureFlag';
 export default function LayoutFooter(): React.Node {
   const pageShopEnabled = useFeatureFlag('page-shop-enabled');
   const pageShopOrdersEnabled = useFeatureFlag('page-shop-orders-enabled');
-  const pageAdoptEnabled = useFeatureFlag('page-adopt');
 
   return (
     <div className={styles('wrapper')}>
@@ -40,13 +39,11 @@ export default function LayoutFooter(): React.Node {
               <fbt desc="link to the café rules from the page footer">Café&nbsp;rules</fbt>
             </LinkInternal>
           </div>
-          {pageAdoptEnabled === true ? (
-            <div>
-              <LinkInternal href="/adopt" xstyle={styles.link}>
-                <fbt desc="link to the adopt page from the page footer">Adopt</fbt>
-              </LinkInternal>
-            </div>
-          ) : null}
+          <div>
+            <LinkInternal href="/adopt" xstyle={styles.link}>
+              <fbt desc="link to the adopt page from the page footer">Adopt</fbt>
+            </LinkInternal>
+          </div>
           {pageShopEnabled === true ? (
             <div>
               <LinkInternal href="/shop" xstyle={styles.link}>
