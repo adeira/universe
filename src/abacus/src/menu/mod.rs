@@ -39,9 +39,9 @@ pub(in crate::menu) async fn get_section(
                     "3626010".to_string(),  // Espresso Americano
                     "14944417".to_string(), // Espresso Tonic
                     "3633163".to_string(),  // Cappuccino
-                    "3633210".to_string(),  // Latte
+                    "3633210".to_string(),  // Caffe Latte
+                    "3633334".to_string(),  // Iced Caffe Latte
                     "3633273".to_string(),  // Mocha
-                    "3633334".to_string(),  // Iced Latte
                     "11270660".to_string(), // Pending coffee
                 ],
             )
