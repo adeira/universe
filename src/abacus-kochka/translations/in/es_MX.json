@@ -1,16 +1,6 @@
 {
   "fb-locale": "es_MX",
   "translations": {
-    "eYizGgDm0FrAH7xp9q2g9A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "¡Apertura próximamente! Sigue nuestras redes sociales para más información.",
-          "variations": []
-        }
-      ]
-    },
     "k2Q8RUdCLyiDbzVP375Pzg==": {
       "tokens": [],
       "types": [],
@@ -61,6 +51,16 @@
         }
       ]
     },
+    "rinbc6qu22nzP+CbAtPP6Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adopciones",
+          "variations": []
+        }
+      ]
+    },
     "Jl7ke09TxJz/ttxyYXALfQ==": {
       "tokens": [],
       "types": [],
@@ -97,6 +97,16 @@
       "translations": [
         {
           "translation": "Reglas de la cafetería",
+          "variations": []
+        }
+      ]
+    },
+    "xSNus6NyIj/A4JDsSzIRGQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adopciones",
           "variations": []
         }
       ]
@@ -167,6 +177,16 @@
       "translations": [
         {
           "translation": "Reglas de la cafetería",
+          "variations": []
+        }
+      ]
+    },
+    "Vq+8I+twJCKxZBPFffZ11A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adopciones",
           "variations": []
         }
       ]
@@ -281,22 +301,22 @@
         }
       ]
     },
-    "wu4QLM8Jq2jZKhUWrIPg2g==": {
+    "Y+IlF4wmefnxuZ8S3QrbuA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Toma todas las fotos que quieras, de preferencia sin flash. 👍 No olvides etiquetarnos en Instagram {instagram account}.",
+          "translation": "Toma todas las fotos que quieras, de preferencia sin flash. 👍 No olvides etiquetarnos en Instagram o en Facebook: {instagram account}",
           "variations": []
         }
       ]
     },
-    "5iTUS9k7jab+evPuLeeh7A==": {
+    "/TGZ0/sm4xOZEsBdd0DHRQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Nuestros gatos tienen comida especial para cuidar su salud y la puedes comprar con nosotros. La comida para humanos puede ser peligrosa para ellos. Te pedimos que no los alimentes con tu comida.",
+          "translation": "Nuestros gatos tienen una dieta saludable. La comida humana puede ser peligrosa para ellos. Por favor, no los alimentes con tu comida.",
           "variations": []
         }
       ]
@@ -527,6 +547,266 @@
       "translations": [
         {
           "translation": "Regresar a la página de inicio",
+          "variations": []
+        }
+      ]
+    },
+    "DkFkA77iGSUvEzlEbEp0MQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Adopta a un gato",
+          "variations": []
+        }
+      ]
+    },
+    "OlrWH3z1s/N0sJPhAa4V8Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ayúdanos a encontrarles un hogar",
+          "variations": []
+        }
+      ]
+    },
+    "Jcw1FFhronZyBasJwGpXKA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Cómo admitimos nuevos gatos en KOCHKA Café?",
+          "variations": []
+        }
+      ]
+    },
+    "HNj6uP7iL4RwLwCN8j5QxQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Cada gato pasa por una cuarentena que dura un mínimo de 14 días. Durante este período, les proporcionamos atención médica necesaria, desparasitación, vacunación recomendada y esterilización (en caso de que su edad lo permita). Sólo después de eso, los gatos pueden entrar en nuestra cafetería y pueden ser adoptados.",
+          "variations": []
+        }
+      ]
+    },
+    "vWCRUi4GIhnx8ENyPDWUzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Los gatos adultos pasan por el mismo proceso excepto que ya tienen que ser esterilizados antes de poder aceptarlos. No podemos aceptar gatos adultos que no están esterilizados.",
+          "variations": []
+        }
+      ]
+    },
+    "vB4qLhQKL6HOIJ6yFSIOSA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "¿Cómo se puede adoptar un gato?",
+          "variations": []
+        }
+      ]
+    },
+    "6u2zOP6qUybHiM6neM/GuA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Intentamos crear un entorno que apoye únicamente las adopciones responsables. Cada persona que quiera adoptar un gato tiene que llenar un cuestionario para asegurarnos de que nuestros gatos encuentren un hogar seguro y amable. También llevamos a cabo una entrevista y pedimos una contribución financiera para cubrir parte de los costos relacionados con el tratamiento médico de los gatos.",
+          "variations": []
+        }
+      ]
+    },
+    "XiCuItUtGxqiz2oUqvDfew==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "También es necesario visitarnos personalmente para familiarizarse con nuestros gatos. No es posible adoptar un gato de KOCHKA Café sin antes visitarnos.",
+          "variations": []
+        }
+      ]
+    },
+    "Ew1959dWI6QNA/Q3Wrje0g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Tarifas de adopción",
+          "variations": []
+        }
+      ]
+    },
+    "RxLkHF2IRijugI0zaJHLXg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Edad del gato",
+          "variations": []
+        }
+      ]
+    },
+    "jeeV8mkcrYTKRwa5GpmP3A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Tarifas de adopción*",
+          "variations": []
+        }
+      ]
+    },
+    "IWzmbAKxlH0k3fBoI9N7rA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Gato adulto",
+          "variations": []
+        }
+      ]
+    },
+    "OmploHAZNYiCjgWk83eTCA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Gatitos menores de 6 meses",
+          "variations": []
+        }
+      ]
+    },
+    "LskCJ5nUFQUoKHBfugVs6A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "esterilización (en caso de que la edad lo permita)",
+          "variations": []
+        }
+      ]
+    },
+    "cKRb1v6d42Efa++QpfpesQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "vacunas recomendadas",
+          "variations": []
+        }
+      ]
+    },
+    "VK9SlBTtiYUyoSSCcHYjzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "desparasitación inicial",
+          "variations": []
+        }
+      ]
+    },
+    "gXs8IYY7Khdi8/pzxwpzzA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "tratamiento contra las pulgas",
+          "variations": []
+        }
+      ]
+    },
+    "D+bTXmwr5eDOKxnDViXmRg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "En términos generales, no obtenemos ningún beneficio de las tasas de adopción. Regularmente gastamos más dinero del que se pide en los gatitos para darles una vida buena y saludable. La tarifa de adopción simplemente nos ayuda a reducir el impacto financiero en nuestro negocio.",
+          "variations": []
+        }
+      ]
+    },
+    "1CVSOCEbrPXj8HNGOW7Z1A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "*Los animales de alto interés pueden tener una tasa de adopción más alta, por favor, póngase en contacto con nosotros para más detalles.",
+          "variations": []
+        }
+      ]
+    },
+    "4F6ZuT0XrHxABO4AoMouYg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Requisitos de adopción",
+          "variations": []
+        }
+      ]
+    },
+    "oulyKljARVL7xFzb/E1K6g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Antes de considerar la adopción, asegúrese de que:",
+          "variations": []
+        }
+      ]
+    },
+    "IWeQXViCmZ9IAXq7eHRhyg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "eres mayor de 18 años",
+          "variations": []
+        }
+      ]
+    },
+    "DUIB2CQM+FzNC7fRpC2P3Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "llenaste el formulario de adopción y fue aprobado",
+          "variations": []
+        }
+      ]
+    },
+    "JBfzytaKySnST3G0Y5UtKw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "tienes INE válida y comprobante de domicilio",
+          "variations": []
+        }
+      ]
+    },
+    "2Qn9XN/eqcJm9rcXjA10Gw==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "entiendes las tarifas de adopción asociadas",
+          "variations": []
+        }
+      ]
+    },
+    "gsqVS83mN+Lxi8BLO2qTGQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "consideras la adopción con seriedad y eres capaz de darle al gatito adoptado una vida de calidad",
           "variations": []
         }
       ]
