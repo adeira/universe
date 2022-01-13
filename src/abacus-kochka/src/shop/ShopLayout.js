@@ -1,7 +1,7 @@
 // @flow
 
 import sx from '@adeira/sx';
-import { ButtonLink, Text } from '@adeira/sx-design';
+import { ButtonLink, MediaQueryDevice, Text } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -102,15 +102,15 @@ export default function ShopLayout(): Node {
 
 const styles = sx.create({
   shopGrid: {
-    'width': '100%',
-    'display': 'grid',
-    'gap': '1rem',
-    'gridTemplateAreas': `
+    width: '100%',
+    display: 'grid',
+    gap: '1rem',
+    gridTemplateAreas: `
       "shopGridCategories"
       "shopGridRelevance"
       "shopGridContent"
     `,
-    '@media (min-width: 600px)': {
+    [MediaQueryDevice.DESKTOP]: {
       gridTemplateColumns: '150px minmax(200px, 1fr) 150px',
       gridTemplateAreas: `
         "shopGridCategories shopGridContent shopGridRelevance"
@@ -118,8 +118,8 @@ const styles = sx.create({
     },
   },
   shopGridCategories: {
-    'gridArea': 'shopGridCategories',
-    '@media (min-width: 600px)': {
+    gridArea: 'shopGridCategories',
+    [MediaQueryDevice.DESKTOP]: {
       marginInlineStart: '1rem',
     },
   },
@@ -127,8 +127,8 @@ const styles = sx.create({
     gridArea: 'shopGridContent',
   },
   shopGridRelevance: {
-    'gridArea': 'shopGridRelevance',
-    '@media (min-width: 600px)': {
+    gridArea: 'shopGridRelevance',
+    [MediaQueryDevice.DESKTOP]: {
       marginInlineEnd: '1rem',
     },
   },

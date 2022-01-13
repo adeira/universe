@@ -1,6 +1,7 @@
 // @flow
 
 import { QueryRenderer, graphql } from '@adeira/relay';
+import { MediaQueryDevice } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
@@ -70,10 +71,10 @@ export default function Menu(): Node {
 
 const styles = sx.create({
   menuGrid: {
-    'margin': '0 auto',
-    'display': 'grid',
-    'gap': '2rem',
-    'gridTemplateAreas': `
+    margin: '0 auto',
+    display: 'grid',
+    gap: '2rem',
+    gridTemplateAreas: `
       "coffee"
       "tea"
       "specialities"
@@ -81,7 +82,7 @@ const styles = sx.create({
       "kochkadas"
       "ciabattas"
     `,
-    '@media (min-width: 600px)': {
+    [MediaQueryDevice.DESKTOP]: {
       gridTemplateColumns: '1fr 1fr',
       gridTemplateAreas: `
         "coffee tea"

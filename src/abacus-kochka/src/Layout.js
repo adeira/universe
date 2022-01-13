@@ -6,8 +6,10 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import { Text } from '@adeira/sx-design';
 
+import KochkaIcon from './design/svg/KochkaIcon';
 import LayoutFooter from './LayoutFooter';
-import LayoutNavigation from './LayoutNavigation';
+import LinkInternal from './LinkInternal';
+import Navigation from './Navigation';
 
 type Props =
   | {
@@ -41,7 +43,12 @@ export default function Layout(props: Props): React.Node {
       </Head>
 
       <div className={styles('wrapper')}>
-        <LayoutNavigation />
+        <div className={styles('navigation')}>
+          <LinkInternal href="/">
+            <KochkaIcon size={65} />
+          </LinkInternal>
+          <Navigation />
+        </div>
 
         {props.withHiddenTitle === true ? null : (
           <div className={styles('heading')}>
@@ -66,6 +73,15 @@ const styles = sx.create({
   wrapper: {
     padding: 0,
     margin: 0,
+  },
+  navigation: {
+    paddingBlock: 5,
+    paddingInline: 15,
+    backgroundColor: 'rgba(var(--main-bg-color-dark))',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   main: {
     color: 'rgba(var(--sx-foreground))',
