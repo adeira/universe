@@ -48,6 +48,6 @@ warp = { version = "0.3.2", default-features = false, features = ["multipart", "
 [dev-dependencies]
 insta = { version = "1.10.0", default-features = false, features = ["colors", "ron", "redactions"] }
 proptest = "1.0.0"
-signedsource = { version = "0.3.0", default-features = false }
+signedsource = { path = "../signedsource", default-features = false }
 tokio = { version = "1.15.0", default-features = false, features = ["full"] }
 valico = "3.6.0"
