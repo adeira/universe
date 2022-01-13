@@ -940,17 +940,17 @@
   },
   {
    "hashToText": {
-    "jeeV8mkcrYTKRwa5GpmP3A==": "Adoption fee*"
+    "DKvdWpk5tmt93px+TRa8mw==": "Adoption fee"
    },
    "filepath": "pages/adopt.js",
    "line_beg": 63,
    "col_beg": 22,
    "line_end": 63,
-   "col_end": 80,
+   "col_end": 79,
    "desc": "table header: adoption fee",
    "project": "",
    "type": "text",
-   "jsfbt": "Adoption fee*"
+   "jsfbt": "Adoption fee"
   },
   {
    "hashToText": {
@@ -982,12 +982,26 @@
   },
   {
    "hashToText": {
+    "hf8uKEqUiYoq4b2mewVtSA==": "The adoption fee includes:"
+   },
+   "filepath": "pages/adopt.js",
+   "line_beg": 79,
+   "col_beg": 10,
+   "line_end": 79,
+   "col_end": 72,
+   "desc": "article paragraph",
+   "project": "",
+   "type": "text",
+   "jsfbt": "The adoption fee includes:"
+  },
+  {
+   "hashToText": {
     "LskCJ5nUFQUoKHBfugVs6A==": "sterilization surgery (in case the age allows it)"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 81,
+   "line_beg": 83,
    "col_beg": 12,
-   "line_end": 81,
+   "line_end": 83,
    "col_end": 94,
    "desc": "adoption fee 1",
    "project": "",
@@ -996,26 +1010,26 @@
   },
   {
    "hashToText": {
-    "cKRb1v6d42Efa++QpfpesQ==": "recommended vaccinations"
+    "2zeEeHMZj2AjllnLWvLaKA==": "recommended vaccinations (rabies and \"triple felina\")"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 84,
+   "line_beg": 86,
    "col_beg": 12,
-   "line_end": 84,
-   "col_end": 69,
+   "line_end": 88,
+   "col_end": 18,
    "desc": "adoption fee 2",
    "project": "",
    "type": "text",
-   "jsfbt": "recommended vaccinations"
+   "jsfbt": "recommended vaccinations (rabies and \"triple felina\")"
   },
   {
    "hashToText": {
     "VK9SlBTtiYUyoSSCcHYjzA==": "initial worming"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 87,
+   "line_beg": 91,
    "col_beg": 12,
-   "line_end": 87,
+   "line_end": 91,
    "col_end": 60,
    "desc": "adoption fee 3",
    "project": "",
@@ -1027,9 +1041,9 @@
     "gXs8IYY7Khdi8/pzxwpzzA==": "fleas treatment"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 90,
+   "line_beg": 94,
    "col_beg": 12,
-   "line_end": 90,
+   "line_end": 94,
    "col_end": 60,
    "desc": "adoption fee 4",
    "project": "",
@@ -1041,9 +1055,9 @@
     "D+bTXmwr5eDOKxnDViXmRg==": "Generally speaking, we do not make any profit from the adoption fees. We usually spend more money on the cats to give them a great and healthy life. The adoption fee simply helps us to lower the financial impact on our business."
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 94,
+   "line_beg": 98,
    "col_beg": 10,
-   "line_end": 98,
+   "line_end": 102,
    "col_end": 16,
    "desc": "article paragraph",
    "project": "",
@@ -1052,26 +1066,12 @@
   },
   {
    "hashToText": {
-    "1CVSOCEbrPXj8HNGOW7Z1A==": "*High-interest animals may have a higher adoption fee. Please, get in touch with us for details."
-   },
-   "filepath": "pages/adopt.js",
-   "line_beg": 101,
-   "col_beg": 10,
-   "line_end": 104,
-   "col_end": 16,
-   "desc": "article footnote",
-   "project": "",
-   "type": "text",
-   "jsfbt": "*High-interest animals may have a higher adoption fee. Please, get in touch with us for details."
-  },
-  {
-   "hashToText": {
     "4F6ZuT0XrHxABO4AoMouYg==": "Adoption requirements"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 108,
+   "line_beg": 106,
    "col_beg": 10,
-   "line_end": 108,
+   "line_end": 106,
    "col_end": 89,
    "desc": "Article title H3: Adoption requirements",
    "project": "",
@@ -1083,9 +1083,9 @@
     "oulyKljARVL7xFzb/E1K6g==": "Before considering adoption, please make sure that:"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 111,
+   "line_beg": 109,
    "col_beg": 10,
-   "line_end": 111,
+   "line_end": 109,
    "col_end": 97,
    "desc": "article paragraph",
    "project": "",
@@ -1097,9 +1097,9 @@
     "IWeQXViCmZ9IAXq7eHRhyg==": "you are older than 18 years"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 115,
+   "line_beg": 113,
    "col_beg": 12,
-   "line_end": 115,
+   "line_end": 113,
    "col_end": 81,
    "desc": "adoption requirements 1",
    "project": "",
@@ -1111,9 +1111,9 @@
     "DUIB2CQM+FzNC7fRpC2P3Q==": "you filled the adoption form and it was approved"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 118,
+   "line_beg": 116,
    "col_beg": 12,
-   "line_end": 120,
+   "line_end": 118,
    "col_end": 18,
    "desc": "adoption requirements 2",
    "project": "",
@@ -1125,9 +1125,9 @@
     "JBfzytaKySnST3G0Y5UtKw==": "you have valid INE and \"comprobante de domicilio\""
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 123,
+   "line_beg": 121,
    "col_beg": 12,
-   "line_end": 125,
+   "line_end": 123,
    "col_end": 18,
    "desc": "adoption requirements 3",
    "project": "",
@@ -1139,9 +1139,9 @@
     "2Qn9XN/eqcJm9rcXjA10Gw==": "you understand the associated adoption fees"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 128,
+   "line_beg": 126,
    "col_beg": 12,
-   "line_end": 128,
+   "line_end": 126,
    "col_end": 97,
    "desc": "adoption requirements 4",
    "project": "",
@@ -1153,9 +1153,9 @@
     "gsqVS83mN+Lxi8BLO2qTGQ==": "you mean the adoption seriously and are able to give the adopted cat a great life"
    },
    "filepath": "pages/adopt.js",
-   "line_beg": 131,
+   "line_beg": 129,
    "col_beg": 12,
-   "line_end": 133,
+   "line_end": 131,
    "col_end": 18,
    "desc": "adoption requirements 5",
    "project": "",

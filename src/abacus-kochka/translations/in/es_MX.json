@@ -651,12 +651,12 @@
         }
       ]
     },
-    "jeeV8mkcrYTKRwa5GpmP3A==": {
+    "DKvdWpk5tmt93px+TRa8mw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Tarifas de adopción*",
+          "translation": "Tarifas de adopción",
           "variations": []
         }
       ]
@@ -681,6 +681,16 @@
         }
       ]
     },
+    "hf8uKEqUiYoq4b2mewVtSA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "La tarifa de adopción incluye:",
+          "variations": []
+        }
+      ]
+    },
     "LskCJ5nUFQUoKHBfugVs6A==": {
       "tokens": [],
       "types": [],
@@ -691,12 +701,12 @@
         }
       ]
     },
-    "cKRb1v6d42Efa++QpfpesQ==": {
+    "2zeEeHMZj2AjllnLWvLaKA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "vacunas recomendadas",
+          "translation": "vacunas recomendadas (rabia y triple felina)",
           "variations": []
         }
       ]
@@ -726,17 +736,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "En términos generales, no obtenemos ningún beneficio de las tasas de adopción. Regularmente gastamos más dinero del que se pide en los gatitos para darles una vida buena y saludable. La tarifa de adopción simplemente nos ayuda a reducir el impacto financiero en nuestro negocio.",
-          "variations": []
-        }
-      ]
-    },
-    "1CVSOCEbrPXj8HNGOW7Z1A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "*Los animales de alto interés pueden tener una tasa de adopción más alta, por favor, póngase en contacto con nosotros para más detalles.",
+          "translation": "En términos generales, no obtenemos ninguna ganancia de las tarifas de adopción. Regularmente gastamos más dinero del que se pide en los gatitos para darles una vida buena y saludable. La tarifa de adopción simplemente nos ayuda a reducir el impacto financiero en nuestro negocio.",
           "variations": []
         }
       ]
