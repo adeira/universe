@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF } = require('../constants');
+const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
 
@@ -20,6 +20,7 @@ module.exports = ({
     '@next/next/no-css-tags': ERROR,
     '@next/next/no-document-import-in-page': ERROR,
     '@next/next/no-duplicate-head': ERROR,
+    '@next/next/no-head-element': NEXT_VERSION_ERROR,
     '@next/next/no-head-import-in-document': ERROR,
     '@next/next/no-html-link-for-pages': ERROR,
     '@next/next/no-img-element': ERROR,
