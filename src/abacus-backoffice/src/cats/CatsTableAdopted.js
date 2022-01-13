@@ -21,6 +21,8 @@ export default function CatsTableAdopted(props: Props): Node {
           dateOfCastration
           dateOfDeworming
           dateOfAdoption
+          dateOfVaccinationRabies
+          dateOfVaccinationTripleFelina
         }
       }
     `,
@@ -56,6 +58,18 @@ export default function CatsTableAdopted(props: Props): Node {
           Header: <fbt desc="date of the cat adoption (table header)">Date of adoption</fbt>,
           accessor: 'col5',
         },
+        {
+          Header: <fbt desc="rabies vaccination (table header)">Rabies vaccination</fbt>,
+          accessor: 'col6',
+        },
+        {
+          Header: (
+            <fbt desc="vaccination triple felina (table header)">
+              Vaccination &quot;triple felina&quot;
+            </fbt>
+          ),
+          accessor: 'col7',
+        },
       ]}
       data={cats.adoptedCats.map((cat) => {
         return {
@@ -64,6 +78,8 @@ export default function CatsTableAdopted(props: Props): Node {
           col3: cat.dateOfCastration ?? <MissingData />,
           col4: cat.dateOfDeworming ?? <MissingData />,
           col5: cat.dateOfAdoption ?? <MissingData />,
+          col6: cat.dateOfVaccinationRabies ?? <MissingData />,
+          col7: cat.dateOfVaccinationTripleFelina ?? <MissingData />,
         };
       })}
     />

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ec32ff1144430f9937e0839b535a75da>>
+ * @generated SignedSource<<67628304201b65a9bb097b554f372724>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -22,6 +22,8 @@ export type CatsTableAdoptedFragment$data = {|
     +dateOfCastration: ?string,
     +dateOfDeworming: ?string,
     +dateOfAdoption: ?string,
+    +dateOfVaccinationRabies: ?string,
+    +dateOfVaccinationTripleFelina: ?string,
   |}>,
   +$fragmentType: CatsTableAdoptedFragment$fragmentType,
 |};
@@ -89,6 +91,20 @@ var node/*: ReaderFragment*/ = {
           "kind": "ScalarField",
           "name": "dateOfAdoption",
           "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "dateOfVaccinationRabies",
+          "storageKey": null
+        },
+        {
+          "alias": null,
+          "args": null,
+          "kind": "ScalarField",
+          "name": "dateOfVaccinationTripleFelina",
+          "storageKey": null
         }
       ],
       "storageKey": "listAllCats(allCatsFilter:{\"adopted\":true})"
@@ -99,7 +115,7 @@ var node/*: ReaderFragment*/ = {
 };
 
 if (__DEV__) {
-  (node/*: any*/).hash = "9c25db35b12efbb28dcd0e1aec208a4f";
+  (node/*: any*/).hash = "67f7834608958f21beff837dccfe629b";
 }
 
 module.exports = ((node/*: any*/)/*: Fragment<
