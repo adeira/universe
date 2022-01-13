@@ -94,12 +94,12 @@ mod tests {
     /// file, not the whole monorepo)
     #[test]
     fn schema_snapshot_test() {
-        let new_schema_path = "./schema.graphql.new";
-        let saved_schema_path = "./schema.graphql";
+        let new_schema_path = "./../schema.graphql.new";
+        let saved_schema_path = "./../schema.graphql";
         test_graphql_schema_snapshot(
             &super::create_graphql_schema().as_schema_language(),
-            &new_schema_path,
-            &saved_schema_path,
+            new_schema_path,
+            saved_schema_path,
         );
     }
 }
