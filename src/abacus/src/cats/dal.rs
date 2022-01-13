@@ -11,6 +11,8 @@ pub struct CatInfo {
     date_adoption: Option<String>,
     date_deworming: Option<String>,
     date_castration: Option<String>,
+    date_vaccination_rabies: Option<String>,
+    date_vaccination_triple_felina: Option<String>,
 }
 
 #[juniper::graphql_object]
@@ -45,6 +47,14 @@ impl CatInfo {
     /// When was the cat castrated.
     fn date_of_castration(&self) -> Option<String> {
         self.date_castration.to_owned()
+    }
+
+    fn date_of_vaccination_rabies(&self) -> Option<String> {
+        self.date_vaccination_rabies.to_owned()
+    }
+
+    fn date_of_vaccination_triple_felina(&self) -> Option<String> {
+        self.date_vaccination_triple_felina.to_owned()
     }
 }
 
