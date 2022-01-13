@@ -60,7 +60,7 @@ export default function RulesPage(): React.Node {
           columns={[
             { Header: <fbt desc="table header: cat age">Cat age</fbt>, accessor: 'col1' },
             {
-              Header: <fbt desc="table header: adoption fee">Adoption fee*</fbt>,
+              Header: <fbt desc="table header: adoption fee">Adoption fee</fbt>,
               accessor: 'col2',
             },
           ]}
@@ -75,13 +75,17 @@ export default function RulesPage(): React.Node {
             },
           ]}
         />
-        <Text as="p">The adoption fee includes:</Text>
+        <Text as="p">
+          <fbt desc="article paragraph">The adoption fee includes:</fbt>
+        </Text>
         <ul>
           <li>
             <fbt desc="adoption fee 1">sterilization surgery (in case the age allows it)</fbt>
           </li>
           <li>
-            <fbt desc="adoption fee 2">recommended vaccinations</fbt>
+            <fbt desc="adoption fee 2">
+              recommended vaccinations (rabies and &quot;triple felina&quot;)
+            </fbt>
           </li>
           <li>
             <fbt desc="adoption fee 3">initial worming</fbt>
@@ -97,12 +101,6 @@ export default function RulesPage(): React.Node {
             helps us to lower the financial impact on our business.
           </fbt>
         </Text>
-        <em>
-          <fbt desc="article footnote">
-            *High-interest animals may have a higher adoption fee. Please, get in touch with us for
-            details.
-          </fbt>
-        </em>
 
         <Text as="h3">
           <fbt desc="Article title H3: Adoption requirements">Adoption requirements</fbt>
