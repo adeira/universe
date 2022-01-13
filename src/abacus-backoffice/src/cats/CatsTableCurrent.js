@@ -20,6 +20,8 @@ export default function CatsTableCurrent(props: Props): Node {
           name
           dateOfCastration
           dateOfDeworming
+          dateOfVaccinationRabies
+          dateOfVaccinationTripleFelina
         }
       }
     `,
@@ -51,6 +53,18 @@ export default function CatsTableCurrent(props: Props): Node {
           ),
           accessor: 'col4',
         },
+        {
+          Header: <fbt desc="rabies vaccination (table header)">Rabies vaccination</fbt>,
+          accessor: 'col5',
+        },
+        {
+          Header: (
+            <fbt desc="vaccination triple felina (table header)">
+              Vaccination &quot;triple felina&quot;
+            </fbt>
+          ),
+          accessor: 'col6',
+        },
       ]}
       data={cats.currentCats.map((cat) => {
         return {
@@ -58,6 +72,8 @@ export default function CatsTableCurrent(props: Props): Node {
           col2: cat.name,
           col3: cat.dateOfCastration ?? <MissingData />, // TODO: display with warning/error when around 4 months old
           col4: cat.dateOfDeworming ?? <MissingData />, // TODO: display with warning/error
+          col5: cat.dateOfVaccinationRabies ?? <MissingData />,
+          col6: cat.dateOfVaccinationTripleFelina ?? <MissingData />,
         };
       })}
     />

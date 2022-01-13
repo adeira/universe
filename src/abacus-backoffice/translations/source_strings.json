@@ -5,9 +5,9 @@
     "dZ+Vz30jY5ATqTW64xzopA==": "Hits"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 27,
+   "line_beg": 26,
    "col_beg": 18,
-   "line_end": 27,
+   "line_end": 26,
    "col_end": 71,
    "desc": "how many hits did the link get",
    "project": "",
@@ -19,9 +19,9 @@
     "WFpN8i+HIen1iISPJbUg4w==": "Origin"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 28,
+   "line_beg": 27,
    "col_beg": 18,
-   "line_end": 28,
+   "line_end": 27,
    "col_end": 75,
    "desc": "what is out origin redirect link",
    "project": "",
@@ -33,9 +33,9 @@
     "duLKZvjku3aFE0HIZnmQ0A==": "Destination"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 30,
+   "line_beg": 29,
    "col_beg": 18,
-   "line_end": 30,
+   "line_end": 29,
    "col_end": 85,
    "desc": "where does our redirect link point to",
    "project": "",
@@ -47,9 +47,9 @@
     "VPvoLDopbOVWpDWlJUooWg==": "Description"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 34,
+   "line_beg": 33,
    "col_beg": 18,
-   "line_end": 34,
+   "line_end": 33,
    "col_end": 82,
    "desc": "description or purpose of the link",
    "project": "",
@@ -62,9 +62,9 @@
     "9RUeL66Cftv4//bLrdiiqg==": "1 hit"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 42,
+   "line_beg": 41,
    "col_beg": 12,
-   "line_end": 46,
+   "line_end": 45,
    "col_end": 18,
    "desc": "number of hits",
    "project": "",
@@ -88,9 +88,9 @@
     "IJ2JdxovFDHoSZY/UWeWRw==": "active"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
-   "line_beg": 61,
+   "line_beg": 60,
    "col_beg": 14,
-   "line_end": 61,
+   "line_end": 60,
    "col_end": 52,
    "desc": "active status",
    "project": "",
@@ -242,9 +242,9 @@
     "s4htMawiaPZXaxWElrK25A==": "Order"
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 34,
+   "line_beg": 36,
    "col_beg": 18,
-   "line_end": 34,
+   "line_end": 36,
    "col_end": 73,
    "desc": "order of the cat (table header)",
    "project": "",
@@ -256,9 +256,9 @@
     "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 38,
+   "line_beg": 40,
    "col_beg": 18,
-   "line_end": 38,
+   "line_end": 40,
    "col_end": 82,
    "desc": "name of the cat (table header)",
    "project": "",
@@ -270,9 +270,9 @@
     "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 43,
+   "line_beg": 45,
    "col_beg": 12,
-   "line_end": 45,
+   "line_end": 47,
    "col_end": 18,
    "desc": "date when the cat castration was performed (table header)",
    "project": "",
@@ -284,9 +284,9 @@
     "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 51,
+   "line_beg": 53,
    "col_beg": 12,
-   "line_end": 51,
+   "line_end": 53,
    "col_end": 94,
    "desc": "date of the last deworming (table header)",
    "project": "",
@@ -298,9 +298,9 @@
     "BL5tZ7CN41VT6AJQuPPNQw==": "Date of adoption"
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 56,
+   "line_beg": 58,
    "col_beg": 18,
-   "line_end": 56,
+   "line_end": 58,
    "col_end": 92,
    "desc": "date of the cat adoption (table header)",
    "project": "",
@@ -309,12 +309,40 @@
   },
   {
    "hashToText": {
+    "J7zROkPz6dZNh1xxbNQcVg==": "Rabies vaccination"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 62,
+   "col_beg": 18,
+   "line_end": 62,
+   "col_end": 88,
+   "desc": "rabies vaccination (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rabies vaccination"
+  },
+  {
+   "hashToText": {
+    "EExPHIUJXU+A80QOawNt+w==": "Vaccination \"triple felina\""
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 67,
+   "col_beg": 12,
+   "line_end": 69,
+   "col_end": 18,
+   "desc": "vaccination triple felina (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Vaccination \"triple felina\""
+  },
+  {
+   "hashToText": {
     "s4htMawiaPZXaxWElrK25A==": "Order"
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 33,
+   "line_beg": 35,
    "col_beg": 18,
-   "line_end": 33,
+   "line_end": 35,
    "col_end": 73,
    "desc": "order of the cat (table header)",
    "project": "",
@@ -326,9 +354,9 @@
     "TS5eOvI9j7ryhkifltRJwQ==": "Name of the cat"
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 37,
+   "line_beg": 39,
    "col_beg": 18,
-   "line_end": 37,
+   "line_end": 39,
    "col_end": 82,
    "desc": "name of the cat (table header)",
    "project": "",
@@ -340,9 +368,9 @@
     "dnySRGk7SfYD+/xGMik0yg==": "Date of castration"
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 42,
+   "line_beg": 44,
    "col_beg": 12,
-   "line_end": 44,
+   "line_end": 46,
    "col_end": 18,
    "desc": "date when the cat castration was performed (table header)",
    "project": "",
@@ -354,9 +382,9 @@
     "0uUQp4khMrJzUvN+BEbRBA==": "Date of last deworming"
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 50,
+   "line_beg": 52,
    "col_beg": 12,
-   "line_end": 50,
+   "line_end": 52,
    "col_end": 94,
    "desc": "date of the last deworming (table header)",
    "project": "",
@@ -365,12 +393,40 @@
   },
   {
    "hashToText": {
+    "J7zROkPz6dZNh1xxbNQcVg==": "Rabies vaccination"
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 57,
+   "col_beg": 18,
+   "line_end": 57,
+   "col_end": 88,
+   "desc": "rabies vaccination (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rabies vaccination"
+  },
+  {
+   "hashToText": {
+    "EExPHIUJXU+A80QOawNt+w==": "Vaccination \"triple felina\""
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 62,
+   "col_beg": 12,
+   "line_end": 64,
+   "col_end": 18,
+   "desc": "vaccination triple felina (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Vaccination \"triple felina\""
+  },
+  {
+   "hashToText": {
     "wXxqr4P+NzW6b6NUHmNH/A==": "Status"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 26,
+   "line_beg": 25,
    "col_beg": 18,
-   "line_end": 26,
+   "line_end": 25,
    "col_end": 71,
    "desc": "status of an employee record",
    "project": "",
@@ -382,9 +438,9 @@
     "SoHvemP3nPna3V7E0KnAvg==": "Name"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 27,
+   "line_beg": 26,
    "col_beg": 18,
-   "line_end": 27,
+   "line_end": 26,
    "col_end": 61,
    "desc": "name of the employee",
    "project": "",
@@ -396,9 +452,9 @@
     "cDuUp7H3Z3pcA1USmdXIyw==": "active"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 34,
+   "line_beg": 33,
    "col_beg": 14,
-   "line_end": 34,
+   "line_end": 33,
    "col_end": 64,
    "desc": "active user - label title",
    "project": "",
@@ -410,9 +466,9 @@
     "J0MsIYnMPKiz7ubGl3IyyA==": "inactive"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 38,
+   "line_beg": 37,
    "col_beg": 14,
-   "line_end": 38,
+   "line_end": 37,
    "col_end": 68,
    "desc": "inactive user - label title",
    "project": "",
@@ -424,9 +480,9 @@
     "ljdn3Wlj6+RtF2CehM///w==": "email verified"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 44,
+   "line_beg": 43,
    "col_beg": 14,
-   "line_end": 44,
+   "line_end": 43,
    "col_end": 84,
    "desc": "user has email verifies - label title",
    "project": "",
@@ -438,9 +494,9 @@
     "eOYUb4Hm7JmwXrcob9M5iw==": "email NOT verified"
    },
    "filepath": "src/employees/EmployeesPage.js",
-   "line_beg": 48,
+   "line_beg": 47,
    "col_beg": 14,
-   "line_end": 48,
+   "line_end": 47,
    "col_end": 97,
    "desc": "user doesn't have email verifies - label title",
    "project": "",
