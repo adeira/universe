@@ -47,15 +47,6 @@ updates:
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'cargo'
-    directory: '/src/signedsource-rs/'
-    schedule:
-      interval: 'daily'
-    labels:
-      - 'dependencies'
-      - 'automerge'
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: 'cargo'
     directory: '/src/abacus/'
     schedule:
       interval: 'daily'
