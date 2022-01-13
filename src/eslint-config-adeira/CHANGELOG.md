@@ -1,6 +1,7 @@
 # Unreleased
 
 - New rules from [`eslint-plugin-jest-dom`](https://github.com/testing-library/eslint-plugin-jest-dom) were enabled in the React preset (warnings or errors in strict mode). All of them are auto-fixable so the migration should be seamless.
+- New rule [`@next/next/no-head-element`](https://nextjs.org/docs/messages/no-head-element) enabled in the Next.js preset (warnings or errors in strict mode).
 
 # 7.0.0
 
