@@ -33,7 +33,7 @@ export default function LinkInternal(props: Props): React.Node {
   const isActive = router.pathname === props.href;
 
   return (
-    <Text size={props.size} weight={props.weight}>
+    <Text size={props.size} weight={props.weight} as="span">
       <NextLink href={props.href} locale={router.locale} passHref={true}>
         <SXLink href={props.href} isActive={isActive} xstyle={props.xstyle}>
           {props.children}

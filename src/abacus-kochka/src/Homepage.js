@@ -1,20 +1,23 @@
 // @flow
 
-import { Text } from '@adeira/sx-design';
+import { Text, MediaQueryDevice } from '@adeira/sx-design';
 import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
 import HomepageFooter from './HomepageFooter';
 import Logo from './Logo';
-import HomepageNavigation from './HomepageNavigation';
+import Navigation from './Navigation';
 import SocialMediaIcons from './SocialMediaIcons';
 
 export default function Homepage(): React.Node {
   return (
     <div className={styles('background')}>
       <div className={styles('backgroundOverlay')}>
-        <HomepageNavigation />
+        <div className={styles('navigation')}>
+          <Navigation />
+        </div>
+
         <main id="main" className={styles('root')}>
           <div className={styles('center')}>
             <Logo />
@@ -39,6 +42,16 @@ export default function Homepage(): React.Node {
 }
 
 const styles = sx.create({
+  navigation: {
+    display: 'flex',
+    margin: 10,
+    [MediaQueryDevice.DESKTOP]: {
+      justifyContent: 'center',
+    },
+    [MediaQueryDevice.MOBILE]: {
+      justifyContent: 'end',
+    },
+  },
   root: {
     flex: 1,
     display: 'flex',

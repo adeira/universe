@@ -1,5 +1,6 @@
 // @flow
 
+import Icon from '@adeira/icons';
 import {
   LayoutBlock,
   LayoutInline,
@@ -49,7 +50,7 @@ export default function Contributions(): React.Node {
 
   return (
     <Layout
-      title={<fbt desc="contribute page title">♥️ Voluntary contribution ♥️</fbt>}
+      title={<fbt desc="contribute page title">Voluntary contribution</fbt>}
       subtitle={
         <fbt desc="contribute page subtitle">Help us create a better life for our cats</fbt>
       }
@@ -75,7 +76,8 @@ export default function Contributions(): React.Node {
         {/* One-time contributions: */}
 
         <Text as="h3">
-          <fbt desc="one-time contribution subtitle">One-time contribution ♥️</fbt>
+          <fbt desc="one-time contribution subtitle">One-time contribution</fbt>{' '}
+          <Icon name="heart" />
         </Text>
         <Text>
           <fbt desc="one-time contribution description">
@@ -108,7 +110,9 @@ export default function Contributions(): React.Node {
         {/* Recurring contributions: */}
 
         <Text as="h3">
-          <fbt desc="recurring contribution subtitle">Recurring contribution (monthly) ♥♥️️</fbt>
+          <fbt desc="recurring contribution subtitle">Recurring contribution (monthly)️️</fbt>{' '}
+          <Icon name="heart" />
+          <Icon name="heart" />
         </Text>
         <Text>
           <fbt desc="recurring contribution description">

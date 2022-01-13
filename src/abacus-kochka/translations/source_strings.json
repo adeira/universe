@@ -2,26 +2,26 @@
  "phrases": [
   {
    "hashToText": {
-    "hDyrNnE41nUuLcUMu5y59A==": "♥️ Voluntary contribution ♥️"
+    "4aOHtYbmcWhHdi94aqvM3g==": "Voluntary contribution"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 52,
+   "line_beg": 53,
    "col_beg": 13,
-   "line_end": 52,
-   "col_end": 81,
+   "line_end": 53,
+   "col_end": 75,
    "desc": "contribute page title",
    "project": "",
    "type": "text",
-   "jsfbt": "♥️ Voluntary contribution ♥️"
+   "jsfbt": "Voluntary contribution"
   },
   {
    "hashToText": {
     "T+NpfkAZAp+bLGBtDuSG4g==": "Help us create a better life for our cats"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 54,
+   "line_beg": 55,
    "col_beg": 8,
-   "line_end": 54,
+   "line_end": 55,
    "col_end": 92,
    "desc": "contribute page subtitle",
    "project": "",
@@ -33,9 +33,9 @@
     "6Oth475/NFsGCQ2q74WOWQ==": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 59,
+   "line_beg": 60,
    "col_beg": 10,
-   "line_end": 65,
+   "line_end": 66,
    "col_end": 16,
    "desc": "paragraph",
    "project": "",
@@ -47,9 +47,9 @@
     "XhlPcB0basIcObgeU+J78w==": "KOCHKA Café"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 60,
+   "line_beg": 61,
    "col_beg": 33,
-   "line_end": 60,
+   "line_end": 61,
    "col_end": 61,
    "desc": "In the phrase: \"The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.\"",
    "project": "",
@@ -61,9 +61,9 @@
     "hNJdF5T8ZRQPBqRHQy+EWQ==": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 68,
+   "line_beg": 69,
    "col_beg": 10,
-   "line_end": 72,
+   "line_end": 73,
    "col_end": 16,
    "desc": "paragraph",
    "project": "",
@@ -72,26 +72,26 @@
   },
   {
    "hashToText": {
-    "CVAijOv5C0UslzBPMhL7SA==": "One-time contribution ♥️"
+    "TZWdWO+kvimA1Jjp1DlvTw==": "One-time contribution"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 78,
+   "line_beg": 79,
    "col_beg": 10,
-   "line_end": 78,
-   "col_end": 83,
+   "line_end": 79,
+   "col_end": 80,
    "desc": "one-time contribution subtitle",
    "project": "",
    "type": "text",
-   "jsfbt": "One-time contribution ♥️"
+   "jsfbt": "One-time contribution"
   },
   {
    "hashToText": {
     "bZr1fe9zJldIOJ8L3xFdNA==": "Show us your support by sending a one-time contribution. You will be charged only once."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 81,
+   "line_beg": 83,
    "col_beg": 10,
-   "line_end": 83,
+   "line_end": 85,
    "col_end": 16,
    "desc": "one-time contribution description",
    "project": "",
@@ -100,26 +100,26 @@
   },
   {
    "hashToText": {
-    "C/jBexWuGqox0yek4XyMUA==": "Recurring contribution (monthly) ♥♥️️"
+    "ejsLcPhQjCHyk4sR3EWxAA==": "Recurring contribution (monthly)️️"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 111,
+   "line_beg": 113,
    "col_beg": 10,
-   "line_end": 111,
-   "col_end": 97,
+   "line_end": 113,
+   "col_end": 94,
    "desc": "recurring contribution subtitle",
    "project": "",
    "type": "text",
-   "jsfbt": "Recurring contribution (monthly) ♥♥️️"
+   "jsfbt": "Recurring contribution (monthly)️️"
   },
   {
    "hashToText": {
     "ooSK/rLOxewJkJbSdcdPMQ==": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 114,
+   "line_beg": 118,
    "col_beg": 10,
-   "line_end": 117,
+   "line_end": 121,
    "col_end": 16,
    "desc": "recurring contribution description",
    "project": "",
@@ -131,9 +131,9 @@
     "9dbPRX1dP8RtMFaJxop9jg==": "{price} / month"
    },
    "filepath": "src/contributions/Contributions.js",
-   "line_beg": 130,
+   "line_beg": 134,
    "col_beg": 18,
-   "line_end": 138,
+   "line_end": 142,
    "col_end": 24,
    "desc": "recurring monetary value per month",
    "project": "",
@@ -173,9 +173,9 @@
     "T0DgXP5K+rwH+D4SJDbnsQ==": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats."
    },
    "filepath": "src/Homepage.js",
-   "line_beg": 24,
+   "line_beg": 27,
    "col_beg": 16,
-   "line_end": 26,
+   "line_end": 29,
    "col_end": 22,
    "desc": "catch phrase",
    "project": "",
@@ -212,166 +212,12 @@
   },
   {
    "hashToText": {
-    "ZTIT5d4Nmlu4o/Wb7qpAaQ==": "Menu"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 18,
-   "col_beg": 10,
-   "line_end": 18,
-   "col_end": 67,
-   "desc": "link to our menu from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Menu"
-  },
-  {
-   "hashToText": {
-    "rinbc6qu22nzP+CbAtPP6Q==": "Adopt"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 22,
-   "col_beg": 10,
-   "line_end": 22,
-   "col_end": 77,
-   "desc": "link to the adoption page from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Adopt"
-  },
-  {
-   "hashToText": {
-    "Eg3Cmf5NcWMLInFx4u9Ljg==": "Rules"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 26,
-   "col_beg": 10,
-   "line_end": 26,
-   "col_end": 69,
-   "desc": "link to our rules from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Rules"
-  },
-  {
-   "hashToText": {
-    "Jl7ke09TxJz/ttxyYXALfQ==": "Shop"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 31,
-   "col_beg": 12,
-   "line_end": 31,
-   "col_end": 69,
-   "desc": "link to the shop from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Shop"
-  },
-  {
-   "hashToText": {
-    "VYEswFAa4E04/Xqu+LPv5A==": "Contribute ♥️"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 37,
-   "col_beg": 12,
-   "line_end": 37,
-   "col_end": 91,
-   "desc": "link to the contribution page from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Contribute ♥️"
-  },
-  {
-   "hashToText": {
-    "n6tw27wXSGSf70t6gzskXQ==": "Home"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 29,
-   "col_beg": 14,
-   "line_end": 29,
-   "col_end": 78,
-   "desc": "link to the homepage from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Home"
-  },
-  {
-   "hashToText": {
-    "L0WJiJMAz6UZOMLGfq/EXw==": "Menu"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 34,
-   "col_beg": 14,
-   "line_end": 34,
-   "col_end": 79,
-   "desc": "link to the café menu from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Menu"
-  },
-  {
-   "hashToText": {
-    "xSNus6NyIj/A4JDsSzIRGQ==": "Adopt"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 39,
-   "col_beg": 14,
-   "line_end": 39,
-   "col_end": 81,
-   "desc": "link to the adopt page from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Adopt"
-  },
-  {
-   "hashToText": {
-    "A5NoowwCUNmKFr3s/nXG/w==": "Rules"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 44,
-   "col_beg": 14,
-   "line_end": 44,
-   "col_end": 81,
-   "desc": "link to the café rules from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Rules"
-  },
-  {
-   "hashToText": {
-    "ktONRQOJxnJhj9ebj+y1Dw==": "Shop"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 50,
-   "col_beg": 16,
-   "line_end": 50,
-   "col_end": 77,
-   "desc": "link to the eshop from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Shop"
-  },
-  {
-   "hashToText": {
-    "eZvcIisVQ0UqvsMX7CY6UA==": "Contribute ♥️"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 57,
-   "col_beg": 16,
-   "line_end": 57,
-   "col_end": 98,
-   "desc": "link to the contribution page from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Contribute ♥️"
-  },
-  {
-   "hashToText": {
     "EdoLPwaSsscEQmOCmVmdmA==": "Open positions"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 66,
+   "line_beg": 27,
    "col_beg": 14,
-   "line_end": 66,
+   "line_end": 27,
    "col_end": 87,
    "desc": "footer navigation link to open positions",
    "project": "",
@@ -383,9 +229,9 @@
     "9xbWs0pIv9Xy0lfCwF7DmQ==": "Terms of use"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 71,
+   "line_beg": 32,
    "col_beg": 14,
-   "line_end": 71,
+   "line_end": 32,
    "col_end": 83,
    "desc": "footer navigation link to terms of use",
    "project": "",
@@ -397,9 +243,9 @@
     "1UA4LJthdLxQou20Xu/Bzg==": "Shipping & Returns"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 77,
+   "line_beg": 38,
    "col_beg": 16,
-   "line_end": 77,
+   "line_end": 38,
    "col_end": 99,
    "desc": "footer navigation link to shipping and returns",
    "project": "",
@@ -411,98 +257,14 @@
     "eFpXXNeK5D+47kXDWsbnAg==": "Privacy Policy"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 83,
+   "line_beg": 44,
    "col_beg": 14,
-   "line_end": 83,
+   "line_end": 44,
    "col_end": 87,
    "desc": "footer navigation link to privacy policy",
    "project": "",
    "type": "text",
    "jsfbt": "Privacy Policy"
-  },
-  {
-   "hashToText": {
-    "AnWW7GmesxqieaEMwwAsbQ==": "Home"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 24,
-   "col_beg": 10,
-   "line_end": 24,
-   "col_end": 77,
-   "desc": "link to the homepage from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Home"
-  },
-  {
-   "hashToText": {
-    "E5Y8taJzgTvVw7JlJd8qbw==": "Menu"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 28,
-   "col_beg": 10,
-   "line_end": 28,
-   "col_end": 78,
-   "desc": "link to the café menu from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Menu"
-  },
-  {
-   "hashToText": {
-    "Vq+8I+twJCKxZBPFffZ11A==": "Adopt"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 32,
-   "col_beg": 10,
-   "line_end": 32,
-   "col_end": 83,
-   "desc": "link to the adoption page from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Adopt"
-  },
-  {
-   "hashToText": {
-    "oz5ITO6XGkR/D3yT47GqYg==": "Rules"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 36,
-   "col_beg": 10,
-   "line_end": 36,
-   "col_end": 80,
-   "desc": "link to the café rules from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Rules"
-  },
-  {
-   "hashToText": {
-    "oubYOKD/2Kkks5EsdTg1Vg==": "Shop"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 41,
-   "col_beg": 12,
-   "line_end": 41,
-   "col_end": 76,
-   "desc": "link to the eshop from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Shop"
-  },
-  {
-   "hashToText": {
-    "FfK2bj6SLTsfvIKsGTTp2Q==": "Contribute ♥️"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 49,
-   "col_beg": 12,
-   "line_end": 49,
-   "col_end": 97,
-   "desc": "link to the contribution page from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Contribute ♥️"
   },
   {
    "hashToText": {
@@ -601,6 +363,104 @@
    "project": "",
    "type": "text",
    "jsfbt": "Organic tea blends"
+  },
+  {
+   "hashToText": {
+    "1YLqzX/PtbBOLtiUcdmO5g==": "Navigation"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 33,
+   "col_beg": 10,
+   "line_end": 33,
+   "col_end": 79,
+   "desc": "menu button displayed on smaller screens",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Navigation"
+  },
+  {
+   "hashToText": {
+    "hsUYiKQLyiOxqS9DSTSB4w==": "Navigation"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 38,
+   "col_beg": 17,
+   "line_end": 38,
+   "col_end": 73,
+   "desc": "main navigation modal title",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Navigation"
+  },
+  {
+   "hashToText": {
+    "kuYCBlo2uo0CL2XQvd1JAw==": "Menu"
+   },
+   "filepath": "src/NavigationLinks.js",
+   "line_beg": 38,
+   "col_beg": 8,
+   "line_end": 38,
+   "col_end": 77,
+   "desc": "link to the café menu from our main navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Menu"
+  },
+  {
+   "hashToText": {
+    "2/2YfHIOTQBPe2NN5iDzHA==": "Adopt"
+   },
+   "filepath": "src/NavigationLinks.js",
+   "line_beg": 43,
+   "col_beg": 8,
+   "line_end": 43,
+   "col_end": 82,
+   "desc": "link to the adoption page from our main navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
+    "d/e8AfwzGWzIJOwgxriEMg==": "Rules"
+   },
+   "filepath": "src/NavigationLinks.js",
+   "line_beg": 48,
+   "col_beg": 8,
+   "line_end": 48,
+   "col_end": 79,
+   "desc": "link to the café rules from our main navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rules"
+  },
+  {
+   "hashToText": {
+    "631OVUZDEQF6mtbD8NUyHg==": "Shop"
+   },
+   "filepath": "src/NavigationLinks.js",
+   "line_beg": 53,
+   "col_beg": 8,
+   "line_end": 53,
+   "col_end": 73,
+   "desc": "link to the eshop from our main navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Shop"
+  },
+  {
+   "hashToText": {
+    "sY3J2OVXDvprP9Yw1wPdWQ==": "Contribute️"
+   },
+   "filepath": "src/NavigationLinks.js",
+   "line_beg": 59,
+   "col_beg": 10,
+   "line_end": 59,
+   "col_end": 94,
+   "desc": "link to the contribution page from our main navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Contribute️"
   },
   {
    "hashToText": {

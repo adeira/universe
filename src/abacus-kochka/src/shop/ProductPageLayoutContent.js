@@ -2,7 +2,7 @@
 
 import { graphql, QueryRenderer } from '@adeira/relay';
 import sx from '@adeira/sx';
-import { Note, Text, Image, Money, LayoutBlock } from '@adeira/sx-design';
+import { Note, Text, Image, Money, LayoutBlock, MediaQueryDevice } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 import { useRouter } from 'next/router';
@@ -85,9 +85,9 @@ export default function ProductPageLayoutContent(): Node {
 
 const styles = sx.create({
   layout: {
-    'display': 'grid',
-    'gap': '2rem',
-    '@media (min-width: 600px)': {
+    display: 'grid',
+    gap: '2rem',
+    [MediaQueryDevice.DESKTOP]: {
       gridTemplateColumns: '1fr 1fr',
     },
   },
