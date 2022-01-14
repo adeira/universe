@@ -14,7 +14,7 @@ WORKDIR app
 # Copy the compiled binary from the builder environment
 # to our runtime environment
 COPY --from=builder /app/target/release/server server
-COPY --from=builder /app/rbac_policy.csv rbac_policy.csv
+COPY --from=builder /app/server/rbac_policy.csv rbac_policy.csv
 EXPOSE 5000/tcp
 # When `docker run` is executed, launch the binary!
 ENTRYPOINT ["./server"]
