@@ -13,6 +13,7 @@ use uuid::Uuid;
 mod dal;
 
 pub(crate) struct AnalyticsQuery;
+pub(crate) struct AnalyticsMutation;
 
 #[juniper::graphql_object(context = Context)]
 impl AnalyticsQuery {
@@ -40,6 +41,22 @@ impl AnalyticsQuery {
     ) -> AbacusGraphQLResult<Vec<AnalyticsDailyReportInfo>> {
         rbac::verify_permissions(&context.user, &Analytics(GetDailyReports)).await?;
         Ok(get_daily_reports(&context.pool).await?)
+    }
+}
+
+// This is just a quick'n'dirty struct ready for some future development. At this moment FE
+// doesn't need to fetch anything as a response of `record_page_visit` mutation.
+#[derive(juniper::GraphQLObject)]
+pub struct PageVisit {
+    success: bool,
+}
+
+#[juniper::graphql_object(context = Context)]
+impl AnalyticsMutation {
+    /// Records page visit as a future replacement of Google Analytics (currently doesn't do much).
+    async fn record_page_visit(context: &Context) -> AbacusGraphQLResult<PageVisit> {
+        // todo!()
+        Ok(PageVisit { success: true })
     }
 }
 

@@ -1,4 +1,4 @@
-# @generated SignedSource<<e66df3137f2fbd162895e146edefa865>>
+# @generated SignedSource<<3418ffc93b3ab526b17022592ef09db6>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -123,6 +123,11 @@ input PosCheckoutInput {
   selectedProducts: [PosCheckoutProductInput!]!
 }
 
+type AnalyticsMutation {
+  "Records page visit as a future replacement of Google Analytics (currently doesn't do much)."
+  recordPageVisit: PageVisit!
+}
+
 """
 
         This type should be used together with GraphQL uploads and it should hold the file names
@@ -238,6 +243,10 @@ type CheckoutSession {
   paymentUrl: String
 }
 
+type PageVisit {
+  success: Boolean!
+}
+
 type PosCheckoutError {
   message: String!
 }
@@ -272,6 +281,7 @@ type CatsQuery {
 
 "Root mutation of the graph."
 type Mutation {
+  analytics: AnalyticsMutation!
   auth: AuthMutation!
   commerce: CommerceMutation!
   pos: POSMutation!
