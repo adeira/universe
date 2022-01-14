@@ -490,9 +490,6 @@ pub(in crate::commerce) async fn get_published_product_by_key(
     )
     .await?;
 
-    // Record what product user visited:
-    crate::tracking::user_visited_product(&context.pool, &context.user, &product).await;
-
     Ok(product)
 }
 
