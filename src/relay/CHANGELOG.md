@@ -1,8 +1,11 @@
 # Unreleased
 
-- Added logging of required fields (`@required(action:LOG)` directive).
+# 5.0.0
+
+- Relay 13, see: https://github.com/facebook/relay/releases/tag/v13.0.0
 - The old Relay Compiler wrapper has been replaced with the new Rust Compiler. This is the only compiler available in Relay 13+ and you can read more about this change here: https://relay.dev/blog/2021/12/08/introducing-the-new-relay-compiler/
 - Binary `adeira-fetch-schema` has been removed. Fetching of the GraphQL schema is not responsibility of this package anymore.
+- Added logging of required fields (`@required(action:LOG)` directive).
 
 # 4.0.0
 
