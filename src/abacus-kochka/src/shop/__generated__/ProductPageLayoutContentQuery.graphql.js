@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<97947a74a397b0a87cf8b59e4770bdaa>>
+ * @generated SignedSource<<27a7f0514053d1f88bbd4f7befad684c>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,12 +14,12 @@
 import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
-export type ProductPageLayoutQuery$variables = {|
+export type ProductPageLayoutContentQuery$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductPageLayoutQueryVariables = ProductPageLayoutQuery$variables;
-export type ProductPageLayoutQuery$data = {|
+export type ProductPageLayoutContentQueryVariables = ProductPageLayoutContentQuery$variables;
+export type ProductPageLayoutContentQuery$data = {|
   +commerce: {|
     +product: {|
       +name: string,
@@ -35,10 +35,10 @@ export type ProductPageLayoutQuery$data = {|
     |},
   |},
 |};
-export type ProductPageLayoutQueryResponse = ProductPageLayoutQuery$data;
-export type ProductPageLayoutQuery = {|
-  variables: ProductPageLayoutQueryVariables,
-  response: ProductPageLayoutQuery$data,
+export type ProductPageLayoutContentQueryResponse = ProductPageLayoutContentQuery$data;
+export type ProductPageLayoutContentQuery = {|
+  variables: ProductPageLayoutContentQueryVariables,
+  response: ProductPageLayoutContentQuery$data,
 |};
 */
 
@@ -136,7 +136,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ProductPageLayoutQuery",
+    "name": "ProductPageLayoutContentQuery",
     "selections": [
       {
         "alias": null,
@@ -172,7 +172,7 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ProductPageLayoutQuery",
+    "name": "ProductPageLayoutContentQuery",
     "selections": [
       {
         "alias": null,
@@ -210,21 +210,21 @@ return {
     ]
   },
   "params": {
-    "cacheID": "5e6154306f87920c0c5b6e6d73affbfb",
+    "cacheID": "5920f31b7d3e796e0060483df77499c1",
     "id": null,
     "metadata": {},
-    "name": "ProductPageLayoutQuery",
+    "name": "ProductPageLayoutContentQuery",
     "operationKind": "query",
-    "text": "query ProductPageLayoutQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      images {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
+    "text": "query ProductPageLayoutContentQuery(\n  $clientLocale: SupportedLocale!\n  $productKey: ID!\n) {\n  commerce {\n    product: getPublishedProductByKey(clientLocale: $clientLocale, productKey: $productKey) {\n      name\n      description\n      price {\n        unitAmount\n        unitAmountCurrency\n      }\n      images {\n        blurhash\n        url\n      }\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "25a2ea0e1e939f54047f9222193604a7";
+  (node/*: any*/).hash = "149f16b4e91ce7ffcb5d2b6eeb4baeaa";
 }
 
 module.exports = ((node/*: any*/)/*: Query<
-  ProductPageLayoutQuery$variables,
-  ProductPageLayoutQuery$data,
+  ProductPageLayoutContentQuery$variables,
+  ProductPageLayoutContentQuery$data,
 >*/);
