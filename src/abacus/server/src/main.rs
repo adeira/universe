@@ -34,7 +34,6 @@ mod migrations;
 mod pos;
 mod price;
 mod stripe;
-mod tracking;
 mod warp_server;
 
 #[cfg(test)]
