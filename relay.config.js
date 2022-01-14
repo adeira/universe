@@ -21,6 +21,11 @@ module.exports = {
         phase: 'Compat', // TODO: "Final"
       },
       schema: 'src/abacus/schema.graphql',
+      // Require all GraphQL scalar types mapping to be defined, will throw if a GraphQL scalar
+      // type doesn't have a JS type.
+      requireCustomScalarTypes: true,
+      // A map from GraphQL scalar types to a custom JS type, example:
+      // { "Url": "string" }
       customScalarTypes: {
         ProductImageUploadable: 'string',
       },
