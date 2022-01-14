@@ -1,4 +1,4 @@
-# @generated SignedSource<<3418ffc93b3ab526b17022592ef09db6>>
+# @generated SignedSource<<fad766474d81eb48a00f4a70074ce96d>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -125,7 +125,7 @@ input PosCheckoutInput {
 
 type AnalyticsMutation {
   "Records page visit as a future replacement of Google Analytics (currently doesn't do much)."
-  recordPageVisit: PageVisit!
+  recordPageVisit(input: PageVisitInput!): PageVisit!
 }
 
 """
@@ -354,6 +354,11 @@ enum ProductMultilingualInputVisibility {
 enum SupportedLocale {
   en_US
   es_MX
+}
+
+input PageVisitInput {
+  userAgent: String
+  locationHref: String
 }
 
 "Root query of the graph."
