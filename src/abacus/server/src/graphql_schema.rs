@@ -44,6 +44,10 @@ pub struct Mutation;
     description = "Root mutation of the graph.",
 )]
 impl Mutation {
+    fn analytics() -> crate::analytics::AnalyticsMutation {
+        crate::analytics::AnalyticsMutation {}
+    }
+
     fn auth() -> crate::auth::api::AuthMutation {
         crate::auth::api::AuthMutation {}
     }
