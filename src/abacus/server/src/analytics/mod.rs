@@ -51,10 +51,19 @@ pub struct PageVisit {
     success: bool,
 }
 
+#[derive(juniper::GraphQLInputObject)]
+pub struct PageVisitInput {
+    user_agent: Option<String>,
+    location_href: Option<String>,
+}
+
 #[juniper::graphql_object(context = Context)]
 impl AnalyticsMutation {
     /// Records page visit as a future replacement of Google Analytics (currently doesn't do much).
-    async fn record_page_visit(context: &Context) -> AbacusGraphQLResult<PageVisit> {
+    async fn record_page_visit(
+        context: &Context,
+        input: PageVisitInput,
+    ) -> AbacusGraphQLResult<PageVisit> {
         // todo!()
         Ok(PageVisit { success: true })
     }
