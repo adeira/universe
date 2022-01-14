@@ -24,7 +24,7 @@
     "babel-plugin-transform-flow-enums": "^0.0.2"
   },
   "devDependencies": {
-    "@adeira/fixtures-tester": "^1.1.0",
+    "@adeira/fixtures-tester": "^1.1.1",
     "@adeira/monorepo-utils": "^0.11.0",
     "strip-ansi": "^6.0.1"
   },
