@@ -1,5 +1,6 @@
 // @flow
 
+import { useEffect } from 'react';
 import * as React from 'react';
 import fbt from 'fbt';
 import Head from 'next/head';
@@ -11,6 +12,7 @@ import { RelayEnvironmentProvider } from '@adeira/relay';
 import { useRouter } from 'next/router';
 
 import './_app.css';
+import recordPageVisit from '../src/analytics/recordPageVisit';
 import RelayEnvironment from '../src/RelayEnvironment';
 import ViewerContextProvider from '../src/ViewerContextProvider';
 import initFbtTranslations from '../translations/initFbtTranslations';
@@ -32,6 +34,10 @@ type Props = {
 export default function MyApp({ Component, pageProps }: Props): React.Node {
   const router = useRouter();
   const languageTag = initFbtTranslations(router.locale);
+
+  useEffect(() => {
+    recordPageVisit(RelayEnvironment);
+  });
 
   return (
     <SxDesignProvider locale={languageTag.bcp47} theme="light">
