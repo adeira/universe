@@ -12,7 +12,7 @@ export default function verifyTestsFromFixtures( // eslint-disable-line jest/no-
   const fixtures = fs.readdirSync(fixturesPath);
 
   test(`has fixtures in ${fixturesPath}`, () => {
-    expect(fixtures.length > 0).toBe(true);
+    expect(fixtures.length).toBeGreaterThan(0);
   });
 
   const isFile = (f) => fs.lstatSync(path.join(fixturesPath, f)).isFile();
