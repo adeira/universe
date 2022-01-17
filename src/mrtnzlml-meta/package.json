@@ -20,7 +20,7 @@
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@adeira/eslint-config": "^7.1.0",
     "@babel/eslint-parser": "^7.16.5",
-    "eslint": "^8.6.0"
+    "eslint": "^8.7.0"
   },
   "browserslist": {
     "production": [
