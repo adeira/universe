@@ -1,6 +1,6 @@
 // @flow
 
-const { ERROR, OFF } = require('../constants');
+const { ERROR, OFF, NEXT_VERSION_ERROR } = require('../constants');
 
 /*::
 
@@ -39,6 +39,8 @@ module.exports = ({
     'jest/no-test-prefixes': OFF,
     'jest/no-test-return-statement': ERROR,
     'jest/prefer-called-with': ERROR,
+    'jest/prefer-comparison-matcher': NEXT_VERSION_ERROR,
+    'jest/prefer-equality-matcher': NEXT_VERSION_ERROR,
     'jest/prefer-expect-assertions': OFF,
     'jest/prefer-hooks-on-top': ERROR,
     'jest/prefer-spy-on': OFF,

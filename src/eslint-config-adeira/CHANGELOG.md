@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rules [`jest/prefer-equality-matcher`](https://github.com/jest-community/eslint-plugin-jest/blob/442f4164cab672be44cc7ea1c18bacdbe9b9a43b/docs/rules/prefer-equality-matcher.md) and [`jest/prefer-comparison-matcher`](https://github.com/jest-community/eslint-plugin-jest/blob/442f4164cab672be44cc7ea1c18bacdbe9b9a43b/docs/rules/prefer-comparison-matcher.md) enabled (warnings or errors in strict mode).
+
 # 7.1.0
 
 - New rules from [`eslint-plugin-jest-dom`](https://github.com/testing-library/eslint-plugin-jest-dom) were enabled in the React preset (warnings or errors in strict mode). All of them are auto-fixable so the migration should be seamless.

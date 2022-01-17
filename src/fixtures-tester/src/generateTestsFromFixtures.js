@@ -44,7 +44,7 @@ export default function generateTestsFromFixtures( // eslint-disable-line jest/n
   let fixtures = fs.readdirSync(fixturesPath);
 
   test(`has fixtures in ${fixturesPath}`, () => {
-    expect(fixtures.length > 0).toBe(true);
+    expect(fixtures.length).toBeGreaterThan(0);
   });
 
   const shouldSkip = (file) => /\.only\.\w+$/.test(file);
