@@ -9,7 +9,9 @@ import deprecatedRules from '../src/deprecatedRules';
 const eslintRules: Set<string> = new Set(Object.keys(builtInRules));
 beforeAll(() => {
   Object.keys(require('../package.json').dependencies)
-    .filter((dep) => dep.startsWith('eslint-plugin'))
+    .filter(
+      (dep) => dep.startsWith('eslint-plugin') && !dep.startsWith('eslint-plugin-fbt'), // FBT is optional and covered in `fbt.test.js`
+    )
     .map((dep) => dep.replace('eslint-plugin-', ''))
     .forEach((plugin) => {
       Object.keys(require(`eslint-plugin-${plugin}`).rules).forEach((rule) => {

@@ -548,6 +548,42 @@ Object {
 }
 `;
 
+exports[`FBT preset: FBT preset 1`] = `
+Object {
+  "globals": Object {
+    "FormData": "readonly",
+    "__DEV__": "readonly",
+    "global": "readonly",
+    "globalThis": "readonly",
+  },
+  "overrides": Array [],
+  "plugins": Array [
+    "eslint-plugin-fbt",
+    "eslint-plugin-prettier",
+  ],
+  "rules": Object {
+    "curly": Array [
+      2,
+      "all",
+    ],
+    "fbt/no-empty-strings": 1,
+    "fbt/no-unwrapped-strings": 0,
+    "prettier/prettier": Array [
+      2,
+      Object {
+        "bracketSpacing": true,
+        "printWidth": 100,
+        "quoteProps": "consistent",
+        "singleQuote": true,
+        "tabWidth": 2,
+        "trailingComma": "all",
+      },
+    ],
+  },
+  "settings": Object {},
+}
+`;
+
 exports[`Flowtype preset: Flowtype preset 1`] = `
 Object {
   "globals": Object {
