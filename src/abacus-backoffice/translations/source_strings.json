@@ -953,6 +953,34 @@
   },
   {
    "hashToText": {
+    "SxzPQlajVfXZHeKak3WLVg==": "PROD"
+   },
+   "filepath": "src/NavigationHeaderBadge.js",
+   "line_beg": 11,
+   "col_beg": 6,
+   "line_end": 11,
+   "col_end": 50,
+   "desc": "prod as in production",
+   "project": "",
+   "type": "text",
+   "jsfbt": "PROD"
+  },
+  {
+   "hashToText": {
+    "eiK+SXRmiWN0jAu3fqx6ag==": "DEV"
+   },
+   "filepath": "src/NavigationHeaderBadge.js",
+   "line_beg": 19,
+   "col_beg": 6,
+   "line_end": 19,
+   "col_end": 49,
+   "desc": "dev as in development",
+   "project": "",
+   "type": "text",
+   "jsfbt": "DEV"
+  },
+  {
+   "hashToText": {
     "GlM+ov5MKtMWC+BLUcMwqw==": "Status"
    },
    "filepath": "src/orders/OrdersPageLayout.js",

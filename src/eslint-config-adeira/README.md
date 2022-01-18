@@ -64,6 +64,7 @@ Also please note that **you should not ignore Eslint warnings**! These warnings 
 The standard config contains a large number of rules, which may not always work for specific projects. There is no need to use the full package only, smaller configs are also available:
 
 - `@adeira/eslint-config/base` - only the basic and most important JavaScript rules
+- `@adeira/eslint-config/fbt`¹ - [FBT](https://github.com/facebook/fbt) related rules
 - `@adeira/eslint-config/flowtype` - [Flow](https://flow.org/) related rules
 - `@adeira/eslint-config/jest` - [Jest](https://jestjs.io/) related rules
 - `@adeira/eslint-config/next`¹ - [Next.js](https://nextjs.org/) related rules

@@ -10,6 +10,10 @@ module.exports = {
   env: {
     browser: true,
   },
+  extends: [
+    '@adeira/eslint-config/strict', // preset with almost everything
+    '@adeira/eslint-config/fbt', // additional FBT rules
+  ],
   rules: {
     // TODO: this should be true for all users of `@adeira/sx-design` so we should make it reusable?
     'react/forbid-elements': [

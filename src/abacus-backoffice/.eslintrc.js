@@ -12,6 +12,7 @@ module.exports = {
   },
   extends: [
     '@adeira/eslint-config/strict', // preset with almost everything
+    '@adeira/eslint-config/fbt', // additional FBT rules
     '@adeira/eslint-config/next', // additional Next.js rules
   ],
   settings: {

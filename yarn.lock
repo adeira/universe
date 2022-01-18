@@ -7021,6 +7021,13 @@ eslint-plugin-fb-flow@^0.0.4:
   resolved "https://registry.yarnpkg.com/eslint-plugin-fb-flow/-/eslint-plugin-fb-flow-0.0.4.tgz#47fa51630a5620b3b03919194e783ddfc094fd5d"
   integrity sha512-VWRoULiRkYqgeX4uCw2uIuu4v5DOhtWC+4fLM+qXX2mUtLf07znqhyTtxwIugnX8MgPczkaKmtDPrkuhvFmAoA==
 
+eslint-plugin-fbt@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-fbt/-/eslint-plugin-fbt-0.6.0.tgz#866f1d8136adc71a1dc10418c8c1b1e87573092b"
+  integrity sha512-DYmjR6lapX5b6aCyh02rwLNrCuKGD8Bu0sCAKB2W/yuJiZK/4WobC87HVQ+/1LVla8GQFrmuHGfHgQojDnG5lQ==
+  dependencies:
+    jsx-ast-utils "^3.2.1"
+
 eslint-plugin-ft-flow@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ft-flow/-/eslint-plugin-ft-flow-2.0.1.tgz#57d9a12ef02b7af8f9bd6ccd6bd8fa4034809716"

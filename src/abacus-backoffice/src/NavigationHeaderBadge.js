@@ -1,15 +1,24 @@
 // @flow
 
+import fbt from 'fbt';
 import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
 
 function ProdBadge(): Node {
-  return <span className={styles('prod')}>PROD</span>;
+  return (
+    <span className={styles('prod')}>
+      <fbt desc="prod as in production">PROD</fbt>
+    </span>
+  );
 }
 
 function DevBadge(): Node {
-  return <span className={styles('dev')}>DEV</span>;
+  return (
+    <span className={styles('dev')}>
+      <fbt desc="dev as in development">DEV</fbt>
+    </span>
+  );
 }
 
 export default function NavigationHeaderBadge(): Node {
