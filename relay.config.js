@@ -22,7 +22,7 @@ module.exports = {
     'src/example-relay': 'example-relay',
   },
   excludes: ['**/__flowtests__/**'],
-  codegenCommand: './node_modules/.bin/relay-compiler',
+  codegenCommand: './x run relay',
   projects: {
     'abacus': {
       language: 'flow',

@@ -1,7 +1,5 @@
 ![Adeira logo](/assets/logo-banner.png)
 
-`adeira/universe` monorepo is an open-source collection of projects created in our free time. We are friends helping each other to build libraries and applications and effectively share knowledge and work among all of us.
-
 ![Continuous Integration (JavaScript)](<https://github.com/adeira/universe/workflows/Continuous%20Integration%20(JavaScript)/badge.svg>) ![Continuous Integration (Rust)](<https://github.com/adeira/universe/workflows/Continuous%20Integration%20(Rust)/badge.svg>)
 
 ![Shipit](https://github.com/adeira/universe/workflows/Shipit/badge.svg) ![NPM Publisher](https://github.com/adeira/universe/workflows/NPM%20Publisher/badge.svg) ![Dockerfile Builder](https://github.com/adeira/universe/workflows/Dockerfile%20Builder/badge.svg)
@@ -12,6 +10,9 @@
 git clone --depth=100 git@github.com:adeira/universe.git
 cd universe
 yarn install
+
+chmod +x ./x
+./x
 ```
 
 _Please note: you have to use Yarn. It won't work with NPM!_
@@ -19,10 +20,10 @@ _Please note: you have to use Yarn. It won't work with NPM!_
 What now? There are many projects under [`src/`](/src) and all of them are tested and linted together (with many monorepo optimizations). You can try to run all the checks:
 
 ```bash
-yarn test
+./x run
 ```
 
-It runs only the necessary checks based on what changed last. This monorepo si divided into many workspaces. You can access commands of each workspace like so:
+It runs only the necessary checks based on what changed last. This monorepo is divided into many workspaces. You can access commands of each workspace like so:
 
 ```bash
 yarn workspace @adeira/example-relay start
