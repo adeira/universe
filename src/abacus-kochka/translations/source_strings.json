@@ -747,9 +747,9 @@
     "9NSktf8Wasdbln+avfGiWQ==": "Skip to content"
    },
    "filepath": "pages/_app.js",
-   "line_beg": 48,
+   "line_beg": 54,
    "col_beg": 20,
-   "line_end": 50,
+   "line_end": 56,
    "col_end": 26,
    "desc": "hidden 'skip link' title which helps blind people to skip directly the main section and avoid the repetitive menu altogether",
    "project": "",
@@ -968,17 +968,17 @@
   },
   {
    "hashToText": {
-    "OmploHAZNYiCjgWk83eTCA==": "Kitten under 6 months"
+    "N8iXHjKl9W/M5Nd1SAiXbA==": "Kitten under 1 year"
    },
    "filepath": "pages/adopt.js",
    "line_beg": 73,
    "col_beg": 20,
    "line_end": 73,
-   "col_end": 93,
-   "desc": "table cell: kitten under 6 months",
+   "col_end": 89,
+   "desc": "table cell: kitten under 1 year",
    "project": "",
    "type": "text",
-   "jsfbt": "Kitten under 6 months"
+   "jsfbt": "Kitten under 1 year"
   },
   {
    "hashToText": {
