@@ -70,7 +70,7 @@ export default function RulesPage(): React.Node {
               col2: <Money priceUnitAmount={1000} priceUnitAmountCurrency="MXN" />,
             },
             {
-              col1: <fbt desc="table cell: kitten under 6 months">Kitten under 6 months</fbt>,
+              col1: <fbt desc="table cell: kitten under 1 year">Kitten under 1 year</fbt>,
               col2: <Money priceUnitAmount={1500} priceUnitAmountCurrency="MXN" />,
             },
           ]}
