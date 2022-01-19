@@ -15,6 +15,7 @@ pub struct CatInfo {
     date_vaccination_triple_felina: Option<String>,
 }
 
+// TODO: expose "birth" (approx. age)
 #[juniper::graphql_object]
 impl CatInfo {
     fn id(&self) -> juniper::ID {
@@ -53,6 +54,7 @@ impl CatInfo {
         self.date_vaccination_rabies.to_owned()
     }
 
+    // TODO: rename (it's actually "cuadruple" Purevax Feline 4, at least at this moment)
     fn date_of_vaccination_triple_felina(&self) -> Option<String> {
         self.date_vaccination_triple_felina.to_owned()
     }

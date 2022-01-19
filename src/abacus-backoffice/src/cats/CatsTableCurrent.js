@@ -1,7 +1,7 @@
 // @flow
 
 import { graphql, useFragment } from '@adeira/relay';
-import { MissingData, Table } from '@adeira/sx-design';
+import { MissingData, Table, Tooltip } from '@adeira/sx-design';
 import fbt from 'fbt';
 import { type Node } from 'react';
 
@@ -58,10 +58,18 @@ export default function CatsTableCurrent(props: Props): Node {
           accessor: 'col5',
         },
         {
-          Header: (
-            <fbt desc="vaccination triple felina (table header)">
-              Vaccination &quot;triple felina&quot;
-            </fbt>
+          Header: () => (
+            <Tooltip
+              title={
+                <fbt desc="tooltip explanation of the cuadruple vaccination">
+                  Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis.
+                </fbt>
+              }
+            >
+              <fbt desc="vaccination cuadruple (table header)">
+                Vaccination &quot;cuadruple&quot; (Purevax Feline 4)
+              </fbt>
+            </Tooltip>
           ),
           accessor: 'col6',
         },
