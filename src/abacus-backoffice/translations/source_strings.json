@@ -225,7 +225,7 @@
   },
   {
    "hashToText": {
-    "dme/ASWCqdGTr4dtyfFtag==": "Here you can find details about all the cats who every went through KOCHKA Café."
+    "xGKMGDrDyWGaxbvgIKI/GA==": "Here you can find details about all the cats who ever went through KOCHKA Café."
    },
    "filepath": "src/cats/CatsPageLayout.js",
    "line_beg": 15,
@@ -235,7 +235,7 @@
    "desc": "list of all our cats description",
    "project": "",
    "type": "text",
-   "jsfbt": "Here you can find details about all the cats who every went through KOCHKA Café."
+   "jsfbt": "Here you can find details about all the cats who ever went through KOCHKA Café."
   },
   {
    "hashToText": {
@@ -323,17 +323,31 @@
   },
   {
    "hashToText": {
-    "EExPHIUJXU+A80QOawNt+w==": "Vaccination \"triple felina\""
+    "4P3TKinxmGuJkKP0pjCotA==": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
    },
    "filepath": "src/cats/CatsTableAdopted.js",
-   "line_beg": 67,
-   "col_beg": 12,
-   "line_end": 69,
-   "col_end": 18,
-   "desc": "vaccination triple felina (table header)",
+   "line_beg": 69,
+   "col_beg": 16,
+   "line_end": 71,
+   "col_end": 22,
+   "desc": "tooltip explanation of the cuadruple vaccination",
    "project": "",
    "type": "text",
-   "jsfbt": "Vaccination \"triple felina\""
+   "jsfbt": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+  },
+  {
+   "hashToText": {
+    "bLOO7XcuMpgHZNwUYGKcxQ==": "Vaccination \"cuadruple\" (Purevax Feline 4)"
+   },
+   "filepath": "src/cats/CatsTableAdopted.js",
+   "line_beg": 74,
+   "col_beg": 14,
+   "line_end": 76,
+   "col_end": 20,
+   "desc": "vaccination cuadruple (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Vaccination \"cuadruple\" (Purevax Feline 4)"
   },
   {
    "hashToText": {
@@ -407,17 +421,31 @@
   },
   {
    "hashToText": {
-    "EExPHIUJXU+A80QOawNt+w==": "Vaccination \"triple felina\""
+    "4P3TKinxmGuJkKP0pjCotA==": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
    },
    "filepath": "src/cats/CatsTableCurrent.js",
-   "line_beg": 62,
-   "col_beg": 12,
-   "line_end": 64,
-   "col_end": 18,
-   "desc": "vaccination triple felina (table header)",
+   "line_beg": 64,
+   "col_beg": 16,
+   "line_end": 66,
+   "col_end": 22,
+   "desc": "tooltip explanation of the cuadruple vaccination",
    "project": "",
    "type": "text",
-   "jsfbt": "Vaccination \"triple felina\""
+   "jsfbt": "Vaccine against rhinotracheitis, calicivirus, panleukopenia and clamidiosis."
+  },
+  {
+   "hashToText": {
+    "bLOO7XcuMpgHZNwUYGKcxQ==": "Vaccination \"cuadruple\" (Purevax Feline 4)"
+   },
+   "filepath": "src/cats/CatsTableCurrent.js",
+   "line_beg": 69,
+   "col_beg": 14,
+   "line_end": 71,
+   "col_end": 20,
+   "desc": "vaccination cuadruple (table header)",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Vaccination \"cuadruple\" (Purevax Feline 4)"
   },
   {
    "hashToText": {

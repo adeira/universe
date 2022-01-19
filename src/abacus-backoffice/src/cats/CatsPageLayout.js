@@ -13,7 +13,7 @@ export default function CatsPageLayout(): React.Node {
       heading={<fbt desc="list of all our cats title">List of all our cats</fbt>}
       description={
         <fbt desc="list of all our cats description">
-          Here you can find details about all the cats who every went through KOCHKA Café.
+          Here you can find details about all the cats who ever went through KOCHKA Café.
         </fbt>
       }
     >
