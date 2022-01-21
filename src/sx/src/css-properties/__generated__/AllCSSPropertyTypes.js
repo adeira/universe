@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c610edb318cad282fd0382a2f02b5883>>
+ * @generated SignedSource<<2f19ea7028068d960bded94ac43eb597>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -341,6 +341,7 @@ export type AllCSSPropertyTypes = {
   +gridTemplateRows?: number | string, // https://developer.mozilla.org/docs/Web/CSS/grid-template-rows
   +hangingPunctuation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/hanging-punctuation
   +height?: number | string, // https://developer.mozilla.org/docs/Web/CSS/height
+  +hyphenateCharacter?: string, // https://developer.mozilla.org/docs/Web/CSS/hyphenate-character
   +hyphens?: 'none' | 'manual' | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/hyphens
   +imageOrientation?: number | string, // https://developer.mozilla.org/docs/Web/CSS/image-orientation
   +imageRendering?: 'auto' | 'crisp-edges' | 'pixelated' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/image-rendering

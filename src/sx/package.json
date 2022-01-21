@@ -23,7 +23,7 @@
     "css-tree": "^2.0.4",
     "fast-levenshtein": "^3.0.0",
     "json-stable-stringify": "^1.0.1",
-    "mdn-data": "^2.0.25",
+    "mdn-data": "^2.0.26",
     "prettier": "^2.5.1",
     "stylis": "^4.0.13"
   },
