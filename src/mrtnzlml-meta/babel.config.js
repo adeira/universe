@@ -3,6 +3,6 @@ module.exports = function (api) {
   api.cache(true);
 
   return {
-    presets: ['@adeira/babel-preset-adeira'],
+    presets: [require.resolve('@docusaurus/core/lib/babel/preset')],
   };
 };
