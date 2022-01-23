@@ -25,15 +25,15 @@ export default function LayoutNavigation(): React.Node {
         </LinkInternal>
 
         <LinkInternal href="/menu" xstyle={styles.link}>
-          <fbt desc="link to the café menu from subpage navigation">Café&nbsp;menu</fbt>
-        </LinkInternal>
-
-        <LinkInternal href="/rules" xstyle={styles.link}>
-          <fbt desc="link to the café rules from subpage navigation">Café&nbsp;rules</fbt>
+          <fbt desc="link to the café menu from subpage navigation">Menu</fbt>
         </LinkInternal>
 
         <LinkInternal href="/adopt" xstyle={styles.link}>
           <fbt desc="link to the adoption page from subpage navigation">Adopt</fbt>
+        </LinkInternal>
+
+        <LinkInternal href="/rules" xstyle={styles.link}>
+          <fbt desc="link to the café rules from subpage navigation">Rules</fbt>
         </LinkInternal>
 
         {pageShopEnabled === true ? (
