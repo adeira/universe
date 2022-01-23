@@ -15,15 +15,15 @@ export default function HomepageNavigation(): React.Node {
     <nav className={styles('nav')}>
       <LayoutInline spacing="large">
         <LinkInternal href="/menu" size={32} weight={100} xstyle={styles.link}>
-          <fbt desc="link to our menu from the homepage">Café&nbsp;menu</fbt>
-        </LinkInternal>
-
-        <LinkInternal href="/rules" size={32} weight={100} xstyle={styles.link}>
-          <fbt desc="link to our rules from the homepage">Café&nbsp;rules</fbt>
+          <fbt desc="link to our menu from the homepage">Menu</fbt>
         </LinkInternal>
 
         <LinkInternal href="/adopt" size={32} weight={100} xstyle={styles.link}>
           <fbt desc="link to the adoption page from the homepage">Adopt</fbt>
+        </LinkInternal>
+
+        <LinkInternal href="/rules" size={32} weight={100} xstyle={styles.link}>
+          <fbt desc="link to our rules from the homepage">Rules</fbt>
         </LinkInternal>
 
         {pageShopEnabled === true ? (

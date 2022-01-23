@@ -31,17 +31,17 @@ export default function LayoutFooter(): React.Node {
           </div>
           <div>
             <LinkInternal href="/menu" xstyle={styles.link}>
-              <fbt desc="link to the café menu from the page footer">Café&nbsp;menu</fbt>
-            </LinkInternal>
-          </div>
-          <div>
-            <LinkInternal href="/rules" xstyle={styles.link}>
-              <fbt desc="link to the café rules from the page footer">Café&nbsp;rules</fbt>
+              <fbt desc="link to the café menu from the page footer">Menu</fbt>
             </LinkInternal>
           </div>
           <div>
             <LinkInternal href="/adopt" xstyle={styles.link}>
               <fbt desc="link to the adopt page from the page footer">Adopt</fbt>
+            </LinkInternal>
+          </div>
+          <div>
+            <LinkInternal href="/rules" xstyle={styles.link}>
+              <fbt desc="link to the café rules from the page footer">Rules</fbt>
             </LinkInternal>
           </div>
           {pageShopEnabled === true ? (

@@ -44,45 +44,45 @@
   },
   {
    "hashToText": {
-    "56PKpOqt3+LEFaRQ36PltQ==": "Café menu"
+    "ZTIT5d4Nmlu4o/Wb7qpAaQ==": "Menu"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 18,
    "col_beg": 10,
    "line_end": 18,
-   "col_end": 77,
+   "col_end": 67,
    "desc": "link to our menu from the homepage",
    "project": "",
    "type": "text",
-   "jsfbt": "Café menu"
-  },
-  {
-   "hashToText": {
-    "E4RZPBAPff7GYBpbxPKY/A==": "Café rules"
-   },
-   "filepath": "src/HomepageNavigation.js",
-   "line_beg": 22,
-   "col_beg": 10,
-   "line_end": 22,
-   "col_end": 79,
-   "desc": "link to our rules from the homepage",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Café rules"
+   "jsfbt": "Menu"
   },
   {
    "hashToText": {
     "rinbc6qu22nzP+CbAtPP6Q==": "Adopt"
    },
    "filepath": "src/HomepageNavigation.js",
-   "line_beg": 26,
+   "line_beg": 22,
    "col_beg": 10,
-   "line_end": 26,
+   "line_end": 22,
    "col_end": 77,
    "desc": "link to the adoption page from the homepage",
    "project": "",
    "type": "text",
    "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
+    "Eg3Cmf5NcWMLInFx4u9Ljg==": "Rules"
+   },
+   "filepath": "src/HomepageNavigation.js",
+   "line_beg": 26,
+   "col_beg": 10,
+   "line_end": 26,
+   "col_end": 69,
+   "desc": "link to our rules from the homepage",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rules"
   },
   {
    "hashToText": {
@@ -114,45 +114,45 @@
   },
   {
    "hashToText": {
-    "5DdiCVjwegcUT8ZCy2GyrQ==": "Café menu"
+    "L0WJiJMAz6UZOMLGfq/EXw==": "Menu"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 34,
    "col_beg": 14,
    "line_end": 34,
-   "col_end": 89,
+   "col_end": 79,
    "desc": "link to the café menu from the page footer",
    "project": "",
    "type": "text",
-   "jsfbt": "Café menu"
-  },
-  {
-   "hashToText": {
-    "IjVXijtuMLAQYt3SNU4PLQ==": "Café rules"
-   },
-   "filepath": "src/LayoutFooter.js",
-   "line_beg": 39,
-   "col_beg": 14,
-   "line_end": 39,
-   "col_end": 91,
-   "desc": "link to the café rules from the page footer",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Café rules"
+   "jsfbt": "Menu"
   },
   {
    "hashToText": {
     "xSNus6NyIj/A4JDsSzIRGQ==": "Adopt"
    },
    "filepath": "src/LayoutFooter.js",
-   "line_beg": 44,
+   "line_beg": 39,
    "col_beg": 14,
-   "line_end": 44,
+   "line_end": 39,
    "col_end": 81,
    "desc": "link to the adopt page from the page footer",
    "project": "",
    "type": "text",
    "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
+    "A5NoowwCUNmKFr3s/nXG/w==": "Rules"
+   },
+   "filepath": "src/LayoutFooter.js",
+   "line_beg": 44,
+   "col_beg": 14,
+   "line_end": 44,
+   "col_end": 81,
+   "desc": "link to the café rules from the page footer",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rules"
   },
   {
    "hashToText": {
@@ -226,45 +226,45 @@
   },
   {
    "hashToText": {
-    "T7TGlJhstlWdCNB26MkqzA==": "Café menu"
+    "E5Y8taJzgTvVw7JlJd8qbw==": "Menu"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 28,
    "col_beg": 10,
    "line_end": 28,
-   "col_end": 88,
+   "col_end": 78,
    "desc": "link to the café menu from subpage navigation",
    "project": "",
    "type": "text",
-   "jsfbt": "Café menu"
-  },
-  {
-   "hashToText": {
-    "paPCRFfyKUaXeFKvDVrhoQ==": "Café rules"
-   },
-   "filepath": "src/LayoutNavigation.js",
-   "line_beg": 32,
-   "col_beg": 10,
-   "line_end": 32,
-   "col_end": 90,
-   "desc": "link to the café rules from subpage navigation",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Café rules"
+   "jsfbt": "Menu"
   },
   {
    "hashToText": {
     "Vq+8I+twJCKxZBPFffZ11A==": "Adopt"
    },
    "filepath": "src/LayoutNavigation.js",
-   "line_beg": 36,
+   "line_beg": 32,
    "col_beg": 10,
-   "line_end": 36,
+   "line_end": 32,
    "col_end": 83,
    "desc": "link to the adoption page from subpage navigation",
    "project": "",
    "type": "text",
    "jsfbt": "Adopt"
+  },
+  {
+   "hashToText": {
+    "oz5ITO6XGkR/D3yT47GqYg==": "Rules"
+   },
+   "filepath": "src/LayoutNavigation.js",
+   "line_beg": 36,
+   "col_beg": 10,
+   "line_end": 36,
+   "col_end": 80,
+   "desc": "link to the café rules from subpage navigation",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Rules"
   },
   {
    "hashToText": {
