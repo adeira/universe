@@ -1,5 +1,7 @@
 # Unreleased
 
+# 7.2.0
+
 - New _optional_ preset for [FBT](https://github.com/facebook/fbt) is available with one rule enabled: [`fbt/no-empty-strings`](https://github.com/alexandernanberg/eslint-plugin-fbt/blob/51d91952604ee699035d46b4ab93cf99686bcd49/docs/rules/no-empty-strings.md).
 - New rules [`jest/prefer-equality-matcher`](https://github.com/jest-community/eslint-plugin-jest/blob/442f4164cab672be44cc7ea1c18bacdbe9b9a43b/docs/rules/prefer-equality-matcher.md) and [`jest/prefer-comparison-matcher`](https://github.com/jest-community/eslint-plugin-jest/blob/442f4164cab672be44cc7ea1c18bacdbe9b9a43b/docs/rules/prefer-comparison-matcher.md) enabled (warnings or errors in strict mode).
 
