@@ -15,7 +15,7 @@ Inclusive design system written using [`@adeira/sx`](https://github.com/adeira/s
 Using SX Design is as simple as installing the package via NPM or Yarn and importing the right component from `@adeira/sx-design`.
 
 ```bash
-yarn add @adeira/sx-design
+yarn add @adeira/sx @adeira/sx-design
 ```
 
 SX Design is fully localized and requires information about the current application locale. This typically changes with every user, so it's necessary to provide it via `SxDesignProvider` React component (before the first SX Design component in the React tree):
