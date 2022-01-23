@@ -72,50 +72,6 @@ if (
 
 The usage is simple: call `__RELAY__.store()` from your console _or_ call it with some record ID which is in the store `__RELAY__.store('client:root')`. Both of these calls should print the Relay Store content or the single record content respectively.
 
-## Relay Config (`relay.config.js`)
-
-Relay supports configuration via CLI but also via configuration files using official NPM package [`relay-config`](https://www.npmjs.com/package/relay-config). Configuration files work only when you install this package. Relay Config relies on [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to do its bidding. It’s configured to load from:
-
-- a `relay` key in `package.json`
-
-```json
-{
-  "relay": {
-    "src": "./src"
-  }
-}
-```
-
-- a `relay.config.json` file
-
-```json
-{
-  "src": "./src"
-}
-```
-
-- or a `relay.config.js` file
-
-```js
-module.exports = {
-  src: './src',
-};
-```
-
-It accepts all the same configuration as the CLI does. Additionally, when using the `relay.config.js` file, a configuration entry like the language plugin also accepts an actual function:
-
-```js
-const typescript = require('relay-compiler-language-typescript');
-
-module.exports = {
-  language: typescript,
-};
-```
-
-In the future, other entries such as `persistedQueries` and `customScalars` could also be configured as such and allow for projec specific setup.
-
-See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
-
 ## What is `__isNode`?
 
 The `__isNode` field here is fetched so that Relay can determine whether the object that is returned (whose type we don't know statically) implements the `Node` interface or not. The mutation will be transformed as follows:
@@ -141,7 +97,7 @@ Source: https://github.com/facebook/relay/issues/3129#issuecomment-659439154 (Th
 There are several feature flags hidden in Relay Runtime (obviously a geeky thing) and you can enable them like this:
 
 ```js
-require('relay-runtime).RelayFeatureFlags.ENABLE_PRECISE_TYPE_REFINEMENT = true;
+require('relay-runtime').RelayFeatureFlags.ENABLE_PRECISE_TYPE_REFINEMENT = true;
 ```
 
 The latest Relay (master) has [these feature flags](https://github.com/facebook/relay/blob/90c81bbd404bee718707f32b7b959a24d0d5b72a/packages/relay-runtime/util/RelayFeatureFlags.js) to this date:
@@ -250,29 +206,6 @@ useEffect(() => {
 ```
 
 Kudos: https://relay-modern-course.now.sh/packages/11-simulating-defer/#2
-
-## Custom Relay Compiler
-
-Most of the people are OK with the default OSS version of Relay Compiler. However, it can be sometimes beneficial to write your own Relay Compiler in order to achieve some advanced features (custom behavior or persisting queries to your server for example). Facebook also uses internally their own Relay Compiler implementation. Here is one example of "why" (source: https://github.com/facebook/relay/commit/f1e2e79462d593d73efb80727bc5dd56b1c43cf6#commitcomment-36337550).
-
-The default config generates the flow types inline in the generated files, so something like:
-
-```text
-meeting: {
-  response: 'GOING' | 'NOT_GOING'
-}
-```
-
-This can in some cases introduce a bunch of noise if the generated files are checked in and the schema changes frequently. For that purpose, we instead generate something like:
-
-```text
-import type {MeetingResponse} from 'MeetingResponse.enums';
-meeting: {
-  response: MeetingResponse
-}
-```
-
-Doing that in OSS as well would increase the number of generated files and also add the question of where to put these files and how to import them.
 
 ## RelayResponseNormalizer: `handleStrippedNulls`
 

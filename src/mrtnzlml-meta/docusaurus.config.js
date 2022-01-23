@@ -36,7 +36,6 @@ module.exports = {
       },
       items: [
         { to: 'docs/flow', label: 'Programming', position: 'left' },
-        { to: 'docs/investing/101', label: 'Investing', position: 'left' },
         { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
         {

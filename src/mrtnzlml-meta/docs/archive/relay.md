@@ -8,6 +8,54 @@ sidebar_label: Relay Archive
 This is a collection of outdated sections that are no longer valid or somehow inaccurate. Current docs can be found here: [relay meta](../relay)
 :::
 
+## Relay Config (`relay.config.js`)
+
+:::note
+This is no longer valid for Relay version 13+ (with the new Rust Compiler). The new compiler still uses `relay.config.js` but the configuration works differently (especially in monorepos with multiple projects).
+:::
+
+Relay supports configuration via CLI but also via configuration files using official NPM package [`relay-config`](https://www.npmjs.com/package/relay-config). Configuration files work only when you install this package. Relay Config relies on [cosmiconfig](https://github.com/davidtheclark/cosmiconfig) to do its bidding. It’s configured to load from:
+
+- a `relay` key in `package.json`
+
+```json
+{
+  "relay": {
+    "src": "./src"
+  }
+}
+```
+
+- a `relay.config.json` file
+
+```json
+{
+  "src": "./src"
+}
+```
+
+- or a `relay.config.js` file
+
+```js
+module.exports = {
+  src: './src',
+};
+```
+
+It accepts all the same configuration as the CLI does. Additionally, when using the `relay.config.js` file, a configuration entry like the language plugin also accepts an actual function:
+
+```js
+const typescript = require('relay-compiler-language-typescript');
+
+module.exports = {
+  language: typescript,
+};
+```
+
+In the future, other entries such as `persistedQueries` and `customScalars` could also be configured as such and allow for projec specific setup.
+
+See: https://github.com/facebook/relay/commit/d3ec68ec137f7d72598a6f28025e94fba280e86e
+
 ## RelayNetworkLogger
 
 :::note
