@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adeira/eslint-config@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-7.1.0.tgz#eb4763361da6a9c454861dffeb70433de5ea396c"
-  integrity sha512-tVdTK+JICHeTFUlnrHIoR4PhDggimmp3LgcnQQR2NGBQ4OwNRAWhFTisKQvjEQKoGDQ1jDhZjiMr6mGjwjxx+Q==
+"@adeira/eslint-config@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@adeira/eslint-config/-/eslint-config-7.2.0.tgz#c493ac29ea30f625fa28056541152c810bbfc41b"
+  integrity sha512-xLUxm33pCj9gVqGawCZ9n22sn228jGoggN0tOCq1upRpoBXzod/utXKXt3BlZWx4FC79OPqQX0BEr6q/a+JlCg==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@next/eslint-plugin-next" "^12.0.8"
@@ -13,9 +13,10 @@
     eslint-plugin-adeira "^0.15.0"
     eslint-plugin-eslint-comments "^3.2.0"
     eslint-plugin-fb-flow "^0.0.4"
+    eslint-plugin-fbt "^0.6.0"
     eslint-plugin-ft-flow "^2.0.1"
     eslint-plugin-import "^2.25.4"
-    eslint-plugin-jest "^25.3.4"
+    eslint-plugin-jest "^25.7.0"
     eslint-plugin-jest-dom "^4.0.1"
     eslint-plugin-jsx-a11y "^6.5.1"
     eslint-plugin-monorepo "^0.3.2"
@@ -27,7 +28,7 @@
     eslint-plugin-react-native "^4.0.0"
     eslint-plugin-relay "^1.8.3"
     eslint-plugin-sx "^0.14.0"
-    eslint-plugin-testing-library "^5.0.3"
+    eslint-plugin-testing-library "^5.0.4"
     prettier "^2.5.1"
 
 "@algolia/autocomplete-core@1.2.1":
@@ -5428,6 +5429,13 @@ eslint-plugin-fb-flow@^0.0.4:
   resolved "https://registry.yarnpkg.com/eslint-plugin-fb-flow/-/eslint-plugin-fb-flow-0.0.4.tgz#47fa51630a5620b3b03919194e783ddfc094fd5d"
   integrity sha512-VWRoULiRkYqgeX4uCw2uIuu4v5DOhtWC+4fLM+qXX2mUtLf07znqhyTtxwIugnX8MgPczkaKmtDPrkuhvFmAoA==
 
+eslint-plugin-fbt@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-fbt/-/eslint-plugin-fbt-0.6.0.tgz#866f1d8136adc71a1dc10418c8c1b1e87573092b"
+  integrity sha512-DYmjR6lapX5b6aCyh02rwLNrCuKGD8Bu0sCAKB2W/yuJiZK/4WobC87HVQ+/1LVla8GQFrmuHGfHgQojDnG5lQ==
+  dependencies:
+    jsx-ast-utils "^3.2.1"
+
 eslint-plugin-ft-flow@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ft-flow/-/eslint-plugin-ft-flow-2.0.1.tgz#57d9a12ef02b7af8f9bd6ccd6bd8fa4034809716"
@@ -5464,10 +5472,10 @@ eslint-plugin-jest-dom@^4.0.1:
     "@testing-library/dom" "^8.11.1"
     requireindex "^1.2.0"
 
-eslint-plugin-jest@^25.3.4:
-  version "25.3.4"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-25.3.4.tgz#2031dfe495be1463330f8b80096ddc91f8e6387f"
-  integrity sha512-CCnwG71wvabmwq/qkz0HWIqBHQxw6pXB1uqt24dxqJ9WB34pVg49bL1sjXphlJHgTMWGhBjN1PicdyxDxrfP5A==
+eslint-plugin-jest@^25.7.0:
+  version "25.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-25.7.0.tgz#ff4ac97520b53a96187bad9c9814e7d00de09a6a"
+  integrity sha512-PWLUEXeeF7C9QGKqvdSbzLOiLTx+bno7/HC9eefePfEb257QFHg7ye3dh80AZVkaa/RQsBB1Q/ORQvg2X7F0NQ==
   dependencies:
     "@typescript-eslint/experimental-utils" "^5.0.0"
 
@@ -5579,10 +5587,10 @@ eslint-plugin-sx@^0.14.0:
   dependencies:
     "@babel/runtime" "^7.14.8"
 
-eslint-plugin-testing-library@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.0.3.tgz#466ac181ecafc91f29c9346ca190b91d090734b3"
-  integrity sha512-tKZ9G+HnIOnYAhXeoBCiAT8LOdU3m1VquBTKsBW/5zAaB30vq7gC60DIayPfMJt8EZBlqPVzGqSN57sIFmTunQ==
+eslint-plugin-testing-library@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-5.0.4.tgz#1f18b6e7d51db8452203bcbc909efbb571e964b8"
+  integrity sha512-zA/NfAENCsJXujvwwiap5gsqLp2U6X7m2XA5nOksl4zzb6GpUmRNAleCll58rEP0brFVj7DZBprlIlMGIhoC7Q==
   dependencies:
     "@typescript-eslint/experimental-utils" "^5.9.0"
 
