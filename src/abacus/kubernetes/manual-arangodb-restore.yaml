@@ -37,7 +37,7 @@ spec:
               mountPath: /tmp/dump
       containers:
         - name: arangorestore
-          image: 'arangodb/arangodb:3.8.4'
+          image: 'arangodb/arangodb:3.8.5'
           imagePullPolicy: Always
           args:
             - 'arangorestore'
