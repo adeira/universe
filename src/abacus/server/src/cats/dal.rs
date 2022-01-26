@@ -13,6 +13,7 @@ pub struct CatInfo {
     date_castration: Option<String>,
     date_vaccination_rabies: Option<String>,
     date_vaccination_triple_felina: Option<String>,
+    date_vaccination_cuadruple_felina: Option<String>,
 }
 
 // TODO: expose "birth" (approx. age)
@@ -54,9 +55,14 @@ impl CatInfo {
         self.date_vaccination_rabies.to_owned()
     }
 
-    // TODO: rename (it's actually "cuadruple" Purevax Feline 4, at least at this moment)
+    /// Felocell 3 and similar.
     fn date_of_vaccination_triple_felina(&self) -> Option<String> {
         self.date_vaccination_triple_felina.to_owned()
+    }
+
+    /// Purevax Feline 4 and similar.
+    fn date_of_vaccination_cuadruple_felina(&self) -> Option<String> {
+        self.date_vaccination_cuadruple_felina.to_owned()
     }
 }
 
