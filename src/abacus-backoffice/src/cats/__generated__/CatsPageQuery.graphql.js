@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8cf3f071497cb71f3ee819c0b281aa45>>
+ * @generated SignedSource<<4ec605ce5f321d9514d0ad4a710b4ddb>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -75,6 +75,13 @@ v6 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
+  "name": "dateOfVaccinationCuadrupleFelina",
+  "storageKey": null
+},
+v7 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 };
@@ -146,7 +153,8 @@ return {
               (v3/*: any*/),
               (v4/*: any*/),
               (v5/*: any*/),
-              (v6/*: any*/)
+              (v6/*: any*/),
+              (v7/*: any*/)
             ],
             "storageKey": "listAllCats(allCatsFilter:{\"adopted\":false})"
           },
@@ -179,7 +187,8 @@ return {
               },
               (v4/*: any*/),
               (v5/*: any*/),
-              (v6/*: any*/)
+              (v6/*: any*/),
+              (v7/*: any*/)
             ],
             "storageKey": "listAllCats(allCatsFilter:{\"adopted\":true})"
           }
@@ -189,12 +198,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "07549f72e3a4684ba0bf214848025115",
+    "cacheID": "7935fa30bd706cd6eb0288557f2c39b8",
     "id": null,
     "metadata": {},
     "name": "CatsPageQuery",
     "operationKind": "query",
-    "text": "query CatsPageQuery {\n  cats {\n    ...CatsTableCurrentFragment\n    ...CatsTableAdoptedFragment\n  }\n}\n\nfragment CatsTableAdoptedFragment on CatsQuery {\n  adoptedCats: listAllCats(allCatsFilter: {adopted: true}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    dateOfAdoption\n    dateOfVaccinationRabies\n    dateOfVaccinationTripleFelina\n    id\n  }\n}\n\nfragment CatsTableCurrentFragment on CatsQuery {\n  currentCats: listAllCats(allCatsFilter: {adopted: false}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    dateOfVaccinationRabies\n    dateOfVaccinationTripleFelina\n    id\n  }\n}\n"
+    "text": "query CatsPageQuery {\n  cats {\n    ...CatsTableCurrentFragment\n    ...CatsTableAdoptedFragment\n  }\n}\n\nfragment CatsTableAdoptedFragment on CatsQuery {\n  adoptedCats: listAllCats(allCatsFilter: {adopted: true}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    dateOfAdoption\n    dateOfVaccinationRabies\n    dateOfVaccinationTripleFelina\n    dateOfVaccinationCuadrupleFelina\n    id\n  }\n}\n\nfragment CatsTableCurrentFragment on CatsQuery {\n  currentCats: listAllCats(allCatsFilter: {adopted: false}) {\n    order\n    name\n    dateOfCastration\n    dateOfDeworming\n    dateOfVaccinationRabies\n    dateOfVaccinationTripleFelina\n    dateOfVaccinationCuadrupleFelina\n    id\n  }\n}\n"
   }
 };
 })();
