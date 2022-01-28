@@ -37,7 +37,7 @@ serde = "1.0.136"
 serde_json = "1.0.78"
 serde_qs = "0.8.5"
 thiserror = { version = "1.0.30", default-features = false }
-tokio = { version = "1.15.0", default-features = false, features = ["full"] }
+tokio = { version = "1.16.0", default-features = false, features = ["full"] }
 tracing = "0.1.29"
 tracing-subscriber = { version = "0.3.7", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.9.1"
@@ -49,5 +49,5 @@ warp = { version = "0.3.2", default-features = false, features = ["multipart", "
 insta = { version = "1.11.0", default-features = false, features = ["colors", "ron", "redactions"] }
 proptest = "1.0.0"
 signedsource = { path = "../signedsource", default-features = false }
-tokio = { version = "1.15.0", default-features = false, features = ["full"] }
+tokio = { version = "1.16.0", default-features = false, features = ["full"] }
 valico = "3.6.0"
