@@ -5,7 +5,7 @@ import type { ConfigType } from '../ConfigType.flow';
 module.exports = ({
   getStaticConfig() {
     return {
-      repository: 'git@github.com:adeira/abacus-kochka.git',
+      repository: 'git@github.com:mrtnzlml/kochka.com.mx.git',
     };
   },
   getPathMappings() {
