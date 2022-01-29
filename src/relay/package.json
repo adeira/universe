@@ -1,7 +1,7 @@
 {
   "name": "@adeira/relay",
   "private": false,
-  "version": "5.0.0",
+  "version": "5.1.0",
   "main": "./src/index.js",
   "type": "commonjs",
   "sideEffects": false,
@@ -18,15 +18,15 @@
     "@adeira/fetch": "^2.1.0",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.16.7",
-    "babel-plugin-relay": "^13.0.1",
-    "react-relay": "^13.0.1",
-    "relay-compiler": "^13.0.1",
-    "relay-runtime": "^13.0.1"
+    "babel-plugin-relay": "^13.0.2",
+    "react-relay": "^13.0.2",
+    "relay-compiler": "^13.0.2",
+    "relay-runtime": "^13.0.2"
   },
   "devDependencies": {
     "react": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "relay-test-utils": "^13.0.1"
+    "relay-test-utils": "^13.0.2"
   },
   "peerDependencies": {
     "graphql": "^15.8.0",
