@@ -47,7 +47,7 @@ const localStorageEffect =
 const selectedItemsAtom = atom<AtomValue>({
   key: 'selectedItems',
   default: Immutable.List(),
-  effects_UNSTABLE: [localStorageEffect('abacus-backoffice:pos:selectedItems')],
+  effects: [localStorageEffect('abacus-backoffice:pos:selectedItems')],
 });
 
 type SelectorItem = {
