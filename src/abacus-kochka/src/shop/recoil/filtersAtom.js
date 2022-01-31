@@ -24,7 +24,7 @@ export default (atom<State>({
       price: 'LOW_TO_HIGH',
     },
   },
-  effects_UNSTABLE: [
+  effects: [
     /**
      * 🚧 WIP 🚧
      *
