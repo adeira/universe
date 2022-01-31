@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@sinonjs/fake-timers": "^8.1.0",
-    "msw": "^0.36.7",
+    "msw": "^0.36.8",
     "form-data": "^4.0.0"
   }
 }
