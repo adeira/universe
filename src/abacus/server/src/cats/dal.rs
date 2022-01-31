@@ -8,6 +8,7 @@ pub struct CatInfo {
     name: String,
     description: String,
     order: i32,
+    can_be_adopted: Option<bool>,
     date_adoption: Option<String>,
     date_deworming: Option<String>,
     date_castration: Option<String>,
@@ -34,6 +35,11 @@ impl CatInfo {
     /// Order in which the cat was admitted to KOCHKA Café.
     fn order(&self) -> i32 {
         self.order.to_owned()
+    }
+
+    /// Most of the cats can be adopted but some cannot. This flag distinguishes exactly this.
+    fn can_be_adopted(&self) -> Option<bool> {
+        self.can_be_adopted.to_owned()
     }
 
     /// When was the cat adopted (when it leaved KOCHKA Café).
