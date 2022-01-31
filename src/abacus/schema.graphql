@@ -1,4 +1,4 @@
-# @generated SignedSource<<09d6bc0f05c37aacec0eb21f594c690e>>
+# @generated SignedSource<<e6cd75525e79d4d80989895b378f47c8>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -49,6 +49,8 @@ type CatInfo {
   description: String!
   "Order in which the cat was admitted to KOCHKA Café."
   order: Int!
+  "Most of the cats can be adopted but some cannot. This flag distinguishes exactly this."
+  canBeAdopted: Boolean
   "When was the cat adopted (when it leaved KOCHKA Café)."
   dateOfAdoption: String
   "When was the cat dewormed for the last time."
