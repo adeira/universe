@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ef9cb86285bad188217a2583b60c4d6e>>
+ * @generated SignedSource<<cede04e418a822d962b47572330f1870>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,19 +14,19 @@
 import type { Fragment, ReaderFragment } from 'relay-runtime';
 type MenuRow$fragmentType = any;
 import type { FragmentType } from "relay-runtime";
-declare export opaque type MenuSectionKochkadaSweet$fragmentType: FragmentType;
-export type MenuSectionKochkadaSweet$ref = MenuSectionKochkadaSweet$fragmentType;
-export type MenuSectionKochkadaSweet$data = {|
-  +kochkadaSweetMenu: $ReadOnlyArray<{|
+declare export opaque type MenuSectionKochkadas$fragmentType: FragmentType;
+export type MenuSectionKochkadas$ref = MenuSectionKochkadas$fragmentType;
+export type MenuSectionKochkadas$data = {|
+  +kochkadasMenu: $ReadOnlyArray<{|
     +id: string,
     +$fragmentSpreads: MenuRow$fragmentType,
   |}>,
-  +$fragmentType: MenuSectionKochkadaSweet$fragmentType,
+  +$fragmentType: MenuSectionKochkadas$fragmentType,
 |};
-export type MenuSectionKochkadaSweet = MenuSectionKochkadaSweet$data;
-export type MenuSectionKochkadaSweet$key = {
-  +$data?: MenuSectionKochkadaSweet$data,
-  +$fragmentSpreads: MenuSectionKochkadaSweet$fragmentType,
+export type MenuSectionKochkadas = MenuSectionKochkadas$data;
+export type MenuSectionKochkadas$key = {
+  +$data?: MenuSectionKochkadas$data,
+  +$fragmentSpreads: MenuSectionKochkadas$fragmentType,
   ...
 };
 */
@@ -40,10 +40,10 @@ var node/*: ReaderFragment*/ = {
   ],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MenuSectionKochkadaSweet",
+  "name": "MenuSectionKochkadas",
   "selections": [
     {
-      "alias": "kochkadaSweetMenu",
+      "alias": "kochkadasMenu",
       "args": [
         {
           "kind": "Variable",
@@ -53,7 +53,7 @@ var node/*: ReaderFragment*/ = {
         {
           "kind": "Literal",
           "name": "section",
-          "value": "DUMPLING_SWEET"
+          "value": "KOCHKADAS"
         }
       ],
       "concreteType": "Product",
@@ -82,10 +82,10 @@ var node/*: ReaderFragment*/ = {
 };
 
 if (__DEV__) {
-  (node/*: any*/).hash = "f986851f1127acd1499898269a9038c3";
+  (node/*: any*/).hash = "c76e40e7e444026e9275a67c17fe5965";
 }
 
 module.exports = ((node/*: any*/)/*: Fragment<
-  MenuSectionKochkadaSweet$fragmentType,
-  MenuSectionKochkadaSweet$data,
+  MenuSectionKochkadas$fragmentType,
+  MenuSectionKochkadas$data,
 >*/);

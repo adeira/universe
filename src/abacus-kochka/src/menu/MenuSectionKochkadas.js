@@ -6,17 +6,17 @@ import fbt from 'fbt';
 
 import MenuHeading from './components/MenuHeading';
 import MenuRow from './components/MenuRow';
-import type { MenuSectionKochkadaSweet$key } from './__generated__/MenuSectionKochkadaSweet.graphql';
+import type { MenuSectionKochkadas$key } from './__generated__/MenuSectionKochkadas.graphql';
 
 type Props = {
-  +menuData: MenuSectionKochkadaSweet$key,
+  +menuData: MenuSectionKochkadas$key,
 };
 
-export default function MenuSectionKochkadaSweet(props: Props): Node {
+export default function MenuSectionKochkadas(props: Props): Node {
   const data = useFragment(
     graphql`
-      fragment MenuSectionKochkadaSweet on MenuQuery {
-        kochkadaSweetMenu: menu(clientLocale: $clientLocale, section: DUMPLING_SWEET) {
+      fragment MenuSectionKochkadas on MenuQuery {
+        kochkadasMenu: menu(clientLocale: $clientLocale, section: KOCHKADAS) {
           id
           ...MenuRow
         }
@@ -28,10 +28,10 @@ export default function MenuSectionKochkadaSweet(props: Props): Node {
   return (
     <>
       <MenuHeading>
-        <fbt desc="sweet kochkadas subtitle in our menu">Sweet Kochkadas</fbt>
+        <fbt desc="kochkadas subtitle in our menu">Kochkadas</fbt>
       </MenuHeading>
 
-      {data.kochkadaSweetMenu.map((kochkada) => (
+      {data.kochkadasMenu.map((kochkada) => (
         <MenuRow key={kochkada.id} menuRowData={kochkada} />
       ))}
     </>
