@@ -10,7 +10,13 @@ pub(crate) enum MenuSections {
     Tea,
     Milkshakes,
     Specialities,
+    Kochkadas,
+    Ciabattas,
+    // TODO: remove once FE is clean
+    #[graphql(deprecated = "Use generic KOCHKADAS instead.")]
     DumplingSweet,
+    // TODO: remove once FE is clean
+    #[graphql(deprecated = "Use generic KOCHKADAS instead.")]
     DumplingSavory,
 }
 
@@ -87,29 +93,57 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::DumplingSweet => {
+            // TODO: remove (replaced by generic KOCHKADAS)
             crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
-                    "3761831".to_string(),  // Choco Salem
-                    "3761904".to_string(),  // Manzana Azrael
-                    "3761963".to_string(),  // Fresa Kitty
-                    "3762026".to_string(),  // Arroz Snowball
-                    "3762091".to_string(),  // Banana Garfield
-                    "12355615".to_string(), // Blackberry Figaro
+                    "3761831".to_string(), // Choco Salem
+                    "3761904".to_string(), // Manzana Azrael
+                    "3761963".to_string(), // Fresa Kitty
+                    "3762026".to_string(), // Arroz Snowball
+                    "3762091".to_string(), // Banana Garfield
                 ],
             )
             .await
         }
         MenuSections::DumplingSavory => {
+            // TODO: remove (replaced by generic KOCHKADAS)
             crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
-                    "3762230".to_string(), // Camarón Silvestre
                     "3762295".to_string(), // Pizza Félix
-                    "3762478".to_string(), // Tom y Jerry BBQ
                     "3763127".to_string(), // Bodoque bolognese
+                ],
+            )
+            .await
+        }
+        MenuSections::Kochkadas => {
+            crate::commerce::api::get_published_products_by_keys(
+                context,
+                client_locale,
+                &[
+                    "3761831".to_string(), // Choco Salem
+                    "3761904".to_string(), // Manzana Azrael
+                    "3761963".to_string(), // Fresa Kitty
+                    "3762026".to_string(), // Arroz Snowball
+                    "3762091".to_string(), // Banana Garfield
+                    "3762295".to_string(), // Pizza Félix
+                    "3763127".to_string(), // Bodoque bolognese
+                ],
+            )
+            .await
+        }
+        MenuSections::Ciabattas => {
+            // TODO: create description of Chapatas first (en and es)!
+            crate::commerce::api::get_published_products_by_keys(
+                context,
+                client_locale,
+                &[
+                    "15687297".to_string(), // Ciabatta smoked turkey breast
+                    "15687748".to_string(), // Salami ciabatta
+                    "15687968".to_string(), // Ciabatta with caramelized apple
                 ],
             )
             .await
