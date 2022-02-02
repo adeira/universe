@@ -7591,10 +7591,10 @@ fault@^1.0.0:
   dependencies:
     format "^0.2.0"
 
-faunadb@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.4.2.tgz#f5ea92469aab7854dd45a4953bf42fd36aa71ffe"
-  integrity sha512-kbyfN18hmFTuJ3EwU9wsnQG1F5xsHpSZHXl7H79fMZ0TX28CVQY5A64g13z2PR+fcR5WiACqcWfkJQLMpQSaAw==
+faunadb@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.5.0.tgz#e9864272ca5b6bc85c753b1a1a07b067fb123911"
+  integrity sha512-QNSw4XD53aHdikld1rt3kiiVbgx8DiXeeL5Z1/1TfhoiwgAEfYZ9VyGfXjwmthrlLy3YilU+bRPFyysK8q+kMg==
   dependencies:
     abort-controller "^3.0.0"
     base64-js "^1.2.0"
