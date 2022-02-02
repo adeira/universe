@@ -5,9 +5,9 @@ import React, { type Node } from 'react';
 import sx from '@adeira/sx';
 
 import MenuLoader from './menu/MenuLoader';
+import MenuSectionCiabattas from './menu/MenuSectionCiabattas';
 import MenuSectionCoffee from './menu/MenuSectionCoffee';
-import MenuSectionKochkadaSavory from './menu/MenuSectionKochkadaSavory';
-import MenuSectionKochkadaSweet from './menu/MenuSectionKochkadaSweet';
+import MenuSectionKochkadas from './menu/MenuSectionKochkadas';
 import MenuSectionMilkshake from './menu/MenuSectionMilkshake';
 import MenuSectionSpecialities from './menu/MenuSectionSpecialities';
 import MenuSectionTea from './menu/MenuSectionTea';
@@ -25,8 +25,8 @@ export default function Menu(): Node {
             ...MenuSectionTea
             ...MenuSectionMilkshake
             ...MenuSectionSpecialities
-            ...MenuSectionKochkadaSweet
-            ...MenuSectionKochkadaSavory
+            ...MenuSectionKochkadas
+            ...MenuSectionCiabattas
           }
         }
       `}
@@ -54,12 +54,12 @@ export default function Menu(): Node {
               <MenuSectionSpecialities menuData={relayProps.menu} />
             </div>
 
-            <div className={styles('menuGridAreaKochkadaSweet')}>
-              <MenuSectionKochkadaSweet menuData={relayProps.menu} />
+            <div className={styles('menuGridAreaKochkadas')}>
+              <MenuSectionKochkadas menuData={relayProps.menu} />
             </div>
 
-            <div className={styles('menuGridAreaKochkadaSavory')}>
-              <MenuSectionKochkadaSavory menuData={relayProps.menu} />
+            <div className={styles('menuGridAreaCiabattas')}>
+              <MenuSectionCiabattas menuData={relayProps.menu} />
             </div>
           </div>
         );
@@ -78,15 +78,15 @@ const styles = sx.create({
       "tea"
       "milkshakes"
       "specialities"
-      "kochkadaSweet"
-      "kochkadaSavory"
+      "kochkadas"
+      "ciabattas"
     `,
     '@media (min-width: 600px)': {
       gridTemplateColumns: '1fr 1fr',
       gridTemplateAreas: `
         "coffee tea"
         "milkshakes specialities"
-        "kochkadaSweet kochkadaSavory"
+        "kochkadas ciabattas"
       `,
     },
   },
@@ -102,10 +102,10 @@ const styles = sx.create({
   menuGridAreaSpecialities: {
     gridArea: 'specialities',
   },
-  menuGridAreaKochkadaSweet: {
-    gridArea: 'kochkadaSweet',
+  menuGridAreaKochkadas: {
+    gridArea: 'kochkadas',
   },
-  menuGridAreaKochkadaSavory: {
-    gridArea: 'kochkadaSavory',
+  menuGridAreaCiabattas: {
+    gridArea: 'ciabattas',
   },
 });

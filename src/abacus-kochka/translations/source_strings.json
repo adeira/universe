@@ -296,6 +296,20 @@
   },
   {
    "hashToText": {
+    "jnLeax+6GrU9ItcRNR9sFQ==": "Ciabattas"
+   },
+   "filepath": "src/menu/MenuSectionCiabattas.js",
+   "line_beg": 31,
+   "col_beg": 8,
+   "line_end": 31,
+   "col_end": 66,
+   "desc": "ciabattas subtitle in our menu",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Ciabattas"
+  },
+  {
+   "hashToText": {
     "2YO+c7f7liBd/0oWsDx7MQ==": "Coffee drinks"
    },
    "filepath": "src/menu/MenuSectionCoffee.js",
@@ -310,31 +324,17 @@
   },
   {
    "hashToText": {
-    "2QmqEZbFupR6PiAMpYnoOA==": "Savory Kochkadas"
+    "49oC4KNe7YsynNra1tiIDw==": "Kochkadas"
    },
-   "filepath": "src/menu/MenuSectionKochkadaSavory.js",
+   "filepath": "src/menu/MenuSectionKochkadas.js",
    "line_beg": 31,
    "col_beg": 8,
    "line_end": 31,
-   "col_end": 80,
-   "desc": "savory kochkadas subtitle in our menu",
+   "col_end": 66,
+   "desc": "kochkadas subtitle in our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Savory Kochkadas"
-  },
-  {
-   "hashToText": {
-    "FYN2g4NuXpwO4NtuNyNTGA==": "Sweet Kochkadas"
-   },
-   "filepath": "src/menu/MenuSectionKochkadaSweet.js",
-   "line_beg": 31,
-   "col_beg": 8,
-   "line_end": 31,
-   "col_end": 78,
-   "desc": "sweet kochkadas subtitle in our menu",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Sweet Kochkadas"
+   "jsfbt": "Kochkadas"
   },
   {
    "hashToText": {
