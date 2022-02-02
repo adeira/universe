@@ -2,17 +2,17 @@
  "phrases": [
   {
    "hashToText": {
-    "k2Q8RUdCLyiDbzVP375Pzg==": "REAL CATS + KOCHKADAS + COFFEE"
+    "T0DgXP5K+rwH+D4SJDbnsQ==": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats."
    },
    "filepath": "src/Homepage.js",
    "line_beg": 24,
-   "col_beg": 14,
-   "line_end": 24,
-   "col_end": 75,
+   "col_beg": 16,
+   "line_end": 26,
+   "col_end": 22,
    "desc": "catch phrase",
    "project": "",
    "type": "text",
-   "jsfbt": "REAL CATS + KOCHKADAS + COFFEE"
+   "jsfbt": "Come to enjoy a coffee from Chiapas and spend some time with our lovely cats."
   },
   {
    "hashToText": {
