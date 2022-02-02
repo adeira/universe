@@ -12,12 +12,6 @@ pub(crate) enum MenuSections {
     Specialities,
     Kochkadas,
     Ciabattas,
-    // TODO: remove once FE is clean
-    #[graphql(deprecated = "Use generic KOCHKADAS instead.")]
-    DumplingSweet,
-    // TODO: remove once FE is clean
-    #[graphql(deprecated = "Use generic KOCHKADAS instead.")]
-    DumplingSavory,
 }
 
 /// TODO(004) add integration tests
@@ -88,33 +82,6 @@ pub(in crate::menu) async fn get_section(
                     "13116127".to_string(), // Chai Latte
                     "3763568".to_string(),  // Matcha Latte
                     "3763681".to_string(),  // Artisanal Chocolate
-                ],
-            )
-            .await
-        }
-        MenuSections::DumplingSweet => {
-            // TODO: remove (replaced by generic KOCHKADAS)
-            crate::commerce::api::get_published_products_by_keys(
-                context,
-                client_locale,
-                &[
-                    "3761831".to_string(), // Choco Salem
-                    "3761904".to_string(), // Manzana Azrael
-                    "3761963".to_string(), // Fresa Kitty
-                    "3762026".to_string(), // Arroz Snowball
-                    "3762091".to_string(), // Banana Garfield
-                ],
-            )
-            .await
-        }
-        MenuSections::DumplingSavory => {
-            // TODO: remove (replaced by generic KOCHKADAS)
-            crate::commerce::api::get_published_products_by_keys(
-                context,
-                client_locale,
-                &[
-                    "3762295".to_string(), // Pizza Félix
-                    "3763127".to_string(), // Bodoque bolognese
                 ],
             )
             .await
