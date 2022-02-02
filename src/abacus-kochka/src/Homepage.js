@@ -19,14 +19,16 @@ export default function Homepage(): React.Node {
           <div className={styles('center')}>
             <Logo />
 
-            <Text size={20} weight={200}>
-              {/* TODO: popups explaining what is each of the elements (photo) */}
-              <fbt desc="catch phrase">REAL CATS + KOCHKADAS + COFFEE</fbt>
-            </Text>
+            <div className={styles('catchPhrase')}>
+              <Text size={32} weight={200}>
+                <fbt desc="catch phrase">
+                  Come to enjoy a coffee from Chiapas and spend some time with our lovely cats.
+                </fbt>
+              </Text>
+            </div>
           </div>
 
           <div className={styles('bottomInfo')}>
-            {/* <p>TODO: contact (?)</p> */}
             <SocialMediaIcons />
             <HomepageFooter />
           </div>
@@ -41,6 +43,10 @@ const styles = sx.create({
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
+  },
+  catchPhrase: {
+    maxWidth: 570,
+    textAlign: 'center',
   },
   center: {
     flex: 1,
