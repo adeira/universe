@@ -36,7 +36,7 @@
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-relay": "^1.8.3",
     "eslint-plugin-sx": "^0.14.0",
-    "eslint-plugin-testing-library": "^5.0.4",
+    "eslint-plugin-testing-library": "^5.0.5",
     "prettier": "^2.5.1"
   },
   "devDependencies": {
