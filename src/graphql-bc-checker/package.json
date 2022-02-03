@@ -16,7 +16,7 @@
   "sideEffects": false,
   "dependencies": {
     "@adeira/signed-source": "^2.0.0",
-    "@babel/runtime": "^7.16.7",
+    "@babel/runtime": "^7.17.0",
     "chalk": "^4.1.2"
   },
   "devDependencies": {
