@@ -22,7 +22,7 @@ dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.19"
 http = "0.2.6"
 image = { version = "0.24.0", default-features = false, features = ["jpeg", "png"] }
-jsonwebtoken = "7.2.0"
+jsonwebtoken = "8.0.0"
 juniper = { version = "0.15.9", default-features = false, features = ["schema-language"] }
 lazy_static = "1.4.0"
 lettre = "0.10.0-rc.4"
