@@ -17,7 +17,7 @@
   "dependencies": {
     "@adeira/icons": "^1.0.1",
     "@adeira/js": "^2.1.1",
-    "@babel/runtime": "^7.16.7",
+    "@babel/runtime": "^7.17.0",
     "blurhash": "^1.1.4",
     "fbt": "^0.16.6",
     "focus-trap-react": "^8.9.1",
@@ -46,7 +46,7 @@
     "@storybook/addons": "^6.4.8",
     "@storybook/react": "^6.4.17",
     "@storybook/theming": "^6.4.17",
-    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "babel-loader": "^8.2.3",
