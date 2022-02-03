@@ -21,7 +21,7 @@
   "devDependencies": {
     "@adeira/eslint-fixtures-tester": "0.1.0",
     "@adeira/flow-types-eslint": "0.0.0",
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-parser": "^7.17.0",
     "eslint": "^8.8.0"
   },
   "peerDependencies": {
