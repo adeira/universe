@@ -18,7 +18,7 @@
     "@adeira/css-colors": "^2.2.0",
     "@adeira/js": "^2.1.1",
     "@adeira/murmur-hash": "^2.0.1",
-    "@babel/runtime": "^7.16.7",
+    "@babel/runtime": "^7.17.0",
     "change-case": "^4.1.2",
     "css-tree": "^2.0.4",
     "fast-levenshtein": "^3.0.0",
