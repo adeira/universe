@@ -64,42 +64,25 @@ impl Claims {
     }
 }
 
-fn create_id_token_validation(iss: &str) -> Validation {
-    Validation {
-        leeway: 30,                // seconds
-        validate_exp: !cfg!(test), // disabled in tests
-        validate_nbf: false,       // NBF (not before) not present in the token
-        aud: Some(
-            vec![String::from(
-                "586578400209-5k61strd7i03b7pr2arn38o9qqghgfeq.apps.googleusercontent.com", // ABACUS Backoffice (Web application)
-            )]
-            .into_iter()
-            .collect(),
-        ),
-        iss: Some(String::from(iss)),
-        algorithms: vec![
-            Algorithm::RS256, // we assume it's always RS256 - is it true?
-        ],
-        ..Default::default()
-    }
+fn create_id_token_validation() -> Validation {
+    let mut validation = Validation::new(
+        Algorithm::RS256, // we assume it's always RS256 - is it true?
+    );
+    validation.leeway = 30; // seconds
+    validation.validate_exp = !cfg!(test); // disabled in tests
+    validation.validate_nbf = false; // NBF (not before) not present in the token
+    validation.set_audience(&[
+        "586578400209-5k61strd7i03b7pr2arn38o9qqghgfeq.apps.googleusercontent.com", // ABACUS Backoffice (Web application)
+    ]);
+    validation.set_issuer(&["https://accounts.google.com", "accounts.google.com"]);
+    validation
 }
 
 fn validate_id_token(id_token: &str, cert: &CertKey) -> anyhow::Result<TokenData<Claims>> {
-    let decoding_key = &DecodingKey::from_rsa_components(cert.modulus(), cert.exponent());
-    match decode(
-        id_token,
-        decoding_key,
-        &create_id_token_validation("https://accounts.google.com"),
-    ) {
+    let decoding_key = &DecodingKey::from_rsa_components(cert.modulus(), cert.exponent())?;
+    match decode(id_token, decoding_key, &create_id_token_validation()) {
         Ok(token_data) => Ok(token_data),
-        Err(_) => {
-            // OK, so the first call failed. Let's try the alternative `iss` before failing:
-            Ok(decode(
-                id_token,
-                decoding_key,
-                &create_id_token_validation("accounts.google.com"),
-            )?)
-        }
+        Err(err) => anyhow::bail!(err),
     }
 }
 
