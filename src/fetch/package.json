@@ -20,7 +20,7 @@
     "cross-fetch": "^3.1.5"
   },
   "devDependencies": {
-    "@sinonjs/fake-timers": "^9.0.0",
+    "@sinonjs/fake-timers": "^9.1.0",
     "msw": "^0.36.8",
     "form-data": "^4.0.0"
   }
