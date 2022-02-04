@@ -22,7 +22,7 @@ dotenv = { version = "0.15.0", default-features = false }
 futures = "0.3.19"
 http = "0.2.6"
 image = { version = "0.24.0", default-features = false, features = ["jpeg", "png"] }
-jsonwebtoken = "8.0.0"
+jsonwebtoken = "8.0.1"
 juniper = { version = "0.15.9", default-features = false, features = ["schema-language"] }
 lazy_static = "1.4.0"
 lettre = "0.10.0-rc.4"
@@ -38,7 +38,7 @@ serde_json = "1.0.78"
 serde_qs = "0.8.5"
 thiserror = { version = "1.0.30", default-features = false }
 tokio = { version = "1.16.1", default-features = false, features = ["full"] }
-tracing = "0.1.29"
+tracing = "0.1.30"
 tracing-subscriber = { version = "0.3.7", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.9.1"
 url = "2.2.2"
