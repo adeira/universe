@@ -14,11 +14,11 @@ module.exports = ({
     // Jest (https://github.com/jest-community/eslint-plugin-jest)
     'jest/consistent-test-it': OFF,
     'jest/expect-expect': OFF,
-    'jest/prefer-lowercase-title': OFF,
     'jest/max-nested-describe': [ERROR, { max: 5 }],
     'jest/no-alias-methods': OFF,
     'jest/no-commented-out-tests': OFF,
     'jest/no-conditional-expect': OFF,
+    'jest/no-conditional-in-test': OFF,
     'jest/no-deprecated-functions': ERROR,
     'jest/no-disabled-tests': ERROR,
     'jest/no-done-callback': OFF,
@@ -27,7 +27,6 @@ module.exports = ({
     'jest/no-focused-tests': ERROR,
     'jest/no-hooks': OFF, // TODO: WARN (?)
     'jest/no-identical-title': ERROR,
-    'jest/no-if': OFF,
     'jest/no-interpolation-in-snapshots': ERROR,
     'jest/no-jasmine-globals': ERROR,
     'jest/no-jest-import': ERROR,
@@ -42,12 +41,17 @@ module.exports = ({
     'jest/prefer-comparison-matcher': NEXT_VERSION_ERROR,
     'jest/prefer-equality-matcher': NEXT_VERSION_ERROR,
     'jest/prefer-expect-assertions': OFF,
+    'jest/prefer-expect-resolves': ERROR,
     'jest/prefer-hooks-on-top': ERROR,
+    'jest/prefer-lowercase-title': OFF,
+    'jest/prefer-snapshot-hint': OFF, // TODO: WARN (or NEXT_VERSION_ERROR)
     'jest/prefer-spy-on': OFF,
     'jest/prefer-strict-equal': OFF, // TODO: WARN
+    'jest/prefer-to-be': ERROR,
     'jest/prefer-to-contain': ERROR,
     'jest/prefer-to-have-length': ERROR,
     'jest/prefer-todo': ERROR,
+    'jest/require-hook': OFF,
     'jest/require-to-throw-message': OFF,
     'jest/require-top-level-describe': OFF,
     'jest/unbound-method': OFF,
@@ -55,8 +59,5 @@ module.exports = ({
     'jest/valid-expect': ERROR,
     'jest/valid-expect-in-promise': ERROR,
     'jest/valid-title': ERROR,
-    'jest/prefer-expect-resolves': ERROR,
-    'jest/prefer-to-be': ERROR,
-    'jest/require-hook': OFF,
   },
 } /*: EslintConfig */);

@@ -34,5 +34,6 @@ module.exports = (new Set([
   'jsx-a11y/label-has-for', // label-has-associated-control
   'jsx-a11y/no-onchange',
 
+  'jest/no-if', // https://github.com/jest-community/eslint-plugin-jest/commit/35f32cc9da8741649766c2e33b8a6bcaa46ac0e7
   'jest/no-try-expect', // https://github.com/jest-community/eslint-plugin-jest/commit/6d07cadd5f78ed7a64a86792931d49d3cd943d69
 ]) /*: Set<string> */);
