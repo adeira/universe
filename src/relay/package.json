@@ -19,7 +19,7 @@
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.17.0",
     "babel-plugin-relay": "^13.0.2",
-    "react-relay": "^13.0.2",
+    "react-relay": "^13.0.3",
     "relay-compiler": "^13.0.2",
     "relay-runtime": "^13.0.2"
   },
