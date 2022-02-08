@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<56b794f7eb6a38dea061e183f50ff958>>
+ * @generated SignedSource<<22ccb233d3634ae656b1914f4c6bbdf0>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,7 +15,6 @@ import type { Fragment, ReaderFragment } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 import type { FragmentType } from "relay-runtime";
 declare export opaque type MenuRow$fragmentType: FragmentType;
-export type MenuRow$ref = MenuRow$fragmentType;
 export type MenuRow$data = {|
   +name: string,
   +description: ?string,
@@ -25,7 +24,6 @@ export type MenuRow$data = {|
   |},
   +$fragmentType: MenuRow$fragmentType,
 |};
-export type MenuRow = MenuRow$data;
 export type MenuRow$key = {
   +$data?: MenuRow$data,
   +$fragmentSpreads: MenuRow$fragmentType,

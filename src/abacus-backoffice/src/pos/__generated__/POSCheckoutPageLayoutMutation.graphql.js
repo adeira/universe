@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<243a93a3bac43fbb6bfb4e1245b68a36>>
+ * @generated SignedSource<<579d09987471891a5a6f2f7b4a1a9506>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -30,7 +30,6 @@ export type POSCheckoutPageLayoutMutation$variables = {|
   checkoutInput: $ReadOnlyArray<PosCheckoutProductInput>,
   clientLocale: SupportedLocale,
 |};
-export type POSCheckoutPageLayoutMutationVariables = POSCheckoutPageLayoutMutation$variables;
 export type POSCheckoutPageLayoutMutation$data = {|
   +pos: {|
     +checkout: {|
@@ -46,9 +45,8 @@ export type POSCheckoutPageLayoutMutation$data = {|
     |},
   |},
 |};
-export type POSCheckoutPageLayoutMutationResponse = POSCheckoutPageLayoutMutation$data;
 export type POSCheckoutPageLayoutMutation = {|
-  variables: POSCheckoutPageLayoutMutationVariables,
+  variables: POSCheckoutPageLayoutMutation$variables,
   response: POSCheckoutPageLayoutMutation$data,
 |};
 */

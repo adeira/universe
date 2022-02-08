@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4af20234ce1ebdea24153152d3c13173>>
+ * @generated SignedSource<<eea85cc93e7a204d8e07636546d6a055>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,7 +14,6 @@
 import type { Fragment, ReaderFragment } from 'relay-runtime';
 import type { FragmentType } from "relay-runtime";
 declare export opaque type CatsTableAdoptedFragment$fragmentType: FragmentType;
-export type CatsTableAdoptedFragment$ref = CatsTableAdoptedFragment$fragmentType;
 export type CatsTableAdoptedFragment$data = {|
   +adoptedCats: $ReadOnlyArray<{|
     +order: number,
@@ -28,7 +27,6 @@ export type CatsTableAdoptedFragment$data = {|
   |}>,
   +$fragmentType: CatsTableAdoptedFragment$fragmentType,
 |};
-export type CatsTableAdoptedFragment = CatsTableAdoptedFragment$data;
 export type CatsTableAdoptedFragment$key = {
   +$data?: CatsTableAdoptedFragment$data,
   +$fragmentSpreads: CatsTableAdoptedFragment$fragmentType,

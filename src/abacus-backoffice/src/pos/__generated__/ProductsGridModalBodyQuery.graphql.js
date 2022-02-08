@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7349f73cd1498d178cf6f5f268e0a538>>
+ * @generated SignedSource<<caf2d141d53cae411cc6851079b28530>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -18,7 +18,6 @@ export type ProductsGridModalBodyQuery$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductsGridModalBodyQueryVariables = ProductsGridModalBodyQuery$variables;
 export type ProductsGridModalBodyQuery$data = {|
   +commerce: {|
     +product: {|
@@ -37,9 +36,8 @@ export type ProductsGridModalBodyQuery$data = {|
     |},
   |},
 |};
-export type ProductsGridModalBodyQueryResponse = ProductsGridModalBodyQuery$data;
 export type ProductsGridModalBodyQuery = {|
-  variables: ProductsGridModalBodyQueryVariables,
+  variables: ProductsGridModalBodyQuery$variables,
   response: ProductsGridModalBodyQuery$data,
 |};
 */

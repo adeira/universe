@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<aaa5e2099fa4aa7e97518cdf99445581>>
+ * @generated SignedSource<<59083c3023a2d99c66665179c979e5e9>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,7 +17,6 @@ export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductAddonsQuery$variables = {|
   clientLocale: SupportedLocale,
 |};
-export type ProductAddonsQueryVariables = ProductAddonsQuery$variables;
 export type ProductAddonsQuery$data = {|
   +commerce: {|
     +productAddons: $ReadOnlyArray<?{|
@@ -30,9 +29,8 @@ export type ProductAddonsQuery$data = {|
     |}>,
   |},
 |};
-export type ProductAddonsQueryResponse = ProductAddonsQuery$data;
 export type ProductAddonsQuery = {|
-  variables: ProductAddonsQueryVariables,
+  variables: ProductAddonsQuery$variables,
   response: ProductAddonsQuery$data,
 |};
 */

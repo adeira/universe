@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<75d8eb49611d9bb528e655b13da1f274>>
+ * @generated SignedSource<<920b5fc46579d287619d35b6b0a42e69>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -20,7 +20,6 @@ export type ProductsCardsInCategoryQuery$variables = {|
   priceSortDirection: PriceSortDirection,
   categories?: ?$ReadOnlyArray<string>,
 |};
-export type ProductsCardsInCategoryQueryVariables = ProductsCardsInCategoryQuery$variables;
 export type ProductsCardsInCategoryQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
@@ -28,9 +27,8 @@ export type ProductsCardsInCategoryQuery$data = {|
     |}>,
   |},
 |};
-export type ProductsCardsInCategoryQueryResponse = ProductsCardsInCategoryQuery$data;
 export type ProductsCardsInCategoryQuery = {|
-  variables: ProductsCardsInCategoryQueryVariables,
+  variables: ProductsCardsInCategoryQuery$variables,
   response: ProductsCardsInCategoryQuery$data,
 |};
 */

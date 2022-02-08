@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<178883ba562da8565e943c0ce50cc84f>>
+ * @generated SignedSource<<4ebfd74ded947974baef1593855795d1>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,7 +17,6 @@ type ProductFormCategoriesData$fragmentType = any;
 export type ProductMultilingualInputVisibility = "ESHOP" | "POS" | "%future added value";
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductEditFormData$fragmentType: FragmentType;
-export type ProductEditFormData$ref = ProductEditFormData$fragmentType;
 export type ProductEditFormData$data = {|
   +key: string,
   +revision: string,
@@ -50,7 +49,6 @@ export type ProductEditFormData$data = {|
   |}>,
   +$fragmentType: ProductEditFormData$fragmentType,
 |};
-export type ProductEditFormData = ProductEditFormData$data;
 export type ProductEditFormData$key = {
   +$data?: ProductEditFormData$data,
   +$fragmentSpreads: ProductEditFormData$fragmentType,
