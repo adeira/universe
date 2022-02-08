@@ -21,7 +21,7 @@
     "babel-plugin-relay": "^13.0.2",
     "react-relay": "^13.0.2",
     "relay-compiler": "^13.0.2",
-    "relay-runtime": "^13.0.2"
+    "relay-runtime": "^13.0.3"
   },
   "devDependencies": {
     "react": "^17.0.2",
