@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<334efcbbf4ae284ef8e69d8207148bec>>
+ * @generated SignedSource<<7f5e58c987f498b4c317b265b5100b1b>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -20,7 +20,6 @@ export type ProductsGridPosQuery$variables = {|
   priceSortDirection: PriceSortDirection,
   categories?: ?$ReadOnlyArray<string>,
 |};
-export type ProductsGridPosQueryVariables = ProductsGridPosQuery$variables;
 export type ProductsGridPosQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
@@ -39,9 +38,8 @@ export type ProductsGridPosQuery$data = {|
     |}>,
   |},
 |};
-export type ProductsGridPosQueryResponse = ProductsGridPosQuery$data;
 export type ProductsGridPosQuery = {|
-  variables: ProductsGridPosQueryVariables,
+  variables: ProductsGridPosQuery$variables,
   response: ProductsGridPosQuery$data,
 |};
 */

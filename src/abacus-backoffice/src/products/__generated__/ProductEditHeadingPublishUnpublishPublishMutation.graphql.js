@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2d70ba3248d7cec9d3314c7778487f2b>>
+ * @generated SignedSource<<8171adacf6bd11f885bad1ff7f392f28>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,7 +17,6 @@ export type ProductEditHeadingPublishUnpublishPublishMutation$variables = {|
   productKey: string,
   clientLocale: SupportedLocale,
 |};
-export type ProductEditHeadingPublishUnpublishPublishMutationVariables = ProductEditHeadingPublishUnpublishPublishMutation$variables;
 export type ProductEditHeadingPublishUnpublishPublishMutation$data = {|
   +commerce: {|
     +productOrError: {|
@@ -32,9 +31,8 @@ export type ProductEditHeadingPublishUnpublishPublishMutation$data = {|
     |},
   |},
 |};
-export type ProductEditHeadingPublishUnpublishPublishMutationResponse = ProductEditHeadingPublishUnpublishPublishMutation$data;
 export type ProductEditHeadingPublishUnpublishPublishMutation = {|
-  variables: ProductEditHeadingPublishUnpublishPublishMutationVariables,
+  variables: ProductEditHeadingPublishUnpublishPublishMutation$variables,
   response: ProductEditHeadingPublishUnpublishPublishMutation$data,
 |};
 */

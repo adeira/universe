@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2af271f863acd44206fe3aca968b8a82>>
+ * @generated SignedSource<<a14997d4f26a81e5167d4bd757964b99>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -16,7 +16,6 @@ export type recordPageVisitAnalyticsMutation$variables = {|
   userAgent?: ?string,
   locationHref?: ?string,
 |};
-export type recordPageVisitAnalyticsMutationVariables = recordPageVisitAnalyticsMutation$variables;
 export type recordPageVisitAnalyticsMutation$data = {|
   +analytics: {|
     +recordPageVisit: {|
@@ -24,9 +23,8 @@ export type recordPageVisitAnalyticsMutation$data = {|
     |},
   |},
 |};
-export type recordPageVisitAnalyticsMutationResponse = recordPageVisitAnalyticsMutation$data;
 export type recordPageVisitAnalyticsMutation = {|
-  variables: recordPageVisitAnalyticsMutationVariables,
+  variables: recordPageVisitAnalyticsMutation$variables,
   response: recordPageVisitAnalyticsMutation$data,
 |};
 */

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0f95bd7c4db86a2b6de41941a7cbda9b>>
+ * @generated SignedSource<<91582398fa681814aeb8b3d0fb42ceb4>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,7 +15,6 @@ import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type AuthButtonsDeauthorizeWebappMutation$variables = {|
   sessionToken: string,
 |};
-export type AuthButtonsDeauthorizeWebappMutationVariables = AuthButtonsDeauthorizeWebappMutation$variables;
 export type AuthButtonsDeauthorizeWebappMutation$data = {|
   +auth: {|
     +deauthorize: {|
@@ -23,9 +22,8 @@ export type AuthButtonsDeauthorizeWebappMutation$data = {|
     |},
   |},
 |};
-export type AuthButtonsDeauthorizeWebappMutationResponse = AuthButtonsDeauthorizeWebappMutation$data;
 export type AuthButtonsDeauthorizeWebappMutation = {|
-  variables: AuthButtonsDeauthorizeWebappMutationVariables,
+  variables: AuthButtonsDeauthorizeWebappMutation$variables,
   response: AuthButtonsDeauthorizeWebappMutation$data,
 |};
 */

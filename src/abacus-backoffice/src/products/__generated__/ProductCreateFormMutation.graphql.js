@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2f995b9fbfd1b7a9aa1e9767a0daea30>>
+ * @generated SignedSource<<ec00e6d3425009caf9c36a9cff7fb0dc>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -28,7 +28,6 @@ export type ProductCreateFormMutation$variables = {|
   categories: $ReadOnlyArray<string>,
   addons: $ReadOnlyArray<string>,
 |};
-export type ProductCreateFormMutationVariables = ProductCreateFormMutation$variables;
 export type ProductCreateFormMutation$data = {|
   +commerce: {|
     +result: {|
@@ -44,9 +43,8 @@ export type ProductCreateFormMutation$data = {|
     |},
   |},
 |};
-export type ProductCreateFormMutationResponse = ProductCreateFormMutation$data;
 export type ProductCreateFormMutation = {|
-  variables: ProductCreateFormMutationVariables,
+  variables: ProductCreateFormMutation$variables,
   response: ProductCreateFormMutation$data,
 |};
 */

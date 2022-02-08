@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a18be503343b3102216a916c4be0c8da>>
+ * @generated SignedSource<<3077057f6130864b2d6d505cdbc4fa62>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,7 +14,6 @@
 import type { ConcreteRequest, Query } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 export type IndexPageQuery$variables = {||};
-export type IndexPageQueryVariables = IndexPageQuery$variables;
 export type IndexPageQuery$data = {|
   +analytics: {|
     +mostSoldProducts: $ReadOnlyArray<{|
@@ -34,9 +33,8 @@ export type IndexPageQuery$data = {|
     |}>,
   |},
 |};
-export type IndexPageQueryResponse = IndexPageQuery$data;
 export type IndexPageQuery = {|
-  variables: IndexPageQueryVariables,
+  variables: IndexPageQuery$variables,
   response: IndexPageQuery$data,
 |};
 */

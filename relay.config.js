@@ -18,7 +18,7 @@ module.exports = {
         'SupportedLocale',
       ],
       flowTypegen: {
-        phase: 'Compat', // TODO: "Final"
+        phase: 'Final',
       },
       schema: 'src/abacus/schema.graphql',
       // Require all GraphQL scalar types mapping to be defined, will throw if a GraphQL scalar

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<27a7f0514053d1f88bbd4f7befad684c>>
+ * @generated SignedSource<<cf7fa7bb5de97625600aa2a2c1c27f46>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -18,7 +18,6 @@ export type ProductPageLayoutContentQuery$variables = {|
   clientLocale: SupportedLocale,
   productKey: string,
 |};
-export type ProductPageLayoutContentQueryVariables = ProductPageLayoutContentQuery$variables;
 export type ProductPageLayoutContentQuery$data = {|
   +commerce: {|
     +product: {|
@@ -35,9 +34,8 @@ export type ProductPageLayoutContentQuery$data = {|
     |},
   |},
 |};
-export type ProductPageLayoutContentQueryResponse = ProductPageLayoutContentQuery$data;
 export type ProductPageLayoutContentQuery = {|
-  variables: ProductPageLayoutContentQueryVariables,
+  variables: ProductPageLayoutContentQuery$variables,
   response: ProductPageLayoutContentQuery$data,
 |};
 */

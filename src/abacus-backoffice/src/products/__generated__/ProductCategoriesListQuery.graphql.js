@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<41a15e1019e1a8148e06158dff3d0fd9>>
+ * @generated SignedSource<<880413fe15fc9141aad8424adb001975>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -16,7 +16,6 @@ export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductCategoriesListQuery$variables = {|
   clientLocale: SupportedLocale,
 |};
-export type ProductCategoriesListQueryVariables = ProductCategoriesListQuery$variables;
 export type ProductCategoriesListQuery$data = {|
   +commerce: {|
     +categories: $ReadOnlyArray<?{|
@@ -25,9 +24,8 @@ export type ProductCategoriesListQuery$data = {|
     |}>,
   |},
 |};
-export type ProductCategoriesListQueryResponse = ProductCategoriesListQuery$data;
 export type ProductCategoriesListQuery = {|
-  variables: ProductCategoriesListQueryVariables,
+  variables: ProductCategoriesListQuery$variables,
   response: ProductCategoriesListQuery$data,
 |};
 */

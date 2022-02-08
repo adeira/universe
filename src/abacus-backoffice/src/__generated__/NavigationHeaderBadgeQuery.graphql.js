@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8a4a3493836efddd442e6deb5faae15e>>
+ * @generated SignedSource<<13b5ce1c58131ba2c759cfea7f092dbc>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,7 +13,6 @@
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
 export type NavigationHeaderBadgeQuery$variables = {||};
-export type NavigationHeaderBadgeQueryVariables = NavigationHeaderBadgeQuery$variables;
 export type NavigationHeaderBadgeQuery$data = {|
   +auth: {|
     +whoami: {|
@@ -21,9 +20,8 @@ export type NavigationHeaderBadgeQuery$data = {|
     |},
   |},
 |};
-export type NavigationHeaderBadgeQueryResponse = NavigationHeaderBadgeQuery$data;
 export type NavigationHeaderBadgeQuery = {|
-  variables: NavigationHeaderBadgeQueryVariables,
+  variables: NavigationHeaderBadgeQuery$variables,
   response: NavigationHeaderBadgeQuery$data,
 |};
 */

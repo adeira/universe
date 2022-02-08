@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a9902ee3c515a5c111d6dfd5b304ab74>>
+ * @generated SignedSource<<f9c5f82e5b42f681ab2d21e8f5d1b897>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,7 +15,6 @@ import type { Fragment, ReaderFragment } from 'relay-runtime';
 export type SupportedCurrency = "MXN" | "%future added value";
 import type { FragmentType } from "relay-runtime";
 declare export opaque type ProductsCardsData$fragmentType: FragmentType;
-export type ProductsCardsData$ref = ProductsCardsData$fragmentType;
 export type ProductsCardsData$data = $ReadOnlyArray<{|
   +id: string,
   +key: string,
@@ -31,7 +30,6 @@ export type ProductsCardsData$data = $ReadOnlyArray<{|
   +isPublished: boolean,
   +$fragmentType: ProductsCardsData$fragmentType,
 |}>;
-export type ProductsCardsData = ProductsCardsData$data;
 export type ProductsCardsData$key = $ReadOnlyArray<{
   +$data?: ProductsCardsData$data,
   +$fragmentSpreads: ProductsCardsData$fragmentType,

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ef0177b511c700b51b17bd34a3c971b4>>
+ * @generated SignedSource<<7262a4c117de9c8a426dd24173a7a55e>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -19,7 +19,6 @@ export type ShopLayoutContentQuery$variables = {|
   clientLocale: SupportedLocale,
   priceSortDirection: PriceSortDirection,
 |};
-export type ShopLayoutContentQueryVariables = ShopLayoutContentQuery$variables;
 export type ShopLayoutContentQuery$data = {|
   +commerce: {|
     +products: $ReadOnlyArray<?{|
@@ -36,9 +35,8 @@ export type ShopLayoutContentQuery$data = {|
     |}>,
   |},
 |};
-export type ShopLayoutContentQueryResponse = ShopLayoutContentQuery$data;
 export type ShopLayoutContentQuery = {|
-  variables: ShopLayoutContentQueryVariables,
+  variables: ShopLayoutContentQuery$variables,
   response: ShopLayoutContentQuery$data,
 |};
 */

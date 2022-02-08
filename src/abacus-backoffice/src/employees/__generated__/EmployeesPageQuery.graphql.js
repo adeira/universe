@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<5470b5b9da6321d7e110d55a79d7080c>>
+ * @generated SignedSource<<bdf5c9e7d72015d0cf06f11e601e7a9a>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,7 +13,6 @@
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
 export type EmployeesPageQuery$variables = {||};
-export type EmployeesPageQueryVariables = EmployeesPageQuery$variables;
 export type EmployeesPageQuery$data = {|
   +auth: {|
     +listUsers: $ReadOnlyArray<{|
@@ -23,9 +22,8 @@ export type EmployeesPageQuery$data = {|
     |}>,
   |},
 |};
-export type EmployeesPageQueryResponse = EmployeesPageQuery$data;
 export type EmployeesPageQuery = {|
-  variables: EmployeesPageQueryVariables,
+  variables: EmployeesPageQuery$variables,
   response: EmployeesPageQuery$data,
 |};
 */

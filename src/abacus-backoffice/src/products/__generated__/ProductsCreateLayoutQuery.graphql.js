@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<433f631535b0a1ae995a2e4d30acdd57>>
+ * @generated SignedSource<<218283524efedd62f099f139fadd61f1>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -17,15 +17,13 @@ export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type ProductsCreateLayoutQuery$variables = {|
   clientLocale: SupportedLocale,
 |};
-export type ProductsCreateLayoutQueryVariables = ProductsCreateLayoutQuery$variables;
 export type ProductsCreateLayoutQuery$data = {|
   +commerce: {|
     +$fragmentSpreads: ProductCreateFormData$fragmentType,
   |},
 |};
-export type ProductsCreateLayoutQueryResponse = ProductsCreateLayoutQuery$data;
 export type ProductsCreateLayoutQuery = {|
-  variables: ProductsCreateLayoutQueryVariables,
+  variables: ProductsCreateLayoutQuery$variables,
   response: ProductsCreateLayoutQuery$data,
 |};
 */

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2030524a6be6acce467b8cc9bcb5626d>>
+ * @generated SignedSource<<ea8e20d3636518cd1123231097f20b80>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,7 +15,6 @@ import type { Fragment, ReaderFragment } from 'relay-runtime';
 type MenuRow$fragmentType = any;
 import type { FragmentType } from "relay-runtime";
 declare export opaque type MenuSectionCiabattas$fragmentType: FragmentType;
-export type MenuSectionCiabattas$ref = MenuSectionCiabattas$fragmentType;
 export type MenuSectionCiabattas$data = {|
   +ciabattasMenu: $ReadOnlyArray<{|
     +id: string,
@@ -23,7 +22,6 @@ export type MenuSectionCiabattas$data = {|
   |}>,
   +$fragmentType: MenuSectionCiabattas$fragmentType,
 |};
-export type MenuSectionCiabattas = MenuSectionCiabattas$data;
 export type MenuSectionCiabattas$key = {
   +$data?: MenuSectionCiabattas$data,
   +$fragmentSpreads: MenuSectionCiabattas$fragmentType,

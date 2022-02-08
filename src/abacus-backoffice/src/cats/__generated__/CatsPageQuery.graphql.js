@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<8a475676f8d55185e59b7b7440f4dc32>>
+ * @generated SignedSource<<f39408fb6314d6260c35df03f2680c24>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,15 +15,13 @@ import type { ConcreteRequest, Query } from 'relay-runtime';
 type CatsTableAdoptedFragment$fragmentType = any;
 type CatsTableCurrentFragment$fragmentType = any;
 export type CatsPageQuery$variables = {||};
-export type CatsPageQueryVariables = CatsPageQuery$variables;
 export type CatsPageQuery$data = {|
   +cats: {|
     +$fragmentSpreads: CatsTableCurrentFragment$fragmentType & CatsTableAdoptedFragment$fragmentType,
   |},
 |};
-export type CatsPageQueryResponse = CatsPageQuery$data;
 export type CatsPageQuery = {|
-  variables: CatsPageQueryVariables,
+  variables: CatsPageQuery$variables,
   response: CatsPageQuery$data,
 |};
 */

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6ba6c1396b4df09b0cc66418427a76c5>>
+ * @generated SignedSource<<3ab48524e8da32709c646821957f03be>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -15,7 +15,6 @@ import type { ConcreteRequest, Mutation } from 'relay-runtime';
 export type AuthButtonsAuthorizeWebappMutation$variables = {|
   googleIdToken: string,
 |};
-export type AuthButtonsAuthorizeWebappMutationVariables = AuthButtonsAuthorizeWebappMutation$variables;
 export type AuthButtonsAuthorizeWebappMutation$data = {|
   +auth: {|
     +authorizeWebapp: {|
@@ -25,9 +24,8 @@ export type AuthButtonsAuthorizeWebappMutation$data = {|
     |},
   |},
 |};
-export type AuthButtonsAuthorizeWebappMutationResponse = AuthButtonsAuthorizeWebappMutation$data;
 export type AuthButtonsAuthorizeWebappMutation = {|
-  variables: AuthButtonsAuthorizeWebappMutationVariables,
+  variables: AuthButtonsAuthorizeWebappMutation$variables,
   response: AuthButtonsAuthorizeWebappMutation$data,
 |};
 */

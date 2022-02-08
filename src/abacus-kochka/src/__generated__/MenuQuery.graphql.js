@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<939f091f48a490e6eeacec57a4f541f8>>
+ * @generated SignedSource<<2f6795624b8f7d15697ea5d616eeaab5>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -22,15 +22,13 @@ export type SupportedLocale = "en_US" | "es_MX" | "%future added value";
 export type MenuQuery$variables = {|
   clientLocale: SupportedLocale,
 |};
-export type MenuQueryVariables = MenuQuery$variables;
 export type MenuQuery$data = {|
   +menu: {|
     +$fragmentSpreads: MenuSectionCoffee$fragmentType & MenuSectionTea$fragmentType & MenuSectionMilkshake$fragmentType & MenuSectionSpecialities$fragmentType & MenuSectionKochkadas$fragmentType & MenuSectionCiabattas$fragmentType,
   |},
 |};
-export type MenuQueryResponse = MenuQuery$data;
 export type MenuQuery = {|
-  variables: MenuQueryVariables,
+  variables: MenuQuery$variables,
   response: MenuQuery$data,
 |};
 */

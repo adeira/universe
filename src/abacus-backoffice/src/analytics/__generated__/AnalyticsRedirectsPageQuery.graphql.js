@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<cd8354888db90d76decdf4c9088c6510>>
+ * @generated SignedSource<<630d7a639d0ccacd54b33b7de745e34f>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -13,7 +13,6 @@
 /*::
 import type { ConcreteRequest, Query } from 'relay-runtime';
 export type AnalyticsRedirectsPageQuery$variables = {||};
-export type AnalyticsRedirectsPageQueryVariables = AnalyticsRedirectsPageQuery$variables;
 export type AnalyticsRedirectsPageQuery$data = {|
   +analytics: {|
     +redirectHits: $ReadOnlyArray<{|
@@ -24,9 +23,8 @@ export type AnalyticsRedirectsPageQuery$data = {|
     |}>,
   |},
 |};
-export type AnalyticsRedirectsPageQueryResponse = AnalyticsRedirectsPageQuery$data;
 export type AnalyticsRedirectsPageQuery = {|
-  variables: AnalyticsRedirectsPageQueryVariables,
+  variables: AnalyticsRedirectsPageQuery$variables,
   response: AnalyticsRedirectsPageQuery$data,
 |};
 */
