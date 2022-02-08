@@ -39,7 +39,7 @@ module.exports = {
     'example-relay': {
       language: 'flow',
       flowTypegen: {
-        phase: 'Compat', // TODO: "Final"
+        phase: 'Final',
       },
       schema: 'src/example-relay/schema.graphql',
       schemaExtensions: ['src/example-relay/src/LocalForm'],
