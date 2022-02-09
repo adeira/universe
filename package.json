@@ -21,7 +21,7 @@
     "eslint-formatter-codeframe": "^7.32.1",
     "flow-bin": "^0.171.0",
     "glob": "^7.2.0",
-    "jest": "^27.5.0",
+    "jest": "^27.5.1",
     "jest-runner-eslint": "^1.0.0"
   },
   "jest": {
