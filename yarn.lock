@@ -12908,7 +12908,7 @@ relay-compiler@^13.0.2:
   resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-13.0.2.tgz#2ec086bcc55ac8cb94cc08a19be129e037ca8044"
   integrity sha512-Gg/5FNj8gz03GRkG5KjMNpDB4nOeApDFZq+8CZehu3KkQQ+vNIurX6RiTY3UNUYvg5SX2A9DS5bq5iHJ8iEV3A==
 
-relay-runtime@13.0.2, relay-runtime@^13.0.2:
+relay-runtime@13.0.2:
   version "13.0.2"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-13.0.2.tgz#02adb73ddc159c57b92a23c52984bf73fae0d1fc"
   integrity sha512-sP4lNGfFcOm7tQD12qlvwsiOREDgjkw4FQAjtemmtwivKOqI4qHAL22Ar62r5TPVlASn4iVWMk7rIdIJI20KGQ==
@@ -12917,15 +12917,24 @@ relay-runtime@13.0.2, relay-runtime@^13.0.2:
     fbjs "^3.0.2"
     invariant "^2.2.4"
 
-relay-test-utils@^13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/relay-test-utils/-/relay-test-utils-13.0.2.tgz#b8c1ea5d345008ac0c2cb29ddc8716b235b84bf4"
-  integrity sha512-f88LTq+1UbFJBEKfmb35kiOyGTBRtQJo3plQj6koDhG1supLqB72CsDwRDilXXEaAMM3CExlyZ3AjKEgMPK3MA==
+relay-runtime@13.1.0, relay-runtime@^13.0.2:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-13.1.0.tgz#96cd7f3f57270869dbd0ef3fe497883f3fb4c3eb"
+  integrity sha512-bi62kkowdjDYS2M/facZGRCkxu2wRBrbHoSQhjQCP96edgeUvIrhxgT9kqfiR406VYOvti96xcL7QqeD1fl3WA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^3.0.2"
     invariant "^2.2.4"
-    relay-runtime "13.0.2"
+
+relay-test-utils@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/relay-test-utils/-/relay-test-utils-13.1.0.tgz#4630487a74e8f123993f4d490db0583f924b58bb"
+  integrity sha512-b2HuuzwuHIZ/Z+J1Qi+OARuatl9uzYnBABdui6ZCU1iutQl632UzcXYsYWUqdkmGfBZLNcmV4tm25QWbMHQZOg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    fbjs "^3.0.2"
+    invariant "^2.2.4"
+    relay-runtime "13.1.0"
 
 remark-external-links@^8.0.0:
   version "8.0.0"
