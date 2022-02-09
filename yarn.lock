@@ -12903,10 +12903,10 @@ relateurl@^0.2.7:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
-relay-compiler@^13.0.2:
-  version "13.0.2"
-  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-13.0.2.tgz#2ec086bcc55ac8cb94cc08a19be129e037ca8044"
-  integrity sha512-Gg/5FNj8gz03GRkG5KjMNpDB4nOeApDFZq+8CZehu3KkQQ+vNIurX6RiTY3UNUYvg5SX2A9DS5bq5iHJ8iEV3A==
+relay-compiler@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/relay-compiler/-/relay-compiler-13.1.0.tgz#fd7536f4837b5c07b570d5145992558e7a9046a4"
+  integrity sha512-r5zSiSLT+9luUbnRRd62L0lJZHg3b/+8DCBN7W0TrhoIXXsHYYSibi8nTk0HO6uhbMR/jg6uCqJL32r5MggGjA==
 
 relay-runtime@13.0.2, relay-runtime@^13.0.2:
   version "13.0.2"
