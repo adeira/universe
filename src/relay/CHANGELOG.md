@@ -1,6 +1,7 @@
 # Unreleased
 
 - Use Relay 13.1.0, see: https://github.com/facebook/relay/releases/tag/v13.1.0
+- Use Relay 13.1.1, see: https://github.com/facebook/relay/releases/tag/v13.1.1
 
 # 5.1.0
 
