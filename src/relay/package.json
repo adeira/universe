@@ -20,7 +20,7 @@
     "@babel/runtime": "^7.17.2",
     "babel-plugin-relay": "^13.1.0",
     "react-relay": "^13.1.0",
-    "relay-compiler": "^13.1.0",
+    "relay-compiler": "^13.1.1",
     "relay-runtime": "^13.1.0"
   },
   "devDependencies": {
