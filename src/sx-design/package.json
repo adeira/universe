@@ -38,7 +38,7 @@
     "@adeira/sx-jest-snapshot-serializer": "^0.1.0",
     "@babel/core": "^7.17.2",
     "@fbtjs/default-collection-transform": "^0.0.3",
-    "@storybook/addon-a11y": "^6.4.18",
+    "@storybook/addon-a11y": "^6.4.19",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.18",
     "@storybook/addon-links": "^6.4.18",
