@@ -4,22 +4,6 @@ title: CSS
 sidebar_label: CSS
 ---
 
-<!-- prettier-ignore-start -->
-```css
-* { background-color: rgba(255,0,0,.2); }
-* * { background-color: rgba(0,255,0,.2); }
-* * * { background-color: rgba(0,0,255,.2); }
-* * * * { background-color: rgba(255,0,255,.2); }
-* * * * * { background-color: rgba(0,255,255,.2); }
-* * * * * * { background-color: rgba(255,255,0,.2); }
-* * * * * * * { background-color: rgba(255,0,0,.2); }
-* * * * * * * * { background-color: rgba(0,255,0,.2); }
-* * * * * * * * * { background-color: rgba(0,0,255,.2); }
-```
-<!-- prettier-ignore-end -->
-
-Source: https://dev.to/gajus/my-favorite-css-hack-32g3
-
 ## High color contrast via CSS
 
 See: https://css-tricks.com/css-variables-calc-rgb-enforcing-high-contrast-colors/
