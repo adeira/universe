@@ -54,7 +54,8 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Martin Zlámal 🤓`,
     },
     algolia: {
-      apiKey: '9178bd28d2e2a7795516d94878a57dfe',
+      appId: 'GZH2KBNVZS',
+      apiKey: 'b9928e0b69a477b7cc96fc5ff7753c08',
       indexName: 'mrtnzlml',
       algoliaOptions: {}, // Optional, if provided by Algolia
     },
