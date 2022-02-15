@@ -18,7 +18,10 @@ module.exports = {
   themeConfig: {
     prism: {
       // https://prismjs.com/#supported-languages
-      additionalLanguages: ['rust'],
+      additionalLanguages: [
+        'rust',
+        'reason', // ReScript
+      ],
     },
     announcementBar: {
       id: 'github_sponsor', // Any value that will identify this message.
@@ -35,6 +38,7 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
+        { to: 'til', label: 'TIL', position: 'left' },
         { to: 'docs/flow', label: 'Programming', position: 'left' },
         { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
@@ -47,40 +51,7 @@ module.exports = {
     },
     footer: {
       style: 'dark',
-      // links: [
-      //   {
-      //     title: 'Docs',
-      //     items: [
-      //       {
-      //         label: 'Docs',
-      //         to: 'docs/doc1',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'Community',
-      //     items: [
-      //       {
-      //         label: 'Discord',
-      //         href: 'https://discordapp.com/invite/docusaurus',
-      //       },
-      //     ],
-      //   },
-      //   {
-      //     title: 'Social',
-      //     items: [
-      //       {
-      //         label: 'Blog',
-      //         to: 'blog',
-      //       },
-      //     ],
-      //   },
-      // ],
-      // logo: {
-      //   alt: 'Facebook Open Source Logo',
-      //   src: 'https://docusaurus.io/img/oss_logo.png',
-      // },
-      copyright: `Copyright © ${new Date().getFullYear()} Martin Zlámal, Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Martin Zlámal 🤓`,
     },
     algolia: {
       apiKey: '9178bd28d2e2a7795516d94878a57dfe',
@@ -92,6 +63,15 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
+        blog: {
+          path: 'til',
+          routeBasePath: '/til',
+          showReadingTime: false,
+          blogTitle: 'Today I Learned',
+          blogDescription: 'Today I Learned',
+          blogSidebarCount: 0,
+        },
+        // TODO: docs=false (after moving everything to TIL)
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/mrtnzlml/meta/tree/master/',
