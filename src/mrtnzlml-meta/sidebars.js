@@ -47,7 +47,6 @@ module.exports = {
       items: [
         { type: 'doc', id: 'rust' },
         { type: 'doc', id: 'rust/modules' },
-        { type: 'doc', id: 'rust/best-crates' },
       ],
     },
     { type: 'doc', id: 'css' },
