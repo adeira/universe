@@ -379,15 +379,3 @@ function useWindowWidth() {
 ```
 
 Source: https://gist.github.com/gaearon/cb5add26336003ed8c0004c4ba820eae
-
-## Fun with JavaScript
-
-Sleep sort:
-
-```js
-[3, 5, 1, 8, 2, 4, 9, 6, 7].forEach((num) => {
-  setTimeout(() => console.log(num), num);
-});
-```
-
-https://twitter.com/JavaScriptDaily/status/856267407106682880
