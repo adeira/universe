@@ -18,11 +18,6 @@ What happened in last week?
 git log --since=1.week --oneline --no-merges
 ```
 
-## Less known Git features
-
-- https://git-scm.com/docs/git-notes
-- https://git-scm.com/docs/git-rerere
-
 ## New repo with copied history of only currently tracked files
 
 ```bash

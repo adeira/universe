@@ -104,10 +104,6 @@ Solution: https://gist.github.com/gaearon/08a85a33e3d08f3f2ca25fb17bd9d638?ck_su
 - https://doesitmutate.xyz/
 - https://stackoverflow.com/a/9009934/3135248
 
-## Jest: test.concurrent( ... )
-
-TODO: https://github.com/facebook/jest/pull/1688/files
-
 ## V8 Built-in functions
 
 - https://v8.dev/docs/builtin-functions
@@ -335,15 +331,6 @@ Now, in the first scheme, if the promise p rejects, then the .then() handler is 
 In the second scheme, if the promise p rejects, then the .catch() handler is called. If you return a normal value or a promise that eventually resolves from the .catch() handler (thus "handling" the error), then the promise chain switches to the resolved state and the .then() handler after the .catch() will be called.
 
 So that's difference #2. If the .catch() handler is BEFORE, then it can handle the error and allow the .then() handler to still get called.
-
-## Dependency injection
-
-- https://adonisjs.com/docs/4.1/ioc-container
-- http://krasimirtsonev.com/blog/article/Dependency-injection-in-JavaScript
-- https://github.com/gedbac/di4js
-- https://medium.com/@maciekprzybylski/dependency-injection-in-javascript-74f8791ba7c8
-- https://www.yusufaytas.com/dependency-injection-in-javascript/
-- https://github.com/inversify/InversifyJS/
 
 ## Responsive component with hooks
 
