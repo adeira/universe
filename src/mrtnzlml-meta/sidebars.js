@@ -56,7 +56,6 @@ module.exports = {
     { type: 'doc', id: 'git' },
     { type: 'doc', id: 'graphql' },
     { type: 'doc', id: 'javascript' },
-    { type: 'doc', id: 'investing/101' },
   ],
   archive: [
     { type: 'doc', id: 'archive/flow' },
