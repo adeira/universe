@@ -82,9 +82,6 @@ module.exports = {
       // },
       copyright: `Copyright © ${new Date().getFullYear()} Martin Zlámal, Built with Docusaurus.`,
     },
-    googleAnalytics: {
-      trackingID: 'UA-148481588-1',
-    },
     algolia: {
       apiKey: '9178bd28d2e2a7795516d94878a57dfe',
       indexName: 'mrtnzlml',
@@ -108,6 +105,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-148481588-1',
         },
       },
     ],
