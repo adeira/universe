@@ -50,7 +50,6 @@ module.exports = {
         { type: 'doc', id: 'rust/best-crates' },
       ],
     },
-    { type: 'doc', id: 'accessibility' },
     { type: 'doc', id: 'css' },
     { type: 'doc', id: 'fbt' },
     { type: 'doc', id: 'git' },
