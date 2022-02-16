@@ -56,22 +56,6 @@ Moreover, there are even non-JS clients:
 
 _Do you know more? Please submit a PR!_
 
-## Persistent queries (stored operations)
-
-Why?
-
-- security (queries whitelist)
-- performance (expensive queries upload, possible server optimizations (skip validations))
-- AB testing (not sending full query strings with `@include` and `@skip`), basically the queries are not meant to be send from the client
-
-How?
-
-TKTK (2 approaches: ephemeral Apollo vs. compile time)
-
-Additional links:
-
-- https://chillicream.com/docs/hotchocolate/v10/execution-engine/persisted-queries
-
 ## Optimizing GraphQL server DB queries
 
 Quotation from the following source: https://github.com/graphql/graphql-js/issues/623#issuecomment-266851309
@@ -101,12 +85,6 @@ Another interesting comment: https://github.com/graphql/graphql-js/issues/700#is
 > This is important because Facebook doesn't deprecate mobile clients and force upgrade people (it might be very difficult if you only have 2G mobile internet access). So for example a random Facebook Android installation from 3 years ago still sends its persisted queries and should work!
 
 https://github.com/facebook/relay/pull/2641#issuecomment-475335484
-
-## Unsupported input union workaround
-
-https://github.com/graphql/graphql-spec/blob/master/rfcs/InputUnion.md#-problem-sketch
-
-TKTK
 
 ## GraphQL server-client communication
 
@@ -364,7 +342,7 @@ fragment MyLocation on Location {
   countryFlagURL
 }
 
-query($first: Int! = 10, $abTestEnabled: Boolean! = true) {
+query ($first: Int! = 10, $abTestEnabled: Boolean! = true) {
   allLocations(first: $first) {
     edges {
       node {
@@ -380,7 +358,7 @@ query($first: Int! = 10, $abTestEnabled: Boolean! = true) {
 Interestingly, you can use inline fragments to include/skip the whole block of fields like this:
 
 ```graphql
-query($first: Int! = 10, $abTestEnabled: Boolean! = true) {
+query ($first: Int! = 10, $abTestEnabled: Boolean! = true) {
   allLocations(first: $first) {
     edges {
       node {
