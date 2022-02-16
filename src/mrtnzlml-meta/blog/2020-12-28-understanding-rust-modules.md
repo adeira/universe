@@ -1,7 +1,5 @@
 ---
-id: modules
 title: Understanding Rust Modules
-sidebar_label: Rust Modules
 ---
 
 Coming from JavaScript world, understanding Rust modules was a bit challenging. This document aims to describe the Rust modules system via common examples.
