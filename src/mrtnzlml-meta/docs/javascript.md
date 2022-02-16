@@ -18,12 +18,6 @@ sidebar_label: JavaScript
 - https://github.com/gaearon/suspense-experimental-github-demo
 - https://github.com/relayjs/relay-examples/blob/4fe8cbf44e03d50972b1ff4da4b9c205e0525d47/issue-tracker/src/JSResource.js
 
-## strictEquals(a, b)
-
-> Write a function called `strictEquals(a, b)` that returns the same value as `a === b`. Your implementation must not use the `===` or `!==` operators.
-
-Solution: https://gist.github.com/gaearon/08a85a33e3d08f3f2ca25fb17bd9d638?ck_subscriber_id=920605104
-
 ## Does it mutate 😱
 
 - https://doesitmutate.xyz/
