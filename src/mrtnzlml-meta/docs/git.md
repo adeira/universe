@@ -12,12 +12,6 @@ sidebar_label: Git
 - https://git-scm.com/book/en/v2/Git-Internals-Transfer-Protocols
 - [How can I prevent git from thinking I did a rename](https://stackoverflow.com/questions/15031576/how-can-i-prevent-git-from-thinking-i-did-a-rename)
 
-What happened in last week?
-
-```bash
-git log --since=1.week --oneline --no-merges
-```
-
 ## New repo with copied history of only currently tracked files
 
 ```bash
