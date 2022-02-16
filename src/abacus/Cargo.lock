@@ -1303,7 +1303,7 @@ dependencies = [
  "mime",
  "mime_guess",
  "quick-error 1.2.3",
- "rand 0.8.4",
+ "rand 0.8.5",
  "safemem",
  "tempfile",
  "twoway",
@@ -1701,7 +1701,7 @@ dependencies = [
  "lazy_static",
  "num-traits",
  "quick-error 2.0.1",
- "rand 0.8.4",
+ "rand 0.8.5",
  "rand_chacha 0.3.1",
  "rand_xorshift",
  "regex-syntax",
@@ -1737,7 +1737,7 @@ version = "1.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "588f6378e4dd99458b60ec275b4477add41ce4fa9f64dcba6f15adccb19b50d6"
 dependencies = [
- "rand 0.8.4",
+ "rand 0.8.5",
 ]
 
 [[package]]
@@ -1765,20 +1765,19 @@ dependencies = [
  "libc",
  "rand_chacha 0.2.2",
  "rand_core 0.5.1",
- "rand_hc 0.2.0",
+ "rand_hc",
  "rand_pcg",
 ]
 
 [[package]]
 name = "rand"
-version = "0.8.4"
+version = "0.8.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2e7573632e6454cf6b99d7aac4ccca54be06da05aca2ef7423d22d27d4d4bcd8"
+checksum = "34af8d1a0e25924bc5b7c43c079c942339d8f0a8b57c39049bef581b46327404"
 dependencies = [
  "libc",
  "rand_chacha 0.3.1",
  "rand_core 0.6.3",
- "rand_hc 0.3.1",
 ]
 
 [[package]]
@@ -1826,15 +1825,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ca3129af7b92a17112d59ad498c6f81eaf463253766b90396d39ea7a39d6613c"
 dependencies = [
  "rand_core 0.5.1",
-]
-
-[[package]]
-name = "rand_hc"
-version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d51e9f596de227fda2ea6c84607f5558e196eeaf43c986b724ba4fb8fdf497e7"
-dependencies = [
- "rand_core 0.6.3",
 ]
 
 [[package]]
@@ -2211,9 +2201,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.78"
+version = "1.0.79"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d23c1ba4cf0efd44be32017709280b32d1cea5c3f1275c3b6d9e8bc54f758085"
+checksum = "8e8d9fa5c3b304765ce1fd9c4c8a3de2c8db365a5b91be52f186efc675681d95"
 dependencies = [
  "itoa 1.0.1",
  "ryu",
@@ -2280,7 +2270,7 @@ dependencies = [
  "lettre",
  "num_cpus",
  "proptest",
- "rand 0.8.4",
+ "rand 0.8.5",
  "reqwest",
  "ring",
  "rusoto_core",
@@ -2729,9 +2719,9 @@ dependencies = [
 
 [[package]]
 name = "typed-builder"
-version = "0.9.1"
+version = "0.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a46ee5bd706ff79131be9c94e7edcb82b703c487766a114434e5790361cf08c5"
+checksum = "89851716b67b937e393b3daa8423e67ddfc4bbbf1654bcf05488e95e0828db0c"
 dependencies = [
  "proc-macro2",
  "quote",
