@@ -18,11 +18,6 @@ sidebar_label: JavaScript
 - https://github.com/gaearon/suspense-experimental-github-demo
 - https://github.com/relayjs/relay-examples/blob/4fe8cbf44e03d50972b1ff4da4b9c205e0525d47/issue-tracker/src/JSResource.js
 
-## Does it mutate 😱
-
-- https://doesitmutate.xyz/
-- https://stackoverflow.com/a/9009934/3135248
-
 ## V8 Built-in functions
 
 - https://v8.dev/docs/builtin-functions
