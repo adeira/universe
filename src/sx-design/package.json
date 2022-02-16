@@ -18,7 +18,7 @@
     "@adeira/icons": "^1.0.1",
     "@adeira/js": "^2.1.1",
     "@babel/runtime": "^7.17.2",
-    "blurhash": "^1.1.4",
+    "blurhash": "^1.1.5",
     "fbt": "^0.16.6",
     "focus-trap-react": "^8.9.2",
     "prop-types": "^15.8.1",
