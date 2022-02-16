@@ -18,23 +18,6 @@ sidebar_label: JavaScript
 - https://github.com/gaearon/suspense-experimental-github-demo
 - https://github.com/relayjs/relay-examples/blob/4fe8cbf44e03d50972b1ff4da4b9c205e0525d47/issue-tracker/src/JSResource.js
 
-## Optional chaining gotchas
-
-Optional chaining != error suppression operator.
-
-```js
-(function () {
-  'use strict';
-  undeclared_var?.b; // ReferenceError: undeclared_var is not defined
-  arguments?.callee; // TypeError: 'callee' may not be accessed in strict mode
-  arguments.callee?.(); // TypeError: 'callee' may not be accessed in strict mode
-  true?.(); // TypeError: true is not a function
-})();
-```
-
-- https://v8.dev/features/optional-chaining
-- https://github.com/tc39/proposal-optional-chaining/commit/87e408d375bd749b21d70e65bd0cbbf57d9bcf82
-
 ## strictEquals(a, b)
 
 > Write a function called `strictEquals(a, b)` that returns the same value as `a === b`. Your implementation must not use the `===` or `!==` operators.
