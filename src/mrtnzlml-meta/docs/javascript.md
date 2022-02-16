@@ -18,19 +18,6 @@ sidebar_label: JavaScript
 - https://github.com/gaearon/suspense-experimental-github-demo
 - https://github.com/relayjs/relay-examples/blob/4fe8cbf44e03d50972b1ff4da4b9c205e0525d47/issue-tracker/src/JSResource.js
 
-## Beyond console.log()
-
-https://medium.com/@mattburgess/beyond-console-log-2400fdf4a9d8
-
-- `console.log/warn/error/info` with `%s`, `%o` and `%c`
-- `console.dir`
-- `console.table`
-- `console.assert`
-- `console.count/countReset`
-- `console.trace`
-- `console.time/timeEnd`
-- `console.group/groupCollapsed/groupEnd`
-
 ## Optional chaining gotchas
 
 Optional chaining != error suppression operator.
