@@ -50,7 +50,6 @@ module.exports = {
       ],
     },
     { type: 'doc', id: 'css' },
-    { type: 'doc', id: 'fbt' },
     { type: 'doc', id: 'git' },
     { type: 'doc', id: 'graphql' },
     { type: 'doc', id: 'javascript' },

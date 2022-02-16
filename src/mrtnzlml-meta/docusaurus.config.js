@@ -39,6 +39,7 @@ module.exports = {
       },
       items: [
         { to: 'til', label: 'TIL', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'left' },
         { to: 'docs/flow', label: 'Programming', position: 'left' },
         { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
         // {to: 'blog', label: 'Blog', position: 'left'},
@@ -90,6 +91,19 @@ module.exports = {
         googleAnalytics: {
           trackingID: 'UA-148481588-1',
         },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        // Required for any multi-instance plugin:
+        id: 'second-blog',
+        // URL route for the blog section of your site (*DO NOT* include a trailing slash):
+        routeBasePath: 'blog',
+        // Path to data on filesystem relative to site dir:
+        path: './blog',
       },
     ],
   ],

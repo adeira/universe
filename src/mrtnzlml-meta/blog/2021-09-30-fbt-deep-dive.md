@@ -1,12 +1,10 @@
 ---
-id: fbt
 title: FBT deep dive
-sidebar_label: FBT
 ---
 
-This page is about an [internationalization framework FBT](https://facebook.github.io/fbt/). Most of the information here can be found in the official documentation. This page doesn't deal with configuration and other project specifics. Instead, I am trying to show here a complex example sentence and how to deal with various situations that might occur in the wild.
+This post is about an [internationalization framework FBT](https://facebook.github.io/fbt/). Most of the information here can be found in the official documentation. This post doesn't deal with configuration and other project specifics. Instead, I am trying to show here a complex example sentence and how to deal with various situations that might occur in the wild.
 
-Demo sentence used on this page is:
+Demo sentence used on this post is:
 
 > **Peter submitted his proposal for this CONFERENCE.**
 
