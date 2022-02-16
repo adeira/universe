@@ -331,30 +331,3 @@ Now, in the first scheme, if the promise p rejects, then the .then() handler is 
 In the second scheme, if the promise p rejects, then the .catch() handler is called. If you return a normal value or a promise that eventually resolves from the .catch() handler (thus "handling" the error), then the promise chain switches to the resolved state and the .then() handler after the .catch() will be called.
 
 So that's difference #2. If the .catch() handler is BEFORE, then it can handle the error and allow the .then() handler to still get called.
-
-## Responsive component with hooks
-
-```js
-function MyResponsiveComponent() {
-  const width = useWindowWidth(); // Our custom Hook
-  return <p>Window width is {width}</p>;
-}
-```
-
-```js
-function useWindowWidth() {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  });
-
-  return width;
-}
-```
-
-Source: https://gist.github.com/gaearon/cb5add26336003ed8c0004c4ba820eae
