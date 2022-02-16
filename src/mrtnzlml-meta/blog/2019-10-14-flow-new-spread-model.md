@@ -1,7 +1,5 @@
 ---
-id: new-spread-model
-title: The New Spread Model
-sidebar_label: The New Spread Model
+title: 'Flow: The New Spread Model'
 ---
 
 Part 1: https://medium.com/flow-type/coming-soon-changes-to-object-spreads-73204aef84e1<br/>

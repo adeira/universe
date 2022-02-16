@@ -14,7 +14,6 @@ module.exports = {
       label: 'Flow',
       items: [
         { type: 'doc', id: 'flow' },
-        { type: 'doc', id: 'flow/new-spread-model' },
         { type: 'doc', id: 'flow/saved-state' },
         { type: 'doc', id: 'flow/unsealed-objects' },
         { type: 'doc', id: 'flow/configuration' },
