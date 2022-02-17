@@ -2,7 +2,7 @@
 
 import Icon from '@adeira/icons';
 import sx from '@adeira/sx';
-import { Button, LayoutInline, MoneyFn, Text } from '@adeira/sx-design';
+import { Button, LayoutInline, Money, MoneyFn, Text } from '@adeira/sx-design';
 import React, { type Node } from 'react';
 import fbt from 'fbt';
 
@@ -25,35 +25,33 @@ export default function CheckoutReceipt(props: Props): Node {
           <div key={item.__compositeID} className={styles('summaryRow')}>
             <LayoutInline justifyContent="space-between">
               <div>
-                <Text as="small">{item.units}&times;</Text> {item.itemTitle}
+                <Text as="span">{item.units}&times;</Text> {item.itemTitle}
               </div>
-              <div>
-                <Text as="small">{item.units}&times;</Text>{' '}
-                {MoneyFn({
-                  priceUnitAmount: item.itemUnitAmount / 100, // adjusted for centavo
-                  priceUnitAmountCurrency: 'MXN', // TODO
-                  locale: bcp47,
-                })}
-              </div>
+              <Money
+                priceUnitAmount={
+                  item.itemUnitAmount / 100 // adjusted for centavo
+                }
+                priceUnitAmountCurrency={
+                  'MXN' // TODO
+                }
+              />
             </LayoutInline>
 
             <div>
               {item.itemAddons != null
                 ? item.itemAddons.map((itemAddon) => (
                     <LayoutInline key={itemAddon.itemAddonID} justifyContent="space-between">
-                      <div>
-                        <Text as="small">{itemAddon.itemAddonTitle}</Text>
-                      </div>
-
-                      <div>
-                        <Text as="small">
-                          {MoneyFn({
-                            priceUnitAmount: itemAddon.itemAddonExtraPrice / 100, // adjusted for centavo
-                            priceUnitAmountCurrency: 'MXN', // TODO
-                            locale: bcp47,
-                          })}
-                        </Text>
-                      </div>
+                      <Text as="small">{itemAddon.itemAddonTitle}</Text>
+                      <Text as="small">
+                        <Money
+                          priceUnitAmount={
+                            itemAddon.itemAddonExtraPrice / 100 // adjusted for centavo
+                          }
+                          priceUnitAmountCurrency={
+                            'MXN' // TODO
+                          }
+                        />
+                      </Text>
                     </LayoutInline>
                   ))
                 : null}
@@ -113,11 +111,10 @@ const styles = sx.create({
     display: 'flex',
     flexDirection: 'column',
     marginBlockEnd: '1.2rem',
+    fontSize: '1.2rem',
   },
   summaryRowQuantity: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginInlineStart: '2rem',
+    fontSize: '1.5rem',
   },
   summaryRowTotal: {
     display: 'flex',
