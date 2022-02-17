@@ -1180,9 +1180,9 @@
     "iCBctDdcz6yDLlNQGi9HBw==": "Total:"
    },
    "filepath": "src/pos/CheckoutReceipt.js",
-   "line_beg": 89,
+   "line_beg": 87,
    "col_beg": 12,
-   "line_end": 89,
+   "line_end": 87,
    "col_end": 54,
    "desc": "total price title",
    "project": "",
