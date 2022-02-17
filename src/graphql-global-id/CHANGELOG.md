@@ -2,6 +2,8 @@
 
 Note for all Flow users: all projects in [`adeira/universe`](https://github.com/adeira/universe) now use implicit exact Flow types (`{}` for strict objects and `{ ... }` for open objects, syntax `{||}` is deprecated). We do not expect any issues as long as you are using `exact_by_default=true` Flow option.
 
+- GraphQL peer dependency extended to v15 and v16
+
 # 2.0.1
 
 - Upgrade of peer dependencies
