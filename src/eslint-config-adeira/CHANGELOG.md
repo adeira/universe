@@ -1,5 +1,7 @@
 # Unreleased
 
+- New rule [`@next/next/no-script-component-in-head`](https://github.com/vercel/next.js/blob/a52bd712fe797b59cfd05ceaa4c33096a0c346ff/errors/no-script-component-in-head-component.md) enabled (warnings or errors in strict mode).
+
 # 7.2.0
 
 - New _optional_ preset for [FBT](https://github.com/facebook/fbt) is available with one rule enabled: [`fbt/no-empty-strings`](https://github.com/alexandernanberg/eslint-plugin-fbt/blob/51d91952604ee699035d46b4ab93cf99686bcd49/docs/rules/no-empty-strings.md).

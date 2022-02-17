@@ -25,6 +25,7 @@ module.exports = ({
     '@next/next/no-html-link-for-pages': ERROR,
     '@next/next/no-img-element': ERROR,
     '@next/next/no-page-custom-font': ERROR,
+    '@next/next/no-script-component-in-head': ERROR,
     '@next/next/no-script-in-document': ERROR,
     '@next/next/no-script-in-head': ERROR,
     '@next/next/no-server-import-in-page': ERROR,

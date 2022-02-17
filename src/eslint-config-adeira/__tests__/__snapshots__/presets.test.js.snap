@@ -809,6 +809,7 @@ Object {
     "@next/next/no-html-link-for-pages": 2,
     "@next/next/no-img-element": 2,
     "@next/next/no-page-custom-font": 2,
+    "@next/next/no-script-component-in-head": 2,
     "@next/next/no-script-in-document": 2,
     "@next/next/no-script-in-head": 2,
     "@next/next/no-server-import-in-page": 2,
