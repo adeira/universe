@@ -38,7 +38,7 @@ serde_json = "1.0.79"
 serde_qs = "0.8.5"
 thiserror = { version = "1.0.30", default-features = false }
 tokio = { version = "1.16.1", default-features = false, features = ["full"] }
-tracing = "0.1.30"
+tracing = "0.1.31"
 tracing-subscriber = { version = "0.3.8", default-features = false, features = ["smallvec", "fmt", "ansi", "tracing-log", "std", "env-filter"] }
 typed-builder = "0.10.0"
 url = "2.2.2"
