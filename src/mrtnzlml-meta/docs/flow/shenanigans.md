@@ -123,17 +123,3 @@ function Component({ defaultProp = 'string' }) {
 ```
 
 This is allowed even though some people would expect something like "Error, defaultProp is missing in props", it's a feature: https://github.com/facebook/flow/commit/6dec7d5dbbd12a6f210f7c3ae21841a932eb71a8 (from 0.109.0)
-
-## Spreads don't preserve read-only-ness
-
-```js
-type A = {| +readOnlyKey: string |};
-type B = {| ...A, +otherKey: string |};
-
-function test(x: B) {
-  x.readOnlyKey = 'overwrite'; // no error ?
-  x.otherKey = 'overwrite'; // no error ??
-}
-```
-
-This applies to value spreads as well since they are creating a new object. It's less understandable for these type spreads where value spread is not involved.
