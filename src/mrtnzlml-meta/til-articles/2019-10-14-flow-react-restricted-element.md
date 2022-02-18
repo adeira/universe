@@ -1,7 +1,5 @@
 ---
-id: restricted-element
-title: RestrictedElement
-sidebar_label: RestrictedElement
+title: 'Flow: React RestrictedElement'
 ---
 
 `RestrictedElement<typeof MenuItem>`

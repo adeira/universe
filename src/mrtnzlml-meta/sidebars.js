@@ -21,10 +21,7 @@ module.exports = {
         {
           type: 'category',
           label: 'Patterns',
-          items: [
-            'flow/patterns/exhaustive-checking', //
-            'flow/patterns/restricted-element',
-          ],
+          items: ['flow/patterns/exhaustive-checking'],
         },
         { type: 'doc', id: 'flow/shenanigans' },
       ],
