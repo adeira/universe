@@ -4,26 +4,6 @@ title: CSS
 sidebar_label: CSS
 ---
 
-## REM units
-
-```css
-html {
-  font-size: 6.25%; /* =1px */
-  /* Since most browsers have a default value of 16px. Alternatively, people quite often
-     use 62.5% instead and adjust children REM units accordingly. */
-}
-body {
-  font-size: 14rem; /* =14px */
-}
-h1 {
-  font-size: 24rem; /* =24px */
-}
-```
-
-Default HTML font size: https://stackoverflow.com/questions/24542508/default-html-font-size
-
-Even better approach: https://css-tricks.com/rems-ems/
-
 ## CSS selectors
 
 https://gist.github.com/magicznyleszek/809a69dd05e1d5f12d01
