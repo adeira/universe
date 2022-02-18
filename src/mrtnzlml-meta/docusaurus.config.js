@@ -9,7 +9,7 @@
 
 module.exports = {
   title: 'Martin Zlámal 🤓',
-  tagline: 'My brain extension, personal README',
+  tagline: 'My brain extension & TIL',
   url: 'https://mrtnzlml.com/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
@@ -39,10 +39,9 @@ module.exports = {
       },
       items: [
         { to: 'til', label: 'TIL', position: 'left' },
-        { to: 'blog', label: 'Blog', position: 'left' },
+        { to: 'til-articles', label: 'Articles', position: 'left' },
         { to: 'docs/flow', label: 'Programming', position: 'left' },
         { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
-        // {to: 'blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/mrtnzlml/meta',
           label: 'GitHub',
@@ -100,11 +99,11 @@ module.exports = {
       '@docusaurus/plugin-content-blog',
       {
         // Required for any multi-instance plugin:
-        id: 'second-blog',
+        id: 'til-articles',
         // URL route for the blog section of your site (*DO NOT* include a trailing slash):
-        routeBasePath: 'blog',
+        routeBasePath: 'til-articles',
         // Path to data on filesystem relative to site dir:
-        path: './blog',
+        path: './til-articles',
       },
     ],
   ],
