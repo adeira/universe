@@ -38,8 +38,8 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: 'til', label: 'TIL', position: 'left' },
-        { to: 'til-articles', label: 'Articles', position: 'left' },
+        { to: 'til', label: 'Short TILs', position: 'left' },
+        { to: 'til-articles', label: 'Longer articles', position: 'left' },
         { to: 'docs/flow', label: 'Programming', position: 'left' },
         {
           href: 'https://github.com/mrtnzlml/meta',
@@ -63,15 +63,6 @@ module.exports = {
     [
       '@docusaurus/preset-classic',
       {
-        blog: {
-          path: 'til',
-          routeBasePath: '/til',
-          showReadingTime: false,
-          blogTitle: 'Today I Learned',
-          blogDescription: 'Today I Learned',
-          blogSidebarTitle: 'Recent learnings',
-          blogSidebarCount: 15,
-        },
         // TODO: docs=false (after moving everything to TIL)
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
@@ -97,12 +88,24 @@ module.exports = {
     [
       '@docusaurus/plugin-content-blog',
       {
-        // Required for any multi-instance plugin:
-        id: 'til-articles',
-        // URL route for the blog section of your site (*DO NOT* include a trailing slash):
-        routeBasePath: 'til-articles',
-        // Path to data on filesystem relative to site dir:
-        path: './til-articles',
+        id: 'til', // required for any multi-instance plugin
+        routeBasePath: '/til', // URL route for the blog section of your site (*DO NOT* include a trailing slash)
+        path: './til', // path to data on filesystem relative to site dir
+        showReadingTime: false,
+        blogTitle: 'Today I Learned',
+        blogDescription: 'Today I Learned',
+        blogSidebarTitle: 'Recent learnings',
+        blogSidebarCount: 15,
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'til-articles', // required for any multi-instance plugin
+        routeBasePath: '/til-articles', // URL route for the blog section of your site (*DO NOT* include a trailing slash)
+        path: './til-articles', // path to data on filesystem relative to site dir
+        blogTitle: 'Articles',
+        blogSidebarTitle: 'Recent articles',
       },
     ],
   ],
