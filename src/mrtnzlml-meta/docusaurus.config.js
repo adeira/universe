@@ -71,7 +71,8 @@ module.exports = {
           showReadingTime: false,
           blogTitle: 'Today I Learned',
           blogDescription: 'Today I Learned',
-          blogSidebarCount: 10,
+          blogSidebarTitle: 'Recent learnings',
+          blogSidebarCount: 15,
         },
         // TODO: docs=false (after moving everything to TIL)
         docs: {
