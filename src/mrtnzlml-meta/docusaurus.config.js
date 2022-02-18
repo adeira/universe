@@ -66,6 +66,7 @@ module.exports = {
         // TODO: docs=false (after moving everything to TIL)
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+          sidebarCollapsible: false,
           editUrl: 'https://github.com/mrtnzlml/meta/tree/master/',
           // showLastUpdateTime: true,
           // showLastUpdateAuthor: true,
