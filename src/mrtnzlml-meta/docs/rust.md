@@ -294,9 +294,3 @@ Source: https://veykril.github.io/tlborm/macros/macro_rules.html#repetitions
 ```bash
 cargo clippy -- -W clippy::pedantic
 ```
-
-## Rust pain points
-
-- long compile time (but that's kinda a Rust feature/goal)
-- shitty tests outputs (hard to read and get oriented, error messages are also hard to read)
-- the testing framework is in general a bit weak (compared to Jest), for example awkward snapshot testing, [missing dataproviders](#how-can-i-create-parameterized-tests-in-rust) (test.each in Jest), testing only changed files, missing watch mode
