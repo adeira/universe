@@ -44,7 +44,7 @@ module.exports = {
         {
           href: 'https://github.com/mrtnzlml/meta',
           label: 'GitHub',
-          position: 'left',
+          position: 'right',
         },
       ],
     },
