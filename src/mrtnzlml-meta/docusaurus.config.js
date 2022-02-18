@@ -41,7 +41,6 @@ module.exports = {
         { to: 'til', label: 'TIL', position: 'left' },
         { to: 'til-articles', label: 'Articles', position: 'left' },
         { to: 'docs/flow', label: 'Programming', position: 'left' },
-        { to: 'docs/archive/flow', label: 'Archive', position: 'left' },
         {
           href: 'https://github.com/mrtnzlml/meta',
           label: 'GitHub',
