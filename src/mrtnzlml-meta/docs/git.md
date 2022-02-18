@@ -44,17 +44,6 @@ Source: https://stackoverflow.com/a/17909526/3135248
 
 Please note: you should delete everything you want to remove and run the filter. However, do not move the directories structure otherwise you will lose their history! Make these changes part of your history.
 
-## Working with monorepo
-
-- https://gitlab.com/groups/gitlab-org/-/epics/915
-- https://gitlab.com/gitlab-org/gitaly/issues/1581
-
-> In a large repository you can’t afford to rebuild and test all the source code each time you make a change. A change to a package should only test and build consumers of that package, the time to build and test the project has to be proportional to what was changed not to the size of the project.
-
-## 4b825dc642cb6eb9a060e54bf8d69288fbee4904
-
-This hash exists in every Git repository: https://stackoverflow.com/q/9765453/3135248
-
 ## Keeping origin synced with upstream
 
 ```bash
