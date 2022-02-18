@@ -44,10 +44,6 @@ Source: https://stackoverflow.com/a/17909526/3135248
 
 Please note: you should delete everything you want to remove and run the filter. However, do not move the directories structure otherwise you will lose their history! Make these changes part of your history.
 
-## A..B vs A...B vs --ancestry-path
-
-See: https://stackoverflow.com/a/36437843
-
 ## Understanding `@@ -1,2 +3,4 @@` part of the diff
 
 ```text
