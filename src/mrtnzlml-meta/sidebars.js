@@ -41,7 +41,6 @@ module.exports = {
       ],
     },
     { type: 'doc', id: 'rust' },
-    { type: 'doc', id: 'css' },
     { type: 'doc', id: 'git' },
     { type: 'doc', id: 'graphql' },
   ],
