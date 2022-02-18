@@ -87,22 +87,6 @@ I am never gonna remember this correctly I guess.
 
 https://github.com/facebook/jest/issues/5143
 
-## isObject()
-
-```js
-function isObject(value): boolean %checks {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
-}
-```
-
-Jest [implementation](https://github.com/facebook/jest/blob/d7ca8b23acf2fdd1d070496efb2b2709644a6f4f/packages/jest-snapshot/src/utils.js#L79-L81):
-
-```js
-function isObject(item) {
-  return item && typeof item === 'object' && !Array.isArray(item);
-}
-```
-
 ## Is this thing a number?
 
 TL;DR - do not use only `isNaN` for this and write a lot of tests.
