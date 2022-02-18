@@ -318,19 +318,6 @@ export default createFragmentContainer(XYZ, {
 });
 ```
 
-## Rate Limiting, Cost Computation
-
-So far the best idea I ever saw is this one: https://github.com/adeira/universe/blob/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size/semantics-and-complexity-of-graphql.pdf (alternative reading: [Result size calculation for Facebook’s GraphQL query language](https://www.diva-portal.org/smash/get/diva2:1237221/FULLTEXT01.pdf))
-
-Experimental implementation here: https://github.com/adeira/universe/tree/5d2c15e1767a6e91c5eb82f41abc1e856811d0df/src/graphql-result-size
-
-TKTK
-
-Alternative approaches:
-
-- https://developer.github.com/v4/guides/resource-limitations/ (TODO: explain why it's worse and when you should consider it)
-- https://twitter.com/__xuorig__/status/1148653318069207041
-
 ## A/B testing in GraphQL
 
 GraphQL has `@include` and `@skip` directives defined by default. There directives can be used for A/B testing like this for example:
@@ -399,14 +386,3 @@ export type PollingQueryResponse = {|
 ```
 
 Therefore server can return you dynamic response even though Relay generates the meta files statically.
-
-## Little know GraphQL behaviors
-
-> Fields \“sender\” conflict because subfields \“avatar\” conflict because they return conflicting types String and LiveConversationVisitorAvatar. Use different aliases on the fields to fetch both if this was intentional.
-
-When, what, how?
-
-- https://stackoverflow.com/questions/56695262/graphql-error-fieldsconflict-fields-have-different-list-shapes
-- http://spec.graphql.org/June2018/#sec-Field-Selection-Merging
-- https://github.com/graphql/graphql-js/blob/d5a1ba8ce7a348860e814f6526feda1111dc018b/src/validation/__tests__/OverlappingFieldsCanBeMerged-test.js
-- https://github.com/graphql/graphql-js/blob/d5a1ba8ce7a348860e814f6526feda1111dc018b/src/validation/rules/OverlappingFieldsCanBeMerged.js#L107-L160
