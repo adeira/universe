@@ -10,7 +10,7 @@ export default function StripeRedirectExplanation(): React.Node {
       <em>
         <fbt desc="stripe redirect explanation">
           You will be redirected to an external Stripe page (<code>buy.stripe.com</code>) after
-          clicking on the button above where you can complete the donation.
+          clicking on the button above where you can complete the contribution.
         </fbt>
       </em>
     </Text>
