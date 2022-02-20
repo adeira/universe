@@ -6,10 +6,11 @@ import sx from '@adeira/sx';
 
 import Link from './Link';
 import sharedButtonStyles from '../Button/styles';
+import Money from '../Money/Money';
 
 type Props = {
   +'href': string,
-  +'children': FbtWithoutString,
+  +'children': FbtWithoutString | RestrictedElement<typeof Money>,
   +'target'?: string,
   +'isActive'?: boolean,
   +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
