@@ -44,6 +44,12 @@ export default function LayoutNavigation(): React.Node {
       </div>
 
       <div className={styles('navigationSection')}>
+        <LinkInternal href="/donate" xstyle={styles.link}>
+          <strong>
+            <fbt desc="link to the donate page from subpage navigation">Donate ♥️</fbt>
+          </strong>
+        </LinkInternal>
+
         {pageShopOrdersEnabled === true ? (
           <LinkInternal href="/cart">
             <Icon name="cart" />
@@ -58,14 +64,18 @@ const styles = sx.create({
   navigation: {
     backgroundColor: 'rgba(var(--main-bg-color-dark))',
     display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
-    position: 'sticky',
+    alignItems: 'center',
     top: 0,
     zIndex: 10,
-    height: '75px',
+    minHeight: '75px',
   },
   navigationSection: {
     display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   link: {
