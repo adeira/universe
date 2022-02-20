@@ -84,13 +84,30 @@ pub(in crate::warp_server) async fn webhooks_stripe(
                     let webhook_type = &stripe_webhook_payload.r#type;
                     match webhook_type {
                         StripeWebhookType::CheckoutSessionCompleted => {
-                            // TODO: implement the logic here
-                            dbg!(
-                                serde_json::from_value::<CheckoutSession>(
-                                    stripe_webhook_payload.data.object
+                            match crate::stripe::webhook_handlers::checkout_session::completed(
+                                &pool,
+                                &serde_json::from_value::<CheckoutSession>(
+                                    stripe_webhook_payload.data.object,
                                 )
-                                .unwrap() // TODO: fix unwrap
-                            );
+                                .unwrap(), // TODO: fix unwrap
+                            )
+                            .await
+                            {
+                                Ok(_) => {
+                                    tracing::info!("Stripe webhook with type '{:?}' was executed successfully.", webhook_type);
+                                }
+                                Err(_) => {
+                                    let message = format!(
+                                        "Stripe webhook with type '{:?}' failed to execute.",
+                                        webhook_type
+                                    );
+                                    tracing::error!("{}", message);
+                                    return Ok(warp::reply::with_status(
+                                        message,
+                                        warp::http::StatusCode::INTERNAL_SERVER_ERROR,
+                                    ));
+                                }
+                            }
                         }
                         _ => {
                             tracing::warn!(

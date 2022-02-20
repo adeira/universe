@@ -16,6 +16,7 @@ mod supported_currencies;
 mod supported_locales;
 
 pub mod webhook;
+pub mod webhook_handlers;
 
 #[derive(Debug, Clone)]
 pub struct StripeCheckoutSessionCreateProductInput {
@@ -89,7 +90,6 @@ pub(crate) async fn checkout_session_create(
     match resp.error_for_status() {
         Ok(resp) => {
             let json: CheckoutSession = resp.json().await?;
-            dbg!(&json);
             Ok(json)
         }
         Err(error) => {
