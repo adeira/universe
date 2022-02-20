@@ -11,6 +11,8 @@ use crate::warp_server::models::get_current_user;
 use bytes::BufMut;
 use futures::TryStreamExt;
 use juniper::http::GraphQLRequest;
+use md5::{Digest, Md5};
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::str::FromStr;
 use std::sync::Arc;
@@ -273,6 +275,30 @@ pub(in crate::warp_server) async fn graphql_multipart(
         }
         Err(e) => reject_with_permissions_error(Some(&e)),
     }
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+struct GraphQLPersistResponseSuccess {
+    id: String,
+}
+
+pub(in crate::warp_server) async fn graphql_persist(
+    simple_map: HashMap<String, String>,
+) -> Result<Box<dyn Reply>, Rejection> {
+    // TODO: validate `simple_map.text` GraphQL operation (https://github.com/graphql-rust/juniper/commit/c78045c16767761cc097d87fc616982cd6b2773b)
+
+    let mut hasher = Md5::new();
+    hasher.update(simple_map.get("text").unwrap());
+
+    // TODO: save the new persisted operation in our database
+    // TODO: handle errors (https://github.com/facebook/relay/blob/bfe0e65790a5f4c663eda36a57d6ef98d3b39b26/compiler/crates/persist-query/src/lib.rs)
+
+    Ok(Box::new(warp::reply::with_status(
+        warp::reply::json(&GraphQLPersistResponseSuccess {
+            id: hex::encode(hasher.finalize()),
+        }),
+        StatusCode::OK,
+    )))
 }
 
 async fn try_fold_multipart_stream(part: Part) -> Result<Vec<u8>, Rejection> {
