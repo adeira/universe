@@ -1,12 +1,22 @@
 {
   "fb-locale": "es_MX",
   "translations": {
-    "k2Q8RUdCLyiDbzVP375Pzg==": {
+    "XhlPcB0basIcObgeU+J78w==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "GATOS + KOCHKADAS + CAFÉ",
+          "translation": "KOCHKA Café",
+          "variations": []
+        }
+      ]
+    },
+    "qRsJHMwQYNiEnmKE/Uqndg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "buy.stripe.com",
           "variations": []
         }
       ]
@@ -31,22 +41,12 @@
         }
       ]
     },
-    "56PKpOqt3+LEFaRQ36PltQ==": {
+    "ZTIT5d4Nmlu4o/Wb7qpAaQ==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "E4RZPBAPff7GYBpbxPKY/A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Reglas de la cafetería",
           "variations": []
         }
       ]
@@ -57,6 +57,16 @@
       "translations": [
         {
           "translation": "Adopciones",
+          "variations": []
+        }
+      ]
+    },
+    "Eg3Cmf5NcWMLInFx4u9Ljg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Reglas",
           "variations": []
         }
       ]
@@ -81,22 +91,12 @@
         }
       ]
     },
-    "5DdiCVjwegcUT8ZCy2GyrQ==": {
+    "L0WJiJMAz6UZOMLGfq/EXw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "IjVXijtuMLAQYt3SNU4PLQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Reglas de la cafetería",
           "variations": []
         }
       ]
@@ -107,6 +107,16 @@
       "translations": [
         {
           "translation": "Adopciones",
+          "variations": []
+        }
+      ]
+    },
+    "A5NoowwCUNmKFr3s/nXG/w==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Reglas",
           "variations": []
         }
       ]
@@ -161,22 +171,12 @@
         }
       ]
     },
-    "T7TGlJhstlWdCNB26MkqzA==": {
+    "E5Y8taJzgTvVw7JlJd8qbw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "paPCRFfyKUaXeFKvDVrhoQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Reglas de la cafetería",
           "variations": []
         }
       ]
@@ -187,6 +187,16 @@
       "translations": [
         {
           "translation": "Adopciones",
+          "variations": []
+        }
+      ]
+    },
+    "oz5ITO6XGkR/D3yT47GqYg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Reglas",
           "variations": []
         }
       ]
@@ -221,22 +231,12 @@
         }
       ]
     },
-    "2QmqEZbFupR6PiAMpYnoOA==": {
+    "49oC4KNe7YsynNra1tiIDw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Kochkadas Saladas",
-          "variations": []
-        }
-      ]
-    },
-    "FYN2g4NuXpwO4NtuNyNTGA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Kochkadas Dulces",
+          "translation": "Kochkadas",
           "variations": []
         }
       ]
@@ -667,16 +667,6 @@
       "translations": [
         {
           "translation": "Gato adulto",
-          "variations": []
-        }
-      ]
-    },
-    "OmploHAZNYiCjgWk83eTCA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Gatitos menores de 6 meses",
           "variations": []
         }
       ]
