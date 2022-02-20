@@ -32,7 +32,7 @@ export default function HomepageNavigation(): React.Node {
           </LinkInternal>
         ) : null}
 
-        <LinkInternal href="/rules" size={32} weight={100} xstyle={styles.link}>
+        <LinkInternal href="/donate" size={32} weight={100} xstyle={styles.link}>
           <strong>
             <fbt desc="link to the donation from the homepage">Donate ♥️</fbt>
           </strong>
