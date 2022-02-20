@@ -15,11 +15,13 @@ pub(crate) fn combined_filter(
 ) -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
     let graphql_warp_filter =
         warp_server::filters::graphql(pool, graphql_schema, global_configuration);
+    let graphql_persist_warp_filter = warp_server::filters::graphql_persist();
     let redirects_warp_filter = warp_server::filters::redirects(pool);
     let status_ping_pong_filter = warp_server::filters::ping_pong();
     let webhooks_warp_filter = warp_server::filters::webhooks(pool, global_configuration);
 
     graphql_warp_filter
+        .or(graphql_persist_warp_filter)
         .or(redirects_warp_filter)
         .or(status_ping_pong_filter)
         .or(webhooks_warp_filter)
@@ -57,6 +59,17 @@ fn webhooks(
         .and_then(warp_server::handlers::webhooks_stripe)
 }
 
+/// Allows to persist Relay queries via Relay Compiler.
+fn graphql_persist() -> impl Filter<Extract = impl Reply, Error = Rejection> + Clone {
+    // TODO: authorization
+    // TODO: disable gzip compression for response (Relay Compiler doesn't support it)
+    warp::path!("graphql" / "persist")
+        .and(warp::post())
+        .and(warp::filters::body::form())
+        .and(warp::path::end())
+        .and_then(warp_server::handlers::graphql_persist)
+}
+
 /// Combines our `application/json` and `multipart/form-data` GraphQL filters together.
 ///
 /// Note on Warp filters implementation:
@@ -74,6 +87,7 @@ fn graphql(
     graphql_post(pool, schema.clone(), global_configuration)
         .or(graphql_multipart(pool, schema, global_configuration))
         .with(
+            // TODO: apply CORS everywhere
             warp::cors()
                 .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
                 .allow_origin("https://abacus-bo.kochka.com.mx/") // abacus-backoffice (PROD)
