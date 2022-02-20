@@ -44,9 +44,9 @@ export default function LayoutNavigation(): React.Node {
       </div>
 
       <div className={styles('navigationSection')}>
-        <LinkInternal href="/donate" xstyle={styles.link}>
+        <LinkInternal href="/contribute" xstyle={styles.link}>
           <strong>
-            <fbt desc="link to the donate page from subpage navigation">Donate ♥️</fbt>
+            <fbt desc="link to the contribution page from subpage navigation">Contribute ♥️</fbt>
           </strong>
         </LinkInternal>
 

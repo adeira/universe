@@ -2,28 +2,28 @@
  "phrases": [
   {
    "hashToText": {
-    "OAy7TIyrqplxbeWwSBorPg==": "♥️ Donate ♥️"
+    "hDyrNnE41nUuLcUMu5y59A==": "♥️ Voluntary contribution ♥️"
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 42,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 45,
    "col_beg": 13,
-   "line_end": 42,
-   "col_end": 61,
-   "desc": "donate page title",
+   "line_end": 45,
+   "col_end": 81,
+   "desc": "contribute page title",
    "project": "",
    "type": "text",
-   "jsfbt": "♥️ Donate ♥️"
+   "jsfbt": "♥️ Voluntary contribution ♥️"
   },
   {
    "hashToText": {
-    "DbE7/Ajhetd/wBz29s2aHA==": "Help us create a better life for our cats"
+    "T+NpfkAZAp+bLGBtDuSG4g==": "Help us create a better life for our cats"
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 43,
-   "col_beg": 16,
-   "line_end": 43,
-   "col_end": 96,
-   "desc": "donate page subtitle",
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 47,
+   "col_beg": 8,
+   "line_end": 47,
+   "col_end": 92,
+   "desc": "contribute page subtitle",
    "project": "",
    "type": "text",
    "jsfbt": "Help us create a better life for our cats"
@@ -32,10 +32,10 @@
    "hashToText": {
     "6Oth475/NFsGCQ2q74WOWQ==": "The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance."
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 47,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 52,
    "col_beg": 10,
-   "line_end": 53,
+   "line_end": 58,
    "col_end": 16,
    "desc": "paragraph",
    "project": "",
@@ -46,10 +46,10 @@
    "hashToText": {
     "XhlPcB0basIcObgeU+J78w==": "KOCHKA Café"
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 48,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 53,
    "col_beg": 33,
-   "line_end": 48,
+   "line_end": 53,
    "col_end": 61,
    "desc": "In the phrase: \"The ultimate goal of {=KOCHKA Café} is to help cats who really need it. Having a coffee shop definitely helps. However, we would like to give an extraordinary life to our cats. Why? Because all of our cats went through some bad times in their life. Either they were abandoned, thrown away, or born into some bad conditions. And we believe that all of them deserve to have the best - the ultimate second chance.\"",
    "project": "",
@@ -58,82 +58,82 @@
   },
   {
    "hashToText": {
-    "bg+GaSCV3xqFWy+VCipSvQ==": "We would like to ask you to consider donating to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
+    "hNJdF5T8ZRQPBqRHQy+EWQ==": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 56,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 61,
    "col_beg": 10,
-   "line_end": 60,
+   "line_end": 65,
    "col_end": 16,
    "desc": "paragraph",
    "project": "",
    "type": "text",
-   "jsfbt": "We would like to ask you to consider donating to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
+   "jsfbt": "We would like to ask you to consider contributing to KOCHKA Café so we can achieve this goal. Help us to buy them better food. Help us to buy them more toys. Help us to make their life awesome."
   },
   {
    "hashToText": {
-    "o1jPq2a41/mlWECmzg/77w==": "One-time donation ♥️"
+    "CVAijOv5C0UslzBPMhL7SA==": "One-time contribution ♥️"
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 66,
-   "col_beg": 10,
-   "line_end": 66,
-   "col_end": 75,
-   "desc": "one-time donation subtitle",
-   "project": "",
-   "type": "text",
-   "jsfbt": "One-time donation ♥️"
-  },
-  {
-   "hashToText": {
-    "xP9i4PMLmBhsqzNRswGYTw==": "Show us your support by sending a one-time donation. You will be charged only once."
-   },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 69,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 71,
    "col_beg": 10,
    "line_end": 71,
-   "col_end": 16,
-   "desc": "one-time donation description",
+   "col_end": 83,
+   "desc": "one-time contribution subtitle",
    "project": "",
    "type": "text",
-   "jsfbt": "Show us your support by sending a one-time donation. You will be charged only once."
+   "jsfbt": "One-time contribution ♥️"
   },
   {
    "hashToText": {
-    "+msVZyrlFmrqQeScleTvUg==": "Recurring donation (monthly) ♥♥️️"
+    "bZr1fe9zJldIOJ8L3xFdNA==": "Show us your support by sending a one-time contribution. You will be charged only once."
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 97,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 74,
    "col_beg": 10,
-   "line_end": 97,
-   "col_end": 89,
-   "desc": "recurring donation subtitle",
+   "line_end": 76,
+   "col_end": 16,
+   "desc": "one-time contribution description",
    "project": "",
    "type": "text",
-   "jsfbt": "Recurring donation (monthly) ♥♥️️"
+   "jsfbt": "Show us your support by sending a one-time contribution. You will be charged only once."
   },
   {
    "hashToText": {
-    "PrCGDbv605MgToJuFa4s5A==": "A recurring donation is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
+    "C/jBexWuGqox0yek4XyMUA==": "Recurring contribution (monthly) ♥♥️️"
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 100,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 101,
    "col_beg": 10,
-   "line_end": 103,
-   "col_end": 16,
-   "desc": "recurring donation description",
+   "line_end": 101,
+   "col_end": 97,
+   "desc": "recurring contribution subtitle",
    "project": "",
    "type": "text",
-   "jsfbt": "A recurring donation is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
+   "jsfbt": "Recurring contribution (monthly) ♥♥️️"
+  },
+  {
+   "hashToText": {
+    "ooSK/rLOxewJkJbSdcdPMQ==": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
+   },
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 104,
+   "col_beg": 10,
+   "line_end": 107,
+   "col_end": 16,
+   "desc": "recurring contribution description",
+   "project": "",
+   "type": "text",
+   "jsfbt": "A recurring contribution is for people who want to support KOCHKA Café and ultimately our cats on a monthly basis. We cannot express enough how grateful we are."
   },
   {
    "hashToText": {
     "9dbPRX1dP8RtMFaJxop9jg==": "{price} / month"
    },
-   "filepath": "src/donations/Donations.js",
-   "line_beg": 116,
+   "filepath": "src/contributions/Contributions.js",
+   "line_beg": 120,
    "col_beg": 18,
-   "line_end": 121,
+   "line_end": 125,
    "col_end": 24,
    "desc": "recurring monetary value per month",
    "project": "",
@@ -142,9 +142,9 @@
   },
   {
    "hashToText": {
-    "VV4ciBS/Cj1sidgXuJhHBw==": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the donation."
+    "xOijVgLac+Fx+3ST5k0jDQ==": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution."
    },
-   "filepath": "src/donations/StripeRedirectExplanation.js",
+   "filepath": "src/contributions/StripeRedirectExplanation.js",
    "line_beg": 11,
    "col_beg": 8,
    "line_end": 14,
@@ -152,18 +152,18 @@
    "desc": "stripe redirect explanation",
    "project": "",
    "type": "text",
-   "jsfbt": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the donation."
+   "jsfbt": "You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution."
   },
   {
    "hashToText": {
-    "ecisw0+YnzdrrpXzs6hVvw==": "buy.stripe.com"
+    "qRsJHMwQYNiEnmKE/Uqndg==": "buy.stripe.com"
    },
-   "filepath": "src/donations/StripeRedirectExplanation.js",
+   "filepath": "src/contributions/StripeRedirectExplanation.js",
    "line_beg": 12,
    "col_beg": 61,
    "line_end": 12,
    "col_end": 88,
-   "desc": "In the phrase: \"You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the donation.\"",
+   "desc": "In the phrase: \"You will be redirected to an external Stripe page ({=buy.stripe.com}) after clicking on the button above where you can complete the contribution.\"",
    "project": "",
    "type": "text",
    "jsfbt": "buy.stripe.com"
@@ -268,17 +268,17 @@
   },
   {
    "hashToText": {
-    "OWMBEtgnodB5NFJoRrN7dQ==": "Donate ♥️"
+    "VYEswFAa4E04/Xqu+LPv5A==": "Contribute ♥️"
    },
    "filepath": "src/HomepageNavigation.js",
    "line_beg": 37,
    "col_beg": 12,
    "line_end": 37,
-   "col_end": 78,
-   "desc": "link to the donation from the homepage",
+   "col_end": 91,
+   "desc": "link to the contribution page from the homepage",
    "project": "",
    "type": "text",
-   "jsfbt": "Donate ♥️"
+   "jsfbt": "Contribute ♥️"
   },
   {
    "hashToText": {
@@ -352,17 +352,17 @@
   },
   {
    "hashToText": {
-    "0dnKBqX87+H28+UMiOSG2A==": "Donate ♥️"
+    "eZvcIisVQ0UqvsMX7CY6UA==": "Contribute ♥️"
    },
    "filepath": "src/LayoutFooter.js",
    "line_beg": 57,
    "col_beg": 16,
    "line_end": 57,
-   "col_end": 88,
-   "desc": "link to the donate page from the page footer",
+   "col_end": 98,
+   "desc": "link to the contribution page from the page footer",
    "project": "",
    "type": "text",
-   "jsfbt": "Donate ♥️"
+   "jsfbt": "Contribute ♥️"
   },
   {
    "hashToText": {
@@ -478,17 +478,17 @@
   },
   {
    "hashToText": {
-    "X7Fm57MXguE2XF9VUd1XOA==": "Donate ♥️"
+    "FfK2bj6SLTsfvIKsGTTp2Q==": "Contribute ♥️"
    },
    "filepath": "src/LayoutNavigation.js",
    "line_beg": 49,
    "col_beg": 12,
    "line_end": 49,
-   "col_end": 87,
-   "desc": "link to the donate page from subpage navigation",
+   "col_end": 97,
+   "desc": "link to the contribution page from subpage navigation",
    "project": "",
    "type": "text",
-   "jsfbt": "Donate ♥️"
+   "jsfbt": "Contribute ♥️"
   },
   {
    "hashToText": {
