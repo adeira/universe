@@ -120,6 +120,7 @@ async fn main() {
             }))
             .with(
                 // TODO: respect `Accept-Encoding` header (https://github.com/seanmonstar/warp/pull/513)
+                // TODO: this doesn't work with Relay Compiler persisted queries (gzip must be disabled for responses)
                 warp::compression::gzip(),
             );
 
@@ -130,6 +131,7 @@ async fn main() {
         Starting server on {}
          - POST /graphql            (application/json)
          - POST /graphql            (multipart/form-data)
+         - POST /graphql/persist    (application/x-www-form-urlencoded)
          - GET  /redirect/:uuid
          - GET  /status/ping
          - POST /webhooks/stripe
