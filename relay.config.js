@@ -1,5 +1,19 @@
 // @flow strict
 
+const shouldPersist = process.env.RELAY_ENABLE_PERSIST === 'true';
+
+// RELAY_ENABLE_PERSIST=true ./node_modules/.bin/relay-compiler --repersist
+const abacusPersistConfig /*: $FlowFixMe */ =
+  shouldPersist === true
+    ? {
+        persist: {
+          url: 'https://abacus.kochka.com.mx/graphql/persist',
+          concurrency: 10,
+          params: {},
+        },
+      }
+    : {};
+
 module.exports = {
   root: '.',
   sources: {
@@ -35,6 +49,7 @@ module.exports = {
       featureFlags: {
         no_inline: { kind: 'enabled' },
       },
+      ...abacusPersistConfig,
     },
     'example-relay': {
       language: 'flow',
