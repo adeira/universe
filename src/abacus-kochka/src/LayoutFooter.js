@@ -51,6 +51,13 @@ export default function LayoutFooter(): React.Node {
               </LinkInternal>
             </div>
           ) : null}
+          <div>
+            <LinkInternal href="/donate" xstyle={styles.link}>
+              <strong>
+                <fbt desc="link to the donate page from the page footer">Donate ♥️</fbt>
+              </strong>
+            </LinkInternal>
+          </div>
         </div>
 
         <div className={styles('columnLeft')}>
