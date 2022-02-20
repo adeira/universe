@@ -89,6 +89,10 @@ The application currently runs on DigitalOcean in Docker (k8s). There are additi
 
 ## Stripe
 
+```bash
+stripe login
+```
+
 This is how you can test Stripe webhooks:
 
 ```bash
