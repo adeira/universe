@@ -811,7 +811,6 @@ Object {
     "@next/next/no-page-custom-font": 2,
     "@next/next/no-script-component-in-head": 2,
     "@next/next/no-script-in-document": 2,
-    "@next/next/no-script-in-head": 2,
     "@next/next/no-server-import-in-page": 2,
     "@next/next/no-sync-scripts": 2,
     "@next/next/no-title-in-document-head": 2,
