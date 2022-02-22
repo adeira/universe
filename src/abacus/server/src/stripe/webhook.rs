@@ -1,30 +1,75 @@
 use serde::{Deserialize, Serialize};
 
+/// TODO: missing events:
+///  - `account.*`
+///  - `billing_portal.*`
+///  - `capability.*`
+///  - `charge.dispute.*`
+///  - `cupon.dispute.*`
+///  - `credit_note.dispute.*`
+///  - ...
+///
 /// See: https://stripe.com/docs/api/events/types
 #[derive(Debug, Deserialize, Serialize)]
 pub enum StripeWebhookType {
+    /// Occurs whenever an account status or property has changed.
     #[serde(rename = "account.updated")]
     AccountUpdated,
+
+    /// Occurs whenever your Stripe balance has been updated (e.g., when a charge is available to
+    /// be paid out). By default, Stripe automatically transfers funds in your balance to your bank
+    /// account on a daily basis.
     #[serde(rename = "balance.available")]
     BalanceAvailable,
+
+    /// Occurs whenever a previously uncaptured charge is captured.
     #[serde(rename = "charge.captured")]
     ChargeCaptured,
-    #[serde(rename = "charge.dispute.created")]
-    ChargeDisputeCreated,
+
+    /// Occurs whenever an uncaptured charge expires.
+    #[serde(rename = "charge.expired")]
+    ChargeExpired,
+
+    /// Occurs whenever a failed charge attempt occurs.
     #[serde(rename = "charge.failed")]
     ChargeFailed,
+
+    /// Occurs whenever a pending charge is created.
+    #[serde(rename = "charge.pending")]
+    ChargePending,
+
+    /// Occurs whenever a charge is refunded, including partial refunds.
     #[serde(rename = "charge.refunded")]
     ChargeRefunded,
+
+    /// Occurs whenever a charge is successful.
     #[serde(rename = "charge.succeeded")]
     ChargeSucceeded,
+
+    /// Occurs whenever a charge description or metadata is updated.
+    #[serde(rename = "charge.updated")]
+    ChargeUpdated,
+
+    /// Occurs whenever a customer disputes a charge with their bank.
+    #[serde(rename = "charge.dispute.created")]
+    ChargeDisputeCreated,
+
+    /// Occurs when a payment intent using a delayed payment method fails.
     #[serde(rename = "checkout.session.async_payment_failed")]
     CheckoutSessionAsyncPaymentFailed,
+
+    /// Occurs when a payment intent using a delayed payment method finally succeeds.
     #[serde(rename = "checkout.session.async_payment_succeeded")]
     CheckoutSessionAsyncPaymentSucceeded,
 
-    ///See: https://stripe.com/docs/api/checkout/sessions/object
+    /// Occurs when a Checkout Session has been successfully completed.
+    /// See: https://stripe.com/docs/api/checkout/sessions/object
     #[serde(rename = "checkout.session.completed")]
     CheckoutSessionCompleted,
+
+    /// Occurs when a Checkout Session is expired.
+    #[serde(rename = "checkout.session.expired")]
+    CheckoutSessionExpired,
 
     #[serde(rename = "customer.created")]
     CustomerCreated,
@@ -62,14 +107,23 @@ pub enum StripeWebhookType {
     IssuingCardholderCreated,
     #[serde(rename = "payment_intent.amount_capturable_updated")]
     PaymentIntentAmountCapturableUpdated,
+
+    /// Occurs when a PaymentIntent is canceled.
     #[serde(rename = "payment_intent.canceled")]
     PaymentIntentCanceled,
+
+    /// Occurs when a new PaymentIntent is created.
     #[serde(rename = "payment_intent.created")]
     PaymentIntentCreated,
+
+    /// Occurs when a PaymentIntent has failed the attempt to create a payment method or a payment.
     #[serde(rename = "payment_intent.payment_failed")]
     PaymentIntentPaymentFailed,
+
+    /// Occurs when a PaymentIntent has successfully completed payment.
     #[serde(rename = "payment_intent.succeeded")]
     PaymentIntentSucceeded,
+
     #[serde(rename = "payment_method.attached")]
     PaymentMethodAttached,
     #[serde(rename = "payout.created")]
