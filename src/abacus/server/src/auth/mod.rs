@@ -1,7 +1,5 @@
 use crate::auth::certs::CachedCerts;
-use crate::auth::dal::sessions::{
-    create_new_user_session, delete_user_session, find_session_by_user,
-};
+use crate::auth::dal::sessions::{create_new_user_session, delete_user_session};
 use crate::auth::dal::users::{
     create_inactive_user_by_google_claims, find_user_by_google_claims,
     get_user_by_session_token_hash,

@@ -1,6 +1,7 @@
 use crate::auth::users::User;
 use casbin::{CoreApi, DefaultModel, Error as CasbinError, FileAdapter};
 
+#[allow(clippy::enum_variant_names)]
 pub(crate) enum AnalyticsActions {
     GetCheckoutStats,
     GetDailyReports,

@@ -12,7 +12,7 @@ use crate::locale::SupportedLocale;
 #[tokio::test]
 async fn create_product_english_to_english_test() {
     let db_name = "create_product_english_to_english_test";
-    let pool = prepare_empty_test_database(&db_name).await;
+    let pool = prepare_empty_test_database(db_name).await;
 
     // 1) create a product with english name and description
     let created_product = create_product(
@@ -52,14 +52,14 @@ async fn create_product_english_to_english_test() {
     .unwrap();
     assert_eq!(found_product.name(), "Product name in english".to_string());
 
-    cleanup_test_database(&db_name).await;
+    cleanup_test_database(db_name).await;
 }
 
 #[ignore]
 #[tokio::test]
 async fn create_product_all_languages_test() {
     let db_name = "create_product_all_languages_test";
-    let pool = prepare_empty_test_database(&db_name).await;
+    let pool = prepare_empty_test_database(db_name).await;
 
     // 1) create a product with english AND spanish name and description
     let created_product = create_product(
@@ -112,14 +112,14 @@ async fn create_product_all_languages_test() {
         "Product name in SPANISH".to_string()
     );
 
-    cleanup_test_database(&db_name).await;
+    cleanup_test_database(db_name).await;
 }
 
 #[ignore]
 #[tokio::test]
 async fn search_products_test() {
     let db_name = "search_products_test";
-    let pool = prepare_empty_test_database(&db_name).await;
+    let pool = prepare_empty_test_database(db_name).await;
 
     // 1) create a product to be later searched
     create_product(
@@ -156,14 +156,14 @@ async fn search_products_test() {
 
     insta::assert_debug_snapshot!(searched_products);
 
-    cleanup_test_database(&db_name).await;
+    cleanup_test_database(db_name).await;
 }
 
 #[ignore]
 #[tokio::test]
 async fn delete_product_test() {
     let db_name = "delete_product_test";
-    let pool = prepare_empty_test_database(&db_name).await;
+    let pool = prepare_empty_test_database(db_name).await;
 
     // 1) create a product to be later deleted
     let created_product = create_product(
@@ -191,5 +191,5 @@ async fn delete_product_test() {
         "Product name in english".to_string()
     );
 
-    cleanup_test_database(&db_name).await;
+    cleanup_test_database(db_name).await;
 }
