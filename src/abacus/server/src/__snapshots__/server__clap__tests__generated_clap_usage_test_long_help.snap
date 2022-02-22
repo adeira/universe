@@ -1,7 +1,8 @@
 ---
-source: src/clap.rs
-assertion_line: 82
+source: server/src/clap.rs
+assertion_line: 84
 expression: "String::from_utf8(output).unwrap()"
+
 ---
 server 0.0.0
 Martin Zlámal <mrtnzlml@gmail.com>
@@ -32,11 +33,15 @@ OPTIONS:
             Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling Stripe.com
             APIs. Secret API key should never be used directly in this application. More
             information: https://stripe.com/docs/keys#limit-access
+            
+            [env: STRIPE_RESTRICTED_API_KEY=]
 
         --stripe-webhook-secret <stripe-webhook-secret>
             Stripe generates a unique secret key for each webhooks endpoint. It is being used for
             verifying the webhook payload signature to make sure that only Stripe.com can send these
             payloads.
+            
+            [env: STRIPE_WEBHOOK_SECRET=]
 
     -V, --version
             Print version information
