@@ -97,7 +97,7 @@ EOF
 
 Automatic database backups are performed periodically **every two hours** and stored into standard S3 bucket. Format of the backups in S3 is `YYYY-MM-DDTHH:MM:SS` (for example `2021-06-06T20:37:42`) and the following S3 lifecycle rules are applied:
 
-- Old backups are automatically removed after 7 days
+- Old backups are automatically removed after 30 days
 - Incomplete multipart uploads are deleted after 1 day
 
 ## Restoring backups
