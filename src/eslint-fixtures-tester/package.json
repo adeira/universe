@@ -12,7 +12,6 @@
   "main": "./src/index.js",
   "type": "commonjs",
   "license": "MIT",
-  "private": false,
   "dependencies": {
     "@adeira/flow-types-eslint": "0.0.0",
     "@adeira/js": "^2.1.1",

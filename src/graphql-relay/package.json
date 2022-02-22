@@ -1,6 +1,5 @@
 {
   "name": "@adeira/graphql-relay",
-  "private": false,
   "sideEffects": false,
   "version": "0.3.0",
   "description": "A library to help construct a graphql-js server supporting react-relay.",

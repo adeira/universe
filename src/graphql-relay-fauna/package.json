@@ -1,6 +1,5 @@
 {
   "name": "@adeira/graphql-relay-fauna",
-  "private": false,
   "version": "0.3.0",
   "main": "./src/index.js",
   "type": "commonjs",

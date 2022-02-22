@@ -9,7 +9,6 @@
     "directory": "src/monorepo-utils"
   },
   "license": "MIT",
-  "private": false,
   "version": "0.11.0",
   "main": "./src/index.js",
   "type": "commonjs",

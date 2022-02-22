@@ -9,7 +9,6 @@
     "directory": "src/graphql-global-id"
   },
   "license": "MIT",
-  "private": false,
   "version": "2.1.0",
   "main": "./src/index.js",
   "type": "commonjs",

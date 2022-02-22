@@ -9,7 +9,6 @@
     "directory": "src/fixtures-tester"
   },
   "license": "MIT",
-  "private": false,
   "version": "1.1.1",
   "main": "./src/index.js",
   "type": "commonjs",
