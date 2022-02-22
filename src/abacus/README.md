@@ -84,8 +84,8 @@ The application currently runs on DigitalOcean in Docker (k8s). There are additi
 - AWS: we use S3 (to store images and other files) and SES (to send emails to our customers)
   - requires standard `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` env variables
 - Stripe.com: to generate payment links and receive webhook notifications
-  - requires restricted API key
-  - requires webhook endpoint secret
+  - requires restricted API key (`STRIPE_RESTRICTED_API_KEY`)
+  - requires webhook endpoint secret (`STRIPE_WEBHOOK_SECRET`)
 
 ## Stripe
 
