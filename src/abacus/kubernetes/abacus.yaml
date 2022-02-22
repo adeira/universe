@@ -223,6 +223,16 @@ spec:
                 secretKeyRef:
                   name: abacus-aws-secret
                   key: AWS_SECRET_ACCESS_KEY
+            - name: STRIPE_RESTRICTED_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-stripe-secret
+                  key: STRIPE_RESTRICTED_API_KEY
+            - name: STRIPE_WEBHOOK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: abacus-stripe-secret
+                  key: STRIPE_WEBHOOK_SECRET
           args:
             - '--arangodb-url=http://arangodb-single-server.default.svc.cluster.local:8529' # TODO: https://…
 
