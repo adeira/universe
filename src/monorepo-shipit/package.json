@@ -4,9 +4,9 @@
   "license": "MIT",
   "version": "0.0.0",
   "bin": {
-    "monorepo-shipit": "bin/shipit.js",
     "monorepo-importit": "bin/importit.js",
-    "monorepo-importit-reversed": "bin/importit-reversed.js"
+    "monorepo-importit-reversed": "bin/importit-reversed.js",
+    "monorepo-shipit": "bin/shipit.js"
   },
   "sideEffects": false,
   "dependencies": {
