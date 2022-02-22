@@ -41,7 +41,7 @@ spec:
   #          │  │  │ │ │
   #          │  │  │ │ │
   schedule: '0 */2 * * *' # https://crontab.guru/every-two-hours
-  concurrencyPolicy: Forbid
+  concurrencyPolicy: Allow
   successfulJobsHistoryLimit: 2
   failedJobsHistoryLimit: 3
   jobTemplate:
