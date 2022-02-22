@@ -1,7 +1,7 @@
-use clap::{App, Arg, ArgSettings, ValueHint};
+use clap::{Arg, ArgSettings, Command, ValueHint};
 
-pub fn generate_clap_app() -> App<'static> {
-    clap::app_from_crate!()
+pub fn generate_clap_app() -> Command<'static> {
+    clap::command!()
         .arg(
             Arg::new("no-migrations")
                 .long("no-migrations")
@@ -55,7 +55,7 @@ pub fn generate_clap_app() -> App<'static> {
                 )
                 .takes_value(true),
         ).subcommand(
-            App::new("generate-cli-completions")
+            Command::new("generate-cli-completions")
                 .override_help("Generate CLI completions for specified shells.")
                 .arg(
                     Arg::new("shell")
