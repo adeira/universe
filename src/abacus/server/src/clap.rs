@@ -1,4 +1,4 @@
-use clap::{Arg, ArgSettings, Command, ValueHint};
+use clap::{Arg, Command, ValueHint};
 
 pub fn generate_clap_app() -> Command<'static> {
     clap::command!()
@@ -64,9 +64,7 @@ pub fn generate_clap_app() -> Command<'static> {
                         .long("shell")
                         .takes_value(true)
                         .possible_values(&["bash", "zsh"])
-                        .setting(
-                            ArgSettings::Required
-                        )
+                        .required(true)
                 )
         )
 }

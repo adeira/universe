@@ -84,7 +84,7 @@ pub(in crate::pos) async fn get_all_checkouts(
     pool: &ConnectionPool,
 ) -> anyhow::Result<Vec<PosCheckout>> {
     resolve_aql_vector(
-        &pool,
+        pool,
         r#"
             FOR checkout IN pos_checkouts
             RETURN checkout

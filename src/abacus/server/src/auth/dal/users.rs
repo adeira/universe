@@ -138,7 +138,7 @@ mod tests {
             Some(String::from("Martin Zlámal"))
         );
 
-        cleanup_test_database(&db_name).await;
+        cleanup_test_database(db_name).await;
     }
 
     #[ignore]
@@ -157,7 +157,7 @@ mod tests {
         assert!(user_result.is_some());
         assert!(!user_result.unwrap().is_active()); // should be inactive by default
 
-        cleanup_test_database(&db_name).await;
+        cleanup_test_database(db_name).await;
     }
 
     #[ignore]
@@ -171,7 +171,7 @@ mod tests {
         assert!(user_result.is_some());
         assert!(user_result.unwrap().is_active());
 
-        cleanup_test_database(&db_name).await;
+        cleanup_test_database(db_name).await;
     }
 
     #[ignore]
@@ -184,6 +184,6 @@ mod tests {
         let user_result = find_user_by_google_claims(&pool, "__sub_does_not_Exist__").await;
         assert!(user_result.is_none());
 
-        cleanup_test_database(&db_name).await;
+        cleanup_test_database(db_name).await;
     }
 }

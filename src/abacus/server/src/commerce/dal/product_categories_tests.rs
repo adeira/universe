@@ -10,7 +10,7 @@ use crate::locale::SupportedLocale;
 #[tokio::test]
 async fn search_all_product_categories_test() {
     let db_name = "search_all_product_categories_test";
-    let pool = prepare_empty_test_database(&db_name).await;
+    let pool = prepare_empty_test_database(db_name).await;
 
     // 1) try to find all product categories in ENGLISH
     let found_categories_en = search_all_product_categories(&pool, &SupportedLocale::EnUS)
@@ -28,14 +28,14 @@ async fn search_all_product_categories_test() {
     assert_eq!(found_categories_en.len(), 4);
     insta::assert_debug_snapshot!(found_categories_en);
 
-    cleanup_test_database(&db_name).await;
+    cleanup_test_database(db_name).await;
 }
 
 #[ignore]
 #[tokio::test]
 async fn get_product_categories_by_ids_test() {
     let db_name = "get_product_categories_by_ids_test";
-    let pool = prepare_empty_test_database(&db_name).await;
+    let pool = prepare_empty_test_database(db_name).await;
 
     // 1) try to find product categories in ENGLISH by IDs
     let found_categories_en = get_product_categories_by_ids(
@@ -66,5 +66,5 @@ async fn get_product_categories_by_ids_test() {
     assert_eq!(found_categories_en.len(), 1);
     insta::assert_debug_snapshot!(found_categories_en);
 
-    cleanup_test_database(&db_name).await;
+    cleanup_test_database(db_name).await;
 }

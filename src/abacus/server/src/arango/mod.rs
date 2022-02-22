@@ -223,7 +223,7 @@ pub async fn cleanup_test_database(db_name: &str) -> ConnectionPool {
         "",
     );
     let connection = pool.connection().await;
-    if connection.db(&db_name).await.is_ok() {
+    if connection.db(db_name).await.is_ok() {
         // database already exists, let's delete it
         connection
             .drop_database(db_name) // Should we throw if it already exists?

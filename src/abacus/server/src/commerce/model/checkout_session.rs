@@ -70,7 +70,7 @@ pub(crate) async fn create_checkout_session(
             .unwrap_or_else(|| {
                 panic!(
                     "Product with key {} doesn't exist in the database.",
-                    selected_product.product_id.to_string()
+                    selected_product.product_id
                 )
             });
 
@@ -103,7 +103,7 @@ pub(crate) async fn create_checkout_session(
                         .unwrap_or_else(|| {
                             panic!(
                                 "Product with key {} doesn't exist in the database.",
-                                selected_product.product_id.to_string()
+                                selected_product.product_id
                             )
                         });
 

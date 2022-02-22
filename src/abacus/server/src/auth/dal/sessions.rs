@@ -96,7 +96,7 @@ mod tests {
     #[tokio::test]
     async fn create_new_user_session_test() {
         let db_name = "create_new_user_session_test";
-        let pool = prepare_empty_test_database(&db_name).await;
+        let pool = prepare_empty_test_database(db_name).await;
 
         let test_user = AnyUser::mock(&None);
 
@@ -115,6 +115,6 @@ mod tests {
             "d99278e7-8f98-482a-ab9e-df93c380546e"
         );
 
-        cleanup_test_database(&db_name).await;
+        cleanup_test_database(db_name).await;
     }
 }
