@@ -36,6 +36,7 @@ pub fn generate_clap_app() -> Command<'static> {
         .arg(
             Arg::new("stripe-restricted-api-key")
                 .long("stripe-restricted-api-key")
+                .env("STRIPE_RESTRICTED_API_KEY")
                 .help("Restricted Stripe.com API key (prefixed by 'rk_*')")
                 .long_help(
                     "Restricted Stripe.com API key (prefixed by 'rk_*') to be used when calling \
@@ -47,6 +48,7 @@ pub fn generate_clap_app() -> Command<'static> {
         .arg(
             Arg::new("stripe-webhook-secret")
                 .long("stripe-webhook-secret")
+                .env("STRIPE_WEBHOOK_SECRET")
                 .help("Secret key for webhooks verification.")
                 .long_help(
                     "Stripe generates a unique secret key for each webhooks endpoint. It is being \

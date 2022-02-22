@@ -1,7 +1,8 @@
 ---
-source: src/clap.rs
-assertion_line: 92
+source: server/src/clap.rs
+assertion_line: 94
 expression: "String::from_utf8(output).unwrap()"
+
 ---
 server 0.0.0
 Martin Zlámal <mrtnzlml@gmail.com>
@@ -29,10 +30,10 @@ OPTIONS:
             Skips database migrations
 
         --stripe-restricted-api-key <stripe-restricted-api-key>
-            Restricted Stripe.com API key (prefixed by 'rk_*')
+            Restricted Stripe.com API key (prefixed by 'rk_*') [env: STRIPE_RESTRICTED_API_KEY=]
 
         --stripe-webhook-secret <stripe-webhook-secret>
-            Secret key for webhooks verification.
+            Secret key for webhooks verification. [env: STRIPE_WEBHOOK_SECRET=]
 
     -V, --version
             Print version information
