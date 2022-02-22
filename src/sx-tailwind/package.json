@@ -9,7 +9,6 @@
     "directory": "src/sx-tailwind"
   },
   "license": "MIT",
-  "private": false,
   "version": "0.12.1",
   "main": "./index.js",
   "type": "commonjs",

@@ -7,7 +7,6 @@ import { Workspaces } from '@adeira/monorepo-utils';
 Workspaces.iterateWorkspaces((packageJSONLocation) => {
   test(`${packageJSONLocation}`, () => {
     const packageJson = require(packageJSONLocation);
-    expect(packageJson.private).toBeDefined();
 
     // Packages 'eslint-plugin-*' are the only exception since it wasn't
     // possible to have scoped packages in Eslint. Dunno if it's possible now.

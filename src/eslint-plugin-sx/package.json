@@ -10,7 +10,6 @@
   },
   "version": "0.14.0",
   "license": "MIT",
-  "private": false,
   "keywords": [
     "eslint",
     "eslintplugin",

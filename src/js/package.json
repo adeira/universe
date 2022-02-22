@@ -9,7 +9,6 @@
     "directory": "src/js"
   },
   "license": "MIT",
-  "private": false,
   "version": "2.1.1",
   "main": "./src/index.js",
   "type": "commonjs",

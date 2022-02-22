@@ -9,7 +9,6 @@
     "directory": "src/icons"
   },
   "license": "Unlicense",
-  "private": false,
   "version": "1.0.1",
   "main": "./index.js",
   "type": "commonjs",

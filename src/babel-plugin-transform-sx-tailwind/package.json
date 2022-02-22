@@ -9,7 +9,6 @@
     "directory": "src/babel-plugin-transform-sx-tailwind"
   },
   "license": "MIT",
-  "private": false,
   "version": "0.18.1",
   "main": "./src/index.js",
   "type": "commonjs",

@@ -9,7 +9,6 @@
     "directory": "src/flow-config-parser"
   },
   "version": "0.3.0",
-  "private": false,
   "license": "MIT",
   "main": "./src/index.js",
   "type": "commonjs",

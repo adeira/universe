@@ -1,6 +1,5 @@
 {
   "name": "@adeira/relay",
-  "private": false,
   "version": "5.1.0",
   "main": "./src/index.js",
   "type": "commonjs",
