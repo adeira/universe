@@ -1,12 +1,112 @@
 {
   "fb-locale": "es_MX",
   "translations": {
+    "hDyrNnE41nUuLcUMu5y59A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "♥️ Contribución voluntaria ♥️",
+          "variations": []
+        }
+      ]
+    },
+    "T+NpfkAZAp+bLGBtDuSG4g==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ayúdanos a crear una vida mejor para nuestros gatos",
+          "variations": []
+        }
+      ]
+    },
+    "6Oth475/NFsGCQ2q74WOWQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "El objetivo final de {=KOCHKA Café} es ayudar a los gatos que realmente lo necesitan. Tener una cafetería definitivamente nos sirve. Sin embargo, nos gustaría dar una vida extraordinaria a nuestros gatos. ¿Por qué? Porque todos nuestros gatos pasaron por momentos malos en su vida. Fueron abandonados, tirados o nacieron en malas condiciones. Creemos que todos ellos merecen tener lo mejor, una segunda oportunidad.",
+          "variations": []
+        }
+      ]
+    },
     "XhlPcB0basIcObgeU+J78w==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "KOCHKA Café",
+          "translation": "KOCHKA Café",
+          "variations": []
+        }
+      ]
+    },
+    "hNJdF5T8ZRQPBqRHQy+EWQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Nos gustaría pedirte que consideres contribuir a KOCHKA Café para que podamos lograr este objetivo. Ayúdanos a comprarles mejor comida. Ayúdanos a comprarles más juguetes. Ayúdanos a hacer su vida increíble.",
+          "variations": []
+        }
+      ]
+    },
+    "CVAijOv5C0UslzBPMhL7SA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Contribución única ♥️",
+          "variations": []
+        }
+      ]
+    },
+    "bZr1fe9zJldIOJ8L3xFdNA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Demuéstranos tu apoyo enviando una contribución única. Sólo se te cobrará una vez.",
+          "variations": []
+        }
+      ]
+    },
+    "C/jBexWuGqox0yek4XyMUA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Contribución recurrente (mensual) ♥♥️",
+          "variations": []
+        }
+      ]
+    },
+    "ooSK/rLOxewJkJbSdcdPMQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Una contribución recurrente es para las personas que quieren apoyar KOCHKA Café y principalmente a nuestros gatos mensualmente. No podemos expresar suficiente lo agradecidos que estamos.",
+          "variations": []
+        }
+      ]
+    },
+    "9dbPRX1dP8RtMFaJxop9jg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "{price} / mensual",
+          "variations": []
+        }
+      ]
+    },
+    "xOijVgLac+Fx+3ST5k0jDQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Serás redirigido a una página de Stripe externa ({=buy.stripe.com}) después de hacer clic en el botón de arriba donde puedes completar la contribución.",
           "variations": []
         }
       ]
@@ -17,6 +117,16 @@
       "translations": [
         {
           "translation": "buy.stripe.com",
+          "variations": []
+        }
+      ]
+    },
+    "T0DgXP5K+rwH+D4SJDbnsQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Ven a disfrutar de un café de Chiapas y pasar tiempo con nuestros gatos encantadores.",
           "variations": []
         }
       ]
@@ -81,6 +191,16 @@
         }
       ]
     },
+    "VYEswFAa4E04/Xqu+LPv5A==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Contribuye ♥️",
+          "variations": []
+        }
+      ]
+    },
     "n6tw27wXSGSf70t6gzskXQ==": {
       "tokens": [],
       "types": [],
@@ -127,6 +247,16 @@
       "translations": [
         {
           "translation": "Tienda",
+          "variations": []
+        }
+      ]
+    },
+    "eZvcIisVQ0UqvsMX7CY6UA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Contribuye ♥️",
           "variations": []
         }
       ]
@@ -211,12 +341,32 @@
         }
       ]
     },
+    "FfK2bj6SLTsfvIKsGTTp2Q==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Contribuye ♥️",
+          "variations": []
+        }
+      ]
+    },
     "Pl7F+dP7nG7j/0rFiWi4wA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Descargando el menú nuevo, espera un momento…",
+          "variations": []
+        }
+      ]
+    },
+    "jnLeax+6GrU9ItcRNR9sFQ==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Chapatas",
           "variations": []
         }
       ]
@@ -667,6 +817,16 @@
       "translations": [
         {
           "translation": "Gato adulto",
+          "variations": []
+        }
+      ]
+    },
+    "N8iXHjKl9W/M5Nd1SAiXbA==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Gatitos menores de 1 año",
           "variations": []
         }
       ]
