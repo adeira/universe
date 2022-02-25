@@ -548,17 +548,17 @@
   },
   {
    "hashToText": {
-    "gpf7yMg/5H4w0cysxh+N2w==": "Milkshakes"
+    "dSc4laDASdxP9wQdGFEbfA==": "Others"
    },
    "filepath": "src/menu/MenuSectionMilkshake.js",
-   "line_beg": 31,
+   "line_beg": 32,
    "col_beg": 8,
-   "line_end": 31,
-   "col_end": 68,
-   "desc": "milkshakes subtitle in our menu",
+   "line_end": 32,
+   "col_end": 60,
+   "desc": "others subtitle in our menu",
    "project": "",
    "type": "text",
-   "jsfbt": "Milkshakes"
+   "jsfbt": "Others"
   },
   {
    "hashToText": {
