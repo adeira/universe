@@ -46,12 +46,13 @@ export default function Menu(): Node {
               <MenuSectionTea menuData={relayProps.menu} />
             </div>
 
-            <div className={styles('menuGridAreaMilkshakes')}>
-              <MenuSectionMilkshake menuData={relayProps.menu} />
-            </div>
-
             <div className={styles('menuGridAreaSpecialities')}>
               <MenuSectionSpecialities menuData={relayProps.menu} />
+            </div>
+
+            <div className={styles('menuGridAreaMilkshakes')}>
+              {/* TODO: rename to "Others" */}
+              <MenuSectionMilkshake menuData={relayProps.menu} />
             </div>
 
             <div className={styles('menuGridAreaKochkadas')}>
@@ -76,8 +77,8 @@ const styles = sx.create({
     'gridTemplateAreas': `
       "coffee"
       "tea"
-      "milkshakes"
       "specialities"
+      "milkshakes"
       "kochkadas"
       "ciabattas"
     `,
@@ -85,7 +86,7 @@ const styles = sx.create({
       gridTemplateColumns: '1fr 1fr',
       gridTemplateAreas: `
         "coffee tea"
-        "milkshakes specialities"
+        "specialities milkshakes"
         "kochkadas ciabattas"
       `,
     },
@@ -96,11 +97,11 @@ const styles = sx.create({
   menuGridAreaTea: {
     gridArea: 'tea',
   },
-  menuGridAreaMilkshakes: {
-    gridArea: 'milkshakes',
-  },
   menuGridAreaSpecialities: {
     gridArea: 'specialities',
+  },
+  menuGridAreaMilkshakes: {
+    gridArea: 'milkshakes',
   },
   menuGridAreaKochkadas: {
     gridArea: 'kochkadas',

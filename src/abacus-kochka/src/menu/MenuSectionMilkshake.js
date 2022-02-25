@@ -12,6 +12,7 @@ type Props = {
   +menuData: MenuSectionMilkshake$key,
 };
 
+// TODO: rename to "Others"
 export default function MenuSectionMilkshake(props: Props): Node {
   const data = useFragment(
     graphql`
@@ -28,7 +29,7 @@ export default function MenuSectionMilkshake(props: Props): Node {
   return (
     <>
       <MenuHeading>
-        <fbt desc="milkshakes subtitle in our menu">Milkshakes</fbt>
+        <fbt desc="others subtitle in our menu">Others</fbt>
       </MenuHeading>
 
       {data.milkshakesMenu.map((milkshake) => (
