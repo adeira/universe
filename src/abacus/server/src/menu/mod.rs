@@ -42,7 +42,6 @@ pub(in crate::menu) async fn get_section(
                     "3633163".to_string(),  // Cappuccino
                     "3633210".to_string(),  // Caffe Latte
                     "3633334".to_string(),  // Iced Caffe Latte
-                    "3633273".to_string(),  // Mocha
                 ],
             )
             .await
@@ -63,6 +62,7 @@ pub(in crate::menu) async fn get_section(
             )
             .await
         }
+        // TODO: rename this section to "Others"
         MenuSections::Milkshakes => {
             crate::commerce::api::get_published_products_by_keys(
                 context,
@@ -79,6 +79,7 @@ pub(in crate::menu) async fn get_section(
                 context,
                 client_locale,
                 &[
+                    "3633273".to_string(),  // Mocha
                     "13116127".to_string(), // Chai Latte
                     "3763568".to_string(),  // Matcha Latte
                     "3763681".to_string(),  // Artisanal Chocolate
