@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<2f19ea7028068d960bded94ac43eb597>>
+ * @generated SignedSource<<9aef3f70d2aade0900504a5d9cdff2eb>>
  * @flow strict
  *
  * @see https://www.w3.org/Style/CSS/all-properties.en.html
@@ -23,6 +23,7 @@ export type AllCSSPropertyTypes = {
   +animationName?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-name
   +animationPlayState?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-play-state
   +animationTimingFunction?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-timing-function
+  +animationTimeline?: number | string, // https://developer.mozilla.org/docs/Web/CSS/animation-timeline
   +appearance?:  // https://developer.mozilla.org/docs/Web/CSS/appearance
     | 'none'
     | 'auto'
@@ -246,7 +247,7 @@ export type AllCSSPropertyTypes = {
   +clip?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip
   +clipPath?: number | string, // https://developer.mozilla.org/docs/Web/CSS/clip-path
   +color?: string, // https://developer.mozilla.org/docs/Web/CSS/color
-  +colorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/color-adjust
+  +printColorAdjust?: 'economy' | 'exact' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/print-color-adjust
   +colorScheme?: number | string, // https://developer.mozilla.org/docs/Web/CSS/color-scheme
   +columnCount?: number | 'auto' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-count
   +columnFill?: 'auto' | 'balance' | 'balance-all' | 'inherit' | 'initial' | 'unset', // https://developer.mozilla.org/docs/Web/CSS/column-fill
