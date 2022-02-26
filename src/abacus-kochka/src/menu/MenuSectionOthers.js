@@ -6,18 +6,17 @@ import fbt from 'fbt';
 
 import MenuHeading from './components/MenuHeading';
 import MenuRow from './components/MenuRow';
-import type { MenuSectionMilkshake$key } from './__generated__/MenuSectionMilkshake.graphql';
+import type { MenuSectionOthers$key } from './__generated__/MenuSectionOthers.graphql';
 
 type Props = {
-  +menuData: MenuSectionMilkshake$key,
+  +menuData: MenuSectionOthers$key,
 };
 
-// TODO: rename to "Others"
-export default function MenuSectionMilkshake(props: Props): Node {
+export default function MenuSectionOthers(props: Props): Node {
   const data = useFragment(
     graphql`
-      fragment MenuSectionMilkshake on MenuQuery {
-        milkshakesMenu: menu(clientLocale: $clientLocale, section: MILKSHAKES) {
+      fragment MenuSectionOthers on MenuQuery {
+        othersMenu: menu(clientLocale: $clientLocale, section: OTHERS) {
           id
           ...MenuRow
         }
@@ -32,8 +31,8 @@ export default function MenuSectionMilkshake(props: Props): Node {
         <fbt desc="others subtitle in our menu">Others</fbt>
       </MenuHeading>
 
-      {data.milkshakesMenu.map((milkshake) => (
-        <MenuRow key={milkshake.id} menuRowData={milkshake} />
+      {data.othersMenu.map((other) => (
+        <MenuRow key={other.id} menuRowData={other} />
       ))}
     </>
   );
