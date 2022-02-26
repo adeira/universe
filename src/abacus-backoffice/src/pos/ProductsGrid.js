@@ -4,7 +4,7 @@ import sx from '@adeira/sx';
 import { fbt } from 'fbt';
 import React, { useState, type Node } from 'react';
 import { graphql, useLazyLoadQuery, useQueryLoader } from '@adeira/relay';
-import { Note, ProductCard } from '@adeira/sx-design';
+import { LayoutGrid, Note, ProductCard } from '@adeira/sx-design';
 
 import refineSupportedCurrencies from '../refineSupportedCurrencies';
 import useApplicationLocale from '../useApplicationLocale';
@@ -114,31 +114,35 @@ export default function ProductsGrid(props: Props): Node {
         />
       ) : null}
 
-      {data.commerce.products.map((product) => {
-        if (product == null) {
-          return null; // TODO: 🤔
-        }
+      <LayoutGrid>
+        {data.commerce.products.map((product) => {
+          if (product == null) {
+            return null; // TODO: 🤔
+          }
 
-        return (
-          <button
-            type="button"
-            key={product.id}
-            className={styles('productButton')}
-            onClick={() => handleItemClick(product.key, product)}
-          >
-            <ProductCard
-              title={product.name}
-              priceUnitAmount={
-                product.price.unitAmount / 100 // adjusted for centavo
-              }
-              priceUnitAmountCurrency={refineSupportedCurrencies(product.price.unitAmountCurrency)}
-              imgBlurhash={product.imageCover?.blurhash}
-              imgSrc={product.imageCover?.url}
-              imgAlt={product.name}
-            />
-          </button>
-        );
-      })}
+          return (
+            <button
+              type="button"
+              key={product.id}
+              className={styles('productButton')}
+              onClick={() => handleItemClick(product.key, product)}
+            >
+              <ProductCard
+                title={product.name}
+                priceUnitAmount={
+                  product.price.unitAmount / 100 // adjusted for centavo
+                }
+                priceUnitAmountCurrency={refineSupportedCurrencies(
+                  product.price.unitAmountCurrency,
+                )}
+                imgBlurhash={product.imageCover?.blurhash}
+                imgSrc={product.imageCover?.url}
+                imgAlt={product.name}
+              />
+            </button>
+          );
+        })}
+      </LayoutGrid>
     </>
   );
 }

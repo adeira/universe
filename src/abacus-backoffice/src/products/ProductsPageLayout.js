@@ -1,19 +1,14 @@
 // @flow
 
-import { rangeMap } from '@adeira/js';
-import { Skeleton, LayoutGrid, LayoutBlock } from '@adeira/sx-design';
 import fbt from 'fbt';
-import React, { useState, type Node } from 'react';
+import React, { type Node } from 'react';
 
 import LayoutPage from '../LayoutPage';
 import LayoutHeadingLink from '../LayoutHeadingLink';
-import ProductsCardsInCategory from './ProductsCardsInCategory';
 import ProductsCategories from './ProductsCategories';
 import ProductsCategoriesLoader from './ProductsCategoriesLoader';
 
 export default function ProductsPageLayout(): Node {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
   return (
     <LayoutPage
       isBeta={true}
@@ -29,26 +24,9 @@ export default function ProductsPageLayout(): Node {
         </LayoutHeadingLink>
       }
     >
-      <LayoutBlock>
-        <React.Suspense fallback={<ProductsCategoriesLoader />}>
-          <ProductsCategories
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-          />
-        </React.Suspense>
-
-        <React.Suspense
-          fallback={
-            <LayoutGrid>
-              {rangeMap(12, (i) => (
-                <Skeleton key={i} />
-              ))}
-            </LayoutGrid>
-          }
-        >
-          <ProductsCardsInCategory selectedCategory={selectedCategory} />
-        </React.Suspense>
-      </LayoutBlock>
+      <React.Suspense fallback={<ProductsCategoriesLoader />}>
+        <ProductsCategories />
+      </React.Suspense>
     </LayoutPage>
   );
 }
