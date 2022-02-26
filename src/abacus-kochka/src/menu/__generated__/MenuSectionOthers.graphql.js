@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<231fb02082a04709776417d75b5658e7>>
+ * @generated SignedSource<<7f610d1e9bed789e59c66a282ef8ef5b>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -14,17 +14,17 @@
 import type { Fragment, ReaderFragment } from 'relay-runtime';
 type MenuRow$fragmentType = any;
 import type { FragmentType } from "relay-runtime";
-declare export opaque type MenuSectionMilkshake$fragmentType: FragmentType;
-export type MenuSectionMilkshake$data = {|
-  +milkshakesMenu: $ReadOnlyArray<{|
+declare export opaque type MenuSectionOthers$fragmentType: FragmentType;
+export type MenuSectionOthers$data = {|
+  +othersMenu: $ReadOnlyArray<{|
     +id: string,
     +$fragmentSpreads: MenuRow$fragmentType,
   |}>,
-  +$fragmentType: MenuSectionMilkshake$fragmentType,
+  +$fragmentType: MenuSectionOthers$fragmentType,
 |};
-export type MenuSectionMilkshake$key = {
-  +$data?: MenuSectionMilkshake$data,
-  +$fragmentSpreads: MenuSectionMilkshake$fragmentType,
+export type MenuSectionOthers$key = {
+  +$data?: MenuSectionOthers$data,
+  +$fragmentSpreads: MenuSectionOthers$fragmentType,
   ...
 };
 */
@@ -38,10 +38,10 @@ var node/*: ReaderFragment*/ = {
   ],
   "kind": "Fragment",
   "metadata": null,
-  "name": "MenuSectionMilkshake",
+  "name": "MenuSectionOthers",
   "selections": [
     {
-      "alias": "milkshakesMenu",
+      "alias": "othersMenu",
       "args": [
         {
           "kind": "Variable",
@@ -51,7 +51,7 @@ var node/*: ReaderFragment*/ = {
         {
           "kind": "Literal",
           "name": "section",
-          "value": "MILKSHAKES"
+          "value": "OTHERS"
         }
       ],
       "concreteType": "Product",
@@ -80,10 +80,10 @@ var node/*: ReaderFragment*/ = {
 };
 
 if (__DEV__) {
-  (node/*: any*/).hash = "d1cc28eedfba9f309564bf01b958dc15";
+  (node/*: any*/).hash = "5a03887e2fd8754cfba70dabeb1fdf83";
 }
 
 module.exports = ((node/*: any*/)/*: Fragment<
-  MenuSectionMilkshake$fragmentType,
-  MenuSectionMilkshake$data,
+  MenuSectionOthers$fragmentType,
+  MenuSectionOthers$data,
 >*/);

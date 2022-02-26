@@ -8,7 +8,7 @@ import MenuLoader from './menu/MenuLoader';
 import MenuSectionCiabattas from './menu/MenuSectionCiabattas';
 import MenuSectionCoffee from './menu/MenuSectionCoffee';
 import MenuSectionKochkadas from './menu/MenuSectionKochkadas';
-import MenuSectionMilkshake from './menu/MenuSectionMilkshake';
+import MenuSectionOthers from './menu/MenuSectionOthers';
 import MenuSectionSpecialities from './menu/MenuSectionSpecialities';
 import MenuSectionTea from './menu/MenuSectionTea';
 import useViewerContext from './hooks/useViewerContext';
@@ -23,8 +23,8 @@ export default function Menu(): Node {
           menu {
             ...MenuSectionCoffee
             ...MenuSectionTea
-            ...MenuSectionMilkshake
             ...MenuSectionSpecialities
+            ...MenuSectionOthers
             ...MenuSectionKochkadas
             ...MenuSectionCiabattas
           }
@@ -50,9 +50,8 @@ export default function Menu(): Node {
               <MenuSectionSpecialities menuData={relayProps.menu} />
             </div>
 
-            <div className={styles('menuGridAreaMilkshakes')}>
-              {/* TODO: rename to "Others" */}
-              <MenuSectionMilkshake menuData={relayProps.menu} />
+            <div className={styles('menuGridAreaOthers')}>
+              <MenuSectionOthers menuData={relayProps.menu} />
             </div>
 
             <div className={styles('menuGridAreaKochkadas')}>
@@ -78,7 +77,7 @@ const styles = sx.create({
       "coffee"
       "tea"
       "specialities"
-      "milkshakes"
+      "others"
       "kochkadas"
       "ciabattas"
     `,
@@ -86,7 +85,7 @@ const styles = sx.create({
       gridTemplateColumns: '1fr 1fr',
       gridTemplateAreas: `
         "coffee tea"
-        "specialities milkshakes"
+        "specialities others"
         "kochkadas ciabattas"
       `,
     },
@@ -100,8 +99,8 @@ const styles = sx.create({
   menuGridAreaSpecialities: {
     gridArea: 'specialities',
   },
-  menuGridAreaMilkshakes: {
-    gridArea: 'milkshakes',
+  menuGridAreaOthers: {
+    gridArea: 'others',
   },
   menuGridAreaKochkadas: {
     gridArea: 'kochkadas',
