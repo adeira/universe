@@ -13,6 +13,7 @@ pub struct ProductCategory {
     /// Resolved product category name (from translations based on the eshop locale).
     #[serde(skip_serializing)]
     name: Option<String>, // available only when deserialized from DB
+    order: Option<i32>,
     translations: Vec<ProductCategoryMultilingualTranslations>,
 }
 
@@ -31,6 +32,15 @@ impl ProductCategory {
                 .expect("product category ID should always exist in GraphQL context")
                 .to_owned(),
         )
+    }
+
+    /// Order in which the product categories should be sorted and displayed. Category with number
+    /// "1" goes first followed by "2", "3", …
+    fn order(&self) -> i32 {
+        self.order
+            .as_ref()
+            .expect("product category order should always exist in GraphQL context")
+            .to_owned()
     }
 
     /// The product category name, meant to be displayable to the customer.

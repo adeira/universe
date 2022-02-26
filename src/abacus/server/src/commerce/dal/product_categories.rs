@@ -54,6 +54,7 @@ pub(in crate::commerce) async fn assign_product_categories(
     Ok(())
 }
 
+// TODO: integration tests
 pub(in crate::commerce) async fn search_all_product_categories(
     pool: &ConnectionPool,
     client_locale: &SupportedLocale,
@@ -62,6 +63,7 @@ pub(in crate::commerce) async fn search_all_product_categories(
         pool,
         r#"
             FOR product_category IN product_categories
+              SORT product_category.order ASC
               LET t = FIRST(
                 FOR t IN product_category.translations
                   FILTER t.name != null AND t.locale == @client_locale
