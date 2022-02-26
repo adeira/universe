@@ -1,19 +1,20 @@
 // @flow
 
+import { rangeMap } from '@adeira/js';
 import { graphql, useLazyLoadQuery } from '@adeira/relay';
-import { Tabs, Text, type TabsType } from '@adeira/sx-design';
-import React, { type Node } from 'react';
-import fbt from 'fbt';
+import { Tabs, Text, LayoutGrid, Skeleton, LayoutBlock } from '@adeira/sx-design';
+import React, { type Node, useState } from 'react';
 
 import useApplicationLocale from '../useApplicationLocale';
+import ProductsCardsInCategory from './ProductsCardsInCategory';
 
-type TabValue = string | null;
-type Props = {
-  +selectedCategory: TabValue,
-  +setSelectedCategory: (string | null) => void,
-};
+/**
+ * This component first loads all available categories to render them and then it loads all products
+ * for the first category (or for the selected category).
+ */
+export default function ProductsCategories(): Node {
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
-export default function ProductsCategories(props: Props): Node {
   const applicationLocale = useApplicationLocale();
   // eslint-disable-next-line relay/generated-flow-types -- https://github.com/relayjs/eslint-plugin-relay/issues/131
   const data = useLazyLoadQuery(
@@ -32,18 +33,14 @@ export default function ProductsCategories(props: Props): Node {
     },
   );
 
+  const firstProductCategory = data.commerce.productCategories[0]?.id ?? null;
+
   return (
-    <Tabs
-      selected={props.selectedCategory}
-      /* $FlowFixMe[incompatible-type]: `Tabs` component can call `setSelected` callback with number
-       * when there is a number in values (but in this case there is not). */
-      setSelected={props.setSelectedCategory}
-      tabs={[
-        {
-          title: <fbt desc="title of a button to filter products by all categories">All</fbt>,
-          value: null,
-        },
-        ...data.commerce.productCategories.reduce<TabsType>((acc, category) => {
+    <LayoutBlock>
+      <Tabs
+        selected={selectedCategory ?? firstProductCategory}
+        setSelected={setSelectedCategory}
+        tabs={data.commerce.productCategories.reduce((acc, category) => {
           if (category != null) {
             acc.push({
               title: <Text transform="capitalize">{category.name}</Text>,
@@ -51,8 +48,21 @@ export default function ProductsCategories(props: Props): Node {
             });
           }
           return acc;
-        }, []),
-      ]}
-    />
+        }, [])}
+      />
+
+      <React.Suspense
+        fallback={
+          <LayoutGrid>
+            {rangeMap(12, (i) => (
+              <Skeleton key={i} />
+            ))}
+          </LayoutGrid>
+        }
+      >
+        {/* $FlowFixMe[incompatible-type]: fixed in https://github.com/adeira/universe/pull/4016 */}
+        <ProductsCardsInCategory selectedCategory={selectedCategory ?? firstProductCategory} />
+      </React.Suspense>
+    </LayoutBlock>
   );
 }

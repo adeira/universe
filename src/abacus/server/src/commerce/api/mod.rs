@@ -50,6 +50,7 @@ impl CommerceQuery {
                 )
                 .await?,
             ),
+            // TODO: remove the possibility to fetch ALL products (or at least paginate it?)
             None => Ok(crate::commerce::model::products::search_all_products(
                 context,
                 &client_locale,

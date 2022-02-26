@@ -19,6 +19,12 @@ export default function ProductsCategoriesLoader(): Node {
       <Skeleton>
         <Tabs tabs={[{ title: 'Mock tab CCC', value: 'c' }]} selected="c" setSelected={() => {}} />
       </Skeleton>
+      <Skeleton>
+        <Tabs tabs={[{ title: 'Mock tab DDD', value: 'd' }]} selected="d" setSelected={() => {}} />
+      </Skeleton>
+      <Skeleton>
+        <Tabs tabs={[{ title: 'Mock tab EEE', value: 'e' }]} selected="e" setSelected={() => {}} />
+      </Skeleton>
     </LayoutInline>
   );
 }
