@@ -8,8 +8,11 @@ pub(in crate) mod api;
 pub(crate) enum MenuSections {
     Coffee,
     Tea,
-    Milkshakes,
     Specialities,
+    Others,
+    // TODO: remove once FE is clean (replaced by "Others")
+    #[graphql(deprecated = "Use generic OTHERS instead.")]
+    Milkshakes,
     Kochkadas,
     Ciabattas,
 }
@@ -62,8 +65,20 @@ pub(in crate::menu) async fn get_section(
             )
             .await
         }
-        // TODO: rename this section to "Others"
-        MenuSections::Milkshakes => {
+        MenuSections::Specialities => {
+            crate::commerce::api::get_published_products_by_keys(
+                context,
+                client_locale,
+                &[
+                    "3633273".to_string(),  // Mocha
+                    "13116127".to_string(), // Chai Latte
+                    "3763568".to_string(),  // Matcha Latte
+                    "3763681".to_string(),  // Artisanal Chocolate
+                ],
+            )
+            .await
+        }
+        MenuSections::Others => {
             crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
@@ -74,15 +89,14 @@ pub(in crate::menu) async fn get_section(
             )
             .await
         }
-        MenuSections::Specialities => {
+        MenuSections::Milkshakes => {
+            // TODO: remove once FE is clean (replaced by "Others")
             crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
                 &[
-                    "3633273".to_string(),  // Mocha
-                    "13116127".to_string(), // Chai Latte
-                    "3763568".to_string(),  // Matcha Latte
-                    "3763681".to_string(),  // Artisanal Chocolate
+                    "3763439".to_string(),  // Banana milkshake
+                    "11812843".to_string(), // Strawberry milkshake
                 ],
             )
             .await
@@ -104,7 +118,6 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::Ciabattas => {
-            // TODO: create description of Chapatas first (en and es)!
             crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
