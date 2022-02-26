@@ -1,4 +1,4 @@
-# @generated SignedSource<<dbb0a8009ff89fe5194c1f600fe1e009>>
+# @generated SignedSource<<2c21e73be6667e21b3c57ffe6ea90386>>
 
 enum PriceSortDirection {
   LOW_TO_HIGH
@@ -90,6 +90,11 @@ type ProductError {
 
 type ProductCategory {
   id: ID!
+  """
+    Order in which the product categories should be sorted and displayed. Category with number
+    "1" goes first followed by "2", "3", …
+  """
+  order: Int!
   "The product category name, meant to be displayable to the customer."
   name: String!
 }
