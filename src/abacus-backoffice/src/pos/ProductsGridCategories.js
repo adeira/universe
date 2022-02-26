@@ -64,7 +64,6 @@ export default function ProductsGridCategories(): Node {
             </LayoutGrid>
           }
         >
-          {/* $FlowFixMe[incompatible-type]: fixed in https://github.com/adeira/universe/pull/4016 */}
           <ProductsGrid selectedCategory={selectedCategory ?? firstProductCategory} />
         </React.Suspense>
       </div>

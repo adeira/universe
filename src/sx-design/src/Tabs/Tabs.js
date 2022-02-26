@@ -6,14 +6,13 @@ import sx from '@adeira/sx';
 import Text from '../Text/Text';
 import useKeyPress from '../useKeyPress';
 
-export type TabValueType = string | number | null;
-export type TabsType = Array<{
+export type TabsType<TabValueType> = Array<{
   +title: Fbt | RestrictedElement<typeof Text>,
   +value: TabValueType,
 }>;
 
-type Props = {
-  +tabs: TabsType,
+type Props<TabValueType> = {
+  +tabs: TabsType<TabValueType>,
   +selected: TabValueType,
   +setSelected: (TabValueType) => void,
 };
@@ -42,7 +41,7 @@ type Props = {
  *  - https://www.w3.org/TR/wai-aria-practices/#tabpanel
  *  - https://www.w3.org/TR/wai-aria-practices/examples/tabs/tabs-2/tabs.html
  */
-export default function Tabs(props: Props): Node {
+export default function Tabs<T: string | number | null>(props: Props<T>): Node {
   const tabRefs = useRef([]);
 
   // The following function takes care of switching the tabs based on the pressed arrows (left/right).
