@@ -10,9 +10,6 @@ pub(crate) enum MenuSections {
     Tea,
     Specialities,
     Others,
-    // TODO: remove once FE is clean (replaced by "Others")
-    #[graphql(deprecated = "Use generic OTHERS instead.")]
-    Milkshakes,
     Kochkadas,
     Ciabattas,
 }
@@ -79,18 +76,6 @@ pub(in crate::menu) async fn get_section(
             .await
         }
         MenuSections::Others => {
-            crate::commerce::api::get_published_products_by_keys(
-                context,
-                client_locale,
-                &[
-                    "3763439".to_string(),  // Banana milkshake
-                    "11812843".to_string(), // Strawberry milkshake
-                ],
-            )
-            .await
-        }
-        MenuSections::Milkshakes => {
-            // TODO: remove once FE is clean (replaced by "Others")
             crate::commerce::api::get_published_products_by_keys(
                 context,
                 client_locale,
