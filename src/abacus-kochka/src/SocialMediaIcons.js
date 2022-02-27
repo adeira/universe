@@ -5,7 +5,9 @@ import * as React from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
+// eslint-disable-next-line n/file-extension-in-import -- https://github.com/weiran-zsd/eslint-plugin-node/issues/11
 import Instagram from './design/svg/generated/Instagram';
+// eslint-disable-next-line n/file-extension-in-import -- https://github.com/weiran-zsd/eslint-plugin-node/issues/11
 import Facebook from './design/svg/generated/Facebook';
 import GitHub from './design/svg/GitHub';
 import socialLinks from './socialLinks';

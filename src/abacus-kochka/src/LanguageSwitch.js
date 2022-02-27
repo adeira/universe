@@ -5,7 +5,9 @@ import sx from '@adeira/sx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
+// eslint-disable-next-line n/file-extension-in-import -- https://github.com/weiran-zsd/eslint-plugin-node/issues/11
 import FlagMX from './design/svg/generated/flags/mx';
+// eslint-disable-next-line n/file-extension-in-import -- https://github.com/weiran-zsd/eslint-plugin-node/issues/11
 import FlagUS from './design/svg/generated/flags/us';
 import useViewerContext from './hooks/useViewerContext';
 
