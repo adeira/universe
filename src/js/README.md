@@ -78,6 +78,9 @@ import { sprintf } from '@adeira/js';
 
 sprintf('Oh, %s', 'yeah!'); // Oh, yeah!
 sprintf('Oh, %j', 'yeah!'); // Oh, "yeah!"
+
+sprintf('Tada: %s', '{ aaa: 111 }'); // Tada: [object Object]
+sprintf('Tada: %j', '{ aaa: 111 }'); // Tada: {"aaa":111}
 ```
 
 It can handle circular references gracefully:

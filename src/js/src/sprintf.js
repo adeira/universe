@@ -15,8 +15,12 @@ function maybeReplace(format: string, pattern: RegExp, replacementFn: () => void
 }
 
 /**
- * Simple function for formatting strings. Replaces placeholders with values
- * passed as extra arguments.
+ * Simple function for formatting strings. Replaces placeholders with values passed as extra
+ * arguments. The following placeholders are supported:
+ *
+ *  - %s: renders value as String
+ *  - %j: renders value as JSON
+ *  - %%: renders percentage symbol (escape sequence)
  *
  * See: https://nodejs.org/api/util.html#util_util_format_format_args
  */
