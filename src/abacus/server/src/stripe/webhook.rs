@@ -126,10 +126,28 @@ pub enum StripeWebhookType {
 
     #[serde(rename = "payment_method.attached")]
     PaymentMethodAttached,
+
+    /// Occurs whenever a payout is created.
     #[serde(rename = "payout.created")]
     PayoutCreated,
+
+    /// Occurs whenever a payout is updated.
     #[serde(rename = "payout.updated")]
     PayoutUpdated,
+
+    /// Occurs whenever a payout is canceled.
+    #[serde(rename = "payout.canceled")]
+    PayoutCanceled,
+
+    /// Occurs whenever a payout attempt fails.
+    #[serde(rename = "payout.failed")]
+    PayoutFailed,
+
+    /// Occurs whenever a payout is expected to be available in the destination account. If the
+    /// payout fails, a `payout.failed` notification is also sent, at a later time.
+    #[serde(rename = "payout.paid")]
+    PayoutPaid,
+
     #[serde(rename = "plan.created")]
     PlanCreated,
     #[serde(rename = "plan.deleted")]
