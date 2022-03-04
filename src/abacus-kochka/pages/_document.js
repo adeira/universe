@@ -15,10 +15,10 @@ type RenderPageResult = {
 
 export default class MyDocument extends Document {
   // See: https://nextjs.org/docs/advanced-features/custom-document#customizing-renderpage
-  static async getInitialProps({ renderPage }: DocumentContext): Promise<RenderPageResult> {
-    const page = await renderPage();
-    return { ...page, styles: [sx.getStyleTag()] };
-  }
+  // static async getInitialProps({ renderPage }: DocumentContext): Promise<RenderPageResult> {
+  //   const page = await renderPage();
+  //   return { ...page, styles: [sx.getStyleTag()] };
+  // }
 
   render(): Node {
     return (

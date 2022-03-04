@@ -3,7 +3,9 @@
 import { invariant, isBrowser, isObjectEmpty, isObject } from '@adeira/js';
 import levenshtein from 'fast-levenshtein';
 
+import getStyleSheetFromStyleTag from './getStyleSheetFromStyleTag';
 import injectRuntimeStyles from './injectRuntimeStyles';
+import rehydrateStyles from './rehydrateStyles';
 import styleCollector from './StyleCollector';
 import type { AllCSSPropertyTypes } from './css-properties/__generated__/AllCSSPropertyTypes';
 import type { AllCSSPseudoTypes } from './css-properties/__generated__/AllCSSPseudoTypes';
@@ -48,10 +50,12 @@ export default function create<T: SheetDefinitions>(sheetDefinitions: T): Create
     `Function 'sx.create' cannot be called with empty stylesheet definition.`,
   );
 
-  const { hashRegistry, styleBuffer } = styleCollector.collect(sheetDefinitions);
+  const { hashRegistry, styleBuffer } = styleCollector.collectStylesheets(sheetDefinitions);
 
   if (isBrowser()) {
-    injectRuntimeStyles(styleBuffer);
+    const styleSheet = getStyleSheetFromStyleTag();
+    const rehydratedRules = rehydrateStyles(styleSheet);
+    injectRuntimeStyles(styleSheet, rehydratedRules, styleBuffer);
   }
 
   function sxFunction(maybeObject, ...styleSheetsSelectors) {

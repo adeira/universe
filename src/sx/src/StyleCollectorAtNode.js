@@ -43,15 +43,11 @@ export default class StyleCollectorAtNode implements StyleCollectorNodeInterface
     this.nodes = new Map([...this.nodes, ...nodes]);
   }
 
-  getAtRuleName(): string {
-    return this.atRuleName;
+  getNodes() {
+    return this.nodes;
   }
 
-  printNodes(config?: PrintConfig): $ReadOnlyArray<string> {
-    let output = '';
-    this.nodes.forEach((node) => {
-      output += node.printNodes({ ...config, bumpSpecificity: true }).join('');
-    });
-    return [`${this.atRuleName}{${output}}`];
+  getAtRuleName(): string {
+    return this.atRuleName;
   }
 }
