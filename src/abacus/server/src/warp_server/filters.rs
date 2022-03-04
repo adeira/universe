@@ -91,7 +91,7 @@ fn graphql(
             warp::cors()
                 .allow_origin("http://localhost:5001") // abacus-backoffice (DEV without Telepresence)
                 .allow_origin("https://abacus-bo.kochka.com.mx/") // abacus-backoffice (PROD) (TODO: remove)
-                .allow_origin("https://backoffice.kochka.com.mx/") // abacus-backoffice (PROD)
+                .allow_origin("https://business.kochka.com.mx/") // abacus-backoffice (PROD)
                 .allow_origin("http://localhost:5002") // KOCHKA.com.mx (DEV without Telepresence)
                 .allow_origin("https://kochka.com.mx/") // KOCHKA.com.mx (PROD)
                 .allow_headers(vec!["authorization", "content-type", "x-client"])
