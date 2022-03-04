@@ -140,7 +140,7 @@ spec:
   tls:
     - hosts:
         - abacus.kochka.com.mx
-        - abacus-bo.kochka.com.mx
+        - business.kochka.com.mx
       secretName: abacus-tls
   rules:
     # TODO - host: kochka.com.mx
@@ -154,7 +154,7 @@ spec:
                 name: abacus-service
                 port:
                   number: 80
-    - host: abacus-bo.kochka.com.mx
+    - host: business.kochka.com.mx
       http:
         paths:
           - pathType: Prefix
