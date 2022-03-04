@@ -140,7 +140,6 @@ spec:
   tls:
     - hosts:
         - abacus.kochka.com.mx
-        - abacus-bo.kochka.com.mx
         - business.kochka.com.mx
       secretName: abacus-tls
   rules:
@@ -153,17 +152,6 @@ spec:
             backend:
               service:
                 name: abacus-service
-                port:
-                  number: 80
-    - host: abacus-bo.kochka.com.mx
-      # TODO: remove (replaced by business.kochka.com.mx)
-      http:
-        paths:
-          - pathType: Prefix
-            path: '/'
-            backend:
-              service:
-                name: abacus-backoffice-service
                 port:
                   number: 80
     - host: business.kochka.com.mx
