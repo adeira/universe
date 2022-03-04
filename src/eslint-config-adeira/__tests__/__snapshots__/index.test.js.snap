@@ -855,6 +855,8 @@ Object {
     "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,
     "react/function-component-definition": 0,
+    "react/hook-use-state": 0,
+    "react/iframe-missing-sandbox": 1,
     "react/jsx-boolean-value": 0,
     "react/jsx-child-element-spacing": "off",
     "react/jsx-closing-bracket-location": "off",
@@ -869,7 +871,14 @@ Object {
     "react/jsx-handler-names": 0,
     "react/jsx-indent": "off",
     "react/jsx-indent-props": "off",
-    "react/jsx-key": 2,
+    "react/jsx-key": Array [
+      2,
+      Object {
+        "checkFragmentShorthand": true,
+        "checkKeyMustBeforeSpread": true,
+        "warnOnDuplicates": true,
+      },
+    ],
     "react/jsx-max-depth": 0,
     "react/jsx-max-props-per-line": "off",
     "react/jsx-newline": "off",
@@ -1178,4 +1187,9 @@ Snapshot Diff:
 +     "jest/prefer-comparison-matcher": 2,
 +     "jest/prefer-equality-matcher": 2,
       "jest/prefer-expect-assertions": 0,
+@@ --- --- @@
+      "react/hook-use-state": 0,
+-     "react/iframe-missing-sandbox": 1,
++     "react/iframe-missing-sandbox": 2,
+      "react/jsx-boolean-value": 0,
 `;

@@ -1005,12 +1005,21 @@ Object {
     "react/forbid-foreign-prop-types": 0,
     "react/forbid-prop-types": 0,
     "react/function-component-definition": 0,
+    "react/hook-use-state": 0,
+    "react/iframe-missing-sandbox": 1,
     "react/jsx-boolean-value": 0,
     "react/jsx-curly-brace-presence": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-fragments": 0,
     "react/jsx-handler-names": 0,
-    "react/jsx-key": 2,
+    "react/jsx-key": Array [
+      2,
+      Object {
+        "checkFragmentShorthand": true,
+        "checkKeyMustBeforeSpread": true,
+        "warnOnDuplicates": true,
+      },
+    ],
     "react/jsx-max-depth": 0,
     "react/jsx-no-bind": Array [
       2,

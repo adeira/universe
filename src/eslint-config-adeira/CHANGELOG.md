@@ -1,6 +1,7 @@
 # Unreleased
 
-- New rule [`@next/next/no-script-component-in-head`](https://github.com/vercel/next.js/blob/a52bd712fe797b59cfd05ceaa4c33096a0c346ff/errors/no-script-component-in-head-component.md) enabled (warnings or errors in strict mode).
+- New rules [`react/iframe-missing-sandbox`](https://github.com/yannickcr/eslint-plugin-react/blob/24bf5947e9495808ef14fd0fbdd6a670a13bc443/docs/rules/iframe-missing-sandbox.md) and [`@next/next/no-script-component-in-head`](https://github.com/vercel/next.js/blob/a52bd712fe797b59cfd05ceaa4c33096a0c346ff/errors/no-script-component-in-head-component.md) enabled (warnings or errors in strict mode).
+- Rule `react/jsx-key` is now a bit more strict (possibly catching previously missed errors).
 
 # 7.2.0
 
