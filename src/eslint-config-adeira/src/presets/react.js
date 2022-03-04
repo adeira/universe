@@ -38,12 +38,21 @@ module.exports = ({
     'react/forbid-elements': OFF,
     'react/forbid-foreign-prop-types': OFF,
     'react/forbid-prop-types': OFF,
+    'react/hook-use-state': OFF,
+    'react/iframe-missing-sandbox': NEXT_VERSION_ERROR,
     'react/jsx-boolean-value': OFF,
     'react/jsx-curly-brace-presence': OFF,
     'react/jsx-filename-extension': OFF,
     'react/jsx-fragments': OFF,
     'react/jsx-handler-names': OFF,
-    'react/jsx-key': ERROR,
+    'react/jsx-key': [
+      ERROR,
+      {
+        checkFragmentShorthand: true,
+        checkKeyMustBeforeSpread: true,
+        warnOnDuplicates: true,
+      },
+    ],
     'react/jsx-max-depth': OFF,
     'react/jsx-no-bind': [
       ERROR,
