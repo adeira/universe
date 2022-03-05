@@ -1,0 +1,14 @@
+{
+  extends: ['config:base'],
+  ignoreDeps: [
+    // Pure ESM, see: https://github.com/adeira/universe/issues/2341
+    'chalk',
+    'hast-util-to-html',
+    'refractor',
+    'strip-ansi',
+  ],
+  labels: ['dependencies', 'automerge'],
+  rangeStrategy: 'bump',
+  semanticCommits: 'disabled',
+  updateInternalDeps: true,
+}
