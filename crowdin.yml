@@ -1,0 +1,3 @@
+files:
+  - source: /src/abacus-kochka/translations/source_strings.json
+    translation: /src/abacus-kochka/translations/in/%locale_with_underscore%.json
