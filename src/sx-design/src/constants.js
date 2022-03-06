@@ -46,4 +46,5 @@ export type SupportedLocales =
 // See: https://material.io/design/usability/bidirectionality.html
 export type SupportedDirections = 'ltr' | 'rtl';
 
+// TODO: DRY with `MediaQueryDevice` (MediaQueries.js)?
 export const MOBILE_WIDTH_BOUNDARY = 600;
