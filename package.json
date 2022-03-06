@@ -8,7 +8,6 @@
     "node": ">=14.13.1",
     "yarn": ">=1.0.0"
   },
-  "dependencies": {},
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
     "@adeira/eslint-config": "^7.2.0",
