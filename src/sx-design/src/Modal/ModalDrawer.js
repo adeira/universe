@@ -60,9 +60,9 @@ const styles = sx.create({
     backgroundColor: 'rgba(var(--sx-background))',
     color: 'rgba(var(--sx-foreground))',
     boxSizing: 'border-box',
-    width: '100%',
+    width: '98%', // 1% on each side
     height: '100%',
-    maxHeight: '90%',
+    maxHeight: '95%',
     borderStartStartRadius: 'var(--sx-radius)',
     borderStartEndRadius: 'var(--sx-radius)',
     boxShadow: 'var(--sx-shadow-large)',
