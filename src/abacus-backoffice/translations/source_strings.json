@@ -2,6 +2,20 @@
  "phrases": [
   {
    "hashToText": {
+    "BZw4CMwsfgTMU6KG5ThypQ==": "Analytics: most sold products"
+   },
+   "filepath": "src/analytics/AnalyticsMostSoldProductsPageLayout.js",
+   "line_beg": 29,
+   "col_beg": 8,
+   "line_end": 29,
+   "col_end": 97,
+   "desc": "analytics most sold products page heading",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Analytics: most sold products"
+  },
+  {
+   "hashToText": {
     "dZ+Vz30jY5ATqTW64xzopA==": "Hits"
    },
    "filepath": "src/analytics/AnalyticsRedirectsPage.js",
@@ -729,26 +743,12 @@
   },
   {
    "hashToText": {
-    "kPOwV1MB9dDJi19OhD0BzA==": "Most sold products"
-   },
-   "filepath": "src/index/IndexPage.js",
-   "line_beg": 42,
-   "col_beg": 10,
-   "line_end": 42,
-   "col_end": 73,
-   "desc": "most sold products heading",
-   "project": "",
-   "type": "text",
-   "jsfbt": "Most sold products"
-  },
-  {
-   "hashToText": {
     "1Wn4zgyl6icIpNtS9VnEdw==": "Daily reports (last 30 days)"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 56,
+   "line_beg": 38,
    "col_beg": 10,
-   "line_end": 56,
+   "line_end": 38,
    "col_end": 78,
    "desc": "daily reports heading",
    "project": "",
@@ -760,9 +760,9 @@
     "1TMUbU1qDkIV9x8K1A4k2w==": "Date"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 62,
+   "line_beg": 44,
    "col_beg": 20,
-   "line_end": 62,
+   "line_end": 44,
    "col_end": 73,
    "desc": "date of the day (table header)",
    "project": "",
@@ -774,9 +774,9 @@
     "+1D7paVJZl2JPO0FT5DJCw==": "Total income per day"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 64,
+   "line_beg": 46,
    "col_beg": 20,
-   "line_end": 64,
+   "line_end": 46,
    "col_end": 93,
    "desc": "total icome per day (table header)",
    "project": "",
@@ -788,9 +788,9 @@
     "PisqJ55xLTHotmYtdWHpxg==": "Sold products"
    },
    "filepath": "src/index/IndexPage.js",
-   "line_beg": 69,
+   "line_beg": 51,
    "col_beg": 14,
-   "line_end": 69,
+   "line_end": 51,
    "col_end": 96,
    "desc": "details about sold products per day (table header)",
    "project": "",
@@ -992,6 +992,20 @@
    "project": "",
    "type": "text",
    "jsfbt": "Analytics: redirects"
+  },
+  {
+   "hashToText": {
+    "qBmepG8qNiLmIxFnNuq4Aw==": "Analytics: most sold products"
+   },
+   "filepath": "src/Navigation.js",
+   "line_beg": 57,
+   "col_beg": 8,
+   "line_end": 59,
+   "col_end": 14,
+   "desc": "navigation link to analytics most sold products",
+   "project": "",
+   "type": "text",
+   "jsfbt": "Analytics: most sold products"
   },
   {
    "hashToText": {
@@ -1961,20 +1975,6 @@
   },
   {
    "hashToText": {
-    "qmRU3rEkjRmwDyu8G+gC5g==": "All"
-   },
-   "filepath": "src/products/ProductsCategories.js",
-   "line_beg": 43,
-   "col_beg": 17,
-   "line_end": 43,
-   "col_end": 93,
-   "desc": "title of a button to filter products by all categories",
-   "project": "",
-   "type": "text",
-   "jsfbt": "All"
-  },
-  {
-   "hashToText": {
     "D+WsTLSMdok9SuNN16agEQ==": "Create a new product"
    },
    "filepath": "src/products/ProductsCreateLayout.js",
@@ -2034,9 +2034,9 @@
     "MCv6Mi3QzsVh3PZbzS9LxA==": "Products inventory"
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 20,
+   "line_beg": 15,
    "col_beg": 15,
-   "line_end": 20,
+   "line_end": 15,
    "col_end": 76,
    "desc": "products inventory title",
    "project": "",
@@ -2048,9 +2048,9 @@
     "bHnVJ5eOwBmS4m6gCiw0fQ==": "All products available across all our services are here."
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 22,
+   "line_beg": 17,
    "col_beg": 8,
-   "line_end": 24,
+   "line_end": 19,
    "col_end": 14,
    "desc": "products inventory description",
    "project": "",
@@ -2062,9 +2062,9 @@
     "H4nmh2EfCNqj/R7wbLia9w==": "Create a new product"
    },
    "filepath": "src/products/ProductsPageLayout.js",
-   "line_beg": 28,
+   "line_beg": 23,
    "col_beg": 10,
-   "line_end": 28,
+   "line_end": 23,
    "col_end": 78,
    "desc": "link for create a new product",
    "project": "",
