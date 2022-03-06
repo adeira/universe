@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<3077057f6130864b2d6d505cdbc4fa62>>
+ * @generated SignedSource<<48581098e1dcb38d26692806d52e78b2>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
@@ -16,10 +16,6 @@ export type SupportedCurrency = "MXN" | "%future added value";
 export type IndexPageQuery$variables = {||};
 export type IndexPageQuery$data = {|
   +analytics: {|
-    +mostSoldProducts: $ReadOnlyArray<{|
-      +productName: string,
-      +productUnits: number,
-    |}>,
     +dailyReports: $ReadOnlyArray<{|
       +dateDay: string,
       +total: {|
@@ -40,14 +36,7 @@ export type IndexPageQuery = {|
 */
 
 var node/*: ConcreteRequest*/ = (function(){
-var v0 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
-  "name": "productName",
-  "storageKey": null
-},
-v1 = [
+var v0 = [
   {
     "alias": null,
     "args": null,
@@ -56,25 +45,6 @@ v1 = [
     "name": "analytics",
     "plural": false,
     "selections": [
-      {
-        "alias": null,
-        "args": null,
-        "concreteType": "AnalyticsSoldProductInfo",
-        "kind": "LinkedField",
-        "name": "mostSoldProducts",
-        "plural": true,
-        "selections": [
-          (v0/*: any*/),
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "productUnits",
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      },
       {
         "alias": null,
         "args": null,
@@ -123,7 +93,13 @@ v1 = [
             "name": "productsSummary",
             "plural": true,
             "selections": [
-              (v0/*: any*/),
+              {
+                "alias": null,
+                "args": null,
+                "kind": "ScalarField",
+                "name": "productName",
+                "storageKey": null
+              },
               {
                 "alias": null,
                 "args": null,
@@ -147,7 +123,7 @@ return {
     "kind": "Fragment",
     "metadata": null,
     "name": "IndexPageQuery",
-    "selections": (v1/*: any*/),
+    "selections": (v0/*: any*/),
     "type": "Query",
     "abstractKey": null
   },
@@ -156,21 +132,21 @@ return {
     "argumentDefinitions": [],
     "kind": "Operation",
     "name": "IndexPageQuery",
-    "selections": (v1/*: any*/)
+    "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "d0c1422b3a90132cbcbe5781905be80e",
+    "cacheID": "aab0a15d09392709d04342d7faf282e5",
     "id": null,
     "metadata": {},
     "name": "IndexPageQuery",
     "operationKind": "query",
-    "text": "query IndexPageQuery {\n  analytics {\n    mostSoldProducts {\n      productName\n      productUnits\n    }\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
+    "text": "query IndexPageQuery {\n  analytics {\n    dailyReports {\n      dateDay\n      total {\n        unitAmount\n        unitAmountCurrency\n      }\n      productsSummary {\n        productName\n        totalUnits\n      }\n    }\n  }\n}\n"
   }
 };
 })();
 
 if (__DEV__) {
-  (node/*: any*/).hash = "6aa30f95e3533d8110a8f321ec5104a7";
+  (node/*: any*/).hash = "0048fbefa282cc1af3e645b53be9403c";
 }
 
 module.exports = ((node/*: any*/)/*: Query<

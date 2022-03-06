@@ -15,10 +15,6 @@ export default function IndexPage(): React.Node {
     graphql`
       query IndexPageQuery {
         analytics {
-          mostSoldProducts {
-            productName
-            productUnits
-          }
           dailyReports {
             dateDay
             total {
@@ -37,20 +33,6 @@ export default function IndexPage(): React.Node {
 
   return (
     <LayoutBlock>
-      <span className={styles('heading')}>
-        <Text as="h2">
-          <fbt desc="most sold products heading">Most sold products</fbt>
-        </Text>
-      </span>
-
-      <BarChart
-        sort="DESC"
-        data={data.analytics.mostSoldProducts.map((info) => ({
-          label: `${info.productName} (${info.productUnits}x)`,
-          value: info.productUnits,
-        }))}
-      />
-
       <span className={styles('heading')}>
         <Text as="h2">
           <fbt desc="daily reports heading">Daily reports (last 30 days)</fbt>
