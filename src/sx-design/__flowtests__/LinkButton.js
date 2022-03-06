@@ -5,6 +5,7 @@ import { type Node, type Element } from 'react';
 import fbt from 'fbt';
 
 import { LinkButton, Money } from '../index';
+import { SupportedCurrencies } from '../src/constants';
 
 export const testStringChildren = (): Element<typeof LinkButton> => {
   // $FlowExpectedError[incompatible-type]: we do not allow string children
@@ -24,7 +25,7 @@ export const testFbtChildren = (): Element<typeof LinkButton> => {
 export const testMoney = (): Element<typeof LinkButton> => {
   return (
     <LinkButton href="#">
-      <Money priceUnitAmount={42} priceUnitAmountCurrency="USD" />
+      <Money priceUnitAmount={42} priceUnitAmountCurrency={SupportedCurrencies.USD} />
     </LinkButton>
   );
 };

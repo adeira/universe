@@ -1,6 +1,13 @@
 // @flow
 
-import { LayoutBlock, LayoutInline, LinkButton, Money, Text } from '@adeira/sx-design';
+import {
+  LayoutBlock,
+  LayoutInline,
+  LinkButton,
+  Money,
+  Text,
+  SupportedCurrencies,
+} from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 import sx from '@adeira/sx';
@@ -86,7 +93,10 @@ export default function Contributions(): React.Node {
                   tint="success"
                   target="_blank"
                 >
-                  <Money priceUnitAmount={contributionValue} priceUnitAmountCurrency="MXN" />
+                  <Money
+                    priceUnitAmount={contributionValue}
+                    priceUnitAmountCurrency={SupportedCurrencies.MXN}
+                  />
                 </LinkButton>
               </span>
             );
@@ -119,7 +129,10 @@ export default function Contributions(): React.Node {
                 >
                   <fbt desc="recurring monetary value per month">
                     <fbt:param name="price">
-                      <Money priceUnitAmount={contributionValue} priceUnitAmountCurrency="MXN" />
+                      <Money
+                        priceUnitAmount={contributionValue}
+                        priceUnitAmountCurrency={SupportedCurrencies.MXN}
+                      />
                     </fbt:param>{' '}
                     / month
                   </fbt>

@@ -1,6 +1,6 @@
 // @flow
 
-import { LayoutBlock, Money, Table, Text } from '@adeira/sx-design';
+import { LayoutBlock, Money, Table, Text, SupportedCurrencies } from '@adeira/sx-design';
 import * as React from 'react';
 import fbt from 'fbt';
 
@@ -67,11 +67,15 @@ export default function RulesPage(): React.Node {
           data={[
             {
               col1: <fbt desc="table cell: adult cat">Adult cat</fbt>,
-              col2: <Money priceUnitAmount={1000} priceUnitAmountCurrency="MXN" />,
+              col2: (
+                <Money priceUnitAmount={1000} priceUnitAmountCurrency={SupportedCurrencies.MXN} />
+              ),
             },
             {
               col1: <fbt desc="table cell: kitten under 1 year">Kitten under 1 year</fbt>,
-              col2: <Money priceUnitAmount={1500} priceUnitAmountCurrency="MXN" />,
+              col2: (
+                <Money priceUnitAmount={1500} priceUnitAmountCurrency={SupportedCurrencies.MXN} />
+              ),
             },
           ]}
         />

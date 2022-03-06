@@ -9,9 +9,10 @@ import fbt from 'fbt';
 
 import Button from '../Button/Button';
 import LayoutGrid from '../Layout/LayoutGrid';
-import ProductCard from '../ProductCard/ProductCard';
 import Modal from './Modal';
+import ProductCard from '../ProductCard/ProductCard';
 import { initFbt } from '../test-utils';
+import { SupportedCurrencies } from '../constants';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -55,7 +56,7 @@ const TemplateWithProductCards = (args) => {
               key={i}
               title={'My Product'}
               priceUnitAmount={42}
-              priceUnitAmountCurrency={'AED'}
+              priceUnitAmountCurrency={SupportedCurrencies.AED}
               imgSrc={'https://placekitten.com/500/500?image=12'}
             />
           ))}

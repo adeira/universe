@@ -19,6 +19,7 @@
     "@babel/runtime": "^7.17.2",
     "blurhash": "^1.1.5",
     "fbt": "^0.16.6",
+    "flow-enums-runtime": "^0.0.6",
     "focus-trap-react": "^8.9.2",
     "prop-types": "^15.8.1",
     "react-blurhash": "^0.1.3",
