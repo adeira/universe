@@ -22,7 +22,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
       );
     }
 
-    if (packageJson.private === false) {
+    if (packageJson.private !== true) {
       expect(packageJson.description).toBeDefined();
 
       // We currently have only MIT and "Unlicense" packages.
