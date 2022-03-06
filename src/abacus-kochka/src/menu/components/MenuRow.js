@@ -1,7 +1,7 @@
 // @flow
 
 import React, { type Node } from 'react';
-import { MissingData, Money, Text } from '@adeira/sx-design';
+import { MissingData, Money, Text, SupportedCurrencies } from '@adeira/sx-design';
 import sx from '@adeira/sx';
 import { useFragment, graphql } from '@adeira/relay';
 
@@ -26,11 +26,7 @@ export default function MenuRow(props: Props): Node {
     props.menuRowData,
   );
 
-  // Other currencies are currently not supported by FE:
-  const unitAmountCurrency = data.price.unitAmountCurrency;
-  const isCurrencySupported = (currency): boolean %checks => {
-    return currency === 'MXN';
-  };
+  const unitAmountCurrency = SupportedCurrencies.cast(data.price.unitAmountCurrency);
 
   return (
     <div className={styles('menuRow')}>
@@ -39,10 +35,10 @@ export default function MenuRow(props: Props): Node {
           {data.name}
         </Text>
         <div>
-          {isCurrencySupported(unitAmountCurrency) ? (
+          {unitAmountCurrency != null ? (
             <Money
               priceUnitAmount={
-                data.price.unitAmount / 100 // adjusted for octavo
+                data.price.unitAmount / 100 // adjusted for centavo
               }
               priceUnitAmountCurrency={unitAmountCurrency}
             />

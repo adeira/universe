@@ -16,14 +16,15 @@
 // ```
 //
 // Other currencies might need a special attention.
-export type SupportedCurrencies =
-  | 'AED' // UAE Dirham
-  | 'CZK' // Czech Koruna
-  | 'USD' // US Dollar
-  | 'MXN' // Mexican Peso
-  | 'NOK' // Norwegian Krone
-  | 'RUB' // Russian Ruble
-  | 'UAH'; // Hryvnia
+export enum SupportedCurrencies of string {
+  AED, // UAE Dirham
+  CZK, // Czech Koruna
+  USD, // US Dollar
+  MXN, // Mexican Peso
+  NOK, // Norwegian Krone
+  RUB, // Russian Ruble
+  UAH, // Hryvnia
+}
 
 // Please note that values here do not have to match supported currencies even though it makes
 // a lot of sense to match them. Expand as needed.

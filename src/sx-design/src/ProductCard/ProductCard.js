@@ -7,8 +7,8 @@ import sx from '@adeira/sx';
 import Image from '../Image/Image';
 import Money from '../Money/Money';
 import Text from '../Text/Text';
-import type { SupportedCurrencies } from '../constants';
 import Tooltip from '../Tooltip/Tooltip';
+import type { SupportedCurrencies } from '../constants';
 
 type Props = {
   +title: Fbt,

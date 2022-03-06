@@ -1,6 +1,6 @@
 // @flow
 
-type SupportedCurrencies = 'MXN';
+import { SupportedCurrencies } from '@adeira/sx-design';
 
 /**
  * This function refines ANY input value to one of supported currencies. It automatically fallbacks
@@ -17,10 +17,6 @@ type SupportedCurrencies = 'MXN';
  * The purpose of this function is to refine this value (which can be anything really) into subset
  * of supported values by our frontend application.
  */
-export default function refineSupportedCurrencies(
-  input: string,
-  fallback: SupportedCurrencies = 'MXN',
-): SupportedCurrencies {
-  // We currently support only 'MXN' so this is simple… 😬
-  return fallback;
+export default function refineSupportedCurrencies(input: string): SupportedCurrencies {
+  return SupportedCurrencies.cast(input) ?? SupportedCurrencies.MXN;
 }
