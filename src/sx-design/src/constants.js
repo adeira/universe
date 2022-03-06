@@ -45,7 +45,10 @@ export type SupportedLocales =
 //
 // See: https://rtlstyling.com/
 // See: https://material.io/design/usability/bidirectionality.html
-export type SupportedDirections = 'ltr' | 'rtl';
+export enum SupportedDirections of string {
+  LTR = 'ltr',
+  RTL = 'rtl',
+}
 
 // TODO: DRY with `MediaQueryDevice` (MediaQueries.js)?
 export const MOBILE_WIDTH_BOUNDARY = 600;
