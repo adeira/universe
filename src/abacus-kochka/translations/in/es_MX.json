@@ -1,12 +1,12 @@
 {
   "fb-locale": "es_MX",
   "translations": {
-    "hDyrNnE41nUuLcUMu5y59A==": {
+    "4aOHtYbmcWhHdi94aqvM3g==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "♥️ Contribución voluntaria ♥️",
+          "translation": "Contribución voluntaria",
           "variations": []
         }
       ]
@@ -36,7 +36,7 @@
       "types": [],
       "translations": [
         {
-          "translation": "KOCHKA Café",
+          "translation": "KOCHKA Café",
           "variations": []
         }
       ]
@@ -51,12 +51,12 @@
         }
       ]
     },
-    "CVAijOv5C0UslzBPMhL7SA==": {
+    "TZWdWO+kvimA1Jjp1DlvTw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Contribución única ♥️",
+          "translation": "Contribución única",
           "variations": []
         }
       ]
@@ -71,12 +71,12 @@
         }
       ]
     },
-    "C/jBexWuGqox0yek4XyMUA==": {
+    "ejsLcPhQjCHyk4sR3EWxAA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Contribución recurrente (mensual) ♥♥️",
+          "translation": "Contribución recurrente (mensual)",
           "variations": []
         }
       ]
@@ -131,132 +131,12 @@
         }
       ]
     },
-    "0xr7aUJVKyUTQDS2LwwZlg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Martes - Domingo 10am - 8pm",
-          "variations": []
-        }
-      ]
-    },
     "01L7L5zx9XKSlIfQTGdfVg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
           "translation": "Calle Tonalá 346, Roma Sur, Cuauhtémoc, 06760, CDMX, Mexico",
-          "variations": []
-        }
-      ]
-    },
-    "ZTIT5d4Nmlu4o/Wb7qpAaQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "rinbc6qu22nzP+CbAtPP6Q==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Adopciones",
-          "variations": []
-        }
-      ]
-    },
-    "Eg3Cmf5NcWMLInFx4u9Ljg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Reglas",
-          "variations": []
-        }
-      ]
-    },
-    "Jl7ke09TxJz/ttxyYXALfQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Tienda",
-          "variations": []
-        }
-      ]
-    },
-    "VYEswFAa4E04/Xqu+LPv5A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Contribuye ♥️",
-          "variations": []
-        }
-      ]
-    },
-    "n6tw27wXSGSf70t6gzskXQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Inicio",
-          "variations": []
-        }
-      ]
-    },
-    "L0WJiJMAz6UZOMLGfq/EXw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "xSNus6NyIj/A4JDsSzIRGQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Adopciones",
-          "variations": []
-        }
-      ]
-    },
-    "A5NoowwCUNmKFr3s/nXG/w==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Reglas",
-          "variations": []
-        }
-      ]
-    },
-    "ktONRQOJxnJhj9ebj+y1Dw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Tienda",
-          "variations": []
-        }
-      ]
-    },
-    "eZvcIisVQ0UqvsMX7CY6UA==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Contribuye ♥️",
           "variations": []
         }
       ]
@@ -287,66 +167,6 @@
       "translations": [
         {
           "translation": "Política de privacidad",
-          "variations": []
-        }
-      ]
-    },
-    "AnWW7GmesxqieaEMwwAsbQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Inicio",
-          "variations": []
-        }
-      ]
-    },
-    "E5Y8taJzgTvVw7JlJd8qbw==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Menú",
-          "variations": []
-        }
-      ]
-    },
-    "Vq+8I+twJCKxZBPFffZ11A==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Adopciones",
-          "variations": []
-        }
-      ]
-    },
-    "oz5ITO6XGkR/D3yT47GqYg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Reglas",
-          "variations": []
-        }
-      ]
-    },
-    "oubYOKD/2Kkks5EsdTg1Vg==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Tienda",
-          "variations": []
-        }
-      ]
-    },
-    "FfK2bj6SLTsfvIKsGTTp2Q==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "Contribuye ♥️",
           "variations": []
         }
       ]
@@ -391,12 +211,12 @@
         }
       ]
     },
-    "gpf7yMg/5H4w0cysxh+N2w==": {
+    "dSc4laDASdxP9wQdGFEbfA==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Malteadas",
+          "translation": "Otros",
           "variations": []
         }
       ]
@@ -421,57 +241,67 @@
         }
       ]
     },
-    "ma2mGfydLQ0QoMlyrlx9vw==": {
+    "1YLqzX/PtbBOLtiUcdmO5g==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Ten cuidado cuando entres porque los gatitos pueden escapar. 🥺",
+          "translation": "Navegación",
           "variations": []
         }
       ]
     },
-    "AZBk0HF6F8GgThvh5h0vdg==": {
+    "hsUYiKQLyiOxqS9DSTSB4w==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Puedes jugar con los gatos y divertirte con ellos, pero por favor respeta su espacio, no los obligues a hacer cosas que no quieran y no los jales de la cola o de los bigotes.",
+          "translation": "Navegación",
           "variations": []
         }
       ]
     },
-    "2fSycF0Q8vnGGrk4RLeKLg==": {
+    "kuYCBlo2uo0CL2XQvd1JAw==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Procura no despertarlos o interrumpirlos mientras comen.",
+          "translation": "Menú",
           "variations": []
         }
       ]
     },
-    "Y+IlF4wmefnxuZ8S3QrbuA==": {
+    "d/e8AfwzGWzIJOwgxriEMg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Toma todas las fotos que quieras, de preferencia sin flash. 👍 No olvides etiquetarnos en Instagram o en Facebook: {instagram account}",
+          "translation": "Reglas",
           "variations": []
         }
       ]
     },
-    "/TGZ0/sm4xOZEsBdd0DHRQ==": {
+    "631OVUZDEQF6mtbD8NUyHg==": {
       "tokens": [],
       "types": [],
       "translations": [
         {
-          "translation": "Nuestros gatos tienen una dieta saludable. La comida humana puede ser peligrosa para ellos. Por favor, no los alimentes con tu comida.",
+          "translation": "Tienda",
           "variations": []
         }
       ]
     },
-    "/T78HImOiKKs6J26mVLuaQ==": {
+    "1Czq0yZJzTcsPfK/OZGAPg==": {
+      "tokens": [],
+      "types": [],
+      "translations": [
+        {
+          "translation": "Barista",
+          "variations": []
+        }
+      ]
+    },
+    "/t+xI2an+VOt0etSs48GmQ==": {
       "tokens": [],
       "types": [],
       "translations": [
@@ -481,7 +311,7 @@
         }
       ]
     },
-    "U98Bttt6bmp1PmUACerVug==": {
+    "2M/LRaQwR7k0iYNW0dlxJg==": {
       "tokens": [],
       "types": [],
       "translations": [
@@ -491,17 +321,7 @@
         }
       ]
     },
-    "itv8A/4Pvi/UCI1hEPlLpQ==": {
-      "tokens": [],
-      "types": [],
-      "translations": [
-        {
-          "translation": "No somos responsables de las lesiones que nuestros gatos te puedan ocasionar (son muy juguetones y pueden arañarte sin querer). Pon atención especialmente a los niños que te acompañen. Puedes hacer uso de nuestro botiquín de primeros auxilios si lo necesitas.",
-          "variations": []
-        }
-      ]
-    },
-    "eEHP2QM079xkRqVGx7HUlQ==": {
+    "u01M6MR9XEEj81zz9hMjhQ==": {
       "tokens": [],
       "types": [],
       "translations": [
@@ -511,7 +331,7 @@
         }
       ]
     },
-    "4EOS7M5k/RGGg6oLo32EHw==": {
+    "dpYGaDV5nBHTHU/I/qisQg==": {
       "tokens": [],
       "types": [],
       "translations": [
