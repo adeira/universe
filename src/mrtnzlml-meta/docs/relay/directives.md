@@ -6,6 +6,50 @@ sidebar_label: Relay directives
 
 Relay supports many (mostly) client-only directives which help you to describe your clients needs and behavior better. They usually abstract some low-level implementation so you can easily stop using them when needed. Here is a complete list of them:
 
+## @assignable
+
+Directive `@assignable` can be used on a fragment with a single field `__typename` like so:
+
+```graphql
+fragment Location on Location @assignable {
+  __typename
+}
+```
+
+The following error is being thrown otherwise:
+
+```text
+[ERROR] ✖︎ Assignable fragments should contain only a single, unaliased __typename field with no directives.
+
+  src/example-relay/src/Homepage/locations/Location.js:19:16
+   18 │ 
+   19 │       fragment Location on Location @assignable {
+      │                ^^^^^^^^
+   20 │         __typename
+
+[ERROR] Compilation failed.
+```
+
+In return the following code is being generated:
+
+```js
+module.exports.validate = function validate(value/*: {
+  +__id: string,
+  +$fragmentSpreads: Location$fragmentType,
+  +__typename: string,
+  ...
+}*/)/*: {
+  +__id: string,
+  +$fragmentSpreads: Location$fragmentType,
+  +__typename: "Location",
+  ...
+} | false*/ {
+  return value.__typename === 'Location' ? (value/*: any*/) : false;
+};
+```
+
+I am not sure about the use-cases yet.
+
 ## @arguments, @argumentDefinitions
 
 Relay docs: https://relay.dev/docs/en/graphql-in-relay.html#arguments
@@ -591,6 +635,46 @@ directive @assignable on FRAGMENT_DEFINITION
 ```
 
 - https://github.com/facebook/relay/commit/75709facceb3f931ceff6f27a437040d7515afcf
+
+## @waterfall
+
+```graphql
+"""
+Reading this Client Edge field triggers a network roundtrip or "waterfall". The
+consuming component will suspend until that request has been fulfilled.
+"""
+directive @waterfall on FIELD
+```
+
+Example:
+
+```graphql
+fragment relayResolverBackingClientEdge_best_friend_resolver on User {
+  actor_key
+}
+
+query relayResolverBackingClientEdgeQuery {
+  me {
+    best_friend @waterfall {
+      name
+    }
+  }
+}
+```
+
+While the schema is having an extension:
+
+```graphql
+extend type User {
+  best_friend: User
+    @relay_resolver(
+      fragment_name: "relayResolverBackingClientEdge_best_friend_resolver"
+      import_path: "./foo/bar/baz/BestFriendResolver.js"
+    )
+}
+```
+
+I don't know much about this directive yet, tbh.
 
 ## Other internal directives
 
