@@ -5,28 +5,8 @@
 
 version: 2
 
+# Note: we are using Renovate for most of the dependency updates (see `renovate.json5`)
 updates:
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/' # Location of package manifests
-    schedule:
-      interval: 'daily'
-    labels:
-      - 'dependencies'
-    open-pull-requests-limit: 10
-    ignore:
-      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
-      - dependency-name: 'strip-ansi'
-        versions: ['7.x']
-      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
-      - dependency-name: 'hast-util-to-html'
-        versions: ['8.x']
-      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
-      - dependency-name: 'refractor'
-        versions: ['4.x']
-      # Pure ESM, see: https://github.com/adeira/universe/issues/2341
-      - dependency-name: 'chalk'
-        versions: ['5.x']
-
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
@@ -37,30 +17,6 @@ updates:
 
   - package-ecosystem: 'github-actions'
     directory: '/src/sx-tailwind-website/__github__/'
-    schedule:
-      interval: 'daily'
-    labels:
-      - 'dependencies'
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: 'cargo'
-    directory: '/src/abacus/'
-    schedule:
-      interval: 'daily'
-    labels:
-      - 'dependencies'
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: 'docker'
-    directory: '/src/abacus/'
-    schedule:
-      interval: 'daily'
-    labels:
-      - 'dependencies'
-    open-pull-requests-limit: 10
-
-  - package-ecosystem: 'docker'
-    directory: '/src/abacus-backoffice/'
     schedule:
       interval: 'daily'
     labels:
