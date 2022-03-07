@@ -14,7 +14,7 @@
   "main": "./src/index.js",
   "type": "commonjs",
   "peerDependencies": {
-    "graphql": "^15.0.0"
+    "graphql": "^15.8.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.17.2"

@@ -17,6 +17,6 @@
     "@babel/runtime": "^7.17.2"
   },
   "peerDependencies": {
-    "graphql": "^15.1.0"
+    "graphql": "^15.8.0"
   }
 }
