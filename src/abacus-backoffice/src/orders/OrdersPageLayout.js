@@ -1,6 +1,6 @@
 // @flow
 
-import { Badge, LayoutBlock, Money, Note, Table } from '@adeira/sx-design';
+import { Badge, LayoutBlock, Money, Note, Table, SupportedCurrencies } from '@adeira/sx-design';
 import fbt from 'fbt';
 import React, { type Node } from 'react';
 
@@ -41,7 +41,7 @@ export default function OrdersPageLayout(): Node {
         ),
         col2: 'TODO',
         col3: 'John Doe',
-        col4: <Money priceUnitAmount={100} priceUnitAmountCurrency={'MXN'} />,
+        col4: <Money priceUnitAmount={100} priceUnitAmountCurrency={SupportedCurrencies.MXN} />,
       },
       {
         col1: (
@@ -51,7 +51,7 @@ export default function OrdersPageLayout(): Node {
         ),
         col2: 'TODO',
         col3: 'John Doe',
-        col4: <Money priceUnitAmount={100} priceUnitAmountCurrency={'MXN'} />,
+        col4: <Money priceUnitAmount={100} priceUnitAmountCurrency={SupportedCurrencies.MXN} />,
       },
       {
         col1: (
@@ -61,7 +61,7 @@ export default function OrdersPageLayout(): Node {
         ),
         col2: 'TODO',
         col3: 'John Doe',
-        col4: <Money priceUnitAmount={100} priceUnitAmountCurrency={'MXN'} />,
+        col4: <Money priceUnitAmount={100} priceUnitAmountCurrency={SupportedCurrencies.MXN} />,
       },
     ],
     [],

@@ -5,10 +5,11 @@ import { init as FbtInit, IntlVariations as FbtIntlVariations, FbtTranslations }
 import sx from '@adeira/sx';
 
 import getFbtTranslations from './getFbtTranslations';
+import { MediaQueryColorScheme } from './MediaQueries';
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
 import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
-import type { SupportedLocales } from './constants';
+import { SupportedDirections, type SupportedLocales } from './constants';
 
 type Props = {
   +children: Node,
@@ -38,9 +39,9 @@ export default function SxDesignProvider(props: Props): Node {
     return () => {};
   }, []);
 
-  let direction = 'ltr';
+  let direction = SupportedDirections.LTR;
   if (sxLocale.startsWith('ar-AR')) {
-    direction = 'rtl';
+    direction = SupportedDirections.RTL;
   }
 
   const translations = getFbtTranslations(sxLocale);
@@ -78,8 +79,8 @@ export default function SxDesignProvider(props: Props): Node {
     <div
       className={styles({
         common: true, // always include
-        ltr: direction === 'ltr',
-        rtl: direction === 'rtl',
+        ltr: direction === SupportedDirections.LTR,
+        rtl: direction === SupportedDirections.RTL,
         lightTheme: theme === 'light',
         darkTheme: theme === 'dark',
         systemTheme: theme === 'system',
@@ -116,8 +117,8 @@ const styles = sx.create({
   lightTheme: SxDesignProviderCSSVariables.lightTheme,
   darkTheme: SxDesignProviderCSSVariables.darkTheme,
   systemTheme: {
-    '@media (prefers-color-scheme: light)': SxDesignProviderCSSVariables.lightTheme,
-    '@media (prefers-color-scheme: dark)': SxDesignProviderCSSVariables.darkTheme,
+    [MediaQueryColorScheme.LIGHT]: SxDesignProviderCSSVariables.lightTheme,
+    [MediaQueryColorScheme.DARK]: SxDesignProviderCSSVariables.darkTheme,
   },
 });
 /* eslint-enable sx/valid-usage */

@@ -8,6 +8,7 @@ import sx from '@adeira/sx';
 import BreadcrumbItem from './BreadcrumbItem';
 import LayoutInline from '../Layout/LayoutInline';
 import useSxDesignContext from '../useSxDesignContext';
+import { SupportedDirections } from '../constants';
 
 type Props = {
   +children:
@@ -50,7 +51,7 @@ export default function Breadcrumb(props: Props): Node {
           <div
             className={styles({
               breadcrumbSeparator: true,
-              rtl: direction === 'rtl',
+              rtl: direction === SupportedDirections.RTL,
             })}
           >
             <Icon name="chevron_right" />

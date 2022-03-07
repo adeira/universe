@@ -8,8 +8,9 @@ import { rangeMap } from '@adeira/js';
 import fbt from 'fbt';
 
 import LayoutGrid from '../Layout/LayoutGrid';
-import { initFbt } from '../test-utils';
 import ProductCard from './ProductCard';
+import { initFbt } from '../test-utils';
+import { SupportedCurrencies } from '../constants';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -68,7 +69,7 @@ Standalone.storyName = 'Standalone (no image)';
 Standalone.args = {
   title: 'My product',
   priceUnitAmount: 42,
-  priceUnitAmountCurrency: 'MXN',
+  priceUnitAmountCurrency: SupportedCurrencies.MXN,
 };
 
 export const StandaloneWithImage: StoryTemplate<typeof ProductCard> = TemplateStandalone.bind({});
@@ -76,7 +77,7 @@ StandaloneWithImage.storyName = 'Standalone with image';
 StandaloneWithImage.args = {
   title: 'My product',
   priceUnitAmount: 42,
-  priceUnitAmountCurrency: 'USD',
+  priceUnitAmountCurrency: SupportedCurrencies.USD,
   imgBlurhash: BLURHASH,
   imgSrc: 'https://placekitten.com/500/500?image=12',
 };
@@ -86,7 +87,7 @@ InGrid.storyName = 'In a CSS grid';
 InGrid.args = {
   title: 'My awesome product with a very long name',
   priceUnitAmount: 42,
-  priceUnitAmountCurrency: 'CZK',
+  priceUnitAmountCurrency: SupportedCurrencies.CZK,
   imgBlurhash: BLURHASH,
   imgSrc: 'https://placekitten.com/200/200?image=12',
 };

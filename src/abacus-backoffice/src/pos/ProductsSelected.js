@@ -1,6 +1,6 @@
 // @flow
 
-import { Money } from '@adeira/sx-design';
+import { Money, SupportedCurrencies } from '@adeira/sx-design';
 import { fbt } from 'fbt';
 import * as React from 'react';
 import sx from '@adeira/sx';
@@ -25,7 +25,7 @@ export default function ProductsSelected(): React.Node {
               priceUnitAmount={
                 stats.totalPrice / 100 // adjusted for centavo
               }
-              priceUnitAmountCurrency="MXN"
+              priceUnitAmountCurrency={SupportedCurrencies.MXN}
             />
           </fbt:param>
         </fbt>

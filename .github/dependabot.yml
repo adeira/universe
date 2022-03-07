@@ -12,7 +12,6 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge' # see Kodiak `merge.automerge_label`
     open-pull-requests-limit: 10
     ignore:
       # Pure ESM, see: https://github.com/adeira/universe/issues/2341
@@ -34,7 +33,6 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'github-actions'
@@ -43,7 +41,6 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'cargo'
@@ -52,7 +49,6 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'docker'
@@ -61,7 +57,6 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge'
     open-pull-requests-limit: 10
 
   - package-ecosystem: 'docker'
@@ -70,5 +65,4 @@ updates:
       interval: 'daily'
     labels:
       - 'dependencies'
-      - 'automerge'
     open-pull-requests-limit: 10

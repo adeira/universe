@@ -81,4 +81,13 @@ export default (sx.create({
       color: 'rgba(var(--sx-warning))',
     },
   },
+  buttonTintTransparent: {
+    'color': 'rgba(var(--sx-background))',
+    'backgroundColor': 'rgba(var(--sx-background), 0.1)',
+    'border': '1px solid rgba(var(--sx-background), 0.2)',
+    ':hover': {
+      backgroundColor: 'rgba(var(--sx-background), 0.2)',
+      border: '1px solid rgba(var(--sx-background), 0.4)',
+    },
+  },
 }): $FlowFixMe);

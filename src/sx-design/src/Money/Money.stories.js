@@ -6,6 +6,7 @@
 import React from 'react';
 
 import Money from './Money';
+import { SupportedCurrencies } from '../constants';
 import type { StoryTemplate } from '../types';
 
 // 👇 This default export determines where your story goes in the story list
@@ -37,11 +38,11 @@ const Template = (args) => <Money {...args} />;
 export const MXN: StoryTemplate<typeof Money> = Template.bind({});
 MXN.storyName = 'MXN currency';
 MXN.args = {
-  priceUnitAmountCurrency: 'MXN',
+  priceUnitAmountCurrency: SupportedCurrencies.MXN,
 };
 
 export const USD: StoryTemplate<typeof Money> = Template.bind({});
 USD.storyName = 'USD currency';
 USD.args = {
-  priceUnitAmountCurrency: 'USD',
+  priceUnitAmountCurrency: SupportedCurrencies.USD,
 };
