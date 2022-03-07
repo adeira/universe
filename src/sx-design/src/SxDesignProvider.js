@@ -5,6 +5,7 @@ import { init as FbtInit, IntlVariations as FbtIntlVariations, FbtTranslations }
 import sx from '@adeira/sx';
 
 import getFbtTranslations from './getFbtTranslations';
+import { MediaQueryColorScheme } from './MediaQueries';
 import SxDesignContext from './SxDesignContext';
 import SxDesignProviderCSSVariables from './SxDesignProviderCSSVariables';
 import { SX_DESIGN_REACT_PORTAL_ID } from './SxDesignPortal';
@@ -116,8 +117,8 @@ const styles = sx.create({
   lightTheme: SxDesignProviderCSSVariables.lightTheme,
   darkTheme: SxDesignProviderCSSVariables.darkTheme,
   systemTheme: {
-    '@media (prefers-color-scheme: light)': SxDesignProviderCSSVariables.lightTheme,
-    '@media (prefers-color-scheme: dark)': SxDesignProviderCSSVariables.darkTheme,
+    [MediaQueryColorScheme.LIGHT]: SxDesignProviderCSSVariables.lightTheme,
+    [MediaQueryColorScheme.DARK]: SxDesignProviderCSSVariables.darkTheme,
   },
 });
 /* eslint-enable sx/valid-usage */

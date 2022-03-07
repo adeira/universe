@@ -3,6 +3,8 @@
 import * as React from 'react';
 import sx, { type AllCSSProperties } from '@adeira/sx';
 
+import { MediaQueryMotion } from '../MediaQueries';
+
 type Props = {
   +'onClick': (event: SyntheticEvent<HTMLButtonElement>) => void,
   +'children': FbtWithoutString,
@@ -46,7 +48,7 @@ const styles = sx.create({
     'textDecorationLine': 'underline',
     'textDecorationStyle': 'solid',
     'textDecorationThickness': '.05em',
-    '@media (prefers-reduced-motion: no-preference)': {
+    [MediaQueryMotion.NO_PREFERENCE]: {
       transition: 'text-decoration-color 300ms',
     },
     ':hover': {

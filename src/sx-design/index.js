@@ -2,6 +2,7 @@
 
 export { default as SxDesignProvider } from './src/SxDesignProvider';
 export { default as useSxDesignContext } from './src/useSxDesignContext';
+export { MediaQueryDevice, MediaQueryMotion, MediaQueryColorScheme } from './src/MediaQueries';
 
 // Public SX Design components:
 export { default as Badge } from './src/Badge/Badge';

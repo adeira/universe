@@ -4,6 +4,8 @@ import React, { type Node, type Element } from 'react';
 import sx from '@adeira/sx';
 import fbt from 'fbt';
 
+import { MediaQueryMotion } from '../MediaQueries';
+
 function SvgRect(props): Element<'rect'> {
   return (
     <rect
@@ -57,10 +59,10 @@ const styles = sx.create({
     ':nth-child(2)': {
       animationDelay: '70ms',
     },
-    '@media (prefers-reduced-motion: no-preference)': {
+    [MediaQueryMotion.NO_PREFERENCE]: {
       animationDuration: '0.6s',
     },
-    '@media (prefers-reduced-motion: reduce)': {
+    [MediaQueryMotion.REDUCE]: {
       animationDuration: '1s',
     },
   },

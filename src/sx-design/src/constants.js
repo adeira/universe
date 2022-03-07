@@ -50,4 +50,5 @@ export enum SupportedDirections of string {
   RTL = 'rtl',
 }
 
+// TODO: DRY with `MediaQueryDevice` (MediaQueries.js)?
 export const MOBILE_WIDTH_BOUNDARY = 600;
