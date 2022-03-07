@@ -1,5 +1,6 @@
 {
   "es_MX": {
+    "49czoD": "Analytics: most sold products",
     "3uX4By": "Hits",
     "4seBqm": "Origin",
     "48xFFF": "Destination",
@@ -46,7 +47,6 @@
     "DyJ2E": "El campo \"{form field label}\" debe tener un valor mayor que {form field min value}.",
     "1OZewv": "Por favor ingrese un valor válido. Los dos valores válidos más cercanos son {low boundary} y {high boundary}.",
     "ZcMj7": "El campo \"{form field label}\" es inválido.",
-    "3nkeCo": "Most sold products",
     "2kXwG5": "Daily reports (last 30 days)",
     "20iyRI": "Date",
     "2CAx83": "Total income per day",
@@ -65,6 +65,7 @@
     "4dPJaM": "Our cats",
     "kNzNr": "Sesiones de TPV",
     "36grCr": "Analytics: redirects",
+    "1yASyE": "Analytics: most sold products",
     "2WqEgJ": "PROD",
     "1gh6va": "DEV",
     "3Eos2U": "Status",
@@ -139,7 +140,6 @@
     "1IwyqX": "Visible in KOCHKA.com.mx eshop (PUBLIC!)",
     "1co3fb": "This product has not been published yet and might be invisible publicly.",
     "2AtrAz": "There are no products yet.",
-    "3Y2TS7": "All",
     "3IN3g0": "Crear un nuevo producto",
     "2T3QnN": "delete",
     "2Z2gmt": "undo delete",
