@@ -22,7 +22,7 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
       );
     }
 
-    if (packageJson.private === false) {
+    if (packageJson.private !== true) {
       expect(packageJson.description).toBeDefined();
 
       // We currently have only MIT and "Unlicense" packages.
@@ -53,11 +53,6 @@ Workspaces.iterateWorkspaces((packageJSONLocation) => {
     }
 
     expect(packageJson.version).toBeDefined();
-
-    // there must be empty dependencies or devDependencies key ({} is enough)
-    expect(
-      packageJson.dependencies !== undefined || packageJson.devDependencies !== undefined,
-    ).toBe(true);
 
     const dependencies = Object.entries(packageJson.dependencies ?? {}).concat(
       Object.entries(packageJson.devDependencies ?? {}),

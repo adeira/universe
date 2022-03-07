@@ -1,12 +1,30 @@
 // @flow
 
 import type { Node } from 'react';
-import { MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { SxDesignProvider } from '../index';
 import type { SupportedLocales } from '../src/constants';
 
 const DARK_MODE_BACKGROUND = '#333';
+
+const customViewports = {
+  mobile: {
+    name: 'Mobile',
+    styles: {
+      height: '650px',
+      width: '320px',
+    },
+    type: 'mobile',
+  },
+  tablet: {
+    name: 'Tablet',
+    styles: {
+      height: '1112px',
+      width: '834px',
+    },
+    type: 'tablet',
+  },
+};
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -24,7 +42,7 @@ export const parameters = {
     },
   },
   viewport: {
-    viewports: MINIMAL_VIEWPORTS,
+    viewports: customViewports,
     defaultViewport: 'tablet',
   },
 };
