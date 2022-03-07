@@ -7,7 +7,7 @@
     'refractor',
     'strip-ansi',
   ],
-  labels: ['dependencies', 'automerge'],
+  labels: ['dependencies'],
   rangeStrategy: 'bump',
   semanticCommits: 'disabled',
   updateInternalDeps: true,
