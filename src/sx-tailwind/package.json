@@ -24,7 +24,7 @@
     "tailwindcss": "^2.2.19"
   },
   "peerDependencies": {
-    "react": "^16.14.0"
+    "react": "^17.0.2"
   },
   "devDependencies": {
     "@adeira/babel-preset-adeira": "^4.0.0",
