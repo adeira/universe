@@ -28,6 +28,6 @@
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
-    "@babel/core": "^7.15.5"
+    "@babel/core": "^7.17.5"
   }
 }
