@@ -24,6 +24,6 @@
     "strip-ansi": "^6.0.1"
   },
   "peerDependencies": {
-    "graphql": "^15.0.0"
+    "graphql": "^15.8.0"
   }
 }
