@@ -29,7 +29,7 @@
     "react": "^17.0.2"
   },
   "peerDependencies": {
-    "@adeira/sx": "^0.28.0",
+    "@adeira/sx": "^0.29.0",
     "eslint": "^8.10.0"
   }
 }
