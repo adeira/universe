@@ -9,6 +9,7 @@ jobs:
       matrix:
         manifest:
           - 'src/abacus/Cargo.toml'
+          - 'src/x/Cargo.toml'
         os:
           - macos-latest
           - ubuntu-latest
@@ -31,6 +32,7 @@ jobs:
           filters: |
             src:
               - 'src/abacus/**'
+              - 'src/x/**'
 
       # https://github.com/actions-rs/toolchain
       - uses: actions-rs/toolchain@v1.0.7
