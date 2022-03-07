@@ -7611,10 +7611,10 @@ fbjs@^3.0.2:
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.30"
 
-fbt@^0.16.6:
-  version "0.16.6"
-  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.16.6.tgz#dfda9a375469e8124758e53bf28d4e93a7ae6f21"
-  integrity sha512-S/EwJlLZMvmTOp/E+Y/5KFsrcpkDWWXUJfXIF974NFa5ax4mXh3dOx+jci3RMZIGQfgecoCM4fjpzw+dJRz7VQ==
+fbt@^0.17.1:
+  version "0.17.1"
+  resolved "https://registry.yarnpkg.com/fbt/-/fbt-0.17.1.tgz#8d8ef7e3952f446a8982015c38614513281580b4"
+  integrity sha512-GXYyyyUrfP9gu+x3NrWOW7xznQZRWNTp3d8AIlj6jIneK/KSFdHWNo23VcmVcq/TqyKWQc5UQQu4J3a05PQb/w==
   dependencies:
     invariant "^2.2.4"
 
