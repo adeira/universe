@@ -89,13 +89,20 @@ fragment getAllRootVariablesTest1Fragment on User
 }
 ```
 
-Where `provideNumberOfFriends.js` is:
+Where `provideNumberOfFriends.js` is (has to be a pure function):
 
 ```js
+// Note: `get` should return the same value on every call for a given run!
 export function get(): number {
   return 15.0;
 }
 ```
+
+A provided is a special fragment variable whose value is supplied by a specified provider function at runtime. This simplifies supplying device attributes, user experiment flags, and other runtime constants to graphql fragments.
+
+An argument definition cannot specify both a `provider` and a `defaultValue`.
+
+---
 
 Note: directive `argumentDefinitions` might be deprecated soon in favor of the following syntax:
 
