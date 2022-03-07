@@ -59,7 +59,7 @@ const styles = sx.create({
   modalWindowRoot: {
     backgroundColor: 'rgba(var(--sx-background))',
     color: 'rgba(var(--sx-foreground))',
-    width: '80%',
+    width: '85%',
     maxWidth: '100%',
     height: '80%',
     maxHeight: '100%',
