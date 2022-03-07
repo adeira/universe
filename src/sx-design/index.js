@@ -2,6 +2,7 @@
 
 export { default as SxDesignProvider } from './src/SxDesignProvider';
 export { default as useSxDesignContext } from './src/useSxDesignContext';
+export { MediaQueryDevice, MediaQueryMotion, MediaQueryColorScheme } from './src/MediaQueries';
 
 // Public SX Design components:
 export { default as Badge } from './src/Badge/Badge';
@@ -40,3 +41,6 @@ export { default as LayoutInline } from './src/Layout/LayoutInline';
 // Public SX Design Flow types (should be prefixed with the component name):
 export type { TabsType } from './src/Tabs/Tabs';
 export type { TextSupportedSize, TextSupportedWeight } from './src/Text/Text';
+
+// Public SX Flow Enum types:
+export { SupportedCurrencies } from './src/constants';

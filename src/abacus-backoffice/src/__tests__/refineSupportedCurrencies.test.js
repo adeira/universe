@@ -9,9 +9,9 @@ it.each`
   ${-1}        | ${'MXN'}
   ${[]}        | ${'MXN'}
   ${{}}        | ${'MXN'}
-  ${'USD'}     | ${'MXN'}
   ${'MXN'}     | ${'MXN'}
   ${'mxn'}     | ${'MXN'}
+  ${'USD'}     | ${'USD'}
 `('refines $input correctly to $expectedOutput', ({ input, expectedOutput }) => {
   expect(refineSupportedCurrencies(input)).toBe(expectedOutput);
 });

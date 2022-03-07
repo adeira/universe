@@ -65,7 +65,7 @@ export function MoneyFn(props: MoneyFnProps): string {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
   const intlOptions: IntlNumberFormatOptions = {
     style: 'currency',
-    currency: props.priceUnitAmountCurrency,
+    currency: (props.priceUnitAmountCurrency: string),
   };
 
   if (props.locale === 'ar-AR') {

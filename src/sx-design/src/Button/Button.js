@@ -15,7 +15,15 @@ type Props = {
     | 'submit' // The button submits the form data to the server.
     | 'reset' // The button resets all the controls to their initial values (this behavior tends to annoy users).
     | 'button', // The button has no default behavior, and does nothing when pressed by default (use `onClick` callback).
-  +'tint'?: 'default' | 'secondary' | 'error' | 'success' | 'warning',
+  +'tint'?:
+    | 'default'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'warning'
+    // Transparent tint would typically be used on a darker background where none of the colored
+    // tints would look nice.
+    | 'transparent',
   +'isDisabled'?: boolean,
   +'data-testid'?: string,
   +'size'?: 'small' | 'medium' | 'large',
@@ -73,6 +81,7 @@ export default function Button(props: Props): Element<'button'> {
         buttonTintError: props.tint === 'error',
         buttonTintSuccess: props.tint === 'success',
         buttonTintWarning: props.tint === 'warning',
+        buttonTintTransparent: props.tint === 'transparent',
         buttonDisabled: props.isDisabled === true,
       })}
       aria-label={props['aria-label']}
