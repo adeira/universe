@@ -47,19 +47,14 @@ describe('Relay Logger', () => {
     expect(consoleGroupCollapsedSpy.mock.calls).toMatchInlineSnapshot(`
       Array [
         Array [
-          "%c%s%c%s%c%s",
-          "font-weight:bold",
+          "%s%s%s",
           "[Relay] ",
-          "font-weight:normal",
           "execute.start ",
-          "font-weight:bold",
           "MyAwesomeQuery",
         ],
         Array [
-          "%c%s%c%s",
-          "font-weight:bold",
+          "%s%s",
           "[Relay] ",
-          "font-weight:normal",
           "execute.complete",
         ],
       ]
@@ -103,11 +98,13 @@ describe('Relay Required Field Logger', () => {
     expect(consoleGroupCollapsedSpy.mock.calls).toMatchInlineSnapshot(`
       Array [
         Array [
-          "%c%s%c%s",
-          "font-weight:bold",
-          "[Relay] ",
-          "font-weight:normal",
-          "missing_field.log",
+          "%s%c%s%c%s",
+          "[Relay ",
+          "color:orange",
+          "!",
+          "color:unset",
+          "] ",
+          "missing required field",
         ],
       ]
     `);
@@ -116,8 +113,12 @@ describe('Relay Required Field Logger', () => {
         Array [
           Object {
             "fieldPath": "mock",
+            "kind": "missing_field.log",
             "owner": "mock",
           },
+        ],
+        Array [
+          "Directive @required(action: LOG) was used somewhere in the code to mark one of the fields required. Unfortunately, server didn't return this field resulting in this message.",
         ],
       ]
     `);

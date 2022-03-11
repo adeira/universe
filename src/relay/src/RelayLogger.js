@@ -5,6 +5,15 @@
 import { isBrowser } from '@adeira/js';
 import type { LogEvent, OperationAvailability, RequiredFieldLogger } from 'relay-runtime';
 
+const vocabulary: { +[string]: { +title: string, +help: string } } = {
+  'missing_field.log': {
+    title: 'missing required field',
+    help:
+      'Directive @required(action: LOG) was used somewhere in the code to mark one of the fields ' +
+      "required. Unfortunately, server didn't return this field resulting in this message.",
+  },
+};
+
 function renderQueryAvailability(
   queryAvailability: OperationAvailability,
   shouldFetch: boolean,
@@ -44,16 +53,9 @@ export function RelayLogger(logEvent: LogEvent): void {
     // We skip some events that are not that useful for normal development.
   } else if (logEvent.name === 'execute.start') {
     // Prints information about the beginning of mutation/query/subscription (operation) execution.
+    // Example: [Relay] execute.start HomepageQuery
     const { name, ...logEventParams } = logEvent;
-    console.groupCollapsed(
-      '%c%s%c%s%c%s',
-      'font-weight:bold',
-      '[Relay] ',
-      'font-weight:normal',
-      `${name} `,
-      'font-weight:bold',
-      logEventParams.params.name,
-    );
+    console.groupCollapsed('%s%s%s', '[Relay] ', `${name} `, logEventParams.params.name);
     console.log(logEventParams);
     console.groupEnd();
   } else if (logEvent.name === 'queryresource.fetch') {
@@ -64,10 +66,8 @@ export function RelayLogger(logEvent: LogEvent): void {
     //  - https://relay.dev/docs/guided-tour/reusing-cached-data/staleness-of-data/
     const { name, ...logEventParams } = logEvent;
     console.groupCollapsed(
-      '%c%s%c%s%s',
-      'font-weight:bold',
+      '%s%s%s',
       '[Relay] ',
-      'font-weight:normal',
       `${name} `,
       renderQueryAvailability(logEventParams.queryAvailability, logEventParams.shouldFetch),
     );
@@ -75,7 +75,7 @@ export function RelayLogger(logEvent: LogEvent): void {
     console.groupEnd();
   } else {
     const { name, ...logEventParams } = logEvent;
-    console.groupCollapsed('%c%s%c%s', 'font-weight:bold', '[Relay] ', 'font-weight:normal', name);
+    console.groupCollapsed('%s%s', '[Relay] ', name);
     console.log(logEventParams);
     console.groupEnd();
   }
@@ -90,8 +90,20 @@ export const RelayRequiredFieldLogger: RequiredFieldLogger = function (logEvent)
     return;
   }
 
-  const { kind, ...logEventParams } = logEvent;
-  console.groupCollapsed('%c%s%c%s', 'font-weight:bold', '[Relay] ', 'font-weight:normal', kind);
-  console.log(logEventParams);
+  const eventTitle = vocabulary[logEvent.kind].title ?? logEvent.kind;
+
+  console.groupCollapsed(
+    '%s%c%s%c%s',
+    '[Relay ',
+    'color:orange',
+    '!',
+    'color:unset',
+    '] ',
+    eventTitle,
+  );
+  console.log(logEvent);
+  if (vocabulary[logEvent.kind].help) {
+    console.log(vocabulary[logEvent.kind].help);
+  }
   console.groupEnd();
 };
