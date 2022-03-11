@@ -57,7 +57,7 @@ module.exports = {
         phase: 'Final',
       },
       schema: 'src/example-relay/schema.graphql',
-      schemaExtensions: ['src/example-relay/src/LocalForm'],
+      schemaExtensions: ['src/example-relay/src/schemaExtensions'],
       // Optional regex to restrict `@relay_test_operation` directive to directories matching this
       // regex (so it cannot be used in production code by accident).
       testPathRegex: '__tests__',
