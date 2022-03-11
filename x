@@ -34,18 +34,23 @@
 #
 # ```
 # ./x --help
-# ./x run --help
-# ./x run relay --help
-# ./x run relay -- --help
+# ./x relay --help
+# ./x relay -- --help
 # ```
 #
 # It is also possible to infer the subcommand names (write shorter versions) so all the following
 # examples are equivalent:
 #
 # ```
-# ./x run relay -- --help
-# ./x run re -- --help
-# ./x r r -- --help
+# ./x relay -- --help
+# ./x re -- --help
+# ./x r -- --help
 # ```
 
-(cd src/x && cargo run --release --quiet -- "$@")
+if ! command -v rustc &> /dev/null
+  (cd src/x && cargo run --release --quiet -- "$@")
+  exit
+then
+  echo "rustc could not be found, install Rust via https://www.rust-lang.org/tools/install"
+  exit
+fi
