@@ -8,6 +8,12 @@
     'strip-ansi',
   ],
   labels: ['dependencies'],
+  packageRules: [
+    {
+      groupName: 'SVGR packages',
+      matchPackagePatterns: ["^@svgr/"],
+    },
+  ],
   postUpdateOptions: ['yarnDedupeHighest'],
   rangeStrategy: 'bump',
   semanticCommits: 'disabled',
