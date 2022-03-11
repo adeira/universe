@@ -12,7 +12,7 @@ cd universe
 yarn install
 
 chmod +x ./x
-./x
+./x --help
 ```
 
 _Please note: you have to use Yarn. It won't work with NPM!_
