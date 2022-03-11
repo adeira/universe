@@ -395,7 +395,7 @@ __metadata:
     "@adeira/fetch": ^2.1.0
     "@adeira/js": ^2.1.1
     "@babel/runtime": ^7.17.2
-    babel-plugin-relay: ^13.1.1
+    babel-plugin-relay: ^13.2.0
     react: ^17.0.2
     react-relay: ^13.1.1
     react-test-renderer: ^17.0.2
@@ -6414,14 +6414,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-relay@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "babel-plugin-relay@npm:13.1.1"
+"babel-plugin-relay@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "babel-plugin-relay@npm:13.2.0"
   dependencies:
     babel-plugin-macros: ^2.0.0
     cosmiconfig: ^5.0.5
     graphql: 15.3.0
-  checksum: 428f75f164d10bd0569a60d7e1a139998eff9179530d83369e7522f944d610c1818086bc47f87baa7d7d4774f72fa356487554b82bd59b2bc7ccb8bdd45aa42c
+  checksum: 6f4e5203db933d7944e79bb3aff3a99ae4a3a45887e80a08ac81a26015146fdeb4481f306f2644e153c86b97b9d5e15d2ddca8b7b72d23e41f09b1b0055add60
   languageName: node
   linkType: hard
 
