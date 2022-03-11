@@ -5,11 +5,14 @@ mod executors;
 /// Creates a subcommand that allows any trailing arguments and is later able to forward them to
 /// the executed process.
 fn clap_fallthrough_subcommand(subcommand_name: &str) -> Command {
-    Command::new(subcommand_name).trailing_var_arg(true).arg(
-        Arg::new("trailing_args")
-            .takes_value(true)
-            .multiple_values(true),
-    )
+    Command::new(subcommand_name)
+        .trailing_var_arg(true)
+        .allow_hyphen_values(true)
+        .arg(
+            Arg::new("trailing_args")
+                .takes_value(true)
+                .multiple_values(true),
+        )
 }
 
 fn collect_trailing_args(matches: &ArgMatches) -> Vec<&str> {
