@@ -1,9 +1,9 @@
 /**
- * @generated SignedSource<<09c828df5c54454e24508046e0069290>>
+ * @generated SignedSource<<d6fe17d53df016f59e9b780b13a6962b>>
  * @flow
  * @lightSyntaxTransform
  * @nogrep
- * @codegen-command: ./x run relay
+ * @codegen-command: ./x relay
  */
 
 /* eslint-disable */

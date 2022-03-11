@@ -1,3 +1,4 @@
+use log::info;
 use std::process::{Command, Stdio};
 
 pub mod flow;
@@ -17,6 +18,8 @@ fn create_command(bin_path: &str) -> anyhow::Result<Command> {
 }
 
 fn execute_command(command: &mut Command) -> anyhow::Result<()> {
+    info!("{:?}", &command);
+
     match command.spawn().unwrap().wait().unwrap().code() {
         Some(0) => Ok(()),
         Some(code) => anyhow::bail!("exited with status code: {}", code),

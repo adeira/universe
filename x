@@ -48,4 +48,4 @@
 # ./x r r -- --help
 # ```
 
-(cd src/x && cargo run --release -- "$@")
+(cd src/x && cargo run --release --quiet -- "$@")
