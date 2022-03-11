@@ -62,7 +62,7 @@ export default function createRequestHandler(
     });
 
     // Support for `@live_query(polling_interval: 500)` directive:
-    if (requestNode.metadata.live != null) {
+    if (requestNode?.metadata?.live != null) {
       observable = observable.poll(requestNode.metadata.live.polling_interval);
     }
 
