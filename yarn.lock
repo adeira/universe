@@ -399,7 +399,7 @@ __metadata:
     react: ^17.0.2
     react-relay: ^13.1.1
     react-test-renderer: ^17.0.2
-    relay-compiler: ^13.1.1
+    relay-compiler: ^13.2.0
     relay-runtime: ^13.1.1
     relay-test-utils: ^13.1.1
   peerDependencies:
@@ -16886,12 +16886,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"relay-compiler@npm:^13.1.1":
-  version: 13.1.1
-  resolution: "relay-compiler@npm:13.1.1"
+"relay-compiler@npm:^13.2.0":
+  version: 13.2.0
+  resolution: "relay-compiler@npm:13.2.0"
   bin:
     relay-compiler: cli.js
-  checksum: b63ff594d3554126e384acacf25a8fcb664fc6a6c57b9d5c841d9d49ee3617ec816540394af24e3255a8e7a4936a192cc798ad1c2936f1e2aa1dd9d649eba39b
+  checksum: 54adaf22ef408c7452ae6a27538730fe30f47449a2c129e26fc0b8667abc3faba7862b386d5658b0c5dcfe1a9bc3bcf400ede6f0fdd07a6c24366a4b4a4e0739
   languageName: node
   linkType: hard
 
